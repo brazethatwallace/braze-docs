@@ -11,7 +11,7 @@ platform:
 
 # Enregistrer des événements eCommerce {#log-ecommerce-events}
 
-> Découvrez comment enregistrer des [événements eCommerce recommandés]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/) via les SDK Android, Swift et Web de Braze à l'aide de classes d'événements typées et de `logEcommerceEvent`. Pour les schémas de propriétés d'événements, les fonctionnalités de la plateforme et la validation à l'ingestion, consultez [Événements recommandés]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/) et [Validation des événements et résolution des problèmes]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/#event-validation-and-troubleshooting).
+> Découvrez comment enregistrer des [événements eCommerce recommandés]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events) via les SDK Android, Swift et Web de Braze à l'aide de classes d'événements typées et de `logEcommerceEvent`. Pour les schémas de propriétés d'événements, les fonctionnalités de la plateforme et la validation à l'ingestion, consultez [Événements recommandés]({{site.baseurl}}/user_guide/data/activation/events/recommended_events) et [Validation des événements et résolution des problèmes]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#event-validation-and-troubleshooting).
 
 {% alert note %}
 Pour les SDK wrapper non répertoriés, utilisez la méthode native Android ou Swift correspondante à la place.
@@ -19,7 +19,7 @@ Pour les SDK wrapper non répertoriés, utilisez la méthode native Android ou S
 
 ## Schémas d'événements {#event-schemas}
 
-Les six événements eCommerce recommandés partagent un schéma au niveau de la commande sur toutes les plateformes. Utilisez les tableaux de propriétés suivants lorsque vous construisez le payload de chaque événement. Pour le schéma canonique avec le comportement de validation complet et des exemples de REST API, consultez [Événements recommandés]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/#event-schemas). Pour les fonctionnalités de la plateforme telles que la segmentation, les modèles Canvas et le reporting, consultez [Comment utiliser les événements eCommerce]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/).
+Les six événements eCommerce recommandés partagent un schéma au niveau de la commande sur toutes les plateformes. Utilisez les tableaux de propriétés suivants lorsque vous construisez le payload de chaque événement. Pour le schéma canonique avec le comportement de validation complet et des exemples de REST API, consultez [Événements recommandés]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#event-schemas). Pour les fonctionnalités de la plateforme telles que la segmentation, les modèles Canvas et le reporting, consultez [Comment utiliser les événements eCommerce]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events).
 
 {% tabs local %}
 {% tab product_viewed %}
@@ -39,7 +39,7 @@ Se déclenche lorsqu'un utilisateur consulte une page de détail produit.
 | `currency` | Chaîne de caractères | Oui | Code ISO 4217 à trois lettres (par exemple, `USD` ou `EUR`). |
 | `source` | Chaîne de caractères | Oui | Source d'où provient l'événement (par exemple, `web`, `ios` ou `android`). |
 | `type` | Tableau de chaînes de caractères | Non | Requis pour utiliser les fonctionnalités de déclenchement par catalogue Braze pour les alertes de retour en stock et de baisse de prix. Valeurs acceptées : `"price_drop"`, `"back_in_stock"`. |
-| `metadata` | Objet | Non | Paires clé-valeur flexibles. Sous-propriété reconnue : `sku` (chaîne de caractères). |
+| `metadata` | Objet | Non | Paires clé-valeur flexibles (par exemple, `category` ou `brand`). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Propriétés de l'événement product_viewed" }
 
 {% endtab %}
@@ -274,7 +274,6 @@ import com.braze.models.outgoing.BrazeProperties
 import com.braze.models.recommended.ecommerce.ProductViewedEvent
 
 val metadata = BrazeProperties()
-  .addProperty("sku", "SS-R-101")
   .addProperty("category", "Apparel")
 
 val productViewedEvent = ProductViewedEvent(
@@ -480,7 +479,6 @@ import com.braze.models.outgoing.BrazeProperties;
 import com.braze.models.recommended.ecommerce.ProductViewedEvent;
 
 BrazeProperties metadata = new BrazeProperties()
-    .addProperty("sku", "SS-R-101")
     .addProperty("category", "Apparel");
 
 ProductViewedEvent productViewedEvent = new ProductViewedEvent(
@@ -692,7 +690,6 @@ if let productViewedEvent = try? Braze.Ecommerce.ProductViewedEvent(
     currency: "GBP",
     source: "https://braze-apparel.com/",
     metadata: [
-        "sku": "",
         "color": "ORANGE",
         "size": "6",
         "brand": "Braze"
@@ -899,7 +896,7 @@ AppDelegate.braze?.logCustomEvent(name: "ecommerce.order_refunded", properties: 
 {% endtab %}
 {% endtabs %}
 
-## Web
+## Web {#web}
 
 Avec le SDK Web [6.8.0+](https://github.com/braze-inc/braze-web-sdk), appelez `logEcommerceEvent` avec un `name` d'événement et des `properties`. Sur les versions antérieures du SDK, appelez `logCustomEvent` avec le nom de l'événement et un objet de propriétés. `ecommerce.order_cancelled` et `ecommerce.order_refunded` utilisent `logCustomEvent`.
 
@@ -925,7 +922,6 @@ braze.logEcommerceEvent({
         "currency": "GBP",
         "source": "https://braze-apparel.com/",
         "metadata": {
-            "sku": "",
             "color": "ORANGE",
             "size": "6",
             "brand": "Braze"
@@ -947,7 +943,6 @@ braze.logCustomEvent("ecommerce.product_viewed", {
     "currency": "GBP",
     "source": "https://braze-apparel.com/",
     "metadata": {
-        "sku": "",
         "color": "ORANGE",
         "size": "6",
         "brand": "Braze"
@@ -1273,6 +1268,6 @@ braze.logCustomEvent("ecommerce.order_refunded", {
 Pour enregistrer manuellement un événement recommandé, appelez `logCustomEvent` avec le nom exact de l'événement (par exemple, `ecommerce.product_viewed`) et un payload `BrazeProperties` ou `JSONObject` construit manuellement. Le SDK ne valide pas les schémas d'événements recommandés pour les appels manuels. Braze valide ces payloads lors de l'ingestion :
 
 - Les payloads valides sont traités comme des événements recommandés avec un post-traitement complet.
-- Les payloads invalides (champs requis manquants, types incorrects, propriétés de niveau supérieur supplémentaires) sont rejetés après l'ingestion. Les échecs apparaissent dans le journal de traitement SDK de l'espace de travail et dans l'[e-mail récapitulatif des échecs]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/#find-failures).
+- Les payloads invalides (champs requis manquants, types incorrects, propriétés de niveau supérieur supplémentaires) sont rejetés après l'ingestion. Les échecs apparaissent dans le journal de traitement SDK de l'espace de travail et dans l'[e-mail récapitulatif des échecs]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#find-failures).
 
-Utilisez `logEcommerceEvent` autant que possible afin de détecter les données invalides avant qu'elles ne quittent l'application. Pour l'utilisation générale de `logCustomEvent`, consultez [Enregistrer des événements personnalisés]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=android).
+Utilisez `logEcommerceEvent` autant que possible afin de détecter les données invalides avant qu'elles ne quittent l'application. Pour l'utilisation générale de `logCustomEvent`, consultez [Enregistrer des événements personnalisés]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=android).

@@ -14,7 +14,7 @@ guide_featured_list:
 - name: メッセージエンゲージメントイベント
   link: /docs/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events
   image: /assets/img/braze_icons/message-square-02.svg
-- name: 顧客行動イベント
+- name: 顧客行動とユーザーイベント
   link: /docs/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events
   image: /assets/img/braze_icons/users-01.svg
 - name: ユーザープロファイル
@@ -23,7 +23,7 @@ guide_featured_list:
 
 guide_menu_title: "リソース"
 guide_menu_list:
-- name: Currentsイベント変更履歴
+- name: Currentsイベント変更ログ
   link: /docs/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs
   image: /assets/img/braze_icons/file-02.svg
 ---

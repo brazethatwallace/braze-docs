@@ -7,7 +7,7 @@ page_type: reference
 description: "Dieser Artikel beschreibt die verschiedenen Events in Braze – Standard-Events, Kauf-Events und angepasste Events – und ihren Zweck."
 ---
 
-# Events
+# Events {#events}
 
 > Diese Seite behandelt die verschiedenen Events in Braze und ihren Zweck.
 
@@ -51,7 +51,7 @@ Sie können diese Daten dann nutzen, um Ihre Nutzer:innen basierend auf ihrem Li
 
 Braze unterstützt auch Käufe in mehreren Währungen. Wenn ein Kauf in einer anderen Währung als USD gemeldet wird, wird er im Braze-Dashboard in USD angezeigt, basierend auf dem Wechselkurs zum Zeitpunkt der Kaufmeldung.
 
-Mehr erfahren Sie in unserem speziellen Artikel zu [Kauf-Events]({{site.baseurl}}/user_guide/data/activation/events/purchase_events/).
+Mehr erfahren Sie in unserem speziellen Artikel zu [Kauf-Events]({{site.baseurl}}/user_guide/data/activation/events/purchase_events).
 
 {% details Beispielimplementierung %}
 
@@ -87,7 +87,7 @@ Appboy.sharedInstance()?.logCustomEvent("completed_level")
 
 In diesem Beispiel ist „completed_level“ der Name des angepassten Events, das protokolliert wird, wenn ein:e Nutzer:in ein Level in einem Spiel abschließt. Dieses angepasste Event wird dann im Nutzerprofil in Braze erfasst, das Sie nutzen können, um Campaigns zu triggern und Messaging zu personalisieren.
 
-Mehr erfahren Sie in unserem speziellen Artikel zu [angepassten Events]({{site.baseurl}}/user_guide/data/activation/events/custom_events/).
+Mehr erfahren Sie in unserem speziellen Artikel zu [angepassten Events]({{site.baseurl}}/user_guide/data/activation/events/custom_events).
 
 {% details Beispielimplementierung %}
 

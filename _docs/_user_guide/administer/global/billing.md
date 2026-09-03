@@ -76,8 +76,6 @@ The fields in this section are defined as follows:
 - **Allotted Data Points:** The amount of data points allotted in the contract per billing term.
 - **Contract Data Point Usage:** A cumulative total of all data points logged over the contract's lifetime, and does not reset in the next billing term.
 
-![Contract Details section of Total Data Point Usage tab]({% image_buster /assets/img/contract_details.png %})
-
 ### Company billing data
 
 #### App level total data point usage
@@ -110,5 +108,5 @@ This graph gives you the ability to quickly see your total data point usage vers
 
 ## Next steps
 
-- [Notification preferences]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/) to configure alerts for billing-related events and usage thresholds.
-- [Credits usage dashboard]({{site.baseurl}}/credits_usage_dashboard/) to monitor message credit consumption.
+- [Notification preferences]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences) to configure alerts for billing-related events and usage thresholds.
+- [Credits usage dashboard]({{site.baseurl}}/credits_usage_dashboard) to monitor message credit consumption.

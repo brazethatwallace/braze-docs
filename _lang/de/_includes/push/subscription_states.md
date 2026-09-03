@@ -23,7 +23,7 @@ Braze ändert den Push-Abo-Status einer Nutzer:in nicht automatisch in `Unsubscr
 
 ### Push-Registrierung und erreichbare Nutzer:innen {#push-registration-and-reachable-users}
 
-Der Push-Abo-Status spiegelt die Präferenz einer Nutzer:in wider, aber ob sie im Dashboard als **erreichbar** für Push gezählt wird, hängt auch von der [Push-Registrierung]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle/) ab – also davon, ob ein gültiges Vordergrund-Push-Token in ihrem Profil vorhanden ist. Informationen dazu, wie Braze kanalspezifische Zählungen berechnet, finden Sie unter [Segmentgröße messen]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/).
+Der Push-Abo-Status spiegelt die Präferenz einer Nutzer:in wider, aber ob sie im Dashboard als **erreichbar** für Push gezählt wird, hängt auch von der [Push-Registrierung]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle) ab – also davon, ob ein gültiges Vordergrund-Push-Token in ihrem Profil vorhanden ist. Informationen dazu, wie Braze kanalspezifische Zählungen berechnet, finden Sie unter [Segmentgröße messen]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size).
 
 - **Push-Campaigns und Canvases:** Nutzer:innen, die nicht für Push registriert sind, werden in den Zielgruppenstatistiken nicht unter **Erreichbare Nutzer:innen** für Android-Push oder iOS-Push aufgeführt, selbst wenn ihr Push-Abo-Status `Subscribed` oder `Opted-In` ist.
 - **Andere Kanäle:** Dieselben Nutzer:innen können weiterhin als erreichbar für andere Kanäle gezählt werden, für die sie qualifiziert sind (zum Beispiel E-Mail oder In-App-Nachrichten).
@@ -31,7 +31,7 @@ Der Push-Abo-Status spiegelt die Präferenz einer Nutzer:in wider, aber ob sie i
 
 Ein Nutzerprofil kann den Push-Abo-Status `Subscribed` anzeigen, obwohl kein Push-Token zugewiesen ist. Diese Nutzer:innen werden erst dann unter **Erreichbare Nutzer:innen** für Android-Push oder iOS-Push gezählt, wenn Braze ein gültiges Token erfasst.
 
-Filterdefinitionen finden Sie unter [Segmentierungsfilter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/).
+Filterdefinitionen finden Sie unter [Segmentierungsfilter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters).
 
 ### Push-Abo-Status aktualisieren {#update-push-subscription-state}
 
@@ -70,7 +70,7 @@ Sie können den Abo-Status einer Nutzer:in mit dem Braze SDK über die Methode `
 
 #### REST API
 
-Sie können den Abo-Status einer Nutzer:in mit der Braze REST API aktualisieren, indem Sie den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) verwenden, um das [`push_subscribe`]({{site.baseurl}}/api/objects_filters/user_attributes_object/)-Attribut zu aktualisieren.
+Sie können den Abo-Status einer Nutzer:in mit der Braze REST API aktualisieren, indem Sie den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) verwenden, um das [`push_subscribe`]({{site.baseurl}}/api/objects_filters/user_attributes_object)-Attribut zu aktualisieren.
 
 ### Unterschiede zwischen Push-Aktivierung und Push-Abo-Status {#differences-between-push-enablement-and-push-subscription-status}
 
@@ -78,11 +78,11 @@ Push-Aktivierung bezieht sich darauf, ob eine Nutzer:in auf Betriebssystem- oder
 
 Wenn das automatische Opt-in aktiviert ist (Standard), aktualisiert Braze den Push-Abo-Status einer Nutzer:in auf `Opted-In`, wenn sie Push-Benachrichtigungen für Ihre App autorisiert oder die Berechtigungen in den Systemeinstellungen wieder aktiviert (zum Beispiel unter iOS, Android 13+ und unterstützten Webbrowsern). Andernfalls bleibt der Push-Abo-Status der Nutzer:in `Subscribed`, bis Sie ihn explizit über eine SDK-Methode oder einen REST-API-Aufruf ändern.
 
-Braze ändert den Push-Abo-Status einer Nutzer:in nicht automatisch in `Unsubscribed`, wenn sie sich auf Betriebssystem-, Browser- oder App-Ebene von Benachrichtigungen abmeldet. Um den Push-Abo-Status einer Nutzer:in zu aktualisieren, müssen Sie ihn in Braze aktualisieren. Wenn eine Nutzer:in beispielsweise Push über ein In-App-Präferenzzentrum deaktiviert, aktualisieren Sie den Push-Abo-Status in Braze auf `Unsubscribed`. Braze aktualisiert Nutzerprofile nicht basierend auf Ihrem Präferenzzentrum. Um Abo-Status mit den In-App-Präferenzen einer Nutzer:in abzugleichen, rufen Sie die entsprechenden Methoden über das [SDK]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#sdk-integration) (iOS oder Android) oder die [REST API]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#rest-api) auf.
+Braze ändert den Push-Abo-Status einer Nutzer:in nicht automatisch in `Unsubscribed`, wenn sie sich auf Betriebssystem-, Browser- oder App-Ebene von Benachrichtigungen abmeldet. Um den Push-Abo-Status einer Nutzer:in zu aktualisieren, müssen Sie ihn in Braze aktualisieren. Wenn eine Nutzer:in beispielsweise Push über ein In-App-Präferenzzentrum deaktiviert, aktualisieren Sie den Push-Abo-Status in Braze auf `Unsubscribed`. Braze aktualisiert Nutzerprofile nicht basierend auf Ihrem Präferenzzentrum. Um Abo-Status mit den In-App-Präferenzen einer Nutzer:in abzugleichen, rufen Sie die entsprechenden Methoden über das SDK (iOS oder Android) oder die REST API auf. Weitere Informationen finden Sie unter [Push-Abo-Status aktualisieren]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states#update-push-subscription-state).
 
 ### Importierte Push-Token (iOS) {#imported-push-tokens-ios}
 
-Wenn Sie [iOS-Push-Token importieren]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#push-token-import) mit `push_token_import`, ist der Push-Abo-Status der Nutzer:in in der Regel **`Subscribed`**, bis sie eine Sitzung in Ihrer Braze-integrierten App protokolliert. Nach der ersten Sitzung kann Braze den Status auf **`Opted-In`** aktualisieren, wenn das [automatische Opt-in](#automatic-opt-in-default) greift (zum Beispiel wenn die Nutzer:in Push unter iOS autorisiert und `optInWhenPushAuthorized` aktiviert ist).
+Wenn Sie [iOS-Push-Token importieren]({{site.baseurl}}/api/objects_filters/user_attributes_object#push-token-import) mit `push_token_import`, ist der Push-Abo-Status der Nutzer:in in der Regel **`Subscribed`**, bis sie eine Sitzung in Ihrer Braze-integrierten App protokolliert. Nach der ersten Sitzung kann Braze den Status auf **`Opted-In`** aktualisieren, wenn das [automatische Opt-in](#automatic-opt-in-default) greift (zum Beispiel wenn die Nutzer:in Push unter iOS autorisiert und `optInWhenPushAuthorized` aktiviert ist).
 
 Überprüfen Sie die **Kontakteinstellungen** im Profil der Nutzer:in nach dem Import und erneut nach der ersten In-App-Sitzung der Nutzer:in, um den erwarteten Status zu bestätigen.
 
@@ -92,5 +92,5 @@ Wenn Sie [iOS-Push-Token importieren]({{site.baseurl}}/api/endpoints/user_data/p
 
 Sie können den Push-Abo-Status einer Nutzer:in mit Braze auf eine der folgenden Arten überprüfen:
 
-* **Nutzerprofil:** Sie können über das Braze-Dashboard auf der Seite **[Nutzersuche]({{site.baseurl}}/user_guide/engagement_tools/segments/user_profiles/)** auf einzelne Nutzerprofile zugreifen. Nachdem Sie das Profil einer Nutzer:in gefunden haben (über E-Mail-Adresse, Telefonnummer oder externe Nutzer-ID), können Sie den Tab **Engagement** auswählen, um den Abo-Status der Nutzer:in anzuzeigen und manuell anzupassen.
-* **REST-API-Export:** Mit den Endpunkten [Nutzer:innen nach Segment]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) oder [Nutzer:innen nach Bezeichner]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/) können Sie einzelne Nutzerprofile im JSON-Format exportieren. Braze gibt ein Push-Token-Objekt zurück, das Push-Enablement-Informationen pro Gerät enthält.
+* **Nutzerprofil:** Sie können über das Braze-Dashboard auf der Seite **[Nutzersuche]({{site.baseurl}}/user_guide/engagement_tools/segments/user_profiles)** auf einzelne Nutzerprofile zugreifen. Nachdem Sie das Profil einer Nutzer:in gefunden haben (über E-Mail-Adresse, Telefonnummer oder externe Nutzer-ID), können Sie den Tab **Engagement** auswählen, um den Abo-Status der Nutzer:in anzuzeigen und manuell anzupassen.
+* **REST-API-Export:** Mit den Endpunkten [Nutzer:innen nach Segment]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) oder [Nutzer:innen nach Bezeichner]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) können Sie einzelne Nutzerprofile im JSON-Format exportieren. Braze gibt ein Push-Token-Objekt zurück, das Push-Enablement-Informationen pro Gerät enthält.

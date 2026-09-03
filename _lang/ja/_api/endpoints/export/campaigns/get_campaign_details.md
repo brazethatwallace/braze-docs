@@ -6,7 +6,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "この記事では、「キャンペーンの詳細のエクスポート」Brazeエンドポイントの詳細について説明します。"
-
 ---
 {% api %}
 # キャンペーンの詳細のエクスポート {#export-campaign-details}
@@ -16,13 +15,13 @@ description: "この記事では、「キャンペーンの詳細のエクスポ
 
 > このエンドポイントを使用して、`campaign_id` で識別できる、指定されたキャンペーンの関連情報を取得します。
 
-キャンバスデータを取得する場合は、[キャンバスの詳細のエクスポート]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/)エンドポイントを参照してください。
+キャンバスデータを取得する場合は、[キャンバスの詳細のエクスポート]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details)エンドポイントを参照してください。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#aad2a811-7237-43b1-9d64-32042eabecd9 {% endapiref %}
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`campaigns.details` 権限を持つ [API キー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`campaigns.details` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -32,10 +31,10 @@ description: "この記事では、「キャンペーンの詳細のエクスポ
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | -------- | --------- | ----------- |
-| `campaign_id` | 必須 | 文字列 | [キャンペーン API 識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。<br><br> API キャンペーンの `campaign_id` は、[API キー]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/)ページ、またはダッシュボードの**Campaign Details**ページで確認できます。または、[キャンペーンリストのエクスポートエンドポイント](#campaign-list-endpoint)を使用することもできます。 |
-| `post_launch_draft_version` | オプション | ブール値 | 開始後の下書きがあるメッセージの場合、これを `true` に設定すると、利用可能な下書きの変更が表示されます。デフォルトは `false` です。 |
-| `include_has_translatable_content` | オプション | ブール値 | `true` に設定すると、API レスポンスに各メッセージの `has_translatable_content` フィールドが含まれます。デフォルトは `false` です。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+| `campaign_id` | 必須 | 文字列 | [キャンペーンAPI識別子]({{site.baseurl}}/api/identifier_types)を参照してください。<br><br> APIキャンペーンの `campaign_id` は、[APIキー]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers)ページ、またはダッシュボードの**キャンペーンの詳細**ページで確認できます。または、[キャンペーンリストのエクスポートエンドポイント](#campaign-list-endpoint)を使用することもできます。 |
+| `post_launch_draft_version` | オプション | ブール値 | 起動後の下書きがあるメッセージの場合、これを `true` に設定すると、利用可能な下書きの変更が表示されます。デフォルトは `false` です。 |
+| `include_has_translatable_content` | オプション | ブール値 | `true` に設定すると、APIレスポンスに各メッセージの `has_translatable_content` フィールドが含まれます。デフォルトは `false` です。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}
 {% raw %}
@@ -49,7 +48,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
+    "message": (string) returns 'success' when the request completes without errors,
     "created_at" : (string) the date created as ISO 8601 date,
     "updated_at" : (string) the date last updated as ISO 8601 date,
     "archived": (boolean) whether this campaign is archived,
@@ -248,7 +247,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 
 ### コンバージョン動作 {#conversion-behaviors}
 
-`conversion_behaviors` 配列には、キャンペーンに設定された各コンバージョンイベントの動作に関する情報が含まれます。これらの動作は、キャンペーンで設定された順序で並んでいます。たとえば、コンバージョンイベント A は配列の最初の項目、コンバージョンイベント B は2番目の項目、というようになります。以下に、コンバージョンイベント動作のレスポンスの例を示します。
+`conversion_behaviors` 配列には、キャンペーンに設定された各コンバージョンイベントの動作に関する情報が含まれます。これらの動作は、キャンペーンで設定された順序で並んでいます。たとえば、コンバージョンイベントAは配列の最初の項目、コンバージョンイベントBは2番目の項目、というようになります。以下に、コンバージョンイベント動作のレスポンスの例を示します。
 
 
 {% tabs %}
@@ -329,7 +328,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 {% endtabs %}
 
 {% alert tip %}
-CSV および API のエクスポートに関するヘルプについては、[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)を参照してください。
+CSVおよびAPIのエクスポートに関するヘルプについては、[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting)を参照してください。
 {% endalert %}
 
 {% endapi %}

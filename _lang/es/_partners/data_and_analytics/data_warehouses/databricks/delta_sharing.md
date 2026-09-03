@@ -2,7 +2,7 @@
 nav_title: "Delta Sharing"
 article_title: Databricks Delta Sharing
 page_order: 0
-description: "Este artículo de referencia cubre Databricks Delta Sharing con Braze (beta cerrada), que te permite acceder a los datos de interacción y Campaign de Braze en tu cuenta de Databricks."
+description: "Este artículo de referencia cubre Databricks Delta Sharing con Braze (beta cerrada), que te permite acceder a los datos de participación y Campaign de Braze en tu cuenta de Databricks."
 page_type: partner
 search_tag: Partner
 permalink: /delta_sharing/
@@ -11,13 +11,13 @@ hidden: true
 
 # Databricks Delta Sharing
 
-> Databricks [Delta Sharing](https://docs.databricks.com/en/delta-sharing/index.html) te permite compartir de forma segura datos en vivo de interacción y Campaign de Braze en tu entorno de Databricks. Este artículo describe cómo funciona el uso compartido desde Braze como proveedor de datos hacia tu cuenta de Databricks como destinatario, y cómo consultar las tablas compartidas.
+> Databricks [Delta Sharing](https://docs.databricks.com/en/delta-sharing/index.html) te permite compartir de forma segura datos en vivo de participación y Campaign de Braze en tu entorno de Databricks. Este artículo describe cómo funciona el uso compartido desde Braze como proveedor de datos hacia tu cuenta de Databricks como destinatario, y cómo consultar las tablas compartidas.
 
 {% alert important %}
-Databricks Delta Sharing con Braze está en **beta cerrada**. La disponibilidad, las regiones compatibles y el comportamiento del producto pueden cambiar. Ponte en contacto con tu administrador del éxito del cliente de Braze para participar o para confirmar si esta característica está habilitada para tu espacio de trabajo.
+Databricks Delta Sharing con Braze está en **beta cerrada**. La disponibilidad, las regiones compatibles y el comportamiento del producto pueden cambiar. Ponte en contacto con tu administrador de éxito de cliente de Braze para participar o para confirmar si esta característica está habilitada para tu espacio de trabajo.
 {% endalert %}
 
-Databricks Delta Sharing forma parte de Braze Data Distribution. Para un resumen completo de las opciones de Data Distribution, consulta [Data Distribution]({{site.baseurl}}/user_guide/data/distribution/).
+Databricks Delta Sharing forma parte de Braze Data Distribution. Para un resumen completo de las opciones de Data Distribution, consulta [Data Distribution]({{site.baseurl}}/user_guide/data/distribution).
 
 ## Configurar Delta Sharing {#set-up-delta-sharing}
 
@@ -25,7 +25,7 @@ Para Databricks, el uso compartido de datos ocurre entre un proveedor de datos y
 
 ### Paso 1: Configurar el uso compartido desde Braze {#step-1-configure-sharing-from-braze}
 
-1. En Braze, ve a **Partner Integrations** > **Data Sharing** > **Databricks Delta Sharing**.
+1. En Braze, ve a **Integraciones de socios** > **Uso compartido de datos** > **Databricks Delta Sharing**.
 2. Introduce tu identificador de uso compartido de Databricks.
 3. Cuando hayas terminado, selecciona **Create Datashare**. Braze envía el recurso compartido a tu cuenta de Databricks.
 
@@ -50,16 +50,12 @@ Una vez que el recurso compartido de datos esté aprovisionado, crea un catálog
 
 De forma similar a Currents, puedes usar Databricks Delta Sharing para:
 
-- Crear informes complejos
-- Realizar modelos de atribución
-- Compartir datos de forma segura dentro de tu propia empresa
-- Mapear datos de eventos sin procesar o datos de usuario a un CRM (como Salesforce)
-- Y más
+{% multi_lang_include partners/data_sharing_use_cases.md %}
 
-Para obtener una lista completa de tablas y columnas disponibles en Databricks, [descarga los esquemas de tablas sin procesar de Databricks]({% image_buster /assets/download_file/databricks-data-sharing-raw-table-schemas.txt %}) como archivo de texto. Este archivo refleja el esquema de Databricks Delta Sharing (por ejemplo, `DB_CREATED_AT` para el tiempo de ingesta). No es intercambiable con los [esquemas de tablas sin procesar de Snowflake]({% image_buster /assets/download_file/data-sharing-raw-table-schemas.txt %}) ni con la [referencia de tablas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/), que describen la nomenclatura y los campos de Snowflake.
+Para obtener una lista completa de tablas y columnas disponibles en Databricks, [descarga los esquemas de tablas sin procesar de Databricks](/docs/assets/download_file/databricks-data-sharing-raw-table-schemas.txt) como archivo de texto. Este archivo refleja el esquema de Databricks Delta Sharing (por ejemplo, `DB_CREATED_AT` para el tiempo de ingesta). No es intercambiable con los [esquemas de tablas sin procesar de Snowflake](/docs/assets/download_file/data-sharing-raw-table-schemas.txt) ni con la [referencia de tablas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables), que describen la nomenclatura y los campos de Snowflake.
 
 {% alert note %}
-Durante la beta cerrada, es posible que no todas las tablas listadas en el archivo de esquema de Databricks estén disponibles en tu recurso compartido. Los nombres y tipos de columnas también pueden diferir de Snowflake Data Sharing (por ejemplo, `DB_CREATED_AT` en lugar de `SF_CREATED_AT`). Ponte en contacto con tu administrador del éxito del cliente de Braze si necesitas la lista actual de tablas para tu espacio de trabajo.
+Durante la beta cerrada, es posible que no todas las tablas listadas en el archivo de esquema de Databricks estén disponibles en tu recurso compartido. Los nombres y tipos de columnas también pueden diferir de Snowflake Data Sharing (por ejemplo, `DB_CREATED_AT` en lugar de `SF_CREATED_AT`). Ponte en contacto con tu administrador de éxito de cliente de Braze si necesitas la lista actual de tablas para tu espacio de trabajo.
 {% endalert %}
 
 ### Esquema de ID de usuario {#user-id-schema}
@@ -76,7 +72,7 @@ Ten en cuenta las siguientes diferencias entre las convenciones de nomenclatura 
 
 ### Disponibilidad de la beta cerrada {#closed-beta-availability}
 
-Durante la beta cerrada, es posible que tu recurso compartido no incluya todas las tablas del archivo de [esquemas de tablas sin procesar de Databricks]({% image_buster /assets/download_file/databricks-data-sharing-raw-table-schemas.txt %}). Los datos compartidos también pueden diferir de Snowflake Data Sharing en nombres y tipos de columnas. Por ejemplo, los recursos compartidos de Databricks usan `DB_CREATED_AT` para el tiempo de ingesta, mientras que los recursos compartidos de Snowflake usan `SF_CREATED_AT`.
+Durante la beta cerrada, es posible que tu recurso compartido no incluya todas las tablas del archivo de [esquemas de tablas sin procesar de Databricks](/docs/assets/download_file/databricks-data-sharing-raw-table-schemas.txt). Los datos compartidos también pueden diferir de Snowflake Data Sharing en nombres y tipos de columnas. Por ejemplo, los recursos compartidos de Databricks usan `DB_CREATED_AT` para el tiempo de ingesta, mientras que los recursos compartidos de Snowflake usan `SF_CREATED_AT`.
 
 ### Cambios con ruptura frente a cambios sin ruptura {#breaking-versus-non-breaking-changes}
 
@@ -101,7 +97,7 @@ Cuando es posible, los cambios con ruptura van precedidos de un anuncio y un per
 
 ### Regiones de Databricks {#databricks-regions}
 
-Durante la beta cerrada, los proveedores de nube y las regiones compatibles pueden variar según el espacio de trabajo y el despliegue. Ponte en contacto con tu administrador del éxito del cliente de Braze para conocer las opciones que aplican a tu cuenta.
+Durante la beta cerrada, los proveedores de nube y las regiones compatibles pueden variar según el espacio de trabajo y el despliegue. Ponte en contacto con tu administrador de éxito de cliente de Braze para conocer las opciones que aplican a tu cuenta.
 
 ### Política de retención {#retention-policy}
 

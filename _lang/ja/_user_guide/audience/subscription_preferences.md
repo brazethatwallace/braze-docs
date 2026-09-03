@@ -1,21 +1,27 @@
 ---
-nav_title: サブスクリプション設定
-article_title: サブスクリプション設定
+nav_title: 購読設定
+article_title: 購読設定
 page_order: 5
 layout: dev_guide
-guide_top_header: "サブスクリプション設定"
-guide_top_text: "メッセージングチャネルに対するユーザーのオプトインおよびオプトアウトの方法を管理します。ユーザー設定センターを使用して、メール通信設定をユーザー自身がコントロールできるようにします。"
+guide_top_header: "購読設定"
+guide_top_text: "メッセージングチャネルに対するユーザーのオプトインおよびオプトアウトの方法を管理します。チャネル全体の<a href='/docs/user_guide/audience/subscription_preferences/subscription_status'>購読ステータス</a> を確認し、<a href='/docs/user_guide/audience/subscription_preferences/subscription_groups'>購読グループ</a> でカテゴリーレベルの設定を使用し、ユーザー設定センターを使用してメール通信設定をユーザー自身がコントロールできるようにします。"
 
 page_type: landing
-description: "このセクションでは、ユーザー設定センターやサブスクリプション管理など、Brazeのサブスクリプション設定について説明します。"
+description: "このセクションでは、購読ステータス、購読グループ、ユーザー設定センター、購読管理など、Brazeの購読設定について説明します。"
 
 guide_featured_title: "セクション記事"
 guide_featured_list:
+  - name: 購読ステータス
+    link: /docs/user_guide/audience/subscription_preferences/subscription_status
+    image: /assets/img/braze_icons/check-verified-02.svg
+  - name: 購読グループ
+    link: /docs/user_guide/audience/subscription_preferences/subscription_groups
+    image: /assets/img/braze_icons/users-01.svg
   - name: ユーザー設定センター
     link: /docs/user_guide/audience/subscription_preferences/preference_center
     image: /assets/img/braze_icons/mail-01.svg
 
-guide_menu_title: "サブスクリプションベースのチャネル"
+guide_menu_title: "購読ベースのチャネル"
 guide_menu_list:
   - name: メール
     link: /docs/user_guide/channels/email
@@ -36,7 +42,7 @@ guide_menu_list:
 guide_menu_title2: "関連記事"
 guide_menu_list2:
   - name: APIエンドポイント
-    link: /docs/api/endpoints/subscription_groups/
+    link: /docs/api/endpoints/subscription_groups
     image: /assets/img/braze_icons/brackets.svg
 ---
 

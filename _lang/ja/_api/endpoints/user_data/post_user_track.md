@@ -10,7 +10,7 @@ toc_headers: h2
 ---
 {% api %}
 # ユーザーの作成と更新 {#create-and-update-users}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track
 {% endapimethod %}
 
@@ -18,17 +18,17 @@ toc_headers: h2
 
 {% multi_lang_include api/user_track_custom_attributes_data_points.md endpoint="/users/track" %}
 
-BrazeはAPIを通じて渡されたデータを額面通りに処理します。不要なデータポイントのロギングを最小限にするために、デルタ（変化するデータ）のみを渡す必要があります。
+BrazeはAPIを通じて渡されたデータを額面通りに処理します。不要なデータポイントのロギングを最小限にするために、デルタ（変化するデータ）のみを渡してください。
 
 ## ユーザーを一括更新する必要がありますか？ {#need-to-update-users-in-bulk}
 
-[`/users/track/bulk`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track_bulk/)を使用して、より大きなバッチを送信し、リクエスト量を削減できます。
+[`/users/track/bulk`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track_bulk)を使用して、より大きなバッチを送信し、リクエスト量を削減できます。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#4cf57ea9-9b37-4e99-a02e-4373c9a4ee59 {% endapiref %}
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`users.track`権限を持つ[APIキー]({{site.baseurl}}/api/api_key/)が必要です。
+このエンドポイントを使用するには、`users.track`権限を持つ[APIキー]({{site.baseurl}}/api/basics)が必要です。
 
 サーバー間の呼び出しにAPIを使用する顧客がファイアウォールの内側にいる場合には、`rest.iad-01.braze.com`を許可リストに登録する必要が生じることがあります。
 
@@ -59,9 +59,9 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | ---------| --------- | ----------- |
-| `attributes` | オプション | 属性オブジェクトの配列 | [ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens)を参照してください |
-| `events` | オプション | イベントオブジェクトの配列 | [イベントオブジェクト]({{site.baseurl}}/api/objects_filters/event_object/)を参照してください |
-| `purchases` | オプション | 購入オブジェクトの配列 | [購入オブジェクト]({{site.baseurl}}/api/objects_filters/purchase_object/)を参照してください |
+| `attributes` | オプション | 属性オブジェクトの配列 | [ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object)を参照してください |
+| `events` | オプション | イベントオブジェクトの配列 | [イベントオブジェクト]({{site.baseurl}}/api/objects_filters/event_object)を参照してください |
+| `purchases` | オプション | 購入オブジェクトの配列 | [購入オブジェクト]({{site.baseurl}}/api/objects_filters/purchase_object)を参照してください |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ### 識別子の解決 {#identifier-resolution}
@@ -96,7 +96,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 --data-raw '{
     "attributes": [
         {
-            "email": "test@braze.com",
+            "email": "test@example.com",
             "string_attribute": "fruit",
             "boolean_attribute_1": true,
             "integer_attribute": 26,
@@ -108,7 +108,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
     ],
     "events": [
         {
-            "email": "test@braze.com",
+            "email": "test@example.com",
             "app_id": "your_app_identifier",
             "name": "rented_movie",
             "time": "2022-12-06T19:20:45+01:00",
@@ -139,7 +139,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
     ],
     "purchases": [
         {
-            "email": "test@braze.com",
+            "email": "test@example.com",
             "app_id": "your_app_identifier",
             "product_id": "product_name",
             "currency": "USD",
@@ -185,11 +185,11 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
     ],
 }'
 ```
-### サブスクリプショングループを設定する {#set-subscription-groups}
+### 購読グループを設定する {#set-subscription-groups}
 
-この例では、ユーザーを作成し、ユーザー属性オブジェクト内でサブスクリプショングループを設定する方法を示します。
+この例では、ユーザーを作成し、ユーザー属性オブジェクト内で購読グループを設定する方法を示します。
 
-このエンドポイントでサブスクリプションステータスを更新すると、`external_id`で指定されたユーザー（User1など）が更新され、そのユーザー（User1）と同じメールを持つすべてのユーザーのサブスクリプションステータスも更新されます。
+このエンドポイントで購読ステータスを更新すると、`external_id`で指定されたユーザー（User1など）が更新され、そのユーザー（User1）と同じメールを持つすべてのユーザーの購読ステータスも更新されます。
 
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
@@ -199,7 +199,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
   "attributes": [
   {
     "external_id": "user_identifier",
-    "email": "example@email.com",
+    "email": "example@example.com",
     "email_subscribe": "subscribed",
     "subscription_groups": [{
       "subscription_group_id": "subscription_group_identifier_1",
@@ -221,7 +221,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 ```
 
 {% alert note %}
-SMSサブスクリプショングループの場合、グループの`subscription_state`を`subscribed`に設定する際に、そのサブスクリプショングループオブジェクト内でオプションの`use_double_opt_in_logic`パラメーターを`true`に設定すると、ユーザーを[SMSダブルオプトイン]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/)ワークフローに入れることができます。`subscription_state`が`subscribed`のときにこのパラメーターが省略されるか`false`に設定されると、ユーザーはダブルオプトインワークフローに入らずに購読されます。このパラメーターは、`subscription_state`が`unsubscribed`などの他の値に設定されている場合は適用されません。
+SMS購読グループの場合、グループの`subscription_state`を`subscribed`に設定する際に、その購読グループオブジェクト内でオプションの`use_double_opt_in_logic`パラメーターを`true`に設定すると、ユーザーを[SMSダブルオプトイン]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in)ワークフローに入れることができます。`subscription_state`が`subscribed`のときにこのパラメーターが省略されるか`false`に設定されると、ユーザーはダブルオプトインワークフローに入らずに購読されます。このパラメーターは、`subscription_state`が`unsubscribed`などの他の値に設定されている場合は適用されません。
 {% endalert %}
 
 ### エイリアスのみのユーザーを作成するリクエスト例 {#example-request-to-create-an-alias-only-user}
@@ -247,13 +247,13 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 ```
 
 
-## 応答 {#responses}
+## レスポンス {#responses}
 
-上記のAPIリクエストのいずれかを使用する場合、次の3つの一般的な応答のいずれかを受け取ります：[成功メッセージ](#successful-message)、[非致命的なエラーを含む成功メッセージ](#successful-message-with-non-fatal-errors)、または[致命的なエラーを含むメッセージ](#message-with-fatal-errors)。
+上記のAPIリクエストのいずれかを使用する場合、次の3つの一般的なレスポンスのいずれかを受け取ります：[成功メッセージ](#successful-message)、[非致命的なエラーを含む成功メッセージ](#successful-message-with-non-fatal-errors)、または[致命的なエラーを含むメッセージ](#message-with-fatal-errors)。
 
 ### 成功メッセージ {#successful-message}
 
-成功メッセージの場合、次の応答が返されます：
+成功メッセージの場合、次のレスポンスが返されます：
 
 ```json
 {
@@ -266,7 +266,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 
 ### 非致命的なエラーを含む成功メッセージ {#successful-message-with-non-fatal-errors}
 
-メッセージは成功したが、長いイベントリストの中に無効なイベントオブジェクトが1つあるなど、非致命的なエラーがある場合、次の応答が返されます：
+メッセージは成功したが、長いイベントリストの中に無効なイベントオブジェクトが1つあるなど、非致命的なエラーがある場合、次のレスポンスが返されます：
 
 ```json
 {
@@ -283,7 +283,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 
 ### 致命的なエラーを含むメッセージ {#message-with-fatal-errors}
 
-メッセージに致命的なエラーがある場合、次の応答が返されます：
+メッセージに致命的なエラーがある場合、次のレスポンスが返されます：
 
 ```json
 {
@@ -296,15 +296,15 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 }
 ```
 
-### 致命的なエラー応答コード {#fatal-error-response-codes}
+### 致命的なエラーレスポンスコード {#fatal-error-response-codes}
 
-リクエストが致命的なエラーに遭遇した場合にBrazeが返すステータスコードと関連するエラーメッセージについては、[致命的エラーと応答]({{site.baseurl}}/api/errors/#fatal-errors)を参照してください。
+リクエストが致命的なエラーに遭遇した場合にBrazeが返すステータスコードと関連するエラーメッセージについては、[致命的エラーとレスポンス]({{site.baseurl}}/api/errors#fatal-errors)を参照してください。
 
-「provided external_id is blacklisted and disallowed」というエラーが表示された場合、リクエストに「ダミーユーザー」が含まれている可能性があります。詳細については、[スパムのブロック]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival/#spam-blocking)を参照してください。
+「provided external_id is blacklisted and disallowed」というエラーが表示された場合、リクエストに「ダミーユーザー」が含まれている可能性があります。詳細については、[スパムのブロック]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival#spam-blocking)を参照してください。
 
 ### エンドポイント固有のエラー {#endpoint-specific-errors}
 
-以下のエラーは`/users/track`エンドポイントに固有のもので、応答の`errors`配列で返されます。リクエスト内の個々のオブジェクトの問題をトラブルシューティングする際に使用してください。
+以下のエラーは`/users/track`エンドポイントに固有のもので、レスポンスの`errors`配列で返されます。リクエスト内の個々のオブジェクトの問題をトラブルシューティングする際に使用してください。
 
 | エラー | 説明 |
 |---|---|
@@ -318,8 +318,8 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 | `BAD_PUSH_TOKEN_VALUE` | `push_tokens`はオブジェクトの配列である必要があります。 |
 | `BAD_SUBSCRIPTION_GROUP_ARRAY` | `subscription_groups`は配列である必要があります。 |
 | `BAD_SUBSCRIPTION_GROUP_HASH` | `subscription_groups`配列の各項目は、`subscription_group_id`と`subscription_state`キーを持つJSONオブジェクトである必要があります。 |
-| `BAD_SUBSCRIPTION_GROUP_ID` | `subscription_group_id`は有効なサブスクリプショングループのUUIDである必要があります。 |
-| `BAD_SUBSCRIPTION_GROUP_STATE` | サブスクリプショングループの`subscription_state`は`subscribed`または`unsubscribed`である必要があります。 |
+| `BAD_SUBSCRIPTION_GROUP_ID` | `subscription_group_id`は有効な購読グループのUUIDである必要があります。 |
+| `BAD_SUBSCRIPTION_GROUP_STATE` | 購読グループの`subscription_state`は`subscribed`または`unsubscribed`である必要があります。 |
 | `BLACKLISTED_EXTERNAL_USER_ID` | 指定された`external_id`はブロックリストに登録されており、許可されていません。 |
 | `EMAIL_BAD_FORMAT` | `email`に指定された値は有効なメールアドレスではありません。 |
 | `EXTERNAL_USER_ID_TOO_LARGE` | `external_id`が最大許容長の987バイトを超えています。 |
@@ -334,7 +334,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 `external_id`が存在する場合、Brazeはexternal IDを持つ最も最近更新されたプロファイルを優先して更新します。`external_id`が存在しない場合、Brazeは最も最近更新されたプロファイルを優先して更新します。
 
 ### メールアドレスを持つプロファイルが存在しない場合はどうなりますか？ {#what-happens-if-no-profile-with-the-email-address-exists}
-Brazeはプロファイルとメールのみのユーザーを作成し、メールアドレスによるユーザープロファイルの更新リクエスト例で述べたように、メールフィールドをtest@braze.comに設定します。Brazeはエイリアスを作成しません。
+Brazeはプロファイルとメールのみのユーザーを作成し、メールアドレスによるユーザープロファイルの更新リクエスト例で述べたように、メールフィールドをtest@example.comに設定します。Brazeはエイリアスを作成しません。
 
 ### `/users/track`を使用してレガシーユーザーデータをインポートするにはどうすればよいですか？ {#how-do-you-use-userstrack-to-import-legacy-user-data}
 まだモバイルアプリを使用していないユーザーのユーザープロファイルを生成するために、Braze APIを通じてデータを送信できます。ユーザーがその後アプリケーションを使用すると、SDKを使用した識別後のすべての情報は、APIコールで作成した既存のユーザープロファイルにマージされます。識別前にSDKによって匿名で記録されたユーザー行動は、既存のAPI生成ユーザープロファイルとのマージ時に失われます。
@@ -347,8 +347,8 @@ Brazeはプロファイルとメールのみのユーザーを作成し、メー
 
 重複を避けるには：
 
-- メールのみまたは電話番号のみのプロファイルから識別済みプロファイルにユーザーを移行する場合は、`/users/track`に両方を送信するのではなく、[`/users/identify`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/)を使用して既存のプロファイルに`external_id`を割り当ててください。
-- 重複がすでに存在する場合は、[`/users/merge`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/)を使用してマージしてください。
+- メールのみまたは電話番号のみのプロファイルから識別済みプロファイルにユーザーを移行する場合は、`/users/track`に両方を送信するのではなく、[`/users/identify`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)を使用して既存のプロファイルに`external_id`を割り当ててください。
+- 重複がすでに存在する場合は、[`/users/merge`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_users_merge)を使用してマージしてください。
 
 ### `/users/track`は重複イベントをどのように処理しますか？ {#how-does-userstrack-handle-duplicate-events}
 
@@ -370,19 +370,19 @@ Brazeはプロファイルとメールのみのユーザーを作成し、メー
 - **リクエスト間に遅延を追加する：** 同じユーザーに対して個別のコールを行う必要がある場合は、最初のリクエストの処理が完了するまでリクエスト間に遅延（数秒）を追加してください。
 - **同じフィールドの重複更新を避ける：** 2つのリクエストが同じ属性を異なる値で更新する場合、それらの更新を1つのリクエストにまとめるか、順序が前後する可能性を減らすために遅延を挟んで分離してください。
 
-競合とベストプラクティスの詳細については、[競合]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions/)を参照してください。
+競合とベストプラクティスの詳細については、[競合]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions)を参照してください。
 
-### `/users/track`の応答が予想より遅いのはなぜですか？ {#why-is-my-userstrack-response-slower-than-i-expect}
+### `/users/track`のレスポンスが予想より遅いのはなぜですか？ {#why-is-my-userstrack-response-slower-than-i-expect}
 
-成功した`/users/track`コールは通常すぐに受け入れられますが、Brazeは属性、イベント、購入の更新を非同期で処理します。ペイロードが大きい場合や、[RESTエンドポイント]({{site.baseurl}}/api/basics/#endpoints)へのネットワークルーティングが遅い場合、体感レイテンシーが増加することがあります。ユーザーごとの同期的な確認応答やコール間のより厳密な順序付けが必要な場合は、[`/users/track/sync`]({{site.baseurl}}/api/endpoints/user_data/post_user_track_synchronous/)（**限定ベータ**）を参照してください。
+成功した`/users/track`コールは通常すぐに受け入れられますが、Brazeは属性、イベント、購入の更新を非同期で処理します。ペイロードが大きい場合や、[RESTエンドポイント]({{site.baseurl}}/api/basics#endpoints)へのネットワークルーティングが遅い場合、体感レイテンシーが増加することがあります。ユーザーごとの同期的な確認応答やコール間のより厳密な順序付けが必要な場合は、[`/users/track/sync`]({{site.baseurl}}/api/endpoints/user_data/post_user_track_synchronous)（**限定ベータ**）を参照してください。
 
 ### レート制限は`/users/track`にどのように影響しますか？ {#how-do-rate-limits-affect-userstrack}
 
-[レート制限](#rate-limit)に近づくと、`429`応答を受け取ります。サポートされている契約での`429`以外の応答については、[CY 24-25の月間アクティブユーザー数、ユニバーサルMAU、Web MAU、モバイルMAUのレート制限ヘッダー](#rate-limit-headers-for-monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau)に記載されている`X-RateLimit-*`応答ヘッダーを使用して、現在の時間枠の残量を確認できます。
+[レート制限](#rate-limit)に近づくと、`429`レスポンスを受け取ります。サポートされている契約での`429`以外のレスポンスについては、[CY 24-25の月間アクティブユーザー数、ユニバーサルMAU、Web MAU、モバイルMAUのレート制限ヘッダー](#rate-limit-headers-for-monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau)に記載されている`X-RateLimit-*`レスポンスヘッダーを使用して、現在の時間枠の残量を確認できます。
 
 ### `400 Bad Request`で構文またはパースエラーが返されるのはなぜですか？ {#why-do-i-get-400-bad-request-with-a-bad-syntax-or-parse-error}
 
-構文またはパースエラーを伴うHTTP `400`は、通常リクエスト本文が有効なJSONではないことを意味します。一般的な原因には、末尾のカンマ、JSON内のコメント、シングルクォートの文字列、ペイロードの前の余分な開き`{`、`Content-Type`ヘッダーが`application/json`であるにもかかわらず非JSON本文を送信していることなどがあります。送信前にJSONリンターでペイロードを検証し、HTTPクライアントがオブジェクトをJSONエンコードしていること（生の文字列を連結するのではなく）を確認し、本文がUTF-8エンコードされていることを確認してください。その他の`400`応答（ペイロードサイズやリクエストごとのオブジェクト制限など）については、[致命的エラーと応答]({{site.baseurl}}/api/errors/#fatal-errors)およびこのページの[エンドポイント固有のエラー](#endpoint-specific-errors)テーブルを参照してください。
+構文またはパースエラーを伴うHTTP `400`は、通常リクエスト本文が有効なJSONではないことを意味します。一般的な原因には、末尾のカンマ、JSON内のコメント、シングルクォートの文字列、ペイロードの前の余分な開き`{`、`Content-Type`ヘッダーが`application/json`であるにもかかわらず非JSON本文を送信していることなどがあります。送信前にJSONリンターでペイロードを検証し、HTTPクライアントがオブジェクトをJSONエンコードしていること（生の文字列を連結するのではなく）を確認し、本文がUTF-8エンコードされていることを確認してください。その他の`400`レスポンス（ペイロードサイズやリクエストごとのオブジェクト制限など）については、[致命的エラーとレスポンス]({{site.baseurl}}/api/errors#fatal-errors)およびこのページの[エンドポイント固有のエラー](#endpoint-specific-errors)テーブルを参照してください。
 
 ## CY 24-25の月間アクティブユーザー数、ユニバーサルMAU、Web MAU、モバイルMAU {#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau}
 
@@ -393,11 +393,11 @@ Brazeはプロファイルとメールのみのユーザーを作成し、メー
 - 1時間ごとの制限に加えて、Brazeは3秒ごとに送信できるリクエスト数にバースト制限を適用します。
 - 各リクエストは、属性、イベント、購入オブジェクトを合わせて最大75件の更新をバッチできます。
 
-予想される取り込みに基づく現在の制限は、ダッシュボードの**設定** > **APIキー** > **API使用状況ダッシュボード**で確認できます。システムの安定性を保護するため、またはアカウントのデータスループットを向上させるために、レート制限を変更する場合があります。1時間あたりまたは1秒あたりのリクエスト制限やビジネスのニーズに関するご質問やご不明な点については、Brazeサポートまたはカスタマーサクセスマネージャーまでお問い合わせください。
+予想される取り込みに基づく現在の制限は、ダッシュボードの**設定** > **APIと識別子** > **API使用状況ダッシュボード**で確認できます。システムの安定性を保護するため、またはアカウントのデータスループットを向上させるために、レート制限を変更する場合があります。1時間あたりまたは1秒あたりのリクエスト制限やビジネスのニーズに関するご質問やご不明な点については、Brazeサポートまたはカスタマーサクセスマネージャーまでお問い合わせください。
 
 ### CY 24-25の月間アクティブユーザー数、ユニバーサルMAU、Web MAU、モバイルMAUのレート制限ヘッダー {#rate-limit-headers-for-monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau}
 
-レート制限されていない（`429`以外の）すべての応答には、クライアントに対して1時間あたりのレート制限時間枠の状態を示す以下のHTTP応答ヘッダーが含まれます。これらのヘッダーを使用してリクエストレートを管理してください：
+レート制限されていない（`429`以外の）すべてのレスポンスには、クライアントに対して1時間あたりのレート制限時間枠の状態を示す以下のHTTPレスポンスヘッダーが含まれます。これらのヘッダーを使用してリクエストレートを管理してください：
 
 | ヘッダー名 | 説明 |
 | ----------------------- | ------------------------------------------------------------------------------------------- |

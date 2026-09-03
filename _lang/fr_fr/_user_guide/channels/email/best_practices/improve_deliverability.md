@@ -8,13 +8,13 @@ channel: email
 
 ---
 
-# Améliorer la livrabilité des e-mails
+# Améliorer la livrabilité des e-mails {#improve-email-deliverability}
 
 > Les fournisseurs de messagerie (MBP) évaluent la réputation de votre domaine d'envoi lorsqu'ils acceptent ou rejettent un message. Il arrive qu'un message soit accepté sans être placé dans la boîte de réception. Il peut être dirigé vers le dossier spam, où les destinataires ont moins de chances de le voir.
 
 Les recommandations suivantes vous aident à réduire les risques de placement dans le dossier spam et de faible engagement.
 
-## Habitudes d'envoi
+## Habitudes d'envoi {#sending-patterns}
 
 Les habitudes d'envoi influencent la réputation de votre domaine. Lorsqu'elles ne respectent pas les bonnes pratiques suivantes, les fournisseurs de messagerie sont plus susceptibles de rejeter ou de filtrer vos e-mails.
 
@@ -26,25 +26,25 @@ Les habitudes d'envoi influencent la réputation de votre domaine. Lorsqu'elles 
 
 {% multi_lang_include alerts/important_alerts.md alert='Email via SMS' %}
 
-## Contenu des messages
+## Contenu des messages {#message-content}
 
 Les filtres de contenu aident les fournisseurs de messagerie à protéger leurs utilisateurs contre le phishing, les logiciels malveillants et les e-mails indésirables. Votre création peut sembler inoffensive, mais ressembler à des schémas surveillés par les filtres.
 
 - **Vérifiez les modifications récentes apportées au message.** Par exemple, des changements dans le HTML, le ratio d'images, les hébergeurs d'images et l'ajout de nouveaux modèles peuvent déclencher les filtres de contenu des fournisseurs de messagerie.
 - **Renouvelez vos modèles et vos textes lorsque l'engagement diminue.** Des envois répétitifs et sans nouveauté donnent peu de raisons aux utilisateurs abonnés d'ouvrir vos e-mails.
 
-## Signalements et comportement des destinataires
+## Signalements et comportement des destinataires {#recipient-reports-and-behavior}
 
 Les actions des utilisateurs abonnés alimentent à la fois les systèmes de réputation et les décisions futures de placement en boîte de réception. Un volume élevé de plaintes peut rediriger les messages suivants vers le spam, qui agit comme une quarantaine lorsque le fournisseur de messagerie ou l'utilisateur abonné n'a pas confiance dans la qualité de l'e-mail.
 
 - **Rédigez des lignes d'objet pertinentes et un contenu avec des appels à l'action clairs.** Les suppressions sans ouverture, le faible engagement et les lignes d'objet peu convaincantes signalent un désintérêt avant même que le contenu ne soit lu.
 - **Demandez aux utilisateurs abonnés, au moment de l'abonnement, d'ajouter votre adresse d'expéditeur à leur liste de contacts e-mail.** Cela améliore la réputation de l'expéditeur et augmente les chances que vos e-mails arrivent en boîte de réception.
 
-## Ressources associées
+## Ressources associées {#related-resources}
 
-- [Politiques de désengagement]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies/)
-- [Réchauffement d'adresses IP]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/)
-- [Pièges à spam et écueils de livrabilité]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps/)
-- [À savoir avant d'envoyer]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/know_before_you_send/#general)
-- [Consentement et collecte d'adresses]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection/#subscriber-states)
-- [FAQ sur les e-mails]({{site.baseurl}}/user_guide/channels/email/faq/#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address)
+- [Politiques de désengagement]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies)
+- [Réchauffement d'adresses IP]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming)
+- [Pièges à spam et écueils de livrabilité]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps)
+- [À savoir avant d'envoyer]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/know_before_you_send#general)
+- [Consentement et collecte d'adresses]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection#subscriber-states)
+- [FAQ sur les e-mails]({{site.baseurl}}/user_guide/channels/email/faq#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address)

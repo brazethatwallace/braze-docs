@@ -8,7 +8,7 @@ To customize the presentation of in-app messages and react to various lifecycle 
 
 ### Step 1: Implement the `BrazeInAppMessageUIDelegate` protocol 
 
-First, implement the `BrazeInAppMessageUIDelegate` protocol and any corresponding methods you wish. In our example below, we are implementing this protocol in our application's `AppDelegate` class.
+First, implement the `BrazeInAppMessageUIDelegate` protocol and any corresponding methods you wish. In the following example, this protocol is implemented in the application's `AppDelegate` class.
 
 {% tabs %}
 {% tab swift %}
@@ -208,10 +208,10 @@ By default, slideup in-app messages can be dismissed with a swipe gesture. The d
 - **Slideup from the bottom:** Swiping from top to bottom dismisses the message. Swiping from bottom to top does not dismiss it.
 - **Slideup from the top:** Swiping from bottom to top dismisses the message. Swiping from top to bottom does not dismiss it.
 
-This swipe behavior is built into the default `BrazeInAppMessageUI` [`SlideupView`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/slideupview) and applies only to slideup in-app messages. Modal and full in-app messages don't support swipe-to-dismiss. To further customize the slideup view, including swipe behavior, you can modify the [`SlideupView.Attributes`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/slideupview/attributes-swift.struct) or provide a custom view via subclassing.
+This swipe behavior is built into the default `BrazeInAppMessageUI` [`SlideupView`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/slideupview) and applies only to slideup in-app messages. Modal and full in-app messages don't support swipe-to-dismiss. To further customize the slideup view, including swipe behavior, you can modify the [`SlideupView.Attributes`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/slideupview/attributes-swift.struct) or provide a custom view through subclassing.
 
 {% alert note %}
-Tapping outside of a slideup message does not dismiss it. For modal or full in-app messages, you can enable outside tap dismissals using the `dismissOnBackgroundTap` attribute described below.
+Tapping outside of a slideup message does not dismiss it. For modal or full in-app messages, you can enable outside tap dismissals using the `dismissOnBackgroundTap` attribute described in the following section.
 {% endalert %}
 
 ## Customizing modal dismissals
@@ -230,7 +230,7 @@ BrazeInAppMessageUI.ModalImageView.Attributes.defaults.dismissOnBackgroundTap = 
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-Customization via `Attributes` is not available in Objective-C.
+Customization through `Attributes` is not available in Objective-C.
 
 {% endtab %}
 {% endtabs %}
@@ -320,7 +320,7 @@ After the in-app message is displayed, any device orientation changes while the 
 
 The device orientation must also be supported by the in-app message's `orientation` property for the message to display. Additionally, the `preferredOrientation` setting will only be respected if it is included in your application's supported interface orientations under the **Deployment Info** section of your target's settings in Xcode.
 
-![Supported orientations in Xcode.]({% image_buster /assets/img/supported_interface_orientations_xcode.png %})
+![Supported orientations in Xcode.]({% image_buster /assets/img/supported_interface_orientations_xcode.png %}){: width="2038" height="590"}
 
 {% alert note %}
 The orientation is applied only for the presentation of the message. After the device changes orientation, the message view adopts one of the orientations it supports. On smaller devices (iPhones, iPod Touch), setting a landscape orientation for a modal or full in-app message may lead to truncated content.
@@ -533,17 +533,18 @@ func inAppMessage(_ ui: BrazeInAppMessageUI, displayChoiceForMessage message: Br
 
 ### Step 3: Create a deep link
 
-In your deep link handling code, add the following code to process the `{YOUR-APP-SCHEME}:app-store-review` deep link. Note that you will need to import `StoreKit` to use `SKStoreReviewController`:
+In your [`scene:openURLContexts:`]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/?sdktab=swift#swift_step-3-implement-a-handler) handler, add the following code to process the `{YOUR-APP-SCHEME}:app-store-review` deep link. Note that you will need to import `StoreKit` to use `SKStoreReviewController`:
 
 {% tabs %}
 {% tab swift %}
 
 ```swift
-func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+  guard let url = URLContexts.first?.url else { return }
   let urlString = url.absoluteString.removingPercentEncoding
   if (urlString == "{YOUR-APP-SCHEME}:app-store-review") {
     SKStoreReviewController.requestReview()
-    return true;
+    return;
   }
   // Other deep link handling code…
 }
@@ -553,11 +554,12 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 {% tab OBJECTIVE-C %}
 
 ```objc
-- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
+- (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts {
+  NSURL *url = URLContexts.allObjects.firstObject.URL;
   NSString *urlString = url.absoluteString.stringByRemovingPercentEncoding;
   if ([urlString isEqualToString:@"{YOUR-APP-SCHEME}:app-store-review"]) {
     [SKStoreReviewController requestReview];
-    return YES;
+    return;
   }
   // Other deep link handling code…
 }
@@ -578,5 +580,5 @@ Next, create an in-app messaging campaign with the following:
 {% endraw %}
 
 {% alert tip %}
-Apple limits App Store review prompts to a maximum of three times per year for each user, so your campaign should be [rate-limited]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/) to three times per year per user.<br><br>Users may turn off App Store review prompts. As a result, your custom review prompt should not promise that a native App Store review prompt will appear or directly ask for a review.
+Apple limits App Store review prompts to a maximum of three times per year for each user, so your campaign should be [rate-limited]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/) to three times per year per user.<br><br>Users may turn off App Store review prompts. As a result, your custom review prompt should not promise that a native App Store review prompt will appear or directly ask for a review.
 {% endalert %}

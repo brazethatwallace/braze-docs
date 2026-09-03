@@ -4,7 +4,7 @@ article_title: "A/B tests"
 page_order: 6
 layout: dev_guide
 guide_top_header: "A/B tests"
-guide_top_text: "Run experiments to optimize your messaging. An A/B test compares users' responses to multiple versions of the same campaign, while a multivariate test extends this to two or more variables. In Braze, the terms are used interchangeably because the setup process is the same. Use A/B testing with <a href='/docs/user_guide/brazeai/intelligence_suite/intelligent_selection'>Intelligent Selection</a> to automatically optimize your results."
+guide_top_text: "Run experiments to optimize your messaging. An A/B test compares users' responses to multiple versions of the same campaign, while a multivariate test extends this to two or more variables. In Braze, the terms are used interchangeably because the setup process is the same. Use <a href='/docs/user_guide/brazeai/intelligence_suite/variant_selection'>Optimize with BrazeAI™</a> to automatically optimize your results."
 
 page_type: landing
 description: "Set up and analyze A/B tests and multivariate experiments in Braze."
@@ -42,4 +42,4 @@ guide_featured_list:
 - **Know what you're testing.** Isolating a single change identifies which element had the greatest impact; testing multiple differences lets you compare broader approaches.
 - **Set a test duration upfront** and don't end the test early, even if early results look promising.
 - **Add tests before launch.** Adding a test to a running campaign produces inaccurate results. Clone the campaign, stop the original, and add the test to the clone.
-- **Include a [control group]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests/#including-a-control-group)** to measure impact versus sending no message at all.
+- **Include a [control group]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#including-a-control-group)** to measure impact versus sending no message at all.

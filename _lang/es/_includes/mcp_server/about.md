@@ -1,96 +1,103 @@
 # El servidor MCP de Braze {#the-braze-mcp-server}
 
-> Descubre el servidor MCP de Braze, una conexión segura que permite a herramientas de IA como Claude y Cursor acceder a datos de Braze que no son PII para responder preguntas, analizar tendencias y proporcionar información.
+> Descubre el servidor MCP de Braze, una conexión remota segura que permite a herramientas de IA como Claude y Cursor acceder a datos de Braze que no son PII para responder preguntas, analizar tendencias, proporcionar información y crear contenido.
 
-{% multi_lang_include mcp_server/beta_alert.md %}
+## ¿Qué es Model Context Protocol (MCP)? {#what-is-model-context-protocol-mcp}
 
-{% alert important %}
-## Fin del soporte del servidor MCP de Braze alojado localmente {#sunsetting-the-locally-hosted-braze-mcp-server}
+Model Context Protocol, o MCP, es un estándar que permite a los agentes de IA conectarse y trabajar con datos de otra plataforma. Tiene dos partes principales:
 
-Este verano, Braze lanzará un servidor MCP remoto, alojado por Braze, en acceso anticipado. Sustituye al servidor beta alojado localmente (`braze-mcp-server` en [PyPI](https://pypi.org/project/braze-mcp-server/) y el directorio de extensiones de Claude Desktop).
-
-**Qué significa esto para ti:**
-
-- El servidor alojado localmente seguirá funcionando, pero ya no cuenta con soporte. No añadiremos nuevos puntos finales ni corregiremos problemas en la versión beta.
-- Cuando el servidor remoto esté disponible en acceso anticipado, tendrás que migrar a él. El servidor remoto no requiere instalación local, utiliza OAuth en lugar de claves de API estáticas y funciona con clientes MCP como Claude, Copilot, Gemini CLI, Codex y Cursor.
-- Consulta esta página para conocer la disponibilidad del acceso anticipado, o ponte en contacto con tu equipo de cuentas de Braze para expresar tu interés.
-{% endalert %}
-
-## ¿Qué es el protocolo de contexto de modelo (MCP)? {#what-is-model-context-protocol-mcp}
-
-​​El protocolo de contexto de modelo, o MCP, es un estándar que permite a los agentes de IA conectarse y trabajar con datos de otra plataforma. Tiene dos partes principales:
-
-- **Cliente MCP:** La aplicación en la que se ejecuta el agente de IA, como Cursor o Claude.
-- **Servidor MCP:** Un servicio proporcionado por otra plataforma, como Braze, que define qué herramientas puede utilizar la IA y a qué datos puede acceder.
+- **Cliente MCP:** La aplicación donde se ejecuta el agente de IA, como Cursor o Claude.
+- **Servidor MCP:** Un servicio proporcionado por otra plataforma, como Braze, que define qué herramientas puede usar la IA y a qué datos puede acceder.
 
 ## Acerca del servidor MCP de Braze {#about-the-braze-mcp-server}
 
-Después de [configurar el servidor MCP de Braze]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/setup/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/setup/){% endif %}, puedes conectar herramientas de IA como agentes, asistentes y chatbots directamente a Braze, lo que les permite leer datos agregados como análisis de Canvas y Campaign, atributos personalizados, Segments y mucho más. El servidor MCP de Braze es ideal para:
+Después de [configurar el servidor MCP de Braze]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/setup/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/setup/){% endif %}, puedes conectar herramientas de IA como agentes, asistentes y chatbots directamente a Braze, permitiéndoles leer datos agregados como análisis de Canvas y Campaign, atributos personalizados, Segments y más. El servidor MCP de Braze es ideal para:
 
-- Crear herramientas basadas en IA que necesitan el contexto de Braze.
-- Ingenieros de CRM que crean flujos de trabajo de agentes de varios pasos.
+- Crear herramientas basadas en IA que necesiten contexto de Braze.
+- Ingenieros de CRM que crean flujos de trabajo de agentes con múltiples pasos.
 - Especialistas en marketing técnicos que experimentan con consultas en lenguaje natural.
 
-El servidor MCP de Braze incluye puntos finales de solo lectura y de escritura. No devuelven datos de los perfiles de usuario de Braze. Tú eliges qué puntos finales asignar a tu clave de API de Braze, y esa elección controla lo que un agente puede leer, crear o actualizar. Para ver la lista completa de puntos finales disponibles y sus permisos requeridos, consulta [Funciones de API disponibles]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/){% endif %}.
+El servidor MCP de Braze incluye herramientas tanto de lectura como de escritura. Estas herramientas no devuelven datos de los perfiles de usuario de Braze. Tus agentes heredan los permisos de usuario del panel de Braze. Para ver la lista completa de herramientas disponibles, consulta [Funciones de API disponibles]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/){% endif %}.
 
 {% alert warning %}
-Asigna solo los permisos de clave de API que quieras que tenga tu agente. Si no quieres que tu agente realice cambios en Braze, asegúrate de dejar desactivados los permisos de escritura cuando crees tu clave de API. Los agentes pueden intentar escribir datos a través de cualquier permiso de escritura que concedas.
+Las herramientas que exponen PII a nivel de usuario no están disponibles.
 {% endalert %}
 
-## Ejemplo de uso {#usage-example}
+Usa el servidor MCP para hacer preguntas sobre el rendimiento de Campaigns y Canvas, explorar tus Segments y atributos personalizados, generar informes y crear contenido como plantillas de correo electrónico, Content Blocks y activos de la biblioteca multimedia mediante lenguaje natural.
 
-Puedes interactuar con Braze mediante lenguaje natural utilizando herramientas como Claude o Cursor. Para ver otros ejemplos y prácticas recomendadas, consulta [Uso del servidor MCP de Braze]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/usage/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/usage/){% endif %}.
+## ¿El servidor MCP beta está obsoleto? {#is-the-beta-mcp-server-deprecated}
 
-{% tabs %}
-{% tab Claude %}
-**Ejemplo de prompt:** `What are my available Braze functions?`
-**Ejemplo de respuesta:** Utilizó `list_functions` y devolvió las categorías de funciones MCP de Braze disponibles.
-{% endtab %}
+Sí. El servidor MCP alojado localmente, lanzado en agosto de 2025, está obsoleto y no recibirá actualizaciones adicionales. Puedes seguir usándolo, pero Braze recomienda migrar a la versión alojada de forma remota.
 
-{% tab Cursor %}
-**Ejemplo de prompt:** `What are my available Braze functions?`
-**Ejemplo de respuesta:** Consultó `list_functions` y listó funciones como `get_canvas_list`.
-{% endtab %}
-{% endtabs %}
+### ¿En qué se diferencia el servidor remoto? {#how-is-the-remote-server-different}
+
+El servidor MCP de Braze anterior se ejecutaba localmente en tu máquina. Necesitabas instalar un paquete, gestionar un archivo de configuración y crear una clave de API de Braze con los permisos adecuados. El servidor MCP remoto elimina esa configuración local.
+
+Conéctate desde un cliente MCP compatible en menos de un minuto. La autenticación utiliza OAuth. El acceso está vinculado a tu cuenta de usuario del panel de Braze, no a una clave de API compartida, por lo que lo que un agente puede ver y hacer refleja tus permisos del panel. Si un usuario del panel pierde el acceso en Braze, el cliente también pierde el acceso.
+
+Las diferencias principales son:
+
+- **Configuración:** Pega una URL de Braze en lugar de instalar un paquete y editar archivos de configuración.
+- **Autenticación:** Inicia sesión con tu cuenta de Braze en lugar de crear una clave de API.
+- **Permisos:** El acceso se basa en tu cuenta de usuario del panel en lugar de los permisos de la clave de API.
+- **Segmentación del espacio de trabajo:** El contexto del espacio de trabajo se pasa por solicitud en lugar de estar fijo en la configuración local.
 
 ## Preguntas más frecuentes (FAQ) {#faq}
 
 ### ¿Qué clientes MCP son compatibles? {#which-mcp-clients-are-supported}
 
-Solo [Claude](https://claude.ai/) y [Cursor](https://cursor.com/) son oficialmente compatibles. Debes tener una cuenta en uno de estos clientes para poder utilizar el servidor MCP de Braze.
+Cualquier cliente MCP que admita servidores MCP remotos con OAuth puede funcionar. Braze ha verificado:
+
+- Claude a través de conectores personalizados
+- ChatGPT a través de conectores personalizados
+- Cursor
+- OpenAI Codex
+- Claude Code
+- Visual Studio Code
 
 ### ¿A qué datos de Braze puede acceder mi cliente MCP? {#what-braze-data-can-my-mcp-client-access}
 
-Los clientes MCP pueden acceder a puntos finales que no devuelven PII. Tú controlas qué puntos finales puede utilizar un agente a través de los permisos que asignas a tu clave de API.
+Los clientes MCP pueden acceder a herramientas que no devuelven PII a nivel de usuario.
 
 ### ¿Mi cliente MCP puede modificar datos de Braze? {#can-my-mcp-client-change-braze-data}
 
-Sí. El servidor expone un conjunto específico de puntos finales de escritura que permiten a los agentes crear o actualizar contenido en tu espacio de trabajo, como activos de la Biblioteca de medios, plantillas de correo electrónico y Content Blocks. Cada punto final de escritura requiere su propio permiso de clave de API. Si no quieres que tu agente realice un cambio determinado en Braze, deja sin marcar ese permiso cuando crees tu clave de API. Para ver la lista completa de funciones de escritura y sus permisos requeridos, consulta [Funciones de API disponibles]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/){% endif %}.
+Sí, si tu usuario del panel tiene esos permisos.
 
-### ¿Puedo utilizar un servidor MCP de terceros para Braze? {#can-i-use-a-third-party-mcp-server-for-braze}
+### ¿Sigo necesitando una clave de API de Braze? {#do-i-still-need-a-braze-api-key}
 
-No se recomienda utilizar un servidor MCP de terceros para los datos de Braze. Utiliza únicamente el servidor oficial MCP de Braze alojado en [PyPi](https://pypi.org/project/braze-mcp-server/).
+No para MCP. Las claves de API siguen funcionando para la REST API y no se van a descontinuar.
 
-### ¿Por qué el servidor MCP de Braze no ofrece acceso a PII? {#why-doesnt-the-braze-mcp-server-offer-pii-access}
+### ¿Qué regiones son compatibles? {#which-regions-are-supported}
 
-Para proteger los datos de usuario y al mismo tiempo respaldar casos de uso valiosos, el servidor se limita a puntos finales que normalmente no devuelven PII. Esto reduce el riesgo para tu espacio de trabajo y las personas que lo utilizan.
+Ambos clústeres de Braze son compatibles. Actualmente hay dos endpoints disponibles:
 
-### ¿Puedo reutilizar mis claves de API? {#can-i-reuse-my-api-keys}
+- `https://mcp.braze.com/mcp` (EE. UU.)
+- `https://mcp.braze.eu/mcp` (UE)
 
-No. Tendrás que crear una nueva clave de API para tu cliente MCP. Recuerda dar acceso a tus herramientas de IA solo a aquello con lo que te sientas cómodo y evita conceder permisos elevados.
+Cualquiera de los dos endpoints puede conectarse a cualquier clúster de Braze.
 
-### ¿El servidor MCP de Braze está alojado localmente o de forma remota? {#is-the-braze-mcp-server-hosted-locally-or-remotely}
+### ¿Puedo utilizar el servidor MCP remoto de Braze con herramientas distintas a las de la lista verificada? {#can-i-use-the-braze-remote-mcp-server-with-tools-other-than-the-verified-list}
 
-El servidor MCP de Braze actualmente disponible está alojado localmente. Este verano llegará en acceso anticipado un servidor MCP remoto, alojado por Braze, que sustituirá al servidor beta alojado localmente.
+Puedes intentarlo, pero la autenticación podría bloquearse. Actualmente, Braze mantiene una lista de dominios permitidos por seguridad. {% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="support for your MCP client" %}
 
-### ¿Por qué Cursor solo muestra funciones? {#why-is-cursor-only-listing-functions}
+### ¿El servidor remoto admite múltiples espacios de trabajo? {#does-the-remote-server-support-multiple-workspaces}
 
-Comprueba si estás en modo de consulta o en modo de agente. Para utilizar el servidor MCP, debes estar en modo agente.
+Sí. Especifica el espacio de trabajo por conversación o por solicitud. Una sola conexión cubre todos los espacios de trabajo a los que tienes acceso autorizado.
 
-### ¿Qué hago cuando el agente devuelve una respuesta que parece incorrecta? {#what-do-i-do-when-the-agent-returns-an-answer-that-looks-incorrect}
+### ¿Mi agente puede acceder a PII a nivel de usuario? {#can-my-agent-access-user-level-pii}
 
-Cuando trabajes con herramientas como Cursor, es posible que quieras probar a cambiar el modelo utilizado. Por ejemplo, si lo tienes configurado en automático, prueba a cambiarlo a un modelo específico y experimenta para descubrir cuál es el modelo con mejor rendimiento para tu caso de uso. También puedes intentar iniciar un nuevo chat y volver a intentar el prompt.
+No. Actualmente, las herramientas que exponen PII no están disponibles.
 
-Si los problemas persisten, puedes enviarnos un correo electrónico a [mcp-product@braze.com](mailto:mcp-product@braze.com) para informarnos. Si es posible, incluye un video y amplía las funciones de llamada para que podamos ver qué llamadas intentó realizar el agente.
+### ¿Qué sucede cuando cambian mis permisos? {#what-happens-when-my-permissions-change}
+
+El acceso del agente cambia con el usuario del panel. Los cambios de permisos se aplican en la siguiente solicitud. Los usuarios del panel desactivados pierden el acceso a MCP.
+
+### ¿Por qué no veo el conector de Braze en el directorio de mi cliente? {#why-do-i-not-see-the-braze-connector-in-my-clients-directory}
+
+Es posible que los listados del directorio aún no estén disponibles en todos los clientes MCP. Siempre puedes conectarte manualmente utilizando la URL de MCP de Braze.
+
+### Mi empresa utiliza listas de IP permitidas. ¿Podemos usar el servidor MCP remoto? {#my-company-uses-ip-allowlisting-can-we-use-the-remote-mcp-server}
+
+No por el momento. Si utilizas [listas de IP permitidas](https://www.braze.com/docs/user_guide/administer/global/admin_settings/security_settings#dashboard-ip-allowlisting), no puedes usar el servidor MCP remoto.
 
 {% multi_lang_include mcp_server/legal_disclaimer.md %}

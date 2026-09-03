@@ -1,15 +1,13 @@
-# Weekly audit of translation glossaries against source-of-truth localization
-# files in the platform and SDK repos.
+# Weekly drift report: compare Phrase-synced glossaries against product repos.
 #
-# Compares scripts/glossaries/*.json against the actual UI translations in
-# the Braze platform dashboard, Android SDK, Swift SDK, and GrapesJS editor.
-# Auto-fixes exact mismatches and adds missing terms, propagates new/updated
-# terms into _lang/ locale docs, then opens a PR.
+# scripts/glossaries/*.json are synced from Phrase (see sync-glossaries-from-phrase.yml).
+# This workflow flags mismatches vs platform dashboard, Android/Swift SDK, and GrapesJS
+# locale files so teams can reconcile Phrase vs in-product strings.
 name: Audit glossaries
 
 on:
   schedule:
-    - cron: '0 6 * * 0'   # Every Sunday at 06:00 UTC
+    - cron: '0 6 * * 0'   # Every Sunday at 06:00 UTC (after Phrase sync)
   workflow_dispatch:
 
 permissions:
@@ -68,43 +66,43 @@ jobs:
           done
 
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version: '3.12'
 
-      - name: Audit and fix glossaries
+      - name: Audit glossaries (report only)
         id: audit
         run: |
           python scripts/audit_glossaries.py \
-            --fix \
             --platform-repo ../platform \
             --android-repo ../braze-android-sdk \
             --swift-repo ../braze-swift-sdk \
             --grapesjs-repo ../grapesjs \
-            --output glossary_audit_report.json
+            --output scripts/glossary_audit_reports/latest.json
 
       - name: Ensure labels exist
-        if: steps.audit.outputs.total_changes != '0' && steps.audit.outputs.total_changes != ''
+        if: >-
+          (steps.audit.outputs.total_mismatches != '' && steps.audit.outputs.total_mismatches != '0') ||
+          (steps.audit.outputs.total_missing != '' && steps.audit.outputs.total_missing != '0')
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh label create "glossary-audit" --description "Automated glossary audit findings" --color "FBCA04" --force
-          gh label create "status: done" --description "Work is done and ready to be merged." --color "0E8A16" --force
+          gh label create "glossary-audit" --description "Glossary drift report" --color "FBCA04" --force
 
       - name: Create pull request
-        if: steps.audit.outputs.total_changes != '0' && steps.audit.outputs.total_changes != ''
+        if: >-
+          (steps.audit.outputs.total_mismatches != '' && steps.audit.outputs.total_mismatches != '0') ||
+          (steps.audit.outputs.total_missing != '' && steps.audit.outputs.total_missing != '0')
         uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: glossary-audit/${{ github.run_id }}
           base: develop
-          title: "Glossary sync: ${{ steps.audit.outputs.fixes_applied }} fixes, ${{ steps.audit.outputs.terms_added }} new terms, ${{ steps.audit.outputs.locale_files_changed }} locale files"
-          body-path: glossary_audit_report.md
+          title: "Glossary drift report: Phrase glossaries vs product repos"
+          body-path: scripts/glossary_audit_reports/latest.md
           labels: |
             glossary-audit
-            status: done
-          commit-message: "chore: sync glossaries with source-of-truth repos"
+          commit-message: "chore: glossary drift report"
           delete-branch: true
           add-paths: |
-            scripts/glossaries/
-            _lang/
+            scripts/glossary_audit_reports/

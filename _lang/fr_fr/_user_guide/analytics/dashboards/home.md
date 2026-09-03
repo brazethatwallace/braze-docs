@@ -17,7 +17,6 @@ La page **Accueil** comporte deux sections principales :
 - [Reprendre là où vous vous étiez arrêté](#pick-up-where-you-left-off)
 - [Aperçu des performances](#performance-overview)
 
-![Tableau de bord Accueil dans Braze.]({% image_buster /assets/img_archive/home_dashboard.png %})
 
 ## Reprendre là où vous vous étiez arrêté {#pick-up-where-you-left-off}
 
@@ -35,8 +34,6 @@ La section **Reprendre là où vous vous étiez arrêté** apparaît après que 
 
 Par défaut, la section **Aperçu des performances** affiche les données des 30 derniers jours pour l'ensemble des applications et sites. Tous vos indicateurs sont calculés en fonction de la plage de dates sélectionnée.
 
-![Champs de plage de dates et d'application sur le tableau de bord Accueil.]({% image_buster /assets/img_archive/home_dashboard_select_date.png %}){: style="max-width:60%;"}
-
 Les pourcentages sont calculés en comparant la plage de dates actuelle à la plage de dates précédente, à l'exception des *utilisateurs actifs par mois* (MAU), qui utilisent le dernier jour de la période précédente plutôt qu'une plage.
 
 Par exemple, si vous définissez votre plage de dates sur **7 derniers jours** et que vos *utilisateurs actifs quotidiens* affichent une augmentation de 1,8 %, cela signifie que vous avez eu 1,8 % d'utilisateurs actifs quotidiens de plus cette semaine par rapport à la semaine précédente.
@@ -45,13 +42,11 @@ Par exemple, si vous définissez votre plage de dates sur **7 derniers jours** e
 
 ### Afficher le détail {#show-breakdown}
 
-Sélectionnez **Afficher le détail** pour chaque ligne des statistiques de l'aperçu des performances afin de visualiser la valeur de chaque statistique par jour pour la plage de dates spécifiée.
-
-![Développer]({% image_buster /assets/img_archive/home_dashboard_breakdown.png %})
+Sélectionnez **Show Breakdown** pour chaque ligne des statistiques de l'aperçu des performances afin de visualiser la valeur de chaque statistique par jour pour la plage de dates spécifiée.
 
 ### Performances dans le temps {#performance-over-time}
 
-Le graphique **Performances dans le temps** affiche la valeur de chaque statistique sur la plage de dates spécifiée pour les applications sélectionnées.
+Le graphique **Performance Over Time** affiche la valeur de chaque statistique sur la plage de dates spécifiée pour les applications sélectionnées.
 
 ![Le graphique Performances dans le temps montrant les statistiques des nouveaux utilisateurs sur 30 jours.]({% image_buster /assets/img/dashboards/performance_over_time.png %})
 
@@ -63,11 +58,11 @@ Vous pouvez tracer des statistiques pour :
 - E-mail
 - Messages in-app
 - Formules d'indicateurs clés de performance
-  - Sélectionnez **Gérer les formules d'indicateurs** pour créer une formule ou modifier une formule existante.
+  - Sélectionnez **Manage KPI Formulas** pour créer une formule ou modifier une formule existante.
 - LINE
 - Utilisateurs actifs par mois (MAU)
 - Nouveaux utilisateurs
-- Push
+- Notifications push
   - (Facultatif) Répartition par Segment
 - Sessions
   - (Facultatif) Répartition par Segment ou version de l'application
@@ -89,12 +84,11 @@ Voici les définitions des statistiques disponibles, leur mode de calcul et leur
 
 *Utilisateurs* correspond au nombre total d'utilisateurs créés dans cet espace de travail. Cela inclut tous les utilisateurs ayant utilisé votre application ou site web à un moment donné, ainsi que ceux qui ne sont pas nécessairement associés à une application ou un site web spécifique. Ce nombre représente le pourcentage de vos utilisateurs à vie qui sont des *utilisateurs actifs par mois* (MAU), ce qui est utile pour observer la rétention des utilisateurs sur une longue période.
 
-Un faible ratio MAU/utilisateurs peut indiquer que vous devez diversifier vos canaux de communication ou intensifier vos efforts pour atteindre les utilisateurs en perte d'engagement. Consultez notre guide rapide sur la [reconquête des utilisateurs en perte d'engagement]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users/#capture-lapsing-users) pour en savoir plus. De manière générale, le ratio MAU/utilisateurs à vie diminuera inévitablement au fil du temps en raison de l'attrition, mais les outils de Braze peuvent vous aider à minimiser cet effet en maintenant l'engagement de vos utilisateurs plus longtemps.
+Un faible ratio MAU/utilisateurs peut indiquer que vous devez diversifier vos canaux de communication ou intensifier vos efforts pour atteindre les utilisateurs en perte d'engagement. Consultez notre guide rapide sur la [reconquête des utilisateurs en perte d'engagement]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users) pour en savoir plus. De manière générale, le ratio MAU/utilisateurs à vie diminuera inévitablement au fil du temps en raison de l'attrition, mais les outils de Braze peuvent vous aider à minimiser cet effet en maintenant l'engagement de vos utilisateurs plus longtemps.
 
 ### Sessions à vie {#lifetime-sessions}
 
-*Sessions à vie* correspond au nombre total de sessions enregistrées par Braze depuis l'intégration. Une session correspond à chaque utilisation de l'application ou visite de votre site web par un utilisateur. Pour une définition plus précise de la manière dont les sessions sont définies par plateforme, consultez les articles développeur correspondants sur le suivi des sessions pour
-[iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=swift), [Android et FireOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=android) ou [Web]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=web).
+*Sessions à vie* correspond au nombre total de sessions enregistrées par Braze depuis l'intégration. Une session correspond à chaque utilisation de l'application ou visite de votre site web par un utilisateur. Pour une définition plus précise de la manière dont les sessions sont définies par plateforme, consultez les articles développeur correspondants sur le suivi des sessions pour [iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=swift), [Android et FireOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=android) ou [Web]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=web).
 
 ### Utilisateurs actifs par mois {#monthly-active-users}
 
@@ -116,9 +110,7 @@ Le calcul des MAU suit des règles spécifiques pour garantir une facturation pr
 - **Suppressions via API** : la suppression d'un utilisateur via l'API ne met pas à jour les MAU immédiatement ; le comptage se corrige automatiquement lors du cycle mensuel suivant.
 
 {% alert note %}
-Les utilisateurs anonymes comptent également dans vos MAU. Pour les appareils mobiles, les utilisateurs anonymes dépendent de l'appareil. Pour les utilisateurs web, les utilisateurs anonymes dépendent du cache du navigateur.
-
-Les comptages de MAU dans Braze peuvent différer de ceux d'outils tels qu'Amplitude lorsque chaque produit utilise une définition différente d'un utilisateur actif. Comparez la configuration dans Amplitude (et vos règles de MAU Braze ci-dessus) avant d'investiguer un écart comme un problème de pipeline de données.
+Les utilisateurs anonymes comptent également dans vos MAU. Pour les appareils mobiles, les utilisateurs anonymes dépendent de l'appareil. Pour les utilisateurs web, les utilisateurs anonymes dépendent du cache du navigateur. <br><br> Les comptages de MAU dans Braze peuvent différer de ceux d'outils tels qu'Amplitude lorsque chaque produit utilise une définition différente d'un utilisateur actif. Comparez la configuration dans Amplitude (et vos [règles de calcul des MAU](#mau-calculation-rules)) avant d'investiguer un écart comme un problème de pipeline de données.
 {% endalert %}
 
 #### Exemple de calcul des MAU {#mau-calculation-example}
@@ -135,18 +127,20 @@ L'exemple suivant illustre le fonctionnement du calcul des MAU à travers diffé
 
 Les instantanés de MAU sont calculés une fois par jour et ne changent jamais rétroactivement. Dans cet exemple, le nombre de MAU pour le jour suivant l'étape 3 reste définitivement à 2, même si l'Utilisateur 2 devient orphelin par la suite. Cependant, le nombre de MAU pour les jours suivants ne reflète que l'utilisateur non orphelin. Sur une fenêtre de 30 jours, ce flux consomme au final 1 MAU puisqu'il ne reste qu'un seul utilisateur distinct et non orphelin.
 
+##### Considérations relatives au comptage des MAU {#mau-count-considerations}
+
+Les comptages de MAU dans Braze dépendent de l'endroit où vous les consultez. Le total des MAU est calculé au niveau de l'utilisateur, indépendamment des applications et plateformes, de sorte que chaque utilisateur n'est compté qu'une seule fois. Cependant, lorsque vous consultez les comptages de MAU par application, la somme des MAU de toutes les applications peut dépasser votre total de MAU ; un utilisateur qui utilise plusieurs applications dans votre espace de travail est comptabilisé dans l'indicateur MAU individuel de chaque application.
+
 ### Utilisateurs actifs quotidiens {#daily-active-users}
 
-*Utilisateurs actifs quotidiens* (DAU) affiche le nombre d'utilisateurs uniques qui enregistrent au moins une session dans votre application ou site un jour donné. Les DAU peuvent être une statistique utile pour examiner la variabilité quotidienne de l'utilisation de votre application ou site et adapter vos campagnes pour qu'elles soient aussi efficaces que possible. Par exemple, l'utilisation de votre application peut connaître un pic notable le week-end, ce qui vous indiquerait que vous pourriez toucher davantage d'utilisateurs avec des messages in-app ces jours-là plutôt qu'en semaine.
+*Utilisateurs actifs quotidiens* (DAU) affiche le nombre d'utilisateurs uniques qui enregistrent au moins une session dans votre application ou site un jour donné. Les DAU peuvent être une statistique utile pour examiner la variabilité quotidienne de l'utilisation de votre application ou site et adapter vos Campaigns pour qu'elles soient aussi efficaces que possible. Par exemple, l'utilisation de votre application peut connaître un pic notable le week-end, ce qui vous indiquerait que vous pourriez toucher davantage d'utilisateurs avec des messages in-app ces jours-là plutôt qu'en semaine.
 
 ### Nouveaux utilisateurs {#new-users}
 
 *Nouveaux utilisateurs* indique le nombre d'utilisateurs qui n'avaient jamais enregistré de session auparavant et qui ont commencé à utiliser votre application ou site. Ce nombre correspond au total des nouveaux utilisateurs sur la période donnée. Cette statistique peut être très utile pour évaluer l'efficacité de vos efforts publicitaires.
 
 {% alert note %}
-Lors de l'intégration initiale de Braze, tous les utilisateurs apparaîtront comme de nouveaux utilisateurs, car Braze n'a jamais enregistré de session pour eux auparavant.
-
-Contrairement aux MAU, le nombre de *Nouveaux utilisateurs* peut diminuer rétroactivement lorsque Braze fusionne un profil anonyme avec un profil identifié et rend le profil anonyme orphelin. Braze retire le profil orphelin des totaux d'utilisation de l'application, ce qui peut réduire le nombre de *Nouveaux utilisateurs* pour des dates que vous avez déjà consultées. Pour en savoir plus sur le comportement de liaison des profils, consultez [Cycle de vie du profil utilisateur]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/).
+Lors de l'intégration initiale de Braze, tous les utilisateurs apparaîtront comme de nouveaux utilisateurs, car Braze n'a jamais enregistré de session pour eux auparavant. <br><br> Contrairement aux MAU, le nombre de *Nouveaux utilisateurs* peut diminuer rétroactivement lorsque Braze fusionne un profil anonyme avec un profil identifié et rend le profil anonyme orphelin. Braze retire le profil orphelin des totaux d'utilisation de l'application, ce qui peut réduire le nombre de *Nouveaux utilisateurs* pour des dates que vous avez déjà consultées. Pour en savoir plus sur le comportement de liaison des profils, consultez [Cycle de vie du profil utilisateur]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle).
 {% endalert %}
 
 {% alert important %}

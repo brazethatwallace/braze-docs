@@ -1,0 +1,159 @@
+// Fullscreen pan/zoom modal for Mermaid diagrams.
+// Pairs with attachFullscreenButton() / openFullscreenModal() in documents.js.
+// svg-pan-zoom is already provided by the bundled mermaid.js (window.svgPanZoom).
+
+$mermaid-fs-accent: $braze-purple;
+$mermaid-fs-border: #e4e1ee;
+$mermaid-fs-scrim: rgba(20, 12, 40, 0.85);
+$mermaid-fs-radius: 6px;
+
+.language-mermaid.mermaid-figure {
+  position: relative;
+}
+
+.mermaid-figure__fullscreen-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  background: #fff;
+  border: 1px solid $mermaid-fs-border;
+  border-radius: $mermaid-fs-radius;
+  color: inherit;
+  padding: 6px 10px;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+
+  svg {
+    width: 14px;
+    height: 14px;
+    display: block;
+  }
+
+  &:hover,
+  &:focus-visible {
+    background: $mermaid-fs-accent;
+    color: #fff;
+    border-color: $mermaid-fs-accent;
+    outline: none;
+  }
+}
+
+.mermaid-modal {
+  position: fixed;
+  inset: 0;
+  background: $mermaid-fs-scrim;
+  display: flex;
+  flex-direction: column;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+
+  &.is-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.35);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    gap: 16px;
+  }
+
+  &__title {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  &__hint {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.65);
+    margin-left: 16px;
+  }
+
+  &__close {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    border-radius: $mermaid-fs-radius;
+    padding: 6px 12px;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    flex-shrink: 0;
+
+    &:hover,
+    &:focus-visible {
+      background: rgba(255, 255, 255, 0.12);
+      outline: none;
+    }
+  }
+
+  &__stage {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #fff;
+    position: relative;
+
+    svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      max-height: none;
+    }
+  }
+}
+
+body.mermaid-modal-open {
+  overflow: hidden;
+}
+
+@media print {
+  .mermaid-figure__fullscreen-btn,
+  .mermaid-modal {
+    display: none !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .mermaid-figure__fullscreen-btn span {
+    display: none;
+  }
+
+  .mermaid-modal__hint {
+    display: none;
+  }
+
+  // Hide the inline +/- / reset icons that svg-pan-zoom draws inside the SVG.
+  // The fullscreen modal is the primary mobile reading experience, and the
+  // tiny inline icons collide with the Fullscreen button at narrow widths.
+  // Pinch-zoom and touch-drag on the inline SVG still work — only the icons
+  // are hidden.
+  .language-mermaid svg #svg-pan-zoom-controls {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mermaid-modal {
+    transition: none;
+  }
+}

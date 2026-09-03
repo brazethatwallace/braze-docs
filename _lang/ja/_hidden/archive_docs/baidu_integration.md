@@ -1,69 +1,76 @@
 ---
 nav_title: Baidu の統合
-article_title: バイドゥ・プッシュ通知のAndroidへの統合
+article_title: Android 向け Baidu プッシュ通知の統合
 platform: Android
 permalink: /baidu_integration/
 description: "この記事では、Baidu Android 統合の設定方法について説明します。"
 hidden: true
+excerpt_separator: ""
 ---
-# Baidu の統合
-{% multi_lang_include archive/baidu_deprecation.md %}
+# Baidu の統合 {#baidu-integration}
+{% alert warning %}
+Brazeの Baidu プッシュ統合は、2022年3月24日をもって非推奨となりました。
 
-Braze は、[Baidu Cloud Push]({% image_buster /assets/img_archive/baidu_app_console.png %}) を使用して Android デバイスにプッシュ通知を送信できます。Baidu Cloud Push を使用すると、Baidu アプリストアを介してアプリを配布する必要が**ありません**。
+* **2022年3月24日:** Brazeダッシュボードで新しい Baidu アプリを作成できなくなりました。
+* **2022年9月15日:** 新しい Baidu プッシュメッセージを作成できなくなりました。既存のメッセージとデータ収集には影響ありません。
+* **2023年1月15日:** Brazeは Baidu アプリからのメッセージ配信およびデータ収集を終了しました。
+{% endalert %}
 
-## ステップ1:Baidu のアカウントを作成する
+Brazeは、[Baidu Cloud Push]({% image_buster /assets/img_archive/baidu_app_console.png %}) を使用して Android デバイスにプッシュ通知を送信できます。Baidu Cloud Push を使用する場合、Baidu アプリストアを介してアプリを配布する必要はありません。
 
-Baidu アカウントを作成するには、[[Baidu ポータル](https://www.baidu.com/)] にアクセスし、[**登录**] (ログイン) をクリックすると、ログインまたは新しいアカウントを作成するためのダイアログが表示されます。
+## ステップ1：Baiduアカウントを作成する {#step-1-create-a-baidu-account}
 
-![]({% image_buster /assets/img_archive/baidu_portal.png %})
+Baiduアカウントを作成するには、[Baiduポータル](https://www.baidu.com/)にアクセスし、**登录**（ログイン）をクリックして、ログインまたは新規アカウント作成が可能なダイアログを表示します。
 
-新しいアカウントを作成するには、ログインダイアログの一番下にある**立即注册**（新しいアカウント）をクリックする。
+![Baiduポータルページ]({% image_buster /assets/img_archive/baidu_portal.png %})
 
-![]({% image_buster /assets/img_archive/baidu_login_dialog.png %}){: style="max-width:70%;"}
+新規アカウントを作成するには、ログインダイアログの下部にある**立即注册**（新規アカウント）をクリックします。
 
-アカウント作成ページにユーザー名、電話番号、パスワードを入力する。次に、[確認コードを受信] ボタンをクリックします。Baiduから認証コードを含むSMSメッセージが届く。最後に、使用許諾契約書に同意し、[**注册**] (アカウントの作成) をクリックして登録します。これらの設定手順に失敗した場合は、この[ログイン記事](https://www.adchina.io/how-to-open-a-baidu-account-outside-china/)で説明されているように、Baidu Cloud ログイン経由での登録を試します。
+![Baiduログインダイアログ]({% image_buster /assets/img_archive/baidu_login_dialog.png %}){: style="max-width:70%;"}
 
-![百度サインアップページ]({% image_buster /assets/img_archive/baidu_signup.png %}){: style="max-width:80%;"}
+アカウント作成ページにユーザー名、電話番号、パスワードを入力します。次に、認証コード受信ボタンをクリックします。Baiduから認証コードを含むSMSメッセージが届きます。最後に、ライセンス契約に同意し、**注册**（アカウント作成）をクリックして登録を完了します。これらの設定ステップが失敗した場合は、この[ログインに関する記事](https://www.adchina.io/how-to-open-a-baidu-account-outside-china/)に記載されているBaidu Cloudログインを使用して登録をお試しください。
 
-## ステップ2:Baidu の開発者として登録する
+![Baidu登録ページ]({% image_buster /assets/img_archive/baidu_signup.png %}){: style="max-width:80%;"}
 
-次に、Baidu の開発者として登録する必要があります。まず、[百度の開発者ポータルに](http://developer.baidu.com/)アクセスし、**注册**（新しい開発者アカウントを作成）を選択して登録を開始する。
+## ステップ2:Baidu開発者として登録する {#step-2-register-as-a-baidu-developer}
 
-![]({% image_buster /assets/img_archive/baidu_dev_portal.png %})
+次に、Baidu開発者として登録する必要があります。まず、[Baidu開発者ポータル](http://developer.baidu.com/)にアクセスし、**注册**（新しい開発者アカウントを作成）を選択して登録を開始します。
 
-登録ページで、アカウントの種類 (個人用には「个人」、ビジネス用には「公司」) と開発者の種類を選択する (開発者があらかじめ選択されており、ほとんどの場合正しい)。氏名、略歴、電話番号（カッコ内に国番号を含む）を入力する（例：(1)xxxxxxxxxx）。[**发送验证码**] (確認コードを送信) をクリックし、次の行に確認コードを入力します。次の2つのフィールド、開発者のウェブサイトと開発者のロゴは任意である。使用許諾契約に同意し、**提交**（submit）をクリックして送信する。これでBaiduの開発者アカウントを取得したことになる。
+![Baidu開発者ポータルページ]({% image_buster /assets/img_archive/baidu_dev_portal.png %})
 
-![]({% image_buster /assets/img_archive/baidu_dev_reg.png %})
+登録ページで、アカウントタイプ（个人は個人用、公司はビジネス用）と開発者タイプ（ほとんどの場合、developerがあらかじめ選択されており、そのままで問題ありません）を選択します。名前、自己紹介、国コードを括弧で囲んだ電話番号を入力します（例：(1)xxxxxxxxxx）。**发送验证码**（認証コードを送信）をクリックし、次の行に認証コードを入力します。次の2つのフィールド（開発者Webサイトと開発者ロゴ）は任意です。ライセンス契約に同意し、**提交**（送信）をクリックして送信します。これでBaidu開発者アカウントが作成されました。
 
-## ステップ 3:Baidu にアプリケーションを登録する
+![Baidu開発者登録ページ]({% image_buster /assets/img_archive/baidu_dev_reg.png %})
 
-バイドゥにアプリケーションを登録するには、[バイドゥのプロジェクトポータルに](http://developer.baidu.com/console#app/project)アクセスし、**创建**工程（プロジェクトの作成）をクリックする。
+## ステップ3:Baiduにアプリケーションを登録する {#step-3-register-your-application-with-baidu}
 
-![]({% image_buster /assets/img_archive/baidu_project.png %})
+Baiduにアプリケーションを登録するには、[Baiduプロジェクトポータル](http://developer.baidu.com/console#app/project)にアクセスし、**创建工程**（プロジェクトを作成）をクリックします。
 
-次のページで、アプリケーション名を入力します。次の2つのチェックボックスは、Baidu の追加サービスを有効にするためのものです。ほとんどの場合、これらは空白のままでよい。
+![Baiduプロジェクトポータルページ]({% image_buster /assets/img_archive/baidu_project.png %})
 
-![]({% image_buster /assets/img_archive/baidu_app_name.png %})
+次のページで、アプリケーション名を入力します。以下の2つのチェックボックスは、追加のBaiduサービスを有効にするためのものです。ほとんどの場合、これらは空白のままにしてください。
 
-アプリケーションをセットアップすると、APIキーを含むアプリケーションに関する情報を表示するコンソールが表示される。次に、サイドバーの [**云推送**] (クラウドプッシュ)」に移動します。次のページで、**推送设置**（プッシュを設定する）をクリックする。
+![Baiduアプリケーション名の入力ページ]({% image_buster /assets/img_archive/baidu_app_name.png %})
 
-![]({% image_buster /assets/img_archive/baidu_app_console.png %})
+アプリケーションの設定が完了すると、APIキーを含むアプリの情報が表示されるコンソールに移動します。次に、サイドバーの**云推送**（クラウドプッシュ）に移動します。次のページで、**推送设置**（プッシュの設定）をクリックします。
 
-![]({% image_buster /assets/img_archive/baidu_continue.png %})
+![APIキーを含むBaiduアプリコンソール]({% image_buster /assets/img_archive/baidu_app_console.png %})
 
-次のページで、アプリのパッケージ名（例えば、`com.braze.sample` ）を入力し、メッセージをキャッシュするかどうか、キャッシュする場合はその期間（時間単位）を指定する。これは、Baidu に対して、オフラインユーザーにメッセージの送信を試行し続ける時間を示します。**保存设置**（設定を保存する）をクリックして保存する。
+![Baiduクラウドプッシュのページ]({% image_buster /assets/img_archive/baidu_continue.png %})
 
-![]({% image_buster /assets/img_archive/baidu_configure_cloud.png %})
+次のページで、アプリのパッケージ名（例：`com.braze.sample`）を入力し、メッセージをキャッシュするかどうか、キャッシュする場合はその期間（時間単位）を指定します。これは、オフラインユーザーへのメッセージ送信をBaiduがどのくらいの期間試行し続けるかを示します。**保存设置**（設定を保存）をクリックして保存します。
 
-## ステップ 4: アプリケーションに Baidu を追加する
+![Baiduクラウドプッシュの設定ページ]({% image_buster /assets/img_archive/baidu_configure_cloud.png %})
 
-[Baidu push SDKポータルに](http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk)アクセスし、最新のBaidu Cloud Push Android SDKをダウンロードする。
+## ステップ4:アプリケーションにBaiduを追加する {#step-4-add-baidu-to-your-application}
 
-![]({% image_buster /assets/img_archive/baidu_sdk.png %})
+[BaiduプッシュSDKポータル](http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk)にアクセスし、最新のBaidu Cloud Push Android SDKをダウンロードします。
 
-SDK の中には、プッシュサービスの jar とプラットフォーム固有のネイティブライブラリがあります。これらをプロジェクトに組み込む。ご使用のアプリが現在 Baidu でサポートされている最新の SDK バージョンを対象にしていることを確認します。このドキュメントは、Baidu Cloud push Android SDK バージョン`4.6.2.38` を対象としています。
+![Baidu SDKのダウンロードページ]({% image_buster /assets/img_archive/baidu_sdk.png %})
 
-以下の必要なBaiduパーミッションをアプリケーションの`AndroidManifest.xml` に追加する。
+SDK内には、プッシュサービスのjarファイルとプラットフォーム固有のネイティブライブラリがあります。これらをプロジェクトに統合してください。アプリがBaiduで現在サポートされている最新のSDKバージョンをターゲットにしていることを確認してください。このドキュメントはBaidu Cloud Push Android SDKバージョン`4.6.2.38`に対応しています。
+
+アプリケーションの`AndroidManifest.xml`に、以下の必要なBaiduパーミッションを追加します。
 
 ```xml
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -76,9 +83,9 @@ SDK の中には、プッシュサービスの jar とプラットフォーム�
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 ```
 
-Baiduのライブラリには、受信したプッシュ・メッセージを処理するブロードキャスト・レシーバーが含まれている。アプリケーションの `AndroidManifest.xml` 内の `<application>` 要素内で内部 Baidu レシーバーを宣言します。
+Baiduのライブラリには、受信プッシュメッセージを処理するブロードキャストレシーバーが含まれています。アプリケーションの`AndroidManifest.xml`の`<application>`要素内に、Baiduの内部レシーバーを宣言します。
 
-`````````xml
+```xml
   <!-- 用于接收系统消息以保证 PushService 正常运行 -->
       <receiver
         android:name="com.baidu.android.pushservice.PushServiceReceiver"
@@ -116,9 +123,9 @@ Baiduのライブラリには、受信したプッシュ・メッセージを処
       </service>
 ```
 
-また、プッシュメッセージや通知の着信をリッスンするブロードキャストレシーバーも作成する必要があります。アプリケーションの `AndroidManifest.xml`、`<application>` 要素の中でレシーバーを宣言します。このレシーバーは、`com.baidu.android.pushservice.PushMessageReceiver` を拡張し、Baidu プッシュサービスからイベント更新を受け取るメソッドを実装する必要があります。
+また、受信プッシュメッセージと通知をリッスンするブロードキャストレシーバーを作成する必要があります。アプリケーションの`AndroidManifest.xml`の`<application>`要素内にレシーバーを宣言します。このレシーバーは`com.baidu.android.pushservice.PushMessageReceiver`を拡張し、Baiduプッシュサービスからのイベント更新を受信するメソッドを実装する必要があります。
 
-`````````xml
+```xml
       <receiver android:name=".MyPushMessageReceiver">
         <intent-filter>
           <action android:name="com.baidu.android.pushservice.action.MESSAGE"/>
@@ -128,34 +135,34 @@ Baiduのライブラリには、受信したプッシュ・メッセージを処
       </receiver>
 ```
 
-メインアクティビティの `onCreate()` メソッドに次の行を追加します。これにより、アプリケーションが Baidu に登録され、着信プッシュメッセージのリッスンが開始されます。「Your-API-Key」をプロジェクトの Baidu API キーに置き換えてください。
+メインアクティビティの`onCreate()`メソッドに以下の行を追加します。これにより、アプリケーションがBaiduに登録され、受信プッシュメッセージのリッスンが開始されます。「Your-API-Key」をプロジェクトのBaidu APIキーに置き換えてください。
 
 ```
 PushManager.startWork(getApplicationContext(), PushConstants.LOGIN_TYPE_API_KEY, "Your-API-Key");
 ```
 
-最後に、ユーザーをBrazeに登録する必要がある。このステップで作成した Baidu ブロードキャストレシーバーの `onBind()` メソッドで、`Braze.registerAppboyPushMessages(channelId)` を使用して `channelId` を Braze に送信します。
+最後に、ユーザーをBrazeに登録する必要があります。このステップで作成したBaiduブロードキャストレシーバーの`onBind()`メソッドで、`Braze.registerAppboyPushMessages(channelId)`を使用して`channelId`をBrazeに送信します。
 
 {% tabs %}
 {% tab JAVA %}
 
-`````````java
+```java
 Braze.getInstance(context).setRegisteredPushToken(channelId);
 ```
 
 {% endtab %}
 {% tab KOTLIN %}
 
-`````````kotlin
+```kotlin
 Braze.getInstance(context).setRegisteredPushToken(channelId)
 ```
 
 {% endtab %}
 {% endtabs %}
 
-## ステップ 5: プッシュ開封を登録する
+## ステップ5: プッシュ開封の登録 {#step-5-registering-push-opens}
 
-Baiduは、JSON形式のプッシュ・メッセージで余分なキー・バリュー・ペアの送信をサポートしている。ブロードキャストレシーバーの `public void onNotificationClicked(Context context, String title, String description, String customContentString)` メソッドは、ユーザーが着信プッシュメッセージをクリックするたびに呼び出されます。パラメータ`customContentString` には、JSON形式のエクストラが含まれる。Brazeからのすべてのメッセージには、以下の2つのキーと値のペアが含まれる：
+Baiduは、プッシュメッセージとともにJSON形式で追加のキーと値のペアを送信することをサポートしています。ブロードキャストレシーバーの`public void onNotificationClicked(Context context, String title, String description, String customContentString)`メソッドは、ユーザーが受信したプッシュメッセージをクリックするたびに呼び出されます。パラメーター`customContentString`には、JSON形式のエクストラが含まれています。Brazeからのすべてのメッセージには、次の2つのキーと値のペアが含まれます。
 
   ```json
   {
@@ -164,9 +171,9 @@ Baiduは、JSON形式のプッシュ・メッセージで余分なキー・バ�
   }
   ```
 
-`onNotificationClicked` があなたの Baidu 受信機に呼び出されるたびに、受信機は`customContentString` を含む[Intent を](http://developer.android.com/reference/android/content/Intent.html)あなたのアプリケーションに送信する必要がある。あなたのアプリケーションは、`customContentString` を使用してBrazeにクリックを記録する。
+Baiduレシーバーで`onNotificationClicked`が呼び出されるたびに、レシーバーは`customContentString`を含む[Intent](http://developer.android.com/reference/android/content/Intent.html)をアプリケーションに送信する必要があります。アプリケーションは`customContentString`を使用して、Brazeにクリックを記録します。
 
-次のサンプルコードは、`customContentString` をBrazeに渡し、クリックのログを取る：
+次のサンプルコードは、`customContentString`をBrazeに渡してクリックを記録します。
 
 {% tabs %}
 {% tab JAVA %}
@@ -179,7 +186,7 @@ Baiduは、JSON形式のプッシュ・メッセージで余分なキー・バ�
 {% endtab %}
 {% tab KOTLIN %}
 
-`````````kotlin
+```kotlin
 val customContentString = intent.getStringExtra(ChinaPushMessageReceiver.NOTIFICATION_CLICKED_KEY)
 BrazeNotificationUtils.logBaiduNotificationClick(context, customContentString)
 ```
@@ -187,14 +194,14 @@ BrazeNotificationUtils.logBaiduNotificationClick(context, customContentString)
 {% endtab %}
 {% endtabs %}
 
-## ステップ 6: エクストラ
+## ステップ6:エクストラ {#step-6-extras}
 
-Braze が使用する予約キー以外に、`customContentString` パラメーターには、ユーザー定義のカスタムのキーと値のペアがすべて含まれています。キーと値のペアを抽出するには、JSONObject で `customContentString` をラップし、エキストラを取得します。
+Brazeが使用する予約キーとは別に、パラメーター`customContentString`にはユーザー定義のカスタムキーと値のペアもすべて含まれます。キーと値のペアを抽出するには、`customContentString`をJSONObjectでラップし、エクストラを取得します。
 
 {% tabs %}
 {% tab JAVA %}
 
-`````````java
+```java
 try {
   JSONObject myExtras = new JSONObject(customContentString);
   String myValue = myExtras.optString("my_key", null);
@@ -206,7 +213,7 @@ try {
 {% endtab %}
 {% tab KOTLIN %}
 
-`````````kotlin
+```kotlin
 try {
   val myExtras = JSONObject(customContentString)
   val myValue = myExtras.optString("my_key", null)
@@ -218,19 +225,18 @@ try {
 {% endtab %}
 {% endtabs %}
 
-## ステップ 7:Baidu キーを設定する
+## ステップ7：Baiduキーの設定 {#step-7-set-up-baidu-keys}
 
-Braze ダッシュボードに Baidu API キーとBaidu シークレットキーを入力する必要があります。どちらのキーも Baidu のアプリケーションコンソールから利用できます。
+BrazeダッシュボードにBaidu APIキーとBaiduシークレットキーを入力する必要があります。両方のキーはBaiduアプリケーションコンソールから取得できます。
 
-**Manage Settings**ページで、Android Chinaアプリを選択し、プッシュ通知セクションにBaidu API KeyとBaidu Secret Keyを入力する。
+**設定の管理**ページで、Android Chinaアプリを選択し、プッシュ通知セクションにBaidu APIキーとBaiduシークレットキーを入力します。
 
-![]({% image_buster /assets/img_archive/baidu_api_key.png %} "APIKey"){: style="max-width:80%;"}
+![APIキー]({% image_buster /assets/img_archive/baidu_api_key.png %} "APIKey"){: style="max-width:80%;"}
 
-## その他のリソース
+## その他のリソース {#additional-resources}
 
 - [Baidu ポータル](https://www.baidu.com/)
-- [百度開発者ポータル](http://developer.baidu.com/)
-- [百度プロジェクトポータル](http://developer.baidu.com/console#app/project)
-- [百度プッシュSDKポータル](http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk)
-- [百度（バイドゥ）統合ドキュメント](http://developer.baidu.com/wiki/index.php?title=docs/frontia/guide-android/overview)
-
+- [Baidu 開発者ポータル](http://developer.baidu.com/)
+- [Baidu プロジェクトポータル](http://developer.baidu.com/console#app/project)
+- [Baidu プッシュ SDK ポータル](http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk)
+- [Baidu 統合ドキュメント](http://developer.baidu.com/wiki/index.php?title=docs/frontia/guide-android/overview)

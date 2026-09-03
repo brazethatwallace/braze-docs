@@ -7,7 +7,7 @@ page_order: 1
 
 # Paramètres de style des messages in-app {#in-app-message-style-settings}
 
-> L'expérience d'édition par glisser-déposer est divisée en deux sections : **Build** et **Preview & Test**. Cet article couvre ce que vous devez savoir pour travailler dans l'onglet **Build** de l'éditeur et suppose que vous avez déjà [créé un message in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/).
+> L'expérience d'édition par glisser-déposer est divisée en deux sections : **Build** et **Preview & Test**. Cet article couvre ce que vous devez savoir pour travailler dans l'onglet **Build** de l'éditeur et suppose que vous avez déjà [créé un message in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop).
 
 ![Onglet « Message Styles ».]({% image_buster /assets/img_archive/dnd_iam_message_styles.png %}){: style="float:right;max-width:25%;margin-left:15px;max-width:30%"}
 
@@ -15,7 +15,7 @@ page_order: 1
 
 Vous pouvez définir certains styles à appliquer à tous les blocs pertinents de votre message in-app depuis l'onglet **Message Styles**. Par exemple, vous pouvez personnaliser la police de tout le texte ou la couleur de tous les liens de votre message.
 
-Les styles de cette section sont utilisés partout dans votre message, sauf lorsque vous les remplacez pour un bloc spécifique. Si votre message comporte [plusieurs pages]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/#multi-page), vous pouvez également remplacer les styles au niveau du message pour des pages individuelles, à l'exception du type d'affichage et de la largeur maximale.
+Les styles de cette section sont utilisés partout dans votre message, sauf lorsque vous les remplacez pour un bloc spécifique. Si votre message comporte [plusieurs pages]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop#multi-page), vous pouvez également remplacer les styles au niveau du message pour des pages individuelles, à l'exception du type d'affichage et de la largeur maximale.
 
 Pour une expérience de conception plus simple, nous vous recommandons de configurer les styles au niveau du message avant de personnaliser les styles au niveau des blocs.
 
@@ -26,7 +26,7 @@ Pour revenir à l'onglet **Message Styles** à tout moment :
 
 ### Polices personnalisées {#custom-fonts}
 
-Nous acceptons les types de fichiers suivants pour les polices : `.ttf`, `.woff`, `.otf` et `.woff2`. Pour plus d'informations, consultez [Fichiers de ressources]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#asset-files).
+Nous acceptons les types de fichiers suivants pour les polices : `.ttf`, `.woff`, `.otf` et `.woff2`. Pour plus d'informations, consultez [Fichiers de ressources]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#asset-files).
 
 Vous pouvez ajouter plusieurs variantes d'une famille de polices, car certaines options de style peuvent ne pas être disponibles pour les polices personnalisées. Actuellement, nous ne prenons pas en charge l'ajout de polices via URL.
 
@@ -48,7 +48,7 @@ L'éditeur par glisser-déposer utilise deux composants clés pour composer les 
 
 ### Bouton de fermeture X {#close-x-button}
 
-Pour les messages in-app de type fenêtre modale et plein écran, vous pouvez personnaliser le bouton de fermeture affiché sous la forme <i class="fa-solid fa-xmark"></i> dans le coin supérieur droit de votre message. Les options de personnalisation incluent la position du bouton, la taille, la couleur de remplissage, la couleur d'arrière-plan, le style de bordure et le rayon de bordure.
+Pour les messages in-app de type fenêtre modale et plein écran, vous pouvez personnaliser le bouton de fermeture affiché sous la forme <i class="fa-solid fa-xmark"></i> en haut de votre message. Les options de personnalisation incluent la position du bouton, la taille, la couleur de remplissage, la couleur d'arrière-plan, le style de bordure et le rayon de bordure.
 
 ![Options de personnalisation du bouton de fermeture X dans les messages in-app, incluant la taille du bouton, la couleur de remplissage, la couleur d'arrière-plan, le style de bordure et le rayon de bordure.]({% image_buster /assets/img_archive/close_x_button.png %}){: style="max-width:40%"}
 
@@ -76,7 +76,7 @@ En tant que bonne pratique, formatez les propriétés de vos lignes et colonnes 
 
 #### Image d'arrière-plan {#background-image}
 
-Vous pouvez ajouter une image d'arrière-plan à une ligne dans le panneau **Row properties**. Activez **Background image**, puis fournissez une URL d'image ou sélectionnez une image depuis la [bibliothèque multimédia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/). Enfin, configurez votre texte alternatif, la taille, la position et si l'image se répète pour créer des motifs sur toute la ligne.
+Vous pouvez ajouter une image d'arrière-plan à une ligne dans le panneau **Row properties**. Activez **Background image**, puis fournissez une URL d'image ou sélectionnez une image depuis la [bibliothèque multimédia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). Enfin, configurez votre texte alternatif, la taille, la position et si l'image se répète pour créer des motifs sur toute la ligne.
 
 ![Image d'arrière-plan d'une ligne représentant une pizza avec un motif de répétition horizontal.]({% image_buster /assets/img_archive/background_row.png %})
 
@@ -90,9 +90,11 @@ Avant d'ajouter des blocs, configurez les [styles au niveau du message](#set-mes
 
 ![Boîtes de glisser-déposer à sélectionner.]({% image_buster /assets/img_archive/dnd_iam_editor_blocks.png %}){: style="max-width:40%"}
 
-Chaque bloc possède ses propres paramètres, comme un contrôle granulaire du remplissage. Le panneau de droite bascule automatiquement vers un panneau de style pour l'élément de contenu sélectionné. Pour plus d'informations, consultez [Propriétés des blocs éditeur]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages#inappmessages_properties).
+Chaque bloc possède ses propres paramètres, comme un contrôle granulaire du remplissage. Le panneau de droite bascule automatiquement vers un panneau de style pour l'élément de contenu sélectionné. Pour plus d'informations, consultez [Propriétés des blocs éditeur]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages#inappmessages_properties).
 
 Lors de la création de votre message in-app, vous pouvez sélectionner une vue mobile, tablette ou ordinateur de bureau dans la barre d'outils pour prévisualiser l'apparence de votre message in-app pour vos groupes d'utilisateurs. Cela garantit que votre contenu est responsive, et vous pouvez effectuer les ajustements nécessaires au fur et à mesure.
+
+{% multi_lang_include drag_and_drop/hide_rows_and_blocks_by_device.md channel='in_app_message' %}
 
 ## Détails créatifs {#creative-details}
 
@@ -102,7 +104,7 @@ Sur une tablette ou un navigateur de bureau, un message in-app en plein écran s
 
 ![Exemple de message in-app en plein écran.]({% image_buster /assets/img_archive/dnd_iam_fullscreen_example.png %}){: style="border:none"}
 
-### Ajout d'une image d'arrière-plan {#adding-a-background-image}
+### Ajouter une image d'arrière-plan {#add-a-background-image}
 
 Vous pouvez ajouter une image à l'arrière-plan de votre message depuis l'onglet **Message styles**.
 
@@ -114,17 +116,42 @@ Vous pouvez ajouter une image à l'arrière-plan de votre message depuis l'ongle
 Si vous avez du mal à sélectionner un bloc spécifique, vous pouvez utiliser la flèche vers le haut dans la barre d'outils intégrée du bloc pour déplacer le focus vers chaque bloc parent.
 {% endalert %}
 
-### Ajout de Liquid {#adding-liquid}
+#### Permuter les images d'arrière-plan avec Liquid {#swap-background-images-with-liquid}
+
+Pour permuter dynamiquement les images d'arrière-plan en fonction des données utilisateur (comme les attributs personnalisés ou les propriétés utilisateur), utilisez des blocs Liquid {% raw %}`{% capture %}`{% endraw %} pour assigner l'URL d'image correcte à une variable avant le chargement du HTML et du CSS.
+
+Placez votre logique Liquid au début de votre message, puis référencez la variable capturée dans le champ URL de l'image d'arrière-plan. Cela sélectionne l'image correcte en fonction des données de chaque utilisateur.
+
+Après avoir capturé l'URL de l'image, utilisez {% raw %}`{{ image_url | strip }}`{% endraw %} pour afficher l'URL sans espaces superflus. Vous pouvez ensuite coller ce Liquid dans le champ URL de l'image d'arrière-plan pour afficher dynamiquement différentes images pour différents utilisateurs.
+
+##### Exemple {#example}
+
+{% raw %}
+```liquid
+{% capture image_url %}
+{% if {{custom_attribute.${membership_tier}}} == 'gold' %}
+https://example.com/images/gold-background.png
+{% elsif {{custom_attribute.${membership_tier}}} == 'silver' %}
+https://example.com/images/silver-background.png
+{% else %}
+https://example.com/images/default-background.png
+{% endif %}
+{% endcapture %}
+{{ image_url | strip }}
+```
+{% endraw %}
+
+### Ajouter du Liquid {#add-liquid}
 
 ![Icône pour ajouter la personnalisation Liquid.]({% image_buster /assets/img_archive/dnd_iam_liquid.png %}){: style="float:right;max-width:25%;margin-left:15px"}
 
-Pour ajouter du [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) dans votre message in-app, sélectionnez <i class="fa-solid fa-circle-plus"></i> **Add Personalization** depuis la barre d'outils de l'éditeur. Ici, vous pouvez ajouter différents types de personnalisation tels que les attributs par défaut, les attributs d'appareil, les attributs personnalisés, et plus encore.
+Pour ajouter du [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) dans votre message in-app, sélectionnez <i class="fa-solid fa-circle-plus"></i> **Add Personalization** depuis la barre d'outils de l'éditeur. Ici, vous pouvez ajouter différents types de personnalisation tels que les attributs par défaut, les attributs d'appareil, les attributs personnalisés, et plus encore.
 
 Ensuite, prenez votre extrait de code Liquid généré et insérez-le dans votre message. Après avoir conçu et créé votre message in-app, accédez à **Preview & Test** pour prévisualiser votre message.
 
-### Utilisation du rédacteur IA {#using-the-ai-copywriter}
+### Utiliser le rédacteur IA {#use-the-ai-copywriter}
 
-Lorsqu'un bloc de texte est sélectionné dans votre message in-app, sélectionnez <i class="fa-solid fa-wand-magic-sparkles" title="Rédacteur IA"></i> **Rédacteur IA** dans la barre d'outils du bloc pour lancer l'[assistant de rédaction alimenté par l'IA]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/). L'assistant de rédaction IA transmet un bref nom ou une description de produit à l'outil de génération de texte GPT3 d'OpenAI pour générer un texte marketing semblable à celui d'un humain pour vos messages.
+Lorsqu'un bloc de texte est sélectionné dans votre message in-app, sélectionnez <i class="fa-solid fa-wand-magic-sparkles" title="Rédacteur IA"></i> **AI copywriter** dans la barre d'outils du bloc pour lancer l'[assistant de rédaction alimenté par l'IA]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy). L'assistant de rédaction IA transmet un bref nom ou une description de produit à l'outil de génération de texte GPT3 d'OpenAI pour générer un texte marketing au ton naturel pour vos messages.
 
 {% alert tip %}
 Vous pouvez gagner quelques clics en surlignant le texte à l'intérieur du bloc avant de cliquer sur l'icône. Le texte surligné sera ajouté à l'outil, et le texte sera généré immédiatement.
@@ -132,7 +159,7 @@ Vous pouvez gagner quelques clics en surlignant le texte à l'intérieur du bloc
 
 ![GIF du rédacteur IA.]({% image_buster /assets/img_archive/dnd_iam_ai_copywriter.gif %})
 
-### Réinitialisation des styles par défaut {#resetting-styles-to-default}
+### Réinitialiser les styles par défaut {#reset-styles-to-default}
 
 Les propriétés que vous avez modifiées par rapport à leur style par défaut sont marquées d'un point orange. Pour réinitialiser une propriété spécifique à son style par défaut, survolez le champ et sélectionnez **Reset to default**.
 
@@ -140,7 +167,7 @@ Les propriétés que vous avez modifiées par rapport à leur style par défaut 
 
 Vous pouvez également réinitialiser tous les styles d'un élément sélectionné en cliquant sur <i class="fas fa-paintbrush" title="Copier ou coller les styles"></i> à côté du nom du panneau de propriétés et en sélectionnant **Reset to default styles**.
 
-### Copier et coller des styles {#copying-and-pasting-styles}
+### Copier et coller des styles {#copy-and-paste-styles}
 
 Après avoir modifié le style d'un élément, vous pouvez copier et coller ces styles sur un autre élément. Lors du collage des styles, seules les propriétés pertinentes pour cet élément sont appliquées.
 

@@ -10,7 +10,6 @@ channel:
   - push
 tool:
   - Campaigns
-
 ---
 
 # Create rich push notifications for iOS
@@ -21,7 +20,7 @@ tool:
 
 Before you create a rich push notification for iOS, note the following details:
 
-- To ensure your app can send rich notifications, follow the [iOS push integration]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#ios-10-rich-notifications) instructions, as your developer will need to add a service extension to your app.
+- To ensure your app can send rich notifications, follow the [iOS push integration]({{site.baseurl}}/developer_guide/push_notifications/rich?sdktab=swift) instructions, as your developer will need to add a service extension to your app.
 - File types that we currently support for direct uploading within our dashboard include JPEG, PNG, or GIF. These files can also be entered into the templatable URL field along with these additional file types: AIF, M4A, MP3, MP4, or WAV.
 - Reference [Apple's documentation](https://developer.apple.com/reference/usernotifications/unnotificationattachment) for media limitations and specs.
 - iOS will scale images to fit in the screen and will scale rich images for the active or locked view.
@@ -36,7 +35,7 @@ Push notification images may not show as expected if the file size for the image
 
 ### Character count
 
-While we can't provide a hard and fast rule for the precise number of characters to include in a push, we [provide some guidelines]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats/) to consider while designing iOS messages. There may be some variance depending on the presence of an image, the notification state and display setting of the user's device, and the size of the device. When in doubt, keep it short and sweet.
+While we can't provide a hard and fast rule for the precise number of characters to include in a push, we [provide some guidelines]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats) to consider while designing iOS messages. There may be some variance depending on the presence of an image, the notification state and display setting of the user's device, and the size of the device. When in doubt, keep it short and sweet.
 
 As a best practice, Braze recommends keeping each line of text for both the optional title and message body to approximately 30-40 characters in a mobile push notification.
 
@@ -125,7 +124,7 @@ The following details can also impact text truncation:
 
 ### Step 1: Create a push campaign
 
-Follow the [campaign steps]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/#creating-a-push-message) to compose a push notification for iOS. You will be using the same composer that you use for setting up push notifications that do not contain rich content.
+Follow the [campaign steps]({{site.baseurl}}/user_guide/channels/push/create_a_push_message) to compose a push notification for iOS. You will be using the same composer that you use for setting up push notifications that do not contain rich content.
 
 ### Step 2: Add media
 
@@ -139,7 +138,7 @@ You can also limit this message to only send to users who have a device that run
 
 ### Step 3: Continue creating your campaign
 
-Once your rich notification content is uploaded to the dashboard, you can continue [scheduling your campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/#schedule-push-campaign).
+Once your rich notification content is uploaded to the dashboard, you can continue [scheduling your campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#choose-delivery-schedule-or-trigger).
 
 When a user receives the push notification, they can hard press on the push message to expand the image.
 

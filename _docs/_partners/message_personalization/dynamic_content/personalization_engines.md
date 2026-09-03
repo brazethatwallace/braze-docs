@@ -1,4 +1,30 @@
 ---
-nav_title: Personalization Engines
-config_only: true
+nav_title: "Personalization Engines"
+article_title: Personalization Engines
+page_type: landing
+description: "Browse technology partner integrations for Personalization Engines."
+layout: dev_guide
+search_tag: Partner
+
+guide_top_header: "Personalization Engines"
+guide_top_text: "Browse technology partner integrations for Personalization Engines. For a full searchable and filterable list of all Braze technology partners, visit the <a href='https://marketplace.braze.com/t/type/technology-partner'>Braze Marketplace</a>."
+
+guide_featured_title: "Partners"
+guide_featured_list:
+  - name: "Amazon Personalize"
+    link: /docs/partners/message_personalization/dynamic_content/personalization_engines/amazon_personalize
+    image: /assets/img/braze_icons/zap.svg
+  - name: "Dynamic Yield"
+    link: /docs/partners/message_personalization/dynamic_content/personalization_engines/dynamic_yield
+    image: /assets/img/braze_icons/layers-three-01.svg
+  - name: "Limbik"
+    link: /docs/partners/message_personalization/dynamic_content/personalization_engines/limbik
+    image: /assets/img/braze_icons/bar-chart-01.svg
+  - name: "Movable Ink"
+    link: /docs/partners/message_personalization/dynamic_content/personalization_engines/movable_ink
+    image: /assets/img/braze_icons/dataflow-01.svg
+  - name: "Sheetlabs"
+    link: /docs/partners/message_personalization/dynamic_content/personalization_engines/sheetlabs
+    image: /assets/img/braze_icons/users-01.svg
 ---
+

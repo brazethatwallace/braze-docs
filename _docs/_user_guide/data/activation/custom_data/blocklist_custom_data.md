@@ -8,7 +8,7 @@ description: "This reference article covers how to blocklist and delete custom e
 
 # Blocklist custom data
 
-> Use blocklisting to stop tracking custom data that is no longer useful. Use deletion to permanently remove custom events and attributes from user profiles after blocklisting. For pre-populating, managing properties, and configuring data types, see [Manage custom data]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/).
+> Use blocklisting to stop tracking custom data that is no longer useful. Use deletion to permanently remove custom events and attributes from user profiles after blocklisting. For pre-populating, managing properties, and configuring data types, see [Manage custom data]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data).
 
 ## Blocklisting custom data
 
@@ -25,7 +25,7 @@ Blocklisting pushes blocklist information to each user's device and can be data-
 
 Regardless of whether you blocklist or delete, those custom attributes, events, and purchases no longer appear on the **Manage Workspace** page and are removed as segment filters. If you delete custom data, Braze removes that user-level data from profiles according to [How deletion works](#how-deletion-works).
 
-To blocklist custom data, you need the [user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) in the following dropdown for your workspace.
+To blocklist custom data, you need the [user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) in the following dropdown for your workspace.
 
 {% details User permissions for blocklisting custom data %}
 
@@ -87,7 +87,7 @@ To stop tracking a specific custom attribute, event, or product, follow these st
 
 ![Multiple selected custom attributes that are blocklisted on the Custom Attributes page.]({% image_buster /assets/img_archive/blocklist_custom_attr.png %})
 
-You can blocklist up to 300 custom attributes and 300 custom events. To prevent collecting certain device attributes, see our [SDK guide]({{site.baseurl}}/developer_guide/platform_integration_guides/sdk_primer/#blocking-data-collection). 
+You can blocklist up to 300 custom attributes and 300 custom events. To prevent collecting certain device attributes, see our [SDK guide]({{site.baseurl}}/developer_guide/getting_started/sdk_overview#blocking-data-collection). 
 
 {% alert important %}
 Custom attributes or custom events with a **Trashed** status count towards the blocklisting limit until they're deleted.
@@ -114,7 +114,7 @@ Up to 300 items are sent to the SDK for blocklisting. If you blocklist more than
 As you build targeted campaigns and segments, you may find that you no longer need a custom event or custom attribute. For example, if you used a specific custom attribute as part of a one-time campaign, you can delete this data after [blocklisting it](#blocklisting-custom-attributes-custom-events-and-products) and remove its references from your app. You can delete any data types (such as strings, numbers, and nested custom attributes).
 
 {% alert important %}
-You must be a [Braze admin]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#admin) to delete custom data.
+You must be a [Braze admin]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#admin) to delete custom data.
 {% endalert %}
 
 To delete a custom event or custom attribute, do the following:

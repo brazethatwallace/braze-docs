@@ -4,17 +4,17 @@ article_title: ワークスペース設定
 page_order: 4
 layout: dev_guide
 guide_top_header: "ワークスペース設定"
-guide_top_text: "ワークスペース設定は、現在表示しているワークスペースにのみ適用されます。これらの設定を使用して、API キーの管理、メールやプッシュの設定、ブランドガイドラインの設定、ログやアラートによるワークスペースアクティビティの監視を行います。<br><br><b>ワークスペース設定</b>内のほとんどの機能は、Braze アカウント管理者のみが利用できます。アクセス権がないが必要だと思われる場合は、会社の Braze アカウント管理者にお問い合わせください。すべてのワークスペースに影響する会社全体の設定については、<a href='/docs/user_guide/administer/global/admin_settings'>管理者設定</a>を参照してください。"
+guide_top_text: "ワークスペース設定は、現在表示しているワークスペースにのみ適用されます。これらの設定を使用して、APIキーの管理、メールやプッシュの設定、ブランドガイドラインの設定、ログやアラートによるワークスペースアクティビティの監視を行います。<br><br><b>ワークスペース設定</b>内のほとんどの機能は、Brazeアカウント管理者のみが利用できます。アクセス権がないが必要だと思われる場合は、会社のBrazeアカウント管理者にお問い合わせください。MCPアクセスを含む会社全体のOAuthポリシーは、<a href='/docs/user_guide/administer/global/admin_settings'>管理者設定</a> で構成されます。"
 
 page_type: landing
-description: "このセクションでは、ワークスペースレベルの設定（API キー、ブランドガイドライン、メール設定、ログとアラートなど）について説明します。"
+description: "このセクションでは、ワークスペースレベルの設定（APIと識別子、ブランドガイドライン、メール設定、ログとアラートなど）について説明します。"
 
 guide_featured_title: "セクション記事"
 guide_featured_list:
-- name: API キー
+- name: APIと識別子
   link: /docs/user_guide/administer/global/workspace_settings/apis_and_identifiers
   image: /assets/img/braze_icons/key-01.svg
-- name: ブランドガイドライン
+- name: ブランド・ガイドライン
   link: /docs/user_guide/administer/global/workspace_settings/brand_guidelines
   image: /assets/img/braze_icons/edit-05.svg
 - name: メール設定
@@ -38,6 +38,9 @@ guide_featured_list:
 - name: メッセージングレート制限
   link: /docs/user_guide/administer/global/workspace_settings/messaging_rate_limits
   image: /assets/img/braze_icons/mail-01.svg
+- name: OAuthとMCPアクセス
+  link: /docs/user_guide/administer/global/workspace_settings/oauth_settings
+  image: /assets/img/braze_icons/lock-04.svg
 ---
 
 <br>

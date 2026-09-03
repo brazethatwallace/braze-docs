@@ -12,35 +12,35 @@ description: "このランディングページには、ユーザーデータの
 guide_featured_title: "セクションの記事"
 guide_featured_list:
   - name: SDKによるデータ収集
-    link: /docs/user_guide/data/unification/user_data/sdk_data_collection/
+    link: /docs/user_guide/data/unification/user_data/sdk_data_collection
     image: /assets/img/braze_icons/bar-chart-01.svg
   - name: ユーザープロファイルのライフサイクル
-    link: /docs/user_guide/data/unification/user_data/user_profile_lifecycle/
+    link: /docs/user_guide/data/unification/user_data/user_profile_lifecycle
     image: /assets/img/braze_icons/refresh-ccw-05.svg
   - name: 収集のユースケース
-    link: /docs/user_guide/data/unification/user_data/collection_use_case/
+    link: /docs/user_guide/data/unification/user_data/collection_use_case
     image: /assets/img/braze_icons/data.svg
   - name: 収集のベストプラクティス
-    link: /docs/user_guide/data/unification/user_data/best_practices/
+    link: /docs/user_guide/data/unification/user_data/best_practices
     image: /assets/img/braze_icons/thumbs-up.svg
   - name: ユーザーをインポートする
-    link: /docs/user_guide/audience/manage_audience/import_users/
+    link: /docs/user_guide/audience/manage_audience/import_users
     image: /assets/img/braze_icons/users-01.svg
   - name: ユーザーを削除する
-    link: /docs/user_guide/audience/manage_audience/user_profiles/delete_users/
+    link: /docs/user_guide/audience/manage_audience/user_profiles/delete_users
     image: /assets/img/braze_icons/edit-05.svg
   - name: 匿名ユーザー
-    link: /docs/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users/
+    link: /docs/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users
     image: /assets/img/braze_icons/user-circle.svg
   - name: 言語コード
-    link: /docs/user_guide/data/unification/user_data/language_codes/
+    link: /docs/user_guide/data/unification/user_data/language_codes
     image: /assets/img/braze_icons/globe-04.svg
 ---
 
 <br>
 
 {% alert important %}
-Brazeは、セッション数が500万を超えるユーザー（「ダミーユーザー」）を禁止またはブロックし、SDKイベントの取り込みを停止します。これは通常、誤った連携の結果であるためです。正当なユーザーでこのような事態が発生した場合は、Brazeアカウントマネージャーにご連絡ください。
+Brazeは、セッション数が5,000,000を超える、個別のカスタムイベント名が20,000を超える、または購入における個別の商品名が20,000を超えるユーザープロファイル（「ダミーユーザー」）をブロックします。これは通常、誤った連携の結果であるためです。プロファイルがブロックされると、Brazeはそのプロファイルへのすべての受信データ（SDKおよびREST APIの両方からのデータ）の取り込みを停止します。正当なユーザーでこのような事態が発生した場合は、Brazeアカウントマネージャーにご連絡ください。
 {% endalert %}
 
 <br>

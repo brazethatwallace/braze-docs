@@ -14,7 +14,7 @@ tool: Canvas
 Neste artigo, vamos apresentar um caso de uso do modelo **Abandoned Intent**, que é destinado à etapa de consideração do ciclo de vida do usuário. Ao final deste artigo, você terá personalizado uma jornada do usuário que incentiva compras de usuários que não concluíram suas compras após adicionar itens aos carrinhos.
 
 {% alert tip %}
-Use o [BrazeAI Operator<sup>TM</sup>]({{site.baseurl}}/user_guide/brazeai/operator/) para configurar e personalizar este modelo. Selecione **BrazeAI Operator<sup>TM</sup>** ao lado do seu perfil de usuário ao criar ou editar seu Canvas. Em seguida, descreva seu objetivo, como "Me ajude a configurar o modelo Abandoned Intent para reengajar usuários que abandonaram o carrinho".
+Use o [BrazeAI Operator<sup>TM</sup>]({{site.baseurl}}/user_guide/brazeai/operator) para configurar e personalizar este modelo. Selecione **BrazeAI Operator<sup>TM</sup>** ao lado do seu perfil de usuário ao criar ou editar seu Canvas. Em seguida, descreva seu objetivo, como "Me ajude a configurar o modelo Abandoned Intent para reengajar usuários que abandonaram o carrinho".
 {% endalert %}
 
 ## Pré-requisitos {#prerequisites}
@@ -22,13 +22,13 @@ Use o [BrazeAI Operator<sup>TM</sup>]({{site.baseurl}}/user_guide/brazeai/operat
 Para usar este modelo com sucesso, você precisará do seguinte:
 
 - Uma jornada de Canvas separada para pós-compra, já que realizar uma compra neste Canvas fará com que os usuários saiam do Canvas.
-- Uma [Sincronização de Público da Braze]({{site.baseurl}}/partners/canvas_audience_sync/) configurada com os parceiros e públicos que você utiliza.
+- Uma [Sincronização de Público da Braze]({{site.baseurl}}/partners/canvas_audience_sync) configurada com os parceiros e públicos que você utiliza.
 
 ## Adaptando o modelo às suas necessidades {#tailoring-the-template-to-your-needs}
 
 Digamos que trabalhamos na Kitchenerie, uma marca de varejo especializada em utensílios de cozinha, e nosso objetivo é reengajar usuários que adicionaram o produto mais recente, "Enormous Paper Plate", aos seus carrinhos, mas não concluíram suas compras.
 
-Antes de criar o Canvas, configuramos a integração [Sincronização de Público da Braze com o Facebook]({{site.baseurl}}/partners/canvas_audience_sync/facebook_audience_sync/) para que possamos adicionar dados de usuários da Braze aos públicos do Facebook e enviar anúncios com base em gatilhos comportamentais, segmentação e muito mais.
+Antes de criar o Canvas, configuramos a integração [Sincronização de Público da Braze com o Facebook]({{site.baseurl}}/partners/canvas_audience_sync/facebook_audience_sync) para que possamos adicionar dados de usuários da Braze aos públicos do Facebook e enviar anúncios com base em gatilhos comportamentais, segmentação e muito mais.
 
 O modelo **Abandoned Intent** segue este fluxo: verificar compra, enviar um lembrete imediato, aguardar, direcionar para o canal ideal, fazer acompanhamento, verificar novamente e redirecionar os que não converteram. Ele inclui as seguintes etapas:
 
@@ -37,7 +37,7 @@ O modelo **Abandoned Intent** segue este fluxo: verificar compra, enviar um lemb
 | Jornadas de ação | Made purchase? | Primeira verificação de conclusão; usuários que já compraram saem do Canvas. |
 | Mensagem | Itemized Reminder | Lembrete imediato do carrinho enviado logo após a entrada. |
 | Postergação | Delay | Espera de 30 minutos para que o acompanhamento chegue enquanto o produto ainda está fresco na memória. |
-| Jornadas do público | Intelligent Channel split | Direciona os usuários para e-mail ou SMS com base na classificação do [Canal Inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel/). |
+| Jornadas do público | Intelligent Channel split | Direciona os usuários para e-mail ou SMS com base na classificação do [Canal Inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel). |
 | Mensagem | Abandoned Cart Email, Abandoned Cart SMS e Abandoned Cart In-App Message | Acompanhamentos específicos por canal. O Canal Inteligente seleciona entre e-mail e SMS; a mensagem no app é enviada em uma jornada separada no modelo. |
 | Jornadas de ação | Made purchase? (2) | Segunda verificação de conclusão antes do redirecionamento. |
 | Sincronização de Público | Ad Retargeting | Sincroniza os que não converteram com públicos de anúncios (como Facebook) para redirecionamento fora do canal. |
@@ -73,8 +73,8 @@ Se o seu espaço de trabalho usa o evento de conversão **Places order**, as op�
 O modelo **Abandoned Intent** usa um cronograma de entrada **Disparado por API** para que você possa inserir os usuários no Canvas assim que eles abandonarem o carrinho. Isso se encaixa no nosso caso de uso porque queremos responder enquanto o produto ainda está fresco na memória.
 
 1. Mantenha **API-Triggered** como o tipo de cronograma de entrada.
-2. Anote o ID do Canvas e use o [endpoint `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/) para adicionar usuários quando seu app ou site detectar um carrinho abandonado.
-3. Opcionalmente, você pode passar [variáveis de contexto]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/) (como nome do produto ou detalhes do carrinho) para personalizar as mensagens subsequentes.
+2. Anote o ID do Canvas e use o [endpoint `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases) para adicionar usuários quando seu app ou site detectar um carrinho abandonado.
+3. Opcionalmente, você pode passar [variáveis de contexto]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables) (como nome do produto ou detalhes do carrinho) para personalizar as mensagens subsequentes.
 
 Se preferir uma entrada baseada em ação, selecione **Action-Based** e escolha um gatilho que corresponda à forma como sua marca rastreia carrinhos abandonados — por exemplo, **Perform Custom Event** para um evento `abandoned_cart` registrado.
 
@@ -82,7 +82,7 @@ Se preferir uma entrada baseada em ação, selecione **Action-Based** e escolha 
 
 Em seguida, vamos definir nosso público-alvo como usuários que compraram exclusivamente online conosco nos últimos 90 dias. Isso nos ajuda a restringir nosso público a usuários que sabemos que estão engajados com nossos produtos.
 
-!["Online Shoppers Segment - 90 Days" como o Segment de usuários a ser direcionado para este Canvas.]({% image_buster /assets/img/canvas_templates/abandoned_intent3.png %})
+!["Online Shoppers Segment - 90 Days" como o segmento de usuários a ser direcionado para este Canvas.]({% image_buster /assets/img/canvas_templates/abandoned_intent3.png %})
 
 Vamos manter os controles de entrada como estão, para que os usuários não possam reentrar neste Canvas e não haja limite para o número de pessoas que podem potencialmente entrar neste Canvas.
 
@@ -107,12 +107,12 @@ Personalize as etapas do Canvas na ordem em que os usuários as experimentam:
 2. Mantenha a etapa de **Postergação** como está. O modelo usa uma postergação de 30 minutos antes do envio das mensagens de acompanhamento, dando aos usuários tempo para concluir a compra enquanto o produto ainda está fresco na memória.
 
 {% alert tip %}
-Você pode usar as [propriedades de contexto do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/) para personalizar as mensagens no seu Canvas com base no produto ao qual você está se referindo.
+Você pode usar as [propriedades de contexto do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) para personalizar as mensagens no seu Canvas com base no produto ao qual você está se referindo.
 {% endalert %}
 
 #### Direcionar para o canal ideal {#route-to-the-optimal-channel}
 
-1. Revise a etapa de Jornadas do público **Intelligent Channel split**. Ela direciona os usuários para **Abandoned Cart Email** ou **Abandoned Cart SMS** com base na classificação do [Canal Inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel/). Ajuste as jornadas conforme necessário.
+1. Revise a etapa de Jornadas do público **Intelligent Channel split**. Ela direciona os usuários para **Abandoned Cart Email** ou **Abandoned Cart SMS** com base na classificação do [Canal Inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel). Ajuste as jornadas conforme necessário.
 2. Personalize as etapas **Abandoned Cart Email**, **Abandoned Cart SMS** e **Abandoned Cart In-App Message**. Selecione **Edit message** em cada etapa para atualizar o texto e a mensagem daquele canal. A mensagem no app é executada em uma jornada separada da divisão do Canal Inteligente e não é selecionada pela classificação do Canal Inteligente.
 
 #### Redirecionar os que não converteram {#retarget-non-converters}
@@ -126,5 +126,5 @@ Você pode usar as [propriedades de contexto do Canvas]({{site.baseurl}}/user_gu
 Após testar e revisar nosso Canvas para garantir que ele funcione conforme esperado, selecione **Launch Canvas** para lançar o Canvas. Agora, podemos direcionar usuários de forma consciente com uma jornada personalizada para incentivá-los a finalizar a compra do produto que adicionaram aos seus carrinhos!
 
 {% alert tip %}
-Confira nossa [Lista de verificação pré e pós-lançamento]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist/#things-to-consider-before-launch) para saber o que considerar antes e depois de lançar um Canvas.
+Confira nossa [Lista de verificação pré e pós-lançamento]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist#things-to-consider-before-launch) para saber o que considerar antes e depois de lançar um Canvas.
 {% endalert %}

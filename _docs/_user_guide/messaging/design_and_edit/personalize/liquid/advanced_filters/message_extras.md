@@ -24,6 +24,10 @@ Here's an example of the standard Liquid tag format for `message_extras`:
 
 You can add these tags as needed for your key-value pairs in the message body. However, the length of all keys and values should not exceed 1,000 bytes (1&nbsp;KB). In Currents and Snowflake Data Sharing, you can see a new event field called `message_extras` for your send events. This generates a JSON-serialized string in one field.
 
+{% alert note %}
+Email extras send metadata to email service providers and are not published to Currents or Snowflake. To add metadata or dynamic values to Currents or Snowflake send events, use the `message_extras` Liquid tag.
+{% endalert %}
+
 ## How message extras data is sent using Currents
 
 **Message extras** are key-value pairs attached at send time. Configuration depends on the channel. For email, they are added using headers. For iOS push, they are included in the push payload. All supported send events surface the same `message_extras` field in Currents (and Snowflake) once the message is sent.
@@ -40,27 +44,27 @@ The `message_extras` tag is supported for all message types with a send event, a
 
 {: start="2"}
 
-2. Enter the [key-value pair]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs/) for each `message_extras` tag. 
+2. Enter the [key-value pair]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs) for each `message_extras` tag. 
 
 ![An example of key-value pairs for the message extras tag. The title field reads "Your New Favorites." The message reads key-value pairs for the message extras tag and the following sentence: "We're excited to bring you a side selection of fresh and exciting products that are sure to become your new go-to favorites"]({% image_buster /assets/img_archive/message_extras2.png %}){: style="max-width:70%;"}
 
 {: start="3"}
 
-3. After your campaign or Canvas has been sent, Braze will attach the dynamic data at the send time via the Currents or Snowflake Data Sharing send events to the `message_extras` field.
+3. After your campaign or Canvas has been sent, Braze attaches the dynamic data at send time to the `message_extras` field in Currents or Snowflake Data Sharing send events.
 
 ## Checking syntax
 
-Any other input that doesn't match the tag standard discussed above may fail to pass to Currents or Snowflake. Check that your syntax or formatting doesn't include any of the following:
+Any other input that doesn't match the tag standard discussed earlier in this section may fail to pass to Currents or Snowflake. Check that your syntax or formatting doesn't include any of the following:
 
 - Non-existent, empty, or mistyped delimiters
-- Duplicate keys (Braze will default to sending the key-value pair that is encountered first)
+- Duplicate keys (Braze defaults to sending the key-value pair that is encountered first)
 - Extra text before keys or values are defined
 - Out of order keys and values 
   - {% raw %}For example, ```{% message_extras :value 123 :key test %}```{% endraw %}
 
 ## Sending promotion code information to Currents
 
-{% multi_lang_include shopify.md section='Liquid promotion codes with Currents' %}
+{% multi_lang_include partners/shopify.md section='Liquid promotion codes with Currents' %}
 
 ## Considerations
 
@@ -68,13 +72,13 @@ Any other input that doesn't match the tag standard discussed above may fail to 
 - Whitespace counts toward the character count. Note that Braze omits the leading and trailing whitespaces.
 - The resulting JSON outputs string values only.
 - You can include Liquid variables as a key or value, but you cannot nest additional Liquid tags inside `message_extras`.
-  - For example, you could use the following Liquid: {% raw %}```{% assign value = '123' %} {% assign key = 'test' %} {% message_extras :key {{key}} :value {{value}} %}```{% endraw %}
+  - For example, you can use the following Liquid: {% raw %}```{% assign value = '123' %} {% assign key = 'test' %} {% message_extras :key {{key}} :value {{value}} %}```{% endraw %}
 
 ## Frequently asked questions
 
-#### How can I associate the message_extras field in the send events to my engagement events like opens and clicks? 
+### How can I associate the message_extras field in the send events to my engagement events like opens and clicks? 
 
-A `dispatch_id` is generated and provided in your send events, which you can use as a unique identifier to tie to specific click, open, or delivered events. Query this field in Currents or Snowflake. For more information, see [Dispatch ID behavior]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/).
+A `dispatch_id` is generated and provided in your send events, which you can use as a unique identifier to tie to specific click, open, or delivered events. Query this field in Currents or Snowflake. For more information, see [Dispatch ID behavior]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id).
 
 #### Can I use message_extras with in-app messages? {#iam-sdk}
 

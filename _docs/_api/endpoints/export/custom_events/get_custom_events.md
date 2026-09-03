@@ -20,7 +20,7 @@ description: "This article outlines details about the Export custom events list 
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `events.list` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `events.list` permission.
 
 ## Rate limit
 
@@ -43,7 +43,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/events/list?page=3'
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
+    "message": (string) returns 'success' when the request completes without errors,
     "events" : [
         "Event A", (string) the event name,
         "Event B", (string) the event name,
@@ -55,10 +55,10 @@ curl --location --request GET 'https://rest.iad-01.braze.com/events/list?page=3'
 
 ### Fatal error response codes {#fatal-export}
 
-For status codes and associated error messages that will be returned if your request encounters a fatal error, reference [Fatal errors & responses]({{site.baseurl}}/api/errors/#fatal-errors).
+For status codes and associated error messages that will be returned if your request encounters a fatal error, reference [Fatal errors & responses]({{site.baseurl}}/api/errors#fatal-errors).
 
 {% alert tip %}
-For help with CSV and API exports, visit [Export troubleshooting]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+For help with CSV and API exports, visit [Export troubleshooting]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endapi %}

@@ -15,11 +15,11 @@ description: "This article outlines details about the `PUT /media_library/replac
 /media_library/replace_file
 {% endapimethod %}
 
-> Use this endpoint to replace the file of an existing asset in the [Braze media library]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library) while preserving its asset ID and URL. You can provide the replacement file using either an externally hosted URL (`asset_url`) or binary file data sent in the request body (`asset_file`).
+> Use this endpoint to replace the file of an existing asset in the [Braze media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications) while preserving its asset ID and URL. You can provide the replacement file using either an externally hosted URL (`asset_url`) or binary file data sent in the request body (`asset_file`).
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `media_library.replace` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `media_library.replace` permission.
 
 ## Rate limit
 
@@ -131,7 +131,7 @@ This table lists possible processing errors.
 | `UNSUPPORTED_ASSET_TYPE_FOR_REPLACE` | 400 | File replacement is not supported for this asset type (for example, video). The `meta` object includes `asset_type`. |
 | `ASSET_SIZE_EXCEEDS_LIMIT` | 400 | The file exceeds the maximum allowed size. The `meta` object includes `size_limit_bytes` and `file_size_bytes`. |
 | `CORRUPT_FILE` | 400 | The image file is corrupted or unreadable. The `meta` object includes `file_name`. |
-| `GENERIC_ERROR` | 500 | An unexpected error occurred during file replacement. The `meta` object includes `original_error` for debugging. Try again or contact [Support]({{site.baseurl}}/support_contact/). |
+| `GENERIC_ERROR` | 500 | An unexpected error occurred during file replacement. The `meta` object includes `original_error` for debugging. Try again or contact [Support]({{site.baseurl}}/support_contact). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Processing errors" }
 
 ## Response

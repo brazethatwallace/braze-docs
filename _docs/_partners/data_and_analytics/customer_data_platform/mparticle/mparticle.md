@@ -152,7 +152,7 @@ In mParticle, navigate to **Setup > Outputs > Add Outputs** and select **Braze**
 | Enable event stream forwarding | (Server-to-server) When enabled, all events will be forwarded in real-time. If not, all events will be forwarded in bulk. When choosing to enable event stream forwarding, ensure that the data you are passing to Braze will respect [rate limits]({{site.baseurl}}/api/api_limits/). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Configure your Braze output settings" }
 
-![]({% image_buster /assets/img_archive/configure_settings.png %})
+![mParticle Braze output settings with app identifier, identity mapping, and instance fields.]({% image_buster /assets/img_archive/configure_settings.png %})
 
 ### Embedded kit integration
 
@@ -184,7 +184,7 @@ mParticle's [Braze event kit integration guide](https://docs.mparticle.com/integ
 
 In mParticle, navigate to **Connections** > **Connect** > **[Your desired platform]** > **Connect Output** to add Braze as an output. Then, select **Save**.
 
-![]({% image_buster /assets/img_archive/mParticle_event_config.png %})
+![mParticle event kit connection setup for Braze output.]({% image_buster /assets/img_archive/mParticle_event_config.png %})
 
 Not all connection settings will apply to all platforms and integration types. For a breakdown of connection settings and the platforms they apply to, see [mParticle's documentation](https://docs.mparticle.com/integrations/braze/event/#connection-settings).
 
@@ -204,7 +204,7 @@ For server-side data to be forwarded to Braze, it must include an `external_id`;
 
 In mParticle, navigate to **Connections > Connect > [Your desired platform] > Connect Output** to add Braze as an output. **Save** when completed. 
 
-![]({% image_buster /assets/img_archive/mParticle_connections.png %})
+![mParticle Connections screen for adding Braze as an output on a platform.]({% image_buster /assets/img_archive/mParticle_connections.png %})
 
 Not all connection settings will apply to all platforms and integration types. For a breakdown of connection settings and the platforms they apply to, see [mParticle's documentation](https://docs.mparticle.com/integrations/braze/event/#connection-settings).
 
@@ -280,4 +280,14 @@ If push notifications are not working when using the Braze event kit (embedded k
 
 ### Sending unnecessary or duplicate data to Braze
 Braze counts a data point each time an attribute is passed to Braze, even if the value is unchanged. For this reason, Braze recommends only forwarding data needed to action on within Braze and ensuring that only deltas of attributes are being passed.
+
+### Events are not appearing in Braze
+
+If mParticle events or attributes are missing in Braze, the issue is often a misconfiguration in your mParticle connection or event mapping—not a Braze outage. Check the following:
+
+- **Connection output:** Confirm Braze is enabled as an output for the relevant connection and that the correct Braze instance, app identifier, and REST API key are configured.
+- **Identity mapping:** Server-to-server and audience syncs require an `external_id`. Anonymous users are not forwarded.
+- **Event mapping:** Verify events are routed to the Braze output and that unsupported data types (nested objects, arrays in event properties) are not being dropped.
+
+If configuration looks correct but data still does not arrive, contact [mParticle support](https://support.mparticle.com/) to review delivery logs on their side.
 

@@ -17,21 +17,21 @@ _Esta integración está mantenida por Tapcart._
 
 | Requisito              | Descripción                                                                                                                                         |
 |--------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cuenta Tapcart Enterprise | La integración solo está disponible para **clientes de Tapcart Enterprise**.                                                                              |
-| Clave de API de la aplicación Braze         | Se requiere la [clave de API del identificador de la aplicación Braze](https://www.braze.com/docs/api/identifier_types). Cada plataforma (como iOS o Android) tiene su propio identificador de aplicación. En el panel de Braze, ve a **Settings** > **APIs and Identifiers** > **App Identifiers**. |
+| Cuenta empresarial de Tapcart | La integración está disponible solo para **clientes empresariales de Tapcart**.                                                                              |
+| Clave de API de la aplicación de Braze         | Se requiere la [clave de API del identificador de la aplicación de Braze]({{site.baseurl}}/api/identifier_types). Cada plataforma (como iOS o Android) tiene su propio identificador de aplicación. En el panel de Braze, ve a **Configuración** > **APIs e identificadores** > **Identificadores de aplicación**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
-## Sobre la integración {#about-the-integration}
+## Acerca de la integración {#about-the-integration}
 
-Para saber cómo integrar Tapcart con Braze, consulta [la guía de integración de Tapcart](https://help.tapcart.com/hc/en-us/articles/36413383526675-Braze-Integration) directamente en su sitio web. Tras la integración, podrás aprovechar las siguientes características de Tapcart en Braze:
+Para aprender cómo integrar Tapcart con Braze, consulta la [guía de integración de Tapcart](https://help.tapcart.com/en/articles/13893755-braze-tapcart) directamente en su sitio web. Después de la integración, puedes usar las siguientes características de Tapcart en Braze:
 
-- Integración base del SDK
-- Notificaciones push de iOS y Android
+- Integración base de SDK
+- Notificaciones push en iOS y Android
 - Notificaciones push enriquecidas
-- Seguimiento y segmentación del recorrido del usuario
+- Seguimiento del recorrido del usuario y segmentación
 
 Las siguientes características no son compatibles actualmente: Push Stories, notificación push web, personalización de mensajes dentro de la aplicación.
 
 {% alert note %}
-Si tienes más preguntas, ponte en contacto con tu especialista en implementación de Tapcart o envía un correo electrónico a [help@tapcart.co](mailto:help@tapcart.co).
+Si tienes preguntas adicionales, contacta a tu especialista de implementación de Tapcart o envía un correo electrónico a [help@tapcart.co](mailto:help@tapcart.co).
 {% endalert %}

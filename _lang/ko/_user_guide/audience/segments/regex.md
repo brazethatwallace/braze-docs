@@ -20,7 +20,7 @@ tool:
 ## 리소스 {#resources}
 
 - [정규표현식 기초](https://learning.braze.com/regular-expression-basics-for-braze) Braze 학습 과정
-- [Regex 치트 시트]({{site.baseurl}}/regex_cheat_sheet/)
+- [Regex 치트 시트]({{site.baseurl}}/regex_cheat_sheet)
 - [샘플 데이터 RTF]({% image_buster /assets/download_file/regex-dummy-data.rtf %})
 
 ## Regex 디버거 {#regex-debugger}
@@ -201,7 +201,7 @@ x보다 작거나 같은(≤) 값을 검색하는 경우 다음 regex를 사용�
 
 ### 특정 전화번호를 어떻게 필터링하나요? {#how-do-i-filter-for-specific-phone-numbers}
 
-regex를 사용하여 전화번호를 필터링하기 전에, 고객 프로필에 기록된 번호는 [사용자 전화번호]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers/)에 명시된 대로 [E.164](https://en.wikipedia.org/wiki/E.164) 형식이어야 한다는 점을 기억하세요.
+regex를 사용하여 전화번호를 필터링하기 전에, 고객 프로필에 기록된 번호는 [사용자 전화번호]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers)에 명시된 대로 [E.164](https://en.wikipedia.org/wiki/E.164) 형식이어야 한다는 점을 기억하세요.
 
 미국 전화번호를 검색한다고 가정하면, `1?\d\d\d\d\d\d\d\d\d\d` regex 형식을 사용하세요. 여기서 각 `\d` 반복은 지정하려는 숫자입니다. 처음 세 자리는 지역 번호입니다.
 

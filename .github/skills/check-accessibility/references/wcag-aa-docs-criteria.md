@@ -56,13 +56,15 @@ These fire for `_docs/**/*.md`, `_includes/**/*.md`, and `_includes/**/*.html` c
 - GFM markdown tables (`|col1|col2|…`) missing an `aria-label` in an IAL attribute block immediately after the last row
 - Existing IAL blocks on tables that are missing `aria-label=`
 - HTML `<table>` elements in includes without a `<caption>` or `aria-label` attribute
+- Icon-only status cells (emoji with no adjacent visible text): flag if the emoji lacks `aria-hidden="true"`, lacks a `.sr-only` companion span with descriptive text, or if the table has no visible legend explaining the symbols. See the writing-style guidance on [Tables](../../braze-docs/references/writing-style.md#tables) for the underlying rule (default to text; emoji-only cells require `aria-hidden` + `sr-only` + a legend).
 
-**Check mechanism:** `scripts/check_table_accessibility.py`
+**Check mechanism:** `scripts/check_table_accessibility.py` for accessible-name checks. The icon-only cell sub-check above is **LLM judgment, not yet covered by the script** — apply it when manually reviewing any table in scope (see the "HTML tables" low-confidence path in [markdown-audit.md](../workflows/markdown-audit.md)).
 
 **Auto-fixable:**
 - Missing IAL with a clear heading nearby: `Yes (high confidence)` — script derives `aria-label` from nearest heading
 - Missing or generic IAL: `Ask (medium confidence)` — author confirms or provides label
 - HTML tables, files with 4+ violations: `Ask (low confidence)`
+- Icon-only cells missing `aria-hidden`/`sr-only`/legend: `No` — always ask; requires author judgment on wording and legend placement
 
 **Historical context:** BD-6188 table accessibility was the primary motivation for the original `check-accessibility` skill. The `check_table_accessibility.py` script and `check-table-accessibility.yml` CI workflow were added during BD-6188 remediation.
 
@@ -83,6 +85,23 @@ These fire for `_docs/**/*.md`, `_includes/**/*.md`, and `_includes/**/*.html` c
 **Auto-fixable:** `No` — always low confidence. Heading level adjustments change document structure; only the author can decide whether a skipped level should be added as a new heading or the offending heading should be promoted.
 
 **Historical context:** BD-6188 audit found heading level skips in alert components (T5/T10). Related PRs: #13434.
+
+---
+
+### 1.3.3 Sensory Characteristics — Spatial Directionals
+
+**Plain English:** Instructions must not rely on where content appears on the page ("see the table below", "use the operators above"). Screen reader users and mobile readers may not experience the same visual layout, so name the section, tab, or anchor instead.
+
+**What to check:**
+- Words such as `above`, `below`, `to the left`, `on the right`, `left of`, and `right of` when they point readers to other content by position
+- Allow numeric comparisons: `below the input field`, `above the threshold`
+- Allow text-direction terms: `left-to-right`, `right-to-left`, `bi-directional`
+
+**Check mechanism:** `scripts/check_content_accessibility.py` (pattern match with allowlist).
+
+**Auto-fixable:** `Ask (medium confidence)` — replacement wording depends on document structure; author names the target section or anchor.
+
+**Historical context:** Added during filter-operators documentation work (2026) to prevent layout-only cross-references in `_docs/`.
 
 ---
 

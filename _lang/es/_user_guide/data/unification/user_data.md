@@ -12,35 +12,35 @@ description: "En esta página encontrarás artículos sobre la recopilación de 
 guide_featured_title: "Artículos de sección"
 guide_featured_list:
   - name: Recopilación de datos del SDK
-    link: /docs/user_guide/data/unification/user_data/sdk_data_collection/
+    link: /docs/user_guide/data/unification/user_data/sdk_data_collection
     image: /assets/img/braze_icons/bar-chart-01.svg
   - name: Ciclo de vida del perfil de usuario
-    link: /docs/user_guide/data/unification/user_data/user_profile_lifecycle/
+    link: /docs/user_guide/data/unification/user_data/user_profile_lifecycle
     image: /assets/img/braze_icons/refresh-ccw-05.svg
   - name: Caso de uso de la recopilación
-    link: /docs/user_guide/data/unification/user_data/collection_use_case/
+    link: /docs/user_guide/data/unification/user_data/collection_use_case
     image: /assets/img/braze_icons/data.svg
   - name: Buenas prácticas de recopilación
-    link: /docs/user_guide/data/unification/user_data/best_practices/
+    link: /docs/user_guide/data/unification/user_data/best_practices
     image: /assets/img/braze_icons/thumbs-up.svg
   - name: Importar usuarios
-    link: /docs/user_guide/audience/manage_audience/import_users/
+    link: /docs/user_guide/audience/manage_audience/import_users
     image: /assets/img/braze_icons/users-01.svg
   - name: Eliminar usuarios
-    link: /docs/user_guide/audience/manage_audience/user_profiles/delete_users/
+    link: /docs/user_guide/audience/manage_audience/user_profiles/delete_users
     image: /assets/img/braze_icons/edit-05.svg
   - name: Usuarios anónimos
-    link: /docs/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users/
+    link: /docs/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users
     image: /assets/img/braze_icons/user-circle.svg
   - name: Códigos de idioma
-    link: /docs/user_guide/data/unification/user_data/language_codes/
+    link: /docs/user_guide/data/unification/user_data/language_codes
     image: /assets/img/braze_icons/globe-04.svg
 ---
 
 <br>
 
 {% alert important %}
-Braze prohibirá o bloqueará a los usuarios ("usuarios ficticios") con más de 5 millones de sesiones y dejará de ingerir sus eventos del SDK, ya que suelen ser el resultado de una mala integración. Si descubres que esto le ha ocurrido a un usuario legítimo, ponte en contacto con tu director de cuentas de Braze.
+Braze bloquea los perfiles de usuario ("usuarios ficticios") con más de 5 000 000 de sesiones, más de 20 000 nombres de eventos personalizados distintos o más de 20 000 nombres de productos distintos en compras, ya que suelen ser el resultado de una mala integración. Una vez que un perfil es bloqueado, Braze deja de ingerir todos los datos entrantes de ese perfil, tanto de los SDK como de la REST API. Si descubres que esto le ha ocurrido a un usuario legítimo, ponte en contacto con tu director de cuentas de Braze.
 {% endalert %}
 
 <br>

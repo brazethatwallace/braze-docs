@@ -19,7 +19,7 @@ description: "このリファレンス記事では、BrazeAI Decisioning Studio�
 | 単一のユニークな顧客識別子がすべてのアセットに存在する必要がある | 異なるアセットが異なるIDシステムを使用している場合（例えば、特徴量にはウェアハウスIDを使用し、アクティベーションにはプラットフォームIDを使用する場合）、Decisioning Studioエンジンはそれらを確実に結合できません。これによりフィードバックループが壊れ、モデルのトレーニングとレポートの精度の両方が低下します。2つのIDシステム間のマッピングが一対多ではなく多対多であることが判明した場合、結果として生じるデータ整合性の問題は深刻になる可能性があります。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="すべてのアセットで一貫した顧客識別子を使用する" }
 
-使用する識別子に関するガイダンスについては、[Braze external IDを使用する]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/braze_external_id/)を参照してください。
+使用する識別子に関するガイダンスについては、[Braze external IDを使用する]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/braze_external_id)を参照してください。
 
 ## イベントデータはスナップショットではなく、増分ストリームとして渡す必要がある {#event-data-must-be-passed-as-an-incremental-stream-not-as-a-snapshot}
 
@@ -30,7 +30,7 @@ description: "このリファレンス記事では、BrazeAI Decisioning Studio�
 | イベントデータは個別のタイムスタンプ付きレコードとして構造化し、増分的に配信する必要がある | イベントデータがスナップショットに集約されている場合（例えば、個別の送信レコードではなく「最終送信時刻」属性を保存する場合）、各イベントの正確なタイミングが失われます。これにより、結果を特定の意思決定に正確にアトリビューションすることが不可能になり、モデルが学習に必要とするフィードバックループが壊れます。正確なイベントタイムスタンプがなければ、コンバージョンがいつ発生したか、またはどのおすすめがそれをトリガーしたかを正確に知ることができません。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="イベントデータはスナップショットではなく、増分ストリームとして渡す必要がある" }
 
-この区別の詳細な説明と、正しいパターンおよび誤ったパターンの例については、[スナップショットとイベントストリーム]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams/)を参照してください。
+この区別の詳細な説明と、正しいパターンおよび誤ったパターンの例については、[スナップショットとイベントストリーム]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams)を参照してください。
 
 ## スナップショットデータは定期的な時間ベースのスケジュールで更新する必要がある {#snapshot-data-must-be-updated-on-a-regular-time-driven-schedule}
 
@@ -54,7 +54,7 @@ description: "このリファレンス記事では、BrazeAI Decisioning Studio�
 
 **必須フィールド:**
 - 顧客識別子
-- イベントが発生した時点のタイムスタンプ（システムでレコードが作成された時点ではありません。これらは異なります。なぜ重要かについては[スナップショットとイベントストリーム]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams/)を参照してください）
+- イベントが発生した時点のタイムスタンプ（システムでレコードが作成された時点ではありません。これらは異なります。なぜ重要かについては[スナップショットとイベントストリーム]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams)を参照してください）
 - システムでレコードが作成された時点のタイムスタンプ（増分エクスポートを確実にスライスするために使用されます）
 - イベントタイプ
 - 関心のある特定のイベントに絞り込むのに十分なフィールド

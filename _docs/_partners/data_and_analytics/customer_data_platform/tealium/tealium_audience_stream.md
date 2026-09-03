@@ -6,7 +6,6 @@ alias: /partners/tealium_audience_stream/
 description: "This reference article outlines the partnership between Braze and Tealium, a universal data hub that enables you to connect mobile, web, and alternative data to other third-party sources."
 page_type: partner
 search_tag: Partner
-
 ---
 
 # Tealium AudienceStream
@@ -16,7 +15,7 @@ search_tag: Partner
 The Braze and Tealium integration leverages AudienceStream visitor profiles. Shared behaviors segment these profiles to create sets of visitors with common traits, known as audiences. These audiences can help fuel your marketing technology stack in real-time via connectors. 
 
 {% alert important %}
-Tealium AudienceStreams and EventStreams offer both batch and non-batch connector actions. The non-batch connector should be used when real-time requests are important to the use case and there are no concerns about hitting the Braze API rate limit specifications. Contact Braze [Support]({{site.baseurl}}/braze_support/) or your customer success manager if you have any questions. 
+Tealium AudienceStreams and EventStreams offer both batch and non-batch connector actions. The non-batch connector should be used when real-time requests are important to the use case and there are no concerns about hitting the Braze API rate limit specifications. Contact Braze [Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your customer success manager if you have any questions. 
 {% endalert %}
 
 ## Prerequisites
@@ -25,7 +24,7 @@ Tealium AudienceStreams and EventStreams offer both batch and non-batch connecto
 | ---- | ----------- |
 | Tealium account | A [Tealium account](https://my.tealiumiq.com/) with server-side access is required. We recommend also using the client-side integrations to take advantage of this partnership. |
 | REST API key | A Braze REST API key with `users.track`, `users.delete`, and `subscription.status.set` permissions.<br><br>This can be created within **Braze dashboard > Developer Console > REST API Key > Create New API Key**|
-| [Braze REST endpoint]({{site.baseurl}}/api/basics/#endpoints) | Your REST endpoint URL. Your endpoint will depend on the [Braze URL for your instance]({{site.baseurl}}/api/basics/#endpoints). |
+| [Braze REST endpoint]({{site.baseurl}}/api/basics#endpoints) | Your REST endpoint URL. Your endpoint will depend on the [Braze URL for your instance]({{site.baseurl}}/api/basics#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
@@ -121,13 +120,13 @@ A connector is an integration between Tealium and another vendor used to transmi
 
 In the **Source** dialogue that appears, select the audience you created in the previous step and a trigger that you feel is appropriate for your situation. You also can toggle on the frequency cap to control how often this action triggers. 
 
-![]({% image_buster /assets/img/tealium/create_source.png %}){: style="max-width:90%;"}
+![Tealium AudienceStream connector source configuration with audience and trigger selection.]({% image_buster /assets/img/tealium/create_source.png %}){: style="max-width:90%;"}
 
 #### Configuration
 
 Next, a **Configuration** dialogue will appear. Select **Add Connector** at the bottom of the page. Name your connector and provide your Braze API endpoint and Braze REST API key here.
 
-![]({% image_buster /assets/img/tealium/create_configuration.png %}){: style="max-width:70%;"}
+![Tealium connector configuration dialog with Braze endpoint and REST API key fields.]({% image_buster /assets/img/tealium/create_configuration.png %}){: style="max-width:70%;"}
 
 If you have created a connector before, you may optionally use an existing one from the available connector list and modify it to fit your needs with the pencil icon or delete it with the trash icon. 
 
@@ -140,7 +139,7 @@ Next, name your connector action and select an action type that will send data a
 {% alert important %}
 Not all fields offered are required.
 
-![]({% image_buster /assets/img/tealium/minimize.gif %}){: style="max-width:90%"}
+![Tealium action mapping panel showing optional fields that can be minimized.]({% image_buster /assets/img/tealium/minimize.gif %}){: style="max-width:90%"}
 {% endalert %}
 
 {% tabs local %}
@@ -151,7 +150,7 @@ This action allows you to track user, event, and purchase attributes all in one 
 | Parameters | Description |
 | ---------- | ----------- |
 | User ID | Use this field to map the Tealium user ID field to its Braze equivalent. Map one or more user ID attributes. When multiple IDs are specified, the first non-blank value is picked based on the following priority order: External ID, Braze ID, Alias Name, and Alias Label.<br><br>- External ID and Braze ID should not be specified if importing push tokens.<br>- If specifying a user alias, the alias name and alias label should be set. <br><br>For more information, check out the Braze [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/). |
-| User attributes | Use existing Braze user profile field names to update user profile values in the Braze dashboard or add your own custom [user attribute]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens) data to the user profiles.<br><br>- By default, new users will be created if one does not exist.<br>- By setting **Update Existing Only** to `true`, only existing users will be updated, and no new user will be created.<br>- If a Tealium attribute is empty, it will be converted to null and removed from the Braze user profile. Enrichments should be used if null values should not be sent to Braze to remove a user attribute. |
+| User attributes | Use existing Braze user profile field names to update user profile values in the Braze dashboard or add your own custom [user attribute]({{site.baseurl}}/api/objects_filters/user_attributes_object) data to the user profiles.<br><br>- By default, new users are created if one does not exist.<br>- By setting **Update Existing Only** to `true`, only existing users are updated, and no new user is created.<br>- If a Tealium attribute is empty, it is converted to null and removed from the Braze user profile. Enrichments should be used if null values should not be sent to Braze to remove a user attribute. |
 | Modify user attributes | Use this field to increment or decrement certain user attributes<br><br>- Integer attributes may be incremented by positive or negative integers.<br>- Array attributes may be modified by adding or removing values from existing arrays. |
 | Event | An event represents a single occurrence of a custom event by a particular user at a timestamp. Use this field to track and map event attributes like those in the Braze [event object]({{site.baseurl}}/api/objects_filters/event_object/). <br><br>- Event attribute `Name` is required for every mapped event.<br>- Event attribute `Time` is automatically set to now unless explicitly mapped. <br>- By default, new events will be created if one does not exist. By setting `Update Existing Only` to `true`, only existing events will be updated, and no new event will be created.<br>-  Map array type attributes to add multiple events. Array type attributes must be of equal length.<br>- Single value attributes can be used and applied to each event. |
 | Event template | Provide event templates to be referenced in body data. Templates can be used to transform data before sending it to Braze. Refer to Tealium's [Templates Guide](https://docs.tealium.com/server-side/connectors/webhook-connectors/trimou-templating-engine/) to learn more. |
@@ -161,7 +160,7 @@ This action allows you to track user, event, and purchase attributes all in one 
 | Purchase template variable | Provide product template variables as data input. Refer to Tealium's [Template Variables Guide](https://docs.tealium.com/server-side/connectors/webhook-connectors/template-variables/) to learn more. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Action" }
 
-![]({% image_buster /assets/img/tealium/track_user_example2.png %}){: style="max-width:90%"}
+![Tealium Track User action example with mapped user attributes and event fields.]({% image_buster /assets/img/tealium/track_user_example2.png %}){: style="max-width:90%"}
 
 {% endtab %}
 {% tab Delete User - Non-Batch %}
@@ -173,7 +172,7 @@ This action allows you to delete users from the Braze dashboard.
 | User ID | Use this field to map the Tealium User ID field to its Braze equivalent.<br><br>- Map one or more user ID attributes. When multiple IDs are specified, the first non-blank value is picked based on the following priority order: External ID, Braze ID, Alias Name, and Alias Label.<br>- When specifying a user alias, Alias Name and Alias Label should both be set.<br><br>For more information, see the Braze [`/users/delete` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Action" }
 
-![]({% image_buster /assets/img/tealium/track_user_delete2.png %}){: style="max-width:90%"}
+![Tealium Delete User action with Braze user ID mappings configured.]({% image_buster /assets/img/tealium/track_user_delete2.png %}){: style="max-width:90%"}
 
 {% endtab %}
 {% tab Update User Subscription Group Status - Non-Batch %}
@@ -186,7 +185,7 @@ This action allows you to add or remove users from Braze SMS or email subscripti
 | Attributes | - Subscription group ID (required): The ID of the subscription group related to the group type mapped in the preceding field.<br>- External ID: The external ID of the user.<br><br>Email group specific:<br>- Email: The email address of the user.<br>**If the external ID is not defined, the email will be required.**<br><br>SMS group specific:<br>- Phone: The phone number in E.164 format. For example, +14155552671.<br>**If the external ID is not defined, the phone will be required.** |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Action" }
 
-![]({% image_buster /assets/img/tealium/update_subscription.png %}){: style="max-width:90%"}
+![Tealium update subscription group status action with group type and update type mappings.]({% image_buster /assets/img/tealium/update_subscription.png %}){: style="max-width:90%"}
 
 {% endtab %}
 {% endtabs %}
@@ -223,7 +222,7 @@ Refer to Tealium's [Trace documentation](https://docs.tealium.com/server-side/co
 
 There are three primary ways that you might accidentally hit data overages when integrating Braze through Tealium:
 
-#### Sending duplicate data - only send Braze deltas of attributes
+### Sending duplicate data - only send Braze deltas of attributes
 Tealium doesn't send Braze deltas of user attributes. For example, if you have an EventStream action that tracks a user's first name, email, and cell phone number, Tealium will send all three attributes to Braze anytime the action is triggered. Tealium won't be looking for what changed or was updated and send only that information.<br><br> 
 **Solution**: <br>You can check your backend to assess whether an attribute has changed or not, and if so, call Tealium's relevant methods to update the user profile. **This is what users who integrate Braze directly usually do.** <br>**OR**<br> If you don't store your own version of a user profile in your backend and can't tell if attributes change or not, you can use AudienceStream and [create enrichments](https://docs.tealium.com/server-side/attributes/manage-enrichments/add-enrichment/) to only send user attributes when values have changed. 
 

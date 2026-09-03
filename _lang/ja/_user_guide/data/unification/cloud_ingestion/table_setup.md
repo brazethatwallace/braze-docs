@@ -1,29 +1,29 @@
 ---
-nav_title: テーブルセットアップ
-article_title: クラウドデータ取り込みのテーブルセットアップ
+nav_title: テーブル設定
+article_title: クラウドデータ取り込みのテーブル設定
 toc_headers: h2
 page_order: 2
 page_type: reference
-description: "CDIソーステーブルのセットアップ方法と、ペイロードフォーマット要件との違いについて説明します。"
+description: "CDIソーステーブルの設定方法と、ペイロードフォーマット要件との違いについて説明します。"
 ---
 
-# クラウドデータ取り込みのテーブルセットアップ {#cloud-data-ingestion-table-setup}
+# クラウドデータ取り込みのテーブル設定 {#cloud-data-ingestion-table-setup}
 
-> このページでは、クラウドデータ取り込み（CDI）に関連する2つの異なる要件、ソーステーブルのセットアップとペイロードフォーマットについて説明します。
+> このページでは、クラウドデータ取り込み（CDI）に関連する2つの異なる要件、ソーステーブルの設定とペイロードフォーマットについて説明します。
 
-## テーブルセットアップとペイロードフォーマットの違いを理解する {#understand-table-setup-compared-to-payload-formatting}
+## テーブル設定とペイロードフォーマットの違いを理解する {#understand-table-setup-compared-to-payload-formatting}
 
 CDIユーザーデータ同期では、以下の両方を設定します。
 
 | レイヤー | 制御する内容 |
 | --- | --- |
-| ソーステーブルのセットアップ | 必須カラム、ユーザー識別子、`UPDATED_AT`の同期動作 |
+| ソーステーブルの設定 | 必須カラム、ユーザー識別子、`UPDATED_AT`の同期動作 |
 | ペイロードフォーマット | `PAYLOAD`内のJSONフィールド（属性、イベント、購入のオブジェクト構造を含む） |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="テーブルセットアップとペイロードフォーマットの違いを理解する" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="テーブル設定とペイロードフォーマットの違いを理解する" }
 
 Brazeはまずソーステーブルから行を読み取り、次に選択されたデータタイプに基づいて`PAYLOAD`フィールドを検証します。
 
-## ソーステーブルをセットアップする {#set-up-your-source-table}
+## ソーステーブルを設定する {#set-up-your-source-table}
 
 データウェアハウスのユーザーデータ同期では、ソーステーブルまたはビューに以下を含める必要があります。
 
@@ -44,24 +44,24 @@ Brazeはまずソーステーブルから行を読み取り、次に選択され
 - Brazeは、`UPDATED_AT`が最後に同期された値より後の行を同期します。
 - 新しい行が同じタイムスタンプを共有している場合、境界タイムスタンプの行が再同期されることがあります。
 
-重複タイムスタンプと増分更新に関するガイダンスについては、[クラウドデータ取り込みのベストプラクティス]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices/#avoid-resyncing-rows-with-duplicate-timestamps)を参照してください。
+重複タイムスタンプと増分更新に関するガイダンスについては、[クラウドデータ取り込みのベストプラクティス]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices#avoid-resyncing-rows-with-duplicate-timestamps)を参照してください。
 
 {% alert note %}
-ファイルストレージソースは異なるセットアップ要件を使用し、`UPDATED_AT`をサポートしていません。詳細については、[ファイルストレージ統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/#required-file-formats)を参照してください。
+ファイルストレージソースは異なる設定要件を使用し、`UPDATED_AT`をサポートしていません。詳細については、[ファイルストレージ統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations#required-file-formats)を参照してください。
 {% endalert %}
 
-## `PAYLOAD`カラムをセットアップする {#set-up-the-payload-column}
+## `PAYLOAD`カラムを設定する {#set-up-the-payload-column}
 
 `PAYLOAD`の値は、選択されたデータタイプに対してBrazeの`/users/track`エンドポイントで使用されるものと同じオブジェクトフォーマットに従います。
 
 | データタイプ | フォーマット参照 |
 | --- | --- |
-| `attributes` | [ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens) |
-| `events` | [イベントオブジェクト]({{site.baseurl}}/api/objects_filters/event_object/) |
-| `purchases` | [購入オブジェクト]({{site.baseurl}}/api/objects_filters/purchase_object/) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="PAYLOADカラムをセットアップする" }
+| `attributes` | [ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object) |
+| `events` | [イベントオブジェクト]({{site.baseurl}}/api/objects_filters/event_object) |
+| `purchases` | [購入オブジェクト]({{site.baseurl}}/api/objects_filters/purchase_object) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="PAYLOADカラムを設定する" }
 
-階層化属性の場合は、[オブジェクトプロパティとしての日付のキャプチャ]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/#capturing-dates-as-object-properties)に記載されているフォーマットを使用して日付を含めてください。
+階層化属性の場合は、[オブジェクトプロパティとしての日付のキャプチャ]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#capturing-dates-as-object-properties)に記載されているフォーマットを使用して日付を含めてください。
 
 ### ペイロードの例 {#payload-examples}
 
@@ -97,7 +97,7 @@ Brazeはまずソーステーブルから行を読み取り、次に選択され
     "time" : "2013-07-16T19:20:45+01:00",
     "properties": {
         "movie": "The Sad Egg",
-        "director": "Dan Alexander"
+        "director": "Alex Smith"
     }
 }
 ```
@@ -124,8 +124,8 @@ Brazeはまずソーステーブルから行を読み取り、次に選択され
 ```
 
 {% endtab %}
-{% tab サブスクリプショングループ %}
-サブスクリプショングループのステータスを同期するには、各行に1つ以上の`subscription_group_id`と`subscription_state`のペアを含めてください。
+{% tab 購読グループ %}
+購読グループのステータスを同期するには、各行に1つ以上の`subscription_group_id`と`subscription_state`のペアを含めてください。
 ```json
 {
     "subscription_groups" : [
@@ -147,8 +147,8 @@ Brazeはまずソーステーブルから行を読み取り、次に選択され
 {% endtab %}
 {% endtabs %}
 
-## 関連するCDIセットアップドキュメント {#related-cdi-setup-docs}
+## 関連するCDI設定ドキュメント {#related-cdi-setup-docs}
 
-- ソース固有のDDL例については、[データウェアハウス統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views)を参照してください。
-- ファイルベースのセットアップについては、[ファイルストレージ統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/)を参照してください。
-- 同期動作と最適化のガイダンスについては、[クラウドデータ取り込みのベストプラクティス]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices/)を参照してください。
+- ソース固有のDDL例については、[データウェアハウス統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views)を参照してください。
+- ファイルベースの設定については、[ファイルストレージ統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations)を参照してください。
+- 同期動作と最適化のガイダンスについては、[クラウドデータ取り込みのベストプラクティス]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices)を参照してください。

@@ -13,7 +13,7 @@ description: "この参照記事では、Braze 受信者オブジェクトのさ
 
 このオブジェクトには、`external_user_id`、`user_alias`、`braze_id`、または `email` のいずれかを含める必要があります。**リクエストでは1つだけ指定してください。**
 
-受信者オブジェクトを使用すると、[ユーザーエイリアスオブジェクト]({{site.baseurl}}/api/objects_filters/user_alias_object/)、[トリガープロパティオブジェクト]({{site.baseurl}}/api/objects_filters/trigger_properties_object/)、[キャンバスエントリプロパティオブジェクト]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/)、および[ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens)を組み合わせることができます。
+受信者オブジェクトを使用すると、[ユーザーエイリアスオブジェクト]({{site.baseurl}}/api/objects_filters/user_alias_object)、[トリガープロパティオブジェクト]({{site.baseurl}}/api/objects_filters/trigger_properties_object)、[キャンバスエントリプロパティオブジェクト]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)、および[ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object)を組み合わせることができます。
 
 ## オブジェクト本体 {#object-body}
 
@@ -31,27 +31,27 @@ description: "この参照記事では、Braze 受信者オブジェクトのさ
 }]
 ```
 
-`send_to_existing_only` が `true` の場合、Brazeは既存のユーザーにのみメッセージを送信します。ただし、このフラグはユーザーエイリアスでは使用できません。
+`send_to_existing_only` が `true` の場合、Brazeは既存のユーザーにのみメッセージを送信します。ただし、このフラグをユーザーエイリアスと併用することはできません。
 
-`send_to_existing_only` が `false` の場合、同じ受信者に `attributes` オブジェクトを含める必要があります。このフラグは `attributes` の代わりにはなりません。Brazeは `attributes` を使用して、送信前のプロファイル作成または更新を行います（例えば、メールやSMS配信のために `email` や電話番号フィールドを追加したり、サブスクリプショングループを更新したりします）。このオブジェクトがない場合、[`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/)や[`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/)で新規ユーザーに対する意図した組み合わせ動作は得られません。
+`send_to_existing_only` が `false` の場合、同じ受信者に `attributes` オブジェクトを含める必要があります。このフラグは `attributes` の代わりにはなりません。Brazeは `attributes` を使用して、送信前のプロファイル作成または更新を行います（例えば、メールや SMS 配信のために `email` や電話フィールドを追加したり、購読グループを更新したりします）。このオブジェクトがない場合、[`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) や [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases) で新規ユーザーに対する意図した複合動作を得ることはできません。
 
-そのプロファイルは、Brazeが送信する前に、メッセージのオーディエンスおよびチャネル適格性ルールを満たしている必要があります。
+Brazeが送信する前に、そのプロファイルはメッセージのオーディエンスおよびチャネルの適格性ルールを満たしている必要があります。
 
-- [Braze ID]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/)
-- [ユーザーエイリアス]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases)
-- [外部ユーザー ID]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields)
-- [優先順位付け]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/#identifying-users-by-email)
-- [ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens)
+- [Braze ID]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle)
+- [ユーザーエイリアス]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#user-aliases)
+- [外部ユーザー ID]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields)
+- [優先順位付け]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email-addresses-and-phone-numbers)
+- [ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object)
 
 ## 受信者オブジェクトの重複排除 {#recipient-object-deduping}
 
-受信者オブジェクトを使用してAPI呼び出しを行う際、**同一の宛先（つまりメールやプッシュ通知）をターゲットとする重複した受信者が存在する場合、Brazeはユーザーの重複を排除します**。つまり、Brazeは同一のユーザーを削除し、1つだけを残します。
+受信者オブジェクトを使用してAPI呼び出しを行う場合、**同じアドレス（つまり、メール、プッシュ）をターゲットとする重複した受信者が存在すると、Brazeはユーザーの重複を排除します**。これは、Brazeが同一のユーザーを削除し、1人だけを残すことを意味します。
 
-例えば、同じ `external_user_id` を使用した場合、ユーザーはメッセージを1つだけ受信します。この動作を回避する必要がある場合は、複数のAPI呼び出しを行うことを検討してください。
+たとえば、同じ`external_user_id`を使用した場合、そのユーザーはメッセージを1通のみ受信します。この動作の回避策が必要な場合は、複数のAPI呼び出しを行うことを検討してください。
 
-同じ `external_user_id` が受信者配列内に複数回出現する場合、Brazeはメッセージを1つだけ送信し、配列内の最後のエントリのトリガープロパティを使用します。この動作は決定論的であり、配列の順序に基づいています。
+同じ`external_user_id`が受信者配列に複数回含まれている場合、Brazeはメッセージを1通のみ送信し、配列内の最後の出現のトリガープロパティを使用します。この動作は決定論的であり、配列の順序に基づいています。
 
-次の例では、`userid1` は `"name": "Beth Test 2"` を使用したメッセージを1つ受信します。これは、そのエントリが配列内で最後に出現するためです。
+以下の例では、`userid1`は`"name": "Beth Test 2"`を使用したメッセージを1通受信します。これは、そのエントリが配列の最後に記載されているためです。
 
 ```json
 {"campaign_id":"#####","recipients":[

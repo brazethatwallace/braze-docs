@@ -12,20 +12,20 @@ noindex: true
 
 # Complete the integration
 
-Before following these steps, make sure you have integrated the SDK using either [Carthage]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/carthage_integration/), [CocoaPods]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/cocoapods/), [Swift Package Manager]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/swift_package_manager/), or a [manual]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options/) integration.
+Before following these steps, make sure you have integrated the SDK using either [Carthage]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/carthage_integration), [CocoaPods]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/cocoapods), [Swift Package Manager]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/swift_package_manager), or a [manual]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options) integration.
 
 ## Step 1: Update your app delegate
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-If you are integrating the Braze SDK with CocoaPods, Carthage, or with a [dynamic manual integration]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options/), add the following line of code to your `AppDelegate.m` file:
+If you are integrating the Braze SDK with CocoaPods, Carthage, or with a [dynamic manual integration]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options), add the following line of code to your `AppDelegate.m` file:
 
 ```objc
 #import "Appboy-iOS-SDK/AppboyKit.h"
 ```
 
-If you are integrating with Swift Package Manager or with a [static manual integration]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options/), use this line instead:
+If you are integrating with Swift Package Manager or with a [static manual integration]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options), use this line instead:
 
 ```objc
 #import "AppboyKit.h"
@@ -39,18 +39,18 @@ Next, within your `AppDelegate.m` file, add the following snippet within your `a
       withLaunchOptions:launchOptions];
 ```
 
-Update `YOUR-APP-IDENTIFIER-API-KEY` with the correct value from your **Manage Settings** page. Check out our [API documentation]({{site.baseurl}}/api/api_key/#the-app-identifier-api-key) for more information on where to find your app identifier API key.
+Update `YOUR-APP-IDENTIFIER-API-KEY` with the correct value from your **Manage Settings** page. Check out our [API documentation]({{site.baseurl}}/api/identifier_types#app-identifier) for more information on where to find your app identifier API key.
 
 {% endtab %}
 {% tab swift %}
 
-If you are integrating the Braze SDK with CocoaPods, Carthage, or with a [dynamic manual integration]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options/), add the following line of code to your `AppDelegate.swift` file:
+If you are integrating the Braze SDK with CocoaPods, Carthage, or with a [dynamic manual integration]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options), add the following line of code to your `AppDelegate.swift` file:
 
 ```swift
 import Appboy_iOS_SDK
 ```
 
-If you are integrating with Swift Package Manager or with a [static manual integration]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options/), use this line instead:
+If you are integrating with Swift Package Manager or with a [static manual integration]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options), use this line instead:
 
 ```swift
 import AppboyKit
@@ -63,7 +63,7 @@ Next, in `AppDelegate.swift`, add following snippet to your `application(applica
 Appboy.start(withApiKey: "YOUR-APP-IDENTIFIER-API-KEY", in:application, withLaunchOptions:launchOptions)
 ```
 
-Update `YOUR-APP-IDENTIFIER-API-KEY` with the correct value from your **Manage Settings** page. Check out our [API documentation]({{site.baseurl}}/api/api_key/#the-app-identifier-api-key) for more information on where to find your app identifier API key.
+Update `YOUR-APP-IDENTIFIER-API-KEY` with the correct value from your **Manage Settings** page. Check out our [API documentation]({{site.baseurl}}/api/identifier_types#app-identifier) for more information on where to find your app identifier API key.
 
 {% endtab %}
 {% endtabs %}
@@ -80,7 +80,7 @@ Be sure to initialize Braze in your application's main thread. Initializing asyn
 ## Step 2: Specify your data cluster
 
 {% alert note %}
-Note that as of December 2019, custom endpoints are no longer given out. If you have a pre-existing custom endpoint, you may continue to use it. For more details, refer to our <a href="{{site.baseurl}}/api/basics/#endpoints">list of available endpoints</a>.
+Note that as of December 2019, custom endpoints are no longer given out. If you have a pre-existing custom endpoint, you may continue to use it. For more details, refer to our <a href="{{site.baseurl}}/api/basics#endpoints">list of available endpoints</a>.
 {% endalert %}
 
 ### Compile-time endpoint configuration (recommended)
@@ -88,7 +88,7 @@ Note that as of December 2019, custom endpoints are no longer given out. If you 
 If given a pre-existing custom endpoint:
 - Starting with Braze iOS SDK v3.0.2, you can set a custom endpoint using the `Info.plist` file. Add the `Braze` dictionary to your `Info.plist` file. Inside the `Braze` dictionary, add the `Endpoint` string subentry and set the value to your custom endpoint URL's authority (for example, `sdk.iad-01.braze.com`, not `https://sdk.iad-01.braze.com`). Note that before Braze iOS SDK v4.0.2, the dictionary key `Appboy` must be used in place of `Braze`.
 
-Your Braze representative should have already advised you of the [correct endpoint]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/).
+Your Braze representative should have already advised you of the [correct endpoint]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints).
 
 ### Runtime endpoint configuration
 
@@ -97,7 +97,7 @@ If given a pre-existing custom endpoint:
 
 ## SDK integration complete
 
-Braze should now be collecting data from your application, and your basic integration should be complete. See the following articles to enable [custom event tracking]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=swift), [push messaging]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration/), and the complete suite of Braze features.
+Braze should now be collecting data from your application, and your basic integration should be complete. See the following articles to enable [custom event tracking]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=swift), [push messaging]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration), and the complete suite of Braze features.
 
 ## Customizing Braze on startup
 
@@ -135,7 +135,7 @@ Note that this method would replace the `startWithApiKey:inApplication:withLaunc
 
 This method is called with the following parameters:
 
-- `YOUR-APP-IDENTIFIER-API-KEY` – Your [app identifier]({{site.baseurl}}/api/api_key/#the-app-identifier-api-key) API key from the Braze dashboard.
+- `YOUR-APP-IDENTIFIER-API-KEY` – Your [app identifier]({{site.baseurl}}/api/identifier_types#app-identifier) API key from the Braze dashboard.
 - `application` – The current app.
 - `launchOptions` – The options `NSDictionary` that you get from `application:didFinishLaunchingWithOptions:`.
 - `appboyOptions` – An optional `NSDictionary` with startup configuration values for Braze.

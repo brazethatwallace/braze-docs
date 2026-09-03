@@ -1,0 +1,17 @@
+{
+  "_comment": "English glossary keys skipped when propagating Phrase sync diffs into _lang/ (too generic or unsafe substring matches).",
+  "global": [
+    "monitoring",
+    "settings",
+    "data",
+    "operator",
+    "team"
+  ],
+  "de": [
+    "customer",
+    "gear"
+  ],
+  "es": [
+    "data"
+  ]
+}

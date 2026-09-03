@@ -12,7 +12,7 @@ channel:
 
 # HTMLメールテンプレートのアップロード {#upload-an-html-email-template}
 
-> Brazeダッシュボードでは、独自のHTMLメールテンプレートをアップロードして保存し、後からCampaignsで使用できます。また、エディターを使用して[メールテンプレートを作成]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/)することもできます。
+> Brazeダッシュボードでは、独自のHTMLメールテンプレートをアップロードして保存し、後からキャンペーンで使用できます。また、エディターを使用して[メールテンプレートを作成]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template)することもできます。
 
 ## 要件 {#upload-requirements}
 
@@ -25,24 +25,24 @@ channel:
 
 ## テンプレートのアップロード {#uploading-your-template}
 
-### ステップ 1: メールテンプレートエディターに移動する {#step-1-go-to-the-email-template-editor}
+### ステップ1: メールテンプレートエディターに移動する {#step-1-go-to-the-email-template-editor}
 
-**Content** > **Email**に移動します。**Create email template**を選択します。
+**コンテンツ** > **メール**に移動します。**メールテンプレートを作成**を選択します。
 
-### ステップ 2: テンプレートの詳細を追加する {#step-2-add-template-details}
+### ステップ2: テンプレートの詳細を追加する {#step-2-add-template-details}
 
 テンプレート名を入力します。必要に応じて、説明、チーム、タグを追加します。
 
-### ステップ 3: テンプレートをアップロードする {#step-3-upload-your-template}
+### ステップ3: テンプレートをアップロードする {#step-3-upload-your-template}
 
-**Template content**セクションで、**HTML code editor**タイルの下にある**Upload file**を選択します。コンピューターからテンプレートを選択します。テンプレートがアップロード要件を満たしていることを確認するには、[要件](#upload-requirements)セクションを参照してください。
+**テンプレートコンテンツ**セクションで、**ファイルをアップロード**を選択します。コンピューターからテンプレートを選択します。テンプレートがアップロード要件を満たしていることを確認するには、[要件](#upload-requirements)セクションを参照してください。
 
-### ステップ 4: テンプレートを完成させて保存する {#step-4-finish-and-save-your-template}
+### ステップ4: テンプレートを完成させて保存する {#step-4-finish-and-save-your-template}
 
-**Save template**を選択してテンプレートを保存してください。これで、任意のCampaignまたはCanvasでこのテンプレートを使用する準備が整いました。
+**テンプレートを保存**を選択してテンプレートを保存してください。これで、任意のキャンペーンまたはキャンバスでこのテンプレートを使用する準備が整いました。
 
 {% alert note %}
-既存のテンプレートに編集を加えた場合、その変更は以前のバージョンのテンプレートを使用して作成されたCampaignsには反映されません。
+既存のテンプレートに編集を加えた場合、その変更は以前のバージョンのテンプレートを使用して作成されたキャンペーンには反映されません。
 {% endalert %}
 
 ## APIキャンペーンでテンプレートを使用する {#api_for_upload_email_templates}
@@ -53,9 +53,11 @@ APIキャンペーンでメールを使用するには、`email_template_id`が�
 
 ## メールテンプレートの管理 {#managing-email-templates}
 
-メールテンプレートを[複製]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/)したり[アーカイブ]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/)したりできます。テンプレートとクリエイティブコンテンツの作成と管理の詳細については、[テンプレート]({{site.baseurl}}/user_guide/messaging/templates/)を参照してください。
+メールテンプレートを[複製]({{site.baseurl}}/user_guide/messaging/templates/managing_templates)したり[アーカイブ]({{site.baseurl}}/user_guide/messaging/templates/managing_templates)したりできます。テンプレートとクリエイティブコンテンツの作成と管理の詳細については、[テンプレート]({{site.baseurl}}/user_guide/messaging/templates)を参照してください。
 
 ## トラブルシューティング {#troubleshooting}
+
+### アップロードエラー {#upload-errors}
 
 HTMLテンプレートファイルをアップロードする際に、いくつかのメールエラーメッセージが表示される場合があります。エラーが発生した場合は、以下の表で一般的な問題とその推奨される修正方法を参照してください。
 
@@ -68,10 +70,18 @@ HTMLテンプレートファイルをアップロードする際に、いくつ�
 | `Images over 5&nbsp;MB` | 画像の数を減らして、再度アップロードしてください。|
 | `Extra Images` | HTMLファイルで参照されていない追加の画像がファイルに含まれている可能性があります。これはエラーの原因にはなりませんが、余分な画像は破棄されます。それらの画像がHTMLファイルで参照されるべきものであった場合は、コンテンツを確認し、エラーを修正して、再度アップロードしてください。|
 | `Missing Images` | HTMLファイルで参照されている画像がZIPファイルの画像フォルダーに含まれていない場合、ファイルエラーが発生します。ファイルを確認してエラー（スペルミスなど）を修正するか、不足している画像をZIPファイルに追加して、再度アップロードしてください。|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="トラブルシューティング" }
 
 Windowsマシンでメールメッセージを含むHTMLキャンペーン、キャンバスステップ、またはテンプレートのファイルをダウンロードする場合、`|`（パイプ文字）はサポートされていないため、ZIPファイルからダウンロード内容を抽出するには別のアプリケーションを使用する必要がある場合があります。
 
+### メールが正しくレンダリングされない {#email-not-rendering-properly}
+
+メールが正しくレンダリングされない場合は、各コンテンツブロックに追加の`<!doctype>`ヘッダーがないことを確認してください。
+
+HTMLテンプレート自体に`<!doctype>`ヘッダーがあり、さらにコンテンツブロックの1つにもHTML doctypeがある場合、メールは正しくレンダリングされません。コンテンツブロックは、メールテンプレートの既存のドキュメント構造に追加されるHTMLフラグメントとして扱ってください。コンテンツブロックには、追加のbodyタグやテンプレートHTMLコードを含めないでください。場合によっては、Emailifyなどのツールが追加のHTML構造を含む事前作成されたコードをインポートすることがあるため、インポートされたコンテンツブロックを注意深く確認してください。
+
+また、テンプレートとコンテンツブロック間でタグやクラス名が重複していないか確認してください。これらはレンダリングの問題を引き起こす可能性があります。
+
 ## よくある質問 {#frequently-asked-questions}
 
-メールテンプレートに関するよくある質問への回答については、[メールとリンクテンプレートのFAQ]({{site.baseurl}}/user_guide/messaging/templates/email_templates/faq/)ページをご覧ください。
+メールテンプレートに関するよくある質問への回答については、[メールとリンクテンプレートのFAQ]({{site.baseurl}}/user_guide/messaging/templates/email_templates/faq)ページをご覧ください。

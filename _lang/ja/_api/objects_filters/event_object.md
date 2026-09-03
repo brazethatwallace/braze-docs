@@ -1,25 +1,24 @@
 ---
 nav_title: "イベントオブジェクト"
-article_title: APIイベントオブジェクト
+article_title: "イベントオブジェクト"
 page_order: 6
 page_type: reference
 description: "このリファレンス記事では、イベントオブジェクトとは何か、イベントベースのキャンペーン戦略においていかに重要な役割を果たすかについて解説します。"
-
 ---
 
 # イベントオブジェクト {#event-object}
 
 > この記事では、イベントオブジェクトのさまざまな構成要素、このオブジェクトの使用方法、および参考となる使用例について説明します。
 
-## イベントオブジェクトとは {#what-is-an-event-object}
+## イベントオブジェクトとは？ {#what-is-an-event-object}
 
-イベントオブジェクトは、特定のイベントが発生したときにAPIを通じて渡されるオブジェクトです。イベントオブジェクトはイベント配列に格納されます。イベント配列内の各イベントオブジェクトは、指定された時間値における特定のユーザーによるカスタムイベントの単一の発生を表します。イベントオブジェクトにはさまざまなフィールドがあり、メッセージ、データ収集、パーソナライゼーションにおいてイベントプロパティを設定・使用することでカスタマイズできます。
+イベントオブジェクトは、特定のイベントが発生した際にAPIを通じて渡されるオブジェクトです。イベントオブジェクトはイベント配列に格納されます。イベント配列内の各イベントオブジェクトは、指定された時間値における特定のユーザーによるカスタムイベントの単一の発生を表します。イベントオブジェクトにはさまざまなフィールドがあり、イベントプロパティを設定して使用することで、メッセージ、データ収集、パーソナライゼーションをカスタマイズできます。
 
-特定のプラットフォームにカスタムイベントを設定する手順については、[開発者ガイド]({{site.baseurl}}/developer_guide/home/)のプラットフォーム統合ガイドを参照してください。ご使用のプラットフォームに基づいて、関連する記事を参照してください。
+特定のプラットフォームにカスタムイベントを設定する手順については、[開発者ガイド]({{site.baseurl}}/developer_guide/home)のプラットフォーム統合ガイドを参照してください。お使いのプラットフォームに基づいて関連する記事を参照してください。
 
-- [Android]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=android)
-- [iOS]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=swift)
-- [Web]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=web)
+- [Android]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=android)
+- [iOS]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=swift)
+- [Web]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=web)
 
 ### オブジェクト本体 {#object-body}
 
@@ -42,58 +41,62 @@ description: "このリファレンス記事では、イベントオブジェク
 }
 ```
 
-- [外部ユーザー ID]({{site.baseurl}}/api/basics/#user-ids)
-- [アプリ識別子]({{site.baseurl}}/api/identifier_types/)
-- [ISO 8601タイムコード](https://en.wikipedia.org/wiki/ISO_8601)
+{% alert note %}
+将来のタイムスタンプを持つイベントは、デフォルトで現在の時刻に設定されます。これにより、カスタムイベントが正確なタイミングで記録されます。
+{% endalert %}
+
+- [外部ユーザー ID]({{site.baseurl}}/api/basics#user-ids)
+- [アプリ識別子]({{site.baseurl}}/api/identifier_types)
+- [ISO 8601 タイムコード](https://en.wikipedia.org/wiki/ISO_8601)
 
 {% alert note %}
-一部の識別子ペアは、単一のリクエスト内で同時に使用できません。`email`と`phone`の両方が指定された場合、`email`が`phone`より優先されます。詳細については、[識別子の解決]({{site.baseurl}}/api/objects_filters/user_attributes_object/#identifier-resolution)を参照してください。
+一部の識別子の組み合わせは、単一のリクエストで同時に使用できません。`email` と `phone` の両方が提供された場合、`email` が `phone` よりも優先されます。詳細については、[識別子の解決]({{site.baseurl}}/api/objects_filters/user_attributes_object#identifier-resolution)を参照してください。
 {% endalert %}
 
 #### 既存のプロファイルのみを更新する {#update-existing-profiles-only}
 
-Brazeで既存のユーザープロファイルのみを更新するには、リクエストの本文内で`_update_existing_only`キーに`true`の値を渡す必要があります。この値を省略すると、`external_id`がまだ存在しない場合、Brazeは新しいユーザープロファイルを作成します。
+Brazeで既存のユーザープロファイルのみを更新するには、リクエストの本体に `_update_existing_only` キーを `true` の値で渡す必要があります。この値が省略された場合、`external_id` がまだ存在しなければ、Brazeは新しいユーザープロファイルを作成します。
 
 {% alert note %}
-`/users/track`エンドポイントを使用してエイリアスのみのユーザープロファイルを作成する場合は、`_update_existing_only`を`false`に設定する必要があります。この値が省略された場合、エイリアスのみのプロファイルは作成されません。
+`/users/track` エンドポイントを通じてエイリアスのみのユーザープロファイルを作成する場合、`_update_existing_only` は `false` に設定する必要があります。この値が省略された場合、エイリアスのみのプロファイルは作成されません。
 {% endalert %}
 
 ## イベントプロパティオブジェクト {#event-properties-object}
 
-カスタムイベントと購入にはイベントプロパティを含めることができます。「プロパティ」値は、キーがプロパティ名で値がプロパティ値であるオブジェクトである必要があります。プロパティ名は、255文字以下の空でない文字列でなければならず、先頭にドル記号（$）を付けることはできません。
+カスタムイベントと購入にはイベントプロパティを設定できます。「properties」の値は、キーがプロパティ名、値がプロパティ値であるオブジェクトである必要があります。プロパティ名は、先頭にドル記号（$）を含まない、255文字以下の空でない文字列でなければなりません。
 
-プロパティ値は、次のデータタイプのいずれでもかまいません。
+プロパティ値には、以下のデータ型を使用できます。
 
-| データタイプ | 説明 |
+| データ型 | 説明 |
 | --- | --- |
-| 数値 | [整数](https://en.wikipedia.org/wiki/Integer)または[浮動小数点数](https://en.wikipedia.org/wiki/Floating-point_arithmetic)として |
-| ブール値 | `true`または`false` |
-| 日時 | 文字列として[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)形式または以下のいずれかの形式でフォーマットする必要があります。<br>- `yyyy-MM-ddTHH:mm:ss:SSSZ` <br>- `yyyy-MM-ddTHH:mm:ss` <br>- `yyyy-MM-dd HH:mm:ss` <br>- `yyyy-MM-dd` <br>- `MM/dd/yyyy` <br>- `ddd MM dd HH:mm:ss.TZD YYYY` <br><br>配列内ではサポートされていません。<br><br>「T」は時間指定子であり、プレースホルダーではないことに注意してください。変更または削除しないでください。<br><br>タイムゾーンのない時間属性はデフォルトでUTCの真夜中になります（ダッシュボード上では会社のタイムゾーンにおけるUTCの真夜中に相当する形式で表示されます）。<br><br> タイムスタンプが未来のイベントはデフォルトで現在の時刻になります。  |
+| 数値 | [整数](https://en.wikipedia.org/wiki/Integer)または[浮動小数点数](https://en.wikipedia.org/wiki/Floating-point_arithmetic)のいずれか |
+| ブール値 | `true` または `false` |
+| 日時 | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 形式の文字列、または以下のいずれかの形式でフォーマットされている必要があります。 <br>- `yyyy-MM-ddTHH:mm:ss:SSSZ` <br>- `yyyy-MM-ddTHH:mm:ss` <br>- `yyyy-MM-dd HH:mm:ss` <br>- `yyyy-MM-dd` <br>- `MM/dd/yyyy` <br>- `ddd MM dd HH:mm:ss.TZD YYYY` <br><br>配列内ではサポートされていません。 <br><br>「T」は時刻指定子であり、プレースホルダーではないため、変更や削除をしないでください。 <br><br> タイムゾーンのない時刻属性は、デフォルトで UTC の午前0時になります（ダッシュボードでは、会社のタイムゾーンにおける UTC 午前0時に相当する時刻としてフォーマットされます）。 <br><br> 未来のタイムスタンプを持つイベントは、デフォルトで現在の時刻になります。 |
 | 文字列 | 255文字以下。 |
 | 配列 | 配列に日時を含めることはできません。 |
 | オブジェクト | オブジェクトは文字列として取り込まれます。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Event properties object" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="イベントプロパティオブジェクト" }
 
-配列またはオブジェクト値を含むイベントプロパティオブジェクトには、最大100&nbsp;KBのイベントプロパティペイロードを設定できます。
+配列やオブジェクトの値を含むイベントプロパティオブジェクトには、最大100&nbsp;KBのイベントプロパティペイロードを設定できます。
 
-### 予約済みのキー {#reserved-keys}
+### 予約キー {#reserved-keys}
 
-以下のキーは予約されているため、カスタムイベントプロパティとして使用できません。
+以下のキーは予約されており、カスタムイベントプロパティとして使用できません。
 
 - `time`
 - `event_name`
 
 {% alert important %}
-予約済みキーをカスタムイベントのプロパティ名として使用すると、`/users/track`エンドポイントへのリクエスト送信時にAPIエラーが発生します。
+予約キーをカスタムイベントプロパティ名として使用すると、`/users/track` エンドポイントへのリクエスト送信時にAPIエラーが発生します。
 {% endalert %}
 
-### イベントプロパティの永続性 {#event-property-persistence}
+### イベントプロパティの永続化 {#event-property-persistence}
 
-イベントプロパティは、親イベントによってトリガーされるメッセージのフィルタリングおよびLiquidパーソナライゼーションのために設計されています。デフォルトでは、Brazeユーザープロファイルでは永続化されません。セグメンテーションでイベントプロパティ値を使用するには、イベントプロパティ値を長期的に保存するためのさまざまなアプローチについて詳述している[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)を参照してください。
+イベントプロパティは、親イベントによってトリガーされるメッセージのフィルタリングやLiquidパーソナライゼーションのために設計されています。デフォルトでは、Brazeユーザープロファイルには保持されません。セグメンテーションでイベントプロパティ値を使用するには、イベントプロパティ値を長期的に保存するためのさまざまなアプローチについて説明している[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events)を参照してください。
 
 #### イベントリクエストの例 {#event-example-request}
 
-`````````http
+```http
 POST https://YOUR_REST_API_URL/users/track
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
@@ -112,7 +115,7 @@ Authorization: Bearer YOUR-REST-API-KEY
       "time" : "2013-07-16T19:20:45+01:00",
       "properties": {
         "movie": "The Sad Egg",
-        "director": "Dan Alexander"
+        "director": "Alex Smith"
       }
     },
     {
@@ -124,8 +127,8 @@ Authorization: Bearer YOUR-REST-API-KEY
   ]
 }
 ```
-- [ISO 8601タイムコード Wiki](http://en.wikipedia.org/wiki/ISO_8601)
+- [ISO 8601 タイムコード Wiki](http://en.wikipedia.org/wiki/ISO_8601)
 
 ## イベントオブジェクト {#event-objects}
 
-上記の例を使うと、誰かが最近予告編を見て、映画をレンタルしたことがわかります。キャンペーンに入ってこれらのプロパティに基づいてユーザーをセグメントすることはできませんが、Liquidを使用してチャネル経由でカスタムメッセージを送信するための受領書の形でこれらのプロパティを戦略的に活用できます。例えば、「こんにちは、**Beth**さん。**Dan Alexander**監督の**The Sad Egg**をレンタルしていただきありがとうございます。お客様のレンタル履歴に基づいて、おすすめの映画をご紹介します...」のように使用できます。
+提供された例を使用すると、ある人が最近トレーラーを視聴し、その後映画をレンタルしたことがわかります。キャンペーンに移動してこれらのプロパティに基づいてユーザーをセグメント化することはできませんが、これらのプロパティをレシートの形式で戦略的に使用し、Liquidを使用してチャネル経由でカスタムメッセージを送信できます。例:「こんにちは、**Alex**さん。**Alex Smith** 制作の**The Sad Egg**をレンタルいただきありがとうございます。レンタルに基づいたおすすめの映画をご紹介します…」

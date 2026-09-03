@@ -19,7 +19,7 @@ description: "이 문서에서는 카탈로그 필드 생성 Braze 엔드포인�
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `catalogs.create_fields` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `catalogs.create_fields` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key-permissions)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -30,14 +30,14 @@ description: "이 문서에서는 카탈로그 필드 생성 Braze 엔드포인�
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | -------------- | -------- | --------- | -------------------- |
 | `catalog_name` | 필수 | 문자열 | 카탈로그의 이름입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="경로 매개변수" }
 
 ## 요청 매개변수 {#request-parameters}
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | --------- | -------- | --------- | ------------------------------------------------------------------------------------------------------------ |
 | `fields` | 필수 | 배열 | 필드 오브젝트를 포함하는 배열입니다. 필드 오브젝트에는 새 필드의 이름과 유형이 포함되어야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="요청 매개변수" }
 
 ## 요청 예시 {#example-request}
 
@@ -117,11 +117,11 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
 
 | 오류 | 문제 해결 |
 |--------------------------------------|--------------------------------------------------------------------------------------------------------|
-| `arbitrary-error` | 임의의 오류가 발생했습니다. 다시 시도하거나 [고객지원팀]({{site.baseurl}}/support_contact/)에 문의하세요. |
+| `arbitrary-error` | 임의의 오류가 발생했습니다. 다시 시도하거나 [고객지원팀]({{site.baseurl}}/support_contact)에 문의하세요. |
 | `catalog-not-found` | 카탈로그 이름이 유효한지 확인하세요. |
 | `company-size-limit-already-reached` | 카탈로그 저장소 크기 제한에 도달했습니다. |
 | `request-includes-too-many-fields` | 각 요청은 최대 50개의 새 필드를 지원할 수 있습니다. |
 | `catalog-exceeds-fields-limit` | 카탈로그에는 500개를 초과하는 필드를 포함할 수 없습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="문제 해결" }
 
 {% endapi %}

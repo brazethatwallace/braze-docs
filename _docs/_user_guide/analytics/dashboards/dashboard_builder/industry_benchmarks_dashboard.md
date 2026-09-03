@@ -3,9 +3,7 @@ nav_title: Industry Benchmarks dashboard
 article_title: Industry Benchmarks dashboard
 alias: "/industry_benchmarks_dashboard/"
 page_order: 3
-description: "This article provides an overview of the Industry Benchmarks dashboard dashboard."
-hidden: true
-noidex: true
+description: "This article provides an overview of the Industry Benchmarks dashboard."
 ---
 
 # Industry Benchmarks dashboard
@@ -16,17 +14,13 @@ Use the **Industry Benchmarks** dashboard to compare your email, push, Content C
 
 To view the **Industry Benchmarks** dashboard, go to **Analytics** > **Dashboard Builder**, then select **Industry Benchmarks**. If the dashboard has no data, select **Run Dashboard** to generate the latest results. Use the filters at the top of the dashboard to refine results by industry vertical or timeframe.
 
-{% alert note %}
-The **Industry Benchmarks** dashboard is currently in early access. Contact your customer success manager if you're interested in participating in the early access.
-{% endalert %}
-
 ## About the dashboard
 
 The dashboard is organized into four channel sections: **Email**, **Push Notification**, **Content Card**, and **SMS**:
 
 | Section              | Description                                                                                                                                             |
 |----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| KPI cards            | Show your workspace's rate for each key metric, along with the delta compared to the industry rate. A green up arrow indicates your workspace is above the industry rate; a red down arrow indicates it's below. |
+| KPI cards            | Show your workspace's rate for each key metric, along with the delta compared to the industry rate. A green up arrow indicates your workspace is higher than the industry rate; a red down arrow indicates it is lower. |
 | Monthly trend chart  | Plots your workspace rate against the industry rate over time, so you can identify seasonality and longer-term trends.                                   |
 | Regional breakdown   | Breaks down your workspace rate against the industry rate across regions, so you can spot where regional performance diverges from the industry.         |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Section" }

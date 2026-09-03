@@ -6,7 +6,7 @@ page_order: 3
 
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Enumerar múltiples detalles de elementos del catálogo de Braze."
+description: "En este artículo se describen los detalles del endpoint Enumerar múltiples detalles de elementos del catálogo de Braze."
 
 ---
 {% api %}
@@ -15,13 +15,13 @@ description: "En este artículo se describen los detalles del punto de conexión
 /catalogs/{catalog_name}/items
 {% endapimethod %}
 
-> Usa este punto de conexión para devolver varios elementos del catálogo y su contenido.
+> Usa este endpoint para devolver varios elementos del catálogo y su contenido.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#63a19dd5-10e0-4649-bdf0-097216748bbb {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `catalogs.get_items`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `catalogs.get_items`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -32,20 +32,20 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
 | `catalog_name` | Obligatorio | Cadena | Nombre del catálogo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parámetros de ruta" }
 
 ## Parámetros de consulta {#query-parameters}
 
-Ten en cuenta que cada llamada a este punto de conexión devolverá 50 elementos. Para un catálogo con más de 50 elementos, utiliza el encabezado `Link` para recuperar los datos en la página siguiente, como se muestra en el siguiente ejemplo de respuesta.
+Ten en cuenta que cada llamada a este endpoint devolverá 50 elementos. Para un catálogo con más de 50 elementos, utiliza el encabezado `Link` para recuperar los datos en la página siguiente, como se muestra en el siguiente ejemplo de respuesta.
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
 | `cursor` | Opcional | Cadena | Determina la paginación de los elementos del catálogo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Query parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parámetros de consulta" }
 
 ## Parámetros de la solicitud {#request-parameters}
 
-No hay cuerpo de solicitud para este punto de conexión.
+No hay cuerpo de solicitud para este endpoint.
 
 ## Ejemplos de solicitudes {#example-requests}
 
@@ -67,7 +67,7 @@ curl --location --request GET 'https://rest.iad-03.braze.com/catalogs/restaurant
 
 ## Respuesta {#response}
 
-Existen tres respuestas de código de estado para este punto de conexión: `200`, `400` y `404`.
+Existen tres respuestas de código de estado para este endpoint: `200`, `400` y `404`.
 
 ### Ejemplo de respuesta correcta {#example-success-response}
 
@@ -146,6 +146,6 @@ La siguiente tabla enumera los posibles errores devueltos y sus pasos asociados 
 | --- | --- |
 | `catalog-not-found` | Comprueba que el nombre del catálogo es válido. |
 | `invalid-cursor` | Comprueba que tu `cursor` es válido. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Solución de problemas" }
 
 {% endapi %}

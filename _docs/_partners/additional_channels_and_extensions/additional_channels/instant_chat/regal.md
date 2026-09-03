@@ -5,7 +5,6 @@ description: "This reference article outlines the partnership between Braze and 
 alias: /partners/regal/
 page_type: partner
 search_tag: Partner
-
 ---
 
 # Regal
@@ -24,7 +23,7 @@ Use Braze data to shape what your AI agents say, how they respond, and when to e
 | ----------- | ----------- |
 | Regal account | A Regal account is required to take advantage of this partnership. |
 | Regal API key | A Regal API key allows you to send events from Braze to Regal.<br><br>Email [support@regal.io](mailto:support@regal.io) to get this key. |
-| Braze Data Transformation | A [Data Transformation]({{site.baseurl}}/data_transformation/) is required to receive data from Regal. |
+| Braze Data Transformation | A [Data Transformation]({{site.baseurl}}/user_guide/data/unification/data_transformation) is required to receive data from Regal. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration: Sending data from Braze to Regal
@@ -109,7 +108,7 @@ The only required identifier is a phone number inside `traits.phones`. Use the `
 }
 ```
 
-The above payload example assumes the listed phone numbers include current voice and SMS consent status. If that's not true, you can omit `voiceOptIn` and `smsOptIn` when creating the contact and set up a separate Canvas or campaign to update consent on the relevant phone number when opt-in is collected.
+This payload example assumes the listed phone numbers include current voice and SMS consent status. If that's not true, you can omit `voiceOptIn` and `smsOptIn` when creating the contact and set up a separate Canvas or campaign to update consent on the relevant phone number when opt-in is collected.
 
 ### Step 2: Update opt-in information
 
@@ -273,8 +272,6 @@ To create a Data Transformation:
 2. Give your transformation a name and click **Create transformation**.
 3. From the list of transformations, select <i class="fa-solid fa-ellipsis-vertical" title="View actions"></i> **View actions** and select **Copy webhook URL**.
 
-![]({% image_buster /assets/img/regal/copy_webhook_url.png %})
-
 ### Step 2: Enable reporting webhooks in Regal
 
 To set up reporting webhooks:
@@ -283,8 +280,6 @@ To set up reporting webhooks:
 2. In the **Reporting Webhooks** section, click **Create Webhooks**.
 
 3. In the webhook endpoint input, add the Braze Data Transformation webhook URL for the associated Data Transformation.
-
-![]({% image_buster /assets/img/regal/edit_webhook.png %}){: style="max-width:60%;"}
 
 #### Updating an endpoint
 
@@ -299,7 +294,7 @@ For the complete list of reporting events, property definitions, and sample payl
 
 ### Step 3: Transform Regal events into Braze events
 
-The Braze [Data Transformation]({{site.baseurl}}/data_transformation) feature allows you to map incoming Regal events into the format necessary to be added as attributes, events, or purchases in Braze.
+The Braze [Data Transformation]({{site.baseurl}}/user_guide/data/unification/data_transformation) feature allows you to map incoming Regal events into the format necessary to be added as attributes, events, or purchases in Braze.
 
 1. Name your Data Transformation. It is recommended to set up a Data Transformation per event webhook.
 
@@ -323,24 +318,24 @@ In Braze-to-Regal event payloads, Regal recommends using `traits.phones` to supp
 
 **Trigger an email from Braze based on a call disposition in Regal**
 
-Below is a sample payload for a `call.completed` event in Regal.
+The following sample payload shows a `call.completed` event in Regal.
 
 ```json
 {
   "userId": "123",
   "traits": {
-    "phone": "+17625555555",
-    "email": "xxx@gmail.com"
+    "phone": "+15555550123",
+    "email": "xxx@example.com"
   },
   "name": "call.completed",
   "properties": {
-    "agent_firstname": "Rebecca",
-    "agent_fullname": "Rebecca Greene",
-    "agent_id": "xxxx@yourbrand.com",
+    "agent_firstname": "Alex",
+    "agent_fullname": "Alex Lee",
+    "agent_id": "xxxx@example.com",
     "direction": "OUTBOUND",
-    "regal_voice_phone": "+19545558563",
+    "regal_voice_phone": "+15555550200",
     "regal_voice_phone_internal_name": "Sales Line",
-    "contact_phone": "+17625555555",
+    "contact_phone": "+15555550123",
     "call_id": "WTxxxxx9",
     "type": "Outbound Call",
     "disposition": "Converted During Convo",
@@ -363,7 +358,7 @@ Below is a sample payload for a `call.completed` event in Regal.
 }
 ```
 
-Below is a sample Data Transformation to map this to a custom event in Braze.
+The following sample Data Transformation maps this to a custom event in Braze.
 
 ```
 // The Braze /users/track endpoint expects timestamps in an ISO 8601 format. To use the Unix timestamp within Regal's call.completed event payload as the event timestamp in Braze must first be converted to ISO 8601. This can be done with the following code:
@@ -421,19 +416,19 @@ return brazecall;
 
 **Update profile attributes in Braze based on `contact.attribute.edited` events from Regal**
 
-Below is a sample payload for a `contact.attribute.edited` event in Regal. Regal sends this event when an agent updates an attribute on a contact's profile during a conversation.
+The following sample payload shows a `contact.attribute.edited` event in Regal. Regal sends this event when an agent updates an attribute on a contact's profile during a conversation.
 
 ```json
 {
   "userId": "123",
   "traits": {
-    "phone": "+17625555555",
-    "email": "xxx@gmail.com"
+    "phone": "+15555550123",
+    "email": "xxx@example.com"
   },
   "name": "contact.attribute.edited",
   "properties": {
-    "agent_email": "xxxx@yourbrand.com",
-    "contact_phone": "+17625555555",
+    "agent_email": "xxxx@example.com",
+    "contact_phone": "+15555550123",
     "changes": {
       "custom_properties": {
         "annual_income": {
@@ -449,7 +444,7 @@ Below is a sample payload for a `contact.attribute.edited` event in Regal. Regal
 }
 ```
 
-Below is a sample Data Transformation to map the new custom property values to the relevant attributes on your Braze profiles:
+The following sample Data Transformation maps the new custom property values to the relevant attributes on your Braze profiles:
 
 ```
 // This is an example template you can use as a starting point. Feel free to delete this entirely to start from scratch or to delete specific components as you see fit.
@@ -485,14 +480,14 @@ return brazecall;
 
 **Keep your experiments in Braze and Regal in sync using `contact.experiment.assigned` events**
 
-Below is a sample payload for a `contact.experiment.assigned` event in Regal.
+The following sample payload shows a `contact.experiment.assigned` event in Regal.
 
 ```json
 {
   "userId": "123",
   "traits": {
-    "phone": "+17625555555",
-    "email": "xxx@gmail.com"
+    "phone": "+15555550123",
+    "email": "xxx@example.com"
   },
   "name": "contact.experiment.assigned",
   "properties": {
@@ -508,7 +503,7 @@ Below is a sample payload for a `contact.experiment.assigned` event in Regal.
 }
 ```
 
-Below is a sample Data Transformation to map this to a custom event in Braze.
+The following sample Data Transformation maps this to a custom event in Braze.
 
 ```
 // The Braze /users/track endpoint expects timestamps in an ISO 8601 format. To use the Unix timestamp within Regal's call.completed event payload as the event timestamp in Braze, it must first be converted to ISO 8601. This can be done with the following code:
@@ -548,14 +543,14 @@ return brazecall;
 
 **Unsubscribe a contact in Braze based on `contact.unsubscribed` events from Regal**
 
-Below is a sample payload for a `contact.unsubscribed` event in Regal.
+The following sample payload shows a `contact.unsubscribed` event in Regal.
 
 ```json
 {
   "userId": "123",
   "traits": {
-    "phone": "+17625555555",
-    "email": "xxx@gmail.com",
+    "phone": "+15555550123",
+    "email": "xxx@example.com",
     "ip": "78.97.213.166"
   },
   "name": "contact.unsubscribed",
@@ -572,7 +567,7 @@ Below is a sample payload for a `contact.unsubscribed` event in Regal.
 }
 ```
 
-Below is a sample Data Transformation to unsubscribe the contact in Braze.
+The following sample Data Transformation unsubscribes the contact in Braze.
 
 ```
 // This is an example template you can use as a starting point. Feel free to delete this entirely to start from scratch or to delete specific components as you see fit.
@@ -611,17 +606,17 @@ For example:
 - When the primary objection is trust, send testimonials, ratings, or compliance reassurance.
 - When `needs_human_agent` is true, notify a sales or support team and suppress further automated messaging.
 
-Below is a sample payload for a `call.analysis.available` event in Regal.
+The following sample payload shows a `call.analysis.available` event in Regal.
 
 ```json
 {
   "traits": {
     "phone": "+1XXXXXXXXXX",
-    "email": "xxx@gmail.com"
+    "email": "xxx@example.com"
   },
   "name": "call.analysis.available",
   "brand": "circle-bank",
-  "contact_email": "xxx@gmail.com",
+  "contact_email": "xxx@example.com",
   "contact_phone": "+1XXXXXXXXXX",
   "created_at": "1754079836",
   "entity_type": "event",
@@ -631,7 +626,7 @@ Below is a sample payload for a `call.analysis.available` event in Regal.
   "original_timestamp": "1754079835",
   "profile_id": "62653af1111111173af128291e92",
   "properties": {
-    "agent_email": "xxx@yourbrand.com",
+    "agent_email": "xxx@example.com",
     "call_analysis": {
       "purchase_intent": "medium",
       "primary_objection": "price",
@@ -652,7 +647,7 @@ Below is a sample payload for a `call.analysis.available` event in Regal.
     "is_ai_agent": true,
     "outgoing_sip_headers": {
       "Via": "SIP/2.0/TCP srv2.example.com;branch=z9hG4bKgsdh7723",
-      "To": "<sip:agent@yourbrand.com>",
+      "To": "<sip:agent@example.com>",
       "User-Agent": "RegalVoiceAI/1.0"
     },
     "task_id": "WT7f3ea47fa6e6055aa847f0a62111111"
@@ -671,22 +666,22 @@ Use a Data Transformation to map `call_analysis` fields (such as `primary_object
 
 Use the `call.transcript.available` event to send a link to the full call transcript to Braze. Map the transcript URL to a Braze user profile attribute with Data Transformation so your team can access and review conversations from the user profile.
 
-Below is a sample payload for a `call.transcript.available` event in Regal.
+The following sample payload shows a `call.transcript.available` event in Regal.
 
 ```json
 {
   "userId": "123",
   "traits": {
-    "phone": "+17625551796",
-    "email": "xxx@gmail.com"
+    "phone": "+15555550123",
+    "email": "xxx@example.com"
   },
   "name": "call.transcript.available",
   "properties": {
-    "agent_email": "xxx@yourbrand.com",
+    "agent_email": "xxx@example.com",
     "task_id": "WT953358e8822dd9333fc38dfbac25e1e1",
-    "call_summary": "The agent Zoe explained insurance options to Joe and he said he'll need to think about it before moving forward Agent politely ended the call.",
-    "contact_name": "Joe Smith",
-    "contact_phone": "+13523182825",
+    "call_summary": "The agent Yuri explained insurance options to Alex and he said he'll need to think about it before moving forward Agent politely ended the call.",
+    "contact_name": "Alex Smith",
+    "contact_phone": "+15555550123",
     "is_voicemail": false,
     "moments_count": 18,
     "recording_id": "RE0118052841b7299d0630d1dff610c1fb",
@@ -697,8 +692,8 @@ Below is a sample payload for a `call.transcript.available` event in Regal.
     "sentiments": {
       "contact_sentiment": 70,
       "agent_sentiment": 75,
-      "agent_sentiment_reason": "Zoe was polite and attentive, effectively gathering information and providing a resource, which contributed to a positive interaction.",
-      "contact_sentiment_reason": "Joe was satisfied with the information provided but may have wanted more assistance regarding insurance options."
+      "agent_sentiment_reason": "Yuri was polite and attentive, effectively gathering information and providing a resource, which contributed to a positive interaction.",
+      "contact_sentiment_reason": "Alex was satisfied with the information provided but may have wanted more assistance regarding insurance options."
     },
     "trackers": [
       {
@@ -710,7 +705,7 @@ Below is a sample payload for a `call.transcript.available` event in Regal.
         "tracker_name": "High Intent"
       }
     ],
-    "transcript": "[handling agent]: Hi Joe, this is Zoe with BrightCover Insurance. I'll be going over some insurance options with you today. [contact]: Sounds good. [handling agent]: Before we start, I'm going to transfer you to a specialist for a moment. One sec. [transfer agent]: Hi Joe, this is Mark. Just verifying a few details before sending you back to Zoe. [contact]: Okay. [handling agent]: Thanks, Joe. Based on what you shared, here are some plan options... [contact]: I'll need to think about it. [handling agent]: Totally understandable. Feel free to reach out anytime. Have a great day! END OF TRANSCRIPT",
+    "transcript": "[handling agent]: Hi Alex, this is Yuri with BrightCover Insurance. I'll be going over some insurance options with you today. [contact]: Sounds good. [handling agent]: Before we start, I'm going to transfer you to a specialist for a moment. One sec. [transfer agent]: Hi Alex, this is Lee. Just verifying a few details before sending you back to Yuri. [contact]: Okay. [handling agent]: Thanks, Alex. Based on what you shared, here are some plan options... [contact]: I'll need to think about it. [handling agent]: Totally understandable. Feel free to reach out anytime. Have a great day! END OF TRANSCRIPT",
     "transcript_is_truncated": false,
     "transcript_url": "https://app.regalvoice.com/transcripts/WT953358e8822dd9333fc38dfbac25e1e1"
   },

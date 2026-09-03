@@ -77,7 +77,7 @@ android.permission.POST_NOTIFICATIONS
 
 ## Paso 1: Crea un mensaje dentro de la aplicación {#step-1-create-an-in-app-message}
 
-Primero, [crea un mensaje dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/) y luego selecciona tu tipo de mensaje y diseño.
+Primero, [crea un mensaje dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional) y luego selecciona tu tipo de mensaje y diseño.
 
 Para asegurarte de que tienes suficiente espacio tanto para tu mensaje como para los botones, usa un diseño de mensaje de pantalla completa o modal. Si eliges pantalla completa, ten en cuenta que se requiere una imagen.
 
@@ -97,7 +97,7 @@ Mientras que una aplicación de streaming podría usar lo siguiente:
 Get push notifications from Movie Cannon? Notifications may include new movies, TV shows, or other notices and can be turned off at any time.
 ```
 
-Para mejores prácticas y recursos adicionales, consulta [Crear avisos personalizados de adhesión voluntaria]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/).
+Para mejores prácticas y recursos adicionales, consulta [Crear avisos personalizados de adhesión voluntaria]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages).
 
 ## Paso 3: Especifica el comportamiento de los botones {#button-actions}
 
@@ -218,4 +218,4 @@ El filtro Liquid `targeted_device` solo mira el dispositivo donde se está mostr
 
 ## Paso 6: Eventos de conversión {#step-6-conversion-events}
 
-Braze sugiere configuraciones predeterminadas para conversiones, pero es posible que quieras configurar [eventos de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/) relacionados con push primers.
+Braze sugiere configuraciones predeterminadas para conversiones, pero es posible que quieras configurar [eventos de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) relacionados con push primers.

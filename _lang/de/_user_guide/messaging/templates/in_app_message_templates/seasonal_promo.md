@@ -30,11 +30,11 @@ Um mit der Erstellung Ihrer saisonalen Aktion zu beginnen, wählen Sie die Butto
 
 ![Der In-App-Nachrichten-Editor mit einem Seitenmenü zum Anpassen des Button-Elements.]({% image_buster /assets/img/drag_and_drop/templates/seasonal_promo_button.png %})
 
-Sie können auch zusätzliche Nachrichten zu Ihrer saisonalen Aktion im Abschnitt **Pages** hinzufügen und diese dann miteinander verknüpfen, um einen sequenziellen Ablauf zu erstellen. Zum Beispiel können Sie eine Abfolge von Nachrichten zusammenstellen, die kurz die Funktionen des Produkts beschreiben und mit einem Button enden, der Nutzer:innen zur Produktseite führt. Erfahren Sie, wie das funktioniert, unter [Seiten miteinander verbinden]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/?tab=adding%20pages#step-3a-connect-pages-together).
+Sie können auch zusätzliche Nachrichten zu Ihrer saisonalen Aktion im Abschnitt **Pages** hinzufügen und diese dann miteinander verknüpfen, um einen sequenziellen Ablauf zu erstellen. Zum Beispiel können Sie eine Abfolge von Nachrichten zusammenstellen, die kurz die Funktionen des Produkts beschreiben und mit einem Button enden, der Nutzer:innen zur Produktseite führt. Erfahren Sie, wie das funktioniert, unter [Seiten miteinander verbinden]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop?tab=adding%20pages#step-3a-connect-pages-together).
 
 ### 4. Schritt: Nachricht gestalten {#step-4-style-your-message}
 
-Passen Sie das Erscheinungsbild Ihrer saisonalen Aktion mithilfe der Drag-and-Drop-[Komponenten für In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/#message-components) an. Fügen Sie Ihr eigenes Hintergrundbild hinzu, indem Sie die Standard-URL des Hintergrundbilds im Menü **Message container** ersetzen, oder entfernen Sie die URL und wählen Sie Ihr Bild aus der [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/) aus.
+Passen Sie das Erscheinungsbild Ihrer saisonalen Aktion mithilfe der Drag-and-Drop-[Komponenten für In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings#message-components) an. Fügen Sie Ihr eigenes Hintergrundbild hinzu, indem Sie die Standard-URL des Hintergrundbilds im Menü **Message container** ersetzen, oder entfernen Sie die URL und wählen Sie Ihr Bild aus der [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) aus.
 
 ![Der In-App-Nachrichten-Editor mit einem Seitenmenü zur Auswahl des Hintergrundbilds.]({% image_buster /assets/img/drag_and_drop/templates/seasonal_promo_image.png %})
 

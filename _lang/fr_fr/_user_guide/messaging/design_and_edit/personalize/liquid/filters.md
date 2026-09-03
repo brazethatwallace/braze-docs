@@ -8,7 +8,7 @@ description: "Cette page de référence répertorie les filtres qui peuvent êtr
 
 # Filtres {#filters}
 
-> Cet article de référence fournit un aperçu des filtres dans Liquid et présente les filtres pris en charge par Braze. Vous cherchez des idées sur la façon d'utiliser ces filtres ? Consultez notre [bibliothèque de cas d'utilisation Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases/).
+> Cet article de référence fournit un aperçu des filtres dans Liquid et présente les filtres pris en charge par Braze. Vous cherchez des idées sur la façon d'utiliser ces filtres ? Consultez notre [bibliothèque de cas d'utilisation Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases).
 
 Les filtres permettent de modifier la sortie de nombres, chaînes de caractères, variables et objets dans Liquid. Vous pouvez utiliser des filtres pour reformater du texte statique ou dynamique, par exemple pour convertir une chaîne de caractères de minuscules en majuscules ou pour effectuer des opérations mathématiques comme l'addition ou la division.
 
@@ -44,7 +44,7 @@ BIG SALE
 Dans cet exemple, `Big Sale` est une chaîne de caractères et `upcase` est le filtre appliqué.
 
 {% alert note %}
-Les filtres peuvent être utilisés dans les instructions `assign` et les balises de sortie {% raw %}(`{{ }}`){% endraw %}, mais pas dans les conditions (`if`, `elsif`, `unless`), les blocs `case`/`when`, les boucles `for` ou les crochets d'accès aux tableaux. Pour utiliser une valeur filtrée dans l'un de ces contextes, assignez d'abord le résultat à une variable. Pour plus de détails, consultez [Où utiliser les opérateurs et les filtres]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#where-to-use-operators-and-filters).
+Les filtres peuvent être utilisés dans les instructions `assign` et les balises de sortie {% raw %}(`{{ }}`){% endraw %}, mais pas dans les conditions (`if`, `elsif`, `unless`), les blocs `case`/`when`, les boucles `for` ou les crochets d'accès aux tableaux. Pour utiliser une valeur filtrée dans l'un de ces contextes, assignez d'abord le résultat à une variable. Pour plus de détails, consultez [Où utiliser les opérateurs et les filtres]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#where-to-use-operators-and-filters).
 {% endalert %}
 
 ### Syntaxe pour plusieurs filtres {#syntax-for-multiple-filters}
@@ -265,9 +265,9 @@ Les guillemets droits sont différents des guillemets courbes dans Liquid. Faite
 | [downcase](https://shopify.dev/api/liquid/filters/downcase)      | Convertit une chaîne de caractères en minuscules.         | ✅  Oui   |
 | [escape](https://shopify.dev/api/liquid/filters/escape)    | Échappe une chaîne de caractères.             | ✅  Oui   |
 | [handleize](https://shopify.dev/api/liquid/filters/handleize)        | Formate une chaîne de caractères en handle.        | ⛔  Non    |
-| [md5](https://shopify.dev/api/liquid/filters/md5)    | Convertit une chaîne de caractères en hash MD5. Consultez les [filtres d'encodage]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#encoding-filters) pour en savoir plus.   | ✅  Oui   |
-| [sha1](https://shopify.dev/api/liquid/filters/sha1)    | Convertit une chaîne de caractères en hash SHA-1. Consultez les [filtres d'encodage]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#encoding-filters) pour en savoir plus.  | ✅  Oui   |
-| hmac_sha1_hex<br>(anciennement [hmac_sha_1](https://shopify.dev/api/liquid/filters/string-filters#hmac_sha1)) | Convertit une chaîne de caractères en hash SHA-1 à l'aide d'un code d'authentification de message par hachage (HMAC). Passez la clé secrète du message en paramètre du filtre. Consultez les [filtres d'encodage]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#encoding-filters) pour en savoir plus. | ✅  Oui   |
+| [md5](https://shopify.dev/api/liquid/filters/md5)    | Convertit une chaîne de caractères en hash MD5. Consultez les [filtres d'encodage]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#encoding-filters) pour en savoir plus.   | ✅  Oui   |
+| [sha1](https://shopify.dev/api/liquid/filters/sha1)    | Convertit une chaîne de caractères en hash SHA-1. Consultez les [filtres d'encodage]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#encoding-filters) pour en savoir plus.  | ✅  Oui   |
+| hmac_sha1_hex<br>(anciennement [hmac_sha_1](https://shopify.dev/api/liquid/filters/string-filters#hmac_sha1)) | Convertit une chaîne de caractères en hash SHA-1 à l'aide d'un code d'authentification de message par hachage (HMAC). Passez la clé secrète du message en paramètre du filtre. Consultez les [filtres d'encodage]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#encoding-filters) pour en savoir plus. | ✅  Oui   |
 | [hmac_sha256](https://shopify.dev/api/liquid/filters/hmac_sha256)    | Convertit une chaîne de caractères en hash SHA-256 à l'aide d'un code d'authentification de message par hachage (HMAC). Passez la clé secrète du message en paramètre du filtre.       | ✅  Oui   |
 | hmac_sha512 | Convertit une chaîne de caractères en hash SHA-512 à l'aide d'un code d'authentification de message par hachage (HMAC). Passez la clé secrète du message en paramètre du filtre. | ✅  Oui  |
 | [newline_to_br](https://shopify.dev/api/liquid/filters/newline_to_br)     | Insère une balise HTML de saut de ligne `<br>` devant chaque saut de ligne dans une chaîne de caractères.        | ✅  Oui   |
@@ -301,7 +301,7 @@ Les filtres généraux suivants servent à de nombreuses fins, notamment le form
 | [highlight](https://shopify.dev/api/liquid/filters/highlight)      | Entoure les mots dans les résultats de recherche avec une balise HTML `<strong>` ayant la classe highlight s'ils correspondent aux termes de recherche soumis. | ⛔  Non    |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Filtres supplémentaires" }
 
-Vous trouverez d'autres filtres pris en charge, tels que les filtres d'encodage et d'URL, sur notre page [Filtres avancés]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/).
+Vous trouverez d'autres filtres pris en charge, tels que les filtres d'encodage et d'URL, sur notre page [Filtres avancés]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters).
 
 ### Filtre date {#date-filter}
 

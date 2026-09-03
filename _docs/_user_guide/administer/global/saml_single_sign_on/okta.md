@@ -11,6 +11,10 @@ description: "This article will walk you through how to configure Braze to use O
 
 > Okta connects any person with any application on any device. It's an enterprise-grade, identity management service, built for the cloud, but compatible with many on-premises applications. With Okta, your IT team can manage any employee's access to any application or device.
 
+{% alert note %}
+The pre-built Braze Okta marketplace app uses the shared Entity ID `braze_dashboard`. If you need a unique Entity ID for this dashboard—for example, to connect multiple Braze dashboards through Okta—set up a custom SAML app instead of the marketplace app, then follow [Using a custom Entity ID]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup#using-a-custom-entity-id).
+{% endalert %}
+
 ## Requirements
 
 | Requirement | Details |
@@ -33,7 +37,7 @@ After your account manager has enabled SAML SSO for your account, go to **Settin
 
 From your Okta Admin dashboard, Okta provides you with a target URL (login URL) and `x.509` certificate, which you must input into your Braze account's **Security Settings** page.
 
-![]({% image_buster /assets/img/Okta/okta5.png %}){: style="max-width:75%"}
+![Screenshot related to step 1b: edit saml sso settings.]({% image_buster /assets/img/Okta/okta5.png %}){: style="max-width:75%"}
 
 | Requirement | Details |
 |---|---|
@@ -55,7 +59,7 @@ Next, enter the RelayState API key with `sso.saml.login` permission in the **Def
 Make sure to save these new settings.
 
 {% alert tip %}
-If you want your Braze account users to only sign in with SAML SSO, you can [restrict single sign-on authentication]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup/#restriction) from the **Company Settings** page.
+If you want your Braze account users to only sign in with SAML SSO, you can [restrict single sign-on authentication]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup#restriction) from the **Company Settings** page.
 {% endalert %}
 
 ## Step 3: Log in

@@ -12,7 +12,7 @@ channel:
 
 > While our standard in-app messages can be customized in a variety of ways, you can gain even greater control over the look and feel of your campaigns using messages designed and built using HTML, CSS, and JavaScript. With some simple composition, you can unlock custom functionality and branding to match any of your needs. 
 
-This message type is available in the [traditional editor]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/).
+This message type is available in the [traditional editor]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional).
 
 ## How it works
 
@@ -31,6 +31,28 @@ Custom HTML messages can use the [JavaScript Bridge](#javascript-bridge) methods
 To enable HTML in-app messages through the Web SDK, you must supply the `allowUserSuppliedJavascript` initialization option to Braze: for example, `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. This is for security reasons since HTML in-app messages can execute JavaScript, so we require a site maintainer to enable them.
 {% endalert %}
 
+### Rendering environments
+
+Custom HTML in-app messages render directly in the browser on web, but inside a platform WebView on iOS and Android. Because each environment uses a different rendering engine, the same HTML and CSS may display with slight visual differences across platforms, particularly for column layouts, fonts, and spacing.
+
+To minimize cross-platform differences:
+
+- Use explicit CSS values rather than relying on browser defaults
+- Include a viewport meta tag (for example, `<meta name="viewport" content="width=device-width, initial-scale=1">`)
+- Test on actual devices with test sends
+
+## Character encoding {#character-encoding}
+
+When building custom HTML in-app messages with special characters—such as Cyrillic script, accented characters, or other non-ASCII text—include UTF-8 encoding in your HTML to ensure proper display. Without UTF-8 encoding, these characters may appear broken or missing when rendered in the webview.
+
+To enable UTF-8 encoding, add the following meta tag inside your HTML `<head>` section:
+
+```html
+<meta charset="UTF-8">
+```
+
+This forces UTF-8 encoding, which is the expected character set for webviews that display in-app messages.
+
 ## JavaScript bridge {#javascript-bridge}
 
 {% include javascript_bridge/reference.md %}
@@ -42,7 +64,7 @@ In addition to custom JavaScript, Braze SDKs can also send analytics data with t
 ### Button click tracking (deprecated)
 
 {% alert warning %}
-The use of `abButtonID` is not supported in [HTML with Preview]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#html-upload-with-preview/) message types. For more information, see our [upgrade guide]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#html-upload-with-preview).
+The use of `abButtonID` is not supported in [HTML with Preview]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#html-upload-with-preview) message types. For more information, see our [upgrade guide]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#html-upload-with-preview).
 {% endalert %}
 
 To log button clicks for in-app message analytics, you can add `abButtonId` as a query parameter to any deep link, redirect URL, or anchor element `<a>`. Use `?abButtonId=0` to log a "Button 1" click, and `?abButtonId=1` to log a "Button 2" click.
@@ -91,23 +113,11 @@ The message preview panel of the editor shows a realistic preview that renders t
 Any `brazeBridge` JavaScript methods you use in your HTML won't update user profiles while previewing in the dashboard.
 {% endalert %}
 
-### SDK requirements {#supported-sdk-versions}
-
-To use the HTML preview for in-app messages, you must upgrade to the following minimum Braze SDK versions:
-
-{% sdk_min_versions swift:5.0.0 android:8.0.0 web:2.5.0 %}
-
-{% alert warning %}
-Because this message type can only be received by certain later SDK versions, users who are on unsupported SDK versions will not receive the message. Consider adopting this message type after a significant portion of your user base is reachable, or target only those users whose app version is later than the requirements. Learn more about [filtering by most recent app version]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions).
-{% endalert %}
-
 ### Creating a campaign {#instructions}
-
-Your mobile app users need to upgrade to the supported SDK versions to receive a **Custom Code** in-app message. We recommend that you [nudge users to upgrade]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features/) their mobile apps before launching campaigns that depend on newer Braze SDK versions.
 
 #### Asset files
 
-When creating custom code in-app messages with HTML upload, you can upload campaign assets to the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/) to reference in your message.
+When creating custom code in-app messages with HTML upload, you can upload campaign assets to the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) to reference in your message.
 
 The following file types are supported for upload:
 
@@ -146,7 +156,7 @@ You can select <i class="fa-solid fa-magnifying-glass"></i> **Search** within th
 
 ### Button tracking {#button-tracking-improvements}
 
-You can track performance within your custom code in-app message using the [`brazeBridge.logClick(button_id)`]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/) JavaScript method. This allows you to programmatically track "Button 1", "Button 2", and "Body Clicks" using `brazeBridge.logClick('0')`, `brazeBridge.logClick('1')`, or `brazeBridge.logClick()`, respectively.
+You can track performance within your custom code in-app message using the [`brazeBridge.logClick(button_id)`]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types) JavaScript method. This allows you to programmatically track "Button 1", "Button 2", and "Body Clicks" using `brazeBridge.logClick('0')`, `brazeBridge.logClick('1')`, or `brazeBridge.logClick()`, respectively.
 
 | Clicks     | Method                       |
 | ---------- | ---------------------------- |
@@ -172,11 +182,23 @@ If a button in your custom HTML in-app message does not load when clicked, verif
 
 Calling `brazeBridge.closeMessage()` closes the message but does not log analytics on its own. To log a body click when the user closes the message, call `brazeBridge.logClick()` before `brazeBridge.closeMessage()` so click logging stays consistent across platforms.
 
+#### Custom HTML not rendering on Android (Windows zip files)
+
+If your custom HTML in-app message renders in preview but fails to display on Android devices, check how your HTML and asset files were packaged. Some Windows zip utilities add directory entries (folder paths) inside the archive instead of placing files at the root level.
+
+Android may fail to load assets referenced with relative paths when the zip includes nested directory entries. To fix this:
+
+1. Extract your HTML, CSS, JavaScript, and image files to a single folder.
+2. Select all files (not the parent folder) when creating the zip archive.
+3. Confirm paths in your HTML reference files at the zip root (for example, `style.css`, not `assets/style.css`), or adjust paths to match the flattened structure.
+4. Re-upload the zip and send a test message to an Android device.
+
+Alternatively, upload assets through the [media library](#asset-files) instead of bundling them in a zip file.
+
 ### Backward incompatible changes {#backward-incompatible-changes}
 
-1. The most notable incompatible change with this new message type is the SDK requirements. Users whose app SDK does not meet the minimum [SDK version requirements](#supported-sdk-versions) will not be shown the message.
-2. The `braze://close` deeplink, which was previously supported on mobile apps, has been removed in favor of the JavaScript `brazeBridge.closeMessage()`. This allows for cross-platform HTML messages, since the web does not support deeplinks.
-3. Automatic click tracking, which used `?abButtonId=0` for button IDs, and "body click" tracking on close buttons have been removed. The following code examples show how to change your HTML to use our new click tracking JavaScript methods:
+1. The `braze://close` deeplink, which was previously supported on mobile apps, has been removed in favor of the JavaScript `brazeBridge.closeMessage()`. This allows for cross-platform HTML messages, since the web does not support deeplinks.
+2. Automatic click tracking, which used `?abButtonId=0` for button IDs, and "body click" tracking on close buttons have been removed. The following code examples show how to change your HTML to use our new click tracking JavaScript methods:
 
    | Before | After |
    |:-------- |:------------|
@@ -185,4 +207,3 @@ Calling `brazeBridge.closeMessage()` closes the message but does not log analyti
    |<code>&lt;a href="app://deeplink?abButtonId=0">Track button 1&lt;/a&gt;</code>|<code>&lt;a href="app://deeplink" onclick="brazeBridge.logClick('0')"&gt;Track button 1&lt;/a&gt;</code>|
    |<code>&lt;script&gt;<br>location.href = "braze://close?abButtonId=1"<br>&lt;/script&gt;</code>|<code>&lt;script&gt;<br>window.addEventListener("ab.BridgeReady", function(){<br>&nbsp;&nbsp;brazeBridge.logClick("1");<br>&nbsp;&nbsp;brazeBridge.closeMessage();<br>});<br>&lt;/script&gt;</code>|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Backward incompatible changes #backward-incompatible-changes" }
-

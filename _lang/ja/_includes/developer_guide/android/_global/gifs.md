@@ -1,12 +1,12 @@
 ## GIFについて {#about-gifs}
 
-Brazeはカスタム画像ライブラリーを使用してアニメーションGIFを表示する機能を提供しています。以下の例では[Glide](https://bumptech.github.io/glide/)を使用していますが、GIFをサポートする画像ライブラリーであればどれでも互換性があります。
+Brazeでは、カスタムイメージライブラリを使用してアニメーションGIFを表示する機能を提供しています。以下の例では[Glide](https://bumptech.github.io/glide/)を使用していますが、GIFをサポートする任意のイメージライブラリと互換性があります。
 
-## カスタム画像ライブラリーの統合 {#integrating-a-custom-image-library}
+## カスタムイメージライブラリの統合 {#integrating-a-custom-image-library}
 
-### ステップ 1: 画像ローダーデリゲートの作成 {#step-1-creating-the-image-loader-delegate}
+### ステップ 1: イメージローダーデリゲートの作成 {#step-1-creating-the-image-loader-delegate}
 
-画像ローダーデリゲートは、以下のメソッドを実装する必要があります。
+イメージローダーデリゲートは、以下のメソッドを実装する必要があります。
 
 * [`getInAppMessageBitmapFromUrl()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.images/-i-braze-image-loader/get-in-app-message-bitmap-from-url.html)
 * [`getPushBitmapFromUrl()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.images/-i-braze-image-loader/get-push-bitmap-from-url.html)
@@ -14,7 +14,7 @@ Brazeはカスタム画像ライブラリーを使用してアニメーション
 * [`renderUrlIntoInAppMessageView()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.images/-i-braze-image-loader/render-url-into-in-app-message-view.html)
 * [`setOffline()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.images/-i-braze-image-loader/set-offline.html)
 
-以下の統合例は、Braze Android SDKに含まれる[Glide 統合サンプルアプリ](https://github.com/braze-inc/braze-android-sdk/tree/master/samples/glide-image-integration)から取得したものです。
+以下の統合例は、Braze Android SDKに含まれる [Glide統合サンプルアプリ](https://github.com/braze-inc/braze-android-sdk/tree/master/samples/glide-image-integration) から引用しています。
 
 {% tabs %}
 {% tab JAVA %}
@@ -91,7 +91,7 @@ public class GlideBrazeImageLoader implements IBrazeImageLoader {
 {% endtab %}
 {% tab KOTLIN %}
 
-`````````kotlin
+```kotlin
 import com.braze.support.BrazeLogger
 import com.bumptech.glide.load.resource.gif.GifDrawable
 
@@ -160,25 +160,25 @@ class GlideBrazeImageLoader : IBrazeImageLoader {
 {% endtab %}
 {% endtabs %}
 
-### Android SDK 36.0.0 以降での画像読み込みの修正 {#fixing-image-loading-for-android-sdk-3600-and-later}
+### Android SDK 36.0.0以降での画像読み込みの修正 {#fixing-image-loading-for-android-sdk-3600-and-later}
 
-Android SDK 36.0.0 以降では、`displayInAppMessage()` は `suspend` 関数です。これにより、`renderUrlIntoInAppMessageView()` はメインスレッドではなくバックグラウンドスレッドで実行されます。
+Android SDK 36.0.0以降では、`displayInAppMessage()` は `suspend` 関数になっています。そのため、`renderUrlIntoInAppMessageView()` はメインスレッドではなくバックグラウンドスレッドで実行されます。
 
-カスタム画像ローダーが `renderUrlIntoInAppMessageView()` 内で `Glide.into(imageView)` を呼び出すと、「You must call this method on the main thread.」というエラーでアプリがクラッシュする可能性があります。
+カスタムイメージローダーが `renderUrlIntoInAppMessageView()` 内で `Glide.into(imageView)` を呼び出している場合、「You must call this method on the main thread.」というエラーでアプリが失敗する可能性があります。
 
-これを回避するには、以下の手順に従ってください。
+これを回避するには、次のようにします。
 
 1. バックグラウンドスレッドで `submit().get()` を使用して画像を読み込みます。
-2. `imageView.post { ... }` を使用してUI更新をメインスレッドにポストします。
-3. 読み込んだ結果がGIF drawableの場合、ビューに設定した後にアニメーションを開始します。
+2. `imageView.post { ... }` を使用して UI の更新をメインスレッドにポストします。
+3. 読み込み結果が GIF ドローアブルの場合、ビューに設定した後にアニメーションを開始します。
 
-これにより、画像の読み込みとUIレンダリングが分離され、カスタム画像ローダーがAndroid SDK 36.0.0 以降との互換性を保ちます。
+これにより、画像の読み込みと UI のレンダリングが分離され、カスタムイメージローダーが Android SDK 36.0.0以降と互換性を保つことができます。
 
-このガイダンスはAndroidのカスタム画像ローダーに適用されます。Webのアプリ内メッセージはGIFをそのままサポートしています。
+このガイダンスは Android のカスタムイメージローダーに適用されます。Web のアプリ内メッセージはGIFをデフォルトでサポートしています。
 
-以下のKotlinサンプルでは、プレースホルダー値を使用してこのパターンを示しています。
+以下の Kotlin サンプルは、このパターンを示すためにプレースホルダー値を使用しています。
 
-`````````kotlin
+```kotlin
 private const val TAG = "SampleGlideLoader"
 private const val glideBrazeImageLoaderTag = "sample-loader"
 
@@ -206,14 +206,14 @@ private fun renderUrlIntoView(
 }
 ```
 
-### ステップ 2: 画像ローダーデリゲートの設定 {#step-2-setting-the-image-loader-delegate}
+### ステップ 2: イメージローダーデリゲートの設定 {#step-2-setting-the-image-loader-delegate}
 
-Braze SDKは、[`IBrazeImageLoader`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.images/-i-braze-image-loader/index.html)で設定されたカスタム画像ローダーを使用します。カスタムアプリケーションサブクラスでカスタム画像ローダーを設定することをお勧めします。
+Braze SDKは、[`IBrazeImageLoader`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.images/-i-braze-image-loader/index.html) で設定されたカスタムイメージローダーを使用します。カスタムイメージローダーは、カスタムアプリケーションサブクラスで設定することをお勧めします。
 
 {% tabs %}
 {% tab JAVA %}
 
-`````````java
+```java
 public class GlideIntegrationApplication extends Application {
   @Override
   public void onCreate() {
@@ -226,7 +226,7 @@ public class GlideIntegrationApplication extends Application {
 {% endtab %}
 {% tab KOTLIN %}
 
-`````````kotlin
+```kotlin
 class GlideIntegrationApplication : Application() {
   override fun onCreate() {
     super.onCreate()
@@ -238,13 +238,19 @@ class GlideIntegrationApplication : Application() {
 {% endtab %}
 {% endtabs %}
 
-## Jetpack Composeによるカスタム画像の読み込み {#custom-image-loading-with-jetpack-compose}
+### Glide 画像読み込みのトラブルシューティング {#troubleshooting-glide-image-loads}
 
-Jetpack Composeで画像の読み込みをオーバーライドするには、[`imageComposable`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards.styling/-content-card-styling/index.html#-808910455%2FProperties%2F-1725759721)に値を渡します。この関数は `Card` を受け取り、必要な画像とモディファイアをレンダリングします。または、`ContentCardsList` の `customCardComposer` を使用してカード全体をレンダリングすることもできます。
+カスタム [`IBrazeImageLoader`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.images/-i-braze-image-loader/index.html) を設定した後（たとえば Glide を使用して）画像が読み込まれなくなった場合、グローバル OkHttp インターセプターがすべてのリクエストに認証ヘッダーを追加していないか確認してください。
 
-次の例では、`imageComposable` 関数にリストされているカードにGlideのComposeライブラリーが使用されています。
+このページの Glide サンプルは、Content Cards、アプリ内メッセージ、プッシュに対して同じ読み込みパスを使用しています。Braze がホストする画像は CDN URL であり、REST API認証を使用しません。インターセプターのスコープを自社の API ホストに限定するか、Braze の画像ホストを除外してください。Glide 統合後に Content Cardsの画像が失敗する場合は、このインターセプターパターンの一般的な症状です。
 
-`````````kotlin
+## Jetpack Composeによるカスタム画像読み込み {#custom-image-loading-with-jetpack-compose}
+
+Jetpack Composeで画像の読み込みをオーバーライドするには、[`imageComposable`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards.styling/-content-card-styling/index.html#-808910455%2FProperties%2F-1725759721) に値を渡します。この関数は`Card`を受け取り、画像と必要なモディファイアをレンダリングします。あるいは、`ContentCardsList`の`customCardComposer`を使用してカード全体をレンダリングすることもできます。
+
+以下の例では、`imageComposable`関数にリストされたカードに対して、GlideのComposeライブラリを使用しています。
+
+```kotlin
 ContentCardsList(
     cardStyle = ContentCardStyling(
         imageComposable = { card ->

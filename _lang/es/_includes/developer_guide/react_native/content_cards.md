@@ -32,17 +32,16 @@ Puedes utilizar estos métodos adicionales para crear una fuente personalizada d
 | ---------------------------------------- | ------------------------------------------------------------------------------------------------------ |
 | `launchContentCards()`                   | Lanza el elemento de interfaz de usuario de Content Cards.                                                                 |
 | `requestContentCardsRefresh()`           | Solicita las últimas Content Cards al servidor del SDK de Braze. La lista de tarjetas resultante se pasa a cada uno de los [oyentes de eventos de tarjeta de contenido](#reactnative_cards-methods) previamente registrados. |
-| `getContentCards()`                      | Recupera Content Cards del SDK de Braze. Devuelve una promesa que se resuelve con la última lista de tarjetas del servidor. |
 | `getCachedContentCards()`                | Devuelve la matriz de Content Cards más reciente de la caché.                                            |
 | `logContentCardClicked(cardId)`          | Registra un clic para el ID de Content Card dado. Este método solo se utiliza para análisis. Para ejecutar la acción de clic, llama además a `processContentCardClickAction(cardId)`.                                                        |
 | `logContentCardImpression(cardId)`       | Registra una impresión para el ID de Content Card dado.                                                      |
 | `logContentCardDismissed(cardId)`        | Registra un descarte para el ID de Content Card dado.                                                        |
 | `processContentCardClickAction(cardId)`  | Realiza la acción de una tarjeta concreta.                                                               |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Cards methods" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Métodos de tarjetas" }
 
 ## Tipos de tarjeta y propiedades {#card-types-and-properties}
 
-El modelo de datos de Content Cards está disponible en el SDK de React Native y ofrece los siguientes tipos de tarjeta de Content Cards: [Solo imagen](#image-only), [Imagen subtitulada](#captioned-image) y [Clásica](#classic). También hay un tipo especial de tarjeta de [Control](#control), que se devuelve a los usuarios que están en el grupo de control de una tarjeta determinada. Cada tipo hereda propiedades comunes de un modelo base, además de sus propias propiedades únicas.
+El modelo de datos de Content Cards está disponible en el SDK de React Native y ofrece los siguientes tipos de tarjeta de Content Cards: [Solo imagen](#image-only), [Imagen con subtítulo](#captioned-image) y [Clásica](#classic). También hay un tipo especial de tarjeta de [Control](#control), que se devuelve a los usuarios que están en el grupo de control de una tarjeta determinada. Cada tipo hereda propiedades comunes de un modelo base, además de sus propias propiedades únicas.
 
 {% alert tip %}
 Para una referencia completa del modelo de datos de Content Cards, consulta la documentación de [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/index.html) e [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard).
@@ -66,7 +65,7 @@ El modelo de tarjeta base proporciona un comportamiento básico para todas las t
 | `openURLInWebView` | Si las URL de esta tarjeta deben abrirse en la Vista Web de Braze o no.                                            |
 | `isControl`   | Si esta tarjeta es una tarjeta de control. Las tarjetas de control no deben mostrarse al usuario.                                |
 | `extras`      | El mapa de extras clave-valor de esta tarjeta.                                                                             |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Base card model" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Modelo de tarjeta base" }
 
 Para una referencia completa de la tarjeta base, consulta la documentación de [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/index.html) e [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/data-swift.struct).
 
@@ -79,13 +78,13 @@ Las tarjetas de solo imagen son imágenes de tamaño completo en las que se pued
 | `type`             | El tipo de Content Card, `IMAGE_ONLY`.                                                                              |
 | `image`            | La URL de la imagen de la tarjeta.                                                                                      |
 | `imageAspectRatio` | La relación de aspecto de la imagen de la tarjeta. Sirve como pista antes de que se complete la carga de la imagen. Ten en cuenta que la propiedad puede no suministrarse en determinadas circunstancias. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Image only" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Solo imagen" }
 
 Para una referencia completa de la tarjeta de solo imagen, consulta la documentación de [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-image-only-card/index.html) e [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/imageonly-swift.struct).
 
-### Imagen subtitulada {#captioned-image}
+### Imagen con subtítulo {#captioned-image}
 
-Las tarjetas de imagen subtitulada son imágenes de tamaño completo en las que se puede hacer clic y que van acompañadas de un texto descriptivo.
+Las tarjetas de imagen con subtítulo son imágenes de tamaño completo en las que se puede hacer clic y que van acompañadas de un texto descriptivo.
 
 | Propiedad           | Descripción                                                                                                       |
 |-------------------|-------------------------------------------------------------------------------------------------------------------|
@@ -94,14 +93,14 @@ Las tarjetas de imagen subtitulada son imágenes de tamaño completo en las que 
 | `imageAspectRatio` | La relación de aspecto de la imagen de la tarjeta. Sirve como pista antes de que se complete la carga de la imagen. Ten en cuenta que la propiedad puede no suministrarse en determinadas circunstancias. |
 | `title`            | El texto del título de la tarjeta.                                                                                      |
 | `cardDescription`  | El texto descriptivo de la tarjeta.                                                                                |
-| `domain`           | (Opcional) El texto del enlace para la URL de la propiedad, por ejemplo, `"braze.com/resources/"`. Se puede mostrar en la interfaz de usuario de la tarjeta para indicar la acción/dirección de hacer clic en la tarjeta. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Captioned image" }
+| `domain`           | (Opcional) El texto del enlace para la URL de la propiedad, por ejemplo, `"braze.com/resources/"`. Se puede mostrar en la interfaz de usuario de la tarjeta para indicar la acción o dirección de hacer clic en la tarjeta. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Imagen con subtítulo" }
 
-Para una referencia completa de la tarjeta de imagen subtitulada, consulta la documentación de [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-captioned-image-card/index.html) e [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/captionedimage-swift.struct).
+Para una referencia completa de la tarjeta de imagen con subtítulo, consulta la documentación de [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-captioned-image-card/index.html) e [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/captionedimage-swift.struct).
 
 ### Clásica {#classic}
 
-Las tarjetas clásicas tienen un título, una descripción y una imagen opcional a la izquierda del texto.
+Las tarjetas clásicas tienen un título, una descripción y una imagen opcional antes del texto.
 
 | Propiedad           | Descripción                                                                                                       |
 |-------------------|-------------------------------------------------------------------------------------------------------------------|
@@ -109,16 +108,16 @@ Las tarjetas clásicas tienen un título, una descripción y una imagen opcional
 | `image`            | (Opcional) La URL de la imagen de la tarjeta.                                                                           |
 | `title`            | El texto del título de la tarjeta.                                                                                      |
 | `cardDescription`  | El texto descriptivo de la tarjeta.                                                                                |
-| `domain`           | (Opcional) El texto del enlace para la URL de la propiedad, por ejemplo, `"braze.com/resources/"`. Se puede mostrar en la interfaz de usuario de la tarjeta para indicar la acción/dirección de hacer clic en la tarjeta. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Classic" }
+| `domain`           | (Opcional) El texto del enlace para la URL de la propiedad, por ejemplo, `"braze.com/resources/"`. Se puede mostrar en la interfaz de usuario de la tarjeta para indicar la acción o dirección de hacer clic en la tarjeta. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Clásica" }
 
 Para una referencia completa de la Content Card clásica (anuncio de texto), consulta la documentación de [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-text-announcement-card/index.html) e [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/classic-swift.struct). Para la tarjeta de imagen clásica (noticias breves), consulta la documentación de [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-short-news-card/index.html) e [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/classicimage-swift.struct).
 
 ### Control {#control}
 
-Las tarjetas de control incluyen todas las propiedades base, con algunas diferencias importantes. Y lo que es más importante:
+Las tarjetas de control incluyen todas las propiedades base, con algunas diferencias importantes. La más destacada:
 
-- La propiedad `isControl` está garantizada en `true`.
-- Se garantiza que la propiedad `extras` está vacía.
+- La propiedad `isControl` siempre será `true`.
+- Se garantiza que la propiedad `extras` estará vacía.
 
 Para una referencia completa de la tarjeta de control, consulta la documentación de [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-control-card/index.html) e [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/control-swift.struct).

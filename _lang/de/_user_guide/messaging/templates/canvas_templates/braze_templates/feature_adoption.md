@@ -7,7 +7,7 @@ description: "Dieser Artikel beschreibt, wie Sie ein Braze-Canvas-Template verwe
 tool: Canvas
 ---
 
-# Feature-Adoption
+# Feature-Adoption {#feature-adoption}
 
 > Dieses Template wurde entwickelt, um die Nutzung Ihrer neuen Features, bestehenden Produkte, zusätzlichen Angebote oder anderer Bereiche zu fördern, die Ihre Kund:innen erleben sollen. Durch den Einsatz personalisierter Kommunikation und einer strukturierten Abfolge von Nachrichten können Sie Nutzer:innen nahtlos neue Features vorstellen und wertvolles Feedback von ihnen erhalten.
 
@@ -15,7 +15,7 @@ In diesem Artikel führen wir Sie durch einen Anwendungsfall für das **Feature-
 
 ## Voraussetzungen {#prerequisites}
 
-Um dieses Template erfolgreich zu verwenden, benötigen Sie ein [angepasstes Event]({{site.baseurl}}/user_guide/data/activation/events/custom_events/), das erfasst, wann Nutzer:innen das Feature verwendet haben.
+Um dieses Template erfolgreich zu verwenden, benötigen Sie ein [angepasstes Event]({{site.baseurl}}/user_guide/data/activation/events/custom_events), das erfasst, wann Nutzer:innen das Feature verwendet haben.
 
 ## Das Template an Ihre Bedürfnisse anpassen {#tailoring-the-template-to-your-needs}
 
@@ -110,5 +110,5 @@ Als Nächstes gehen wir zum Nachrichtenschritt namens **Feedback Survey**, um un
 Nachdem Sie unser Canvas getestet und überprüft haben, um sicherzustellen, dass es wie erwartet funktioniert, wählen Sie **Launch Canvas**, um das Canvas zu starten. Jetzt können wir Nutzer:innen mit einer personalisierten User-Journey ansprechen, um sie zur Nutzung unseres neuen Features Cruise Control zu ermutigen.
 
 {% alert tip %}
-Sehen Sie sich unsere [Checkliste vor und nach dem Start]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist/#things-to-consider-before-launch) an, um zu erfahren, was Sie vor und nach dem Start eines Canvas beachten sollten.
+Sehen Sie sich unsere [Checkliste vor und nach dem Start]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist#things-to-consider-before-launch) an, um zu erfahren, was Sie vor und nach dem Start eines Canvas beachten sollten.
 {% endalert %}

@@ -18,14 +18,14 @@ As mensagens de WhatsApp com entrega otimizada são enviadas usando a [Marketing
 
 As marcas podem esperar entregabilidade igual ou superior com a MM API for WhatsApp, em comparação com a Cloud API. Na Índia, mensagens de marketing de alto engajamento tiveram até 9% mais mensagens entregues em comparação com a Cloud API, de acordo com a Meta. Note que a MM API for WhatsApp ainda não garante 100% de entregabilidade.
 
-### Disponibilidade regional {#regional-availability}
+## Disponibilidade regional {#regional-availability}
 
 A disponibilidade e as capacidades de otimização da entrega otimizada dependem da região do número de telefone comercial e do usuário. Para saber mais, consulte [Geographic availability of features](https://developers.facebook.com/docs/whatsapp/marketing-messages-lite-api/get-started#geographic-availability-of-features).
 
 ## Configurando a entrega otimizada {#setting-up-optimized-delivery}
 
 1. Na Braze, acesse **Integrações de parceiros** > **Parceiros de tecnologia** > **WhatsApp**.
-2. Na seção **Optimize your sending with optimized delivery**, selecione **Upgrade setting** para iniciar o [fluxo de cadastro integrado]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup/).
+2. Na seção **Optimize your sending with optimized delivery**, selecione **Upgrade setting** para iniciar o [fluxo de cadastro integrado]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup).
 
 ![A seção de integração de mensagens do WhatsApp com uma opção para otimizar o envio com entrega otimizada.]({% image_buster /assets/img/whatsapp/whatsapp_messaging_integration.png %})
 
@@ -38,7 +38,7 @@ Alternativamente, você pode ativar a entrega otimizada diretamente no seu Whats
 
 ### Solução de problemas na configuração {#troubleshooting-your-setup}
 
-- **Erro geral:** Se algo der errado durante o upgrade, este banner de erro será exibido e aconselhará você a [entrar em contato com o Suporte]({{site.baseurl}}/braze_support/).
+- **Erro geral:** Se algo der errado durante o upgrade, este banner de erro será exibido e aconselhará você a [entrar em contato com o Suporte]({{site.baseurl}}/braze_support).
 - **Erro de inelegibilidade:** Se você estiver restrito pela Meta, este banner de erro será exibido: "At least one WhatsApp Business Account is restricted by Meta. Accounts must be in good standing to upgrade." Ele não pode ser descartado até que o problema seja resolvido.
 
 ## Usando a entrega otimizada em Campaigns e Canvas {#using-optimized-delivery-in-campaigns-and-canvases}

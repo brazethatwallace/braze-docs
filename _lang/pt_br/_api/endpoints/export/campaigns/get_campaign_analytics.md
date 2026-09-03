@@ -1,20 +1,20 @@
 ---
-nav_title: "GET: Exportar análise de dados da campanha"
-article_title: "GET: Exportar análise de dados da campanha"
+nav_title: "GET: Exportar análise de dados de campaign"
+article_title: "GET: Exportar análise de dados de campaign"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Este artigo descreve informações sobre o endpoint da Braze para exportar análise de dados da campanha."
+description: "Este artigo descreve detalhes sobre o endpoint da Braze para exportar análise de dados de campaign."
 
 ---
 {% api %}
-# Exportar análise de dados da campanha {#export-campaign-analytics}
+# Exportar análise de dados de campaign {#export-campaign-analytics}
 {% apimethod get %}
 /campaigns/data_series
 {% endapimethod %}
 
-> Use este endpoint para recuperar uma série diária de diversas estatísticas de uma campanha ao longo do tempo.
+> Use este endpoint para recuperar uma série diária de diversas estatísticas de uma campaign ao longo do tempo.
 
 Os dados retornados incluem quantas mensagens foram enviadas, abertas, clicadas ou convertidas por canal de envio de mensagens.
 
@@ -24,20 +24,20 @@ Os dados retornados incluem quantas mensagens foram enviadas, abertas, clicadas 
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `campaigns.data_series`.
+Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `campaigns.data_series`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='export campaign analytics' %}
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | -------- | --------- | ----------- |
-| `campaign_id` | Obrigatória | String | Consulte o [identificador de API da campanha]({{site.baseurl}}/api/identifier_types/).<br><br> O `campaign_id` para Campaigns da API pode ser encontrado na página [Chaves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) e na página **Campaign Details** no seu dashboard, ou você pode usar o [endpoint Listar Campaigns]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns/). |
-| `length` | Obrigatória | Inteiro | Número máximo de dias antes de `ending_at` para incluir na série retornada. Deve estar entre 1 e 100 (inclusive). |
+| `campaign_id` | Obrigatório | String | Consulte [identificador de API de campaign]({{site.baseurl}}/api/identifier_types).<br><br> O `campaign_id` para Campaigns de API pode ser encontrado na página [Chaves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) e na página **Detalhes da Campaign** no seu dashboard, ou você pode usar o [endpoint Listar campaigns]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns). |
+| `length` | Obrigatório | Inteiro | Número máximo de dias antes de `ending_at` a serem incluídos na série retornada. Deve estar entre 1 e 100 (inclusive). |
 | `ending_at` | Opcional | Datetime <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) string) | Data em que a série de dados deve terminar. O padrão é o horário da solicitação. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#example-request}
 
@@ -54,7 +54,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/data_s
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
+    "message": (string) returns 'success' when the request completes without errors,
     "data" : [
         {
             "time": (string) the date as ISO 8601 date,
@@ -224,10 +224,18 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/data_s
 }
 ```
 
-Os tipos de mensagens possíveis são: `email`, `trigger_in_app_message`, `webhook`, `android_push`, `ios_push`, `kindle_push` e `web_push`. Todos os tipos de mensagens push terão as mesmas estatísticas mostradas em `android_push`.
+Os tipos de mensagem possíveis são: `email`, `trigger_in_app_message`, `webhook`, `android_push`, `ios_push`, `kindle_push` e `web_push`. Todos os tipos de mensagem push terão as mesmas estatísticas mostradas para `android_push`.
 
 {% alert tip %}
-Para obter ajuda com exportações de CSV e API, acesse [Resolução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+Para obter ajuda com exportações de CSV e API, acesse [Solução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endapi %}
+
+## Solução de problemas {#troubleshooting}
+
+### Visualização de falhas de entrega para Campaigns disparadas por API {#viewing-delivery-failures-for-api-triggered-campaigns}
+
+O endpoint [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) retorna estatísticas diárias agregadas (por exemplo, `delivery_failed` para SMS ou `errors` para webhooks). Ele não retorna os motivos de falha por destinatário.
+
+Para falhas de envio por mensagem, bounces e interrupções de Campaigns disparadas por API, use o [Registro de atividade de mensagens]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) no dashboard. Para relatórios personalizados sobre eventos de envio e entrega, use o [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder) com [modelos de consulta]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates) ou SQL personalizado. Você também pode transmitir eventos de falha por meio do Currents ou do Snowflake Data Sharing se o seu espaço de trabalho tiver esses produtos ativados.

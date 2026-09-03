@@ -1,9 +1,8 @@
 ---
 nav_title: Log custom events
-article_title: Log custom events through the Braze SDK
+article_title: "Log custom events"
 page_order: 3.1
 description: "Learn how to log custom events through the Braze SDK."
-
 ---
 
 # Log custom events
@@ -14,7 +13,7 @@ description: "Learn how to log custom events through the Braze SDK."
 For wrapper SDKs not listed, use the relevant native Android or Swift method instead.
 {% endalert %}
 
-For eCommerce recommended events, see [Log eCommerce events]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
+For eCommerce recommended events, see [Log eCommerce events]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
 
 ## Logging a custom event
 
@@ -345,9 +344,9 @@ Multiple properties may be logged each time a custom event is logged.
 
 Check with your developers which event properties are being tracked. Keep in mind that all event properties are case-sensitive. For additional information on tracking custom events, check out these articles based on your platform:
 
-* [Android]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=android)
-* [iOS]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=swift)
-* [Web]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=web)
+* [Android]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=android)
+* [iOS]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=swift)
+* [Web]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=web)
 
 ### Verify log
 
@@ -359,11 +358,11 @@ To confirm that the event properties are successfully tracked, you can view all 
 
 ### Verify values
 
-After [adding your user as a test user]({{site.baseurl}}/user_guide/administrative/app_settings/internal_groups_tab/#adding-test-users), follow these steps to verify your values: 
+After [adding your user as a test user]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups), follow these steps to verify your values: 
 
 1. Perform the custom event within the app.
 2. Wait for roughly 10 seconds for the data to flush.
-3. Refresh the [Event User Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/) to view the custom event and the event property value that was passed with it.
+3. Refresh the [Event User Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log) to view the custom event and the event property value that was passed with it.
 
 ## Troubleshooting custom events
 
@@ -381,13 +380,13 @@ If a custom event doesn't appear, the tracked action in your app may not match t
 If you don't identify a user before logging a custom event, Braze can associate that event with an anonymous profile.
 
 - Call `changeUser()` before performing the custom event so Braze logs it to an identified user profile.
-- Test with an identified test user, then review the [Event User Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/).
+- Test with an identified test user, then review the [Event User Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log).
 
 ### Verifying custom event logging setup
 
 If custom events aren't appearing as expected, confirm that your developer team has implemented custom event logging for the right app action.
 
 - Ask your developer team to verify that the event is logged correctly and triggered from the expected user action.
-- When your team opens a ticket with Braze Support, include [verbose logs]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/) and relevant code snippets.
-- If your app uses Swift or Android, your developer team can use the [SDK debugger prerequisites]({{site.baseurl}}/developer_guide/sdk_integration/debugging/#prerequisites) to help generate verbose logs.
-- If your developer team can't identify the issue, open a [Braze Support ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support/).
+- When your team opens a ticket with Braze Support, include [verbose logs]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging) and relevant code snippets.
+- If your app uses Swift or Android, your developer team can use the [SDK debugger prerequisites]({{site.baseurl}}/developer_guide/sdk_integration/debugging#prerequisites) to help generate verbose logs.
+- If your developer team can't identify the issue, open a [Braze Support ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support).

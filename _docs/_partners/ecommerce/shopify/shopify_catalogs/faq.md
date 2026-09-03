@@ -56,7 +56,7 @@ The configuration modal displays up to 5,000 of the most recently updated collec
 
 ### Can I filter by both tags and collections in a single catalog selection?
 
-No. Catalog selections support only one array field per selection filter. You cannot combine tags and collections in the same selection. If you need to target users based on both tag and collection criteria, use [Segment Extensions]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension/) with SQL queries instead.
+No. Catalog selections support only one array field per selection filter. You cannot combine tags and collections in the same selection. If you need to target users based on both tag and collection criteria, use [Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension) with SQL queries instead.
 
 ### What are the catalog selection limits?
 

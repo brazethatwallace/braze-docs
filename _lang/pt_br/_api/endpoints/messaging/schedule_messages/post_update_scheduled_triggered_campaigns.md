@@ -9,7 +9,7 @@ description: "Este artigo descreve os detalhes sobre o endpoint da Braze \"Atual
 ---
 {% api %}
 # Atualizar Campaigns agendadas disparadas por API {#update-scheduled-api-triggered-campaigns}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /campaigns/trigger/schedule/update
 {% endapimethod %}
 
@@ -17,19 +17,19 @@ description: "Este artigo descreve os detalhes sobre o endpoint da Braze \"Atual
 
 Você pode passar `trigger_properties` que a Braze usa como template na própria mensagem.
 
-Observe que, para enviar mensagens com esse endpoint, você deve ter um ID de campanha, criado ao criar uma [campanha disparada por API]({{site.baseurl}}/api/api_campaigns/).
+Observe que, para enviar mensagens com esse endpoint, você deve ter um ID de campanha, criado ao criar uma [campanha disparada por API]({{site.baseurl}}/api/api_campaigns).
 
-Qualquer programação sobrescreve completamente a que você forneceu na solicitação de criação de programação ou nas solicitações de atualização de programação anteriores. Por exemplo, se você originalmente definiu a programação como `"schedule" : {"time" : "2015-02-20T13:14:47", "in_local_time" : true}` e depois a atualizou para `"schedule" : {"time" : "2015-02-20T14:14:47"}`, a Braze envia a mensagem no horário especificado em UTC, não no horário local do usuário.
+Qualquer cronograma sobrescreve completamente o que você forneceu na solicitação de criação de cronograma ou nas solicitações de atualização de cronograma anteriores. Por exemplo, se você originalmente definiu o cronograma como `"schedule" : {"time" : "2015-02-20T13:14:47", "in_local_time" : true}` e depois o atualizou para `"schedule" : {"time" : "2015-02-20T14:14:47"}`, a Braze envia a mensagem no horário especificado em UTC, não no fuso local do usuário.
 
-Os gatilhos programados que são atualizados perto ou durante o horário em que deveriam ser enviados são atualizados com o melhor esforço para que a Braze possa aplicar mudanças de última hora a todos, alguns ou nenhum dos seus usuários-alvo. As atualizações não são aplicadas se a programação original usou o horário local e o horário original já passou em qualquer fuso horário.
+Os disparos agendados que são atualizados perto ou durante o horário em que deveriam ser enviados são atualizados com o melhor esforço para que a Braze possa aplicar mudanças de última hora a todos, alguns ou nenhum dos seus usuários-alvo. As atualizações não são aplicadas se o cronograma original usou fuso local e o horário original já passou em qualquer fuso horário.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#6d2a6e66-9d6f-4ae1-965a-79fa52b86b1d {% endapiref %}
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `campaigns.trigger.schedule.update`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `campaigns.trigger.schedule.update`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
@@ -52,11 +52,11 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
-| `campaign_id` | Obrigatória | String | Consulte [identificador de campanha]({{site.baseurl}}/api/identifier_types/) |
-| `schedule_id` | Obrigatória | String | O `schedule_id` a ser atualizado (obtido da resposta ao criar uma programação). |
-| `schedule` | Obrigatória | Objeto | Consulte [objeto de programação]({{site.baseurl}}/api/objects_filters/schedule_object/). |
+| `campaign_id` | Obrigatório | String | Consulte [identificador de campanha]({{site.baseurl}}/api/identifier_types) |
+| `schedule_id` | Obrigatório | String | O `schedule_id` a ser atualizado (obtido da resposta ao criar um cronograma). |
+| `schedule` | Obrigatório | Objeto | Consulte [objeto de cronograma]({{site.baseurl}}/api/objects_filters/schedule_object). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#example-request}

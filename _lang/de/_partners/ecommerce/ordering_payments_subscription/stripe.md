@@ -21,15 +21,15 @@ Durch die Integration von Braze und Stripe können Sie:
 
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
-| Stripe-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Stripe-Konto mit Zugang zu Webhooks. |
-| Braze-Datentransformation | Um Daten von Stripe zu empfangen, ist eine [URL für die Datentransformation]({{site.baseurl}}/data_transformation/) erforderlich. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Stripe-Konto | Ein Stripe-Konto mit Zugriff auf Webhooks ist erforderlich, um diese Partnerschaft zu nutzen. |
+| Braze-Datentransformation | Eine [Datentransformations-URL]({{site.baseurl}}/data_transformation) ist erforderlich, um Daten von Stripe zu empfangen. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
 ### 1. Schritt: Richten Sie die Braze-Datentransformation ein, um Webhooks von Stripe zu akzeptieren {#step-1}
 
-{% multi_lang_include create_transformation.md %}
+{% multi_lang_include data_activation/create_transformation.md %}
 
 ### 2. Schritt: Webhooks für Stripe einrichten {#step-2-set-up-stripe-webhooks}
 
@@ -233,11 +233,11 @@ Nachdem Sie Ihre Datentransformation geschrieben haben, wählen Sie **Validate**
 }
 ```
 
-## Anwendungsfälle der Datentransformation {#data-transformation-use-cases}
+## Anwendungsfälle für Datentransformationen {#data-transformation-use-cases}
 
-Nachfolgend finden Sie Beispiel-Templates, die mit unserem [Stripe-Webhook-Beispiel](#example) erstellt wurden. Diese Templates können als Ausgangspunkt verwendet werden. Sie können ganz von vorne anfangen oder bestimmte Komponenten löschen, wenn Sie es für richtig halten.
+Die folgenden Beispiel-Templates wurden auf Basis unseres [Beispiel-Stripe-Webhook-Payloads](#example) erstellt. Diese Templates können als Ausgangspunkt verwendet werden. Sie können von Grund auf neu beginnen oder bestimmte Komponenten nach Bedarf entfernen.
 
-In diesem Beispiel-Template protokollieren wir ein angepasstes Event für das Braze-Profil. Der Event-Typ wird als angepasster Event-Name gesendet, und das Datenobjekt wird als Event-Eigenschaften übergeben.
+In diesem Beispiel-Template loggen wir ein angepasstes Event im Braze-Profil. Der Event-Typ wird als Name des angepassten Events gesendet, und das Datenobjekt wird als Event-Eigenschaften übergeben.
 
 ### Anwendungsfall: Kund:in als Bezeichner {#use-case-customer-as-an-identifier}
 
@@ -307,4 +307,4 @@ return brazecall;
 
 ## Überwachung und Fehlerbehebung {#monitoring-and-troubleshooting}
 
-Weitere Informationen zur Überwachung und Fehlerbehebung Ihrer Transformation finden Sie unter [Überwachung Ihrer Transformation]({{site.baseurl}}/user_guide/data_and_analytics/data_transformation/creating_a_transformation/#step-5-monitor-your-transformation).
+Weitere Informationen zur Überwachung und Fehlerbehebung Ihrer Datentransformation finden Sie unter [Ihre Datentransformation überwachen]({{site.baseurl}}/user_guide/data_and_analytics/data_transformation/creating_a_transformation#step-5-monitor-your-transformation).

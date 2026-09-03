@@ -42,9 +42,9 @@ YotpoプロダクトIDを確認するには、以下のステップを実行し�
 YotpoとBrazeを統合するには、以下のステップを実行します。
 
 1. Brazeのダッシュボードに移動します。
-2. **キャンペーン**ページで**Create キャンペーン**をクリックし、**Email**を選択します。
+2. **キャンペーン**ページで**キャンペーンを作成**をクリックし、**Email**を選択します。
 3. 好みのテンプレートを選択します。
-4. **Edit email body**をクリックし、ユースケースに応じた[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)のスニペットを追加します。
+4. **メール本文を編集**をクリックし、ユースケースに応じた[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)のスニペットを追加します。
     - [製品の星評価とレビュー件数を表示する](#star-review-count)
     - [製品の最近の5つ星レビューを表示する](#five-star-review)
     - [製品別にビジュアルUGCを表示する](#visual-ugc)

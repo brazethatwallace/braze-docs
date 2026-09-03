@@ -22,7 +22,7 @@ Braze와 Lytics 통합은 고객에 대한 통합 뷰를 제공하여 강력한 
 - Lytics에서 Braze로 직접 오디언스 내보내기
 - Braze Campaigns 또는 Canvases에서 Lytics로 실시간 이벤트를 전송하여 개인화된 캠페인을 구성하고 풍부한 고객 프로필을 구축
 
-## 활용 사례 {#use-cases}
+## 사용 사례 {#use-cases}
 
 Braze를 Lytics에 연결하여 이메일, SMS, 푸시 활동을 [가져와](#importing-data-from-braze-to-lytics) Lytics 고객 프로필을 강화할 수 있습니다. Braze와 Lytics를 함께 사용하면 Lytics의 크로스채널, 행동 기반 오디언스를 [내보내](#integration) 퍼스트파티 데이터를 활용한 고도로 개인화된 Braze 고객 여정을 구축할 수도 있습니다.
 
@@ -34,7 +34,7 @@ Braze를 Lytics에 연결하여 이메일, SMS, 푸시 활동을 [가져와](#im
 | Lytics 계정 번호 | 웹훅 엔드포인트 URL을 구성하려면 Lytics 계정 번호가 필요합니다. |
 | Lytics API 토큰 | Data Manager 권한이 있는 Lytics REST API 토큰입니다. <br><br> Lytics 대시보드에서 **Account Settings Console** > **Access Tokens** > **Create New Token**으로 이동하여 생성할 수 있습니다. |
 | Braze REST API 키 | `users.track` 권한이 있는 Braze REST API 키입니다. <br><br> Braze 대시보드에서 **설정** > **API 키**로 이동하여 생성할 수 있습니다. |
-| Braze 인스턴스 | 사용 중인 [Braze 인스턴스]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/)입니다. 확실하지 않은 경우 Braze 온보딩 매니저에게 문의하세요. |
+| Braze 인스턴스 | 사용 중인 [Braze 인스턴스]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints)입니다. 확실하지 않은 경우 Braze 온보딩 매니저에게 문의하세요. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합 {#integration}
@@ -139,7 +139,7 @@ https://api.lytics.io/c/<ACCOUNT-NUMBER>/braze_users?key=<LYTICS-API-TOKEN>
 
 #### 3단계: Braze에서 웹훅 생성 {#step-3-create-a-webhook-on-braze}
 
-Braze에서 새 [웹훅 Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)을 생성합니다. **Webhook URL** 필드에 Lytics 웹훅 URL을 추가합니다.
+Braze에서 새 [웹훅 Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook)을 생성합니다. **Webhook URL** 필드에 Lytics 웹훅 URL을 추가합니다.
 
 요청 유형(HTTP `POST` 메서드)을 정의하고 나머지 웹훅 세부 정보를 구성하면 웹훅을 테스트하고 배포할 준비가 됩니다. 다음은 Braze에서 웹훅을 구성한 후의 POST 요청 본문 샘플입니다:
 
@@ -147,7 +147,7 @@ Braze에서 새 [웹훅 Campaign]({{site.baseurl}}/user_guide/channels/webhooks/
 {
   "city": "AnyTown",
   "country": "United States",
-  "first_name": "John",
+  "first_name": "Alex",
   "gender": "male",
   "language": "English",
   "last_name": "Smith",
@@ -155,14 +155,14 @@ Braze에서 새 [웹훅 Campaign]({{site.baseurl}}/user_guide/channels/webhooks/
   "phone_number": "5551231234",
   "time_zone": "GMT+7",
   "twitter_handle": "johnsmith",
-  "email": "john.smith@email.com",
+  "email": "john.smith@example.com",
   "braze_id": "xxxxxx"
 }
 ```
 
 ### CSV 파일에서 가져오기 {#from-a-csv-file}
 
-이 섹션에서는 Braze 사용자 데이터를 세그먼트에서 Lytics로 가져오는 방법을 설명합니다.
+이 섹션에서는 Braze 사용자 데이터를 Segment에서 Lytics로 가져오는 방법을 설명합니다.
 
 #### 1단계: 승인 생성
 
@@ -180,9 +180,9 @@ Lytics에서 내비게이션 바의 **Data** 콘솔 내 **Authorization** 대시
 
 표시되는 **Configure Authorization** 프롬프트에서 레이블과 설명을 입력하고 나머지 구성 요구 사항을 완료합니다. 완료되면 **Complete**를 선택합니다.
 
-#### 2단계: 세그먼트 데이터를 CSV로 내보내기 {#step-2-export-your-segment-data-to-csv}
+#### 2단계: Segment 데이터를 CSV로 내보내기 {#step-2-export-your-segment-data-to-csv}
 
-Braze에서 **오디언스** > **Segments**로 이동합니다. 내보내려는 세그먼트를 찾은 다음 <i class="fas fa-gear" aria-label="설정"></i>을 선택하고 **CSV Export User Data**를 선택합니다. 세그먼트에서 최대 500,000명의 사용자를 내보낼 수 있습니다. 자세한 내용은 [세그먼트 데이터를 CSV로 내보내기]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/)를 참조하세요.
+Braze에서 **오디언스** > **Segments**로 이동합니다. 내보내려는 Segment를 찾은 다음 <i class="fas fa-gear" aria-label="설정"></i>을 선택하고 **CSV Export User Data**를 선택합니다. Segment에서 최대 500,000명의 사용자를 내보낼 수 있습니다. 자세한 내용은 [Segment 데이터를 CSV로 내보내기]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv)를 참조하세요.
 
 #### 3단계: CSV 가져오기 작업 구성 {#step-3-configure-a-csv-import-job}
 

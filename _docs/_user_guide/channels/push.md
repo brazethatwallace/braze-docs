@@ -11,7 +11,7 @@ search_rank: 3
 
 # Push
 
-> Push notifications are a tried-and-true way to send time-sensitive calls to action through mobile or web, as well as re-engage users who haven't come into the app in a while. They lead the user directly to content and demonstrate the value of your application.
+> Push notifications send time-sensitive calls to action to mobile and web devices and re-engage users who have not opened your app recently. They open directly to relevant content and demonstrate ongoing value from your product. This hub covers push integration, opt-in strategy, message types, best practices, and platform-specific settings for iOS, Android, and Web. Consider [push primer messages]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages) before you request system permission. See the integration guides for [iOS]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/push_notifications?sdktab=android), and [Web]({{site.baseurl}}/developer_guide/push_notifications?sdktab=web) to get started.
 
 [![Braze Learning course]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/push-fundamentals){: style="float:right;width:120px;border:0;" class="noimgborder"}
 
@@ -19,8 +19,8 @@ search_rank: 3
 
 Before you start, make sure you have the following:
 
-- **Push integrated into your app or website.** Work with your developers to set this up. For detailed steps, refer to the integration guides for [iOS]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/?tab=android), and [Web]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=web).
-- **A push opt-in strategy.** Users must grant push permission on their device. Consider using [push primer messages]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/) to explain the value before prompting.
+- **Push integrated into your app or website.** Work with your developers to set this up. For detailed steps, refer to the integration guides for [iOS]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/push_notifications?sdktab=android), and [Web]({{site.baseurl}}/developer_guide/push_notifications?sdktab=web).
+- **A push opt-in strategy.** Users must grant push permission on their device. Consider using [push primer messages]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages) to explain the value before prompting.
 
 ## Use cases
 
@@ -48,7 +48,13 @@ Your push messages must follow the [Apple App Store Review Guidelines](https://d
 | Google Play — [Unauthorized use or imitation of system functionality](https://developers.google.com/android/play-protect/mobile-unwanted-software#muws-categories) | Apps must not mimic or interfere with system notifications. System-level notifications are only for integral app features (for example, an airline app notifying users of deals, or a game notifying users of in-game promotions). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Push message regulations" }
 
+## Frequently asked questions
+
+### When does Braze record a successful Send for push?
+
+Braze typically logs a **Send** once the message is dispatched from Braze toward Apple, Google, or your web push service. **Delivered**, opens, bounces, and uninstall signals are tracked separately and may arrive later. Use step- and campaign-level analytics together with [push troubleshooting]({{site.baseurl}}/user_guide/channels/push/troubleshooting/) when **Sends** and downstream metrics look misaligned.
+
 ## Next steps
 
-- [Push setup]({{site.baseurl}}/user_guide/channels/push/push_setup/)
-- [Create a push message]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/)
+- [Push setup]({{site.baseurl}}/user_guide/channels/push/push_setup)
+- [Create a push message]({{site.baseurl}}/user_guide/channels/push/create_a_push_message)

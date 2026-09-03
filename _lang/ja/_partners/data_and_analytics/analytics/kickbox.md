@@ -22,7 +22,7 @@ Kickboxを使用すると、Brazeでユーザープロファイルが更新さ�
 | Kickboxアカウント | この統合を使用するには、アクティブなKickboxアカウントが必要です。 |
 | Braze REST APIキー | `users.track`権限を持つBraze REST APIキー。<br><br>これは、Brazeダッシュボードの**設定** > **APIキー** > **APIキー**で作成できます。 |
 | 統合へのアクセスをリクエストする | KickboxサポートチームにBraze統合へのアクセスを許可してもらいます。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 統合 {#integration}
 
@@ -45,7 +45,7 @@ Kickboxのカスタム属性は一貫したスキーマを持っており、以�
    {
   "attributes": [
     {
-      "email": "example1@kickbox.com",
+      "email": "example1@example.com",
       "_update_existing_only": true,
       "success": true,
       "code": null,
@@ -59,10 +59,10 @@ Kickboxのカスタム属性は一貫したスキーマを持っており、以�
       "did_you_mean": null,
       "sendex": 1,
       "user": "example1",
-      "domain": "kickbox.com"
+      "domain": "example.com"
     },
     {
-      "email": "example2@gamil.com",
+      "email": "example2@exampl.com",
       "_update_existing_only": true,
       "success": true,
       "code": "44312",
@@ -73,17 +73,17 @@ Kickboxのカスタム属性は一貫したスキーマを持っており、以�
       "free": false,
       "disposable": false,
       "accept_all": false,
-      "did_you_mean": "example2@gmail.com",
+      "did_you_mean": "example2@example.com",
       "sendex": 0.23,
       "user": "example2",
-      "domain": "gamil.com"
+      "domain": "exampl.com"
     }
   ]
 }
 ```
 {% endraw %}
 
-これにより、メールアドレスが検証済みのユーザーのオーディエンスセグメントを作成でき、キャンペーンやキャンバスの配信成功率を高め、メールサービスプロバイダー（ESP）での評判を守ることができます。
+これにより、メールアドレスが検証済みのユーザーのオーディエンスセグメントを作成でき、キャンペーンやキャンバスの配信成功率を高め、メールサービスプロバイダー (ESP) での評判を守ることができます。
 
 以下の手順に従ってください。
 

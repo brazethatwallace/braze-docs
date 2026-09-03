@@ -1,6 +1,6 @@
 # フィーチャーフラグを作成する {#create-feature-flags}
 
-> フィーチャーフラグを使用すると、選択したユーザーに対してリモートで機能を有効または無効にすることができます。Brazeダッシュボードで新しいフィーチャーフラグを作成します。名前と`ID`、ターゲットオーディエンス、およびこの機能を有効にするユーザーの割合を指定します。その後、アプリまたはWebサイトのコードで同じ`ID`を使用して、ビジネスロジックの特定の部分を条件付きで実行できます。フィーチャーフラグおよびBrazeでの使用方法の詳細については、[フィーチャーフラグについて]({{site.baseurl}}/developer_guide/feature_flags/)を参照してください。
+> フィーチャーフラグを使用すると、選択したユーザーに対してリモートで機能を有効または無効にすることができます。Brazeダッシュボードで新しいフィーチャーフラグを作成します。名前と`ID`、ターゲットオーディエンス、およびこの機能を有効にするユーザーの割合を指定します。その後、アプリまたはWebサイトのコードで同じ`ID`を使用して、ビジネスロジックの特定の部分を条件付きで実行できます。フィーチャーフラグおよびBrazeでの使用方法の詳細については、[フィーチャーフラグについて]({{site.baseurl}}/developer_guide/feature_flags)を参照してください。
 
 ## 前提条件 {#prerequisites}
 
@@ -12,12 +12,12 @@
 
 ### Brazeの権限 {#braze-permissions}
 
-ダッシュボードでフィーチャーフラグを管理するには、管理者であるか、次の[権限]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/)を持っている必要があります。
+ダッシュボードでフィーチャーフラグを管理するには、管理者であるか、次の[権限]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions)を持っている必要があります。
 
 | 権限                                                                    | できること                           |
 |-------------------------------------------------------------------------------|-------------------------------------------|
 | **フィーチャーフラグを管理する**                                                      | フィーチャーフラグを表示、作成、編集します。     |
-| **Campaigns、Canvases、カード、フィーチャーフラグ、Segments、メディアライブラリにアクセスする** | 利用可能なフィーチャーフラグのリストを表示します。 |
+| **キャンペーン、キャンバス、カード、フィーチャーフラグ、セグメント、メディアライブラリにアクセスする** | 利用可能なフィーチャーフラグのリストを表示します。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Brazeの権限" }
 
 ## フィーチャーフラグを作成する {#creating-a-feature-flag}
@@ -70,7 +70,7 @@
 
 ### ステップ4:ターゲットとするセグメントを選ぶ {#step-4-choose-segments-to-target}
 
-フィーチャーフラグをロールアウトする前に、ターゲットとするユーザーの[Segment]({{site.baseurl}}/user_guide/engagement_tools/segments/)を選択する必要があります。新しく作成したフラグで**ルールを追加**を選択し、フィルターグループとSegmentのドロップダウンメニューを使って、ターゲットオーディエンスからユーザーを絞り込みます。複数のフィルターを追加して、オーディエンスをさらに絞り込みます。
+フィーチャーフラグをロールアウトする前に、ターゲットとするユーザーの[セグメント]({{site.baseurl}}/user_guide/engagement_tools/segments)を選択する必要があります。新しく作成したフラグで**ルールを追加**を選択し、フィルターグループとセグメントのドロップダウンメニューを使って、ターゲットオーディエンスからユーザーを絞り込みます。複数のフィルターを追加して、オーディエンスをさらに絞り込みます。
 
 ![セグメントとフィルターを追加できる「ロールアウトトラフィック」というラベルのテキストボックス。]({% image_buster /assets/img/feature_flags/segmentation_ff.png %}){: style="max-width:75%;"}
 
@@ -905,7 +905,7 @@ Brazeでユーザーがどのフィーチャーフラグを利用できるか確
 
 ## フィーチャーフラグでセグメント化する {#segmentation}
 
-Brazeは、現在フィーチャーフラグが有効になっているユーザーを自動的に追跡します。[**フィーチャーフラグ**フィルター]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/#feature-flags)を使ってSegmentまたはターゲットメッセージングを作成できます。Segmentでのフィルタリングの詳細については、[Segmentの作成]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/)を参照してください。
+Brazeは、現在フィーチャーフラグが有効になっているユーザーを自動的に追跡します。[**フィーチャーフラグ**フィルター]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters#feature-flags)を使ってセグメントまたはターゲットメッセージングを作成できます。セグメントでのフィルタリングの詳細については、[セグメントの作成]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment)を参照してください。
 
 ![「フィルター」セクションで、フィルター検索バーに「フィーチャーフラグ」と入力した状態。]({% image_buster /assets/img/feature_flags/feature-flags-filter-name.png %}){: style="max-width:75%;"}
 
@@ -915,9 +915,9 @@ Brazeは、現在フィーチャーフラグが有効になっているユーザ
 
 ## ベストプラクティス {#best-practices}
 
-### ロールアウトをCanvasesや実験と組み合わせない {#dont-combine-rollouts-with-canvases-or-experiments}
+### ロールアウトをキャンバスや実験と組み合わせない {#dont-combine-rollouts-with-canvases-or-experiments}
 
-異なるエントリーポイントによってユーザーが有効になったり無効になったりするのを避けるには、ロールアウトスライダーをゼロより大きな値に設定するか、Canvasまたは実験でフィーチャーフラグを有効にするかのいずれかにしてください。ベストプラクティスとして、Canvasや実験でフィーチャーフラグを使用する予定がある場合は、ロールアウトのパーセンテージをゼロにしておいてください。
+異なるエントリーポイントによってユーザーが有効になったり無効になったりするのを避けるには、ロールアウトスライダーをゼロより大きな値に設定するか、キャンバスまたは実験でフィーチャーフラグを有効にするかのいずれかにしてください。ベストプラクティスとして、キャンバスや実験でフィーチャーフラグを使用する予定がある場合は、ロールアウトのパーセンテージをゼロにしておいてください。
 
 ### 命名規則 {#naming-conventions}
 

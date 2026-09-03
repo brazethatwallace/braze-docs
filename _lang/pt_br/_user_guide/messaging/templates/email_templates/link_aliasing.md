@@ -15,7 +15,7 @@ channel:
 
 ## Sobre o alias de link {#about-link-aliasing}
 
-Com o alias de link, você pode criar nomes gerados pelo usuário para identificar e rastrear links enviados em e-mails. Dessa forma, você pode usar esses aliases de link reconhecíveis nos seus e-mails para rastrear o engajamento e analisar a performance de Campaigns, sem precisar referenciar o link completo.
+Com o alias de link, você pode criar nomes gerados pelo usuário para identificar e rastrear links enviados em e-mails. Dessa forma, você pode usar esses aliases de link reconhecíveis nos seus e-mails para rastrear o engajamento e analisar o desempenho de Campaigns, sem precisar referenciar o link completo.
 
 Com o alias de link, você pode:
 
@@ -40,7 +40,7 @@ Para criar um alias de link, abra o corpo do e-mail na Campaign ou no componente
 ### Editor de arrastar e soltar {#drag-and-drop-editor}
 
 1. Selecione **Edit Email Body** para abrir o editor de arrastar e soltar.
-2. Na barra lateral do editor, selecione **Content** (ao lado de **Sending Settings** e **Preview & Test**). Para mais informações sobre esse layout, consulte [Criar um e-mail com arrastar e soltar]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/).
+2. Na barra lateral do editor, selecione **Content** (ao lado de **Sending Settings** e **Preview & Test**). Para mais informações sobre esse layout, consulte [Criar um e-mail com arrastar e soltar]({{site.baseurl}}/user_guide/channels/email/drag_and_drop).
 3. No submenu **Content**, selecione **Link Management** (aparece em **Design and Build**). Se o submenu estiver recolhido, expanda-o usando o controle de seta na barra lateral.
 
 ### Editor de HTML {#html-editor}
@@ -62,6 +62,10 @@ Você também pode definir um alias que será usado para referenciar um link esp
 O alias de link é suportado apenas em atributos `href` dentro de tags de âncora HTML onde é seguro adicionar um parâmetro de consulta. É uma boa prática incluir um ponto de interrogação (?) no final do seu link para que a Braze possa facilmente adicionar o valor `lid`. Sem a adição do valor `lid`, a Braze não reconhecerá a URL para alias de link.
 {% endalert %}
 
+{% alert important %}
+No editor de arrastar e soltar, seu link deve incluir um ponto de interrogação (`?`) antes do símbolo de hash (`#`) na URL para que o alias de link apareça na guia **Link Management**.
+{% endalert %}
+
 ## Gerenciando aliases de link {#managing-link-aliases}
 
 Para visualizar todos os seus aliases de link rastreados, faça o seguinte:
@@ -74,7 +78,7 @@ Aqui, você pode classificar, pesquisar e desativar o rastreamento de aliases de
 ![Página de aliases de link rastreados mostrando aliases de link ativos e inativos associados a várias Campaigns.]({% image_buster /assets/img/tracked_aliases.png %})
 
 {% alert tip %}
-Use os endpoints [List link alias for campaign]({{site.baseurl}}/get_campaign_link_alias/) e [List link alias for Canvas]({{site.baseurl}}/get_canvas_link_alias/) para extrair o `alias` definido em cada variante de mensagem em uma Campaign ou em um componente do Canvas específico de e-mail.
+Use os endpoints [List link alias for campaign]({{site.baseurl}}/get_campaign_link_alias) e [List link alias for Canvas]({{site.baseurl}}/get_canvas_link_alias) para extrair o `alias` definido em cada variante de mensagem em uma Campaign ou em um componente do Canvas específico de e-mail.
 {% endalert %}
 
 A Braze recomenda avaliar os links dentro do e-mail, adicionar modelos de link e fornecer uma convenção de nomenclatura que funcione para fins de segmentação e relatórios. Isso ajuda você a manter o controle de todos os links.
@@ -132,10 +136,10 @@ As tabelas a seguir fornecem exemplos de links no corpo de um e-mail, resultados
 
 ## Rastreando aliases de link {#tracking-link-aliases}
 
-Na barra lateral do editor, selecione **Content** > **Link Management** (em **Design and Build**) e, em seguida, selecione quais aliases você deseja que sejam **rastreados**. Os aliases rastreados ficam disponíveis nos filtros de segmentação que referenciam aliases de link (consulte [Filtros de segmentação](#segmentation-filters)). Você também pode enviar mensagens baseadas em ação ou mover usuários por um Canvas quando eles clicarem em um alias de link no e-mail — consulte [Filtros baseados em ação](#action-based-filters). A configuração de **rastreado** não altera se os cliques nesse link contam nos relatórios de performance de e-mail.
+Na barra lateral do editor, selecione **Content** > **Link Management** (em **Design and Build**) e, em seguida, selecione quais aliases você deseja que sejam **rastreados**. Os aliases rastreados ficam disponíveis nos filtros de segmentação que referenciam aliases de link (consulte [Filtros de segmentação](#segmentation-filters)). Você também pode enviar mensagens baseadas em ação ou mover usuários por um Canvas quando eles clicarem em um alias de link no e-mail — consulte [Filtros baseados em ação](#action-based-filters). A configuração de **rastreado** não altera se os cliques nesse link contam nos relatórios de desempenho de e-mail.
 
 {% alert tip %}
-Para rastrear métricas de engajamento de link, certifique-se de que seu link comece com HTTP ou HTTPS. Para desativar o rastreamento de cliques em links específicos, consulte [Links universais e App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/#turning-off-click-tracking-on-a-link-to-link-basis).
+Para rastrear métricas de engajamento de link, certifique-se de que seu link comece com HTTP ou HTTPS. Para desativar o rastreamento de cliques em links específicos, consulte [Links universais e App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#turning-off-click-tracking-on-a-link-to-link-basis).
 {% endalert %}
 
 A Braze permite que você selecione links ilimitados para rastrear, embora você só possa redirecionar usuários com base nos links mais recentes que eles abriram. Os perfis de usuário incluem os 100 links clicados mais recentemente. Por exemplo, se você rastrear 500 links e um usuário clicar em todos os 500, você pode redirecionar ou criar segmentos com base nos 100 links clicados mais recentemente.
@@ -148,9 +152,15 @@ A Braze rastreia apenas os últimos 100 aliases de link clicados no nível do pe
 
 ### Filtros baseados em ação {#action-based-filters}
 
-Você pode criar mensagens baseadas em ação direcionando qualquer link (rastreado ou não rastreado) ou redirecionar usuários com base em se eles clicaram em um alias em qualquer Campaign de e-mail ou componente do Canvas.
+Quando o alias de link está ativado para o seu espaço de trabalho, você pode criar mensagens baseadas em ação direcionando qualquer link (rastreado ou não rastreado) ou redirecionar usuários com base em se eles clicaram em um alias em qualquer Campaign de e-mail ou componente do Canvas.
 
 ![Opções baseadas em ação para direcionar usuários que clicaram em um alias em um componente do Canvas ou interagiram com uma Campaign.]({% image_buster /assets/img/link_aliasing_action_based_filters.png %})
+
+- Se uma Campaign for arquivada, o rastreamento de link é desativado e esse alias de link não pode ser usado em um filtro diferente.
+- Se um link tem o rastreamento ativado e foi clicado em uma Campaign, você pode encontrar a Campaign como uma opção disponível no filtro de segmentação, mesmo que o rastreamento de link tenha sido desativado desde então, desde que pelo menos um link nessa mensagem ainda esteja sendo rastreado.
+- Você só pode selecionar um link rastreado como filtro se ele estiver em um Canvas ativo (lançado), usando o menu suspenso do filtro **Clicked Alias in Canvas Step**. Se o link estiver sendo rastreado em um rascunho de Canvas, você não pode selecionar o link rastreado como filtro.
+
+Para definir links como não rastreados, acesse **Settings** > **Email Preferences** > **Link Aliasing Settings**.
 
 ### Filtros de segmentação {#segmentation-filters}
 
@@ -160,7 +170,7 @@ Se você usar o filtro de segmentação "Clicked Alias in Any Campaign or Canvas
 
 Se você usar o filtro de segmentação "Clicked Alias in Campaign" ou "Clicked Alias in Canvas", ele filtra seus usuários com base em se eles clicaram em um alias específico em uma Campaign ou Canvas específico. Se vários usuários compartilharem o mesmo endereço de e-mail e o alias de link for clicado, todos os outros usuários que compartilham o endereço de e-mail terão seus perfis de usuário atualizados. Esses perfis também são atualizados por eventos de entrega e abertura, não apenas por eventos de clique.
 
-Os filtros de segmentação a seguir se aplicam a eventos de clique que são rastreados no momento em que o evento é processado. Isso significa que links não rastreados não removerão dados existentes e rastrear um link não preencherá retroativamente os dados. Para mais detalhes, consulte [Filtros de segmentação]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/).
+Os filtros de segmentação a seguir se aplicam a eventos de clique que são rastreados no momento em que o evento é processado. Isso significa que links não rastreados não removerão dados existentes e rastrear um link não preencherá retroativamente os dados. Para mais detalhes, consulte [Filtros de segmentação]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters).
 
 #### Cancelando o rastreamento de links {#untracking-links}
 
@@ -174,7 +184,7 @@ Para visualizar todos os links na sua Campaign de e-mail e seus respectivos cliq
 
 ### Evento de cliques de e-mail {#email-clicks-event}
 
-Se você exportar seus dados de engajamento com Currents, um evento de clique de e-mail será ligeiramente diferente se você tiver o alias de link ativado. Ele terá dois campos adicionais para o [evento de cliques de e-mail]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#email-clicks-events/) quando o alias de link estiver ativado: `link_id` e `link_alias`.
+Se você exportar seus dados de engajamento com Currents, um evento de clique de e-mail será ligeiramente diferente se você tiver o alias de link ativado. Ele terá dois campos adicionais para o [evento de cliques de e-mail]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#email-click-events) quando o alias de link estiver ativado: `link_id` e `link_alias`.
 
 ```json
 // Email Click: users.messages.email.Click
@@ -206,7 +216,7 @@ Se você exportar seus dados de engajamento com Currents, um evento de clique de
 ```
 
 {% alert update %}
-O comportamento do `dispatch_id` difere entre Canvas e Campaigns porque a Braze trata as etapas do Canvas (exceto as etapas de entrada, que podem ser agendadas) como eventos disparados, mesmo quando são "agendadas". Saiba mais sobre o [comportamento do `dispatch_id`]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/) em Canvas e Campaigns.
+O comportamento do `dispatch_id` difere entre Canvas e Campaigns porque a Braze trata as etapas do Canvas (exceto as etapas de entrada, que podem ser agendadas) como eventos disparados, mesmo quando são "agendadas". Saiba mais sobre o [comportamento do `dispatch_id`]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id) em Canvas e Campaigns.
 
 _Atualização registrada em agosto de 2019._
 {% endalert %}
@@ -233,7 +243,7 @@ Faça o seguinte:
 - Se a URL **já** inclui `?` e parâmetros de consulta, adicione `&` após o Liquid (por exemplo, `{{my_url}}&`).
 
 {% alert note %}
-Quando você usa [modelos de link]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template/) com URLs geradas por Liquid, a Braze pode normalizar de forma conservadora a URL renderizada após a execução do Liquid quando ela contém exatamente dois caracteres `?` usados como separadores de consulta. O segundo `?` pode ser reescrito como `&` para que a Braze altere o mínimo possível da URL. <br><br>A Braze não tenta corrigir todos os padrões de `?` duplicados, e o tratamento de URLs mais complexas permanece intencionalmente limitado. Adicione o `?` ou `&` correto na sua marcação primeiro e trate qualquer normalização como uma proteção limitada — não como um substituto para URLs bem formadas ou para que os links sejam reconhecidos em **Link Management** quando nenhum delimitador está presente.
+Quando você usa [modelos de link]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template) com URLs geradas por Liquid, a Braze pode normalizar de forma conservadora a URL renderizada após a execução do Liquid quando ela contém exatamente dois caracteres `?` usados como separadores de consulta. O segundo `?` pode ser reescrito como `&` para que a Braze altere o mínimo possível da URL. <br><br>A Braze não tenta corrigir todos os padrões de `?` duplicados, e o tratamento de URLs mais complexas permanece intencionalmente limitado. Adicione o `?` ou `&` correto na sua marcação primeiro e trate qualquer normalização como uma proteção limitada — não como um substituto para URLs bem formadas ou para que os links sejam reconhecidos em **Link Management** quando nenhum delimitador está presente.
 {% endalert %}
 
 Sem um `?` ou `&` final (ou outro ponto de inserção suportado), o alias de link não reconhece a URL, **Link Management** não a lista e os modelos de link não são aplicados.
@@ -271,7 +281,7 @@ Cada `href` distinto na mensagem é mapeado para **um** ID de link e um alias de
 Use as seguintes abordagens na Braze primeiro:
 
 - **Análise de dados de e-mail de Campaign e Canvas:** Revise os cliques agregados por link em **Message Analytics** > **Email Performance** > **Preview & Heatmap** com **Show Heatmap** ativado, conforme descrito em [Cancelando o rastreamento de links](#untracking-links).
-- **Cliques por destinatário no Criador de consultas:** Execute o modelo [Criador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates/#email-templates) **Email URLs clicked** para uma Campaign ou Canvas. O modelo exibe links despersonalizados para contagens resumidas; a exportação CSV inclui os IDs de usuário dos que clicaram, o link clicado e um timestamp. (URLs despersonalizadas removem tags Liquid para a visualização resumida; consulte a descrição do modelo para detalhes.)
+- **Cliques por destinatário no Criador de consultas:** Execute o modelo [Criador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates#email-templates) **Email URLs clicked** para uma Campaign ou Canvas. O modelo exibe links despersonalizados para contagens resumidas; a exportação CSV inclui os IDs de usuário dos que clicaram, o link clicado e um timestamp. (URLs despersonalizadas removem tags Liquid para a visualização resumida; consulte a descrição do modelo para detalhes.)
 - **Detalhamentos por alias no editor:** Se você precisa que cada destino (por exemplo, cada `offer_id`) apareça como sua própria linha em **Link Management** e nos relatórios baseados em alias, use valores `href` separados (e, portanto, aliases separados) — por exemplo, links distintos por ramificação — em vez de um link cujo caminho muda por usuário.
 
 Se você também usa exportações de engajamento por streaming, os eventos de clique de e-mail incluem um campo **`url`**; consulte [Evento de cliques de e-mail](#email-clicks-event) nesta página para saber como essa carga útil se relaciona com o alias de link.
@@ -348,10 +358,10 @@ Sem o valor `lid`, a Braze não trata a URL como alias de link para rastreamento
 
 Alternativamente, você pode desativar o alias de link no dashboard enquanto planeja uma mudança no backend. Acesse **Settings** > **Email Preferences** > **Link Aliasing Settings**.
 
-Se você não puder alterar seus sistemas de destino, entre em contato com o [suporte da Braze]({{site.baseurl}}/braze_support/) para desativar o alias de link no seu espaço de trabalho. Observe as seguintes considerações se o alias de link for desativado no seu espaço de trabalho:
+Se você não puder alterar seus sistemas de destino, entre em contato com o [suporte da Braze]({{site.baseurl}}/braze_support) para desativar o alias de link no seu espaço de trabalho. Observe as seguintes considerações se o alias de link for desativado no seu espaço de trabalho:
 
 - Novas mensagens de e-mail e Content Blocks normalmente não receberão nova marcação de alias de link (como o parâmetro de consulta `lid`).
 - Mensagens existentes que foram criadas enquanto o alias de link estava ativado ainda podem conter marcação de alias de link no HTML. Pode ser necessário remover manualmente os parâmetros `lid` restantes onde você não os deseja mais.
 - Se você editar uma Campaign existente, uma etapa de e-mail do Canvas ou um Content Block, pode ser necessário adicionar modelos de link novamente para que os links com modelo sejam exibidos corretamente.
 - Os relatórios de cliques para envios realizados enquanto o alias de link estava ativado podem não se alinhar perfeitamente com os relatórios após a desativação do recurso.
-- Segments que usam filtros baseados em alias de link (por exemplo, filtros **Clicked Alias**) podem parar de retornar os públicos esperados.
+- Segmentos que usam filtros baseados em alias de link (por exemplo, filtros **Clicked Alias**) podem parar de retornar os públicos esperados.

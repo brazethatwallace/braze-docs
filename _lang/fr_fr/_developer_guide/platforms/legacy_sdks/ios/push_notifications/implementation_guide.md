@@ -3,7 +3,7 @@ nav_title: Mise en œuvre avancée (facultative)
 article_title: Implémentation avancée des notifications push pour iOS (facultatif)
 platform: iOS
 page_order: 28
-description: "Ce guide d'implémentation avancée traite des moyens d'exploiter les extensions d'application de contenu de notification push iOS pour tirer le meilleur parti de vos messages push. Il contient également trois cas d'utilisation créés par notre équipe, les extraits de code l'accompagnant et des directives concernant l'enregistrement des analyses."
+description: "Ce guide d'implémentation avancée explique comment tirer parti des extensions d'application de contenu de notification push iOS pour exploiter au mieux vos messages push. Il contient également trois cas d'usage créés par notre équipe, les extraits de code l'accompagnant et des directives concernant l'enregistrement des analyses."
 channel:
   - push
 noindex: true
@@ -13,26 +13,26 @@ noindex: true
 
 <br>
 {% alert important %}
-Vous recherchez le guide d'intégration de base du développeur de notifications push ? Vous le trouverez [ici]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration/).
+Vous recherchez le guide d'intégration de base du développeur de notifications push ? Retrouvez-le dans le [guide d'intégration des notifications push iOS]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration).
 {% endalert %}
 
 # Guide d'implémentation des notifications push {#push-notification-implementation-guide}
 
-> Ce guide d'implémentation avancé et facultatif traite des moyens d'exploiter les extensions d'application de contenu de notification push pour tirer le meilleur parti de vos messages push. Il contient trois cas d'utilisation personnalisés créés par notre équipe, les extraits de code l'accompagnant et des directives concernant l'enregistrement des analyses. Visitez notre dépôt de démonstrations Braze [ici](https://github.com/braze-inc/braze-growth-shares-ios-demo-app) ! Notez que ce guide d'implémentation est centré autour d'une implémentation Swift, mais les extraits de code Objective-C sont fournis aux personnes intéressées.
+> Ce guide d'implémentation avancé et facultatif explique comment tirer parti des extensions d'application de contenu de notification push pour exploiter au mieux vos messages push. Il contient trois cas d'usage personnalisés créés par notre équipe, les extraits de code l'accompagnant et des directives concernant l'enregistrement des analyses. Visitez le [dépôt de démonstrations Braze](https://github.com/braze-inc/braze-growth-shares-ios-demo-app) ! Notez que ce guide d'implémentation est centré autour d'une implémentation Swift, mais les extraits de code Objective-C sont fournis aux personnes intéressées.
 
 ## Extensions d'application de contenu de notification {#notification-content-app-extensions}
 
 ![Deux messages de notification push affichés côte à côte. Le message de gauche montre à quoi ressemble une notification push avec l'interface utilisateur par défaut. Le message de droite montre une notification push de carte de fidélisation pour du café, réalisée en implémentant une interface utilisateur de notification push personnalisée.]({% image_buster /assets/img/push_implementation_guide/push1.png %}){: style="max-width:65%;border:0;margin-top:10px"}
 
-Les notifications push, en apparence standard sur différentes plateformes, offrent de très nombreuses options de personnalisation, au-delà de ce qui est normalement implémenté dans l'interface utilisateur par défaut. Lorsqu'une notification push est étendue, les extensions de notification de contenu permettent un affichage personnalisé de la notification push agrandie.
+Les notifications push, en apparence standard sur différentes plateformes, offrent de très nombreuses options de personnalisation, au-delà de ce qui est normalement implémenté dans l'interface utilisateur par défaut. Lorsqu'une notification push est étendue, les extensions de contenu de notification permettent un affichage personnalisé de la notification push agrandie.
 
 Les notifications push peuvent être étendues de trois manières différentes : <br>- Un appui long sur la bannière de notification push<br>- Faire glisser vers le bas sur la bannière de notification push<br>- Faire glisser la bannière vers la gauche et sélectionner « Afficher »
 
-Ces vues personnalisées offrent des moyens astucieux d'engager les clients en vous permettant d'afficher de nombreux types de contenu différents, y compris des notifications interactives, des notifications incluant des données utilisateur, et même des messages push qui peuvent recueillir des informations telles que les numéros de téléphone et l'e-mail. Bien que la mise en œuvre du push de cette manière puisse être peu familière à certains, l'une de nos fonctionnalités bien connues chez Braze, les [Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories/), sont un excellent exemple de ce à quoi peut ressembler une vue personnalisée pour une extension d'application de contenu de notification !
+Ces vues personnalisées offrent des moyens astucieux d'engager les clients en vous permettant d'afficher de nombreux types de contenu différents, y compris des notifications interactives, des notifications incluant des données utilisateur, et même des messages push qui peuvent recueillir des informations telles que les numéros de téléphone et l'e-mail. Bien que la mise en œuvre du push de cette manière puisse être peu familière à certains, l'une de nos fonctionnalités bien connues chez Braze, les [Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories), sont un excellent exemple de ce à quoi peut ressembler une vue personnalisée pour une extension d'application de contenu de notification !
 
-#### Conditions requises {#requirements}
-![]({% image_buster /assets/img/push_implementation_guide/push15.png %}){: style="float:right;max-width:50%;margin-left:10px; border:0;margin-top:10px"}
-- [Les notifications push]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration/) intégrées avec succès dans votre application
+### Conditions requises {#requirements}
+![Écran « Choose a template for your new target » de Xcode avec « Notification Content Extension » sélectionné sous Application Extension.]({% image_buster /assets/img/push_implementation_guide/push15.png %}){: style="float:right;max-width:50%;margin-left:10px; border:0;margin-top:10px"}
+- [Les notifications push]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration) intégrées avec succès dans votre application
 - iOS 10 ou supérieur
 - Les fichiers suivants générés par Xcode en fonction de votre langage de programmation :
 
@@ -49,15 +49,15 @@ Objective-C<br>
 Pour configurer un affichage personnalisé dans le tableau de bord, vous devez activer les boutons de notification et saisir votre catégorie personnalisée. La catégorie iOS personnalisée pré-enregistrée que vous fournissez est ensuite vérifiée par rapport à `UNNotificationExtensionCategory` dans le `.plist` de votre cible d'extension de contenu de notification. La valeur donnée ici doit correspondre à ce qui est défini dans le tableau de bord de Braze.
 
 ![Options de bouton de notification dans les paramètres de l'éditeur de messages push.]({% image_buster /assets/img/push_implementation_guide/push16.png %}){: style="max-width:75%;border:0;margin-top:10px"}
-![]({% image_buster /assets/img/push_implementation_guide/push17.png %}){: style="max-width:75%;border:0;margin-top:10px"}
+![Un fichier plist montrant NSExtension avec UNNotificationExtensionCategory défini sur « your_custom_category », UNNotificationExtensionDefaultContentHidden défini sur 1 et UNNotificationExtensionInitialContentSizeRatio défini sur 1.]({% image_buster /assets/img/push_implementation_guide/push17.png %}){: style="max-width:75%;border:0;margin-top:10px"}
 
 {% alert tip %}
 Étant donné que les notifications push avec des extensions de contenu ne sont pas toujours apparentes, il est recommandé d'inclure un appel à l'action pour inciter vos utilisateurs à développer leurs notifications push.
 {% endalert %}
 
-## Cas d'utilisation et guide d'implémentation {#use-case-and-implementation-walkthrough}
+## Cas d'usage et guide d'implémentation {#use-case-and-implementation-walkthrough}
 
-Trois types d'extensions d'application de contenu de notification push sont fournis. Chaque type comporte une présentation conceptuelle, des cas d'utilisation potentiels et un aperçu de la façon dont les variables de notification push peuvent se présenter et être utilisées dans le tableau de bord de Braze :
+Trois types d'extensions d'application de contenu de notification push sont fournis. Chaque type comporte une présentation conceptuelle, des cas d'usage potentiels et un aperçu de la façon dont les variables de notification push peuvent se présenter et être utilisées dans le tableau de bord de Braze :
 - [Notification push interactive](#interactive-push-notification)
 - [Notifications push personnalisées](#personalized-push-notifications)
 - [Notifications push de recueil d'informations](#information-capture-push-notification)
@@ -72,22 +72,22 @@ Les notifications push peuvent répondre aux actions de l'utilisateur dans une e
 
 Pour configurer une vue personnalisée dans le tableau de bord, dans les paramètres du bouton de notification, entrez la catégorie spécifique que vous souhaitez afficher. Ensuite, dans le `.plist` de votre extension de contenu de notification, vous devez également définir la catégorie personnalisée dans l'attribut `UNNotificationExtensionCategory`. La valeur donnée ici doit correspondre à ce qui est défini dans le tableau de bord de Braze. Enfin, pour activer les interactions utilisateur dans une notification push, définissez la clé `UNNotificationExtensionInteractionEnabled` sur true.
 
-![]({% image_buster /assets/img/push_implementation_guide/push3.png %}){: style="float:right;max-width:45%;"}
+![La section des boutons de notification dans le tableau de bord de Braze avec le champ iOS Notification Category défini sur « match_game ».]({% image_buster /assets/img/push_implementation_guide/push3.png %}){: style="float:right;max-width:45%;"}
 
 ![Options de bouton de notification dans les paramètres de l'éditeur de messages push.]({% image_buster /assets/img/push_implementation_guide/push14.png %}){: style="max-width:50%;"}
 
-#### Autres cas d'utilisation {#other-use-cases}
+#### Autres cas d'usage {#other-use-cases}
 Les extensions de contenu de notifications push sont une option intéressante pour introduire de l'interactivité dans vos promotions et vos applications. Certains exemples incluent un jeu auquel les utilisateurs peuvent jouer, une roue pour gagner des réductions ou un bouton « J'aime » pour enregistrer une annonce ou une chanson.
 
 ##### Prêt à enregistrer les analyses ? {#ready-to-log-analytics}
 Consultez la [section suivante](#logging-analytics) pour mieux comprendre à quoi doit ressembler le flux de données.
 
 ### Notifications push personnalisées {#personalized-push-notifications}
-![Deux iPhone affichés côte à côte. Le premier iPhone affiche la vue non étendue du message push. Le deuxième iPhone affiche la version étendue du message push montrant la « progression » de l'avancement d'un cours, la prochaine session et la date d'échéance de la prochaine session.]({% image_buster /assets/img/push_implementation_guide/push6.png %}){: style="float:right;max-width:40%;margin-left:15px;border:0"}
+![Deux iPhone affichés côte à côte. Le premier iPhone affiche la vue non étendue du message push. Le deuxième iPhone affiche la version étendue du message push montrant la progression de l'avancement d'un cours, la prochaine session et la date d'échéance de la prochaine session.]({% image_buster /assets/img/push_implementation_guide/push6.png %}){: style="float:right;max-width:40%;margin-left:15px;border:0"}
 
-Les notifications push peuvent afficher des informations spécifiques à l'utilisateur dans une extension de contenu. L'exemple à droite montre une notification push après qu'un utilisateur a terminé une tâche spécifique (cours d'apprentissage Braze) et est maintenant encouragé à développer cette notification pour vérifier sa progression. Les informations fournies ici sont spécifiques à l'utilisateur et peuvent être déclenchées à la fin d'une session ou après une action spécifique de l'utilisateur en tirant parti d'un déclencheur API.
+Les notifications push peuvent afficher des informations spécifiques à l'utilisateur dans une extension de contenu. L'exemple ci-contre montre une notification push après qu'un utilisateur a terminé une tâche spécifique (cours d'apprentissage Braze) et est maintenant encouragé à développer cette notification pour vérifier sa progression. Les informations fournies ici sont spécifiques à l'utilisateur et peuvent être déclenchées à la fin d'une session ou après une action spécifique de l'utilisateur en tirant parti d'un déclencheur API.
 
-#### Configuration du tableau de bord {#dashboard-configuration}
+#### Configuration du tableau de bord
 
 Pour configurer un push personnalisé dans le tableau de bord, vous devez enregistrer la catégorie spécifique que vous souhaitez voir s'afficher, puis, dans les paires clé-valeur à l'aide de Liquid standard, définir les attributs utilisateur appropriés que vous souhaitez voir apparaître dans le message. Ces vues peuvent être personnalisées sur la base des attributs utilisateur spécifiques d'un profil utilisateur donné.
 
@@ -130,11 +130,11 @@ func didReceive(_ notification: UNNotification) {
 {% endtab %}
 {% endtabs %}
 
-#### Autres cas d'utilisation {#other-use-cases}
+#### Autres cas d'usage
 
 Les idées d'extensions de contenu push basées sur la progression et axées sur l'utilisateur sont infinies. Certains exemples incluent l'ajout de l'option de partage de votre progression sur différentes plateformes, l'expression de réalisations débloquées, de cartes de fidélité ou même de listes de contrôle d'onboarding.
 
-##### Prêt à enregistrer les analyses ? {#ready-to-log-analytics}
+##### Prêt à enregistrer les analyses ?
 Consultez la [section suivante](#logging-analytics) pour mieux comprendre à quoi doit ressembler le flux de données.
 
 ### Notification push de recueil d'informations {#information-capture-push-notification}
@@ -149,9 +149,9 @@ Les notifications push peuvent capturer des informations utilisateur à l'intér
 
 Notez que les informations demandées ici peuvent être très variables, comme le recueil de numéros de SMS par exemple, et ne doivent pas forcément être en relation avec l'e-mail.
 
-#### Configuration du tableau de bord {#dashboard-configuration}
+#### Configuration du tableau de bord
 
-Pour configurer une notification push de capture d'informations dans le tableau de bord, vous devez enregistrer et définir votre catégorie personnalisée et fournir les paires clé-valeur nécessaires. Comme illustré dans l'exemple, vous pouvez également inclure une image dans votre notification push. Pour ce faire, vous devez intégrer les [notifications riches]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/rich_notifications/), définir le style de notification de votre campagne sur Notification riche et inclure une image push riche.
+Pour configurer une notification push de capture d'informations dans le tableau de bord, vous devez enregistrer et définir votre catégorie personnalisée et fournir les paires clé-valeur nécessaires. Comme illustré dans l'exemple, vous pouvez également inclure une image dans votre notification push. Pour ce faire, vous devez intégrer les [notifications riches]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/rich_notifications), définir le style de notification de votre Campaign sur Notification riche et inclure une image push riche.
 
 ![Un message push avec trois ensembles de paires clé-valeur. 1. « Braze_id » défini comme appel Liquid pour récupérer l'ID Braze. 2. « cert_title » défini comme « Braze Marketer Certification ». 3. « Cert_description » défini comme « Certified Braze marketers drive... ».]({% image_buster /assets/img/push_implementation_guide/push9.png %})
 
@@ -194,18 +194,18 @@ Les notifications push peuvent être automatiquement rejetées en appuyant sur u
 2. `completion(.doNotDismiss)` - La notification reste ouverte
 3. `completion(.dismissAndForward)` - La notification push est rejetée et l'utilisateur est redirigé vers l'application.
 
-#### Autres cas d'utilisation {#other-use-cases}
+#### Autres cas d'usage
 
 Demander la contribution des utilisateurs via des notifications push est une formidable opportunité dont de nombreuses entreprises ne profitent pas. Dans ces messages push, vous pouvez non seulement demander des informations de base comme le nom, l'adresse e-mail ou le numéro, mais vous pouvez également inviter les utilisateurs à compléter un profil utilisateur s'il ne l'est pas déjà, ou même à soumettre des commentaires.
 
-##### Prêt à enregistrer les analyses ? {#ready-to-log-analytics}
+##### Prêt à enregistrer les analyses ?
 Consultez la [section suivante](#logging-analytics) pour mieux comprendre à quoi doit ressembler le flux de données.
 
 ## Enregistrer les analyses {#logging-analytics}
 
 ### Enregistrer avec l'API Braze (recommandé) {#logging-with-the-braze-api-recommended}
 
-L'enregistrement des analyses peut uniquement se faire en temps réel avec l'aide du serveur du client qui utilise notre [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/). Pour enregistrer les analyses, envoyez la valeur `braze_id` dans le champ des paires clé-valeur (comme indiqué dans la capture d'écran suivante) pour identifier le profil utilisateur à mettre à jour.
+L'enregistrement des analyses peut uniquement se faire en temps réel avec l'aide du serveur du client qui utilise notre [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track). Pour enregistrer les analyses, envoyez la valeur `braze_id` dans le champ des paires clé-valeur (comme indiqué dans la capture d'écran suivante) pour identifier le profil utilisateur à mettre à jour.
 
 ![Un message push avec trois ensembles de paires clé-valeur. 1. « Braze_id » défini comme appel Liquid pour récupérer l'ID Braze. 2. « cert_title » défini comme « Braze Marketer Certification ». 3. « Cert_description » défini comme « Certified Braze marketers drive... ».]({% image_buster /assets/img/push_implementation_guide/push18.png %}){: style="max-width:80%;"}
 
@@ -213,14 +213,14 @@ L'enregistrement des analyses peut uniquement se faire en temps réel avec l'aid
 
 L'enregistrement manuel nécessite la configuration préalable des groupes d'applications dans Xcode, puis la création, l'enregistrement et la récupération des analyses. Cela nécessitera un travail de développement personnalisé de votre côté. Les extraits de code suivants vous aideront à résoudre ce problème.
 
-Il est également important de noter que les analyses ne seront pas envoyées à Braze tant que l'application mobile n'aura pas été lancée par la suite. Cela signifie que, selon vos paramètres de rejet, il existe souvent une période indéterminée entre le moment où une notification push est rejetée et le moment où l'application mobile est lancée et les analyses sont récupérées. Bien que cette période tampon n'affecte pas tous les cas d'utilisation, les utilisateurs doivent prendre en compte l'impact et, si nécessaire, ajuster leur parcours utilisateur pour inclure l'ouverture de l'application afin de résoudre ce problème.
+Il est également important de noter que les analyses ne seront pas envoyées à Braze tant que l'application mobile n'aura pas été lancée par la suite. Cela signifie que, selon vos paramètres de rejet, il existe souvent une période indéterminée entre le moment où une notification push est rejetée et le moment où l'application mobile est lancée et les analyses sont récupérées. Bien que cette période tampon n'affecte pas tous les cas d'usage, les utilisateurs doivent prendre en compte l'impact et, si nécessaire, ajuster leur parcours utilisateur pour inclure l'ouverture de l'application afin de résoudre ce problème.
 
 ![Un graphique décrivant la manière dont les analyses sont traitées par Braze. 1. Les données d'analyse sont créées. 2. Les données d'analyse sont enregistrées. 3. La notification push est rejetée. 4. Période indéterminée entre le moment où la notification push est rejetée et l'application mobile est lancée. 5. L'application mobile est lancée. 6. Les données d'analyse sont reçues. 7. Les données d'analyse sont envoyées à Braze.]({% image_buster /assets/img/push_implementation_guide/push13.png %})
 
 #### Étape 1 : Configurer les groupes d'applications dans Xcode {#step-1-configure-app-groups-within-xcode}
 Ajoutez une capacité `App Groups`. Si vous n'avez pas de groupe d'applications dans votre application, allez dans la capacité de la cible de l'application principale, activez `App Groups`, et cliquez sur le bouton « + ». Utilisez l'ID de l'ensemble de votre application pour créer le groupe d'applications. Par exemple, si l'ID de l'ensemble de votre application est `com.company.appname`, vous pouvez nommer votre groupe d'applications `group.com.company.appname.xyz`. Assurez-vous que les `App Groups` sont activés pour la cible de votre application principale et la cible de l'extension de contenu.
 
-![]({% image_buster /assets/img/ios/push_story/add_app_groups.png %})
+![La boîte de dialogue « Add a new container » dans Xcode pour configurer un groupe d'applications, avec un champ de texte pré-rempli avec « group. ».]({% image_buster /assets/img/ios/push_story/add_app_groups.png %})
 
 #### Étape 2 : Intégrer les extraits de code {#step-2-integrate-code-snippets}
 Les extraits de code suivants sont une référence utile sur la façon d'enregistrer et d'envoyer des événements personnalisés, des attributs personnalisés et des attributs utilisateur. Ce guide s'exprimera en termes de `UserDefaults`, mais la représentation du code sera sous la forme d'un fichier d'aide `RemoteStorage`. Il existe également des fichiers auxiliaires supplémentaires `UserAttributes` et `EventName Dictionary` utilisés lors de l'envoi et de l'enregistrement des attributs utilisateur. Tous les fichiers d'aide sont disponibles à la fin de ce guide.

@@ -21,7 +21,7 @@ description: "이 문서에서는 카탈로그 생성 Braze 엔드포인트에 �
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `catalogs.create` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `catalogs.create` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key-permissions)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -32,7 +32,7 @@ description: "이 문서에서는 카탈로그 생성 Braze 엔드포인트에 �
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 |---|---|---|---|
 | `catalogs` | 필수 | 배열 | 카탈로그 오브젝트가 포함된 배열입니다. 이 요청에는 하나의 카탈로그 오브젝트만 허용됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="요청 매개변수" }
 
 ### 카탈로그 오브젝트 매개변수 {#catalog-object-parameters}
 
@@ -41,7 +41,7 @@ description: "이 문서에서는 카탈로그 생성 Braze 엔드포인트에 �
 | `name` | 필수 | 문자열 | 생성하려는 카탈로그의 이름입니다. |
 | `description` | 필수 | 문자열 | 생성하려는 카탈로그에 대한 설명입니다. |
 | `fields` | 필수 | 배열 | `name` 및 `type` 키를 포함하는 오브젝트의 배열입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Catalog object parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="카탈로그 오브젝트 매개변수" }
 
 ## 요청 예시 {#example-request}
 ```
@@ -209,6 +209,6 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs' \
 | `invalid-fields` | `fields`의 형식이 올바르지 않습니다. |
 | `too-many-catalog-atoms` | 요청당 하나의 카탈로그만 생성할 수 있습니다. |
 | `too-many-fields` | 필드 개수 제한은 500개입니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="문제 해결" }
 
 {% endapi %}

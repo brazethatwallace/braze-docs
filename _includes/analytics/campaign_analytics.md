@@ -1,20 +1,20 @@
 ## Viewing analytics
 
-Once you've launched your campaign, you can return to the details page for that campaign to view key metrics. Navigate to the **Campaigns** page and select your campaign to open the details page.{% if include.channel != "banner" %} For {% if include.channel == "Content Card" %}Content Cards {% elsif include.channel == "banner" %}Banner {% elsif include.channel == "email" %}email {% elsif include.channel == "in-app message" %}in-app messages {% elsif include.channel == "KakaoTalk" %}KakaoTalk messages {% elsif include.channel == "push" %}push messages {% elsif include.channel == "SMS" %}SMS messages {% elsif include.channel == "whatsapp" %}WhatsApp messages {% elsif include.channel == "webhook" %}webhooks {% endif %}sent in Canvas, refer to [Canvas analytics]({{site.baseurl}}/user_guide/engagement_tools/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics/).{% endif %}
+Once you've launched your campaign, you can return to the details page for that campaign to view key metrics. Navigate to the **Campaigns** page and select your campaign to open the details page.{% if include.channel != "banner" %} For {% if include.channel == "Content Card" %}Content Cards {% elsif include.channel == "banner" %}Banner {% elsif include.channel == "email" %}email {% elsif include.channel == "in-app message" %}in-app messages {% elsif include.channel == "KakaoTalk" %}KakaoTalk messages {% elsif include.channel == "push" %}push messages {% elsif include.channel == "SMS" %}SMS messages {% elsif include.channel == "whatsapp" %}WhatsApp messages {% elsif include.channel == "webhook" %}webhooks {% endif %}sent in Canvas, refer to [Canvas analytics]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics/).{% endif %}
 
 {% alert tip %}
 Looking for definitions for the terms and metrics listed in your report? Refer to our 
-  {% if include.channel == "email" %}[Email Analytics Glossary]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/analytics_glossary/)
-  {% elsif include.channel == "banner" %}[Report Metrics Glossary]({{site.baseurl}}/user_guide/data/report_metrics/) and filter by Banners.
-  {% elsif include.channel == "Content Card" %}[Report Metrics Glossary]({{site.baseurl}}/user_guide/data/report_metrics/) and filter by Content Cards.
-  {% elsif include.channel == "in-app message" %}[Report Metrics Glossary]({{site.baseurl}}/user_guide/data/report_metrics/) and filter by in-app message.
-  {% elsif include.channel == "push" %}[Report Metrics Glossary]({{site.baseurl}}/user_guide/data/report_metrics/) and filter by Push.
-  {% elsif include.channel == "SMS" %}[Report Metrics Glossary]({{site.baseurl}}/user_guide/data/report_metrics/) and filter by SMS/MMS and RCS.
-  {% elsif include.channel == "whatsapp" %}[Report Metrics Glossary]({{site.baseurl}}/user_guide/data/report_metrics/) and filter by WhatsApp.
-  {% elsif include.channel == "webhook" %}[Report Metrics Glossary]({{site.baseurl}}/user_guide/data/report_metrics/) and filter by Webhook.{% endif %}
+  {% if include.channel == "email" %}[Email Analytics Glossary]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary/)
+  {% elsif include.channel == "banner" %}[Report Metrics Glossary]({{site.baseurl}}/user_guide/analytics/metrics_glossary/) and filter by Banners.
+  {% elsif include.channel == "Content Card" %}[Report Metrics Glossary]({{site.baseurl}}/user_guide/analytics/metrics_glossary/) and filter by Content Cards.
+  {% elsif include.channel == "in-app message" %}[Report Metrics Glossary]({{site.baseurl}}/user_guide/analytics/metrics_glossary/) and filter by in-app message.
+  {% elsif include.channel == "push" %}[Report Metrics Glossary]({{site.baseurl}}/user_guide/analytics/metrics_glossary/) and filter by Push.
+  {% elsif include.channel == "SMS" %}[Report Metrics Glossary]({{site.baseurl}}/user_guide/analytics/metrics_glossary/) and filter by SMS/MMS and RCS.
+  {% elsif include.channel == "whatsapp" %}[Report Metrics Glossary]({{site.baseurl}}/user_guide/analytics/metrics_glossary/) and filter by WhatsApp.
+  {% elsif include.channel == "webhook" %}[Report Metrics Glossary]({{site.baseurl}}/user_guide/analytics/metrics_glossary/) and filter by Webhook.{% endif %}
 {% endalert %}
 
-From the **Campaign Analytics** tab, you can view your reports in a series of panels. You may see more or less than those listed in the sections below, but each has its own useful purpose.
+From the **Campaign Analytics** tab, you can view your reports in a series of panels. You may see more or less than those listed in the following sections, but each has its own useful purpose.
 
 ### Time range
 
@@ -76,16 +76,16 @@ In Canvas, you'll see in-app message performance mapped onto the Canvas you've c
 
 {% endif %}
 
-#### Estimated Audience and Current Audience
+#### Estimated Audience and Current Audience {#estimated-audience-and-current-audience}
 
-Depending on how large your workspace is, the **Campaign Details** panel may label audience statistics **Estimated Audience** or **Current Audience**.
+Depending on the total number of users in your workspace, the **Campaign Details** panel labels audience statistics **Current Audience** or **Estimated Audience**.
 
 The following table summarizes what each label means.
 
 | Footer label | When it is used |
 | --- | --- |
-| **Estimated Audience** | Braze does not run a full-database count by default. Audience size is estimated from a sample and extrapolated, similar to the **Reachable users** range in the segment builder. Margins of error are expected, especially for large workspaces or small segments as a share of the workspace. |
-| **Current Audience** | Braze can compute the default statistic with a full scan of workspace profiles, so the displayed audience size is a current, unsampled count (still subject to channel reachability, subscription rules, and other targeting options). |
+| **Current Audience** | The workspace has 50,000 users or fewer. Braze runs a full scan of workspace profiles for the default statistic, so the displayed audience size is a current, unsampled count (still subject to channel reachability, subscription rules, and other targeting options). |
+| **Estimated Audience** | The workspace has more than 50,000 users. Braze doesn't run a full-database count by default. Audience size is estimated from a sample and extrapolated, similar to the **Reachable users** range in the segment builder. Margins of error are expected, especially for small segments as a share of the workspace. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Estimated Audience and Current Audience" }
 
 For details on sampling behavior, **Calculate exact statistics**, and segmenting **Reachable users**, see [Measure segment size]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/).
@@ -186,6 +186,13 @@ The **WhatsApp Performance** panel outlines how well your message has performed 
 
 ![WhatsApp performance panel that includes a table of metrics for Variant 1.]({% image_buster /assets/img/whatsapp_message_performance.png %})
 
+#### Credits versus send counts
+
+WhatsApp send counts in campaign analytics reflect delivery attempts. Credits consumed may differ when Meta bills by message category (marketing, utility, authentication, service).
+
+- Response messages composed in Braze don't consume Braze WhatsApp credits.
+- Use **Analytics** > **Daily Stats** for directional send volume. Credit breakdowns per campaign or Canvas aren't available.
+
 {% endif %}
 
 If you want to simplify your view, click <i class="fas fa-plus"></i> **Add/Remove Columns** and clear any metrics as desired. By default, all metrics are displayed.
@@ -203,10 +210,27 @@ Campaign analytics display click data for up to 100 unique URLs per variant, sor
 In this view, you can use the **Show Heatmap** toggle to bring up a visual view of your email that shows the overall frequency and location of clicks within the lifespan of the campaign. In the **Link Table by Total Clicks** panel, you can view all of the links in your email campaign and sort by total clicks. This can provide additional insight on where your users navigate. To save a copy of the heatmap for reference, select the download button.
 
 {% alert note %}
-If links use Liquid for dynamic URLs, clicked URLs may not match the rendered link in the message closely enough for the heatmap to associate clicks with that link, so those links might not appear on the heatmap. Use click data in the **Link Table by Total Clicks** panel for a full picture.
+If links use Liquid for dynamic URLs, clicked URLs may not match the rendered link in the message closely enough for the heatmap to associate clicks with that link, so those links might not appear on the heatmap. To attribute click data to templated links on the heatmap, use [link aliasing]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing). For a full picture, use click data in the **Link Table by Total Clicks** panel.
 {% endalert %}
 
 ![Example of the Preview and Heatmap page that includes an email campaign, and a panel with link alias examples with their total clicks.]({% image_buster /assets/img_archive/email_heatmap_example.png %})
+
+##### Heatmap unsubscribe clicks versus campaign analytics
+
+Clicks on unsubscribe links in the heatmap may differ from the *Unsubscribers* metric in campaign analytics:
+
+- When you use a custom unsubscribe URL in your message body, Braze treats that link as a standard tracked link for heatmap purposes—it appears in the **Link Table by Total Clicks** like any other link. When Braze processes an unsubscription from the Braze-provided unsubscribe link, the *Unsubscribers* metric increments. Custom unsubscribe URLs do not increment that metric unless you update users through the API.
+- When a user unsubscribes using the [list-unsubscribe header]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#list-unsubscribe) (a one-click unsubscribe option shown by some inbox providers), that action increments *Unsubscribers* in campaign analytics but doesn't appear as a click in the heatmap. If the message uses **Unsubscribe from specific subscription group**, Braze unsubscribes the user from only the configured subscription group instead of globally. Availability of this option varies by recipient because inbox providers differ in whether they render or support the list-unsubscribe header.
+
+For a complete view of unsubscribe behavior, review both the heatmap link breakdown and the *Unsubscribers* metric. For more details, see [Why *Unsubscribes* and unsubscribe-link clicks can differ]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#why-unsubscribes-and-unsubscribe-link-clicks-can-differ).
+
+##### Mobile-only links in the heatmap
+
+The heatmap only shows heat signatures for links visible at the selected preview size.
+
+Links that only appear in the mobile layout are hidden in **Desktop** (and may be hidden in **Overall**, depending on preview width), so those clicks do not show as heat signatures. Those links still appear in the **Link Table by Total Clicks** panel with their total clicks and percentages.
+
+To view heat signatures for mobile-only links, select **Mobile**. The mobile preview matches the drag-and-drop editor's mobile breakpoint (620&nbsp;px). If the email switches layouts only at a narrower width, those links stay hidden even in the **Mobile** preview size.
 
 #### Images
 
@@ -220,7 +244,7 @@ If images are missing from an export, work with your developers so image assets 
 
 #### Content Card metrics
 
-Here is a breakdown of some key metrics you may see while reviewing your message performance. For the full definitions of all Content Cards metrics, refer to the [Report Metrics Glossary]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics/) and filter by Content Cards.
+Here is a breakdown of some key metrics you may see while reviewing your message performance. For the full definitions of all Content Cards metrics, refer to the [Report Metrics Glossary]({{site.baseurl}}/user_guide/analytics/metrics_glossary/) and filter by Content Cards.
 
 <style>
     .no-split {
@@ -295,7 +319,7 @@ Your _Messages Sent_ refers to Content Cards available to be seen, while _Unique
 
 These are the key metrics to track while reviewing your Banner campaign performance. Clicks and impressions for Banners are tracked automatically with the SDK. 
 
-For the full definitions of all Banners metrics, refer to the [Report Metrics Glossary]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics/) and filter by Banners.
+For the full definitions of all Banners metrics, refer to the [Report Metrics Glossary]({{site.baseurl}}/user_guide/analytics/metrics_glossary/) and filter by Banners.
 
 <style>
     .no-split {
@@ -365,11 +389,17 @@ As another example, suppose you see five _Unique Impressions_ on a Banner campai
 
 _Unique Daily Impressions_ refers to the Banners that were actually seen.
 
+#### Discrepancies between control groups and variants
+
+When a Banner campaign uses a control group, control group impressions can be higher than variant impressions, even when the audience split between groups is even. This discrepancy is caused by a difference in how impressions are logged for control and variant Banners.
+
+Both control and variant impressions require the Banner placement to enter the viewport. Variant impressions are logged only when the full Banner is visible on screen. Control impressions can be logged as soon as the placement enters the viewport, before the full Banner would be visible for a variant.
+
 {% elsif include.channel == "email" %}
 
 #### Email metrics
 
-Here are some key email-specific metrics that you won't see in other channels. To see the full definitions of all email metrics used in Braze, refer to our [Email Analytics Glossary]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/analytics_glossary/).
+Here are some key email-specific metrics that you won't see in other channels. To see the full definitions of all email metrics used in Braze, refer to our [Email Analytics Glossary]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary/).
 
 <style>
     .no-split {
@@ -449,7 +479,16 @@ The dashboard highlights _Hard Bounces_. Some _Bounces_ may be soft bounces and 
 
 _Sends − (Deliveries + Hard Bounces) ≈ Soft Bounces_
 
-_Deliveries_ can rise during the first 72 hours as retries succeed, while _Sends_ and hard bounces for a one-time send stay fixed once the send completes.
+_Deliveries_ can rise during your email service provider (ESP) retry window while retries succeed, while _Sends_ and hard bounces for a one-time send stay fixed once the send completes. SendGrid and SparkPost retry for up to 72 hours; Amazon SES retries for up to 14 hours.
+
+###### Common delivery troubleshooting scenarios
+
+When reviewing your email analytics, keep these patterns in mind:
+
+- **Gap between _Sends_ and (_Deliveries_ + _Hard Bounces_):** During the ESP retry window after a one-time send, this gap often reflects soft bounces or deferrals still being retried. After retries finish, any remaining gap usually means messages that soft bounced and were never delivered—those sends are not counted toward campaign _Deliveries_ or _Bounces_. Use the formula in [Deliveries and bounces](#deliveries-and-bounces) to approximate in-flight soft bounces.
+- **Low _Deliveries_ after retries finish:** If delivery rates stay low once retries have finished, compare this send's volume to your typical patterns. Mailbox providers may defer, throttle, or soft bounce mail when volume spikes relative to your sender reputation. You may see messages such as `Email was deferred due to the following reason(s): [IPs were throttled by recipient server]` in the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/). Use [delivery speed rate limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting) to pace large sends, and refer to [Throttled IPs]({{site.baseurl}}/user_guide/channels/email/reporting/#throttled-ips) for additional troubleshooting steps.
+- **Soft bounces and deferrals not shown in campaign analytics:** Campaign analytics highlight _Hard Bounces_ but do not include _Soft Bounces_ or _Deferrals_ as separate columns. Monitor these events in the Message Activity Log, with the [Soft Bounced segment filter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#soft-bounced), or through Currents deferral events. For how retries work, see [Deferrals](#deferrals).
+- **Delivery percentages that may not add up to 100%:** _Deliveries %_, _Bounce %_, and _Spam Rate %_ may not sum to 100% of _Sends_. Messages that soft bounce and are never delivered after the ESP retry window are not counted in campaign _Deliveries_ or _Bounces_, so they can leave a portion of _Sends_ unaccounted for in those rates. Wait until retries finish before judging final delivery performance, or use the formula in [Deliveries and bounces](#deliveries-and-bounces) to estimate how many sends are still in retry.
 
 ##### Clicks without an open event
 
@@ -483,15 +522,15 @@ Some email security products follow links to scan for threats. Those requests ca
 
 ##### Deferrals
 
-Deferred or deferral is when an email was not immediately delivered, but Braze will retry the email for up to 72 hours after this temporary delivery failure to maximize the chances of successful delivery before attempts for that specific campaign are stopped. Typical reasons for deferrals include reputation-based email volume rate-limiting from the inbox provider, temporary connectivity issues, or DNS errors.
+Deferred or deferral is when an email was not immediately delivered, but Braze retries the email through your ESP after this temporary delivery failure to maximize the chances of successful delivery before attempts for that specific campaign are stopped. SendGrid and SparkPost retry for up to 72 hours; Amazon SES retries for up to 14 hours. Typical reasons for deferrals include reputation-based email volume rate-limiting from the inbox provider, temporary connectivity issues, or DNS errors.
 
 _Deferrals_ differ from _Soft Bounces_. If no email was successfully delivered during this retry period, Braze will send one soft bounce event per attempted campaign sent. Before February 25, 2025, these retries were counted as multiple soft bounces for 1 campaign send.
 
-Note that _Deferrals_ are currently only available using Currents or Braze Snowflake features (such as Query Builder, SQL Segment, Snowflake Data Sharing). If you’d like to include this in campaign or Canvas analytics, please [submit product feedback]({{site.baseurl}}/user_guide/administrative/access_braze/portal).
+Note that _Deferrals_ are currently only available using Currents or Braze Snowflake features (such as Query Builder, SQL Segment, Snowflake Data Sharing). {% multi_lang_include product_feedback_cta.md context="gap" feature="Deferrals in campaign or Canvas analytics" %}
 
 ##### Estimated real open rate {#estimated-real-open-rate}
 
-This statistic uses a proprietary analytical model created by Braze to reconstruct an estimate of the campaign's unique open rate as if machine opens did not exist. While we receive labels of *Machine Opens* on some open events from email senders (see above), these labels can often label actual opens as machine opens. In other words, the *Other Opens* are likely an underestimate of real opens (by actual users). Instead, Braze uses click data from each campaign to infer the rate at which actual humans opened the message. This compensates for various machine opening mechanisms, including Apple’s MPP.
+This statistic uses a proprietary analytical model created by Braze to reconstruct an estimate of the campaign's unique open rate as if machine opens did not exist. While we receive labels of *Machine Opens* on some open events from email senders, these labels can often label actual opens as machine opens. In other words, the *Other Opens* are likely an underestimate of real opens (by actual users). Instead, Braze uses click data from each campaign to infer the rate at which actual humans opened the message. This compensates for various machine opening mechanisms, including Apple’s MPP.
 
 _Estimated Real Open Rate_ is calculated 24 hours after email sending has begun and is recalculated every 72 hours thereafter.
 
@@ -512,9 +551,9 @@ Additionally, use of security scanning tools can inflate open rates. Some of the
 Ultimately, after an email leaves our servers, we have limited visibility into what happens next, but here are recommendations for managing NHI affecting your results:
 
 1. Be aware that this can happen to any sender and nearly any recipient. Clicks, like opens, are not entirely reliable indicators of human interaction with your messages, meaning NHI is not preventable.
-2. Higher positive engagement tends to correlate with lower NHI, so it's important to follow email messaging [best practices]({{site.baseurl}}/user_guide/message_building_by_channel/email/best_practices). This includes getting explicit permission from your users to send email and sunsetting unengaged subscribers on a regular cadence. 
+2. Higher positive engagement tends to correlate with lower NHI, so it's important to follow email messaging [best practices]({{site.baseurl}}/user_guide/channels/email/best_practices/). This includes getting explicit permission from your users to send email and sunsetting unengaged subscribers on a regular cadence. 
 3. Use HTTPS links in your emails when possible. NHI is less common for senders using secure links.
-4. If you use a single-click unsubscribe process, consider creating a [preference center]({{site.baseurl}}/user_guide/message_building_by_channel/email/preference_center/overview) that takes users to a page to edit and manage their notification preferences. This can be helpful because NHI can inadvertently unsubscribe users.
+4. If you use a single-click unsubscribe process, consider creating a [preference center]({{site.baseurl}}/user_guide/channels/email/subscriptions/) that takes users to a page to edit and manage their notification preferences. This can be helpful because NHI can inadvertently unsubscribe users.
 5. Consider using [other metrics]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/email_reporting/#email-performance) to measure your email marketing success, such as conversions, app sessions, or site visits.
 6. Add a hidden link in your email campaigns. This link would be something that a human wouldn't notice like white-on-white text or a punctuation mark. Bots tend to click all links, so you can conclude that users generating click events on the invisible link are actually the result of NHI, so the open or click doesn't necessarily indicate positive engagement.
 
@@ -522,7 +561,7 @@ Ultimately, after an email leaves our servers, we have limited visibility into w
 
 #### In-app message metrics
 
-Here are some key in-app message metrics you may see in your analytics. To see the full definitions of all in-app message metrics used in Braze, refer to our [Report Metrics Glossary]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics/).
+Here are some key in-app message metrics you may see in your analytics. To see the full definitions of all in-app message metrics used in Braze, refer to our [Report Metrics Glossary]({{site.baseurl}}/user_guide/analytics/metrics_glossary/).
 
 {% alert note %}
 Reporting for _Button 1 Clicks_ and _Button 2 Clicks_ only works when you specify the **Identifier for Reporting** as "0" and "1" respectively in the in-app message.
@@ -584,9 +623,9 @@ Reporting for _Button 1 Clicks_ and _Button 2 Clicks_ only works when you specif
     </tbody>
 </table>
 
-#### Discrepancies between control groups and variants
+#### Discrepancies between control groups and variants {#discrepancies-between-control-groups-and-variants}
 
-When an in-app message campaign has a 50-50 variant split, sometimes the control group will have a slightly higher percentage than the variant (such as 51% for the control group and 49% for the variant). This discrepancy is caused by a difference in rendering time.
+When an in-app message campaign has a 50-50 variant split, sometimes the control group has a slightly higher percentage than the variant (such as 51% for the control group and 49% for the variant). This discrepancy is caused by a difference in rendering time—for example, when variant messages use large images or templated Connected Content and users leave before rendering completes, while the control group logs impressions without displaying a message.
 
 The distribution between control and variant groups is intended to be roughly even, but assignment to a variant occurs when the in-app message is actually sent to the device. Some users may never trigger the in-app message (for example, they never perform the action that triggers the required custom event), which can cause differences in group sizes.
 
@@ -594,7 +633,7 @@ The distribution between control and variant groups is intended to be roughly ev
 
 ### KakaoTalk metrics
 
-Here are some key KakaoTalk metrics you may see in your analytics. For more details, see the [Report Metrics Glossary]({{site.baseurl}}/user_guide/data/report_metrics/).
+Here are some key KakaoTalk metrics you may see in your analytics. For more details, see the [Report Metrics Glossary]({{site.baseurl}}/user_guide/analytics/metrics_glossary/).
 
 {% alert note %}
 Currently, estimated or exact audience statistics are not available for KakaoTalk campaigns.
@@ -615,7 +654,7 @@ Currently, estimated or exact audience statistics are not available for KakaoTal
 
 #### Push metrics
 
-Here is a breakdown of some key metrics you may see while reviewing your message performance. For the full definitions of all push metrics, refer to the [Report Metrics Glossary]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics/) and filter by push.
+Here is a breakdown of some key metrics you may see while reviewing your message performance. For the full definitions of all push metrics, refer to the [Report Metrics Glossary]({{site.baseurl}}/user_guide/analytics/metrics_glossary/) and filter by push.
 
 <style>
     .no-split {
@@ -681,7 +720,7 @@ For a different workaround, we also recommend creating a custom event for push u
 
 ##### Understanding opens
 
-Even though _Direct Opens_ and _Influenced Opens_ include the word "opens", they're actually different metrics. _Direct Opens_ refers to the direct opening of a push notification, as stated in the table above. _Influenced Opens_ refers to the opening of an app, without opening a push notification within a specific time frame after receiving it. So, _Influenced Opens_ refers to the app opens, not push notification opens.
+Even though _Direct Opens_ and _Influenced Opens_ include the word "opens", they're actually different metrics. _Direct Opens_ refers to the direct opening of a push notification. _Influenced Opens_ refers to the opening of an app, without opening a push notification within a specific time frame after receiving it. So, _Influenced Opens_ refers to the app opens, not push notification opens.
 
 ##### Push action buttons and reporting {#push-action-buttons-and-reporting}
 
@@ -734,7 +773,7 @@ Firebase Cloud Messaging (FCM) bounces could occur in three cases:
 
 #### SMS, MMS, and RCS metrics
 
-Here is a breakdown of some key metrics you may see while reviewing your message performance. For the full definitions of all SMS, MMS, and RCS metrics, refer to the [Report Metrics Glossary]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics/) and filter by SMS/MMS and RCS.
+Here is a breakdown of some key metrics you may see while reviewing your message performance. For the full definitions of all SMS, MMS, and RCS metrics, refer to the [Report Metrics Glossary]({{site.baseurl}}/user_guide/analytics/metrics_glossary/) and filter by SMS/MMS and RCS.
 
 <style>
     .no-split {
@@ -786,7 +825,7 @@ Here is a breakdown of some key metrics you may see while reviewing your message
 
 #### Webhook metrics
 
-Here are some key webhook metrics you may see in your analytics. To see th full definitions of all webhook metrics used in Braze, refer to our [Report Metrics Glossary]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics/).
+Here are some key webhook metrics you may see in your analytics. To see th full definitions of all webhook metrics used in Braze, refer to our [Report Metrics Glossary]({{site.baseurl}}/user_guide/analytics/metrics_glossary/).
 
 <style>
     .no-split {
@@ -822,7 +861,7 @@ Here are some key webhook metrics you may see in your analytics. To see th full 
 
 #### WhatsApp metrics
 
-Here are some key WhatsApp metrics you may see in your analytics. To see the full definitions of all WhatsApp metrics used in Braze, refer to our [Report Metrics Glossary]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics/).
+Here are some key WhatsApp metrics you may see in your analytics. To see the full definitions of all WhatsApp metrics used in Braze, refer to our [Report Metrics Glossary]({{site.baseurl}}/user_guide/analytics/metrics_glossary/).
 
 <style>
     .no-split {
@@ -858,6 +897,8 @@ Here are some key WhatsApp metrics you may see in your analytics. To see the ful
     </tbody>
 </table>
 
+If failures are elevated, see [Investigate WhatsApp send failures]({{site.baseurl}}/user_guide/channels/whatsapp/send_failures).
+
 #### End-user blocking and reporting metrics
 
 Additional metrics may be accessed via the [WhatsApp Manager dashboard](https://www.facebook.com/business/help/683499390267496?content_id=NZUBj7XjkYjYuWx), though [confirmation of your access](https://www.facebook.com/business/help/218116047387456) is necessary to access all available insights. 
@@ -888,9 +929,9 @@ The **Keyword Responses** panel shows you a timeline of the inbound keywords use
 
 ![Campaign Level SMS/MMS/RCS Keyword Responses panel that includes a line graph of keyword distribution over time, and a Keywords Categories section with selected checkboxes for Opt-In, Opt-Out, Help, Other, More, and Coaching.]({% image_buster /assets/img/sms/keyword_responses.png %})
 
-Here, you can also view the response distribution of each keyword category to determine next steps for [retargeting]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies/retargeting_campaigns) and to conveniently [create a segment]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment).
+Here, you can also view the response distribution of each keyword category to determine next steps for [retargeting]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns/) and to conveniently [create a segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/).
 
-![The table below the line graph that has columns for Keyword Category, Response Distribution, and Retargeting, where you are given the option to create a segment with the keyword category.]({% image_buster /assets/img/sms/keyword_segments.png %})
+![A table that has columns for Keyword Category, Response Distribution, and Retargeting, where you are given the option to create a segment with the keyword category.]({% image_buster /assets/img/sms/keyword_segments.png %})
 
 {% endif %}
 
@@ -902,7 +943,7 @@ The **Conversion Event Details** panel shows you the performance of your convers
 
 ### Conversion correlation
 
-The **Conversion Correlation** panel gives you insight into what user attributes and behaviors help or hurt the outcomes you set for campaigns. For more information, refer to [Conversion correlation]({{site.baseurl}}/user_guide/engagement_tools/testing/conversion_correlation/).
+The **Conversion Correlation** panel gives you insight into what user attributes and behaviors help or hurt the outcomes you set for campaigns. For more information, refer to [Conversion correlation]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/conversion_correlation/).
 
 ![The Conversion Correlation panel with an analysis on user attributes and behavior from the Primary Conversion Event - A.]({% image_buster /assets/img/convcorr.png %})
 
@@ -910,7 +951,7 @@ The **Conversion Correlation** panel gives you insight into what user attributes
 
 ## Report Builder
 
-You can also use [Report Builder]({{site.baseurl}}/user_guide/analytics/reporting/report_builder/) to build custom reports for your KakaoTalk campaigns. When creating a report, you can filter to include only KakaoTalk campaigns by selecting **KakaoTalk** under **Channels**, or by filtering by any tags you've applied to your KakaoTalk campaigns.
+You can also use [Report Builder]({{site.baseurl}}/user_guide/analytics/reports/report_builder/) to build custom reports for your KakaoTalk campaigns. When creating a report, you can filter to include only KakaoTalk campaigns by selecting **KakaoTalk** under **Channels**, or by filtering by any tags you've applied to your KakaoTalk campaigns.
 
 {% endif %}
 
@@ -926,7 +967,7 @@ In addition to Braze analytics, template-level analytics can be accessed in the 
 
 ### SMS Currents events
 
-Like email, Braze receives user-level events related to an SMS message as it makes its journey to a user. Any inbound SMS event will also be sent as a Currents event through the [SMS InboundReceived]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events/#sms-inbound-received-events) event. This allows you to perform additional actions or reporting on the messages your users are texting in outside of the Braze platform. 
+Like email, Braze receives user-level events related to an SMS message as it makes its journey to a user. Any inbound SMS event will also be sent as a Currents event through the [SMS InboundReceived]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/#sms-inbound-received-events) event. This allows you to perform additional actions or reporting on the messages your users are texting in outside of the Braze platform. 
 
 {% alert note %}
 Inbound messages are truncated past 1,600 characters.
@@ -938,12 +979,12 @@ Inbound messages are truncated past 1,600 characters.
 
 ## Retention report
 
-Retention reports show you the rates at which your users have performed a selected retention event over time periods in a specific campaign{% if include.channel != "banner" %} or Canvas{% endif %}. For more information, refer to [Retention reports]({{site.baseurl}}/user_guide/analytics/reporting/retention_reports/).
+Retention reports show you the rates at which your users have performed a selected retention event over time periods in a specific campaign{% if include.channel != "banner" %} or Canvas{% endif %}. For more information, refer to [Retention reports]({{site.baseurl}}/user_guide/analytics/reports/retention_reports/).
 
 ## Funnel report
 
 Funnel reporting offers a visual report that allows you to analyze the journeys your customers take after receiving a campaign{% if include.channel != "banner" %} or Canvas{% endif %}. If your campaign {% if include.channel != "banner" %}or Canvas {% endif %}uses a control group or multiple variants, you will be able to understand how the different variants have impacted the conversion funnel at a more granular level and optimize based on this data.
 
-For more information, refer to [Funnel reports]({{site.baseurl}}/user_guide/analytics/reporting/funnel_reports/).
+For more information, refer to [Funnel reports]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports/).
 
 {% endif %}

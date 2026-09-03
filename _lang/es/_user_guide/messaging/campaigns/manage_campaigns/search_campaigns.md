@@ -9,7 +9,7 @@ tool:
 
 ---
 
-# Buscar campañas
+# Buscar campañas {#search-for-campaigns}
 
 > A medida que creas más campañas en tu espacio de trabajo, puedes ajustar los filtros y columnas en la lista de campañas para ordenar y organizar estas campañas. Usar una combinación de estos métodos de búsqueda puede ayudarte a acotar tus resultados, especialmente a medida que tu lista de campañas crece.
 
@@ -24,17 +24,17 @@ Puedes usar la barra de búsqueda para introducir palabras clave y frases relaci
 
 ![La página de lista de campañas con tres campañas listadas. La página está organizada para mostrar campañas activas. Las columnas son Nombre, Estado, Fecha de finalización, Tipo de campaña y Enviado para organizar la vista.]({% image_buster /assets/img/campaign_list_example.png %})
 
-### Seleccionar un estado
+## Seleccionar un estado {#selecting-a-status}
 
 De forma predeterminada, la lista de campañas mostrará tus campañas activas e inactivas. Puedes seleccionar el menú desplegable para ver campañas por su estado (activas, borrador, archivadas, detenidas e inactivas).
 
 Por ejemplo, si quieres auditar tus borradores de campañas, selecciona **Estado** > **Borrador** para enfocar tu lista de campañas.
 
-### Buscar por etiquetas
+### Buscar por etiquetas {#searching-by-tags}
 
-Buscar tus campañas por [etiquetas]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) puede acotar aún más tus resultados. Por ejemplo, si estás intentando encontrar todas las campañas que creaste para dirigirte a nuevos clientes, compradores frecuentes o clientes inactivos, podrías buscar estas campañas por su etiqueta compartida **Segmentación por tipo de cliente**.
+Buscar tus campañas por [etiquetas]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) puede acotar aún más tus resultados. Por ejemplo, si estás intentando encontrar todas las campañas que creaste para dirigirte a nuevos clientes, compradores frecuentes o clientes inactivos, podrías buscar estas campañas por su etiqueta compartida **Segmentación por tipo de cliente**.
 
-### Ajustar filtros
+### Ajustar filtros {#adjusting-filters}
 
 Usa los filtros para agrupar resultados por los siguientes detalles de campaña:
 
@@ -48,6 +48,6 @@ Usa los filtros para agrupar resultados por los siguientes detalles de campaña:
 
 También puedes buscar seleccionando el rango de fechas en que la campaña fue creada o editada por última vez. Esto puede ser especialmente útil si estás buscando campañas utilizadas durante un período promocional.
 
-### Organizar columnas
+### Organizar columnas {#organizing-columns}
 
 Cuando seleccionas **Columnas**, puedes ajustar la información de la página de lista de campañas para mostrar detalles relevantes de la campaña seleccionando las casillas correspondientes. Por ejemplo, si quieres configurar la lista de campañas para mostrar solo campañas de webhook basadas en acciones de tu equipo de marketing, podrías seleccionar **Tipo de campaña**, **Horario de entrada** y **Equipos** como tus columnas.

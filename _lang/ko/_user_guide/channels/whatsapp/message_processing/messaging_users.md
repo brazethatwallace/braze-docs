@@ -39,7 +39,7 @@ Campaigns와 Canvases 모두 트리거 단어와 같은 인바운드 WhatsApp �
 
 ## 인식되지 않는 응답 {#unrecognized-responses}
 
-인터랙티브 Canvases에 인식되지 않는 응답에 대한 옵션을 포함하는 것을 권장합니다. 이를 통해 사용자가 사용 가능한 프롬프트를 이해하고 채널에 대한 기대치를 설정할 수 있습니다. 기대치 관리는 라이브 상담원 채팅이 있는 WhatsApp 채널이 있는 경우 특히 유용할 수 있습니다.
+인터랙티브 Canvases에 인식되지 않는 응답에 대한 옵션을 포함하는 것을 권장합니다. 이를 통해 사용자가 사용 가능한 프롬프트를 이해하고 채널에 대한 기대치를 설정할 수 있습니다. 기대치 관리는 실시간 상담원 채팅이 있는 WhatsApp 채널이 있는 경우 특히 유용할 수 있습니다.
 - 동작 단계에서 커스텀 필터 문구에 대한 동작 그룹을 생성한 후, "WhatsApp 메시지 보내기"에 대한 추가 동작 그룹을 추가하되 **메시지 본문이 다음인 경우**를 체크하지 마세요. 이렇게 하면 "else" 절과 유사하게 인식되지 않는 모든 사용자 응답을 포착합니다.
 - 이 채널에 담당자가 없음을 사용자에게 알리고 필요한 경우 고객지원 채널로 안내하는 WhatsApp 메시지로 후속 조치를 취하는 것을 권장합니다.
 
@@ -105,7 +105,7 @@ WhatsApp 목록 메시지는 사용자 메시지에 대한 응답이어야 하�
 
 #### 2단계: WhatsApp 메시지 단계 생성 {#step-2-create-a-whatsapp-message-step}
 
-WhatsApp [메시지 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/)를 추가한 다음 **목록 메시지** 응답 메시지 레이아웃을 선택하세요.
+WhatsApp [메시지 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)를 추가한 다음 **목록 메시지** 응답 메시지 레이아웃을 선택하세요.
 
 ![생성할 수 있는 다양한 유형의 WhatsApp 응답 메시지 중 '목록 메시지'를 포함한 선택 가능한 컬렉션.]({% image_buster /assets/img/whatsapp/list_message_option.png %}){: style="max-width:70%;"}
 
@@ -121,7 +121,7 @@ WhatsApp [메시지 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_
 
 ![목록 섹션을 새 위치로 드래그하는 모습.]({% image_buster /assets/img/whatsapp/drag_list_order.png %}){: style="max-width:60%;"}
 
-Canvas 작성기로 돌아가서 메시지 단계 뒤에 각 목록 응답에 대한 그룹이 있는 [행동 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/)를 추가하세요. 각 그룹에서:
+Canvas 작성기로 돌아가서 메시지 단계 뒤에 각 목록 응답에 대한 그룹이 있는 [행동 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)를 추가하세요. 각 그룹에서:
 
 1. **인바운드 WhatsApp 구독 그룹 전송**에 대한 트리거를 추가하고 해당 WhatsApp 구독 그룹을 선택하세요.
 2. **메시지 본문이 다음인 경우** 체크박스를 선택하세요.
@@ -133,9 +133,9 @@ Canvas를 계속 구축하세요.
 
 ### 긴 설명에 대한 행동 경로 생성 {#creating-actions-paths-for-long-descriptions}
 
-행 설명이 있는 경우 행을 지정하기 위해 **정규식 일치**를 사용해야 합니다. 예를 들어, "좋아하는 앵클 부츠 위에 신을 수 있는 새로운 스타일"이라는 설명이 있는 행을 지정하려면 "앵클 부츠"로 [정규식]({{site.baseurl}}/user_guide/audience/segments/regex/)을 사용할 수 있습니다.
+행 설명이 있는 경우 행을 지정하기 위해 **정규식 일치**를 사용해야 합니다. 예를 들어, "좋아하는 앵클 부츠 위에 신을 수 있는 새로운 스타일"이라는 설명이 있는 행을 지정하려면 "ankle boots"로 [정규식]({{site.baseurl}}/user_guide/audience/segments/regex)을 사용할 수 있습니다.
 
-!['정규식 일치' 필터를 사용하여 '앵클 부츠'가 포함된 응답 메시지를 캡처하는 WhatsApp 트리거.]({% image_buster /assets/img/whatsapp/regex_list_message.png %})
+!['정규식 일치' 필터를 사용하여 'ankle boots'가 포함된 응답 메시지를 캡처하는 WhatsApp 트리거.]({% image_buster /assets/img/whatsapp/regex_list_message.png %})
 
 ## 고려 사항 {#considerations}
 
@@ -143,19 +143,60 @@ Canvas를 계속 구축하세요.
 
 응답 메시지는 사용자의 메시지를 수신한 후 24시간 이내에 전송되어야 합니다. 성공적인 경험을 구축하기 위해 Braze는 메시지 로직을 확인하여 응답 메시지를 차단 해제하는 업스트림 인바운드 사용자 메시지가 있는지 확인합니다.
 
+양방향 Canvas 흐름에서 1분 이내의 빠른 응답을 위해서는 인바운드 트리거와 응답 메시지 전송 사이의 단계를 최소화하세요. Canvas 아키텍처, 웹훅 왕복, 사용자 업데이트 배치 처리가 지연을 추가할 수 있습니다. [양방향 흐름의 응답 지연 최소화]({{site.baseurl}}/user_guide/channels/whatsapp/best_practices#minimize-response-latency-for-two-way-flows)를 참조하세요.
+
 다음 이벤트가 응답 메시지를 차단 해제합니다:
 
 - 인바운드 메시지
-  - **WhatsApp 인바운드 메시지 보내기** 트리거가 있는 [행동 경로]({{site.baseurl}}/action_paths/) 또는 [행동 기반 진입]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/).
+  - **WhatsApp 인바운드 메시지 보내기** 트리거가 있는 [행동 경로]({{site.baseurl}}/action_paths) 또는 [행동 기반 진입]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery).
 
 ![트리거가 'WhatsApp 인바운드 메시지 보내기'인 행동 기반 진입 단계.]({% image_buster /assets/img/whatsapp/whatsapp_inbound_message_trigger.png %})
 
-- [API 트리거 진입]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/)
+- [API 트리거 진입]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery)
 - 인바운드 제품 메시지
   - [`ecommerce.cart_updated`]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events#types-of-ecommerce-recommended-events?tab=ecommerce.cart_updated) 이벤트
 
 ![수행된 커스텀 이벤트 `ecommerce.cart_updated` 트리거가 있는 행동 경로.]({% image_buster /assets/img/whatsapp/ecommerce_cart_updated.png %})
 
+### 빠른 답장 및 24시간 창 밖의 인바운드 메시지 {#quick-replies-and-inbound-messages-outside-the-24-hour-window}
+
+사용자가 WhatsApp에서 비즈니스와 상호작용할 때(이전 템플릿 메시지의 빠른 답장 버튼을 탭하는 것 포함), 해당 동작은 인바운드 메시지로 간주됩니다. 이 인바운드 메시지는 원래 템플릿이 24시간 이전에 전송되었더라도 새로운 24시간 고객 서비스 창을 엽니다.
+
+빠른 답장 버튼이 있는 Canvas에서 사용자는 환영 템플릿을 받은 후 며칠이 지나서 버튼을 탭해도 올바른 행동 경로에 진입할 수 있습니다. Braze는 인바운드 메시지가 도착할 때 행동 경로를 평가하므로, 늦은 답장을 캡처하기 위해 행동 경로 기간을 기본값 이상으로 연장할 필요가 없습니다.
+
+다음 다이어그램은 일반적인 빠른 답장 흐름을 보여줍니다:
+
+```mermaid
+sequenceDiagram
+    participant Brand
+    participant User
+    Brand->>User: Template message (quick reply buttons)
+    Note over User: More than 24 hours pass
+    User->>Brand: Taps quick reply (inbound message)
+    Note over Brand,User: New 24-hour customer service window opens
+    Brand->>User: Response message (within Action Path)
+```
+
+#### 알아두어야 할 사항 {#things-to-know}
+
+- 응답 메시지 단계는 여전히 사용자의 인바운드 메시지로부터 24시간 이내에 이루어져야 합니다. 대부분의 Canvas 흐름에서 응답은 행동 경로 평가 직후 즉시 전송되므로 이는 문제가 되지 않습니다.
+- 24시간 고객 서비스 창은 Canvas [전환 이벤트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)와 다릅니다. 전환 이벤트는 최대 30일의 기간을 사용할 수 있습니다. 전환 기간은 기여도를 제어하며, 응답 메시지 전송 가능 여부에는 영향을 미치지 않습니다.
+- 과금에 대해서는 [WhatsApp 응답 메시지는 무료인가요?]({{site.baseurl}}/user_guide/channels/whatsapp/faq#are-whatsapp-response-messages-free)를 참조하세요.
+
 ### 커스텀 시간 속성으로 필터링 {#filtering-by-a-custom-time-attribute}
 
-행동 기반 WhatsApp Campaign 또는 Canvas 오디언스가 상대적 기간 내(예: 현재부터 향후 24시간 사이)에 해당하는 커스텀 시간 속성에 의존하는 경우, [시간]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes/#time)에 설명된 대로 두 개의 필터를 결합하세요.
+행동 기반 WhatsApp Campaign 또는 Canvas 오디언스가 상대적 기간 내(예: 현재부터 향후 24시간 사이)에 해당하는 커스텀 시간 속성에 의존하는 경우, [시간]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes#time)에 설명된 대로 두 개의 필터를 결합하세요.
+
+### 인바운드 미디어 저장 및 URL 만료 {#inbound-media-storage-and-url-expiration}
+
+사용자가 미디어(이미지, 오디오 파일 또는 문서 등)가 포함된 WhatsApp 메시지를 보내면, Braze는 해당 미디어를 메시지 수신 시점부터 30일 동안 Amazon S3에 저장합니다.
+
+그러나 해당 미디어의 URL을 참조하는 `inbound_media_urls` Liquid 필드는 Braze가 인바운드 메시지를 수신한 시점부터 7일 동안만 유효합니다. URL은 수신 시 한 번 생성되며 재생성되지 않으므로, 필드에 접근하는 시점과 관계없이 7일 기간이 적용됩니다. 두 제한 중 더 짧은 기간이 적용되므로, 실제로 `inbound_media_urls`는 최대 7일까지 유효한 것으로 간주해야 합니다.
+
+{% alert note %}
+나중에 사용하기 위해 `inbound_media_urls` 값을 사용자 커스텀 속성에 저장하는 경우, 이 7일 만료 기간에 유의하세요. 만료된 후 URL에 접근하려고 하면 깨진 링크가 발생합니다.
+{% endalert %}
+
+### 인바운드 프로필 이름 {#inbound-profile-name}
+
+Meta가 인바운드 WhatsApp 메시지에 표시 이름을 포함하면, Braze는 해당 인바운드 이벤트에서 {% raw %}`{{whats_app.${inbound_profile_name}}}`{% endraw %} Liquid 속성으로 이를 노출합니다. 이 값은 사용자가 WhatsApp에서 설정한 이름을 반영하며, CRM 프로필 데이터와 일치하지 않을 수 있습니다. 사용자 대상 메시지에 사용하기 전에 데이터를 검증하거나, Canvas 사용자 업데이트 단계를 사용하여 나중에 사용할 수 있도록 프로필 필드에 저장하세요. WhatsApp Liquid 속성의 전체 목록은 [지원되는 개인화 태그]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags)를 참조하세요.

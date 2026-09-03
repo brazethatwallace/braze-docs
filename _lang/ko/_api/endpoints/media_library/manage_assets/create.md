@@ -15,15 +15,35 @@ description: "이 문서에서는 `POST /media_library/create` 엔드포인트�
 /media_library/create
 {% endapimethod %}
 
-> 이 엔드포인트를 사용하여 외부 호스팅된 URL(`asset_url`) 또는 요청 본문에 전송된 바이너리 파일 데이터(`asset_file`)를 사용하여 [Braze 미디어 라이브러리](https://www.braze.com/docs/user_guide/engagement_tools/templates_and_media/media_library)에 자산을 추가합니다. 이 엔드포인트는 이미지와 이미지를 포함하는 ZIP 파일을 지원합니다.
+> 이 엔드포인트를 사용하여 외부 호스팅된 URL(`asset_url`) 또는 요청 본문에 전송된 바이너리 파일 데이터(`asset_file`)를 사용하여 [Braze 미디어 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library)에 자산을 추가합니다. 이 엔드포인트는 이미지, 문서 및 이를 포함하는 ZIP 파일을 지원합니다. 전체 목록은 [지원되는 파일 유형](#supported-file-types)을 참조하세요.
+
+## 지원되는 파일 유형 {#supported-file-types}
+
+이 엔드포인트는 `asset_url` 또는 `asset_file`을 통해 업로드하는 경우 다음 파일 유형을 허용합니다.
+
+| 자산 유형 | 지원되는 파일 유형 | 최대 크기 |
+| --- | --- | --- |
+| 이미지 | GIF, ICO, JPEG, JPG, PNG, WebP | 5&nbsp;MB |
+| 벡터 이미지 | SVG | 5&nbsp;MB |
+| 문서 | DOC, DOCX, PDF, PPT, PPTX, XLS, XLSX | 5&nbsp;MB |
+| 아카이브 | ZIP | 총 50&nbsp;MB, ZIP 내 파일당 5&nbsp;MB |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 style="table-layout: fixed; width: 100%;" aria-label="지원되는 파일 유형" }
+
+여기에 나열되지 않은 파일 유형을 업로드하면 엔드포인트가 `UNSUPPORTED_FILE_TYPE` 오류를 반환합니다.
+
+ZIP 파일의 경우, 아카이브 내의 각 파일도 여기에 나열된 지원되는 파일 유형 중 하나여야 하며, 모든 파일은 ZIP 파일의 루트에 있어야 합니다(하위 디렉토리 불가). 지원되지 않는 파일은 건너뛰고 응답의 `errors` 배열에 반환되며, 나머지 아카이브는 정상적으로 업로드됩니다.
+
+{% alert note %}
+가상 연락처 파일(.vcf) 및 비디오 파일은 미디어 라이브러리에 업로드할 수 있지만, 이 API 엔드포인트가 아닌 대시보드 UI(**콘텐츠** > **미디어 라이브러리**)를 통해서만 가능합니다.
+{% endalert %}
 
 {% alert tip %}
-[Braze MCP 서버]({{site.baseurl}}/user_guide/brazeai/mcp_server/)를 통해 [`create_media_library_asset`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#media-library) 함수를 사용하여 이 엔드포인트를 호출할 수도 있습니다. 이를 통해 Claude 및 Cursor와 같은 AI 도구가 자연어 프롬프트를 통해 미디어 라이브러리에 자산을 업로드할 수 있습니다.
+[Braze MCP 서버]({{site.baseurl}}/user_guide/brazeai/mcp_server)를 통해 [`create_media_library_asset`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#media-library) 함수를 사용하여 이 엔드포인트를 호출할 수도 있습니다. 이를 통해 Claude 및 Cursor와 같은 인공지능 도구가 자연어 프롬프트를 통해 미디어 라이브러리에 자산을 업로드할 수 있습니다.
 {% endalert %}
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `media_library.create` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `media_library.create` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key-permissions)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -51,14 +71,14 @@ description: "이 문서에서는 `POST /media_library/create` 엔드포인트�
 }
 ```
 
-요청 본문에는 다음 매개변수가 포함됩니다:
+요청 본문에는 다음 매개변수가 포함됩니다.
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | --------- | -------- | --------- | ----------- |
 | `asset_url` | 선택 사항 | 문자열 | Braze에 업로드할 자산의 공개적으로 접근 가능한 URL입니다. |
 | `asset_file` | 선택 사항 | 바이너리 | 바이너리 파일 데이터입니다. |
 | `name` | 선택 사항 | 문자열 | 이 자산에 대해 미디어 라이브러리에 표시될 이름입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request body" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="요청 본문" }
 
 {% alert important %}
 `asset_url`과 `asset_file`은 상호 배타적이며, API 요청에 둘 중 하나만 포함해야 합니다.
@@ -74,7 +94,7 @@ description: "이 문서에서는 `POST /media_library/create` 엔드포인트�
 | --- | --- |
 | `name` 제공됨 | `name` 값이 미디어 라이브러리에서 자산 이름으로 사용됩니다. |
 | `name` 제외됨 | URL 또는 업로드된 파일의 원래 파일 이름이 사용됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 style="table-layout: fixed; width: 100%;" aria-label="Single file uploads" }
+{: .reset-td-br-1 .reset-td-br-2 style="table-layout: fixed; width: 100%;" aria-label="단일 파일 업로드" }
 
 #### ZIP 파일 업로드 {#zip-file-uploads}
 
@@ -82,7 +102,7 @@ description: "이 문서에서는 `POST /media_library/create` 엔드포인트�
 | --- | --- |
 | `name` 제공됨 | `name` 값이 접두사로 사용되며, 접미사로 증가하는 숫자가 추가됩니다(예: "My File 1", "My File 2", "My File 3"). |
 | `name` 제외됨 | 각 파일은 ZIP 파일 내의 원래 파일 이름을 유지합니다. |
-{: .reset-td-br-1 .reset-td-br-2 style="table-layout: fixed; width: 100%;" aria-label="ZIP file uploads" }
+{: .reset-td-br-1 .reset-td-br-2 style="table-layout: fixed; width: 100%;" aria-label="ZIP 파일 업로드" }
 
 ## 예시 요청 {#example-request}
 
@@ -112,7 +132,7 @@ curl -X POST --location 'https://rest.iad-01.braze.com/media_library/create' \
 
 #### 유효성 검사 오류 {#validation-errors}
 
-유효성 검사 오류는 다음과 같은 구조를 반환합니다:
+유효성 검사 오류는 다음과 같은 구조를 반환합니다.
 
 ```json
 {
@@ -127,11 +147,11 @@ curl -X POST --location 'https://rest.iad-01.braze.com/media_library/create' \
 | 400 | "Either asset_url or asset_file must be provided." | 요청에 자산 매개변수가 제공되지 않았습니다. |
 | 400 | "Both asset_url and asset_file cannot be provided. Please provide only one." | 두 개의 자산 매개변수가 모두 제공되었습니다. 하나만 허용됩니다. |
 | 403 | "Media Library Public APIs are not enabled for this company." | 이 워크스페이스에 대해 미디어 라이브러리 기능이 활성화되어 있지 않습니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Validation errors" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="유효성 검사 오류" }
 
 #### 처리 오류 {#processing-errors}
 
-처리 오류는 오류 코드와 함께 다른 응답을 반환합니다:
+처리 오류는 오류 코드와 함께 다른 응답을 반환합니다.
 
 ```json
 {
@@ -145,17 +165,17 @@ curl -X POST --location 'https://rest.iad-01.braze.com/media_library/create' \
 
 | 오류 코드 | HTTP 상태 | 설명 |
 | --- | --- | --- |
-| `UNSUPPORTED_FILE_TYPE` | 400 | 업로드된 파일 형식이 지원되지 않습니다. `meta` 오브젝트에는 거부된 `file_type`이 포함되어 있습니다. |
-| `ASSET_SIZE_EXCEEDS_LIMIT` | 400 | 파일이 허용된 최대 크기를 초과했습니다. 이미지는 5MB 제한이 있습니다. |
-| `MEDIA_LIBRARY_LIMIT_REACHED` | 400 | 워크스페이스가 최대 자산 수에 도달했습니다(무료 체험판 회사의 경우 기본값 200개, 그 외에는 무제한). `meta` 오브젝트에는 현재 `limit`이 포함되어 있습니다. |
+| `UNSUPPORTED_FILE_TYPE` | 400 | 업로드된 파일 형식이 지원되지 않습니다. [지원되는 파일 유형](#supported-file-types)을 참조하세요. `meta` 오브젝트에는 거부된 `file_type`이 포함되어 있습니다. |
+| `ASSET_SIZE_EXCEEDS_LIMIT` | 400 | 파일이 허용된 최대 크기인 5&nbsp;MB를 초과합니다. |
+| `MEDIA_LIBRARY_LIMIT_REACHED` | 400 | 워크스페이스가 최대 자산 수에 도달했습니다(무료 평가판 회사의 경우 기본값 200개, 그 외에는 무제한). `meta` 오브젝트에는 현재 `limit`이 포함되어 있습니다. |
 | `ASSET_UPLOAD_FAILED` | 400 | 처리 문제로 인해 자산 업로드에 실패했습니다. |
 | `INVALID_ASSET_URL` | 400 | `asset_url` 값이 유효한 URI가 아닙니다. `meta` 오브젝트에는 `asset_url`이 포함되어 있습니다. |
 | `ZIP_UPLOAD_ERROR` | 400 | ZIP 파일이 손상되었거나 열 수 없습니다. `meta` 오브젝트에는 `original_error` 메시지가 포함되어 있습니다. |
-| `ZIP_FILE_TOO_LARGE` | 400 | ZIP 파일의 총 압축 해제 크기가 5MB 제한을 초과합니다. `meta` 오브젝트에는 `zip_file_name`과 `zip_file_size`가 포함되어 있습니다. |
+| `ZIP_FILE_TOO_LARGE` | 400 | ZIP 파일의 총 압축 해제 크기가 50&nbsp;MB 제한을 초과합니다. `meta` 오브젝트에는 `zip_file_name`과 `zip_file_size`가 포함되어 있습니다. |
 | `ZIPPED_ENTITY_HAS_NO_NAME` | 400 | ZIP 내부의 파일 항목에 이름이 없습니다. ZIP 파일이 손상되지 않았는지 확인하고 이름이 없는 파일 항목에 이름을 추가하세요. |
 | `ZIPPED_ENTITY_CANNOT_HAVE_NESTED_DIRECTORY` | 400 | ZIP 파일에 지원되지 않는 중첩 디렉토리가 포함되어 있습니다. 모든 파일은 ZIP의 루트 수준에 있어야 합니다. |
-| `GENERIC_ERROR` | 500 | 업로드 중 예기치 않은 오류가 발생했습니다. `meta` 오브젝트에는 디버깅을 위한 `original_error` 메시지가 포함되어 있습니다. 다시 시도하거나 [고객지원]({{site.baseurl}}/support_contact/)에 문의하세요. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Processing errors" }
+| `GENERIC_ERROR` | 500 | 업로드 중 예기치 않은 오류가 발생했습니다. `meta` 오브젝트에는 디버깅을 위한 `original_error` 메시지가 포함되어 있습니다. 다시 시도하거나 [고객지원]({{site.baseurl}}/support_contact)에 문의하세요. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="처리 오류" }
 
 
 ## 응답 {#response}

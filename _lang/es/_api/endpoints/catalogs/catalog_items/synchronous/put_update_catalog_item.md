@@ -6,7 +6,7 @@ page_order: 6
 
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Sustituir elemento del catálogo de Braze."
+description: "En este artículo se describen los detalles del endpoint Sustituir elemento del catálogo de Braze."
 
 ---
 {% api %}
@@ -15,15 +15,15 @@ description: "En este artículo se describen los detalles del punto de conexión
 /catalogs/{catalog_name}/items/{item_id}
 {% endapimethod %}
 
-> Utiliza este punto de conexión para sustituir un elemento de tu catálogo.
+> Utiliza este endpoint para sustituir un elemento de tu catálogo.
 
-Si no se encuentra el `item_id`, este punto de conexión creará el elemento en tu catálogo. Este punto de conexión es síncrono.
+Si no se encuentra el `item_id`, este endpoint creará el elemento en tu catálogo. Este endpoint es síncrono.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#b2871ed7-734e-4a37-b8f1-e11584e569f5 {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `catalogs.replace_item`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `catalogs.replace_item`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -35,14 +35,14 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 |---|---|---|---|
 | `catalog_name` | Obligatorio | Cadena | Nombre del catálogo. |
 | `item_id` | Obligatorio | Cadena | El ID del elemento del catálogo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parámetros de ruta" }
 
 ## Parámetros de la solicitud {#request-parameters}
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
 | `items` | Obligatorio | Matriz | Un array que contiene objetos de elemento. Los objetos de elemento deben contener campos que existan en el catálogo, excepto el campo `id`. Solo se permite un objeto de elemento por solicitud. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ## Ejemplo de solicitud {#example-request}
 
@@ -76,7 +76,7 @@ El campo `Location` utiliza el tipo de datos `geo`, que espera un array con el f
 
 ## Respuesta {#response}
 
-Existen tres respuestas de código de estado para este punto de conexión: `200`, `400` y `404`.
+Existen tres respuestas de código de estado para este endpoint: `200`, `400` y `404`.
 
 ### Ejemplo de respuesta correcta {#example-success-response}
 
@@ -116,7 +116,7 @@ La siguiente tabla enumera los posibles errores devueltos y los pasos asociados 
 
 | Error | Solución de problemas |
 | --- | --- |
-| `arbitrary-error` | Se ha producido un error arbitrario. Inténtalo de nuevo o ponte en contacto con [Soporte]({{site.baseurl}}/support_contact/). |
+| `arbitrary-error` | Se ha producido un error arbitrario. Inténtalo de nuevo o ponte en contacto con [Soporte]({{site.baseurl}}/support_contact). |
 | `catalog-not-found` | Comprueba que el nombre del catálogo es válido. |
 | `filtered-set-field-too-long` | El valor del campo se está utilizando en un conjunto filtrado que supera el límite de caracteres de un elemento. |
 | `id-in-body` | Elimina cualquier ID de elemento en el cuerpo de la solicitud. |
@@ -130,6 +130,6 @@ La siguiente tabla enumera los posibles errores devueltos y los pasos asociados 
 | `request-includes-too-many-items` | Solo puedes crear un elemento de catálogo por solicitud. |
 | `too-deep-nesting-in-value-object` | Los objetos de elemento no pueden tener más de 50 niveles de anidamiento. |
 | `unable-to-coerce-value` | Los tipos de elemento no se pueden convertir. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Solución de problemas" }
 
 {% endapi %}

@@ -13,7 +13,7 @@ channel:
 
 # Push Max
 
-> Découvrez Push Max et comment vous pouvez utiliser cette fonctionnalité pour potentiellement améliorer la livrabilité des notifications push Android vers les [appareils OEM chinois]({{site.baseurl}}/user_guide/channels/push/best_practices/chinese_push_deliverability/).
+> Découvrez Push Max et comment vous pouvez utiliser cette fonctionnalité pour potentiellement améliorer la livrabilité des notifications push Android vers les [appareils OEM chinois]({{site.baseurl}}/user_guide/channels/push/best_practices/chinese_push_deliverability).
 
 ## Qu'est-ce que Push Max ? {#what-is-push-max}
 
@@ -25,11 +25,11 @@ Certains appareils Android fabriqués par des fabricants d'équipements d'origin
 
 - Disponible uniquement pour les notifications push Android
 - Non pris en charge pour les messages déclenchés par une action ou par l'API
-- Non pris en charge lorsque l'option [envoyer uniquement au dernier appareil utilisé par l'utilisateur]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/#device-options) est sélectionnée
+- Non pris en charge lorsque l'option [envoyer uniquement au dernier appareil utilisé par l'utilisateur]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#most-recently-used-device) est sélectionnée
 
 ## Conditions préalables {#prerequisites}
 
-Les notifications push envoyées à l'aide de Push Max ne seront distribuées qu'aux appareils disposant au minimum de la [version SDK minimale]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features/#filtering-by-most-recent-app-versions) suivante :
+Les notifications push envoyées à l'aide de Push Max ne seront distribuées qu'aux appareils disposant au minimum de la [version SDK minimale]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions) suivante :
 
 {% sdk_min_versions android:29.0.1 %}
 
@@ -66,7 +66,7 @@ Les deux fonctionnalités suivantes, le timing intelligent et la durée de vie, 
 
 ### Timing intelligent {#intelligent-timing}
 
-Push Max fonctionne de manière optimale lorsque le [timing intelligent]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/) est activé. Le timing intelligent peut calculer et envoyer la notification push au moment où l'utilisateur est le plus susceptible d'utiliser l'application et où la notification a le plus de chances d'être distribuée.
+Push Max fonctionne de manière optimale lorsque le [timing intelligent]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing) est activé. Le timing intelligent peut calculer et envoyer la notification push au moment où l'utilisateur est le plus susceptible d'utiliser l'application et où la notification a le plus de chances d'être distribuée.
 
 ### Durée de vie (TTL) {#time-to-live-ttl}
 
@@ -80,10 +80,10 @@ Par défaut, la durée de vie est définie sur 28 jours, ce qui correspond au ma
 
 ### Codes de promotion {#promotion-codes}
 
-Nous vous recommandons de ne pas utiliser les [codes de promotion]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/) Braze dans les messages où Push Max est activé.
+Nous vous recommandons de ne pas utiliser les [codes de promotion]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes) Braze dans les messages où Push Max est activé.
 
 En effet, les codes de promotion sont uniques. Si une notification push contenant un code de promotion échoue à la distribution, lorsque cette notification est renvoyée grâce à Push Max, un nouveau code de promotion sera envoyé. Cela peut entraîner une consommation de codes de promotion plus rapide que prévu.
 
 ### Propriétés d'événement et propriétés d'entrée Canvas {#canvas-event-properties-and-entry-properties}
 
-Push Max peut ne pas fonctionner comme prévu si vous incluez des références Liquid aux [propriétés d'entrée Canvas ou propriétés d'événement]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/) dans votre message. En effet, les propriétés d'entrée et d'événement ne sont pas disponibles lorsque Push Max tente de renvoyer le message.
+Push Max peut ne pas fonctionner comme prévu si vous incluez des références Liquid aux [propriétés d'entrée Canvas ou propriétés d'événement]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) dans votre message. En effet, les propriétés d'entrée et d'événement ne sont pas disponibles lorsque Push Max tente de renvoyer le message.

@@ -12,7 +12,7 @@ tool:
   - Canvas
   - Campaigns
 
-description: "Este artículo describe los detalles del punto de conexión Listar alias de enlace para Canvas."
+description: "Este artículo describe los detalles del endpoint Listar alias de enlace para Canvas."
 ---
 {% api %}
 # Listar alias de enlace para Canvas {#list-link-alias-for-canvas}
@@ -20,7 +20,7 @@ description: "Este artículo describe los detalles del punto de conexión Listar
 /canvas/url_info/details
 {% endapimethod %}
 
-> Utiliza este punto de conexión para listar el conjunto de alias de enlace en un paso en Canvas de correo electrónico específico.
+> Utiliza este endpoint para listar el conjunto de alias de enlace en un paso en Canvas de correo electrónico específico.
 
 {% apiref postman %}  {% endapiref %}
 
@@ -28,8 +28,8 @@ description: "Este artículo describe los detalles del punto de conexión Listar
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
-| `canvas_step_id` | Obligatoria | Cadena | Consulta [Identificador de API del paso en Canvas](https://www.braze.com/docs/api/identifier_types/#canvas-api-identifier). |
-| `message_variation_id ` | Obligatoria | Cadena | Identificador de API de la variante del mensaje (para la variante del mensaje de correo electrónico en ese paso). Puedes encontrarlo haciendo clic en **Analizar variantes** en la página **Detalles de Canvas**. |
+| `canvas_step_id` | Obligatorio | Cadena | Consulta [Identificador de API del paso en Canvas]({{site.baseurl}}/api/identifier_types#canvas-identifier). |
+| `message_variation_id ` | Obligatorio | Cadena | Identificador de API de la variante del mensaje (para la variante del mensaje de correo electrónico en ese paso). Puedes encontrarlo haciendo clic en **Analizar variantes** en la página **Detalles de Canvas**. |
 | `includes_link_id` | Opcional | Cadena | Un identificador de enlace específico (asignado por Braze) o `null`. Se utiliza para filtrar los resultados por un `link_id` específico. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
@@ -66,8 +66,8 @@ La siguiente tabla enumera los posibles errores devueltos y sus pasos de soluci�
 
 | Error | Solución de problemas |
 | --- | --- |
-| `Missing/Invalid Canvas ID` | El ID de API de Canvas debe ser un identificador de API. Puedes encontrarlo utilizando el [punto de conexión Exportar lista de Canvas](https://www.braze.com/docs/api/endpoints/export/canvas/get_canvases/) o iniciando sesión en el dashboard. |
-| `Missing/Invalid Message Variant ID` | El ID de API de la variante del mensaje debe ser un identificador de API. Puedes encontrarlo utilizando el [punto de conexión Exportar detalles de Canvas](https://www.braze.com/docs/api/endpoints/export/canvas/get_canvas_details/) o iniciando sesión en el dashboard. |
+| `Missing/Invalid Canvas ID` | El ID de API de Canvas debe ser un identificador de API. Puedes encontrarlo utilizando el [endpoint Exportar lista de Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases) o iniciando sesión en el panel. |
+| `Missing/Invalid Message Variant ID` | El ID de API de la variante del mensaje debe ser un identificador de API. Puedes encontrarlo utilizando el [endpoint Exportar detalles de Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details) o iniciando sesión en el panel. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% endapi %}

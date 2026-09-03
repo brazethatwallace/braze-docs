@@ -20,20 +20,20 @@ description: "Este artigo descreve detalhes sobre o endpoint da Braze \"Exportar
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `canvas.details`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `canvas.details`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | -------- | --------- | ----------- |
-| `canvas_id` | Obrigatória | String | Consulte [Identificador de API do Canvas]({{site.baseurl}}/api/identifier_types/) |
+| `canvas_id` | Obrigatório | String | Consulte [Identificador de API do Canvas]({{site.baseurl}}/api/identifier_types) |
 | `post_launch_draft_version` | Opcional | Booleano | Para Canvas que têm um rascunho pós-lançamento, definir isso como `true` mostrará quaisquer alterações de rascunho disponíveis. O padrão é `false`. |
 | `include_has_translatable_content` | Opcional | Booleano | Quando definido como `true`, a resposta da API inclui um campo `has_translatable_content` para cada mensagem. O padrão é `false`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#example-request}
 
@@ -100,7 +100,7 @@ Todas as etapas do Canvas têm um campo `next_paths`, que é uma matriz de dados
     },
     ... (more steps)
   ],
-  "message": (required, string) the status of the export, returns 'success' when completed without errors
+  "message": (string) returns 'success' when the request completes without errors
 }
 ```
 
@@ -220,7 +220,7 @@ A seguir, um exemplo de resposta que inclui mensagens do Canvas enviadas por dif
 ```
 
 {% alert tip %}
-Para obter ajuda com exportações de CSV e API, acesse [Resolução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+Para obter ajuda com exportações de CSV e API, acesse [Resolução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endapi %}

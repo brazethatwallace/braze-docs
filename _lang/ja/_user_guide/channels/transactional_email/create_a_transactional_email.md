@@ -6,7 +6,7 @@ page_order: 1
 description: "このリファレンス記事では、新しいBrazeトランザクションメールキャンペーンの作成と設定方法について説明します。"
 page_type: reference
 tool:
-  - キャンペーン
+  - Campaigns
 channel: email
 alias: "/api/api_campaigns/transactional_campaigns"
 
@@ -14,10 +14,10 @@ alias: "/api/api_campaigns/transactional_campaigns"
 
 # トランザクションメールの作成 {#create-a-transactional-email}
 
-> Brazeトランザクションメールは、送信者と受信者の間で合意された取引を円滑に進めるために送信されます。このリファレンス記事では、Brazeダッシュボードでトランザクションメールキャンペーンを作成し、API呼び出しに含める`campaign_id`を生成する方法について説明します。詳しくは[`/transactional/v1/campaigns/{campaign_id}/send`エンドポイント]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_transactional_message/)をご覧ください。
+> Brazeトランザクションメールは、送信者と受信者の間で合意された取引を円滑に進めるために送信されます。このリファレンス記事では、Brazeダッシュボードでトランザクションメールキャンペーンを作成し、API呼び出しに含める`campaign_id`を生成する方法について説明します。詳しくは[`/transactional/v1/campaigns/{campaign_id}/send`エンドポイント]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_transactional_message)をご覧ください。
 
 {% alert important %}
-Brazeトランザクションメールは、一部のBrazeパッケージでのみ利用可能です。詳細については、Brazeカスタマーサクセスマネージャーに連絡するか、[サポートチケット]({{site.baseurl}}/braze_support/)を開いてください。
+Brazeトランザクションメールは、一部のBrazeパッケージでのみ利用可能です。詳細については、Brazeカスタマーサクセスマネージャーに連絡するか、[サポートチケット]({{site.baseurl}}/braze_support)を開いてください。
 {% endalert %}
 
 トランザクションメールキャンペーンタイプは、お客様との間で合意された取引を円滑に進めるために、自動化された非プロモーションメールメッセージを送信する目的で構築されています。これには以下のような情報が含まれます。
@@ -30,48 +30,48 @@ Brazeトランザクションメールは、一部のBrazeパッケージでの�
 つまり、トランザクションメールは、サービスから発信されるビジネスクリティカルな通知を、速度が最も重要な場面で単一のユーザーに送信するために使用できます。
 
 {% alert important %}
-トランザクションメールは、追加コストなしでユーザーをターゲットにできるトランザクションキャンペーンとは異なります。トランザクションキャンペーンには、例えばユーザーがカートにアイテムを追加した後に送信されるメッセージを含めることができます。詳細については、[オーディエンスターゲティングオプション]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)をご覧ください。
+トランザクションメールは、追加コストなしでユーザーをターゲットにできるトランザクションキャンペーンとは異なります。トランザクションキャンペーンには、例えばユーザーがカートにアイテムを追加した後に送信されるメッセージを含めることができます。詳細については、[オーディエンスターゲティングオプション]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users)をご覧ください。
 {% endalert %}
 
 {% alert note %}
-トランザクションメールAPI送信はメッセージのアーカイブをサポートしています。ワークスペースでメールのメッセージアーカイブが有効になっている場合、Brazeは各トランザクションメール送信のレンダリングされたコピーを保存します。詳細については、[メッセージのアーカイブ]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/message_archiving/)をご覧ください。
+トランザクションメールAPI送信はメッセージのアーカイブをサポートしています。ワークスペースでメールのメッセージアーカイブが有効になっている場合、Brazeは各トランザクションメール送信のレンダリングされたコピーを保存します。詳細については、[メッセージのアーカイブ]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/message_archiving)をご覧ください。
 {% endalert %}
 
-## ステップ 1: 新しいキャンペーンを作成する {#step-1-create-a-new-campaign}
+## ステップ1: 新しいキャンペーンを作成する {#step-1-create-a-new-campaign}
 
 新しいトランザクションメールキャンペーンを作成するには、キャンペーンを作成し、メッセージングチャネルとして**トランザクションメール**を選択します。
 
-![トランザクションメールのオプションがハイライトされたキャンペーン作成ドロップダウン。]({% image_buster /assets/img/transactional_email_campaign.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
+![トランザクションメールのオプションがハイライトされたキャンペーン作成ドロップダウン。]({% image_buster /assets/img/transactional_email_campaign.png %}){: width="534" height="800" style="float:right;max-width:35%;margin-left:15px;height:auto;"}
 
 これで、トランザクションメールキャンペーンの設定に進むことができます。
 
-## ステップ 2: キャンペーンを設定する {#step-2-configure-your-campaign}
+## ステップ2: キャンペーンを設定する {#step-2-configure-your-campaign}
 
-トランザクションメールキャンペーンの作成フローは、[標準メールキャンペーン]({{site.baseurl}}/user_guide/channels/email/html_editor/)と比較して簡素化されており、ビジネスクリティカルなトランザクションメールがすべてのユーザーに届くようになっています。
+トランザクションメールキャンペーンの作成フローは、ビジネスクリティカルなトランザクションメールをすべてのユーザーに届けるため、[標準的なメールキャンペーン]({{site.baseurl}}/user_guide/channels/email/html_editor)と比較して簡素化されています。
 
-そのため、他のBraze キャンペーンタイプで見慣れたいくつかの設定が、このキャンペーンタイプの設定時には不要であることに気づくでしょう。
+そのため、他のBrazeキャンペーンタイプでおなじみのいくつかの設定が、このキャンペーンタイプの設定時には不要になっていることに気づくでしょう。
 
-- **配信**ステップは、スケジューリングオプションが削除されて簡素化されています。トランザクションメールは常に、**配信**ページに表示されるキャンペーン IDを使用してBraze REST API経由でトリガーされます。再適格性コントロールやフリークエンシーキャップ設定などの追加設定も削除されており、サービスが送信リクエストをトリガーした際に、すべてのユーザーがこれらの重要なトランザクションアラートを受信できるようになっています。
-- **ターゲットオーディエンス**ステップは削除されています。トランザクションメールはユーザー群全体（配信停止済みユーザーを含む）を適格として登録するため、フィルターやセグメントを指定する必要はありません。そのため、このメッセージを受信すべきユーザーに適用するロジックがある場合は、特定のユーザーへのメッセージをトリガーするためにBrazeへのAPIリクエストを行うかどうかを決定する前に、そのロジックを適用することをお勧めします。
-- **コンバージョン**ステップは削除されています。トランザクションメールは現時点ではコンバージョンイベントトラッキングをサポートしていません。
+- **配信**ステップはスケジュールオプションが削除され、簡素化されています。トランザクションメールは常に、**配信**ページに表示されるキャンペーンIDを使用して、Braze REST API経由でトリガーされます。再適格性コントロールやフリークエンシーキャップ設定などの追加設定も削除されており、サービスが送信リクエストをトリガーした際に、すべてのユーザーがこれらの重要なトランザクションアラートを受信できるようになっています。
+- **ターゲットオーディエンス**ステップは削除されています。トランザクションメールはユーザー群全体（購読解除ユーザーを含む）を対象として登録するため、フィルターやセグメントを指定する必要はありません。そのため、このメッセージを受信するユーザーに適用するロジックがある場合は、Brazeへの API リクエストで特定のユーザーへのメッセージをトリガーするかどうかを決定する前に、そのロジックを適用することをお勧めします。
+- **コンバージョン**ステップは削除されています。トランザクションメールは現時点でコンバージョンイベントのトラッキングをサポートしていません。
 
-![トランザクションメールキャンペーンを作成するための作成、配信、確認のワークフロー。]({% image_buster /assets/img/transactional_campaign_compose.png %}){: style="max-width:80%;"}
+![トランザクションメールキャンペーンを作成するための作成、配信、確認のワークフロー。]({% image_buster /assets/img/transactional_campaign_compose.png %}){: width="1586" height="1112" style="max-width:80%;height:auto;"}
 
 トランザクションメールキャンペーンを設定するには、以下のステップに従ってください。
 
-1. メッセージ送信後に**キャンペーン**ページで結果を見つけられるよう、わかりやすい名前を追加します。
+1. メッセージ送信後に**キャンペーン**ページで結果を確認できるよう、わかりやすい名前を追加します。
 2. メールを作成するか、テンプレートから選択します。
-3. `campaign_id`をメモしておきます。API Campaignを保存した後、生成された`campaign_id`フィールドを、[トランザクションメールエンドポイント]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_transactional_message/)の記事に記載されている箇所でAPIリクエストに含める必要があります。
-4. **キャンペーンを保存**をクリックすれば、API キャンペーンを開始する準備が整います！
+3. `campaign_id`を控えておきます。APIキャンペーンを保存した後、生成された`campaign_id`フィールドを、[トランザクションメールエンドポイント]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_transactional_message)の記事に記載されている箇所のAPIリクエストに含める必要があります。
+4. **キャンペーンを保存**をクリックすれば、APIキャンペーンを開始する準備が完了です！
 
 {% alert note %}
-トランザクションメールキャンペーンのワンクリックリスト配信停止設定は、他のメールキャンペーンと同様に**ワークスペースのデフォルトを使用**がデフォルトです。これはトランザクションメッセージングを目的としているため、Brazeはワンクリック配信停止を追加しません。このキャンペーンタイプにワンクリック配信停止を追加するには、**送信情報**の下で[この設定を編集]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#message-level-one-click-list-unsubscribe)してください。
+トランザクションメールキャンペーンのワンクリックリスト購読解除設定は、他のメールキャンペーンと同様に**ワークスペースのデフォルトを使用**がデフォルトになっています。これはトランザクションメッセージングを目的としているため、Brazeはワンクリック購読解除を追加しません。このキャンペーンタイプにワンクリック購読解除を追加するには、**送信情報**の下で[この設定を編集]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#message-level-one-click-list-unsubscribe)してください。
 {% endalert %}
 
 ### トランザクションメールで使用できないタグ {#disallowed-tags-in-transactional-emails}
 
-`Connected Content`および`Promotion Code` Liquidタグは、トランザクションメールキャンペーン内では使用できません。
+`Connected Content`および`Promotion Code`のLiquidタグは、トランザクションメールキャンペーン内では使用できません。
 
-`Connected Content`タグを使用すると、送信プロセス中にBrazeがアウトバウンドAPIリクエストを行う必要があり、リクエスト先の外部サービスにレイテンシーが発生している場合、メッセージ送信プロセスが遅くなる可能性があります。同様に、`Promotion Code`タグを使用すると、送信前にBrazeがプロモーションの利用可能性を評価するための追加処理を行う必要があり、利用可能でない場合に送信プロセスが遅くなる可能性があります。
+`Connected Content`タグを使用すると、Brazeは送信プロセス中に外部APIリクエストを行う必要があり、リクエスト先の外部サービスにレイテンシーが発生している場合、メッセージ送信プロセスが遅くなる可能性があります。同様に、`Promotion Code`タグを使用すると、Brazeは送信前にプロモーションの利用可否を評価するための追加処理を行う必要があり、利用可能なプロモーションがない場合に送信プロセスが遅くなる可能性があります。
 
-そのため、トランザクションメールキャンペーンのいずれのフィールドにも`Connected Content`または`Promotion Code`タグを含めることはサポートされていません。
+そのため、トランザクションメールキャンペーンのいかなるフィールドにも`Connected Content`または`Promotion Code`タグを含めることはサポートされていません。

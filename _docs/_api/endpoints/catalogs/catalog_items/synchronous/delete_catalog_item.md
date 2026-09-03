@@ -21,7 +21,7 @@ description: "This article outlines details about the Delete catalog item Braze 
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `catalogs.delete_item` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `catalogs.delete_item` permission.
 
 ## Rate limit
 
@@ -89,7 +89,7 @@ The following table lists possible returned errors and their associated troubles
 
 | Error | Troubleshooting |
 | --- | --- |
-| `arbitrary-error` | An arbitrary error occurred. Please try again or contact [Support]({{site.baseurl}}/support_contact/). |
+| `arbitrary-error` | An arbitrary error occurred. Please try again or contact [Support]({{site.baseurl}}/support_contact). |
 | `catalog-not-found` | Check that the catalog name is valid. |
 | `item-not-found` | Check that the item to be deleted exists in your catalog. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }

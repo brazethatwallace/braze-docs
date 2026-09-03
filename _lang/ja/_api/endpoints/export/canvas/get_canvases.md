@@ -1,6 +1,6 @@
 ---
-nav_title: "GET: キャンバスリストをエクスポートする"
-article_title: "GET: キャンバスリストをエクスポートする"
+nav_title: "GET: キャンバスリストのエクスポート"
+article_title: "GET: キャンバスリストのエクスポート"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
@@ -9,22 +9,22 @@ description: "この記事では、「キャンバスリストのエクスポー
 
 ---
 {% api %}
-# キャンバスリストをエクスポートする {#export-canvas-list}
+# キャンバスリストのエクスポート {#export-canvas-list}
 {% apimethod get %}
 /canvas/list
 {% endapimethod %}
 
-> このエンドポイントを使用して、名前、キャンバス API識別子、関連タグを含むキャンバスのリストをエクスポートします。
+> このエンドポイントを使用して、名前、キャンバスAPI識別子、関連タグを含むキャンバスのリストをエクスポートします。
 
 キャンバスは、作成時刻順（デフォルトでは古い順）に100件ずつのグループで返されます。
 
-`include_archived`フィールドが指定されていない限り、アーカイブされたキャンバスはAPI応答に含まれません。ただし、停止しているがアーカイブされていないキャンバスは、デフォルトで返されます。
+`include_archived`フィールドが指定されていない限り、アーカイブされたキャンバスはAPIレスポンスに含まれません。ただし、停止しているがアーカイブされていないキャンバスは、デフォルトで返されます。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#e6c150d7-fceb-4b10-91e2-a9ca4d5806d1 {% endapiref %}
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`canvas.list`権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`canvas.list`権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -47,7 +47,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/list?page
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## 応答 {#response}
+## レスポンス {#response}
 
 ```json
 {
@@ -58,14 +58,14 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/list?page
   		"name" : (string) the Canvas name,
   		"tags" : (array) the tag names associated with the Canvas formatted as strings,
   	},
-    ... (more キャンバス)
+    ... (more Canvases)
   ],
-  "message": (required, string) the status of the export, returns 'success' when completed without errors
+  "message": (string) returns 'success' when the request completes without errors
 }
 ```
 
 {% alert tip %}
-CSVおよびAPIのエクスポートに関するヘルプについては、「[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)」を参照してください。
+CSVおよびAPIのエクスポートに関するヘルプについては、「[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting)」を参照してください。
 {% endalert %}
 
 {% endapi %}

@@ -18,7 +18,7 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Prim�
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `sdk_authentication.primary`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `sdk_authentication.primary`.
 
 ## Rate-Limit
 
@@ -42,7 +42,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | --------- | -------- | --------- | ----------- |
 | `app_id` | Erforderlich | String | Der API-Bezeichner der App. |
 | `key_id` | Erforderlich | String | Die ID des SDK-Authentifizierungsschlüssels, der als primär markiert werden soll. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 ## Beispielanfrage {#example-request}
 ```bash
@@ -84,7 +84,7 @@ curl --location --request PUT 'https://rest.iad-01.braze.com/app_group/sdk_authe
 | `keys[].rsa_public_key` | String | Der String für den öffentlichen RSA-Schlüssel. |
 | `keys[].description` | String | Beschreibung des SDK-Authentifizierungsschlüssels. |
 | `keys[].is_primary` | Boolescher Wert | Ob dieser Schlüssel der primäre SDK-Authentifizierungsschlüssel ist. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Response parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Antwortparameter" }
 
 ### Validierungsregeln {#validation-rules}
 

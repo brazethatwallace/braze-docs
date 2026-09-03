@@ -13,7 +13,7 @@ tool: Canvas
 guide_featured_title: "Artikel in diesem Abschnitt"
 guide_featured_list:
   - name: Canvases nach dem Start bearbeiten
-    link: /docs/post-launch_edits/
+    link: /docs/post-launch_edits
     image: /assets/img/braze_icons/edit-05.svg
   - name: Entwürfe für Canvas speichern
     link: /docs/user_guide/messaging/canvas/managing_canvases/canvas_drafts
@@ -24,6 +24,9 @@ guide_featured_list:
   - name: Canvases klonen
     link: /docs/user_guide/messaging/canvas/managing_canvases/cloning_canvases
     image: /assets/img/braze_icons/copy-04.svg
+  - name: Canvas-Schwellenwert-Benachrichtigungen
+    link: /docs/user_guide/messaging/canvas/managing_canvases/canvas_threshold_alerts
+    image: /assets/img/braze_icons/bell-03.svg
 
 guide_menu_title: "Weitere Ressourcen"
 guide_menu_list:

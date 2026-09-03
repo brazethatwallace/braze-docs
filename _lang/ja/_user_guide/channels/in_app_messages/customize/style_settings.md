@@ -7,7 +7,7 @@ page_order: 1
 
 # アプリ内メッセージのスタイル設定 {#in-app-message-style-settings}
 
-> ドラッグ＆ドロップの編集エクスペリエンスは、**ビルド**と**プレビュー＆テスト**の2つのセクションに分かれています。この記事では、エディターの**ビルド**タブでの作業に必要な情報を説明します。すでに[アプリ内メッセージを作成]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)していることを前提としています。
+> ドラッグ＆ドロップの編集エクスペリエンスは、**ビルド**と**プレビュー＆テスト**の2つのセクションに分かれています。この記事では、エディターの**ビルド**タブでの作業に必要な情報を説明します。すでに[アプリ内メッセージを作成]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)していることを前提としています。
 
 ![「メッセージスタイル」タブ。]({% image_buster /assets/img_archive/dnd_iam_message_styles.png %}){: style="float:right;max-width:25%;margin-left:15px;max-width:30%"}
 
@@ -15,7 +15,7 @@ page_order: 1
 
 **メッセージスタイル**タブから、アプリ内メッセージ内のすべての関連ブロックに適用される特定のスタイルを設定できます。たとえば、メッセージ内のすべてのテキストのフォントやすべてのリンクの色をカスタマイズできます。
 
-このセクションのスタイルは、特定のブロックでオーバーライドしない限り、メッセージ全体で使用されます。メッセージに[複数のページ]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/#multi-page)がある場合、表示タイプと最大幅を除き、個々のページのメッセージレベルのスタイルをオーバーライドすることもできます。
+このセクションのスタイルは、特定のブロックでオーバーライドしない限り、メッセージ全体で使用されます。メッセージに[複数のページ]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop#multi-page)がある場合、表示タイプと最大幅を除き、個々のページのメッセージレベルのスタイルをオーバーライドすることもできます。
 
 デザインをスムーズに進めるために、ブロックレベルのスタイルをカスタマイズする前に、メッセージレベルのスタイルを設定することをお勧めします。
 
@@ -26,7 +26,7 @@ page_order: 1
 
 ### カスタムフォント {#custom-fonts}
 
-フォントのファイルタイプは`.ttf`、`.woff`、`.otf`、`.woff2`に対応しています。詳細については、[アセットファイル]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#asset-files)を参照してください。
+フォントのファイルタイプは`.ttf`、`.woff`、`.otf`、`.woff2`に対応しています。詳細については、[アセットファイル]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#asset-files)を参照してください。
 
 カスタムフォントでは一部のスタイルオプションが利用できない場合があるため、フォントファミリーの複数のバリエーションを追加できます。現在、URL経由でのフォント追加はサポートされていません。
 
@@ -48,7 +48,7 @@ page_order: 1
 
 ### 閉じるXボタン {#close-x-button}
 
-モーダルおよびフルスクリーンのアプリ内メッセージでは、メッセージの右上隅に<i class="fa-solid fa-xmark"></i>として表示される閉じるボタンをカスタマイズできます。カスタマイズオプションには、ボタンの位置、サイズ、塗りつぶし色、背景色、ボーダースタイル、ボーダー半径があります。
+モーダルおよびフルスクリーンのアプリ内メッセージでは、メッセージの上部に<i class="fa-solid fa-xmark"></i>として表示される閉じるボタンをカスタマイズできます。カスタマイズオプションには、ボタンの位置、サイズ、塗りつぶし色、背景色、ボーダースタイル、ボーダー半径があります。
 
 ![アプリ内メッセージの閉じるXボタンをカスタマイズするオプション（ボタンサイズ、塗りつぶし色、背景色、ボーダースタイル、ボーダー半径を含む）。]({% image_buster /assets/img_archive/close_x_button.png %}){: style="max-width:40%"}
 
@@ -76,7 +76,7 @@ page_order: 1
 
 #### 背景画像 {#background-image}
 
-**行プロパティ**パネルで行に背景画像を追加できます。**背景画像**をオンに切り替え、画像URLを入力するか、[メディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/)から画像を選択します。最後に、代替テキスト、サイズ、位置、および画像を繰り返して行全体にパターンを作成するかどうかを設定します。
+**行プロパティ**パネルで行に背景画像を追加できます。**背景画像**をオンに切り替え、画像URLを入力するか、[メディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library)から画像を選択します。最後に、代替テキスト、サイズ、位置、および画像を繰り返して行全体にパターンを作成するかどうかを設定します。
 
 ![ピザの行背景画像が水平方向に繰り返しパターンで表示されている例。]({% image_buster /assets/img_archive/background_row.png %})
 
@@ -90,9 +90,11 @@ page_order: 1
 
 ![選択可能なドラッグ＆ドロップボックス。]({% image_buster /assets/img_archive/dnd_iam_editor_blocks.png %}){: style="max-width:40%"}
 
-各ブロックには、パディングの細かい制御など、独自の設定があります。右側のパネルは、選択したコンテンツ要素のスタイルパネルに自動的に切り替わります。詳細については、[エディターブロックのプロパティ]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages#inappmessages_properties)を参照してください。
+各ブロックには、パディングの細かいコントロールなど、独自の設定があります。右側のパネルは、選択したコンテンツ要素のスタイルパネルに自動的に切り替わります。詳細については、[エディターブロックのプロパティ]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages#inappmessages_properties)を参照してください。
 
 アプリ内メッセージを作成する際、ツールバーでモバイル、タブレット、またはデスクトップビューを選択して、ユーザーグループに対してアプリ内メッセージがどのように表示されるかをプレビューできます。これにより、コンテンツがレスポンシブであることを確認し、必要な調整を随時行うことができます。
+
+{% multi_lang_include drag_and_drop/hide_rows_and_blocks_by_device.md channel='in_app_message' %}
 
 ## クリエイティブの詳細 {#creative-details}
 
@@ -102,11 +104,11 @@ page_order: 1
 
 ![フルスクリーンのアプリ内メッセージの例。]({% image_buster /assets/img_archive/dnd_iam_fullscreen_example.png %}){: style="border:none"}
 
-### 背景画像の追加 {#adding-a-background-image}
+### 背景画像の追加 {#add-a-background-image}
 
 **メッセージスタイル**タブからメッセージの背景に画像を追加できます。
 
-1. Canvasエリアで背景コンテナを選択します。これはメッセージのスクロール可能なセクションです。
+1. キャンバスエリアで背景コンテナを選択します。これはメッセージのスクロール可能なセクションです。
 2. **メッセージスタイル**タブで、**背景画像**をオンにします。
 3. メディアライブラリから画像を追加するか、画像がホストされているURLを入力します。
 
@@ -114,17 +116,42 @@ page_order: 1
 特定のブロックの選択が難しい場合は、ブロックのインラインツールバーの上矢印を使用して、各親ブロックにフォーカスを移動できます。
 {% endalert %}
 
-### Liquidの追加 {#adding-liquid}
+#### Liquidで背景画像を動的に切り替える {#swap-background-images-with-liquid}
+
+ユーザーデータ（カスタム属性やユーザープロパティなど）に基づいて背景画像を動的に切り替えるには、Liquid {% raw %}`{% capture %}`{% endraw %}ブロックを使用して、HTMLとCSSが読み込まれる前に正しい画像URLを変数に割り当てます。
+
+Liquidロジックをメッセージの先頭に配置し、キャプチャした変数を背景画像のURLフィールドで参照します。これにより、各ユーザーのデータに基づいて正しい画像が選択されます。
+
+画像URLをキャプチャした後、{% raw %}`{{ image_url | strip }}`{% endraw %}を使用して余分な空白を除去したURLを出力します。このLiquidを背景画像のURLフィールドに貼り付けることで、異なるユーザーに異なる画像を動的に表示できます。
+
+##### 例 {#example}
+
+{% raw %}
+```liquid
+{% capture image_url %}
+{% if {{custom_attribute.${membership_tier}}} == 'gold' %}
+https://example.com/images/gold-background.png
+{% elsif {{custom_attribute.${membership_tier}}} == 'silver' %}
+https://example.com/images/silver-background.png
+{% else %}
+https://example.com/images/default-background.png
+{% endif %}
+{% endcapture %}
+{{ image_url | strip }}
+```
+{% endraw %}
+
+### Liquidの追加 {#add-liquid}
 
 ![Liquidパーソナライゼーションを追加するアイコン。]({% image_buster /assets/img_archive/dnd_iam_liquid.png %}){: style="float:right;max-width:25%;margin-left:15px"}
 
-アプリ内メッセージに[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)を追加するには、エディターツールバーから<i class="fa-solid fa-circle-plus"></i> **パーソナライゼーションを追加**を選択します。ここでは、デフォルト属性、デバイス属性、カスタム属性など、さまざまなパーソナライゼーションタイプを追加できます。
+アプリ内メッセージに[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)を追加するには、エディターツールバーから<i class="fa-solid fa-circle-plus"></i> **パーソナライゼーションを追加**を選択します。ここでは、デフォルト属性、デバイス属性、カスタム属性など、さまざまなパーソナライゼーションタイプを追加できます。
 
 次に、生成されたLiquidスニペットをメッセージに挿入します。アプリ内メッセージのデザインと構築が完了したら、**プレビュー＆テスト**に移動してメッセージをプレビューします。
 
-### AIコピーライターの使用 {#using-the-ai-copywriter}
+### AIコピーライターの使用 {#use-the-ai-copywriter}
 
-アプリ内メッセージでテキストブロックを選択した状態で、ブロックツールバーの<i class="fa-solid fa-wand-magic-sparkles" title="AIコピーライター"></i> **AIコピーライター**を選択すると、[AI搭載コピーライティングアシスタント]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/)が起動します。AIコピーライティングアシスタントは、簡単な製品名や説明をOpenAIのGPT3コピー生成ツールに渡し、メッセージング用の人間らしいマーケティングコピーを生成します。
+アプリ内メッセージでテキストブロックを選択した状態で、ブロックツールバーの<i class="fa-solid fa-wand-magic-sparkles" title="AIコピーライター"></i> **AIコピーライター**を選択すると、[AI搭載コピーライティングアシスタント]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy)が起動します。AIコピーライティングアシスタントは、簡単な製品名や説明をOpenAIのGPT3コピー生成ツールに渡し、メッセージング用の人間らしいマーケティングコピーを生成します。
 
 {% alert tip %}
 ブロック内のテキストをハイライトしてからアイコンをクリックすると、数クリック省略できます。ハイライトされたテキストがツールに追加され、すぐにコピーが生成されます。
@@ -132,7 +159,7 @@ page_order: 1
 
 ![AIコピーライターのGIF。]({% image_buster /assets/img_archive/dnd_iam_ai_copywriter.gif %})
 
-### スタイルをデフォルトにリセット {#resetting-styles-to-default}
+### スタイルをデフォルトにリセット {#reset-styles-to-default}
 
 デフォルトのスタイルから変更されたプロパティには、オレンジ色のドットが表示されます。特定のプロパティをデフォルトのスタイルにリセットするには、フィールドにカーソルを合わせて**デフォルトにリセット**を選択します。
 
@@ -140,7 +167,7 @@ page_order: 1
 
 選択した要素のすべてのスタイルをリセットするには、プロパティパネル名の横にある<i class="fas fa-paintbrush" title="スタイルのコピーまたは貼り付けボタン"></i>を選択し、**デフォルトスタイルにリセット**を選択します。
 
-### スタイルのコピーと貼り付け {#copying-and-pasting-styles}
+### スタイルのコピーと貼り付け {#copy-and-paste-styles}
 
 要素のスタイルを変更した後、そのスタイルを別の要素にコピーして貼り付けることができます。スタイルを貼り付ける際、その要素に関連するプロパティのみが適用されます。
 

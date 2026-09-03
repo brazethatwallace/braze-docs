@@ -12,13 +12,17 @@ channel:
 
 > Der Bring Your Own (BYO) WhatsApp-Konnektor bietet eine Partnerschaft zwischen Braze und Infobip, bei der Sie Braze Zugriff auf Ihren Infobip WhatsApp Business Manager (WABA) gewähren. So können Sie Messaging-Kosten direkt mit Infobip verwalten und bezahlen, während Sie Braze für Segmentierung, Personalisierung und Campaign-Orchestrierung nutzen. Braze behält alle bestehenden Funktionen bei, die der WhatsApp-Kanal bietet, wie ausgehende Nachrichten, Verarbeitung eingehender Nachrichten, WhatsApp-Flows und Analytics.
 
+{% alert note %}
+Informationen zur Migration von anderen Business Solution Providern (BSPs) zur Braze-Integration finden Sie unter [Von einem anderen Business Solution Provider migrieren]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number#migrate-from-another-business-solution-provider).
+{% endalert %}
+
 ## Voraussetzungen {#requirements}
 
 | Voraussetzung | Beschreibung |
 | --- | --- |
 | Infobip-Konto | Ein Infobip-Konto ist erforderlich, um den BYO-WhatsApp-Konnektor zu nutzen. |
 | Nachrichten- oder Action-Credits | Sie verbrauchen Braze Action-Credits, wenn Sie WhatsApp-Nachrichten senden. |
-| WhatsApp-Voraussetzungen | Erfüllen Sie alle [WhatsApp-Voraussetzungen]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/#prerequisites). |
+| WhatsApp-Voraussetzungen | Erfüllen Sie alle [WhatsApp-Voraussetzungen]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup#prerequisites). |
 | Telefonnummer | Wir empfehlen, der Einfachheit halber [eine Telefonnummer über Infobip zu erwerben](https://www.infobip.com/docs/numbers/getting-started). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
@@ -30,11 +34,11 @@ Bevor Sie den BYO-WhatsApp-Konnektor einrichten, bestätigen Sie, dass der bishe
 
 - WhatsApp Business-Konto und Telefonnummer waren noch nie mit einem Partner verbunden.
 - WhatsApp Business-Konto ist über die native Integration direkt mit Braze verbunden.
-    - Folgen Sie den Schritten unter [WhatsApp-Telefonnummernmigration]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number/), um Ihre Telefonnummern einzeln zu einem neuen WhatsApp Business-Konto zu migrieren.
+    - Folgen Sie den Schritten unter [Zwischen WhatsApp Business-Konten migrieren]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number#migrate-between-whatsapp-business-accounts), um Ihre Telefonnummern einzeln zu einem neuen WhatsApp Business-Konto zu migrieren.
 - WhatsApp Business-Konto ist mit einem anderen Lösungsanbieter als Braze und Infobip verbunden.
-    - Folgen Sie den Schritten unter [WhatsApp-Telefonnummernmigration]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number/), um Ihre Telefonnummern einzeln zu einem neuen WhatsApp Business-Konto zu migrieren.
+    - Folgen Sie den Schritten unter [Zwischen WhatsApp Business-Konten migrieren]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number#migrate-between-whatsapp-business-accounts), um Ihre Telefonnummern einzeln zu einem neuen WhatsApp Business-Konto zu migrieren.
 
-## 1. Schritt: Infobip-Kontoinformationen abrufen {#step-1}
+## Schritt 1: Infobip-Kontoinformationen abrufen {#step-1}
 
 1. Identifizieren Sie in Infobip das Konto, das Sie mit Ihrem WhatsApp Business-Konto verwenden möchten.
 2. Gehen Sie zu **Developer Tools** > **API Keys** und wählen Sie **Create API Key**.
@@ -62,17 +66,17 @@ Bevor Sie den BYO-WhatsApp-Konnektor einrichten, bestätigen Sie, dass der bishe
 
 ![Seite „API keys“ mit einer hervorgehobenen API-Basis-URL.]({% image_buster /assets/img/whatsapp/byo_connector/api_base_url.png %})
 
-## 2. Schritt: Embedded Signup starten {#step-2-start-the-embedded-signup}
+## Schritt 2: Embedded Signup starten {#step-2-start-the-embedded-signup}
 
-1. Gehen Sie in Braze zu **Partner Integrations** > **Technology Partners** > **WhatsApp**.
+1. Gehen Sie in Braze zu **Partnerintegrationen** > **Technologie-Partner** > **WhatsApp**.
 2. Wählen Sie den Tab **BYO Connector - Infobip**.
 
-![Die WhatsApp-Technologie-Partner-Seite.]({% image_buster /assets/img/whatsapp/byo_connector/byo_tab_tech_parners.png %})
+![Die WhatsApp-Technologie-Partnerseite.]({% image_buster /assets/img/whatsapp/byo_connector/byo_tab_tech_parners.png %})
 
 {: start="3"}
 3. Geben Sie den API-Schlüssel und die Basis-URL aus [Schritt 1](#step-1) ein.
 4. Wählen Sie **Connect**.
-5. Durchlaufen Sie den [Embedded-Signup-Workflow]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup/#whatsapp-embedded-signup-workflow) mit diesen Hinweisen:
+5. Durchlaufen Sie den [Embedded-Signup-Workflow]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup#whatsapp-embedded-signup-workflow) mit diesen Hinweisen:
 - Sie können nicht dasselbe Unternehmensportfolio auswählen, das von einem anderen Business Solution Provider verwendet wird.
 - Sie können keine Telefonnummer auswählen, die von einem anderen Business Solution Provider verwendet wird.
 - Sie müssen ein neues WABA erstellen und dürfen kein bestehendes auswählen.
@@ -89,11 +93,11 @@ Nach Abschluss der Einrichtung wird Ihre Telefonnummer als Abo-Gruppe unter Ihre
 Verbinden Sie jedes WhatsApp Business-Konto mit einem einzelnen Infobip-Konto. Jedes Mal, wenn Sie eine zusätzliche Telefonnummer oder Abo-Gruppe verbinden und das WhatsApp Business-Konto bereits mit einem Infobip-Konto verbunden ist, müssen Sie die API-Zugangsdaten für das bestehende Konto erneut eingeben.
 {% endalert %}
 
-## 3. Schritt: Nachrichten senden {#step-3-sending-messages}
+## Schritt 3: Nachrichten senden {#step-3-sending-messages}
 
 Folgen Sie dem nativen Integrations-Sendeprozess, einschließlich:
-- [Nutzer:innen für die Abo-Gruppe anmelden]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/)
-- [Eine WhatsApp-Nachricht erstellen]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/)
+- [Nutzer:innen für die Abo-Gruppe anmelden]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups)
+- [Eine WhatsApp-Nachricht erstellen]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message)
 
 ## Fehlerbehebung bei der Einrichtung {#troubleshooting-setup}
 
@@ -105,8 +109,6 @@ Bestätigen Sie, dass Ihr WhatsApp Business-Konto nicht mit einem anderen Braze-
 
 1. Bestätigen Sie, dass Ihr WhatsApp Business-Konto nicht mit Braze oder einem anderen Partner verbunden ist.
 2. Bestätigen Sie, dass keine Telefonnummern in Ihrem WhatsApp Business-Konto mit einem anderen Infobip-Konto verbunden sind. Für importierte Nummern können Sie die Nummer in Infobip finden und **Cancel number** auswählen.
-
-![Der Button „Cancel number“ für eine Infobip-Nummer.]({% image_buster /assets/img/whatsapp/byo_connector/cancel_number.png %})
 
 ## Hinweise {#considerations}
 

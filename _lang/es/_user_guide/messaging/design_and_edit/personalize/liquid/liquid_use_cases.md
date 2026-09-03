@@ -113,7 +113,7 @@ Message body
 
 ### Evitar enviar mensajes en festivos importantes {#holiday-avoid}
 
-Este caso de uso muestra cómo enviar mensajes durante el período festivo evitando los días de festivos importantes, cuando la interacción probablemente sea baja.
+Este caso de uso muestra cómo enviar mensajes durante el período festivo evitando los días de festivos importantes, cuando la participación probablemente sea baja.
 
 {% raw %}
 ```liquid
@@ -569,7 +569,7 @@ There is a shovel here.
 
 ### Formatear moneda para convenciones numéricas europeas {#european-currency-format}
 
-Para las configuraciones regionales que usan una coma como separador decimal y un punto como separador de miles (por ejemplo, Alemania o Italia), usa los filtros [`money`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/#money-filter) y [`number_with_delimiter`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#number-formatting-filters) con `replace` para intercambiar los separadores. Usa `#` como marcador de posición temporal para que los puntos y las comas no se intercambien en la misma pasada.
+Para las configuraciones regionales que usan una coma como separador decimal y un punto como separador de miles (por ejemplo, Alemania o Italia), usa los filtros [`money`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#money-filters) y [`number_with_delimiter`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#number-formatting-filters) con `replace` para intercambiar los separadores. Usa `#` como marcador de posición temporal para que los puntos y las comas no se intercambien en la misma pasada.
 
 {% raw %}
 ```liquid
@@ -661,7 +661,7 @@ Did you forget something in your shopping cart?
 ```
 {% endraw %}
 
-{% alert important %} Debes tener una propiedad de evento del conteo de eventos personalizados o usar un webhook a tu punto de conexión de Braze. Esto es para incrementar un atributo personalizado (`example_event_count`) cada vez que el usuario realiza el evento. Este ejemplo usa una cadencia de tres (1, 4, 7, 10, etc.). Para iniciar la cadencia desde cero (0, 3, 6, 9, etc.), elimina `minus: 1`.
+{% alert important %} Debes tener una propiedad de evento del conteo de eventos personalizados o usar un webhook a tu endpoint de Braze. Esto es para incrementar un atributo personalizado (`example_event_count`) cada vez que el usuario realiza el evento. Este ejemplo usa una cadencia de tres (1, 4, 7, 10, etc.). Para iniciar la cadencia desde cero (0, 3, 6, 9, etc.), elimina `minus: 1`.
 {% endalert %}
 
 ### Enviar un mensaje a usuarios que solo han comprado de una categoría {#event-purchased-one-category}
@@ -952,7 +952,7 @@ Today's offer from {{store}}
 
 Este caso de uso permite a los usuarios configurar recordatorios próximos basados en eventos personalizados. El escenario de ejemplo permite a un usuario establecer un recordatorio para una fecha de renovación de póliza que está a 26 o más días de distancia, donde los recordatorios se envían 26, 13, 7 o 2 días antes de la fecha de renovación de la póliza.
 
-Con este caso de uso, lo siguiente debe ir en el cuerpo de una [Campaign de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/) o paso en Canvas.
+Con este caso de uso, lo siguiente debe ir en el cuerpo de una [Campaign de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) o paso en Canvas.
 
 {% raw %}
 ```liquid
@@ -1539,7 +1539,7 @@ Check out this new bar after work today. HH specials!
 ```
 {% endraw %}
 
-{% alert note %} Esto es lo opuesto a las [horas tranquilas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#time-based-options). {% endalert %}
+{% alert note %} Esto es lo opuesto a las [horas tranquilas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#time-based-options). {% endalert %}
 
 ### Cancelar un mensaje fuera de un rango de horas en el momento del envío {#abort-send-time-hour-range}
 
@@ -1816,4 +1816,4 @@ Este caso de uso cancela el mensaje cuando Liquid se ejecuta en un día de la se
 
 {% endapi %}
 
-Muchos ejemplos en esta biblioteca usan la etiqueta `abort_message` para omitir un envío cuando no se cumplen las condiciones. Para una referencia completa sobre cómo cancelar envíos con Liquid, incluidos patrones basados en fecha y hora, consulta [Cancelar mensajes Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/).
+Muchos ejemplos en esta biblioteca usan la etiqueta `abort_message` para omitir un envío cuando no se cumplen las condiciones. Para una referencia completa sobre cómo cancelar envíos con Liquid, incluidos patrones basados en fecha y hora, consulta [Cancelar mensajes Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages).

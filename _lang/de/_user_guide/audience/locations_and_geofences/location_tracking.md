@@ -16,9 +16,9 @@ search_rank: 2
 
 Um die Standorterfassung in Ihrer App zu aktivieren, lesen Sie den Entwicklerleitfaden für die von Ihnen verwendete Plattform:
 
-- [iOS]({{site.baseurl}}/developer_guide/analytics/tracking_location/?sdktab=swift)
-- [Android]({{site.baseurl}}/developer_guide/analytics/tracking_location/?sdktab=android)
-- [Internet]({{site.baseurl}}/developer_guide/analytics/tracking_location/?sdktab=web)
+- [iOS]({{site.baseurl}}/developer_guide/analytics/tracking_location?sdktab=swift)
+- [Android]({{site.baseurl}}/developer_guide/analytics/tracking_location?sdktab=android)
+- [Internet]({{site.baseurl}}/developer_guide/analytics/tracking_location?sdktab=web)
 
 Im Allgemeinen verwenden mobile Apps den GPS-Chip des Geräts und andere Systeme (wie Wi-Fi-Scanning), um den Standort von Nutzer:innen zu verfolgen. Web-Apps verwenden WPS (Wi-Fi Positioning System), um den Standort von Nutzer:innen zu verfolgen. Alle diese Plattformen erfordern, dass Nutzer:innen dem Standort-Tracking zustimmen. Die Genauigkeit Ihrer Standort-Tracking-Daten kann davon beeinflusst werden, ob Ihre Nutzer:innen Wi-Fi auf ihren Geräten aktiviert haben oder nicht. Android-Nutzer:innen können auch verschiedene Standortmodi wählen – Nutzer:innen, die den Modus „Batteriesparen“ oder „Nur Gerät“ verwenden, können ungenaue Daten aufweisen.
 
@@ -34,17 +34,17 @@ Jetzt verwendet Braze die IP-Adresse, um den Länderwert in Nutzerprofilen festz
 
 Wenn aktiviert, ist die automatische Standorterfassung im SDK unabhängig vom IP-basierten Länderverhalten. Sie bezieht sich auf Geräte-Standortsignale wie GPS, wenn die Nutzer:in die Berechtigung erteilt hat, und ermöglicht Filter wie `Most Recent Location`. Sie füllt nicht automatisch detaillierte Felder wie den Ort allein aus der IP-Adresse.
 
-Für Orts- oder Postleitzahl-basiertes Targeting verwenden Sie [`setLastKnownLocation()`]({{site.baseurl}}/developer_guide/analytics/tracking_location/) (siehe den SDK-Artikel für Ihre Plattform), Ihren eigenen IP-Geolocation-Dienst, der angepasste Attribute schreibt, oder [Standort-Targeting]({{site.baseurl}}/user_guide/audience/segments/location_targeting/) mit den von Ihnen erfassten Daten.
+Für Orts- oder Postleitzahl-basiertes Targeting verwenden Sie [`setLastKnownLocation()`]({{site.baseurl}}/developer_guide/analytics/tracking_location) (siehe den SDK-Artikel für Ihre Plattform), Ihren eigenen IP-Geolocation-Dienst, der angepasste Attribute schreibt, oder [Standort-Targeting]({{site.baseurl}}/user_guide/audience/segments/location_targeting) mit den von Ihnen erfassten Daten.
 
 ## Standort-Targeting {#location-targeting}
 
 Mithilfe von Standort-Tracking-Daten und Segmenten können Sie standortbasierte Campaigns und Strategien einrichten. Beispielsweise möchten Sie vielleicht eine Werbeaktion für Nutzer:innen durchführen, die in einer bestimmten Region leben, oder Nutzer:innen in einer Region mit strengeren Vorschriften ausschließen.
 
-Weitere Informationen zum Erstellen eines Standort-Segments finden Sie unter [Standort-Targeting]({{site.baseurl}}/user_guide/audience/segments/location_targeting/).
+Weitere Informationen zum Erstellen eines Standort-Segments finden Sie unter [Standort-Targeting]({{site.baseurl}}/user_guide/audience/segments/location_targeting).
 
 ## Festes Setzen des Standard-Standortattributs {#hard-setting-the-default-location-attribute}
 
-Sie können auch den [`users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) in unserer API verwenden, um das Standardattribut [`current_location`]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens) zu aktualisieren. Ein Beispiel:
+Sie können auch den [`users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) in unserer API verwenden, um das Standardattribut [`current_location`]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields) zu aktualisieren. Ein Beispiel:
 
 ```
 https://[your_braze_rest_endpoint]/users/track
@@ -64,9 +64,9 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 Die Kombination bestehender Beacon- oder Geofence-Unterstützung mit unseren Targeting- und Messaging-Features gibt Ihnen mehr Informationen über die physischen Aktionen Ihrer Nutzer:innen, sodass Sie ihnen entsprechend Nachrichten senden können. Sie können Standort-Tracking mit einigen unserer Partner nutzen:
 
-- [Radar]({{site.baseurl}}/partners/message_personalization/location/radar/)
-- [Infillion]({{site.baseurl}}/partners/message_personalization/location/infillion/)
-- [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare/)
+- [Radar]({{site.baseurl}}/partners/message_personalization/location/radar)
+- [Infillion]({{site.baseurl}}/partners/message_personalization/location/infillion)
+- [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare)
 
 ## Unterschiede zwischen Geofences und Standort-Tracking {#differences-between-geofences-and-location-tracking}
 
@@ -85,7 +85,7 @@ Sie sollten auch die folgenden Besonderheiten beachten:
 
 ### Was ist der Unterschied zwischen den Filtern „Most Recent Device Locale“ und „Most Recent Location“? {#whats-the-difference-between-the-most-recent-device-locale-and-most-recent-location-filters}
 
-`Most Recent Device Locale` stammt aus den Geräteeinstellungen der Nutzer:in. Für iPhone-Nutzer:innen erscheint dies beispielsweise auf ihrem Gerät unter **Settings** > **General** > **Language & Region**. Dieser Filter wird verwendet, um Sprache und regionale Formatierung wie Datumsangaben und Adressen zu erfassen, und ist unabhängig vom Filter `Most Recent Location`.
+`Most Recent Device Locale` stammt aus den Geräteeinstellungen der Nutzer:in. Für iPhone-Nutzer:innen erscheint dies beispielsweise auf ihrem Gerät unter **Einstellungen** > **Allgemein** > **Sprache & Region**. Dieser Filter wird verwendet, um Sprache und regionale Formatierung wie Datumsangaben und Adressen zu erfassen, und ist unabhängig vom Filter `Most Recent Location`.
 
 `Most Recent Location` ist der letzte bekannte GPS-Standort des Geräts. Dieser wird beim Sitzungsstart aktualisiert und im Profil der Nutzer:in gespeichert.
 

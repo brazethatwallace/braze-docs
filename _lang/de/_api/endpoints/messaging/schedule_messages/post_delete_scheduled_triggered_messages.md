@@ -10,11 +10,11 @@ description: "Dieser Artikel beschreibt den Braze-Endpunkt zum Löschen geplante
 ---
 {% api %}
 # Geplante, API-getriggerte Campaigns löschen {#delete-scheduled-api-triggered-campaigns}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /campaigns/trigger/schedule/delete
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um eine zuvor per API-Trigger geplante Canvas-Nachricht zu stornieren, bevor sie gesendet wurde.
+> Verwenden Sie diesen Endpunkt, um eine zuvor per API-Trigger geplante Campaign-Nachricht zu stornieren, bevor sie gesendet wurde.
 
 Geplante Nachrichten oder Trigger, die kurz vor oder während des vorgesehenen Sendezeitpunkts gelöscht werden, werden nach bestem Bemühen aktualisiert. Das bedeutet, dass Braze Löschungen in letzter Sekunde möglicherweise auf alle, einige oder keine Ihrer Zielnutzer:innen anwendet.
 
@@ -22,7 +22,7 @@ Geplante Nachrichten oder Trigger, die kurz vor oder während des vorgesehenen S
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `campaigns.trigger.schedule.delete`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `campaigns.trigger.schedule.delete`.
 
 ## Rate-Limit
 
@@ -46,7 +46,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | ---------| --------- | ----------- |
-| `campaign_id` | Erforderlich | String | Siehe [Campaign-Bezeichner]({{site.baseurl}}/api/identifier_types/). |
+| `campaign_id` | Erforderlich | String | Siehe [Campaign-Bezeichner]({{site.baseurl}}/api/identifier_types). |
 | `schedule_id` | Erforderlich | String | Die zu löschende `schedule_id` (aus der Antwort beim Erstellen des Zeitplans erhalten). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 

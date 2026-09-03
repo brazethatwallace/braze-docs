@@ -15,23 +15,23 @@ description: "Este artigo descreve detalhes sobre o endpoint Ver tradução espe
 /templates/translations/email
 {% endapimethod %}
 
-> Use este endpoint para ver uma tradução específica e local para um [modelo de e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates/). Consulte [Locais em mensagens]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) para saber mais sobre recursos de tradução.
+> Use este endpoint para ver uma tradução específica e local para um [modelo de e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates). Consulte [Locais em mensagens]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) para saber mais sobre recursos de tradução.
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `templates.translations.get`.
+Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `templates.translations.get`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='translation endpoints' %}
 
 ## Parâmetros de consulta {#query-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 |---------------|----------|-----------|---------------------------------|
-| `template_id` | Obrigatória | String | O ID do seu modelo de e-mail. |
+| `template_id` | Obrigatório | String | O ID do seu modelo de e-mail. |
 | `locale_id` | Opcional | String | O ID (UUID) do local. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de consulta" }
 
 {% alert note %}
 Todos os IDs de tradução são considerados identificadores únicos universais (UUIDs), que podem ser encontrados na resposta do endpoint GET.

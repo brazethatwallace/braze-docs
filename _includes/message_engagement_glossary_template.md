@@ -1,4 +1,7 @@
 ---
+# This file is a template consumed by the external `braze-currents-generate-docs` tool
+# (braze-agent-plugins / braze-currents plugin) to generate the Currents event glossary
+# docs. It is not referenced from within braze-docs, so do not delete it as "unused".
 nav_title: Message engagement events
 layout: message_engagement_events_glossary
 alias: /message_events_glossary/
@@ -27,11 +30,11 @@ Contact your account manager or open a [support ticket]({{site.baseurl}}/braze_s
 
 {% details Explanation of message engagement event structure and platform values %}
 
-### Event structure
+## Event structure
 
 This event breakdown shows what type of information is generally included in a message engagement event. With a solid understanding of its components, your developers and business intelligence strategy team can use the incoming Currents event data to make data-driven reports and charts, and take advantage of other valuable data metrics.
 
-![Breakdown of a message engagement event showing an email unsubscribe event with the listed properties grouped by user-specific properties, campaign or Canvas tracking properties, and event-specific properties]({% image_buster /assets/img/message_engagement_event.png %})
+![Breakdown of a message engagement event showing an email unsubscribe event with the listed properties grouped by user-specific properties, campaign or Canvas tracking properties, and event-specific properties]({% image_buster /assets/img/message_engagement_event.png %}){: width="2300" height="770" style="max-width:100%;height:auto;"}
 
 Message engagement events are comprised of **user-specific** properties, **campaign/canvas tracking** properties, and **event-specific** properties.
 

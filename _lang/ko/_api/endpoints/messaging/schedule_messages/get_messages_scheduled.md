@@ -14,15 +14,15 @@ description: "이 문서에서는 예정된 Campaigns 및 Canvases 목록 보기
 /messages/scheduled_broadcasts
 {% endapimethod %}
 
-> 이 엔드포인트를 사용하여 지금부터 요청에 지정된 `end_time` 사이에 예약된 Campaigns 및 진입 Canvases에 대한 정보의 JSON 목록을 반환합니다.
+> 이 엔드포인트를 사용하여 현재 시점부터 요청에 지정된 `end_time` 사이에 예약된 Campaigns 및 항목 Canvases에 대한 정보를 JSON 목록으로 반환합니다.
 
-매일 반복되는 메시지는 다음 발생 시점에 한 번만 표시됩니다. 이 엔드포인트에서 반환되는 결과에는 Braze 대시보드에서 생성 및 예약된 Campaigns과 Canvases가 포함됩니다.
+매일 반복되는 메시지는 다음 발생 시점에 한 번만 표시됩니다. 이 엔드포인트에서 반환되는 결과에는 Braze 대시보드에서 생성 및 예약된 Campaigns와 Canvases가 포함됩니다.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#6f623cc3-383b-4bf7-b14d-7c56fc5562f5 {% endapiref %}
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `messages.schedule_broadcasts` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `messages.schedule_broadcasts` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key-permissions)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 

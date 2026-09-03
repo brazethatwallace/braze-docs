@@ -10,11 +10,11 @@ description: "Dieser Artikel enthält Einzelheiten zum Endpunkt „Campaigns dup
 ---
 {% api %}
 # Campaigns über die API duplizieren {#duplicate-campaigns-using-the-api}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /campaigns/duplicate
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um Campaigns zu duplizieren. Dieser API-Endpunkt ist vergleichbar mit dem [Duplizieren von Campaigns im Braze-Dashboard][1].
+> Verwenden Sie diesen Endpunkt, um Campaigns zu duplizieren. Dieser API-Endpunkt ist vergleichbar mit dem [Duplizieren von Campaigns im Braze-Dashboard]({{site.baseurl}}/user_guide/messaging/governance/duplicating).
 
 ## Voraussetzungen {#prerequisites}
 
@@ -36,7 +36,7 @@ Authorization: Bearer YOUR-REST-API-KEY
   "campaign_id": (required, string) The campaign identifier,
   "name": (required, string) The name of the resulting campaign,
   "description": (optional, string) The description of the resulting campaign,
-  "tag_names": (optional, string) The tags of the resulting campaign,
+  "tag_names": (optional, array of strings) The tags of the resulting campaign,
 }
 ```
 
@@ -44,19 +44,15 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | ---------| --------- | ----------- |
-| `campaign_id` | Erforderlich | String | Siehe [Campaign-Bezeichner]({{site.baseurl}}/api/identifier_types/). |
+| `campaign_id` | Erforderlich | String | Siehe [Campaign-Bezeichner]({{site.baseurl}}/api/identifier_types). |
 | `name` | Erforderlich | String | Der Name der resultierenden Campaign. |
 | `description` | Optional | String | Das Beschreibungsfeld für die resultierende Campaign. |
-| `tag_names` | Optional | String | Die Tags für die resultierende Campaign. Diese müssen bereits vorhandene Tags sein. Wenn Sie in der Anfrage neue Tags hinzufügen, überschreiben diese alle Tags, die der ursprünglichen Campaign zugewiesen waren. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+| `tag_names` | Optional | String-Array | Die Tags für die resultierende Campaign. Diese müssen bereits vorhandene Tags sein. Wenn Sie in der Anfrage neue Tags hinzufügen, überschreiben diese alle Tags, die der ursprünglichen Campaign zugewiesen waren. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 
 ## Antwort {#response}
 
-Dieser Endpunkt gibt den Statuscode `202` zurück, und die Erstellung der Campaign erfolgt asynchron. Mit dem [Sicherheitsereignis-Download][2] können Sie Aufzeichnungen darüber einsehen, wann Campaigns dupliziert wurden und mit welchem API-Schlüssel.
-
-
-[1]: {{site.baseurl}}/user_guide/engagement_tools/campaigns/managing_campaigns/duplicating_segments_and_campaigns#duplicating-segments-campaigns-and-canvases
-[2]: {{site.baseurl}}/user_guide/administrative/app_settings/company_settings/security_settings/#downloading-a-security-event-report
+Dieser Endpunkt gibt den Statuscode `202` zurück, und die Erstellung der Campaign erfolgt asynchron. Mit dem [Sicherheitsereignis-Download]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#security-event-report) können Sie Aufzeichnungen darüber einsehen, wann Campaigns dupliziert wurden und mit welchem API-Schlüssel.
 
 {% endapi %}

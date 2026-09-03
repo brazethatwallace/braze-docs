@@ -22,17 +22,17 @@ In many cases, you can incorporate Liquid snippets by going to your campaigns or
 
 #### Where can I learn more?
 
-For more on Liquid, check out our guided [Dynamic Personalization with Liquid](https://learning.braze.com/path/dynamic-personalization-with-liquid) Braze Learning path. You can also reference the [Liquid use case library]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases/) for inspiration and a range of personalization examples using Liquid.
+For more on Liquid, check out our guided [Dynamic Personalization with Liquid](https://learning.braze.com/path/dynamic-personalization-with-liquid) Braze Learning path. You can also reference the [Liquid use case library]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases) for inspiration and a range of personalization examples using Liquid.
 
 ### What's the difference between using Liquid and Connected Content for personalization?
 
-Braze Connected Content is an example of a Liquid tag. It's also used for personalization, but this data comes from an external endpoint rather than stored data within Braze. Check out our dedicated [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) section to learn more about expanding how you can personalize your messages.
+Braze Connected Content is an example of a Liquid tag. It's also used for personalization, but this data comes from an external endpoint rather than stored data within Braze. Check out our dedicated [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) section to learn more about expanding how you can personalize your messages.
 
 ### What is Liquid templating?
 
 This is the most common way of using Liquid in Braze. Liquid templating involves pulling data from a user's profile into a message. This data can range from a user's first name to custom events from an event triggered message.
 
-Refer to [Supported personalization tags]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/) for a complete list of the supported Liquid tags.
+Refer to [Supported personalization tags]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags) for a complete list of the supported Liquid tags.
 
 ### Does using Liquid log data points?
 
@@ -44,7 +44,7 @@ No.
 
 For a personalized greeting using a user's first name, pull the standard user profile attributes such as {% raw %}`{{${first_name}}}` and `{{${last_name}}}`{% endraw %}.
 
-You can also use a Liquid {% raw %}`{% if X %}`{% endraw %} statement to do conditional rendering based on anything, such as the day of the week or custom attributes. For more information on the supported Liquid operators that can be used in conditional statements, check out [Operators]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/operators/).
+You can also use a Liquid {% raw %}`{% if X %}`{% endraw %} statement to do conditional rendering based on anything, such as the day of the week or custom attributes. For more information on the supported Liquid operators that can be used in conditional statements, check out [Operators]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/operators).
 
 ### How can I personalize a message based on a user's location?
 
@@ -58,13 +58,13 @@ There is a default attribute for the user's location: `{{${most_recent_location}
 Both `{{campaign.${name}}}` and `{{campaign.${message_name}}}` are supported Liquid personalization tags. Both tags reference campaign attributes. `{{campaign.${name}}}` denotes the name of your campaign, and `{{campaign.${message_name}}}` is the name of your message variant.
 {% endraw %}
 
-For URL and query string use (for example, when a name contains `%` or spaces), see [Campaign names in URLs]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#campaign-names-in-urls).
+For URL and query string use (for example, when a name contains `%` or spaces), see [Campaign names in URLs]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#campaign-names-in-urls).
 
 ### How do I use Liquid with nested objects?
 
 Braze has a built-in feature that generates Liquid code for segments that can be used in a message. Specifically, you can create a segment that matches multiple criteria in an object.
 
-For more information, check out [Multi-criteria segmentation]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#multi-criteria-segmentation).
+For more information, check out [Multi-criteria segmentation]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#segmentation-behavior-with-arrays-of-objects).
 
 ### How do I use event attributes to personalize a message that an event is triggering?
 
@@ -81,6 +81,8 @@ Liquid does not natively support arrays of arrays. Store values as an array of c
 ### How do I assign variables with Liquid?
 
 You can create and assign variables by using the `assign` tag. This creates a variable in the message composer that can also be referenced throughout your message.
+
+You can split an `assign` across multiple lines if you wrap all Braze Liquid variables with double curly braces {% raw %}(`{{ }}`){% endraw %}. Without those braces, multi-line assign statements can cause unexpected rendering, including custom attributes that fail to template. For examples and related syntax rules, see [Use Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#liquid-syntax).
 
 ### When should I use `assign` versus `capture`?
 
@@ -126,7 +128,7 @@ No. Braze renders each message component separately (such as subject line, HTML 
 
 For loops are also known as [iteration tags](https://shopify.github.io/liquid/tags/iteration/). Using for loop logic in your Liquid snippets allows you to cycle through blocks of Liquid until a condition is met.
 
-In Braze, this could be used for checking items in an array custom attribute, or a list of values and objects returned by a [catalog]({{site.baseurl}}/user_guide/data/activation/catalogs/), [selection]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/), or [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) call response. Specifically, you can use for loop logic as part of your messaging to check whether a product is in stock, or if a product has a minimum rating.
+In Braze, this could be used for checking items in an array custom attribute, or a list of values and objects returned by a [catalog]({{site.baseurl}}/user_guide/data/activation/catalogs), [selection]({{site.baseurl}}/user_guide/data/activation/catalogs/selections), or [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) call response. Specifically, you can use for loop logic as part of your messaging to check whether a product is in stock, or if a product has a minimum rating.
 
 For example, let's say you have a catalog called "Games" that has a selection called "cheap_games". To pull the titles of the games in "cheap_games", you could use this Liquid snippet:
 
@@ -143,11 +145,46 @@ Once the set conditions are met, your message can proceed. Using this logic is a
 
 ### What is abort logic, and how can I use it?
 
-Abort logic allows you to stop a message from being sent if the conditions are met. This is especially helpful in preventing incomplete messages from being sent to your users. For examples of abort logic in your marketing campaigns, read more at [Aborting messages]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/).
+Abort logic allows you to stop a message from being sent if the conditions are met. This is especially helpful in preventing incomplete messages from being sent to your users. For examples of abort logic in your marketing campaigns, read more at [Aborting messages]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages).
 
 ### Can I use Liquid inside the `abort_message` tag?
 
 No. The {% raw %}`{% abort_message %}`{% endraw %} tag accepts a static string in quotes, not Liquid personalization. Use other Liquid logic before the tag if you need conditional abort behavior.
+
+### How do I mask phone numbers with Liquid?
+
+You can mask phone numbers using the `slice` filter to extract specific digits and the `append` filter to combine them with masking characters.
+
+#### Mask all but the last four digits
+
+To display a 10-digit phone number as `******7890`:
+
+{% raw %}
+```liquid
+{% assign phone = {{${phone_number}}} | split: '' %}
+{% assign masked_phone = '' %}
+{% for i in (0..5) %}
+  {% assign masked_phone = masked_phone | append: '*' %}
+{% endfor %}
+{% for i in (6..9) %}
+  {% assign masked_phone = masked_phone | append: phone[i] %}
+{% endfor %}
+{{ masked_phone }}
+```
+{% endraw %}
+
+#### Show the first three and last four digits
+
+To display a 10-digit phone number as `123***7890`:
+
+{% raw %}
+```liquid
+{% assign first_part = {{${phone_number}}} | slice: 0, 3 %}
+{% assign last_part = {{${phone_number}}} | slice: -4, 4 %}
+{% assign masked_phone_number = first_part | append: "***" | append: last_part %}
+{{ masked_phone_number }}
+```
+{% endraw %}
 
 ## Canvas, catalogs, and trigger properties
 
@@ -159,11 +196,11 @@ An extra pair of curly braces is a common cause. For example, `{{{api_trigger_pr
 
 ### Are there size limits for Canvas context properties?
 
-Braze does not enforce a hard limit on [Canvas context properties]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/), but keep payloads under approximately 1 KB (~1,000 characters). Larger objects can increase memory use and delay message rendering during high-volume sends.
+Braze does not enforce a hard limit on [Canvas context properties]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties), but keep payloads under approximately 1 KB (~1,000 characters). Larger objects can increase memory use and delay message rendering during high-volume sends.
 
 ### Why do I get a Liquid error when previewing certain data types in the dashboard?
 
-Some [Canvas context property]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/) types require coercion in Liquid before you use them in comparisons or math. For example, when you need numeric behavior:
+Some [Canvas context property]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) types require coercion in Liquid before you use them in comparisons or math. For example, when you need numeric behavior:
 
 {% raw %}
 ```liquid
@@ -173,7 +210,7 @@ Some [Canvas context property]({{site.baseurl}}/user_guide/messaging/canvas/crea
 
 ### Why does my catalog Liquid snippet return an abort message?
 
-If a catalog Liquid snippet aborts during send, recreate the snippet from the personalization menu by selecting individual catalog items instead of using a bulk or fully dynamic selection. See [Catalogs]({{site.baseurl}}/user_guide/data/activation/catalogs/) and [Selections]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/).
+If a catalog Liquid snippet aborts during send, recreate the snippet from the personalization menu by selecting individual catalog items instead of using a bulk or fully dynamic selection. See [Catalogs]({{site.baseurl}}/user_guide/data/activation/catalogs) and [Selections]({{site.baseurl}}/user_guide/data/activation/catalogs/selections).
 
 ## Content Blocks and the message composer
 
@@ -188,6 +225,37 @@ If you notice extra spacing in sent messages that use Content Blocks with Liquid
 {% if {{custom_attribute.${has_discount}}} == true %}Discounted Item{% elsif {{custom_attribute.${is_new_arrival}}} == true %}New Arrival{% else %}Regular Item{% endif %}
 ```
 {% endraw %}
+
+
+### Why does multi-line Liquid create unexpected whitespace in the drag-and-drop editors?
+
+When Liquid code is spread across multiple lines in the in-app message drag-and-drop editor or email drag-and-drop editor, each {% raw %}`{% %}`{% endraw %} block renders as non-visible text. The line breaks are preserved as empty lines before the visible output, causing unexpected whitespace.
+
+#### Solution 1: Use whitespace control tags (recommended)
+
+Add hyphens inside the tag delimiters to strip surrounding whitespace while keeping code readable:
+
+{% raw %}
+```liquid
+{%- assign event_date = {{custom_attribute.${PreferredPickupDate}}} | date: "%s" -%}
+{%- assign today = 'now' | date: "%s" -%}
+{%- assign difference = event_date | minus: today -%}
+{%- assign difference_days = difference | divided_by: 86400 -%}
+Only {{ difference_days }} days until your move!
+```
+{% endraw %}
+
+#### Solution 2: Consolidate Liquid onto a single line
+
+Remove all line breaks so the Liquid is on one continuous line:
+
+{% raw %}
+```liquid
+{% assign event_date = {{custom_attribute.${PreferredPickupDate}}} | date: "%s" %}{% assign today = 'now' | date: "%s" %}{% assign difference = event_date | minus: today %}{% assign difference_days = difference | divided_by: 86400 %}Only {{ difference_days }} days until your move!
+```
+{% endraw %}
+
+Both approaches prevent unwanted empty lines in your rendered message. This applies to the in-app message drag-and-drop editor, the email drag-and-drop editor, and Content Blocks with Liquid. For more information, see Shopify's [Whitespace control](https://shopify.github.io/liquid/basics/whitespace/) documentation and Braze [Liquid syntax]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#liquid-syntax).
 
 ### Why is my Content Block missing from **Row** in the drag-and-drop search tool?
 
@@ -209,9 +277,30 @@ This abort occurs when Liquid in the **From** address produces invalid syntax, s
 
 ### How do I create a dynamic Reply-To address?
 
-Use Liquid in the **Reply-To** field when your workspace supports dynamic Reply-To configuration. Pair it with your **From** display name settings as needed. See [Email settings]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/) for workspace-specific options.
+Use Liquid in the **Reply-To** field when your workspace supports dynamic Reply-To configuration. Pair it with your **From** display name settings as needed. See [Email settings]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences) for workspace-specific options.
 
 ## Troubleshooting Liquid errors
+
+### Why is my Liquid code not working when it looks correct?
+
+If your Liquid code appears syntactically correct but isn't working, check for smart quotes (curly quotes like `' '` or `" "`) and smart dashes (em dashes like `—`) instead of straight quotes (`' '` or `" "`) and hyphens (`-`). Liquid only recognizes straight ASCII characters, so smart quotes and dashes will cause parsing errors.
+
+This commonly happens when the macOS keyboard setting **Use smart quotes and dashes** is enabled, which automatically converts characters as you type in the Braze dashboard.
+
+To disable this setting on macOS:
+
+1. Go to **System Settings** > **Keyboard** > **Text Input** > **Edit**.
+2. Uncheck **Use smart quotes and dashes**.
+
+| Example | Curly quotes (does not work) | Straight quotes (works) |
+| --- | --- | --- |
+| Default value | {% raw %}`{{${first_name} | default: ‘Torchie’}}`{% endraw %} | {% raw %}`{{${first_name} | default: 'Torchie'}}`{% endraw %} |
+| Conditional | {% raw %}`{% if ${country} contains ‘US’ %}`{% endraw %} | {% raw %}`{% if ${country} contains 'US' %}`{% endraw %} |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Smart quote examples" }
+
+This applies to default values, conditionals, and any other Liquid that uses quotes. Curly and straight quotes can look the same on screen, so compare your code carefully or paste it into a plain-text editor.
+
+For more information on quote usage in Liquid, see [Liquid syntax]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#liquid-syntax).
 
 ### Why am I seeing an "Unexpected end token" Liquid error?
 
@@ -221,4 +310,49 @@ This error usually indicates extra or missing curly braces. Do not nest {% raw %
 
 {% raw %}
 The `{% connected_content %}` tag with retry is not supported for all message types, including some in-app message formats. Remove retry parameters or use a supported channel for retried Connected Content calls.
+{% endraw %}
+
+### Why am I seeing "Liquid Error: Comparison of Time with String Failed"?
+
+This error occurs when comparing a time custom attribute or event property directly to a blank value (an empty string). Liquid does not support direct comparisons between different data types, such as a time object and a string.
+
+The following is a common example that causes this error:
+
+{% raw %}
+```liquid
+{% if {{custom_attribute.${expiration_date}}} == blank %}
+  <a>Some words</a>
+{% endif %}
+```
+{% endraw %}
+
+This fails because you cannot compare a custom attribute with a data type of time to a string (`blank`).
+
+To resolve this, convert the time attribute to a string by assigning it to a variable and using the `default` filter when the attribute evaluates to blank at render time:
+
+{% raw %}
+```liquid
+{% assign expiration_date = {{custom_attribute.${expiration_date}}} | default: "" %}
+
+{% if expiration_date == blank %}
+  <a>Example Words</a>
+{% endif %}
+```
+{% endraw %}
+
+
+When comparing a time custom attribute against the current time or future dates, use the same approach:
+
+{% raw %}
+```liquid
+{% assign today = 'now' | date: '%s' %}
+{% assign month = 'now' | date: '%s' | plus: 2592000 %}
+{% assign expiration_date = {{custom_attribute.${expiration_date}}} | default: "" %}
+
+{% if expiration_date == blank %}
+  <a>Example Words</a>
+{% elsif expiration_date >= today and expiration_date >= month %}
+  <a>More Words</a>
+{% endif %}
+```
 {% endraw %}

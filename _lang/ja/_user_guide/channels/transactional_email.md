@@ -15,34 +15,34 @@ description: "BrazeでAPI呼び出しによってトリガーされる重要か�
 
 ## 前提条件 {#prerequisites}
 
-トランザクションメールは、特定のBrazeパッケージの一部としてのみ利用可能です。詳細については、Brazeカスタマーサクセスマネージャーに連絡するか、[サポートチケット]({{site.baseurl}}/braze_support/)を開いてください。
+トランザクションメールは、一部のBrazeパッケージでのみ利用可能です。詳細については、Brazeカスタマーサクセスマネージャーに連絡するか、[サポートチケット]({{site.baseurl}}/braze_support)を開いてください。
 
-開始する前に、以下を準備してください。
+開始する前に、以下の準備が完了していることを確認してください。
 
-- IP・ドメイン設定、認証、IPウォーミングを含む[メールセットアップ]({{site.baseurl}}/user_guide/channels/email/email_setup/)の完了
-- `transactional.send`権限を持つ**Braze REST APIキー**
+- IPおよびドメインの設定、認証、IPウォームアップを含む[メール設定]({{site.baseurl}}/user_guide/channels/email/email_setup)が完了していること
+- `transactional.send` 権限を持つ**Braze REST APIキー**
 
 ## ユースケース {#use-cases}
 
-トランザクションメールは、非プロモーションのサービストリガーメッセージを送信するために設計されています。一般的なユースケースには以下が含まれます。
+トランザクションメールは、非プロモーションでサービスによってトリガーされるメッセージの送信を目的としています。一般的なユースケースには以下が含まれます。
 
 | ユースケース | 説明 |
 | --- | --- |
 | 注文確認 | 顧客の購入が受領され、処理中であることを確認します。 |
-| パスワードリセット | 顧客がアカウントの認証情報をリセットするための安全で時間的制約のあるリンクを配信します。 |
-| 配送通知 | トラッキング情報や配達予定日を含め、注文が発送されたことを顧客に通知します。 |
-| アカウントアラート | 支払い失敗、サブスクリプション変更、セキュリティアラートなど、重要なアカウント関連の通知を送信します。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Use cases" }
+| パスワードリセット | 顧客がアカウントの認証情報をリセットするための、安全で時間制限のあるリンクを配信します。 |
+| 配送通知 | 注文が発送されたことを、トラッキング情報や配達予定日とともに顧客に通知します。 |
+| アカウントアラート | 支払い失敗、購読の変更、セキュリティアラートなど、アカウントに関する重要な通知を送信します。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ユースケース" }
 
 ## トランザクションメールとマーケティングメールの違い {#how-transactional-email-differs-from-marketing-email}
 
-トランザクションメールは、速度と信頼性に最適化された専用のBraze[トランザクションHTTP API]({{site.baseurl}}/api/api_campaigns/transactional_api_campaign/)を通じて送信されます。マーケティングメールとは異なり、トランザクションメールには以下の特徴があります。
+トランザクションメールは、速度と信頼性に最適化された専用のBraze[トランザクションHTTP API]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email)を通じて送信されます。マーケティングメールとは異なり、トランザクションメールには以下の特徴があります。
 
-- マーケティングコミュニケーションへのオプトインを必要としません
+- マーケティングコミュニケーションへのオプトインが不要です
 - スケジュールやアクションベースのトリガーではなく、API呼び出しによってトリガーされます
-- 時間的制約のあるコンテンツに対して、ほぼリアルタイムの配信をサポートします
+- 時間的に重要なコンテンツに対して、ほぼリアルタイムの配信をサポートしています
 
 ## 次のステップ {#next-steps}
 
-- [トランザクションメールの作成]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/)
-- [トラッキング]({{site.baseurl}}/user_guide/channels/transactional_email/tracking/)
+- [トランザクションメールの作成]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email)
+- [トラッキング]({{site.baseurl}}/user_guide/channels/transactional_email/tracking)

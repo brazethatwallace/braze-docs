@@ -2,27 +2,27 @@
 
 ### Requisitos previos {#prerequisites}
 
-Antes de empezar, comprueba que tu entorno es compatible con la [última versión del SDK de Cordova de Braze](https://github.com/braze-inc/braze-cordova-sdk?tab=readme-ov-file#minimum-version-requirements).
+Antes de empezar, verifica que tu entorno sea compatible con la [última versión del SDK de Cordova de Braze](https://github.com/braze-inc/braze-cordova-sdk?tab=readme-ov-file#minimum-version-requirements).
 
 ### Paso 1: Añade el SDK a tu proyecto {#step-1-add-the-sdk-to-your-project}
 
 {% alert warning %}
-Añade únicamente el SDK de Braze Cordova utilizando los métodos que se indican a continuación. No intentes realizar la instalación utilizando otros métodos, ya que podría dar lugar a una brecha de seguridad.
+Solo añade el SDK de Cordova de Braze utilizando los siguientes métodos. No intentes instalarlo con otros métodos, ya que podría provocar una brecha de seguridad.
 {% endalert %}
 
-Si utilizas Cordova 6 o posterior, puedes añadir el SDK directamente desde GitHub. También puedes descargar un ZIP del [repositorio de GitHub](https://github.com/braze-inc/braze-cordova-sdk) y añadir el SDK manualmente.
+Si utilizas Cordova 6 o posterior, puedes añadir el SDK directamente desde GitHub. Como alternativa, puedes descargar un ZIP del [repositorio de GitHub](https://github.com/braze-inc/braze-cordova-sdk) y añadir el SDK manualmente.
 
 {% tabs local %}
-{% tab geofence disabled %}
-Si no piensas utilizar la recopilación de ubicaciones ni las geovallas, utiliza la rama `master` de GitHub.
+{% tab geovalla deshabilitada %}
+Si no planeas utilizar la recopilación de ubicación y las geovallas, usa la rama `master` de GitHub.
 
 ```bash
 cordova plugin add https://github.com/braze-inc/braze-cordova-sdk#master
 ```
 {% endtab %}
 
-{% tab geofence enabled %}
-Si piensas utilizar la recopilación de ubicaciones y geovallas, utiliza la rama `geofence-branch` de GitHub.
+{% tab geovalla habilitada %}
+Si planeas utilizar la recopilación de ubicación y las geovallas, usa la rama `geofence-branch` de GitHub.
 
 ```bash
 cordova plugin add https://github.com/braze-inc/braze-cordova-sdk#geofence-branch
@@ -36,7 +36,7 @@ Puedes cambiar entre `master` y `geofence-branch` en cualquier momento repitiend
 
 ### Paso 2: Configura tu proyecto {#step-2-configure-your-project}
 
-A continuación, añade las siguientes preferencias al elemento `platform` del archivo `config.xml` de tu proyecto.
+A continuación, añade las siguientes preferencias al elemento `platform` en el archivo `config.xml` de tu proyecto.
 
 {% tabs %}
 {% tab ios %}
@@ -58,11 +58,11 @@ Sustituye lo siguiente:
 
 | Valor                 | Descripción                                                                                                                      |
 | --------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `BRAZE_API_KEY`       | Tu [clave de API REST de Braze]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/#rest-api-keys).              |
-| `CUSTOM_API_ENDPOINT` | Un punto final de API personalizado. Este punto final se utiliza para dirigir los datos de tu instancia de Braze al grupo de aplicaciones correcto en tu panel de Braze. |
+| `BRAZE_API_KEY`       | Tu [clave de API REST de Braze]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab#rest-api-keys).        |
+| `CUSTOM_API_ENDPOINT` | Un endpoint de API personalizado. Este endpoint se utiliza para dirigir los datos de tu instancia de Braze al grupo de aplicaciones correcto en tu panel de Braze. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 2: Configura tu proyecto" }
 
-El elemento `platform` de tu archivo `config.xml` debe ser similar al siguiente:
+El elemento `platform` en tu archivo `config.xml` debería ser similar al siguiente:
 
 {% tabs %}
 {% tab ios %}
@@ -86,13 +86,13 @@ El elemento `platform` de tu archivo `config.xml` debe ser similar al siguiente:
 
 ## Sintaxis específica de la plataforma {#platform-specific-syntax}
 
-La siguiente sección trata sobre la sintaxis específica de la plataforma cuando se utiliza Cordova con iOS o Android.
+La siguiente sección cubre la sintaxis específica de la plataforma cuando se utiliza Cordova con iOS o Android.
 
 ### Enteros {#integers}
 
 {% tabs %}
 {% tab ios %}
-Las preferencias de enteros se leen como representaciones de cadenas, como en el siguiente ejemplo:
+Las preferencias de enteros se leen como representaciones de cadena, como en el siguiente ejemplo:
 
 ```xml
 <platform name="ios">
@@ -103,7 +103,7 @@ Las preferencias de enteros se leen como representaciones de cadenas, como en el
 {% endtab %}
 
 {% tab android %}
-Debido a la forma en que el marco Cordova 8.0.0+ gestiona las preferencias, las preferencias de solo números enteros (como los ID de remitente) deben establecerse en cadenas precedidas de `str_`, como en el siguiente ejemplo:
+Debido a la forma en que el framework de Cordova 8.0.0+ gestiona las preferencias, las preferencias exclusivamente de enteros (como los ID de remitente) deben configurarse como cadenas precedidas de `str_`, como en el siguiente ejemplo:
 
 ```xml
 <platform name="android">
@@ -118,7 +118,7 @@ Debido a la forma en que el marco Cordova 8.0.0+ gestiona las preferencias, las 
 
 {% tabs %}
 {% tab ios %}
-El SDK lee las preferencias booleanas utilizando las palabras clave `YES` y `NO` como representación de cadena, como en el siguiente ejemplo:
+Las preferencias booleanas son leídas por el SDK utilizando las palabras clave `YES` y `NO` como representación de cadena, como en el siguiente ejemplo:
 
 ```xml
 <platform name="ios">
@@ -129,7 +129,7 @@ El SDK lee las preferencias booleanas utilizando las palabras clave `YES` y `NO`
 {% endtab %}
 
 {% tab android %}
-El SDK lee las preferencias booleanas utilizando las palabras clave `true` y `false` como representación de cadena, como en el siguiente ejemplo:
+Las preferencias booleanas son leídas por el SDK utilizando las palabras clave `true` y `false` como representación de cadena, como en el siguiente ejemplo:
 
 ```xml
 <platform name="android">
@@ -149,14 +149,14 @@ Puedes añadir cualquiera de las siguientes preferencias al elemento `platform` 
 | Método                                            | Descripción                                                                                                                                                                                                                                           |
 | ------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `ios_api_key`                                     | Establece la clave de API para tu aplicación.                                                                                                                                                                                                         |
-| `ios_api_endpoint`                                | Establece el [punto final del SDK]({{site.baseurl}}/api/basics/#endpoints) para tu aplicación.                                                                                                                                                        |
+| `ios_api_endpoint`                                | Establece el [endpoint del SDK]({{site.baseurl}}/api/basics#endpoints) para tu aplicación.                                                                                                                                                           |
 | `ios_disable_automatic_push_registration`         | Establece si se debe desactivar el registro automático de push.                                                                                                                                                                                       |
 | `ios_disable_automatic_push_handling`             | Establece si se debe desactivar el manejo automático de push.                                                                                                                                                                                         |
 | `ios_enable_idfa_automatic_collection`            | Establece si el SDK de Braze debe recopilar automáticamente la información IDFA. Para obtener más información, consulta [la documentación sobre el método IDFA de Braze](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/set(identifierforadvertiser:)/). |
 | `enable_location_collection`                      | Establece si la recopilación automática de la ubicación está habilitada (si el usuario lo permite). La rama `geofence-branch`                                                                                                                         |
 | `geofences_enabled`                               | Establece si las geovallas están habilitadas.                                                                                                                                                                                                         |
 | `ios_session_timeout`                             | Establece el tiempo de espera de la sesión de Braze para tu aplicación en segundos. El valor predeterminado es 10 segundos.                                                                                                                           |
-| `sdk_authentication_enabled`                      | Establece si se habilita la característica de [autenticación del SDK]({{site.baseurl}}/developer_guide/platform_wide/sdk_authentication/#sdk-authentication).                                                                                          |
+| `sdk_authentication_enabled`                      | Establece si se habilita la característica de [autenticación del SDK]({{site.baseurl}}/developer_guide/platform_wide/sdk_authentication#sdk-authentication).                                                                                          |
 | `display_foreground_push_notifications`           | Establece si las notificaciones push deben mostrarse mientras la aplicación está en primer plano.                                                                                                                                                     |
 | `ios_disable_un_authorization_option_provisional` | Establece si `UNAuthorizationOptionProvisional` debe desactivarse.                                                                                                                                                                                    |
 | `trigger_action_minimum_time_interval_seconds`    | Establece el intervalo de tiempo mínimo en segundos entre desencadenamientos. El valor predeterminado es 30 segundos.                                                                                                                                 |
@@ -167,7 +167,7 @@ Puedes añadir cualquiera de las siguientes preferencias al elemento `platform` 
 | `ios_flush_interval_seconds`                      | Establece el intervalo en segundos entre las descargas automáticas de datos. El valor predeterminado es 10 segundos.                                                                                                                                  |
 | `ios_use_automatic_request_policy`                | Establece si la política de solicitud para `Braze.Configuration.Api` debe ser automática o manual.                                                                                                                                                    |
 | `should_opt_in_when_push_authorized`              | Establece si el estado de la suscripción a las notificaciones de un usuario debe establecerse automáticamente en `optedIn` cuando se autorizan los permisos push.                                                                                     |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Configuraciones opcionales #optional" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Configuraciones opcionales" }
 
 {% alert tip %}
 Para obtener información más detallada, consulta [GitHub: Plugin de Braze iOS Cordova](https://github.com/braze-inc/braze-cordova-sdk/blob/master/src/ios/BrazePlugin.m).
@@ -178,7 +178,7 @@ Para obtener información más detallada, consulta [GitHub: Plugin de Braze iOS 
 | Método                                                            | Descripción                                                                                                                                                                                   |
 | ----------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `android_api_key`                                                 | Establece la clave de API para tu aplicación.                                                                                                                                                 |
-| `android_api_endpoint`                                            | Establece el [punto final del SDK]({{site.baseurl}}/api/basics/#endpoints) para tu aplicación.                                                                                                |
+| `android_api_endpoint`                                            | Establece el [endpoint del SDK]({{site.baseurl}}/api/basics#endpoints) para tu aplicación.                                                                                                   |
 | `android_small_notification_icon`                                 | Establece el icono pequeño de notificación.                                                                                                                                                   |
 | `android_large_notification_icon`                                 | Establece el icono grande de notificación.                                                                                                                                                    |
 | `android_notification_accent_color`                               | Establece el color de acento de las notificaciones utilizando una representación hexadecimal.                                                                                                 |
@@ -190,7 +190,7 @@ Para obtener información más detallada, consulta [GitHub: Plugin de Braze iOS 
 | `enable_location_collection`                                      | Establece si la recopilación automática de la ubicación está habilitada (si el usuario lo permite).                                                                                           |
 | `geofences_enabled`                                               | Establece si las geovallas están habilitadas.                                                                                                                                                 |
 | `android_disable_auto_session_tracking`                           | Desactiva el seguimiento automático de sesiones del plugin Cordova de Android. Para obtener más información, consulta [Desactivar el seguimiento automático de sesiones](#cordova_disable-automatic-session-tracking). |
-| `sdk_authentication_enabled`                                      | Establece si se habilita la característica de [autenticación del SDK]({{site.baseurl}}/developer_guide/platform_wide/sdk_authentication/#sdk-authentication).                                  |
+| `sdk_authentication_enabled`                                      | Establece si se habilita la característica de [autenticación del SDK]({{site.baseurl}}/developer_guide/platform_wide/sdk_authentication#sdk-authentication).                                  |
 | `trigger_action_minimum_time_interval_seconds`                    | Establece el intervalo de tiempo mínimo en segundos entre desencadenamientos. El valor predeterminado es 30 segundos.                                                                         |
 | `is_session_start_based_timeout_enabled`                          | Establece si el comportamiento del tiempo de espera de la sesión se basará en los eventos de inicio o fin de sesión.                                                                          |
 | `default_notification_channel_name`                               | Establece el nombre que ven los usuarios a través de `NotificationChannel.getName` para el `NotificationChannel` predeterminado de Braze.                                                     |
@@ -203,7 +203,7 @@ Para obtener información más detallada, consulta [GitHub: Plugin de Braze iOS 
 | `is_push_deep_link_back_stack_activity_enabled`                   | Establece si Braze añadirá una actividad a la pila posterior cuando siga automáticamente vínculos profundos para push.                                                                        |
 | `push_deep_link_back_stack_activity_class_name`                   | Establece la actividad que Braze añadirá a la pila posterior cuando siga automáticamente vínculos profundos para push.                                                                        |
 | `should_opt_in_when_push_authorized`                              | Establece si Braze debe realizar la adhesión voluntaria del usuario cuando se autoriza el envío de notificaciones push.                                                                       |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Configuraciones opcionales #optional" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Configuraciones opcionales" }
 
 {% alert tip %}
 Para obtener información más detallada, consulta [GitHub: Plugin de Braze Android Cordova](https://github.com/braze-inc/braze-cordova-sdk/blob/master/src/android/BrazePlugin.kt).
@@ -281,3 +281,73 @@ De manera predeterminada, el plugin de Android Cordova hace un seguimiento autom
 ```
 
 Para volver a iniciar el seguimiento de las sesiones, llama a `BrazePlugin.startSessionTracking()`. Ten en cuenta que solo se hará un seguimiento de las sesiones iniciadas después de la siguiente `Activity.onStart()`.
+
+## Configuración de canales de notificación para notificaciones emergentes (solo Android) {#configuring-notification-channels-for-heads-up-notifications-android-only}
+
+En Android 8.0 (nivel de API 26) y versiones posteriores, el comportamiento de las notificaciones se controla a través de canales de notificación. Para mostrar notificaciones emergentes (alertas que aparecen brevemente en la parte superior de la pantalla mientras el usuario está utilizando su dispositivo), debes crear un canal de notificación con `NotificationManager.IMPORTANCE_HIGH` en el código de tu aplicación Android.
+
+Aunque el SDK de Cordova te permite configurar el nombre y la descripción predeterminados del canal de notificación a través de las preferencias de `config.xml` (`default_notification_channel_name` y `default_notification_channel_description`), el nivel de importancia debe configurarse de forma programática en tu código nativo de Android.
+
+### Ejemplo: Creación de un canal de notificación de alta importancia {#example-creating-a-high-importance-notification-channel}
+
+Añade el siguiente código al método `onCreate()` de la clase `Application` de tu aplicación Android:
+
+{% subtabs local %}
+{% subtab Kotlin %}
+```kotlin
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
+import android.os.Build
+
+override fun onCreate() {
+    super.onCreate()
+
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        val channelId = "high_priority_channel"
+        val channelName = "High Priority Notifications"
+        val importance = NotificationManager.IMPORTANCE_HIGH
+
+        val channel = NotificationChannel(channelId, channelName, importance).apply {
+            description = "Notifications that require immediate attention"
+        }
+
+        val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.createNotificationChannel(channel)
+    }
+}
+```
+{% endsubtab %}
+
+{% subtab Java %}
+```java
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
+import android.os.Build;
+
+@Override
+public void onCreate() {
+    super.onCreate();
+
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        String channelId = "high_priority_channel";
+        String channelName = "High Priority Notifications";
+        int importance = NotificationManager.IMPORTANCE_HIGH;
+
+        NotificationChannel channel = new NotificationChannel(channelId, channelName, importance);
+        channel.setDescription("Notifications that require immediate attention");
+
+        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.createNotificationChannel(channel);
+    }
+}
+```
+{% endsubtab %}
+{% endsubtabs %}
+
+Después de crear el canal en tu código Android, utiliza el ID del canal al enviar notificaciones push desde el panel de Braze. Para obtener más información sobre los canales de notificación, consulta [Canales de notificación de Android]({{site.baseurl}}/user_guide/message_building_by_channel/push/android/notification_channels).
+
+## Solución de problemas en compilaciones de iOS tras actualizar el plugin {#troubleshooting-ios-builds-after-upgrading-the-plugin}
+
+El SDK de Braze para Cordova 9.0.0 y versiones posteriores utiliza el SDK de Swift 9.0.0 o posterior. A partir del SDK de Swift 8.0.0, ese SDK nativo se compila con **Xcode 15.2**. Si tu compilación de iOS falla después de actualizar el plugin de Cordova a 9.0.0 o posterior, actualiza Xcode a 15.2 o una versión más reciente y confirma que coincide con el [registro de cambios del SDK de Swift]({{site.baseurl}}/developer_guide/changelogs/?sdktab=swift) para la versión nativa de iOS que utiliza tu plugin.

@@ -14,6 +14,7 @@ description: "This reference article covers how to generate images for your medi
 
 ## How to access {#how-to-access}
 
-{% multi_lang_include brazeai/generative_ai/access_images.md %}
+In the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/), select **Generate with Operator** from the Upload Assets panel. Describe the image you want, and Operator generates it and saves it directly to your media library.
 
-For more information, including prompt tips, example prompts, and usage limits, see [Generate images in Operator capabilities]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-images).
+
+For more information, including prompt tips, example prompts, and usage limits, see [Generate images in Operator capabilities]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-images).

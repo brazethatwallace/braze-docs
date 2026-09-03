@@ -1,0 +1,3 @@
+- A new trigger based on the “Performed cart updated” action 
+- Pre-defined exit criteria to remove customers who have moved on in their purchasing journey 
+- A new shopping cart Liquid tag to support product personalization

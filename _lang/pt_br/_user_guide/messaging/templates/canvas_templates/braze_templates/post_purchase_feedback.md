@@ -17,14 +17,14 @@ Este artigo vai guiar você por um caso de uso do modelo **Post-Purchase Feedbac
 
 Para usar este modelo com sucesso, você precisará do seguinte:
 
-- Um [atributo personalizado]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#managing-custom-attributes) para referenciar os resultados da pesquisa de feedback.
-- Uma [Sincronização de Público da Braze]({{site.baseurl}}/partners/canvas_audience_sync/) configurada com os parceiros e públicos que você utiliza.
+- Um [atributo personalizado]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#managing-custom-attributes) para referenciar os resultados da pesquisa de feedback.
+- Uma [Sincronização de Público da Braze]({{site.baseurl}}/partners/canvas_audience_sync) configurada com os parceiros e públicos que você utiliza.
 
 ## Adaptando o modelo às suas necessidades {#tailoring-the-template-to-your-needs}
 
 Digamos que trabalhamos para a Decorumsoft, uma desenvolvedora de jogos para dispositivos móveis. Vamos usar o modelo de feedback pós-compra para avaliar o feedback do nosso lançamento mais recente, Proxy War 3: War of Thirst. Com esse feedback, vamos orientar nossos planos de desenvolvimento para o pacote de expansão, Liquid Mirage.
 
-Antes de criar o Canvas, configuramos a integração [Sincronização de Público da Braze com o Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync/) para que possamos adicionar dados de usuários da Braze aos Públicos do Google e enviar anúncios com base em gatilhos comportamentais, segmentação e muito mais.
+Antes de criar o Canvas, configuramos a integração [Sincronização de Público da Braze com o Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync) para que possamos adicionar dados de usuários da Braze aos Públicos do Google e enviar anúncios com base em gatilhos comportamentais, segmentação e muito mais.
 
 Para acessar o modelo de feedback pós-compra, ao criar um novo Canvas, selecione **Use a Canvas template** > **Braze templates**. Em seguida, ao lado de **Post-Purchase Feedback**, selecione **Apply Template**. Agora, podemos percorrer o modelo para adaptá-lo às nossas necessidades.
 
@@ -90,7 +90,7 @@ Vamos começar nossa personalização percorrendo cada componente de mensagem pa
 4. Selecione **Edit message** para substituir a mensagem de e-mail do modelo pela nossa mensagem de pesquisa de feedback. Isso inclui substituir os links de cada chamada para ação para capturar qual opção foi selecionada, que será referenciada na etapa Action Path da nossa jornada do usuário.
 
 {% alert tip %}
-Você pode usar [propriedades de entrada do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/) para personalizar as mensagens no seu Canvas com base no produto ao qual você está se referindo.
+Você pode usar [propriedades de entrada do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) para personalizar as mensagens no seu Canvas com base no produto ao qual você está se referindo.
 {% endalert %}
 
 #### Configurar a pesquisa de feedback {#set-up-feedback-survey}
@@ -128,5 +128,5 @@ Para a etapa de Mensagem chamada **Support Case Creation**, vamos atualizar o mo
 Após testar e revisar nosso Canvas para garantir que funciona conforme esperado, selecione **Launch Canvas** para lançar o Canvas. Agora, podemos direcionar os usuários de forma cuidadosa com uma jornada personalizada para incentivá-los a responder à nossa pesquisa de feedback com base na compra recente de Proxy War 3!
 
 {% alert tip %}
-Confira nossa [Lista de verificação pré e pós-lançamento]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist/#things-to-consider-before-launch) para saber o que considerar antes e depois de lançar um Canvas.
+Confira nossa [Lista de verificação pré e pós-lançamento]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist#things-to-consider-before-launch) para saber o que considerar antes e depois de lançar um Canvas.
 {% endalert %}

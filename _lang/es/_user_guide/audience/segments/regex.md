@@ -20,7 +20,7 @@ En el curso de Braze Learning enlazado, te mostramos cómo se pueden usar y prob
 ## Recursos {#resources}
 
 - Curso de Braze Learning sobre [conceptos básicos de expresiones regulares](https://learning.braze.com/regular-expression-basics-for-braze)
-- [Hoja de referencia rápida de regex]({{site.baseurl}}/regex_cheat_sheet/)
+- [Hoja de referencia rápida de regex]({{site.baseurl}}/regex_cheat_sheet)
 - [Datos de ejemplo RTF]({% image_buster /assets/download_file/regex-dummy-data.rtf %})
 
 ## Depurador de regex {#regex-debugger}
@@ -201,7 +201,7 @@ Por ejemplo, si intentas dirigirte a usuarios que viven en ciudades que comienza
 
 ### ¿Cómo filtro números de teléfono específicos? {#how-do-i-filter-for-specific-phone-numbers}
 
-Antes de usar regex para filtrar números de teléfono, recuerda que los números registrados para perfiles de usuario deben estar en formato [E.164](https://en.wikipedia.org/wiki/E.164), como se especifica en [Números de teléfono de usuario]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers/).
+Antes de usar regex para filtrar números de teléfono, recuerda que los números registrados para perfiles de usuario deben estar en formato [E.164](https://en.wikipedia.org/wiki/E.164), como se especifica en [Números de teléfono de usuario]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers).
 
 Suponiendo que buscas números de teléfono de EE. UU., usa el formato de regex `1?\d\d\d\d\d\d\d\d\d\d`, donde cada repetición de `\d` es un dígito que deseas especificar. Los primeros tres dígitos son el código de área.
 

@@ -18,13 +18,13 @@ description: "Cet article présente les détails de l'endpoint Braze Créer une 
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `sdk_authentication.create`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `sdk_authentication.create`.
 
 ## Limite de débit {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Corps de la demande {#request-body}
+## Corps de la requête {#request-body}
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
@@ -38,7 +38,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## Paramètres de demande {#request-parameters}
+## Paramètres de requête {#request-parameters}
 
 | Paramètre | Requis | Type de données | Description |
 | --------- | -------- | --------- | ----------- |
@@ -46,9 +46,9 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `rsa_public_key_str` | Requis | Chaîne de caractères | La chaîne de caractères de la clé publique RSA. Il doit s'agir d'une clé publique RSA valide, sinon une erreur sera renvoyée. |
 | `description` | Requis | Chaîne de caractères | Description de la clé d'authentification SDK. |
 | `make_primary` | Facultatif | Valeur booléenne | Si la valeur est `true`, cette clé devient la clé d'authentification SDK principale lors de sa création. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
-## Exemple de demande {#example-request}
+## Exemple de requête {#example-request}
 
 ```bash
 curl --location --request POST 'https://rest.iad-01.braze.com/app_group/sdk_authentication/create' \
@@ -74,7 +74,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/app_group/sdk_auth
 | Paramètre | Type de données | Description |
 | --------- | --------- | ----------- |
 | `id` | Chaîne de caractères | L'ID de la clé d'authentification SDK nouvellement créée. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Response parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paramètres de réponse" }
 
 ### Règles de validation {#validation-rules}
 

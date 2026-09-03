@@ -3,17 +3,17 @@ nav_title: "Aliasnamen zur Identifizierung des Objekts"
 article_title: API-Aliase zur Identifizierung von Objekten
 page_order: 11
 page_type: reference
-description: "In diesem Artikel werden Aliasnamen zur Identifizierung von Objektspezifikationen erläutert."
+description: "In diesem Artikel werden Aliasnamen zur Identifizierung der Objektspezifikation erläutert."
 
 ---
 
-# Aliasnamen zur Identifizierung des Objekts
+# Aliasnamen zur Identifizierung des Objekts {#aliases-to-identify-object}
 
 Eine API-Anfrage mit einem beliebigen Feld im Attribute-Objekt erstellt oder aktualisiert ein Attribut dieses Namens mit dem angegebenen Wert im angegebenen Nutzerprofil.
 
-Verwenden Sie die Feldnamen des Braze-Benutzerprofils (wie nachfolgend aufgelistet oder alle im Abschnitt für [Braze-Benutzerprofilfelder]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields) aufgelisteten), um diese speziellen Werte im Benutzerprofil im Dashboard zu aktualisieren, oder fügen Sie Ihre eigenen angepassten Attributdaten für den Benutzer hinzu.
+Verwenden Sie die Feldnamen des Braze-Nutzerprofils (wie nachfolgend aufgelistet oder alle im Abschnitt für [Braze-Nutzerprofilfelder]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields) aufgelisteten), um diese speziellen Werte im Nutzerprofil im Dashboard zu aktualisieren, oder fügen Sie Ihre eigenen angepassten Attributdaten für die Nutzer:innen hinzu.
 
-## Objektkörper
+## Objektkörper {#object-body}
 
 ```json
 {
@@ -32,5 +32,5 @@ Verwenden Sie die Feldnamen des Braze-Benutzerprofils (wie nachfolgend aufgelist
 }
 ```
 
-- [Externe Benutzer-ID]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields)
-- [Benutzer-Aliase]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases)
+- [Externe Nutzer-ID]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields)
+- [Nutzer-Aliasse]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#user-aliases)

@@ -12,45 +12,49 @@ description: "Dieser Artikel zeigt Ihnen, wie Sie Standort-Targeting einrichten,
 
 # Standort-Targeting {#location-targeting}
 
-> Dieser Artikel zeigt Ihnen, wie Sie Standort-Targeting einrichten, um Nutzer:innen nach ihrem letzten Standort zu segmentieren. Dies ist ideal, wenn Sie standortbasierte Campaigns und Strategien planen.
+> Dieser Artikel beschreibt, wie Sie Standort-Targeting einrichten, um Nutzer:innen nach ihrem letzten Standort zu segmentieren.
 
-## 1. Schritt: Segment erstellen {#step-1-create-your-segment}
+## Schritt 1: Segment erstellen {#step-1-create-your-segment}
 
-Navigieren Sie zur Seite **Segments** unter **Audience**, um alle Ihre aktuellen Nutzer:innen-Segmente anzuzeigen. Auf dieser Seite können Sie neue Segmente erstellen und benennen. Wählen Sie zunächst **Segment erstellen** und geben Sie Ihrem Segment einen Namen.
+Navigieren Sie zur Seite **Segments** unter **Audience**, um alle Ihre aktuellen Nutzer:innen-Segmente anzuzeigen. Auf dieser Seite können Sie neue Segmente erstellen und benennen. Wählen Sie zunächst **Create Segment** aus und geben Sie Ihrem Segment einen Namen.
 
 ![Modal zum Erstellen eines Segments.]({% image_buster /assets/img_archive/createsegment2.png %}){: style="max-width:70%;"}
 
-## 2. Schritt: Standort anpassen {#step-2-customize-your-location}
+## Schritt 2: Standort anpassen {#step-2-customize-your-location}
 
-Nachdem Sie Ihr Segment erstellt haben, fügen Sie einen Filter **Most Recent Location** hinzu, um Nutzer:innen nach dem letzten Ort zu filtern, an dem sie Ihre App verwendet haben. Sie haben die Möglichkeit, Nutzer:innen innerhalb oder außerhalb einer standardmäßigen kreisförmigen Region oder einer anpassbaren polygonalen Region hervorzuheben.
+Nachdem Sie Ihr Segment erstellt haben, fügen Sie einen Filter `Most Recent Location` hinzu, um Nutzer:innen anhand des letzten Ortes hervorzuheben, an dem sie Ihre App verwendet haben. Sie haben die Möglichkeit, Nutzer:innen innerhalb oder außerhalb einer standardmäßigen kreisförmigen Region oder einer anpassbaren polygonalen Region hervorzuheben.
 
 ![Filter für den letzten Standort innerhalb eines Kreises.]({% image_buster /assets/img_archive/filter_recent_location.png %})
+
+### Nutzer:innen ohne Standortdaten {#users-without-location-data}
+
+Nutzer:innen ohne Standortdaten – einschließlich Nutzer:innen, deren Standort zuvor erfasst und später gelöscht wurde – entsprechen Filtern für `most recent location outside of circle` und `most recent location outside of polygon`. Um Nutzer:innen ohne Standortdaten auszuschließen, kombinieren Sie den Filter `Most Recent Location` mit einem Filter `Location Available`.
 
 {% tabs %}
 {% tab Kreisförmig %}
 
 ### Kreisförmige Regionen {#circular-regions}
 
-Bei kreisförmigen Regionen können Sie die Herkunft verschieben und den Standortradius für Ihre Segmentierung anpassen.
+Für kreisförmige Regionen können Sie die Herkunft verschieben und den Standortradius für Ihre Segmentierung anpassen.
 
-![Ein kreisförmiger Umriss von Städten zwischen New Jersey und New York.]({% image_buster /assets/img_archive/location_circle.png %}){: style="max-width:70%;"}
+![Eine kreisförmige Umrisslinie von Städten zwischen New Jersey und New York.]({% image_buster /assets/img_archive/location_circle.png %}){: style="max-width:70%;"}
 
 {% endtab %}
 {% tab Polygonal %}
 
 ### Polygonale Regionen {#polygonal-regions}
 
-Bei polygonalen Regionen können Sie genauer festlegen, welche Bereiche in Ihr Segment einbezogen werden sollen.
+Für polygonale Regionen können Sie genauer festlegen, welche Bereiche in Ihr Segment einbezogen werden sollen.
 
 ![Ein Umriss des Bundesstaates New York als ausgewählte polygonale Region.]({% image_buster /assets/img_archive/create_polygon.png %}){: style="max-width:70%;"}
 
 {% endtab %}
 {% endtabs %}
 
-## Partner-Support für Beacons und Geofences {#partnership-support-for-beacon-and-geofence}
+## Partnerunterstützung für Beacons und Geofences {#partnership-support-for-beacon-and-geofence}
 
 Die Kombination bestehender Beacon- oder Geofence-Unterstützung mit unseren Targeting- und Messaging-Features liefert Ihnen mehr Informationen über die physischen Aktionen Ihrer Nutzer:innen, sodass Sie ihnen entsprechende Nachrichten senden können. Sie können Standort-Tracking mit einigen unserer Partner nutzen:
 
-- [Radar]({{site.baseurl}}/partners/message_personalization/location/radar/)
-- [Infillion]({{site.baseurl}}/partners/message_personalization/location/infillion/)
-- [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare/)
+- [Radar]({{site.baseurl}}/partners/message_personalization/location/radar)
+- [Infillion]({{site.baseurl}}/partners/message_personalization/location/infillion)
+- [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare)

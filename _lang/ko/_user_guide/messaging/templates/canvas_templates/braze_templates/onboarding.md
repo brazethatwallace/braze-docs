@@ -15,7 +15,7 @@ tool: Canvas
 
 ## 필수 조건 {#prerequisites}
 
-이 템플릿을 사용하기 전에 Canvas에서 참조할 다음 [이메일 템플릿]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/)을 만들어야 합니다:
+이 템플릿을 사용하기 전에 Canvas에서 참조할 다음 [이메일 템플릿]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template)을 만들어야 합니다:
 
 - 앱의 모든 사용자에게 보내는 환영 이메일
 - 앱 사용 팁이 포함된 이메일
@@ -98,5 +98,5 @@ PantsLabyrinth에서 일하고 있으며, 사용자 참여를 높이고 사용�
 Canvas를 테스트하고 검토하여 예상대로 작동하는지 확인한 후 **Canvas 시작**을 선택하여 Canvas를 시작합니다. 이제 신규 사용자에게 개인화된 온보딩 경험을 제공하여 지속적인 관계를 장려할 수 있습니다!
 
 {% alert tip %}
-Canvas를 시작하기 전후에 고려해야 할 사항은 [시작 전후 체크리스트]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist/#things-to-consider-before-launch)를 확인하세요.
+Canvas를 시작하기 전후에 고려해야 할 사항은 [시작 전후 체크리스트]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist#things-to-consider-before-launch)를 확인하세요.
 {% endalert %}

@@ -19,7 +19,7 @@ A <i>estimativa de aberturas reais</i> é uma estimativa de quantas aberturas ú
 {% endif %}
 
 {% if include.metric == "Help" %}
-<i>Ajuda</i> é quando um usuário respondeu à sua mensagem com a <a href="https://braze.com/docs/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">palavra-chave HELP</a> e recebeu uma resposta automática de HELP.
+<i>Ajuda</i> é quando um usuário respondeu à sua mensagem com uma <a href="{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">palavra-chave HELP</a> e recebeu uma resposta automática de HELP.
 {% endif %}
 
 {% if include.metric == "Hard Bounce" %}
@@ -35,7 +35,7 @@ Um <i>adiamento</i> é quando um e-mail não foi entregue imediatamente, mas a B
 {% endif %}
 
 {% if include.metric == "Body Click" %}
-As notificações de push stories registram um <i>clique no corpo da mensagem</i> quando a notificação é clicada. Ele não será registrado quando uma mensagem for expandida ou para cliques em botões de ação.
+As notificações de Push Stories registram um <i>clique no corpo da mensagem</i> quando a notificação é clicada. Ele não será registrado quando uma mensagem for expandida ou para cliques em botões de ação.
 {% endif %}
 
 {% if include.metric == "Body Clicks" %}
@@ -51,11 +51,11 @@ Os <i>cliques no corpo da mensagem</i> ocorrem quando um usuário clica em uma m
 {% endif %}
 
 {% if include.metric == "Choices Submitted" %}
-<i>Opções enviadas</i> é o número total de opções selecionadas quando o usuário clica no botão enviar na página de perguntas de um <a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>questionário simples</a>.
+<i>Opções enviadas</i> é o número total de opções selecionadas quando o usuário clica no botão enviar na página de perguntas de um <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>questionário simples</a>.
 {% endif %}
 
 {% if include.metric == "Click-to-Open Rate" %}
-<i>Taxa de clique para abertura</i> é a porcentagem de e-mails abertos que foram clicados por um único usuário ou máquina pelo menos uma vez, e está disponível apenas no <a href='https://braze.com/docs/user_guide/data_and_analytics/reporting/report_builder/'>Criador de relatórios</a>.
+<i>Taxa de clique para abertura</i> é a porcentagem de e-mails abertos que foram clicados por um único usuário ou máquina pelo menos uma vez, e está disponível apenas no <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/data_and_analytics/reporting/report_builder/'>Criador de relatórios</a>.
 {% endif %}
 
 {% if include.metric == "Close Message" %}
@@ -67,15 +67,15 @@ Os <i>cliques no corpo da mensagem</i> ocorrem quando um usuário clica em uma m
 {% endif %}
 
 {% if include.metric == "Confidence" %}
-<i>Intervalo de confiança</i> é a porcentagem de confiança de que uma determinada variante de uma mensagem supera o desempenho do grupo de controle.
+<i>Confiança</i> é a porcentagem de confiança de que uma determinada variante de uma mensagem supera o desempenho do grupo de controle.
 {% endif %}
 
 {% if include.metric == "Confirmation Page Button" %}
-<i>Botão da página de confirmação</i> é o total de cliques no botão de chamada para ação na página de confirmação de um <a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>questionário simples</a>.
+<i>Botão da página de confirmação</i> é o total de cliques no botão de chamada para ação na página de confirmação de um <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>questionário simples</a>.
 {% endif %}
 
 {% if include.metric == "Confirmation Page Dismissals" %}
-<i>Desistências da página de confirmação</i> é o total de cliques no botão fechar (x) na página de confirmação de um <a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>questionário simples</a>.
+<i>Desistências da página de confirmação</i> é o total de cliques no botão fechar (x) na página de confirmação de um <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>questionário simples</a>.
 {% endif %}
 
 {% if include.metric == "Conversion Rate" %}
@@ -115,7 +115,7 @@ A <i>taxa de falha na entrega</i> é a porcentagem de envios que falharam porque
 {% endif %}
 
 {% if include.metric == "Direct Opens" %}
-<i>Aberturas diretas</i> é o número total (ou porcentagem) de usuários que abriram seu app ou site pressionando diretamente a notificação.
+<i>Aberturas Diretas</i> é o número total (ou porcentagem) de usuários que abriram seu app ou site pressionando diretamente a notificação.
 {% endif %}
 
 {% if include.metric == "Emailable" %}
@@ -127,11 +127,11 @@ A <i>taxa de falha na entrega</i> é a porcentagem de envios que falharam porque
 {% endif %}
 
 {% if include.metric == "Failures" %}
-As <i>falhas</i> ocorrem quando a mensagem do WhatsApp não pode ser enviada porque o provedor de acesso à internet retornou um hard bounce. Um hard bounce significa uma falha permanente de entregabilidade.
+As <i>falhas</i> ocorrem quando a mensagem do WhatsApp não pode ser enviada porque o provedor de serviços de internet retornou um hard bounce. Um hard bounce significa uma falha permanente de entregabilidade.
 {% endif %}
 
 {% if include.metric == "Influenced Opens" %}
-<i>Aberturas por influência</i> é o número total (ou porcentagem) de usuários que abriram o app depois que a notificação por push foi enviada, sem abrir diretamente o push.
+<i>Aberturas por Influência</i> é o número total (ou porcentagem) de usuários que abriram o app depois que a notificação por push foi enviada, sem abrir diretamente o push.
 {% endif %}
 
 {% if include.metric == "Lifetime Revenue" %}
@@ -155,23 +155,41 @@ As <i>compras diárias</i> são a média do total de <code>PurchaseEvents</code>
 {% endif %}
 
 {% if include.metric == "Machine Opens" %}
-As <i>aberturas por máquina</i> incluem a proporção de "aberturas" que são afetadas pela proteção de privacidade de e-mail (MPP) da Apple para iOS 15. Por exemplo, se um usuário abrir um e-mail usando o app Mail em um dispositivo Apple, isso será registrado como uma <i>abertura de máquina</i>.
+As <i>aberturas de máquina</i> incluem aberturas não humanas e humanas que indicam uma abertura por um usuário com a proteção de privacidade de e-mail (MPP) da Apple ativada. Isso significa que um usuário pode registrar múltiplas <i>aberturas de máquina</i>. As <i>aberturas de máquina</i> não são geradas automaticamente se o dispositivo não estiver conectado ao Wi-Fi, então um usuário pode potencialmente abrir um e-mail no app Apple Mail antes que a Apple pré-carregue as imagens, o que ainda resulta em uma <i>abertura de máquina</i>.
+<br><br>
+Para usuários com MPP ativada:
+<ul>
+  <li>1+ <i>abertura de máquina</i>: a Apple pré-carregou a mensagem ou o usuário abriu proativamente um e-mail em um dispositivo iOS</li>
+  <li>2+ <i>aberturas de máquina</i>: a Braze não tem visibilidade sobre aberturas humanas versus não humanas, então isso pode ser composto por múltiplas aberturas humanas (em um dispositivo Apple ou em vários) ou uma combinação de aberturas humanas e 1 abertura associada ao pré-carregamento da mensagem pela Apple</li>
+</ul>
 {% endif %}
 
 {% if include.metric == "Other Opens" %}
-<i>Outras aberturas</i> inclui e-mails que não foram identificados como <i>aberturas de máquina</i>. Por exemplo, quando um usuário abre um e-mail em outra plataforma (como o app do Gmail em um telefone ou o Gmail em um navegador de desktop), isso será registrado como <i>outras aberturas</i>.
+<i>Outras aberturas</i> inclui aberturas humanas que não são impactadas pela MPP (como um usuário abrindo um e-mail no app do Gmail ou no Gmail desktop, o que aciona um pixel de rastreamento e registra uma abertura regular). As <i>outras aberturas</i> são tipicamente aberturas humanas, mas também pode haver cenários em que uma máquina abre o e-mail (um bot ou um provedor de serviços de caixa de entrada como Gmail ou Yahoo). Também é possível que um usuário abra um e-mail em um dispositivo não iOS e registre a <i>outra abertura</i> antes que uma <i>abertura de máquina</i> seja registrada.
+<br><br>
+Como as <i>aberturas de máquina</i> podem ser geradas pelo usuário, a relação entre <i>aberturas de máquina</i> e <i>outras aberturas</i> não é humano versus não humano, mas sim impactado pela MPP versus não impactado pela MPP. Embora as <i>outras aberturas</i> ainda possam ser usadas para medir uma parte das aberturas humanas, atualmente não é possível determinar a porcentagem de <i>aberturas de máquina</i> que são geradas por humanos, então determinar uma taxa de abertura "verdadeira" precisa não é possível no momento.
+<br><br>
+Para usuários com MPP ativada:
+<ul>
+  <li>+1 <i>outra(s) abertura(s)</i>: o usuário abriu proativamente um e-mail em um dispositivo não iOS</li>
+  <li>+1 <i>abertura(s) de máquina</i> e +1 <i>outras aberturas</i>: a Apple pré-carregou a mensagem ou o usuário abriu proativamente um e-mail em um dispositivo iOS e abriu proativamente um e-mail em um dispositivo não iOS</li>
+</ul>
+Para usuários sem MPP ativada:
+<ul>
+  <li>+1 <i>outra(s) abertura(s)</i>: o usuário abriu proativamente um e-mail em qualquer dispositivo</li>
+</ul>
 {% endif %}
 
 {% if include.metric == "Opens" %}
-As <i>aberturas</i> são instâncias que incluem <i>aberturas diretas</i> e <i>aberturas por influência</i> nas quais o SDK da Braze determinou, usando um algoritmo proprietário, que uma notificação por push fez com que um usuário abrisse o app.
+As <i>aberturas</i> são instâncias que incluem <i>Aberturas Diretas</i> e <i>Aberturas por Influência</i> nas quais o SDK da Braze determinou, usando um algoritmo proprietário, que uma notificação por push fez com que um usuário abrisse o app.
 {% endif %}
 
 {% if include.metric == "Opt-Out" %}
-<i>Descadastramento</i> é quando um usuário respondeu à sua mensagem com uma <a href="https://braze.com/docs/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">palavra-chave de descadastramento</a> e teve a inscrição cancelada do seu programa de SMS ou RCS.
+<i>Descadastramento</i> é quando um usuário respondeu à sua mensagem com uma <a href="{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">palavra-chave de descadastramento</a> e teve a inscrição cancelada do seu programa de SMS ou RCS.
 {% endif %}
 
 {% if include.metric == "Pending Retry" %}
-<i>Tentativa pendente</i> é o número de solicitações que foram temporariamente rejeitadas pelo servidor de recebimento, mas que ainda tentaram ser reentregues pelo provedor de serviço de e-mail (ESP). O ESP tentará novamente a entrega até que um período de tempo limite seja atingido (normalmente após 72 horas).
+<i>Tentativa pendente</i> é o número de solicitações que foram temporariamente rejeitadas pelo servidor de recebimento, mas que ainda tentaram ser reentregues pelo provedor de serviços de e-mail (ESP). O ESP tentará novamente a entrega até que um período de tempo limite seja atingido (normalmente após 72 horas).
 {% endif %}
 
 {% if include.metric == "Primary Conversions (A) or Primary Conversion Event" %}
@@ -199,7 +217,7 @@ O <i>recebimento</i> é definido de forma diferente por canal e pode ser quando 
 {% endif %}
 
 {% if include.metric == "Messages Sent" %}
-<i>Mensagens enviadas</i> é o número total de mensagens enviadas em uma Campaign. Após o lançamento de uma Campaign programada, essa métrica incluirá todas as mensagens enviadas, independentemente de já terem sido enviadas devido ao limite de taxa. Isso não significa que a mensagem foi recebida ou entregue em um dispositivo, apenas que a mensagem foi enviada.
+<i>Mensagens enviadas</i> é o número total de mensagens enviadas em uma Campaign. Após o lançamento de uma Campaign programada, essa métrica incluirá todas as mensagens enviadas, independentemente de já terem sido enviadas devido ao limite de frequência. Isso não significa que a mensagem foi recebida ou entregue em um dispositivo, apenas que a mensagem foi enviada.
 {% endif %}
 
 {% if include.metric == "Sent" %}
@@ -207,7 +225,7 @@ O <i>recebimento</i> é definido de forma diferente por canal e pode ser quando 
 {% endif %}
 
 {% if include.metric == "Sends" %}
-<i>Envios</i> é o número total de mensagens enviadas em uma Campaign. Após o lançamento de uma Campaign programada, essa métrica incluirá todas as mensagens enviadas, independentemente de já terem sido enviadas devido ao limite de taxa. Isso não significa que a mensagem foi recebida ou entregue em um dispositivo, apenas que a mensagem foi enviada.
+<i>Envios</i> é o número total de mensagens enviadas em uma Campaign. Após o lançamento de uma Campaign programada, essa métrica incluirá todas as mensagens enviadas, independentemente de já terem sido enviadas devido ao limite de frequência. Isso não significa que a mensagem foi recebida ou entregue em um dispositivo, apenas que a mensagem foi enviada.
 {% endif %}
 
 {% if include.metric == "Sends to Carrier" %}
@@ -219,15 +237,15 @@ A <i>taxa de envios para a operadora</i> é a porcentagem do total de mensagens 
 {% endif %}
 
 {% if include.metric == "Spam" %}
-<i>Spam</i> é o número total de e-mails entregues que foram marcados como "spam" pelo destinatário. Embora a Braze não mude o estado de inscrição desses usuários, eles serão automaticamente excluídos em e-mails futuros, a menos que você esteja enviando um e-mail de transação, que está configurado para "enviar para todos os usuários, incluindo cancelados".
+<i>SPAM</i> é o número total de e-mails entregues que foram marcados como "spam" pelo destinatário. Embora a Braze não mude o estado de inscrição desses usuários, eles serão automaticamente excluídos em e-mails futuros, a menos que você esteja enviando um e-mail de transação, que está configurado para "enviar para todos os usuários, incluindo cancelados".
 {% endif %}
 
 {% if include.metric == "Survey Page Dismissals" %}
-<i>Dispensas da página de questionário</i> é o total de cliques no botão fechar (x) na página de perguntas de um <a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>questionário simples</a>.
+<i>Dispensas da página de questionário</i> é o total de cliques no botão fechar (x) na página de perguntas de um <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>questionário simples</a>.
 {% endif %}
 
 {% if include.metric == "Survey Submissions" %}
-<i>Envios de questionário</i> é o total de cliques no botão enviar de um <a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>questionário simples</a>.
+<i>Envios de questionário</i> é o total de cliques no botão enviar de um <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>questionário simples</a>.
 {% endif %}
 
 {% if include.metric == "Total Clicks" %}
@@ -235,7 +253,7 @@ A <i>taxa de envios para a operadora</i> é a porcentagem do total de mensagens 
 {% endif %}
 
 {% if include.metric == "Total Dismissals" %}
-<i>Total de descartes</i> é o número de vezes que os Content Cards de uma Campaign foram descartados.
+<i>Total de descartes</i> é o número de vezes que os usuários descartaram uma mensagem de uma Campaign. Para Content Cards, isso conta cada descarte de cartão. Para Banners, isso conta cada vez que um usuário descartou o Banner quando o comportamento de descarte está ativado.
 {% endif %}
 
 {% if include.metric == "Total Impressions" %}
@@ -251,11 +269,11 @@ A <i>taxa de envios para a operadora</i> é a porcentagem do total de mensagens 
 {% endif %}
 
 {% if include.metric == "Unique Clicks" %}
-<i>Cliques únicos</i> é o número distinto de destinatários que clicaram em um link dentro de uma mensagem pelo menos uma vez e é medido por <a href='https://www.braze.com/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a>.
+<i>Cliques únicos</i> é o número distinto de destinatários que clicaram em um link dentro de uma mensagem pelo menos uma vez e é medido por <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a>.
 {% endif %}
 
 {% if include.metric == "Unique Dismissals" %}
-<i>Dispensas únicas</i> é o número de destinatários únicos que dispensaram um Content Card de uma Campaign. Um usuário que descarta um Content Card de uma Campaign várias vezes representa uma única dispensa.
+<i>Descartes únicos</i> é o número de destinatários únicos que descartaram um Content Card de uma Campaign. Um usuário que descarta um Content Card de uma Campaign várias vezes representa um único descarte.
 {% endif %}
 
 <!-- Unique Impressions & Unique Recipients have a dedicated section in campaign_analytics.md -->
@@ -285,5 +303,5 @@ A <i>taxa de envios para a operadora</i> é a porcentagem do total de mensagens 
 {% endif %}
 
 {% if include.metric == "Variation" %}
-<i>Variação</i> é o número de variações de uma Campaign, diferindo conforme definido pelo criador.
+<i>Variante</i> é o número de variantes de uma Campaign, diferindo conforme definido pelo criador.
 {% endif %}

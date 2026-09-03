@@ -13,68 +13,68 @@ search_tag: Partner
 
 *この統合はFullstoryによって維持されています。*
 
-## この統合について {#about-this-integration}
+## この連携について {#about-this-integration}
 
-BrazeでFullstoryのインサイトを活用して、ユーザーのWebサイトやアプリ体験の一瞬一瞬を捉えた画像を構築し、文脈に応じたメッセージングを配信できます。FullstoryのセッションサマリーAPIにより、ユーザーの閲覧行動に関する詳細なメタデータをキャプチャしてBrazeメッセージングで使用できます。これは、Canvasのような複数ステップのメッセージングジャーニーで活用する際に特に威力を発揮します。
+FullstoryのインサイトをBrazeで活用することで、ユーザーのWebサイトやアプリ体験をリアルタイムに把握し、状況に即したメッセージングを配信できます。FullstoryのSession Summary APIを使用すると、ユーザーの閲覧行動に関する詳細なメタデータをキャプチャし、Brazeのメッセージングで活用できます。これは、キャンバスのようなマルチステップのメッセージングジャーニーで特に効果を発揮します。
 
-Fullstoryのセッションサマリーデータのリアルタイムの価値は、コネクテッドコンテンツを通じて最大限に活用されます。コネクテッドコンテンツをCanvasコンテキストステップで使用することで、ユーザーのCanvasジャーニーを通じてFullstoryのデータを保存し、その後のCanvasステップで使用できます。これにより、カスタムイベントや属性を通じてBrazeユーザープロファイルにこのデータを書き込む必要もなくなります。
+Fullstoryのセッションサマリーデータのリアルタイムな価値は、Connected Contentを通じて最大限に活用できます。キャンバスのコンテキストステップでConnected Contentを使用すると、ユーザーのキャンバスジャーニー全体を通じてFullstoryのデータを保持し、後続のキャンバスステップで利用できます。これにより、カスタムイベントや属性を通じてこのデータをBrazeのユーザープロファイルに書き込む必要がなくなります。
 
-以下の例では、エージェントAI Canvasステップでcanvasコンテキストデータを活用し、ユーザーに放棄カートを取り戻すよう促す最適なメッセージを生成しています。ただし、データを活用してメッセージを直接パーソナライズしたり、オーディエンスパスでユーザーのジャーニーを決定したり、後続のメッセージングステップで使用するコピーやアセットを決定したりすることもできます。
+以下の例では、キャンバスのコンテキストデータをAgent AIキャンバスステップで活用し、ユーザーに放棄カートの購入を再開するよう促す最適なメッセージを生成しています。ただし、このデータを使用してメッセージを直接パーソナライズしたり、オーディエンスパスでユーザーのジャーニーを決定したり、後続のメッセージングステップで使用するコピーやアセットを決定したりすることもできます。
 
 ## 前提条件 {#prerequisites}
 
-始める前に、以下のものが必要です。
+始める前に、以下が必要です。
 
-| 必要条件 | 説明 |
+|要件     | 説明 |
 |-----------------------|-----------------|
-| FullstoryセッションAPI認証トークン | 以下のステップ1を参照してください。 |
-| Brazeコネクテッドコンテンツ認証トークンが有効であること | 早期アクセスについては、下記の注記を参照してください。 |
-| Braze Canvasコンテキストステップ | 早期アクセスについては、下記の注記を参照してください。 |
-| Braze AIエージェントステップが有効であること | 早期アクセスについては、下記の注記を参照してください。 |
+| Fullstory Session API 認証トークン   | このガイドのステップ1を参照してください。 |
+| Braze Connected Content 認証トークンの有効化 | このセクションの早期アクセスに関する注記を参照してください。 |
+| Braze キャンバスのコンテキストステップ | このセクションの早期アクセスに関する注記を参照してください。 |
+| Braze AI エージェントステップの有効化 | このセクションの早期アクセスに関する注記を参照してください。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 {% alert important %}
-Brazeエージェント、Canvasコンテキスト、およびコネクテッドコンテンツ認証トークンはすべて早期アクセス段階です。このソリューションの活用に興味がある場合は、Brazeのカスタマーサクセスマネージャーにこれらのツールの有効化についてご相談ください。
+Braze エージェント、キャンバスコンテキスト、およびConnected Content認証トークンはすべて早期アクセス段階です。このソリューションの活用にご興味がある場合は、Brazeのカスタマーサクセスマネージャーにこれらのツールの有効化についてご相談ください。
 {% endalert %}
 
 ## Fullstoryの統合 {#integrate-fullstory}
 
-### ステップ1: セッションサマリーAPIイネーブルメントのためにFullstoryを設定する {#step-1}
+### ステップ1：セッションサマリーAPIの有効化のためにFullstoryをセットアップする {#step-1}
 
-#### ステップ1.1: セッションサマリーAPIエンドポイントの認証トークンを取得する {#step-11-retrieve-the-authentication-token-for-the-session-summary-api-endpoint}
+#### ステップ1.1：セッションサマリーAPIエンドポイントの認証トークンを取得する {#step-11-retrieve-the-authentication-token-for-the-session-summary-api-endpoint}
 
-[Fullstory APIキー](https://developer.fullstory.com/server/authentication/)を作成するには：
+[Fullstory APIキー](https://developer.fullstory.com/server/authentication/)を作成するには、以下の手順に従います。
 
-1. Fullstoryで、**Settings** > **API Keys**に移動します。
-2. **Standard**権限レベルを選択します。
-3. キー値は一度しか表示されないため、すぐにコピーしてください。
+1. Fullstoryで、**設定** > **API キー** に移動します。
+2. **Standard** 権限レベルを選択します。
+3. キーの値は一度しか表示されないため、すぐにコピーしてください。
 
-#### ステップ1.2: セッションサマリープロファイルIDを作成する {#step-12-create-a-session-summary-profile-id}
+#### ステップ1.2：セッションサマリープロファイルIDを作成する {#step-12-create-a-session-summary-profile-id}
 
-[Fullstoryのガイダンス](https://developer.fullstory.com/anywhere/activation/ai-session-summary-api/#step-1-creating-and-managing-summary-profiles)に従い、専用エンドポイントを使用してセッションサマリープロファイルを作成します。ここで、セッションサマリーのレスポンスがBrazeに提供するデータの種類を定義します。
+[Fullstoryのガイダンス](https://developer.fullstory.com/anywhere/activation/ai-session-summary-api/#step-1-creating-and-managing-summary-profiles)に従って、専用のエンドポイントを使用してセッションサマリープロファイルを作成します。ここで、セッションサマリーのレスポンスがBrazeに提供するデータの種類を定義します。
 
-このリクエストに対するレスポンスで、FullstoryはセッションプロファイルIDを提供します。このプロファイルIDは、以下のユースケースで使用されるコネクテッドコンテンツリクエストボディの重要な構成要素です。
+このリクエストのレスポンスで、Fullstoryはセッションプロファイルを提供します。このプロファイルIDは、以下のユースケースで使用するConnected Contentリクエストボディの重要なコンポーネントです。
 
-### ステップ2: コネクテッドコンテンツのトークン認証を作成する {#step-2-create-the-connected-content-token-authentication}
+### ステップ2：Connected Contentのトークン認証を作成する {#step-2-create-the-connected-content-token-authentication}
 
-1. Brazeで、**Settings** > **Workspace Settings** > **Connected Content** > **Add Credential** > **Token Authentication**に移動します。
-2. 認証名を`fullstory`とします。
-3. ヘッダーキー「Authorization」を追加します。前のステップでFullstoryが提供したヘッダー値を入力します。
-4. **Allowed Domain**の下に、**api.fullstory.com**を入力します。
+1. Brazeで、**設定** > **ワークスペース設定** > **Connected Content** > **認証情報を追加** > **トークン認証** に移動します。
+2. 認証に `fullstory` という名前を付けます。
+3. ヘッダーキー「Authorization」を追加します。前のステップでFullstoryから提供されたヘッダー値を入力します。
+4. **許可されたドメイン**に、**api.fullstory.com** と入力します。
 
-![認証情報の編集フィールドを示すBrazeのスクリーンショット]({% image_buster /assets/img/fullstory/1.png %}){: style="max-width:50%;"}
+![Brazeの認証情報編集フィールドを示すスクリーンショット]({% image_buster /assets/img/fullstory/1.png %}){: style="max-width:50%;"}
 
 ## ユースケース {#use-cases}
 
 ### ダイナミックなメッセージジャーニーを作成する {#create-dynamic-message-journeys}
 
-Fullstoryの[Activation Streams](https://help.fullstory.com/hc/en-us/articles/360045134554-Streams)を使用すると、ユーザーとの重要なインタラクションの直後にBraze Canvasesをトリガーできます。この統合の威力は、システムがFullstoryからBrazeに自動的に渡す固有の`client_session_id`（{% raw %}`{{canvas_entry_properties.${client_session_id}}}`{% endraw %}でアクセス可能）にあります。このIDがキーとして機能し、Brazeはユーザーが体験した内容の完全なセッションサマリーを取得できます。
+Fullstoryの[Activation Streams](https://help.fullstory.com/hc/en-us/articles/360045134554-Streams)を使用すると、主要なユーザーインタラクションの直後にBrazeキャンバスをトリガーできます。この連携の強みは、ユニークな`client_session_id`（{% raw %}`{{canvas_entry_properties.${client_session_id}}}`{% endraw %}でアクセス可能）にあり、システムがFullstoryからBrazeに自動的に渡します。このIDはキーとして機能し、Brazeがユーザーが体験した内容の完全なセッションサマリーを取得できるようにします。
 
-Canvasコンテキストステップとコネクテッドコンテンツを活用することで、このIDを使用してFullstoryにAPIリクエストを行い、セッションデータを取得し、ジャーニーの後半で使用するために変数として保存できます。
+キャンバスのContextステップとConnected Contentを活用することで、このIDを使用してFullstoryへのAPIリクエストを行い、セッションデータを取得し、ジャーニーの後続のステップで使用する変数として保存できます。
 
-![BrazeのCanvasコンテキストステップ。コンテキスト変数「summary_result」が作成され、Fullstoryへのコネクテッドコンテンツコールでセッションサマリーが取得されている]({% image_buster /assets/img/fullstory/2.png %})
+![Brazeキャンバスのコンテキストステップ。コンテキスト変数「summary_result」が作成され、FullstoryへのConnected Contentコールによってセッションサマリーを取得し、データが入力されている様子]({% image_buster /assets/img/fullstory/2.png %})
 
-先に作成した認証トークンを使用して、以下のリクエスト構造でセッションサマリーデータを取得します。
+先ほど作成した認証トークンを使用して、以下のリクエスト構造でセッションサマリーデータを取得します。
 
 {% raw %}
 ```bash
@@ -84,12 +84,12 @@ Canvasコンテキストステップとコネクテッドコンテンツを活�
 {% endraw %}
 
 {% alert note %}
-レスポンスはLiquidタグ{% raw %}`{{context.${summary_result}.response}}`{% endraw %}として保存されます。このContextタグは、その後のCanvasステップで使用します。
+レスポンスはLiquidタグ{% raw %}`{{context.${summary_result}.response}}`{% endraw %}として保存されます。このコンテキストタグを後続のキャンバスステップで使用します。
 {% endalert %}
 
-この段階で、Canvasはコネクテッドコンテンツコールのレスポンスにアクセスでき、ユーザーセッションのメッセージペイロード全体が含まれています。
+この段階で、キャンバスはConnected Contentコールへのレスポンスにアクセスでき、ユーザーのセッションのメッセージペイロード全体が含まれています。
 
-{% details セッションサマリーAPIからのペイロード例 %}
+{% details Session Summary APIからのペイロードの例 %}
 
 {% raw %}
 ```bash
@@ -151,33 +151,33 @@ Canvasコンテキストステップとコネクテッドコンテンツを活�
 {% endraw %}
 {% enddetails %}
 
-ユーザーのCanvasジャーニーの後半でコンテキストLiquidタグを使用して、上記のオブジェクトで利用可能なデータを活用できます。以下のステップでは、[エージェント]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/agent_step/)ステップでこのデータを使用する方法を示します。
+上記のオブジェクトで利用可能なデータを、ユーザーのキャンバスジャーニーの後半でコンテキストLiquidタグを使用して活用できます。以下のステップでは、このデータを[エージェント]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step)ステップでどのように使用できるかを示しています。
 
 {% alert note %}
-予期しない動作を避けるために、コンテキストステップの後にオーディエンスパスステップを含めてください。このステップでは、Contextタグが空の場合（コネクテッドコンテンツコールが失敗したか、情報を返さなかったことを示す）にユーザーをコンテキストから外すことができます。
+予期しない動作を避けるため、Contextステップの後にオーディエンスパスステップを追加してください。コンテキストタグが空の場合（Connected Contentコールが失敗したか、情報が返されなかったことを示す）、ユーザーをコンテキストからドロップアウトさせることができます。
 
 ![Brazeのオーディエンスパスステップ]({% image_buster /assets/img/fullstory/3.png %})
 
 {% endalert %}
 
-### 適切なコピーを作成する {#produce-appropriate-copy}
+### 適切なコピーを生成する {#produce-appropriate-copy}
 
-FullstoryによってトリガーされたCanvasに[エージェントステップ]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/)を作成し、上記で説明したコンテキストステップを含めることで、エージェントでFullstoryのセッションサマリーデータを参照できます。
+Fullstoryによってトリガーされるキャンバスに[エージェントステップ]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents)を作成し、このセクションで説明したContextステップを含めることで、エージェント内でFullstoryのセッションサマリーデータを参照できます。
 
-この例では、このデータを使用してBrazeエージェントがコンテンツカードで使用する適切なメッセージコピーを生成し、ユーザーに放棄されたバスケットに戻るよう促すことができます。
+この例では、このデータを使用してBrazeエージェントがContent Cardで使用する適切なメッセージコピーを生成し、ユーザーに放棄カートに戻るよう促すことができます。
 
-![プロンプトが表示されたBrazeエージェントコンテキストクリエイターのスクリーンショット]({% image_buster /assets/img/fullstory/4.png %})
+![プロンプトが入力されたBrazeエージェントのコンテキストクリエイターのスクリーンショット]({% image_buster /assets/img/fullstory/4.png %})
 
-このステップで作成するコンテキストLiquidタグには、先に作成したAIエージェントステップで使用したコンテキストLiquidタグと同じ名前を使用してください。
+このステップで作成するコンテキストLiquidタグには、先ほど作成したAIエージェントステップで使用したコンテキストLiquidタグと同じ名前を使用してください。
 
-ユースケースによって必要なプロンプトは異なります。効果的なエージェントプロンプトを作成するためのベストプラクティスについては、[指示の書き方]({{site.baseurl}}/user_guide/brazeai/agents/reference/#writing-instructions)を参照してください。
+ユースケースに必要なプロンプトはさまざまです。効果的なエージェントプロンプトを作成するためのベストプラクティスについては、[指示の書き方]({{site.baseurl}}/user_guide/brazeai/agents/reference#writing-instructions)を参照してください。
 
-Canvasで、AIエージェントステップを選択し、ドロップダウンから**Session Context**エージェントを選択します。出力を変数として保存します。この場合は「message」で、Liquidタグ{% raw %}`{{context.${message}.message}}`{% endraw %}を使用してメッセージコピーに配置できます。
+キャンバスでAIエージェントステップを選択し、ドロップダウンから**Session Context**エージェントを選択します。出力を変数として保存します（この場合は「message」）。Liquidタグ{% raw %}`{{context.${message}.message}}`{% endraw %}を使用してメッセージコピーに配置できます。
 
-![プロンプトが表示されたBrazeエージェントコンテキストCanvasステップのスクリーンショット]({% image_buster /assets/img/fullstory/5.png %})
+![プロンプトが入力されたBrazeエージェントのコンテキストキャンバスステップのスクリーンショット]({% image_buster /assets/img/fullstory/5.png %})
 
-AIエージェントが作成したコピーを活用するメッセージステップを作成します。このステップではLiquidタグを使用します。
+AIエージェントが作成したコピーを活用するメッセージステップを作成します。このステップでLiquidタグを使用します。
 
 {% alert important %}
-FullstoryのセッションサマリーAPIは、機密性の高い識別可能なユーザーデータを返す可能性があります。PII（個人を特定できる情報）を扱う際のコンプライアンスを確保するために、このユースケースを活用する前に、FullstoryのデータキャプチャルールがPIIを除外していることを確認してください。
+FullstoryのSession Summary APIは、機密性のある個人を特定できるユーザーデータを返す場合があります。PII（個人を特定できる情報）の取り扱いにおけるコンプライアンスを確保するため、このユースケースを活用する前に、FullstoryのデータキャプチャルールがPIIを除外するよう設定されていることを確認してください。
 {% endalert %}

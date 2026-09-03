@@ -27,7 +27,7 @@ Braze iOS SDK의 기본 로그 수준은 최소, 즉 다음 차트에서 `8`입�
 | 2        | 경고. 경고 및 상위 로그 정보가 iOS 콘솔에 기록됩니다.  |
 | 4        | 오류. 오류 및 상위 로그 정보가 iOS 콘솔에 기록됩니다.  |
 | 8        | 최소. 최소한의 정보가 iOS 콘솔에 기록됩니다. SDK의 기본 설정입니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Log levels" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="로그 수준" }
 
 ### 상세 로깅 {#verbose-logging}
 
@@ -97,11 +97,11 @@ Appboy.start(withApiKey: "YOUR-API-KEY", in:application, withLaunchOptions:launc
 
 이전 버전의 Braze iOS Swift SDK에서는 IDFV(공급업체 식별자) 필드가 사용자의 기기 ID로 자동 수집되었습니다.
 
-Swift SDK v5.7.0부터 IDFV 필드를 선택적으로 비활성화할 수 있으며, 대신 Braze가 임의의 UUID를 기기 ID로 설정합니다. 자세한 내용은 [IDFV 수집]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift)을 참조하세요.
+Swift SDK v5.7.0부터 IDFV 필드를 선택적으로 비활성화할 수 있으며, 대신 Braze가 임의의 UUID를 기기 ID로 설정합니다. 자세한 내용은 [IDFV 수집]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift)을 참조하세요.
 
 ## 선택적 IDFA 수집 {#optional-idfa-collection}
 
-IDFA 수집은 Braze SDK 내에서 선택 사항이며 기본적으로 비활성화되어 있습니다. IDFA 수집은 Braze 내에서 [설치 경로 통합]({{site.baseurl}}/partners/message_orchestration/attribution/adjust/)을 사용하려는 경우에만 필요합니다. IDFA를 저장하기로 선택하면 무료로 저장해 드리므로, 추가 개발 작업 없이 출시 즉시 이러한 옵션을 활용할 수 있습니다.
+IDFA 수집은 Braze SDK 내에서 선택 사항이며 기본적으로 비활성화되어 있습니다. IDFA 수집은 Braze 내에서 [설치 경로 통합]({{site.baseurl}}/partners/message_orchestration/attribution/adjust)을 사용하려는 경우에만 필요합니다. IDFA를 저장하기로 선택하면 무료로 저장해 드리므로, 추가 개발 작업 없이 출시 즉시 이러한 옵션을 활용할 수 있습니다.
 
 따라서 다음 기준 중 하나라도 충족하는 경우 IDFA를 계속 수집하는 것이 좋습니다:
 
@@ -125,7 +125,7 @@ IDFA를 수집하려면 `ABKIDFADelegate` 프로토콜을 구현하는 것 외�
 
 다음 단계를 따라 IDFA 수집을 구현합니다:
 
-##### 1단계: ABKIDFADelegate 구현 {#step-1-implement-abkidfadelegate}
+#### 1단계: ABKIDFADelegate 구현 {#step-1-implement-abkidfadelegate}
 
 [`ABKIDFADelegate`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/ABKIDFADelegate.h) 프로토콜을 준수하는 클래스를 생성합니다:
 

@@ -24,7 +24,7 @@ A integração entre a Braze e o ViralSweep permite que você realize sorteios e
 | ----------- | ----------- |
 | Conta ViralSweep | É necessário ter uma conta no ViralSweep que utilize o plano de negócios para aproveitar essa parceria. |
 | Chave da API REST da Braze | Uma chave da API REST da Braze com todas as permissões de dados de usuários e e-mail. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
-| Endpoint REST da Braze | Sua URL de endpoint REST. Seu endpoint dependerá da URL da Braze para [sua instância]({{site.baseurl}}/api/basics/#endpoints). |
+| Endpoint REST da Braze | Sua URL de endpoint REST. Seu endpoint dependerá da URL da Braze para [sua instância]({{site.baseurl}}/api/basics#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
@@ -33,7 +33,7 @@ A integração entre a Braze e o ViralSweep permite que você realize sorteios e
 
 No ViralSweep, navegue até **Integrations > Email & SMS > Add Service** e selecione **Braze**.
 
-![]({% image_buster /assets/img/viralsweep/connect.gif %})
+![Página de integrações do ViralSweep com a Braze selecionada em serviços de e-mail e SMS.]({% image_buster /assets/img/viralsweep/connect.gif %})
 
 ### Etapa 2: Adicionar credenciais da Braze {#step-2-add-braze-credentials}
 

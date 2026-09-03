@@ -50,14 +50,14 @@ Sin embargo, recuerda que es posible que un usuario utilice múltiples aplicacio
 
 Supongamos que quieres enviar un mensaje dentro de la aplicación solo a aplicaciones Android.
 
-1. Crea un segmento y configura **Apps and websites targeted** como **Users from specific apps**, luego selecciona tu aplicación Android.
+1. Crea un segmento y configura **Aplicaciones y sitios web objetivo** como **Usuarios de aplicaciones específicas**, luego selecciona tu aplicación Android.
 
 ![Un segmento que se dirige a usuarios de una aplicación específica, "Test_Android".]({% image_buster /assets/img_archive/app_test_android.png %}){: style="max-width:60%;"}
 
 {: start="2"}
-2. En el paso **Target Audiences**, confirma que tu segmento esté añadido en la sección **Selecciona a usuarios por segmento**.
+2. En el paso **Públicos objetivo**, confirma que tu segmento esté añadido en la sección **Selecciona a usuarios por segmento**.
 
-![El paso "Target Audiences" con un segmento de ejemplo seleccionado.]({% image_buster /assets/img_archive/target_users_by_segment_example.png %})
+![El paso "Públicos objetivo" con un segmento de ejemplo seleccionado.]({% image_buster /assets/img_archive/target_users_by_segment_example.png %})
 
 {% alert note %}
 Esto no funcionará si añades tu segmento en la sección **Filtros adicionales** a través de un filtro de pertenencia a segmento. Debes hacer referencia directamente a tu segmento en **Selecciona a usuarios por segmento** para entregar tu mensaje solo a esa aplicación.
@@ -67,18 +67,18 @@ Esto no funcionará si añades tu segmento en la sección **Filtros adicionales*
 {% endtabs %}
 
 {% alert tip %}
-Para Campaigns de correo electrónico, puedes dirigirte a grupos semilla en la sección **Grupos semilla**. Ten en cuenta que los grupos semilla no están disponibles para Campaigns de API, aunque puedes incluir grupos semilla a través de una entrada activada por API en una Campaign. Para más información, consulta [Grupos semilla]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#seed-groups).
+Para Campaigns de correo electrónico, puedes dirigirte a grupos semilla en la sección **Grupos semilla**. Ten en cuenta que los grupos semilla no están disponibles para Campaigns de API, aunque puedes incluir grupos semilla a través de una entrada activada por API en una Campaign. Para más información, consulta [Grupos semilla]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups).
 {% endalert %}
 
 ### Paso 2: Prueba tu audiencia {#step-2-test-your-audience}
 
-Después de añadir segmentos y filtros a tu audiencia, puedes probar si tu audiencia está configurada como se espera [buscando un usuario]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) para confirmar si coincide con los criterios de la audiencia.
+Después de añadir segmentos y filtros a tu audiencia, puedes probar si tu audiencia está configurada como se espera [buscando un usuario]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) para confirmar si coincide con los criterios de la audiencia.
 
-![La sección "User Lookup" con un botón "Lookup User".]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:70%"}
+![La sección "Búsqueda de usuario" con un botón "Buscar usuario".]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:70%"}
 
 #### Resumen de audiencia {#audience-summary}
 
-El **Resumen de audiencia** mostrará una vista general de quién está en tu audiencia objetivo. Aquí, puedes limitar aún más tu audiencia estableciendo un límite máximo de usuarios o [limitando la velocidad]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/) de entrega.
+El **Resumen de audiencia** mostrará una vista general de quién está en tu audiencia objetivo. Aquí, puedes limitar aún más tu audiencia estableciendo un límite máximo de usuarios o [limitando la velocidad]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping) de entrega.
 
 ![La sección "Resumen de audiencia" con opciones para establecer un límite máximo de usuarios o limitar la velocidad de entrega.]({% image_buster /assets/img_archive/audience_summary.png %})
 
@@ -86,18 +86,18 @@ El **Resumen de audiencia** mostrará una vista general de quién está en tu au
 
 En la sección **Pruebas A/B**, puedes configurar una prueba para comparar las respuestas de los usuarios a múltiples versiones de la misma campaña de marketing. Estas versiones comparten objetivos de marketing similares pero difieren en la redacción y el estilo. El objetivo es identificar la versión de la campaña que mejor cumple tus objetivos de marketing.
 
-Para más información y mejores prácticas, consulta [Pruebas multivariantes y A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/).
+Para más información y mejores prácticas, consulta [Pruebas multivariantes y A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
 
 #### Estadísticas de audiencia {#audience-statistics}
 
-Braze proporciona estadísticas detalladas de la audiencia de los canales objetivo en el pie de página. Cuanto mayor sea tu base de usuarios, más probable es que la cantidad de **Usuarios alcanzables** sea una estimación aproximada. El número de usuarios alcanzables puede disminuir si usas un [Grupo de control global]({{site.baseurl}}/user_guide/audience/global_control_group/) o configuras la elegibilidad de mensajes.
+Braze proporciona estadísticas detalladas de la audiencia de los canales objetivo en el pie de página. Cuanto mayor sea tu base de usuarios, más probable es que la cantidad de **Usuarios alcanzables** sea una estimación aproximada. El número de usuarios alcanzables puede disminuir si usas un [grupo de control global]({{site.baseurl}}/user_guide/audience/global_control_group) o configuras la elegibilidad de mensajes.
 
-- Para determinar un número preciso de tus usuarios alcanzables, selecciona [Calcular estadísticas exactas]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#calculating-exact-statistics), ya que esto buscará a cada usuario en tu base de usuarios.
+- Para determinar un número preciso de tus usuarios alcanzables, selecciona [Calcular estadísticas exactas]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size#calculating-exact-statistics), ya que esto buscará a cada usuario en tu base de usuarios.
 - Para ver qué porcentaje de tu base de usuarios está siendo segmentado o el valor de duración del ciclo de vida (LTV) para este segmento, selecciona **Mostrar estadísticas adicionales**.
 
 ##### Por qué el recuento de la audiencia objetivo podría diferir del recuento de usuarios alcanzables {#why-the-target-audience-count-could-differ-from-the-reachable-users-count}
 
-{% multi_lang_include segments.md section='Differing audience size' %}
+{% multi_lang_include audience/segments.md section='Differing audience size' %}
 
 ![La sección "Población total" con recuentos estimados de usuarios alcanzables en cada canal objetivo.]({% image_buster /assets/img_archive/multi_channel_footer.png %})
 

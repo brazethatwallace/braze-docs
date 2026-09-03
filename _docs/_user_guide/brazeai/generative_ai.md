@@ -4,7 +4,7 @@ article_title: Generative AI
 page_order: 5
 layout: dev_guide
 guide_top_header: "Generative AI"
-guide_top_text: "BrazeAI<sup>TM</sup> generative AI capabilities are accessible through [BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator/), the unified AI assistant built into the Braze dashboard. Generate copy, images, Liquid, and HTML email templates, or review your content — all from the surfaces where you already work."
+guide_top_text: "BrazeAI<sup>TM</sup> generative AI capabilities are accessible through [BrazeAI Operator™](/docs/user_guide/brazeai/operator/), the unified AI assistant built into the Braze dashboard. Generate copy, images, Liquid, and HTML email templates, or review your content — all from the surfaces where you already work."
 description: "BrazeAI<sup>TM</sup> generative AI capabilities are accessible through BrazeAI Operator™, the unified AI assistant built into the Braze dashboard."
 
 guide_featured_title: "Features"
@@ -34,7 +34,7 @@ guide_featured_list:
   link: /docs/user_guide/analytics/reports/query_builder
   image: /assets/img/braze_icons/tool-01.svg
 - name: SQL Segment Extensions
-  link: /docs/sql_segments/
+  link: /docs/sql_segments
   image: /assets/img/braze_icons/users-01.svg
 
 ---

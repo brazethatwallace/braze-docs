@@ -10,22 +10,20 @@ page_type: landing
 search_tag: Endpoint
 
 guide_top_header: "サブスクリプショングループエンドポイント"
-guide_top_text: "サブスクリプショングループREST APIを使用して、Brazeダッシュボードの<strong>サブスクリプショングループ</strong>ページに保存したサブスクリプショングループをプログラムで管理します。これは、SMSとメールの両方のサブスクリプショングループに適用されます。<br><br>サブスクリプショングループの作成に関するガイダンスをお探しですか？<a href='/docs/user_guide/message_building_by_channel/sms/sms_subscription_group/'>SMSサブスクリプショングループ</a> と<a href='/docs/user_guide/message_building_by_channel/email/managing_user_subscriptions/'>メールサブスクリプショングループ</a> の記事をご覧ください。"
+guide_top_text: "購読グループREST APIを使用して、Brazeワークスペースに保存されている購読グループをプログラムで管理します。これはメールおよびSMSの購読グループに適用されます。<br><br>ダッシュボードでのグループの作成と管理に関するガイダンスについては、<a href='/docs/user_guide/audience/subscription_preferences/subscription_groups'>購読グループ</a> を参照してください。"
 
 guide_featured_title: ""
 guide_featured_list:
-  - name: "GET: ユーザーのサブスクリプショングループステータスを一覧表示する"
-    link: /docs/api/endpoints/subscription_groups/get_list_user_subscription_group_status/
+  - name: "GET: ユーザーの購読グループステータスを一覧表示"
+    link: /docs/api/endpoints/subscription_groups/get_list_user_subscription_group_status
     image: /assets/img/braze_icons/users-01.svg
-  - name: "GET: ユーザーのサブスクリプショングループを一覧表示する"
-    link: /docs/api/endpoints/subscription_groups/get_list_user_subscription_groups/
+  - name: "GET: ユーザーの購読グループを一覧表示"
+    link: /docs/api/endpoints/subscription_groups/get_list_user_subscription_groups
     image: /assets/img/braze_icons/users-01.svg
-  - name: "POST: ユーザーのサブスクリプショングループステータスを更新する"
-    link: /docs/api/endpoints/subscription_groups/post_update_user_subscription_group_status/
+  - name: "POST: ユーザーの購読グループステータスを更新"
+    link: /docs/api/endpoints/subscription_groups/post_update_user_subscription_group_status
     image: /assets/img/braze_icons/user-plus-01.svg
-  - name: "POST: ユーザーのサブスクリプショングループステータスを更新する V2"
-    link: /docs/api/endpoints/subscription_groups/post_update_user_subscription_group_status_v2/
+  - name: "POST: ユーザーの購読グループステータスを更新 V2"
+    link: /docs/api/endpoints/subscription_groups/post_update_user_subscription_group_status_v2
     image: /assets/img/braze_icons/user-edit.svg
 ---
-<br>
-<br>

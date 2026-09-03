@@ -35,7 +35,7 @@ The following SDK versions are required to receive Push Stories:
 
 To use Push Stories, do the following:
 
-1. Create a [push campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/).
+1. Create a [push campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message).
 2. For your **Notification Type**, select **Push Stories**.
 3. Select **iOS** or **Android**. Note that if you select both for a push message, the option to create a Push Story won't appear. 
 
@@ -52,12 +52,12 @@ The previews will be reflected and are interactive.
 ![Push stories composer]({% image_buster /assets/img_archive/pushstories_composer.png %}){: style="max-width:60%"}
 
 {% alert important %}
-If you are pulling in images with [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content#about-connected-content), ensure that your image URL begins with `https://`. Using `http://` will crash your app.
+If you are pulling in images with [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), ensure that your image URL begins with `https://`. Using `http://` will crash your app.
 {% endalert %}
 
 ### Image and text specifications
 
-The following image and text specifications apply to the photo carousel portion of Push Stories. For information on the basic push that users interact with to activate the Push Story, refer to [Push message and image formats]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats/).
+The following image and text specifications apply to the photo carousel portion of Push Stories. For information on the basic push that users interact with to activate the Push Story, refer to [Push message and image formats]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats).
 
 {% tabs %}
 {% tab Images %}

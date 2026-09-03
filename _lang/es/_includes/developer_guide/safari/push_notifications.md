@@ -1,14 +1,14 @@
-{% multi_lang_include developer_guide/prerequisites/web.md %} También tendrás que [configurar las notificaciones push]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=web) para el SDK web. Ten en cuenta que solo puedes enviar notificaciones push a usuarios de iOS y iPadOS que utilicen [Safari v16.4](https://developer.apple.com/documentation/safari-release-notes/safari-16_4-release-notes) o posterior.
+{% multi_lang_include developer_guide/prerequisites/web.md %} También tendrás que [configurar las notificaciones push]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=web) para el SDK Web. Ten en cuenta que solo puedes enviar notificaciones push a usuarios de iOS y iPadOS que utilicen [Safari v16.4](https://developer.apple.com/documentation/safari-release-notes/safari-16_4-release-notes) o posterior.
 
-## Configuración de Safari Push para dispositivos móviles
+## Configuración de Safari push para dispositivos móviles {#setting-up-safari-push-for-mobile}
 
 ### Paso 1: Crear un archivo de manifiesto {#manifest}
 
-Un [Manifiesto de Aplicación Web](https://developer.mozilla.org/en-US/docs/Web/Manifest) es un archivo JSON que controla cómo se presenta tu sitio web cuando se instala en la pantalla de inicio de un usuario.
+Un [manifiesto de aplicación web](https://developer.mozilla.org/en-US/docs/Web/Manifest) es un archivo JSON que controla cómo se presenta tu sitio web cuando se instala en la pantalla de inicio de un usuario.
 
-Por ejemplo, puedes configurar el color del tema de fondo y el icono que utiliza [el Conmutador de Aplicaciones](https://support.apple.com/en-us/HT202070), si se representa a pantalla completa para parecerse a una aplicación nativa, o si la aplicación debe abrirse en modo horizontal o vertical.
+Por ejemplo, puedes configurar el color del tema de fondo y el icono que utiliza el [selector de aplicaciones](https://support.apple.com/en-us/HT202070), si se representa a pantalla completa para parecerse a una aplicación nativa, o si la aplicación debe abrirse en modo horizontal o vertical.
 
-Crea un nuevo archivo `manifest.json` en el directorio raíz de tu sitio web, con los siguientes campos obligatorios. 
+Crea un nuevo archivo `manifest.json` en el directorio raíz de tu sitio web, con los siguientes campos obligatorios.
 
 ```json
 {
@@ -22,9 +22,9 @@ Crea un nuevo archivo `manifest.json` en el directorio raíz de tu sitio web, co
 }
 ```
 
-La lista completa de campos admitidos se encuentra [aquí](https://developer.mozilla.org/en-US/docs/Web/Manifest).
+La lista completa de campos admitidos se encuentra en la [documentación de MDN sobre el manifiesto de aplicación web](https://developer.mozilla.org/en-US/docs/Web/Manifest).
 
-### Paso 2: Enlaza el archivo de manifiesto {#manifest-link}
+### Paso 2: Enlazar el archivo de manifiesto {#manifest-link}
 
 Añade la siguiente etiqueta `<link>` al elemento `<head>` de tu sitio web, indicando dónde está alojado tu archivo de manifiesto.
 
@@ -32,24 +32,24 @@ Añade la siguiente etiqueta `<link>` al elemento `<head>` de tu sitio web, indi
 <link rel="manifest" href="/manifest.json" />
 ```
 
-### Paso 3: Añadir un prestador de servicios {#service-worker}
+### Paso 3: Añadir un prestador de servicios {#service-worker}
 
-Tu sitio web debe tener un archivo de prestador de servicios que importe la biblioteca de prestadores de servicios Braze, como se describe en nuestra [guía de integración push web]({{site.baseurl}}/developer_guide/platform_integration_guides/web/push_notifications/integration/#step-1-configure-your-sites-service-worker).
+Tu sitio web debe tener un archivo de prestador de servicios que importe la biblioteca de prestadores de servicios de Braze, como se describe en nuestra [guía de integración push web]({{site.baseurl}}/developer_guide/platform_integration_guides/web/push_notifications/integration#step-1-configure-your-sites-service-worker).
 
 ### Paso 4: Añadir a la pantalla de inicio {#add-to-homescreen}
 
-Los navegadores web más populares (como Safari, Chrome, Firefox y Edge) admiten notificaciones push web en sus últimas versiones. Para solicitar permiso push en iOS o iPadOS, tu sitio web debe añadirse a la pantalla de inicio del usuario seleccionando **Compartir en** > **Añadir a la pantalla de inicio**. [La opción «Añadir a la pantalla de inicio»](https://support.apple.com/guide/iphone/bookmark-favorite-webpages-iph42ab2f3a7/ios#iph4f9a47bbc) permite a los usuarios marcar tu sitio web como favorito, añadiendo tu icono a su valiosa pantalla de inicio.
+Los navegadores más populares (como Safari, Chrome, Firefox y Edge) admiten notificaciones push web en sus últimas versiones. Para solicitar permiso push en iOS o iPadOS, tu sitio web debe añadirse a la pantalla de inicio del usuario seleccionando **Compartir** > **Añadir a la pantalla de inicio**. La opción [Añadir a la pantalla de inicio](https://support.apple.com/guide/iphone/bookmark-favorite-webpages-iph42ab2f3a7/ios#iph4f9a47bbc) permite a los usuarios marcar tu sitio web como favorito, añadiendo tu icono a su valiosa pantalla de inicio.
 
 ![Un iPhone que muestra opciones para marcar un sitio web y guardarlo en la pantalla de inicio]({% image_buster /assets/img/push_implementation_guide/add-to-homescreen.png %}){: style="max-width:40%"}
 
 ### Paso 5: Mostrar el mensaje push nativo {#push-prompt}
-Una vez que la aplicación se haya añadido a tu pantalla de inicio, podrás solicitar permiso para enviar notificaciones push cuando el usuario realice una acción (como hacer clic en un botón). Esto puede hacerse utilizando el método [`requestPushPermission`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestpushpermission) o con un [mensaje dentro de la aplicación como push primer sin código]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages/).
+Una vez que la aplicación se haya añadido a tu pantalla de inicio, podrás solicitar permiso push cuando el usuario realice una acción (como hacer clic en un botón). Esto puede hacerse utilizando el método [`requestPushPermission`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestpushpermission) o con un [mensaje dentro de la aplicación como push primer sin código]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages).
 
 {% alert note %}
 Después de aceptar o rechazar el mensaje, debes eliminar y volver a instalar el sitio web en tu pantalla de inicio para poder volver a mostrar el mensaje.
 {% endalert %}
 
-![Una notificación push pidiendo "permitir" o "no permitir" Notificaciones]({% image_buster /assets/img/push_implementation_guide/safari-mobile-push-prompt.png %}){: style="max-width:40%"}
+![Un mensaje push pidiendo «permitir» o «no permitir» notificaciones]({% image_buster /assets/img/push_implementation_guide/safari-mobile-push-prompt.png %}){: style="max-width:40%"}
 
 Por ejemplo:
 
@@ -65,6 +65,6 @@ button.onclick = function(){
 };
 ```
 
-## Próximos pasos
+## Próximos pasos {#next-steps}
 
-A continuación, envíate un [mensaje de prueba]({{site.baseurl}}/developer_guide/in_app_messages/sending_test_messages/) para validar la integración. Una vez completada la integración, puedes utilizar nuestros [mensajes push sin código]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages/) para optimizar tus tasas de adhesión voluntaria push.
+A continuación, envíate un [mensaje de prueba]({{site.baseurl}}/developer_guide/in_app_messages/sending_test_messages) para validar la integración. Una vez completada la integración, puedes utilizar nuestros [mensajes push primer sin código]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages) para optimizar tus tasas de adhesión voluntaria push.

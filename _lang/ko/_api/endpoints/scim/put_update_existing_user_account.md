@@ -15,17 +15,19 @@ description: "이 문서에서는 기존 대시보드 사용자 계정 업데이
 /scim/v2/Users/{id}
 {% endapimethod %}
 
-> 이 엔드포인트를 사용하여 SCIM [`POST`]({{site.baseurl}}/api/endpoints/scim/post_create_user_account/) 메서드에서 반환된 리소스 `id`를 지정하여 기존 대시보드 사용자 계정을 업데이트합니다.
+> 이 엔드포인트를 사용하여 SCIM [`POST`]({{site.baseurl}}/api/endpoints/scim/post_create_user_account) 메서드에서 반환된 리소스 `id`를 지정하여 기존 대시보드 사용자 계정을 업데이트합니다.
 
 이름과 성, 권한(회사, 워크스페이스 및 팀 수준에서 권한 설정) 및 부서를 업데이트할 수 있습니다.
 
-보안상의 이유로 `userName`(이메일 주소)은 이 엔드포인트를 통해 업데이트할 수 없습니다. 사용자의 `userName`(이메일 주소)을 변경하려면 [고객지원]({{site.baseurl}}/support_contact/)에 문의하세요.
+보안상의 이유로 `userName`(이메일 주소)은 이 엔드포인트를 통해 업데이트할 수 없습니다. 사용자의 `userName`(이메일 주소)을 변경하려면 [고객지원]({{site.baseurl}}/support_contact)에 문의하세요.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#5f9a1642-988e-4011-8fb8-db4340ea1ac7 {% endapiref %}
 
+{% multi_lang_include scim/scim_alerts.md alert='custom_endpoint' %}
+
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 SCIM 토큰이 필요합니다. 서비스 출처를 `X-Request-Origin` 헤더로 사용합니다. 자세한 내용은 [자동화된 사용자 프로비저닝]({{site.baseurl}}/scim/automated_user_provisioning/)을 참조하세요.
+이 엔드포인트를 사용하려면 SCIM 토큰이 필요합니다. 서비스 Origin을 `X-Request-Origin` 헤더로 사용합니다. 자세한 내용은 [자동화된 사용자 프로비저닝]({{site.baseurl}}/scim/automated_user_provisioning)을 참조하세요.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -35,8 +37,8 @@ description: "이 문서에서는 기존 대시보드 사용자 계정 업데이
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 |---|---|---|---|
-| `id` | 필수 | 문자열 | 사용자의 리소스 ID입니다. 이 매개변수는 `POST` `/scim/v2/Users/` 또는 `GET` `/scim/v2/Users?filter=userName eq "user@test.com"` 메서드에서 반환됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+| `id` | 필수 | 문자열 | 사용자의 리소스 ID입니다. 이 매개변수는 `POST` `/scim/v2/Users/` 또는 `GET` `/scim/v2/Users?filter=userName eq "user@example.com"` 메서드에서 반환됩니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="경로 매개변수" }
 
 ## 요청 본문 {#request-body}
 ```
@@ -92,9 +94,9 @@ Authorization: Bearer YOUR-SCIM-TOKEN-KEY
 | --------- | -------- | --------- | ----------- |
 | `schemas` | 필수 | 문자열 배열 | 사용자 오브젝트에 대한 예상 SCIM 2.0 스키마 이름입니다. |
 | `name` | 필수 | JSON 오브젝트 | 이 오브젝트에는 사용자의 이름과 성이 포함되어 있습니다. |
-| `department` | 필수 | 문자열 | [부서 문자열 설명서]({{site.baseurl}}/scim_api_appendix/#department-strings)에 있는 유효한 부서 문자열입니다. |
-| `permissions` | 필수 | JSON 오브젝트 | [권한 오브젝트 설명서]({{site.baseurl}}/scim_api_appendix/#permissions-object)에 설명된 권한 오브젝트입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+| `department` | 필수 | 문자열 | [부서 문자열 설명서]({{site.baseurl}}/scim_api_appendix#department-strings)에 있는 유효한 부서 문자열입니다. |
+| `permissions` | 필수 | JSON 오브젝트 | [권한 오브젝트 설명서]({{site.baseurl}}/scim_api_appendix#permissions-object)에 설명된 권한 오브젝트입니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 
 ## 예시 요청 {#example-request}
@@ -141,7 +143,7 @@ curl --location --request PUT 'https://rest.iad-01.braze.com/scim/v2/Users/dfa24
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
     "id": "dfa245b7-24195aec-887bb3ad-602b3340",
-    "userName": "user@test.com",
+    "userName": "user@example.com",
     "name": {
         "givenName": "Test",
         "familyName": "User"

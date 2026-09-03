@@ -25,7 +25,7 @@ Before you start, you need the following:
 | --- | --- |
 | Catapult account | A Catapult account is required to use this integration. |
 | Braze REST API key (optional) | If you use Catapult webhooks, you need a Braze REST API key with the user data permissions your use case requires. Create the key in Braze under **Settings** > **APIs and Identifiers** > **API Keys**. |
-| Braze REST endpoint (optional) | If you use Catapult webhooks, use the REST endpoint URL that matches the Braze URL for [your Braze instance]({{site.baseurl}}/api/basics/#endpoints). |
+| Braze REST endpoint (optional) | If you use Catapult webhooks, use the REST endpoint URL that matches the Braze URL for [your Braze instance]({{site.baseurl}}/api/basics#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Step 1: Create your game experience
@@ -34,14 +34,14 @@ Create your game experience in the Catapult platform. The following steps show a
 
 1. Create the campaign. 
 
-Select **New Campaign** in the upper right. Enter a campaign name, choose a URL slug, and select your game category and game type.
+Select **New Campaign** in the top navigation area. Enter a campaign name, choose a URL slug, and select your game category and game type.
 
 ![CataBoom dashboard New Campaign form with campaign name, URL, game category, and game type fields.]({% image_buster /assets/img/cataboom/new_campaign.png %})
 
 {: start="2"}
 2. Enable Request Unique URL API. 
 
-In the left menu, select **Link Configuration**.
+In the navigation menu, select **Link Configuration**.
 
 On the **Link Configuration** page, enable **Request Unique URL API**. This option creates a system-to-system URL you can use later in Braze, such as in a Content Card.
 
@@ -50,7 +50,7 @@ On the **Link Configuration** page, enable **Request Unique URL API**. This opti
 {: start="3"}
 3. Set play tracking to Account ID. 
 
-In the left menu, select **Play Control**.
+In the navigation menu, select **Play Control**.
 
 On the **Play Control** page, under **Play Tracking**, set **Play Count Tracked By** to **Account ID Parameter**.
 
@@ -58,12 +58,12 @@ You can pass an Account ID for each player for tracking, play limits, webhooks, 
 
 ![CataBoom Play Control page with Play Count Tracked By set to Account ID Parameter.]({% image_buster /assets/img/cataboom/play_control.png %})
 
-You now have enough configured to run a test in Braze. The optional steps below complete a typical full game setup. Catapult also offers many other settings you can use to customize gameplay.
+You now have enough configured to run a test in Braze. The optional steps in this section complete a typical full game setup. Catapult also offers many other settings you can use to customize gameplay.
 
 {: start="4"}
 4. Add your creative (optional). 
 
-In the left menu, select **Creative**.
+In the navigation menu, select **Creative**.
 
 Upload your assets. Catapult supports full branding control for your game experience.
 
@@ -72,7 +72,7 @@ Upload your assets. Catapult supports full branding control for your game experi
 {: start="5"}
 5. Configure prizing for chance-based games (optional).
 
-In the left menu, select **Summary**.
+In the navigation menu, select **Summary**.
 
 On the **Summary** page, expand **Prize Options**.
 
@@ -90,7 +90,7 @@ This example shows how to create a **Content Card** that uses the Request Unique
 
 1. Add Connected Content for the play URL.
 
-In your Content Card, add copy and dynamic content as needed. Wrap your CataBoom Request Unique URL in a [Connected Content]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/) tag. Add an `AccountID` query parameter that uses a Braze personalization tag matching the identifier you use in Catapult. The example uses {% raw %}`{{${user_id}}}`{% endraw %}.
+In your Content Card, add copy and dynamic content as needed. Wrap your CataBoom Request Unique URL in a [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) tag. Add an `AccountID` query parameter that uses a Braze personalization tag matching the identifier you use in Catapult. The example uses {% raw %}`{{${user_id}}}`{% endraw %}.
 
 Replace the base URL and the `username` and `password` query parameters with the values from the **Link Configuration** page for your campaign in Catapult.
 
@@ -100,7 +100,7 @@ Replace the base URL and the `username` and `password` query parameters with the
 ```
 {% endraw %}
 
-Use the saved `result` in your card (for example, as the link URL or in the message body). Follow the response format from CataBoom’s API for your campaign. For more information about query parameters and Liquid in URLs, see [Making an API call]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call/).
+Use the saved `result` in your card (for example, as the link URL or in the message body). Follow the response format from CataBoom's API for your campaign. For more information about query parameters and Liquid in URLs, see [Making an API call]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call).
 
 ![Braze Content Card composer showing Connected Content in the message field and a mobile preview of the card.]({% image_buster /assets/img/cataboom/braze_content_card.png %})
 

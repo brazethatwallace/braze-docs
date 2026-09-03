@@ -80,4 +80,4 @@ Confirm your DKIM/SPF matches what you register per the instructions linked.
 {% endtab %}
 {% endtabs %}
 
-If you have any further questions, open a [support ticket]({{site.baseurl}}/braze_support/).
+If you have any further questions, open a [support ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support).

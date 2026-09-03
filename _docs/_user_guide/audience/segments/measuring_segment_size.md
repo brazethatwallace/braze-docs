@@ -48,8 +48,11 @@ For each filter group, you can view estimated reachable users. Select **Expand e
 
 ## Reachable users estimate
 
-You can view an entire segment's estimated reachable users, including estimated user counts for each channel, in the **Reachable users** side panel. This **estimation** shows you an approximate range for your segment size, and an estimate of what percentage of your overall user base falls into this segment. Note that estimated statistics are cached for 15 minutes unless you make edits to your segment, in which case estimated statistics will automatically update. You can also view an exact count of reachable users (for both the segment overall and per channel) by selecting **Calculate exact statistics**. 
+You can view an entire segment's estimated reachable users, including estimated user counts for each channel, in the **Reachable users** side panel. This estimation shows you an approximate range for your segment size, and an estimate of what percentage of your overall user base falls into this segment. Note that estimated statistics are cached for 15 minutes unless you make edits to your segment, in which case estimated statistics will automatically update. You can also view an exact count of reachable users (for both the segment overall and per channel) by selecting **Calculate exact statistics**. 
 
+{% alert note %}
+Workspaces with more than 50,000 users show **Estimated users**; smaller workspaces show **Exact users**.
+{% endalert %}
 
 ![The "Reachable users" panel stating there are 2.3M—2.4M estimated users.]({% image_buster /assets/img_archive/reachable_users_side_panel.png %})
 
@@ -99,7 +102,7 @@ To update the stats for a calculation you've previously run, select **Refresh ex
 Note that a calculation's accuracy is only 99.999% or greater. So for large segments, you may notice slight variations&#8212;even when calculating exact statistics&#8212;which is normal behavior. In addition, exact statistics results are cached for 24 hours unless you make edits to your segment, in which case you can re-calculate the exact statistics.
 
 {% alert note %}
-Segments divided evenly by [random bucket numbers]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/) won't be the same size. For example, if you create one segment with the filter **Random Bucket # less than 5000** and one segment with the filter **Random Bucket # at least 5000**, it is possible and expected for the segment sizes to vary by up to a few percentage points. This is because of situations such as inactive users getting deleted and users being unreachable.
+Segments divided evenly by [random bucket numbers]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers) won't be the same size. For example, if you create one segment with the filter **Random Bucket # less than 5000** and one segment with the filter **Random Bucket # at least 5000**, it is possible and expected for the segment sizes to vary by up to a few percentage points. This is because of situations such as inactive users getting deleted and users being unreachable.
 {% endalert %}
 
 ![Screenshot of the Reachable users panel showing exact statistics and an expanded breakdown menu.]({% image_buster /assets/img_archive/reachable_users_breakdown.png %})

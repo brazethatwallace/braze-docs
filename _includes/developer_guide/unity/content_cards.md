@@ -22,7 +22,7 @@ Incoming `string` messages received in your Content Cards game object callback c
 
 Parsing Content Cards requires JSON parsing, see the following example for details:
 
-##### Example Content Cards callback
+### Example Content Cards callback
 
 ```csharp
 void ExampleCallback(string message) {

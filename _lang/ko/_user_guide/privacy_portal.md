@@ -16,49 +16,49 @@ description: ""
 guide_featured_title: "Braze 사용하기"
 guide_featured_list:
 - name: 데이터 주체 요청에 대한 데이터 보호 기술 지원
-  link: /docs/dp-technical-assistance/
+  link: /docs/dp-technical-assistance
   image: /assets/img/braze_icons/settings-01.svg
 - name: 이메일 오픈 픽셀 및 클릭 추적
-  link: /docs/user_guide/channels/email/email_setup/open_pixel_and_click_tracking/
+  link: /docs/user_guide/channels/email/email_setup/open_pixel_and_click_tracking
   image: /assets/img/braze_icons/mail-01.svg
 - name: 이메일 구독
-  link: /docs/user_guide/channels/email/subscriptions/
+  link: /docs/user_guide/channels/email/subscriptions
   image: /assets/img/braze_icons/mail-01.svg
 - name: 이메일 구독 관리
-  link: /docs/user_guide/channels/email/subscriptions/#unsubscribed-email-addresses
+  link: /docs/user_guide/channels/email/subscriptions#unsubscribed-email-addresses
   image: /assets/img/braze_icons/users-01.svg
 - name: 이메일 환경설정 센터
-  link: /docs/user_guide/audience/subscription_preferences/preference_center/
+  link: /docs/user_guide/audience/subscription_preferences/preference_center
   image: /assets/img/braze_icons/list.svg
 - name: SMS 구독 그룹
-  link: /docs/sms_rcs_subscription_groups/
+  link: /docs/sms_rcs_subscription_groups
   image: /assets/img/braze_icons/users-01.svg
 - name: SMS 관련 법률 및 규정
-  link: /docs/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/
+  link: /docs/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations
   image: /assets/img/braze_icons/briefcase-02.svg
 - name: WhatsApp 구독 그룹
-  link: /docs/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/
+  link: /docs/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups
   image: /assets/img/braze_icons/whatsapp.svg
 - name: 푸시 구독
-  link: /docs/user_guide/channels/push/push_setup/push_subscription_states/
+  link: /docs/user_guide/channels/push/push_setup/push_subscription_states
   image: /assets/img/braze_icons/users-01.svg
 - name: 메시지 아카이브
-  link: /docs/user_guide/data/distribution/export_braze_data/message_archiving/
+  link: /docs/user_guide/data/distribution/export_braze_data/message_archiving
   image: /assets/img/braze_icons/clock-rewind.svg
 - name: 기본 및 최소 SDK 데이터 수집
-  link: /docs/user_guide/data/unification/user_data/sdk_data_collection/
+  link: /docs/user_guide/data/unification/user_data/sdk_data_collection
   image: /assets/img/braze_icons/settings-01.svg
 - name: Canvas 오디언스 동기화 데이터 프라이버시 고려 사항
-  link: /docs/partners/canvas_audience_sync/overview/#data-privacy-considerations
+  link: /docs/partners/canvas_audience_sync/overview#data-privacy-considerations
   image: /assets/img/braze_icons/fingerprint-03.svg
 - name: Braze 데이터 보존
-  link: /docs/api/data_retention/
+  link: /docs/api/data_retention
   image: /assets/img/braze_icons/database-01.svg
 - name: 사용자 아카이브
-  link: /docs/user_archival/
+  link: /docs/user_archival
   image: /assets/img/braze_icons/users-01.svg
 - name: 사용자 PII 액세스
-  link: https://www.braze.com/docs/user_guide/administer/global/admin_settings/security_settings#view-pii
+  link: /docs/user_guide/administer/global/admin_settings/security_settings#view-pii
   image: /assets/img/braze_icons/eye.svg
 - name: 추가 개인정보 보호 리소스
   link: https://www.braze.com/resources/search?section%5B%5D=articles&q=privacy
@@ -88,7 +88,7 @@ guide_menu_list:
   link: https://www.braze.com/company/legal/aup
   image: /assets/img/braze_icons/thumbs-up.svg
 - name: 혁신 선언문
-  link: /docs/developer_guide/disclosures/innovation_statement/
+  link: /docs/developer_guide/disclosures/innovation_statement
   image: /assets/img/braze_icons/lightbulb-05.svg
 - name: 데이터 프라이버시 프레임워크 고지
   link: https://www.braze.com/company/legal/data-privacy-framework-notice
@@ -100,7 +100,7 @@ guide_menu_list2:
   link: https://www.braze.com/company/legal/security-schedule
   image: /assets/img/braze_icons/lock-01.svg
 - name: Braze 보안 인증
-  link: /docs/developer_guide/disclosures/security_qualifications/
+  link: /docs/developer_guide/disclosures/security_qualifications
   image: /assets/img/braze_icons/lock-01.svg
 
 ---

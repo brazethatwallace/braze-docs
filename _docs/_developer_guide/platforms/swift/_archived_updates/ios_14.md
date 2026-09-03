@@ -13,10 +13,10 @@ noindex: true
 > This guide describes Braze-related changes introduced in iOS 14 and the required upgrade steps for your Braze iOS SDK integration. For a complete list of new iOS 14 updates, see Apple's [iOS 14 Page](https://www.apple.com/ios/ios-14/).
 
 {% alert tip %}
-As of iOS 14.5, **IDFA** collection and [certain data sharing](https://developer.apple.com/app-store/user-privacy-and-data-use/#permission-to-track) will require the new [AppTrackingTransparency](https://developer.apple.com/documentation/apptrackingtransparency) Framework permission prompt ([Learn More](#idfa)).
+As of iOS 14.5, **IDFA** collection and [certain data sharing](https://developer.apple.com/app-store/user-privacy-and-data-use/#permission-to-track) will require the new [AppTrackingTransparency](https://developer.apple.com/documentation/apptrackingtransparency) Framework permission prompt ([Learn more about IDFA](#idfa)).
 {% endalert %}
 
-#### Summary of iOS 14 breaking changes
+## Summary of iOS 14 breaking changes
 
 - Apps targeting iOS 14 / Xcode 12 must use our [official iOS 14 release](https://github.com/Appboy/appboy-ios-sdk/releases/tag/3.27.0).
 - Geofences are [no longer supported by iOS](https://developer.apple.com/documentation/corelocation/cllocationmanager/3600215-accuracyauthorization) for users who choose the new  _approximate location_ permission.
@@ -95,7 +95,7 @@ These IDFA updates will take effect after end-users upgrade their device to iOS 
 
 3. If you use the "Ad Tracking Enabled" field for campaign targeting or analytics, you will need to upgrade to Xcode 12 and use the new AppTrackingTransparency framework to report your users' opt-in status. The reason for this change is that in iOS 14, the old [`advertisingTrackingEnabled`](https://developer.apple.com/documentation/adsupport/asidentifiermanager/1614148-advertisingtrackingenabled) field will always return No.
 
-4. If your app has used IDFA or IDFV as your Braze external ID, we strongly recommend migrating away from these identifiers in favor of a UUID. For more information on migrating external IDs, see our [External ID migration API endpoints]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/).
+4. If your app has used IDFA or IDFV as your Braze external ID, we strongly recommend migrating away from these identifiers in favor of a UUID. For more information on migrating external IDs, see our [External ID migration API endpoints]({{site.baseurl}}/api/endpoints/user_data/external_id_migration).
 
 Read more from Apple about their [Privacy Updates](https://developer.apple.com/app-store/user-privacy-and-data-use/) and the new [App Tracking Transparency framework](https://developer.apple.com/documentation/apptrackingtransparency).
 

@@ -16,11 +16,11 @@ search_rank: 2
 
 Para ativar a coleta de localização no seu app, consulte o guia do desenvolvedor para a plataforma que você está usando:
 
-- [iOS]({{site.baseurl}}/developer_guide/analytics/tracking_location/?sdktab=swift)
-- [Android]({{site.baseurl}}/developer_guide/analytics/tracking_location/?sdktab=android)
-- [Web]({{site.baseurl}}/developer_guide/analytics/tracking_location/?sdktab=web)
+- [iOS]({{site.baseurl}}/developer_guide/analytics/tracking_location?sdktab=swift)
+- [Android]({{site.baseurl}}/developer_guide/analytics/tracking_location?sdktab=android)
+- [Web]({{site.baseurl}}/developer_guide/analytics/tracking_location?sdktab=web)
 
-De modo geral, apps móveis usam o chip GPS do dispositivo e outros sistemas (como escaneamento de Wi-Fi) para rastrear a localização do usuário. Apps web usam WPS (Wi-Fi Positioning System) para rastrear a localização do usuário. Todas essas plataformas exigem que os usuários façam opt-in no monitoramento de localização. A precisão dos seus dados de monitoramento de localização pode ser afetada dependendo de o usuário ter ou não o Wi-Fi ativado no dispositivo. Usuários Android também podem escolher diferentes modos de localização — usuários que estão no modo "Economia de bateria" ou "Somente dispositivo" podem ter dados imprecisos.
+De modo geral, apps móveis usam o chip GPS do dispositivo e outros sistemas (como escaneamento de Wi-Fi) para rastrear a localização do usuário. Apps web usam WPS (Wi-Fi Positioning System) para rastrear a localização do usuário. Todas essas plataformas exigem que os usuários façam aceitação do monitoramento de localização. A precisão dos seus dados de monitoramento de localização pode ser afetada dependendo de o usuário ter ou não o Wi-Fi ativado no dispositivo. Usuários Android também podem escolher diferentes modos de localização — usuários que estão no modo "Economia de bateria" ou "Somente dispositivo" podem ter dados imprecisos.
 
 ### Localização do usuário no SDK por endereço IP {#sdk-user-location-by-ip-address}
 
@@ -34,17 +34,17 @@ Agora, a Braze usa o endereço IP para definir o valor do país nos perfis de us
 
 Quando ativada, a coleta automática de localização no SDK é separada do comportamento de país baseado em IP. Ela se refere a sinais de localização do dispositivo, como GPS, quando o usuário concedeu permissão, e alimenta filtros como `Most Recent Location`. Ela não preenche automaticamente campos detalhados, como cidade, apenas a partir do IP.
 
-Para direcionamento por cidade ou código postal, use [`setLastKnownLocation()`]({{site.baseurl}}/developer_guide/analytics/tracking_location/) (consulte o artigo do SDK para a sua plataforma), seu próprio serviço de geolocalização por IP gravando atributos personalizados ou [Direcionamento por localização]({{site.baseurl}}/user_guide/audience/segments/location_targeting/) com os dados que você coletar.
+Para direcionamento por cidade ou código postal, use [`setLastKnownLocation()`]({{site.baseurl}}/developer_guide/analytics/tracking_location) (consulte o artigo do SDK para a sua plataforma), seu próprio serviço de geolocalização por IP gravando atributos personalizados ou [Direcionamento por localização]({{site.baseurl}}/user_guide/audience/segments/location_targeting) com os dados que você coletar.
 
 ## Direcionamento por localização {#location-targeting}
 
 Usando dados de monitoramento de localização e segmentos, você pode configurar campanhas e estratégias baseadas em localização. Por exemplo, você pode querer executar uma campanha promocional para usuários que moram em uma região específica ou excluir usuários em uma região que possui regulamentações mais rígidas.
 
-Consulte [Direcionamento por localização]({{site.baseurl}}/user_guide/audience/segments/location_targeting/) para mais informações sobre como criar um segmento de localização.
+Consulte [Direcionamento por localização]({{site.baseurl}}/user_guide/audience/segments/location_targeting) para mais informações sobre como criar um segmento de localização.
 
 ## Definição fixa do atributo de localização padrão {#hard-setting-the-default-location-attribute}
 
-Você também pode usar o [endpoint `users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) na nossa API para atualizar o atributo padrão [`current_location`]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens). Um exemplo:
+Você também pode usar o [endpoint `users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) na nossa API para atualizar o atributo padrão [`current_location`]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields). Um exemplo:
 
 ```
 https://[your_braze_rest_endpoint]/users/track
@@ -62,11 +62,11 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ## Suporte de parceiros para beacons e geofences {#partnership-support-for-beacon-and-geofence}
 
-Combinar o suporte existente a beacons ou geofences com nossos recursos de direcionamento e envio de mensagens fornece mais informações sobre as ações físicas dos seus usuários, permitindo que você envie mensagens de acordo. Você pode aproveitar o monitoramento de localização com alguns dos nossos parceiros:
+Combinar o suporte existente a beacons ou geofences com nossos recursos de direcionamento e envio de mensagens fornece mais informações sobre as ações físicas dos seus usuários, permitindo que você envie mensagens de acordo. Você pode alavancar o monitoramento de localização com alguns dos nossos parceiros:
 
-- [Radar]({{site.baseurl}}/partners/message_personalization/location/radar/)
-- [Infillion]({{site.baseurl}}/partners/message_personalization/location/infillion/)
-- [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare/)
+- [Radar]({{site.baseurl}}/partners/message_personalization/location/radar)
+- [Infillion]({{site.baseurl}}/partners/message_personalization/location/infillion)
+- [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare)
 
 ## Diferenças entre geofences e monitoramento de localização {#differences-between-geofences-and-location-tracking}
 
@@ -105,7 +105,7 @@ Se nenhum usuário tiver localização disponível, duas verificações rápidas
 
 Confirme que seu app está coletando dados de localização:
 
-- Para iOS, isso significa que os usuários fazem opt-in para compartilhar seus dados de localização por meio de um prompt em algum momento da jornada do usuário.
+- Para iOS, isso significa que os usuários fazem aceitação para compartilhar seus dados de localização por meio de um prompt em algum momento da jornada do usuário.
 - Para Android, confirme que seu app solicita permissões de localização precisa ou aproximada na instalação.
 
 Para verificar se os dados de localização do usuário estão sendo enviados para a Braze, use o filtro **Location Available**. Esse filtro permite ver a porcentagem de usuários com uma "localização mais recente".

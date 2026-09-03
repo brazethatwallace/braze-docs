@@ -24,13 +24,13 @@ Users
 
 Inicialmente, quando um perfil de usuário é reconhecido via SDK, a Braze cria um perfil de usuário anônimo com um `braze_id` associado: um identificador de usuário único definido pela Braze.
 
-Para acompanhar melhor os usuários anônimos, você pode implementar [aliases de usuário]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/#user-aliases), que permitem marcar usuários anônimos com um identificador. Esses usuários podem então ser exportados usando seus aliases ou referenciados pela API.
+Para acompanhar melhor os usuários anônimos, você pode implementar [aliases de usuário]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#user-aliases), que permitem marcar usuários anônimos com um identificador. Esses usuários podem então ser exportados usando seus aliases ou referenciados pela API.
 
 Se um perfil de usuário anônimo com um alias for posteriormente reconhecido com um `external_id`, ele será tratado como um perfil de usuário identificado normal, mas manterá seu alias existente e ainda poderá ser referenciado por esse alias.
 
-Para usuários de alias que você deseja mesclar com usuários identificados, você pode mesclar quaisquer campos pertinentes ao perfil real que deseja manter. Você precisaria exportar esses dados antes de excluí-los do perfil de alias usando nosso [endpoint Exportar perfil de usuário por identificador]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/). Em seguida, você pode usar nosso [endpoint de rastreamento de usuários]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) para publicar esses eventos no perfil que você manteve. Isso preservará quaisquer dados que você queira manter, como atributos que foram previamente registrados em um perfil, mas não no outro.
+Para usuários de alias que você deseja mesclar com usuários identificados, você pode mesclar quaisquer campos pertinentes ao perfil real que deseja manter. Você precisaria exportar esses dados antes de excluí-los do perfil de alias usando nosso [endpoint Exportar perfil de usuário por identificador]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier). Em seguida, você pode usar nosso [endpoint de rastreamento de usuários]({{site.baseurl}}/api/endpoints/user_data/post_user_track) para publicar esses eventos no perfil que você manteve. Isso preservará quaisquer dados que você queira manter, como atributos que foram previamente registrados em um perfil, mas não no outro.
 
-Para uma análise completa dos diferentes métodos de coleta de dados de usuários novos e existentes na Braze, confira as [melhores práticas de coleta de dados]({{site.baseurl}}/user_guide/data/unification/user_data/best_practices/).
+Para uma análise completa dos diferentes métodos de coleta de dados de usuários novos e existentes na Braze, confira as [melhores práticas de coleta de dados]({{site.baseurl}}/user_guide/data/unification/user_data/best_practices).
 
 {% endapi %}
 {% api %}
@@ -47,17 +47,17 @@ Para importar usuários previamente identificados, você pode fazer upload de um
 
 Você pode fazer upload e atualizar perfis de usuários via arquivos CSV em **Público** > **Importar usuários**. Ao importar seus dados de cliente, você precisará especificar o identificador único de cada cliente, também conhecido como `external_id`.
 
-Antes de iniciar sua importação de CSV, é importante entender com sua equipe de engenharia como os usuários serão identificados na Braze. Normalmente, isso seria um ID de banco de dados usado internamente. Isso deve estar alinhado com a forma como os usuários serão identificados pelo SDK da Braze em dispositivos móveis e web, para que cada cliente tenha um único perfil de usuário na Braze em todos os seus dispositivos. Saiba mais sobre o [ciclo de vida do perfil de usuário]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/) da Braze.
+Antes de iniciar sua importação de CSV, é importante entender com sua equipe de engenharia como os usuários serão identificados na Braze. Normalmente, isso seria um ID de banco de dados usado internamente. Isso deve estar alinhado com a forma como os usuários serão identificados pelo SDK da Braze em dispositivos móveis e web, para que cada cliente tenha um único perfil de usuário na Braze em todos os seus dispositivos. Saiba mais sobre o [ciclo de vida do perfil de usuário]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle) da Braze.
 
 Quando você fornece um `external_id` na sua importação, a Braze atualizará qualquer usuário existente com o mesmo `external_id` ou criará um novo usuário identificado com esse `external_id` definido, caso nenhum seja encontrado.
 
-Para saber mais e baixar modelos de importação de CSV, consulte [importação de usuário]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#csv).
+Para saber mais e baixar modelos de importação de CSV, consulte [importação de usuário]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv).
 
 #### API
 
-Para fazer upload de usuários via API, você pode usar nosso [endpoint de rastreamento de usuários]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) para importá-los para a Braze.
+Para fazer upload de usuários via API, você pode usar nosso [endpoint de rastreamento de usuários]({{site.baseurl}}/api/endpoints/user_data/post_user_track) para importá-los para a Braze.
 
-Se você não tiver certeza se o usuário já existe na Braze, pode implementar nosso [endpoint Exportar perfil de usuário por identificador]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/) para verificar. Se você identificar que o usuário já existe na Braze, pode usar nosso endpoint `/users/track` para publicar os novos dados que deseja adicionar ao perfil de usuário já existente na Braze.
+Se você não tiver certeza se o usuário já existe na Braze, pode implementar nosso [endpoint Exportar perfil de usuário por identificador]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) para verificar. Se você identificar que o usuário já existe na Braze, pode usar nosso endpoint `/users/track` para publicar os novos dados que deseja adicionar ao perfil de usuário já existente na Braze.
 
 {% alert note %}
 Tenha em mente as seguintes nuances ao usar o endpoint `/users/track`:
@@ -129,7 +129,7 @@ O painel **Importar CSV** contém instruções de importação e um botão para 
 
 Selecione **Importar usuários neste CSV e também possibilitar redirecionar este lote específico de usuários como um grupo**, e então selecione **Gerar automaticamente um segmento dos usuários que são importados deste CSV**. Depois que você clicar em **Iniciar importação**, a Braze fará upload do seu arquivo, verificará os cabeçalhos das colunas e os tipos de dados de cada coluna, e criará um segmento.
 
-Para baixar um modelo de CSV, consulte [importação de usuário]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#csv).
+Para baixar um modelo de CSV, consulte [importação de usuário]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv).
 
 {% endapi %}
 {% api %}
@@ -140,7 +140,7 @@ Para baixar um modelo de CSV, consulte [importação de usuário]({{site.baseurl
 Segments
 {% endapitags %}
 
-O SDK da Braze fornece um arsenal poderoso de filtros para segmentar e direcionar seus usuários com base em recursos e atributos específicos. Você pode usar o glossário de [Filtros de segmentação]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/) para pesquisar ou restringir esses filtros por Categoria de Filtro (Dados personalizados, Atividade do usuário, Redirecionamento, Atividade de marketing, Atributos do usuário, Atribuição da instalação, Atividade social, Testes, Outros).
+O SDK da Braze fornece um arsenal poderoso de filtros para segmentar e direcionar seus usuários com base em recursos e atributos específicos. Você pode usar o glossário de [Filtros de segmentação]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) para pesquisar ou restringir esses filtros por Categoria de Filtro (Dados personalizados, Atividade do usuário, Redirecionamento, Atividade de marketing, Atributos do usuário, Atribuição da instalação, Atividade social, Testes, Outros).
 
 {% endapi %}
 {% api %}
@@ -159,7 +159,7 @@ Depois de criar seu segmento, adicione um filtro `Most Recent Location` para seg
 - Para regiões poligonais, você pode designar mais especificamente quais áreas deseja incluir em seu segmento.
 
 {% alert tip %}
-Quer aproveitar o direcionamento por local com a ajuda de um parceiro da Braze? Confira nossos [parceiros de localização contextual]({{site.baseurl}}/partners/message_personalization/) disponíveis.
+Quer aproveitar o direcionamento por local com a ajuda de um parceiro da Braze? Confira nossos [parceiros de localização contextual]({{site.baseurl}}/partners/message_personalization) disponíveis.
 {% endalert %}
 
 {% endapi %}
@@ -171,7 +171,7 @@ Quer aproveitar o direcionamento por local com a ajuda de um parceiro da Braze? 
 Segments
 {% endapitags %}
 
-Você pode usar [extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)! As extensões de segmento permitem que você segmente uma lista mais precisa de usuários do que seria possível com um segmento regular.
+Você pode usar [extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension)! As extensões de segmento permitem que você segmente uma lista mais precisa de usuários do que seria possível com um segmento regular.
 
 Você pode criar até 10 extensões de segmento por espaço de trabalho. Depois que essas listas de extensões são geradas, elas podem ser incluídas ou excluídas como um filtro em seus segmentos. Ao criar uma extensão de segmento, você também pode especificar que a lista seja regenerada uma vez a cada 24 horas.
 
@@ -184,7 +184,7 @@ Você pode criar até 10 extensões de segmento por espaço de trabalho. Depois 
 
 Para aumentar a precisão do direcionamento, você pode selecionar **Adicionar filtros de propriedade** e segmentar com base nas propriedades específicas da sua compra ou evento personalizado. A Braze suporta segmentação de propriedades de eventos com base em string, numéricos, booleanos e objetos de tempo.
 
-Também suportamos segmentação com base em [propriedades de eventos aninhados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects/).
+Também suportamos segmentação com base em [propriedades de eventos aninhados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects).
 
 As extensões de segmento dependem do armazenamento de longo prazo das propriedades de eventos e não têm o limite de armazenamento de propriedades de eventos personalizados de 30 dias. Isso significa que você pode consultar propriedades de eventos rastreadas no último ano, e o rastreamento não espera até que a extensão tenha sido configurada primeiro.
 
@@ -218,7 +218,7 @@ Por fim, depois de criar uma extensão, você pode usá-la como um filtro ao cri
 Campaigns
 {% endapitags %}
 
-Consulte [Campaigns multicanal]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-campaigns) em **Criar uma Campaign** para ver as etapas de configuração, canais suportados e como alternar entre criadores.
+Consulte [Campaigns multicanal]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#create-a-multichannel-campaign) em **Criar uma Campaign** para ver as etapas de configuração, canais suportados e como alternar entre criadores.
 
 {% endapi %}
 {% api %}
@@ -229,7 +229,7 @@ Consulte [Campaigns multicanal]({{site.baseurl}}/user_guide/messaging/campaigns/
 Campaigns
 {% endapitags %}
 
-Criar Campaigns multivariantes e executar Canvas com várias variantes é uma ótima maneira de começar! Por exemplo, você pode executar uma [Campaign multivariante]({{site.baseurl}}/user_guide/messaging/ab_testing/) para testar uma mensagem com diferentes textos ou linhas de assunto. Canvas com várias variantes são úteis para testar fluxos de trabalho inteiros.
+Criar Campaigns multivariantes e executar Canvas com várias variantes é uma ótima maneira de começar! Por exemplo, você pode executar uma [Campaign multivariante]({{site.baseurl}}/user_guide/messaging/ab_testing) para testar uma mensagem com diferentes textos ou linhas de assunto. Canvas com várias variantes são úteis para testar fluxos de trabalho inteiros.
 
 {% endapi %}
 {% api %}
@@ -268,7 +268,7 @@ Campaigns
 
 A Braze determinará automaticamente o fuso horário de um usuário a partir do seu dispositivo. Isso é projetado para garantir a precisão do fuso horário e a cobertura total dos seus usuários. Os usuários criados pela API de Usuário ou de outra forma sem um fuso horário terão o fuso horário da sua empresa como padrão até serem reconhecidos no seu app pelo SDK.
 
-Você pode verificar o fuso horário da sua empresa nas [configurações da empresa]({{site.baseurl}}/user_guide/administer/global/admin_settings/).
+Você pode verificar o fuso horário da sua empresa nas [configurações da empresa]({{site.baseurl}}/user_guide/administer/global/admin_settings).
 
 {% endapi %}
 {% api %}
@@ -382,7 +382,7 @@ Para que um usuário seja elegível para entrada, ele deve ser elegível em amba
 
 Para entrar, o usuário precisa corresponder ao seu público e filtros em ambos os momentos de avaliação. Se o usuário não for elegível na primeira verificação, a Braze não executará a segunda verificação. Não há um tempo mínimo que o usuário precise estar no segmento antes do lançamento — apenas a elegibilidade em cada verificação importa.
 
-Esse comportamento de avaliação é separado de [com quanta antecedência você agenda a Campaign no dashboard]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#how-do-i-schedule-a-local-time-zone-campaign). Para a explicação completa, exemplos e orientações de agendamento, consulte [Quando a Braze avalia os usuários para a entrega no fuso local?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#when-does-braze-evaluate-users-for-local-time-zone-delivery) e [Como faço para agendar uma Campaign no fuso local?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#how-do-i-schedule-a-local-time-zone-campaign) nas perguntas frequentes de Campaigns.
+Esse comportamento de avaliação é separado de [com quanta antecedência você agenda a Campaign no dashboard]({{site.baseurl}}/user_guide/messaging/campaigns/faq#how-do-i-schedule-a-local-time-zone-campaign). Para a explicação completa, exemplos e orientações de agendamento, consulte [Quando a Braze avalia os usuários para a entrega no fuso local?]({{site.baseurl}}/user_guide/messaging/campaigns/faq#when-does-braze-evaluate-users-for-local-time-zone-delivery) e [Como faço para agendar uma Campaign no fuso local?]({{site.baseurl}}/user_guide/messaging/campaigns/faq#how-do-i-schedule-a-local-time-zone-campaign) nas perguntas frequentes de Campaigns.
 
 {% endapi %}
 {% api %}
@@ -393,7 +393,7 @@ Esse comportamento de avaliação é separado de [com quanta antecedência você
 Campaigns
 {% endapitags %}
 
-O número de usuários que entram em uma Campaign pode diferir do número esperado por causa de como os públicos e gatilhos são avaliados. Na Braze, um público é avaliado antes do gatilho (a menos que se use um [gatilho de alteração de atributo]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value)). Isso fará com que os usuários saiam da Campaign se não fizerem parte do público selecionado antes que quaisquer ações de gatilho sejam avaliadas.
+O número de usuários que entram em uma Campaign pode diferir do número esperado por causa de como os públicos e gatilhos são avaliados. Na Braze, um público é avaliado antes do gatilho (a menos que se use um [gatilho de alteração de atributo]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers#change-custom-attribute-value)). Isso fará com que os usuários saiam da Campaign se não fizerem parte do público selecionado antes que quaisquer ações de gatilho sejam avaliadas.
 
 {% endapi %}
 {% api %}
@@ -408,7 +408,7 @@ Canvases
 
 Enfileiramos um job para cada etapa — eles são executados aproximadamente ao mesmo tempo, e um deles "vence". Na prática, isso pode ser distribuído de forma relativamente uniforme, mas é provável que haja pelo menos uma leve tendência para a etapa que foi criada primeiro.
 
-Além disso, não podemos garantir exatamente como será essa distribuição. Se você quiser garantir uma divisão uniforme, adicione um filtro de [número de bucket aleatório]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/).
+Além disso, não podemos garantir exatamente como será essa distribuição. Se você quiser garantir uma divisão uniforme, adicione um filtro de [número de bucket aleatório]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers).
 
 {% endapi %}
 {% api %}
@@ -440,7 +440,7 @@ Canvases
 
 Eventos de exceção só são disparados enquanto o usuário está esperando para receber o componente do Canvas ao qual estão associados. Se um usuário realizar uma ação antecipadamente, o evento de exceção não será disparado.
 
-Se você quiser excluir usuários que realizaram um determinado evento antecipadamente, use [filtros]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/) em vez disso.
+Se você quiser excluir usuários que realizaram um determinado evento antecipadamente, use [filtros]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) em vez disso.
 
 {% endapi %}
 {% api %}
@@ -453,7 +453,7 @@ Canvases
 
 Se você editar algumas das etapas de um Canvas de várias etapas, os usuários que já estavam no público mas ainda não receberam as etapas receberão a versão atualizada da mensagem. Observe que isso só acontecerá se eles ainda não tiverem sido avaliados para a etapa.
 
-Para saber mais sobre o que você pode ou não editar após o lançamento, confira [Alterando seu Canvas após o lançamento]({{site.baseurl}}/post-launch_edits/).
+Para saber mais sobre o que você pode ou não editar após o lançamento, confira [Alterando seu Canvas após o lançamento]({{site.baseurl}}/post-launch_edits).
 
 {% endapi %}
 {% api %}
@@ -517,7 +517,7 @@ O segmentador é uma estatística mais precisa para dados de usuários únicos e
 Canvases
 {% endapitags %}
 
-O número de usuários que entram em um Canvas pode diferir do número esperado devido à forma como os públicos e gatilhos são avaliados. Na Braze, um público é avaliado antes do gatilho (a menos que se use um gatilho de [alteração de atributo]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value)). Isso fará com que os usuários saiam do Canvas se não fizerem parte do público selecionado antes que quaisquer ações de gatilho sejam avaliadas.
+O número de usuários que entram em um Canvas pode diferir do número esperado devido à forma como os públicos e gatilhos são avaliados. Na Braze, um público é avaliado antes do gatilho (a menos que se use um gatilho de [alteração de atributo]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers#change-custom-attribute-value)). Isso fará com que os usuários saiam do Canvas se não fizerem parte do público selecionado antes que quaisquer ações de gatilho sejam avaliadas.
 
 {% endapi %}
 {% api %}
@@ -530,7 +530,7 @@ O número de usuários que entram em um Canvas pode diferir do número esperado 
 Analytics
 {% endapitags %}
 
-Dependendo do canal, a Braze mede uma variedade de métricas para permitir que você determine o sucesso de uma Campaign e planeje as futuras. Você pode encontrar uma lista completa em nosso [glossário de métricas de relatório]({{site.baseurl}}/user_guide/analytics/metrics_glossary/).
+Dependendo do canal, a Braze mede uma variedade de métricas para permitir que você determine o sucesso de uma Campaign e planeje as futuras. Você pode encontrar uma lista completa em nosso [glossário de métricas de relatório]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
 
 {% endapi %}
 {% api %}
@@ -543,7 +543,7 @@ Analytics
 
 Na página **Receita**, você pode visualizar dados sobre receita ou compras em períodos específicos, para um produto específico, ou a receita ou compras totais do seu app. Esses números de receita são gerados a partir das compras feitas pelos destinatários da Campaign dentro de um determinado período de conversão.
 
-Dito isso, é importante notar que a Braze é uma ferramenta de marketing e não uma ferramenta de gestão de receita. Nosso [objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object/) não suporta reembolsos e cancelamentos, então você pode ver discrepâncias ao comparar dados com outras ferramentas.
+Dito isso, é importante notar que a Braze é uma ferramenta de marketing e não uma ferramenta de gestão de receita. Nosso [objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object) não suporta reembolsos e cancelamentos, então você pode ver discrepâncias ao comparar dados com outras ferramentas.
 
 {% endapi %}
 {% api %}
@@ -556,7 +556,7 @@ Analytics
 
 Nossa ferramenta Currents transmite continuamente tanto dados de engajamento de mensagens quanto dados de comportamento do cliente para um dos nossos muitos parceiros de dados, capacitando você a usar os dados únicos e valiosos que a Braze cria para impulsionar seus esforços de business intelligence e análise de dados em outros parceiros de excelência.
 
-Esses dados vão além das métricas de engajamento de mensagens e também podem incluir números mais complexos, como desempenho de atributos personalizados e eventos. Para mais detalhes, consulte nosso [glossário de eventos do Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/).
+Esses dados vão além das métricas de engajamento de mensagens e também podem incluir números mais complexos, como desempenho de atributos personalizados e eventos. Para mais detalhes, consulte nosso [glossário de eventos do Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events).
 
 {% endapi %}
 {% api %}
@@ -571,28 +571,28 @@ Para agendar um relatório de engajamento recorrente, faça o seguinte:
 
 1. No seu dashboard, navegue até **Relatórios de engajamento**, em **Data**.
 2. Clique em **+ Criar novo relatório**.
-3. Adicione as [Campaigns e mensagens de Canvas]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#manually-select-campaigns-or-canvases) (individualmente ou [por tag]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#automatically-select-campaigns-or-canvases)) que você gostaria de compilar no seu relatório.
-4. [Adicione estatísticas]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#add-statistics-to-your-report) ao seu relatório.
+3. Adicione as [Campaigns e mensagens de Canvas]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#manually-select-campaigns-or-canvases) (individualmente ou [por tag]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#automatically-select-campaigns-or-canvases)) que você gostaria de compilar no seu relatório.
+4. [Adicione estatísticas]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#add-statistics-to-your-reports) ao seu relatório.
 5. Selecione a compressão e o delimitador para o seu relatório.
 6. Insira os endereços de e-mail dos usuários da empresa que devem receber este relatório.
-7. Selecione o [período de tempo]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#time-frame) a partir do qual você gostaria que seu relatório processasse os dados.
-8. Selecione os [intervalos (diários, semanais, etc.)]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#data-display) nos quais gostaria de ver a divisão dos seus dados.
-9. Agende seu relatório para [enviar imediatamente]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#send-immediately) ou em um [momento futuro especificado]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#send-at-designated-time).
+7. Selecione o [período de tempo]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#select-time-frame) a partir do qual você gostaria que seu relatório processasse os dados.
+8. Selecione os [intervalos (diários, semanais, etc.)]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#select-data-display) nos quais gostaria de ver a divisão dos seus dados.
+9. Agende seu relatório para [enviar imediatamente]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#schedule-your-report) ou em um [momento futuro especificado]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#schedule-your-report).
 10. Execute o relatório e abra-o no seu e-mail quando ele chegar!
 
 {% endapi %}
 {% api %}
 
-### Qual é a diferença entre Relatórios de engajamento e o Criador de relatórios? {#whats-the-difference-between-engagement-reports-and-the-report-builder}
+### Qual é a diferença entre relatórios de engajamento e o Criador de relatórios? {#whats-the-difference-between-engagement-reports-and-the-report-builder}
 
 {% apitags %}
 Analytics
 {% endapitags %}
 
-Os Relatórios de engajamento fornecem CSVs de estatísticas de engajamento para mensagens específicas de Campaigns e Canvas via um e-mail disparado. Certos dados são agregados no nível da Campaign ou Canvas, em vez do nível da variante individual ou etapa. Os relatórios não são salvos no dashboard, e reexecutar o relatório pode resultar em estatísticas atualizadas.
+Os relatórios de engajamento fornecem CSVs de estatísticas de engajamento para mensagens específicas de Campaigns e Canvas via um e-mail disparado. Certos dados são agregados no nível da Campaign ou Canvas, em vez do nível da variante individual ou etapa. Os relatórios não são salvos no dashboard, e reexecutar o relatório pode resultar em estatísticas atualizadas.
 
 O Criador de relatórios permite que você compare os resultados de várias Campaigns ou Canvas em uma única visualização, para que você possa determinar facilmente quais estratégias de engajamento mais impactaram suas métricas principais. Para Campaigns e Canvas, você pode exportar seus dados e salvar seu relatório para visualizar no futuro.
 
-Para saber mais sobre os usos de relatórios e análise de dados na Braze, consulte a [visão geral dos relatórios]({{site.baseurl}}/user_guide/analytics/reports/).
+Para saber mais sobre os usos de relatórios e análise de dados na Braze, consulte a [visão geral dos relatórios]({{site.baseurl}}/user_guide/analytics/reports).
 
 {% endapi %}

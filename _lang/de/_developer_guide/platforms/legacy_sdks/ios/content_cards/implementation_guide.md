@@ -14,12 +14,12 @@ noindex: true
 
 <br>
 {% alert important %}
-Suchen Sie nach dem grundlegenden Entwicklerleitfaden zur Integration von Content Cards? Finden Sie ihn [hier]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/content_cards/integration/).
+Suchen Sie nach dem grundlegenden Entwicklerleitfaden zur Integration von Content Cards? Finden Sie ihn im [grundlegenden Entwicklerleitfaden zur Integration von Content Cards]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/content_cards/integration).
 {% endalert %}
 
 # Implementierungsleitfaden für Content Cards {#content-card-implementation-guide}
 
-> Dieser optionale Leitfaden für die erweiterte Implementierung enthält Hinweise zur Code-Anpassung für Content Cards, drei von unserem Team entwickelte Anwendungsfälle, begleitende Code-Snippets sowie eine Anleitung zur Protokollierung von Impressionen, Klicks und Ausblendungen. Besuchen Sie unser Braze Demo Repository [hier](https://github.com/braze-inc/braze-growth-shares-ios-demo-app)! Beachten Sie, dass sich dieser Implementierungsleitfaden auf eine Swift-Implementierung konzentriert, aber für Interessierte auch Objective-C-Snippets bereitgestellt werden.
+> Dieser optionale Leitfaden für die erweiterte Implementierung enthält Hinweise zur Code-Anpassung für Content Cards, drei von unserem Team entwickelte angepasste Anwendungsfälle, begleitende Code-Snippets sowie eine Anleitung zur Protokollierung von Impressionen, Klicks und Ausblendungen. Besuchen Sie unser [Braze Demo Repository auf GitHub](https://github.com/braze-inc/braze-growth-shares-ios-demo-app)! Beachten Sie, dass sich dieser Implementierungsleitfaden auf eine Swift-Implementierung konzentriert, aber für Interessierte auch Objective-C-Snippets bereitgestellt werden.
 
 ## Hinweise zur Code-Anpassung {#code-considerations}
 
@@ -126,7 +126,7 @@ Ein `ContentCardData`-Objekt, das die `ABKContentCard`-Daten zusammen mit einem 
 {% subtabs global %}
 {% subtab Swift %}
 **Angepasster Objekt-Initialisierer**<br>
-Die Metadaten von `ABKContentCard` werden verwendet, um die Variablen Ihres Objekts zu füllen. Die im Braze-Dashboard eingerichteten Schlüssel-Wert-Paare sind im Wörterbuch „extras“ dargestellt.
+Die Metadaten einer `ABKContentCard` werden verwendet, um die Variablen Ihres Objekts zu füllen. Die im Braze-Dashboard eingerichteten Schlüssel-Wert-Paare sind im Wörterbuch „extras“ dargestellt.
 
 ```swift
 extension CustomObject: ContentCardable {
@@ -171,7 +171,7 @@ enum ContentCardClassType: Hashable {
 {% endsubtab %}
 {% subtab Objective-C %}
 **Angepasster Objekt-Initialisierer**<br>
-Die Metadaten von `ABKContentCard` werden verwendet, um die Variablen Ihres Objekts zu füllen. Die im Braze-Dashboard eingerichteten Schlüssel-Wert-Paare sind im Wörterbuch „extras“ dargestellt.
+Die Metadaten einer `ABKContentCard` werden verwendet, um die Variablen Ihres Objekts zu füllen. Die im Braze-Dashboard eingerichteten Schlüssel-Wert-Paare sind im Wörterbuch „extras“ dargestellt.
 
 
 ```objc
@@ -434,11 +434,11 @@ Im Folgenden finden Sie drei Anwendungsfälle. Jeder Anwendungsfall enthält ein
 
 ### Content Cards als zusätzlicher Inhalt {#content-cards-as-supplemental-content}
 
-![]({% image_buster /assets/img/cc_implementation/supplementary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0;"}
+![Feed mit einer hybriden Liste, die lokale Daten und Braze Content Cards kombiniert.]({% image_buster /assets/img/cc_implementation/supplementary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0;"}
 
 Sie können Content Cards nahtlos in einen bestehenden Feed einfügen, sodass Daten aus mehreren Feeds gleichzeitig geladen werden können. Dadurch entsteht ein zusammenhängendes, harmonisches Erlebnis mit Braze Content Cards und vorhandenen Feed-Inhalten.
 
-Das Beispiel auf der rechten Seite zeigt eine `UICollectionView` mit einer hybriden Liste von Artikeln, die über lokale Daten und von Braze bereitgestellte Content Cards gefüllt werden. Auf diese Weise können Content Cards nicht von bestehenden Inhalten unterschieden werden.
+Das Beispiel zeigt eine `UICollectionView` mit einer hybriden Liste von Artikeln, die über lokale Daten und von Braze bereitgestellte Content Cards gefüllt werden. Auf diese Weise können Content Cards nicht von bestehenden Inhalten unterschieden werden.
 
 #### Dashboard-Konfiguration {#dashboard-configuration}
 
@@ -453,9 +453,9 @@ Im [folgenden Abschnitt](#logging-impressions-clicks-and-dismissals) wird näher
 <br>
 Content Cards können in einem Nachrichtenzentrale-Format verwendet werden, bei dem jede Nachricht eine eigene Karte ist. Jede Nachricht in der Nachrichtenzentrale wird über eine Content-Card-Payload gefüllt, und jede Karte enthält zusätzliche Schlüssel-Wert-Paare für die On-Click-UI/UX. Im folgenden Beispiel verweist eine Nachricht auf eine beliebige angepasste Ansicht, während eine andere eine Webansicht öffnet, die angepasstes HTML anzeigt.
 
-![]({% image_buster /assets/img/cc_implementation/message_center.png %}){: style="border:0;"}{: style="max-width:80%;border:0"}
+![Content-Card-Nachrichtenzentrale mit einzelnen Nachrichtenkarten.]({% image_buster /assets/img/cc_implementation/message_center.png %}){: style="border:0;"}{: style="max-width:80%;border:0"}
 
-#### Dashboard-Konfiguration {#dashboard-configuration}
+#### Dashboard-Konfiguration
 
 Für die folgenden Nachrichtentypen muss das Schlüssel-Wert-Paar `class_type` zu Ihrer Dashboard-Konfiguration hinzugefügt werden. Die hier zugewiesenen Werte sind willkürlich, sollten aber zwischen den Klassentypen unterscheidbar sein. Diese Schlüssel-Wert-Paare sind die Bezeichner, anhand derer die Anwendung entscheidet, wohin navigiert werden soll, wenn Nutzer:innen auf eine gekürzte Posteingangs-Nachricht klicken.
 
@@ -467,7 +467,7 @@ Die Schlüssel-Wert-Paare für diesen Anwendungsfall umfassen:
 - `message_header` festgelegt als `Full Page`
 - `class_type` festgelegt als `message_full_page`
 
-![]({% image_buster /assets/img/cc_implementation/full_page.png %}){: style="max-width:60%;"}
+![Beispiel einer ganzseitigen Content-Card-Nachricht.]({% image_buster /assets/img/cc_implementation/full_page.png %}){: style="max-width:60%;"}
 
 {% endtab %}
 {% tab Webview message - HTML %}
@@ -480,7 +480,7 @@ Die Schlüssel-Wert-Paare für diesen Anwendungsfall umfassen:
 
 Diese Nachricht sucht ebenfalls nach einem HTML-Schlüssel-Wert-Paar, aber wenn Sie mit einer Web-Domain arbeiten, ist auch ein URL-Schlüssel-Wert-Paar gültig.
 
-![]({% image_buster /assets/img/cc_implementation/html_webview.png %}){: style="max-width:60%;"}
+![Content Card, die eine HTML-Webansicht über ein Schlüssel-Wert-Paar öffnet.]({% image_buster /assets/img/cc_implementation/html_webview.png %}){: style="max-width:60%;"}
 
 {% endtab %}
 {% endtabs %}
@@ -526,37 +526,37 @@ Wenn eine Nachricht angeklickt wird, bestimmt `ContentCardClassType`, wie der n�
 {% endtab %}
 {% endtabs %}
 
-##### Bereit für die Protokollierung von Analytics? {#ready-to-log-analytics}
+##### Bereit für die Protokollierung von Analytics?
 Im [folgenden Abschnitt](#logging-impressions-clicks-and-dismissals) wird näher beschrieben, wie der Datenfluss aussehen sollte.
 
 ![Eine interaktive Content Card mit einer 50-Prozent-Rabattaktion erscheint unten links im Bildschirm. Nach dem Klick wird die Aktion auf den Warenkorb angewendet.]({% image_buster /assets/img/cc_implementation/discount2.png %}){: style="border:0;"}{: style="float:right;max-width:45%;border:0;margin-left:15px;"}
 
 ### Interaktive Content Cards {#interactive-content-cards}
 <br>
-Content Cards können genutzt werden, um dynamische und interaktive Erlebnisse für Ihre Nutzer:innen zu schaffen. Im Beispiel auf der rechten Seite erscheint an der Kasse ein Content-Card-Popup, das den Nutzer:innen Last-Minute-Aktionen bietet.
+Content Cards können genutzt werden, um dynamische und interaktive Erlebnisse für Ihre Nutzer:innen zu schaffen. Im Beispiel erscheint an der Kasse ein Content-Card-Popup, das den Nutzer:innen Last-Minute-Aktionen bietet.
 
 Gut platzierte Karten wie diese sind eine großartige Möglichkeit, den Nutzer:innen einen „Anstoß“ zu bestimmten Aktionen zu geben.
 <br><br><br>
-#### Dashboard-Konfiguration {#dashboard-configuration}
+#### Dashboard-Konfiguration
 
 Die Dashboard-Konfiguration für interaktive Content Cards ist unkompliziert. Die Schlüssel-Wert-Paare für diesen Anwendungsfall umfassen einen `discount_percentage`, der als gewünschter Rabattbetrag festgelegt ist, und einen `class_type`, der als `coupon_code` festgelegt ist. Diese Schlüssel-Wert-Paare sorgen dafür, dass typspezifische Content Cards gefiltert und auf dem Checkout-Bildschirm angezeigt werden.
 
-![]({% image_buster /assets/img/cc_implementation/discount.png %}){: style="max-width:70%;"}
+![Interaktive Content Card mit einer Checkout-Aktion.]({% image_buster /assets/img/cc_implementation/discount.png %}){: style="max-width:70%;"}
 
-##### Bereit für die Protokollierung von Analytics? {#ready-to-log-analytics}
+##### Bereit für die Protokollierung von Analytics?
 Im [folgenden Abschnitt](#logging-impressions-clicks-and-dismissals) wird näher beschrieben, wie der Datenfluss aussehen sollte.
 
 ## Dark-Mode-Anpassung {#dark-mode-customization}
 
 Standardmäßig reagieren die Content-Card-Ansichten automatisch auf Änderungen im Dark Mode auf dem Gerät mit einer Reihe von Themenfarben.
 
-Dieses Verhalten kann wie in unserer [Anleitung für angepasste Stile]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/content_cards/customization/custom_styling/#disabling-dark-mode) beschrieben außer Kraft gesetzt werden.
+Dieses Verhalten kann wie in unserer [Anleitung für angepasste Stile]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/content_cards/customization/custom_styling#disabling-dark-mode) beschrieben außer Kraft gesetzt werden.
 
 ## Protokollieren von Impressionen, Klicks und Ausblendungen {#logging-impressions-clicks-and-dismissals}
 
 Nachdem Sie Ihre angepassten Objekte so erweitert haben, dass sie als Content Cards fungieren, können Sie wertvolle Metriken wie Impressionen, Klicks und Ausblendungen schnell protokollieren. Dies kann mit Hilfe eines `ContentCardable`-Protokolls geschehen, das auf eine Hilfsdatei verweist und ihr Daten bereitstellt, die vom Braze SDK erfasst werden.
 
-#### Komponenten der Implementierung<br><br> {#implementation-components}
+### Komponenten der Implementierung<br><br> {#implementation-components}
 
 {% tabs %}
 {% tab Swift %}

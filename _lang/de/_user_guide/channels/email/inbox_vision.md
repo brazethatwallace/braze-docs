@@ -20,38 +20,38 @@ Inbox Vision funktioniert möglicherweise nicht, wenn Ihr E-Mail-Inhalt auf Temp
 
 ## Überlegungen {#considerations}
 
-Im Allgemeinen funktioniert Ihre E-Mail nicht mit Inbox Vision, wenn deren Inhalt auf Template-Informationen basiert, wie beispielsweise Informationen zum Nutzerprofil. Dies liegt daran, dass Braze ein leeres Nutzerprofil als Template verwendet, wenn wir E-Mails mit diesem Feature versenden.
+Im Allgemeinen funktioniert Ihre E-Mail nicht mit Inbox Vision, wenn der E-Mail-Inhalt auf Template-Informationen angewiesen ist, wie z. B. Nutzerprofil-Informationen. Das liegt daran, dass Braze beim Versand von E-Mails über dieses Feature ein leeres Nutzerprofil als Template verwendet.
 
-Sie können dieses Problem beheben, indem Sie Standardwerte oder beliebige Werte zum Liquid in Ihrer E-Mail-Nachricht hinzufügen, bevor Sie Inbox Vision ausführen. Wenn Sie die Prüfung in Inbox Vision abgeschlossen haben, wird die ursprüngliche E-Mail-Nachricht angezeigt. Wenn keine Werte angegeben werden, kann der Test die Vorschauen möglicherweise nicht erfolgreich rendern.
+Sie können dies beheben, indem Sie Standardwerte oder beliebige Werte zum Liquid in Ihrer E-Mail-Nachricht hinzufügen, bevor Sie Inbox Vision ausführen. Wenn Sie die Tests in Inbox Vision abgeschlossen haben, wird die ursprüngliche E-Mail-Nachricht wieder angezeigt. Wenn keine Werte angegeben werden, kann der Test die Vorschauen möglicherweise nicht erfolgreich rendern.
 
-Ihr Unternehmen hat ein Limit für die Anzahl der E-Mails, die Sie mit Inbox Vision in der Vorschau anzeigen können. Sie können dies im Tab **Email Previews** von Inbox Vision überwachen.
+Ihr Unternehmen hat ein Limit für die Anzahl der E-Mails, die Sie mit Inbox Vision in der Vorschau anzeigen können. Sie können dies im Tab **E-Mail-Vorschauen** von Inbox Vision überwachen.
 
-Geben Sie eine Betreffzeile und eine gültige Absender-Domain an, um Vorschauen anzuzeigen. Beachten Sie die Unterschiede beim Rendering zwischen Desktop und Mobilgerät. Nutzen Sie die Vorschauen, um zu bestätigen, dass die E-Mail wie beabsichtigt dargestellt wird.
+Geben Sie eine Betreffzeile und eine gültige Absender-Domain an, um Vorschauen anzuzeigen. Beachten Sie die Unterschiede beim Rendering zwischen Desktop und Mobilgeräten. Nutzen Sie die Vorschauen, um zu bestätigen, dass die E-Mail wie beabsichtigt dargestellt wird.
 
 {% alert note %}
-Wenn bei der Vorschau einer Campaign ein Berechtigungsfehler angezeigt wird, leeren Sie Ihren Cache und Ihre Cookies oder versuchen Sie es in einem Inkognito-Fenster. Browser-Erweiterungen blockieren manchmal die Vorschau.
+Wenn bei der Vorschau einer Campaign ein Berechtigungsfehler angezeigt wird, leeren Sie Ihren Cache und Ihre Cookies oder verwenden Sie ein Inkognito-Fenster. Browser-Erweiterungen blockieren manchmal die Vorschau.
 {% endalert %}
 
 So testen Sie Ihre E-Mail-Nachricht in Inbox Vision:
 
-1. Öffnen Sie Ihren Drag-and-Drop-Editor oder HTML-E-Mail-Editor.
-2. Wählen Sie in Ihrem Editor **Preview & Test** aus.
+1. Gehen Sie zu Ihrem Drag-and-Drop-Editor oder HTML-E-Mail-Editor.
+2. Wählen Sie in Ihrem Editor **Vorschau und Test** aus.
 3. Wählen Sie **Inbox Vision** aus.
-4. Wählen Sie **Run Inbox Vision** aus. Dies kann bis zu zehn Minuten dauern.
+4. Wählen Sie **Inbox Vision ausführen** aus. Dies kann bis zu zehn Minuten dauern.
 5. Wählen Sie anschließend eine Kachel aus, um die Vorschau detaillierter anzuzeigen. Diese Vorschauen sind in folgende Abschnitte gruppiert: **Web Clients**, **Application Clients** und **Mobile Clients**.
 
 ![Die Option zur Auswahl von E-Mail-Clients für die Vorschau.]({% image_buster /assets/img/select_email_preview_inbox_vision.png %}){: style="max-width:85%;"}
 
 {:start="5"}
-5. Wählen Sie **Run Inbox Vision** aus. Dies kann zwischen zwei und zehn Minuten dauern.
+5. Wählen Sie **Inbox Vision ausführen** aus. Dies kann zwischen zwei und zehn Minuten dauern.
 
 {% alert note %}
-Inbox Vision unterstützt keine E-Mail-Nachrichten, die [Abbruchlogik]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/) enthalten, da diese E-Mails als statischer Inhalt gerendert werden.
+Inbox Vision unterstützt keine E-Mail-Nachrichten, die [Abbruchlogik]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) enthalten, da diese E-Mails als statischer Inhalt gerendert werden.
 {% endalert %}
 
 ### Vorschau als Nutzer:in {#previewing-as-a-user}
 
-Wenn Sie eine Vorschau als zufällige:r Nutzer:in anzeigen, speichert Inbox Vision keine nutzerspezifischen Einstellungen oder Attribute (wie Name oder Präferenzen). Wenn Sie eine:n benutzerdefinierte:n Nutzer:in auswählen, kann die Inbox-Vision-Vorschau von anderen Vorschauen abweichen, da sie spezifische Nutzerdaten verwendet.
+Wenn Sie die Vorschau als zufällige:r Nutzer:in anzeigen, speichert Inbox Vision keine nutzerspezifischen Einstellungen oder Attribute (wie Name oder Präferenzen). Wenn Sie eine:n benutzerdefinierte:n Nutzer:in auswählen, kann die Inbox-Vision-Vorschau von anderen Vorschauen abweichen, da sie spezifische Nutzerdaten verwendet.
 
 ## Code-Analyse {#code-analysis}
 
@@ -59,7 +59,7 @@ Die Code-Analyse hebt potenzielle HTML-Probleme hervor, zeigt die Anzahl der Vor
 
 ### Informationen zur Code-Analyse anzeigen {#viewing-code-analysis-information}
 
-Diese Informationen finden Sie im Tab **Inbox Vision**, indem Sie <i class="fas fa-list"></i> **List view** auswählen. Die Listenansicht ist nur für HTML-E-Mail-Templates verfügbar. Für Drag-and-Drop-Templates verwenden Sie stattdessen Vorschauen, um Probleme zu beheben.
+Diese Informationen finden Sie auf dem Tab **Inbox Vision**, indem Sie <i class="fas fa-list"></i> **Listenansicht** auswählen. Die Listenansicht ist nur für HTML-E-Mail-Templates verfügbar. Für Drag-and-Drop-Templates verwenden Sie stattdessen Vorschauen, um Probleme zu beheben.
 
 ![Beispiel einer Code-Analyse in der Inbox-Vision-Vorschau.]({% image_buster /assets/img_archive/inboxvision2.png %})
 
@@ -69,48 +69,48 @@ Die Code-Analyse kann schneller erscheinen als die Vorschau für einen bestimmte
 
 ## Spam-Test {#spam-testing}
 
-Der Spam-Test schätzt, ob E-Mails möglicherweise als Spam gefiltert werden. Tests werden über Filter wie IronPort, SpamAssassin und Barracuda sowie ISP-Filter wie Gmail und Outlook durchgeführt, wobei statische Seed-Postfächer verwendet werden, die standardmäßig keine Öffnungen oder Klicks erzeugen.
+Spam-Tests schätzen ein, ob E-Mails möglicherweise als Spam gefiltert werden. Die Tests werden über Filter wie IronPort, SpamAssassin und Barracuda sowie ISP-Filter wie Gmail und Outlook durchgeführt, wobei statische Seed-Postfächer verwendet werden, die standardmäßig keine E-Mails öffnen oder anklicken.
 
 {% alert important %}
-Die Inbox-Platzierung wird hauptsächlich durch das Live-Engagement der Empfänger:innen bestimmt. Spam-Testergebnisse stimmen möglicherweise nicht mit dem überein, was Sie bei echten Campaigns sehen.
+Die Platzierung im Posteingang wird hauptsächlich durch das Live-Engagement der Empfänger:innen bestimmt. Spam-Test-Ergebnisse stimmen möglicherweise nicht mit dem überein, was Sie bei echten Campaigns sehen.
 {% endalert %}
 
-Für eine aussagekräftigere Einschätzung der Zustellbarkeit testen Sie Inhalte mit kleinen Live-Kohorten – starke Öffnungen und Klicks sind das zuverlässigste Signal. Nutzen Sie Spam-Tests als einen Faktor neben dem Engagement-Monitoring.
+Für eine aussagekräftigere Einschätzung der Zustellbarkeit testen Sie Inhalte mit kleinen Live-Kohorten – starke Öffnungs- und Klickraten sind das zuverlässigste Signal. Nutzen Sie Spam-Tests als einen Faktor neben dem Engagement-Monitoring.
 
-### Spam-Testergebnisse anzeigen {#viewing-spam-test-results}
+### Spam-Test-Ergebnisse anzeigen {#viewing-spam-test-results}
 
-So überprüfen Sie Ihre Spam-Testergebnisse:
+So überprüfen Sie Ihre Spam-Test-Ergebnisse:
 
-1. Wählen Sie den Tab **Spam Testing** im Abschnitt **Inbox Vision** aus. Die Tabelle **Spam Test Result** listet den Namen des Spam-Filters, den Status und den Typ auf.
-2. Überprüfen Sie diese Ergebnisse und nehmen Sie Anpassungen an Ihrer E-Mail-Campaign vor.
-3. Wählen Sie **Re-run Test** aus, um Ihre Spam-Testergebnisse neu zu laden.
+1. Wählen Sie den Tab **Spam Testing** im Bereich **Inbox Vision** aus. Die Tabelle **Spam Test Result** zeigt den Namen des Spam-Filters, den Status und den Typ an.
+2. Überprüfen Sie diese Ergebnisse und nehmen Sie gegebenenfalls Anpassungen an Ihrer E-Mail-Campaign vor.
+3. Wählen Sie **Re-run Test** aus, um Ihre Spam-Test-Ergebnisse neu zu laden.
 
-## Barrierefreiheitstest {#accessibility-testing}
+## Barrierefreiheitstests {#accessibility-testing}
 
-Der Barrierefreiheitstest hebt potenzielle Barrierefreiheitsprobleme in Ihrer E-Mail hervor und zeigt, welche Elemente die Standards nicht erfüllen. Braze analysiert Inhalte anhand ausgewählter Web Content Accessibility Guidelines ([WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/)), einer Reihe international anerkannter Standards, die vom W3C entwickelt wurden, um Webinhalte barrierefreier zu gestalten.
+Barrierefreiheitstests heben potenzielle Barrierefreiheitsprobleme in Ihrer E-Mail hervor und zeigen, welche Elemente die Standards nicht erfüllen. Braze analysiert Inhalte anhand ausgewählter Web Content Accessibility Guidelines ([WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/)), einer Reihe international anerkannter Standards, die vom W3C entwickelt wurden, um Webinhalte barrierefreier zu gestalten.
 
 ### Funktionsweise {#how-it-works}
 
-Wenn Sie Inbox Vision ausführen, prüft Braze automatisch auf häufige Barrierefreiheitsprobleme im [WCAG 2.2 AA-Regelwerk](https://www.w3.org/WAI/WCAG22/quickref/?versions=2.2&currentsidebar=%23col_customize&levels=aaa) (wie fehlender Alt-Text, unzureichender Farbkontrast, fehlerhafte Überschriftenstruktur) und kategorisiert den Schweregrad, um Ihnen bei der Priorisierung von Korrekturen zu helfen.
+Wenn Sie Inbox Vision ausführen, prüft Braze automatisch auf häufige Barrierefreiheitsprobleme im [WCAG 2.2 AA-Regelwerk](https://www.w3.org/WAI/WCAG22/quickref/?versions=2.2&currentsidebar=%23col_customize&levels=aaa) (wie fehlender Alt-Text, unzureichender Farbkontrast, fehlerhafte Überschriftenstruktur) und kategorisiert den Schweregrad, um Ihnen bei der Priorisierung von Korrekturen zu helfen. Beachten Sie, dass selbst wenn Alt-Text vorhanden ist, die [Darstellung]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#how-email-clients-display-alt-text) vom E-Mail-Client der Empfänger:innen gesteuert wird, nicht von Braze.
 
 {% alert important %}
-Der Barrierefreiheitstest kann zur Unterstützung der Compliance-Bemühungen des Kunden in Bezug auf Vorschriften oder Gesetze wie den [European Accessibility Act](https://www.braze.com/resources/articles/european-accessibility-at-what-it-means-for-marketers) verwendet werden. Der Kunde erkennt jedoch an, dass Braze keine Zusicherungen oder Gewährleistungen dahingehend abgibt, ob die Nutzung des Barrierefreiheitstests die Compliance-Verpflichtungen des Kunden erfüllt, und lehnt jegliche diesbezügliche Haftung ab.
+Barrierefreiheitstests können zur Unterstützung der Compliance-Bemühungen von Kund:innen in Bezug auf Vorschriften oder Gesetze wie den [European Accessibility Act](https://www.braze.com/resources/articles/european-accessibility-at-what-it-means-for-marketers) verwendet werden. Kund:innen erkennen jedoch an, dass Braze keine Zusicherungen oder Gewährleistungen dahingehend abgibt, ob die Nutzung der Barrierefreiheitstests die Compliance-Verpflichtungen der Kund:innen erfüllt, und lehnt jegliche diesbezügliche Haftung ab.
 {% endalert %}
 
-### Ergebnisse des Barrierefreiheitstests anzeigen {#viewing-accessibility-testing-results}
+### Ergebnisse der Barrierefreiheitstests anzeigen {#viewing-accessibility-testing-results}
 
-Der Barrierefreiheitstest generiert Ergebnisse für jede Regel als bestanden, fehlgeschlagen oder überprüfungsbedürftig im Tab **Accessibility Testing**. Braze kategorisiert jede Regel nach POUR (Perceivable, Operable, Understandable, Robust) – den vier Prinzipien hinter WCAG.
+Barrierefreiheitstests generieren Ergebnisse für jede Regel als bestanden, fehlgeschlagen oder überprüfungsbedürftig im Tab **Accessibility Testing**. Braze kategorisiert jede Regel nach POUR (Perceivable, Operable, Understandable, Robust), den vier Prinzipien hinter WCAG.
 
 #### POUR-Kategorien {#pour-categories}
 
-Inbox Vision kategorisiert Probleme unter den vier grundlegenden [POUR-Prinzipien](https://www.w3.org/WAI/WCAG22/Understanding/intro#understanding-the-four-principles-of-accessibility): Wahrnehmbar, Bedienbar, Verständlich und Robust.
+Inbox Vision kategorisiert Probleme unter den vier grundlegenden [POUR-Prinzipien](https://www.w3.org/WAI/WCAG22/Understanding/intro#understanding-the-four-principles-of-accessibility): Perceivable (Wahrnehmbar), Operable (Bedienbar), Understandable (Verständlich) und Robust.
 
 | Prinzip | Definition |
 | --- | --- |
-| Wahrnehmbar | Informationen und Benutzeroberflächenkomponenten müssen den Nutzer:innen so präsentiert werden, dass sie diese wahrnehmen können.<br><br>Nutzer:innen müssen die dargestellten Informationen wahrnehmen können (sie dürfen für keinen ihrer Sinne unsichtbar sein). |
-| Bedienbar | Benutzeroberflächenkomponenten und Navigation müssen bedienbar sein.<br><br>Nutzer:innen müssen die Schnittstelle bedienen können (die Schnittstelle darf keine Interaktion erfordern, die Nutzer:innen nicht ausführen können). |
-| Verständlich | Informationen und die Bedienung der Benutzeroberfläche müssen verständlich sein.<br><br>Nutzer:innen müssen die Informationen sowie die Bedienung der Benutzeroberfläche verstehen können (der Inhalt oder die Bedienung darf nicht über ihr Verständnis hinausgehen). |
-| Robust | Inhalte müssen robust genug sein, um von einer Vielzahl von User Agents, einschließlich assistiver Technologien, zuverlässig interpretiert werden zu können.<br><br>Nutzer:innen müssen auf die Inhalte zugreifen können, auch wenn sich Technologien weiterentwickeln (wenn sich Technologien und User Agents weiterentwickeln, sollten die Inhalte weiterhin zugänglich bleiben). |
+| Perceivable (Wahrnehmbar) | Informationen und Benutzeroberflächen-Komponenten müssen Nutzer:innen so präsentiert werden, dass sie diese wahrnehmen können.<br><br>Nutzer:innen müssen die dargestellten Informationen wahrnehmen können (sie dürfen nicht für alle Sinne unsichtbar sein). |
+| Operable (Bedienbar) | Benutzeroberflächen-Komponenten und Navigation müssen bedienbar sein.<br><br>Nutzer:innen müssen die Schnittstelle bedienen können (die Schnittstelle darf keine Interaktion erfordern, die Nutzer:innen nicht ausführen können). |
+| Understandable (Verständlich) | Informationen und die Bedienung der Benutzeroberfläche müssen verständlich sein.<br><br>Nutzer:innen müssen die Informationen sowie die Bedienung der Benutzeroberfläche verstehen können (der Inhalt oder die Bedienung darf nicht über ihr Verständnis hinausgehen). |
+| Robust | Inhalte müssen robust genug sein, damit sie von einer Vielzahl von User Agents, einschließlich assistiver Technologien, zuverlässig interpretiert werden können.<br><br>Nutzer:innen müssen auf die Inhalte zugreifen können, wenn sich Technologien weiterentwickeln (wenn sich Technologien und User Agents weiterentwickeln, sollten die Inhalte weiterhin barrierefrei bleiben). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="POUR-Kategorien" }
 
 #### Schweregrade {#severity-levels}
@@ -121,14 +121,14 @@ Inbox Vision klassifiziert Barrierefreiheitsprobleme nach Schweregrad, um Ihnen 
 | --- | --- |
 | Kritisch | Probleme, die den Zugang zu Inhalten oder Funktionen für Nutzer:innen mit Behinderungen blockieren können. Diese sind am schwerwiegendsten und sollten vorrangig behoben werden. |
 | Schwerwiegend | Probleme, die erhebliche Barrieren verursachen können, den Zugang aber möglicherweise nicht vollständig blockieren. Diese sollten zeitnah behoben werden. |
-| Mittel | Probleme, die für Nutzer:innen mit Behinderungen gewisse Schwierigkeiten verursachen können, den Zugang aber weniger wahrscheinlich vollständig blockieren. |
-| Gering | Probleme, die einen relativ geringen Einfluss auf die Barrierefreiheit haben und möglicherweise nur geringfügige Unannehmlichkeiten verursachen. |
+| Moderat | Probleme, die für Nutzer:innen mit Behinderungen gewisse Schwierigkeiten verursachen können, den Zugang aber weniger wahrscheinlich vollständig blockieren. |
+| Geringfügig | Probleme, die einen relativ geringen Einfluss auf die Barrierefreiheit haben und möglicherweise nur geringfügige Unannehmlichkeiten verursachen. |
 | Überprüfung erforderlich | Es kann nicht erkannt werden, ob ein Problem vorliegt oder nicht. Dies kann auftreten, wenn das Kontrastverhältnis nicht bestimmt werden kann, weil der Text auf einem Hintergrundbild platziert ist. Sie müssen manuell überprüfen, da eine automatische Bestimmung nicht möglich ist. |
 | Bestanden | WCAG A, AA oder Best Practice für Barrierefreiheit bestanden. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Schweregrade" }
 
 {% alert important %}
-Der Drag-and-Drop-Editor unterstützt nicht das Setzen eines `<title>`-Elements im Dokument, sodass der Barrierefreiheitsscanner diese Prüfung immer als fehlgeschlagen meldet.<br><br>Diese Einschränkung wird für zukünftige Verbesserungen verfolgt. Wenn dies Ihre Workflows oder Ihre Nutzer:innen betrifft, [teilen Sie Ihr Feedback]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard/#sharing-feedback), damit wir wirkungsvolle Korrekturen priorisieren können.
+Der Drag-and-Drop-Editor unterstützt nicht das Setzen eines `<title>`-Elements für das Dokument, sodass der Barrierefreiheitsscanner diese Prüfung immer als fehlgeschlagen meldet.<br><br>Diese Einschränkung wird für zukünftige Verbesserungen nachverfolgt. {% multi_lang_include product_feedback_cta.md context="pain_point" channel="ux" feature="the drag-and-drop editor document title limitation in Inbox Vision" %}
 {% endalert %}
 
 ### Automatisierte Barrierefreiheitstests verstehen {#understanding-automated-accessibility-testing}
@@ -139,24 +139,36 @@ Der Drag-and-Drop-Editor unterstützt nicht das Setzen eines `<title>`-Elements 
 
 ### Überprüfen Sie Ihre E-Mail-Abonnent:innenliste {#review-your-email-subscriber-list}
 
-Nutzen Sie das [E-Mail-Insights-Dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance/#email-insights-dashboard), um die beliebtesten Gerätetypen und Anbieter zu ermitteln, bei denen Ihre Abonnent:innen aktiv sind. Wenn Sie mehr Granularität benötigen, z. B. Browser, Gerätemodell und mehr, können Sie Ihre [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)-Daten oder den [Abfrage-Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) nutzen, um dieses Detailniveau über das aktuelle E-Mail-Engagement Ihrer Nutzer:innen abzurufen.
+Nutzen Sie das [E-Mail-Insights-Dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#email-insights-dashboard), um die beliebtesten Gerätetypen und Anbieter zu ermitteln, bei denen Ihre Abonnent:innen aktiv sind.
 
-Andernfalls verwendet Braze standardmäßig die 20 wichtigsten Vorschauen basierend auf allgemeinen Branchen- und Expertendaten, die den Großteil der Umgebungen abdecken, in denen Ihre Abonnent:innen mit Ihren E-Mails interagieren. Wenn Ihre Datenanalyse auf andere, beliebtere Vorschauen hinweist, können Sie jedes Mal, wenn Sie Inbox Vision ausführen, einen Standardsatz von Vorschauen definieren.
+Wenn Sie mehr Granularität benötigen, z. B. den Browser, das Gerätemodell und mehr, können Sie Ihre [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten oder den [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder) nutzen, um dieses Detailniveau über das aktuelle E-Mail-Engagement Ihrer Nutzer:innen abzurufen.
 
-### Wählen Sie aussagekräftige und betroffene Vorschauen aus {#select-meaningful-previews-and-impacted-previews}
+### Wählen Sie aussagekräftige Vorschauen und betroffene Vorschauen aus {#select-meaningful-previews-and-impacted-previews}
 
-Wenn Ihr Unternehmen hauptsächlich in den USA ansässig ist, gibt es möglicherweise bestimmte Vorschauen, wie internationale Vorschauen wie GMX.de, die nur von einer geringen Anzahl von Nutzer:innen verwendet werden. Wir empfehlen, Postfächer mit einer nennenswerten Abonnent:innen-Reichweite zu priorisieren und zu optimieren und Ihre Vorschauen für Postfächer mit höherer Wirkung zu reservieren.
+Wenn Ihr Unternehmen hauptsächlich in den USA ansässig ist, gibt es möglicherweise bestimmte Vorschauen, wie z. B. internationale Vorschauen wie GMX.de, die nur von einer geringen Anzahl von Nutzer:innen verwendet werden. Wir empfehlen, Postfächer mit einer nennenswerten Abonnent:innen-Reichweite zu priorisieren und zu optimieren und Ihre Vorschauen für Postfächer mit höherer Wirkung zu reservieren.
 
-Wenn Sie Korrekturen vornehmen, die bestimmte Vorschauen betreffen, wählen Sie nur die betroffenen Vorschauen aus, um den Verbrauch ungenutzter Vorschauen zu vermeiden.
+Wenn Sie Korrekturen vornehmen, die bestimmte Vorschauen betreffen, wählen Sie nur die betroffenen Vorschauen aus, um zu vermeiden, dass ungenutzte Vorschauen verbraucht werden.
 
-### Führen Sie Inbox Vision für die finale E-Mail-Version aus {#run-inbox-vision-on-the-final-email-version}
+### Führen Sie Inbox Vision auf der finalen E-Mail-Version aus {#run-inbox-vision-on-the-final-email-version}
 
 Wir empfehlen, Inbox Vision auszuführen, wenn die E-Mail-Nachricht produktionsbereit oder nahezu fertig ist. So können Sie die Anzahl der generierten Vorschauen reduzieren, da die E-Mail vor der Finalisierung und dem Versand an Nutzer:innen mehrere Iterationen durchläuft.
 
-Inbox Vision bei jeder einzelnen Bearbeitung oder Änderung auszuführen, kann Vorschauen schnell verbrauchen. Wir empfehlen, zunächst alle notwendigen Änderungen an der E-Mail vorzunehmen und dann Inbox Vision auszuführen, um zu sehen, wie sich alle Ihre Änderungen auf das Rendering Ihrer E-Mail in verschiedenen Umgebungen auswirken.
+Inbox Vision bei jeder einzelnen Bearbeitung oder Änderung auszuführen, kann schnell Vorschauen verbrauchen. Wir empfehlen, zunächst alle notwendigen Änderungen an der E-Mail vorzunehmen und dann Inbox Vision auszuführen, um eine Vorschau zu erhalten, wie sich alle Ihre Änderungen auf die Darstellung Ihrer E-Mail in verschiedenen Umgebungen auswirken können.
 
-Braze führt Tests über echte E-Mail-Clients durch und stellt sicher, dass die Darstellungen korrekt sind. Wenn Sie bei einem Client durchgehend ein Problem feststellen, eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/braze_support/).
+Braze führt Tests über tatsächliche E-Mail-Clients durch und stellt sicher, dass die Darstellungen korrekt sind. Braze verwendet standardmäßig die 20 wichtigsten Vorschauen basierend auf allgemeinen Branchen- und Expertendaten, die den Großteil der Umgebungen abdecken, in denen Ihre Nutzer:innen mit Ihren E-Mails interagieren. Wenn Ihre Datenanalyse auf andere, beliebtere Vorschauen hinweist, können Sie jedes Mal, wenn Sie Inbox Vision ausführen, einen Standard-Satz von Vorschauen definieren.
+
+Wenn Sie bei einem Client durchgehend ein Problem feststellen, eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/braze_support).
 
 ### Testgenauigkeit im Vergleich zu Live-Postfächern {#test-accuracy-versus-live-inboxes}
 
 Eine gesendete Nachricht kann anders aussehen als die Editor-Vorschau, da Anbieter dasselbe HTML unterschiedlich interpretieren. Laden Sie eine Kopie des gesendeten HTML herunter, um es zu vergleichen, und verwenden Sie CSS-Inlining, wenn Clients `<style>`-Blöcke entfernen.
+
+#### Leere E-Mail-Textkörper {#blank-email-bodies}
+
+Wenn Empfänger:innen leere E-Mail-Textkörper melden, aber den Absendernamen oder die Betreffzeile noch sehen können:
+
+1. Bestätigen Sie, welche E-Mail-Clients betroffen sind.
+2. Verwenden Sie Inbox Vision, um die Variante in diesen Clients zu testen und HTML- oder CSS-Kompatibilitätsprobleme zu identifizieren.
+3. Wenn ein Client `<style>`-Blöcke entfernt, fügen Sie `style`-Attribute zu den betroffenen HTML-Elementen hinzu. Weitere Informationen zum Inlining-Verhalten und seinen Einschränkungen finden Sie unter [CSS-Inlining]({{site.baseurl}}/user_guide/channels/email/html_editor/css_inline). In Gmail kann zu viel CSS dazu führen, dass der gesamte `<style>`-Block entfernt wird, was eine häufige Ursache für leere E-Mail-Textkörper ist.
+4. Im HTML-Editor können Sie auch **Enable inline CSS** unter **Sending Info** > **Advanced** aktivieren, um Stylesheet-Regeln für die gesamte Nachricht inline einzufügen. Diese Option ist für Drag-and-Drop-E-Mails nicht verfügbar, da diese bereits vom Editor inline eingefügt werden.
+5. Testen Sie erneut in Inbox Vision, bevor Sie zukünftige Campaigns versenden.

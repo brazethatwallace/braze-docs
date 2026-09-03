@@ -1,11 +1,10 @@
 ---
 nav_title: Best practices
-article_title: Cloud Data Ingestion Best Practices
+article_title: "Best practices"
 toc_headers: h2
 page_order: 1
 page_type: reference
 description: "This page provides an overview of Cloud Data Ingestion, best practices, and product limitations."
-
 ---
 
 # Best practices
@@ -51,7 +50,7 @@ When using CDI to sync data from external sources (such as Databricks or Snowfla
 - **Numbers stored as strings:** Cast numeric columns to integer or float types in your source query before syncing.
 - **Inconsistent types across syncs:** If a column type changes between syncs, Braze may reject the new data. Verify your source schema remains consistent.
 
-For forcing or changing data types for custom attributes in the Braze dashboard, see [Manage custom data]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/#forcing-data-type-comparisons).
+For forcing or changing data types for custom attributes in the Braze dashboard, see [Manage custom data]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data#forcing-data-type-comparisons).
 
 You can update user data by external ID, user alias, Braze ID, email, or phone number. You can delete users by external ID, user alias, or Braze ID. 
 
@@ -309,7 +308,7 @@ This example shows the general process for syncing data for the first time, then
 
 <style type="text/css">
 .tg td{word-break:normal;}
-.tg th{word-break:normal;font-size: 14px; font-weight: bold; background-color: #f4f4f7; text-transform: lowercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
+.tg th{word-break:normal;font-size: 14px; font-weight: bold; background-color: #f4f4f7; text-transform: lowercase; color: #212123; font-family: "Aribau Grotesk Bold", "Aribau Grotesk", "Aribau Grotesk Regular", Arial, Helvetica, sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
 
@@ -695,7 +694,7 @@ We have a public [GitHub repository](https://github.com/braze-inc/braze-examples
 
 ### Data formatting
 
-Cloud Data Ingestion table setup requirements and payload formatting requirements are documented on [Table setup for Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup/).
+Cloud Data Ingestion table setup requirements and payload formatting requirements are documented on [Table setup for Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup).
 
 Use that page to distinguish:
 

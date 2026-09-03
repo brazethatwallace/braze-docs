@@ -252,34 +252,34 @@ AppDelegate.braze?.requestGeofences(latitude: latitude, longitude: longitude)
 
 ## Frequently Asked Questions (FAQ) {#faq}
 
-#### Why am I not receiving geofences on my device?
+### Why am I not receiving geofences on my device?
 
-To confirm whether or not geofences are being received on your device, first use the [SDK Debugger tool]({{site.baseurl}}/developer_guide/sdk_integration/debugging#debugging-the-braze-sdk) to check SDK's logs. You will then be able to see if geofences are successfully being received from the server and if there are any notable errors.
+To confirm whether or not geofences are being received on your device, first use the [SDK Debugger tool]({{site.baseurl}}/developer_guide/sdk_integration/debugging) to check SDK's logs. You will then be able to see if geofences are successfully being received from the server and if there are any notable errors.
 
-Below are other possible reasons geofences may not be received on your device:
+Other possible reasons geofences may not be received on your device include:
 
-##### iOS operating system limitations
+#### iOS operating system limitations
 
 The iOS operating system only allows up to 20 geofences to be stored for a given app. With geofences enabled, Braze will use up some of these 20 available slots.
 
 To prevent accidental or unwanted disruption to other geofence-related functionality in your app, you must enable location geofences for individual apps on the dashboard. For our location services to work correctly, check that your app is not using all available geofence spots.
 
-##### Rate limiting
+#### Rate limiting
 
 Braze has a limit of 1 geofence refresh per session to avoid unnecessary requests.
 
-#### How does it work if I am using both Braze and non-Braze geofence features?
+### How does it work if I am using both Braze and non-Braze geofence features?
 
-As mentioned above, iOS allows a single app to store a maximum of 20 geofences. This storage is shared by both Braze and non-Braze geofences and is managed by [CLLocationManager](https://developer.apple.com/documentation/corelocation/cllocationmanager).
+As mentioned in the previous question, iOS allows a single app to store a maximum of 20 geofences. This storage is shared by both Braze and non-Braze geofences and is managed by [CLLocationManager](https://developer.apple.com/documentation/corelocation/cllocationmanager).
 
 For instance, if your app contains 20 non-Braze geofences, there would be no storage to track any Braze geofences (or vice versa). In order to receive new geofences, you will need to use [Apple's location APIs](https://developer.apple.com/documentation/corelocation) to stop monitoring some of the existing geofences on the device.
 
-#### Can the Geofences feature be used while a device is offline?
+### Can the Geofences feature be used while a device is offline?
 
 A device needs to be connected to the internet only when a refresh occurs. Once it has successfully received geofences from the server, it is possible to log a geofence entry or exit even if the device is offline. This is because a device's location operates separately from its internet connectivity.
 
 For example, say a device successfully received and registered geofences on session start and goes offline. If it then enters one of those registered geofences, it can trigger a Braze campaign.
 
-#### Why are geofences not monitored when my app is backgrounded/terminated?
+### Why are geofences not monitored when my app is backgrounded/terminated?
 
 Without `Always` authorization, Apple restricts location services from running while an app is not in use. This is enforced by the operating system and is outside the control of the Braze SDK. While Braze offers separate configurations to run services while the app is in the background, there is no way to circumvent these restrictions for apps that are terminated without receiving explicit authorization from the user.

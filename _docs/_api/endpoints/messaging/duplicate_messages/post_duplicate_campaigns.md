@@ -14,7 +14,7 @@ description: "This article outlines details about the Duplicate campaigns endpoi
 /campaigns/duplicate
 {% endapimethod %}
 
-> Use this endpoint to duplicate campaigns. This API endpoint is similar to [duplicating campaigns in the Braze dashboard][1].
+> Use this endpoint to duplicate campaigns. This API endpoint is similar to [duplicating campaigns in the Braze dashboard]({{site.baseurl}}/user_guide/messaging/governance/duplicating).
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ Authorization: Bearer YOUR-REST-API-KEY
   "campaign_id": (required, string) The campaign identifier,
   "name": (required, string) The name of the resulting campaign,
   "description": (optional, string) The description of the resulting campaign,
-  "tag_names": (optional, string) The tags of the resulting campaign,
+  "tag_names": (optional, array of strings) The tags of the resulting campaign,
 }
 ```
 
@@ -44,19 +44,15 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | Parameter | Required | Data Type | Description |
 | --------- | ---------| --------- | ----------- |
-|`campaign_id`| Required | String | See [campaign identifier]({{site.baseurl}}/api/identifier_types/). |
+|`campaign_id`| Required | String | See [campaign identifier]({{site.baseurl}}/api/identifier_types). |
 |`name`| Required | String | The name of the resulting campaign. |
 |`description`| Optional | String | The description field for the resulting campaign. |
-|`tag_names` | Optional | String | The tags for the resulting campaign. These must be existing tags. If you add new tags in the request, they overwrite any tags that were on the original campaign. |
+|`tag_names` | Optional | Array of strings | The tags for the resulting campaign. These must be existing tags. If you add new tags in the request, they overwrite any tags that were on the original campaign. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 
 ## Response
 
-This endpoint will return a `202` status code, and the campaign creation will occur asynchronously. You can use the [security event download][2] to see records of when campaigns were duplicated and by which API key.
-
-
-[1]: {{site.baseurl}}/user_guide/engagement_tools/campaigns/managing_campaigns/duplicating_segments_and_campaigns#duplicating-segments-campaigns-and-canvases
-[2]: {{site.baseurl}}/user_guide/administrative/app_settings/company_settings/security_settings/#downloading-a-security-event-report
+This endpoint returns a `202` status code, and the campaign creation occurs asynchronously. You can use the [security event download]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#security-event-report) to see records of when campaigns were duplicated and by which API key.
 
 {% endapi %}

@@ -11,7 +11,7 @@ alias: /landing_pages/
 
 > Braze landing pages are standalone web pages that can drive your user acquisition and engagement strategy.
 
-Use landing pages to grow your audience, capture user data, promote special offers, and support multichannel campaigns. For a reference of landing page drag-and-drop blocks, see [Editor blocks (landing pages)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=landing%20pages).
+Use landing pages to grow your audience, capture user data, promote special offers, and support multichannel campaigns. For a reference of landing page drag-and-drop blocks, see [Editor blocks (landing pages)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=landing%20pages).
 
 {% alert note %}
 Landing page and custom domain availability depends on your Braze package. Contact your account manager or customer success manager to get started.
@@ -21,7 +21,7 @@ Landing page and custom domain availability depends on your Braze package. Conta
 
 ## Prerequisites
 
-Before you can access, create, and publish landing pages, you either need administrator [permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions) or all the following permissions:
+Before you can access, create, and publish landing pages, you either need administrator [permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions) or all the following permissions:
 
 - View Landing Pages
 - Edit Landing Page Drafts
@@ -37,9 +37,15 @@ The number of published landing pages, custom domains, and features you can use 
 | :---------------------------------------------------------------------------------------------------------------- | :--------------- | ----------------- |
 | Published landing pages                                                                 | Five per company | 20 additional |
 | Custom domains          | One per company | Five additional |
-| [Liquid personalization]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages/) | Not available | Available |
+| [Liquid personalization]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages) | Not available | Available |
 | Prefilled form fields | Not available | Available |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Plan tiers" }
+
+## Rate limits
+
+Braze applies a rate limit of 500 requests per three seconds (approximately 167 requests per second) per workspace for uncached landing pages. This limit helps maintain system performance and reliability during high-traffic periods.
+
+Cached landing page views don't count toward this limit. For how caching affects traffic, see [Can landing pages handle high-traffic scenarios?](#can-landing-pages-handle-high-traffic-scenarios).
 
 ## Adding Google Tag Manager to a landing page
 
@@ -66,11 +72,13 @@ For details on implementing Google Tag Manager, see [Google's documentation](htt
 
 The landing page body size can be up to 500 KB.
 
-### Can landing pages handle high-traffic scenarios?
+### Can landing pages handle high-traffic scenarios? {#can-landing-pages-handle-high-traffic-scenarios}
 
-Yes, non-personalized landing pages can handle high-traffic scenarios effectively. When a non-personalized landing page is first requested, Braze caches it through Cloudflare. This means all subsequent requests for the same link are served from cache, so performance is not degraded on high-volume requests. This cache lasts 24 hours, and cached page views don't count toward rate limits.
+Yes. Non-personalized landing pages handle high-traffic scenarios effectively. When a landing page is first requested, Braze caches it through Cloudflare. Subsequent requests for the same link are served from cache, which helps during high-traffic periods. This cache lasts 24 hours, and cached page views don't count toward [rate limits](#rate-limits).
 
-For personalized landing pages (using Liquid personalization), rate limits apply to uncached requests. To maintain optimal performance, see [Personalization considerations]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages/#personalization-considerations).
+Personalized landing pages use a shorter Cloudflare cache and generate more uncached requests to Braze. Those uncached requests are subject to the per-workspace rate limit described in [Rate limits](#rate-limits).
+
+For size limits and other performance guidance for personalized pages, see [Personalization considerations]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages#personalization-considerations).
 
 ### Are there any technical requirements to publish a landing page?
 
@@ -78,7 +86,13 @@ No, there aren't any technical requirements.
 
 ### Is there an HTML editor for landing pages?
 
-Yes. Use the **Custom Code** block in the drag-and-drop editor to add or edit HTML.
+Yes. Use the **Custom Code** block in the drag-and-drop editor to add or edit HTML. To interface with the Braze SDK from your custom code, see [JavaScript bridge for landing pages]({{site.baseurl}}/user_guide/messaging/landing_pages/javascript_bridge). To connect a fully custom UI to a landing page form, see [Create custom form blocks]({{site.baseurl}}/user_guide/messaging/landing_pages/custom_form_blocks).
+
+### Can I use iframes on landing pages?
+
+Yes. Add a **Custom Code** block in the drag-and-drop editor and include an iframe element with the URL of the content you want to embed.
+
+If the embedded website restricts framing through `frame-ancestors` in its Content Security Policy (CSP) or `X-Frame-Options`, the page may not load in the iframe. Braze can't override those settings—the embedded site must be configured to allow your landing page domain.
 
 ### Can I create a webhook inside a landing page?
 
@@ -87,6 +101,6 @@ No, but the **Submitted a Landing Page form** event can act as a trigger for Can
 - **Canvas:** Use the **Submitted a Landing Page form** event as a Canvas entry trigger and add a webhook step.
 - **Campaign:** Use the **Submitted a Landing Page form** event to trigger based on form submission. 
 
-When the page isn't sent through a Braze channel (such as through a website or ad), a new user profile may be created on submission—even if that person already exists in Braze. To handle this, set up a Canvas triggered by **Submitted a Landing Page form** and add a Braze-to-Braze webhook step that calls the [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/) endpoint to merge the new profile into the existing one.
+When the page isn't sent through a Braze channel (such as through a website or ad), a new user profile may be created on submission—even if that person already exists in Braze. To handle this, set up a Canvas triggered by **Submitted a Landing Page form** and add a Braze-to-Braze webhook step that calls the [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) endpoint to merge the new profile into the existing one.
 
 When you use the `landing_page_url` Liquid tag to share the page, form submissions are automatically tied to the existing user profile. You can then reference the user attributes submitted on the landing page through Liquid for subsequent templating. 

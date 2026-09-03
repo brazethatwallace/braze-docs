@@ -1,12 +1,14 @@
 # Japanese style guide
 
-## Latin product names next to Japanese particles
+## Product names in Japanese prose
 
-- When Braze docs keep an English product or SDK token (**Segment**, **Canvas**, **Campaign**, **SDK**, **Content Cards**, **In-App Messages**, **REST API**, etc.) and the next morpheme is a hiragana particle (**を**, **の**, **は**, **と**, **が**, **も**), write the particle **flush** against the Latin word — **no ASCII space** in between (e.g. **Segmentを**, **Canvasの**, **SDKの**). A space before the particle reads like sloppy mixed typography and was flagged on localized feature-flag docs (PR #13316).
+- In reader-facing Japanese sentences, use glossary Japanese product names — **キャンペーン**, **キャンバス**, **セグメント** — not English **Campaign**, **Canvas**, or **Segment** (JA partner review, 2026-06).
+- When the next morpheme is a hiragana particle (**を**, **の**, **は**, **と**, **が**, **も**), write the particle **flush** against the product name — **no ASCII space** (e.g. **キャンペーンを**, **キャンバスの**, **セグメントを**). Same rule applies to Latin tokens we keep in English (**SDK**, **Content Cards**, **In-App Messages**, **REST API**, etc.): **SDKの**, not **SDK の**.
+- Multi-word dashboard labels follow `ja.json` (e.g. **Create Campaign** → **キャンペーンを作成**, **Campaign Details** → **キャンペーンの詳細**).
 
 ## Email campaigns in prose
 
-- For the *idea* of email campaigns in Japanese sentences, prefer **メールキャンペーン** or **Eメールキャンペーン** — avoid half-mixed **メール Campaign** when you mean the localized concept (PR #13314). Keep bare **Campaign** / **Campaigns** when echoing English UI labels.
+- For the *idea* of email campaigns, prefer **メールキャンペーン** or **Eメールキャンペーン** — never **メール Campaign** (PR #13314).
 
 ## BrazeAI generative brand guidelines (YAML)
 

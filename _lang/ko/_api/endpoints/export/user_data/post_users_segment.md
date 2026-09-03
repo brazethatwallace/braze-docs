@@ -1,6 +1,6 @@
 ---
-nav_title: "POST: Segment별 고객 프로필 내보내기"
-article_title: "POST: Segment별 고객 프로필 내보내기"
+nav_title: "POST: Segment별 사용자 프로필 내보내기"
+article_title: "POST: Segment별 사용자 프로필 내보내기"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
@@ -9,7 +9,7 @@ description: "이 문서에서는 Segment별 사용자 내보내기 Braze 엔드
 
 ---
 {% api %}
-# Segment별 고객 프로필 내보내기 {#export-user-profile-by-segment}
+# Segment별 사용자 프로필 내보내기 {#export-user-profile-by-segment}
 {% apimethod post %}
 /users/export/segment
 {% endapimethod %}
@@ -23,7 +23,7 @@ description: "이 문서에서는 Segment별 사용자 내보내기 Braze 엔드
 사용자 데이터는 줄 바꿈으로 구분된 여러 사용자 JSON 오브젝트 파일로 내보내집니다(예: 한 줄에 하나의 JSON 오브젝트). 데이터는 자동으로 생성된 URL 또는 이 통합이 이미 설정된 경우 S3 버킷으로 내보내집니다.
 
 {% alert important %}
-**내보내기 출력 형식**: 내보내기가 성공하고 클라우드 스토리지 자격 증명을 구성하지 않은 경우, HTTP 응답에는 압축된 아카이브(ZIP 또는 GZIP 파일)를 다운로드할 수 있는 URL이 포함됩니다. 클라우드 스토리지 자격 증명(S3, Azure 또는 Google Cloud Storage)이 구성된 경우, Braze는 내보내기를 직접 귀하의 버킷에 기록하며, 응답에는 다운로드 URL이 포함되지 않습니다. 내보내기가 실패하면 대신 이메일 알림을 받게 됩니다. 클라우드 스토리지 자격 증명을 설정하면 대규모 내보내기의 실패 가능성이 줄어듭니다.
+**내보내기 출력 형식**: 내보내기가 성공하고 클라우드 스토리지 자격 증명을 구성하지 않은 경우, HTTP 응답에는 압축된 아카이브(ZIP 또는 GZIP 파일)를 다운로드할 수 있는 URL이 포함됩니다. 클라우드 스토리지 자격 증명(S3, Azure 또는 Google Cloud Storage)이 구성된 경우, Braze는 내보내기를 직접 버킷에 기록하며, 응답에는 다운로드 URL이 포함되지 않습니다. 내보내기가 실패하면 대신 이메일 알림을 받게 됩니다. 클라우드 스토리지 자격 증명을 설정하면 대규모 내보내기의 실패 가능성이 줄어듭니다.
 {% endalert %}
 
 한 회사에서 이 엔드포인트를 사용하여 한 번에 Segment당 최대 한 번만 내보내기를 실행할 수 있습니다. 내보내기가 완료될 때까지 기다렸다가 다시 시도하세요.
@@ -32,7 +32,7 @@ description: "이 문서에서는 Segment별 사용자 내보내기 Braze 엔드
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `users.export.segment` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `users.export.segment` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key-permissions)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -40,7 +40,7 @@ description: "이 문서에서는 Segment별 사용자 내보내기 Braze 엔드
 
 ## 자격 증명 기반 응답 세부 정보 {#credentials-based-response-details}
 
-Braze에 [S3][1], [Azure][2] 또는 [Google Cloud Storage][3] 자격 증명을 추가한 경우, 각 파일은 `segment-export/SEGMENT_ID/YYYY-MM-dd/RANDOM_UUID-TIMESTAMP_WHEN_EXPORT_STARTED/filename.zip` 형식의 키를 가진 ZIP 파일로 귀하의 버킷에 업로드됩니다. Azure를 사용하는 경우, Braze의 Azure 파트너 개요 페이지에서 **이것을 기본 데이터 내보내기 대상으로 설정** 확인란이 선택되어 있는지 확인하세요. 일반적으로 Braze는 처리 최적화를 위해 사용자 5,000명당 1개의 파일을 생성합니다. 큰 워크스페이스 내에서 작은 Segment를 내보내면 여러 개의 파일이 생성될 수 있습니다. 그런 다음 파일을 추출하고 필요한 경우 모든 `json` 파일을 하나의 파일로 연결할 수 있습니다. `output_format`을 `gzip`으로 지정하면 파일 확장자는 `.zip`이 아닌 `.gz`가 됩니다.
+Braze에 [S3][1], [Azure][2] 또는 [Google Cloud Storage][3] 자격 증명을 추가한 경우, 각 파일은 `segment-export/SEGMENT_ID/YYYY-MM-dd/RANDOM_UUID-TIMESTAMP_WHEN_EXPORT_STARTED/filename.zip` 형식의 키를 가진 ZIP 파일로 버킷에 업로드됩니다. Azure를 사용하는 경우, Braze의 Azure 파트너 개요 페이지에서 **이것을 기본 데이터 내보내기 대상으로 설정** 확인란이 선택되어 있는지 확인하세요. 일반적으로 Braze는 처리 최적화를 위해 사용자 5,000명당 1개의 파일을 생성합니다. 큰 워크스페이스 내에서 작은 Segment를 내보내면 여러 개의 파일이 생성될 수 있습니다. 그런 다음 파일을 추출하고 필요한 경우 모든 `json` 파일을 하나의 파일로 연결할 수 있습니다. `output_format`을 `gzip`으로 지정하면 파일 확장자는 `.zip`이 아닌 `.gz`가 됩니다.
 
 {% details ZIP 내보내기 경로 분석 %}
 **ZIP 형식:**
@@ -49,7 +49,7 @@ Braze에 [S3][1], [Azure][2] 또는 [Google Cloud Storage][3] 자격 증명을 �
 **ZIP 예시:**
 `braze.docs.bucket/segment-export/abc56c0c-rd4a-pb0a-870pdf4db07q/2019-04-25/d9696570-dfb7-45ae-baa2-25e302r2da27-1556044807/114f0226319130e1a4770f2602b5639a.zip`
 
-| 속성 | 세부 정보 | 예제에서는 다음과 같이 표시됩니다. |
+| 속성 | 세부 정보 | 예제에서 표시되는 형태 |
 | ------------------------------- | ------------------------------------------------------------------------------------ | --- |
 | `bucket-name` | 버킷 이름에 따라 고정됩니다. | `braze.docs.bucket` |
 | `segment-export` | 고정됩니다. | `segment-export` |
@@ -62,7 +62,7 @@ Braze에 [S3][1], [Azure][2] 또는 [Google Cloud Storage][3] 자격 증명을 �
 
 {% enddetails %}
 
-이 엔드포인트를 사용할 때 내보내기에 대한 자체 버킷 정책을 적용하려면 자체 S3 또는 Azure 자격 증명을 설정할 것을 강력히 권장합니다. 클라우드 스토리지 자격 증명이 없는 경우 요청에 대한 응답은 모든 사용자 파일이 포함된 ZIP 파일을 다운로드할 수 있는 URL을 제공합니다. URL은 내보내기가 준비된 후에만 유효한 위치가 됩니다.
+이 엔드포인트를 사용할 때 내보내기에 대한 자체 버킷 정책을 적용하려면 자체 S3 또는 Azure 자격 증명을 설정할 것을 강력히 권장합니다. 클라우드 스토리지 자격 증명이 없는 경우, 요청에 대한 응답은 모든 사용자 파일이 포함된 ZIP 파일을 다운로드할 수 있는 URL을 제공합니다. URL은 내보내기가 준비된 후에만 유효한 위치가 됩니다.
 
 클라우드 스토리지 자격 증명을 제공하지 않으면 이 엔드포인트에서 내보낼 수 있는 데이터의 양에 제한이 있다는 점에 유의하세요. 내보내는 필드와 사용자 수에 따라 파일 크기가 너무 크면 파일 전송이 실패할 수 있습니다. 가장 좋은 방법은 `fields_to_export`를 사용하여 내보낼 필드를 지정하고 필요한 필드만 지정하여 전송 크기를 작게 유지하는 것입니다. 파일 생성 중 오류가 발생하면 무작위 버킷 번호를 기준으로 사용자 기반을 더 많은 Segment로 나누는 것을 고려하세요(예: 무작위 버킷 번호가 1,000 미만이거나 1,000에서 2,000 사이인 Segment를 생성).
 
@@ -90,7 +90,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | ----------------------------- | --------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `segment_id` | 필수 | 문자열 | 내보낼 Segment의 식별자입니다. [Segment 식별자]({{site.baseurl}}/api/identifier_types/)를 참조하세요.<br><br>지정된 Segment의 `segment_id`는 Braze 계정 내 [API 키]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) 페이지에서 찾거나 [Segment 목록 엔드포인트]({{site.baseurl}}/api/endpoints/export/segments/get_segment/)를 사용할 수 있습니다. |
+| `segment_id` | 필수 | 문자열 | 내보낼 Segment의 식별자입니다. [Segment 식별자]({{site.baseurl}}/api/identifier_types)를 참조하세요.<br><br>지정된 Segment의 `segment_id`는 Braze 계정 내 [API 키]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) 페이지에서 찾거나 [Segment 목록 엔드포인트]({{site.baseurl}}/api/endpoints/export/segments/get_segment)를 사용할 수 있습니다. |
 | `callback_endpoint` | 선택 사항 | 문자열 | 내보내기가 완료되었을 때 다운로드 URL을 게시할 엔드포인트입니다. |
 | `fields_to_export` | 필수* | 문자열 배열 | 내보낼 사용자 데이터 필드의 이름입니다. 이 매개변수에 `custom_attributes`를 포함하여 모든 커스텀 속성을 내보낼 수도 있습니다. 내보낼 수 있는 전체 필드 목록은 [내보낼 필드](#fields-to-export)를 참조하세요. |
 | `custom_attributes_to_export` | 선택 사항 | 문자열 배열 | 내보낼 특정 커스텀 속성의 이름입니다(최대 500개). 이 매개변수를 사용할 때는 `fields_to_export`에서 `custom_attributes`를 생략하세요. 그렇지 않으면 Braze는 이 목록에 관계없이 모든 커스텀 속성을 내보냅니다. 대시보드에서 커스텀 속성을 만들고 관리하려면 **데이터 설정** > **커스텀 속성**으로 이동하세요. |
@@ -135,19 +135,19 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/segme
 | 내보낼 필드 | 데이터 유형 | 설명 |
 | --------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `apps` | 배열 | 이 사용자가 세션을 기록한 앱으로, 다음 필드를 포함합니다:<br><br>- `name`: 앱 이름<br>- `platform`: iOS, Android 또는 웹과 같은 앱 플랫폼<br>- `version`: 앱 버전 번호 또는 이름<br>- `sessions`: 이 앱의 총 세션 수<br>- `first_used`: 첫 세션 날짜<br>- `last_used`: 마지막 세션 날짜<br><br>모든 필드는 문자열입니다. |
-| `attributed_campaign` | 문자열 | [어트리뷰션 통합]({{site.baseurl}}/partners/message_orchestration/)의 데이터(설정된 경우). 특정 광고 Campaign의 식별자입니다. |
-| `attributed_source` | 문자열 | [어트리뷰션 통합]({{site.baseurl}}/partners/message_orchestration/)의 데이터(설정된 경우). 광고가 게재된 플랫폼의 식별자입니다. |
-| `attributed_adgroup` | 문자열 | [어트리뷰션 통합]({{site.baseurl}}/partners/message_orchestration/)의 데이터(설정된 경우). Campaign 아래의 선택적 하위 그룹에 대한 식별자입니다. |
-| `attributed_ad` | 문자열 | [어트리뷰션 통합]({{site.baseurl}}/partners/message_orchestration/)의 데이터(설정된 경우). Campaign 및 광고 그룹 아래의 선택적 하위 그룹에 대한 식별자입니다. |
+| `attributed_campaign` | 문자열 | [어트리뷰션 통합]({{site.baseurl}}/partners/message_orchestration)의 데이터(설정된 경우). 특정 광고 Campaign의 식별자입니다. |
+| `attributed_source` | 문자열 | [어트리뷰션 통합]({{site.baseurl}}/partners/message_orchestration)의 데이터(설정된 경우). 광고가 게재된 플랫폼의 식별자입니다. |
+| `attributed_adgroup` | 문자열 | [어트리뷰션 통합]({{site.baseurl}}/partners/message_orchestration)의 데이터(설정된 경우). Campaign 아래의 선택적 하위 그룹에 대한 식별자입니다. |
+| `attributed_ad` | 문자열 | [어트리뷰션 통합]({{site.baseurl}}/partners/message_orchestration)의 데이터(설정된 경우). Campaign 및 광고 그룹 아래의 선택적 하위 그룹에 대한 식별자입니다. |
 | `push_subscribe` | 문자열 | 사용자의 푸시 구독 상태입니다. |
 | `email_subscribe` | 문자열 | 사용자의 이메일 구독 상태입니다. |
 | `braze_id` | 문자열 | 이 사용자에 대해 Braze가 설정한 기기별 고유 사용자 식별자입니다. |
 | `country` | 문자열 | [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) 표준을 사용하는 사용자의 국가입니다. |
-| `created_at` | 문자열 | 고객 프로필이 생성된 날짜와 시간(ISO 8601 형식)입니다. |
-| `created_from` | 문자열 | 고객 프로필을 생성하는 데 사용된 방법입니다(예: SDK, REST API 또는 CSV 가져오기). |
+| `created_at` | 문자열 | 사용자 프로필이 생성된 날짜와 시간(ISO 8601 형식)입니다. |
+| `created_from` | 문자열 | 사용자 프로필을 생성하는 데 사용된 방법입니다(예: SDK, REST API 또는 CSV 가져오기). |
 | `custom_attributes` | 오브젝트 | 이 사용자에 대한 커스텀 속성 키-값 페어입니다. |
 | `custom_events` | 배열 | 지난 90일 동안 이 사용자에게 귀속된 커스텀 이벤트입니다. |
-| `devices` | 배열 | 플랫폼에 따라 다음을 포함할 수 있는 사용자 기기에 대한 정보입니다:<br><br>- `model`: 기기 모델명<br>- `os`: 기기의 운영체제<br>- `carrier`: 기기의 서비스 통신사(가능한 경우)<br>- `idfv`: (iOS) Braze 기기 식별자, Apple Identifier for Vendor(있는 경우)<br>- `idfa`: (iOS) 광고용 식별자(있는 경우)<br>- `device_id`: (Android) Braze 기기 식별자<br>- `google_ad_id`: (Android) Google Play 광고 식별자(있는 경우)<br>- `roku_ad_id`: (Roku) Roku 광고 식별자<br>- `ad_tracking_enabled`: 기기에서 광고 추적이 활성화된 경우 true 또는 false일 수 있습니다. |
+| `devices` | 배열 | 플랫폼에 따라 다음을 포함할 수 있는 사용자 기기에 대한 정보입니다:<br><br>- `model`: 기기 모델명<br>- `os`: 기기의 운영 체제<br>- `carrier`: 기기의 서비스 통신사(가능한 경우)<br>- `idfv`: (iOS) Braze 기기 식별자, Apple Identifier for Vendor(있는 경우)<br>- `idfa`: (iOS) 광고용 식별자(있는 경우)<br>- `device_id`: (Android) Braze 기기 식별자<br>- `google_ad_id`: (Android) Google Play 광고 식별자(있는 경우)<br>- `roku_ad_id`: (Roku) Roku 광고 식별자<br>- `ad_tracking_enabled`: 기기에서 광고 추적이 활성화된 경우 true 또는 false일 수 있습니다 |
 | `dob` | 문자열 | 사용자의 생년월일(`YYYY-MM-DD` 형식)입니다. |
 | `email` | 문자열 | 사용자의 이메일 주소입니다. |
 | `external_id` | 문자열 | 식별된 사용자를 위한 고유 사용자 식별자입니다. |
@@ -160,11 +160,11 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/segme
 | `phone` | 문자열 | Braze에 가져온 형식의 사용자 전화번호입니다. 예를 들어, 전화번호 추가 요청이 `1234567890`으로 들어오면 동일한 형식으로 내보내집니다. |
 | `purchases` | 배열 | 이 사용자가 지난 90일 동안 한 구매입니다. |
 | `push_tokens` | 배열 | 사용자의 푸시 토큰에 대한 정보입니다. |
-| `random_bucket` | 정수 | 무작위 사용자 Segment를 균일하게 분산시키는 데 사용되는 사용자의 [무작위 버킷 번호]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events/#random-bucket-number-event)입니다. |
+| `random_bucket` | 정수 | 무작위 사용자 Segment를 균일하게 분산시키는 데 사용되는 사용자의 [무작위 버킷 번호]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)입니다. |
 | `time_zone` | 문자열 | IANA 시간대 데이터베이스와 동일한 형식의 사용자 시간대입니다. |
 | `total_revenue` | 플로트 | 이 사용자에게 귀속된 총 매출입니다. 총 매출은 사용자가 받은 Campaigns 및 Canvases의 전환 기간 동안 구매한 금액을 기준으로 계산됩니다. |
 | `uninstalled_at` | 타임스탬프 | 사용자가 앱을 삭제한 날짜와 시간입니다. 앱이 삭제되지 않은 경우 생략됩니다. |
-| `user_aliases` | 오브젝트 | `alias_name` 및 `alias_label`을 포함하는 [사용자 별칭 오브젝트]({{site.baseurl}}/api/objects_filters/user_alias_object/#user-alias-object-specification)(있는 경우)입니다. |
+| `user_aliases` | 오브젝트 | `alias_name` 및 `alias_label`을 포함하는 [사용자 별칭 오브젝트]({{site.baseurl}}/api/objects_filters/user_alias_object)(있는 경우)입니다. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="내보낼 필드" }
 
 ## 중요한 알림 {#important-reminders}
@@ -173,14 +173,14 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/segme
 - `custom_events`와 `purchases` 모두 `first`와 `count`에 대한 필드가 포함되어 있습니다. 이 두 필드는 전체 기간의 정보를 반영하며, 지난 90일의 데이터로 제한되지 않습니다. 예를 들어, 특정 사용자가 90일 전에 처음으로 이벤트를 수행한 경우, 이는 `first` 필드에 정확하게 반영되며, `count` 필드는 지난 90일 이전에 발생한 이벤트도 고려합니다.
 - 회사가 엔드포인트 수준에서 실행할 수 있는 동시 Segment 내보내기 수는 100개로 제한됩니다. 이 한도를 초과하는 시도는 오류를 발생시킵니다.
 - 첫 번째 내보내기 작업이 여전히 실행 중일 때 Segment를 두 번째로 내보내려고 하면 429 오류가 발생합니다.
-- [`403 Forbidden` 응답]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/?sdktab=cloud%20storage%20connected#segment-export-api-downloads)은 내보내기 파일이 아직 준비되지 않았음을 의미하는 경우가 많습니다.
+- [`403 Forbidden` 응답]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting?sdktab=cloud%20storage%20connected#segment-export-api-downloads)은 내보내기 파일이 아직 준비되지 않았음을 의미하는 경우가 많습니다.
 - 구독 그룹 데이터는 Segment 내보내기를 통해 사용할 수 없습니다. 구독 상태별로 사용자를 식별하려면 구독 그룹 멤버십을 기반으로 별도의 Segment를 생성하고 해당 Segment를 내보내세요.
 
 ## 응답 {#response}
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
+    "message": (string) returns 'success' when the request completes without errors,
     "object_prefix": (required, string) the filename prefix that is used for the JSON file produced by this export, for example, 'bb8e2a91-c4aa-478b-b3f2-a4ee91731ad1-1464728599',
     "url" : (optional, string) the URL where the segment export data can be downloaded if you do not have your own S3 credentials
 }
@@ -188,11 +188,11 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/segme
 
 ### `null` URL
 
-응답에 `"url": null`이 포함되어 있거나 다운로드 URL이 생략된 경우, Amazon S3 버킷 또는 Azure Blob Storage 컨테이너와 같은 [클라우드 스토리지 통합]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)을 구성했다면, Braze는 API 응답에 임시 다운로드 URL을 반환하는 대신 연결된 버킷 또는 컨테이너에 내보내기를 기록합니다. 연결된 클라우드 스토리지 버킷 또는 컨테이너에서 파일을 가져오세요.
+응답에 `"url": null`이 포함되어 있거나 다운로드 URL이 생략된 경우, Amazon S3 버킷 또는 Azure Blob Storage 컨테이너와 같은 [클라우드 스토리지 통합]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting)을 구성했다면, Braze는 API 응답에 임시 다운로드 URL을 반환하는 대신 연결된 버킷 또는 컨테이너에 내보내기를 기록합니다. 연결된 클라우드 스토리지 버킷 또는 컨테이너에서 파일을 가져오세요.
 
 다운로드 URL이 반환되는 경우 몇 시간 동안만 유효합니다. 따라서 Braze에 자체 S3 자격 증명을 추가하는 것을 적극 권장합니다.
 
-API 응답에서 `object_prefix`가 보이지만 데이터를 다운로드할 URL이 없는 경우, 이는 이 엔드포인트에 대해 이미 Amazon S3 버킷이 설정되어 있음을 의미합니다. 이 엔드포인트를 사용하여 내보낸 모든 데이터는 귀하의 S3 버킷으로 직접 전송됩니다.
+API 응답에서 `object_prefix`가 보이지만 데이터를 다운로드할 URL이 없는 경우, 이는 이 엔드포인트에 대해 이미 Amazon S3 버킷이 설정되어 있음을 의미합니다. 이 엔드포인트를 사용하여 내보낸 모든 데이터는 S3 버킷으로 직접 전송됩니다.
 
 ## 사용자 내보내기 파일 출력 예시 {#example-user-export-file-output}
 
@@ -356,13 +356,13 @@ API 응답에서 `object_prefix`가 보이지만 데이터를 다운로드할 UR
     ],
     "braze_id": "5fbd99bac125ca40511f2cb1",
     "random_bucket" : 2365,
-    "first_name" : "Jane",
-    "last_name" : "Doe",
-    "email" : "example@braze.com",
+    "first_name" : "Alex",
+    "last_name" : "Smith",
+    "email" : "example@example.com",
     "dob" : "1980-12-21",
     "home_city" : "Chicago",
     "country" : "US",
-    "phone" : "+442071838750",
+    "phone" : "+15555550123",
     "language" : "en",
     "time_zone" : "Eastern Time (US & Canada)",
     "last_coordinates" : [41.84157636433568, -87.83520818508256],
@@ -485,7 +485,7 @@ API 응답에서 `object_prefix`가 보이지만 데이터를 다운로드할 UR
 {% endtabs %}
 
 {% alert tip %}
-CSV 및 API 내보내기에 대한 도움은 [내보내기 문제 해결]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)을 참조하세요.
+CSV 및 API 내보내기에 대한 도움은 [내보내기 문제 해결]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting)을 참조하세요.
 {% endalert %}
 
 [1]: {{site.baseurl}}/partners/data_and_infrastructure_agility/cloud_storage/amazon_s3

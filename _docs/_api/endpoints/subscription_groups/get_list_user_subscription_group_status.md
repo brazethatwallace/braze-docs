@@ -18,6 +18,8 @@ description: "This article outlines details about the List user's subscription g
 
 These groups will be available on the **Subscription Group** page. The response from this endpoint will include the external ID and either subscribed, unsubscribed, or unknown for the specific subscription group requested in the API call. This can be used to update the subscription group state in subsequent API calls or to be displayed on a hosted web page.
 
+If you collect email through a custom form and then set subscription group membership through the REST API, call this endpoint first to check whether a profile already exists. If no matching profile exists, create or subscribe the user with the [Update user's subscription group status]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) endpoint. Otherwise, update the existing profile instead of creating a duplicate. For other collection patterns, see [Collection best practices]({{site.baseurl}}/user_guide/data/unification/user_data/best_practices).
+
 If you want to see examples or test this endpoint for **Email Subscription Groups**:
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#488c8923-fa44-4124-9245-036d13c615f2 {% endapiref %}
@@ -32,7 +34,7 @@ If you want to see examples or test this endpoint for **WhatsApp Groups**:
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `subscription.status.get` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `subscription.status.get` permission.
 
 ## Rate limit
 
@@ -42,7 +44,7 @@ To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-
 
 | Parameter | Required | Data Type | Description |
 |---|---|---|---|
-| [`subscription_group_id`]({{site.baseurl}}/api/identifier_types/?tab=subscription%20group%20ids)  | Required | String | The `id` of your subscription group. |
+| [`subscription_group_id`]({{site.baseurl}}/api/identifier_types?tab=subscription%20group%20ids)  | Required | String | The `id` of your subscription group. |
 | `external_id`  |  Required* | String | The `external_id` of the user (must include at least one and at most 50 `external_ids`). <br><br>When both an `external_id` and `email`/`phone` are submitted, only the `external_id`(s) provided will be applied to the result query. |
 | `email` | Required* | String | The email address of the user. It can be passed as an array of strings with a maximum of 50.<br><br> Submitting both an email address and phone number (with no `external_id`) will result in an error. |
 | `phone` | Required* | String in [E.164](https://en.wikipedia.org/wiki/E.164) format | The phone number of the user. If email is not included, you must include at least one phone number (with a maximum of 50).<br><br> Submitting both an email address and phone number (with no `external_id`) will result in an error. |
@@ -74,7 +76,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/sta
 {% tab Email %}
 {% raw %}
 ```
-curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/status/get?subscription_group_id={{subscription_group_id}}&email=example@braze.com' \
+curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/status/get?subscription_group_id={{subscription_group_id}}&email=example@example.com' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 {% endraw %}

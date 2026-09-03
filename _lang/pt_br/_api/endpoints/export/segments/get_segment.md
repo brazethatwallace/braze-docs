@@ -14,7 +14,7 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Exporta
 /segments/list
 {% endapimethod %}
 
-> Use esse endpoint para exportar uma lista de segmentos, cada um dos quais incluirá seu nome, o Identificador de API do segmento e se tem o rastreamento de análise de dados ativado.
+> Use esse endpoint para exportar uma lista de segmentos, cada um dos quais incluirá seu nome, o identificador de API do segmento e se tem o rastreamento de análise de dados ativado.
 
 Os segmentos são retornados em grupos de 100, classificados por hora de criação (do mais antigo ao mais recente, por padrão). Os segmentos arquivados não estão incluídos.
 
@@ -22,15 +22,15 @@ Os segmentos são retornados em grupos de 100, classificados por hora de criaç�
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `segments.list`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `segments.list`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | -------- | -------- | --------- | ----------- |
 | `page` | Opcional | Inteiro | A página de segmentos a ser retornada; o padrão é 0 (retorna o primeiro conjunto de até 100). |
 | `sort_direction` | Opcional | String | - Classifique o tempo de criação do mais novo para o mais antigo: passe o valor `desc`.<br> - Classifique o tempo de criação do mais antigo para o mais recente: passe o valor `asc`. <br><br>Se `sort_direction` não estiver incluído, a ordem padrão será do mais antigo para o mais recente. |
@@ -46,7 +46,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/segments/list?page=
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
+    "message": (string) returns 'success' when the request completes without errors,
     "segments" : [
         {
             "id" : (string) the Segment API identifier,
@@ -60,7 +60,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/segments/list?page=
 ```
 
 {% alert tip %}
-Para obter ajuda com exportações de CSV e API, acesse [Resolução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+Para obter ajuda com exportações de CSV e API, acesse [Resolução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endapi %}

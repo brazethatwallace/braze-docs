@@ -3,27 +3,27 @@ nav_title: Recomendações de itens
 article_title: Recomendações de itens na Braze
 page_order: 10
 search_rank: 1
-description: "Aprenda tudo sobre motores de recomendação de itens na Braze."
+description: "Aprenda tudo sobre mecanismos de recomendação de itens na Braze."
 ---
 
 # Recomendações de itens {#item-recommendations}
 
-> Aprimore suas recomendações com a Braze criando um motor de recomendação que pode sugerir itens e conteúdos que seus usuários realmente desejam. Desde a personalização de experiências com IA até a criação de seus próprios mecanismos com Liquid ou Conteúdo conectado, você encontrará tudo o que precisa para fazer com que cada recomendação conte.
+> Aprimore suas recomendações com a Braze criando um mecanismo de recomendação que pode sugerir itens e conteúdos que seus usuários realmente desejam. Desde a personalização de experiências com IA até a criação de seus próprios mecanismos com Liquid ou Connected Content, você encontrará tudo o que precisa para fazer com que cada recomendação conte.
 
 ## Pré-requisitos {#prerequisites}
 
-Antes de criar ou usar recomendações de itens na Braze, você precisará [criar pelo menos um catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/create/)&#8212;apenas itens desse catálogo serão recomendados aos usuários.
+Antes de criar ou usar recomendações de itens na Braze, você precisará [criar pelo menos um catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/create)&#8212;apenas itens desse catálogo serão recomendados aos usuários.
 
 ## Tipos e casos de uso {#types-and-use-cases}
 
 ### IA Personalizada {#ai}
 
-Como parte do recurso [recomendações de itens de IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/), as recomendações personalizadas de IA aproveitam o deep learning para prever quais itens seus usuários têm mais probabilidade de se interessar a seguir, com base no que demonstraram interesse no passado. Esse método fornece um sistema de recomendação dinâmico e personalizado que se adapta ao comportamento do usuário.
+Como parte do recurso [recomendações de itens de IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai), as recomendações personalizadas de IA aproveitam o deep learning para prever quais itens seus usuários têm mais probabilidade de se interessar a seguir, com base no que demonstraram interesse no passado. Esse método fornece um sistema de recomendação dinâmico e personalizado que se adapta ao comportamento do usuário.
 
 As recomendações personalizadas de IA usam os últimos 6 meses de dados de interação com itens, como compras ou eventos personalizados, para criar o modelo de recomendação. Para usuários sem dados suficientes para uma lista personalizada, os itens mais populares servem como fallback, para que seus usuários ainda recebam sugestões relevantes.
 
 Com as recomendações de itens de IA, você também pode filtrar ainda mais os itens disponíveis com
-[seleções]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/). No entanto, as seleções com Liquid não podem ser usadas em recomendações de IA, então lembre-se disso ao criar suas seleções de catálogo.
+[seleções]({{site.baseurl}}/user_guide/data/activation/catalogs/selections). No entanto, as seleções com Liquid não podem ser usadas em recomendações de IA, então lembre-se disso ao criar suas seleções de catálogo.
 
 {% alert tip %}
 As recomendações personalizadas por IA funcionam melhor com centenas ou milhares de itens e, normalmente, com pelo menos 30.000 usuários com dados de compra ou interação. Esse é apenas um guia aproximado e pode variar. Os outros tipos de recomendação podem funcionar com menos dados.
@@ -43,17 +43,17 @@ Preveja e recomende os itens que um usuário provavelmente comprará em seguida,
 {% details Requisitos %}
 - Recomendações de itens de IA
 - Catálogo de itens relevantes
-- Um método para rastrear compras: um objeto de compra, um evento personalizado ou um [evento de pedido realizado]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/?tab=ecommerce.order_placed)
+- Um método para rastrear compras: um objeto de compra, um evento personalizado ou um [evento de pedido realizado]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events?tab=ecommerce.order_placed)
 {% enddetails %}
 
 {% details Configuração %}
-1. Crie uma [recomendação de item de IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/).
+1. Crie uma [recomendação de item de IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Defina o **Tipo** como **IA Personalizada**.
 3. Selecione seu catálogo.
 4. (Opcional) Adicione uma seleção para filtrar sua recomendação apenas para itens relevantes.
 5. Escolha como você rastreia atualmente os eventos de compra e a propriedade de evento correspondente.
 6. Treine a recomendação.
-7. [Use a recomendação no envio de mensagens]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/).
+7. [Use a recomendação no envio de mensagens]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations).
 {% enddetails %}
 {% endtab %}
 {% endtabs %}
@@ -77,13 +77,13 @@ Incentive os usuários a explorar itens populares em seu catálogo com base nas 
 {% enddetails %}
 
 {% details Configuração %}
-1. Crie uma [recomendação de item de IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/).
+1. Crie uma [recomendação de item de IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Defina o **Tipo** como **Mais popular**.
 3. Selecione seu catálogo.
 4. (Opcional) Adicione uma seleção para filtrar sua recomendação apenas para itens relevantes. Por exemplo, o serviço de entrega de comida pode ter uma seleção para filtrar pelo local do restaurante ou tipo de prato.
 5. Escolha como você rastreia eventos atualmente e a propriedade de evento correspondente.
 6. Treine a recomendação.
-7. [Use a recomendação no envio de mensagens]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/).
+7. [Use a recomendação no envio de mensagens]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations).
 {% enddetails %}
 {% endtab %}
 
@@ -97,13 +97,13 @@ Incentive os usuários a explorar itens que eles curtiram recentemente ou itens 
 {% enddetails %}
 
 {% details Configuração %}
-1. Crie uma [recomendação de item de IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/).
+1. Crie uma [recomendação de item de IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Defina o **Tipo** como **Mais recente**.
 3. Selecione seu catálogo.
 4. (Opcional) Adicione uma seleção para filtrar sua recomendação apenas para itens relevantes.
 5. Escolha **Custom Event** e selecione seu evento personalizado para curtidas na lista.
 6. Treine a recomendação.
-7. [Use a recomendação no envio de mensagens]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/).
+7. [Use a recomendação no envio de mensagens]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations).
 {% enddetails %}
 {% endtab %}
 
@@ -117,13 +117,13 @@ Destaque os itens que ganharam atenção na sua base de usuários por meio de vi
 {% enddetails %}
 
 {% details Configuração %}
-1. Crie uma [recomendação de item de IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/).
+1. Crie uma [recomendação de item de IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Defina o **Tipo** como **Mais popular**.
 3. Selecione seu catálogo.
 4. (Opcional) Adicione uma seleção para filtrar sua recomendação apenas para itens relevantes.
 5. Escolha **Custom Event** e selecione seu evento personalizado para visualizações na lista.
 6. Treine a recomendação.
-7. [Use a recomendação no envio de mensagens]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/).
+7. [Use a recomendação no envio de mensagens]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations).
 {% enddetails %}
 {% endtab %}
 
@@ -139,13 +139,13 @@ Por exemplo, um varejista de moda poderia promover roupas e acessórios que est�
 {% enddetails %}
 
 {% details Configuração %}
-1. Crie uma [recomendação de item de IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/).
+1. Crie uma [recomendação de item de IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Defina o **Tipo** como **Mais popular**.
 3. Selecione seu catálogo.
 4. (Opcional) Adicione uma seleção para filtrar sua recomendação apenas para itens relevantes.
 5. Escolha **Custom Event** e selecione na lista o evento personalizado para adicionar ao carrinho.
 6. Treine a recomendação.
-7. [Use a recomendação no envio de mensagens]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/).
+7. [Use a recomendação no envio de mensagens]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations).
 {% enddetails %}
 {% endtab %}
 {% endtabs %}
@@ -169,13 +169,13 @@ Incentive os usuários a revisitar os itens em que clicaram recentemente, com ba
 {% enddetails %}
 
 {% details Configuração %}
-1. Crie uma [recomendação de item de IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/).
+1. Crie uma [recomendação de item de IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Defina o **Tipo** como **Mais recente**.
 3. Selecione seu catálogo.
 4. (Opcional) Adicione uma seleção para filtrar sua recomendação apenas para itens relevantes.
 5. Escolha **Custom Event** e selecione seu evento personalizado para cliques na lista.
 6. Treine a recomendação.
-7. [Use a recomendação no envio de mensagens]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/).
+7. [Use a recomendação no envio de mensagens]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations).
 {% enddetails %}
 
 {% endtab %}
@@ -189,13 +189,13 @@ Incentive os usuários a explorar itens que eles curtiram recentemente ou itens 
 {% enddetails %}
 
 {% details Configuração %}
-1. Crie uma [recomendação de item de IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/).
+1. Crie uma [recomendação de item de IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Defina o **Tipo** como **Mais recente**.
 3. Selecione seu catálogo.
 4. (Opcional) Adicione uma seleção para filtrar sua recomendação apenas para itens relevantes.
 5. Escolha **Custom Event** e selecione seu evento personalizado para curtidas na lista.
 6. Treine a recomendação.
-7. [Use a recomendação no envio de mensagens]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/).
+7. [Use a recomendação no envio de mensagens]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations).
 {% enddetails %}
 {% endtab %}
 
@@ -213,13 +213,13 @@ Promova itens com os quais os usuários interagiram recentemente, incluindo visu
 {% enddetails %}
 
 {% details Configuração %}
-1. Crie uma [recomendação de item de IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/).
+1. Crie uma [recomendação de item de IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Defina o **Tipo** como **Mais recente**.
 3. Selecione seu catálogo.
 4. (Opcional) Adicione uma seleção para filtrar sua recomendação apenas para itens relevantes.
 5. Escolha **Custom Event** e selecione seu evento personalizado para cliques na lista.
 6. Treine a recomendação.
-7. [Use a recomendação no envio de mensagens]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/).
+7. [Use a recomendação no envio de mensagens]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations).
 {% enddetails %}
 {% endtab %}
 
@@ -233,13 +233,13 @@ Lembre os usuários do interesse deles em itens que adicionaram recentemente ao 
 {% enddetails %}
 
 {% details Configuração %}
-1. Crie uma [recomendação de item de IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/).
+1. Crie uma [recomendação de item de IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Defina o **Tipo** como **Mais recente**.
 3. Selecione seu catálogo.
 4. (Opcional) Adicione uma seleção para filtrar sua recomendação apenas para itens relevantes.
 5. Escolha **Custom Event** e selecione na lista o evento personalizado para adicionar ao carrinho.
 6. Treine a recomendação.
-7. [Use a recomendação no envio de mensagens]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/).
+7. [Use a recomendação no envio de mensagens]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations).
 {% enddetails %}
 {% endtab %}
 {% endtabs %}
@@ -265,13 +265,13 @@ Destaque os itens que seus usuários compraram recentemente com maior frequênci
 {% enddetails %}
 
 {% details Configuração %}
-1. Crie uma [recomendação de item de IA]({{site.baseurl}}/ai_item_recommendations/).
+1. Crie uma [recomendação de item de IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Defina o **Tipo** como **Em alta**.
 3. Selecione seu catálogo.
 4. (Opcional) Adicione uma seleção para filtrar sua recomendação apenas para itens relevantes.
 5. Escolha um evento de compra ou um evento personalizado que rastreia compras, juntamente com a propriedade correspondente.
 6. Treine a recomendação.
-7. [Use a recomendação no envio de mensagens.]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/)
+7. [Use a recomendação no envio de mensagens.]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations)
 {% enddetails %}
 {% endtab %}
 
@@ -285,20 +285,20 @@ Destaque itens que seus usuários curtiram recentemente com maior frequência. P
 {% enddetails %}
 
 {% details Configuração %}
-1. Crie uma [recomendação de item de IA]({{site.baseurl}}/ai_item_recommendations/).
+1. Crie uma [recomendação de item de IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Defina o **Tipo** como **Em alta**.
 3. Selecione seu catálogo.
 4. (Opcional) Adicione uma seleção para filtrar sua recomendação apenas para itens relevantes.
 5. Escolha seu evento personalizado para rastreamento de curtidas, juntamente com a propriedade correspondente.
 6. Treine a recomendação.
-7. [Use a recomendação no envio de mensagens.]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/)
+7. [Use a recomendação no envio de mensagens.]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations)
 {% enddetails %}
 {% endtab %}
 {% endtabs %}
 
 ### Baseado em seleções {#selections-based}
 
-[As seleções]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) são grupos específicos de dados de catálogo. Ao usar uma seleção, você está basicamente configurando filtros personalizados com base em colunas específicas do seu catálogo. Isso pode incluir filtros por marca, tamanho, local, data de adição e muito mais. Isso dá a você controle sobre o que está recomendando, permitindo definir os critérios que os itens devem atender para serem mostrados aos usuários.
+[As seleções]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) são grupos específicos de dados de catálogo. Ao usar uma seleção, você está basicamente configurando filtros personalizados com base em colunas específicas do seu catálogo. Isso pode incluir filtros por marca, tamanho, local, data de adição e muito mais. Isso dá a você controle sobre o que está recomendando, permitindo definir os critérios que os itens devem atender para serem mostrados aos usuários.
 
 Os três tipos anteriores envolvem a configuração e o treinamento de um modelo de recomendação na Braze. Embora também seja possível usar seleções nesses modelos, você também pode realizar alguns casos de uso de recomendação apenas com seleções de catálogo e personalização Liquid.
 
@@ -326,7 +326,7 @@ Por exemplo, uma plataforma de e-commerce de tecnologia poderia alertar os entus
 3. Certifique-se de que a opção **Randomize Sort Order** esteja desativada.
 4. Em **Sort Field**, selecione o campo de data de adição.
 5. Defina **Sort Order** como descendente.
-6. [Use a seleção no envio de mensagens]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/#using-selections-in-messaging).
+6. [Use a seleção no envio de mensagens]({{site.baseurl}}/user_guide/data/activation/catalogs/selections#using-selections-in-messaging).
 {% enddetails %}
 {% endtab %}
 
@@ -341,17 +341,17 @@ Por exemplo, uma livraria on-line poderia oferecer o recurso "Surpreenda-me", re
 {% enddetails %}
 
 {% details Configuração %}
-1. [Crie uma seleção]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/#creating-a-selection) com base em seu catálogo.
+1. [Crie uma seleção]({{site.baseurl}}/user_guide/data/activation/catalogs/selections#creating-a-selection) com base em seu catálogo.
 2. (Opcional) Adicione filtros, se desejar.
 3. Ative a opção **Randomize Sort Order**.
-4. [Use a seleção no envio de mensagens]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/#using-selections-in-messaging).
+4. [Use a seleção no envio de mensagens]({{site.baseurl}}/user_guide/data/activation/catalogs/selections#using-selections-in-messaging).
 {% enddetails %}
 {% endtab %}
 {% endtabs %}
 
 ### Baseado em regras {#rules-based}
 
-Um mecanismo de [recomendação baseado em regras]({{site.baseurl}}/rules_based_recommendations/) usa dados de usuários e informações de produtos para sugerir itens relevantes aos usuários dentro das mensagens. Ele usa o Liquid e os catálogos da Braze ou o Conteúdo conectado para personalizar dinamicamente o conteúdo com base no comportamento e nos atributos do usuário.
+Um mecanismo de [recomendação baseado em regras]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/rules_based) usa dados de usuários e informações de produtos para sugerir itens relevantes aos usuários dentro das mensagens. Ele usa Liquid e os catálogos da Braze ou Connected Content para personalizar dinamicamente o conteúdo com base no comportamento e nos atributos do usuário.
 
 As recomendações baseadas em regras são fundamentadas em uma lógica fixa que você deve definir manualmente. Isso significa que suas recomendações não se ajustarão ao histórico de compras e gostos individuais de um usuário, a menos que você atualize a lógica; portanto, esse método é mais indicado para recomendações que não precisam de atualizações frequentes.
 
@@ -391,3 +391,29 @@ Sim, mas apenas após a próxima atualização programada. As recomendações ex
 ### Como posso fazer com que todas as recomendações que duram vários dias expirem de uma vez? {#how-can-i-make-all-recommendations-that-last-multiple-days-expire-at-once}
 
 Se você quiser expirar todas as recomendações de vários dias em uma data específica (para que todas essas recomendações ativas recebam novas previsões de uma vez), entre em contato com o suporte da Braze ou seu gerente de sucesso do cliente para obter assistência. Os especialistas em IA da Braze realizam isso manualmente para garantir o máximo desempenho do modelo.
+
+### O que acontece se eu atualizar o nome da propriedade de uma recomendação de item de IA ativa? {#what-happens-if-i-update-the-property-name-for-an-active-ai-item-recommendation}
+
+Quando você atualiza o nome da propriedade (caminho do ID do item) e seleciona **Salvar e criar**, a Braze inicia um trabalho de retreinamento em segundo plano que analisa os últimos seis meses de dados de interação usando o novo mapeamento.
+
+Enquanto o modelo está sendo retreinado, os usuários continuam vendo recomendações da versão anterior. As recomendações não mudam até que o novo modelo conclua o treinamento com sucesso. Isso significa:
+
+- Os usuários veem itens personalizados do modelo antigo (ou o fallback global se não tiverem recomendações específicas).
+- Não há tempo de inatividade ou lacuna nas recomendações durante o processo de retreinamento.
+- A transição do modelo antigo para o novo é transparente assim que o treinamento é concluído com sucesso.
+
+Os eventos com o caminho de ID de item antigo são efetivamente ignorados para o novo modelo. Apenas os eventos que usam o novo mapeamento de nome de propriedade são incluídos no retreinamento.
+
+### O que acontece se o trabalho de retreinamento falhar após a alteração do nome da propriedade? {#what-happens-if-the-retraining-job-fails-after-changing-the-property-name}
+
+{% alert important %}
+Se o trabalho de retreinamento falhar, toda a recomendação de item entrará em um estado desativado (não ativo). Como a Braze atualmente não faz fallback para o modelo treinado com sucesso mais recentemente em caso de falha no treinamento, qualquer Liquid que faça referência a essa recomendação falhará, e as mensagens associadas não serão enviadas.
+{% endalert %}
+
+Para reduzir esse risco, considere a seguinte abordagem:
+
+1. Crie uma nova recomendação de item com a configuração de nome de propriedade desejada.
+2. Verifique se o treinamento foi concluído com sucesso.
+3. Atualize seu envio de mensagens para fazer referência à nova recomendação em vez de modificar diretamente uma recomendação ativa.
+
+Essa abordagem permite que você teste a nova configuração sem arriscar interrupções nas mensagens que fazem referência à sua recomendação existente.

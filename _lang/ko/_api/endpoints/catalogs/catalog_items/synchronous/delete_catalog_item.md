@@ -21,7 +21,7 @@ description: "이 문서에서는 카탈로그 항목 삭제 Braze 엔드포인�
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `catalogs.delete_item` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `catalogs.delete_item` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key-permissions)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -33,7 +33,7 @@ description: "이 문서에서는 카탈로그 항목 삭제 Braze 엔드포인�
 |---|---|---|---|
 | `catalog_name` | 필수 | 문자열 | 카탈로그의 이름입니다. |
 | `item_id` | 필수 | 문자열 | 카탈로그 항목의 ID입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="경로 매개변수" }
 
 ## 요청 매개변수 {#request-parameters}
 
@@ -89,9 +89,9 @@ curl --location --request DELETE 'https://rest.iad-03.braze.com/catalogs/restaur
 
 | 오류 | 문제 해결 |
 | --- | --- |
-| `arbitrary-error` | 임의의 오류가 발생했습니다. 다시 시도하거나 [고객지원팀]({{site.baseurl}}/support_contact/)에 문의하세요. |
+| `arbitrary-error` | 임의의 오류가 발생했습니다. 다시 시도하거나 [고객지원팀]({{site.baseurl}}/support_contact)에 문의하세요. |
 | `catalog-not-found` | 카탈로그 이름이 유효한지 확인하세요. |
 | `item-not-found` | 삭제할 항목이 카탈로그에 있는지 확인하세요. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="문제 해결" }
 
 {% endapi %}

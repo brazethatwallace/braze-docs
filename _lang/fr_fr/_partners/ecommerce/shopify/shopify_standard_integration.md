@@ -10,16 +10,16 @@ page_order: 1
 
 # Configuration de l'intégration standard de Shopify {#shopify-standard-integration-setup}
 
-> Cette page vous explique comment intégrer Braze à Shopify à l'aide de notre intégration standard pour les utilisateurs disposant d'une boutique en ligne Shopify. Si vous utilisez un site Shopify headless ou si vous cherchez à mettre en place des solutions plus personnalisées, reportez-vous à la [configuration de l'intégration personnalisée de Shopify]({{site.baseurl}}/shopify_custom_integration/).
+> Cette page vous explique comment intégrer Braze à Shopify à l'aide de notre intégration standard pour les utilisateurs disposant d'une boutique en ligne Shopify. Si vous utilisez un site Shopify headless ou si vous cherchez à mettre en place des solutions plus personnalisées, reportez-vous à la [configuration de l'intégration personnalisée de Shopify]({{site.baseurl}}/shopify_custom_integration).
 
 ## Étape 1 : Connectez votre boutique Shopify {#step-1-connect-your-shopify-store}
 
 1. Dans Braze, allez dans **Intégrations partenaires** > **Partenaires technologiques**, puis recherchez « Shopify ».
 2. Sur la page partenaire de Shopify, sélectionnez **Begin setup** pour lancer le processus d'intégration.<br><br>![Page d'intégration de Shopify avec un bouton pour commencer la configuration.]({% image_buster /assets/img/shopify/begin_setup.png %})<br><br>
-3. Dans la boutique d'applications Shopify, installez l'application Braze.<br><br>![La page du magasin d'applications de Braze avec un bouton pour installer l'application.]({% image_buster /assets/img/shopify/shopify_log_in.png %}){: style="max-width:70%;"}
+3. Dans la boutique d'applications Shopify, installez l'application Braze.<br><br>![La page de la boutique d'applications de Braze avec un bouton pour installer l'application.]({% image_buster /assets/img/shopify/shopify_log_in.png %}){: style="max-width:70%;"}
 
 {% alert note %}
-Si votre compte Shopify est associé à plusieurs boutiques, vous pouvez changer la boutique à laquelle vous êtes connecté en sélectionnant l'icône de la boutique en haut à droite de la page et en sélectionnant **Switch stores**.
+Si votre compte Shopify est associé à plusieurs boutiques, vous pouvez changer la boutique à laquelle vous êtes connecté en sélectionnant l'icône de la boutique dans l'en-tête et en sélectionnant **Switch stores**.
 {% endalert %}
 
 {: start="4"}
@@ -41,6 +41,10 @@ Après avoir sélectionné le parcours d'onboarding standard, vous devrez choisi
     - Suit uniquement les utilisateurs identifiés
     - Commence le suivi des données lorsque les visiteurs du site s'inscrivent ou se connectent à leur compte
 
+{% alert note %}
+Les nouveaux clients sont provisionnés avec les dernières versions du SDK Web et du SDK JavaScript de Braze lors de la configuration. Les clients existants peuvent consulter leur version actuelle du SDK dans les paramètres d'intégration, être notifiés lorsqu'une version plus récente est disponible et effectuer eux-mêmes la mise à jour depuis les paramètres d'intégration.
+{% endalert %}
+
 ## Étape 3 : Configurez vos données Shopify {#step-3-configure-your-shopify-data}
 
 ### Configuration standard des données {#standard-data-setup}
@@ -58,7 +62,7 @@ Les événements suivants sont activés par défaut dans l'intégration standard
 | {::nomarkdown}<ul><li>Produit vu</li><li>Mise à jour du panier</li><li>Paiement commencé</li><li>Commande passée</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_account_login</li><li>shopify_paid_order</li><li>shopify_order_canceled</li><li>shopify_order_refunded</li><li>shopify_order_fulfilled</li><li>shopify_order_partially_fulfilled</li></ul>{:/} | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2  .reset-td-br-3 aria-label="Configuration standard des données" }
 
-Pour plus d'informations sur les données suivies par l'intégration, consultez les [fonctionnalités des données Shopify]({{site.baseurl}}/shopify_data_features/).
+Pour plus d'informations sur les données suivies par l'intégration, consultez les [fonctionnalités des données Shopify]({{site.baseurl}}/shopify_data_features).
 
 {% multi_lang_include alerts/important_alerts.md alert='Shopify customer create' %}
 
@@ -66,7 +70,7 @@ Pour plus d'informations sur les données suivies par l'intégration, consultez 
 
 À l'étape **Track Shopify data**, cochez la case pour inclure le chargement initial des données historiques dans votre intégration.
 
-Pour savoir ce qui est importé, le comportement des rapports de chiffre d'affaires, les captures d'écran de configuration et les recommandations si vous utilisez déjà Braze avec des Campaigns ou des Canvas actifs, consultez la section [Remplissage historique]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill).
+Pour savoir ce qui est importé, le comportement des rapports de chiffre d'affaires, les captures d'écran de configuration et les recommandations si vous utilisez déjà Braze avec des Campaigns ou des Canvas actifs, consultez la section [Remplissage historique]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features#historical-backfill).
 
 ### (Avancé) Configuration personnalisée du suivi des données {#advanced-custom-data-tracking-setup}
 
@@ -79,7 +83,7 @@ Avec les SDK de Braze, vous pouvez suivre des événements personnalisés ou des
 }
 </style>
 
-<table aria-label="(Avancé) Configuration personnalisée du suivi des données" style="width: 100%;">
+<table aria-label="Configuration personnalisée du suivi des données (avancé)" style="width: 100%;">
   <caption>(Avancé) Configuration personnalisée du suivi des données</caption>
   <thead>
     <tr>
@@ -116,7 +120,7 @@ braze.logCustomEvent(
   “subscribed_to_newsletter”,
   {
     newsletterName: ‘News and Offers’,
-    customerEmail: ‘customer_1@gmail.com’,
+    customerEmail: ‘customer_1@example.com’,
     sendOffers: true
   }
 );
@@ -189,7 +193,7 @@ Braze envoie les paramètres suivants à votre endpoint :
 #### Exemple d'endpoint {#example-endpoint}
 
 ```http
-GET https://mystore.com/custom_id?shopify_customer_id=1234&email_address=bob@braze.com&shopify_storefront=dev-store.myshopify.com
+GET https://mystore.com/custom_id?shopify_customer_id=1234&email_address=bob@example.com&shopify_storefront=dev-store.myshopify.com
 ```
 
 #### Réponse attendue {#expected-response}
@@ -206,9 +210,7 @@ Il est essentiel de valider que `shopify_customer_id` et `email_address` (le cas
 #### Comportement en cas d'échec et fusion {#failure-behavior-and-merging}
 Tout code de statut autre que `200` est considéré comme un échec.
 
-- **Implications pour la fusion :** Si l'endpoint échoue (renvoie un code autre que `200` ou expire), Braze ne peut pas récupérer l'ID externe. Par conséquent, la fusion entre le profil utilisateur Shopify et le profil utilisateur Braze ne se fera pas à ce moment-là.
-- **Logique de nouvelle tentative :** Braze peut effectuer des tentatives immédiates standard sur le réseau, mais si l'échec persiste, la fusion sera reportée jusqu'au prochain événement éligible (par exemple, la prochaine fois que l'utilisateur mettra à jour son profil ou effectuera un paiement).
-- **Disponibilité :** Pour permettre la fusion des utilisateurs en temps voulu, assurez-vous que votre endpoint est hautement disponible et qu'il gère le champ facultatif `email_address` de manière appropriée.
+{% multi_lang_include partners/shopify/external_id_merge_implications.md %}
 
 ### Étape 4.3 : Saisissez votre ID externe {#step-43-input-your-external-id}
 
@@ -216,9 +218,7 @@ Répétez l'[étape 4](#step-4) et saisissez l'URL de votre endpoint après avoi
 
 #### Considérations {#considerations}
 
-- Si votre ID externe n'est pas généré lorsque Braze envoie une requête à votre endpoint, l'intégration utilisera par défaut l'ID client Shopify lorsque la fonction `changeUser` est appelée. Cette étape est cruciale pour fusionner le profil de l'utilisateur anonyme avec le profil de l'utilisateur identifié. Par conséquent, il peut y avoir une période temporaire pendant laquelle différents types d'ID externes coexistent dans votre espace de travail.
-- Lorsque l'ID externe est disponible dans le méta-champ `braze.external_id`, l'intégration donnera la priorité à cet ID externe et l'attribuera.
-    - Si l'ID client Shopify était précédemment défini comme l'ID externe de Braze, il sera remplacé par la valeur du méta-champ `braze.external_id`.
+{% multi_lang_include partners/shopify/external_id_generation_notes.md %}
 
 ### Étape 4.4 : Recueillir vos abonnements par e-mail ou SMS depuis Shopify (facultatif) {#step-44-collect-your-email-or-sms-opt-ins-from-shopify-optional}
 
@@ -228,15 +228,11 @@ Si vous utilisez les canaux e-mail ou SMS, vous pouvez synchroniser vos états d
 
 ![Section « Recueillir les abonnés » avec option de collecte des abonnements marketing par e-mail ou SMS.]({% image_buster /assets/img/shopify/collect_email_subscribers.png %})
 
-{% alert note %}
-Comme indiqué dans l'[aperçu de Shopify]({{site.baseurl}}/shopify_overview/), si vous souhaitez utiliser un formulaire de capture tiers, vos développeurs doivent intégrer le code du SDK de Braze. Cela vous permettra de capturer l'adresse e-mail et l'état global de l'abonnement e-mail à partir des soumissions de formulaire. Plus précisément, vous devez implémenter et tester ces méthodes dans votre fichier `theme.liquid` :<br><br>
-- [setEmail](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemail) : Définit l'adresse e-mail dans le profil utilisateur
-- [setEmailNotificationSubscriptionType](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemailnotificationsubscriptiontype) : Met à jour l'état global de l'abonnement e-mail
-{% endalert %}
+{% multi_lang_include partners/shopify/third_party_capture_form_note.md %}
 
 ## Étape 5 : Synchroniser les produits (facultatif) {#step-5-sync-products-optional}
 
-Vous pouvez synchroniser tous les produits de votre boutique Shopify avec un catalogue Braze pour une personnalisation plus poussée de vos messages. Les mises à jour automatiques s'effectuent quasiment en temps réel, de sorte que votre catalogue reflète des informations produit à jour. Pour en savoir plus, consultez la [synchronisation des produits Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_catalogs/).
+Vous pouvez synchroniser tous les produits de votre boutique Shopify avec un catalogue Braze pour une personnalisation plus poussée de vos messages. Les mises à jour automatiques s'effectuent quasiment en temps réel, de sorte que votre catalogue reflète des informations produit à jour. Pour en savoir plus, consultez la [synchronisation des produits Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_catalogs).
 
 ![Étape 4 du processus de configuration avec « Shopify Variant ID » comme « Catalog product identifier ».]({% image_buster /assets/img/shopify/sync_products_step1.png %}){: style="max-width:80%;"}
 
@@ -254,13 +250,13 @@ Braze recueille des informations sur les visiteurs, telles que les adresses e-ma
 
 Les SDK de Braze permettent d'utiliser différents canaux de communication, notamment les Content Cards.
 
-#### Content Cards et indicateurs de fonctionnalité {#content-cards-and-feature-flags}
+#### Content Cards et Feature Flags {#content-cards-and-feature-flags}
 
-Pour ajouter des Content Cards ou des indicateurs de fonctionnalité, vous devrez collaborer avec vos développeurs pour insérer le code SDK nécessaire directement dans votre fichier `theme.liquid`. Pour obtenir des instructions détaillées, reportez-vous à la section [Intégration du SDK de Braze]({{site.baseurl}}/developer_guide/sdk_integration/).
+Pour ajouter des Content Cards ou des Feature Flags, vous devrez collaborer avec vos développeurs pour insérer le code SDK nécessaire directement dans votre fichier `theme.liquid`. Pour obtenir des instructions détaillées, reportez-vous à la section [Intégration du SDK de Braze]({{site.baseurl}}/developer_guide/sdk_integration).
 
 #### Notifications push web {#web-push-notifications}
 
-Les notifications push web ne sont actuellement pas prises en charge pour l'intégration Shopify. Pour demander cette fonctionnalité, soumettez une demande de produit via le [portail du produit Braze]({{site.baseurl}}/user_guide/administer/personal/product_portal/).
+Les notifications push web ne sont actuellement pas prises en charge pour l'intégration Shopify. {% multi_lang_include product_feedback_cta.md context="gap" feature="web push for the Shopify integration" %}
 
 ## Étape 7 : Terminer la configuration {#step-7-finish-setup}
 

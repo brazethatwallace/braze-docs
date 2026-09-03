@@ -24,7 +24,7 @@ This endpoint is currently in **limited beta**. Although we're not adding new cu
 
 ## When to use this endpoint
 
-Like the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), you can use this endpoint to update user profiles. This endpoint is better suited for bulk updates:
+Like the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track), you can use this endpoint to update user profiles. This endpoint is better suited for bulk updates:
 
 - **Larger requests:** Send up to 1,000 users per request, so you can make fewer requests for large backfills and syncs.
 - **Prioritization:** During peak traffic conditions, requests to `/users/track` are prioritized over requests to `/users/track/bulk`.
@@ -37,9 +37,9 @@ The `/users/track` endpoint request object limits vary by pricing model and conf
 
 ## Prerequisites
 
-To use this endpoint, you must have an [API key]({{site.baseurl}}/api/api_key/) with the `users.track.bulk` permission.
+To use this endpoint, you must have an [API key]({{site.baseurl}}/api/basics) with the `users.track.bulk` permission.
 
-If you're making server-to-server calls behind a firewall, you may need to allowlist your Braze REST endpoint (for example, `rest.iad-01.braze.com`). For more information, see [API endpoints]({{site.baseurl}}/api/basics/#api-definitions).
+If you're making server-to-server calls behind a firewall, you may need to allowlist your Braze REST endpoint (for example, `rest.iad-01.braze.com`). For more information, see [API endpoints]({{site.baseurl}}/api/basics#api-definitions).
 
 ## Rate limit
 
@@ -76,9 +76,9 @@ For each request object, you must include one of `external_id`, `user_alias`, `b
 
 | Parameter | Required | Data Type | Description |
 | --- | --- | --- | --- |
-| `attributes` | Optional | Array of attributes objects | See [user attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object/) |
-| `events` | Optional | Array of event objects | See [events object]({{site.baseurl}}/api/objects_filters/event_object/) |
-| `purchases` | Optional | Array of purchase objects | See [purchases object]({{site.baseurl}}/api/objects_filters/purchase_object/) |
+| `attributes` | Optional | Array of attributes objects | See [user attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object) |
+| `events` | Optional | Array of event objects | See [events object]({{site.baseurl}}/api/objects_filters/event_object) |
+| `purchases` | Optional | Array of purchase objects | See [purchases object]({{site.baseurl}}/api/objects_filters/purchase_object) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
 ## Example requests
@@ -210,9 +210,9 @@ If your request has a fatal error, you receive the following response:
 
 ### Fatal error response codes
 
-For status codes and associated error messages that Braze returns when your request has a fatal error, see [Fatal errors & responses]({{site.baseurl}}/api/errors/#fatal-errors).
+For status codes and associated error messages that Braze returns when your request has a fatal error, see [Fatal errors & responses]({{site.baseurl}}/api/errors#fatal-errors).
 
-If you receive the error "provided external_id is blacklisted and disallowed", your request may include a "dummy user." For more information, see [Spam blocking]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival/#spam-blocking).
+If you receive the error "provided external_id is blacklisted and disallowed", your request may include a "dummy user." For more information, see [Spam blocking]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival#spam-blocking).
 
 ## Frequently asked questions
 

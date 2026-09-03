@@ -30,24 +30,24 @@ Sehen Sie sich dieses Video an, um einen Überblick über die Funktionsweise der
 
 ## Integration
 
-### 1. Schritt: Das Plugin „Figma to Braze Export“ installieren {#step-1-install-the-figma-to-braze-export-plugin}
+### Schritt 1: Das Plugin „Figma to Braze Export“ installieren {#step-1-install-the-figma-to-braze-export-plugin}
 
-Gehen Sie zur Figma-Community, um auf das [Braze-Export-Plugin](https://www.figma.com/community/plugin/1606726267245196698/figma-to-braze-export) zuzugreifen. Wählen Sie **Open In**, um das Plugin in Ihre Figma-Datei zu laden.
+Gehen Sie zur Figma-Community, um auf das [Braze-Export-Plugin](https://www.figma.com/community/plugin/1606726267245196698/figma-to-braze-export) zuzugreifen. Wählen Sie **Open In** aus, um das Plugin in Ihre Figma-Datei zu laden.
 
 In Figma finden Sie das Plugin „Figma to Braze Export“ auch im Abschnitt **Plugins**.
 
-### 2. Schritt: Mit Braze verbinden {#step-2-connect-to-braze}
+### Schritt 2: Mit Braze verbinden {#step-2-connect-to-braze}
 
-Wählen Sie nach der Installation **Connect to Braze**, um Ihr Braze-Konto zu verbinden, und wählen Sie dann **Continue**.
+Wählen Sie nach der Installation **Connect to Braze** aus, um Ihr Braze-Konto zu verbinden, und wählen Sie dann **Continue** aus.
 
-Wählen Sie als Nächstes Ihren Braze-Workspace aus dem Dropdown **Braze workspace** oder geben Sie den Workspace-Namen ein.
+Wählen Sie als Nächstes Ihren Braze-Workspace aus dem Dropdown-Menü **Braze workspace** aus oder geben Sie den Workspace-Namen ein.
 
-### 3. Schritt: Ihre Figma-Assets auswählen {#step-3-select-your-figma-assets}
+### Schritt 3: Ihre Figma-Assets auswählen {#step-3-select-your-figma-assets}
 
 Wählen Sie die Bilder und visuellen Assets aus, die Sie nach Braze exportieren möchten. Um mehrere Assets auszuwählen, können Sie <kbd>Shift</kbd> gedrückt halten oder den Cursor über die Assets ziehen.
 
-Der Name des exportierten Bildes oder visuellen Assets verwendet den Namen des ausgewählten Frames in Figma.
+Der Name des exportierten Bildes oder visuellen Assets entspricht dem Namen des ausgewählten Frames in Figma.
 
-### 4. Schritt: Nach Braze exportieren {#step-4-export-to-braze}
+### Schritt 4: Nach Braze exportieren {#step-4-export-to-braze}
 
-Wählen Sie **Export to Braze**. Ihre Bilder und visuellen Assets werden in die Braze-Medienbibliothek hochgeladen. Alle über diese Integration importierten Bilder haben als Quelle **Figma** eingestellt.
+Wählen Sie **Export to Braze** aus. Ihre Bilder und visuellen Assets werden in die Braze-Medienbibliothek hochgeladen. Alle über diese Integration importierten Bilder haben als Quelle **Figma** eingestellt.

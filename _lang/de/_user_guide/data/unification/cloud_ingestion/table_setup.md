@@ -44,10 +44,10 @@ Jede Zeile sollte jeweils nur einen Bezeichnertyp enthalten, auch wenn Ihre Tabe
 - Braze synchronisiert Zeilen, bei denen `UPDATED_AT` später als der zuletzt synchronisierte Wert ist.
 - Zeilen am exakten Grenz-Zeitstempel können erneut synchronisiert werden, wenn neue Zeilen denselben Zeitstempel aufweisen.
 
-Hinweise zu doppelten Zeitstempeln und inkrementellen Updates finden Sie unter [Best Practices für die Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices/#avoid-resyncing-rows-with-duplicate-timestamps).
+Hinweise zu doppelten Zeitstempeln und inkrementellen Updates finden Sie unter [Best Practices für die Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices#avoid-resyncing-rows-with-duplicate-timestamps).
 
 {% alert note %}
-Dateispeicher-Quellen verwenden andere Einrichtungsanforderungen und unterstützen `UPDATED_AT` nicht. Weitere Informationen finden Sie unter [Dateispeicher-Integrationen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/#required-file-formats).
+Dateispeicher-Quellen verwenden andere Einrichtungsanforderungen und unterstützen `UPDATED_AT` nicht. Weitere Informationen finden Sie unter [Dateispeicher-Integrationen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations#required-file-formats).
 {% endalert %}
 
 ## `PAYLOAD`-Spalte einrichten {#set-up-the-payload-column}
@@ -56,12 +56,12 @@ Der `PAYLOAD`-Wert folgt denselben Objektformaten, die vom Braze-Endpunkt `/user
 
 | Datentyp | Formatierungsreferenz |
 | --- | --- |
-| `attributes` | [Nutzerattribut-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens) |
-| `events` | [Ereignis-Objekt]({{site.baseurl}}/api/objects_filters/event_object/) |
-| `purchases` | [Kauf-Objekt]({{site.baseurl}}/api/objects_filters/purchase_object/) |
+| `attributes` | [Nutzerattribut-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object) |
+| `events` | [Ereignis-Objekt]({{site.baseurl}}/api/objects_filters/event_object) |
+| `purchases` | [Kauf-Objekt]({{site.baseurl}}/api/objects_filters/purchase_object) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="PAYLOAD-Spalte einrichten" }
 
-Für verschachtelte Attribute geben Sie Datumsangaben im Format an, das unter [Datumsangaben als Objekteigenschaften erfassen]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/#capturing-dates-as-object-properties) beschrieben ist.
+Für verschachtelte Attribute geben Sie Datumsangaben im Format an, das unter [Datumsangaben als Objekteigenschaften erfassen]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#capturing-dates-as-object-properties) beschrieben ist.
 
 ### Payload-Beispiele {#payload-examples}
 
@@ -97,7 +97,7 @@ Sie können ein Ereignis pro Zeile synchronisieren.
     "time" : "2013-07-16T19:20:45+01:00",
     "properties": {
         "movie": "The Sad Egg",
-        "director": "Dan Alexander"
+        "director": "Alex Smith"
     }
 }
 ```
@@ -125,7 +125,7 @@ Sie können ein Kauf-Event pro Zeile synchronisieren.
 
 {% endtab %}
 {% tab Abo-Gruppen %}
-Um Abo-Gruppenstatus zu synchronisieren, fügen Sie in jeder Zeile ein oder mehrere Paare aus `subscription_group_id` und `subscription_state` ein.
+Um den Abo-Gruppenstatus zu synchronisieren, fügen Sie in jeder Zeile ein oder mehrere Paare aus `subscription_group_id` und `subscription_state` ein.
 ```json
 {
     "subscription_groups" : [
@@ -149,6 +149,6 @@ Um Abo-Gruppenstatus zu synchronisieren, fügen Sie in jeder Zeile ein oder mehr
 
 ## Verwandte CDI-Einrichtungsdokumente {#related-cdi-setup-docs}
 
-- Quellenspezifische DDL-Beispiele finden Sie unter [Data-Warehouse-Integrationen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views).
-- Informationen zur dateibasierten Einrichtung finden Sie unter [Dateispeicher-Integrationen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/).
-- Hinweise zum Sync-Verhalten und zur Optimierung finden Sie unter [Best Practices für die Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices/).
+- Quellenspezifische DDL-Beispiele finden Sie unter [Data-Warehouse-Integrationen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
+- Informationen zur dateibasierten Einrichtung finden Sie unter [Dateispeicher-Integrationen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations).
+- Hinweise zum Sync-Verhalten und zur Optimierung finden Sie unter [Best Practices für die Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices).

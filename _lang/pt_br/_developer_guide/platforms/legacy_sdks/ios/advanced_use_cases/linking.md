@@ -12,7 +12,7 @@ noindex: true
 
 # Deep linking para iOS {#deep-linking-for-ios}
 
-Para obter informações introdutórias sobre deep links, consulte nosso [artigo do Guia do Usuário]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking). Se você está procurando implementar deep links pela primeira vez no seu app da Braze, as etapas abaixo te ajudarão a começar.
+Para obter informações introdutórias sobre deep links, consulte nosso [artigo do Guia do Usuário]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking). Se você está procurando implementar deep links pela primeira vez no seu app da Braze, as etapas abaixo te ajudarão a começar.
 
 ## Etapa 1: Registrar um esquema {#step-1-register-a-scheme}
 
@@ -95,7 +95,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
 {% endtab %}
 {% endtabs %}
 
-![]({% image_buster /assets/img_archive/deep_link.png %})
+![Exemplo de configuração de deep link no dashboard da Braze.]({% image_buster /assets/img_archive/deep_link.png %})
 
 # Links universais {#universal-links}
 
@@ -138,13 +138,13 @@ Para saber mais, consulte a [Apple](https://developer.apple.com/library/content/
 A integração de link universal padrão não é compatível com notificações por push da Braze ou mensagens no app. Consulte [personalização do tratamento de links](#linking-handling-customization) para lidar com links universais dentro do seu aplicativo. Alternativamente, recomendamos o uso de [deep links baseados em esquema](#step-1-registering-a-scheme) com notificações por push e mensagens no app.
 {% endalert%}
 
-## App Transport Security (ATS)
+## App Transport Security (ATS) {#app-transport-security-ats}
 O iOS 9 introduziu uma mudança significativa que afeta URLs da web incorporadas em mensagens no app e notificações por push.
 
 ### Requisitos do ATS {#ats-requirements}
 Da [documentação da Apple](https://developer.apple.com/library/prerelease/ios/releasenotes/General/WhatsNewIniOS/Articles/iOS9.html#//apple_ref/doc/uid/TP40016198-SW14): "O App Transport Security é um recurso que melhora a segurança das conexões entre um app e os serviços da web. O recurso consiste em requisitos de conexão padrão que estão em conformidade com as melhores práticas para conexões seguras. Os apps podem substituir esse comportamento padrão e desativar a segurança de transporte."
 
-O ATS é aplicado por padrão no iOS 9+. Ele requer que todas as conexões usem HTTPS e sejam criptografadas usando TLS 1.2 com forward secrecy. Consulte [Requisitos para Conexão Usando ATS](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) para saber mais. Todas as imagens servidas pela Braze para dispositivos finais são gerenciadas por uma rede de entrega de conteúdo ("CDN") que suporta TLS 1.2 e é compatível com ATS.
+O ATS é aplicado por padrão no iOS 9+. Ele requer que todas as conexões usem HTTPS e sejam criptografadas usando TLS 1.2 com forward secrecy. Consulte [Requirements for Connecting Using ATS](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) para saber mais. Todas as imagens servidas pela Braze para dispositivos finais são gerenciadas por uma rede de distribuição de conteúdo ("CDN") que suporta TLS 1.2 e é compatível com ATS.
 
 A menos que sejam especificadas como exceções no `Info.plist` do seu aplicativo, as conexões que não seguirem esses requisitos falharão com erros parecidos com isto:
 
@@ -157,7 +157,7 @@ Error Domain=NSURLErrorDomain Code=-1200 "An SSL error has occurred, and a secur
 NSURLSession/NSURLConnection HTTP load failed (kCFStreamErrorDomainSSL, -9802)
 ```
 
-A conformidade com ATS é aplicada para links abertos dentro do app móvel (nosso tratamento padrão de links clicados) e não se aplica a sites abertos externamente por meio de um navegador da web.
+A conformidade com ATS é aplicada para links abertos dentro do app móvel (nosso tratamento padrão de links clicados) e não se aplica a sites abertos externamente por meio de um navegador web.
 
 ### Atendendo aos requisitos do ATS {#handling-ats-requirements}
 

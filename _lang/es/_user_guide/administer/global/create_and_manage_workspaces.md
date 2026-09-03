@@ -23,13 +23,18 @@ guide_featured_list:
 
 ## ¿Qué es un espacio de trabajo? {#what-is-a-workspace}
 
-Todo lo que haces en Braze ocurre dentro de un espacio de trabajo. Los espacios de trabajo son un entorno compartido para que puedas rastrear y gestionar la interacción de aplicaciones móviles o sitios web relacionados. Los espacios de trabajo agrupan aplicaciones iguales o muy similares: por ejemplo, las versiones Android e iOS de tu aplicación móvil.
+Todo lo que haces en Braze ocurre dentro de un espacio de trabajo. Los espacios de trabajo son un entorno compartido para que puedas rastrear y gestionar la participación de aplicaciones móviles o sitios web relacionados. Los espacios de trabajo agrupan aplicaciones iguales o muy similares: por ejemplo, las versiones Android e iOS de tu aplicación móvil.
 
 ## Crear un espacio de trabajo {#creating-a-workspace}
 
 ### Paso 1: Ten un plan {#step-1-have-a-plan}
 
-Antes de empezar, asegúrate de haber trabajado con tu equipo y tu administrador de incorporación de Braze para determinar la mejor configuración de espacio de trabajo para tu caso de uso. Para obtener más información sobre la planificación de tus espacios de trabajo en Braze, consulta nuestra guía [Primeros pasos: Espacios de trabajo]({{site.baseurl}}/user_guide/get_started/workspaces/).
+Antes de empezar, asegúrate de haber trabajado con tu equipo y tu administrador de incorporación de Braze para determinar la mejor configuración de espacio de trabajo para tu caso de uso. Para obtener más información sobre la planificación de tus espacios de trabajo en Braze, consulta nuestra guía [Primeros pasos: Espacios de trabajo]({{site.baseurl}}/user_guide/get_started/workspaces).
+
+{% alert warning %}
+**Práctica recomendada: usa proyectos de Firebase dedicados por espacio de trabajo**<br>
+Aunque Braze permite subir el mismo JSON de cuenta de servicio de Firebase a múltiples espacios de trabajo, todos los espacios de trabajo que usen el mismo ID de proyecto de Google comparten el límite de velocidad predeterminado de Firebase Cloud Messaging de 600 000 mensajes por minuto. Los remitentes de alto volumen pueden encontrar errores de "Quota Exceeded" durante lanzamientos simultáneos de Campaigns en varios espacios de trabajo.<br><br>Para una capacidad de entrega y gestión de cuotas aisladas, usa proyectos de Firebase separados y dedicados para cada espacio de trabajo de Braze.
+{% endalert %}
 
 ### Paso 2: Añade tu espacio de trabajo {#step-2-add-your-workspace}
 
@@ -59,13 +64,13 @@ Se te dirigirá a la página **Configuración de la aplicación** para comenzar 
 
 Nos referimos a los diferentes sitios y aplicaciones que se recopilan dentro de un espacio de trabajo como "instancias de la aplicación".
 
-1. Desde la página **Configuración de la aplicación**, selecciona **+ Add app**.
+1. Desde la página **Configuración de la aplicación**, selecciona **+ Añadir aplicación**.
 2. Dale un nombre a tu instancia de la aplicación y selecciona en qué plataforma o plataformas se encuentra esta instancia. Si seleccionas múltiples plataformas, Braze creará una instancia de la aplicación para cada plataforma.
 
-![Modal "Add New App to Upon Voyage US - Staging" con opciones para seleccionar los detalles de la aplicación.]({% image_buster /assets/img/workspaces/workspace_add_app.png %}){: style="max-width:60%" }
+![Modal "Añadir nueva aplicación a Upon Voyage US - Staging" con opciones para seleccionar los detalles de la aplicación.]({% image_buster /assets/img/workspaces/workspace_add_app.png %}){: style="max-width:60%" }
 
 {:start="3"}
-3. Selecciona **Add app** para confirmar.
+3. Selecciona **Añadir aplicación** para confirmar.
 
 #### Claves de API de la aplicación {#app-api-keys}
 
@@ -99,12 +104,12 @@ Repite los pasos 2 y 3 para configurar tantos espacios de trabajo como requiera 
 
 Puedes añadir espacios de trabajo favoritos para acceder aún más rápido a los espacios de trabajo que más utilizas.
 
-![Menú desplegable de espacios de trabajo con la pestaña "Espacios favoritos".]({% image_buster /assets/img/workspaces/workspace_favorites.png %}){: style="max-width:50%;"}
+![Menú desplegable de espacios de trabajo con la pestaña "Espacios de trabajo favoritos".]({% image_buster /assets/img/workspaces/workspace_favorites.png %}){: style="max-width:50%;"}
 
 Para añadir espacios de trabajo favoritos:
 
 1. Selecciona el menú desplegable de tu perfil y luego selecciona **Gestiona tu cuenta**.
-2. En la sección **Perfil de cuenta**, localiza el campo **Espacios favoritos**.
+2. En la sección **Perfil de cuenta**, localiza el campo **Espacios de trabajo favoritos**.
 3. Selecciona tus espacios de trabajo de la lista.
 4. Selecciona **Guardar cambios**.
 
@@ -127,7 +132,7 @@ Para eliminar tu espacio de trabajo o instancia de la aplicación:
 1. Ve a **Configuración** > **Configuración de la aplicación**.
 2. Selecciona **Eliminar espacio de trabajo** para eliminar el espacio de trabajo correspondiente, o selecciona el icono de papelera junto a la instancia de la aplicación correspondiente.
 
-No puedes eliminar instancias de la aplicación o espacios de trabajo que se estén utilizando actualmente para segmentar usuarios o que tengan más de 1000 usuarios. Si intentas hacerlo, recibirás un mensaje de error. Para proceder y eliminarlos, [crea un caso de soporte]({{site.baseurl}}/user_guide/administer/personal/braze_support/) que incluya un enlace al dashboard y el nombre de la instancia de la aplicación o espacio de trabajo que se va a eliminar.
+No puedes eliminar instancias de la aplicación o espacios de trabajo que se estén utilizando actualmente para segmentar usuarios o que tengan más de 1000 usuarios. Si intentas hacerlo, recibirás un mensaje de error. Para proceder y eliminarlos, [crea un caso de soporte]({{site.baseurl}}/user_guide/administer/personal/braze_support) que incluya un enlace al panel y el nombre de la instancia de la aplicación o espacio de trabajo que se va a eliminar.
 
 {% alert warning %}
 ¡Ten cuidado al eliminar espacios de trabajo! Una vez que se elimina un espacio de trabajo, no se puede restaurar.
@@ -143,7 +148,7 @@ Esto depende de si estás actualizando tu aplicación o creando una completament
 
 #### Actualizar tu aplicación {#updating-your-app}
 
-Si estás actualizando tu aplicación, debes separar las versiones antigua y nueva creando una nueva instancia de la aplicación dentro del mismo espacio de trabajo. De esta manera, puedes segmentar eficazmente a los usuarios de la nueva versión cuando selecciones esa aplicación durante la segmentación. Si quieres enviar mensajes a los usuarios que están en la versión anterior, puedes usar filtros para [segmentar por la versión anterior de la aplicación]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features/#filtering-by-most-recent-app-versions).
+Si estás actualizando tu aplicación, debes separar las versiones antigua y nueva creando una nueva instancia de la aplicación dentro del mismo espacio de trabajo. De esta manera, puedes segmentar eficazmente a los usuarios de la nueva versión cuando selecciones esa aplicación durante la segmentación. Si quieres enviar mensajes a los usuarios que están en la versión anterior, puedes usar filtros para [segmentar por la versión anterior de la aplicación]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions).
 
 Si creas un nuevo espacio de trabajo, tus usuarios existirán en dos lugares: el espacio de trabajo antiguo y el nuevo. También podrían tener el mismo token de notificaciones push. Esto puede llevar a que los usuarios reciban un mensaje de marketing destinado solo a los usuarios del espacio de trabajo antiguo, incluso si ya han actualizado.
 
@@ -158,24 +163,24 @@ Para asegurarte de que tu mensaje solo se dirija a una aplicación específica, 
 De forma predeterminada, un segmento se dirige a todas las aplicaciones y sitios web del espacio de trabajo. Para configurar un segmento que solo se dirija a una aplicación o sitio web:
 
 1. Crea un segmento con un nombre significativo. En Braze, usamos el formato "All Users ({Name} {Platform})". Por ejemplo, "All Users (Upon Voyage iOS)".
-2. Para **Apps and websites targeted**, selecciona **Users from specific apps**.
-3. En el menú desplegable **Specific apps**, selecciona tu aplicación o sitio.
+2. Para **Aplicaciones y sitios web objetivo**, selecciona **Usuarios de aplicaciones específicas**.
+3. En el menú desplegable **Aplicaciones específicas**, selecciona tu aplicación o sitio.
 
 ![Segmento que se dirige a usuarios de aplicaciones específicas.]({% image_buster /assets/img/workspaces/users_from_specific_apps_filter.png %})
 
 Luego puedes añadir este segmento a tu mensaje y comenzar a refinar aún más tu audiencia con segmentos y filtros adicionales si es necesario.
 
-#### Campaigns
+#### Campaigns {#campaigns}
 
-Para Campaigns, añade tu segmento al paso **Target Audiences** del compositor.
+Para Campaigns, añade tu segmento al paso **Públicos objetivo** del creador.
 
-#### Canvas
+#### Canvas {#canvas}
 
-En Canvas, añade tu segmento a tus pasos de mensaje, en la sección **Delivery Validations**. Las validaciones de entrega verifican que tu audiencia cumple con tus criterios de entrega en el momento del envío del mensaje. Recuerda especificar las validaciones de entrega para cada paso de mensaje para asegurarte de que se entregará a la aplicación correcta. No es necesario segmentar a nivel de entrada.
+En Canvas, añade tu segmento a tus pasos de mensaje, en la sección **Validaciones de entrega**. Las validaciones de entrega verifican que tu audiencia cumple con tus criterios de entrega en el momento del envío del mensaje. Recuerda especificar las validaciones de entrega para cada paso de mensaje para asegurarte de que se entregará a la aplicación correcta. No es necesario segmentar a nivel de entrada.
 
 {% details Expande para ver los pasos en el flujo de trabajo original de Canvas %}
 
-En el flujo de trabajo original de Canvas, añade tu segmento a nivel de componente de Canvas en la sección **Audience**. No es necesario segmentar a nivel de entrada.
+En el flujo de trabajo original de Canvas, añade tu segmento a nivel de componente de Canvas en la sección **Audiencia**. No es necesario segmentar a nivel de entrada.
 
 {% enddetails %}
 
@@ -183,5 +188,5 @@ En el flujo de trabajo original de Canvas, añade tu segmento a nivel de compone
 
 Después de crear tu espacio de trabajo, configúralo:
 
-- [Configuración del espacio de trabajo]({{site.baseurl}}/user_guide/administer/global/workspace_settings/) para configurar claves de API, preferencias de correo electrónico, configuración de push y más.
-- [Administrar usuarios de la empresa]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/) para añadir usuarios y asignar permisos para este espacio de trabajo.
+- [Configuración del espacio de trabajo]({{site.baseurl}}/user_guide/administer/global/workspace_settings) para configurar claves de API, preferencias de correo electrónico, configuración de push y más.
+- [Administrar usuarios de la empresa]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users) para añadir usuarios y asignar permisos para este espacio de trabajo.

@@ -11,12 +11,12 @@ description: "Este artigo descreve os detalhes sobre o endpoint da Braze para li
 ---
 {% api %}
 # Envio de e-mails para a lista de proibições {#blacklist-emails}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /email/blacklist
 {% endapimethod %}
 
 {% alert important %}
-A Braze lançou o [endpoint `/email/blocklist`]({{site.baseurl}}/api/endpoints/email/post_blocklist/) com a mesma funcionalidade do endpoint `/email/blacklist`. Recomendamos que você use o endpoint `/email/blocklist` em vez disso.
+A Braze lançou o [endpoint `/email/blocklist`]({{site.baseurl}}/api/endpoints/email/post_blocklist) com a mesma funcionalidade do endpoint `/email/blacklist`. Recomendamos que você use o endpoint `/email/blocklist` em vez disso.
 {% endalert %}
 
 > Use esse endpoint para cancelar a inscrição de um usuário no e-mail e marcá-lo como hard bounce.
@@ -25,9 +25,9 @@ A Braze lançou o [endpoint `/email/blocklist`]({{site.baseurl}}/api/endpoints/e
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `email.blacklist`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `email.blacklist`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
@@ -46,10 +46,10 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | -----------|----------| --------|------- |
-| `email` | Obrigatória | String ou matriz | Endereço de e-mail em string para adicionar à lista de proibições, ou uma matriz de até 50 endereços de e-mail para adicionar à lista de proibições. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+| `email` | Obrigatório | String ou matriz | Endereço de e-mail em string para adicionar à lista de proibições, ou uma matriz de até 50 endereços de e-mail para adicionar à lista de proibições. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#example-request}
 ```

@@ -17,7 +17,7 @@ guide_featured_list:
   - name: API
     link: /docs/api/basics/
     image: /assets/img/braze_icons/terminal-square.svg
-  - name: CampaignsとCanvas
+  - name: キャンペーンとキャンバス
     link: /docs/user_guide/messaging/
     image: /assets/img/braze_icons/annotation.svg
   - name: Content Cards

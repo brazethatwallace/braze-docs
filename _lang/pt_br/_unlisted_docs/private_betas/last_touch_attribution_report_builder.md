@@ -33,27 +33,27 @@ Se uma conversão ocorrer fora da janela de atribuição de um canal, ela não s
 
 A atribuição de último ponto de contato oferece vantagens importantes em relação ao rastreamento de conversão padrão:
 
-* Permite atribuir conversões a pontos de contato específicos, possibilitando entender quais canais (não apenas Campaigns ou Canvas) estão gerando resultados.
-* O crédito é dado exclusivamente à última mensagem tocada, então cada conversão é contabilizada apenas uma vez, eliminando conversões sobrepostas entre Campaigns ou Canvas com eventos de conversão e públicos compartilhados.
+* Ela permite atribuir conversões a pontos de contato específicos, possibilitando entender quais canais (não apenas Campaigns ou Canvas) estão gerando resultados.
+* O crédito é dado exclusivamente à última mensagem tocada, então cada conversão é contada apenas uma vez, eliminando conversões sobrepostas entre Campaigns ou Canvas com eventos de conversão e públicos compartilhados.
 
 ## Adicionar métricas de atribuição de último ponto de contato ao seu relatório {#add-last-touch-attribution-metrics-to-your-report}
 
-1. Acesse o **Criador de relatórios**, em **Analytics**.
-2. Selecione **Criar relatório** > **Criar relatório personalizado**.
-3. No menu suspenso **Linhas**, selecione sobre o que você deseja criar um relatório.
-4. (Opcional) Selecione **Adicionar detalhamento** e escolha uma área para aprofundar sua análise.
-5. Em **Colunas**, selecione **Personalizar métricas**.
-6. Em **Conversões**, selecione **Atribuição de último ponto de contato** e depois selecione **Selecionar tudo**.
+1. Acesse o **Report Builder**, em **Analytics**.
+2. Selecione **Create report** > **Create custom report**.
+3. No menu suspenso **Rows**, selecione sobre o que você deseja criar um relatório.
+4. (Opcional) Selecione **Add drilldown** e escolha uma área para aprofundar seus relatórios.
+5. Em **Columns**, selecione **Customize metrics**
+6. Em **Conversions**, selecione **Last Touch Attribution** e depois selecione **Select All**.
 
 {% alert note %}
-Métricas de receita e compra não estão disponíveis.
+As métricas de receita e compra não estão disponíveis.
 {% endalert %}
 
-![O painel Personalizar métricas com métricas de atribuição de último ponto de contato.]({% image_buster /assets/unlisted_docs/img/report_builder_2/lta_report_builder.png %})
+![O painel Customize metrics com métricas de atribuição de último ponto de contato.]({% image_buster /assets/unlisted_docs/img/report_builder_2/lta_report_builder.png %})
 
 {: start="7" }
-7. Siga as etapas 7 a 9 na página do [Criador de relatórios](https://www.braze.com/docs/user_guide/analytics/reporting/report_builder).
+7. Siga as etapas 7 a 9 na página do [Report Builder]({{site.baseurl}}/user_guide/analytics/reports/report_builder).
 
 {% alert note %}
-Envie feedback ao seu gerente de sucesso do cliente ou forneça-o após selecionar o botão **Enviar feedback**.
+{% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="last-touch attribution metrics in Report Builder" %}
 {% endalert %}

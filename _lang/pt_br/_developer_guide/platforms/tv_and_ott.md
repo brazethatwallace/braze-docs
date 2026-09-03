@@ -18,118 +18,92 @@ platform:
 
 ## Plataformas e recursos {#platforms-and-features}
 
-A seguir estão listados os recursos e os canais de envio de mensagens suportados atualmente.
+A tabela a seguir resume o suporte a canais de envio de mensagens para plataformas comuns de TV e OTT. Todas as plataformas também suportam dados e análise de dados, Canvas e Feature Flags. Para o Kindle Fire, use as mesmas orientações do Amazon Fire TV. Para o Apple Vision Pro, consulte o [suporte ao visionOS]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/visionos).
 
 <style>
 #tv-feature-table td,
 #tv-feature-table th {
-    text-align: center !important;
-    vertical-align: center;
+    text-align: center;
+    vertical-align: middle;
+    word-break: normal;
+    overflow-wrap: normal;
+    hyphens: none;
+}
+
+#tv-feature-table td:first-child,
+#tv-feature-table th:first-child {
+    text-align: left;
 }
 
 </style>
-<table aria-label="Plataformas e recursos" id="tv-feature-table">
-  <caption>Plataformas e recursos</caption>
+<table aria-label="Suporte a canais de envio de mensagens para TV e OTT" id="tv-feature-table">
+  <caption>Suporte a canais de envio de mensagens para TV e OTT</caption>
     <thead>
         <tr>
             <th>Tipo de dispositivo</th>
-            <th>Dados e análise de dados</th>
+            <th>SDK</th>
             <th>Mensagens no app</th>
             <th>Content Cards</th>
             <th>Notificações por push</th>
-            <th>Canvas</th>
-            <th>Feature Flags</th>
             <th>Banners</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td>Amazon Fire TV</td>
-            <td for="data-analytics"><i class="fas fa-check text-success"></i></td>
-            <td for="iam"><i class="fas fa-check text-success"></i></td>
-            <td for="content-cards"><i class="fas fa-check text-success"></i></td>
-            <td for="push"><i class="fas fa-check text-success"></i></td>
-            <td for="canvas"><i class="fas fa-check text-success"></i></td>
-            <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
-            <td for="banners"><i class="fas fa-check text-success"></i></td>
-        </tr>
-        <tr>
-            <td>Kindle Fire</td>
-            <td for="data-analytics"><i class="fas fa-check text-success"></i></td>
-            <td for="iam"><i class="fas fa-check text-success"></i></td>
-            <td for="content-cards"><i class="fas fa-check text-success"></i></td>
-            <td for="push"><i class="fas fa-check text-success"></i></td>
-            <td for="canvas"><i class="fas fa-check text-success"></i></td>
-            <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
-            <td for="banners"><i class="fas fa-check text-success"></i></td>
+            <td><a href="https://github.com/braze-inc/braze-vega-sdk">Vega SDK</a></td>
+            <td><span aria-hidden="true">✅</span><span class="sr-only">Suportado</span></td>
+            <td><span aria-hidden="true">✅</span><span class="sr-only">Suportado</span></td>
+            <td><span aria-hidden="true">✅</span><span class="sr-only">Suportado</span></td>
+            <td><span aria-hidden="true">🔧</span><span class="sr-only">Apenas headless</span></td>
         </tr>
         <tr>
             <td>Android TV</td>
-            <td for="data-analytics"><i class="fas fa-check text-success"></i></td>
-            <td for="iam"><i class="fas fa-check text-success"></i></td>
-            <td for="content-cards"><i class="fas fa-check text-success"></i></td>
-            <td for="push"><i class="fas fa-check text-success"></i></td>
-            <td for="canvas"><i class="fas fa-check text-success"></i></td>
-            <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
-            <td for="banners"><i class="fas fa-check text-success"></i></td>
+            <td><a href="https://github.com/braze-inc/braze-android-sdk">Android SDK</a></td>
+            <td><span aria-hidden="true">✅</span><span class="sr-only">Suportado</span></td>
+            <td><span aria-hidden="true">✅</span><span class="sr-only">Suportado</span></td>
+            <td><span aria-hidden="true">✅</span><span class="sr-only">Suportado</span></td>
+            <td><span aria-hidden="true">🔧</span><span class="sr-only">Apenas headless</span></td>
         </tr>
         <tr>
             <td>LG TV (webOS)</td>
-            <td for="data-analytics"><i class="fas fa-check text-success"></i></td>
-            <td for="iam"><i class="fas fa-check text-success"></i></td>
-            <td for="content-cards"><i class="fas fa-check text-success"></i></td>
-            <td for="push">N/D</td>
-            <td for="canvas"><i class="fas fa-check text-success"></i></td>
-            <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
-            <td for="banners"><i class="fas fa-check text-success"></i></td>
+            <td><a href="https://github.com/braze-inc/braze-web-sdk">Web SDK</a></td>
+            <td><span aria-hidden="true">🔧</span><span class="sr-only">Apenas headless</span></td>
+            <td><span aria-hidden="true">🔧</span><span class="sr-only">Apenas headless</span></td>
+            <td><span aria-hidden="true">➖</span><span class="sr-only">Não suportado pela plataforma OTT</span></td>
+            <td><span aria-hidden="true">🔧</span><span class="sr-only">Apenas headless</span></td>
         </tr>
         <tr>
             <td>Samsung Tizen TV</td>
-            <td for="data-analytics"><i class="fas fa-check text-success"></i></td>
-            <td for="iam"><i class="fas fa-check text-success"></i></td>
-            <td for="content-cards"><i class="fas fa-check text-success"></i></td>
-            <td for="push">N/D</td>
-            <td for="canvas"><i class="fas fa-check text-success"></i></td>
-            <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
-            <td for="banners"><i class="fas fa-check text-success"></i></td>
+            <td><a href="https://github.com/braze-inc/braze-web-sdk">Web SDK</a></td>
+            <td><span aria-hidden="true">🔧</span><span class="sr-only">Apenas headless</span></td>
+            <td><span aria-hidden="true">🔧</span><span class="sr-only">Apenas headless</span></td>
+            <td><span aria-hidden="true">➖</span><span class="sr-only">Não suportado pela plataforma OTT</span></td>
+            <td><span aria-hidden="true">🔧</span><span class="sr-only">Apenas headless</span></td>
         </tr>
         <tr>
             <td>Roku</td>
-            <td for="data-analytics"><i class="fas fa-check text-success"></i></td>
-            <td for="iam"><i class="fas fa-check text-success"></i></td>
-            <td for="content-cards"><i class="fas fa-times text-warning"></i></td>
-            <td for="push">N/D</td>
-            <td for="canvas"><i class="fas fa-check text-success"></i></td>
-            <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
-            <td for="banners"><i class="fas fa-times text-warning"></i></td>
+            <td><a href="https://github.com/braze-inc/braze-roku-sdk">Roku SDK</a></td>
+            <td><span aria-hidden="true">🔧</span><span class="sr-only">Apenas headless</span></td>
+            <td><span aria-hidden="true">❌</span><span class="sr-only">Não suportado pela Braze</span></td>
+            <td><span aria-hidden="true">➖</span><span class="sr-only">Não suportado pela plataforma OTT</span></td>
+            <td><span aria-hidden="true">❌</span><span class="sr-only">Não suportado pela Braze</span></td>
         </tr>
         <tr>
-            <td>Apple TV OS</td>
-            <td for="data-analytics"><i class="fas fa-check text-success"></i></td>
-             <td for="iam"><i class="fas fa-check text-success"></i></td>
-            <td for="content-cards"><i class="fas fa-check text-success"></i></td>
-            <td for="push"><i class="fa-solid fa-minus"></i></td>
-            <td for="canvas"><i class="fas fa-check text-success"></i></td>
-            <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
-            <td for="banners"><i class="fas fa-check text-success"></i></td>
+            <td>Apple TV OS (tvOS)</td>
+            <td><a href="https://github.com/braze-inc/braze-swift-sdk">Swift SDK</a></td>
+            <td><span aria-hidden="true">🔧</span><span class="sr-only">Apenas headless</span></td>
+            <td><span aria-hidden="true">🔧</span><span class="sr-only">Apenas headless</span></td>
+            <td><span aria-hidden="true">❌</span><span class="sr-only">Não suportado pela Braze</span></td>
+            <td><span aria-hidden="true">🔧</span><span class="sr-only">Apenas headless</span></td>
         </tr>
-       <tr>
-          <td>Apple Vision Pro</td>
-          <td for="data-analytics"><i class="fas fa-check text-success"></i></td>
-           <td for="iam"><i class="fas fa-check text-success"></i></td>
-          <td for="content-cards"><i class="fas fa-check text-success"></i></td>
-          <td for="push"><i class="fa-solid fa-minus"></i></td>
-          <td for="canvas"><i class="fas fa-check text-success"></i></td>
-          <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
-          <td for="banners"><i class="fas fa-check text-success"></i></td>
-      </tr>
     </tbody>
 </table>
 
-- <i class="fas fa-check text-success"></i> = Suportado
-- <i class="fa-solid fa-minus"></i> = Suporte parcial
-- <i class="fas fa-times text-warning"></i> = Não suportado pela Braze
-- N/D = Não suportado pela plataforma OTT
+- <span aria-hidden="true">✅</span> = Suportado
+- <span aria-hidden="true">🔧</span> = Apenas headless (você precisará criar uma interface personalizada)
+- <span aria-hidden="true">➖</span> = Não suportado pela plataforma OTT
+- <span aria-hidden="true">❌</span> = Não suportado pela Braze
 
 ## Guias de integração {#integration-guides}
 
@@ -147,9 +121,9 @@ Os recursos incluem:
 - Mensagens no app
   - Para exibir mensagens HTML em ambientes sem toque, como TVs, defina `com.braze.configuration.BrazeConfig.Builder.setIsTouchModeRequiredForHtmlInAppMessages` como `false` (disponível a partir do [Android SDK v23.1.0](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#2310))
 - Banners
-  - Use [posicionamentos de Banner]({{site.baseurl}}/developer_guide/banners/placements/) para incorporar mensagens diretamente no seu app Fire TV.
+  - Use [posicionamentos de Banner]({{site.baseurl}}/developer_guide/banners/placements) para incorporar mensagens diretamente no seu app Fire TV.
 
-Para saber mais, visite o [guia de integração do Fire OS]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android).
+Para saber mais, visite o [guia de integração do Fire OS]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android).
 
 ### Kindle Fire {#kindle-fire}
 
@@ -163,9 +137,9 @@ Os recursos incluem:
 - Feature Flags
 - Mensagens no app
 - Banners
-  - Use [posicionamentos de Banner]({{site.baseurl}}/developer_guide/banners/placements/) para incorporar mensagens diretamente no seu Kindle Fire.
+  - Use [posicionamentos de Banner]({{site.baseurl}}/developer_guide/banners/placements) para incorporar mensagens diretamente no seu Kindle Fire.
 
-Para saber mais, visite o [guia de integração do Fire OS]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android).
+Para saber mais, visite o [guia de integração do Fire OS]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android).
 
 ### Android TV {#android-tv}
 
@@ -179,11 +153,11 @@ Os recursos incluem:
 - Mensagens no app
   - Para exibir mensagens HTML em ambientes sem toque, como TVs, defina `com.braze.configuration.BrazeConfig.Builder.setIsTouchModeRequiredForHtmlInAppMessages` como `false` (disponível a partir do [Android SDK v23.1.0](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#2310))
 - &#42; Notificações por push (integração manual necessária)
-  - Notificações por push não são suportadas nativamente no Android TV. Para saber o motivo, consulte as [Diretrizes de design](https://designguidelines.withgoogle.com/android-tv/patterns/notifications.html) do Google. No entanto, você pode **fazer uma integração manual da interface de notificação por push para conseguir isso**. Consulte nossa [documentação]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android%20tv) sobre como configurar isso.
+  - Notificações por push não são suportadas nativamente no Android TV. Para saber o motivo, consulte as [Diretrizes de design](https://designguidelines.withgoogle.com/android-tv/patterns/notifications.html) do Google. No entanto, você pode **fazer uma integração manual da interface de notificação por push para conseguir isso**. Consulte nossa [documentação]({{site.baseurl}}/developer_guide/push_notifications?sdktab=android%20tv) sobre como configurar isso.
 - Banners
-  - Use [posicionamentos de Banner]({{site.baseurl}}/developer_guide/banners/placements/) para incorporar mensagens diretamente no seu app Android TV.
+  - Use [posicionamentos de Banner]({{site.baseurl}}/developer_guide/banners/placements) para incorporar mensagens diretamente no seu app Android TV.
 
-Para saber mais, visite o [guia de integração do SDK Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android).
+Para saber mais, visite o [guia de integração do SDK Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android).
 
 {% alert note %}
 Crie um novo app Android no dashboard para a sua integração Android OTT.
@@ -200,9 +174,9 @@ Os recursos incluem:
 - Feature Flags
 - Mensagens no app (via [Headless UI](#custom-ui))
 - Banners
-  - Use [posicionamentos de Banner]({{site.baseurl}}/developer_guide/banners/placements/) para incorporar mensagens diretamente no seu app webOS.
+  - Use [posicionamentos de Banner]({{site.baseurl}}/developer_guide/banners/placements) para incorporar mensagens diretamente no seu app webOS.
 
-Para saber mais, visite o [guia de integração da Web Smart TV]({{site.baseurl}}/developer_guide/platforms/web/smart_tvs/).
+Para saber mais, visite o [guia de integração da Web Smart TV]({{site.baseurl}}/developer_guide/platforms/web/smart_tvs).
 
 ### Samsung Tizen {#tizen}
 
@@ -215,9 +189,9 @@ Os recursos incluem:
 - Feature Flags
 - Mensagens no app (via [Headless UI](#custom-ui))
 - Banners
-  - Use [posicionamentos de Banner]({{site.baseurl}}/developer_guide/banners/placements/) para incorporar mensagens diretamente no seu app Tizen.
+  - Use [posicionamentos de Banner]({{site.baseurl}}/developer_guide/banners/placements) para incorporar mensagens diretamente no seu app Tizen.
 
-Para saber mais, visite o [guia de integração da Web Smart TV]({{site.baseurl}}/developer_guide/platforms/web/smart_tvs/).
+Para saber mais, visite o [guia de integração da Web Smart TV]({{site.baseurl}}/developer_guide/platforms/web/smart_tvs).
 
 ### Roku {#roku}
 
@@ -230,7 +204,7 @@ Os recursos incluem:
   - A plataforma Roku não é compatível com webviews, portanto mensagens HTML no app não são suportadas.
 - Feature Flags
 
-Para saber mais, acesse o [guia de integração do Roku]({{site.baseurl}}/developer_guide/in_app_messages/?sdktab=roku).
+Para saber mais, acesse o [guia de integração do Roku]({{site.baseurl}}/developer_guide/in_app_messages?sdktab=roku).
 
 ### Apple TV OS {#tvos}
 
@@ -246,7 +220,7 @@ Os recursos incluem:
   - Veja nosso [app de exemplo](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples#inappmessages-custom-ui) para saber mais sobre como usar uma Headless UI para envio de mensagens personalizadas no tvOS.
 - Notificações por push silenciosas e atualização de badging
 - Banners
-  - Use [posicionamentos de Banner]({{site.baseurl}}/developer_guide/banners/placements/) para incorporar mensagens diretamente no seu app tvOS.
+  - Use [posicionamentos de Banner]({{site.baseurl}}/developer_guide/banners/placements) para incorporar mensagens diretamente no seu app tvOS.
 
 Para saber mais, acesse o [guia de integração do SDK Swift para iOS](https://github.com/braze-inc/braze-swift-sdk).
 
@@ -265,12 +239,12 @@ Use o SDK Braze Swift para integrar com o visionOS. A maioria dos recursos dispo
 - Feature Flags
 - Análise de dados de localização
 - Banners
-  - Use [posicionamentos de Banner]({{site.baseurl}}/developer_guide/banners/placements/) para incorporar mensagens diretamente no seu app visionOS.
+  - Use [posicionamentos de Banner]({{site.baseurl}}/developer_guide/banners/placements) para incorporar mensagens diretamente no seu app visionOS.
 
 Para saber mais, acesse o [guia de integração do SDK Swift para iOS](https://github.com/braze-inc/braze-swift-sdk).
 
 {% alert important %}
-Alguns recursos do iOS são parcialmente compatíveis ou incompatíveis. Para a lista completa, consulte o [suporte ao visionOS](https://www.braze.com/docs/developer_guide/platform_integration_guides/swift/visionos).
+Alguns recursos do iOS são parcialmente compatíveis ou incompatíveis. Para a lista completa, consulte o [suporte ao visionOS]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/visionos).
 {% endalert %}
 
 ## Direcionamento de apps {#app-targeting}
@@ -288,8 +262,8 @@ Plataformas que suportam mensagens no app ou Content Cards por meio de Headless 
 Com a Headless UI, a Braze fornecerá um modelo de dados, como JSON, que seu app pode ler e usar dentro de uma interface controlada pelo seu app. Esses dados conterão os campos configurados no dashboard (título, corpo, texto do botão, cores, etc.) que seu app pode ler e exibir de acordo. Para saber mais sobre o tratamento personalizado de mensagens, consulte:
 
 **Android SDK**
-- [Personalização de mensagens no app]({{site.baseurl}}/developer_guide/in_app_messages/customization/?sdktab=android#android_setting-custom-manager-listeners)
-- [Personalização de Content Cards]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/style/)
+- [Personalização de mensagens no app]({{site.baseurl}}/developer_guide/in_app_messages/customization?sdktab=android#android_setting-custom-manager-listeners)
+- [Personalização de Content Cards]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/style)
 
 **Swift SDK**
 - [Personalização de mensagens no app](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/brazeinappmessagepresenter/)
@@ -297,5 +271,5 @@ Com a Headless UI, a Braze fornecerá um modelo de dados, como JSON, que seu app
 - [Personalização de Content Cards](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcards-swift.class/)
 
 **SDK Web**
-- [Personalização de mensagens no app]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages/?tab=web)
-- [Personalização de Content Cards]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/style/)
+- [Personalização de mensagens no app]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages?tab=web)
+- [Personalização de Content Cards]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/style)

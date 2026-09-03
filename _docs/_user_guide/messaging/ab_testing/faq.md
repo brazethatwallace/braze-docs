@@ -31,15 +31,15 @@ This is a separate test from the confidence score, which only describes the perf
 
 ### Why isn't the variant distribution even?
 
-Variant assignment is randomized on each send, so the actual split may not match your configured percentages exactly—especially with smaller sample sizes. For more information, see [Variant distribution]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/variant_distribution/).
+Variant assignment is randomized on each send, so the actual split may not match your configured percentages exactly—especially with smaller sample sizes. For more information, see [Variant distribution]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/variant_distribution).
 
 ## Running and concluding tests
 
 ### When is the initial test over?
 
-When using Winning Variant for single-send campaigns, the test is over when the Winning Variant Send Time arrives. Braze will deem a variant to be the winner if it shows the highest conversion rate by a statistically significant margin.
+For a single-send campaign using **Optimize with BrazeAI™**, the initial test ends after the configured experiment duration. BrazeAI™ then sends the best-performing variant to the remaining audience.
 
-For recurring, action-based, and API-triggered campaigns, you can use Intelligent Selection to continuously track each variant’s performance data and continuously optimize campaign traffic toward top-performing variants. With Intelligent Selection, rather than explicitly defining an experiment group where users receive random variants, the Braze algorithm will continuously refine its estimate of the best-performing variant, potentially allowing for faster selection of the top performer.
+For recurring, action-based, and API-triggered campaigns that send multiple times, **Optimize with BrazeAI™** continuously tracks variant performance and shifts campaign traffic toward better-performing variants.
 
 ### How does Braze handle users who received a message variant in a recurring campaign or Canvas entry step? 
 
@@ -57,7 +57,7 @@ The same applies because the Canvas paths following an experiment are also varia
 
 #### Can I take actions to redistribute users in campaigns and Canvases?
 
-The only way to redistribute users in Canvases is to use [Randomized Paths in Experiment Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/#step-1-choose-the-number-of-paths-and-audience-distribution), which will always randomize path assignments when users re-enter the Canvas. However, this isn’t a standard experiment and could invalidate any experiment results because the control group can become contaminated with treatment users.
+The only way to redistribute users in Canvases is to use [Randomized Paths in Experiment Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step#step-1-choose-the-number-of-paths-and-audience-distribution), which will always randomize path assignments when users re-enter the Canvas. However, this isn’t a standard experiment and could invalidate any experiment results because the control group can become contaminated with treatment users.
 
 ## Confidence and bias
 
@@ -67,6 +67,8 @@ Confidence increases over time if all else holds constant. Holding constant mean
 
 Confidence is a measurement of how confident Braze is that the variant is different from the control. As more messages are sent, the statistical power of the test increases, which would increase the confidence that measured differences in performance are not due to random chance. Generally, a larger sample size increases our confidence in identifying smaller differences in performance between variants and control.
 
+However, if conversion rates across variants and the control converge (get closer together) as more messages are sent, confidence can decrease, because the measured gap you care about is shrinking, which can outweigh the benefit of a larger sample size.
+
 ### Can control and test group assignments introduce bias to testing?
 
 There is no practical way that a user’s attributes or behaviors before the creation of a particular campaign or Canvas could vary systematically between variants and control. 
@@ -75,4 +77,4 @@ To assign users to message variants, Canvas variants, or their respective contro
 
 ### Why can't I use rate limiting with a control group?
 
-Braze currently doesn’t support rate limiting with A/B testing that has a control group. This is because rate limiting doesn’t apply to the control group in the same way as the variants, thus introducing bias. Instead, consider using [Intelligent Selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/), which automatically adjusts the percentage of users that will receive each variant based on analytics and the performance of the campaign.
+Braze currently doesn’t support rate limiting with A/B testing that has a control group. Rate limiting doesn’t apply to the control group in the same way as the variants, which introduces bias. Instead, consider using [Optimize with BrazeAI™]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection), which automatically adjusts the percentage of users that receive each variant based on campaign performance.

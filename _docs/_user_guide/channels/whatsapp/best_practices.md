@@ -44,7 +44,15 @@ For information about opt-in requirements and helpful tips, see [Get Opt-in for 
 
 Opt-outs don’t impact your phone quality rating, so it’s better for a user to opt-out of receiving WhatsApp communications versus blocking or reporting you.
 
-A suggested best practice is to provide instructions about how to out-out in the footer of the first message you send users. For example, you could state that users can unsubscribe from your WhatsApp channel by responding with your opt-out trigger word. You could also regularly include the opt-out footer in future campaigns. To learn how to set this up, see [Opt-in and opt-out]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs/).
+A suggested best practice is to provide instructions about how to out-out in the footer of the first message you send users. For example, you could state that users can unsubscribe from your WhatsApp channel by responding with your opt-out trigger word. You could also regularly include the opt-out footer in future campaigns. To learn how to set this up, see [Opt-in and opt-out]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs).
  
 ![WhatsApp message with a footer stating to respond STOP to unsubscribe from the channel]({% image_buster /assets/img/whatsapp/whatsapp_unsubscribe.png %}){: style="max-width:35%;"}
+
+### Minimize response latency for two-way flows {#minimize-response-latency-for-two-way-flows}
+
+For interactive Canvas flows that reply with [response messages]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/message_and_image_formats#response-messages):
+
+- Place the response message step immediately after the inbound trigger or Action Path evaluation.
+- Use [webhooks]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) instead of User Update steps when subscription changes are not required before the reply.
+- Avoid long delays or multi-day waits between inbound messages and response sends; the WhatsApp customer service window is 24 hours per inbound message.
 

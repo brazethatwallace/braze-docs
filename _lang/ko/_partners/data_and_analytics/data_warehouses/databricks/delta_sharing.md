@@ -2,7 +2,7 @@
 nav_title: "Delta Sharing"
 article_title: Databricks Delta Sharing
 page_order: 0
-description: "이 참조 문서에서는 Braze와의 Databricks Delta Sharing(비공개 베타)에 대해 다루며, Databricks 계정에서 Braze 참여 및 Campaign 데이터에 액세스할 수 있는 방법을 설명합니다."
+description: "이 참조 문서에서는 Braze와의 Databricks Delta Sharing(비공개 베타)에 대해 다루며, Databricks 계정에서 Braze 인게이지먼트 및 Campaign 데이터에 액세스할 수 있는 방법을 설명합니다."
 page_type: partner
 search_tag: Partner
 permalink: /delta_sharing/
@@ -11,13 +11,13 @@ hidden: true
 
 # Databricks Delta Sharing
 
-> Databricks [Delta Sharing](https://docs.databricks.com/en/delta-sharing/index.html)을 사용하면 Braze 참여 및 Campaign 데이터를 Databricks 환경으로 안전하게 공유할 수 있습니다. 이 문서에서는 데이터 제공자인 Braze에서 수신자인 Databricks 계정으로의 공유 작동 방식과 공유 테이블을 쿼리하는 방법을 설명합니다.
+> Databricks [Delta Sharing](https://docs.databricks.com/en/delta-sharing/index.html)을 사용하면 실시간 Braze 인게이지먼트 및 Campaign 데이터를 Databricks 환경으로 안전하게 공유할 수 있습니다. 이 문서에서는 데이터 제공자인 Braze에서 수신자인 Databricks 계정으로의 공유 작동 방식과 공유 테이블을 쿼리하는 방법을 설명합니다.
 
 {% alert important %}
 Braze와의 Databricks Delta Sharing은 **비공개 베타** 단계입니다. 가용성, 지원 리전 및 제품 동작은 변경될 수 있습니다. 참여하거나 워크스페이스에서 이 기능이 활성화되어 있는지 확인하려면 Braze 고객 성공 매니저에게 문의하세요.
 {% endalert %}
 
-Databricks Delta Sharing은 Braze 데이터 배포의 일부입니다. 데이터 배포 옵션에 대한 전체 개요는 [데이터 배포]({{site.baseurl}}/user_guide/data/distribution/)를 참조하세요.
+Databricks Delta Sharing은 Braze 데이터 배포의 일부입니다. 데이터 배포 옵션에 대한 전체 개요는 [데이터 배포]({{site.baseurl}}/user_guide/data/distribution)를 참조하세요.
 
 ## Delta Sharing 설정 {#set-up-delta-sharing}
 
@@ -25,7 +25,7 @@ Databricks에서 데이터 공유는 데이터 제공자와 데이터 수신자 
 
 ### 1단계: Braze에서 공유 구성 {#step-1-configure-sharing-from-braze}
 
-1. Braze에서 **Partner Integrations** > **Data Sharing** > **Databricks Delta Sharing**으로 이동합니다.
+1. Braze에서 **파트너 통합** > **데이터 공유** > **Databricks Delta Sharing**으로 이동합니다.
 2. Databricks 공유 식별자를 입력합니다.
 3. 완료되면 **Create Datashare**를 선택합니다. Braze가 Databricks 계정으로 공유를 전송합니다.
 
@@ -50,13 +50,9 @@ Databricks에서 데이터 공유는 데이터 제공자와 데이터 수신자 
 
 Currents와 유사하게 Databricks Delta Sharing을 사용하여 다음을 수행할 수 있습니다:
 
-- 복잡한 보고서 생성
-- 기여도 모델링 수행
-- 회사 내 안전한 공유
-- 원시 이벤트 또는 사용자 데이터를 CRM(예: Salesforce)에 매핑
-- 기타
+{% multi_lang_include partners/data_sharing_use_cases.md %}
 
-Databricks에서 사용 가능한 테이블 및 열의 전체 목록은 [Databricks 원시 테이블 스키마 다운로드]({% image_buster /assets/download_file/databricks-data-sharing-raw-table-schemas.txt %})에서 텍스트 파일로 확인할 수 있습니다. 이 파일은 Databricks Delta Sharing 스키마(예: 수집 시간의 `DB_CREATED_AT`)를 반영합니다. [Snowflake 원시 테이블 스키마]({% image_buster /assets/download_file/data-sharing-raw-table-schemas.txt %}) 또는 Snowflake 이름 지정 및 필드를 설명하는 [SQL 테이블 참조]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/)와는 호환되지 않습니다.
+Databricks에서 사용 가능한 테이블 및 열의 전체 목록은 [Databricks 원시 테이블 스키마 다운로드](/docs/assets/download_file/databricks-data-sharing-raw-table-schemas.txt)에서 텍스트 파일로 확인할 수 있습니다. 이 파일은 Databricks Delta Sharing 스키마(예: 수집 시간의 `DB_CREATED_AT`)를 반영합니다. [Snowflake 원시 테이블 스키마](/docs/assets/download_file/data-sharing-raw-table-schemas.txt) 또는 Snowflake 이름 지정 및 필드를 설명하는 [SQL 테이블 참조]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables)와는 호환되지 않습니다.
 
 {% alert note %}
 비공개 베타 기간 동안 Databricks 스키마 파일에 나열된 모든 테이블이 공유에서 사용 가능하지 않을 수 있습니다. 열 이름과 유형도 Snowflake 데이터 공유와 다를 수 있습니다(예: `SF_CREATED_AT` 대신 `DB_CREATED_AT`). 워크스페이스의 현재 테이블 목록이 필요한 경우 Braze 고객 성공 매니저에게 문의하세요.
@@ -70,13 +66,13 @@ Databricks에서 사용 가능한 테이블 및 열의 전체 목록은 [Databri
 | ----------- | ----------- | ----------- |
 | `braze_id` | `USER_ID` | Braze가 자동으로 할당하는 고유 식별자입니다. |
 | `external_id` | `EXTERNAL_USER_ID` | Braze에서 설정한 사용자 프로필의 고유 식별자입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="User ID schema" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="사용자 ID 스키마" }
 
 ## 중요 정보 및 제한 사항 {#important-information-and-limitations}
 
 ### 비공개 베타 가용성 {#closed-beta-availability}
 
-비공개 베타 기간 동안 공유에 [Databricks 원시 테이블 스키마]({% image_buster /assets/download_file/databricks-data-sharing-raw-table-schemas.txt %}) 파일의 모든 테이블이 포함되지 않을 수 있습니다. 공유된 데이터는 열 이름과 유형에서 Snowflake 데이터 공유와 다를 수도 있습니다. 예를 들어, Databricks 공유는 수집 시간에 `DB_CREATED_AT`를 사용하고, Snowflake 공유는 `SF_CREATED_AT`를 사용합니다.
+비공개 베타 기간 동안 공유에 [Databricks 원시 테이블 스키마](/docs/assets/download_file/databricks-data-sharing-raw-table-schemas.txt) 파일의 모든 테이블이 포함되지 않을 수 있습니다. 공유된 데이터는 열 이름과 유형에서 Snowflake 데이터 공유와 다를 수도 있습니다. 예를 들어, Databricks 공유는 수집 시간에 `DB_CREATED_AT`를 사용하고, Snowflake 공유는 `SF_CREATED_AT`를 사용합니다.
 
 ### 호환성을 깨는 변경과 깨지 않는 변경 {#breaking-versus-non-breaking-changes}
 
@@ -121,7 +117,7 @@ Databricks에서 사용 가능한 테이블 및 열의 전체 목록은 [Databri
 | ----- | ------- |
 | `TIME` | 이벤트가 발생한 Unix 타임스탬프입니다. 발생 시간으로 필터링할 때 이 필드를 사용하세요. |
 | `DB_CREATED_AT` | 행이 Databricks에 로드된 타임스탬프(수집 시간)입니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Querying shared data: TIME and query performance" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="공유 데이터 쿼리: TIME 및 쿼리 성능" }
 
 ### 쿼리의 속도, 성능 및 비용 {#speed-performance-and-cost-of-queries}
 

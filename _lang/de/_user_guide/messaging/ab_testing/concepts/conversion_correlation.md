@@ -5,7 +5,7 @@ alias: /conversion_correlation/
 page_order: 3
 
 page_type: reference
-description: "Dieser Referenzartikel erklärt die Conversion-Korrelationsanalyse auf der Seite Campaign Analytics."
+description: "Dieser Referenzartikel erklärt die Konversionskorrelationsanalyse auf der Seite Campaign Analytics."
 tool:
   - Reports
 
@@ -17,7 +17,7 @@ tool:
 
 ## Übersicht {#overview}
 
-Für jede Campaign prüft Braze eine Liste von Attributen und dem Verhalten von Nutzer:innen und berechnet, ob Nutzer:innen statistisch signifikant mit einem Anstieg oder einem Rückgang der einzelnen [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/) verbunden sind, die Sie für die Campaign festgelegt haben. Wir berechnen auch, wie viel wahrscheinlicher oder unwahrscheinlicher es ist, dass Nutzer:innen mit dem jeweiligen Attribut oder Verhalten konvertieren, und wenn dies signifikant ist, zeigen wir dies auf der entsprechenden Seite der Tabelle an. Nutzer:innen mit dem jeweiligen Attribut oder Verhalten werden mit den Raten für die gesamte Zielgruppe der Campaign verglichen. Verhaltensweisen und Attribute, die keine signifikante Korrelation mit der Konversion aufweisen, sind in der Tabelle nicht aufgeführt.
+Für jede Campaign prüft Braze eine Liste von Attributen und dem Verhalten von Nutzer:innen und berechnet, ob Nutzer:innen statistisch signifikant mit einem Anstieg oder einem Rückgang der einzelnen [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) verbunden sind, die Sie für die Campaign festgelegt haben. Wir berechnen auch, wie viel wahrscheinlicher oder unwahrscheinlicher es ist, dass Nutzer:innen mit dem jeweiligen Attribut oder Verhalten konvertieren, und wenn dies signifikant ist, zeigen wir dies auf der entsprechenden Seite der Tabelle an. Nutzer:innen mit dem jeweiligen Attribut oder Verhalten werden mit den Raten für die gesamte Zielgruppe der Campaign verglichen. Verhaltensweisen und Attribute, die keine signifikante Korrelation mit der Conversion aufweisen, sind in der Tabelle nicht aufgeführt.
 
 Um eine Konversionskorrelationsanalyse durchzuführen, wählen Sie das gewünschte Konversions-Event aus dem Dropdown-Menü aus.
 

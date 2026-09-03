@@ -14,13 +14,13 @@ description: "Cet article de référence explique les variables de contexte dans
 Les variables de contexte peuvent être définies de deux manières :
 
 - **À l'entrée du Canvas :** lorsque les utilisateurs entrent dans un Canvas, les données de l'événement ou du déclencheur API peuvent automatiquement renseigner les variables de contexte.
-- **Dans une étape de contexte :** vous pouvez définir ou mettre à jour manuellement des variables de contexte à l'intérieur du Canvas en ajoutant une [étape de contexte]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/).
+- **Dans une étape de contexte :** vous pouvez définir ou mettre à jour manuellement des variables de contexte à l'intérieur du Canvas en ajoutant une [étape de contexte]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context).
 
 Chaque variable de contexte comprend :
 
 - Un nom (tel que `flight_time` ou `subscription_renewal_date`)
 - Un type de données (tel que nombre, chaîne de caractères, heure ou tableau)
-- Une valeur que vous attribuez à l'aide de [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) ou via l'outil **Add Personalization**.
+- Une valeur que vous attribuez à l'aide de [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) ou via l'outil **Add Personalization**.
 
 Une fois définie, vous pouvez utiliser une variable de contexte dans l'ensemble du Canvas en la référençant dans ce format : {% raw %}`{{context.${example_variable_name}}}`{% endraw %}.
 
@@ -32,9 +32,9 @@ Par exemple, si un client a deux vols à venir, il aura deux états de parcours 
 
 ## Considérations {#considerations}
 
-Vous pouvez définir jusqu'à 10 variables de contexte par [étape de contexte]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/). Chaque nom de variable peut contenir jusqu'à 100 caractères et ne doit utiliser que des lettres, des chiffres ou des underscores.
+Vous pouvez définir jusqu'à 10 variables de contexte par [étape de contexte]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context). Chaque nom de variable peut contenir jusqu'à 100 caractères et ne doit utiliser que des lettres, des chiffres ou des underscores.
 
-Les définitions de variables de contexte peuvent contenir jusqu'à 10 240 caractères. Si vous transmettez des variables de contexte dans un Canvas déclenché par API, elles partagent le même espace de noms que les variables créées dans une étape de contexte. Par exemple, si vous envoyez une variable `purchased_item` dans l'objet de contexte de l'[endpoint `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/), vous pouvez la référencer comme {% raw %}`{{context.${purchased_item}}}`{% endraw %}. Si vous redéfinissez cette variable dans une étape de contexte, la nouvelle valeur remplacera la valeur API pour le parcours de cet utilisateur.
+Les définitions de variables de contexte peuvent contenir jusqu'à 10 240 caractères. Si vous transmettez des variables de contexte dans un Canvas déclenché par API, elles partagent le même espace de noms que les variables créées dans une étape de contexte. Par exemple, si vous envoyez une variable `purchased_item` dans l'objet de contexte de l'[endpoint `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases), vous pouvez la référencer comme {% raw %}`{{context.${purchased_item}}}`{% endraw %}. Si vous redéfinissez cette variable dans une étape de contexte, la nouvelle valeur remplacera la valeur API pour le parcours de cet utilisateur.
 
 Vous pouvez stocker jusqu'à 50 Ko par étape de contexte, répartis sur un maximum de 10 variables. Si la taille totale de toutes les variables d'une étape dépasse 50 Ko, les variables qui dépassent la limite ne seront ni évaluées ni stockées. Par exemple, si vous avez trois variables dans une étape de contexte :
 
@@ -49,7 +49,7 @@ La variable 3 ne sera ni évaluée ni stockée car la somme des variables préc�
 Les variables de contexte créées ou mises à jour dans l'étape peuvent se voir attribuer les types de données suivants.
 
 {% alert note %}
-Les variables de contexte ont les mêmes formats attendus pour les types de données que les [propriétés d'événement]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#expected-format). <br><br>Lorsque vous utilisez le type tableau, Braze tente d'analyser la valeur en JSON, ce qui permet de créer avec succès des tableaux d'objets. Si les objets au sein de vos tableaux ne sont pas du JSON valide, le résultat sera un simple tableau de chaînes de caractères. <br><br>Pour les objets imbriqués et les tableaux d'objets, utilisez le [filtre Liquid `as_json_string`](#converting-connected-content-strings-to-json). Si vous créez le même objet dans une étape de contexte, vous devrez rendre l'objet en utilisant `as_json_string`, comme {%raw%}`{{context.${object_array} | as_json_string }}`{%endraw%}
+Les variables de contexte ont les mêmes formats attendus pour les types de données que les [propriétés d'événement]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#expected-format). <br><br>Lorsque vous utilisez le type tableau, Braze tente d'analyser la valeur en JSON, ce qui permet de créer avec succès des tableaux d'objets. Si les objets au sein de vos tableaux ne sont pas du JSON valide, le résultat sera un simple tableau de chaînes de caractères. <br><br>Pour les objets imbriqués et les tableaux d'objets, utilisez le [filtre Liquid `as_json_string`](#converting-connected-content-strings-to-json). Si vous créez le même objet dans une étape de contexte, vous devrez rendre l'objet en utilisant `as_json_string`, comme {%raw%}`{{context.${object_array} | as_json_string }}`{%endraw%}
 {% endalert %}
 
 | Type de données | Exemple de nom de variable | Exemple de valeur |
@@ -77,13 +77,13 @@ Pour les types de données objet, vous pouvez utiliser la notation par points po
 }
 ```
 
-Dans un filtre [Parcours d'audience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) ou [Arbre décisionnel]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/), saisissez le chemin comme nom de variable de contexte en utilisant la notation par points (par exemple, `order_summary.shipping.carrier`). Lorsque le filtre est évalué, Braze résout ce chemin vers la valeur `overnight`.
+Dans un filtre [Parcours d'audience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) ou [Arbre décisionnel]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split), saisissez le chemin comme nom de variable de contexte en utilisant la notation par points (par exemple, `order_summary.shipping.carrier`). Lorsque le filtre est évalué, Braze résout ce chemin vers la valeur `overnight`.
 
-En Liquid (comme dans une étape [Message]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/)), utilisez plutôt {% raw %}`{{context.${order_summary}.shipping.carrier}}`{% endraw %}.
+En Liquid (comme dans une étape [Message]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)), utilisez plutôt {% raw %}`{{context.${order_summary}.shipping.carrier}}`{% endraw %}.
 
 ## Utilisation des variables de contexte {#using-context-variables}
 
-Vous pouvez utiliser les variables de contexte partout où vous utilisez Liquid dans un Canvas, comme dans les étapes [Message]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/) et [Mise à jour utilisateur]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/), en sélectionnant **Add Personalization**. Pour les messages in-app et les bannières dans les étapes Message, vous pouvez sélectionner des variables de contexte pour déterminer quand le message doit expirer.
+Vous pouvez utiliser les variables de contexte partout où vous utilisez Liquid dans un Canvas, comme dans les étapes [Message]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) et [Mise à jour utilisateur]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update), en sélectionnant **Add Personalization**. Pour les messages in-app et les bannières dans les étapes Message, vous pouvez sélectionner des variables de contexte pour déterminer quand le message doit expirer.
 
 Par exemple, imaginons que vous souhaitez informer les passagers de leur accès au salon VIP avant leur prochain vol. Ce message ne doit être envoyé qu'aux passagers ayant acheté un billet en première classe. Une variable de contexte est un moyen flexible de suivre cette information.
 
@@ -101,17 +101,17 @@ Ensuite, nous créerons une étape Message pour cibler les utilisateurs où {% r
 ![Une étape Message avec différents messages à envoyer, selon le type de billet d'avion acheté.]({% image_buster /assets/img/context_example3.png %}){: style="max-width:90%"}
 
 {% alert tip %}
-Vous pouvez ajouter des [options de délai personnalisé]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step/#personalized-delays) avec les informations de l'étape de contexte, ce qui signifie que vous pouvez sélectionner la variable qui retarde les utilisateurs.
+Vous pouvez ajouter des [options de délai personnalisé]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step#personalized-delays) avec les informations de l'étape de contexte, ce qui signifie que vous pouvez sélectionner la variable qui retarde les utilisateurs.
 {% endalert %}
 
-### Pour les Parcours d'actions et les critères de sortie {#for-action-paths-and-exit-criteria}
+### Pour les parcours d'action et les critères de sortie {#for-action-paths-and-exit-criteria}
 
-Vous pouvez exploiter les filtres de comparaison de propriétés avec des variables de contexte ou des attributs personnalisés dans ces actions de déclenchement : **Perform Custom Event** et **Make Purchase**. Ces déclencheurs d'action prennent également en charge les filtres de propriétés pour les propriétés de base et imbriquées.
+Vous pouvez tirer parti des filtres de comparaison de propriétés avec des variables de contexte ou des attributs personnalisés dans ces actions de déclenchement : **Perform Custom Event** et **Make Purchase**. Ces déclencheurs d'action prennent également en charge les filtres de propriétés pour les propriétés de base et imbriquées.
 
 - Lors de la comparaison avec des propriétés de base, les comparaisons disponibles correspondront au type de la propriété définie par l'événement personnalisé. Par exemple, les propriétés de type chaîne de caractères auront des comparaisons d'égalité exacte et de correspondance d'expression régulière. Les propriétés booléennes seront vrai ou faux.
 - Lors de la comparaison avec des propriétés imbriquées, les types ne sont pas prédéfinis, vous pouvez donc sélectionner des comparaisons sur plusieurs types de données pour les booléens, les nombres, les chaînes de caractères, l'heure et le jour de l'année, de manière similaire aux comparaisons pour les attributs personnalisés imbriqués. Si vous sélectionnez un type de données qui ne correspond pas au type de données réel de la propriété imbriquée au moment de la comparaison, l'utilisateur ne correspondra pas au parcours d'action ou aux critères de sortie.
 
-#### Exemples de Parcours d'actions {#action-path-examples}
+#### Exemples de parcours d'action {#action-path-examples}
 
 {% alert important %}
 Pour les comparaisons d'attributs personnalisés, la valeur de l'attribut personnalisé utilisée est celle au moment où l'action est effectuée. Cela signifie qu'un utilisateur ne correspondra pas au groupe du parcours d'action si cet attribut personnalisé n'est pas renseigné au moment de la comparaison, ou si la valeur de l'attribut personnalisé ne correspond pas aux comparaisons de propriétés définies. C'est le cas même si l'utilisateur aurait correspondu au moment de son entrée dans l'étape du parcours d'action.
@@ -161,37 +161,48 @@ Les critères de sortie stipulent qu'à tout moment du parcours d'un utilisateur
 
 ### Définir une expiration {#set-an-expiration}
 
-Pour les [bannières]({{site.baseurl}}/user_guide/channels/banners/) et les [messages in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/) dans une étape [Message]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/) d'un Canvas, sélectionnez **A duration after the step is available** pour l'expiration, puis activez **Personalize duration** pour piloter la fenêtre de disponibilité à partir d'une variable de contexte — par exemple, pour correspondre à la durée d'une promotion ou d'une réservation définie dans une étape de contexte.
+Pour les [bannières]({{site.baseurl}}/user_guide/channels/banners) et les [messages in-app]({{site.baseurl}}/user_guide/channels/in_app_messages) dans une étape [Message]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) d'un Canvas, sélectionnez **A duration after the step is available** pour l'expiration, puis activez **Personalize duration** pour piloter la fenêtre de disponibilité à partir d'une variable de contexte — par exemple, pour correspondre à la durée d'une promotion ou d'une réservation définie dans une étape de contexte.
 
 **Personalize duration** s'applique à cette option d'expiration basée sur la durée. Si vous choisissez plutôt **On a specific date and time**, définissez l'expiration à l'aide des contrôles de date et d'heure.
 
-### Délais des Parcours d'actions {#action-path-delays}
+### Délais des parcours d'action {#action-path-delays}
 
-Dans une étape [Parcours d'actions]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/), sous **Evaluation Window**, activez **Personalize delay** pour définir la durée pendant laquelle les utilisateurs sont retenus dans l'étape à partir d'une variable de contexte. Utilisez cette option lorsque la période d'attente doit varier par utilisateur en fonction de détails tels que le niveau ou la région.
+Dans une étape [Parcours d'action]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths), sous **Evaluation Window**, activez **Personalize delay** pour définir la durée pendant laquelle les utilisateurs sont retenus dans l'étape à partir d'une variable de contexte. Utilisez cette option lorsque la période d'attente doit varier par utilisateur en fonction de détails tels que le niveau ou la région.
 
 ### Filtres de variables de contexte {#context-variable-filters}
 
-Vous pouvez créer des filtres qui utilisent des variables de contexte précédemment déclarées dans les étapes [Parcours d'audience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) et [Arbre décisionnel]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/).
+Vous pouvez créer des filtres qui utilisent des variables de contexte précédemment déclarées dans les étapes [Parcours d'audience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) et [Arbre décisionnel]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split).
 
 {% alert note %}
 Les filtres de variables de contexte ne sont disponibles que pour les étapes Parcours d'audience et Arbre décisionnel.
 {% endalert %}
 
-Les variables de contexte sont déclarées et accessibles uniquement dans le périmètre d'un Canvas, ce qui signifie qu'elles ne peuvent pas être référencées dans les segments. Les filtres de variables de contexte fonctionnent de manière similaire dans les étapes Parcours d'audience et Arbre décisionnel — les étapes Parcours d'audience représentent plusieurs groupes, tandis que les étapes Arbre décisionnel représentent des décisions binaires.
+Les variables de contexte sont déclarées et accessibles uniquement dans le périmètre d'un Canvas, ce qui signifie qu'elles ne peuvent pas être référencées dans les Segments. Les filtres de variables de contexte fonctionnent de manière similaire dans les étapes Parcours d'audience et Arbre décisionnel — les étapes Parcours d'audience représentent plusieurs groupes, tandis que les étapes Arbre décisionnel représentent des décisions binaires.
 
 ![Exemple d'étape Arbre décisionnel avec l'option de créer un filtre avec une variable de contexte.]({% image_buster /assets/img/context_decision_split.png %}){: style="max-width:90%;"}
 
-De la même manière que les variables de contexte Canvas ont des types prédéfinis, les comparaisons entre variables de contexte et valeurs statiques doivent avoir des [types de données correspondants]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/#supported-data-types). Le filtre de variable de contexte permet des comparaisons sur plusieurs types de données pour les booléens, les nombres, les chaînes de caractères, l'heure et le jour de l'année, de manière similaire aux comparaisons pour les [attributs personnalisés imbriqués]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/).
+De la même manière que les variables de contexte Canvas ont des types prédéfinis, les comparaisons entre variables de contexte et valeurs statiques doivent avoir des [types de données correspondants]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support). Le filtre de variable de contexte permet des comparaisons sur plusieurs types de données pour les booléens, les nombres, les chaînes de caractères, l'heure et le jour de l'année, de manière similaire aux comparaisons pour les [attributs personnalisés imbriqués]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
+
+Voici un exemple de filtre de variable de contexte comparant la variable de contexte `product_name` à l'expression régulière `/braze/`.
+
+![Configuration d'un filtre pour la variable de contexte « product_name » correspondant à l'expression régulière « /braze/ ».]({% image_buster /assets/img/context_variable_filter1.png %}){: style="max-width:90%;"}
+
+#### Filtres Jour de l'année et Heure pour les variables de contexte de type date {#day-of-year-and-time-filters-for-date-context-variables}
+
+Pour utiliser les filtres de comparaison **Jour de l'année** ou **Heure** avec une variable de contexte :
+
+1. Ajoutez une [étape de contexte]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) qui définit une variable de contexte sur une date du calendrier (par exemple, le 23 octobre 2025).
+2. Ajoutez une étape [Parcours d'audience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) après l'étape de contexte.
+3. Dans l'étape Parcours d'audience, ajoutez un filtre qui répartit les utilisateurs en fonction de cette variable de contexte.
+4. Choisissez une comparaison dans la catégorie **Jour de l'année** ou **Heure**.
+
+Si une variable de contexte n'a pas de type déclaré, Braze affiche tous les types de comparaison disponibles dans le menu déroulant, y compris **Jour de l'année** et **Heure**. Si la variable est déclarée comme type **heure** dans l'étape de contexte, seules les comparaisons **Jour de l'année** et **Heure** sont affichées. Pour les autres types de données avec un type connu (par exemple, un attribut personnalisé imbriqué avec un type heure), seules les comparaisons applicables à ce type sont affichées.
 
 {% alert note %}
 Utilisez le même type de données pour votre variable de contexte et votre comparaison. Par exemple, si votre variable de contexte est de type heure, utilisez des comparaisons temporelles (telles que « avant » ou « après »). L'utilisation de types de données incompatibles (comme des comparaisons de chaînes de caractères avec une variable de contexte de type heure) peut entraîner un comportement inattendu.
 {% endalert %}
 
 {% multi_lang_include alerts/important_alerts.md alert='time filter types' %}
-
-Voici un exemple de filtre de variable de contexte comparant la variable de contexte `product_name` à l'expression régulière `/braze/`.
-
-![Configuration d'un filtre pour la variable de contexte « product_name » correspondant à l'expression régulière « /braze/ ».]({% image_buster /assets/img/context_variable_filter1.png %}){: style="max-width:90%;"}
 
 #### Comparaison avec des variables de contexte ou des attributs personnalisés {#comparing-to-context-variables-or-custom-attributes}
 
@@ -221,10 +232,10 @@ Le filtre suivant compare la variable de contexte `reminder_date` pour qu'elle s
 Bien que la plupart des propriétés d'événement utilisant le type horodatage soient déjà en UTC dans Canvas, il existe quelques exceptions. Avec l'ajout du contexte Canvas, toutes les propriétés d'événement d'horodatage par défaut dans les Canvas basés sur des actions seront systématiquement en UTC. Ce changement s'inscrit dans un effort plus large visant à garantir une expérience plus prévisible et cohérente lors de la modification des étapes et des messages Canvas. Notez que ce changement impactera tous les Canvas basés sur des actions, que le Canvas en question utilise ou non une étape de contexte.
 
 {% alert important %}
-Dans tous les cas, nous recommandons fortement d'utiliser les [filtres Liquid time_zone]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/#things-to-know) pour que les horodatages soient représentés dans le fuseau horaire souhaité. Vous pouvez consulter cette [question fréquemment posée dans l'article sur l'étape de contexte]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/#faq-example) pour un exemple.
+Dans tous les cas, nous recommandons fortement d'utiliser les [filtres Liquid time_zone]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties#things-to-know) pour que les horodatages soient représentés dans le fuseau horaire souhaité. Vous pouvez consulter cette [question fréquemment posée dans l'article sur l'étape de contexte]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#faq-example) pour un exemple.
 {% endalert %}
 
 ## Articles connexes {#related-articles}
 
-- [Étape de contexte]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/)
-- [Personnalisation et contenu dynamique avec Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)
+- [Étape de contexte]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)
+- [Personnalisation et contenu dynamique avec Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)

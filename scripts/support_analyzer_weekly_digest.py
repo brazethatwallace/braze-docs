@@ -126,9 +126,9 @@ def main() -> None:
             "## Next steps (human or Cursor)",
             "",
             "1. Check out `support-analyzer-data` and open `_data/support_cases_latest.csv`.",
-            "2. Run `@support-analyzer` (`.github/skills/support-analyzer/SKILL.md`) on that CSV for themes outside the automated Phase 2 rules.",
+            "2. Run the support-analyzer skill (`.github/skills/support-analyzer/SKILL.md`) on that CSV for themes outside the automated Phase 2 rules.",
             "3. Review **Support analyzer (Looker)** workflow Phase 2 draft PRs (from `.github/support_analyzer_phase2_rules.yml`) when they open.",
-            "4. If the digest pull request was auto-closed after the run, download this digest from the **support-analyzer-weekly-digest** workflow artifact.",
+            "4. To skim keyword themes for a run, download **support-analyzer-weekly-digest** from that workflow run (artifact retained 30 days).",
             "5. Open additional doc PRs from manual analyzer output after you review (do not merge machine-only digests as product docs).",
             "",
         ]

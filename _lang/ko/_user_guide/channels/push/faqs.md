@@ -14,7 +14,7 @@ channel:
 
 ## 푸시 알림이 때때로 지연되는 이유는 무엇인가요? {#why-are-push-notifications-sometimes-delayed}
 
-전달은 일반적으로 세 단계를 거칩니다: Braze **처리**(세분화, 스케줄링, 제공업체로의 전달), Braze에서 **APNs 또는 FCM**으로의 전송, 제공업체에서 **기기**로의 전달. 지연은 어느 단계에서든 발생할 수 있습니다. Braze는 제공업체 또는 기기 대기줄에 대한 가시성이 없으므로, 기기 측 타이밍을 좁혀야 할 때는 클라이언트에서 [상세 로깅]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs/)을 사용하세요.
+전달은 일반적으로 세 단계를 거칩니다: Braze **처리**(세분화, 스케줄링, 제공업체로의 전달), Braze에서 **APNs 또는 FCM**으로의 전송, 제공업체에서 **기기**로의 전달. 지연은 어느 단계에서든 발생할 수 있습니다. Braze는 제공업체 또는 기기 대기줄에 대한 가시성이 없으므로, 기기 측 타이밍을 좁혀야 할 때는 클라이언트에서 [상세 로깅]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs)을 사용하세요.
 
 ## 여러 사용자가 하나의 기기에 로그인하면 어떻게 되나요? {#what-happens-when-multiple-users-log-into-a-single-device}
 
@@ -28,13 +28,13 @@ channel:
 
 네. 테스트 푸시는 선택한 고객 프로필에 연결된 모든 푸시 활성화 기기로 전송됩니다. 동일한 사용자로 여러 휴대폰이나 태블릿에 로그인한 경우, 유효한 푸시 토큰이 있는 각 기기가 알림을 수신합니다.
 
-테스트 푸시를 하나의 기기로만 보내려면 테스트 전에 고객 프로필에서 다른 기기의 푸시 토큰을 제거할 수 있습니다. 또는 [`/messages/send` 엔드포인트]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/)로 전송하는 경우, `apple_push` 또는 `android_push` 오브젝트에서 `send_to_most_recent_device_only`를 `true`로 설정하면 가장 최근에 활성화된 기기만 푸시를 수신합니다.
+테스트 푸시를 하나의 기기로만 보내려면 테스트 전에 고객 프로필에서 다른 기기의 푸시 토큰을 제거할 수 있습니다. 또는 [`/messages/send` 엔드포인트]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages)로 전송하는 경우, `apple_push` 또는 `android_push` 오브젝트에서 `send_to_most_recent_device_only`를 `true`로 설정하면 가장 최근에 활성화된 기기만 푸시를 수신합니다.
 
 ## "페이로드가 유효하지 않아 푸시 전송 오류"는 무엇을 의미하나요? {#what-does-error-sending-push-because-the-payload-was-invalid-mean}
 
 이 메시지는 APNs가 유효하지 않은 페이로드(예: 빈 페이로드 또는 너무 큰 페이로드)로 인해 푸시 요청을 거부했음을 나타냅니다.
 
-자세한 내용과 다음 단계는 [일반적인 푸시 오류 메시지]({{site.baseurl}}/user_guide/channels/push/push_error_codes/)를 참조하세요.
+자세한 내용과 다음 단계는 [일반적인 푸시 오류 메시지]({{site.baseurl}}/user_guide/channels/push/push_error_codes)를 참조하세요.
 
 ## 옵트인한 사용자에게 푸시 토큰이 없는 이유는 무엇인가요? {#why-doesnt-an-opted-in-user-have-a-push-token}
 
@@ -72,10 +72,10 @@ Braze에서 Apple 푸시 인증서를 추가할 때, **프로덕션으로 전송
 | 필터 | 확인 내용 | 사용 사례 |
 |--------|---------------|----------|
 | **포그라운드 푸시 활성화됨** | 사용자에게 유효한 포그라운드 푸시 토큰이 있고 **그리고** 푸시 구독 상태가 `Opted-In` 또는 `Subscribed`인 경우. | 표시되는 푸시 알림을 수신할 수 있는 사용자를 타겟팅합니다. |
-| **백그라운드 또는 포그라운드 푸시 활성화됨** | 사용자에게 푸시 토큰(포그라운드 또는 백그라운드)이 있고 **그리고** 푸시 구독 상태가 `Opted-In` 또는 `Subscribed`인 경우. 여기에는 표시되는 푸시 알림을 비활성화했지만 백그라운드 푸시 토큰이 있는 사용자가 포함됩니다. | [제거 추적]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking/), [사일런트 푸시 알림]({{site.baseurl}}/developer_guide/push_notifications/silent/), 지오펜싱에 사용됩니다. |
+| **백그라운드 또는 포그라운드 푸시 활성화됨** | 사용자에게 푸시 토큰(포그라운드 또는 백그라운드)이 있고 **그리고** 푸시 구독 상태가 `Opted-In` 또는 `Subscribed`인 경우. 여기에는 표시되는 푸시 알림을 비활성화했지만 백그라운드 푸시 토큰이 있는 사용자가 포함됩니다. | [제거 추적]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking), [사일런트 푸시 알림]({{site.baseurl}}/developer_guide/push_notifications/silent), 지오펜싱에 사용됩니다. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="포그라운드 푸시 활성화됨과 백그라운드 또는 포그라운드 푸시 활성화됨 필터의 차이점" }
 
-사용자가 `포그라운드 푸시 활성화됨` 없이 `백그라운드 또는 포그라운드 푸시 활성화됨`일 수 있습니다. 이는 사용자가 기기 설정에서 표시되는 푸시 알림을 비활성화했지만 앱이 여전히 백그라운드 푸시 토큰을 보유하고 있는 경우 발생합니다. 자세한 내용은 [푸시 사용자 및 구독]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#foreground-push-enabled)을 참조하세요.
+사용자가 `포그라운드 푸시 활성화됨` 없이 `백그라운드 또는 포그라운드 푸시 활성화됨`일 수 있습니다. 이는 사용자가 기기 설정에서 표시되는 푸시 알림을 비활성화했지만 앱이 여전히 백그라운드 푸시 토큰을 보유하고 있는 경우 발생합니다. 자세한 내용은 [푸시 사용자 및 구독]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states#foreground-push-enabled)을 참조하세요.
 
 ## Braze는 푸시 메시지가 성공적으로 전송되었는지 어떻게 판단하나요? {#how-does-braze-determine-when-a-push-message-is-sent-successfully}
 

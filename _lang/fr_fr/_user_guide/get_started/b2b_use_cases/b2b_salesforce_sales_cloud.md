@@ -18,12 +18,12 @@ Il s'agit d'une intégration proposée par la communauté qui n'est pas directem
 
 L'intégration de Braze avec Salesforce Sales Cloud utilise les webhooks de Braze pour créer et mettre à jour des prospects dans Salesforce Sales Cloud via l'endpoint Salesforce [sobjects/Lead](https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_lead.html).
 
-Braze propose actuellement deux intégrations avec Salesforce Sales Cloud pour les cas d'utilisation suivants :
+Braze propose actuellement deux intégrations avec Salesforce Sales Cloud pour les cas d'usage suivants :
 1. [Créer un prospect dans Salesforce Sales Cloud](#creating-lead)
 2. [Mettre à jour un prospect dans Salesforce Sales Cloud](#updating-lead)
 
 {% alert note %}
-Cette intégration sert uniquement à mettre à jour Salesforce depuis Braze dans le cadre de vos efforts d'acquisition et de maturation de prospects. Pour synchroniser les données de Salesforce vers Braze, consultez le [modèle de données B2B]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/b2b_data_models/) ou contactez l'un de nos [partenaires technologiques]({{site.baseurl}}/partners/home/).
+Cette intégration sert uniquement à mettre à jour Salesforce depuis Braze dans le cadre de vos efforts d'acquisition et de maturation de prospects. Pour synchroniser les données de Salesforce vers Braze, consultez le [modèle de données B2B]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/b2b_data_models) ou contactez l'un de nos [partenaires technologiques]({{site.baseurl}}/partners/home).
 {% endalert %}
 
 ## Conditions préalables {#prerequisites}
@@ -39,7 +39,7 @@ Lorsque vous configurez les paramètres OAuth nécessaires pour l'application co
 
 ## Créer un prospect dans Salesforce Sales Cloud {#creating-lead}
 
-En tant que plateforme d'engagement client, Braze peut générer de nouveaux prospects en fonction des flux utilisateurs, par exemple lorsqu'un formulaire est rempli sur une page d'accueil. Lorsque cela se produit, vous pouvez utiliser un webhook Braze Salesforce Sales Cloud pour créer un prospect correspondant dans Salesforce.
+En tant que plateforme d'engagement client, Braze peut générer de nouveaux prospects en fonction des flux utilisateurs, par exemple lorsqu'un formulaire est rempli sur une page de destination. Lorsque cela se produit, vous pouvez utiliser un webhook Braze Salesforce Sales Cloud pour créer un prospect correspondant dans Salesforce.
 
 ### Étape 1 : Récupérez vos `client_id` et `client_secret` {#step-1-collect-your-client_id-and-client_secret}
 
@@ -94,9 +94,9 @@ Sélectionnez **+ Add New Header** pour chacun des en-têtes de requête suivant
 
 ## Mettre à jour un prospect dans Salesforce Sales Cloud {#updating-lead}
 
-Pour configurer un webhook Braze Salesforce Sales Cloud qui met à jour les prospects dans Salesforce, vous avez besoin d'un identifiant commun entre Salesforce Sales Cloud et Braze. L'exemple ci-dessous utilise le `lead_id` de Salesforce comme `external_id` dans Braze, mais vous pouvez également utiliser un `user_alias`. Pour plus de détails, consultez la section [Données B2B]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/b2b_data_models/).
+Pour configurer un webhook Braze Salesforce Sales Cloud qui met à jour les prospects dans Salesforce, vous avez besoin d'un identifiant commun entre Salesforce Sales Cloud et Braze. L'exemple de la section suivante utilise le `lead_id` de Salesforce comme `external_id` dans Braze, mais vous pouvez également utiliser un `user_alias`. Pour plus de détails, consultez la section [Données B2B]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/b2b_data_models).
 
-Cet exemple montre spécifiquement comment mettre à jour le stade d'un prospect en « MQL » (Marketing Qualified Lead) après qu'il a franchi un certain seuil de score. Il s'agit d'un élément central de notre cas d'utilisation de [workflow de scoring des prospects B2B]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring/).
+Cet exemple montre spécifiquement comment mettre à jour le stade d'un prospect en « MQL » (Marketing Qualified Lead) après qu'il a franchi un certain seuil de score. Il s'agit d'un élément central de notre cas d'usage de [workflow de scoring des prospects B2B]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring).
 
 ### Étape 1 : Récupérez vos `client_id` et `client_secret`
 
@@ -160,7 +160,7 @@ Pour créer un prospect dans Salesforce lorsqu'un utilisateur fournit son adress
 
 ### Canvas de scoring des prospects pour le franchissement du seuil MQL (Marketing Qualified Lead) {#lead-scoring}
 
-Ce webhook est abordé dans le cas d'utilisation du [lead scoring]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring/#lead-handoff), mais vous pouvez également vérifier les MQL et mettre directement à jour Salesforce dans le Canvas de scoring des prospects (au lieu de créer une Campaign webhook distincte) :
+Ce webhook est abordé dans le cas d'usage du [lead scoring]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring#lead-handoff), mais vous pouvez également vérifier les MQL et mettre directement à jour Salesforce dans le Canvas de scoring des prospects (au lieu de créer une Campaign webhook distincte) :
 
 Ajoutez une étape supplémentaire à votre mise à jour utilisateur pour vérifier si un utilisateur a franchi le seuil MQL que vous avez défini. Si c'est le cas, mettez à jour le statut de l'utilisateur en « MQL », puis mettez à jour Salesforce avec le même statut « MQL » à l'aide de ce modèle de webhook. Salesforce s'occupe du reste en acheminant ce prospect vers les équipes commerciales appropriées selon vos règles de routage des prospects.
 
@@ -172,9 +172,9 @@ Ajoutez une étape supplémentaire à votre mise à jour utilisateur pour vérif
 ![Le groupe de parcours d'audience « MQL Threshold » avec des filtres pour un `lead_stage` égal à « Lead » et un `lead_score` supérieur à « 50 ».]({% image_buster /assets/img/b2b/salesforce_check_mql.png %}){: style="max-width:70%;"}
 
 {: start="3" }
-3. Ajoutez une étape de **Mise à jour utilisateur** qui met à jour la valeur de l'attribut `lead_stage` de l'utilisateur en « MQL ».
+3. Ajoutez une étape de **mise à jour utilisateur** qui met à jour la valeur de l'attribut `lead_stage` de l'utilisateur en « MQL ».
 
-![L'étape de Mise à jour utilisateur « Update to MQL » qui met à jour l'attribut `lead_stage` avec la valeur « MQL ».]({% image_buster /assets/img/b2b/salesforce_update_mql.png %}){: style="max-width:70%;"}
+![L'étape de mise à jour utilisateur « Update to MQL » qui met à jour l'attribut `lead_stage` avec la valeur « MQL ».]({% image_buster /assets/img/b2b/salesforce_update_mql.png %}){: style="max-width:70%;"}
 
 {: start="4" }
 4. Ajoutez une étape webhook qui met à jour Salesforce avec le nouveau stade MQL.
@@ -187,7 +187,7 @@ Votre flux Canvas mettra désormais à jour les utilisateurs ayant franchi votre
 
 ## Résolution des problèmes {#troubleshooting}
 
-Ces flux de travail offrent des capacités de débogage limitées dans Salesforce. Nous vous recommandons donc de consulter le [Journal d'activité des messages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/#message-activity-log) de Braze pour comprendre pourquoi un webhook a échoué et si des erreurs se sont produites.
+Ces flux de travail offrent des capacités de débogage limitées dans Salesforce. Nous vous recommandons donc de consulter le [journal d'activité des messages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) de Braze pour comprendre pourquoi un webhook a échoué et si des erreurs se sont produites.
 
 Par exemple, une erreur causée par une URL invalide utilisée pour la récupération du jeton OAuth s'affichera sous la forme `https://[insert_instance_name].my.salesforce.com/services/oauth2/token is not a valid URL`.
 

@@ -43,7 +43,7 @@ MESSAGE HERE
 
 ### Campaigns
 
-For in-app message campaigns, you can allow users to become eligible to receive the campaign again by turning on re-eligibility in **Delivery Controls** (**Allow users to become re-eligible to receive campaign**). How soon they can receive it again depends on the re-eligibility window you set and how Braze recorded the prior send. See [Re-eligibility for campaigns and Canvas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/) for campaign behavior, including how re-eligibility relates to message receipt.
+For in-app message campaigns, you can allow users to become eligible to receive the campaign again by turning on re-eligibility in **Delivery Controls** (**Allow users to become re-eligible to receive campaign**). How soon they can receive it again depends on the re-eligibility window you set and how Braze recorded the prior send. See [Re-eligibility for campaigns and Canvas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility) for campaign behavior, including how re-eligibility relates to message receipt.
 
 If re-eligibility is off, users generally won't receive that same campaign again based on qualifying criteria alone after they've received it.
 
@@ -63,13 +63,21 @@ This can occur for users who met the segment criteria when the in-app message ca
 
 To prevent this, during your campaign setup, select **Re-evaluate campaign eligibility before displaying**.
 
+## Why don't I see opens for in-app messages?
+
+In-app messages do not use an *Opens* metric. Braze logs *Impressions* when the message becomes visible on screen and *Clicks* when users interact with the message body or buttons. If a multichannel export or report includes in-app message rows, compare *Impressions* and *Clicks* instead of email-style opens. For definitions, see [In-app message reporting]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting).
+
 ## Can multiple in-app messages display in the same session?
 
-Yes, but only one in-app message can display per occurrence of a [trigger event]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-a-trigger). If multiple in-app message campaigns share the same trigger (for example, session start), only the highest-priority message displays each time that trigger occurs. For session start triggers, this means only one message can display per session, and the next opportunity to show another eligible message is the next session.
+Yes, but only one in-app message can display per occurrence of a [trigger event]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-a-trigger). If multiple in-app message campaigns share the same trigger (for example, session start), only the highest-priority message displays each time that trigger occurs. For session start triggers, this means only one message can display per session, and the next opportunity to show another eligible message is the next session.
 
 When multiple messages share the same priority level, the most recently created message displays first. For session start triggers, the next most recent message displays in a subsequent session; for other trigger types, the next most recent message displays the next time that trigger event occurs, which may be within the same session or a later session.
 
-To control the display order within a priority bucket, go to the delivery settings for any of the campaigns and select **Set Exact Priority**, then drag and drop campaigns into the desired order. For more details, refer to [Choose a priority]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-a-priority).
+To control the display order within a priority bucket, go to the delivery settings for any of the campaigns and select **Set Exact Priority**, then drag and drop campaigns into the desired order. For more details, refer to [Choose a priority]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-a-priority).
+
+## How are in-app message impressions and clicks logged?
+
+See [In-app message reporting]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting/) for how impressions and clicks are logged by user action. For examples specific to fullscreen messages created with the traditional editor, refer to [Fullscreen message metrics by user action]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting/#fullscreen-metrics-by-user-action).
 
 ## How does Braze calculate an in-app message expiration set to "after 1 day(s)"?
 
@@ -86,11 +94,17 @@ In-app messages are delivered as templated in-app messages when **Re-evaluate ca
 - `catalog_selection_items`
 - `event_properties`
 
+Braze also uses templated delivery for idle in-app message campaigns (campaigns that are still active but no longer sending or no longer needed). These campaigns continue to follow their configured audience and trigger rules.
+
+Braze may also use templated delivery to protect app performance. If preparing Liquid content delays a session response by more than a few seconds, Braze defers the remaining work. Those messages render when triggered.
+
 This means that during session start, the device receives the trigger of that in-app message instead of the entire message. When the user triggers the in-app message, the user's device makes a network request to fetch the actual message.
 
 {% alert note %}
 The message is not delivered if the device doesn't have access to the internet. The message might not be delivered if the Liquid logic takes too long to resolve.
 {% endalert %}
+
+To reduce the amount of Liquid that Braze processes at session start, see [Optimize in-app message performance]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices/prep_guide#optimize-in-app-message-performance).
 
 ## How does abort behavior work for in-app messages?
 
@@ -145,11 +159,15 @@ For [templated in-app messages](#what-are-templated-in-app-messages), Connected 
 
 If your HTML references REST data returned by Connected Content, that data is available for the session in which the message was templated. Multiple buttons can reference the same Connected Content response without triggering additional calls on click.
 
+### What is the maximum delay after a trigger for in-app message campaigns?
+
+In-app message campaigns can delay delivery after the trigger event by up to two hours (7,200 seconds). The delay options are **Immediately** and **After a delay**. For a longer wait, add a [Delay]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step) step before an in-app message step in a Canvas. For delay setup, see [Action-based delivery]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#step-2-select-delay-length).
+
 ### Why is there a delay before my in-app message displays?
 
 Standard in-app messages display as soon as the cached payload is ready after the trigger event. On Android and iOS, large images or other CDN-hosted assets referenced in the message can add a short delay while those resources finish downloading before the in-app message appears.
 
-[Templated in-app messages](#what-are-templated-in-app-messages) and campaigns with **Re-evaluate campaign eligibility before displaying** selected require an additional network request after the trigger before the message appears. This can add a short delay (typically under 100 ms on a stable connection). For more information, see [Choose users to target]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-users-to-target).
+[Templated in-app messages](#what-are-templated-in-app-messages) and campaigns with **Re-evaluate campaign eligibility before displaying** selected require an additional network request after the trigger before the message appears. This can add a short delay (typically under 100 ms on a stable connection). For more information, see [Choose users to target]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-users-to-target).
 
 ### Why does my in-app message look different from the dashboard preview?
 
@@ -159,7 +177,7 @@ Delivered in-app messages can differ from the dashboard preview when:
 - Preview uses a test user profile with different attributes than the recipient
 - Templated content resolves differently at send time than in preview mode
 
-Use [Send test messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message) with a test user whose profile matches your target audience when validating appearance.
+Use [Send test messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message) with a test user whose profile matches your target audience when validating appearance.
 
 ### Why does a multi-page in-app message use the same background on every page?
 
@@ -167,7 +185,21 @@ When **Background Image** is enabled on one page of a multi-page in-app message,
 
 ### How do I test web in-app messages?
 
-Web in-app message test sends require push to be enabled on the test device because the test flow delivers a push notification that opens the app or site where the in-app message displays. The same push-based test path applies on any platform where push is not configured with Braze, though missing push is most often encountered on web because many mobile integrations already have push enabled. Use a live campaign to an internal test segment instead. For steps, see [Send test messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message).
+Web in-app message test sends require push to be enabled on the test device because the test flow delivers a push notification that opens the app or site where the in-app message displays. The same push-based test path applies on any platform where push is not configured with Braze, though missing push is most often encountered on web because many mobile integrations already have push enabled. Use a live campaign to an internal test segment instead. For steps, see [Send test messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message).
+
+### Do in-app messages require push integration?
+
+In-app messages do not require push notifications to function in production. In-app messages are delivered through the Braze SDK and appear during an active app session without needing push integration.
+
+However, test sends for in-app messages do require push to be enabled on your test devices. This is because test in-app messages are delivered through a push notification that triggers the in-app message display. The test user must have push enabled and must tap the test push notification to view the in-app message.
+
+For production campaigns, users see in-app messages based on your campaign triggers (such as session start or custom events) without push being involved.
+
+### Why do extra or unrendered characters appear in my in-app message?
+
+Copying text from another app (such as a word processor or webpage) can insert invisible or non-printing characters into your message body. Those characters may show up as stray symbols or break Liquid and HTML in custom messages.
+
+To fix stray or unrendered characters, re-type the affected text in the Braze editor, or delete the unwanted characters directly rather than selecting and replacing only the visible text. For custom HTML messages with special characters, add `<meta charset="UTF-8">` inside your HTML `<head>`. See [Character encoding]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#character-encoding) for details.
 
 ## Why is the close button hidden on full-screen HTML in-app messages on Android?
 
@@ -179,19 +211,19 @@ On older SDK versions, developers could enable `BrazeConfig.setIsHtmlInAppMessag
 
 ## What should I know when customizing drag-and-drop in-app messages?
 
-The [drag-and-drop editor]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/) supports modal and full-screen display types. You build content inside those containers with editor blocks.
+The [drag-and-drop editor]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop) supports modal and full-screen display types. You build content inside those containers with editor blocks.
 
 Keep in mind:
 
 - **Links and deep links:** Each on-click action has one URL field by default. Use Liquid in the URL to vary links by device, app type, or user attributes. On the **Message container**, you can also turn on platform-specific on-click behavior to set different links per platform.
 - **Opacity and backgrounds:** Opacity on the message container affects the full message background. Individual blocks can set their own background colors. For finer control, add custom CSS in a Custom Code block.
-- **Message width:** The **Message container** maximum width cannot be set below 325 px in the editor, which keeps content readable on smaller screens. Use custom CSS if you need a narrower layout.
+- **Message width:** The **Message container** maximum width cannot be set under 325 px in the editor, which keeps content readable on smaller screens. Use custom CSS if you need a narrower layout.
 - **Platform-specific backgrounds:** A single message uses the same background image and colors on web and mobile. You cannot set different backgrounds per platform in the editor.
 - **Multi-page messages:** Background images and message-level on-click actions apply across all pages in a multi-page message. To use different full images on each page, add buttons that link to the next page.
 - **Message-level styles:** Message-level styles apply to the entire message.
 - **Background images:** Background images stretch to fit the modal.
 
-For more editor considerations, see [In-app message prep guide]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices/prep_guide/#drag-and-drop-editor-considerations).
+For more editor considerations, see [In-app message prep guide]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices/prep_guide#drag-and-drop-editor-considerations).
 
 ## What does "Event was published, but no subscribers were found" mean in Android SDK logs?
 

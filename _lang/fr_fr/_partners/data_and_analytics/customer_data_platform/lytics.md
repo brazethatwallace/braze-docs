@@ -22,7 +22,7 @@ L'intégration permet aux marques de :
 - Exporter des audiences vers Braze directement à partir de Lytics
 - Envoyer les événements des Campaigns ou Canvas Braze à Lytics en temps réel pour des campagnes personnalisées et pour créer des profils utilisateurs riches
 
-## Cas d'utilisation {#use-cases}
+## Cas d'usage {#use-cases}
 
 Connectez Braze à Lytics pour [importer](#importing-data-from-braze-to-lytics) des e-mails, des SMS et l'activité des notifications push afin d'enrichir les profils utilisateurs Lytics. En utilisant conjointement Braze et Lytics, vous pouvez également [exporter](#integration) les audiences cross-canal et basées sur le comportement de Lytics pour créer des parcours clients Braze hautement personnalisés à l'aide de données first-party.
 
@@ -32,9 +32,9 @@ Connectez Braze à Lytics pour [importer](#importing-data-from-braze-to-lytics) 
 | ----------- | ----------- |
 | Compte Lytics | Un compte Lytics est nécessaire pour profiter de cette intégration. |
 | Numéro de compte Lytics | Un numéro de compte Lytics est nécessaire pour configurer l'URL de l'endpoint webhook. |
-| Jeton API Lytics | Un jeton REST API Lytics avec des autorisations de gestionnaire de données. <br><br> Celui-ci peut être créé dans le tableau de bord Lytics à partir de la **console Paramètres du compte** > **Access Tokens** > **Create New Token**. |
+| Jeton API Lytics | Un jeton REST API Lytics avec des autorisations de gestionnaire de données. <br><br> Celui-ci peut être créé dans le tableau de bord Lytics à partir de **Account Settings Console** > **Access Tokens** > **Create New Token**. |
 | Clé REST API de Braze | Une clé REST API Braze avec l'autorisation `users.track`. <br><br> Celle-ci peut être créée dans le tableau de bord de Braze à partir de **Paramètres** > **Clés API**. |
-| Instance de Braze | Votre [instance Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/). En cas de doute, contactez votre gestionnaire d'onboarding Braze pour obtenir ces informations. |
+| Instance de Braze | Votre [instance Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints). En cas de doute, contactez votre gestionnaire d'onboarding Braze pour obtenir ces informations. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Intégration {#integration}
@@ -114,7 +114,7 @@ Vous pouvez importer des données d'audience de Braze vers Lytics à l'aide des 
 
 #### Étape 1 : Créer un jeton API Lytics {#step-1-create-a-lytics-api-token}
 
-Accédez au menu du compte Lytics dans le coin inférieur gauche en sélectionnant votre nom de compte, puis sélectionnez **Access Tokens** dans le menu déroulant. Ensuite, sélectionnez **Create API Token**.
+Accédez au menu du compte Lytics en sélectionnant votre nom de compte, puis sélectionnez **Access Tokens** dans le menu déroulant. Ensuite, sélectionnez **Create API Token**.
 
 ![Écran Access Tokens de Lytics avec Create API Token sélectionné depuis le menu du compte.]({% image_buster /assets/img/lytics/create_token.png %}){: style="max-width:80%;"}
 
@@ -139,7 +139,7 @@ Remplacez `<ACCOUNT-NUMBER>` par votre numéro de compte et `<LYTICS-API-TOKEN>`
 
 #### Étape 3 : Créer un webhook dans Braze {#step-3-create-a-webhook-on-braze}
 
-Dans Braze, créez une nouvelle [campagne webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/). Ajoutez l'URL du webhook Lytics dans le champ **Webhook URL**.
+Dans Braze, créez une nouvelle [campagne webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook). Ajoutez l'URL du webhook Lytics dans le champ **Webhook URL**.
 
 Après avoir défini le type de requête (méthode HTTP `POST`) et configuré le reste des détails du webhook, votre webhook est prêt à être testé et déployé. Voici un exemple de payload de la requête POST après avoir configuré le webhook dans Braze :
 
@@ -147,7 +147,7 @@ Après avoir défini le type de requête (méthode HTTP `POST`) et configuré le
 {
   "city": "AnyTown",
   "country": "United States",
-  "first_name": "John",
+  "first_name": "Alex",
   "gender": "male",
   "language": "English",
   "last_name": "Smith",
@@ -155,7 +155,7 @@ Après avoir défini le type de requête (méthode HTTP `POST`) et configuré le
   "phone_number": "5551231234",
   "time_zone": "GMT+7",
   "twitter_handle": "johnsmith",
-  "email": "john.smith@email.com",
+  "email": "john.smith@example.com",
   "braze_id": "xxxxxx"
 }
 ```
@@ -182,7 +182,7 @@ Dans l'invite **Configure Authorization** qui s'affiche, fournissez un libellé 
 
 #### Étape 2 : Exporter vos données de segment au format CSV {#step-2-export-your-segment-data-to-csv}
 
-Dans Braze, accédez à **Audience** > **Segments**. Localisez le segment que vous souhaitez exporter, puis sélectionnez <i class="fas fa-gear" aria-label="Paramètres"></i> puis **CSV Export User Data**. Vous pouvez exporter jusqu'à 500 000 utilisateurs dans un segment. Pour plus d'informations, reportez-vous à la section [Exportation des données de segment au format CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/).
+Dans Braze, accédez à **Audience** > **Segments**. Localisez le segment que vous souhaitez exporter, puis sélectionnez <i class="fas fa-gear" aria-label="Paramètres"></i> puis **CSV Export User Data**. Vous pouvez exporter jusqu'à 500 000 utilisateurs dans un segment. Pour plus d'informations, reportez-vous à la section [Exportation des données de segment au format CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv).
 
 #### Étape 3 : Configurer une tâche d'importation CSV {#step-3-configure-a-csv-import-job}
 

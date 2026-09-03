@@ -1,4 +1,17 @@
 ---
-nav_title: 다이내믹 프라이싱 및 프로모션
-config_only: true
+nav_title: "결제"
+article_title: "결제"
+page_type: landing
+description: "결제 관련 기술 파트너 통합을 찾아보세요."
+layout: dev_guide
+search_tag: Partner
+
+guide_top_header: "결제"
+guide_top_text: "결제 관련 기술 파트너 통합을 찾아보세요. Braze 기술 파트너의 전체 검색 및 필터링 가능한 목록은 <a href='https://marketplace.braze.com/t/type/technology-partner'>Braze 마켓플레이스</a> 를 방문하세요."
+
+guide_featured_title: "파트너"
+guide_featured_list:
+  - name: "Transcend"
+    link: /docs/partners/ecommerce/payments/transcend
+    image: /assets/img/braze_icons/zap.svg
 ---

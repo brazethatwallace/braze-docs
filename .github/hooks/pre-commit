@@ -1,139 +1,201 @@
 #!/usr/bin/env bash
 # ---------------------------------------------------------------------------
-# pre-commit: Accessibility checks for Braze Docs
+# pre-commit: Local quality gates for Braze Docs
 #
-# Checks staged markdown and HTML include files for WCAG 2.2 AA violations:
+# Accessibility (staged markdown / HTML includes) — WCAG 2.2 AA:
 #   - Table accessible names (WCAG 1.3.1)  → auto-fixes high-confidence cases
 #   - Image alt text (WCAG 1.1.1)          → reports; manual fix required
 #   - Non-descriptive link text (2.4.4)    → reports; manual fix required
 #   - Heading hierarchy (2.4.6)            → reports; manual fix required
 #   - Inline iframes without title (4.1.2) → reports; manual fix required
 #
+# Spell-check (staged _docs/ and _includes/ markdown):
+#   - Same cspell CLI + cspell.json / braze-dictionary.txt as CI (cspell.yml)
+#
+# Screenshot PII (staged assets/img/ png|jpg|jpeg) — optional; needs tesseract
+#
 # Install: run scripts/install_hooks.sh from the repo root.
-# Skip:    SKIP_A11Y=1 git commit
+# Skip:    SKIP_A11Y=1 and/or SKIP_SPELL=1 and/or SKIP_PII=1 git commit
+#
+# Blocks commits that stage .jira.env or .phrase-tms.env (local credentials).
 # ---------------------------------------------------------------------------
 
 set -euo pipefail
 
-# Allow contributors to bypass for emergency commits
-if [[ "${SKIP_A11Y:-0}" == "1" ]]; then
-  echo "⚠️  Accessibility pre-commit hook skipped (SKIP_A11Y=1)"
-  exit 0
-fi
-
 # ---------------------------------------------------------------------------
-# Get staged markdown and HTML include files only
+# Block local credential files (never commit — see .gitignore)
 # ---------------------------------------------------------------------------
-STAGED_FILES=()
+BLOCKED_ENV_FILES=()
 while IFS= read -r f; do
-  STAGED_FILES+=("$f")
+  BLOCKED_ENV_FILES+=("$f")
 done < <(
   git diff --cached --name-only --diff-filter=ACMRT \
-    | grep -E '^(_docs/|_includes/).*(\.md|\.html)$' \
-    | grep -v '_lang/' \
-    | grep -v '_docs/_hidden/' \
+    | grep -E '^\.(jira|phrase-tms)\.env$' \
     || true
 )
-
-if [[ ${#STAGED_FILES[@]} -eq 0 ]]; then
-  exit 0
+if [[ ${#BLOCKED_ENV_FILES[@]} -gt 0 ]]; then
+  echo ""
+  echo "────────────────────────────────────────────────────────"
+  echo "❌  Commit blocked: local credential files must not be committed:"
+  printf '    %s\n' "${BLOCKED_ENV_FILES[@]}"
+  echo ""
+  echo "    Copy .jira.env.example to .jira.env locally and add your token."
+  echo "    These paths are in .gitignore and must stay on your machine only."
+  echo "────────────────────────────────────────────────────────"
+  exit 1
 fi
 
 # ---------------------------------------------------------------------------
-# Verify scripts are present
+# Accessibility checks
 # ---------------------------------------------------------------------------
-for script in \
-  scripts/check_table_accessibility.py \
-  scripts/check_content_accessibility.py \
-  scripts/apply_a11y_fixes.py; do
-  if [[ ! -f "$script" ]]; then
-    echo "⚠️  $script not found — skipping accessibility check"
-    exit 0
+if [[ "${SKIP_A11Y:-0}" == "1" ]]; then
+  echo "⚠️  Accessibility pre-commit hook skipped (SKIP_A11Y=1)"
+else
+  STAGED_FILES=()
+  while IFS= read -r f; do
+    STAGED_FILES+=("$f")
+  done < <(
+    git diff --cached --name-only --diff-filter=ACMRT \
+      | grep -E '^(_docs/|_includes/).*(\.md|\.html)$' \
+      | grep -v '_lang/' \
+      | grep -v '_docs/_hidden/' \
+      || true
+  )
+
+  if [[ ${#STAGED_FILES[@]} -gt 0 ]]; then
+    A11Y_SCRIPTS_OK=1
+    for script in \
+      scripts/check_table_accessibility.py \
+      scripts/check_content_accessibility.py \
+      scripts/apply_a11y_fixes.py; do
+      if [[ ! -f "$script" ]]; then
+        echo "⚠️  $script not found — skipping accessibility check"
+        A11Y_SCRIPTS_OK=0
+        break
+      fi
+    done
+
+    if [[ $A11Y_SCRIPTS_OK -eq 1 ]]; then
+      echo "🔍 Checking ${#STAGED_FILES[@]} staged file(s) for WCAG 2.2 AA violations..."
+
+      SHA=$(git rev-parse --short HEAD 2>/dev/null || echo "pre-commit")
+      TABLE_JSON="/tmp/a11y-table-${SHA}-pre-commit.json"
+      CONTENT_JSON="/tmp/a11y-content-${SHA}-pre-commit.json"
+      OVERALL_EXIT=0
+
+      # 1. Table accessibility check + auto-fix high-confidence violations
+      TABLE_EXIT=0
+      python3 scripts/check_table_accessibility.py \
+        --json "$TABLE_JSON" \
+        "${STAGED_FILES[@]}" > /dev/null 2>&1 || TABLE_EXIT=$?
+
+      if [[ $TABLE_EXIT -eq 2 ]]; then
+        echo "❌ check_table_accessibility.py exited with an error — fix the script issue and try again."
+        exit 1
+      fi
+
+      if [[ $TABLE_EXIT -eq 1 ]]; then
+        echo ""
+        echo "📋 Table accessibility violations found. Applying high-confidence fixes..."
+        python3 scripts/apply_a11y_fixes.py "$TABLE_JSON" || true
+        git add -- "${STAGED_FILES[@]}"
+        TABLE_EXIT=0
+        python3 scripts/check_table_accessibility.py \
+          --json "$TABLE_JSON" \
+          "${STAGED_FILES[@]}" > /dev/null 2>&1 || TABLE_EXIT=$?
+      fi
+
+      if [[ $TABLE_EXIT -eq 1 ]]; then
+        echo ""
+        echo "⚠️  Table violations remain after auto-fix (medium/low confidence — needs manual attention):"
+        python3 scripts/check_table_accessibility.py "${STAGED_FILES[@]}" 2>&1 | head -40
+        OVERALL_EXIT=1
+      fi
+
+      # 2. Content accessibility check (no auto-fix)
+      CONTENT_EXIT=0
+      python3 scripts/check_content_accessibility.py \
+        --json "$CONTENT_JSON" \
+        "${STAGED_FILES[@]}" > /dev/null 2>&1 || CONTENT_EXIT=$?
+
+      if [[ $CONTENT_EXIT -eq 2 ]]; then
+        echo "❌ check_content_accessibility.py exited with an error — fix the script issue and try again."
+        exit 1
+      fi
+
+      if [[ $CONTENT_EXIT -eq 1 ]]; then
+        echo ""
+        echo "⚠️  Content accessibility violations found (manual fix required):"
+        python3 scripts/check_content_accessibility.py "${STAGED_FILES[@]}" 2>&1
+        OVERALL_EXIT=1
+      fi
+
+      if [[ $OVERALL_EXIT -ne 0 ]]; then
+        echo ""
+        echo "────────────────────────────────────────────────────────"
+        echo "❌  Commit blocked: WCAG 2.2 AA violations must be fixed"
+        echo "    before committing. See output above for file paths"
+        echo "    and fix guidance."
+        echo ""
+        echo "    For guided fixes: open Cursor chat and run"
+        echo "    /check-accessibility markdown"
+        echo ""
+        echo "    To bypass (emergencies only): SKIP_A11Y=1 git commit"
+        echo "────────────────────────────────────────────────────────"
+        exit 1
+      fi
+
+      echo "✅ Accessibility checks passed."
+    fi
   fi
-done
-
-echo "🔍 Checking ${#STAGED_FILES[@]} staged file(s) for WCAG 2.2 AA violations..."
-
-SHA=$(git rev-parse --short HEAD 2>/dev/null || echo "pre-commit")
-TABLE_JSON="/tmp/a11y-table-${SHA}-pre-commit.json"
-CONTENT_JSON="/tmp/a11y-content-${SHA}-pre-commit.json"
-OVERALL_EXIT=0
-
-# ---------------------------------------------------------------------------
-# 1. Table accessibility check + auto-fix high-confidence violations
-# ---------------------------------------------------------------------------
-TABLE_EXIT=0
-python3 scripts/check_table_accessibility.py \
-  --json "$TABLE_JSON" \
-  "${STAGED_FILES[@]}" > /dev/null 2>&1 || TABLE_EXIT=$?
-
-if [[ $TABLE_EXIT -eq 2 ]]; then
-  echo "❌ check_table_accessibility.py exited with an error — fix the script issue and try again."
-  exit 1
-fi
-
-if [[ $TABLE_EXIT -eq 1 ]]; then
-  echo ""
-  echo "📋 Table accessibility violations found. Applying high-confidence fixes..."
-  python3 scripts/apply_a11y_fixes.py "$TABLE_JSON" || true
-  # Re-stage any files that were just modified
-  git add -- "${STAGED_FILES[@]}"
-  # Re-run to see if violations remain after auto-fix
-  TABLE_EXIT=0
-  python3 scripts/check_table_accessibility.py \
-    --json "$TABLE_JSON" \
-    "${STAGED_FILES[@]}" > /dev/null 2>&1 || TABLE_EXIT=$?
-fi
-
-if [[ $TABLE_EXIT -eq 1 ]]; then
-  echo ""
-  echo "⚠️  Table violations remain after auto-fix (medium/low confidence — needs manual attention):"
-  python3 scripts/check_table_accessibility.py "${STAGED_FILES[@]}" 2>&1 | head -40
-  OVERALL_EXIT=1
 fi
 
 # ---------------------------------------------------------------------------
-# 2. Content accessibility check (no auto-fix)
+# Spell-check (cspell) — staged _docs/ and _includes/ markdown
+# Mirrors CI scope in .github/workflows/cspell.yml (CI remains the blocking PR gate).
 # ---------------------------------------------------------------------------
-CONTENT_EXIT=0
-python3 scripts/check_content_accessibility.py \
-  --json "$CONTENT_JSON" \
-  "${STAGED_FILES[@]}" > /dev/null 2>&1 || CONTENT_EXIT=$?
+if [[ "${SKIP_SPELL:-0}" == "1" ]]; then
+  echo "⚠️  Spell-check pre-commit hook skipped (SKIP_SPELL=1)"
+else
+  STAGED_MD=()
+  while IFS= read -r f; do
+    STAGED_MD+=("$f")
+  done < <(
+    git diff --cached --name-only --diff-filter=ACMRT \
+      | grep -E '^(_docs/|_includes/).*\.md$' \
+      | grep -v '_lang/' \
+      | grep -v '_docs/_hidden/' \
+      || true
+  )
 
-if [[ $CONTENT_EXIT -eq 2 ]]; then
-  echo "❌ check_content_accessibility.py exited with an error — fix the script issue and try again."
-  exit 1
+  if [[ ${#STAGED_MD[@]} -gt 0 ]]; then
+    if [[ ! -e node_modules/.bin/cspell ]]; then
+      echo "⚠️  cspell not installed (node_modules/.bin/cspell missing) — skipping local spell-check (CI will still run)."
+      echo "   Run: npm ci --ignore-scripts"
+    else
+      echo "🔍 Spell-checking ${#STAGED_MD[@]} staged Markdown file(s)..."
+      SPELL_EXIT=0
+      npm exec -- cspell lint --no-progress "${STAGED_MD[@]}" || SPELL_EXIT=$?
+      if [[ $SPELL_EXIT -ne 0 ]]; then
+        echo ""
+        echo "────────────────────────────────────────────────────────"
+        echo "❌  Commit blocked: spelling issues must be fixed before"
+        echo "    committing. Fix the typo or add a valid term to"
+        echo "    config/cspell/braze-dictionary.txt (see file header)."
+        echo ""
+        echo "    For guided fixes: open Cursor chat and run /spell-check"
+        echo ""
+        echo "    To bypass (emergencies only): SKIP_SPELL=1 git commit"
+        echo "────────────────────────────────────────────────────────"
+        exit 1
+      fi
+      echo "✅ Spell-check passed."
+    fi
+  fi
 fi
 
-if [[ $CONTENT_EXIT -eq 1 ]]; then
-  echo ""
-  echo "⚠️  Content accessibility violations found (manual fix required):"
-  python3 scripts/check_content_accessibility.py "${STAGED_FILES[@]}" 2>&1
-  OVERALL_EXIT=1
-fi
-
 # ---------------------------------------------------------------------------
-# Result
-# ---------------------------------------------------------------------------
-if [[ $OVERALL_EXIT -ne 0 ]]; then
-  echo ""
-  echo "────────────────────────────────────────────────────────"
-  echo "❌  Commit blocked: WCAG 2.2 AA violations must be fixed"
-  echo "    before committing. See output above for file paths"
-  echo "    and fix guidance."
-  echo ""
-  echo "    For guided fixes: open Cursor chat and run"
-  echo "    /check-accessibility markdown"
-  echo ""
-  echo "    To bypass (emergencies only): SKIP_A11Y=1 git commit"
-  echo "────────────────────────────────────────────────────────"
-  exit 1
-fi
-
-echo "✅ Accessibility checks passed."
-
-# ---------------------------------------------------------------------------
-# 3. Screenshot PII check (optional — requires tesseract)
+# Screenshot PII check (optional — requires tesseract)
 # ---------------------------------------------------------------------------
 if [[ "${SKIP_PII:-0}" != "1" && -f scripts/check_screenshot_pii.py ]]; then
   STAGED_IMAGES=()

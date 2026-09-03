@@ -12,6 +12,7 @@ channel:
   - MMS
   - RCS
 
+
 ---
 
 # Rapports pour les SMS, MMS et RCS {#reporting-for-sms-mms-and-rcs}
@@ -20,24 +21,28 @@ channel:
 
 {% multi_lang_include analytics/campaign_analytics.md channel="SMS" %}
 
-## Suivre les abonnements et désabonnements SMS {#track-sms-opt-ins-and-opt-outs}
+{% alert note %}
+Les indicateurs de clics du tableau de bord, tels que *Total des clics*, excluent l'activité suspectée de bots, mais Currents exporte toujours tous les événements de clics avec `is_suspected_bot_click` et `suspected_bot_click_reason` pour la réconciliation dans l'entrepôt de données. Pour les indicateurs du tableau de bord concernés, la segmentation et l'orchestration, consultez [Filtrage des clics de bots pour les liens SMS/RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/bot_click_filtering).
+{% endalert %}
+
+## Suivi des abonnements et désabonnements SMS {#track-sms-opt-ins-and-opt-outs}
 
 Vous pouvez suivre les abonnements et désabonnements SMS à l'aide des méthodes suivantes :
 
 | Méthode | Description |
-|--------|-------------|
-| Segmenteur | Le segmenteur affiche le nombre d'utilisateurs dans un [groupe d'abonnement]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#subscription-group) spécifique. Il ne déduplique pas par numéro de téléphone : si plusieurs utilisateurs partagent le même numéro de téléphone, chaque instance est comptée séparément. |
-| Série temporelle du groupe d'abonnement | Fournit un instantané quotidien des abonnements pour les e-mails et les numéros de téléphone. La série temporelle comptabilise les abonnements, les désabonnements et les réabonnements. Par exemple, si un utilisateur s'abonne, se désabonne, puis se réabonne, il est compté comme un seul utilisateur abonné. |
-| Currents | Utilisez Currents pour exporter les [événements d'abonnement et d'engagement]({{site.baseurl}}/message_events_glossary/) pour vos propres rapports. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Suivre les abonnements et désabonnements SMS" }
+|---------|-------------|
+| Segmenteur | Le segmenteur affiche le nombre d'utilisateurs dans un [groupe d'abonnement]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#subscription-group) spécifique. Il ne déduplique pas par numéro de téléphone : si plusieurs utilisateurs partagent le même numéro, chaque instance est comptée séparément. |
+| Série temporelle des groupes d'abonnement | Fournit un instantané quotidien des abonnements pour les adresses e-mail et les numéros de téléphone. La série temporelle comptabilise les abonnements, les désabonnements et les réabonnements. Par exemple, si un utilisateur s'abonne, se désabonne, puis se réabonne, il est compté comme un seul utilisateur abonné. |
+| Currents | Utilisez Currents pour exporter les [événements d'abonnement et d'engagement]({{site.baseurl}}/message_events_glossary) à des fins de reporting personnalisé. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Suivi des abonnements et désabonnements SMS" }
 
 {% alert note %}
-Les statistiques _Abonnement_ et _Désabonnement_ dans le panneau **SMS/MMS/RCS Performance** reflètent les utilisateurs qui s'abonnent ou se désabonnent via des mots-clés entrants (par exemple, en envoyant « START » pour s'abonner ou « STOP » pour se désabonner). Ces chiffres sont généralement inférieurs à ceux affichés dans le segmenteur, car ils comptent le nombre de fois où ces mots-clés ont été envoyés par SMS, et non le nombre total d'utilisateurs abonnés aux SMS.
+Les statistiques _Abonnement_ et _Désabonnement_ dans le panneau **SMS/MMS/RCS Performance** reflètent les utilisateurs qui s'abonnent ou se désabonnent via des mots-clés entrants (par exemple, en envoyant « START » pour s'abonner ou « STOP » pour se désabonner). Ces chiffres sont généralement inférieurs à ceux affichés dans le segmenteur, car ils comptent le nombre de fois où ces mots-clés ont été envoyés, et non le nombre total d'utilisateurs abonnés au SMS.
 {% endalert %}
 
 ### Suivre les désabonnements SMS au niveau de la campagne {#track-sms-campaign-opt-outs}
 
-Suivez les désabonnements SMS au niveau de la campagne en utilisant la table de réception entrante plutôt que la table de changement d'état du groupe d'abonnement. Par exemple, dans le [Générateur de requêtes]({{site.baseurl}}/user_guide/analytics/query_builder/) ou votre entrepôt de données, vous pouvez exécuter une requête qui référence la table `USERS_MESSAGES_SMS_INBOUNDRECEIVE` ou [`USERS_MESSAGES_SMS_INBOUNDRECEIVE_SHARED`]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#USERS_MESSAGES_SMS_INBOUNDRECEIVE_SHARED).
+Suivez les désabonnements SMS au niveau de la campagne en utilisant la table de réception des messages entrants plutôt que la table de changement d'état du groupe d'abonnement. Par exemple, dans le [générateur de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder) ou votre entrepôt de données, vous pouvez exécuter une requête qui référence la table `USERS_MESSAGES_SMS_INBOUNDRECEIVE` ou [`USERS_MESSAGES_SMS_INBOUNDRECEIVE_SHARED`]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#USERS_MESSAGES_SMS_INBOUNDRECEIVE_SHARED).
 
 Cet exemple de requête référence la table `USERS_MESSAGES_SMS_INBOUNDRECEIVE` :
 
@@ -50,31 +55,43 @@ AND action = 'Unsubscribed'
 AND (campaign_id IS NOT NULL OR canvas_id IS NOT NULL);
 ```
 
-Cette requête renvoie les utilisateurs qui se sont désabonnés des communications SMS pour l'espace de travail et le groupe d'abonnement donnés, filtrés pour ne retenir que ceux associés à des campagnes ou des Canvas.
+Cette requête renvoie les utilisateurs qui se sont désabonnés des communications SMS pour l'espace de travail et le groupe d'abonnement donnés, filtrés selon leur association à des Campaigns ou des Canvas.
 
-### Moment du désabonnement {#opt-out-timing}
+### Horodatage du désabonnement {#opt-out-timing}
 
-Les événements de mots-clés et de messages entrants dans Currents ou votre entrepôt de données, tels que les horodatages sur [`users.messages.sms.InboundReceive`]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events/#sms-inbound-received-events) ou les événements de changement d'état du groupe d'abonnement, constituent la source de référence pour savoir quand Braze a enregistré le désabonnement.
+Les événements de mots-clés et de messages entrants dans Currents ou votre entrepôt de données, tels que les horodatages sur [`users.messages.sms.InboundReceive`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events) ou les événements de changement d'état du groupe d'abonnement, constituent la source fiable pour déterminer quand Braze a enregistré le désabonnement.
 
 {% alert note %}
-Les horodatages des événements reflètent le moment où Braze a reçu ou traité le message entrant, et pas nécessairement le moment où l'utilisateur a envoyé le SMS ou celui où un opérateur ou un fournisseur SMS l'a reçu. Si votre analyse considère les désabonnements comme le moment où Braze a traité le parcours de désabonnement entrant, ces horodatages correspondent à cette définition.
+Les horodatages des événements reflètent le moment où Braze a reçu ou traité le message entrant, et non nécessairement le moment où l'utilisateur a envoyé le SMS ou le moment où un opérateur ou un fournisseur SMS l'a reçu. Si votre analyse considère les désabonnements comme le moment où Braze a traité le parcours de désabonnement entrant, ces horodatages correspondent à cette définition.
 {% endalert %}
 
-Le profil utilisateur affiche l'état d'abonnement actuel, mais ne fait pas nécessairement apparaître un champ unique « SMS désabonné le » à moins que vous ne définissiez un [attribut personnalisé]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/) ou un mécanisme similaire lors du traitement des désabonnements.
+Le profil utilisateur affiche l'état d'abonnement actuel, mais il est possible qu'il ne présente pas un champ unique « SMS désabonné le » à moins que vous ne définissiez un [attribut personnalisé]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) ou un mécanisme similaire lors du traitement des désabonnements.
 
-## Frais appliqués aux résultats d'envoi SMS {#charges-applied-to-sms-sending-outcomes}
+## Frais appliqués aux résultats d'envoi de SMS {#charges-applied-to-sms-sending-outcomes}
 
-Ce tableau reflète la facturation de Braze, et non celle de votre fournisseur. Les résultats non facturés par Braze peuvent être facturés par votre fournisseur.
+Ce tableau reflète la facturation de Braze, et non celle de votre fournisseur. Les résultats qui ne sont pas facturés par Braze peuvent l'être par votre fournisseur.
 
 | Résultat | Définition | Facturé par Braze |
 |--------|------------|--------|
-| Envoyé | Une campagne ou une étape du Canvas a été lancée ou déclenchée, et un payload SMS a été envoyé au fournisseur SMS. | Aucun frais |
-| Échec de distribution | Le payload SMS n'a pas pu être envoyé au fournisseur SMS. Cela peut se produire en raison de files d'attente saturées, de comptes suspendus ou d'erreurs média (dans le cas des MMS). | Aucun frais |
-| Distribué | Le fournisseur SMS a reçu une confirmation de distribution du message de la part de l'opérateur en amont (et, lorsque disponible, de l'appareil de destination). | Facturé |
-| Rejeté | Le fournisseur SMS a reçu un accusé de rejet indiquant que le message n'a pas été distribué. Cela peut se produire pour plusieurs raisons, notamment le filtrage de contenu par l'opérateur ou l'indisponibilité de l'appareil de destination. | Facturé |
-| Envoyé à l'opérateur | {% multi_lang_include analytics/metrics.md metric='Sends to Carrier' %} | Des frais peuvent s'appliquer en fonction des résultats d'envoi de chaque message |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Frais appliqués aux résultats d'envoi SMS" }
+| Envoyé | Une Campaign ou une étape du Canvas a été lancée ou déclenchée, et un payload SMS a été envoyé au fournisseur de SMS. | Pas de frais |
+| Échec de livraison | Le payload SMS n'a pas pu être envoyé au fournisseur de SMS. Cela peut se produire en raison d'un débordement des files d'attente, de comptes suspendus ou d'erreurs multimédias (dans le cas des MMS). | Pas de frais |
+| Livré | Le fournisseur de SMS a reçu une confirmation de livraison du message de la part de l'opérateur en amont (et, si disponible, de l'appareil de destination). | Frais appliqués |
+| Rejeté | Le fournisseur de SMS a reçu un accusé de rejet indiquant que le message n'a pas été livré. Cela peut se produire pour plusieurs raisons, notamment le filtrage de contenu par l'opérateur ou l'indisponibilité de l'appareil de destination. | Frais appliqués |
+| **Sends to Carrier** | {% multi_lang_include analytics/metrics.md metric='Sends to Carrier' %} Obsolète pour les nouveaux tableaux de bord. Certains tableaux de bord peuvent encore afficher cet indicateur sous le nom **Sent to Carrier**. | Des frais peuvent s'appliquer en fonction des résultats d'envoi de chaque message |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Frais appliqués aux résultats d'envoi de SMS" }
 
-## Rapprocher les *rejets* avec Snowflake ou Currents {#reconcile-rejections-with-snowflake-or-currents}
+{% alert note %}
+**Sends to Carrier** est obsolète pour les nouveaux tableaux de bord. Utilisez **Sent**, **Confirmed Delivery**, **Delivery Failed** et **Rejections** pour les rapports actuels. Consultez le [Glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/analytics/metrics_glossary) pour les définitions.
+{% endalert %}
 
-L'indicateur *Rejets* dans le tableau de bord est un décompte agrégé au niveau de l'espace de travail. Il ne s'agit pas d'un export ligne par ligne, ce qui signifie que vous ne pouvez pas toujours faire correspondre chaque rejet à une ligne unique dans Snowflake ou à un événement `users.messages.sms.Rejection` unique dans Currents. Par exemple, si le profil utilisateur a été supprimé avant que Braze n'ait terminé le traitement du rejet pour l'export vers l'entrepôt de données, ce rejet n'apparaît pas dans votre table `USERS_MESSAGES_SMS_REJECTION_SHARED` ni dans le payload Currents, alors que les rapports SMS agrégés peuvent toujours refléter le résultat. Pour en savoir plus, consultez la [référence des tables SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#sms-message-events-and-deleted-user-profiles) et les [événements de rejet SMS]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events/#sms-rejection-events) dans le glossaire des événements Currents.
+## Rapports de repli RCS et SMS {#rcs-and-sms-fallback-reporting}
+
+Pour le comportement des événements de repli RCS vers SMS (y compris `IS_SMS_FALLBACK=TRUE`), consultez [Comment le repli SMS fonctionne avec les événements et la segmentation]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/rcs_setup#how-sms-fallback-works-with-events-and-segmentation).
+
+{% alert note %}
+Les analyses de campagne du tableau de bord et les exports Snowflake peuvent différer légèrement en termes de calendrier et d'agrégation. Pour la réconciliation dans l'entrepôt de données, considérez les flux d'événements Snowflake ou Currents comme la source la plus granulaire lorsque les indicateurs ne correspondent pas exactement au tableau de bord.
+{% endalert %}
+
+## Réconcilier les *Rejets* avec Snowflake ou Currents {#reconcile-rejections-with-snowflake-or-currents}
+
+L'indicateur *Rejets* dans le tableau de bord est un décompte agrégé au niveau de l'espace de travail. Il ne s'agit pas d'une exportation ligne par ligne, ce qui signifie que vous ne pouvez pas toujours faire correspondre chaque rejet à une seule ligne dans Snowflake ou à un seul événement `users.messages.sms.Rejection` dans Currents. Par exemple, si le profil utilisateur a été supprimé avant que Braze n'ait terminé le traitement du rejet pour l'exportation vers l'entrepôt de données, ce rejet n'apparaît pas dans votre table `USERS_MESSAGES_SMS_REJECTION_SHARED` ni dans le payload Currents, tandis que les rapports agrégés SMS peuvent toujours refléter le résultat. Pour en savoir plus, consultez la [référence des tables SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#sms-message-events-and-deleted-user-profiles) et les [événements de rejet SMS]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#sms-rejection-events) dans le glossaire des événements Currents.

@@ -18,7 +18,7 @@ description: "이 문서에서는 SDK 인증 키 생성 Braze 엔드포인트에
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `sdk_authentication.create` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `sdk_authentication.create` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key-permissions)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -46,7 +46,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `rsa_public_key_str` | 필수 | 문자열 | RSA 공개 키 문자열입니다. 유효한 RSA 공개 키여야 하며, 그렇지 않으면 오류가 반환됩니다. |
 | `description` | 필수 | 문자열 | SDK 인증 키에 대한 설명입니다. |
 | `make_primary` | 선택 사항 | 부울 | `true`로 설정하면 이 키가 생성될 때 기본 SDK 인증 키가 됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 ## 예시 요청 {#example-request}
 
@@ -74,7 +74,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/app_group/sdk_auth
 | 매개변수 | 데이터 유형 | 설명 |
 | --------- | --------- | ----------- |
 | `id` | 문자열 | 새로 생성된 SDK 인증 키의 ID입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Response parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="응답 매개변수" }
 
 ### 유효성 검사 규칙 {#validation-rules}
 

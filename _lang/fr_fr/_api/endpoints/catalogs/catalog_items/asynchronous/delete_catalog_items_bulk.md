@@ -23,7 +23,7 @@ Chaque requête peut prendre en charge jusqu'à 50 produits. Cet endpoint est as
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `catalogs.delete_items`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `catalogs.delete_items`.
 
 ## Limite de débit {#rate-limit}
 

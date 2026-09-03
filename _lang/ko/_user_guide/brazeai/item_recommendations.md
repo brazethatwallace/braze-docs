@@ -12,25 +12,25 @@ description: "Braze의 아이템 추천 엔진에 대해 자세히 알아보세�
 
 ## 필수 조건 {#prerequisites}
 
-Braze에서 아이템 추천을 만들거나 사용하려면 먼저 [카탈로그를 하나 이상 만들어야]({{site.baseurl}}/user_guide/data/activation/catalogs/create/) 합니다&#8212;해당 카탈로그의 아이템만 사용자에게 추천됩니다.
+Braze에서 아이템 추천을 만들거나 사용하려면 먼저 [카탈로그를 하나 이상 만들어야]({{site.baseurl}}/user_guide/data/activation/catalogs/create) 합니다&#8212;해당 카탈로그의 아이템만 사용자에게 추천됩니다.
 
-## 유형 및 활용 사례 {#types-and-use-cases}
+## 유형 및 사용 사례 {#types-and-use-cases}
 
 ### AI 개인화 {#ai}
 
-[AI 아이템 추천]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/) 기능의 일환으로, AI 개인화 추천은 딥 러닝을 활용하여 사용자가 과거에 관심을 보인 내용을 바탕으로 다음에 가장 관심을 가질 가능성이 높은 항목을 예측합니다. 이 방법은 사용자 행동에 적응하는 동적이고 맞춤화된 추천 시스템을 제공합니다.
+[AI 아이템 추천]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai) 기능의 일환으로, AI 개인화 추천은 딥 러닝을 활용하여 사용자가 과거에 관심을 보인 내용을 바탕으로 다음에 가장 관심을 가질 가능성이 높은 항목을 예측합니다. 이 방법은 사용자 행동에 적응하는 동적이고 맞춤화된 추천 시스템을 제공합니다.
 
 AI 개인화 추천은 구매나 커스텀 이벤트와 같은 항목 상호작용 데이터의 최근 6개월을 사용하여 추천 모델을 구축합니다. 개인화된 목록을 만들기에 데이터가 충분하지 않은 사용자에게는 가장 인기 있는 항목이 대체로 제공되므로, 사용자가 항상 관련성 있는 제안을 받을 수 있습니다.
 
-AI 아이템 추천을 사용하면 [선택]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/)으로 사용 가능한 항목을 추가로 필터링할 수도 있습니다. 그러나 Liquid를 사용한 선택은 AI 추천에 사용할 수 없으므로 카탈로그 선택을 구성할 때 이 점을 염두에 두세요.
+AI 아이템 추천을 사용하면 [선택]({{site.baseurl}}/user_guide/data/activation/catalogs/selections)으로 사용 가능한 항목을 추가로 필터링할 수도 있습니다. 그러나 Liquid를 사용한 선택은 AI 추천에 사용할 수 없으므로 카탈로그 선택을 구성할 때 이 점을 염두에 두세요.
 
 {% alert tip %}
 AI 개인화 추천은 수백 또는 수천 개의 항목과 일반적으로 구매 또는 상호작용 데이터가 있는 최소 30,000명의 사용자가 있을 때 가장 잘 작동합니다. 이는 대략적인 가이드이며 상황에 따라 달라질 수 있습니다. 다른 추천 유형은 더 적은 데이터로도 작동할 수 있습니다.
 {% endalert %}
 
-#### 활용 사례 {#use-cases}
+#### 사용 사례 {#use-cases}
 
-추적 중인 상호작용 데이터에 따라 이 모델의 활용 사례에는 다음이 포함될 수 있습니다:
+추적 중인 상호작용 데이터에 따라 이 모델의 사용 사례에는 다음이 포함될 수 있습니다:
 
 {% tabs local %}
 {% tab 다음에 구매할 가능성이 가장 높은 항목 %}
@@ -42,17 +42,17 @@ AI 개인화 추천은 수백 또는 수천 개의 항목과 일반적으로 구
 {% details 요구 사항 %}
 - AI 아이템 추천
 - 관련 항목 카탈로그
-- 구매를 추적하는 방법: 구매 오브젝트, 커스텀 이벤트 또는 [주문 완료 이벤트]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/?tab=ecommerce.order_placed)
+- 구매를 추적하는 방법: 구매 오브젝트, 커스텀 이벤트 또는 [주문 완료 이벤트]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events?tab=ecommerce.order_placed)
 {% enddetails %}
 
 {% details 설정 방법 %}
-1. [AI 아이템 추천]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/)을 생성합니다.
+1. [AI 아이템 추천]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai)을 생성합니다.
 2. **Type**을 **AI Personalized**로 설정합니다.
 3. 카탈로그를 선택합니다.
 4. (선택 사항) 선택 항목을 추가하여 관련 항목으로만 추천을 필터링할 수 있습니다.
 5. 현재 구매 이벤트를 추적하는 방법과 해당 이벤트 속성정보를 선택합니다.
-6. 추천을 훈련시킵니다.
-7. [메시징에서 추천을 사용합니다]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/).
+6. 추천을 학습시킵니다.
+7. [메시징에서 추천을 사용합니다]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations).
 {% enddetails %}
 {% endtab %}
 {% endtabs %}
@@ -61,9 +61,9 @@ AI 개인화 추천은 수백 또는 수천 개의 항목과 일반적으로 구
 
 "가장 인기 있는" 추천 모델은 사용자가 가장 많이 참여하는 항목을 보여줍니다.
 
-#### 활용 사례
+#### 사용 사례
 
-추적 중인 상호작용 데이터를 기반으로 이 모델의 활용 사례에는 다음과 같은 추천이 포함될 수 있습니다:
+추적 중인 상호작용 데이터를 기반으로 이 모델의 사용 사례에는 다음과 같은 추천이 포함될 수 있습니다:
 
 {% tabs local %}
 {% tab 가장 인기 있는 %}
@@ -76,13 +76,13 @@ AI 개인화 추천은 수백 또는 수천 개의 항목과 일반적으로 구
 {% enddetails %}
 
 {% details 설정 방법 %}
-1. [AI 아이템 추천]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/)을 생성합니다.
+1. [AI 아이템 추천]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai)을 생성합니다.
 2. **Type**을 **Most popular**로 설정합니다.
 3. 카탈로그를 선택합니다.
 4. (선택 사항) 선택 항목을 추가하여 관련 항목으로만 추천을 필터링할 수 있습니다. 예를 들어, 음식 배달 서비스에는 레스토랑 위치나 요리 종류를 필터링할 수 있는 선택 항목이 있을 수 있습니다.
 5. 이벤트 및 해당 이벤트 속성정보를 현재 추적하는 방법을 선택합니다.
-6. 추천을 훈련시킵니다.
-7. [메시징에서 추천을 사용합니다]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/).
+6. 추천을 학습시킵니다.
+7. [메시징에서 추천을 사용합니다]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations).
 {% enddetails %}
 {% endtab %}
 
@@ -96,13 +96,13 @@ AI 개인화 추천은 수백 또는 수천 개의 항목과 일반적으로 구
 {% enddetails %}
 
 {% details 설정 방법 %}
-1. [AI 아이템 추천]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/)을 생성합니다.
+1. [AI 아이템 추천]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai)을 생성합니다.
 2. **Type**을 **Most recent**로 설정합니다.
 3. 카탈로그를 선택합니다.
 4. (선택 사항) 선택 항목을 추가하여 관련 항목으로만 추천을 필터링할 수 있습니다.
 5. **Custom Event**를 선택하고 목록에서 좋아요에 대한 커스텀 이벤트를 선택합니다.
-6. 추천을 훈련시킵니다.
-7. [메시징에서 추천을 사용합니다]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/).
+6. 추천을 학습시킵니다.
+7. [메시징에서 추천을 사용합니다]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations).
 {% enddetails %}
 {% endtab %}
 
@@ -116,18 +116,18 @@ AI 개인화 추천은 수백 또는 수천 개의 항목과 일반적으로 구
 {% enddetails %}
 
 {% details 설정 방법 %}
-1. [AI 아이템 추천]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/)을 생성합니다.
+1. [AI 아이템 추천]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai)을 생성합니다.
 2. **Type**을 **Most popular**로 설정합니다.
 3. 카탈로그를 선택합니다.
 4. (선택 사항) 선택 항목을 추가하여 관련 항목으로만 추천을 필터링할 수 있습니다.
 5. **Custom Event**를 선택하고 목록에서 조회용 커스텀 이벤트를 선택합니다.
-6. 추천을 훈련시킵니다.
-7. [메시징에서 추천을 사용합니다]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/).
+6. 추천을 학습시킵니다.
+7. [메시징에서 추천을 사용합니다]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations).
 {% enddetails %}
 {% endtab %}
 
 {% tab 장바구니 인기 항목 %}
-다른 많은 쇼핑객들이 장바구니에 추가한 상품을 보여주어 사용자에게 현재 제공 상품의 트렌드를 엿볼 수 있게 합니다.
+다른 많은 쇼핑객들이 장바구니에 추가한 상품을 보여주어 사용자에게 현재 오퍼링의 트렌드를 엿볼 수 있게 합니다.
 
 예를 들어, 패션 소매업체는 다른 고객들이 장바구니에 많이 추가한 인기 상품을 기반으로 유행하는 옷과 액세서리를 홍보할 수 있습니다. 그런 다음 홈페이지와 모바일 앱에 실시간으로 업데이트되는 "지금 인기" 섹션을 만들어 쇼핑객들이 품절되기 전에 구매하도록 유도할 수 있습니다.
 
@@ -138,24 +138,24 @@ AI 개인화 추천은 수백 또는 수천 개의 항목과 일반적으로 구
 {% enddetails %}
 
 {% details 설정 방법 %}
-1. [AI 아이템 추천]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/)을 생성합니다.
+1. [AI 아이템 추천]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai)을 생성합니다.
 2. **Type**을 **Most popular**로 설정합니다.
 3. 카탈로그를 선택합니다.
 4. (선택 사항) 선택 항목을 추가하여 관련 항목으로만 추천을 필터링할 수 있습니다.
 5. **Custom Event**를 선택하고 목록에서 장바구니에 담기 커스텀 이벤트를 선택합니다.
-6. 추천을 훈련시킵니다.
-7. [메시징에서 추천을 사용합니다]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/).
+6. 추천을 학습시킵니다.
+7. [메시징에서 추천을 사용합니다]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations).
 {% enddetails %}
 {% endtab %}
 {% endtabs %}
 
 ### 가장 최근 항목 {#most-recent}
 
-"가장 최근" 추천 모델은 사용자가 가장 최근에 참여한 항목을 보여줍니다. 이 모델을 사용하여 이탈 위험이 있는 사용자가 관련 콘텐츠에 다시 참여하도록 유도하여 고객이탈을 줄이세요.
+"가장 최근" 추천 모델은 사용자가 가장 최근에 참여한 항목을 보여줍니다. 이 모델을 사용하여 휴면 사용자가 관련 콘텐츠에 다시 참여하도록 유도하여 고객이탈을 줄이세요.
 
-#### 활용 사례
+#### 사용 사례
 
-추적 중인 상호작용 데이터를 기반으로 이 모델의 활용 사례에는 다음과 같은 추천이 포함될 수 있습니다:
+추적 중인 상호작용 데이터를 기반으로 이 모델의 사용 사례에는 다음과 같은 추천이 포함될 수 있습니다:
 
 {% tabs local %}
 {% tab 최근 클릭한 항목 %}
@@ -168,13 +168,13 @@ AI 개인화 추천은 수백 또는 수천 개의 항목과 일반적으로 구
 {% enddetails %}
 
 {% details 설정 방법 %}
-1. [AI 아이템 추천]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/)을 생성합니다.
+1. [AI 아이템 추천]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai)을 생성합니다.
 2. **Type**을 **Most recent**로 설정합니다.
 3. 카탈로그를 선택합니다.
 4. (선택 사항) 선택 항목을 추가하여 관련 항목으로만 추천을 필터링할 수 있습니다.
 5. **Custom Event**를 선택하고 목록에서 클릭용 커스텀 이벤트를 선택합니다.
-6. 추천을 훈련시킵니다.
-7. [메시징에서 추천을 사용합니다]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/).
+6. 추천을 학습시킵니다.
+7. [메시징에서 추천을 사용합니다]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations).
 {% enddetails %}
 
 {% endtab %}
@@ -188,13 +188,13 @@ AI 개인화 추천은 수백 또는 수천 개의 항목과 일반적으로 구
 {% enddetails %}
 
 {% details 설정 방법 %}
-1. [AI 아이템 추천]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/)을 생성합니다.
+1. [AI 아이템 추천]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai)을 생성합니다.
 2. **Type**을 **Most recent**로 설정합니다.
 3. 카탈로그를 선택합니다.
 4. (선택 사항) 선택 항목을 추가하여 관련 항목으로만 추천을 필터링할 수 있습니다.
 5. **Custom Event**를 선택하고 목록에서 좋아요에 대한 커스텀 이벤트를 선택합니다.
-6. 추천을 훈련시킵니다.
-7. [메시징에서 추천을 사용합니다]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/).
+6. 추천을 학습시킵니다.
+7. [메시징에서 추천을 사용합니다]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations).
 {% enddetails %}
 {% endtab %}
 
@@ -212,13 +212,13 @@ AI 개인화 추천은 수백 또는 수천 개의 항목과 일반적으로 구
 {% enddetails %}
 
 {% details 설정 방법 %}
-1. [AI 아이템 추천]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/)을 생성합니다.
+1. [AI 아이템 추천]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai)을 생성합니다.
 2. **Type**을 **Most recent**로 설정합니다.
 3. 카탈로그를 선택합니다.
 4. (선택 사항) 선택 항목을 추가하여 관련 항목으로만 추천을 필터링할 수 있습니다.
 5. **Custom Event**를 선택하고 목록에서 클릭용 커스텀 이벤트를 선택합니다.
-6. 추천을 훈련시킵니다.
-7. [메시징에서 추천을 사용합니다]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/).
+6. 추천을 학습시킵니다.
+7. [메시징에서 추천을 사용합니다]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations).
 {% enddetails %}
 {% endtab %}
 
@@ -232,13 +232,13 @@ AI 개인화 추천은 수백 또는 수천 개의 항목과 일반적으로 구
 {% enddetails %}
 
 {% details 설정 방법 %}
-1. [AI 아이템 추천]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/)을 생성합니다.
+1. [AI 아이템 추천]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai)을 생성합니다.
 2. **Type**을 **Most recent**로 설정합니다.
 3. 카탈로그를 선택합니다.
 4. (선택 사항) 선택 항목을 추가하여 관련 항목으로만 추천을 필터링할 수 있습니다.
 5. **Custom Event**를 선택하고 목록에서 장바구니에 담기 커스텀 이벤트를 선택합니다.
-6. 추천을 훈련시킵니다.
-7. [메시징에서 추천을 사용합니다]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/).
+6. 추천을 학습시킵니다.
+7. [메시징에서 추천을 사용합니다]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations).
 {% enddetails %}
 {% endtab %}
 {% endtabs %}
@@ -249,9 +249,9 @@ AI 개인화 추천은 수백 또는 수천 개의 항목과 일반적으로 구
 
 지속적으로 높은 상호작용을 보이는 항목을 보여주는 "가장 인기 있는" 모델과 달리, 이 모델은 상호작용이 증가한 항목을 보여줍니다. 이를 사용하여 떠오르고 있으며 현재 관심이 높아지고 있는 제품을 추천할 수 있습니다.
 
-#### 활용 사례
+#### 사용 사례
 
-추적 중인 상호작용 데이터를 기반으로 이 모델의 활용 사례에는 다음과 같은 추천이 포함될 수 있습니다:
+추적 중인 상호작용 데이터를 기반으로 이 모델의 사용 사례에는 다음과 같은 추천이 포함될 수 있습니다:
 
 {% tabs local %}
 {% tab 트렌딩 구매 %}
@@ -264,13 +264,13 @@ AI 개인화 추천은 수백 또는 수천 개의 항목과 일반적으로 구
 {% enddetails %}
 
 {% details 설정 방법 %}
-1. [AI 아이템 추천]({{site.baseurl}}/ai_item_recommendations/)을 생성합니다.
+1. [AI 아이템 추천]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai)을 생성합니다.
 2. **Type**을 **Trending**으로 설정합니다.
 3. 카탈로그를 선택합니다.
 4. (선택 사항) 선택 항목을 추가하여 관련 항목으로만 추천을 필터링할 수 있습니다.
 5. 구매 이벤트 또는 구매를 추적하는 커스텀 이벤트 중 하나를 해당 속성정보와 함께 선택합니다.
-6. 추천을 훈련시킵니다.
-7. [메시징에서 추천을 사용합니다.]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/)
+6. 추천을 학습시킵니다.
+7. [메시징에서 추천을 사용합니다.]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations)
 {% enddetails %}
 {% endtab %}
 
@@ -284,34 +284,34 @@ AI 개인화 추천은 수백 또는 수천 개의 항목과 일반적으로 구
 {% enddetails %}
 
 {% details 설정 방법 %}
-1. [AI 아이템 추천]({{site.baseurl}}/ai_item_recommendations/)을 생성합니다.
+1. [AI 아이템 추천]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai)을 생성합니다.
 2. **Type**을 **Trending**으로 설정합니다.
 3. 카탈로그를 선택합니다.
 4. (선택 사항) 선택 항목을 추가하여 관련 항목으로만 추천을 필터링할 수 있습니다.
 5. 좋아요 추적용 커스텀 이벤트와 해당 속성정보를 선택합니다.
-6. 추천을 훈련시킵니다.
-7. [메시징에서 추천을 사용합니다.]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations/)
+6. 추천을 학습시킵니다.
+7. [메시징에서 추천을 사용합니다.]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations)
 {% enddetails %}
 {% endtab %}
 {% endtabs %}
 
 ### 선택 기반 {#selections-based}
 
-[선택]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/)은 카탈로그 데이터의 특정 그룹입니다. 선택을 사용하면 본질적으로 카탈로그의 특정 열을 기반으로 커스텀 필터를 설정하는 것입니다. 여기에는 브랜드, 크기, 위치, 추가된 날짜 등의 필터가 포함될 수 있습니다. 사용자에게 표시할 항목이 충족해야 하는 기준을 정의할 수 있어 추천하는 항목을 제어할 수 있습니다.
+[선택]({{site.baseurl}}/user_guide/data/activation/catalogs/selections)은 카탈로그 데이터의 특정 그룹입니다. 선택을 사용하면 본질적으로 카탈로그의 특정 열을 기반으로 커스텀 필터를 설정하는 것입니다. 여기에는 브랜드, 크기, 위치, 추가된 날짜 등의 필터가 포함될 수 있습니다. 사용자에게 표시할 항목이 충족해야 하는 기준을 정의할 수 있어 추천하는 항목을 제어할 수 있습니다.
 
-앞의 세 가지 유형은 모두 Braze에서 추천 모델을 설정하고 훈련하는 과정을 포함합니다. 이러한 모델에서도 선택 항목을 사용할 수 있지만, 카탈로그 선택 항목과 Liquid 개인화만으로도 일부 추천 활용 사례를 달성할 수 있습니다.
+앞의 세 가지 유형은 모두 Braze에서 추천 모델을 설정하고 학습하는 과정을 포함합니다. 이러한 모델에서도 선택 항목을 사용할 수 있지만, 카탈로그 선택 항목과 Liquid 개인화만으로도 일부 추천 사용 사례를 달성할 수 있습니다.
 
 {% alert note %}
 선택을 사용하는 경우, 정렬 필드와 제한 설정은 AI 아이템 추천에 적용되지 않습니다. 즉, 특정 정렬 필드로 선택을 생성하고 반환되는 항목 수를 제한하더라도, AI 아이템 추천이 처리될 때 이러한 제약 조건은 사용되지 않습니다.
 {% endalert %}
 
-#### 활용 사례
+#### 사용 사례
 
-추적 중인 상호작용 데이터를 기반으로 이 모델의 활용 사례에는 다음과 같은 추천이 포함될 수 있습니다:
+추적 중인 상호작용 데이터를 기반으로 이 모델의 사용 사례에는 다음과 같은 추천이 포함될 수 있습니다:
 
 {% tabs local %}
 {% tab 신규 항목 %}
-이 시나리오는 사용자 행동에 직접 의존하지 않고 카탈로그 데이터에 의존합니다. 카탈로그에 추가된 날짜를 기준으로 새 항목을 필터링하고 추천 모델을 훈련하지 않고도 타겟 Campaigns 또는 Canvases를 통해 홍보할 수 있습니다.
+이 시나리오는 사용자 행동에 직접 의존하지 않고 카탈로그 데이터에 의존합니다. 카탈로그에 추가된 날짜를 기준으로 새 항목을 필터링하고 추천 모델을 학습하지 않고도 타겟 Campaign 또는 Canvas를 통해 홍보할 수 있습니다.
 
 예를 들어, 기술 이커머스 플랫폼은 필터를 사용하여 최근 카탈로그에 추가된 품목을 타겟팅하여 기술 애호가에게 최신 가젯이나 예정된 사전 주문에 대한 알림을 보낼 수 있습니다.
 
@@ -325,7 +325,7 @@ AI 개인화 추천은 수백 또는 수천 개의 항목과 일반적으로 구
 3. **Randomize Sort Order**가 꺼져 있는지 확인합니다.
 4. **Sort Field**에서 추가된 날짜 필드를 선택합니다.
 5. **Sort Order**를 내림차순으로 설정합니다.
-6. [메시징에서 선택 항목을 사용합니다]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/#using-selections-in-messaging).
+6. [메시징에서 선택 항목을 사용합니다]({{site.baseurl}}/user_guide/data/activation/catalogs/selections#using-selections-in-messaging).
 {% enddetails %}
 {% endtab %}
 
@@ -340,34 +340,34 @@ AI 개인화 추천은 수백 또는 수천 개의 항목과 일반적으로 구
 {% enddetails %}
 
 {% details 설정 방법 %}
-1. 카탈로그를 기반으로 [선택 항목을 만듭니다]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/#creating-a-selection).
+1. 카탈로그를 기반으로 [선택 항목을 만듭니다]({{site.baseurl}}/user_guide/data/activation/catalogs/selections#creating-a-selection).
 2. (선택 사항) 원하는 필터를 추가합니다.
 3. **Randomize Sort Order**를 켭니다.
-4. [메시징에서 선택 항목을 사용합니다]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/#using-selections-in-messaging).
+4. [메시징에서 선택 항목을 사용합니다]({{site.baseurl}}/user_guide/data/activation/catalogs/selections#using-selections-in-messaging).
 {% enddetails %}
 {% endtab %}
 {% endtabs %}
 
 ### 규칙 기반 {#rules-based}
 
-[규칙 기반 추천]({{site.baseurl}}/rules_based_recommendations/) 엔진은 사용자 데이터와 제품 정보를 사용하여 메시지 내에서 사용자에게 관련 항목을 제안합니다. Liquid와 Braze 카탈로그 또는 연결된 콘텐츠를 사용하여 사용자 행동 및 속성에 따라 콘텐츠를 동적으로 개인화합니다.
+[규칙 기반 추천]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/rules_based) 엔진은 사용자 데이터와 제품 정보를 사용하여 메시지 내에서 사용자에게 관련 항목을 제안합니다. Liquid와 Braze 카탈로그 또는 연결된 콘텐츠를 사용하여 사용자 행동 및 속성에 따라 콘텐츠를 동적으로 개인화합니다.
 
 규칙 기반 추천은 수동으로 설정해야 하는 고정된 로직에 기반합니다. 즉, 로직을 업데이트하지 않는 한 추천이 사용자의 개별 구매 이력과 취향에 맞게 조정되지 않습니다. 따라서 이 방법은 자주 업데이트가 필요하지 않은 추천에 가장 적합합니다.
 
-#### 활용 사례
+#### 사용 사례
 
-추적 중인 상호작용 데이터에 따라 이 모델의 활용 사례에는 다음이 포함될 수 있습니다:
+추적 중인 상호작용 데이터에 따라 이 모델의 사용 사례에는 다음이 포함될 수 있습니다:
 
 - **재고 보충 알림:** 마지막 구매 날짜를 기준으로 월간 비타민이나 주간 식료품과 같이 사용 주기가 예측 가능한 품목에 대한 재고 보충 알림을 보냅니다.
 - **첫 구매자:** 첫 구매자에게 스타터 키트나 입문용 상품을 추천하여 두 번째 구매를 유도합니다.
-- **로열티 프로그램:** 고객의 현재 포인트 잔액을 기준으로 로열티 포인트 또는 보상을 최대화할 수 있는 제품을 강조합니다.
+- **로열티 프로그램:** 고객의 현재 포인트 잔액을 기준으로 로열티 포인트 또는 리워드를 최대화할 수 있는 제품을 강조합니다.
 - **교육 콘텐츠:** 이전에 소비하거나 구매한 자료의 주제를 기반으로 새로운 과정이나 콘텐츠를 제안합니다.
 
 {% multi_lang_include brazeai/recommendations/ai.md section="Plan-specific features" %}
 
 ## 자주 묻는 질문 {#faq}
 
-### "가장 인기 있음" 항목이 다른 모델의 추천에 섞이는 이유는 무엇인가요? {#what-causes-most-popular-items-to-be-mixed-into-other-models-recommendations}
+### "가장 인기 있는" 항목이 다른 모델의 추천에 섞이는 이유는 무엇인가요? {#what-causes-most-popular-items-to-be-mixed-into-other-models-recommendations}
 
 추천 엔진이 목록을 큐레이트할 때, 먼저 선택한 특정 모델(예: "가장 최근" 또는 "AI 개인화")에 따라 개인화된 선택을 우선시합니다. 이 모델이 어떤 이유로든 30개의 추천 목록을 완성할 수 없는 경우, 전체 사용자 중 가장 인기 있는 항목 일부가 추가되어 각 사용자가 항상 완전한 추천 세트를 받을 수 있도록 합니다.
 
@@ -383,10 +383,36 @@ AI 개인화 추천은 수백 또는 수천 개의 항목과 일반적으로 구
 
 각 추천은 독립적으로 작동하므로 동일한 항목이 같은 메시지의 여러 섹션에 나타날 수 있습니다. 중복을 제거하려면 Liquid를 사용하여 이미 표시한 항목 ID를 추적하고 이후 섹션에서 건너뛰세요.
 
-### Item Recommendations Pro로 업그레이드한 후 기존 추천이 매주 훈련되나요? {#do-existing-recommendations-train-weekly-after-upgrading-to-item-recommendations-pro}
+### Item Recommendations Pro로 업그레이드한 후 기존 추천이 매주 학습되나요? {#do-existing-recommendations-train-weekly-after-upgrading-to-item-recommendations-pro}
 
-예, 하지만 다음 예정된 업데이트 이후에만 적용됩니다. 기존 추천은 Item Recommendations Pro로 업그레이드하는 즉시 주간 훈련 및 일일 예측으로 전환되지 않습니다. 그러나 다음 재훈련 주기에서 새로운 스케줄이 자동으로 적용됩니다. 예를 들어, 추천이 2월 1일에 마지막으로 훈련되었고 30일마다 재훈련되도록 설정된 경우, 3월 2일 다음 업데이트 후 새로운 주간 스케줄이 적용됩니다.
+예, 하지만 다음 예정된 업데이트 이후에만 적용됩니다. 기존 추천은 Item Recommendations Pro로 업그레이드하는 즉시 주간 학습 및 일일 예측으로 전환되지 않습니다. 그러나 다음 재학습 주기에서 새로운 스케줄이 자동으로 적용됩니다. 예를 들어, 추천이 2월 1일에 마지막으로 학습되었고 30일마다 재학습되도록 설정된 경우, 3월 2일 다음 업데이트 후 새로운 주간 스케줄이 적용됩니다.
 
 ### 여러 날에 걸친 모든 추천을 한 번에 만료시키려면 어떻게 해야 하나요? {#how-can-i-make-all-recommendations-that-last-multiple-days-expire-at-once}
 
 특정 날짜에 여러 날에 걸친 모든 활성 추천을 만료시키고 싶다면(모든 활성 추천이 한 번에 새로운 예측을 받도록), Braze 고객지원팀이나 고객 성공 매니저에게 도움을 요청하세요. Braze AI 전문가가 최대 모델 성능을 보장하기 위해 수동으로 이 작업을 수행합니다.
+
+### 활성 AI 아이템 추천의 속성정보 이름을 업데이트하면 어떻게 되나요? {#what-happens-if-i-update-the-property-name-for-an-active-ai-item-recommendation}
+
+속성정보 이름(항목 ID 경로)을 업데이트하고 **Save & Build**를 선택하면, Braze는 새로운 매핑을 사용하여 최근 6개월간의 상호작용 데이터를 스캔하는 백그라운드 재학습 작업을 시작합니다.
+
+모델이 재학습되는 동안 사용자는 이전 버전의 추천을 계속 볼 수 있습니다. 새 모델이 학습을 성공적으로 완료할 때까지 추천은 변경되지 않습니다. 이는 다음을 의미합니다:
+
+- 사용자는 이전 모델의 개인화된 항목(또는 특정 추천이 없는 경우 글로벌 대체 항목)을 볼 수 있습니다.
+- 재학습 과정 중 추천에 중단 시간이나 공백이 없습니다.
+- 학습이 성공적으로 완료되면 이전 모델에서 새 모델로의 전환이 원활하게 이루어집니다.
+
+이전 항목 ID 경로를 사용하는 이벤트는 새 모델에서 사실상 무시됩니다. 새로운 속성정보 이름 매핑을 사용하는 이벤트만 재학습에 포함됩니다.
+
+### 속성정보 이름 변경 후 재학습 작업이 실패하면 어떻게 되나요? {#what-happens-if-the-retraining-job-fails-after-changing-the-property-name}
+
+{% alert important %}
+재학습 작업이 실패하면 전체 아이템 추천이 비활성(비활성화) 상태가 됩니다. Braze는 현재 학습 실패 시 가장 최근에 성공적으로 학습된 모델로 대체하지 않으므로, 이 추천을 참조하는 모든 Liquid가 실패하고 관련 메시지가 전송되지 않습니다.
+{% endalert %}
+
+이 위험을 줄이려면 다음 접근 방식을 고려하세요:
+
+1. 원하는 속성정보 이름 구성으로 새 아이템 추천을 생성합니다.
+2. 학습이 성공적으로 완료되는지 확인합니다.
+3. 활성 추천을 직접 수정하는 대신 새 추천을 참조하도록 메시징을 업데이트합니다.
+
+이 접근 방식을 사용하면 기존 추천을 참조하는 메시지에 대한 중단 위험 없이 새 구성을 테스트할 수 있습니다.

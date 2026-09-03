@@ -17,14 +17,14 @@ This article will walk you through a use case for the **Back In Stock** template
 
 To successfully use this template, you'll need the following:
 
-- A [catalog]({{site.baseurl}}/user_guide/data/activation/catalogs/create/) containing information about your item
-- [Back-in-stock notifications]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/#how-back-in-stock-notifications-work) must be set up for the item you want to message users about
+- A [catalog]({{site.baseurl}}/user_guide/data/activation/catalogs/create) containing information about your item
+- [Back-in-stock notifications]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications) must be set up for the item you want to message users about
 
 ## Tailoring the template to your needs
 
 Let’s say we’re working for PantsLabyrinth, a direct-to-consumer clothing retailer that specializes in slacks, jeans, culottes, and many other types of pants. We can use the back in stock template to notify customers on various channels when a popular pair of jeans, the Classic Straight Leg, is back in stock.
 
-Before creating the Canvas, we [set up a catalog]({{site.baseurl}}/user_guide/data/activation/catalogs/create/) that contains information about our straight leg pants inventory and [set up back-in-stock notifications]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/#setting-up-back-in-stock-notifications) for the Classic Straight Leg jeans. We made it so that users will subscribe to notifications after they perform the custom event of favoriting the Classic Straight Leg jeans on the app.
+Before creating the Canvas, we [set up a catalog]({{site.baseurl}}/user_guide/data/activation/catalogs/create) that contains information about our straight leg pants inventory and [set up back-in-stock notifications]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications#setting-up-back-in-stock-notifications) for the Classic Straight Leg jeans. We made it so that users will subscribe to notifications after they perform the custom event of favoriting the Classic Straight Leg jeans on the app.
 
 To access the back-in-stock template, when creating a new Canvas, select **Use a Canvas template** > **Braze templates**. Then, next to **Back in Stock**, select **Apply Template**. Now, we can go through the template to fit it for our needs.
 
@@ -91,10 +91,10 @@ We’ll keep the default subscription settings, so we only send to users who hav
 
 ### Step 6: Customize your Canvas
 
-Now, we’ll build our Canvas by customizing the channels and content that will send to users. Because we’re using all four of the template channels (mobile and web push, SMS, and email) and using the [Intelligent Channel]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel/) filter, we don’t need to add or remove any.
+Now, we’ll build our Canvas by customizing the channels and content that will send to users. Because we’re using all four of the template channels (mobile and web push, SMS, and email) and using the [Intelligent Channel]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel) filter, we don’t need to add or remove any.
 
 {% alert tip %}
-You can use [Canvas entry properties]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/) to customize the messages in your Canvas based on which product you're referring to.
+You can use [Canvas entry properties]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) to customize the messages in your Canvas based on which product you're referring to.
 {% endalert %}
 
 We’ll begin our customization by going through each Message step to update the content.
@@ -113,6 +113,6 @@ We’ll begin our customization by going through each Message step to update the
 After testing and reviewing our Canvas to make sure it works as expected, we’ll launch it by selecting **Launch Canvas**. Now our users who have favorited our Classic Straight Leg jeans and have subscribed to our messaging channels will receive notifications when they’re back in stock!
 
 {% alert tip %}
-Check out our [Pre and post-launch checklist]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist/#things-to-consider-before-launch) for things to consider before and after you launch a Canvas.
+Check out our [Pre and post-launch checklist]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist#things-to-consider-before-launch) for things to consider before and after you launch a Canvas.
 {% endalert %}
 

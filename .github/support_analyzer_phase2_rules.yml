@@ -4,10 +4,11 @@
 # run (all edits in the rule share one PR). Branch names include the run date and
 # GitHub run id (support-analyzer/phase2-<rule_id>-YYYY-MM-DD-<run_id>) so a new
 # draft can open while an earlier one is still in review. If every target file
-# already on develop (fingerprint HTML comment, skip_if_contains, or skip_if_contains_in_files),
-# no PR opens. While an open draft exists for the same rule (branch support-analyzer/phase2-<rule_id>-*),
-# Phase 2 skips opening another. When merging Phase 2 PRs manually, keep
-# <!-- support-analyzer-phase2:... --> comments or add skip_if_contains so later runs do not duplicate.
+# already on develop (skip_if_contains, skip_if_contains_in_files, or a legacy
+# <!-- support-analyzer-phase2:... --> comment from an older automated PR), no PR opens.
+# While an open draft exists for the same rule (branch support-analyzer/phase2-<rule_id>-*),
+# Phase 2 skips opening another. When merging Phase 2 PRs manually, add skip_if_contains
+# phrases that match the merged prose so later runs do not duplicate.
 #
 # CI runs `support_analyzer_phase2.py --strict-anchors`: if a rule matches cases
 # but an anchor is missing (and the fingerprint is not already in the file), the
@@ -25,8 +26,8 @@ version: 1
 
 rules:
   - id: data_series_currents
-    enabled: true
-    # skip_if_contains below detects the shared include merged in #13772; disable this rule if that include is canonical.
+    enabled: false
+    # Disabled: canonical include on develop since #13772. Re-enable only if anchors change.
     min_matching_cases: 3
     case_text:
       fields:
@@ -61,7 +62,6 @@ rules:
         anchor_substring: Data returned includes how many messages were sent, opened, clicked, or converted by messaging channel.
         insert: |+
 
-          <!-- support-analyzer-phase2:data_series_currents_campaign -->
           {% alert note %}
           Counts from this endpoint won't always match dashboard Engagement analytics or aggregates you build from [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) one-for-one. Dashboard metrics and API time series use different aggregation windows and definitions than raw Currents events. For common reconciliation notes, see [Currents FAQ]({{site.baseurl}}/user_guide/data/distribution/braze_currents/faq/).
           {% endalert %}
@@ -73,7 +73,6 @@ rules:
         anchor_substring: "> Use this endpoint to export time series data for a Canvas."
         insert: |+
 
-          <!-- support-analyzer-phase2:data_series_currents_canvas -->
           {% alert note %}
           Counts from this endpoint won't always match dashboard Canvas analytics or aggregates you build from [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) one-for-one. Dashboard metrics and API time series use different aggregation windows and definitions than raw Currents events. For common reconciliation notes, see [Currents FAQ]({{site.baseurl}}/user_guide/data/distribution/braze_currents/faq/).
           {% endalert %}
@@ -85,7 +84,6 @@ rules:
         anchor_substring: Braze stores send analytics for 14 days after the send.
         insert: |+
 
-          <!-- support-analyzer-phase2:data_series_currents_send -->
           {% alert note %}
           Send-level `data_series` counts won't always match dashboard Engagement analytics or aggregates you build from [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) one-for-one. Dashboard metrics and API time series use different aggregation windows and definitions than raw Currents events. For common reconciliation notes, see [Currents FAQ]({{site.baseurl}}/user_guide/data/distribution/braze_currents/faq/).
           {% endalert %}
@@ -99,10 +97,10 @@ rules:
       fields:
         - Support Cases Description
         - Support Cases Email Message Text Body Cleaned
-      match_mode: all_of
+      match_mode: any_of
       patterns:
-        - "(?i)(api\\s*trigger|api_trigger_properties|trigger_properties)"
-        - "(?i)(\\{\\{\\{|triple\\s*brace|extra\\s*brace|curly\\s*brace|liquid)"
+        - "(?is)(api\\s*trigger|api_trigger|trigger_propert).{0,120}(liquid|personaliz|\\{\\{)"
+        - "(?is)(liquid|personaliz).{0,120}(api\\s*trigger|api_trigger|trigger_propert)"
     pr:
       title: "[SA] Liquid — extra braces in API-triggered properties (automated)"
       draft: true
@@ -115,11 +113,10 @@ rules:
       - file: _docs/_user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery.md
         fingerprint: support-analyzer-phase2:liquid_api_trigger_extra_braces_delivery
         skip_if_contains:
-          - "Use exactly two curly brackets per Liquid tag in `trigger_properties`"
+          - "Use exactly two curly braces per Liquid tag in `trigger_properties`"
         anchor_substring: In addition to triggering the message, you can also include content with the API request to be templated into the message within the `trigger_properties` object.
         insert: |+
 
-          <!-- support-analyzer-phase2:liquid_api_trigger_extra_braces_delivery -->
           {% alert note %}
           Use exactly two curly braces per Liquid tag in `trigger_properties` and message copy—for example `{{api_trigger_properties.${your_property}}}`—not three. An extra `{` or `}` is a common cause of API-triggered personalization failures. For more help, see [Liquid FAQ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/faq/#why-is-my-api-triggered-liquid-failing-in-braze).
           {% endalert %}
@@ -134,7 +131,133 @@ rules:
         anchor_substring: "| <a href='/docs/api/objects_filters/trigger_properties_object/'>API Trigger Properties</a> |"
         insert: |+
 
-          <!-- support-analyzer-phase2:liquid_api_trigger_extra_braces_tags -->
           {% alert note %}
           API trigger properties must use two curly braces per tag: `{{api_trigger_properties.${your_api_trigger_property}}}`. Triple braces (for example `{{{...}}}`) are not valid Braze personalization syntax. See [Why is my API-triggered Liquid failing in Braze?]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/faq/#why-is-my-api-triggered-liquid-failing-in-braze).
+          {% endalert %}
+
+  - id: webhook_delivery_failures
+    enabled: true
+    min_matching_cases: 2
+    case_text:
+      fields:
+        - Support Cases Description
+        - Support Cases Email Message Text Body Cleaned
+      match_mode: all_of
+      patterns:
+        - "(?i)webhook"
+        - "(?i)(retry|retries|timeout|timed out|429|5\\d\\d|failed|failure|not (?:deliver|sent)|error)"
+    pr:
+      title: "[SA] Webhook delivery failures and retries (automated)"
+      draft: true
+      labels:
+        - support analyzer
+      verification_note: >-
+        Relates to webhook HTTP responses, retry eligibility, and Message Activity Log diagnosis.
+        Reviewers should confirm against webhook delivery behavior before merge.
+    edits:
+      - file: _docs/_user_guide/channels/webhooks/create_a_webhook.md
+        fingerprint: support-analyzer-phase2:webhook_delivery_failures
+        skip_if_contains:
+          - "most other `4XX` client errors, including `401 Unauthorized`, are **not** retried"
+        anchor_substring: "`Retry-After` and rate-limit response headers can affect how long Braze waits before a **retriable** attempt (for example, after `408`, `429`, or `5XX`). They do not make non-retriable responses, such as `401`, eligible for retry."
+        insert: |+
+
+          {% alert note %}
+          If webhook sends look missing in analytics, open the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) for the campaign or Canvas step. Braze retries only certain responses (for example `408`, `429`, and `5XX`)—most other `4XX` client errors, including `401 Unauthorized`, are **not** retried. For the full response table, see [Response codes and retry logic](#response-codes-and-retry-logic) above.
+          {% endalert %}
+
+  - id: canvas_lower_sends_liquid_abort
+    enabled: true
+    min_matching_cases: 3
+    case_text:
+      fields:
+        - Support Cases Description
+        - Support Cases Email Message Text Body Cleaned
+      match_mode: all_of
+      patterns:
+        - "(?i)(canvas|message step)"
+        - "(?i)(abort|aborted|not sent|fewer send|lower send|entered.{0,40}not)"
+        - "(?i)(liquid|message activity|personaliz)"
+    pr:
+      title: "[SA] Canvas lower sends — Liquid abort troubleshooting link (automated)"
+      draft: true
+      labels:
+        - support analyzer
+      verification_note: >-
+        Cross-links Canvas lower-send symptoms to Liquid abort diagnostics.
+        Reviewers should confirm Canvas step analytics wording before merge.
+    edits:
+      - file: _docs/_user_guide/messaging/canvas/troubleshooting.md
+        fingerprint: support-analyzer-phase2:canvas_lower_sends_liquid_abort
+        skip_if_contains:
+          - "aborting_messages/#troubleshooting-high-abort-rates"
+        anchor_substring: Use the [Messaging Diagnostics dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard) to see abort and drop reasons at the step level.
+        insert: |+
+
+          {% alert note %}
+          When a message step shows many users **entered** but few **sends**, check whether Liquid `abort_message()` ran at send time. Aborted users still advance to the next Canvas step. For step-by-step diagnosis (Message Activity Log, missing attributes, test sends), see [Troubleshooting high abort rates]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/#troubleshooting-high-abort-rates).
+          {% endalert %}
+
+  - id: cdi_updated_at_row_sync
+    enabled: true
+    min_matching_cases: 2
+    case_text:
+      fields:
+        - Support Cases Description
+        - Support Cases Email Message Text Body Cleaned
+      match_mode: all_of
+      patterns:
+        - "(?i)(cdi|cloud data ingestion|data warehouse)"
+        - "(?i)(updated_at|rows synced|not sync|missing row|sync log|partial success)"
+    pr:
+      title: "[SA] CDI sync log and UPDATED_AT troubleshooting (automated)"
+      draft: true
+      labels:
+        - support analyzer
+      verification_note: >-
+        Points readers to CDI Sync Log and UPDATED_AT reconciliation guidance.
+        Reviewers should confirm against CDI sync behavior before merge.
+    edits:
+      - file: _docs/_user_guide/data/unification/cloud_ingestion/sync_logs.md
+        fingerprint: support-analyzer-phase2:cdi_updated_at_row_sync
+        skip_if_contains:
+          - "Why doesn't \"Rows Synced\" match the number in my warehouse?"
+        anchor_substring: To access the sync logs, go to **Data Settings** > **Cloud Data Ingestion** and select the **Sync Log** tab.
+        insert: |+
+
+          {% alert note %}
+          If warehouse row counts do not match **Rows Synced** or you see **Partial Success** runs, open the **Run ID** in Sync Log and review row-level **Error reason** values. CDI selects rows using `UPDATED_AT`—rows with timestamps already processed, unchanged `UPDATED_AT` after edits, or writes during an active sync may be skipped. For common cases, see [Why doesn't "Rows Synced" match the number in my warehouse?]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/faqs/#why-doesnt-rows-synced-match-the-number-in-my-warehouse) and [Cloud Data Ingestion FAQ]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/faqs/).
+          {% endalert %}
+
+  - id: sms_optin_keyword
+    enabled: true
+    min_matching_cases: 3
+    case_text:
+      fields:
+        - Support Cases Description
+        - Support Cases Email Message Text Body Cleaned
+      match_mode: all_of
+      patterns:
+        - "(?i)(sms|mms|subscription group)"
+        - "(?i)(opt.?in|keyword|double opt|reject|registration|compliance|alpha)"
+    pr:
+      title: "[SA] SMS subscription groups — opt-in and keywords (automated)"
+      draft: true
+      labels:
+        - support analyzer
+      verification_note: >-
+        Relates to SMS subscription group opt-in, keywords, and rejection troubleshooting.
+        Reviewers should confirm regional compliance guidance with SMS stakeholders before merge.
+    edits:
+      - file: _docs/_user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups.md
+        fingerprint: support-analyzer-phase2:sms_optin_keyword
+        skip_if_contains:
+          - "High rejection rates are often tied to sender registration"
+          - "Before users can receive messages from a campaign or Canvas, they must be subscribed"
+          - "**Cloud Data Ingestion (CDI):**"
+        anchor_substring: Design separate SMS subscription groups for each messaging purpose (for example, transactional versus marketing) and for each workspace.
+        insert: |+
+
+          {% alert note %}
+          Users must be subscribed to the correct SMS subscription group before they can receive messages. Confirm opt-in via [keyword processing]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/) or the [`/subscription/status/set` endpoint]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/). When [double opt-in]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in) is enabled, users must confirm before status becomes `Subscribed`. High rejection rates are often tied to sender registration or carrier rules—contact [Braze Support]({{site.baseurl}}/braze_support/) with the subscription group and sample user IDs.
           {% endalert %}

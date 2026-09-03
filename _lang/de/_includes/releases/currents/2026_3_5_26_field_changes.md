@@ -1,0 +1,3 @@
+- `agentconsole.AgentExecuted`: `error` (String) hinzugefügt – eine Beschreibung eines aufgetretenen Fehlers.
+- `agentconsole.ToolInvocation`: `request_id` (String) hinzugefügt – eine eindeutige ID für die gesamte LLM-Anfrage und vollständige Ausführung.
+- `users.messages.rcs.InboundReceive`: `canvas_variation_name` (String) hinzugefügt – der Name der Canvas-Variante, die die Nutzer:in erhalten hat.

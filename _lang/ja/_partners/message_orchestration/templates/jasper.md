@@ -30,7 +30,7 @@ JasperとBrazeの連携により、コンテンツ作成とキャンペーン実
 | 要件 | 説明 |
 | ------------------- | ---------------- |
 | Jasperアカウント | このパートナーシップを利用するにはJasperアカウントが必要です。 |
-| Braze REST APIキー | 以下の権限を持つBraze REST APIキー。<br><br>`templates.email.create` <br> `templates.email.update` <br>`content_blocks.create` <br>`content_blocks.update` <br><br>このキーは、Brazeダッシュボードで**Settings** > **API Keys**に移動して生成できます。 |
+| Braze REST APIキー | 以下の権限を持つBraze REST APIキー。<br><br>`templates.email.create` <br> `templates.email.update` <br>`content_blocks.create` <br>`content_blocks.update` <br><br>このキーは、Brazeダッシュボードで**設定** > **API キー**に移動して生成できます。 |
 | Braze RESTエンドポイント | RESTエンドポイントのURL。具体的なエンドポイントは、インスタンスのBraze URLによって異なります。詳細については、[Braze APIの基本：エンドポイント]({{site.baseurl}}/api/basics/#endpoints)のドキュメントを参照してください。 |
 {: .reset-td-br-1 .rest-td-br-2 aria-label="Prerequisites" }
 

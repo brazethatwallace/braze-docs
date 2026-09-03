@@ -9,13 +9,13 @@ description: "Aprenda a ler e interpretar a saída de logs verbosos do SDK da Br
 
 > Esta página explica como interpretar a saída de logs verbosos do SDK da Braze. Para cada canal de envio de mensagens, você encontrará as entradas de log principais, o que elas significam e problemas comuns a serem observados.
 
-Antes de começar, certifique-se de que você [ativou o registro verboso]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/) e sabe como coletar logs na sua plataforma.
+Antes de começar, certifique-se de que você [ativou o registro verboso]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging) e sabe como coletar logs na sua plataforma.
 
 ## Sessões {#sessions}
 
-As sessões são a base da análise de dados e da entrega de mensagens da Braze. Muitos recursos de envio de mensagens — incluindo mensagens no app e Content Cards — dependem de uma sessão válida ser iniciada antes que possam funcionar. Se as sessões não estiverem sendo registradas corretamente, investigue isso primeiro. Para saber mais sobre como ativar o rastreamento de sessões, veja [Etapa 5: Ativar o rastreamento de sessões do usuário]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_step-5-enable-user-session-tracking).
+As sessões são a base da análise de dados e da entrega de mensagens da Braze. Muitos recursos de envio de mensagens, incluindo mensagens no app e Content Cards, dependem de uma sessão válida ser iniciada antes de poderem funcionar. Se as sessões não estiverem sendo registradas corretamente, investigue isso primeiro. Para saber mais sobre como ativar o rastreamento de sessão, consulte [Etapa 5: Ativar o rastreamento de sessão do usuário]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_step-5-enable-user-session-tracking).
 
-### Entradas de log principais {#key-log-entries}
+### Principais entradas de log {#key-log-entries}
 
 {% tabs %}
 {% tab Swift %}
@@ -50,7 +50,7 @@ Completed the openSession call
 Opened session with activity: <ACTIVITY_NAME>
 ```
 
-Filtre as solicitações de rede para o seu endpoint da Braze configurado (por exemplo, sdk.iad-01.braze.com) para ver o evento de início da sessão (`ss`).
+Filtre as solicitações de rede para o endpoint da Braze configurado (por exemplo, sdk.iad-01.braze.com) para ver o evento de início de sessão (`ss`).
 
 **Fim da sessão:**
 
@@ -65,17 +65,17 @@ Requesting data flush on internal session close flush timer.
 
 ### O que verificar {#what-to-check}
 
-- Verifique se um log de início de sessão aparece quando o app é iniciado.
-- Se você não vir um início de sessão, verifique se o SDK está devidamente inicializado e se `openSession` (Android) está sendo chamado.
-- No Android, confirme se uma solicitação de rede está sendo feita para o endpoint da Braze. Se você não vir isso, verifique sua chave de API e a configuração do endpoint.
+- Confirme que um log de início de sessão aparece quando o app é aberto.
+- Se você não vir um início de sessão, verifique se o SDK foi inicializado corretamente e se `openSession` (Android) está sendo chamado.
+- No Android, confirme que uma solicitação de rede está sendo feita para o endpoint da Braze. Se você não vir isso, verifique a configuração da sua chave de API e do endpoint.
 
 ## Notificações por push {#push-notifications}
 
-Os logs de notificação por push ajudam a verificar se os tokens dos dispositivos estão registrados, se as notificações são entregues e se os eventos de clique são rastreados.
+Os logs de notificações por push ajudam a verificar se os tokens de dispositivo estão registrados, se as notificações estão sendo entregues e se os eventos de clique estão sendo rastreados.
 
 ### Registro de token {#token-registration}
 
-Quando uma sessão começa, o SDK registra o token por push do dispositivo na Braze.
+Quando uma sessão é iniciada, o SDK registra o token por push do dispositivo na Braze.
 
 {% tabs %}
 {% tab Swift %}
@@ -87,7 +87,7 @@ Updated push notification authorization:
 Received remote notifications device token: <PUSH_TOKEN>
 ```
 
-Filtre as solicitações para o seu endpoint da Braze configurado (por exemplo, sdk.iad-01.braze.com) e procure por `push_token` nos atributos do corpo da solicitação:
+Filtre as solicitações para o endpoint da Braze configurado (por exemplo, sdk.iad-01.braze.com) e procure por `push_token` nos atributos do corpo da solicitação:
 
 ```
 "attributes": [
@@ -98,7 +98,7 @@ Filtre as solicitações para o seu endpoint da Braze configurado (por exemplo, 
 ]
 ```
 
-Também confirme que as informações do dispositivo incluem:
+Confirme também que as informações do dispositivo incluem:
 
 ```
 "device": {
@@ -110,7 +110,7 @@ Também confirme que as informações do dispositivo incluem:
 {% endtab %}
 {% tab Android %}
 
-Procure o log de registro do FCM:
+Procure pelo log de registro do FCM:
 
 ```
 Registering for Firebase Cloud Messaging token using sender id: <SENDER_ID>
@@ -118,23 +118,23 @@ Registering for Firebase Cloud Messaging token using sender id: <SENDER_ID>
 
 Verifique o seguinte:
 
-- `com_braze_firebase_cloud_messaging_registration_enabled` é `true`.
-- O ID do remetente do FCM corresponde ao seu projeto Firebase.
+- `com_braze_firebase_cloud_messaging_registration_enabled` está como `true`.
+- O ID do remetente do FCM corresponde ao seu projeto do Firebase.
 
-Um erro comum é `SENDER_ID_MISMATCH`, que significa que o ID do remetente configurado não corresponde ao seu projeto Firebase.
+Um erro comum é `SENDER_ID_MISMATCH`, que significa que o ID do remetente configurado não corresponde ao seu projeto do Firebase.
 
 {% endtab %}
 {% endtabs %}
 
 ### O que verificar
 
-- Se `push_token` estiver faltando no corpo da solicitação, o token não foi capturado. Verifique a configuração do push no seu app.
-- Se `ios_push_auth` mostrar `denied` ou `provisional`, o usuário não concedeu permissão total para push.
-- No Android, se você vir `SENDER_ID_MISMATCH`, atualize seu ID do remetente FCM para corresponder ao seu projeto Firebase.
+- Se `push_token` estiver ausente no corpo da solicitação, o token não foi capturado. Verifique a configuração de push na configuração do seu app.
+- Se `ios_push_auth` mostrar `denied` ou `provisional`, o usuário não concedeu permissão total de push.
+- No Android, se aparecer `SENDER_ID_MISMATCH`, atualize o ID do remetente do FCM para que corresponda ao seu projeto do Firebase.
 
-### Entrega e clique do push {#push-delivery-and-click}
+### Entrega e clique de push {#push-delivery-and-click}
 
-Quando uma notificação por push é tocada, o SDK registra o processamento e os eventos de clique.
+Quando uma notificação por push é tocada, o SDK registra os eventos de processamento e clique.
 
 {% tabs %}
 {% tab Swift %}
@@ -180,20 +180,20 @@ Opening '<URL>':
 BrazeFirebaseMessagingService: Got Remote Message from FCM
 ```
 
-Seguido pela carga útil do push e logs de exibição. Para deep links, procure as entradas Deep Link Delegate ou `UriAction`.
+Seguido pela carga útil do push e pelos logs de exibição. Para deep links, procure pelas entradas do Deep Link Delegate ou `UriAction`.
 
 {% endtab %}
 {% endtabs %}
 
 ### O que verificar
 
-- Verifique se a carga útil do push contém os `title`, `body` esperados e quaisquer deep links (`ab_uri`).
+- Verifique se a carga útil do push contém o `title`, `body` e quaisquer deep links (`ab_uri`) esperados.
 - Confirme que um evento `pushClick` é registrado após o toque.
-- Se o evento de clique estiver ausente, verifique se seu delegado de app ou manipulador de notificações está encaminhando corretamente os eventos de push para o SDK da Braze.
+- Se o evento de clique estiver ausente, verifique se o app delegate ou o handler de notificações está encaminhando corretamente os eventos de push para o SDK da Braze.
 
 ## Mensagens no app {#in-app-messages}
 
-Os logs de mensagens no app mostram todo o ciclo de vida: entrega do servidor, acionamento com base em eventos, exibição, registro de impressão e rastreamento de cliques.
+Os registros de mensagens no app mostram o ciclo de vida completo: entrega a partir do servidor, disparo com base em eventos, exibição, registro de impressão e rastreamento de cliques.
 
 ### Entrega da mensagem {#message-delivery}
 
@@ -202,7 +202,7 @@ Quando um usuário inicia uma sessão e é elegível para uma mensagem no app, o
 {% tabs %}
 {% tab Swift %}
 
-Filtre as respostas do seu endpoint da Braze configurado (por exemplo, sdk.iad-01.braze.com) contendo os dados da mensagem no app.
+Filtre as respostas do seu endpoint da Braze configurado (por exemplo, sdk.iad-01.braze.com) que contenham os dados da mensagem no app.
 
 O corpo da resposta contém a carga útil da mensagem, incluindo:
 
@@ -221,18 +221,18 @@ O corpo da resposta contém a carga útil da mensagem, incluindo:
 {% endtab %}
 {% tab Android %}
 
-Procure o log do evento de gatilho correspondente:
+Procure o registro de correspondência do evento-gatilho:
 
 ```
 Triggering action: <CAMPAIGN_BSON_ID>
 ```
 
-Isso confirma que a mensagem no app foi correspondida a um evento de gatilho.
+Isso confirma que a mensagem no app foi associada a um evento-gatilho.
 
 {% endtab %}
 {% endtabs %}
 
-### Exibição da mensagem e impressão {#message-display-and-impression}
+### Exibição e impressão da mensagem {#message-display-and-impression}
 
 {% tabs %}
 {% tab Swift %}
@@ -243,7 +243,7 @@ In-app message ready for display:
 - extras: { ... }
 ```
 
-Seguido pelo log de impressão:
+Seguido pelo registro de impressão:
 
 ```
 Logged event:
@@ -276,27 +276,27 @@ Logged event:
 - data: inAppMessageButtonClick(triggerIds: [...], buttonId: "<BUTTON_ID>")
 ```
 
-Se não houver mais mensagens acionadas correspondentes, você também verá:
+Se nenhuma outra mensagem disparada corresponder, você também verá:
 
 ```
 No matching trigger for event.
 ```
 
-Esse é o comportamento esperado quando não há mensagens no app adicionais configuradas para o evento.
+Esse é o comportamento esperado quando nenhuma mensagem no app adicional está configurada para o evento.
 
 {% endtab %}
 {% tab Android %}
 
-Filtre as solicitações para seu endpoint da Braze configurado (por exemplo, sdk.iad-01.braze.com) e procure eventos com o nome `sbc` (clique no botão) ou `si` (impressão) no corpo da solicitação.
+Filtre as requisições para o seu endpoint da Braze configurado (por exemplo, sdk.iad-01.braze.com) e procure por eventos com o nome `sbc` (clique no botão) ou `si` (impressão) no corpo da requisição.
 
 {% endtab %}
 {% endtabs %}
 
 ### O que verificar
 
-- Se a mensagem no app não for exibida, verifique se o início da sessão foi registrado primeiro.
+- Se a mensagem no app não for exibida, verifique se um início de sessão foi registrado primeiro.
 - Filtre as respostas do seu endpoint da Braze configurado para confirmar que a carga útil da mensagem foi entregue.
-- Se as impressões não estão sendo registradas, verifique se você não implementou um delegado `inAppMessageDisplay` personalizado que suprime o registro.
+- Se as impressões não estiverem sendo registradas, verifique se você não implementou um delegate `inAppMessageDisplay` personalizado que suprime o registro.
 - Se "No matching trigger for event" aparecer, isso é normal e indica que nenhuma mensagem no app adicional está configurada para esse evento.
 
 ## Content Cards
@@ -406,7 +406,7 @@ Filtre as solicitações para o seu endpoint da Braze configurado (por exemplo, 
 
 ## Deep links {#deep-links}
 
-Os logs de deep link aparecem em notificações por push, mensagens no app e Content Cards. A estrutura do log é consistente, independentemente do canal de origem.
+Os registros de deep links aparecem em notificações por push, mensagens no app e Content Cards. A estrutura do registro é consistente independentemente do canal de origem.
 
 {% tabs %}
 {% tab Swift %}
@@ -426,13 +426,13 @@ Onde `<SOURCE_CHANNEL>` é um dos seguintes: `notification`, `inAppMessage` ou `
 {% endtab %}
 {% tab Android %}
 
-Para deep links, procure as entradas **Deep Link Delegate** ou **UriAction** no Logcat. Para testar a resolução de deep link de forma independente, execute o seguinte comando:
+Para deep links, procure as entradas **Deep Link Delegate** ou **UriAction** no Logcat. Para testar a resolução de deep links de forma independente, execute o seguinte comando:
 
 ```bash
 adb shell am start -W -a android.intent.action.VIEW -d "<YOUR_DEEP_LINK>" "<YOUR_PACKAGE_NAME>"
 ```
 
-Isso confirma se o deep link resolve corretamente fora do SDK da Braze.
+Isso confirma se o deep link é resolvido corretamente fora do SDK da Braze.
 
 {% endtab %}
 {% endtabs %}
@@ -440,11 +440,11 @@ Isso confirma se o deep link resolve corretamente fora do SDK da Braze.
 ### O que verificar
 
 - Verifique se a URL do deep link corresponde ao que você configurou na Campaign.
-- Se o deep link funcionar de um canal (por exemplo, push) mas não de outro (por exemplo, Content Cards), verifique se a sua implementação de tratamento de deep link suporta todos os canais.
-- No iOS, links universais requerem tratamento adicional. Se os links universais não estiverem funcionando a partir dos canais da Braze, verifique se seu app implementa o protocolo `BrazeDelegate` para tratamento de URL.
-- No Android, verifique se o tratamento automático de deep link está desativado se você usar um manipulador personalizado. Caso contrário, o manipulador padrão pode entrar em conflito com sua implementação.
+- Se o deep link funciona a partir de um canal (por exemplo, push), mas não de outro (por exemplo, Content Cards), verifique se sua implementação de tratamento de deep links é compatível com todos os canais.
+- No iOS, links universais exigem tratamento adicional. Se os links universais não estiverem funcionando a partir dos canais da Braze, verifique se o seu app implementa o protocolo `BrazeDelegate` para tratamento de URLs.
+- No Android, verifique se o tratamento automático de deep links está desativado caso você use um handler personalizado. Caso contrário, o handler padrão pode entrar em conflito com a sua implementação.
 
-## Identificação do usuário {#user-identification}
+## Identificação de usuários {#user-identification}
 
 Quando um usuário é identificado com um `external_id`, o SDK registra um evento de mudança de usuário.
 
@@ -455,15 +455,15 @@ Quando um usuário é identificado com um `external_id`, o SDK registra um event
 changeUser called with: <EXTERNAL_ID>
 ```
 
-Coisas importantes a saber:
-- Chame `changeUser` assim que o usuário fizer login — quanto mais cedo, melhor.
-- Se um usuário sair, não há como chamar `changeUser` para revertê-lo a um usuário anônimo.
+Informações importantes:
+- Chame `changeUser` assim que o usuário fizer login — quanto antes, melhor.
+- Se um usuário fizer logout, não há como chamar `changeUser` para revertê-lo a um usuário anônimo.
 - Se você não quiser usuários anônimos, chame `changeUser` durante o início da sessão ou a inicialização do app.
 
 {% endtab %}
 {% tab Swift %}
 
-Filtre as solicitações para seu endpoint da Braze configurado (por exemplo, sdk.iad-01.braze.com) e procure a identificação do usuário no corpo da solicitação:
+Filtre as solicitações para o endpoint da Braze configurado (por exemplo, sdk.iad-01.braze.com) e procure a identificação do usuário no corpo da solicitação:
 
 ```
 "user_id": "<EXTERNAL_ID>"
@@ -474,11 +474,11 @@ Filtre as solicitações para seu endpoint da Braze configurado (por exemplo, sd
 
 ## Solicitações de rede {#network-requests}
 
-Os logs verbosos incluem todos os detalhes de solicitação e resposta HTTP para a comunicação do SDK com os servidores da Braze. Eles são úteis para diagnosticar problemas de conectividade.
+Os logs detalhados incluem informações completas de solicitações e respostas HTTP para a comunicação do SDK com os servidores da Braze. Eles são úteis para diagnosticar problemas de conectividade.
 
 ### Estrutura da solicitação {#request-structure}
 
-Filtre as solicitações para seu endpoint da Braze configurado (por exemplo, sdk.iad-01.braze.com). A estrutura da solicitação inclui:
+Filtre as solicitações para o endpoint da Braze configurado (por exemplo, sdk.iad-01.braze.com). A estrutura da solicitação inclui:
 
 {% tabs %}
 {% tab Swift %}
@@ -505,24 +505,42 @@ Making request(id = <REQUEST_ID>) to <YOUR_BRAZE_ENDPOINT>
 
 ### O que verificar
 
-- **Chave de API**: Verifique se `X-Braze-Api-Key` corresponde à chave de API do seu espaço de trabalho.
+- **Chave de API**: Verifique se `XBraze-ApiKey` corresponde à chave de API do seu espaço de trabalho.
 - **Endpoint**: Confirme se a URL da solicitação corresponde ao endpoint de SDK configurado.
-- **Tentativas de reenvio**: `X-Braze-Req-Attempt` maior que 1 indica que o SDK está tentando novamente uma solicitação que falhou, o que pode sinalizar problemas de conectividade.
-- **Limite de taxa**: `X-Braze-Req-Tokens-Remaining` mostra os tokens de solicitação restantes. Uma contagem baixa pode indicar que o SDK está se aproximando dos limites de taxa.
-- **Solicitações ausentes**: No Android, se você não vir uma solicitação para o endpoint da Braze após o início da sessão, verifique sua chave de API e a configuração do endpoint.
+- **Tentativas de reenvio**: `XBraze-Req-Attempt` maior que 1 indica que o SDK está reenviando uma solicitação que falhou, o que pode sinalizar problemas de conectividade.
+- **Limite de frequência**: `XBraze-Req-Tokens-Remaining` mostra os tokens de solicitação restantes. Uma contagem baixa pode indicar que o SDK está se aproximando dos limites de frequência.
+- **Solicitações ausentes**: No Android, se você não visualizar uma solicitação para o endpoint da Braze após o início da sessão, verifique a configuração da chave de API e do endpoint.
 
 ## Abreviações comuns de eventos {#common-event-abbreviations}
 
-Nas cargas úteis de logs verbosos, a Braze usa nomes de eventos abreviados. Aqui está uma referência:
+Nos payloads de log detalhados, a Braze usa nomes de eventos abreviados. Veja a referência:
 
 | Abreviação | Evento |
 |---|---|
 | `ss` | Início da sessão |
 | `se` | Fim da sessão |
 | `si` | Impressão de mensagem no app |
-| `sbc` | Clique no botão da mensagem no app |
+| `sbc` | Clique no botão de mensagem no app |
 | `cci` | Impressão de Content Card |
 | `ccc` | Clique em Content Card |
 | `ccd` | Content Card dispensado |
 | `lr` | Local registrado |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Abreviações comuns de eventos" }
+
+## Solução de problemas {#troubleshooting}
+
+### Geofences não sendo disparadas no Android SDK 13.1.0–15.x {#geofences-not-triggering-on-android-sdk-131015x}
+
+O Android SDK da Braze nas versões 13.1.0 a 15.x apresentou uma regressão que podia impedir o registro de eventos de atualização de geofences. Em dispositivos com Android 10 ou anterior, as atualizações de local no início da sessão também podiam falhar. Faça upgrade para o Android SDK 16.0.0 ou posterior. Para configuração do SDK, consulte [Geofences]({{site.baseurl}}/developer_guide/geofences).
+
+### Quando um usuário pode ter 0 sessões registradas no perfil? {#when-might-a-user-have-0-sessions-recorded-against-their-profile}
+
+Um perfil de usuário pode mostrar 0 sessões quando você importa o usuário pela REST API ([`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)) ou por importação de CSV sem os campos **First session** ou **Last session**. As sessões são registradas quando os usuários interagem com o seu app por meio do SDK. Para saber mais, consulte [Perfil de usuário com 0 sessões]({{site.baseurl}}/developer_guide/analytics/tracking_sessions#user-profile-has-0-sessions).
+
+### Discrepâncias nos dados de usuários ao usar o SDK e a REST API juntos {#user-data-discrepancies-when-using-the-sdk-and-rest-api-together}
+
+Quando você usa o SDK e a REST API ao mesmo tempo, condições de corrida podem causar discrepâncias nos dados. Depois de chamar `changeUser()`, permita que o SDK envie os dados pendentes antes de fazer chamadas críticas à REST API, evite agrupar atualizações sensíveis ao tempo e considere adicionar um pequeno atraso entre as requisições do SDK e da API. Para entender o comportamento de `changeUser()`, consulte [Como o changeUser() funciona]({{site.baseurl}}/developer_guide/analytics/setting_user_ids#how-changeuser-works).
+
+### Dados não chegando à Braze {#data-not-reaching-braze}
+
+Se os dados não estão chegando à Braze, confirme se o seu firewall permite tráfego de saída para os endpoints de API da Braze e provedores de rede de distribuição de conteúdo (CDN). Execute um teste MTR e use o [Fastly Debug](https://www.fastly-debug.com/) enquanto o problema estiver ocorrendo. Para solução de problemas de conectividade e lista de permissões, consulte [Problemas de conectividade de rede da API]({{site.baseurl}}/api/network_connectivity_issues).

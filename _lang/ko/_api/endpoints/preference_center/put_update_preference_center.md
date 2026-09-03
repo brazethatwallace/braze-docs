@@ -20,7 +20,7 @@ description: "이 문서에서는 환경설정 센터 업데이트 Braze 엔드�
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `preference_center.update` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `preference_center.update` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key-permissions)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -31,7 +31,7 @@ description: "이 문서에서는 환경설정 센터 업데이트 Braze 엔드�
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | --------- | ---------| --------- | ----------- |
 | `preferenceCenterExternalID` | 필수 | 문자열 | 환경설정 센터의 ID입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Path parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="경로 매개변수" }
 
 
 ## 요청 본문 {#request-body}
@@ -73,7 +73,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `confirmation_page_html` | 필수 | 문자열 | 확인 페이지의 HTML입니다. |
 | `state` | 선택 사항 | 문자열 | `active` 또는 `draft`를 선택합니다.|
 | `options` | 선택 사항 | 오브젝트 | 속성: <br>`meta-viewport-content`: 이 값이 있으면 `viewport` 메타 태그가 `content= <value of attribute>`와 함께 페이지에 추가됩니다.<br><br> `link-tags`: 페이지의 파비콘을 설정합니다. 설정하면 rel 속성이 포함된 `<link>` 태그가 페이지에 추가됩니다.  |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 ## 요청 예시 {#example-request}
 

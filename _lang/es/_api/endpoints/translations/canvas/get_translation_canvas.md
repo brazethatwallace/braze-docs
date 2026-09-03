@@ -6,7 +6,7 @@ page_order: 1
 
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Ver la traducción de un Canvas."
+description: "En este artículo se describen los detalles del endpoint Ver la traducción de un Canvas."
 ---
 
 {% api %}
@@ -15,11 +15,11 @@ description: "En este artículo se describen los detalles del punto de conexión
 /canvas/translations
 {% endapimethod %}
 
-> Utiliza este punto de conexión para obtener una vista previa de un mensaje traducido para un Canvas. Consulta [Locales en los mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) para obtener más información sobre las características de traducción.
+> Utiliza este endpoint para obtener una vista previa de un mensaje traducido para un Canvas. Consulta [Locales en los mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) para obtener más información sobre las características de traducción.
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `canvas.translations.get`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `canvas.translations.get`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -34,10 +34,10 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 | `message_variation_id` | Obligatorio | Cadena | El ID de tu variación de mensaje. |
 | `locale_id` | Opcional | Cadena | El ID (UUID) de la configuración regional. |
 | `post_launch_draft_version` | Opcional | Booleano | Cuando es `true`, devuelve la última versión de borrador en lugar de la última versión publicada en vivo. El valor predeterminado es `false`, que devuelve la última versión en vivo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Query parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de consulta" }
 
 {% alert note %}
-Todos los ID de traducción se consideran identificadores únicos universales (UUID), que se pueden encontrar en la respuesta del punto de conexión GET.
+Todos los ID de traducción se consideran identificadores únicos universales (UUID), que se pueden encontrar en la respuesta del endpoint GET.
 {% endalert %}
 
 ## Ejemplo de solicitud {#example-request}
@@ -50,7 +50,7 @@ curl --location --request GET 'https://rest.iad-03.braze.com/canvas/translations
 
 ## Respuesta {#response}
 
-Hay cuatro respuestas de código de estado para este punto de conexión: `200`, `400`, `404` y `429`.
+Hay cuatro respuestas de código de estado para este endpoint: `200`, `400`, `404` y `429`.
 
 ### Ejemplo de respuesta correcta {#example-success-response}
 

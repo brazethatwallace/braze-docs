@@ -15,9 +15,7 @@ tool: Reports
 
 The benefits of using SQL variables include:
 
-- Save time by creating a campaign variable to select from a list when creating your report, instead of pasting in campaign IDs.
-- Swap in values by adding variables that allow you to reuse the report for slightly different use cases in the future (such as a different custom event).
-- Reduce user error when editing your SQL by reducing the amount of editing needed for each report. Teammates that are more comfortable with SQL can create reports that less technical teammates can then use.
+{% multi_lang_include analytics/sql_variables_benefits.md %}
 
 ## Using variables
 
@@ -443,7 +441,7 @@ field_name = '{{catalog_fields.${custom_label}}}'
 
 ### Segments
 
-For selecting segments that have [Analytics Tracking]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/) turned on. Set this to the segment analytics ID, which corresponds to the IDs stored in the `user_segment_membership_ids` column in the tables where this column is available.
+For selecting segments that have [Analytics Tracking]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) turned on. Set this to the segment analytics ID, which corresponds to the IDs stored in the `user_segment_membership_ids` column in the tables where this column is available.
 
 {% tabs %}
 {% tab usage %}

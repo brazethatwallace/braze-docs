@@ -12,7 +12,7 @@ hidden: true
 
 Braze provides methods for assigning attributes to users. You'll be able to filter and segment your users according to these attributes on the dashboard.
 
-Before implementation, be sure to review examples of the segmentation options afforded by custom events, custom attributes, and purchase events in our [Best practices]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#user-data-collection).
+Before implementation, be sure to review examples of the segmentation options afforded by custom events, custom attributes, and purchase events in our [Best practices]({{site.baseurl}}/developer_guide/analytics/#best-practices).
 
 User attributes can be assigned to the current `IAppboyUser`. To obtain a reference to the current `IAppboyUser`, call `Appboy.SharedInstance.AppboyUser`
 
@@ -37,7 +37,7 @@ Appboy.SharedInstance.AppboyUser.FirstName = "User's First Name"
 
 ## Assigning custom user attributes
 
-Beyond the default user attributes, Braze also allows you to define custom attributes using a number of different data types. For more information regarding the segmentation options, and how each of these attributes will affect you, see our [Best practices]({{site.baseurl}}/developer_guide/platform_integration_guides/windows_universal/analytics/setting_user_ids/#user-id-integration-best-practices-and-notes).
+Beyond the default user attributes, Braze also allows you to define custom attributes using a number of different data types. For more information regarding the segmentation options, and how each of these attributes will affect you, see our [Best practices]({{site.baseurl}}/hidden/archive_docs/windows_universal/analytics/setting_user_ids/#user-id-integration-best-practices-and-notes).
 
 ### Setting custom attribute values
 
@@ -104,7 +104,7 @@ bool UnsetCustomAttribute(STRING_KEY);
 
 ### Setting a custom attribute via the REST API
 
-You can also use our REST API to set user attributes. Refer to the [users API]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data) documentation for details.
+You can also use our REST API to set user attributes. Refer to the [users API]({{site.baseurl}}/api/endpoints/user_data) documentation for details.
 
 ### Custom attribute value limits
 
@@ -126,5 +126,5 @@ To set up a subscription for your users (either email or push), you can set foll
 - `PushNotificationSubscriptionType`
   - Users will be set to `Subscribed` automatically upon valid push registration, however, we suggest that you establish an explicit opt-in process and set this value to `OptedIn` upon receipt of explicit consent from your user.
 
->  These types fall under `AppboyPlatform.PCL.Models.NotificationSubscriptionType`. Visit [Managing user subscriptions]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#managing-user-subscriptions) for more details.
+>  These types fall under `AppboyPlatform.PCL.Models.NotificationSubscriptionType`. Visit [Managing user subscriptions]({{site.baseurl}}/user_guide/channels/email/subscriptions/#subscription-states) for more details.
 

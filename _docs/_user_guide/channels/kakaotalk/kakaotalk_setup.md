@@ -10,13 +10,13 @@ channel:
 
 # Set up KakaoTalk
 
-> This article covers how to set up the [KakaoTalk messaging channel]({{site.baseurl}}/kakaotalk/) in Braze, including how to set up users, reconcile user IDs, and create KakaoTalk test users.
+> This article covers how to set up the [KakaoTalk messaging channel]({{site.baseurl}}/kakaotalk) in Braze, including how to set up users, reconcile user IDs, and create KakaoTalk test users.
 
 ## Prerequisites
 
 | Requirement | Description |
 | --- | --- |
-| Account with a supported KakaoTalk partner | An account with a supported KakaoTalk partner, [CJ OliveNetworks](https://www.braze.com/partners/solutions-partners/cjolivenetworks/) or Infobip, is required to use the KakaoTalk messaging channel. |
+| Account with a supported KakaoTalk partner | An account with a supported KakaoTalk partner, [CJ OliveNetworks](https://www.braze.com/partners/solutions-partners/cjolivenetworks/) or [Infobip](https://marketplace.braze.com/partners/infobip), is required to use the KakaoTalk messaging channel. |
 | KakaoTalk Business channel | Your KakaoTalk account must be a KakaoTalk Business channel to send KakaoTalk messages through Braze. When you create an account, its default status is basic. To make your account a Business channel, you'll need to verify your business and provide relevant documentation. |
 | KakaoTalk Sender Key | A valid KakaoTalk Sender Key. |
 | Contact phone number | A contact phone number for your KakaoTalk channel's administrator. |
@@ -29,7 +29,7 @@ Register the Braze IP addresses for your cluster in your Comm.One dashboard.
 
 1. In your Comm.One dashboard, go to **Account Management (계정 관리)**, select the menu icon, then select **View Details (자세히보기)**.
 2. Select **Center & Upload IP Allowlist (센터&업로드 IP 화이트리스트)**.
-3. Add the IP addresses for your Braze cluster. For the complete list of IPs by cluster, see [IP allowlisting]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/#ip-allowlisting).
+3. Add the IP addresses for your Braze cluster. For the complete list of IPs by cluster, see [IP allowlisting]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#ip-allowlisting).
 
 ![Comm.One dashboard showing where you can add IP addresses.]({% image_buster /assets/img/kakaotalk/register_braze_ip.png %})
 
@@ -64,10 +64,10 @@ After gathering your documentation, follow these steps:
 
 ## Integrate KakaoTalk
 
-### Step 1: Connect the KakaoTalk channel to Braze
+### Connect the KakaoTalk channel to Braze
 
 1. Go to **Partner Integrations** > **Technology Partners** and select your KakaoTalk provider.
-2. Gather the required credentials for your provider (see below), then enter them into the **Technology Partners** page and save.
+2. Gather the required credentials for your provider (See the following section), then enter them into the **Technology Partners** page and save.
 3. Use the newly saved credentials for sending.
 
 #### CJ OliveNetworks
@@ -94,7 +94,7 @@ Go to your [Comm.One dashboard](https://ums.cjmplace.com/) and gather the follow
 ![Comm.One dashboard showing a censored Sender Key.]({% image_buster /assets/img/kakaotalk/sender_key.png %})
 
 {% alert important %}
-You can integrate a KakaoTalk Sender Key into only one workspace at a time. To use the same Sender Key in a different workspace, you must first archive the KakaoTalk subscription group in the original workspace, then contact [Braze Support]({{site.baseurl}}/braze_support/) to remove the integration. After Braze removes the integration, you can set up the integration in the new workspace.
+You can integrate a KakaoTalk Sender Key into only one workspace at a time. To use the same Sender Key in a different workspace, you must first archive the KakaoTalk subscription group in the original workspace, then contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) to remove the integration. After Braze removes the integration, you can set up the integration in the new workspace.
 {% endalert %}
 
 ![Credentials for a Braze KakaoTalk channel.]({% image_buster /assets/img/kakaotalk/cj_credentials.png %})
@@ -120,16 +120,45 @@ Only the channels mapped to a single common ID can be registered.
 
 #### Infobip
 
-Go to your Infobip dashboard and gather the following information.
+Go to your Infobip dashboard and the [KakaoTalk Channel Admin Center](https://center-pf.kakao.com/) to gather the following information.
 
 | Field | Location |
 | --- | --- |
-| **API Base URL** | Select **Developer Tools** > **API Keys**. |
-| **API Key** | Select **Developer Tools** > **API Keys**. |
-| **Sender name / Sender key** | Select **Channels and Numbers** > **Channels**, then select the **Senders** tab. |
-| **Sender profile UUID** | Provided directly by Infobip. Contact Infobip if you don't have this information. |
-| **Channel name** | Provided directly by Infobip. Contact Infobip if you don't have this information. |
+| **API Base URL** | In the Infobip portal, go to **Developer Tools** > **API Keys**. |
+| **API Key** | In the Infobip portal, go to **Developer Tools** > **API Keys**. |
+| **Sender name / Sender key** | In the Infobip portal, go to **Channels and Numbers** > **Channels**, then select the **Senders** tab. |
+| **Sender profile UUID** | In the KakaoTalk Channel Admin Center, go to **Channels** and find the **Search ID** in the channel information window. |
+| **Channel name** | In the KakaoTalk Channel Admin Center, find the **channel name** in the same channel information window. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Infobip" }
+
+##### API key and base URL
+
+1. In the Infobip portal, select **Developer Tools** > **API Keys**.
+2. On the **API keys** page, copy the **API base URL**.
+
+![Infobip API Keys page showing the API base URL.]({% image_buster /assets/img/kakaotalk/infobip_api_keys_page.png %})
+
+{: start="3"}
+3. Select **CREATE API KEY**.
+4. Enter the **Name**, select the **Expiration date**, then select the API scopes required for KakaoTalk. These scopes control which Infobip API actions your key can perform.
+
+![Infobip Create API Key page showing the name, expiration date, and API scopes fields.]({% image_buster /assets/img/kakaotalk/infobip_api_key_scopes.png %})
+
+{: start="5"}
+5. Select **CREATE** to generate the key.
+6. Copy the generated key. You can return to this page to update the name, expiration date, or API scopes.
+
+##### Sender profile UUID and channel name
+
+1. In the [KakaoTalk Channel Admin Center](https://center-pf.kakao.com/), select **Channels**.
+2. In the **Channel Information** window, find the **Channel name** and **Search id** (sender UUID).
+3. Enter the **Customer center contact information**. This is required when sending ad messages.
+
+![KakaoTalk channel information window showing the Customer Center contact information fields.]({% image_buster /assets/img/kakaotalk/kakao_customer_center_contact.png %})
+
+{: start="4"}
+4. To view a different channel, select the channel icon at the top of the menu.
+5. In the **My channel** list, select the channel you want to view, then repeat the previous steps.
 
 ## Set user profiles
 
@@ -137,4 +166,4 @@ User profiles must have phone numbers in E.164 format to message them through Ka
 
 ### Import phone numbers
 
-Import phone numbers by [uploading a CSV or using the API]({{site.baseurl}}/user_guide/data/unification/user_data/import_users/) to create a user. Ensure phone numbers are in E.164 format before importing.
+Import phone numbers by [uploading a CSV or using the API]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/) to create a user. Ensure phone numbers are in E.164 format before importing.

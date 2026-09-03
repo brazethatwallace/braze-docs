@@ -29,22 +29,13 @@ Public APIs can be subject to usage restrictions and rate limiting. Be sure to r
 |	 API 	| Description |
 | --------- | --- |
 | [SeatGeek](http://platform.seatgeek.com/)| Provides ticket information for concerts, sports, and theater events.  |
-| [OnConnect](http://developer.tmsapi.com/docs/read/data_v1_1/movies/movie_showtimes) | Provides box-office movie information and showtimes in US and Canadian theaters. |
 | [Eventbrite](http://developer.eventbrite.com/) | Provides data on a variety of public events. |
-| [Eventful](http://api.eventful.com/) | Provides data on a variety of public events |
-| [Ticketmaster](http://developer.ticketmaster.com/products-and-docs/apis/getting-started/) | Provides data on public events, venues, and prices |
+| [Ticketmaster](http://developer.ticketmaster.com/products-and-docs/apis/getting-started/) | Provides data on public events, venues, and prices. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Events and ticketing" }
-
-## Food and drink
-
-|  API  | Description |
-| --------- | --- |
-| [BreweryDB](http://www.brewerydb.com/) | Provides information on breweries, beers, and beer events. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Food and drink" }
 
 ## Finance
 
-|  api  | description |
+|	 API 	| Description |
 | --------- | --- |
 | [Barchart OnDemand](https://www.barchartondemand.com/free) | Provides a variety of stock, futures, and foreign exchange data. |
 | [CoinDesk](https://www.coindesk.com/api/) | Provides a variety of cryptocurrency data. |
@@ -52,7 +43,7 @@ Public APIs can be subject to usage restrictions and rate limiting. Be sure to r
 
 ## Health
 
-|  api  | description |
+|	 API 	| Description |
 | --------- | --- |
 | [AirVisual](https://airvisual.com/api) | Provides Air quality and weather data. |
 | [Nutritionix Worlds](https://developer.nutritionix.com/) | Provides verified nutrition data. |
@@ -61,7 +52,7 @@ Public APIs can be subject to usage restrictions and rate limiting. Be sure to r
 
 ## Music
 
-|	 api 	| description |
+|	 API 	| Description |
 | --------- | --- |
 | [Last.fm](http://www.last.fm/api) | Provides a variety of music data including artist information, recommended artists, and more. |
 | [iTunes](https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/) | Provides data on a variety of items in the iTunes, App Store, and iBooks stores. |
@@ -79,10 +70,8 @@ Public APIs can be subject to usage restrictions and rate limiting. Be sure to r
 
 ## Miscellaneous
 
-|	 api 	| description |
+|	 API 	| Description |
 | --------- | --- |
-| [Numbers API](http://numbersapi.com/) | Provides random numerical trivia facts. |
-| [Clearbit](http://blog.clearbit.com/logo) | Provides company logo images. |
 | [London Unified](http://api.tfl.gov.uk/#Line) and [NYC MTA](https://new.mta.info/developers) | Provide real-time public transit data including line statuses, arrival times, etc. |
 | [Sunrise and Sunset](https://sunrise-sunset.org/api) | Provides Sunset and sunrise times for a given latitude and longitude. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Miscellaneous" }

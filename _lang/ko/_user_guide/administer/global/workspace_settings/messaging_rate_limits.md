@@ -21,16 +21,16 @@ page_order: 10
 {% alert note %}
 `/messages/send` 및 `/messages/schedule/create`와 같은 API 메시징 엔드포인트를 사용하여 발송된 메시지도 워크스페이스 메시징 사용량 제한에 포함되며 영향을 받습니다.
 {% endalert %}
-분당 발송되는 총 메시지 수는 설정된 워크스페이스 사용량 제한을 초과하지 않습니다. 처음 몇 분과 이후 몇 분 사이에 어떤 캠페인이 먼저 발송되는지에 대한 특정 순서는 없습니다.
+분당 발송되는 총 메시지 수는 설정된 워크스페이스 사용량 제한을 초과하지 않습니다. 처음 몇 분과 이후 몇 분 사이에 어떤 Campaign이 먼저 발송되는지에 대한 특정 순서는 없습니다.
 
 예를 들어, 워크스페이스 메시징 사용량 제한이 분당 100,000개의 메시지이고, 다음 메시지가 모두 오후 12시에 처리되고 있다고 가정해 보겠습니다:
 
-| Campaign | 메시지 수 | 발송 시간 |
-|---|---|---|
-| Campaign 1 | 100,000 | 오후 12시 |
-| Campaign 2 | 100,000 | 오후 12시 |
-| Campaign 3 | 100,000 | 오후 12시 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="How it works" }
+| Campaign   | 메시지 수 | 발송 시간 |
+|------------|--------------------|-----------|
+| Campaign 1 | 100,000            | 오후 12시     |
+| Campaign 2 | 100,000            | 오후 12시     |
+| Campaign 3 | 100,000            | 오후 12시     |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="작동 방식" }
 
 메시지는 3분 간격에 걸쳐 발송됩니다.
 
@@ -40,11 +40,11 @@ page_order: 10
 
 다음 예시에서는 워크스페이스 메시징 사용량 제한이 분당 100,000개의 메시지이고, 다음과 같은 메시지가 설정되어 있다고 가정합니다:
 
-| Campaign | 메시지 수 | 발송 시간 |
-|---|---|---|
-| Campaign 1 | 1,000,000 | 오전 9시 |
-| Campaign 2 | 1,000,000 | 오전 9:05 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="How it works" }
+| Campaign   | 메시지 수 | 발송 시간 |
+|------------|--------------------|-----------|
+| Campaign 1 | 1,000,000          | 오전 9시      |
+| Campaign 2 | 1,000,000          | 오전 9:05   |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="작동 방식" }
 
 다음은 예상되는 발송 스케줄과 분당 발송 메시지 수입니다:
 
@@ -74,9 +74,13 @@ Braze는 분 전체에 걸쳐 메시지 발송을 균등하게 분배하려고 �
 
 Campaigns 및 Canvases에서 개별 사용량 제한을 설정할 수도 있습니다. 이러한 제한은 워크스페이스 메시징 사용량 제한과 독립적으로 적용됩니다.
 
+### 웹훅 발송 용량 {#webhook-sending-capacity}
+
+전달 속도 사용량 제한이 없는 웹훅 Campaigns의 경우, Braze는 기본 채널 사용량 제한을 적용하지 않으므로 높은 처리량으로 발송이 진행될 수 있습니다. 실제 발송량은 서버 지연 시간, 연결된 콘텐츠 사용 여부, 웹훅을 수신하는 외부 시스템의 발송 속도 등 여러 요인에 따라 달라집니다. 웹훅 Campaign에 사용량 제한이 없는 경우, 대량 트래픽에 대비하여 서버를 준비하세요. 그렇지 않으면 사용량 제한을 적용하여 메시지 흐름을 제어하세요.
+
 ### 워크스페이스 메시징 사용량 제한에 포함되지 않는 메시지 {#messages-not-included-in-the-workspace-messaging-rate-limits}
 
-- [트랜잭션 이메일 Campaigns]({{site.baseurl}}/user_guide/channels/transactional_email/)을 사용하여 발송된 메시지는 워크스페이스 메시징 사용량 제한에 포함되지 않습니다. 즉, 자체적으로 사용량 제한이 적용되며, 설정된 워크스페이스 메시징 사용량 제한에 포함되지 않습니다.
-- [시드 그룹]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#seed-groups) 및 [테스트 발송]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/)으로 보내는 메시지는 워크스페이스 메시징 사용량 제한에 포함되지 않습니다. 즉, 사용량 제한이 적용되지 않으며, 설정된 워크스페이스 메시징 사용량 제한에 포함되지 않습니다.
+- [트랜잭션 이메일 Campaigns]({{site.baseurl}}/user_guide/channels/transactional_email)을 사용하여 발송된 메시지는 워크스페이스 메시징 사용량 제한에 포함되지 않습니다. 즉, 자체적으로 사용량 제한이 적용되며, 설정된 워크스페이스 메시징 사용량 제한에 포함되지 않습니다.
+- [시드 그룹]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups) 및 [테스트 발송]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages)으로 보내는 메시지는 워크스페이스 메시징 사용량 제한에 포함되지 않습니다. 즉, 사용량 제한이 적용되지 않으며, 설정된 워크스페이스 메시징 사용량 제한에 포함되지 않습니다.
 - SMS 자동 응답은 워크스페이스 메시징 사용량 제한에 포함되지 않습니다. 즉, 사용량 제한이 적용되지 않으며, 설정된 워크스페이스 메시징 사용량 제한에 포함되지 않습니다.
-- 워크스페이스 메시징 사용량 제한은 인앱 메시지, 피처 플래그, 배너에는 지원되지 않습니다.
+- 워크스페이스 메시징 사용량 제한은 인앱 메시지, 기능 플래그, 배너에는 지원되지 않습니다.

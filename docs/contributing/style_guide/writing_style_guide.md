@@ -111,7 +111,17 @@ Braze aims to provide an inclusive experience. Use the following guidelines to e
 ##### Tables
 
 * Always use an introductory sentence to describe the purpose of the table.   
-* Avoid tables in the middle of a list, especially a list of steps.
+* Avoid tables in the middle of a list, especially a list of steps.  
+* Default to plain text for status or comparison cells (for example, "Supported", "Not supported"). Only add an emoji alongside the text when it adds real scanning value, such as in a wide support matrix.  
+* Always mark decorative status emoji with `aria-hidden="true"` so screen readers don't announce a raw emoji name instead of the intended meaning.  
+* In tables with four or more columns where space is tight, you may show the emoji only (omit the visible text) if all of the following are true:
+  * The emoji is `aria-hidden="true"`
+  * A visually hidden (`sr-only`) span carries the descriptive text for each cell, so screen readers still announce the full meaning
+  * A visible legend defining each symbol appears near the table
+
+```html
+<td><span aria-hidden="true">✅</span><span class="sr-only">Supported</span></td>
+```
 
 #### Global audience
 
@@ -1438,7 +1448,7 @@ While we’re a casual bunch, avoid using emojis in learning content as they can
 
 Exceptions include the following scenarios:
 
-* When using ✅ and ❌ in tables to denote content that is supported versus unsupported, or recommended versus not recommended  
+* When using ✅ and ❌ in tables to denote content that is supported versus unsupported, or recommended versus not recommended. Follow the accessibility requirements in [Tables](#tables): mark decorative emoji `aria-hidden="true"`, and if showing icons only, pair each with `sr-only` text and a legend.  
 * When used in example copy for a campaign or Canvas message
 
 #### Example names
@@ -2255,6 +2265,9 @@ Lowercase except when referring to a UI element that is capitalized.
 ⛔️ **ad hoc**
 Don’t use. Use “one-time” or similar.
 
+**Agentic Standards**  
+Always capitalized. When referring to standards without the “Agentic” prefix, use lowercase “standard” or “standards”.
+
 **AI**  
 Preferred over "artificial intelligence" after the first mention.
 
@@ -2347,6 +2360,9 @@ Use when differentiating between the original Canvas editor and Canvas Flow. Oth
 
 **campaign**  
 Lowercase except when referring to a UI element that is capitalized.
+
+**Campaign Standards**  
+Always capitalized. When referring to standards without the “Campaign” prefix, use lowercase “standard” or “standards”.
 
 **capacity**  
 Use when referring to custom data limits instead of the word "limit."

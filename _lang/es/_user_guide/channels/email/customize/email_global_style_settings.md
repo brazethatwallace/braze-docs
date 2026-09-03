@@ -14,7 +14,7 @@ tool:
 
 > Con la configuración global de estilos, puedes personalizar la apariencia de tus campañas de correo electrónico y Canvas. Puedes añadir y personalizar un tema predeterminado para tu editor de arrastrar y soltar. Esto incluye editar tus estilos para títulos de correo electrónico, texto, botones y más. Usar una combinación de estos ajustes puede ayudarte a crear una apariencia consistente en toda tu mensajería de correo electrónico.
 
-Para editar tu configuración global de estilos, ve a **Settings** > **Email Preferences** > **Drag-and-Drop Email Preferences**. Después de editar los estilos en el editor de correo electrónico de arrastrar y soltar, selecciona **Save**. Para personalizar aún más tus campañas de correo electrónico y Canvas, consulta cómo puedes incorporar [bloques del editor (correo electrónico)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=email).
+Para editar tu configuración global de estilos, ve a **Configuración** > **Preferencias de correo electrónico** > **Preferencias de correo electrónico de arrastrar y soltar**. Después de editar los estilos en el editor de correo electrónico de arrastrar y soltar, selecciona **Guardar**. Para personalizar aún más tus campañas de correo electrónico y Canvas, consulta cómo puedes incorporar [bloques del editor (correo electrónico)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=email).
 
 ![Sección de configuración global de estilos de correo electrónico en la pestaña de configuración del editor de correo electrónico de arrastrar y soltar.]({% image_buster /assets/img_archive/dnd_global_style_settings.png %})
 
@@ -24,7 +24,7 @@ Las actualizaciones realizadas en la configuración global de estilos se aplicar
 
 ## Estilos básicos {#basic-styling}
 
-En **Basic Styling**, puedes configurar los colores predeterminados de fondo del correo electrónico y del contenido para tus campañas de correo electrónico y Canvas. También puedes seleccionar una fuente predeterminada, añadir una fuente personalizada y editar los colores de los enlaces.
+En **Estilos básicos**, puedes configurar los colores predeterminados de fondo del correo electrónico y del contenido para tus campañas de correo electrónico y Canvas. También puedes seleccionar una fuente predeterminada, añadir una fuente personalizada y editar los colores de los enlaces.
 
 ![Opciones de estilos básicos que incluyen opciones para editar los colores de fondo del correo electrónico y del contenido, el nombre de la fuente predeterminada y el color predeterminado de los enlaces.]({% image_buster /assets/img_archive/dnd_basic_styling.png %})
 
@@ -47,17 +47,17 @@ Ten en cuenta que el proveedor de fuentes personalizadas puede recopilar datos p
 
 Para añadir una fuente personalizada, haz lo siguiente:
 
-1. En la sección **Default Font Name** de **Basic Styling**, selecciona **Add a custom font**.
+1. En la sección **Default Font Name** de **Estilos básicos**, selecciona **Add a custom font**.
 2. En el campo **Font Name**, introduce el mismo nombre de fuente que aparece en tu archivo de origen de fuente personalizada. Asegúrate de que el nombre esté correctamente escrito en mayúsculas y con los espacios adecuados.
 3. Introduce la URL correspondiente en el campo **Font URL**.
 4. Verifica que la vista previa muestre tu fuente personalizada.
-5. Selecciona **Save** para usar la fuente personalizada como tu fuente predeterminada de correo electrónico.
+5. Selecciona **Guardar** para usar la fuente personalizada como tu fuente predeterminada de correo electrónico.
 
 {% alert important %}
 Gmail no admite fuentes personalizadas, por lo que tu fuente personalizada puede mostrarse como una fuente predeterminada del sistema. Para otras plataformas de correo electrónico, verifica que tu fuente personalizada se muestre correctamente antes de enviar tu mensajería de correo electrónico.
 {% endalert %}
 
-Para usar otras fuentes personalizadas en tus campañas de correo electrónico, puedes crear una [plantilla de correo electrónico]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/) o [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/) que incluyan la fuente personalizada. Por ejemplo, puedes crear una plantilla de correo electrónico específica diseñada con fuentes personalizadas festivas adaptadas a tu tema de venta. Asegúrate de verificar que tu elección de fuente sea segura para la web y compatible con tus plataformas de correo electrónico.
+Para usar otras fuentes personalizadas en tus campañas de correo electrónico, puedes crear una [plantilla de correo electrónico]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template) o [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) que incluyan la fuente personalizada. Por ejemplo, puedes crear una plantilla de correo electrónico específica diseñada con fuentes personalizadas festivas adaptadas a tu tema de venta. Asegúrate de verificar que tu elección de fuente sea segura para la web y compatible con tus plataformas de correo electrónico.
 
 ### Fuente alternativa {#fallback-font}
 

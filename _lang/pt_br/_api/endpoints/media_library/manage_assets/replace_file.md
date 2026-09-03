@@ -15,13 +15,13 @@ description: "Este artigo descreve detalhes sobre o endpoint `PUT /media_library
 /media_library/replace_file
 {% endapimethod %}
 
-> Use este endpoint para substituir o arquivo de um ativo existente na [Biblioteca de mídia da Braze]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library/), preservando o ID e a URL do ativo. Você pode fornecer o arquivo de substituição usando uma URL hospedada externamente (`asset_url`) ou dados binários de arquivo enviados no corpo da solicitação (`asset_file`).
+> Use este endpoint para substituir o arquivo de um ativo existente na [biblioteca de mídia da Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications), preservando o ID e a URL do ativo. Você pode fornecer o arquivo de substituição usando uma URL hospedada externamente (`asset_url`) ou dados binários de arquivo enviados no corpo da solicitação (`asset_file`).
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `media_library.replace`.
+Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `media_library.replace`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='media_library' %}
 
@@ -49,12 +49,12 @@ Exemplo de corpo da solicitação para `asset_file`:
 
 O corpo da solicitação inclui os seguintes parâmetros:
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | -------- | --------- | ----------- |
-| `asset_id` | Obrigatória | String | O ID do ativo a ser substituído. |
+| `asset_id` | Obrigatório | String | O ID do ativo a ser substituído. |
 | `asset_url` | Opcional | String | Uma URL publicamente acessível para o arquivo de substituição. |
 | `asset_file` | Opcional | Binário | Dados binários do arquivo de substituição. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request body" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Corpo da solicitação" }
 
 {% alert important %}
 `asset_url` e `asset_file` são mutuamente exclusivos. Você deve incluir apenas um deles na sua solicitação de API.
@@ -69,7 +69,7 @@ O corpo da solicitação inclui os seguintes parâmetros:
 
 Esta seção inclui dois exemplos de solicitações `curl`, um para substituir um ativo usando uma URL e outro usando dados binários de arquivo.
 
-Esta solicitação mostra um exemplo de substituição de um ativo na Biblioteca de mídia usando um `asset_url`.
+Esta solicitação mostra um exemplo de substituição de um ativo na biblioteca de mídia usando um `asset_url`.
 
 ```
 curl -X PUT --location 'https://rest.iad-01.braze.com/media_library/replace_file' \
@@ -78,7 +78,7 @@ curl -X PUT --location 'https://rest.iad-01.braze.com/media_library/replace_file
 --data '{"asset_id": "your-asset-id", "asset_url": "https://cdn.example.com/assets/cat.jpg"}'
 ```
 
-Esta solicitação mostra um exemplo de substituição de um ativo na Biblioteca de mídia usando um `asset_file`.
+Esta solicitação mostra um exemplo de substituição de um ativo na biblioteca de mídia usando um `asset_file`.
 
 ```
 curl -X PUT --location 'https://rest.iad-01.braze.com/media_library/replace_file' \
@@ -107,7 +107,7 @@ Esta tabela lista os possíveis erros de validação.
 | --- | --- | --- |
 | 400 | "asset_id is required." | Nenhum ID de ativo foi fornecido na solicitação. |
 | 400 | "Either file or asset_url is required." | Nem `asset_file` nem `asset_url` foram fornecidos; um deles é obrigatório. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Validation errors" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Erros de validação" }
 
 #### Erros de processamento {#processing-errors}
 
@@ -131,8 +131,8 @@ Esta tabela lista os possíveis erros de processamento.
 | `UNSUPPORTED_ASSET_TYPE_FOR_REPLACE` | 400 | A substituição de arquivo não é compatível com este tipo de ativo (por exemplo, vídeo). O objeto `meta` inclui `asset_type`. |
 | `ASSET_SIZE_EXCEEDS_LIMIT` | 400 | O arquivo excede o tamanho máximo permitido. O objeto `meta` inclui `size_limit_bytes` e `file_size_bytes`. |
 | `CORRUPT_FILE` | 400 | O arquivo de imagem está corrompido ou ilegível. O objeto `meta` inclui `file_name`. |
-| `GENERIC_ERROR` | 500 | Ocorreu um erro inesperado durante a substituição do arquivo. O objeto `meta` inclui `original_error` para depuração. Tente novamente ou entre em contato com o [Suporte]({{site.baseurl}}/support_contact/). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Processing errors" }
+| `GENERIC_ERROR` | 500 | Ocorreu um erro inesperado durante a substituição do arquivo. O objeto `meta` inclui `original_error` para depuração. Tente novamente ou entre em contato com o [Suporte]({{site.baseurl}}/support_contact). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Erros de processamento" }
 
 ## Resposta {#response}
 

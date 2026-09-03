@@ -10,7 +10,7 @@ description: "Découvrez comment Braze gère la fusion des utilisateurs pour les
 
 > Découvrez comment Braze gère la fusion des utilisateurs, y compris les trois types d'utilisateurs pour lesquels le comportement par défaut ne s'applique pas : les utilisateurs marqués pour suppression, les utilisateurs test et les utilisateurs du Groupe de contrôle global.
 
-Ce comportement s'applique à toutes les fusions, que vous utilisiez la [fusion individuelle]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/#individual-merging), la [fusion en masse]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/#bulk-merging) ou l'[endpoint de l'API Merge users]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/).
+Ce comportement s'applique à toutes les fusions, que vous utilisiez la [fusion individuelle]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users#individual-merging), la [fusion en masse]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users#bulk-merging) ou l'[endpoint de l'API Merge users]({{site.baseurl}}/api/endpoints/user_data/post_users_merge).
 
 ## Comportement général de fusion {#general-merge-behavior}
 
@@ -45,9 +45,9 @@ Ce comportement fonctionne bien pour les attributs par défaut et les attributs 
 
 ## Utilisateurs marqués pour suppression {#users-marked-for-deletion}
 
-Lorsque vous utilisez l'[outil de suppression en masse des utilisateurs]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users/) pour supprimer un segment, Braze marque ces profils utilisateur pour suppression dans les 7 jours suivants. Braze ne fusionne pas les profils marqués pour suppression, qu'il s'agisse du profil à conserver ou du profil à fusionner.
+Lorsque vous utilisez l'[outil de suppression en masse des utilisateurs]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users) pour supprimer un segment, Braze marque ces profils utilisateur pour suppression dans les 7 jours suivants. Braze ne fusionne pas les profils marqués pour suppression, qu'il s'agisse du profil à conserver ou du profil à fusionner.
 
-Si vous devez fusionner un profil marqué pour suppression, commencez par [annuler la suppression du segment]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users/#cancel) ou retirez l'utilisateur de la suppression afin que le profil ne soit plus marqué.
+Si vous devez fusionner un profil marqué pour suppression, commencez par [annuler la suppression du segment]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users#cancel) ou retirez l'utilisateur de la suppression afin que le profil ne soit plus marqué.
 
 ## Utilisateurs test {#test-users}
 
@@ -63,19 +63,19 @@ Le tableau suivant montre le statut d'utilisateur test résultant pour chaque co
 | Pas un utilisateur test | Utilisateur test | Utilisateur test |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
-Pour en savoir plus sur les utilisateurs test, consultez [Groupes internes]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/).
+Pour en savoir plus sur les utilisateurs test, consultez [Groupes internes]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups).
 
 ## Utilisateurs du Groupe de contrôle global {#global-control-group-users}
 
-Braze ne fusionne pas les profils utilisateur appartenant à un [Groupe de contrôle global]({{site.baseurl}}/user_guide/audience/global_control_group/), qu'il s'agisse du profil à conserver ou du profil à fusionner.
+Braze ne fusionne pas les profils utilisateur appartenant à un [Groupe de contrôle global]({{site.baseurl}}/user_guide/audience/global_control_group), qu'il s'agisse du profil à conserver ou du profil à fusionner.
 
-L'appartenance au Groupe de contrôle global est déterminée par le [numéro de compartiment aléatoire]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/) d'un utilisateur. La fusion modifierait les utilisateurs appartenant au groupe, ce qui affecterait vos expériences et vos rapports.
+L'appartenance au Groupe de contrôle global est déterminée par le [numéro de compartiment aléatoire]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers) d'un utilisateur. La fusion modifierait les utilisateurs appartenant au groupe, ce qui affecterait vos expériences et vos rapports.
 
 ## Articles connexes {#related-articles}
 
-- [Fusionner les utilisateurs en double]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/)
-- [POST : Fusionner des utilisateurs]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/)
-- [Supprimer des utilisateurs]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users/)
-- [Groupe de contrôle global]({{site.baseurl}}/user_guide/audience/global_control_group/)
-- [Numéros de compartiment aléatoire]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/)
-- [Groupes internes]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/)
+- [Fusionner les utilisateurs en double]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users)
+- [POST : Fusionner des utilisateurs]({{site.baseurl}}/api/endpoints/user_data/post_users_merge)
+- [Supprimer des utilisateurs]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users)
+- [Groupe de contrôle global]({{site.baseurl}}/user_guide/audience/global_control_group)
+- [Numéros de compartiment aléatoire]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers)
+- [Groupes internes]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups)

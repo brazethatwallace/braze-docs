@@ -17,10 +17,10 @@ guide_featured_list:
   - name: ガバナンス
     link: /docs/user_guide/messaging/governance
     image: /assets/img/braze_icons/archive.svg
-  - name: キャンペーン
+  - name: Campaigns
     link: /docs/user_guide/messaging/campaigns
     image: /assets/img/braze_icons/send-01.svg
-  - name: キャンバス
+  - name: Canvas
     link: /docs/user_guide/messaging/canvas
     image: /assets/img/braze_icons/dataflow-04.svg
   - name: デザインと編集

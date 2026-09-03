@@ -11,7 +11,7 @@ toc_headers: h2
 
 > This page covers how to use Braze Cloud Data Ingestion (CDI) SQL Editor to create and validate syncs with SQL queries.
 
-Cloud Data Ingestion's SQL Editor lets you create syncs by writing SQL queries directly against your data warehouse. This removes the need to create or maintain a dedicated CDI table, which was previously required in [Step 1.1 of Data Warehouse Integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views).
+Cloud Data Ingestion's SQL Editor lets you create syncs by writing SQL queries directly against your data warehouse. This removes the need to create or maintain a dedicated CDI table, which was previously required in [Step 1.1 of Data Warehouse Integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
 
 Use the SQL Editor when you want to:
 
@@ -19,10 +19,6 @@ Use the SQL Editor when you want to:
 - Work with raw data in your warehouse
 - Avoid constructing a `PAYLOAD` column
 - Handle more complex data use cases with SQL
-
-{% alert important %}
-Cloud Data Ingestion SQL Editor is in beta. Contact your customer success manager or account manager for access.
-{% endalert %}
 
 ## Prerequisites and limitations
 
@@ -40,7 +36,7 @@ Braze runs only read-only queries against your data and does not modify your und
 Follow these steps to create source first, then a sync with SQL Editor. If you've already set up a source for CDI, you can skip to Step 3.
 
 {% alert note %}
-Note that these steps use a Snowflake source as an example. The setup process for other data warehouse sources is similar and can be found in [Step 2: Create a new source in Braze dashboard]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-2-create-a-new-source-in-the-braze-dashboard) of the [Setting up data warehouse integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#setting-up-data-warehouse-integrations) documentation.
+Note that these steps use a Snowflake source as an example. The setup process for other data warehouse sources is similar and can be found in [Step 2: Create a new source in Braze dashboard]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-2-create-a-new-source-in-the-braze-dashboard) of the [Setting up data warehouse integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#setting-up-data-warehouse-integrations) documentation.
 {% endalert %}
 
 ### Step 1: Set up your Snowflake role, permissions, warehouse, and user
@@ -253,7 +249,7 @@ If your query returns zero rows:
 
 ## PAYLOAD support (legacy)
 
-SQL Editor supports [legacy CDI tables]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=snowflake#step-1-set-up-tables-or-views) where a `PAYLOAD` column is present.
+SQL Editor supports [legacy CDI tables]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations?tab=snowflake#step-1-set-up-tables-or-views) where a `PAYLOAD` column is present.
 
 If your query includes:
 

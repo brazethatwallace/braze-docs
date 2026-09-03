@@ -1,7 +1,7 @@
 ---
 nav_title: Recomendações baseadas em regras
 article_title: Criar recomendações de itens baseadas em regras
-description: "Este artigo de referência aborda como criar uma recomendação de item de IA para itens em um catálogo."
+description: "Este artigo de referência aborda como criar uma recomendação de itens baseada em regras para itens em um catálogo."
 page_order: 2
 ---
 
@@ -11,10 +11,10 @@ page_order: 2
 
 ## Sobre recomendações de itens baseadas em regras {#about-rules-based-item-recommendations}
 
-Um mecanismo de recomendação baseado em regras usa dados de usuários e informações de produtos para sugerir itens relevantes aos usuários dentro das mensagens. Ele usa [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) e os [catálogos]({{site.baseurl}}/user_guide/data/activation/catalogs/) da Braze ou [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) para personalizar dinamicamente o conteúdo com base no comportamento e nos atributos do usuário.
+Um mecanismo de recomendação baseado em regras usa dados de usuários e informações de produtos para sugerir itens relevantes aos usuários dentro das mensagens. Ele usa [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) e os [catálogos]({{site.baseurl}}/user_guide/data/activation/catalogs) da Braze ou [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) para personalizar dinamicamente o conteúdo com base no comportamento e nos atributos do usuário.
 
 {% alert important %}
-As recomendações baseadas em regras são baseadas em uma lógica fixa que você deve definir manualmente. Isso significa que suas recomendações não se ajustarão ao histórico de compras e aos gostos do usuário, a menos que você atualize a lógica.<br><br>Para criar recomendações personalizadas de IA que se ajustam automaticamente ao histórico de um usuário, confira [recomendações de itens de IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/).
+As recomendações baseadas em regras são baseadas em uma lógica fixa que você deve definir manualmente. Isso significa que suas recomendações não se ajustarão ao histórico de compras e aos gostos do usuário, a menos que você atualize a lógica.<br><br>Para criar recomendações personalizadas de IA que se ajustam automaticamente ao histórico de um usuário, confira [recomendações de itens de IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 {% endalert %}
 
 ## Opções de mecanismo de recomendação {#recommendation-engine-options}
@@ -83,7 +83,7 @@ Crie seu mecanismo de recomendação usando um catálogo ou Conteúdo conectado:
 {% tab using a catalog %}
 Para criar seu mecanismo de recomendação usando um catálogo:
 
-1. [Crie um catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/create/) de produtos.
+1. [Crie um catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/create) de produtos.
 2. Para cada produto, adicione uma lista de produtos recomendados como uma string separada por um delimitador (como um pipe `|`) em uma coluna chamada "product_recommendations".
 3. Passe para o catálogo o ID do produto para o qual você deseja encontrar recomendações.
 4. Obtenha o valor `product_recommendations` para esse item de catálogo e divida-o pelo delimitador com um filtro de divisão Liquid.
@@ -102,9 +102,9 @@ Digamos que você tenha um app de alimentos saudáveis e queira criar uma Campai
 | **image_url** | A imagem que corresponde à receita. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Exemplo" }
 
-Depois que o catálogo for enviado para a Braze, confirme se as informações foram importadas com precisão selecionando seu catálogo na página de Catálogos e abrindo a guia **Preview**. Um número selecionado de itens aparece na pré-visualização e pode ser randomizado, mas isso não afeta o resultado do mecanismo de recomendação.
+Depois que o catálogo for enviado para a Braze, confirme se as informações foram importadas com precisão selecionando seu catálogo na página de Catálogos e abrindo a guia **Preview**. Um número selecionado de itens aparece na prévia e pode ser randomizado, mas isso não afeta o resultado do mecanismo de recomendação.
 
-Com o catálogo pronto, [crie uma Campaign de cartão de conteúdo]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/). No criador, insira a lógica Liquid para determinar quais usuários devem receber a Campaign e qual receita e imagem devem ser exibidas. Nesse caso de uso, a Braze extrairá o `start_date` do usuário (ou data de inscrição) e o comparará com a data atual. A diferença em dias determinará qual cartão de conteúdo será enviado.
+Com o catálogo pronto, [crie uma Campaign de cartão de conteúdo]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card). No criador, insira a lógica Liquid para determinar quais usuários devem receber a Campaign e qual receita e imagem devem ser exibidas. Nesse caso de uso, a Braze extrairá o `start_date` do usuário (ou data de inscrição) e o comparará com a data atual. A diferença em dias determinará qual cartão de conteúdo será enviado.
 
 {% subtabs local %}
 {% subtab title %}
@@ -155,7 +155,7 @@ Por exemplo:
 
 ![Um exemplo de criador de mensagem de uma Campaign de cartão de conteúdo.]({% image_buster /assets/img/recs/content_card_preview.png %})
 
-Na seção **Comportamento ao clicar**, insira a lógica Liquid para onde os usuários devem ser redirecionados quando clicarem no cartão de conteúdo em dispositivos iOS, Android e Web.
+Na seção **Comportamento ao clicar**, insira a lógica Liquid para onde os usuários devem ser redirecionados quando clicarem no cartão de conteúdo em dispositivos iOS, Android e web.
 
 {% raw %}
 ```liquid
@@ -184,7 +184,7 @@ Para criar seu mecanismo de recomendação usando Conteúdo conectado, primeiro 
 |-------|-----------|
 | **Converter uma planilha** | Converta uma planilha em um endpoint de API JSON usando um serviço como o SheetDP e anote a URL da API que isso gera. |
 | **Criar um endpoint personalizado** | Construa, hospede e mantenha um endpoint personalizado feito internamente. |
-| **Usar um mecanismo de terceiros** | Use um mecanismo de recomendação de terceiros, como um dos nossos [parceiros Alloy]({{site.baseurl}}/partners/message_personalization/), incluindo [Amazon Personalise]({{site.baseurl}}/partners/amazon_personalize/), [Certona]({{site.baseurl}}/partners/message_personalization/dynamic_content/personalized_recommendations/certona/), [Dynamic Yield]({{site.baseurl}}/partners/dynamic_yield/) e outros. |
+| **Usar um mecanismo de terceiros** | Use um mecanismo de recomendação de terceiros, como um dos nossos [parceiros Alloy]({{site.baseurl}}/partners/message_personalization), incluindo [Amazon Personalise]({{site.baseurl}}/partners/amazon_personalize), [Certona]({{site.baseurl}}/partners/message_personalization/dynamic_content/personalized_recommendations/certona), [Dynamic Yield]({{site.baseurl}}/partners/dynamic_yield) e outros. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Exemplo" }
 
 Em seguida, use Liquid na sua mensagem para chamar seu endpoint, combinar um valor de atributo personalizado com o perfil de um usuário e obter a recomendação correspondente.
@@ -212,7 +212,7 @@ Substitua o seguinte:
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Exemplo" }
 
 {% alert note %}
-Este é um exemplo básico e talvez você precise modificá-lo ainda mais com base nas suas necessidades específicas e na estrutura de dados. Para obter orientações mais detalhadas, consulte a [documentação do Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) ou fale com um desenvolvedor.
+Este é um exemplo básico e talvez você precise modificá-lo ainda mais com base nas suas necessidades específicas e na estrutura de dados. Para obter orientações mais detalhadas, consulte a [documentação do Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) ou fale com um desenvolvedor.
 {% endalert %}
 
 ### Exemplo
@@ -325,7 +325,7 @@ Good places
 ```
 {% endraw %}
 
-Veja na captura de tela abaixo um exemplo de como a resposta é exibida no dispositivo de um usuário.
+Veja na captura de tela a seguir um exemplo de como a resposta é exibida no dispositivo de um usuário.
 
 ![Renderização de uma lista de restaurantes gerada pela chamada final de exemplo.]({% image_buster /assets/img/recs/sample_response.png %}){: style="max-width:30%;"}
 {% endtab %}

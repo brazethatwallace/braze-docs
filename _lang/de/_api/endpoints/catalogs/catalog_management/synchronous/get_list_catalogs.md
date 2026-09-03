@@ -1,37 +1,37 @@
 ---
 nav_title: "GET: Kataloge auflisten"
 article_title: "GET: Kataloge auflisten"
-search_tag: Endpunkt
+search_tag: Endpoint
 page_order: 2
 
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt Details zum Braze-Endpunkt Kataloge auflisten."
+description: "Dieser Artikel beschreibt Details zum Braze-Endpunkt „Kataloge auflisten“."
 
 ---
 {% api %}
-# Kataloge auflisten
+# Kataloge auflisten {#list-catalogs}
 {% apimethod get %}
-/Kataloge
+/catalogs
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um eine Liste der Kataloge in einem Arbeitsbereich zurückzugeben.
+> Verwenden Sie diesen Endpunkt, um eine Liste der Kataloge in einem Workspace zurückzugeben.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#7d65fb86-ccf7-423f-9eb2-f68ab36df824 {% endapiref %}
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `catalogs.get`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `catalogs.get`.
 
 ## Rate-Limit
 
 {% multi_lang_include rate_limits.md endpoint='synchronous catalog' %}
 
-## Pfad und Anfrageparameter
+## Pfad- und Anfrageparameter {#path-and-request-parameters}
 
 Für diesen Endpunkt gibt es keine Pfad- oder Anfrageparameter.
 
-## Beispiel Anfrage
+## Beispielanfrage {#example-request}
 
 ```
 curl --location --request GET 'https://rest.iad-03.braze.com/catalogs' \
@@ -39,11 +39,11 @@ curl --location --request GET 'https://rest.iad-03.braze.com/catalogs' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## Antwort
+## Antwort {#response}
 
-### Beispiel für eine erfolgreiche Antwort
+### Beispiel für eine erfolgreiche Antwort {#example-success-response}
 
-Der Status Code `200` könnte den folgenden Antwortkörper zurückgeben.
+Der Statuscode `200` könnte den folgenden Antworttext zurückgeben.
 
 ```json
 {

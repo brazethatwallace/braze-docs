@@ -6,7 +6,7 @@ search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Eliminar una cuenta de usuario del panel de Braze."
+description: "En este artículo se describen los detalles del endpoint Eliminar una cuenta de usuario del panel de Braze."
 ---
 
 {% api %}
@@ -15,15 +15,17 @@ description: "En este artículo se describen los detalles del punto de conexión
 /scim/v2/Users/{id}
 {% endapimethod %}
 
-> Utiliza este punto de conexión para eliminar de forma permanente un usuario existente del panel especificando el recurso `id` devuelto por el método SCIM [`POST`]({{site.baseurl}}/api/endpoints/scim/post_create_user_account/).
+> Utiliza este endpoint para eliminar de forma permanente un usuario existente del panel especificando el recurso `id` devuelto por el método SCIM [`POST`]({{site.baseurl}}/api/endpoints/scim/post_create_user_account).
 
 Esto es similar a eliminar un usuario en la sección **Usuarios de la empresa** del panel de Braze.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#9c7c71ea-afd6-414a-99d1-4eb1fe274f16 {% endapiref %}
 
+{% multi_lang_include scim/scim_alerts.md alert='custom_endpoint' %}
+
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás un token SCIM. Utilizarás el origen de tu servicio como encabezado `X-Request-Origin`. Para más información, consulta [Aprovisionamiento automatizado de usuarios]({{site.baseurl}}/scim/automated_user_provisioning/).
+Para utilizar este endpoint, necesitarás un token SCIM. Utilizarás el origen de tu servicio como encabezado `X-Request-Origin`. Para más información, consulta [Aprovisionamiento automatizado de usuarios]({{site.baseurl}}/scim/automated_user_provisioning).
 
 ## Límite de velocidad {#rate-limit}
 
@@ -33,8 +35,8 @@ Para utilizar este punto de conexión, necesitarás un token SCIM. Utilizarás e
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
-| `id` | Obligatorio | Cadena | El ID del recurso del usuario. Este parámetro es devuelto por los métodos `POST` `/scim/v2/Users/` o `GET` `/scim/v2/Users?filter=userName eq "user@test.com"`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+| `id` | Obligatorio | Cadena | El ID del recurso del usuario. Este parámetro es devuelto por los métodos `POST` `/scim/v2/Users/` o `GET` `/scim/v2/Users?filter=userName eq "user@example.com"`. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parámetros de la ruta" }
 
 ## Cuerpo de la solicitud {#request-body}
 
@@ -61,7 +63,7 @@ HTTP/1.1 204 Not Found
 Content-Type: text/html; charset=UTF-8
 ```
 
-Si un desarrollador con este ID no existe en Braze, el punto de conexión responderá con lo siguiente:
+Si un desarrollador con este ID no existe en Braze, el endpoint responderá con lo siguiente:
 ```http
 HTTP/1.1 404 Not Found
 Content-Type: text/html; charset=UTF-8

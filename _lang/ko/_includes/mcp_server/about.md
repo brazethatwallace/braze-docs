@@ -1,96 +1,103 @@
 # Braze MCP 서버 {#the-braze-mcp-server}
 
-> Braze MCP 서버에 대해 알아보세요. 이는 Claude 및 Cursor와 같은 AI 도구가 비PII Braze 데이터에 접근하여 질문에 답하고, 트렌드를 분석하며, 인사이트를 제공할 수 있는 안전한 연결입니다.
+> Braze MCP 서버에 대해 알아보세요. 이는 Claude 및 Cursor와 같은 AI 도구가 비PII Braze 데이터에 접근하여 질문에 답하고, 트렌드를 분석하며, 인사이트를 제공하고, 콘텐츠를 생성할 수 있는 안전한 원격 연결입니다.
 
-{% multi_lang_include mcp_server/beta_alert.md %}
+## MCP(Model Context Protocol)란 무엇인가요? {#what-is-model-context-protocol-mcp}
 
-{% alert important %}
-## 로컬 호스팅 Braze MCP 서버 서비스 종료 {#sunsetting-the-locally-hosted-braze-mcp-server}
+​​Model Context Protocol(MCP)은 AI 에이전트가 다른 플랫폼의 데이터에 연결하고 활용할 수 있도록 하는 표준입니다. MCP는 두 가지 주요 구성 요소로 이루어져 있습니다:
 
-올여름 Braze는 원격 Braze 호스팅 MCP 서버를 얼리 액세스로 출시합니다. 이 서버는 로컬 호스팅 베타 서버([PyPI](https://pypi.org/project/braze-mcp-server/)의 `braze-mcp-server` 및 Claude Desktop 확장 디렉토리)를 대체합니다.
-
-**이것이 의미하는 바:**
-
-- 로컬 호스팅 서버는 계속 작동하지만 더 이상 지원되지 않습니다. 베타에서 새로운 엔드포인트를 추가하거나 문제를 수정하지 않습니다.
-- 원격 서버가 얼리 액세스로 제공되면 해당 서버로 전환해야 합니다. 원격 서버는 로컬 설치가 필요 없으며, 정적 API 키 대신 OAuth를 사용하고, Claude, Copilot, Gemini CLI, Codex, Cursor와 같은 MCP 클라이언트에서 작동합니다.
-- 얼리 액세스 가용성에 대해서는 이 페이지를 확인하거나, Braze 계정 팀에 관심을 표명하세요.
-{% endalert %}
-
-## 모델 컨텍스트 프로토콜(MCP)이란? {#what-is-model-context-protocol-mcp}
-
-​​모델 컨텍스트 프로토콜 또는 MCP는 AI 에이전트가 다른 플랫폼의 데이터에 연결하고 작업할 수 있도록 하는 표준입니다. 주요 두 가지 부분이 있습니다:
-
-- **MCP 클라이언트:** AI 에이전트가 실행되는 애플리케이션으로, Cursor 또는 Claude 등이 있습니다.
-- **MCP 서버:** Braze와 같은 다른 플랫폼에서 제공하는 서비스로, AI가 사용할 수 있는 도구와 접근할 수 있는 데이터를 정의합니다.
+- **MCP 클라이언트:** Cursor 또는 Claude와 같이 AI 에이전트가 실행되는 애플리케이션입니다.
+- **MCP 서버:** Braze와 같은 다른 플랫폼이 제공하는 서비스로, AI가 사용할 수 있는 도구와 접근할 수 있는 데이터를 정의합니다.
 
 ## Braze MCP 서버 소개 {#about-the-braze-mcp-server}
 
-[Braze MCP 서버를 설정한 후]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/setup/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/setup/){% endif %}, 에이전트, 어시스턴트, 챗봇과 같은 AI 도구를 Braze에 직접 연결하여 Canvas 및 Campaign 분석, 커스텀 속성, Segments 등과 같은 집계된 데이터를 읽을 수 있습니다. Braze MCP 서버는 다음에 적합합니다:
+[Braze MCP 서버를 설정]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/setup/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/setup/){% endif %}한 후, 에이전트, 어시스턴트, 챗봇 등의 AI 도구를 Braze에 직접 연결하여 Canvas 및 Campaign 분석, 커스텀 속성, Segments 등의 집계 데이터를 읽을 수 있습니다. Braze MCP 서버는 다음과 같은 용도에 적합합니다:
 
 - Braze 컨텍스트가 필요한 AI 기반 도구 구축.
-- 다단계 에이전트 워크플로우를 만드는 CRM 엔지니어.
+- 다단계 에이전트 워크플로를 생성하는 CRM 엔지니어.
 - 자연어 쿼리를 실험하는 기술 마케터.
 
-Braze MCP 서버는 읽기 전용 및 쓰기 엔드포인트를 모두 포함합니다. Braze 고객 프로필에서 데이터를 반환하지 않습니다. Braze API 키에 할당할 엔드포인트를 선택할 수 있으며, 이 선택에 따라 에이전트가 읽거나 생성하거나 업데이트할 수 있는 항목이 결정됩니다. 사용 가능한 엔드포인트의 전체 목록과 필요한 권한에 대해서는 [사용 가능한 API 기능]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/){% endif %}을 참조하세요.
+Braze MCP 서버에는 읽기 및 쓰기 도구가 모두 포함되어 있습니다. 이러한 도구는 Braze 사용자 프로필의 데이터를 반환하지 않습니다. 에이전트는 Braze 대시보드 사용자 권한을 상속받습니다. 사용 가능한 도구의 전체 목록은 [사용 가능한 API 함수]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/){% endif %}를 참조하세요.
 
 {% alert warning %}
-에이전트에 부여하려는 API 키 권한만 할당하세요. 에이전트가 Braze에서 변경을 수행하지 않기를 원한다면 API 키를 생성할 때 쓰기 권한을 비활성화 상태로 두세요. 에이전트는 부여된 모든 쓰기 권한을 통해 데이터를 쓰려고 시도할 수 있습니다.
+사용자 수준의 PII를 노출하는 도구는 사용할 수 없습니다.
 {% endalert %}
 
-## 사용 예시 {#usage-example}
+MCP 서버를 사용하여 Campaign 및 Canvas 성능에 대해 질문하고, Segments 및 커스텀 속성을 탐색하고, 보고서를 생성하고, 자연어를 통해 이메일 템플릿, Content Blocks, 미디어 라이브러리 에셋 등의 콘텐츠를 만들 수 있습니다.
 
-Claude나 Cursor와 같은 도구를 사용하여 자연어로 Braze와 상호작용할 수 있습니다. 다른 예시와 모범 사례는 [Braze MCP 서버 사용하기]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/usage/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/usage/){% endif %}를 참조하세요.
+## 베타 MCP 서버는 더 이상 지원되지 않나요? {#is-the-beta-mcp-server-deprecated}
 
-{% tabs %}
-{% tab Claude %}
-**예시 프롬프트:** `What are my available Braze functions?`
-**예시 응답:** `list_functions`를 사용하여 사용 가능한 Braze MCP 기능 카테고리를 반환했습니다.
-{% endtab %}
+네. 2025년 8월에 출시된 로컬 호스팅 MCP 서버는 더 이상 지원되지 않으며 추가 업데이트가 제공되지 않습니다. 계속 사용할 수는 있지만, Braze에서는 원격 호스팅 버전으로 마이그레이션할 것을 권장합니다.
 
-{% tab Cursor %}
-**예시 프롬프트:** `What are my available Braze functions?`
-**예시 응답:** `list_functions`를 쿼리하고 `get_canvas_list`와 같은 기능을 나열했습니다.
-{% endtab %}
-{% endtabs %}
+### 원격 서버는 어떻게 다른가요? {#how-is-the-remote-server-different}
+
+이전 Braze MCP 서버는 로컬 머신에서 실행되었습니다. 패키지를 설치하고, 설정 파일을 관리하며, 적절한 권한이 부여된 Braze API 키를 생성해야 했습니다. 원격 MCP 서버는 이러한 로컬 설정을 제거합니다.
+
+지원되는 MCP 클라이언트에서 1분 이내에 연결할 수 있습니다. 인증은 OAuth를 사용합니다. 접근 권한은 공유 API 키가 아니라 Braze 대시보드 사용자 계정에 연결되므로, 에이전트가 보고 수행할 수 있는 작업은 대시보드 권한과 동일합니다. 대시보드 사용자가 Braze에서 접근 권한을 잃으면 클라이언트도 접근 권한을 잃게 됩니다.
+
+주요 차이점은 다음과 같습니다:
+
+- **설정:** 패키지를 설치하고 설정 파일을 편집하는 대신 Braze URL을 붙여넣기만 하면 됩니다.
+- **인증:** API 키를 생성하는 대신 Braze 계정으로 로그인합니다.
+- **권한:** API 키 권한이 아닌 대시보드 사용자 계정을 기반으로 접근 권한이 부여됩니다.
+- **워크스페이스 타겟팅:** 로컬 설정에 고정되는 대신 요청별로 워크스페이스 컨텍스트가 전달됩니다.
 
 ## 자주 묻는 질문(FAQ) {#faq}
 
 ### 어떤 MCP 클라이언트가 지원되나요? {#which-mcp-clients-are-supported}
 
-[Claude](https://claude.ai/)와 [Cursor](https://cursor.com/)만 공식적으로 지원됩니다. Braze MCP 서버를 사용하려면 이 클라이언트 중 하나의 계정이 있어야 합니다.
+OAuth를 지원하는 원격 MCP 서버와 호환되는 모든 MCP 클라이언트를 사용할 수 있습니다. Braze가 검증한 클라이언트는 다음과 같습니다:
+
+- 커스텀 커넥터를 통한 Claude
+- 커스텀 커넥터를 통한 ChatGPT
+- Cursor
+- OpenAI Codex
+- Claude Code
+- Visual Studio Code
 
 ### 내 MCP 클라이언트가 어떤 Braze 데이터에 접근할 수 있나요? {#what-braze-data-can-my-mcp-client-access}
 
-MCP 클라이언트는 PII를 반환하지 않는 엔드포인트에 접근할 수 있습니다. API 키에 할당하는 권한을 통해 에이전트가 사용할 수 있는 엔드포인트를 제어할 수 있습니다.
+MCP 클라이언트는 사용자 수준 PII를 반환하지 않는 도구에 접근할 수 있습니다.
 
 ### 내 MCP 클라이언트가 Braze 데이터를 변경할 수 있나요? {#can-my-mcp-client-change-braze-data}
 
-네. 서버는 에이전트가 워크스페이스에서 콘텐츠를 생성하거나 업데이트할 수 있도록 하는 제한된 쓰기 엔드포인트 세트를 노출합니다. 예를 들어 미디어 라이브러리 자산, 이메일 템플릿, Content Blocks 등이 있습니다. 각 쓰기 엔드포인트에는 고유한 API 키 권한이 필요합니다. 에이전트가 Braze에서 특정 변경을 수행하지 않기를 원한다면 API 키를 생성할 때 해당 권한을 비활성화 상태로 두세요. 쓰기 기능의 전체 목록과 필요한 권한에 대해서는 [사용 가능한 API 기능]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/){% endif %}을 참조하세요.
+네, 대시보드 사용자에게 해당 권한이 있는 경우 가능합니다.
 
-### Braze에 대해 서드파티 MCP 서버를 사용할 수 있나요? {#can-i-use-a-third-party-mcp-server-for-braze}
+### Braze API 키가 여전히 필요한가요? {#do-i-still-need-a-braze-api-key}
 
-Braze 데이터에 대해 서드파티 MCP 서버를 사용하는 것은 권장되지 않습니다. [PyPi](https://pypi.org/project/braze-mcp-server/)에 호스팅된 공식 Braze MCP 서버만 사용하세요.
+MCP에는 필요하지 않습니다. API 키는 REST API에서 계속 작동하며 지원이 중단되는 것은 아닙니다.
 
-### Braze MCP 서버가 PII 접근을 제공하지 않는 이유는 무엇인가요? {#why-doesnt-the-braze-mcp-server-offer-pii-access}
+### 어떤 리전이 지원되나요? {#which-regions-are-supported}
 
-유용한 사용 사례를 지원하면서 사용자 데이터를 보호하기 위해, 서버는 일반적으로 PII를 반환하지 않는 엔드포인트로 제한됩니다. 이를 통해 워크스페이스와 그 안의 사용자에 대한 위험을 줄입니다.
+두 Braze 클러스터 모두 지원됩니다. 현재 두 개의 엔드포인트를 사용할 수 있습니다:
 
-### API 키를 재사용할 수 있나요? {#can-i-reuse-my-api-keys}
+- `https://mcp.braze.com/mcp` (US)
+- `https://mcp.braze.eu/mcp` (EU)
 
-아니요. MCP 클라이언트를 위해 새로운 API 키를 생성해야 합니다. AI 도구에는 자신이 편안하게 느끼는 수준의 접근 권한만 부여하고, 과도한 권한은 피하세요.
+어느 엔드포인트든 모든 Braze 클러스터에 접근할 수 있습니다.
 
-### Braze MCP 서버는 로컬에 호스팅되나요, 아니면 원격에 호스팅되나요? {#is-the-braze-mcp-server-hosted-locally-or-remotely}
+### 검증된 목록 외의 도구에서 Braze 원격 MCP 서버를 사용할 수 있나요? {#can-i-use-the-braze-remote-mcp-server-with-tools-other-than-the-verified-list}
 
-현재 사용 가능한 Braze MCP 서버는 로컬에 호스팅됩니다. 원격 Braze 호스팅 MCP 서버가 올여름 얼리 액세스로 제공될 예정이며, 로컬 호스팅 베타 서버를 대체합니다.
+시도할 수 있지만 인증이 차단될 수 있습니다. Braze는 현재 보안을 위해 지원되는 도메인의 허용 목록을 유지하고 있습니다. {% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="support for your MCP client" %}
 
-### Cursor가 함수만 나열하는 이유는 무엇인가요? {#why-is-cursor-only-listing-functions}
+### 원격 서버가 여러 워크스페이스를 지원하나요? {#does-the-remote-server-support-multiple-workspaces}
 
-ask 모드인지 agent 모드인지 확인하세요. MCP 서버를 사용하려면 agent 모드에 있어야 합니다.
+네. 대화별 또는 요청별로 워크스페이스를 지정할 수 있습니다. 하나의 연결로 접근 권한이 있는 모든 워크스페이스를 사용할 수 있습니다.
 
-### 에이전트가 잘못된 것처럼 보이는 답변을 반환할 때는 어떻게 해야 하나요? {#what-do-i-do-when-the-agent-returns-an-answer-that-looks-incorrect}
+### 에이전트가 사용자 수준 PII에 접근할 수 있나요? {#can-my-agent-access-user-level-pii}
 
-Cursor와 같은 도구를 사용할 때는 사용 중인 모델을 변경해 보세요. 예를 들어, 자동으로 설정되어 있다면 특정 모델로 변경하고 어떤 모델이 사용 사례에 가장 적합한지 실험해 보세요. 새로운 채팅을 시작하고 프롬프트를 다시 시도해 볼 수도 있습니다.
+아니요. 현재 PII를 노출하는 도구는 사용할 수 없습니다.
 
-문제가 지속되면 [mcp-product@braze.com](mailto:mcp-product@braze.com)으로 이메일을 보내 알려주세요. 가능하다면 비디오를 포함하고 호출 함수를 확장하여 에이전트가 시도한 호출을 볼 수 있도록 해주세요.
+### 권한이 변경되면 어떻게 되나요? {#what-happens-when-my-permissions-change}
+
+에이전트 접근 권한은 대시보드 사용자에 따라 변경됩니다. 권한 변경은 다음 요청 시 적용됩니다. 비활성화된 대시보드 사용자는 MCP 접근 권한을 잃습니다.
+
+### 클라이언트 디렉토리에서 Braze 커넥터가 보이지 않는 이유는 무엇인가요? {#why-do-i-not-see-the-braze-connector-in-my-clients-directory}
+
+디렉토리 목록은 아직 모든 MCP 클라이언트에서 제공되지 않을 수 있습니다. Braze MCP URL을 사용하여 언제든지 수동으로 연결할 수 있습니다.
+
+### 우리 회사에서 IP 허용 목록을 사용합니다. 원격 MCP 서버를 사용할 수 있나요? {#my-company-uses-ip-allowlisting-can-we-use-the-remote-mcp-server}
+
+현재는 불가능합니다. [IP 허용 목록](https://www.braze.com/docs/user_guide/administer/global/admin_settings/security_settings#dashboard-ip-allowlisting)을 사용하는 경우 원격 MCP 서버를 사용할 수 없습니다.
 
 {% multi_lang_include mcp_server/legal_disclaimer.md %}

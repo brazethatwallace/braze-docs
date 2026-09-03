@@ -26,9 +26,9 @@ During your Braze implementation, be sure to discuss marketing goals with your t
 
 ## Automatically collected data
 
-Certain user data is collected automatically by our SDK—for example, First Used App, Last Used App, Total Session Count, Device OS, etc. If you follow our integration guides to implement our SDKs, you will be able to take advantage of this [default data collection]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/). Checking this list can help you avoid storing the same information about users more than once. With the exception of session start and end, all other automatically tracked data does not count toward your data point usage.
+Certain user data is collected automatically by our SDK—for example, First Used App, Last Used App, Total Session Count, Device OS, etc. If you follow our integration guides to implement our SDKs, you will be able to take advantage of this [default data collection]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection). Checking this list can help you avoid storing the same information about users more than once. With the exception of session start and end, all other automatically tracked data does not count toward your data point usage.
 
-See our [SDK primer]({{site.baseurl}}/developer_guide/getting_started/sdk_overview/) article to allowlist processes that block the default collection of certain data items.
+See our [SDK primer]({{site.baseurl}}/developer_guide/getting_started/sdk_overview) article to allowlist processes that block the default collection of certain data items.
 
 ## Custom events
 
@@ -53,7 +53,7 @@ Braze notes the number of times these events have occurred as well as the last t
 ![A custom event analytics graph showing stats on users who added a credit card and made a search across a period of a thirty days.]({% image_buster /assets/img_archive/custom_event_analytics_example.png %} "custom_event_analytics_example.png")
 
 {% alert note %}
-[Incrementing custom attributes]({{site.baseurl}}/api/endpoints/messaging/) can be used to keep a counter on a user action similar to a custom event. However, you will not be able to view custom attribute data in a time-series. User actions that do not need to be analyzed in time-series should be recorded via this method.
+[Incrementing custom attributes]({{site.baseurl}}/api/endpoints/messaging) can be used to keep a counter on a user action similar to a custom event. However, you will not be able to view custom attribute data in a time-series. User actions that do not need to be analyzed in time-series should be recorded via this method.
 {% endalert %}
 
 ### Custom event storage
@@ -68,7 +68,7 @@ For example, if an eCommerce application wanted to send a message to a user when
 
 ![A custom event example that will send a campaign to a user who has abandoned their cart and left the cart value at more than 100 and less than 200.]({% image_buster /assets/img_archive/customEventProperties.png %} "customEventProperties.png")
 
-Custom event properties can also be used for personalization within the messaging template. Any campaign using [Action-Based Delivery]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) with a trigger event can use custom event properties from that event for messaging personalization. If a gaming application wanted to send a message to users who had completed a level, it could further personalize the message with a property for the time it took users to complete that level. In this example, the message is personalized for three different segments using [conditional logic]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/). The custom event property called ``time_spent``, can be included in the message by calling ``{% raw %} {{event_properties.${time_spent}}} {% endraw %}``.
+Custom event properties can also be used for personalization within the messaging template. Any campaign using [Action-Based Delivery]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) with a trigger event can use custom event properties from that event for messaging personalization. If a gaming application wanted to send a message to users who had completed a level, it could further personalize the message with a property for the time it took users to complete that level. In this example, the message is personalized for three different segments using [conditional logic]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic). The custom event property called ``time_spent``, can be included in the message by calling ``{% raw %} {{event_properties.${time_spent}}} {% endraw %}``.
 
 {% raw %}
 ```liquid
@@ -120,7 +120,7 @@ When segmenting using the **DOES NOT MATCH REGEX** filter, it is required that t
 For more on how to use our regular expressions filter, check out this documentation on [Perl compatible regular expressions (PCRE)](http://www.regextester.com/pregsyntax.html).
 <br>
 More resources on regex:
-- [Regex with Braze]({{site.baseurl}}/user_guide/audience/segments/regex/)
+- [Regex with Braze]({{site.baseurl}}/user_guide/audience/segments/regex)
 - [Regex Debugger and Tester](https://regex101.com/)
 - [Regex Tutorial](https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285)
 {% endalert %}
@@ -143,6 +143,10 @@ abUser.addToCustomAttributeArray('favorite_foods', 'ice cream'); // => ['pasta',
 ```
 
 The default and maximum number of elements in an array is 500. You can update the maximum number of arrays in the Braze dashboard, under **Data Settings** > **Custom Attributes**. Arrays exceeding the maximum number of elements are truncated to contain the maximum number of elements.
+
+{% alert note %}
+If an array custom attribute appears on a user profile but shows no values, check the attribute's **Max Length** in **Data Settings** > **Custom Attributes**. A **Max Length** of `0` prevents values from displaying on the profile. For troubleshooting steps, see [Custom attribute data types]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#arrays).
+{% endalert %}
 
 The following table describes available segmentation options for array attributes.
 
@@ -188,7 +192,7 @@ The following table describes available segmentation options for time attributes
 Numeric attributes have a wide variety of use cases. Incrementing number custom attributes are useful for storing the number of times a given action or event has occurred. Standard numbers have all sorts of usages, such as recording shoe size, waist size, or the number of times a user has viewed a certain product feature or category.
 
 {% alert note %}
-Money spent should not be recorded by this method. Rather it should be recorded via our [purchase methods]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#purchase-events--revenue-tracking).
+Money spent should not be recorded by this method. Rather it should be recorded via our [purchase methods]({{site.baseurl}}/developer_guide/analytics#purchase-events--revenue-tracking).
 {% endalert %}
 
 The following table describes available segmentation options for numeric attributes.
@@ -287,7 +291,7 @@ Adding these attributes would afford you the ability to send campaigns to users,
 
 1. Remind users who haven't logged on in seven days but who have a promotional credit that their credit exists and they should come back to the app to use it!
 2. Message users who give low driver ratings to get direct customer feedback to see why they didn't enjoy their rides.
-3. Use our [message templating and personalization features]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/) to drag the unique promotion code attribute into messaging directed at users.
+3. Use our [message templating and personalization features]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize) to drag the unique promotion code attribute into messaging directed at users.
 
 ## Best practices
 
@@ -306,8 +310,8 @@ Adding these attributes would afford you the ability to send campaigns to users,
 User IDs should be set for each of your users. These should be unchanging and accessible when a user opens the app. We **strongly recommend** providing this identifier as it will allow you to:
 
 - Track your users across devices and platforms, improving the quality of your behavioral and demographic data.
-- Import data about your users using our [user data API]({{site.baseurl}}/api/endpoints/user_data/).
-- Target specific users with our [messaging API]({{site.baseurl}}/api/endpoints/messaging/) for both general and transactional messages.
+- Import data about your users using our [user data API]({{site.baseurl}}/api/endpoints/user_data).
+- Target specific users with our [messaging API]({{site.baseurl}}/api/endpoints/messaging) for both general and transactional messages.
 
 User IDs must be less than 512 characters long and should be private and not easily obtained (for example, not a plain email address or username). If such an identifier is not available, Braze will assign a unique identifier to your users, but you will lack the capabilities listed for user IDs. You should avoid setting user IDs for users for whom you lack a unique identifier that is tied to them as an individual. Passing a device identifier offers no benefit versus the automatic anonymous user tracking Braze offers by default. The following are some examples of suitable and unsuitable user IDs.
 

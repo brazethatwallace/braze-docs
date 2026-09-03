@@ -22,7 +22,7 @@ description: "この記事では、無効な電話番号を削除するBrazeエ�
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`sms.invalid_phone_numbers.remove` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`sms.invalid_phone_numbers.remove` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -45,8 +45,8 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | ----------|-----------| ---------|------ |
-| `phone_number` | 必須 | e.164 形式の文字列の配列 | 変更する最大50件の電話番号の配列。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+| `phone_numbers` | 必須 | e.164 形式の文字列の配列 | 変更する最大50件の電話番号の配列。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}
 

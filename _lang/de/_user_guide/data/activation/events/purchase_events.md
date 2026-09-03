@@ -17,38 +17,38 @@ Kauf-Events sind Kaufaktionen Ihrer Nutzer:innen und werden verwendet, um In-App
 
 ## Kauf-Events protokollieren {#log-purchase-events}
 
-Sie können Käufe protokollieren, indem Sie ein [Kauf-Objekt]({{site.baseurl}}/api/objects_filters/purchase_object/) über den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) übermitteln oder eine unserer unten aufgeführten SDK-Bibliotheken verwenden.
+Sie können Käufe protokollieren, indem Sie ein [Kauf-Objekt]({{site.baseurl}}/api/objects_filters/purchase_object) über den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) übergeben oder eine unserer SDK-Bibliotheken verwenden, die im folgenden Abschnitt aufgeführt sind.
 
 {% alert note %}
-Kauf-Event-Eigenschaften verwenden dieselben Datentypen wie [angepasste Event-Eigenschaften]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_events/#expected-format).
+Kauf-Event-Eigenschaften verwenden die gleichen Datentypen wie [angepasste Event-Eigenschaften]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties#expected-format).
 {% endalert %}
 
-Im Folgenden finden Sie eine Liste der Methoden, die auf verschiedenen Plattformen zur Protokollierung von Käufen verwendet werden. Auf diesen Seiten finden Sie auch eine Dokumentation dazu, wie Sie Eigenschaften und Mengen zu Ihrem Kauf-Event hinzufügen können. Sie können Ihre Nutzer:innen anhand dieser Eigenschaften gezielter ansprechen.
+Im Folgenden finden Sie die Methoden, die auf verschiedenen Plattformen zum Protokollieren von Käufen verwendet werden. Auf diesen Seiten finden Sie auch eine Dokumentation dazu, wie Sie Eigenschaften und Mengen zu Ihrem Kauf-Event hinzufügen können. Sie können Ihre Nutzer:innen anhand dieser Eigenschaften weiter gezielt ansprechen.
 
-- [Android und FireOS]({{site.baseurl}}/developer_guide/analytics/logging_purchases/?tab=android)
-- [iOS]({{site.baseurl}}/developer_guide/analytics/logging_purchases/?tab=swift)
-- [Web]({{site.baseurl}}/developer_guide/analytics/logging_purchases/?tab=web)
-- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics/#logging-purchases)
-- [Unity]({{site.baseurl}}/developer_guide/analytics/logging_purchases/?tab=unity)
-- [.NET MAUI (ehemals Xamarin)]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics/#logging-purchases)
-- [Roku]({{site.baseurl}}/developer_guide/analytics/logging_purchases/?tab=roku)
+- [Android und FireOS]({{site.baseurl}}/developer_guide/analytics/logging_purchases?tab=android)
+- [iOS]({{site.baseurl}}/developer_guide/analytics/logging_purchases?tab=swift)
+- [Internet]({{site.baseurl}}/developer_guide/analytics/logging_purchases?tab=web)
+- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics#logging-purchases)
+- [Unity]({{site.baseurl}}/developer_guide/analytics/logging_purchases?tab=unity)
+- [.NET MAUI (ehemals Xamarin)]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics#logging-purchases)
+- [Roku]({{site.baseurl}}/developer_guide/analytics/logging_purchases?tab=roku)
 
 ## Kaufdaten anzeigen {#view-purchase-data}
 
-Nachdem Sie Kauf-Events eingerichtet und mit der Protokollierung begonnen haben, können Sie diese Kaufdaten im Profil einer Nutzerin oder eines Nutzers im [Übersicht-Tab]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/#overview-tab) einsehen.
+Nachdem Sie Kauf-Events eingerichtet und mit der Protokollierung begonnen haben, können Sie diese Kaufdaten im Profil einer Nutzerin oder eines Nutzers auf dem [Tab „Übersicht“]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#overview-tab) einsehen.
 
 ## Kaufdaten verwenden {#use-purchase-data}
 
-Es gibt mehrere Möglichkeiten, Kaufdaten in Braze zu verwenden:
+Es gibt verschiedene Möglichkeiten, Kaufdaten in Braze zu nutzen:
 
-- **[Segmentierung](#purchase-event-segmentation):** Verwenden Sie Kaufdaten, um Segmente von Nutzer:innen basierend auf ihrem Kaufverhalten zu erstellen.
+- **[Segmentierung](#purchase-event-segmentation):** Verwenden Sie Kaufdaten, um Segments von Nutzer:innen basierend auf ihrem Kaufverhalten zu erstellen.
 - **[Personalisierung](#personalization):** Verwenden Sie Kaufdaten, um Nachrichten an Nutzer:innen zu personalisieren.
 - **[Nachrichten triggern](#trigger-messages):** Richten Sie Nachrichten ein, die basierend auf Kauf-Events getriggert werden.
-- **[Analytics](#analytics):** Analysieren Sie Ihre Kaufdaten, um Insights zum Nutzerverhalten und zur Effektivität Ihrer Marketingkampagnen zu gewinnen.
+- **[Analytics](#analytics):** Analysieren Sie Ihre Kaufdaten, um Insights zum Verhalten der Nutzer:innen und zur Wirksamkeit Ihrer Marketing-Campaigns zu gewinnen.
 
 ### Segmentierung {#purchase-event-segmentation}
 
-Sie können beliebig viele oder verschiedene Folgekampagnen basierend auf protokollierten Kauf-Events triggern. Zum Beispiel können Sie ein Segment von Nutzer:innen erstellen, die in den letzten 30 Tagen einen Kauf getätigt haben, oder ein Segment von Nutzer:innen, die einen bestimmten Betrag ausgegeben haben.
+Sie können beliebig viele oder verschiedene Arten von Folgekampagnen basierend auf protokollierten Kauf-Events triggern. Zum Beispiel können Sie ein Segment von Nutzer:innen erstellen, die in den letzten 30 Tagen einen Kauf getätigt haben, oder ein Segment von Nutzer:innen, die über einen bestimmten Betrag ausgegeben haben.
 
 Die folgenden Segmentierungsfilter stehen beim Targeting von Nutzer:innen zur Verfügung:
 
@@ -63,19 +63,19 @@ Die folgenden Segmentierungsfilter stehen beim Targeting von Nutzer:innen zur Ve
 - X Purchase Property in Y Days
 - X Purchases in Last Y Days
 
-Für Details zu jedem Filter lesen Sie das Glossar der [Segmentierungsfilter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/) und filtern Sie nach „Purchase behavior“.
+Einzelheiten zu den einzelnen Filtern finden Sie im Glossar der [Segmentierungsfilter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) – filtern Sie dort nach „Purchase behavior“.
 
-![Filtern nach Nutzer:innen, die genau drei Käufe getätigt haben]({% image_buster /assets/img/purchase_filter_example.gif %}){: style="max-width:80%;"}
+![Filterung nach Nutzer:innen, die genau drei Käufe getätigt haben]({% image_buster /assets/img/purchase_filter_example.gif %}){: style="max-width:80%;"}
 
 {% alert tip %}
-Um nach der Anzahl eines bestimmten Kaufs zu segmentieren, erfassen Sie diesen Kauf einzeln als [inkrementierendes angepasstes Attribut]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#custom-attribute-storage).
+Um nach der Häufigkeit eines bestimmten Kaufs zu segmentieren, erfassen Sie diesen Kauf einzeln als [inkrementierendes angepasstes Attribut]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview#custom-attribute-storage).
 {% endalert %}
 
 ### Personalisierung {#personalization}
 
-Wie bei jeder anderen Art von Daten, die Sie von Ihren Nutzer:innen erfassen, können Sie Kaufdaten verwenden, um Ihr Messaging über Liquid zu personalisieren. Zum Beispiel können Sie eine personalisierte E-Mail an Nutzer:innen senden, die Produkte empfiehlt, die denen ähneln, die sie gerade gekauft haben.
+Wie bei jeder anderen Art von Daten, die Sie von Ihren Nutzer:innen erfassen, können Sie Kaufdaten nutzen, um Ihr Messaging über Liquid zu personalisieren. Zum Beispiel können Sie eine personalisierte E-Mail an Nutzer:innen senden, in der Sie Produkte empfehlen, die denen ähnlich sind, die sie gerade gekauft haben.
 
-Angenommen, Sie haben eine Kauf-Event-Eigenschaft namens `last_purchased_product`, die den Namen des letzten Produkts speichert, das eine Nutzerin oder ein Nutzer gekauft hat. Sie können diese Eigenschaft verwenden, um eine E-Mail-Nachricht wie folgt zu personalisieren:
+Angenommen, Sie haben eine Event-Eigenschaft namens `last_purchased_product`, die den Namen des letzten Produkts speichert, das eine Nutzer:in gekauft hat. Sie können diese Eigenschaft verwenden, um eine E-Mail-Nachricht wie folgt zu personalisieren:
 
 {% raw %}
 
@@ -91,13 +91,13 @@ Angenommen, Sie haben eine Kauf-Event-Eigenschaft namens `last_purchased_product
 
 {% endraw %}
 
-In diesem Beispiel wird die Nachricht basierend auf der Eigenschaft `last_purchased_product` personalisiert. Wenn das letzte Produkt, das die Nutzerin oder der Nutzer gekauft hat, „Running Shoes“ war, erhält sie oder er eine Nachricht mit Empfehlungen für Laufshorts und Wasserflaschen. Wenn das letzte Produkt „Yoga Mat“ war, erhält sie oder er eine Nachricht mit Empfehlungen für Yoga-Blöcke und -Gurte. Wenn `last_purchased_product` etwas anderes ist, erhält sie oder er eine allgemeine Dankesnachricht.
+In diesem Beispiel wird die Nachricht basierend auf der Eigenschaft `last_purchased_product` personalisiert. Wenn das letzte Produkt, das die Nutzer:in gekauft hat, „Running Shoes“ war, erhält sie eine Nachricht mit Empfehlungen für Laufshorts und Wasserflaschen. Wenn das letzte Produkt „Yoga Mat“ war, erhält sie eine Nachricht mit Empfehlungen für Yogablöcke und -gurte. Wenn `last_purchased_product` etwas anderes enthält, erhält sie eine allgemeine Dankesnachricht.
 
 ### Nachrichten triggern {#trigger-messages}
 
-Ein häufiger Anwendungsfall ist das automatische Senden einer Nachricht, z. B. einer E-Mail, wenn eine Nutzerin oder ein Nutzer einen Kauf tätigt. Zum Beispiel können Sie eine Dankesnachricht oder einen Rabattcode für einen zukünftigen Kauf senden.
+Ein häufiger Anwendungsfall ist das automatische Senden einer Nachricht, z. B. einer E-Mail, wenn eine Nutzer:in einen Kauf tätigt. Zum Beispiel können Sie eine Dankesnachricht oder einen Rabattcode für einen zukünftigen Kauf senden.
 
-Erstellen Sie dazu eine aktionsbasierte Campaign oder ein Canvas und setzen Sie die Aktion zum Triggern auf **Make Purchase**. Sie können auch zusätzliche Bedingungen für den Trigger festlegen, wie das gekaufte Produkt oder den Kaufbetrag.
+Erstellen Sie dazu eine aktionsbasierte Campaign oder ein Canvas und setzen Sie die Trigger-Aktion auf **Make Purchase**. Sie können auch zusätzliche Bedingungen für den Trigger festlegen, wie das gekaufte Produkt oder den Kaufbetrag.
 
 Sie können Ihre getriggerte Nachricht auch mit Liquid personalisieren. Im folgenden Beispiel ist `${purchase_product_name}` ein angepasstes Attribut, das Sie durch den tatsächlichen Attributnamen ersetzen würden, der den Namen des gekauften Produkts in Ihrem Braze-Setup speichert.
 
@@ -111,9 +111,9 @@ Thank you for your purchase of ${purchase_product_name}! As a token of our appre
 
 ### Analytics {#analytics}
 
-Zusätzlich zum Tracking von Kauf-Metriken für die Segmentierung erfasst Braze auch die Anzahl der Käufe für jedes Produkt und den im Laufe der Zeit generierten Umsatz. Dies kann hilfreich sein, um die beliebtesten Produkte zu identifizieren oder die Auswirkungen einer Werbekampagne auf den Umsatz zu messen.
+Zusätzlich zum Tracking von Kaufmetriken für die Segmentierung erfasst Braze auch die Anzahl der Käufe für jedes Produkt und den im Laufe der Zeit generierten Umsatz. Dies kann hilfreich sein, um die beliebtesten Produkte zu identifizieren oder die Auswirkungen einer Werbeaktion auf die Verkäufe zu messen.
 
-Sie finden diese Daten auf der Seite [Umsatzbericht]({{site.baseurl}}/user_guide/analytics/reports/revenue_report/#revenue-data).
+Sie finden diese Daten auf der Seite [Umsatzbericht]({{site.baseurl}}/user_guide/analytics/reports/revenue_report#exporting-revenue-data).
 
 ### Umsatzberechnungen {#revenue-calculations}
 
@@ -157,30 +157,30 @@ Sie finden diese Daten auf der Seite [Umsatzbericht]({{site.baseurl}}/user_guide
 
 #### Währungsumrechnung {#currency-conversion}
 
-Wenn Kauf-Events in einer Nicht-USD-Währung protokolliert werden, rechnet Braze den Betrag mithilfe von Wechselkursen von [Open Exchange Rates](http://openexchangerates.org) in USD um. Diese Kurse werden alle 24 Stunden aktualisiert. Da die Wechselkurse zwischengespeichert werden, kann es zu geringfügigen Abweichungen vom Echtzeit-Marktkurs kommen, insbesondere bei Währungen mit starken Schwankungen.
+Wenn Kauf-Events in einer anderen Währung als USD protokolliert werden, rechnet Braze den Betrag mithilfe von Wechselkursen von [Open Exchange Rates](http://openexchangerates.org) in USD um. Diese Kurse werden einmal alle 24 Stunden aktualisiert (gegen 4 Uhr morgens ET). Da die Wechselkurse gecacht werden, kann es zu geringfügigen Abweichungen vom Echtzeitkurs kommen, insbesondere bei Währungen mit starken Schwankungen.
 
-#### Berechnung des Lifetime Revenue {#lifetime-revenue-calculation}
+#### Berechnung des Lifetime-Revenue {#lifetime-revenue-calculation}
 
-Braze verwendet Kauf-Events, um den Lifetime Revenue (auch Lifetime-Value oder LTV genannt) einer Nutzerin oder eines Nutzers zu berechnen. Dies ist eine Prognose des Nettogewinns, der der gesamten zukünftigen Beziehung mit einer Kundin oder einem Kunden zugeschrieben wird. Dies kann Ihnen helfen, fundierte Entscheidungen über Strategien zur Kundengewinnung und -bindung zu treffen.
+Braze verwendet Kauf-Events, um den Lifetime-Revenue (auch Lifetime-Value oder LTV genannt) einer Nutzer:in zu berechnen. Dabei handelt es sich um eine Prognose des Nettogewinns, der der gesamten zukünftigen Beziehung mit einer Kund:in zugeordnet wird. Dies kann Ihnen helfen, fundierte Entscheidungen über Strategien zur Kundenakquise und Bindung zu treffen.
 
 $$\text{Average purchase value} = \frac{\text{Total spend in dollars}}{\text{Total number of purchase events}}$$
 
-Es gibt zwei Hauptstellen in Braze, an denen Sie den LTV Ihrer Nutzer:innen einsehen können:
+Es gibt zwei zentrale Stellen in Braze, an denen Sie den LTV Ihrer Nutzer:innen einsehen können:
 
-- Für Gesamtmetriken wie *Lifetime Revenue* und den *Lifetime Value per User* für jede App und Website lesen Sie Ihren [Umsatzbericht]({{site.baseurl}}/user_guide/analytics/reports/revenue_report/#revenue-data).
-- Um den Lifetime Revenue einer bestimmten Nutzerin oder eines bestimmten Nutzers einzusehen, sehen Sie sich das [Nutzerprofil]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/#overview-tab) an.
+- Für übergreifende Metriken wie *Lifetime Revenue* und den *Lifetime Value Per User* für jede App und Website, lesen Sie Ihren [Umsatzbericht]({{site.baseurl}}/user_guide/analytics/reports/revenue_report#exporting-revenue-data).
+- Um den Lifetime-Revenue einer bestimmten Nutzer:in zu verstehen, sehen Sie sich ihr [Nutzerprofil]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#overview-tab) an.
 
-##### Auswirkungen von Rückerstattungen auf den Lifetime Revenue {#impact-of-refunds-on-lifetime-revenue}
+##### Auswirkungen von Rückerstattungen auf den Lifetime-Revenue {#impact-of-refunds-on-lifetime-revenue}
 
-Wenn Sie Kauf-Events zum Tracking von Kaufdaten verwenden, sollten Sie Rückerstattungen protokollieren, indem Sie ein Braze-Kauf-Event mit einer negativen `price`-Eigenschaft erfassen. Dieser Ansatz sorgt für eine genaue Gesamtsumme des Lifetime Revenue.
+Wenn Sie Kauf-Events zum Tracking von Kaufdaten verwenden, sollten Sie Rückerstattungen erfassen, indem Sie ein Braze-Kauf-Event mit einer negativen `price`-Eigenschaft protokollieren. Dieser Ansatz sorgt für eine korrekte Gesamtsumme beim Lifetime-Revenue.
 
-Beachten Sie jedoch, dass die Rückerstattung als zusätzliches Kauf-Event gezählt wird. Betrachten wir das folgende Beispiel: Sam tätigt den ersten Kauf für 12 $ und gibt einen Teil des Kaufs für eine Rückerstattung von 5 $ zurück. Sams Profil würde Folgendes protokollieren:
+Beachten Sie jedoch, dass die Rückerstattung als zusätzliches Kauf-Event gezählt wird. Betrachten wir folgendes Beispiel: Sam tätigt den ersten Kauf über 12 $, gibt aber einen Teil des Kaufs zurück und erhält eine Rückerstattung von 5 $. In Sams Profil wird Folgendes protokolliert:
 
 - 1 Kauf mit einem Preis von 12 $
 - 1 Kauf mit einem Preis von -5 $
-- Lifetime Revenue von 7 $
+- Lifetime-Revenue von 7 $
 
-Obwohl Sam zwei Kauf-Events im Profil hätte, wurde in Wirklichkeit nur ein Kauf getätigt. Dies ist wichtig zu berücksichtigen, wenn Sie Segmente oder Anwendungsfälle haben, die auf der Anzahl der Käufe einer Nutzerin oder eines Nutzers basieren. Häufige Rückerstattungen erhöhen die Kaufanzahl im Nutzerprofil.
+Obwohl Sam zwei Kauf-Events in seinem Profil hätte, hat er in Wirklichkeit nur einen Kauf getätigt. Dies ist wichtig zu beachten, wenn Sie Segmente oder Anwendungsfälle haben, die auf der Anzahl der Käufe einer Nutzer:in basieren. Häufige Rückerstattungen erhöhen die Kaufanzahl im Profil der Nutzer:in.
 
 ## Kauf-Event-Eigenschaften {#purchase-properties}
 
@@ -196,7 +196,7 @@ Wenn Sie beispielsweise eine E-Commerce-Anwendung haben und einer Nutzerin oder 
 
 ![Einstellungen für aktionsbasierte Zustellung, um eine Campaign an Nutzer:innen zu senden, die Kopfhörer mit einem Markennamen gleich HeadphoneMart kaufen]({% image_buster /assets/img/purchase2.png %}){: style="max-width:80%;margin-left:15px;"}
 
-Weitere Informationen finden Sie unter [Kauf-Eigenschaften-Objekt]({{site.baseurl}}/api/objects_filters/purchase_object/#purchase-properties-object).
+Weitere Informationen finden Sie unter [Kauf-Eigenschaften-Objekt]({{site.baseurl}}/api/objects_filters/purchase_object#purchase-properties-object).
 
 ### Event-Eigenschafts-Segmentierung {#event-property-segmentation}
 
@@ -209,17 +209,19 @@ Diese Segmentierungsfilter umfassen:
 - Hat Käufe mit Eigenschaft Y mit Wert V X-mal in den letzten Y Tagen getätigt
 - Fügt eine 1-30-Tage-Segmentierung für alle Käufe, Events und Eigenschaften innerhalb von Käufen und Events hinzu
 
-Im Gegensatz zu [Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) werden die verwendeten Segmente in Realtime aktualisiert, unterstützen eine unbegrenzte Anzahl von Segmenten, bieten einen Rückblickzeitraum von maximal 30 Tagen und verbrauchen Datenpunkte. Aufgrund der zusätzlichen Datenpunktkosten müssen Sie Ihren Braze-Customer-Success-Manager kontaktieren, um Event-Eigenschaften für Ihre angepassten Events aktivieren zu lassen.
+Im Gegensatz zu [Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension) werden die verwendeten Segmente in Realtime aktualisiert, unterstützen eine unbegrenzte Anzahl von Segmenten, bieten einen Rückblickzeitraum von maximal 30 Tagen und verbrauchen Datenpunkte. Aufgrund der zusätzlichen Datenpunktkosten müssen Sie Ihren Braze-Customer-Success-Manager kontaktieren, um Event-Eigenschaften für Ihre angepassten Events aktivieren zu lassen.
 
-Nach der Genehmigung können zusätzliche Eigenschaften im Dashboard unter **Dateneinstellungen** > **Angepasste Events** hinzugefügt werden, indem Sie **Manage Properties** auswählen. Sie können diese Event-Eigenschaften dann im Zielgruppen-Schritt des Campaign- oder Canvas-Builders verwenden.
+Nach der Genehmigung können zusätzliche Eigenschaften im Dashboard unter **Dateneinstellungen** > **Angepasste Events** hinzugefügt werden, indem Sie **Eigenschaften verwalten** auswählen. Sie können diese Event-Eigenschaften dann im Zielgruppen-Schritt des Campaign- oder Canvas-Builders verwenden.
 
-### Canvas-Eingangs-Eigenschaften und Event-Eigenschaften {#canvas-entry-properties-and-event-properties}
+{% include data_activation/segmentable_purchase_properties_keys_note.md %}
 
-{% multi_lang_include canvas_entry_event_properties.md %}
+### Canvas-Entry-Eigenschaften und Event-Eigenschaften {#canvas-entry-properties-and-event-properties}
+
+{% multi_lang_include canvas/entry_event_properties.md %}
 
 ### Käufe auf Bestellebene protokollieren {#log-purchases-at-the-order-level}
 
-Um Käufe auf Bestellebene statt auf Produktebene zu protokollieren, verwenden Sie den Bestellnamen oder die Bestellkategorie als `product_id`. Weitere Informationen finden Sie in unserer [Kauf-Objekt-Spezifikation]({{site.baseurl}}/api/objects_filters/purchase_object/#product-id-naming-conventions).
+Um Käufe auf Bestellebene statt auf Produktebene zu protokollieren, verwenden Sie den Bestellnamen oder die Bestellkategorie als `product_id`. Weitere Informationen finden Sie in unserer [Kauf-Objekt-Spezifikation]({{site.baseurl}}/api/objects_filters/purchase_object#naming-conventions).
 
 ### Namenskonventionen für Produkt-IDs {#product-id-naming-conventions}
 
@@ -229,6 +231,6 @@ Dies macht Produkte für Segmentierung und Triggering leicht identifizierbar.
 
 ## Kauf-Events auf die Blocklist setzen {#blocklist-purchase-events}
 
-Gelegentlich identifizieren Sie möglicherweise Kauf-Events, die entweder zu viele Datenpunkte protokollieren, für Ihre Marketingstrategie nicht mehr nützlich sind oder versehentlich erfasst wurden. Um zu verhindern, dass diese Daten an Braze gesendet werden, können Sie das angepasste Datenobjekt auf die Blocklist setzen, während Ihr Entwicklerteam daran arbeitet, es aus dem Backend Ihrer App oder Website zu entfernen.
+Gelegentlich können Kauf-Events auftreten, die entweder zu viele Datenpunkte protokollieren, für Ihre Marketingstrategie nicht mehr nützlich sind oder versehentlich aufgezeichnet wurden. Um zu verhindern, dass diese Daten an Braze gesendet werden, können Sie das angepasste Datenobjekt auf die Blocklist setzen, während Ihr Entwicklerteam daran arbeitet, es aus dem Backend Ihrer App oder Website zu entfernen.
 
-Im Braze-Dashboard können Sie die Blocklist unter **Dateneinstellungen** > **Produkte** verwalten. Erfahren Sie mehr unter [Angepasste Daten verwalten]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/).
+Im Braze-Dashboard können Sie die Blocklist unter **Dateneinstellungen** > **Produkte** verwalten. Weitere Informationen finden Sie unter [Angepasste Daten verwalten]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data).

@@ -1,0 +1,36 @@
+# Doc ownership sync: which `_docs/` paths belong on the Page Paths sheet.
+# Used by scripts/sync_doc_page_paths.py (monthly GitHub Action).
+
+spreadsheet_id: "1Je5y_hygijixkbq8jQkXqrVwrDqeuArqCUQb9G6dwEM"
+page_paths_sheet: Page Paths
+config_sheet: Config
+log_sheet: Auto-Assign Log
+
+# Repo-relative prefixes. A path must start with one of these to be eligible.
+include_prefixes:
+  - _docs/_api/
+  - _docs/_user_guide/
+  - _docs/_developer_guide/
+  - _docs/_partners/
+  - _docs/_hidden/other/
+  - _docs/_unlisted_docs/private_betas/
+
+# Drop entire subtrees regardless of include_prefixes.
+exclude_prefixes:
+  - _docs/_unlisted_docs/archive/
+  - _docs/_hidden/archive_docs/
+
+# Drop when any `/`-delimited segment equals one of these names.
+exclude_path_segments:
+  - archive
+  - archived_layouts
+
+# Drop markdown files whose YAML front matter is layout: redirect + redirect_to.
+exclude_redirect_only: true
+
+# Fallback when a new path has no parent row to inherit from.
+default_writer: Docs Team
+default_team: ""
+default_github_username: docs-team
+
+csv_output: .github/support_analyzer_doc_assignees.csv

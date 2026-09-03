@@ -14,19 +14,19 @@ search_rank: 7
 
 {% details Escopo do esquema e recursos relacionados %}
 
-Os esquemas de armazenamento se aplicam aos dados de eventos de arquivo simples que enviamos aos parceiros de armazenamento de data warehouse (Google Cloud Storage, Amazon S3 e Microsoft Azure Blob Storage). Algumas combinações de eventos e destinos listadas aqui ainda não estão disponíveis para todos. Para saber quais eventos são compatíveis com os vários parceiros, consulte nossa lista de [parceiros disponíveis]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) e verifique suas respectivas páginas.
+Os esquemas de armazenamento se aplicam aos dados de eventos de arquivo simples que enviamos aos parceiros de armazenamento de data warehouse (Google Cloud Storage, Amazon S3 e Microsoft Azure Blob Storage). Algumas combinações de eventos e destinos listadas aqui ainda não estão disponíveis para todos. Para saber quais eventos são compatíveis com os vários parceiros, consulte nossa lista de [parceiros disponíveis]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) e verifique suas respectivas páginas.
 
 {% alert tip %}
-Esses eventos também estão disponíveis como tabelas SQL no [Criador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder/), nas [Extensões de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/) e no [Compartilhamento de dados Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/). Para esquemas de tabelas SQL e detalhes das colunas, consulte a [referência de tabelas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/).
+Esses eventos também estão disponíveis como tabelas SQL no [Criador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder), nas [Extensões de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) e no [Compartilhamento de dados Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Para esquemas de tabelas SQL e detalhes das colunas, consulte a [referência de tabelas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
 {% endalert %}
 
-Fale com seu representante da Braze ou abra um [ticket de suporte]({{site.baseurl}}/braze_support/) se precisar de acesso a direitos de eventos adicionais. Se não encontrar o que precisa nesta página, consulte nossa [Biblioteca de eventos de engajamento com mensagem]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) ou nossos [exemplos de dados de amostra do Currents](https://github.com/Appboy/currents-examples/tree/master/sample-data).
+Fale com seu representante da Braze ou abra um [ticket de suporte]({{site.baseurl}}/user_guide/administer/personal/braze_support) se precisar de acesso a direitos de eventos adicionais. Se não encontrar o que precisa nesta página, consulte nossa [Biblioteca de eventos de engajamento com mensagem]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) ou nossos [exemplos de dados de amostra do Currents](https://github.com/Appboy/currents-examples/tree/master/sample-data).
 
 {% enddetails %}
 
 {% details Explicação da estrutura de eventos de comportamento do cliente e do usuário e valores de plataforma %}
 
-### Estrutura do evento {#event-structure}
+## Estrutura do evento {#event-structure}
 
 Esse detalhamento do comportamento do cliente e dos eventos do usuário mostra que tipo de informação é geralmente incluído em um evento de comportamento do cliente ou do usuário. Com uma boa compreensão de seus componentes, seus desenvolvedores e a equipe de estratégia de business intelligence podem usar os dados de eventos do Currents recebidos para criar relatórios e gráficos orientados por dados e aproveitar outras métricas de dados valiosas.
 
@@ -48,7 +48,7 @@ Certos eventos retornam um valor `platform` que especifica a plataforma do dispo
 | Web | `web` |
 | tvOS | `tvos` |
 | Roku | `roku` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Platform values" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Valores da plataforma" }
 
 {% enddetails %}
 
@@ -246,16 +246,16 @@ Esse evento ocorre quando um evento personalizado específico é disparado. Use 
 {% endtab %}
 {% endtabs %}
 
-#### Detalhes da propriedade {#property-details}
+### Detalhes da propriedade {#property-details}
 
-- Para eventos personalizados, a carga útil também será preenchida com quaisquer [propriedades de evento personalizado]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties/#custom-event-properties) associadas ao evento.
-- Para `ad_id`, `ad_id_type` e `ad_tracking_enabled`, você precisa coletar explicitamente o IDFA do iOS e o ID de anúncio do Google Android por meio dos SDKs nativos. Saiba mais aqui: [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id).
-- Se você estiver usando Kafka para ingerir dados do [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), entre em contato com seu gerente de sucesso do cliente ou gerente de conta para ativar o feature flipper para enviar `ad_id`.
+- Para eventos personalizados, a carga útil também será preenchida com quaisquer [propriedades de evento personalizado]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties) associadas ao evento.
+- Para `ad_id`, `ad_id_type` e `ad_tracking_enabled`, você precisa coletar explicitamente o IDFA do iOS e o ID de anúncio do Google Android por meio dos SDKs nativos. Saiba mais aqui: [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
+- Se você estiver usando Kafka para ingerir dados do [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), entre em contato com seu gerente de sucesso do cliente ou gerente de conta para ativar o feature flipper para enviar `ad_id`.
 
 {% endapi %}
 
 {% api %}
-## Eventos de atribuição da instalação {#install-attribution-events}
+## Eventos de atribuição de instalação {#install-attribution-events}
 
 {% apitags %}
 Attribution
@@ -534,10 +534,10 @@ Esse evento é disparado quando um usuário visita um local especificado. Use is
 {% endtab %}
 {% endtabs %}
 
-#### Detalhes da propriedade
+### Detalhes da propriedade
 
-- Para `ad_id`, `ad_id_type` e `ad_tracking_enabled`, você precisa coletar explicitamente o IDFA do iOS e o ID de anúncio do Google Android por meio dos SDKs nativos. Saiba mais aqui: [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id).
-- Se você estiver usando Kafka para ingerir dados do [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), entre em contato com seu gerente de sucesso do cliente ou gerente de conta para ativar o feature flipper para enviar `ad_id`.
+- Para `ad_id`, `ad_id_type` e `ad_tracking_enabled`, você precisa coletar explicitamente o IDFA do iOS e o ID de anúncio do Google Android por meio dos SDKs nativos. Saiba mais aqui: [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
+- Se você estiver usando Kafka para ingerir dados do [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), entre em contato com seu gerente de sucesso do cliente ou gerente de conta para ativar o feature flipper para enviar `ad_id`.
 
 {% endapi %}
 
@@ -704,11 +704,11 @@ As compras são eventos personalizados especiais e vêm com uma string codificad
 {% endtab %}
 {% endtabs %}
 
-#### Detalhes da propriedade
+### Detalhes da propriedade
 
-- Para eventos de compra, a carga útil também será preenchida com quaisquer [propriedades de evento de compra]({{site.baseurl}}/user_guide/data/activation/events/purchase_events/#purchase-properties) associadas ao evento.
-- Para `ad_id`, `ad_id_type` e `ad_tracking_enabled`, você precisa coletar explicitamente o IDFA do iOS e o ID de anúncio do Google Android por meio dos SDKs nativos. Saiba mais aqui: [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id).
-- Se você estiver usando Kafka para ingerir dados do [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), entre em contato com seu gerente de sucesso do cliente ou gerente de conta para ativar o feature flipper para enviar `ad_id`.
+- Para eventos de compra, a carga útil também será preenchida com quaisquer [propriedades de evento de compra]({{site.baseurl}}/user_guide/data/activation/events/purchase_events#purchase-properties) associadas ao evento.
+- Para `ad_id`, `ad_id_type` e `ad_tracking_enabled`, você precisa coletar explicitamente o IDFA do iOS e o ID de anúncio do Google Android por meio dos SDKs nativos. Saiba mais aqui: [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
+- Se você estiver usando Kafka para ingerir dados do [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), entre em contato com seu gerente de sucesso do cliente ou gerente de conta para ativar o feature flipper para enviar `ad_id`.
 
 {% endapi %}
 
@@ -1262,6 +1262,10 @@ Este evento ocorre quando a Braze sincroniza o token Push To Start de Live Activ
 {% endtab %}
 {% endtabs %}
 
+### Detalhes da propriedade
+
+- A Braze emite um evento "update" com `push_token_state_change_type` definido como `"update"` quando um usuário anônimo é identificado no mesmo perfil e os tokens Push To Start de Live Activity do iOS existentes permanecem nesse perfil. Nesse caso, `user_id` não muda, e `external_user_id` é definido como o ID externo do usuário identificado. Isso inclui a identificação por meio do endpoint [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) e do SDK `changeUser` quando ele atribui um ID externo ao perfil anônimo no dispositivo.
+
 {% endapi %}
 
 {% api %}
@@ -1428,7 +1432,7 @@ Este evento ocorre quando um token por push é inserido, atualizado ou removido.
   "push_token_updated_at" : "(optional, int) UNIX timestamp at which the push token was last updated",
   "sdk_version" : "(optional, string) Version of the Braze SDK in use during the event",
   "time" : "(required, int) UNIX timestamp at which the event happened",
-  "time_ms" : "(optional, long) Time in millisecond when the event happened",
+  "time_ms" : "(optional, long) Time in milliseconds when the event happened",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "web_push_token_public_key" : "(optional, string) Public key of the push token, only applies to web push tokens",
   "web_push_token_user_auth" : "(optional, string) User auth of the push token, only applies to web push tokens",
@@ -1454,7 +1458,7 @@ Este evento ocorre quando um token por push é inserido, atualizado ou removido.
     "push_token_provisionally_opted_in" : "(optional, boolean) Provisionally opted in flag of the push token",
     "push_token_state_change_type" : "(optional, string) A description of the push token state change type",
     "push_token_updated_at" : "(optional, int) UNIX timestamp at which the push token was last updated",
-    "time_ms" : "(optional, long) Time in millisecond when the event happened",
+    "time_ms" : "(optional, long) Time in milliseconds when the event happened",
     "web_push_token_public_key" : "(optional, string) Public key of the push token, only applies to web push tokens",
     "web_push_token_user_auth" : "(optional, string) User auth of the push token, only applies to web push tokens",
     "web_push_token_vapid_public_key" : "(optional, string) VAPID public key of the push token, only applies to web push tokens"
@@ -1487,7 +1491,7 @@ Este evento ocorre quando um token por push é inserido, atualizado ou removido.
     "push_token_provisionally_opted_in" : "(optional, boolean) Provisionally opted in flag of the push token",
     "push_token_state_change_type" : "(optional, string) A description of the push token state change type",
     "push_token_updated_at" : "(optional, int) UNIX timestamp at which the push token was last updated",
-    "time_ms" : "(optional, long) Time in millisecond when the event happened",
+    "time_ms" : "(optional, long) Time in milliseconds when the event happened",
     "web_push_token_public_key" : "(optional, string) Public key of the push token, only applies to web push tokens",
     "web_push_token_user_auth" : "(optional, string) User auth of the push token, only applies to web push tokens",
     "web_push_token_vapid_public_key" : "(optional, string) VAPID public key of the push token, only applies to web push tokens"
@@ -1523,7 +1527,7 @@ Este evento ocorre quando um token por push é inserido, atualizado ou removido.
     "push_token_state_change_type" : "(optional, string) A description of the push token state change type",
     "push_token_updated_at" : "(optional, int) UNIX timestamp at which the push token was last updated",
     "time" : "(required, int) UNIX timestamp at which the event happened",
-    "time_ms" : "(optional, long) Time in millisecond when the event happened",
+    "time_ms" : "(optional, long) Time in milliseconds when the event happened",
     "token" : "(required, string) The Mixpanel API token",
     "web_push_token_public_key" : "(optional, string) Public key of the push token, only applies to web push tokens",
     "web_push_token_user_auth" : "(optional, string) User auth of the push token, only applies to web push tokens",
@@ -1556,7 +1560,7 @@ Este evento ocorre quando um token por push é inserido, atualizado ou removido.
     "push_token_provisionally_opted_in" : "(optional, boolean) Provisionally opted in flag of the push token",
     "push_token_state_change_type" : "(optional, string) A description of the push token state change type",
     "push_token_updated_at" : "(optional, int) UNIX timestamp at which the push token was last updated",
-    "time_ms" : "(optional, long) Time in millisecond when the event happened",
+    "time_ms" : "(optional, long) Time in milliseconds when the event happened",
     "web_push_token_public_key" : "(optional, string) Public key of the push token, only applies to web push tokens",
     "web_push_token_user_auth" : "(optional, string) User auth of the push token, only applies to web push tokens",
     "web_push_token_vapid_public_key" : "(optional, string) VAPID public key of the push token, only applies to web push tokens"
@@ -1569,17 +1573,17 @@ Este evento ocorre quando um token por push é inserido, atualizado ou removido.
 {% endtab %}
 {% endtabs %}
 
-#### Detalhes da propriedade
+### Detalhes da propriedade
 
 - O campo `push_token_foreground_push_disabled` indica se o token por push pode receber push em primeiro plano ou em segundo plano.
   - Se o usuário permitiu explicitamente a permissão de notificação por push no dispositivo, o valor será `false`, e o token poderá receber notificações por push em primeiro plano.
   - Se o usuário negou explicitamente a permissão de notificação por push no dispositivo, o valor será `true`, e o token só poderá receber notificações por push em segundo plano.
   - Se a permissão de push ainda não foi determinada (por exemplo, o usuário ainda não respondeu ao prompt do sistema operacional), o valor será `true`, e o token só poderá receber notificações por push em segundo plano.
-  - Esse campo pode ser `null` (ou vazio, dependendo do formato do destino) para registros de token de SDK mais antigos que ainda não reportaram o status de permissão e para tokens de push para a web. Trate `null` da mesma forma que `false` (habilitado para push em primeiro plano), pois a Braze ainda tenta enviar notificações por push em primeiro plano para esses tokens.
+  - Esse campo pode ser `null` (ou vazio, dependendo do formato do destino) para registros de token de SDK mais antigos que ainda não reportaram o status de permissão e para tokens de web push. Trate `null` da mesma forma que `false` (habilitado para push em primeiro plano), pois a Braze ainda tenta enviar notificações por push em primeiro plano para esses tokens.
   - Uma tentativa de envio de push não atualiza esse campo. Se um envio for bem-sucedido, nenhum evento `TokenStateChange` é emitido. Se um envio sofrer bounce porque o token é inválido, a Braze emite um evento "remove" e exclui o token.
   - Esse campo só muda quando a Braze recebe uma atualização de estado do token do SDK (por exemplo, uma sincronização de sessão posterior que reporta o status de permissão de push).
 - O campo `push_token_provisionally_opted_in` se aplica apenas a tokens por push do iOS.
-  - Se você tiver a [Autorização Provisória]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options/#provisional-push) configurada, os tokens provisórios terão este campo definido como `true`. Todos os outros tokens por push serão `false`.
+  - Se você tiver a [Autorização Provisória]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#provisional-push) configurada, os tokens provisórios terão este campo definido como `true`. Todos os outros tokens por push serão `false`.
 - O campo `sdk_version` só será preenchido se a mudança de estado do token for iniciada pelo SDK.
   - Se houver um evento SDK `changeUser` que aciona a movimentação do token de um usuário para outro, o campo `sdk_version` será preenchido.
   - Se houver um bounce de push (por exemplo, devido à desinstalação), o campo `sdk_version` ficará em branco.
@@ -1589,20 +1593,22 @@ Este evento ocorre quando um token por push é inserido, atualizado ou removido.
 
 ##### Add {#add}
 
-Um evento "add" é registrado quando um novo token é cadastrado. Isso acontece quando um usuário abre o app em um novo dispositivo pela primeira vez, ou quando um token é definido por meio do endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) com `push_tokens` para um usuário que não tinha um anteriormente.
+Um evento "add" é registrado quando um novo token é cadastrado. Isso acontece quando um usuário abre o app em um novo dispositivo pela primeira vez, ou quando um token é definido por meio do endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) com `push_tokens` para um usuário que não tinha um anteriormente. O campo `time_ms` indica quando o evento de adição aconteceu.
 
 {% alert note %}
 Para o iOS Swift SDK 13.3.0 e posterior, e Android SDK 40.0.0 e posterior, o status de permissão de push e o token por push são enviados juntos. Para novos registros desses SDKs, `push_token_foreground_push_disabled` é preenchido no evento "add" (normalmente `false` quando as notificações estão ativadas).<br><br>
 
-Registros de token mais antigos ainda podem ter esse campo como `null` até que o SDK reporte posteriormente o status de permissão de push. Tokens de push para a web também podem ter esse campo como `null` por design.
+Registros de token mais antigos ainda podem ter esse campo como `null` até que o SDK reporte posteriormente o status de permissão de push. Tokens de web push também podem ter esse campo como `null` por design.
 {% endalert %}
 
 ##### Update {#update}
 
-Um evento "update" é registrado quando uma propriedade muda em um token existente sem que a string do token em si mude. O token tem a mesma string, mesmo usuário e mesmo app, mas um ou mais dos seguintes campos mudaram: `foreground_push_disabled`, gateway APNs, chaves de push para a web, `provisionally_opted_in` ou `device_id`. Essas atualizações vêm de eventos de sincronização de estado do token (por exemplo, quando o SDK reporta um novo estado de permissão), não de resultados de envio de push.
+Um evento "update" é registrado quando uma propriedade muda em um token existente sem que a string do token em si mude. O token tem a mesma string, mesmo usuário e mesmo app, mas um ou mais dos seguintes campos mudaram: `foreground_push_disabled`, gateway APNs, chaves de web push, `provisionally_opted_in` ou `device_id`. Essas atualizações vêm de eventos de sincronização de estado do token (por exemplo, quando o SDK reporta um novo estado de permissão), não de resultados de envio de push. O campo `time_ms` indica quando o evento de atualização aconteceu.
+
+A Braze também emite um evento "update" com `push_token_state_change_type` definido como `"update"` quando um usuário anônimo é identificado no mesmo perfil e os tokens por push existentes permanecem nesse perfil. Nesse caso, `user_id` não muda, e `external_user_id` é definido como o ID externo do usuário identificado. Isso inclui a identificação por meio do endpoint [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) e do SDK `changeUser` quando ele atribui um ID externo ao perfil anônimo no dispositivo.
 
 {% alert note %}
-Na maioria dos casos, a reinstalação do app ou a restauração de backup resulta em um novo evento "add" com um novo `push_token` e novo `device_id` (porque o SDK gera um novo `device_id` e o sistema operacional fornece uma nova string de token por push). Isso cria duas entradas separadas de token e dispositivo no perfil do usuário, e a entrada mais antiga é removida posteriormente por meio do rastreamento de desinstalação ou envio de Campaign.<br><br>
+Na maioria dos casos, a reinstalação do app ou a restauração de backup resulta em um novo evento "add" com um novo `push_token` e novo `device_id` (porque o SDK gera um novo `device_id` e o sistema operacional fornece uma nova string de token por push). Isso cria duas entradas separadas de token e dispositivo no perfil do usuário, e a entrada mais antiga é removida posteriormente por meio do Uninstall Tracking ou envio de Campaign.<br><br>
 
 Seria extremamente raro que apenas o `device_id` mudasse sem que o `push_token` mudasse (isso exigiria que o sistema operacional retornasse a mesma string de token após a reinstalação).
 {% endalert %}
@@ -1617,9 +1623,16 @@ Um evento "remove" independente é registrado quando a Braze remove um token. Is
 
 Quando um bounce de push aciona a remoção do token, a Braze emite `push_token_state_change_type = "remove"` para esse token. Ela não emite um evento "update" que altera `push_token_foreground_push_disabled`.
 
+O campo `time_ms` indica quando o evento de remoção aconteceu.
+
+{% alert note %}
+Para eventos "remove", os seguintes campos de propriedade do token não são preenchidos: `push_token_created_at`, `push_token_updated_at`, `push_token_foreground_push_disabled`, `push_token_provisionally_opted_in`, `ios_push_token_apns_gateway`, `web_push_token_public_key`, `web_push_token_user_auth` e `web_push_token_vapid_public_key`.
+{% endalert %}
+
 ##### Pares de add e remove {#add-and-remove-pairs}
 
-Pares de add e remove se enquadram em duas categorias:
+Pares de add e remove são dois eventos de estado de token vinculados para a mesma transição: um evento "add" e um evento "remove".
+Os pares de add e remove se enquadram em duas categorias:
 
 **Atualização da string do token (mesmo usuário):** O sistema operacional rotaciona a string do token no mesmo dispositivo (por exemplo, rotação de token APNs ou FCM). O evento "add" (novo token) e o evento "remove" (token antigo) têm o mesmo `user_id`, mesmo `device_id`, `push_token` diferente e `time_ms` idêntico.
 
@@ -1627,10 +1640,13 @@ Pares de add e remove se enquadram em duas categorias:
 
 - O SDK chama `changeUser` de um perfil anônimo para um perfil identificado. O evento "remove" terá um `external_user_id` vazio.
 - O SDK chama `changeUser` de um perfil identificado para outro. Ambos os eventos terão um `external_user_id` não vazio.
-- O endpoint [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/) ou a limpeza de usuários duplicados move os tokens do usuário órfão para o usuário sobrevivente.
+- O endpoint [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) ou a limpeza de usuários duplicados move os tokens do usuário órfão para o usuário sobrevivente.
 
 {% alert note %}
-Se um perfil anônimo for identificado por meio do endpoint [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/), o `user_id` não muda e nenhum evento de mudança de estado de token é emitido.
+A identificação no mesmo perfil por meio do endpoint REST [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) ou do SDK [`changeUser`]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#identified-user-profiles) pode atribuir um ID externo a um perfil anônimo sem alterar o `user_id`.
+Nesse caso, a Braze não emite [pares de eventos add e remove](#add-and-remove-pairs).
+Em vez disso, a Braze emite um evento "update" para cada token por push existente e define `external_user_id` como o ID externo do usuário identificado.
+Quando `changeUser` move tokens de um perfil de usuário para outro, a Braze ainda emite os [pares de eventos add e remove](#add-and-remove-pairs) descritos na seção [Pares de add e remove](#add-and-remove-pairs).
 {% endalert %}
 
 #### Consultando o estado mais recente do token ativo {#querying-for-the-latest-active-token-state}

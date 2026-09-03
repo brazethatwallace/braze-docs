@@ -310,7 +310,7 @@ This is the last day for overnight shipping so your order gets here on time for 
 
 ### Countdown in Tagen erstellen {#countdown-days}
 
-Dieser Anwendungsfall berechnet die verbleibende Zeit zwischen einem bestimmten Event und dem aktuellen Datum und zeigt an, wie viele Tage bis zum Event verbleiben.
+Dieser Anwendungsfall berechnet die verbleibende Zeit zwischen einem bestimmten Ereignis und dem aktuellen Datum und zeigt an, wie viele Tage bis zum Ereignis verbleiben.
 
 {% raw %}
 ```liquid
@@ -328,7 +328,7 @@ Sie benötigen ein angepasstes Attribut-Feld mit einem `date`-Wert.
 
 ### Countdown von Tagen über Stunden bis Minuten erstellen {#countdown-dynamic}
 
-Dieser Anwendungsfall berechnet die verbleibende Zeit zwischen einem bestimmten Event und dem aktuellen Datum. Je nach verbleibender Zeit wird der Zeitwert (Tage, Stunden, Minuten) geändert, um verschiedene personalisierte Nachrichten anzuzeigen.
+Dieser Anwendungsfall berechnet die verbleibende Zeit zwischen einem bestimmten Ereignis und dem aktuellen Datum. Je nach verbleibender Zeit wird der Zeitwert (Tage, Stunden, Minuten) geändert, um verschiedene personalisierte Nachrichten anzuzeigen.
 
 Wenn beispielsweise noch zwei Tage bis zur Lieferung einer Bestellung verbleiben, könnte die Nachricht lauten: „Ihre Bestellung kommt in 2 Tagen an.“ Wenn es weniger als ein Tag ist, könnte sie zu „Ihre Bestellung kommt in 17 Stunden an“ geändert werden.
 
@@ -356,7 +356,7 @@ Sie benötigen ein angepasstes Attribut-Feld mit einem `date`-Wert. Außerdem m�
 
 ### Verbleibende Tage bis zu einem bestimmten Datum anzeigen {#countdown-future-date}
 
-Dieser Anwendungsfall berechnet die Differenz zwischen dem aktuellen Datum und einem zukünftigen Event-Datum und zeigt eine Nachricht an, wie viele Tage bis zum Event verbleiben.
+Dieser Anwendungsfall berechnet die Differenz zwischen dem aktuellen Datum und einem zukünftigen Ereignisdatum und zeigt eine Nachricht an, wie viele Tage bis zum Ereignis verbleiben.
 
 {% raw %}
 ```liquid
@@ -439,7 +439,7 @@ You have few days left in your trial. Make sure to upgrade!
 
 ### In-App-Nachrichten basierend auf Datum und Sprache personalisieren {#countdown-personalize-language}
 
-Dieser Anwendungsfall berechnet einen Countdown bis zu einem Event und zeigt basierend auf der Spracheinstellung den Countdown in der jeweiligen Sprache an.
+Dieser Anwendungsfall berechnet einen Countdown bis zu einem Ereignis und zeigt basierend auf der Spracheinstellung den Countdown in der jeweiligen Sprache an.
 
 Beispielsweise könnten Sie einmal im Monat eine Reihe von Upsell-Nachrichten senden, die anzeigen, wie lange ein Angebot noch gültig ist, mit vier In-App-Nachrichten:
 
@@ -569,7 +569,7 @@ There is a shovel here.
 
 ### Währung für europäische Zahlenkonventionen formatieren {#european-currency-format}
 
-Für Regionen, die ein Komma als Dezimaltrennzeichen und einen Punkt als Tausendertrennzeichen verwenden (z. B. Deutschland oder Italien), verwenden Sie die Filter [`money`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/#money-filter) und [`number_with_delimiter`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#number-formatting-filters) mit `replace`, um die Trennzeichen zu tauschen. Verwenden Sie `#` als temporären Platzhalter, damit Punkte und Kommas nicht im selben Durchgang vertauscht werden.
+Für Regionen, die ein Komma als Dezimaltrennzeichen und einen Punkt als Tausendertrennzeichen verwenden (z. B. Deutschland oder Italien), verwenden Sie die Filter [`money`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#money-filters) und [`number_with_delimiter`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#number-formatting-filters) mit `replace`, um die Trennzeichen zu tauschen. Verwenden Sie `#` als temporären Platzhalter, damit Punkte und Kommas nicht im selben Durchgang vertauscht werden.
 
 {% raw %}
 ```liquid
@@ -626,7 +626,7 @@ Custom event
 
 ### Push-Benachrichtigung abbrechen, wenn ein angepasstes Event innerhalb von zwei Stunden stattfindet {#event-abort-push}
 
-Dieser Anwendungsfall berechnet die Zeit bis zu einem Event und zeigt je nach verbleibender Zeit verschiedene personalisierte Nachrichten an.
+Dieser Anwendungsfall berechnet die Zeit bis zu einem Ereignis und zeigt je nach verbleibender Zeit verschiedene personalisierte Nachrichten an.
 
 Beispielsweise möchten Sie möglicherweise verhindern, dass eine Push-Benachrichtigung gesendet wird, wenn eine angepasste Event-Eigenschaft in den nächsten zwei Stunden eintritt. Dieses Beispiel verwendet das Szenario eines Warenkorb-Abbruchs für ein Zugticket.
 
@@ -863,7 +863,7 @@ Miscellaneous
 - [Abo-Status zur Personalisierung von Nachrichteninhalten verwenden](#misc-personalize-content)
 - [Ersten Buchstaben jedes Wortes in einem String großschreiben](#misc-capitalize-words-string)
 - [Wert eines angepassten Attributs mit einem Array vergleichen](#misc-compare-array)
-- [Erinnerung für ein bevorstehendes Event erstellen](#misc-event-reminder)
+- [Erinnerung für ein bevorstehendes Ereignis erstellen](#misc-event-reminder)
 - [String in einem Array finden](#misc-string-in-array)
 - [Größten Wert in einem Array finden](#misc-largest-value)
 - [Kleinsten Wert in einem Array finden](#misc-smallest-value)
@@ -948,11 +948,11 @@ Today's offer from {{store}}
 
 {% alert important %} Diese Sequenz enthält einen `break`-Tag in der primären bedingten Anweisung. Dadurch wird die Schleife gestoppt, wenn eine Übereinstimmung gefunden wird. Wenn Sie viele oder alle Übereinstimmungen anzeigen möchten, entfernen Sie den `break`-Tag. {% endalert %}
 
-### Erinnerung für ein bevorstehendes Event erstellen {#misc-event-reminder}
+### Erinnerung für ein bevorstehendes Ereignis erstellen {#misc-event-reminder}
 
 Dieser Anwendungsfall ermöglicht es Nutzer:innen, bevorstehende Erinnerungen basierend auf angepassten Events einzurichten. Das Beispielszenario ermöglicht es, eine Erinnerung für ein Verlängerungsdatum einer Police einzurichten, das 26 oder mehr Tage entfernt ist, wobei Erinnerungen 26, 13, 7 oder 2 Tage vor dem Verlängerungsdatum gesendet werden.
 
-Bei diesem Anwendungsfall sollte Folgendes im Body einer [Webhook-Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/) oder eines Canvas-Schritts stehen.
+Bei diesem Anwendungsfall sollte Folgendes im Body einer [Webhook-Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) oder eines Canvas-Schritts stehen.
 
 {% raw %}
 ```liquid
@@ -1321,7 +1321,7 @@ Content for Android.
 
 Dieser Anwendungsfall prüft, ob der Mobilfunkanbieter des Geräts Verizon ist, und zeigt in diesem Fall eine spezifische Nachricht an.
 
-Für Push-Benachrichtigungen und In-App-Nachrichten-Kanäle können Sie den Mobilfunkanbieter im Nachrichtentext mithilfe von Liquid angeben. Wenn der Mobilfunkanbieter des Empfängers/der Empfängerin nicht übereinstimmt, wird die Nachricht nicht gesendet.
+Für Push-Benachrichtigungen und In-App Messages-Kanäle können Sie den Mobilfunkanbieter im Nachrichtentext mithilfe von Liquid angeben. Wenn der Mobilfunkanbieter des Empfängers/der Empfängerin nicht übereinstimmt, wird die Nachricht nicht gesendet.
 
 {% raw %}
 ```liquid
@@ -1539,7 +1539,7 @@ Check out this new bar after work today. HH specials!
 ```
 {% endraw %}
 
-{% alert note %} Dies ist das Gegenteil von [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#time-based-options). {% endalert %}
+{% alert note %} Dies ist das Gegenteil von [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#time-based-options). {% endalert %}
 
 ### Nachricht außerhalb eines Stundenbereichs zum Sendezeitpunkt abbrechen {#abort-send-time-hour-range}
 
@@ -1816,4 +1816,4 @@ Dieser Anwendungsfall bricht die Nachricht ab, wenn Liquid an einem bestimmten W
 
 {% endapi %}
 
-Viele Beispiele in dieser Bibliothek verwenden den `abort_message`-Tag, um einen Versand zu überspringen, wenn Bedingungen nicht erfüllt sind. Eine vollständige Referenz zum Abbrechen von Versendungen mit Liquid, einschließlich datums- und zeitbasierter Muster, finden Sie unter [Liquid-Nachrichten abbrechen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/).
+Viele Beispiele in dieser Bibliothek verwenden den `abort_message`-Tag, um einen Versand zu überspringen, wenn Bedingungen nicht erfüllt sind. Eine vollständige Referenz zum Abbrechen von Versendungen mit Liquid, einschließlich datums- und zeitbasierter Muster, finden Sie unter [Liquid-Nachrichten abbrechen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages).

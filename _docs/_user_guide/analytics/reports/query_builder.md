@@ -9,13 +9,24 @@ alias: /query_builder/
 
 # Query Builder
 
-> The Query Builder generates reports using Braze data in Snowflake. The Query Builder comes with pre-built SQL [query templates]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates/) to get you started, or you can write your own custom SQL queries to unlock even more insights.
+> The Query Builder generates reports using Braze data in Snowflake. The Query Builder comes with pre-built SQL [query templates]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates) to get you started, or you can write your own custom SQL queries to unlock even more insights.
 
-Because the Query Builder allows direct access to some customer data, you can only access the Query Builder if you have the "View PII" [permission]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/).
+Because the Query Builder allows direct access to some customer data, you can only access the Query Builder if you have the "View PII" [permission]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 
 ## Available data tables
 
-Query Builder uses the same Snowflake SQL tables as [SQL Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/) and [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/). For a complete list of available tables and their columns, refer to the [SQL table reference]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/).
+Query Builder uses the same Snowflake SQL tables as [SQL Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) and [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). For a complete list of available tables and their columns, refer to the [SQL table reference]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
+
+### User profile attribute views
+
+Query Builder and SQL Segment Extensions include most [user profile attribute views]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#user-profile-attribute-views), such as periodic snapshots and default-attribute history.
+
+Two views of custom attribute are available only through [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/user_attributes):
+
+- `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED`
+- `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED`
+
+Braze excludes these views from Query Builder and SQL Segment Extensions because they are slow to query at workspace scale and often time out. Use `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED` for custom attribute snapshots in Query Builder. If you need historical or near-real-time custom attribute data, query the excluded views through Snowflake Data Sharing instead.
 
 ## Running reports in the Query Builder
 
@@ -37,11 +48,11 @@ Results from each report can be generated once a day. If you run the same report
 
 Access query templates by selecting **Create SQL Query** > **Query Template** when first creating a report.
 
-See [Query templates]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates/) for a list of available templates.
+See [Query templates]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates) for a list of available templates.
 
 ### Data timeframe
 
-Queries return data from the past 60 days. If you use Currents or [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/), you may be able to query up to two years of data, which is how long your data is retained in Snowflake. For more details about extended data retention, contact your customer success manager.
+Queries return data from the past 60 days. If you use Currents or [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake), you may be able to query up to two years of data, which is how long your data is retained in Snowflake. For more details about extended data retention, contact your customer success manager.
 
 ### Query Builder time zone
 
@@ -76,6 +87,14 @@ The **Query history** section in Query Builder displays your previously run quer
 
 If you need to audit query usage for longer periods or maintain records beyond seven days, we recommend exporting or saving important query results before they expire.
 
+### Comparing Query Builder with other reporting sources
+
+Query Builder results may differ from other reporting tools because they use different data sources and processing methods.
+
+For example, soft bounce counts in Query Builder may be higher than in SendGrid Deliverability reports. Query Builder counts all occurrences of soft bounces without deduplication. If a user soft bounces multiple times before eventual delivery (or after extended retries), each soft bounce attempt is counted. SendGrid Deliverability uses its own data and logic, which Braze doesn't have visibility into, so counts between the two reports may not match.
+
+For more information about how soft bounces are tracked across different reporting sources, refer to [Soft bounce]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#soft-bounce) in the Email analytics glossary.
+
 ## Generating SQL with the AI Query Builder
 
 The AI Query Builder leverages [GPT](https://openai.com/gpt-4), powered by OpenAI, to recommend SQL for your query.
@@ -90,7 +109,7 @@ To generate SQL with the AI Query Builder:
 
 ### Tips
 
-- Familiarize yourself with the available tables and columns in the [SQL table reference]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/). Asking for data that doesn't exist in these tables may result in ChatGPT making up a fake table.
+- Familiarize yourself with the available tables and columns in the [SQL table reference]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables). Asking for data that doesn't exist in these tables may result in ChatGPT making up a fake table.
 - Familiarize yourself with the [SQL writing rules]({{site.baseurl}}/user_guide/analytics/reports/query_builder#custom-sql) for this feature. Not following these rules will cause an error.
 - You can send up to 20 prompts per minute with the AI Query Builder.
 
@@ -98,7 +117,7 @@ To generate SQL with the AI Query Builder:
 
 ## Writing custom SQL queries {#custom-sql}
 
-Write your SQL query using [Snowflake syntax](https://docs.snowflake.com/en/sql-reference). Consult the [table reference]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/) for a full list of tables and columns available to be queried.
+Write your SQL query using [Snowflake syntax](https://docs.snowflake.com/en/sql-reference). Consult the [table reference]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables) for a full list of tables and columns available to be queried.
 
 To view table details within the Query Builder:
 
@@ -166,9 +185,7 @@ Use variables to use predefined variable types in SQL to reference values withou
 
 After a variable is created, it will appear in the **Variables** tab of your Query Builder report. Benefits of using SQL variables include:
 
-- Save time by creating a campaign variable to select from a list when creating your report, instead of pasting in campaign IDs.
-- Swap in values by adding variables that allow you to reuse the report for slightly different use cases in the future (such as a different custom event).
-- Reduce user error when editing your SQL by reducing the amount of editing needed for each report. Teammates that are more comfortable with SQL can create reports that less technical teammates can then use.
+{% multi_lang_include analytics/sql_variables_benefits.md %}
 
 ### Guidelines
 

@@ -69,7 +69,7 @@ After launching a Content Cards step in Canvas you can begin to analyze several 
 
 ![Analytics for a Message step with the Content Card message performance.]({% image_buster /assets/img_archive/content-cards-in-canvas-analytics.png %})
 
-For more information on the available metrics and their definitions, see our [Report Metrics Glossary]({{site.baseurl}}/user_guide/analytics/metrics_glossary/).
+For more information on the available metrics and their definitions, see our [Report Metrics Glossary]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
 
 ## Use cases
 
@@ -85,5 +85,5 @@ Using Canvas, you can add a component that sends both a Content Card and push no
 
 ### Multiple feeds based on categories
 
-You can separate your Content Cards into multiple feeds based on categories such as different topics users can browse, or transactional and marketing feeds. For more information on creating multiple feeds using key-value pairs, check out our guide for [Customizing Content Card feeds]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed/#multiple-feeds).
+You can separate your Content Cards into multiple feeds based on categories such as different topics users can browse, or transactional and marketing feeds. For more information on creating multiple feeds using key-value pairs, check out our guide for [Customizing Content Card feeds]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed#implementing-multiple-feeds).
 

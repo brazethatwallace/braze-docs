@@ -10,12 +10,12 @@ page_order: 4
 > Use Liquid personalization in landing pages to dynamically tailor the content with user profile data. For example, you can personalize headlines based on different user attributes without managing multiple static landing pages.
 
 {% alert important %}
-Liquid personalization for landing pages is only available on the Pro tier of landing pages. Currently, [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/), [multi-language]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings/), and [promotion codes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes) are not supported with Liquid personalization in landing pages.
+Liquid personalization for landing pages is only available on the Pro tier of landing pages. Currently, [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), [multi-language]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings), and [promotion codes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes) are not supported with Liquid personalization in landing pages.
 {% endalert %}
 
 ## Inserting Liquid
 
-In the drag-and-drop editor, you can insert Liquid personalization both in the editor and in the page or block settings in the right-hand panel. For instructions on implementing Liquid, check out our dedicated [Liquid documentation]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#using-liquid).
+In the drag-and-drop editor, you can insert Liquid personalization both in the editor and in the page or block settings in the right-hand panel. For instructions on implementing Liquid, check out our dedicated [Liquid documentation]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid).
 
 ![Landing page editor with Liquid personalization added.]({% image_buster /assets/img/landing_pages/lp_liquid_.png %})
 
@@ -38,16 +38,16 @@ If your page exceeds these size limits, you'll receive an email that it may be u
 
 To prevent your page from exceeding size limits or experiencing slow load times, make sure to use Liquid personalization that:
 
-- Doesn't continuously loops through or references large data sets.
+- Doesn't continuously loop through or reference large data sets.
 - Doesn't rely on extensive mathematical or conditional logic within the Liquid block.
 
-Additionally, avoid embedding large scripts, stylesheets, and base64-encoded assets directly in your landing page code. These inline assets count toward the page size limit and can slow down rendering. Instead, upload fonts, images, stylesheets, and scripts to the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/). Assets served from the media library are hosted on Braze's CDN, so they do not get processed for Liquid rendering and do not count toward the page size limit.
+Additionally, avoid embedding large scripts, stylesheets, and base64-encoded assets directly in your landing page code. These inline assets count toward the page size limit and can slow down rendering. Instead, upload fonts, images, stylesheets, and scripts to the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). Assets served from the media library are hosted on Braze's CDN, so they do not get processed for Liquid rendering and do not count toward the page size limit.
 
 ### Use Liquid for identified and anonymous users 
 
 Liquid can customize the landing page experience for both identified and anonymous visitors.
 
-- **Identified users:** Link to the landing page from a Braze message and include the [landing page Liquid tag]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/#using-landing-page-liquid-tags). This associates the user with their Braze profile and personalizes the page experience.
+- **Identified users:** Link to the landing page from a Braze message and include the [landing page Liquid tag]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users#using-landing-page-liquid-tags). This associates the user with their Braze profile and personalizes the page experience.
 - **Anonymous visitors:** Use Liquid for contextual, non-profile-based content, such as a random number or a time-of-day greeting.
 
 ### Pre-fill form fields
@@ -67,12 +67,20 @@ Pre-filling only works for [identified users](#use-liquid-for-identified-and-ano
 - **Input fields:** Display their placeholder text.
 - **Checkboxes, radio buttons, and similar controls:** Remain unselected until the user interacts with them.
 
+{% alert warning %}
+If a user forwards a landing page link (from an email, SMS, or other message) to another person, the recipient sees the pre-filled data intended for the original user. This is the same security consideration that applies to unsubscribe links and preference center links. Consider the sensitivity of the data you're pre-filling and your audience's sharing behavior when using this feature.
+{% endalert %}
+
 ## Fetching external data with custom code
 
 You can use a **Custom Code** block to fetch data from external endpoints and display it in your landing page. This approach makes the request on the client side (in the user's browser), so the page loads quickly without server-side rendering delays.
 
+{% alert tip %}
+For other advanced uses of the **Custom Code** block, see [JavaScript bridge for landing pages]({{site.baseurl}}/user_guide/messaging/landing_pages/javascript_bridge) and [Create custom form blocks]({{site.baseurl}}/user_guide/messaging/landing_pages/custom_form_blocks).
+{% endalert %}
+
 {% alert warning %}
-When fetching external data, you are responsible for the security of your implementation. External identifiers used in API calls should be UUIDs or use an equivalently secure naming scheme, see [User ID naming best practices]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/#naming-best-practices).
+When fetching external data, you are responsible for the security of your implementation. External identifiers used in API calls should be UUIDs or use an equivalently secure naming scheme, see [User ID naming best practices]({{site.baseurl}}/developer_guide/analytics/setting_user_ids#naming-best-practices).
 {% endalert %}
 
 ### Use case
@@ -127,7 +135,15 @@ When fetching external data in landing pages:
 - **Loading states:** Users will see placeholder text until the endpoint responds. Consider adding a loading indicator or skeleton screen.
 - **Error handling:** If the endpoint fails or is slow to respond, the page may appear broken. Implement appropriate error messages and fallbacks.
 - **Performance:** The page loads immediately, but data appears after the external request completes. Keep your API responses fast for the best user experience.
-- **Security:** Ensure your API endpoint validates the identifier and only returns data the user is authorized to see. Implement rate limiting to prevent abuse. For guidance on choosing secure identifiers, see [User ID naming best practices]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/#naming-best-practices).
+- **Security:** Make sure your API endpoint validates the identifier and only returns data the user is authorized to see. Implement rate limiting to prevent abuse. For guidance on choosing secure identifiers, see [User ID naming best practices]({{site.baseurl}}/developer_guide/analytics/setting_user_ids#naming-best-practices).
+
+{% alert warning %}
+For Liquid-personalized landing pages, Braze processes {% raw %}`{{`{% endraw %} and {% raw %}`{%`{% endraw %} delimiters anywhere they appear in the landing page HTML—including inside JavaScript strings, comments, and regular expressions. This applies to the entire page, but **Custom Code** blocks are the most likely place to include these sequences accidentally.
+
+If these sequences appear without matching closing tags (for example, {% raw %}`/* version {{ 2.0 */`{% endraw %}), Braze treats them as open Liquid tags. Other valid Liquid tags on the page may fail to render, or Liquid rendering may break elsewhere in the same block. In severe cases, broken Liquid can prevent the page from publishing or cause it to be unpublished (see [Fallback pages](#fallback-pages)).
+
+To avoid this, escape or remove {% raw %}`{{`{% endraw %} and {% raw %}`{%`{% endraw %} from non-Liquid contexts, split the sequences in JavaScript (for example, {% raw %}`'{' + '{'`{% endraw %}). Liquid runs server-side before the script executes. You can also wrap larger non-Liquid sections in {% raw %}`&#123;% raw %&#125;...&#123;% endraw %&#125;`{% endraw %} tags.
+{% endalert %}
 
 ## Fallback pages
 

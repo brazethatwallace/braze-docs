@@ -21,7 +21,7 @@ guide_featured_list:
   link: /docs/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications
   image: /assets/img/braze_icons/shopping-cart-03.svg
 - name: Price drop notifications
-  link: /docs/price_drop_notifications/
+  link: /docs/price_drop_notifications
   image: /assets/img/braze_icons/shopping-cart-03.svg
 - name: Selections
   link: /docs/user_guide/data/activation/catalogs/selections
@@ -30,24 +30,24 @@ guide_featured_list:
 guide_menu_title: "Other articles"
 guide_menu_list:
 - name: Catalogs API endpoints
-  link: /docs/api/endpoints/catalogs/
+  link: /docs/api/endpoints/catalogs
   image: /assets/img/braze_icons/server-01.svg
 - name: Drag-and-drop product blocks
-  link: /docs/dnd_product_blocks/
+  link: /docs/dnd_product_blocks
   image: /assets/img/braze_icons/columns-01.svg
 ---
 <br><br>
 
 ## Catalog use cases
 
-You can bring in any type of data into a catalog. Typically, the data is metadata about offerings, such as products, discounts, promotions, events, and similar. See the use cases below for a few examples of how you can use this data to target users with highly relevant messaging.
+You can bring in any type of data into a catalog. Typically, the data is metadata about offerings, such as products, discounts, promotions, events, and similar. See the following use cases for a few examples of how you can use this data to target users with highly relevant messaging.
 
 ### Retail and eCommerce
 
 - **Seasonal promotions:** Import seasonal product collections and personalize messages to reflect current trends.
 - **Localized messages:** Import your physical location addresses, hours, and services, then personalize notifications based on user locations.
-- **Back-in-stock notifications:** Import product information that includes inventory quantity, then use [back-in-stock notifications]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/) and Braze custom events to trigger a campaign or Canvas that sends users a notification that a product is now stocked.
-- **Price drop notifications:** Import product information that includes product prices, then use [price drop notifications]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications/) and Braze custom events to trigger a Canvas that sends users a notification that a product's price dropped.
+- **Back-in-stock notifications:** Import product information that includes inventory quantity, then use [back-in-stock notifications]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications) and Braze custom events to trigger a campaign or Canvas that sends users a notification that a product is now stocked.
+- **Price drop notifications:** Import product information that includes product prices, then use [price drop notifications]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications) and Braze custom events to trigger a Canvas that sends users a notification that a product's price dropped.
 
 ### Entertainment
 
@@ -60,20 +60,20 @@ You can bring in any type of data into a catalog. Typically, the data is metadat
 - **Destinations:** Import travel destinations and their most popular attractions, restaurants, and activities, then personalize recommendations to your users based on their previous trips.
 - **Accommodations:** Import hotel properties and their amenities, room types, and pricing, then send promotions to your users based on their selected preferences.
 - **Travel methods**: Import deals and promotions for travel modes (such as flights, trains, rental cars, and others), then send them to your users based on their recent search history.
-- **Meal preferences:** Import information about meal offerings and use [selections]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) to send personalized messages to users who have specific meal preferences based on their most recently viewed food category.
+- **Meal preferences:** Import information about meal offerings and use [selections]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) to send personalized messages to users who have specific meal preferences based on their most recently viewed food category.
 
 ## How catalogs and Liquid work together
 
-Catalogs are a data storage feature. They contain large sets of data that can be referenced in your messages for personalization. To actually reference the data, you'll use [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) as the templating language. In other words, catalogs is storage where the data is held, and Liquid is the language that pulls the relevant data from the storage.
+Catalogs are a data storage feature. They contain large sets of data that can be referenced in your messages for personalization. To actually reference the data, you'll use [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) as the templating language. In other words, catalogs is storage where the data is held, and Liquid is the language that pulls the relevant data from the storage.
 
-For examples of how you can use Liquid to pull catalog information, see the additional use cases in [Creating a catalog]({{site.baseurl}}/user_guide/data/activation/catalogs/create#additional-use-cases/).
+For examples of how you can use Liquid to pull catalog information, see the additional use cases in [Creating a catalog]({{site.baseurl}}/user_guide/data/activation/catalogs/create#use-cases).
 
 ## Data storage limitations
 
 Data storage for catalogs is limited based on the size of the catalog items, which may be different from the sizes of uploaded CSV files.
 
-For the free version of catalogs, the amount of storage allowed is up to 100&nbsp;MB. You can have unlimited items as long as the storage space does not exceed 100&nbsp;MB.
+For the free version of catalogs, the amount of storage allowed is up to 500&nbsp;MB. You can have unlimited items as long as the storage space does not exceed 500&nbsp;MB.
 
-For Catalogs Pro, the storage size options are: 5&nbsp;GB, 10&nbsp;GB, 15&nbsp;GB, or 50&nbsp;GB. Note that the free version's storage (100&nbsp;MB) is included in each of these plans.
+For Catalogs Pro, the storage size options are: 5&nbsp;GB, 10&nbsp;GB, 15&nbsp;GB, or 50&nbsp;GB. Note that the free version's storage (500&nbsp;MB) is included in each of these plans.
 
 If you need to upgrade your catalog storage, contact your Braze account manager. For plan details and entitlement notes, see [Catalog storage]({{site.baseurl}}/user_guide/data/activation/catalogs/create#tiers).

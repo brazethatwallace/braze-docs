@@ -8,22 +8,18 @@ description: "This article provides an overview of multi-language settings in th
 
 # Localization settings
 
-> The multi-language feature allows you to use [translation tags]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) to target users in different languages and locations all within a single message.
+> The multi-language feature allows you to use [translation tags]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) to target users in different languages and locations all within a single message.
 
 ## Prerequisites
 
-{% multi_lang_include locales.md section='multi-language prerequisites' %}
+{% multi_lang_include messaging/localization/locales.md section='multi-language prerequisites' %}
 
 ## Add a locale
 
 1. Go to **Settings** > **Localization Settings**.
 2. Select **Add locale**, and then select **Default locale** or **Custom Attributes**.
-
-![The "Add locale" dropdown with options to select the default locale or custom attributes.]({% image_buster /assets/img/multi-language_support/add_locale_options.png %}){: style="max-width:40%;"}
-
-{: start="3"}
 3. Enter a name for the locale.
-4. [Select a language for accessibility]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/#language-settings-and-accessibility). This setting allows assistive technologies like screen readers to correctly pronounce text.
+4. [Select a language for accessibility]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages#language-settings-and-accessibility). This setting allows assistive technologies like screen readers to correctly pronounce text.
 5. Select the respective user attributes for your chosen locale option. When setting up a locale, you can either select languages from the default user attributes or custom attributes. You can't select from both.
 
 {% tabs %}
@@ -46,13 +42,14 @@ For **Custom Attributes**, use the dropdown to select the associated custom attr
 {: start="6"}
 6. Select **Add locale**.
 
-For steps to use these locales in your messages, refer to [Using locales]({{site.baseurl}}/locales_in_messages/).
+For steps to use these locales in your messages, refer to [Using locales]({{site.baseurl}}/locales_in_messages).
 
 ## Considerations
 
 - You can select up to two custom attributes in a single locale, or up to two default user attribute languages. In both cases, the second attribute is optional.
 - When making edits to the translated values in the CSV file, avoid modifying any default values in the file.
 - The locale key in your uploaded file must match the one in your multi-language settings.
+- To update `device_locale` to `zh_CN` (Simplified Chinese as used in Mainland China), you must add a `zh_CN` localization file to your project, as iOS natively uses `zh-Hans`.
 
 ### Support and prioritization
 
@@ -63,14 +60,14 @@ For steps to use these locales in your messages, refer to [Using locales]({{site
 
 ## Frequently asked questions
 
-#### How many locales can I add?
+### How many locales can I add?
 
 You can add up to 200 locales.
 
-#### Where are the translation files stored in Braze?
+### Where are the translation files stored in Braze?
 
 Translation files are stored at a campaign level, meaning each message variant must have uploaded translations. Translations can also be stored in Content Blocks. When the block is added to a message, its translations are automatically included.
 
-#### Does the locale name have to follow a specific pattern or format?
+### Does the locale name have to follow a specific pattern or format?
 
 No. You can use your preferred naming convention. The locale name is used when selecting the locale in the editor and will be in the headings of the file you download with translation IDs.

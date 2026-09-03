@@ -5,26 +5,26 @@ search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto final de Braze Programar campañas desencadenadas por API."
+description: "En este artículo se describen los detalles del endpoint de Braze Programar campañas desencadenadas por la API."
 
 ---
 {% api %}
 # Programar campañas desencadenadas por la API {#schedule-api-triggered-campaigns}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /campaigns/trigger/schedule/create
 {% endapimethod %}
 
-> Utiliza este punto final para enviar mensajes de Campaign creados en el dashboard a través de una entrega desencadenada por la API, lo que te permite decidir qué acción debe desencadenar el envío del mensaje.
+> Utiliza este endpoint para enviar mensajes de Campaign creados en el panel a través de una entrega desencadenada por la API, lo que te permite decidir qué acción debe desencadenar el envío del mensaje.
 
 Puedes introducir `trigger_properties`, que se incluirán como plantilla en el propio mensaje.
 
-Ten en cuenta que para enviar mensajes con este punto final, debes tener un [ID de Campaign]({{site.baseurl}}/api/identifier_types/), creado al crear una [Campaign desencadenada por API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/).
+Ten en cuenta que para enviar mensajes con este endpoint, debes tener un [ID de Campaign]({{site.baseurl}}/api/identifier_types), creado al crear una [Campaign desencadenada por API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#b7e61de7-f2c2-49c9-9e46-b85a0aa01bba {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto final, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `campaigns.trigger.schedule.create`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `campaigns.trigger.schedule.create`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -61,14 +61,14 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
-| `campaign_id` | Obligatorio | Cadena | Ver [identificador de Campaign]({{site.baseurl}}/api/identifier_types/). |
-| `send_id` | Opcional | Cadena | Ver [identificador de envío]({{site.baseurl}}/api/identifier_types/). |
-| `recipients` | Opcional | Matriz de objetos destinatarios | Ver [objeto de destinatarios]({{site.baseurl}}/api/objects_filters/recipient_object/). |
-| `audience` | Opcional | Objeto de audiencia conectada | Ver [audiencia conectada]({{site.baseurl}}/api/objects_filters/connected_audience/). |
+| `campaign_id` | Obligatorio | Cadena | Ver [identificador de Campaign]({{site.baseurl}}/api/identifier_types). |
+| `send_id` | Opcional | Cadena | Ver [identificador de envío]({{site.baseurl}}/api/identifier_types). |
+| `recipients` | Opcional | Matriz de objetos destinatarios | Ver [objeto de destinatarios]({{site.baseurl}}/api/objects_filters/recipient_object). |
+| `audience` | Opcional | Objeto de audiencia conectada | Ver [audiencia conectada]({{site.baseurl}}/api/objects_filters/connected_audience). |
 | `broadcast` | Opcional | Booleano | Debes establecer `broadcast` en true cuando envíes un mensaje a un Segment completo al que se dirige una Campaign o Canvas. Este parámetro está predeterminado como false (desde el 31 de agosto de 2017). <br><br> Si `broadcast` tiene el valor true, no se puede incluir una lista `recipients`. Sin embargo, ten cuidado al configurar `broadcast: true`, ya que si lo haces involuntariamente puede que envíes tu mensaje a una audiencia mayor de la esperada. |
-| `trigger_properties` | Opcional | Objeto | Pares clave-valor de personalización para todos los usuarios de este envío. Ver [propiedades del desencadenante]({{site.baseurl}}/api/objects_filters/trigger_properties_object/). |
-| `schedule` | Obligatorio | Objeto de programación | Ver [objeto de programación]({{site.baseurl}}/api/objects_filters/schedule_object/). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `trigger_properties` | Opcional | Objeto | Pares clave-valor de personalización para todos los usuarios de este envío. Ver [propiedades del desencadenante]({{site.baseurl}}/api/objects_filters/trigger_properties_object). |
+| `schedule` | Obligatorio | Objeto de programación | Ver [objeto de programación]({{site.baseurl}}/api/objects_filters/schedule_object). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ## Ejemplo de solicitud {#example-request}
 ```

@@ -12,12 +12,12 @@ hidden: true
 > Operator Analyze répond à des questions de performance en langage naturel dans BrazeAI Operator<sup>TM</sup>. Les réponses incluent des graphiques, des comparaisons et de courtes informations exploitables. Vous n'avez pas besoin de créer un tableau de bord ni de générer un rapport complet au préalable.
 
 {% alert important %}
-Operator Analyze est actuellement en version bêta. Les fonctionnalités et les analyses prises en charge évoluent. Pour demander l'accès pour votre compte, contactez votre gestionnaire de la satisfaction client.
+Operator Analyze est actuellement en version bêta. Les fonctionnalités et les analyses prises en charge évoluent. Pour demander l'accès pour votre compte, contactez votre Customer Success Manager.
 {% endalert %}
 
 ## Pourquoi utiliser Operator Analyze ? {#why-use-operator-analyze}
 
-La plupart des questions de performance nécessitent encore de changer d'outil, de créer des vues ou d'attendre qu'une autre personne s'en charge. Par exemple : « Comment s'est passée la semaine dernière ? », « Sommes-nous en phase avec le benchmark ? » ou « Quelle campagne génère les meilleurs résultats ? »
+La plupart des questions de performance nécessitent encore de changer d'outil, de créer des vues ou d'attendre qu'une autre personne s'en charge. Par exemple : « Comment s'est passée la semaine dernière ? », « Sommes-nous en phase avec le benchmark ? » ou « Quelle Campaign génère les meilleurs résultats ? »
 
 Operator Analyze couvre les indicateurs d'engagement, le *chiffre d'affaires attribué* et les benchmarks du secteur. Ce sont les mêmes données que vous intégreriez autrement dans un rapport ou un tableau de bord. Posez votre question dans vos propres mots depuis le panneau Operator. Vous obtenez un graphique, une comparaison classée ou un tableau, accompagné d'une à cinq informations exploitables.
 
@@ -29,7 +29,7 @@ Operator Analyze s'exécute dans le panneau de conversation Operator.
 2. Posez une question sur l'engagement d'un canal ou les comparaisons de benchmarks (voir [Exemples de questions](#example-questions)).
 3. Operator renvoie la réponse et, le cas échéant, un graphique ou un tableau ainsi qu'une courte liste d'informations exploitables.
 
-Pour en savoir plus sur le panneau de conversation Operator, consultez [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/).
+Pour en savoir plus sur le panneau de conversation Operator, consultez [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator).
 
 ## Exemples de questions {#example-questions}
 
@@ -52,10 +52,10 @@ Décrivez ce que vous souhaitez savoir. Aucune formulation fixe n'est requise. S
 {% endtab %}
 {% tab Analyses détaillées de Campaigns et Canvas %}
 
-* « Quelles sont nos 10 meilleures campagnes e-mail par *taux de clics* ce trimestre fiscal ? »
+* « Quelles sont nos 10 meilleures Campaigns e-mail par *taux de clics* ce trimestre fiscal ? »
 * « Quels Canvas ont généré le plus de *clics* le mois dernier ? »
-* « Quelles campagnes ont généré le plus de *chiffre d'affaires attribué* au T1 de l'exercice FY26 ? »
-* « Montrez nos campagnes push les moins performantes sur les 30 derniers jours. »
+* « Quelles Campaigns ont généré le plus de *chiffre d'affaires attribué* au T1 de l'exercice FY26 ? »
+* « Montrez nos Campaigns push les moins performantes sur les 30 derniers jours. »
 
 {% endtab %}
 {% tab Analyse de tendances %}
@@ -63,15 +63,15 @@ Décrivez ce que vous souhaitez savoir. Aucune formulation fixe n'est requise. S
 * « Quelle est la tendance mensuelle de l'engagement push pour l'exercice FY26 ? »
 * « Comment le *taux de clics* e-mail a-t-il évolué d'un trimestre à l'autre au cours de la dernière année ? »
 * « Comment notre *chiffre d'affaires attribué* a-t-il évolué au cours des 12 derniers mois ? »
-* « Montrez-moi la tendance hebdomadaire d'engagement pour les messages in-app sur les 90 derniers jours. »
+* « Montrez-moi la tendance hebdomadaire d'engagement pour les In-App Messages sur les 90 derniers jours. »
 
 {% endtab %}
 {% tab Chiffre d'affaires et conversions %}
 
-Posez des questions sur le *chiffre d'affaires attribué* et les *conversions* agrégés au niveau de la campagne, du Canvas, du canal ou du programme.
+Posez des questions sur le *chiffre d'affaires attribué* et les *conversions* agrégés au niveau de la Campaign, du Canvas, du canal ou du programme.
 
 * « Comparez le *chiffre d'affaires attribué* et les *conversions* du trimestre le plus récent par rapport au trimestre précédent. »
-* « Quelles campagnes ont généré le plus de *chiffre d'affaires attribué* au cours des 90 derniers jours ? »
+* « Quelles Campaigns ont généré le plus de *chiffre d'affaires attribué* au cours des 90 derniers jours ? »
 * « Détaillez le *chiffre d'affaires attribué* par canal depuis le début de l'exercice FY26. »
 
 {% endtab %}
@@ -91,7 +91,7 @@ Lorsqu'une réponse inclut plusieurs indicateurs, Operator privilégie les taux 
 
 ## Canaux et indicateurs pris en charge {#supported-channels-and-metrics}
 
-Le *chiffre d'affaires attribué* et les *conversions* utilisent la même agrégation par campagne, Canvas, canal et programme présentée dans [Exemples de questions](#example-questions) sous l'onglet **Chiffre d'affaires et conversions**.
+Le *chiffre d'affaires attribué* et les *conversions* utilisent la même agrégation par Campaign, Canvas, canal et programme présentée dans [Exemples de questions](#example-questions) sous l'onglet **Chiffre d'affaires et conversions**.
 
 | Canal | Indicateurs | Benchmarks du secteur |
 | --- | --- | --- |
@@ -110,7 +110,7 @@ Operator utilise des comptages uniques pour les taux (par exemple, *ouvertures u
 
 ## Périodes et fenêtres d'attribution {#time-periods-and-attribution-windows}
 
-### Exercice fiscal vs. année civile {#fiscal-year-vs-calendar-year}
+### Exercice fiscal et année civile {#fiscal-year-vs-calendar-year}
 
 Operator Analyze utilise par défaut l'**exercice fiscal Braze**, qui s'étend du 1er février au 31 janvier.
 
@@ -131,8 +131,8 @@ Vous pouvez également utiliser des plages au format ISO telles que `Q4 2025` ou
 Operator Analyze utilise par défaut une fenêtre de **7 jours**. Précisez une fenêtre dans votre question pour la modifier :
 
 * **1 jour** pour des vérifications rapides de l'engagement
-* **3 jours** pour des campagnes à cycle court
-* **7 jours** pour des aperçus généraux et des lectures de campagnes (par défaut)
+* **3 jours** pour des Campaigns à cycle court
+* **7 jours** pour des aperçus généraux et des lectures de Campaigns (par défaut)
 * **30 jours** pour des vues stratégiques ou à long terme
 * **Toutes les fenêtres** pour une comparaison côte à côte 1J / 3J / 7J / 30J
 
@@ -140,14 +140,14 @@ Si les résultats diffèrent de plus de 50 % d'une fenêtre à l'autre, Operator
 
 ## Fraîcheur des données {#data-freshness}
 
-Les données sont actualisées quotidiennement. L'activité du jour en cours apparaît après la prochaine actualisation. Chaque réponse indique la date la plus récente du jeu de données. Si cette date semble obsolète, contactez votre gestionnaire de la satisfaction client.
+Les données sont actualisées quotidiennement. L'activité du jour en cours apparaît après la prochaine actualisation. Chaque réponse indique la date la plus récente du jeu de données. Si cette date semble obsolète, contactez votre Customer Success Manager.
 
 ## Ce qui est hors périmètre {#whats-out-of-scope}
 
-* **Analyses de performance au niveau produit.** Le *chiffre d'affaires attribué* et l'engagement sont agrégés au niveau de la campagne, du Canvas, du canal ou du programme. Ils ne sont pas ventilés par produit ou par unité de gestion des stocks. Les questions au niveau produit ou unité de gestion des stocks ne sont pas prises en charge. Contactez votre gestionnaire de la satisfaction client pour ces analyses.
+* **Analyses de performance au niveau produit.** Le *chiffre d'affaires attribué* et l'engagement sont agrégés au niveau de la Campaign, du Canvas, du canal ou du programme. Ils ne sont pas ventilés par produit ou par unité de gestion des stocks. Les questions au niveau produit ou unité de gestion des stocks ne sont pas prises en charge. Contactez votre Customer Success Manager pour ces analyses.
 * **Benchmarks du secteur pour WhatsApp et RCS.** Les indicateurs d'engagement pour ces deux canaux sont pris en charge. Les benchmarks ne sont pas encore disponibles.
 
-Les questions hors périmètre reçoivent une réponse directe, une alternative suggérée lorsque c'est possible, ou une orientation vers votre gestionnaire de la satisfaction client.
+Les questions hors périmètre reçoivent une réponse directe, une alternative suggérée lorsque c'est possible, ou une orientation vers votre Customer Success Manager.
 
 ## Conseils pour de meilleurs résultats {#tips-for-better-results}
 
@@ -159,9 +159,9 @@ Les questions hors périmètre reçoivent une réponse directe, une alternative 
 
 ## Confidentialité et sécurité des données {#data-privacy-and-security}
 
-Operator Analyze suit le même modèle de confidentialité et de sécurité que BrazeAI Operator<sup>TM</sup>. Pour en savoir plus, consultez [Confidentialité et sécurité des données]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security/).
+Operator Analyze suit le même modèle de confidentialité et de sécurité que BrazeAI Operator<sup>TM</sup>. Pour en savoir plus, consultez [Confidentialité et sécurité des données]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security).
 
 ## Étapes suivantes {#next-steps}
 
-* [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/)
-* [Vérifier les actions]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/)
+* [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator)
+* [Vérifier les actions]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions)

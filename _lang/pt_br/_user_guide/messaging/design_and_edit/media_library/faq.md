@@ -12,53 +12,83 @@ description: "Este artigo fornece respostas para perguntas frequentes sobre a Bi
 
 > Esta página fornece respostas para perguntas frequentes sobre a Biblioteca de mídia na Braze.
 
-### Existem limites de armazenamento para imagens na Biblioteca de mídia? {#are-there-storage-limits-for-images-within-the-media-library}
+## Geral {#general}
 
-Não, não existem limites de armazenamento para ativos na Biblioteca de mídia. No entanto, existem limites de tamanho para ativos (máximo de 5 MB).
+### Existem limites de armazenamento para imagens na biblioteca de mídia? {#are-there-storage-limits-for-images-within-the-media-library}
+
+Não, não existem limites de armazenamento para ativos na biblioteca de mídia. No entanto, existem limites de tamanho para ativos (máximo de 5 MB).
 
 ### Existem datas de expiração para ativos enviados? {#are-there-expiration-dates-for-uploaded-assets}
 
-Não, os ativos enviados para a Biblioteca de mídia serão mantidos durante toda a duração do seu contrato com a Braze.
+Não, os ativos enviados para a biblioteca de mídia são mantidos durante toda a duração do seu contrato com a Braze.
 
-### Posso fazer upload de ativos de vídeo? {#can-i-upload-video-assets}
+### Posso enviar ativos de vídeo? {#can-i-upload-video-assets}
 
-Não, a Biblioteca de mídia não oferece suporte a arquivos de vídeo. Recomendamos que você hospede esses arquivos externamente ou em uma plataforma como o YouTube.
+Não, a biblioteca de mídia não suporta arquivos de vídeo. Hospede-os externamente ou em uma plataforma como o YouTube.
 
-### Posso recortar todos os tipos de imagem? {#can-i-crop-all-image-types}
+### Posso cortar todos os tipos de imagem? {#can-i-crop-all-image-types}
 
-Não, a Biblioteca de mídia não oferece suporte ao recorte de imagens GIF.
+Não, a biblioteca de mídia não suporta o corte de imagens GIF.
 
-### Como faço para recortar uma imagem existente? {#how-do-i-crop-an-existing-image}
+### Como copio a URL de uma imagem enviada para a biblioteca de mídia? {#how-do-i-copy-the-url-of-an-image-uploaded-to-the-media-library}
 
-Você pode recortar uma imagem existente selecionando a imagem na Biblioteca de mídia e clicando em **Crop & Save New Image**.
+Para copiar a URL de uma imagem enviada para a biblioteca de mídia, navegue até **Conteúdo** > **Biblioteca de mídia**. Passe o cursor sobre a imagem que deseja referenciar e selecione o ícone **Copiar URL da imagem** para copiar a URL da imagem para a área de transferência.
 
-![Pré-visualização de imagem da Biblioteca de mídia.]({% image_buster /assets/img_archive/media_library_crop1.png %}){: height="75%" width="75%"}
+### Posso usar imagens SVG em e-mail? {#can-i-use-svg-images-in-email}
 
-Você será redirecionado para um criador de recorte onde poderá selecionar o tipo de proporção e editar o nome da nova imagem. Ao selecionar **Save**, sua nova imagem estará pronta para uso.
+Imagens SVG não são recomendadas para e-mail devido ao suporte limitado entre os clientes de e-mail. O Gmail e vários outros provedores de e-mail importantes não renderizam imagens SVG, o que pode resultar em imagens quebradas ou ausentes para os destinatários. Para uma renderização confiável de e-mail, use os formatos PNG, JPEG ou GIF.
 
-![Janela para recortar e salvar imagem da Biblioteca de mídia.]({% image_buster /assets/img_archive/media_library_crop2.png %}){: height="75%" width="75%"}
+### Como corto uma imagem existente? {#how-do-i-crop-an-existing-image}
 
-### Minha imagem fica expirando quando tento fazer upload. O que posso fazer? {#my-image-keeps-timing-out-when-i-try-to-upload-it-what-can-i-do-about-this}
+Você pode cortar uma imagem existente selecionando a imagem na biblioteca de mídia e clicando em **Cortar e salvar nova imagem**.
 
-Isso pode acontecer por vários motivos, mas uma solução comum é garantir que sua imagem esteja otimizada antes de tentar fazer upload. Isso significa passar sua imagem por um otimizador de imagens como o [ImageOptim](https://imageoptim.com/mac).
+![Prévia da imagem na biblioteca de mídia.]({% image_buster /assets/img_archive/media_library_crop1.png %}){: height="75%" width="75%"}
 
-Além disso, se sua imagem foi criada no Photoshop (ou software similar) e possui muitas camadas, mesclar e reduzir o número de camadas também pode ajudar.
+O criador de corte é aberto, onde você pode selecionar o tipo de proporção e editar o nome da nova imagem. Ao selecionar **Salvar**, você pode usar sua nova imagem.
 
-### Vejo um "Erro inesperado" ao fazer upload de uma imagem, mesmo ela tendo menos de 5 MB e estando em um formato compatível. Qual é o problema? {#i-see-an-unexpected-error-when-uploading-an-image-even-though-its-under-5-mb-and-in-a-supported-format-whats-wrong}
+![Janela para cortar e salvar imagem da biblioteca de mídia.]({% image_buster /assets/img_archive/media_library_crop2.png %}){: height="75%" width="75%"}
+
+### Minha imagem fica expirando quando tento enviá-la. O que posso fazer? {#my-image-keeps-timing-out-when-i-try-to-upload-it-what-can-i-do-about-this}
+
+Isso pode acontecer por vários motivos, mas uma solução comum é garantir que sua imagem esteja otimizada antes de tentar enviá-la. Isso significa passar sua imagem por um otimizador de imagens como o [ImageOptim](https://imageoptim.com/mac).
+
+Além disso, se sua imagem foi criada no Photoshop (ou software similar) e tem muitas camadas, mesclar e reduzir o número de camadas também pode ajudar.
+
+### Vejo um "Erro inesperado" ao enviar uma imagem, mesmo ela tendo menos de 5 MB e estando em um formato suportado. Qual é o problema? {#i-see-an-unexpected-error-when-uploading-an-image-even-though-its-under-5-mb-and-in-a-supported-format-whats-wrong}
 
 Isso pode acontecer por dois motivos principais:
 
-1. **Metadados inválidos no arquivo:** O software que a Braze usa para processar imagens pode rejeitar arquivos com metadados inválidos ou incompatíveis. Em alguns casos, o arquivo também pode ser processado de uma forma que ultrapasse o limite de 5 MB. Tente usar uma imagem diferente (por exemplo, reexporte ou salve novamente a imagem no seu editor de imagens) ou uma imagem de outra origem.
-2. **Caracteres especiais no nome do arquivo:** Nomes de arquivo que contêm caracteres especiais (como `&` ou `%`) podem causar falha no upload. Renomeie o arquivo para usar apenas letras, números, hifens ou underscores e tente fazer upload novamente.
+1. **Metadados inválidos no arquivo:** O software que a Braze usa para processar imagens pode rejeitar arquivos com metadados inválidos ou incompatíveis. Em alguns casos, o arquivo também pode ser processado de uma forma que ultrapasse o limite de 5 MB. Tente usar uma imagem diferente (por exemplo, reexporte ou salve novamente a imagem no seu editor de imagens) ou uma imagem de outra fonte.
+2. **Caracteres especiais no nome do arquivo:** Nomes de arquivo que contêm caracteres especiais (como `&` ou `%`) podem causar falha no envio. Renomeie o arquivo para usar apenas letras, números, hifens ou underscores e tente enviar novamente.
 
-### Por que não consigo fazer upload de qualquer imagem nos criadores de push? {#why-cant-i-upload-any-image-i-want-into-the-push-composers}
+### Por que não consigo enviar qualquer imagem que eu queira nos criadores de push? {#why-cant-i-upload-any-image-i-want-into-the-push-composers}
 
-Isso acontece porque a maioria dos criadores possui restrições quanto à proporção de tamanho de imagem permitida.
+Isso acontece porque a maioria dos criadores tem restrições quanto à proporção de tamanho de imagem permitida.
 
 ### Gerar uma imagem usando IA {#generate-an-image-using-ai}
 
-Você pode gerar imagens em **Conteúdo** > **Biblioteca de mídia** selecionando **Gerador de imagens com IA**. Você precisa da permissão **Editar ativos da Biblioteca de mídia**. Se você não vir essa opção, entre em contato com a equipe da Braze. Para etapas e detalhes de política, consulte [Gerar imagens com BrazeAI]({{site.baseurl}}/user_guide/brazeai/generative_ai/images/) e [Gerando imagens com BrazeAI]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#generate-ai).
+Você pode gerar imagens em **Conteúdo** > **Biblioteca de mídia** selecionando **Gerar com Operator**. Você precisa da permissão "Edit Media Library Assets". Se não vir a opção, entre em contato com a equipe de conta da Braze. Para etapas e detalhes de política, consulte [Gerar imagens com BrazeAI]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-images) e [Gerando imagens com BrazeAI]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#generate-ai).
 
-### Posso criar URLs personalizadas para ativos de imagem da Biblioteca de mídia? {#can-i-create-vanity-urls-for-media-library-image-assets}
+### O que acontece quando excluo uma imagem da biblioteca de mídia? {#what-happens-when-i-delete-an-image-from-the-media-library}
 
-URLs personalizadas para ativos da Biblioteca de mídia não são suportadas porque URLs customizadas quebrariam a entrega via CDN. Você pode substituir uma imagem na URL existente quando Campaigns já fazem referência a essa URL. Para saber mais, consulte [Substituir um arquivo]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#replace-a-file).
+Excluir um ativo o remove da interface da biblioteca de mídia, mas a Braze mantém o arquivo hospedado na URL existente, de modo que Campaigns e Canvas ativos que referenciam essa URL continuam a carregar a imagem. Para remover permanentemente um ativo da hospedagem da Braze, entre em contato com o suporte da Braze. Para atualizar o que os destinatários veem sem alterar URLs em cada mensagem, use [Substituir um arquivo]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file).
+
+### Posso alterar ativos de imagem em e-mails que já foram enviados? {#can-i-change-image-assets-in-emails-that-have-already-been-sent}
+
+Você pode atualizar a imagem em um e-mail já enviado [substituindo o arquivo]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file) na URL existente. A URL e o ID do ativo permanecem os mesmos, então qualquer mensagem que o referencie, incluindo e-mails já enviados, reflete o novo arquivo. Alguns destinatários ainda podem ver a imagem anterior se ela já estava em cache no dispositivo antes da alteração, então isso não garante que todos os destinatários vejam a atualização imediatamente.
+
+### A Braze armazena em cache imagens adicionadas por meio de uma URL externa em Content Cards e mensagens no app? {#does-braze-cache-images-added-through-an-external-url-in-content-cards-and-in-app-messages}
+
+Depende do canal:
+
+- **Content Cards e mensagens no app tradicionais** (modal, slideup e tela cheia): Sim. Quando você configura a mensagem, a Braze copia a imagem para sua própria rede de distribuição de conteúdo (CDN). A imagem na mensagem é servida a partir dessa cópia, então alterar ou excluir a fonte original (como remover o ativo de um bucket S3) não afeta Content Cards que já foram criados ou enviados.
+- **Mensagens no app em HTML e mensagens no app de arrastar e soltar:** Não. A Braze não armazena a imagem em cache. A mensagem carrega a imagem diretamente da URL que você forneceu, então alterar ou remover a URL de origem quebra a imagem em campanhas ativas.
+- **E-mail:** O comportamento depende de como a imagem foi adicionada. Para saber mais, consulte [Posso alterar ativos de imagem em e-mails que já foram enviados?](#can-i-change-image-assets-in-emails-that-have-already-been-sent).
+
+### Posso criar URLs personalizadas para ativos de imagem da biblioteca de mídia? {#can-i-create-vanity-urls-for-media-library-image-assets}
+
+URLs personalizadas para ativos da biblioteca de mídia não são suportadas porque URLs customizadas quebrariam a entrega via CDN. Você pode substituir uma imagem na URL existente quando Campaigns já referenciam essa URL. Para saber mais, consulte [Substituir um arquivo]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file).
+
+### Por que o Chrome salva imagens JPEG ou PNG como arquivos WebP? {#why-does-chrome-save-jpeg-or-png-images-as-webp-files}
+
+Ao usar o Chrome para salvar imagens da biblioteca de mídia, o navegador pode converter automaticamente arquivos JPEG ou PNG para o formato WebP. Esse é o comportamento padrão do Chrome para downloads de imagens e não é específico da Braze. Se você precisa salvar imagens no formato original, tente usar um navegador diferente, como Safari ou Firefox.

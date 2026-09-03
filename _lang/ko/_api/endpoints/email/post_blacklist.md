@@ -11,21 +11,21 @@ description: "이 문서에서는 블랙리스트 이메일 Braze 엔드포인�
 ---
 {% api %}
 # 블랙리스트 이메일 {#blacklist-emails}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /email/blacklist
 {% endapimethod %}
 
 {% alert important %}
-Braze는 `/email/blacklist` 엔드포인트와 동일한 기능을 갖춘 [`/email/blocklist` 엔드포인트]({{site.baseurl}}/api/endpoints/email/post_blocklist/)를 출시했습니다. 대신 `/email/blocklist` 엔드포인트를 사용하는 것을 권장합니다.
+Braze는 `/email/blacklist` 엔드포인트와 동일한 기능을 갖춘 [`/email/blocklist` 엔드포인트]({{site.baseurl}}/api/endpoints/email/post_blocklist)를 출시했습니다. 대신 `/email/blocklist` 엔드포인트를 사용하는 것을 권장합니다.
 {% endalert %}
 
-> 이 엔드포인트를 사용하여 사용자의 이메일 수신을 취소하고 하드바운스로 표시할 수 있습니다.
+> 이 엔드포인트를 사용하여 사용자의 이메일 수신을 탈퇴 처리하고 하드바운스로 표시할 수 있습니다.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#d51155a1-a6e8-4dcc-9f2b-88c54ab9e8c6 {% endapiref %}
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `email.blacklist` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `email.blacklist` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key-permissions)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -48,8 +48,8 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | -----------|----------| --------|------- |
-| `email` | 필수 | 문자열 또는 배열 | 블랙리스트에 추가할 이메일 주소를 문자열로 지정하거나 최대 50개의 이메일 주소 배열을 블랙리스트에 추가합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+| `email` | 필수 | 문자열 또는 배열 | 블랙리스트에 추가할 이메일 주소를 문자열로 지정하거나, 최대 50개의 이메일 주소 배열을 블랙리스트에 추가합니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 ## 요청 예시 {#example-request}
 ```

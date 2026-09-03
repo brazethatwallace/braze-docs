@@ -7,7 +7,7 @@ description: "コネクテッドコンテンツを使用してREST APIからメ�
 
 # REST API {#rest-api}
 
-> [コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)を使用して、送信時に外部REST APIからメッセージに直接データを取得できます。これにより、自社サーバー、サードパーティサービス、または公開されている任意のAPIエンドポイントからのリアルタイム情報でメッセージをパーソナライズできます。
+> [コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)を使用して、送信時に外部REST APIからメッセージに直接データを取得できます。これにより、自社サーバー、サードパーティサービス、または公開されている任意のAPIエンドポイントからのリアルタイム情報でメッセージをパーソナライズできます。
 
 ## 仕組み {#how-it-works}
 
@@ -37,16 +37,16 @@ We think you'll love {{recs.top_pick}}!
 
 Brazeはコネクテッドコンテンツリクエストに対して、ベーシック認証、トークン認証、OAuthをサポートしています。認証情報はBrazeダッシュボードの**設定** > **コネクテッドコンテンツ**に安全に保存し、API呼び出しで参照できます。
 
-詳細については、[コネクテッドコンテンツAPI呼び出しの作成]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/#authentication-types)を参照してください。
+詳細については、[コネクテッドコンテンツAPI呼び出しの作成]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#authentication-types)を参照してください。
 
 ## エラー処理 {#error-handling}
 
 エンドポイントがエラーを返すかタイムアウトした場合、Brazeはコネクテッドコンテンツのレスポンスの代わりに空の文字列をレンダリングします。保存された変数がnullかどうかを確認することで失敗を検出し、条件に応じてメッセージを中止したりフォールバックコンテンツを表示したりできます。
 
-詳細については、[コネクテッドコンテンツの中止]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content/)を参照してください。
+詳細については、[コネクテッドコンテンツの中止]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content)を参照してください。
 
 ## パフォーマンスに関する考慮事項 {#performance-considerations}
 
 Brazeは大量のメッセージを配信するため、サーバーは数千の同時接続を処理できる必要があります。適切な場所でキャッシュを使用し、外部エンドポイントの過負荷を避けるためにメッセージにレート制限を設定してください。
 
-コネクテッドコンテンツの完全なリファレンスについては、[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)を参照してください。
+コネクテッドコンテンツの完全なリファレンスについては、[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)を参照してください。

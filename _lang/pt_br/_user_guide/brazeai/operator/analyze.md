@@ -29,7 +29,7 @@ O Operator Analyze funciona no painel de conversa do Operator.
 2. Pergunte sobre engajamento de canal ou comparações com benchmarks (veja [Exemplos de perguntas](#example-questions)).
 3. O Operator retorna a resposta e, quando útil, um gráfico ou tabela e uma lista curta de insights.
 
-Para saber mais sobre o painel de chat do Operator, consulte [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/).
+Para saber mais sobre o painel de chat do Operator, consulte [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator).
 
 ## Exemplos de perguntas {#example-questions}
 
@@ -159,9 +159,9 @@ Perguntas fora do escopo recebem uma resposta direta, uma alternativa sugerida q
 
 ## Privacidade e segurança dos dados {#data-privacy-and-security}
 
-O Operator Analyze segue o mesmo modelo de privacidade e segurança do BrazeAI Operator<sup>TM</sup>. Para saber mais, consulte [Privacidade e segurança dos dados]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security/).
+O Operator Analyze segue o mesmo modelo de privacidade e segurança do BrazeAI Operator<sup>TM</sup>. Para saber mais, consulte [Privacidade e segurança dos dados]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security).
 
 ## Próximas etapas {#next-steps}
 
-* [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/)
-* [Revisar ações]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/)
+* [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator)
+* [Revisar ações]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions)

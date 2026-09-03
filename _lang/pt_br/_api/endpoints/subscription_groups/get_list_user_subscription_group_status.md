@@ -18,6 +18,8 @@ description: "Este artigo descreve detalhes sobre o endpoint da Braze para lista
 
 Esses grupos estarão disponíveis na página do **Grupo de inscrições**. A resposta deste endpoint incluirá o ID externo e o status subscribed, unsubscribed ou unknown para o grupo de inscrições específico solicitado na chamada de API. Isso pode ser usado para atualizar o estado do grupo de inscrições em chamadas subsequentes de API ou para ser exibido em uma página da web hospedada.
 
+Se você coleta e-mails por meio de um formulário personalizado e depois define a associação ao grupo de inscrições pela REST API, chame este endpoint primeiro para verificar se já existe um perfil. Se não houver um perfil correspondente, crie ou inscreva o usuário com o endpoint [Atualizar status do grupo de inscrições do usuário]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status). Caso contrário, atualize o perfil existente em vez de criar uma duplicata. Para outros padrões de coleta, consulte [Práticas recomendadas de coleta]({{site.baseurl}}/user_guide/data/unification/user_data/best_practices).
+
 Se você quiser ver exemplos ou testar este endpoint para **grupos de inscrições para e-mail**:
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#488c8923-fa44-4124-9245-036d13c615f2 {% endapiref %}
@@ -32,21 +34,21 @@ Se você quiser ver exemplos ou testar este endpoint para **grupos do WhatsApp**
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `subscription.status.get`.
+Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `subscription.status.get`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 |---|---|---|---|
-| [`subscription_group_id`]({{site.baseurl}}/api/identifier_types/?tab=subscription%20group%20ids) | Obrigatória | String | O `id` do seu grupo de inscrições. |
-| `external_id` | Obrigatória* | String | O `external_id` do usuário (deve incluir pelo menos um e no máximo 50 `external_ids`). <br><br>Quando um `external_id` e `email`/`phone` são enviados juntos, apenas os `external_id`(s) fornecidos serão aplicados à consulta de resultado. |
-| `email` | Obrigatória* | String | O endereço de e-mail do usuário. Pode ser passado como um array de strings com no máximo 50.<br><br> Enviar tanto um endereço de e-mail quanto um número de telefone (sem `external_id`) resultará em um erro. |
-| `phone` | Obrigatória* | String no formato [E.164](https://en.wikipedia.org/wiki/E.164) | O número de telefone do usuário. Se o e-mail não estiver incluído, você deve incluir pelo menos um número de telefone (com no máximo 50).<br><br> Enviar tanto um endereço de e-mail quanto um número de telefone (sem `external_id`) resultará em um erro. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
+| [`subscription_group_id`]({{site.baseurl}}/api/identifier_types?tab=subscription%20group%20ids) | Obrigatório | String | O `id` do seu grupo de inscrições. |
+| `external_id` | Obrigatório* | String | O `external_id` do usuário (deve incluir pelo menos um e no máximo 50 `external_ids`). <br><br>Quando um `external_id` e `email`/`phone` são enviados juntos, apenas os `external_id`(s) fornecidos serão aplicados à consulta de resultado. |
+| `email` | Obrigatório* | String | O endereço de e-mail do usuário. Pode ser passado como um array de strings com no máximo 50.<br><br> Enviar tanto um endereço de e-mail quanto um número de telefone (sem `external_id`) resultará em um erro. |
+| `phone` | Obrigatório* | String no formato [E.164](https://en.wikipedia.org/wiki/E.164) | O número de telefone do usuário. Se o e-mail não estiver incluído, você deve incluir pelo menos um número de telefone (com no máximo 50).<br><br> Enviar tanto um endereço de e-mail quanto um número de telefone (sem `external_id`) resultará em um erro. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 *Um entre `external_id`, `email` ou `phone` é obrigatório para cada usuário.
 
@@ -74,7 +76,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/sta
 {% tab E-mail %}
 {% raw %}
 ```
-curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/status/get?subscription_group_id={{subscription_group_id}}&email=example@braze.com' \
+curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/status/get?subscription_group_id={{subscription_group_id}}&email=example@example.com' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 {% endraw %}
@@ -96,7 +98,7 @@ Todas as respostas bem-sucedidas retornarão `Subscribed`, `Unsubscribed` ou `Un
 ```
 
 {% alert important %}
-Este endpoint retorna o status do grupo de inscrições independentemente do estado global de inscrição do usuário. Se um usuário estiver globalmente cancelado, o dashboard da Braze o mostrará como cancelado em cada grupo de inscrições. No entanto, este endpoint ainda retorna o último status salvo do grupo de inscrições (por exemplo, `Subscribed`) porque o estado global de inscrição se sobrepõe aos grupos de inscrições individuais sem sobrescrevê-los.<br><br>A Braze preserva os estados individuais dos grupos de inscrições para que, se o usuário se reinscrever globalmente, cada grupo de inscrições retorne ao seu status salvo anteriormente. Para determinar o estado efetivo de inscrição de um usuário, verifique tanto o status de inscrição global quanto o status do grupo de inscrições retornado por este endpoint.
+Este endpoint retorna o status do grupo de inscrições de forma independente do estado global de inscrição do usuário. Se um usuário tiver cancelado a inscrição globalmente, o dashboard da Braze o mostrará como cancelado em cada grupo de inscrições. No entanto, este endpoint ainda retorna o último status salvo do grupo de inscrições (por exemplo, `Subscribed`) porque o estado global de inscrição se sobrepõe aos grupos de inscrições individuais sem sobrescrevê-los.<br><br>A Braze preserva os estados individuais dos grupos de inscrições para que, se o usuário se reinscrever globalmente, cada grupo de inscrições retorne ao seu status salvo anteriormente. Para determinar o estado efetivo de inscrição de um usuário, verifique tanto o status de inscrição global quanto o status do grupo de inscrições retornado por este endpoint.
 {% endalert %}
 
 {% endapi %}

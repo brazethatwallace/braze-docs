@@ -1,6 +1,6 @@
-## .NET MAUI コンテンツカードについて {#about-net-maui-content-cards}
+## .NET MAUI Content Cardsについて {#about-net-maui-content-cards}
 
-Braze .NET MAUI（旧称 Xamarin）SDKには、Content Cardsの利用を開始するためのデフォルトのカードフィードが含まれています。Braze SDKに含まれるデフォルトのカードフィードは、ユーザーのContent Cardsのすべての分析トラッキング、却下、レンダリングを処理します。
+Braze .NET MAUI（旧称Xamarin）SDKには、Content Cardsの利用を開始するためのデフォルトのカードフィードが含まれています。Braze SDKに含まれるデフォルトのカードフィードは、ユーザーのContent Cardsのすべての分析トラッキング、却下、レンダリングを処理します。
 
 {% multi_lang_include developer_guide/prerequisites/xamarin.md %}
 
@@ -25,9 +25,9 @@ Braze .NET MAUI SDKには、共通のベースモデルを持つ3種類のユニ
 | `isControlCard` | このカードがコントロールカードかどうか。コントロールカードはユーザーに表示しないでください。 |
 | `extras` | このカードのキーバリューエクストラのマップ。 |
 | `isTest` | このカードがテストカードかどうか。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Base card model" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="基本カードモデル" }
 
-ベースカードの完全なリファレンスについては、[Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/index.html) および [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/data-swift.struct) のドキュメントを参照してください。
+ベースカードの完全なリファレンスについては、[Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/index.html)および[iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/data-swift.struct)のドキュメントを参照してください。
 
 ### バナー {#xamarin_banner}
 
@@ -37,9 +37,9 @@ Braze .NET MAUI SDKには、共通のベースモデルを持つ3種類のユニ
 |-------------------|-------------------------------------------------------------------------------------------------------------------|
 | `image` | カードの画像のURL。 |
 | `imageAspectRatio` | カード画像のアスペクト比。画像の読み込みが完了する前のヒントとして利用されます。特定の状況ではこのプロパティが提供されない場合があることに注意してください。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Banner" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="バナー" }
 
-バナーカードの完全なリファレンスについては、[Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-image-only-card/index.html) および [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/imageonly-swift.struct) のドキュメント（現在は「画像のみ」に名称変更）を参照してください。
+バナーカードの完全なリファレンスについては、[Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-image-only-card/index.html)および[iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/imageonly-swift.struct)のドキュメント（現在は「画像のみ」に名称変更）を参照してください。
 
 ### キャプション付き画像 {#xamarin_captioned-image}
 
@@ -52,13 +52,13 @@ Braze .NET MAUI SDKには、共通のベースモデルを持つ3種類のユニ
 | `title` | カードのタイトルテキスト。 |
 | `cardDescription` | カードの説明テキスト。 |
 | `domain` | （オプション）プロパティURLのリンクテキスト（例：`"braze.com/resources/"`）。カードのUIに表示され、カードをクリックした際のアクション/方向を示すことができます。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Captioned image" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="キャプション付き画像" }
 
-キャプション付き画像カードの完全なリファレンスについては、[Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-captioned-image-card/index.html) および [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/captionedimage-swift.struct) のドキュメントを参照してください。
+キャプション付き画像カードの完全なリファレンスについては、[Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-captioned-image-card/index.html)および[iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/captionedimage-swift.struct)のドキュメントを参照してください。
 
 ### クラシック {#xamarin_classic}
 
-クラシックカードには、タイトル、説明、およびテキストの左側にオプションの画像が表示されます。
+クラシックカードには、タイトル、説明、およびテキストの前にオプションの画像が表示されます。
 
 | プロパティ | 説明 |
 |-------------------|-------------------------------------------------------------------------------------------------------------------|
@@ -66,9 +66,9 @@ Braze .NET MAUI SDKには、共通のベースモデルを持つ3種類のユニ
 | `title` | カードのタイトルテキスト。 |
 | `cardDescription` | カードの説明テキスト。 |
 | `domain` | （オプション）プロパティURLのリンクテキスト（例：`"braze.com/resources/"`）。カードのUIに表示され、カードをクリックした際のアクション/方向を示すことができます。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Classic" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="クラシック" }
 
-クラシック（テキストアナウンス）Content Cardsの完全なリファレンスについては、[Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-text-announcement-card/index.html) および [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/classic-swift.struct) のドキュメントを参照してください。クラシック画像（ショートニュース）カードの完全なリファレンスについては、[Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-short-news-card/index.html) および [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/classicimage-swift.struct) のドキュメントを参照してください。
+クラシック（テキストアナウンス）Content Cardsの完全なリファレンスについては、[Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-text-announcement-card/index.html)および[iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/classic-swift.struct)のドキュメントを参照してください。クラシック画像（ショートニュース）カードの完全なリファレンスについては、[Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-short-news-card/index.html)および[iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/classicimage-swift.struct)のドキュメントを参照してください。
 
 ## カードメソッド {#card-methods}
 
@@ -81,4 +81,4 @@ Braze .NET MAUI SDKには、共通のベースモデルを持つ3種類のユニ
 | `logContentCardClicked(cardId)` | 指定されたContent Card IDのクリックを記録します。このメソッドは分析のみに使用されます。 |
 | `logContentCardImpression(cardId)` | 指定されたContent Card IDのインプレッションを記録します。 |
 | `logContentCardDismissed(cardId)` | 指定されたContent Card IDの却下を記録します。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Card methods" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="カードメソッド" }

@@ -11,7 +11,7 @@ channel:
   - RCS
 ---
 
-{% multi_lang_include short_and_long_codes.md %}
+{% multi_lang_include channels/sms/short_and_long_codes.md %}
 
 ## MMS-specific requirements
 
@@ -21,11 +21,11 @@ channel:
 
 MMS is currently supported for US short codes (5-6 digit numbers), US and CA long codes (10-digit numbers), and US and Canada customer numbers. MMS is supported for toll-free numbers by certain service providers.
 
-Sending MMS to numbers outside of the US and Canada is possible, but MMS messages will be converted into an SMS message with a link to the media asset.
+Sending MMS to numbers outside of the US and Canada is possible, but MMS messages are converted into an SMS message with a link to the media asset.
 
 ### MMS short codes
 
-Some users may not implement or use MMS short codes, but they will be available if needed at a later date.
+Some users may not implement or use MMS short codes, but they are available if needed at a later date.
 
 For users who got their short codes before Braze supported MMS, all existing customers with US short codes are eligible to instantly enable MMS. Contact your customer success manager if this situation applies to you and you would like MMS enabled.
 
@@ -48,7 +48,7 @@ MMS messages cannot be sent with an alphanumeric sender ID.
 
 MMS throughput is one segment per second through a long code.
 
-Carriers impose their own file size limits, which determine the success of MMS sends. These limits can vary by geography and carrier, so Braze recommends not exceeding 600&nbsp;KB for your multimedia asset while also including a message body. We also recommend testing to confirm that your media can be delivered across your users' carriers.
+Carriers impose their own file size limits, which determine the success of MMS sends. These limits can vary by geography and carrier, so Braze recommends not exceeding 600&nbsp;KB for your multimedia asset while also including a message body. In the Braze SMS or MMS composer, uploads above 1&nbsp;MB are blocked. The error message recommends uploading a file at or below 600&nbsp;KB. We also recommend testing to confirm that your media can be delivered across your users' carriers.
 
 #### Carrier file size limits
 

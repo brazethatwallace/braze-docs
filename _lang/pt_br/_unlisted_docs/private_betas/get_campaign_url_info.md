@@ -16,6 +16,7 @@ description: "Este artigo descreve detalhes sobre o endpoint Listar alias de lin
 ---
 {% api %}
 # Listar alias de link para campaign {#list-link-alias-for-campaign}
+
 {% apimethod get %}
 /campaigns/url_info/details
 {% endapimethod %}
@@ -26,10 +27,10 @@ description: "Este artigo descreve detalhes sobre o endpoint Listar alias de lin
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 |---|---|---|---|
-| `campaign_id`  | Obrigatória | String | Consulte [identificador de API da campaign](https://www.braze.com/docs/api/identifier_types/#campaign-api-identifier). |
-| `message_variation_id `  |  Obrigatória | String | Identificador de API da variante de mensagem. Você pode encontrá-lo na página de detalhes da campaign, na seção **API Identifier**. |
+| `campaign_id` | Obrigatório | String | Consulte [identificador de API da campaign]({{site.baseurl}}/api/identifier_types#campaign-identifier). |
+| `message_variation_id ` | Obrigatório | String | Identificador de API da variante de mensagem. Você pode encontrá-lo na página de detalhes da campaign, na seção **API Identifier**. |
 | `includes_link_id` | Opcional | String | Um identificador de link específico (conforme atribuído pela Braze) ou `null`. Usado para filtrar os resultados por um `link_id` específico. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
@@ -65,8 +66,8 @@ A tabela a seguir lista possíveis erros retornados e as etapas de solução de 
 
 | Erro | Solução de problemas |
 | --- | --- |
-| `Missing/Invalid Campaign ID` | O ID de API da campaign deve ser um identificador de API. Você pode encontrá-lo usando o [endpoint Exportar lista de campaigns](https://www.braze.com/docs/api/endpoints/export/campaigns/get_campaigns/) ou fazendo login no dashboard. |
-| `Missing/Invalid Message Variant ID` | O ID de API da variante de mensagem deve ser um identificador de API. Você pode encontrá-lo usando o [endpoint Exportar detalhes da campaign](https://www.braze.com/docs/api/endpoints/export/campaigns/get_campaign_details/) ou fazendo login no dashboard. |
+| `Missing/Invalid Campaign ID` | O ID de API da campaign deve ser um identificador de API. Você pode encontrá-lo usando o [endpoint Exportar lista de Campaigns]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns) ou fazendo login no dashboard. |
+| `Missing/Invalid Message Variant ID` | O ID de API da variante de mensagem deve ser um identificador de API. Você pode encontrá-lo usando o [endpoint Exportar detalhes da campaign]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details) ou fazendo login no dashboard. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 

@@ -17,7 +17,7 @@ Apple's [WWDC](https://developer.apple.com/wwdc24/) took place June 9th - 11th 2
 
 ### Live Activities on Apple Watch
 
-[Live Activities]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?sdktab=swift) will be supported on watchOS 11. No additional setup is required. However, Apple offers the option to customize the watch interface.
+[Live Activities]({{site.baseurl}}/developer_guide/live_notifications?sdktab=swift) will be supported on watchOS 11. No additional setup is required. However, Apple offers the option to customize the watch interface.
 
 ### Apple Vision Pro
 

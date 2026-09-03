@@ -334,7 +334,7 @@ Currently, Google doesn't list their supported HTML tags for Android directly in
 
 You can showcase a larger image within your Android push notification using inline image push. With this design, users won't have to manually expand the push to enlarge the image. Unlike regular Android push notifications, inline image push images are in a 3:2 aspect ratio.
 
-![]({% image_buster /assets/img/android/push/inline_image_push_android_1.png %}){: style="max-width:50%;"}
+![Android push notification preview showing inline image push rendering.]({% image_buster /assets/img/android/push/inline_image_push_android_1.png %}){: style="max-width:50%;"}
 
 ### Compatibility
 
@@ -348,17 +348,34 @@ Devices running Android 12 will render differently due to changes in custom push
 
 When creating an Android push message, this feature is available in the **Notification Type** dropdown.
 
-![The push campaign editor showing the location of the "Notification Type" dropdown (above the standard push preview).]({% image_buster /assets/img/android/push/android_inline_image_notification_type.png %})
+![The push campaign editor showing the location of the "Notification Type" dropdown near the standard push preview.]({% image_buster /assets/img/android/push/android_inline_image_notification_type.png %})
 
 ## Settings
 
 There are many advanced settings available for Android push notifications sent through the Braze dashboard. This article will describe these features and how to use them successfully.
 
-![]({% image_buster /assets/img_archive/android_advanced_settings.png %})
+![Braze Android push composer advanced settings panel.]({% image_buster /assets/img_archive/android_advanced_settings.png %})
 
 ### Notification ID {#notification-id}
 
 A **Notification ID** is a unique identifier for a message category of your choosing that informs the messaging service to only respect the most recent message from that ID. Setting a notification ID allows you to send just the most recent and relevant message, rather than a stack of outdated, irrelevant ones.
+
+#### Preventing duplicate notifications from overwriting
+
+By default, when push notifications have identical titles and body text, Android generates the same notification ID for both messages by hashing the title and body strings together. This causes the second notification to overwrite the first one, resulting in only a single notification appearing in the notification tray.
+
+To prevent identical notifications from overwriting each other, you can specify unique notification ID values in your Android push notification settings. Here are some options:
+
+- **Use Liquid templating with a timestamp:** Generate a unique value based on the current time.
+
+{% raw %}
+```liquid
+{% assign random_number = 'now' | date: '%s' | plus: 1000000 %}
+{{random_number}}
+```
+{% endraw %}
+
+- **Server-side generation:** For truly random values, generate the notification ID on your server and pass it through Liquid. This ensures each notification has a distinct identifier, allowing multiple notifications to display simultaneously.
 
 ### Firebase Messaging Delivery priority {#fcm-priority}
 

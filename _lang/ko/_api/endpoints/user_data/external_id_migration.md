@@ -14,9 +14,9 @@ guide_top_text: "외부 ID 마이그레이션 API를 사용하면 기존 외부 
 guide_featured_title: "외부 ID 마이그레이션 엔드포인트"
 guide_featured_list:
   - name: "POST: 외부 ID 이름 바꾸기"
-    link: /docs/api/endpoints/user_data/external_id_migration/post_external_ids_rename/
+    link: /docs/api/endpoints/user_data/external_id_migration/post_external_ids_rename
     image: /assets/img/braze_icons/users-01.svg
   - name: "POST: 사용 중단된 외부 ID 제거"
-    link: /docs/api/endpoints/user_data/external_id_migration/post_external_ids_remove/
+    link: /docs/api/endpoints/user_data/external_id_migration/post_external_ids_remove
     image: /assets/img/braze_icons/user-minus-01.svg
 ---

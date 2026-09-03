@@ -22,9 +22,11 @@ Podem ser especificados até 50 aliases de usuário por solicitação.
 
 **A criação de um novo usuário somente de alias** exige que o `external_id` seja omitido no novo objeto de alias de usuário. Depois que o usuário for criado, use o endpoint `/users/track` para associar o usuário somente de alias a atributos, eventos e compras, e o endpoint `/users/identify` para identificar o usuário com um `external_id`.
 
+Você pode enviar Campaigns disparadas por API para usuários por `user_alias` usando o endpoint [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns).
+
 ## Quando `alias_label` e `alias_name` já existem {#when-alias_label-and-alias_name-already-exist}
 
-A combinação de `alias_label` e `alias_name` deve ser única em toda a sua base de usuários. Para saber mais, consulte [Aliases de usuário]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases).
+A combinação de `alias_label` e `alias_name` deve ser única em toda a sua base de usuários. Para saber mais, consulte [Aliases de usuário]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#user-aliases).
 
 Se você enviar uma solicitação em que o par `alias_label` e `alias_name` já existe para qualquer usuário (seja no mesmo usuário ou em outro), o endpoint ainda retornará uma resposta de sucesso (por exemplo, `"aliases_processed": 1`, `"message": "success"`). Nesse caso, nenhum novo alias é adicionado ao usuário na solicitação. Como o par `alias_label` e `alias_name` já está em uso, a solicitação não faz nenhuma alteração, e pode parecer que o alias nunca foi adicionado ao usuário em questão.
 
@@ -32,9 +34,9 @@ Se você enviar uma solicitação em que o par `alias_label` e `alias_name` já 
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/api_key/) com a permissão `users.alias.new`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/api_key) com a permissão `users.alias.new`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='users alias new' %}
 
@@ -55,8 +57,8 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 | Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
-| `user_aliases` | Obrigatório | Vetor de objetos de novos aliases de usuário | Consulte o [objeto de alias de usuário]({{site.baseurl}}/api/objects_filters/user_alias_object/).<br><br> Para saber mais sobre `alias_name` e `alias_label`, consulte nossa documentação sobre [aliases de usuário]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases).|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+| `user_aliases` | Obrigatório | Vetor de objetos de novos aliases de usuário | Consulte o [objeto de alias de usuário]({{site.baseurl}}/api/objects_filters/user_alias_object).<br><br> Para saber mais sobre `alias_name` e `alias_label`, consulte nossa documentação sobre [aliases de usuário]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#user-aliases).|
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ### Corpo da solicitação do endpoint com a especificação do novo objeto de alias de usuário {#endpoint-request-body-with-new-user-alias-object-specification}
 
@@ -95,5 +97,32 @@ Quando um alias é ignorado porque o mesmo `alias_label` e `alias_name` já exis
 }
 ```
 
+## Solução de problemas {#troubleshooting}
+
+### Por que meus atributos não estão sendo atualizados depois que eu crio um alias de usuário usando esse endpoint? {#why-are-my-attributes-not-updating-after-i-create-a-user-alias-using-this-endpoint}
+
+Isso geralmente acontece quando `/users/alias/new` é seguido por uma solicitação separada de `/users/track` que tenta atualizar atributos por alias. A solicitação de rastreamento pode ser processada antes que a Braze consiga resolver de forma consistente o novo par `alias_label` e `alias_name` para um perfil, de modo que os atributos não são aplicados ao usuário esperado.
+
+**Abordagem recomendada:** Use uma única chamada [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) somente quando quiser criar um perfil somente de alias ou atualizar um perfil por um alias que já existe. No vetor `attributes`, coloque `user_alias` e os campos do perfil no mesmo [objeto de atributos de usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object) para que a Braze resolva o usuário e aplique a atualização em uma única etapa.
+
+Defina `_update_existing_only` como `false` quando for necessário criar um perfil somente de alias a partir desse objeto. Se você omitir esse campo ao usar `user_alias`, a Braze assume o comportamento de somente atualização e não cria o perfil somente de alias. Se o alias já existir em um usuário no seu espaço de trabalho, a mesma solicitação atualizará esse perfil com os novos atributos.
+
+Não é possível usar `/users/track` para adicionar um novo alias a um usuário existente identificado por `external_id`. Em um objeto de atributos de usuário, `external_id` e `user_alias` são mutuamente exclusivos. Para adicionar um alias a um usuário identificado, primeiro chame `/users/alias/new`. Depois que o alias estiver vinculado, você poderá atualizar esse perfil com `/users/track` usando o `external_id` ou o alias existente.
+
+Por exemplo, o corpo de `/users/track` a seguir cria um perfil somente de alias se o alias ainda não existir, ou atualiza o perfil existente que já possui esse alias:
+```json
+{
+  "attributes": [
+    {
+      "user_alias": {
+        "alias_name": "example@example.com",
+        "alias_label": "email"
+      },
+      "_update_existing_only": false,
+      "string_attribute": "test_alias_only_update"
+    }
+  ]
+}
+```
 
 {% endapi %}

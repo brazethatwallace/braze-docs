@@ -7,7 +7,6 @@ layout: api_page
 page_type: reference
 alias: /users_identify_merge/
 description: "Cet article présente en détail l'endpoint Braze Identifier les utilisateurs."
-
 ---
 {% api %}
 # Identifier les utilisateurs {#identify-users}
@@ -32,7 +31,7 @@ L'identification d'un utilisateur nécessite qu'un `external_id` soit inclus dan
 S'il n'existe aucun utilisateur avec cet `external_id`, celui-ci est ajouté à l'enregistrement de l'utilisateur aliasé, et l'utilisateur est considéré comme identifié. Les utilisateurs ne peuvent disposer que d'un seul alias pour une étiquette spécifique. Si un utilisateur existe déjà avec l'`external_id` et dispose d'un alias existant avec la même étiquette que le profil alias uniquement, les profils utilisateur ne sont pas fusionnés.
 
 {% alert tip %}
-Pour éviter toute perte inattendue de données lors de l'identification des utilisateurs, nous vous recommandons vivement de consulter d'abord les [bonnes pratiques de collecte de données]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/best_practices/#capturing-user-data-when-alias-only-user-info-is-already-present) pour savoir comment capturer les données des utilisateurs lorsque des informations d'alias uniquement sont déjà présentes.
+Pour éviter toute perte inattendue de données lors de l'identification des utilisateurs, nous vous recommandons vivement de consulter d'abord les [bonnes pratiques de collecte de données]({{site.baseurl}}/user_guide/data/unification/user_data/best_practices) pour savoir comment capturer les données des utilisateurs lorsque des informations d'alias uniquement sont déjà présentes.
 {% endalert %}
 
 ### Comportement de fusion {#merging-behavior}
@@ -75,9 +74,9 @@ Par défaut, cet endpoint fusionne la liste suivante de champs trouvés **exclus
   - Par exemple, si l'utilisateur cible ne dispose pas d'un résumé d'application pour « ABCApp », mais que l'utilisateur d'origine en possède un, l'utilisateur cible aura le résumé d'application « ABCApp » sur son profil après la fusion.
 {% enddetails %}
 
-## Conditions préalables {#prerequisites}
+## Prérequis {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/api_key/) avec l'autorisation `users.identify`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics) avec l'autorisation `users.identify`.
 
 ## Limite de débit {#rate-limit}
 
@@ -106,12 +105,12 @@ Vous pouvez ajouter jusqu'à 50 alias utilisateur par requête. Vous pouvez asso
 L'un des éléments suivants est requis par requête : `aliases_to_identify`, `emails_to_identify` ou `phone_numbers_to_identify`. Par exemple, vous pouvez utiliser cet endpoint pour identifier les utilisateurs par e-mail en utilisant `emails_to_identify` dans votre requête.
 {% endalert %}
 
-| Paramètre | Requis | Type de données | Description |
+| Paramètre | Obligatoire | Type de données | Description |
 |-----------------------------|----------|-------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `aliases_to_identify` | Requis | Tableau d'objets alias à identifier | Voir [objet alias à identifier]({{site.baseurl}}/api/objects_filters/aliases_to_identify/) et [objet alias d'utilisateur]({{site.baseurl}}/api/objects_filters/user_alias_object/). |
-| `emails_to_identify` | Requis | Tableau d'objets alias à identifier | Requis si `email` est spécifié comme identifiant. Adresses e-mail pour identifier les utilisateurs. Voir [Identification des utilisateurs par e-mail](#identifying-users-by-email). |
-| `phone_numbers_to_identify` | Requis | Tableau d'objets alias à identifier | Numéros de téléphone pour identifier les utilisateurs. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `aliases_to_identify` | Obligatoire | Tableau d'objets alias à identifier | Voir [objet alias à identifier]({{site.baseurl}}/api/objects_filters/aliases_to_identify) et [objet alias d'utilisateur]({{site.baseurl}}/api/objects_filters/user_alias_object). |
+| `emails_to_identify` | Obligatoire | Tableau d'objets alias à identifier | Obligatoire si `email` est spécifié comme identifiant. Adresses e-mail pour identifier les utilisateurs. Voir [Identification des utilisateurs par adresses e-mail et numéros de téléphone](#identifying-users-by-email-addresses-and-phone-numbers). |
+| `phone_numbers_to_identify` | Obligatoire | Tableau d'objets alias à identifier | Numéros de téléphone pour identifier les utilisateurs. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 ### Identification des utilisateurs par adresses e-mail et numéros de téléphone {#identifying-users-by-email-addresses-and-phone-numbers}
 
@@ -154,7 +153,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/identify' \
   "emails_to_identify": [
     {
       "external_id": "external_identifier_2",
-      "email": "john.smith@braze.com",
+      "email": "john.smith@example.com",
       "prioritization": ["unidentified", "most_recently_updated"]
     }
   ]
@@ -166,8 +165,12 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/identify' \
 Le champ `alias_name` est sensible à la casse. Une requête qui renvoie un code d'état `201` confirme uniquement que la syntaxe de la requête est valide — elle ne confirme pas que l'alias a été trouvé. Si la casse de `alias_name` dans votre requête ne correspond pas exactement à l'alias stocké sur le profil utilisateur, l'opération échouera silencieusement et l'`external_id` ne sera pas attribué. Par exemple, si l'alias stocké est `JimJones@example.com`, une requête avec `jimjones@example.com` renverra un succès mais ne produira aucun résultat.
 
 {% alert tip %}
-Pour plus d'informations sur `alias_name` et `alias_label`, consultez notre documentation sur les [alias utilisateur]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases).
+Pour plus d'informations sur `alias_name` et `alias_label`, consultez notre documentation sur les [alias d'utilisateur]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle).
 {% endalert %}
+
+### Pourquoi ma requête d'identification renvoie-t-elle un succès sans que le profil ne soit fusionné ? {#why-does-my-identify-request-return-success-but-the-profile-did-not-merge}
+
+`201 Created` avec `message: success` signifie que Braze a accepté la requête. Cela ne garantit pas que chaque alias ou e-mail du payload a correspondu à un profil existant — des différences de casse sur `alias_name`, des profils en double ou les règles de priorisation de Braze peuvent aboutir à l'absence de fusion visible même si l'appel a réussi. Vérifiez que la casse de `alias_name` correspond exactement aux valeurs stockées, recherchez les profils en double avec [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge), et consultez [`prioritization`](#identifying-users-by-email-addresses-and-phone-numbers) lorsque vous utilisez `emails_to_identify`.
 
 ## Réponse {#response}
 

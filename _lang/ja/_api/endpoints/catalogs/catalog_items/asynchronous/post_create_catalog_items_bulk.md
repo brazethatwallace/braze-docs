@@ -23,7 +23,7 @@ description: "この記事では、複数のカタログアイテムを作成す
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`catalogs.add_items` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`catalogs.add_items` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -34,14 +34,14 @@ description: "この記事では、複数のカタログアイテムを作成す
 | パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
 | `catalog_name` | 必須 | 文字列 | カタログ名。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="パスパラメーター" }
 
 ## リクエストパラメーター {#request-parameters}
 
 | パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
 | `items` | 必須 | 配列 | アイテムオブジェクトを含む配列。アイテムオブジェクトには、カタログのすべてのフィールドが含まれている必要があります。リクエストごとに最大50個のアイテムオブジェクトが許可されます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}
 
@@ -113,13 +113,13 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
 `Location` フィールドは `geo` データタイプを使用しており、`[経度, 緯度]` の形式の配列を期待します。
 {% endalert %}
 
-## 応答 {#response}
+## レスポンス {#response}
 
-このエンドポイントには、`202`、`400`、`404` の3つのステータスコード応答があります。
+このエンドポイントには、`202`、`400`、`404` の3つのステータスコードレスポンスがあります。
 
-### 成功応答の例 {#example-success-response}
+### 成功レスポンスの例 {#example-success-response}
 
-ステータスコード `202` は、次の応答本文を返す可能性があります。
+ステータスコード `202` は、次のレスポンスボディを返す可能性があります。
 
 ```json
 {
@@ -127,9 +127,9 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
 }
 ```
 
-### エラー応答の例 {#example-error-response}
+### エラーレスポンスの例 {#example-error-response}
 
-ステータスコード `400` は、次の応答本文を返す可能性があります。発生する可能性のあるエラーの詳細については、[トラブルシューティング](#troubleshooting)を参照してください。
+ステータスコード `400` は、次のレスポンスボディを返す可能性があります。発生する可能性のあるエラーの詳細については、[トラブルシューティング](#troubleshooting)を参照してください。
 
 ```json
 {
@@ -168,6 +168,6 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
 | `request-includes-too-many-items` | リクエストに含まれるアイテムが多すぎます。リクエストごとのアイテムの上限は50個です。 |
 | `too-deep-nesting-in-value-object` | アイテムオブジェクトのネストは50レベルを超えることはできません。 |
 | `unable-to-coerce-value` | アイテムタイプは変換できません。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="トラブルシューティング" }
 
 {% endapi %}

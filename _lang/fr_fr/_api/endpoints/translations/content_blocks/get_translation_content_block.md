@@ -15,11 +15,11 @@ description: "Cet article présente les détails de l'endpoint Afficher toutes l
 /content_blocks/translations
 {% endapimethod %}
 
-> Utilisez cet endpoint pour afficher toutes les traductions d'un [bloc de contenu]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/). Consultez [Locales dans les messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) pour plus d'informations sur les fonctionnalités de traduction.
+> Utilisez cet endpoint pour afficher toutes les traductions d'un [bloc de contenu]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Consultez [Locales dans les messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) pour plus d'informations sur les fonctionnalités de traduction.
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `content_blocks.translations.get`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `content_blocks.translations.get`.
 
 ## Limite de débit {#rate-limit}
 
@@ -31,7 +31,7 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 | --------- | ---------| --------- | ----------- |
 | `content_block_id` | Requis | Chaîne de caractères | L'ID de votre bloc de contenu. |
 | `locale_id` | Facultatif | Chaîne de caractères | Un UUID de locale pour filtrer les réponses. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 {% alert note %}
 Tous les ID de traduction sont considérés comme des identifiants uniques universels (UUID), disponibles dans la réponse de l'endpoint GET.

@@ -21,9 +21,9 @@ description: "Este artículo describe los detalles sobre el punto de conexión d
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --- | --- | --- | --- |
-| `email` | Sí | Cadena | La dirección de correo electrónico del usuario (debe incluir al menos una dirección y un máximo de 50 direcciones). |
-| `phone` | Sí | Cadena | El número de teléfono del usuario (debe incluir al menos un número de teléfono y como máximo 50 números de teléfono). Te recomendamos que lo facilites en formato E.164. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `email` | Sí | Cadena | La dirección de correo electrónico del usuario (debe incluir al menos una dirección y como máximo 50 direcciones). |
+| `phone` | Sí | Cadena | El número de teléfono del usuario (debe incluir al menos un número de teléfono y como máximo 50 números de teléfono). Te recomendamos proporcionarlo en formato E.164. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ## Ejemplo de solicitud {#example-request}
 ```
@@ -39,7 +39,7 @@ Las entradas aparecen en orden descendente.
 {
   "emails": [
     {
-      "email": "example@braze.com",
+      "email": "example@example.com",
       "email_subscribe": {
         "email_subscription_event_date": "2019-11-20T19:58:04.825Z",
         "email_subscription_state": "Subscribed"

@@ -18,16 +18,16 @@ _Esta integración está mantenida por B.Layer._
 
 La integración de Braze y B.Layer te permite utilizar el creador de mensajes dentro de la aplicación B.Layer para ayudarte a crear mensajes dentro de la aplicación con tu marca, que pueden exportarse como archivo zip o HTML en línea a Braze. Esta integración no requiere recursos adicionales de desarrollador, lo que te ahorra tiempo y presupuesto.
 
-![]({% image_buster /assets/img/blayer/blayer2.png %})
+![Interfaz del creador B.Layer con vista previa de un mensaje dentro de la aplicación con marca.]({% image_buster /assets/img/blayer/blayer2.png %})
 
 ## Requisitos previos {#prerequisites}
 
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Cuenta B.Layer | Se necesita una cuenta [B.Layer](https://blayer.phiture.com) para beneficiarse de esta asociación. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
-## Casos de uso {#use-cases}
+## Ejemplos {#use-cases}
 
 Con B.Layer hay un sinfín de oportunidades para crear y experimentar, incluyendo deslizadores de recomendación de productos, incorporación multipantalla o cuestionarios, NPS, captura de correo electrónico, ofertas especiales y mucho más.
 
@@ -42,13 +42,13 @@ Trabajan con marcas como Lifesum, Blinkist, OnX Hunt y muchas más para ayudarle
 En B.Layer, en el menú hamburguesa de la parte superior de la página, haz clic en **Brand assets > add your brand assets**. Aquí puedes asignar el color y las fuentes de tu marca.
 Ya está todo listo. Ahora puedes empezar a diseñar tu mensaje dentro de la aplicación.
 
-![]({% image_buster /assets/img/blayer/blayer4.png %})
+![Pantalla de activos de marca de B.Layer para configurar colores y fuentes.]({% image_buster /assets/img/blayer/blayer4.png %})
 
 #### Diseña tu mensaje dentro de la aplicación {#design-your-in-app-message}
 
 Para diseñar tu mensaje dentro de la aplicación, selecciona un único mensaje dentro de la aplicación. A continuación, dale estilo a tu mensaje y añade los componentes que necesites. Cada componente puede ajustarse.
 
-![]({% image_buster /assets/img/blayer/blayer5.png %})
+![Editor de mensajes de B.Layer con componentes y controles de estilo.]({% image_buster /assets/img/blayer/blayer5.png %})
 
 ### Descarga tu mensaje dentro de la aplicación {#download-your-in-app-message}
 
@@ -56,9 +56,9 @@ Una vez que hayas terminado, descarga tu mensaje. Tu mensaje puede descargarse e
 
 ### Paso 2: Añadir código personalizado de B.Layer {#step-2-add-blayer-custom-code}
 
-En Braze, crea un mensaje dentro de la aplicación de código personalizado. Si tienes un archivo ZIP, arrástralo y suéltalo en la casilla situada encima de la sección de código. Si tienes un archivo HTML en línea, pega el HTML en línea en la sección HTML.
+En Braze, crea un mensaje dentro de la aplicación de código personalizado. Si tienes un archivo ZIP, arrástralo y suéltalo en la casilla de carga de esta sección. Si tienes un archivo HTML en línea, pega el HTML en línea en la sección HTML.
 
-![]({% image_buster /assets/img/blayer/blayer6.png %})
+![Editor de mensajes dentro de la aplicación de código personalizado de Braze con contenido exportado de B.Layer.]({% image_buster /assets/img/blayer/blayer6.png %})
 
 ## Seguimiento de botones {#button-tracking}
 

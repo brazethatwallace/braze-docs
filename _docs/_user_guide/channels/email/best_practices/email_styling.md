@@ -16,7 +16,7 @@ channel: email
 
 The subject line is one of the first things that recipients see upon receiving your message. Keeping it to 6 to 10 words yields the highest open rates. 
 
-There are also different approaches to creating a good subject line, ranging from asking a question to pique the reader's interest or being more direct, to personalizing it as to engage your clientele. Don't just stick with one subject line, leverage [A/B testing]({{site.baseurl}}/user_guide/messaging/ab_testing/#what-are-multivariate-and-ab-testing/) to try new ones out and gauge their effectiveness. Subject lines should be no more than 35 characters to display appropriately on mobile.
+There are also different approaches to creating a good subject line, ranging from asking a question to pique the reader's interest or being more direct, to personalizing it as to engage your clientele. Don't just stick with one subject line, leverage [A/B testing]({{site.baseurl}}/user_guide/messaging/ab_testing/faq#what-is-the-difference-between-ab-testing-and-multivariate-testing) to try new ones out and gauge their effectiveness. Subject lines should be no more than 35 characters to display appropriately on mobile.
 
 The "From" field should clearly show who the sender is. Try not to use a person's name or an uncommon abbreviation. Instead, use a recognizable name like your brand name. If using a person's name suits your brand's methods of personalizing email, stay consistent to develop a relationship with the recipient. The "From" name should be no more than 25 characters to display appropriately on mobile.
 
@@ -88,7 +88,7 @@ Here are some best practices to keep in mind when writing your preheaders:
 Email size refers to the size of your message HTML in Braze (the body you build and what Braze adds when the message is sent). 
 
 - Make sure to limit your email size. Email bodies larger than 102&nbsp;KB are not only extremely taxing on Braze servers, but they're also clipped by Gmail and other email clients. 
-- Hosted images that you reference by URL are not embedded in the HTML the same way as pasting huge inline assets. We recommend using the [Media Library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/) and linking by `href` helps keep the message smaller.
+- Hosted images that you reference by URL are not embedded in the HTML the same way as pasting huge inline assets. We recommend using the [Media Library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) and linking by `href` helps keep the message smaller.
 
 |   Text Only   | Text with images |     Email width    |
 |:-------------:|:----------------:|:------------------:|
@@ -143,13 +143,13 @@ Gmail web and Gmail mobile apps often do not render SVG (and WEBP support is inc
 
 ## Deep linking
 
-With push notifications and in-app messages, a [deep link]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/) takes users directly to a specified destination within an app. However, deep links require the app to be installed, and emails don't provide a way to know whether recipients have the app. This means deep links in emails can result in errors for recipients who don't have the app installed.
+With push notifications and in-app messages, a [deep link]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls) takes users directly to a specified destination within an app. However, deep links require the app to be installed, and emails don't provide a way to know whether recipients have the app. This means deep links in emails can result in errors for recipients who don't have the app installed.
 
-Instead, use [universal links and App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/), which function as standard URLs. You can configure them to open the app or direct users to a specific page. They can also redirect to the app store or fall back to a webpage when the app is not installed.
+Instead, use [universal links and App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links), which function as standard URLs. You can configure them to open the app or direct users to a specific page. They can also redirect to the app store or fall back to a webpage when the app is not installed.
 
 ## Content Blocks with transparent images
 
-When a Content Block contains an image with a transparent background (for example, a logo) and is inserted by a Liquid tag, you may see a background color appear behind the image. This color comes from the drag-and-drop editor's [email global style settings]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings/)—specifically the **Email Background Color**. If your global style settings use a color other than white, that color appears instead.
+When a Content Block contains an image with a transparent background (for example, a logo) and is inserted by a Liquid tag, you may see a background color appear behind the image. This color comes from the drag-and-drop editor's [email global style settings]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings)—specifically the **Email Background Color**. If your global style settings use a color other than white, that color appears instead.
 
 To display the Content Block as intended:
 
@@ -163,3 +163,24 @@ If you prefer to drag the Content Block into the email as a row, you can set the
 {% alert note %}
 Dragging a Content Block in as a row inserts a pre-rendered snapshot, which does not automatically update if the source Content Block changes.
 {% endalert %}
+
+## Dark mode
+
+Dark mode is a recipient-side preference. Inbox providers and apps (such as Gmail and Outlook) can invert or recolor your HTML, so you should expect different rendering across clients rather than one fixed appearance from Braze alone.
+
+### HTML editor
+
+If you use the **HTML editor**, you can reduce unwanted background inversion in the Gmail mobile apps by applying a single-color CSS `linear-gradient` on table cells instead of a flat `background-color`. For examples, limitations (including using `<td>` or `<th>` rather than `<table>` alone), and syntax, see [Gmail mobile app and dark mode]({{site.baseurl}}/user_guide/channels/email/html_editor/#gmail-dark-mode).
+
+To author separate light and dark styles where clients support them, use the [`prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) media query. Support varies by inbox—always preview and test in the clients you send to.
+
+### Drag-and-drop editor
+
+In the drag-and-drop editor, dark mode is still controlled by each inbox provider. Turn on **Dark Mode Preview** in **Preview and Test** to review your layout. For where to find the toggle and how to test, see [Can I preview how my email appears in dark mode?]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/faq/#can-i-preview-how-my-email-appears-in-dark-mode). For background colors and readability across themes, see [How should I design emails for dark mode and light mode?]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/faq/#how-should-i-design-emails-for-dark-mode-and-light-mode).
+
+### General best practices
+
+- Avoid pure white (`#FFFFFF`) and pure black (`#000000`); use off-whites and softened blacks so full inversions look less harsh.
+- Tone down very bright accent colors (for example, vivid buttons) so they stay readable if a client inverts colors.
+- Use transparent PNGs when they fit your layout.
+- On images that include text, add a light outline around dark text, and a dark outline around light text on dark artwork, so copy stays readable if colors shift.

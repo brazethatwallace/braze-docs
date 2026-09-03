@@ -29,7 +29,11 @@ To use retry logic, add the `:retry` tag to the Connected Content call, as shown
 ```
 {% endraw %}
 
-When a `:retry` tag is included in the Connected Content call, Braze will attempt to retry the call up to five times.
+When a `:retry` tag is included in the Connected Content call, Braze attempts to retry the call up to five times.
+
+### Preview behavior
+
+Retry logic applies only to live sends (including test sends), not to previews. If a Connected Content call with `:retry` fails during preview, the preview may display the message "This message would not have been shown because retry functionality was triggered" instead of rendering the content. This is expected behavior and does not indicate an issue within Braze.
 
 ### Retry outcomes
 
@@ -41,6 +45,6 @@ If a retried attempt is successful, the message is sent and no further retries a
 
 If the API call fails and this is enabled, Braze will retry the call while respecting the [rate limit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) you set for each resend. Braze will move any failed messages to the back of the queue and add additional minutes, if necessary, to the total minutes it would take to send your message.
 
-If the Connected Content call errors out over five times, the message is aborted, similar to how an [abort message tag]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content/) is triggered.
+If the Connected Content call errors out over five times, the message is aborted, similar to how an [abort message tag]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content) is triggered.
 
 {% multi_lang_include connected_content/abort_and_retry_logic.md %}

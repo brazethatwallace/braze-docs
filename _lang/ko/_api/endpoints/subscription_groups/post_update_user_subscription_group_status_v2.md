@@ -34,15 +34,15 @@ channel:
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `subscription.status.set` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `subscription.status.set` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key-permissions)가 필요합니다.
 
 {% alert note %}
-이 엔드포인트를 [LINE 구독 그룹]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups/)과 함께 사용하려면 고객 성공 매니저에게 문의하세요. <br><br>LINE 구독 그룹의 경우, 웹사이트 또는 앱 동의를 별도로 추적하기 위해 커스텀 속성을 사용하고, 해당 커스텀 속성과 LINE 구독 상태를 조합하여 Campaign(캠페인)을 타겟팅하는 것을 권장합니다. 이 접근 방식은 구독 상태가 LINE 앱에서 실제로 구독한 사용자를 정확하게 반영하도록 보장합니다. API를 사용하여 수동으로 사용자를 LINE 구독 그룹에 추가하면 Braze가 LINE 앱에서 사용자를 재구독하거나 LINE에서 계정을 차단한 사용자에게 메시지를 보낼 수 없으므로 상태 불일치 및 발송 실패가 발생할 수 있습니다.
+이 엔드포인트를 [LINE 구독 그룹]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups)과 함께 사용하려면 고객 성공 매니저에게 문의하세요. <br><br>LINE 구독 그룹의 경우, 웹사이트 또는 앱 동의를 별도로 추적하기 위해 커스텀 속성을 사용하고, 해당 커스텀 속성과 LINE 구독 상태를 조합하여 Campaign(캠페인)을 타겟팅하는 것을 권장합니다. 이 접근 방식은 구독 상태가 LINE 앱에서 실제로 구독한 사용자를 정확하게 반영하도록 보장합니다. API를 사용하여 수동으로 사용자를 LINE 구독 그룹에 추가하면 Braze가 LINE 앱에서 사용자를 재구독하거나 LINE에서 계정을 차단한 사용자에게 메시지를 보낼 수 없으므로 상태 불일치 및 발송 실패가 발생할 수 있습니다.
 {% endalert %}
 
 ## V1과의 차이점 {#differences-from-v1}
 
-V2 엔드포인트는 다음과 같은 점에서 [V1 엔드포인트]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/)와 다릅니다:
+V2 엔드포인트는 다음과 같은 점에서 [V1 엔드포인트]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status)와 다릅니다:
 
 - **여러 구독 그룹**: V2에서는 단일 API 요청으로 여러 구독 그룹을 업데이트할 수 있지만, V1은 요청당 하나의 구독 그룹만 지원합니다.
 - **이메일과 SMS를 한 번의 호출로 업데이트**: `external_ids`를 사용하면 동일한 사용자에 대해 이메일 및 SMS 구독 그룹을 단일 API 호출로 업데이트할 수 있습니다. V1에서는 이메일 및 SMS 구독 그룹에 대해 별도의 API 호출을 해야 합니다.
@@ -81,19 +81,19 @@ Authorization: Bearer YOUR-REST-API-KEY
 ```
 
 {% alert tip %}
-[`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)를 사용하여 새 사용자를 생성할 때 사용자 속성 오브젝트 내에서 구독 그룹을 설정하면 한 번의 API 호출로 사용자를 생성하고 구독 그룹 상태를 설정할 수 있습니다.
+[`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track)를 사용하여 새 사용자를 생성할 때 사용자 속성 오브젝트 내에서 구독 그룹을 설정하면 한 번의 API 호출로 사용자를 생성하고 구독 그룹 상태를 설정할 수 있습니다.
 {% endalert %}
 
 ## 요청 매개변수 {#request-parameters}
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 |---|---|---|---|
-| [`subscription_group_id`]({{site.baseurl}}/api/identifier_types/?tab=subscription%20group%20ids) | 필수 | 문자열 | 구독 그룹의 `id`. |
+| [`subscription_group_id`]({{site.baseurl}}/api/identifier_types?tab=subscription%20group%20ids) | 필수 | 문자열 | 구독 그룹의 `id`. |
 | `subscription_state` | 필수 | 문자열 | 사용 가능한 값은 `unsubscribed`(구독 그룹에 속하지 않음) 또는 `subscribed`(구독 그룹에 속함)입니다. |
 | `external_ids` | 필수* | 문자열 배열 | 사용자의 `external_id`이며, 최대 50개의 `id`를 포함할 수 있습니다. |
 | `emails` | 필수* | 문자열 또는 문자열 배열 | 사용자의 이메일 주소이며, 문자열 배열로 전달할 수 있습니다. 이메일 주소를 하나 이상(최대 50개) 포함해야 합니다. <br><br>동일한 워크스페이스에서 여러 사용자(`external_id`)가 동일한 이메일 주소를 공유하는 경우, 해당 이메일 주소를 공유하는 모든 사용자에게 구독 그룹 변경 사항이 업데이트됩니다. |
 | `phones` | 필수* | [E.164](https://en.wikipedia.org/wiki/E.164) 형식의 문자열 | 사용자 전화번호를 문자열 배열로 전달할 수 있습니다. 전화번호를 하나 이상 포함해야 합니다(최대 50개). 전화번호는 E.164 형식이어야 합니다(예: `+12223334444`). <br><br>동일한 워크스페이스에서 여러 사용자(`external_id`)가 동일한 전화번호를 공유하는 경우, 해당 전화번호를 공유하는 모든 사용자에게 동일한 구독 그룹 변경 사항이 업데이트됩니다. |
-| `use_double_opt_in_logic` | 선택 사항 | 부울 | 생략 시 기본값은 `false`입니다. SMS 구독 그룹의 경우, 구독 상태가 `subscribed`로 설정될 때 사용자를 [SMS 이중 옵트인]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/) 워크플로에 진입시키려면 `true`로 설정합니다. 이 방식으로 이중 옵트인 워크플로에 진입한 사용자는 워크플로에 진입하는 횟수와 관계없이 하루에 최대 한 번의 옵트인 안내 응답 메시지를 받습니다. 이 매개변수가 생략되거나 `false`로 설정되면, 사용자는 이중 옵트인 워크플로를 거치지 않고 바로 구독됩니다. 이 매개변수는 이메일 구독 그룹에는 적용되지 않습니다. |
+| `use_double_opt_in_logic` | 선택 사항 | 부울 | 생략 시 기본값은 `false`입니다. SMS 구독 그룹의 경우, 구독 상태가 `subscribed`로 설정될 때 사용자를 [SMS 이중 옵트인]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in) 워크플로에 진입시키려면 `true`로 설정합니다. 이 방식으로 이중 옵트인 워크플로에 진입한 사용자는 워크플로에 진입하는 횟수와 관계없이 하루에 최대 한 번의 옵트인 안내 응답 메시지를 받습니다. 이 매개변수가 생략되거나 `false`로 설정되면, 사용자는 이중 옵트인 워크플로를 거치지 않고 바로 구독됩니다. 이 매개변수는 이메일 구독 그룹에는 적용되지 않습니다. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="요청 매개변수" }
 
 {% alert important %}
@@ -116,12 +116,12 @@ curl --location --request POST 'https://rest.iad-01.braze.com/v2/subscription/st
     {
       "subscription_group_id":"subscription_group_identifier",
       "subscription_state":"subscribed",
-      "external_ids":["example-user","example1@email.com"]
+      "external_ids":["example-user","example1@example.com"]
     },
     {
       "subscription_group_id":"subscription_group_identifier",
       "subscription_state":"subscribed",
-      "external_ids":["example-user","example1@email.com"]
+      "external_ids":["example-user","example1@example.com"]
     }
   ]
 }
@@ -138,7 +138,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/v2/subscription/st
     {
       "subscription_group_id":"subscription_group_identifier",
       "subscription_state":"subscribed",
-      "emails":["example1@email.com","example2@email.com"]
+      "emails":["example1@example.com","example2@example.com"]
     }
   ]
 }

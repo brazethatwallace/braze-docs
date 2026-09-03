@@ -67,7 +67,7 @@ HAVING COUNT(DISTINCT id) > 3
 Event, Time range
 {% endapitags %}
 
-최근 4분기 각각에서 구매를 한 사용자를 선택합니다. 이 사용자 Segment는 [오디언스 동기화]({{site.baseurl}}/partners/canvas_audience_sync/)와 함께 사용하여 고가치 유사 고객을 식별하고 신규 고객을 확보하는 데 활용할 수 있습니다.
+최근 4분기 각각에서 구매를 한 사용자를 선택합니다. 이 사용자 Segment는 [오디언스 동기화]({{site.baseurl}}/partners/canvas_audience_sync)와 함께 사용하여 고가치 유사 고객을 식별하고 신규 고객을 확보하는 데 활용할 수 있습니다.
 
 ```sql
 ELECT DISTINCT user_id

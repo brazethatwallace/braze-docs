@@ -18,7 +18,7 @@ BrazeのWhatsAppメッセージには、[テンプレートメッセージ](#tem
 |---|---|---|
 | テンプレートメッセージ | ビジネス主導のアウトリーチ。いつでも送信可能 | 必須。テンプレートはMetaに送信し、送信前に承認を受ける必要があります。 |
 | 応答メッセージ | ユーザーが開始したメッセージへの返信。24時間の会話時間枠内のみ | 不要 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="WhatsApp message and image formats" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="WhatsAppメッセージと画像のフォーマット" }
 
 テンプレートメッセージはMetaに承認を申請する必要があり、最大24時間かかる場合があります。承認後はいつでも送信できます。応答メッセージ（Metaのドキュメントでは「セッションメッセージ」と呼ばれます）は、アクティブな会話時間枠が開いている間のみ送信できます。つまり、ユーザーからの最後の受信メッセージから24時間以内です。
 
@@ -36,7 +36,7 @@ WhatsAppテンプレートメッセージは、ビジネス主導のアウトリ
 | 本文 | はい | メインのメッセージコンテンツ |
 | フッター | いいえ | 本文の下に表示される補足テキスト |
 | ボタン | いいえ | 最大10個のボタンを含めることができます（すべてのボタンタイプがサポートされています） |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Marketing templates" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="マーケティングテンプレート" }
 
 #### 文字数の長さ {#character-length}
 
@@ -47,21 +47,53 @@ WhatsAppテンプレートメッセージは、ビジネス主導のアウトリ
 | ボタンラベル（URL、電話、クイック返信） | 25文字 |
 | 電話番号（電話ボタン内） | 20文字 |
 | テンプレート名 | 512文字（小文字、英数字、アンダースコアのみ） |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Character length" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="文字数の長さ" }
 
 #### ボタンタイプ {#button-types}
 
 | ボタンタイプ | 動作 | 備考 |
 |---|---|---|
 | クイック返信 | ボタンラベルのテキストを会話内の返信として送信します | |
-| URL | ユーザーのデフォルトブラウザでURLを開きます。URLの末尾に1つの変数を追加できます（最大2,000文字） | |
+| URL | ユーザーのデフォルトブラウザでURLを開きます。URLの末尾に1つの変数を追加できます（最大2,000文字） | 特殊文字（`&`、`%`、`<`、`>`など）を含むURLはメッセージ送信の失敗を引き起こす可能性があります。特殊文字を含むURLを適切にエンコードするには、[`url_param_escape`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#url-filters)または[`url_escape`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#url-filters) Liquidフィルターを使用してください。 |
 | 電話番号 | 指定された電話番号への通話を開始します | |
 | クーポンコードのコピー | クーポンコードをユーザーのクリップボードにコピーします | 常にMetaの承認が必要です |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Button types" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ボタンタイプ" }
 
 #### パラメーターのフォーマット {#parameter-formatting}
 
 テンプレート変数は、名前付きパラメーター（{% raw %}`{{first_name}}`{% endraw %}など）または位置パラメーター（{% raw %}`{{1}}`{% endraw %}など）のいずれかを使用できます。Brazeでは、変数をLiquidまたはプレーンテキストに置き換えることができます。Liquid変数には常にデフォルト値を含めてください。変数値が欠落しているメッセージは送信されません。
+
+### 期間限定オファーテンプレート {#limited-time-offer-templates}
+
+期間限定オファーテンプレートは、オファーの有効期限が近づくとオプションのカウントダウンとともに、期間限定のプロモーションオファーを表示します。このレイアウトは、季節セールやユーザー属性に基づいてパーソナライズされたオファーなど、期間が限定されたプロモーションに使用します。
+
+| コンポーネント | 必須 | 備考 |
+|---|---|---|
+| ヘッダー | いいえ | **なし**を選択するか、メディア（画像または動画）を追加します。ファイルタイプ、サイズ、寸法の要件については[メディア仕様](#media-specifications)を参照してください。 |
+| オファーの詳細 | はい | オファータイトル、オファーコード、およびオプションの有効期限。 |
+| 本文 | はい | メインのメッセージコンテンツ。Liquidをサポートします。 |
+| フッター | いいえ | 本文の後に表示される補足テキスト。 |
+| ボタン | はい | **オファーコードをコピー**が自動的に含まれます。**Webサイトにアクセス**ボタンを1つ追加できます。このテンプレートタイプでは、その他のボタンタイプはサポートされていません。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="期間限定オファーテンプレート" }
+
+#### オファーの詳細 {#offer-details}
+
+| フィールド | 必須 | 備考 |
+|---|---|---|
+| タイトル | はい | オファーを説明する短い文。 |
+| コード | はい | 受信者がコピーするオファーコード。これにより**オファーコードをコピー**ボタンが自動的に設定されます。 |
+| 有効期限 | いいえ | 固定の日時を設定するか（例：サマーセールの終了日）、ユーザー属性に基づいてパーソナライズします（例：各ユーザーの誕生日）。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="オファーの詳細" }
+
+有効期限を設定すると、受信者にはオファーの終了が近づくにつれて更新されるカウントダウンがメッセージに表示されます。例えば、メッセージには最初に終了日が表示され、終了日が近づくと「残り5日」のような表示に切り替わります。有効期限を設定しない場合、オファーはカウントダウンなしで表示されます。Brazeは、有効期限が過去の場合（例：有効期限が2026年11月1日だが送信時刻が2026年11月15日の場合）、メッセージの送信を防止します。
+
+#### ボタンタイプ
+
+| ボタンタイプ | 備考 |
+|---|---|
+| オファーコードをコピー | 自動的に含まれます。ボタンテキストは「Copy offer code」で、編集できません。 |
+| Webサイトにアクセス | 追加できる唯一のボタンです。最大1つ。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="期間限定オファーのボタンタイプ" }
 
 ### メディアカードカルーセルテンプレート {#media-card-carousel-templates}
 
@@ -73,7 +105,7 @@ WhatsAppテンプレートメッセージは、ビジネス主導のアウトリ
 |---|---|---|---|
 | 本文テキスト | はい | 1,024文字 | 変数をサポートします |
 | カード | はい | 2〜10枚のカード | カード数はテンプレート作成時に固定されます。承認済みのカルーセルテンプレートは、作成時に定義された正確なカード数でのみ送信できます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Top-level message" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="トップレベルメッセージ" }
 
 #### カードごとの仕様 {#per-card-specifications}
 
@@ -82,7 +114,7 @@ WhatsAppテンプレートメッセージは、ビジネス主導のアウトリ
 | ヘッダー（画像または動画） | はい | すべてのカードは同じフォーマットを使用する必要があります（すべて画像またはすべて動画）。これには同じコンポーネント構造が含まれます。本文テキストやボタンの有無が異なるカードを混在させることはできません。<br><br>カードヘッダーのアセットは、ユーザーのデバイスに基づいてワイド比率に自動的にトリミングされます。 |
 | 本文テキスト | いいえ | いずれかのカードに本文テキストが含まれる場合、すべてのカードに本文テキストを含める必要があります |
 | ボタン | いいえ | カードごとに最大2つのボタン |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Per-card specifications" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="カードごとの仕様" }
 
 #### カードごとの文字数 {#per-card-character-lengths}
 
@@ -91,8 +123,8 @@ WhatsAppテンプレートメッセージは、ビジネス主導のアウトリ
 | カード本文テキスト | 160文字 | |
 | ボタンラベル | 25文字 | |
 | 電話番号（電話ボタン内） | 20文字 | |
-| URL（URLボタン内） | 2,000文字。末尾に1つの変数を追加可能 | URLボタンはWhatsAppの外部で、ユーザーのデフォルトブラウザで開きます。その時点から注文やコンバージョンのWebhookはトリガーされません。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Per-card character lengths" }
+| URL（URLボタン内） | 2,000文字。末尾に1つの変数を追加可能 | URLボタンはWhatsAppの外部で、ユーザーのデフォルトブラウザで開きます。その時点から注文やコンバージョンのwebhookはトリガーされません。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="カードごとの文字数" }
 
 ## 応答メッセージ {#response-messages}
 
@@ -111,7 +143,7 @@ Brazeは7つの応答メッセージレイアウトをサポートしていま�
 | リストメッセージ | 選択可能なオプションの構造化されたスクロール可能なリスト付きメッセージ |
 | フローメッセージ | WhatsApp内でフォームまたはインタラクティブなタスクを完了するようユーザーに促すメッセージ。出力はBrazeに返されます |
 | Meta製品メッセージ | 接続されたMetaカタログから単一の製品、複数の製品、またはカタログ全体をハイライトするメッセージ |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Response messages" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="応答メッセージ" }
 
 ### リストメッセージのコンポーネント {#list-message-components}
 
@@ -124,7 +156,7 @@ Brazeは7つの応答メッセージレイアウトをサポートしていま�
 | セクションタイトル | 24文字 |
 | 行タイトル | 24文字 |
 | 行の説明 | 72文字 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="List message components" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="リストメッセージのコンポーネント" }
 
 ### クイック返信のコンポーネント {#quick-reply-components}
 
@@ -132,7 +164,7 @@ Brazeは7つの応答メッセージレイアウトをサポートしていま�
 | --- | --- |
 | ボタン | 最大3 |
 | ボタンラベル | ボタンごとに20文字 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Quick reply components" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="クイック返信のコンポーネント" }
 
 ## メディア仕様 {#media-specifications}
 
@@ -142,11 +174,11 @@ Brazeは7つの応答メッセージレイアウトをサポートしていま�
 
 ### 画像 {#images}
 
-{% multi_lang_include image_specs.md variable_name='WhatsApp images' %}
+{% multi_lang_include channels/image_specs.md variable_name='WhatsApp images' %}
 
 ### 動画 {#video}
 
-{% multi_lang_include image_specs.md variable_name='WhatsApp videos' %}
+{% multi_lang_include channels/image_specs.md variable_name='WhatsApp videos' %}
 
 #### Androidの互換性 {#android-compatibility}
 
@@ -167,7 +199,7 @@ Bフレーム付きのH.264「High」プロファイルでエンコードされ�
 | ファイルサイズ | 最大16 MB |
 | 再生アイコン | このアイコンはファイルが512 KB以下の場合にのみ表示されます。それより大きいファイルはダウンロードアイコンが表示されます |
 | 文字起こし | ユーザーがWhatsAppの音声文字起こしを有効にしている場合、自動的に表示されます |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Voice message" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ボイスメッセージ" }
 
 #### 基本オーディオメッセージ {#basic-audio-message}
 
@@ -180,7 +212,7 @@ Bフレーム付きのH.264「High」プロファイルでエンコードされ�
 | MP3 | .mp3 | 16 MB | |
 | MP4 Audio | .m4a | 16 MB | |
 | OGG（OPUSコーデック） | .ogg | 16 MB | OGGファイルはOPUSコーデックを使用する必要があります。OPUSなしのベース`audio/ogg`はサポートされていません。<br><br>基本オーディオメッセージとして送信されたOGG/OPUSファイルは、音楽アイコンではなくマイクアイコン（ボイスメッセージと同じ）が表示されます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Basic audio message" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="基本オーディオメッセージ" }
 
 #### 注意事項 {#considerations}
 
@@ -200,7 +232,7 @@ Bフレーム付きのH.264「High」プロファイルでエンコードされ�
 | Microsoft Excel | XLS, XLSX | 100 MB |
 | Microsoft PowerPoint | PPT, PPTX | 100 MB |
 | プレーンテキスト | TXT | 100 MB |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Documents" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="文書" }
 
 #### 注意事項
 
@@ -219,4 +251,4 @@ Bフレーム付きのH.264「High」プロファイルでエンコードされ�
 | オーディオ（ボイス） | OGG (OPUS) | 16 MB | なし |
 | オーディオ（基本） | AAC, AMR, MP3, M4A, OGG | 16 MB | なし |
 | 文書 | PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, TXT | 100 MB | あり（最大1,024文字） |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Quick reference: WhatsApp media specifications" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="クイックリファレンス：WhatsAppメディア仕様" }

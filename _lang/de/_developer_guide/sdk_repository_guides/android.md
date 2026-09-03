@@ -6,11 +6,13 @@ description: "Braze Android SDK README-Referenz, gespiegelt von GitHub."
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Leitfaden zum Android SDK-Repository {#android-sdk-repository-guide}
+
 ## Über das Braze Android SDK {#about-the-braze-android-sdk}
 
-Das Braze Android SDK hilft Ihnen, Braze-Messaging, Analytics und Funktionen zur Nutzer:innen-Interaktion in Ihre Anwendung zu integrieren.
+Das Braze Android SDK hilft Ihnen, Braze Messaging-, Analytics- und Nutzer:innen-Engagement-Funktionen in Ihre Anwendung zu integrieren.
 
-Für den Einstieg stehen Ihnen die folgenden Ressourcen zur Verfügung:
+Für den Einstieg können Sie die folgenden Ressourcen nutzen:
 
 - [Braze-Benutzerhandbuch](https://www.braze.com/docs/user_guide/introduction/)
 - [Braze-Entwicklerhandbuch](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=android)
@@ -28,8 +30,8 @@ repositories {
 }
 // ...
 dependencies {
-  `implementation 'com.braze:android-sdk-ui:42.3.+'`
-  `implementation 'com.braze:android-sdk-location:42.3.+'`
+  `implementation 'com.braze:android-sdk-ui:43.1.+'`
+  `implementation 'com.braze:android-sdk-location:43.1.+'`
 }
 // ...
 ```
@@ -47,12 +49,12 @@ dependencies {
 Braze.getInstance(context).changeUser("Jane Doe");
 ```
 
-Weitere Informationen zu erweiterten Integrationsoptionen finden Sie im [Braze-Entwicklerhandbuch](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=android).
+Weitere Informationen zu erweiterten Integrationsoptionen finden Sie im [Braze Developer Guide](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=android).
 
 ## Versionsunterstützung {#version-support}
 
 {% alert important %}
-Das Braze Android SDK deklariert eine `minSdkVersion` von API 21+, wodurch das SDK in Apps kompiliert werden kann, die bereits ab API 21 unterstützt werden. Obwohl das SDK für diese Versionen kompiliert wird, bietet Braze keinen formellen Support für API-Versionen unter 25, und das SDK funktioniert auf Geräten mit diesen Versionen möglicherweise nicht wie vorgesehen.
+Das Braze Android SDK deklariert eine `minSdkVersion` von API 21+, wodurch das SDK in Apps kompiliert werden kann, die ab API 21 unterstützt werden. Obwohl das SDK für diese Versionen kompiliert wird, bietet Braze keine formale Unterstützung für API-Versionen unter 25, und das SDK funktioniert auf Geräten mit diesen Versionen möglicherweise nicht wie vorgesehen.
 
 Wenn Ihre App diese Versionen unterstützt, gehen Sie wie folgt vor:
 
@@ -66,7 +68,7 @@ Tool | Minimal unterstützte Version
 minSdk|5.0+ / API 21+ (Lollipop und höher)
 targetSdk|37
 Kotlin|`org.jetbrains.kotlin:kotlin-stdlib:2.2.20`
-Firebase Cloud Messaging|24.1.2
+Firebase Cloud Messaging|25.1.1
 Font Awesome|4.3.0
 
 ## Module {#modules}
@@ -75,17 +77,17 @@ Die folgende Tabelle beschreibt jedes Modul im Braze Android SDK.
 
 Modul | Beschreibung
 :----|:----
-`android-sdk-base` | Die Braze SDK Basis-Analytics-Bibliothek.
-`android-sdk-ui` | Die Braze SDK Benutzeroberflächen-Bibliothek für In-App-Nachrichten, Push, Content Cards und Banner.
-`android-sdk-location` | Die Braze SDK Standort-Bibliothek für Standort und Geofences.
-`android-sdk-jetpack-compose` | Die Braze SDK Bibliothek für Jetpack Compose-Unterstützung.
-`droidboy` | Eine Beispiel-App, die zeigt, wie Sie Braze umfassend nutzen können.
-`android-sdk-unity` | Eine Bibliothek, die Braze SDK-Integrationen auf Unity ermöglicht.
-`samples` | Ein Ordner mit Beispiel-Apps für verschiedene Integrationsoptionen.
+`android-sdk-base`|Die Braze SDK Basis-Analytics-Bibliothek.
+`android-sdk-ui`|Die Braze SDK Benutzeroberflächen-Bibliothek für In-App Messages, Push, Content Cards und Banner.
+`android-sdk-location`|Die Braze SDK Standort-Bibliothek für Standorte und Geofences.
+`android-sdk-jetpack-compose`|Die Braze SDK Bibliothek für Jetpack Compose-Unterstützung.
+`droidboy`|Eine Beispiel-App, die zeigt, wie Sie Braze im Detail nutzen können.
+`android-sdk-unity`|Eine Bibliothek, die Braze SDK-Integrationen auf Unity ermöglicht.
+`samples`|Ein Ordner mit Beispiel-Apps für verschiedene Integrationsoptionen.
 
 ## Kontakt {#contact}
 
-Bei Fragen kontaktieren Sie den technischen Support von Braze.
+Bei Fragen wenden Sie sich an den technischen Support von Braze.
 <!-- END GENERATED README CONTENT -->
 
-Für Repository-Details und Beispielprojekte siehe [https://github.com/braze-inc/braze-android-sdk](https://github.com/braze-inc/braze-android-sdk).
+Informationen zum Repository und Beispielprojekte finden Sie unter [https://github.com/braze-inc/braze-android-sdk](https://github.com/braze-inc/braze-android-sdk).

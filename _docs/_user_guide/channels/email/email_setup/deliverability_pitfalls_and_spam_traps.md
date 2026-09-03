@@ -28,7 +28,7 @@ Your email deliverability can be affected by any of the following spam traps:
 These traps can be avoided if you set up a confirmed opt-in process. By sending an initial opt-in email and asking subscribers to verify that they want your messages, you're ensuring your recipients want to hear from you, and that you're sending to real, valid addresses. Here are additional ways to avoid spam traps:
 
 1. Send a double opt-in email. This is an email that requires users to confirm their subscription choices by clicking a link.
-2. As a best practice, implement a [sunset policy]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies/).
+2. As a best practice, implement a [sunset policy]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies).
 3. **Never purchase email lists.**
 
 {% alert tip %}
@@ -43,7 +43,7 @@ An example free email domain block message is:
 
 `550 5.7.1 Unfortunately, messages from [xx.xx.xx.xx] weren't sent. Please contact your Internet service provider since part of their network is on our block list (S3150). You can also refer your provider to: http://mail.live.com/mail/troubleshooting.aspx#errors.`
 
-You can slowly increase volume similar to [IP warming]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/), paying close attention to metrics. There's often a root cause of the deliverability issues to identify and resolve. In general, this is a lack of proper permission, a lack of ongoing list hygiene, or a combination of those factors.
+You can slowly increase volume similar to [IP warming]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming), paying close attention to metrics. There's often a root cause of the deliverability issues to identify and resolve. In general, this is a lack of proper permission, a lack of ongoing list hygiene, or a combination of those factors.
 
 ## Remove an email address from your bounce or spam list
 
@@ -54,4 +54,8 @@ You can remove bounced emails and emails on your Braze spam list with the follow
 
 ## Improve email deliverability
 
-For more information, see [Improve email deliverability]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability/).
+For more information, see [Improve email deliverability]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability).
+
+## BIMI
+
+For BIMI (Brand Indicators for Message Identification), see [Email authentication]({{site.baseurl}}/user_guide/channels/email/email_setup/authentication).

@@ -14,7 +14,7 @@ tool:
 
 > Com as configurações globais de estilo, você pode personalizar a aparência das suas Campaigns de e-mail e Canvas. Você pode adicionar e personalizar um tema padrão para o editor de arrastar e soltar. Isso inclui editar seus estilos para títulos de e-mail, texto, botões e muito mais. Usar uma combinação dessas configurações pode ajudar a criar uma aparência consistente em todo o seu envio de mensagens por e-mail.
 
-Para editar suas configurações globais de estilo, acesse **Configurações** > **Preferências de e-mail** > **Preferências de e-mail de arrastar e soltar**. Após editar os estilos no editor de e-mail de arrastar e soltar, selecione **Salvar**. Para personalizar ainda mais suas Campaigns de e-mail e Canvas, confira como incorporar [Blocos do editor (e-mail)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=email).
+Para editar suas configurações globais de estilo, acesse **Configurações** > **Preferências de e-mail** > **Preferências de e-mail de arrastar e soltar**. Após editar os estilos no editor de e-mail de arrastar e soltar, selecione **Salvar**. Para personalizar ainda mais suas Campaigns de e-mail e Canvas, confira como incorporar [Blocos do editor (e-mail)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=email).
 
 ![Seção de configurações globais de estilo de e-mail na guia de configurações do editor de arrastar e soltar.]({% image_buster /assets/img_archive/dnd_global_style_settings.png %})
 
@@ -57,7 +57,7 @@ Para adicionar uma fonte personalizada, faça o seguinte:
 O Gmail não oferece suporte a fontes personalizadas, então sua fonte personalizada pode ser exibida como uma fonte padrão do sistema. Para outras plataformas de e-mail, verifique se sua fonte personalizada é exibida corretamente antes de enviar suas mensagens de e-mail.
 {% endalert %}
 
-Para usar outras fontes personalizadas em suas Campaigns de e-mail, você pode criar um [modelo de e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/) ou [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/) que inclua a fonte personalizada. Por exemplo, você pode criar um modelo de e-mail específico com fontes personalizadas festivas adaptadas ao tema da sua promoção. Certifique-se de verificar se a fonte escolhida é segura para web e compatível com suas plataformas de e-mail.
+Para usar outras fontes personalizadas em suas Campaigns de e-mail, você pode criar um [modelo de e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template) ou [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) que inclua a fonte personalizada. Por exemplo, você pode criar um modelo de e-mail específico com fontes personalizadas festivas adaptadas ao tema da sua promoção. Certifique-se de verificar se a fonte escolhida é segura para web e compatível com suas plataformas de e-mail.
 
 ### Fonte de fallback {#fallback-font}
 

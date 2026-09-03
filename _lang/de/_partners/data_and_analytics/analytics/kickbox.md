@@ -22,7 +22,7 @@ Das Canvas oder die Campaign sendet einen Webhook an Kickbox, der die E-Mail-Adr
 | Kickbox-Konto | Für die Nutzung dieser Integration ist ein aktives Kickbox-Konto erforderlich. |
 | Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit `users.track`-Berechtigungen. <br><br>Dieser kann im Braze-Dashboard unter **Einstellungen** > **APIs und Bezeichner** > **API-Schlüssel** erstellt werden. |
 | Zugriff auf die Integration anfordern | Bitten Sie das Kickbox-Support-Team, Ihnen Zugriff auf die Braze-Integration zu gewähren. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
@@ -45,7 +45,7 @@ Die angepassten Attribute von Kickbox haben ein einheitliches Schema, das den fo
    {
   "attributes": [
     {
-      "email": "example1@kickbox.com",
+      "email": "example1@example.com",
       "_update_existing_only": true,
       "success": true,
       "code": null,
@@ -59,10 +59,10 @@ Die angepassten Attribute von Kickbox haben ein einheitliches Schema, das den fo
       "did_you_mean": null,
       "sendex": 1,
       "user": "example1",
-      "domain": "kickbox.com"
+      "domain": "example.com"
     },
     {
-      "email": "example2@gamil.com",
+      "email": "example2@exampl.com",
       "_update_existing_only": true,
       "success": true,
       "code": "44312",
@@ -73,10 +73,10 @@ Die angepassten Attribute von Kickbox haben ein einheitliches Schema, das den fo
       "free": false,
       "disposable": false,
       "accept_all": false,
-      "did_you_mean": "example2@gmail.com",
+      "did_you_mean": "example2@example.com",
       "sendex": 0.23,
       "user": "example2",
-      "domain": "gamil.com"
+      "domain": "exampl.com"
     }
   ]
 }

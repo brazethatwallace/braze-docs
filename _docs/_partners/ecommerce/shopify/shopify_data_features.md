@@ -410,6 +410,11 @@ The Shopify integration uses [eCommerce recommended events]({{site.baseurl}}/use
 {% endsubtabs %}
 {% endtab %}
 {% tab Shopify events %}
+
+{% alert note %}
+Braze relies on Shopify to provide required event properties (such as `cart_id` or `cart_token`) for eCommerce events. In rare cases, temporary issues with Shopify may cause these properties to be missed, which can cause affected events to be dropped.
+{% endalert %}
+
 {% subtabs global %}
 {% subtab Product viewed %}
 **Event**: `ecommerce.product_viewed`<br>
@@ -766,7 +771,7 @@ Shopify’s checkout completed webhook doesn't contain product URLs or image URL
 {% endraw %}
 
 {% alert note %}
-The Shopify integration currently doesn't support populating the Braze [purchase event]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events#purchase-events). As a result, purchase filters, Liquid tags, action-based triggers, and analytics should use the `ecommerce.order_placed` event. 
+The Shopify integration currently doesn't support populating the Braze [purchase event]({{site.baseurl}}/user_guide/data/activation/events/purchase_events). As a result, purchase filters, Liquid tags, action-based triggers, and analytics should use the `ecommerce.order_placed` event. 
 {% endalert %}
 
 {% endsubtab %}
@@ -863,7 +868,7 @@ When Braze imports your Shopify customers, we assign the `external_id` type that
 If you're an existing Braze customer with active campaigns or Canvases, review how imported customers and order events affect your segments and journeys before you enable historical backfill.
 {% endalert %}
 
-{% multi_lang_include shopify.md section='Custom external ID historical backfill' %}
+{% multi_lang_include partners/shopify.md section='Custom external ID historical backfill' %}
 
 ### Setting up Shopify historical backfill
 

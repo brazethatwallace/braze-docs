@@ -5,7 +5,7 @@ search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Exportar detalles de Canvas de Braze."
+description: "En este artículo se describen los detalles del endpoint Exportar detalles de Canvas de Braze."
 
 ---
 {% api %}
@@ -14,13 +14,13 @@ description: "En este artículo se describen los detalles del punto de conexión
 /canvas/details
 {% endapimethod %}
 
-> Usa este punto de conexión para exportar metadatos sobre un Canvas, como el nombre, la hora de creación, el estado actual y más.
+> Usa este endpoint para exportar metadatos sobre un Canvas, como el nombre, la hora de creación, el estado actual y más.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#5188873c-13a3-4aaf-a54b-9fa1daeac5f8 {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
 
-Para usar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `canvas.details`.
+Para usar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `canvas.details`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -30,10 +30,10 @@ Para usar este punto de conexión, necesitarás una [clave de API]({{site.baseur
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | -------- | --------- | ----------- |
-| `canvas_id` | Obligatorio | Cadena | Consulta [Identificador de API de Canvas]({{site.baseurl}}/api/identifier_types/) |
+| `canvas_id` | Obligatorio | Cadena | Consulta [Identificador de API de Canvas]({{site.baseurl}}/api/identifier_types) |
 | `post_launch_draft_version` | Opcional | Booleano | Para los Canvas que tienen un borrador posterior al lanzamiento, establecer esto en `true` muestra los cambios de borrador disponibles. Predeterminado: `false`. |
 | `include_has_translatable_content` | Opcional | Booleano | Cuando se establece en `true`, la respuesta de la API incluye un campo `has_translatable_content` para cada mensaje. Predeterminado: `false`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ## Ejemplo de solicitud {#example-request}
 
@@ -100,7 +100,7 @@ Todos los pasos en Canvas tienen un campo `next_paths`, que es una matriz de dat
     },
     ... (more steps)
   ],
-  "message": (required, string) the status of the export, returns 'success' when completed without errors
+  "message": (string) returns 'success' when the request completes without errors
 }
 ```
 
@@ -220,7 +220,7 @@ A continuación se muestra un ejemplo de respuesta que incluye mensajes de Canva
 ```
 
 {% alert tip %}
-Para obtener ayuda con las exportaciones CSV y API, visita [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+Para obtener ayuda con las exportaciones CSV y API, visita [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endapi %}

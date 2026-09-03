@@ -37,14 +37,14 @@ Les catalogues prennent en charge jusqu'à 1 000 champs par élément et peuvent
 
 Les catalogues permettent également l'envoi de messages automatisés grâce aux déclencheurs de catalogue. Configurez des notifications de retour en stock et des notifications de baisse de prix pour envoyer automatiquement des messages aux utilisateurs lorsque les éléments du catalogue changent.
 
-Pour en savoir plus, consultez [Déclencheurs de catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/).
+Pour en savoir plus, consultez [Déclencheurs de catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers).
 
 ## Sélections {#selections}
 
 Utilisez les sélections pour regrouper les éléments d'un catalogue selon des filtres que vous définissez. Par exemple, créez une sélection d'articles à moins de 20 $ ou d'articles dans une catégorie spécifique, puis référencez l'ensemble filtré dans vos messages.
 
-Pour en savoir plus, consultez [Sélections]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/).
+Pour en savoir plus, consultez [Sélections]({{site.baseurl}}/user_guide/data/activation/catalogs/selections).
 
 ## Pour commencer {#getting-started}
 
-Pour créer et gérer des catalogues, consultez [Catalogues]({{site.baseurl}}/user_guide/data/activation/catalogs/). Pour apprendre à référencer les données d'un catalogue dans vos messages, consultez [Utiliser les catalogues dans un message]({{site.baseurl}}/user_guide/data/activation/catalogs/use/).
+Pour créer et gérer des catalogues, consultez [Catalogues]({{site.baseurl}}/user_guide/data/activation/catalogs). Pour apprendre à référencer les données d'un catalogue dans vos messages, consultez [Utiliser les catalogues dans un message]({{site.baseurl}}/user_guide/data/activation/catalogs/use).

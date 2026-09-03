@@ -20,7 +20,7 @@ description: "Cet article présente en détail l'endpoint Braze Exporter les ana
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `sessions.data_series`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `sessions.data_series`.
 
 ## Limite de débit {#rate-limit}
 
@@ -33,9 +33,9 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 | `length` | Requis | Entier | Nombre maximum d'unités (jours ou heures) avant `ending_at` à inclure dans la série renvoyée. Doit être compris entre 1 et 100 (inclus). |
 | `unit` | Facultatif | Chaîne de caractères | Unité de temps entre les points de données. Peut être `day` ou `hour`, valeur par défaut `day`. |
 | `ending_at` | Facultatif | Datetime <br>(chaîne [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)) | Date à laquelle la série de données doit se terminer. Par défaut, l'heure de la requête. |
-| `app_id` | Facultatif | Chaîne de caractères | Identifiant API de l'application récupéré à partir de la page [Clés API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) pour limiter l'analyse à une application spécifique. |
-| `segment_id` | Facultatif | Chaîne de caractères | Voir [Identifiant API de segment]({{site.baseurl}}/api/identifier_types/). ID du segment avec analyse activée pour lequel les sessions doivent être renvoyées. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+| `app_id` | Facultatif | Chaîne de caractères | Identifiant API de l'application récupéré à partir de la page [Clés API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) pour limiter l'analyse à une application spécifique. |
+| `segment_id` | Facultatif | Chaîne de caractères | Voir [Identifiant API de Segment]({{site.baseurl}}/api/identifier_types). ID du Segment avec analyse activée pour lequel les sessions doivent être renvoyées. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 ## Exemple de requête {#example-request}
 {% raw %}
@@ -49,7 +49,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/sessions/data_se
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
+    "message": (string) returns 'success' when the request completes without errors,
     "data" : [
         {
             "time" : (string) point in time - as ISO 8601 extended when unit is "hour" and as ISO 8601 date when unit is "day",
@@ -61,7 +61,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/sessions/data_se
 ```
 
 {% alert tip %}
-Pour obtenir de l'aide sur les exportations CSV et API, consultez la section [Résolution des problèmes d'exportation]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+Pour obtenir de l'aide sur les exportations CSV et API, consultez la section [Résolution des problèmes d'exportation]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endapi %}

@@ -108,6 +108,6 @@ In der folgenden Tabelle finden Sie eine Liste möglicher zurückgegebener Fehle
 | `400 Invalid integration ID` | Prüfen Sie, ob Ihre `integration_id` gültig ist. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Fehlerbehebung" }
 
-Weitere Statuscodes und zugehörige Fehlermeldungen finden Sie unter [Schwerwiegende Fehler und Antworten]({{site.baseurl}}/api/errors/#fatal-errors).
+Weitere Statuscodes und zugehörige Fehlermeldungen finden Sie unter [Schwerwiegende Fehler und Antworten]({{site.baseurl}}/api/errors#fatal-errors).
 
 {% endapi %}

@@ -6,7 +6,7 @@ page_order: 2
 
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Enumerar los detalles del elemento del catálogo de Braze."
+description: "En este artículo se describen los detalles del endpoint Enumerar los detalles del elemento del catálogo de Braze."
 
 ---
 {% api %}
@@ -15,13 +15,13 @@ description: "En este artículo se describen los detalles del punto de conexión
 /catalogs/{catalog_name}/items/{item_id}
 {% endapimethod %}
 
-> Utiliza este punto de conexión para devolver un elemento del catálogo y su contenido.
+> Utiliza este endpoint para devolver un elemento del catálogo y su contenido.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#52c6631c-7366-48e5-9e0e-16de7b6285cc {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `catalogs.get_item`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `catalogs.get_item`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -37,7 +37,7 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 
 ## Parámetros de la solicitud {#request-parameters}
 
-No hay cuerpo de solicitud para este punto de conexión.
+No hay cuerpo de solicitud para este endpoint.
 
 ## Ejemplo de solicitud {#example-request}
 
@@ -49,7 +49,7 @@ curl --location --request GET 'https://rest.iad-03.braze.com/catalogs/restaurant
 
 ## Respuesta {#response}
 
-Hay dos respuestas de código de estado para este punto de conexión: `200` y `404`.
+Hay dos respuestas de código de estado para este endpoint: `200` y `404`.
 
 ### Ejemplo de respuesta correcta {#example-success-response}
 

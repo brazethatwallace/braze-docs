@@ -13,17 +13,20 @@ tool: Canvas
 guide_featured_title: "セクション記事"
 guide_featured_list:
   - name: 起動後のキャンバスの編集
-    link: /docs/post-launch_edits/
+    link: /docs/post-launch_edits
     image: /assets/img/braze_icons/edit-05.svg
-  - name: キャンバスの下書きの保存
+  - name: キャンバスの下書きを保存
     link: /docs/user_guide/messaging/canvas/managing_canvases/canvas_drafts
     image: /assets/img/braze_icons/save-03.svg
   - name: キャンバスのバージョン履歴
     link: /docs/user_guide/messaging/canvas/managing_canvases/canvas_version_history
     image: /assets/img/braze_icons/list.svg
-  - name: キャンバスのクローン
+  - name: キャンバスの複製
     link: /docs/user_guide/messaging/canvas/managing_canvases/cloning_canvases
     image: /assets/img/braze_icons/copy-04.svg
+  - name: キャンバスのしきい値アラート
+    link: /docs/user_guide/messaging/canvas/managing_canvases/canvas_threshold_alerts
+    image: /assets/img/braze_icons/bell-03.svg
 
 guide_menu_title: "その他のリソース"
 guide_menu_list:

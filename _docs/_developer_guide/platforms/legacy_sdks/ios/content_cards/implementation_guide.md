@@ -14,12 +14,12 @@ noindex: true
 
 <br>
 {% alert important %}
-Looking for the basic Content Card developer integration guide? Find it [here]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/content_cards/integration/).
+Looking for the basic Content Card developer integration guide? Find it [basic Content Card developer integration guide]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/content_cards/integration).
 {% endalert %}
 
 # Content Card implementation guide
 
-> This optional and advanced implementation guide covers Content Card code considerations, three custom use cases built by our team, accompanying code snippets, and guidance on logging impressions, clicks, and dismissals. Visit our Braze Demo Repository [here](https://github.com/braze-inc/braze-growth-shares-ios-demo-app)! Note that this implementation guide is centered around a Swift implementation, but Objective-C snippets are provided for those interested.
+> This optional and advanced implementation guide covers Content Card code considerations, three custom use cases built by our team, accompanying code snippets, and guidance on logging impressions, clicks, and dismissals. Visit our Braze Demo Repository [Braze Demo Repository on GitHub](https://github.com/braze-inc/braze-growth-shares-ios-demo-app)! Note that this implementation guide is centered around a Swift implementation, but Objective-C snippets are provided for those interested.
 
 ## Code considerations
 
@@ -427,18 +427,18 @@ The `class_type` is used to determine which of your custom objects will be initi
 
 ## Use cases
 
-We've provided three use cases below. Each use case offers a detailed explanation, relevant code snippets, and a look into how Content Card variables may look and be used in the Braze dashboard:
+We've provided three use cases in the following section. Each use case offers a detailed explanation, relevant code snippets, and a look into how Content Card variables may look and be used in the Braze dashboard:
 - [Content Cards as supplemental content](#content-cards-as-supplemental-content)
 - [Content Cards in a message center](#content-cards-in-a-message-center)
 - [Interactive Content Cards](#interactive-content-cards)
 
 ### Content Cards as supplemental content
 
-![]({% image_buster /assets/img/cc_implementation/supplementary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0;"}
+![Feed with a hybrid list blending local data and Braze Content Cards.]({% image_buster /assets/img/cc_implementation/supplementary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0;"}
 
 You can seamlessly blend Content Cards into an existing feed, allowing data from multiple feeds to load simultaneously. This creates a cohesive, harmonious experience with Braze Content Cards and existing feed content.
 
-The example to the right shows a `UICollectionView` with a hybrid list of items that are populated via local data and Content Cards powered by Braze. With this, Content Cards can be indistinguishable alongside existing content.
+The accompanying example shows a `UICollectionView` with a hybrid list of items that are populated via local data and Content Cards powered by Braze. With this, Content Cards can be indistinguishable alongside existing content.
 
 #### Dashboard configuration
 
@@ -453,7 +453,7 @@ Visit the [following section](#logging-impressions-clicks-and-dismissals) to get
 <br>
 Content Cards can be used in a message center format where each message is its own card. Each message in the message center is populated via a Content Card payload, and each card contains additional key-value pairs that power on-click UI/UX. In the following example, one message directs you to an arbitrary custom view, while another opens to a webview that displays custom HTML.
 
-![]({% image_buster /assets/img/cc_implementation/message_center.png %}){: style="border:0;"}{: style="max-width:80%;border:0"}
+![Content Card message center with individual message cards.]({% image_buster /assets/img/cc_implementation/message_center.png %}){: style="border:0;"}{: style="max-width:80%;border:0"}
 
 #### Dashboard configuration
 
@@ -467,7 +467,7 @@ The key-value pairs for this use case include:
 - `message_header` set as `Full Page`
 - `class_type` set as `message_full_page`
 
-![]({% image_buster /assets/img/cc_implementation/full_page.png %}){: style="max-width:60%;"}
+![Full-page Content Card message example.]({% image_buster /assets/img/cc_implementation/full_page.png %}){: style="max-width:60%;"}
 
 {% endtab %}
 {% tab Webview message - HTML %}
@@ -480,7 +480,7 @@ The key-value pairs for this use case include:
 
 This message also looks for an HTML key-value pair, but if you are working with a web domain, a URL key-value pair is also valid.
 
-![]({% image_buster /assets/img/cc_implementation/html_webview.png %}){: style="max-width:60%;"}
+![Content Card opening an HTML webview from a key-value pair.]({% image_buster /assets/img/cc_implementation/html_webview.png %}){: style="max-width:60%;"}
 
 {% endtab %}
 {% endtabs %}
@@ -533,7 +533,7 @@ Visit the [following section](#logging-impressions-clicks-and-dismissals) to get
 
 ### Interactive Content Cards
 <br>
-Content Cards can be used to create dynamic and interactive experiences for your users. In the example to the right, we have a Content Card pop-up appear at checkout providing users last-minute promotions. 
+Content Cards can be used to create dynamic and interactive experiences for your users. In the accompanying example, a Content Card pop-up appears at checkout to provide users with last-minute promotions. 
 
 Well-placed cards like this are a great way to give users a "nudge" toward specific user actions. 
 <br><br><br>
@@ -541,7 +541,7 @@ Well-placed cards like this are a great way to give users a "nudge" toward speci
 
 The dashboard configuration for interactive Content Cards is straightforward. The key-value pairs for this use case include a `discount_percentage` set as the desired discount amount and `class_type` set as `coupon_code`. These key-value pairs are how type-specific Content Cards get filtered and displayed on the checkout screen.
 
-![]({% image_buster /assets/img/cc_implementation/discount.png %}){: style="max-width:70%;"} 
+![Interactive Content Card showing a checkout promotion.]({% image_buster /assets/img/cc_implementation/discount.png %}){: style="max-width:70%;"} 
 
 ##### Ready to log analytics?
 Visit the [following section](#logging-impressions-clicks-and-dismissals) to get a better understanding of how the flow of data should look.
@@ -550,13 +550,13 @@ Visit the [following section](#logging-impressions-clicks-and-dismissals) to get
 
 By default, Content Card views will automatically respond to Dark Mode changes on the device with a set of themed colors.
 
-This behavior can be overridden as detailed in our [custom styling guide]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/content_cards/customization/custom_styling#disabling-dark-mode).
+This behavior can be overridden as detailed in our [custom styling guide]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/content_cards/customization/custom_styling#disabling-dark-mode).
 
 ## Logging impressions, clicks, and dismissals
 
 After extending your custom objects to function as Content Cards, logging valuable metrics like impressions, clicks, and dismissals is quick. This can be done by using a `ContentCardable` protocol that references and provides data to a helper file to be logged by the Braze SDK.
 
-#### Implementation components<br><br>
+### Implementation components<br><br>
 
 {% tabs %}
 {% tab Swift %}

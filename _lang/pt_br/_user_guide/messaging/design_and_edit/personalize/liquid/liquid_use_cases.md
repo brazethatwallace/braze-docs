@@ -518,7 +518,7 @@ Hi, the offer is only valid today.
 {% endraw %}
 
 {% alert important %}
-Você precisará atribuir um valor de `date` e incluir lógica de cancelamento caso a data fornecida esteja fora do intervalo de datas. Para cálculos exatos de dia, a data final atribuída deve incluir 23:59:59.
+Você precisará atribuir um valor de `date` e incluir lógica de interrupção caso a data fornecida esteja fora do intervalo de datas. Para cálculos exatos de dia, a data final atribuída deve incluir 23:59:59.
 {% endalert %}
 
 ### Inserir a data de 30 dias a partir de agora, formatada como mês e dia {#countdown-template-date}
@@ -569,7 +569,7 @@ There is a shovel here.
 
 ### Formatar moeda para convenções numéricas europeias {#european-currency-format}
 
-Para localidades que usam vírgula como separador decimal e ponto como separador de milhares (por exemplo, Alemanha ou Itália), use os filtros [`money`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/#money-filter) e [`number_with_delimiter`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#number-formatting-filters) com `replace` para trocar os separadores. Use `#` como um espaço reservado temporário para que pontos e vírgulas não sejam trocados na mesma passagem.
+Para localidades que usam vírgula como separador decimal e ponto como separador de milhares (por exemplo, Alemanha ou Itália), use os filtros [`money`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#money-filters) e [`number_with_delimiter`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#number-formatting-filters) com `replace` para trocar os separadores. Use `#` como um espaço reservado temporário para que pontos e vírgulas não sejam trocados na mesma passagem.
 
 {% raw %}
 ```liquid
@@ -788,7 +788,7 @@ Este caso de uso exibe a data atual, mês e ano, com o mês em um idioma diferen
 
 ### Exibir uma imagem com base no idioma do usuário {#language-image-display}
 
-Este caso de uso exibe uma imagem com base no idioma do usuário. Observe que este caso de uso foi testado apenas com imagens enviadas para a Biblioteca de mídia da Braze.
+Este caso de uso exibe uma imagem com base no idioma do usuário. Observe que este caso de uso foi testado apenas com imagens enviadas para a biblioteca de mídia da Braze.
 
 {% raw %}
 ```liquid
@@ -952,7 +952,7 @@ Today's offer from {{store}}
 
 Este caso de uso permite que os usuários configurem lembretes futuros com base em eventos personalizados. O cenário de exemplo permite que um usuário defina um lembrete para uma data de renovação de apólice que esteja a 26 ou mais dias de distância, onde os lembretes são enviados 26, 13, 7 ou 2 dias antes da data de renovação da apólice.
 
-Com este caso de uso, o seguinte deve ir no corpo de uma [campanha de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/) ou etapa do Canvas.
+Com este caso de uso, o seguinte deve ir no corpo de uma [campanha de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) ou etapa do Canvas.
 
 {% raw %}
 ```liquid
@@ -1539,7 +1539,7 @@ Check out this new bar after work today. HH specials!
 ```
 {% endraw %}
 
-{% alert note %} Isso é o oposto do [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#time-based-options). {% endalert %}
+{% alert note %} Isso é o oposto do [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#time-based-options). {% endalert %}
 
 ### Cancelar uma mensagem fora de um intervalo de horas no momento do envio {#abort-send-time-hour-range}
 
@@ -1816,4 +1816,4 @@ Este caso de uso cancela a mensagem quando o Liquid é executado em um determina
 
 {% endapi %}
 
-Muitos exemplos nesta biblioteca usam a tag `abort_message` para pular um envio quando as condições não são atendidas. Para uma referência completa sobre como cancelar envios com Liquid, incluindo padrões baseados em data e hora, consulte [Cancelar mensagens Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/).
+Muitos exemplos nesta biblioteca usam a tag `abort_message` para pular um envio quando as condições não são atendidas. Para uma referência completa sobre como cancelar envios com Liquid, incluindo padrões baseados em data e hora, consulte [Cancelar mensagens Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages).

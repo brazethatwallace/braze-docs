@@ -19,7 +19,7 @@ description: "This article outlines details about the Delete catalog field Braze
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `catalogs.delete_fields` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `catalogs.delete_fields` permission.
 
 ## Rate limit
 

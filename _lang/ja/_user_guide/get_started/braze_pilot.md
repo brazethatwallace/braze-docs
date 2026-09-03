@@ -3,7 +3,7 @@ nav_title: Braze Pilot
 page_order: 10.5
 layout: dev_guide
 guide_top_header: "Braze Pilot"
-guide_top_text: "Braze Pilotは、Brazeダッシュボードとシームレスに接続するように設計されたモバイルアプリです。これにより、アプリにCampaignsやCanvasesを配信でき、自分のスマートフォン上でBrazeのメッセージを実際に体験できます。Braze Pilotには、さまざまな業界を代表する架空ブランド向けのアプリシミュレーションのライブラリーが含まれており、顧客の視点からメッセージングがどのように見えるかを体験できます。"
+guide_top_text: "Braze Pilotは、Brazeダッシュボードとシームレスに接続するように設計されたモバイルアプリです。これにより、アプリにキャンペーンやキャンバスを配信でき、自分のスマートフォン上でBrazeのメッセージを実際に体験できます。Braze Pilotには、さまざまな業界を代表する架空ブランド向けのアプリシミュレーションのライブラリーが含まれており、顧客の視点からメッセージングがどのように見えるかを体験できます。"
 description: "Brazeダッシュボードからスマートフォンにメッセージを送信するさまざまな方法をご確認ください。"
 
 guide_featured_title: "セクションの記事"
@@ -25,16 +25,16 @@ guide_featured_list:
 Braze Pilotの中核は、アプリシミュレーションのライブラリーです。各アプリは業界特化型の架空ブランドをリアルにシミュレートしたもので、豊富なイベントや属性を記録する仕組みを備えています。これにより、Brazeの一般的なユースケースを実現する無限の可能性が生まれます。
 
 {% tabs local %}
-{% tab Fitness %}
+{% tab フィットネス %}
 
 ### Steppington
 
-Steppingtonは、ワークアウトや運動目標、そしてSteppington+プレミアムサービスを備えたフィットネスアプリです。[Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/)を表示する複数の場所を提供し、[フィーチャーフラグ]({{site.baseurl}}/developer_guide/feature_flags/)で表示可能なセクションを備え、さらに豊富なカスタムイベントロギングのライブラリーにより、この業界におけるさまざまなカスタマージャーニーを可視化できます。
+Steppingtonは、ワークアウトや運動目標、そしてSteppington+プレミアムサービスを備えたフィットネスアプリです。[Content Cards]({{site.baseurl}}/user_guide/channels/content_cards)を表示する複数の場所を提供し、[フィーチャーフラグ]({{site.baseurl}}/developer_guide/feature_flags)で表示可能なセクションを備え、さらに豊富なカスタムイベントロギングのライブラリーにより、この業界におけるさまざまなカスタマージャーニーを可視化できます。
 
 ![Steppingtonのホームページには、マラソントレーニング、ヨガ、サイクリング、ウェイトトレーニングのアイコンがあります。]({% image_buster /assets/img/braze_pilot/steppington_app.png %}){:style="max-width:50%"}
 
 {% endtab %}
-{% tab eCommerce %}
+{% tab eコマース %}
 
 ### PantsLabyrinth
 
@@ -43,7 +43,7 @@ PantsLabyrinthは、パンツを販売するeコマースアプリです（ご�
 ![PantsLabyrinthの商品ページで、ジーンズをカートに追加するオプションがあります。]({% image_buster /assets/img/braze_pilot/pantslabyrinth_app.png %}){:style="max-width:50%"}
 
 {% endtab %}
-{% tab Streaming %}
+{% tab ストリーミング %}
 
 ### MovieCanon
 
@@ -66,7 +66,7 @@ PilotがBrazeダッシュボードに接続された後、アプリ内のBraze S
 - セッションデータ、デバイス情報、プッシュトークンを自動的に収集します。
 - SDK統合が必要なプッシュ通知、In-App Messages、Content Cardsのメッセージングチャネルを動作させます。
 
-Braze SDKの詳細については、[統合]({{site.baseurl}}/user_guide/get_started/integrations/)をご確認ください。
+Braze SDKの詳細については、[統合]({{site.baseurl}}/user_guide/get_started/integrations)をご確認ください。
 
 ![Brazeのカスタマーエンゲージメントスタックは、データ取り込み、分類、オーケストレーション、パーソナライゼーション、アクションのための統合、API、SDKを含み、顧客との双方向フィードバックループを実現するメッセージングチャネルを備えています。]({% image_buster /assets/img/braze_pilot/braze_sdk_diagram.png %}){:style="max-width:70%"}
 
@@ -76,15 +76,15 @@ Brazeに送信されるすべてのデータは、アプリやWebサイトの特
 
 ### 匿名 {#anonymous}
 
-この接続ステータスは、まだログインしていないアプリやWebサイトのゲストの体験を表しています。Pilotを匿名ユーザーとして初期化すると、Brazeは[匿名ユーザープロファイル]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users/)を作成し、そのプロファイルにアクティビティデータを記録します。匿名ユーザーもCampaignsのターゲットにすることはできますが、Brazeダッシュボードで直接そのユーザープロファイルを検索することはできません。
+この接続ステータスは、まだログインしていないアプリやWebサイトのゲストの体験を表しています。Pilotを匿名ユーザーとして初期化すると、Brazeは[匿名ユーザープロファイル]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users)を作成し、そのプロファイルにアクティビティデータを記録します。匿名ユーザーもキャンペーンのターゲットにすることはできますが、Brazeダッシュボードで直接そのユーザープロファイルを検索することはできません。
 
 ### 識別済み {#identified}
 
-この接続ステータスは、Brazeがあなたに割り当てられた一意の識別子（external IDと呼ばれる）を通じて、あなたのユーザープロファイルを認識していることを意味します。ダッシュボードの**ユーザー検索**ページでこのexternal IDを検索すれば、ユーザープロファイルを見つけることができます。そこには、アプリ内でのアクティビティに基づいてPilotから記録されたすべてのユーザー属性とイベントが保存されています。Brazeダッシュボードで**Audience** > **ユーザー検索**に移動し、Pilotの**external ID**を入力してプロファイルを開き、属性とイベントを確認します。
+この接続ステータスは、Brazeがあなたに割り当てられた一意の識別子（external IDと呼ばれる）を通じて、あなたのユーザープロファイルを認識していることを意味します。ダッシュボードの**ユーザー検索**ページでこのexternal IDを検索すれば、ユーザープロファイルを見つけることができます。そこには、アプリ内でのアクティビティに基づいてPilotから記録されたすべてのユーザー属性とイベントが保存されています。Brazeダッシュボードで**オーディエンス** > **ユーザー検索**に移動し、Pilotの**external ID**を入力してプロファイルを開き、属性とイベントを確認します。
 
 ### 接続タイプ {#connection-type}
 
-接続の種類を確認するには、Pilotアプリの右上にある接続ステータス表示を確認してください。
+接続の種類を確認するには、Pilotアプリの上部にある接続ステータス表示を確認してください。
 
 {% tabs local %}
 {% tab 匿名ユーザー %}
@@ -104,15 +104,15 @@ Brazeに送信されるすべてのデータは、アプリやWebサイトの特
 {% endtab %}
 {% endtabs %}
 
-## CampaignsとCanvases {#campaigns-and-canvases}
+## キャンペーンとキャンバス {#campaigns-and-canvases}
 
-CampaignsとCanvasesは、ユーザーにメッセージを送信する手段です。
+キャンペーンとキャンバスは、ユーザーにメッセージを送信する手段です。
 
-- Campaignsは、さまざまなチャネルにわたって特定のオーディエンスセグメントに送信する単一のメッセージに最適です。
-- Canvasesは、複数のチャネルにわたってパーソナライズされたカスタマージャーニーを自動化およびオーケストレーションできる高度なワークフローです。Canvas内では、分岐ロジック、遅延、決定ポイント、コンバージョンイベントを設定して、一連のインタラクションを通じて顧客を導くことができます。Canvasesは、異なるタッチポイント間で一貫性のあるシームレスなコミュニケーションを確保し、カスタマーエンゲージメントとコンバージョンの可能性を高めます。
+- キャンペーンは、さまざまなチャネルにわたって特定のオーディエンスセグメントに送信する単一のメッセージに最適です。
+- キャンバスは、複数のチャネルにわたってパーソナライズされたカスタマージャーニーを自動化およびオーケストレーションできる高度なキャンペーンワークフローです。キャンバス内では、分岐ロジック、遅延、決定ポイント、コンバージョンイベントを設定して、一連のインタラクションを通じて顧客を導くことができます。キャンバスは、異なるタッチポイント間で一貫性のあるシームレスなコミュニケーションを確保し、カスタマーエンゲージメントとコンバージョンの可能性を高めます。
 
 ## サポートされているメッセージングチャネル {#supported-messaging-channels}
 
-Braze Pilotは現在、[アプリ内メッセージ]({{site.baseurl}}/in-app_messages/)をサポートしています。アプリ内メッセージはアプリ内に表示され、ユーザーが積極的にエンゲージメントを行っている最中にタイムリーなメッセージを届けます。
+Braze Pilotは現在、[アプリ内メッセージ]({{site.baseurl}}/in-app_messages)をサポートしています。アプリ内メッセージはアプリ内に表示され、ユーザーが積極的にエンゲージメントを行っている最中にタイムリーなメッセージを届けます。
 
 ![MovieCanonアプリのアプリ内メッセージ「MovieCanonを楽しんでいますか？友達を紹介しよう！」と表示され、紹介メールを送るためのメールアドレス入力欄があります。]({% image_buster /assets/img/braze_pilot/moviecanon_iam.png %}){:style="max-width:40%"}

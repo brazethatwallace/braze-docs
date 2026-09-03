@@ -1,15 +1,15 @@
 ---
 nav_title: Configuración de tablas
-article_title: Configuración de tablas de Ingesta de datos de Cloud
+article_title: Configuración de tablas de ingesta de datos en la nube
 toc_headers: h2
 page_order: 2
 page_type: reference
 description: "Aprende a configurar tu tabla de origen de CDI y en qué se diferencia esa configuración de los requisitos de formato de la carga útil."
 ---
 
-# Configuración de tablas de Ingesta de datos de Cloud {#cloud-data-ingestion-table-setup}
+# Configuración de tablas de ingesta de datos en la nube {#cloud-data-ingestion-table-setup}
 
-> Usa esta página para separar dos requisitos relacionados pero diferentes de la Ingesta de datos de Cloud (CDI): la configuración de la tabla de origen y el formato de la carga útil.
+> Usa esta página para separar dos requisitos relacionados pero diferentes de la ingesta de datos en la nube (CDI): la configuración de la tabla de origen y el formato de la carga útil.
 
 ## Comprender la configuración de tablas en comparación con el formato de la carga útil {#understand-table-setup-compared-to-payload-formatting}
 
@@ -19,7 +19,7 @@ Para las sincronizaciones de datos de usuario de CDI, configura ambos:
 | --- | --- |
 | Configuración de la tabla de origen | Columnas obligatorias, identificadores de usuario y comportamiento de sincronización de `UPDATED_AT` |
 | Formato de la carga útil | Campos JSON en `PAYLOAD`, incluida la forma del objeto para atributos, eventos y compras |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Understand table setup compared to payload formatting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Comprender la configuración de tablas en comparación con el formato de la carga útil" }
 
 Braze lee las filas de tu tabla de origen primero y luego valida el campo `PAYLOAD` en función del tipo de datos seleccionado.
 
@@ -44,24 +44,24 @@ Cada fila debe incluir un tipo de identificador a la vez, incluso si tu tabla co
 - Braze sincroniza las filas en las que `UPDATED_AT` es posterior al último valor sincronizado.
 - Las filas en la marca de tiempo exacta del límite pueden volver a sincronizarse si nuevas filas comparten esa marca de tiempo.
 
-Para orientación sobre marcas de tiempo duplicadas y actualizaciones incrementales, consulta [Mejores prácticas de Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices/#avoid-resyncing-rows-with-duplicate-timestamps).
+Para orientación sobre marcas de tiempo duplicadas y actualizaciones incrementales, consulta [Mejores prácticas de ingesta de datos en la nube]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices#avoid-resyncing-rows-with-duplicate-timestamps).
 
 {% alert note %}
-Las fuentes de almacenamiento de archivos utilizan requisitos de configuración diferentes y no son compatibles con `UPDATED_AT`. Para más detalles, consulta [Integraciones de almacenamiento de archivos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/#required-file-formats).
+Las fuentes de almacenamiento de archivos utilizan requisitos de configuración diferentes y no son compatibles con `UPDATED_AT`. Para más detalles, consulta [Integraciones de almacenamiento de archivos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations#required-file-formats).
 {% endalert %}
 
 ## Configurar la columna `PAYLOAD` {#set-up-the-payload-column}
 
-El valor de `PAYLOAD` sigue los mismos formatos de objeto utilizados por el punto de conexión `/users/track` de Braze para el tipo de datos seleccionado.
+El valor de `PAYLOAD` sigue los mismos formatos de objeto utilizados por el endpoint `/users/track` de Braze para el tipo de datos seleccionado.
 
 | Tipo de datos | Referencia de formato |
 | --- | --- |
-| `attributes` | [Objeto de atributos de usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens) |
-| `events` | [Objeto de eventos]({{site.baseurl}}/api/objects_filters/event_object/) |
-| `purchases` | [Objeto de compras]({{site.baseurl}}/api/objects_filters/purchase_object/) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Set up the PAYLOAD column" }
+| `attributes` | [Objeto de atributos de usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object) |
+| `events` | [Objeto de eventos]({{site.baseurl}}/api/objects_filters/event_object) |
+| `purchases` | [Objeto de compras]({{site.baseurl}}/api/objects_filters/purchase_object) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Configurar la columna PAYLOAD" }
 
-Para atributos anidados, incluye las fechas utilizando el formato en [Capturar fechas como propiedades de objeto]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/#capturing-dates-as-object-properties).
+Para atributos anidados, incluye las fechas utilizando el formato en [Capturar fechas como propiedades de objeto]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#capturing-dates-as-object-properties).
 
 ### Ejemplos de carga útil {#payload-examples}
 
@@ -97,7 +97,7 @@ Puedes sincronizar un evento por fila.
     "time" : "2013-07-16T19:20:45+01:00",
     "properties": {
         "movie": "The Sad Egg",
-        "director": "Dan Alexander"
+        "director": "Alex Smith"
     }
 }
 ```
@@ -149,6 +149,6 @@ Para sincronizar estados de grupos de suscripción, incluye uno o más pares de 
 
 ## Documentación relacionada de configuración de CDI {#related-cdi-setup-docs}
 
-- Para ejemplos de DDL específicos de cada fuente, consulta [Integraciones de almacén de datos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views).
-- Para la configuración basada en archivos, consulta [Integraciones de almacenamiento de archivos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/).
-- Para orientación sobre el comportamiento de sincronización y optimización, consulta [Mejores prácticas de Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices/).
+- Para ejemplos de DDL específicos de cada fuente, consulta [Integraciones de almacén de datos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
+- Para la configuración basada en archivos, consulta [Integraciones de almacenamiento de archivos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations).
+- Para orientación sobre el comportamiento de sincronización y optimización, consulta [Mejores prácticas de ingesta de datos en la nube]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices).

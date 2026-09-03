@@ -10,47 +10,47 @@ hidden: true
 
 > Las campañas RCS son ideales para comunicarte directamente con tus clientes y conversar con ellos de forma programática. Puedes usar Liquid y otro contenido dinámico para crear una experiencia personalizada con tus usuarios y fomentar una experiencia de usuario discreta y enriquecedora con tu marca.
 
-## Crear un mensaje RCS
+## Creación de un mensaje RCS
 
 ### Paso 1: Elige dónde crear tu mensaje {#step-1-choose-where-to-build-your-message}
 
-¿No tienes claro si tu mensaje debe enviarse mediante una Campaign o un Canvas? Las Campaigns son mejores para campañas de mensajería sencillas y únicas, mientras que los Canvas son mejores para recorridos de usuario de varios pasos.
+¿No tienes claro si tu mensaje debe enviarse mediante una Campaign o un Canvas? Las Campaigns son mejores para campañas de mensajería sencillas y únicas, mientras que los Canvas son mejores para recorridos de usuario con varios pasos.
 
 {% tabs %}
 {% tab Campaign %}
-1. Ve a **Mensajería** > **Campaigns** y selecciona **Crear campaña**.
-2. Selecciona **SMS/MMS/RCS** o, para campañas dirigidas a varios canales, selecciona **Multicanal**.
-3. Ponle a tu campaña un nombre claro y significativo.
-4. Añade [equipos](https://braze.com/docs/user_guide/administrative/app_settings/manage_your_braze_users/teams/) y [etiquetas](https://braze.com/docs/user_guide/administrative/app_settings/tags/) según sea necesario.
-   * Las etiquetas facilitan encontrar tus campañas y generar informes a partir de ellas. Por ejemplo, al usar el [Generador de informes](https://braze.com/docs/user_guide/analytics/reporting/report_builder/), puedes filtrar por etiquetas específicas.
+1. Ve a **Mensajería** > **Campaigns** y selecciona **Crear Campaign**.
+2. Selecciona **SMS/MMS/RCS** o, para Campaigns dirigidas a varios canales, selecciona **Multicanal**.
+3. Dale a tu Campaign un nombre claro y significativo.
+4. Añade [equipos]({{site.baseurl}}/user_guide/administer/global/user_management/teams) y [etiquetas]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) según sea necesario.
+   * Las etiquetas facilitan encontrar tus Campaigns y generar informes a partir de ellas. Por ejemplo, al usar el [generador de informes]({{site.baseurl}}/user_guide/analytics/reports/report_builder), puedes filtrar por etiquetas específicas.
 
 {: start="5"}
-5. Añade y nombra tantas variantes como necesites para tu campaña. Puedes elegir diferentes plataformas, tipos de mensaje y diseños para cada una de las variantes añadidas. Para más información sobre este tema, consulta [Pruebas multivariantes y A/B](https://braze.com/docs/user_guide/engagement_tools/testing/multivariant_testing/).
-- **Pruebas de variantes SMS y RCS**: Braze te permite incluir variantes tanto de SMS como de RCS dentro de una sola Campaign, lo que te permite comparar el rendimiento de cada una. Puedes añadir variantes de SMS y RCS durante el primer paso de la composición del mensaje.
+5. Añade y nombra tantas variantes como necesites para tu Campaign. Puedes elegir diferentes plataformas, tipos de mensaje y diseños para cada una de las variantes añadidas. Para más información sobre este tema, consulta [Pruebas multivariantes y A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
+- **Pruebas de variantes SMS y RCS**: Braze te permite incluir variantes tanto de SMS como de RCS en una sola Campaign, lo que te permite comparar el rendimiento de cada una. Puedes añadir variantes de SMS y RCS durante el primer paso de la composición del mensaje.
 
 {: start="6"}
-6. Selecciona un [grupo de suscripción](https://braze.com/docs/sms_rcs_subscription_groups/) habilitado para RCS. Al seleccionar un grupo de suscripción, Braze añadirá automáticamente un filtro de segmentación, asegurando que solo los usuarios suscritos reciban la campaña. Solo se usarán los códigos largos y códigos abreviados que pertenezcan a ese grupo de suscripción para enviar SMS a los usuarios objetivo.
-- **Alternativa SMS**: Braze recomienda encarecidamente que cada grupo de suscripción que contenga un remitente RCS incluya también al menos un código SMS como alternativa. Esto es importante para la capacidad de entrega en casos en que los mensajes RCS no se entreguen. Algunas razones pueden incluir incompatibilidad del dispositivo del usuario y cobertura incompleta del operador en un país o región determinados. Al habilitar la alternativa SMS, tu mensaje se entregará igualmente a tu usuario y nunca perderás esa oportunidad de conectar con ellos.
+6. Selecciona un [grupo de suscripción]({{site.baseurl}}/sms_rcs_subscription_groups) habilitado para RCS. Al seleccionar un grupo de suscripción, Braze añadirá automáticamente un filtro de segmentación, asegurando que solo los usuarios suscritos reciban la Campaign. Solo se usarán los códigos largos y códigos abreviados pertenecientes a ese grupo de suscripción para enviar SMS a los usuarios objetivo.
+- **Respaldo de SMS**: Braze recomienda encarecidamente que cada grupo de suscripción que contenga un remitente RCS incluya también al menos un código SMS como respaldo. Esto es importante para la capacidad de entrega en los casos en que los mensajes RCS no se puedan entregar. Algunas razones pueden incluir la incompatibilidad del dispositivo del usuario y la cobertura incompleta del operador en un país o región determinados. Al habilitar el respaldo de SMS, tu mensaje se seguirá entregando a tu usuario y nunca perderás la oportunidad de conectar con ellos.
 
 {: start="7"}
-7. Elige entre SMS y RCS. Antes de redactar mensajes RCS, elige el canal con el que envías. Generalmente recomendamos usar RCS siempre que sea posible, ya que ofrece beneficios significativos de interacción del usuario sobre SMS; sin embargo, siempre proporcionamos la opción de enviar con SMS para que tengas la máxima flexibilidad y control.
+7. Elige entre SMS y RCS. Antes de componer mensajes RCS, elige el canal con el que envías. Generalmente recomendamos usar RCS siempre que sea posible, ya que tiene beneficios significativos de participación del usuario en comparación con SMS; sin embargo, siempre proporcionamos la opción de enviar con SMS para que tengas la máxima flexibilidad y control.
 
 ![Opciones para seleccionar un tipo de mensaje RCS o SMS/MMS.]({% image_buster /assets/unlisted_docs/img/rcs/rcs_message_type.png %}){: style="max-width:65%;"}
 
 {% alert tip %}
-Si todos los mensajes de tu campaña van a ser similares o tener el mismo contenido, redacta tu mensaje antes de añadir variantes adicionales. Luego puedes elegir **Copiar de variante** en el desplegable **Añadir variante**.
+Si todos los mensajes de tu Campaign van a ser similares o tener el mismo contenido, compón tu mensaje antes de añadir variantes adicionales. Luego puedes elegir **Copiar de la variante** en el desplegable **Añadir variante**.
 {% endalert %}
 
 {% endtab %}
 {% tab Canvas %}
-1. [Crea tu Canvas](https://braze.com/docs/user_guide/engagement_tools/canvas/create_a_canvas/create_a_canvas/) usando el compositor de Canvas.
+1. [Crea tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) usando el creador de Canvas.
 2. Después de configurar tu Canvas, añade un paso de mensaje **SMS/MMS/RCS** en el constructor de Canvas.
-3. Ponle a tu paso un nombre claro y significativo.
-4. Selecciona un [grupo de suscripción](https://braze.com/docs/sms_rcs_subscription_groups/) habilitado para RCS. Al seleccionar un grupo de suscripción, Braze añadirá automáticamente un filtro de segmentación, asegurando que solo los usuarios suscritos reciban la campaña. Solo se usarán los códigos largos y códigos abreviados que pertenezcan a ese grupo de suscripción para dirigirse a los usuarios.
-- **Alternativa SMS**: Braze recomienda encarecidamente que cada grupo de suscripción que contenga un remitente RCS incluya también al menos un código SMS como alternativa. Esto es importante para la capacidad de entrega en casos en que los mensajes RCS no se entreguen. Algunas razones pueden incluir incompatibilidad del dispositivo del usuario y cobertura incompleta del operador en un país o región determinados. Al habilitar la alternativa SMS, tu mensaje se entregará igualmente a tu usuario y nunca perderás esa oportunidad de conectar con ellos.
+3. Dale a tu paso un nombre claro y significativo.
+4. Selecciona un [grupo de suscripción]({{site.baseurl}}/sms_rcs_subscription_groups) habilitado para RCS. Al seleccionar un grupo de suscripción, Braze añadirá automáticamente un filtro de segmentación, asegurando que solo los usuarios suscritos reciban la Campaign. Solo se usarán los códigos largos y códigos abreviados pertenecientes a ese grupo de suscripción para dirigirse a los usuarios.
+- **Respaldo de SMS**: Braze recomienda encarecidamente que cada grupo de suscripción que contenga un remitente RCS incluya también al menos un código SMS como respaldo. Esto es importante para la capacidad de entrega en los casos en que los mensajes RCS no se puedan entregar. Algunas razones pueden incluir la incompatibilidad del dispositivo del usuario y la cobertura incompleta del operador en un país o región determinados. Al habilitar el respaldo de SMS, tu mensaje se seguirá entregando a tu usuario y nunca perderás la oportunidad de conectar con ellos.
 
 {: start="5"}
-5. Elige entre SMS y RCS. Antes de redactar mensajes RCS, elige el canal con el que envías. Generalmente recomendamos usar RCS siempre que sea posible, ya que ofrece beneficios significativos de interacción del usuario sobre SMS; sin embargo, siempre proporcionamos la opción de enviar con SMS para que tengas la máxima flexibilidad y control.
+5. Elige entre SMS y RCS. Antes de componer mensajes RCS, elige el canal con el que envías. Generalmente recomendamos usar RCS siempre que sea posible, ya que tiene beneficios significativos de participación del usuario en comparación con SMS; sin embargo, siempre proporcionamos la opción de enviar con SMS para que tengas la máxima flexibilidad y control.
 
 ![Opciones para seleccionar un tipo de mensaje RCS o SMS/MMS.]({% image_buster /assets/unlisted_docs/img/rcs/rcs_message_type.png %}){: style="max-width:65%;"}
 
@@ -59,9 +59,9 @@ Si todos los mensajes de tu campaña van a ser similares o tener el mismo conten
 
 ### Paso 2: Selecciona tu tipo de mensaje RCS {#step-2-select-your-rcs-message-type}
 
-Durante la creación de campañas y Canvas, elige entre tres tipos de mensajes RCS (texto, multimedia, tarjeta enriquecida) para configurar mensajes que se adapten mejor a tus objetivos.
+Durante la creación de Campaigns y Canvas, elige entre tres tipos de mensaje RCS (Texto, Multimedia, Tarjeta enriquecida) para configurar los mensajes que mejor se adapten a tus objetivos.
 
-![Opciones para seleccionar un tipo de mensaje de texto, multimedia o tarjeta.]({% image_buster /assets/unlisted_docs/img/rcs/rcs_text_media.png %}){: style="max-width:65%;"}
+![Opciones para seleccionar un tipo de mensaje de Texto, Multimedia o Tarjeta.]({% image_buster /assets/unlisted_docs/img/rcs/rcs_text_media.png %}){: style="max-width:65%;"}
 
 {% tabs local %}
 {% tab Texto %}
@@ -69,32 +69,32 @@ Como su nombre indica, los mensajes de texto RCS se centran en el texto como med
 
 #### Características {#features}
 
-- Los tipos de mensajes de texto incluyen todas las características de SMS. Solo el seguimiento avanzado es posible para el seguimiento de clics en URL, lo que te ofrece granularidad de informes a nivel de usuario.
-- Además, ahora tienes la opción de incluir botones de **Respuestas sugeridas** y **Acciones sugeridas** atractivos que impulsan acciones de usuario de alta interacción, como visitar una página de inicio o realizar un pedido.
-    - Las **Respuestas sugeridas** son botones que contienen respuestas sugeridas para que los usuarios hagan clic y las completen previamente en su campo de texto, eliminando la fricción de tener que pensar en una respuesta al proporcionar un conjunto limitado de opciones.
-    - Las **Acciones sugeridas** son botones que inician una acción en el dispositivo del usuario. Normalmente consisten en una o dos palabras descriptivas y un icono visual para ayudar al usuario a entender qué hace el botón. Braze actualmente admite Acciones sugeridas de tipo OpenURL. Esto funciona de manera similar a una URL, donde los usuarios que seleccionan el botón son redirigidos a una página web u otra ubicación identificada por URL.
+- Los tipos de mensaje de texto incluyen todas las características de SMS. Solo el seguimiento avanzado es posible para el seguimiento de clics en URL, lo que te proporciona granularidad en los informes a nivel de usuario.
+- Además, ahora tienes la opción de incluir botones de **Respuestas sugeridas** y **Acciones sugeridas** atractivos que impulsan acciones de usuario de alta participación, como visitar una página de destino o realizar un pedido.
+    - Las **Respuestas sugeridas** son botones que contienen respuestas sugeridas para que los usuarios hagan clic y las completen automáticamente en su campo de texto, eliminando la fricción de tener que pensar en una respuesta al proporcionar un conjunto limitado de opciones.
+    - Las **Acciones sugeridas** son botones que inician una acción en el dispositivo del usuario. Normalmente consisten en una o dos palabras descriptivas y un icono visual para ayudar al usuario a entender qué hace el botón. Actualmente, Braze admite Acciones sugeridas de tipo OpenURL. Esto funciona de manera similar a una URL, donde los usuarios que seleccionan el botón son redirigidos a una página web u otra ubicación identificada por URL.
 
-![Un GIF de tres Acciones sugeridas para un mensaje RCS que promociona estilos de moda en tendencia: "Realeza de cuento de hadas", "Academia atrevida" y "Muéstrame tus otros estilos".]({% image_buster /assets/unlisted_docs/img/rcs/rcs_suggested_actions.gif %}){: style="max-width:70%;"}
+![Un GIF de tres Acciones sugeridas para un mensaje RCS que promociona estilos de moda tendencia: "Fairytale royalty", "Edgy academia" y "Show me your other styles".]({% image_buster /assets/unlisted_docs/img/rcs/rcs_suggested_actions.gif %}){: style="max-width:70%;"}
 
 #### Consideraciones {#considerations}
 
 - Para los límites de caracteres en texto, puedes escribir hasta 160 caracteres para un mensaje RCS de solo texto (básico) o hasta 3072 para un mensaje RCS enriquecido (único).
 - Para los límites de botones, puedes añadir hasta cinco botones por mensaje. Estos botones pueden ser acciones sugeridas o respuestas sugeridas.
-- Los bloques de texto largos y demasiados botones pueden frustrar a los usuarios, así que siempre que sea posible, recomendamos apostar por la simplicidad.
-- En algunos casos, puede ser más rentable enviar mensajes de solo texto más largos a través de RCS que con SMS. Esto se debe a que los mensajes SMS más largos se dividen en múltiples segmentos, cada uno de los cuales es facturable, mientras que los mensajes RCS se facturan por mensaje. Ponte en contacto con tu director de cuentas de Braze para más detalles y orientación.
+- Los bloques de texto largos y demasiados botones pueden frustrar a los usuarios, por lo que, siempre que sea posible, recomendamos apostar por la simplicidad.
+- En algunos casos, puede ser más rentable enviar mensajes de solo texto más largos a través de RCS que con SMS. Esto se debe a que los mensajes SMS más largos se dividen en múltiples segmentos, cada uno de los cuales es facturable, mientras que los mensajes RCS se facturan por mensaje. Contacta a tu director de cuentas de Braze para obtener más detalles y orientación.
 {% endtab %}
 
 {% tab Multimedia %}
-Los mensajes multimedia RCS te permiten usar formatos multimedia atractivos que no son posibles con SMS. Estos incluyen archivos de imagen, video y documentos. Estas opciones multimedia existen para ayudarte a interactuar con tu audiencia de forma aún más profunda y habilitar casos de uso completamente nuevos. Por el momento, solo se admite la carga de imágenes a través de la [Biblioteca de medios](https://braze.com/docs/user_guide/engagement_tools/templates_and_media/media_library/).
+Los mensajes multimedia RCS te permiten utilizar formatos multimedia atractivos que no son posibles con SMS. Estos incluyen archivos de imagen, video y documentos. Estas opciones multimedia existen para ayudarte a involucrar a tu audiencia aún más profundamente y habilitar casos de uso completamente nuevos. Por el momento, solo se admite la carga de imágenes a través de la [biblioteca multimedia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications).
 
 #### Características
 
-- Los tipos de mensajes multimedia admiten todo lo disponible en los tipos de mensajes de texto, lo que incluye texto, respuestas sugeridas y acciones sugeridas.
-- Admite archivos de imagen, incluidos los formatos JPEG y PNG. Los archivos de imagen están disponibles mediante carga desde la Biblioteca de medios.
-- Admite archivos de video, incluidos los formatos MP4, MPEG y MV4. Los archivos de video se pueden añadir por URL directamente en el creador de mensajes.
+- Los tipos de mensaje multimedia admiten todo lo disponible en los tipos de mensaje de texto, lo que incluye texto, respuestas sugeridas y acciones sugeridas.
+- Admite archivos de imagen, incluyendo los formatos JPEG y PNG. Los archivos de imagen están disponibles mediante carga desde la biblioteca multimedia.
+- Admite archivos de video, incluyendo los formatos MP4, MPEG y MV4. Los archivos de video se pueden añadir por URL directamente en el creador de mensajes.
 - Admite archivos de documentos en formato PDF. Los archivos de documentos se pueden añadir a través de la URL directamente en el creador de mensajes.
 
-![Compositor RCS con una opción para cargar un archivo multimedia.]({% image_buster /assets/unlisted_docs/img/rcs/rcs_media_type.png %})
+![Creador RCS con una opción para cargar un archivo multimedia.]({% image_buster /assets/unlisted_docs/img/rcs/rcs_media_type.png %})
 
 #### Especificaciones de archivos {#file-specifications}
 
@@ -108,18 +108,18 @@ Los mensajes multimedia RCS te permiten usar formatos multimedia atractivos que 
 
 #### Consideraciones
 
-La experiencia del usuario al recibir mensajes RCS puede variar ligeramente en función de varios factores, incluida la cobertura del operador en el país de destino, el hardware del dispositivo móvil y el sistema operativo del dispositivo móvil.
+La experiencia de usuario al recibir mensajes RCS puede variar ligeramente según una serie de factores, incluyendo la cobertura del operador en el país de destino, el hardware del dispositivo móvil y el sistema operativo del dispositivo móvil.
 
-En general, RCS se integra de forma más natural con dispositivos Android (este método fue implementado en gran parte por Google, y la mensajería RCS entre pares está ampliamente adoptada en la comunidad Android). Diferentes dispositivos pueden renderizar la experiencia a diferentes velocidades y calidades.
+En términos generales, RCS se integra de forma más natural con los dispositivos Android (este método fue implementado en gran medida por Google, y la mensajería RCS entre pares está ampliamente adoptada en la comunidad Android). Diferentes dispositivos pueden renderizar la experiencia a diferentes velocidades y calidades.
 {% endtab %}
 
 {% tab Tarjeta enriquecida %}
 
 {% alert important %}
-Las tarjetas enriquecidas están en acceso anticipado. Ponte en contacto con tu administrador del éxito del cliente de Braze si te interesa participar en este acceso anticipado.
+Las tarjetas enriquecidas están en acceso anticipado. Contacta a tu administrador de éxito de cliente de Braze si estás interesado en participar en este acceso anticipado.
 {% endalert %}
 
-Una tarjeta enriquecida combina multimedia, texto y botones en un solo mensaje, creando una experiencia más intuitiva y atractiva para tus clientes. Puedes crear dos subtipos de tarjetas enriquecidas: texto y multimedia.
+Una tarjeta enriquecida combina multimedia, texto y botones en un solo mensaje, creando una experiencia más intuitiva y atractiva para tus clientes. Puedes crear dos subtipos de tarjetas enriquecidas: Texto y Multimedia.
 
 {% subtabs %}
 {% subtab Texto %}
@@ -135,7 +135,7 @@ Una tarjeta enriquecida de texto es un mensaje conciso centrado en el texto. Deb
 Una tarjeta enriquecida multimedia es un mensaje visual que contiene una imagen o video. Debe incluir los siguientes elementos:
 
 - **Multimedia:** Una imagen, GIF o video.
-    - Las miniaturas de video personalizadas no son compatibles en el acceso anticipado. El acceso anticipado solo admite un diseño vertical con una altura de multimedia alta tanto para archivos de imagen como de video.
+    - Las miniaturas de video personalizadas no están admitidas en el acceso anticipado. El acceso anticipado solo admite un diseño vertical con una altura de multimedia alta tanto para archivos de imagen como de video.
 - **Botones:** Se requiere al menos un botón. Puedes añadir hasta cuatro botones con acciones de **Respuesta sugerida** o **Abrir URL web**.
 
 {% endsubtab %}
@@ -143,89 +143,89 @@ Una tarjeta enriquecida multimedia es un mensaje visual que contiene una imagen 
 
 ### Características
 - **Botones de tarjeta** y **Sugerencias:** Puedes añadir hasta cuatro botones y cinco sugerencias (hasta 25 caracteres cada una) en la parte inferior de la tarjeta enriquecida (botones) o en la parte inferior de la pantalla del mensaje (sugerencias). Un usuario puede seleccionar estas opciones de clic para enviar una respuesta específica o realizar una acción específica.
-- **Personalización:** Puedes usar Liquid para personalizar todos los elementos de la tarjeta enriquecida, incluidos el título, la descripción, el multimedia y los botones.
+- **Personalización:** Puedes usar Liquid para personalizar todos los elementos de la tarjeta enriquecida, incluyendo el título, la descripción, los medios y los botones.
 - **Facturación:** Las tarjetas enriquecidas se facturan como un solo mensaje RCS enriquecido (o "único").
-- **Orientación sobre URL:** Las URL introducidas como texto plano en el título o la descripción no serán clicables. Debes usar un **botón OpenURL** para dirigir a los usuarios a un sitio web.
+- **Orientación sobre URLs:** Las URLs introducidas como texto plano en el título o la descripción no serán clicables. Debes usar un **botón OpenURL** para dirigir a los usuarios a un sitio web.
 
-![Panel con opciones para seleccionar una tarjeta enriquecida de multimedia o texto.]({% image_buster /assets/unlisted_docs/img/rcs/rcs_media_text.png %}){: style="max-width:65%;"}
+![Panel con opciones para seleccionar una tarjeta enriquecida de Multimedia o Texto.]({% image_buster /assets/unlisted_docs/img/rcs/rcs_media_text.png %}){: style="max-width:65%;"}
 
 {% endtab %}
 {% endtabs %}
 
-### Paso 3: Redacta tu mensaje RCS {#step-3-compose-your-rcs-message}
+### Paso 3: Compón tu mensaje RCS {#step-3-compose-your-rcs-message}
 
-Escribe tu mensaje usando idiomas y personalización ([Liquid](https://braze.com/docs/user_guide/personalization_and_dynamic_content/liquid/), [Contenido conectado](https://braze.com/docs/user_guide/personalization_and_dynamic_content/connected_content/) y emojis) según sea necesario. Asegúrate de respetar nuestros límites de texto del mensaje para reducir las posibilidades de cargos por excedente.
+Escribe tu mensaje usando idiomas y personalización ([Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid), [contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) y emojis) según sea necesario. Asegúrate de respetar nuestros límites de copia del mensaje para reducir tus posibilidades de cargos por excedentes.
 
 {% alert important %}
-Antes de continuar, lee nuestras [directrices sobre los límites de mensajes RCS](#step-2-select-your-rcs-message-type). Los mensajes RCS se [cobran por mensaje](https://braze.com/docs/sms_rcs_billing_calculators/), por lo que es buena idea entender los matices de lo que se puede incluir en cada tipo de mensaje RCS.
+Antes de continuar, lee nuestras [directrices sobre los límites de los mensajes RCS](#step-2-select-your-rcs-message-type). Los mensajes RCS se [cobran por mensaje]({{site.baseurl}}/sms_rcs_billing_calculators), por lo que es buena idea entender los matices de lo que se puede incluir en cada tipo de mensaje RCS.
 {% endalert %}
 
 ### Paso 4: Previsualiza y prueba tu mensaje {#step-4-preview-and-test-your-message}
 
-Braze siempre recomienda previsualizar y probar tu mensaje antes de enviarlo. Ve a la pestaña **Prueba** para enviar un RCS de prueba a grupos de prueba de contenido o a usuarios individuales, o previsualiza el mensaje como un usuario directamente en Braze.
+Braze siempre recomienda previsualizar y probar tu mensaje antes de enviarlo. Ve a la pestaña **Prueba** para enviar un RCS de prueba a grupos de prueba de contenido o usuarios individuales, o previsualiza el mensaje como un usuario directamente en Braze.
 
 ### Paso 5: Construye el resto de tu Campaign o Canvas {#step-5-build-the-remainder-of-your-campaign-or-canvas}
 
-A continuación, construye el resto de tu Campaign o Canvas. Consulta las siguientes secciones para más detalles sobre cómo usar mejor nuestras herramientas para crear mensajes RCS.
+A continuación, construye el resto de tu Campaign o Canvas. Consulta las siguientes secciones para obtener más detalles sobre cómo usar mejor nuestras herramientas para crear mensajes RCS.
 
-#### Paso 5.1: Elige la planificación de entrega o el desencadenante {#step-51-choose-delivery-schedule-or-trigger}
+#### Paso 5.1: Elige el calendario de entrega o desencadenante {#step-51-choose-delivery-schedule-or-trigger}
 
-Los mensajes RCS se pueden entregar en función de una hora planificada, una acción o un desencadenante de API. Para más información, consulta [Planificar tu campaña](https://braze.com/docs/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/).
+Los mensajes RCS se pueden entregar según un horario programado, una acción o un desencadenante de API. Para más información, consulta [Programar tu Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
 
-Para la entrega basada en acciones, también puedes establecer la duración de la campaña y las horas tranquilas.
+Para la entrega basada en acciones, también puedes establecer la duración de la Campaign y las horas tranquilas.
 
-Especifica tus controles de entrega, como permitir que los usuarios vuelvan a ser elegibles para recibir la campaña o habilitar reglas de limitación de frecuencia.
+Especifica tus controles de entrega, como permitir que los usuarios vuelvan a ser elegibles para recibir la Campaign o habilitar reglas de limitación de frecuencia.
 
 #### Paso 5.2: Elige los usuarios objetivo {#step-52-choose-users-to-target}
 
-Dirige a los usuarios eligiendo segmentos o filtros para acotar tu audiencia. Ya deberías haber seleccionado el grupo de suscripción, que filtra a los usuarios por el nivel o categoría de comunicación que desean tener contigo.
+Segmenta a los usuarios eligiendo Segments o filtros para acotar tu audiencia. Ya deberías haber seleccionado el grupo de suscripción, que filtra a los usuarios por el nivel o categoría de comunicación que desean tener contigo.
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
-A continuación, seleccionarás la audiencia más amplia de tus segmentos y la acotarás aún más con [filtros](https://braze.com/docs/user_guide/engagement_tools/segments/segmentation_filters/) opcionales. Obtendrás automáticamente una vista previa de cómo se ve aproximadamente la población de ese segmento en este momento. Ten en cuenta que la pertenencia exacta al segmento siempre se calcula justo antes de que se envíe el mensaje.
+A continuación, seleccionarás la audiencia más amplia de tus Segments y la acotarás aún más con [filtros]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) opcionales. Automáticamente obtendrás una vista previa de cómo se ve la población aproximada de ese Segment en este momento. Ten en cuenta que la pertenencia exacta al Segment siempre se calcula justo antes de enviar el mensaje.
 
 {% alert tip %}
-¿Te interesa usar la reorientación RCS para dirigirte a usuarios en función de sus interacciones con SMS y RCS? Consulta [Reorientación](https://braze.com/docs/sms_mms_rcs_user_retargeting/).
+¿Te interesa usar la reorientación de RCS para dirigirte a los usuarios en función de sus interacciones de SMS y RCS? Consulta [Reorientación]({{site.baseurl}}/sms_mms_rcs_user_retargeting).
 {% endalert %}
 
 #### Paso 5.3: Elige eventos de conversión {#step-53-choose-conversion-events}
 
-Braze te permite hacer seguimiento de la frecuencia con la que los usuarios realizan acciones específicas, o eventos de conversión, después de recibir una campaña. Puedes permitir una ventana de hasta 30 días durante la cual se contará una conversión si el usuario realiza la acción especificada.
+Braze te permite rastrear con qué frecuencia los usuarios realizan acciones específicas, o eventos de conversión, después de recibir una Campaign. Puedes permitir una ventana de hasta 30 días durante la cual se contará una conversión si el usuario realiza la acción especificada.
 
-Los eventos de conversión te ayudan a medir el éxito de tu campaña. Por ejemplo:
-- Si estás usando geolocalización para desencadenar un mensaje RCS cuyo objetivo final es que el usuario realice una compra, establece el evento de conversión en **Compra**.
-- Si intentas llevar al usuario a tu aplicación, establece el evento de conversión en **Inicia sesión**.
+Los eventos de conversión te ayudan a medir el éxito de tu Campaign. Por ejemplo:
+- Si estás usando segmentación geográfica para desencadenar un mensaje RCS que tiene como objetivo final que el usuario realice una compra, establece el evento de conversión como **Compra**.
+- Si estás intentando dirigir al usuario a tu aplicación, establece el evento de conversión como **Inicia sesión**.
 
-También puedes establecer eventos de conversión personalizados según tu caso de uso específico. Sé creativo con la forma en que realmente quieres medir el éxito de tu campaña.
+También puedes establecer eventos de conversión personalizados según tu caso de uso específico. Sé creativo con la forma en que realmente deseas medir el éxito de tu Campaign.
 
-### Paso 6: Revisa y despliega {#step-6-review-and-deploy}
+### Paso 6: Revisa y lanza {#step-6-review-and-deploy}
 
-Después de terminar de construir tu Campaign o Canvas, revisa sus detalles, pruébala y luego envíala.
+Después de haber terminado de construir tu Campaign o Canvas, revisa sus detalles, pruébalo y luego ¡envíalo!
 
-A continuación, consulta [Informes para SMS, MMS y RCS](https://braze.com/docs/sms_mms_rcs_reporting/) para aprender cómo puedes acceder a los resultados de tus campañas RCS.
+A continuación, consulta [Informes para SMS, MMS y RCS]({{site.baseurl}}/sms_mms_rcs_reporting) para aprender cómo puedes acceder a los resultados de tus Campaigns de RCS.
 
-## Análisis e informes {#analytics-and-reporting}
+## Análisis y reportes {#analytics-and-reporting}
 
 Los análisis de tu Campaign o Canvas incluyen:
 
-- Estadísticas de _Clics totales_ que incluyen todas las interacciones con la tarjeta enriquecida, como clics en botones y respuestas sugeridas o acciones.
+- Estadísticas de _Total de clics_ que incluyen todas las interacciones con la Rich Card, como clics en botones y respuestas sugeridas o acciones.
 - Una tabla desglosada que proporciona una vista más detallada de estas interacciones.
 
 {% alert note %}
-El acceso anticipado no incluye seguimiento de clics a nivel de usuario. Los _Clics totales_ se incrementarán cada vez que se haga clic en un botón. Por ejemplo, si un usuario hace clic en el mismo botón tres veces, el conteo de clics aumentará en tres.
+El acceso anticipado no incluye el seguimiento de clics a nivel de usuario. _Total de clics_ se incrementará cada vez que se haga clic en un botón. Por ejemplo, si un usuario hace clic en el mismo botón tres veces, el recuento de clics aumentará en tres.
 {% endalert %}
 
 ## Consejos {#tips}
 
 ### Usar Liquid para la personalización de mensajes {#using-liquid-for-message-personalization}
 
-Si planeas usar Liquid, asegúrate de incluir un valor predeterminado para la personalización elegida para que, si el perfil de usuario del destinatario está incompleto, no reciba un marcador de posición en blanco `Hi, !` en lugar de su nombre o una frase coherente.
+Si planeas usar Liquid, asegúrate de incluir un valor predeterminado para la personalización que hayas elegido, de modo que si el perfil de usuario del destinatario está incompleto, no reciba un marcador de posición en blanco `Hi, !` en lugar de su nombre o una frase coherente.
 
-### Generar texto con IA {#generating-ai-copy}
+### Generar textos con IA {#generating-ai-copy}
 
-¿Necesitas ayuda para crear textos atractivos? Prueba a usar el [asistente de redacción con inteligencia artificial](https://braze.com/docs/user_guide/brazeai/generative_ai/copywriting/). Introduce un nombre o descripción de producto, y la IA generará textos de marketing similares a los escritos por humanos para usar en tu mensajería.
+¿Necesitas ayuda para crear textos atractivos? Prueba a usar el [asistente de redacción con IA]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy). Introduce el nombre o la descripción de un producto, y la IA generará textos de marketing similares a los escritos por humanos para usar en tu mensajería.
 
-![Compositor de mensajes con un icono para abrir el asistente de redacción con inteligencia artificial.]({% image_buster /assets/unlisted_docs/img/rcs/rcs_ai_copywriter.png %}){: style="max-width:70%;"}
+![Creador de mensajes con un icono para abrir el asistente de redacción con IA.]({% image_buster /assets/unlisted_docs/img/rcs/rcs_ai_copywriter.png %}){: style="max-width:70%;"}
 
 ## Preguntas frecuentes {#frequently-asked-questions}
 

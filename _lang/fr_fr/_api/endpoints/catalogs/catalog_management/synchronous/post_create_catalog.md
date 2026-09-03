@@ -21,7 +21,7 @@ description: "Cet article présente en détail l'endpoint Braze Créer un catalo
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `catalogs.create`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `catalogs.create`.
 
 ## Limite de débit {#rate-limit}
 
@@ -32,7 +32,7 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 | Paramètre | Requis | Type de données | Description |
 |---|---|---|---|
 | `catalogs` | Requis | Tableau | Un tableau contenant des objets catalogue. Un seul objet catalogue est autorisé pour cette requête. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Paramètres de requête" }
 
 ### Paramètres de l'objet catalogue {#catalog-object-parameters}
 
@@ -41,7 +41,7 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 | `name` | Requis | Chaîne de caractères | Le nom du catalogue que vous souhaitez créer. |
 | `description` | Requis | Chaîne de caractères | La description du catalogue que vous souhaitez créer. |
 | `fields` | Requis | Tableau | Un tableau d'objets dans lequel l'objet contient les clés `name` et `type`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Catalog object parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Paramètres de l'objet catalogue" }
 
 ## Exemple de requête {#example-request}
 ```
@@ -209,6 +209,6 @@ Le tableau suivant répertorie les erreurs possibles et les étapes de résoluti
 | `invalid-fields` | `fields` n'est pas formaté correctement. |
 | `too-many-catalog-atoms` | Vous ne pouvez créer qu'un seul catalogue par requête. |
 | `too-many-fields` | Le nombre de champs est limité à 500. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Résolution des problèmes" }
 
 {% endapi %}

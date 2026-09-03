@@ -28,7 +28,13 @@ To download a copy of your data, select <i class="fa-solid fa-bars" style="color
 
 ## Send calendar
 
-The send calendar displays all your scheduled campaigns for the current month.
+The send calendar displays scheduled campaigns for the current month. Canvases, action-based campaigns, and API-triggered campaigns are not included.
+
+Campaigns are color-coded by type in the **Key**:
+
+- Blue indicates multichannel campaigns.
+- Purple indicates multivariate campaigns.
+- Gray indicates disabled campaigns.
 
 {% alert note %}
 In-app messages are always action-based, so they don't appear in the send calendar.
@@ -38,4 +44,4 @@ Change the month by selecting <i class="fa-solid fa-chevron-left" style="color: 
 
 ![The Send Calendar displaying all scheduled campaigns in the current month.]({% image_buster /assets/img/campaign_calendar/content_calendar_sends.png %})
 
-View or modify your campaigns by selecting the campaign in the calendar. For more information, see [Managing campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/).
+View or modify your campaigns by selecting the campaign in the calendar. For more information, see [Managing campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns).

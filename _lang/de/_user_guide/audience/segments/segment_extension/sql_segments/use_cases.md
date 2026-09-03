@@ -67,7 +67,7 @@ HAVING COUNT(DISTINCT id) > 3
 Event, Time range
 {% endapitags %}
 
-Wählen Sie Nutzer:innen aus, die in jedem der letzten vier Quartale einen Kauf getätigt haben. Dieses Nutzersegment kann mit [Audience Sync]({{site.baseurl}}/partners/canvas_audience_sync/) verwendet werden, um hochwertige Lookalike-Kund:innen für die Akquise zu identifizieren.
+Wählen Sie Nutzer:innen aus, die in jedem der letzten vier Quartale einen Kauf getätigt haben. Dieses Nutzersegment kann mit [Audience Sync]({{site.baseurl}}/partners/canvas_audience_sync) verwendet werden, um hochwertige Lookalike-Kund:innen für die Akquise zu identifizieren.
 
 ```sql
 ELECT DISTINCT user_id

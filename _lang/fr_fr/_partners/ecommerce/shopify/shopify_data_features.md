@@ -14,7 +14,7 @@ page_order: 4
 
 ## Événements Shopify suivis {#tracked-shopify-events}
 
-L'intégration Shopify utilise les [événements recommandés pour l'eCommerce]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/) pour capturer les principaux comportements d'achat. Pour des exemples de mise en œuvre et des stratégies marketing utilisant ces événements, consultez les [cas d'utilisation eCommerce]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases/).
+L'intégration Shopify utilise les [événements eCommerce recommandés]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events) pour capturer les comportements d'achat clés. Pour des exemples de déploiement et des stratégies marketing utilisant ces événements, consultez les [cas d'usage eCommerce]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases).
 
 {% multi_lang_include alerts/important_alerts.md alert='Shopify customer create' %}
 
@@ -410,13 +410,18 @@ L'intégration Shopify utilise les [événements recommandés pour l'eCommerce](
 {% endsubtabs %}
 {% endtab %}
 {% tab Événements Shopify %}
+
+{% alert note %}
+Braze s'appuie sur Shopify pour fournir les propriétés d'événement requises (telles que `cart_id` ou `cart_token`) pour les événements eCommerce. Dans de rares cas, des problèmes temporaires avec Shopify peuvent empêcher la transmission de ces propriétés, ce qui peut entraîner la suppression des événements concernés.
+{% endalert %}
+
 {% subtabs global %}
 {% subtab Product viewed %}
 **Événement** : `ecommerce.product_viewed`<br>
 **Type** : Événement recommandé<br>
 **Déclenché** : Lorsqu'un client consulte une page produit<br>
 **Source de données** : SDK Braze<br>
-**Cas d'utilisation** : Abandon de navigation
+**Cas d'usage** : Abandon de navigation
 
 {% raw %}
 | Variable | Modèle Liquid |
@@ -439,11 +444,11 @@ L'intégration Shopify utilise les [événements recommandés pour l'eCommerce](
 {% subtab Cart updated %}
 **Événement** : `ecommerce.cart_updated`<br>
 **Type** : Événement recommandé<br>
-**Déclenché** : Lorsqu'un client ajoute, supprime ou met à jour un article dans son panier<br>
+**Déclenché** : Lorsqu'un client ajoute, supprime ou met à jour son panier<br>
 **Source de données** : SDK Braze<br>
-**Cas d'utilisation** : Abandon de panier
+**Cas d'usage** : Abandon de panier
 
-Pour les Canvas d'abandon de panier, vous devez d'abord ajouter l'étiquette Liquid du panier d'achat initial afin de disposer du contexte du panier dans votre message.
+Pour les Canvas d'abandon de panier, vous devez d'abord ajouter l'étiquette Liquid initiale du panier pour accéder au contexte du panier dans votre message.
 
 {% raw %}
 ```liquid
@@ -451,7 +456,7 @@ Pour les Canvas d'abandon de panier, vous devez d'abord ajouter l'étiquette Liq
 ```
 {% endraw %}
 
-Vous pouvez ensuite ajouter les étiquettes Liquid de panier d'achat suivantes dans votre message.
+Vous pouvez ensuite ajouter les étiquettes Liquid de panier suivantes dans votre message.
 
 {% raw %}
 | Variable         | Modèle Liquid                                   |
@@ -473,7 +478,7 @@ Vous pouvez ensuite ajouter les étiquettes Liquid de panier d'achat suivantes d
 {% endraw %}
 
 {% alert tip %}
-Pour en savoir plus sur la création d'une boucle Liquid `for` permettant d'ajouter dynamiquement tous les produits dans votre e-mail, consultez la section [Personnalisation des produits du panier abandonné pour les e-mails]({{site.baseurl}}/ecommerce_use_cases/#abandoned-cart).
+Pour en savoir plus sur la création d'une boucle Liquid `for` permettant d'ajouter dynamiquement tous les produits dans votre e-mail, consultez [Personnalisation des produits d'abandon de panier pour les e-mails]({{site.baseurl}}/ecommerce_use_cases#abandoned-cart).
 {% endalert %}
 
 {% endsubtab %}
@@ -482,10 +487,10 @@ Pour en savoir plus sur la création d'une boucle Liquid `for` permettant d'ajou
 **Type** : Événement recommandé<br>
 **Déclenché** : Lorsqu'un utilisateur accède à la page de paiement<br>
 **Source de données** : REST API Braze<br>
-**Cas d'utilisation** : Abandon du paiement
+**Cas d'usage** : Abandon de paiement
 
 {% alert important %}
-Si un client utilise Shop Pay comme option de paiement accéléré, Shopify peut contourner certains événements de paiement standard (comme le webhook Shopify checkout started). Braze risque alors de ne pas recevoir les données nécessaires pour ajouter l'alias du jeton de paiement, ce qui peut impacter le suivi de l'abandon de paiement et la réconciliation des profils utilisateurs.
+Si un client utilise Shop Pay comme option de paiement accéléré, Shopify peut contourner certains événements de paiement standard (comme le webhook Shopify de début de paiement). Cela signifie que Braze peut ne pas recevoir les données nécessaires pour ajouter l'alias du jeton de paiement, ce qui peut impacter le suivi d'abandon de paiement et la réconciliation des profils utilisateurs.
 {% endalert %}
 
 Pour les Canvas d'abandon de paiement, vous devez d'abord utiliser l'étiquette Liquid suivante :
@@ -497,7 +502,7 @@ Pour les Canvas d'abandon de paiement, vous devez d'abord utiliser l'étiquette 
 ```
 {% endraw %}
 
-Vous pouvez ensuite ajouter les étiquettes Liquid suivantes dans votre message pour référencer les produits de votre panier au moment du paiement.
+Vous pouvez ensuite ajouter les étiquettes Liquid suivantes dans votre message pour référencer les produits présents dans votre panier au moment du paiement.
 
 {% raw %}
 | Variable         | Modèle Liquid                                   |
@@ -524,7 +529,7 @@ Vous pouvez ensuite ajouter les étiquettes Liquid suivantes dans votre message 
 **Type** : Événement recommandé<br>
 **Déclenché** : Lorsqu'un utilisateur finalise le processus de paiement et passe une commande<br>
 **Source de données** : REST API Braze<br>
-**Cas d'utilisation** : Confirmation de commande, reciblage post-achat, ventes incitatives ou croisées
+**Cas d'usage** : Confirmation de commande, reciblage post-achat, ventes incitatives ou ventes croisées
 
 {% raw %}
 | Variable                | Modèle Liquid                                   |
@@ -548,142 +553,142 @@ Vous pouvez ensuite ajouter les étiquettes Liquid suivantes dans votre message 
 {% endraw %}
 
 {% alert tip %}
-Le webhook checkout completed de Shopify ne contient pas d'URL de produits ni d'URL d'images. Vous devez donc utiliser la personnalisation Liquid via les Catalogues, comme décrit dans la section [Personnalisation des produits du panier abandonné pour les e-mails]({{site.baseurl}}/ecommerce_use_cases/#order-confirmation-and-feedback-survey).
+Le webhook de paiement finalisé de Shopify ne contient pas les URL de produits ni les URL d'images. Par conséquent, vous devez utiliser la personnalisation Liquid via les catalogues, comme indiqué dans [Personnalisation des produits d'abandon de panier pour les e-mails]({{site.baseurl}}/ecommerce_use_cases#order-confirmation-and-feedback-survey).
 {% endalert %}
 
 {% endsubtab %}
 {% subtab Fulfilled order %}
 **Événement** : `shopify_fulfilled_order`<br>
-**Type** : [Événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
-**Déclenché** : Lorsque la commande d'un utilisateur est exécutée et prête à être expédiée<br>
+**Type** : [Événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events)<br>
+**Déclenché** : Lorsque la commande d'un utilisateur est exécutée et prête pour l'expédition<br>
 **Source de données** : REST API Braze<br>
-**Cas d'utilisation** : (Transactionnel) Mise à jour de l'exécution
+**Cas d'usage** : (Transactionnel) Mise à jour d'exécution
 
 {% raw %}
 | Variable | Modèle Liquid |
 | --- | --- |
-| Order ID | `{{event_properties.${order_id}}}` |
-| Total Price | `{{event_properties.${total_price}}}` |
-| Total Discounts | `{{event_properties.${total_discounts}}}` |
-| Confirmed Status | `{{event_properties.${confirmed}}}` |
-| Order Status URL | `{{event_properties.${order_status_url}}}` |
-| Order Number | `{{event_properties.${order_number}}}` |
-| Cancelled Timestamp | `{{event_properties.${cancelled_at}}}` |
-| Closed Timestamp | `{{event_properties.${closed_at}}}` |
-| Item ID | `{{event_properties.${line_items}[0].product_id}}` |
-| Item Quantity | `{{event_properties.${line_items}[0].quantity}}` |
-| Item SKU | `{{event_properties.${line_items}[0].sku}}` |
-| Item Title | `{{event_properties.${line_items}[0].title}}` |
-| Item Vendor | `{{event_properties.${line_items}[0].vendor}}` |
-| Item Name | `{{event_properties.${line_items}[0].name}}` |
-| Item Properties | `{{event_properties.${line_items}[0].properties}}` |
-| Item Price | `{{event_properties.${line_items}[0].price}}` |
-| Shipping Title | `{{event_properties.${shipping}[0].title}}` |
-| Shipping Price | `{{event_properties.${shipping}[0].price}}` |
-| Fulfillment Status | `{{event_properties.${fulfillment_status}}}` |
-| Fulfillment Shipment Status | `{{event_properties.${fulfillments}[0].shipment_status}}` |
-| Status | `{{event_properties.${fulfillments}[0].status}}` |
-| Fulfillment Tracking Company | `{{event_properties.${fulfillments}[0].Fulfillment tracking_company}}` |
-| Fulfillment Tracking Number | `{{event_properties.${fulfillments}[0].Fulfillment tracking_number}}` |
-| Fulfillment Tracking Numbers | `{{event_properties.${fulfillments}[0].Fulfillment tracking_numbers}}` |
-| Fulfillment Tracking URL | `{{event_properties.${fulfillments}[0].Fulfillment tracking_url}}` |
-| Fulfillment Tracking URLs | `{{event_properties.${fulfillments}[0].Fulfillment tracking_urls}}` |
-| Fulfillment Status | `{{event_properties.${fulfillments}[0].line_items[0].fulfillment_status}}` |
-| Fulfillment Name | `{{event_properties.${fulfillments}[0].line_items[0].name}}` |
-| Fulfillment Price | `{{event_properties.${fulfillments}[0].line_items[0].price}}` |
-| Fulfillment Product ID | `{{event_properties.${fulfillments}[0].line_items[0].product_id}}` |
-| Fulfillment Quantity | `{{event_properties.${fulfillments}[0].line_items[0].quantity}}`|
-| Fulfillment Shipping | `{{event_properties.${fulfillments}[0].line_items[0].requires_shipping}}` |
-| Fulfillment SKU | `{{event_properties.${fulfillments}[0].line_items[0].sku}}` |
-| Fulfillment Title | `{{event_properties.${fulfillments}[0].line_items[0].title}}` |
-| Fulfillment Vendor | `{{event_properties.${fulfillments}[0].line_items[0].vendor}}` |
-| Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
-| Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
+| ID de commande | `{{event_properties.${order_id}}}` |
+| Prix total | `{{event_properties.${total_price}}}` |
+| Remises totales | `{{event_properties.${total_discounts}}}` |
+| Statut de confirmation | `{{event_properties.${confirmed}}}` |
+| URL du statut de la commande | `{{event_properties.${order_status_url}}}` |
+| Numéro de commande | `{{event_properties.${order_number}}}` |
+| Horodatage d'annulation | `{{event_properties.${cancelled_at}}}` |
+| Horodatage de clôture | `{{event_properties.${closed_at}}}` |
+| ID de l'article | `{{event_properties.${line_items}[0].product_id}}` |
+| Quantité de l'article | `{{event_properties.${line_items}[0].quantity}}` |
+| UGS de l'article | `{{event_properties.${line_items}[0].sku}}` |
+| Titre de l'article | `{{event_properties.${line_items}[0].title}}` |
+| Fournisseur de l'article | `{{event_properties.${line_items}[0].vendor}}` |
+| Nom de l'article | `{{event_properties.${line_items}[0].name}}` |
+| Propriétés de l'article | `{{event_properties.${line_items}[0].properties}}` |
+| Prix de l'article | `{{event_properties.${line_items}[0].price}}` |
+| Titre de l'expédition | `{{event_properties.${shipping}[0].title}}` |
+| Prix de l'expédition | `{{event_properties.${shipping}[0].price}}` |
+| Statut d'exécution | `{{event_properties.${fulfillment_status}}}` |
+| Statut d'expédition de l'exécution | `{{event_properties.${fulfillments}[0].shipment_status}}` |
+| Statut | `{{event_properties.${fulfillments}[0].status}}` |
+| Transporteur de l'exécution | `{{event_properties.${fulfillments}[0].Fulfillment tracking_company}}` |
+| Numéro de suivi de l'exécution | `{{event_properties.${fulfillments}[0].Fulfillment tracking_number}}` |
+| Numéros de suivi de l'exécution | `{{event_properties.${fulfillments}[0].Fulfillment tracking_numbers}}` |
+| URL de suivi de l'exécution | `{{event_properties.${fulfillments}[0].Fulfillment tracking_url}}` |
+| URLs de suivi de l'exécution | `{{event_properties.${fulfillments}[0].Fulfillment tracking_urls}}` |
+| Statut d'exécution | `{{event_properties.${fulfillments}[0].line_items[0].fulfillment_status}}` |
+| Nom de l'exécution | `{{event_properties.${fulfillments}[0].line_items[0].name}}` |
+| Prix de l'exécution | `{{event_properties.${fulfillments}[0].line_items[0].price}}` |
+| ID produit de l'exécution | `{{event_properties.${fulfillments}[0].line_items[0].product_id}}` |
+| Quantité de l'exécution | `{{event_properties.${fulfillments}[0].line_items[0].quantity}}`|
+| Expédition de l'exécution | `{{event_properties.${fulfillments}[0].line_items[0].requires_shipping}}` |
+| UGS de l'exécution | `{{event_properties.${fulfillments}[0].line_items[0].sku}}` |
+| Titre de l'exécution | `{{event_properties.${fulfillments}[0].line_items[0].title}}` |
+| Fournisseur de l'exécution | `{{event_properties.${fulfillments}[0].line_items[0].vendor}}` |
+| ID de variante | `{{event_properties.${line_items}[0].variant_id}}` |
+| Titre de la variante | `{{event_properties.${line_items}[0].variant_title}}` |
 {: .reset-br-td-1 .reset-br-td-2 aria-label="Événements Shopify suivis" }
 {% endraw %}
 
 {% endsubtab %}
 {% subtab Partially fulfilled order %}
 **Événement** : `shopify_partially_fulfilled_order`<br>
-**Type** : [Événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
-**Déclenché** : Lorsqu'une partie de la commande d'un utilisateur est exécutée et prête à être expédiée<br>
+**Type** : [Événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events)<br>
+**Déclenché** : Lorsqu'une partie de la commande d'un utilisateur est exécutée et prête pour l'expédition<br>
 **Source de données** : REST API Braze<br>
-**Cas d'utilisation** : (Transactionnel) Mise à jour de l'exécution
+**Cas d'usage** : (Transactionnel) Mise à jour d'exécution
 
 {% raw %}
 | Variable | Modèle Liquid |
 | --- | --- |
-| Order ID | `{{event_properties.${order_id}}}` |
-| Total Price | `{{event_properties.${total_price}}}` |
-| Total Discounts | `{{event_properties.${total_discounts}}}` |
-| Confirmed Status | `{{event_properties.${confirmed}}}` |
-| Order Status URL | `{{event_properties.${order_status_url}}}` |
-| Order Number | `{{event_properties.${order_number}}}` |
-| Cancelled Timestamp | `{{event_properties.${cancelled_at}}}` |
-| Closed Timestamp | `{{event_properties.${closed_at}}}` |
-| Item ID | `{{event_properties.${line_items}[0].product_id}}` |
-| Item Quantity | `{{event_properties.${line_items}[0].quantity}}` |
-| Item SKU | `{{event_properties.${line_items}[0].sku}}` |
-| Item Title | `{{event_properties.${line_items}[0].title}}` |
-| Item Vendor | `{{event_properties.${line_items}[0].vendor}}` |
-| Item Name | `{{event_properties.${line_items}[0].name}}` |
-| Item Properties | `{{event_properties.${line_items}[0].properties}}` |
-| Item Price | `{{event_properties.${line_items}[0].price}}` |
-| Shipping Title | `{{event_properties.${shipping}[0].title}}` |
-| Shipping Price | `{{event_properties.${shipping}[0].price}}` |
-| Fulfillment Status | `{{event_properties.${fulfillment_status}}}` |
-| Fulfillment Shipment Status | `{{event_properties.${fulfillments}[0].shipment_status}}` |
-| Fulfillment Status | `{{event_properties.${fulfillments}[0].status}}` |
-| Fulfillment Tracking Company | `{{event_properties.${fulfillments}[0].tracking_company}}` |
-| Fulfillment Tracking Number | `{{event_properties.${fulfillments}[0].tracking_number}}` |
-| Fulfillment Tracking Numbers | `{{event_properties.${fulfillments}[0].tracking_numbers}}` |
-| Fulfillment Tracking URL | `{{event_properties.${fulfillments}[0].tracking_url}}` |
-| Fulfillment Tracking URLs | `{{event_properties.${fulfillments}[0].tracking_urls}}` |
-| Fulfillment Status | `{{event_properties.${fulfillments}[0].line_items[0].fulfillment_status}}` |
-| Fulfillment Name | `{{event_properties.${fulfillments}[0].line_items[0].name}}` |
-| Fulfillment Price | `{{event_properties.${fulfillments}[0].line_items[0].price}}` |
-| Fulfillment Product ID | `{{event_properties.${fulfillments}[0].line_items[0].product_id}}` |
-| Fulfillment Quantity | `{{event_properties.${fulfillments}[0].line_items[0].quantity}}`|
-| Fulfillment Shipping | `{{event_properties.${fulfillments}[0].line_items[0].requires_shipping}}` |
-| Fulfillment SKU | `{{event_properties.${fulfillments}[0].line_items[0].sku}}` |
-| Fulfillment Title | `{{event_properties.${fulfillments}[0].line_items[0].title}}` |
-| Fulfillment Vendor | `{{event_properties.${fulfillments}[0].line_items[0].vendor}}` |
-| Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
-| Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
+| ID de commande | `{{event_properties.${order_id}}}` |
+| Prix total | `{{event_properties.${total_price}}}` |
+| Remises totales | `{{event_properties.${total_discounts}}}` |
+| Statut de confirmation | `{{event_properties.${confirmed}}}` |
+| URL du statut de la commande | `{{event_properties.${order_status_url}}}` |
+| Numéro de commande | `{{event_properties.${order_number}}}` |
+| Horodatage d'annulation | `{{event_properties.${cancelled_at}}}` |
+| Horodatage de clôture | `{{event_properties.${closed_at}}}` |
+| ID de l'article | `{{event_properties.${line_items}[0].product_id}}` |
+| Quantité de l'article | `{{event_properties.${line_items}[0].quantity}}` |
+| UGS de l'article | `{{event_properties.${line_items}[0].sku}}` |
+| Titre de l'article | `{{event_properties.${line_items}[0].title}}` |
+| Fournisseur de l'article | `{{event_properties.${line_items}[0].vendor}}` |
+| Nom de l'article | `{{event_properties.${line_items}[0].name}}` |
+| Propriétés de l'article | `{{event_properties.${line_items}[0].properties}}` |
+| Prix de l'article | `{{event_properties.${line_items}[0].price}}` |
+| Titre de l'expédition | `{{event_properties.${shipping}[0].title}}` |
+| Prix de l'expédition | `{{event_properties.${shipping}[0].price}}` |
+| Statut d'exécution | `{{event_properties.${fulfillment_status}}}` |
+| Statut d'expédition de l'exécution | `{{event_properties.${fulfillments}[0].shipment_status}}` |
+| Statut de l'exécution | `{{event_properties.${fulfillments}[0].status}}` |
+| Transporteur de l'exécution | `{{event_properties.${fulfillments}[0].tracking_company}}` |
+| Numéro de suivi de l'exécution | `{{event_properties.${fulfillments}[0].tracking_number}}` |
+| Numéros de suivi de l'exécution | `{{event_properties.${fulfillments}[0].tracking_numbers}}` |
+| URL de suivi de l'exécution | `{{event_properties.${fulfillments}[0].tracking_url}}` |
+| URLs de suivi de l'exécution | `{{event_properties.${fulfillments}[0].tracking_urls}}` |
+| Statut d'exécution | `{{event_properties.${fulfillments}[0].line_items[0].fulfillment_status}}` |
+| Nom de l'exécution | `{{event_properties.${fulfillments}[0].line_items[0].name}}` |
+| Prix de l'exécution | `{{event_properties.${fulfillments}[0].line_items[0].price}}` |
+| ID produit de l'exécution | `{{event_properties.${fulfillments}[0].line_items[0].product_id}}` |
+| Quantité de l'exécution | `{{event_properties.${fulfillments}[0].line_items[0].quantity}}`|
+| Expédition de l'exécution | `{{event_properties.${fulfillments}[0].line_items[0].requires_shipping}}` |
+| UGS de l'exécution | `{{event_properties.${fulfillments}[0].line_items[0].sku}}` |
+| Titre de l'exécution | `{{event_properties.${fulfillments}[0].line_items[0].title}}` |
+| Fournisseur de l'exécution | `{{event_properties.${fulfillments}[0].line_items[0].vendor}}` |
+| ID de variante | `{{event_properties.${line_items}[0].variant_id}}` |
+| Titre de la variante | `{{event_properties.${line_items}[0].variant_title}}` |
 {: .reset-br-td-1 .reset-br-td-2 aria-label="Événements Shopify suivis" }
 {% endraw %}
 
 {% endsubtab %}
 {% subtab Paid order %}
 **Événement** : `shopify_paid_order`<br>
-**Type** : [Événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
+**Type** : [Événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events)<br>
 **Déclenché** : Lorsque la commande d'un utilisateur est marquée comme payée dans Shopify<br>
 **Source de données** : REST API Braze<br>
-**Cas d'utilisation** : (Transactionnel) Confirmation de paiement
+**Cas d'usage** : (Transactionnel) Confirmation de paiement
 
 {% raw %}
 | Variable | Modèle Liquid |
 | --- | --- |
-| Order ID | `{{event_properties.${order_id}}}` |
-| Confirmed Status | `{{event_properties.${confirmed}}}` |
-| Order Status URL | `{{event_properties.${order_status_url}}}` |
-| Order Number | `{{event_properties.${order_number}}}` |
-| Cancelled Timestamp | `{{event_properties.${cancelled_at}}}` |
-| Total Discounts | `{{event_properties.${total_discounts}}}` |
-| Total Price | `{{event_properties.${total_price}}}` |
+| ID de commande | `{{event_properties.${order_id}}}` |
+| Statut de confirmation | `{{event_properties.${confirmed}}}` |
+| URL du statut de la commande | `{{event_properties.${order_status_url}}}` |
+| Numéro de commande | `{{event_properties.${order_number}}}` |
+| Horodatage d'annulation | `{{event_properties.${cancelled_at}}}` |
+| Remises totales | `{{event_properties.${total_discounts}}}` |
+| Prix total | `{{event_properties.${total_price}}}` |
 | Tags | `{{event_properties.${tags}}}` |
-| Discount Codes | `{{event_properties.${discount_codes}}}` |
-| Item ID | `{{event_properties.${line_items}[0].product_id}}` |
-| Item Quantity | `{{event_properties.${line_items}[0].quantity}}` |
-| Item SKU | `{{event_properties.${line_items}[0].sku}}` |
-| Item Title | `{{event_properties.${line_items}[0].title}}` |
-| Item Vendor | `{{event_properties.${line_items}[0].vendor}}` |
-| Item Properties | `{{event_properties.${line_items}[0].properties}}` |
-| Item Price | `{{event_properties.${line_items}[0].price}}` |
-| Shipping Title | `{{event_properties.${shipping}[0].title}}` |
-| Shipping Price | `{{event_properties.${shipping}[0].price}}` |
-| Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
-| Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
+| Codes de réduction | `{{event_properties.${discount_codes}}}` |
+| ID de l'article | `{{event_properties.${line_items}[0].product_id}}` |
+| Quantité de l'article | `{{event_properties.${line_items}[0].quantity}}` |
+| UGS de l'article | `{{event_properties.${line_items}[0].sku}}` |
+| Titre de l'article | `{{event_properties.${line_items}[0].title}}` |
+| Fournisseur de l'article | `{{event_properties.${line_items}[0].vendor}}` |
+| Propriétés de l'article | `{{event_properties.${line_items}[0].properties}}` |
+| Prix de l'article | `{{event_properties.${line_items}[0].price}}` |
+| Titre de l'expédition | `{{event_properties.${shipping}[0].title}}` |
+| Prix de l'expédition | `{{event_properties.${shipping}[0].price}}` |
+| ID de variante | `{{event_properties.${line_items}[0].variant_id}}` |
+| Titre de la variante | `{{event_properties.${line_items}[0].variant_title}}` |
 {: .reset-br-td-1 .reset-br-td-2 aria-label="Événements Shopify suivis" }
 {% endraw %}
 
@@ -693,34 +698,34 @@ Le webhook checkout completed de Shopify ne contient pas d'URL de produits ni d'
 **Type** : Événement recommandé<br>
 **Déclenché** : Lorsque la commande d'un utilisateur est annulée<br>
 **Source de données** : REST API Braze<br>
-**Cas d'utilisation** : (Transactionnel) Confirmation d'annulation de commande
+**Cas d'usage** : (Transactionnel) Confirmation d'annulation de commande
 
 {% raw %}
 | Variable | Modèle Liquid |
 | --- | --- |
-| Order ID | `{{event_properties.${order_id}}}` |
-| Total Price | `{{event_properties.${total_price}}}` |
-| Total Discounts | `{{event_properties.${total_discounts}}}` |
-| Confirmed | `{{event_properties.${confirmed}}}` |
-| Order Status URL | `{{event_properties.${order_status_url}}}` |
-| Order Number | `{{event_properties.${order_number}}}` |
-| Cancelled Timestamp | `{{event_properties.${cancelled_at}}}` |
+| ID de commande | `{{event_properties.${order_id}}}` |
+| Prix total | `{{event_properties.${total_price}}}` |
+| Remises totales | `{{event_properties.${total_discounts}}}` |
+| Confirmé | `{{event_properties.${confirmed}}}` |
+| URL du statut de la commande | `{{event_properties.${order_status_url}}}` |
+| Numéro de commande | `{{event_properties.${order_number}}}` |
+| Horodatage d'annulation | `{{event_properties.${cancelled_at}}}` |
 | Tags | `{{event_properties.${tags}}}` |
-| Discount Codes | `{{event_properties.${discount_codes}}}` |
-| Fulfillment Status | `{{event_properties.${fulfillment_status}}}` |
-| Fulfillments | `{{event_properties.${fulfillments}}}` |
-| Item ID | `{{event_properties.${line_items}[0].product_id}}` |
-| Item Quantity | `{{event_properties.${line_items}[0].quantity}}` |
-| Item SKU | `{{event_properties.${line_items}[0].sku}}` |
-| Item Title | `{{event_properties.${line_items}[0].title}}` |
-| Item Vendor | `{{event_properties.${line_items}[0].vendor}}` |
-| Item Name | `{{event_properties.${line_items}[0].name}}` |
-| Item Properties | `{{event_properties.${line_items}[0].properties}}` |
-| Fulfillment Status | `{{event_properties.${line_items}[0].fulfillment_status}}` |
-| Shipping Title | `{{event_properties.${shipping}[0].title}}` |
-| Shipping Price | `{{event_properties.${shipping}[0].price}}` |
-| Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
-| Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
+| Codes de réduction | `{{event_properties.${discount_codes}}}` |
+| Statut d'exécution | `{{event_properties.${fulfillment_status}}}` |
+| Exécutions | `{{event_properties.${fulfillments}}}` |
+| ID de l'article | `{{event_properties.${line_items}[0].product_id}}` |
+| Quantité de l'article | `{{event_properties.${line_items}[0].quantity}}` |
+| UGS de l'article | `{{event_properties.${line_items}[0].sku}}` |
+| Titre de l'article | `{{event_properties.${line_items}[0].title}}` |
+| Fournisseur de l'article | `{{event_properties.${line_items}[0].vendor}}` |
+| Nom de l'article | `{{event_properties.${line_items}[0].name}}` |
+| Propriétés de l'article | `{{event_properties.${line_items}[0].properties}}` |
+| Statut d'exécution | `{{event_properties.${line_items}[0].fulfillment_status}}` |
+| Titre de l'expédition | `{{event_properties.${shipping}[0].title}}` |
+| Prix de l'expédition | `{{event_properties.${shipping}[0].price}}` |
+| ID de variante | `{{event_properties.${line_items}[0].variant_id}}` |
+| Titre de la variante | `{{event_properties.${line_items}[0].variant_title}}` |
 {: .reset-br-td-1 .reset-br-td-2 aria-label="Événements Shopify suivis" }
 {% endraw %}
 {% endsubtab %}
@@ -729,23 +734,23 @@ Le webhook checkout completed de Shopify ne contient pas d'URL de produits ni d'
 **Type** : Événement recommandé<br>
 **Déclenché** : Lorsque la commande d'un utilisateur est remboursée<br>
 **Source de données** : REST API Braze<br>
-**Cas d'utilisation** : (Transactionnel) Confirmation de remboursement
+**Cas d'usage** : (Transactionnel) Confirmation de remboursement
 
 {% raw %}
 | Variable | Modèle Liquid |
 | --- | --- |
-| Order ID | `{{event_properties.${order_id}}}` |
-| Order Note | `{event_properties.${note}}}` |
-| Item ID | `{{event_properties.${line_items}[0].product_id}}` |
-| Item Quantity | `{{event_properties.${line_items}[0].quantity}}` |
-| Item SKU | `{{event_properties.${line_items}[0].sku}}` |
-| Item Title | `{{event_properties.${line_items}[0].title}}` |
-| Item Vendor | `{{event_properties.${line_items}[0].vendor}}` |
-| Item Name | `{{event_properties.${line_items}[0].name}}` |
-| Item Properties | `{{event_properties.${line_items}[0].properties}}` |
-| Item Price | `{{event_properties.${line_items}[0].price}}` |
-| Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
-| Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
+| ID de commande | `{{event_properties.${order_id}}}` |
+| Note de commande | `{event_properties.${note}}}` |
+| ID de l'article | `{{event_properties.${line_items}[0].product_id}}` |
+| Quantité de l'article | `{{event_properties.${line_items}[0].quantity}}` |
+| UGS de l'article | `{{event_properties.${line_items}[0].sku}}` |
+| Titre de l'article | `{{event_properties.${line_items}[0].title}}` |
+| Fournisseur de l'article | `{{event_properties.${line_items}[0].vendor}}` |
+| Nom de l'article | `{{event_properties.${line_items}[0].name}}` |
+| Propriétés de l'article | `{{event_properties.${line_items}[0].properties}}` |
+| Prix de l'article | `{{event_properties.${line_items}[0].price}}` |
+| ID de variante | `{{event_properties.${line_items}[0].variant_id}}` |
+| Titre de la variante | `{{event_properties.${line_items}[0].variant_title}}` |
 {: .reset-br-td-1 .reset-br-td-2 aria-label="Événements Shopify suivis" }
 {% endraw %}
 
@@ -753,10 +758,10 @@ Le webhook checkout completed de Shopify ne contient pas d'URL de produits ni d'
 {% subtab Account login %}
 
 **Événement** : `shopify_account_login`<br>
-**Type** : [Événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
+**Type** : [Événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events)<br>
 **Déclenché** : Lorsqu'un utilisateur se connecte à son compte<br>
 **Source de données** : REST API Braze<br>
-**Cas d'utilisation** : Série de bienvenue
+**Cas d'usage** : Série de bienvenue
 
 {% raw %}
 | Variable | Modèle Liquid |
@@ -766,7 +771,7 @@ Le webhook checkout completed de Shopify ne contient pas d'URL de produits ni d'
 {% endraw %}
 
 {% alert note %}
-L'intégration Shopify ne prend actuellement pas en charge le remplissage de l'[événement d'achat]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events/#purchase-events) Braze. Par conséquent, les filtres d'achat, les étiquettes Liquid, les déclencheurs basés sur l'action et les analyses doivent utiliser l'événement `ecommerce.order_placed`.
+L'intégration Shopify ne prend actuellement pas en charge le remplissage de l'[événement d'achat]({{site.baseurl}}/user_guide/data/activation/events/purchase_events) Braze. Par conséquent, les filtres d'achat, les étiquettes Liquid, les déclencheurs basés sur l'action et les analyses doivent utiliser l'événement `ecommerce.order_placed`.
 {% endalert %}
 
 {% endsubtab %}
@@ -779,7 +784,7 @@ L'intégration Shopify ne prend actuellement pas en charge le remplissage de l'[
 {% multi_lang_include alerts/note_alerts.md alert='Shopify attributes REST API' %}
 
 {% tabs local %}
-{% tab Exemple de payload %}
+{% tab Example Payload %}
 {% subtabs %}
 {% subtab Shopify Tags %}
 ```json
@@ -800,31 +805,31 @@ L'intégration Shopify ne prend actuellement pas en charge le remplissage de l'[
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
-{% tab Attributs personnalisés Shopify %}
+{% tab Shopify Custom Attributes %}
 | Nom de l'attribut | Description |
 | --- | --- |
 | `shopify_total_spent` | Le montant total dépensé par le client sur l'ensemble de son historique de commandes. |
-| `shopify_order_count` | Le nombre de commandes associées à ce client. Les commandes test et archivées ne sont pas comptabilisées. |
+| `shopify_order_count` | Le nombre de commandes associées à ce client. Les commandes de test et archivées ne sont pas comptabilisées. |
 | `shopify_last_order_id` | L'ID de la dernière commande du client. |
-| `shopify_last_order_name` | Le nom de la dernière commande du client. Correspond directement au champ `name` de la ressource de commande. |
+| `shopify_last_order_name` | Le nom de la dernière commande du client. Ce champ est directement lié au champ `name` de la ressource de commande. |
 | `shopify_zipcode` | Le code postal du client issu de son adresse par défaut. |
 | `shopify_province` | La province du client issue de son adresse par défaut. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Attributs personnalisés Shopify pris en charge" }
 
 {% alert important %}
-Un problème connu avec la version actuelle de l'API Shopify empêche l'attribut utilisateur `shopify_last_order_name` de se remplir correctement. Voici l'impact sur les utilisateurs :<br><br>
+Un problème connu avec la version actuelle de l'API Shopify empêche l'attribut utilisateur `shopify_last_order_name` de se remplir correctement. L'impact sur les utilisateurs est le suivant :<br><br>
 
-- **Utilisateurs existants :** Pour tout utilisateur ayant déjà une valeur pour `shopify_last_order_name`, cette valeur persiste mais n'est pas mise à jour par les commandes suivantes.
-- **Nouveaux utilisateurs :** Pour les nouveaux utilisateurs, le champ ne se remplit pas et reste vide ou nul.
+- **Utilisateurs existants :** Pour tout utilisateur possédant déjà une valeur pour `shopify_last_order_name`, cette valeur est conservée mais n'est pas mise à jour par les commandes suivantes.
+- **Nouveaux utilisateurs :** Pour tout nouvel utilisateur, le champ ne se remplit pas et reste vide ou nul.
 
-Cette page sera mise à jour dès que Shopify aura résolu ce problème.
+Cette page sera mise à jour une fois que Shopify aura résolu ce problème.
 {% endalert %}
 
 ### Personnalisation Liquid {#liquid-personalization}
 
-Pour ajouter une personnalisation Liquid à vos attributs personnalisés Shopify, sélectionnez **+ Personalization**. Sélectionnez ensuite **Custom Attributes** comme type de personnalisation.
+Pour ajouter une personnalisation Liquid à vos attributs personnalisés Shopify, sélectionnez **+ Personalization**. Puis sélectionnez **Custom Attributes** comme type de personnalisation.
 
-![La section « Add Personalization » avec la liste déroulante « Attribute » étendue.]({% image_buster /assets/img/shopify/add_personalization_2.png %}){: style="max-width:40%;"}
+![La section « Add Personalization » avec le menu déroulant « Attribute » déplié.]({% image_buster /assets/img/shopify/add_personalization_2.png %}){: style="max-width:40%;"}
 
 Après avoir sélectionné votre attribut personnalisé, saisissez une valeur par défaut et copiez l'extrait de code Liquid dans votre message.
 
@@ -838,38 +843,38 @@ Après avoir sélectionné votre attribut personnalisé, saisissez une valeur pa
 
 - E-mail
 - Prénom
-- Nom de famille
+- Nom
 - Téléphone
 - Ville
 - Pays
 
 {% alert note %}
-Braze ne met à jour les attributs personnalisés Shopify et les attributs standard Braze que lorsqu'il détecte une différence par rapport aux données du profil utilisateur existant. Par exemple, si les données entrantes de Shopify contiennent le prénom « Bob » et que « Bob » est déjà enregistré comme prénom sur le profil utilisateur Braze, aucune mise à jour n'est déclenchée et aucun point de donnée ne vous est facturé.
+Braze ne met à jour les attributs personnalisés Shopify pris en charge et les attributs standard Braze que s'il y a une différence dans les données par rapport au profil utilisateur existant. Par exemple, si les données entrantes de Shopify contiennent le prénom Bob et que Bob existe déjà comme prénom dans le profil utilisateur Braze, Braze ne déclenchera pas de mise à jour et aucun point de donnée ne vous sera facturé.
 {% endalert %}
 
-## Collecte de données SDK {#sdk-data-collection}
+## Collecte de données par le SDK {#sdk-data-collection}
 
-Pour plus d'informations sur les données collectées par les SDK Braze, consultez la section [Collecte de données SDK]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/).
+Pour plus d'informations sur les données collectées par les SDK de Braze, consultez [Collecte de données par le SDK]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection).
 
-## Backfill historique {#historical-backfill}
+## Importation de données historiques {#historical-backfill}
 
-> Les données historiques Shopify sont importées avant la connexion de Braze : les événements de commande des 90 derniers jours et les données clients de l'année écoulée. Les deux périodes sont calculées à partir de la date à laquelle vous finalisez votre intégration.
+> Les données historiques de Shopify sont importées avant que vous ne connectiez Braze : les événements de commande des 90 derniers jours et les données clients de l'année écoulée. Les deux périodes sont calculées à partir de la date à laquelle vous finalisez votre intégration.
 
-Via la [configuration de l'intégration standard Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/) ou la [configuration de l'intégration personnalisée Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration/), vous pouvez activer le backfill historique pour cibler vos anciens clients. Cette fonctionnalité importe vos commandes Shopify (événements liés aux commandes) des 90 derniers jours et les profils utilisateurs de l'année écoulée. Les deux périodes sont calculées à partir de la date à laquelle vous finalisez votre intégration.
+Grâce à la [configuration de l'intégration standard Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration) ou à la [configuration de l'intégration personnalisée Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration), vous pouvez activer l'importation de données historiques pour cibler vos anciens clients. Cela importe vos commandes Shopify (événements liés aux commandes) des 90 derniers jours et les profils utilisateur de l'année écoulée. Les deux périodes sont calculées à partir de la date à laquelle vous finalisez votre intégration.
 
 Lorsque Braze importe vos clients Shopify, le type d'`external_id` que vous avez choisi dans vos paramètres de configuration leur est attribué.
 
 {% alert note %}
-Si vous êtes déjà client Braze avec des Campaigns ou des Canvas actifs, vérifiez l'impact des clients et événements de commande importés sur vos Segments et parcours avant d'activer le backfill historique.
+Si vous êtes déjà client de Braze avec des Campaigns ou des Canvas actifs, vérifiez l'impact des clients et événements de commande importés sur vos Segments et parcours avant d'activer l'importation de données historiques.
 {% endalert %}
 
-{% multi_lang_include shopify.md section='Custom external ID historical backfill' %}
+{% multi_lang_include partners/shopify.md section='Custom external ID historical backfill' %}
 
-### Mise en place du backfill historique Shopify {#setting-up-shopify-historical-backfill}
+### Configurer l'importation de données historiques Shopify {#setting-up-shopify-historical-backfill}
 
-1. Activez le backfill historique dans l'étape **Track Shopify data**.
+1. Activez l'importation de données historiques dans l'étape **Track Shopify data**.
 
-![L'étape « Track Shopify data » de l'intégration Shopify montrant le backfill historique sélectionné.]({% image_buster /assets/img/shopify/historical_data_backfill_sync.png %})
+![L'étape « Track Shopify data » de l'intégration Shopify montrant l'importation de données historiques sélectionnée.]({% image_buster /assets/img/shopify/historical_data_backfill_sync.png %})
 
 {: start="2"}
 
@@ -879,11 +884,11 @@ Si vous êtes déjà client Braze avec des Campaigns ou des Canvas actifs, véri
 
 ### Données synchronisées {#synced-data}
 
-Lors de la synchronisation initiale, Braze importe les événements de commande des 90 derniers jours et les profils utilisateurs de l'année écoulée, chaque période étant calculée à partir de la date à laquelle vous finalisez votre intégration. Lorsque Braze importe vos clients Shopify, le type d'`external_id` que vous avez choisi dans vos paramètres de configuration leur est attribué.
+Lors de la synchronisation initiale des données, Braze importe les événements de commande des 90 derniers jours et les profils utilisateur de l'année écoulée, chaque période étant calculée à partir de la date à laquelle vous finalisez votre intégration. Lorsque Braze importe vos clients Shopify, le type d'`external_id` que vous avez choisi dans vos paramètres de configuration leur est attribué.
 
 Le tableau suivant résume les données incluses dans ce chargement initial.
 
-| Événements recommandés Braze | Événements personnalisés Shopify | Attributs standard Braze | Statuts d'abonnement Braze |
+| Événements recommandés par Braze | Événements personnalisés Shopify | Attributs standard Braze | Statuts d'abonnement Braze |
 | --- | --- | --- | --- |
-| {::nomarkdown}<ul><li>Order placed</li><li>Order cancelled</li><li>Order refunded</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} | {::nomarkdown}<ul><li>E-mail</li><li>Prénom</li><li>Nom de famille</li><li>Téléphone</li><li>Ville</li><li>Pays</li><li>Chiffre d'affaires total</li><li>Remboursements totaux</li><li>Total des commandes</li></ul>{:/} | {::nomarkdown}<ul><li>Abonnements marketing par e-mail associés à cette boutique Shopify</li><li>Abonnements marketing par SMS associés à cette boutique Shopify</li></ul>{:/} |
+| {::nomarkdown}<ul><li>Order placed</li><li>Order cancelled</li><li>Order refunded</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} | {::nomarkdown}<ul><li>Email</li><li>First Name</li><li>Last Name</li><li>Phone</li><li>City</li><li>Country</li><li>Total Revenue</li><li>Total Refunds</li><li>Total Orders</li></ul>{:/} | {::nomarkdown}<ul><li>Abonnements au marketing par e-mail associés à cette boutique Shopify</li><li>Abonnements au marketing par SMS associés à cette boutique Shopify</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Données synchronisées" }

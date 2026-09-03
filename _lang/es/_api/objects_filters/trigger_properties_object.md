@@ -17,10 +17,12 @@ Si realizas una solicitud a la API que contenga un objeto en `trigger_properties
 Ten en cuenta que, aunque las propiedades de activación pueden incluirse en plantillas de mensajes, no se almacenan automáticamente en el perfil de usuario de forma predeterminada.
 
 {% alert note %}
-El objeto `trigger_properties` y la sintaxis {% raw %}`api_trigger_properties.${product_name}`{% endraw %} solo se admiten en Campaigns. Para personalizar mensajes con claves y valores de una solicitud de activación de API para Canvas, utiliza el [objeto de propiedades de entrada de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/). El objeto `trigger_properties` tiene un límite de tamaño máximo de 50 KB.
+El objeto `trigger_properties` y la sintaxis {% raw %}`api_trigger_properties.${product_name}`{% endraw %} solo se admiten en Campaigns. Para personalizar mensajes con claves y valores de una solicitud de activación de API para Canvas, utiliza el [objeto de propiedades de entrada de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context). El objeto `trigger_properties` tiene un límite de tamaño máximo de 50 KB.
 {% endalert %}
 
 ## Cuerpo del objeto {#object-body}
+
+El objeto `trigger_properties` admite cadenas, números, booleanos, fechas, objetos y arrays como tipos de datos.
 
 ```json
 {
@@ -39,4 +41,11 @@ El objeto `trigger_properties` y la sintaxis {% raw %}`api_trigger_properties.${
 }
 ```
 
+## Ejemplos de plantillas Liquid {#liquid-templating-examples}
 
+Haz referencia a las propiedades de desencadenamiento en tus plantillas de mensaje usando el espacio de nombres `api_trigger_properties`:
+
+- Cadenas: {% raw %}`{{api_trigger_properties.${product_name}}}`{% endraw %} devuelve `"shoes"`
+- Números: {% raw %}`{{api_trigger_properties.${product_price}}}`{% endraw %} devuelve `79.99`
+- Objetos anidados: {% raw %}`{{api_trigger_properties.${details}.${color}}}`{% endraw %} devuelve `"red"`
+- Elementos de array: {% raw %}`{{api_trigger_properties.${related_skus}[0]}}`{% endraw %} devuelve `"123"`

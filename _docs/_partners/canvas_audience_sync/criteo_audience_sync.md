@@ -15,10 +15,7 @@ Using the Braze Audience Sync to Criteo, brands can elect to add user data from 
 
 **Common use cases for audience syncing include:**
 
-- Targeting high-value users via multiple channels to drive purchases or engagement
-- Retargeting users who are less responsive to other marketing channels
-- Creating suppression audiences to prevent users from receiving advertisements when they’re already loyal consumers of your brand
-- Creating Lookalike Audiences to acquire new users more efficiently
+{% multi_lang_include partners/canvas_audience_sync/common_use_cases.md lookalike=true %}
 
 This feature gives brands the option to control what specific first-party data is shared with Criteo. At Braze, the integrations you can and cannot share your first-party data with are given the utmost consideration. For more information, refer to our [privacy policy](https://www.braze.com/privacy).
 
@@ -63,15 +60,15 @@ Your Criteo connection will be applied at the Braze workspace level. If your Cri
 
 ### Step 2: Configure your Canvas entry criteria
 
-When building audiences for Ad Tracking, you may wish to include or exclude certain users based on their preferences, and in order to comply with privacy laws, such as the “Do Not Sell or Share” right under the [CCPA](https://oag.ca.gov/privacy/ccpa). Marketers should implement the relevant filters for users’ eligibility within their Canvas entry criteria. Below we list some options.
+When building audiences for Ad Tracking, you may wish to include or exclude certain users based on their preferences, and in order to comply with privacy laws, such as the “Do Not Sell or Share” right under the [CCPA](https://oag.ca.gov/privacy/ccpa). Marketers should implement the relevant filters for users’ eligibility within their Canvas entry criteria. The following options can help.
 
 If you have collected the [iOS IDFA through the Braze SDK]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/other_sdk_customizations/#optional-idfa-collection), you will be able to use the Ads Tracking Enabled filter. Select the value as true to only send users into Audience Sync destinations where they have opted in.
 
-![]({% image_buster /assets/img/criteo/criteo11.png %})
+![Canvas entry filter showing Ads Tracking Enabled set to true.]({% image_buster /assets/img/criteo/criteo11.png %})
 
 If you are collecting `opt-ins`, `opt-outs`, `Do Not Sell Or Share`, or any other relevant custom attributes, you should include these within your Canvas entry criteria as a filter:
 
-![]({% image_buster /assets/img/criteo/criteo12.png %})
+![Canvas entry filter using custom opt-in attributes for audience eligibility.]({% image_buster /assets/img/criteo/criteo12.png %})
 
 To learn more on how to comply with these Data Protection laws within the Braze platform, see [Data Protection Technical Assistance]({{site.baseurl}}/dp-technical-assistance/).
 
@@ -87,7 +84,7 @@ Click on the **Custom Audience** button to open the component editor.
 
 Select **Criteo** as the desired Audience Sync partner. 
 
-![]({% image_buster /assets/img/criteo/criteo6.png %})
+![Audience Sync step editor with Criteo selected as the partner.]({% image_buster /assets/img/criteo/criteo6.png %})
 
 Then select your desired Criteo ad account. Under the **Choose a New or Existing Audience** dropdown, type in the name of a new or existing audience.
 
@@ -115,7 +112,7 @@ Braze also offers the ability to add users to existing Criteo audiences to ensur
 
 ### Step 5: Launch Canvas
 
-Once you have configured your Audience Sync to Criteo, simply launch the Canvas! The new audience will be created, and users who go through the Audience Sync step will be passed into this audience on Criteo. If your Canvas contains subsequent components, your users will then advance to the next step in their user journey.
+After you configure your Audience Sync to Criteo, launch the Canvas! The new audience is created, and users who go through the Audience Sync step are passed into this audience on Criteo. If your Canvas contains subsequent components, your users advance to the next step in their user journey.
 
 You can view the audience in Criteo by going into your ads manager account and then selecting Segments from the **Audience Library** of the navigation. From the **Segments** page, you can see the size of each audience after it reaches ~1,000.
 

@@ -14,6 +14,7 @@ jekyll-algolia-*
 .jekyll-cache
 .vscode
 .jekyll-metadata
+.dev/
 
 # Jetbrains IDEs
 .idea/
@@ -30,6 +31,9 @@ _data/kb_articles.csv
 _data/kb_articles_actioned.md
 _data/kb_articles_skipped.md
 
+# Salesforce KB Phase 2 local verification notes (never commit)
+.sf-kb-verification*.md
+
 # TAM solutions Drive export (sensitive; local triage only)
 _data/tam_solutions/*.json
 scripts/tam-solutions/.oauth_token.json
@@ -45,6 +49,23 @@ glossary_audit_report.*
 lhci-reports/
 lhci-urls.txt
 
+# Phrase TMS API token (local reference; never commit)
+.phrase-tms.env
+
+# Jira API credentials for local SF KB / Jira scripts (never commit)
+.jira.env
+
+# Generated Phrase glossary sync report
+phrase_sync_report.md
+
 # AI planning artifacts (local only, never committed)
 docs/brainstorms/
 docs/plans/
+
+# Claude Code local settings (commit only skill symlinks under .claude/skills/)
+.claude/*
+!.claude/skills/
+!.claude/skills/**
+
+# Superpowers workflow artifacts (specs/plans) should never be committed
+docs/superpowers/

@@ -17,14 +17,14 @@ tool:
 Les déclencheurs d'attributs sont disponibles pour les scénarios suivants :
 
 - Mises à jour du statut d'abonnement.
-- Changement de la valeur d'un attribut personnalisé de type booléen, entier, chaîne de caractères ou date vers n'importe quelle valeur.
-- Changement de la valeur d'un attribut personnalisé de type booléen, entier ou chaîne de caractères vers une valeur spécifique.
+- Changement de la valeur d'un attribut personnalisé de type booléen, nombre, chaîne de caractères ou date vers n'importe quelle valeur.
+- Changement de la valeur d'un attribut personnalisé de type booléen, nombre ou chaîne de caractères vers une valeur spécifique.
 
-{% alert note %}
-Dans le tableau de bord, les types d'attributs personnalisés apparaissent sous la forme `Number` (pour les entiers) et `Time` (pour les dates), et non `String` ou `Date`.
+{% alert important %}
+Dans le tableau de bord, les attributs de type nombre entier utilisent le type **Number**, et les dates ou horodatages utilisent le type **Time** (ils ne sont pas étiquetés « integer » ou « date » dans l'interface). Les attributs de type **Time** prennent en charge l'option **Change Custom Attribute Value** avec l'option **any new value** uniquement — ils ne prennent pas en charge l'option **specific value**.
 {% endalert %}
 
-Pour commencer à utiliser les déclencheurs d'attributs, créez une campagne ou un composant Canvas et sélectionnez **Livraison par événement** comme méthode de distribution. Ensuite, sélectionnez le déclencheur d'attribut que vous souhaitez utiliser.
+Pour commencer à utiliser les déclencheurs d'attributs, créez une Campaign ou un composant Canvas et sélectionnez **Livraison par événement** comme méthode de distribution. Ensuite, sélectionnez le déclencheur d'attribut que vous souhaitez utiliser.
 
 ![Section « Livraison par événement » avec un menu déroulant pour sélectionner un déclencheur.]({% image_buster /assets/img_archive/trigger_attribute.png %})
 
@@ -62,11 +62,11 @@ Pour le changement d'attribut, le déclencheur est évalué en premier, puis les
 
 ### Option « N'importe quelle nouvelle valeur » {#any-new-value-option}
 
-Utilisez le déclencheur `Change Custom Attribute Value` avec l'option `any new value` pour cibler les utilisateurs lorsqu'une valeur de type booléen, entier, chaîne de caractères ou date change vers n'importe quelle nouvelle valeur.
+Utilisez le déclencheur `Change Custom Attribute Value` avec l'option `any new value` pour cibler les utilisateurs lorsqu'une valeur de type booléen, nombre, chaîne de caractères ou date change vers n'importe quelle nouvelle valeur.
 
-Par exemple, ciblez les utilisateurs lorsque leur nombre de points de fidélité change pour leur indiquer combien de points ils possèdent désormais. Dans cet exemple, supposons qu'un utilisateur dispose de 85 points de fidélité et que vous avez configuré une campagne qui se déclenche lorsque l'attribut de points de fidélité change vers n'importe quelle nouvelle valeur. Si la valeur de l'attribut de points de fidélité de cet utilisateur change vers une nouvelle valeur (comme 83, 84, 86, etc.), la campagne se déclenche.
+Par exemple, ciblez les utilisateurs lorsque leur nombre de points de fidélité change pour leur indiquer combien de points ils possèdent désormais. Dans cet exemple, supposons qu'un utilisateur dispose de 85 points de fidélité et que vous avez configuré une Campaign qui se déclenche lorsque l'attribut de points de fidélité change vers n'importe quelle nouvelle valeur. Si la valeur de l'attribut de points de fidélité de cet utilisateur change vers une nouvelle valeur (comme 83, 84, 86, etc.), la Campaign se déclenche.
 
-Prenons un autre cas d'utilisation avec une notification de changement de niveau. Vous pourriez vouloir alerter les utilisateurs si leur niveau de fidélité change. Pour ce faire, configurez une campagne qui se déclenche sur `Change Custom Attribute Value` et paramétrez-la pour se déclencher lorsque l'attribut personnalisé de niveau de fidélité change vers n'importe quelle nouvelle valeur.
+Prenons un autre cas d'utilisation avec une notification de changement de niveau. Vous pourriez vouloir alerter les utilisateurs si leur niveau de fidélité change. Pour ce faire, configurez une Campaign qui se déclenche sur `Change Custom Attribute Value` et paramétrez-la pour se déclencher lorsque l'attribut personnalisé de niveau de fidélité change vers n'importe quelle nouvelle valeur.
 
 {% alert important %}
 Les déclencheurs d'attributs ne sont actuellement pas disponibles pour les attributs de type tableau.
@@ -84,9 +84,9 @@ Your rewards tier was just changed to {{custom_attribute.${AA_current_rewards_ti
 
 ### Valeur spécifique {#specific-value}
 
-Utilisez le déclencheur `Change Custom Attribute Value` avec l'option `specific value` pour cibler les utilisateurs lorsqu'un attribut personnalisé de type booléen, entier ou chaîne de caractères change vers une valeur spécifique.
+Utilisez le déclencheur `Change Custom Attribute Value` avec l'option `specific value` pour cibler les utilisateurs lorsqu'un attribut personnalisé de type booléen, nombre ou chaîne de caractères change vers une valeur spécifique.
 
-Par exemple, ciblez les utilisateurs lorsque leur niveau de fidélité passe au meilleur niveau. Dans cet exemple, supposons que le meilleur niveau de fidélité est Super VIP. Vous pouvez configurer une campagne qui se déclenche lorsque l'attribut personnalisé de niveau de fidélité d'un utilisateur passe à `Super VIP` afin de le féliciter d'être devenu Super VIP.
+Par exemple, ciblez les utilisateurs lorsque leur niveau de fidélité passe au meilleur niveau. Dans cet exemple, supposons que le meilleur niveau de fidélité est Super VIP. Vous pouvez configurer une Campaign qui se déclenche lorsque l'attribut personnalisé de niveau de fidélité d'un utilisateur passe à `Super VIP` afin de le féliciter d'être devenu Super VIP.
 
 ![Un déclencheur « Change Custom Attribute Value » pour « AA_current_rewards_tier » changeant vers la valeur spécifique « super vip ».]({% image_buster /assets/img_archive/super_vip.png %})
 

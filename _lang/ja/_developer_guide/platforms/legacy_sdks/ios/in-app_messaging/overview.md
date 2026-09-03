@@ -14,7 +14,7 @@ noindex: true
 
 # アプリ内メッセージ {#in-app-messages}
 
-[アプリ内メッセージ]({{site.baseurl}}/user_guide/channels/in_app_messages/)を使用すると、プッシュ通知でユーザーの日常を邪魔することなく、コンテンツをユーザーに届けることができます。カスタマイズされ調整されたアプリ内メッセージは、ユーザーエクスペリエンスを向上させ、オーディエンスがアプリから最大限の価値を得るのに役立ちます。さまざまなレイアウトやカスタマイズツールから選べるため、アプリ内メッセージはこれまで以上にユーザーを惹きつけます。
+[アプリ内メッセージ]({{site.baseurl}}/user_guide/channels/in_app_messages)を使用すると、プッシュ通知でユーザーの日常を邪魔することなく、コンテンツをユーザーに届けることができます。カスタマイズされ調整されたアプリ内メッセージは、ユーザーエクスペリエンスを向上させ、オーディエンスがアプリから最大限の価値を得るのに役立ちます。さまざまなレイアウトやカスタマイズツールから選べるため、アプリ内メッセージはこれまで以上にユーザーを惹きつけます。
 
 アプリ内メッセージの例については、[ケーススタディ](https://www.braze.com/customers)をご覧ください。
 
@@ -27,14 +27,14 @@ Brazeは現在、以下のアプリ内メッセージタイプをデフォルト
 - `Full`
 - `HTML Full`
 
-各アプリ内メッセージタイプは、コンテンツ、画像、アイコン、クリックアクション、分析、表示、配信に渡って高度にカスタマイズできます。
+各アプリ内メッセージタイプは、コンテンツ、画像、アイコン、クリックアクション、分析、表示、配信にわたって高度にカスタマイズできます。
 
 すべてのアプリ内メッセージは `ABKInAppMessage` のサブクラスであり、すべてのアプリ内メッセージの基本動作と特徴を定義しています。アプリ内メッセージのクラス構造は以下のとおりです。
 
 ![ABKInAppMessageクラスがABKInAppMessageSlideup、ABKInAppMessageImmersive、ABKInAppMessageHTMLのルートクラスであることを示す図。ABKInAppMessageには、メッセージ、エクストラ、持続時間、クリックアクション、URI、閉じるアクション、アイコンの向き、テキストの配置などのカスタマイズ可能なプロパティが含まれています。ABKInAppMessageSlideupには、シェブロンやスライドアップアンカーなどのカスタマイズ可能なプロパティが含まれています。ABKInAppMessageImmersiveには、ヘッダー、閉じるボタン、フレーム、アプリ内メッセージボタンなどのカスタマイズ可能なプロパティが含まれています。ABKInAppMessageHTMLを使うと、HTMLアプリ内メッセージボタンのクリックを手動で記録できます。]({% image_buster /assets/img_archive/ABKInAppMessage-models.png %})
 
 {% alert important %}
-デフォルトでは、アプリ内メッセージは、GIFサポートを含む標準SDKインテグレーションを完了した後に有効になります。
+デフォルトでは、アプリ内メッセージは、GIFサポートを含む標準SDK統合を完了した後に有効になります。
 <br><br>
 iOSアプリ内メッセージまたはContent Cards内の画像を表示するためにBraze UIを使用する場合は、`SDWebImage` の統合が必要です。
 {% endalert %}
@@ -68,13 +68,13 @@ iOSアプリ内メッセージまたはContent Cards内の画像を表示する�
 {% endtab %}
 {% tab Custom HTML %}
 
-[`HTML Full`](https://appboy.github.io/appboy-ios-sdk/docs/interface_a_b_k_in_app_message_h_t_m_l_full.html) アプリ内メッセージは、完全にカスタマイズされたユーザーコンテンツを作成するのに便利です。ユーザー定義のHTML Fullアプリ内メッセージコンテンツは `WKWebView` に表示され、必要に応じて画像やフォントなどの他のリッチコンテンツを含めることができます。これにより、メッセージの外観と機能を完全に制御できます。<br><br>iOSアプリ内メッセージは、HTML内からBraze Web SDKのメソッドを呼び出すためのJavaScript `brazeBridge` インターフェイスをサポートしています。詳細については、[ベストプラクティス]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices/)を参照してください。
+[`HTML Full`](https://appboy.github.io/appboy-ios-sdk/docs/interface_a_b_k_in_app_message_h_t_m_l_full.html) アプリ内メッセージは、完全にカスタマイズされたユーザーコンテンツを作成するのに便利です。ユーザー定義のHTML Fullアプリ内メッセージコンテンツは `WKWebView` に表示され、必要に応じて画像やフォントなどの他のリッチコンテンツを含めることができます。これにより、メッセージの外観と機能を完全に制御できます。<br><br>iOSアプリ内メッセージは、HTML内からBraze Web SDKのメソッドを呼び出すためのJavaScript `brazeBridge` インターフェイスをサポートしています。詳細については、[ベストプラクティス]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices)を参照してください。
 
 次の例は、ページ分割されたHTML Fullアプリ内メッセージを示しています。
 
 ![コンテンツのカルーセルとインタラクティブボタンを備えたHTMLアプリ内メッセージ。]({% image_buster /assets/img_archive/ios-html-full-iam.gif %})
 
-Fullアプリ内メッセージコンテンツは `WKWebView` に表示され、オプションで画像やフォントなどの他のリッチコンテンツを含めることができ、メッセージの外観や機能を完全に制御できます。現在、iOSとAndroidのプラットフォームでは、iFrameでのカスタムHTMLアプリ内メッセージの表示はサポートしていません。
+Fullアプリ内メッセージコンテンツは `WKWebView` に表示され、オプションで画像やフォントなどの他のリッチコンテンツを含めることができ、メッセージの外観や機能を完全に制御できます。現在、iOSとAndroidのプラットフォームでは、iFrame内でのカスタムHTMLアプリ内メッセージの表示はサポートしていません。
 
 {% alert note %}
 iOS SDKバージョン3.19.0以降、以下のJavaScriptメソッドはHTMLアプリ内メッセージではノーオペレーションとなりました: `alert`、`confirm`、`prompt`。

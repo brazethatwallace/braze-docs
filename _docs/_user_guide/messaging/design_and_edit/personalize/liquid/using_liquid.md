@@ -10,7 +10,7 @@ search_rank: 2
 
 > This article shows how you can use a variety of user attributes to dynamically insert personal information into your messaging.
 
-Liquid is an open-source template language developed by Shopify and written in Ruby. You can use it in Braze to pull user profile data into your messages and customize that data. For example, you can use Liquid tags to create conditional messages, such as sending different offers based on a user's subscription anniversary date. Additionally, filters can manipulate data, like formatting a user's registration date from a timestamp into a more readable format, such as "January 15, 2022." For further details on Liquid syntax and its capabilities, refer to [Supported personalization tags]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/).
+Liquid is an open-source template language developed by Shopify and written in Ruby. You can use it in Braze to pull user profile data into your messages and customize that data. For example, you can use Liquid tags to create conditional messages, such as sending different offers based on a user's subscription anniversary date. Additionally, filters can manipulate data, like formatting a user's registration date from a timestamp into a more readable format, such as "January 15, 2022." For further details on Liquid syntax and its capabilities, refer to [Supported personalization tags]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags).
 
 ## How it works
 
@@ -44,14 +44,14 @@ HTML comments (`<!-- -->`) are removed before any Liquid is read, so Liquid tags
 
 The following values can be substituted into a message, depending on their availability:
 
-- [Basic user information]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/) (for example, `first_name`, `last_name`, `email_address`)
-- [Custom attributes]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)
+- [Basic user information]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags) (for example, `first_name`, `last_name`, `email_address`)
+- [Custom attributes]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes)
     - [Nested custom attributes]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#liquid-templating)
-- [Custom event properties]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)
+- [Custom event properties]({{site.baseurl}}/user_guide/data/activation/events/custom_events)
 - [Most recently used device information]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#most-recently-used-device-information)
 - [Target device information]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#targeted-device-information)
 
-You can also pull content directly from a web server through Braze [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/).
+You can also pull content directly from a web server through Braze [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content).
 
 {% alert important %}
 Braze currently supports Liquid up to and including Liquid 5 from Shopify.
@@ -59,17 +59,37 @@ Braze currently supports Liquid up to and including Liquid 5 from Shopify.
 
 ## Using Liquid
 
-Using [Liquid tags]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/), you can elevate the quality of your messages by enriching them with a personal touch. 
+Using [Liquid tags]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags), you can elevate the quality of your messages by enriching them with a personal touch. 
 
 ### Liquid syntax
 
 Liquid follows a specific structure, or syntax, that you'll need to keep in mind as you're crafting dynamic personalization. Here are a few basic rules to keep in mind:
 
-1. **Use straight quotes in Braze:** There is a difference between curly quotes (**' '**) and straight quotes (**&#39; &#39;**). Use straight quotes (**&#39; &#39;**) in your Liquid in Braze. You may see curly quotes when copying and pasting from certain text editors, which can cause issues in your Liquid. If you're inputting quotes directly into the Braze dashboard, you'll be fine!
-2. **Brackets come in pairs:** Every bracket must both open and close **{ }**. Make sure to use curly brackets!
-3. **If statements come in pairs:** For every `if`, you need an `endif` to indicate the `if` statement has ended.
-4. **Case statements come in pairs:** For every `case`, you need an `endcase` to close the block.
-5. **Variable names must use ASCII characters:** Liquid variable names (created with `assign` or `capture`) support only ASCII letters, digits, and underscores. Braze personalization attribute names (inside `custom_attribute.${...}` or `event_properties.${...}`) can include non-ASCII characters.
+- **Use straight quotes in Braze:** There is a difference between curly quotes (**' '**) and straight quotes (**&#39; &#39;**). Use straight quotes (**&#39; &#39;**) in your Liquid in Braze. You may see curly quotes when copying and pasting from certain text editors, which can cause issues in your Liquid. If you're inputting quotes directly into the Braze dashboard, you'll be fine.
+- **Brackets come in pairs:** Every bracket must both open and close **{ }**. Make sure to use curly brackets.
+- **If statements come in pairs:** For every `if`, you need an `endif` to indicate the `if` statement has ended.
+- **Case statements come in pairs:** For every `case`, you need an `endcase` to close the block.
+- **Variable names must use ASCII characters:** Liquid variable names (created with `assign` or `capture`) support only ASCII letters, digits, and underscores. Braze personalization attribute names (inside `custom_attribute.${...}` or `event_properties.${...}`) can include non-ASCII characters.
+- **Wrap Braze Liquid variables in multi-line `assign` tags:** Use double curly braces {% raw %}(`{{ }}`){% endraw %} around Braze Liquid variables when an `assign` spans multiple lines.
+
+#### Multi-line `assign` tags
+
+You can split an `assign` across multiple lines (for example, by continuing filters with `|` before the closing tag) as long as you wrap all Braze Liquid variables with double curly braces {% raw %}(`{{ }}`){% endraw %}. Without those braces, multi-line assign statements can cause unexpected rendering, including custom attributes that fail to template. The following example shows a working multi-line assign:
+
+{% raw %}
+```liquid
+{%- assign color = {{custom_attribute.${favorite_color}}}
+| default: {{custom_attribute.${fav_color}}}
+| default: 'blue'
+%}
+```
+
+You can also write the full `assign` on one line:
+
+```liquid
+{%- assign color = custom_attribute.${favorite_color} | default: custom_attribute.${fav_color} | default: 'blue' %}
+```
+{% endraw %}
 
 #### Where to use operators and filters
 
@@ -84,7 +104,7 @@ Operators (such as `==`, `!=`, `>`, `and`, `or`) and filters (such as `| size`, 
 | Array access (`[ ]`) | Not supported | Not supported |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Where to use operators and filters" }
 
-[^case_when_ops]: In `case` and `when` tags, Liquid compares the `case` expression to each `when` value using equality (similar to chaining `if` and `elsif` with `==`). You can't use arbitrary comparison or logical operators inside a `when` clause the way you do with `if` and `elsif`. For examples, see [Conditional messaging logic]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#case-and-when-tags).
+[^case_when_ops]: In `case` and `when` tags, Liquid compares the `case` expression to each `when` value using equality (similar to chaining `if` and `elsif` with `==`). You can't use arbitrary comparison or logical operators inside a `when` clause the way you do with `if` and `elsif`. For examples, see [Conditional messaging logic]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#case-and-when).
 
 When you need a filtered value in a context that doesn't support filters, assign the result to a variable first.
 

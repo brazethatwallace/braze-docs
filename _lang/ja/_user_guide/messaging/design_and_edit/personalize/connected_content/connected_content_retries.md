@@ -6,21 +6,21 @@ description: "このリファレンス記事では、コネクテッドコンテ
 
 ---
 
-# コネクテッドコンテンツのリトライロジックを使用する
+# コネクテッドコンテンツのリトライロジックを使用する {#use-retry-logic-for-connected-content}
 
 > このページでは、コネクテッドコンテンツの呼び出しにリトライを追加する方法について説明します。
 
-## リトライの仕組み
+## リトライの仕組み {#how-retries-work}
 
-コネクテッドコンテンツは API からのデータ受信に依存しているため、Braze が呼び出しを行う際に API が一時的に利用できない場合があります。このような場合、Braze はエクスポネンシャルバックオフを使用してリクエストを再試行するリトライロジックをサポートしています。
+Connected Contentは API からのデータ受信に依存しているため、Brazeが呼び出しを行う際に API が一時的に利用できなくなる場合があります。この場合、Brazeは指数バックオフを使用してリクエストを再試行するリトライロジックをサポートしています。
 
 {% alert note %}
-コネクテッドコンテンツの `:retry` はアプリ内メッセージでは使用できません。
+Connected Contentの`:retry`はアプリ内メッセージでは利用できません。
 {% endalert %}
 
-## リトライロジックの使用
+## リトライロジックの使用 {#using-retry-logic}
 
-リトライロジックを使用するには、以下のコードスニペットに示すように、コネクテッドコンテンツの呼び出しに `:retry` タグを追加します。
+リトライロジックを使用するには、以下のコードスニペットに示すように、Connected Content呼び出しに`:retry`タグを追加します。
 
 {% raw %}
 ```
@@ -29,18 +29,22 @@ description: "このリファレンス記事では、コネクテッドコンテ
 ```
 {% endraw %}
 
-コネクテッドコンテンツの呼び出しに `:retry` タグが含まれている場合、Braze は最大5回まで呼び出しのリトライを試みます。
+Connected Content呼び出しに`:retry`タグが含まれている場合、Brazeは最大5回まで呼び出しのリトライを試みます。
 
-### リトライの結果
+### プレビューの動作 {#preview-behavior}
 
-#### リトライが成功した場合
+リトライロジックはライブ送信（テスト送信を含む）にのみ適用され、プレビューには適用されません。`:retry`を含むConnected Content呼び出しがプレビュー中に失敗した場合、コンテンツがレンダリングされる代わりに「This message would not have been shown because retry functionality was triggered」というメッセージが表示されることがあります。これは想定された動作であり、Braze内の問題を示すものではありません。
 
-リトライが成功した場合、メッセージが送信され、そのメッセージに対するそれ以上のリトライは行われません。
+### リトライの結果 {#retry-outcomes}
 
-#### API 呼び出しが失敗し、リトライが有効な場合
+#### リトライが成功した場合 {#when-a-retry-succeeds}
 
-API 呼び出しが失敗し、リトライが有効な場合、Braze は再送信ごとに設定した[レート制限]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting)を遵守しながら呼び出しをリトライします。Braze は失敗したメッセージをキューの末尾に移動し、必要に応じてメッセージの送信にかかる合計時間に追加の分数を加えます。
+リトライが成功した場合、メッセージは送信され、そのメッセージに対するそれ以上のリトライは試行されません。
 
-コネクテッドコンテンツの呼び出しが5回を超えてエラーになった場合、[メッセージ中止タグ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content/)がトリガーされた場合と同様に、メッセージは中止されます。
+#### API呼び出しが失敗し、リトライが有効な場合 {#when-the-api-call-fails-and-retries-are-enabled}
+
+API呼び出しが失敗し、リトライが有効になっている場合、Brazeは再送信ごとに設定された[レート制限]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting)を遵守しながら呼び出しをリトライします。Brazeは失敗したメッセージをキューの末尾に移動し、必要に応じてメッセージの送信にかかる合計時間に追加の分数を加えます。
+
+Connected Content呼び出しが5回を超えてエラーになった場合、[メッセージ中止タグ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content)がトリガーされた場合と同様に、メッセージは中止されます。
 
 {% multi_lang_include connected_content/abort_and_retry_logic.md %}

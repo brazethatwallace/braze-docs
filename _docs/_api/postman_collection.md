@@ -2,9 +2,8 @@
 nav_title: Postman and sample requests
 article_title: Postman and Sample Requests
 page_order: 3
-description: "This reference article covers the Braze Postman Collection, what it is, how to set up and use the collection, as well as how to edit and send requests."
+description: "This reference article covers the Braze Postman Collection, what it is, how to set up and use the collection, as well as how to edit and send."
 page_type: reference
-
 ---
 
 # Postman and sample requests
@@ -31,7 +30,7 @@ To set up your own environment, perform the following steps:
 
 1. From the **Workspaces** tab, select **Environments**.
 2. Click the **+** plus button to create a new environment.
-3. Give this environment a name (for example, "Braze API Requests") and add keys for `instance_url` and `api_key` with values corresponding to your [Braze instance]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints) and [Braze REST API Key]({{site.baseurl}}/api/api_key/).
+3. Give this environment a name (for example, "Braze API Requests") and add keys for `instance_url` and `api_key` with values corresponding to your [Braze instance]({{site.baseurl}}/api/basics) and [Braze REST API Key]({{site.baseurl}}/api/basics).
 4. Click **Save**.
 
 {% alert note %}

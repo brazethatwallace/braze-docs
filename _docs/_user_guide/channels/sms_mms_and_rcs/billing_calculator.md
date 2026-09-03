@@ -28,7 +28,7 @@ The Short Messaging Service (SMS) is a standardized communication protocol that 
 
 As you create an SMS campaign or Canvas using Braze, the messages you build in the composer are representative of what your users may see when the message gets delivered to their phone, but **is not indicative of how your message will be split into segments and ultimately how you be charged**. Understanding how many segments will be sent and being aware of the potential overages that could occur is your responsibility, but we provide some resources to make this easier for you. Check out our in-house [segment calculator](#segment-calculator).
 
-![]({% image_buster /assets/img/sms_segment_pic.png %}){: style="border:0;"}
+![As you create an SMS campaign or Canvas using Braze, the messages you build in the composer are representative of what your users may see when the message gets delivered to their phone, but is not indicative of how your message will be split into segments and ultimately how you be charged. Understanding how many segments will be sent and being aware of the potential overages that could occur is your responsibility, but we provide some resources to make this easier for you. Check out our in-house segment calculator.]({% image_buster /assets/img/sms_segment_pic.png %}){: style="border:0;"}
 
 #### Segment breakdown
 
@@ -40,7 +40,7 @@ It's important to note that **as you pass the character limit of your first segm
 - **UCS-2 encoding**
     - If you include non-GSM characters such as Emojis, Chinese, Korean, or Japanese script in SMS messages, those messages have to be sent via UCS-2 encoding. Messages exceeding the initial segment limit of 70 characters will cause the entire message to be concatenated into 67 character message segments. For example, a 71 character message will be sent as two messages, one with 67 characters and the second with 4 characters.
 
-Regardless of the encoding type, each SMS message sent out by Braze has a limit of up to 10 segments and is compatible with [Liquid templating]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/), [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/), Emojis, and links.
+Regardless of the encoding type, each SMS message sent out by Braze has a limit of up to 10 segments and is compatible with [Liquid templating]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid), [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), Emojis, and links.
 
 {% tabs %}
 {% tab GSM-7 encoding %}
@@ -86,9 +86,11 @@ Regardless of the encoding type, each SMS message sent out by Braze has a limit 
 - **Compatible with Liquid templating, Connected Content, emojis, and links**
     - Liquid templating and Connected Content may put your message at risk of going over the character limit for your encoding type. You may be able to use the [truncate words filter](https://help.shopify.com/en/themes/liquid/filters/string-filters#truncatewords) to limit the number of words that your Liquid could bring to the message.
     - Emojis have no standard character count across all emojis, so make sure to test that your messages are segmenting and displaying correctly.
-    - Links may make use of many characters, resulting in more message segments than intended. Though the use of link shorteners is possible, they are best used with short codes. Visit our [SMS FAQ]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs/) for more information.<br><br>
+    - Links may make use of many characters, resulting in more message segments than intended. Though the use of link shorteners is possible, they are best used with short codes. Visit our [SMS FAQ]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs) for more information.<br><br>
 - **Testing**
-    - Always test your SMS messages before launch, especially when using Liquid and Connected Content as going over message or copy limits may result in additional charges. Note that test messages will count toward your message limits.
+    - Always test your SMS messages before launch, especially when using Liquid and Connected Content as going over message or copy limits may result in additional charges. Note that test messages will count toward your message limits.<br><br>
+- **Auto-response messages**
+    - Auto-response messages sent by Braze, such as double opt-in confirmations and responses to HELP keywords, are SMS sends that count toward billable segments. The number of billable segments depends on the copy's length and character encoding.
 
 ### SMS segment calculator {#segment-calculator}
 ---
@@ -149,4 +151,4 @@ Rich media messages include a media file (image, video) or a Rich Card and are b
 
 As you create your message, the message composer will display the billing type in real-time through a label (Basic RCS, Single RCS, Rich, or Rich Media), helping you track costs before you send.
 
-Your [Credits Usage dashboard]({{site.baseurl}}/credits_usage_dashboard/) will reflect these billing types and will provide the number of segments used for US messages, providing a transparent view of your message credit consumption.
+Your [Credits Usage dashboard]({{site.baseurl}}/credits_usage_dashboard) reflects these billing types and provides the number of segments used for US messages, giving you a transparent view of your message credit consumption.

@@ -14,15 +14,15 @@ description: "이 문서에서는 세그먼트 목록 내보내기 Braze 엔드�
 /segments/list
 {% endapimethod %}
 
-> 이 엔드포인트를 사용하여 세그먼트 목록을 내보낼 수 있으며, 각 세그먼트에는 이름, 세그먼트 API 식별자, 분석 추적 활성화 여부가 포함됩니다.
+> 이 엔드포인트를 사용하여 세그먼트 목록을 내보낼 수 있으며, 각 세그먼트에는 이름, Segment API 식별자, 분석 추적 활성화 여부가 포함됩니다.
 
-세그먼트는 생성 시간별로 정렬된 100개 그룹으로 반환됩니다(기본적으로 가장 오래된 것부터 최신 순). 아카이브된 세그먼트는 포함되지 않습니다.
+세그먼트는 생성 시간별로 정렬된 100개 그룹으로 반환됩니다(기본값은 가장 오래된 것부터 최신 순). 아카이브된 세그먼트는 포함되지 않습니다.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#1349e6f4-3ce7-4e60-b3e9-951c99c0993f {% endapiref %}
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `segments.list` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `segments.list` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key-permissions)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -46,7 +46,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/segments/list?page=
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
+    "message": (string) returns 'success' when the request completes without errors,
     "segments" : [
         {
             "id" : (string) the Segment API identifier,
@@ -60,7 +60,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/segments/list?page=
 ```
 
 {% alert tip %}
-CSV 및 API 내보내기에 대한 도움은 [내보내기 문제 해결]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)을 참조하세요.
+CSV 및 API 내보내기에 대한 도움은 [내보내기 문제 해결]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting)을 참조하세요.
 {% endalert %}
 
 {% endapi %}

@@ -6,18 +6,18 @@ article_title: Currents
 layout: dev_guide
 
 page_type: landing
-description: "このランディングページには、Currents という名前の Braze データ製品に関する記事の一覧があります。ここでは、Currents の設定方法、利用可能なパートナー、配信セマンティクス、イベント用語集などを確認できます。"
+description: "このランディングページには、Currentsという名前のBrazeデータ製品に関する記事の一覧があります。ここでは、Currentsの設定方法、利用可能なパートナー、配信セマンティクス、イベント用語集などを確認できます。"
 tool: currents
 search_rank: 9
 guide_top_header: "Braze Currents"
-guide_top_text: "エンゲージメント戦略の影響を理解することは、ユーザーとのコミュニケーションの改善と最適化を進めるうえで非常に重要です。この貴重なエンゲージメントデータを他のオペレーションと緊密に統合し、データサイエンスへの投資効果を最大化するために、Braze プラットフォームでは連携を通じて幅広いイベントデータを追跡し、分析、リターゲティング、およびお客様のシステム内でのその他のユースケースに活用できます。<br> <br>Currents ツールは、エンゲージメントイベントのリアルタイムデータストリームであり、Braze プラットフォームからの最も堅牢かつ詳細なエクスポートです。Avro ファイルタイプのデータを多くの<a href='/docs/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners'>データパートナー</a>の1つに提供し、Braze が生成するユニークで価値のあるデータを活用して、他の最高クラスのプラットフォームでビジネスインテリジェンス (BI) および分析の取り組みを強化できます。"
+guide_top_text: "エンゲージメント戦略の影響を理解することは、ユーザーとのコミュニケーションの改善と最適化を進めるうえで非常に重要です。この貴重なエンゲージメントデータを他のオペレーションと緊密に統合し、データサイエンスへの投資効果を最大化するために、Brazeプラットフォームでは連携を通じて幅広いイベントデータを追跡し、分析、リターゲティング、およびお客様のシステム内でのその他のユースケースに活用できます。<br> <br>Currentsツールは、エンゲージメントイベントのリアルタイムデータストリームであり、Brazeプラットフォームからの最も堅牢かつ詳細なエクスポートです。Avroファイルタイプのデータを多くの<a href='/docs/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners'>データパートナー</a> の1つに提供し、Brazeが生成するユニークで価値のあるデータを活用して、他の最高クラスのプラットフォームでビジネスインテリジェンス（BI）および分析の取り組みを強化できます。"
 
 guide_featured_title: "セクションの記事"
 guide_featured_list:
-  - name: Currents の設定
+  - name: Currents を設定する
     link: /docs/user_guide/data/distribution/braze_currents/setting_up_currents
     image: /assets/img/braze_icons/building-01.svg
-  - name: Currents イベント用語集
+  - name: Currentsイベント用語集
     link: /docs/user_guide/data/distribution/braze_currents/event_glossary
     image: /assets/img/braze_icons/data.svg
   - name: ユースケース
@@ -28,17 +28,29 @@ guide_featured_list:
     image: /assets/img/braze_icons/annotation-question.svg
 ---
 
-## Currents の機能
+## Currentsの機能 {#currents-capabilities}
 
-Currents では、次のことができます。
-* Braze イベントデータをデータウェアハウスまたは[分析パートナー]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/)の1つにストリーミングし、詳細な分析を行います。
-* ビジネスインテリジェンスツール、機械学習アルゴリズムなどを強化するために、Braze イベントデータを継続的にストリーミングします。
-* [Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium/)、[Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment/)、[mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle_for_currents/) を使用して、Braze イベントデータをさまざまな他のシステムにルーティングします。
+Currentsでは、以下のことが可能です。
+* Brazeのイベントデータをデータウェアハウスまたは[分析パートナー]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners)にストリーミングし、詳細な分析を行います。
+* Brazeのイベントデータを継続的にストリーミングし、ビジネスインテリジェンスツールや機械学習アルゴリズムなどを活用します。
+* [Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium)、[セグメント]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment)、または[mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle_for_currents)を使用して、Brazeのイベントデータをさまざまなシステムにルーティングします。
 
-Currents からアクセスできるイベントデータを使用してできることは他にも多数あります。[Braze でも Currents を活用]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents/)しています。
+Currentsでアクセスできるイベントデータを活用して、さらに多くのことが実現できます。[BrazeもCurrentsを使用しています]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents)！
 
-## Currents へのアクセス方法
+## Currentsデータ配信モデル {#currents-data-distribution-model}
 
-Currents コネクターは、弊社のプロレベルおよびエンタープライズレベルの多くのパッケージにすでに含まれています。Currents の使用に興味がある場合は、アカウントマネージャーにお問い合わせください。アカウントマネージャーとデータスペシャリストが、[Currents の設定と連携]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/)をサポートいたします。
+Currentsは、エンタイトルメントプールを使用してコネクターの作成とオプションのイベントトラッキングを制御します。
+
+- **エンゲージメントイベントのエンタイトルメント**は、作成する各標準Currentsコネクターごとに必要です。
+- **顧客行動イベントのエンタイトルメント**は、コネクターで**顧客行動およびユーザーイベントをトラッキング**を有効にする場合に必要です。
+- **ユーザープロファイルおよび属性のエンタイトルメント**は、コネクターで**ユーザープロファイルと属性をトラッキング**を有効にする場合に必要です。
+
+テスト用Currentsコネクターは別のテスト上限を使用し、標準コネクターのエンタイトルメントを消費しません。
+
+いずれかのエンタイトルメント上限に達した場合は、[Currentsの設定トラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents#troubleshooting)および[Currents FAQ]({{site.baseurl}}/user_guide/data/distribution/braze_currents/faq)を参照するか、アカウントマネージャーにお問い合わせください。
+
+## Currentsへのアクセス方法 {#how-to-access-currents}
+
+Currentsコネクターは、多くのプロおよびエンタープライズレベルのパッケージにすでに含まれています。Currentsの使用にご興味がある場合は、アカウントマネージャーにお問い合わせください。アカウントマネージャーとBrazeのデータスペシャリストが、[Currentsの設定と連携]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents)をサポートします。
 
 <br><br>

@@ -10,7 +10,7 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Excluir
 ---
 {% api %}
 # Excluir mensagens agendadas {#delete-scheduled-messages}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /messages/schedule/delete
 {% endapimethod %}
 
@@ -20,9 +20,9 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Excluir
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `messages.schedule.delete`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `messages.schedule.delete`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 

@@ -5,22 +5,22 @@ search_tag: Endpoint
 page_order: 8
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Añadir correos electrónicos a la lista de bloqueo de Braze."
+description: "En este artículo se describen los detalles del endpoint Añadir correos electrónicos a la lista de bloqueo de Braze."
 
 ---
 {% api %}
 # Añadir correos electrónicos a la lista de bloqueo {#blocklist-emails}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /email/blocklist
 {% endapimethod %}
 
-> Utiliza este punto de conexión para cancelar la suscripción de un usuario del correo electrónico y marcarlo como rebote duro.
+> Utiliza este endpoint para cancelar la suscripción de un usuario del correo electrónico y marcarlo como rebote duro.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#d51155a1-a6e8-4dcc-9f2b-88c54ab9e8c6 {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `email.blacklist`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `email.blacklist`.
 
 ## Límite de velocidad {#rate-limit}
 

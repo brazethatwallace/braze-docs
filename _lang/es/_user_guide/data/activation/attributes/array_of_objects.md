@@ -17,16 +17,16 @@ description: "Este artículo de referencia cubre el uso de un conjunto de objeto
 
 - Los conjuntos de objetos están pensados para atributos personalizados enviados a través de la API. No es posible cargar archivos CSV. Esto se debe a que las comas en el archivo CSV se interpretarán como un separador de columna, y las comas en los valores causarán errores de análisis.
 - Los conjuntos de objetos no tienen límite en el número de elementos, pero sí un tamaño máximo de 100&nbsp;KB. Si una actualización (como `$add` o `$update`) hace que el conjunto supere este límite, Braze descarta la actualización y el atributo permanece sin cambios. La solicitud de API aún devuelve una respuesta de éxito. Para mantener el conjunto por debajo del límite y poder agregar nuevos elementos, usa `$remove` para eliminar elementos del conjunto primero.
-- No todos los socios de Braze admiten conjuntos de objetos. Consulta la [documentación del socio]({{site.baseurl}}/partners/home/) para confirmar si la integración admite esta característica.
+- No todos los partners de Braze admiten conjuntos de objetos. Consulta la [documentación del partner]({{site.baseurl}}/partners/home) para confirmar si la integración admite esta característica.
 
 Actualizar o eliminar elementos de un conjunto requiere identificar el elemento por clave y valor, así que considera incluir un identificador único para cada elemento del conjunto. La unicidad se aplica solo al conjunto y es útil si deseas actualizar y eliminar objetos específicos de tu conjunto. Esto no es aplicado por Braze.
 
 {% alert important %}
-Cuando un atributo personalizado anidado en tu solicitud contiene valores no válidos (como formatos de hora no válidos o valores `null`), Braze descarta todas las actualizaciones de atributos personalizados anidados en la solicitud del procesamiento. Esto se aplica a todas las estructuras anidadas dentro de ese atributo específico. Verifica que todos los valores dentro de los atributos personalizados anidados sean válidos antes de enviar. Para más información, consulta [Crear y actualizar usuarios]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#how-does-userstrack-handle-invalid-nested-custom-attributes).
+Cuando un atributo personalizado anidado en tu solicitud contiene valores no válidos (como formatos de hora no válidos o valores `null`), Braze descarta todas las actualizaciones de atributos personalizados anidados en la solicitud del procesamiento. Esto se aplica a todas las estructuras anidadas dentro de ese atributo específico. Verifica que todos los valores dentro de los atributos personalizados anidados sean válidos antes de enviar. Para más información, consulta [Crear y actualizar usuarios]({{site.baseurl}}/api/endpoints/user_data/post_user_track#how-does-userstrack-handle-invalid-nested-custom-attributes).
 {% endalert %}
 
 {% alert tip %}
-Para más información sobre el uso de conjuntos de objetos para objetos de atributos de usuario, consulta [Objeto de atributos de usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens).
+Para más información sobre el uso de conjuntos de objetos para objetos de atributos de usuario, consulta [Objeto de atributos de usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object).
 {% endalert %}
 
 ## Ejemplo de API {#api-example}
@@ -50,13 +50,13 @@ Usa este formato cuando quieras crear el atributo por primera vez o reemplazar e
           "id": 1,
           "type": "dog",
           "breed": "beagle",
-          "name": "Gus"
+          "name": "Mochi"
         },
         {
           "id": 2,
           "type": "cat",
           "breed": "calico",
-          "name": "Gerald"
+          "name": "Pixel"
         }
       ]
     }
@@ -81,19 +81,19 @@ Usa `$add` cuando necesites añadir uno o más objetos nuevos y mantener los obj
             "id": 3,
             "type": "dog",
             "breed": "corgi",
-            "name": "Doug"
+            "name": "Biscuit"
           },
           {
             "id": 4,
             "type": "fish",
             "breed": "salmon",
-            "name": "Larry"
+            "name": "Pepper"
           },
            {
             "id": 5,
             "type": "bird",
             "breed": "parakeet",
-            "name": "Mary"
+            "name": "Noodle"
           }
         ]
       }
@@ -104,7 +104,7 @@ Usa `$add` cuando necesites añadir uno o más objetos nuevos y mantener los obj
 {% endtab %}
 {% tab Actualizar %}
 
-Actualiza valores para objetos específicos dentro de un conjunto usando el parámetro `_merge_objects` y el operador `$update`. De manera similar a las actualizaciones de otros objetos de [atributos personalizados anidados]({{site.baseurl}}/nested_custom_attribute_support/#api-request-body), esto realiza una fusión profunda.
+Actualiza valores para objetos específicos dentro de un conjunto usando el parámetro `_merge_objects` y el operador `$update`. De manera similar a las actualizaciones de otros objetos de [atributos personalizados anidados]({{site.baseurl}}/nested_custom_attribute_support#api-request-body), esto realiza una fusión profunda.
 
 Ten en cuenta que `$update` no se puede usar para eliminar una propiedad anidada de un objeto dentro de un conjunto. Para hacer esto, necesitarás eliminar el elemento completo del conjunto y luego agregar el objeto sin esa clave específica (usando una combinación de `$remove` y `$add`).
 
@@ -198,7 +198,7 @@ Dado que `$add` se ejecuta antes que `$remove`, no puedes usar un `$remove` segu
 
 ### Marcas de tiempo {#timestamps}
 
-Al incluir campos como marcas de tiempo en un conjunto de objetos, usa el formato `$time` en lugar de cadenas simples o enteros de época Unix.
+Al incluir campos como marcas de tiempo en un conjunto de objetos, usa el formato `$time` en lugar de cadenas simples o enteros de época unix.
 
 ```json
 {
@@ -220,7 +220,7 @@ Al incluir campos como marcas de tiempo en un conjunto de objetos, usa el format
 ```
 
 {% alert tip %}
-Para más información, consulta [Atributos personalizados anidados]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/).
+Para más información, consulta [Atributos personalizados anidados]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
 {% endalert %}
 
 ## Ejemplo de SDK {#sdk-example}
@@ -240,7 +240,7 @@ val json = JSONArray()
         .put("id", 2)
         .put("type", "cat")
         .put("breed", "calico")
-        .put("name", "Gerald")
+        .put("name", "Pixel")
     )
 
 braze.getCurrentUser { user ->
@@ -262,12 +262,12 @@ val json = JSONObject()
             .put("id", 4)
             .put("type", "fish")
             .put("breed", "salmon")
-            .put("name", "Larry"))
+            .put("name", "Pepper"))
         .put(JSONObject()
             .put("id", 5)
             .put("type", "bird")
             .put("breed", "parakeet")
-            .put("name", "Mary")
+            .put("name", "Noodle")
         )
     )
 
@@ -338,13 +338,13 @@ let json: [[String: Any?]] = [
     "id": 1,
     "type": "dog",
     "breed": "beagle",
-    "name": "Gus"
+    "name": "Mochi"
   ],
   [
     "id": 2,
     "type": "cat",
     "breed": "calico",
-    "name": "Gerald"
+    "name": "Pixel"
   ]
 ]
 
@@ -360,19 +360,19 @@ let json: [String: Any?] = [
       "id": 3,
       "type": "dog",
       "breed": "corgi",
-      "name": "Doug"
+      "name": "Biscuit"
     ],
     [
       "id": 4,
       "type": "fish",
       "breed": "salmon",
-      "name": "Larry"
+      "name": "Pepper"
     ],
     [
       "id": 5,
       "type": "bird",
       "breed": "parakeet",
-      "name": "Mary"
+      "name": "Noodle"
     ]
   ]
 ]
@@ -444,12 +444,12 @@ const json = [{
   "id": 1,
   "type": "dog",
   "breed": "beagle",
-  "name": "Gus"
+  "name": "Mochi"
 }, {
   "id": 2,
   "type": "cat",
   "breed": "calico",
-  "name": "Gerald"
+  "name": "Pixel"
 }];
 braze.getUser().setCustomUserAttribute("pets", json);
 ```
@@ -468,12 +468,12 @@ const json = {
     "id":  4,
     "type":  "fish",
     "breed":  "salmon",
-    "name":  "Larry",
+    "name":  "Pepper",
   }, {
     "id":  5,
     "type":  "bird",
     "breed":  "parakeet",
-    "name":  "Mary",
+    "name":  "Noodle",
   }]
 };
 braze.getUser().setCustomUserAttribute("pets", json, true);
@@ -545,7 +545,7 @@ I have a {{pet.type}} named {{pet.name}}! They are a {{pet.breed}}.
 ```
 {% endraw %}
 
-En este escenario, puedes usar Liquid para recorrer el conjunto `pets` e imprimir una declaración para cada mascota. [Asigna una variable]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#assigning-variables) al atributo personalizado `pets` y usa la notación de punto para acceder a las propiedades de un objeto. Especifica el nombre del objeto, seguido de un punto `.`, seguido del nombre de la propiedad.
+En este escenario, puedes usar Liquid para recorrer el conjunto `pets` e imprimir una declaración para cada mascota. [Asigna una variable]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/dashboard_tools#assign-variables) al atributo personalizado `pets` y usa la notación de punto para acceder a las propiedades de un objeto. Especifica el nombre del objeto, seguido de un punto `.`, seguido del nombre de la propiedad.
 
 ## Segmentación {#segmentation}
 
@@ -562,7 +562,7 @@ Por ejemplo, si deseas filtrar un conjunto de objetos `top_3_movies` basándote 
 
 ### Niveles de anidamiento {#levels-of-nesting}
 
-Puedes crear un segmento con hasta un nivel de anidamiento de conjunto (conjunto dentro de otro conjunto). Por ejemplo, dados los siguientes atributos, puedes crear un segmento para `pets[].name` contiene `Gus`, pero no puedes crear un segmento para `pets[].nicknames[]` contiene `Gugu`.
+Puedes crear un segmento con hasta un nivel de anidamiento de conjunto (conjunto dentro de otro conjunto). Por ejemplo, dados los siguientes atributos, puedes crear un segmento para `pets[].name` contiene `Mochi`, pero no puedes crear un segmento para `pets[].nicknames[]` contiene `Gugu`.
 
 {% raw %}
 ```json
@@ -575,20 +575,20 @@ Puedes crear un segmento con hasta un nivel de anidamiento de conjunto (conjunto
           "id": 1,
           "type": "dog",
           "breed": "beagle",
-          "name": "Gus",
+          "name": "Mochi",
           "nicknames": [
-            "Gugu",
-            "Gusto"
+            "MoMo",
+            "Mochi"
           ]
         },
         {
           "id": 2,
           "type": "cat",
           "breed": "calico",
-          "name": "Gerald",
+          "name": "Pixel",
           "nicknames": [
-            "GeGe",
-            "Gerry"
+            "PiPi",
+            "Pixel"
           ]
         }
       ]
@@ -617,13 +617,13 @@ Crear un nuevo conjunto registra un punto de datos por cada atributo en un objet
           "id": 1,
           "type": "dog",
           "breed": "beagle",
-          "name": "Gus"
+          "name": "Mochi"
         },
         {
           "id": 2,
           "type": "cat",
           "breed": "calico",
-          "name": "Gerald"
+          "name": "Pixel"
         }
       ]
     }

@@ -19,7 +19,7 @@ description: "この記事では、「カタログセレクションの作成」
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`catalogs.create_selection` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`catalogs.create_selection` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -36,7 +36,7 @@ description: "この記事では、「カタログセレクションの作成」
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | ----------- | -------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `selection` | 必須 | オブジェクト | セレクション条件を含むオブジェクト。オブジェクトとそのフィールドの詳細については、[カタログセレクションオブジェクト]({{site.baseurl}}/api/objects_filters/catalog_selection_object/)を参照してください。 |
+| `selection` | 必須 | オブジェクト | セレクション条件を含むオブジェクト。オブジェクトとそのフィールドの詳細については、[カタログセレクションオブジェクト]({{site.baseurl}}/api/objects_filters/catalog_selection_object)を参照してください。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 ### セレクションオブジェクトのパラメーター {#selection-object-parameters}
@@ -45,12 +45,12 @@ description: "この記事では、「カタログセレクションの作成」
 | ---------------- | -------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `name` | 必須 | 文字列 | カタログセレクションの名前。 |
 | `description` | オプション | 文字列 | カタログセレクションの説明。 |
-| `external_id` | 必須 | 文字列 | セレクションの一意の識別子。 |
-| `source` | 必須 | 文字列 | カタログデータのソース。Shopifyカタログの場合は `"Shopify"` を使用します。カスタムカタログの場合は `"custom"` を使用します。 |
-| `filters` | オプション | 配列 | カタログアイテムに適用するフィルターオブジェクトの配列。リクエストごとに最大4つのフィルターを指定できます。フィルターが指定されていない場合、カタログ内のすべてのアイテムが含まれます。 |
-| `results_limit` | オプション | 整数 | 返す結果の最大数。1から50までの数値を指定する必要があります。 |
+| `external_id` | オプション | 文字列 | セレクションの一意の識別子。 |
+| `source` | オプション | 文字列 | カタログデータのソース。Shopifyカタログの場合は `"Shopify"` に設定します。使用可能な値は `"Shopify"` と `"Braze"` です。 |
+| `filters` | 必須 | 配列 | カタログアイテムに適用するフィルターオブジェクトの配列。リクエストごとに最大10個のフィルターを指定できます。空のフィルター配列が指定された場合、カタログ内のすべてのアイテムが含まれます。 |
+| `results_limit` | 必須 | 整数 | 返す結果の最大数。1から50までの数値を指定する必要があります。 |
 | `sort_field` | オプション | 文字列 | 結果をソートするフィールド。`sort_order`と組み合わせて使用する必要があります。`sort_field`と`sort_order`の両方が指定されていない場合、結果はランダムな順序で返されます。 |
-| `sort_order` | オプション | 文字列 | 結果のソート順。有効な値は `"asc"`（昇順）または `"desc"`（降順）です。`sort_field`と組み合わせて使用する必要があります。`sort_field`と`sort_order`の両方が指定されていない場合、結果はランダムな順序で返されます。 |
+| `sort_order` | オプション | 文字列 | 結果のソート順。使用可能な値は `"asc"`（昇順）または `"desc"`（降順）です。`sort_field`と組み合わせて使用する必要があります。`sort_field`と`sort_order`の両方が指定されていない場合、結果はランダムな順序で返されます。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 {% alert note %}
@@ -68,7 +68,7 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
     "name": "favorite-restaurants",
     "description": "Favorite restaurants in NYC",
     "external_id": "favorite-nyc-restaurants",
-    "source": "custom",
+    "source": "Braze",
     "filters": [
       {
         "field": "City",
@@ -88,9 +88,9 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
 }'
 ```
 
-### フィルター演算子 {#filter-operators}
+### フィルターオペレーター {#filter-operators}
 
-| フィールドタイプ | サポートされている演算子 |
+| フィールドタイプ | サポートされているオペレーター |
 | ---------- | ------------------------------------------------------- |
 | `string` | `equals`, `does not equal` |
 | `number` | `equals`, `does not equal`, `greater than`, `less than` |
@@ -101,7 +101,7 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert note %}
-APIは、1回のセレクションリクエストにつき最大4つのフィルターをサポートしています。Brazeダッシュボードでは、セレクションごとに最大10個のフィルターを追加できます。フィルターは配列に記載された順序で適用されます。
+APIは、1回のセレクションリクエストにつき最大10個のフィルターをサポートしています。フィルターは配列に記載された順序で適用されます。
 {% endalert %}
 
 {% alert note %}

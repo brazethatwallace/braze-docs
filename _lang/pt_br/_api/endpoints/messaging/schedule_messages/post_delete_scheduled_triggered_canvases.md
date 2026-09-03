@@ -10,7 +10,7 @@ description: "Este artigo descreve detalhes sobre o endpoint da Braze para exclu
 ---
 {% api %}
 # Excluir Canvas programados disparados pela API {#delete-scheduled-api-triggered-canvases}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /canvas/trigger/schedule/delete
 {% endapimethod %}
 
@@ -22,9 +22,9 @@ As mensagens programadas ou os disparos que são excluídos perto ou durante o h
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `canvas.trigger.schedule.delete`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `canvas.trigger.schedule.delete`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
@@ -44,11 +44,11 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
-| `canvas_id` | Obrigatória | String | Consulte [Identificador do Canvas]({{site.baseurl}}/api/identifier_types/). |
-| `schedule_id` | Obrigatória | String | O `schedule_id` a ser excluído (obtido da resposta à programação de criação). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+| `canvas_id` | Obrigatório | String | Consulte [Identificador do Canvas]({{site.baseurl}}/api/identifier_types). |
+| `schedule_id` | Obrigatório | String | O `schedule_id` a ser excluído (obtido da resposta à programação de criação). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 
 ## Exemplo de solicitação {#example-request}

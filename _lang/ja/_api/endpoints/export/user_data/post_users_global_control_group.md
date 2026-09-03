@@ -18,21 +18,21 @@ description: "この記事では、「グローバルコントロールグルー
 
 ユーザーデータは、改行で区切られたユーザーJSONオブジェクトの複数のファイルとしてエクスポートされます（1行に1つのJSONオブジェクトなど）。ファイルが生成されるたびに、グローバルコントロールグループのすべてのユーザーが含まれます。Brazeは、ユーザーがいつグローバルコントロールグループに追加または削除されたかの履歴を保存しません。
 
-グローバルコントロールグループのセグメント識別子を確認するには、[API識別子タイプ]({{site.baseurl}}/api/identifier_types/?tab=segments#segment-identifier)を参照してください。
+グローバルコントロールグループのセグメント識別子を確認するには、[API識別子タイプ]({{site.baseurl}}/api/identifier_types?tab=segments#segment-identifier)を参照してください。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#aa3d8b90-d984-48f0-9287-57aa30469de2 {% endapiref %}
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`users.export.global_control_group` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`users.export.global_control_group` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## 認証情報ベースの応答の詳細 {#credentials-based-response-details}
+## 認証情報ベースのレスポンスの詳細 {#credentials-based-response-details}
 
-それぞれの**テクノロジーパートナー**ページを通じてBrazeに[S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3/)または[Azure]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents/)の認証情報を追加した場合、各ファイルはバケットにZIPファイルとしてアップロードされ、キー形式は `segment-export/SEGMENT_ID/YYYY-MM-dd/RANDOM_UUID-TIMESTAMP_WHEN_EXPORT_STARTED/filename.zip` のようになります。Azureを使用している場合は、BrazeのAzureパートナー概要ページで**これをデフォルトのデータエクスポート先にする**チェックボックスがオンになっていることを確認してください。
+それぞれの**テクノロジーパートナー**ページを通じてBrazeに[S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3)または[Azure]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents)の認証情報を追加した場合、各ファイルはバケットにZIPファイルとしてアップロードされ、キー形式は `segment-export/SEGMENT_ID/YYYY-MM-dd/RANDOM_UUID-TIMESTAMP_WHEN_EXPORT_STARTED/filename.zip` のようになります。Azureを使用している場合は、BrazeのAzureパートナー概要ページで**これをデフォルトのデータエクスポート先にする**チェックボックスがオンになっていることを確認してください。
 
 一般的に、処理を最適化するために5,000ユーザーごとに1つのファイルを作成します。大きなワークスペース内で小さなセグメントをエクスポートすると、複数のファイルが生成される場合があります。その後、ファイルを展開し、必要に応じてすべての `json` ファイルを1つのファイルに連結できます。`output_format` に `gzip` を指定した場合、ファイル拡張子は `.zip` ではなく `.gz` になります。
 
@@ -44,7 +44,7 @@ description: "この記事では、「グローバルコントロールグルー
 `braze.docs.bucket/segment-export/abc56c0c-rd4a-pb0a-870pdf4db07q/2019-04-25/d9696570-dfb7-45ae-baa2-25e302r2da27-1556044807/114f0226319130e1a4770f2602b5639a.zip`
 
 | プロパティ | 詳細 | 例での表示 |
-| ------------------------------- | ------------------------------------------------------------------------------------ | --- |
+| ------------------------------- | ------------------------------------------------------------------------------------ | -------------------------------------- |
 | `bucket-name` | バケット名に基づいて固定されます。 | `braze.docs.bucket` |
 | `segment-export` | 固定。 | `segment-export` |
 | `SEGMENT_ID` | エクスポートリクエストに含まれます。 | `abc56c0c-rd4a-pb0a-870pdf4db07q` |
@@ -115,10 +115,10 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/globa
 | エクスポートするフィールド | データタイプ | 説明 |
 | --------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `apps` | 配列 | このユーザーがセッションを記録したアプリ。以下のフィールドが含まれます。<br><br>- `name`: アプリ名<br>- `platform`: アプリプラットフォーム（iOS、Android、Webなど）<br>- `version`: アプリのバージョン番号または名前<br>- `sessions`: このアプリの総セッション数<br>- `first_used`: 初回セッションの日付<br>- `last_used`: 最終セッションの日付<br><br>すべてのフィールドは文字列です。 |
-| `attributed_campaign` | 文字列 | [アトリビューション連携]({{site.baseurl}}/partners/message_orchestration/)からのデータ（設定されている場合）。特定の広告キャンペーンの識別子。 |
-| `attributed_source` | 文字列 | [アトリビューション連携]({{site.baseurl}}/partners/message_orchestration/)からのデータ（設定されている場合）。広告が掲載されたプラットフォームの識別子。 |
-| `attributed_adgroup` | 文字列 | [アトリビューション連携]({{site.baseurl}}/partners/message_orchestration/)からのデータ（設定されている場合）。キャンペーンの下のオプションのサブグループの識別子。 |
-| `attributed_ad` | 文字列 | [アトリビューション連携]({{site.baseurl}}/partners/message_orchestration/)からのデータ（設定されている場合）。キャンペーンおよび広告グループの下のオプションのサブグループの識別子。 |
+| `attributed_campaign` | 文字列 | [アトリビューション連携]({{site.baseurl}}/partners/message_orchestration)からのデータ（設定されている場合）。特定の広告キャンペーンの識別子。 |
+| `attributed_source` | 文字列 | [アトリビューション連携]({{site.baseurl}}/partners/message_orchestration)からのデータ（設定されている場合）。広告が掲載されたプラットフォームの識別子。 |
+| `attributed_adgroup` | 文字列 | [アトリビューション連携]({{site.baseurl}}/partners/message_orchestration)からのデータ（設定されている場合）。キャンペーンの下のオプションのサブグループの識別子。 |
+| `attributed_ad` | 文字列 | [アトリビューション連携]({{site.baseurl}}/partners/message_orchestration)からのデータ（設定されている場合）。キャンペーンおよび広告グループの下のオプションのサブグループの識別子。 |
 | `braze_id` | 文字列 | このユーザーに対してBrazeが設定したデバイス固有の一意のユーザー識別子。 |
 | `country` | 文字列 | [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)標準を使用したユーザーの国。 |
 | `created_at` | 文字列 | ユーザープロファイルが作成された日時（ISO 8601形式）。 |
@@ -136,18 +136,18 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/globa
 | `last_name` | 文字列 | ユーザーの姓。 |
 | `phone` | 文字列 | E.164形式のユーザーの電話番号。 |
 | `purchase`s | 配列 | このユーザーが過去90日間に行った購入。 |
-| `random_bucket` | 整数 | ユーザーの[ランダムバケット番号]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events/#random-bucket-number-event)。ランダムユーザーの均一分布セグメントを作成するために使用されます。 |
+| `random_bucket` | 整数 | ユーザーの[ランダムバケット番号]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events#random-bucket-number-event)。ランダムユーザーの均一分布セグメントを作成するために使用されます。 |
 | `time_zone` | 文字列 | IANAタイムゾーンデータベースと同じ形式のユーザーのタイムゾーン。 |
 | `total_revenue` | 浮動小数点 | このユーザーに帰属する総収益。総収益は、ユーザーが受信したキャンペーンおよびキャンバスのコンバージョン期間中に行った購入に基づいて計算されます。 |
 | `uninstalled_at` | タイムスタンプ | ユーザーがアプリをアンインストールした日時。アプリがアンインストールされていない場合は省略されます。 |
-| `user_aliases` | オブジェクト | `alias_name` および `alias_label` を含む[ユーザーエイリアスオブジェクト]({{site.baseurl}}/api/objects_filters/user_alias_object/#user-alias-object-specification)（存在する場合）。 |
+| `user_aliases` | オブジェクト | `alias_name` および `alias_label` を含む[ユーザーエイリアスオブジェクト]({{site.baseurl}}/api/objects_filters/user_alias_object)（存在する場合）。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fields to export" }
 
 ## レスポンス {#response}
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
+    "message": (string) returns 'success' when the request completes without errors,
     "object_prefix": (required, string) the filename prefix that is used for the JSON file produced by this export, for example,'bb8e2a91-c4aa-478b-b3f2-a4ee91731ad1-1464728599',
     "url" : (optional, string) the URL where the segment export data can be downloaded if you do not have your own S3 credentials
 }
@@ -250,13 +250,13 @@ URLが公開された後、有効なのは数時間のみです。そのため�
     ],
     "braze_id": "5fbd99bac125ca40511f2cb1",
     "random_bucket" : 2365,
-    "first_name" : "Jane",
-    "last_name" : "Doe",
-    "email" : "example@braze.com",
+    "first_name" : "Alex",
+    "last_name" : "Smith",
+    "email" : "example@example.com",
     "dob" : "1980-12-21",
     "home_city" : "Chicago",
     "country" : "US",
-    "phone" : "+442071838750",
+    "phone" : "+15555550123",
     "language" : "en",
     "time_zone" : "Eastern Time (US & Canada)",
     "last_coordinates" : [41.84157636433568, -87.83520818508256],

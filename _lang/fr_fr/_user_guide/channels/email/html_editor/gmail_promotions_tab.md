@@ -22,7 +22,7 @@ Suivez ces étapes pour créer une carte de promotion Gmail pour une campagne pa
 
 ### Étape 1 : Créer une campagne par e-mail {#step-1-create-an-email-campaign}
 
-Commencez par [créer votre campagne par e-mail]({{site.baseurl}}/user_guide/channels/email/html_editor/), puis sélectionnez l'**éditeur de code HTML** comme expérience d'édition.
+Commencez par [créer votre campagne par e-mail]({{site.baseurl}}/user_guide/channels/email/html_editor), puis sélectionnez l'**éditeur de code HTML** comme expérience d'édition.
 
 ### Étape 2 : Ajouter les détails à la carte Gmail Promotion {#step-2-add-details-to-gmail-promotion-card}
 
@@ -86,7 +86,7 @@ Nous recommandons de télécharger vos images de produits dans la bibliothèque 
 | Devise | (facultatif) La devise du prix. |
 | Prix | Le prix de la promotion. |
 | Valeur de la réduction | Le montant déduit du prix d'origine. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 3 : Personnaliser votre carte Gmail Promotion" }
 
 ![Exemple de carrousel de produits d'une entreprise nommée Motto avec l'objet de l'e-mail « Nos chaussettes les plus vendues sont en promotion », avec trois images de chaussettes et leurs prix réduits.]({% image_buster /assets/img_archive/product_carousel.png %}){: style="max-width:40%;"}
 
@@ -98,7 +98,7 @@ Nous recommandons de télécharger vos images de produits dans la bibliothèque 
 Après avoir créé votre carte Gmail Promotion, sélectionnez **Generate HTML Code**. Copiez et collez le script dans l'élément `<head>` du code HTML de votre e-mail.
 
 {% alert tip %}
-Pour l'éditeur par glisser-déposer, copiez et collez le code HTML généré dans la section des [balises head personnalisées]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/#custom-head-tags) sous **Sending Settings**.
+Pour l'éditeur par glisser-déposer, copiez et collez le code HTML généré dans la section des [balises head personnalisées]({{site.baseurl}}/user_guide/channels/email/drag_and_drop#custom-head-tags) sous **Sending Settings**.
 {% endalert %}
 
 {% alert warning %}

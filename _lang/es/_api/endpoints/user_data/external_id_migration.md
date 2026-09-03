@@ -9,14 +9,14 @@ description: "Esta página de inicio explica y enumera la característica de mig
 page_type: landing
 
 guide_top_header: "Migración de ID externo"
-guide_top_text: "La API de migración de ID externo te permite cambiar el nombre de los ID externos existentes (creando un nuevo ID principal y dejando obsoleto el ID existente) y eliminar los ID obsoletos después de la migración. <br><br> Hemos diseñado esta solución para permitir múltiples ID externos con el fin de admitir un periodo de migración en el que no se rompan las versiones anteriores de tus aplicaciones que todavía estén en funcionamiento y que utilicen el esquema de nomenclatura de ID externo anterior. Te recomendamos encarecidamente que elimines los ID externos obsoletos cuando tu antiguo esquema de nombres ya no esté en uso."
+guide_top_text: "La API de migración de ID externo te permite renombrar los ID externos existentes (creando un nuevo ID principal y dejando obsoleto el ID existente) y eliminar los ID obsoletos después de la migración. <br><br> Hemos diseñado esta solución para permitir múltiples ID externos con el fin de admitir un periodo de migración en el que no se rompan las versiones anteriores de tus aplicaciones que todavía estén en funcionamiento y que utilicen el esquema de nomenclatura de ID externo anterior. Te recomendamos encarecidamente que elimines los ID externos obsoletos cuando tu antiguo esquema de nombres ya no esté en uso."
 
-guide_featured_title: "Puntos finales de migración de ID externo"
+guide_featured_title: "Puntos de conexión de migración de ID externo"
 guide_featured_list:
-  - name: "PUBLICAR: Renombrar ID externo"
-    link: /docs/api/endpoints/user_data/external_id_migration/post_external_ids_rename/
+  - name: "POST: Renombrar ID externo"
+    link: /docs/api/endpoints/user_data/external_id_migration/post_external_ids_rename
     image: /assets/img/braze_icons/users-01.svg
-  - name: "PUBLICAR: Eliminar ID externo obsoletos"
-    link: /docs/api/endpoints/user_data/external_id_migration/post_external_ids_remove/
+  - name: "POST: Eliminar ID externo"
+    link: /docs/api/endpoints/user_data/external_id_migration/post_external_ids_remove
     image: /assets/img/braze_icons/user-minus-01.svg
 ---

@@ -76,7 +76,7 @@ Speichern Sie die Konfiguration und starten Sie VS Code neu.
 {% endtabs %}
 
 {% alert note %}
-Context7 unterscheidet sich vom [Braze MCP-Server]({{site.baseurl}}/developer_guide/mcp_server/). Context7 gewährt Ihrem KI-Assistenten Zugriff auf die **Braze-Dokumentation**, während der Braze MCP-Server schreibgeschützten Zugriff auf **Ihre Braze-Workspace-Daten** (wie Campaigns, Segmente und Analytics) ermöglicht. Sie können beide zusammen verwenden, um eine umfassendere KI-gestützte Entwicklungserfahrung zu erzielen.
+Context7 unterscheidet sich vom [Braze MCP-Server]({{site.baseurl}}/developer_guide/mcp_server). Context7 gewährt Ihrem KI-Assistenten Zugriff auf die **Braze-Dokumentation**, während der Braze MCP-Server schreibgeschützten Zugriff auf **Ihre Braze-Workspace-Daten** (wie Campaigns, Segmente und Analytics) ermöglicht. Sie können beide zusammen verwenden, um eine umfassendere KI-gestützte Entwicklungserfahrung zu erzielen.
 {% endalert %}
 
 ## Prompts für die Braze-SDK-Entwicklung schreiben {#writing-prompts-for-braze-sdk-development}
@@ -85,7 +85,7 @@ Nachdem Sie Context7 eingerichtet haben, fügen Sie `use context7` in Ihre Promp
 
 ### React Native SDK {#react-native-sdk}
 
-Diese Prompts veranschaulichen gängige Integrationsaufgaben für das [Braze React Native SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=react%20native).
+Diese Prompts veranschaulichen gängige Integrationsaufgaben für das [Braze React Native SDK]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=react%20native).
 
 #### Initialisierung des SDK {#initializing-the-sdk}
 
@@ -122,7 +122,7 @@ programmatically. Use context7.
 
 ### Web SDK {#web-sdk}
 
-Diese Prompts veranschaulichen gängige Integrationsaufgaben für das [Braze Web SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web).
+Diese Prompts veranschaulichen gängige Integrationsaufgaben für das [Braze Web SDK]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web).
 
 #### Initialisierung des SDK
 
@@ -152,7 +152,7 @@ register a user for web push notifications after they click a
 Use context7.
 ```
 
-#### Verwaltung von Nutzer:innen-Attributen {#managing-user-attributes}
+#### Verwaltung von Nutzerattributen {#managing-user-attributes}
 
 ```text
 Using the Braze Web SDK, show me how to set standard user attributes
@@ -166,8 +166,8 @@ Sie können auf die Dokumentation des Braze Developer Guide als reine Textdateie
 
 | Datei | Beschreibung |
 |------|-------------|
-| [llms.txt](https://www.braze.com/docs/developer_guide/llms.txt) | Ein Verzeichnis der Braze-Dokumentationsseiten für Entwickler:innen mit Titeln und Beschreibungen. Nutzen Sie dies als Ausgangspunkt, um die verfügbare Dokumentation zu entdecken. |
-| [llms-full.txt](https://www.braze.com/docs/developer_guide/llms-full.txt) | Die vollständige Braze-Dokumentation für Entwickler:innen in einer einzigen Textdatei, formatiert für die Verwendung mit LLMs. |
+| [llms.txt]({{site.baseurl}}/developer_guide/llms.txt) | Ein Verzeichnis der Braze-Dokumentationsseiten für Entwickler:innen mit Titeln und Beschreibungen. Nutzen Sie dies als Ausgangspunkt, um die verfügbare Dokumentation zu entdecken. |
+| [llms-full.txt]({{site.baseurl}}/developer_guide/llms-full.txt) | Die vollständige Braze-Dokumentation für Entwickler:innen in einer einzigen Textdatei, formatiert für die Verwendung mit LLMs. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Klartext-Dokumentation" }
 
 Diese Dateien entsprechen dem [llms.txt-Standard](https://llmstxt.org/), einer sich entwickelnden Konvention, um Dokumentationen für KI-Tools zugänglich zu machen. Sie können diese Dateien direkt in Ihren Prompts referenzieren oder ihren Inhalt zur Kontextualisierung in ein LLM einfügen.

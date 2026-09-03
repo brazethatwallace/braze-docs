@@ -14,13 +14,13 @@ description: "이 문서에서는 환경설정 센터 생성 Braze 엔드포인�
 /preference_center/v1
 {% endapimethod %}
 
-> 이 엔드포인트를 사용하여 사용자가 이메일 캠페인에 대한 알림 환경설정을 관리할 수 있는 환경설정 센터를 생성합니다. API로 생성된 환경설정 센터를 구축하는 방법에 대한 단계는 [API를 사용하여 환경설정 센터 생성]({{site.baseurl}}/user_guide/message_building_by_channel/email/preference_center/overview/#creating-a-preference-center-with-api)을 참조하세요.
+> 이 엔드포인트를 사용하여 사용자가 이메일 캠페인에 대한 알림 환경설정을 관리할 수 있는 환경설정 센터를 생성합니다. API로 생성된 환경설정 센터를 구축하는 방법에 대한 단계는 [API를 사용하여 환경설정 센터 생성]({{site.baseurl}}/user_guide/message_building_by_channel/email/preference_center/overview#creating-a-preference-center-with-api)을 참조하세요.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#e15d7065-2cbc-4eb3-ae16-32efe43357a6 {% endapiref %}
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `preference_center.update` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `preference_center.update` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key-permissions)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -60,12 +60,12 @@ Authorization: Bearer YOUR-REST-API-KEY
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | --------- | ---------| --------- | ----------- |
 | `name` | 필수 | 문자열 | 다음 요구 사항을 충족하는 환경설정 센터의 이름입니다: <br>- 문자, 숫자, 하이픈, 밑줄만 포함합니다 <br>- 공백이 없습니다 |
-| `preference_center_title` | 선택 사항 | 문자열 | 환경설정 센터 및 확인 페이지의 제목입니다. 제목을 지정하지 않으면 페이지의 제목은 기본적으로 "Preference Center"로 설정됩니다. |
+| `preference_center_title` | 선택 사항 | 문자열 | 환경설정 센터 및 확인 페이지의 제목입니다. 제목을 지정하지 않으면 페이지의 제목은 기본값으로 "Preference Center"로 설정됩니다. |
 | `preference_center_page_html` | 필수 | 문자열 | 환경설정 센터 페이지의 HTML입니다. |
 | `confirmation_page_html` | 필수 | 문자열 | 확인 페이지의 HTML입니다. |
 | `state` | 선택 사항 | 문자열 | `active` 또는 `draft`를 선택합니다. 지정하지 않으면 기본값은 `active`입니다. |
 | `options` | 선택 사항 | 오브젝트 | 속성: <br>`meta-viewport-content`: 존재하는 경우 `viewport` 메타 태그가 페이지에 `content= <value of attribute>`로 추가됩니다.<br><br> `link-tags`: 페이지의 파비콘을 설정합니다. 설정하면 rel 속성이 포함된 `<link>` 태그가 페이지에 추가됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 {% alert note %}
 환경설정 센터 이름은 생성된 후에는 편집할 수 없습니다.
@@ -83,7 +83,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | --------- | ---------|
 | `{{subscribed_state.${email_global}}}` | 사용자의 글로벌 이메일 구독 상태(예: "opted_in", "subscribed" 또는 "unsubscribed")를 가져옵니다. |
 | `{{subscribed_state.${<subscription_group_id>}}}` | 사용자에 대해 지정된 구독 그룹의 구독 상태(예: "subscribed" 또는 "unsubscribed")를 가져옵니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="사용자 구독 상태" }
 
 #### 양식 입력 및 동작 {#form-inputs-and-action}
 
@@ -92,7 +92,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `{% form_field_name :email_global_state %}` | 특정 양식 입력 요소가 사용자의 글로벌 이메일 구독 상태에 해당함을 나타냅니다. 글로벌 이메일 구독 상태에 대한 선택 데이터와 함께 양식이 제출될 때 사용자의 선택 상태는 "opted_in", "subscribed" 또는 "unsubscribed"여야 합니다. 체크박스인 경우 사용자는 "opted_in" 또는 "unsubscribed" 상태가 됩니다. 숨겨진 입력의 경우 "subscribed" 상태도 유효합니다. |
 | `{% form_field_name :subscription_group <subscription_group_id> %}` | 특정 양식 입력 요소가 지정된 구독 그룹에 해당함을 나타냅니다. 특정 구독 그룹에 대한 선택 데이터와 함께 양식을 제출할 때 사용자의 선택 상태는 "subscribed" 또는 "unsubscribed" 중 하나여야 합니다. |
 | `{{preference_center_submit_url}}` | 양식 제출을 위한 URL을 생성합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="양식 입력 및 동작" }
 
 {% endraw %}
 
@@ -176,7 +176,7 @@ Authorization: Bearer YOUR-REST-API-KEY
         background-color: #fff;
         color: #333335;
         font-family:
-          Sailec W00 Medium,
+          Aribau Grotesk Regular,
           helvetica,
           arial,
           sans-serif;

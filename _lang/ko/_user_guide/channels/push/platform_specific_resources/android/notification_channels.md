@@ -16,7 +16,7 @@ channel:
 
 알림 채널은 애플리케이션 코드에서만 생성할 수 있으며 Braze 대시보드에서 프로그래밍 방식으로 생성할 수 없습니다. 엔지니어링 팀이 마케터와 협력하여 원하는 알림 채널이 대시보드에 올바르게 추가되도록 하는 것을 권장합니다.
 
-API 레벨 26(Android O)부터 푸시 알림을 표시하려면 유효한 채널이 필요합니다. 앱이 Android O 이상을 대상으로 하는 경우 Braze SDK 버전 2.1.0 이상을 사용해야 합니다. 개발 팀은 사용할 채널과 각 채널에 대한 권장 알림 설정(예: 중요도, 소리, 조명)을 애플리케이션 코드에서 정의해야 합니다. 자세한 내용은 [Android 개발자 설명서](https://developer.android.com/preview/features/notification-channels.html) 및 [Braze 개발자 설명서]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration/#step-5-define-notification-channels)를 참조하세요.
+API 레벨 26(Android O)부터 푸시 알림을 표시하려면 유효한 채널이 필요합니다. 앱이 Android O 이상을 대상으로 하는 경우 Braze SDK 버전 2.1.0 이상을 사용해야 합니다. 개발 팀은 사용할 채널과 각 채널에 대한 권장 알림 설정(예: 중요도, 소리, 조명)을 애플리케이션 코드에서 정의해야 합니다. 자세한 내용은 [Android 개발자 설명서](https://developer.android.com/preview/features/notification-channels.html) 및 [Braze 개발자 설명서]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration#step-5-define-notification-channels)를 참조하세요.
 
 {% alert note %}
 Android는 채널 이름의 현지화를 지원하므로 애플리케이션 코드에서 하나의 채널 ID를 채널 이름의 여러 번역과 연결할 수 있습니다.
@@ -69,9 +69,9 @@ Braze에 유효하지 않은 채널 ID가 제공된 경우(예: 개발자가 SDK
 
 1. Android 푸시를 포함하는 Campaign 또는 Canvas를 열거나 생성합니다.
 2. Android 푸시 메시지 작성기로 이동합니다.
-3. **Manage Notification Channels**를 선택합니다. 여기에 추가된 채널은 모든 Campaigns 및 Canvases에서 전역적으로 사용할 수 있습니다. 채널을 관리하려면 워크스페이스에 대한 "Manage Apps" [권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#limited-and-team-role-permissions)이 있어야 합니다.
+3. **Manage Notification Channels**를 선택합니다. 여기에 추가된 채널은 모든 Campaigns 및 Canvases에서 전역적으로 사용할 수 있습니다. 채널을 관리하려면 워크스페이스에 대한 "Manage Apps" [권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)이 있어야 합니다.
 
-특정 Campaign 또는 캔버스 단계에 알림 채널을 적용하면 **도달 가능 사용자** 수(타겟 오디언스 단계에 위치)가 Android 푸시에 대해 변경되지 않는 것처럼 보입니다. 그러나 선택한 알림 채널에 가입한 사용자만 메시지를 볼 수 있으며, Campaign 분석(예: 클릭 수)은 이 오디언스를 기반으로 측정됩니다.
+특정 Campaign 또는 캔버스 단계에 알림 채널을 적용하면 **도달 가능 사용자** 수(타겟 오디언스 단계에 위치)가 Android 푸시에 대해 변경되지 않는 것처럼 보입니다. 그러나 선택한 알림 채널에 가입한 사용자만 메시지를 볼 수 있으며, Campaign 분석(예: 클릭)은 이 오디언스를 기반으로 측정됩니다.
 
 ![구성된 채널 목록과 Manage Notification Channels가 표시된 Android 푸시 작성기]({% image_buster /assets/img_archive/push_notification_channels.png %})
 

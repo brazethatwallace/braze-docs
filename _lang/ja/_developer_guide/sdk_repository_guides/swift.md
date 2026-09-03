@@ -6,9 +6,11 @@ description: "GitHubからミラーリングされたBraze Swift SDK READMEリ�
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Swift SDKリポジトリガイド {#swift-sdk-repository-guide}
+
 ## Braze Swift SDKについて {#about-the-braze-swift-sdk}
 
-Braze Swift SDKは、Brazeのメッセージング、分析、ユーザーエンゲージメント機能をアプリに統合するのに役立ちます。
+Braze Swift SDKは、Brazeのメッセージング、分析、ユーザーエンゲージメント機能をアプリケーションに統合するのに役立ちます。
 
 開始するには、以下のリソースを参照してください。
 
@@ -49,13 +51,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 AppDelegate.braze?.changeUser(userId: "Jane Doe")
 ```
 
-高度な統合オプションについては、[Braze開発者ガイド](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=swift)を参照してください。
+高度な統合オプションの詳細については、[Braze開発者ガイド](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=swift)を参照してください。
 
 ## バージョンサポート {#version-support}
 
-以下の表は、Braze Swift SDKで使用されるツールのサポートされる最小バージョンを示しています。
+以下の表は、Braze Swift SDKで使用されるツールの最小サポートバージョンを示しています。
 
-ツール | サポートされる最小バージョン
+ツール | 最小サポートバージョン
 :----|:----
 iOS|12.0+
 Mac Catalyst|16.0+
@@ -67,35 +69,35 @@ Xcode|26.0+ (17A324)
 - Swift Package Manager
 - CocoaPods
 
-## ライブラリー {#libraries}
+## ライブラリ {#libraries}
 
-以下の表は、Braze Swift SDKの各ライブラリーについて説明しています。
+以下の表は、Braze Swift SDKの各ライブラリについて説明しています。
 
 <!-- Table generated with https://www.tablesgenerator.com/markdown_tables -->
 
 |                                                                                                                             | iOS |     tvOS      | macCatalyst |   visionOS    |
 |-----------------------------------------------------------------------------------------------------------------------------|:---:|:-------------:|:-----------:|:-------------:|
-| **BrazeKit**<br/> _[分析]と[プッシュ通知]をサポートするメインSDKライブラリー。_                            |  ✅  | ✅<sup>1</sup> |      ✅      |       ✅       |
-| **BrazeUI**<br/> _[In-App Messages]と[Content Cards]のためのBraze提供UIライブラリー。_                         |  ✅  |      n/a      |      ✅      |       ✅       |
-| **BrazeLocation**<br/> _[ロケーション分析とジオフェンスモニタリング]をサポートするロケーションライブラリー。_               |  ✅  | ✅<sup>2</sup> |      ✅      | ✅<sup>2</sup> |
-| **BrazeNotificationService**<br/> _[リッチプッシュ通知]をサポートする通知サービス拡張ライブラリー。_ |  ✅  |      n/a      |      ✅      |       ✅       |
-| **BrazePushStory**<br/> _[Push Stories]をサポートする通知コンテンツ拡張ライブラリー。_                      |  ✅  |      n/a      |      ✅      |       ✅       |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="ライブラリー" }
+| **BrazeKit**<br/> *[分析][analytics]と[プッシュ通知][push notifications]をサポートするメインSDKライブラリ。*                            |  ✅  | ✅<sup>1</sup> |      ✅      |       ✅       |
+| **BrazeUI**<br/> *[In-App Messages]と[Content Cards]用のBraze提供UIライブラリ。*                         |  ✅  |      n/a      |      ✅      |       ✅       |
+| **BrazeLocation**<br/> *[ロケーション分析とジオフェンスモニタリング][location analytics and geofence monitoring]をサポートするロケーションライブラリ。*               |  ✅  | ✅<sup>2</sup> |      ✅      | ✅<sup>2</sup> |
+| **BrazeNotificationService**<br/> *[リッチプッシュ通知][rich push notifications]をサポートする通知サービス拡張ライブラリ。* |  ✅  |      n/a      |      ✅      |       ✅       |
+| **BrazePushStory**<br/> *[Push Stories]をサポートする通知コンテンツ拡張ライブラリ。*                      |  ✅  |      n/a      |      ✅      |       ✅       |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="ライブラリ" }
 
-<sup>1</sup> _tvOSではプッシュ通知はサポートされていません_<br/>
-<sup>2</sup> _tvOSおよびvisionOSではジオフェンスモニタリングはサポートされていません_
+<sup>1</sup> *tvOSではプッシュ通知はサポートされていません*<br/>
+<sup>2</sup> *tvOSおよびvisionOSではジオフェンスモニタリングはサポートされていません*
 
-[分析]: https://www.braze.com/docs/user_guide/data_and_analytics/user_data_collection/sdk_data_collection/
-[プッシュ通知]: https://www.braze.com/docs/user_guide/message_building_by_channel/push
+[analytics]: https://www.braze.com/docs/user_guide/data_and_analytics/user_data_collection/sdk_data_collection/
+[push notifications]: https://www.braze.com/docs/user_guide/message_building_by_channel/push
 [In-App Messages]: https://www.braze.com/docs/user_guide/message_building_by_channel/in-app_messages
 [Content Cards]: https://www.braze.com/docs/user_guide/message_building_by_channel/content_cards
-[ロケーション分析とジオフェンスモニタリング]: https://www.braze.com/docs/user_guide/engagement_tools/locations_and_geofences
-[リッチプッシュ通知]: https://www.braze.com/docs/user_guide/message_building_by_channel/push/ios/rich_notifications/
+[location analytics and geofence monitoring]: https://www.braze.com/docs/user_guide/engagement_tools/locations_and_geofences
+[rich push notifications]: https://www.braze.com/docs/user_guide/message_building_by_channel/push/ios/rich_notifications/
 [Push Stories]: https://www.braze.com/docs/user_guide/message_building_by_channel/push/advanced_push_options/push_stories/
 
-## サンプル {#examples}
+## 例 {#examples}
 
-複数の機能の統合を紹介する[サンプルプロジェクト](https://github.com/braze-inc/braze-swift-sdk/blob/main/Examples)をご覧ください。
+複数の機能のサンプル統合を紹介する[サンプルプロジェクト](https://github.com/braze-inc/braze-swift-sdk/blob/main/Examples)をご覧ください。
 
 ## 代替リポジトリ {#alternative-repositories}
 
@@ -104,12 +106,12 @@ Xcode|26.0+ (17A324)
 | → **ソースおよびスタティックXCFrameworks** |                    [braze-inc/braze-swift-sdk] |                   ✓ |
 | スタティックXCFrameworks                   |    [braze-inc/braze-swift-sdk-prebuilt-static] |                   ✗ |
 | ダイナミックXCFrameworks                  |   [braze-inc/braze-swift-sdk-prebuilt-dynamic] |                   ✗ |
-| マージ可能なXCFrameworks（早期アクセス） | [braze-inc/braze-swift-sdk-prebuilt-mergeable] |                   ✗ |
+| マージ可能なXCFrameworks                | [braze-inc/braze-swift-sdk-prebuilt-mergeable] |                   ✗ |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="代替リポジトリ" }
 
 ## お問い合わせ {#contact}
 
-ご質問がある場合は、[support@braze.com](mailto:support@braze.com)までお問い合わせください。
+ご質問がある場合は、Brazeテクニカルサポートまでお問い合わせください。
 
 [braze-inc/braze-swift-sdk]: https://github.com/braze-inc/braze-swift-sdk
 [braze-inc/braze-swift-sdk-prebuilt-static]: https://github.com/braze-inc/braze-swift-sdk-prebuilt-static

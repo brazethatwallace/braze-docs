@@ -14,6 +14,7 @@ description: "This reference article covers how to generate Data Transformation 
 
 ## How to access {#how-to-access}
 
-{% multi_lang_include brazeai/generative_ai/access_data_transformation.md %}
+In the [Data Transformation]({{site.baseurl}}/user_guide/data/unification/data_transformation/) editor, select **Insert Code** to generate transformation code that turns an incoming webhook payload into valid Braze API requests.
 
-For more information, including example prompts, see [Generate data transformation code in Operator capabilities]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-data-transformation-code).
+
+For more information, including example prompts, see [Generate data transformation code in Operator capabilities]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-data-transformation-code).

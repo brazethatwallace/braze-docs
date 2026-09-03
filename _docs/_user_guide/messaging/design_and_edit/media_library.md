@@ -18,15 +18,15 @@ tool: Media
 |---|---|
 | "View Media Library Assets" permission | View media library assets |
 | "Edit Media Library Assets" permission | Create and update media library assets |
-| "Delete Media Library Assets" permission | Permanently delete media library assets |
+| "Delete Media Library Assets" permission | Remove media library assets from the UI. Deleted assets remain hosted by Braze to prevent breaking messages that reference them. To permanently delete an asset, contact Braze Support. |
 | "Replace Media Library Assets" permission | Replace the file of an existing media library asset while keeping its URL and asset ID stable |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Media library permissions" }
 
-For more information, see [User permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/).
+For more information, see [User permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 
 ## Media library versus CDN
 
-Using the media library instead of a Content Delivery Network (CDN) provides better caching and performance for in-app messages. All media library assets found in an in-app message will be pre-cached for faster display and will be available for offline display. Additionally, the media library is integrated with Braze composers, allowing marketers to select or tag images instead of copying and pasting image URLs.
+Using the media library instead of a Content Delivery Network (CDN) provides better caching and performance for in-app messages. All media library assets found in an in-app message are pre-cached for faster display and are available for offline display. Additionally, the media library is integrated with Braze composers, allowing you to select or tag images instead of copying and pasting image URLs.
 
 ## Accessing the media library
 
@@ -50,7 +50,15 @@ Later, when drafting a message in Braze, you can pull in your images from the me
 
 ![Two common ways of accessing the media library depending on the message composer. One shows the email Drag and Drop Editor with the title "Images and GIFs" and a button to "Add from Media Library". The other shows the standard editors, such as push and in-app messages, with the title "Media" and a button to "Add Image".]({% image_buster /assets/img_archive/media_library_composers.png %}){: style="border:none"}
 
-{% alert tip %} For more help with the media library, check out our [Media library FAQ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/faq/). {% endalert %}
+{% alert tip %} For more help with the media library, check out our [Media library FAQ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/faq). {% endalert %}
+
+## ZIP file uploads {#zip-file-uploads}
+
+When you upload a ZIP file to the media library, all files must be in the root of the ZIP folder—do not include subdirectories.
+
+This applies to every file in the archive—including font files (`.ttf`, `.woff`, `.otf`, `.woff2`), HTML, CSS, JavaScript, and images. Place each file in the root of the ZIP alongside the others.
+
+Alternatively, upload assets individually to the media library without zipping them.
 
 ## Replace a file
 
@@ -73,13 +81,15 @@ To replace an asset, you must have the "Replace Media Library Assets" permission
 
 ### Channels with processed image copies
 
-Some channels create an optimized copy of the image when the message is set up, resulting in a separate URL. Replacing the original media library asset does not update what consumers see for messages created using those channels, including in-app messages, Content Cards, push notifications, and banners.
+Some channels create an optimized copy of the image when the message is set up, resulting in a separate URL. This applies whether the image was added from the media library or through an external URL (for example, from an S3 bucket). Replacing the original media library asset does not update what consumers see for messages created using those channels, including Content Cards, push notifications, and banners.
 
-You can also replace an asset programmatically using the [`PUT /media_library/replace_file`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/replace_file/) endpoint.
+Traditional in-app messages (modal, slideup, and fullscreen) also follow this behavior. However, HTML in-app messages and drag-and-drop in-app messages do not. For those types, Braze does not cache the image, so changing or removing the original image URL breaks the image in live campaigns.
+
+You can also replace an asset programmatically using the [`PUT /media_library/replace_file`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/replace_file) endpoint.
 
 ## Image specifications
 
-All images uploaded to the media library must be less than 5&nbsp;MB. Supported file types are PNG, JPEG, GIF, SVG, and WebP. For recommended image sizes and specifications by messaging channel, refer to [Image specifications]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications/).
+All images uploaded to the media library must be less than 5&nbsp;MB. Supported file types are PNG, JPEG, GIF, SVG, and WebP. For recommended image sizes and specifications by messaging channel, refer to [Image specifications]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications).
 
 {% alert important %}
 GIFs with very elongated shapes (for example, 3000 x 2 pixels) or 300 or more frames may fail to upload, even if the total file size is small.
@@ -90,8 +100,7 @@ GIFs with very elongated shapes (for example, 3000 x 2 pixels) or 300 or more fr
 {% multi_lang_include brazeai/generative_ai/about_images.md %}
 
 {% alert important %}
-Before using this feature, review [how your data is used and sent to OpenAI]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#ai-policy).
+Before using this feature, review [how your data is used and sent to OpenAI]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#data-privacy-and-security).
 {% endalert %}
 
-If you don't see **AI Image Generator** on the **Media Library** page, confirm you have **Edit Media Library Assets** permission. If the option is still missing, contact your Braze customer team to confirm your workspace has access to BrazeAI image generation. If generation fails, review the [OpenAI content policy]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#ai-policy).
-
+If you don't see **Generate with Operator** on the **Media Library** page, confirm you have "Edit Media Library Assets" permission. If the option is still missing, contact your Braze account team to confirm your workspace has access to BrazeAI image generation. If generation fails, review the [OpenAI content policy]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#data-privacy-and-security).

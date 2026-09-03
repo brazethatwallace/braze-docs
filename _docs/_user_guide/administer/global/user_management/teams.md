@@ -18,7 +18,7 @@ Teams are not available on all Braze contracts. To access this feature, contact 
 
 ## How do Teams differ from permission sets and roles?
 
-{% multi_lang_include permissions.md content="Differences" %}
+{% multi_lang_include permissions/differences.md content="Differences" %}
 
 ## Create Teams {#creating-teams}
 
@@ -36,9 +36,9 @@ Braze administrators and limited users with the company-level permission "Can Ma
 
 ### Limit company user permissions without deleting a user
 
-To stop a company user from signing in while preserving their account, [suspend the user]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/#suspending-company-users) instead. Suspending puts the account in an inactive state where the user can't log in.
+To stop a company user from signing in while preserving their account, [suspend the user]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users#suspending-company-users) instead. Suspending puts the account in an inactive state where the user can't log in.
 
-If the user should remain able to sign in with limited capabilities, go to **Settings** > **Company Users**, select the user, and edit their permissions. Remove workspace-level permissions for campaigns, Canvases, segments, and user data, and leave only minimal access—for example, "View Media Library Assets". For more information, see [Edit a user's permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#edit-a-users-permissions).
+If the user should remain able to sign in with limited capabilities, go to **Settings** > **Company Users**, select the user, and edit their permissions. Remove workspace-level permissions for campaigns, Canvases, segments, and user data, and leave only minimal access—for example, "View Media Library Assets". For more information, see [Edit a user's permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#edit-a-users-permissions).
 
 Team permissions work on top of workspace permissions. If you assign the user to a Team, grant only the minimum team-level permissions they need, and don't grant permissions for campaigns, Canvases, segments, or user profiles. They remain in the workspace and can sign in, but they can't perform most messaging or audience actions.
 
@@ -102,16 +102,31 @@ The following are all available permissions you can assign at the Team level. An
 - Edit Dashboard Reports
 - Delete Dashboard Reports
 
-To see descriptions of what each user permission includes and how to use them, check out our [User Permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) section.
+To see descriptions of what each user permission includes and how to use them, check out our [User Permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) section.
 
 ## Assign Team tags {#tags-and-filters}
 
 You can assign a Team to Canvases, campaigns, Content Cards, segments, email templates, webhook templates, Content Blocks, and media library assets with the **Add Team** filter.
- 
+
+### Automatic Team assignment
+
+For users with Team-level permissions only (and no workspace-level edit permission), Braze can assign Teams automatically during object creation:
+
+| User's Team membership | Behavior |
+| --- | --- |
+| Exactly one Team | Braze auto-assigns that Team when the user creates a new campaign, Canvas, Content Block, or email template. |
+| More than one Team | The user must choose a Team before saving. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Automatic Team Assignment behavior" }
+
+When a Team is assigned to a campaign or Canvas, that Team's required segmentation filters appear in the audience builder as a read-only **Team filter** group.
+
+For Canvases, Braze only checks whether users match the team filter criteria when they enter the Canvas. After a user enters a Canvas, they continue to receive messages from all Canvas steps even if their attributes change and they no longer match the team filter criteria. Team filters don't behave like [delivery validations]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#delivery-validations), which re-evaluate users at each Message step send.
+
 ![Adding a Team tag to a campaign.]({% image_buster /assets/img/teams1.png %}){: style="max-width:70%;"}
 
-- Based on the *definitions* applied when the Team was created, when a Team filter is assigned, that engagement tool's audience is restricted to user profiles that match the definition.
-- Based on assigned *permissions*, Team members will only be allowed to access dashboard engagement tools that have their Team filter set. If they have limited or no workspace permissions, they must add a Team filter to certain objects before they can save or launch them. Team members are also able to filter Canvases, campaigns, Content Cards, and segments by Team to identify content relevant to them.
+- Based on the definitions applied when the Team was created, when a Team filter is assigned, that engagement tool's audience is restricted to user profiles that match the definition.
+- Based on assigned permissions, Team members are only allowed to access dashboard engagement tools that have their Team filter set. If they have limited or no workspace permissions, they must add a Team filter to certain objects before they can save or launch them. Team members can also filter Canvases, campaigns, Content Cards, and segments by Team to identify content relevant to them.
+- Users with Team-level permissions only don't see **Created by** or **Last edited by** filters on the segments, campaigns, or Canvas pages. Braze hides these filters so Team-only users can't browse all Braze users from those dropdowns.
 
 ### Use cases
 
@@ -166,7 +181,7 @@ For changes to active campaigns:
 
 You can archive Teams from the **Internal Teams** page.
 
-Select one or many Teams to archive. If the Team is not associated with any object within Braze, the Team will be archived immediately. If the Team is associated with an object, you will be presented with an option to remove the Team after the archive process or replace the Team.
+Select one or many Teams to archive. If the Team is not associated with any object within Braze, the Team is archived immediately. If the Team is associated with an object, you are presented with an option to remove the Team after the archive process or replace the Team.
 
 ![Archiving a Team that is associated with an object in Braze]({% image_buster /assets/img_archive/archive_a_team.png %}){: style="max-width:70%;"}
 

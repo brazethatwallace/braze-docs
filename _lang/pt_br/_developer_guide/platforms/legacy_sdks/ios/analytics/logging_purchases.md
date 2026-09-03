@@ -16,7 +16,7 @@ Registre as compras no app para poder rastrear sua receita ao longo do tempo e e
 
 A Braze oferece suporte a compras em várias moedas. As compras informadas em uma moeda diferente do dólar americano serão mostradas no dashboard em dólares americanos com base na taxa de câmbio na data em que foram informadas.
 
-Antes da implementação, não deixe de analisar exemplos das opções de segmentação oferecidas por eventos personalizados, atributos personalizados e eventos de compra em nossas [práticas recomendadas]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#user-data-collection), bem como nossas notas sobre [convenções de nomenclatura de eventos]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions/).
+Antes da implementação, não deixe de analisar exemplos das opções de segmentação oferecidas por eventos personalizados, atributos personalizados e eventos de compra em nossas [práticas recomendadas]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview#user-data-collection), bem como nossas notas sobre [convenções de nomenclatura de eventos]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions).
 
 ## Rastreamento de compras e receitas {#tracking-purchases-and-revenue}
 
@@ -48,7 +48,7 @@ Appboy.sharedInstance()?.logPurchase("your product ID", inCurrency: "USD", atPri
 
 ### Adição de propriedades {#properties-purchases}
 
-Você pode adicionar metadados sobre as compras transmitindo uma [matriz de propriedades de eventos]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events/#nested-objects) ou transmitindo um `NSDictionary` preenchido com os valores `NSNumber`, `NSString` ou `NSDate`.
+Você pode adicionar metadados sobre as compras transmitindo uma [matriz de propriedades de eventos]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events#nested-objects) ou transmitindo um `NSDictionary` preenchido com os valores `NSNumber`, `NSString` ou `NSDate`.
 
 Consulte a [documentação da classe iOS](http://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#aaca4b885a8f61ac9fad3936b091448cc) para obter mais detalhes.
 
@@ -85,8 +85,8 @@ Appboy.sharedInstance()?.logPurchase("your product ID", inCurrency: "USD", atPri
 Se você passar um valor de 10 dólares e uma quantidade de 3, isso será registrado no perfil do usuário como três compras de 10 dólares, totalizando 30 dólares.
 {% endalert %}
 
-### Registre as compras no nível do pedido {#log-purchases-at-the-order-level}
-Se quiser registrar as compras no nível do pedido em vez de no nível do produto, você pode usar o nome do pedido ou a categoria do pedido como `product_id`. Consulte nossa [especificação de objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object/#product-id-naming-conventions) para saber mais.
+### Registrar compras no nível do pedido {#log-purchases-at-the-order-level}
+Se quiser registrar as compras no nível do pedido em vez de no nível do produto, você pode usar o nome do pedido ou a categoria do pedido como `product_id`. Consulte nossa [especificação de objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object#naming-conventions) para saber mais.
 
 ### Chaves reservadas {#reserved-keys}
 
@@ -101,4 +101,4 @@ As seguintes chaves são reservadas e não podem ser usadas como propriedades de
 
 ### REST API
 
-Também é possível usar nossa REST API para registrar compras. Consulte a [documentação da API do usuário]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data) para obter detalhes.
+Também é possível usar nossa REST API para registrar compras. Consulte a [documentação da API do usuário]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data) para obter detalhes.

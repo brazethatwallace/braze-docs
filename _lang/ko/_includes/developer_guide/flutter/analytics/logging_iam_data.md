@@ -1,6 +1,6 @@
 {% multi_lang_include developer_guide/prerequisites/flutter.md %}
 
-## 로깅 메시지 데이터
+## 메시지 데이터 로깅 {#logging-message-data}
 
 `BrazeInAppMessage`를 사용하여 분석을 기록하려면 원하는 분석 함수에 인스턴스를 전달하세요:
 
@@ -19,15 +19,15 @@ braze.logInAppMessageImpression(inAppMessage);
 braze.logInAppMessageButtonClicked(inAppMessage, 0);
 ```
 
-## 메시지 데이터에 접근하기
+## 메시지 데이터에 접근하기 {#accessing-message-data}
 
 Flutter 앱에서 인앱 메시지 데이터에 접근하기 위해 `BrazePlugin`은 [Dart Streams](https://dart.dev/tutorials/language/streams)를 사용하여 인앱 메시지 데이터 전송을 지원합니다.
 
 `BrazeInAppMessage` 오브젝트는 `uri`, `message`, `header`, `buttons`, `extras` 등 네이티브 모델 오브젝트에서 사용할 수 있는 필드의 하위 집합을 지원합니다.
 
-### Dart 레이어에서 인앱 메시지 데이터 수신하기
+### Dart 레이어에서 인앱 메시지 데이터 수신하기 {#listen-for-in-app-message-data-in-the-dart-layer}
 
-Dart 레이어에서 인앱 메시지 데이터를 수신하려면 아래 코드를 사용하여 `StreamSubscription`을 생성하고 `braze.subscribeToInAppMessages()`를 호출하세요. 스트림 구독이 더 이상 필요하지 않으면 `cancel()`을 호출하세요.
+Dart 레이어에서 인앱 메시지 데이터를 수신하려면 아래 코드를 사용하여 `StreamSubscription`을 생성하고 `braze.subscribeToInAppMessages()`를 호출하세요. 스트림 구독이 더 이상 필요하지 않으면 `cancel()`을 호출하는 것을 잊지 마세요.
 
 ```dart
 // Create stream subscription
@@ -43,7 +43,7 @@ inAppMessageStreamSubscription.cancel();
 
 예제는 Braze Flutter SDK 샘플 애플리케이션의 [main.dart](https://github.com/braze-inc/braze-flutter-sdk/blob/master/example/lib/main.dart)를 참조하세요.
 
-### 네이티브 레이어에서 인앱 메시지 데이터 전달하기
+### 네이티브 레이어에서 인앱 메시지 데이터 전달하기 {#forward-in-app-message-data-from-the-native-layer}
 
 {% tabs %}
 {% tab Flutter SDK 18.0.0+ %}
@@ -84,7 +84,7 @@ class CustomInAppMessagePresenter: BrazeInAppMessageUI {
 {% endtab %}
 {% endtabs %}
 
-### 인앱 메시지 콜백 재생하기(선택 사항)
+### 인앱 메시지 콜백 재생하기(선택 사항) {#replaying-the-callback-for-in-app-messages-optional}
 
 콜백을 사용할 수 있기 전에 트리거된 인앱 메시지를 저장하고, 콜백이 설정된 후에 재생하려면 `BrazePlugin`을 초기화할 때 `customConfigs` 맵에 다음 항목을 추가하세요:
 ```dart

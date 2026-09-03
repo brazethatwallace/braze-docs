@@ -2,34 +2,34 @@
 nav_title: Analizar
 article_title: Operator Analyze
 page_order: 100
-description: "Haz preguntas en lenguaje natural sobre la interacción de tus canales, los ingresos atribuidos y cómo te comparas con los puntos de referencia del sector. Obtienes gráficos, comparaciones e información accionable en segundos."
+description: "Haz preguntas en lenguaje natural sobre la participación de tus canales, los ingresos atribuidos y cómo te comparas con los puntos de referencia del sector. Obtienes gráficos, comparaciones y análisis accionables en segundos."
 page_type: reference
 hidden: true
 ---
 
 # Operator Analyze {#operator-analyze}
 
-> Operator Analyze responde preguntas de rendimiento en lenguaje natural dentro de BrazeAI Operator<sup>TM</sup>. Las respuestas incluyen gráficos, comparaciones e información breve. No necesitas crear un dashboard ni generar un informe completo primero.
+> Operator Analyze responde preguntas de rendimiento en lenguaje natural dentro de BrazeAI Operator<sup>TM</sup>. Las respuestas incluyen gráficos, comparaciones e información breve. No necesitas crear un panel ni generar un informe completo primero.
 
 {% alert important %}
-Operator Analyze se encuentra actualmente en fase beta. Las capacidades y los análisis compatibles están en evolución. Para solicitar acceso para tu cuenta, ponte en contacto con tu administrador del éxito del cliente.
+Operator Analyze se encuentra actualmente en fase beta. Las capacidades y los análisis compatibles están en evolución. Para solicitar acceso para tu cuenta, ponte en contacto con tu administrador de éxito de cliente.
 {% endalert %}
 
 ## ¿Por qué usar Operator Analyze? {#why-use-operator-analyze}
 
 La mayoría de las preguntas sobre rendimiento aún requieren cambiar de herramienta, crear vistas o esperar a que alguien más lo haga. Algunos ejemplos incluyen "¿Cómo fue la semana pasada?", "¿Estamos alineados con el punto de referencia?" y "¿Qué Campaign está generando los mejores resultados?"
 
-Operator Analyze cubre métricas de interacción, *ingresos atribuidos* y puntos de referencia del sector. Son los mismos datos que de otro modo tendrías que extraer en un informe o dashboard. Pregunta con tus propias palabras desde el panel de Operator. Obtienes un gráfico, una comparación clasificada o una tabla, además de una a cinco piezas de información accionable.
+Operator Analyze cubre métricas de participación, *ingresos atribuidos* y puntos de referencia del sector. Son los mismos datos que de otro modo tendrías que extraer en un informe o panel. Pregunta con tus propias palabras desde el panel de Operator. Obtienes un gráfico, una comparación clasificada o una tabla, además de uno a cinco análisis accionables.
 
 ## Acceder a Operator Analyze {#access-operator-analyze}
 
 Operator Analyze se ejecuta en el panel de conversación de Operator.
 
-1. Selecciona **BrazeAI Operator<sup>TM</sup>** junto a tu perfil de usuario desde cualquier página del dashboard de Braze.
-2. Pregunta sobre la interacción de canales o comparaciones con puntos de referencia (consulta [Preguntas de ejemplo](#example-questions)).
+1. Selecciona **BrazeAI Operator<sup>TM</sup>** junto a tu perfil de usuario desde cualquier página del panel de Braze.
+2. Pregunta sobre la participación de canales o comparaciones con puntos de referencia (consulta [Preguntas de ejemplo](#example-questions)).
 3. Operator devuelve la respuesta y, cuando es útil, un gráfico o tabla y una breve lista de información.
 
-Para más información sobre el panel de chat de Operator, consulta [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/).
+Para más información sobre el panel de chat de Operator, consulta [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator).
 
 ## Preguntas de ejemplo {#example-questions}
 
@@ -46,7 +46,7 @@ Describe lo que quieres saber. No se requiere una redacción fija. Selecciona un
 {% tab Resúmenes de canales %}
 
 * "¿Qué canales están teniendo mejor rendimiento para nosotros en el año fiscal 26 hasta la fecha?"
-* "Desglosa la interacción por canal en los últimos 90 días."
+* "Desglosa la participación por canal en los últimos 90 días."
 * "¿Cuántos *ingresos atribuidos* generó cada canal de marketing el trimestre pasado?"
 
 {% endtab %}
@@ -60,10 +60,10 @@ Describe lo que quieres saber. No se requiere una redacción fija. Selecciona un
 {% endtab %}
 {% tab Análisis de tendencias %}
 
-* "¿Cuál es la tendencia mes a mes en la interacción de push para el año fiscal 26?"
+* "¿Cuál es la tendencia mes a mes en la participación de push para el año fiscal 26?"
 * "¿Cómo ha cambiado la *tasa de click-through* de correo electrónico trimestre a trimestre durante el último año?"
 * "¿Cómo han evolucionado nuestros *ingresos atribuidos* en los últimos 12 meses?"
-* "Muéstrame nuestra tendencia de interacción semanal para mensajes dentro de la aplicación en los últimos 90 días."
+* "Muéstrame nuestra tendencia de participación semanal para mensajes dentro de la aplicación en los últimos 90 días."
 
 {% endtab %}
 {% tab Ingresos y conversiones %}
@@ -77,7 +77,7 @@ Pregunta sobre *ingresos atribuidos* y *conversiones* agregados a nivel de Campa
 {% endtab %}
 {% tab Revisiones integrales %}
 
-* "Dame una revisión completa de nuestro programa de interacción con recomendaciones."
+* "Dame una revisión completa de nuestro programa de participación con recomendaciones."
 * "¿Dónde están nuestras mayores oportunidades y riesgos en todos los canales en este momento?"
 
 {% endtab %}
@@ -87,7 +87,7 @@ Pregunta sobre *ingresos atribuidos* y *conversiones* agregados a nivel de Campa
 
 Operator añade un gráfico cuando los datos lo permiten. Los **gráficos de líneas** son adecuados para series temporales, los **gráficos de barras** para comparaciones por categoría y las **tablas** cubren otros casos. Las tablas muestran porcentajes con dos decimales y usan comas para números grandes.
 
-Cuando una respuesta incluye múltiples métricas, Operator prioriza las tasas de interacción (*tasa de apertura*, *tasa de clics*, *tasa de apertura de push*) sobre los conteos brutos.
+Cuando una respuesta incluye múltiples métricas, Operator prioriza las tasas de participación (*tasa de apertura*, *tasa de clics*, *tasa de apertura de push*) sobre los conteos brutos.
 
 ## Canales y métricas compatibles {#supported-channels-and-metrics}
 
@@ -95,7 +95,7 @@ Los *ingresos atribuidos* y las *conversiones* usan la misma agregación por Cam
 
 | Canal | Métricas | Puntos de referencia del sector |
 | --- | --- | --- |
-| Correo electrónico | *Envíos*, *Entregas*, *Aperturas únicas*, *Clics únicos*, *Cancelaciones de suscripción* | Sí |
+| Correo electrónico | *Envíos*, *Entregas*, *Unique Opens*, *Clics únicos*, *Cancelaciones de suscripción* | Sí |
 | Push (iOS, Android, Web) | *Envíos*, *Entregas*, *Aperturas* | Sí |
 | SMS | *Envíos*, *Entregas*, *Clics en enlaces* | Sí |
 | In-App Messages | *Impresiones*, *Clics* | Sí |
@@ -105,7 +105,7 @@ Los *ingresos atribuidos* y las *conversiones* usan la misma agregación por Cam
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Canales compatibles, métricas y disponibilidad de puntos de referencia" }
 
 {% alert tip %}
-Operator usa conteos únicos para las tasas (por ejemplo, *aperturas únicas* divididas entre *entregas* para la *tasa de apertura de correo electrónico*). Si una cifra difiere de un dashboard, compara la ventana de atribución, el rango de tiempo y la definición. Operator enumera los tres en cada respuesta.
+Operator usa conteos únicos para las tasas (por ejemplo, *Unique Opens* divididas entre *entregas* para la *tasa de apertura de correo electrónico*). Si una cifra difiere de un panel, compara la ventana de atribución, el rango de tiempo y la definición. Operator enumera los tres en cada respuesta.
 {% endalert %}
 
 ## Períodos de tiempo y ventanas de atribución {#time-periods-and-attribution-windows}
@@ -130,7 +130,7 @@ También puedes usar rangos en formato ISO como `Q4 2025` o `2025-03-01 to 2025-
 
 Operator Analyze usa de forma predeterminada **7 días**. Indica una ventana en tu pregunta para cambiarla:
 
-* **1 día** para verificaciones rápidas de interacción
+* **1 día** para verificaciones rápidas de participación
 * **3 días** para Campaigns de ciclo corto
 * **7 días** para resúmenes generales y lecturas de Campaigns (predeterminado)
 * **30 días** para vistas estratégicas o de largo plazo
@@ -140,14 +140,14 @@ Si los resultados difieren en más del 50 % entre ventanas, Operator muestra las
 
 ## Actualización de datos {#data-freshness}
 
-Los datos se actualizan diariamente. La actividad del mismo día aparece después de la siguiente actualización. Cada respuesta indica la fecha más reciente del conjunto de datos. Si esa fecha parece desactualizada, ponte en contacto con tu administrador del éxito del cliente.
+Los datos se actualizan diariamente. La actividad del mismo día aparece después de la siguiente actualización. Cada respuesta indica la fecha más reciente del conjunto de datos. Si esa fecha parece desactualizada, ponte en contacto con tu administrador de éxito de cliente.
 
 ## Fuera del alcance {#whats-out-of-scope}
 
-* **Desgloses de rendimiento a nivel de producto.** Los *ingresos atribuidos* y la interacción se agregan a nivel de Campaign, Canvas, canal o programa. No se desglosan por productos o SKU. Las preguntas a nivel de producto o SKU no son compatibles. Ponte en contacto con tu administrador del éxito del cliente para esos análisis.
-* **Puntos de referencia del sector para WhatsApp y RCS.** Las métricas de interacción para ambos canales son compatibles. Los puntos de referencia aún no están disponibles.
+* **Desgloses de rendimiento a nivel de producto.** Los *ingresos atribuidos* y la participación se agregan a nivel de Campaign, Canvas, canal o programa. No se desglosan por productos o SKU. Las preguntas a nivel de producto o SKU no son compatibles. Ponte en contacto con tu administrador de éxito de cliente para esos análisis.
+* **Puntos de referencia del sector para WhatsApp y RCS.** Las métricas de participación para ambos canales son compatibles. Los puntos de referencia aún no están disponibles.
 
-Las preguntas fuera del alcance reciben una respuesta directa, una alternativa sugerida cuando es posible, o una referencia a tu administrador del éxito del cliente.
+Las preguntas fuera del alcance reciben una respuesta directa, una alternativa sugerida cuando es posible, o una referencia a tu administrador de éxito de cliente.
 
 ## Consejos para obtener mejores resultados {#tips-for-better-results}
 
@@ -159,9 +159,9 @@ Las preguntas fuera del alcance reciben una respuesta directa, una alternativa s
 
 ## Privacidad y seguridad de datos {#data-privacy-and-security}
 
-Operator Analyze sigue el mismo modelo de privacidad y seguridad que BrazeAI Operator<sup>TM</sup>. Para más información, consulta [Privacidad y seguridad de datos]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security/).
+Operator Analyze sigue el mismo modelo de privacidad y seguridad que BrazeAI Operator<sup>TM</sup>. Para más información, consulta [Privacidad y seguridad de datos]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security).
 
 ## Próximos pasos {#next-steps}
 
-* [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/)
-* [Revisar acciones]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/)
+* [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator)
+* [Revisar acciones]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions)

@@ -15,13 +15,15 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts zum Such
 /scim/v2/Users/{id}
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um ein bestehendes Dashboard-Nutzerkonto zu suchen, indem Sie die Ressource `id` angeben, die von der SCIM-Methode [`POST`]({{site.baseurl}}/api/endpoints/scim/post_create_user_account/) zurückgegeben wird.
+> Verwenden Sie diesen Endpunkt, um ein bestehendes Dashboard-Nutzerkonto zu suchen, indem Sie die Ressource `id` angeben, die von der SCIM-Methode [`POST`]({{site.baseurl}}/api/endpoints/scim/post_create_user_account) zurückgegeben wird.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#3df40764-8f74-4532-aed3-ab8a6cb92122 {% endapiref %}
 
+{% multi_lang_include scim/scim_alerts.md alert='custom_endpoint' %}
+
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie ein SCIM-Token. Verwenden Sie Ihre Dienst-Herkunft als `X-Request-Origin`-Header. Weitere Informationen finden Sie unter [Automatisierte Nutzerbereitstellung]({{site.baseurl}}/scim/automated_user_provisioning/).
+Um diesen Endpunkt zu verwenden, benötigen Sie ein SCIM-Token. Verwenden Sie Ihre Dienst-Herkunft als `X-Request-Origin`-Header. Weitere Informationen finden Sie unter [Automatisierte Nutzer:innenbereitstellung]({{site.baseurl}}/scim/automated_user_provisioning).
 
 ## Rate-Limit
 
@@ -31,22 +33,27 @@ Um diesen Endpunkt zu verwenden, benötigen Sie ein SCIM-Token. Verwenden Sie Ih
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
-| `id` | Erforderlich | String | Die Ressourcen-ID der Nutzer:in. Dieser Parameter wird von den Methoden `POST` `/scim/v2/Users/` oder `GET` `/scim/v2/Users?filter=userName eq "user@test.com"` zurückgegeben. |
+| `id` | Erforderlich | String | Die Ressourcen-ID der Nutzer:in. Dieser Parameter wird von den Methoden `POST` `/scim/v2/Users/` oder `GET` `/scim/v2/Users?filter=userName eq "user@example.com"` zurückgegeben. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Pfad-Parameter" }
 
-## Anfrage-Body {#request-body}
+## Anfrage-Parameter {#request-parameters}
+
 ```http
 Content-Type: application/json
 X-Request-Origin: YOUR-REQUEST-ORIGIN-HERE
-Authorization: Bearer YOUR-REST-API-KEY
+Authorization: Bearer YOUR-SCIM-TOKEN-HERE
 ```
+
+{% alert note %}
+Wenn Sie eine `401`-Antwort erhalten, überprüfen Sie, ob Sie ein SCIM-Token verwenden (keinen REST-API-Schlüssel), ob `X-Request-Origin` mit Ihrer Dienst-Herkunft übereinstimmt und ob Ihre IP-Adresse auf der SCIM-Allowlist steht. Weitere Details finden Sie unter [Automatisierte Nutzer:innenbereitstellung]({{site.baseurl}}/scim/automated_user_provisioning).
+{% endalert %}
 
 ## Beispielanfrage {#example-request}
 ```bash
 curl --location --request GET 'https://rest.iad-01.braze.com/scim/v2/Users/dfa245b7-24195aec-887bb3ad-602b3340' \
 --header 'Content-Type: application/json' \
 --header 'X-Request-Origin: YOUR-REQUEST-ORIGIN-HERE' \
---header 'Authorization: Bearer YOUR-API-KEY-HERE' \
+--header 'Authorization: Bearer YOUR-SCIM-TOKEN-HERE' \
 ```
 
 ## Antwort {#response}
@@ -54,14 +61,14 @@ curl --location --request GET 'https://rest.iad-01.braze.com/scim/v2/Users/dfa24
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
     "id": "dfa245b7-24195aec-887bb3ad-602b3340",
-    "userName": "user@test.com",
+    "userName": "user@example.com",
     "name": {
         "givenName": "Test",
         "familyName": "User"
     },
     "department": "finance",
-    "lastSignInAt": "Thursday, January 1, 1970 12:00:00 AM",
-    "createdAt": "Thursday, January 1, 1970 12:00:00 AM",
+    "lastSignInAt": "2024 Nov 11, 4:20 PM",
+    "createdAt": "2024 Nov 11, 4:20 PM",
     "permissions": {
         "companyPermissions": ["manage_company_settings"],
         "roles": [
@@ -98,6 +105,35 @@ curl --location --request GET 'https://rest.iad-01.braze.com/scim/v2/Users/dfa24
             }
         ]
     }
+}
+```
+
+## Antwort-Parameter {#response-parameters}
+
+| Parameter | Datentyp | Beschreibung |
+|---|---|---|
+| `schemas` | String-Array | SCIM-Nutzer:innenschema. |
+| `id` | String | Die Ressourcen-ID der Nutzer:in. |
+| `userName` | String | Die E-Mail-Adresse der Nutzer:in. |
+| `name` | Objekt | Enthält `givenName` und `familyName`. |
+| `department` | String | Die Abteilung der Nutzer:in, falls festgelegt. |
+| `createdAt` | String | Zeitpunkt der Erstellung des Nutzer:innenkontos. Gibt `N/A` zurück, wenn nicht festgelegt; andernfalls im Format `YYYY Mon DD, H:MM AM/PM`. |
+| `lastSignInAt` | String | Zeitpunkt der letzten Anmeldung der Nutzer:in. Gibt `N/A` zurück, wenn sich die Nutzer:in noch nicht angemeldet hat; andernfalls im Format `YYYY Mon DD, H:MM AM/PM`. |
+| `permissions` | Objekt | Unternehmens-, Workspace-, Team- und Rollenberechtigungen der Nutzer:in. Siehe das [Berechtigungsobjekt]({{site.baseurl}}/scim_api_appendix). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Antwort-Parameter" }
+
+### Fehlerzustände {#error-states}
+
+Wenn für die angegebene Ressource `id` keine Nutzer:in existiert, gibt der Endpunkt Folgendes zurück:
+
+```http
+HTTP/1.1 404 Not Found
+Content-Type: application/json
+
+{
+  "schemas": ["urn:ietf:params:scim:api:messages:2.0:Error"],
+  "status": 404,
+  "detail": "Resource not found"
 }
 ```
 

@@ -21,7 +21,7 @@ El análisis RFM es una técnica de marketing que identifica a tus mejores usuar
 | Recencia | Qué tan recientemente un cliente realizó una compra. Una puntuación más alta significa compras más recientes. |
 | Frecuencia | Con qué frecuencia un cliente realizó una compra. Una puntuación más alta significa mayor frecuencia. |
 | Valor monetario | Cantidad total de dinero que un cliente gastó. Una puntuación más alta significa mayor gasto. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="RFM categories" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Categorías RFM" }
 
 {% alert note %}
 Los eventos de compra deben estar habilitados para usar segmentos RFM SQL, ya que el valor monetario de tus usuarios se determina por los ingresos que han generado a través de los eventos de compra de Braze.
@@ -29,8 +29,8 @@ Los eventos de compra deben estar habilitados para usar segmentos RFM SQL, ya qu
 
 ## Crear un segmento RFM {#creating-an-rfm-segment}
 
-1. Ve a **Audience** > **Segment Extensions**.
-2. Selecciona **New Extension** y luego selecciona **Recency, frequency, and monetary value (RFM) segment**.
+1. Ve a **Audiencia** > **Extensiones de segmento**.
+2. Selecciona **Nueva extensión** y luego selecciona **Recency, frequency, and monetary value (RFM) segment**.
 
 ![Modal con la opción de crear un segmento de catálogo para eventos, compras o segmentos RFM.]({% image_buster /assets/img/segment/select_rfm_segment.png %}){: style="max-width:80%" }
 
@@ -43,7 +43,7 @@ Los eventos de compra deben estar habilitados para usar segmentos RFM SQL, ya qu
 | Fecha de inicio | Especifica un punto de inicio fijo para tu análisis | Analizar la actividad del usuario a partir de una fecha específica, como después del lanzamiento de una campaña. |
 | Fecha de fin | Especifica un punto de fin fijo para tu análisis | Analizar la actividad del usuario hasta una fecha específica, como antes de una actualización de producto. |
 | Rango de fechas | Especifica tanto una fecha de inicio como de fin para un período personalizado | Analizar el comportamiento del usuario durante un período definido, como un evento promocional. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Creating an RFM segment" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Crear un segmento RFM" }
 
 {: start="4"}
 4. Selecciona los [grupos RFM](#rfm-groups) generados para incluir en tu segmento. Si seleccionas múltiples grupos, tu segmento incluye a los usuarios que forman parte de cualquiera de los grupos seleccionados.
@@ -73,4 +73,4 @@ Los segmentos RFM se evalúan en un orden específico. Los usuarios se asignan a
 | At Risk            | Usuarios que históricamente han tenido puntuaciones moderadas de frecuencia y valor monetario, pero que no han comprado en mucho tiempo. | 0-1              | 1-3                | 1-3               |
 | About to Sleep     | Usuarios que tienen puntuaciones bajas en todas las métricas.                                       | 1                | 0-3                | 0-3               |
 | Hibernating        | Usuarios con frecuencia moderada pero que han estado inactivos durante un período prolongado.    | 0                | 0-2                | 0-3               |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="RFM groups" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Grupos RFM" }

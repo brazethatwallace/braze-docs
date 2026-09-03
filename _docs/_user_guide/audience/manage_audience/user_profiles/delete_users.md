@@ -51,7 +51,7 @@ On their profile page, select <i class="fa-solid fa-ellipsis-vertical"></i> **Sh
 
 ### Deleting a segment {#delete-segment}
 
-If you haven't already, [create a segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) containing the user profiles you want to delete. Be sure to include all user profiles if you're deleting duplicate users.
+If you haven't already, [create a segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) containing the user profiles you want to delete. Be sure to include all user profiles if you're deleting duplicate users.
 
 In Braze, go to **Audience** > **Manage Audience**, then select the **Delete Users** tab.
 
@@ -67,8 +67,10 @@ Type **DELETE** to confirm your request, then select **Delete users**.
 
 The users in this segment won't be deleted immediately. Instead, they'll be marked as pending deletion for the next 7 days. After this time, they'll be deleted and we'll email you to let you know.
 
+During the 7-day waiting period, users pending deletion can still receive campaigns and Canvases unless you explicitly exclude them. To prevent pending users from receiving messages, add a segment filter to exclude users with the **Pending Deletion** status from your campaigns and Canvases.
+
 {% alert tip %}
-To ensure that these exact users are deleted regardless of segment changes, a segment filter called **Pending Deletion** is automatically created. You can [use this filter]({{site.baseurl}}/user_guide/audience/segments/managing_segments/#filters) to check the status of pending deletions.
+To ensure that these exact users are deleted regardless of segment changes, a segment filter called **Pending Deletion** is automatically created. You can [use this filter]({{site.baseurl}}/user_guide/audience/segments/managing_segments#filters) to check the status of pending deletions.
 {% endalert %}
 
 ## Confirming segment deletions
@@ -103,7 +105,7 @@ You can check the status of a deletion using [segment filters](#segment-filters)
 
 ### Segment filters
 
-When you request a segment of users to be deleted, a [segment filter]({{site.baseurl}}/user_guide/audience/segments/managing_segments/#filters) called **Pending Deletion** is automatically created. You can use it to:
+When you request a segment of users to be deleted, a [segment filter]({{site.baseurl}}/user_guide/audience/segments/managing_segments#filters) called **Pending Deletion** is automatically created. You can use it to:
 
 - See the exact set of users tied to a specific deletion run date.
 - Exclude those users from campaigns so they don't receive messages before removal.
@@ -135,13 +137,13 @@ For more details about a specific request, select <i class="fa-solid fa-eye"></i
 
 ### Security event report
 
-You can also check the status of previous deletions by downloading a security event report. For more information, see [Security settings]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#security-event-report).
+You can also check the status of previous deletions by downloading a security event report. For more information, see [Security settings]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#security-event-report).
 
 ## Frequently asked questions {#faq}
 
 ### Can I delete segments with more than 10 million users?
 
-No. You cannot delete segments with more than 10 million users. If you need help deleting a segment of this size, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/).
+No. You cannot delete segments with more than 10 million users. If you need help deleting a segment of this size, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 
 ### I can only delete up to 10 million users at a time. Is this a bug?
 
@@ -161,10 +163,10 @@ Yes. However, you can add a segment inclusion filter to exclude all users with t
 
 ### Can I recover deleted user profiles?
 
-Deleting individual users are permanent.
+Deleting individual users is permanent.
 
 You can [cancel segment deletions](#cancel) within the first 7 days after. However, any users already deleted before cancelling cannot be restored.
 
 ### Can I delete users with the API instead of the dashboard?
 
-Yes. For smaller batches, you can use the [`/users/delete` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/), which accepts up to 50 identifiers per request and is subject to that endpoint's [rate limit]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/#rate-limit). Segment-based dashboard deletion is better suited to very large audiences but includes the [7-day waiting period](#about-user-deletion).
+Yes. For smaller batches, you can use the [`/users/delete` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_delete), which accepts up to 50 identifiers per request and is subject to that endpoint's [rate limit]({{site.baseurl}}/api/endpoints/user_data/post_user_delete#rate-limit). Segment-based dashboard deletion is better suited to very large audiences but includes the [7-day waiting period](#about-user-deletion).

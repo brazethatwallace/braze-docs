@@ -12,11 +12,11 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# 방향 사용자 정의
+# 방향 사용자 정의 {#customize-orientation}
 
-## 모든 인앱 메시지의 방향 설정하기
+## 모든 인앱 메시지의 방향 설정하기 {#setting-orientation-for-all-in-app-messages}
 
-모든 인앱 메시지에 고정 방향을 설정하려면 `ABKInAppMessageUIController`에서 `supportedOrientationMask` 속성정보를 설정하면 됩니다. 앱 호출 후 다음 코드를 `startWithApiKey:inApplication:withLaunchOptions:` 에 추가합니다:
+모든 인앱 메시지에 고정 방향을 설정하려면 `ABKInAppMessageUIController`에서 `supportedOrientationMask` 속성을 설정하면 됩니다. 앱에서 `startWithApiKey:inApplication:withLaunchOptions:`를 호출한 후 다음 코드를 추가합니다:
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -42,11 +42,11 @@ if let controller = Appboy.sharedInstance()?.inAppMessageController.inAppMessage
 {% endtab %}
 {% endtabs %}
 
-이렇게 하면 기기 방향에 관계없이 모든 인앱 메시지가 지원되는 방향으로 표시됩니다. 기기의 방향이 인앱 메시지의 `orientation` 속성정보에서도 지원해야 메시지가 표시됩니다.
+이렇게 하면 기기 방향에 관계없이 모든 인앱 메시지가 지원되는 방향으로 표시됩니다. 메시지가 표시되려면 기기 방향이 인앱 메시지의 `orientation` 속성에서도 지원되어야 합니다.
 
-## 인앱 메시지별 방향 설정
+## 인앱 메시지별 방향 설정 {#setting-orientation-per-in-app-message}
 
-또는 메시지별로 방향을 설정할 수도 있습니다. 이렇게 하려면 [인앱 메시지 위임자를]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/customization/setting_delegates/) 설정하세요. 그런 다음, `beforeInAppMessageDisplayed:` 위임 메서드의 `ABKInAppMessage`에서 `orientation` 속성정보를 설정합니다.
+또는 메시지별로 방향을 설정할 수도 있습니다. 이렇게 하려면 [인앱 메시지 델리게이트]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/customization/setting_delegates)를 설정하세요. 그런 다음 `beforeInAppMessageDisplayed:` 델리게이트 메서드에서 `ABKInAppMessage`의 `orientation` 속성을 설정합니다:
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -62,7 +62,7 @@ inAppMessage.orientation = ABKInAppMessageOrientationLandscape;
 {% endtab %}
 {% tab swift %}
 
-```swift    
+```swift
   // Set inAppMessage orientation to portrait
   inAppMessage.orientation = ABKInAppMessageOrientation.portrait
 
@@ -73,15 +73,14 @@ inAppMessage.orientation = ABKInAppMessageOrientationLandscape;
 {% endtab %}
 {% endtabs %}
 
-기기 방향이 인앱 메시지의 `orientation` 속성정보와 일치하지 않으면 인앱 메시지가 표시되지 않습니다.
+기기 방향이 인앱 메시지의 `orientation` 속성과 일치하지 않으면 인앱 메시지가 표시되지 않습니다.
 
 {% alert note %}
-iPads의 경우 인앱 메시지는 실제 화면 방향과 관계없이 사용자가 선호하는 방향 스타일로 표시됩니다.
+iPad의 경우 인앱 메시지는 실제 화면 방향과 관계없이 사용자가 선호하는 방향 스타일로 표시됩니다.
 {% endalert %}
 
-## 메서드 선언
+## 메서드 선언 {#method-declarations}
 
 자세한 내용은 다음 헤더 파일을 참조하세요:
 
 - [`ABKInAppMessage.h`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/ABKInAppMessage.h)
-

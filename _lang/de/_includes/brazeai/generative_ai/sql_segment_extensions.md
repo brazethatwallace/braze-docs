@@ -1,8 +1,8 @@
 # SQL-Segmenterweiterungen {#sql-segment-extensions}
 
-> Sie können eine Segmenterweiterung mithilfe von Snowflake-SQL-Abfragen von [Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/)-Daten erstellen. SQL kann Ihnen helfen, neue Segmentierungs-Anwendungsfälle zu erschließen, da es die Flexibilität bietet, die Beziehungen zwischen Daten auf eine Weise zu beschreiben, die mit anderen Segmentierungs-Features nicht möglich ist.
+> Sie können eine Segmenterweiterung mithilfe von Snowflake-SQL-Abfragen von [Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake)-Daten erstellen. SQL kann Ihnen helfen, neue Segmentierungs-Anwendungsfälle zu erschließen, da es die Flexibilität bietet, die Beziehungen zwischen Daten auf eine Weise zu beschreiben, die mit anderen Segmentierungs-Features nicht möglich ist.
 >
-> Wie bei Standard-Segmenterweiterungen können Sie in Ihrer SQL-Segmenterweiterung Events aus den letzten zwei Jahren (730 Tage) abfragen. Im Gegensatz zu Standard-Segmenterweiterungen [verbrauchen SQL-Segmenterweiterungen Credits](#credits).
+> Wie bei Standard-Segmenterweiterungen können Sie in Ihrer SQL-Segmenterweiterung Ereignisse aus den letzten zwei Jahren (730 Tage) abfragen. Im Gegensatz zu Standard-Segmenterweiterungen [verbrauchen SQL-Segmenterweiterungen Credits](#credits).
 
 ## Voraussetzungen {#prerequisites}
 
@@ -29,7 +29,7 @@ So erstellen Sie eine SQL-Segmenterweiterung mit vollständiger Aktualisierung:
 
 1. Gehen Sie zu **Zielgruppe** > **Segmenterweiterungen**.
 2. Wählen Sie **Neu erstellen** und dann **Vollständige Aktualisierung**.<br><br>
-   ![]({% image_buster /assets/img/segment/segment_extension_modal.png %}){: style="max-width:50%" }<br><br>
+   ![Modal „Neue Erweiterung erstellen“ mit den Optionen „Vollständige Aktualisierung“ und „Inkrementelle Aktualisierung“.]({% image_buster /assets/img/segment/segment_extension_modal.png %}){: style="max-width:50%" }<br><br>
 3. Fügen Sie einen Namen für Ihre Segmenterweiterung hinzu und geben Sie Ihr SQL ein. Anforderungen und Ressourcen finden Sie in [Schritt 2](#step-2-write-your-sql).<br><br>
    ![SQL-Editor, der ein Beispiel für eine SQL-Segmenterweiterung anzeigt.]({% image_buster /assets/img_archive/sql_segments_editor.png %}){: style="max-width:60%" }<br><br>
 4. Speichern Sie Ihre Segmenterweiterung.
@@ -41,7 +41,7 @@ So erstellen Sie eine SQL-Segmenterweiterung mit inkrementeller Aktualisierung:
 
 1. Gehen Sie zu **Zielgruppe** > **Segmenterweiterungen**.
 2. Wählen Sie **Neu erstellen** und dann **Inkrementelle Aktualisierung**.<br><br>
-   ![]({% image_buster /assets/img/segment/segment_extension_modal.png %}){: style="max-width:50%" }<br><br>
+   ![Modal „Neue Erweiterung erstellen“ mit den Optionen „Vollständige Aktualisierung“ und „Inkrementelle Aktualisierung“.]({% image_buster /assets/img/segment/segment_extension_modal.png %}){: style="max-width:50%" }<br><br>
 3. Fügen Sie einen Namen für Ihre Segmenterweiterung hinzu und geben Sie Ihr SQL ein. Anforderungen und Ressourcen finden Sie im Abschnitt [SQL schreiben](#writing-sql).<br><br>
    ![SQL-Editor, der ein Beispiel für eine inkrementelle SQL-Segmenterweiterung anzeigt.]({% image_buster /assets/img_archive/sql_segments_editor_incremental.png %}){: style="max-width:60%" }<br><br>
 4. Falls gewünscht, wählen Sie **Regenerate Extension Daily**.<br><br>
@@ -63,7 +63,7 @@ Der KI-SQL-Generator nutzt [GPT](https://openai.com/gpt-4), powered by OpenAI, u
 
 Um den KI-SQL-Generator zu verwenden, gehen Sie wie folgt vor:
 
-1. Wählen Sie **Launch AI SQL Generator**, nachdem Sie ein [SQL-Segment]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/) mit vollständiger oder inkrementeller Aktualisierung erstellt haben.
+1. Wählen Sie **Launch AI SQL Generator**, nachdem Sie ein [SQL-Segment]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments) mit vollständiger oder inkrementeller Aktualisierung erstellt haben.
 2. Geben Sie Ihren Prompt ein und wählen Sie **Generate**, um ihn in SQL zu übersetzen.
 3. Überprüfen Sie das generierte SQL, um sicherzustellen, dass es korrekt aussieht, und speichern Sie dann Ihr Segment.
 
@@ -74,7 +74,7 @@ Um den KI-SQL-Generator zu verwenden, gehen Sie wie folgt vor:
 
 #### Tipps {#tips}
 
-- Machen Sie sich mit den verfügbaren [Snowflake-Datentabellen]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/sql_segments_tables/) vertraut. Wenn Sie nach Daten fragen, die in diesen Tabellen nicht vorhanden sind, kann es sein, dass ChatGPT eine fiktive Tabelle erstellt.
+- Machen Sie sich mit den verfügbaren [Snowflake-Datentabellen]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/sql_segments_tables) vertraut. Wenn Sie nach Daten fragen, die in diesen Tabellen nicht vorhanden sind, kann es sein, dass ChatGPT eine fiktive Tabelle erstellt.
 - Machen Sie sich mit den [SQL-Schreibregeln]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments?tab=sql%20editor#writing-sql) für dieses Feature vertraut. Die Nichtbeachtung dieser Regeln führt zu einem Fehler. Zum Beispiel muss Ihr SQL-Code die Spalte `user_id` auswählen. Beginnen Sie Ihren Prompt mit „Nutzer:innen, die“, um bessere Ergebnisse zu erzielen.
 - Mit dem KI-SQL-Generator können Sie bis zu 20 Prompts pro Minute senden.
 
@@ -87,14 +87,14 @@ Um den KI-SQL-Generator zu verwenden, gehen Sie wie folgt vor:
 SQL-Anfragen, die länger als 20 Minuten dauern, werden abgebrochen.
 {% endalert %}
 
-Wenn die Verarbeitung der Erweiterung abgeschlossen ist, können Sie mit Ihrer Segmenterweiterung [ein Segment erstellen]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension/#step-5-use-your-extension-in-a-segment) und dieses neue Segment mit Ihren Campaigns und Canvases ansprechen.
+Wenn die Verarbeitung der Erweiterung abgeschlossen ist, können Sie mit Ihrer Segmenterweiterung [ein Segment erstellen]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension#step-5-use-your-extension-in-a-segment) und dieses neue Segment mit Ihren Campaigns und Canvases ansprechen.
 
 ### 2. Schritt: Schreiben Sie Ihr SQL {#step-2-write-your-sql}
 
-Ihre SQL-Abfrage sollte in [Snowflake-Syntax](https://docs.snowflake.com/en/sql-reference.html) geschrieben sein. In der [Tabellenreferenz]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/sql_segments_tables/) finden Sie eine vollständige Liste der Tabellen und Spalten, die abgefragt werden können.
+Ihre SQL-Abfrage sollte in [Snowflake-Syntax](https://docs.snowflake.com/en/sql-reference.html) geschrieben sein. In der [Tabellenreferenz]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/sql_segments_tables) finden Sie eine vollständige Liste der Tabellen und Spalten, die abgefragt werden können.
 
 {% alert important %}
-Beachten Sie, dass die zur Abfrage verfügbaren Tabellen nur Event-Daten enthalten. Wenn Sie nach Nutzerattributen suchen möchten, sollten Sie Ihr SQL-Segment mit angepassten Attributfiltern aus dem [klassischen Segmentierer]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/) kombinieren.
+Beachten Sie, dass die zur Abfrage verfügbaren Tabellen nur Ereignisdaten enthalten. Wenn Sie nach Nutzerattributen suchen möchten, sollten Sie Ihr SQL-Segment mit angepassten Attributfiltern aus dem [klassischen Segmentierer]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment) kombinieren.
 {% endalert %}
 
 {% tabs %}
@@ -109,8 +109,8 @@ Ihr SQL muss zusätzlich die folgenden Regeln einhalten:
 SELECT DISTINCT user_id FROM "INSERT TABLE NAME"
 ```
 
-- Es ist nicht möglich, Nutzer:innen mit null Events abzufragen. Das bedeutet, dass jede Abfrage nach Nutzer:innen, die ein Event weniger als X-mal durchgeführt haben, diesen Workaround befolgen muss:
-   1. Schreiben Sie eine Abfrage, um Nutzer:innen auszuwählen, die das Event MEHR als X-mal durchgeführt haben.
+- Es ist nicht möglich, Nutzer:innen mit null Ereignissen abzufragen. Das bedeutet, dass jede Abfrage nach Nutzer:innen, die ein Ereignis weniger als X-mal durchgeführt haben, diesen Workaround befolgen muss:
+   1. Schreiben Sie eine Abfrage, um Nutzer:innen auszuwählen, die das Ereignis MEHR als X-mal durchgeführt haben.
    2. Wenn Sie Ihre Segmenterweiterung in Ihrem Segment referenzieren, wählen Sie `doesn't include`, um das Ergebnis zu invertieren.
 
 #### Zusätzliche Regeln {#additional-rules}
@@ -125,21 +125,21 @@ Alle inkrementellen Aktualisierungsabfragen bestehen aus zwei Teilen: einer Abfr
 
 1. Schreiben Sie im Editor eine Abfrage, die `user_id`s aus der gewünschten Tabelle auswählt.
 2. Fügen Sie Schemadetails hinzu, indem Sie einen **Operator**, die **Anzahl der Male** und den **Zeitraum** aus den Feldern oberhalb des Editors auswählen. Die Abfrage prüft, ob die Summe der Aggregatspalte eine bestimmte Bedingung erfüllt, die durch die Platzhalter {% raw %}`{{operator}}` und `{{number of times}}`{% endraw %} angegeben ist. Dies funktioniert ähnlich wie der Arbeitsablauf zur Erstellung klassischer Segmenterweiterungen.<br><br>
-   - **Operator:** Geben Sie an, ob das Event mehr als, weniger als oder gleich einer Anzahl von Vorkommen stattgefunden hat.<br>
+   - **Operator:** Geben Sie an, ob das Ereignis mehr als, weniger als oder gleich einer Anzahl von Vorkommen stattgefunden hat.<br>
    ![Operator-Feld mit der Auswahl „Mehr als“.]({% image_buster /assets/img_archive/sql_segments_operator.png %})<br><br>
-   - **Anzahl der Male:** Wie oft Sie das Event in Bezug auf den Operator auswerten möchten.<br>
+   - **Anzahl der Male:** Wie oft Sie das Ereignis in Bezug auf den Operator auswerten möchten.<br>
    ![Feld „Anzahl der Male“ mit der Eingabe „5“.]({% image_buster /assets/img_archive/sql_segments_times.png %})<br><br>
-   - **Zeitraum:** Anzahl der Tage von 1 bis 730, in denen Sie Instanzen des Events überprüfen möchten. Dieser Zeitraum bezieht sich auf vergangene Tage relativ zum aktuellen Tag. Das folgende Beispiel zeigt die Abfrage nach Nutzer:innen, die das Event in den letzten 365 Tagen mehr als 5 Mal durchgeführt haben.<br>
+   - **Zeitraum:** Anzahl der Tage von 1 bis 730, in denen Sie Instanzen des Ereignisses überprüfen möchten. Dieser Zeitraum bezieht sich auf vergangene Tage relativ zum aktuellen Tag. Das folgende Beispiel zeigt die Abfrage nach Nutzer:innen, die das Ereignis in den letzten 365 Tagen mehr als 5 Mal durchgeführt haben.<br>
    ![Zeitraum-Feld mit der Eingabe „365“.]({% image_buster /assets/img_archive/sql_segments_period.png %})
 
-Im folgenden Beispiel würde das resultierende Segment Nutzer:innen enthalten, die das Event `favorited` mehr als 3 Mal in den letzten 30 Tagen nach einem bestimmten Datum durchgeführt haben.
+Im folgenden Beispiel würde das resultierende Segment Nutzer:innen enthalten, die das Ereignis `favorited` mehr als 3 Mal in den letzten 30 Tagen nach einem bestimmten Datum durchgeführt haben.
 
 ![SQL-Editor, der ein Beispiel für eine inkrementelle SQL-Segmenterweiterung anzeigt.]({% image_buster /assets/img_archive/sql_segments_editor_incremental.png %}){: style="max-width:65%" }
 
 ![SQL-Vorschau einer inkrementellen SQL-Segmenterweiterung.]({% image_buster /assets/img_archive/sql_segments_incremental_preview.png %}){: style="max-width:85%" }
 
 {% alert tip %}
-Segmente mit inkrementeller Aktualisierung berücksichtigen späte Events, d. h. Events, die mehr als 2 Tage zurückliegen (z. B. SDK-Events, die zum Zeitpunkt ihrer Erfassung noch nicht gesendet wurden).
+Segmente mit inkrementeller Aktualisierung berücksichtigen späte Ereignisse, d. h. Ereignisse, die mehr als 2 Tage zurückliegen (z. B. SDK-Ereignisse, die zum Zeitpunkt ihrer Erfassung noch nicht gesendet wurden).
 {% endalert %}
 
 #### Zusätzliche Regeln
@@ -147,7 +147,7 @@ Segmente mit inkrementeller Aktualisierung berücksichtigen späte Events, d. h.
 Außerdem muss Ihre Abfrage zur inkrementellen Aktualisierung die folgenden Regeln einhalten:
 
 - Schreiben Sie eine einzelne SQL-Anweisung. Fügen Sie keine Semikolons ein.
-- Ihr inkrementelles SQL-Segment kann sich nur auf ein einziges Event beziehen. Ihre Dropdowns für Datum und Anzahl beziehen sich auf das von Ihnen gewählte Event.
+- Ihr inkrementelles SQL-Segment kann sich nur auf ein einziges Ereignis beziehen. Ihre Dropdown-Menüs für Datum und Anzahl beziehen sich auf das von Ihnen gewählte Ereignis.
 - Ihr SQL muss die folgenden Spalten enthalten: `user_id`, `$start_date` und eine Aggregationsfunktion (wie `COUNT`). Jedes SQL, das ohne diese drei Felder gespeichert wird, führt zu einem Fehler.
 - Sie können keine `DECLARE`-Anweisungen verwenden.
 {% endtab %}
@@ -171,7 +171,7 @@ Bei inkrementellen SQL-Segmenterweiterungen enthält die Vorschau nicht die zus�
 
 ### 4. Schritt: Prüfen Sie, ob Sie SQL invertieren müssen {#step-4-determine-if-you-need-to-invert-sql}
 
-Als Nächstes sollten Sie feststellen, ob Sie SQL invertieren müssen. Es ist zwar nicht möglich, direkt nach Nutzer:innen mit null Events zu suchen, jedoch können Sie **Invert SQL** verwenden, um diese Nutzer:innen anzusprechen.
+Als Nächstes sollten Sie feststellen, ob Sie SQL invertieren müssen. Es ist zwar nicht möglich, direkt nach Nutzer:innen mit null Ereignissen zu suchen, jedoch können Sie **Invert SQL** verwenden, um diese Nutzer:innen anzusprechen.
 
 {% alert note %}
 Standardmäßig ist **Invert SQL** nicht aktiviert. Wenn Sie jedoch den KI-SQL-Generator verwenden, um eine SQL-Anweisung zu generieren, die negiert werden muss, könnte ChatGPT eine Ausgabe zurückgeben, die dieses Feature automatisch aktiviert.
@@ -180,7 +180,7 @@ Standardmäßig ist **Invert SQL** nicht aktiviert. Wenn Sie jedoch den KI-SQL-G
 Um beispielsweise Nutzer:innen anzusprechen, die weniger als drei Käufe getätigt haben, erstellen Sie zunächst eine Abfrage, um Nutzer:innen auszuwählen, die drei oder mehr Käufe getätigt haben. Wählen Sie anschließend **Invert SQL**, um Nutzer:innen mit weniger als drei Käufen (einschließlich derjenigen mit null Käufen) anzusprechen.
 
 {% alert important %}
-Sofern Sie nicht gezielt Nutzer:innen mit null Events ansprechen möchten, ist es nicht erforderlich, SQL zu invertieren. Wenn **Invert SQL** ausgewählt ist, vergewissern Sie sich, dass das Feature erforderlich ist und dass das Segment Ihrer gewünschten Zielgruppe entspricht. Wenn eine Abfrage beispielsweise auf Nutzer:innen mit mindestens einem Event abzielt, wird sie bei einer Invertierung nur auf Nutzer:innen mit null Events angewendet.
+Sofern Sie nicht gezielt Nutzer:innen mit null Ereignissen ansprechen möchten, ist es nicht erforderlich, SQL zu invertieren. Wenn **Invert SQL** ausgewählt ist, vergewissern Sie sich, dass das Feature erforderlich ist und dass das Segment Ihrer gewünschten Zielgruppe entspricht. Wenn eine Abfrage beispielsweise auf Nutzer:innen mit mindestens einem Ereignis abzielt, wird sie bei einer Invertierung nur auf Nutzer:innen mit null Ereignissen angewendet.
 {% endalert %}
 
 ![Segmenterweiterung mit dem Namen „1–4 E-Mails in den letzten 30 Tagen angeklickt“ mit der Option „SQL invertieren“ ausgewählt.]({% image_buster /assets/img_archive/sql_segment_invert_sql.png %}){: style="max-width:90%;"}
@@ -203,7 +203,7 @@ Wählen Sie eine SQL-Segmenterweiterung aus, um zu sehen, wo die Erweiterung ver
 
 ### Festlegen der Aktualisierungseinstellungen {#designating-refresh-settings}
 
-{% multi_lang_include segments.md section='Refresh settings' %}
+{% multi_lang_include audience/segments.md section='Refresh settings' %}
 
 ## Snowflake-Credits {#credits}
 

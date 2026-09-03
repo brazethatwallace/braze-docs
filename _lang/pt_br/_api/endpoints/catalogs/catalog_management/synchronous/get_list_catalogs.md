@@ -1,6 +1,6 @@
 ---
-nav_title: "OBTER: Listar catálogos"
-article_title: "OBTER: Catálogos de listas"
+nav_title: "GET: Listar catálogos"
+article_title: "GET: Listar catálogos"
 search_tag: Endpoint
 page_order: 2
 
@@ -10,28 +10,28 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Listar 
 
 ---
 {% api %}
-# Listar catálogos
+# Listar catálogos {#list-catalogs}
 {% apimethod get %}
 /catalogs
 {% endapimethod %}
 
-> Use esse ponto de extremidade para retornar uma lista de catálogos em um espaço de trabalho.
+> Use esse endpoint para retornar uma lista de catálogos em um espaço de trabalho.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#7d65fb86-ccf7-423f-9eb2-f68ab36df824 {% endapiref %}
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `catalogs.get`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `catalogs.get`.
 
-## Limite de taxa
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='synchronous catalog' %}
 
-## Jornada e parâmetros de solicitação
+## Parâmetros de caminho e de solicitação {#path-and-request-parameters}
 
-Não há parâmetros de jornada ou solicitação para esse endpoint.
+Não há parâmetros de caminho ou de solicitação para esse endpoint.
 
-## Exemplo de solicitação
+## Exemplo de solicitação {#example-request}
 
 ```
 curl --location --request GET 'https://rest.iad-03.braze.com/catalogs' \
@@ -39,9 +39,9 @@ curl --location --request GET 'https://rest.iad-03.braze.com/catalogs' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## Resposta
+## Resposta {#response}
 
-### Exemplo de resposta bem-sucedida
+### Exemplo de resposta bem-sucedida {#example-success-response}
 
 O código de status `200` poderia retornar o seguinte corpo de resposta.
 

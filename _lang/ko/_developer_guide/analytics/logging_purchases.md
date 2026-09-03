@@ -2,41 +2,41 @@
 nav_title: 구매 기록
 article_title: Braze SDK를 통한 구매 기록
 page_order: 3.2
-description: "Braze SDK를 통해 구매를 기록하는 방법을 배우세요."
+description: "Braze SDK를 통해 구매를 기록하는 방법을 알아보세요."
 
 ---
 
-# 구매 기록
+# 구매 기록 {#log-purchases}
 
-> Braze SDK를 통해 인앱 구매를 기록하는 방법을 배우세요. 이를 통해 시간 경과에 따른 수익과 출처를 확인할 수 있습니다. 이를 통해 사용자 [생애주기 가치]({{site.baseurl}}/developer_guide/analytics/#purchase-events--revenue-tracking)에 따라 세그먼트화할 수 있습니다. 커스텀 이벤트, 커스텀 속성 및 구매 이벤트를 사용하세요.
+> Braze SDK를 통해 인앱 구매를 기록하는 방법을 알아보세요. 이를 통해 시간 경과에 따른 매출과 소스별 매출을 확인할 수 있습니다. 커스텀 이벤트, 커스텀 속성 및 구매 이벤트를 사용하여 [생애주기 가치에 따라]({{site.baseurl}}/developer_guide/analytics#purchase-events-revenue-tracking) 사용자를 세분화할 수 있습니다.
 
 {% alert note %}
 목록에 없는 래퍼 SDK의 경우 관련 네이티브 Android 또는 Swift 메서드를 대신 사용하세요.
 {% endalert %}
 
-보고된 비-USD 통화는 보고된 날짜의 환율에 따라 Braze에서 USD로 표시됩니다. 통화 변환을 방지하려면 통화를 USD로 하드코딩하십시오.
+USD가 아닌 통화로 보고된 구매는 보고된 날짜의 환율을 기준으로 Braze에서 USD로 표시됩니다. 대시보드 전환, 캐싱 및 환율 갱신 타이밍에 대한 자세한 내용은 [통화 전환]({{site.baseurl}}/user_guide/data/activation/events/purchase_events#currency-conversion)을 참조하세요. 전환을 방지하려면 통화 코드를 `USD`로 설정하여 구매를 기록하세요.
 
-## 구매 및 수익 기록하기
+## 구매 및 매출 기록 {#logging-purchases-and-revenue}
 
-구매 및 수익을 기록하려면, 앱에서 성공적인 구매 후 `logPurchase()`을 호출하세요. 제품 식별자가 비어 있으면 구매가 Braze에 기록되지 않습니다.
+구매 및 매출을 기록하려면 앱에서 구매에 성공한 후 `logPurchase()`를 호출합니다. 제품 식별자가 비어 있으면 구매가 Braze에 기록되지 않습니다.
 
 {% tabs %}
-{% tab web %}
-표준 웹 SDK 구현의 경우 다음 방법을 사용할 수 있습니다:
+{% tab 웹 %}
+표준 웹 SDK 구현의 경우 다음 메서드를 사용할 수 있습니다:
 
 ```javascript
 braze.logPurchase(product_id, price, "USD", quantity);
 ```
 
-대신 Google Tag Manager를 사용하려면, **구매** 태그 유형을 사용하여 [`logPurchase` 메서드](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logpurchase)를 호출할 수 있습니다. 이 태그를 사용하여 선택적으로 구매 속성정보를 포함한 Braze에 대한 구매를 추적합니다. 그렇게 하려면
+Google Tag Manager를 대신 사용하려면 **Purchase** 태그 유형을 사용하여 [`logPurchase` 메서드](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logpurchase)를 호출할 수 있습니다. 이 태그를 사용하여 Braze에 구매를 추적하고, 선택적으로 구매 속성정보를 포함할 수 있습니다. 이를 위해 다음을 수행합니다:
 
-1. **제품 ID** 및 **가격** 필드는 필수 입력 사항입니다.
-2. **행 추가** 버튼을 사용하여 구매 속성을 추가합니다.
+1. **Product ID** 및 **Price** 필드는 필수입니다.
+2. **Add Row** 버튼을 사용하여 구매 속성정보를 추가합니다.
 
-![Braze 작업 태그 구성 설정을 보여주는 대화상자. 포함된 설정은 "태그 유형", "외부 ID", "가격", "통화 코드", "수량", 및 "구매 속성정보"입니다.]({% image_buster /assets/img/web-gtm/gtm-purchase.png %})
+![Braze 액션 태그 구성 설정을 보여주는 대화 상자. 포함된 설정은 '태그 유형', '외부 ID', '가격', '통화 코드', '수량', '구매 속성정보'입니다.]({% image_buster /assets/img/web-gtm/gtm-purchase.png %})
 {% endtab %}
 
-{% tab android %}
+{% tab Android %}
 {% subtabs %}
 {% subtab java %}
 
@@ -86,7 +86,7 @@ AppDelegate.braze?.logPurchase(productID: "product_id", currency: "USD", price: 
 {% endsubtabs %}
 {% endtab %}
 
-{% tab cordova %}
+{% tab Cordova %}
 
 ```javascript
 var properties = {};
@@ -96,7 +96,7 @@ BrazePlugin.logPurchase("PRODUCT_ID", 10, "USD", 5, properties);
 
 {% endtab %}
 
-{% tab flutter %}
+{% tab Flutter %}
 
 ```dart
 braze.logPurchase(productId, currencyCode, price, quantity, properties: properties);
@@ -104,7 +104,7 @@ braze.logPurchase(productId, currencyCode, price, quantity, properties: properti
 
 {% endtab %}
 
-{% tab react native %}
+{% tab React Native %}
 
 ```javascript
 Braze.logPurchase(productId, price, currencyCode, quantity, properties);
@@ -120,7 +120,7 @@ m.Braze.logPurchase("product_id", "currency_code", Double price, Integer quantit
 
 {% endtab %}
 
-{% tab unity %}
+{% tab Unity %}
 
 ```csharp
 AppboyBinding.LogPurchase("product_id", "currencyCode", price(decimal));
@@ -130,26 +130,26 @@ AppboyBinding.LogPurchase("product_id", "currencyCode", price(decimal));
 {% endtabs %}
 
 {% alert warning %}
-`productID`는 최대 255자만 가질 수 있습니다. 또한, 제품 식별자가 비어 있으면 구매가 Braze에 기록되지 않습니다.
+`productID`는 최대 255자까지만 입력할 수 있습니다. 또한 제품 식별자가 비어 있으면 구매가 Braze에 기록되지 않습니다.
 {% endalert %}
 
-### 속성정보 추가
+### 속성정보 추가 {#adding-properties}
 
-`Int`, `Double`, `String`, `Bool` 또는 `Date` 값으로 채워진 사전을 전달하여 구매에 대한 메타데이터를 추가할 수 있습니다.
+`Int`, `Double`, `String`, `Bool` 또는 `Date` 값으로 채워진 사전(Dictionary)을 전달하여 구매에 대한 메타데이터를 추가할 수 있습니다.
 
 {% tabs %}
-{% tab web %}
-표준 웹 SDK 구현의 경우 다음 방법을 사용할 수 있습니다:
+{% tab 웹 %}
+표준 웹 SDK 구현의 경우 다음 메서드를 사용할 수 있습니다:
 
 ```javascript
 braze.logPurchase(product_id, price, "USD", quantity, {key: "value"});
 ```
 
-사이트가 표준 [이커머스 이벤트](https://developers.google.com/analytics/devguides/collection/ga4/ecommerce?client_type=gtm) 데이터 레이어 항목을 사용하여 Google Tag Manager에 구매를 기록하는 경우, **이커머스 구매** 태그 유형을 사용할 수 있습니다. 이 작업 유형은 `items`의 목록에 전송된 각 항목에 대한 별도의 '구매'를 Braze에 기록합니다.
+사이트에서 표준 [이커머스 이벤트](https://developers.google.com/analytics/devguides/collection/ga4/ecommerce?client_type=gtm) 데이터 레이어 항목을 사용하여 Google Tag Manager에 구매를 기록하는 경우, **E-commerce Purchase** 태그 유형을 사용할 수 있습니다. 이 액션 유형은 `items` 목록에 전송된 각 항목에 대해 Braze에 별도의 "구매"를 기록합니다.
 
-구매 속성정보 목록에서 키를 지정하여 구매 속성정보로 포함할 추가 속성정보 이름을 지정할 수도 있습니다. Braze는 목록에 추가하는 모든 구매 자산에 대해 기록 중인 개별 `item` 내에서 확인합니다.
+구매 속성정보 목록에 키를 지정하여 구매 속성정보로 포함할 추가 속성정보 이름을 지정할 수도 있습니다. Braze는 목록에 추가한 구매 속성정보에 대해 기록 중인 개별 `item` 내에서 해당 속성정보를 찾습니다.
 
-예를 들어, 다음 전자상거래 페이로드가 주어졌습니다:
+예를 들어, 다음과 같은 이커머스 페이로드가 있다고 가정합니다:
 
 ```
 items: [{
@@ -161,10 +161,10 @@ items: [{
 }]
 ```
 
-`item_brand` 및 `item_name`만 구매 속성정보로 전달하려면 구매 속성정보 테이블에 이 두 필드를 추가하면 됩니다. 속성을 제공하지 않으면 구매 속성이 전송되지 않습니다. [`logPurchase`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logpurchase) 호출로 전송되지 않습니다.
+`item_brand`와 `item_name`만 구매 속성정보로 전달하려면 해당 두 필드만 구매 속성정보 테이블에 추가하면 됩니다. 속성정보를 제공하지 않으면 Braze에 대한 [`logPurchase`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logpurchase) 호출에서 구매 속성정보가 전송되지 않습니다.
 {% endtab %}
 
-{% tab android %}
+{% tab Android %}
 {% subtabs %}
 {% subtab java %}
 
@@ -211,7 +211,7 @@ NSDictionary *purchaseProperties = @{@"key": @"value"};
 {% endsubtabs %}
 {% endtab %}
 
-{% tab cordova %}
+{% tab Cordova %}
 
 ```javascript
 var properties = {};
@@ -221,7 +221,7 @@ BrazePlugin.logPurchase("PRODUCT_ID", 10, "USD", 5, properties);
 
 {% endtab %}
 
-{% tab flutter %}
+{% tab Flutter %}
 
 ```dart
 braze.logPurchase(productId, currencyCode, price, quantity, properties: {"key": "value"});
@@ -229,7 +229,7 @@ braze.logPurchase(productId, currencyCode, price, quantity, properties: {"key": 
 
 {% endtab %}
 
-{% tab react native %}
+{% tab React Native %}
 
 ```javascript
 Braze.logPurchase(productId, price, currencyCode, quantity, { key: "value" });
@@ -245,7 +245,7 @@ m.Braze.logPurchase("product_id", "currency_code", Double price, Integer quantit
 
 {% endtab %}
 
-{% tab unity %}
+{% tab Unity %}
 
 ```csharp
 Dictionary<string, object> purchaseProperties = new Dictionary<string, object>
@@ -258,21 +258,21 @@ AppboyBinding.LogPurchase("product_id", "currencyCode", price(decimal), purchase
 {% endtab %}
 {% endtabs %}
 
-### 수량 추가
+### 수량 추가 {#adding-quantity}
 
-기본값으로, `quantity`은 `1`로 설정됩니다. 그러나 고객이 단일 체크아웃에서 동일한 구매를 여러 번 하는 경우 구매에 수량을 추가할 수 있습니다. 수량을 추가하려면 `quantity`에 `Int` 값을 전달하십시오.
+기본적으로 `quantity`는 `1`로 설정됩니다. 그러나 고객이 한 번의 결제에서 동일한 구매를 여러 번 수행하는 경우 구매에 수량을 추가할 수 있습니다. 수량을 추가하려면 `Int` 값을 `quantity`에 전달합니다.
 
-### REST API 사용
+### REST API 사용 {#using-the-rest-api}
 
-REST API를 사용하여 구매 내역을 기록할 수도 있습니다. 자세한 정보는 [사용자 데이터 엔드포인트]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data)를 참조하십시오.
+REST API를 사용하여 구매를 기록할 수도 있습니다. 자세한 내용은 [사용자 데이터 엔드포인트]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data)를 참조하세요.
 
-## 주문 기록
+## 주문 기록 {#logging-orders}
 
-제품 수준 대신 주문 수준에서 구매를 기록하려면 주문 이름 또는 주문 카테고리를 `product_id` 으로 사용하면 됩니다. 자세한 내용은 [구매 개체 사양을]({{site.baseurl}}/api/objects_filters/purchase_object/#product-id-naming-conventions) 참조하세요. 
+제품 수준 대신 주문 수준에서 구매를 기록하려면 주문 이름 또는 주문 카테고리를 `product_id`로 사용하면 됩니다. 자세한 내용은 [구매 오브젝트 사양]({{site.baseurl}}/api/objects_filters/purchase_object#naming-conventions)을 참조하세요.
 
-## 예약 키
+## 예약된 키 {#reserved-keys}
 
-다음 키는 예약되어 있으며 구매 속성으로 사용할 수 없습니다:
+다음 키는 예약되어 있으며 구매 속성정보로 사용할 수 없습니다:
 
 - `time`
 - `product_id`
@@ -281,9 +281,9 @@ REST API를 사용하여 구매 내역을 기록할 수도 있습니다. 자세�
 - `price`
 - `currency`
 
-## 지원되는 통화
+## 지원되는 통화 {#supported-currencies}
 
-Braze는 다음 통화 기호를 지원합니다. 제공하는 다른 통화 기호는 경고를 기록하고 구매가 Braze에 기록되지 않습니다.
+Braze는 다음 통화 기호를 지원합니다. 여기에 나열되지 않은 통화 기호를 제공하면 경고가 기록되며, 해당 구매는 Braze에 기록되지 않습니다.
 
 - `AED`, `AFN`, `ALL`, `AMD`, `ANG`, `AOA`, `ARS`, `AUD`, `AWG`, `AZN`
 - `BAM`, `BBD`, `BDT`, `BGN`, `BHD`, `BIF`, `BMD`, `BND`, `BOB`, `BRL`

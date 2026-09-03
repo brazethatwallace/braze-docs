@@ -19,7 +19,7 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Katal
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `catalogs.create_fields`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `catalogs.create_fields`.
 
 ## Rate-Limit
 
@@ -30,14 +30,14 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | -------------- | -------- | --------- | -------------------- |
 | `catalog_name` | Erforderlich | String | Name des Katalogs. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Pfad-Parameter" }
 
 ## Anfrage-Parameter {#request-parameters}
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | -------- | --------- | ------------------------------------------------------------------------------------------------------------ |
 | `fields` | Erforderlich | Array | Ein Array, das Feldobjekte enthält. Die Feldobjekte sollten den Namen und den Typ der neuen Felder enthalten. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Anfrage-Parameter" }
 
 ## Beispielanfrage {#example-request}
 
@@ -117,11 +117,11 @@ Die folgende Tabelle listet mögliche zurückgegebene Fehler und die zugehörige
 
 | Fehler | Fehlerbehebung |
 |--------------------------------------|--------------------------------------------------------------------------------------------------------|
-| `arbitrary-error` | Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es erneut oder kontaktieren Sie den [Support]({{site.baseurl}}/support_contact/). |
+| `arbitrary-error` | Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es erneut oder kontaktieren Sie den [Support]({{site.baseurl}}/support_contact). |
 | `catalog-not-found` | Prüfen Sie, ob der Katalogname gültig ist. |
 | `company-size-limit-already-reached` | Das Limit für die Katalogspeichergröße ist erreicht. |
 | `request-includes-too-many-fields` | Jede Anfrage kann bis zu 50 neue Felder unterstützen. |
 | `catalog-exceeds-fields-limit` | Der Katalog kann nicht mehr als 500 Felder haben. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Fehlerbehebung" }
 
 {% endapi %}

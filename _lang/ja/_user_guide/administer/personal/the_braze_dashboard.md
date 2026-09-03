@@ -21,11 +21,11 @@ Brazeダッシュボードを使用して、キャンペーンの計画、メッ
 - **左側のナビゲーション:** ツールを機能別に整理します（メッセージング、オーディエンス、分析、設定）
 - **グローバルヘッダー:** 検索、サポート、言語設定、通知、アカウントにすばやくアクセスできます
 
-ダッシュボードの操作は[ワークスペース]({{site.baseurl}}/user_guide/get_started/workspaces/)ごとに整理されており、異なるブランド、地域、チームのコンテンツを管理するのに役立ちます。サイドナビゲーションからいつでも[ワークスペースを切り替える](#workspace-switcher)ことができます。
+ダッシュボードの操作は[ワークスペース]({{site.baseurl}}/user_guide/get_started/workspaces)ごとに整理されており、異なるブランド、地域、チームのコンテンツを管理するのに役立ちます。サイドナビゲーションからいつでも[ワークスペースを切り替える](#workspace-switcher)ことができます。
 
 ## ダッシュボードにアクセスする {#access-your-dashboard}
 
-開始するには、[Brazeアカウントにサインイン]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/)してください。ダッシュボード内のページへのアクセスや特定のアクションを実行する権限は、割り当てられた[ユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions)に基づいています。権限についてサポートが必要な場合は、Braze管理者にお問い合わせください。
+開始するには、[Brazeアカウントにサインイン]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account)してください。ダッシュボード内のページへのアクセスや特定のアクションを実行する権限は、割り当てられた[ユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions)に基づいています。権限についてサポートが必要な場合は、Braze管理者にお問い合わせください。
 
 ## Brazeをナビゲートする {#navigate-braze}
 
@@ -35,10 +35,10 @@ Brazeのナビゲーションは、デバイスを問わず機能やコンテン
 
 - [検索](#search-your-dashboard)
 - サポートおよびコミュニティリンク
-- [ダッシュボードの言語]({{site.baseurl}}/user_guide/administer/personal/language_settings/)
+- [ダッシュボードの言語]({{site.baseurl}}/user_guide/administer/personal/language_settings)
 - 通知
 - アカウント設定
-- [BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator/)
+- [BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator)
 
 ### サイドナビゲーションを使用する {#use-the-side-navigation}
 
@@ -50,13 +50,13 @@ Brazeのナビゲーションは、デバイスを問わず機能やコンテン
 
 サイドナビゲーションの上部にあるワークスペース切り替えを使用すると、Brazeインスタンス内の異なるワークスペース間を移動できます。アクティブなワークスペースがハイライト表示されます。
 
-[ワークスペース]({{site.baseurl}}/user_guide/get_started/workspaces/)は、ブランド、地域、製品ライン、チームごとにコンテンツを整理するのに役立ちます。各ワークスペースには独自のデータ、キャンペーン、設定が含まれます。ワークスペースによってアクセス権が異なる場合があります。たとえば、あるワークスペースでは編集アクセス権があり、別のワークスペースでは閲覧のみのアクセス権がある場合があります。
+[ワークスペース]({{site.baseurl}}/user_guide/get_started/workspaces)は、ブランド、地域、製品ライン、チームごとにコンテンツを整理するのに役立ちます。各ワークスペースには独自のデータ、キャンペーン、設定が含まれます。ワークスペースによってアクセス権が異なる場合があります。たとえば、あるワークスペースでは編集アクセス権があり、別のワークスペースでは閲覧のみのアクセス権がある場合があります。
 
 ワークスペースを切り替えるには、サイドナビゲーションの上部にあるワークスペースドロップダウンを選択し、アクセスしたいワークスペースを選択します。また、よく使うワークスペースにすばやくアクセスするために、[お気に入りのワークスペースを追加](#favorite-workspaces)することもできます。
 
 #### サイドナビゲーションを最小化する {#minimize-the-side-navigation}
 
-キャンバスのデザインなどのタスク中に視覚的な煩雑さを減らすために、サイドナビゲーションパネルを最小化できます。**Minimize menu**を押して折りたたみます。最小化した状態でも、アイコンにカーソルを合わせるとメニュー項目名のツールチップが表示されます。これにより、ワークスペースをすっきり保ちながら、ツール間をすばやく移動できます。
+キャンバスのデザインなどのタスク中に視覚的な煩雑さを減らすために、サイドナビゲーションパネルを最小化できます。**メニューを最小化**を押して折りたたみます。最小化した状態でも、アイコンにカーソルを合わせるとメニュー項目名のツールチップが表示されます。これにより、ワークスペースをすっきり保ちながら、ツール間をすばやく移動できます。
 
 ![メニューの最小化と最大化のアイコン]({% image_buster /assets/img/minimize_expand_menu.png %}){: style="max-width:60%;border:none"}
 
@@ -95,9 +95,9 @@ Brazeのナビゲーションは、デバイスを問わず機能やコンテン
 
 ### アクティブおよび下書きコンテンツでフィルタリングする {#filter-for-active-and-draft-content}
 
-デフォルトでは、検索にはアクティブ、下書き、アーカイブされた項目が含まれます。**Show active and draft only**トグルを使用して、結果を絞り込みます。
+デフォルトでは、検索にはアクティブ、下書き、アーカイブされた項目が含まれます。**アクティブと下書きのみ表示**トグルを使用して、結果を絞り込みます。
 
-![「Show active and draft only」トグル。]({% image_buster /assets/img/navigation/show_active_draft_new.png %})
+![「アクティブと下書きのみ表示」トグル。]({% image_buster /assets/img/navigation/show_active_draft_new.png %})
 
 ### キーボードショートカット {#keyboard-shortcuts}
 
@@ -134,15 +134,15 @@ Brazeダッシュボードには、より効率的に作業し、よく使うツ
 
 ### BrazeAI Operator
 
-BrazeAI Operator™は、ダッシュボードに組み込まれたAI搭載のアシスタントです。回答の取得、セットアップの手順確認、問題のトラブルシューティング、アイデアのブレインストーミングに使用できます。プロファイルの横にあるグローバルヘッダーの**BrazeAI Operator™**から開きます。詳細については、[BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/)を参照してください。
+BrazeAI Operator™は、ダッシュボードに組み込まれたAI搭載のアシスタントです。回答の取得、セットアップの手順確認、問題のトラブルシューティング、アイデアのブレインストーミングに使用できます。プロファイルの横にあるグローバルヘッダーの**BrazeAI Operator™**から開きます。詳細については、[BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator)を参照してください。
 
 ### 前回の続きから再開する {#pick-up-where-you-left-off}
 
-**Home**ページでは、最近編集または作成したキャンペーン、キャンバス、セグメントがダッシュボードに表示されます。これにより、検索せずに進行中の作業に簡単に戻ることができます。各項目には、コンテンツタイプとステータス（下書き、アクティブ、停止など）を示すタグが含まれます。
+**ホーム**ページでは、最近編集または作成したキャンペーン、キャンバス、セグメントがダッシュボードに表示されます。これにより、検索せずに進行中の作業に簡単に戻ることができます。各項目には、コンテンツタイプとステータス（下書き、アクティブ、停止など）を示すタグが含まれます。
 
 ![「前回の続きから再開する」セクションに表示されたキャンバスの下書き、アクティブなセグメント、キャンペーンの下書き。]({% image_buster /assets/img/pick_up_where_you_left_off.png %})
 
-詳細については、[ホームダッシュボード]({{site.baseurl}}/user_guide/analytics/dashboards/home/#pick-up-where-you-left-off)を参照してください。
+詳細については、[ホームダッシュボード]({{site.baseurl}}/user_guide/analytics/dashboards/home#pick-up-where-you-left-off)を参照してください。
 
 ### お気に入りのワークスペース {#favorite-workspaces}
 
@@ -151,7 +151,7 @@ BrazeAI Operator™は、ダッシュボードに組み込まれたAI搭載の�
 お気に入りのワークスペースを追加するには：
 
 1. [プロファイル設定にアクセスします](#access-your-profile-settings)。
-2. **Account Profile**セクションで、**Favorite workspaces**フィールドを見つけます。
+2. **アカウントプロファイル**セクションで、**お気に入りのワークスペース**フィールドを見つけます。
 3. お気に入りにしたいワークスペースを選択します。
 
 ### プロファイル設定にアクセスする {#access-your-profile-settings}
@@ -159,7 +159,7 @@ BrazeAI Operator™は、ダッシュボードに組み込まれたAI搭載の�
 アカウント設定、通知設定、個人情報を管理するには：
 
 1. グローバルヘッダーでプロファイルアイコンを選択します。
-2. **Manage your account**を選択して、プロファイルページにアクセスします。
+2. **アカウントを管理**を選択して、プロファイルページにアクセスします。
 
 プロファイルページから、メール設定の更新、2要素認証の設定、APIキーの表示、その他のアカウント詳細の管理を行うことができます。
 
@@ -169,21 +169,21 @@ Brazeダッシュボードは、色のコントラストに関するWCAG AA基�
 
 ## フィードバックの共有 {#sharing-feedback}
 
-ご意見をお聞かせください。ナビゲーション、アクセシビリティ、ユーザビリティ、ビジュアルデザインなどに関するフィードバックを共有できます。グローバルヘッダーの**Support**メニューを開き、**Share feedback**を選択してください。すべてのフィードバックを確認し、Brazeの体験改善に役立てています。
+ご意見をお聞かせください。ナビゲーション、アクセシビリティ、ユーザビリティ、ビジュアルデザインなどに関するフィードバックを共有できます。グローバルヘッダーの**サポート**メニューを開き、**フィードバックを共有**を選択してください。すべてのフィードバックを確認し、Brazeの体験改善に役立てています。
 
 ## 関連リソース {#related-resources}
 
 ### 管理タスク {#administrative-tasks}
 
-- [ワークスペースの作成と管理]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces/)
-- [Brazeユーザーの管理]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/)
-- [ユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)
-- [チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)
+- [ワークスペースの作成と管理]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces)
+- [Brazeユーザーの管理]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users)
+- [ユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)
+- [チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams)
 
 ### 主要なタスクと次のステップ {#key-tasks-and-next-steps}
 
-- **キャンペーンを構築する**: [キャンペーンを作成する]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/)
-- **ジャーニーを作成する**: [キャンバスを構築する]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)
-- **オーディエンスを定義する**: [セグメントを作成する]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)
-- **パフォーマンスを確認する**: [分析の概要]({{site.baseurl}}/user_guide/analytics/dashboards/home/)
-- **設定を構成する**: [アプリ設定]({{site.baseurl}}/user_guide/administer/global/workspace_settings/)
+- **キャンペーンを構築する**: [キャンペーンを作成する]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign)
+- **ジャーニーを作成する**: [キャンバスを構築する]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas)
+- **オーディエンスを定義する**: [セグメントを作成する]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)
+- **パフォーマンスを確認する**: [分析の概要]({{site.baseurl}}/user_guide/analytics/dashboards/home)
+- **設定を構成する**: [アプリ設定]({{site.baseurl}}/user_guide/administer/global/workspace_settings)

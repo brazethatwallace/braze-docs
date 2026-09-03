@@ -31,7 +31,7 @@ WhatsAppでユーザーに初めてメッセージを送信すると、メッセ
 WhatsAppでのコミュニケーションを開始する前に、すべてのユーザーがWhatsAppメッセージの受信に積極的に同意していることを確認してください。ユーザーにオプトインを求める際には、WhatsApp経由でビジネスからのメッセージを受信することに具体的に同意していることを伝える必要があります。
 
 {% alert note %}
-オプトイン要件と役立つヒントについては、[WhatsAppのオプトインを取得する](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in/)を参照してください。
+オプトイン要件と役立つヒントについては、[Get Opt-in for WhatsApp](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in/)を参照してください。
 {% endalert %}
 
 ### メッセージングのベストプラクティスに従う {#follow-messaging-best-practices}
@@ -44,6 +44,14 @@ WhatsAppでのコミュニケーションを開始する前に、すべてのユ
 
 オプトアウトは電話品質評価に影響しないため、ユーザーがブロックや報告をするよりも、WhatsAppコミュニケーションからオプトアウトしてもらう方が望ましいです。
 
-推奨されるベストプラクティスとして、ユーザーに送信する最初のメッセージのフッターにオプトアウト方法の説明を記載しましょう。例えば、オプトアウトトリガーワードを返信することでWhatsAppチャネルの配信停止ができることを記載できます。また、今後のキャンペーンにも定期的にオプトアウトフッターを含めることができます。設定方法については、[オプトインとオプトアウト]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs/)を参照してください。
+推奨されるベストプラクティスとして、ユーザーに送信する最初のメッセージのフッターにオプトアウト方法の説明を記載しましょう。例えば、オプトアウトトリガーワードを返信することでWhatsAppチャネルの購読解除ができることを記載できます。また、今後のキャンペーンにも定期的にオプトアウトフッターを含めることができます。設定方法については、[オプトインとオプトアウト]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs)を参照してください。
 
-![チャネルの配信停止にはSTOPと返信するよう記載されたフッター付きのWhatsAppメッセージ]({% image_buster /assets/img/whatsapp/whatsapp_unsubscribe.png %}){: style="max-width:35%;"}
+![チャネルの購読解除にはSTOPと返信するよう記載されたフッター付きのWhatsAppメッセージ]({% image_buster /assets/img/whatsapp/whatsapp_unsubscribe.png %}){: style="max-width:35%;"}
+
+### 双方向フローのレスポンスレイテンシーを最小化する {#minimize-response-latency-for-two-way-flows}
+
+[レスポンスメッセージ]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/message_and_image_formats#response-messages)で返信するインタラクティブなキャンバスフローの場合：
+
+- レスポンスメッセージステップは、インバウンドトリガーまたはアクションパスの評価の直後に配置してください。
+- 返信前に購読の変更が不要な場合は、ユーザー更新ステップの代わりに[Webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook)を使用してください。
+- インバウンドメッセージとレスポンス送信の間に長い遅延や数日間の待機を設けないでください。WhatsAppのカスタマーサービスウィンドウは、インバウンドメッセージごとに24時間です。

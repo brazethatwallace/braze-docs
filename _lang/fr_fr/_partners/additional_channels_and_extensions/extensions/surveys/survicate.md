@@ -1,7 +1,7 @@
 ---
 nav_title: Survicate
 article_title: Survicate
-description: "Cet article de référence présente le partenariat entre Braze et Survicate, une plateforme de feedback client qui vous aide à collecter, analyser et agir sur les informations clients sur plusieurs canaux et tout au long du parcours client."
+description: "Cet article de référence présente le partenariat entre Braze et Survicate, une plateforme de feedback client qui vous aide à collecter, analyser et agir sur les informations clients sur plusieurs canaux et tout au long du parcours utilisateur."
 alias: /partners/survicate/
 page_type: partner
 search_tag: Partner
@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Survicate
 
-> [Survicate](https://survicate.com/integrations/braze-survey/?utm_source=braze&utm_medium=integrations&utm_campaign=helpcenter) est une plateforme de feedback client qui recueille, analyse et exploite les informations clients à travers plusieurs canaux et tout au long du parcours client. [Regardez une démonstration rapide](https://survicate.com/integrations/braze-survey/?utm_source=braze&utm_medium=integrations&utm_campaign=helpcenter)
+> [Survicate](https://survicate.com/integrations/braze-survey/?utm_source=braze&utm_medium=integrations&utm_campaign=helpcenter) est une plateforme de feedback client qui recueille, analyse et exploite les informations clients à travers plusieurs canaux et tout au long du parcours utilisateur. [Regardez une démonstration rapide](https://survicate.com/integrations/braze-survey/?utm_source=braze&utm_medium=integrations&utm_campaign=helpcenter)
 
 _Cette intégration est maintenue par Survicate._
 
@@ -18,14 +18,14 @@ _Cette intégration est maintenue par Survicate._
 
 Utilisez l'intégration native de Survicate et Braze pour synchroniser les réponses aux enquêtes par e-mail, in-app, sur mobile ou sur le web avec les profils des clients Braze. Les réponses aux enquêtes se synchronisent automatiquement avec les profils utilisateurs Braze sous forme d'attributs personnalisés ou d'événements. Les informations de feedback en temps réel facilitent le suivi et l'analyse des commentaires parallèlement aux données clients, et permettent de créer des suivis ciblés et des segments hyper-personnalisés.
 
-## Cas d'utilisation {#use-cases}
+## Cas d'usage {#use-cases}
 
-Braze et Survicate fonctionnent ensemble pour couvrir un large éventail de cas d'utilisation liés au feedback, vous aidant à collecter des informations exploitables sur les utilisateurs et à améliorer l'expérience client :
+Braze et Survicate fonctionnent ensemble pour couvrir un large éventail de cas d'usage liés au feedback, vous aidant à collecter des informations exploitables sur les utilisateurs et à améliorer l'expérience client :
 
 - Améliorez les taux de réponse aux enquêtes grâce à des enquêtes intégrées auxquelles il est possible de répondre directement depuis une boîte de réception e-mail.
-- Recueillez des informations aux étapes critiques du parcours client via les messages in-app de Braze.
+- Recueillez des informations aux étapes critiques du parcours client via les In-App Messages de Braze.
 - Utilisez le feedback stocké dans Survicate pour créer des segments plus intelligents dans Braze.
-- Automatisez les campagnes de suivi en fonction des commentaires des clients.
+- Automatisez les Campaigns de suivi en fonction des commentaires des clients.
 - Utilisez les informations clients pour déclencher des flux de travail personnalisés.
 - Touchez une audience plus large grâce à des enquêtes traduites automatiquement.
 - Envoyez des événements aux profils de contact Braze lorsque quelqu'un répond à votre enquête.
@@ -35,16 +35,16 @@ Braze et Survicate fonctionnent ensemble pour couvrir un large éventail de cas 
 | Condition | Description |
 | ----------- | ----------- |
 | Compte Survicate | Vous devez disposer d'un compte Survicate pour activer cette intégration. |
-| Clé API REST Braze | Une clé API REST Braze avec la permission `users.track`. <br><br> Celle-ci peut être créée dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. |
-| Endpoint REST Braze | [L'URL de votre endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Votre endpoint dépendra de l'URL de Braze pour votre instance. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Clé API REST Braze | Une clé API REST Braze avec la permission `users.track`. <br><br> Celle-ci peut être créée dans le tableau de bord de Braze depuis **Paramètres** > **API et identifiants**. |
+| Endpoint REST Braze | [L'URL de votre endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Votre endpoint dépendra de l'URL de Braze pour votre instance. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Principales fonctionnalités de l'intégration {#key-features-of-the-integration}
 
 L'intégration de Survicate et Braze offre une synchronisation des données en temps réel, de sorte que les informations les plus récentes des enquêtes Survicate sont immédiatement disponibles dans Braze. En fonction des réponses à l'enquête, vous pouvez utiliser ces données pour prendre des mesures personnalisées en temps voulu.
 
 - **Envoyez les réponses à l'enquête à Braze sous forme d'attributs personnalisés** : enrichissez les profils utilisateurs Braze avec des données issues des réponses aux enquêtes.
-- **Déclenchez des événements personnalisés dans Braze** : utilisez les événements basés sur les réponses à l'enquête pour cibler des groupes spécifiques ou lancer des campagnes de suivi.
+- **Déclenchez des événements personnalisés dans Braze** : utilisez les événements basés sur les réponses à l'enquête pour cibler des groupes spécifiques ou lancer des Campaigns de suivi.
 - **Créez des segments détaillés** : créez des segments Braze en utilisant les données des enquêtes Survicate pour personnaliser davantage vos actions.
 
 ## Intégration {#integration}
@@ -53,7 +53,7 @@ L'intégration de Survicate et Braze offre une synchronisation des données en t
 
 #### Intégrer votre enquête dans un e-mail ou créer un lien d'enquête partageable {#embed-your-survey-in-an-email-or-create-a-shareable-link-survey}
 
-1.  Dans Survicate, cliquez sur **+ Create new survey**, sélectionnez n'importe quelle méthode de création (un modèle, la création d'enquête par intelligence artificielle ou l'ajout de vos propres questions), puis le type d'enquête par e-mail ou par lien partageable :
+1.  Dans Survicate, cliquez sur **+ Create new survey**, sélectionnez n'importe quelle méthode de création (un modèle, la création d'enquête par IA ou l'ajout de vos propres questions), puis le type d'enquête par e-mail ou par lien partageable :
 ![Braze est sélectionné dans le créateur d'enquête.]({% image_buster /assets/img/survicate/survicate_1.gif %})
 
 {: start="2"}
@@ -85,7 +85,7 @@ Affichez la première question directement dans le corps de l'e-mail pour lancer
 ![Obtenir le code e-mail]({% image_buster /assets/img/survicate/survicate_5.gif %})
 
 {: start="2"}
-2. Accédez à la campagne Braze que vous souhaitez utiliser pour l'enquête, cliquez sur **Edit email body** et ajoutez un bloc HTML à votre modèle :
+2. Accédez à la Campaign Braze que vous souhaitez utiliser pour l'enquête, cliquez sur **Edit email body** et ajoutez un bloc HTML à votre modèle :
 
 ![Obtenir le code du bloc HTML]({% image_buster /assets/img/survicate/survicate_6.png %})
 
@@ -95,13 +95,13 @@ Affichez la première question directement dans le corps de l'e-mail pour lancer
 ![Remplacez le code par celui que vous avez copié depuis votre enquête Survicate.]({% image_buster /assets/img/survicate/survicate_7.png %})
 
 {: start="4"}
-4. Planifiez l'e-mail, choisissez votre groupe cible et votre campagne est prête à être envoyée.
+4. Planifiez l'e-mail, choisissez votre groupe cible et votre Campaign est prête à être envoyée.
 
 {% enddetails %}
 
 ### Enquête In-App Message de Braze {#braze-in-app-message-survey}
 
-1. Cliquez sur **+ Create new survey**, sélectionnez n'importe quelle méthode de création (un modèle, la création d'enquête par intelligence artificielle ou l'ajout de vos propres questions), puis choisissez les enquêtes In-platform et le type d'enquête Braze In-App Message :
+1. Cliquez sur **+ Create new survey**, sélectionnez n'importe quelle méthode de création (un modèle, la création d'enquête par IA ou l'ajout de vos propres questions), puis choisissez les enquêtes In-platform et le type d'enquête Braze In-App Message :
 
 ![Cliquez sur + Create new survey, sélectionnez la méthode de création de votre choix.]({% image_buster /assets/img/survicate/survicate_8.gif %})
 
@@ -130,7 +130,7 @@ Vous trouverez un extrait de code et une implémentation React [sur le site des 
 {% endalert %}
 
 {: start="3"}
-3. Dans votre campagne Braze, configurez les étapes Target et Assign. Une fois terminé, votre campagne est prête à être lancée. À l'étape Review, vous pouvez voir à quoi ressemble la campagne. L'enquête apparaît sur votre site web à l'endroit spécifié dans le panneau Survicate, comme décrit ci-dessus.
+3. Dans votre Campaign Braze, configurez les étapes Target et Assign. Une fois terminé, votre Campaign est prête à être lancée. À l'étape Review, vous pouvez voir à quoi ressemble la Campaign. L'enquête apparaît sur votre site web à l'endroit spécifié dans le panneau Survicate, comme décrit à l'étape 1.
 
 ### Activer l'intégration Braze {#enabling-the-braze-integration}
 
@@ -184,7 +184,7 @@ Par défaut, Survicate envoie le contenu d'une réponse à l'enquête en tant qu
 ![Cliquez sur Edit mapping pour modifier ces valeurs.]({% image_buster /assets/img/survicate/survicate_19.png %})
 
 {% alert note %}
-Pour le Net Promoter Score, Survicate envoie des valeurs mappées en fonction du groupe de réponse à la question NPS®. Toutefois, si vous souhaitez recevoir des valeurs numériques, vous pouvez activer l'option Send Answers as 0-10 values.
+Pour le NPS, Survicate envoie des valeurs mappées en fonction du groupe de réponse à la question NPS®. Toutefois, si vous souhaitez recevoir des valeurs numériques, vous pouvez activer l'option Send Answers as 0-10 values.
 {% endalert %}
 
 ![Survicate envoie des valeurs mappées en fonction du groupe de réponse.]({% image_buster /assets/img/survicate/survicate_20.png %})
@@ -209,9 +209,9 @@ L'événement contient des propriétés d'événement avec la réponse à la que
 
 ![L'événement contient des propriétés d'événement avec la réponse.]({% image_buster /assets/img/survicate/survicate_24.png %})
 
-Vous pouvez également utiliser ces données lors de la création d'une campagne dans Braze.
+Vous pouvez également utiliser ces données lors de la création d'une Campaign dans Braze.
 
-![Vous pouvez également utiliser ces données lors de la création d'une campagne dans Braze.]({% image_buster /assets/img/survicate/survicate_25.png %})
+![Vous pouvez également utiliser ces données lors de la création d'une Campaign dans Braze.]({% image_buster /assets/img/survicate/survicate_25.png %})
 
 ### Tester l'intégration {#test-the-integration}
 
@@ -237,6 +237,6 @@ L'onglet Analyze vous présente les résultats globaux avec des statistiques et 
 
 ### Le feedback dans Braze {#feedback-in-braze}
 
-Si vous mettez à jour les champs utilisateur avec les réponses à l'enquête ou si vous envoyez les réponses en tant qu'événements personnalisés, vous pouvez voir les données de l'enquête synchronisées en temps réel. Dans Braze, accédez à un contact spécifique qui a répondu à votre enquête. Les données basées sur les réponses et les événements sont affichés dans la vue principale du contact.
+Si vous mettez à jour les champs utilisateur avec les réponses à l'enquête ou si vous envoyez les réponses en tant qu'événements personnalisés, vous pouvez voir les données de l'enquête synchronisées en temps réel. Dans Braze, accédez à un contact spécifique qui a répondu à votre enquête. Les données basées sur les réponses et les événements sont affichées dans la vue principale du contact.
 
 ![Données d'enquête synchronisées en temps réel.]({% image_buster /assets/img/survicate/survicate_29.png %})

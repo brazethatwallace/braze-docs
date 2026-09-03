@@ -8,7 +8,7 @@ noindex: true
 
 > The overview layout is good for creating a specific navigation option at the top of a page that allows users to click a button to travel to a specific part of a page or a completely other page.
 
-Classic examples of the Selector Layout are [the SDK Changelogs]({{site.baseurl}}/developer_guide/changelogs) page, or the [In-app Message Creative Details page]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/creative_details/).
+Classic examples of the Selector Layout are [the SDK Changelogs]({{site.baseurl}}/developer_guide/changelogs) page, or the [In-app Message Creative Details page]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/).
 
 ## Required Components
 
@@ -42,7 +42,7 @@ Format example:
 
 ```yaml
 - name: Modal
-  link: /docs/user_guide/message_building_by_channel/in-app_messages/creative_details/#modal
+  link: /docs/user_guide/channels/in_app_messages/message_types/#modal
   image: /assets/img/braze_icons/layout-alt-01.svg
 ```
 
@@ -59,13 +59,13 @@ guide_top_text: "Get creative with our in-app messages! But you should know some
 guide_featured_title: "Message Type Creative Specs"
 guide_featured_list:
 - name: Modal
-  link: /docs/user_guide/message_building_by_channel/in-app_messages/creative_details/#modal
+  link: /docs/user_guide/channels/in_app_messages/message_types/#modal
   image: /assets/img/braze_icons/layout-alt-01.svg
 - name: Slideup
-  link: /docs/user_guide/message_building_by_channel/in-app_messages/creative_details/#slideup
+  link: /docs/user_guide/channels/in_app_messages/message_types/#slideup
   image: /assets/img/braze_icons/arrow-circle-broken-up.svg
 - name: Full-Screen
-  link: /docs/user_guide/message_building_by_channel/in-app_messages/creative_details/#full-screen
+  link: /docs/user_guide/channels/in_app_messages/message_types/#full-screen
   image: /assets/img/braze_icons/expand-05.svg
 ---
 

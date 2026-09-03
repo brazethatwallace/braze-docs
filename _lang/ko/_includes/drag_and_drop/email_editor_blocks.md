@@ -2,17 +2,17 @@
 
 편집기 블록은 이메일 메시지의 **콘텐츠** 섹션에 있습니다. **드래그 앤 드롭 편집기**에서 열 안으로 블록을 끌어다 놓으면 열 너비에 맞게 자동으로 조정됩니다.
 
-**드래그 앤 드롭 편집기**에서 이메일을 만드는 방법에 대한 자세한 내용은 [드래그 앤 드롭으로 이메일 만들기]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/) 및 해당 문서의 <a href="{{site.baseurl}}/user_guide/channels/email/drag_and_drop/#other-customizations">기타 커스터마이즈</a> 를 참조하세요.
+**드래그 앤 드롭 편집기**에서 이메일을 만드는 방법에 대한 자세한 내용은 [드래그 앤 드롭으로 이메일 만들기]({{site.baseurl}}/user_guide/channels/email/drag_and_drop) 및 해당 문서의 <a href="{{site.baseurl}}/user_guide/channels/email/drag_and_drop/#other-customizations">기타 커스터마이즈</a> 를 참조하세요.
 
 {% alert tip %}
-`Image`, `Button` 또는 `Text` 편집기 블록 내의 모든 URL에 [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes/)을 추가할 수도 있습니다.
+`Image`, `Button` 또는 `Text` 편집기 블록 내의 모든 URL에 [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes)을 추가할 수도 있습니다.
 {% endalert %}
 
 ### 제목 {#title}
 
 이메일 내 헤더에 텍스트를 추가합니다.
 
-| 등록정보 | 설명 |
+| 속성정보 | 설명 |
 |---|---|
 | 제목 | 제목 스타일을 선택합니다. |
 | 글꼴 패밀리 | 제목의 글꼴 스타일입니다. |
@@ -23,14 +23,14 @@
 | 정렬 | 제목을 왼쪽, 가운데 또는 오른쪽 정렬로 이동합니다. |
 | 줄 높이 | 텍스트 줄 사이의 거리를 수정합니다. |
 | 문자 간격 | 각 문자 사이의 거리를 수정합니다. |
-| 텍스트 방향 | 기본값은 왼쪽에서 오른쪽이지만, [오른쪽에서 왼쪽으로]({{site.baseurl}}/right_to_left_messages/) 편집할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Title" }
+| 텍스트 방향 | 기본값은 왼쪽에서 오른쪽이지만, [오른쪽에서 왼쪽으로]({{site.baseurl}}/right_to_left_messages) 편집할 수 있습니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="제목" }
 
 ### 단락 {#paragraph}
 
 메시지에 텍스트를 입력합니다. 도구 모음을 통해 글꼴 및 텍스트 편집 기능을 사용할 수 있습니다.
 
-| 등록정보 | 설명 |
+| 속성정보 | 설명 |
 |---|---|
 | 글꼴 패밀리 | 단락 텍스트의 글꼴 스타일입니다. |
 | 글꼴 두께 | 글꼴의 전체적인 굵기입니다. |
@@ -41,14 +41,14 @@
 | 단락 간격 | 단락 사이의 공백을 수정합니다. |
 | 줄 높이 | 텍스트 줄 사이의 거리를 수정합니다. |
 | 문자 간격 | 각 문자 사이의 거리를 수정합니다. |
-| 텍스트 방향 | 기본값은 왼쪽에서 오른쪽이지만, [오른쪽에서 왼쪽으로]({{site.baseurl}}/right_to_left_messages/) 편집할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Paragraph" }
+| 텍스트 방향 | 기본값은 왼쪽에서 오른쪽이지만, [오른쪽에서 왼쪽으로]({{site.baseurl}}/right_to_left_messages) 편집할 수 있습니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="단락" }
 
 ### 목록 {#list}
 
 글머리 기호 목록을 추가합니다.
 
-| 등록정보 | 설명 |
+| 속성정보 | 설명 |
 |---|---|
 | 목록 유형 | 목록의 유형입니다. 글머리 기호 또는 번호 매기기를 선택할 수 있습니다. |
 | 목록 스타일 유형 | 목록의 스타일을 결정합니다. |
@@ -63,68 +63,68 @@
 | 목록 항목 들여쓰기 | 목록 항목의 들여쓰기를 수정합니다. |
 | 줄 높이 | 텍스트 줄 사이의 거리를 수정합니다. |
 | 문자 간격 | 각 문자 사이의 거리를 수정합니다. |
-| 텍스트 방향 | 기본값은 왼쪽에서 오른쪽이지만, [오른쪽에서 왼쪽으로]({{site.baseurl}}/right_to_left_messages/) 편집할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="List" }
+| 텍스트 방향 | 기본값은 왼쪽에서 오른쪽이지만, [오른쪽에서 왼쪽으로]({{site.baseurl}}/right_to_left_messages) 편집할 수 있습니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="목록" }
 
 ### 버튼 {#button}
 
-표준 버튼을 추가합니다. 등록정보를 사용하여 스타일을 편집하고 링크 동작을 설정할 수 있습니다.
+표준 버튼을 추가합니다. 속성정보를 사용하여 스타일을 편집하고 링크 동작을 설정할 수 있습니다.
 
-| 등록정보 | 설명 |
+| 속성정보 | 설명 |
 |---|---|
 | 버튼 옵션 | 글꼴, 크기, 너비, 색상 및 패딩 등 다양한 버튼 옵션을 설정합니다. |
 | 버튼 호버 | 사용자가 마우스 또는 트랙패드로 버튼 위에 마우스를 올렸을 때의 스타일입니다. 버튼의 배경색, 글꼴 색상 및 테두리 스타일이 포함됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Button" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="버튼" }
 
 #### 클릭 시 동작 {#on-click-behavior}
 
-| 등록정보 | 설명 |
+| 속성정보 | 설명 |
 |---|---|
 | 링크 유형 | 버튼 클릭 시 동작을 결정하고 적절한 프로토콜을 설정합니다. |
 | URL | **웹 페이지 열기** 링크 유형에 따라 동적으로 변경됩니다. |
 | 메일 수신자, 제목 및 본문 | **이메일 보내기** 링크 유형의 경우, 사용자가 버튼을 선택할 때 초안 이메일에 채워질 수신자 이메일 주소, 제목 및 내용을 설정합니다. |
 | 전화번호 | **전화 걸기** 및 **SMS 보내기** 링크 유형의 경우, 사용자가 버튼을 선택할 때 전화하거나 문자를 보낼 전화번호를 설정합니다. |
 | 메시지 | **SMS 보내기** 링크 유형의 경우, 사용자가 버튼을 선택할 때 초안 SMS 메시지에 채워질 내용을 설정합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="On-click behavior" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="클릭 시 동작" }
 
 ### 구분선 {#divider}
 
 실선, 점선 또는 파선을 삽입하여 간격을 조정할 수 있습니다.
 
-| 등록정보 | 설명 |
+| 속성정보 | 설명 |
 |---|---|
 | 투명 | 활성화하면 선 및 너비 옵션이 제거됩니다. |
 | 선 | 점선, 파선, 실선 등 다양한 선 형식을 지원합니다. 구분선의 두께와 색상도 수정할 수 있습니다. |
 | 너비 | 구분선의 범위를 5 단위로 조정합니다. |
 | 정렬 | 선을 왼쪽, 가운데 또는 오른쪽 정렬로 이동합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Divider" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="구분선" }
 
 ### 공백 {#spacer}
 
 다른 블록 사이에 공간 또는 패딩을 추가합니다.
 
-| 등록정보 | 설명 |
+| 속성정보 | 설명 |
 |---|---|
 | 높이 | 공백 블록의 높이를 조정합니다. 기본값은 60px입니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Spacer" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="공백" }
 
 ### 이미지 {#image}
 
-[미디어 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/)에서 이미지를 삽입합니다. 동적 이미지(Liquid 또는 연결된 콘텐츠가 포함된 이미지)의 경우, 자동 너비 설정을 사용하려면 대체 이미지를 설정해야 합니다. 이미지 사양에 대한 내용은 [이메일 이미지 사양]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications/#email)을 참조하세요.
+[미디어 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library)에서 이미지를 삽입합니다. 동적 이미지(Liquid 또는 연결된 콘텐츠가 포함된 이미지)의 경우, 자동 너비 설정을 사용하려면 대체 이미지를 설정해야 합니다. 이미지 사양에 대한 내용은 [이메일 이미지 사양]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications#email)을 참조하세요.
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
-| 등록정보 | 설명 |
+| 속성정보 | 설명 |
 |---|---|
 | 자동 너비 | 이미지의 너비를 픽셀 단위로 수정합니다. |
 | 정렬 | 이미지를 블록의 왼쪽, 가운데 또는 오른쪽에 배치합니다. |
-| Liquid가 포함된 이미지 | [Liquid]({{site.baseurl}}/liquid/) 로직을 사용하여 동일한 콘텐츠 블록 내에서 서로 다른 이미지를 동적으로 설정합니다. |
+| Liquid가 포함된 이미지 | [Liquid]({{site.baseurl}}/liquid) 로직을 사용하여 동일한 콘텐츠 블록 내에서 서로 다른 이미지를 동적으로 설정합니다. |
 | URL | 이미지가 호스팅된 주소를 사용하여 이미지를 설정합니다. |
 | 대체 텍스트 | 이미지에 표시된 것과 동일한 정보를 사용자에게 제공하는 짧은 설명입니다. 스크린 리더 접근성이나 이미지 로드 실패 시 필수적입니다. |
 | 둥근 모서리 이미지 | 이미지를 둥근 모서리로 렌더링합니다. 기본적으로 이미지는 직각 모서리로 렌더링됩니다. |
 | 동작 | 사용자가 이미지를 클릭할 때 동작을 트리거합니다. |
 | 블록 옵션 | 이미지 블록 주위의 패딩을 설정합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Image" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="이미지" }
 
 {% alert tip %}
 **자동 너비**의 경우, 자동 이미지 크기 조정은 이미지 너비와 레이아웃에서 사용 가능한 공간의 조합에 따라 이미지에 가장 적합한 크기를 선택합니다.
@@ -132,40 +132,53 @@
 - 사용 가능한 공간보다 작은 이미지는 왜곡이나 흐릿한 사진을 방지하기 위해 이미지의 원래 크기를 사용합니다.
 {% endalert %}
 
-### 동영상 {#video}
+#### Gmail 다운로드 버튼 동작 {#gmail-download-button-behavior}
 
-동영상 콘텐츠에 대한 링크를 생성합니다. YouTube와 Vimeo만 지원됩니다.
+Gmail은 하이퍼링크(`href`)가 연결되지 않은 이미지에 자동으로 다운로드 버튼을 추가합니다. 그러나 이미지의 가로세로 비율이 299 x 524 px 이하인 경우 Gmail은 다운로드 버튼을 표시하지 않습니다.
 
-| 등록정보 | 설명 |
+큰 이미지에서 다운로드 버튼이 나타나지 않도록 하려면 "#" 링크 해결 방법을 적용할 수 있습니다.
+
+1. **Image** 블록을 선택합니다.
+2. **Block Options** 패널에서 **Link** 섹션으로 이동합니다.
+3. **Link type**을 **Open web page**로 설정합니다.
+4. **URL** 입력 필드에 파운드 기호(`#`)를 입력합니다.
+
+이 링크를 추가하면 사용자 경험에 영향을 주지 않으면서 Gmail에서 다운로드 버튼이 표시되는 것을 방지할 수 있습니다.
+
+### 비디오 {#video}
+
+비디오 콘텐츠에 대한 링크를 생성합니다. YouTube와 Vimeo만 지원됩니다.
+
+| 속성정보 | 설명 |
 |---|---|
-| URL | 동영상의 URL입니다. |
-| 제목 | 동영상 메타데이터에서 자동 생성되거나 커스터마이즈할 수 있습니다. |
-| 재생 아이콘 스타일 | 동영상 이미지 상단에 위치한 재생 버튼에 대한 다양한 옵션을 포함합니다. |
+| URL | 비디오의 URL입니다. |
+| 제목 | 비디오 메타데이터에서 자동 생성되거나 커스터마이즈할 수 있습니다. |
+| 재생 아이콘 스타일 | 비디오 이미지 상단에 위치한 재생 버튼에 대한 다양한 옵션을 포함합니다. |
 | 재생 아이콘 색상 | 재생 버튼에 **Light** 또는 **Dark**를 선택하는 옵션입니다. |
 | 재생 아이콘 크기 | 재생 버튼의 픽셀 크기를 선택합니다. 50&nbsp;px에서 80&nbsp;px까지 미리 정의된 범위입니다(5&nbsp;px씩 증가). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Video" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="비디오" }
 
 {% alert tip %}
-Vimeo에서 호스팅하는 동영상은 공개로 설정된 경우에만 작동합니다. Vimeo 내에서 사용할 수 있는 다른 모든 보안 설정(예: "Vimeo.com에서 숨기기")은 이 콘텐츠 블록에서 지원하지 않는 다른 링크 형식을 생성합니다. 이러한 유형의 링크는 빌더에 의해 변경되어 Braze에서 썸네일을 생성할 수 없습니다.
+Vimeo에서 호스팅하는 비디오는 공개로 설정된 경우에만 작동합니다. Vimeo 내에서 사용할 수 있는 다른 모든 보안 설정(예: "Vimeo.com에서 숨기기")은 이 콘텐츠 블록에서 지원하지 않는 다른 링크 형식을 생성합니다. 이러한 유형의 링크는 빌더에 의해 변경되어 Braze에서 썸네일을 생성할 수 없습니다.
 {% endalert %}
 
 ### 소셜 {#social}
 
 소셜 미디어 플랫폼 아이콘을 삽입합니다. 브랜드별 아이콘을 위해 커스텀 이미지를 업로드할 수 있습니다.
 
-| 등록정보 | 설명 |
+| 속성정보 | 설명 |
 |---|---|
 | 아이콘 컬렉션 선택 | 아이콘 컬렉션의 스타일을 설정합니다. |
 | 아이콘 컬렉션 구성 | 각 소셜 아이콘의 URL을 설정합니다. 제목 및 대체 텍스트를 편집할 수 있는 **추가 옵션** 토글이 포함되어 있습니다. |
 | 정렬 | 소셜 아이콘을 왼쪽, 가운데 또는 오른쪽 정렬로 이동합니다. |
 | 아이콘 간격 | 각 소셜 아이콘 사이의 간격을 결정합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Social" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="소셜" }
 
 ### 아이콘 {#icons}
 
 아이콘을 삽입합니다. 커스텀 이미지를 업로드할 수 있습니다. Braze는 이미지를 업로드할 때까지 크기가 큰 플레이스홀더 아이콘을 사용합니다.
 
-| 등록정보 | 설명 |
+| 속성정보 | 설명 |
 |---|---|
 | 글꼴 패밀리 | 단락 텍스트의 글꼴 스타일입니다. |
 | 글꼴 두께 | 글꼴의 전체적인 굵기입니다. |
@@ -177,22 +190,22 @@ Vimeo에서 호스팅하는 동영상은 공개로 설정된 경우에만 작동
 | 아이콘 크기 | 아이콘의 크기를 결정합니다. |
 | 아이콘 간격 | 아이콘의 간격을 수정합니다. |
 | 아이콘 패딩 | 아이콘의 패딩을 수정합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Icons" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="아이콘" }
 
 ### HTML
 
-원시 HTML을 삽입합니다. 연결된 콘텐츠 또는 조건문과 같은 [Liquid]({{site.baseurl}}/liquid/)에 권장됩니다.
+원시 HTML을 삽입합니다. 연결된 콘텐츠 또는 조건문과 같은 [Liquid]({{site.baseurl}}/liquid)에 권장됩니다.
 
-| 등록정보 | 설명 |
+| 속성정보 | 설명 |
 |---|---|
-| HTML | [Liquid]({{site.baseurl}}/liquid/)를 포함한 원시 HTML을 추가하거나 편집하여 개인화 또는 조건 로직을 적용합니다. |
+| HTML | [Liquid]({{site.baseurl}}/liquid)를 포함한 원시 HTML을 추가하거나 편집하여 개인화 또는 조건 로직을 적용합니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="HTML" }
 
 ### 메뉴 {#menu}
 
 디자인 중인 메시지에 맞는 유연한 메뉴를 만듭니다.
 
-| 등록정보 | 설명 |
+| 속성정보 | 설명 |
 |---|---|
 | 메뉴 항목 구성 | 메뉴 항목을 추가합니다. |
 | 글꼴 패밀리 | 메뉴에 사용할 글꼴 스타일입니다. |
@@ -206,13 +219,13 @@ Vimeo에서 호스팅하는 동영상은 공개로 설정된 경우에만 작동
 | 모바일 메뉴 | 모바일 기기에 표시될 때 아이콘 크기, 색상 및 아이콘 유형을 수정하는 옵션이 포함되어 있습니다. |
 | 항목 패딩 | **+** 또는 **-** 버튼을 사용하거나 특정 숫자를 입력하여 패딩을 수정합니다. |
 | 모든 면 | 항목 패딩이 비활성화된 경우 일관된 패딩 값을 설정합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Menu" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="메뉴" }
 
 ### 제품 {#product}
 
-[제품 카탈로그]({{site.baseurl}}/user_guide/messaging/design_and_edit/product_blocks/)에서 제품 행을 렌더링합니다. 카탈로그 선택에서 정적 항목(최대 12개)으로 표시하거나 [Canvas 이커머스 트리거]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases/)에 의해 구동되는 동적 제품(최대 24개)으로 표시할 수 있습니다.
+[제품 카탈로그]({{site.baseurl}}/user_guide/messaging/design_and_edit/product_blocks)에서 제품 행을 렌더링합니다. 카탈로그 선택에서 정적 항목(최대 12개)으로 표시하거나 [Canvas 이커머스 트리거]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases)에 의해 구동되는 동적 제품(최대 24개)으로 표시할 수 있습니다.
 
-| 등록정보 | 설명 |
+| 속성정보 | 설명 |
 | --- | --- |
 | 콘텐츠 유형 | 제품이 고정된 카탈로그 **선택**(**정적**, 최대 12개 제품)에서 제공되는지 또는 Canvas 이커머스 추천 트리거(**동적**, 최대 24개 제품)에서 제공되는지 설정합니다. **동적**은 Canvas 메시지 단계에서만 사용할 수 있습니다. |
 | 카탈로그 | 제품 데이터 및 필드 매핑을 제공하는 제품 카탈로그를 선택합니다. |
@@ -228,11 +241,11 @@ Vimeo에서 호스팅하는 동영상은 공개로 설정된 경우에만 작동
 | 행당 최대 제품 수 | 행당 표시할 제품 수를 설정합니다: **1**, **2** 또는 **3**(**3**은 방향이 **이미지 가운데**인 경우에만 사용 가능). |
 | 제품 간격 | 제품 간 간격을 설정합니다: **자동** 또는 **커스텀**. |
 | 커스텀 간격 | *(**커스텀** 선택 시)* 제품 간 간격을 픽셀 단위로 설정합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Product" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="제품" }
 
 ## 개인화 {#personalization}
 
 Liquid 또는 연결된 콘텐츠를 사용하여 이메일에 개인화를 추가할 수 있습니다.
 
 - **Liquid:** **콘텐츠** > **개인화**에서 속성을 선택하고 스니펫을 복사한 다음 제목, 단락 또는 목록 블록(기본 Liquid) 또는 HTML 블록(고급 Liquid)에 붙여넣습니다. 일반적으로 제목, 단락 및 목록 블록에서 기본 Liquid를 사용할 수 있지만, 레이아웃 문제를 방지하기 위해 복잡한 로직에는 HTML 블록을 사용하는 것이 좋습니다. 이미지 블록이나 버튼 URL 필드에서는 Liquid가 지원되지 않습니다.
-- **[연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/):** **HTML** 블록을 추가하고 {% raw %}`{% connected_content %}`{% endraw %} 호출을 배치합니다.
+- **[연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content):** **HTML** 블록을 추가하고 {% raw %}`{% connected_content %}`{% endraw %} 호출을 배치합니다.

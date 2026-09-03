@@ -1,6 +1,6 @@
 ---
-nav_title: "POST: Atualizar envios de mensagens programadas"
-article_title: "POST: Atualizar envios de mensagens programadas"
+nav_title: "POST: Atualizar mensagens agendadas"
+article_title: "POST: Atualizar mensagens agendadas"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
@@ -9,12 +9,13 @@ description: "Este artigo descreve detalhes sobre o endpoint da Braze para atual
 
 ---
 {% api %}
-# Atualizar envios de mensagens programadas {#update-scheduled-messages}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+# Atualizar mensagens agendadas {#update-scheduled-messages}
+
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /messages/schedule/update
 {% endapimethod %}
 
-> Use esse endpoint para atualizar os envios de mensagens programadas.
+> Use esse endpoint para atualizar mensagens agendadas.
 
 Esse endpoint aceita atualizações do parâmetro `schedule` ou `messages` ou de ambos. Sua solicitação deve conter pelo menos uma dessas duas chaves.
 
@@ -22,9 +23,9 @@ Esse endpoint aceita atualizações do parâmetro `schedule` ou `messages` ou de
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `messages.schedule.update`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `messages.schedule.update`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
@@ -51,8 +52,8 @@ Authorization: Bearer YOUR-REST-API-KEY
 | Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
 | `schedule_id` | Obrigatório | String | O `schedule_id` a ser atualizado (obtido da resposta para criar agendamento). |
-| `schedule` | Opcional | Objeto | Consulte [objeto de agendamento]({{site.baseurl}}/api/objects_filters/schedule_object/). |
-| `messages` | Opcional | Objeto | Consulte os [objetos de envio de mensagens disponíveis]({{site.baseurl}}/api/objects_filters/#messaging-objects). |
+| `schedule` | Opcional | Objeto | Consulte [objeto de agendamento]({{site.baseurl}}/api/objects_filters/schedule_object). |
+| `messages` | Opcional | Objeto | Consulte os [objetos de envio de mensagens disponíveis]({{site.baseurl}}/api/objects_filters#messaging-objects). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#example-request}

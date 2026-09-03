@@ -14,11 +14,11 @@ platform:
 
 # Personalize o comportamento dos Content Cards {#customize-the-behavior-of-content-cards}
 
-> Este guia de implementação aborda a alteração do comportamento dos Content Cards, a adição de extras como pares de chave-valor à sua carga útil e receitas de personalizações comuns. Para a lista completa de tipos de cartões de conteúdo, consulte [Sobre os Content Cards]({{site.baseurl}}/developer_guide/content_cards/).
+> Este guia de implementação aborda a alteração do comportamento dos Content Cards, a adição de extras como pares de chave-valor à sua carga útil e receitas de personalizações comuns. Para a lista completa de tipos de cartões de conteúdo, consulte [Sobre os Content Cards]({{site.baseurl}}/developer_guide/content_cards).
 
 ## Pares de chave-valor {#key-value-pairs}
 
-A Braze permite que você envie cargas úteis de dados extras por meio de Content Cards para os dispositivos dos usuários usando pares de chave-valor. Eles podem ajudar a rastrear métricas internas, atualizar o conteúdo do app e personalizar propriedades. [Adicione pares de chave-valor usando o dashboard]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/create/#step-4-configure-additional-settings-optional).
+A Braze permite que você envie cargas úteis de dados extras por meio de Content Cards para os dispositivos dos usuários usando pares de chave-valor. Eles podem ajudar a rastrear métricas internas, atualizar o conteúdo do app e personalizar propriedades. [Adicione pares de chave-valor usando o dashboard]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/create#step-4-configure-additional-settings-optional).
 
 {% alert note %}
 Não recomendamos o envio de valores JSON aninhados como pares de chave-valor. Em vez disso, achate o JSON antes de enviá-lo.
@@ -48,28 +48,28 @@ Os pares de chave-valor são armazenados em objetos <a href="https://braze-inc.g
 
 ## Content Cards como conteúdo suplementar {#content-cards-as-supplemental-content}
 
-![]({% image_buster /assets/img/cc_implementation/supplementary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0;"}
+![Feed com uma lista híbrida que combina dados locais e Content Cards da Braze.]({% image_buster /assets/img/cc_implementation/supplementary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0;"}
 
 Você pode combinar perfeitamente os Content Cards em um feed existente, permitindo que os dados de vários feeds sejam carregados simultaneamente. Isso cria uma experiência coesa e harmoniosa com os Content Cards da Braze e o conteúdo de feed existente.
 
-O exemplo à direita mostra um feed com uma lista híbrida de itens que são preenchidos por meio de dados locais e Content Cards fornecidos pela Braze. Com isso, os Content Cards podem ser indistinguíveis do conteúdo existente.
+O exemplo ao lado mostra um feed com uma lista híbrida de itens que são preenchidos por meio de dados locais e Content Cards fornecidos pela Braze. Com isso, os Content Cards podem ser indistinguíveis do conteúdo existente.
 
 ### Pares de chave-valor disparados por API {#api-triggered-key-value-pairs}
 
-As [Campaigns disparadas por API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/) são uma boa estratégia a ser empregada quando os valores de um cartão dependem de fatores externos para determinar o conteúdo a ser exibido para o usuário. Por exemplo, para exibir conteúdo suplementar, defina pares de chave-valor usando Liquid. Note que o `class_type` deve ser conhecido no momento da configuração.
+As [Campaigns disparadas por API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery) são uma boa estratégia a ser empregada quando os valores de um cartão dependem de fatores externos para determinar o conteúdo a ser exibido para o usuário. Por exemplo, para exibir conteúdo suplementar, defina pares de chave-valor usando Liquid. Note que o `class_type` deve ser conhecido no momento da configuração.
 
 ![Os pares de chave-valor para o caso de uso de Content Cards suplementares. Neste exemplo, diferentes aspectos do cartão, como "tile_id", "tile_deeplink" e "tile_title", são definidos usando Liquid.]({% image_buster /assets/img/cc_implementation/supplementary_content.png %}){: style="max-width:60%;"}
 
 ## Content Cards como conteúdo interativo {#content-cards-as-interactive-content}
 ![Um Content Card interativo mostrando uma promoção de 50% aparece no canto inferior esquerdo da tela. Depois de clicado, a promoção será aplicada ao carrinho.]({% image_buster /assets/img/cc_implementation/discount2.png %}){: style="border:0;"}{: style="float:right;max-width:45%;border:0;margin-left:15px;"}
 
-Os Content Cards podem ser aproveitados para criar experiências dinâmicas e interativas para seus usuários. No exemplo à direita, temos um pop-up de Content Card que aparece no checkout, oferecendo aos usuários promoções de última hora. Cartões bem posicionados como esse são uma ótima maneira de dar aos usuários um "empurrãozinho" em direção a ações específicas.
+Os Content Cards podem ser aproveitados para criar experiências dinâmicas e interativas para seus usuários. No exemplo ao lado, um pop-up de Content Card aparece no checkout, oferecendo aos usuários promoções de última hora. Cartões bem posicionados como esse são uma ótima maneira de dar aos usuários um "empurrãozinho" em direção a ações específicas.
 
-Os pares de chave-valor para esse caso de uso incluem `discount_percentage` definido como o valor do desconto desejado e `class_type` definido como `coupon_code`. Esses pares de chave-valor permitem filtrar e exibir Content Cards específicos por tipo na tela de checkout. Para saber mais sobre o uso de pares de chave-valor para gerenciar vários feeds, consulte [Personalização do feed padrão de Content Cards]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed/#multiple-feeds).
+Os pares de chave-valor para esse caso de uso incluem `discount_percentage` definido como o valor do desconto desejado e `class_type` definido como `coupon_code`. Esses pares de chave-valor permitem filtrar e exibir Content Cards específicos por tipo na tela de checkout. Para saber mais sobre o uso de pares de chave-valor para gerenciar vários feeds, consulte [Personalização do feed padrão de Content Cards]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed#multiple-feeds).
 <br>
 <br>
 
-![]({% image_buster /assets/img/cc_implementation/discount.png %}){: style="max-width:80%;"}
+![Promoção interativa de Content Card exibida no checkout.]({% image_buster /assets/img/cc_implementation/discount.png %}){: style="max-width:80%;"}
 
 ## Emblemas de Content Cards {#content-card-badges}
 
@@ -122,11 +122,13 @@ Em seguida, você pode usar essas informações para exibir um emblema que indic
 
 O exemplo a seguir usa `braze.contentCards` para solicitar e exibir o número de Content Cards não lidos. Depois que o app é fechado e a sessão do usuário termina, esse código solicita uma contagem de cartões, filtrando o número de cartões com base na propriedade `viewed`.
 
+Apps que adotaram o [ciclo de vida `UIScene`](https://developer.apple.com/documentation/technotes/tn3187-migrating-to-the-uikit-scene-based-life-cycle) (obrigatório para apps compilados com [Xcode 27 e posterior](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes)) devem implementar isso em `sceneDidEnterBackground(_:)` do `SceneDelegate.swift` em vez de `applicationDidEnterBackground(_:)` do `AppDelegate.swift`.
+
 {% subtabs %}
 {% subtab Swift %}
 
 ```swift
-func applicationDidEnterBackground(_ application: UIApplication)
+func sceneDidEnterBackground(_ scene: UIScene)
 ```
 
 Nesse método, implemente o seguinte código, que atualiza ativamente a contagem de emblemas enquanto o usuário visualiza os cartões durante uma determinada sessão:
@@ -140,7 +142,7 @@ UIApplication.shared.applicationIconBadgeNumber = unreadCards?.count ?? 0
 {% subtab Objective-C %}
 
 ```objc
-(void)applicationDidEnterBackground:(UIApplication *)application
+(void)sceneDidEnterBackground:(UIScene *)scene
 ```
 
 Nesse método, implemente o seguinte código, que atualiza ativamente a contagem de emblemas enquanto o usuário visualiza os cartões durante uma determinada sessão:

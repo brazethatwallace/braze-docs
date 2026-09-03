@@ -92,7 +92,7 @@ Once a solution finishes training, you are ready to evaluate it and compare diff
 
 Once you have created a solution version that you're happy with, it is time to put the recommendations to use. There are two ways to access the recommendations:
 
-1. Real-time campaign<br>A campaign is a deployed solution version with a defined minimum transaction throughput. A transaction is a single API call to get recommendation output, and it is defined as TPS, or transactions per second, with a minimum value of one. The campaign will scale resources in case of an increased load, but it will not drop below your minimum value. You can query the recommendations in the console, AWS CLI, or through AWS SDKs in your code.<br><br>
+1. Real-time campaign<br>A campaign is a deployed solution version with a defined minimum transaction throughput. A transaction is a single API call to get recommendation output, and it is defined as TPS, or transactions per second, with a minimum value of one. The campaign will scale resources in case of an increased load, but it will not drop under your minimum value. You can query the recommendations in the console, AWS CLI, or through AWS SDKs in your code.<br><br>
 2. Batch job<br>A batch job exports the recommendations to an S3 bucket. The job takes an input of a JSON file with a list of user IDs for which you want to export the recommendations. Then, after specifying the correct permissions and the output destination, you're ready to run the job. The runtime depends on the size of your datasets and the recommendations list length.
 
 ### Filters

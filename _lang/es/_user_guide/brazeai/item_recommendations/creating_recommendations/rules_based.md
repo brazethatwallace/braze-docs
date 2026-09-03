@@ -1,7 +1,7 @@
 ---
 nav_title: Recomendaciones basadas en reglas
 article_title: Crear recomendaciones de elementos basadas en reglas
-description: "Este artículo de referencia explica cómo crear una recomendación de elementos de IA para los elementos de un catálogo."
+description: "Este artículo de referencia explica cómo crear una recomendación de elementos basada en reglas para los elementos de un catálogo."
 page_order: 2
 ---
 
@@ -11,10 +11,10 @@ page_order: 2
 
 ## Acerca de las recomendaciones de elementos basadas en reglas {#about-rules-based-item-recommendations}
 
-Una herramienta de recomendaciones basada en reglas utiliza datos de usuario e información sobre productos para sugerir elementos relevantes a los usuarios dentro de los mensajes. Utiliza [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) y los [catálogos]({{site.baseurl}}/user_guide/data/activation/catalogs/) de Braze o [Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) para personalizar dinámicamente el contenido en función del comportamiento y los atributos de los usuarios.
+Una herramienta de recomendaciones basada en reglas utiliza datos de usuario e información sobre productos para sugerir elementos relevantes a los usuarios dentro de los mensajes. Utiliza [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) y los [catálogos]({{site.baseurl}}/user_guide/data/activation/catalogs) de Braze o [contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) para personalizar dinámicamente el contenido en función del comportamiento y los atributos de los usuarios.
 
 {% alert important %}
-Las recomendaciones basadas en reglas se basan en una lógica fija que debes establecer manualmente. Esto significa que tus recomendaciones no se ajustarán al historial de compras y gustos de un usuario a menos que actualices la lógica.<br><br>Para crear recomendaciones de IA personalizadas que se ajusten automáticamente al historial del usuario, consulta [Recomendaciones de elementos de IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/).
+Las recomendaciones basadas en reglas se basan en una lógica fija que debes establecer manualmente. Esto significa que tus recomendaciones no se ajustarán al historial de compras y gustos de un usuario a menos que actualices la lógica.<br><br>Para crear recomendaciones de IA personalizadas que se ajusten automáticamente al historial del usuario, consulta [Recomendaciones de elementos de IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 {% endalert %}
 
 ## Opciones de la herramienta de recomendaciones {#recommendation-engine-options}
@@ -77,13 +77,13 @@ Cuando decidas qué herramienta de recomendaciones se adapta a tus recursos disp
 
 ## Creación de una herramienta de recomendaciones {#creating-a-recommendation-engine}
 
-Crea tu herramienta de recomendaciones utilizando un catálogo o Contenido conectado:
+Crea tu herramienta de recomendaciones utilizando un catálogo o contenido conectado:
 
 {% tabs local %}
 {% tab using a catalog %}
 Para crear tu herramienta de recomendaciones utilizando un catálogo:
 
-1. [Crea un catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/create/) de productos.
+1. [Crea un catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/create) de productos.
 2. Para cada producto, añade una lista de productos recomendados como una cadena separada por un delimitador (como una barra vertical `|`) en una columna llamada "product_recommendations".
 3. Pasa al catálogo el ID del producto para el que quieres encontrar recomendaciones.
 4. Obtén el valor `product_recommendations` de ese elemento del catálogo y divídelo por el delimitador con un filtro de división Liquid.
@@ -102,9 +102,9 @@ Supongamos que tienes una aplicación de comida saludable y quieres crear una ca
 | **image_url** | La imagen que corresponde a la receta. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Ejemplo" }
 
-Una vez cargado el catálogo en Braze, confirma que la información se importó correctamente seleccionando tu catálogo en la página de catálogos y abriendo la pestaña **Vista previa**. Aparecerá un número selecto de elementos en la vista previa, y pueden estar en orden aleatorio, pero esto no afecta al resultado de la herramienta de recomendaciones.
+Una vez cargado el catálogo en Braze, confirma que la información se importó correctamente seleccionando tu catálogo en la página de catálogos y abriendo la pestaña **Preview**. Aparecerá un número selecto de elementos en la vista previa, y pueden estar en orden aleatorio, pero esto no afecta al resultado de la herramienta de recomendaciones.
 
-Con el catálogo listo, [crea una campaña de tarjeta de contenido]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/). En el creador de mensajes, introduce la lógica Liquid para determinar qué usuarios deben recibir la campaña, y qué receta e imagen deben mostrarse. En este caso de uso, Braze obtiene el `start_date` (o fecha de registro) del usuario y lo compara con la fecha actual. La diferencia en días determina qué tarjeta de contenido se envía.
+Con el catálogo listo, [crea una campaña de tarjeta de contenido]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card). En el creador, introduce la lógica Liquid para determinar qué usuarios deben recibir la campaña, y qué receta e imagen deben mostrarse. En este caso de uso, Braze obtiene el `start_date` (o fecha de registro) del usuario y lo compara con la fecha actual. La diferencia en días determina qué tarjeta de contenido se envía.
 
 {% subtabs local %}
 {% subtab title %}
@@ -155,7 +155,7 @@ Por ejemplo:
 
 ![Ejemplo de creador de mensajes de una campaña de tarjeta de contenido.]({% image_buster /assets/img/recs/content_card_preview.png %})
 
-En la sección **Comportamiento de clic**, introduce la lógica Liquid para saber a dónde deben ser redirigidos los usuarios cuando hacen clic en la tarjeta de contenido en dispositivos iOS, Android y Web.
+En la sección **On click behavior**, introduce la lógica Liquid para saber a dónde deben ser redirigidos los usuarios cuando hacen clic en la tarjeta de contenido en dispositivos iOS, Android y Web.
 
 {% raw %}
 ```liquid
@@ -172,22 +172,22 @@ Por ejemplo:
 
 ![Ejemplo de bloque de comportamiento al hacer clic en el creador de mensajes.]({% image_buster /assets/img/recs/on_click_behavior.png %}){: style="max-width:60%;"}<br><br>
 
-Ve a la pestaña **Prueba** y selecciona **Usuario personalizado** en **Vista previa del mensaje como usuario**. Introduce una fecha en el campo **Atributo personalizado** para obtener una vista previa de la tarjeta de contenido que se enviaría a un usuario que se hubiera registrado en esa fecha. <br><br>
+Ve a la pestaña **Test** y selecciona **Custom user** en **Preview message as user**. Introduce una fecha en el campo **Custom attribute** para obtener una vista previa de la tarjeta de contenido que se enviaría a un usuario que se hubiera registrado en esa fecha. <br><br>
 
 ![Ejemplo de atributo personalizado denominado "start_date".]({% image_buster /assets/img/recs/custom_attributes_test.png %})
 {% endtab %}
 
 {% tab using Connected Content %}
-Para crear tu herramienta de recomendaciones utilizando Contenido conectado, primero crea un nuevo punto de conexión utilizando uno de los siguientes métodos:
+Para crear tu herramienta de recomendaciones utilizando contenido conectado, primero crea un nuevo endpoint utilizando uno de los siguientes métodos:
 
 | Opción | Descripción |
 |------|-----------|
-| **Convertir una hoja de cálculo** | Convierte una hoja de cálculo en un punto de conexión de API JSON utilizando un servicio como SheetDP y toma nota de la URL de la API que se genera. |
-| **Crear un punto de conexión personalizado** | Crea, aloja y mantén un punto de conexión interno personalizado. |
-| **Utilizar una herramienta de terceros** | Utiliza una herramienta de recomendaciones de terceros, como uno de nuestros [socios de Alloy]({{site.baseurl}}/partners/message_personalization/), entre los que se incluyen [Amazon Personalise]({{site.baseurl}}/partners/amazon_personalize/), [Certona]({{site.baseurl}}/partners/message_personalization/dynamic_content/personalized_recommendations/certona/), [Dynamic Yield]({{site.baseurl}}/partners/dynamic_yield/) y otros. |
+| **Convertir una hoja de cálculo** | Convierte una hoja de cálculo en un endpoint de API JSON utilizando un servicio como SheetDP y toma nota de la URL de la API que se genera. |
+| **Crear un endpoint personalizado** | Crea, aloja y mantén un endpoint interno personalizado. |
+| **Utilizar una herramienta de terceros** | Utiliza una herramienta de recomendaciones de terceros, como uno de nuestros [partners de Alloy]({{site.baseurl}}/partners/message_personalization), entre los que se incluyen [Amazon Personalise]({{site.baseurl}}/partners/amazon_personalize), [Certona]({{site.baseurl}}/partners/message_personalization/dynamic_content/personalized_recommendations/certona), [Dynamic Yield]({{site.baseurl}}/partners/dynamic_yield) y otros. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Ejemplo" }
 
-A continuación, utiliza Liquid en tu mensaje que llama a tu punto de conexión para hacer coincidir un valor de atributo personalizado con el perfil de un usuario y extraer la recomendación correspondiente.
+A continuación, utiliza Liquid en tu mensaje que llame a tu endpoint para hacer coincidir un valor de atributo personalizado con el perfil de un usuario y extraer la recomendación correspondiente.
 
 {% raw %}
 ```liquid
@@ -212,12 +212,12 @@ Sustituye lo siguiente:
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Ejemplo" }
 
 {% alert note %}
-Este es un ejemplo básico y puede que tengas que modificarlo en función de tus necesidades específicas y de la estructura de tus datos. Para obtener información más detallada, consulta la [documentación de Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) o consulta con un desarrollador.
+Este es un ejemplo básico y puede que tengas que modificarlo en función de tus necesidades específicas y de la estructura de tus datos. Para obtener información más detallada, consulta la [documentación de Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) o consulta con un desarrollador.
 {% endalert %}
 
 ### Ejemplo
 
-Supongamos que quieres extraer recomendaciones de restaurantes de la base de datos Zomato Restaurants y guardar el resultado como una variable local llamada `restaurants`. Puedes hacer la siguiente llamada de Contenido conectado:
+Supongamos que quieres extraer recomendaciones de restaurantes de la base de datos Zomato Restaurants y guardar el resultado como una variable local llamada `restaurants`. Puedes hacer la siguiente llamada de contenido conectado:
 
 {% raw %}
 ```liquid
@@ -230,7 +230,7 @@ Supongamos que quieres extraer recomendaciones de restaurantes de la base de dat
 
 A continuación, supongamos que quieres obtener recomendaciones de restaurantes en función de la ciudad y el tipo de comida de un usuario. Puedes hacerlo insertando dinámicamente los atributos personalizados para la ciudad y el tipo de comida del usuario al principio de la llamada, y asignando después el valor de `restaurants` a la variable `city_food.restaurants`.
 
-La llamada de Contenido conectado tendría el siguiente aspecto:
+La llamada de contenido conectado tendría el siguiente aspecto:
 
 {% raw %}
 ```liquid

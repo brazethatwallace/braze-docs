@@ -38,7 +38,7 @@ Aquí tienes las directrices para seleccionar las variables:
 - `Catalog field`: Un campo particular (nombre de columna) dentro de este catálogo
 - `Value`: Un valor específico dentro de ese campo o columna <br><br> Usando la aplicación de salud como ejemplo, supongamos que dentro del catálogo de cada médico que puedes reservar, hay un campo llamado `specialty` que contiene un valor como `vision` o `dental`. Para segmentar a los usuarios que han visitado a cualquier médico con el valor `dental`, puedes seleccionar `specialty` como el `Catalog field` y seleccionar `dental` como el `Value`.
 
-5. Después de crear una extensión de segmento SQL, te recomendamos hacer clic en **Run Preview** para ver si tu consulta devuelve usuarios o si hay errores. Para más información sobre [previsualizar resultados de consultas]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/#previewing-results), administrar [extensiones de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/#managing-sql-segment-extensions) y más, consulta [Extensiones de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/).
+5. Después de crear una extensión de segmento SQL, te recomendamos hacer clic en **Ejecutar vista previa** para ver si tu consulta devuelve usuarios o si hay errores. Para más información sobre [previsualizar resultados de consultas]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#step-3-preview-the-query), administrar [extensiones de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#managing-your-segment-extensions) y más, consulta [Extensiones de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments).
 
 {% alert note %}
 Si estás creando un segmento SQL que utiliza la tabla `CATALOGS_ITEMS_SHARED`, debes especificar un ID de catálogo. Por ejemplo:
@@ -52,14 +52,14 @@ LIMIT 10
 
 ### Determinar si necesitas invertir SQL {#determining-if-you-need-to-invert-sql}
 
-Aunque no es posible consultar directamente a los usuarios con cero eventos, puedes usar **Invert SQL** para segmentar a estos usuarios.
+Aunque no es posible consultar directamente a los usuarios con cero eventos, puedes usar **Invertir SQL** para segmentar a estos usuarios.
 
-Por ejemplo, para segmentar a los usuarios que tienen menos de tres compras, primero escribe una consulta para seleccionar a los usuarios que tienen tres o más compras. Luego, selecciona **Invert SQL** para segmentar a los usuarios con menos de tres compras (incluidos aquellos con cero compras).
+Por ejemplo, para segmentar a los usuarios que tienen menos de tres compras, primero escribe una consulta para seleccionar a los usuarios que tienen tres o más compras. Luego, selecciona **Invertir SQL** para segmentar a los usuarios con menos de tres compras (incluidos aquellos con cero compras).
 
 ![Extensión de segmento llamada "Clicked 1-4 emails in the last 30 days" con la opción de invertir SQL seleccionada.]({% image_buster /assets/img_archive/sql_segment_invert_sql.png %}){: style="max-width:70%;"}
 
 {% alert important %}
-A menos que tu objetivo específico sea segmentar a usuarios con cero eventos, no necesitarás invertir SQL. Si **Invert SQL** está seleccionado, confirma que la característica es necesaria y que el segmento coincide con tu audiencia deseada. Por ejemplo, si una consulta segmenta a usuarios con al menos un evento, solo segmentará a usuarios con cero eventos cuando se invierta.
+A menos que tu objetivo específico sea segmentar a usuarios con cero eventos, no necesitarás invertir SQL. Si **Invertir SQL** está seleccionado, confirma que la característica es necesaria y que el segmento coincide con tu audiencia deseada. Por ejemplo, si una consulta segmenta a usuarios con al menos un evento, solo segmentará a usuarios con cero eventos cuando se invierta.
 {% endalert %}
 
 ## Actualizar la pertenencia al segmento {#refreshing-segment-membership}
@@ -72,9 +72,9 @@ Si creaste un segmento en el que esperas que los usuarios entren y salgan regula
 
 ### Designar la configuración de actualización {#designating-refresh-settings}
 
-{% multi_lang_include segments.md section='Refresh settings' %}
+{% multi_lang_include audience/segments.md section='Refresh settings' %}
 
-## Casos de uso {#use-cases}
+## Ejemplos {#use-cases}
 
 {% tabs local %}
 {% tab Health %}
@@ -129,7 +129,7 @@ Configurarías un segmento de catálogo utilizando las siguientes variables:
 
 ### ¿Ejecutar un segmento de catálogo consume créditos de extensión de segmento SQL? {#does-running-a-catalog-segment-consume-sql-segment-extension-credits}
 
-Sí, los segmentos de catálogo funcionan con SQL y consumen créditos de extensión de segmento SQL. Para más información, consulta [Uso de segmentos SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/#monitoring-your-sql-segments-usage).
+Sí, los segmentos de catálogo funcionan con SQL y consumen créditos de extensión de segmento SQL. Para más información, consulta [Uso de segmentos SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#credits).
 
 ### ¿Crear un segmento de catálogo consume las asignaciones de extensión de segmento SQL? {#does-creating-a-catalog-segment-consume-sql-segment-extension-allotments}
 
@@ -137,4 +137,4 @@ Sí. De la misma manera que las extensiones de segmento SQL cuentan para tu asig
 
 ### Tengo un caso de uso de segmento de catálogo que la plantilla actual no cubre. ¿Cómo debo configurarlo? {#i-have-a-catalog-segment-use-case-that-the-current-template-doesnt-serve-how-should-i-set-that-up}
 
-Ponte en contacto con tu administrador de soporte al cliente o con el [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/) para obtener orientación adicional.
+Ponte en contacto con tu administrador de soporte al cliente o con el [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) para obtener orientación adicional.

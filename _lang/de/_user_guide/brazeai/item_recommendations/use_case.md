@@ -13,7 +13,7 @@ Nehmen wir an, Camila ist CRM-Manager:in bei MovieCanon, einer Streaming-Plattfo
 
 Camilas Ziel ist es, das Engagement der Zuschauer:innen auch nach dem Anschauen eines Inhalts aufrechtzuerhalten. In der Vergangenheit basierten die „Das könnte Ihnen auch gefallen“-Nachrichten von MovieCanon auf einer groben Genre-Zuordnung und wurden zu beliebigen Zeitpunkten versendet – häufig Stunden oder Tage nach einer Sitzung. Das Engagement war gering, und ihr Team war sich bewusst, dass es besser geht.
 
-Mithilfe von [KI-Artikelempfehlungen]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/) richtet Camila ein System ein, das automatisch neue Titel basierend auf dem Verlauf jeder Zuschauer:in empfiehlt. Diese Empfehlungen werden unmittelbar nach Beendigung eines Films oder einer Episode zugestellt. Dies ist eine intelligentere und persönlichere Methode, um Nutzer:innen dabei zu helfen, Inhalte zu entdecken, die sie tatsächlich als Nächstes sehen möchten, und sie auf der Plattform zu halten.
+Mithilfe von [KI-Artikelempfehlungen]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai) richtet Camila ein System ein, das automatisch neue Titel basierend auf dem Verlauf jeder Zuschauer:in empfiehlt. Diese Empfehlungen werden unmittelbar nach Beendigung eines Films oder einer Episode zugestellt. Dies ist eine intelligentere und persönlichere Methode, um Nutzer:innen dabei zu helfen, Inhalte zu entdecken, die sie tatsächlich als Nächstes sehen möchten, und sie auf der Plattform zu halten.
 
 ![In-App-Nachricht mit dem Text „Als Nächstes, speziell für Sie. Da Sie „Nomads of the Sun“ angesehen haben", mit einem Bild, dem Titelnamen, einer Beschreibung und den CTAs „Jetzt ansehen“ oder „Überspringen“ zur nächsten Empfehlung.]({% image_buster /assets/img/ai_use_cases/recommendation_rendered.png %})
 
@@ -26,7 +26,7 @@ Dieses Tutorial führt Sie durch die Vorgehensweise von Camila:
 
 Camila beginnt damit, eine Empfehlung zu erstellen, die relevante Titel anzeigt, sobald eine Nutzer:in etwas fertig angesehen hat. Sie möchte eine dynamische Lösung, sodass Nutzer:innen verschiedene Vorschläge erhalten, die auf ihren zuletzt angesehenen Inhalten basieren.
 
-1. Im Braze-Dashboard navigiert Camila zu **AI Item Recommendations**.
+1. Im Braze-Dashboard navigiert Camila zu **KI-Artikelempfehlungen**.
 2. Sie erstellt eine neue Empfehlung und benennt sie „Vorschläge nach dem Anschauen“.
 3. Für den Empfehlungstyp wählt sie **AI Personalized**, sodass jede Nutzer:in auf der Grundlage ihres bisherigen Verhaltens personalisierte Empfehlungen erhält.
 4. Sie wählt **Do not recommend items users have previously interacted with**, damit Nutzer:innen keine Empfehlungen für Inhalte erhalten, die sie bereits angesehen haben.
@@ -42,11 +42,11 @@ Nachdem die Empfehlung trainiert wurde, erstellt Camila einen Messaging-Fluss, d
 2. Sie stellt den Auslöser auf ihr angepasstes Event ein: `Watched Content`.
 3. Sie entwirft eine mehrseitige In-App-Nachricht mit Titelbildern, Namen und einem CTA „Jetzt ansehen“.
 
-![Modal „Add Personalization“ im Braze-Editor geöffnet, mit „Item recommendation“ als ausgewähltem Personalisierungstyp.]({% image_buster /assets/img/ai_use_cases/recommendation_add_personalization.png %})
+![Modal „Personalisierung hinzufügen“ im Braze-Editor geöffnet, mit „Artikelempfehlung“ als ausgewähltem Personalisierungstyp.]({% image_buster /assets/img/ai_use_cases/recommendation_add_personalization.png %})
 
 {: start="4"}
 
-4. Im Nachrichtentext verwendet Camila das [Modal „Add Personalization“]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#inserting-pre-formatted-variables), um Variablen wie den Namen, die Beschreibung und die Miniaturansicht des empfohlenen Titels mithilfe von Liquid hinzuzufügen, wodurch Inhalte aus dem Katalog dynamisch eingefügt werden. Sie erstellt ein Template mit einem angepassten Attribut für `Last Watched Movie`, um Nutzer:innen darüber zu informieren, dass diese Empfehlung auf ihrem Verlauf basiert.
+4. Im Nachrichtentext verwendet Camila das [Modal „Personalisierung hinzufügen“]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#inserting-pre-formatted-variables), um Variablen wie den Namen, die Beschreibung und die Miniaturansicht des empfohlenen Titels mithilfe von Liquid hinzuzufügen, wodurch Inhalte aus dem Katalog dynamisch eingefügt werden. Sie erstellt ein Template mit einem angepassten Attribut für `Last Watched Movie`, um Nutzer:innen darüber zu informieren, dass diese Empfehlung auf ihrem Verlauf basiert.
 
 ![In-App-Nachrichteneditor mit unverarbeitetem Liquid zur Erstellung von Templates in bestimmten Feldern aus Katalogartikeln aus der Empfehlung.]({% image_buster /assets/img/ai_use_cases/recommendation_liquid.png %})
 

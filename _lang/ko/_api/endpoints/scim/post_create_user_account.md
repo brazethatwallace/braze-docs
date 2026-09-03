@@ -20,9 +20,11 @@ description: "이 문서에서는 새 대시보드 사용자 계정 생성 Braze
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#768a3c9d-ce1d-44fc-a0e4-d556b09f7aa3 {% endapiref %}
 
+{% multi_lang_include scim/scim_alerts.md alert='custom_endpoint' %}
+
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 SCIM 토큰이 필요합니다. 서비스 출처를 `X-Request-Origin` 헤더로 사용합니다. 자세한 내용은 [자동화된 사용자 프로비저닝]({{site.baseurl}}/scim/automated_user_provisioning/)을 참조하세요.
+이 엔드포인트를 사용하려면 SCIM 토큰이 필요합니다. 서비스 Origin을 `X-Request-Origin` 헤더로 사용합니다. 자세한 내용은 [자동화된 사용자 프로비저닝]({{site.baseurl}}/scim/automated_user_provisioning)을 참조하세요.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -37,7 +39,7 @@ Authorization: Bearer YOUR-SCIM-TOKEN-KEY
 ```
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
-    "userName": "user@test.com",
+    "userName": "user@example.com",
     "name": {
         "givenName": "Test",
         "familyName": "User"
@@ -84,9 +86,9 @@ Authorization: Bearer YOUR-SCIM-TOKEN-KEY
 | `schemas` | 필수 | 문자열 배열 | 사용자 오브젝트에 대한 예상 SCIM 2.0 스키마 이름입니다. |
 | `userName` | 필수 | 문자열 | 사용자의 이메일 주소입니다. |
 | `name` | 필수 | JSON 오브젝트 | 이 오브젝트에는 사용자의 이름과 성이 포함되어 있습니다. |
-| `department` | 필수 | 문자열 | [부서 문자열 설명서]({{site.baseurl}}/scim_api_appendix/#department-strings)에 있는 유효한 부서 문자열입니다. |
-| `permissions` | 선택 사항 | JSON 오브젝트 | [권한 오브젝트 설명서]({{site.baseurl}}/scim_api_appendix/#permissions-object)에 설명된 권한 오브젝트입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+| `department` | 필수 | 문자열 | [부서 문자열 설명서]({{site.baseurl}}/scim_api_appendix#department-strings)에 있는 유효한 부서 문자열입니다. |
+| `permissions` | 선택 사항 | JSON 오브젝트 | [권한 오브젝트 설명서]({{site.baseurl}}/scim_api_appendix#permissions-object)에 설명된 권한 오브젝트입니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 ## 예시 요청 {#example-request}
 ```bash
@@ -96,7 +98,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/scim/v2/Users' \
 --header 'Authorization: Bearer YOUR-SCIM–TOKEN-HERE' \
 --data raw '{
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
-    "userName": "user@test.com",
+    "userName": "user@example.com",
     "name": {
         "givenName": "Test",
         "familyName": "User"
@@ -133,7 +135,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/scim/v2/Users' \
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
     "id": "dfa245b7-24195aec-887bb3ad-602b3340",
-    "userName": "user@test.com",
+    "userName": "user@example.com",
     "name": {
         "givenName": "Test",
         "familyName": "User"
@@ -212,11 +214,11 @@ curl --location --request POST 'https://rest.iad-01.braze.com/scim/v2/Users' \
 | `schemas` | 문자열 배열 | 사용자 오브젝트에 대한 예상 SCIM 2.0 스키마 이름입니다. |
 | `userName` | 문자열 | 사용자의 이메일 주소입니다. |
 | `name` | JSON 오브젝트 | 이 오브젝트에는 사용자의 이름과 성이 포함되어 있습니다. |
-| `department` | 문자열 | [부서 문자열 설명서]({{site.baseurl}}/scim_api_appendix/#department-strings)에 있는 유효한 부서 문자열입니다. |
-| `permissions` | JSON 오브젝트 | [권한 오브젝트 설명서]({{site.baseurl}}/scim_api_appendix/#permissions-object)에 설명된 권한 오브젝트입니다. |
+| `department` | 문자열 | [부서 문자열 설명서]({{site.baseurl}}/scim_api_appendix#department-strings)에 있는 유효한 부서 문자열입니다. |
+| `permissions` | JSON 오브젝트 | [권한 오브젝트 설명서]({{site.baseurl}}/scim_api_appendix#permissions-object)에 설명된 권한 오브젝트입니다. |
 | `id` | 문자열 | 사용자 계정을 검색하고 관리하는 데 사용되는 Braze에서 생성한 ID입니다. |
 | `lastSignInAt` | 문자열 | 마지막으로 성공한 로그인 날짜(UTC 시간 기준)입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Response parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="응답 매개변수" }
 
 ### 오류 상태 {#error-states}
 

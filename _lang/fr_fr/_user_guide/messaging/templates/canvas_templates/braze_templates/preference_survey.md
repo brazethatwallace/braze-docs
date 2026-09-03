@@ -20,11 +20,11 @@ Pour utiliser ce modèle avec succès, vous aurez besoin des éléments suivants
 - Un e-mail de bienvenue qui invite les utilisateurs à commencer l'onboarding.
 - Un e-mail de suivi contenant des conseils pour démarrer avec l'application, destiné aux utilisateurs ayant effectué l'onboarding.
 - Un e-mail de suivi pour inviter les utilisateurs à terminer leur onboarding.
-- Une [enquête]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/simple_survey/) contenant plusieurs questions pour déterminer les préférences des utilisateurs.
+- Une [enquête]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/simple_survey) contenant plusieurs questions pour déterminer les préférences des utilisateurs.
 
 ## Adapter le modèle à vos besoins {#tailoring-the-template-to-your-needs}
 
-Imaginons que nous travaillons pour StyleRyde, une application de covoiturage à la demande qui emmène les gens là où ils doivent aller. Avant de créer le Canvas, nous [configurons une enquête simple]({{site.baseurl}}/user_guide/data/activation/catalogs/create/) qui comprend une série de questions engageantes pour déterminer l'expérience et l'impression d'un utilisateur lors de sa première course avec l'application.
+Imaginons que nous travaillons pour StyleRyde, une application de covoiturage à la demande qui emmène les gens là où ils doivent aller. Avant de créer le Canvas, nous [configurons une enquête simple]({{site.baseurl}}/user_guide/data/activation/catalogs/create) qui comprend une série de questions engageantes pour déterminer l'expérience et l'impression d'un utilisateur lors de sa première course avec l'application.
 
 Pour accéder au modèle, lors de la création d'un nouveau Canvas, sélectionnez **Use a Canvas template** > **Braze templates**. Ensuite, à côté de **Onboarding with preferences survey**, sélectionnez **Apply Template**. Nous pouvons maintenant parcourir le modèle pour l'adapter à nos besoins.
 
@@ -104,5 +104,5 @@ En tant que dernière étape de réengagement, nous renommerons **Step 2** en **
 Après avoir testé et vérifié notre Canvas pour nous assurer qu'il fonctionne comme prévu, nous le lancerons en sélectionnant **Launch Canvas**.
 
 {% alert tip %}
-Consultez notre [liste de vérification pré et post-lancement]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist/#things-to-consider-before-launch) pour les éléments à prendre en compte avant et après le lancement d'un Canvas.
+Consultez notre [liste de vérification pré et post-lancement]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist#things-to-consider-before-launch) pour les éléments à prendre en compte avant et après le lancement d'un Canvas.
 {% endalert %}

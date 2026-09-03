@@ -1,6 +1,20 @@
 require 'fileutils'
 require 'find'
 require 'thread'
+require 'yaml'
+
+def resolve_utf8_locale(existing_locale)
+  return existing_locale if existing_locale.to_s.match?(/UTF-8/i)
+
+  return 'C.UTF-8'
+end
+
+def default_utf8_build_env
+  {
+    'LANG' => resolve_utf8_locale(ENV['LANG']),
+    'LC_ALL' => resolve_utf8_locale(ENV['LC_ALL'])
+  }
+end
 
 # File watching functionality
 def watch_includes_folder
@@ -14,9 +28,10 @@ rescue => e
   puts "File watcher error: #{e.message}"
 end
 
-def pipe(command)
+def pipe(command, env = {})
   output = ''
-  IO.popen(command) do |io|
+  runtime_env = default_utf8_build_env.merge(env)
+  IO.popen(runtime_env, command) do |io|
     until io.eof?
       buffer = io.gets
       output << buffer
@@ -28,6 +43,42 @@ def pipe(command)
 end
 
 task default: :serve
+
+def load_locales_config(path = './_data/locales.yml')
+  unless File.exist?(path)
+    abort "Missing locale configuration file: #{path}"
+  end
+
+  config = YAML.safe_load(File.read(path), aliases: true)
+  config = {} unless config.is_a?(Hash)
+
+  supported = Array(config['supported']).map { |code| code.to_s.downcase }.uniq
+  if supported.empty?
+    abort "Locale configuration must include at least one entry under 'supported'."
+  end
+
+  task_aliases = config['task_aliases']
+  task_aliases = task_aliases.is_a?(Hash) ? task_aliases.transform_keys(&:to_s).transform_values(&:to_s) : {}
+
+  {
+    'supported' => supported,
+    'task_aliases' => task_aliases
+  }
+rescue Psych::SyntaxError => e
+  abort "Failed to parse locale configuration in #{path}: #{e.message}"
+end
+
+LOCALES_CONFIG = load_locales_config
+SUPPORTED_LOCALES = LOCALES_CONFIG['supported'].freeze
+NON_EN_LOCALES = SUPPORTED_LOCALES.reject { |locale| locale == 'en' }.freeze
+LOCALE_TASK_ALIASES = LOCALES_CONFIG['task_aliases'].freeze
+
+def locale_task_name(locale)
+  alias_name = LOCALE_TASK_ALIASES[locale]
+  return alias_name unless alias_name.nil? || alias_name.empty?
+
+  locale.tr('-', '_')
+end
 
 def fast_jekyll_build?
   %w[1 true yes].include?(ENV.fetch('JEKYLL_FAST', '').downcase) ||
@@ -59,12 +110,39 @@ end
 # Post-build sanity check: confirms the llms.txt / llms-full.txt files the
 # llms_txt_generator plugin is supposed to emit are actually present on disk.
 # Only enforced for the English build (other locales don't generate them).
+# Collection list and output filenames come from _data/llms_config.yml.
 def verify_llms_txt_artifacts(lang)
   return unless lang == 'en'
   return if %w[1 true yes].include?(ENV.fetch('SKIP_LLMS_TXT_VERIFY', '').downcase)
 
-  expected = %w[user_guide developer_guide api partners releases].flat_map do |collection|
-    %W[_site/#{collection}/llms.txt _site/#{collection}/llms-full.txt]
+  config_path = File.join('_data', 'llms_config.yml')
+  unless File.exist?(config_path)
+    abort "LLMS verify: missing #{config_path}; cannot determine expected artifacts."
+  end
+
+  require 'yaml'
+  config = YAML.safe_load(File.read(config_path), aliases: true)
+  unless config.is_a?(Hash)
+    abort "LLMS verify: #{config_path} must be a YAML mapping; got #{config.class}."
+  end
+
+  collections = Array(config['collections']).filter_map do |entry|
+    next unless entry.is_a?(Hash)
+    name = entry['name'].to_s.strip
+    name.empty? ? nil : name
+  end
+  if collections.empty?
+    abort "LLMS verify: no collections listed in #{config_path}."
+  end
+
+  output_files = config['output_files'].is_a?(Hash) ? config['output_files'] : {}
+  index_name = output_files['index'].to_s.strip
+  index_name = 'llms.txt' if index_name.empty?
+  full_name = output_files['full'].to_s.strip
+  full_name = 'llms-full.txt' if full_name.empty?
+
+  expected = collections.flat_map do |collection|
+    %W[_site/#{collection}/#{index_name} _site/#{collection}/#{full_name}]
   end
 
   missing = expected.reject { |path| File.exist?(path) && File.size(path) > 0 }
@@ -188,52 +266,16 @@ multitask en: [
   'docs_en:serve', 'docs_en:proxy_serve'
 ]
 
-task :fr do
-  Rake::Task["lang"].invoke('fr')
-end
+NON_EN_LOCALES.each do |locale|
+  task_name = locale_task_name(locale)
 
-task :ja do
-  Rake::Task["lang"].invoke('ja')
-end
+  task task_name.to_sym do
+    Rake::Task['lang'].invoke(locale)
+  end
 
-task :ko do
-  Rake::Task["lang"].invoke('ko')
-end
-
-task :pt_br do
-  Rake::Task["lang"].invoke('pt-br')
-end
-
-task :es do
-  Rake::Task["lang"].invoke('es')
-end
-
-task :de do
-  Rake::Task["lang"].invoke('de')
-end
-
-task :fr_build do
-  Rake::Task["lang:build"].invoke('fr')
-end
-
-task :ja_build do
-  Rake::Task["lang:build"].invoke('ja')
-end
-
-task :ko_build do
-  Rake::Task["lang:build"].invoke('ko')
-end
-
-task :pt_br_build do
-  Rake::Task["lang:build"].invoke('pt-br')
-end
-
-task :es_build do
-  Rake::Task["lang:build"].invoke('es')
-end
-
-task :de_build do
-  Rake::Task["lang:build"].invoke('de')
+  task "#{task_name}_build".to_sym do
+    Rake::Task['lang:build'].invoke(locale)
+  end
 end
 
 # Convenience tasks for file watching

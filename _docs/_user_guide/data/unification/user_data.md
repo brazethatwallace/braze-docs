@@ -12,35 +12,35 @@ description: "This landing page is home to articles on user data collection. Her
 guide_featured_title: "Section articles"
 guide_featured_list:
   - name: SDK data collection
-    link: /docs/user_guide/data/unification/user_data/sdk_data_collection/
+    link: /docs/user_guide/data/unification/user_data/sdk_data_collection
     image: /assets/img/braze_icons/bar-chart-01.svg
   - name: User profile lifecycle
-    link: /docs/user_guide/data/unification/user_data/user_profile_lifecycle/
+    link: /docs/user_guide/data/unification/user_data/user_profile_lifecycle
     image: /assets/img/braze_icons/refresh-ccw-05.svg
   - name: Collection use case
-    link: /docs/user_guide/data/unification/user_data/collection_use_case/
+    link: /docs/user_guide/data/unification/user_data/collection_use_case
     image: /assets/img/braze_icons/data.svg
   - name: Collection best practices
-    link: /docs/user_guide/data/unification/user_data/best_practices/
+    link: /docs/user_guide/data/unification/user_data/best_practices
     image: /assets/img/braze_icons/thumbs-up.svg
   - name: Import users
-    link: /docs/user_guide/audience/manage_audience/import_users/
+    link: /docs/user_guide/audience/manage_audience/import_users
     image: /assets/img/braze_icons/users-01.svg
   - name: Delete users
-    link: /docs/user_guide/audience/manage_audience/user_profiles/delete_users/
+    link: /docs/user_guide/audience/manage_audience/user_profiles/delete_users
     image: /assets/img/braze_icons/edit-05.svg
   - name: Anonymous users
-    link: /docs/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users/
+    link: /docs/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users
     image: /assets/img/braze_icons/user-circle.svg
   - name: Language codes
-    link: /docs/user_guide/data/unification/user_data/language_codes/
+    link: /docs/user_guide/data/unification/user_data/language_codes
     image: /assets/img/braze_icons/globe-04.svg
 ---
 
 <br>
 
 {% alert important %}
-Braze will ban or block users ("dummy users") with over 5 million sessions and no longer ingest their SDK events because they're usually the result of misintegration. If you find that this has happened for a legitimate user, contact your Braze account manager.
+Braze blocks user profiles ("dummy users") with more than 5,000,000 sessions, more than 20,000 distinct custom event names, or more than 20,000 distinct product names in purchases, because they're usually the result of misintegration. After a profile is blocked, Braze stops ingesting all inbound data for that profile, from both the SDKs and the REST API. If you find that this has happened for a legitimate user, contact your Braze account manager.
 {% endalert %}
 
 <br>

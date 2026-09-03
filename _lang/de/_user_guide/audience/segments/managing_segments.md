@@ -30,7 +30,7 @@ Sortieren Sie die Segments in der Liste, indem Sie die folgenden Filter anpassen
 - **Estimated Size:** Ungefähre Spanne, wie viele Nutzer:innen sich in den Segments befinden
 - **Tags:** Tags, die den Segments zugeordnet sind
 - **Teams:** Teams, die den Segments zugeordnet sind
-- **Advanced Tracking Segments Only:** Zeigt nur die Segments an, bei denen [Analytics-Tracking]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/#segment-analytics-tracking) aktiviert ist.
+- **Advanced Tracking Segments Only:** Zeigt nur die Segments an, bei denen [Analytics-Tracking]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) aktiviert ist.
 
 ### Spalten {#columns}
 
@@ -53,7 +53,7 @@ Durch Auswahl von **Show Starred Only** wird Ihre Ansicht auf die Segments einge
 Gehen Sie zum Abschnitt **Messaging Use** eines Segments, um eine Übersicht darüber zu erhalten, wo das Segment verwendet wird, z. B. in anderen Segments, Campaigns und Canvases.
 
 {% alert note %}
-Um Schleifen durch gegenseitige Segment-Referenzen zu vermeiden, können Segments, die den Filter **Segment Membership** verwenden, nicht von anderen Segments referenziert werden. Weitere Informationen finden Sie unter [Segmentierungsfilter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/).
+Um Schleifen durch gegenseitige Segment-Referenzen zu vermeiden, können Segments, die den Filter **Segment Membership** verwenden, nicht von anderen Segments referenziert werden. Weitere Informationen finden Sie unter [Segmentierungsfilter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters).
 {% endalert %}
 
 ## Bestimmte Segments verwalten {#managing-specific-segments}
@@ -69,7 +69,7 @@ Um ein bestimmtes Segment zu verwalten, bewegen Sie den Mauszeiger darüber und 
 Sie können auch Massenaktionen durchführen – insbesondere Massenarchivierung und Massen-Tagging – indem Sie die Kontrollkästchen neben mehreren Segment-Namen aktivieren.
 
 {% alert tip %}
-Wenn Sie einen maschinenlesbaren Export der vorhandenen Segments im Workspace benötigen (nicht nur die aktuelle Tabellenansicht), verwenden Sie den [Endpunkt „Segment-Liste exportieren“]({{site.baseurl}}/api/endpoints/export/segments/get_segment/) und blättern Sie durch die Ergebnisse. Um archivierte Segments zu überprüfen, sehen Sie diese separat im **Segments**-Dashboard mithilfe des Statusfilters ein.
+Wenn Sie einen maschinenlesbaren Export der vorhandenen Segments im Workspace benötigen (nicht nur die aktuelle Tabellenansicht), verwenden Sie den [Endpunkt „Segment-Liste exportieren“]({{site.baseurl}}/api/endpoints/export/segments/get_segment) und blättern Sie durch die Ergebnisse. Um archivierte Segments zu überprüfen, sehen Sie diese separat im **Segments**-Dashboard mithilfe des Statusfilters ein.
 {% endalert %}
 
 ![Mehrere ausgewählte Segments mit „CRM“ als ausgewähltem Wert im Dropdown-Feld „Tag As“.]({% image_buster /assets/img/segment/segments_bulk_action.png %}){: style="max-width:45%;"}

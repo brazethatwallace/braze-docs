@@ -20,7 +20,7 @@ description: "Cet article présente en détail l'endpoint Braze Exporter la list
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `events.list`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `events.list`.
 
 ## Limite de débit {#rate-limit}
 
@@ -43,7 +43,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/events/list?page=3'
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
+    "message": (string) returns 'success' when the request completes without errors,
     "events" : [
         "Event A", (string) the event name,
         "Event B", (string) the event name,
@@ -55,10 +55,10 @@ curl --location --request GET 'https://rest.iad-01.braze.com/events/list?page=3'
 
 ### Codes de réponse des erreurs fatales {#fatal-export}
 
-Pour connaître les codes d'état et les messages d'erreur associés qui seront renvoyés si votre requête rencontre une erreur fatale, reportez-vous à la rubrique [Erreurs fatales et réponses]({{site.baseurl}}/api/errors/#fatal-errors).
+Pour connaître les codes d'état et les messages d'erreur associés qui seront renvoyés si votre requête rencontre une erreur fatale, reportez-vous à la rubrique [Erreurs fatales et réponses]({{site.baseurl}}/api/errors#fatal-errors).
 
 {% alert tip %}
-Pour obtenir de l'aide sur les exportations CSV et API, consultez la section [Résolution des problèmes d'exportation]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+Pour obtenir de l'aide sur les exportations CSV et API, consultez la section [Résolution des problèmes d'exportation]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endapi %}

@@ -16,6 +16,8 @@ channel:
 
 > We want to alert you when something doesn't seem quite as expected and give you peace of mind that the ship is sailing smoothly. Campaign threshold alerts provide peace of mind—be the first to know if an important campaign sends more or fewer messages than you expect.
 
+Looking for the same capability on a Canvas? Refer to [Canvas threshold alerts]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/canvas_threshold_alerts).
+
 Campaign alerts are available for the following campaigns:
 
 - Recurring scheduled campaigns
@@ -38,7 +40,7 @@ When setting campaign alerts for future campaigns, you may receive updates befor
 
 ## Campaign alert webhook payload
 
-The following is a sample payload for the body of a campaign alert webhook. This example uses an alert that is configured to send when messages sent falls below 500 for a given campaign send.
+The following is a sample payload for the body of a campaign alert webhook. This example uses an alert that is configured to send when messages sent falls under 500 for a given campaign send.
 
 ```
 {"text":"Your campaign 'Sample campaign' had fewer than 500 messages sent this run. It had 4 messages sent this run. See https://dashboard-01.braze.com/engagement/campaigns/5b44b00ffbe76a7024f242e6/51804f26dd365acfa700026a?page=-2",

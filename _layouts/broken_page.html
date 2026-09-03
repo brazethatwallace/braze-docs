@@ -7,6 +7,7 @@ hide_feedback: true
 hide_binary_feedback: false
 ---
 
+{%- assign glossary_loc = site.data.i18n[site.language] -%}
 
 <script type="text/javascript" src="{{ site.baseurl }}/assets/js/broken_redirect_list.js?{{site.time | date: '%s'}}" ></script>
 <script type="text/javascript">
@@ -73,7 +74,7 @@ if (site_language && (site_language != 'en')){
     {%- endif -%}
     {% unless hide_url %}
     siteurl = removeleadingslash("{{ page.url }}");
-    validurls['{{ site.baseurl }}' + siteurl.toLowerCase()] = '{{ site.baseurl }}' + siteurl + '/';
+    validurls['{{ site.baseurl }}' + siteurl.toLowerCase()] = '{{ site.baseurl }}' + siteurl;
     {% endunless %}
   {%- endfor -%}
 
@@ -202,7 +203,8 @@ $(document).ready(function(k){
           </div>
           <form id="help-search-form"  action="{{site.baseurl}}/search/" method="get" class="form-inline">
             <div class="input-group ">
-              <input type="text" class="form-control" id="help-menu_search"  name="q" placeholder="Search Braze Documentation" aria-label="Search">
+              <label for="help-menu_search" id="broken-page-search-label" class="sr-only">{{ glossary_loc.broken_page_search_aria }}</label>
+              <input type="text" class="form-control" id="help-menu_search"  name="q" placeholder="{{ glossary_loc.broken_page_search_placeholder }}" aria-labelledby="broken-page-search-label">
               <button class="btn">
                   <i class="fa fa-search" aria-hidden="true"></i>
               </button>

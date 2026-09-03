@@ -16,7 +16,7 @@ noindex: true
 
 ## Impressions
 
-#### Impression or click analytics aren't being logged
+### Impression or click analytics aren't being logged
 
 If you have set an in-app message delegate to manually handle message display or click actions, you'll need to manually log clicks and impressions on the in-app message.
 
@@ -40,7 +40,7 @@ The SDK requests in-app messages from Braze servers on session start. To check i
 4. Use the [event user logs]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab) to check that your device is requesting in-app messages on session start. Find the SDK Request associated with your test user's session start event.
   - If your app was meant to request triggered in-app messages, you should see `trigger` in the **Requested Responses** field under **Response Data**.
   - If your app was meant to request original in-app messages, you should see  `in_app` in the **Requested Responses** field under **Response Data**.
-5. Use the [event user logs]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab) to check if the correct in-app messages are being returned in the response data.<br>![]({% image_buster /assets/img_archive/event_user_log_iams.png %})
+5. Use the [event user logs]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab) to check if the correct in-app messages are being returned in the response data.<br>![Event user log entries for in-app message requests.]({% image_buster /assets/img_archive/event_user_log_iams.png %})
 
 #### Troubleshoot messages not being requested
 
@@ -66,7 +66,7 @@ If your in-app messages are not being returned, you're likely experiencing a cam
 
 If your app is successfully requesting and receiving in-app messages but they are not being shown, some device-side logic may be preventing display:
 
-- Triggered in-app messages are rate-limited based on the [minimum time interval between triggers]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/in-app_messaging/in-app_message_delivery/#minimum-time-interval-between-triggers), which defaults to 30 seconds.
+- Triggered in-app messages are rate-limited based on the [minimum time interval between triggers]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/in-app_message_delivery#minimum-time-interval-between-triggers), which defaults to 30 seconds.
 - If you have set a delegate to customize in-app message handling, check your delegate to ensure it is not affecting in-app message display.
 - Failed image downloads will prevent in-app messages with images from displaying. Image downloads will always fail if the `SDWebImage` framework is not integrated properly. Check your device logs to ensure that image downloads are not failing.
 - If the device orientation did not match the orientation specified by the in-app message, the in-app message will not display. Make sure that your device is in the correct orientation.

@@ -12,9 +12,9 @@ tool:
 
 # Segment별 측정기준 {#metrics-by-segments}
 
-> [쿼리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) 보고서 템플릿을 사용하여 Campaigns, Canvas, 배리언트 및 단계의 성과 측정기준을 Segments별로 분류합니다.
+> [쿼리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder) 보고서 템플릿을 사용하여 Campaigns, Canvas, 배리언트 및 단계의 성과 측정기준을 Segments별로 분류할 수 있습니다.
 
-측정기준에 접근하려는 Segments에 대해 [분석 추적]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/#segment-analytics-tracking)이 활성화되어 있어야 합니다.
+측정기준에 접근하려는 Segments에 대해 [분석 추적]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking)이 활성화되어 있어야 합니다.
 
 이 보고서를 실행하려면 다음을 수행합니다:
 1. **쿼리 빌더**에서 템플릿을 사용하여 새 SQL 보고서를 생성합니다.
@@ -60,9 +60,9 @@ Campaign 또는 Canvas 수준에서 Segment별로 분류된 이메일 성과 측
 
 캠페인 배리언트, 캔버스 배리언트 또는 캔버스 단계 수준에서 Segment별로 분류된 이메일 성과를 보려면 먼저 배리언트 또는 단계 수준 보고서(제목에 "배리언트 또는 단계별"이 포함된 보고서)를 선택한 다음 **변수** 탭을 사용하여 다음을 지정합니다:
 
-- 특정 Campaign 또는 Canvas (배리언트 또는 단계 수준 보고서를 사용하는 경우 필수)
-- 배리언트 (배리언트 또는 단계 수준 보고서를 사용하는 경우 필수)
-- 캔버스 단계 (선택 사항)
+- 특정 Campaign 또는 Canvas(배리언트 또는 단계 수준 보고서를 사용하는 경우 필수)
+- 배리언트(배리언트 또는 단계 수준 보고서를 사용하는 경우 필수)
+- 캔버스 단계(선택 사항)
 
 측정기준은 [Campaign 또는 Canvas 수준](#campaign-canvas-email) 템플릿에서 제공되는 것과 동일합니다. 여러 배리언트를 선택하면 결과가 배리언트별로 그룹화됩니다.
 
@@ -80,8 +80,8 @@ Campaign 또는 Canvas 수준에서 Segment별로 분류된 이메일 성과 측
 
 특정 Campaign 또는 Canvas에 대해 Segment별로 분류된 구매 및 매출 측정기준을 보려면 [변수](#variables) 탭을 사용하여 다음을 지정합니다:
 
-- 전환 기간 (이메일 수신 또는 클릭 후 Braze가 구매 또는 매출을 귀속시키는 일수)
-- 특정 제품 (선택 사항)
+- 전환 기간(이메일 수신 또는 클릭 후 Braze가 구매 또는 매출을 귀속시키는 일수)
+- 특정 제품(선택 사항)
 
 또한 **변수** 탭을 사용하여 하나 이상의 Campaigns 또는 Canvases, 또는 하나 이상의 태그에 대해 보고서를 실행할지 지정합니다. Campaigns, Canvases 또는 태그를 선택하지 않으면 선택한 기간 동안 Campaigns 또는 Canvases의 모든 이메일에 대해 보고서가 실행됩니다.
 
@@ -121,9 +121,9 @@ Campaign 또는 Canvas 수준에서 Segment별로 분류된 이메일 성과 측
 
 - 특정 Campaign 또는 Canvas
 - 배리언트
-- 캔버스 단계 (선택 사항)
+- 캔버스 단계(선택 사항)
 - 기간
-- 특정 제품 (선택 사항)
+- 특정 제품(선택 사항)
 
 #### 결과
 
@@ -139,7 +139,7 @@ Campaign 또는 Canvas 수준에서 Segment별로 분류된 이메일 성과 측
 
 이 보고서는 [변수](#variables) 탭에서 지정된 이메일 참여 측정기준에 대해 가장 높거나 낮은 성과를 보인 Campaigns, Canvases 또는 캔버스 단계를 표시합니다.
 
-활용 사례는 다음과 같습니다:
+사용 사례는 다음과 같습니다:
 - 고유 이메일 열람률이 가장 높은 상위 10개 Campaigns
 - 이메일 탈퇴가 가장 많은 상위 25개 Canvases
 - 고유 클릭 수가 가장 높은 상위 50개 캔버스 단계
@@ -173,7 +173,7 @@ Campaign 또는 Canvas 수준에서 Segment별로 분류된 이메일 성과 측
 
 이 보고서는 [변수](#variables) 탭에서 지정된 구매 또는 매출 측정기준에 대해 가장 높거나 낮은 성과를 보인 Campaigns, Canvases 또는 캔버스 단계를 표시합니다.
 
-활용 사례는 다음과 같습니다:
+사용 사례는 다음과 같습니다:
 - 특정 제품에 대한 구매율이 가장 높은 상위 20개 Campaigns
 - 매출이 가장 많이 발생한 상위 25개 Canvases
 - 제품 구매율이 가장 낮은 하위 10개 캔버스 단계

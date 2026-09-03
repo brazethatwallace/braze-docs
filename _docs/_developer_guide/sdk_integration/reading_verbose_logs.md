@@ -13,7 +13,7 @@ Before you start, make sure you've [enabled verbose logging]({{site.baseurl}}/de
 
 ## Sessions
 
-Sessions are the foundation of Braze analytics and message delivery. Many messaging features—including in-app messages and Content Cards—depend on a valid session starting before they can function. If sessions aren't logging correctly, investigate this first. For more information about enabling session tracking, see [Step 5: Enable user session tracking]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_step-5-enable-user-session-tracking).
+Sessions are the foundation of Braze analytics and message delivery. Many messaging features—including in-app messages and Content Cards—depend on a valid session starting before they can function. If sessions aren't logging correctly, investigate this first. For more information about enabling session tracking, see [Step 5: Enable user session tracking]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_step-5-enable-user-session-tracking).
 
 ### Key log entries
 
@@ -529,14 +529,18 @@ In verbose log payloads, Braze uses abbreviated event names. Here's a reference:
 
 ## Troubleshooting
 
+### Geofences not triggering on Android SDK 13.1.0–15.x
+
+Braze Android SDK 13.1.0 through 15.x had a regression that could stop geofence update events from recording. On devices running Android 10 or earlier, session-start location updates could also fail. Upgrade to Android SDK 16.0.0 or later. For SDK setup, see [Geofences]({{site.baseurl}}/developer_guide/geofences).
+
 ### When might a user have 0 sessions recorded against their profile?
 
-A user profile can show 0 sessions when you import the user through the REST API ([`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)) or CSV import without **First session** or **Last session** fields. Sessions are recorded when users interact with your app through the SDK. For more detail, see [User profile has 0 sessions]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/#user-profile-has-0-sessions).
+A user profile can show 0 sessions when you import the user through the REST API ([`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)) or CSV import without **First session** or **Last session** fields. Sessions are recorded when users interact with your app through the SDK. For more detail, see [User profile has 0 sessions]({{site.baseurl}}/developer_guide/analytics/tracking_sessions#user-profile-has-0-sessions).
 
 ### User data discrepancies when using the SDK and REST API together
 
-When you use the SDK and REST API at the same time, race conditions can cause data discrepancies. After you call `changeUser()`, allow the SDK to flush pending data before making critical REST API calls, avoid batching time-sensitive updates, and consider adding a short delay between SDK and API requests. For `changeUser()` behavior, see [How changeUser() works]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/#how-changeuser-works).
+When you use the SDK and REST API at the same time, race conditions can cause data discrepancies. After you call `changeUser()`, allow the SDK to flush pending data before making critical REST API calls, avoid batching time-sensitive updates, and consider adding a short delay between SDK and API requests. For `changeUser()` behavior, see [How changeUser() works]({{site.baseurl}}/developer_guide/analytics/setting_user_ids#how-changeuser-works).
 
 ### Data not reaching Braze
 
-If data isn't reaching Braze, confirm your firewall allows outbound traffic to Braze API endpoints and CDN providers. Run an MTR test and use [Fastly Debug](https://www.fastly-debug.com/) while the issue occurs. For allowlisting and connectivity troubleshooting, see [API network connectivity issues]({{site.baseurl}}/api/network_connectivity_issues/).
+If data isn't reaching Braze, confirm your firewall allows outbound traffic to Braze API endpoints and CDN providers. Run an MTR test and use [Fastly Debug](https://www.fastly-debug.com/) while the issue occurs. For allowlisting and connectivity troubleshooting, see [API network connectivity issues]({{site.baseurl}}/api/network_connectivity_issues).

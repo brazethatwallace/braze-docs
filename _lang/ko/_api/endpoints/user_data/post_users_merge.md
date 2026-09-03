@@ -6,7 +6,6 @@ page_order: 6
 layout: api_page
 page_type: reference
 description: "이 문서에서는 사용자 병합 Braze 엔드포인트에 대한 자세한 내용을 설명합니다."
-
 ---
 {% api %}
 # 사용자 병합 {#merge-users}
@@ -22,7 +21,7 @@ description: "이 문서에서는 사용자 병합 Braze 엔드포인트에 대�
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `users.merge` 권한이 있는 [API 키]({{site.baseurl}}/api/api_key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `users.merge` 권한이 있는 [API 키]({{site.baseurl}}/api/basics)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -60,7 +59,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 - 이름
 - 성
-- 이메일 주소([암호화]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption/)되지 않은 경우)
+- 이메일 주소([암호화]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption)되지 않은 경우)
 - 성별
 - 생년월일
 - 전화번호
@@ -74,7 +73,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 - 마지막 세션 날짜(Braze는 두 날짜 중 더 늦은 날짜를 선택합니다)
 - 커스텀 속성(Braze는 대상 프로필의 기존 커스텀 속성을 유지하고 대상 프로필에 존재하지 않는 커스텀 속성을 포함합니다)
 - 커스텀 이벤트 및 구매 이벤트 데이터
-- "Y일 동안 X회" 세분화를 위한 커스텀 이벤트 및 구매 이벤트 등록정보(X<=50 및 Y<=30)
+- "Y일 동안 X회" 세분화를 위한 커스텀 이벤트 및 구매 이벤트 속성정보(X<=50 및 Y<=30)
 - 세분화 가능한 커스텀 이벤트 요약
   - 이벤트 수(두 프로필의 합계)
   - 이벤트가 처음 발생한 날짜(Braze는 두 날짜 중 더 이른 날짜를 선택합니다)
@@ -94,7 +93,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 사용자를 병합할 때 `/users/merge` 엔드포인트를 사용하는 것은 [`changeUser()` 메서드](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser)를 사용하는 것과 동일한 방식으로 작동합니다.
 {% endalert %}
 
-Braze는 병합 시 삭제 표시된 사용자, 테스트 사용자, 글로벌 컨트롤 그룹 사용자의 세 가지 사용자 유형을 다르게 처리합니다. 자세한 내용은 [사용자 병합 동작]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior/)을 참조하세요.
+Braze는 병합 시 삭제 표시된 사용자, 테스트 사용자, 글로벌 컨트롤 그룹 사용자의 세 가지 사용자 유형을 다르게 처리합니다. 자세한 내용은 [사용자 병합 동작]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior)을 참조하세요.
 
 #### 커스텀 이벤트 날짜 및 구매 이벤트 날짜 동작 {#custom-event-date-and-purchase-event-date-behavior}
 
@@ -142,11 +141,11 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
     },
     {
       "identifier_to_merge": {
-        "email": "user1@braze.com",
+        "email": "user1@example.com",
         "prioritization": ["unidentified", "most_recently_updated"]
       },
       "identifier_to_keep":  {
-        "email": "user2@braze.com",
+        "email": "user2@example.com",
         "prioritization": ["identified", "most_recently_updated"]
       }
     },
@@ -170,7 +169,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 
 ### 식별되지 않은 사용자 병합하기 {#merging-unidentified-user}
 
-다음 요청은 이메일 주소 `john.smith@braze.com`을 가진 가장 최근에 업데이트된 식별되지 않은 사용자를 외부 ID `john`을 가진 사용자로 병합합니다. 이 예시에서 `most_recently_updated`를 사용하면 쿼리가 하나의 식별되지 않은 사용자로 필터링됩니다. 따라서 이 이메일 주소를 가진 식별되지 않은 사용자가 두 명이라면, 외부 ID `john`을 가진 사용자로 병합되는 것은 단 한 명뿐입니다.
+다음 요청은 이메일 주소 `john.smith@example.com`을 가진 가장 최근에 업데이트된 식별되지 않은 사용자를 외부 ID `john`을 가진 사용자로 병합합니다. 이 예시에서 `most_recently_updated`를 사용하면 쿼리가 하나의 식별되지 않은 사용자로 필터링됩니다. 따라서 이 이메일 주소를 가진 식별되지 않은 사용자가 두 명이라면, 외부 ID `john`을 가진 사용자로 병합되는 것은 단 한 명뿐입니다.
 
 ```bash
 curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
@@ -180,7 +179,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
   "merge_updates": [
     {
       "identifier_to_merge": {
-        "email": "john.smith@braze.com",
+        "email": "john.smith@example.com",
         "prioritization": ["unidentified", "most_recently_updated"]
       },
       "identifier_to_keep": {
@@ -193,7 +192,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 
 ### 식별되지 않은 사용자를 식별된 사용자로 병합하기 {#merging-unidentified-user-into-identified-user}
 
-다음 예시는 이메일 주소 `john.smith@braze.com`을 가진 가장 최근에 업데이트된 식별되지 않은 사용자를 이메일 주소 `john.smith@braze.com`을 가진 가장 최근에 업데이트된 식별된 사용자로 병합합니다.
+다음 예시는 이메일 주소 `john.smith@example.com`을 가진 가장 최근에 업데이트된 식별되지 않은 사용자를 이메일 주소 `john.smith@example.com`을 가진 가장 최근에 업데이트된 식별된 사용자로 병합합니다.
 
 `most_recently_updated`를 사용하면 쿼리가 한 사용자(`identifier_to_merge`의 경우 식별되지 않은 사용자 하나, `identifier_to_keep`의 경우 식별된 사용자 하나)로 필터링됩니다.
 
@@ -205,11 +204,11 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
   "merge_updates": [
     {
       "identifier_to_merge": {
-        "email": "john.smith@braze.com",
+        "email": "john.smith@example.com",
         "prioritization": ["unidentified", "most_recently_updated"]
       },
       "identifier_to_keep": {
-        "email": "john.smith@braze.com",
+        "email": "john.smith@example.com",
         "prioritization": ["identified", "most_recently_updated"]
       }
     }
@@ -219,7 +218,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 
 ### most_recently_updated 우선순위를 포함하지 않고 식별되지 않은 사용자 병합하기 {#merging-an-unidentified-user-without-including-the-most_recently_updated-prioritization}
 
-이메일 주소 `john.smith@braze.com`을 가진 식별되지 않은 사용자가 두 명인 경우, 이 예시 요청은 해당 이메일 주소를 가진 식별되지 않은 사용자가 두 명이므로 사용자를 병합하지 않습니다. 이 요청은 이메일 주소 `john.smith@braze.com`을 가진 식별되지 않은 사용자가 단 한 명일 때만 작동합니다.
+이메일 주소 `john.smith@example.com`을 가진 식별되지 않은 사용자가 두 명인 경우, 이 예시 요청은 해당 이메일 주소를 가진 식별되지 않은 사용자가 두 명이므로 사용자를 병합하지 않습니다. 이 요청은 이메일 주소 `john.smith@example.com`을 가진 식별되지 않은 사용자가 단 한 명일 때만 작동합니다.
 
 ```bash
 curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
@@ -229,7 +228,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
   "merge_updates": [
     {
       "identifier_to_merge": {
-        "email": "john.smith@braze.com",
+        "email": "john.smith@example.com",
         "prioritization": ["unidentified"]
       },
       "identifier_to_keep": {

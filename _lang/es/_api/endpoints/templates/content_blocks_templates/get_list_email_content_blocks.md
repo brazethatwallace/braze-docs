@@ -14,12 +14,12 @@ description: "En este artículo se describen los detalles del punto de conexión
 /content_blocks/list
 {% endapimethod %}
 
-> Utiliza este punto de conexión para listar la información de tus [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/) existentes.
+> Utiliza este punto de conexión para listar la información de tus [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) existentes.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#6d87048f-68fd-46c9-aa15-3a970e99540e {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/api_key/) con el permiso `content_blocks.list`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/api_key) con el permiso `content_blocks.list`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -33,7 +33,7 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 | `modified_before` | Opcional | Cadena en formato [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) | Recupera solo los Content Blocks actualizados a la hora indicada o antes. |
 | `limit` | Opcional | Número positivo | Número máximo de Content Blocks a recuperar. Predeterminado a 100 si no se proporciona, con un valor máximo aceptable de 1000. |
 | `offset` | Opcional | Número positivo | Número de Content Blocks que se omiten antes de devolver el resto de plantillas que se ajustan a los criterios de búsqueda. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ## Ejemplo de solicitud {#example-request}
 ```
@@ -75,6 +75,6 @@ La siguiente tabla enumera los posibles errores devueltos y sus pasos asociados 
 | `Content Block number limit exceeds maximum of 1000` | Cambia el parámetro `limit` por un número entero inferior a 1000. |
 | `Offset is invalid` | El parámetro `offset` debe ser un número entero mayor que 0. |
 | `Offset must be greater than 0` | Cambia el parámetro `offset` por un número entero mayor que 0. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Solución de problemas" }
 
 {% endapi %}

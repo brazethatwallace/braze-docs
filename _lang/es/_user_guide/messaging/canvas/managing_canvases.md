@@ -13,9 +13,9 @@ tool: Canvas
 guide_featured_title: "Artículos de la sección"
 guide_featured_list:
   - name: Editar Canvas después del lanzamiento
-    link: /docs/post-launch_edits/
+    link: /docs/post-launch_edits
     image: /assets/img/braze_icons/edit-05.svg
-  - name: Guardar borradores de Canvas
+  - name: Guardar borradores para Canvas
     link: /docs/user_guide/messaging/canvas/managing_canvases/canvas_drafts
     image: /assets/img/braze_icons/save-03.svg
   - name: Historial de versiones de Canvas
@@ -24,6 +24,9 @@ guide_featured_list:
   - name: Clonar Canvas
     link: /docs/user_guide/messaging/canvas/managing_canvases/cloning_canvases
     image: /assets/img/braze_icons/copy-04.svg
+  - name: Alertas de umbral de Canvas
+    link: /docs/user_guide/messaging/canvas/managing_canvases/canvas_threshold_alerts
+    image: /assets/img/braze_icons/bell-03.svg
 
 guide_menu_title: "Recursos adicionales"
 guide_menu_list:

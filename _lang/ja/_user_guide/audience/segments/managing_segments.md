@@ -30,7 +30,7 @@ description: "この記事では、セグメントのリストのフィルタリ
 - **Estimated Size:** セグメント内のユーザー数のおおよその範囲
 - **Tags:** セグメントに関連付けられたタグ
 - **Teams:** セグメントに関連付けられたチーム
-- **Advanced Tracking セグメント Only:** [分析トラッキング]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/#segment-analytics-tracking)が有効になっているセグメントのみを表示します。
+- **Advanced Tracking セグメント Only:** [分析トラッキング]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking)が有効になっているセグメントのみを表示します。
 
 ### 列 {#columns}
 
@@ -53,7 +53,7 @@ description: "この記事では、セグメントのリストのフィルタリ
 セグメントの**Messaging Use**セクションに移動すると、他のセグメント、キャンペーン、キャンバス内など、そのセグメントがどこで使用されているかの概要を確認できます。
 
 {% alert note %}
-セグメントが相互に参照するループを防ぐため、**セグメント Membership**フィルターを使用するセグメントは、他のセグメントから参照できません。詳細については、[セグメンテーションフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/)を参照してください。
+セグメントが相互に参照するループを防ぐため、**セグメント Membership**フィルターを使用するセグメントは、他のセグメントから参照できません。詳細については、[セグメンテーションフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters)を参照してください。
 {% endalert %}
 
 ## 特定のセグメントの管理 {#managing-specific-segments}
@@ -69,7 +69,7 @@ description: "この記事では、セグメントのリストのフィルタリ
 複数のセグメント名の横にあるチェックボックスをオンにすることで、一括アーカイブや一括タグ付けなどの一括アクションを実行することもできます。
 
 {% alert tip %}
-ワークスペース内の既存のセグメントの機械可読なエクスポートが必要な場合（現在のテーブルビューだけでなく）、[セグメントリストエクスポートエンドポイント]({{site.baseurl}}/api/endpoints/export/segments/get_segment/)を使用し、結果をページネーションで取得してください。アーカイブされたセグメントを監査するには、ステータスフィルターを使用して**セグメント**ダッシュボードで個別に確認してください。
+ワークスペース内の既存のセグメントの機械可読なエクスポートが必要な場合（現在のテーブルビューだけでなく）、[セグメントリストエクスポートエンドポイント]({{site.baseurl}}/api/endpoints/export/segments/get_segment)を使用し、結果をページネーションで取得してください。アーカイブされたセグメントを監査するには、ステータスフィルターを使用して**セグメント**ダッシュボードで個別に確認してください。
 {% endalert %}
 
 ![複数のセグメントが選択され、「Tag As」ドロップダウンフィールドで「CRM」が選択されている状態。]({% image_buster /assets/img/segment/segments_bulk_action.png %}){: style="max-width:45%;"}

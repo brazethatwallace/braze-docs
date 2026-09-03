@@ -5,7 +5,7 @@ page_order: 4
 layout: dev_guide
 search_rank: 3
 guide_top_header: "Connected Content"
-guide_top_text: "Braze Connected Content expands on marketing personalization to boost customer engagement and conversions. This feature allows you to insert any information accessible via API directly into messages you send to users. Connected Content allows for pulling content either directly from your web server or from publicly accessible APIs. You can also use our Connected Content capabilities with our Technology Partners, like <b><a href='/docs/partners/data_augmentation/contextual_location/accuweather/'>AccuWeather</a></b> and <b><a href='/docs/partners/channel_extensions/localization/transifex/'>Transifex</a></b>.<br><br>In addition to the following articles listed, we recommend checking out our <b><a href='https://learning.braze.com/connected-content'>Connected Content</a></b> Braze Learning course."
+guide_top_text: "Braze Connected Content expands on marketing personalization to boost customer engagement and conversions. This feature allows you to insert any information accessible via API directly into messages you send to users. Connected Content allows for pulling content either directly from your web server or from publicly accessible APIs. You can also use our Connected Content capabilities with our Technology Partners, like <b><a href='/docs/partners/data_augmentation/contextual_location/accuweather'>AccuWeather</a></b> and <b><a href='/docs/partners/channel_extensions/localization/transifex'>Transifex</a></b>.<br><br>In addition to the following articles listed, we recommend checking out our <b><a href='https://learning.braze.com/connected-content'>Connected Content</a></b> Braze Learning course."
 description: "This landing page is home to all things Connected Content. Here, you can find articles on how to make API calls, local Connected Content variables, aborting content, and more."
 
 guide_featured_title: "Section articles"
@@ -28,6 +28,9 @@ guide_featured_list:
 - name: Connected Content retries
   link: /docs/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries
   image: /assets/img/braze_icons/refresh-ccw-01.svg
+- name: Connected Content Debugger
+  link: /docs/user_guide/messaging/design_and_edit/personalize/connected_content/debugger
+  image: /assets/img/braze_icons/search-refraction.svg
 - name: Troubleshoot webhooks and Connected Content
   link: /docs/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content
   image: /assets/img/braze_icons/check-square-broken.svg
@@ -38,4 +41,3 @@ guide_featured_list:
 
 <br><br>
 
-[16]: [success@braze.com](mailto:success@braze.com)

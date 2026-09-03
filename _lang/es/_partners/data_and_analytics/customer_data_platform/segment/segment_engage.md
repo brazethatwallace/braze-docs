@@ -16,15 +16,15 @@ search_tag: Partner
 
 > [Segment](https://segment.com) es una plataforma de datos de clientes que te ayuda a recopilar, limpiar y activar los datos de tus clientes. Este artículo de referencia ofrece un resumen de la conexión entre [Braze y Segment Engage](https://segment.com/docs/destinations/braze/#Engage), además de describir los requisitos y procesos para una implementación y uso adecuados.
 
-La integración de Braze y Segment te permite utilizar [Engage](https://segment.com/docs/engage/), el creador de audiencias integrado de Segment, para crear segmentos de usuarios basados en datos que ya hayas recopilado de diversas fuentes. A continuación, estas audiencias se sincronizarán con Braze como una cohorte, o se indicarán en el perfil de usuario mediante [atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) o [eventos personalizados]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events/#custom-events) que pueden utilizarse para crear segmentos en Braze y usarlos en la reorientación de campañas y Canvas.
+La integración de Braze y Segment te permite utilizar [Engage](https://segment.com/docs/engage/), el creador de audiencias integrado de Segment, para crear segmentos de usuarios basados en datos que ya hayas recopilado de diversas fuentes. A continuación, estas audiencias se sincronizarán con Braze como una cohorte, o se indicarán en el perfil de usuario mediante [atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) o [eventos personalizados]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events#custom-events) que pueden utilizarse para crear segmentos en Braze y usarlos en la reorientación de Campaigns y Canvas.
 
 ## Requisitos previos {#prerequisites}
 
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Cuenta de Segment | Se necesita una [cuenta de Segment](https://app.segment.com/login) para beneficiarse de esta asociación. |
-| Destino en la nube Braze | Ya debes haber configurado [Braze como destino]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings/) en tu integración de Segment.<br><br>Esto incluye proporcionar el centro de datos Braze y la clave de API REST correctos en tu [configuración de conexión]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings). |
-| Clave de importación de datos Braze | Para sincronizar audiencias de Engage con Braze como cohortes, debes generar una clave de importación de datos.<br><br>La importación de cohortes está en acceso anticipado; ponte en contacto con tu administrador del éxito del cliente de Braze para acceder a esta característica. |
+| Destino en la nube Braze | Ya debes haber configurado [Braze como destino]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings/) en tu integración de Segment.<br><br>Esto incluye proporcionar el centro de datos Braze y la clave de API REST correctos en tu [configuración de conexión]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment#connection-settings). |
+| Clave de importación de datos de Braze | Para sincronizar audiencias de Engage con Braze como cohortes, debes generar una clave de importación de datos.<br><br>La importación de cohortes está en acceso anticipado; ponte en contacto con tu administrador de éxito de cliente de Braze para acceder a esta característica. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
@@ -41,15 +41,15 @@ La integración de Braze y Segment te permite utilizar [Engage](https://segment.
 
 En Braze, ve a **Integraciones de socios** > **Socios tecnológicos** y selecciona **Segment**.
 
-Aquí encontrarás tu punto de conexión REST y generarás tu clave de importación de datos Braze. Una vez generada la clave, puedes crear una nueva o invalidar una existente.
+Aquí encontrarás tu endpoint REST y generarás tu clave de importación de datos de Braze. Una vez generada la clave, puedes crear una nueva o invalidar una existente.
 
 ### Paso 3: Conecta el destino de cohortes de Braze {#step-3-connect-the-braze-cohorts-destination}
 Sigue [las instrucciones de Segment](https://segment.com/docs/connections/destinations/catalog/actions-braze-cohorts/#getting-started) sobre la configuración del destino de cohortes para sincronizar tus audiencias de Engage como cohortes con Braze.
 
 ### Paso 4: Crea un segmento en Braze a partir de la audiencia de Engage {#step-4-create-a-braze-segment-from-the-engage-audience}
-En Braze, ve a **Segments**, crea un nuevo segmento y selecciona **Segment Cohorts** como filtro. Desde aquí, puedes elegir qué cohorte de Segment deseas incluir. Una vez creado el segmento de cohorte de Segment, puedes seleccionarlo como filtro de audiencia al crear una campaña o Canvas.
+En Braze, ve a **Segments**, crea un nuevo segmento y selecciona **Segment Cohorts** como filtro. Desde aquí, puedes elegir qué cohorte de Segment deseas incluir. Una vez creado el segmento de cohorte de Segment, puedes seleccionarlo como filtro de audiencia al crear una Campaign o Canvas.
 
-![]({% image_buster /assets/img/segment/segment3.png %})
+![Creador de segmentos de Braze utilizando el filtro Segment Cohorts.]({% image_buster /assets/img/segment/segment3.png %})
 
 ## Integración en modo nube {#cloud-mode-integration}
 
@@ -86,7 +86,7 @@ Por ejemplo, si tienes un rasgo computado en Engage para "Last Product Viewed It
 
 Puedes enviar rasgos computados y audiencias a Braze como llamadas `track` para crear eventos personalizados en Braze.
 
-Siguiendo con el ejemplo anterior, si un usuario tiene un rasgo computado para "Last Product Viewed Item", aparecerá en los perfiles Braze de los usuarios como `Trait Computed` con el recuento correspondiente y la marca de tiempo más reciente en **Custom Events**. Si, en cambio, se tratara de una audiencia de Engage, encontrarías la audiencia, el recuento y la marca de tiempo más reciente en **Custom Attributes** configurados como `true`.
+Siguiendo con el ejemplo anterior, si un usuario tiene un rasgo computado para "Last Product Viewed Item", aparecerá en los perfiles de Braze de los usuarios como `Trait Computed` con el recuento correspondiente y la marca de tiempo más reciente en **Custom Events**. Si, en cambio, se tratara de una audiencia de Engage, encontrarías la audiencia, el recuento y la marca de tiempo más reciente en **Custom Attributes** configurados como `true`.
 
 | Rasgo computado | Audiencias |
 | -------------- | --------- |
@@ -102,7 +102,7 @@ En Braze, para crear un segmento de estos usuarios, ve a **Segments** en **Engag
 - **Identify**: Selecciona **custom attribute** como filtro y localiza tu atributo personalizado. A continuación, utiliza la opción "matches regex" (rasgo) o la opción "equals" (audiencia) e introduce la variable adecuada.
 - **Track**: Selecciona **custom event** como filtro y localiza tu evento personalizado. A continuación, utiliza la opción "more than", "less than" o "exactly", e introduce el valor que desees. Esto dependerá de cómo quieras definir tu segmento.
 
-Una vez guardado, puedes hacer referencia a este segmento durante la creación de Canvas o campañas en el paso de segmentación de usuarios.
+Una vez guardado, puedes hacer referencia a este segmento durante la creación de Canvas o Campaigns en el paso de segmentación de usuarios.
 
 ## Tiempo de sincronización {#sync-time}
 
@@ -110,8 +110,8 @@ Aunque la configuración predeterminada para la conexión de Braze a Segment Eng
 
 ## Prueba del depurador de Segment {#segment-debugger-testing}
 
-El dashboard de Segment proporciona una característica de "Debugger" que permite a los clientes probar si los datos de una "Fuente" se transfieren a un "Destino" como se esperaba.
+El panel de Segment proporciona una característica de "Debugger" que permite a los clientes probar si los datos de una "Source" se transfieren a un "Destination" como se esperaba.
 
-Esta característica se conecta al [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) de Braze, lo que significa que solo puede utilizarse para usuarios identificados (usuarios que ya tienen un ID de usuario para su perfil de usuario Braze).
+Esta característica se conecta al [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) de Braze, lo que significa que solo puede utilizarse para usuarios identificados (usuarios que ya tienen un ID de usuario para su perfil de usuario de Braze).
 
 Esto no funcionará para una integración en paralelo con Braze. No se transmitirá ningún dato del servidor si no has introducido la información correcta de la REST API de Braze.

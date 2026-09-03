@@ -12,7 +12,7 @@ tool: Canvas
 
 > Les commentaires dans les Canvas constituent un excellent espace collaboratif pour votre équipe marketing afin d'identifier, de discuter et de vérifier les détails de vos Canvas. Lorsque vous créez un Canvas, vous pouvez rédiger et gérer des commentaires pour signaler les éléments qui nécessitent un retour supplémentaire de la part de vos collègues.
 
-![]({% image_buster /assets/img_archive/canvas_comments.png %}){: style="float:right;max-width:70%;margin-left:15px;"}
+![Générateur de Canvas avec la barre latérale des commentaires affichant les fils de discussion ouverts.]({% image_buster /assets/img_archive/canvas_comments.png %}){: style="float:right;max-width:70%;margin-left:15px;"}
 
 ## Avantages {#benefits}
 
@@ -28,7 +28,7 @@ Par défaut, la barre latérale affiche les commentaires ouverts. Vous pouvez ba
 
 Pour laisser un commentaire, cliquez sur l'icône de commentaire <i class="fas fa-comment"></i> en haut du Canvas. Votre curseur se transforme alors en icône de commentaire. Cliquez sur l'étape que vous souhaitez commenter. Pour rétablir votre curseur, appuyez sur la touche **Échap** ou cliquez à nouveau sur l'icône de commentaire.
 
-##### Raccourcis clavier {#keyboard-shortcuts}
+### Raccourcis clavier {#keyboard-shortcuts}
 
 Vous pouvez également utiliser des raccourcis clavier pour ajouter des commentaires :
 
@@ -36,7 +36,7 @@ Vous pouvez également utiliser des raccourcis clavier pour ajouter des commenta
 | --- | --- |
 | <kbd>⌘</kbd> + <kbd>Enter</kbd> | <kbd>Ctrl</kbd> + <kbd>Enter</kbd>|
 | <kbd>Tab</kbd> + <kbd>Enter</kbd> | <kbd>Tab</kbd> + <kbd>Enter</kbd> |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Keyboard shortcuts" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Raccourcis clavier" }
 
 Pour consulter un commentaire existant, ouvrez la barre latérale ou sélectionnez l'icône de commentaire <i class="fas fa-comment"></i> à côté du nom de l'étape. Vous pouvez également répondre aux commentaires existants dans un fil de discussion.
 
@@ -48,7 +48,7 @@ Vous ne pouvez pas supprimer les commentaires ou les fils de discussion d'un aut
 
 ## Gérer les notifications {#managing-notifications}
 
-![]({% image_buster /assets/img_archive/canvas_notifications.png %}){: style="float:right;max-width:70%;margin-left:15px;"}
+![Panneau de paramètres des notifications Canvas pour les alertes de commentaires.]({% image_buster /assets/img_archive/canvas_notifications.png %}){: style="float:right;max-width:70%;margin-left:15px;"}
 
 Pour gérer les notifications par e-mail relatives à un Canvas, ouvrez la barre latérale et cliquez sur <i class="fa-solid fa-bell"></i> **Notifications**. Vous pouvez ensuite sélectionner vos préférences de notification.
 

@@ -569,7 +569,7 @@ There is a shovel here.
 
 ### Format currency for European number conventions {#european-currency-format}
 
-For locales that use a comma as the decimal separator and a period as the thousands separator (for example, Germany or Italy), use the [`money`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/#money-filter) and [`number_with_delimiter`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#number-formatting-filters) filters with `replace` to swap separators. Use `#` as a temporary placeholder so periods and commas aren't swapped in the same pass.
+For locales that use a comma as the decimal separator and a period as the thousands separator (for example, Germany or Italy), use the [`money`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#money-filters) and [`number_with_delimiter`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#number-formatting-filters) filters with `replace` to swap separators. Use `#` as a temporary placeholder so periods and commas aren't swapped in the same pass.
 
 {% raw %}
 ```liquid
@@ -952,7 +952,7 @@ Today's offer from {{store}}
 
 This use case allows users to set up upcoming reminders based on custom events. The example scenario allows a user to set a reminder for a policy renewal date that is 26 or more days away, where reminders are sent 26, 13, 7, or 2 days before the policy renewal date.
 
-With this use case, the following should go in the body of a [webhook campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/) or Canvas step.
+With this use case, the following should go in the body of a [webhook campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) or Canvas step.
 
 {% raw %}
 ```liquid
@@ -1539,7 +1539,7 @@ Check out this new bar after work today. HH specials!
 ```
 {% endraw %}
 
-{% alert note %} This is the opposite of [Quiet Hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#time-based-options). {% endalert %}
+{% alert note %} This is the opposite of [Quiet Hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#time-based-options). {% endalert %}
 
 ### Abort a message outside an hour range at send time {#abort-send-time-hour-range}
 
@@ -1816,4 +1816,4 @@ This use case aborts the message when Liquid runs on a given weekday (`Wednesday
 
 {% endapi %}
 
-Many examples in this library use the `abort_message` tag to skip a send when conditions aren't met. For a full reference on aborting sends with Liquid, including date- and time-based patterns, see [Abort Liquid Messages]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/).
+Many examples in this library use the `abort_message` tag to skip a send when conditions aren't met. For a full reference on aborting sends with Liquid, including date- and time-based patterns, see [Abort Liquid Messages]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages).

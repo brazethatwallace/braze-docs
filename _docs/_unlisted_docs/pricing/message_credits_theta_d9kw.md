@@ -10,18 +10,7 @@ hide_toc: true
 
 > Message Credits is Braze’s cross-product packaging structure for our native Agent Console, SMS, MMS, RCS, WhatsApp, and LINE offerings. Message Credits provide a flexible and transparent experience when taking advantage of Braze messaging channels and certain AI features. Credits give you access to any of the channels presented in the table on this page.
 
-{% alert note %}
-Different products will have different units of measure in reporting.<br><br>
-<b>Agent Console:</b> Invocations<br>
-<b>SMS:</b> Segments<br>
-<b>MMS:</b> Sends<br>
-<b>WhatsApp:</b> Messages delivered <br>
-<b>RCS:</b> Segments delivered, Sends delivered <br>
-<b>LINE:</b> Sends<br>
-<b>KakaoTalk:</b> Sends<br>
-
-Lastly, carrier fees related to SMS, MMS, and RCS are billed separately (in arrears) and are not considered as part of this Message Credits SKU.
-{% endalert %}
+{% multi_lang_include pricing/message_credits_units_of_measure.md %}
 
 ## Definitions
 
@@ -1296,7 +1285,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Argentina Marketing - BYO</td>
+        <td>Argentina Marketing - BYO or Meta Direct</td>
         <td>0.62</td>
     </tr>
     <tr>
@@ -1321,7 +1310,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Brazil Marketing - BYO</td>
+        <td>Brazil Marketing - BYO or Meta Direct</td>
         <td>0.63</td>
     </tr>
     <tr>
@@ -1346,7 +1335,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Chile Marketing - BYO</td>
+        <td>Chile Marketing - BYO or Meta Direct</td>
         <td>0.89</td>
     </tr>
     <tr>
@@ -1371,7 +1360,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Colombia Marketing - BYO</td>
+        <td>Colombia Marketing - BYO or Meta Direct</td>
         <td>0.13</td>
     </tr>
     <tr>
@@ -1401,7 +1390,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Egypt Marketing - BYO</td>
+        <td>Egypt Marketing - BYO or Meta Direct</td>
         <td>0.64</td>
     </tr>
     <tr>
@@ -1426,7 +1415,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>France Marketing - BYO</td>
+        <td>France Marketing - BYO or Meta Direct</td>
         <td>0.86</td>
     </tr>
     <tr>
@@ -1451,7 +1440,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Germany Marketing - BYO</td>
+        <td>Germany Marketing - BYO or Meta Direct</td>
         <td>1.37</td>
     </tr>
     <tr>
@@ -1481,7 +1470,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>India Marketing - BYO</td>
+        <td>India Marketing - BYO or Meta Direct</td>
         <td>0.12</td>
     </tr>
     <tr>
@@ -1511,7 +1500,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Indonesia Marketing - BYO</td>
+        <td>Indonesia Marketing - BYO or Meta Direct</td>
         <td>0.41</td>
     </tr>
     <tr>
@@ -1536,7 +1525,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Israel Marketing - BYO</td>
+        <td>Israel Marketing - BYO or Meta Direct</td>
         <td>0.35</td>
     </tr>
     <tr>
@@ -1561,7 +1550,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Italy Marketing - BYO</td>
+        <td>Italy Marketing - BYO or Meta Direct</td>
         <td>0.69</td>
     </tr>
     <tr>
@@ -1591,7 +1580,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Malaysia Marketing - BYO</td>
+        <td>Malaysia Marketing - BYO or Meta Direct</td>
         <td>0.86</td>
     </tr>
     <tr>
@@ -1616,7 +1605,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Mexico Marketing - BYO</td>
+        <td>Mexico Marketing - BYO or Meta Direct</td>
         <td>0.31</td>
     </tr>
     <tr>
@@ -1641,7 +1630,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Netherlands Marketing - BYO</td>
+        <td>Netherlands Marketing - BYO or Meta Direct</td>
         <td>1.60</td>
     </tr>
     <tr>
@@ -1671,7 +1660,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Nigeria Marketing - BYO</td>
+        <td>Nigeria Marketing - BYO or Meta Direct</td>
         <td>0.52</td>
     </tr>
     <tr>
@@ -1696,7 +1685,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>North America Marketing - BYO</td>
+        <td>North America Marketing - BYO or Meta Direct</td>
         <td>0.25</td>
     </tr>
     <tr>
@@ -1721,7 +1710,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Other Marketing - BYO</td>
+        <td>Other Marketing - BYO or Meta Direct</td>
         <td>0.60</td>
     </tr>
     <tr>
@@ -1751,7 +1740,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Pakistan Marketing - BYO</td>
+        <td>Pakistan Marketing - BYO or Meta Direct</td>
         <td>0.47</td>
     </tr>
     <tr>
@@ -1776,7 +1765,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Peru Marketing - BYO</td>
+        <td>Peru Marketing - BYO or Meta Direct</td>
         <td>0.70</td>
     </tr>
     <tr>
@@ -1801,7 +1790,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Africa Marketing - BYO</td>
+        <td>Rest of Africa Marketing - BYO or Meta Direct</td>
         <td>0.23</td>
     </tr>
     <tr>
@@ -1826,7 +1815,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Asia Pacific Marketing - BYO</td>
+        <td>Rest of Asia Pacific Marketing - BYO or Meta Direct</td>
         <td>0.73</td>
     </tr>
     <tr>
@@ -1851,7 +1840,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Central & Eastern Europe Marketing - BYO</td>
+        <td>Rest of Central & Eastern Europe Marketing - BYO or Meta Direct</td>
         <td>0.86</td>
     </tr>
     <tr>
@@ -1876,7 +1865,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Latin America Marketing - BYO</td>
+        <td>Rest of Latin America Marketing - BYO or Meta Direct</td>
         <td>0.74</td>
     </tr>
     <tr>
@@ -1891,7 +1880,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Message Types - BYO</td>
+        <td>Rest of Message Types - BYO or Meta Direct</td>
         <td>0.10</td>
     </tr>
     <tr>
@@ -1906,7 +1895,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Middle East Marketing - BYO</td>
+        <td>Rest of Middle East Marketing - BYO or Meta Direct</td>
         <td>0.34</td>
     </tr>
     <tr>
@@ -1931,7 +1920,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Western Europe Marketing - BYO</td>
+        <td>Rest of Western Europe Marketing - BYO or Meta Direct</td>
         <td>0.59</td>
     </tr>
     <tr>
@@ -1956,7 +1945,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Russia Marketing - BYO</td>
+        <td>Russia Marketing - BYO or Meta Direct</td>
         <td>0.80</td>
     </tr>
     <tr>
@@ -1986,7 +1975,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Saudi Arabia Marketing - BYO</td>
+        <td>Saudi Arabia Marketing - BYO or Meta Direct</td>
         <td>0.46</td>
     </tr>
     <tr>
@@ -2016,7 +2005,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>South Africa Marketing - BYO</td>
+        <td>South Africa Marketing - BYO or Meta Direct</td>
         <td>0.38</td>
     </tr>
     <tr>
@@ -2041,7 +2030,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Spain Marketing - BYO</td>
+        <td>Spain Marketing - BYO or Meta Direct</td>
         <td>0.62</td>
     </tr>
     <tr>
@@ -2066,7 +2055,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Turkey Marketing - BYO</td>
+        <td>Turkey Marketing - BYO or Meta Direct</td>
         <td>0.11</td>
     </tr>
     <tr>
@@ -2096,7 +2085,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>United Arab Emirates Marketing - BYO</td>
+        <td>United Arab Emirates Marketing - BYO or Meta Direct</td>
         <td>0.50</td>
     </tr>
     <tr>
@@ -2121,7 +2110,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>United Kingdom Marketing - BYO</td>
+        <td>United Kingdom Marketing - BYO or Meta Direct</td>
         <td>0.53</td>
     </tr>
     <tr>
@@ -2284,9 +2273,7 @@ Column definitions are as follows:
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 {% enddetails %}
 
-------
-## Agent Console details
-Braze will charge Message Credits for Agent Console Invocations sent from the Braze platform. An Invocation is logged when an Agent initiates a call to an LLM. By default, your contract includes ten thousand Invocations per each Period of your Subscription Term.
+{% multi_lang_include pricing/agent_console_details.md %}
 
 ## SMS/MMS channel details
 
@@ -2302,11 +2289,7 @@ For MMS, the message limit is 5 MB (this includes the multimedia asset and the m
 
 RCS is the next generation of SMS and MMS. It offers the benefits of a direct, high engagement channel like SMS–with richer capabilities that modern consumers have come to expect, like rich content (images, videos, documents), verified and branded sending, interactive features like suggested replies and actions, and more.
 
-- RCS billing centers on two different message types (with distinctions for the USA):
-    - **Basic RCS:** Text-only, up to 160 characters
-    - **Single RCS:** Messages containing rich content, or text-only messages > 160 characters
-    - **Rich RCS (USA Only):** Text only, may include limited suggestions/buttons (quickReply, dialPhone, openURL w/o webview), segmented per 160 UTF-8 bytes
-    - **Rich Media RCS (USA Only):** Any media OR text with richer suggestions/buttons (webview, location, calendar, etc.), counted as one message
+{% multi_lang_include pricing/rcs_billing_message_types.md %}
 
 ## WhatsApp channel details
 
@@ -2317,6 +2300,8 @@ RCS is the next generation of SMS and MMS. It offers the benefits of a direct, h
 ### Webhooks
 
 Webhooks were made part of Message Credits on Dec, 9, 2024. Braze will charge Message Credits for any webhooks sent from the Braze platform. By default, your contract includes one hundred thousand webhooks per each Period of your Subscription Term. Additional webhooks will be charged as per your Order Form.
+
+{% multi_lang_include pricing/webhook_failed_requests_billing.md credit_name='Message Credits' %}
 
 ### Bring your own (BYO) SMS connectors
 
@@ -2339,12 +2324,12 @@ Madagascar, Malawi, Mali, Mauritania, Morocco, Mozambique, Namibia, Niger, Rwand
 
 ### Rest of Asia Pacific
 
-Afghanistan, Australia, Bangladesh, Cambodia, China, Hong Kong, Japan, Laos, Mongolia, Nepal, New Zealand, Papua New Guinea, Philippines, Singapore, Sri Lanka, Taiwan, Tajikistan, Thailand,
+Afghanistan, Australia, Bangladesh, Cambodia, China, Japan, Laos, Mongolia, Nepal, New Zealand, Papua New Guinea, Philippines, Sri Lanka, Taiwan, Tajikistan, Thailand,
 Turkmenistan, Uzbekistan, Vietnam
 
 ### Rest of Central & Eastern Europe
 
-Albania, Armenia, Azerbaijan, Belarus, Bulgaria, Croatia, Czech Republic, Georgia, Greece, Hungary, Latvia, Lithuania, Macedonia, Moldova, Poland, Romania, Serbia, Slovakia, Slovenia, Ukraine
+Albania, Armenia, Azerbaijan, Belarus, Bulgaria, Croatia, Czech Republic, Georgia, Greece, Latvia, Lithuania, Macedonia, Moldova, Serbia, Slovakia, Slovenia, Ukraine
 
 ### Rest of Latin America
 
@@ -2353,7 +2338,7 @@ Guatemala, Haiti, Honduras, Jamaica, Nicaragua, Panama, Paraguay, Puerto Rico, U
 
 ### Rest of Middle East
 
-Bahrain, Iraq, Jordan, Kuwait, Lebanon, Oman, Qatar, Yemen
+Bahrain, Iraq, Jordan, Kuwait, Lebanon, Oman, Yemen
 
 ### Rest of Western Europe
 

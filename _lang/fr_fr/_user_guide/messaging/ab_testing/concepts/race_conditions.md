@@ -50,7 +50,7 @@ Après la création d'un nouvel utilisateur, vous pouvez ajouter un délai avant
 
 Par exemple, après qu'un utilisateur s'est inscrit sur votre application, vous pouvez envoyer une offre promotionnelle après 24 heures. Ou, si vous créez un utilisateur ou enregistrez un attribut personnalisé, vous pouvez ajouter un délai d'une minute avant de poursuivre votre processus pour éviter cette condition de concurrence.
 
-Vous pouvez également ajouter ce délai dans le [SDK Braze]({{site.baseurl}}/developer_guide/sdk_integration/) pour l'événement personnalisé spécifique qui déclenche l'entrée d'un nouvel utilisateur dans un Canvas.
+Vous pouvez également ajouter ce délai dans le [SDK Braze]({{site.baseurl}}/developer_guide/sdk_integration) pour l'événement personnalisé spécifique qui déclenche l'entrée d'un nouvel utilisateur dans un Canvas.
 
 ## Scénario 2 : Utilisation de plusieurs endpoints API {#scenario-2-using-multiple-api-endpoints}
 
@@ -63,7 +63,7 @@ Il existe plusieurs scénarios dans lesquels l'utilisation de plusieurs endpoint
 - Des endpoints API distincts sont utilisés pour créer des utilisateurs et déclencher des Canvas ou des campagnes
 - Plusieurs appels séparés sont effectués vers l'endpoint `/users/track` pour mettre à jour des attributs personnalisés, des événements ou des achats
 
-Lorsque les informations utilisateur sont envoyées à Braze via l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), le traitement peut parfois prendre quelques secondes. Cela signifie que lorsque des requêtes sont effectuées simultanément vers `/users/track` et vers des endpoints d'envoi de messages comme `/campaign/trigger/send`, il n'y a aucune garantie que les informations utilisateur soient mises à jour avant l'envoi du message.
+Lorsque les informations utilisateur sont envoyées à Braze via l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), le traitement peut parfois prendre quelques secondes. Cela signifie que lorsque des requêtes sont effectuées simultanément vers `/users/track` et vers des endpoints d'envoi de messages comme `/campaign/trigger/send`, il n'y a aucune garantie que les informations utilisateur soient mises à jour avant l'envoi du message.
 
 {% alert note %}
 Si les attributs et les événements utilisateur sont envoyés dans la même requête (que ce soit via `/users/track` ou via le SDK), Braze traite les attributs avant les événements ou avant de tenter d'envoyer un message.
@@ -79,15 +79,15 @@ Si vous envoyez une requête API de message planifié, ces requêtes doivent êt
 
 #### Inclure les données clés avec le déclencheur {#include-key-data-with-the-trigger}
 
-Au lieu d'utiliser plusieurs endpoints, vous pouvez inclure les [attributs utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object/#object-body) et les [propriétés de déclenchement]({{site.baseurl}}/api/objects_filters/trigger_properties_object/) dans un seul appel API en utilisant l'[endpoint `campaign/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/).
+Au lieu d'utiliser plusieurs endpoints, vous pouvez inclure les [attributs utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object#object-body) et les [propriétés de déclenchement]({{site.baseurl}}/api/objects_filters/trigger_properties_object) dans un seul appel API en utilisant l'[endpoint `campaign/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns).
 
 Lorsque ces objets sont inclus avec le déclencheur, les attributs sont traités en premier, avant que le message ne soit déclenché, ce qui élimine les conditions de concurrence potentielles. Notez que les propriétés de déclenchement ne mettent pas à jour le profil utilisateur, mais sont utilisées uniquement dans le contexte du message.
 
 #### Utiliser l'endpoint POST : Suivre les utilisateurs (synchrone) {#use-the-post-track-users-sync-endpoint}
 
-Utilisez l'[endpoint `/users/track/sync/`]({{site.baseurl}}/api/endpoints/user_data/post_user_track_synchronous/) pour enregistrer des événements personnalisés et des achats, et mettre à jour les attributs du profil utilisateur de manière synchrone. L'utilisation de cet endpoint pour mettre à jour les profils utilisateur en même temps et dans un seul appel peut aider à prévenir les conditions de concurrence potentielles.
+Utilisez l'[endpoint `/users/track/sync/`]({{site.baseurl}}/api/endpoints/user_data/post_user_track_synchronous) pour enregistrer des événements personnalisés et des achats, et mettre à jour les attributs du profil utilisateur de manière synchrone. L'utilisation de cet endpoint pour mettre à jour les profils utilisateur en même temps et dans un seul appel peut aider à prévenir les conditions de concurrence potentielles.
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' type='beta' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='This endpoint' type='beta' %}
 
 ## Scénario 3 : Correspondance entre les déclencheurs basés sur l'action et les filtres d'audience {#scenario-3-matching-action-based-triggers-and-audience-filters}
 
@@ -97,7 +97,7 @@ Une autre condition de concurrence courante peut survenir lorsque vous configure
 
 #### Vérifier votre audience après un délai {#check-your-audience-after-a-delay}
 
-Pour éviter d'utiliser des filtres d'audience contenant les critères de déclenchement, nous recommandons de vérifier votre audience avant la distribution. Par exemple, vous pouvez [utiliser les validations de distribution]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#edit-delivery-settings) dans les étapes de message Canvas comme vérification supplémentaire pour confirmer que votre audience remplit les critères de distribution au moment de l'envoi du message. Vous pouvez également tirer parti des critères de sortie du Canvas pour faire sortir les utilisateurs à tout moment du parcours s'ils remplissent vos critères.
+Pour éviter d'utiliser des filtres d'audience contenant les critères de déclenchement, nous recommandons de vérifier votre audience avant la distribution. Par exemple, vous pouvez [utiliser les validations de distribution]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#step-2-edit-delivery-settings) dans les étapes de message Canvas comme vérification supplémentaire pour confirmer que votre audience remplit les critères de distribution au moment de l'envoi du message. Vous pouvez également tirer parti des critères de sortie du Canvas pour faire sortir les utilisateurs à tout moment du parcours s'ils remplissent vos critères.
 
 Pour les campagnes, vous pouvez utiliser des événements de sortie pour permettre aux campagnes avec un événement déclencheur d'annuler les messages destinés aux utilisateurs qui effectuent l'événement de sortie pendant le délai.
 

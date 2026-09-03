@@ -10,7 +10,7 @@ toc_headers: h2
 
 > これは、各 Braze SDKに属するリファレンスドキュメント、GitHubリポジトリ、サンプルアプリの一覧です。SDKのリファレンスドキュメントには、使用可能なクラス、型、関数、変数の詳細が記載されています。GitHubリポジトリは、SDKの関数や属性の宣言、コードの変更、バージョン管理に関するインサイトを提供します。各リポジトリには、Brazeの機能をテストしたり、独自のアプリケーションと併せて実装するために使用できる、完全にビルド可能なサンプルアプリケーションも含まれています。
 
-ドキュメント内のミラーリングされたリポジトリREADMEコンテンツについては、[リポジトリガイド]({{site.baseurl}}/developer_guide/sdk_repository_guides/)を参照してください。
+ドキュメント内のミラーリングされたリポジトリREADMEコンテンツについては、[リポジトリガイド]({{site.baseurl}}/developer_guide/sdk_repository_guides)を参照してください。
 
 ## リソース一覧 {#list-of-resources}
 
@@ -41,7 +41,7 @@ toc_headers: h2
 
 [Android SDK GitHubリポジトリ](https://github.com/braze-inc/braze-android-sdk)内のテストアプリケーションはDroidboyと呼ばれます。以下の手順に従って、プロジェクトとともに完全に機能するDroidboyのコピーをビルドしてください。
 
-1. 新しい[ワークスペース]({{site.baseurl}}/developer_guide/platform_wide/app_group_configuration/#app-group-configuration)を作成し、Braze API識別子キーを書き留めます。<br><br>
+1. 新しい[ワークスペース]({{site.baseurl}}/developer_guide/platform_wide/app_group_configuration#app-group-configuration)を作成し、Braze API識別子キーを書き留めます。<br><br>
 2. FCM送信者IDとBraze API識別子キーを `/droidboy/res/values/braze.xml` 内の適切な場所（それぞれ `com_braze_push_fcm_sender_id` と `com_braze_api_key` という文字列のタグの間）にコピーします。<br><br>
 3. FCMサーバーキーとサーバーIDを**設定の管理**のワークスペース設定にコピーします。<br><br>
 4. Droidboy APKをアセンブルするには、SDKディレクトリ内で `./gradlew assemble` を実行します。Windowsでは `gradlew.bat` を使用してください。<br><br>
@@ -52,7 +52,7 @@ toc_headers: h2
 Hello Brazeテストアプリケーションは、Braze SDKの最小限のユースケースを示すとともに、Braze SDKをGradleプロジェクトに簡単に統合する方法も示します。
 
 1. **設定の管理**ページのAPI識別子キーを `res/values` フォルダーの `braze.xml` ファイルにコピーします。
-![]({% image_buster /assets/img_archive/hello_appboy.png %})<br><br>
+![「Hello Braze」のビルドに関連するスクリーンショット]({% image_buster /assets/img_archive/hello_appboy.png %})<br><br>
 2. サンプルアプリをデバイスまたはエミュレーターにインストールするには、SDKディレクトリ内で次のコマンドを実行します。
 ```
 ./gradlew installDebug
@@ -67,12 +67,12 @@ Android SDKビルドシステムの詳細については、[GitHubリポジト�
 
 以下の手順に従って、テストアプリケーションをビルドして実行してください。
 
-1. 新しい[ワークスペース]({{site.baseurl}}/developer_guide/platform_wide/app_group_configuration/#creating-your-app-group-in-my-apps)を作成し、アプリ識別子APIキーとエンドポイントを書き留めます。
+1. 新しい[ワークスペース]({{site.baseurl}}/developer_guide/platform_wide/app_group_configuration#creating-your-app-group-in-my-apps)を作成し、アプリ識別子APIキーとエンドポイントを書き留めます。
 2. 統合方法（Swift Package Manager、CocoaPods、手動）に基づいて、適切な `xcodeproj` ファイルを選択して開きます。
 3. `Credentials` ファイルの適切なフィールドにAPIキーとエンドポイントを入力します。
 {% endtab %}
 {% endtabs %}
 
 {% alert note %}
-SDKインテグレーションのQAを行う際は、[SDKデバッガー]({{site.baseurl}}/developer_guide/sdk_integration/debugging/)を使用すれば、アプリの冗長ロギングをオンにすることなく問題のトラブルシューティングを行うことができます。
+SDKインテグレーションのQAを行う際は、[SDKデバッガー]({{site.baseurl}}/developer_guide/sdk_integration/debugging)を使用すれば、アプリの冗長ロギングをオンにすることなく問題のトラブルシューティングを行うことができます。
 {% endalert %}

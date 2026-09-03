@@ -1,0 +1,7 @@
+external_id,name,time,order_id,total_value,currency,source,product_id,product_name,variant_id,quantity,price,discount_id,discount_name
+user_101,ecommerce.order_placed,2024-07-01T09:00:00.000Z,ORD-201,75.00,USD,mobile,PROD-A,Yoga Mat,YM-BLUE,1,50.00,DISC-YOGA,YOGA15
+user_101,ecommerce.order_placed,2024-07-01T09:00:00.000Z,,,,,PROD-B,Resistance Band,RB-MED,1,25.00,,
+user_102,ecommerce.order_placed,2024-07-02T14:30:00.000Z,ORD-202,130.00,EUR,web,PROD-C,Dumbbell Set,DB-10KG,2,60.00,,
+user_102,ecommerce.order_placed,2024-07-02T14:30:00.000Z,,,,,PROD-D,Gym Gloves,GG-M,1,10.00,DISC-NEW,NEWUSER5
+user_103,ecommerce.order_placed,2024-07-03T18:15:00.000Z,ORD-203,44.98,GBP,email,PROD-E,Protein Bar (Box),PB-CHOC,2,14.99,,
+user_103,ecommerce.order_placed,2024-07-03T18:15:00.000Z,,,,,PROD-F,Shaker Bottle,SB-BLK,1,15.00,,

@@ -1,61 +1,25 @@
 ---
 nav_title: Optimizaciones
-article_title: Optimiza las pruebas A/B con variante ganadora o variantes personalizadas
+article_title: Optimización de pruebas A/B
 page_order: 1
 page_type: reference
-description: "Aprende a utilizar la variante ganadora o la variante personalizada al crear pruebas multivariantes y pruebas A/B."
+description: "Aprende a optimizar pruebas multivariantes y pruebas A/B de campañas con BrazeAI."
 ---
 
-# Optimiza las pruebas A/B {#optimize-ab-tests}
+# Optimización de pruebas A/B {#optimizing-ab-tests}
 
-> Aprende a utilizar la optimización de variantes al crear pruebas multivariantes y pruebas A/B.
+> Usa **Optimizar con BrazeAI<sup>TM</sup>** para optimizar automáticamente una campaña con múltiples variantes.
 
-## Push {#push}
+En el paso **Públicos objetivo**, ve a **Pruebas A/B** y activa **Optimizar con BrazeAI<sup>TM</sup>**.
 
-Al [crear una prueba A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests/) para push, hay una opción de optimización: [Selección de variante con BrazeAI<sup>TM</sup>]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection/). Es una característica que permite que tus pruebas A/B de envío único o recurrentes ejecuten automáticamente un experimento y optimicen para obtener los mejores resultados de interacción.
+Para una campaña de envío único, BrazeAI<sup>TM</sup> envía una prueba inicial y luego envía la variante con mejor rendimiento a la audiencia restante. Para una campaña de envíos múltiples, BrazeAI<sup>TM</sup> revisa el rendimiento cada 12 horas y redirige a más usuarios hacia las variantes con mejor rendimiento.
 
-## Correo electrónico, webhook, SMS y WhatsApp {#email-webhook-sms-and-whatsapp}
+Para prerrequisitos, opciones de configuración y detalles de informes, consulta [Optimización de pruebas A/B con BrazeAI]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection).
 
-Al [crear una prueba A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests/) para campañas de correo electrónico, webhook, SMS y WhatsApp programadas para un solo envío, puedes seleccionar una optimización entre dos opciones: **Winning Variant** y **Personalized Variant**.
-
-![Opciones de optimización listadas en la sección de pruebas A/B al elegir tu audiencia objetivo. Se listan tres opciones: Sin optimización, Variante ganadora y Variante personalizada. Variante personalizada está seleccionada.]({% image_buster /assets/img_archive/ab_personalized_variant.png %})
-
-Ambas opciones funcionan enviando una prueba inicial a un porcentaje de tu segmento objetivo. Una vez finalizada la prueba, los usuarios restantes de tu audiencia reciben la variante con mejor rendimiento (variante ganadora) o la variante con la que es más probable que interactúen (variante personalizada).
-
-{% alert tip %}
-Las optimizaciones se encuentran en la etapa **Públicos-alvo** de la creación de campañas, en **A/B Testing**.
+{% alert note %}
+Las campañas existentes que usan variante personalizada siguen siendo compatibles con esa optimización y sus análisis. La variante personalizada no está disponible al crear una nueva campaña.
 {% endalert %}
 
-## Variante ganadora {#winning-variant}
+Braze verifica de nuevo la elegibilidad del usuario antes del segundo envío en una optimización de envío único. Los usuarios que no eran elegibles para la prueba inicial pueden entrar en la audiencia restante, mientras que los usuarios que ya no son elegibles no reciben el envío de seguimiento.
 
-Enviar la variante ganadora es similar a una prueba A/B estándar. Los usuarios de este grupo recibirán la variante ganadora cuando se complete la prueba inicial.
-
-1. Selecciona **Winning Variant** y especifica qué porcentaje de la audiencia de tu campaña debe asignarse al grupo de variante ganadora.
-2. Configura los siguientes ajustes adicionales.
-
-| Campo | Descripción |
-| --- | --- |
-| Determine Winning Variant | La métrica a optimizar. Elige entre *Aperturas únicas* o *Clics* para correo electrónico, *Aperturas* para push, o *Tasa de conversión primaria* para todos los canales. Seleccionar *Aperturas* o *Clics* para determinar la ganadora no afecta lo que elijas para los [eventos de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/) de la campaña. <br><br>Ten en cuenta que si estás utilizando un grupo de control, los usuarios del grupo de control no pueden realizar *Aperturas* ni *Clics*, por lo que el rendimiento del grupo de control será `0`. Como resultado, el grupo de control no puede ganar la prueba A/B. Sin embargo, es posible que aún quieras usar un grupo de control para hacer seguimiento de otras métricas para los usuarios que no reciben un mensaje. |
-| Winning Variant Send Time | La fecha y hora en que se envía la variante ganadora. |
-| If No Winning Variant Can Be Determined | Qué sucede si ninguna variante gana por un margen estadísticamente significativo. Elige entre enviar la variante con mejor rendimiento de todos modos o finalizar la prueba y no enviar más mensajes. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Variante ganadora" }
-
-## Variante personalizada {#personalized-variant}
-
-Usa las variantes personalizadas para enviar a cada usuario de tu segmento objetivo la variante con la que es más probable que interactúe.
-
-Para determinar la mejor variante para cada usuario, Braze enviará una prueba inicial a una parte de tu audiencia objetivo para buscar asociaciones entre las características de los usuarios y las preferencias de mensajes. Según cómo respondan los usuarios a cada variante en la prueba inicial, estas características se utilizan para determinar qué usuarios restantes recibirán cada variante. Si no se encuentran asociaciones y no se pueden hacer personalizaciones, la variante ganadora se envía automáticamente a los usuarios restantes. Para obtener más información sobre cómo se determinan las variantes personalizadas, consulta [Análisis de pruebas multivariantes y A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics/#personalized-variant).
-
-1. Selecciona **Personalized Variant** y especifica qué porcentaje de la audiencia de tu campaña debe asignarse al grupo de variante personalizada.
-2. Configura los siguientes ajustes adicionales.
-
-| Campo | Descripción |
-| --- | --- |
-| Determine Personalized Variant | La métrica a optimizar. Elige entre *Aperturas únicas* o *Clics* para correo electrónico, *Aperturas* para push, o *Tasa de conversión primaria* para todos los canales. Seleccionar *Aperturas* o *Clics* para determinar la ganadora no afecta lo que elijas para los [eventos de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/) de la campaña. <br><br>Ten en cuenta que si estás utilizando un grupo de control, los usuarios del grupo de control no pueden realizar *Aperturas* ni *Clics*, por lo que el rendimiento del grupo de control será `0`. Como resultado, el grupo de control no puede ganar la prueba A/B. Sin embargo, es posible que aún quieras usar un grupo de control para hacer seguimiento de otras métricas para los usuarios que no reciben un mensaje. |
-| Personalized Variant Send Time | La fecha y hora en que se envía la variante personalizada. |
-| If No personalized Variant Can Be Determined | Qué sucede si no se encuentran variantes personalizadas. Elige entre enviar la variante ganadora en su lugar o finalizar la prueba y no enviar más mensajes. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Variante personalizada" }
-
-## Análisis {#analytics}
-
-Para conocer los resultados de tu prueba A/B con una optimización, consulta [Análisis de pruebas multivariantes y A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics/).
+Para información sobre los resultados de la campaña, consulta [Análisis de pruebas A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics).

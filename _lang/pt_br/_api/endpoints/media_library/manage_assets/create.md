@@ -15,17 +15,37 @@ description: "Este artigo descreve detalhes sobre o endpoint `POST /media_librar
 /media_library/create
 {% endapimethod %}
 
-> Use este endpoint para adicionar um ativo à [Biblioteca de mídia da Braze](https://www.braze.com/docs/user_guide/engagement_tools/templates_and_media/media_library) usando uma URL hospedada externamente (`asset_url`) ou dados de arquivo binário enviados no corpo da solicitação (`asset_file`). Este endpoint suporta imagens e arquivos ZIP que contêm imagens.
+> Use este endpoint para adicionar um ativo à [biblioteca de mídia da Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) usando uma URL hospedada externamente (`asset_url`) ou dados de arquivo binário enviados no corpo da solicitação (`asset_file`). Este endpoint aceita imagens, documentos e arquivos ZIP que os contenham. Para a lista completa, consulte [Tipos de arquivo suportados](#supported-file-types).
+
+## Tipos de arquivo suportados {#supported-file-types}
+
+Este endpoint aceita os seguintes tipos de arquivo, seja por upload via `asset_url` ou `asset_file`.
+
+| Tipo de ativo | Tipos de arquivo suportados | Tamanho máximo |
+| --- | --- | --- |
+| Imagem | GIF, ICO, JPEG, JPG, PNG, WebP | 5&nbsp;MB |
+| Imagem vetorial | SVG | 5&nbsp;MB |
+| Documento | DOC, DOCX, PDF, PPT, PPTX, XLS, XLSX | 5&nbsp;MB |
+| Arquivo compactado | ZIP | 50&nbsp;MB no total, 5&nbsp;MB por arquivo dentro do ZIP |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 style="table-layout: fixed; width: 100%;" aria-label="Tipos de arquivo suportados" }
+
+Se você fizer upload de um tipo de arquivo que não está listado aqui, o endpoint retornará um erro `UNSUPPORTED_FILE_TYPE`.
+
+Para arquivos ZIP, cada arquivo dentro do arquivo compactado também deve ser um dos tipos de arquivo suportados listados aqui, e todos os arquivos devem estar na raiz do ZIP (sem subdiretórios). Qualquer arquivo não suportado é ignorado e retornado no array `errors` da resposta, e o restante do arquivo compactado ainda é enviado.
+
+{% alert note %}
+Arquivos de contato virtual (.vcf) e arquivos de vídeo podem ser enviados para a biblioteca de mídia, mas apenas pela interface do dashboard (**Conteúdo** > **Biblioteca de mídia**), não por este endpoint de API.
+{% endalert %}
 
 {% alert tip %}
-Você também pode chamar este endpoint por meio do [servidor MCP da Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server/) usando a função [`create_media_library_asset`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#media-library). Isso permite que ferramentas de IA como Claude e Cursor façam upload de ativos para sua biblioteca de mídia por meio de prompts em linguagem natural.
+Você também pode chamar este endpoint por meio do [servidor MCP da Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server) usando a função [`create_media_library_asset`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#media-library). Isso permite que ferramentas de IA como Claude e Cursor façam upload de ativos para sua biblioteca de mídia por meio de prompts em linguagem natural.
 {% endalert %}
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `media_library.create`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `media_library.create`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='media_library' %}
 
@@ -53,12 +73,12 @@ Exemplo de corpo da solicitação para `asset_file`:
 
 O corpo da solicitação inclui os seguintes parâmetros:
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
-| --------- | -------- | --------- | ----------- |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
+| --------- | ----------- | ------------- | --------- |
 | `asset_url` | Opcional | String | Uma URL acessível publicamente para o ativo a ser enviado para a Braze. |
 | `asset_file` | Opcional | Binário | Dados de arquivo binário. |
-| `name` | Opcional | String | Um nome a aparecer na biblioteca de mídia para este ativo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request body" }
+| `name` | Opcional | String | Um nome a ser exibido na biblioteca de mídia para este ativo. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Corpo da solicitação" }
 
 {% alert important %}
 `asset_url` e `asset_file` são mutuamente exclusivos. Você deve incluir apenas um deles na sua solicitação de API.
@@ -74,7 +94,7 @@ Esta seção explica como o endpoint atribui nomes aos arquivos enviados com bas
 | --- | --- |
 | `name` fornecido | O valor de `name` é usado como o nome do ativo na biblioteca de mídia. |
 | `name` excluído | O nome do arquivo original da URL ou do arquivo enviado é usado. |
-{: .reset-td-br-1 .reset-td-br-2 style="table-layout: fixed; width: 100%;" aria-label="Single file uploads" }
+{: .reset-td-br-1 .reset-td-br-2 style="table-layout: fixed; width: 100%;" aria-label="Envios de arquivo único" }
 
 #### Envios de arquivos ZIP {#zip-file-uploads}
 
@@ -82,7 +102,7 @@ Esta seção explica como o endpoint atribui nomes aos arquivos enviados com bas
 | --- | --- |
 | `name` fornecido | O valor de `name` é usado como prefixo, com um número incremental anexado como sufixo (por exemplo, "My File 1", "My File 2", "My File 3"). |
 | `name` excluído | Cada arquivo mantém seu nome original de dentro do arquivo ZIP. |
-{: .reset-td-br-1 .reset-td-br-2 style="table-layout: fixed; width: 100%;" aria-label="ZIP file uploads" }
+{: .reset-td-br-1 .reset-td-br-2 style="table-layout: fixed; width: 100%;" aria-label="Envios de arquivos ZIP" }
 
 ## Exemplo de solicitação {#example-request}
 
@@ -127,7 +147,7 @@ Esta tabela lista possíveis erros de validação.
 | 400 | "Either asset_url or asset_file must be provided." | Nenhum parâmetro de ativo foi fornecido na solicitação. |
 | 400 | "Both asset_url and asset_file cannot be provided. Please provide only one." | Ambos os parâmetros de ativo foram fornecidos; apenas um é permitido. |
 | 403 | "Media Library Public APIs are not enabled for this company." | O recurso da biblioteca de mídia não está ativado para este espaço de trabalho. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Validation errors" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Erros de validação" }
 
 #### Erros de processamento {#processing-errors}
 
@@ -145,17 +165,17 @@ Esta tabela lista possíveis erros de processamento.
 
 | Código de erro | Status HTTP | Descrição |
 | --- | --- | --- |
-| `UNSUPPORTED_FILE_TYPE` | 400 | O tipo de arquivo enviado não é suportado. O objeto `meta` inclui o `file_type` que foi rejeitado. |
-| `ASSET_SIZE_EXCEEDS_LIMIT` | 400 | O arquivo excede o tamanho máximo permitido. Imagens têm um limite de 5 MB. |
+| `UNSUPPORTED_FILE_TYPE` | 400 | O tipo de arquivo enviado não é suportado. Consulte [Tipos de arquivo suportados](#supported-file-types). O objeto `meta` inclui o `file_type` que foi rejeitado. |
+| `ASSET_SIZE_EXCEEDS_LIMIT` | 400 | O arquivo excede o tamanho máximo permitido de 5&nbsp;MB. |
 | `MEDIA_LIBRARY_LIMIT_REACHED` | 400 | O espaço de trabalho atingiu o número máximo de ativos (200 por padrão para empresas em teste gratuito, ilimitado caso contrário). O objeto `meta` inclui o `limit` atual. |
 | `ASSET_UPLOAD_FAILED` | 400 | O upload do ativo falhou devido a problemas de processamento. |
 | `INVALID_ASSET_URL` | 400 | O valor de `asset_url` não é um URI válido. O objeto `meta` inclui `asset_url`. |
 | `ZIP_UPLOAD_ERROR` | 400 | O arquivo ZIP está corrompido ou não pôde ser aberto. O objeto `meta` inclui a mensagem `original_error`. |
-| `ZIP_FILE_TOO_LARGE` | 400 | O tamanho total descompactado do arquivo ZIP excede o limite de 5 MB. O objeto `meta` inclui o `zip_file_name` e `zip_file_size`. |
+| `ZIP_FILE_TOO_LARGE` | 400 | O tamanho total descompactado do arquivo ZIP excede o limite de 50&nbsp;MB. O objeto `meta` inclui o `zip_file_name` e `zip_file_size`. |
 | `ZIPPED_ENTITY_HAS_NO_NAME` | 400 | Uma entrada de arquivo dentro do ZIP não tem nome. Certifique-se de que o arquivo ZIP não está corrompido e adicione um nome para quaisquer entradas de arquivo sem nome. |
 | `ZIPPED_ENTITY_CANNOT_HAVE_NESTED_DIRECTORY` | 400 | O arquivo ZIP contém diretórios aninhados, que não são suportados. Todos os arquivos devem estar no nível raiz do ZIP. |
-| `GENERIC_ERROR` | 500 | Ocorreu um erro inesperado durante o upload. O objeto `meta` inclui a mensagem `original_error` para depuração. Tente novamente ou entre em contato com o [Suporte]({{site.baseurl}}/support_contact/). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Processing errors" }
+| `GENERIC_ERROR` | 500 | Ocorreu um erro inesperado durante o upload. O objeto `meta` inclui a mensagem `original_error` para depuração. Tente novamente ou entre em contato com o [Suporte]({{site.baseurl}}/support_contact). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Erros de processamento" }
 
 
 ## Resposta {#response}

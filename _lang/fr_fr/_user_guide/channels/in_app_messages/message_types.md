@@ -4,7 +4,7 @@ article_title: Types de messages in-app
 page_order: 3
 layout: dev_guide
 guide_top_header: "Types de messages in-app"
-guide_top_text: "Braze propose plusieurs types de messages in-app, chacun conçu pour des cas d'utilisation différents. Avant de laisser libre cours à votre créativité, consultez les directives de chaque type pour vous assurer que votre message s'affiche correctement sur les téléphones, les tablettes et les ordinateurs. <a href='/docs/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message'>Testez toujours vos messages</a> avant de les lancer."
+guide_top_text: "Braze propose plusieurs types de messages in-app, chacun conçu pour des cas d'utilisation différents. Avant de laisser libre cours à votre créativité, consultez les directives de chaque type pour vous assurer que votre message s'affiche correctement sur les téléphones, les tablettes et les ordinateurs. <a href='/docs/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message'>Testez toujours vos messages</a> avant de les lancer."
 description: "Cette page de destination couvre les différents types de messages in-app disponibles dans Braze, notamment plein écran, fenêtre modale, contextuel, HTML personnalisé, formulaires de capture d'e-mail et enquêtes simples."
 
 channel:

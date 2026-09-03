@@ -16,7 +16,7 @@ hidden: true
 
 El esquema de enlace profundo `brazeActions://` puede utilizarse siempre que exista una opción de enlace profundo o de redireccionamiento dentro de los mensajes dentro de la aplicación y de Content Cards.
 
-Para los mensajes HTML dentro de la aplicación, utiliza [`Javascript Bridge`]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/customize/#javascript-bridge) en su lugar, ya que los enlaces profundos no son compatibles con los tipos de mensajes HTML.
+Para los mensajes HTML dentro de la aplicación, utiliza [`Javascript Bridge`]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/customize#javascript-bridge) en su lugar, ya que los enlaces profundos no son compatibles con los tipos de mensajes HTML.
 
 ## Esquema {#schema}
 
@@ -93,11 +93,11 @@ function encode(input) {
 | `removeFromSubscriptionGroup` | `subscriptionGroupId` |
 | `addToCustomAttributeArray` | 1. `attribute_name`<br>2. `attribute_value` |
 | `removeFromCustomAttributeArray` | 1. `attribute_name`<br>2. `attribute_value` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Supported Actions" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Acciones compatibles" }
 
 ## Codificador JSON {#json-encoder}
 
-Introduce una cadena JSON para ver la URI resultante `brazeActions://`. O introduce una URI `brazeActions://` para decodificar su JSON.
+Introduce una cadena JSON para ver el URI resultante `brazeActions://`. O introduce un URI `brazeActions://` para decodificar su JSON.
 
 <div><h4>Entrada JSON</h4></div>
 <textarea id="braze-actions-input" rows="12"></textarea>

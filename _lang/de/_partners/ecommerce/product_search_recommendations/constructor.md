@@ -58,7 +58,7 @@ Sie können die Offsite-Discovery-API-URL von Constructor verwenden, um Produktb
 | `pod_id` | Bezeichner für den Pod, der die Strategie und die Searchandising-Regeln für Empfehlungen enthält (z. B. erzeugt ein Pod mit einer Bestseller-Strategie personalisierte Bestseller). |
 | `key` | Der Constructor-Indexschlüssel für diese Kund:in. |
 | `style_id` | Legt fest, welche Bilder für die Produktkarte angezeigt werden. Zum Beispiel zeigen verschiedene `style_ids` unterschiedliche Produktkartenbilder an. |
-| `campaign_id` | Eindeutige ID für die E-Mail-Campaign. |
+| `campaign_id` | Eindeutige ID für die E-Mail-Kampagne. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Parameter" }
 
 ### Optionale Eingaben {#optional-inputs}

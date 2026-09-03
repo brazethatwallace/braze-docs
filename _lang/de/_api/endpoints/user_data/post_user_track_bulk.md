@@ -12,7 +12,7 @@ description: "Dieser Artikel beschreibt Details zum Bulk-Endpunkt „Nutzer:inne
 ---
 {% api %}
 # Nutzer:innen erstellen und aktualisieren (Bulk) {#create-and-update-users-bulk}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track/bulk
 {% endapimethod %}
 
@@ -24,7 +24,7 @@ Dieser Endpunkt befindet sich derzeit in einer **eingeschränkten Beta-Phase**. 
 
 ## Wann Sie diesen Endpunkt verwenden sollten {#when-to-use-this-endpoint}
 
-Wie der [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) können Sie diesen Endpunkt verwenden, um Nutzerprofile zu aktualisieren. Dieser Endpunkt ist besser für Bulk-Updates geeignet:
+Wie der [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) können Sie diesen Endpunkt verwenden, um Nutzerprofile zu aktualisieren. Dieser Endpunkt ist besser für Bulk-Updates geeignet:
 
 - **Größere Anfragen:** Senden Sie bis zu 1.000 Nutzer:innen pro Anfrage, sodass Sie bei großen Backfills und Synchronisierungen weniger Anfragen stellen müssen.
 - **Priorisierung:** Bei Spitzenverkehr werden Anfragen an `/users/track` gegenüber Anfragen an `/users/track/bulk` priorisiert.
@@ -37,9 +37,9 @@ Die Limits für Anfrageobjekte des `/users/track`-Endpunkts variieren je nach Pr
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/api_key/) mit der Berechtigung `users.track.bulk`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/api_key) mit der Berechtigung `users.track.bulk`.
 
-Wenn Sie Server-zu-Server-Aufrufe hinter einer Firewall durchführen, müssen Sie möglicherweise Ihren Braze-REST-Endpunkt auf die Zulassungsliste setzen (zum Beispiel `rest.iad-01.braze.com`). Weitere Informationen finden Sie unter [API-Endpunkte]({{site.baseurl}}/api/basics/#api-definitions).
+Wenn Sie Server-zu-Server-Aufrufe hinter einer Firewall durchführen, müssen Sie möglicherweise Ihren Braze-REST-Endpunkt auf die Zulassungsliste setzen (zum Beispiel `rest.iad-01.braze.com`). Weitere Informationen finden Sie unter [API-Endpunkte]({{site.baseurl}}/api/basics#api-definitions).
 
 ## Rate-Limit
 
@@ -76,9 +76,9 @@ Für jedes Anfrageobjekt müssen Sie eines der folgenden Felder angeben: `extern
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --- | --- | --- | --- |
-| `attributes` | Optional | Array von Attribut-Objekten | Siehe [Nutzerattribut-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object/) |
-| `events` | Optional | Array von Event-Objekten | Siehe [Event-Objekt]({{site.baseurl}}/api/objects_filters/event_object/) |
-| `purchases` | Optional | Array von Kauf-Objekten | Siehe [Kauf-Objekt]({{site.baseurl}}/api/objects_filters/purchase_object/) |
+| `attributes` | Optional | Array von Attribut-Objekten | Siehe [Nutzerattribut-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object) |
+| `events` | Optional | Array von Event-Objekten | Siehe [Event-Objekt]({{site.baseurl}}/api/objects_filters/event_object) |
+| `purchases` | Optional | Array von Kauf-Objekten | Siehe [Kauf-Objekt]({{site.baseurl}}/api/objects_filters/purchase_object) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Anfrageparameter" }
 
 ## Beispielanfragen {#example-requests}
@@ -178,9 +178,9 @@ Erfolgreiche Nachrichten geben die folgende Antwort zurück:
 }
 ```
 
-### Erfolgreiche Nachricht mit nicht-schwerwiegenden Fehlern {#successful-message-with-non-fatal-errors}
+### Erfolgreiche Nachricht mit nicht schwerwiegenden Fehlern {#successful-message-with-non-fatal-errors}
 
-Wenn Ihre Anfrage erfolgreich ist, aber nicht-schwerwiegende Fehler enthält (zum Beispiel ein ungültiges Event-Objekt in einem großen Batch), erhalten Sie die folgende Antwort:
+Wenn Ihre Anfrage erfolgreich ist, aber nicht schwerwiegende Fehler enthält (zum Beispiel ein ungültiges Event-Objekt in einem großen Batch), erhalten Sie die folgende Antwort:
 
 ```json
 {
@@ -210,9 +210,9 @@ Wenn Ihre Anfrage einen schwerwiegenden Fehler enthält, erhalten Sie die folgen
 
 ### Antwortcodes bei schwerwiegenden Fehlern {#fatal-error-response-codes}
 
-Informationen zu Statuscodes und zugehörigen Fehlermeldungen, die Braze zurückgibt, wenn Ihre Anfrage einen schwerwiegenden Fehler enthält, finden Sie unter [Schwerwiegende Fehler und Antworten]({{site.baseurl}}/api/errors/#fatal-errors).
+Informationen zu Statuscodes und zugehörigen Fehlermeldungen, die Braze zurückgibt, wenn Ihre Anfrage einen schwerwiegenden Fehler enthält, finden Sie unter [Schwerwiegende Fehler und Antworten]({{site.baseurl}}/api/errors#fatal-errors).
 
-Wenn Sie den Fehler „provided external_id is blacklisted and disallowed“ erhalten, enthält Ihre Anfrage möglicherweise eine:n „Dummy-Nutzer:in“. Weitere Informationen finden Sie unter [Spam-Blockierung]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival/#spam-blocking).
+Wenn Sie den Fehler „provided external_id is blacklisted and disallowed“ erhalten, enthält Ihre Anfrage möglicherweise eine:n „Dummy-Nutzer:in“. Weitere Informationen finden Sie unter [Spam-Blockierung]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival#spam-blocking).
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 

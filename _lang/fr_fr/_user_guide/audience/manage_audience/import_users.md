@@ -11,11 +11,11 @@ description: "Découvrez les différentes options d'importation d'utilisateurs d
 
 ## Options d'importation {#import-options}
 
-Vous pouvez charger des attributs utilisateur et des événements via une importation CSV dans Braze, un script d'importation CSV Lambda S3 sans serveur, des appels API directs ou l'Ingestion de données cloud depuis votre entrepôt de données.
+Vous pouvez télécharger des attributs utilisateur et des événements par le biais d'une importation CSV dans Braze, d'un script Lambda S3 serverless d'importation CSV, d'appels API directs ou de l'ingestion de données Cloud depuis votre entrepôt de données.
 
 ### Importation CSV Braze {#braze-csv-import}
 
-Vous pouvez utiliser l'importation CSV pour enregistrer et mettre à jour les attributs utilisateur et événements personnalisés suivants. Pour commencer, consultez [Importation CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/).
+Vous pouvez utiliser l'importation CSV pour enregistrer et mettre à jour les attributs utilisateur et événements personnalisés suivants. Pour commencer, consultez [Importation CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import).
 
 | Type | Définition | Exemple | Taille maximale du fichier |
 |---|---|---|---|
@@ -26,45 +26,45 @@ Vous pouvez utiliser l'importation CSV pour enregistrer et mettre à jour les at
 
 #### Construire votre CSV {#constructing-your-csv}
 
-Braze accepte les données utilisateur au format CSV standard. Les importations d'attributs par défaut et personnalisés prennent en charge des fichiers jusqu'à 500 Mo ; les importations d'événements personnalisés prennent en charge des fichiers jusqu'à 50 Mo. Pour les identifiants, les en-têtes de colonnes, les règles de validation et les exemples, consultez [Importation CSV]({{site.baseurl}}/user_guide/data/user_data_collection/user_import/csv_import/).
+Braze accepte les données utilisateur au format CSV standard. Les importations d'attributs par défaut et personnalisés prennent en charge des fichiers jusqu'à 500 Mo ; les importations d'événements personnalisés prennent en charge des fichiers jusqu'à 50 Mo. Pour les identifiants, les en-têtes de colonnes, les règles de validation et les exemples, consultez [Importation CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import).
 
-Lorsque vous chargez un fichier CSV volumineux via **Import Users** dans le tableau de bord, la page peut sembler ne pas répondre ou répondre lentement pendant que Braze reçoit le fichier et exécute l'étape de calcul. Laissez le chargement et le calcul se terminer — la durée totale varie de quelques minutes à quelques heures selon la taille du fichier, et les fichiers plus volumineux prennent plus de temps à calculer.
+Lorsque vous téléchargez un fichier CSV volumineux via **Import Users** dans le tableau de bord, la page peut sembler ne pas répondre ou réagir lentement pendant que Braze reçoit le fichier et exécute l'étape de calcul. Laissez le téléchargement et le calcul se terminer — la durée totale varie de quelques minutes à quelques heures selon la taille du fichier, et les fichiers plus volumineux prennent plus de temps à calculer.
 
 {% alert note %}
-Lors de l'importation d'événements personnalisés avec des propriétés, vous devez utiliser la notation par points dans les en-têtes de colonnes de votre CSV. Pour plus d'informations sur le formatage des événements personnalisés, consultez [Comprendre le formatage des événements personnalisés]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/?tab=custom%20events#understanding-custom-event-formatting).
+Lorsque vous importez des événements personnalisés avec des propriétés, vous devez utiliser la notation par points dans les en-têtes de colonnes de votre CSV. Pour plus d'informations sur le formatage des événements personnalisés, consultez [Comprendre le formatage des événements personnalisés]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import?tab=custom%20events#understanding-custom-event-formatting).
 {% endalert %}
 
 ### Importation CSV Lambda d'utilisateurs {#lambda-user-csv-import}
 
-Utilisez notre script d'importation CSV Lambda S3 sans serveur pour charger des attributs utilisateur dans Braze. Cette solution fonctionne comme un outil de chargement CSV : vous déposez vos fichiers CSV dans un compartiment S3, et les scripts les chargent via notre API.
+Utilisez notre script Lambda S3 serverless d'importation CSV pour télécharger des attributs utilisateur vers Braze. Cette solution fonctionne comme un outil de téléchargement CSV : vous déposez vos fichiers CSV dans un compartiment S3, et les scripts les téléchargent via notre API.
 
-Les temps d'exécution estimés pour un fichier d'un million de lignes sont d'environ cinq minutes. Consultez [Importation d'attributs utilisateur CSV vers Braze](https://www.braze.com/docs/user_guide/data/unification/cloud_ingestion) pour plus d'informations.
+Les temps d'exécution estimés pour un fichier de 1 000 000 de lignes sont d'environ cinq minutes. Consultez [Importation d'attributs utilisateur CSV vers Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion) pour plus d'informations.
 
 ### REST API
 
-Utilisez l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) pour enregistrer des événements personnalisés, des attributs utilisateur et des achats pour les utilisateurs.
+Utilisez l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) pour enregistrer des événements personnalisés, des attributs utilisateur et des achats pour les utilisateurs.
 
-### Ingestion de données cloud {#cloud-data-ingestion}
+### Ingestion de données Cloud {#cloud-data-ingestion}
 
-Utilisez l'[Ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/) de Braze pour importer et maintenir les attributs utilisateur.
+Utilisez l'[ingestion de données Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion) de Braze pour importer et maintenir les attributs utilisateur.
 
 ## Validation HTML {#html-validation}
 
 Gardez à l'esprit que Braze ne nettoie pas, ne valide pas et ne reformate pas les données HTML lors de l'importation, ce qui signifie que les balises script doivent être supprimées de toutes les données d'importation que vous utilisez pour la personnalisation web.
 
-Lors de l'importation de données dans Braze spécifiquement destinées à la personnalisation dans un navigateur web, assurez-vous qu'elles sont débarrassées du HTML, du JavaScript ou de toute autre balise script qui pourrait potentiellement être exploitée de manière malveillante lors du rendu dans un navigateur web.
+Lors de l'importation de données dans Braze spécifiquement destinées à la personnalisation dans un navigateur web, assurez-vous qu'elles sont débarrassées de tout HTML, JavaScript ou toute autre balise script qui pourrait potentiellement être exploitée de manière malveillante lors du rendu dans un navigateur web.
 
-Vous pouvez également utiliser les filtres Liquid de Braze (`strip_html`) pour supprimer le HTML du texte rendu. Par exemple :
+Alternativement, pour le HTML, vous pouvez utiliser les filtres Liquid de Braze (`strip_html`) pour supprimer le HTML du texte rendu. Par exemple :
 
 {% tabs local %}
-{% tab Entrée %}
+{% tab Input %}
 {% raw %}
 ```liquid
 {{ "Have <em>you</em> read <strong>Ulysses</strong>?" | strip_html }}
 ```
 {% endraw %}
 {% endtab %}
-{% tab Sortie %}
+{% tab Output %}
 {% raw %}
 ```liquid
 Have you read Ulysses?

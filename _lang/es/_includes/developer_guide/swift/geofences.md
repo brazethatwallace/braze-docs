@@ -135,7 +135,7 @@ AppDelegate.braze = braze;
 {% endtabs %}
 
 {% alert important %}
-Para evitar el agotamiento de la batería y el límite de velocidad, configura `distanceFilter` con un valor que se ajuste a las necesidades específicas de tu aplicación. Si configuras `distanceFilter` con un valor más alto, evitarás que tu aplicación solicite la ubicación de tu usuario con demasiada frecuencia.
+Para evitar el agotamiento de la batería y el límite de velocidad, configura `distanceFilter` con un valor que se ajuste a las necesidades específicas de tu aplicación. Si configuras `distanceFilter` con un valor más alto, evitarás que tu aplicación solicite la ubicación del usuario con demasiada frecuencia.
 {% endalert %}
 
 ### Paso 4: Solicitar autorización {#request-authorization}
@@ -252,34 +252,34 @@ AppDelegate.braze?.requestGeofences(latitude: latitude, longitude: longitude)
 
 ## Preguntas más frecuentes (FAQ) {#faq}
 
-#### ¿Por qué no recibo geovallas en mi dispositivo? {#why-am-i-not-receiving-geofences-on-my-device}
+### ¿Por qué no recibo geovallas en mi dispositivo? {#why-am-i-not-receiving-geofences-on-my-device}
 
-Para confirmar si se están recibiendo geovallas en tu dispositivo, primero utiliza la [herramienta Depurador de SDK]({{site.baseurl}}/developer_guide/sdk_integration/debugging/#debugging-the-braze-sdk) para comprobar los registros del SDK. A continuación, podrás ver si las geovallas se reciben correctamente desde el servidor y si hay algún error notable.
+Para confirmar si se están recibiendo geovallas en tu dispositivo, primero utiliza la [herramienta Depurador de SDK]({{site.baseurl}}/developer_guide/sdk_integration/debugging) para comprobar los registros del SDK. A continuación, podrás ver si las geovallas se reciben correctamente desde el servidor y si hay algún error notable.
 
 A continuación se indican otras posibles razones por las que es posible que no recibas geovallas en tu dispositivo:
 
-##### Limitaciones del sistema operativo iOS {#ios-operating-system-limitations}
+#### Limitaciones del sistema operativo iOS {#ios-operating-system-limitations}
 
 El sistema operativo iOS solo permite almacenar hasta 20 geovallas para una aplicación determinada. Con las geovallas habilitadas, Braze utilizará algunas de estas 20 plazas disponibles.
 
-Para evitar interrupciones accidentales o no deseadas en otras funciones relacionadas con las geovallas de tu aplicación, debes habilitar las geovallas de ubicación para aplicaciones individuales en el dashboard. Para que nuestros servicios de ubicación funcionen correctamente, comprueba que tu aplicación no esté utilizando todos los puntos de geovalla disponibles.
+Para evitar interrupciones accidentales o no deseadas en otras funciones relacionadas con las geovallas de tu aplicación, debes habilitar las geovallas de ubicación para aplicaciones individuales en el panel. Para que nuestros servicios de ubicación funcionen correctamente, comprueba que tu aplicación no esté utilizando todos los puntos de geovalla disponibles.
 
-##### Límite de velocidad {#rate-limiting}
+#### Límite de velocidad {#rate-limiting}
 
 Braze tiene un límite de una actualización de geovalla por sesión para evitar solicitudes innecesarias.
 
-#### ¿Cómo funciona si utilizo tanto las características de geovalla de Braze como las que no son de Braze? {#how-does-it-work-if-i-am-using-both-braze-and-non-braze-geofence-features}
+### ¿Cómo funciona si utilizo tanto las características de geovalla de Braze como las que no son de Braze? {#how-does-it-work-if-i-am-using-both-braze-and-non-braze-geofence-features}
 
 Como se ha mencionado anteriormente, iOS permite que una sola aplicación almacene un máximo de 20 geovallas. Este almacenamiento es compartido por las geovallas de Braze y las que no son de Braze, y es administrado por [CLLocationManager](https://developer.apple.com/documentation/corelocation/cllocationmanager).
 
 Por ejemplo, si tu aplicación contiene 20 geovallas que no son de Braze, no habría almacenamiento para realizar el seguimiento de ninguna geovalla de Braze (o viceversa). Para recibir nuevas geovallas, tendrás que utilizar [las API de ubicación de Apple](https://developer.apple.com/documentation/corelocation) para dejar de supervisar algunas de las geovallas existentes en el dispositivo.
 
-#### ¿Se puede utilizar la característica de geovalla cuando un dispositivo está desconectado? {#can-the-geofences-feature-be-used-while-a-device-is-offline}
+### ¿Se puede utilizar la característica de geovalla cuando un dispositivo está desconectado? {#can-the-geofences-feature-be-used-while-a-device-is-offline}
 
 Un dispositivo solo necesita estar conectado a Internet cuando se produce una actualización. Una vez que hayas recibido correctamente las geovallas del servidor, es posible registrar una entrada o salida de la geovalla incluso si el dispositivo está desconectado. Esto se debe a que la ubicación de un dispositivo funciona de forma independiente de su conexión a Internet.
 
-Por ejemplo, supongamos que un dispositivo ha recibido y registrado las geovallas al inicio de la sesión y se desconecta. Si luego entra en una de esas geovallas registradas, puede desencadenar una campaña de Braze.
+Por ejemplo, supongamos que un dispositivo ha recibido y registrado las geovallas al inicio de la sesión y se desconecta. Si luego entra en una de esas geovallas registradas, puede desencadenar una Campaign de Braze.
 
-#### ¿Por qué no se supervisan las geovallas cuando mi aplicación se ejecuta en segundo plano o se cierra? {#why-are-geofences-not-monitored-when-my-app-is-backgroundedterminated}
+### ¿Por qué no se supervisan las geovallas cuando mi aplicación se ejecuta en segundo plano o se cierra? {#why-are-geofences-not-monitored-when-my-app-is-backgroundedterminated}
 
 Sin autorización `Always`, Apple restringe el funcionamiento de los servicios de ubicación cuando una aplicación no está en uso. Esto lo impone el sistema operativo y queda fuera del control del SDK de Braze. Aunque Braze ofrece configuraciones independientes para ejecutar servicios mientras la aplicación está en segundo plano, no hay forma de eludir estas restricciones para las aplicaciones que se cierran sin recibir la autorización explícita del usuario.

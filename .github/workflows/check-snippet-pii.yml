@@ -1,0 +1,178 @@
+# Scans fenced code blocks in changed English markdown for likely PII (emails, person
+# names, customer attribute names, production-style CSV filenames, numeric user IDs).
+#
+# ADVISORY: violations are reported but do NOT block merging while false-positive rates
+# are validated. Uses the same pattern library as check-screenshot-pii.yml via
+# scripts/pii_text_scan.py with snippet-specific tuning.
+#
+# Dismiss false positives with a sidecar next to the markdown file:
+#   _docs/path/to/page.md.pii-audit-dismiss.json
+#
+# Run locally:
+#   python3 scripts/check_snippet_pii.py _docs/path/to/page.md
+
+name: Check snippet PII (advisory)
+
+on:
+  pull_request:
+    paths:
+      - '_docs/**/*.md'
+      - '_includes/**/*.md'
+      - 'scripts/check_snippet_pii.py'
+      - 'scripts/pii_text_scan.py'
+      - 'scripts/pii_name_lexicon.py'
+      - '.github/workflows/check-snippet-pii.yml'
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  check-snippet-pii:
+    name: Snippet PII audit (changed markdown)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PR head
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+
+      - name: Fetch base branch for three-dot diff
+        run: git fetch --no-tags origin "${{ github.base_ref }}"
+
+      - name: Get changed markdown files
+        id: changed
+        shell: bash
+        run: |
+          BASE="origin/${{ github.base_ref }}"
+          mapfile -t FILES < <(
+            git diff --name-only --diff-filter=ACMRT "$BASE"...HEAD \
+              -- '_docs/**' '_includes/**' \
+            | grep -E '\.md$' \
+            | grep -v '^_lang/' \
+            || true
+          )
+          if ((${#FILES[@]} == 0)); then
+            echo "ran=false" >> "$GITHUB_OUTPUT"
+            echo "No changed markdown files to check."
+            exit 0
+          fi
+          echo "ran=true" >> "$GITHUB_OUTPUT"
+          printf '%s\n' "${FILES[@]}" > /tmp/changed_md_files.txt
+          echo "Checking ${#FILES[@]} file(s):"
+          printf '  %s\n' "${FILES[@]}"
+
+      - name: Check snippet PII
+        id: lint
+        if: steps.changed.outputs.ran == 'true'
+        continue-on-error: true
+        shell: bash
+        run: |
+          set +e
+          mapfile -t FILES < /tmp/changed_md_files.txt
+          python3 scripts/check_snippet_pii.py \
+            --json violations.json \
+            "${FILES[@]}" 2>&1 | tee lint-output.txt
+          LINT_EXIT=${PIPESTATUS[0]}
+          echo "exit_code=${LINT_EXIT}" >> "$GITHUB_OUTPUT"
+          exit "${LINT_EXIT}"
+
+      - name: Emit GitHub annotations for violations
+        if: steps.changed.outputs.ran == 'true' && steps.lint.outputs.exit_code == '1'
+        shell: bash
+        run: python3 scripts/check_snippet_pii.py --github-annotations violations.json
+
+      - name: Upload violations artifact
+        if: always() && steps.changed.outputs.ran == 'true'
+        uses: actions/upload-artifact@v7
+        with:
+          name: snippet-pii-violations-pr${{ github.event.pull_request.number }}-run${{ github.run_number }}
+          path: violations.json
+          retention-days: 90
+          if-no-files-found: ignore
+
+      - name: Post violations as PR comment
+        if: always() && steps.changed.outputs.ran == 'true' && steps.lint.outcome == 'failure'
+        uses: actions/github-script@v9
+        env:
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const marker = '<!-- braze-docs-snippet-pii-bot -->';
+            const prNumber = context.payload.pull_request.number;
+            const { owner, repo } = context.repo;
+
+            const fs = require('fs');
+            let violations = [];
+            try {
+              violations = JSON.parse(fs.readFileSync('violations.json', 'utf8'));
+            } catch (e) {
+              core.warning('Could not read violations.json: ' + e.message);
+              return;
+            }
+
+            const active = violations.filter(v => !v.dismissed);
+            if (active.length === 0) return;
+
+            const typeNames = {
+              numeric_user_id: 'Numeric user identifier',
+              alphanumeric_external_id: 'Alphanumeric external_id value',
+              customer_attribute_name: 'Customer-specific attribute name',
+              production_csv_filename: 'Production-style CSV filename',
+              email_address: 'Email address',
+              person_name: 'Person name (review required)',
+              person_name_single: 'Person name in Name/Name_Last column (review required)',
+            };
+
+            const lines = [marker, ''];
+            lines.push('### Advisory: snippet PII audit');
+            lines.push('');
+            lines.push(
+              `**${active.length} potential PII finding(s)** in fenced code blocks on this PR. ` +
+              'This check is **advisory** and does not block merge.'
+            );
+            lines.push('');
+            lines.push(
+              'Run locally: `python3 scripts/check_snippet_pii.py <path/to/file.md>`'
+            );
+            lines.push('');
+            lines.push(
+              'Dismiss false positives with `_docs/.../page.md.pii-audit-dismiss.json` ' +
+              '(same format as screenshot sidecars).'
+            );
+            lines.push('');
+
+            const byFile = {};
+            for (const v of active) {
+              if (!byFile[v.file]) byFile[v.file] = [];
+              byFile[v.file].push(v);
+            }
+
+            for (const [file, fileViolations] of Object.entries(byFile).sort()) {
+              lines.push(`#### \`${file}\``);
+              lines.push('');
+              for (const v of fileViolations) {
+                const label = typeNames[v.violation_type] || v.violation_type;
+                const loc = v.line_start ? ` (line ${v.line_start})` : '';
+                lines.push(`- **[${v.id}] ${label}**${loc} — matched \`${v.match}\``);
+                lines.push(`  - ${v.fix_hint}`);
+              }
+              lines.push('');
+            }
+
+            const body = lines.join('\n');
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner, repo, issue_number: prNumber, per_page: 100,
+            });
+            const existing = comments.find(c => c.body && c.body.includes(marker));
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner, repo, comment_id: existing.id, body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner, repo, issue_number: prNumber, body,
+              });
+            }

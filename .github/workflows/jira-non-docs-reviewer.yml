@@ -1,0 +1,182 @@
+# Moves a linked Jira issue to "In Review" when a non-docs reviewer or team is
+# requested on a pull request.
+#
+# Fires once per reviewer/team added to a PR (GitHub sends a separate
+# review_requested event for each one, even if several are added at once).
+#
+# Repository variables (Settings > Secrets and variables > Actions > Variables):
+# - `DOCS_USERNAMES` — comma-separated GitHub logins for docs team members
+# - `DOCS_TEAM_SLUG` — GitHub team slug for the docs team (e.g. "docs-team")
+#
+# Repository secrets:
+# - `JIRA_USER_EMAIL` — Atlassian account email for Jira REST Basic auth
+# - `JIRA_API_TOKEN` — Atlassian API token (permission to transition issues)
+
+name: Jira — In Review on non-docs reviewer request
+
+on:
+  pull_request:
+    types:
+      - review_requested
+
+jobs:
+  check-and-transition:
+    name: Transition linked Jira issue to In Review
+    runs-on: ubuntu-latest
+    permissions:
+      contents: none
+    steps:
+      - name: Determine whether the requested reviewer is outside the docs team
+        id: check
+        uses: actions/github-script@v9
+        env:
+          DOCS_USERNAMES: ${{ vars.DOCS_USERNAMES }}
+          DOCS_TEAM_SLUG: ${{ vars.DOCS_TEAM_SLUG }}
+        with:
+          script: |
+            const docsUsernames = (process.env.DOCS_USERNAMES || '')
+              .split(',').map(s => s.trim().toLowerCase()).filter(Boolean);
+            const docsTeamSlug = (process.env.DOCS_TEAM_SLUG || '').trim().toLowerCase();
+
+            const reviewer = context.payload.requested_reviewer;
+            const team = context.payload.requested_team;
+
+            const skip = (message) => {
+              core.warning(message);
+              core.setOutput('should_transition', 'false');
+              core.setOutput('issue_key', '');
+            };
+
+            let isNonDocs = false;
+
+            if (reviewer) {
+              if (!docsUsernames.length) {
+                skip('DOCS_USERNAMES is not configured; cannot determine if the requested reviewer is on the docs team.');
+                return;
+              }
+              isNonDocs = !docsUsernames.includes(reviewer.login.toLowerCase());
+            } else if (team) {
+              if (!docsTeamSlug) {
+                skip('DOCS_TEAM_SLUG is not configured; cannot determine if the requested team is the docs team.');
+                return;
+              }
+              isNonDocs = team.slug.toLowerCase() !== docsTeamSlug;
+            } else {
+              skip('No requested reviewer or team found in the review_requested payload.');
+              return;
+            }
+
+            core.info(`requested_reviewer=${reviewer ? reviewer.login : 'n/a'} requested_team=${team ? team.slug : 'n/a'} isNonDocs=${isNonDocs}`);
+            core.setOutput('should_transition', isNonDocs ? 'true' : 'false');
+
+            const title = context.payload.pull_request.title;
+            const branchRef = context.payload.pull_request.head.ref;
+
+            const jiraProjectPrefixes = new Set([
+              'BD', 'DI', 'SDK', 'PP', 'PQ', 'MP', 'DLKH', 'EINFRA'
+            ]);
+
+            const extractIssueKey = (prTitle, branch) => {
+              for (const bracketed of prTitle.matchAll(/\[([A-Za-z][A-Za-z0-9]+)-(\d+)\]/g)) {
+                const project = bracketed[1].toUpperCase();
+                if (jiraProjectPrefixes.has(project)) {
+                  return `${project}-${bracketed[2]}`;
+                }
+              }
+
+              const jiraBranch = branch.match(/^jira-([a-z][a-z0-9]+)-(\d+)/i);
+              if (jiraBranch) {
+                const project = jiraBranch[1].toUpperCase();
+                if (jiraProjectPrefixes.has(project)) {
+                  return `${project}-${jiraBranch[2]}`;
+                }
+              }
+
+              const shortBranch = branch.match(/^([a-z][a-z0-9]+)-(\d+)(?:-|$)/i);
+              if (shortBranch) {
+                const project = shortBranch[1].toUpperCase();
+                if (jiraProjectPrefixes.has(project)) {
+                  return `${project}-${shortBranch[2]}`;
+                }
+              }
+
+              const scanForKey = (text) => {
+                const re = /\b([A-Za-z][A-Za-z0-9]+)-(\d+)\b/gi;
+                let match;
+                while ((match = re.exec(text)) !== null) {
+                  const project = match[1].toUpperCase();
+                  if (jiraProjectPrefixes.has(project)) {
+                    return `${project}-${match[2]}`;
+                  }
+                }
+                return '';
+              };
+
+              return scanForKey(prTitle) || scanForKey(branch);
+            };
+
+            const issueKey = extractIssueKey(title, branchRef);
+            core.info(`issue_key=${issueKey || 'n/a'}`);
+            core.setOutput('issue_key', issueKey);
+
+      - name: Transition Jira issue to In Review
+        if: steps.check.outputs.should_transition == 'true' && steps.check.outputs.issue_key != ''
+        env:
+          JIRA_USER_EMAIL: ${{ secrets.JIRA_USER_EMAIL }}
+          JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
+          ISSUE_KEY: ${{ steps.check.outputs.issue_key }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [ -z "${JIRA_USER_EMAIL}" ] || [ -z "${JIRA_API_TOKEN}" ]; then
+            echo "::warning::JIRA_USER_EMAIL or JIRA_API_TOKEN is not set; skipping Jira transition."
+            exit 0
+          fi
+
+          AUTH_B64=$(printf '%s:%s' "${JIRA_USER_EMAIL}" "${JIRA_API_TOKEN}" | base64 -w0)
+
+          set +e
+          HTTP_CODE=$(curl -sS -o /tmp/jira-transitions-response.json -w '%{http_code}' \
+            -H "Authorization: Basic ${AUTH_B64}" \
+            -H "Accept: application/json" \
+            "https://braze.atlassian.net/rest/api/3/issue/${ISSUE_KEY}/transitions")
+          CURL_EXIT=$?
+          set -e
+
+          echo "Jira transitions API HTTP status: ${HTTP_CODE} (curl exit ${CURL_EXIT})"
+          if [ -f /tmp/jira-transitions-response.json ]; then
+            cat /tmp/jira-transitions-response.json
+            echo
+          fi
+
+          if [ "${CURL_EXIT}" -ne 0 ] || [ "${HTTP_CODE:-0}" -lt 200 ] || [ "${HTTP_CODE:-0}" -ge 300 ]; then
+            echo "::warning::Jira transitions request failed; skipping transition."
+            exit 0
+          fi
+
+          TRANSITION_ID=$(jq -r 'first(.transitions[]? | select(.name=="In Review") | .id) // empty' /tmp/jira-transitions-response.json)
+
+          if [ -z "${TRANSITION_ID}" ]; then
+            echo "No 'In Review' transition available for ${ISSUE_KEY} from its current status. Skipping."
+            exit 0
+          fi
+
+          set +e
+          HTTP_CODE=$(curl -sS -o /tmp/jira-transition-response.json -w '%{http_code}' -X POST \
+            -H "Authorization: Basic ${AUTH_B64}" \
+            -H "Content-Type: application/json" \
+            "https://braze.atlassian.net/rest/api/3/issue/${ISSUE_KEY}/transitions" \
+            -d "{\"transition\": {\"id\": \"${TRANSITION_ID}\"}}")
+          CURL_EXIT=$?
+          set -e
+
+          echo "Jira transition API HTTP status: ${HTTP_CODE} (curl exit ${CURL_EXIT})"
+          if [ -f /tmp/jira-transition-response.json ]; then
+            cat /tmp/jira-transition-response.json
+            echo
+          fi
+
+          if [ "${CURL_EXIT}" -ne 0 ] || [ "${HTTP_CODE:-0}" -lt 200 ] || [ "${HTTP_CODE:-0}" -ge 300 ]; then
+            echo "::warning::Jira transition failed or was skipped. Workflow continues."
+          fi

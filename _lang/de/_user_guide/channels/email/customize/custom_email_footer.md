@@ -18,33 +18,33 @@ Durch die Verwendung angepasster E-Mail-Fußzeilen müssen Sie nicht mehr für j
 Es liegt in Ihrer Verantwortung, sicherzustellen, dass Ihre angepasste Fußzeile die oben genannten Anforderungen erfüllt.
 {% endalert %}
 
-## Erstellen Ihrer angepassten Fußzeile {#create-your-custom-footer}
+## Eigene Fußzeile erstellen {#create-your-custom-footer}
 
-Um Ihre angepasste Fußzeile zu erstellen oder zu bearbeiten, gehen Sie wie folgt vor:
+Um Ihre eigene Fußzeile zu erstellen oder zu bearbeiten, gehen Sie wie folgt vor:
 
-1. Gehen Sie zu **Einstellungen** > **E-Mail-Präferenzen** > **Abo-Seiten und -Fußzeilen**.
-2. Gehen Sie zum Abschnitt **Angepasste Fußzeile** und aktivieren Sie angepasste Fußzeilen.
+1. Gehen Sie zu **Einstellungen** > **E-Mail-Einstellungen** > **Abo-Seiten und Fußzeilen**.
+2. Gehen Sie zum Abschnitt **Eigene Fußzeile** und aktivieren Sie eigene Fußzeilen.
 3. Wählen Sie **Bearbeiten** und bearbeiten Sie dann Ihre Fußzeile im Abschnitt **Verfassen**.
-4. Wählen Sie **Vorschau**, um eine Vorschau Ihrer E-Mail-Fußzeile im Posteingang einer Kund:in anzuzeigen. Optional können Sie **Vorschaulink kopieren** auswählen, um einen teilbaren Vorschaulink zu generieren und zu kopieren, der zeigt, wie die E-Mail für eine:n zufällige:n Nutzer:in aussehen wird. Der Link ist sieben Tage gültig, bevor er neu generiert werden muss.
+4. Wählen Sie **Vorschau**, um eine Vorschau Ihrer E-Mail-Fußzeile im Posteingang einer Kund:in anzuzeigen. Optional können Sie **Vorschau-Link kopieren** auswählen, um einen teilbaren Vorschau-Link zu generieren und zu kopieren, der zeigt, wie die E-Mail für eine:n zufällige:n Nutzer:in aussehen wird. Weitere Informationen finden Sie unter [Teilbare Vorschau]({{site.baseurl}}/user_guide/messaging/governance/shareable_preview).
 5. Senden Sie eine Testnachricht.
 
-![Ein Beispiel für eine angepasste Fußzeile.]({% image_buster /assets/img_archive/custom_footer.png %})
+![Ein Beispiel für eine eigene Fußzeile.]({% image_buster /assets/img_archive/custom_footer.png %})
 
-Die Standard-Fußzeile verwendet das Attribut {% raw %}`{{${set_user_to_unsubscribed_url}}}`{% endraw %} und unsere physische Postadresse. Wenn Sie diese Standard-Fußzeile verwenden, stellen Sie sicher, dass Sie **&#60;other&#62;** für das **Protokoll** auswählen.
+Die Standard-Fußzeile verwendet das Attribut {% raw %}`{{${set_user_to_unsubscribed_url}}}`{% endraw %} und unsere physische Postanschrift. Wenn Sie diese Standard-Fußzeile verwenden, stellen Sie sicher, dass Sie **&#60;other&#62;** für das **Protokoll** auswählen.
 
 {% alert important %}
-Um die CAN-SPAM-Vorschriften einzuhalten, muss Ihre angepasste Fußzeile einen Abmeldelink enthalten. Sie können dafür das Liquid-Attribut {% raw %}`{{${set_user_to_unsubscribed_url}}}`{% endraw %} oder Ihre eigene angepasste Abmelde-URL verwenden. Sie können eine angepasste Fußzeile nicht ohne Abmeldelink speichern.
+Um die CAN-SPAM-Vorschriften einzuhalten, muss Ihre eigene Fußzeile einen Abmelde-Link enthalten. Sie können dafür das Liquid-Attribut {% raw %}`{{${set_user_to_unsubscribed_url}}}`{% endraw %} oder Ihre eigene benutzerdefinierte Abmelde-URL verwenden. Sie können eine eigene Fußzeile nicht ohne Abmelde-Link speichern.
 {% endalert %}
 
-![Protokoll- und URL-Werte, die für die angepasste Fußzeile benötigt werden.]({% image_buster /assets/img_archive/email_unsub_protocol.png %}){: style="max-width:50%;"}
+![Protokoll- und URL-Werte, die für die eigene Fußzeile benötigt werden.]({% image_buster /assets/img_archive/email_unsub_protocol.png %}){: style="max-width:50%;"}
 
 ## Fußzeilen ohne Abmeldelinks {#footers-without-unsubscribe-links}
 
-Seien Sie sehr vorsichtig, wenn Sie ein Template mit der angepassten Fußzeile {% raw %}`{{${email_footer}}}` aber ohne den Abmeldelink-Tag `{{${set_user_to_unsubscribed_url}}}`{% endraw %} verwenden. Es wird eine Warnung angezeigt, aber es liegt an Ihnen, ob Sie eine E-Mail mit oder ohne Abmeldelink senden.
+Seien Sie sehr vorsichtig, wenn Sie ein Template mit der angepassten Fußzeile {% raw %}`{{${email_footer}}}`, aber ohne den Abmeldelink-Tag `{{${set_user_to_unsubscribed_url}}}`{% endraw %} verwenden. Es wird zwar eine Warnung angezeigt, aber es liegt an Ihnen, ob Sie eine E-Mail mit oder ohne Abmeldelink senden.
 
 Hier ist eine Warnung im E-Mail-Composer:
 
-![Beispiel einer E-Mail, die ohne Fußzeile verfasst wurde.]({% image_buster /assets/img_archive/no_unsub_link_warning.png %})
+![Beispiel einer E-Mail ohne Fußzeile.]({% image_buster /assets/img_archive/no_unsub_link_warning.png %})
 
 Hier ist eine Warnung im Campaign-Composer:
 
@@ -52,14 +52,14 @@ Hier ist eine Warnung im Campaign-Composer:
 
 ### Einen angepassten Abmeldelink hinzufügen {#adding-a-custom-unsubscribe-link}
 
-Um einen angepassten Abmeldelink hinzuzufügen, können Sie den Abmeldelink in der angepassten Fußzeile von {% raw %} `{{${set_user_to_unsubscribed_url}}}` {% endraw %} zu einem Link auf Ihre eigene Website mit einem Abfrageparameter ändern, der die Nutzer-ID enthält. Ein Beispiel:
+Um einen angepassten Abmeldelink hinzuzufügen, können Sie den Abmeldelink in der angepassten Fußzeile von {% raw %} `{{${set_user_to_unsubscribed_url}}}` {% endraw %} zu einem Link auf Ihre eigene Website mit einem Abfrageparameter ändern, der die Nutzer:innen-ID enthält. Ein Beispiel:
 {% raw %}
 > https://www.braze.com/unsubscribe?user_id={{${user_id}}}
 {% endraw %}
 
-Rufen Sie anschließend den [`/email/status`-Endpunkt]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status/) auf, um den Abo-Status der Nutzer:in zu aktualisieren. Weitere Details finden Sie in unserer Dokumentation zum [Ändern von E-Mail-Abos]({{site.baseurl}}/user_guide/channels/email/subscriptions/#changing-email-subscriptions).
+Rufen Sie anschließend den [`/email/status`-Endpunkt]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status) auf, um den Abo-Status der Nutzer:innen zu aktualisieren. Weitere Details finden Sie in unserer Dokumentation zum [Ändern des E-Mail-Abo-Status]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-email-subscriptions).
 
-Speichern Sie dann diesen neuen Link. Der Standard-Braze-Abmelde-Tag {%raw%}(``${set_user_to_unsubscribed_url}``){%endraw%} muss in der Fußzeile enthalten sein. Das bedeutet, dass Sie den Standardlink einbinden müssen, indem Sie ihn „verstecken“ – entweder durch Platzierung des Tags in einem Kommentar oder in einem versteckten `<div>`-Tag.
+Speichern Sie dann diesen neuen Link. Der standardmäßige Braze-Abmelde-Tag {%raw%}(``${set_user_to_unsubscribed_url}``){%endraw%} muss in der Fußzeile enthalten sein. Das bedeutet, dass Sie den Standardlink einbinden müssen, indem Sie ihn „verstecken“ – entweder durch Platzierung des Tags in einem Kommentar oder in einem versteckten `<div>`-Tag.
 
 ## Best Practices {#best-practices}
 
@@ -67,31 +67,38 @@ Wir empfehlen die folgenden Best Practices beim Erstellen und Verwenden angepass
 
 ### Personalisierung mit Attributen {#personalizing-with-attributes}
 
-Beim Erstellen einer angepassten Fußzeile empfiehlt Braze die Verwendung von [Attributen zur Personalisierung]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/). Der vollständige Satz an Standard- und angepassten Attributen ist verfügbar, aber hier sind einige, die Sie nützlich finden könnten:
+Beim Erstellen einer angepassten Fußzeile empfiehlt Braze die Verwendung von [Attributen zur Personalisierung]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags). Die vollständige Auswahl an Standard- und angepassten Attributen steht zur Verfügung, aber hier sind einige, die Sie möglicherweise nützlich finden:
 
 | Attribut | Tag |
 | --------- | --- |
-| E-Mail-Adresse der Nutzer:in | {% raw %}`{{${email_address}}}`{% endraw %} |
-| Angepasste Abmelde-URL der Nutzer:in | {% raw %}`{{${set_user_to_unsubscribed_url}}}`{% endraw %} <br><br>Dieser Tag ersetzt den früheren {% raw %}`{{${unsubscribe_url}}}`{% endraw %}-Tag. Wir empfehlen, stattdessen den neueren {% raw %}`{{${set_user_to_unsubscribed_url}}}`{% endraw %}-Tag zu verwenden. |
-| Angepasste Opt-in-URL der Nutzer:in | {% raw %}`{{${set_user_to_opted_in_url}}}`{% endraw %} |
-| Angepasste Abo-URL der Nutzer:in | {% raw %}`{{${set_user_to_subscribed_url}}}`{% endraw %}|
-| Angepasste Braze-Präferenzzentrum-URL der Nutzer:in | {% raw %}`{{${preference_center_url}}}`{% endraw %} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Personalizing with attributes" }
+| E-Mail-Adresse der Nutzer:innen | {% raw %}`{{${email_address}}}`{% endraw %} |
+| Angepasste Abmelde-URL der Nutzer:innen | {% raw %}`{{${set_user_to_unsubscribed_url}}}`{% endraw %} <br><br>Dieser Tag ersetzt den früheren {% raw %}`{{${unsubscribe_url}}}`{% endraw %}-Tag. Wir empfehlen, stattdessen den neueren {% raw %}`{{${set_user_to_unsubscribed_url}}}`{% endraw %}-Tag zu verwenden. |
+| Angepasste Opt-in-URL der Nutzer:innen | {% raw %}`{{${set_user_to_opted_in_url}}}`{% endraw %} |
+| Angepasste Abo-URL der Nutzer:innen | {% raw %}`{{${set_user_to_subscribed_url}}}`{% endraw %}|
+| Angepasste Braze Preference-Center-URL der Nutzer:innen | {% raw %}`{{${preference_center_url}}}`{% endraw %} |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Personalisierung mit Attributen" }
 
-### Abmeldelink und Opt-in-Link einbinden {#including-an-unsubscribe-link-and-opt-in-link}
+### Einen Abmeldelink und einen Opt-in-Link einfügen {#including-an-unsubscribe-link-and-opt-in-link}
 
 {% raw  %}
-Als Best Practice empfiehlt Braze, sowohl einen Abmeldelink (wie ``{{${set_user_to_unsubscribed_url}}}``) als auch einen Opt-in-Link (wie ``{{${set_user_to_opted_in_url}}}``) in Ihre angepasste Fußzeile aufzunehmen. Auf diese Weise können sich Nutzer:innen sowohl abmelden als auch anmelden, und Sie können passiv Opt-in-Daten für einen Teil Ihrer Nutzer:innen sammeln.
+Als Best Practice empfiehlt Braze, sowohl einen Abmeldelink (z. B. ``{{${set_user_to_unsubscribed_url}}}``) als auch einen Opt-in-Link (z. B. ``{{${set_user_to_opted_in_url}}}``) in Ihre angepasste Fußzeile aufzunehmen. So können sich Nutzer:innen abmelden oder anmelden, und Sie können passiv Opt-in-Daten für einen Teil Ihrer Nutzer:innen erfassen.
 {% endraw %}
 
-### Angepasste Fußzeilen für Nur-Text-E-Mails einrichten {#setting-custom-footers-for-plaintext-emails}
+### Angepasste Fußzeilen für Nur-Text-E-Mails festlegen {#setting-custom-footers-for-plaintext-emails}
 
-Sie können auch eine angepasste Fußzeile für Nur-Text-E-Mails im Tab **Abo-Seiten und -Fußzeilen** auf der Seite **E-Mail-Präferenzen** einrichten, die denselben Regeln wie die angepasste Fußzeile für HTML-E-Mails folgt.
+Sie können auch eine angepasste Fußzeile für Nur-Text-E-Mails über den Tab **Subscription Pages and Footers** auf der Seite **Email Preferences** festlegen, die denselben Regeln wie die angepasste Fußzeile für HTML-E-Mails folgt.
 
-Wenn Sie keine Nur-Text-Fußzeile angeben, erstellt Braze automatisch eine aus der HTML-Fußzeile. Wenn Ihre angepassten Fußzeilen Ihren Vorstellungen entsprechen, wählen Sie **Speichern**.
+Wenn Sie keine Nur-Text-Fußzeile angeben, erstellt Braze automatisch eine aus der HTML-Fußzeile. Wenn Ihre angepassten Fußzeilen Ihren Vorstellungen entsprechen, wählen Sie **Save**.
 
-![E-Mail mit ausgewählter Option „Angepasste Nur-Text-Fußzeile festlegen“.]({% image_buster /assets/img_archive/custom_footer_save_changes.png %}){: style="max-width:70%" }
+![E-Mail mit ausgewählter Option „Set Custom Plaintext Footer“.]({% image_buster /assets/img_archive/custom_footer_save_changes.png %}){: style="max-width:70%" }
 
-## Hinweise {#considerations}
+## Überlegungen {#considerations}
 
-Wenn Sie [BrazeAI Decisioning Studio™]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/) verwenden, beachten Sie, dass {% raw %}`{{${email_footer}}}`{% endraw %} kein Standard-Liquid-Tag ist. Es wird vorverarbeitet, bevor Liquid ausgeführt wird. Die Verwendung von {% raw %}`{{${email_footer}}}`{% endraw %} als Wert einer Kontextvariablen und der Aufruf des `:rerender`-Flags schlägt daher stillschweigend fehl. Verwenden Sie stattdessen einen [Content-Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/#email-footers) für eine E-Mail-Fußzeile.
+
+### BrazeAI Decisioning Studio™
+
+Wenn Sie [BrazeAI Decisioning Studio™]({{site.baseurl}}/user_guide/brazeai/decisioning_studio) verwenden, beachten Sie, dass {% raw %}`{{${email_footer}}}`{% endraw %} kein Standard-Liquid-Tag ist. Es wird vor der Liquid-Ausführung vorverarbeitet, sodass die Verwendung von {% raw %}`{{${email_footer}}}`{% endraw %} als Kontextvariablenwert und der Aufruf des `:rerender`-Flags stillschweigend fehlschlägt. Verwenden Sie stattdessen einen [Content-Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks#email-footers) für eine E-Mail-Fußzeile.
+
+### Link-Templates und UTM-Parameter {#link-templates-and-utm-parameters}
+
+Link-Templates werden nicht automatisch an Links in angepassten E-Mail-Fußzeilen angehängt, wenn {% raw %}`{{${email_footer}}}`{% endraw %} verwendet wird. Wenn Sie Link-Templates wie UTM-Parameter in Ihren Fußzeilen-Links benötigen, verwenden Sie stattdessen einen [Content-Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks#email-footers) oder hängen Sie die UTM-Parameter manuell an die jeweiligen Links in Ihrer angepassten Fußzeile an.

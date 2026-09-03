@@ -16,10 +16,7 @@ Mit Braze Audience Sync mit Snapchat können Marken Nutzerdaten aus ihrer Braze-
 
 **Zu den üblichen Anwendungsfällen für die Synchronisierung von Zielgruppen gehören:**
 
-- Targeting von hochwertigen Nutzer:innen über mehrere Kanäle, um Käufe oder Engagement zu fördern
-- Retargeting von Nutzer:innen, die auf andere Marketing-Kanäle weniger responsiv sind
-- Erstellen von Unterdrückungszielgruppen, um zu verhindern, dass Nutzer:innen, die bereits treue Verbraucher:innen Ihrer Marke sind, Werbung erhalten
-- Erstellen ähnlicher Zielgruppen zur effizienteren Gewinnung neuer Nutzer:innen
+{% multi_lang_include partners/canvas_audience_sync/common_use_cases.md lookalike=true %}
 
 Mit diesem Feature können Nutzer:innen kontrollieren, welche spezifischen First-Party-Daten mit Snapchat geteilt werden. Bei Braze werden die Integrationen, mit denen Sie Ihre First-Party-Daten teilen können und nicht teilen können, genauestens berücksichtigt. Weitere Informationen finden Sie in unserer [Datenschutzrichtlinie](https://www.braze.com/privacy).
 
@@ -30,21 +27,21 @@ Braze Audience Sync mit Snapchat ist eine Audience Sync Pro-Integration. Für we
 
 ## Voraussetzungen {#prerequisites}
 
-Sie müssen sicherstellen, dass die folgenden Punkte erstellt, abgeschlossen und/oder akzeptiert wurden, bevor Sie Ihren Snapchat-Zielgruppen-Schritt in Canvas einrichten.
+Sie müssen sicherstellen, dass die folgenden Punkte erstellt, abgeschlossen und/oder akzeptiert wurden, bevor Sie Ihren Snapchat Audience-Schritt in Canvas einrichten.
 
 | Anforderung | Herkunft | Beschreibung |
 | --- | --- | --- |
-| Snapchat Business Manager | Snapchat | Ein zentrales Tool zur Verwaltung der Snapchat-Assets Ihrer Marke (z. B. Anzeigenkonten, Seiten, Apps). |
-| Snapchat-Anzeigenkonto | Snapchat | Ein aktives Snapchat-Anzeigenkonto, das mit dem Snapchat Business Manager Ihrer Marke verknüpft ist.<br><br>Vergewissern Sie sich, dass Ihr Snapchat Business Manager-Admin Ihnen Administratorrechte für die Snapchat-Anzeigenkonten erteilt hat, die Sie mit Braze verwenden möchten. |
-| Snapchat-Bedingungen und -Richtlinien | [Snapchat](https://www.snap.com/en-US/policies) | Sie erklären sich damit einverstanden, alle erforderlichen Bedingungen, Richtlinien, Leitlinien und Dokumentationen von Snapchat in Bezug auf Ihre Nutzung von Snapchat Audience Sync einzuhalten, einschließlich aller Bedingungen, Richtlinien, Leitlinien und Dokumentationen, auf die darin verwiesen wird, wie z. B. die Allgemeinen Geschäftsbedingungen, die Geschäftsbedingungen für Serviceleistungen, die Entwicklerbedingungen, Audience Match, die Werberichtlinien, die Richtlinien für kommerzielle Inhalte, die Community-Richtlinien und die Verantwortung der Anbieter. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Snapchat Business Manager | Snapchat | Ein zentrales Tool zur Verwaltung der Snapchat-Assets Ihrer Marke (z. B. Werbekonten, Seiten, Apps). |
+| Snapchat-Werbekonto | Snapchat | Ein aktives Snapchat-Werbekonto, das mit dem Snapchat Business Manager Ihrer Marke verknüpft ist.<br><br>Stellen Sie sicher, dass Ihnen der Administrator Ihres Snapchat Business Managers Administratorberechtigungen für die Snapchat-Werbekonten erteilt hat, die Sie mit Braze verwenden möchten. |
+| Snapchat-Nutzungsbedingungen und -Richtlinien | [Snapchat](https://www.snap.com/en-US/policies) | Stimmen Sie zu, alle erforderlichen Nutzungsbedingungen, Richtlinien, Leitlinien und Dokumentationen von Snapchat einzuhalten, die sich auf Ihre Nutzung von Snapchat Audience Sync beziehen, einschließlich aller darin durch Verweis einbezogenen Nutzungsbedingungen, Richtlinien, Leitlinien und Dokumentationen, darunter unter anderem: die Nutzungsbedingungen, geschäftliche Nutzungsbedingungen, Entwicklerbedingungen, Audience Match, Werberichtlinien, Richtlinien für kommerzielle Inhalte, Community-Richtlinien und Lieferantenverantwortung. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Voraussetzungen" }
 
 ## Integration
 
-### 1. Schritt: Mit Snapchat verbinden {#step-1-connect-to-snapchat}
+### Schritt 1: Mit Snapchat verbinden {#step-1-connect-to-snapchat}
 
 {% alert important %}
-Sie müssen die [Berechtigung „Admin“]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin) haben, um Snapchat mit Ihrem Braze-Konto zu verbinden.
+Sie müssen die [Berechtigung „Admin“]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions#admin) haben, um Snapchat mit Ihrem Braze-Konto zu verbinden.
 {% endalert %}
 
 Gehen Sie im Braze-Dashboard zu **Partnerintegrationen** > **Technologie-Partner** und wählen Sie **Snapchat** aus. Wählen Sie unter Snapchat Audience Sync die Option **Connect Snapchat** aus.
@@ -63,19 +60,19 @@ Nach erfolgreicher Verbindung kehren Sie zur Partnerseite zurück, wo Sie sehen 
 
 Ihre Snapchat-Verbindung wird auf der Ebene des Braze-Workspace angewendet. Wenn Ihr Snapchat-Admin Sie aus Ihrem Snapchat Business Manager oder dem Zugriff auf die verbundenen Snapchat-Anzeigenkonten entfernt, erkennt Braze ein ungültiges Token. Dies hat zur Folge, dass Ihre aktiven Canvases, die Snapchat verwenden, Fehler anzeigen und Braze nicht in der Lage ist, Nutzer:innen zu synchronisieren.
 
-### 2. Schritt: Einen Audience Sync-Schritt mit Snapchat hinzufügen {#step-2-add-an-audience-sync-step-with-snapchat}
+### Schritt 2: Einen Audience Sync-Schritt mit Snapchat hinzufügen {#step-2-add-an-audience-sync-step-with-snapchat}
 
 Fügen Sie eine Komponente in Ihrem Canvas hinzu und wählen Sie **Audience Sync**.
 
-![]({% image_buster /assets/img/audience_sync/audience_sync3.png %}){: style="max-width:35%;"} ![]({% image_buster /assets/img/audience_sync/audience_sync5.png %}){: style="max-width:28%;"}
+![Canvas-Schrittauswahl mit der Option „Audience Sync“-Komponente.]({% image_buster /assets/img/audience_sync/audience_sync3.png %}){: style="max-width:35%;"} ![Audience Sync-Komponentenkarte, die einem Canvas-Pfad hinzugefügt wurde.]({% image_buster /assets/img/audience_sync/audience_sync5.png %}){: style="max-width:28%;"}
 
-### 3. Schritt: Sync-Einrichtung {#step-3-sync-setup}
+### Schritt 3: Sync-Einrichtung {#step-3-sync-setup}
 
 Klicken Sie auf den Button **Custom Audience**, um den Komponenteneditor zu öffnen.
 
 Wählen Sie **Snapchat** als den gewünschten Audience Sync-Partner aus.
 
-![]({% image_buster /assets/img/audience_sync/audience_sync4.png %}){: style="max-width:80%;"}
+![Audience Sync-Komponenteneditor mit Snapchat als ausgewähltem Sync-Partner.]({% image_buster /assets/img/audience_sync/audience_sync4.png %}){: style="max-width:80%;"}
 
 Wählen Sie dann Ihr gewünschtes Snapchat-Anzeigenkonto aus. Geben Sie in der Dropdown-Liste **Choose a New or Existing Audience** den Namen einer neuen oder bestehenden Zielgruppe ein.
 
@@ -103,55 +100,55 @@ Braze bietet auch die Möglichkeit, Nutzer:innen zu bestehenden Snapchat-Zielgru
 {% endtab %}
 {% endtabs %}
 
-### 4. Schritt: Canvas starten {#step-4-launch-canvas}
+### Schritt 4: Canvas starten {#step-4-launch-canvas}
 
 Sobald Sie Ihre Audience Sync mit Snapchat konfiguriert haben, starten Sie das Canvas! Es wird eine neue Zielgruppe erstellt, und Nutzer:innen, die den Audience Sync-Schritt durchlaufen, werden in diese Zielgruppe auf Snapchat übertragen. Wenn Ihr Canvas nachfolgende Komponenten enthält, werden Ihre Nutzer:innen zum nächsten Schritt in ihrer User Journey vorangebracht.
 
-Sie können die Zielgruppen in Snapchat einsehen, indem Sie Ihr Ads-Manager-Konto aufrufen und im Navigationsbereich „Assets“ die Option **Audiences** auswählen. Auf der Seite **Audiences** können Sie die Größe jeder Zielgruppe sehen, sobald sie ~1.000 erreicht hat.
+Sie können die Zielgruppe in Snapchat einsehen, indem Sie Ihr Ads-Manager-Konto aufrufen und im Navigationsbereich „Assets“ die Option **Audiences** auswählen. Auf der Seite **Audiences** können Sie die Größe jeder Zielgruppe sehen, sobald sie ~1.000 erreicht hat.
 
 ![Details zur Zielgruppe einer bestimmten Snapchat-Zielgruppe, einschließlich Name der Zielgruppe, Art der Zielgruppe, Größe der Zielgruppe und Bindung der Zielgruppe in Tagen.]({% image_buster /assets/img/snapchat/snapchat7.png %})
 
-## Überlegungen zur Synchronisierung von Nutzer:innen und Rate-Limits {#user-syncing-and-rate-limit-considerations}
+## Nutzersynchronisierung und Rate-Limit-Überlegungen {#user-syncing-and-rate-limit-considerations}
 
-Wenn Nutzer:innen den Audience Sync-Schritt erreichen, synchronisiert Braze sie nahezu in Realtime und respektiert dabei die Rate-Limits der Snapchat-API. Braze stapelt und verarbeitet alle 5 Sekunden so viele Nutzer:innen wie möglich, bevor es sie an Snapchat sendet.
+Wenn Nutzer:innen den Audience-Sync-Schritt erreichen, synchronisiert Braze sie nahezu in Echtzeit und berücksichtigt dabei die API-Rate-Limits von Snapchat. Braze fasst alle 5 Sekunden so viele Nutzer:innen wie möglich zusammen und verarbeitet sie, bevor sie an Snapchat gesendet werden.
 
-Das Rate-Limit der Snapchat-API erlaubt nicht mehr als zehn Abfragen pro Sekunde und 100.000 Nutzer:innen pro Anfrage. Erreicht eine Kund:in dieses Limit, wiederholt Braze die Synchronisierung für bis zu ~13 Stunden. Wenn die Synchronisierung immer noch nicht möglich ist, listet Braze diese Nutzer:innen in der Metrik „Fehlerhafte Nutzer:innen“ auf.
+Das API-Rate-Limit von Snapchat erlaubt nicht mehr als zehn Abfragen pro Sekunde und 100.000 Nutzer:innen pro Anfrage. Wenn ein:e Kund:in dieses Limit erreicht, versucht Braze die Synchronisierung bis zu ca. 13 Stunden lang erneut. Wenn die Synchronisierung weiterhin nicht möglich ist, listet Braze diese Nutzer:innen unter der Metrik „Users Errored“ auf.
 
 ### Analytics verstehen {#understanding-analytics}
 
-Die folgende Tabelle enthält Metriken und Beschreibungen, die Ihnen helfen, die Analytics Ihrer Audience Sync-Komponente besser zu verstehen.
+Die folgende Tabelle enthält Metriken und Beschreibungen, die Ihnen helfen, die Analytics Ihrer Audience-Sync-Komponente besser zu verstehen.
 
 | Metrik | Beschreibung |
 | --- | --- |
-| Eingetreten | Anzahl der Nutzer:innen, die diese Komponente betreten haben, um mit Snapchat synchronisiert zu werden. |
-| Zum nächsten Schritt fortgefahren | Wie viele Nutzer:innen sind zur nächsten Komponente weitergegangen, falls eine vorhanden ist? Alle Nutzer:innen werden automatisch weitergeleitet, wenn dies der letzte Schritt im Canvas-Zweig ist. |
-| Nutzer:innen synchronisiert | Anzahl der Nutzer:innen, die erfolgreich mit Snapchat synchronisiert wurden. |
-| Nutzer:innen nicht synchronisiert | Anzahl der Nutzer:innen, die nicht synchronisiert wurden, weil Felder zum Abgleich fehlen. |
-| Nutzer:innen ausstehend | Anzahl der Nutzer:innen, die derzeit von Braze für die Synchronisierung mit Snapchat verarbeitet werden. |
-| Fehlerhafte Nutzer:innen | Anzahl der Nutzer:innen, die aufgrund eines API-Fehlers nach etwa 13 Stunden Wiederholungsversuchen nicht mit Snapchat synchronisiert wurden. Mögliche Fehlerursachen können ein ungültiges Snapchat-Token oder eine auf Snapchat gelöschte Zielgruppe sein. |
-| Canvas verlassen | Anzahl der Nutzer:innen, die das Canvas verlassen haben. Dies geschieht, wenn der letzte Schritt in einem Canvas eine Audience Sync-Komponente ist. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Entered | Anzahl der Nutzer:innen, die diese Komponente betreten haben, um mit Snapchat synchronisiert zu werden. |
+| Proceeded to Next Step | Wie viele Nutzer:innen sind zur nächsten Komponente weitergegangen, falls eine vorhanden ist? Alle Nutzer:innen rücken automatisch vor, wenn dies der letzte Schritt im Canvas-Zweig ist. |
+| Users Synced | Anzahl der Nutzer:innen, die erfolgreich mit Snapchat synchronisiert wurden. |
+| Users Not Synced | Anzahl der Nutzer:innen, die aufgrund fehlender Abgleichsfelder nicht synchronisiert wurden. |
+| Users Pending | Anzahl der Nutzer:innen, die derzeit von Braze verarbeitet werden, um mit Snapchat synchronisiert zu werden. |
+| Users Errored | Anzahl der Nutzer:innen, die nach etwa 13 Stunden Wiederholungsversuchen aufgrund eines API-Fehlers nicht mit Snapchat synchronisiert wurden. Mögliche Fehlerursachen können ein ungültiges Snapchat-Token oder eine auf Snapchat gelöschte Zielgruppe sein. |
+| Exited Canvas | Anzahl der Nutzer:innen, die das Canvas verlassen haben. Dies tritt auf, wenn der letzte Schritt in einem Canvas eine Audience-Sync-Komponente ist. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Analytics verstehen" }
 
 {% alert important %}
-Denken Sie daran, dass es aufgrund des Bulk-Flush und des 13-stündigen Wiederholungsversuchs zu einer Verzögerung bei der Berichterstattung über synchronisierte Nutzer:innen und fehlerhafte Metriken kommen wird.
+Beachten Sie, dass es bei der Berichterstattung zu Verzögerungen bei synchronisierten Nutzer:innen und Fehlermetriken kommen kann – aufgrund des Bulk-Flushers bzw. der 13-stündigen Wiederholungsversuche.
 {% endalert %}
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 
 ### Wie viele Zielgruppen kann Snapchat unterstützen? {#how-many-audiences-can-snapchat-support}
 
-Zurzeit können Sie nur 1.000 Zielgruppen in Ihrem Snapchat-Konto haben.
+Derzeit können Sie nur 1.000 Zielgruppen in Ihrem Snapchat-Konto haben.
 
-Wenn Sie dieses Limit überschreiten, wird Braze Sie darüber informieren, dass keine neuen Zielgruppen erstellt werden können. Sie müssen Zielgruppen, die Sie nicht mehr verwenden, aus Ihrem Snapchat-Anzeigenkonto entfernen.
+Wenn Sie dieses Limit überschreiten, wird Braze Sie darüber informieren, dass keine neuen Zielgruppen erstellt werden können. Sie müssen Zielgruppen, die Sie nicht mehr verwenden, in Ihrem Snapchat-Werbekonto entfernen.
 
-### Woher weiß ich, ob Nutzer:innen übereinstimmen, nachdem ich Nutzer:innen an Snapchat übergeben habe? {#how-do-i-know-if-users-have-matched-after-passing-users-to-snapchat}
+### Wie erfahre ich, ob Nutzer:innen abgeglichen wurden, nachdem sie an Snapchat übergeben wurden? {#how-do-i-know-if-users-have-matched-after-passing-users-to-snapchat}
 
 Snapchat stellt diese Informationen aufgrund seiner Datenschutzrichtlinien nicht zur Verfügung.
 
-### Was sollte ich als Nächstes tun, wenn ich einen Fehler wegen eines ungültigen Tokens erhalte? {#what-should-i-do-next-if-i-receive-an-invalid-token-error}
+### Was sollte ich tun, wenn ich einen Fehler wegen eines ungültigen Tokens erhalte? {#what-should-i-do-next-if-i-receive-an-invalid-token-error}
 
-Sie können die Verbindung zu Ihrem Snapchat-Konto auf der Snapchat-Partnerseite trennen und wiederherstellen. Vergewissern Sie sich bei Ihrem Snapchat Business Manager-Admin, dass Sie die entsprechenden Berechtigungen für das Anzeigenkonto haben, mit dem Sie synchronisieren möchten.
+Sie können Ihr Snapchat-Konto auf der Snapchat-Partnerseite trennen und erneut verbinden. Bestätigen Sie mit Ihrem Snapchat Business Manager-Admin, dass Sie über die entsprechenden Berechtigungen für das Werbekonto verfügen, mit dem Sie synchronisieren möchten.
 
 ### Warum darf mein Canvas nicht gestartet werden? {#why-is-my-canvas-not-allowed-to-launch}
 
-Stellen Sie sicher, dass Ihr Snapchat-Anzeigenkonto auf der Snapchat-Partnerseite erfolgreich mit Braze verbunden ist. Vergewissern Sie sich, dass Sie ein Anzeigenkonto ausgewählt, einen Namen für die neue Zielgruppe eingegeben und die passenden Felder ausgewählt haben.
+Stellen Sie sicher, dass Ihr Snapchat-Werbekonto auf der Snapchat-Partnerseite erfolgreich mit Braze verbunden ist. Überprüfen Sie, ob Sie ein Werbekonto ausgewählt, einen Namen für die neue Zielgruppe eingegeben und Felder zum Abgleich ausgewählt haben.

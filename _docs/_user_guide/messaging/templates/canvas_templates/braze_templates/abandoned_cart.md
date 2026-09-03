@@ -14,7 +14,7 @@ tool: Canvas
 In this article, we'll guide you through a use case for the **Abandoned Intent** template, which is intended for the consideration stage of the user lifecycle. After this article, you'll have customized a user journey that encourages purchases from users who haven't made purchases after adding items to their carts.
 
 {% alert tip %}
-Use [BrazeAI Operator<sup>TM</sup>]({{site.baseurl}}/user_guide/brazeai/operator/) to set up and customize this template. Select **BrazeAI Operator<sup>TM</sup>** next to your user profile while creating or editing your Canvas. Then, describe your goal, such as "Help me configure the Abandoned Intent template to re-engage users who abandoned their cart".
+Use [BrazeAI Operator<sup>TM</sup>]({{site.baseurl}}/user_guide/brazeai/operator) to set up and customize this template. Select **BrazeAI Operator<sup>TM</sup>** next to your user profile while creating or editing your Canvas. Then, describe your goal, such as "Help me configure the Abandoned Intent template to re-engage users who abandoned their cart".
 {% endalert %}
 
 ## Prerequisites
@@ -22,13 +22,13 @@ Use [BrazeAI Operator<sup>TM</sup>]({{site.baseurl}}/user_guide/brazeai/operator
 To successfully use this template, you need the following:
 
 - A separate post-purchase user journey Canvas since making a purchase in this Canvas will cause users to exit the Canvas.
-- A configured [Braze Audience Sync]({{site.baseurl}}/partners/canvas_audience_sync/) with the partners and audiences you use.
+- A configured [Braze Audience Sync]({{site.baseurl}}/partners/canvas_audience_sync) with the partners and audiences you use.
 
 ## Tailoring the template to your needs
 
 Let's say we work at Kitchenerie, a retail brand specializing in kitchenware, and our goal is to reengage users who have added the latest product "Enormous Paper Plate" to their carts but haven't made their purchases.
 
-Before creating the Canvas, we set up the [Braze Audience Sync to Facebook]({{site.baseurl}}/partners/canvas_audience_sync/facebook_audience_sync/) integration so that we can add user data from Braze to Facebook Audiences to send advertisements based on behavioral triggers, segmentation, and more.
+Before creating the Canvas, we set up the [Braze Audience Sync to Facebook]({{site.baseurl}}/partners/canvas_audience_sync/facebook_audience_sync) integration so that we can add user data from Braze to Facebook Audiences to send advertisements based on behavioral triggers, segmentation, and more.
 
 The **Abandoned Intent** template follows this flow: check for purchase, send an immediate reminder, wait, route to the optimal channel, follow up, check again, and retarget non-converters. It includes the following steps:
 
@@ -37,7 +37,7 @@ The **Abandoned Intent** template follows this flow: check for purchase, send an
 | Action Paths | Made purchase? | First completion check; users who already purchased exit the Canvas. |
 | Message | Itemized Reminder | Immediate cart reminder sent right after entry. |
 | Delay | Delay | 30-minute wait so the follow-up lands while the product is still top of mind. |
-| Audience Paths | Intelligent Channel split | Routes users to email or SMS based on [Intelligent Channel]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel/) ranking. |
+| Audience Paths | Intelligent Channel split | Routes users to email or SMS based on [Intelligent Channel]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel) ranking. |
 | Message | Abandoned Cart Email, Abandoned Cart SMS, and Abandoned Cart In-App Message | Channel-specific follow-ups. Intelligent Channel selects between email and SMS; the in-app message is sent on a separate path in the template. |
 | Action Paths | Made purchase? (2) | Second completion check before retargeting. |
 | Audience Sync | Ad Retargeting | Syncs non-converters to ad audiences (such as Facebook) for off-channel retargeting. |
@@ -73,7 +73,7 @@ If your workspace uses the **Places order** conversion event, purchase-related o
 The **Abandoned Intent** template uses an **API-Triggered** entry schedule so you can enter users into the Canvas as soon as they abandon their cart. This fits our use case because we want to respond while the product is still top of mind.
 
 1. Keep **API-Triggered** as the entry schedule type.
-2. Note the Canvas ID and use the [`/canvas/trigger/send` endpoint]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/) to add users when your app or website detects an abandoned cart.
+2. Note the Canvas ID and use the [`/canvas/trigger/send` endpoint]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases) to add users when your app or website detects an abandoned cart.
 3. Optionally, you can pass [context variables]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables) (such as product name or cart details) to personalize downstream messages.
 
 If you prefer action-based entry instead, select **Action-Based** and choose a trigger that matches how your brand tracks abandoned carts—for example, **Perform Custom Event** for a logged `abandoned_cart` event.
@@ -107,12 +107,12 @@ Customize the Canvas steps in the order users experience them:
 2. Keep the **Delay** step as is. The template uses a 30-minute delay before follow-up messages send, giving users time to complete checkout while the product is still top of mind.
 
 {% alert tip %}
-You can use [Canvas context properties]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/) to customize the messages in your Canvas based on which product you're referring to.
+You can use [Canvas context properties]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) to customize the messages in your Canvas based on which product you're referring to.
 {% endalert %}
 
 #### Route to the optimal channel
 
-1. Review the **Intelligent Channel split** Audience Paths step. This routes users to **Abandoned Cart Email** or **Abandoned Cart SMS** based on [Intelligent Channel]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel/) ranking. Adjust the paths if needed.
+1. Review the **Intelligent Channel split** Audience Paths step. This routes users to **Abandoned Cart Email** or **Abandoned Cart SMS** based on [Intelligent Channel]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel) ranking. Adjust the paths if needed.
 2. Customize the **Abandoned Cart Email**, **Abandoned Cart SMS**, and **Abandoned Cart In-App Message** steps. Select **Edit message** on each step to update the copy and message for that channel. The in-app message runs on a separate path from the Intelligent Channel split and isn't selected by Intelligent Channel ranking.
 
 #### Retarget non-converters
@@ -126,5 +126,5 @@ You can use [Canvas context properties]({{site.baseurl}}/user_guide/messaging/ca
 After testing and reviewing our Canvas to make sure it works as expected, select **Launch Canvas** to launch the Canvas. Now, we can mindfully target users with a personalized user journey to encourage them to checkout the product they've added to their carts!
 
 {% alert tip %}
-Check out our [Pre and post-launch checklist]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist/#things-to-consider-before-launch) for things to consider before and after you launch a Canvas.
+Check out our [Pre and post-launch checklist]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist#things-to-consider-before-launch) for things to consider before and after you launch a Canvas.
 {% endalert %}

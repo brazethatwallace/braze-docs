@@ -19,7 +19,7 @@ description: "Cet article présente les détails de l'endpoint Braze Créer des 
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `catalogs.create_fields`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `catalogs.create_fields`.
 
 ## Limite de débit {#rate-limit}
 
@@ -30,14 +30,14 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 | Paramètre      | Requis | Type de données | Description          |
 | -------------- | -------- | --------- | -------------------- |
 | `catalog_name` | Requis | Chaîne de caractères    | Nom du catalogue. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Paramètres de chemin" }
 
 ## Paramètres de requête {#request-parameters}
 
 | Paramètre | Requis | Type de données | Description                                                                                                  |
 | --------- | -------- | --------- | ------------------------------------------------------------------------------------------------------------ |
 | `fields`  | Requis | Tableau     | Un tableau contenant des objets de champ. Les objets de champ doivent contenir le nom et le type des nouveaux champs. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Paramètres de requête" }
 
 ## Exemple de requête {#example-request}
 
@@ -115,13 +115,13 @@ Le code de statut `400` pourrait renvoyer le corps de réponse suivant. Consulte
 
 Le tableau suivant répertorie les erreurs possibles et les étapes de résolution associées.
 
-| Erreur                                | Résolution des problèmes                                                                                        |
+| Erreur                                | Résolution                                                                                        |
 |--------------------------------------|--------------------------------------------------------------------------------------------------------|
-| `arbitrary-error`                    | Une erreur arbitraire est survenue. Veuillez réessayer ou contacter l'[assistance]({{site.baseurl}}/support_contact/). |
+| `arbitrary-error`                    | Une erreur arbitraire est survenue. Veuillez réessayer ou contacter l'[assistance]({{site.baseurl}}/support_contact). |
 | `catalog-not-found`                  | Vérifiez que le nom du catalogue est valide.                                                                  |
 | `company-size-limit-already-reached` | La limite de taille de stockage du catalogue est atteinte.                                                             |
 | `request-includes-too-many-fields`   | Chaque requête peut contenir jusqu'à 50 nouveaux champs.                                                          |
 | `catalog-exceeds-fields-limit`       | Le catalogue ne peut pas comporter plus de 500 champs.                                                              |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Résolution des problèmes" }
 
 {% endapi %}

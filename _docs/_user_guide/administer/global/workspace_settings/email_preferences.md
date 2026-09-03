@@ -6,6 +6,7 @@ page_order: 2
 description: "This reference article covers email preferences in the Braze dashboard, including sending configurations, open tracking pixels, subscription page and footers, and more."
 tool: Dashboard
 channel: email
+alias: /email_preferences/
 toc_headers: h2
 
 ---
@@ -14,7 +15,7 @@ toc_headers: h2
 
 > Email Preferences is where you can set specific outbound email settings like custom footers, custom opt-in and opt-out pages, and more. Including these options in your outbound emails makes for a fluid and cohesive experience for your users.
 
-**Email Preferences** can be found under **Settings** in the dashboard.
+**Email Preferences** can be found under **Settings** > **Workspace Settings** in the dashboard.
 
 ## Sending configuration
 
@@ -24,6 +25,8 @@ The email settings under the **Sending Configuration** section determine which d
 
 When configuring your email settings, your outbound email settings identify which name and email addresses are used when Braze sends emails to your users.
 
+If you need to add a new domain or IP pool (sending provider) to your workspace, or remove one from the available list, contact your customer success manager for assistance.
+
 {% tabs local %}
 {% tab Display Name Address %}
 
@@ -31,9 +34,13 @@ In this section, you can add the names and email addresses you can use when Braz
 
 !["Outbound Email Settings" section with fields for different display names and domains.]({% image_buster /assets/img/email_settings/display_name_address.png %})
 
+{% alert note %}
+Apple Mail clients don't recognize the `@` symbol when it's used in a custom display name. Different mailbox providers control how the display name address shows for their users, so the display name may appear differently depending on the email client.
+{% endalert %}
+
 #### Personalize with Liquid
 
-You can also use [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) in the **From Display Name**, **Local Part**, and **Domain** fields to dynamically template the sender name and email address based on custom attributes. Note that to use Liquid in the **Domain** field, you must go to an email campaign's **Sending Info** options and select the **Customize from display name + address** checkbox.
+You can also use [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) in the **From Display Name**, **Local Part**, and **Domain** fields to dynamically template the sender name and email address based on custom attributes. Note that to use Liquid in the **Domain** field, you must go to an email campaign's **Sending Info** options and select the **Customize from display name + address** checkbox.
 
 ![Sending settings with fields for customizing the from display name, address, and domain.]({% image_buster /assets/img/email_settings/email_campaign_domain.png %})
 
@@ -54,7 +61,7 @@ Default to English Display Name
 {% endtab %}
 {% tab Reply-To Address %}
 
-Adding an email address in this section allows you to select it as a reply-to address for your email campaign. You can also make an email address the default one by selecting **Make Default**. These email addresses will be available in the **Sending Info** options as you compose your email campaign.
+Adding an email address in this section allows you to select it as a reply-to address for your email campaign. You can also make an email address the default one by selecting **Make Default**. These email addresses are available in the **Sending Info** options as you compose your email campaign.
 
 !["Reply-To Address" section with fields to enter multiple reply-to addresses.]({% image_buster /assets/img/email_settings/reply_to_address.png %}){: style="max-width:75%;" }
 
@@ -64,31 +71,37 @@ Braze sending domains don't accept inbound email. If a recipient replies to an e
 
 #### Personalize with Liquid
 
-You can also use [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) in the **Reply-To Address** field to dynamically template the reply-to address based on custom attributes. For example, you can use conditional logic to send replies to different regions or departments:
+You can also use [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) in the **Reply-To Address** field to dynamically template the reply-to address based on custom attributes. For example, you can use conditional logic to send replies to different regions or departments:
 
 {% raw %}
 ```liquid
 {% if {{custom_attribute.${region}}} == 'US' %}
-{% assign address = "us-support@company.com" %}
+{% assign address = "us-support@example.com" %}
 {% elsif {{custom_attribute.${region}}} == 'EU' %}
-{% assign address = "eu-support@company.com" %}
+{% assign address = "eu-support@example.com" %}
 {% else %}
-{% assign address = "global-support@company.com" %}{% endif %}{{address}}
+{% assign address = "global-support@example.com" %}{% endif %}{{address}}
 ```
 {% endraw %}
+
+{% alert tip %}
+If you use a Content Block to populate **Reply-To Address**, make sure the final rendered value is a valid email address and includes an `@`. Braze can't validate this when you save the setting because the final value isn't known until send time.
+
+- If your Content Block stores the local part (the text before `@`) and domain separately, build the field as one address (for example, {% raw %}`{{content_blocks.${reply_to_local}}}@{{content_blocks.${reply_to_domain}}}`{% endraw %}).
+{% endalert %}
 
 {% endtab %}
 {% tab BCC Address %}
 
 This section allows you to manage BCC addresses you can append to outbound email messages sent from Braze. Appending a BCC address to an email message sends an identical copy of the message that your user receives to your BCC inbox. This is a useful tool to retain copies of messages you sent to your users for compliance requirements or customer support issues. BCC emails are not included in email reporting and analytics.
 
-BCC addresses are available for Amazon SES, SendGrid, and SparkPost. As an alternative to BCC addresses, we recommend using [messaging archiving]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/message_archiving/) to save a copy of messages sent to users for archival or compliance purposes.
+BCC addresses are available for Amazon SES, SendGrid, and SparkPost. As an alternative to BCC addresses, we recommend using [messaging archiving]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/message_archiving) to save a copy of messages sent to users for archival or compliance purposes.
 
 {% multi_lang_include alerts/important_alerts.md alert='BCC address billable emails' %}
 
-After you add an address, the address will be made available to select when composing an email in either campaigns or Canvas steps. Select **Make Default** next to an address to set this address to be selected by default when launching a new email campaign or Canvas component. To override this at the message level, you can select **No BCC** when setting up your message.
+After you add an address, the address is made available to select when composing an email in either campaigns or Canvas steps. Select **Make Default** next to an address to set this address to be selected by default when launching a new email campaign or Canvas component. To override this at the message level, you can select **No BCC** when setting up your message.
 
-If you require that all email messages sent from Braze have a BCC address included, you can select the **Require a BCC address for all your email campaigns** toggle. This will require you to select a default address, which will be automatically selected on new email campaigns or Canvas steps. The default address will also be automatically added to all messages triggered through our REST API. There is no need to change the existing API request to include the address.
+If you require that all email messages sent from Braze have a BCC address included, you can select the **Require a BCC address for all your email campaigns** toggle. This requires you to select a default address, which is automatically selected on new email campaigns or Canvas steps. The default address is also automatically added to all messages triggered through our REST API. There is no need to change the existing API request to include the address.
 
 #### Dynamic BCC
 
@@ -113,7 +126,7 @@ The default behavior in Braze is to append the tracking pixel to the bottom of y
 
 While the pixel is already styled to cause as few visual changes as possible, any unintentional visual changes would be the least visible at the bottom of an email. This is also the default for email providers such as SendGrid and SparkPost.
 
-To reduce unexpected behavior, keep Liquid inside `<html>` tags. Nested or duplicate document-level tags can change how the email is parsed and where the pixel lands, which can affect open tracking and layout. For more information, see [Using Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/using_liquid/).
+To reduce unexpected behavior, keep Liquid inside `<html>` tags. Nested or duplicate document-level tags can change how the email is parsed and where the pixel lands, which can affect open tracking and layout. For more information, see [Using Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid).
 
 ### Update the placement
 
@@ -123,7 +136,7 @@ Braze currently supports overriding the ESP's default open tracking pixel locati
 
 To change the location:
 
-1. In Braze, go to **Settings** > **Email Preferences**.
+1. In Braze, go to **Settings** > **Workspace Settings** > **Email Preferences**.
 2. Select from the following options: **Move for SendGrid**, **Move for SparkPost**, or **Move for Amazon SES**
 3. Select **Save**.
 
@@ -140,12 +153,12 @@ Click tracking applies only to links that start with `http://` or `https://`. `m
 ## List-unsubscribe header {#list-unsubscribe}
 
 {% alert note %}
-Since February 15, 2024, new companies have the list-unsubscribe header (with one-click unsubscribe) enabled by default.
+Since June 15, 2026, when the one-click list-unsubscribe header is configured to scope to a specific subscription group, Braze no longer includes the mailto header in emails. Users who unsubscribe through the list-unsubscribe header are unsubscribed from only that specific subscription group, not globally.
 {% endalert %}
 
 Using a list-unsubscribe header allows your recipients to unsubscribe easily from marketing emails by displaying an **Unsubscribe** button within the mailbox UI, and not the message body.
 
-Test sends typically **do not** include list-unsubscribe headers. Whether the live header appears is up to the mailbox provider and is reputation-based—stronger sender reputation usually improves visibility.
+Test sends typically don't include list-unsubscribe headers. Whether the live header appears is up to the mailbox provider and is reputation-based—stronger sender reputation usually improves visibility.
 
 ![Email client mailbox UI with an Unsubscribe option next to the message, where list-unsubscribe appears outside the message body.]({% image_buster /assets/img_archive/list_unsub_img1.png %}){: style="float:right;max-width:60%;margin-left:15px;"}
 
@@ -157,7 +170,7 @@ When [managing your subscriptions in Gmail](https://support.google.com/mail/answ
 
 ### Does turning off the list-unsubscribe header remove the Gmail Unsubscribe button?
 
-No. Turning off the Braze list-unsubscribe header setting removes the `List-Unsubscribe` header from messages Braze sends, but it doesn't control whether Gmail shows an **Unsubscribe** option in the mailbox UI. As noted above, Gmail may still surface an unsubscribe option from links in the message body or use other provider logic. Whether the header appears in the raw message is separate from whether Gmail displays an unsubscribe option to recipients. For more information, see [Gmail's Email Sender Guidelines FAQ](https://support.google.com/a/answer/14229414).
+No. Turning off the Braze list-unsubscribe header setting removes the `List-Unsubscribe` header from messages Braze sends, but it doesn't control whether Gmail shows an **Unsubscribe** option in the mailbox UI. As noted in the previous section, Gmail may still surface an unsubscribe option from links in the message body or use other provider logic. Whether the header appears in the raw message is separate from whether Gmail displays an unsubscribe option to recipients. For more information, see [Gmail's Email Sender Guidelines FAQ](https://support.google.com/a/answer/14229414).
 
 ### Mailbox provider support
 
@@ -208,7 +221,7 @@ Braze supports the following versions of the list-unsubscribe header:
 | Mailto | Specifies an email address as the destination for the unsubscribe request message to be sent from the recipient to the brand. <br><br> _To process mailto list-unsubscribe requests, such unsubscribe requests need to include the email address as stored in Braze for the End User who is unsubscribing. This may be provided by the "from-address" of the email from where the End User is unsubscribing, the encoded subject, or the encoded body from the email received by the End User that they are unsubscribing from. In very limited cases, some inbox providers don't adhere to the [RFC 2368](https://datatracker.ietf.org/doc/html/rfc2368) protocol, resulting in the email address not being properly passed. This can lead to an unsubscribe request not being able to be processed in Braze._ |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Default list-unsubscribe header" }
 
-When Braze receives a list-unsubscribe request from a user via any of the above methods, this user’s global email subscription state is set to unsubscribed. If there isn’t a match, Braze does not process this request.
+When Braze receives a list-unsubscribe request from a user via any of the [default list-unsubscribe header](#default-list-unsubscribe-header) methods, this user’s global email subscription state is set to unsubscribed. If there isn’t a match, Braze does not process this request.
 
 ### One-click unsubscribe
 
@@ -235,7 +248,7 @@ In your email editor, go to **Sending Settings** > **Sending Info**. Select from
     - When selecting a subscription group, add the **Subscription Group** filter in **Target Audiences** to only target users who are subscribed to this specific group. The subscription group selected for one-click unsubscribe must match the subscription group you’re targeting. If there is a mismatch in the subscription group, you may risk sending to a user who is trying to unsubscribe from a subscription group they're already unsubscribed from.
 
 {% alert important %}
-The **Unsubscribe from specific subscription group** setting only applies to the one-click list-unsubscribe header. The mailto list-unsubscribe header is not affected when selecting this option. This means a recipient who unsubscribes using this method logs a global unsubscribe, not an unsubscribe from the specific subscription group. To exclude the mailto list-unsubscribe header from globally unsubscribing users, when selecting this setting, contact [Support]({{site.baseurl}}/support_contact/).
+The **Unsubscribe from specific subscription group** setting only applies to the one-click list-unsubscribe header. The mailto list-unsubscribe header is not affected when selecting this option. This means a recipient who unsubscribes using this method logs a global unsubscribe, not an unsubscribe from the specific subscription group. To exclude the mailto list-unsubscribe header from globally unsubscribing users, when selecting this setting, contact [Support]({{site.baseurl}}/support_contact).
 {% endalert %}
 
 - **Custom:** Adds your custom one-click unsubscribe URL for you to process unsubscribes directly.
@@ -272,7 +285,7 @@ Use the toggle to include "[TEST]" and "[SEED]" in your test and seed email subj
 
 CSS inlining is a technique that automatically inlines CSS styles for your emails and new emails. For some email clients, this can improve the way that your emails render.
 
-Changing this setting does not affect any of your existing email messages or templates. You can override this default at any time while composing messages or templates. For more information, refer to [CSS inlining]({{site.baseurl}}/user_guide/channels/email/html_editor/css_inline/).
+Changing this setting does not affect any of your existing email messages or templates. You can override this default at any time while composing messages or templates. For more information, refer to [CSS inlining]({{site.baseurl}}/user_guide/channels/email/html_editor/css_inline).
 
 ## Resubscribe users when their email changes
 
@@ -302,7 +315,7 @@ Braze lets you set a **Custom Unsubscribe Page** with your own HTML. This page a
 
 ![Custom unsubscribe page HTML editor and preview for the page shown after a user unsubscribes from email.]({% image_buster /assets/img/email_settings/custom_unsubscribe.png %})
 
-For email list management best practices, see [Managing email subscriptions]({{site.baseurl}}/user_guide/channels/email/faq#unsubscribed-email-addresses).
+{% multi_lang_include email/external_font_domains.md page_type='unsubscribe' %}
 
 {% endtab %}
 {% tab Custom Opt-In Page %}
@@ -311,13 +324,13 @@ You can create a custom opt-in page using your own HTML. Including this in your 
 
 ![Custom opt-in page HTML editor and preview for branded email subscription confirmation.]({% image_buster /assets/img/email_settings/custom_opt_in.png %})
 
-For email list management best practices, see [Managing email subscriptions]({{site.baseurl}}/user_guide/channels/email/faq#unsubscribed-email-addresses).
+{% multi_lang_include email/external_font_domains.md page_type='opt-in' %}
 
 {% endtab %}
 {% endtabs %}
 
 {% alert tip %}
-When in the **Preview** section for a subscription page or footer, select **Copy preview link** to generate and copy a shareable preview link that shows what the email footer, unsubscribe page, or opt-in page looks like for a random user. The link lasts for seven days before it needs to be regenerated.
+When in the **Preview** section for a subscription page or footer, select **Copy preview link** to generate and copy a shareable preview link that shows what the email footer, unsubscribe page, or opt-in page looks like for a random user. For more information, see [Shareable preview]({{site.baseurl}}/user_guide/messaging/governance/shareable_preview).
 {% endalert %}
 
 ## Frequently asked questions
@@ -367,7 +380,7 @@ If a subscription group referenced in **Sending Info** for one-click is archived
 {% enddetails %}
 
 {% details Is the one-click unsubscribe setting available for email templates? %}
-No, we currently do not have plans to add this for email templates, as these templates aren't assigned to a sending domain. If you're interested in this feature for email templates, submit [product feedback]({{site.baseurl}}/user_guide/administer/personal/product_portal/).
+No, we currently do not have plans to add this for email templates, as these templates aren't assigned to a sending domain. {% multi_lang_include product_feedback_cta.md context="gap" feature="per-domain sending for email templates" %}
 {% enddetails %}
 
 {% details Does this feature check that the one-click unsubscribe URL added to the custom option is valid? %}

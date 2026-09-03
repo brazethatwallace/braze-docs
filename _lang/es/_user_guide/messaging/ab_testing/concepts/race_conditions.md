@@ -21,7 +21,7 @@ En Braze, pueden darse condiciones de carrera cuando se desencadenan varias acci
 Los tipos más comunes de condiciones de carrera pueden ocurrir cuando haces lo siguiente:
 
 - Segmentar a nuevos usuarios
-- Usar múltiples puntos finales de API
+- Usar múltiples endpoints de API
 - Hacer coincidir desencadenantes basados en acciones y filtros de audiencia
 - Usar el desencadenante "Interactuar con paso"
 
@@ -46,24 +46,24 @@ Con los mensajes dentro de la aplicación, la situación puede ser más matizada
 
 #### Introduce retrasos {#introduce-delays}
 
-Después de crear un nuevo usuario, puedes añadir un retraso antes de enviar cualquier Campaign o Canvas dirigido. Este retraso permite que se cree el perfil de usuario y que se actualicen los atributos relevantes que puedan determinar su elegibilidad para recibir el mensaje.
+Después de crear un nuevo usuario, puedes añadir un retraso antes de enviar cualquier campaña o Canvas dirigido. Este retraso permite que se cree el perfil de usuario y que se actualicen los atributos relevantes que puedan determinar su elegibilidad para recibir el mensaje.
 
 Por ejemplo, después de que un usuario se registre en tu aplicación, puedes enviar una oferta promocional después de 24 horas. O, si estás creando un usuario o registrando un atributo personalizado, puedes añadir un retraso de un minuto antes de continuar con tu proceso para evitar esta condición de carrera.
 
-También puedes añadir este retraso en el [SDK de Braze]({{site.baseurl}}/developer_guide/sdk_integration/) para el evento personalizado específico que desencadena que un nuevo usuario entre en un Canvas.
+También puedes añadir este retraso en el [SDK de Braze]({{site.baseurl}}/developer_guide/sdk_integration) para el evento personalizado específico que desencadena que un nuevo usuario entre en un Canvas.
 
-## Escenario 2: Usar múltiples puntos finales de API {#scenario-2-using-multiple-api-endpoints}
+## Escenario 2: Usar múltiples endpoints de API {#scenario-2-using-multiple-api-endpoints}
 
 {% alert important %}
 Usamos procesamiento asíncrono para maximizar la velocidad y la flexibilidad. Esto significa que cuando las llamadas a la API se nos envían por separado, no podemos garantizar que se procesen en el orden en que fueron enviadas.
 {% endalert %}
 
-Hay algunos escenarios en los que múltiples puntos finales de API también pueden resultar en esta condición de carrera, como cuando:
+Hay algunos escenarios en los que múltiples endpoints de API también pueden resultar en esta condición de carrera, como cuando:
 
-- Se usan puntos finales de API separados para crear usuarios y desencadenar Canvas o Campaigns
-- Se hacen múltiples llamadas separadas al punto final `/users/track` para actualizar atributos personalizados, eventos o compras
+- Se usan endpoints de API separados para crear usuarios y desencadenar Canvas o campañas
+- Se hacen múltiples llamadas separadas al endpoint `/users/track` para actualizar atributos personalizados, eventos o compras
 
-Cuando la información del usuario se envía a Braze usando el [punto final `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), ocasionalmente puede tardar unos segundos en procesarse. Esto significa que cuando se hacen solicitudes simultáneamente a los puntos finales `/users/track` y de mensajería como `/campaign/trigger/send`, no hay garantía de que la información del usuario se actualice antes de que se envíe un mensaje.
+Cuando la información del usuario se envía a Braze usando el [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), ocasionalmente puede tardar unos segundos en procesarse. Esto significa que cuando se hacen solicitudes simultáneamente a los endpoints `/users/track` y de mensajería como `/campaign/trigger/send`, no hay garantía de que la información del usuario se actualice antes de que se envíe un mensaje.
 
 {% alert note %}
 Si los atributos de usuario y los eventos se envían en la misma solicitud (ya sea desde `/users/track` o desde el SDK), Braze procesa los atributos antes que los eventos o antes de intentar enviar cualquier mensaje.
@@ -71,23 +71,23 @@ Si los atributos de usuario y los eventos se envían en la misma solicitud (ya s
 
 ### Mejores prácticas
 
-#### Cuando uses múltiples puntos finales, envía tus solicitudes una a la vez {#when-using-multiple-endpoints-send-your-requests-one-at-a-time}
+#### Cuando uses múltiples endpoints, envía tus solicitudes una a la vez {#when-using-multiple-endpoints-send-your-requests-one-at-a-time}
 
-Si estás usando múltiples puntos finales, puedes intentar escalonar tus solicitudes para que cada solicitud se complete antes de que comience la siguiente. Esto puede reducir la probabilidad de una condición de carrera. Por ejemplo, si necesitas actualizar atributos de usuario y enviar un mensaje, primero espera a que el perfil de usuario se actualice completamente antes de enviar un mensaje usando un punto final.
+Si estás usando múltiples endpoints, puedes intentar escalonar tus solicitudes para que cada solicitud se complete antes de que comience la siguiente. Esto puede reducir la probabilidad de una condición de carrera. Por ejemplo, si necesitas actualizar atributos de usuario y enviar un mensaje, primero espera a que el perfil de usuario se actualice completamente antes de enviar un mensaje usando un endpoint.
 
 Si estás enviando una solicitud de API de mensaje planificado, estas solicitudes deben ser separadas, y el usuario debe ser creado antes de enviar la solicitud de API planificada.
 
 #### Incluye datos clave con el desencadenante {#include-key-data-with-the-trigger}
 
-En lugar de usar múltiples puntos finales, puedes incluir los [atributos de usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object/#object-body) y las [propiedades del desencadenante]({{site.baseurl}}/api/objects_filters/trigger_properties_object/) en una sola llamada a la API usando el [punto final `campaign/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/).
+En lugar de usar múltiples endpoints, puedes incluir los [atributos de usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object#object-body) y las [propiedades del desencadenante]({{site.baseurl}}/api/objects_filters/trigger_properties_object) en una sola llamada a la API usando el [endpoint `campaign/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns).
 
 Cuando estos objetos se incluyen con el desencadenante, los atributos se procesan primero, antes de que se desencadene el mensaje, eliminando posibles condiciones de carrera. Ten en cuenta que las propiedades del desencadenante no actualizan el perfil de usuario, sino que se usan solo en el contexto del mensaje.
 
-#### Usa el punto final POST: Rastrear usuarios (sincrónico) {#use-the-post-track-users-sync-endpoint}
+#### Usa el endpoint POST: Rastrear usuarios (sincrónico) {#use-the-post-track-users-sync-endpoint}
 
-Usa el [punto final `/users/track/sync/`]({{site.baseurl}}/api/endpoints/user_data/post_user_track_synchronous/) para registrar eventos personalizados y compras, y actualizar atributos del perfil de usuario de forma sincrónica. Usar este punto final para actualizar perfiles de usuario al mismo tiempo y en una sola llamada puede ayudar a prevenir posibles condiciones de carrera.
+Usa el [endpoint `/users/track/sync/`]({{site.baseurl}}/api/endpoints/user_data/post_user_track_synchronous) para registrar eventos personalizados y compras, y actualizar atributos del perfil de usuario de forma sincrónica. Usar este endpoint para actualizar perfiles de usuario al mismo tiempo y en una sola llamada puede ayudar a prevenir posibles condiciones de carrera.
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' type='beta' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='This endpoint' type='beta' %}
 
 ## Escenario 3: Hacer coincidir desencadenantes basados en acciones y filtros de audiencia {#scenario-3-matching-action-based-triggers-and-audience-filters}
 
@@ -97,7 +97,7 @@ Otra condición de carrera común puede ocurrir si configuras una campaña o Can
 
 #### Verifica tu audiencia después de un retraso {#check-your-audience-after-a-delay}
 
-Para evitar usar filtros de audiencia que contengan los criterios del desencadenante, te recomendamos verificar tu audiencia antes de la entrega. Por ejemplo, puedes [usar validaciones de entrega]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#edit-delivery-settings) en los pasos de mensaje de Canvas como una verificación adicional para confirmar que tu audiencia cumple los criterios de entrega en el momento del envío del mensaje. También puedes aprovechar los criterios de salida de Canvas para hacer salir a cualquier usuario en cualquier punto del recorrido del usuario si cumple tus criterios.
+Para evitar usar filtros de audiencia que contengan los criterios del desencadenante, te recomendamos verificar tu audiencia antes de la entrega. Por ejemplo, puedes [usar validaciones de entrega]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#step-2-edit-delivery-settings) en los pasos de mensaje de Canvas como una verificación adicional para confirmar que tu audiencia cumple los criterios de entrega en el momento del envío del mensaje. También puedes aprovechar los criterios de salida de Canvas para hacer salir a cualquier usuario en cualquier punto del recorrido del usuario si cumple tus criterios.
 
 Para las campañas, puedes usar eventos de salida para permitir que las campañas con un evento desencadenante cancelen mensajes a usuarios que realicen el evento de salida mientras están en el retraso.
 
@@ -144,9 +144,9 @@ Un Canvas envía una notificación push en un paso de mensaje, seguido de un pas
 
 ### Mejores prácticas
 
-#### Rastrea la interacción usando un evento personalizado {#track-engagement-using-a-custom-event}
+#### Rastrea la participación usando un evento personalizado {#track-engagement-using-a-custom-event}
 
-Evita depender de "Interactuar con paso" inmediatamente después de un paso de mensaje cuando se espera que las interacciones del usuario ocurran rápidamente. En su lugar, rastrea la interacción usando un evento personalizado (por ejemplo, desencadenado desde la aplicación o el sitio web después de la interacción) y evalúa ese evento en un paso posterior. Esto asegura que el evento se registre después de que el usuario haya entrado en el paso.
+Evita depender de "Interactuar con paso" inmediatamente después de un paso de mensaje cuando se espera que las interacciones del usuario ocurran rápidamente. En su lugar, rastrea la participación usando un evento personalizado (por ejemplo, desencadenado desde la aplicación o el sitio web después de la interacción) y evalúa ese evento en un paso posterior. Esto asegura que el evento se registre después de que el usuario haya entrado en el paso.
 
 #### Evita ramificaciones que dependan de la interacción {#avoid-branches-that-are-dependent-on-interaction}
 

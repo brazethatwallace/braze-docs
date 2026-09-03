@@ -35,7 +35,7 @@ Die folgenden SDK-Versionen sind erforderlich, um Push-Storys zu empfangen:
 
 Um Push-Storys zu verwenden, gehen Sie wie folgt vor:
 
-1. Erstellen Sie eine [Push-Campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/).
+1. Erstellen Sie eine [Push-Campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message).
 2. Wählen Sie als **Notification Type** die Option **Push Stories** aus.
 3. Wählen Sie **iOS** oder **Android**. Beachten Sie, dass die Option zum Erstellen einer Push-Story nicht angezeigt wird, wenn Sie beide für eine Push-Nachricht auswählen.
 
@@ -52,12 +52,12 @@ Die Vorschauen werden widergespiegelt und sind interaktiv.
 ![Push-Story-Composer]({% image_buster /assets/img_archive/pushstories_composer.png %}){: style="max-width:60%"}
 
 {% alert important %}
-Wenn Sie Bilder mit [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/#about-connected-content) einbinden, stellen Sie sicher, dass Ihre Bild-URL mit `https://` beginnt. Die Verwendung von `http://` führt zum Absturz Ihrer App.
+Wenn Sie Bilder mit [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) einbinden, stellen Sie sicher, dass Ihre Bild-URL mit `https://` beginnt. Die Verwendung von `http://` führt zum Absturz Ihrer App.
 {% endalert %}
 
 ### Bild- und Textspezifikationen {#image-and-text-specifications}
 
-Die folgenden Bild- und Textspezifikationen gelten für den Fotokarussell-Teil von Push-Storys. Informationen zur grundlegenden Push-Benachrichtigung, mit der Nutzer:innen interagieren, um die Push-Story zu aktivieren, finden Sie unter [Push-Nachrichten- und Bildformate]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats/).
+Die folgenden Bild- und Textspezifikationen gelten für den Fotokarussell-Teil von Push-Storys. Informationen zur grundlegenden Push-Benachrichtigung, mit der Nutzer:innen interagieren, um die Push-Story zu aktivieren, finden Sie unter [Push-Nachrichten- und Bildformate]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats).
 
 {% tabs %}
 {% tab Bilder %}
@@ -86,9 +86,9 @@ Wenn Sie eine Campaign oder ein Canvas erstellen, können Sie filtern, welche Nu
 
 ### Push-Story-Analytics {#push-stories-analytics}
 
-Die Analytics sehen dem aktuellen Analytics-Bereich für Push-Benachrichtigungen sehr ähnlich. Für Push-Story-Analytics können Sie die Metrik **Direkte Öffnungen** aufklappen, um die Klicks pro Seite anzuzeigen.
+Die Analytics sehen dem aktuellen Analytics-Bereich für Push-Benachrichtigungen sehr ähnlich. Für Push-Story-Analytics können Sie die Metrik **Direct Opens** aufklappen, um die Klicks pro Seite anzuzeigen.
 
-![iOS-Push-Performance-Tabelle mit Beispiel-Analytics und erweiterten Details für die Metrik „Direkte Öffnungen“.]({% image_buster /assets/img_archive/pushstories_analytics.png %})
+![iOS-Push-Performance-Tabelle mit Beispiel-Analytics und erweiterten Details für die Metrik „Direct Opens“.]({% image_buster /assets/img_archive/pushstories_analytics.png %})
 
 ## Fehlerbehebung {#troubleshooting}
 

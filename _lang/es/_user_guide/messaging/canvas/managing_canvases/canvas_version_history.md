@@ -15,12 +15,12 @@ tool: Canvas
 Consultar el historial de versiones de tu Canvas puede ser especialmente útil para mantener un registro de la evolución de un Canvas. Por ejemplo, si realizas un cambio a gran escala, puedes consultar versiones anteriores del Canvas para comprender mejor cómo han progresado tus flujos de trabajo.
 
 {% alert tip %}
-Para obtener una lista completa de los Canvas en tu espacio de trabajo (por ejemplo, para una auditoría), usa el [punto de conexión Exportar lista de Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases/) y pagina a través de los resultados.
+Para obtener una lista completa de los Canvas en tu espacio de trabajo (por ejemplo, para una auditoría), usa el [punto de conexión Exportar lista de Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases) y pagina a través de los resultados.
 {% endalert %}
 
 ## Administrar versiones {#managing-versions}
 
-![]({% image_buster /assets/img_archive/canvas_version_history.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
+![Captura de pantalla relacionada con la administración de versiones.]({% image_buster /assets/img_archive/canvas_version_history.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
 
 Para crear una nueva versión, haz clic en **Actualizar Canvas**. Esto te permite realizar cambios sin sobrescribir la configuración anterior del Canvas. Cuando se crea una nueva versión del Canvas, los usuarios que ya están en el Canvas avanzarán a través del flujo de trabajo de la nueva versión. Los usuarios que entren al Canvas también ingresarán a la nueva versión.
 

@@ -6,14 +6,16 @@ description: "Braze JavaScript SDK README reference mirrored from GitHub."
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# JavaScript SDK repository guide
+
 ## About the Braze JavaScript SDK
 
 The Braze JavaScript SDK helps you integrate Braze messaging, analytics, and user engagement capabilities into your application.
 
 To get started, refer to the following resources:
 
-- [Braze User Guide]({{site.baseurl}}/user_guide/introduction/)
-- [Braze Developer Guide]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=javascript)
+- [Braze User Guide](https://www.braze.com/docs/user_guide/introduction/)
+- [Braze Developer Guide](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=javascript)
 
 ### Architecture Overview
 
@@ -28,8 +30,8 @@ The Braze JavaScript SDK is a **platform-agnostic** library designed to work in 
 <!--
 Effective marketing automation is an essential part of successfully scaling and managing your business. Braze empowers you to build better customer relationships through a seamless, multi-channel approach that addresses all aspects of the user life cycle. Braze helps you engage your users on an ongoing basis. We'll have you up and running in no time!
 
-- [Braze User Guide]({{site.baseurl}}/user_guide/introduction)
-- [Initial Web SDK Setup]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup/)
+- [Braze User Guide](https://www.braze.com/docs/user_guide/introduction)
+- [Initial Web SDK Setup](https://www.braze.com/docs/developer_guide/platform_integration_guides/web/initial_sdk_setup/)
 - [Braze Web SDK Documentation](https://js.appboycdn.com/web-sdk/{{VERSION}}/doc/modules/braze.html) -->
 
 ## Quickstart

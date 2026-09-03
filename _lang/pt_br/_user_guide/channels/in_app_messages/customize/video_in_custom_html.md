@@ -10,7 +10,7 @@ channel:
 
 # Vídeo em mensagens no app com HTML personalizado {#video}
 
-> Este artigo se aplica a [mensagens em HTML personalizado]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/) no [editor tradicional]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/).
+> Este artigo se aplica a [mensagens em HTML personalizado]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html) no [editor tradicional]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional).
 
 ## Incorporar vídeos {#embed-videos}
 
@@ -24,7 +24,7 @@ Para reproduzir um vídeo em uma mensagem no app em HTML, inclua o seguinte elem
 </video>
 ```
 
-Para usar um ativo de vídeo local, inclua esse arquivo ao fazer upload dos ativos para a sua Campaign.
+Para usar um ativo de vídeo local, inclua esse arquivo ao fazer upload dos ativos para a sua campaign.
 
 {% alert note %}
 O conteúdo de vídeo só está disponível quando o dispositivo tem uma velocidade de rede razoável, a menos que o vídeo seja originado localmente do dispositivo.
@@ -32,9 +32,9 @@ O conteúdo de vídeo só está disponível quando o dispositivo tem uma velocid
 
 ## Considerações para Android {#android-considerations}
 
-Para incorporar vídeo e outros conteúdos HTML5 em mensagens no app em HTML no Android, é necessário que a aceleração de hardware esteja ativada na Activity onde a mensagem no app é exibida. Para saber mais, consulte o [guia do desenvolvedor Android]({{site.baseurl}}/developer_guide/in_app_messages/html_messages/#android_embedding-youtube-content).
+Para incorporar vídeo e outros conteúdos HTML5 em mensagens no app em HTML no Android, é necessário que a aceleração de hardware esteja ativada na Activity onde a mensagem no app é exibida. Para saber mais, consulte o [guia do desenvolvedor Android]({{site.baseurl}}/developer_guide/in_app_messages/html_messages#android_embedding-youtube-content).
 
-**Reprodução automática**: Mesmo com a aceleração de hardware ativada, os WebViews do Android podem exigir um gesto do usuário para iniciar a reprodução de mídia. Se você precisa de reprodução automática, configure o WebView usado para renderizar mensagens no app em HTML para desativar a exigência de gesto do usuário definindo [`WebSettings.setMediaPlaybackRequiresUserGesture(false)`](https://developer.android.com/reference/android/webkit/WebSettings#setMediaPlaybackRequiresUserGesture(boolean)). Isso requer personalização no nível do SDK de como as mensagens no app em HTML são exibidas. Para orientações de configuração, consulte [Personalizar mensagens no app para o SDK da Braze]({{site.baseurl}}/developer_guide/in_app_messages/customization/?sdktab=android).
+**Reprodução automática**: Mesmo com a aceleração de hardware ativada, os WebViews do Android podem exigir um gesto do usuário para iniciar a reprodução de mídia. Se você precisa de reprodução automática, configure o WebView usado para renderizar mensagens no app em HTML para desativar a exigência de gesto do usuário definindo [`WebSettings.setMediaPlaybackRequiresUserGesture(false)`](https://developer.android.com/reference/android/webkit/WebSettings#setMediaPlaybackRequiresUserGesture(boolean)). Isso requer personalização no nível do SDK de como as mensagens no app em HTML são exibidas. Para orientações de configuração, consulte [Personalizar mensagens no app para o SDK da Braze]({{site.baseurl}}/developer_guide/in_app_messages/customization?sdktab=android).
 
 ## Considerações para iOS {#ios-considerations}
 
@@ -43,7 +43,7 @@ Para oferecer suporte a dispositivos iOS:
 - Você deve incluir o atributo `playsinline` porque a reprodução em tela cheia não é suportada.
 - **A reprodução automática não é garantida no iOS**. O comportamento de reprodução no iOS depende do `WKWebView` e das políticas de mídia no nível do sistema operacional, e pode exigir um gesto do usuário mesmo quando `autoplay` e `muted` estão definidos. Teste sua mensagem no app em HTML nas versões e dispositivos iOS de destino.
 
-Se a reprodução automática for necessária e seus testes mostrarem que ela não funciona por padrão, você pode personalizar a `WKWebViewConfiguration` usada pelas mensagens no app em HTML para ajustar a exigência de ação do usuário para reprodução de mídia, por exemplo, definindo a propriedade `mediaTypesRequiringUserActionForPlayback`. Isso requer personalização no nível do SDK. Para recursos em Swift, consulte [Personalizar mensagens no app para o SDK da Braze]({{site.baseurl}}/developer_guide/in_app_messages/customization/?sdktab=swift) e [Adicionar a interface JavaScript da Braze a WebViews para Swift]({{site.baseurl}}/developer_guide/in_app_messages/html_messages/?sdktab=swift).
+Se a reprodução automática for necessária e seus testes mostrarem que ela não funciona por padrão, você pode personalizar a `WKWebViewConfiguration` usada pelas mensagens no app em HTML para ajustar a exigência de ação do usuário para reprodução de mídia, por exemplo, definindo a propriedade `mediaTypesRequiringUserActionForPlayback`. Isso requer personalização no nível do SDK. Para recursos em Swift, consulte [Personalizar mensagens no app para o SDK da Braze]({{site.baseurl}}/developer_guide/in_app_messages/customization?sdktab=swift) e [Adicionar a interface JavaScript da Braze a WebViews para Swift]({{site.baseurl}}/developer_guide/in_app_messages/html_messages?sdktab=swift).
 
 ## Considerações para web {#web-considerations}
 

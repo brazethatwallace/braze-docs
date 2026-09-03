@@ -4,12 +4,12 @@ article_title: セグメントインサイト
 page_order: 6
 page_type: tutorial
 tool:
-  - セグメント
+  - Segments
   - Reports
 description: "このハウツー記事では、セグメントインサイトの使用方法、解釈方法、共有方法について説明します。"
 ---
 
-# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/segmentation-course){: style="float:right;width:120px;border:0;" class="noimgborder"}セグメントインサイト {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomsegmentation-course-stylefloatrightwidth120pxborder0-classnoimgbordersegment-insights}
+# [![Braze Learning コース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/segmentation-course){: style="float:right;width:120px;border:0;" class="noimgborder"}セグメントインサイト {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomsegmentation-course-stylefloatrightwidth120pxborder0-classnoimgbordersegment-insights}
 
 > セグメントインサイトの使用方法、解釈方法、共有方法について説明します。
 
@@ -17,11 +17,15 @@ description: "このハウツー記事では、セグメントインサイトの
 
 ## セグメントインサイトの表示 {#viewing-segment-insights}
 
-ダッシュボードの**分析**の下にある**セグメントインサイト**ページに移動し、ベースラインと比較する最大10個の異なるセグメントを表示します。
+ダッシュボードの**Analytics**の下にある**セグメントインサイト**ページに移動すると、ベースラインと比較した最大10個の異なるセグメントを表示できます。
 
-![「UK Users」、「FR Users」、「CA Users」の3つのセグメントをベースラインセグメント「All Users」と比較するセグメントインサイトダッシュボード。]({% image_buster /assets/img_archive/segment_insights.png %})
+![セグメントインサイトダッシュボードで、「UK Users」、「FR Users」、「CA Users」の3つのセグメントをベースラインセグメント「All Users」と比較している画面。]({% image_buster /assets/img_archive/segment_insights.png %})
 
-ベースラインセグメントは、選択した特定のセグメントか、すべてのユーザーを含むセグメントのいずれかにできます。セグメントインサイトを使用して、以下の統計を比較できます。
+{% alert note %}
+セグメントインサイトページの統計はデフォルトで推定値です。正確な値を計算するには、セグメントを開いて**Calculate Exact Statistics**を選択してください。推定値は正確な値より高くなることも低くなることもあり、特に大規模なワークスペースや小さなセグメントでその傾向が顕著です。
+{% endalert %}
+
+ベースラインセグメントは、選択した特定のセグメント、またはすべてのユーザーを含むセグメントのいずれかにできます。セグメントインサイトを使用して、以下の統計を比較できます。
 
 | 測定項目 | 説明 | 計算式 |
 | --------------------- | ------------- | ------------- |
@@ -31,17 +35,21 @@ description: "このハウツー記事では、セグメントインサイトの
 | 生涯収益（ドル） | セグメントユーザーの平均生涯収益（ドル） | ユーザーの生涯支出 |
 | 最初の購入までの日数 | セグメントユーザーの最初のセッションから最初の購入までの平均日数 | 最初の購入日 – 最初のセッションの日付 |
 | 最後の購入からの日数 | セグメントユーザーの最後の購入から現在までの平均日数 | 今日 – 最後の購入日 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Viewing セグメント Insights" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="セグメントインサイトの表示" }
 
-ページ固有のURLを使用して、特定の比較をチームメイトと簡単に共有できます。また、各セグメントの横にある目のアイコンを選択すると、そのセグメントに関する詳細情報を表示できます。これらの比較は、ワークスペースを切り替えるとリセットされます。
+ページ固有のURLを使用して、特定の比較をチームメンバーと簡単に共有できます。また、各セグメントの横にある目のアイコンを選択すると、そのセグメントに関する詳細情報を表示できます。これらの比較は、ワークスペースを切り替えるとリセットされます。
 
-![「Premium Users (iOS VideoApp)」セグメントの詳細。過去のメンバーシップを示すグラフと、さまざまなメッセージングチャネルの推定サイズを分類したチャートが表示されています。]({% image_buster /assets/img_archive/Segment_Insights_Info.png %}){: style="max-width:50%;"}
+![「Premium Users (iOS VideoApp)」セグメントの詳細。過去のメンバーシップを示すグラフと、各メッセージングチャネルの推定サイズを分類したチャートが表示されています。]({% image_buster /assets/img_archive/Segment_Insights_Info.png %}){: style="max-width:50%;"}
 
 ## セグメント詳細ページ {#segment-details-page}
 
-セグメントインサイトは、**セグメント詳細**ビューにも組み込まれています。以前設定した特定のセグメントを表示すると、ダイナミックなグレーのセグメント統計ボックス内に同じ6つの統計が表示されます。ここから、セグメントインサイトツールをすばやく起動して、この特定のセグメントを以前設定した他のセグメントと比較できます。ただし、これにより、セグメントインサイトツール内で以前選択したセグメントが上書きされることに注意してください。
+セグメントインサイトは、**セグメント詳細**ビューにも組み込まれています。以前設定した特定のセグメントを表示すると、ダイナミックなグレーのセグメント統計ボックス内に同じ6つの統計情報が表示されます。ここから、セグメントインサイトツールをすばやく起動して、この特定のセグメントを以前設定した他のセグメントと比較できます。ただし、この操作を行うと、セグメントインサイトツールで以前選択したセグメントが上書きされることに注意してください。
 
-![]({% image_buster /assets/img_archive/Segment_Segment_Insights.png %})
+{% alert note %}
+[セグメントインサイト](#viewing-segment-insights)と**セグメント詳細**ページは、異なるユーザーサンプルとサンプルサイズを使用してサイズの推定値を個別に計算するため、数値が一致しないことが予想されます。
+{% endalert %}
+
+![セグメントインサイトはセグメント詳細ビューにも組み込まれています。以前設定した特定のセグメントを表示すると、ダイナミックなグレーのセグメント統計ボックス内に同じ6つの統計情報が表示されます。ここから、セグメントインサイトツールをすばやく起動して、この特定のセグメントを以前設定した他のセグメントと比較できます。ただし、この操作を行うと、セグメントインサイトツールで以前選択したセグメントが上書きされることに注意してください。]({% image_buster /assets/img_archive/Segment_Segment_Insights.png %})
 
 ## ユースケース {#insights-use-cases}
 
@@ -54,13 +62,13 @@ description: "このハウツー記事では、セグメントインサイトの
 - キャンペーンは特定の人口統計層にエンゲージしていますか？
 - 特定の人口統計層を対象としたキャンペーンにどのような目標を設定すべきですか？
 
-セグメントインサイトは、ユーザーの人口統計間の違いを明らかにするのに役立ちます。以下の例は、アプリのユーザー群を言語別に比較したもので、英語話者が他の言語の話者よりも高い生涯価値とアクティビティレベルを持つ傾向があることを示しています。
+セグメントインサイトは、ユーザーの人口統計間の違いを明らかにするのに役立ちます。以下の例は、アプリのユーザー群を言語別に比較したもので、英語話者が他の言語の話者よりも高いLTVとアクティビティレベルを持つ傾向があることを示しています。
 
 ![英語、ドイツ語、フランス語、スペイン語のセグメントのセグメントインサイト内訳。]({% image_buster /assets/img_archive/Segment_Language_Insights.png %})
 
-この例では、ドイツ語話者は平均してより前に登録しており、これが現在あまりアクティブでない理由を説明しているかもしれません。これは多くの要因によるものと考えられます。例えば、アプリが最初にヨーロッパでリリースされたが、現在は英語やスペイン語を話す人が多い米国でより人気があるといった場合です。人口統計全体でKPIを分析する際により堅牢な結果を得るには、人口統計の一般的な調査から得られた結果（例えば、言語がすべてのユーザーの生涯価値に影響するかどうか）を、より小さく類似した集団で検証し、結果が持続するかどうかを確認することが合理的です。
+この例では、ドイツ語話者は平均してより前に登録しており、これが現在あまりアクティブでない理由を説明しているかもしれません。これは多くの要因によるものと考えられます。例えば、アプリが最初にヨーロッパでリリースされたが、現在は英語やスペイン語を話す人が多い米国でより人気があるといった場合です。人口統計全体でKPIを分析する際により堅牢な結果を得るには、人口統計の一般的な調査から得られた結果（例えば、言語がすべてのユーザーのLTVに影響するかどうか）を、より小さく類似した集団で検証し、結果が持続するかどうかを確認することが合理的です。
 
-英語以外の言語の話者のコンバージョンを改善するための良い第一歩は、ユーザーのデバイス言語に合わせて[キャンペーンをローカライズ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/)し、[多変量キャンペーン]({{site.baseurl}}/user_guide/messaging/ab_testing/#creating-tests)を使用して外国語コピーの異なるバージョンをテストすることで、メッセージのコピーがユーザーにエンゲージしていることを確認することです。
+英語以外の言語の話者のコンバージョンを改善するための良い第一歩は、ユーザーのデバイス言語に合わせて[キャンペーンをローカライズ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization)し、[多変量キャンペーン]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests)を使用して外国語コピーの異なるバージョンをテストすることで、メッセージのコピーがユーザーにエンゲージしていることを確認することです。
 
 ### 高収益の指標を理解する {#understanding-indicators-of-higher-revenue}
 
@@ -68,4 +76,4 @@ description: "このハウツー記事では、セグメントインサイトの
 
 ![ソーシャルメディアで共有したユーザー、プロモーションに登録したユーザー、ニュースレターに登録したユーザーのセグメントインサイト内訳。]({% image_buster /assets/img_archive/Segment_Insights_Events1.png %})
 
-この場合、現在プロモーションメッセージに登録しているユーザーは比較的少なく、あまりアクティブではありませんが、これらのユーザーはより高い生涯収益を生み出しています。収益を増やすには、オンボーディングキャンペーンにプロモーションメッセージへの登録の招待を含めることが良いアイデアかもしれません。離脱したユーザーを再エンゲージするには、一般的な[離脱ユーザーキャンペーン]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users/#capture-lapsing-users)を送信し、[コンバージョンしたユーザー]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns/#converted-from-campaign-filter)をターゲットにして、プロモーションメッセージへの登録を促す後続のキャンペーンを送信することが良い計画です。
+この場合、現在プロモーションメッセージに登録しているユーザーは比較的少なく、あまりアクティブではありませんが、これらのユーザーはより高い生涯収益を生み出しています。収益を増やすには、オンボーディングキャンペーンにプロモーションメッセージへの登録の招待を含めることが良いアイデアかもしれません。離脱したユーザーを再エンゲージするには、一般的な[離脱ユーザーキャンペーン]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users)を送信し、[コンバージョンしたユーザー]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns#converted-from-campaign)をターゲットにして、プロモーションメッセージへの登録を促す後続のキャンペーンを送信することが良い計画です。

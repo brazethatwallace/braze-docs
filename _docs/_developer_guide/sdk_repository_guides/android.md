@@ -6,14 +6,16 @@ description: "Braze Android SDK README reference mirrored from GitHub."
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Android SDK repository guide
+
 ## About the Braze Android SDK
 
 The Braze Android SDK helps you integrate Braze messaging, analytics, and user engagement capabilities into your application.
 
 To get started, refer to the following resources:
 
-- [Braze User Guide]({{site.baseurl}}/user_guide/introduction/)
-- [Braze Developer Guide]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android)
+- [Braze User Guide](https://www.braze.com/docs/user_guide/introduction/)
+- [Braze Developer Guide](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=android)
 
 ## Quickstart
 
@@ -28,8 +30,8 @@ repositories {
 }
 // ...
 dependencies {
-  `implementation 'com.braze:android-sdk-ui:42.3.+'`
-  `implementation 'com.braze:android-sdk-location:42.3.+'`
+  `implementation 'com.braze:android-sdk-ui:43.1.+'`
+  `implementation 'com.braze:android-sdk-location:43.1.+'`
 }
 // ...
 ```
@@ -47,7 +49,7 @@ dependencies {
 Braze.getInstance(context).changeUser("Jane Doe");
 ```
 
-For more information about advanced integration options, see the [Braze Developer Guide]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android).
+For more information about advanced integration options, see the [Braze Developer Guide](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=android).
 
 ## Version support
 
@@ -66,7 +68,7 @@ Tool | Minimum supported version
 minSdk|5.0+ / API 21+ (Lollipop and up)
 targetSdk|37
 Kotlin|`org.jetbrains.kotlin:kotlin-stdlib:2.2.20`
-Firebase Cloud Messaging|24.1.2
+Firebase Cloud Messaging|25.1.1
 Font Awesome|4.3.0
 
 ## Modules

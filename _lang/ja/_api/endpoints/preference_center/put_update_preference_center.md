@@ -20,7 +20,7 @@ description: "この記事では、「ユーザー設定センターの更新」
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`preference_center.update` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`preference_center.update` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -72,7 +72,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `preference_center_title` | オプション | 文字列 | ユーザー設定センターおよび確認ページのタイトル。タイトルが指定されていない場合、ページのタイトルはデフォルトで「Preference Center」になります。 |
 | `confirmation_page_html` | 必須 | 文字列 | 確認ページのHTML。 |
 | `state` | オプション | 文字列 | `active` または `draft` を選択します。|
-| `options` | オプション | オブジェクト | 属性:<br>`meta-viewport-content`:存在する場合、`viewport` メタタグが `content= <value of attribute>` でページに追加されます。<br><br> `link-tags`:ページのファビコンを設定します。設定すると、rel属性を持つ `<link>` タグがページに追加されます。  |
+| `options` | オプション | オブジェクト | 属性:<br>`meta-viewport-content`:存在する場合、`viewport` メタタグが `content= <value of attribute>` でページに追加されます。<br><br>`link-tags`:ページのファビコンを設定します。設定すると、rel属性を持つ `<link>` タグがページに追加されます。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}

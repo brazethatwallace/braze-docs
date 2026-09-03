@@ -22,7 +22,7 @@ toc_headers: h2
 
 ### ステップ1:メールキャンペーンを作成する {#step-1-create-an-email-campaign}
 
-まず、[メールキャンペーンを作成]({{site.baseurl}}/user_guide/channels/email/html_editor/)し、編集環境として**HTMLコードエディター**を選択します。
+まず、[メールキャンペーンを作成]({{site.baseurl}}/user_guide/channels/email/html_editor)し、編集環境として**HTMLコードエディター**を選択します。
 
 ### ステップ2:Gmailプロモーションカードに詳細を追加する {#step-2-add-details-to-gmail-promotion-card}
 
@@ -86,7 +86,7 @@ Gmailプロモーションカードに割引オファー、ディールカード
 | 通貨 | （オプション）価格の通貨です。 |
 | 価格 | プロモーションの価格です。 |
 | 割引値 | 元の価格からの割引額です。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Customize your Gmail Promotion card" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ3:Gmailプロモーションカードをカスタマイズする" }
 
 ![Mottoという会社の商品カルーセルの例。メールの見出しは「ベストセラーの靴下がセール中」で、3つの靴下の画像と割引価格が表示されています。]({% image_buster /assets/img_archive/product_carousel.png %}){: style="max-width:40%;"}
 
@@ -98,7 +98,7 @@ Gmailプロモーションカードに割引オファー、ディールカード
 Gmailプロモーションカードを作成したら、**HTMLコードを生成**を選択します。スクリプトをコピーして、メールのHTMLの`<head>`要素に貼り付けます。
 
 {% alert tip %}
-ドラッグ＆ドロップエディターの場合は、生成されたHTMLコードを**送信設定**の[カスタムヘッドタグ]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/#custom-head-tags)セクションにコピーして貼り付けます。
+ドラッグ＆ドロップエディターの場合は、生成されたHTMLコードを**送信設定**の[カスタムヘッドタグ]({{site.baseurl}}/user_guide/channels/email/drag_and_drop#custom-head-tags)セクションにコピーして貼り付けます。
 {% endalert %}
 
 {% alert warning %}

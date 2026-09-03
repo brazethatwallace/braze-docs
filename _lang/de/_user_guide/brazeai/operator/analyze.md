@@ -29,7 +29,7 @@ Operator Analyze läuft im Operator-Konversations-Panel.
 2. Fragen Sie nach Kanal-Engagement oder Benchmark-Vergleichen (siehe [Beispielfragen](#example-questions)).
 3. Operator gibt die Antwort zurück und, wenn hilfreich, ein Chart oder eine Tabelle sowie eine kurze Liste von Insights.
 
-Weitere Informationen zum Operator-Chat-Panel finden Sie unter [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/).
+Weitere Informationen zum Operator-Chat-Panel finden Sie unter [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator).
 
 ## Beispielfragen {#example-questions}
 
@@ -159,9 +159,9 @@ Fragen außerhalb des Umfangs erhalten eine direkte Antwort, wenn möglich eine 
 
 ## Datenschutz und Sicherheit {#data-privacy-and-security}
 
-Operator Analyze folgt demselben Datenschutz- und Sicherheitsmodell wie BrazeAI Operator<sup>TM</sup>. Weitere Informationen finden Sie unter [Datenschutz und Sicherheit]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security/).
+Operator Analyze folgt demselben Datenschutz- und Sicherheitsmodell wie BrazeAI Operator<sup>TM</sup>. Weitere Informationen finden Sie unter [Datenschutz und Sicherheit]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security).
 
 ## Nächste Schritte {#next-steps}
 
-* [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/)
-* [Aktionen überprüfen]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/)
+* [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator)
+* [Aktionen überprüfen]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions)

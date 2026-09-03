@@ -2,57 +2,57 @@
 page_order: 0
 nav_title: Home
 layout: dev_guide
-guide_top_header: "Braze Entwicklerhandbuch"
-guide_top_text: "Hier finden Entwickler:in alles, was sie über das Braze SDK wissen müssen. Jedes SDK wird in seinem eigenen öffentlichen GitHub-Repository gehostet, das vollständig kompilierbare Beispiel-Apps enthält, mit denen Sie die Features von Braze testen oder neben Ihren eigenen Anwendungen implementieren können. Weitere Informationen finden Sie unter <a href='https://www.braze.com/docs/developer_guide/references/'>Referenzen, Repositories und Beispiel-Apps</a>.<br><br>Möchten Sie sich mit anderen Entwickler:in vernetzen, lernen und sich von ihnen inspirieren lassen, die mit Braze arbeiten? Treten Sie der <a href='https://www.braze.com/dev-portal'>Braze Entwickler:in Community</a> bei!"
-article_title: Braze Entwicklerhandbuch
-description: "Auf dieser Landing Page finden Entwickler alle mit Braze verfügbaren Integrationen."
+guide_top_header: "Braze-Entwicklerhandbuch"
+guide_top_text: "Hier finden Entwickler:innen alles, was sie für die Integration des Braze SDK und der zugehörigen APIs benötigen. Jedes SDK wird in seinem eigenen öffentlichen GitHub-Repository gehostet, das vollständig kompilierbare Beispiel-Apps enthält, mit denen Sie die Features von Braze testen oder neben Ihren eigenen Anwendungen implementieren können. Durchsuchen Sie die Plattform-Anleitungen für Web, iOS, Android und weitere Integrationen und besuchen Sie dann <a href='/docs/developer_guide/references'>Referenzen, Repositories und Beispiel-Apps</a> für Repository-Links. Möchten Sie sich mit anderen Entwickler:innen vernetzen, die mit Braze arbeiten? Treten Sie der <a href='https://www.braze.com/dev-portal'>Braze-Entwickler:innen-Community</a> bei!"
+article_title: Braze-Entwicklerhandbuch
+description: "Auf dieser Landing-Page finden Entwickler:innen alle mit Braze verfügbaren Integrationen."
 
 guide_featured_title: "Ausgewählte Integrationen"
 guide_featured_list:
-- name: Internet
-  link: /docs/developer_guide/sdk_integration/?sdktab=web
+- name: Web
+  link: /docs/developer_guide/sdk_integration?sdktab=web
   image: /assets/img/braze_icons/globe-02.svg
   nav_link: web
 - name: Android
   image: /assets/img/braze_icons/android.svg
-  link: /docs/developer_guide/sdk_integration/?sdktab=android
+  link: /docs/developer_guide/sdk_integration?sdktab=android
   nav_link: android
-- name: Schnell
-  link: /docs/developer_guide/sdk_integration/?sdktab=swift
+- name: Swift
+  link: /docs/developer_guide/sdk_integration?sdktab=swift
   image: /assets/img/braze_icons/swift.svg
 
-guide_menu_title: "All integrations"
+guide_menu_title: "Alle Integrationen"
 guide_menu_list:
   - name: Cordova
-    link: /docs/developer_guide/sdk_integration/?sdktab=cordova
+    link: /docs/developer_guide/sdk_integration?sdktab=cordova
     image: /assets/img/cordova.png
     nav_link: cordova
   - name: FireOS
-    link: /docs/developer_guide/sdk_integration/?sdktab=android
+    link: /docs/developer_guide/sdk_integration?sdktab=android
     image: /assets/img/fire-os-bw.png
     nav_link: fireos
   - name: Flutter
-    link: /docs/developer_guide/sdk_integration/?sdktab=flutter
+    link: /docs/developer_guide/sdk_integration?sdktab=flutter
     image: /assets/img/flutter_icon.png
     nav_link: flutter
   - name: React Native
-    link: /docs/developer_guide/sdk_integration/?sdktab=react%20native
+    link: /docs/developer_guide/sdk_integration?sdktab=react%20native
     image: /assets/img/reactnative_icon.png
     nav_link: reactnative
   - name: Roku
-    link: /docs/developer_guide/sdk_integration/?sdktab=roku
+    link: /docs/developer_guide/sdk_integration?sdktab=roku
     image: /assets/img/roku.png
     nav_link: roku
   - name: Unity
-    link: /docs/developer_guide/sdk_integration/?sdktab=unity
+    link: /docs/developer_guide/sdk_integration?sdktab=unity
     image: /assets/img/unity.png
     nav_link: unity
   - name: .NET MAUI (Xamarin)
-    link: /docs/developer_guide/sdk_integration/?sdktab=.net%20maui%20(xamarin)
+    link: /docs/developer_guide/sdk_integration?sdktab=.net%20maui%20(xamarin)
     image: /assets/img/xamarin.png
     nav_link: xamarin
-  - name: TV &amp; OTT
-    link: /docs/developer_guide/platforms/tv_and_ott/
+  - name: TV und OTT
+    link: /docs/developer_guide/platforms/tv_and_ott
     image: /assets/img/braze_icons/tv-03.svg
     nav_link: tv_and_ott
 

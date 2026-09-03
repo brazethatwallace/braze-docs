@@ -1,14 +1,14 @@
 {% multi_lang_include developer_guide/prerequisites/android.md %}
 
-## 내장 기능 {#built-in-features}
+## 기본 제공 기능 {#built-in-features}
 
-다음 기능들은 Braze Android SDK에 내장되어 있습니다. 다른 푸시 알림 기능을 사용하려면 앱에 [푸시 알림을 설정해야](#android_setting-up-push-notifications) 합니다.
+다음 기능은 Braze Android SDK에 기본으로 포함되어 있습니다. 다른 푸시 알림 기능을 사용하려면 앱에 [푸시 알림을 설정](#android_setting-up-push-notifications)해야 합니다.
 
-| 기능 | 설명 |
+|기능|설명|
 |-------|-----------|
-| Push Stories | Android Push Stories는 기본적으로 Braze Android SDK에 내장되어 있습니다. 자세한 내용은 [Push Stories]({{site.baseurl}}/user_guide/message_building_by_channel/push/advanced_push_options/push_stories/)를 참조하세요. |
-| 푸시 프라이머 | 푸시 프라이머 Campaign은 사용자가 기기에서 앱에 대한 푸시 알림을 활성화하도록 유도합니다. [노코드 푸시 프라이머]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages/)를 사용하면 SDK 커스터마이징 없이도 이 작업을 수행할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Built-in features" }
+|Push Stories|Android Push Stories는 기본적으로 Braze Android SDK에 포함되어 있습니다. 자세한 내용은 [Push Stories]({{site.baseurl}}/user_guide/message_building_by_channel/push/advanced_push_options/push_stories)를 참조하세요.|
+|푸시 프라이머|푸시 프라이머 Campaigns는 사용자가 기기에서 앱의 푸시 알림을 활성화하도록 유도합니다. SDK 커스텀 설정 없이 [노코드 푸시 프라이머]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages)를 사용하여 구현할 수 있습니다.|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="기본 제공 기능" }
 
 ## 푸시 알림 수명 주기에 관하여 {#push-notification-lifecycle}
 
@@ -179,29 +179,29 @@ class H1,H2,H3,I1,J1,J2,J3,K1,L1,L2,L3,note1 brazeClass
 {% endtab %}
 {% endtabs %}
 
-## 푸시 알림 설정 {#setting-up-push-notifications}
+## 푸시 알림 설정하기 {#setting-up-push-notifications}
 
 {% alert tip %}
-Braze Android SDK와 FCM을 사용하는 샘플 앱을 확인하려면 [Braze: Firebase 푸시 샘플 앱](https://github.com/braze-inc/braze-android-sdk/tree/master/samples/firebase-push)을 참조하세요.
+Braze Android SDK와 함께 FCM을 사용하는 샘플 앱을 확인하려면 [Braze: Firebase Push 샘플 앱](https://github.com/braze-inc/braze-android-sdk/tree/master/samples/firebase-push)을 참조하세요.
 {% endalert %}
 
 ### 사용량 제한 {#rate-limits}
 
-Firebase 클라우드 메시징(FCM) API의 기본 사용량 제한은 분당 600,000건의 요청입니다. 이 제한에 도달하면 Braze는 몇 분 후에 자동으로 다시 시도합니다. 증가를 요청하려면 [Firebase 지원팀](https://firebase.google.com/support)에 문의하세요.
+Firebase Cloud Messaging(FCM) API의 기본 사용량 제한은 분당 600,000건의 요청입니다. 이 제한에 도달하면 Braze가 몇 분 후에 자동으로 재시도합니다. 증가를 요청하려면 [Firebase 지원팀](https://firebase.google.com/support)에 문의하세요.
 
-### 1단계: 프로젝트에 Firebase 추가 {#step-1-add-firebase-to-your-project}
+### 1단계: 프로젝트에 Firebase 추가하기 {#step-1-add-firebase-to-your-project}
 
 먼저 Android 프로젝트에 Firebase를 추가합니다. 단계별 지침은 Google의 [Firebase 설정 가이드](https://firebase.google.com/docs/android/setup)를 참조하세요.
 
-### 2단계: 종속성에 클라우드 메시징 추가 {#step-2-add-cloud-messaging-to-your-dependencies}
+### 2단계: 종속성에 Cloud Messaging 추가하기 {#step-2-add-cloud-messaging-to-your-dependencies}
 
-다음으로 프로젝트 종속성에 클라우드 메시징 라이브러리를 추가합니다. Android 프로젝트에서 `build.gradle`을 열고 `dependencies` 블록에 다음 줄을 추가합니다.
+다음으로 프로젝트 종속성에 Cloud Messaging 라이브러리를 추가합니다. Android 프로젝트에서 `build.gradle`을 열고 `dependencies` 블록에 다음 줄을 추가합니다.
 
 ```gradle
 implementation "google.firebase:firebase-messaging:+"
 ```
 
-종속성은 다음과 비슷해야 합니다:
+종속성은 다음과 유사해야 합니다:
 
 ```gradle
 dependencies {
@@ -210,87 +210,87 @@ dependencies {
 }
 ```
 
-### 3단계: Firebase 클라우드 메시징 API 활성화 {#step-3-enable-the-firebase-cloud-messaging-api}
+### 3단계: Firebase Cloud Messaging API 활성화하기 {#step-3-enable-the-firebase-cloud-messaging-api}
 
-Google Cloud에서 Android 앱이 사용 중인 프로젝트를 선택한 다음, [Firebase 클라우드 메시징 API](https://console.cloud.google.com/apis/library/fcm.googleapis.com)를 활성화합니다.
+Google Cloud에서 Android 앱이 사용하는 프로젝트를 선택한 다음 [Firebase Cloud Messaging API](https://console.cloud.google.com/apis/library/fcm.googleapis.com)를 활성화합니다.
 
-![Firebase 클라우드 메시징 API 활성화됨]({% image_buster /assets/img/android/push_integration/create_a_service_account/firebase-cloud-messaging-api-enabled.png %}){: style="max-width:80%;"}
+![활성화된 Firebase Cloud Messaging API]({% image_buster /assets/img/android/push_integration/create_a_service_account/firebase-cloud-messaging-api-enabled.png %}){: style="max-width:80%;"}
 
-### 4단계: 서비스 계정 생성 {#service-account}
+### 4단계: 서비스 계정 만들기 {#service-account}
 
-다음으로 Braze가 FCM 토큰을 등록할 때 승인된 API 호출을 할 수 있도록 새 서비스 계정을 생성합니다. Google Cloud에서 **서비스 계정**으로 이동한 다음 프로젝트를 선택합니다. **서비스 계정** 페이지에서 **서비스 계정 생성**을 선택합니다.
+다음으로 새 서비스 계정을 만들어 Braze가 FCM 토큰을 등록할 때 인증된 API 호출을 수행할 수 있도록 합니다. Google Cloud에서 **Service Accounts**로 이동한 다음 프로젝트를 선택합니다. **Service Accounts** 페이지에서 **Create Service Account**를 선택합니다.
 
-!["서비스 계정 생성"이 강조 표시된 프로젝트의 서비스 계정 홈 페이지.]({% image_buster /assets/img/android/push_integration/create_a_service_account/select-create-service-account.png %})
+![Create Service Account가 강조 표시된 프로젝트의 서비스 계정 홈 페이지.]({% image_buster /assets/img/android/push_integration/create_a_service_account/select-create-service-account.png %})
 
-서비스 계정 이름, ID, 설명을 입력한 다음 **생성 후 계속**을 선택합니다.
+서비스 계정 이름, ID, 설명을 입력한 다음 **Create and continue**를 선택합니다.
 
 
-**역할** 필드에서 역할 목록에서 **Firebase Cloud Messaging API Admin**을 찾아 선택합니다. 보다 제한적인 액세스를 원하면 `cloudmessaging.messages.create` 권한으로 [커스텀 역할](https://cloud.google.com/iam/docs/creating-custom-roles)을 생성한 다음 목록에서 해당 역할을 선택합니다. 완료되면 **완료**를 선택합니다.
+**Role** 필드에서 역할 목록에서 **Firebase Cloud Messaging API Admin**을 찾아 선택합니다. 더 제한적인 액세스를 원하면 `cloudmessaging.messages.create` 권한이 있는 [커스텀 역할](https://cloud.google.com/iam/docs/creating-custom-roles)을 만든 다음 목록에서 해당 역할을 선택합니다. 완료되면 **Done**을 선택합니다.
 
 {% alert warning %}
 **Firebase Cloud Messaging Admin**이 아닌 **Firebase Cloud Messaging _API_ Admin**을 선택해야 합니다.
 {% endalert %}
 
-!["이 서비스 계정에 프로젝트 접근 권한 부여" 양식에서 역할로 "Firebase Cloud Messaging API Admin"이 선택된 상태.]({% image_buster /assets/img/android/push_integration/create_a_service_account/add-fcm-api-admin.png %})
+![Firebase Cloud Messaging API Admin이 역할로 선택된 '이 서비스 계정에 프로젝트 액세스 권한 부여' 양식.]({% image_buster /assets/img/android/push_integration/create_a_service_account/add-fcm-api-admin.png %})
 
-### 5단계: JSON 자격 증명 생성 {#json}
+### 5단계: JSON 자격 증명 생성하기 {#json}
 
-다음으로 FCM 서비스 계정에 대한 JSON 자격 증명을 생성합니다. Google Cloud IAM & Admin에서 **서비스 계정**으로 이동한 후 프로젝트를 선택합니다. [이전에 생성한](#android_service-account) FCM 서비스 계정을 찾은 다음 <i class="fa-solid fa-ellipsis-vertical"></i>&nbsp;**Actions** > **Manage Keys**를 선택합니다.
+다음으로 FCM 서비스 계정에 대한 JSON 자격 증명을 생성합니다. Google Cloud IAM & Admin에서 **Service Accounts**로 이동한 다음 프로젝트를 선택합니다. [이전에 만든](#android_service-account) FCM 서비스 계정을 찾은 다음 <i class="fa-solid fa-ellipsis-vertical" aria-label="작업 메뉴 열기"></i>&nbsp;**Actions** > **Manage Keys**를 선택합니다.
 
-!["Actions" 메뉴가 열린 프로젝트의 서비스 계정 홈페이지.]({% image_buster /assets/img/android/push_integration/generate_json_credentials/select-manage-keys.png %})
+![Actions 메뉴가 열린 프로젝트의 서비스 계정 홈 페이지.]({% image_buster /assets/img/android/push_integration/generate_json_credentials/select-manage-keys.png %})
 
 **Add Key** > **Create new key**를 선택합니다.
 
-!["Add Key" 메뉴가 열린 선택된 서비스 계정.]({% image_buster /assets/img/android/push_integration/generate_json_credentials/select-create-new-key.png %})
+![Add Key 메뉴가 열린 선택된 서비스 계정.]({% image_buster /assets/img/android/push_integration/generate_json_credentials/select-create-new-key.png %})
 
-**JSON**을 선택한 다음 **Create**를 선택합니다. FCM 프로젝트 ID와 다른 Google Cloud 프로젝트 ID를 사용하여 서비스 계정을 생성한 경우, JSON 파일에서 `project_id`에 할당된 값을 수동으로 업데이트해야 합니다.
+**JSON**을 선택한 다음 **Create**를 선택합니다. FCM 프로젝트 ID와 다른 Google Cloud 프로젝트 ID를 사용하여 서비스 계정을 만든 경우 JSON 파일에서 `project_id`에 할당된 값을 수동으로 업데이트해야 합니다.
 
 키를 다운로드한 위치를 기억해 두세요&#8212;다음 단계에서 필요합니다.
 
-!["JSON"이 선택된 비공개 키 생성 양식.]({% image_buster /assets/img/android/push_integration/generate_json_credentials/select-create.png %}){: style="max-width:65%;"}
+![JSON이 선택된 비공개 키 생성 양식.]({% image_buster /assets/img/android/push_integration/generate_json_credentials/select-create.png %}){: style="max-width:65%;"}
 
 {% alert warning %}
-비공개 키는 유출될 경우 보안 위험을 초래할 수 있습니다. 지금은 JSON 자격 증명을 안전한 위치에 보관하세요&#8212;Braze에 업로드한 후에 키를 삭제합니다.
+비공개 키가 유출되면 보안 위험이 발생할 수 있습니다. 지금은 JSON 자격 증명을 안전한 위치에 보관하세요&#8212;Braze에 업로드한 후 키를 삭제할 것입니다.
 {% endalert %}
 
-### 6단계: Braze에 JSON 자격 증명 업로드 {#step-6-upload-your-json-credentials-to-braze}
+### 6단계: Braze에 JSON 자격 증명 업로드하기 {#step-6-upload-your-json-credentials-to-braze}
 
-다음으로 Braze 대시보드에 JSON 자격 증명을 업로드합니다. Braze에서 <i class="fa-solid fa-gear"></i>&nbsp;**설정** > **앱 설정**을 선택합니다.
+다음으로 JSON 자격 증명을 Braze 대시보드에 업로드합니다. Braze에서 <i class="fa-solid fa-gear" aria-label="설정"></i>&nbsp;**Settings** > **App Settings**를 선택합니다.
 
-![Braze에서 "설정" 메뉴가 열리며 "앱 설정"이 강조 표시된 상태.]({% image_buster /assets/img/android/push_integration/upload_json_credentials/select-app-settings.png %})
+![Braze에서 Settings 메뉴가 열리고 App Settings가 강조 표시된 모습.]({% image_buster /assets/img/android/push_integration/upload_json_credentials/select-app-settings.png %})
 
-Android 앱의 **푸시 알림 설정**에서 **Firebase**를 선택한 다음 **Upload JSON File**을 선택하고 [앞서 생성한](#android_json) 자격 증명을 업로드합니다. 완료되면 **Save**를 선택합니다.
+Android 앱의 **Push Notification Settings**에서 **Firebase**를 선택한 다음 **Upload JSON File**을 선택하고 [이전에 생성한](#android_json) 자격 증명을 업로드합니다. 완료되면 **Save**를 선택합니다.
 
-!["푸시 알림 설정" 양식에서 푸시 제공자로 "Firebase"가 선택된 상태.]({% image_buster /assets/img/android/push_integration/upload_json_credentials/upload-json-file.png %})
+![푸시 공급자로 Firebase가 선택된 Push Notification Settings 양식.]({% image_buster /assets/img/android/push_integration/upload_json_credentials/upload-json-file.png %})
 
 {% alert warning %}
-비공개 키는 유출될 경우 보안 위험을 초래할 수 있습니다. 키가 Braze에 업로드되었으므로 [이전에 생성한](#android_json) 파일을 삭제하세요.
+비공개 키가 유출되면 보안 위험이 발생할 수 있습니다. 키가 Braze에 업로드되었으므로 [이전에 생성한](#android_json) 파일을 삭제하세요.
 {% endalert %}
 
-### 7단계: 자동 토큰 등록 설정 {#step-7-set-up-automatic-token-registration}
+### 7단계: 자동 토큰 등록 설정하기 {#step-7-set-up-automatic-token-registration}
 
-사용자가 푸시 알림을 옵트인하면 앱에서 해당 사용자의 기기에 FCM 토큰을 생성해야 푸시 알림을 보낼 수 있습니다. Braze SDK를 사용하면 프로젝트의 Braze 구성 파일에서 각 사용자의 기기에 대한 FCM 토큰 자동 등록을 활성화할 수 있습니다.
+사용자 중 한 명이 푸시 알림을 옵트인하면 푸시 알림을 보내기 전에 앱이 해당 기기에서 FCM 토큰을 생성해야 합니다. Braze SDK를 사용하면 프로젝트의 Braze 구성 파일에서 각 사용자 기기에 대한 자동 FCM 토큰 등록을 활성화할 수 있습니다.
 
-먼저 Firebase 콘솔로 이동하여 프로젝트를 연 다음 <i class="fa-solid fa-gear"></i>&nbsp;**Settings** > **Project settings**를 선택합니다.
+먼저 Firebase Console로 이동하여 프로젝트를 열고 <i class="fa-solid fa-gear" aria-label="설정"></i>&nbsp;**Settings** > **Project settings**를 선택합니다.
 
-!["Settings" 메뉴가 열린 Firebase 프로젝트.]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/select-project-settings.png %})
+![Settings 메뉴가 열린 Firebase 프로젝트.]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/select-project-settings.png %})
 
-**Cloud Messaging**을 선택하고 **Firebase Cloud Messaging API (V1)**에서 **Sender ID** 필드의 숫자를 복사합니다.
+**Cloud Messaging**을 선택한 다음 **Firebase Cloud Messaging API (V1)** 아래에서 **Sender ID** 필드의 번호를 복사합니다.
 
-![Firebase 프로젝트의 "Cloud Messaging" 페이지에서 "Sender ID"가 강조 표시된 상태.]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/copy-sender-id.png %})
+![Sender ID가 강조 표시된 Firebase 프로젝트의 Cloud Messaging 페이지.]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/copy-sender-id.png %})
 
-그런 다음 Android Studio 프로젝트를 열고 Firebase Sender ID를 사용하여 `braze.xml` 또는 `BrazeConfig`에서 FCM 토큰 자동 등록을 활성화합니다.
+다음으로 Android Studio 프로젝트를 열고 Firebase Sender ID를 사용하여 `braze.xml` 또는 `BrazeConfig` 내에서 자동 FCM 토큰 등록을 활성화합니다.
 
 {% tabs local %}
 {% tab Braze.XML %}
-FCM 토큰 자동 등록을 구성하려면 `braze.xml` 파일에 다음 줄을 추가합니다:
+자동 FCM 토큰 등록을 구성하려면 `braze.xml` 파일에 다음 줄을 추가합니다:
 
 ```xml
 <bool translatable="false" name="com_braze_firebase_cloud_messaging_registration_enabled">true</bool>
 <string translatable="false" name="com_braze_firebase_cloud_messaging_sender_id">FIREBASE_SENDER_ID</string>
 ```
 
-`FIREBASE_SENDER_ID`를 Firebase 프로젝트 설정에서 복사한 값으로 바꿉니다. `braze.xml`은 다음과 비슷해야 합니다:
+`FIREBASE_SENDER_ID`를 Firebase 프로젝트 설정에서 복사한 값으로 바꿉니다. `braze.xml`은 다음과 유사해야 합니다:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -303,7 +303,7 @@ FCM 토큰 자동 등록을 구성하려면 `braze.xml` 파일에 다음 줄을 
 {% endtab %}
 
 {% tab BrazeConfig %}
-FCM 토큰 자동 등록을 구성하려면 `BrazeConfig`에 다음 줄을 추가합니다:
+자동 FCM 토큰 등록을 구성하려면 `BrazeConfig`에 다음 줄을 추가합니다:
 
 {% subtabs local %}
 {% subtab JAVA %}
@@ -320,7 +320,7 @@ FCM 토큰 자동 등록을 구성하려면 `BrazeConfig`에 다음 줄을 추�
 {% endsubtab %}
 {% endsubtabs %}
 
-`FIREBASE_SENDER_ID`를 Firebase 프로젝트 설정에서 복사한 값으로 바꿉니다. `BrazeConfig`는 다음과 비슷해야 합니다:
+`FIREBASE_SENDER_ID`를 Firebase 프로젝트 설정에서 복사한 값으로 바꿉니다. `BrazeConfig`는 다음과 유사해야 합니다:
 
 {% subtabs local %}
 {% subtab JAVA %}
@@ -353,25 +353,52 @@ Braze.configure(this, brazeConfig)
 {% endsubtab %}
 {% endsubtabs %}
 
-{% alert tip %}
-FCM 토큰을 수동으로 등록하려면 앱의 [`onCreate()`](https://developer.android.com/reference/android/app/Application.html#onCreate()) 메서드 내에서 [`Braze.setRegisteredPushToken()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/registered-push-token.html)을 호출하면 됩니다.
-{% endalert %}
 {% endtab %}
 {% endtabs %}
 
-### 8단계: 애플리케이션 클래스에서 자동 요청 제거 {#step-8-remove-automatic-requests-in-your-application-class}
+{% alert tip %}
+FCM 토큰을 수동으로 등록하려면 앱의 [`onCreate()`](https://developer.android.com/reference/android/app/Application.html#onCreate()) 메서드 내에서 Braze 인스턴스의 [`registeredPushToken`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/registered-push-token.html) 속성정보를 설정합니다.
 
-무음 푸시 알림을 보낼 때마다 Braze가 불필요한 네트워크 요청을 트리거하지 않도록 `Application` 클래스의 `onCreate()` 메서드에 구성된 모든 자동 네트워크 요청을 제거합니다. 자세한 내용은 [Android 개발자 참조: Application](https://developer.android.com/reference/android/app/Application)을 참조하세요.
+```kotlin
+// Kotlin
+Braze.getInstance(context).registeredPushToken = "FCM_TOKEN"
+```
 
-## 알림 표시 {#displaying-notifications}
+```java
+// Java
+Braze.getInstance(context).setRegisteredPushToken("FCM_TOKEN");
+```
+{% endalert %}
 
-### 1단계: Braze Firebase 메시징 서비스 등록 {#step-1-register-braze-firebase-messaging-service}
+#### 여러 Firebase 프로젝트 사용하기 {#multiple-firebase-projects}
 
-새로 생성하거나, 기존의 Firebase 메시징 서비스를 사용하거나, Braze 외 Firebase 메시징 서비스를 사용할 수 있습니다. 특정 요구 사항에 가장 적합한 것을 선택하세요.
+앱이 여러 Firebase 프로젝트를 사용하는 경우 다음 단계를 따르세요:
+
+1. 앱의 `google-services.json`에서 초기화된 기본 Firebase 프로젝트에서 Braze 푸시를 유지합니다.
+2. 커스텀 Firebase 메시징 서비스를 사용하는 경우 [커스텀 Firebase 메시징 서비스에서 설치 ID 등록하기](#android_register-installation-id-custom-firebase-service)를 완료합니다.
+3. 앱이 다른 방법으로 푸시 토큰을 가져오는 경우 이전 팁에 표시된 대로 `registeredPushToken`을 수동으로 설정합니다.
+
+{% alert important %}
+Firebase Cloud Messaging에는 수동으로 초기화한 `FirebaseApp`에서 토큰을 가져오는 지원 API가 없습니다. `onNewToken` 및 `onRegistered`와 같은 `FirebaseMessagingService` 콜백은 기본 프로젝트에 대해서만 실행됩니다. 자세한 내용은 Firebase 설명서의 [여러 프로젝트 구성](https://firebase.google.com/docs/projects/multiprojects)을 참조하세요.
+{% endalert %}
+
+버전 세부 정보는 [SDK 체인지로그]({{site.baseurl}}/developer_guide/changelogs?sdktab=android)를 참조하세요.
+
+### 8단계: 애플리케이션 클래스에서 자동 요청 제거하기 {#step-8-remove-automatic-requests-in-your-application-class}
+
+Braze가 무음 푸시 알림을 보낼 때마다 불필요한 네트워크 요청을 트리거하지 않도록 `Application` 클래스의 `onCreate()` 메서드에 구성된 자동 네트워크 요청을 제거합니다. 자세한 내용은 [Android 개발자 참조: Application](https://developer.android.com/reference/android/app/Application)을 참조하세요.
+
+## 알림 표시하기 {#displaying-notifications}
+
+<a id="android_step-1-register-braze-firebase-messaging-service"></a>
+
+### 1단계: Braze Firebase Messaging Service 등록하기 {#register-braze-firebase-messaging-service}
+
+새로운 Firebase Messaging Service, 기존 Firebase Messaging Service 또는 Braze 외 Firebase Messaging Service를 생성할 수 있습니다. 특정 요구 사항에 가장 적합한 것을 선택하세요.
 
 {% tabs local %}
-{% tab 신규 %}
-Braze에는 푸시 수신 및 열기 인텐트를 처리하는 서비스가 포함되어 있습니다. `BrazeFirebaseMessagingService` 클래스는 `AndroidManifest.xml`에 등록해야 합니다:
+{% tab New %}
+Braze에는 푸시 수신 및 열람 인텐트를 처리하는 서비스가 포함되어 있습니다. `BrazeFirebaseMessagingService` 클래스를 `AndroidManifest.xml`에 등록해야 합니다:
 
 ```xml
 <service android:name="com.braze.push.BrazeFirebaseMessagingService"
@@ -382,21 +409,33 @@ Braze에는 푸시 수신 및 열기 인텐트를 처리하는 서비스가 포�
 </service>
 ```
 
-알림 코드는 `BrazeFirebaseMessagingService`를 사용하여 열기 및 클릭 동작 추적을 처리합니다. 이 서비스가 올바르게 작동하려면 `AndroidManifest.xml`에 등록해야 합니다. 또한 Braze는 시스템에서 보낸 알림에 고유한 키를 접두사로 추가하여 Braze 시스템에서 보낸 알림만 렌더링합니다. 다른 FCM 서비스에서 전송되는 알림을 렌더링하려면 추가 서비스를 별도로 등록할 수 있습니다. Firebase 푸시 샘플 앱에서 [`AndroidManifest.xml`](https://github.com/braze-inc/braze-android-sdk/blob/master/samples/firebase-push/src/main/AndroidManifest.xml)을 확인하세요.
+알림 코드도 `BrazeFirebaseMessagingService`를 사용하여 열람 및 클릭 액션 추적을 처리합니다. 이 서비스가 올바르게 작동하려면 `AndroidManifest.xml`에 등록해야 합니다. 또한 Braze는 시스템에서 보낸 알림에 고유 키를 접두사로 추가하여 Braze 시스템에서 보낸 알림만 렌더링합니다. 다른 FCM 서비스에서 보낸 알림을 렌더링하려면 추가 서비스를 별도로 등록할 수 있습니다. Firebase 푸시 샘플 앱의 [`AndroidManifest.xml`](https://github.com/braze-inc/braze-android-sdk/blob/master/samples/firebase-push/src/main/AndroidManifest.xml)을 참조하세요.
 
 {% alert important %}
-Braze SDK 3.1.1 이전에는 `AppboyFcmReceiver`를 사용하여 FCM 푸시를 처리했습니다. `AppboyFcmReceiver` 클래스는 매니페스트에서 제거하고 위의 통합으로 대체해야 합니다.
+Braze SDK 3.1.1 이전에는 `AppboyFcmReceiver`가 FCM 푸시를 처리하는 데 사용되었습니다. `AppboyFcmReceiver` 클래스를 매니페스트에서 제거하고 위의 통합으로 교체해야 합니다.
 {% endalert %}
 {% endtab %}
 
-{% tab 기존 %}
-이미 Firebase 메시징 서비스가 등록되어 있는 경우, [`BrazeFirebaseMessagingService.handleBrazeRemoteMessage()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.push/-braze-firebase-messaging-service/-companion/handle-braze-remote-message.html)를 통해 [`RemoteMessage`](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/RemoteMessage) 오브젝트를 Braze에 전달할 수 있습니다. 이 메서드는 [`RemoteMessage`](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/RemoteMessage) 오브젝트가 Braze에서 발생한 경우에만 알림을 표시하며, 그렇지 않은 경우 안전하게 무시합니다.
+{% tab Existing %}
+이미 Firebase Messaging Service가 등록되어 있는 경우, [`BrazeFirebaseMessagingService.handleBrazeRemoteMessage()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.push/-braze-firebase-messaging-service/-companion/handle-braze-remote-message.html)를 통해 [`RemoteMessage`](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/RemoteMessage) 오브젝트를 Braze에 전달할 수 있습니다. 이 메서드는 [`RemoteMessage`](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/RemoteMessage) 오브젝트가 Braze에서 발생한 경우에만 알림을 표시하며, 그렇지 않은 경우 안전하게 무시합니다.
+
+<a id="android_register-installation-id-custom-firebase-service"></a>
+
+#### 커스텀 Firebase Messaging Service에서 설치 ID 등록하기 {#register-installation-id-custom-firebase-service}
+
+`firebase-messaging` v25.1.0 이상을 사용하는 경우, Firebase 등록은 Firebase 설치 ID를 사용합니다. 커스텀 Firebase Messaging Service에서 `onRegistered`를 오버라이드하고 `registeredPushToken`을 설정하세요.
 
 {% subtabs %}
 {% subtab JAVA %}
 
 ```java
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
+  @Override
+  public void onRegistered(String installationId) {
+    super.onRegistered(installationId);
+    Braze.getInstance(this).setRegisteredPushToken(installationId);
+  }
+
   @Override
   public void onMessageReceived(RemoteMessage remoteMessage) {
     super.onMessageReceived(remoteMessage);
@@ -416,6 +455,11 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
 ```kotlin
 class MyFirebaseMessagingService : FirebaseMessagingService() {
+  override fun onRegistered(installationId: String) {
+    super.onRegistered(installationId)
+    Braze.getInstance(this).registeredPushToken = installationId
+  }
+
   override fun onMessageReceived(remoteMessage: RemoteMessage?) {
     super.onMessageReceived(remoteMessage)
     if (BrazeFirebaseMessagingService.handleBrazeRemoteMessage(this, remoteMessage)) {
@@ -433,17 +477,17 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 {% endsubtabs %}
 {% endtab %}
 
-{% tab Braze 외 %}
-사용하려는 다른 Firebase 메시징 서비스가 있는 경우, 애플리케이션이 Braze가 아닌 푸시를 수신할 때 호출할 대체 Firebase 메시징 서비스를 지정할 수도 있습니다.
+{% tab Non-Braze %}
+사용하려는 다른 Firebase Messaging Service가 있는 경우, 앱이 Braze에서 보낸 것이 아닌 푸시를 수신할 때 호출할 대체 Firebase Messaging Service를 지정할 수도 있습니다.
 
-`braze.xml`에서 다음을 지정합니다:
+`braze.xml`에서 다음을 지정하세요:
 
 ```xml
 <bool name="com_braze_fallback_firebase_cloud_messaging_service_enabled">true</bool>
 <string name="com_braze_fallback_firebase_cloud_messaging_service_classpath">com.company.OurFirebaseMessagingService</string>
 ```
 
-또는 [런타임 구성]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android)을 통해 설정합니다:
+또는 [런타임 구성]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#runtime-configuration)을 통해 설정할 수 있습니다:
 
 {% subtabs %}
 {% subtab JAVA %}
@@ -472,64 +516,64 @@ Braze.configure(this, brazeConfig)
 {% endtab %}
 {% endtabs %}
 
-### 2단계: 작은 아이콘을 디자인 가이드라인에 맞추기 {#step-2-conform-small-icons-to-design-guidelines}
+### 2단계: 디자인 가이드라인에 맞게 작은 아이콘 조정하기 {#step-2-conform-small-icons-to-design-guidelines}
 
 Android 알림 아이콘에 대한 일반적인 정보는 [알림 개요](https://developer.android.com/guide/topics/ui/notifiers/notifications)를 참조하세요.
 
-Android N부터는 색상이 포함된 작은 알림 아이콘 에셋을 업데이트하거나 제거해야 합니다. Android 시스템(Braze SDK가 아님)은 액션 아이콘과 작은 알림 아이콘에서 알파 및 투명도를 제외한 모든 채널을 무시합니다. 즉, Android는 투명한 영역을 제외한 작은 알림 아이콘의 모든 부분을 흑백으로 변환합니다.
+Android N부터는 색상이 포함된 작은 알림 아이콘 에셋을 업데이트하거나 제거해야 합니다. Android 시스템(Braze SDK가 아님)은 액션 아이콘과 알림 작은 아이콘에서 알파 및 투명도 채널을 제외한 모든 채널을 무시합니다. 즉, Android는 투명 영역을 제외한 알림 작은 아이콘의 모든 부분을 단색으로 변환합니다.
 
-올바르게 표시되는 작은 알림 아이콘 에셋을 만들려면:
-- 이미지에서 흰색을 제외한 모든 색상을 제거합니다.
+올바르게 표시되는 알림 작은 아이콘 에셋을 만들려면:
+- 흰색을 제외한 모든 색상을 이미지에서 제거합니다.
 - 에셋의 흰색이 아닌 다른 모든 영역은 투명해야 합니다.
 
 {% alert note %}
-부적절한 에셋의 일반적인 증상은 작은 알림 아이콘이 단색 흑백 사각형으로 렌더링되는 것입니다. 이는 Android 시스템이 알림 작은 아이콘 에셋에서 투명한 영역을 찾을 수 없기 때문입니다.
+부적절한 에셋의 일반적인 증상은 작은 알림 아이콘이 단색 정사각형으로 렌더링되는 것입니다. 이는 Android 시스템이 알림 작은 아이콘 에셋에서 투명 영역을 찾을 수 없기 때문입니다.
 {% endalert %}
 
-다음에 표시된 큰 아이콘과 작은 아이콘은 올바르게 디자인된 아이콘의 예시입니다:
+다음의 큰 아이콘과 작은 아이콘은 올바르게 디자인된 아이콘의 예시입니다:
 
-![큰 아이콘 하단 모서리에 작은 아이콘이 나타나며 옆에 "Hey I'm on my way to the bar but.."라는 메시지가 표시됩니다.]({% image_buster /assets/img_archive/large_and_small_notification_icon.png %} "Large and Small Notification Icon")
+![큰 아이콘의 하단 모서리에 작은 아이콘이 표시되며, 옆에 메시지가 있는 예시]({% image_buster /assets/img_archive/large_and_small_notification_icon.png %} "Large and Small Notification Icon")
 
-### 3단계: 알림 아이콘 구성 {#configure-icons}
+### 3단계: 알림 아이콘 구성하기 {#configure-icons}
 
-#### braze.xml에서 아이콘 지정 {#specifying-icons-in-brazexml}
+#### braze.xml에서 아이콘 지정하기 {#specifying-icons-in-brazexml}
 
-Braze를 사용하면 `braze.xml`에서 drawable 리소스를 지정하여 알림 아이콘을 구성할 수 있습니다:
+Braze에서는 `braze.xml`에서 드로어블 리소스를 지정하여 알림 아이콘을 구성할 수 있습니다:
 
 ```xml
 <drawable name="com_braze_push_small_notification_icon">REPLACE_WITH_YOUR_ICON</drawable>
 <drawable name="com_braze_push_large_notification_icon">REPLACE_WITH_YOUR_ICON</drawable>
 ```
 
-작은 알림 아이콘 설정은 필수입니다. **설정하지 않으면 Braze는 기본적으로 애플리케이션 아이콘을 작은 알림 아이콘으로 사용하며, 이는 최적의 모습이 아닐 수 있습니다.**
+작은 알림 아이콘 설정은 필수입니다. **설정하지 않으면 Braze는 기본적으로 앱 아이콘을 작은 알림 아이콘으로 사용하며, 이는 최적의 표시가 아닐 수 있습니다.**
 
 큰 알림 아이콘 설정은 선택 사항이지만 권장됩니다.
 
-#### 아이콘 강조 색상 지정 {#specifying-icon-accent-color}
+#### 아이콘 강조 색상 지정하기 {#specifying-icon-accent-color}
 
-알림 아이콘 강조 색상은 `braze.xml`에서 재정의할 수 있습니다. 색상을 지정하지 않으면 기본 색상은 Lollipop이 시스템 알림에 사용하는 것과 동일한 회색입니다.
+알림 아이콘 강조 색상은 `braze.xml`에서 재정의할 수 있습니다. 색상을 지정하지 않으면 기본 색상은 Lollipop에서 시스템 알림에 사용하는 것과 동일한 회색입니다.
 
 ```xml
 <integer name="com_braze_default_notification_accent_color">0xFFf33e3e</integer>
 ```
 
-선택적으로 색상 참조를 사용할 수도 있습니다:
+색상 참조를 사용할 수도 있습니다:
 
 ```xml
 <color name="com_braze_default_notification_accent_color">@color/my_color_here</color>
 ```
 
-### 4단계: 딥링크 추가 {#step-4-add-deep-links}
+### 4단계: 딥링크 추가하기 {#step-4-add-deep-links}
 
-#### 자동 딥링크 열기 활성화 {#enabling-automatic-deep-link-opening}
+#### 자동 딥링크 열기 활성화하기 {#enabling-automatic-deep-link-opening}
 
-푸시 알림을 클릭할 때 Braze가 앱과 딥링크를 자동으로 열도록 하려면 `braze.xml`에서 `com_braze_handle_push_deep_links_automatically`를 `true`로 설정합니다:
+푸시 알림을 클릭할 때 Braze가 자동으로 앱과 딥링크를 열도록 하려면 `braze.xml`에서 `com_braze_handle_push_deep_links_automatically`를 `true`로 설정하세요:
 
 ```xml
 <bool name="com_braze_handle_push_deep_links_automatically">true</bool>
 ```
 
-이 플래그는 [런타임 구성]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android)을 통해서도 설정할 수 있습니다:
+이 플래그는 [런타임 구성]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#runtime-configuration)을 통해서도 설정할 수 있습니다:
 
 {% tabs %}
 {% tab JAVA %}
@@ -554,15 +598,15 @@ Braze.configure(this, brazeConfig)
 {% endtab %}
 {% endtabs %}
 
-딥링크를 커스텀 처리하려면 Braze에서 푸시 수신 및 열기 인텐트를 수신 대기하는 푸시 콜백을 만들어야 합니다. 자세한 내용은 [푸시 이벤트에 대한 콜백 사용]({{site.baseurl}}/developer_guide/push_notifications/customization/#android_using-a-callback-for-push-events)을 참조하세요.
+딥링크를 커스텀으로 처리하려면 Braze에서 푸시 수신 및 열람 인텐트를 수신하는 푸시 콜백을 생성해야 합니다. 자세한 내용은 [푸시 이벤트에 콜백 사용하기]({{site.baseurl}}/developer_guide/push_notifications/customization#android_using-a-callback-for-push-events)를 참조하세요.
 
 ## 포그라운드 알림 처리 {#handling-foreground-notifications}
 
-기본적으로 Android에서 앱이 포그라운드에 있을 때 푸시 알림이 도착하면 시스템이 자동으로 표시합니다. Braze가 푸시 알림 페이로드를 처리하도록 하려면(분석 추적, 딥링크 처리 및 커스텀 처리를 위해) `FirebaseMessagingService.onMessageReceived` 메서드 내에서 수신 푸시 데이터를 Braze로 라우팅하세요.
+기본적으로 Android에서 앱이 포그라운드에 있는 동안 푸시 알림이 도착하면 시스템이 자동으로 알림을 표시합니다. Braze가 푸시 알림 페이로드를 처리(분석 추적, 딥링크 처리, 커스텀 처리)하도록 하려면 `FirebaseMessagingService.onMessageReceived` 메서드 내에서 수신 푸시 데이터를 Braze로 라우팅하세요.
 
 ### 작동 방식 {#how-it-works}
 
-`BrazeFirebaseMessagingService.handleBrazeRemoteMessage`를 호출하면 Braze는 페이로드가 Braze 푸시 알림인지 판단하고, 해당하는 경우 `NotificationManagerCompat` 메서드를 통해 알림을 생성 및 표시합니다. iOS와 달리 Android는 앱이 포그라운드에 있든 백그라운드에 있든 상관없이 알림을 표시합니다.
+`BrazeFirebaseMessagingService.handleBrazeRemoteMessage`를 호출하면 Braze는 페이로드가 Braze 푸시 알림인지 확인하고, 맞다면 `NotificationManagerCompat` 메서드를 사용하여 알림을 생성하고 표시합니다. iOS와 달리 Android는 앱이 포그라운드에 있든 백그라운드에 있든 관계없이 알림을 표시합니다.
 
 {% tabs %}
 {% tab JAVA %}
@@ -615,30 +659,30 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
 자세한 내용은 Braze Android SDK 리포지토리의 [Firebase 통합 샘플](https://github.com/braze-inc/braze-android-sdk/blob/master/samples/firebase-push/src/main/java/com/braze/firebasepush/FirebaseMessagingService.kt)을 참조하세요.
 
-### 포그라운드 동작 커스터마이징 {#customizing-foreground-behavior}
+### 포그라운드 동작 커스텀 설정 {#customizing-foreground-behavior}
 
-시스템 알림을 억제하거나 대신 인앱 UI를 표시하는 등 커스텀 포그라운드 동작을 원한다면 다음과 같이 할 수 있습니다:
+시스템 알림을 억제하거나 인앱 UI를 대신 표시하는 등 커스텀 포그라운드 동작을 원하는 경우 다음과 같이 할 수 있습니다:
 
 - `subscribeToPushNotificationEvents`를 사용하여 푸시 이벤트에 반응하고 `BrazeNotificationUtils.routeUserWithNotificationOpenedIntent` 메서드로 딥링크를 처리합니다. 자세한 내용은 [Firebase 푸시 샘플](https://github.com/braze-inc/braze-android-sdk/blob/master/samples/firebase-push/src/main/java/com/braze/firebasepush/FirebaseApplication.kt)을 참조하세요.
-- 커스텀 `IBrazeNotificationFactory`를 사용하여 자체 알림을 구축하고 게시하거나, 처리 경로에서 `notificationManager.notify`를 호출하지 않음으로써 알림을 억제할 수 있습니다.
+- 커스텀 `IBrazeNotificationFactory`를 사용하여 자체 알림을 빌드하고 게시하거나, 처리 경로에서 `notificationManager.notify`를 호출하지 않아 알림을 억제합니다.
 
-알림 커스터마이징에 대한 자세한 내용은 [커스텀 알림 팩토리]({{site.baseurl}}/developer_guide/push_notifications/customization/?sdktab=android#custom-notification-factory)를 참조하세요.
+알림 커스텀 설정에 대한 자세한 내용은 [커스텀 알림 팩토리]({{site.baseurl}}/developer_guide/push_notifications/customization/?sdktab=android#custom-notification-factory)를 참조하세요.
 
 #### 커스텀 딥링크 만들기 {#creating-custom-deep-links}
 
-앱에 아직 딥링크를 추가하지 않았다면 딥링킹에 대한 [Android 개발자 설명서](http://developer.android.com/training/app-indexing/deep-linking.html)의 지침을 따르세요. 딥링크가 무엇인지 자세히 알아보려면 [FAQ 문서]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking)를 참조하세요.
+앱에 딥링크를 아직 추가하지 않은 경우 딥링킹에 대한 [Android 개발자 설명서](http://developer.android.com/training/app-indexing/deep-linking.html)의 안내를 따르세요. 딥링크가 무엇인지 자세히 알아보려면 [FAQ 문서]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking)를 참조하세요.
 
 #### 딥링크 추가 {#adding-deep-links}
 
-Braze 대시보드는 푸시 알림 Campaign과 Canvases에서 알림을 클릭할 때 열릴 딥링크 또는 웹 URL 설정을 지원합니다.
+Braze 대시보드에서는 푸시 알림 Campaigns 및 Canvases에 딥링크 또는 웹 URL을 설정할 수 있으며, 알림을 클릭하면 해당 링크가 열립니다.
 
-![Braze 대시보드의 '클릭 시 동작' 설정에서 드롭다운 메뉴에서 '앱으로의 딥링크'가 선택된 상태.]({% image_buster /assets/img_archive/deep_link_click_action.png %} "Deep Link Click Action")
+![드롭다운에서 '앱으로 딥링크'가 선택된 Braze 대시보드의 '클릭 시 동작' 설정.]({% image_buster /assets/img_archive/deep_link_click_action.png %} "Deep Link Click Action")
 
-#### 백 스택 동작 커스터마이징 {#customizing-back-stack-behavior}
+#### 백 스택 동작 커스텀 설정 {#customizing-back-stack-behavior}
 
-기본적으로 Android SDK는 푸시 딥링크를 따라갈 때 호스트 앱의 기본 런처 액티비티를 백 스택에 배치합니다. Braze를 사용하면 기본 런처 액티비티 대신 백 스택에서 열릴 커스텀 액티비티를 설정하거나 백 스택을 완전히 비활성화할 수 있습니다.
+Android SDK는 기본적으로 푸시 딥링크를 따를 때 호스트 앱의 메인 런처 액티비티를 백 스택에 배치합니다. Braze를 사용하면 메인 런처 액티비티 대신 백 스택에서 열릴 커스텀 액티비티를 설정하거나 백 스택을 완전히 비활성화할 수 있습니다.
 
-예를 들어 [런타임 구성]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android)을 사용하여 `YourMainActivity`라는 액티비티를 백 스택 액티비티로 설정하려면:
+예를 들어, [런타임 구성]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#runtime-configuration)을 사용하여 `YourMainActivity`라는 액티비티를 백 스택 액티비티로 설정하려면 다음과 같이 합니다:
 
 {% tabs %}
 {% tab JAVA %}
@@ -665,7 +709,7 @@ Braze.configure(this, brazeConfig)
 {% endtab %}
 {% endtabs %}
 
-`braze.xml`에 해당하는 구성을 참조하세요. 클래스 이름은 `Class.forName()`에서 반환하는 것과 동일해야 합니다.
+`braze.xml`에 대한 동일한 구성을 참조하세요. 클래스 이름은 `Class.forName()`이 반환하는 것과 동일해야 합니다.
 
 ```xml
 <bool name="com_braze_push_deep_link_back_stack_activity_enabled">true</bool>
@@ -674,15 +718,15 @@ Braze.configure(this, brazeConfig)
 
 ### 5단계: 알림 채널 정의 {#step-5-define-notification-channels}
 
-Braze Android SDK는 [Android 알림 채널](https://developer.android.com/preview/features/notification-channels.html)을 지원합니다. Braze 알림에 알림 채널 ID가 포함되어 있지 않거나 유효하지 않은 채널 ID가 포함되어 있는 경우, Braze는 SDK에 정의된 기본 알림 채널로 알림을 표시합니다. 회사 사용자는 플랫폼 내에서 [Android 알림 채널]({{site.baseurl}}/user_guide/message_building_by_channel/push/android/notification_channels/)을 사용하여 알림을 그룹화합니다.
+Braze Android SDK는 [Android 알림 채널](https://developer.android.com/preview/features/notification-channels.html)을 지원합니다. Braze 알림에 알림 채널 ID가 포함되어 있지 않거나 유효하지 않은 채널 ID가 포함된 경우, Braze는 SDK에 정의된 기본 알림 채널로 알림을 표시합니다. 사용자는 플랫폼 내에서 [Android 알림 채널]({{site.baseurl}}/user_guide/message_building_by_channel/push/android/notification_channels)을 사용하여 알림을 그룹화합니다.
 
-기본 Braze 알림 채널의 사용자 대면 이름을 설정하려면 [`BrazeConfig.setDefaultNotificationChannelName()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-default-notification-channel-name.html)을 사용합니다.
+기본 Braze 알림 채널의 사용자 표시 이름을 설정하려면 [`BrazeConfig.setDefaultNotificationChannelName()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-default-notification-channel-name.html)을 사용하세요.
 
-기본 Braze 알림 채널의 사용자 대면 설명을 설정하려면 [`BrazeConfig.setDefaultNotificationChannelDescription()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-default-notification-channel-description.html)을 사용합니다.
+기본 Braze 알림 채널의 사용자 표시 설명을 설정하려면 [`BrazeConfig.setDefaultNotificationChannelDescription()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-default-notification-channel-description.html)을 사용하세요.
 
-`notification_channel` 필드를 포함하도록 [Android 푸시 오브젝트]({{site.baseurl}}/api/objects_filters/messaging/android_object/) 매개변수를 사용하여 모든 API Campaign을 업데이트합니다. 이 필드를 지정하지 않으면 Braze는 [대시보드 대체]({{site.baseurl}}/user_guide/message_building_by_channel/push/android/notification_channels/#dashboard-fallback-channel) 채널 ID와 함께 알림 페이로드를 전송합니다.
+[Android 푸시 오브젝트]({{site.baseurl}}/api/objects_filters/messaging/android_object) 파라미터에 `notification_channel` 필드를 포함하도록 모든 API Campaigns를 업데이트하세요. 이 필드가 지정되지 않으면 Braze는 [대시보드 대체]({{site.baseurl}}/user_guide/message_building_by_channel/push/android/notification_channels#dashboard-fallback-channel) 채널 ID로 알림 페이로드를 전송합니다.
 
-기본 알림 채널 외에는 Braze에서 어떠한 채널도 생성하지 않습니다. 다른 모든 채널은 호스트 앱에서 프로그래밍 방식으로 정의한 다음 Braze 대시보드에 입력해야 합니다.
+기본 알림 채널 외에 Braze는 어떤 채널도 생성하지 않습니다. 다른 모든 채널은 호스트 앱에서 프로그래밍 방식으로 정의한 후 Braze 대시보드에 입력해야 합니다.
 
 기본 채널 이름과 설명은 `braze.xml`에서도 구성할 수 있습니다.
 
@@ -695,7 +739,7 @@ Braze Android SDK는 [Android 알림 채널](https://developer.android.com/previ
 
 #### 표시 테스트 {#testing-display}
 
-이 시점에서 Braze에서 보낸 알림을 볼 수 있어야 합니다. 이를 테스트하려면 Braze 대시보드의 **Campaigns** 페이지로 이동하여 **푸시 알림** Campaign을 생성합니다. **Android Push**를 선택하고 메시지를 디자인합니다. 그런 다음 작성기에서 눈 아이콘을 클릭하여 테스트 발신자를 가져옵니다. 현재 사용자의 사용자 ID 또는 이메일 주소를 입력하고 **Send Test**를 클릭합니다. 기기에 푸시가 표시됩니다.
+이 시점에서 Braze에서 전송된 알림을 확인할 수 있어야 합니다. 이를 테스트하려면 Braze 대시보드의 **Campaigns** 페이지로 이동하여 **푸시 알림** Campaign을 생성하세요. **Android 푸시**를 선택하고 메시지를 디자인합니다. 그런 다음 작성기에서 눈 모양 아이콘을 클릭하여 테스트 발신자를 가져옵니다. 현재 사용자의 사용자 ID 또는 이메일 주소를 입력하고 **테스트 전송**을 클릭합니다. 기기에 푸시가 표시되어야 합니다.
 
 ![Braze 대시보드의 푸시 알림 Campaign '테스트' 탭.]({% image_buster /assets/img_archive/android_push_test.png %} "Android Push Test")
 
@@ -703,13 +747,13 @@ Braze Android SDK는 [Android 알림 채널](https://developer.android.com/previ
 
 #### 분석 테스트 {#testing-analytics}
 
-이 시점에서 푸시 알림 열기에 대한 분석 로깅도 작동해야 합니다. 알림이 도착했을 때 클릭하면 Campaign 결과 페이지의 **직접 열람 수**가 1씩 증가합니다. 푸시 분석에 대한 자세한 내용은 [푸시 보고]({{site.baseurl}}/user_guide/message_building_by_channel/push/push_reporting/) 문서를 참조하세요.
+이 시점에서 푸시 알림 열람에 대한 분석 로깅도 작동해야 합니다. 알림이 도착했을 때 클릭하면 Campaign 결과 페이지의 **직접 열람** 수가 1 증가해야 합니다. 푸시 분석에 대한 자세한 내용은 [푸시 리포팅]({{site.baseurl}}/user_guide/message_building_by_channel/push/push_reporting) 문서를 참조하세요.
 
 푸시 분석과 관련된 문제는 [문제 해결 가이드]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting/?sdktab=android)를 참조하세요.
 
-#### 명령줄에서 테스트 {#testing-from-command-line}
+#### 커맨드 라인에서 테스트 {#testing-from-command-line}
 
-명령줄 인터페이스를 통해 인앱 및 푸시 알림을 테스트하려면 터미널에서 cURL 및 [메시징 API]({{site.baseurl}}/api/endpoints/messaging/)를 사용하여 단일 알림을 보낼 수 있습니다. 다음 필드를 테스트 케이스에 맞는 올바른 값으로 바꿔야 합니다:
+커맨드 라인 인터페이스를 통해 인앱 및 푸시 알림을 테스트하려면 cURL과 [메시징 API]({{site.baseurl}}/api/endpoints/messaging)를 사용하여 터미널에서 단일 알림을 전송할 수 있습니다. 테스트 케이스에 맞는 올바른 값으로 다음 필드를 교체해야 합니다:
 
 - `YOUR_API_KEY` (**설정** > **API 키**로 이동합니다.)
 - `YOUR_EXTERNAL_USER_ID` (**사용자 검색** 페이지에서 프로필을 검색합니다.)
@@ -731,24 +775,24 @@ curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer {YOUR
 }' https://rest.iad-01.braze.com/messages/send
 ```
 
-이 예에서는 `US-01` 인스턴스를 사용합니다. 이 인스턴스를 사용하지 않는 경우 `US-01` 엔드포인트를 [사용자의 엔드포인트]({{site.baseurl}}/api/basics/#endpoints)로 바꾸세요.
+이 예시에서는 `US-01` 인스턴스를 사용합니다. 이 인스턴스를 사용하지 않는 경우 `US-01` 엔드포인트를 [사용자의 엔드포인트]({{site.baseurl}}/api/basics#endpoints)로 교체하세요.
 
-## 대화 푸시 알림 {#conversation-push-notifications}
+## 대화형 푸시 알림 {#conversation-push-notifications}
 
-![]({% image_buster /assets/img/android/push/conversations_android.png %}){: style="float:right;max-width:35%;margin-left:15px;border: 0;"}
+![다양한 연락처의 그룹화된 대화 알림 세 개가 표시된 Android 알림 창의 대화 섹션.]({% image_buster /assets/img/android/push/conversations_android.png %}){: style="float:right;max-width:35%;margin-left:15px;border: 0;"}
 
-[사람과 대화 이니셔티브](https://developer.android.com/guide/topics/ui/conversations)는 휴대폰의 시스템 표면에서 사람과 대화를 더 부각시키는 것을 목표로 하는 다년간의 Android 이니셔티브입니다. 이 우선순위는 모든 인구 통계에 걸쳐 대부분의 Android 사용자에게 다른 사람들과의 소통 및 상호작용이 여전히 가장 가치 있고 중요한 기능 영역이라는 사실에 기반합니다.
+[사람 및 대화 이니셔티브](https://developer.android.com/guide/topics/ui/conversations)는 휴대폰의 시스템 화면에서 사람과 대화를 우선적으로 표시하는 것을 목표로 하는 다년간의 Android 이니셔티브입니다. 이 우선순위는 다른 사람과의 커뮤니케이션 및 상호작용이 모든 인구 통계에 걸쳐 대다수 Android 사용자에게 여전히 가장 가치 있고 중요한 기능 영역이라는 사실에 기반합니다.
 
-### 사용 요구 사항 {#usage-requirements}
+### 사용 요건 {#usage-requirements}
 
-- 이 알림 유형에는 Braze Android SDK v15.0.0 이상 및 Android 11 이상 기기가 필요합니다.
-- 지원되지 않는 기기 또는 SDK에서는 표준 푸시 알림으로 대체됩니다.
+- 이 알림 유형은 Braze Android SDK v15.0.0 이상 및 Android 11 이상 기기가 필요합니다.
+- 지원되지 않는 기기 또는 SDK는 표준 푸시 알림으로 대체됩니다.
 
-이 기능은 Braze REST API를 통해서만 사용할 수 있습니다. 자세한 내용은 [Android 푸시 오브젝트]({{site.baseurl}}/api/objects_filters/messaging/android_object/#android-conversation-push-object)를 참조하세요.
+이 기능은 Braze REST API를 통해서만 사용할 수 있습니다. 자세한 내용은 [Android 푸시 오브젝트]({{site.baseurl}}/api/objects_filters/messaging/android_object#android-conversation-push-object)를 참조하세요.
 
 ## FCM 할당량 초과 오류 {#fcm-quota-exceeded-errors}
 
-Firebase 클라우드 메시징(FCM)의 한도를 초과하면 Google에서 "할당량 초과" 오류를 반환합니다. FCM의 기본 제한은 분당 600,000건의 요청입니다. Braze는 Google이 권장하는 모범 사례에 따라 재전송을 시도합니다. 그러나 이러한 오류가 대량으로 발생하면 전송 시간이 수 분간 지연될 수 있습니다. 잠재적 영향을 완화하기 위해 Braze는 사용량 제한 초과 알림과 오류를 방지하기 위한 조치 방법을 안내해 드립니다.
+Firebase Cloud Messaging(FCM) 한도가 초과되면 Google에서 "할당량 초과" 오류를 반환합니다. FCM의 기본 한도는 분당 600,000건의 요청입니다. Braze는 Google의 권장 모범 사례에 따라 전송을 재시도합니다. 그러나 이러한 오류가 대량으로 발생하면 전송 시간이 몇 분 정도 지연될 수 있습니다. 잠재적인 영향을 완화하기 위해, Braze는 사용량 제한이 초과되고 있다는 알림과 오류를 방지하기 위해 취할 수 있는 조치를 안내합니다.
 
 현재 한도를 확인하려면 **Google Cloud Console** > **APIs & Services** > **Firebase Cloud Messaging API** > **Quotas & System Limits**로 이동하거나 [FCM API 할당량 페이지](https://console.cloud.google.com/apis/api/fcm.googleapis.com/quotas)를 방문하세요.
 
@@ -756,15 +800,15 @@ Firebase 클라우드 메시징(FCM)의 한도를 초과하면 Google에서 "할
 
 이러한 오류 발생량을 낮게 유지하기 위해 다음 모범 사례를 권장합니다.
 
-#### FCM에 사용량 제한 증가 요청 {#request-a-rate-limit-increase-from-fcm}
+#### FCM에 사용량 제한 증가 요청하기 {#request-a-rate-limit-increase-from-fcm}
 
-FCM에 대한 사용량 제한 증가를 요청하려면 [Firebase 지원팀](https://firebase.google.com/support)에 직접 문의하거나 다음 단계를 수행하세요:
+FCM에 사용량 제한 증가를 요청하려면 [Firebase 지원팀](https://firebase.google.com/support)에 직접 문의하거나 다음 단계를 수행하세요.
 
 1. [FCM API 할당량 페이지](https://console.cloud.google.com/apis/api/fcm.googleapis.com/quotas)로 이동합니다.
 2. **Send requests per minute** 할당량을 찾습니다.
 3. **Edit Quota**를 선택합니다.
 4. 새 값을 입력하고 요청을 제출합니다.
 
-#### 워크스페이스 사용량 제한 적용 {#apply-a-workspace-rate-limit}
+#### 워크스페이스 사용량 제한 적용하기 {#apply-a-workspace-rate-limit}
 
-Android 푸시 알림에 대한 워크스페이스 사용량 제한을 적용할 수 있습니다. 이를 통해 발신 메시지의 전달 속도를 조절할 수 있습니다. 자세한 내용은 [워크스페이스 메시징 사용량 제한]({{site.baseurl}}/user_guide/administrative/app_settings/messaging_rate_limits/)을 참조하세요.
+Android 푸시 알림에 워크스페이스 사용량 제한을 적용할 수 있습니다. 이를 통해 발신 메시지의 전달 속도를 조절할 수 있습니다. 자세한 내용은 [워크스페이스 메시징 사용량 제한]({{site.baseurl}}/user_guide/administrative/app_settings/messaging_rate_limits)을 참조하세요.

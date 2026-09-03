@@ -37,7 +37,7 @@ Braze에서 리치 푸시 설정 방법에 대한 안내를 제공하지만, 리
 
 ### 1단계: 푸시 Campaign 생성 {#step-1-create-a-push-campaign}
 
-[Campaign 생성]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/#creating-a-push-message) 단계를 따라 Android용 푸시 알림을 작성합니다. 리치 콘텐츠가 포함되지 않은 푸시 알림을 설정할 때와 동일한 작성기를 사용합니다.
+[Campaign 생성]({{site.baseurl}}/user_guide/channels/push/create_a_push_message) 단계를 따라 Android용 푸시 알림을 작성합니다. 리치 콘텐츠가 포함되지 않은 푸시 알림을 설정할 때와 동일한 작성기를 사용합니다.
 
 ### 2단계: 캡션 추가 {#step-2-add-captioning}
 
@@ -49,10 +49,10 @@ Braze에서 리치 푸시 설정 방법에 대한 안내를 제공하지만, 리
 
 메시지 작성기의 **Android Notification Image** 필드에 이미지를 추가합니다. 이미지는 대시보드를 통해 직접 업로드하거나 외부에서 호스팅되는 콘텐츠 URL을 지정하여 추가할 수 있습니다.
 
-지원되는 이미지에 대한 자세한 내용은 [이미지 사양]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#push)을 확인하세요.
+지원되는 이미지에 대한 자세한 내용은 [이미지 사양]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#image-specifications)을 확인하세요.
 
 ![이미지를 추가하거나 이미지 URL을 입력할 수 있는 Android 알림 이미지 섹션.]({% image_buster /assets/img_archive/android_rich_image.png %})
 
 ### 4단계: Campaign 생성 계속하기 {#step-4-continue-creating-your-campaign}
 
-리치 알림 콘텐츠가 대시보드에 업로드되면 [Campaign 스케줄 설정]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/)을 계속 진행할 수 있습니다.
+리치 알림 콘텐츠가 대시보드에 업로드되면 [Campaign 스케줄 설정]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign)을 계속 진행할 수 있습니다.

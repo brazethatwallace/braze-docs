@@ -61,13 +61,35 @@ Hay dos opciones para verificar la autenticación DMARC de tu dominio:
     - **MXToolbox**: Si configuraste tu DMARC como el dominio raíz, ingrésalo en MXToolbox. Si configuraste el DMARC en el subdominio, ingresa el subdominio en MXToolbox. Ten en cuenta que MXToolbox no "busca hacia arriba o hacia abajo" al realizar consultas. Esto significa que si configuraste el DMARC en el dominio raíz e ingresas el subdominio, MXToolbox mostrará un fallo ya que no sabe que el DMARC se ha configurado en el dominio raíz.
 - **Opción 2:** Abre un correo electrónico de tu dominio o subdominio en tu buzón y busca el mensaje original para verificar si DMARC está superando la autenticación en ese correo electrónico.
 
-Por ejemplo, si usas Gmail, sigue estos pasos:
+Los pasos varían según el cliente de correo electrónico:
 
-1. Haz clic en **Más** <i class="fa-solid fa-ellipsis"></i> en un mensaje de correo electrónico.
+{% tabs %}
+{% tab Gmail %}
+
+1. Selecciona **Más** <i class="fa-solid fa-ellipsis"></i> en un mensaje de correo electrónico.
 2. Selecciona **Mostrar original**.
 3. Verifica si tienes un estado "PASS" para **DMARC**.
 
 ![Un correo electrónico que tiene "PASS" como valor de DMARC.]({% image_buster /assets/img_archive/dmarc_example.png %})
+
+{% endtab %}
+{% tab Outlook %}
+
+1. Abre el correo electrónico.
+2. Selecciona la flecha junto a **Responder**.
+3. Selecciona **Mostrar origen del mensaje**.
+4. Verifica si tienes un estado "PASS" para **DMARC**.
+
+{% endtab %}
+{% tab Apple Mail %}
+
+1. Abre el correo electrónico.
+2. Selecciona **Ver** en la barra de menú.
+3. Selecciona **Mensaje** > **Código fuente**.
+4. Verifica si tienes un estado "PASS" para **DMARC**.
+
+{% endtab %}
+{% endtabs %}
 
 #### Solucionar fallos de DMARC {#troubleshoot-dmarc-failures}
 
@@ -75,7 +97,7 @@ Si DMARC muestra **FAIL** para los mensajes enviados a través de Braze:
 
 1. Abre los encabezados sin procesar o los resultados de autenticación de un mensaje reciente y observa si **SPF** y **DKIM** se superan o fallan.
 2. **Alineación:** DMARC se supera cuando *SPF* *o* *DKIM* se alinean con el dominio **From**. La alineación significa que el dominio **From** coincide con el dominio que superó SPF (a menudo el dominio **Return-Path** / sobre) *o* el dominio en la firma **d=** de DKIM.
-3. Si SPF se supera pero DMARC falla, es posible que el dominio Return-Path no esté alineado con tu dominio **From**; confirma que tus [dominios de envío y seguimiento con etiqueta sin marca]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/) coincidan con los dominios para los que publicas SPF y DKIM.
+3. Si SPF se supera pero DMARC falla, es posible que el dominio Return-Path no esté alineado con tu dominio **From**; confirma que tus [dominios de envío y seguimiento con marca]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains) coincidan con los dominios para los que publicas SPF y DKIM.
 4. Si DKIM falla, verifica que los registros de DNS de DKIM proporcionados por Braze estén presentes y sin modificaciones.
 
 Los verificadores de terceros (por ejemplo, [MXToolbox](https://mxtoolbox.com/dmarc.aspx)) ayudan a confirmar los registros publicados; valida siempre también con un mensaje en vivo de Braze.

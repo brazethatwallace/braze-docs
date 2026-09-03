@@ -1,13 +1,12 @@
 ---
 nav_title: In-app messages
-article_title: In-app messages for the Braze SDK
+article_title: "In-app messages"
 platform: 
   - Android
   - FireOS
   - Swift
 page_order: 2.2
 description: "Learn about in-app messages and how to set them up for the Braze SDK."
-
 ---
 
 # In-app messages

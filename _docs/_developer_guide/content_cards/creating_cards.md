@@ -14,7 +14,7 @@ platform:
 
 # Create Content Cards
 
-> This article discusses the basic approach you'll use when implementing custom Content Cards, as well as three common use cases. It assumes you've already read the other articles in the Content Card customization guide to understand what can be done by default and what requires custom code. It's especially helpful to understand how to [log analytics]({{site.baseurl}}/developer_guide/content_cards/logging_analytics/) for your custom Content Cards. 
+> This article discusses the basic approach you'll use when implementing custom Content Cards, as well as three common use cases. It assumes you've already read the other articles in the Content Card customization guide to understand what can be done by default and what requires custom code. It's especially helpful to understand how to [log analytics]({{site.baseurl}}/developer_guide/content_cards/logging_analytics) for your custom Content Cards. 
 
 {% multi_lang_include banners/content_card_alert.md %}
 
@@ -49,7 +49,7 @@ To obtain the Content Card data models, subscribe to Content Card updates. Pay p
 * **`id`:** Represents the Content Card ID string. This is the unique identifier used to log analytics from custom Content Cards.
 * **`extras`:** Encompasses all the key-value pairs from the Braze dashboard. 
 
-All properties outside of `id` and `extras` are optional to parse for custom Content Cards. For more information on the data model, see each platform's integration article: [Android]({{site.baseurl}}/developer_guide/content_cards/?sdktab=android), [iOS]({{site.baseurl}}/developer_guide/content_cards/?sdktab=swift), [Web]({{site.baseurl}}/developer_guide/content_cards/?sdktab=web).
+All properties outside of `id` and `extras` are optional to parse for custom Content Cards. For more information on the data model, see each platform's integration article: [Android]({{site.baseurl}}/developer_guide/content_cards?sdktab=android), [iOS]({{site.baseurl}}/developer_guide/content_cards?sdktab=swift), [Web]({{site.baseurl}}/developer_guide/content_cards?sdktab=web).
 
 {% tabs local %}
 {% tab web %}
@@ -77,7 +77,7 @@ braze.openSession();
 ```
 
 {% alert note %}
-Content Cards only refresh on session start if `subscribeToContentCardsUpdates()` is called before `openSession()`. You can also [manually refresh the feed]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed/) at any time.
+Content Cards only refresh on session start if `subscribeToContentCardsUpdates()` is called before `openSession()`. You can also [manually refresh the feed]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed) at any time.
 {% endalert %}
 
 {% endtab %}
@@ -217,27 +217,27 @@ BRZCancellable *cancellable = [self.braze.contentCards subscribeToUpdates:^(NSAr
 
 ### Step 3: Implement analytics
 
-Content Card impressions, clicks, and dismissals are not automatically logged in your custom view. You must [implement each respective method]({{site.baseurl}}/developer_guide/content_cards/logging_analytics/) to properly log all metrics back to Braze dashboard analytics.
+Content Card impressions, clicks, and dismissals are not automatically logged in your custom view. You must [implement each respective method]({{site.baseurl}}/developer_guide/content_cards/logging_analytics) to properly log all metrics back to Braze dashboard analytics.
 
 ### Step 4: Test your card (optional)
 
 To test your Content Card:
 
 1. Set an active user in your application by calling the [`changeUser()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser) method.
-2. In Braze, go to **Campaigns**, then [create a new Content Card campaign]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/).
+2. In Braze, go to **Campaigns**, then [create a new Content Card campaign]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card).
 3. In your campaign, select **Test**, then enter the test user's `user-id`. When you're ready, select **Send Test**. You'll be able to launch a Content Card on your device shortly.
 
 ![A Braze Content Card campaign showing you can add your own user ID as a test recipient to test your Content Card.]({% image_buster /assets/img/react-native/content-card-test.png %} "Content Card Campaign Test")
 
 ## Content Card placements
 
-Content Cards can be used in many different ways. Three common implementations are to use them as a message center, a dynamic image ad, or an image carousel. For each of these placements, you will assign [key-value pairs]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_behavior/#key-value-pairs) (the `extras` property in the data model) to your Content Cards, and based on the values, dynamically adjust the card's behavior, appearance, or functionality during runtime. 
+Content Cards can be used in many different ways. Three common implementations are to use them as a message center, a dynamic image ad, or an image carousel. For each of these placements, you will assign [key-value pairs]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/behavior) (the `extras` property in the data model) to your Content Cards, and based on the values, dynamically adjust the card's behavior, appearance, or functionality during runtime. 
 
-![]({% image_buster /assets/img_archive/cc_placements.png %}){: style="border:0px;"}
+![Diagram showing three Content Card placement examples: message inbox, dynamic image ad, and image carousel.]({% image_buster /assets/img_archive/cc_placements.png %}){: style="border:0px;"}
 
 ### Message inbox
 
-Content Cards can be used to simulate a message center. In this format, each message is its own card that contains [key-value pairs]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_behavior/#key-value-pairs) that power on-click events. These key-value pairs are the key identifiers that the application looks at when deciding where to go when the user clicks on an inbox message. The values of the key-value pairs are arbitrary. 
+Content Cards can be used to simulate a message center. In this format, each message is its own card that contains [key-value pairs]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/behavior) that power on-click events. These key-value pairs are the key identifiers that the application looks at when deciding where to go when the user clicks on an inbox message. The values of the key-value pairs are arbitrary. 
 
 #### Example
 
@@ -276,7 +276,7 @@ Key-value pairs for a new subscriber coupon:
 
 {% details Additional information for Android %}
 
-In the Android and FireOS SDK, the message center logic is driven by the `class_type` value that is provided by the key-value pairs from Braze. Using the [`createContentCardable`]({{site.baseurl}}/developer_guide/content_cards/) method, you can filter and identify these class types.
+In the Android and FireOS SDK, the message center logic is driven by the `class_type` value that is provided by the key-value pairs from Braze. Using the [`createContentCardable`]({{site.baseurl}}/developer_guide/content_cards) method, you can filter and identify these class types.
 
 {% tabs local %}
 {% tab Kotlin %}
@@ -403,15 +403,15 @@ You can set Content Cards in your fully-custom carousel feed, allowing users to 
 
 To implement a Content Card carousel:
 
-1. Create custom logic that observes for [changes in your Content Cards]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed/#refreshing-the-feed) and handles Content Card arrival.
+1. Create custom logic that observes for [changes in your Content Cards]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed) and handles Content Card arrival.
 2. Create custom client-side logic to display a specific number of cards in the carousel any one time. For example, you could select the first five Content Card objects from the array or introduce key-value pairs to build conditional logic around.
 
 {% alert tip %}
-If you're implementing a carousel as a secondary Content Cards feed, be sure to [sort cards into the correct feed using key-value pairs]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed/#multiple-feeds).
+If you're implementing a carousel as a secondary Content Cards feed, be sure to [sort cards into the correct feed using key-value pairs]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed).
 {% endalert %}
 
 ### Image-only
 
 Content Cards don't have to look like "cards." For example, Content Cards can appear as a dynamic image that persistently displays on your home page or at the top of designated pages.
 
-To achieve this, your marketers will create a campaign or Canvas step with an **Image Only** type of Content Card. Then, set key-value pairs that are appropriate for using [Content Cards as supplemental content]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_behavior/#content-cards-as-supplemental-content).
+To achieve this, your marketers will create a campaign or Canvas step with an **Image Only** type of Content Card. Then, set key-value pairs that are appropriate for using [Content Cards as supplemental content]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/behavior).

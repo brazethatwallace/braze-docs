@@ -14,7 +14,7 @@ channel: email
 
 ## États des abonnés {#subscriber-states}
 
-Il existe trois états d'abonnement e-mail pour un utilisateur : **abonné**, **inscrit** et **désabonné**. Pour modifier l'état d'abonnement d'un utilisateur, consultez notre article sur la [modification des abonnements]({{site.baseurl}}/user_guide/channels/email/subscriptions/#changing-subscriptions) ou utilisez nos [API d'abonnement]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/).
+Il existe trois états d'abonnement e-mail pour un utilisateur : **abonné**, **inscrit** et **désabonné**. Pour modifier l'état d'abonnement d'un utilisateur, consultez notre article sur la [modification des abonnements]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-email-subscriptions) ou utilisez nos [API d'abonnement]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status).
 
 | État de l'abonné | Description |
 |---|---|
@@ -39,11 +39,11 @@ La co-inscription désigne un accord entre entreprises pour collecter des inform
 
 L'abonnement pré-coché est une méthode d'inscription par e-mail dans laquelle la case d'inscription est déjà cochée pour que les utilisateurs reçoivent vos e-mails. En laissant la case cochée, les utilisateurs donnent leur consentement à recevoir vos e-mails. Cette méthode a tendance à agacer les gens (elle est également illégale pour les e-mails envoyés vers ou au sein du Canada). Vous pourriez obtenir une liste d'e-mails de taille respectable, mais vous ne pouvez pas vraiment être sûr que ces utilisateurs souhaitent recevoir vos e-mails marketing.
 
-### Abonnement simple (single opt-in) {#single-opt-in}
+### Abonnement simple {#single-opt-in}
 
 L'abonnement simple se produit lorsque des utilisateurs s'inscrivent via un formulaire et sont immédiatement ajoutés à votre liste d'e-mails. Avec cette méthode, les utilisateurs effectuent une seule action pour s'abonner, comme saisir leur adresse e-mail dans un champ de collecte ou cocher une case dans le cadre d'une transaction.
 
-### Abonnement confirmé (confirmed opt-in) {#confirmed-opt-in}
+### Abonnement confirmé {#confirmed-opt-in}
 
 Un abonnement confirmé se produit lorsqu'un utilisateur coche une case demandant à recevoir des communications par e-mail, et qu'un message de confirmation lui est envoyé en retour. Cette méthode permet aux utilisateurs de choisir le type et la fréquence du contenu, ce qui améliore l'engagement.
 

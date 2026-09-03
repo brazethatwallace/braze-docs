@@ -12,14 +12,14 @@ description: "この記事では、メール用の更新されたHTMLエディ�
 
 ## メリット {#benefits}
 
-更新されたHTMLエディターは、他のメッセージングチャネルのエディターと一貫した体験を提供します。上部のエディターナビゲーションを使用して、エディター（HTML、クラシック、プレーンテキスト、AMP）をシームレスに切り替えることができます。これらのオプションは、以前のHTMLエディターではドロップダウンに隠されていました。
+更新されたHTMLエディターは、他のメッセージングチャネルのエディターと一貫したエクスペリエンスを提供します。上部のエディターナビゲーションを使用して、エディター（HTML、クラシック、プレーンテキスト、AMP）をシームレスに切り替えることができます。これらのオプションは、以前のHTMLエディターではドロップダウンに隠れていました。
 
-その他のメリットとして、改善されたLiquid構文サポートと[多言語設定サポート](https://www.braze.com/docs/user_guide/administrative/app_settings/multi_language_settings)があります。
+その他のメリットとして、Liquid構文サポートの改善や[多言語設定のサポート]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings)があります。
 
-リンク管理も更新されたHTMLエディターでサポートされており、[リンクエイリアス](https://www.braze.com/docs/user_guide/message_building_by_channel/email/templates/link_aliasing/)がオンになっていない場合でも利用できます。
+[リンクエイリアス]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing)が有効になっていない場合でも、更新されたHTMLエディターではリンク管理がサポートされています。
 
-![HTMLメールの例が表示されたメール用の更新されたHTMLエディター]({% image_buster /assets/unlisted_docs/img_archive/email_html_editor_updated.png %})
+![HTMLメールの例が表示された、更新されたメール用HTMLエディター。]({% image_buster /assets/unlisted_docs/img_archive/email_html_editor_updated.png %})
 
 {% alert tip %}
-追加のリソースについては、専用の[メール用HTMLエディター](https://www.braze.com/docs/user_guide/message_building_by_channel/email/html_editor)セクションをご覧ください。
+追加のリソースについては、専用の[メール用HTMLエディター]({{site.baseurl}}/user_guide/channels/email/html_editor)セクションをご覧ください。
 {% endalert %}

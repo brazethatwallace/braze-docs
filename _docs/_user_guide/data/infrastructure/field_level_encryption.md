@@ -11,7 +11,7 @@ page_type: reference
 
 > Encrypt email addresses to minimize personally identifiable information (PII) shared in Braze.
 
-{% multi_lang_include field_level_encryption_pii_description.md %}
+{% multi_lang_include data_activation/field_level_encryption_pii_description.md %}
 
 {% alert important %}
 Identifier field-level encryption is available as an add-on feature. To get started with identifier field-level encryption, contact your Braze account manager.
@@ -47,7 +47,7 @@ In the Braze dashboard, go to **Data Settings** > **Field-Level Encryption**. Fo
 
 - Access key ID
 - Secret access key
-- HMAC key ID (this cannot be updated after saving)
+- HMAC key identifier (key ID or key ARN; this cannot be updated after saving)
 
 ## Step 2: Select your encrypted fields
 
@@ -87,7 +87,7 @@ These features are not supported with identifier field-level encryption:
 
 ### User attributes object
 
-When using identifier field-level encryption with the `/users/track` endpoint, note these field details for the [user attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens):
+When using identifier field-level encryption with the `/users/track` endpoint, note these field details for the [user attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object):
 
 - The `email` field must be the hashed value of the email.
 - The `email_encrypted` field must be the encrypted value for the email.
@@ -104,6 +104,14 @@ Plaintext email addresses are supported in test sending. To see how an email loo
 
 1. Select **Preview message as a user**.
 2. In **Test Send**, select **Override recipients attributes with current preview user’s attributes**.
+
+### Can I use an ARN for the HMAC key?
+
+Yes. In **Data Settings** > **Field-Level Encryption**, the HMAC key identifier accepts either a key ID or a key ARN.
+
+### How do I remove or reset an HMAC key?
+
+You can't remove or reset an HMAC key in the dashboard after saving it. To request an HMAC key reset, or to request removal of the identifier field-level encryption setup, contact your Braze account manager or open a [support ticket]({{site.baseurl}}/braze_support/).
 
 {%raw%}
 ### What happens if I add this email address Liquid `{{${email_address}}}` in Braze?

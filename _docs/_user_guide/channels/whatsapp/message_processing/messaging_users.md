@@ -7,7 +7,6 @@ channel:
   - WhatsApp
 page_order: 5.1
 alias: /whatsapp_quick_replies/
-
 ---
 
 # User messages
@@ -105,7 +104,7 @@ You can only add WhatsApp list messages to Canvases that are action-based, as th
 
 #### Step 2: Create a WhatsApp Message step
 
-Add a WhatsApp [Message step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/), and then select the response message layout of **List Message**.
+Add a WhatsApp [Message step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step), and then select the response message layout of **List Message**.
 
 ![A selectable collection of the different types of WhatsApp response messages you can create, including "List Message".]({% image_buster /assets/img/whatsapp/list_message_option.png %}){: style="max-width:70%;"}
 
@@ -121,7 +120,7 @@ Change the order of sections and rows by selecting and dragging the icon next to
 
 ![Dragging a list section into a new location.]({% image_buster /assets/img/whatsapp/drag_list_order.png %}){: style="max-width:60%;"}
 
-Back in the Canvas composer, add an [Action path]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/) after the Message step that has a group for each list response. In each group:
+Back in the Canvas composer, add an [Action path]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) after the Message step that has a group for each list response. In each group:
 
 1. Add a trigger for **Sent inbound WhatsApp subscription group** and select the respective WhatsApp subscription group.
 2. Check the **Where the message body** checkbox.
@@ -133,7 +132,7 @@ Continue to build out your Canvas.
 
 ### Creating actions paths for long descriptions
 
-If you have row descriptions, you must use **Matches regex** to specify a row. For example, if you want to specify a row with the description, "Our new style that fits over your favorite pair of ankle boots", you could use [regex]({{site.baseurl}}/user_guide/audience/segments/regex/) with "ankle boots".
+If you have row descriptions, you must use **Matches regex** to specify a row. For example, if you want to specify a row with the description, "Our new style that fits over your favorite pair of ankle boots", you could use [regex]({{site.baseurl}}/user_guide/audience/segments/regex) with "ankle boots".
 
 ![A WhatsApp trigger using the filter for "Matches regex" to capture response messages with "ankle boots".]({% image_buster /assets/img/whatsapp/regex_list_message.png %})
 
@@ -141,21 +140,62 @@ If you have row descriptions, you must use **Matches regex** to specify a row. F
 
 ### Timing requirements for response messages
 
-Response messages need to be sent within 24 hours of receiving a user's message. To help build successful experiences, Braze checks the message logic to confirm there is an upstream inbound user message that unblocks the response message. 
+Response messages need to be sent within 24 hours of receiving a user's message. To help build successful experiences, Braze checks the message logic to confirm there is an upstream inbound user message that unblocks the response message.
+
+For sub-minute replies in two-way Canvas flows, minimize steps between the inbound trigger and the response message send. Canvas architecture, webhook round trips, and User Update batching can add latency. See [Minimize response latency for two-way flows]({{site.baseurl}}/user_guide/channels/whatsapp/best_practices#minimize-response-latency-for-two-way-flows).
 
 The following events unblock response messages: 
 
 - Inbound message 
-  - [Action Path]({{site.baseurl}}/action_paths/) or [action-based entry]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) with the trigger **Send a WhatsApp inbound message**.
+  - [Action Path]({{site.baseurl}}/action_paths) or [action-based entry]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) with the trigger **Send a WhatsApp inbound message**.
 
 ![An action-based entry step with the trigger "Send a WhatsApp inbound message".]({% image_buster /assets/img/whatsapp/whatsapp_inbound_message_trigger.png %})
 
-- [API-triggered entry]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/)
+- [API-triggered entry]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery)
 - Inbound product message 
   - [`ecommerce.cart_updated`]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events#types-of-ecommerce-recommended-events?tab=ecommerce.cart_updated) event
 
 ![An Action Path with the trigger of a performed custom event `ecommerce.cart_updated`.]({% image_buster /assets/img/whatsapp/ecommerce_cart_updated.png %})
 
+### Quick replies and inbound messages outside the 24-hour window
+
+When a user interacts with your business on WhatsApp—including by tapping a quick reply button on an older template message—their action counts as an inbound message. That inbound message opens a new 24-hour customer service window, even if the original template was sent more than 24 hours ago.
+
+In a Canvas with quick reply buttons, users can tap a button days after receiving the welcome template and still enter the correct Action Path. Braze evaluates the Action Path when the inbound message arrives; you don't need to extend the Action Path duration beyond the default to capture late replies.
+
+The following diagram shows a common quick-reply flow:
+
+```mermaid
+sequenceDiagram
+    participant Brand
+    participant User
+    Brand->>User: Template message (quick reply buttons)
+    Note over User: More than 24 hours pass
+    User->>Brand: Taps quick reply (inbound message)
+    Note over Brand,User: New 24-hour customer service window opens
+    Brand->>User: Response message (within Action Path)
+```
+
+#### Things to know
+
+- The response message step must still fall within 24 hours of the user's inbound message. In most Canvas flows, the response sends immediately after the Action Path evaluates, so this isn't an issue.
+- The 24-hour customer service window is different from Canvas [conversion events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), which can use a window of up to 30 days. Conversion windows control attribution; they don't affect whether a response message can send.
+- For billing, see [Are WhatsApp response messages free?]({{site.baseurl}}/user_guide/channels/whatsapp/faq#are-whatsapp-response-messages-free).
+
 ### Filtering by a custom time attribute
 
-If your action-based WhatsApp campaign or Canvas audience depends on a custom time attribute falling within a relative window (for example, between now and the next 24 hours), combine two filters as described in [Time]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes/#time).
+If your action-based WhatsApp campaign or Canvas audience depends on a custom time attribute falling within a relative window (for example, between now and the next 24 hours), combine two filters as described in [Time]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types).
+
+### Inbound media storage and URL expiration
+
+When a user sends a WhatsApp message that contains media (such as an image, audio file, or document), Braze stores that media in Amazon S3 for 30 days from the time the message is received. 
+
+However, the `inbound_media_urls` Liquid field, which references the URL of that media, is valid for seven days from the time Braze receives the inbound message. Because the URL is generated once at receipt and not regenerated, the seven-day window applies regardless of when you access the field. The shorter of the two limits applies, so in practice, `inbound_media_urls` should be treated as valid for up to seven days.
+
+{% alert note %}
+If you save an `inbound_media_urls` value to a user custom attribute for later use, be aware of this seven-day expiration. Attempting to access the URL after it has expired results in a broken link.
+{% endalert %}
+
+### Inbound profile name
+
+When Meta includes a display name on an inbound WhatsApp message, Braze exposes it as the {% raw %}`{{whats_app.${inbound_profile_name}}}`{% endraw %} Liquid attribute on that inbound event. This value reflects the name the user set in WhatsApp and may not match CRM profile data. Validate the data before using it in user copy, or use a Canvas User Update step to save it to a profile field for later use. For a full list of WhatsApp Liquid attributes, see [Supported personalization tags]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags).

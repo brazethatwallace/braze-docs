@@ -2,7 +2,7 @@
 nav_title: Suporte da Braze
 article_title: Suporte da Braze
 page_order: 4
-description: "Esta página vai ajudar você a localizar o Portal de Suporte da Braze para enviar feedback sobre produtos da Braze. Esta página só estará acessível para clientes da Braze."
+description: "Esta página ajuda você a localizar o Portal de Suporte da Braze para enviar feedback sobre produtos da Braze. Esta página só está acessível para clientes da Braze."
 alias: /braze_support/
 page_type: reference
 search_rank: 7
@@ -14,76 +14,44 @@ search_rank: 7
 
 ## Acessar o Portal de Suporte {#access-the-support-portal}
 
-Para entrar em contato com a equipe de suporte da Braze, navegue até o dashboard da Braze e selecione **Suporte**. O menu oferece duas opções:
+Para entrar em contato com a equipe de suporte da Braze, acesse **Support** > **Get help with Operator** para abrir o BrazeAI<sup>TM</sup> Operator.
 
-- **Get help with Operator** abre o BrazeAI Operator<sup>TM</sup>, que pode solucionar seu problema na hora usando o contexto da sua conversa e da tela atual. Se o Operator não conseguir resolver seu problema, você pode pedir que ele elabore um ticket de suporte com base na sua conversa. Para saber mais, consulte [registrar tickets de suporte com o BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets/).
-- **Get help** leva você diretamente ao Portal de Suporte da Braze (se você for um contato de suporte designado) ou ao nosso formulário de suporte padrão, onde pode enviar e acompanhar casos. Se você não tem certeza se é um contato de suporte da Braze, entre em contato com o administrador da Braze da sua empresa, o gerente de sucesso da Braze ou o proprietário da conta.
+O Operator pode solucionar seu problema usando o contexto da sua conversa e da tela atual. Se o Operator não conseguir resolver seu problema, peça para ele redigir um ticket de suporte com base na sua conversa e envie o ticket no Portal de Suporte da Braze (se você for um contato de suporte designado). Você também pode selecionar <i class="fa-regular fa-circle-question"></i> **Contact Support** dentro do Operator para registrar um ticket diretamente. Se **Get help with Operator** não estiver disponível no seu dashboard, selecione **Support** > **Get help** para abrir o portal de suporte ou o formulário de suporte.
 
-![O menu suspenso "Support" mostrando as opções "Get help with Operator" e "Get help".]({% image_buster /assets/img_archive/get_help.png %}){: style="max-width:50%;"}
+Para saber mais, consulte [registrar tickets de suporte com o BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets). Se você não tem certeza se é um contato de suporte da Braze, entre em contato com o administrador da Braze da sua empresa, o gerente de sucesso da Braze ou o proprietário da conta.
 
+![O menu suspenso "Support" mostrando "Get help with Operator".]({% image_buster /assets/img_archive/get_help.png %}){: style="max-width:50%;"}
 
-## Adicionar contatos de suporte designados {#adding-designated-support-contacts}
+## Adicionando contatos de suporte designados {#adding-designated-support-contacts}
 
-Contatos de suporte designados podem acessar todos os casos de suporte da sua empresa, independentemente de quem os enviou. Você pode definir usuários como contatos de suporte designados diretamente na página **Edit user**.
+Os contatos de suporte designados podem acessar todos os casos de suporte da sua empresa, independentemente de quem os enviou. Você pode definir usuários como contatos de suporte designados diretamente na página **Editar usuário**.
 
 1. Acesse **Configurações** > **Usuários da empresa** e pesquise o usuário pelo nome ou endereço de e-mail.
-2. Selecione o nome do usuário ou passe o mouse sobre a linha do nome do usuário para exibir um menu.
-3. No menu, selecione **Edit** para ser redirecionado à página **Edit user**.
+2. Selecione o nome do usuário ou passe o cursor sobre a linha do nome do usuário para exibir um menu.
+3. No menu, selecione **Editar** para ser redirecionado à página **Editar usuário**.
 4. Marque a caixa de seleção **Set this user as a Designated Support Contact for Braze Support Portal**.
-
-![A caixa de seleção para definir um usuário como contato de suporte designado.]({% image_buster /assets/img_archive/designated_support_contact.png %}){: style="max-width:70%;"}
 
 ### Obtendo acesso {#gaining-access}
 
 Depois que um usuário é designado como contato de suporte, o Portal de Suporte da Braze envia a esse usuário um e-mail de boas-vindas com instruções para configurar o acesso.
 
-## Visualizar casos da sua empresa {#view-cases-from-your-company}
+## Ver casos da sua empresa {#view-cases-from-your-company}
 
-Se você é um contato de suporte designado, use as visualizações de filtro **My Org's** no portal de suporte para ver todos os casos enviados por usuários da sua empresa. Casos de todos os canais de envio (BrazeAI Operator<sup>TM</sup>, formulário web, e-mail ou portal) estão incluídos nessas visualizações.
+Se você é um contato de suporte designado, use as visualizações de filtro **My Org's** no portal de suporte para ver todos os casos enviados por usuários da sua empresa. Casos de todos os canais de envio (BrazeAI<sup>TM</sup> Operator, formulário web, e-mail ou portal) estão incluídos nessas visualizações.
 
-## Fornecer capturas de tela do console de desenvolvedor {#provide-developer-console-screenshots}
-
-Ao se comunicar com o suporte, pode ser necessário acessar o console de desenvolvedor para fornecer informações adicionais:
-- Chrome
-  1. Clique com o botão direito na página e selecione **Inspect**.
-  2. Selecione a guia **Console** na janela que abrir.
-  3. Tire uma captura de tela da guia Console.<br><br>
-- Firefox
-  1. Clique com o botão direito na página e selecione **Inspect Element**.
-  2. Selecione a guia **Console** na janela que abrir.
-  3. Tire uma captura de tela da guia Console.<br><br>
-- Safari
-  1. Acesse Safari na barra de menus no topo da tela e selecione **Preferences**.
-  2. Selecione **Advanced** e marque a caixa de seleção ao lado de **Show Develop menu in menu bar**. Depois, você pode fechar a janela.
-  3. Clique com o botão direito na página e selecione **Inspect Element**.
-  4. Selecione a guia **Console** na janela que abrir.
-  5. Tire uma captura de tela da guia Console.
-
-## Boas práticas para enviar um caso de suporte {#best-practices-for-submitting-a-support-case}
+## Práticas recomendadas para enviar um caso de suporte {#best-practices-for-submitting-a-support-case}
 
 ### Forneça o máximo de informações possível {#provide-as-much-information-as-possible}
 
-Quanto mais detalhes você puder oferecer, melhor. Inclua informações específicas como o espaço de trabalho, a URL da Campaign ou do Segment e quaisquer IDs externos relevantes. Isso pode nos ajudar a solucionar seu problema de forma mais eficiente.
+Quanto mais insights você puder oferecer, melhor. Inclua detalhes específicos como o espaço de trabalho, a URL da Campaign ou do Segment e quaisquer IDs externos relevantes. Isso pode nos ajudar a solucionar seu problema com mais eficiência.
 
 ### Forneça uma amostra de usuários {#provide-a-sample-of-users}
 
-Compartilhe uma amostra de usuários em vez de todo o segmento afetado. Fornecer um número menor de usuários nos ajuda a restringir o escopo e acelerar nossas investigações.
-
-### Anexe registros de rede (registros HAR) {#attach-network-logs-har-logs}
-
-Se você entrar em contato com o suporte, será útil que o usuário afetado colete registros de rede (registros HAR) do navegador enquanto o problema ocorre. Isso exibirá as solicitações de rede entre o navegador e o servidor para os componentes individuais de uma página, bem como o dashboard da Braze que o usuário está tentando abrir.
-
-Peça ao usuário afetado que faça o seguinte:
-
-1. Abra as ferramentas de desenvolvedor. No Chrome, isso pode ser feito usando o atalho de teclado `option` + `⌘` + `J` (no macOS). No Windows ou Linux, use o atalho `shift` + `CTRL` + `J`.
-2. Selecione **Network** > **Fetch/XHR** ou **XHR**.
-3. Capture uma gravação de tela ou captura de tela mostrando **Name**, **Status**, **Size** e **Time** dos elementos.<br><br>![A guia "Fetch/XHR" em um navegador Chrome.]({% image_buster /assets/img/network_xhr.png %}){: style="max-width:60%;"}
-
-Em seguida, anexe a gravação ou captura de tela do usuário ao ticket de suporte. Essas informações podem ajudar na investigação do suporte.
+Compartilhe uma amostra de usuários em vez de todo o Segment afetado. Fornecer um número menor de usuários nos ajuda a restringir o escopo e acelerar nossas investigações.
 
 ### Esclareça o comportamento esperado versus o real {#clarify-expected-versus-actual-behavior}
 
-Informe o que você esperava e o que realmente aconteceu. Isso pode nos ajudar a restringir as possíveis causas do problema.
+Informe o que você esperava e o que realmente aconteceu. Isso pode nos ajudar a identificar as possíveis causas do problema.
 
 ### Anexe imagens relevantes {#attach-relevant-images}
 
@@ -91,7 +59,7 @@ Considere anexar uma captura de tela para ilustrar o problema. Fornecer essas im
 
 ### Avalie o impacto {#assess-the-impact}
 
-Selecione o nível de severidade apropriado para nos ajudar a atribuir os recursos certos para resolver o problema.
+Selecione o nível de severidade apropriado para nos ajudar a designar os recursos certos para resolver o problema.
 
 {% alert important %}
 Marcar um problema como "Crítico" significa que sua instância de produção está fora do ar e todo o trabalho na Braze foi interrompido.
@@ -101,13 +69,13 @@ Marcar um problema como "Crítico" significa que sua instância de produção es
 
 Se o dashboard da Braze não estiver carregando corretamente, tente o seguinte antes de entrar em contato com o suporte:
 
-1. Abra o dashboard em um navegador diferente ou em uma janela anônima/privada.
-2. [Limpe o cache e os cookies do navegador]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#clearing-your-browser-cache-and-cookies).
+1. Abra o dashboard em um navegador diferente ou em uma janela anônima ou privada.
+2. [Limpe o cache e os cookies do seu navegador]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account#clearing-your-browser-cache-and-cookies).
 3. Desative bloqueadores de anúncios e extensões do navegador e recarregue o dashboard.
 4. Se você usa uma VPN, desconecte e tente novamente.
 
-Se o console de desenvolvedor do navegador exibir `ERR_BLOCKED_BY_CLIENT`, uma extensão ou bloqueador de anúncios está bloqueando recursos do dashboard. Desative o bloqueador para a URL do dashboard da Braze e recarregue a página.
+Se o console de desenvolvedor do seu navegador exibir `ERR_BLOCKED_BY_CLIENT`, uma extensão ou bloqueador de anúncios está bloqueando recursos do dashboard. Desative o bloqueador para a URL do seu dashboard da Braze e recarregue a página.
 
 ## Solução de problemas de acesso {#troubleshooting-access}
 
-Se você receber um erro ao fazer login no Portal de Suporte da Braze, como `Check your entry`, verifique se você seguiu o link no e-mail de boas-vindas para definir uma senha para o portal. Se você já fez isso ou conseguia fazer login no portal anteriormente, crie um ticket de suporte.
+Se você receber um erro ao fazer login no Portal de Suporte da Braze, como `Check your entry`, verifique se seguiu o link no seu e-mail de boas-vindas para definir uma senha para o portal. Se você já fez isso ou conseguia fazer login no portal anteriormente, crie um ticket de suporte.

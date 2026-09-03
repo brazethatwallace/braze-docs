@@ -29,12 +29,20 @@ To complete these goals, follow these steps:
 
 ## Initialize and load the Braze Web SDK
 
-### Step 1: Create a Braze website app {#step-1}
+### Step 1: Select a website app and copy SDK credentials {#step-1}
 
-In Braze, go to **Settings** > **App Settings**, then select **Add app**. Enter "Shopify" as the app name.
+Before you add code to your Hydrogen storefront, connect your Shopify store and start custom setup onboarding. If you haven't connected your store yet, complete [Connect your Shopify store](#connect-your-shopify-store), then continue with [Enable Braze SDKs](#enable-braze-sdks) and select **Custom setup**.
+
+In the custom setup flow, Braze prompts you to select the website app for your headless storefront:
+
+1. Select an existing website app or create a new one. You can name the app anything except **Shopify**, which Braze reserves for the standard Shopify integration path.
+2. Braze displays the selected app's API key and base URL (your SDK endpoint) in the onboarding step. Select **Copy** for each value—you don't need to open **Settings** > **App Settings**.
+3. Use the copied API key as `BRAZE_API_KEY` and the SDK endpoint as `BRAZE_API_URL` in your Shopify environment variables ([Step 2](#step-2)).
+
+After you connect the store, you can rename the selected website app in **Settings** > **App Settings**. You can't delete the app while it's connected to your Shopify integration.
 
 {% alert warning %}
-The shop must be named “Shopify” or the integration may not work properly.
+Use the API key for the website app you selected during onboarding. If your Hydrogen environment uses a different API key than the one connected to your Shopify integration, Braze may create duplicate users and SDK methods may not work as expected.
 {% endalert %}
 
 ### Step 2: Add subdomain and environmental variables {#step-2}
@@ -42,7 +50,7 @@ The shop must be named “Shopify” or the integration may not work properly.
 1. Set up your Shopify subdomain to [redirect traffic from your online store to Hydrogen](https://shopify.dev/docs/storefronts/headless/hydrogen/migrate/redirect-traffic).  
 2. Add a [callback URI](https://shopify.dev/docs/storefronts/headless/building-with-the-customer-account-api/hydrogen#step-2-set-up-the-environment) for login. (The URI will automatically be added when the domain is added.)
 3. Set up your [Shopify environment variables](https://shopify.dev/docs/storefronts/headless/hydrogen/environments#create-a-new-environment-variable):
-  - Create two environment variables using the values from the website app you created in [Step 1](#step-1).
+  - Create two environment variables using the API key and SDK endpoint you copied during custom setup onboarding in [Step 1](#step-1).
     - `BRAZE_API_KEY` 
     - `BRAZE_API_URL`
 
@@ -51,13 +59,13 @@ The shop must be named “Shopify” or the integration may not work properly.
 The first step is to initialize the Braze Web SDK. We recommend doing that by installing our NPM package:
 
 ```java
-npm install --save @braze/web-sdk@5.4.0
+npm install --save @braze/web-sdk@6.8.0
 # or, using yarn:
 # yarn add @braze/web-sdk
 ```
 
 {% alert important %}
-The Braze Web SDK version must be 5.4.0.
+The minimum supported Braze Web SDK version is 5.4.0. For Shopify custom integrations (including headless storefronts), you receive notifications when new SDK versions are available, but you manage upgrades on your side by updating both your storefront code and the SDK version in integration settings.
 {% endalert %}
 
 Then, [include this setting]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web) as a top-level key in your `vite.config.js` file:
@@ -573,17 +581,19 @@ function CartLineUpdateButton({children, lines}) {
 
 ## Install the Braze Shopify integration
 
-### Step 1: Connect your Shopify store
+### Step 1: Connect your Shopify store {#connect-your-shopify-store}
 
 Go to the Shopify partner page to start your setup. First, select **Begin Setup** to install the Braze application from the Shopify App Store. Follow the guided steps to complete the installation process.
 
 ![Shopify integration setup page on the Braze dashboard.]({% image_buster /assets/img/shopify/braze_shopify_integration_page.png %})
 
-### Step 2: Enable Braze SDKs 
+### Step 2: Enable Braze SDKs {#enable-braze-sdks}
 
-For Shopify Hydrogen or headless stores, select the **Custom setup** option. 
+For Shopify Hydrogen or headless stores, select the **Custom setup** option.
 
-Before continuing with the onboarding process, confirm that you've enabled the Braze SDK on your Shopify website.
+Custom setup includes a website app picker. Select or create the app that powers your storefront, then copy the API key and SDK endpoint shown in the onboarding step. For details, see [Step 1: Select a website app and copy SDK credentials](#step-1).
+
+Before continuing with the onboarding process, confirm that you've added the Braze SDK to your Shopify website using those credentials.
 
 ![Setup step to enable Braze SDKs.]({% image_buster /assets/img/shopify/enable_braze_sdks_setup.png %})
 
@@ -666,10 +676,7 @@ The next steps depend on your external ID selection:<br><br>
 
 #### Step 6.1: Create the `braze.external_id` metafield
 
-1. In your Shopify admin panel, go to **Settings** > **Metafields**.
-2. Select **Customers** > **Add definition**.
-3. For **Namespace and key**, enter `braze.external_id`.
-4. For **Type**, select **ID Type**.
+{% multi_lang_include partners/shopify/customer_metafield_definition_steps.md %}
 
 After the metafield is created, populate it for your customers. We recommend the following approaches:
 
@@ -696,7 +703,7 @@ Braze sends the following parameters to your endpoint:
 ##### Example endpoint
 
 ```http
-GET https://mystore.com/custom_id?shopify_customer_id=1234&email_address=bob@braze.com&shopify_storefront=dev-store.myshopify.com
+GET https://mystore.com/custom_id?shopify_customer_id=1234&email_address=bob@example.com&shopify_storefront=dev-store.myshopify.com
 ```
 
 
@@ -715,9 +722,7 @@ It is critical to validate that the `shopify_customer_id` and `email_address` (i
 ##### Failure behavior and merging
 Any status code other than `200` is considered a failure.
 
-- **Merge implications:** If the endpoint fails (returns non-`200` or times out), Braze cannot retrieve the external ID. Consequently, the merge between the Shopify user and the Braze user profile will not happen at that time.
-- **Retry logic:** Braze may attempt standard immediate network retries, but if the failure persists, the merge will be deferred until the next qualifying event (for example, the next time the user updates their profile or completes a checkout).
-- **Supportability:** To support timely user merging, ensure your endpoint is highly available and handles the optional `email_address` field gracefully.
+{% multi_lang_include partners/shopify/external_id_merge_implications.md %}
 
 #### Step 6.3: Input your external ID
 
@@ -725,9 +730,7 @@ Repeat [Step 6](#step-6), and enter your endpoint URL after selecting custom ext
 
 ##### Considerations
 
-- If your external ID isn't generated when Braze sends a request to your endpoint, the integration will default to using the Shopify customer ID when the `changeUser` function is called. This step is crucial for merging the anonymous user profile with the identified user profile. As a result, there may be a temporary period during which different types of external IDs exist within your workspace.
-- When the external ID is available in the `braze.external_id` metafield, the integration will prioritize and assign this external ID. 
-    - If the Shopify customer ID was previously set as the Braze external ID, it will be replaced with the `braze.external_id` metafield value. 
+{% multi_lang_include partners/shopify/external_id_generation_notes.md %}
 
 #### Step 6.4: Collect your email or SMS opt-ins from Shopify (optional)
 
@@ -737,11 +740,7 @@ If you use the email or SMS channels, you can sync your email and SMS marketing 
 
 ![“Collect subscribers” section with option to collect email or SMS marketing opt-ins.]({% image_buster /assets/img/shopify/collect_email_subscribers.png %})
 
-{% alert note %}
-As mentioned in [Shopify overview]({{site.baseurl}}/shopify_overview/), if you want to use a third-party capture form, your developers need to integrate Braze SDK code. This will let you capture the email address and global email subscription status from form submissions. Specifically, you need to implement and test these methods to your `theme.liquid` file:<br><br>
-- [setEmail](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemail): Sets the email address on the user profile
-- [setEmailNotificationSubscriptionType](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemailnotificationsubscriptiontype): Updates the global email subscription status
-{% endalert %}
+{% multi_lang_include partners/shopify/third_party_capture_form_note.md %}
 
 ### Step 7: Sync products (optional)
 
@@ -751,7 +750,7 @@ You can sync all products from your Shopify store to a Braze catalog for deeper 
 
 ### Step 8: Activate channels
 
-To activate in-app messages, Content Cards, and Feature Flags using the Shopify direct integration, add each channel to your SDK. Follow the documentation links provided for each channel below:
+To activate in-app messages, Content Cards, and Feature Flags using the Shopify direct integration, add each channel to your SDK. Follow the documentation links provided for each channel:
 
 - **In-app messages:** For enabling in-app messages for lead capture form use cases, refer to [In-app messages]({{site.baseurl}}/developer_guide/in_app_messages/).
 - **Content Cards:** For enabling Content Cards for inbox or website banner use cases, refer to [Content Cards]({{site.baseurl}}/developer_guide/content_cards/).

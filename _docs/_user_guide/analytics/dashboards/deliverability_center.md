@@ -15,7 +15,7 @@ channel:
 
 Email deliverability is the core of campaign success. Using the Deliverability Center in the Braze dashboard, you can view your domains by **IP Reputation** or **Delivery Errors** to discover and troubleshoot any potential issues with email deliverability. 
 
-To access the Deliverability Center, you need the [user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) in the following dropdown for your workspace.
+To access the Deliverability Center, you need the [user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) in the following dropdown for your workspace.
 
 {% details User permissions for the Deliverability Center %}
 
@@ -68,7 +68,7 @@ To access the Deliverability Center, you need the [user permissions]({{site.base
 Before connecting to the Deliverability Center, you'll need to set up a Google Postmaster Tools account. You can use a work or personal Gmail account to set up your Google Postmaster. 
 
 1. Go to the [Google Postmaster Tools dashboard](https://postmaster.google.com/managedomains?pli=1).
-2. In the bottom right, select <i class="fas fa-plus-circle"></i> **Add domain**.
+2. At the bottom of the page, select <i class="fas fa-plus-circle"></i> **Add domain**.
 3. Enter your root (parent) domain to authenticate your email. Be sure the TXT record is tied to this root (parent) domain, **not** the subdomain you're using through Braze. Verifying the root (parent) domain lets you later add subdomains in Postmaster Tools without creating additional TXT records. For example, by verifying `braze.com`, you can later add `demo.braze.com` as a separate subdomain in Postmaster Tools to see subdomain-level metrics.
 4. Google generates a TXT record that can be added directly to your domain's DNS. This is generally owned by whoever manages your DNS. For information and guidance on how to update your specific DNS, check out [Verify your domain (host-specific steps)](https://support.google.com/a/topic/1409901).
 5. Select **Next**. <br>![An example domain "demo.braze.com" to authenticate an email.]({% image_buster /assets/img_archive/domain_authentication.png %})
@@ -80,6 +80,13 @@ If your subdomains aren't included in the Deliverability Center for Google Postm
 {% endalert %}
 
 ## Integrate Google Postmaster {#integrating-google-postmaster}
+
+{% alert important %}
+**Google Postmaster Tools v2 migration**<br>
+Google is deprecating the old Postmaster Tools (v1) and has released a next-generation version (v2) with a modern user interface and new dashboards, including a Compliance dashboard to help monitor adherence to Gmail's sender guidelines. All users must migrate to v2 by October 31, 2026.<br><br>
+To re-authorize your Google Postmaster Tool connection, go to **Partner Integrations** > **Technology Partners**, open **Google Postmaster**, and select **Change Account** to re-authenticate with the new v2 permissions. When finished, you are upgraded to v2 and gain access to new dashboards and data.<br><br>
+For more information, refer to [Google's announcement about the new Postmaster Tools](https://support.google.com/mail/answer/16594218?hl=en).
+{% endalert %}
 
 Before setting up your Deliverability Center, check that your domains have been [added to the Gmail Postmaster Tools](https://support.google.com/mail/answer/9981691?hl=en).
 
@@ -118,6 +125,14 @@ To help understand the ratings for IP reputation, refer to this table:
 | Bad | Has a history of receiving elevated rates of spam complaints. Emails from this domain are almost always be rejected at connection time or filtered to the spam folder. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="IP reputation" }
 
+{% alert important %}
+The spam complaint data shown in Braze is based on feedback loop (FBL) reports from email providers who share them, such as Microsoft, Yahoo, and Comcast. When users at these providers report mail as spam, those complaints are sent back to Braze.<br><br>
+However, Gmail and iCloud do not operate traditional feedback loops and do not report spam complaints back to Braze. This means:<br>
+- Spam complaints from Gmail users are not included in Braze metrics or available in Snowflake or Currents data.<br>
+- You can view Gmail spam data only as aggregate percentages in [Gmail Postmaster Tools](https://www.gmail.com/postmaster/), not as individual addresses.<br>
+- If you see high spam rates in Gmail Postmaster Tools, those numbers do not match your Braze spam complaint metrics because Gmail doesn't share that data with senders.
+{% endalert %}
+
 #### Domain reputation 
 
 Use the following table to help monitor and understand your domain reputation ratings to help avoid being filtered into a spam folder.
@@ -151,17 +166,23 @@ Refer to this table to understand what percentage of your inbound and outbound t
 | TLS Outbound | Shows the percentage of outgoing mail (from Gmail) accepted over TLS versus all mail sent to that domain. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Encryption" }
 
-For more ideas on improving deliverability, read [Deliverability pitfalls and spam traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps#deliverability-pitfalls-and-spam-traps). Be sure to reference our [Email best practices]({{site.baseurl}}/user_guide/channels/email/best_practices/) for things you should check for before sending an email campaign.
+For more ideas on improving deliverability, read [Deliverability pitfalls and spam traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps). Be sure to reference our [Email best practices]({{site.baseurl}}/user_guide/channels/email/best_practices) for things you should check for before sending an email campaign.
 
 ## Set up Microsoft Smart Network Data Services (SNDS)
 
-If Microsoft is your main mailbox provider, you can use this integration to access and view your Microsoft reputation data. This way, you can monitor the health of your IPs to help determine how your emails are being received.
+If Microsoft is your main mailbox provider, you can view Microsoft SNDS data in the Deliverability Center. This includes dedicated sending IPs for workspaces that use Amazon SES, SendGrid, or SparkPost. Use this data to monitor IP health and understand how Microsoft inbox providers are rating your sending.
+
+Microsoft SNDS provides IP-level data on spam complaints and sending volume as reported by Microsoft inbox providers such as Outlook, Hotmail, and Live.
 
 {% alert important %}
-If you don't see your data in the Deliverability Center, contact [Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) with a list of your IP addresses.
+If you don't see your data in the Deliverability Center, contact [Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) with a list of your IP addresses.
 {% endalert %}
 
-![An example of results from Microsoft SNDS, including sample IPs, recipients, RCPT commands, data commands, filter result, complaint rate, trap message period start and end, and spam trap hits.]({% image_buster /assets/img_archive/deliverability_center_msnds.png %})
+### Amazon SES
+
+For workspaces that send email through Amazon SES, the Deliverability Center displays Microsoft SNDS metrics for your dedicated sending IPs. Braze backfills up to 90 days of historical SNDS data when this feature is turned on for your workspace.
+
+![An example of results from Microsoft SNDS, including sample IPs, recipients, RCPT commands, data commands, filter result, and complaint rate.]({% image_buster /assets/img_archive/deliverability_center_msnds.png %})
 
 ### Metrics and definitions
 
@@ -199,10 +220,27 @@ To calculate the complaint rate, divide the number of complaints by the number o
 | More than 100% | Note that SNDS displays complaints for the day they were reported, not retroactively against the day the complained-about mail was delivered. | 
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Complaint rate" }
 
-#### Spam trap hits
+#### Spam trap hits and trap message period
 
-Spam trap hits are the number of messages sent to "trap accounts," which are accounts maintained by Outlook.com that don't solicit any mail. It's likely that any messages sent to these trap accounts are considered spam, so it's important to monitor this metric to make sure that it's low. Low spam trap hits means the messages aren't sent to these accounts and are being sent to actual accounts instead.
+{% alert important %}
+Microsoft no longer includes spam trap hit counts or trap message period data in SNDS reports. For more information, see [Microsoft's SNDS announcement](https://substrate.office.com/ip-domain-management-snds/snds).
+{% endalert %}
+
+Spam trap hits were the number of messages sent to "trap accounts," which are accounts maintained by Outlook.com that don't solicit any mail.
+
+The trap message period start and end columns showed when the first and last messages sent to trap accounts were received from the IP during the activity period.
 
 {% alert tip %}
 If you're looking for records related to one of your verified domains in Braze, note that the Deliverability Center lists your data from Google Postmaster or Microsoft SNDS, meaning it's likely that either platform doesn't have any data to share with Braze. Alternatively, try maintaining consistent email delivery, as this can lead to a higher reputation. 
 {% endalert %}
+
+## Spam complaints and feedback loops
+
+An email feedback loop (FBL) allows email senders to receive reports when recipients mark messages as spam. However, Gmail and iCloud do not offer traditional feedback loops, which means Braze (through SparkPost or SendGrid) does not receive spam complaint data from these providers. 
+
+Because spam complaint data is not available from Gmail and iCloud, it's important to use other tools to monitor your email health and reputation with these major providers:
+
+- Use [Google Postmaster Tools](https://www.gmail.com/postmaster/) to monitor domain and IP reputation, spam rates, and user engagement. You can integrate Google Postmaster with Braze as described in [Integrate Google Postmaster](#integrating-google-postmaster).
+- Apple does not provide a public Postmaster tool equivalent to Google's. Focus on maintaining strong engagement metrics and following email best practices.
+
+To maintain good deliverability with all providers, implement a [sunset policy]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies) to automatically stop sending to unengaged users. This helps prevent your emails from being marked as spam and protects your sender reputation.

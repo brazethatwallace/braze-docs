@@ -3,7 +3,7 @@ nav_title: Einkäufe protokollieren
 article_title: Käufe für iOS protokollieren
 platform: iOS
 page_order: 4
-description: "Dieser referenzierte Artikel zeigt, wie Sie In-App-Käufe und Umsätze tracken und Kauf-Details in Ihrer iOS-Anwendung zuweisen können."
+description: "Dieser Referenzartikel zeigt, wie Sie In-App-Käufe und Umsätze tracken und Kauf-Details in Ihrer iOS-Anwendung zuweisen können."
 
 noindex: true
 ---
@@ -16,7 +16,7 @@ Erfassen Sie In-App-Käufe, um Ihre Umsätze im Zeitverlauf über verschiedene U
 
 Braze unterstützt Einkäufe in mehreren Währungen. Einkäufe, die Sie in einer anderen Währung als dem USD melden, werden im Dashboard in USD auf der Grundlage des Wechselkurses an dem Tag, an dem sie gemeldet wurden, angezeigt.
 
-Lesen Sie vor der Implementierung unbedingt die Beispiele für die Segmentierungsoptionen, die angepasste Events, angepasste Attribute und Kauf-Events bieten, in unseren [Best Practices]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#user-data-collection) sowie unsere Hinweise zu den [Namenskonventionen für Events]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions/).
+Lesen Sie vor der Implementierung unbedingt die Beispiele für die Segmentierungsoptionen, die angepasste Events, angepasste Attribute und Kauf-Events bieten, in unseren [Best Practices]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview#user-data-collection) sowie unsere Hinweise zu den [Namenskonventionen für Events]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions).
 
 ## Käufe und Umsätze tracken {#tracking-purchases-and-revenue}
 
@@ -48,7 +48,7 @@ Appboy.sharedInstance()?.logPurchase("your product ID", inCurrency: "USD", atPri
 
 ### Eigenschaften hinzufügen {#properties-purchases}
 
-Sie können Metadaten über Käufe hinzufügen, indem Sie entweder ein [Array mit Event-Eigenschaften]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events/#nested-objects) oder ein `NSDictionary` mit `NSNumber`-, `NSString`- oder `NSDate`-Werten übergeben.
+Sie können Metadaten über Käufe hinzufügen, indem Sie entweder ein [Array mit Event-Eigenschaften]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events#nested-objects) oder ein `NSDictionary` mit `NSNumber`-, `NSString`- oder `NSDate`-Werten übergeben.
 
 Weitere Einzelheiten finden Sie in der [Dokumentation zur iOS-Klasse](http://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#aaca4b885a8f61ac9fad3936b091448cc).
 
@@ -85,8 +85,8 @@ Appboy.sharedInstance()?.logPurchase("your product ID", inCurrency: "USD", atPri
 Wenn Sie einen Wert von 10 USD und eine Menge von 3 übergeben, wird dies im Profil der Nutzer:innen als drei Käufe von 10 Dollar für insgesamt 30 Dollar protokolliert.
 {% endalert %}
 
-### Käufe auf der Ebene der Bestellung protokollieren {#log-purchases-at-the-order-level}
-Wenn Sie Einkäufe auf der Bestellebene statt auf der Produktebene protokollieren möchten, können Sie den Bestellnamen oder die Bestellkategorie als `product_id` verwenden. Weitere Informationen finden Sie in unserer [Spezifikation für Kauf-Objekte]({{site.baseurl}}/api/objects_filters/purchase_object/#product-id-naming-conventions).
+### Käufe auf Bestellebene protokollieren {#log-purchases-at-the-order-level}
+Wenn Sie Einkäufe auf der Bestellebene statt auf der Produktebene protokollieren möchten, können Sie den Bestellnamen oder die Bestellkategorie als `product_id` verwenden. Weitere Informationen finden Sie in unserer [Spezifikation für Kauf-Objekte]({{site.baseurl}}/api/objects_filters/purchase_object#naming-conventions).
 
 ### Reservierte Schlüssel {#reserved-keys}
 
@@ -101,4 +101,4 @@ Die folgenden Schlüssel sind reserviert und können nicht als Kauf-Details verw
 
 ### REST API
 
-Sie können auch unsere REST API verwenden, um Einkäufe zu erfassen. Einzelheiten finden Sie in der [Nutzer:innen-API-Dokumentation]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data).
+Sie können auch unsere REST API verwenden, um Einkäufe zu erfassen. Einzelheiten finden Sie in der [Nutzer:innen-API-Dokumentation]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data).

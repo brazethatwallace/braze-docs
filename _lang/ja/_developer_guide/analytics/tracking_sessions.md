@@ -1,9 +1,8 @@
 ---
 nav_title: トラックセッション
-article_title: Braze SDKを通じてセッションのトラッキングを行う
+article_title: トラックセッション
 page_order: 3.3
 description: "Braze SDKを使用してセッションを追跡する方法について説明します。"
-
 ---
 
 # トラックセッション {#track-sessions}
@@ -18,46 +17,46 @@ description: "Braze SDKを使用してセッションを追跡する方法につ
 
 ## 非アクティブ状態の定義 {#defining-inactivity}
 
-Web SDKでセッションライフサイクルを効果的に管理するには、非アクティブ状態の定義と測定方法を理解することが重要です。非アクティブ状態とは、Braze Web SDKがユーザーからのトラッキングイベントを一切検出しない期間を指します。
+Web SDKでセッションライフサイクルを効果的に管理するには、非アクティブ状態がどのように定義され、測定されるかを理解することが重要です。非アクティブ状態とは、Braze Web SDKがユーザーからのトラッキングイベントを検出しない期間のことを指します。
 
 ### 非アクティブ状態の測定方法 {#how-inactivity-is-measured}
 
-Web SDKは[SDKがトラッキングするイベント]({{site.baseurl}}/user_guide/data/activation/custom_data/events/#events)に基づいて非アクティブ状態を追跡します。SDKは内部タイマーを維持しており、トラッキング対象のイベントが送信されるたびにリセットされます。設定されたタイムアウト期間内にSDKがトラッキングするイベントが発生しない場合、セッションは非アクティブと見なされ終了します。
+Web SDKは、[SDKトラッキングイベント]({{site.baseurl}}/user_guide/data/activation/events/events_overview)に基づいて非アクティブ状態を追跡します。SDKは内部タイマーを管理しており、トラッキングイベントが送信されるたびにリセットされます。設定されたタイムアウト期間内にSDKトラッキングイベントが発生しない場合、セッションは非アクティブとみなされ終了します。
 
-Web SDKにおけるセッションライフサイクルの実装方法の詳細については、[Braze Web SDK GitHubリポジトリ](https://github.com/braze-inc/braze-web-sdk/blob/master/src/session.ts)内のセッション管理ソースコードを参照してください。
+Web SDKにおけるセッションライフサイクルの実装方法の詳細については、[Braze Web SDK GitHubリポジトリ](https://github.com/braze-inc/braze-web-sdk/blob/master/src/session.ts)のセッション管理ソースコードを参照してください。
 
-**デフォルトでアクティビティと見なされるもの：**
-- Webアプリを開くか更新する
-- Brazeが提供するUI要素（[アプリ内メッセージ]({{site.baseurl}}/developer_guide/in_app_messages/)や[Content Cards]({{site.baseurl}}/developer_guide/content_cards/)など）とのインタラクション
-- トラッキングイベント（[カスタムイベント]({{site.baseurl}}/developer_guide/analytics/logging_events/)や[ユーザー属性の更新]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/)など）を送信するSDKメソッドの呼び出し
+**デフォルトでアクティビティとしてカウントされるもの：**
+- Webアプリの起動またはリフレッシュ
+- Brazeが制御するUI要素との操作（[In-App Messages]({{site.baseurl}}/developer_guide/in_app_messages)や[Content Cards]({{site.baseurl}}/developer_guide/content_cards)など）
+- トラッキングイベントを送信するSDKメソッドの呼び出し（[カスタムイベント]({{site.baseurl}}/developer_guide/analytics/logging_events)や[ユーザー属性の更新]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes)など）
 
-**デフォルトではアクティビティとしてカウントされないもの：**
+**デフォルトでアクティビティとしてカウントされないもの：**
 - 別のブラウザタブへの切り替え
 - ブラウザウィンドウの最小化
-- ブラウザのフォーカスまたはブラーイベント
+- ブラウザのフォーカスまたはブライベント
 - ページ上のスクロールやマウスの動き
 
 {% alert note %}
-Web SDKは、ブラウザの表示状態の変化、タブの切り替え、またはユーザーのフォーカスを自動的にトラッキングしません。ただし、ブラウザの[Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API)を使用してカスタムイベントリスナーを実装し、[カスタムイベント]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=web)をBrazeに送信することで、これらのブラウザレベルのインタラクションをトラッキングできます。実装例については、[カスタム非アクティブ状態のトラッキング](#tracking-custom-inactivity)を参照してください。
+Web SDKは、ブラウザの可視性の変化、タブの切り替え、またはユーザーフォーカスを自動的に追跡しません。ただし、ブラウザの[Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API)を使用してカスタムイベントリスナーを実装し、[カスタムイベント]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=web)をBrazeに送信することで、これらのブラウザレベルの操作を追跡できます。実装例については、[カスタム非アクティブ状態のトラッキング](#tracking-custom-inactivity)を参照してください。
 {% endalert %}
 
 ### セッションタイムアウトの設定 {#session-timeout-configuration}
 
-デフォルトでは、Web SDKは30分間トラッキングイベントが発生しない場合、セッションを非アクティブと見なします。SDKを初期化する際に、`sessionTimeoutInSeconds`パラメータを使用してこのしきい値をカスタマイズできます。このパラメータの設定方法の詳細（コード例を含む）については、[デフォルトのセッションタイムアウトの変更](#changing-the-default-session-timeout)を参照してください。
+デフォルトでは、Web SDKはトラッキングイベントが30分間発生しない場合にセッションを非アクティブとみなします。SDKの初期化時に`sessionTimeoutInSeconds`パラメーターを使用して、このしきい値をカスタマイズできます。このパラメーターの設定方法（コード例を含む）の詳細については、[デフォルトセッションタイムアウトの変更](#changing-the-default-session-timeout)を参照してください。
 
 ### 例：非アクティブ状態のシナリオを理解する {#example-understanding-inactivity-scenarios}
 
-次のシナリオを考えてみましょう：
+以下のシナリオを考えてみましょう：
 
-1. ユーザーがWebサイトを開くと、SDKは[`braze.openSession()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#opensession)を呼び出してセッションを開始します。
-2. ユーザーは別のブラウザタブに切り替えて、30分間別のWebサイトを閲覧します。
-3. この間、Webサイト上ではSDKがトラッキングするイベントは発生しません。
-4. 30分間操作がないと、セッションは自動的に終了します。
-5. ユーザーがWebサイトのタブに戻り、SDKイベント（ページ閲覧やコンテンツ操作など）をトリガーすると、新しいセッションが開始されます。
+1. ユーザーがWebサイトを開くと、SDKが[`braze.openSession()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#opensession)を呼び出してセッションを開始します。
+2. ユーザーが別のブラウザタブに切り替えて、別のWebサイトを30分間閲覧します。
+3. この間、あなたのWebサイト上ではSDKトラッキングイベントは発生しません。
+4. 30分間の非アクティブ状態の後、セッションは自動的に終了します。
+5. ユーザーがあなたのWebサイトのタブに戻り、SDKイベント（ページの表示やコンテンツとの操作など）をトリガーすると、新しいセッションが開始されます。
 
 ### カスタム非アクティブ状態のトラッキング {#tracking-custom-inactivity}
 
-ブラウザの可視性やタブの切り替えに基づいて非アクティブ状態をトラッキングする必要がある場合は、JavaScriptコードにカスタムイベントリスナーを実装してください。`visibilitychange`などのブラウザイベントを使用してユーザーがページを離れたタイミングを検知し、必要に応じて[カスタムイベント]({{site.baseurl}}/developer_guide/analytics/logging_events/)を手動でBrazeに送信するか、[`braze.openSession()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#opensession)を呼び出してください。
+ブラウザの可視性やタブの切り替えに基づいて非アクティブ状態を追跡する必要がある場合は、JavaScriptコードにカスタムイベントリスナーを実装してください。`visibilitychange`などのブラウザイベントを使用してユーザーがページを離れたことを検出し、手動で[カスタムイベント]({{site.baseurl}}/developer_guide/analytics/logging_events)をBrazeに送信するか、適切なタイミングで[`braze.openSession()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#opensession)を呼び出します。
 
 ```javascript
 // Example: Track when user switches away from tab
@@ -73,24 +72,24 @@ document.addEventListener('visibilitychange', function() {
 });
 ```
 
-カスタムイベントの記録に関する詳細は、[カスタムイベントの記録]({{site.baseurl}}/developer_guide/analytics/logging_events/)を参照してください。セッションのライフサイクルとタイムアウト設定の詳細については、[デフォルトのセッションタイムアウトの変更](#change-session-timeout)を参照してください。
+カスタムイベントのログ記録の詳細については、[カスタムイベントのログ記録]({{site.baseurl}}/developer_guide/analytics/logging_events)を参照してください。セッションライフサイクルとタイムアウト設定の詳細については、[デフォルトセッションタイムアウトの変更](#change-session-timeout)を参照してください。
 
-## セッション更新のサブスクライブ {#subscribing-to-session-updates}
+## セッション更新の配信登録 {#subscribing-to-session-updates}
 
-### ステップ1:更新をサブスクライブする {#step-1-subscribe-to-updates}
+### ステップ1: 更新を配信登録する {#step-1-subscribe-to-updates}
 
-セッション更新をサブスクライブするには、`subscribeToSessionUpdates()`メソッドを使用します。
+セッション更新を配信登録するには、`subscribeToSessionUpdates()` メソッドを使用します。
 
 {% tabs %}
 {% tab web %}
-現時点では、Web Braze SDKのセッション更新のサブスクライブはサポートされていません。
+現時点では、Web Braze SDKではセッション更新の配信登録はサポートされていません。
 {% endtab %}
 
 {% tab android %}
 {% subtabs %}
 {% subtab java %}
 
-`````````java
+```java
 Braze.getInstance(this).subscribeToSessionUpdates(new IEventSubscriber<SessionStateChangedEvent>() {
   @Override
   public void trigger(SessionStateChangedEvent message) {
@@ -104,7 +103,7 @@ Braze.getInstance(this).subscribeToSessionUpdates(new IEventSubscriber<SessionSt
 {% endsubtab %}
 {% subtab kotlin %}
 
-`````````kotlin
+```kotlin
 Braze.getInstance(this).subscribeToSessionUpdates { message ->
   if (message.eventType == SessionStateChangedEvent.ChangeType.SESSION_STARTED) {
     // A session has just been started
@@ -117,11 +116,11 @@ Braze.getInstance(this).subscribeToSessionUpdates { message ->
 {% endtab %}
 
 {% tab swift %}
-セッション終了コールバックを登録すると、アプリがフォアグラウンドに戻ったときに発火します。セッション時間は、アプリが開かれたときまたはフォアグラウンドになったときから、閉じられたときまたはバックグラウンドになったときまで測定されます。
+セッション終了コールバックを登録すると、アプリがフォアグラウンドに戻ったときに発火します。セッション時間は、アプリが開かれるかフォアグラウンドに入った時点から、閉じられるかバックグラウンドに移行した時点までで計測されます。
 
 {% subtabs %}
 {% subtab swift %}
-`````````swift
+```swift
 // This subscription is maintained through a Braze cancellable, which will observe changes until the subscription is cancelled.
 // You must keep a strong reference to the cancellable to keep the subscription active.
 // The subscription is canceled either when the cancellable is deinitialized or when you call its `.cancel()` method.
@@ -135,9 +134,9 @@ let cancellable = AppDelegate.braze?.subscribeToSessionUpdates { event in
 }
 ```
 
-非同期ストリームをサブスクライブするには、代わりに[`sessionUpdatesStream`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/sessionupdatesstream)を使用できます。
+非同期ストリームを配信登録するには、代わりに [`sessionUpdatesStream`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/sessionupdatesstream) を使用できます。
 
-`````````swift
+```swift
 for await event in braze.sessionUpdatesStream {
   switch event {
   case .started(let id):
@@ -150,7 +149,7 @@ for await event in braze.sessionUpdatesStream {
 {% endsubtab %}
 
 {% subtab objective-c %}
-`````````objc
+```objc
 // This subscription is maintained through a Braze cancellable, which will observe changes until the subscription is cancelled.
 // You must keep a strong reference to the cancellable to keep the subscription active.
 // The subscription is canceled either when the cancellable is deinitialized or when you call its `.cancel()` method.
@@ -172,18 +171,18 @@ BRZCancellable *cancellable = [AppDelegate.braze subscribeToSessionUpdates:^(BRZ
 {% endtab %}
 
 {% tab react native %}
-React Native SDKは、セッション更新を直接サブスクライブするためのメソッドを公開していません。セッションのライフサイクルは基盤となるネイティブSDKによって管理されます。更新をサブスクライブするには、**Android**または**Swift**タブのネイティブプラットフォーム向けアプローチを使用してください。
+React Native SDKでは、セッション更新を直接配信登録するメソッドは公開されていません。セッションライフサイクルは基盤となるネイティブSDKによって管理されるため、更新を配信登録するには、**Android** または **Swift** タブのネイティブプラットフォームのアプローチを使用してください。
 {% endtab %}
 {% endtabs %}
 
-### ステップ2:セッショントラッキングをテストする（オプション） {#step-2-test-session-tracking-optional}
+### ステップ2: セッショントラッキングをテストする（任意） {#step-2-test-session-tracking-optional}
 
-セッショントラッキングをテストするには、デバイスでセッションを開始し、Brazeダッシュボードを開いて関連するユーザーを検索します。ユーザープロファイルで、**Sessions Overview**を選択します。指標が期待どおりに更新された場合、セッショントラッキングは正常に動作しています。
+セッショントラッキングをテストするには、デバイスでセッションを開始し、Brazeダッシュボードを開いて該当するユーザーを検索します。ユーザープロファイルで **Sessions Overview** を選択します。メトリクスが期待どおりに更新されていれば、セッショントラッキングは正しく機能しています。
 
-![ユーザープロファイルのセッション概要セクションには、セッション数、最終利用日、初回利用日が表示されます。]({% image_buster /assets/img_archive/test_session.png %}){: style="max-width:50%;"}
+![ユーザープロファイルのセッション概要セクション。セッション数、最終使用日、初回使用日が表示されている。]({% image_buster /assets/img_archive/test_session.png %}){: style="max-width:50%;"}
 
 {% alert note %}
-アプリ固有の詳細は、複数のアプリを使用したユーザーにのみ表示されます。
+アプリ固有の詳細は、複数のアプリを使用したことがあるユーザーにのみ表示されます。
 {% endalert %}
 
 ## デフォルトのセッションタイムアウトの変更 {#change-session-timeout}
@@ -194,7 +193,7 @@ React Native SDKは、セッション更新を直接サブスクライブする�
 {% tab web %}
 デフォルトでは、セッションタイムアウトは`30`分に設定されています。これを変更するには、`sessionTimeoutInSeconds`オプションを[`initialize`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initialize)関数に渡します。`1`以上の任意の整数に設定できます。
 
-`````````js
+```js
 // Sets the session timeout to 15 minutes instead of the default 30
 braze.initialize('YOUR-API-KEY-HERE', { sessionTimeoutInSeconds: 900 });
 ```
@@ -203,7 +202,7 @@ braze.initialize('YOUR-API-KEY-HERE', { sessionTimeoutInSeconds: 900 });
 {% tab android %}
 デフォルトでは、セッションタイムアウトは`10`秒に設定されています。これを変更するには、`braze.xml`ファイルを開き、`com_braze_session_timeout`パラメータを追加します。`1`以上の任意の整数に設定できます。
 
-`````````xml
+```xml
 <!-- Sets the session timeout to 60 seconds. -->
 <integer name="com_braze_session_timeout">60</integer>
 ```
@@ -214,7 +213,7 @@ braze.initialize('YOUR-API-KEY-HERE', { sessionTimeoutInSeconds: 900 });
 
 {% subtabs %}
 {% subtab swift %}
-`````````swift
+```swift
 // Sets the session timeout to 60 seconds
 let configuration = Braze.Configuration(
   apiKey: "<BRAZE_API_KEY>",
@@ -227,7 +226,7 @@ AppDelegate.braze = braze
 {% endsubtab %}
 {% subtab objective-c %}
 
-`````````objc
+```objc
 // Sets the session timeout to 60 seconds
 BRZConfiguration *configuration =
   [[BRZConfiguration alloc] initWithApiKey:brazeApiKey
@@ -255,27 +254,27 @@ React Native SDKはセッション管理のためにネイティブSDKに依存�
 
 ## トラブルシューティング {#troubleshooting}
 
-### ユーザープロファイルのセッション数が0件 {#user-profile-has-0-sessions}
+### ユーザープロファイルのセッション数が0 {#user-profile-has-0-sessions}
 
-SDKの外部でユーザーが作成された場合、ユーザープロファイルのセッション数が0件になることがあります。
+ユーザーがSDKの外部で作成された場合、ユーザープロファイルのセッション数が0になることがあります。
 
-- **REST APIで作成された場合：**[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)エンドポイントを通じてリクエストに`app_id`を含めてユーザーが作成された場合、プロファイルはそのアプリに関連付けられて表示されますが、そのユーザーに対してSDKが初期化されていないため、セッションデータはありません。
-- **CSVインポートで作成された場合：**初回セッションまたは最終セッションのフィールドに値を含めずに[CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/)でユーザーがインポートされた場合、プロファイルはセッション数0件で存在します。
+- **REST APIによる作成:** [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)エンドポイントを通じてリクエストに`app_id`を含めてユーザーを作成した場合、プロファイルはそのアプリに関連付けられますが、そのユーザーに対してSDKが初期化されていないためセッションデータはありません。
+- **CSVインポートによる作成:** 最初のセッションや最後のセッションのフィールドに値を設定せずに[CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import)でユーザーをインポートした場合、プロファイルはセッション数0で作成されます。
 
-### 一部のユーザーがセッションを記録していない {#some-users-are-not-logging-sessions}
+### 一部のユーザーのセッションが記録されない {#some-users-are-not-logging-sessions}
 
-セッションはSDKが初期化された後にのみトラッキングされるため、SDK初期化をトリガーしないユーザーはセッションを記録しません。これは通常、ログインフロー、同意プロンプト、またはフィーチャーフラグの背後で初期化を遅延させるなど、SDKを初期化する前に条件付きロジックを使用している場合に発生します。実装ガイダンスについては、[遅延初期化]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=swift)を参照してください。これらのケースでは、条件を満たさないユーザーはセッションを開始しません。
+セッションはSDKの初期化後にのみトラッキングされるため、SDKの初期化をトリガーしないユーザーはセッションを記録しません。これは通常、ログインフロー、同意プロンプト、またはフィーチャーフラグの後に初期化を遅延させるなど、SDKの初期化前に条件付きロジックを使用している場合に発生します。実装ガイダンスについては、[遅延初期化]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=swift#step-2-set-up-delayed-initialization-optional)を参照してください。このような場合、条件を満たさないユーザーはセッションを開始しません。
 
-一部のユーザーがセッションを記録し、他のユーザーが記録していない場合は、以下を確認してください。
+一部のユーザーがセッションを記録し、他のユーザーが記録していない場合は、以下の点を確認してください。
 
-- **初期化ロジックを確認する。**SDKが一部のユーザーやアプリのエントリポイントだけでなく、すべてのユーザーとエントリポイントで初期化されていることを確認してください。
-- **最近のアプリの変更を確認する。**SDK初期化に関する新しい条件付きロジックにより、セッション数が急激に減少する可能性があります。
-- **影響を受けたユーザーと受けていないユーザーを比較する。**アプリのバージョン、デバイスの種類、またはユーザーフローの違いを特定し、特定のユーザーで初期化がスキップされる理由を明らかにしてください。
+- **初期化ロジックを確認する。** 一部のユーザーやアプリのエントリポイントだけでなく、すべてのユーザーとアプリのエントリポイントに対してSDKが初期化されていることを確認してください。
+- **最近のアプリの変更を確認する。** SDKの初期化に関する新しい条件付きロジックが、セッション数の急激な減少を引き起こしている可能性があります。
+- **影響を受けているユーザーと受けていないユーザーを比較する。** アプリのバージョン、デバイスの種類、ユーザーフローの違いを特定し、特定のユーザーに対して初期化がスキップされている理由を明らかにしてください。
 
 実装を確認しても問題が解決しない場合は、問題を再現し、サポートに連絡する前に以下の情報を収集してください。
 
 - 問題を再現する手順
 - 影響を受けるアプリのバージョン
-- 問題が発生している間にキャプチャした[詳細SDKログ]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/)（またはプラットフォーム別：[Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_enabling-logs)、[Swift]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift#swift_setting-the-log-level)、[Web]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web#web_logging)）
-- SDK初期化のコードスニペット
-- 初期化前に適用されている条件付きロジックの概要
+- 問題発生時にキャプチャした[詳細SDKログ]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging)（またはプラットフォーム別: [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_enabling-logs)、[Swift]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=swift#swift_setting-the-log-level)、[Web]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web#web_logging)）
+- SDKの初期化に使用するコードスニペット
+- 初期化前に適用される条件付きロジックの概要

@@ -252,34 +252,34 @@ AppDelegate.braze?.requestGeofences(latitude: latitude, longitude: longitude)
 
 ## Foire aux questions (FAQ) {#faq}
 
-#### Pourquoi est-ce que je ne reçois pas de géorepérages sur mon appareil ? {#why-am-i-not-receiving-geofences-on-my-device}
+### Pourquoi est-ce que je ne reçois pas de géorepérages sur mon appareil ? {#why-am-i-not-receiving-geofences-on-my-device}
 
-Pour vérifier si les géorepérages sont bien reçus sur votre appareil, commencez par utiliser l'[outil de débogage du SDK]({{site.baseurl}}/developer_guide/sdk_integration/debugging/#debugging-the-braze-sdk) afin de consulter les journaux du SDK. Vous pourrez alors vérifier si les géorepérages sont correctement reçus depuis le serveur et s'il existe des erreurs notables.
+Pour vérifier si les géorepérages sont bien reçus sur votre appareil, commencez par utiliser l'[outil de débogage du SDK]({{site.baseurl}}/developer_guide/sdk_integration/debugging) afin de consulter les journaux du SDK. Vous pourrez alors vérifier si les géorepérages sont correctement reçus depuis le serveur et s'il existe des erreurs notables.
 
 Voici d'autres raisons possibles pour lesquelles les géorepérages peuvent ne pas être reçus sur votre appareil :
 
-##### Limitations du système d'exploitation iOS {#ios-operating-system-limitations}
+#### Limitations du système d'exploitation iOS {#ios-operating-system-limitations}
 
 Le système d'exploitation iOS ne permet de stocker que 20 géorepérages maximum pour une application donnée. Avec les géorepérages activés, Braze utilisera une partie de ces 20 emplacements disponibles.
 
 Afin d'éviter toute perturbation accidentelle ou indésirable des autres fonctionnalités liées aux géorepérages dans votre application, vous devez activer les géorepérages de localisation pour chaque application sur le tableau de bord. Pour que nos services de localisation fonctionnent correctement, vérifiez que votre application n'utilise pas tous les emplacements de géorepérage disponibles.
 
-##### Limitation du débit {#rate-limiting}
+#### Limitation du débit {#rate-limiting}
 
 Braze impose une limite d'une actualisation de géorepérage par session afin d'éviter les requêtes superflues.
 
-#### Comment cela fonctionne-t-il si j'utilise à la fois les fonctionnalités de géorepérage de Braze et d'autres fournisseurs ? {#how-does-it-work-if-i-am-using-both-braze-and-non-braze-geofence-features}
+### Comment cela fonctionne-t-il si j'utilise à la fois les fonctionnalités de géorepérage de Braze et d'autres fournisseurs ? {#how-does-it-work-if-i-am-using-both-braze-and-non-braze-geofence-features}
 
 Comme mentionné précédemment, iOS permet à une seule application de stocker un maximum de 20 géorepérages. Cet espace de stockage est partagé entre les géorepérages Braze et les autres, et il est géré par [CLLocationManager](https://developer.apple.com/documentation/corelocation/cllocationmanager).
 
 Par exemple, si votre application contient 20 géorepérages non Braze, il n'y aurait pas d'espace disponible pour suivre les géorepérages Braze (et vice versa). Afin de recevoir de nouveaux géorepérages, vous devrez utiliser [les API de localisation d'Apple](https://developer.apple.com/documentation/corelocation) pour désactiver la surveillance de certains géorepérages existants sur l'appareil.
 
-#### La fonctionnalité de géorepérage peut-elle être utilisée lorsqu'un appareil est hors ligne ? {#can-the-geofences-feature-be-used-while-a-device-is-offline}
+### La fonctionnalité de géorepérage peut-elle être utilisée lorsqu'un appareil est hors ligne ? {#can-the-geofences-feature-be-used-while-a-device-is-offline}
 
 Un appareil doit être connecté à Internet uniquement lors d'une actualisation. Une fois les géorepérages reçus avec succès depuis le serveur, il est possible d'enregistrer une entrée ou une sortie de géorepérage même si l'appareil est hors ligne. En effet, la localisation d'un appareil fonctionne indépendamment de sa connexion Internet.
 
-Par exemple, supposons qu'un appareil ait reçu et enregistré avec succès des géorepérages au début de la session, puis se déconnecte. Si l'utilisateur pénètre dans l'une de ces zones de géorepérage enregistrées, cela peut déclencher une campagne Braze.
+Par exemple, supposons qu'un appareil ait reçu et enregistré avec succès des géorepérages au début de la session, puis se déconnecte. Si l'utilisateur pénètre dans l'une de ces zones de géorepérage enregistrées, cela peut déclencher une Campaign Braze.
 
-#### Pourquoi les géorepérages ne sont-ils pas surveillés lorsque mon application est en arrière-plan ou fermée ? {#why-are-geofences-not-monitored-when-my-app-is-backgroundedterminated}
+### Pourquoi les géorepérages ne sont-ils pas surveillés lorsque mon application est en arrière-plan ou fermée ? {#why-are-geofences-not-monitored-when-my-app-is-backgroundedterminated}
 
 Sans l'autorisation `Always`, Apple limite l'exécution des services de localisation lorsqu'une application n'est pas utilisée. Cette mesure est appliquée par le système d'exploitation et échappe au contrôle du SDK Braze. Bien que Braze propose des configurations distinctes pour exécuter des services lorsque l'application est en arrière-plan, il n'existe aucun moyen de contourner ces restrictions pour les applications fermées sans l'autorisation explicite de l'utilisateur.

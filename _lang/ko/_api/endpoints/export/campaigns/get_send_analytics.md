@@ -14,7 +14,7 @@ description: "이 문서에서는 발송 분석 내보내기 Braze 엔드포인�
 /sends/data_series
 {% endapimethod %}
 
-> 이 엔드포인트를 사용하여 API 캠페인의 추적된 `send_id`에 대한 다양한 통계의 일별 시리즈를 조회할 수 있습니다.
+> 이 엔드포인트를 사용하여 API Campaign의 추적된 `send_id`에 대한 다양한 통계의 일별 시리즈를 조회할 수 있습니다.
 
 Braze는 발송 후 14일 동안 발송 분석을 저장합니다. Campaign 전환은 해당 사용자가 Campaign에서 가장 최근에 수신한 `send_id`에 기여 분석됩니다.
 
@@ -24,7 +24,7 @@ Braze는 발송 후 14일 동안 발송 분석을 저장합니다. Campaign 전�
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트는 API 캠페인 전용입니다. 이 엔드포인트를 사용하려면 `sends.data_series` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트는 API Campaign 전용입니다. 이 엔드포인트를 사용하려면 `sends.data_series` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key-permissions)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -34,11 +34,11 @@ Braze는 발송 후 14일 동안 발송 분석을 저장합니다. Campaign 전�
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | --------- | -------- | --------- |------------ |
-| `campaign_id` | 필수 | 문자열 | [Campaign API 식별자]({{site.baseurl}}/api/identifier_types/)를 참조하세요. |
-| `send_id` | 필수 | 문자열 | [발송 API 식별자]({{site.baseurl}}/api/identifier_types/)를 참조하세요. |
+| `campaign_id` | 필수 | 문자열 | [Campaign API 식별자]({{site.baseurl}}/api/identifier_types)를 참조하세요. |
+| `send_id` | 필수 | 문자열 | [발송 API 식별자]({{site.baseurl}}/api/identifier_types)를 참조하세요. |
 | `length` | 필수 | 정수 | 반환되는 시리즈에 포함할 `ending_at` 이전 최대 일수입니다. 1에서 100 사이(포함)여야 합니다. |
 | `ending_at` | 선택 사항 | 날짜/시간 <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 문자열) | 데이터 시리즈가 종료되어야 하는 날짜입니다. 기본값은 요청 시점입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 ## 요청 예시 {#example-request}
 
@@ -53,7 +53,6 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/sends/data_serie
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
     "data" : [
         {
             "time": (string) the date as ISO 8601 date,
@@ -94,12 +93,12 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/sends/data_serie
         "revenue": (optional, float)
       }
     ],
-  "message": "success"
+  "message": (string) returns 'success' when the request completes without errors
 }
 ```
 
 {% alert tip %}
-CSV 및 API 내보내기에 대한 도움말은 [내보내기 문제 해결]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)을 참조하세요.
+CSV 및 API 내보내기에 대한 도움말은 [내보내기 문제 해결]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting)을 참조하세요.
 {% endalert %}
 
 {% endapi %}

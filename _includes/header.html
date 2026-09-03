@@ -14,7 +14,7 @@
 {%- if jekyll.environment != "production" -%}
   {%- assign domain_script = domain_script | append: "-test" -%}
 {%- endif -%}
-<script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" data-document-language="true" type="text/javascript" charset="UTF-8" data-domain-script="{{domain_script}}"></script>
+<script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" data-document-language="true" type="text/javascript" charset="UTF-8" data-domain-script="{{domain_script}}" defer></script>
 <script type="text/javascript">
 function OptanonWrapper() { }
 </script>
@@ -69,7 +69,7 @@ function OptanonWrapper() { }
 							<div id="nav-item-lang">
 							<label for="lang_select"><i class="fa-solid fa-globe">&#8205;</i>
 							</label>
-							<select class="lang-select" id="lang_select" aria-label="language select">
+							<select class="lang-select" id="lang_select" aria-label="{{ site.data.i18n[site.language]['language_select_nav'] | default: 'Language selection' }}">
                 <option value="en">EN</option>
                 <option value="de">DE</option>
                 <option value="es">ES</option>
@@ -96,9 +96,9 @@ function OptanonWrapper() { }
 
     <div class="navbarCollapse d-md-none" id="dropdown_navbar">
       <div id="dropdown_navbar_lang">
-        <label for="lang_select"><i class="fa-solid fa-globe">&#8205;</i>
+        <label for="lang_select_responsive"><i class="fa-solid fa-globe">&#8205;</i>
         </label>
-        <select class="lang-select" id="lang_select_responsive" aria-label="language select">
+        <select class="lang-select" id="lang_select_responsive" aria-label="{{ site.data.i18n[site.language]['language_select_mobile_nav'] | default: 'Language selection (mobile menu)' }}">
           <option value="en">EN</option>
           <option value="de">DE</option>
           <option value="es">ES</option>

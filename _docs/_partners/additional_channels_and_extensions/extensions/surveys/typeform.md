@@ -22,14 +22,14 @@ By integrating Braze and Typeform, you can:
 | Requirement | Description |
 | ----------- | ----------- |
 | Typeform account | A Typeform account with access to webhooks are required to take advantage of this partnership. |
-| Braze Data Transformation | A [Data Transformation URL]({{site.baseurl}}/data_transformation/) is necessary to receive data from Typeform. |
+| Braze Data Transformation | A [Data Transformation URL]({{site.baseurl}}/user_guide/data/unification/data_transformation) is necessary to receive data from Typeform. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
 
 ### Step 1: Set up the Braze Data Transformation to accept Typeform's webhooks {#step-1}
 
-{% multi_lang_include create_transformation.md location="typeform" %}
+{% multi_lang_include data_activation/create_transformation.md location="typeform" %}
 
 ### Step 2: Set up Typeform webhooks
 
@@ -37,11 +37,11 @@ Follow the steps in [Typeform's webhooks documentation](https://www.typeform.com
 
 For step 4, add your Data Transformation webhook URL as the **Destination URL**
 
-![]({% image_buster /assets/img/typeform/typeform_add_webhook.png %}){: style="max-width:50%" }
+![Typeform webhook setup with the Destination URL field.]({% image_buster /assets/img/typeform/typeform_add_webhook.png %}){: style="max-width:50%" }
 
 Send a test event to your Data Transformation by clicking **View deliveries** and then **Send test request**.
 
-![]({% image_buster /assets/img/typeform/typeform_test_request.png %})
+![Typeform View deliveries page with Send test request selected.]({% image_buster /assets/img/typeform/typeform_test_request.png %})
 
 ### Step 3: Write transformation code to accept your chosen Typeform events
 
@@ -52,19 +52,13 @@ In this step, you transform the webhook payload that is sent from Typeform to a 
 3. Click **Validate** to return a preview of your code’s output and to check if it’s an acceptable `/users/track` request.
 4. Save and activate your Data Transformation.
 
-![]({% image_buster /assets/img/typeform/typeform_test_result.png %})
+![Data Transformation preview showing a successful Typeform test payload validation.]({% image_buster /assets/img/typeform/typeform_test_result.png %})
 
 #### Request body format
 
 This return value must adhere to Braze’s `/users/track` request body format:
 
-- Transformation code is accepted in the JavaScript programming language. Any standard JavaScript control flow, such as if/else logic, is supported.
-- Transformation code accesses the webhook request body via the payload variable. This variable is an object populated by parsing the request body JSON.
-- Any feature supported in our `/users/track` endpoint is supported, including:
-    - User attributes objects, event objects, and purchase objects
-    - Nested attributes and nested custom event properties
-    - Subscription group updates
-    - Email address as an identifier
+{% multi_lang_include data_transformation/transformation_code_requirements.md %}
 
 ## Example Typeform webhook payload
 
@@ -616,7 +610,7 @@ After you have written your data transformation, click **Validate** to make your
 
 When activated, custom event data is logged to a user's profile when they complete your form.
 
-![]({% image_buster /assets/img/typeform/typeform_custom_event.png %})
+![User profile showing a custom event logged after Typeform submission.]({% image_buster /assets/img/typeform/typeform_custom_event.png %})
 
 ## Monitoring and troubleshooting
 

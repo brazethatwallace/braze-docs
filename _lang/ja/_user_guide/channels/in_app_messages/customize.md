@@ -25,7 +25,7 @@ guide_featured_list:
 guide_menu_title2: "その他の記事"
 guide_menu_list2:
 - name: カラープロファイルとCSSテンプレート
-  link: /docs/user_guide/messaging/templates/in_app_message_templates/in_app_message_template/#reusable-color-profiles
+  link: /docs/user_guide/messaging/templates/in_app_message_templates/in_app_message_template#reusable-color-profiles
   image: /assets/img/braze_icons/palette.svg
 
 local_redirect:

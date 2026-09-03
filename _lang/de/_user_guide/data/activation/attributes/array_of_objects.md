@@ -17,16 +17,16 @@ description: "Dieser Referenzartikel behandelt die Verwendung eines Arrays von O
 
 - Arrays von Objekten sind für angepasste Attribute vorgesehen, die über die API gesendet werden. CSV-Uploads werden nicht unterstützt. Das liegt daran, dass Kommas in der CSV-Datei als Spaltentrennzeichen interpretiert werden und Kommas in Werten zu Parsing-Fehlern führen.
 - Arrays von Objekten haben keine Begrenzung der Anzahl von Elementen, aber eine maximale Größe von 100&nbsp;KB. Wenn ein Update (z.&nbsp;B. `$add` oder `$update`) dazu führt, dass das Array dieses Limit überschreitet, verwirft Braze das Update und das Attribut bleibt unverändert. Die API-Anfrage gibt dennoch eine Erfolgsantwort zurück. Um das Array unter dem Limit zu halten, damit neue Elemente hinzugefügt werden können, verwenden Sie `$remove`, um zuerst Elemente aus dem Array zu löschen.
-- Nicht alle Braze-Partner unterstützen Arrays von Objekten. Lesen Sie die [Partner-Dokumentation]({{site.baseurl}}/partners/home/), um zu prüfen, ob die Integration dieses Feature unterstützt.
+- Nicht alle Braze-Partner unterstützen Arrays von Objekten. Lesen Sie die [Partner-Dokumentation]({{site.baseurl}}/partners/home), um zu prüfen, ob die Integration dieses Feature unterstützt.
 
 Das Aktualisieren oder Entfernen von Elementen in einem Array erfordert die Identifizierung des Elements anhand von Schlüssel und Wert. Erwägen Sie daher, jedem Element im Array einen eindeutigen Bezeichner hinzuzufügen. Die Eindeutigkeit bezieht sich nur auf das Array und ist nützlich, wenn Sie bestimmte Objekte aus Ihrem Array aktualisieren und entfernen möchten. Dies wird von Braze nicht erzwungen.
 
 {% alert important %}
-Wenn ein verschachteltes angepasstes Attribut in Ihrer Anfrage ungültige Werte enthält (z.&nbsp;B. ungültige Zeitformate oder `null`-Werte), verwirft Braze alle Updates verschachtelter angepasster Attribute in der Anfrage. Dies gilt für alle verschachtelten Strukturen innerhalb dieses spezifischen Attributs. Stellen Sie sicher, dass alle Werte innerhalb verschachtelter angepasster Attribute gültig sind, bevor Sie sie senden. Weitere Informationen finden Sie unter [Nutzer:innen erstellen und aktualisieren]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#how-does-userstrack-handle-invalid-nested-custom-attributes).
+Wenn ein verschachteltes angepasstes Attribut in Ihrer Anfrage ungültige Werte enthält (z.&nbsp;B. ungültige Zeitformate oder `null`-Werte), verwirft Braze alle Updates verschachtelter angepasster Attribute in der Anfrage. Dies gilt für alle verschachtelten Strukturen innerhalb dieses spezifischen Attributs. Stellen Sie sicher, dass alle Werte innerhalb verschachtelter angepasster Attribute gültig sind, bevor Sie sie senden. Weitere Informationen finden Sie unter [Nutzer:innen erstellen und aktualisieren]({{site.baseurl}}/api/endpoints/user_data/post_user_track#how-does-userstrack-handle-invalid-nested-custom-attributes).
 {% endalert %}
 
 {% alert tip %}
-Weitere Informationen zur Verwendung von Arrays von Objekten für Nutzer:innen-Attribut-Objekte finden Sie unter [Nutzer:innen-Attribut-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens).
+Weitere Informationen zur Verwendung von Arrays von Objekten für Nutzerattribut-Objekte finden Sie unter [Nutzerattribut-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object).
 {% endalert %}
 
 ## API-Beispiel {#api-example}
@@ -50,13 +50,13 @@ Verwenden Sie dieses Format, wenn Sie das Attribut zum ersten Mal erstellen oder
           "id": 1,
           "type": "dog",
           "breed": "beagle",
-          "name": "Gus"
+          "name": "Mochi"
         },
         {
           "id": 2,
           "type": "cat",
           "breed": "calico",
-          "name": "Gerald"
+          "name": "Pixel"
         }
       ]
     }
@@ -81,19 +81,19 @@ Verwenden Sie `$add`, wenn Sie ein oder mehrere neue Objekte anhängen und beste
             "id": 3,
             "type": "dog",
             "breed": "corgi",
-            "name": "Doug"
+            "name": "Biscuit"
           },
           {
             "id": 4,
             "type": "fish",
             "breed": "salmon",
-            "name": "Larry"
+            "name": "Pepper"
           },
            {
             "id": 5,
             "type": "bird",
             "breed": "parakeet",
-            "name": "Mary"
+            "name": "Noodle"
           }
         ]
       }
@@ -104,7 +104,7 @@ Verwenden Sie `$add`, wenn Sie ein oder mehrere neue Objekte anhängen und beste
 {% endtab %}
 {% tab Aktualisieren %}
 
-Aktualisieren Sie Werte für bestimmte Objekte innerhalb eines Arrays mit dem Parameter `_merge_objects` und dem Operator `$update`. Ähnlich wie bei Updates anderer [verschachtelter angepasster Attribute]({{site.baseurl}}/nested_custom_attribute_support/#api-request-body) wird hierbei ein Deep Merge durchgeführt.
+Aktualisieren Sie Werte für bestimmte Objekte innerhalb eines Arrays mit dem Parameter `_merge_objects` und dem Operator `$update`. Ähnlich wie bei Updates anderer [verschachtelter angepasster Attribute]({{site.baseurl}}/nested_custom_attribute_support#api-request-body) wird hierbei ein Deep Merge durchgeführt.
 
 Beachten Sie, dass `$update` nicht verwendet werden kann, um eine verschachtelte Eigenschaft aus einem Objekt innerhalb eines Arrays zu entfernen. Dazu müssen Sie das gesamte Element aus dem Array entfernen und dann das Objekt ohne diesen spezifischen Schlüssel wieder hinzufügen (mit einer Kombination aus `$remove` und `$add`).
 
@@ -220,7 +220,7 @@ Wenn Sie Felder wie Zeitstempel in einem Array von Objekten einschließen, verwe
 ```
 
 {% alert tip %}
-Weitere Informationen finden Sie unter [Verschachtelte angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/).
+Weitere Informationen finden Sie unter [Verschachtelte angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
 {% endalert %}
 
 ## SDK-Beispiel {#sdk-example}
@@ -228,7 +228,7 @@ Weitere Informationen finden Sie unter [Verschachtelte angepasste Attribute]({{s
 {% tabs local %}
 {% tab Android SDK %}
 {% subtabs %}
-{% subtab Create %}
+{% subtab Erstellen %}
 ```kotlin
 val json = JSONArray()
     .put(JSONObject()
@@ -240,7 +240,7 @@ val json = JSONArray()
         .put("id", 2)
         .put("type", "cat")
         .put("breed", "calico")
-        .put("name", "Gerald")
+        .put("name", "Pixel")
     )
 
 braze.getCurrentUser { user ->
@@ -249,7 +249,7 @@ braze.getCurrentUser { user ->
 ```
 {% endsubtab %}
 
-{% subtab Add %}
+{% subtab Hinzufügen %}
 ```kotlin
 val json = JSONObject()
     .put("\$add", JSONArray()
@@ -262,12 +262,12 @@ val json = JSONObject()
             .put("id", 4)
             .put("type", "fish")
             .put("breed", "salmon")
-            .put("name", "Larry"))
+            .put("name", "Pepper"))
         .put(JSONObject()
             .put("id", 5)
             .put("type", "bird")
             .put("breed", "parakeet")
-            .put("name", "Mary")
+            .put("name", "Noodle")
         )
     )
 
@@ -277,7 +277,7 @@ braze.getCurrentUser { user ->
 ```
 {% endsubtab %}
 
-{% subtab Update %}
+{% subtab Aktualisieren %}
 ```kotlin
 val json = JSONObject()
     .put("\$update", JSONArray()
@@ -303,7 +303,7 @@ braze.getCurrentUser { user ->
 ```
 {% endsubtab %}
 
-{% subtab Delete %}
+{% subtab Löschen %}
 ```kotlin
 val json = JSONObject()
     .put("\$remove", JSONArray()
@@ -331,20 +331,20 @@ braze.getCurrentUser { user ->
 
 {% tab Swift SDK %}
 {% subtabs %}
-{% subtab Create %}
+{% subtab Erstellen %}
 ```swift
 let json: [[String: Any?]] = [
   [
     "id": 1,
     "type": "dog",
     "breed": "beagle",
-    "name": "Gus"
+    "name": "Mochi"
   ],
   [
     "id": 2,
     "type": "cat",
     "breed": "calico",
-    "name": "Gerald"
+    "name": "Pixel"
   ]
 ]
 
@@ -352,7 +352,7 @@ braze.user.setCustomAttribute(key: "pets", array: json)
 ```
 {% endsubtab %}
 
-{% subtab Add %}
+{% subtab Hinzufügen %}
 ```swift
 let json: [String: Any?] = [
   "$add": [
@@ -360,19 +360,19 @@ let json: [String: Any?] = [
       "id": 3,
       "type": "dog",
       "breed": "corgi",
-      "name": "Doug"
+      "name": "Biscuit"
     ],
     [
       "id": 4,
       "type": "fish",
       "breed": "salmon",
-      "name": "Larry"
+      "name": "Pepper"
     ],
     [
       "id": 5,
       "type": "bird",
       "breed": "parakeet",
-      "name": "Mary"
+      "name": "Noodle"
     ]
   ]
 ]
@@ -381,7 +381,7 @@ braze.user.setCustomAttribute(key: "pets", dictionary: json, merge: true)
 ```
 {% endsubtab %}
 
-{% subtab Update %}
+{% subtab Aktualisieren %}
 ```swift
 let json: [String: Any?] = [
   "$update": [
@@ -406,7 +406,7 @@ braze.user.setCustomAttribute(key: "pets", dictionary: json, merge: true)
 ```
 {% endsubtab %}
 
-{% subtab Delete %}
+{% subtab Löschen %}
 ```swift
 let json: [String: Any?] = [
   "$remove": [
@@ -437,25 +437,25 @@ Verschachtelte angepasste Attribute werden für AppboyKit nicht unterstützt.
 
 {% tab Web SDK %}
 {% subtabs local %}
-{% subtab Create %}
+{% subtab Erstellen %}
 ```javascript
 import * as braze from "@braze/web-sdk";
 const json = [{
   "id": 1,
   "type": "dog",
   "breed": "beagle",
-  "name": "Gus"
+  "name": "Mochi"
 }, {
   "id": 2,
   "type": "cat",
   "breed": "calico",
-  "name": "Gerald"
+  "name": "Pixel"
 }];
 braze.getUser().setCustomUserAttribute("pets", json);
 ```
 {% endsubtab %}
 
-{% subtab Add %}
+{% subtab Hinzufügen %}
 ```javascript
 import * as braze from "@braze/web-sdk";
 const json = {
@@ -468,19 +468,19 @@ const json = {
     "id":  4,
     "type":  "fish",
     "breed":  "salmon",
-    "name":  "Larry",
+    "name":  "Pepper",
   }, {
     "id":  5,
     "type":  "bird",
     "breed":  "parakeet",
-    "name":  "Mary",
+    "name":  "Noodle",
   }]
 };
 braze.getUser().setCustomUserAttribute("pets", json, true);
 ```
 {% endsubtab %}
 
-{% subtab Update %}
+{% subtab Aktualisieren %}
 ```javascript
 import * as braze from "@braze/web-sdk";
 const json = {
@@ -505,7 +505,7 @@ braze.getUser().setCustomUserAttribute("pets", json, true);
 ```
 {% endsubtab %}
 
-{% subtab Delete %}
+{% subtab Löschen %}
 ```javascript
 import * as braze from "@braze/web-sdk";
 const json = {
@@ -545,7 +545,7 @@ I have a {{pet.type}} named {{pet.name}}! They are a {{pet.breed}}.
 ```
 {% endraw %}
 
-In diesem Szenario können Sie Liquid verwenden, um das `pets`-Array zu durchlaufen und für jedes Haustier eine Aussage auszugeben. [Weisen Sie eine Variable]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#assigning-variables) dem angepassten Attribut `pets` zu und verwenden Sie die Punkt-Notation, um auf Eigenschaften eines Objekts zuzugreifen. Geben Sie den Namen des Objekts an, gefolgt von einem Punkt `.`, gefolgt vom Eigenschaftsnamen.
+In diesem Szenario können Sie Liquid verwenden, um das `pets`-Array zu durchlaufen und für jedes Haustier eine Aussage auszugeben. [Weisen Sie eine Variable]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/dashboard_tools#assign-variables) dem angepassten Attribut `pets` zu und verwenden Sie die Punkt-Notation, um auf Eigenschaften eines Objekts zuzugreifen. Geben Sie den Namen des Objekts an, gefolgt von einem Punkt `.`, gefolgt vom Eigenschaftsnamen.
 
 ## Segmentierung {#segmentation}
 
@@ -562,7 +562,7 @@ Wenn Sie beispielsweise ein `top_3_movies`-Array von Objekten basierend auf dem 
 
 ### Verschachtelungsebenen {#levels-of-nesting}
 
-Sie können ein Segment mit bis zu einer Ebene der Array-Verschachtelung erstellen (Array innerhalb eines anderen Arrays). Angenommen, Sie haben die folgenden Attribute: Sie können ein Segment für `pets[].name` enthält `Gus` erstellen, aber Sie können kein Segment für `pets[].nicknames[]` enthält `Gugu` erstellen.
+Sie können ein Segment mit bis zu einer Ebene der Array-Verschachtelung erstellen (Array innerhalb eines anderen Arrays). Angenommen, Sie haben die folgenden Attribute: Sie können ein Segment für `pets[].name` enthält `Mochi` erstellen, aber Sie können kein Segment für `pets[].nicknames[]` enthält `Gugu` erstellen.
 
 {% raw %}
 ```json
@@ -575,20 +575,20 @@ Sie können ein Segment mit bis zu einer Ebene der Array-Verschachtelung erstell
           "id": 1,
           "type": "dog",
           "breed": "beagle",
-          "name": "Gus",
+          "name": "Mochi",
           "nicknames": [
-            "Gugu",
-            "Gusto"
+            "MoMo",
+            "Mochi"
           ]
         },
         {
           "id": 2,
           "type": "cat",
           "breed": "calico",
-          "name": "Gerald",
+          "name": "Pixel",
           "nicknames": [
-            "GeGe",
-            "Gerry"
+            "PiPi",
+            "Pixel"
           ]
         }
       ]
@@ -617,13 +617,13 @@ Das Erstellen eines neuen Arrays protokolliert einen Datenpunkt für jedes Attri
           "id": 1,
           "type": "dog",
           "breed": "beagle",
-          "name": "Gus"
+          "name": "Mochi"
         },
         {
           "id": 2,
           "type": "cat",
           "breed": "calico",
-          "name": "Gerald"
+          "name": "Pixel"
         }
       ]
     }

@@ -37,14 +37,14 @@ Os catálogos suportam até 1.000 campos por item e podem armazenar milhões de 
 
 Os catálogos também possibilitam o envio de mensagens automatizadas por meio de gatilhos de catálogo. Configure notificações de volta ao estoque e notificações de queda de preço para enviar mensagens automaticamente aos usuários quando os itens do catálogo mudarem.
 
-Para saber mais, consulte [Gatilhos de catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/).
+Para saber mais, consulte [Gatilhos de catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers).
 
 ## Seleções {#selections}
 
 Use seleções para agrupar itens do catálogo por filtros que você definir. Por exemplo, crie uma seleção de itens abaixo de US$ 20 ou itens em uma categoria específica e, em seguida, faça referência ao conjunto filtrado em suas mensagens.
 
-Para saber mais, consulte [Seleções]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/).
+Para saber mais, consulte [Seleções]({{site.baseurl}}/user_guide/data/activation/catalogs/selections).
 
 ## Primeiros passos {#getting-started}
 
-Para criar e gerenciar catálogos, consulte [Catálogos]({{site.baseurl}}/user_guide/data/activation/catalogs/). Para saber como fazer referência a dados de catálogo em suas mensagens, consulte [Usando catálogos em uma mensagem]({{site.baseurl}}/user_guide/data/activation/catalogs/use/).
+Para criar e gerenciar catálogos, consulte [Catálogos]({{site.baseurl}}/user_guide/data/activation/catalogs). Para saber como fazer referência a dados de catálogo em suas mensagens, consulte [Usando catálogos em uma mensagem]({{site.baseurl}}/user_guide/data/activation/catalogs/use).

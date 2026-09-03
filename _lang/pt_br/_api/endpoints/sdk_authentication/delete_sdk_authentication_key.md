@@ -5,16 +5,16 @@ search_tag: Endpoint
 page_order: 3
 layout: api_page
 page_type: reference
-description: "Este artigo descreve detalhes sobre o endpoint da Braze para excluir a chave de Autenticação do SDK."
+description: "Este artigo descreve detalhes sobre o endpoint da Braze para excluir a chave de autenticação do SDK."
 ---
 
 {% api %}
-# Excluir chave de Autenticação do SDK {#delete-sdk-authentication-key}
+# Excluir chave de autenticação do SDK {#delete-sdk-authentication-key}
 {% apimethod delete %}
 /app_group/sdk_authentication/delete
 {% endapimethod %}
 
-> Use este endpoint para excluir uma chave de Autenticação do SDK para seu app.
+> Use este endpoint para excluir uma chave de autenticação do SDK para seu app.
 
 {% alert important %}
 A chave primária não pode ser excluída. Se você tentar excluir a chave primária, este endpoint retornará um erro.
@@ -22,9 +22,9 @@ A chave primária não pode ser excluída. Se você tentar excluir a chave prim�
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `sdk_authentication.delete`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `sdk_authentication.delete`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
@@ -42,10 +42,10 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | -------- | --------- | ----------- |
-| `app_id` | Obrigatória | String | O identificador de API do app. |
-| `key_id` | Obrigatória | String | O ID da chave de Autenticação do SDK a ser excluída. |
+| `app_id` | Obrigatório | String | O identificador de API do app. |
+| `key_id` | Obrigatório | String | O ID da chave de autenticação do SDK a ser excluída. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#example-request}
@@ -79,20 +79,20 @@ curl --location --request DELETE 'https://rest.iad-01.braze.com/app_group/sdk_au
 
 | Parâmetro | Tipo de dados | Descrição |
 | --------- | --------- | ----------- |
-| `keys` | Array | Array de objetos de chaves de Autenticação do SDK restantes. |
-| `keys[].id` | String | O ID da chave de Autenticação do SDK. |
+| `keys` | Array | Array de objetos de chaves de autenticação do SDK restantes. |
+| `keys[].id` | String | O ID da chave de autenticação do SDK. |
 | `keys[].rsa_public_key` | String | A string da chave pública RSA. |
-| `keys[].description` | String | Descrição da chave de Autenticação do SDK. |
-| `keys[].is_primary` | booleano | Se esta chave é a chave primária de Autenticação do SDK. |
+| `keys[].description` | String | Descrição da chave de autenticação do SDK. |
+| `keys[].is_primary` | Boolean | Se esta chave é a chave primária de autenticação do SDK. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Parâmetros de resposta" }
 
 ### Regras de validação {#validation-rules}
 
 Este endpoint possui as seguintes regras de validação:
 
-- O `key_id` deve ser um ID válido de chave de Autenticação do SDK.
+- O `key_id` deve ser um ID válido de chave de autenticação do SDK.
 - O `app_id` deve ser um identificador de API de app válido.
-- A chave de Autenticação do SDK deve existir para o app especificado.
-- A chave primária de Autenticação do SDK não pode ser excluída.
+- A chave de autenticação do SDK deve existir para o app especificado.
+- A chave primária de autenticação do SDK não pode ser excluída.
 
 {% endapi %}

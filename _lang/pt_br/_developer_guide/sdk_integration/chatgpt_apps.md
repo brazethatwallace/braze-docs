@@ -23,8 +23,8 @@ Os aplicativos ChatGPT oferecem uma plataforma poderosa para a criação de apli
 ### Principais benefícios {#key-benefits}
 
 - **Seja dono da jornada do seu cliente:** Enquanto os usuários interagem com sua marca por meio do ChatGPT, você mantém visibilidade sobre o comportamento, as preferências e os padrões de engajamento deles. Esses dados fluem diretamente para os perfis de usuário da Braze, não apenas para a análise de dados da plataforma de IA.
-- **Redirecionamento entre plataformas:** Acompanhe as interações dos usuários em seu aplicativo ChatGPT e redirecione-os em seus canais proprietários (e-mail, SMS, notificações por push, mensagens no app) com campanhas personalizadas com base em seus padrões de uso de IA.
-- **Retorne conteúdo promocional 1:1 para conversas no ChatGPT:** Entregue [mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages/) da Braze, [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/) e muito mais diretamente na sua experiência ChatGPT usando os componentes personalizados da interface de usuário conversacional que sua equipe criou para o seu app.
+- **Redirecionamento entre plataformas:** Acompanhe as interações dos usuários em seu aplicativo ChatGPT e redirecione-os em seus canais proprietários (e-mail, SMS, notificações por push, mensagens no app) com Campaigns personalizadas com base em seus padrões de uso de IA.
+- **Retorne conteúdo promocional 1:1 para conversas no ChatGPT:** Entregue [mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages) da Braze, [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards) e muito mais diretamente na sua experiência ChatGPT usando os componentes personalizados da interface de usuário conversacional que sua equipe criou para o seu app.
 - **Atribuição de receita:** Acompanhe as compras e conversões originadas das interações com o app ChatGPT.
 
 <!-- ### Practical Use Cases

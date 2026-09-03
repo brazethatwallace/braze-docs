@@ -2,7 +2,7 @@
 
 ## 커스텀 알림 레이아웃 {#custom-notification-layout}
 
-Braze 알림은 [데이터 메시지](https://firebase.google.com/docs/cloud-messaging/concept-options)로 전송되므로, 앱이 백그라운드에 있을 때 시스템에서 자동으로 처리할 수 있는 알림 메시지와 달리 백그라운드에서도 항상 응답하고 그에 따라 동작을 수행할 수 있는 기회가 있습니다. 이와 같이 애플리케이션은 예를 들어 알림 트레이에 전달된 알림 내에서 개인화된 UI 요소를 표시하여 경험을 커스터마이즈할 수 있습니다. 이 방식으로 푸시를 구현하는 것이 일부에게는 낯설 수 있지만, Braze의 잘 알려진 기능 중 하나인 [Push Stories]({{site.baseurl}}/user_guide/message_building_by_channel/push/advanced_push_options/push_stories/)는 커스텀 뷰 구성요소를 사용하여 몰입감 있는 경험을 만드는 좋은 예입니다!
+Braze 알림은 [데이터 메시지](https://firebase.google.com/docs/cloud-messaging/concept-options)로 전송되므로, 앱이 백그라운드에 있을 때 시스템에서 자동으로 처리할 수 있는 알림 메시지와 달리 백그라운드에서도 항상 응답하고 그에 따라 동작을 수행할 수 있는 기회가 있습니다. 이와 같이 애플리케이션은 예를 들어 알림 트레이에 전달된 알림 내에서 개인화된 UI 요소를 표시하여 경험을 커스터마이즈할 수 있습니다. 이 방식으로 푸시를 구현하는 것이 일부에게는 낯설 수 있지만, Braze의 잘 알려진 기능 중 하나인 [Push Stories]({{site.baseurl}}/user_guide/message_building_by_channel/push/advanced_push_options/push_stories)는 커스텀 뷰 구성요소를 사용하여 몰입감 있는 경험을 만드는 좋은 예입니다!
 
 {% alert important %}
 Android는 커스텀 알림 뷰를 구현하는 데 사용할 수 있는 구성요소에 몇 가지 제한을 둡니다. 알림 뷰 레이아웃은 _오직_ [RemoteViews](https://developer.android.com/reference/android/widget/RemoteViews) 프레임워크와 호환되는 View 오브젝트만 포함해야 합니다.
@@ -248,7 +248,7 @@ class MyApplication : Application() {
 
 ### 5단계: 활동 보내기 {#step-5-send-the-activity}
 
-[`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/) REST API 엔드포인트를 사용하여 사용자의 Android 기기로 푸시 알림을 보낼 수 있습니다.
+[`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) REST API 엔드포인트를 사용하여 사용자의 Android 기기로 푸시 알림을 보낼 수 있습니다.
 
 #### curl 명령 예시 {#example-curl-command}
 
@@ -288,11 +288,11 @@ curl 명령은 테스트에 유용하지만, 이미 [iOS 라이브 활동]({{sit
 | 키 | 설명 |
 | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `REST_API_KEY` | `messages.send` 권한이 있는 Braze REST API 키입니다. <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
-| `BRAZE_REST_ENDPOINT` | REST 엔드포인트 URL입니다. 엔드포인트는 [인스턴스의 Braze URL]({{site.baseurl}}/api/basics/#endpoints)에 따라 달라집니다. |
+| `BRAZE_REST_ENDPOINT` | REST 엔드포인트 URL입니다. 엔드포인트는 [인스턴스의 Braze URL]({{site.baseurl}}/api/basics#endpoints)에 따라 달라집니다. |
 | `USER_ID` | 알림을 보낼 사용자의 ID입니다. |
 | `messages.android_push.title` | 메시지 제목입니다. 기본적으로 커스텀 알림 팩토리의 라이브 알림에는 사용되지 않지만, 대체 수단으로 사용할 수 있습니다. |
 | `messages.android_push.alert` | 메시지 본문입니다. 기본적으로 커스텀 알림 팩토리의 라이브 알림에는 사용되지 않지만, 대체 수단으로 사용할 수 있습니다. |
-| `messages.extra` | 커스텀 알림 팩토리에서 라이브 알림에 사용하는 키-값 페어입니다. 이 값에는 어떤 문자열이든 할당할 수 있지만, 위의 예시에서는 `live_updates`를 사용하여 기본 푸시 알림인지 라이브 푸시 알림인지를 결정합니다. |
+| `messages.extra` | 커스텀 알림 팩토리에서 라이브 알림에 사용하는 키-값 페어입니다. 이 값에는 어떤 문자열이든 할당할 수 있지만, 이 예시에서는 `live_updates`를 사용하여 기본 푸시 알림인지 라이브 푸시 알림인지를 결정합니다. |
 | `ASSIGNED_NOTIFICATION_ID` | 선택한 사용자의 라이브 알림에 할당할 알림 ID입니다. 이 ID는 해당 게임에 고유해야 하며, 나중에 [기존 알림을 업데이트](#android_step-4-update-data-with-the-braze-rest-api)할 때 사용해야 합니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="요청 매개변수" }
 

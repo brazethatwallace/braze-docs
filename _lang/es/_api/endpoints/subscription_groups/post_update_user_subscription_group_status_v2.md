@@ -3,7 +3,7 @@ nav_title: "POST: Actualizar el estado del grupo de suscripción de los usuarios
 alias: /post_update_user_subscription_group_status_v2/
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Actualizar el estado del grupo de suscripción del usuario (V2) de Braze."
+description: "En este artículo se describen los detalles del endpoint Actualizar el estado del grupo de suscripción del usuario (V2) de Braze."
 
 platform: API
 channel:
@@ -16,36 +16,36 @@ channel:
 /v2/subscription/status/set
 {% endapimethod %}
 
-> Utiliza este punto de conexión para actualizar por lotes el estado de suscripción de hasta 50 usuarios en el dashboard de Braze.
+> Utiliza este endpoint para actualizar por lotes el estado de suscripción de hasta 50 usuarios en el panel de Braze.
 
 Puedes acceder al `subscription_group_id` de un grupo de suscripción navegando a la página **Subscription Group**.
 
-Para ver ejemplos o probar este punto de conexión para **grupos de suscripción por correo electrónico**:
+Para ver ejemplos o probar este endpoint para **grupos de suscripción por correo electrónico**:
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#b1b9a0e0-6329-4df2-a465-53347f410662 {% endapiref %}
 
-Para ver ejemplos o probar este punto de conexión para **grupos de suscripción por SMS**:
+Para ver ejemplos o probar este endpoint para **grupos de suscripción por SMS**:
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#81a5fe65-588b-4b61-82d8-5ce68b681409 {% endapiref %}
 
-Para ver ejemplos o probar este punto de conexión para **grupos de WhatsApp**:
+Para ver ejemplos o probar este endpoint para **grupos de WhatsApp**:
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#81a5fe65-588b-4b61-82d8-5ce68b681409 {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitas una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `subscription.status.set`.
+Para utilizar este endpoint, necesitas una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `subscription.status.set`.
 
 {% alert note %}
-Si te interesa utilizar este punto de conexión con [los grupos de suscripción de LINE]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups/), ponte en contacto con tu administrador del éxito del cliente. <br><br>Para los grupos de suscripción de LINE, recomendamos utilizar un atributo personalizado para rastrear el consentimiento del sitio web o la aplicación por separado, y luego dirigir las campañas utilizando ese atributo personalizado en combinación con el estado de suscripción de LINE. Este enfoque garantiza que tu estado de suscripción refleje con precisión a los usuarios que realmente se han suscrito en la aplicación LINE. Añadir manualmente usuarios a los grupos de suscripción de LINE mediante la API puede provocar estados desincronizados y envíos fallidos, ya que Braze no puede volver a suscribir a los usuarios en la aplicación LINE ni enviar mensajes a los usuarios que han bloqueado una cuenta en LINE.
+Si te interesa utilizar este endpoint con [los grupos de suscripción de LINE]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups), ponte en contacto con tu administrador de éxito de cliente. <br><br>Para los grupos de suscripción de LINE, recomendamos utilizar un atributo personalizado para rastrear el consentimiento del sitio web o la aplicación por separado, y luego segmentar las campañas utilizando ese atributo personalizado en combinación con el estado de suscripción de LINE. Este enfoque garantiza que tu estado de suscripción refleje con precisión a los usuarios que realmente se han suscrito en la aplicación LINE. Añadir manualmente usuarios a los grupos de suscripción de LINE mediante la API puede provocar estados desincronizados y envíos fallidos, ya que Braze no puede volver a suscribir a los usuarios en la aplicación LINE ni enviar mensajes a los usuarios que han bloqueado una cuenta en LINE.
 {% endalert %}
 
 ## Diferencias con respecto a la versión 1 {#differences-from-v1}
 
-El punto de conexión V2 difiere del [punto de conexión V1]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/) en los siguientes aspectos:
+El endpoint V2 difiere del [endpoint V1]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) en los siguientes aspectos:
 
 - **Múltiples grupos de suscripción**: La versión 2 te permite actualizar varios grupos de suscripción en una sola solicitud de API, mientras que la versión 1 solo admite un grupo de suscripción por solicitud.
-- **Actualiza tanto el correo electrónico como el SMS en una sola llamada**: Al utilizar `external_ids`, puedes actualizar los grupos de suscripción por correo electrónico y SMS para los mismos usuarios en una sola llamada a la API. Con la versión V1, debes realizar llamadas API independientes para los grupos de suscripción por correo electrónico y SMS.
+- **Actualiza tanto el correo electrónico como el SMS en una sola llamada**: Al utilizar `external_ids`, puedes actualizar los grupos de suscripción por correo electrónico y SMS para los mismos usuarios en una sola llamada a la API. Con la versión 1, debes realizar llamadas API independientes para los grupos de suscripción por correo electrónico y SMS.
 - **Uso de identificadores de correo electrónico o teléfono**: Si utilizas `emails` o `phones` en lugar de `external_ids`, no podrás actualizar los grupos de suscripción por correo electrónico y SMS en la misma solicitud. Debes realizar llamadas API separadas: una para los grupos de suscripción por correo electrónico y otra para los grupos de suscripción por SMS.
 
 {% alert important %}
@@ -81,19 +81,19 @@ Authorization: Bearer YOUR-REST-API-KEY
 ```
 
 {% alert tip %}
-Al crear nuevos usuarios utilizando el [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), puedes establecer grupos de suscripción dentro del objeto de atributos de usuario, lo que te permite crear un usuario y establecer el estado del grupo de suscripción en una sola llamada a la API.
+Al crear nuevos usuarios utilizando el [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), puedes establecer grupos de suscripción dentro del objeto de atributos de usuario, lo que te permite crear un usuario y establecer el estado del grupo de suscripción en una sola llamada a la API.
 {% endalert %}
 
 ## Parámetros de la solicitud {#request-parameters}
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
-| [`subscription_group_id`]({{site.baseurl}}/api/identifier_types/?tab=subscription%20group%20ids) | Obligatorio | Cadena | El `id` de tu grupo de suscripción. |
+| [`subscription_group_id`]({{site.baseurl}}/api/identifier_types?tab=subscription%20group%20ids) | Obligatorio | Cadena | El `id` de tu grupo de suscripción. |
 | `subscription_state` | Obligatorio | Cadena | Los valores disponibles son `unsubscribed` (no en el grupo de suscripción) o `subscribed` (en el grupo de suscripción). |
 | `external_ids` | Obligatorio* | Matriz de cadenas | El `external_id` del usuario o usuarios, puede incluir hasta 50 `id`s. |
 | `emails` | Obligatorio* | Cadena o matriz de cadenas | La dirección de correo electrónico del usuario, se puede pasar como una matriz de cadenas. Debe incluir al menos una dirección de correo electrónico (con un máximo de 50). <br><br>Si varios usuarios (`external_id`) del mismo espacio de trabajo comparten la misma dirección de correo electrónico, todos los usuarios que comparten la dirección de correo electrónico se actualizan con los cambios del grupo de suscripción. |
 | `phones` | Obligatorio* | Cadena en formato [E.164](https://en.wikipedia.org/wiki/E.164) | Puedes pasar los números de teléfono de los usuarios como una matriz de cadenas. Debes incluir al menos un número de teléfono (hasta 50). Los números de teléfono deben estar en formato E.164 (por ejemplo, `+12223334444`). <br><br>Si varios usuarios (`external_id`) del mismo espacio de trabajo comparten el mismo número de teléfono, todos los usuarios que comparten el número de teléfono se actualizan con los mismos cambios del grupo de suscripción. |
-| `use_double_opt_in_logic` | Opcional | Booleano | Su valor predeterminado es `false` si se omite. Para los grupos de suscripción por SMS, establécelo en `true` para que el usuario entre en el flujo de trabajo de [doble adhesión voluntaria por SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/) cuando su estado de suscripción se establece en `subscribed`. Los usuarios que entran en el flujo de trabajo de doble adhesión voluntaria de esta manera reciben como máximo un mensaje de respuesta de adhesión voluntaria por día, independientemente del número de veces que entren en el flujo de trabajo. Si este parámetro se omite o se establece en `false`, los usuarios se suscriben sin entrar en el flujo de trabajo de doble adhesión voluntaria. Este parámetro no es aplicable a los grupos de suscripción por correo electrónico. |
+| `use_double_opt_in_logic` | Opcional | Booleano | Su valor predeterminado es `false` si se omite. Para los grupos de suscripción por SMS, establécelo en `true` para que el usuario entre en el flujo de trabajo de [doble adhesión voluntaria por SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in) cuando su estado de suscripción se establece en `subscribed`. Los usuarios que entran en el flujo de trabajo de doble adhesión voluntaria de esta manera reciben como máximo un mensaje de respuesta de adhesión voluntaria por día, independientemente del número de veces que entren en el flujo de trabajo. Si este parámetro se omite o se establece en `false`, los usuarios se suscriben sin entrar en el flujo de trabajo de doble adhesión voluntaria. Este parámetro no es aplicable a los grupos de suscripción por correo electrónico. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 {% alert important %}
@@ -116,12 +116,12 @@ curl --location --request POST 'https://rest.iad-01.braze.com/v2/subscription/st
     {
       "subscription_group_id":"subscription_group_identifier",
       "subscription_state":"subscribed",
-      "external_ids":["example-user","example1@email.com"]
+      "external_ids":["example-user","example1@example.com"]
     },
     {
       "subscription_group_id":"subscription_group_identifier",
       "subscription_state":"subscribed",
-      "external_ids":["example-user","example1@email.com"]
+      "external_ids":["example-user","example1@example.com"]
     }
   ]
 }
@@ -138,7 +138,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/v2/subscription/st
     {
       "subscription_group_id":"subscription_group_identifier",
       "subscription_state":"subscribed",
-      "emails":["example1@email.com","example2@email.com"]
+      "emails":["example1@example.com","example2@example.com"]
     }
   ]
 }

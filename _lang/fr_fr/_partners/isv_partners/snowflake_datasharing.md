@@ -9,20 +9,20 @@ hidden: true
 
 Les partages sont provisionnés par client après l'achat d'un droit de partage de données Snowflake. Lorsqu'un client demande un partage de données, Braze ajoute un partage à l'espace de travail du client, et ce dernier peut utiliser l'interface en libre-service pour ajouter les données du compte Snowflake du partenaire concerné.
 
-![]({% image_buster /assets/img/snowflake.png %})
+![Provisionnement du partage de données Snowflake dans le tableau de bord de Braze]({% image_buster /assets/img/snowflake.png %})
 
 Une fois le partage provisionné, toutes les données sont immédiatement accessibles depuis l'instance Snowflake en tant que partage de données entrant.
 
-![]({% image_buster /assets/img/snowflake2.png %})
+![Partage de données entrant Snowflake dans l'instance Snowflake du client]({% image_buster /assets/img/snowflake2.png %})
 
-Dans votre instance Snowflake, vous verrez un partage par région. Chaque table comporte une colonne, `app_group_id`, qui est en fait une clé de locataire pour Braze. Lorsque de nouveaux clients sont ajoutés à un partage au sein d'une même région, ils apparaissent sous la forme de différents `app_group_ids` dans les tables existantes.
+Dans votre instance Snowflake, vous verrez un partage par région. Chaque table comporte une colonne, `app_group_id`, qui fait office de clé de locataire pour Braze. Lorsque de nouveaux clients sont ajoutés à un partage au sein d'une même région, ils apparaissent sous la forme de différents `app_group_ids` dans les tables existantes.
 
 {% alert important %}
 Braze héberge actuellement toutes les données au niveau de l'utilisateur dans les régions Snowflake AWS US East-1 et EU-Central (Francfort). Bien que Braze puisse effectuer des partages inter-régions, il est plus rentable pour les clients de partager avec `US-EAST-1` et/ou `EU-CENTRAL-1`.
 {% endalert %}
 
 {% alert tip %}
-Téléchargez les [schémas des tables brutes]({{site.baseurl}}/assets/download_file/data-sharing-raw-table-schemas.txt?ffbc5f5ca7092bc9ae26268aa0e711df) ici ou utilisez cet ensemble d'[exemples de données d'événements](https://app.snowflake.com/marketplace/listing/GZT0Z5I4XY0/braze-braze-user-event-demo-dataset) disponible sur la place de marché Snowflake pour vous familiariser avec les événements partagés.
+Téléchargez les [schémas des tables brutes](/docs/assets/download_file/data-sharing-raw-table-schemas.txt) ou utilisez cet ensemble d'[exemples de données d'événements](https://app.snowflake.com/marketplace/listing/GZT0Z5I4XY0/braze-braze-user-event-demo-dataset) disponible sur la place de marché Snowflake pour vous familiariser avec les événements partagés.
 {% endalert %}
 
 ## Gestion des événements en double {#handling-duplicate-events}
@@ -33,9 +33,7 @@ Les doublons sont possibles, mais tous les événements possèdent un identifian
 
 ### Changements non disruptifs {#non-breaking-changes}
 
-Les changements non disruptifs peuvent intervenir à tout moment et apportent généralement des fonctionnalités supplémentaires. Exemples de changements non disruptifs :
-- Ajout d'une nouvelle table ou vue
-- Ajout d'une colonne à une table ou une vue existante
+{% multi_lang_include partners/snowflake/non_breaking_changes.md %}
 
 {% alert important %}
 Les nouvelles colonnes étant considérées comme non disruptives, Braze recommande vivement de lister explicitement les colonnes d'intérêt dans chaque requête plutôt que d'utiliser des requêtes `SELECT *`. Vous pouvez également créer des vues qui nomment explicitement les colonnes, puis interroger ces vues au lieu des tables directement.
@@ -43,26 +41,23 @@ Les nouvelles colonnes étant considérées comme non disruptives, Braze recomma
 
 ### Changements disruptifs {#breaking-changes}
 
-Dans la mesure du possible, les changements disruptifs seront précédés d'une annonce et d'une période de migration. Exemples de changements disruptifs :
-- Suppression d'une table ou d'une vue
-- Suppression d'une colonne d'une table ou d'une vue existante
-- Modification du type ou de la possibilité de valeur nulle d'une colonne existante
+{% multi_lang_include partners/snowflake/breaking_changes.md %}
 
 ## Mise à jour des tables SNAPSHOTS et CHANGELOGS {#when-snapshots-and-changelogs-tables-are-updated}
 
-Les tables SNAPSHOTS et CHANGELOGS suivent les modifications apportées aux campagnes et aux Canvas. Comprendre quand ces tables sont mises à jour est important pour interroger les variations de messages et les configurations Canvas les plus récentes.
+Les tables SNAPSHOTS et CHANGELOGS suivent les modifications apportées aux Campaigns et aux Canvas. Comprendre quand ces tables sont mises à jour est important pour interroger les variations de messages et les configurations Canvas les plus récentes.
 
 ### CHANGELOGS_CAMPAIGN_SHARED
 
 Une ligne est ajoutée à `CHANGELOGS_CAMPAIGN_SHARED` lorsque :
-- La campagne est lancée, OU
+- La Campaign est lancée, OU
 - L'un des champs suivants pouvant faire l'objet d'un instantané est modifié :
   - Nom
   - Actions (y compris les modifications du contenu des messages)
   - Comportements de conversion
 
 {% alert important %}
-Enregistrer ou mettre à jour le brouillon post-lancement ne déclenche pas automatiquement une mise à jour. La mise à jour n'est déclenchée que lorsque vous lancez la campagne ou appliquez les modifications du brouillon post-lancement à la campagne active.
+Enregistrer ou mettre à jour le brouillon post-lancement ne déclenche pas automatiquement une mise à jour. La mise à jour n'est déclenchée que lorsque vous lancez la Campaign ou appliquez les modifications du brouillon post-lancement à la Campaign active.
 {% endalert %}
 
 ### SNAPSHOTS_CAMPAIGN_MESSAGE_VARIATION_SHARED

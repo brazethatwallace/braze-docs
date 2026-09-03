@@ -1,42 +1,148 @@
 ---
 nav_title: 문제 해결
-article_title: SSL 문제 해결
+article_title: SSL 클릭 추적 문제 해결
 page_order: 5
 page_type: reference
-description: "이 참조 문서에서는 SSL 문제 해결 팁을 다룹니다."
+description: "증상 색인과 표준 조사 경로를 사용하여 SSL 클릭 추적 및 CDN 구성 문제를 진단합니다."
 channel: email
 ---
 
-# 문제 해결 {#troubleshooting}
+# SSL 클릭 추적 문제 해결 {#troubleshoot-ssl-click-tracking}
 
-> 이 팁을 사용하여 일반적인 SSL 클릭 추적 문제를 식별하세요. 모든 CDN은 고유하므로 문제 해결 안내는 일반적인 내용입니다. CDN 구성, 인증서 또는 프록시 문제는 Braze 생태계 외부에서 이루어지는 구성이므로 CDN 고객지원 팀에 문의하세요.
+> 이 페이지를 사용하여 일반적인 SSL 클릭 추적 문제를 식별하세요. 모든 CDN은 고유하므로 아래 안내는 일반적인 내용입니다. CDN 구성, 인증서 또는 프록시 문제는 Braze 외부에서 이루어지는 구성이므로 CDN 고객지원 팀에 문의하세요.
+
+## 시작하기: 증상 매칭 {#start-here-match-your-symptom}
+
+| 증상 | 이동 |
+| --- | --- |
+| 이메일 열람율이 갑자기 떨어짐 | [낮은 이메일 열람율](#low-email-open-rates) |
+| 추적 링크가 HTTP 403을 반환함 | [리디렉션 링크에서 HTTP 403 오류](#http-403-on-redirect-links) |
+| DNS 또는 CNAME이 CDN 대신 ESP를 가리킴 | [도메인 레지스트리 문제](#domain-registry-issues) |
+| "연결이 비공개가 아닙니다" 오류 또는 설정 중 링크가 끊어짐 | [CDN 문제](#cdn-issues) |
+| SSL 설정이 완료되었지만 링크가 여전히 HTTP로 표시됨 | [SSL 인에이블먼트 상태](#ssl-enablement-status) |
+| 추적 URL은 실패하지만 비추적 URL은 정상 동작함 | [클릭 추적 문제](#click-tracking-issues) |
+| Amazon SES 관련 SSL 인에이블먼트 오류 | [Amazon SES](#amazon-ses) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SSL 증상" }
+
+## 표준 조사 경로 {#standard-investigation-path}
+
+1. 클릭 추적 서브도메인이 이메일 서비스 공급자(SendGrid, SparkPost 또는 Amazon SES)가 아닌 [콘텐츠 전송 네트워크(CDN)]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#what-is-a-cdn-and-why-do-i-need-it)를 가리키는지 확인하세요. IT 또는 웹 팀에 도메인 설정이 Braze 설정과 일치하는지 확인을 요청하세요. Braze 요구 사항에 대해서는 [SSL 인증서 취득]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate)을 참조하세요.
+2. 추적 도메인에 대해 SSL 인증서가 활성 상태인지 확인하세요. IT 또는 웹 팀에 인증서가 최신이고 클릭 추적 서브도메인을 포함하는지 확인을 요청하세요. 설정 단계 및 CDN별 가이드는 [SSL 인증서 취득]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate) 및 [추가 리소스]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#additional-resources)를 참조하세요.
+3. [클릭 추적 문제 해결 템플릿](#click-tracking-issues)을 사용하여 테스트 이메일을 발송하세요. 추적된 URL과 추적되지 않은 URL을 비교하세요.
+4. 추적된 링크가 403 오류로 실패하는 경우, CDN 및 WAF 규칙(사용자 에이전트, 쿼리 문자열, 리디렉션 패턴)을 검토하세요.
+5. 설정이 완료되었지만 링크가 여전히 HTTP인 경우, Braze 고객 성공 매니저에게 연락하여 Braze에서 SSL이 활성화되었는지 확인하세요.
+6. 문제가 지속되는 경우, CDN 또는 IT 팀과 협력하고 오류 코드 및 CDN 또는 도메인 공급자의 세부 정보를 포함하여 [Braze 고객지원]({{site.baseurl}}/braze_support)에 문의하세요.
 
 ## 주요 개념 {#key-concepts}
 
-- **추적 URL:** 원래 HTTPS 링크를 추적 도메인으로 래핑합니다. 사용자가 클릭하면 추적 도메인이 요청을 해석하고 최종 대상으로 리디렉션합니다. CDN을 사용하면 보안(HTTPS) URL을 추적할 수 있습니다. CDN이 없으면 사용자에게 "연결이 안전하지 않습니다" 개인정보 보호 오류가 표시될 수 있습니다.
-- **비추적 URL:** 원래 URL을 그대로 유지하며, CDN을 우회하여 제어 환경으로 사용됩니다.
+- **클릭 추적 도메인(CTD):** Braze가 클릭 추적을 위해 링크를 래핑하는 데 사용하는 브랜드 하위 도메인입니다(예: `clicks.mail.yourbrand.com`).
+- **추적 URL:** 원본 HTTPS 링크를 추적 도메인으로 래핑합니다. 사용자가 클릭하면 추적 도메인이 요청을 처리하고 최종 대상으로 리디렉션합니다. CDN을 사용하면 보안(HTTPS) URL을 추적할 수 있습니다. CDN이 없으면 사용자에게 "연결이 안전하지 않음" 개인정보 보호 오류가 표시될 수 있습니다.
+- **비추적 URL:** 원본 URL을 그대로 유지하며, CDN을 우회하여 제어 환경 역할을 합니다.
+- **Phase 1 및 Phase 2 라우팅:** Phase 1은 클릭 추적 도메인 CNAME을 이메일 서비스 공급자(ESP)로 직접 지정하여 초기 HTTP 확인을 수행합니다. Phase 2는 CNAME을 CDN 또는 웹 애플리케이션 방화벽(WAF)으로 지정하여 SSL을 종료하고 필요한 헤더와 함께 요청을 ESP로 프록시합니다. ESP별 CNAME 대상에 대해서는 [ESP Phase 1 및 Phase 2 라우팅](#esp-phase-1-and-phase-2-routing)을 참조하세요.
 
-## 낮은 이메일 열람률 {#low-email-open-rates}
+## 클릭 추적 도메인 및 DNS 단계 {#click-tracking-domains-and-dns-phases}
 
-갑자기 이메일 열람률이 낮아진 경우, SSL 인증서가 최신 상태인지 확인하세요. 만료된 경우 CDN 또는 인증서 공급자를 통해 SSL 인증서를 갱신해야 합니다.
+SSL 클릭 추적은 Braze가 외부 보안 인증서를 대신 프로비저닝하거나 갱신하지 않기 때문에 2단계 DNS 설정이 필요합니다.
 
-## 리디렉션 링크에서 HTTP 403 {#http-403-on-redirect-links}
+1. **1단계(초기 설정):** 클릭 추적 도메인 CNAME이 암호화되지 않은 HTTP 확인을 위해 ESP 엔드포인트를 직접 가리킵니다.
+2. **2단계(SSL 배포):** CNAME을 커스텀 SSL 인증서를 보유하고 필요한 헤더와 함께 ESP로 요청을 프록시하는 CDN 또는 WAF 에지로 업데이트합니다. ESP는 클릭을 기록하고 수신자를 최종 대상으로 리디렉션합니다.
 
-추적 리디렉션 링크가 **403 Forbidden**을 반환하는 경우, 이 오류는 콘텐츠 전송 네트워크(CDN) 또는 웹 애플리케이션 방화벽(WAF)에서 발생하는 경우가 많습니다. 예를 들어, 특정 사용자 에이전트, 쿼리 문자열 또는 리디렉션 패턴을 차단하는 AWS WAF 또는 Amazon CloudFront 규칙이 원인일 수 있습니다. CDN 또는 클라우드 공급자와 함께 차단된 요청 로그 및 측정기준을 검토하세요. AWS의 경우 [CloudFront 문제 해결](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/troubleshooting.html)을 참조하세요.
+{% alert important %}
+Braze는 1단계 확인이 완료된 후에만 SSL 클릭 추적을 활성화합니다. SSL이 활성화되었지만 DNS가 여전히 ESP(1단계)를 가리키고 있는 경우, 수신자에게 [SSL 이름 불일치 오류](#ssl-name-mismatch-errors)가 표시될 수 있습니다.
+{% endalert %}
 
-문제가 클릭 추적에 한정된 것인지 확인하려면 테스트 링크 하나에 대해 클릭 추적을 끄세요([링크별 클릭 추적 끄기]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/#turning-off-click-tracking-on-a-link-to-link-basis) 참조). 클릭 추적이 꺼져 있을 때 대상 URL이 로드되지만 추적이 켜져 있을 때 403을 반환하면, 클릭 추적 도메인, CDN 및 WAF 구성에 집중하세요.
+## ESP 1단계 및 2단계 라우팅 {#esp-phase-1-and-phase-2-routing}
+
+링크 추적 오류를 해결할 때, DNS 레코드가 암호화되지 않은 ESP 네트워크(1단계)를 가리키는지 또는 CDN(2단계)을 가리키는지 확인하세요.
+
+| ESP | 1단계 CNAME 대상 (ESP 직접 연결) | 2단계 CNAME 대상 | 필수 CDN 구성 |
+| --- | --- | --- | --- |
+| Amazon SES | `r.us-east-1.awstrack.me` (US)<br>`r.eu-central-1.awstrack.me` (EU) | CDN 엔드포인트 (예: `d123.cloudfront.net`, `ssl.fastly.net` 또는 Cloudflare) | 클릭 추적 도메인 이름으로 `X-Forwarded-Host` 헤더를 활성화하세요 |
+| SendGrid | `sendgrid.net` | CDN 엔드포인트 | 파라미터를 삭제하지 않고 원본 `Host` 헤더(또는 커스텀 브랜드 추적 ID)를 오리진으로 전달하세요 |
+| SparkPost | `spgo.io` | CDN 엔드포인트 | `X-Forwarded-Host`를 활성화하고 원본 `User-Agent` 헤더를 그대로 전달하세요 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="ESP 1단계 및 2단계 라우팅" }
+
+CDN 설정 단계 및 파트너 설명서는 [Braze의 SSL]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl)을 참조하세요.
+
+## SSL 이름 불일치 오류 {#ssl-name-mismatch-errors}
+
+SSL 이름 불일치는 TLS 핸드셰이크 중 발생하는 ID 인증 실패입니다. 브라우저가 암호화된 연결을 설정하지만 주소 표시줄의 도메인이 인증서의 일반 이름(CN) 또는 주체 대체 이름(SAN) 필드의 어떤 항목과도 일치하지 않을 때 발생합니다.
+
+### DNS가 여전히 ESP를 가리키는 경우 (1단계) {#dns-still-points-to-the-esp-phase-1}
+
+Braze에 SSL 클릭 추적을 활성화하도록 지시했지만 DNS CNAME이 여전히 ESP(예: SendGrid의 `sendgrid.net`)를 직접 가리키고 있는 경우, 수신자의 브라우저가 클릭 추적 도메인을 열고 ESP의 인프라에 도달합니다. ESP에는 커스텀 인증서에 대한 기록이 없으므로 자체 대체 인증서(예: `*.sendgrid.net`)를 제공합니다. 이름 불일치로 인해 연결이 실패하고 비공개 연결 경고가 반환됩니다.
+
+### 인증서가 추적 하위 도메인을 포함하지 않는 경우 (2단계) {#certificate-does-not-cover-the-tracking-subdomain-phase-2}
+
+DNS가 CDN(Cloudflare, CloudFront 등)을 가리키지만 보안 팀이 기본 웹 자산만 포함하는 인증서(예: `yourbrand.com` 및 `www.yourbrand.com`)를 적용한 경우, 특정 클릭 추적 하위 도메인(예: `clicks.mail.yourbrand.com`)이 포함되지 않습니다. CDN이 추적 도메인과 일치하지 않는 인증서를 제공하며, 브라우저에 개인정보 보호 오류가 표시됩니다.
+
+## 분류 워크플로 {#triage-workflow}
+
+### 1단계: 권한 있는 CNAME 조회 실행 {#step-1-run-an-authoritative-cname-lookup}
+
+터미널을 열고 클릭 추적 도메인의 원시 DNS 라우팅을 확인하세요:
+
+```bash
+dig CNAME clicks.mail.yourbrand.com
+```
+
+`ANSWER SECTION`에서 CNAME이 어디로 확인되는지 검토하세요:
+
+| 결과 | 의미 | 다음 단계 |
+| --- | --- | --- |
+| ESP 엔드포인트로 확인됨 (`sendgrid.net`, `spgo.io` 또는 `awstrack.me`) | DNS가 아직 1단계에 있음 | CDN을 통해 트래픽을 라우팅하도록 도메인 레지스트리를 업데이트하세요. [ESP 1단계 및 2단계 라우팅](#esp-phase-1-and-phase-2-routing)을 참조하세요. |
+| CDN 배포 엔드포인트로 확인됨 | 2단계 DNS 라우팅이 올바름 | 2단계로 진행하세요 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="CNAME 조회 결과" }
+
+### 2단계: TLS 인증서 유효성 검사 {#step-2-validate-the-tls-certificate}
+
+클릭 추적 도메인에 대해 실시간 TLS 유효성 검사를 강제로 실행하여 브라우저가 수신하는 인증서를 정확히 확인하세요. [SSL Shopper의 SSL Checker](https://www.sslshopper.com/ssl-checker.html#hostname=clicks.mail.yourbrand.com)와 같은 외부 SSL 검사 도구에 클릭 추적 도메인을 입력하세요(`clicks.mail.yourbrand.com`을 사용자의 도메인으로 교체하세요).
+
+다음 사항을 확인하세요:
+
+- 인증서가 유효하고 만료되지 않았는지
+- 클릭 추적 도메인이 Common Name 또는 Subject Alternative Names에 표시되는지
+- 인증서 체인이 완전하고, 신뢰할 수 없는 중간 인증서 경고가 없는지
+
+{% alert tip %}
+더 자세한 TLS 보고서를 확인하려면 [Qualys SSL Labs SSL Server Test](https://www.ssllabs.com/ssltest/)를 사용할 수도 있습니다.
+{% endalert %}
+
+### 3단계: CDN 구성 문제 검토 {#step-3-review-cdn-configuration-issues}
+
+설정 중에 실시간 이메일 링크가 끊어지는 경우, 구성이 완료되기 전에 DNS가 CDN으로 지정되지 않았는지 확인하세요. 이 경우 잘못된 링크 또는 연결 오류로 나타날 수 있습니다. CDN 공급자에게 문의하고 해당 설명서를 검토하여 프록시 및 Origin 설정 문제를 해결하세요. 추가 지원이 필요한 경우 SSL 및 CDN 구성을 관리하는 팀과 협력하세요.
+
+## 낮은 이메일 열람율 {#low-email-open-rates}
+
+**증상:** SSL 또는 CDN 변경 후 이메일 열람율이 갑자기 떨어졌습니다.
+
+갑자기 이메일 열람율이 낮아진 경우, SSL 인증서가 최신 상태인지 확인하세요. 만료된 경우 CDN 또는 인증서 공급자를 통해 SSL 인증서를 갱신해야 합니다.
+
+## 리디렉트 링크에서 HTTP 403 발생 {#http-403-on-redirect-links}
+
+**증상:** 추적된 이메일 링크가 "403 Forbidden"을 반환합니다.
+
+추적 리디렉트 링크가 `403 Forbidden`을 반환하는 경우, 이 오류는 콘텐츠 전송 네트워크(CDN) 또는 웹 애플리케이션 방화벽(WAF)에서 발생하는 경우가 많습니다. 예를 들어, 특정 사용자 에이전트, 쿼리 문자열 또는 리디렉트 패턴을 차단하는 AWS WAF 또는 Amazon CloudFront 규칙이 원인일 수 있습니다. CDN 또는 클라우드 공급자와 함께 차단된 요청 로그 및 측정기준을 검토하세요. AWS의 경우 [CloudFront 문제 해결](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/troubleshooting.html)을 참조하세요.
+
+문제가 클릭 추적에 한정된 것인지 확인하려면 테스트 링크 하나에 대해 클릭 추적을 끄세요([링크별 클릭 추적 끄기]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#turning-off-click-tracking-on-a-link-to-link-basis) 참조). 클릭 추적이 꺼져 있을 때 대상 URL이 로드되지만 추적이 켜져 있을 때 `403`을 반환하면, 클릭 추적 도메인, CDN 및 WAF 구성에 집중하세요. CNAME이 여전히 ESP를 가리키고 있으면서 SSL이 활성화되어 있는 경우, [SSL 이름 불일치 오류](#ssl-name-mismatch-errors)가 대신 표시될 수 있습니다. 이 경우 [분류 워크플로](#triage-workflow)부터 시작하세요.
 
 ## 도메인 레지스트리 문제 {#domain-registry-issues}
+
+**증상:** 추적 하위 도메인의 DNS 또는 CNAME이 CDN이 아닌 ESP를 가리키고 있습니다.
 
 dig 명령을 실행하여 링크 추적이 CDN을 가리키는지 확인하세요. 터미널에서 `dig CNAME link_tracking_subdomain`을 실행합니다. `ANSWER SECTION`에 CNAME이 가리키는 위치가 나열됩니다. CDN이 아닌 이메일 서비스 공급자(SendGrid, SparkPost 또는 Amazon SES)를 가리키는 경우, 도메인 레지스트리를 CDN을 가리키도록 재구성하세요.
 
 ## CDN 문제 {#cdn-issues}
 
+**증상:** 사용자에게 "연결이 비공개가 아닙니다" 오류가 표시되거나, CDN 설정 중에 링크가 깨집니다.
+
 설정 중에 라이브 이메일 링크가 깨지는 경우, 적절한 구성 전에 DNS를 CDN으로 지정했을 가능성이 높습니다. 이는 "잘못된 링크" 오류로 나타날 수 있습니다. CDN 공급자에 문의하고 해당 설명서를 검토하여 구성 문제를 해결하세요.
 
-연결이 비공개가 아니라는 오류 메시지가 표시되면, SSL 또는 CDN이 올바르게 구성되지 않았을 수 있습니다. 터미널에서 `dig` 명령을 실행하세요(예: `dig CNAME your_link_tracking_subdomain`). `ANSWER SECTION`에서 결과가 CDN이 아닌 이메일 서비스 공급자를 가리키면 잘못된 구성 문제입니다. Braze SSL 클릭 추적이 작동하려면 CNAME이 CDN을 가리켜야 합니다. 추가 지원이 필요하면 SSL 및 CDN 구성을 관리하는 팀과 협력하세요.
+연결이 비공개가 아니라는 오류 메시지가 표시되면, SSL 또는 CDN이 올바르게 구성되지 않았을 수 있습니다. 터미널에서 `dig` 명령을 실행하세요(예: `dig CNAME your_link_tracking_subdomain`). `ANSWER SECTION`에서 결과가 CDN이 아닌 ESP를 가리키면 잘못된 구성 문제입니다. Braze SSL 클릭 추적이 작동하려면 CNAME이 CDN을 가리켜야 합니다. 추가 지원이 필요하면 SSL 및 CDN 구성을 관리하는 팀과 협력하세요.
 
 ## SSL 활성화 상태 {#ssl-enablement-status}
+
+**증상:** SSL 설정이 완료되었지만 추적 링크가 여전히 HTTP로 표시됩니다.
 
 SSL 설정을 완료했는데도 링크가 여전히 HTTP로 표시되는 경우, Braze 고객 성공 매니저에게 연락하여 Braze에서 SSL이 활성화되었는지 확인하세요. Braze는 모든 설정 단계가 완료된 후에만 SSL을 활성화합니다.
 
@@ -45,16 +151,60 @@ SSL 설정을 완료했는데도 링크가 여전히 HTTP로 표시되는 경우
 이메일 서비스 공급자로 Amazon SES를 사용하는 경우, 다음 구성 문제로 인해 Braze에서 SSL을 활성화하지 못하거나 설정 중 오류가 발생할 수 있습니다:
 
 - **리전 불일치:** CDN 오리진이 Braze 클러스터의 AWS 추적 도메인을 가리키는지 확인하세요. US 클러스터는 `r.us-east-1.awstrack.me`를 사용합니다. EU 클러스터는 `r.eu-central-1.awstrack.me`를 사용합니다. 잘못된 리전을 사용하면 SSL 활성화가 차단될 수 있습니다.
-- **호스트 헤더:** Amazon SES는 CDN이 올바른 호스트 헤더를 전달하도록 요구합니다. 클릭 추적 도메인에서 `X-Forwarded-Host` 헤더를 활성화하세요. 자세한 내용은 [Amazon SES](#amazon-ses) 섹션을 참조하세요.
+- **호스트 헤더:** Amazon SES는 CDN이 올바른 호스트 헤더를 전달하도록 요구합니다. 클릭 추적 도메인에서 `X-Forwarded-Host` 헤더를 활성화하세요. Phase 1 및 Phase 2 라우팅 요구 사항에 대해서는 [ESP Phase 1 및 Phase 2 라우팅](#esp-phase-1-and-phase-2-routing)을 참조하세요.
 - **프록시 구성:** 호스트 헤더를 재정의하거나 충돌하는 프록시 또는 CDN 설정은 SSL 활성화 실패를 유발할 수 있습니다. CDN 공급자와 함께 프록시 설정을 검토하여 호스트 헤더 전달을 방해하지 않는지 확인하세요.
 - **Route 53 별칭 레코드:** Route 53을 사용하여 도메인의 DNS를 관리하는 경우, CDN 배포(예: `d111111abcdef8.cloudfront.net`)를 가리키는 [Route 53 별칭 레코드](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-creating.html)를 생성하세요. 별칭 레코드 대신 표준 CNAME을 사용하면 HTTP 400 오류가 반환될 수 있습니다.
 - **헤더 전달 비활성화:** `X-Forwarded-Host`를 구성한 후에도 SSL 활성화가 실패하면, CDN 또는 프록시에서 헤더 전달을 비활성화해 보세요. 일부 설정에서는 전달을 완전히 끄면 문제가 해결됩니다. IT 팀 또는 CDN 공급자와 협력하여 이 구성을 테스트하세요.
 
 ## 클릭 추적 문제 {#click-tracking-issues}
 
+**증상:** 추적된 이메일 링크는 실패하지만 비추적 링크는 작동하거나, 사용자가 클릭 후 인증서 또는 DNS 오류를 경험합니다.
+
 일반적인 리디렉션 문제는 추적 도메인을 호스팅하는 CDN과 관련 SSL 인증서 또는 DNS CNAME 레코드 간의 부적절한 구성에서 발생합니다. 이러한 잘못된 구성으로 인해 사용자가 추적된 이메일 링크를 클릭한 후 "연결이 안전하지 않습니다" 개인정보 보호 오류 또는 `404` 실패를 경험하는 경우가 많습니다.
 
-다음 템플릿을 사용하여 추적 도메인의 CDN 구성을 테스트하세요. 이는 이메일 내 링크에 대한 분석을 지원하는 메커니즘입니다.
+### HTML 링크 형식 요구 사항 {#html-link-formatting-requirements}
+
+클릭 추적이 작동하려면 이메일 서비스 공급자(SendGrid, SparkPost 또는 Amazon SES)가 HTML에서 링크를 찾아 대체해야 합니다. 이러한 공급자에서 링크는 다음 형식 요구 사항을 충족해야 합니다.
+
+- 링크는 `href` 속성이 포함된 HTML `<a>` 태그 안에 있어야 합니다.
+- URL은 `http://` 또는 `https://`로 시작해야 합니다.
+
+추가 공급자별 규칙:
+
+- **SendGrid:** URL을 작은따옴표 또는 큰따옴표로 감싸고, `href` 속성의 `=` 주위에 공백을 넣지 마세요.
+- **Amazon SES:** URL은 [RFC 3986](https://datatracker.ietf.org/doc/html/rfc3986)을 준수해야 합니다. URL에 인코딩되지 않은 공백이 있으면 Amazon SES가 해당 링크를 추적하지 못합니다.
+
+Braze 클릭 추적이 지원하는 URL 스킴에 대한 자세한 내용은 [클릭 추적 링크 요구 사항]({{site.baseurl}}/user_guide/channels/email/email_setup/open_pixel_and_click_tracking#click-tracking-link-requirements)을 참조하세요. 공급자 HTML 세부 정보는 [SendGrid 클릭 추적 HTML 모범 사례](https://www.twilio.com/docs/sendgrid/ui/analytics-and-reporting/click-tracking-html-best-practices), [SparkPost 템플릿 언어](https://developers.sparkpost.com/api/template-language/) 및 [Amazon SES 이메일 발송 측정기준 FAQ](https://docs.aws.amazon.com/ses/latest/dg/faqs-metrics.html)를 참조하세요.
+
+유효한 예시는 다음과 같습니다.
+
+```html
+<a href="http://www.example.com">Link</a>
+<a href='https://example.com'>Link</a>
+<a target="_blank" href="https://example.com">Link</a>
+```
+
+다음 예시는 `http://` 또는 `https://`를 생략하여 추적되지 않습니다.
+
+```html
+<a href="example.com">Link</a>
+<a href="www.example.com">Link</a>
+```
+
+SendGrid를 사용하는 경우, 다음 예시도 추적되지 않습니다.
+
+```html
+<a href= http://www.example.com>Link</a>
+<a href = "https://example.com">Link</a>
+```
+
+{% alert note %}
+`www` 하위 도메인은 선택 사항이지만, 클릭 추적이 올바르게 작동하려면 `http://` 또는 `https://`가 필요합니다.
+{% endalert %}
+
+### 클릭 추적 테스트 {#testing-click-tracking}
+
+[분류 워크플로](#triage-workflow)를 완료한 후, 다음 템플릿을 사용하여 추적 도메인의 CDN 구성을 테스트하세요. 이는 이메일 내 링크에 대한 분석을 지원하는 메커니즘입니다.
 
 1. 다음 템플릿을 복사하여 Braze HTML 이메일 Campaign에 붙여넣으세요.
 
@@ -235,7 +385,7 @@ SSL 설정을 완료했는데도 링크가 여전히 HTTP로 표시되는 경우
                             <li><strong>Tracked URL Fails / Untracked Works:</strong> This indicates a CDN or SSL certificate issue. Verify that your SSL certificate is valid and correctly bound to your tracking domain.</li>
                             <li><strong>Privacy Error (HTTPS):</strong> Ensure your CDN is configured to handle port 443 traffic and that the certificate matches your tracking CNAME.</li>
                             <li><strong>Both URLs Fail:</strong> Check the destination URL or your internal network firewall settings.</li>
-                            <li>For more information, visit: <a href="https://www.braze.com/docs/user_guide/channels/email/email_setup/ssl">SSL at Braze</a></li>
+                            <li>For more information, visit: <a href="{{ site.homeurl }}{{ site.baseurl }}/user_guide/channels/email/email_setup/ssl">SSL at Braze</a></li>
                         </ul>
                     </div>
                 </td>
@@ -256,14 +406,15 @@ SSL 설정을 완료했는데도 링크가 여전히 HTTP로 표시되는 경우
 3. 자신에게 테스트 이메일을 보내고 두 버튼을 모두 선택하세요.
 4. 예상 동작과 성공 기준이 템플릿에 설명된 대로인지 확인하세요.
 
-비추적 URL은 작동하지만 추적 URL이 실패하는 경우, 구성 차이가 있을 수 있습니다. 문제를 해결하려면 사용 중인 이메일 서비스 공급자 및 CDN 공급자의 설명서를 참조하세요. 인증서 프로비저닝에 대한 자세한 요구 사항은 [Braze의 SSL]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/)을 검토할 수도 있습니다.
+비추적 URL은 작동하지만 추적 URL이 실패하는 경우, 구성 차이가 있을 수 있습니다. 사용 중인 ESP 및 CDN 공급자의 설명서를 참조하세요. 인증서 프로비저닝에 대한 자세한 요구 사항은 [Braze의 SSL]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl)을 참조하세요.
 
 다음 표를 사용하여 클릭 추적 테스트 시 일반적인 오류를 진단하세요.
 
 | 오류 코드 | 문제 해결 |
 | --- | --- |
-| `"Your connection is not private" (NET::ERR_CERT_COMMON_NAME_INVALID)` | 추적 도메인에 유효한 SSL 인증서가 있는지 확인하세요. |
-| `"This site can't be reached" (DNS_PROBE_FINISHED_NXDOMAIN)` | DNS 설정을 확인하세요. CDN 및 이메일 서비스 공급자 권장 구성에 따라 추적 하위 도메인이 구성되어 있는지 확인하세요. |
-| `525 / 526 SSL Error` | CDN(예: Cloudflare)의 SSL 설정이 오리진의 기능과 일치하는지 확인하세요. |
-| `404 Not Found` | CDN이 빈 루트 디렉토리를 가리키는 대신 전체 URL 경로를 이메일 서비스 공급자에게 전달하도록 구성되어 있는지 확인하세요. |
+| `"Your connection is not private" (NET::ERR_CERT_COMMON_NAME_INVALID)` | [분류 워크플로](#triage-workflow)를 완료하고 [SSL 이름 불일치 오류](#ssl-name-mismatch-errors)를 참조하세요. 클릭 추적 도메인이 인증서의 Common Name 또는 Subject Alternative Names에 포함되어 있는지 확인하세요. |
+| `"This site can't be reached" (DNS_PROBE_FINISHED_NXDOMAIN)` | DNS 설정을 확인하세요. CDN 및 ESP 권장 구성에 따라 추적 하위 도메인이 구성되어 있는지 확인하세요. |
+| `525 / 526 SSL Error` | CDN(예: Cloudflare)의 SSL 설정이 Origin의 기능과 일치하는지 확인하세요. |
+| `404 Not Found` | CDN이 빈 루트 디렉토리를 가리키는 대신 전체 URL 경로를 ESP에 전달하도록 구성되어 있는지 확인하세요. |
+| `400 Bad Request: Request Header or Cookie Too Large` | 이 오류는 일반적으로 클릭 추적 도메인이 웹사이트 도메인에서 너무 많은 대용량 쿠키를 상속받을 때 발생합니다. Braze는 추적 도메인에 쿠키를 설정하거나 차단하지 않습니다. 클릭 추적 요청을 리버스 프록시할 때 해당 쿠키를 ESP에 전송하지 않도록 CDN을 구성하세요. nginx 구성에서 `large_client_header_buffers` 설정을 늘려야 할 수도 있습니다(예: `large_client_header_buffers 4 32k;`로 설정하면 최대 32&nbsp;KB의 헤더를 허용합니다). 자세한 내용은 CDN 공급자 또는 웹사이트 엔지니어링 팀에 문의하세요. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="오류 코드 및 문제 해결" }

@@ -11,21 +11,21 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „E-Mai
 ---
 {% api %}
 # E-Mails auf die Blacklist setzen {#blacklist-emails}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /email/blacklist
 {% endapimethod %}
 
 {% alert important %}
-Braze hat den [`/email/blocklist`-Endpunkt]({{site.baseurl}}/api/endpoints/email/post_blocklist/) mit denselben Funktionen wie den `/email/blacklist`-Endpunkt veröffentlicht. Wir empfehlen Ihnen, stattdessen den `/email/blocklist`-Endpunkt zu verwenden.
+Braze hat den [`/email/blocklist`-Endpunkt]({{site.baseurl}}/api/endpoints/email/post_blocklist) mit denselben Funktionen wie den `/email/blacklist`-Endpunkt veröffentlicht. Wir empfehlen Ihnen, stattdessen den `/email/blocklist`-Endpunkt zu verwenden.
 {% endalert %}
 
-> Verwenden Sie diesen Endpunkt, um eine Nutzer:in von E-Mails abzumelden und als Hard Bounce zu markieren.
+> Verwenden Sie diesen Endpunkt, um Nutzer:innen von E-Mails abzumelden und als Hard Bounce zu markieren.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#d51155a1-a6e8-4dcc-9f2b-88c54ab9e8c6 {% endapiref %}
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `email.blacklist`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `email.blacklist`.
 
 ## Rate-Limit
 

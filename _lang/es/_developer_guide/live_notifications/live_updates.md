@@ -1,35 +1,34 @@
 ---
 nav_title: Actualizaciones en vivo para Android
 article_title: Actualizaciones en vivo para el SDK de Braze para Android
-page_order: 0.1
-description: "Aprende a configurar las actualizaciones en vivo para el SDK de Braze para Android."
+page_order: 0.3
+description: "Aprende a utilizar las actualizaciones en vivo de Android en el SDK de Braze."
 platform:
   - Android
-  - FireOS
 hidden: true
 ---
 
 # Actualizaciones en vivo para Android {#live-updates-for-android}
 
-> Aprende a utilizar las actualizaciones en vivo de Android en el SDK de Braze, también conocidas como [notificaciones centradas en el progreso](https://developer.android.com/about/versions/16/features/progress-centric-notifications). Estas notificaciones son similares a las [actividades en vivo del SDK Swift de Braze]({{site.baseurl}}/developer_guide/live_notifications/live_activities/), lo que te permite mostrar notificaciones interactivas en la pantalla de bloqueo. Android 16 introduce notificaciones centradas en el progreso para ayudar a los usuarios a realizar fácilmente un seguimiento de los recorridos iniciados por el usuario, de principio a fin.
+> Aprende a utilizar las actualizaciones en vivo de Android en el SDK de Braze, también conocidas como [notificaciones centradas en el progreso](https://developer.android.com/about/versions/16/features/progress-centric-notifications). Estas notificaciones son similares a las [actividades en vivo del SDK Swift de Braze]({{site.baseurl}}/developer_guide/live_notifications/live_activities), lo que te permite mostrar notificaciones interactivas en la pantalla de bloqueo. Android 16 introduce notificaciones centradas en el progreso para ayudar a los usuarios a realizar fácilmente un seguimiento de los recorridos iniciados por el usuario, de principio a fin.
 
 ## Cómo funciona {#how-it-works}
 
-Puedes utilizar la interfaz [`IBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html) para personalizar cómo se muestran las notificaciones push de Braze. Al extender `BrazeNotificationFactory`, Braze llamará al método `createNotification()` de tu fábrica antes de que se muestre la notificación al usuario. A continuación, pasará una carga útil que contiene pares clave-valor personalizados enviados a través del panel de Braze o la REST API.
+Puedes usar la interfaz [`IBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html) para personalizar cómo se muestran las notificaciones push de Braze. Al extender `BrazeNotificationFactory`, Braze llamará al método `createNotification()` de tu fábrica antes de que la notificación se muestre al usuario. Luego pasará una carga útil que contiene pares clave-valor personalizados enviados a través del panel de Braze o la REST API.
 
-## Mostrar una actualización en vivo {#displaying-a-live-update}
+## Mostrar una Live Update {#displaying-a-live-update}
 
-En esta sección, te asociarás con Superb Owl, el presentador de un nuevo programa de juegos en el que equipos de rescate de fauna silvestre compiten para ver quién puede salvar más búhos. Quieren aprovechar las actualizaciones en vivo en su aplicación para Android, de modo que puedan mostrar el estado de un partido en curso y realizar actualizaciones dinámicas de la notificación en tiempo real.
+En esta sección, colaborarás con Superb Owl, el presentador de un nuevo programa de concursos donde los equipos de rescate de vida silvestre compiten para ver quién puede salvar a más búhos. Buscan aprovechar las Live Updates en su aplicación Android, para poder mostrar el estado de un partido en curso y realizar actualizaciones dinámicas de la notificación en tiempo real.
 
-![Un ejemplo de actualización en vivo desde Android]({% image_buster /assets/img/android/android-live-update.png %}){: style="max-width:40%;"}
+![Un ejemplo de Live Update en Android]({% image_buster /assets/img/android/android-live-update.png %}){: style="max-width:40%;"}
 
-#{% multi_lang_include developer_guide/prerequisites/android.md %}
+{% multi_lang_include developer_guide/prerequisites/android.md %}
 
 ### Paso 1: Crear una fábrica de notificaciones personalizada {#step-1-create-a-custom-notification-factory}
 
-En tu aplicación, crea un nuevo archivo llamado `MyCustomNotificationFactory.kt` que extienda [`BrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html) para gestionar cómo se muestran las actualizaciones en vivo de Braze.
+En tu aplicación, crea un nuevo archivo llamado `MyCustomNotificationFactory.kt` que extienda [`BrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html) para gestionar cómo se muestran las Live Updates de Braze.
 
-En el siguiente ejemplo, Superb Owl creó una fábrica de notificaciones personalizada para mostrar una actualización en vivo de los partidos en curso. En el siguiente paso, crearás un nuevo método llamado `getTeamInfo` para mapear los datos de un equipo a la actividad.
+En el siguiente ejemplo, Superb Owl creó una fábrica de notificaciones personalizada para mostrar una Live Update para partidos en curso. En el próximo paso, crearás un nuevo método llamado `getTeamInfo` para mapear los datos de un equipo a la actividad.
 
 ```kotlin
 class MyCustomNotificationFactory : IBrazeNotificationFactory {
@@ -71,9 +70,9 @@ class MyCustomNotificationFactory : IBrazeNotificationFactory {
 
 ### Paso 2: Mapear datos personalizados {#step-2-map-custom-data}
 
-En `MyCustomNotificationFactory.kt`, crea un nuevo método para gestionar los datos cuando se muestren las actualizaciones en vivo.
+En `MyCustomNotificationFactory.kt`, crea un nuevo método para gestionar los datos cuando se muestran las Live Updates.
 
-Superb Owl creó el siguiente método para mapear el nombre y el logotipo de cada equipo a las actualizaciones en vivo expandidas:
+Superb Owl creó el siguiente método para mapear el nombre y logotipo de cada equipo a las Live Updates expandidas:
 
 ```kotlin
 class CustomNotificationFactory : BrazeNotificationFactory() {
@@ -95,7 +94,7 @@ class CustomNotificationFactory : BrazeNotificationFactory() {
 
 ### Paso 3: Configurar la fábrica de notificaciones personalizada {#step-3-set-the-custom-notification-factory}
 
-En la clase de tu aplicación, utiliza [`customBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/custom-braze-notification-factory.html?query=var%20customBrazeNotificationFactory:%20IBrazeNotificationFactory?) para configurar tu fábrica de notificaciones personalizada.
+En tu clase de aplicación, usa [`customBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/custom-braze-notification-factory.html?query=var%20customBrazeNotificationFactory:%20IBrazeNotificationFactory?) para configurar tu fábrica de notificaciones personalizada.
 
 ```kotlin
 class MyApplication : Application() {
@@ -110,11 +109,11 @@ class MyApplication : Application() {
 
 ### Paso 4: Enviar la actividad {#step-4-send-the-activity}
 
-Puedes utilizar el punto de conexión de la REST API [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/) para enviar una notificación push al dispositivo Android de un usuario.
+Puedes usar el endpoint de REST API [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) para enviar una notificación push al dispositivo Android de un usuario.
 
 #### Ejemplo de comando curl {#example-curl-command}
 
-Superb Owl envió su solicitud utilizando el siguiente comando curl:
+Superb Owl envió su solicitud usando el siguiente comando curl:
 
 ```
 curl -X POST "https://BRAZE_REST_ENDPOINT/messages/send" \
@@ -142,22 +141,22 @@ curl -X POST "https://BRAZE_REST_ENDPOINT/messages/send" \
 ```
 
 {% alert tip %}
-Aunque los comandos curl son útiles para realizar pruebas, recomendamos gestionar esta llamada en tu backend, donde ya gestionas tus [actividades en vivo de iOS]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?sdktab=swift).
+Aunque los comandos curl son útiles para hacer pruebas, te recomendamos manejar esta llamada en tu backend donde ya estés gestionando tus [Live Activities de iOS]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?sdktab=swift).
 {% endalert %}
 
 #### Parámetros de la solicitud {#request-parameters}
 
 | Clave | Descripción |
 |------------------------------|------------|
-| `REST_API_KEY` | Una clave de API REST de Braze con permisos `messages.send`. <br><br> Se puede crear en el panel de Braze desde **Settings** > **API Keys**. |
-| `BRAZE_REST_ENDPOINT` | La URL de tu punto de conexión REST. Tu punto de conexión dependerá de la [URL de Braze de tu instancia]({{site.baseurl}}/api/basics/#endpoints). |
-| `USER_ID` | El ID del usuario al que estás enviando la notificación. |
-| `messages.android_push.title` | El título del mensaje. De forma predeterminada, no se utiliza para las notificaciones en vivo de la fábrica de notificaciones personalizada, pero puede utilizarse como alternativa. |
-| `messages.android_push.alert` | El cuerpo del mensaje. De forma predeterminada, no se utiliza para las notificaciones en vivo de la fábrica de notificaciones personalizada, pero puede utilizarse como alternativa. |
-| `messages.extra` | Pares clave-valor que utiliza la fábrica de notificaciones personalizada para las notificaciones en vivo. Puedes asignar cualquier cadena a este valor&#8212;sin embargo, en el ejemplo anterior, `live_updates` se utiliza para determinar si se trata de una notificación push predeterminada o en vivo. |
-| `ASSIGNED_NOTIFICATION_ID` | El ID de notificación que deseas asignar a la notificación en vivo del usuario elegido. El ID debe ser único para este juego y debe utilizarse para [actualizar su notificación existente](#android_step-4-update-data-with-the-braze-rest-api) posteriormente. |
+| `REST_API_KEY` | Una clave de API REST de Braze con permisos `messages.send`. <br><br> Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
+| `BRAZE_REST_ENDPOINT` | La URL de tu endpoint REST. Tu endpoint dependerá de la [URL de Braze para tu instancia]({{site.baseurl}}/api/basics#endpoints). |
+| `USER_ID` | El ID del usuario al que le envías la notificación. |
+| `messages.android_push.title` | El título del mensaje. Por defecto, no se utiliza para las notificaciones en vivo de la fábrica de notificaciones personalizada, pero puede usarse como alternativa. |
+| `messages.android_push.alert` | El cuerpo del mensaje. Por defecto, no se utiliza para las notificaciones en vivo de la fábrica de notificaciones personalizada, pero puede usarse como alternativa. |
+| `messages.extra` | Pares clave-valor que la fábrica de notificaciones personalizada utiliza para las notificaciones en vivo. Puedes asignar cualquier cadena a este valor; sin embargo, en el [ejemplo de comando curl](#example-curl-command), `live_updates` se usa para determinar si se trata de una notificación push predeterminada o en vivo. |
+| `ASSIGNED_NOTIFICATION_ID` | El ID de notificación que deseas asignar a la notificación en vivo del usuario elegido. El ID debe ser único para este juego y debe usarse para [actualizar su notificación existente](#android_step-4-update-data-with-the-braze-rest-api) más adelante. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Parámetros de la solicitud" }
 
 ### Paso 5: Actualizar la actividad {#step-5-update-the-activity}
 
-Para actualizar la actualización en vivo existente con nuevos datos, modifica los pares clave-valor relevantes asignados a `messages.extra`, luego utiliza el mismo `notification_id` y vuelve a llamar al punto de conexión `/messages/send`.
+Para actualizar la Live Update existente con nuevos datos, modifica los pares clave-valor relevantes asignados a `messages.extra`, luego usa el mismo `notification_id` y llama al endpoint `/messages/send` de nuevo.

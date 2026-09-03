@@ -21,7 +21,7 @@ description: "Dieser Artikel beschreibt die Details zum Braze-Endpunkt „Detail
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `catalogs.get_item`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `catalogs.get_item`.
 
 ## Rate-Limit
 
@@ -33,7 +33,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 |---|---|---|---|
 | `catalog_name` | Erforderlich | String | Name des Katalogs. |
 | `item_id` | Erforderlich | String | Die ID des Katalogartikels. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Pfad-Parameter" }
 
 ## Anfrage-Parameter {#request-parameters}
 
@@ -102,6 +102,6 @@ In der folgenden Tabelle sind die möglichen zurückgegebenen Fehler und die daz
 | --- | --- |
 | `catalog-not-found` | Prüfen Sie, ob der Katalogname gültig ist. |
 | `item-not-found` | Prüfen Sie, ob der Artikel im Katalog enthalten ist. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Fehlerbehebung" }
 
 {% endapi %}

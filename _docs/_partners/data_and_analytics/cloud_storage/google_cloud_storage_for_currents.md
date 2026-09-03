@@ -41,7 +41,7 @@ This can be done using the following instructions, which will walk you through c
 
 Create a new role in your Google Cloud Platform Console by navigating to **IAM & admin** > **Roles** > **+ Create Role**.
 
-![]({% image_buster /assets/img/gcs1.png %})
+![Google Cloud IAM roles page with the Create Role action.]({% image_buster /assets/img/gcs1.png %})
 
 Give the role a name, then select **+Add Permissions** and choose the following:
 
@@ -55,9 +55,13 @@ Give the role a name, then select **+Add Permissions** and choose the following:
 The `storage.objects.delete` permission is optional. It allows Braze to clean up incomplete files.<br><br>In rare circumstances, Google Cloud may terminate connections early, resulting in Braze writing incomplete files to Google Cloud Storage. In most cases, Braze will retry and create a new file with the correct data, leaving the old file in Google Cloud Storage.
 {% endalert %}
 
+{% alert important %}
+If your bucket uses [hierarchical namespace](https://cloud.google.com/storage/docs/hns-overview), you must also add the `storage.folders.create` permission. On these buckets, folders are managed resources, so Braze needs this permission to create the folder structure for your exported files. Without it, Braze cannot write to the bucket and the integration fails to export data.
+{% endalert %}
+
 When you're finished, select **Create**.
 
-![]({% image_buster /assets/img/gcs2.png %})
+![Google Cloud custom role editor with storage permissions selected.]({% image_buster /assets/img/gcs2.png %})
 
 ### Step 2: Create a new service account
 
@@ -65,7 +69,7 @@ When you're finished, select **Create**.
 
 Create a new service account in your Google Cloud Platform Console by navigating to **IAM & admin** > **Service Accounts** and selecting **Create Service Account**.
 
-![]({% image_buster /assets/img/gcs3.png %})
+![Google Cloud service accounts page with Create Service Account selected.]({% image_buster /assets/img/gcs3.png %})
 
 Next, give the service account a name and grant it access to your newly created custom role.
 
@@ -75,11 +79,13 @@ Next, give the service account a name and grant it access to your newly created 
 
 At the bottom of the page, use the **Create Key** button to create a **JSON** private key to use in Braze. After the key is created, it will download onto your machine.
 
-![]({% image_buster /assets/img/gcs5.png %})
+![Google Cloud service account key creation dialog set to JSON key type.]({% image_buster /assets/img/gcs5.png %})
 
 ### Step 3: Set up Currents in Braze
 
 In Braze, navigate to **Currents** > **+ Create Current** > **Google Cloud Storage Data Export** and provide your integration name and contact email.
+
+{% multi_lang_include currents/contact_email_notifications.md %}
 
 Next, upload your JSON private key under **GCS JSON Credentials** and provide your GCS bucket name and GCS prefix (optional). Note that you must generate these credentials through Google Cloud Platform, as described in the previous steps.
 

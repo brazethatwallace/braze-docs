@@ -32,16 +32,18 @@ You could change the unsubscribe link in the custom footer from {% raw %} `{{${s
 > https://www.braze.com/unsubscribe?user_id={{${user_id}}}
 {% endraw %}
 
-Next, you could call the [`/email/status` endpoint]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status/) to update the user's subscription status. For more details, see our documentation on [changing email subscription status]({{site.baseurl}}/user_guide/channels/email/subscriptions/#changing-email-subscriptions).
+Next, you could call the [`/email/status` endpoint]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status) to update the user's subscription status. For more details, see our documentation on [changing email subscription status]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-email-subscriptions).
 
 To save this new link, the default Braze unsubscribe tag {%raw%}(``${set_user_to_unsubscribed_url}``){%endraw%} must be in the footer. This means you'll need to include the default link by "hiding" it by either placing the tag in a comment or in a hidden `<div>` tag.
 
 - **Tag in comment example:** putting tag in comment example: `<!-- ${set_user_to_unsubscribed_url} -->`
 - **Comment in hidden `<div>` tag example:** {%raw%}`<div style="display:none;max-height:0px;overflow:hidden;">${set_user_to_unsubscribed_url}</div>`{%endraw%}
 
-### What happens if I edit an email template that is currently being used in a campaign?
+### What happens if I edit an email template that is currently being used in a campaign or Canvas?
 
-Edits made to an existing template won't be reflected in campaigns that were created using previous versions of that template. For API campaigns that use a template in the REST API body, Braze will use the latest version of the template at the time of sending.  
+Email templates serve as a starting point when creating an email in a campaign or Canvas. When you select a template, you can edit it within the campaign or Canvas, and those changes are independent of the original template.
+
+Edits made to an existing template won't be reflected in campaigns or Canvases that were created using previous versions of that template. Similarly, changes made to the email within a campaign or Canvas won't sync back to the original template. For API campaigns that include an `email_template_id` in the request body, Braze uses the latest version of the template at the time of send.
 
 ## Link templates
 
@@ -51,7 +53,7 @@ Yes, you can insert as many templates as you would like in your email messages. 
 
 ### How do I preview my links with all of the tags applied?
 
-There are several ways to preview your links. After you have applied the [link template]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template/), you can send a [test email]({{site.baseurl}}/developer_guide/in_app_messages/sending_test_messages/) to yourself to view all the links. 
+There are several ways to preview your links. After you have applied the [link template]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template), you can send a [test email]({{site.baseurl}}/developer_guide/in_app_messages/sending_test_messages) to yourself to view all the links. 
 
 From the preview pane in a new tab, you can also open the links to view the links. You can also hover over the links in the preview pane and see them at the bottom of your browser.
 
@@ -61,13 +63,19 @@ Link templates are expanded and added to each URL prior to any Liquid expansion 
 
 Avoid adding the question mark (?) to your Liquid as this will cause link templates to first add a question mark (?), and then later the Liquid expansion process will add a second question mark (?).
 
+#### Hardcoded URLs versus custom attributes
+
+When you use a hardcoded URL in the HTML editor (for example, `https://braze.com?12345`), Braze detects that a `?` already exists and automatically uses `&` to append your link template parameters. However, when you use a custom attribute that contains a URL with a `?` (for example, {% raw %}`{{custom_attribute.${my_url}}}`{% endraw %} where `my_url` is `https://braze.com?12345`), Braze does not check whether a `?` already exists in the custom attribute's value. In this case, the link template adds another `?` before the parameters, resulting in a URL like `https://braze.com?12345?utm_source=...`.
+
+To avoid this issue when using custom attributes that may contain query parameters, hardcode the `?` or `&` after the custom attribute based on whether the custom attribute value includes query parameters. For example, if your custom attribute always includes a `?`, use {% raw %}`{{custom_attribute.${my_url}}}&`{% endraw %} to ensure the link template appends parameters correctly.
+
 ## Link aliasing
 
 ### How will enabling link aliasing impact my Content Blocks and link templates?
 
 For all new Content Blocks that are created, link aliasing is applied across workspaces since this is a company-level feature. 
 
-Existing Content Blocks won't be modified when link aliasing is enabled. While existing link templates won't be modified, the existing link template section in a message will be removed. Check out [Link aliasing in Content Blocks]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing/#link-aliasing-in-content-blocks) for more information.
+Existing Content Blocks won't be modified when link aliasing is enabled. While existing link templates won't be modified, the existing link template section in a message will be removed. Check out [Link aliasing in Content Blocks]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing#link-aliasing-in-content-blocks) for more information.
 
 ### Can I use Liquid conditional logic entirely within an HTML anchor tag?
 

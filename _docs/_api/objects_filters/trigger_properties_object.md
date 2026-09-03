@@ -17,10 +17,12 @@ If you make an API request that contains an object in `trigger_properties`, the 
 Note that while trigger properties can be templated into messages, they aren't automatically stored in the user profile by default.
 
 {% alert note %}
-The `trigger_properties` object and {% raw %}`api_trigger_properties.${product_name}`{% endraw %} syntax is only supported in campaigns. To customize messages with keys and values from an API trigger request for Canvas, use the [Canvas entry properties object]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/). The `trigger_properties` object has a maximum size limit of 50 KB.
+The `trigger_properties` object and {% raw %}`api_trigger_properties.${product_name}`{% endraw %} syntax is only supported in campaigns. To customize messages with keys and values from an API trigger request for Canvas, use the [Canvas entry properties object]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context). The `trigger_properties` object has a maximum size limit of 50 KB.
 {% endalert %}
 
 ## Object body
+
+The `trigger_properties` object supports strings, numbers, booleans, dates, objects, and arrays as data types.
 
 ```json
 {
@@ -38,5 +40,14 @@ The `trigger_properties` object and {% raw %}`api_trigger_properties.${product_n
   }
 }
 ```
+
+## Liquid templating examples
+
+Reference trigger properties in your message templates using the `api_trigger_properties` namespace:
+
+- Strings: {% raw %}`{{api_trigger_properties.${product_name}}}`{% endraw %} returns `"shoes"`
+- Numbers: {% raw %}`{{api_trigger_properties.${product_price}}}`{% endraw %} returns `79.99`
+- Nested objects: {% raw %}`{{api_trigger_properties.${details}.${color}}}`{% endraw %} returns `"red"`
+- Array elements: {% raw %}`{{api_trigger_properties.${related_skus}[0]}}`{% endraw %} returns `"123"`
 
 

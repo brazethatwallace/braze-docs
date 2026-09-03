@@ -23,7 +23,7 @@ Chaque requête peut prendre en charge jusqu'à 50 produits. Cet endpoint est as
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `catalogs.add_items`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `catalogs.add_items`.
 
 ## Limite de débit {#rate-limit}
 
@@ -34,14 +34,14 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 | Paramètre | Requis | Type de données | Description |
 |---|---|---|---|
 | `catalog_name` | Requis | Chaîne de caractères | Nom du catalogue. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Paramètres de chemin" }
 
 ## Paramètres de requête {#request-parameters}
 
 | Paramètre | Requis | Type de données | Description |
 |---|---|---|---|
-| `items` | Requis | Tableau | Un tableau qui contient des objets produit. Les objets produit doivent contenir tous les champs existants dans le catalogue. Jusqu'à 50 objets produit sont autorisés par requête. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
+| `items` | Requis | Tableau | Un tableau contenant des objets produit. Les objets produit doivent contenir tous les champs existants dans le catalogue. Jusqu'à 50 objets produit sont autorisés par requête. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Paramètres de requête" }
 
 ## Exemple de requête {#example-request}
 
@@ -151,7 +151,7 @@ Le code de statut `400` pourrait renvoyer le corps de réponse suivant. Consulte
 
 ## Résolution des problèmes {#troubleshooting}
 
-Le tableau suivant répertorie les erreurs renvoyées possibles et les étapes de résolution des problèmes associées.
+Le tableau suivant répertorie les erreurs possibles et les étapes de résolution associées.
 
 | Erreur | Résolution des problèmes |
 | --- | --- |
@@ -165,9 +165,9 @@ Le tableau suivant répertorie les erreurs renvoyées possibles et les étapes d
 | `item-array-invalid` | `items` doit être un tableau d'objets. |
 | `items-missing-ids` | Certains produits n'ont pas d'ID. Vérifiez que chaque produit possède un ID de produit. |
 | `items-too-large` | Les valeurs de produit ne peuvent pas dépasser 5 000 caractères. |
-| `request-includes-too-many-items` | Votre requête contient trop de produits. La limite de produits par requête est de 50. |
+| `request-includes-too-many-items` | Votre requête contient trop de produits. La limite par requête est de 50 produits. |
 | `too-deep-nesting-in-value-object` | Les objets de produit ne peuvent pas avoir plus de 50 niveaux d'imbrication. |
 | `unable-to-coerce-value` | Les types de produit ne peuvent pas être convertis. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Résolution des problèmes" }
 
 {% endapi %}

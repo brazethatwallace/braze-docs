@@ -15,11 +15,11 @@ description: "Dieser Artikel beschreibt Details zum Endpunkt `PUT /media_library
 /media_library/replace_file
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um die Datei eines vorhandenen Assets in der [Braze-Medienbibliothek]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library/) zu ersetzen und dabei die Asset-ID und URL beizubehalten. Sie können die Ersatzdatei entweder über eine extern gehostete URL (`asset_url`) oder als binäre Dateidaten im Anfragekörper (`asset_file`) bereitstellen.
+> Verwenden Sie diesen Endpunkt, um die Datei eines vorhandenen Assets in der [Braze-Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications) zu ersetzen und dabei die Asset-ID und URL beizubehalten. Sie können die Ersatzdatei entweder über eine extern gehostete URL (`asset_url`) oder als binäre Dateidaten im Anfragekörper (`asset_file`) bereitstellen.
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `media_library.replace`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `media_library.replace`.
 
 ## Rate-Limits {#rate-limit}
 
@@ -54,7 +54,7 @@ Der Anfragekörper enthält die folgenden Parameter:
 | `asset_id` | Erforderlich | String | Die ID des zu ersetzenden Assets. |
 | `asset_url` | Optional | String | Eine öffentlich zugängliche URL für die Ersatzdatei. |
 | `asset_file` | Optional | Binär | Binäre Dateidaten für die Ersatzdatei. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request body" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Anfragekörper" }
 
 {% alert important %}
 `asset_url` und `asset_file` schließen sich gegenseitig aus. Sie dürfen nur einen der beiden Parameter in Ihrer API-Anfrage angeben.
@@ -107,7 +107,7 @@ Diese Tabelle listet mögliche Validierungsfehler auf.
 | --- | --- | --- |
 | 400 | "asset_id is required." | In der Anfrage wurde keine Asset-ID angegeben. |
 | 400 | "Either file or asset_url is required." | Weder `asset_file` noch `asset_url` wurde angegeben; einer der beiden ist erforderlich. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Validation errors" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Validierungsfehler" }
 
 #### Verarbeitungsfehler {#processing-errors}
 
@@ -131,8 +131,8 @@ Diese Tabelle listet mögliche Verarbeitungsfehler auf.
 | `UNSUPPORTED_ASSET_TYPE_FOR_REPLACE` | 400 | Der Dateiaustausch wird für diesen Asset-Typ nicht unterstützt (z. B. Video). Das `meta`-Objekt enthält `asset_type`. |
 | `ASSET_SIZE_EXCEEDS_LIMIT` | 400 | Die Datei überschreitet die maximal zulässige Größe. Das `meta`-Objekt enthält `size_limit_bytes` und `file_size_bytes`. |
 | `CORRUPT_FILE` | 400 | Die Bilddatei ist beschädigt oder nicht lesbar. Das `meta`-Objekt enthält `file_name`. |
-| `GENERIC_ERROR` | 500 | Beim Dateiaustausch ist ein unerwarteter Fehler aufgetreten. Das `meta`-Objekt enthält `original_error` zur Fehlersuche. Versuchen Sie es erneut oder kontaktieren Sie den [Support]({{site.baseurl}}/support_contact/). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Processing errors" }
+| `GENERIC_ERROR` | 500 | Beim Dateiaustausch ist ein unerwarteter Fehler aufgetreten. Das `meta`-Objekt enthält `original_error` zur Fehlersuche. Versuchen Sie es erneut oder kontaktieren Sie den [Support]({{site.baseurl}}/support_contact). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Verarbeitungsfehler" }
 
 ## Antwort {#response}
 

@@ -252,16 +252,11 @@ $(document).ready(function() {
       var active_toc = $('#toc').find("a.nav-link.active").last().attr("href");
       var hash = active_toc;
       if (!hash){
-        hash = '.';
+        hash = window.location.pathname || '.';
         active_toc = '.';
-        if (window.location.pathname.substr(-1) != '/') {
-          hash = window.location.pathname + '/' ;
-        }
       }
       else {
-        if (window.location.pathname.substr(-1) != '/')  {
-          hash = window.location.pathname + '/' + hash;
-        }
+        hash = window.location.pathname + hash;
       }
 
       window.history.replaceState(null, null, hash);
@@ -298,12 +293,37 @@ $(document).ready(function() {
 
   }
   //var nav_bottom_height = $('#nav_bottom').height();
+  var backToTopThreshold = 300;
+  var $backToTopBtn = $('.back-to-top-btn');
+  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function setBackToTopVisible(isVisible) {
+    if (!$backToTopBtn.length) {
+      return;
+    }
+    $backToTopBtn.toggleClass('is-visible', isVisible);
+    $backToTopBtn.attr('tabindex', isVisible ? '0' : '-1');
+    $('body').toggleClass('btt-visible', isVisible);
+  }
+
   var scrollHandler = function() {
-    var query_str = window.location.search;
     var y_cord = $(this).scrollTop();
+    setBackToTopVisible(y_cord > backToTopThreshold);
   };
   scrollHandler();
   $(window).scroll(scrollHandler);
+
+  $backToTopBtn.on('click', function() {
+    var contentStart = document.getElementById('content_start');
+    if (!contentStart) {
+      return;
+    }
+    contentStart.scrollIntoView({
+      behavior: prefersReducedMotion ? 'auto' : 'smooth',
+      block: 'start'
+    });
+    contentStart.focus({ preventScroll: true });
+  });
 
   // See if sdk tabs should be changed based on url hash
   let location_hash = window.location.hash.slice(1).replace(/[^a-zA-Z0-9_-]+/g, '');
@@ -319,12 +339,7 @@ $(document).ready(function() {
           'sdktab': sdk_tab
         };
         let query_str = replaceParams(window.location.search, tab_replace, true) + '#' + sdk_hash.attr('id');
-        if (window.location.pathname.substr(-1) != '/')  {
-          window.history.replaceState(null, null, window.location.pathname + '/' + query_str);
-        }
-        else {
-          window.history.replaceState(null, null,  window.location.pathname + query_str);
-        }
+        window.history.replaceState(null, null, window.location.pathname + query_str);
       }
     }
   }
@@ -335,12 +350,7 @@ $(document).ready(function() {
     let tab_replace = {};
     tab_replace[query_name] = encodeURIComponent(tab_norm);
     let query_str = replaceParams(window.location.search, tab_replace, true);
-    if (window.location.pathname.substr(-1) != '/')  {
-      window.history.replaceState(null, null, window.location.pathname + '/' + query_str);
-    }
-    else {
-      window.history.replaceState(null, null,  window.location.pathname + query_str);
-    }
+    window.history.replaceState(null, null, window.location.pathname + query_str);
     switch(query_name) {
       case 'sdktab': {
         Cookies.set('sdktab',tab_norm, { expires: 365 });
@@ -354,9 +364,9 @@ $(document).ready(function() {
         }
       }
     }
-    var mermaid_charts = $('.language-mermaid').not('[data-processed="true"]').filter(':visible');
-    mermaid.run({ nodes: mermaid_charts });
-    setPanZoom(mermaid_charts)
+    if (typeof mermaid !== 'undefined') {
+      runMermaidCharts();
+    }
   }
 
   // see if a details tag should be auto-opened
@@ -384,19 +394,12 @@ $(document).ready(function() {
       $this.attr('role','tab');
     }
   });
-  // set list - exclude <ul> directly inside <ul> to prevent aria_child_valid violation
-  var list_tabs = $('ul').not('.ab-nav').not('ul > ul');
-  list_tabs.each(function(i){
-    var $this = $(this);
-    if (!$this.attr('role')) {
-      $this.attr('role','list');
-    }
-  });
-  var list_tab = list_tabs.children('li')
-  list_tab.each(function(i){
-    var $this = $(this);
-    if (!$this.attr('role')) {
-      $this.attr('role','listitem');
+  // Safari/WebKit drops list semantics when list-style is removed. Prose lists keep
+  // native markers in CSS; role=list reinforces the group. Do not set role=listitem
+  // on native <li> - it interferes with bullet and position announcements.
+  $('#article-main ul').not('.ab-nav').add('#article-main ol').each(function() {
+    if (!$(this).attr('role')) {
+      $(this).attr('role', 'list');
     }
   });
 
@@ -425,7 +428,7 @@ $(document).ready(function() {
     var pg_prev = nav_links.eq(nav_index - 1);//nav_active.prevAll('[data-parent="' + data_parent + '"]').first();
     nav_bottom.addClass('flex');
     pg_prev_link.attr('href',pg_prev.attr('href') );
-    pg_prev_div.html(`<div class="nav_indicator"><i class="fas fa-long-arrow-alt-left"></i> ${site_i18n['previous'] || 'PREVIOUS'}</div> ${pg_prev.html()}`);
+    pg_prev_div.html(`<span class="nav_indicator"><i class="fas fa-long-arrow-alt-left"></i> ${site_i18n['previous'] || 'PREVIOUS'}</span> ${pg_prev.html()}`);
     pg_prev_div.css('display', 'inline-block');
     if (nav_index < (nav_links.length -1)) {
       pg_prev_div.css('border-right', '0px');
@@ -439,7 +442,7 @@ $(document).ready(function() {
     var pg_next = nav_links.eq(nav_index + 1);//nav_active.nextAll('[data-parent="' + data_parent + '"]').first();
     nav_bottom.addClass('flex');
     pg_next_link.attr('href',pg_next.attr('href') );
-    pg_next_div.html(`<div class="nav_indicator">${site_i18n['next'] || 'NEXT'} <i class="fas fa-long-arrow-alt-right"></i></div> ${pg_next.html()}`);
+    pg_next_div.html(`<span class="nav_indicator">${site_i18n['next'] || 'NEXT'} <i class="fas fa-long-arrow-alt-right"></i></span> ${pg_next.html()}`);
     pg_next_div.css('display', 'inline-block');
   }
   else {
@@ -707,13 +710,31 @@ $(document).ready(function() {
     $btn.filter('.nav_toggle').find('i.fas').removeClass('fa-chevron-down').addClass('fa-chevron-right');
   });
 
+  function runMermaidCharts() {
+    if (typeof mermaid === 'undefined') {
+      return;
+    }
+
+    var mermaid_charts = $('.language-mermaid').not('[data-processed="true"]').filter(':visible');
+    if (!mermaid_charts.length) {
+      return;
+    }
+
+    mermaid.run({ nodes: mermaid_charts });
+    setPanZoom(mermaid_charts);
+  }
+
   function setPanZoom(mermaid_charts){
     setTimeout(function() {
       mermaid_charts.each(function() {
-        var svg_element = $(this).find('svg').first();
-        if (svg_element) {
+        var container = this;
+        var svg_element = $(container).find('svg').first();
+        if (svg_element && svg_element.length) {
           const height = svg_element.outerHeight();
           const width = svg_element.outerWidth();
+          // Attach the fullscreen button BEFORE svg-pan-zoom initializes — it strips
+          // the SVG's viewBox attribute, which we need to clone for the modal.
+          attachFullscreenButton(container, svg_element[0]);
           window[svg_element.attr('id')] = svgPanZoom(`#${svg_element.attr('id')}`, {
             zoomEnabled: true,
             controlIconsEnabled: true,
@@ -730,6 +751,168 @@ $(document).ready(function() {
       });
     }, 500);
   }
+
+  // ---- Mermaid fullscreen modal ---------------------------------------------
+  // Adds a "Fullscreen" button to each rendered mermaid chart. Clicking opens
+  // the SVG in a viewport-sized modal with its own svg-pan-zoom instance
+  // (operates on a clone, so the inline +/- control is unaffected).
+  var FS_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8V3h5M21 8V3h-5M3 16v5h5M21 16v5h-5"/></svg>';
+  var fsModal, fsModalStage, fsModalTitle, fsActiveZoom, fsLastTrigger;
+
+  function deriveDiagramTitle(container) {
+    if (container.dataset && container.dataset.diagramTitle) {
+      return container.dataset.diagramTitle;
+    }
+    var node = container.previousElementSibling;
+    while (node) {
+      if (/^H[1-6]$/.test(node.tagName)) return (node.textContent || '').trim();
+      node = node.previousElementSibling;
+    }
+    return 'Diagram';
+  }
+
+  function attachFullscreenButton(container, svg) {
+    if (!container || !svg) return;
+    if (container.dataset.mermaidFsEnhanced === '1') return;
+    // svg-pan-zoom in the modal needs a viewBox to render correctly. Stash it
+    // on the container before the inline svg-pan-zoom strips it from the SVG.
+    var viewBox = svg.getAttribute('viewBox');
+    if (!viewBox) return;
+    container.dataset.mermaidFsEnhanced = '1';
+    container.dataset.mermaidViewbox = viewBox;
+    container.classList.add('mermaid-figure');
+
+    var title = deriveDiagramTitle(container);
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'mermaid-figure__fullscreen-btn';
+    btn.innerHTML = FS_ICON + '<span>Fullscreen</span>';
+    btn.setAttribute('aria-label', 'View diagram "' + title + '" fullscreen');
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      openFullscreenModal(svg, title, btn, container.dataset.mermaidViewbox);
+    });
+    container.appendChild(btn);
+  }
+
+  function buildFullscreenModal() {
+    fsModal = document.createElement('div');
+    fsModal.className = 'mermaid-modal';
+    fsModal.setAttribute('role', 'dialog');
+    fsModal.setAttribute('aria-modal', 'true');
+    fsModal.setAttribute('aria-label', 'Fullscreen diagram viewer');
+    fsModal.innerHTML =
+      '<div class="mermaid-modal__header">' +
+        '<div>' +
+          '<span class="mermaid-modal__title"></span>' +
+          '<span class="mermaid-modal__hint">Scroll to zoom &middot; drag to pan &middot; +/&minus; keys &middot; 0 to reset &middot; Esc to close</span>' +
+        '</div>' +
+        '<button type="button" class="mermaid-modal__close" aria-label="Close fullscreen view">Close</button>' +
+      '</div>' +
+      '<div class="mermaid-modal__stage"></div>';
+    document.body.appendChild(fsModal);
+    fsModalStage = fsModal.querySelector('.mermaid-modal__stage');
+    fsModalTitle = fsModal.querySelector('.mermaid-modal__title');
+
+    fsModal.querySelector('.mermaid-modal__close').addEventListener('click', closeFullscreenModal);
+    fsModal.addEventListener('click', function(e) {
+      if (e.target === fsModal || e.target === fsModalStage) closeFullscreenModal();
+    });
+    document.addEventListener('keydown', onFullscreenKeydown);
+  }
+
+  function onFullscreenKeydown(e) {
+    if (!fsModal || !fsModal.classList.contains('is-open')) return;
+    if (e.key === 'Escape') { closeFullscreenModal(); return; }
+    if (e.key === 'Tab') {
+      // Trap focus within the modal.
+      var focusables = fsModal.querySelectorAll('button');
+      if (!focusables.length) return;
+      var first = focusables[0];
+      var last = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        last.focus(); e.preventDefault();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        first.focus(); e.preventDefault();
+      }
+      return;
+    }
+    if (!fsActiveZoom) return;
+    if (e.key === '+' || e.key === '=') { fsActiveZoom.zoomIn(); e.preventDefault(); }
+    else if (e.key === '-' || e.key === '_') { fsActiveZoom.zoomOut(); e.preventDefault(); }
+    else if (e.key === '0') { fsActiveZoom.resetZoom(); fsActiveZoom.center(); e.preventDefault(); }
+  }
+
+  function openFullscreenModal(svg, title, trigger, viewBox) {
+    if (!fsModal) buildFullscreenModal();
+    fsLastTrigger = trigger;
+    fsModalTitle.textContent = title || 'Diagram';
+
+    var clone = svg.cloneNode(true);
+    // Strip inline sizing so the modal can size the SVG to its stage.
+    clone.removeAttribute('style');
+    clone.removeAttribute('height');
+    clone.removeAttribute('width');
+    // Restore the viewBox the inline svg-pan-zoom stripped from the source SVG.
+    if (viewBox && !clone.getAttribute('viewBox')) {
+      clone.setAttribute('viewBox', viewBox);
+    }
+    // Strip pan-zoom's transform from the cloned viewport group, otherwise
+    // the modal opens with the source diagram's current zoom/pan baked in.
+    var clonedViewport = clone.querySelector('.svg-pan-zoom_viewport');
+    if (clonedViewport) {
+      clonedViewport.removeAttribute('transform');
+      clonedViewport.removeAttribute('style');
+    }
+    // Remove any control-icon overlay the inline pan-zoom injected.
+    var controlIcons = clone.querySelector('#svg-pan-zoom-controls');
+    if (controlIcons && controlIcons.parentNode) {
+      controlIcons.parentNode.removeChild(controlIcons);
+    }
+    // Keep the original SVG id on the clone — Mermaid scopes its injected
+    // <style> block by id (e.g. `#mermaid-123 .label { fill: ... }`), so
+    // renaming would strip all the diagram's text/edge colors. svg-pan-zoom
+    // accepts an element reference directly, so a duplicate id is harmless.
+    fsModalStage.innerHTML = '';
+    fsModalStage.appendChild(clone);
+
+    fsModal.classList.add('is-open');
+    document.body.classList.add('mermaid-modal-open');
+
+    requestAnimationFrame(function() {
+      try {
+        fsActiveZoom = svgPanZoom(clone, {
+          zoomEnabled: true,
+          controlIconsEnabled: false,
+          fit: true,
+          center: true,
+          minZoom: 0.2,
+          maxZoom: 20,
+          zoomScaleSensitivity: 0.35
+        });
+      } catch (err) {
+        if (window.console) console.warn('mermaid fullscreen: svg-pan-zoom init failed', err);
+      }
+      var closeBtn = fsModal.querySelector('.mermaid-modal__close');
+      if (closeBtn) closeBtn.focus();
+    });
+  }
+
+  function closeFullscreenModal() {
+    if (!fsModal) return;
+    if (fsActiveZoom) {
+      try { fsActiveZoom.destroy(); } catch (_) {}
+      fsActiveZoom = null;
+    }
+    fsModal.classList.remove('is-open');
+    document.body.classList.remove('mermaid-modal-open');
+    if (fsModalStage) fsModalStage.innerHTML = '';
+    if (fsLastTrigger && typeof fsLastTrigger.focus === 'function') {
+      fsLastTrigger.focus();
+    }
+  }
+  // ---- end mermaid fullscreen modal -----------------------------------------
   // Resize svg with dim_ration on window resize
   $(window).on('resize', function() {
     $('.language-mermaid').filter('[data-processed="true"]').each(function() {
@@ -1192,15 +1375,13 @@ $(document).ready(function() {
   setAdaTableRole();
 
   // intialized mermaid
-  mermaid.initialize({
-    startOnLoad: false,
-    theme: "default",
-  });
-  var mermaid_charts = $('.language-mermaid').not('[data-processed="true"]').filter(':visible');
-  mermaid.run({ nodes: mermaid_charts });
-
-  // Add svgPanZoom to the rendered Mermaid charts
-  setPanZoom(mermaid_charts)
+  if (typeof mermaid !== 'undefined') {
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: "default",
+    });
+    runMermaidCharts();
+  }
 
 
 });

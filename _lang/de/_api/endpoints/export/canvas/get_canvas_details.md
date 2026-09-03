@@ -20,9 +20,9 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Canva
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `canvas.details`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `canvas.details`.
 
-## Rate-Limits {#rate-limit}
+## Rate-Limit {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
@@ -30,7 +30,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | -------- | --------- | ----------- |
-| `canvas_id` | Erforderlich | String | Siehe [Canvas-API-Bezeichner]({{site.baseurl}}/api/identifier_types/) |
+| `canvas_id` | Erforderlich | String | Siehe [Canvas-API-Bezeichner]({{site.baseurl}}/api/identifier_types) |
 | `post_launch_draft_version` | Optional | Boolescher Wert | Für Canvases mit einem Entwurf nach dem Start werden bei der Einstellung `true` alle verfügbaren Entwurfsänderungen angezeigt. Standardwert ist `false`. |
 | `include_has_translatable_content` | Optional | Boolescher Wert | Wenn auf `true` gesetzt, enthält die API-Antwort ein `has_translatable_content`-Feld für jede Nachricht. Standardwert ist `false`. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
@@ -100,7 +100,7 @@ Alle Canvas-Schritte verfügen über ein `next_paths`-Feld, bei dem es sich um e
     },
     ... (more steps)
   ],
-  "message": (required, string) the status of the export, returns 'success' when completed without errors
+  "message": (string) returns 'success' when the request completes without errors
 }
 ```
 
@@ -220,7 +220,7 @@ Im Folgenden finden Sie eine Beispielantwort mit Canvas-Nachrichten, die über v
 ```
 
 {% alert tip %}
-Hilfe zu CSV- und API-Exporten finden Sie unter [Fehlerbehebung beim Export]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+Hilfe zu CSV- und API-Exporten finden Sie unter [Fehlerbehebung beim Export]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endapi %}

@@ -1,7 +1,7 @@
 ---
 nav_title: Fehlerbehebung
 article_title: Fehlerbehebung für BrazeAI Operator
-page_order: 4
+page_order: 10
 description: "Häufige Probleme und Lösungen für BrazeAI Operator<sup>TM</sup>."
 ---
 
@@ -14,12 +14,9 @@ description: "Häufige Probleme und Lösungen für BrazeAI Operator<sup>TM</sup>
 | Problem | Fehlerbehebung |
 | --- | --- |
 | Keine Antwort | Versuchen Sie, die Seite zu aktualisieren und das Operator-Panel erneut zu öffnen. |
-| Antworten, die nicht zum Thema gehören | Formulieren Sie die Frage genauer. Nennen Sie das Feature oder den Workflow, zu dem Sie eine Frage haben. |
-| Fehlermeldungen | Sollte der Operator keine Inhalte streamen können, wird möglicherweise die Aufforderung „Erneut versuchen“ angezeigt. Der Operator ist möglicherweise vorübergehend nicht erreichbar oder die Verbindung wurde unterbrochen. Versuchen Sie es in einigen Minuten erneut. |
-| Tägliches Nutzungslimit überschritten | Das unternehmensweite Nutzungslimit wurde erreicht. Warten Sie, bis das Limit zurückgesetzt wird (wird alle 24 Stunden zurückgesetzt). |
+| Themenfremde Antworten | Formulieren Sie die Frage spezifischer. Nennen Sie das Feature oder den Workflow, nach dem gefragt wird. |
+| Fehlermeldungen | Wenn Operator keine Inhalte streamen kann, wird möglicherweise die Aufforderung „Erneut versuchen“ angezeigt. Operator ist möglicherweise vorübergehend nicht verfügbar oder die Verbindung wurde unterbrochen. Versuchen Sie es nach einigen Minuten erneut. |
+| Tageslimit erreicht | Das unternehmensweite tägliche Nutzungslimit wurde erreicht. Alle Operator-Aktionen werden auf dieses Limit angerechnet. Warten Sie, bis das Limit zurückgesetzt wird (alle 24 Stunden). Sie können weiterhin ein Support-Ticket über das Webformular einreichen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Häufige Probleme" }
 
-## Einschränkungen {#limitations}
-
-- **Datenzugriff:** Der Operator kann den Inhalt der aktiven Seite einsehen, mit Ausnahme von Inhalten in Drag-and-Drop-Editoren. Er kann auch bestimmte unternehmensspezifische Daten abrufen, wie beispielsweise vergangene Campaigns, Kataloge und angepasste Attribute. Derzeit ist es jedoch nicht möglich, neue Berichte zu generieren oder Berichtsabfragen auszuführen.
-- **Nutzungsbeschränkungen:** Der Operator verfügt über ein unternehmensweites Tageslimit, das alle 24 Stunden zurückgesetzt wird. Wenn das Limit erreicht ist, wird im Chat ein Banner mit der Meldung „Tägliches Nutzungslimit überschritten“ angezeigt, und es können keine weiteren Anfragen gestellt werden, bis das Limit zurückgesetzt wird.
+Informationen dazu, was Operator im Dashboard kann und was nicht, finden Sie unter [Einschränkungen]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#limitations).

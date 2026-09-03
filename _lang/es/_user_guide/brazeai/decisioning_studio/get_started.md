@@ -12,25 +12,25 @@ description: "Esta sección ofrece una introducción a Decisioning Studio y cóm
 guide_featured_title: "Artículos de la sección"
 guide_featured_list:
   - name: Diseña tu agente
-    link: /docs/user_guide/brazeai/decisioning_studio/design_agents/
+    link: /docs/user_guide/brazeai/decisioning_studio/design_agents
     image: /assets/img/braze_icons/settings-01.svg
   - name: Prepara tus datos
-    link: /docs/user_guide/brazeai/decisioning_studio/prepare_data/
+    link: /docs/user_guide/brazeai/decisioning_studio/prepare_data
     image: /assets/img/braze_icons/database-01.svg
   - name: Define tu audiencia
-    link: /docs/user_guide/brazeai/decisioning_studio/audience/
+    link: /docs/user_guide/brazeai/decisioning_studio/audience
     image: /assets/img/braze_icons/users-01.svg
   - name: Configura la orquestación
-    link: /docs/user_guide/brazeai/decisioning_studio/orchestration_setup/
+    link: /docs/user_guide/brazeai/decisioning_studio/orchestration_setup
     image: /assets/img/braze_icons/dataflow-04.svg
 
 guide_menu_title: "Recursos adicionales"
 guide_menu_list:
   - name: Acerca de Decisioning Studio
-    link: /docs/user_guide/brazeai/decisioning_studio/
+    link: /docs/user_guide/brazeai/decisioning_studio
     image: /assets/img/braze_icons/info-circle.svg
   - name: Preguntas frecuentes sobre Decisioning Studio
-    link: /docs/user_guide/brazeai/decisioning_studio/faq/
+    link: /docs/user_guide/brazeai/decisioning_studio/faq
     image: /assets/img/braze_icons/annotation-question.svg
 ---
 
@@ -44,15 +44,15 @@ Trabaja con el equipo de AI Decisioning Services para tomar las siguientes decis
 
 | Decisión | Descripción | Ejemplos |
 |----------|-------------|----------|
-| **Métrica de éxito** | ¿Qué maximizará el agente al personalizar la interacción con los clientes? | Ingresos, LTV, ARPU, conversiones, retención |
-| **Audiencia** | ¿Para quién tomará decisiones de interacción con los clientes el agente de Decisioning Studio? | Todos los clientes, miembros de fidelización, suscriptores en riesgo |
+| **Métrica de éxito** | El resultado de negocio que el agente maximiza al personalizar la interacción con los clientes. | Ingresos, LTV, ARPU, conversiones, retención |
+| **Audiencia** | Los clientes para quienes el agente de Decisioning Studio toma decisiones de interacción. | Todos los clientes, miembros de fidelización, suscriptores en riesgo |
 | **Grupos de experimento** | ¿Cómo deben estructurarse los ensayos controlados aleatorizados de Decisioning Studio? | Decisioning Studio, control aleatorio, BAU, exclusión |
-| **Dimensiones** | ¿Qué decisiones debe personalizar el agente? | Hora del día, línea del asunto, frecuencia, ofertas, canal |
-| **Opciones** | ¿Con qué opciones cuenta el agente para trabajar? | Plantillas específicas, ofertas, ventanas de tiempo |
-| **Restricciones** | ¿Qué decisiones no debe tomar nunca el agente? | Restricciones geográficas, límites de presupuesto, reglas de elegibilidad |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Key design decisions" }
+| **Dimensiones** | Las decisiones de interacción que el agente personaliza para cada cliente. | Hora del día, línea del asunto, frecuencia, ofertas, canal |
+| **Opciones** | Las variantes específicas que el agente puede seleccionar dentro de cada dimensión. | Plantillas específicas, ofertas, ventanas de tiempo |
+| **Restricciones** | Las reglas de negocio y los límites que restringen las decisiones del agente. | Restricciones geográficas, límites de presupuesto, reglas de elegibilidad |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Decisiones clave de diseño" }
 
-Cada una de estas decisiones tiene implicaciones en cuánto incremento adicional puede generar el agente y con qué rapidez. Nuestro equipo de AI Decisioning Services trabajará contigo para diseñar un agente que genere el máximo valor respetando todas tus reglas de negocio.
+Cada una de estas decisiones tiene implicaciones en cuánto incremento adicional puede generar el agente y con qué rapidez. Nuestro equipo de AI Decisioning Services trabaja contigo para diseñar un agente que genere el máximo valor respetando todas tus reglas de negocio.
 
 ![Diagrama que muestra cómo las métricas de éxito, la audiencia, los grupos de experimento, las dimensiones, las opciones y las restricciones alimentan el diseño de un agente de Decisioning Studio]({% image_buster /assets/img/decisioning_studio/decisioning_studio_pro_agent_design.png %})
 
@@ -65,7 +65,7 @@ Cada una de estas decisiones tiene implicaciones en cuánto incremento adicional
 | **Cualquier CEP** | Integraciones nativas con Braze, Salesforce Marketing Cloud o integraciones personalizadas para cualquier plataforma |
 | **AI Decisioning Services** | Soporte dedicado del equipo de ciencia de datos de Braze |
 | **Diseño avanzado de experimentos** | Grupos de tratamiento y exclusiones totalmente personalizables |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Decisioning Studio capabilities" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Capacidades de Decisioning Studio" }
 
 ## Mejores prácticas {#best-practices}
 

@@ -15,11 +15,11 @@ description: "이 문서에서는 이메일 템플릿의 특정 번역 및 로�
 /templates/translations/email
 {% endapimethod %}
 
-> 이 엔드포인트를 사용하여 [이메일 템플릿]({{site.baseurl}}/user_guide/messaging/templates/email_templates/)의 특정 번역 및 로캘을 확인할 수 있습니다. 번역 기능에 대한 자세한 내용은 [메시지의 로캘]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/)을 참조하세요.
+> 이 엔드포인트를 사용하여 [이메일 템플릿]({{site.baseurl}}/user_guide/messaging/templates/email_templates)의 특정 번역 및 로캘을 확인할 수 있습니다. 번역 기능에 대한 자세한 내용은 [메시지의 로캘]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages)을 참조하세요.
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `templates.translations.get` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `templates.translations.get` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key-permissions)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -31,13 +31,13 @@ description: "이 문서에서는 이메일 템플릿의 특정 번역 및 로�
 |---------------|----------|-----------|---------------------------------|
 | `template_id` | 필수 | 문자열 | 이메일 템플릿의 ID입니다. |
 | `locale_id` | 선택 사항 | 문자열 | 로캘의 ID(UUID)입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Query parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="쿼리 매개변수" }
 
 {% alert note %}
 모든 번역 ID는 범용 고유 식별자(UUID)로 간주되며, GET 엔드포인트의 응답에서 확인할 수 있습니다.
 {% endalert %}
 
-## 예시 요청 {#example-request}
+## 요청 예시 {#example-request}
 
 ```
 curl --location --request GET 'https://rest.iad-03.braze.com/templates/translations/email?locale_id={locale_uuid}&template_id={template_id}' \

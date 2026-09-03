@@ -3,7 +3,7 @@ nav_title: Métricas por segmentos
 article_title: Métricas por segmentos
 page_order: 3
 page_type: reference
-description: "Esta página descreve como você pode usar modelos de relatório do Criador de consultas para detalhar métricas de performance de Campaigns, Canvas, variantes e etapas por segmentos."
+description: "Esta página descreve como você pode usar modelos de relatório do Criador de consultas para detalhar métricas de desempenho de Campaigns, Canvas, variantes e etapas por segmentos."
 tool:
   - Segments
   - Reports
@@ -12,18 +12,18 @@ tool:
 
 # Métricas por segmentos {#metrics-by-segments}
 
-> Use modelos de relatório do [Criador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) para detalhar métricas de performance de Campaigns, Canvas, variantes e etapas por segmentos.
+> Use modelos de relatório do [Criador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder) para detalhar métricas de desempenho de Campaigns, Canvas, variantes e etapas por segmentos.
 
-O [rastreamento de análise de dados]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/#segment-analytics-tracking) deve estar ativado para os segmentos cujas métricas você deseja acessar.
+O [rastreamento de análise de dados]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) deve estar ativado para os segmentos cujas métricas você deseja acessar.
 
 Para executar esses relatórios, faça o seguinte:
 1. No **Criador de consultas**, escolha criar um novo relatório SQL com um modelo.
 2. Selecione **Segment breakdowns** para a métrica, o que filtra os modelos para aqueles em que as métricas incluem detalhamentos por segmento, que são:
-- Métricas de performance de e-mail por segmento
+- Métricas de desempenho de e-mail por segmento
 - Métricas de engajamento de e-mail para variantes ou etapas, por segmento
 - Compras e receita por segmento
 - Compras e receita para variantes ou etapas, por segmento
-- Performance de push por segmento
+- Desempenho de push por segmento
 
 ![A página de detalhamento por segmento contém um editor SQL, um painel lateral com guias para Variáveis, Tabelas de dados disponíveis, Histórico de consultas e o Criador de consultas com IA, além de uma seção de resultados.]({% image_buster /assets/img_archive/segment_breakdown.png %})
 
@@ -34,7 +34,7 @@ Para executar esses relatórios, faça o seguinte:
 
 ### Visualizando métricas para Campaigns ou Canvas {#campaign-canvas-email}
 
-Para visualizar métricas de performance de e-mail detalhadas por segmento no nível de Campaign ou Canvas, use a guia [Variáveis](#variables) para especificar as Campaigns ou Canvas e um período para extrair os dados. Se nenhuma Campaign ou Canvas for especificada, o relatório incluirá e-mails de todas as Campaigns e Canvas do período especificado. Você também pode optar por visualizar todas as Campaigns e Canvas com determinadas tags.
+Para visualizar métricas de desempenho de e-mail detalhadas por segmento no nível de Campaign ou Canvas, use a guia [Variáveis](#variables) para especificar as Campaigns ou Canvas e um período para extrair os dados. Se nenhuma Campaign ou Canvas for especificada, o relatório incluirá e-mails de todas as Campaigns e Canvas do período especificado. Você também pode optar por visualizar todas as Campaigns e Canvas com determinadas tags.
 
 As seguintes métricas de e-mail estão disponíveis neste relatório:
 - Envios
@@ -58,7 +58,7 @@ Seus resultados mostrarão métricas de engajamento de e-mail por segmento para 
 
 ### Visualizando métricas para variantes ou etapas {#viewing-metrics-for-variants-or-steps}
 
-Para visualizar a performance de e-mail detalhada por segmento no nível de variante de Campaign, variante de Canvas ou etapa do Canvas, primeiro escolha um relatório no nível de variante ou etapa (são relatórios que possuem "for variants or steps" no título) e, em seguida, use a guia **Variáveis** para especificar o seguinte:
+Para visualizar o desempenho de e-mail detalhado por segmento no nível de variante de Campaign, variante de Canvas ou etapa do Canvas, primeiro escolha um relatório no nível de variante ou etapa (são relatórios que possuem "for variants or steps" no título) e, em seguida, use a guia **Variáveis** para especificar o seguinte:
 
 - Campaign ou Canvas específica (obrigatório ao usar um relatório no nível de variante ou etapa)
 - Variantes (obrigatório ao usar um relatório no nível de variante ou etapa)
@@ -158,13 +158,13 @@ As seguintes métricas de e-mail estão disponíveis neste relatório:
 - Reclamações
 
 Para visualizar este relatório, você deve especificar as seguintes variáveis na guia **Variáveis**:
-- **Métricas:** Selecione uma das métricas para classificar seus resultados
-- **Número de relatórios:** Selecione os melhores ou piores resultados e a quantidade de resultados, como os 10 melhores ou os 15 piores
-- **Tipo de mensagem:** Especifique se seus resultados são Campaigns, Canvas ou etapas do Canvas
+- **Métricas:** selecione uma das métricas para classificar seus resultados
+- **Número de relatórios:** selecione os melhores ou piores resultados e a quantidade de resultados, como os 10 melhores ou os 15 piores
+- **Tipo de mensagem:** especifique se seus resultados são Campaigns, Canvas ou etapas do Canvas
 
 #### Resultados
 
-Seus resultados mostrarão as melhores (ou piores) Campaigns, Canvas ou etapas do Canvas que você selecionou. Por exemplo, se você selecionou as 10 melhores Campaigns por taxa de clique, seus resultados mostrarão as 10 melhores Campaigns ordenadas da maior para a menor taxa de clique. Suas colunas exibirão todas as métricas de engajamento de e-mail para cada linha (Campaigns, Canvas ou etapas de mensagem).
+Seus resultados mostrarão as melhores (ou piores) Campaigns, Canvas ou etapas do Canvas que você selecionou. Por exemplo, se você selecionou as 10 melhores Campaigns por taxa de cliques, seus resultados mostrarão as 10 melhores Campaigns ordenadas da maior para a menor taxa de cliques. Suas colunas exibirão todas as métricas de engajamento de e-mail para cada linha (Campaigns, Canvas ou etapas de mensagem).
 
 {% endtab %}
 {% tab Top or bottom messaging for purchases %}
@@ -187,10 +187,10 @@ As seguintes métricas de e-mail estão disponíveis neste relatório:
 - Cliques únicos em e-mail
 
 Para visualizar este relatório, você deve especificar as seguintes variáveis na guia **Variáveis**:
-- **Métricas:** Selecione uma das métricas para classificar seus resultados
-- **Número de relatórios:** Selecione os melhores ou piores resultados e a quantidade de resultados, como os 10 melhores ou os 15 piores
-- **Tipo de mensagem:** Especifique se seus resultados são Campaigns, Canvas ou etapas do Canvas
-- **Janela de conversão:** O número de dias após o recebimento ou clique no e-mail em que a Braze atribuirá compras ou receita
+- **Métricas:** selecione uma das métricas para classificar seus resultados
+- **Número de relatórios:** selecione os melhores ou piores resultados e a quantidade de resultados, como os 10 melhores ou os 15 piores
+- **Tipo de mensagem:** especifique se seus resultados são Campaigns, Canvas ou etapas do Canvas
+- **Janela de conversão:** o número de dias após o recebimento ou clique no e-mail em que a Braze atribuirá compras ou receita
 
 #### Definições
 
@@ -217,7 +217,7 @@ As seguintes métricas de push estão disponíveis neste relatório:
 - Envios
 - Bounces
 - Entregas
-- Aberturas diretas
+- Aberturas Diretas
 
 #### Resultados
 

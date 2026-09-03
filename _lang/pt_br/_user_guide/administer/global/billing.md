@@ -47,7 +47,7 @@ Em **Eventos e atributos mais usados por app**, você pode verificar os fatores 
 
 ![Eventos e atributos mais usados por app]({% image_buster /assets/img/most_used_events_attributes_time.png %})
 
-Para cada app, você pode selecionar **See breakdown** para visualizar uma contagem estimada de cada atributo personalizado, atributo de perfil e evento personalizado específico para o período selecionado, bem como a porcentagem das atualizações de atributos e eventos desse app que foram geradas por esse atributo ou evento.
+Para cada app, você pode selecionar **Ver detalhamento** para visualizar uma contagem estimada de cada atributo personalizado, atributo de perfil e evento personalizado específico para o período selecionado, bem como a porcentagem das atualizações de atributos e eventos desse app que foram geradas por esse atributo ou evento.
 
 ![Guia de detalhamento de eventos e atributos mais usados por app]({% image_buster /assets/img/most_used_events_attributes_2.png %}){: style="max-width:60%"}
 
@@ -75,8 +75,6 @@ Os campos nesta seção são definidos da seguinte forma:
 - **Data de início e término do contrato:** Data de início e término de todo o contrato.
 - **Pontos de dados alocados:** A quantidade de pontos de dados alocados no contrato por período de faturamento.
 - **Uso de pontos de dados do contrato:** Um total acumulado de todos os pontos de dados registrados ao longo da vigência do contrato, que não é redefinido no próximo período de faturamento.
-
-![Seção de detalhes do contrato na guia Total de uso de pontos de dados]({% image_buster /assets/img/contract_details.png %})
 
 ### Dados de faturamento da empresa {#company-billing-data}
 
@@ -110,5 +108,5 @@ Este gráfico permite visualizar rapidamente o uso total de pontos de dados em c
 
 ## Próximas etapas {#next-steps}
 
-- [Preferências de notificação]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/) para configurar alertas para eventos relacionados ao faturamento e limites de uso.
-- [Dashboard de uso de créditos]({{site.baseurl}}/credits_usage_dashboard/) para monitorar o consumo de créditos de mensagens.
+- [Preferências de notificação]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences) para configurar alertas para eventos relacionados ao faturamento e limites de uso.
+- [Dashboard de uso de créditos]({{site.baseurl}}/credits_usage_dashboard) para monitorar o consumo de créditos de mensagens.

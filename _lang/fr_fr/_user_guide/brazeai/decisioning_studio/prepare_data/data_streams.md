@@ -51,7 +51,7 @@ Un flux d'événements enregistre des actions discrètes au moment où elles se 
 | Identifiant client | À qui se rapporte cet événement |
 | Type d'événement | Ce qui s'est passé (par exemple, activation, conversion, clic) |
 | Horodatage de l'événement | Quand l'événement s'est réellement produit |
-| Horodatage de création | Quand cet enregistrement a été créé dans votre système (voir la note ci-dessous) |
+| Horodatage de création | Quand cet enregistrement a été créé dans votre système (voir la note dans la section suivante) |
 | Propriétés d'événement | Métadonnées supplémentaires sur l'événement ; plus elles sont riches, mieux Decisioning Studio peut relier les événements à travers le parcours client |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Champs requis" }
 
@@ -115,6 +115,6 @@ Si vous utilisez Braze, utilisez les exports Currents (et non les attributs pers
 
 ### Mettre à jour les données de snapshot sur un déclencheur d'événement {#update-snapshot-data-on-an-event-trigger}
 
-Certaines implémentations ne mettent à jour les données de snapshot que lorsqu'un événement se produit, par exemple en recalculant une caractéristique uniquement lorsqu'un client effectue un achat. Cela entraîne l'obsolescence des caractéristiques qui dépendent du passage du temps pour les clients qui n'ont pas eu d'événement récent.
+Certains déploiements ne mettent à jour les données de snapshot que lorsqu'un événement se produit, par exemple en recalculant une caractéristique uniquement lorsqu'un client effectue un achat. Cela entraîne l'obsolescence des caractéristiques qui dépendent du passage du temps pour les clients qui n'ont pas eu d'événement récent.
 
 Par exemple, une caractéristique comme `days_since_last_purchase` a une valeur correcte différente chaque jour. Si elle n'est recalculée que lors d'un achat, elle restera figée à une valeur incorrecte pour tous les clients qui n'ont pas acheté récemment. Mettez toujours à jour les données de snapshot selon un calendrier basé sur le temps qui couvre tous les clients, chaque jour.

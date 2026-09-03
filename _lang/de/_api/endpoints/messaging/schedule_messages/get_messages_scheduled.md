@@ -14,7 +14,7 @@ description: "Dieser Artikel enthält Einzelheiten über den Braze-Endpunkt „L
 /messages/scheduled_broadcasts
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um eine JSON-Liste mit Informationen über geplante Campaigns und Eingangs-Canvases zwischen jetzt und einer in der Anfrage angegebenen `end_time` zurückzugeben.
+> Verwenden Sie diesen Endpunkt, um eine JSON-Liste mit Informationen über geplante Campaigns und Entry-Canvases zwischen jetzt und einer in der Anfrage angegebenen `end_time` zurückzugeben.
 
 Tägliche, wiederkehrende Nachrichten erscheinen nur einmal mit ihrem nächsten Vorkommen. Die über diesen Endpunkt zurückgegebenen Ergebnisse umfassen Campaigns und Canvases, die im Braze-Dashboard erstellt und geplant wurden.
 
@@ -22,9 +22,9 @@ Tägliche, wiederkehrende Nachrichten erscheinen nur einmal mit ihrem nächsten 
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `messages.schedule_broadcasts`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `messages.schedule_broadcasts`.
 
-## Rate-Limits {#rate-limit}
+## Rate-Limit
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 

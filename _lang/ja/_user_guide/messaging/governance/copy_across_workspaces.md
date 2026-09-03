@@ -4,49 +4,49 @@ article_title: ワークスペース間でコピー
 page_order: 3
 alias: "/copying_to_workspaces/"
 page_type: reference
-description: "このリファレンス記事では、Campaign、Canvas、ランディングページを異なるワークスペースにコピーする方法の概要を説明します。"
+description: "このリファレンス記事では、キャンペーン、キャンバス、ランディングページを異なるワークスペースにコピーする方法の概要を説明します。"
 tool:
     - Campaigns
     - Canvas
 ---
 
-# Campaign、Canvas、ランディングページをワークスペース間でコピーする {#copy-campaigns-canvases-and-landing-pages-across-workspaces}
+# キャンペーン、キャンバス、ランディングページをワークスペース間でコピーする {#copy-campaigns-canvases-and-landing-pages-across-workspaces}
 
-> ワークスペース間でCampaign、Canvas、ランディングページをコピーすると、別のワークスペースにある既存のコンテンツを出発点として利用し、コンテンツ作成をすばやく開始できます。このページでは、Campaign、Canvas、ランディングページを異なるワークスペースにコピーする方法と、コピーされるものとされないものについて説明します。
+> ワークスペース間でキャンペーン、キャンバス、ランディングページをコピーすると、別のワークスペースにある既存のコンテンツを出発点として利用し、コンテンツ作成をすばやく開始できます。このページでは、キャンペーン、キャンバス、ランディングページを異なるワークスペースにコピーする方法と、コピーされるものとされないものについて説明します。
 
-CampaignやCanvas、ランディングページを別のワークスペースにコピーすると、コピーは編集してCampaignやCanvasを起動するか、ランディングページを公開するまで下書きのままになります。これにより、成功したメッセージング戦略を維持し、それを基に構築できます。
+キャンペーンやキャンバス、ランディングページを別のワークスペースにコピーすると、コピーは編集してキャンペーンやキャンバスを起動するか、ランディングページを公開するまで下書きのままになります。これにより、成功したメッセージング戦略を維持し、それを基に構築できます。
 
 {% tabs local %}
 {% tab campaigns %}
 
 {% alert important %}
-ワークスペース間でのCampaignsのコピーは一般提供されています。Content Cardsのチャネルサポートは現在利用できません。
+ワークスペース間でのキャンペーンのコピーは一般提供されています。Content Cardsのチャネルサポートは現在利用できません。
 {% endalert %}
 
-以下のサポートされているチャネルでワークスペース間でCampaignsをコピーできます：SMS、アプリ内メッセージ、プッシュ通知、メール、webhook。また、メールテンプレート、フィーチャーフラグ、Content Blocksもコピーできます。サポートされていないチャネルを含むマルチチャネルCampaignsは、別のワークスペースにコピーできないことに注意してください。
+以下のサポートされているチャネルでワークスペース間でキャンペーンをコピーできます：SMS、アプリ内メッセージ、プッシュ通知、メール、webhook。また、メールテンプレート、フィーチャーフラグ、Content Blocksもコピーできます。サポートされていないチャネルを含むマルチチャネルキャンペーンは、別のワークスペースにコピーできないことに注意してください。
 
-Campaignを別のワークスペースにコピーするには：
+キャンペーンを別のワークスペースにコピーするには：
 
-1. 選択したCampaignの横にある<i class="fas fa-cog"></i>歯車アイコンを選択します。
+1. 選択したキャンペーンの横にある<i class="fas fa-cog"></i>歯車アイコンを選択します。
 2. **ワークスペースにコピー**を選択します。
-3. コピー後、Campaignを確認してテストし、すべてのフィールドが正しく機能することを確認します。
+3. コピー後、キャンペーンを確認してテストし、すべてのフィールドが正しく機能することを確認します。
 
 {% endtab %}
 {% tab canvas %}
 
 {% alert important %}
-ワークスペース間でのCanvasesのコピーは一般提供されています。LINE、Content Cards、WhatsAppのチャネルは現在サポートされていません。
+ワークスペース間でのキャンバスのコピーは一般提供されています。LINE、Content Cards、WhatsAppのチャネルは現在サポートされていません。
 {% endalert %}
 
-以下のサポートされているチャネルでワークスペース間でCanvasesをコピーできます：メール、アプリ内メッセージ、プッシュ、webhook、SMS。
+以下のサポートされているチャネルでワークスペース間でキャンバスをコピーできます：メール、アプリ内メッセージ、プッシュ、webhook、SMS。
 
-Canvasを別のワークスペースにコピーするには：
+キャンバスを別のワークスペースにコピーするには：
 
-1. 選択したCanvasの横にある<i class="fa-solid fa-ellipsis-vertical"></i>&nbsp;メニューを選択します。
+1. 選択したキャンバスの横にある<i class="fa-solid fa-ellipsis-vertical"></i>&nbsp;メニューを選択します。
 2. **ワークスペースにコピー**を選択します。
-3. コピー後、Canvasを確認してテストし、すべてのフィールドが正しく機能することを確認します。
+3. コピー後、キャンバスを確認してテストし、すべてのフィールドが正しく機能することを確認します。
 
-Audience Syncステップを含むCanvasをコピーする場合、設定はコピー先のワークスペースにコピーされませんが、ジャーニー内のステップはコピーされます。
+Audience Syncステップを含むキャンバスをコピーする場合、設定はコピー先のワークスペースにコピーされませんが、ジャーニー内のステップはコピーされます。
 
 {% endtab %}
 {% tab ランディングページ %}
@@ -63,74 +63,82 @@ Audience Syncステップを含むCanvasをコピーする場合、設定はコ�
 {% endtab %}
 {% endtabs %}
 
-## ワークスペース間でコピーされるもの {#whats-copied-across-workspaces}
+{% alert note %}
+キャンペーンやキャンバスは、起動後を含め、ライフサイクルのどの時点でも別のワークスペースにコピーできます。Brazeはアクティブなバージョンをコピーします。<br><br>キャンペーンの[下書き変更を保存]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/change_your_campaign_after_launch#campaign-drafts)している場合や、まだ起動していない[キャンバスの下書きを保存]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/canvas_drafts)している場合、Brazeはそれらの保留中の編集を含めません。まず元のワークスペースで下書きを起動してから、コピーしてください。
+{% endalert %}
 
-以下の表はCampaignとCanvasのフィールドを対象としており、ワークスペース間でコピーされるものと省略されるものの包括的なリストではないことに注意してください。ベストプラクティスとして、Campaign、Canvas、ランディングページの詳細を確認し、テストしてメッセージが期待どおりに機能することを確認してください。
+## ワークスペース間でコピーされる内容 {#whats-copied-across-workspaces}
 
-ランディングページは下書きとしてコピーされます。コピーしたランディングページを公開する前に、ページURL、カスタムドメイン設定、フォーム送信処理、およびLiquidやワークスペース固有の参照を確認してください。
+以下の表はキャンペーンとキャンバスのフィールドを対象としており、ワークスペース間でコピーされる項目と省略される項目の包括的なリストではありません。ベストプラクティスとして、キャンペーン、キャンバス、およびランディングページの詳細を確認し、メッセージが期待どおりに動作することをテストしてください。
+
+ランディングページは下書きとしてコピーされます。コピーしたランディングページを公開する前に、ページURL、カスタムドメイン設定、フォーム送信の処理、およびLiquidやワークスペース固有の参照を確認してください。
+
+{% alert note %}
+メールキャンペーン、キャンバス、またはテンプレートをワークスペース間でコピーする際、翻訳はコピーされません。コピー後、コピー先のワークスペースで翻訳を再入力または再アップロードしてください。
+{% endalert %}
 
 ### 詳細 {#details}
 
 {% tabs local %}
-{% tab campaigns %}
+{% tab キャンペーン %}
 
 | コピーされる | 省略される |
 |---|---|
 | 説明 | テリトリー |
 | タイプ | タグ |
-| アクション（ネスト） | Segmentsとフィルター |
-| コンバージョン動作（ネスト） | [承認]({{site.baseurl}}/user_guide/messaging/governance/approvals/) |
+| アクション（ネスト） | セグメントとフィルター |
+| コンバージョン行動（ネスト） | [承認]({{site.baseurl}}/user_guide/messaging/governance/approvals) |
 | サイレント時間の設定 | トリガースケジュール |
-| フリークエンシーキャップの設定 | Campaignサマリー |
-| 受信者のサブスクリプション状態 |  |
+| フリークエンシーキャップの設定 | キャンペーンの概要 |
+| 受信者の購読状態 |  |
 | 繰り返しスケジュール |  |
 | トランザクション |  |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="詳細" }
 
 {% endtab %}
-{% tab canvas %}
+{% tab キャンバス %}
 
 | コピーされる | 省略される |
 |---|---|
 | 説明 | テリトリー |
 | タイプ | タグ |
-| アクション（ネスト） | Segmentsとフィルター |
-| コンバージョン動作（ネスト） | [承認]({{site.baseurl}}/user_guide/messaging/governance/approvals/) |
+| アクション（ネスト） | セグメントとフィルター |
+| コンバージョン行動（ネスト） | [承認]({{site.baseurl}}/user_guide/messaging/governance/approvals) |
 | サイレント時間の設定 | トリガースケジュール |
-| フリークエンシーキャップの設定 | Canvasサマリー |
-| 受信者のサブスクリプション状態 |  |
+| フリークエンシーキャップの設定 | キャンバスの概要 |
+| 受信者の購読状態 |  |
 | 繰り返しスケジュール | 離脱条件 |
 | トランザクション |  |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="詳細" }
 
-キャンバスステップのフィルター条件（例：[条件分岐]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/)ステップ）はコピー先のワークスペースにコピーされません。コピー後にこれらのフィルターを再設定してください。
+キャンバスステップのフィルター条件（例：[条件分岐]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split)ステップ）はコピー先のワークスペースにコピーされません。コピー後にこれらのフィルターを再設定してください。
 
 {% endtab %}
 {% endtabs %}
 
-### コンバージョン動作 {#conversion-behaviors}
+### コンバージョン行動 {#conversion-behaviors}
 
 {% tabs local %}
-{% tab campaigns %}
+{% tab キャンペーン %}
 
 | コピーされる | 省略される |
 |---|---|
-| タイプ動作 | ワークスペースID |
-| Campaignインタラクション | Campaign ID |
+| タイプ行動 | ワークスペースID |
+| キャンペーンインタラクション | キャンペーンID |
 | カスタムイベント名 |  |
 | 製品名 |  |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="コンバージョン動作" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="コンバージョン行動" }
 
 {% endtab %}
-{% tab canvas %}
+{% tab キャンバス %}
 
 | コピーされる | 省略される |
 |---|---|
-| タイプ動作 | ワークスペースID |
-| Canvasインタラクション | Canvas ID |
+| タイプ行動 | ワークスペースID |
+| キャンバスインタラクション | キャンバスID |
 | カスタムイベント名 |  |
 | 製品名 |  |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="コンバージョン動作" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="コンバージョン行動" }
 
 {% endtab %}
 {% endtabs %}
@@ -138,23 +146,23 @@ Audience Syncステップを含むCanvasをコピーする場合、設定はコ�
 ### アクション {#actions}
 
 {% tabs local %}
-{% tab campaigns %}
+{% tab キャンペーン %}
 
 | コピーされる | 省略される |
 |---|---|
-| タイプ動作 | ワークスペースID |
-| Campaignインタラクション | Campaign ID |
+| タイプ行動 | ワークスペースID |
+| キャンペーンインタラクション | キャンペーンID |
 | カスタムイベント名 |  |
 | 製品名 |  |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="アクション" }
 
 {% endtab %}
-{% tab canvas %}
+{% tab キャンバス %}
 
 | コピーされる | 省略される |
 |---|---|
-| タイプ動作 | ワークスペースID |
-| Canvasインタラクション | Canvas ID |
+| タイプ行動 | ワークスペースID |
+| キャンバスインタラクション | キャンバスID |
 | カスタムイベント名 |  |
 | 製品名 |  |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="アクション" }
@@ -165,7 +173,7 @@ Audience Syncステップを含むCanvasをコピーする場合、設定はコ�
 ### メッセージバリエーション {#message-variations}
 
 {% tabs local %}
-{% tab campaigns %}
+{% tab キャンペーン %}
 
 | コピーされる | 省略される |
 |---|---|
@@ -176,7 +184,7 @@ Audience Syncステップを含むCanvasをコピーする場合、設定はコ�
 {: .reset-td-br-1 .reset-td-br-2 aria-label="メッセージバリエーション" }
 
 {% endtab %}
-{% tab canvas %}
+{% tab キャンバス %}
 
 | コピーされる | 省略される |
 |---|---|
@@ -193,11 +201,11 @@ Audience Syncステップを含むCanvasをコピーする場合、設定はコ�
 ### メールメッセージバリエーション {#email-message-variation}
 
 {% tabs local %}
-{% tab campaigns %}
+{% tab キャンペーン %}
 
 | コピーされる | 省略される |
 |---|---|
-| メール本文 | 送信元アドレス |
+| メール本文 | 差出人アドレス |
 | メッセージエクストラ | 返信先 |
 | タイトル | BCC |
 | 件名 | リンクテンプレート |
@@ -206,11 +214,11 @@ Audience Syncステップを含むCanvasをコピーする場合、設定はコ�
 {: .reset-td-br-1 .reset-td-br-2 aria-label="メールメッセージバリエーション" }
 
 {% endtab %}
-{% tab canvas %}
+{% tab キャンバス %}
 
 | コピーされる | 省略される |
 |---|---|
-| メール本文 | 送信元アドレス |
+| メール本文 | 差出人アドレス |
 | メッセージエクストラ | 返信先 |
 | タイトル | BCC |
 | 件名 | リンクテンプレート |
@@ -224,7 +232,7 @@ Audience Syncステップを含むCanvasをコピーする場合、設定はコ�
 ### メール本文 {#email-body}
 
 {% tabs local %}
-{% tab campaigns %}
+{% tab キャンペーン %}
 
 | コピーされる | 省略される |
 |---|---|
@@ -236,7 +244,7 @@ Audience Syncステップを含むCanvasをコピーする場合、設定はコ�
 {: .reset-td-br-1 .reset-td-br-2 aria-label="メール本文" }
 
 {% endtab %}
-{% tab canvas %}
+{% tab キャンバス %}
 
 | コピーされる | 省略される |
 |---|---|
@@ -253,7 +261,7 @@ Audience Syncステップを含むCanvasをコピーする場合、設定はコ�
 ### メールテンプレート {#email-templates}
 
 {% tabs local %}
-{% tab campaigns %}
+{% tab キャンペーン %}
 
 | コピーされる | 省略される |
 |---|---|
@@ -265,7 +273,7 @@ Audience Syncステップを含むCanvasをコピーする場合、設定はコ�
 {: .reset-td-br-1 .reset-td-br-2 aria-label="メールテンプレート" }
 
 {% endtab %}
-{% tab canvas %}
+{% tab キャンバス %}
 
 | コピーされる | 省略される |
 |---|---|
@@ -282,7 +290,7 @@ Audience Syncステップを含むCanvasをコピーする場合、設定はコ�
 ### Content Blocks
 
 {% tabs local %}
-{% tab campaigns %}
+{% tab キャンペーン %}
 
 | コピーされる | 省略される |
 |---|---|
@@ -293,7 +301,7 @@ Audience Syncステップを含むCanvasをコピーする場合、設定はコ�
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Content Blocks" }
 
 {% endtab %}
-{% tab canvas %}
+{% tab キャンバス %}
 
 | コピーされる | 省略される |
 |---|---|
@@ -309,7 +317,7 @@ Audience Syncステップを含むCanvasをコピーする場合、設定はコ�
 ### SMSメッセージバリエーション {#sms-message-variation}
 
 {% tabs local %}
-{% tab campaigns %}
+{% tab キャンペーン %}
 
 | コピーされる | 省略される |
 |---|---|
@@ -320,7 +328,7 @@ Audience Syncステップを含むCanvasをコピーする場合、設定はコ�
 {: .reset-td-br-1 .reset-td-br-2 aria-label="SMSメッセージバリエーション" }
 
 {% endtab %}
-{% tab canvas %}
+{% tab キャンバス %}
 
 | コピーされる | 省略される |
 |---|---|
@@ -335,27 +343,27 @@ Audience Syncステップを含むCanvasをコピーする場合、設定はコ�
 
 ## Liquidを含むメッセージのコピー {#copying-messages-that-contain-liquid}
 
-メッセージ本文内のLiquid参照はコピー先のワークスペースにコピーされますが、参照が期待どおりに機能しない場合があります。つまり、ワークスペースAのCanvasをワークスペースBにコピーした場合、ワークスペースBはLiquid参照を含むワークスペースAの詳細を参照できません。例えば、トリガーアクション、オーディエンスフィルター、[条件分岐]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/)のフィルター条件などのフィールドはコピーされません。
+メッセージ本文内のLiquid参照はコピー先のワークスペースにコピーされますが、参照が期待どおりに機能しない場合があります。つまり、ワークスペースAのキャンバスをワークスペースBにコピーした場合、ワークスペースBはワークスペースAの詳細（Liquid参照を含む）を参照できません。たとえば、トリガーアクション、オーディエンスフィルター、[条件分岐]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split)のフィルター条件などのフィールドはコピーされません。
 
-ワークスペース間でCampaign、Canvas、ランディングページをコピーする際は、依存関係のある以下のLiquid参照に注意してください：
+ワークスペース間でキャンペーン、キャンバス、ランディングページをコピーする際は、依存関係のある以下のLiquid参照に注意してください。
 
 - カタログアイテムタグ
-- コネクテッドコンテンツタグ
+- Connected Contentタグ
 - Content Blocks
 - カスタム属性
 - ユーザー設定センター
-- 製品のおすすめ
-- サブスクリプション状態タグ
+- 商品レコメンデーション
+- 購読状態タグ
 - バウチャーおよびプロモーションタグ
 
-## フィーチャーフラグを含むメッセージのコピー {#copying-messages-with-feature-flags}
+## フィーチャーフラグを使用したメッセージのコピー {#copying-messages-with-feature-flags}
 
-フィーチャーフラグCampaignやフィーチャーフラグステップを含むCanvasをワークスペース間でコピーするには、コピー先のワークスペースに、元のCampaignで参照されているフィーチャーフラグまたは元のCanvasで参照されているフィーチャーフラグステップと一致するIDを持つ[フィーチャーフラグ実験]({{site.baseurl}}/developer_guide/feature_flags/experiments/)が設定されていることを確認してください。
+フィーチャーフラグキャンペーンやフィーチャーフラグステップを含むキャンバスをワークスペース間でコピーするには、コピー先のワークスペースに、元のキャンペーンで参照されているフィーチャーフラグ、または元のキャンバスで参照されているフィーチャーフラグステップのいずれかと一致するIDで構成された[フィーチャーフラグ実験]({{site.baseurl}}/developer_guide/feature_flags/experiments)があることを確認してください。
 
-コピー先のワークスペースに存在しないフィーチャーフラグIDを持つフィーチャーフラグステップを含むCampaignやCanvasをコピーした場合、フィーチャーフラグステップはコピーされますが、その内容はコピーされません。
+コピー先のワークスペースに存在しないフィーチャーフラグIDを持つフィーチャーフラグステップを含むキャンペーンまたはキャンバスをコピーした場合、フィーチャーフラグステップはコピーされますが、その内容はコピーされません。
 
-## Content Blocksを含むメッセージのコピー {#copying-messages-with-content-blocks}
+## ワークスペース間でContent Blocksを含むメッセージをコピーする {#copying-messages-with-content-blocks}
 
-ワークスペース間でCampaignをコピーする場合、Content Blocksはコピーされません。ただし、同じ名前のブロックがコピー先のワークスペースに存在する場合、そのContent Blockを参照できます。または、Campaignを起動する際のエラーを回避するために、コピー先のワークスペースでContent Block（またはこれらのLiquid参照）を作成できます。
+ワークスペース間でキャンペーンをコピーする場合、Content Blocksはコピーされません。ただし、コピー先のワークスペースに同じ名前のブロックが存在する場合は、そのContent Blocksを参照できます。また、キャンペーンの起動時にエラーが発生しないように、コピー先のワークスペースでContent Block（またはこれらのLiquidの参照）を作成することもできます。
 
-Content Blockを参照するCanvasesの場合、Content Blockを最初にコピー先のワークスペースにコピーする必要があります。
+Content Blocksを参照するキャンバスの場合、まずContent Blocksをコピー先のワークスペースにコピーする必要があります。

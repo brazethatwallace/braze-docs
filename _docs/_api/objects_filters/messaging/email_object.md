@@ -18,8 +18,8 @@ description: "This reference article explains the different components of the Br
 {
   "app_id": (required, string), see App Identifier,
   "subject": (optional, string),
-  "from": (required, valid email address in the format "Display Name <email@address.com>"),
-  "reply_to": (optional, valid email address in the format "email@address.com" - defaults to your workspace's default reply to if not set) - use "NO_REPLY_TO" to set reply-to address to null,
+  "from": (required, valid email address in the format "Display Name <user@example.com>"),
+  "reply_to": (optional, valid email address in the format "user@example.com" - defaults to your workspace's default reply to if not set) - use "NO_REPLY_TO" to set reply-to address to null,
   "bcc": (optional, one of the BCC addresses defined in your workspace's email settings) if provided and the BCC feature is enabled for your account, this address gets added to your outbound message as a BCC address,
   "body": (required unless email_template_id is given, valid HTML),
   "plaintext_body": (optional, valid plaintext, defaults to autogenerating plaintext from "body" when this is not set),
@@ -29,15 +29,16 @@ description: "This reference article explains the different components of the Br
   "extras": (optional, valid Key-Value Hash) extra hash - for SendGrid users, this is passed to SendGrid as Unique Arguments,
   "headers": (optional, valid Key-Value Hash) hash of custom extensions headers (available for SparkPost, SendGrid, or Amazon SES),
   "should_inline_css": (optional, boolean) whether to inline CSS on the body. If not provided, falls back to the default CSS inlining value for the workspace,
-  "attachments": (optional, array) array of JSON objects that define the files you need attached, defined by "file_name" and "url",
+  "attachments": (optional, array) array of JSON objects that define the files you need attached, defined by "file_name", "url", and optionally "basic_auth_credential",
     "file_name": (required, string) the name of the file you want to attach to your email, excluding the extension (for example, ".pdf"). Attach files up to 2 MB. This is required if you use "attachments",
     "url": (required, string) the corresponding URL of the file you want to attach to your email. The file name's extension is detected automatically from the URL defined, which should return the appropriate "Content-Type" as a response header. This is required if you use "attachments",
+    "basic_auth_credential": (optional, string) the name of the stored basic authentication credential to use when the attachment URL requires a login,
 }
 ```
 
-- [App identifier]({{site.baseurl}}/api/identifier_types/)
+- [App identifier]({{site.baseurl}}/api/identifier_types)
   - Any valid `app_id` from an app configured in your workspace works for all users in your workspace, regardless of whether the user has the specific app on their profile or not.
-- For more information and best practices on preheaders, see [Email styling]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling/).
+- For more information and best practices on preheaders, see [Email styling]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling).
 
 {% alert warning %}
 Braze recommends that you avoid using Google Drive links for your attachment's `url`, as this can block our servers' calls to get the file and result in the email message not sending.
@@ -68,9 +69,13 @@ An `email_template_id` can be retrieved from the bottom of any email template cr
 
 ## Authentication for email file attachments
 
-1. Navigate to **Settings** > **Connected Content** and click **Add Credential** to add your authentication credentials.
-2. Enter a name, and add a username and password.
-3. In email object of the `/messages/send` endpoint, include a `basic_auth_credential` property specifying the credential name in the attachment details. Refer to the following example with the credential name `company_basic_auth_credential_name`:
+Use a stored basic authentication credential when an attachment URL requires a login. This applies to attachments in the email object on [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) and to the top-level `attachments` array on [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns).
+
+1. Go to **Settings** > **Connected Content**.
+2. Select **Add credential**.
+3. Select **Basic authentication**.
+4. Enter a credential name, username, and password.
+5. Include a `basic_auth_credential` property on each attachment that requires authentication, and set it to that credential name. The following example uses the credential name `company_basic_auth_credential_name` in an email object:
 
 ```json
 {
@@ -78,8 +83,8 @@ An `email_template_id` can be retrieved from the bottom of any email template cr
   "messages":{
     "email":{
       "app_id": "153e8a29-fd6d-4f77-ade7-1a4ca08d457a",
-      "subject": "Basis auth attachment test",
-      "from": "mail <mail@e.company.com>",
+      "subject": "Basic auth attachment test",
+      "from": "mail <mail@example.com>",
       "body": "my attachment test",
       "attachments":[
         { "file_name":"checkout_receipt.pdf",
@@ -98,5 +103,5 @@ When Braze fetches a file from an attachment `url`:
 - **Caching:** Braze may reuse a recently retrieved file for up to approximately 24 hours. If you need every send to pick up a new version of the file immediately, use a distinct URL per version (for example, a path or query that changes when the file changes).
 - **Timeouts:** Hosts should respond quickly. If the attachment URL is slow or hangs, the message send can fail—aim for responses within about two minutes.
 - **Security:** Do not put personally identifiable information (PII) or secrets in attachment URLs (including query strings), because URLs can appear in logs or downstream systems.
-- **Firewalls:** If the URL is only reachable from specific networks, allow traffic from Braze in line with [Connected Content IP allowlisting]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/#connected-content-ip-allowlisting). Use [basic authentication credentials](#authentication-for-email-file-attachments) when the file requires login.
+- **Firewalls:** If the URL is only reachable from specific networks, allow traffic from Braze in line with [Connected Content IP allowlisting]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting). Use [basic authentication credentials](#authentication-for-email-file-attachments) when the file requires login.
 

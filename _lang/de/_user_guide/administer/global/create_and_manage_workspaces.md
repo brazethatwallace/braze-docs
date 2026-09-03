@@ -29,7 +29,12 @@ Alles, was Sie in Braze tun, findet innerhalb eines Workspace statt. Workspaces 
 
 ### 1. Schritt: Einen Plan erstellen {#step-1-have-a-plan}
 
-Bevor Sie beginnen, stellen Sie sicher, dass Sie mit Ihrem Team und Ihrer/Ihrem Braze-Onboarding-Manager:in die beste Workspace-Konfiguration für Ihren Anwendungsfall erarbeitet haben. Um mehr über die Planung Ihrer Workspaces in Braze zu erfahren, lesen Sie unseren Leitfaden [Erste Schritte: Workspaces]({{site.baseurl}}/user_guide/get_started/workspaces/).
+Bevor Sie beginnen, stellen Sie sicher, dass Sie mit Ihrem Team und Ihrer/Ihrem Braze-Onboarding-Manager:in die beste Workspace-Konfiguration für Ihren Anwendungsfall erarbeitet haben. Um mehr über die Planung Ihrer Workspaces in Braze zu erfahren, lesen Sie unseren Leitfaden [Erste Schritte: Workspaces]({{site.baseurl}}/user_guide/get_started/workspaces).
+
+{% alert warning %}
+**Best Practice: Verwenden Sie dedizierte Firebase-Projekte pro Workspace**<br>
+Braze erlaubt zwar das Hochladen derselben Firebase-Service-Account-JSON-Datei in mehrere Workspaces, aber alle Workspaces, die dieselbe Google-Projekt-ID verwenden, teilen sich das Standard-Rate-Limit von Firebase Cloud Messaging von 600.000 Nachrichten pro Minute. Absender mit hohem Volumen können bei gleichzeitigen Campaign-Starts über mehrere Workspaces hinweg auf „Quota Exceeded“-Fehler stoßen.<br><br>Verwenden Sie für eine isolierte Zustellbarkeit und Kontingent-Verwaltung separate, dedizierte Firebase-Projekte für jeden Braze-Workspace.
+{% endalert %}
 
 ### 2. Schritt: Ihren Workspace hinzufügen {#step-2-add-your-workspace}
 
@@ -127,7 +132,7 @@ So löschen Sie Ihren Workspace oder Ihre App-Instanz:
 1. Gehen Sie zu **Settings** > **App Settings**.
 2. Wählen Sie **Delete workspace**, um den jeweiligen Workspace zu löschen, oder wählen Sie das Papierkorbsymbol neben der jeweiligen App-Instanz.
 
-Sie können keine App-Instanzen oder Workspaces löschen, die derzeit für das Targeting von Nutzer:innen verwendet werden oder die über 1.000 Nutzer:innen haben. Wenn Sie dies versuchen, erhalten Sie eine Fehlermeldung. Um fortzufahren und sie zu löschen, [erstellen Sie einen Support-Fall]({{site.baseurl}}/user_guide/administer/personal/braze_support/), der einen Dashboard-Link und den Namen der zu löschenden App-Instanz oder des Workspace enthält.
+Sie können keine App-Instanzen oder Workspaces löschen, die derzeit für das Targeting von Nutzer:innen verwendet werden oder die über 1.000 Nutzer:innen haben. Wenn Sie dies versuchen, erhalten Sie eine Fehlermeldung. Um fortzufahren und sie zu löschen, [erstellen Sie einen Support-Fall]({{site.baseurl}}/user_guide/administer/personal/braze_support), der einen Dashboard-Link und den Namen der zu löschenden App-Instanz oder des Workspace enthält.
 
 {% alert warning %}
 Seien Sie vorsichtig beim Löschen von Workspaces! Nachdem ein Workspace gelöscht wurde, kann er nicht wiederhergestellt werden.
@@ -143,7 +148,7 @@ Das hängt davon ab, ob Sie Ihre App aktualisieren oder eine völlig neue App er
 
 #### Ihre App aktualisieren {#updating-your-app}
 
-Wenn Sie Ihre App aktualisieren, sollten Sie die alte und die neue Version trennen, indem Sie eine neue App-Instanz innerhalb desselben Workspace erstellen. Auf diese Weise können Sie Nutzer:innen der neuen Version effektiv ansprechen, wenn Sie diese App bei der Segmentierung auswählen. Wenn Sie Nutzer:innen der alten Version eine Nachricht senden möchten, können Sie Filter verwenden, um [die vorherige App-Version anzusprechen]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features/#filtering-by-most-recent-app-versions).
+Wenn Sie Ihre App aktualisieren, sollten Sie die alte und die neue Version trennen, indem Sie eine neue App-Instanz innerhalb desselben Workspace erstellen. Auf diese Weise können Sie Nutzer:innen der neuen Version effektiv ansprechen, wenn Sie diese App bei der Segmentierung auswählen. Wenn Sie Nutzer:innen der alten Version eine Nachricht senden möchten, können Sie Filter verwenden, um [die vorherige App-Version anzusprechen]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions).
 
 Wenn Sie einen neuen Workspace erstellen, existieren Ihre Nutzer:innen an zwei Stellen: im alten Workspace und im neuen Workspace. Sie könnten auch potenziell dasselbe Push-Token haben. Dies kann dazu führen, dass Nutzer:innen eine Marketing-Nachricht erhalten, die nur für Nutzer:innen des alten Workspace bestimmt war, selbst wenn sie bereits ein Upgrade durchgeführt haben.
 
@@ -165,11 +170,11 @@ Standardmäßig zielt ein Segment auf alle Apps und Websites im Workspace ab. So
 
 Sie können dieses Segment dann zu Ihrer Nachricht hinzufügen und Ihre Zielgruppe bei Bedarf mit zusätzlichen Segmenten und Filtern weiter verfeinern.
 
-#### Campaigns
+#### Campaigns {#campaigns}
 
 Fügen Sie bei Campaigns Ihr Segment im Schritt **Target Audiences** des Composers hinzu.
 
-#### Canvas
+#### Canvas {#canvas}
 
 Fügen Sie in Canvas Ihr Segment zu Ihren Nachrichtenschritten im Abschnitt **Delivery Validations** hinzu. Zustellungsvalidierungen überprüfen doppelt, ob Ihre Zielgruppe Ihre Zustellungskriterien zum Zeitpunkt des Nachrichtenversands erfüllt. Denken Sie daran, Zustellungsvalidierungen für jeden Nachrichtenschritt festzulegen, um sicherzustellen, dass die Nachricht an die richtige App zugestellt wird. Eine Segmentierung auf Eingangsebene ist nicht erforderlich.
 
@@ -183,5 +188,5 @@ Im ursprünglichen Canvas-Workflow fügen Sie Ihr Segment auf der Canvas-Kompone
 
 Nachdem Sie Ihren Workspace erstellt haben, konfigurieren Sie ihn:
 
-- [Workspace-Einstellungen]({{site.baseurl}}/user_guide/administer/global/workspace_settings/), um API-Schlüssel, E-Mail-Präferenzen, Push-Einstellungen und mehr festzulegen.
-- [Unternehmensnutzer:innen verwalten]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/), um Nutzer:innen hinzuzufügen und Berechtigungen für diesen Workspace zuzuweisen.
+- [Workspace-Einstellungen]({{site.baseurl}}/user_guide/administer/global/workspace_settings), um API-Schlüssel, E-Mail-Präferenzen, Push-Einstellungen und mehr festzulegen.
+- [Unternehmensnutzer:innen verwalten]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users), um Nutzer:innen hinzuzufügen und Berechtigungen für diesen Workspace zuzuweisen.

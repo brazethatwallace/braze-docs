@@ -20,7 +20,7 @@ description: "This article outlines details about the Export Canvas details Braz
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `canvas.details` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `canvas.details` permission.
 
 ## Rate limit
 
@@ -30,7 +30,7 @@ To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-
 
 | Parameter | Required | Data Type | Description |
 | --------- | -------- | --------- | ----------- |
-| `canvas_id` | Required | String | See [Canvas API Identifier]({{site.baseurl}}/api/identifier_types/) |
+| `canvas_id` | Required | String | See [Canvas API Identifier]({{site.baseurl}}/api/identifier_types) |
 | `post_launch_draft_version` | Optional | Boolean | For Canvases that have a post-launch draft, setting this to `true` shows any draft changes available. Defaults to `false`. |
 | `include_has_translatable_content` | Optional | Boolean | When set to `true`, the API response includes a `has_translatable_content` field for each message. Defaults to `false`. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
@@ -100,7 +100,7 @@ All Canvas steps have a `next_paths` field, which is an array of `{name, next_st
     },
     ... (more steps)
   ],
-  "message": (required, string) the status of the export, returns 'success' when completed without errors
+  "message": (string) returns 'success' when the request completes without errors
 }
 ```
 
@@ -220,7 +220,7 @@ The following is an example response that includes Canvas messages sent through 
 ```
 
 {% alert tip %}
-For help with CSV and API exports, visit [Export troubleshooting]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+For help with CSV and API exports, visit [Export troubleshooting]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endapi %}

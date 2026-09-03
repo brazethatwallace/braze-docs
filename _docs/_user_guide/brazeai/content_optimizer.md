@@ -2,14 +2,14 @@
 nav_title: Content Optimizer
 article_title: Content Optimizer
 alias: "/content_optimizer/"
-description: "Content Optimizer is an agent that helps you test and optimize message content at scale, using AI to generate and evaluate high volumes of content variants automatically."
+description: "Content Optimizer helps you test and optimize message content at scale, using AI to generate and evaluate high volumes of content variants."
 page_type: reference
 page_order: 3
 ---
 
 # Content Optimizer
 
-> Content Optimizer is an agent that helps you test and optimize message content at scale, using AI to generate and evaluate high volumes of content variants automatically.
+> Content Optimizer helps you test and optimize message content at scale, using AI to generate and evaluate high volumes of content variants automatically.
 
 {% alert important %}
 Content Optimizer is currently in beta and only available for these channels: email, push notifications, and SMS/MMS/RCS messages. For help getting started, contact your customer success manager.
@@ -17,7 +17,7 @@ Content Optimizer is currently in beta and only available for these channels: em
 
 ## About Content Optimizer
 
-Content Optimizer is an agent that runs in a Canvas step. It helps you define message components to test, generate variants using Generative AI or manual input, and automatically optimize which content combinations are sent to users. This feature helps you to:
+Content Optimizer runs in a Canvas step. It helps you define message components to test, generate variants using Generative AI or manual input, and automatically optimize which content combinations are sent to users. This feature helps you to:
 
 - Optimize subject lines, body header, body content, or primary CTA for emails.
 - Optimize titles and messages for push notifications.
@@ -26,7 +26,17 @@ Content Optimizer is an agent that runs in a Canvas step. It helps you define me
 - Test high volumes of content variants quickly, leveraging AI for ideation.
 - Automatically phase out underperforming content and scale up winners.
 
-Learn how to create a [Content Optimizer step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step/).
+Learn how to create a [Content Optimizer step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step).
+
+{% multi_lang_include brazeai/generative_ai/policy.md %}
+
+### OpenAI and Content Optimizer {#openai-and-content-optimizer}
+
+Content Optimizer uses OpenAI only when you explicitly request AI-generated variant suggestions. It does not use OpenAI to choose which variant each user receives or to allocate send traffic.
+
+- **Uses OpenAI:** When you select **Generate AI suggestions** for a content component, Braze sends your seed variant, instructions, optional [brand guideline]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines), and (for launched steps with sufficient send data) aggregated performance context to OpenAI to generate variant ideas.
+- **Bandit optimization:** Braze's proprietary multi-armed bandit algorithm handles traffic allocation, variant selection at send time, and performance-based optimization. See [How it works](#how-it-works).
+- **Manual entry:** You can define variants by typing them yourself without sending content to OpenAI.
 
 ## Use cases
 
@@ -58,23 +68,27 @@ Learn how to create a [Content Optimizer step]({{site.baseurl}}/user_guide/messa
 | CTA copy variations | Increase click-throughs | Compare action-led and conversational CTA phrasing for links and next-step prompts in SMS, MMS, and RCS. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="SMS, MMS, and RCS messages" }
 
-## How it works
+## How it works {#how-it-works}
+
+Braze's bandit algorithm handles the optimization described in this section.
 
 Content Optimizer uses a non-contextual [multi-armed bandit](https://en.wikipedia.org/wiki/Multi-armed_bandit) algorithm to allocate more sends to high-performing variants and reduce allocation to underperforming ones. Over time, this results in continuous improvement of your message content, with minimal manual intervention.
 
-Braze's proprietary bandit optimization algorithm is built specifically for the combinatorial nature of the Content Optimizer step. Given that each message is comprised of several components, the bandit simultaneously learns about the performance of each component (such as the subject line, body, CTA) as well as their interactions when combined into a message. More concretely, when a given combination is sent, all combinations that share the same components benefit from the data of that send. This allows the bandit to learn much faster on the same amount of data, relative to a standard bandit algorithm.
+Braze's proprietary bandit optimization algorithm is built specifically for the combinatorial nature of the Content Optimizer step. Given that each message comprises several components, the bandit simultaneously learns about the performance of each component (such as the subject line, body, CTA) as well as their interactions when combined into a message. More concretely, when a given combination is sent, all combinations that share the same components benefit from the data of that send. This allows the bandit to learn much faster on the same amount of data, relative to a standard bandit algorithm.
 
 When the step first launches, Content Optimizer sends variants randomly to collect initial performance data. After this initial exploration period, the algorithm begins shifting traffic toward higher-performing content combinations, gradually reducing allocation to underperforming options. During the exploration period, traffic is generally distributed across available variants to allow the algorithm to learn from their relative performance.
 
-Content Optimizer is similar to the Message step in Canvas, with features like quiet hours, [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/), and event logging. You can configure a Content Optimizer step by creating a base message and defining which content components (such as subject line, body text, or call-to-action) to optimize. Variants for each component can be generated with AI or entered manually, and Liquid tags must be added to the base message to map components into the message content.
+Content Optimizer is similar to the Message step in Canvas, with features like quiet hours, [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing), and event logging. You can configure a Content Optimizer step by creating a base message and defining which content components (such as subject line, body text, or call-to-action) to optimize. Variants for each component can be generated with AI or entered manually, and Liquid tags must be added to the base message to map components into the message content.
 
 Each user receives one message per entry into the Content Optimizer step. Re-entries are treated as new, with no memory of previous variants.
 
+To attribute downstream behavior in your own analytics tools, add a Liquid tag to your message that records which combination each user received. For more information, see [Combination token]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step#combination-token).
+
 ## Canvas entry setup
 
-For best results, use Content Optimizer in Canvases where users enter the step gradually and regularly over time, such as in recurring or always-on Canvases with consistent daily volume. If all users enter the step at once, the agent won’t have time to learn from early results. The step will behave more like a static A/B test than a live optimization engine.
+For best results, use Content Optimizer in Canvases where users enter the step gradually and regularly over time, such as in recurring or always-on Canvases with consistent daily volume. If all users enter the step at once, Content Optimizer won’t have time to learn from early results. The step will behave more like a static A/B test than a live optimization engine.
 
-The best fit for Content Optimizer is in daily recurring entry Canvases, as well as event-triggered and API-triggered Canvases with relatively consistent daily user entries. If you do use Content Optimizer in single-send Canvases or "spiky" entry Canvases (like recurring monthly), consider using [Entry controls]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#selecting-entry-controls) to smooth out user entries over the course of multiple days.
+The best fit for Content Optimizer is in daily recurring entry Canvases, as well as event-triggered and API-triggered Canvases with relatively consistent daily user entries. If you do use Content Optimizer in single-send Canvases or "spiky" entry Canvases (like recurring monthly), consider using [Entry controls]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#selecting-entry-controls) to smooth out user entries over the course of multiple days.
 
 ### Key concepts
 
@@ -90,21 +104,19 @@ The best fit for Content Optimizer is in daily recurring entry Canvases, as well
 ## Considerations
 
 - Content Optimizer is currently in beta and only available for these channels: email, push notifications, and SMS/MMS/RCS messages.
-- For email, the agent can generate up to 125 combinations per step:
+- For email, Content Optimizer can generate up to 125 combinations per step:
    - Up to 3 components per step
    - Up to 5 variants for each component
-- For push notifications, the agent can generate up to 25 combinations per step:
+- For push notifications, Content Optimizer can generate up to 25 combinations per step:
    - Up to 2 components per step
    - Up to 5 variants for each component
-- For SMS, MMS, and RCS messages, the agent can generate up to 25 combinations per step:
+- For SMS, MMS, and RCS messages, Content Optimizer can generate up to 25 combinations per step:
    - Up to 2 components per step
    - Up to 5 variants for each component
 - Only one message is sent per user per entry. There is no memory of previous sends for re-entries.
 - Marketers must manually insert Liquid tags for each component in the message composer where the defined content component variants should render.
 
-{% multi_lang_include brazeai/generative_ai/policy.md %}
-
 ## Next steps
 
 - Contact your customer success manager to join the beta or for onboarding support.
-- Learn how to create a [Content Optimizer step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step/).
+- Learn how to create a [Content Optimizer step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step).

@@ -30,7 +30,7 @@ description: "이 문서에서는 Segment 목록 필터링, Segment 생성, Segm
 - **예상 크기:** Segment에 포함된 사용자 수의 대략적인 범위
 - **태그:** Segment에 연결된 태그
 - **Teams:** Segment에 연결된 Teams
-- **고급 추적 Segment만:** [분석 추적]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/#segment-analytics-tracking)이 활성화된 Segment만 표시합니다.
+- **고급 추적 Segment만:** [분석 추적]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking)이 활성화된 Segment만 표시합니다.
 
 ### 열 {#columns}
 
@@ -53,7 +53,7 @@ Segment 목록에 표시할 수 있는 정보 열은 다음과 같습니다:
 Segment의 **Messaging Use** 섹션으로 이동하면 해당 Segment가 다른 Segment, Campaigns, Canvases 등에서 어디에 사용되고 있는지 개요를 확인할 수 있습니다.
 
 {% alert note %}
-Segment가 서로 참조하는 루프를 방지하기 위해, **Segment Membership** 필터를 사용하는 Segment는 다른 Segment에서 참조할 수 없습니다. 자세한 내용은 [세분화 필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/)를 참조하세요.
+Segment가 서로 참조하는 루프를 방지하기 위해, **Segment Membership** 필터를 사용하는 Segment는 다른 Segment에서 참조할 수 없습니다. 자세한 내용은 [세분화 필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters)를 참조하세요.
 {% endalert %}
 
 ## 특정 Segment 관리 {#managing-specific-segments}
@@ -61,18 +61,18 @@ Segment가 서로 참조하는 루프를 방지하기 위해, **Segment Membersh
 ![편집, 복제, 아카이브, 즐겨찾기에 추가 옵션을 보여주는 Segment 편집 메뉴.]({% image_buster /assets/img/segment/segments_page_edit_menu.png %}){: style="float:right;max-width:25%;"}
 
 특정 Segment를 관리하려면 해당 Segment 위에 마우스를 올리고 행 끝에 있는 메뉴 아이콘을 선택하여 다음 옵션을 확인하세요:
-- **Edit:** Segment의 필터를 편집합니다.
-- **Duplicate:** Segment의 사본을 만듭니다.
-- **Archive:** Segment를 아카이브합니다. 해당 Segment를 사용하는 모든 Campaigns 또는 Canvases도 함께 아카이브됩니다.
-- **Add to starred:** Segment를 즐겨찾기로 표시하면 Segments 섹션에서 즐겨찾기만 표시 체크박스를 선택하여 빠르게 접근할 수 있습니다.
+- **편집:** Segment의 필터를 편집합니다.
+- **복제:** Segment의 사본을 만듭니다.
+- **아카이브:** Segment를 아카이브합니다. 해당 Segment를 사용하는 모든 Campaigns 또는 Canvases도 함께 아카이브됩니다.
+- **즐겨찾기에 추가:** Segment를 즐겨찾기로 표시하면 Segments 섹션에서 즐겨찾기만 표시 체크박스를 선택하여 빠르게 접근할 수 있습니다.
 
 여러 Segment 이름 옆의 체크박스를 선택하여 일괄 아카이브 및 일괄 태그 지정 등의 일괄 작업을 수행할 수도 있습니다.
 
 {% alert tip %}
-워크스페이스에 있는 기존 Segment의 머신 판독 가능한 내보내기가 필요한 경우(현재 테이블 보기뿐만 아니라), [Segment 목록 내보내기 엔드포인트]({{site.baseurl}}/api/endpoints/export/segments/get_segment/)를 사용하고 결과를 페이지네이션하세요. 아카이브된 Segment를 감사하려면 상태 필터를 사용하여 **Segments** 대시보드에서 별도로 검토하세요.
+워크스페이스에 있는 기존 Segment의 머신 판독 가능한 내보내기가 필요한 경우(현재 테이블 보기뿐만 아니라), [Segment 목록 내보내기 엔드포인트]({{site.baseurl}}/api/endpoints/export/segments/get_segment)를 사용하고 결과를 페이지네이션하세요. 아카이브된 Segment를 감사하려면 상태 필터를 사용하여 **Segments** 대시보드에서 별도로 검토하세요.
 {% endalert %}
 
-![여러 Segment가 선택되어 있고 태그 지정 드롭다운 필드에서 CRM이 선택된 모습.]({% image_buster /assets/img/segment/segments_bulk_action.png %}){: style="max-width:45%;"}
+!["CRM"이 "Tag As" 드롭다운 필드에서 선택된 상태로 여러 Segment가 선택되어 있는 모습.]({% image_buster /assets/img/segment/segments_bulk_action.png %}){: style="max-width:45%;"}
 
 ### 마지막 조회 이후 변경 사항 {#changes-since-last-viewed}
 

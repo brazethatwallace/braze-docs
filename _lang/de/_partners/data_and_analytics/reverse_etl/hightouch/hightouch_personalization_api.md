@@ -10,13 +10,13 @@ search_tag: Partner
 
 > Die [Personalization API](https://hightouch.com/docs/destinations/personalization-api) von Hightouch ist ein verwalteter Dienst, mit dem Sie eine Daten-API mit niedriger Latenz hosten können, die auf einem beliebigen Datensatz in Ihrem Cloud Data Warehouse basiert.
 
-![]({% image_buster /assets/img/hightouch/cohort7.png %})
+![Architekturdiagramm der Hightouch Personalization API, das den Datenfluss von einem Data Warehouse über Hightouch zu mobilen Apps, Web-Erlebnissen und dynamischen E-Mails zeigt.]({% image_buster /assets/img/hightouch/cohort7.png %})
 
-Die Integration von Braze und Hightouch ermöglicht es Ihnen, die API mit [Braze Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/) zu nutzen, um aktuelle Kund:innen- oder Objektdaten zum Zeitpunkt des Versands in Ihre Campaigns oder Canvases zu ziehen.
+Die Integration von Braze und Hightouch ermöglicht es Ihnen, die API mit [Braze Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call) zu nutzen, um aktuelle Kund:innen- oder Objektdaten zum Zeitpunkt des Versands in Ihre Campaigns oder Canvases zu ziehen.
 
 Die Personalization API von Hightouch bietet einen REST-Endpunkt zur Verwendung innerhalb Ihrer Braze-Konfiguration. Konkret können Sie das Braze Connected-Content-Angebot nutzen, um eine GET-Anfrage an die Personalization API zu stellen und alle Informationen zu einem bestimmten Bezeichner abzurufen. Die von dieser API bereitgestellten Daten können Kund:innen-, Produkt- oder andere Objektdaten darstellen.
 
-![]({% image_buster /assets/img/hightouch/cohort6.png %})
+![Diagramm, das den Datenfluss von Snowflake, BigQuery und Redshift über die Hightouch Personalization API zu Braze Connected-Content zeigt.]({% image_buster /assets/img/hightouch/cohort6.png %})
 
 ## Voraussetzungen {#prerequisites}
 
@@ -25,8 +25,8 @@ Die Personalization API von Hightouch bietet einen REST-Endpunkt zur Verwendung 
 | [Hightouch-Konto](https://app.hightouch.com/login) mit aktivierter Personalization API | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Hightouch [Business-Tier-Konto](https://hightouch.com/pricing). |
 | Definierte Anwendungsfälle | Bevor Sie die API einrichten, müssen Sie Ihren Anwendungsfall für diese Integration festlegen. In der folgenden Liste finden Sie gängige Anwendungsfälle. |
 | In einem Cloud Data Warehouse oder einer anderen Datenquelle gespeicherte Daten | Hightouch lässt sich mit [über 25 Datenquellen](https://hightouch.com/integrations) integrieren. |
-| Hightouch API-Schlüssel | Dieser kann unter **Hightouch > Settings > API keys > Add API key** erstellt werden. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+| Hightouch-API-Schlüssel | Dieser kann unter **Hightouch > Settings > API keys > Add API key** erstellt werden. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 {% tabs %}
 {% tab Anwendungsfälle %}
@@ -55,7 +55,7 @@ Die Personalization API fungiert als Cache für ausgewählte Daten in Ihrem Data
 
 ## Integration
 
-### 1. Schritt: Datenquelle mit Hightouch verbinden {#step-1-connect-data-source-to-hightouch}
+### Schritt 1: Datenquelle mit Hightouch verbinden {#step-1-connect-data-source-to-hightouch}
 
 [Hightouch-Quellen](https://hightouch.com/docs/getting-started/concepts#sources) sind der Ort, an dem die Geschäftsdaten Ihres Unternehmens gespeichert sind. In diesem Fall ist es der Ort, an dem Ihre Nutzerdaten gespeichert sind.
 1. Gehen Sie in Hightouch zu **Sources Overview > Add Source**. Wählen Sie Ihr Data Warehouse als Quelle aus.<br><br>
@@ -63,7 +63,7 @@ Die Personalization API fungiert als Cache für ausgewählte Daten in Ihrem Data
 
 Weitere Einzelheiten finden Sie in der entsprechenden [Dokumentation](https://hightouch.com/docs).
 
-### 2. Schritt: Daten modellieren {#step-2-model-data}
+### Schritt 2: Daten modellieren {#step-2-model-data}
 
 Hightouch-Modelle definieren, welche Daten aus Ihrer Quelle gezogen werden sollen. Um ein neues Modell einzurichten, gehen Sie folgendermaßen vor:
 
@@ -73,7 +73,7 @@ Hightouch-Modelle definieren, welche Daten aus Ihrer Quelle gezogen werden solle
 4. Benennen Sie Ihr Modell, zum Beispiel „Nutzer:innen-Empfehlungen“.<br><br>
 5. Wählen Sie abschließend einen Primärschlüssel aus und klicken Sie auf **Finish**. Ein Primärschlüssel sollte eine Spalte mit eindeutigen Bezeichnern sein. Dies ist auch das Feld, über das Sie die Personalization API aufrufen, um die Empfehlungen einer bestimmten Nutzer:in abzurufen.
 
-### 3. Schritt: Personalization API konfigurieren {#step-3-configure-personalization-api}
+### Schritt 3: Personalization API konfigurieren {#step-3-configure-personalization-api}
 
 Das Vorbereiten der API für den Empfang von Anfragen besteht aus zwei Schritten:
 - Aktivieren der Personalization API in den Regionen, die Ihrer Infrastruktur am nächsten liegen
@@ -92,7 +92,7 @@ Folgen Sie diesen Anweisungen, um beides abzuschließen:
 
 Hightouch synchronisiert jetzt die Daten in Ihrem Data Warehouse mit einer verwalteten Datenbank und stellt sie über die Personalization API zur Verfügung.
 
-### 4. Schritt: Personalization API über Braze Connected-Content aufrufen {#step-4-call-personalization-api-through-braze-connected-content}
+### Schritt 4: Personalization API über Braze Connected-Content aufrufen {#step-4-call-personalization-api-through-braze-connected-content}
 
 Sobald Sie Ihre Personalization-API-Instanz eingerichtet haben, können Sie sie als Braze Connected-Content-Endpunkt verwenden.
 
@@ -119,12 +119,12 @@ Sie können dieses Snippet zum Beispiel in eine Campaign oder ein Canvas einfüg
 
 Sie können Liquid-Templating verwenden, um die in der JSON-Payload zurückgegebenen Eigenschaften zu referenzieren und sie in Ihrem Messaging zu verwenden.
 
-Für die Beispiel-Payload unten:
+Für die folgende Beispiel-Payload:
 
 ```json
 {
     "user_id": 12345,
-    "full_name": "Jane Doe",
+    "full_name": "Alex Smith",
     "lifetime_value": 1492.18,
     "churn_risk": 0.04,
     "90_day_summary": {
@@ -155,7 +155,7 @@ Für die Beispiel-Payload unten:
         ],
         "upcoming_album_release": {
             "title": "Universal Language",
-            "artist": "Simon Doty",
+            "artist": "Alex Lee",
             "label": "Anjunadeep",
             "release_date": "2023-04-28"
         }
@@ -170,7 +170,7 @@ Die folgenden Liquid-Referenzen würden diese Beispieldaten zurückgeben:
 | {% raw %}`{{artists.recommendations.concerts[0].artist}}`{% endraw %} | Aphex Twin |
 | {% raw %}`{{artists.recommendations.concerts[0].location}}`{% endraw %} | San Francisco, CA |
 | {% raw %}`{{artists.recommendations.upcoming_album_release.title}}`{% endraw %} | Universal Language |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 4: Call personalization API through Braze Connected Content" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 4: Personalization API über Braze Connected-Content aufrufen" }
 
 ## Fehlerbehebung {#troubleshooting}
 

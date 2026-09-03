@@ -6,7 +6,7 @@ page_order: 3
 
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Crear catálogo de Braze."
+description: "En este artículo se describen los detalles del endpoint Crear catálogo de Braze."
 
 ---
 {% api %}
@@ -15,13 +15,13 @@ description: "En este artículo se describen los detalles del punto de conexión
 /catalogs
 {% endapimethod %}
 
-> Utiliza este punto de conexión para crear un catálogo.
+> Utiliza este endpoint para crear un catálogo.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#af9f3e2d-b7e7-49e7-aa64-f4652892be6e {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `catalogs.create`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `catalogs.create`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -32,7 +32,7 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
 | `catalogs` | Obligatorio | Matriz | Una matriz que contiene objetos de catálogo. Solo se permite un objeto de catálogo para esta solicitud. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ### Parámetros del objeto del catálogo {#catalog-object-parameters}
 
@@ -41,7 +41,7 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 | `name` | Obligatorio | Cadena | El nombre del catálogo que quieres crear. |
 | `description` | Obligatorio | Cadena | La descripción del catálogo que quieres crear. |
 | `fields` | Obligatorio | Matriz | Una matriz de objetos en la que el objeto contiene las claves `name` y `type`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Catalog object parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parámetros del objeto del catálogo" }
 
 ## Ejemplo de solicitud {#example-request}
 ```
@@ -106,7 +106,7 @@ El tipo de datos `geo` almacena una coordenada geográfica como una matriz con e
 
 ## Respuesta {#response}
 
-Hay dos respuestas de código de estado para este punto de conexión: `201` y `400`.
+Hay dos respuestas de código de estado para este endpoint: `201` y `400`.
 
 ### Ejemplo de respuesta correcta {#example-success-response}
 
@@ -209,6 +209,6 @@ La siguiente tabla enumera los posibles errores devueltos y sus pasos asociados 
 | `invalid-fields` | `fields` no tiene el formato correcto. |
 | `too-many-catalog-atoms` | Solo puedes crear un catálogo por solicitud. |
 | `too-many-fields` | El límite de campos es de 500. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Solución de problemas" }
 
 {% endapi %}

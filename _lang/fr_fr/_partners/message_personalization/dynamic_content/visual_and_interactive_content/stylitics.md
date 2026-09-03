@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Stylitics
 
-> [Stylitics](https://stylitics.com/) est une plateforme SaaS basée sur le cloud destinée aux détaillants, permettant d'automatiser et de distribuer du contenu visuel à grande échelle. Les offres groupées de Stylitics inspirent en contextualisant les produits, en renforçant la confiance dans les achats et en augmentant l'engagement, ce qui conduit à une valeur moyenne de commande et à des taux de conversion plus élevés.
+> [Stylitics](https://stylitics.com/) est une plateforme SaaS basée sur le cloud destinée aux retailers, permettant d'automatiser et de distribuer du contenu visuel à grande échelle. Les offres groupées de Stylitics inspirent en contextualisant les produits, en renforçant la confiance dans les achats et en augmentant l'engagement, ce qui conduit à une valeur moyenne de commande et à des taux de conversion plus élevés.
 
 _Cette intégration est maintenue par Stylitics._
 
@@ -18,16 +18,16 @@ _Cette intégration est maintenue par Stylitics._
 
 Votre intégration Braze et Stylitics vous permet d'améliorer vos campagnes d'e-mail existantes avec un contenu groupé attrayant et pertinent, créant une expérience client personnalisée.
 
-![]({% image_buster /assets/img/stylitics.png %}){: style="max-width:60%;"}
+![Exemple de contenu groupé Stylitics intégré dans une expérience e-mail Braze.]({% image_buster /assets/img/stylitics.png %}){: style="max-width:60%;"}
 
 ## Conditions préalables {#prerequisites}
 
 | Condition | Description |
 | ----------- | ----------- |
 | Compte Stylitics | Un compte [Stylitics](https://stylitics.com/) est requis pour profiter de ce partenariat. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" aria-label="Conditions préalables" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
-## Cas d'utilisation {#use-cases}
+## Cas d'usage {#use-cases}
 
 La liste suivante présente quelques exemples courants de programmes d'e-mails déclenchés :
 - E-mails de panier abandonné
@@ -60,6 +60,7 @@ Par exemple, {% raw %}`&styliticsoverride=001?styliticsCID=email[clientname]`{% 
 {% endalert %}
 
 ### 2. Approche par fichier plat {#2-flat-file-approach}
+
 Vous ou votre ESP pouvez référencer les données de bundle d'un article dans un fichier plat pour alimenter votre e-mail avec les données de bundle. Stylitics peut aplatir les données de bundle au format CSV, TXT ou XML et vous les envoyer quotidiennement. Ils peuvent également ajuster le format du fichier selon les besoins de votre ESP. Notez que la création de ce fichier prend 2 à 3 semaines.
 
 #### Exigences : {#requirements}
@@ -68,6 +69,7 @@ Vous ou votre ESP pouvez référencer les données de bundle d'un article dans u
 - **Clé de fichier** : vous et Stylitics devez vous mettre d'accord sur la chaîne de caractères des données de l'article à utiliser comme clé du fichier afin que votre ESP puisse référencer les données. L'unité de gestion des stocks, `item_group_id` ou `item_number` sont couramment utilisés.
 
 ### 3. Approche par extraction de données du site web {#3-website-data-extraction-approach}
+
 Les fournisseurs peuvent extraire le contenu Stylitics depuis l'interface de votre site et insérer les données de bundle dans les e-mails. Aucun travail supplémentaire de la part de Stylitics n'est requis.
 
 ## Bonnes pratiques pour les modèles d'e-mail {#email-template-best-practices}

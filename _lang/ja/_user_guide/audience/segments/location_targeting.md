@@ -4,7 +4,7 @@ article_title: ロケーションターゲティング
 page_order: 7
 page_type: tutorial
 tool:
-- セグメント
+- Segments
 - Location
 description: "このハウツー記事では、ロケーションターゲティングの設定方法を説明し、ロケーションによるユーザーのセグメンテーションを可能にします。"
 
@@ -12,45 +12,49 @@ description: "このハウツー記事では、ロケーションターゲティ
 
 # ロケーションターゲティング {#location-targeting}
 
-> この記事では、ロケーションターゲティングの設定方法を説明します。ユーザーの最新のロケーションに基づいてセグメンテーションを行うことができます。ロケーションベースのキャンペーンや戦略を検討している場合に最適です。
+> この記事では、ロケーションターゲティングの設定方法を説明します。ユーザーの最新のロケーションに基づいてセグメンテーションを行うことができます。
 
-## ステップ 1: セグメントを作成する {#step-1-create-your-segment}
+## ステップ1：セグメントを作成する {#step-1-create-your-segment}
 
-**オーディエンス**の下にある**セグメント**ページに移動して、現在のユーザーセグメントをすべて表示します。このページでは、新しいセグメントを作成して名前を付けることができます。開始するには、**セグメントを作成**を選択してセグメントに名前を付けます。
+**オーディエンス**の下にある**セグメント**ページに移動して、現在のユーザーセグメントをすべて表示します。このページでは、新しいセグメントを作成して名前を付けることができます。開始するには、**セグメントを作成**を選択し、セグメントに名前を付けます。
 
 ![セグメントを作成するモーダル。]({% image_buster /assets/img_archive/createsegment2.png %}){: style="max-width:70%;"}
 
-## ステップ 2: ロケーションをカスタマイズする {#step-2-customize-your-location}
+## ステップ2: 位置情報をカスタマイズする {#step-2-customize-your-location}
 
-セグメントを作成したら、**最新のロケーション**フィルターを追加して、ユーザーがアプリを最後に使用した場所でターゲティングします。標準的な円形領域またはカスタマイズ可能な多角形領域の範囲内または範囲外のユーザーをハイライトするオプションがあります。
+セグメントを作成したら、`Most Recent Location` フィルターを追加して、ユーザーが最後にアプリを使用した場所でハイライトします。標準的な円形の範囲内または範囲外、もしくはカスタマイズ可能な多角形の範囲内または範囲外のユーザーをハイライトするオプションがあります。
 
-![円の範囲内の最新のロケーションのフィルター。]({% image_buster /assets/img_archive/filter_recent_location.png %})
+![円形範囲内の最新の位置情報によるフィルター。]({% image_buster /assets/img_archive/filter_recent_location.png %})
+
+### 位置情報のないユーザー {#users-without-location-data}
+
+位置情報のないユーザー（以前に位置情報が記録され、その後クリアされたユーザーを含む）は、`most recent location outside of circle` および `most recent location outside of polygon` のフィルターに一致します。位置情報のないユーザーを除外するには、`Most Recent Location` フィルターと `Location Available` フィルターを組み合わせてください。
 
 {% tabs %}
 {% tab 円形 %}
 
-### 円形領域 {#circular-regions}
+### 円形の範囲 {#circular-regions}
 
-円形領域の場合、Originを移動し、セグメンテーションのロケーション半径を調整できます。
+円形の範囲では、Originを移動し、セグメンテーションの位置情報の半径を調整できます。
 
 ![ニュージャージーとニューヨークの間の都市の円形アウトライン。]({% image_buster /assets/img_archive/location_circle.png %}){: style="max-width:70%;"}
 
 {% endtab %}
 {% tab 多角形 %}
 
-### 多角形領域 {#polygonal-regions}
+### 多角形の範囲 {#polygonal-regions}
 
-多角形領域の場合、セグメントに含めたいエリアをより具体的に指定できます。
+多角形の範囲では、セグメントに含めたいエリアをより具体的に指定できます。
 
-![選択された多角形領域としてのニューヨーク州のアウトライン。]({% image_buster /assets/img_archive/create_polygon.png %}){: style="max-width:70%;"}
+![選択された多角形の範囲としてのニューヨーク州のアウトライン。]({% image_buster /assets/img_archive/create_polygon.png %}){: style="max-width:70%;"}
 
 {% endtab %}
 {% endtabs %}
 
 ## ビーコンとジオフェンスのパートナーシップサポート {#partnership-support-for-beacon-and-geofence}
 
-既存のビーコンまたはジオフェンスサポートとBrazeのターゲティングおよびメッセージング機能を組み合わせることで、ユーザーの物理的なアクションに関するより多くの情報を取得し、それに応じてメッセージを送信できます。以下のパートナーと連携して位置情報の追跡を活用できます。
+既存のビーコンやジオフェンスのサポートと、Brazeのターゲティングおよびメッセージング機能を組み合わせることで、ユーザーの物理的なアクションに関するより多くの情報を取得し、それに応じてメッセージを送信できます。以下のパートナーを活用して位置情報の追跡を行うことができます。
 
-- [Radar]({{site.baseurl}}/partners/message_personalization/location/radar/)
-- [Infillion]({{site.baseurl}}/partners/message_personalization/location/infillion/)
-- [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare/)
+- [Radar]({{site.baseurl}}/partners/message_personalization/location/radar)
+- [Infillion]({{site.baseurl}}/partners/message_personalization/location/infillion)
+- [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare)

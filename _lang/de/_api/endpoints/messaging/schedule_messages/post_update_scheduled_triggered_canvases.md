@@ -10,7 +10,7 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Gepla
 ---
 {% api %}
 # Geplante API-getriggerte Canvases aktualisieren {#update-scheduled-api-triggered-canvases}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /canvas/trigger/schedule/update
 {% endapimethod %}
 
@@ -18,7 +18,7 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Gepla
 
 So können Sie festlegen, welche Aktion den Versand der Nachricht triggern soll. Sie können `trigger_properties` übergeben, die Braze in die Nachricht selbst einfügt.
 
-Beachten Sie, dass Sie zum Versenden von Nachrichten über diesen Endpunkt eine Canvas-ID benötigen, die beim Erstellen eines [Canvas]({{site.baseurl}}/api/identifier_types/#canvas-api-identifier) generiert wird.
+Beachten Sie, dass Sie zum Versenden von Nachrichten über diesen Endpunkt eine Canvas-ID benötigen, die beim Erstellen eines [Canvas]({{site.baseurl}}/api/identifier_types#canvas-identifier) generiert wird.
 
 Jeder Zeitplan überschreibt den Zeitplan, den Sie in der ursprünglichen Anfrage zum Erstellen des Zeitplans oder in früheren Anfragen zum Aktualisieren des Zeitplans angegeben haben, vollständig.
   - Wenn Sie z. B. ursprünglich `"schedule" : {"time" : "2015-02-20T13:14:47", "in_local_time" : true}` angeben und dann in Ihrem Update `"schedule" : {"time" : "2015-02-20T14:14:47"}` übergeben, sendet Braze Ihre Nachricht zur angegebenen Zeit in UTC, nicht in der Ortszeit der Nutzer:innen.
@@ -28,7 +28,7 @@ Jeder Zeitplan überschreibt den Zeitplan, den Sie in der ursprünglichen Anfrag
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `canvas.trigger.schedule.update`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `canvas.trigger.schedule.update`.
 
 ## Rate-Limit
 
@@ -55,10 +55,10 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | ---------| --------- | ----------- |
-| `canvas_id` | Erforderlich | String | Siehe [Canvas-Bezeichner]({{site.baseurl}}/api/identifier_types/). |
+| `canvas_id` | Erforderlich | String | Siehe [Canvas-Bezeichner]({{site.baseurl}}/api/identifier_types). |
 | `schedule_id` | Optional | String | Die zu aktualisierende `schedule_id` (erhalten aus der Antwort auf die Anfrage zum Erstellen des Zeitplans). |
-| `schedule` | Erforderlich | Objekt | Siehe [Zeitplan-Objekt]({{site.baseurl}}/api/objects_filters/schedule_object/). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `schedule` | Erforderlich | Objekt | Siehe [Zeitplan-Objekt]({{site.baseurl}}/api/objects_filters/schedule_object). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 ## Beispielanfrage {#example-request}
 ```

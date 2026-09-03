@@ -1,0 +1,263 @@
+# Doc ownership sync: monthly update of the Page Paths Google Sheet and assignees CSV.
+#
+# Scans eligible `_docs/` markdown paths (see scripts/doc_ownership_sync_config.yml),
+# adds new paths and removes stale ones from the team ownership spreadsheet, regenerates
+# `.github/support_analyzer_doc_assignees.csv`, and opens a draft PR when the CSV changes.
+#
+# Schedule: first weekday of each month at 9:00 America/New_York.
+# Cron fires on days 1–7; a gate job runs the sync only on the first Mon–Fri of the month.
+# (e.g. if the 1st is Saturday, the sync runs Monday the 3rd.)
+#
+# Secrets:
+#   GOOGLE_SHEETS_SERVICE_ACCOUNT_JSON — full service account key JSON with edit access to the sheet
+#   SLACK_BOT_TOKEN, SLACK_DOCS_REQUEST_CHANNEL (optional Slack notify to #docs_request)
+name: Doc ownership sync (monthly)
+
+on:
+  schedule:
+    - cron: "0 9 1-7 * *"
+      timezone: "America/New_York"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  schedule_gate:
+    name: First weekday gate
+    runs-on: ubuntu-latest
+    outputs:
+      should_run: ${{ steps.gate.outputs.should_run }}
+    steps:
+      - name: Check first weekday (or manual run)
+        id: gate
+        run: |
+          set -euo pipefail
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "Manual run — proceeding."
+            echo "should_run=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          should_run=$(python3 - <<'PY'
+          from datetime import date, datetime
+          from zoneinfo import ZoneInfo
+
+          today = datetime.now(ZoneInfo("America/New_York")).date()
+          year, month = today.year, today.month
+          first_weekday = next(
+              date(year, month, day)
+              for day in range(1, 8)
+              if date(year, month, day).weekday() < 5
+          )
+          print("true" if today == first_weekday else "false")
+          PY
+          )
+          if [ "$should_run" = "true" ]; then
+            echo "Today is the first weekday of the month — proceeding."
+          else
+            echo "Not the first weekday of the month — skipping scheduled sync."
+          fi
+          echo "should_run=$should_run" >> "$GITHUB_OUTPUT"
+
+  sync:
+    needs: schedule_gate
+    if: needs.schedule_gate.outputs.should_run == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    outputs:
+      ymd: ${{ steps.stamp.outputs.ymd }}
+      changed: ${{ steps.sync.outputs.changed }}
+      csv_changed: ${{ steps.sync.outputs.csv_changed }}
+      added_count: ${{ steps.sync.outputs.added_count }}
+      removed_count: ${{ steps.sync.outputs.removed_count }}
+      total_count: ${{ steps.sync.outputs.total_count }}
+      pr_url: ${{ steps.sync_pr.outputs.pull-request-url }}
+      pr_number: ${{ steps.sync_pr.outputs.pull-request-number }}
+
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: develop
+          fetch-depth: 0
+          persist-credentials: true
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r scripts/requirements-doc-ownership-sync.txt
+
+      - name: Date stamp (Eastern)
+        id: stamp
+        run: echo "ymd=$(TZ=America/New_York date +%Y-%m-%d)" >> "$GITHUB_OUTPUT"
+
+      - name: Sync Page Paths sheet and assignees CSV
+        id: sync
+        env:
+          GOOGLE_SHEETS_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SHEETS_SERVICE_ACCOUNT_JSON }}
+        run: |
+          set -euo pipefail
+          python3 scripts/sync_doc_page_paths.py \
+            --apply \
+            --github-output "$GITHUB_OUTPUT" \
+            --summary-json "${{ runner.temp }}/sync-summary.json"
+
+      - name: Upload sync summary
+        uses: actions/upload-artifact@v7
+        with:
+          name: doc-ownership-sync-${{ github.run_id }}
+          path: ${{ runner.temp }}/sync-summary.json
+          if-no-files-found: error
+
+      - name: Write PR body
+        if: steps.sync.outputs.csv_changed == 'true'
+        env:
+          SUMMARY_JSON: ${{ runner.temp }}/sync-summary.json
+          SHEET_URL: https://docs.google.com/spreadsheets/d/1Je5y_hygijixkbq8jQkXqrVwrDqeuArqCUQb9G6dwEM/edit#gid=1344261070
+          YMD: ${{ steps.stamp.outputs.ymd }}
+        run: |
+          set -euo pipefail
+          python3 - <<'PY' > "${{ runner.temp }}/pr-body.md"
+          import json, os
+          from pathlib import Path
+          summary = json.loads(Path(os.environ["SUMMARY_JSON"]).read_text(encoding="utf-8"))
+          added = summary.get("added_paths") or []
+          removed = summary.get("removed_paths") or []
+
+          def bullets(paths, limit=25):
+              if not paths:
+                  return "_None._\n"
+              lines = [f"- `{p}`" for p in paths[:limit]]
+              if len(paths) > limit:
+                  lines.append(f"- _…and {len(paths) - limit} more_")
+              return "\n".join(lines) + "\n"
+
+          print("## Summary")
+          print()
+          print(
+              f"Monthly doc ownership sync for **{os.environ['YMD']}**. "
+              "The **Page Paths** tab on the team ownership spreadsheet was updated from `develop`, "
+              "and this PR refreshes `.github/support_analyzer_doc_assignees.csv` for Support Analyzer assignee lookup."
+          )
+          print()
+          print(f"- Spreadsheet: {os.environ['SHEET_URL']}")
+          print(f"- Added paths: **{summary.get('added_count', 0)}**")
+          print(f"- Removed paths: **{summary.get('removed_count', 0)}**")
+          print(f"- Total eligible paths: **{summary.get('total_count', 0)}**")
+          print()
+          print("### Added")
+          print(bullets(added))
+          print("### Removed")
+          print(bullets(removed))
+          print("## Test plan")
+          print()
+          print("- [ ] Spot-check inherited Writer/Team values for new rows in the spreadsheet")
+          print("- [ ] Confirm removed paths were intentional deletions or exclusions")
+          print("- [ ] Merge so Support Analyzer uses the updated CSV")
+          PY
+
+      - name: Open draft pull request for CSV update
+        id: sync_pr
+        if: steps.sync.outputs.csv_changed == 'true'
+        uses: peter-evans/create-pull-request@v8
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          draft: true
+          branch: doc-ownership/sync-${{ steps.stamp.outputs.ymd }}-${{ github.run_id }}
+          base: develop
+          title: "[DO] Sync doc ownership assignees CSV — ${{ steps.stamp.outputs.ymd }}"
+          commit-message: "chore: sync support_analyzer_doc_assignees.csv (monthly ownership)"
+          body-path: ${{ runner.temp }}/pr-body.md
+          delete-branch: true
+          add-paths: |
+            .github/support_analyzer_doc_assignees.csv
+
+      - name: Write workflow summary
+        env:
+          SUMMARY_JSON: ${{ runner.temp }}/sync-summary.json
+          SHEET_URL: https://docs.google.com/spreadsheets/d/1Je5y_hygijixkbq8jQkXqrVwrDqeuArqCUQb9G6dwEM/edit#gid=1344261070
+        run: |
+          python3 - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json, os
+          from pathlib import Path
+          summary = json.loads(Path(os.environ["SUMMARY_JSON"]).read_text(encoding="utf-8"))
+          print("## Doc ownership sync")
+          print()
+          print(f"- Spreadsheet: {os.environ['SHEET_URL']}")
+          print(f"- Added: **{summary.get('added_count', 0)}**")
+          print(f"- Removed: **{summary.get('removed_count', 0)}**")
+          print(f"- Total eligible paths: **{summary.get('total_count', 0)}**")
+          PY
+
+  notify:
+    name: Slack notification
+    needs: sync
+    if: always() && needs.sync.result != 'skipped'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Post doc ownership sync result to Slack (#docs_request)
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_DOCS_REQUEST_CHANNEL: ${{ secrets.SLACK_DOCS_REQUEST_CHANNEL }}
+          SLACK_DEPLOY_NOTIFY_CHANNEL: ${{ secrets.SLACK_DEPLOY_NOTIFY_CHANNEL }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          JOB_RESULT: ${{ needs.sync.result }}
+          YMD: ${{ needs.sync.outputs.ymd }}
+          CHANGED: ${{ needs.sync.outputs.changed }}
+          CSV_CHANGED: ${{ needs.sync.outputs.csv_changed }}
+          ADDED_COUNT: ${{ needs.sync.outputs.added_count }}
+          REMOVED_COUNT: ${{ needs.sync.outputs.removed_count }}
+          TOTAL_COUNT: ${{ needs.sync.outputs.total_count }}
+          PR_URL: ${{ needs.sync.outputs.pr_url }}
+          PR_NUMBER: ${{ needs.sync.outputs.pr_number }}
+          EVENT_NAME: ${{ github.event_name }}
+          SHEET_URL: https://docs.google.com/spreadsheets/d/1Je5y_hygijixkbq8jQkXqrVwrDqeuArqCUQb9G6dwEM/edit#gid=1344261070
+          ONCALL_DOCS_MENTION: "<!subteam^S096J5PE2TB|oncall-docs>"
+        run: |
+          set -euo pipefail
+          CHANNEL="${SLACK_DOCS_REQUEST_CHANNEL:-${SLACK_DEPLOY_NOTIFY_CHANNEL:-}}"
+          if [ -z "${SLACK_BOT_TOKEN:-}" ] || [ -z "${CHANNEL}" ]; then
+            echo "Slack not configured (set SLACK_BOT_TOKEN and SLACK_DOCS_REQUEST_CHANNEL); skipping."
+            exit 0
+          fi
+
+          CONTEXT=
+          if [ "${EVENT_NAME}" = "workflow_dispatch" ]; then
+            CONTEXT=" (manual run)"
+          fi
+
+          if [ "$JOB_RESULT" = "failure" ]; then
+            printf -v TEXT '%s\n%s' ":x: *Doc ownership sync* failed${CONTEXT}" "${RUN_URL}"
+          elif [ "$JOB_RESULT" != "success" ]; then
+            printf -v TEXT '%s\n%s' ":warning: *Doc ownership sync* ended (${JOB_RESULT})${CONTEXT}" "${RUN_URL}"
+          elif [ "${CHANGED:-false}" = "true" ] || [ "${CSV_CHANGED:-false}" = "true" ]; then
+            TEXT=":white_check_mark: *Doc ownership sync*${CONTEXT} — updated <${SHEET_URL}|Page Paths> (+${ADDED_COUNT:-0}/-${REMOVED_COUNT:-0}; ${TOTAL_COUNT:-0} total)"
+            TEXT+=$'\n'"${ONCALL_DOCS_MENTION} please review any new blank assignments and update accordingly."
+            if [ -n "${PR_URL:-}" ] && [ -n "${PR_NUMBER:-}" ]; then
+              TEXT+=$'\n'"Updated assignments to merge: <${PR_URL}|#${PR_NUMBER}>"
+            elif [ "${CSV_CHANGED:-false}" = "true" ]; then
+              TEXT+=$'\n'"CSV changed (no PR URL captured)."
+            fi
+          else
+            printf -v TEXT '%s\n%s' ":white_check_mark: *Doc ownership sync*${CONTEXT} — no changes (+${ADDED_COUNT:-0}/-${REMOVED_COUNT:-0})" "${RUN_URL}"
+            TEXT+=$'\n'"${ONCALL_DOCS_MENTION} please review any new blank assignments and update accordingly."
+          fi
+
+          PAYLOAD=$(jq -n \
+            --arg ch "$CHANNEL" \
+            --arg text "$TEXT" \
+            '{
+              channel: $ch,
+              unfurl_links: false,
+              blocks: [{type: "section", text: {type: "mrkdwn", text: $text}}]
+            }')
+
+          RESP=$(curl -sS -X POST https://slack.com/api/chat.postMessage \
+            -H "Authorization: Bearer ${SLACK_BOT_TOKEN}" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d "$PAYLOAD")
+
+          echo "$RESP" | jq .
+          echo "$RESP" | jq -e '.ok == true' >/dev/null

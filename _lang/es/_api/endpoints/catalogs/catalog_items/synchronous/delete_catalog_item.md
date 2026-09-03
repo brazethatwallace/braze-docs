@@ -6,7 +6,7 @@ page_order: 1
 
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Eliminar elemento del catálogo de Braze."
+description: "En este artículo se describen los detalles del endpoint Eliminar elemento del catálogo de Braze."
 
 ---
 {% api %}
@@ -15,13 +15,13 @@ description: "En este artículo se describen los detalles del punto de conexión
 /catalogs/{catalog_name}/items/{item_id}
 {% endapimethod %}
 
-> Utiliza este punto de conexión para eliminar un elemento de tu catálogo.
+> Utiliza este endpoint para eliminar un elemento de tu catálogo.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#0dcce797-1346-472f-9384-082f14541689 {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `catalogs.delete_item`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `catalogs.delete_item`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -37,7 +37,7 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 
 ## Parámetros de la solicitud {#request-parameters}
 
-No hay cuerpo de solicitud para este punto de conexión.
+No hay cuerpo de solicitud para este endpoint.
 
 ## Ejemplo de solicitud {#example-request}
 
@@ -49,7 +49,7 @@ curl --location --request DELETE 'https://rest.iad-03.braze.com/catalogs/restaur
 
 ## Respuesta {#response}
 
-Existen tres respuestas de código de estado para este punto de conexión: `202`, `400` y `404`.
+Existen tres respuestas de código de estado para este endpoint: `202`, `400` y `404`.
 
 ### Ejemplo de respuesta correcta {#example-success-response}
 
@@ -89,7 +89,7 @@ La siguiente tabla enumera los posibles errores devueltos y sus pasos asociados 
 
 | Error | Solución de problemas |
 | --- | --- |
-| `arbitrary-error` | Se ha producido un error arbitrario. Inténtalo de nuevo o ponte en contacto con [Soporte]({{site.baseurl}}/support_contact/). |
+| `arbitrary-error` | Se ha producido un error arbitrario. Inténtalo de nuevo o ponte en contacto con [Soporte]({{site.baseurl}}/support_contact). |
 | `catalog-not-found` | Comprueba que el nombre del catálogo es válido. |
 | `item-not-found` | Comprueba que el elemento a eliminar existe en tu catálogo. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Solución de problemas" }

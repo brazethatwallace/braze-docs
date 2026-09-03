@@ -1,6 +1,6 @@
 ---
-nav_title: "POST:スケジュールされたAPIトリガーキャンバスを削除"
-article_title: "POST:スケジュールされたAPIトリガーキャンバスを削除"
+nav_title: "POST: スケジュールされたAPIトリガーキャンバスを削除"
+article_title: "POST: スケジュールされたAPIトリガーキャンバスを削除"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
@@ -10,7 +10,7 @@ description: "この記事では、「スケジュールされたAPIトリガー
 ---
 {% api %}
 # スケジュールされたAPIトリガーキャンバスを削除 {#delete-scheduled-api-triggered-canvases}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /canvas/trigger/schedule/delete
 {% endapimethod %}
 
@@ -22,7 +22,7 @@ description: "この記事では、「スケジュールされたAPIトリガー
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`canvas.trigger.schedule.delete` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`canvas.trigger.schedule.delete` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -46,7 +46,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | ---------| --------- | ----------- |
-| `canvas_id`| 必須 | 文字列 | [Canvas識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。 |
+| `canvas_id` | 必須 | 文字列 | [キャンバス識別子]({{site.baseurl}}/api/identifier_types)を参照してください。 |
 | `schedule_id` | 必須 | 文字列 | 削除する`schedule_id`（スケジュール作成のレスポンスから取得）。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 

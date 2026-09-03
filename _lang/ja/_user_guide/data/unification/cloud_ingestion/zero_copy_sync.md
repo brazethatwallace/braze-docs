@@ -3,7 +3,7 @@ nav_title: ゼロコピーパーソナライゼーション
 article_title: CDI を用いたゼロコピーパーソナライゼーション
 page_order: 7
 page_type: reference
-description: "このページでは、CDI を使用して Braze キャンバスをトリガーする方法の概要を説明します。"
+description: "このページでは、CDI を使用して Braze Canvasをトリガーする方法の概要を説明します。"
 ---
 
 # CDI を用いたゼロコピーパーソナライゼーション {#zero-copy-personalization-using-cdi}
@@ -14,7 +14,7 @@ description: "このページでは、CDI を使用して Braze キャンバス�
 
 ### クイックスタートのステップ {#quick-start-steps}
 
-Braze CDI に既に慣れている場合、キャンバストリガーの同期設定は[ユーザーデータ CDI 統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/)のプロセスとほぼ同様ですが、以下の注意点があります。
+Braze CDI に既に慣れている場合、キャンバストリガーの同期設定は[ユーザーデータ CDI 統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations)のプロセスとほぼ同様ですが、以下の注意点があります。
 
 - external ID またはユーザーエイリアス識別子のみがサポートされています。メールと電話番号はサポートされていない識別子です。
 - 既存の Braze ユーザーのみ同期できます。新規ユーザーは作成できません。
@@ -63,7 +63,7 @@ CREATE OR REPLACE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.CANVAS_TRIGGERS_SYNC (
 
 ロール、ウェアハウス、ユーザーを設定し、適切な権限を付与します。既存の同期から認証情報を既に持っている場合、それを再利用できます。ただし、キャンバストリガーのソーステーブルへのアクセス権限を必ず拡張してください。
 
-`````````sql
+```sql
 
 CREATE ROLE BRAZE_INGESTION_ROLE;
 
@@ -81,7 +81,7 @@ GRANT ROLE BRAZE_INGESTION_ROLE TO USER BRAZE_INGESTION_USER;
 
 ##### ステップ 1.3: ネットワークポリシーを設定する {#step-13-configure-network-policies}
 
-アカウントにネットワークポリシーが設定されている場合、CDI サービス接続を有効にするために Braze の IP アドレスを許可リストに追加してください。IP アドレスの一覧については、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=snowflake#step-15-allow-braze-ips-in-snowflake-network-policy-optional)を参照してください。
+アカウントにネットワークポリシーが設定されている場合、CDI サービス接続を有効にするために Braze の IP アドレスを許可リストに追加してください。IP アドレスの一覧については、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations?tab=snowflake#step-15-allow-braze-ips-in-snowflake-network-policy-optional)を参照してください。
 
 {% endtab %}
 {% tab Redshift %}
@@ -90,7 +90,7 @@ GRANT ROLE BRAZE_INGESTION_ROLE TO USER BRAZE_INGESTION_USER;
 
 次の例の名前を使用することも、独自のデータベース、スキーマ、およびテーブルの名前を選択することもできます。テーブルの代わりに、ビューまたはマテリアライズドビューを使用することもできます。
 
-`````````sql
+```sql
 CREATE DATABASE BRAZE_CLOUD_PRODUCTION;
 CREATE SCHEMA BRAZE_CLOUD_PRODUCTION.INGESTION;
 CREATE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.CANVAS_TRIGGERS_SYNC (
@@ -120,7 +120,7 @@ CREATE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.CANVAS_TRIGGERS_SYNC (
 
 ロール、ウェアハウス、およびユーザーを設定し、適切な権限を付与します。既存の同期から認証情報を既に持っている場合、それを再利用できます。ただし、キャンバストリガーのソーステーブルへのアクセス権限を必ず拡張してください。
 
-`````````sql
+```sql
 CREATE USER braze_user PASSWORD '{password}';
 GRANT USAGE ON SCHEMA BRAZE_CLOUD_PRODUCTION.INGESTION to braze_user;
 GRANT SELECT ON TABLE CANVAS_TRIGGERS_SYNC TO braze_user;
@@ -128,14 +128,14 @@ GRANT SELECT ON TABLE CANVAS_TRIGGERS_SYNC TO braze_user;
 
 ##### ステップ 1.3: ネットワークポリシーを設定する
 
-アカウントにネットワークポリシーが設定されている場合、CDI サービス接続を有効にするために Braze の IP アドレスを許可リストに追加してください。IP アドレスの一覧については、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=redshift#step-13-allow-access-to-braze-ips)を参照してください。
+アカウントにネットワークポリシーが設定されている場合、CDI サービス接続を有効にするために Braze の IP アドレスを許可リストに追加してください。IP アドレスの一覧については、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations?tab=redshift#step-13-allow-access-to-braze-ips)を参照してください。
 
 {% endtab %}
 {% tab BigQuery %}
 
 ##### ステップ 1.1: ソーステーブル用の新しいプロジェクトまたはデータセットを作成する（オプション） {#step-11-create-a-new-project-or-dataset-for-your-source-table-optional}
 
-`````````sql
+```sql
 CREATE SCHEMA BRAZE-CLOUD-PRODUCTION.INGESTION;
 ```
 
@@ -149,13 +149,13 @@ CREATE SCHEMA BRAZE-CLOUD-PRODUCTION.INGESTION;
 | **`EXTERNAL_ID`** | STRING | NULLABLE |
 | **`ALIAS_NAME`** | STRING | NULLABLE |
 | **`ALIAS_LABEL`** | STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1.2: Set up your source table in BigQuery" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ 1.2: BigQuery でソーステーブルを設定する" }
 
 {% alert note %}
 プロパティはすべての行やユーザーに対して必須ではありません。ただし、プロパティの値は有効な JSON 文字列でなければなりません。行にプロパティがない場合は空の `{}` 文字列を入力してください。
 {% endalert %}
 
-`````````sql
+```sql
 CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CANVAS_TRIGGERS_SYNC`
 (
   updated_at TIMESTAMP DEFAULT current_timestamp,
@@ -178,19 +178,19 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CANVAS_TRIGGERS_SYNC`
 | BigQuery User | Braze によるクエリの実行、メタデータの読み取り、テーブルの一覧表示を許可します。 |
 | BigQuery Data Viewer | Braze によるデータセットとコンテンツの閲覧を許可します。 |
 | BigQuery Job User | Braze によるジョブの実行を許可します。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1.3: Set up credentials" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ 1.3: 認証情報を設定する" }
 
 権限を付与した後、JSON キーを生成します。手順については [Keys create and delete](https://cloud.google.com/iam/docs/keys-create-delete) を参照してください。後で Braze のダッシュボードにアップロードします。
 
 ##### ステップ 1.4: ネットワークポリシーを設定する {#step-14-configure-network-policies}
-アカウントにネットワークポリシーが設定されている場合、CDI サービス接続を有効にするために Braze の IP アドレスを許可リストに追加してください。IP アドレスの一覧については、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=bigquery#step-13-allow-access-to-braze-ips)を参照してください。
+アカウントにネットワークポリシーが設定されている場合、CDI サービス接続を有効にするために Braze の IP アドレスを許可リストに追加してください。IP アドレスの一覧については、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations?tab=bigquery#step-13-allow-access-to-braze-ips)を参照してください。
 
 {% endtab %}
 {% tab Databricks %}
 
 ##### ステップ 1.1: ソーステーブルのカタログまたはスキーマを作成する {#step-11-create-a-catalog-or-schema-for-your-source-table}
 
-`````````sql
+```sql
 CREATE SCHEMA BRAZE-CLOUD-PRODUCTION.INGESTION;
 ```
 
@@ -205,7 +205,7 @@ CREATE SCHEMA BRAZE-CLOUD-PRODUCTION.INGESTION;
 | `EXTERNAL_ID` | STRING |  NULLABLE |
 | `ALIAS_NAME` | STRING | NULLABLE |
 | `ALIAS_LABEL` | STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Set up your source table in Databricks" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ 1.2: Databricks でソーステーブルを設定する" }
 
 スキーマとテーブルの名前は自由に付けられますが、列名は前述の定義と一致させる必要があります。
 
@@ -219,7 +219,7 @@ CREATE SCHEMA BRAZE-CLOUD-PRODUCTION.INGESTION;
 プロパティはすべての行やユーザーに対して必須ではありません。ただし、プロパティの値は有効な JSON 文字列でなければなりません。行にプロパティがない場合は空の `{}` 文字列を入力してください。
 {% endalert %}
 
-`````````sql
+```sql
 CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 (
   updated_at TIMESTAMP DEFAULT current_timestamp(),
@@ -244,14 +244,14 @@ Databricks で個人用アクセストークンを作成します。
 
 ##### ステップ 1.4: ネットワークポリシーを設定する
 
-アカウントにネットワークポリシーが設定されている場合、CDI サービス接続を有効にするために Braze の IP アドレスを許可リストに追加してください。IP アドレスの一覧については、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=databricks#step-13-allow-access-to-braze-ips)を参照してください。
+アカウントにネットワークポリシーが設定されている場合、CDI サービス接続を有効にするために Braze の IP アドレスを許可リストに追加してください。IP アドレスの一覧については、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations?tab=databricks#step-13-allow-access-to-braze-ips)を参照してください。
 
 {% endtab %}
 {% tab Fabric %}
 
 ##### ステップ 1.1: Fabric でソーステーブルを設定する {#step-11-set-up-your-source-table-in-fabric}
 
-`````````sql
+```sql
 CREATE OR ALTER TABLE [warehouse].[schema].[CDI_table_name]
 (
   UPDATED_AT DATETIME2(6) NOT NULL,
@@ -271,7 +271,7 @@ GO
 
 ##### ステップ 1.3: ネットワークポリシーを設定する
 
-アカウントにネットワークポリシーが設定されている場合、CDI サービス接続を有効にするために Braze の IP アドレスを許可リストに追加してください。IP アドレスの一覧については、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=microsoft%20fabric#step-15-allow-braze-ips-in-firewall-optional)を参照してください。
+アカウントにネットワークポリシーが設定されている場合、CDI サービス接続を有効にするために Braze の IP アドレスを許可リストに追加してください。IP アドレスの一覧については、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations?tab=microsoft%20fabric#step-15-allow-braze-ips-in-firewall-optional)を参照してください。
 
 {% endtab %}
 {% tab ファイルストレージ %}
@@ -283,10 +283,10 @@ GO
 | `EXTERNAL_ID` | はい、`external_id` または `alias_name` と `alias_label` のいずれか | 更新したいユーザーを識別します。これは Braze で使用されている `external_id` 値と一致する必要があります。 |
 | `ALIAS_NAME` と `ALIAS_LABEL` | はい、`external_id` または `alias_name` と `alias_label` のいずれか | これら2つの列は、ユーザーエイリアスオブジェクトを作成します。`alias_name` は一意の識別子でなければならず、`alias_label` はエイリアスのタイプを指定します。ユーザーは異なるラベルを持つ複数のエイリアスを持つことができますが、`alias_label` ごとに `alias_name` は1つしか持てません。 |
 | `PROPERTIES` | はい | キャンバス内でパーソナライゼーションプロパティとして利用可能なフィールドの JSON 文字列です。ユーザー固有の情報を含める必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.3: Configure network policies" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ 1.3: ネットワークポリシーを設定する" }
 
 {% alert tip %}
-ファイル名は AWS の規則に従い、一意でなければなりません。一意性を確保するためにタイムスタンプを追加してください。Amazon S3 の同期に関する詳細は、[ファイルストレージの統合](https://www.braze.com/docs/user_guide/data/unification/cloud_ingestion/file_storage_integrations)を参照してください。
+ファイル名は AWS の規則に従い、一意でなければなりません。一意性を確保するためにタイムスタンプを追加してください。Amazon S3 の同期に関する詳細は、[ファイルストレージの統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations)を参照してください。
 {% endalert %}
 
 {% endtab %}
@@ -294,9 +294,9 @@ GO
 
 #### ステップ 2: 送信先のキャンバスを設定する {#step-2-configure-your-destination-canvas}
 
-1. キャンバストリガー用の送信先キャンバスを設定します。新しい API トリガー付きキャンバスを作成するか、既存のものを選択します。API トリガーによる配信スケジュールタイプでキャンバスを作成する方法については、[エントリスケジュールタイプ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#entry-schedule-types)を参照してください。
+1. キャンバストリガー用の送信先キャンバスを設定します。新しい API トリガー付きキャンバスを作成するか、既存のものを選択します。API トリガーによる配信スケジュールタイプでキャンバスを作成する方法については、[エントリスケジュールタイプ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#entry-schedule-types)を参照してください。
 2. API トリガーによる配信スケジュールタイプを選択した後、キャンバスの設定を続けてキャンバスを構築します。キャンバスは、単純な単一メッセージ送信から、複数のステップを含む複雑な顧客ワークフローまでさまざまです。
-3. キャンバスステップ内で、ソーステーブルから同期する予定のプロパティフィールドを使って、[キャンバスエントリプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/)でメッセージをパーソナライズします。
+3. キャンバスステップ内で、ソーステーブルから同期する予定のプロパティフィールドを使って、[キャンバスエントリプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties)でメッセージをパーソナライズします。
   * 例えば、ステップ 1 でプロパティフィールドに `account_balance` を設定した場合、メッセージをパーソナライズするには以下の Liquid テンプレートを使用します: `\{\{canvas_entry_properties.\$\{account_balance\}\}\}`
 5. キャンバスを構築したら、起動して[ステップ 3](#step-3-create-your-zero-copy-sync)に進みます。
 
@@ -327,7 +327,7 @@ CDI キャンバストリガーは、`/canvas/trigger/send` の REST API レー�
 各同期実行では、最大で1時間あたり約 375 万人のユーザーを、それぞれの送信先キャンバスにエントリさせます。以下の場合には、ソースからキャンバスへのエントリ時間が長くなることを想定してください。
 
 * 1回の同期実行で 375 万人以上のユーザーを同期する場合。
-* REST APIの [`/canvas/trigger/send` のレート制限]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/#rate-limit)が既に飽和状態にある場合に CDI キャンバストリガーを使用する場合。
+* REST APIの [`/canvas/trigger/send` のレート制限]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases#rate-limit)が既に飽和状態にある場合に CDI キャンバストリガーを使用する場合。
 
 メッセージのアーカイブが有効な場合のゼロコピー CDI について、以下の点を考慮してください。
 

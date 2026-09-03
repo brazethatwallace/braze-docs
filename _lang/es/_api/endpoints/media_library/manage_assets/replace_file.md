@@ -6,7 +6,7 @@ page_order: 2
 
 layout: api_page
 page_type: reference
-description: "Este artículo describe los detalles del punto de conexión `PUT /media_library/replace_file`."
+description: "Este artículo describe los detalles del endpoint `PUT /media_library/replace_file`."
 ---
 
 {% api %}
@@ -15,11 +15,11 @@ description: "Este artículo describe los detalles del punto de conexión `PUT /
 /media_library/replace_file
 {% endapimethod %}
 
-> Utiliza este punto de conexión para reemplazar el archivo de un activo existente en la [Biblioteca de medios de Braze]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library/) conservando su ID de activo y su URL. Puedes proporcionar el archivo de reemplazo mediante una URL alojada externamente (`asset_url`) o datos de archivo binario enviados en el cuerpo de la solicitud (`asset_file`).
+> Utiliza este endpoint para reemplazar el archivo de un activo existente en la [biblioteca de medios de Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications) conservando su ID de activo y su URL. Puedes proporcionar el archivo de reemplazo mediante una URL alojada externamente (`asset_url`) o datos de archivo binario enviados en el cuerpo de la solicitud (`asset_file`).
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `media_library.replace`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `media_library.replace`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -27,7 +27,7 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 
 ## Cuerpo de la solicitud {#request-body}
 
-Cuando incluyes `asset_url`, el punto de conexión descarga el archivo desde la URL. Cuando incluyes `asset_file`, el punto de conexión utiliza los datos binarios del cuerpo de la solicitud.
+Cuando incluyes `asset_url`, el endpoint descarga el archivo desde la URL. Cuando incluyes `asset_file`, el endpoint utiliza los datos binarios del cuerpo de la solicitud.
 
 Ejemplo de cuerpo de solicitud para `asset_url`:
 
@@ -54,7 +54,7 @@ El cuerpo de la solicitud incluye los siguientes parámetros:
 | `asset_id` | Obligatorio | Cadena | El ID del activo que se va a reemplazar. |
 | `asset_url` | Opcional | Cadena | Una URL de acceso público para el archivo de reemplazo. |
 | `asset_file` | Opcional | Binario | Datos de archivo binario para el archivo de reemplazo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request body" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Cuerpo de la solicitud" }
 
 {% alert important %}
 `asset_url` y `asset_file` son mutuamente excluyentes; solo debes incluir uno de ellos en tu solicitud de API.
@@ -69,7 +69,7 @@ El cuerpo de la solicitud incluye los siguientes parámetros:
 
 Esta sección incluye dos ejemplos de solicitudes `curl`, una para reemplazar un activo mediante una URL y otra mediante datos de archivo binario.
 
-Esta solicitud muestra un ejemplo de reemplazo de un activo en la Biblioteca de medios mediante un `asset_url`.
+Esta solicitud muestra un ejemplo de reemplazo de un activo en la biblioteca de medios mediante un `asset_url`.
 
 ```
 curl -X PUT --location 'https://rest.iad-01.braze.com/media_library/replace_file' \
@@ -78,7 +78,7 @@ curl -X PUT --location 'https://rest.iad-01.braze.com/media_library/replace_file
 --data '{"asset_id": "your-asset-id", "asset_url": "https://cdn.example.com/assets/cat.jpg"}'
 ```
 
-Esta solicitud muestra un ejemplo de reemplazo de un activo en la Biblioteca de medios mediante un `asset_file`.
+Esta solicitud muestra un ejemplo de reemplazo de un activo en la biblioteca de medios mediante un `asset_file`.
 
 ```
 curl -X PUT --location 'https://rest.iad-01.braze.com/media_library/replace_file' \
@@ -107,7 +107,7 @@ Esta tabla enumera los posibles errores de validación.
 | --- | --- | --- |
 | 400 | "asset_id is required." | No se proporcionó un ID de activo en la solicitud. |
 | 400 | "Either file or asset_url is required." | No se proporcionó ni `asset_file` ni `asset_url`; se requiere uno de los dos. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Validation errors" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Errores de validación" }
 
 #### Errores de procesamiento {#processing-errors}
 
@@ -131,12 +131,12 @@ Esta tabla enumera los posibles errores de procesamiento.
 | `UNSUPPORTED_ASSET_TYPE_FOR_REPLACE` | 400 | El reemplazo de archivos no es compatible con este tipo de activo (por ejemplo, video). El objeto `meta` incluye `asset_type`. |
 | `ASSET_SIZE_EXCEEDS_LIMIT` | 400 | El archivo supera el tamaño máximo permitido. El objeto `meta` incluye `size_limit_bytes` y `file_size_bytes`. |
 | `CORRUPT_FILE` | 400 | El archivo de imagen está dañado o no se puede leer. El objeto `meta` incluye `file_name`. |
-| `GENERIC_ERROR` | 500 | Se produjo un error inesperado durante el reemplazo del archivo. El objeto `meta` incluye `original_error` para depuración. Inténtalo de nuevo o [ponte en contacto con Soporte]({{site.baseurl}}/support_contact/). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Processing errors" }
+| `GENERIC_ERROR` | 500 | Se produjo un error inesperado durante el reemplazo del archivo. El objeto `meta` incluye `original_error` para depuración. Inténtalo de nuevo o [ponte en contacto con Soporte]({{site.baseurl}}/support_contact). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Errores de procesamiento" }
 
 ## Respuesta {#response}
 
-Hay cinco respuestas de código de estado para este punto de conexión: `200`, `400`, `404`, `429` y `500`.
+Hay cinco respuestas de código de estado para este endpoint: `200`, `400`, `404`, `429` y `500`.
 
 El siguiente JSON muestra la estructura esperada de la respuesta.
 

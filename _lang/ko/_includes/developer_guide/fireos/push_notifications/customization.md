@@ -4,29 +4,29 @@
 
 Braze 대시보드를 통해 전송되는 FireOS 푸시 알림에 사용할 수 있는 많은 고급 설정이 있습니다. 이 문서에서는 이러한 기능과 성공적으로 사용하는 방법에 대해 설명합니다.
 
-![]({% image_buster /assets/img_archive/android_advanced_settings.png %})
+![Braze FireOS 푸시 작성기 고급 설정 패널.]({% image_buster /assets/img_archive/android_advanced_settings.png %})
 
-### 유지 시간(TTL) {#ttl}
+### TTL {#ttl}
 
-**유지 시간**(TTL) 필드에서는 푸시 메시징 서비스에 메시지를 저장할 커스텀 기간을 설정할 수 있습니다. TTL의 기본값은 FCM의 경우 4주, ADM의 경우 31일입니다.
+**TTL** 필드에서는 푸시 메시징 서비스에 메시지를 저장할 커스텀 기간을 설정할 수 있습니다. TTL의 기본값은 FCM의 경우 4주, ADM의 경우 31일입니다.
 
 ### 요약 텍스트 {#summary-text}
 
 요약 텍스트를 사용하면 확장된 알림 보기에서 추가 텍스트를 설정할 수 있습니다. 알림에 이미지가 포함된 경우 캡션으로도 사용됩니다.
 
-!["이것은 알림의 제목입니다."라는 제목과 "이것은 알림의 요약 텍스트입니다."라는 요약 텍스트가 포함된 Android 메시지]({% image_buster /assets/img/android/push/collapsed-android-notification.png %}){: style="max-width:65%;"}
+!["이것은 알림의 제목입니다."라는 제목과 "이것은 알림의 요약 텍스트입니다."라는 요약 텍스트가 포함된 Android 메시지.]({% image_buster /assets/img/android/push/collapsed-android-notification.png %}){: style="max-width:65%;"}
 
 요약 텍스트는 확장된 보기에서 메시지 본문 아래에 표시됩니다.
 
-!["이것은 알림의 제목입니다."라는 제목과 "이것은 알림의 요약 텍스트입니다."라는 요약 텍스트가 포함된 Android 메시지]({% image_buster /assets/img/android/push/expanded-android-notification.png %}){: style="max-width:65%;"}
+!["이것은 알림의 제목입니다."라는 제목과 "이것은 알림의 요약 텍스트입니다."라는 요약 텍스트가 포함된 Android 메시지.]({% image_buster /assets/img/android/push/expanded-android-notification.png %}){: style="max-width:65%;"}
 
 푸시 알림에 이미지가 포함된 경우, 메시지 텍스트는 축소된 보기에서 표시되며, 요약 텍스트는 알림이 확장될 때 이미지 캡션으로 표시됩니다.
 
 ### 커스텀 URI {#custom-uri}
 
-**커스텀 URI** 기능을 사용하면 알림을 클릭할 때 이동할 웹 URL 또는 Android 리소스를 지정할 수 있습니다. 커스텀 URI가 지정되지 않은 경우 알림을 클릭하면 사용자가 앱으로 이동합니다. 커스텀 URI를 사용하여 앱 내부에 딥링킹하고 사용자를 앱 외부에 존재하는 리소스로 연결할 수 있습니다. 이는 그림과 같이 [메시징 API]({{site.baseurl}}/api/endpoints/messaging/) 또는 푸시 작성기의 **고급 설정** 아래의 대시보드를 통해 지정할 수 있습니다:
+**커스텀 URI** 기능을 사용하면 알림을 클릭할 때 이동할 웹 URL 또는 Android 리소스를 지정할 수 있습니다. 커스텀 URI가 지정되지 않은 경우 알림을 클릭하면 사용자가 앱으로 이동합니다. 커스텀 URI를 사용하여 앱 내부에 딥링킹하고 사용자를 앱 외부에 존재하는 리소스로 연결할 수 있습니다. 이는 그림과 같이 [메시징 API]({{site.baseurl}}/api/endpoints/messaging) 또는 푸시 작성기의 **고급 설정** 아래의 대시보드를 통해 지정할 수 있습니다:
 
-![Braze 푸시 작성기의 딥링킹 고급 설정]({% image_buster /assets/img_archive/deep_link.png %})
+![Braze 푸시 작성기의 딥링킹 고급 설정.]({% image_buster /assets/img_archive/deep_link.png %})
 
 ### 알림 표시 우선순위 {#notification-display-priority}
 
@@ -48,8 +48,8 @@ Fire OS 푸시 알림에서 설정할 수 있는 우선순위 수준은 다음�
 | 높음     | 친구의 새 메시지와 같은 중요한 커뮤니케이션 | `1` |
 | 기본값  | 대부분의 알림 - 메시지가 다른 우선순위 유형에 명시적으로 속하지 않는 경우에 사용합니다 | `0` |
 | 낮음      | 사용자가 알기를 원하지만 즉각적인 조치가 필요하지 않은 정보 | `-1` |
-| 최소      | 상황별 또는 배경 정보 | `-2` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Notification display priority" }
+| 최소      | 상황별 또는 배경 정보. | `-2` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="알림 표시 우선순위" }
 
 자세한 내용은 Google의 [Android 알림](http://developer.android.com/design/patterns/notifications.html) 설명서를 참조하세요.
 
@@ -57,9 +57,9 @@ Fire OS 푸시 알림에서 설정할 수 있는 우선순위 수준은 다음�
 
 Android O에서는 알림 소리가 알림 채널의 속성이 되었습니다. 개발자와 협력하여 채널을 구성하는 동안 채널의 사운드를 정의한 다음 대시보드를 사용하여 알림을 보낼 때 적절한 채널을 선택해야 합니다.
 
-Android O 이전 버전을 실행하는 기기의 경우, Braze를 사용하면 대시보드 작성기를 통해 개별 푸시 메시지의 사운드를 설정할 수 있습니다. 기기에서 로컬 사운드 리소스를 지정하면 됩니다(예: `android.resource://com.mycompany.myapp/raw/mysound`). 이 필드에서 "default"를 지정하면 기기에서 기본 알림 사운드가 재생됩니다. 이는 [메시징 API]({{site.baseurl}}/api/endpoints/messaging/) 또는 푸시 작성기의 **설정** 아래 대시보드를 통해 지정할 수 있습니다.
+Android O 이전 버전을 실행하는 기기의 경우, Braze를 사용하면 대시보드 작성기를 통해 개별 푸시 메시지의 사운드를 설정할 수 있습니다. 기기에서 로컬 사운드 리소스를 지정하면 됩니다(예: `android.resource://com.mycompany.myapp/raw/mysound`). 이 필드에서 "default"를 지정하면 기기에서 기본 알림 사운드가 재생됩니다. 이는 [메시징 API]({{site.baseurl}}/api/endpoints/messaging) 또는 푸시 작성기의 **설정** 아래 대시보드를 통해 지정할 수 있습니다.
 
-![Braze 푸시 작성기의 사운드 고급 설정]({% image_buster /assets/img_archive/sound_android.png %})
+![Braze 푸시 작성기의 사운드 고급 설정.]({% image_buster /assets/img_archive/sound_android.png %})
 
 대시보드 프롬프트에 전체 사운드 리소스 URI(예: `android.resource://com.mycompany.myapp/raw/mysound`)를 입력합니다.
 

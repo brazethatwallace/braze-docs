@@ -14,6 +14,7 @@ description: "This reference article covers how to generate marketing copy for S
 
 ## How to access {#how-to-access}
 
-{% multi_lang_include brazeai/generative_ai/access_copy.md %}
+In any message composer, open Operator to draft and refine marketing copy. Describe your product or campaign, and Operator returns copy you can review and insert.
 
-For more information, including available tones, example prompts, and brand guideline integration, see [Generate copy in Operator capabilities]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy).
+
+For more information, including available tones, example prompts, and brand guideline integration, see [Generate copy in Operator capabilities]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy).

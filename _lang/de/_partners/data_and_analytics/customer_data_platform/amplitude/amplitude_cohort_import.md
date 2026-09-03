@@ -8,52 +8,63 @@ search_tag: Partner
 
 # Amplitude-Kohortenimport {#amplitude-cohort-import}
 
-> Dieser Artikel beschreibt, wie Sie Nutzer:innen-Kohorten von [Amplitude](https://amplitude.com/) nach Braze importieren können. Weitere Informationen zur Integration von Amplitude und seinen anderen Funktionen finden Sie im [Hauptartikel zu Amplitude]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_audiences/).
+> Dieser Artikel beschreibt, wie Sie Nutzer:innen-Kohorten von [Amplitude](https://amplitude.com/) nach Braze importieren können. Weitere Informationen zur Integration von Amplitude und seinen anderen Funktionen finden Sie im [Hauptartikel zu Amplitude]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_audiences).
 
-## Integration von Datenimporten {#data-import-integration}
+## Datenimport-Integration {#data-import-integration}
 
 Jede Integration, die Sie einrichten, wird auf das Datenpunktvolumen Ihres Kontos angerechnet.
 
-### 1. Schritt: Braze-Datenimport-Schlüssel abrufen {#step-1-get-the-braze-data-import-key}
+### Schritt 1: Braze-Datenimport-Schlüssel abrufen {#step-1-get-the-braze-data-import-key}
 
-Navigieren Sie in Braze zu **Partnerintegrationen** > **Technologie-Partner** und wählen Sie **Amplitude** aus. Hier finden Sie den REST-Endpunkt und können Ihren Braze-Datenimport-Schlüssel generieren.
+Navigieren Sie in Braze zu **Partnerintegrationen** > **Technologie-Partner** und wählen Sie **Amplitude** aus. Dort finden Sie den REST-Endpunkt und können Ihren Braze-Datenimport-Schlüssel generieren.
 
-Nach der Generierung können Sie einen neuen Schlüssel erstellen oder einen bestehenden Schlüssel ungültig machen. Der Datenimport-Schlüssel und der REST-Endpunkt werden im nächsten Schritt verwendet, wenn Sie ein Postback im Dashboard von Amplitude einrichten.<br><br>![]({% image_buster /assets/img/amplitude3.png %})
+Nach der Generierung können Sie einen neuen Schlüssel erstellen oder einen bestehenden ungültig machen. Der Datenimport-Schlüssel und der REST-Endpunkt werden im nächsten Schritt verwendet, wenn Sie einen Postback im Dashboard von Amplitude einrichten.<br><br>![Braze-Technologie-Partnerseite für Amplitude mit Datenimport-Schlüssel und Endpunkt.]({% image_buster /assets/img/amplitude3.png %})
 
-### 2. Schritt: Braze-Integration in Amplitude einrichten {#step-2-set-up-the-braze-integration-in-amplitude}
+### Schritt 2: Braze-Integration in Amplitude einrichten {#step-2-set-up-the-braze-integration-in-amplitude}
 
-Navigieren Sie in Amplitude zu **Sources & Destinations** > **[Projektname]** > **Destinations** > **Braze**. Geben Sie in der daraufhin angezeigten Eingabeaufforderung den Braze-Datenimport-Schlüssel und den REST-Endpunkt an und klicken Sie auf **Save**.
+Navigieren Sie in Amplitude zu **Sources & Destinations** > **[Projektname]** > **Destinations** > **Braze**. Geben Sie in der angezeigten Eingabeaufforderung den Braze-Datenimport-Schlüssel und den REST-Endpunkt ein und klicken Sie auf **Save**.
 
-![]({% image_buster /assets/img/amplitude.png %})
+![Amplitude-Zieleinstellungen für die Braze-Kohortensynchronisation mit eingegebenen Zugangsdaten.]({% image_buster /assets/img/amplitude.png %})
 
-### 3. Schritt: Amplitude-Kohorte nach Braze exportieren {#step-3-export-an-amplitude-cohort-to-braze}
+### Schritt 3: Amplitude-Kohorte nach Braze exportieren {#step-3-export-an-amplitude-cohort-to-braze}
 
-Um Nutzer:innen aus Amplitude nach Braze zu exportieren, erstellen Sie zunächst eine [Kohorte](https://help.amplitude.com/hc/en-us/articles/231881448-Behavioral-Cohorts) von Nutzer:innen, die Sie exportieren möchten. Richten Sie dann zwei Synchronisationen für diese Kohorte ein, um identifizierte und anonyme Nutzer:innen zu erfassen, mit den folgenden Bezeichner-Zuordnungseigenschaften:
-- Nutzer-ID (externe ID)
-- Geräte-ID
+Um zunächst Nutzer:innen von Amplitude nach Braze zu exportieren, erstellen Sie eine [Kohorte](https://help.amplitude.com/hc/en-us/articles/231881448-Behavioral-Cohorts) der Nutzer:innen, die Sie exportieren möchten. Richten Sie dann zwei Synchronisierungen für diese Kohorte ein, um identifizierte und anonyme Nutzer:innen zu erfassen – mit folgenden Bezeichner-Zuordnungseigenschaften:
+- User ID (externe ID)
+- Device ID
 
-Sie können in Ihrem Amplitude-Konto mehrere Braze-Verbindungen einrichten. So können Sie eine Verbindung konfigurieren, die Nutzer-IDs für bekannte Nutzer:innen synchronisiert, und eine weitere, die Geräte-IDs für anonyme Nutzer:innen synchronisiert.
+Sie können mehrere Braze-Verbindungen in Ihrem Amplitude-Konto einrichten. So können Sie eine Verbindung für die Synchronisierung von User IDs für bekannte Nutzer:innen und eine weitere für die Synchronisierung von Device IDs für anonyme Nutzer:innen konfigurieren.
 
-Sobald Sie eine Kohorte erstellt haben, klicken Sie auf **Sync to...**, um diese Nutzer:innen nach Braze zu exportieren.
+Nachdem Sie eine Kohorte erstellt haben, klicken Sie auf **Sync to...**, um diese Nutzer:innen nach Braze zu exportieren.
 
 {% alert important %}
-Nur Nutzer:innen, die bereits in Braze existieren, werden einer Kohorte hinzugefügt oder aus ihr entfernt. Der Kohortenimport erstellt keine neuen Nutzer:innen in Braze.
+Nur Nutzer:innen, die bereits in Braze vorhanden sind, werden einer Kohorte hinzugefügt oder daraus entfernt. Der Kohortenimport erstellt keine neuen Nutzer:innen in Braze.
 {% endalert %}
 
-#### Sync-Kadenz festlegen {#defining-sync-cadence}
+#### Synchronisierungshäufigkeit festlegen {#defining-sync-cadence}
 
-Kohorten-Synchronisationen können als einmalige Synchronisation, als täglicher oder stündlicher Zeitplan oder sogar als Realtime-Synchronisation eingestellt werden, die jede Minute aktualisiert wird.
+Kohortensynchronisierungen können als einmalige Synchronisierung, täglich oder stündlich geplant oder sogar in Realtime eingerichtet werden, wobei die Aktualisierung jede Minute erfolgt.
 
-Jede Integration, die Sie einrichten, protokolliert Datenpunkte. Wenn Sie Fragen zu den Feinheiten der Braze-Datenpunkte haben, kann Ihr Braze Account Manager diese beantworten.
+Jede Integration, die Sie einrichten, protokolliert Datenpunkte. Bei Fragen zu den Details der Braze-Datenpunkte kann Ihr Braze-Account Manager diese beantworten.
 
-### 4. Schritt: Nutzer:innen in Braze segmentieren {#step-4-segment-users-in-braze}
+### Schritt 4: Nutzer:innen in Braze segmentieren {#step-4-segment-users-in-braze}
 
-Um in Braze ein Segment dieser Nutzer:innen zu erstellen, navigieren Sie unter **Engagement** zu **Segments**, benennen Sie Ihr Segment und wählen Sie **Amplitude Cohorts** als Filter aus. Verwenden Sie anschließend die Option „enthält“ und wählen Sie die Kohorte, die Sie in Amplitude erstellt haben.
+Um in Braze ein Segment dieser Nutzer:innen zu erstellen, navigieren Sie unter **Engagement** zu **Segments**, benennen Sie Ihr Segment und wählen Sie **Amplitude Cohorts** als Filter aus. Verwenden Sie dann die Option „includes“ und wählen Sie die Kohorte aus, die Sie in Amplitude erstellt haben.
 
-![Im Braze Segment Builder ist der Filter „amplitude_cohorts“ auf „includes_value“ und „Amplitude cohort test“ eingestellt.]({% image_buster /assets/img/amplitude2.png %})
+![Im Braze-Segment-Builder ist der Filter „amplitude_cohorts“ auf „includes_value“ und „Amplitude cohort test“ gesetzt.]({% image_buster /assets/img/amplitude2.png %})
 
-Nach dem Speichern können Sie dieses Segment bei der Erstellung von Canvas oder Campaigns im Schritt „Targeting“ referenzieren.
+Nach dem Speichern können Sie dieses Segment bei der Erstellung von Canvas oder Campaign im Schritt zur Zielgruppenzusammenstellung referenzieren.
 
-## Nutzer:innen-Abgleich {#user-matching}
+## Nutzer:innen-Zuordnung {#user-matching}
 
-Identifizierte Nutzer:innen können entweder über ihre `external_id` oder ihren `alias` abgeglichen werden. Anonyme Nutzer:innen können über ihre `device_id` abgeglichen werden. Identifizierte Nutzer:innen, die ursprünglich als anonyme Nutzer:innen angelegt wurden, können nicht über ihre `device_id` identifiziert werden, sondern müssen über ihre `external_id` oder ihren `alias` identifiziert werden.
+Identifizierte Nutzer:innen können entweder anhand ihrer `external_id` oder ihres `alias` zugeordnet werden. Anonyme Nutzer:innen können anhand ihrer `device_id` zugeordnet werden. Identifizierte Nutzer:innen, die ursprünglich als anonyme Nutzer:innen erstellt wurden, können nicht anhand ihrer `device_id` identifiziert werden und müssen anhand ihrer `external_id` oder ihres `alias` identifiziert werden.
+
+## FAQ
+
+### Kann ich eine Liste der Amplitude-Kohorten abrufen? {#can-i-pull-a-list-of-amplitude-cohorts}
+
+Braze bietet keine API, um einen Katalog aller Amplitude-Kohortendefinitionen zu exportieren. Sie können Kohorten an folgenden Stellen anzeigen und verwenden:
+
+1. **In Amplitude:** Zeigen Sie Kohorten im Amplitude-Dashboard an und verwalten Sie sie, bevor Sie sie mit Braze synchronisieren.
+2. **In Braze:** Nachdem eine Kohorte synchronisiert wurde, können Sie Nutzer:innen mit dem Segment-Filter **Amplitude Cohorts** ansprechen. Der Filter listet synchronisierte Kohorten nach dem von Amplitude gesendeten Namen auf.
+
+Bei Fehlern bei der Kohortensynchronisierung überprüfen Sie zunächst die Nutzer-ID-Zuordnung und die API-Schlüssel in Amplitude. Siehe [„We do not have enough data yet for this filter“ beim Synchronisieren einer Kohorte]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_audiences#we-do-not-have-enough-data-yet-for-this-filter-when-syncing-a-cohort).

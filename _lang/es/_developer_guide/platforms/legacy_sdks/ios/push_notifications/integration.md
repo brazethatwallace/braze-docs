@@ -38,7 +38,7 @@ noindex: true
 
 En la configuración de tu proyecto, asegúrate de que, en la pestaña **Capabilities**, la opción **Push Notifications** está activada.
 
-![]({% image_buster /assets/img_archive/Enable_push_capabilities.png %})
+![En la configuración de tu proyecto, asegúrate de que, en la pestaña Capabilities, la opción Push Notifications está activada.]({% image_buster /assets/img_archive/Enable_push_capabilities.png %})
 
 Si tienes certificados push de desarrollo y producción separados, asegúrate de desmarcar la casilla **Automatically manage signing** en la pestaña **General**. Esto te permitirá elegir distintos perfiles de aprovisionamiento para cada configuración de compilación, ya que la característica de firma automática de código de Xcode solo realiza la firma de desarrollo.
 
@@ -48,10 +48,10 @@ Si tienes certificados push de desarrollo y producción separados, asegúrate de
 
 Para que el dispositivo de tus usuarios se registre en APNs, debes incluir el código de ejemplo adecuado en el método delegado `application:didFinishLaunchingWithOptions:` de tu aplicación. Asegúrate de llamar a todo el código de integración push en el hilo principal de tu aplicación.
 
-Braze también proporciona categorías push predeterminadas para el soporte del botón de acción push, que deben añadirse manualmente a tu código de registro push. Consulta los [botones de acción para notificación push]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/action_buttons/) para conocer los pasos adicionales de la integración.
+Braze también proporciona categorías push predeterminadas para el soporte del botón de acción push, que deben añadirse manualmente a tu código de registro push. Consulta los [botones de acción para notificación push]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/action_buttons) para conocer los pasos adicionales de la integración.
 
 {% alert warning %}
-Si has implementado una solicitud push personalizada como se describe en nuestras [mejores prácticas push]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/troubleshooting/), asegúrate de que llamas al código siguiente **cada vez que se ejecuta la aplicación** después de que concedan permisos push a tu aplicación. **Las aplicaciones tienen que volver a registrarse con APNs, ya que [los tokens de los dispositivos pueden cambiar arbitrariamente](https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/BackgroundExecution/BackgroundExecution.html).**
+Si has implementado una solicitud push personalizada como se describe en nuestras [mejores prácticas push]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/troubleshooting), asegúrate de que llamas al código siguiente **cada vez que se ejecuta la aplicación** después de que concedan permisos push a tu aplicación. **Las aplicaciones tienen que volver a registrarse con APNs, ya que [los tokens de los dispositivos pueden cambiar arbitrariamente](https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/BackgroundExecution/BackgroundExecution.html).**
 {% endalert %}
 
 ### Utilizar el framework UserNotification (iOS 10+) {#using-usernotification-framework-ios-10}
@@ -59,7 +59,7 @@ Si has implementado una solicitud push personalizada como se describe en nuestra
 Si utilizas el framework `UserNotifications` (recomendado) introducido en iOS 10, añade el siguiente código al método `application:didFinishLaunchingWithOptions:` del delegado de tu aplicación.
 
 {% alert important %}
-El siguiente ejemplo de código incluye la integración para la autenticación push provisional (líneas 5 y 6). Si no piensas utilizar la autorización provisional en tu aplicación, puedes eliminar las líneas de código que añaden `UNAuthorizationOptionProvisional` a las opciones de `requestAuthorization`.<br>Visita [las opciones de notificación de iOS]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options/) para saber más sobre la autenticación provisional push.
+El siguiente ejemplo de código incluye la integración para la autenticación push provisional (líneas 5 y 6). Si no piensas utilizar la autorización provisional en tu aplicación, puedes eliminar las líneas de código que añaden `UNAuthorizationOptionProvisional` a las opciones de `requestAuthorization`.<br>Visita [las opciones de notificación de iOS]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options) para saber más sobre la autenticación provisional push.
 {% endalert %}
 
 {% tabs %}
@@ -304,8 +304,8 @@ Appboy.sharedInstance()?.register(application,
 
 ## Paso 6: Vínculos profundos {#step-6-deep-linking}
 
-Los vínculos profundos desde un push a la aplicación se gestionan automáticamente a través de nuestra documentación estándar de integración push. Si quieres saber más sobre cómo añadir vínculos profundos a ubicaciones concretas de tu aplicación, consulta nuestros [casos de uso avanzados]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/advanced_use_cases/linking/#linking-implementation).
+Los vínculos profundos desde un push a la aplicación se gestionan automáticamente a través de nuestra documentación estándar de integración push. Si quieres saber más sobre cómo añadir vínculos profundos a ubicaciones concretas de tu aplicación, consulta nuestros [casos de uso avanzados]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/advanced_use_cases/linking#linking-implementation).
 
 ## Paso 7: Pruebas unitarias (opcional) {#step-7-unit-tests-optional}
 
-Para añadir cobertura de pruebas a los pasos de integración que acabas de seguir, implementa [pruebas unitarias push]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/unit_tests/).
+Para añadir cobertura de pruebas a los pasos de integración que acabas de seguir, implementa [pruebas unitarias push]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/unit_tests).

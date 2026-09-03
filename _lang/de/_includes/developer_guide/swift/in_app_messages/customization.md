@@ -6,9 +6,9 @@ Um die Darstellung von In-App-Nachrichten anzupassen und auf verschiedene Lebens
 - Die Standard-Implementierung von [`BrazeInAppMessageUI`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui) als Ihren `inAppMessagePresenter` verwenden.
 - Die `BrazeUI`-Bibliothek in Ihr Projekt einbinden.
 
-### 1. Schritt: Das `BrazeInAppMessageUIDelegate`-Protokoll implementieren {#step-1-implement-the-brazeinappmessageuidelegate-protocol}
+### Schritt 1: Das `BrazeInAppMessageUIDelegate`-Protokoll implementieren {#step-1-implement-the-brazeinappmessageuidelegate-protocol}
 
-Implementieren Sie zunächst das Protokoll `BrazeInAppMessageUIDelegate` und die gewünschten Methoden. In unserem Beispiel unten implementieren wir dieses Protokoll in der Klasse `AppDelegate` unserer Anwendung.
+Implementieren Sie zunächst das Protokoll `BrazeInAppMessageUIDelegate` und die gewünschten Methoden. Im folgenden Beispiel wird dieses Protokoll in der Klasse `AppDelegate` der Anwendung implementiert.
 
 {% tabs %}
 {% tab swift %}
@@ -31,7 +31,7 @@ extension AppDelegate: BrazeInAppMessageUIDelegate {
 {% endtab %}
 {% endtabs %}
 
-### 2. Schritt: Das `delegate`-Objekt zuweisen {#step-2-assign-the-delegate-object}
+### Schritt 2: Das `delegate`-Objekt zuweisen {#step-2-assign-the-delegate-object}
 
 Weisen Sie das `delegate`-Objekt der `BrazeInAppMessageUI`-Instanz zu, bevor Sie diese In-App-Nachrichten-UI als Ihren `inAppMessagePresenter` festlegen.
 
@@ -72,13 +72,13 @@ Die Eigenschaft `clickAction` auf Ihrem `Braze.InAppMessage` ist standardmäßig
 | -------------------------- | -------- |
 | `.url(URL, useWebView: Bool)` | Öffnet die angegebene URL in einem externen Browser. Wenn `useWebView` auf `true` festgelegt ist, wird sie in einer Webansicht geöffnet. |
 | `.none` | Die Nachricht wird ausgeblendet, wenn sie angeklickt wird. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Click action types" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Arten von Klickaktionen" }
 
 {% alert important %}
 Bei In-App-Nachrichten mit Buttons wird die `clickAction` der Nachricht ebenfalls in die endgültige Nutzlast aufgenommen, wenn die Klickaktion vor dem Hinzufügen des Button-Textes hinzugefügt wird.
 {% endalert %}
 
-### Anpassen des Verhaltens bei Klick {#customizing-on-click-behavior}
+### Anpassen des On-Click-Verhaltens {#customizing-on-click-behavior}
 
 Um dieses Verhalten anzupassen, können Sie die Eigenschaft `clickAction` ändern. Ziehen Sie dazu das folgende Beispiel zurate:
 
@@ -211,12 +211,12 @@ Standardmäßig können Slideup-In-App-Nachrichten durch eine Wischgeste geschlo
 Dieses Wischverhalten ist in der Standard-`BrazeInAppMessageUI`-[`SlideupView`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/slideupview) integriert und gilt nur für Slideup-In-App-Nachrichten. Modale und vollständige In-App-Nachrichten unterstützen das Wegwischen nicht. Um die Slideup-Ansicht weiter anzupassen, einschließlich des Wischverhaltens, können Sie die [`SlideupView.Attributes`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/slideupview/attributes-swift.struct) modifizieren oder eine angepasste Ansicht über eine Unterklasse bereitstellen.
 
 {% alert note %}
-Durch Antippen außerhalb einer Slideup-Nachricht wird diese nicht geschlossen. Für modale oder vollständige In-App-Nachrichten können Sie das Schließen durch Tippen außerhalb der Nachricht mithilfe des unten beschriebenen Attributs `dismissOnBackgroundTap` aktivieren.
+Durch Antippen außerhalb einer Slideup-Nachricht wird diese nicht geschlossen. Für modale oder vollständige In-App-Nachrichten können Sie das Schließen durch Tippen außerhalb der Nachricht mithilfe des im folgenden Abschnitt beschriebenen Attributs `dismissOnBackgroundTap` aktivieren.
 {% endalert %}
 
 ## Anpassen des Schließens von Modalen {#customizing-modal-dismissals}
 
-Um Ausblendungen durch Tippen außerhalb des Fensters zu aktivieren, können Sie die Eigenschaft `dismissOnBackgroundTap` in der Struktur `Attributes` des In-App-Nachrichtentyps ändern, den Sie anpassen möchten.
+Um das Schließen durch Tippen außerhalb des Fensters zu aktivieren, können Sie die Eigenschaft `dismissOnBackgroundTap` in der Struktur `Attributes` des In-App-Nachrichtentyps ändern, den Sie anpassen möchten.
 
 Wenn Sie beispielsweise dieses Feature für modale In-App-Nachrichten mit Bildern aktivieren möchten, können Sie Folgendes konfigurieren:
 
@@ -239,9 +239,9 @@ Der Standardwert ist `false`. Hierdurch wird festgelegt, ob die modale In-App-Na
 
 | `DismissModalOnOutsideTap` | Beschreibung |
 |----------|-------------|
-| `true`         | Modale In-App-Nachrichten werden ausgeblendet, wenn auf eine Stelle außerhalb des Fensters getippt wird. |
+| `true`         | Modale In-App-Nachrichten werden ausgeblendet, wenn auf eine Stelle außerhalb des Fensters getippt wird.     |
 | `false`        | Standardmäßig werden modale In-App-Nachrichten beim Tippen auf eine Stelle außerhalb des Fensters nicht ausgeblendet. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Customizing modal dismissals" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Anpassen des Schließens von Modalen" }
 
 Weitere Einzelheiten zur Anpassung von In-App-Nachrichten finden Sie in diesem [Artikel](https://braze-inc.github.io/braze-swift-sdk/documentation/braze/in-app-message-customization).
 
@@ -328,7 +328,7 @@ Die Ausrichtung wird nur für die Präsentation der Nachricht verwendet. Nachdem
 
 ## Anpassen der Anzeigezeit {#customizing-display-timing}
 
-Sie können steuern, ob eine verfügbare In-App-Nachricht an bestimmten Punkten des Nutzererlebnisses angezeigt werden soll. Wenn es Situationen gibt, in denen die In-App-Nachricht nicht angezeigt werden soll – z. B. während eines Spiels im Vollbildmodus oder auf einem Ladebildschirm – können Sie ausstehende In-App-Nachrichten verzögern oder ausblenden. Um das Timing von In-App-Nachrichten zu steuern, verwenden Sie die [Delegate-Methode](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:displaychoiceformessage:)-9w1nb) `inAppMessage(_:displayChoiceForMessage:)`, um die Eigenschaft `BrazeInAppMessageUI.DisplayChoice` festzulegen.
+Sie können steuern, ob eine verfügbare In-App-Nachricht an bestimmten Punkten des Nutzererlebnisses angezeigt werden soll. Wenn es Situationen gibt, in denen die In-App-Nachricht nicht angezeigt werden soll – z. B. während eines Spiels im Vollbildmodus oder auf einem Ladebildschirm – können Sie ausstehende In-App-Nachrichten verzögern oder verwerfen. Um das Timing von In-App-Nachrichten zu steuern, verwenden Sie die [Delegate-Methode](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:displaychoiceformessage:)-9w1nb) `inAppMessage(_:displayChoiceForMessage:)`, um die Eigenschaft `BrazeInAppMessageUI.DisplayChoice` festzulegen.
 
 {% tabs %}
 {% tab swift %}
@@ -352,13 +352,13 @@ func inAppMessage(
 
 Konfigurieren Sie `BrazeInAppMessageUI.DisplayChoice` so, dass einer der folgenden Werte zurückgegeben wird:
 
-| Anzeigeoption | Verhalten |
+| Anzeigeoption                       | Verhalten                                                                                                                    |
 | ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| `.now` | Die Nachricht wird sofort angezeigt. Dies ist der Standardwert. |
-| `.reenqueue` | Die Nachricht wird nicht angezeigt und wird wieder oben auf dem Stack platziert. |
-| `.later` | Die Nachricht wird nicht angezeigt und wird wieder oben auf dem Stack platziert. (Veraltet, bitte verwenden Sie `.reenqueue`) |
-| `.discard` | Die Nachricht wird verworfen und nicht angezeigt. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Customizing display timing" }
+| `.now`                              | Die Nachricht wird sofort angezeigt. Dies ist der Standardwert.                                                       |
+| `.reenqueue`                        | Die Nachricht wird nicht angezeigt und wird wieder oben auf dem Stack platziert.                                       |
+| `.later`                            | Die Nachricht wird nicht angezeigt und wird wieder oben auf dem Stack platziert. (Veraltet, bitte verwenden Sie `.reenqueue`) |
+| `.discard`                          | Die Nachricht wird verworfen und nicht angezeigt.                                                                    |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Anpassen der Anzeigezeit" }
 
 {% alert tip %}
 Für ein Beispiel zu `InAppMessageUI` besuchen Sie unser [Swift Braze SDK-Repository](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples/Swift/Sources/InAppMessageUI) und [Objective-C](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples/ObjC/Sources/InAppMessageUI).
@@ -368,12 +368,12 @@ Für ein Beispiel zu `InAppMessageUI` besuchen Sie unser [Swift Braze SDK-Reposi
 
 Bei In-App-Nachrichten des Typs `Full`, `FullImage` und `HTML` blendet das SDK die Statusleiste standardmäßig aus. Bei anderen Arten von In-App-Nachrichten bleibt die Statusleiste unangetastet. Um dieses Verhalten zu konfigurieren, verwenden Sie die [Delegate-Methode](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:preparewith:)-11fog) `inAppMessage(_:prepareWith:)`, um die Eigenschaft `statusBarHideBehavior` auf dem `PresentationContext` festzulegen. Dieses Feld kann einen der folgenden Werte annehmen:
 
-| Verhalten beim Ausblenden der Statusleiste | Beschreibung |
+| Verhalten beim Ausblenden der Statusleiste | Beschreibung                                                                           |
 | ----------------------------------- | ------------------------------------------------------------------------------------- |
-| `.auto` | Die Nachrichtenansicht entscheidet, ob die Statusleiste ausgeblendet wird. |
-| `.hidden` | Die Statusleiste wird immer ausgeblendet. |
-| `.visible` | Die Statusleiste wird immer angezeigt. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Hiding the status bar" }
+| `.auto`                             | Die Nachrichtenansicht entscheidet, ob die Statusleiste ausgeblendet wird.                                 |
+| `.hidden`                           | Die Statusleiste wird immer ausgeblendet.                                                           |
+| `.visible`                          | Die Statusleiste wird immer angezeigt.                                                        |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Ausblenden der Statusleiste" }
 
 ## Deaktivieren des Dark Mode {#disabling-dark-mode}
 
@@ -487,14 +487,14 @@ func inAppMessage(
 Sie können In-App-Nachrichten in einer Campaign verwenden, um Nutzer:innen um eine Bewertung im App Store zu bitten.
 
 {% alert note %}
-Da diese Beispielabfrage das Standardverhalten von Braze außer Kraft setzt, können Impressionen nicht automatisch getrackt werden. Sie müssen [Ihre eigenen Analytics protokollieren]({{site.baseurl}}/developer_guide/analytics/).
+Da diese Beispielabfrage das Standardverhalten von Braze außer Kraft setzt, können Impressionen nicht automatisch getrackt werden. Sie müssen [Ihre eigenen Analytics protokollieren]({{site.baseurl}}/developer_guide/analytics).
 {% endalert %}
 
-### 1. Schritt: Den Delegaten für In-App-Nachrichten festlegen {#step-1-set-the-in-app-message-delegate}
+### Schritt 1: Den Delegaten für In-App-Nachrichten festlegen {#step-1-set-the-in-app-message-delegate}
 
-Setzen Sie zunächst den [`BrazeInAppMessageUIDelegate`]({{site.baseurl}}/developer_guide/in_app_messages/customization/#swift_setting-up-the-ui-delegate-required) in Ihrer App ein.
+Setzen Sie zunächst den [`BrazeInAppMessageUIDelegate`]({{site.baseurl}}/developer_guide/in_app_messages/customization#swift_setting-up-the-ui-delegate-required) in Ihrer App ein.
 
-### 2. Schritt: Die standardmäßige App-Store-Bewertungsnachricht deaktivieren {#step-2-disable-the-default-app-store-review-message}
+### Schritt 2: Die standardmäßige App-Store-Bewertungsnachricht deaktivieren {#step-2-disable-the-default-app-store-review-message}
 
 Als Nächstes implementieren Sie die [Delegate-Methode](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:displaychoiceformessage:)-9w1nb) `inAppMessage(_:displayChoiceForMessage:)`, um die standardmäßige App-Store-Bewertungsnachricht zu deaktivieren.
 
@@ -531,19 +531,20 @@ func inAppMessage(_ ui: BrazeInAppMessageUI, displayChoiceForMessage message: Br
 {% endtab %}
 {% endtabs %}
 
-### 3. Schritt: Einen Deeplink erstellen {#step-3-create-a-deep-link}
+### Schritt 3: Einen Deeplink erstellen {#step-3-create-a-deep-link}
 
-Fügen Sie in Ihrem Code zur Behandlung von Deeplinks den folgenden Code hinzu, um den `{YOUR-APP-SCHEME}:app-store-review`-Deeplink zu verarbeiten. Beachten Sie, dass Sie `StoreKit` importieren müssen, um `SKStoreReviewController` zu verwenden:
+Fügen Sie in Ihrem [`scene:openURLContexts:`]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/?sdktab=swift#swift_step-3-implement-a-handler)-Handler den folgenden Code hinzu, um den `{YOUR-APP-SCHEME}:app-store-review`-Deeplink zu verarbeiten. Beachten Sie, dass Sie `StoreKit` importieren müssen, um `SKStoreReviewController` zu verwenden:
 
 {% tabs %}
 {% tab swift %}
 
 ```swift
-func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+  guard let url = URLContexts.first?.url else { return }
   let urlString = url.absoluteString.removingPercentEncoding
   if (urlString == "{YOUR-APP-SCHEME}:app-store-review") {
     SKStoreReviewController.requestReview()
-    return true;
+    return;
   }
   // Other deep link handling code…
 }
@@ -553,11 +554,12 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 {% tab OBJECTIVE-C %}
 
 ```objc
-- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
+- (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts {
+  NSURL *url = URLContexts.allObjects.firstObject.URL;
   NSString *urlString = url.absoluteString.stringByRemovingPercentEncoding;
   if ([urlString isEqualToString:@"{YOUR-APP-SCHEME}:app-store-review"]) {
     [SKStoreReviewController requestReview];
-    return YES;
+    return;
   }
   // Other deep link handling code…
 }
@@ -568,7 +570,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 
 {% raw %}
 
-### 4. Schritt: Angepasstes Verhalten beim Klicken einstellen {#step-4-set-custom-on-click-behavior}
+### Schritt 4: Angepasstes Verhalten beim Klicken einstellen {#step-4-set-custom-on-click-behavior}
 
 Als Nächstes erstellen Sie eine In-App-Nachrichten-Campaign mit den folgenden Elementen:
 
@@ -578,5 +580,5 @@ Als Nächstes erstellen Sie eine In-App-Nachrichten-Campaign mit den folgenden E
 {% endraw %}
 
 {% alert tip %}
-Apple begrenzt die Aufforderungen zur Bewertung im App Store auf maximal drei Mal pro Jahr pro Nutzer:in. Daher sollte Ihre Campaign auf drei Mal pro Jahr pro Nutzer:in [begrenzt]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/) sein.<br><br>Nutzer:innen können die Aufforderungen zur Bewertung im App Store deaktivieren. Daher sollte Ihre angepasste Bewertungsaufforderung nicht versprechen, dass eine native App-Store-Bewertungsaufforderung erscheint, oder direkt um eine Bewertung bitten.
+Apple begrenzt die Aufforderungen zur Bewertung im App Store auf maximal drei Mal pro Jahr pro Nutzer:in. Daher sollte Ihre Campaign auf drei Mal pro Jahr pro Nutzer:in [begrenzt]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting) sein.<br><br>Nutzer:innen können die Aufforderungen zur Bewertung im App Store deaktivieren. Daher sollte Ihre angepasste Bewertungsaufforderung nicht versprechen, dass eine native App-Store-Bewertungsaufforderung erscheint, oder direkt um eine Bewertung bitten.
 {% endalert %}

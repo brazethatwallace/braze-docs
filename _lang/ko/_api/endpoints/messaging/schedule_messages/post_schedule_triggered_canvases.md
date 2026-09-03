@@ -10,7 +10,7 @@ description: "이 문서에서는 API 트리거 Canvases 예약하기 Braze 엔�
 ---
 {% api %}
 # API 트리거 Canvases 예약하기 {#schedule-api-triggered-canvases}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /canvas/trigger/schedule/create
 {% endapimethod %}
 
@@ -20,13 +20,17 @@ Canvas의 첫 번째 단계에서 전송되는 메시지에 템플릿으로 적�
 
 {% multi_lang_include alerts/important_alerts.md alert='context variable' %}
 
-이 엔드포인트로 메시지를 보내려면 Canvas를 구축할 때 생성된 [Canvas ID]({{site.baseurl}}/api/identifier_types/#canvas-api-identifier)가 있어야 합니다.
+이 엔드포인트로 메시지를 보내려면 Canvas를 구축할 때 생성된 [Canvas ID]({{site.baseurl}}/api/identifier_types#canvas-identifier)가 있어야 합니다.
+
+{% alert note %}
+Canvas 진입은 이 API 요청이 이루어진 시점이 아니라 예약된 메시지 시간에 기록됩니다. 미래 날짜로 예약된 사용자는 해당 예약 시간이 도래할 때까지 진입으로 표시되지 않습니다.
+{% endalert %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#4bc75890-b807-405d-b226-5aca284e6b7d {% endapiref %}
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `canvas.trigger.schedule.create` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `canvas.trigger.schedule.create` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key-permissions)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -64,12 +68,12 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | --------- | ---------| --------- | ----------- |
-| `canvas_id` | 필수 | 문자열 | [Canvas 식별자]({{site.baseurl}}/api/identifier_types/)를 참조하세요. |
-| `recipients` | 선택 사항 | 수신자 오브젝트 배열 | [수신자 오브젝트]({{site.baseurl}}/api/objects_filters/recipient_object/)를 참조하세요. |
-| `audience` | 선택 사항 | 연결된 오디언스 오브젝트 | [연결된 오디언스]({{site.baseurl}}/api/objects_filters/connected_audience/)를 참조하세요. |
+| `canvas_id` | 필수 | 문자열 | [Canvas 식별자]({{site.baseurl}}/api/identifier_types)를 참조하세요. |
+| `recipients` | 선택 사항 | 수신자 오브젝트 배열 | [수신자 오브젝트]({{site.baseurl}}/api/objects_filters/recipient_object)를 참조하세요. |
+| `audience` | 선택 사항 | 연결된 오디언스 오브젝트 | [연결된 오디언스]({{site.baseurl}}/api/objects_filters/connected_audience)를 참조하세요. |
 | `broadcast` | 선택 사항 | 부울 | Campaign 또는 Canvas가 타겟팅하는 전체 Segment에 메시지를 보낼 때 `broadcast`를 true로 설정해야 합니다. 이 매개변수는 기본적으로 false로 설정됩니다(2017년 8월 31일 기준). <br><br> `broadcast`가 true로 설정되면 `recipients` 목록을 포함할 수 없습니다. 그러나 `broadcast: true`를 설정할 때 주의하세요. 이 플래그를 의도치 않게 설정하면 예상보다 더 많은 오디언스에게 메시지를 보낼 수 있습니다. |
-| `context` | 선택 사항 | 오브젝트 | 이 전송의 모든 사용자에 대한 개인화 키-값 페어입니다. [Canvas 컨텍스트 오브젝트]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/)를 참조하세요. |
-| `schedule` | 필수 | 스케줄 오브젝트 | [스케줄 오브젝트]({{site.baseurl}}/api/objects_filters/schedule_object/)를 참조하세요. |
+| `context` | 선택 사항 | 오브젝트 | 이 전송의 모든 사용자에 대한 개인화 키-값 페어입니다. [Canvas 컨텍스트 오브젝트]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)를 참조하세요. |
+| `schedule` | 필수 | 스케줄 오브젝트 | [스케줄 오브젝트]({{site.baseurl}}/api/objects_filters/schedule_object)를 참조하세요. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 ## 예시 요청 {#example-request}

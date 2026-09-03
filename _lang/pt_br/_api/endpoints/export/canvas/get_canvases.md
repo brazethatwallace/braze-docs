@@ -25,21 +25,21 @@ Canvas arquivados não serão incluídos na resposta da API, a menos que o campo
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `canvas.list`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `canvas.list`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | -------- | --------- | ----------- |
 | `page` | Opcional | Número inteiro | A página de Canvas a ser retornada; o padrão é `0` (retorna o primeiro conjunto de até 100). |
-| `include_archived` | Opcional | booleano | Se deve ou não incluir Canvas arquivados; o padrão é `false`. |
+| `include_archived` | Opcional | Booleano | Se deve ou não incluir Canvas arquivados; o padrão é `false`. |
 | `sort_direction` | Opcional | String | - Classifique a data de criação do mais novo para o mais antigo: passe o valor `desc`.<br> - Classifique a data de criação do mais antigo para o mais recente: passe o valor `asc`. <br><br>Se `sort_direction` não estiver incluído, a ordem padrão será do mais antigo para o mais recente. |
 | `last_edit.time[gt]` | Opcional | Horário | Filtra os resultados e retorna apenas Canvas que foram editados após o horário fornecido até agora. O formato é `yyyy-MM-DDTHH:mm:ss`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#example-request}
 
@@ -61,12 +61,12 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/list?page
   	},
     ... (more Canvases)
   ],
-  "message": (required, string) the status of the export, returns 'success' when completed without errors
+  "message": (string) returns 'success' when the request completes without errors
 }
 ```
 
 {% alert tip %}
-Para obter ajuda com exportações de CSV e API, acesse [Resolução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+Para obter ajuda com exportações de CSV e API, acesse [Resolução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endapi %}

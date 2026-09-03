@@ -38,6 +38,9 @@ guide_featured_list:
 - name: "Open pixel and click tracking"
   link: /docs/user_guide/channels/email/email_setup/open_pixel_and_click_tracking
   image: /assets/img/braze_icons/cursor-click-02.svg
+- name: "Subscription status"
+  link: /docs/user_guide/audience/subscription_preferences/subscription_status
+  image: /assets/img/braze_icons/check-verified-02.svg
 ---
 
 ## Requirements
@@ -58,11 +61,11 @@ Before you start sending emails, there are some things you need. Refer to the fo
 IP warming is the **most important step** in the email setup process. Though it is not your first step (it's actually the last), we're calling it out here to let you know that you must warm up your IP address, or else any emails you send will be sent to spam or be subject to other send barriers.
 {% endalert %}
 
-[IP warming]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/) is when you send a relatively small number of emails out in your first batch, then over time, slightly increase the volume in the following batches until you reach your typical daily volume. This is done at the very end of your email setup process.
+[IP warming]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming) is when you send a relatively small number of emails out in your first batch, then over time, slightly increase the volume in the following batches until you reach your typical daily volume. This is done at the very end of your email setup process.
 
 By starting with smaller volumes of email, you are establishing a level of trust with your email provider, showing you are only sending emails to relevant users. Sending your first batch of emails to your most engaged users can help you gain trust faster with your provider.
 
-After you're done warming up your IP, you can [start creating and sending emails]({{site.baseurl}}/user_guide/channels/email/html_editor/)!
+After you're done warming up your IP, you can [start creating and sending emails]({{site.baseurl}}/user_guide/channels/email/html_editor)!
 
 ## Legally required transactional emails
 

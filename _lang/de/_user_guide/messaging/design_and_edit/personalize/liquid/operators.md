@@ -26,10 +26,10 @@ Diese Tabelle listet die unterstützten Operatoren auf. Beachten Sie, dass Klamm
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Operatoren" }
 
 {% alert note %}
-Operatoren können in bedingten Anweisungen (`if`, `elsif`, `unless`) verwendet werden, jedoch nicht in `assign`-Anweisungen, `for`-Schleifen oder Array-Zugriffsklammern. In `case`- und `when`-Tags vergleicht jeder Branch den `case`-Ausdruck mit einem `when`-Wert mittels Gleichheit anstelle beliebiger Operator-Ausdrücke. Beispiele finden Sie unter [Bedingte Messaging-Logik]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#case-and-when-tags). Eine vollständige Aufschlüsselung finden Sie unter [Wo Operatoren und Filter verwendet werden können]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#where-to-use-operators-and-filters).
+Operatoren können in bedingten Anweisungen (`if`, `elsif`, `unless`) verwendet werden, jedoch nicht in `assign`-Anweisungen, `for`-Schleifen oder Array-Zugriffsklammern. In `case`- und `when`-Tags vergleicht jeder Branch den `case`-Ausdruck mit einem `when`-Wert mittels Gleichheit anstelle beliebiger Operator-Ausdrücke. Beispiele finden Sie unter [Bedingte Messaging-Logik]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#case-and-when). Eine vollständige Aufschlüsselung finden Sie unter [Wo Operatoren und Filter verwendet werden können]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#where-to-use-operators-and-filters).
 {% endalert %}
 
-### Bedingungen ohne Klammern gruppieren {#grouping-conditions-without-parentheses}
+## Bedingungen ohne Klammern gruppieren {#grouping-conditions-without-parentheses}
 
 Liquid unterstützt keine Klammern zum Gruppieren von Ausdrücken. Um komplexe boolesche Logik wie `(a and b) or c` auszuwerten, verwenden Sie verschachtelte `if`-Anweisungen oder Zwischenvariablen.
 
@@ -52,7 +52,7 @@ You qualify for a reward!
 
 ## Tutorials {#tutorials}
 
-Lassen Sie uns einige Tutorials durchgehen, um zu lernen, wie Sie diese Operatoren für Ihre Marketingkampagnen einsetzen können:
+Lassen Sie uns einige Tutorials durchgehen, um zu lernen, wie Sie diese Operatoren für Ihre Marketing-Kampagnen einsetzen können:
 
 ### Eine Nachricht mit einem ganzzahligen angepassten Attribut auswählen {#choose-a-message-with-an-integer-custom-attribute}
 
@@ -243,13 +243,13 @@ Stream now!
 
 ![Ein Push-Benachrichtigungs-Composer mit dem vollständigen Liquid-Code aus dem Tutorial.]({% image_buster /assets/img/abort-if.png %})
 
-Sie können Nachrichten auch basierend auf Connected-Content [abbrechen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content/).
+Sie können Nachrichten auch basierend auf Connected Content [abbrechen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content).
 
 ## Fehlerbehebung {#troubleshooting}
 
 ### Testversand kommt bei Verwendung von `abort_message` nicht an {#test-send-doesnt-arrive-when-using-abort_message}
 
-Wenn Sie [`abort_message`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/) verwenden und ein Testversand nie ankommt, fehlen der Vorschau-Nutzer:in möglicherweise Attribute, die Ihr Liquid erwartet. Die Abbruchlogik wird beim Rendern ausgeführt; wenn sie greift, sendet Braze die Nachricht nicht. Verwenden Sie für die Vorschau Nutzer:innen mit den erforderlichen Profildaten oder nutzen Sie **Als Nutzer:in anzeigen**, um Empfängerfelder zu testen, die dieselben Werte liefern wie Ihre Produktionszielgruppe.
+Wenn Sie [`abort_message`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) verwenden und ein Testversand nie ankommt, fehlen der Vorschau-Nutzer:in möglicherweise Attribute, die Ihr Liquid erwartet. Die Abbruchlogik wird beim Rendern ausgeführt; wenn sie greift, sendet Braze die Nachricht nicht. Verwenden Sie für die Vorschau Nutzer:innen mit den erforderlichen Profildaten oder nutzen Sie **Als Nutzer:in anzeigen**, um Empfängerfelder zu testen, die dieselben Werte liefern wie Ihre Produktionszielgruppe.
 
 ### Die Vorschau kann Eigenschaftstypen falsch umwandeln {#preview-may-incorrectly-coerce-property-types}
 

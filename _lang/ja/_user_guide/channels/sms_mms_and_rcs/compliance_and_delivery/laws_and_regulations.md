@@ -39,9 +39,9 @@ channel:
 
 5. **米国およびその他の関連地域でSHAFTコンプライアンスを確保してください。** 性的表現、ヘイト、アルコール、銃器、タバコ（SHAFT）に関する言語を含むSMS、MMS、またはRCSメッセージの送信は、一般的に米国およびその他の一部地域で違法とみなされます。<br><br>
 
-6. **米国のメッセージに対して「合理的な撤回」を尊重してください。** 米国でメッセージを送信する顧客の場合、電話消費者保護法（TCPA）は、オプトアウトとして合理的に解釈できるメッセージはすべて尊重しなければならないと定めています。これは、配信停止トリガーが特定のキーワード（「STOP」など）に限定されなくなったことを意味します。
+6. **米国のメッセージに対して「合理的な撤回」を尊重してください。** 米国でメッセージを送信する顧客の場合、電話消費者保護法（TCPA）は、オプトアウトとして合理的に解釈できるメッセージはすべて尊重しなければならないと定めています。これは、購読解除トリガーが特定のキーワード（「STOP」など）に限定されなくなったことを意味します。
   - **意図ベースのオプトアウト：**「no more」「please don't text me anymore」「stoppp」などのフレーズは、法的なオプトアウトとして処理する必要があります。
-  - **確認メッセージの禁止：** リクエストを処理する前に、ユーザーの配信停止の意図を確認するメッセージ（例：「オプトアウトしますか？その場合はSTOPと返信してください」）を送信することはできません。<br><br>
+  - **確認メッセージの禁止：** リクエストを処理する前に、ユーザーの購読解除の意図を確認するメッセージ（例：「オプトアウトしますか？その場合はSTOPと返信してください」）を送信することはできません。<br><br>
 
 7. **すべてを再確認してください。** 法務チームと協力して、SMS、MMS、またはRCSプログラムが、ブランドが事業を展開するすべての地域の適用されるすべてのルールと規制に完全に準拠していることを確認してください。<br><br>
 
@@ -57,7 +57,7 @@ RCSは新興かつ進化中の分野です。州、国、その他の規制機�
 
 ## リソース {#resources}
 
-SMS、MMS、またはRCSのキャンペーンを構築する際に参照が必要になる可能性のあるリンクを以下に示します。
+SMS、MMS、またはRCSキャンペーンを構築する際に参照が必要になる可能性のあるリンクを以下に示します。
 
 - [CTIAの2023年メッセージング原則とベストプラクティス](https://api.ctia.org/wp-content/uploads/2023/05/230523-CTIA-Messaging-Principles-and-Best-Practices-FINAL.pdf)
 - [Twilioの米国SMSコンプライアンスガイド](https://www.twilio.com/learn/call-and-text-marketing/guide-to-us-sms-compliance)
@@ -69,25 +69,25 @@ SMS、MMS、またはRCSのキャンペーンを構築する際に参照が必�
 
 顧客のプライバシーは、有意義で敬意のある関係の鍵です。顧客のプライバシーと情報を尊重することは、顧客とブランドの間に絆を築くもう1つの機会です。マーケティングツールを使用すると、データとプライバシーが後回しになることがあります。
 
-幸いなことに、Brazeは[GDPR]({{site.baseurl}}/dp-technical-assistance/)を含む多くの[セキュリティ規制]({{site.baseurl}}/developer_guide/disclosures/security_qualifications/#security-qualifications)のガイドラインに従っています。
+幸いなことに、Brazeは[GDPR]({{site.baseurl}}/dp-technical-assistance)を含む多くの[セキュリティ規制]({{site.baseurl}}/developer_guide/disclosures/security_qualifications)のガイドラインに従っています。
 
 [CTIA](https://www.ctia.org/)（米国のワイヤレス通信業界を代表する業界団体）は、明確でわかりやすいプライバシーポリシーを維持し、目立つように表示することを推奨しています。
 
 ### 同意 {#consent}
 
-オプトイン、ヘルプ、オプトアウトのオプションは、SMS、MMS、またはRCSのキャンペーンを作成する際に絶対に必要です。
+オプトイン、ヘルプ、オプトアウトのオプションは、SMS、MMS、またはRCSキャンペーンを作成する際に絶対に必要です。
 
 電話消費者保護法（[TCPA](https://en.wikipedia.org/wiki/Telephone_Consumer_Protection_Act_of_1991)）は、企業が顧客にメッセージを送信するために「明示的な書面による同意」を取得しなければならないと定めています。これはWebまたはモバイルなど、さまざまな方法で行うことができます。SMSを使用して顧客とどのようにコミュニケーションを取るかについて、顧客に明確に伝える必要があります。
 
 [全国電話勧誘拒否登録簿](https://www.donotcall.gov/)に準拠することを忘れないでください。
 
-Brazeは[購読グループ]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/)を使用して、同意レベルに基づいてユーザーのグループを管理します。
+Brazeは[購読グループ]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing)を使用して、同意レベルに基づいてユーザーのグループを管理します。
 
 #### ファジーオプトアウトによるコンプライアンス {#compliance-through-fuzzy-opt-out}
 
-非標準のオプトアウトリクエストの認識を自動化するために、米国の顧客の場合はサブスクリプショングループ設定でファジーオプトアウトを有効にすることができます。
+非標準のオプトアウトリクエストの認識を自動化するために、米国の顧客の場合は購読グループ設定でファジーオプトアウトを有効にすることができます。
 
-- **即時設定：** デフォルトでは、ファジーオプトアウトは確認メッセージを送信します。確認の代わりに即時オプトアウトを実行するには、[ファジーオプトアウトセクション]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/fuzzy_opt_out/#configure-fuzzy-opt-out)の手順に従ってワークスペースを設定できます。
+- **即時設定：** デフォルトでは、ファジーオプトアウトは確認メッセージを送信します。確認の代わりに即時オプトアウトを実行するには、[ファジーオプトアウトセクション]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/fuzzy_opt_out#configure-fuzzy-opt-out)の手順に従ってワークスペースを設定できます。
 - **手動キーワード追加：** デフォルトで提供されているキーワードに加えて、「REMOVE」「END」「HALT」「CEASE」「DISCONTINUE」「UNSUBSCRIBE」などのリスクの高い単語を**オプトアウト**キーワードカテゴリに手動で追加することをお勧めします。
 
 ### スパムと送信頻度 {#spam-and-cadence}

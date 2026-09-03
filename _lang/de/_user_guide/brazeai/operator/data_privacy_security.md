@@ -71,7 +71,7 @@ Es gibt mehrere Schritte, die Sie unternehmen können, um die PII-Exposition bei
 - **Deaktivieren Sie die Einstellung „PII anzeigen“** für alle Nutzer:innen, die Operator verwenden. Wenn Nutzer:innen PII nicht einsehen können, kann Operator ebenfalls nicht darauf zugreifen.
 - **Öffnen Sie Operator nicht auf einer Nutzerprofilseite.** Seiteninhalte werden gescrapt und in jede an OpenAI gesendete Anfrage einbezogen.
 - **Verwenden Sie beim Testen ein angepasstes Nutzerprofil**, anstatt ein bestehendes auszuwählen. Dies ist das Standardverhalten von Operator.
-- **Geben Sie keine PII direkt in den Operator-Prompt ein** und fügen Sie dort auch keine PII ein.
+- **Geben Sie keine PII direkt in den Operator-Prompt ein** und fügen Sie dort auch keine PII ein. Operator blockiert keine PII, die in Nutzer-Prompts enthalten sind. Wenn Nutzer:innen PII manuell in eine Anfrage eingeben, werden diese Inhalte an das zugrunde liegende Sprachmodell gesendet.
 - **Deaktivieren Sie die automatische Genehmigung für Aktionen**, um die Kontrolle darüber zu behalten, worauf Operator zugreifen und was Operator ausführen kann.
 - **Bitten Sie Operator nicht, Vorschauwerte für Attribute anzuzeigen**, wenn Sie ein Segment erstellen oder Liquid schreiben.
 
@@ -79,11 +79,11 @@ Es gibt mehrere Schritte, die Sie unternehmen können, um die PII-Exposition bei
 
 ### Zugriff auf Operator einschränken {#restrict-access-to-operator}
 
-Der Zugriff auf Operator wird auf Workspace-Ebene über [granulare Nutzerberechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) verwaltet. Administrator:innen können die Berechtigung **BrazeAI Operator verwenden** für einzelne Nutzer:innen gewähren oder entziehen, um sicherzustellen, dass nur autorisiertes Personal mit dem Tool interagieren kann. Ohne diese spezifischen Berechtigungen wird die Operator-Oberfläche vollständig unterdrückt und die Backend-Endpunkte bleiben gesichert.
+Der Zugriff auf Operator wird auf Workspace-Ebene über [granulare Nutzerberechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) verwaltet. Administrator:innen können die Berechtigung „BrazeAI Operator verwenden“ für einzelne Nutzer:innen gewähren oder entziehen, um sicherzustellen, dass nur autorisiertes Personal mit dem Tool interagieren kann. Ohne diese spezifischen Berechtigungen wird die Operator-Oberfläche vollständig unterdrückt und die Backend-Endpunkte bleiben gesichert.
 
 ### Human-in-the-Loop-Modell {#human-in-the-loop-model}
 
-Standardmäßig erfordert Operator eine explizite Genehmigung, bevor eine Änderung übernommen wird. Vorgeschlagene Änderungen werden als [Aktionskarten]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/) zur Überprüfung präsentiert. Wenn Nutzer:innen einen Vorschlag ablehnen, werden keine Änderungen vorgenommen. Wenn Nutzer:innen einen Vorschlag annehmen, wird das Dashboard aktualisiert, aber die Änderungen bleiben ausstehend und müssen manuell gespeichert oder gestartet werden, um persistent zu werden.
+Standardmäßig erfordert Operator eine explizite Genehmigung, bevor eine Änderung übernommen wird. Vorgeschlagene Änderungen werden als [Aktionskarten]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions) zur Überprüfung präsentiert. Wenn Nutzer:innen einen Vorschlag ablehnen, werden keine Änderungen vorgenommen. Wenn Nutzer:innen einen Vorschlag annehmen, wird das Dashboard aktualisiert, aber die Änderungen bleiben ausstehend und müssen manuell gespeichert oder gestartet werden, um persistent zu werden.
 
 Nutzer:innen können **Aktionen automatisch genehmigen** im Operator-Chat-Panel aktivieren, wodurch vorgeschlagene Aktionen sofort ohne manuelle Überprüfung ausgeführt werden. Auch bei aktivierter automatischer Genehmigung erfordern einige Aktionen aus Sicherheitsgründen immer eine explizite Genehmigung, darunter das Generieren von Bildern und das Ändern von Workspace-Einstellungen.
 
@@ -91,6 +91,17 @@ Nutzer:innen können **Aktionen automatisch genehmigen** im Operator-Chat-Panel 
 
 Operator übernimmt vollständig das Berechtigungsprofil der angemeldeten Nutzer:in. Es ist ihm untersagt, Daten einzusehen oder Aktionen auszuführen, wie z. B. Campaign-Änderungen, zu denen die Nutzer:in nicht bereits eigenständig berechtigt ist.
 
+### Berechtigung „PII anzeigen“ {#view-pii-permission}
+
+Operator benötigt die Berechtigung „PII anzeigen“ nicht, um zu funktionieren, und das ist beabsichtigt. Operator hat keinen direkten Zugriff auf Ihren Datenspeicher und führt keine eigenständigen Datenbankabfragen durch. Stattdessen sendet Operator Anfragen an dieselben Backend-Endpunkte wie der Rest des Dashboards und verwendet dabei die Sitzungszugangsdaten der authentifizierten Nutzer:in. Das bedeutet, dass Operator vollständig durch die bestehenden [Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) der Nutzer:in begrenzt ist und auf nichts zugreifen kann, was die Nutzer:in nicht bereits sehen kann.
+
+PII kann Operator nur auf zwei Wegen erreichen:
+
+- Die Nutzer:in gibt PII direkt in einen Prompt ein.
+- Die Nutzer:in sieht bereits PII im Dashboard, wenn sie Operator verwendet.
+
+Wenn Nutzer:innen die Berechtigung „PII anzeigen“ nicht haben, kann Operator ihnen keine PII anzeigen. Beachten Sie, dass Operator keine Inhalte filtert, die direkt in Prompts eingegeben werden – manuell eingegebene PII werden an das zugrunde liegende Sprachmodell gesendet. Um dieses Risiko zu reduzieren, lesen Sie [PII-Exposition minimieren](#minimize-pii-exposure).
+
 ### Team-Nutzung überprüfen {#audit-team-usage}
 
-Laden Sie den [Sicherheitsereignisbericht]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#security-event-report) von Braze herunter, um die Team-Nutzung zu überwachen. Das Ereignis „Requested BrazeAI Operator Response“ bietet einen umfassenden Audit-Trail, mit dem Sie die genauen Eingaben überprüfen können, die an Operator übermittelt wurden.
+Laden Sie den [Sicherheitsereignisbericht]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#security-event-report) von Braze herunter, um die Team-Nutzung zu überwachen. Das Ereignis „Requested BrazeAI Operator Response“ bietet einen umfassenden Audit-Trail, mit dem Sie die genauen Eingaben überprüfen können, die an Operator übermittelt wurden.

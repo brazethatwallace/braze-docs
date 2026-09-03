@@ -6,11 +6,11 @@ page_order: 2
 
 layout: api_page
 page_type: reference
-description: "이 문서에서는 목록 카탈로그 Braze 엔드포인트에 대한 자세한 내용을 설명합니다."
+description: "이 문서에서는 카탈로그 목록 Braze 엔드포인트에 대한 자세한 내용을 설명합니다."
 
 ---
 {% api %}
-# 카탈로그 목록
+# 카탈로그 목록 {#list-catalogs}
 {% apimethod get %}
 /catalogs
 {% endapimethod %}
@@ -19,19 +19,19 @@ description: "이 문서에서는 목록 카탈로그 Braze 엔드포인트에 �
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#7d65fb86-ccf7-423f-9eb2-f68ab36df824 {% endapiref %}
 
-## Prerequisites
+## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `catalogs.get` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `catalogs.get` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key-permissions)가 필요합니다.
 
-## 사용량 제한
+## 사용량 제한 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='synchronous catalog' %}
 
-## 경로 및 요청 매개변수
+## 경로 및 요청 매개변수 {#path-and-request-parameters}
 
 이 엔드포인트에는 경로 또는 요청 매개변수가 없습니다.
 
-## 요청 예시
+## 요청 예시 {#example-request}
 
 ```
 curl --location --request GET 'https://rest.iad-03.braze.com/catalogs' \
@@ -39,9 +39,9 @@ curl --location --request GET 'https://rest.iad-03.braze.com/catalogs' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## 응답
+## 응답 {#response}
 
-### 성공 응답의 예
+### 성공 응답 예시 {#example-success-response}
 
 `200` 상태 코드는 다음과 같은 응답 본문을 반환할 수 있습니다.
 

@@ -17,6 +17,7 @@
   </div>
 </div>
 {% include contentcards.html %}
+{% include back_to_top_button.html %}
 {% include ask_ai_button.html %}
 {% endunless %}
 
@@ -29,6 +30,9 @@
   {%- endfor -%}
 </script>
 <script type='text/javascript' src='{% image_buster /assets/js/hash_redirect.js %}'></script>
+{% endif %}
+{% if jekyll.environment != "production" %}
+<script type="text/javascript" src="{% image_buster /assets/js/dev_build_status.js %}"></script>
 {% endif %}
 </main>
 </body>

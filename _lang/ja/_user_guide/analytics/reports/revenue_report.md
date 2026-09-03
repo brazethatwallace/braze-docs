@@ -93,11 +93,11 @@ tool: Reports
 収益データをエクスポートするには、**Performance Over Time**グラフの<i class="fas fa-bars" title="チャートコンテキストメニュー"></i> **チャートコンテキストメニュー**を選択し、エクスポートオプションを選択します。
 
 {% alert tip %}
-収益データを取得する他の方法をお探しですか？購入行動（および製品の購入）を[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)としてCampaignsやCanvasesに追加してみてください。
+収益データを取得する他の方法をお探しですか？購入行動（および製品の購入）を[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)としてキャンペーンやキャンバスに追加してみてください。
 {% endalert %}
 
-また、[Campaign分析]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/)ページや[Canvas分析]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics/)ページで、ケースバイケースで収益統計を確認することもできます。
+また、[キャンペーン分析]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics)ページや[キャンバス分析]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics)ページで、ケースバイケースで収益統計を確認することもできます。
 
 {% alert tip %}
-収益レポートはAPIを通じてエクスポートできません。CSVエクスポートについては、[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)を参照してください。
+収益レポートはAPIを通じてエクスポートできません。CSVエクスポートについては、[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting)を参照してください。
 {% endalert %}

@@ -13,13 +13,13 @@ description: "This article outlines details about Query invalid phone numbers Br
 /sms/invalid_phone_numbers
 {% endapimethod %}
 
-> Use this endpoint to pull a list of phone numbers that have been marked "invalid" within a certain time frame. See [Invalid Phone Number Handling]({{site.baseurl}}/user_guide/message_building_by_channel/sms/phone_numbers/user_phone_numbers/#handling-invalid-phone-numbers) documentation for more information.
+> Use this endpoint to pull a list of phone numbers that have been marked "invalid" within a certain time frame. See [Invalid Phone Number Handling]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#handling-invalid-phone-numbers) documentation for more information.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#81ceae19-15d1-4ac1-ad22-a6b86a92456d {% endapiref %}
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `sms.invalid_phone_numbers` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `sms.invalid_phone_numbers` permission.
 
 ## Rate limit
 

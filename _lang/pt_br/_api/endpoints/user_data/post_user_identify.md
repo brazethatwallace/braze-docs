@@ -7,7 +7,6 @@ layout: api_page
 page_type: reference
 alias: /users_identify_merge/
 description: "Este artigo traz informações sobre o endpoint da Braze \"Identificar usuários\"."
-
 ---
 {% api %}
 # Identificar usuários {#identify-users}
@@ -32,7 +31,7 @@ Identificar um usuário requer que um `external_id` seja incluído nos seguintes
 Se não houver um usuário com esse `external_id`, o `external_id` é adicionado ao registro do usuário com alias, e o usuário é considerado identificado. Os usuários podem ter apenas um alias para um rótulo específico. Se um usuário já existir com o `external_id` e tiver um alias existente com o mesmo rótulo que o perfil apenas por alias, então os perfis de usuário não são combinados.
 
 {% alert tip %}
-Para evitar a perda inesperada de dados ao identificar usuários, é altamente recomendável consultar primeiro as [práticas recomendadas de coleta de dados]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/best_practices/#capturing-user-data-when-alias-only-user-info-is-already-present) para saber como capturar dados de usuários quando as informações de usuários com alias já estiverem presentes.
+Para evitar a perda inesperada de dados ao identificar usuários, é altamente recomendável consultar primeiro as [práticas recomendadas de coleta de dados]({{site.baseurl}}/user_guide/data/unification/user_data/best_practices) para saber como capturar dados de usuários quando as informações de usuários com alias já estiverem presentes.
 {% endalert %}
 
 ### Comportamento de mesclagem {#merging-behavior}
@@ -77,7 +76,7 @@ Por padrão, este endpoint mescla a seguinte lista de campos encontrados **exclu
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/api_key/) com a permissão `users.identify`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics) com a permissão `users.identify`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -106,14 +105,14 @@ Authorization: Bearer YOUR_REST_API_KEY
 Um dos seguintes é obrigatório por solicitação: `aliases_to_identify`, `emails_to_identify` ou `phone_numbers_to_identify`. Por exemplo, você pode usar este endpoint para identificar usuários por e-mail usando `emails_to_identify` na sua solicitação.
 {% endalert %}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 |-----------------------------|----------|-------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `aliases_to_identify` | Obrigatória | Vetor de aliases para identificar o objeto | Consulte [alias para identificar o objeto]({{site.baseurl}}/api/objects_filters/aliases_to_identify/) e [o objeto de alias do usuário]({{site.baseurl}}/api/objects_filters/user_alias_object/). |
-| `emails_to_identify` | Obrigatória | Vetor de aliases para identificar o objeto | Obrigatório se `email` for especificado como o identificador. Endereços de e-mail para identificar usuários. Consulte [Identificação de usuários por e-mail](#identifying-users-by-email). |
-| `phone_numbers_to_identify` | Obrigatória | Vetor de aliases para identificar o objeto | Números de telefone para identificar usuários. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+| `aliases_to_identify` | Obrigatório | Vetor de aliases para identificar o objeto | Consulte [alias para identificar o objeto]({{site.baseurl}}/api/objects_filters/aliases_to_identify) e [o objeto de alias do usuário]({{site.baseurl}}/api/objects_filters/user_alias_object). |
+| `emails_to_identify` | Obrigatório | Vetor de aliases para identificar o objeto | Obrigatório se `email` for especificado como o identificador. Endereços de e-mail para identificar usuários. Consulte [Identificação de usuários por e-mail](#identifying-users-by-email-addresses-and-phone-numbers). |
+| `phone_numbers_to_identify` | Obrigatório | Vetor de aliases para identificar o objeto | Números de telefone para identificar usuários. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
-### Identificando usuários por endereços de e-mail e números de telefone {#identifying-users-by-email-addresses-and-phone-numbers}
+### Identificação de usuários por endereços de e-mail e números de telefone {#identifying-users-by-email-addresses-and-phone-numbers}
 
 Se um endereço de e-mail ou número de telefone for especificado como identificador, você também deve incluir `prioritization` no identificador.
 
@@ -154,7 +153,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/identify' \
   "emails_to_identify": [
     {
       "external_id": "external_identifier_2",
-      "email": "john.smith@braze.com",
+      "email": "john.smith@example.com",
       "prioritization": ["unidentified", "most_recently_updated"]
     }
   ]
@@ -166,8 +165,12 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/identify' \
 O campo `alias_name` diferencia maiúsculas de minúsculas. Uma solicitação que retorna um código de status `201` confirma apenas que a sintaxe da solicitação era válida — não confirma que o alias foi correspondido. Se a capitalização de `alias_name` na sua solicitação não corresponder exatamente ao alias armazenado no perfil de usuário, a operação falhará silenciosamente e o `external_id` não será atribuído. Por exemplo, se o alias armazenado for `JimJones@example.com`, uma solicitação com `jimjones@example.com` retornará sucesso, mas não produzirá nenhum resultado.
 
 {% alert tip %}
-Para saber mais sobre `alias_name` e `alias_label`, consulte nossa documentação sobre [aliases de usuário]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases).
+Para saber mais sobre `alias_name` e `alias_label`, consulte nossa documentação sobre [aliases de usuário]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle).
 {% endalert %}
+
+### Por que minha solicitação de identificação retorna sucesso, mas o perfil não foi mesclado? {#why-does-my-identify-request-return-success-but-the-profile-did-not-merge}
+
+`201 Created` com `message: success` significa que a Braze aceitou a solicitação. Isso não garante que cada alias ou e-mail na carga útil correspondeu a um perfil existente — diferenças de maiúsculas e minúsculas em `alias_name`, perfis duplicados ou regras de priorização da Braze podem resultar em nenhuma mesclagem visível, mesmo que a chamada tenha sido bem-sucedida. Verifique se a capitalização de `alias_name` corresponde exatamente aos valores armazenados, confira se há perfis duplicados com [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) e revise a [`prioritization`](#identifying-users-by-email-addresses-and-phone-numbers) ao usar `emails_to_identify`.
 
 ## Resposta {#response}
 

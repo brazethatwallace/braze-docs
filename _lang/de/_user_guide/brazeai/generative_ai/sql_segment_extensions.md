@@ -1,7 +1,7 @@
 ---
-nav_title: SQL-Segment-Erweiterungen
-article_title: SQL-Segment-Erweiterungen
-page_order: 0.1
+nav_title: SQL-Segmenterweiterungen
+article_title: SQL-Segmenterweiterungen
+page_order: 7
 page_type: reference
 description: "Dieser Artikel beschreibt, wie Sie eine SQL-Segmenterweiterung mit Snowflake-Abfragen erstellen."
 tool: Segments

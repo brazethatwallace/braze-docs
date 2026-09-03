@@ -36,7 +36,7 @@ The following video provides an overview of how to create and customize reports 
     - Channels
     - Tags
 
-    Note that your **Rows** selection will impact [the metrics that you can view](#metrics-availability). For example, you can view multivariate metrics only if you report on **Canvases**, or **Campaigns** with a **Variant** drilldown. You cannot view those metrics when reporting on **Campaigns and Canvases**, even if those campaigns and Canvases have multivariate tests. 
+    Note that your **Rows** selection impacts [the metrics that you can view](#metrics-availability). For example, you can view multivariate metrics only if you report on **Canvases**, or **Campaigns** with a **Variant** drilldown. You can't view those metrics when reporting on **Campaigns and Canvases**, even if those campaigns and Canvases have multivariate tests. 
 
 ![The "Rows and columns" section with fields to select the rows and groupings for your report.]({% image_buster /assets/img/report_builder_2/rows_and_columns.png %}){: style="width:90%;"}
 
@@ -67,7 +67,8 @@ Try out different configurations of drilldown options to explore the [many ways 
 8. Then, depending on your selections in step 3, choose to manually or automatically add campaigns, Canvases, or both to your report.
     - **Add manually:** Choose each campaign or Canvas to include in the report by using the filters for **Last Sent** dates and tags or channels, or searching the campaign or Canvas name.<br><br>![The "Manually add campaigns and canvases" section with a list of campaigns to select.]({% image_buster /assets/img/report_builder_2/manually_add.png %}){: style="width:90%;"}<br><br>
     - **Add automatically:** Set rules for which campaigns or Canvases to include in the report. You're only required to select one field on this page.
-        - Note that as additional campaigns or Canvases satisfy the conditions you set on this screen, they will automatically be added to future runs of your report.<br><br>![The "Automatically add campaigns and canvases" section with fields to set rules for which campaigns and Canvases should be added to the report.]({% image_buster /assets/img/report_builder_2/automatically_add.png %}){: style="width:90%;"}<br><br>
+        - Note that as additional campaigns or Canvases satisfy the conditions you set on this screen, they are automatically added to future runs of your report.
+        - Banners isn't an option in the **Channel** dropdown, so you can't use channel rules to automatically add Banner campaigns or Canvases. You can still include Banner KPIs in your report metrics.<br><br>![The "Automatically add campaigns and canvases" section with fields to set rules for which campaigns and Canvases should be added to the report.]({% image_buster /assets/img/report_builder_2/automatically_add.png %}){: style="width:90%;"}<br><br>
 9. Run the report by selecting **Save & Run**.
 
 {% alert note %}
@@ -79,7 +80,7 @@ The report may take up to a few minutes to run, depending on the date range and 
 Your selection for **Rows** affects the metrics you can select.
 
 {% alert tip %}
-If you want to report on Canvas variants or steps, select **Canvases** for rows and either leave the field empty or select **Date** as the drilldown. This creates a **Canvas View** dropdown to view metrics for the Canvas only, or group metrics by variant, step, or message. 
+If you want to report on Canvas variants or steps, select **Canvases** for rows and either leave the field empty or select **Date** as the drilldown. After running the report, a **Canvas View** dropdown appears on the results page to view metrics for the Canvas only, or group metrics by variant, step, or message.<br><br> When editing your report, the preview table shows a maximum of 50 rows. Run the report to view all rows on the results page with pagination (100 rows per page) or export the full dataset as a CSV.
 
 ![The opened "Canvas View" dropdown.]({% image_buster /assets/img/report_builder_2/canvas_view_dropdown.png %}){: style="width:40%;"}
 {% endalert %}
@@ -105,7 +106,7 @@ In the same report, _Unique Recipients_ can be higher than _Unique Impressions_ 
 
 ## Viewing a report
 
-After running your report, you can view your results in table format on the report page. 
+After running your report, you can view your results in table format on the report results page.
 
 ![A table of the report data for each campaign's metrics.]({% image_buster /assets/img/report_builder_2/report_table.png %}){: style="width:90%;"}
 
@@ -116,7 +117,7 @@ At the bottom of the page you can create a chart of your data by selecting a **C
 ![A chart of the report data with options to configure the chart's x-axis, y-axis, chart type, and more.]({% image_buster /assets/img/report_builder_2/visualize_table.png %}){: style="max-width:90%;"}
 
 {% alert note %}
-To create a line chart, select **Date** as a drilldown option when configuring the report. This will display trends over time.
+To create a line chart, select **Date** as a drilldown option when configuring the report. This displays trends over time.
 {% endalert %}
 
 #### Downloading a report chart
@@ -129,10 +130,11 @@ To download an image of the report chart, select the dotted icon then choose a d
 
 You can share a dashboard link to the report by selecting **Share** and one of these options:
 - **Share a link:** Copy and share the link.
-
-!["Share a link" dropdown with a link to the report.]({% image_buster /assets/img/report_builder_2/share_this_report.png %}){: style="max-width:70%;"}
-
 - **Send or schedule an email:** Send an email immediately or at a designated time that contains a download link that expires after one hour. You can select recipients from the company users listed in the **Email Recipients** dropdown or enter any other email address.
+
+{% alert note %}
+The **Email Recipients** dropdown lists Braze company users only, and saves their email addresses across report schedules. External email addresses must be manually entered each time you create a new report schedule. If you frequently send reports to external recipients, such as a partner contact, consider adding them as a company user with appropriate permissions so their address appears in the dropdown.
+{% endalert %}
 
 !["Schedule an email" window with fields to choose how the report is formatted, who should receive it, and when it should send.]({% image_buster /assets/img/report_builder_2/schedule_an_email.png %}){: style="max-width:70%;"}
 
@@ -143,7 +145,19 @@ You can share a dashboard link to the report by selecting **Share** and one of t
 1. Select the dotted icon at the top of the report table.
 2. Select **Add to dashboard**.
 3. Select whether you want to create a new dashboard or add to an existing dashboard.<br><br>![Window with options to select if you want to add the report to a new or existing dashboard.]({% image_buster /assets/img/report_builder_2/add_to_dashboard.png %}){: style="width:90%;"}<br><br>
-4. Follow the steps in [Dashboard Builder]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/) to learn more about building a dashboard.
+4. Follow the steps in [Dashboard Builder]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder) to learn more about building a dashboard.
+
+## Team permissions {#team-permissions}
+
+Report Builder reports don't support [team assignment]({{site.baseurl}}/user_guide/administer/global/user_management/teams) like campaigns or Canvases. You can't limit a saved report to a specific team when you create it.
+
+Users with team-level ["View Dashboard Reports"]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) permission (rather than workspace-level) can still use Report Builder, but report visibility is limited:
+
+- These users only see reports where every selected campaign and Canvas is assigned to their teams.
+- Reports with **Channels** as rows are hidden.
+- Reports that use automatic selection to add campaigns or Canvases are hidden, because Braze can't verify team access for messages that may be added when the report runs.
+
+[Report Builder (legacy)]({{site.baseurl}}/report_builder_legacy/) scopes which campaigns and Canvases you can add to a report by team, but saved reports are not filtered from the list the same way as in Report Builder (New). For permission setup, see [Setting user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) and [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams).
 
 ## Troubleshooting
 
@@ -157,4 +171,4 @@ For example, suppose **Last sent** is January 1, 2025–April 14, 2025, so a cam
 
 Report download links expire after one hour. If your link has expired, generate a new report and download it within the hour. There is no way to extend the expiry time.
 
-If you have an [Amazon S3 bucket]({{site.baseurl}}/partners/data_and_infrastructure_agility/cloud_storage/amazon_s3/) connected in **Partner Integrations**, you may be able to retrieve data from older reports by browsing your S3 bucket directly.
+If you have an [Amazon S3 bucket]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3) connected in **Partner Integrations**, you may be able to retrieve data from older reports by browsing your S3 bucket directly.

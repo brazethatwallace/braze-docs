@@ -16,7 +16,7 @@ Record in-app purchases so that you can track your revenue over time and across 
 
 Braze supports purchases in multiple currencies. Purchases that you report in a currency other than USD will be shown in the dashboard in USD based on the exchange rate at the date they were reported.
 
-Before implementation, be sure to review examples of the segmentation options afforded by custom events, custom attributes, and purchase events in our [best practices]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#user-data-collection), as well as our notes on [event naming conventions]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions/).
+Before implementation, be sure to review examples of the segmentation options afforded by custom events, custom attributes, and purchase events in our [best practices]({{site.baseurl}}/developer_guide/analytics), as well as our notes on [event naming conventions]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions).
 
 ## Tracking purchases and revenue
 
@@ -48,7 +48,7 @@ Appboy.sharedInstance()?.logPurchase("your product ID", inCurrency: "USD", atPri
 
 ### Adding properties {#properties-purchases}
 
-You can add metadata about purchases by either passing an [event property array]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events#nested-objects) or by passing an `NSDictionary` populated with `NSNumber`, `NSString`, or `NSDate` values.
+You can add metadata about purchases by either passing an [event property array]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties#nested-objects) or by passing an `NSDictionary` populated with `NSNumber`, `NSString`, or `NSDate` values.
 
 Refer to the [iOS class documentation](http://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#aaca4b885a8f61ac9fad3936b091448cc) for additional details.
 
@@ -86,7 +86,7 @@ If you pass in a value of 10 USD and a quantity of 3, that will log to the user'
 {% endalert %}
 
 ### Log purchases at the order level
-If you want to log purchases at the order level instead of the product level, you can use order name or order category as the `product_id`. Refer to our [purchase object specification]({{site.baseurl}}/api/objects_filters/purchase_object/#product-id-naming-conventions) to learn more. 
+If you want to log purchases at the order level instead of the product level, you can use order name or order category as the `product_id`. Refer to our [purchase object specification]({{site.baseurl}}/api/objects_filters/purchase_object#naming-conventions) to learn more. 
 
 ### Reserved keys
 
@@ -101,5 +101,5 @@ The following keys are reserved and cannot be used as purchase properties:
 
 ### REST API
 
-You can also use our REST API to record purchases. Refer to the [User API documentation]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data) for details.
+You can also use our REST API to record purchases. Refer to the [User API documentation]({{site.baseurl}}/api/endpoints/user_data) for details.
 

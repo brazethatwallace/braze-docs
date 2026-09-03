@@ -14,30 +14,30 @@ search_tag: Partner
 
 _이 통합은 Regal에서 유지 관리합니다._
 
-Regal과 Braze를 통합하면 행동 데이터와 대화형 AI를 통합하여 개인화된 옴니채널 고객 여정을 오케스트레이션할 수 있습니다. Braze는 고객 생애주기 전반에서 신호를 캡처하고, Regal은 이를 활용하여 AI 에이전트 대화, 라우팅 및 실시간 의사결정을 수행합니다.
+Regal과 Braze를 통합하면 행동 데이터와 대화형 인공지능을 통합하여 개인화된 옴니채널 고객 여정을 오케스트레이션할 수 있습니다. Braze는 고객 생애주기 전반에서 신호를 캡처하고, Regal은 이를 활용하여 AI 에이전트 대화, 라우팅 및 실시간 의사결정을 수행합니다.
 
 Braze 데이터를 사용하여 AI 에이전트가 무엇을 말하고, 어떻게 응답하며, 언제 참여할지를 결정합니다. 대화 결과와 인사이트를 Braze로 다시 전송하여 타겟팅과 생애주기 마케팅을 개선합니다. 고객 여정의 핵심 순간에 AI 기반 전화와 SMS를 트리거하고, 각 대화에서 발생한 내용을 기반으로 Braze에서 후속 조치를 수행합니다.
 
-## 필수 조건 {#prerequisites}
+## 사전 요구 사항 {#prerequisites}
 
 | 요구 사항 | 설명 |
 | ----------- | ----------- |
 | Regal 계정 | 이 파트너십을 활용하려면 Regal 계정이 필요합니다. |
-| Regal API 키 | Regal API 키를 사용하면 Braze에서 Regal로 이벤트를 전송할 수 있습니다.<br><br>이 키를 받으려면 [support@regal.io](mailto:support@regal.io)로 이메일을 보내세요. |
-| Braze 데이터 변환 | Regal에서 데이터를 수신하려면 [데이터 변환]({{site.baseurl}}/data_transformation/)이 필요합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
+| Regal API 키 | Regal API 키를 사용하면 Braze에서 Regal로 이벤트를 전송할 수 있습니다.<br><br>이 키를 받으려면 [support@regal.io](mailto:support@regal.io)로 이메일을 보내주세요. |
+| Braze 데이터 변환 | Regal에서 데이터를 수신하려면 [데이터 변환]({{site.baseurl}}/data_transformation)이 필요합니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="사전 요구 사항" }
 
-## 통합: Braze에서 Regal로 데이터 전송 {#integration-sending-data-from-braze-to-regal}
+## 통합: Braze에서 Regal로 데이터 보내기 {#integration-sending-data-from-braze-to-regal}
 
-Braze Canvas 또는 Campaign 웹훅을 사용하여 고객 프로필 및 이벤트 데이터를 Braze에서 Regal로 전송합니다.
+Braze Canvas 또는 Campaign 웹훅을 사용하여 고객 프로필 및 이벤트 데이터를 Braze에서 Regal로 전송할 수 있습니다.
 
-### 1단계: Regal에서 새 연락처 생성 {#step-1-create-new-contacts-in-regal}
+### 1단계: Regal에서 새 연락처 만들기 {#step-1-create-new-contacts-in-regal}
 
-Regal에서 전화 및 문자를 사용할 수 있도록, 새 Braze 프로필이 생성될 때마다 Regal로 웹훅을 전송하는 Canvas 또는 Campaign을 구축합니다.
+Regal에서 전화 및 문자 메시지에 사용할 수 있는 새 Braze 프로필이 생성될 때마다 Regal로 웹훅을 보내는 Canvas 또는 Campaign을 만듭니다.
 
-1. "Create New Contact for Regal"이라는 제목의 Canvas 또는 Campaign을 생성하고 진입 유형으로 **액션 기반**을 선택합니다.
+1. "Create New Contact for Regal"이라는 제목의 Canvas 또는 Campaign을 만들고, 진입 유형으로 **액션 기반**을 선택합니다.
 
-2. 트리거 로직을 **커스텀 이벤트**로 설정하고 전화번호가 있는 프로필이 생성될 때 발생하는 이벤트를 선택합니다. Regal에서는 전화번호 필드가 설정되어 있는지 확인하는 추가 필터를 추가하는 것도 권장합니다.
+2. 트리거 로직을 **커스텀 이벤트**로 설정한 다음, 전화번호가 포함된 프로필이 생성될 때 실행되는 이벤트를 선택합니다. Regal에서는 전화번호 필드가 설정되어 있는지 확인하는 필터를 추가하는 것도 권장합니다.
 
 3. 새 웹훅 템플릿에서 다음 필드를 입력합니다:
    - **웹훅 URL**: <https://events.regalvoice.com/events>
@@ -45,7 +45,7 @@ Regal에서 전화 및 문자를 사용할 수 있도록, 새 Braze 프로필이
 
 #### 요청 헤더 및 메서드 {#request-headers-and-method}
 
-Regal에는 인증을 위한 HTTP 헤더와 HTTP 메서드도 필요합니다. 다음 항목은 **설정** 탭에서 키-값 페어로 이미 템플릿에 포함되어 있습니다:
+Regal은 인증을 위한 HTTP 헤더와 HTTP 메서드도 필요합니다. 다음은 **설정** 탭에서 키-값 페어로 템플릿에 포함되어 있습니다:
 {% raw %}
 - **HTTP 메서드**: POST
 - **요청 헤더**:
@@ -55,7 +55,7 @@ Regal에는 인증을 위한 HTTP 헤더와 HTTP 메서드도 필요합니다. �
 
 #### 요청 본문 {#request-body}
 
-유일한 필수 식별자는 `traits.phones` 내의 전화번호입니다. `traits.phones` 오브젝트를 사용하여 하나 이상의 전화번호를 연락처에 연결합니다. 각 전화번호에는 고유한 레이블, 기본 지정, 음성 및 SMS 옵트인 상태를 저장할 수 있습니다. 이 구조는 연락처에 여러 전화번호가 있을 때 특히 유용합니다.
+유일한 필수 식별자는 `traits.phones` 내부의 전화번호입니다. `traits.phones` 객체를 사용하여 연락처에 하나 이상의 전화번호를 연결할 수 있습니다. 각 전화번호에는 자체 레이블, 기본 전화번호 지정, 음성 및 SMS 옵트인 상태를 저장할 수 있습니다. 이 구조는 연락처에 여러 전화번호가 있을 때 특히 유용합니다.
 
 ```json
 {
@@ -109,22 +109,22 @@ Regal에는 인증을 위한 HTTP 헤더와 HTTP 메서드도 필요합니다. �
 }
 ```
 
-위의 페이로드 예시는 나열된 전화번호에 현재 음성 및 SMS 동의 상태가 포함되어 있다고 가정합니다. 그렇지 않은 경우 연락처를 생성할 때 `voiceOptIn`과 `smsOptIn`을 생략하고, 옵트인이 수집될 때 해당 전화번호의 동의를 업데이트하는 별도의 Canvas 또는 Campaign을 설정할 수 있습니다.
+이 페이로드 예시는 나열된 전화번호에 현재 음성 및 SMS 동의 상태가 포함되어 있다고 가정합니다. 그렇지 않은 경우, 연락처를 생성할 때 `voiceOptIn`과 `smsOptIn`을 생략하고, 옵트인이 수집될 때 해당 전화번호의 동의 정보를 업데이트하는 별도의 Canvas 또는 Campaign을 설정할 수 있습니다.
 
 ### 2단계: 옵트인 정보 업데이트 {#step-2-update-opt-in-information}
 
-앱에서 다양한 시점에 옵트인 및 옵트아웃이 발생할 수 있으므로, 사용자가 구독 상태를 변경할 때 Regal을 업데이트합니다.
+앱에서 옵트인과 옵트아웃이 서로 다른 시점에 발생할 수 있는 경우, 사용자가 구독 상태를 변경하면 Regal에 업데이트합니다.
 
 Regal에서는 연락처 수준이 아닌 전화번호별로 옵트인 및 옵트아웃을 관리할 수 있도록 `traits.phones` 스키마를 사용하는 것을 권장합니다.
 
 다음 Canvas 설정을 사용하여 최신 옵트인 정보를 Regal로 전송합니다.
 
-1. "Send Opt In or Out to Regal"이라는 제목의 새 Canvas 또는 Campaign을 생성합니다.
+1. "Send Opt In or Out to Regal"이라는 제목의 새 Canvas 또는 Campaign을 만듭니다.
 
-2. 다음 트리거 옵션 중 하나를 선택하고 사용자의 옵트인 상태를 나타내는 필드를 선택합니다:
-    - **User Profile Field Updated**
-    - **Update Subscription Group Status**
-    - **Subscription Status**
+2. 다음 트리거 옵션 중 하나를 선택한 다음, 사용자의 옵트인 상태를 나타내는 필드를 선택합니다:
+    - **사용자 프로필 필드 업데이트**
+    - **구독 그룹 상태 업데이트**
+    - **구독 상태**
 
 3. 새 웹훅 템플릿에서 다음 필드를 입력합니다:
    - **웹훅 URL**: <https://events.regalvoice.com/events>
@@ -132,7 +132,7 @@ Regal에서는 연락처 수준이 아닌 전화번호별로 옵트인 및 옵�
 
 #### 요청 헤더 및 메서드
 
-Regal에는 인증을 위한 HTTP 헤더와 HTTP 메서드도 필요합니다. 다음 항목은 **설정** 탭에서 키-값 페어로 이미 템플릿에 포함되어 있습니다:
+Regal은 인증을 위한 HTTP 헤더와 HTTP 메서드도 필요합니다. 다음은 **설정** 탭에서 키-값 페어로 템플릿에 포함되어 있습니다:
 {% raw %}
 - **HTTP 메서드**: POST
 - **요청 헤더**:
@@ -171,24 +171,24 @@ Regal에는 인증을 위한 HTTP 헤더와 HTTP 메서드도 필요합니다. �
 
 이 페이로드에 추가 사용자 프로필 속성을 포함하여 다른 속성도 동시에 최신 상태로 유지할 수 있습니다.
 
-### 3단계: 커스텀 이벤트 전송 {#step-3-send-custom-events}
+### 3단계: 커스텀 이벤트 보내기 {#step-3-send-custom-events}
 
-Regal로 전송하려는 각 주요 이벤트에 대해 Canvas 또는 Campaign을 설정합니다.
+Regal로 보내려는 각 주요 이벤트에 대해 Canvas 또는 Campaign을 설정합니다.
 
-이러한 이벤트는 단순히 아웃리치를 트리거하는 것 이상의 역할을 합니다(예: 리드가 가입을 완료했을 때 확인 문자 전송). 이벤트는 Regal AI 에이전트가 고객 여정 전반에서 대화하고, 의사결정을 내리고, 대화를 라우팅하는 방식을 결정하는 실시간 컨텍스트를 제공합니다. Braze에서 이벤트 데이터와 속성을 전송하면 AI 에이전트가 각 사용자의 행동, 선호도 및 생애주기 단계에 따라 대화를 조정할 수 있습니다.
+이러한 이벤트는 단순히 아웃리치를 트리거하는 것 이상의 역할을 합니다(예: 리드가 가입을 완료하면 확인 문자 전송). 이 이벤트는 Regal AI 에이전트가 대화하고, 결정을 내리고, 고객 여정 전반에서 대화를 라우팅하는 방식을 구동하는 실시간 맥락을 제공합니다. Braze에서 이벤트 데이터와 속성을 전송하면, AI 에이전트가 각 사용자의 행동, 선호도, 생애주기 단계에 따라 대화를 적응시킬 수 있습니다.
 
-예를 들어, Braze 이벤트와 속성은 Regal에서 다음과 같이 사용할 수 있습니다:
+예를 들어, Braze 이벤트 및 속성은 Regal에서 다음과 같은 용도로 사용할 수 있습니다:
 
-- **AI 에이전트 대화 개인화**: 최근 행동이나 제품 관심사를 대화에서 직접 참조합니다.
-  - 예: 사용자가 생명보험 옵션을 탐색한 경우, 에이전트가 대화에서 `contact.firstName`과 `contact.brazeProductInterest`를 참조할 수 있습니다.
+- **AI 에이전트 발화 개인화**: 최근 행동이나 제품 관심사를 대화에서 직접 참조합니다.
+  - 예시: 사용자가 생명보험 옵션을 탐색한 경우, 에이전트가 대화에서 `contact.firstName`과 `contact.brazeProductInterest`를 참조할 수 있습니다.
 - **동적 대화 로직 구동**: 에이전트가 실시간으로 우선순위를 조정합니다.
-  - 예: `contact.brazeAge`가 65세 이상이면 Medicare 보장을 우선시하고, 그렇지 않으면 ACA 플랜과 현재 보험 상태에 집중합니다.
-- **지능형 라우팅 및 에스컬레이션 활성화**: 가치 또는 의도에 따라 대화를 라우팅합니다.
-  - 예: `contact.brazeLeadTier`가 "High Value"이면 자격 확인 후 시니어 에이전트에게 전환하고, 그렇지 않으면 AI 에이전트가 계속 진행합니다.
-- **메시징 및 오퍼 정렬**: Campaign 컨텍스트에 따라 에이전트가 제시하는 내용을 맞춤화합니다.
-  - 예: `contact.brazeCampaignName`이 "Spring Mortgage Promo"이면 대화 중 프로모션 오퍼를 강조합니다.
+  - 예시: `contact.brazeAge`가 65보다 크면 메디케어 보장을 우선시하고, 그렇지 않으면 ACA 플랜과 현재 보험 상태에 집중합니다.
+- **지능형 라우팅 및 에스컬레이션 활성화**: 가치나 의도에 따라 대화를 라우팅합니다.
+  - 예시: `contact.brazeLeadTier`가 "High Value"이면 자격 확인 후 시니어 에이전트에게 전달하고, 그렇지 않으면 AI 에이전트가 계속 진행합니다.
+- **메시지 및 제안 조율**: Campaign 맥락에 따라 에이전트가 제시하는 내용을 맞춤화합니다.
+  - 예시: `contact.brazeCampaignName`이 "Spring Mortgage Promo"이면 대화 중 프로모션 제안을 강조합니다.
 
-"Send Product Interest Event to Regal"이라는 제목의 새 Canvas 또는 Campaign을 생성합니다.
+"Send Product Interest Event to Regal"이라는 제목의 새 Canvas 또는 Campaign을 만듭니다.
 
 ```json
 {
@@ -254,15 +254,15 @@ Regal로 전송하려는 각 주요 이벤트에 대해 Canvas 또는 Campaign�
 
 #### 최신 연락처 속성 {#up-to-date-contact-attributes}
 
-Regal에서는 주요 이벤트가 발생하는 시점에 최신 연락처 속성에 접근할 수 있도록 이벤트 페이로드에 주요 사용자 프로필 속성도 함께 전송하는 것을 권장합니다.
+Regal에서는 주요 이벤트 발생 시 최신 연락처 속성을 확보할 수 있도록, 이벤트 페이로드에 주요 사용자 프로필 속성을 함께 전송하는 것을 권장합니다.
 
 {% alert note %}
-Regal로 전송해야 할 이벤트나 이러한 Canvases 및 Campaigns를 설정하는 방법에 대해 궁금한 점이 있으면 [support@regal.io](mailto:support@regal.io)로 이메일을 보내세요.
+Regal로 보낼 이벤트 선정이나 이러한 Canvas 및 Campaign 설정 방법에 대해 궁금한 점이 있으면 [support@regal.io](mailto:support@regal.io)로 이메일을 보내주세요.
 {% endalert %}
 
 ## 통합: Regal에서 Braze로 데이터 전송 {#integration-sending-data-from-regal-to-braze}
 
-Regal 리포팅 웹훅과 Braze 데이터 변환을 사용하여 Regal 리포팅 이벤트(예: `SMS.sent` 및 `call.completed`)를 Braze로 전송합니다. 이러한 이벤트를 매핑하면 사용자 프로필에 표시되며 세분화, Canvas 및 Campaigns에서 사용할 수 있습니다.
+Regal 보고 웹훅과 Braze 데이터 변환을 사용하여 Regal 보고 이벤트(예: `SMS.sent` 및 `call.completed`)를 Braze로 전송합니다. 이러한 이벤트를 매핑하면 사용자 프로필에 표시되며 세분화, Canvas, Campaigns에 활용할 수 있습니다.
 
 ### 1단계: Braze에서 데이터 변환 생성 {#step-1-create-a-data-transformation-in-braze}
 
@@ -270,77 +270,73 @@ Braze로 전송할 각 Regal 웹훅에 대해 하나의 데이터 변환을 생�
 
 데이터 변환을 생성하려면:
 1. Braze 대시보드에서 **Transformations** 페이지로 이동합니다.
-2. 변환에 이름을 지정하고 **Create transformation**을 클릭합니다.
-3. 변환 목록에서 <i class="fa-solid fa-ellipsis-vertical" title="작업 보기"></i> **View actions**를 선택하고 **Copy webhook URL**을 선택합니다.
+2. 변환 이름을 지정하고 **Create transformation**을 클릭합니다.
+3. 변환 목록에서 <i class="fa-solid fa-ellipsis-vertical" title="작업 보기"></i> **View actions**를 선택한 다음 **Copy webhook URL**을 선택합니다.
 
-![]({% image_buster /assets/img/regal/copy_webhook_url.png %})
+### 2단계: Regal에서 보고 웹훅 활성화 {#step-2-enable-reporting-webhooks-in-regal}
 
-### 2단계: Regal에서 리포팅 웹훅 활성화 {#step-2-enable-reporting-webhooks-in-regal}
-
-리포팅 웹훅을 설정하려면:
+보고 웹훅을 설정하려면:
 1. Regal 앱으로 이동하여 **Settings** 페이지를 엽니다.
 
 2. **Reporting Webhooks** 섹션에서 **Create Webhooks**를 클릭합니다.
 
-3. 웹훅 엔드포인트 입력란에 해당 데이터 변환에 대한 Braze 데이터 변환 웹훅 URL을 추가합니다.
-
-![]({% image_buster /assets/img/regal/edit_webhook.png %}){: style="max-width:60%;"}
+3. 웹훅 엔드포인트 입력란에 해당 데이터 변환의 Braze 데이터 변환 웹훅 URL을 추가합니다.
 
 #### 엔드포인트 업데이트 {#updating-an-endpoint}
 
-엔드포인트를 편집하면 캐시가 새로고침되어 새 엔드포인트로 이벤트를 전송하기까지 최대 5분이 소요될 수 있습니다.
+엔드포인트를 수정하면 캐시가 새로고침되고 새 엔드포인트로 이벤트가 전송되기까지 최대 5분이 소요될 수 있습니다.
 
 #### 재시도 {#retries}
 
-현재 Regal은 이러한 이벤트에 대해 재시도를 수행하지 않습니다. Braze가 5초 이내에 응답하지 않으면 Regal은 해당 이벤트를 삭제합니다. Regal은 향후 릴리스에서 재시도 기능을 추가할 예정입니다.
+현재 Regal은 이러한 이벤트에 대해 재시도하지 않습니다. Braze가 5초 이내에 응답하지 않으면 Regal은 해당 이벤트를 삭제합니다. Regal은 향후 릴리스에서 재시도 기능을 추가할 계획입니다.
 
 #### 이벤트 {#events}
-리포팅 이벤트의 전체 목록, 속성 정의 및 샘플 페이로드는 Regal의 [리포팅 웹훅 가이드](https://developer.regal.io/docs/reporting-webhooks#events)를 참조하세요.
+보고 이벤트의 전체 목록, 속성정보 정의 및 샘플 페이로드에 대해서는 Regal의 [보고 웹훅 가이드](https://developer.regal.io/docs/reporting-webhooks#events)를 참조하세요.
 
 ### 3단계: Regal 이벤트를 Braze 이벤트로 변환 {#step-3-transform-regal-events-into-braze-events}
 
-Braze [데이터 변환]({{site.baseurl}}/data_transformation/) 기능을 사용하면 수신되는 Regal 이벤트를 Braze에서 속성, 이벤트 또는 구매로 추가하는 데 필요한 형식으로 매핑할 수 있습니다.
+Braze [데이터 변환]({{site.baseurl}}/data_transformation) 기능을 사용하면 수신되는 Regal 이벤트를 Braze에서 속성, 이벤트 또는 구매로 추가하는 데 필요한 형식으로 매핑할 수 있습니다.
 
-1. 데이터 변환에 이름을 지정합니다. 이벤트 웹훅별로 데이터 변환을 설정하는 것이 권장됩니다.
+1. 데이터 변환의 이름을 지정합니다. 이벤트 웹훅별로 데이터 변환을 설정하는 것이 권장됩니다.
 
-2. 연결을 테스트하려면 Regal Agent Desktop에서 휴대폰으로 아웃바운드 전화를 걸고 대화 요약 양식을 제출하여 `call.completed` 이벤트를 생성합니다.
+2. 연결을 테스트하려면 Regal Agent Desktop에서 자신의 전화기로 아웃바운드 통화를 생성하고 대화 요약 양식을 제출하여 `call.completed` 이벤트를 생성합니다.
 
-3. Regal 연락처를 Braze 프로필에 매핑하는 데 사용할 식별자를 결정합니다. Regal 이벤트에서 사용 가능한 식별자는 다음과 같습니다:
+3. Regal 연락처를 Braze 프로필에 매핑하는 데 사용할 식별자를 결정합니다. Regal 이벤트에서 사용할 수 있는 식별자는 다음과 같습니다:
    - `userId` - 이전에 연락처에 대해 이 식별자를 전송한 경우에만 이벤트에 설정됩니다
    - `traits.phone`
    - `traits.email` - 이전에 연락처에 대해 이 식별자를 전송한 경우에만 이벤트에 설정됩니다
 
-Braze에서 Regal로 전송하는 이벤트 페이로드에서 Regal은 여러 전화번호와 전화번호별 동의를 지원하기 위해 `traits.phones`를 사용하는 것을 권장합니다. Regal에서 Braze로 다시 전송되는 리포팅 이벤트에서는 `traits.phone`이 이벤트 페이로드의 식별자로 여전히 나타날 수 있습니다.
+Braze에서 Regal로의 이벤트 페이로드에서 Regal은 여러 전화번호와 전화 수준의 동의를 지원하기 위해 `traits.phones`를 사용할 것을 권장합니다. Braze로 다시 전송되는 Regal 보고 이벤트에서는 이벤트 페이로드에 식별자로 `traits.phone`이 여전히 표시될 수 있습니다.
 
 #### Braze 지원 식별자 {#braze-supported-identifiers}
-- Braze는 전화번호를 식별자로 지원하지 않습니다. 이를 식별자로 사용하려면 전화번호를 Braze에서 [사용자 별칭]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases)으로 설정할 수 있습니다.
-- Braze 데이터 변환을 사용할 때 이메일 주소를 식별자로 사용할 수 있습니다. 이메일 주소가 Braze 내에 프로필로 존재하는 경우 기존 프로필이 업데이트됩니다. 이메일 주소가 Braze 내에 아직 존재하지 않는 경우 이메일 전용 프로필이 생성됩니다.
+- Braze는 전화번호를 식별자로 지원하지 않습니다. 전화번호를 식별자로 사용하려면 Braze에서 [사용자 별칭]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases)으로 설정할 수 있습니다.
+- Braze 데이터 변환을 사용하는 경우 이메일 주소를 식별자로 사용할 수 있습니다. 해당 이메일 주소가 Braze 내에 프로필로 존재하면 기존 프로필이 업데이트됩니다. 이메일 주소가 Braze 내에 아직 존재하지 않으면 이메일 전용 프로필이 생성됩니다.
 
-## 활용 사례 {#use-cases}
+## 사용 사례 {#use-cases}
 
 {% tabs %}
 {% tab 이메일 트리거 %}
 
-**Regal의 통화 처리 결과를 기반으로 Braze에서 이메일 트리거**
+**Regal의 통화 처리 결과를 기반으로 Braze에서 이메일 트리거하기**
 
-아래는 Regal의 `call.completed` 이벤트에 대한 샘플 페이로드입니다.
+다음 샘플 페이로드는 Regal의 `call.completed` 이벤트를 보여줍니다.
 
 ```json
 {
   "userId": "123",
   "traits": {
-    "phone": "+17625555555",
-    "email": "xxx@gmail.com"
+    "phone": "+15555550123",
+    "email": "xxx@example.com"
   },
   "name": "call.completed",
   "properties": {
-    "agent_firstname": "Rebecca",
-    "agent_fullname": "Rebecca Greene",
-    "agent_id": "xxxx@yourbrand.com",
+    "agent_firstname": "Alex",
+    "agent_fullname": "Alex Lee",
+    "agent_id": "xxxx@example.com",
     "direction": "OUTBOUND",
-    "regal_voice_phone": "+19545558563",
+    "regal_voice_phone": "+15555550200",
     "regal_voice_phone_internal_name": "Sales Line",
-    "contact_phone": "+17625555555",
+    "contact_phone": "+15555550123",
     "call_id": "WTxxxxx9",
     "type": "Outbound Call",
     "disposition": "Converted During Convo",
@@ -363,7 +359,7 @@ Braze에서 Regal로 전송하는 이벤트 페이로드에서 Regal은 여러 �
 }
 ```
 
-아래는 이를 Braze의 커스텀 이벤트로 매핑하는 샘플 데이터 변환입니다.
+다음 샘플 데이터 변환은 이 이벤트를 Braze의 커스텀 이벤트로 매핑합니다.
 
 ```
 // The Braze /users/track endpoint expects timestamps in an ISO 8601 format. To use the Unix timestamp within Regal's call.completed event payload as the event timestamp in Braze must first be converted to ISO 8601. This can be done with the following code:
@@ -419,21 +415,21 @@ return brazecall;
 {% endtab %}
 {% tab 프로필 속성 업데이트 %}
 
-**Regal의 `contact.attribute.edited` 이벤트를 기반으로 Braze에서 프로필 속성 업데이트**
+**Regal의 `contact.attribute.edited` 이벤트를 기반으로 Braze에서 프로필 속성 업데이트하기**
 
-아래는 Regal의 `contact.attribute.edited` 이벤트에 대한 샘플 페이로드입니다. Regal은 상담원이 대화 중 연락처 프로필의 속성을 업데이트할 때 이 이벤트를 전송합니다.
+다음 샘플 페이로드는 Regal의 `contact.attribute.edited` 이벤트를 보여줍니다. Regal은 상담원이 대화 중에 연락처 프로필의 속성을 업데이트할 때 이 이벤트를 전송합니다.
 
 ```json
 {
   "userId": "123",
   "traits": {
-    "phone": "+17625555555",
-    "email": "xxx@gmail.com"
+    "phone": "+15555550123",
+    "email": "xxx@example.com"
   },
   "name": "contact.attribute.edited",
   "properties": {
-    "agent_email": "xxxx@yourbrand.com",
-    "contact_phone": "+17625555555",
+    "agent_email": "xxxx@example.com",
+    "contact_phone": "+15555550123",
     "changes": {
       "custom_properties": {
         "annual_income": {
@@ -449,7 +445,7 @@ return brazecall;
 }
 ```
 
-아래는 새 커스텀 속성 값을 Braze 프로필의 관련 속성에 매핑하는 샘플 데이터 변환입니다:
+다음 샘플 데이터 변환은 새로운 커스텀 속성 값을 Braze 프로필의 관련 속성에 매핑합니다.
 
 ```
 // This is an example template you can use as a starting point. Feel free to delete this entirely to start from scratch or to delete specific components as you see fit.
@@ -483,16 +479,16 @@ return brazecall;
 {% endtab %}
 {% tab 실험 동기화 유지 %}
 
-**`contact.experiment.assigned` 이벤트를 사용하여 Braze와 Regal의 실험을 동기화 상태로 유지**
+**`contact.experiment.assigned` 이벤트를 사용하여 Braze와 Regal의 실험을 동기화 유지하기**
 
-아래는 Regal의 `contact.experiment.assigned` 이벤트에 대한 샘플 페이로드입니다.
+다음 샘플 페이로드는 Regal의 `contact.experiment.assigned` 이벤트를 보여줍니다.
 
 ```json
 {
   "userId": "123",
   "traits": {
-    "phone": "+17625555555",
-    "email": "xxx@gmail.com"
+    "phone": "+15555550123",
+    "email": "xxx@example.com"
   },
   "name": "contact.experiment.assigned",
   "properties": {
@@ -508,7 +504,7 @@ return brazecall;
 }
 ```
 
-아래는 이를 Braze의 커스텀 이벤트로 매핑하는 샘플 데이터 변환입니다.
+다음 샘플 데이터 변환은 이 이벤트를 Braze의 커스텀 이벤트로 매핑합니다.
 
 ```
 // The Braze /users/track endpoint expects timestamps in an ISO 8601 format. To use the Unix timestamp within Regal's call.completed event payload as the event timestamp in Braze, it must first be converted to ISO 8601. This can be done with the following code:
@@ -544,18 +540,18 @@ return brazecall;
 
 ```
 {% endtab %}
-{% tab 연락처 구독 취소 %}
+{% tab 연락처 구독 해지 %}
 
-**Regal의 `contact.unsubscribed` 이벤트를 기반으로 Braze에서 연락처 구독 취소**
+**Regal의 `contact.unsubscribed` 이벤트를 기반으로 Braze에서 연락처 구독 해지하기**
 
-아래는 Regal의 `contact.unsubscribed` 이벤트에 대한 샘플 페이로드입니다.
+다음 샘플 페이로드는 Regal의 `contact.unsubscribed` 이벤트를 보여줍니다.
 
 ```json
 {
   "userId": "123",
   "traits": {
-    "phone": "+17625555555",
-    "email": "xxx@gmail.com",
+    "phone": "+15555550123",
+    "email": "xxx@example.com",
     "ip": "78.97.213.166"
   },
   "name": "contact.unsubscribed",
@@ -572,7 +568,7 @@ return brazecall;
 }
 ```
 
-아래는 Braze에서 연락처를 구독 취소하는 샘플 데이터 변환입니다.
+다음 샘플 데이터 변환은 Braze에서 해당 연락처의 구독을 해지합니다.
 
 ```
 // This is an example template you can use as a starting point. Feel free to delete this entirely to start from scratch or to delete specific components as you see fit.
@@ -600,28 +596,28 @@ return brazecall;
 {% endtab %}
 {% tab 통화 분석 기반 후속 조치 트리거 %}
 
-**Regal의 `call.analysis.available` 이벤트를 기반으로 Braze에서 맞춤형 후속 여정 트리거**
+**Regal의 `call.analysis.available` 이벤트를 기반으로 Braze에서 맞춤형 후속 여정 트리거하기**
 
-Regal의 `call.analysis.available` 이벤트를 사용하여 고객이 전환하지 않은 주요 이유를 파악하고 Braze에서 맞춤형 후속 여정을 트리거합니다.
+Regal의 `call.analysis.available` 이벤트를 사용하여 고객이 전환하지 않은 주요 이유를 식별하고, Braze에서 맞춤형 후속 여정을 트리거할 수 있습니다.
 
 예를 들어:
 
-- 주요 반대 이유가 가격인 경우, 가치 중심의 후속 이메일을 전송합니다.
-- 주요 반대 이유가 타이밍인 경우, 나중에 재고려할 수 있도록 사용자를 너처 시퀀스에 배치합니다.
-- 주요 반대 이유가 신뢰인 경우, 후기, 평점 또는 규정 준수 관련 안내를 전송합니다.
-- `needs_human_agent`가 true인 경우, 영업 또는 고객지원 팀에 알리고 추가 자동화 메시징을 중단합니다.
+- 주요 이의 사항이 가격인 경우, 가치 중심의 후속 이메일을 발송합니다.
+- 주요 이의 사항이 타이밍인 경우, 사용자를 나중에 재검토할 수 있는 육성 시퀀스에 배치합니다.
+- 주요 이의 사항이 신뢰인 경우, 후기, 평점 또는 규정 준수 관련 안심 자료를 발송합니다.
+- `needs_human_agent`가 true인 경우, 영업 또는 지원 팀에 알리고 추가 자동화 메시징을 중단합니다.
 
-아래는 Regal의 `call.analysis.available` 이벤트에 대한 샘플 페이로드입니다.
+다음 샘플 페이로드는 Regal의 `call.analysis.available` 이벤트를 보여줍니다.
 
 ```json
 {
   "traits": {
     "phone": "+1XXXXXXXXXX",
-    "email": "xxx@gmail.com"
+    "email": "xxx@example.com"
   },
   "name": "call.analysis.available",
   "brand": "circle-bank",
-  "contact_email": "xxx@gmail.com",
+  "contact_email": "xxx@example.com",
   "contact_phone": "+1XXXXXXXXXX",
   "created_at": "1754079836",
   "entity_type": "event",
@@ -631,7 +627,7 @@ Regal의 `call.analysis.available` 이벤트를 사용하여 고객이 전환하
   "original_timestamp": "1754079835",
   "profile_id": "62653af1111111173af128291e92",
   "properties": {
-    "agent_email": "xxx@yourbrand.com",
+    "agent_email": "xxx@example.com",
     "call_analysis": {
       "purchase_intent": "medium",
       "primary_objection": "price",
@@ -652,7 +648,7 @@ Regal의 `call.analysis.available` 이벤트를 사용하여 고객이 전환하
     "is_ai_agent": true,
     "outgoing_sip_headers": {
       "Via": "SIP/2.0/TCP srv2.example.com;branch=z9hG4bKgsdh7723",
-      "To": "<sip:agent@yourbrand.com>",
+      "To": "<sip:agent@example.com>",
       "User-Agent": "RegalVoiceAI/1.0"
     },
     "task_id": "WT7f3ea47fa6e6055aa847f0a62111111"
@@ -662,31 +658,31 @@ Regal의 `call.analysis.available` 이벤트를 사용하여 고객이 전환하
 }
 ```
 
-데이터 변환을 사용하여 `call_analysis` 필드(예: `primary_objection` 및 `needs_human_agent`)를 Braze 커스텀 이벤트 또는 프로필 속성에 매핑합니다. 그런 다음 Braze에서 해당 값을 기반으로 분기하는 Canvas 또는 Campaign 로직을 구축합니다.
+데이터 변환을 사용하여 `call_analysis` 필드(예: `primary_objection` 및 `needs_human_agent`)를 Braze 커스텀 이벤트 또는 프로필 속성에 매핑합니다. 그런 다음 해당 값을 기반으로 분기하는 Canvas 또는 Campaign 로직을 Braze에서 구성합니다.
 
 {% endtab %}
-{% tab 통화 트랜스크립트 링크 저장 %}
+{% tab 통화 녹취록 링크 저장 %}
 
-**`call.transcript.available` 이벤트의 트랜스크립트 링크로 프로필 속성 업데이트**
+**`call.transcript.available` 이벤트의 녹취록 링크로 프로필 속성 업데이트하기**
 
-`call.transcript.available` 이벤트를 사용하여 전체 통화 트랜스크립트 링크를 Braze로 전송합니다. 데이터 변환을 통해 트랜스크립트 URL을 Braze 사용자 프로필 속성에 매핑하면 팀이 사용자 프로필에서 대화를 확인하고 검토할 수 있습니다.
+`call.transcript.available` 이벤트를 사용하여 전체 통화 녹취록 링크를 Braze로 전송합니다. 데이터 변환을 통해 녹취록 URL을 Braze 사용자 프로필 속성에 매핑하면, 팀에서 사용자 프로필에서 대화 내용을 확인하고 검토할 수 있습니다.
 
-아래는 Regal의 `call.transcript.available` 이벤트에 대한 샘플 페이로드입니다.
+다음 샘플 페이로드는 Regal의 `call.transcript.available` 이벤트를 보여줍니다.
 
 ```json
 {
   "userId": "123",
   "traits": {
-    "phone": "+17625551796",
-    "email": "xxx@gmail.com"
+    "phone": "+15555550123",
+    "email": "xxx@example.com"
   },
   "name": "call.transcript.available",
   "properties": {
-    "agent_email": "xxx@yourbrand.com",
+    "agent_email": "xxx@example.com",
     "task_id": "WT953358e8822dd9333fc38dfbac25e1e1",
-    "call_summary": "The agent Zoe explained insurance options to Joe and he said he'll need to think about it before moving forward Agent politely ended the call.",
-    "contact_name": "Joe Smith",
-    "contact_phone": "+13523182825",
+    "call_summary": "The agent Yuri explained insurance options to Alex and he said he'll need to think about it before moving forward Agent politely ended the call.",
+    "contact_name": "Alex Smith",
+    "contact_phone": "+15555550123",
     "is_voicemail": false,
     "moments_count": 18,
     "recording_id": "RE0118052841b7299d0630d1dff610c1fb",
@@ -697,8 +693,8 @@ Regal의 `call.analysis.available` 이벤트를 사용하여 고객이 전환하
     "sentiments": {
       "contact_sentiment": 70,
       "agent_sentiment": 75,
-      "agent_sentiment_reason": "Zoe was polite and attentive, effectively gathering information and providing a resource, which contributed to a positive interaction.",
-      "contact_sentiment_reason": "Joe was satisfied with the information provided but may have wanted more assistance regarding insurance options."
+      "agent_sentiment_reason": "Yuri was polite and attentive, effectively gathering information and providing a resource, which contributed to a positive interaction.",
+      "contact_sentiment_reason": "Alex was satisfied with the information provided but may have wanted more assistance regarding insurance options."
     },
     "trackers": [
       {
@@ -710,7 +706,7 @@ Regal의 `call.analysis.available` 이벤트를 사용하여 고객이 전환하
         "tracker_name": "High Intent"
       }
     ],
-    "transcript": "[handling agent]: Hi Joe, this is Zoe with BrightCover Insurance. I'll be going over some insurance options with you today. [contact]: Sounds good. [handling agent]: Before we start, I'm going to transfer you to a specialist for a moment. One sec. [transfer agent]: Hi Joe, this is Mark. Just verifying a few details before sending you back to Zoe. [contact]: Okay. [handling agent]: Thanks, Joe. Based on what you shared, here are some plan options... [contact]: I'll need to think about it. [handling agent]: Totally understandable. Feel free to reach out anytime. Have a great day! END OF TRANSCRIPT",
+    "transcript": "[handling agent]: Hi Alex, this is Yuri with BrightCover Insurance. I'll be going over some insurance options with you today. [contact]: Sounds good. [handling agent]: Before we start, I'm going to transfer you to a specialist for a moment. One sec. [transfer agent]: Hi Alex, this is Lee. Just verifying a few details before sending you back to Yuri. [contact]: Okay. [handling agent]: Thanks, Alex. Based on what you shared, here are some plan options... [contact]: I'll need to think about it. [handling agent]: Totally understandable. Feel free to reach out anytime. Have a great day! END OF TRANSCRIPT",
     "transcript_is_truncated": false,
     "transcript_url": "https://app.regalvoice.com/transcripts/WT953358e8822dd9333fc38dfbac25e1e1"
   },

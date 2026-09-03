@@ -18,14 +18,14 @@ table td {
 
 This page is a reference of the Snowflake SQL tables and columns available across the following Braze tools:
 
-- [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/)
-- [SQL Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/)
-- [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/)
+- [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder)
+- [SQL Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments)
+- [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake)
 
 Most tables are available in all three tools. Tables marked **Snowflake Data Sharing only** are exclusive to Snowflake Data Sharing and are not accessible in Query Builder or SQL Segment Extensions.
 
 {% alert tip %}
-These SQL tables correspond to the events documented in the [Currents event glossary]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/). For example, the SQL table `USERS_MESSAGES_EMAIL_SEND_SHARED` corresponds to the Currents event `users.messages.email.Send`. If you need JSON event schemas or partner-specific formats (Amplitude, Mixpanel, Segment), refer to the Currents glossary.
+These SQL tables correspond to the events documented in the [Currents event glossary]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events). For example, the SQL table `USERS_MESSAGES_EMAIL_SEND_SHARED` corresponds to the Currents event `users.messages.email.Send`. If you need JSON event schemas or partner-specific formats (Amplitude, Mixpanel, Segment), refer to the Currents glossary.
 {% endalert %}
 
 ## Table of contents
@@ -39,6 +39,8 @@ Table | Description
 [USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED](#USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED) | Historical default profile attributes with effective date ranges
 [USER_DEFAULT_ATTRIBUTES_VIEW_SHARED](#USER_DEFAULT_ATTRIBUTES_VIEW_SHARED) | Periodic snapshot of default profile attributes per user
 [USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED](#USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED) | Near real-time default profile attributes per user
+[USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED](#USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED) | Historical custom profile attributes with effective date ranges (**Snowflake Data Sharing only**)
+[USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED](#USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED) | Near real-time custom profile attributes per user (**Snowflake Data Sharing only**)
 [CATALOGS_ITEMS_SHARED](#CATALOGS_ITEMS_SHARED) | Non-deleted catalog items
 [CHANGELOGS_CAMPAIGN_SHARED](#CHANGELOGS_CAMPAIGN_SHARED) | When a campaign is changed (**Snowflake Data Sharing only**)
 [CHANGELOGS_CANVAS_SHARED](#CHANGELOGS_CANVAS_SHARED) | When a Canvas is changed (**Snowflake Data Sharing only**)
@@ -53,7 +55,7 @@ Table | Description
 [USERS_BEHAVIORS_APP_NEWSFEEDIMPRESSION_SHARED](#USERS_BEHAVIORS_APP_NEWSFEEDIMPRESSION_SHARED) | When a user views the News Feed
 [USERS_BEHAVIORS_APP_SESSIONEND_SHARED](#USERS_BEHAVIORS_APP_SESSIONEND_SHARED) | When a user ends a session on an app
 [USERS_BEHAVIORS_APP_SESSIONSTART_SHARED](#USERS_BEHAVIORS_APP_SESSIONSTART_SHARED) | When a user begins a session on an app
-[USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED](#USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED) | When a user triggers a geofenced area—for example, by entering or exiting a geofence. This event is batched with other events and received through the standard events endpoint, so it may not appear in real time.<br><br>To log geofence activity in this table, select **Enable Analytics for Enter** and **Enable Analytics for Exit** in the advanced settings for each geofence. See step 3 in [Manually create geofences]({{site.baseurl}}/user_guide/audience/locations_and_geofences/creating_geofences/#manually-create-geofences) for details.
+[USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED](#USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED) | When a user triggers a geofenced area—for example, by entering or exiting a geofence. This event is batched with other events and received through the standard events endpoint, so it may not appear in real time.<br><br>To log geofence activity in this table, select **Enable Analytics for Enter** and **Enable Analytics for Exit** in the advanced settings for each geofence. See step 3 in [Manually create geofences]({{site.baseurl}}/user_guide/audience/locations_and_geofences/creating_geofences#manually-create-geofences) for details.
 [USERS_BEHAVIORS_GEOFENCE_RECORDEVENT_SHARED](#USERS_BEHAVIORS_GEOFENCE_RECORDEVENT_SHARED) | When a user triggers a geofenced area (for example, when they enter or exit a geofence). This event was received through the dedicated geofence endpoint and is therefore received in real-time as soon as a user's device detects that it has triggered a geofence. <br><br>In addition, due to rate limiting on the geofence endpoint, it is possible that some geofence events are not reflected as a RecordEvent. All geofence events, however, are represented by DataEvent (but potentially with some delay due to batching).
 [USERS_BEHAVIORS_LIVEACTIVITY_PUSHTOSTARTTOKENCHANGE_SHARED](#USERS_BEHAVIORS_LIVEACTIVITY_PUSHTOSTARTTOKENCHANGE_SHARED) | When a Live Activity push-to-start token changes
 [USERS_BEHAVIORS_LIVEACTIVITY_UPDATETOKENCHANGE_SHARED](#USERS_BEHAVIORS_LIVEACTIVITY_UPDATETOKENCHANGE_SHARED) | When a Live Activity update token changes
@@ -263,7 +265,7 @@ Field | Type | Description
 `gender` | `string` | [PII] Gender
 `phone_number` | `string` | [PII] Phone number
 `dob` | `string` | [PII] Date of birth
-`timezone` | `string` | [PII] Time zone
+`TIME_ZONE` | `string` | [PII] Time zone
 `home_city` | `string` | [PII] Home city
 `country` | `string` | [PII] Country
 `language` | `string` | [PII] Language
@@ -287,7 +289,7 @@ Field | Type | Description
 `gender` | `string` | [PII] Gender
 `phone_number` | `string` | [PII] Phone number
 `dob` | `string` | [PII] Date of birth
-`timezone` | `string` | [PII] Time zone
+`TIME_ZONE` | `string` | [PII] Time zone
 `home_city` | `string` | [PII] Home city
 `country` | `string` | [PII] Country
 `language` | `string` | [PII] Language
@@ -316,8 +318,24 @@ Field | Type | Description
 `home_city` | `string` | [PII] Home city
 `country` | `string` | [PII] Country
 `language` | `string` | [PII] Language
-`timezone` | `string` | [PII] Time zone
+`TIME_ZONE` | `string` | [PII] Time zone
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERLATESTSTATEDEFAULTATTRIBUTESVIEWSHARED #USERLATESTSTATEDEFAULTATTRIBUTESVIEWSHARED" }
+
+### USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED {#USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED}
+
+{% multi_lang_include partners/snowflake_user_attributes_qb_excluded_view_note.md %}
+
+{% multi_lang_include partners/snowflake_user_attributes_custom_view_schemas.md schema="history" %}
+
+For usage guidance and example queries, see [Snowflake user attributes]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/user_attributes#historical-change-logs).
+
+### USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED {#USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED}
+
+{% multi_lang_include partners/snowflake_user_attributes_qb_excluded_view_note.md %}
+
+{% multi_lang_include partners/snowflake_user_attributes_custom_view_schemas.md schema="latest" %}
+
+For usage guidance and example queries, see [Snowflake user attributes]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/user_attributes#real-time-user-profile-views).
 
 ## Catalogs
 
@@ -351,9 +369,7 @@ Field | Type | Description
 
 ### CHANGELOGS_CAMPAIGN_SHARED {#CHANGELOGS_CAMPAIGN_SHARED}
 
-{% alert note %}
-This table is available in Snowflake Data Sharing only.
-{% endalert %}
+{% multi_lang_include partners/snowflake_user_attributes_qb_excluded_view_note.md %}
 
 Field | Type | Description
 ------|------|------------
@@ -368,9 +384,7 @@ Field | Type | Description
 
 ### CHANGELOGS_CANVAS_SHARED {#CHANGELOGS_CANVAS_SHARED}
 
-{% alert note %}
-This table is available in Snowflake Data Sharing only.
-{% endalert %}
+{% multi_lang_include partners/snowflake_user_attributes_qb_excluded_view_note.md %}
 
 Field | Type | Description
 ------|------|------------
@@ -1678,6 +1692,8 @@ Field | Type | Description
 
 ### USERS_MESSAGES_EMAIL_UNSUBSCRIBE_SHARED {#USERS_MESSAGES_EMAIL_UNSUBSCRIBE_SHARED}
 
+This table logs message-level email unsubscribes from the recipient's side: clicking an unsubscribe link, the email client's one-click List-Unsubscribe, preference center submissions, and ESP-reported unsubscribes. Unsubscribes made through the REST API are not included; those emit [`users.behaviors.subscriptiongroup.StateChange`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/#subscription-group-state-change-events) or [`users.behaviors.subscription.GlobalStateChange`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/#global-subscription-state-change-events) events instead.
+
 Field | Type | Description
 ------|------|------------
 `id` | `string` | Globally unique ID for this event
@@ -1708,9 +1724,7 @@ Field | Type | Description
 
 ### USERS_MESSAGES_EMAIL_RETRY_SHARED {#USERS_MESSAGES_EMAIL_RETRY_SHARED}
 
-{% alert note %}
-This table is available in Snowflake Data Sharing only.
-{% endalert %}
+{% multi_lang_include partners/snowflake_user_attributes_qb_excluded_view_note.md %}
 
 This event occurs when a message is deprioritized or frequency capped and is retried later within the configured retry window.
 
@@ -2036,9 +2050,7 @@ Field | Type | Description
 
 ### USERS_MESSAGES_LINE_RETRY_SHARED {#USERS_MESSAGES_LINE_RETRY_SHARED}
 
-{% alert note %}
-This table is available in Snowflake Data Sharing only.
-{% endalert %}
+{% multi_lang_include partners/snowflake_user_attributes_qb_excluded_view_note.md %}
 
 This event occurs when a message is deprioritized or frequency capped and is retried later within the configured retry window.
 
@@ -2647,7 +2659,7 @@ Field | Type | Description
 ## SMS message events and deleted user profiles
 
 {% alert note %}
-For `USERS_MESSAGES_SMS_*` shared tables (including [`USERS_MESSAGES_SMS_REJECTION_SHARED`](#USERS_MESSAGES_SMS_REJECTION_SHARED), [`USERS_MESSAGES_SMS_DELIVERY_SHARED`](#USERS_MESSAGES_SMS_DELIVERY_SHARED), and [`USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED`](#USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED)), Braze writes a row only when the Braze user profile still exists in the workspace when the event is processed for Snowflake Data Sharing and Currents. If that user was deleted before processing completes, the event doesn't appear in Snowflake or your Currents export, even when SMS workspace metrics in the dashboard still reflect aggregate counts from Braze's reporting path. For the corresponding Currents behavior, see [SMS Rejection events]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events/#sms-rejection-events) and related SMS event types in the same glossary.
+For `USERS_MESSAGES_SMS_*` shared tables (including [`USERS_MESSAGES_SMS_REJECTION_SHARED`](#USERS_MESSAGES_SMS_REJECTION_SHARED), [`USERS_MESSAGES_SMS_DELIVERY_SHARED`](#USERS_MESSAGES_SMS_DELIVERY_SHARED), and [`USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED`](#USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED)), Braze writes a row only when the Braze user profile still exists in the workspace when the event is processed for Snowflake Data Sharing and Currents. If that user was deleted before processing completes, the event doesn't appear in Snowflake or your Currents export, even when SMS workspace metrics in the dashboard still reflect aggregate counts from Braze's reporting path. For the corresponding Currents behavior, see [SMS Rejection events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#sms-rejection-events) and related SMS event types in the same glossary.
 {% endalert %}
 
 ### USERS_MESSAGES_SMS_ABORT_SHARED {#USERS_MESSAGES_SMS_ABORT_SHARED}
@@ -2895,9 +2907,7 @@ Field | Type | Description
 
 ### USERS_MESSAGES_SMS_RETRY_SHARED {#USERS_MESSAGES_SMS_RETRY_SHARED}
 
-{% alert note %}
-This table is available in Snowflake Data Sharing only.
-{% endalert %}
+{% multi_lang_include partners/snowflake_user_attributes_qb_excluded_view_note.md %}
 
 This event occurs when a message is deprioritized or frequency capped and is retried later within the configured retry window.
 
@@ -3023,9 +3033,7 @@ Field | Type | Description
 
 ### USERS_MESSAGES_WEBHOOK_RETRY_SHARED {#USERS_MESSAGES_WEBHOOK_RETRY_SHARED}
 
-{% alert note %}
-This table is available in Snowflake Data Sharing only.
-{% endalert %}
+{% multi_lang_include partners/snowflake_user_attributes_qb_excluded_view_note.md %}
 
 This event occurs when a message is deprioritized or frequency capped and is retried later within the configured retry window.
 
@@ -3278,9 +3286,7 @@ Field | Type | Description
 
 ### USERS_MESSAGES_WHATSAPP_RETRY_SHARED {#USERS_MESSAGES_WHATSAPP_RETRY_SHARED}
 
-{% alert note %}
-This table is available in Snowflake Data Sharing only.
-{% endalert %}
+{% multi_lang_include partners/snowflake_user_attributes_qb_excluded_view_note.md %}
 
 This event occurs when a message is deprioritized or frequency capped and is retried later within the configured retry window.
 
@@ -3436,4 +3442,4 @@ Field | Type | Description
 
 ## Abort types
 
-{% include abort_types_reference.md combined_content_rendering=true %}
+{% include currents/abort_types_reference.md combined_content_rendering=true %}

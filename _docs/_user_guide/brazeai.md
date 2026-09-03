@@ -1,7 +1,7 @@
 ---
 nav_title: BrazeAI
 article_title: BrazeAI
-description: "BrazeAI<sup>TM</sup> powers a collection of accessible, easy-to-use tools that lower the barriers to entry for creativity, personalization and optimization for your engagement strategy."
+description: "BrazeAI tools for creativity, personalization, and optimization across your customer engagement strategy."
 page_order: 8
 layout: dev_guide
 search_rank: 12
@@ -9,7 +9,7 @@ Tool:
   - Dashboard
 
 guide_top_header: "BrazeAI<sup>TM</sup>"
-guide_top_text: "BrazeAI<sup>TM</sup> powers a collection of accessible, easy-to-use tools that lower the barriers to entry for creativity, personalization and optimization for your engagement strategy. With BrazeAI<sup>TM</sup> capabilities, you can have a trusted advisor to help guide your creativity, make better decisions, and optimize the user experience for your customers."
+guide_top_text: "BrazeAI<sup>TM</sup> powers a collection of accessible, easy-to-use tools that lower the barriers to entry for creativity, personalization, and optimization for your engagement strategy. With BrazeAI<sup>TM</sup> capabilities, you can have a trusted advisor to help guide your creativity, make better decisions, and optimize the user experience for your customers. This hub links to guides for generative AI, the Intelligence Suite, item recommendations, agents, and other BrazeAI features you can use in campaigns and Canvases."
 
 guide_featured_title: "Features"
 guide_featured_list:
@@ -40,14 +40,11 @@ guide_featured_list:
   - name: Predictive Suite
     link: /docs/user_guide/brazeai/predictive_suite
     image: /assets/img/braze_icons/stars-01.svg
-  - name: Personalized Paths
-    link: /docs/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths
-    image: /assets/img/braze_icons/chevron-up-double.svg
   - name: Winning Path
     link: /docs/user_guide/messaging/canvas/canvas_components/experiment_step/winning_path
     image: /assets/img/braze_icons/dataflow-03.svg
-  - name: Winning Variant and Personalized Variant
-    link: /docs/user_guide/messaging/ab_testing/optimizations
+  - name: Optimize with BrazeAI™
+    link: /docs/user_guide/brazeai/intelligence_suite/variant_selection
     image: /assets/img/braze_icons/trophy-01.svg
 ---
 
@@ -57,11 +54,21 @@ guide_featured_list:
 
 | Your goal | Recommended feature |
 | --- | --- |
-| Personalize message copy per user using their context | Braze Agents (Canvas or catalog); for one-off draft copy, Generative AI |
-| Optimize which message content (such as subject, CTA) performs best over time | Content Optimizer (email, push notifications, or SMS/MMS/RCS) or Winning Variant |
-| Maximize a business metric (revenue, conversions) with 1:1 decisions across offers, channels, and timing | Decisioning Studio |
-| Find users likely to churn or to perform an event | Predictive Churn or Predictive Events |
-| Recommend specific products from a catalog in messages | Item recommendations |
-| Send at the best time or the best channel per user | Intelligent Timing, Intelligent Channel |
-| Create or refine copy and creative directly in the dashboard | Generative AI (copywriting, images, QA), Operator for help |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Personalize message copy per user using their context | [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents) ([Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step) or [catalog]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#use-catalog-agents)); for one-off draft copy, [Generative AI]({{site.baseurl}}/user_guide/brazeai/generative_ai) |
+| Optimize which message content (such as subject or CTA) performs best over time | [Content Optimizer]({{site.baseurl}}/user_guide/brazeai/content_optimizer) (email, push notifications, or SMS/MMS/RCS) or [Optimize with BrazeAI™]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection) |
+| Maximize a business metric (revenue, conversions) with 1:1 decisions across offers, channels, and timing | [Decisioning Studio]({{site.baseurl}}/user_guide/brazeai/decisioning_studio) |
+| Find users likely to churn or to perform an event | [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn) or [Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events) |
+| Recommend specific products from a catalog in messages | [Item recommendations]({{site.baseurl}}/user_guide/brazeai/item_recommendations) |
+| Send at the best time or the best channel per user | [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing), [Intelligent Channel]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel) |
+| Create or refine copy and creative directly in the dashboard | [Operator]({{site.baseurl}}/user_guide/brazeai/operator) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Feature overview" }
+
+## Frequently asked questions
+
+### What is BrazeAI? {#what-is-brazeai}
+
+BrazeAI is a set of AI-powered tools in Braze for generative copy, personalization, predictions, recommendations, and decisioning. Use the feature links on this page to open setup guides for each capability.
+
+### Which BrazeAI feature should I use first? {#which-brazeai-feature-should-i-use-first}
+
+Start with the [Feature overview](#feature-overview) table on this page to match your goal—such as copy generation, send-time optimization, or product recommendations—to the recommended BrazeAI feature.

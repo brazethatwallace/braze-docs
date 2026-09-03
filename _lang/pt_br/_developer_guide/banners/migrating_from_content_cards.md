@@ -16,59 +16,63 @@ platform:
 
 # Migrar de Content Cards para Banners {#migrate-from-content-cards-to-banners}
 
-> Este guia ajuda você a migrar de Content Cards para Banners para casos de uso de envio de mensagens em estilo banner. Banners são ideais para mensagens inline e persistentes no app e na web que aparecem em locais específicos na sua aplicação.
+> Este guia ajuda você a migrar de Content Cards para Banners para casos de uso de envio de mensagens em estilo banner. Banners são ideais para mensagens inline e persistentes no app e na web que aparecem em posicionamentos específicos na sua aplicação.
 
 ## Por que migrar para Banners? {#why-migrate-to-banners}
 
-- Se sua equipe de engenharia está construindo ou mantendo Content Cards personalizados, migrar para Banners pode reduzir esse investimento contínuo. Banners permitem que os profissionais de marketing controlem a interface do usuário diretamente, liberando os desenvolvedores para outros trabalhos.
-- Se você está lançando novas mensagens na página inicial, fluxos de integração ou anúncios persistentes, comece com Banners em vez de construir sobre Content Cards. Você pode se beneficiar de personalização em tempo real, sem expiração de 30 dias, sem limite de tamanho e priorização nativa desde o primeiro dia.
-- Se você está lidando com o limite de expiração de 30 dias, gerenciando lógica de reelegibilidade complexa ou frustrado com personalização desatualizada, Banners resolvem esses problemas de forma nativa.
+- Se sua equipe de engenharia está construindo ou mantendo Content Cards personalizados, migrar para Banners pode reduzir esse investimento contínuo. Banners permitem que profissionais de marketing controlem a interface diretamente, liberando desenvolvedores para outros trabalhos.
+- Se você está lançando novas mensagens na página inicial, fluxos de integração ou anúncios persistentes, comece com Banners em vez de construir com Content Cards. Você pode se beneficiar de personalização em tempo real, sem expiração de 30 dias, sem limite de tamanho e priorização nativa desde o primeiro dia.
+- Se você está contornando o limite de expiração de 30 dias, gerenciando lógica complexa de reelegibilidade ou frustrado com personalização desatualizada, Banners resolve esses problemas nativamente.
 
-Banners oferecem várias vantagens sobre Content Cards para envio de mensagens em estilo banner:
+Banners oferecem diversas vantagens em relação a Content Cards para mensagens no estilo banner:
 
 ### Produção acelerada {#accelerated-production}
 
-- **Suporte de engenharia contínuo reduzido**: Os profissionais de marketing podem criar mensagens personalizadas usando um editor de arrastar e soltar e HTML personalizado sem precisar de assistência de desenvolvedores para personalização
-- **Opções de personalização flexíveis**: Desenhe diretamente no editor, use HTML ou aproveite modelos de dados existentes com propriedades personalizadas
+- **Menos suporte contínuo de engenharia necessário**: Profissionais de marketing podem criar mensagens personalizadas usando o editor de arrastar e soltar e HTML personalizado sem precisar de assistência de desenvolvedores para customização
+- **Opções flexíveis de personalização**: Projete diretamente no editor, use HTML ou aproveite modelos de dados existentes com propriedades personalizadas
 
 ### Melhor experiência do usuário {#better-ux}
 
-- **Atualizações de conteúdo dinâmico**: Banners atualizam a lógica Liquid e a elegibilidade a cada atualização, garantindo que os usuários vejam sempre o conteúdo mais relevante
-- **Suporte de posicionamento nativo**: As mensagens aparecem em contextos específicos em vez de um feed, proporcionando melhor relevância contextual
-- **Priorização nativa**: Controle sobre a ordem de exibição sem lógica personalizada, facilitando a gestão da hierarquia das mensagens
+- **Atualizações de conteúdo dinâmico**: Banners atualizam a lógica Liquid e a elegibilidade a cada atualização, garantindo que os usuários sempre vejam o conteúdo mais relevante
+- **Suporte nativo a posicionamento**: As mensagens aparecem em contextos específicos em vez de um feed, proporcionando melhor relevância contextual
+- **Priorização nativa**: Controle sobre a ordem de exibição sem lógica personalizada, facilitando o gerenciamento da hierarquia de mensagens
 
 ### Persistência {#persistence}
 
-- **Sem limite de expiração**: Campaigns de banner não têm um limite de expiração de 30 dias como os Content Cards, permitindo a verdadeira persistência das mensagens
+- **Sem limite de expiração**: Campaigns de Banner não têm um limite de expiração de 30 dias como Content Cards, permitindo verdadeira persistência das mensagens
 
 ## Quando migrar {#when-to-migrate}
 
-Considere migrar para Banners se você estiver usando Content Cards para:
+Considere migrar para Banners se você está usando Content Cards para:
 
-- Destaques da página inicial, promoções de página de produto, ofertas de checkout
-- Anúncios de navegação persistente ou mensagens na barra lateral
-- Mensagens sempre ativas que duram mais de 30 dias
-- Mensagens onde você deseja personalização em tempo real e elegibilidade
+- Destaques na página inicial, promoções em páginas de produtos, ofertas no checkout
+- Anúncios persistentes de navegação ou mensagens na barra lateral
+- Mensagens sempre ativas com duração superior a 30 dias
+- Mensagens em que você deseja personalização e elegibilidade em tempo real
 
-## Quando manter os Content Cards {#when-to-keep-content-cards}
+## Quando manter Content Cards {#when-to-keep-content-cards}
 
-Continue usando os Content Cards se você precisar de:
+Continue usando Content Cards se você precisar de:
 
-- **Experiências de feed:** Qualquer caso de uso envolvendo várias mensagens roláveis ou uma "Caixa de Entrada" baseada em cartões.
-- **Recursos específicos:** Mensagens que requerem Conteúdo conectado ou códigos promocionais, pois os Banners não suportam isso nativamente.
-- **Entrega disparada:** Casos de uso que exigem estritamente entrega disparada por API ou entrega baseada em ação. Embora os Banners não suportem entrega disparada por API ou entrega baseada em ação, a avaliação de elegibilidade em tempo real significa que os usuários se qualificam ou desqualificam instantaneamente com base na associação ao segmento a cada atualização.
+- **Experiências de feed:** Qualquer caso de uso que envolva várias mensagens roláveis ou uma "Caixa de entrada" baseada em cartões.
+- **Recursos específicos:** Mensagens que exigem códigos promocionais, já que os Banners não oferecem suporte nativo a eles. Os Banners oferecem suporte a [Connected Content]({{site.baseurl}}/developer_guide/banners#connected-content) em acesso antecipado.
+- **Entrega baseada em ação:** Casos de uso que exigem estritamente entrega disparada por API ou entrega baseada em ação. Embora os Banners não ofereçam suporte a entrega disparada por API ou baseada em ação, a avaliação de elegibilidade em tempo real significa que os usuários se qualificam ou desqualificam instantaneamente com base na associação ao Segment a cada atualização.
 
 ## Guia de migração {#migration-guide}
 
 ### Pré-requisitos {#prerequisites}
 
-Antes de migrar, certifique-se de que seu SDK da Braze atende aos requisitos mínimos de versão:
+Antes de migrar, verifique se o SDK da Braze atende aos requisitos mínimos de versão:
 
-{% multi_lang_include sdk_versions.md feature='banners' %}
+{% multi_lang_include developer_guide/sdk_versions.md feature='banners' %}
 
-### Inscrever-se para receber atualizações {#subscribe-to-updates}
+Dispensas e reelegibilidade exigem as seguintes versões mínimas do SDK:
 
-#### Abordagem de Content Cards {#content-cards-approach}
+{% sdk_min_versions swift:14.1.0 android:42.1.0 web:6.7.1 %}
+
+### Inscrever-se para atualizações {#subscribe-to-updates}
+
+#### Abordagem com Content Cards {#content-cards-approach}
 
 {% tabs %}
 {% tab Web %}
@@ -126,7 +130,7 @@ StreamSubscription contentCardsStreamSubscription = braze.subscribeToContentCard
 {% endtab %}
 {% endtabs %}
 
-#### Abordagem de Banners {#banners-approach}
+#### Abordagem com Banners {#banners-approach}
 
 {% tabs %}
 {% tab Web %}
@@ -195,10 +199,10 @@ StreamSubscription bannerStreamSubscription = braze.subscribeToBanners((List<Bra
 ### Exibir conteúdo {#display-content}
 
 {% alert note %}
-Os Content Cards podem ser renderizados manualmente com lógica de UI personalizada, enquanto os Banners só podem ser renderizados com os métodos padrão do SDK.
+Content Cards podem ser renderizados manualmente com lógica de UI personalizada, enquanto Banners só podem ser renderizados com os métodos prontos do SDK.
 {% endalert %}
 
-#### Abordagem de Content Cards
+#### Abordagem com Content Cards
 
 {% tabs %}
 {% tab Web %}
@@ -259,7 +263,7 @@ for card in cards {
 Braze.launchContentCards();
 
 // Or manually render cards
-const cards = await Braze.getContentCards();
+const cards = await Braze.getCachedContentCards();
 cards.forEach(card => {
   if (card.type === 'CLASSIC') {
     // Render classic card
@@ -283,7 +287,7 @@ for (final card in cards) {
 {% endtab %}
 {% endtabs %}
 
-#### Abordagem de Banners
+#### Abordagem com Banners
 
 {% tabs %}
 {% tab Web %}
@@ -349,7 +353,7 @@ braze.banners.requestBannersRefresh(placementIds: ["sample_placement_id"])
 ```javascript
 // Using BrazeBannerView component
 <Braze.BrazeBannerView
-  placementID='sample_placement_id'
+  placementId='sample_placement_id'
 />
 
 // Or get banner data
@@ -382,10 +386,10 @@ braze.requestBannersRefresh(["sample_placement_id"]);
 ### Registrar análise de dados (implementações personalizadas) {#log-analytics-custom-implementations}
 
 {% alert note %}
-Tanto os Content Cards quanto os Banners rastreiam automaticamente a análise de dados ao usar seus componentes de UI padrão. Os exemplos abaixo são para implementações personalizadas onde você está construindo sua própria UI.
+Tanto Content Cards quanto Banners rastreiam análise de dados automaticamente ao usar seus componentes de UI padrão. Os exemplos a seguir são para implementações personalizadas em que você está construindo sua própria UI.
 {% endalert %}
 
-#### Abordagem de Content Cards
+#### Abordagem com Content Cards
 
 {% tabs %}
 {% tab Web %}
@@ -445,13 +449,13 @@ braze.logContentCardClicked(card);
 {% endtab %}
 {% endtabs %}
 
-#### Abordagem de Banners
+#### Abordagem com Banners
 
 {% tabs %}
 {% tab Web %}
 
 {% alert important %}
-A análise de dados é rastreada automaticamente ao usar `insertBanner()`. O registro manual não deve ser usado ao usar `insertBanner()`.
+A análise de dados é rastreada automaticamente ao usar `insertBanner()`. O registro manual não deve ser usado ao utilizar `insertBanner()`.
 {% endalert %}
 
 ```javascript
@@ -469,7 +473,7 @@ braze.logBannerClick("sample_placement_id", buttonId);
 {% tab Android %}
 
 {% alert important %}
-A análise de dados é rastreada automaticamente ao usar BannerView. O registro manual não deve ser usado ao usar BannerView.
+A análise de dados é rastreada automaticamente ao usar BannerView. O registro manual não deve ser usado ao utilizar BannerView.
 {% endalert %}
 
 ```kotlin
@@ -539,9 +543,9 @@ A análise de dados é rastreada automaticamente ao usar BrazeBannerView. Nenhum
 {% endtab %}
 {% endtabs %}
 
-### Obtendo propriedades {#getting-properties}
+### Obter propriedades {#getting-properties}
 
-#### Abordagem de Content Cards
+#### Abordagem com Content Cards
 
 {% tabs %}
 {% tab Web %}
@@ -581,7 +585,7 @@ for (final card in cards) {
 {% endtab %}
 {% endtabs %}
 
-#### Abordagem de Banners
+#### Abordagem com Banners
 
 {% tabs %}
 {% tab Web %}
@@ -629,9 +633,9 @@ if (banner != null) {
 {% endtab %}
 {% endtabs %}
 
-### Tratamento de grupos de controle {#handling-control-groups}
+### Lidar com grupos de controle {#handling-control-groups}
 
-#### Abordagem de Content Cards
+#### Abordagem com Content Cards
 
 {% tabs %}
 {% tab Web %}
@@ -691,7 +695,7 @@ for (final card in cards) {
 {% endtab %}
 {% endtabs %}
 
-#### Abordagem de Banners
+#### Abordagem com Banners
 
 {% tabs %}
 {% tab Web %}
@@ -738,7 +742,7 @@ let bannerView = BrazeBannerUI.BannerUIView(
 // BrazeBannerView automatically handles control groups
 // No additional code needed
 <Braze.BrazeBannerView
-  placementID='sample_placement_id'
+  placementId='sample_placement_id'
 />
 ```
 {% endtab %}
@@ -757,56 +761,58 @@ BrazeBannerView(
 
 Ao migrar de Content Cards para Banners, esteja ciente das seguintes limitações:
 
-### Migrando mensagens disparadas {#migrating-triggered-messages}
+### Migração de mensagens disparadas {#migrating-triggered-messages}
 
-Banners suportam apenas Campaigns de entrega agendada. Para migrar uma mensagem que era anteriormente disparada por API ou baseada em ação, converta-a para direcionamento baseado em segmento:
+Banners suportam apenas Campaigns de entrega agendada. Para migrar uma mensagem que anteriormente era disparada por API ou baseada em ação, converta-a para direcionamento baseado em Segment:
 
-- **Exemplo:** Em vez de disparar um cartão "Completar Perfil" com a API, crie um segmento para usuários que se inscreveram nos últimos 7 dias, mas não completaram seu perfil.
-- **Elegibilidade em tempo real:** Os usuários se qualificam ou desqualificam para o Banner instantaneamente a cada atualização com base na associação ao segmento.
+- **Exemplo:** Em vez de disparar um cartão "Complete seu perfil" com a API, crie um Segment para usuários que se cadastraram nos últimos 7 dias, mas não completaram seu perfil.
+- **Elegibilidade em tempo real:** Os usuários se qualificam ou desqualificam para o Banner instantaneamente a cada atualização, com base na associação ao Segment.
 
 ### Diferenças de recursos {#feature-differences}
 
 | Recurso | Content Cards | Banners |
 |---------|--------------|---------|
 | **Estrutura de conteúdo** |
-| Múltiplos cartões no feed | ✅ Suportado | ✅ É possível criar múltiplos posicionamentos para alcançar uma implementação semelhante a carrossel. Apenas um banner é retornado por posicionamento. |
-| Múltiplos posicionamentos | N/D | ✅ Múltiplos posicionamentos suportados |
-| Tipos de cartões (Clássico, Com legenda, Apenas imagem) | ✅ Múltiplos tipos predefinidos | ✅ Banner único baseado em HTML (mais flexível) |
+| Múltiplos cartões no feed | ✅ Suportado | ✅ É possível criar múltiplos posicionamentos para obter uma implementação semelhante a carrossel. Apenas um banner é retornado por posicionamento. |
+| Múltiplos posicionamentos | N/A | ✅ Múltiplos posicionamentos suportados |
+| Tipos de cartão (Clássico, Com legenda, Somente imagem) | ✅ Múltiplos tipos predefinidos | ✅ Banner único baseado em HTML (mais flexível) |
 | **Gerenciamento de conteúdo** |
 | Editor de arrastar e soltar | ❌ Requer desenvolvedor para personalização | ✅ Profissionais de marketing podem criar/atualizar sem engenharia |
-| HTML/CSS personalizado | ❌ Limitado à estrutura do cartão | ✅ Suporte total a HTML/CSS |
+| HTML/CSS personalizado | ❌ Limitado à estrutura do cartão | ✅ Suporte completo a HTML/CSS |
 | Pares chave-valor para personalização | ✅ Necessário para personalização avançada | ✅ Pares chave-valor fortemente tipados chamados "propriedades" para personalização avançada |
+| Extras de mensagem | ✅ Suportado | ❌ Não suportado atualmente |
 | **Persistência e expiração** |
 | Expiração do cartão | ✅ Suportado (limite de 30 dias) | ✅ Suportado (sem limite de expiração) |
-| Persistência verdadeira | ❌ Máximo de 30 dias | ✅ Persistência ilimitada |
+| Persistência real | ❌ Máximo de 30 dias | ✅ Persistência ilimitada |
 | **Exibição e direcionamento** |
-| Interface do feed | ✅ Feed padrão disponível | ❌ Apenas baseado em posicionamento |
-| Posicionamento específico de contexto | ❌ Baseado em feed | ✅ Suporte nativo a posicionamento |
-| Priorização nativa | ❌ Requer lógica personalizada | ✅ Priorização integrada |
+| Interface do feed | ✅ Feed padrão disponível | ❌ Somente baseado em posicionamento |
+| Posicionamento específico por contexto | ❌ Baseado em feed | ✅ Suporte nativo a posicionamento |
+| Priorização | ❌ Requer lógica personalizada | ✅ Priorização nativa |
 | **Interação do usuário** |
-| Descarte manual | ✅ Suportado | ❌ Não suportado |
-| Cartões fixados | ✅ Suportado | N/D |
+| Dispensar manualmente | ✅ Suportado | ✅ Suportado |
+| Reelegibilidade após dispensar | ❌ Requer filtros personalizados ou lógica de Campaign | ✅ Período de espera padrão |
+| Cartões fixados | ✅ Suportado | N/A |
 | **Analytics** |
-| Análise automática (UI padrão) | ✅ Suportado | ✅ Suportado |
+| Analytics automático (interface padrão) | ✅ Suportado | ✅ Suportado |
 | Classificação por prioridade | ❌ Não suportado | ✅ Suportado |
 | **Atualizações de conteúdo** |
-| Atualização de template Liquid | ❌ Uma vez por cartão ao enviar/lançar | ✅ Atualiza a cada atualização |
-| Atualização de elegibilidade | ❌ Uma vez por cartão ao enviar/lançar | ✅ Atualiza a cada sessão |
+| Atualização de templates Liquid | ❌ Uma vez por cartão no envio/lançamento | ✅ Atualiza a cada refresh |
+| Atualização de elegibilidade | ❌ Uma vez por cartão no envio/lançamento | ✅ Atualiza a cada sessão |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Diferenças de recursos" }
 
 ### Limitações do produto {#product-limitations}
 
 - Até 25 mensagens ativas por posicionamento.
-- Até 10 IDs de posicionamento por solicitação de atualização; solicitações além disso são truncadas.
+- Até 10 IDs de posicionamento por solicitação de refresh; solicitações além desse limite são truncadas.
 
 ### Limitações do SDK {#sdk-limitations}
 
-- Banners não são atualmente suportados em .NET MAUI (Xamarin), Cordova, Unity, Vega ou plataformas de TV.
-- Certifique-se de que está usando as versões mínimas do SDK listadas nos pré-requisitos.
+- Banners não são suportados atualmente em .NET MAUI (Xamarin), Cordova, Unity, Vega ou plataformas de TV.
+- Certifique-se de que você está usando as versões mínimas do SDK listadas nos pré-requisitos.
 
 ## Artigos relacionados {#related-articles}
 
-- [Posicionamentos de banner]({{site.baseurl}}/developer_guide/banners/placements/)
-- [Tutorial: Exibindo um banner pelo ID de posicionamento]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners/)
-- [Análise de dados de banner]({{site.baseurl}}/developer_guide/banners/analytics/)
-- [Perguntas frequentes sobre banners]({{site.baseurl}}/developer_guide/banners/faq/)
+- [Posicionamentos de banner]({{site.baseurl}}/developer_guide/banners/placements)
+- [Tutorial: Exibindo um banner por ID de posicionamento]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners)
+- [Análise de dados de banner]({{site.baseurl}}/developer_guide/banners/analytics)
+- [Perguntas frequentes sobre banner]({{site.baseurl}}/developer_guide/banners/faq)

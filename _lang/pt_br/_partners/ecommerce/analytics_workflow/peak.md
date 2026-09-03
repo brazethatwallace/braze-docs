@@ -2,7 +2,7 @@
 nav_title: Peak
 article_title: Peak
 description: "Este artigo de referência descreve a parceria entre a Braze e a Peak, uma plataforma de inteligência de decisão, que permite que você pegue a probabilidade de churn prevista e os atributos com base nos comportamentos e interações dos clientes, e os importe para a Braze para usar na segmentação e direcionamento de clientes."
-alias: /partners/Peak/
+alias: /partners/peak/
 page_type: partner
 search_tag: Partner
 
@@ -41,7 +41,7 @@ Com base em quando os atributos foram atualizados, uma seleção é realizada pa
 
 ### Etapa 2: Atualizar a Braze {#step-2-update-braze}
 
-Com os clientes atualizados e os atributos associados, a Peak enviará esses dados para a Braze usando o [endpoint `/user/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), com o cabeçalho [em massa]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#making-bulk-updates).
+Com os clientes atualizados e os atributos associados, a Peak enviará esses dados para a Braze usando o [endpoint `/user/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), com o cabeçalho [em massa]({{site.baseurl}}/api/endpoints/user_data/post_user_track#need-to-update-users-in-bulk).
 
 Após o recebimento de códigos de status bem-sucedidos da API, a Peak registrará a sincronização bem-sucedida entre a Peak e a Braze.
 

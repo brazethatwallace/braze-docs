@@ -6,7 +6,6 @@ page_order: 6
 layout: api_page
 page_type: reference
 description: "Dieser Artikel beschreibt Details zum Braze-Endpunkt „Nutzer:innen zusammenführen“."
-
 ---
 {% api %}
 # Nutzer:innen zusammenführen {#merge-users}
@@ -22,7 +21,7 @@ Pro Anfrage können bis zu 50 Zusammenführungen angegeben werden. Dieser Endpun
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/api_key/) mit der Berechtigung `users.merge`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics) mit der Berechtigung `users.merge`.
 
 ## Rate-Limit
 
@@ -60,7 +59,7 @@ Dieser Endpunkt führt die folgenden Felder zusammen, wenn sie bei der Zielnutze
 
 - Vorname
 - Nachname
-- E-Mail-Adressen (es sei denn, sie sind [verschlüsselt]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption/))
+- E-Mail-Adressen (es sei denn, sie sind [verschlüsselt]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption))
 - Geschlecht
 - Geburtsdatum
 - Telefonnummer
@@ -77,8 +76,8 @@ Dieser Endpunkt führt die folgenden Felder zusammen, wenn sie bei der Zielnutze
 - Angepasste Event- und Kauf-Event-Eigenschaften für die Segmentierung „X-mal in Y Tagen“ (wobei X<=50 und Y<=30)
 - Segmentierbare Zusammenfassung angepasster Events
   - Event-Anzahl (die Summe aus beiden Profilen)
-  - Event erstmals aufgetreten (Braze wählt das frühere der beiden Daten)
-  - Event zuletzt aufgetreten (Braze wählt das spätere der beiden Daten)
+  - Ereignis erstmals aufgetreten (Braze wählt das frühere der beiden Daten)
+  - Ereignis zuletzt aufgetreten (Braze wählt das spätere der beiden Daten)
 - In-App-Käufe insgesamt in Cent (die Summe aus beiden Profilen)
 - Gesamtzahl der Käufe (die Summe aus beiden Profilen)
 - Datum des ersten Kaufs (Braze wählt das frühere der beiden Daten)
@@ -94,7 +93,7 @@ Dieser Endpunkt führt die folgenden Felder zusammen, wenn sie bei der Zielnutze
 Bei der Zusammenführung von Nutzer:innen funktioniert die Verwendung des Endpunkts `/users/merge` genauso wie die Verwendung der [`changeUser()`-Methode](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser).
 {% endalert %}
 
-Braze behandelt drei Nutzertypen bei der Zusammenführung unterschiedlich: zur Löschung markierte Nutzer:innen, Testnutzer:innen und Nutzer:innen der globalen Kontrollgruppe. Weitere Details finden Sie unter [Verhalten bei der Zusammenführung von Nutzer:innen]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior/).
+Braze behandelt drei Nutzertypen bei der Zusammenführung unterschiedlich: zur Löschung markierte Nutzer:innen, Testnutzer:innen und Nutzer:innen der globalen Kontrollgruppe. Weitere Details finden Sie unter [Verhalten bei der Zusammenführung von Nutzer:innen]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior).
 
 #### Verhalten bei angepasstem Event-Datum und Kauf-Event-Datum {#custom-event-date-and-purchase-event-date-behavior}
 
@@ -142,11 +141,11 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
     },
     {
       "identifier_to_merge": {
-        "email": "user1@braze.com",
+        "email": "user1@example.com",
         "prioritization": ["unidentified", "most_recently_updated"]
       },
       "identifier_to_keep":  {
-        "email": "user2@braze.com",
+        "email": "user2@example.com",
         "prioritization": ["identified", "most_recently_updated"]
       }
     },
@@ -170,7 +169,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 
 ### Zusammenführung einer nicht identifizierten Nutzer:in {#merging-unidentified-user}
 
-Die folgende Anfrage würde die zuletzt aktualisierte nicht identifizierte Nutzer:in mit der E-Mail-Adresse `john.smith@braze.com` mit der Nutzer:in mit der externen ID `john` zusammenführen. In diesem Beispiel filtert `most_recently_updated` die Abfrage auf eine nicht identifizierte Nutzer:in. Wenn es also zwei nicht identifizierte Nutzer:innen mit dieser E-Mail-Adresse gäbe, würde nur eine mit der Nutzer:in zusammengeführt, die die externe ID `john` hat.
+Die folgende Anfrage würde die zuletzt aktualisierte nicht identifizierte Nutzer:in mit der E-Mail-Adresse `john.smith@example.com` mit der Nutzer:in mit der externen ID `john` zusammenführen. In diesem Beispiel filtert `most_recently_updated` die Abfrage auf eine nicht identifizierte Nutzer:in. Wenn es also zwei nicht identifizierte Nutzer:innen mit dieser E-Mail-Adresse gäbe, würde nur eine mit der Nutzer:in zusammengeführt, die die externe ID `john` hat.
 
 ```bash
 curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
@@ -180,7 +179,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
   "merge_updates": [
     {
       "identifier_to_merge": {
-        "email": "john.smith@braze.com",
+        "email": "john.smith@example.com",
         "prioritization": ["unidentified", "most_recently_updated"]
       },
       "identifier_to_keep": {
@@ -193,7 +192,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 
 ### Zusammenführung einer nicht identifizierten Nutzer:in in eine identifizierte Nutzer:in {#merging-unidentified-user-into-identified-user}
 
-Das folgende Beispiel führt die zuletzt aktualisierte nicht identifizierte Nutzer:in mit der E-Mail-Adresse `john.smith@braze.com` mit der zuletzt aktualisierten identifizierten Nutzer:in mit der E-Mail-Adresse `john.smith@braze.com` zusammen.
+Das folgende Beispiel führt die zuletzt aktualisierte nicht identifizierte Nutzer:in mit der E-Mail-Adresse `john.smith@example.com` mit der zuletzt aktualisierten identifizierten Nutzer:in mit der E-Mail-Adresse `john.smith@example.com` zusammen.
 
 Die Verwendung von `most_recently_updated` filtert die Abfragen auf jeweils eine Nutzer:in (eine nicht identifizierte Nutzer:in für `identifier_to_merge` und eine identifizierte Nutzer:in für `identifier_to_keep`).
 
@@ -205,11 +204,11 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
   "merge_updates": [
     {
       "identifier_to_merge": {
-        "email": "john.smith@braze.com",
+        "email": "john.smith@example.com",
         "prioritization": ["unidentified", "most_recently_updated"]
       },
       "identifier_to_keep": {
-        "email": "john.smith@braze.com",
+        "email": "john.smith@example.com",
         "prioritization": ["identified", "most_recently_updated"]
       }
     }
@@ -219,7 +218,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 
 ### Zusammenführung einer nicht identifizierten Nutzer:in ohne die most_recently_updated-Priorisierung {#merging-an-unidentified-user-without-including-the-most_recently_updated-prioritization}
 
-Wenn es zwei nicht identifizierte Nutzer:innen mit der E-Mail-Adresse `john.smith@braze.com` gibt, führt diese Beispielanfrage keine Nutzer:innen zusammen, da es zwei nicht identifizierte Nutzer:innen mit dieser E-Mail-Adresse gibt. Diese Anfrage funktioniert nur, wenn es lediglich eine nicht identifizierte Nutzer:in mit der E-Mail-Adresse `john.smith@braze.com` gibt.
+Wenn es zwei nicht identifizierte Nutzer:innen mit der E-Mail-Adresse `john.smith@example.com` gibt, führt diese Beispielanfrage keine Nutzer:innen zusammen, da es zwei nicht identifizierte Nutzer:innen mit dieser E-Mail-Adresse gibt. Diese Anfrage funktioniert nur, wenn es lediglich eine nicht identifizierte Nutzer:in mit der E-Mail-Adresse `john.smith@example.com` gibt.
 
 ```bash
 curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
@@ -229,7 +228,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
   "merge_updates": [
     {
       "identifier_to_merge": {
-        "email": "john.smith@braze.com",
+        "email": "john.smith@example.com",
         "prioritization": ["unidentified"]
       },
       "identifier_to_keep": {

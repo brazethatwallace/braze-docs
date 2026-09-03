@@ -4,7 +4,6 @@ article_title: API Connected Audience Object
 page_order: 3
 page_type: reference
 description: "This article explains the connected audience object, including how it works, use cases, and the different filters that create it."
-
 ---
 
 # Connected audience object
@@ -15,12 +14,12 @@ Instead of pre-building a segment for every possible audience combination, you p
 
 ## How it works
 
-1. Define your message by either creating an API-triggered campaign or Canvas in the Braze dashboard, or define message content entirely inline using the [messaging objects]({{site.baseurl}}/api/objects_filters/#messaging-objects) in your API request. Use [trigger properties]({{site.baseurl}}/api/objects_filters/trigger_properties_object/) or [Canvas context]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/) for dynamic personalization.
+1. Define your message by either creating an API-triggered campaign or Canvas in the Braze dashboard, or define message content entirely inline using the [messaging objects]({{site.baseurl}}/api/objects_filters#messaging-objects) in your API request. Use [trigger properties]({{site.baseurl}}/api/objects_filters/trigger_properties_object) or [Canvas context]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) for dynamic personalization.
 2. Call a supported endpoint and include your connected audience filters in the `audience` parameter, or in `custom_audience` for `/messages/live_activity/start`. You can filter on custom attributes, push subscription status, email subscription status, and last-used-app time.
 3. Braze evaluates the filters at send time, delivering the message only to users who match your criteria.
 
 {% alert tip %}
-A `campaign_id` isn't required when using the `audience` parameter. The [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/) and [`/messages/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages/) endpoints let you define message content inline without a pre-created campaign. However, if you want to track campaign-level metrics (such as sends, clicks, or bounces) on the dashboard, include a `campaign_id`.
+A `campaign_id` isn't required when using the `audience` parameter. The [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) and [`/messages/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages) endpoints let you define message content inline without a pre-created campaign. However, if you want to track campaign-level metrics (such as sends, clicks, or bounces) on the dashboard, include a `campaign_id`.
 {% endalert %}
 
 Because the audience is defined per request, your backend systems can trigger contextually relevant messages in response to any business event (a price change, a weather alert, a live score update) without dashboard intervention.
@@ -29,13 +28,15 @@ Because the audience is defined per request, your backend systems can trigger co
 
 You can use the connected audience object on these endpoints:
 
-- [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/)
-- [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/)
-- [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/)
-- [`/messages/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages/)
-- [`/campaigns/trigger/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns/)
-- [`/canvas/trigger/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases/)
-- [`/messages/live_activity/start`]({{site.baseurl}}/api/endpoints/messaging/live_activity/start/) (uses `custom_audience`)
+- [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages)
+- [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns)
+- [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases)
+- [`/messages/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages)
+- [`/campaigns/trigger/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns)
+- [`/canvas/trigger/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases)
+- [`/messages/live_activity/start`]({{site.baseurl}}/api/endpoints/messaging/live_activity/start) (uses `custom_audience`)
+
+Note that the `audience` parameter does not support array of objects.
 
 ## Use cases
 
@@ -55,7 +56,7 @@ In each case, a single campaign or API-only message definition handles all varia
 
 ## Example request
 
-The following example uses the [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/) endpoint to target users who have favorited a specific show and are opted in to push notifications:
+The following example uses the [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) endpoint to target users who have favorited a specific show and are opted in to push notifications:
 
 ```json
 {
@@ -113,6 +114,19 @@ The connected audience object is composed of either a single connected audience 
 
 Combine multiple filters with `AND` and `OR` operators to create a connected audience filter.
 
+### Considerations
+
+Connected audiences cannot filter users by:
+
+ - Default attributes
+ - Custom events
+ - Segments
+ - Message engagement events
+ - Nested custom attributes
+
+To use these filters, we recommend incorporating them into an audience segment and then specifying that segment in the `segment_id` parameter for the [`/messages/send` endpoint]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#request-parameters). When using other endpoints, you must add the segment to the API-triggered campaign or Canvas in the Braze dashboard first. If you need to filter on nested attributes, use a [standard segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) instead.
+
+
 ### Custom attribute filter
 
 This filter allows you to segment based on a user's custom attribute. These filters contain up to three fields:
@@ -132,10 +146,10 @@ This filter allows you to segment based on a user's custom attribute. These filt
 
 The custom attribute's data type determines the comparisons that are valid for a given filter.
 
-| Custom Attribute Type | Allowed Comparisons |
+| Custom attribute type | Allowed comparisons |
 | ---------------------| --------------- |
-| String | `equals`, `not_equal`, `matches_regex`, `does_not_match_regex`, `exists`, `does_not_exist` |
-| Array | `includes_value`, `does_not_include_value`, `exists`, `does_not_exist` |
+| String | `equals`, `not_equal`, `matches_regex`, `does_not_match_regex`, `exists`, `does_not_exist`, `is_any_of`, `is_none_of` |
+| Array | `includes_value`, `does_not_include_value`, `exists`, `does_not_exist`, `is_any_of`, `is_none_of` |
 | Numeric | `equals`, `not_equal`, `greater_than`, `greater_than_or_equal_to`, `less_than`, `less_than_or_equal_to`, `exists`, `does_not_exist` |
 | Boolean | `equals`, `not_equal`, `exists`, `does_not_exist` |
 | Time | `less_than_x_days_ago`, `greater_than_x_days_ago`, `less_than_x_days_in_the_future`, `greater_than_x_days_in_the_future`, `after`, `before`, `exists`, `does_not_exist` |
@@ -146,10 +160,26 @@ The custom attribute's data type determines the comparisons that are valid for a
 | Comparison | Additional considerations |
 | --- | --- |
 | `value` | The `value` is not required when using the `exists` or `does_not_exist` comparisons. `value` must be an ISO 8601 datetime string when using the `before` and `after` comparisons. |
-|`matches_regex` | When using the `matches_regex` comparison, the value passed must be a string. To read more about using regular expressions with Braze, refer to [Regular expressions]({{site.baseurl}}/user_guide/engagement_tools/segments/regex/#regex-with-braze) and [Custom attribute data types]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#custom-attribute-data-types). |
+|`matches_regex` | When using the `matches_regex` comparison, the value passed must be a string. To read more about using regular expressions with Braze, refer to [Regular expressions]({{site.baseurl}}/user_guide/audience/segments/regex) and [Custom attribute data types]({{site.baseurl}}/developer_guide/analytics#custom-attribute-data-types). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Attribute comparison caveats" }
 
-#### Custom attribute example
+#### Multi-value comparisons
+
+Both `is_any_of` and `is_none_of` support matching against multiple values in a single comparison. These comparisons work with both string and array custom attributes.
+
+- `is_any_of`: Matches users whose attribute value equals any of the provided values. The `value` can be a single string or an array of strings.
+- `is_none_of`: Matches users whose attribute value does not match any of the provided values. The `value` can be a single string or an array of strings. Note that users without the attribute on their profile always qualify for this comparison.
+
+For array attributes:
+
+- `includes_value` can also accept an array of values to check if the user's array contains any of the specified values.
+- When using `is_any_of` or `is_none_of` with array attributes, they function the same as `includes_value` and `does_not_include_value` respectively.
+
+{% alert tip %}
+For multi-value matching, use `is_any_of` rather than `includes_value`.
+{% endalert %}
+
+#### Custom attribute examples
 
 ```json
 {
@@ -183,6 +213,50 @@ The custom attribute's data type determines the comparisons that are valid for a
   }
 }
 ```
+
+#### Multi-value comparison examples
+
+##### `is_any_of` with an array of strings
+
+```json
+{
+  "custom_attribute":
+  {
+    "custom_attribute_name": "favorite_color",
+    "comparison": "is_any_of",
+    "value": ["red", "blue", "green"]
+  }
+}
+```
+
+##### `is_none_of` with an array of strings
+
+```json
+{
+  "custom_attribute":
+  {
+    "custom_attribute_name": "subscription_tier",
+    "comparison": "is_none_of",
+    "value": ["bronze", "silver"]
+  }
+}
+```
+
+##### `includes_value` with an array (array attribute)
+
+```json
+{
+  "custom_attribute":
+  {
+    "custom_attribute_name": "subscribed_products",
+    "comparison": "includes_value",
+    "value": ["1001", "1002", "1003"]
+  }
+}
+```
+
+This matches users whose `subscribed_products` array contains any of the values `"1001"`, `"1002"`, or `"1003"`.
+
 ### Push subscription filter
 
 This filter allows you to segment based on a user's push subscription status.
@@ -226,6 +300,7 @@ This filter allows you to segment based on a user's email subscription status.
 This filter allows you to segment based on when the user last used the app. These filters contain two fields:
 
 #### Filter body
+
 ```json
 {
   "last_used_app":
@@ -238,15 +313,3 @@ This filter allows you to segment based on when the user last used the app. Thes
 
 - **Allowed comparisons:** `after`, `before`
 - **Allowed values:** datetime (ISO 8601 string)
-
-### Considerations
-
-Connected audiences cannot filter users by:
-
- - Default attributes
- - Custom events
- - Segments
- - Message engagement events
- - Nested custom attributes
- 
-To use these filters, we recommend incorporating them into an audience segment and then specifying that segment in the `segment_id` parameter for the [`/messages/send` endpoint]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#request-parameters). When using other endpoints, you'll need to add the segment to the API-triggered campaign or Canvas in the Braze dashboard first.

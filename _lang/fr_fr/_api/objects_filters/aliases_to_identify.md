@@ -1,19 +1,19 @@
 ---
-nav_title: "Objet Alias d’identification"
-article_title: Objet Alias d’identification de l’API
+nav_title: "Objet Alias d'identification"
+article_title: Objet Alias d'identification de l'API
 page_order: 11
 page_type: reference
-description: "Cet article explique les alias pour identifier la spécification d’objet."
+description: "Cet article explique la spécification de l'objet Alias d'identification."
 
 ---
 
-# Objet Alias d’identification
+# Objet Alias d'identification {#aliases-to-identify-object}
 
-Une demande d'API comportant un champ quelconque dans l'objet attributs crée ou met à jour un attribut de ce nom avec la valeur donnée sur le profil utilisateur spécifié.
+Une requête API comportant un champ quelconque dans l'objet attributs crée ou met à jour un attribut de ce nom avec la valeur donnée sur le profil utilisateur spécifié.
 
-Utilisez les noms de champs de profil utilisateur Braze (énumérés comme suit ou tout autre répertorié dans la section pour [Braze user profile fields]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields)) pour mettre à jour ces valeurs spéciales sur le profil utilisateur dans le tableau de bord ou ajoutez vos propres données d'attributs personnalisés à l'utilisateur.
+Utilisez les noms de champs de profil utilisateur Braze (énumérés ci-après ou tout autre répertorié dans la section [Champs du profil utilisateur Braze]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields)) pour mettre à jour ces valeurs spéciales sur le profil utilisateur dans le tableau de bord, ou ajoutez vos propres données d'attributs personnalisés à l'utilisateur.
 
-## Corps de l’objet
+## Corps de l'objet {#object-body}
 
 ```json
 {
@@ -32,5 +32,5 @@ Utilisez les noms de champs de profil utilisateur Braze (énumérés comme suit 
 }
 ```
 
-- [ID utilisateur externe]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields)
-- [Alias utilisateurs]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases)
+- [ID utilisateur externe]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields)
+- [Alias d'utilisateur]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#user-aliases)

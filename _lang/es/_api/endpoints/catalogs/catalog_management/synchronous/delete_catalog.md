@@ -6,7 +6,7 @@ page_order: 1
 
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Eliminar catálogo de Braze."
+description: "En este artículo se describen los detalles del endpoint Eliminar catálogo de Braze."
 
 ---
 {% api %}
@@ -15,13 +15,13 @@ description: "En este artículo se describen los detalles del punto de conexión
 /catalogs/{catalog_name}
 {% endapimethod %}
 
-> Utiliza este punto de conexión para eliminar un catálogo.
+> Utiliza este endpoint para eliminar un catálogo.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#c0915a86-797a-4486-8217-24cd1c689d0f {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `catalogs.delete`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `catalogs.delete`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -44,7 +44,7 @@ curl --location --request DELETE 'https://rest.iad-03.braze.com/catalogs/restaur
 
 ## Respuesta {#response}
 
-Hay dos respuestas de código de estado para este punto de conexión: `200` y `404`.
+Hay dos respuestas de código de estado para este endpoint: `200` y `404`.
 
 ### Ejemplo de respuesta correcta {#example-success-response}
 

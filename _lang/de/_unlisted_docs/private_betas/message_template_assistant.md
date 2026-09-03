@@ -1,53 +1,45 @@
 ---
-nav_title: Template Assistant
-article_title: Template Assistant
+nav_title: HTML-E-Mail-Templates
+article_title: HTML-E-Mail-Templates generieren
 permalink: "/template_assistant/"
-description: "Dieser Referenzartikel beschreibt, wie Sie den Template Assistant für Nachrichten verwenden, um Templates für Ihr E-Mail-Messaging zu generieren."
+description: "Dieser Referenzartikel beschreibt, wie Sie HTML-E-Mail-Templates mit Operator generieren, einschließlich der Funktionsweise und Beispiel-Prompts."
 page_type: reference
 ---
 
-# Template Assistant für Nachrichten {#message-template-assistant}
+# HTML-E-Mail-Templates generieren {#generate-html-email-templates}
 
-> Der Template Assistant für Nachrichten hilft Ihnen, ein bestehendes HTML-E-Mail-Template zu iterieren, indem er GenAI nutzt, um Templates basierend auf Ihren spezifischen Anforderungen zu generieren. Diese Funktionalität kann Ihnen helfen, Ihren Inhalt für einen bestimmten Anwendungsfall, eine bestimmte Zielgruppe oder eine bestimmte Conversion zu optimieren und den Zeit- und Arbeitsaufwand beim Verfassen von E-Mails zu reduzieren.
+> Generieren und iterieren Sie HTML-E-Mail-Templates mit Operator. Beschreiben Sie das gewünschte Template in natürlicher Sprache, und Operator erstellt oder modifiziert es anhand Ihrer Markenrichtlinien und globalen Stileinstellungen.
 
 {% alert important %}
-Der Template Assistant für Nachrichten befindet sich im Early Access. Kontaktieren Sie Ihren Customer-Success-Manager, wenn Sie an diesem Early Access teilnehmen möchten. <br><br>Diese Funktionalität wird derzeit nur für den E-Mail-Kanal und nur im HTML-Editor unterstützt, nicht in anderen Editoren (wie Drag-and-Drop oder AMP).
+Die Generierung von HTML-E-Mail-Templates mit Operator befindet sich im Early Access. Kontaktieren Sie Ihren Braze Account Manager, wenn Sie an diesem Early Access teilnehmen möchten.
+
+Diese Funktionalität wird nur für den E-Mail-Kanal im HTML-Editor unterstützt, nicht in anderen Editoren (wie Drag-and-Drop oder AMP).
 {% endalert %}
+
+{% multi_lang_include brazeai/generative_ai/unification_note.md %}
+
+## Zugriff {#how-to-access}
+
+Im HTML-E-Mail-Template-Editor enthält die Seitenleistengruppe **Generate** die Option **Template**. Wählen Sie diese aus, um ein markenkonformes HTML-E-Mail-Template zu generieren oder zu iterieren. Der Operator wendet Ihre [Markenrichtlinien]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) an, damit das Ergebnis zu Ihrer Stimme und Ihrem Stil passt.
 
 ## Funktionsweise {#how-it-works}
 
-Der Template Assistant für Nachrichten verwendet Ihre [Markenrichtlinien](https://www.braze.com/docs/user_guide/administrative/app_settings/brand_guidelines) und [globalen Stileinstellungen](https://www.braze.com/docs/user_guide/message_building_by_channel/email/drag_and_drop/dnd_email_style_settings), um den Nachrichteninhalt und -stil an Ihre Marke anzupassen.
+Operator nutzt Ihre [Markenrichtlinien]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) und [globalen Stileinstellungen]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings), um den Nachrichteninhalt und -stil an Ihre Marke anzupassen.
 
-Wenn Sie beispielsweise globale Stileinstellungen eingerichtet haben, wird der Template Assistant für Nachrichten die Farben und Stile Ihrer Marke einbeziehen. Wenn Sie Markenrichtlinien in Braze definiert haben, kann der Assistent diese ebenfalls referenzieren, um Texte im Ton und in der Persönlichkeit Ihrer Marke zu erstellen.
+Wenn Sie beispielsweise globale Stileinstellungen eingerichtet haben, übernimmt Operator die Farben und Stile Ihrer Marke. Wenn Sie in Braze Markenrichtlinien definiert haben, greift Operator auch auf diese zurück, um Texte im Ton und in der Persönlichkeit Ihrer Marke zu erstellen.
 
-Der Template Assistant für Nachrichten kann sich nur an Ihren Chatverlauf erinnern, solange Sie sich noch im selben Chatfenster befinden. Das bedeutet, dass er möglicherweise auf frühere Prompts zurückgreift, die zur Generierung zukünftiger Prompts verwendet wurden. Der Assistent wird außerdem versuchen, Ihr Template für mobile Responsivität zu iterieren.
+Operator optimiert Ihr Template außerdem für mobile Responsivität.
 
-Wenn Sie beispielsweise von einem Prompt, der sich speziell auf eine Fitnessmarke bezieht, in Ihren nachfolgenden Prompts zu einer generischen Marke wechseln, kann der Template Assistant für Nachrichten das Template dahingehend informieren, dass es sich um dieselbe Fitnessmarke handelt. Um einen neuen Chat zu starten, wählen Sie **Verlauf löschen** im Chatfenster und öffnen Sie den Template Assistant für Nachrichten erneut.
+## Beispiel-Prompts {#example-prompts}
 
-## Ein Template erstellen {#creating-a-template}
+{% include copy_block.html content="Build a responsive HTML email template for a product launch with a hero image and two feature blocks." %}
 
-1. Gehen Sie im Dashboard zu **Templates** > **E-Mail-Templates**.
-2. Wählen Sie ein bestehendes E-Mail-Template aus.
-3. Wählen Sie im Abschnitt **Mit KI erstellen** des HTML-Editors **Template** aus.
-4. Von hier aus können Sie verschiedene Prompts eingeben oder Fragen zu Ihrem Inhalt stellen.
-5. Der Template Assistant für Nachrichten liefert eine Antwort und bestimmt, welche Änderungen an Ihrem Template erforderlich sind.
-6. Wählen Sie **Generieren**, um die Vorschläge anzuwenden.
+{% include copy_block.html content="Create a clean, single-column newsletter template that matches our brand guidelines." %}
 
-{% alert important %}
-Wir empfehlen dringend, die generierte Ausgabe zu testen, um sicherzustellen, dass sie zu Ihrem Messaging passt.
-{% endalert %}
+{% include copy_block.html content="Add a feedback survey at the bottom of the email" %}
 
-![Ein Beispiel-Prompt zum Erstellen eines Templates mit mehreren Abschnitten, das für mehrere E-Mails verwendet werden soll. Der Template Assistant für Nachrichten erklärt die Änderungen am aktuellen Template.]({% image_buster /assets/unlisted_docs/img/ai_message_template_assistant1.png %}){: style="width:70%;"}
+{% include copy_block.html content="Change font to [font name] and font size of the paragraph to size [number]" %}
 
-### Beispiel-Prompts {#example-prompts}
+{% include copy_block.html content="Make all the images have rounded corners" %}
 
-Hier sind einige Beispiel-Prompts für den Einstieg:
-
-- Eine Feedback-Umfrage am Ende der E-Mail hinzufügen
-- Schriftart auf {% raw %}`{{font name}}` und Schriftgröße des Absatzes auf Größe `{{number}}`{% endraw %} ändern
-- Allen Bildern abgerundete Ecken geben
-- Einen weiteren Abschnitt mit einem Bild und einem Call-to-Action hinzufügen
-
-{% alert note %}
-Abhängig von Ihrem Prompt und der Antwort kann der Template Assistant für Nachrichten beim Generieren des neuen Templates Platzhalterbilder hinzufügen.
-{% endalert %}
+{% include copy_block.html content="Add another section with an image and a call-to-action" %}

@@ -16,13 +16,13 @@ tool:
 
 ## Accéder aux données de vos segments et à l'appartenance {#accessing-data-about-your-segments-and-membership}
 
-La page **Segments** de votre tableau de bord de Braze contient un résumé de tous vos segments et vous permet d'examiner les données détaillées de chacun d'entre eux. Sur cette page, recherchez et sélectionnez le nom d'un segment pour le modifier et consulter ses données. Pour savoir comment créer un segment, consultez [Créer un segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#creating-a-segment).
+La page **Segments** de votre tableau de bord de Braze contient un résumé de tous vos segments et vous permet d'examiner les données détaillées de chacun d'entre eux. Sur cette page, recherchez et sélectionnez le nom d'un segment pour le modifier et consulter ses données. Pour savoir comment créer un segment, consultez [Créer un segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment).
 
 ![Page Segments]({% image_buster /assets/img_archive/segments.png %})
 
 Après avoir sélectionné le nom d'un segment, vous pouvez consulter les statistiques et les filtres du segment, et le modifier en ajoutant ou en supprimant des filtres. N'oubliez pas d'enregistrer vos modifications !
 
-Lorsque vous activez le [suivi analytique pour un segment]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/), vous pouvez consulter les sessions, les événements personnalisés et le chiffre d'affaires au fil du temps pour ce segment.
+Lorsque vous activez le [suivi analytique pour un segment]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking), vous pouvez consulter les sessions, les événements personnalisés et le chiffre d'affaires au fil du temps pour ce segment.
 
 ![Basculer le suivi analytique pour un segment]({% image_buster /assets/img_archive/A_Tracking_2.png %})
 
@@ -59,7 +59,7 @@ Vous pouvez consulter les statistiques de segment suivantes, qui se mettent à j
         </tr>
         <tr>
             <td class="no-split">Joignable par e-mail (abonnés)</td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Emailable' %} En raison des <a href="/docs/help/best_practices/spam_regulations/#spam-regulationsspam regulations">réglementations anti-spam</a>, il est recommandé de demander à vos utilisateurs de s'abonner explicitement en mettant en place une politique de double abonnement où les utilisateurs doivent cliquer sur un lien dans un e-mail de confirmation initial. Pour encourager davantage d'utilisateurs à s'abonner, vous pouvez cibler un message vers <a href="/docs/user_guide/channels/email/subscriptions#segmenting-by-user-subscriptions">ceux qui ne se sont ni abonnés ni désabonnés</a>.</td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Emailable' %} En raison des <a href="/docs/help/best_practices/spam_regulations#spam-regulationsspam regulations">réglementations anti-spam</a>, il est recommandé de demander à vos utilisateurs de s'abonner explicitement en mettant en place une politique de double abonnement où les utilisateurs doivent cliquer sur un lien dans un e-mail de confirmation initial. Pour encourager davantage d'utilisateurs à s'abonner, vous pouvez cibler un message vers <a href="/docs/user_guide/channels/email/subscriptions#segmenting-by-user-subscriptions">ceux qui ne se sont ni abonnés ni désabonnés</a>.</td>
         </tr>
         <tr>
             <td class="no-split">Notifications push activées (abonnés)</td>
@@ -70,7 +70,7 @@ Vous pouvez consulter les statistiques de segment suivantes, qui se mettent à j
 
 ### Statistiques des segments {#segment-insights}
 
-Vous pouvez voir les performances d'un segment par rapport à un autre sur un ensemble d'indicateurs clés de performance présélectionnés en visitant la page [Statistiques des segments]({{site.baseurl}}/user_guide/audience/segments/segment_insights/) de votre tableau de bord.
+Vous pouvez voir les performances d'un segment par rapport à un autre sur un ensemble d'indicateurs clés de performance présélectionnés en visitant la page [Statistiques des segments]({{site.baseurl}}/user_guide/audience/segments/segment_insights) de votre tableau de bord.
 
 ### Utilisation dans les messages {#messaging-use}
 La section **Messaging Use** indique quels segments, Campaigns actuellement activées et Canvas actuellement activés ciblent votre segment.
@@ -79,7 +79,7 @@ La section **Messaging Use** indique quels segments, Campaigns actuellement acti
 
 La section **Historical Membership** montre comment la taille de votre segment a évolué au fil du temps. Utilisez le menu déroulant pour filtrer l'appartenance au segment par plage de dates.
 
-Pour en savoir plus sur le suivi de l'appartenance et de la taille de votre segment, consultez [Mesurer la taille d'un segment]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/).
+Pour en savoir plus sur le suivi de l'appartenance et de la taille de votre segment, consultez [Mesurer la taille d'un segment]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size).
 
 ### Aperçu des utilisateurs {#user-preview}
 
@@ -87,17 +87,17 @@ Pour consulter des informations détaillées et spécifiques aux utilisateurs de
 
 Sur cette page, vous pouvez consulter un certain nombre d'attributs spécifiques aux utilisateurs, tels que le genre, l'âge, le nombre de sessions, et s'ils se sont abonnés aux notifications push et aux e-mails.
 
-Notez que dans les cas où votre segment est très petit par rapport à la taille de votre espace de travail, il est possible que l'aperçu des utilisateurs ne renvoie aucun utilisateur. Cela ne signifie pas nécessairement qu'il n'y a aucun utilisateur dans votre segment ; exécutez [Calculate Exact Stats]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/#statistics-for-segment-size) pour déterminer la taille exacte de votre segment.
+Notez que dans les cas où votre segment est très petit par rapport à la taille de votre espace de travail, il est possible que l'aperçu des utilisateurs ne renvoie aucun utilisateur. Cela ne signifie pas nécessairement qu'il n'y a aucun utilisateur dans votre segment ; exécutez [Calculate Exact Stats]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size#statistics-for-segment-size) pour déterminer la taille exacte de votre segment.
 
 ![Aperçu des utilisateurs]({% image_buster /assets/img_archive/user_preview.png %})
 
 ## Consulter les données de performance par segment {#viewing-performance-data-by-segment}
 
-Utilisez les [modèles de rapports du Générateur de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder/data_by_segments/) pour ventiler les indicateurs de performance des Campaigns, Canvas, variantes et étapes par segments.
+Utilisez les [modèles de rapports du générateur de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder/data_by_segments) pour ventiler les indicateurs de performance des Campaigns, Canvas, variantes et étapes par segments.
 
-## Créer un rapport de ventilation par segment avec le Générateur de requêtes {#creating-a-segment-breakdown-report-using-query-builder}
+## Créer un rapport de ventilation par segment avec le générateur de requêtes {#creating-a-segment-breakdown-report-using-query-builder}
 
-Pour créer un rapport à partir d'un modèle du [Générateur de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder/), accédez au **Générateur de requêtes** et procédez comme suit :
+Pour créer un rapport à partir d'un modèle du [générateur de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder), accédez au **générateur de requêtes** et procédez comme suit :
 
 1. Sélectionnez **Create SQL Query** > **Query Template**.
 2. Filtrez les modèles pour ceux dont les indicateurs incluent « segment breakdowns ».
@@ -108,7 +108,7 @@ Pour créer un rapport à partir d'un modèle du [Générateur de requêtes]({{s
 
 ## Variables {#variables}
 
-Avant de générer votre rapport, accédez à l'onglet **Variables** pour fournir les informations nécessaires au modèle du Générateur de rapports, y compris les variables requises qui varieront en fonction du rapport.
+Avant de générer votre rapport, accédez à l'onglet **Variables** pour fournir les informations nécessaires au modèle du générateur de rapports, y compris les variables requises qui varieront en fonction du rapport.
 
 Les variables incluent :
 
@@ -125,7 +125,7 @@ Les variables incluent :
 
 Les données sont disponibles pour les périodes où ces deux conditions sont remplies :
 
-1. Le [suivi analytique des segments]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/) est activé pour les segments dont vous souhaitez consulter les données.
+1. Le [suivi analytique des segments]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) est activé pour les segments dont vous souhaitez consulter les données.
 2. La fonctionnalité de données de performance par segment est activée.
 
 Vous ne pouvez pas accéder aux données des périodes antérieures à l'activation de cette fonctionnalité pour votre entreprise. Par exemple, si le suivi analytique est activé pour le Segment A le 1er octobre et que cette fonctionnalité est activée pour votre entreprise le 2 octobre, vous ne pourrez consulter les données du Segment A que pour les Campaigns et Canvas ayant enregistré des indicateurs après le 2 octobre.

@@ -90,6 +90,10 @@
   // Preamble section (collapsible overview): visible/hidden state
   #glossary-preamble {
     margin-bottom: 24px;
+    img[width][height] {
+      height: auto;
+      max-width: 100%;
+    }
     &.glossary-preamble--hidden {
       display: none;
     }
@@ -126,6 +130,11 @@
     }
 
     .api-glossary-preamble {
+      img[width][height] {
+        height: auto;
+        max-width: 100%;
+      }
+
       details {
         display: block;
         width: 100%;
@@ -164,6 +173,7 @@
     .api_tags {
       display: none;
     }
+
     .api_type {
       background-color: #ebebeb;
       border-radius: 10px;

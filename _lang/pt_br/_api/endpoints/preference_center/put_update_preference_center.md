@@ -5,7 +5,7 @@ search_tag: Endpoint
 page_order: 5
 layout: api_page
 page_type: reference
-description: "Este artigo traz informações sobre o endpoint da Braze \"Atualizar a Central de Preferências\"."
+description: "Este artigo traz informações sobre o endpoint da Braze \"Atualizar uma Central de Preferências\"."
 
 ---
 {% api %}
@@ -20,18 +20,18 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Atualiz
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `preference_center.update`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `preference_center.update`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='post or put preference center' %}
 
 ## Parâmetros de caminho {#path-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
-| `preferenceCenterExternalID` | Obrigatória | String | O ID da sua Central de Preferências. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Path parameters" }
+| `preferenceCenterExternalID` | Obrigatório | String | O ID da sua Central de Preferências. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de caminho" }
 
 
 ## Corpo da solicitação {#request-body}
@@ -66,14 +66,14 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
-| `preference_center_page_html` | Obrigatória | String | O HTML da página da Central de Preferências. |
+| `preference_center_page_html` | Obrigatório | String | O HTML da página da Central de Preferências. |
 | `preference_center_title` | Opcional | String | O título da Central de Preferências e das páginas de confirmação. Se um título não for especificado, o título das páginas será "Preference Center" por padrão. |
-| `confirmation_page_html` | Obrigatória | String | O HTML da página de confirmação. |
+| `confirmation_page_html` | Obrigatório | String | O HTML da página de confirmação. |
 | `state` | Opcional | String | Escolha `active` ou `draft`. |
 | `options` | Opcional | Objeto | Atributos: <br>`meta-viewport-content`: Quando presente, uma meta tag `viewport` será adicionada à página com `content= <value of attribute>`.<br><br> `link-tags`: Defina um favicon para a página. Quando definido, uma tag `<link>` com um atributo rel é adicionada à página. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#example-request}
 

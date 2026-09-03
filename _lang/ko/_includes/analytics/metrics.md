@@ -19,7 +19,7 @@
 {% endif %}
 
 {% if include.metric == "Help" %}
-<i>도움말</i>은 사용자가 <a href="https://braze.com/docs/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">도움말 키워드</a> 를 사용하여 메시지에 답장하고 도움말 자동 응답이 발송된 경우입니다.
+<i>도움말</i>은 사용자가 <a href="{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">도움말 키워드</a> 를 사용하여 메시지에 답장하고 도움말 자동 응답이 발송된 경우입니다.
 {% endif %}
 
 {% if include.metric == "Hard Bounce" %}
@@ -27,7 +27,7 @@
 {% endif %}
 
 {% if include.metric == "Soft Bounce" %}
-<i>소프트바운스</i>는 수신자의 이메일 주소가 유효함에도 불구하고 일시적인 전송 오류로 인해 이메일이 수신자에게 전달되지 못하는 경우를 말합니다. 소프트바운스는 수신자의 받은편지함이 꽉 찼거나 서버가 다운되었거나 메시지가 수신자의 받은편지함에 비해 너무 커서 발생할 수 있습니다.
+<i>소프트바운스</i>는 수신자의 이메일 주소가 유효함에도 불구하고 일시적인 전달 오류로 인해 이메일이 수신자에게 전달되지 못하는 경우를 말합니다. 소프트바운스는 수신자의 받은편지함이 꽉 찼거나 서버가 다운되었거나 메시지가 수신자의 받은편지함에 비해 너무 커서 발생할 수 있습니다.
 {% endif %}
 
 {% if include.metric == "Deferral" %}
@@ -51,11 +51,11 @@ Push Stories 알림은 알림을 클릭하면 <i>본문 클릭</i>을 기록합�
 {% endif %}
 
 {% if include.metric == "Choices Submitted" %}
-<i>제출된 선택 항목</i>은 사용자가 <a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>간편 설문조사</a> 의 설문조사 질문 페이지에서 제출 버튼을 클릭할 때 선택한 총 선택 항목 수입니다.
+<i>제출된 선택 항목</i>은 사용자가 <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>간편 설문조사</a> 의 설문조사 질문 페이지에서 제출 버튼을 클릭할 때 선택한 총 선택 항목 수입니다.
 {% endif %}
 
 {% if include.metric == "Click-to-Open Rate" %}
-<i>클릭 대비 열람률</i>은 단일 사용자 또는 기계가 최소한 한 번 클릭한 열린 이메일의 비율이며, <a href='https://braze.com/docs/user_guide/data_and_analytics/reporting/report_builder/'>보고서 빌더</a> 에서만 사용할 수 있습니다.
+<i>클릭 대비 열람률</i>은 단일 사용자 또는 기계가 최소한 한 번 클릭한 열린 이메일의 비율이며, <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/data_and_analytics/reporting/report_builder/'>보고서 빌더</a> 에서만 사용할 수 있습니다.
 {% endif %}
 
 {% if include.metric == "Close Message" %}
@@ -71,11 +71,11 @@ Push Stories 알림은 알림을 클릭하면 <i>본문 클릭</i>을 기록합�
 {% endif %}
 
 {% if include.metric == "Confirmation Page Button" %}
-<i>확인 페이지 버튼</i>은 <a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>간편 설문조사</a> 의 확인 페이지에서 클릭 유도 문안 버튼을 클릭한 총 횟수입니다.
+<i>확인 페이지 버튼</i>은 <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>간편 설문조사</a> 의 확인 페이지에서 클릭 유도 문안 버튼을 클릭한 총 횟수입니다.
 {% endif %}
 
 {% if include.metric == "Confirmation Page Dismissals" %}
-<i>확인 페이지 닫기</i>는 <a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>간편 설문조사</a> 의 확인 페이지에서 닫기(x) 버튼을 클릭한 총 횟수입니다.
+<i>확인 페이지 닫기</i>는 <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>간편 설문조사</a> 의 확인 페이지에서 닫기(x) 버튼을 클릭한 총 횟수입니다.
 {% endif %}
 
 {% if include.metric == "Conversion Rate" %}
@@ -155,11 +155,29 @@ Push Stories 알림은 알림을 클릭하면 <i>본문 클릭</i>을 기록합�
 {% endif %}
 
 {% if include.metric == "Machine Opens" %}
-<i>기계 열람</i>에는 iOS 15용 Apple의 메일 개인정보 보호(MPP)의 영향을 받는 '열람'의 비율이 포함됩니다. 예를 들어 사용자가 Apple 기기에서 메일 앱을 사용하여 이메일을 열면 <i>기계 열람</i>으로 기록됩니다.
+<i>기계 열람</i>에는 Apple 메일 개인정보 보호(MPP)가 활성화된 사용자의 열람을 나타내는 비인간 및 인간 열람이 모두 포함됩니다. 즉, 사용자가 여러 번의 <i>기계 열람</i>을 기록할 수 있습니다. 기기가 Wi-Fi에 연결되어 있지 않으면 <i>기계 열람</i>이 자동으로 생성되지 않으므로, Apple이 이미지를 미리 가져오기 전에 사용자가 Apple 메일 앱에서 이메일을 열 수 있으며, 이 경우에도 <i>기계 열람</i>으로 기록됩니다.
+<br><br>
+MPP가 활성화된 사용자의 경우:
+<ul>
+  <li>1회 이상 <i>기계 열람</i>: Apple이 메시지를 미리 가져왔거나 사용자가 iOS 기기에서 이메일을 직접 열었습니다</li>
+  <li>2회 이상 <i>기계 열람</i>: Braze는 인간 열람과 비인간 열람을 구분할 수 없으므로, 여러 번의 인간 열람(하나의 Apple 기기 또는 여러 기기에서)이거나 인간 열람과 Apple이 메시지를 미리 가져온 1회 열람의 조합일 수 있습니다</li>
+</ul>
 {% endif %}
 
 {% if include.metric == "Other Opens" %}
-<i>기타 열람</i>에는 <i>기계 열람</i>으로 식별되지 않은 이메일이 포함됩니다. 예를 들어 사용자가 다른 플랫폼(예: 휴대폰의 Gmail 앱, 데스크톱 브라우저의 Gmail)에서 이메일을 열면 <i>기타 열람</i>으로 기록됩니다.
+<i>기타 열람</i>에는 MPP의 영향을 받지 않는 인간 열람이 포함됩니다(예: 사용자가 Gmail 앱이나 Gmail 데스크톱에서 이메일을 열어 추적 픽셀이 실행되고 일반 열람이 기록되는 경우). <i>기타 열람</i>은 일반적으로 인간 열람이지만, 기계가 메일을 여는 시나리오(봇 또는 Gmail이나 Yahoo 같은 받은편지함 서비스 공급자)도 있을 수 있습니다. 또한 사용자가 비iOS 기기에서 이메일을 열어 <i>기계 열람</i>이 기록되기 전에 <i>기타 열람</i>이 기록될 수도 있습니다.
+<br><br>
+<i>기계 열람</i>은 사용자에 의해 발생할 수 있으므로, <i>기계 열람</i>과 <i>기타 열람</i>의 관계는 인간 대 비인간이 아니라 MPP 영향을 받은 것 대 MPP 영향을 받지 않은 것입니다. <i>기타 열람</i>은 여전히 인간 열람의 일부를 측정하는 데 사용할 수 있지만, <i>기계 열람</i> 중 인간에 의한 비율을 결정하는 것은 현재 불가능하므로 정확한 "실제" 열람률을 결정하는 것은 현재 불가능합니다.
+<br><br>
+MPP가 활성화된 사용자의 경우:
+<ul>
+  <li>+1 <i>기타 열람</i>: 사용자가 비iOS 기기에서 이메일을 직접 열었습니다</li>
+  <li>+1 <i>기계 열람</i> 및 +1 <i>기타 열람</i>: Apple이 메시지를 미리 가져왔거나 사용자가 iOS 기기에서 이메일을 직접 열었고, 비iOS 기기에서도 이메일을 직접 열었습니다</li>
+</ul>
+MPP가 활성화되지 않은 사용자의 경우:
+<ul>
+  <li>+1 <i>기타 열람</i>: 사용자가 모든 기기에서 이메일을 직접 열었습니다</li>
+</ul>
 {% endif %}
 
 {% if include.metric == "Opens" %}
@@ -167,7 +185,7 @@ Push Stories 알림은 알림을 클릭하면 <i>본문 클릭</i>을 기록합�
 {% endif %}
 
 {% if include.metric == "Opt-Out" %}
-<i>옵트아웃</i>은 사용자가 <a href="https://braze.com/docs/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">옵트아웃 키워드</a> 를 사용하여 메시지에 답장을 보낸 후 SMS 또는 RCS 프로그램에서 수신 거부된 경우입니다.
+<i>옵트아웃</i>은 사용자가 <a href="{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">옵트아웃 키워드</a> 를 사용하여 메시지에 답장을 보낸 후 SMS 또는 RCS 프로그램에서 수신 거부된 경우입니다.
 {% endif %}
 
 {% if include.metric == "Pending Retry" %}
@@ -223,11 +241,11 @@ Push Stories 알림은 알림을 클릭하면 <i>본문 클릭</i>을 기록합�
 {% endif %}
 
 {% if include.metric == "Survey Page Dismissals" %}
-<i>설문조사 페이지 닫기</i> 횟수는 <a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>간편 설문조사</a> 의 설문조사 질문 페이지에서 닫기(x) 버튼을 클릭한 총 횟수입니다.
+<i>설문조사 페이지 닫기</i> 횟수는 <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>간편 설문조사</a> 의 설문조사 질문 페이지에서 닫기(x) 버튼을 클릭한 총 횟수입니다.
 {% endif %}
 
 {% if include.metric == "Survey Submissions" %}
-<i>설문조사 제출</i>은 <a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>간편 설문조사</a> 의 제출 버튼을 클릭한 총 횟수입니다.
+<i>설문조사 제출</i>은 <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>간편 설문조사</a> 의 제출 버튼을 클릭한 총 횟수입니다.
 {% endif %}
 
 {% if include.metric == "Total Clicks" %}
@@ -235,7 +253,7 @@ Push Stories 알림은 알림을 클릭하면 <i>본문 클릭</i>을 기록합�
 {% endif %}
 
 {% if include.metric == "Total Dismissals" %}
-<i>총 닫기</i> 횟수는 Campaign의 Content Cards가 닫힌 횟수입니다.
+<i>총 닫기</i> 횟수는 사용자가 Campaign의 메시지를 닫은 횟수입니다. Content Cards의 경우 각 카드 닫기를 계산합니다. 배너의 경우 닫기 동작이 활성화되어 있을 때 사용자가 배너를 닫은 각 횟수를 계산합니다.
 {% endif %}
 
 {% if include.metric == "Total Impressions" %}
@@ -251,7 +269,7 @@ Push Stories 알림은 알림을 클릭하면 <i>본문 클릭</i>을 기록합�
 {% endif %}
 
 {% if include.metric == "Unique Clicks" %}
-<i>고유 클릭 수</i>는 메시지 내의 링크를 최소한 한 번 클릭한 수신자의 고유한 수이며, <a href='https://www.braze.com/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a> 에 의해 측정됩니다.
+<i>고유 클릭 수</i>는 메시지 내의 링크를 최소한 한 번 클릭한 수신자의 고유한 수이며, <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a> 에 의해 측정됩니다.
 {% endif %}
 
 {% if include.metric == "Unique Dismissals" %}
@@ -285,5 +303,5 @@ Push Stories 알림은 알림을 클릭하면 <i>본문 클릭</i>을 기록합�
 {% endif %}
 
 {% if include.metric == "Variation" %}
-<i>배리언트</i>는 크리에이터가 정의한 대로 서로 다른 Campaign 배리언트의 수입니다.
+<i>배리언트</i>는 크리에이터가 정의한 대로 서로 다른 Campaign 변형의 수입니다.
 {% endif %}

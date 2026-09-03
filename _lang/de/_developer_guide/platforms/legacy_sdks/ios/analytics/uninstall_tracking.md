@@ -14,15 +14,15 @@ noindex: true
 
 > In diesem Artikel erfahren Sie, wie Sie das Uninstall-Tracking für Ihre iOS-Anwendung konfigurieren und wie Sie testen können, damit Ihre App keine unerwünschten automatischen Aktionen ausführt, wenn sie einen Push zum Uninstall-Tracking von Braze empfängt.
 
-Das Uninstall-Tracking verwendet Push-Benachrichtigungen im Hintergrund mit einem Braze-Flag in der Payload. Weitere Informationen finden Sie unter [Uninstall-Tracking]({{site.baseurl}}/user_guide/data_and_analytics/tracking/uninstall_tracking/#uninstall-tracking) in unserem Benutzerhandbuch.
+Das Uninstall-Tracking verwendet Push-Benachrichtigungen im Hintergrund mit einem Braze-Flag in der Payload. Weitere Informationen finden Sie unter [Uninstall-Tracking]({{site.baseurl}}/user_guide/data_and_analytics/tracking/uninstall_tracking#uninstall-tracking) in unserem Benutzerhandbuch.
 
 ## 1. Schritt: Hintergrund-Push aktivieren {#step-1-enabling-background-push}
 
-Vergewissern Sie sich, dass Sie die Option **Remote notifications** im Abschnitt **Background Modes** auf dem Tab **Capabilities** Ihres Xcode-Projekts aktiviert haben. Weitere Einzelheiten finden Sie in unserer Dokumentation zur [stillen Push-Benachrichtigung]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/silent_push_notifications/).
+Vergewissern Sie sich, dass Sie die Option **Remote notifications** im Abschnitt **Background Modes** auf dem Tab **Capabilities** Ihres Xcode-Projekts aktiviert haben. Weitere Einzelheiten finden Sie in unserer Dokumentation zur [stillen Push-Benachrichtigung]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/silent_push_notifications).
 
 ## 2. Schritt: Braze-Hintergrund-Push prüfen {#step-2-checking-for-braze-background-push}
 
-Braze verwendet Push-Benachrichtigungen im Hintergrund, um Analytics für das Uninstall-Tracking zu sammeln. Stellen Sie sicher, dass Ihre Anwendung [keine unerwünschten Aktionen durchführt]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/ignoring_internal_push/), wenn sie Benachrichtigungen zum Uninstall-Tracking empfängt.
+Braze verwendet Push-Benachrichtigungen im Hintergrund, um Analytics für das Uninstall-Tracking zu sammeln. Stellen Sie sicher, dass Ihre Anwendung [keine unerwünschten Aktionen durchführt]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/ignoring_internal_push), wenn sie Benachrichtigungen zum Uninstall-Tracking empfängt.
 
 ## 3. Schritt: Im Dashboard testen {#step-3-test-from-the-dashboard}
 
@@ -39,4 +39,4 @@ Diese Testschritte sind ein Proxy für das Senden eines Uninstall-Tracking-Push 
 
 ## 4. Schritt: Uninstall-Tracking aktivieren {#step-4-enable-uninstall-tracking}
 
-Folgen Sie den Anweisungen zur [Aktivierung des Uninstall-Trackings]({{site.baseurl}}/user_guide/data_and_analytics/tracking/uninstall_tracking/#uninstall-tracking).
+Folgen Sie den Anweisungen zur [Aktivierung des Uninstall-Trackings]({{site.baseurl}}/user_guide/data_and_analytics/tracking/uninstall_tracking#uninstall-tracking).

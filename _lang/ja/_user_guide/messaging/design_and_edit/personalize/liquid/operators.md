@@ -2,17 +2,17 @@
 nav_title: オペレーター
 article_title: Liquidオペレーター
 page_order: 2
-description: "このリファレンスページでは、Liquidがサポートする演算子と関連する例について説明します。"
+description: "このリファレンスページでは、Liquidがサポートするオペレーターと関連する例について説明します。"
 
 ---
 
 # オペレーター {#operators}
 
-> Liquidは、条件文で使用できる多くの[演算子](https://docs.shopify.com/themes/liquid/basics/operators)をサポートしています。このページでは、Liquidがサポートする演算子と、メッセージでの使用方法のユースケースを紹介します。
+> Liquidは、条件文で使用できる多くの[オペレーター](https://docs.shopify.com/themes/liquid/basics/operators)をサポートしています。このページでは、Liquidがサポートするオペレーターと、メッセージでの使用方法のユースケースを紹介します。
 
-以下の表は、サポートされている演算子の一覧です。Liquidではかっこは無効な文字であり、タグが正しく動作しなくなることに注意してください。
+以下の表は、サポートされているオペレーターの一覧です。Liquidではかっこは無効な文字であり、タグが正しく動作しなくなることに注意してください。
 
-| 構文 | 演算子の説明 |
+| 構文 | オペレーターの説明 |
 |---------|-----------|
 | ==  | 等しい        |
 | !=  | 等しくない|
@@ -23,13 +23,13 @@ description: "このリファレンスページでは、Liquidがサポートす
 | or | 条件Aまたは条件B|
 | and | 条件Aかつ条件B|
 | contains | 文字列または文字列配列に特定の文字列が含まれているかを確認する|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Operators" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="オペレーター" }
 
 {% alert note %}
-演算子は条件文（`if`、`elsif`、`unless`）で使用できますが、`assign` 文、`for` ループ、配列アクセスの角かっこでは使用できません。`case` と `when` タグでは、各分岐は任意の演算子式ではなく、等価比較を使用して `case` 式を `when` 値と比較します。例については、[条件付きメッセージングロジック]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#case-and-when-tags)を参照してください。詳細については、[演算子とフィルターの使用場所]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#where-to-use-operators-and-filters)を参照してください。
+オペレーターは条件文（`if`、`elsif`、`unless`）で使用できますが、`assign` 文、`for` ループ、配列アクセスの角かっこでは使用できません。`case` と `when` タグでは、各分岐は任意のオペレーター式ではなく、等価比較を使用して `case` 式を `when` 値と比較します。例については、[条件付きメッセージングロジック]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#case-and-when)を参照してください。詳細については、[オペレーターとフィルターの使用場所]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#where-to-use-operators-and-filters)を参照してください。
 {% endalert %}
 
-### かっこを使わずに条件をグループ化する {#grouping-conditions-without-parentheses}
+## かっこを使わずに条件をグループ化する {#grouping-conditions-without-parentheses}
 
 Liquidは式のグループ化にかっこをサポートしていません。`(a and b) or c` のような複雑なブール論理を評価するには、ネストされた `if` 文または中間変数を使用します。
 
@@ -52,13 +52,13 @@ You qualify for a reward!
 
 ## チュートリアル {#tutorials}
 
-マーケティングキャンペーンでこれらの演算子を使用する方法を、いくつかのチュートリアルで学びましょう。
+マーケティングキャンペーンでこれらのオペレーターを使用する方法を、いくつかのチュートリアルで学びましょう。
 
 ### 整数カスタム属性でメッセージを選択する {#choose-a-message-with-an-integer-custom-attribute}
 
 購入したことがあるユーザーとないユーザーに、パーソナライズされたプロモーション割引付きのプッシュ通知を送信しましょう。このプッシュ通知では、`total_spend` という整数カスタム属性を使用して、ユーザーの合計支出額を確認します。
 
-1. 大なり（`>`）演算子を使用して条件文を記述し、ユーザーの合計支出額が `0` より大きいかどうか（つまり購入したことがあるかどうか）を確認します。次に、そのユーザーに送信するメッセージを作成します。
+1. 大なり（`>`）オペレーターを使用して条件文を記述し、ユーザーの合計支出額が `0` より大きいかどうか（つまり購入したことがあるかどうか）を確認します。次に、そのユーザーに送信するメッセージを作成します。
 
 {% raw %}
 ```liquid
@@ -115,7 +115,7 @@ Need a sign to update your wardrobe? We added a 15% discount code to your accoun
 
 ユーザーにプッシュ通知を送信し、各ユーザーが最近プレイしたゲームに基づいてメッセージをパーソナライズしましょう。これには、`recent_game` という文字列カスタム属性を使用して、ユーザーが最後にプレイしたゲームを確認します。
 
-1. 等号（`==`）演算子を使用して条件文を記述し、ユーザーの最近のゲームが *Awkward Dinner Party* かどうかを確認します。次に、そのユーザーに送信するメッセージを作成します。
+1. 等号（`==`）オペレーターを使用して条件文を記述し、ユーザーの最近のゲームが *Awkward Dinner Party* かどうかを確認します。次に、そのユーザーに送信するメッセージを作成します。
 
 {% raw %}
 ```liquid
@@ -125,7 +125,7 @@ You are formally invited to our next dinner party. Log on next week for another 
 {% endraw %}
 
 {: start="2"}
-2. `elsif` タグと等号（`==`）演算子を使用して、ユーザーの最近のゲームが *Proxy War 3: War of Thirst* かどうかを確認します。次に、そのユーザーに送信するメッセージを作成します。
+2. `elsif` タグと等号（`==`）オペレーターを使用して、ユーザーの最近のゲームが *Proxy War 3: War of Thirst* かどうかを確認します。次に、そのユーザーに送信するメッセージを作成します。
 
 {% raw %}
 ```liquid
@@ -135,7 +135,7 @@ Your fleet awaits your next orders. Log on when you're ready to rejoin the war f
 {% endraw %}
 
 {: start="3"}
-3. `elsif` タグと「等しくない」（`!=`）および「かつ」（`and`）演算子を使用して、ユーザーに最近のゲームがあるか（つまり値が空白でないか）、かつそのゲームが *Awkward Dinner Party* でも *Proxy War 3: War of Thirst* でもないかを確認します。次に、そのユーザーに送信するメッセージを作成します。
+3. `elsif` タグと「等しくない」（`!=`）および「かつ」（`and`）オペレーターを使用して、ユーザーに最近のゲームがあるか（つまり値が空白でないか）、かつそのゲームが *Awkward Dinner Party* でも *Proxy War 3: War of Thirst* でもないかを確認します。次に、そのユーザーに送信するメッセージを作成します。
 
 {% raw %}
 ```liquid
@@ -199,7 +199,7 @@ Your fleet awaits your next orders. Log on when you're ready to rejoin the war f
 Limited Time Deal! Get 15% off our best-selling classics!
 ```
 
-ユーザーがゲームをプレイしたことがないか、そのカスタム属性がプロファイルに存在しない場合、次のメッセージが届きます。
+ユーザーがゲームをプレイしたことがないか、そのカスタム属性がプロフィールに存在しない場合、次のメッセージが届きます。
 
 ```
 Hey! I've got a deal for you. Buy 2 of our newest releases and get 10% off!
@@ -209,7 +209,7 @@ Hey! I've got a deal for you. Buy 2 of our newest releases and get 10% off!
 
 ほぼあらゆる条件に基づいてメッセージを中止できます。ユーザーが指定されたエリアに拠点を置いていない場合にメッセージを中止しましょう。プロモーション、ショー、配送の対象外となる可能性があるためです。
 
-1. 等号（`==`）演算子を使用して条件文を記述し、ユーザーのタイムゾーンが `America/Los_Angeles` かどうかを確認し、そのユーザーに送信するメッセージを作成します。
+1. 等号（`==`）オペレーターを使用して条件文を記述し、ユーザーのタイムゾーンが `America/Los_Angeles` かどうかを確認し、そのユーザーに送信するメッセージを作成します。
 
 {% raw %}
 ```liquid
@@ -243,13 +243,13 @@ Stream now!
 
 ![チュートリアルの完全なLiquidコードが表示されたプッシュ通知コンポーザー。]({% image_buster /assets/img/abort-if.png %})
 
-コネクテッドコンテンツに基づいて[メッセージを中止する]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content/)こともできます。
+Connected Contentに基づいて[メッセージを中止する]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content)こともできます。
 
 ## トラブルシューティング {#troubleshooting}
 
 ### `abort_message` 使用時にテスト送信が届かない {#test-send-doesnt-arrive-when-using-abort_message}
 
-[`abort_message`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/)を使用していてテスト送信が届かない場合、プレビューユーザーにLiquidが期待する属性が不足している可能性があります。中止ロジックはレンダリング中に実行され、発動するとBrazeはメッセージを送信しません。必要なプロファイルデータを持つユーザーでプレビューするか、**ユーザーとしてプレビュー**を使用して、本番オーディエンスと同じ値を提供する受信者フィールドをテストしてください。
+[`abort_message`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)を使用していてテスト送信が届かない場合、プレビューユーザーにLiquidが期待する属性が不足している可能性があります。中止ロジックはレンダリング中に実行され、発動するとBrazeはメッセージを送信しません。必要なプロフィールデータを持つユーザーでプレビューするか、**ユーザーとしてプレビュー**を使用して、本番オーディエンスと同じ値を提供する受信者フィールドをテストしてください。
 
 ### プレビューでプロパティの型が誤って変換される場合がある {#preview-may-incorrectly-coerce-property-types}
 

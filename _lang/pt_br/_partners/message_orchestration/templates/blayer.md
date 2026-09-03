@@ -18,14 +18,14 @@ _Essa integração é mantida pelo B.Layer._
 
 A integração entre a Braze e o B.Layer permite que você use o construtor de mensagens no app B.Layer para ajudá-lo a criar mensagens no app com a sua marca, que podem ser exportadas como um arquivo zip ou HTML em linha para a Braze. Essa integração não exige recursos adicionais de desenvolvimento, o que economiza tempo e orçamento.
 
-![]({% image_buster /assets/img/blayer/blayer2.png %})
+![Interface do construtor B.Layer com prévia de uma mensagem no app com marca.]({% image_buster /assets/img/blayer/blayer2.png %})
 
 ## Pré-requisitos {#prerequisites}
 
 | Requisito | Descrição |
 | ----------- | ----------- |
 | Conta B.Layer | É necessário ter uma conta do [B.Layer](https://blayer.phiture.com) para aproveitar essa parceria. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
 
@@ -42,13 +42,13 @@ Eles estão trabalhando com marcas como Lifesum, Blinkist, OnX Hunt e muitas out
 No B.Layer, no menu de hambúrguer na parte superior da página, clique em **Brand assets > add your brand assets**. Aqui, você pode atribuir a cor e as fontes da sua marca.
 Está tudo pronto. Agora você pode começar a criar sua mensagem no app.
 
-![]({% image_buster /assets/img/blayer/blayer4.png %})
+![Tela de ativos de marca do B.Layer para configurar cores e fontes.]({% image_buster /assets/img/blayer/blayer4.png %})
 
 #### Crie sua mensagem no app {#design-your-in-app-message}
 
 Para criar sua mensagem no app, selecione uma única mensagem no app. Em seguida, estilize sua mensagem e adicione os componentes necessários. Cada componente pode ser ajustado.
 
-![]({% image_buster /assets/img/blayer/blayer5.png %})
+![Editor de mensagens do B.Layer com componentes e controles de estilo.]({% image_buster /assets/img/blayer/blayer5.png %})
 
 ### Baixe sua mensagem no app {#download-your-in-app-message}
 
@@ -56,9 +56,9 @@ Quando terminar, baixe sua mensagem. Sua mensagem pode ser baixada como ZIP ou H
 
 ### Etapa 2: Adicionar o código personalizado B.Layer {#step-2-add-blayer-custom-code}
 
-Na Braze, crie uma mensagem no app com código personalizado. Se você tiver um arquivo ZIP, arraste-o e solte-o na caixa acima da seção de código. Se tiver um arquivo HTML em linha, cole o conteúdo na seção de HTML.
+Na Braze, crie uma mensagem no app com código personalizado. Se você tiver um arquivo ZIP, arraste-o e solte-o na caixa de upload nesta seção. Se tiver um arquivo HTML em linha, cole o conteúdo na seção de HTML.
 
-![]({% image_buster /assets/img/blayer/blayer6.png %})
+![Editor de mensagem no app com código personalizado da Braze com conteúdo exportado do B.Layer.]({% image_buster /assets/img/blayer/blayer6.png %})
 
 ## Rastreamento de botões {#button-tracking}
 

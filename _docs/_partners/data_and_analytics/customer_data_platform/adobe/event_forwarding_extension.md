@@ -5,7 +5,6 @@ description: "This reference article covers the Braze event forward extension th
 page_type: partner
 page_order: 2
 search_tag: Partner
-
 ---
 
 # Track Events API event forwarding extension
@@ -59,14 +58,14 @@ Create a new [event forwarding secret](https://experienceleague.adobe.com/docs/e
 
 After installing the extension, create a new event forwarding [rule](https://experienceleague.adobe.com/docs/experience-platform/tags/ui/rules.html?lang=en) and configure its conditions as desired. When configuring the actions for the rule, select the **Braze** extension, then select **Send Event** for the action type.
 
-![]({% image_buster /assets/img/efe.png %})
+![Adobe event forwarding rule action configured to use Braze Send Event.]({% image_buster /assets/img/efe.png %})
 
 {% tabs local %}
 {% tab User Identification %}
 
 | Input | Description |
 | --- | --- |
-| External user ID | A long, random, and well-distributed UUID or GUID. If you choose a different method to name your user IDs, they must also be long, random, and well-distributed. Learn more about [suggested user ID naming convention]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_user_ids#suggested-user-id-naming-convention). |
+| External user ID | A long, random, and well-distributed UUID or GUID. If you choose a different method to name your user IDs, they must also be long, random, and well-distributed. Learn more about [suggested user ID naming convention]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=web#naming-best-practices). |
 | Braze user ID | Braze user identifier. |
 | User alias | An alias serves as an alternative unique user identifier. Use aliases to identify users along different dimensions than your core user ID.<br><br>The user alias object consists of two parts: an `alias_name` for the identifier itself and an `alias_label` indicating the type of alias. Users can have multiple aliases with different labels but only one `alias_name` per `alias_label`. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Step 4: Create a send event rule" }
@@ -122,14 +121,14 @@ All attributes added within the configuration will be sent each time the event i
 
 After installing the extension, create a new event forwarding [rule](https://experienceleague.adobe.com/docs/experience-platform/tags/ui/rules.html?lang=en) and configure its conditions as desired. When configuring the actions for the rule, select the **Braze** extension, then select **Send Purchase Event** for the action type.
 
-![]({% image_buster /assets/img/efe2.png %})
+![Adobe event forwarding rule action configured to use Braze Send Purchase Event.]({% image_buster /assets/img/efe2.png %})
 
 {% tabs local %}
 {% tab User Identification %}
 
 | Input | Description |
 | --- | --- |
-| External user ID | A long, random, and well-distributed UUID or GUID. If you choose a different method to name your user IDs, they must also be long, random, and well-distributed. Learn more about [suggested user ID naming convention]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_user_ids#suggested-user-id-naming-convention). |
+| External user ID | A long, random, and well-distributed UUID or GUID. If you choose a different method to name your user IDs, they must also be long, random, and well-distributed. Learn more about [suggested user ID naming convention]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=web#naming-best-practices). |
 | Braze user ID | Braze user identifier. |
 | User alias | An alias serves as an alternative unique user identifier. Use aliases to identify users along different dimensions than your core user ID.<br><br>The user alias object consists of two parts: an `alias_name` for the identifier itself and an `alias_label` indicating the type of alias. Users can have multiple aliases with different labels but only one `alias_name` per `alias_label`. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Step 5: Create a send purchase event rule" }

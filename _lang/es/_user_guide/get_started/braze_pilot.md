@@ -29,7 +29,7 @@ El núcleo de Braze Pilot es su biblioteca de simulaciones de aplicaciones. Cada
 
 ### Steppington
 
-Steppington es una aplicación de fitness con entrenamientos, objetivos de ejercicio y un servicio premium Steppington+. Ofrece varios lugares para mostrar [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/), una sección que se puede revelar con [conmutadores de características]({{site.baseurl}}/developer_guide/feature_flags/) y una sólida biblioteca de registro de eventos personalizados que permite ilustrar muchos recorridos del cliente para este sector.
+Steppington es una aplicación de fitness con entrenamientos, objetivos de ejercicio y un servicio premium Steppington+. Ofrece varios lugares para mostrar [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards), una sección que se puede revelar con [conmutadores de características]({{site.baseurl}}/developer_guide/feature_flags) y una sólida biblioteca de registro de eventos personalizados que permite ilustrar muchos recorridos del cliente para este sector.
 
 ![La página de inicio de Steppington con iconos para entrenamiento de maratón, yoga, ciclismo y pesas.]({% image_buster /assets/img/braze_pilot/steppington_app.png %}){:style="max-width:50%"}
 
@@ -66,7 +66,7 @@ Una vez que Pilot se conecta a tu panel de Braze, el SDK de Braze funciona en la
 - Recopilará automáticamente datos de sesión, información del dispositivo y tokens de notificaciones push.
 - Habilitará notificaciones push, mensajes dentro de la aplicación y canales de mensajería de Content Cards que requieren la integración del SDK para funcionar.
 
-Para obtener más información sobre el SDK de Braze, consulta [Integración]({{site.baseurl}}/user_guide/get_started/integrations/).
+Para obtener más información sobre el SDK de Braze, consulta [Integración]({{site.baseurl}}/user_guide/get_started/integrations).
 
 ![La pila de interacción con los clientes de Braze, que incluye integraciones, API, SDK para la ingesta de datos, clasificación, orquestación, personalización y acción con canales de mensajería para un bucle de retroalimentación interactivo con tus clientes.]({% image_buster /assets/img/braze_pilot/braze_sdk_diagram.png %}){:style="max-width:70%"}
 
@@ -76,7 +76,7 @@ Todos los datos enviados a Braze se almacenan en un perfil de usuario dedicado a
 
 ### Anónimo {#anonymous}
 
-Este estado de conexión representa la experiencia de un visitante de tu aplicación o sitio web que aún no ha iniciado sesión. Si inicializas Pilot como usuario anónimo, Braze crea un [perfil de usuario anónimo]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users/) para ti y registra allí los datos sobre tu actividad. Los usuarios anónimos pueden seguir siendo objetivo de campañas, pero no podrás consultar su perfil de usuario directamente en tu panel de Braze.
+Este estado de conexión representa la experiencia de un visitante de tu aplicación o sitio web que aún no ha iniciado sesión. Si inicializas Pilot como usuario anónimo, Braze crea un [perfil de usuario anónimo]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users) para ti y registra allí los datos sobre tu actividad. Los usuarios anónimos pueden seguir siendo objetivo de campañas, pero no podrás consultar su perfil de usuario directamente en tu panel de Braze.
 
 ### Identificado {#identified}
 
@@ -84,7 +84,7 @@ Este estado de conexión significa que Braze reconoce tu perfil de usuario a tra
 
 ### Tipo de conexión {#connection-type}
 
-Para saber qué tipo de conexión tienes, revisa el indicador de estado de conexión en la esquina superior derecha de la aplicación Pilot.
+Para saber qué tipo de conexión tienes, revisa el indicador de estado de conexión en la parte superior de la aplicación Pilot.
 
 {% tabs local %}
 {% tab Anonymous user  %}
@@ -113,6 +113,6 @@ Campaigns y Canvas son la forma en que envías mensajes a tus usuarios.
 
 ## Canales de mensajería compatibles {#supported-messaging-channels}
 
-Braze Pilot actualmente admite [In-App Messages]({{site.baseurl}}/in-app_messages/), que aparecen en tu aplicación y entregan mensajes oportunos mientras el usuario está interactuando activamente.
+Braze Pilot actualmente admite [In-App Messages]({{site.baseurl}}/in-app_messages), que aparecen en tu aplicación y entregan mensajes oportunos mientras el usuario está interactuando activamente.
 
 ![Un mensaje dentro de la aplicación en MovieCanon: "¿Te gusta MovieCanon? ¡Recomienda a tus amigos!", con la opción de introducir tu dirección de correo electrónico para enviar un referido.]({% image_buster /assets/img/braze_pilot/moviecanon_iam.png %}){:style="max-width:40%"}

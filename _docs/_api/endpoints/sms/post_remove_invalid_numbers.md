@@ -22,7 +22,7 @@ This can be used to re-validate phone numbers after they have been marked as inv
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `sms.invalid_phone_numbers.remove` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `sms.invalid_phone_numbers.remove` permission.
 
 ## Rate limit
 
@@ -45,7 +45,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | Parameter | Required | Data Type | Description |
 | ----------|-----------| ---------|------ |
-| `phone_number` | Required | Array of strings in e.164 format | An array of up to 50 phone numbers to modify. |
+| `phone_numbers` | Required | Array of strings in e.164 format | An array of up to 50 phone numbers to modify. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Example request

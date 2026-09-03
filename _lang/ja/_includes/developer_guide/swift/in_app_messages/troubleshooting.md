@@ -1,21 +1,21 @@
-{% multi_lang_include inapp_message_troubleshooting.md sdk="iOS" %}
+{% multi_lang_include in-app_messages/troubleshooting.md sdk="iOS" %}
 
-### アセット読み込みのトラブルシューティング (`NSURLError` コード `-1008`)
+### アセット読み込みのトラブルシューティング（`NSURLError`コード`-1008`） {#asset-loading}
 
-Braze とサードパーティのネットワークロギングライブラリを統合する場合、開発者はドメインコード `-1008` の `NSURLError` に遭遇することがよくあります。このエラーは、画像やフォントなどのアセットが取得できなかったか、キャッシュできなかったことを示しています。このようなケースを回避するには、Braze CDNのURLを、これらのライブラリーによって無視されるべきドメインのリストに登録する必要がある。
+Brazeをサードパーティのネットワークロギングライブラリと統合する際、開発者はドメインコード`-1008`の`NSURLError`に遭遇することがよくあります。このエラーは、画像やフォントなどのアセットを取得できなかったか、キャッシュに失敗したことを示しています。このようなケースを回避するには、Braze CDNのURLを、これらのライブラリによって無視されるべきドメインのリストに登録する必要があります。
 
-#### ドメイン
+#### ドメイン {#domains}
 
-CDNドメインの全リストは以下の通り：
+CDNドメインの全リストは以下のとおりです。
 
 * `"appboy-images.com"`
 * `"braze-images.com"`
 * `"cdn.braze.eu"`
 * `"cdn.braze.com"`
 
-#### 例
+#### 例 {#examples}
 
-以下は、Brazeのアセットキャッシュと競合することが知られているライブラリーと、その問題を回避するためのサンプルコードである。使用できないリソース・エラーを引き起こすライブラリを使用しているプロジェクトで、以下にリストアップされていない場合は、そのライブラリのドキュメントを参照して、同様の使用APIを確認してほしい。
+以下は、Brazeのアセットキャッシュと競合することが知られているライブラリと、問題を回避するためのサンプルコードです。利用できないリソースエラーを引き起こすライブラリをプロジェクトで使用しており、以下にリストされていない場合は、そのライブラリのドキュメントを参照して、同様の使用方法のAPIを確認してください。
 
 ##### Netfox
 
@@ -26,7 +26,7 @@ NFX.sharedInstance().ignoreURLs(["https://cdn.braze.com"])
 ```
 {% endtab %}
 {% tab Objective-C %}
-`````````objc
+```objc
 [NFX.sharedInstance ignoreURLs:@[@"https://cdn.braze.com"]];
 ```
 {% endtab %}
@@ -36,12 +36,12 @@ NFX.sharedInstance().ignoreURLs(["https://cdn.braze.com"])
 
 {% tabs %}
 {% tab Swift %}
-`````````swift
+```swift
 NetGuard.blackListHosts.append(contentsOf: ["cdn.braze.com"])
 ```
 {% endtab %}
 {% tab Objective-C %}
-`````````objc
+```objc
 NSMutableArray<NSString *> *blackListHosts = [NetGuard.blackListHosts mutableCopy];
 [blackListHosts addObject:@"cdn.braze.com"];
 NetGuard.blackListHosts = blackListHosts;
@@ -53,17 +53,30 @@ NetGuard.blackListHosts = blackListHosts;
 
 {% tabs %}
 {% tab Swift %}
-`````````swift
+```swift
 let brazeAssetsHostFilter = XNHostFilter(host: "https://cdn.braze.com")
 XNLogger.shared.addFilters([brazeAssetsHostFilter])
 ```
 {% endtab %}
 {% tab Objective-C %}
-`````````objc
+```objc
 XNHostFilter *brazeAssetsHostFilter = [[XNHostFilter alloc] initWithHost: @"https://cdn.braze.com"];
 [XNLogger.shared addFilters:@[brazeAssetsHostFilter]];
 ```
 {% endtab %}
 {% endtabs %}
 
+##### Wormholy
 
+{% tabs %}
+{% tab Swift %}
+```swift
+Wormholy.ignoredHosts = ["cdn.braze.com"]
+```
+{% endtab %}
+{% tab Objective-C %}
+```objc
+Wormholy.ignoredHosts = @[@"cdn.braze.com"];
+```
+{% endtab %}
+{% endtabs %}

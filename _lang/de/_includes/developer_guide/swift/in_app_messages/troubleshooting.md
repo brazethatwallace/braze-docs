@@ -1,21 +1,21 @@
-{% multi_lang_include inapp_message_troubleshooting.md sdk="iOS" %}
+{% multi_lang_include in-app_messages/troubleshooting.md sdk="iOS" %}
 
-### Fehlerbehebung beim Laden von Assets (`NSURLError`-Code `-1008`)
+### Fehlerbehebung beim Laden von Assets (`NSURLError`-Code `-1008`) {#asset-loading}
 
-Bei der Integration von Braze zusammen mit Netzwerkprotokollierungsbibliotheken von Drittanbietern stoßen Entwickler häufig auf einen `NSURLError` mit dem Domain-Code `-1008`. Dieser Fehler zeigt an, dass Assets wie Bilder und Schriftarten nicht abgerufen werden konnten oder nicht in den Cache aufgenommen wurden. Um solche Fälle zu umgehen, müssen Sie die CDN-URLs von Braze in die Liste der Domains eintragen, die von diesen Bibliotheken ignoriert werden sollen.
+Bei der Integration von Braze zusammen mit Netzwerkprotokollierungsbibliotheken von Drittanbietern stoßen Entwickler:innen häufig auf einen `NSURLError` mit dem Domain-Code `-1008`. Dieser Fehler zeigt an, dass Assets wie Bilder und Schriftarten nicht abgerufen werden konnten oder nicht in den Cache aufgenommen wurden. Um solche Fälle zu umgehen, müssen Sie die CDN-URLs von Braze in die Liste der Domains eintragen, die von diesen Bibliotheken ignoriert werden sollen.
 
 #### Domains
 
-Die vollständige Liste der CDN Domains finden Sie im Folgenden:
+Die vollständige Liste der CDN-Domains lautet wie folgt:
 
 * `"appboy-images.com"`
 * `"braze-images.com"`
 * `"cdn.braze.eu"`
 * `"cdn.braze.com"`
 
-#### Beispiele
+#### Beispiele {#examples}
 
-Nachfolgend finden Sie Bibliotheken, von denen bekannt ist, dass sie mit dem Asset-Caching von Braze in Konflikt stehen, sowie Beispiel-Code, um das Problem zu umgehen. Wenn Ihr Projekt eine Bibliothek verwendet, die einen Fehler wegen nicht verfügbarer Ressourcen verursacht und die unten nicht aufgeführt ist, konsultieren Sie die Dokumentation dieser Bibliothek für ähnliche APIs zur Verwendung.
+Die folgenden Bibliotheken stehen bekanntermaßen mit dem Asset-Caching von Braze in Konflikt. Zu jeder finden Sie Beispiel-Code, um das Problem zu umgehen. Wenn Ihr Projekt eine Bibliothek verwendet, die einen Fehler wegen nicht verfügbarer Ressourcen verursacht und hier nicht aufgeführt ist, konsultieren Sie die Dokumentation dieser Bibliothek für ähnliche APIs.
 
 ##### Netfox
 
@@ -66,4 +66,17 @@ XNHostFilter *brazeAssetsHostFilter = [[XNHostFilter alloc] initWithHost: @"http
 {% endtab %}
 {% endtabs %}
 
+##### Wormholy
 
+{% tabs %}
+{% tab Swift %}
+```swift
+Wormholy.ignoredHosts = ["cdn.braze.com"]
+```
+{% endtab %}
+{% tab Objective-C %}
+```objc
+Wormholy.ignoredHosts = @[@"cdn.braze.com"];
+```
+{% endtab %}
+{% endtabs %}

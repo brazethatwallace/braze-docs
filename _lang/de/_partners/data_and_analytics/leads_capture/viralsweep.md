@@ -24,7 +24,7 @@ Die Integration von Braze und ViralSweep ermöglicht es Ihnen, Gewinnspiele und 
 | ----------- | ----------- |
 | ViralSweep-Konto | Um diese Partnerschaft zu nutzen, ist ein ViralSweep-Konto mit dem Unternehmensplan erforderlich. |
 | Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit allen Nutzerdaten- und E-Mail-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Braze-REST-Endpunkt | Ihre REST-Endpunkt-URL. Ihr Endpunkt hängt von der Braze-URL für [Ihre Instanz]({{site.baseurl}}/api/basics/#endpoints) ab. |
+| Braze-REST-Endpunkt | Ihre REST-Endpunkt-URL. Ihr Endpunkt hängt von der Braze-URL für [Ihre Instanz]({{site.baseurl}}/api/basics#endpoints) ab. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
@@ -33,7 +33,7 @@ Die Integration von Braze und ViralSweep ermöglicht es Ihnen, Gewinnspiele und 
 
 Navigieren Sie in ViralSweep zu **Integrations > Email & SMS > Add Service** und wählen Sie **Braze** aus.
 
-![]({% image_buster /assets/img/viralsweep/connect.gif %})
+![ViralSweep-Integrationsseite mit Braze als ausgewähltem Dienst unter E-Mail- und SMS-Diensten.]({% image_buster /assets/img/viralsweep/connect.gif %})
 
 ### 2. Schritt: Braze-Zugangsdaten hinzufügen {#step-2-add-braze-credentials}
 

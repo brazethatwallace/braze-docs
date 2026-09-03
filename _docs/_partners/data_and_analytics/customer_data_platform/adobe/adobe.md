@@ -38,7 +38,7 @@ The sending of additional custom attributes will increase your data point usage.
 
 From the Adobe **Settings** page, select **Destinations** under **Collections**. From there, locate the **Braze** tile and select **Configure**. 
 
-![]({% image_buster /assets/img/adobe/braze-destination-configure.png %})
+![Adobe Destinations catalog with the Braze destination tile and Configure action.]({% image_buster /assets/img/adobe/braze-destination-configure.png %})
 
 {% alert note %}
 If a connection with Braze already exists, you'll see an **Activate** button on the destination card. For more information about the difference between activate and configure, refer to the catalog section of the Adobe destination workspace [documentation](https://experienceleague.adobe.com/docs/experience-platform/rtcdp/destinations/destinations-interface/destinations-workspace.html?lang=en#catalog).
@@ -48,7 +48,7 @@ If a connection with Braze already exists, you'll see an **Activate** button on 
 
 In the **Account** step, provide your Braze API key and select **Connect to destination**.
 
-![]({% image_buster /assets/img/adobe/braze-destination-account.png %}){: style="max-width:60%"}
+![Adobe Braze destination account step with API key entry and connect action.]({% image_buster /assets/img/adobe/braze-destination-account.png %}){: style="max-width:60%"}
 
 ### Step 3: Authentication
 
@@ -58,7 +58,7 @@ Next, in the  **Authentication** step, enter your Braze connection details:
 - **Endpoint instance**: Enter your Braze endpoint instance.
 - **Marketing use case**: Marketing use cases indicate the intent for which data will be exported to the destination. You can select from Adobe-defined marketing use cases or create your own marketing use case. To read more about Adobe marketing use cases, visit [Data governance in Adobe Experience Platform](https://experienceleague.adobe.com/docs/experience-platform/rtcdp/privacy/data-governance-overview.html?lang=en#destinations).
 
-![]({% image_buster /assets/img/adobe/braze-destination-authentication.png %}){: style="max-width:60%;"}
+![Adobe destination authentication step with name, destination, and endpoint fields.]({% image_buster /assets/img/adobe/braze-destination-authentication.png %}){: style="max-width:60%;"}
 
 ### Step 4: Create destination
 Select **Create destination**. Your destination has been created. You can select **Save & Exit** to activate segments later or **Next** to continue the workflow and select segments to activate. 
@@ -78,12 +78,12 @@ The following list highlights the general steps required to activate a segment. 
 
 To correctly send your audience data from the Adobe Experience Platform to Braze, you must complete the field mapping step. Mapping creates a link between the Adobe Experience data model fields and the corresponding Braze platform fields.
 
-1. In the mapping step, select **Add new mapping**.<br>![]({% image_buster /assets/img/adobe/braze-destination-mapping.png %}){: style="max-width:50%;"}<br><br>
-2. In the source field section, select the arrow button next to the empty field to open the select source field window.<br>![]({% image_buster /assets/img/adobe/braze-destination-mapping-source.png %})<br><br>
-3. In the window, select Adobe attributes to map to your Braze attributes. <br>![]({% image_buster /assets/img/adobe/braze-destination-mapping-attributes.png %}){: style="max-width:70%;"}<br><br>Next, select the identity namespace. This option is used to map a platform identity namespace to a Braze namespace.<br>![]({% image_buster /assets/img/adobe/braze-destination-mapping-namespaces.png %}){: style="max-width:80%;"}<br> Choose your source fields, then select **Select**.<br><br>
-4. In the target field section, select the mapping icon beside the field.<br>![]({% image_buster /assets/img/adobe/braze-destination-mapping-target.png %}){: style="max-width:90%;"} <br><br>
-5. In the select target field window, you can choose between three categories of target fields:<br><br>• **Select identity namespace**: Use this option to map Platform identity namespaces to Braze identity namespaces.<br>• **Select custom attributes**: Use this option to map Adobe XDM attributes to custom Braze attributes that you defined in your Braze account. <br><br>![]({% image_buster /assets/img/adobe/braze-destination-mapping-target-fields.png %}){: style="max-width:60%;"}<br><br>**You can also use this option to rename existing XDM attributes into Braze.** For example, mapping a `lastname` XDM attribute to a custom `Last_Name` attribute in Braze, will create the `Last_Name` attribute in Braze if it doesn't already exist, and map the `lastname` XDM attribute to it. <br><br> Choose your target fields, then select **Select**.<br><br>
-6. Your field mapping should appear in the list.<br>![]({% image_buster /assets/img/adobe/braze-destination-mapping-complete.png %})<br><br>
+1. In the mapping step, select **Add new mapping**.<br>![Adobe field mapping page with the Add new mapping button.]({% image_buster /assets/img/adobe/braze-destination-mapping.png %}){: style="max-width:50%;"}<br><br>
+2. In the source field section, select the arrow button next to the empty field to open the select source field window.<br>![Adobe source field selector for destination mapping.]({% image_buster /assets/img/adobe/braze-destination-mapping-source.png %})<br><br>
+3. In the window, select Adobe attributes to map to your Braze attributes. <br>![Adobe attribute picker showing source attributes for mapping.]({% image_buster /assets/img/adobe/braze-destination-mapping-attributes.png %}){: style="max-width:70%;"}<br><br>Next, select the identity namespace. This option is used to map a platform identity namespace to a Braze namespace.<br>![Adobe identity namespace selector used for Braze mapping.]({% image_buster /assets/img/adobe/braze-destination-mapping-namespaces.png %}){: style="max-width:80%;"}<br> Choose your source fields, then select **Select**.<br><br>
+4. In the target field section, select the mapping icon beside the field.<br>![Adobe target field mapping panel with the mapping icon selected.]({% image_buster /assets/img/adobe/braze-destination-mapping-target.png %}){: style="max-width:90%;"} <br><br>
+5. In the select target field window, you can choose between three categories of target fields:<br><br>• **Select identity namespace**: Use this option to map Platform identity namespaces to Braze identity namespaces.<br>• **Select custom attributes**: Use this option to map Adobe XDM attributes to custom Braze attributes that you defined in your Braze account. <br><br>![Adobe target field selector with identity namespace and custom attribute options.]({% image_buster /assets/img/adobe/braze-destination-mapping-target-fields.png %}){: style="max-width:60%;"}<br><br>**You can also use this option to rename existing XDM attributes into Braze.** For example, mapping a `lastname` XDM attribute to a custom `Last_Name` attribute in Braze, will create the `Last_Name` attribute in Braze if it doesn't already exist, and map the `lastname` XDM attribute to it. <br><br> Choose your target fields, then select **Select**.<br><br>
+6. Your field mapping should appear in the list.<br>![Completed Adobe-to-Braze field mappings listed in the destination mapping step.]({% image_buster /assets/img/adobe/braze-destination-mapping-complete.png %})<br><br>
 7. To add more mappings, repeat steps 1 through 6, as necessary. 
 
 ## Use case

@@ -72,7 +72,7 @@ AppDelegate.braze.inAppMessagePresenter = inAppMessageUI;
 | -------------------------- | -------- |
 | `.url(URL, useWebView: Bool)` | 외부 브라우저에서 지정된 URL을 엽니다. `useWebView`를 `true`로 설정하면 웹 뷰에서 열립니다. |
 | `.none` | 클릭하면 메시지가 닫힙니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Click action types" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="클릭 동작 유형" }
 
 {% alert important %}
 버튼이 포함된 인앱 메시지의 경우, 버튼 텍스트를 추가하기 전에 클릭 동작이 추가되면 메시지 `clickAction`도 최종 페이로드에 포함됩니다.
@@ -208,17 +208,17 @@ func inAppMessage(
 - **하단에서 슬라이드업:** 위에서 아래로 스와이프하면 메시지가 닫힙니다. 아래에서 위로 스와이프하면 메시지가 닫히지 않습니다.
 - **상단에서 슬라이드업:** 아래에서 위로 스와이프하면 메시지가 닫힙니다. 위에서 아래로 스와이프하면 메시지가 닫히지 않습니다.
 
-이 스와이프 동작은 기본 `BrazeInAppMessageUI` [`SlideupView`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/slideupview)에 내장되어 있으며 슬라이드업 인앱 메시지에만 적용됩니다. 모달 및 전체 인앱 메시지는 스와이프하여 닫기를 지원하지 않습니다. 스와이프 동작을 포함하여 슬라이드업 뷰를 추가로 사용자 지정하려면 [`SlideupView.Attributes`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/slideupview/attributes-swift.struct)를 수정하거나 서브클래싱을 통해 커스텀 뷰를 제공할 수 있습니다.
+이 스와이프 동작은 기본 `BrazeInAppMessageUI` [`SlideupView`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/slideupview)에 내장되어 있으며 슬라이드업 인앱 메시지에만 적용됩니다. Modal 및 전체 인앱 메시지는 스와이프하여 닫기를 지원하지 않습니다. 스와이프 동작을 포함하여 슬라이드업 뷰를 추가로 사용자 지정하려면 [`SlideupView.Attributes`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/slideupview/attributes-swift.struct)를 수정하거나 서브클래싱을 통해 커스텀 뷰를 제공할 수 있습니다.
 
 {% alert note %}
-슬라이드업 메시지 외부를 탭해도 메시지가 닫히지 않습니다. 모달 또는 전체 인앱 메시지의 경우 아래에 설명된 `dismissOnBackgroundTap` 속성을 사용하여 외부 탭 닫기를 활성화할 수 있습니다.
+슬라이드업 메시지 외부를 탭해도 메시지가 닫히지 않습니다. Modal 또는 전체 인앱 메시지의 경우 다음 섹션에 설명된 `dismissOnBackgroundTap` 속성을 사용하여 외부 탭 닫기를 활성화할 수 있습니다.
 {% endalert %}
 
-## 모달 닫기 사용자 지정 {#customizing-modal-dismissals}
+## Modal 닫기 사용자 지정 {#customizing-modal-dismissals}
 
 외부 탭 닫기를 활성화하려면 사용자 지정하려는 인앱 메시지 유형의 `Attributes` 구조체에서 `dismissOnBackgroundTap` 속성을 수정하면 됩니다.
 
-예를 들어 모달 이미지 인앱 메시지에 이 기능을 활성화하려면 다음과 같이 구성할 수 있습니다:
+예를 들어 Modal 이미지 인앱 메시지에 이 기능을 활성화하려면 다음과 같이 구성할 수 있습니다:
 
 {% tabs %}
 {% tab swift %}
@@ -235,13 +235,13 @@ BrazeInAppMessageUI.ModalImageView.Attributes.defaults.dismissOnBackgroundTap = 
 {% endtab %}
 {% endtabs %}
 
-기본값은 `false`입니다. 이 값은 사용자가 인앱 메시지 외부를 탭할 때 모달 인앱 메시지를 닫을지 여부를 결정합니다.
+기본값은 `false`입니다. 이 값은 사용자가 인앱 메시지 외부를 탭할 때 Modal 인앱 메시지를 닫을지 여부를 결정합니다.
 
 | `DismissModalOnOutsideTap` | 설명 |
 |----------|-------------|
-| `true`         | 모달 인앱 메시지는 외부를 탭하면 닫힙니다.     |
-| `false`        | 기본값으로, 모달 인앱 메시지는 외부를 탭해도 닫히지 않습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Customizing modal dismissals" }
+| `true`         | Modal 인앱 메시지는 외부를 탭하면 닫힙니다.     |
+| `false`        | 기본값으로, Modal 인앱 메시지는 외부를 탭해도 닫히지 않습니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Modal 닫기 사용자 지정" }
 
 인앱 메시지 사용자 지정에 대한 자세한 내용은 이 [문서](https://braze-inc.github.io/braze-swift-sdk/documentation/braze/in-app-message-customization)를 참조하세요.
 
@@ -323,7 +323,7 @@ inAppMessage.orientation = BRZInAppMessageRawOrientationLandscape;
 ![Xcode에서 지원되는 방향.]({% image_buster /assets/img/supported_interface_orientations_xcode.png %})
 
 {% alert note %}
-방향은 메시지 표시에만 적용됩니다. 기기의 방향이 변경되면 메시지 뷰가 지원하는 방향 중 하나를 채택합니다. 작은 기기(iPhone, iPod Touch)에서는 모달 또는 전체 인앱 메시지에 가로 방향을 설정하면 콘텐츠가 잘릴 수 있습니다.
+방향은 메시지 표시에만 적용됩니다. 기기의 방향이 변경되면 메시지 뷰가 지원하는 방향 중 하나를 채택합니다. 작은 기기(iPhone, iPod Touch)에서는 Modal 또는 전체 인앱 메시지에 가로 방향을 설정하면 콘텐츠가 잘릴 수 있습니다.
 {% endalert %}
 
 ## 표시 타이밍 사용자 지정 {#customizing-display-timing}
@@ -358,7 +358,7 @@ func inAppMessage(
 | `.reenqueue`                        | 메시지가 표시되지 않고 스택의 맨 위로 다시 배치됩니다.                                       |
 | `.later`                            | 메시지가 표시되지 않고 스택의 맨 위로 다시 배치됩니다. (더 이상 사용되지 않으며, `.reenqueue`를 사용하세요) |
 | `.discard`                          | 메시지가 폐기되며 표시되지 않습니다.                                                                    |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Customizing display timing" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="표시 타이밍 사용자 지정" }
 
 {% alert tip %}
 `InAppMessageUI`의 샘플을 확인하려면 [Swift Braze SDK 리포지토리](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples/Swift/Sources/InAppMessageUI)와 [Objective-C](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples/ObjC/Sources/InAppMessageUI)를 참조하세요.
@@ -373,7 +373,7 @@ func inAppMessage(
 | `.auto`                             | 메시지 뷰가 상태 표시줄 숨김 상태를 결정합니다.                                 |
 | `.hidden`                           | 항상 상태 표시줄을 숨깁니다.                                                           |
 | `.visible`                          | 항상 상태 표시줄을 표시합니다.                                                        |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Hiding the status bar" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="상태 표시줄 숨기기" }
 
 ## 다크 모드 비활성화 {#disabling-dark-mode}
 
@@ -487,12 +487,12 @@ func inAppMessage(
 Campaign에서 인앱 메시지를 사용하여 사용자에게 앱 스토어 리뷰를 요청할 수 있습니다.
 
 {% alert note %}
-이 예제 프롬프트는 Braze의 기본 동작을 재정의하므로 구현된 경우 노출 횟수를 자동으로 추적할 수 없습니다. [분석을 직접 기록]({{site.baseurl}}/developer_guide/analytics/)해야 합니다.
+이 예제 프롬프트는 Braze의 기본 동작을 재정의하므로 구현된 경우 노출 횟수를 자동으로 추적할 수 없습니다. [분석을 직접 기록]({{site.baseurl}}/developer_guide/analytics)해야 합니다.
 {% endalert %}
 
 ### 1단계: 인앱 메시지 대리자 설정 {#step-1-set-the-in-app-message-delegate}
 
-먼저 앱에서 [`BrazeInAppMessageUIDelegate`]({{site.baseurl}}/developer_guide/in_app_messages/customization/#swift_setting-up-the-ui-delegate-required)를 설정합니다.
+먼저 앱에서 [`BrazeInAppMessageUIDelegate`]({{site.baseurl}}/developer_guide/in_app_messages/customization#swift_setting-up-the-ui-delegate-required)를 설정합니다.
 
 ### 2단계: 기본 앱 스토어 리뷰 메시지 비활성화 {#step-2-disable-the-default-app-store-review-message}
 
@@ -533,17 +533,18 @@ func inAppMessage(_ ui: BrazeInAppMessageUI, displayChoiceForMessage message: Br
 
 ### 3단계: 딥링크 생성 {#step-3-create-a-deep-link}
 
-딥링크 처리 코드에서 `{YOUR-APP-SCHEME}:app-store-review` 딥링크를 처리하기 위해 다음 코드를 추가합니다. `SKStoreReviewController`를 사용하려면 `StoreKit`을 가져와야 합니다:
+[`scene:openURLContexts:`]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/?sdktab=swift#swift_step-3-implement-a-handler) 핸들러에서 `{YOUR-APP-SCHEME}:app-store-review` 딥링크를 처리하기 위해 다음 코드를 추가합니다. `SKStoreReviewController`를 사용하려면 `StoreKit`을 가져와야 합니다:
 
 {% tabs %}
 {% tab swift %}
 
 ```swift
-func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+  guard let url = URLContexts.first?.url else { return }
   let urlString = url.absoluteString.removingPercentEncoding
   if (urlString == "{YOUR-APP-SCHEME}:app-store-review") {
     SKStoreReviewController.requestReview()
-    return true;
+    return;
   }
   // Other deep link handling code…
 }
@@ -553,11 +554,12 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 {% tab OBJECTIVE-C %}
 
 ```objc
-- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
+- (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts {
+  NSURL *url = URLContexts.allObjects.firstObject.URL;
   NSString *urlString = url.absoluteString.stringByRemovingPercentEncoding;
   if ([urlString isEqualToString:@"{YOUR-APP-SCHEME}:app-store-review"]) {
     [SKStoreReviewController requestReview];
-    return YES;
+    return;
   }
   // Other deep link handling code…
 }
@@ -578,5 +580,5 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 {% endraw %}
 
 {% alert tip %}
-Apple은 사용자당 연간 최대 세 번으로 앱 스토어 리뷰 프롬프트를 제한하므로 Campaign에서도 사용자당 연간 세 번으로 [빈도 제한]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/)을 설정해야 합니다.<br><br>사용자는 앱 스토어 리뷰 프롬프트를 끌 수 있습니다. 따라서 커스텀 리뷰 프롬프트는 네이티브 앱 스토어 리뷰 프롬프트가 표시될 것을 보장하거나 직접적으로 리뷰를 요청해서는 안 됩니다.
+Apple은 사용자당 연간 최대 세 번으로 앱 스토어 리뷰 프롬프트를 제한하므로 Campaign에서도 사용자당 연간 세 번으로 [빈도 제한]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting)을 설정해야 합니다.<br><br>사용자는 앱 스토어 리뷰 프롬프트를 끌 수 있습니다. 따라서 커스텀 리뷰 프롬프트는 네이티브 앱 스토어 리뷰 프롬프트가 표시될 것을 보장하거나 직접적으로 리뷰를 요청해서는 안 됩니다.
 {% endalert %}

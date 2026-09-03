@@ -15,9 +15,7 @@ tool: Reports
 
 Les avantages de l'utilisation de variables SQL incluent :
 
-- Gagner du temps en créant une variable Campaign à sélectionner dans une liste lors de la création de votre rapport, au lieu de coller des identifiants Campaign.
-- Remplacer des valeurs en ajoutant des variables qui vous permettent de réutiliser le rapport pour des cas d'utilisation légèrement différents à l'avenir (comme un événement personnalisé différent).
-- Réduire les erreurs utilisateur lors de la modification de votre SQL en diminuant la quantité de modifications nécessaires pour chaque rapport. Les collègues plus à l'aise avec SQL peuvent créer des rapports que des collègues moins techniques peuvent ensuite utiliser.
+{% multi_lang_include analytics/sql_variables_benefits.md %}
 
 ## Utiliser des variables {#using-variables}
 
@@ -37,7 +35,7 @@ Remplacez les éléments suivants :
 |------------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | `variable_type`   | Le type de variable prédéfini que vous souhaitez utiliser, comme `campaign` ou `catalog_fields`. Pour la liste complète, consultez [Types de variables pris en charge](#variable-types). |
 | `custom_label` | Le libellé utilisé pour identifier la variable dans l'onglet **Variables** de votre Générateur de requêtes. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Add a variable" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 1 : Ajouter une variable" }
 
 Dans l'exemple suivant, le nombre total d'utilisateurs entre le premier et le dernier jour d'un mois est interrogé pour une Campaign. Chaque variable se verra attribuer une valeur à l'étape suivante.
 
@@ -53,7 +51,7 @@ WHERE campaign_id = '{{campaign.${Campaign}}}'
 
 ### Étape 2 : Attribuer une valeur {#step-2-assign-a-value}
 
-Par défaut, l'onglet **Variables** n'est pas affiché dans le Générateur de requêtes. Il n'apparaît qu'après l'ajout de votre première variable à la requête. Vous pourrez alors lui attribuer une valeur. Les valeurs spécifiques que vous pouvez choisir dépendront du [type](#variable-types) de cette variable.
+Par défaut, l'onglet **Variables** n'est pas affiché dans le Générateur de requêtes. Il n'apparaît qu'après l'ajout de votre première variable à la requête. Vous pourrez alors lui attribuer une valeur. Les valeurs disponibles dépendront du [type](#variable-types) de la variable.
 
 Dans l'exemple suivant, la Campaign « Summer Feature Launch » est attribuée comme valeur, ainsi que le premier et le dernier jour de juin 2025.
 
@@ -183,13 +181,13 @@ Vous pouvez définir la plage de dates sur l'une des options suivantes. Si `star
 | Date de début | Spécifie une date de début | Nécessite `start_date` |
 | Date de fin | Spécifie une date de fin | Nécessite `end_date` |
 | Plage de dates | Spécifie à la fois une date de début et une date de fin | Nécessite à la fois `start_date` et `end_date` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Date range" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Plage de dates" }
 
 Votre Liquid sera utilisé pour afficher un calendrier dans la plage de dates donnée :
 
 ![Un exemple de calendrier rendu dans Braze.]({% image_buster /assets/img_archive/query_builder_time_range.png %}){: style="max-width:50%;"}
 
-### Campaigns
+### Campaigns {#campaigns}
 
 {% tabs local %}
 {% tab une Campaign %}
@@ -441,9 +439,9 @@ field_name = '{{catalog_fields.${custom_label}}}'
 {% endtab %}
 {% endtabs %}
 
-### Segments
+### Segments {#segments}
 
-Pour sélectionner des Segments dont le [suivi analytique]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/) est activé. Défini sur l'identifiant analytique du Segment, qui correspond aux identifiants stockés dans la colonne `user_segment_membership_ids` dans les tables où cette colonne est disponible.
+Pour sélectionner des Segments dont le [suivi analytique]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) est activé. Défini sur l'identifiant analytique du Segment, qui correspond aux identifiants stockés dans la colonne `user_segment_membership_ids` dans les tables où cette colonne est disponible.
 
 {% tabs %}
 {% tab utilisation %}
@@ -455,9 +453,9 @@ Pour sélectionner des Segments dont le [suivi analytique]({{site.baseurl}}/user
 {% endtab %}
 {% endtabs %}
 
-### Étiquettes {#tags}
+### Tags {#tags}
 
-Pour sélectionner des étiquettes pour les Campaigns et Canvas. Défini sur les Campaigns et Canvas avec des identifiants BSON séparés par des virgules entre guillemets simples, associés aux étiquettes sélectionnées.
+Pour sélectionner des tags pour les Campaigns et Canvas. Défini sur les Campaigns et Canvas avec des identifiants BSON séparés par des virgules entre guillemets simples, associés aux tags sélectionnés.
 
 {% tabs %}
 {% tab utilisation %}

@@ -1,45 +1,20 @@
 ---
-nav_title: QA de Conteúdo
-article_title: Controle de qualidade do conteúdo com IA
-page_order: 4
-description: "Este artigo de referência aborda como realizar a garantia de qualidade do conteúdo de sua mensagem com IA diretamente do criador de mensagens."
+nav_title: Revisão de conteúdo
+article_title: Revisão de conteúdo com o Operator
+page_order: 2
+page_type: reference
+description: "Este artigo de referência aborda como realizar a garantia de qualidade do conteúdo da sua mensagem, identificando erros de ortografia, problemas gramaticais, tom inadequado e linguagem ofensiva antes do envio."
 ---
 
-# QA de Conteúdo com BrazeAI {#content-qa-with-brazeai}
+# Revisão de conteúdo com o Operator {#content-review-with-operator}
 
-> Aprenda como fazer QA do seu conteúdo com BrazeAI<sup>TM</sup>, para que você possa identificar erros de ortografia, problemas gramaticais, tom inadequado ou linguagem ofensiva&#8212;antes de enviar.
+> Identifique erros de ortografia, problemas gramaticais, tom inadequado ou linguagem ofensiva no conteúdo da sua mensagem antes de enviar.
 
-## Recursos suportados {#supported-features}
+{% multi_lang_include brazeai/generative_ai/unification_note.md %}
 
-Os seguintes recursos são suportados para ajudar a melhorar a qualidade do seu conteúdo:
+## Como acessar {#how-to-access}
 
-| Recurso | Descrição |
-|----------------------------|-------------|
-| Verificação de ortografia e gramática | Verifica automaticamente se há erros de ortografia e gramática em sua mensagem. Sugere correções e fornece recomendações para melhorar a precisão geral do conteúdo. |
-| Análise de tom | Avalia o tom da mensagem para identificar possíveis problemas. Isso ajuda a garantir que o tom pretendido se alinhe ao estilo de comunicação desejado e ajuda a evitar mal-entendidos ou ofensas não intencionais. |
-| Detecção de linguagem ofensiva | Examina sua mensagem em busca de qualquer linguagem potencialmente ofensiva ou inadequada, permitindo que você revise seu conteúdo e mantenha uma comunicação respeitosa. |
-| Verificação de conteúdo acidental | Detecta qualquer inclusão de código, linguagem de marcação ou mensagens de teste que possam ter sido adicionadas involuntariamente, incluindo qualquer código Liquid que não foi renderizado para um usuário teste. |
-| Suporte multilíngue | Embora não seja oficialmente suportado pela OpenAI, o GPT pode entender [vários idiomas](https://openai.com/research/gpt-4#:~:text=GPT%2D4%203%2Dshot%20accuracy%20on%20MMLU%20across%20languages). Tenha em mente que a Braze não passa nenhuma informação sobre o idioma ou localidade do seu texto quando é enviado para a OpenAI, então seus resultados podem variar dependendo do idioma em que você está escrevendo. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Supported features" }
+Na guia **Teste** para SMS, push Android, push iOS e mensagens no app tradicionais, selecione **Review with Operator** para revisar seu conteúdo antes do envio. O Operator verifica erros de ortografia e gramática, tom inadequado ou fora da marca, linguagem ofensiva e código solto ou Liquid não renderizado. Ele sinaliza cada problema com o texto específico e uma correção sugerida, ou confirma que o conteúdo está limpo.
 
-## Usando BrazeAI<sup>TM</sup> para QA de conteúdo {#using-brazeaitm-to-qa-content}
 
-{% alert note %}
-Este recurso está disponível apenas para SMS, push para Android, push para iOS e mensagens tradicionais no app neste momento.
-{% endalert %}
-
-1. Após redigir um push móvel, SMS ou mensagem tradicional no app, navegue até a guia **Test**.
-2. Localize a seção **Content QA with AI**.
-3. Clique em **Test Content**.
-
-![Seção de QA de Conteúdo com IA da guia Teste.]({% image_buster /assets/img/content_qa_ai.png %})
-
-## Melhores práticas {#best-practices}
-
-Considere o seguinte para aproveitar ao máximo o QA de Conteúdo com IA:
-
-- **Revise sua mensagem:** Embora o verificador de conteúdo possa ajudar a identificar erros, ainda é essencial revisar seu conteúdo manualmente. Use as sugestões geradas pela IA como um guia útil, mas confie no seu julgamento para garantir a precisão.
-- **Entenda a análise de tom:** Os resultados da análise de tom são subjetivos e baseados no entendimento do modelo de IA. Embora possam fornecer insights úteis, considere o tom pretendido e o contexto da conversa para fazer os ajustes apropriados.
-- **Verifique novamente a linguagem ofensiva sinalizada:** A detecção de linguagem ofensiva foi projetada para ser robusta, mas pode ocasionalmente sinalizar falsos positivos. Analise cuidadosamente as seções sinalizadas e faça as alterações apropriadas conforme necessário.
-
-{% multi_lang_include brazeai/generative_ai/policy.md %}
+Para saber mais, incluindo recursos compatíveis, práticas recomendadas e exemplos de prompts, consulte [Revisar a qualidade do conteúdo nas capacidades do Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#review-content-quality).

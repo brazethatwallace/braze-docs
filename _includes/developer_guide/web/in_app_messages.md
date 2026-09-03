@@ -30,7 +30,7 @@ Each in-app message type is customizable across content, images, icons, click ac
 {% endtab %}
 {% tab Custom HTML %}
 
-[`HTML`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.htmlmessage.html) in-app messages are useful for creating fully customized user content. User-defined HTML is displayed in an iFrame and may contain rich content, such as images, fonts, videos, and interactive elements, allowing for full control over message appearance and functionality. These support a JavaScript `brazeBridge` interface to call methods on the Braze Web SDK from within your HTML, see our [best practices]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/best_practices/) for more details.
+[`HTML`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.htmlmessage.html) in-app messages are useful for creating fully customized user content. User-defined HTML is displayed in an iFrame and may contain rich content, such as images, fonts, videos, and interactive elements, allowing for full control over message appearance and functionality. These support a JavaScript `brazeBridge` interface to call methods on the Braze Web SDK from within your HTML, see our [best practices]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices/) for more details.
 
 {% alert important %}
 To enable HTML in-app messages through the Web SDK, you **must** supply the `allowUserSuppliedJavascript` initialization option to Braze, for example, `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. This is for security reasons. HTML in-app messages can execute JavaScript, so we require a site maintainer to enable them.

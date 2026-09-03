@@ -6,18 +6,18 @@ layout: documents
 ---
 # CONTRIBUTION LICENSE AGREEMENT
 
-This Contribution License Agreement (this **"Agreement"**), effective as of the last date beneath the parties' signature below (the **"Effective Date"**), is entered into by Braze, Inc., a Delaware corporation having its principal place of business at 330 W 34th Street, New York, NY 10001 (**"Braze"**), and the party signing below and/or any person or entity who exercises copyright or patent rights granted under this Agreement, and any person or entity that person or entity controls, i.e., You.
+This Contribution License Agreement (this **"Agreement"**), effective as of the last date beneath the parties' signature at the end of this Agreement (the **"Effective Date"**), is entered into by Braze, Inc., a Delaware corporation having its principal place of business at 330 W 34th Street, New York, NY 10001 (**"Braze"**), and the party signing this Agreement and/or any person or entity who exercises copyright or patent rights granted under this Agreement, and any person or entity that person or entity controls, i.e., You.
 
 In consideration of the mutual covenants and agreements contained herein and other good and valuable consideration, the receipt and sufficiency of which are hereby acknowledged, the parties agree as follows as of the Effective Date:
 
 1. **Definitions**.<br><br>
   * **"Code"** means the computer software code, whether in human-readable or machine-executable form, that is delivered by You to Braze under this Agreement.<br><br>
-  * **"Project"** means any of the projects owned or managed by Braze in which software is offered under a license approved by the [Open Source Initiative (OSI)](www.opensource.org) and documentation offered under an OSI or a [Creative Commons license](https://creativecommons.org/licenses).<br><br>
+  * **"Project"** means any of the projects owned or managed by Braze in which software is offered under a license approved by the [Open Source Initiative (OSI)](https://opensource.org) and documentation offered under an OSI or a [Creative Commons license](https://creativecommons.org/licenses).<br><br>
   * **"Submit"** or **"Submitted"** is the act of uploading, submitting, transmitting, or distributing content to any Project (and/or any form of electronic, verbal, or written communication sent to Braze or its representative that results in such acts), including, but not limited to, communication on electronic mailing lists, source code control systems, and issue tracking systems that are managed by, or on behalf of, Braze for the purpose of discussing and improving that Project.<br><br>
   * **"Submission"** means the Code and any other copyrightable material Submitted by You for inclusion in, or in documentation of, any of the products or Projects owned or managed by Braze but excluding material that is conspicuously marked or otherwise designated in writing by You as "Not a Submission."<br><br>
   * **"You"** (or **"Your"**) shall mean the copyright owner or legal entity authorized by the copyright owner that is making this Agreement with Braze. For legal entities, the entity making a Submission and all other entities that control, are controlled by, or are under common control with that entity are considered to be a single "Submitter". For the purposes of this definition, "control" means (i) the power, direct or indirect, to cause the direction or management of such entity, whether by contract or otherwise, or (ii) ownership of 50% or more of the outstanding shares, or (iii) beneficial ownership of such entity.<br><br>
 
-2. **Your Submission.** You must agree to the terms of this Agreement before making a Submission to any Project. This Agreement covers any and all Submissions that You, now or in the future (except as described in Section 4 below), Submit to any Project. If a Submission is contributed prior to the execution of this Agreement, then such Submission will automatically trigger the acceptance of the terms herein.<br><br>
+2. **Your Submission.** You must agree to the terms of this Agreement before making a Submission to any Project. This Agreement covers any and all Submissions that You, now or in the future (except as described in Section 4 (Your Employer)), Submit to any Project. If a Submission is contributed prior to the execution of this Agreement, then such Submission will automatically trigger the acceptance of the terms herein.<br><br>
 
 3. **Originality of Work.** You represent that each of Your Submissions is entirely Your original work. Should You wish to Submit materials that are not Your original work, You may Submit them separately to the Project if (a) You retain all copyright and license information that was in the materials as You received them, (b) in the description accompanying Your Submission, You include the phrase "Submission containing materials of a third party" followed by the name(s) of the third party and any licenses or other restrictions of which You are aware, and (c) You follow any other instructions in the Project's written guidelines concerning Submissions.<br><br>
 
@@ -38,14 +38,14 @@ In consideration of the mutual covenants and agreements contained herein and oth
 
 10. **Entire Agreement/Assignment.** This Agreement is the entire agreement between the parties regarding Your Submission of any materials to any Project, and supersedes all prior and contemporaneous agreements, proposals, or representations, written or oral, concerning its subject matter. This Agreement may be assigned by Braze. <br><br>
 
-Select one of the options below and sign as indicated. By signing, You accept and agree to the terms of this Contribution License Agreement for Your present and future Submissions to Braze.
+Select one of the following options and sign as indicated. By signing, You accept and agree to the terms of this Contribution License Agreement for Your present and future Submissions to Braze.
 
 
 
 <div id="cla_form_div">
 <form id="cla_form" >
 <input type="radio" name="type" value="personal" id="type_personal" checked="checked" /> <label for="type_personal">I have sole ownership of intellectual property rights to my Submissions and I am not making Submissions in the course of work for my employer. </label><br />
-<input type="radio" name="type" value="employer" id="type_employer" /> <label for="type_employer" >I am making Submissions in the course of work for my employer (or my employer has intellectual property rights in my Submissions by contract or applicable law). I have permission from my employer to make Submissions and enter into this Agreement on behalf of my employer. By signing below, the defined term "You" includes me and my employer. </label><br />
+<input type="radio" name="type" value="employer" id="type_employer" /> <label for="type_employer" >I am making Submissions in the course of work for my employer (or my employer has intellectual property rights in my Submissions by contract or applicable law). I have permission from my employer to make Submissions and enter into this Agreement on behalf of my employer. By signing this Agreement, the defined term "You" includes me and my employer. </label><br />
 <br /><br />
 <label for="input_name"> Name ("You"):</label> <input type="text" value="" name="name" id="input_name" class="form-control" required="required" /> <br />
 <label for="input_signature"> Signature:</label> <input type="text" value="" name="signature" id="input_signature" class="form-control" required="required" /> <br />
@@ -92,7 +92,7 @@ Select one of the options below and sign as indicated. By signing, You accept an
   font-size: 14px;
   font-size: 1rem;
   line-height: 1.4;
-  font-family: Sailec W00 Bold, Arial, sans-serif;
+  font-family: 'Aribau Grotesk Bold', 'Aribau Grotesk', 'Aribau Grotesk Regular', Arial, sans-serif;
   text-transform: uppercase;
   padding: 1.14286rem 2.85714rem;
   border-radius: 0;

@@ -14,10 +14,10 @@ guide_top_text: "Use os endpoints da Biblioteca de mídia da Braze para gerencia
 guide_featured_title: "Gerenciar ativos"
 guide_featured_list:
   - name: "POST: Fazer upload de novo ativo por URL"
-    link: /docs/api/endpoints/media_library/manage_assets/create/
+    link: /docs/api/endpoints/media_library/manage_assets/create
     image: /assets/img/braze_icons/message-plus-square.svg
   - name: "PUT: Substituir um ativo na Biblioteca de mídia"
-    link: /docs/api/endpoints/media_library/manage_assets/replace_file/
+    link: /docs/api/endpoints/media_library/manage_assets/replace_file
     image: /assets/img/braze_icons/pencil-01.svg
 
 ---

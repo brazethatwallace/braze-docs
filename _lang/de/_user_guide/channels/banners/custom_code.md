@@ -10,9 +10,9 @@ channel:
 
 # Angepasster Code und JavaScript-Brücke für Banner {#custom-code-and-javascript-bridge-for-banners}
 
-> Wenn Sie den Editor-Block **Benutzerdefinierter Code** im Banner-Composer verwenden, müssen Sie `brazeBridge.logClick()` innerhalb Ihres angepassten HTML aufrufen, um Klicks zu protokollieren. Banner verwenden dieselbe JavaScript-Brücke wie HTML-In-App-Nachrichten, daher gelten dieselben Methoden und Muster.
+> Wenn Sie den Editor-Block **Angepasster Code** im Banner-Composer oder den **HTML-Editor** verwenden, müssen Sie `brazeBridge.logClick()` innerhalb Ihres angepassten HTML aufrufen, um Klicks zu protokollieren. Banner verwenden dieselbe JavaScript-Brücke wie HTML-In-App-Nachrichten, daher gelten dieselben Methoden und Muster.
 
-Wenn Sie in Ihrem Banner-Design angepasstes HTML verwenden, kann das Braze SDK nicht automatisch Klick-Listener an Elemente innerhalb Ihres angepassten Codes anhängen. Sie müssen `brazeBridge.logClick()` explizit für alle anklickbaren Elemente (Links, Buttons und Ähnliches) aufrufen, die Sie im Analytics-Tool der Campaign verfolgen möchten.
+Wenn Sie in Ihrem Banner-Design angepasstes HTML verwenden – sei es über einen Block „Angepasster Code“ im Composer oder über den vollständigen HTML-Editor –, kann das Braze SDK nicht automatisch Klick-Listener an Elemente innerhalb Ihres angepassten Codes anhängen. Sie müssen `brazeBridge.logClick()` explizit für alle anklickbaren Elemente (Links, Buttons und Ähnliches) aufrufen, die Sie in der Campaign-Analyse verfolgen möchten.
 
 Um beispielsweise einen Klick zu protokollieren, wenn Nutzer:innen in Ihrem angepassten HTML auf einen Button tippen:
 
@@ -22,7 +22,7 @@ Um beispielsweise einen Klick zu protokollieren, wenn Nutzer:innen in Ihrem ange
 </button>
 ```
 
-Die vollständige JavaScript-Bridge-Referenz, einschließlich aller verfügbaren Methoden und Optionen für Klick-Tracking, finden Sie im folgenden Abschnitt.
+Die vollständige Referenz zur JavaScript-Brücke, einschließlich aller verfügbaren Methoden und Optionen für das Klick-Tracking, finden Sie unter [JavaScript-Brücke](#javascript-bridge).
 
 ## JavaScript-Brücke {#javascript-bridge}
 

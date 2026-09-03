@@ -24,7 +24,7 @@ LINE 사용 가능 여부는 Braze 패키지에 따라 다릅니다. 시작하�
 - [LINE 개발자 계정](https://developers.line.biz/en/docs/line-developers-console/login-account/)
 - [LINE 메시징 API 채널](https://developers.line.biz/en/docs/line-developers-console/overview/#channel)
 
-전체 안내는 [LINE 설정]({{site.baseurl}}/user_guide/channels/line/line_setup/)을 참조하세요.
+전체 안내는 [LINE 설정]({{site.baseurl}}/user_guide/channels/line/line_setup)을 참조하세요.
 
 ## 활용 사례 {#use-cases}
 
@@ -41,5 +41,5 @@ LINE 사용 가능 여부는 Braze 패키지에 따라 다릅니다. 시작하�
 
 ## 다음 단계 {#next-steps}
 
-- [LINE 설정]({{site.baseurl}}/user_guide/channels/line/line_setup/)
-- [LINE 메시지 만들기]({{site.baseurl}}/user_guide/channels/line/create_a_line_message/)
+- [LINE 설정]({{site.baseurl}}/user_guide/channels/line/line_setup)
+- [LINE 메시지 만들기]({{site.baseurl}}/user_guide/channels/line/create_a_line_message)

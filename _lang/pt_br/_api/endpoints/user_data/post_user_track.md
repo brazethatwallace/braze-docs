@@ -10,7 +10,7 @@ toc_headers: h2
 ---
 {% api %}
 # Criar e atualizar usuários {#create-and-update-users}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track
 {% endapimethod %}
 
@@ -22,13 +22,13 @@ A Braze processa os dados passados por meio da API pelo valor nominal, e você d
 
 ## Precisa atualizar usuários em massa? {#need-to-update-users-in-bulk}
 
-Use o [endpoint `/users/track/bulk`]({{site.baseurl}}/api/endpoints/user_data/post_user_track_bulk/) para enviar lotes maiores e reduzir o volume de solicitações.
+Use o [endpoint `/users/track/bulk`]({{site.baseurl}}/api/endpoints/user_data/post_user_track_bulk) para enviar lotes maiores e reduzir o volume de solicitações.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#4cf57ea9-9b37-4e99-a02e-4373c9a4ee59 {% endapiref %}
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/api_key/) com a permissão `users.track`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics) com a permissão `users.track`.
 
 Os clientes que usam a API para chamadas de servidor para servidor podem precisar incluir `rest.iad-01.braze.com` na lista de permissões se estiverem protegidos por um firewall.
 
@@ -57,11 +57,11 @@ Authorization: Bearer YOUR_REST_API_KEY
 Para cada componente de solicitação listado na tabela a seguir, você deve incluir um dos seguintes: `external_id`, `user_alias`, `braze_id`, `email` ou `phone`.
 {% endalert %}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
-| `attributes` | Opcional | Vetor de objetos de atributos | Consulte o [objeto de atributos do usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens) |
-| `events` | Opcional | Vetor de objetos de eventos | Consulte o [objeto de eventos]({{site.baseurl}}/api/objects_filters/event_object/) |
-| `purchases` | Opcional | Vetor de objetos de compra | Consulte o [objeto de compras]({{site.baseurl}}/api/objects_filters/purchase_object/) |
+| `attributes` | Opcional | Vetor de objetos de atributos | Consulte o [objeto de atributos do usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object) |
+| `events` | Opcional | Vetor de objetos de eventos | Consulte o [objeto de eventos]({{site.baseurl}}/api/objects_filters/event_object) |
+| `purchases` | Opcional | Vetor de objetos de compra | Consulte o [objeto de compras]({{site.baseurl}}/api/objects_filters/purchase_object) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ### Resolução de identificadores {#identifier-resolution}
@@ -96,7 +96,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 --data-raw '{
     "attributes": [
         {
-            "email": "test@braze.com",
+            "email": "test@example.com",
             "string_attribute": "fruit",
             "boolean_attribute_1": true,
             "integer_attribute": 26,
@@ -108,7 +108,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
     ],
     "events": [
         {
-            "email": "test@braze.com",
+            "email": "test@example.com",
             "app_id": "your_app_identifier",
             "name": "rented_movie",
             "time": "2022-12-06T19:20:45+01:00",
@@ -139,7 +139,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
     ],
     "purchases": [
         {
-            "email": "test@braze.com",
+            "email": "test@example.com",
             "app_id": "your_app_identifier",
             "product_id": "product_name",
             "currency": "USD",
@@ -199,7 +199,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
   "attributes": [
   {
     "external_id": "user_identifier",
-    "email": "example@email.com",
+    "email": "example@example.com",
     "email_subscribe": "subscribed",
     "subscription_groups": [{
       "subscription_group_id": "subscription_group_identifier_1",
@@ -221,7 +221,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 ```
 
 {% alert note %}
-Para grupos de inscrições de SMS, quando você define o `subscription_state` de um grupo como `subscribed`, é possível incluir o parâmetro opcional `use_double_opt_in_logic` definido como `true` dentro desse objeto de grupo de inscrições para inserir o usuário no fluxo de trabalho de [dupla aceitação de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/). Se esse parâmetro for omitido ou definido como `false` quando `subscription_state` for `subscribed`, o usuário será inscrito sem entrar no fluxo de trabalho de dupla aceitação. Esse parâmetro não é aplicado quando `subscription_state` é definido com outros valores, como `unsubscribed`.
+Para grupos de inscrições de SMS, quando você define o `subscription_state` de um grupo como `subscribed`, é possível incluir o parâmetro opcional `use_double_opt_in_logic` definido como `true` dentro desse objeto de grupo de inscrições para inserir o usuário no fluxo de trabalho de [dupla aceitação de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in). Se esse parâmetro for omitido ou definido como `false` quando `subscription_state` for `subscribed`, o usuário será inscrito sem entrar no fluxo de trabalho de dupla aceitação. Esse parâmetro não é aplicado quando `subscription_state` é definido com outros valores, como `unsubscribed`.
 {% endalert %}
 
 ### Exemplo de solicitação para criar um usuário somente de alias {#example-request-to-create-an-alias-only-user}
@@ -298,9 +298,9 @@ Se sua mensagem tiver um erro fatal, você receberá a seguinte resposta:
 
 ### Códigos de resposta de erros fatais {#fatal-error-response-codes}
 
-Para obter os códigos de status e as mensagens de erro associadas que a Braze retorna se sua solicitação encontrar um erro fatal, consulte [Erros fatais e respostas]({{site.baseurl}}/api/errors/#fatal-errors).
+Para obter os códigos de status e as mensagens de erro associadas que a Braze retorna se sua solicitação encontrar um erro fatal, consulte [Erros fatais e respostas]({{site.baseurl}}/api/errors#fatal-errors).
 
-Se receber o erro "provided external_id is blacklisted and disallowed", sua solicitação pode ter incluído um "usuário fictício". Para saber mais, consulte [Bloqueio de spam]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival/#spam-blocking).
+Se receber o erro "provided external_id is blacklisted and disallowed", sua solicitação pode ter incluído um "usuário fictício". Para saber mais, consulte [Bloqueio de spam]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival#spam-blocking).
 
 ### Erros específicos do endpoint {#endpoint-specific-errors}
 
@@ -334,7 +334,7 @@ Os erros a seguir são específicos do endpoint `/users/track` e são retornados
 Se o `external_id` existir, a Braze priorizará o perfil atualizado mais recentemente com um ID externo para atualizações. Se o `external_id` não existir, a Braze priorizará o perfil atualizado mais recentemente para atualizações.
 
 ### O que acontece se não houver nenhum perfil com o endereço de e-mail? {#what-happens-if-no-profile-with-the-email-address-exists}
-A Braze cria um perfil e um usuário somente de e-mail e define o campo de e-mail como test@braze.com, conforme indicado no exemplo de solicitação para atualizar um perfil de usuário por endereço de e-mail. A Braze não cria um alias.
+A Braze cria um perfil e um usuário somente de e-mail e define o campo de e-mail como test@example.com, conforme indicado no exemplo de solicitação para atualizar um perfil de usuário por endereço de e-mail. A Braze não cria um alias.
 
 ### Como usar o `/users/track` para importar dados de usuários antigos? {#how-do-you-use-userstrack-to-import-legacy-user-data}
 Você pode enviar dados por meio da API da Braze para um usuário que ainda não tenha usado seu app móvel para gerar um perfil de usuário. Se o usuário usar o aplicativo posteriormente, todas as informações após a identificação usando o SDK serão mescladas com o perfil de usuário existente que você criou usando a chamada da API. Qualquer comportamento de usuário registrado anonimamente pelo SDK antes da identificação é perdido ao ser mesclado com o perfil de usuário existente gerado pela API.
@@ -347,8 +347,8 @@ Perfis duplicados podem ocorrer quando uma solicitação inclui um identificador
 
 Para evitar duplicatas:
 
-- Ao fazer a transição de usuários de perfis somente de e-mail ou somente de telefone para perfis identificados, use o [endpoint `/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/) para atribuir um `external_id` ao perfil existente, em vez de enviar ambos para `/users/track`.
-- Se já existirem duplicatas, mescle-as usando o [endpoint `/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/).
+- Ao fazer a transição de usuários de perfis somente de e-mail ou somente de telefone para perfis identificados, use o [endpoint `/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) para atribuir um `external_id` ao perfil existente, em vez de enviar ambos para `/users/track`.
+- Se já existirem duplicatas, mescle-as usando o [endpoint `/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge).
 
 ### Como o `/users/track` lida com eventos duplicados? {#how-does-userstrack-handle-duplicate-events}
 
@@ -367,14 +367,14 @@ Por exemplo, se você enviar várias solicitações de atualização para o mesm
 Para evitar condições de corrida ao atualizar dados de usuários:
 
 - **Agrupe atualizações em uma única solicitação:** inclua todas as atualizações de atributos de um usuário em uma única chamada de API, em vez de fazer chamadas consecutivas separadas.
-- **Adicione atrasos entre solicitações:** se você precisar fazer chamadas separadas para o mesmo usuário, adicione um atraso (alguns segundos) entre as solicitações para permitir que a primeira seja processada antes de enviar a próxima.
-- **Evite atualizações sobrepostas para o mesmo campo:** se duas solicitações atualizam o mesmo atributo com valores diferentes, envie essas atualizações em uma única solicitação ou separe-as com um atraso para reduzir a chance de resultados fora de ordem.
+- **Adicione intervalos entre solicitações:** se você precisar fazer chamadas separadas para o mesmo usuário, adicione um intervalo (alguns segundos) entre as solicitações para permitir que a primeira seja processada antes de enviar a próxima.
+- **Evite atualizações sobrepostas para o mesmo campo:** se duas solicitações atualizam o mesmo atributo com valores diferentes, envie essas atualizações em uma única solicitação ou separe-as com um intervalo para reduzir a chance de resultados fora de ordem.
 
-Para saber mais sobre condições de corrida e práticas recomendadas, consulte [Condições de corrida]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions/).
+Para saber mais sobre condições de corrida e práticas recomendadas, consulte [Condições de corrida]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions).
 
 ### Por que a resposta do `/users/track` está mais lenta do que eu esperava? {#why-is-my-userstrack-response-slower-than-i-expect}
 
-Chamadas bem-sucedidas ao `/users/track` geralmente são aceitas rapidamente, mas a Braze ainda processa atualizações de atributos, eventos e compras de forma assíncrona. A latência percebida pode aumentar quando as cargas úteis são grandes ou quando o roteamento de rede até o seu [endpoint REST]({{site.baseurl}}/api/basics/#endpoints) é lento. Se você precisar de uma confirmação síncrona por usuário ou de uma ordenação mais rigorosa entre chamadas, consulte [`/users/track/sync`]({{site.baseurl}}/api/endpoints/user_data/post_user_track_synchronous/) (**beta limitado**).
+Chamadas bem-sucedidas ao `/users/track` geralmente são aceitas rapidamente, mas a Braze ainda processa atualizações de atributos, eventos e compras de forma assíncrona. A latência percebida pode aumentar quando as cargas úteis são grandes ou quando o roteamento de rede até o seu [endpoint REST]({{site.baseurl}}/api/basics#endpoints) é lento. Se você precisar de uma confirmação síncrona por usuário ou de uma ordenação mais rigorosa entre chamadas, consulte [`/users/track/sync`]({{site.baseurl}}/api/endpoints/user_data/post_user_track_synchronous) (**beta limitado**).
 
 ### Como os limites de taxa afetam o `/users/track`? {#how-do-rate-limits-affect-userstrack}
 
@@ -382,7 +382,7 @@ Quando você se aproxima do seu [limite de taxa](#rate-limit), você recebe resp
 
 ### Por que recebo `400 Bad Request` com um erro de sintaxe ou análise? {#why-do-i-get-400-bad-request-with-a-bad-syntax-or-parse-error}
 
-Um HTTP `400` com um erro de sintaxe ou análise geralmente significa que o corpo da solicitação não é um JSON válido. Causas comuns incluem vírgulas finais, comentários dentro do JSON, strings com aspas simples, uma chave `{` extra antes da carga útil ou o envio de um corpo que não é JSON enquanto o cabeçalho `Content-Type` é `application/json`. Valide as cargas úteis com um linter de JSON antes de enviar, confirme que seu cliente HTTP codifica objetos em JSON (em vez de concatenar strings brutas) e confirme que o corpo está codificado em UTF-8. Para outras respostas `400` (por exemplo, tamanho da carga útil e limites de objetos por solicitação), consulte [Erros fatais e respostas]({{site.baseurl}}/api/errors/#fatal-errors) e a tabela de [Erros específicos do endpoint](#endpoint-specific-errors) nesta página.
+Um HTTP `400` com um erro de sintaxe ou análise geralmente significa que o corpo da solicitação não é um JSON válido. Causas comuns incluem vírgulas finais, comentários dentro do JSON, strings com aspas simples, uma chave `{` extra antes da carga útil ou o envio de um corpo que não é JSON enquanto o cabeçalho `Content-Type` é `application/json`. Valide as cargas úteis com um linter de JSON antes de enviar, confirme que seu cliente HTTP codifica objetos em JSON (em vez de concatenar strings brutas) e confirme que o corpo está codificado em UTF-8. Para outras respostas `400` (por exemplo, tamanho da carga útil e limites de objetos por solicitação), consulte [Erros fatais e respostas]({{site.baseurl}}/api/errors#fatal-errors) e a tabela de [Erros específicos do endpoint](#endpoint-specific-errors) nesta página.
 
 ## Monthly Active Users CY 24-25, Universal MAU, Web MAU e Mobile MAU {#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau}
 
@@ -393,7 +393,7 @@ Para os clientes que adquiriram Monthly Active Users CY 24-25, Universal MAU, We
 - Além do limite por hora, a Braze impõe um limite de burst no número de solicitações que podem ser enviadas a cada três segundos.
 - Cada solicitação pode conter até 75 atualizações combinadas entre objetos de atributo, evento ou compra.
 
-Os limites atuais baseados na ingestão esperada podem ser encontrados no dashboard em **Settings** > **APIs and Identifiers** > **API Usage Dashboard**. Podemos modificar os limites de taxa para proteger a estabilidade do sistema ou permitir um aumento na taxa de transferência de dados na sua conta. Entre em contato com o suporte da Braze ou com o seu gerente de sucesso do cliente em caso de dúvidas ou preocupações relacionadas ao limite de solicitações por hora ou por segundo e às necessidades da sua empresa.
+Os limites atuais baseados na ingestão esperada podem ser encontrados no dashboard em **Configurações** > **APIs e identificadores** > **API Usage Dashboard**. Podemos modificar os limites de taxa para proteger a estabilidade do sistema ou permitir um aumento na taxa de transferência de dados na sua conta. Entre em contato com o suporte da Braze ou com o seu gerente de sucesso do cliente em caso de dúvidas ou preocupações relacionadas ao limite de solicitações por hora ou por segundo e às necessidades da sua empresa.
 
 ### Cabeçalhos de limite de taxa para Monthly Active Users CY 24-25, Universal MAU, Web MAU e Mobile MAU {#rate-limit-headers-for-monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau}
 

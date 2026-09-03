@@ -6,7 +6,7 @@ page_order: 1
 
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Eliminar campo de catálogo de Braze."
+description: "En este artículo se describen los detalles del endpoint Eliminar campo de catálogo de Braze."
 
 ---
 {% api %}
@@ -15,11 +15,11 @@ description: "En este artículo se describen los detalles del punto de conexión
 /catalogs/{catalog_name}/fields/{field_name}
 {% endapimethod %}
 
-> Utiliza este punto de conexión para eliminar un campo del catálogo.
+> Utiliza este endpoint para eliminar un campo del catálogo.
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `catalogs.delete_fields`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `catalogs.delete_fields`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -43,7 +43,7 @@ curl --location --request DELETE 'https://rest.iad-03.braze.com/catalogs/restaur
 
 ## Respuesta {#response}
 
-Hay dos respuestas de código de estado para este punto de conexión: `202` y `404`.
+Hay dos respuestas de código de estado para este endpoint: `202` y `404`.
 
 ### Ejemplo de respuesta correcta {#example-success-response}
 
@@ -83,10 +83,10 @@ La siguiente tabla enumera los posibles errores devueltos y sus pasos asociados 
 
 | Error | Solución de problemas |
 | ------------------------------- | ---------------------------------------------------------------- |
-| `catalog-not-found` | Comprueba que el nombre del catálogo es válido. |
-| `field-referenced-by-selection` | Comprueba que el campo del catálogo no está siendo utilizado actualmente por una selección. |
+| `catalog-not-found` | Comprueba que el nombre del catálogo sea válido. |
+| `field-referenced-by-selection` | Comprueba que el campo del catálogo no esté siendo utilizado actualmente por una selección. |
 | `field-is-inventory` | Comprueba que el campo del catálogo se utiliza como campo de inventario. |
-| `invalid-field-name` | Comprueba que el nombre del campo del catálogo es válido. |
+| `invalid-field-name` | Comprueba que el nombre del campo del catálogo sea válido. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Solución de problemas" }
 
 {% endapi %}

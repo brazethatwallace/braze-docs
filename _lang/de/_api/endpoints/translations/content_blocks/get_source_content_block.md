@@ -15,13 +15,13 @@ description: "Dieser Artikel beschreibt Details zum Endpunkt für Übersetzungsq
 /content_blocks/translations/source
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um alle Standard-Übersetzungsquellen für die Übersetzungs-Tags eines Content-Blocks anzuzeigen. Dies sind die Werte innerhalb von {% raw %}`{% translation id %} source {% endtranslation %}`{% endraw %}. Weitere Informationen zu Übersetzungsfunktionen finden Sie unter [Lokalisierungen in Nachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/).
+> Verwenden Sie diesen Endpunkt, um alle Standard-Übersetzungsquellen für die Übersetzungs-Tags eines Content-Blocks anzuzeigen. Dies sind die Werte innerhalb von {% raw %}`{% translation id %} source {% endtranslation %}`{% endraw %}. Weitere Informationen zu Übersetzungsfunktionen finden Sie unter [Lokalisierungen in Nachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages).
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `content_blocks.translations.get`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `content_blocks.translations.get`.
 
-## Rate-Limits {#rate-limit}
+## Rate-Limit
 
 {% multi_lang_include rate_limits.md endpoint='translation endpoints' %}
 
@@ -31,7 +31,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 | --------- | ---------| --------- | ----------- |
 | `content_block_id` | Erforderlich | String | Die ID Ihres Content-Blocks. |
 | `locale_id` | Optional | String | Eine Locale-UUID zum Filtern der Antworten. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Query parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Abfrageparameter" }
 
 {% alert note %}
 Alle Übersetzungs-IDs gelten als universell eindeutige Bezeichner (UUIDs), die in der Antwort des GET-Endpunkts zu finden sind.

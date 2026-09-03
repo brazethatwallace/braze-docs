@@ -19,7 +19,7 @@ This Canvas component replaces the need to create excessive audience-based full 
 
 ![An Audience Path with two groups: engaged users and everyone else.]({% image_buster /assets/img/audience_path/audience_path.png %}){: style="float:right;max-width:45%;margin-left:15px;margin-top:15px;"}
 
-Users are progressed down the first branch whose criteria they meet, so put the most important path first. This reduces ambiguity about where users go and which messages they receive. Note that this order isn't [editable after launch]({{site.baseurl}}/post-launch_edits/).
+Users are progressed down the first branch whose criteria they meet, so put the most important path first. This reduces ambiguity about where users go and which messages they receive. Note that this order isn't [editable after launch]({{site.baseurl}}/post-launch_edits).
 
 With Audience Paths, you can:
 
@@ -39,8 +39,12 @@ Users are evaluated against filters and segment membership **at the moment they 
 <div style="clear: both;"></div>
 
 {% alert important %}
-Audience Paths evaluate based on a user's current attributes, filters, and segment membership at the time of evaluation. They do not evaluate based on the specific event that triggered Canvas entry. To route users based on an action they perform (such as a custom event), use [Action Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/) instead.
+Audience Paths evaluate based on a user's current attributes, filters, and segment membership at the time of evaluation. They do not evaluate based on the specific event that triggered Canvas entry. To route users based on an action they perform (such as a custom event), use [Action Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) instead.
 {% endalert %}
+
+Users aren't re-evaluated against their audience group after they move down a path. If the message that follows is delayed by a Delay step, Quiet Hours, Intelligent Timing, rate limiting, or local time zone delivery, a user's profile can change before that message sends.
+
+To confirm that users still meet segment and filter criteria before the Message step sends, turn on **Validate audience at message send** in the Message step's [delivery validations]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#delivery-validations). Delivery validations check only the segments and filters you add to that Message step, so they don't reuse the criteria from your Audience Path. For in-app messages, delivery validations are checked when a user enters the Message step, not when the message displays.
 
 ### Allowing time for user evaluations
 
@@ -61,9 +65,7 @@ The default Audience Paths component contains two default audience groups, **Gro
 
 ### Defining audience groups
 
-The following screenshot shows the layout of an expanded Audience Paths step. Here, you can define up to eight audience groups (one preset and seven customizable). To define an audience group, select the group name from the Audience Paths editor. You can rename your audience group, choose the filters and segments that apply to your group, and add or delete groups.
-
-For example, if you wanted to target onboarding messaging to a group of users, you might select retargeting filters, such as "Has clicked email" and "Has clicked in-app message".
+The following screenshot shows the layout of an expanded Audience Paths step. Here, you can define up to eight audience groups (one preset and seven customizable). To define an audience group, select the group name from the Audience Paths editor. You can rename your audience group, choose the filters and segments that apply to your group, and add or delete groups. For example, if you wanted to target onboarding messaging to a group of users, you might select retargeting filters, such as "Has clicked email" and "Has clicked in-app message".
 
 ![An expanded Audience Path with groups for "Loves Asian Cuisine”, “Loves Latin Cuisine”, “Loves European Cuisine”, and "Everyone Else".]({% image_buster /assets/img/audience_path/audience_path3.png %})
 
@@ -71,9 +73,13 @@ After the Audience Paths step is complete, each audience group will have a separ
 
 ![Two Audience Paths with different groups based on engagement.]({% image_buster /assets/img/audience_path/audience_path4.png %}){: style="max-width:50%"}
 
+#### Using comparison filters with context variables
+
+When splitting on a context variable that holds a date, see [Day of Year and Time filters for date context variables]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/#day-of-year-and-time-filters-for-date-context-variables) to choose the correct comparison type.
+
 ### Testing audience groups
 
-After adding segments and filters to your audience, you can test if your audience groups are set up as expected by [looking up a user]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) to confirm they match the audience criteria.
+After adding segments and filters to your audience, you can test if your audience groups are set up as expected by [looking up a user]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) to confirm they match the audience criteria.
 
 ![The "User Lookup" section.]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:70%"}
 
@@ -93,11 +99,11 @@ You can also see the performance of this step using [Canvas analytics]({{site.ba
 
 ### Segmenting Audience Paths with random bucket numbers
 
-If your Canvas uses a [rate limit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/) (such as limiting the total number of users who will receive the Canvas), Braze recommends that you don't use random bucket numbers to segment your Audience Paths. 
+If your Canvas uses a [rate limit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping) (such as limiting the total number of users who will receive the Canvas), Braze recommends that you don't use random bucket numbers to segment your Audience Paths. 
 
-A [random bucket number]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/) is a user attribute that can be used to create uniformly distributed segments of random users. Braze uses the random bucket number to group users during the segmentation phase of Canvas entry, and each group is processed separately. Depending on which groups finish processing first, some users may be capped at entry due to the rate limit, which could cause an uneven distribution of users when they reach the Audience Paths step.
+A [random bucket number]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers) is a user attribute that can be used to create uniformly distributed segments of random users. Braze uses the random bucket number to group users during the segmentation phase of Canvas entry, and each group is processed separately. Depending on which groups finish processing first, some users may be capped at entry due to the rate limit, which could cause an uneven distribution of users when they reach the Audience Paths step.
 
-In this scenario, try using [Experiment Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/) instead.
+In this scenario, try using [Experiment Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) instead.
 
 ### Using Intelligent Channel filter with Audience Paths
 

@@ -13,13 +13,13 @@ description: "이 문서에서는 유효하지 않은 전화번호를 조회하�
 /sms/invalid_phone_numbers
 {% endapimethod %}
 
-> 이 엔드포인트를 사용하여 특정 기간 내에 '유효하지 않음'으로 표시된 전화번호 목록을 가져올 수 있습니다. 자세한 내용은 [유효하지 않은 전화번호 처리]({{site.baseurl}}/user_guide/message_building_by_channel/sms/phone_numbers/user_phone_numbers/#handling-invalid-phone-numbers) 설명서를 참조하세요.
+> 이 엔드포인트를 사용하여 특정 기간 내에 '유효하지 않음'으로 표시된 전화번호 목록을 가져올 수 있습니다. 자세한 내용은 [유효하지 않은 전화번호 처리]({{site.baseurl}}/user_guide/message_building_by_channel/sms/phone_numbers/user_phone_numbers#handling-invalid-phone-numbers) 설명서를 참조하세요.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#81ceae19-15d1-4ac1-ad22-a6b86a92456d {% endapiref %}
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `sms.invalid_phone_numbers` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `sms.invalid_phone_numbers` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key-permissions)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -35,7 +35,7 @@ description: "이 문서에서는 유효하지 않은 전화번호를 조회하�
 | `offset` | 선택 사항 | 정수 | 검색을 시작할 목록의 시작점입니다(선택 사항). |
 | `phone_numbers` | 선택 사항 <br>(참고 참조) | e.164 형식의 문자열 배열 | 제공된 경우, 해당 전화번호가 유효하지 않은 것으로 확인되면 반환합니다. |
 | `reason` | 선택 사항 <br>(참고 참조) | 문자열 | 사용 가능한 값은 "provider_error"(공급자 오류로 인해 해당 전화기에서 SMS를 수신할 수 없음) 또는 "deactivated"(전화번호가 비활성화됨)입니다. 생략하면 모든 사유가 반환됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 {% alert note %}
 `start_date`와 `end_date` 또는 `phone_numbers` 중 하나를 제공해야 합니다. 세 가지를 모두 제공하면 지정된 전화번호를 우선시하고 날짜 범위는 무시합니다.

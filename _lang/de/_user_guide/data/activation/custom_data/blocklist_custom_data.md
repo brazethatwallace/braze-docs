@@ -8,7 +8,7 @@ description: "Dieser Referenzartikel beschreibt, wie Sie angepasste Events und A
 
 # Angepasste Daten auf die Blocklist setzen {#blocklist-custom-data}
 
-> Verwenden Sie die Blocklist, um das Tracking angepasster Daten zu stoppen, die nicht mehr nützlich sind. Verwenden Sie die Löschfunktion, um angepasste Events und Attribute nach dem Blocklisting dauerhaft aus Nutzerprofilen zu entfernen. Informationen zum Vorausfüllen, Verwalten von Eigenschaften und Konfigurieren von Datentypen finden Sie unter [Angepasste Daten verwalten]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/).
+> Verwenden Sie die Blocklist, um das Tracking angepasster Daten zu stoppen, die nicht mehr nützlich sind. Verwenden Sie die Löschfunktion, um angepasste Events und Attribute nach dem Blocklisting dauerhaft aus Nutzerprofilen zu entfernen. Informationen zum Vorausfüllen, Verwalten von Eigenschaften und Konfigurieren von Datentypen finden Sie unter [Angepasste Daten verwalten]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data).
 
 ## Angepasste Daten auf die Blocklist setzen {#blocklisting-custom-data}
 
@@ -25,7 +25,7 @@ Blocklisting sendet Blocklist-Informationen an das Gerät jeder Nutzerin und jed
 
 Unabhängig davon, ob Sie Blocklisting oder Löschung verwenden, werden diese angepassten Attribute, Events und Käufe nicht mehr auf der Seite **Manage Workspace** angezeigt und als Segment-Filter entfernt. Wenn Sie angepasste Daten löschen, entfernt Braze diese Daten auf Nutzerebene aus Profilen gemäß [Wie die Löschung funktioniert](#how-deletion-works).
 
-Um angepasste Daten auf die Blocklist zu setzen, benötigen Sie die [Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) aus dem folgenden Dropdown für Ihren Workspace.
+Um angepasste Daten auf die Blocklist zu setzen, benötigen Sie die [Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) aus dem folgenden Dropdown für Ihren Workspace.
 
 {% details Berechtigungen für das Blocklisting angepasster Daten %}
 
@@ -87,7 +87,7 @@ Um das Tracking eines bestimmten angepassten Attributs, Events oder Produkts zu 
 
 ![Mehrere ausgewählte angepasste Attribute, die auf der Seite „Custom Attributes“ auf die Blocklist gesetzt werden.]({% image_buster /assets/img_archive/blocklist_custom_attr.png %})
 
-Sie können bis zu 300 angepasste Attribute und 300 angepasste Events auf die Blocklist setzen. Um das Erfassen bestimmter Geräteattribute zu verhindern, lesen Sie unseren [SDK-Leitfaden]({{site.baseurl}}/developer_guide/platform_integration_guides/sdk_primer/#blocking-data-collection).
+Sie können bis zu 300 angepasste Attribute und 300 angepasste Events auf die Blocklist setzen. Um das Erfassen bestimmter Geräteattribute zu verhindern, lesen Sie unseren [SDK-Leitfaden]({{site.baseurl}}/developer_guide/platform_integration_guides/sdk_primer#blocking-data-collection).
 
 {% alert important %}
 Angepasste Attribute oder angepasste Events mit dem Status **Trashed** zählen zum Blocklist-Limit, bis sie gelöscht werden.
@@ -114,14 +114,14 @@ Bis zu 300 Einträge werden an das SDK für das Blocklisting gesendet. Wenn Sie 
 Beim Erstellen gezielter Campaigns und Segmente stellen Sie möglicherweise fest, dass Sie ein angepasstes Event oder angepasstes Attribut nicht mehr benötigen. Wenn Sie beispielsweise ein bestimmtes angepasstes Attribut als Teil einer einmaligen Campaign verwendet haben, können Sie diese Daten nach dem [Blocklisting](#blocklisting-custom-attributes-custom-events-and-products) löschen und die Verweise darauf aus Ihrer App entfernen. Sie können alle Datentypen löschen (z. B. Strings, Zahlen und verschachtelte angepasste Attribute).
 
 {% alert important %}
-Sie müssen [Braze-Admin]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#admin) sein, um angepasste Daten zu löschen.
+Sie müssen [Braze-Admin]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#admin) sein, um angepasste Daten zu löschen.
 {% endalert %}
 
 Um ein angepasstes Event oder angepasstes Attribut zu löschen, gehen Sie wie folgt vor:
 
-1. Gehen Sie zu **Data Settings** > **Custom Attributes** oder **Custom Events**, je nachdem, welchen Datentyp Sie löschen möchten.
-2. Gehen Sie zu den angepassten Daten und wählen Sie <i class="fa-solid fa-ellipsis-vertical"></i>&nbsp;**Actions** > **Blocklist**.
-3. Nachdem Ihre angepassten Daten 7 Tage lang auf der Blocklist waren, wählen Sie <i class="fa-solid fa-ellipsis-vertical"></i>&nbsp;**Actions** > **Delete**.
+1. Gehen Sie zu **Dateneinstellungen** > **Custom Attributes** oder **Custom Events**, je nachdem, welchen Datentyp Sie löschen möchten.
+2. Gehen Sie zu den angepassten Daten und wählen Sie <i class="fa-solid fa-ellipsis-vertical"></i>&nbsp;**Aktionen** > **Blocklist**.
+3. Nachdem Ihre angepassten Daten 7 Tage lang auf der Blocklist waren, wählen Sie <i class="fa-solid fa-ellipsis-vertical"></i>&nbsp;**Aktionen** > **Löschen**.
 
 ### Wie die Löschung funktioniert {#how-deletion-works}
 
@@ -142,4 +142,4 @@ Beachten Sie beim Löschen angepasster Daten die folgenden Details:
 * Daten werden von der Braze-Plattform und aus Nutzerprofilen entfernt.
 * Sie können den Namen des angepassten Attributs oder angepassten Events nach der Löschung „wiederverwenden“. Wenn Sie also bemerken, dass angepasste Daten nach der Löschung in Braze „wieder auftauchen“, kann dies durch eine Integration verursacht werden, die nicht gestoppt wurde und Daten mit demselben angepassten Datennamen sendet.
 * Möglicherweise müssen Sie einen Eintrag erneut auf die Blocklist setzen, wenn Ihre Löschung dazu führt, dass angepasste Daten wieder auftauchen. Der Blocklist-Status wird nicht beibehalten, da die angepassten Daten gelöscht wurden.
-* Das Löschen angepasster Daten protokolliert keine [Datenpunkte]({{site.baseurl}}/user_guide/data/infrastructure/data_points/) und erzeugt auch keine neuen Datenpunkte.
+* Das Löschen angepasster Daten protokolliert keine [Datenpunkte]({{site.baseurl}}/user_guide/data/infrastructure/data_points) und erzeugt auch keine neuen Datenpunkte.

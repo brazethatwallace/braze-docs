@@ -21,7 +21,7 @@ description: "Cet article présente en détail l'endpoint Braze Lister les déta
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `catalogs.get_items`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `catalogs.get_items`.
 
 ## Limite de débit {#rate-limit}
 
@@ -32,7 +32,7 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 | Paramètre | Requis | Type de données | Description |
 |---|---|---|---|
 | `catalog_name` | Requis | Chaîne de caractères | Nom du catalogue. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Paramètres de chemin" }
 
 ## Paramètres de requête {#query-parameters}
 
@@ -41,11 +41,11 @@ Notez que chaque appel à cet endpoint retournera 50 produits. Pour un catalogue
 | Paramètre | Requis | Type de données | Description |
 |---|---|---|---|
 | `cursor` | Facultatif | Chaîne de caractères | Détermine la pagination des produits du catalogue. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Query parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Paramètres de requête" }
 
-## Paramètres de demande {#request-parameters}
+## Paramètres de la requête {#request-parameters}
 
-Cet endpoint n'a pas de corps de demande.
+Cet endpoint n'a pas de corps de requête.
 
 ## Exemples de requêtes {#example-requests}
 
@@ -116,7 +116,7 @@ Link: </catalogs/all_restaurants/items?cursor=c2tpcDow>; rel="prev",</catalogs/a
 }
 ```
 
-### Exemple de réponse échouée {#example-error-response}
+### Exemple de réponse en erreur {#example-error-response}
 
 Le code de statut `400` pourrait renvoyer le corps de réponse suivant. Consultez la section [Résolution des problèmes](#troubleshooting) pour plus d'informations concernant les erreurs que vous pourriez rencontrer.
 
@@ -146,6 +146,6 @@ Le tableau suivant répertorie les erreurs renvoyées possibles et les étapes d
 | --- | --- |
 | `catalog-not-found` | Vérifiez que le nom du catalogue est valide. |
 | `invalid-cursor` | Vérifiez que votre `cursor` est valide. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Résolution des problèmes" }
 
 {% endapi %}

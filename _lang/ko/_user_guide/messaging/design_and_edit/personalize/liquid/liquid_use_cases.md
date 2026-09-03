@@ -569,7 +569,7 @@ There is a shovel here.
 
 ### 유럽식 숫자 표기법에 맞게 통화 포맷하기 {#european-currency-format}
 
-소수점 구분 기호로 쉼표를, 천 단위 구분 기호로 마침표를 사용하는 로케일(예: 독일 또는 이탈리아)의 경우, [`money`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/#money-filter) 및 [`number_with_delimiter`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#number-formatting-filters) 필터와 `replace`를 함께 사용하여 구분 기호를 교체합니다. 마침표와 쉼표가 같은 패스에서 교체되지 않도록 `#`을 임시 플레이스홀더로 사용합니다.
+소수점 구분 기호로 쉼표를, 천 단위 구분 기호로 마침표를 사용하는 로케일(예: 독일 또는 이탈리아)의 경우, [`money`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#money-filters) 및 [`number_with_delimiter`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#number-formatting-filters) 필터와 `replace`를 함께 사용하여 구분 기호를 교체합니다. 마침표와 쉼표가 같은 패스에서 교체되지 않도록 `#`을 임시 플레이스홀더로 사용합니다.
 
 {% raw %}
 ```liquid
@@ -952,7 +952,7 @@ Today's offer from {{store}}
 
 이 사용 사례를 통해 사용자는 커스텀 이벤트를 기반으로 다가오는 리마인더를 설정할 수 있습니다. 예시 시나리오에서는 사용자가 26일 이상 남은 보험 갱신 날짜에 대한 리마인더를 설정할 수 있으며, 보험 갱신 날짜 26일, 13일, 7일 또는 2일 전에 리마인더가 발송됩니다.
 
-이 사용 사례에서는 다음 내용이 [웹훅 Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/) 또는 캔버스 단계의 본문에 들어가야 합니다.
+이 사용 사례에서는 다음 내용이 [웹훅 Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) 또는 캔버스 단계의 본문에 들어가야 합니다.
 
 {% raw %}
 ```liquid
@@ -1539,7 +1539,7 @@ Check out this new bar after work today. HH specials!
 ```
 {% endraw %}
 
-{% alert note %} 이것은 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#time-based-options)의 반대입니다. {% endalert %}
+{% alert note %} 이것은 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#time-based-options)의 반대입니다. {% endalert %}
 
 ### 발송 시점에 시간 범위 밖이면 메시지 중단하기 {#abort-send-time-hour-range}
 
@@ -1816,4 +1816,4 @@ Default copy
 
 {% endapi %}
 
-이 라이브러리의 많은 예시에서는 조건이 충족되지 않을 때 발송을 건너뛰기 위해 `abort_message` 태그를 사용합니다. Liquid를 사용한 발송 중단에 대한 전체 참조(날짜 및 시간 기반 패턴 포함)는 [Liquid 메시지 중단하기]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/)를 참조하세요.
+이 라이브러리의 많은 예시에서는 조건이 충족되지 않을 때 발송을 건너뛰기 위해 `abort_message` 태그를 사용합니다. Liquid를 사용한 발송 중단에 대한 전체 참조(날짜 및 시간 기반 패턴 포함)는 [Liquid 메시지 중단하기]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)를 참조하세요.

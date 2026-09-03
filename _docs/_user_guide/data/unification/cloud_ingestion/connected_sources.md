@@ -13,7 +13,7 @@ page_type: reference
 
 After adding a connected source to your Braze workspace, you can create a CDI segment within Segment Extensions. CDI Segment Extensions let you write SQL that directly queries your data warehouse (using data there that’s made available through your CDI Connected Source), and creates and maintains a group of users that can be targeted within Braze. 
 
-For more information on creating a segment with this source, refer to [CDI Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments/).
+For more information on creating a segment with this source, refer to [CDI Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments).
 
 {% alert warning %}
 Because connected sources run on your data warehouse directly, you will incur all costs associated with running these queries in your data warehouse. Connected sources don't log data points, and CDI Segment Extensions don't consume SQL segment credits.
@@ -49,8 +49,8 @@ Cloud Data Ingestion connected sources require some setup on Braze and in your i
 {% tab Redshift %}
 1. Set up the source data and required resources in your Redshift environment.
 2. Create a new connected source in the Braze dashboard.
-4. Test the integration.
-5. Use the connected source to create one or more CDI Segment Extensions.
+3. Test the integration.
+4. Use the connected source to create one or more CDI Segment Extensions.
 {% endtab %}
 
 {% tab BigQuery %}
@@ -143,7 +143,7 @@ When connecting different workspaces to the same Snowflake account, you must cre
 
 Depending on the configuration of your Snowflake account, you may need to allow the following IP addresses in your Snowflake network policy. For more information on doing this, refer to the relevant Snowflake documentation on [modifying a network policy](https://docs.snowflake.com/en/user-guide/network-policies.html#modifying-network-policies).
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 {% endtab %}
 
 {% tab Redshift %}
@@ -165,20 +165,20 @@ The `create table` permission is required so Braze can create a table with your 
 
 #### Step 2.2: Allow access to Braze IPs    
 
-If you have a firewall or other network policies, you must give Braze network access to your Redshift instance. Allow access from the below IPs corresponding to your Braze dashboard's region. 
+If you have a firewall or other network policies, you must give Braze network access to your Redshift instance. Allow access from the following IPs corresponding to your Braze dashboard's region. 
 
-You may also need to change your security groups to allow Braze access to your data in Redshift. Make sure to explicitly allow inbound traffic on the IPs below and on the port used to query your Redshift cluster (default is 5439). You should explicitly allow Redshift TCP connectivity on this port even if the inbound rules are set to "allow all". In addition, it is important that the endpoint for the Redshift cluster be publicly accessible in order for Braze to connect to your cluster.
+You may also need to change your security groups to allow Braze access to your data in Redshift. Make sure to explicitly allow inbound traffic on the IPs in the following section and on the port used to query your Redshift cluster (default is 5439). You should explicitly allow Redshift TCP connectivity on this port even if the inbound rules are set to "allow all". In addition, it is important that the endpoint for the Redshift cluster be publicly accessible in order for Braze to connect to your cluster.
 
 If you don't want your Redshift cluster to be publicly accessible, you can set up a VPC and EC2 instance to use an ssh tunnel to access the Redshift data. For more information, refer to [AWS: How do I access a private Amazon Redshift cluster from my local machine?](https://repost.aws/knowledge-center/private-redshift-cluster-local-machine)
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 
 {% tab BigQuery %}
 #### Step 2.1: Create a Service Account and grant permissions 
 
-Create a service account in GCP for Braze to use to connect and read data from your table(s). The service account should have the below permissions: 
+Create a service account in GCP for Braze to use to connect and read data from your table(s). The service account should have the in the following section permissions: 
 
 - **BigQuery Connection User:** Allows Braze to make connections.
 - **BigQuery User:** Provides Braze access to run queries, read dataset metadata, and list tables.
@@ -196,9 +196,9 @@ After creating the service account and granting permissions, generate a JSON key
 
 #### Step 2.2: Allow access to Braze IPs    
 
-If you have network policies in place, you must give Braze network access to your Big Query instance. Allow access from the below IPs corresponding to your Braze dashboard's region.  
+If you have network policies in place, you must give Braze network access to your Big Query instance. Allow access from the following IPs corresponding to your Braze dashboard's region.  
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 
@@ -224,9 +224,9 @@ Keep the token in a safe place until you need to enter it on the Braze dashboard
 
 #### Step 2.2: Allow access to Braze IPs    
 
-If you have network policies in place, you must give Braze network access to your Databricks instance. Allow access from the below IPs corresponding to your Braze dashboard's region.  
+If you have network policies in place, you must give Braze network access to your Databricks instance. Allow access from the following IPs corresponding to your Braze dashboard's region.  
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 
@@ -234,16 +234,9 @@ If you have network policies in place, you must give Braze network access to you
 #### Step 2.1: Grant access to Fabric resources 
 Braze will connect to your Fabric warehouse using a service principal with Entra ID authentication. You will create a new service principal for Braze to use, and grant access to Fabric resources as needed. Braze will need the following details to connect:    
 
-* Tenant ID (also called directory) for your Azure account 
-* Principal ID (also called application ID) for the service principal 
-* Client secret for Braze to authenticate
+{% multi_lang_include data_unification/azure_service_principal_credentials.md %}
 
-1. In the Azure portal, navigate to the Microsoft Entra admin center, and then **App Registrations**.
-2. Select **+ New registration** under **Identity > Applications > App registrations** 
-3. Enter a name, and select `Accounts in this organizational directory only` as the supported account type. Then, select **Register**. 
-4. Select the application (service principal) you just created, then navigate to **Certificates & secrets > + New client secret**
-5. Enter a description for the secret, and set an expiry period for the secret. Then, select **Add**. 
-6. Note the client secret created to use in the Braze setup. 
+{% multi_lang_include data_unification/azure_app_registration_steps.md %} 
 
 {% alert note %}
 Azure doesn't allow unlimited expiry on service principal secrets. Remember to refresh the credentials before they expire in order to maintain the flow of data to Braze.
@@ -258,14 +251,13 @@ You will provide access for Braze to connect to your Fabric instance. In your Fa
 #### Step 2.3: Get warehouse connection string 
 
 You will need the SQL endpoint for your warehouse in order for Braze to connect. To retrieve the SQL endpoint, go to the **workspace** in Fabric, and in the list of items, hover over the warehouse name and select **Copy SQL connection string**.
-
-![The "Fabric Console" page in Microsoft Azure, where users should retrieve the SQL Connection String.]({% image_buster /assets/img/cloud_ingestion/fabric_1.png %})
+Keep this value available for the credential setup in Step 3.
 
 #### Step 2.4: Allow Braze IPs in Firewall (Optional)
 
 Depending on the configuration of your Microsoft Fabric account, you may need to allow the following IP addresses in your firewall to allow traffic from Braze. For more information on enabling this, see the relevant documentation on [Entra Conditional Access](https://learn.microsoft.com/en-us/fabric/security/protect-inbound-traffic#entra-conditional-access).
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 
@@ -277,151 +269,128 @@ Depending on the configuration of your Microsoft Fabric account, you may need to
 {% tab Snowflake %}
 #### Step 3.1: Add Snowflake connection information and source table
 
-Create a connected source in the Braze dashboard. Go to **Data Settings** > **Cloud Data Ingestion** > **Connected Sources**, and then select **Create new data sync** > **Snowflake Import**.
+Create a connected source in the Braze dashboard. Go to **Data Settings** > **Cloud Data Ingestion** > **Connected Sources**, select **Add data source**, and then select **Snowflake**.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
+In **Setup source**, enter the following:
+- **Credentials:** **Account Locator**, **Username**, and **Role**
+- **Configuration:** **Warehouse**, **Database**, and **Schema**
 
-Input the information for your Snowflake data warehouse and source schema, then proceed to the next step.
-
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_sf_1.png %})
+If you're creating new Snowflake credentials, select **Save credentials and generate RSA key** before testing the connection.
 
 #### Step 3.2: Configure sync details
 
 Choose a name for the connected source. This name will be used in the list of available sources when you create a new CDI Segment Extension. 
 
-Configure a maximum runtime for this source. Braze will automatically abort any queries that exceed the maximum runtime when it's creating or refreshing a segment. The maximum runtime allowed is 60 minutes; a lower runtime will reduce costs incurred on your Snowflake account. 
+Configure a maximum runtime for this source. Braze will automatically abort any queries that exceed the maximum runtime. The maximum runtime allowed is 60 minutes; a lower runtime will reduce costs incurred on your Snowflake account. This setting applies to queries run through this source, including syncs and CDI Segment Extensions that use it. 
 
 {% alert note %}
 If queries are consistently timing out and you have set a maximum runtime of 60 minutes, consider trying to optimize your query execution time or dedicating a larger warehouse to the Braze user.
 {% endalert %}
-
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_sf_2.png %})
 
 #### Step 3.3: Note the public key  
 
 In the **Test connection** step, take note of the RSA public key. You'll need it to complete the integration in Snowflake.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_sf_3.png %})
-
 {% endtab %}
 {% tab Redshift %}
 #### Step 3.1: Add Redshift connection information and source table
 
-Create a connected source in the Braze dashboard. Go to **Data Settings** > **Cloud Data Ingestion** > **Connected Sources**, and then select **Create data connection** > **Amazon Redshift Import**.
+Create a connected source in the Braze dashboard. Go to **Data Settings** > **Cloud Data Ingestion** > **Connected Sources**, select **Add data source**, and then select **Amazon Redshift**.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
+In **Setup source**, enter the following:
+- **Credentials:** **Redshift Host URL**, **Username**, **Password**, and **Port**
+- **Configuration:** **Database** and **Schema**
 
-Input the information for your Redshift data warehouse and source schema, then proceed to the next step.
-
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_rd_1.png %})
+If needed, enable **Connect with SSH Tunnel** and enter **Tunnel Host**, **Tunnel Port**, and **Tunnel Username**.
 
 #### Step 3.2: Configure sync details
 
 Choose a name for the connected source. This name will be used in the list of available sources when you create a new CDI Segment Extension. 
 
-Configure a maximum runtime for this source. Braze will automatically abort any queries that exceed the maximum runtime when it's creating or refreshing a segment. The maximum runtime allowed is 60 minutes; a lower runtime will reduce costs incurred on your Redshift account. 
+Configure a maximum runtime for this source. Braze will automatically abort any queries that exceed the maximum runtime. The maximum runtime allowed is 60 minutes; a lower runtime will reduce costs incurred on your Redshift account. 
+This setting applies to queries run through this source, including syncs and CDI Segment Extensions that use it.
 
 {% alert note %}
 If queries are consistently timing out and you have set a maximum runtime of 60 minutes, consider trying to optimize your query execution time or dedicating a larger warehouse to the Braze user.
 {% endalert %}
-
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_rd_2.png %})
 
 #### Step 3.3: Note the public key (optional)
 
 If your credentials have **Connect with SSH Tunnel** selected, take note of the RSA public key in the **Test connection** step. You'll need it to complete the integration in Redshift.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_rd_3.png %})
-
 {% endtab %}
 {% tab BigQuery %}
 #### Step 3.1: Add BigQuery connection information and source table
 
-Create a connected source in the Braze dashboard. Go to **Data Settings** > **Cloud Data Ingestion** > **Connected Sources**, and then select **Create new data sync** > **Google BigQuery Import**.
+Create a connected source in the Braze dashboard. Go to **Data Settings** > **Cloud Data Ingestion** > **Connected Sources**, select **Add data source**, and then select **Google BigQuery**.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
-
-Input the information for your BigQuery project and dataset, then proceed to the next step.
-
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_bg_1.png %})
+In **Setup source**, enter the following:
+- **Credentials:** **Credential name** and upload your **JSON key**
+- **Configuration:** **Project** and **Dataset**
 
 #### Step 3.2: Configure sync details
 
 Choose a name for the connected source. This name will be used in the list of available sources when you create a new CDI Segment Extension. 
 
-Configure a maximum runtime for this source. Braze will automatically abort any queries that exceed the maximum runtime when it's creating or refreshing a segment. The maximum runtime allowed is 60 minutes; a lower runtime will reduce costs incurred on your BigQuery account. 
+Configure a maximum runtime for this source. Braze will automatically abort any queries that exceed the maximum runtime. The maximum runtime allowed is 60 minutes; a lower runtime will reduce costs incurred on your BigQuery account. This setting applies to queries run through this source, including syncs and CDI Segment Extensions that use it. 
 
 {% alert note %}
 If queries are consistently timing out and you have set a maximum runtime of 60 minutes, consider trying to optimize your query execution time or dedicating a larger warehouse to the Braze user.
 {% endalert %}
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_bg_2.png %})
-
 #### Step 3.3: Test the connection
 
 Select **Test Connection** to verify that the list of tables visible to the user is what you expect, then select **Done**. Your connected source is now created and ready to use in CDI Segment Extensions.
-
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_test_connection.png %})
 
 {% endtab %}
 {% tab Databricks %}
 #### Step 3.1: Add Databricks connection information and source table
 
-Create a connected source in the Braze dashboard. Go to **Data Settings** > **Cloud Data Ingestion** > **Connected Sources**, and then select **Create new data sync** > **Databricks Import**.
+Create a connected source in the Braze dashboard. Go to **Data Settings** > **Cloud Data Ingestion** > **Connected Sources**, select **Add data source**, and then select **Databricks**.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
-
-Input the information for your Databricks credentials and, optional catalog and source schema, then proceed to the next step.
-
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_databricks_1.png %})
+In **Setup source**, enter the following:
+- **Credentials:** **Credential Name**, **Hostname**, **HTTP Path**, and **Access Token**
+- **Configuration:** **Catalog** and **Schema**
 
 #### Step 3.2: Configure sync details
 
 Choose a name for the connected source. This name will be used in the list of available sources when you create a new CDI Segment Extension. 
 
-Configure a maximum runtime for this source. Braze will automatically abort any queries that exceed the maximum runtime when it's creating or refreshing a segment. The maximum runtime allowed is 60 minutes; a lower runtime will reduce costs incurred on your Databricks account. 
+Configure a maximum runtime for this source. Braze will automatically abort any queries that exceed the maximum runtime. The maximum runtime allowed is 60 minutes; a lower runtime will reduce costs incurred on your Databricks account. This setting applies to queries run through this source, including syncs and CDI Segment Extensions that use it. 
 
 {% alert note %}
 If queries are consistently timing out and you have set a maximum runtime of 60 minutes, consider trying to optimize your query execution time or dedicating a larger warehouse to the Braze user.
 {% endalert %}
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_db_2.png %})
-
 #### Step 3.3: Test the connection
 
 Select **Test Connection** to verify that the list of tables visible to the user is what you expect, then select **Done**. Your connected source is now created and ready to use in CDI Segment Extensions.
-
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_test_connection.png %})
 
 {% endtab %}
 {% tab Microsoft Fabric %}
 #### Step 3.1: Add Microsoft Fabric connection information and source table
 
-Create a connected source in the Braze dashboard. Go to **Data Settings** > **Cloud Data Ingestion** > **Connected Sources**, and then select **Create new data sync** > **Microsoft Fabric Import**.
+Create a connected source in the Braze dashboard. Go to **Data Settings** > **Cloud Data Ingestion** > **Connected Sources**, select **Add data source**, and then select **Microsoft Fabric**.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
+In **Setup source**, enter the following:
+- **Credentials:** **Credentials Name**, **Tenant ID**, **Principal ID**, **Client Secret**, and **Connection String**
+- **Configuration:** **Database** and **Schema**
 
-Input the information for your Microsoft Fabric credentials, as well as the source warehouse and schema, then proceed to the next step.
-
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_mf_1.png %})
+If **Connect with SSH Tunnel** is available in your workspace and needed for your setup, also enter **Tunnel Host**, **Tunnel Port**, and **Tunnel Username**.
 
 #### Step 3.2: Configure sync details
 
 Choose a name for the connected source. This name will be used in the list of available sources when you create a new CDI Segment Extension. 
 
-Configure a maximum runtime for this source. Braze will automatically abort any queries that exceed the maximum runtime when it's creating or refreshing a segment. The maximum runtime allowed is 60 minutes; a lower runtime will reduce costs incurred on your Microsoft Fabric account. 
+Configure a maximum runtime for this source. Braze will automatically abort any queries that exceed the maximum runtime. The maximum runtime allowed is 60 minutes; a lower runtime will reduce costs incurred on your Microsoft Fabric account. This setting applies to queries run through this source, including syncs and CDI Segment Extensions that use it. 
 
 {% alert note %}
 If queries are consistently timing out and you have set a maximum runtime of 60 minutes, consider trying to optimize your query execution time or scaling the Fabric capacity.
 {% endalert %}
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_mf_2.png %})
-
 #### Step 3.3: Test the connection
 
 Select **Test Connection** to verify that the list of tables visible to the user is what you expect, then select **Done**. Your connected source is now created and ready to use in CDI Segment Extensions.
-
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_test_connection.png %})
 
 {% endtab %}
 {% endtabs %}
@@ -433,8 +402,6 @@ Select **Test Connection** to verify that the list of tables visible to the user
 Add the public key you noted during the last step to your user in Snowflake. This will allow Braze to connect to Snowflake. For details on how to do this, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/key-pair-auth.html). 
 
 If you want to rotate the keys at any point, you can create a new public key by going to **Data Access Management** in **Cloud Data Ingestion** and selecting **Generate New Key** for the respective account.
-
-![Data Access Management for Snowflake Data Access Credentials, with a button to Generate New Key.]({% image_buster /assets/img/cloud_ingestion/connected_source_sf_4.png %})
 
 ```sql
 ALTER USER BRAZE_INGESTION_USER SET rsa_public_key='{INSERT_YOUR_KEY}';
@@ -495,7 +462,7 @@ You may set up multiple sources with Braze, but each source should be configured
 
 ## Using the connected source
 
-After the source is created, you can use it to create one or more CDI Segment Extensions. For more information on creating a segment with this source, refer to the [CDI Segment Extensions documentation]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments/).
+After the source is created, you can use it to create one or more CDI Segment Extensions. For more information on creating a segment with this source, refer to the [CDI Segment Extensions documentation]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments).
 
 {% alert note %}
 If queries are consistently timing out and you have set a maximum runtime of 60 minutes, consider trying to optimize your query execution time or dedicating more compute resources (such as a larger warehouse) to the Braze user.

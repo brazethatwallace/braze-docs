@@ -23,7 +23,7 @@ Die Integration von Braze und Treasure Data erlaubt es Ihnen, Auftragsergebnisse
 | --- | --- |
 | Treasure Data-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein [Treasure Data-Konto](https://www.treasuredata.com/custom-demo/). |
 | Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit den Berechtigungen `users.track`, `users.delete`, `users.alias.new`, `users.identify`.<br><br>Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Braze REST-Endpunkt  | Ihre URL für den REST-Endpunkt. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)) ab. |
+| Braze REST-Endpunkt  | Ihre URL für den REST-Endpunkt. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints)) ab. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Anwendungsfälle {#use-cases}
@@ -32,15 +32,15 @@ Sie können Ihre konsolidierten Kundenprofile aus Treasure Data mit Braze synchr
 
 ## Integration
 
-### 1. Schritt: Erstellen Sie eine neue Verbindung {#step-1-create-a-new-connection}
+### Schritt 1: Erstellen Sie eine neue Verbindung {#step-1-create-a-new-connection}
 
 Navigieren Sie in Treasure Data zum **Catalog** unter dem **Integrations Hub**, suchen Sie nach **Braze** und wählen Sie es aus.
 
 In der daraufhin angezeigten Eingabeaufforderung **New Authentication** geben Sie Ihrer Verbindung einen Namen und den Braze REST-API-Schlüssel sowie den REST-Endpunkt an. Wählen Sie **Done**, wenn Sie fertig sind.
 
-![]({% image_buster /assets/img/treasure_data/braze_authentication.png %}){: style="max-width:80%;"}
+![Treasure Data Braze-Authentifizierungsformular mit Feldern für REST-API-Schlüssel und Endpunkt.]({% image_buster /assets/img/treasure_data/braze_authentication.png %}){: style="max-width:80%;"}
 
-### 2. Schritt: Definieren Sie Ihre Abfrage {#step-2-define-your-query}
+### Schritt 2: Definieren Sie Ihre Abfrage {#step-2-define-your-query}
 
 Navigieren Sie in Treasure Data zu **Queries** unter Ihrer **Data Workbench** und wählen Sie eine Abfrage aus, für die Sie Daten exportieren möchten. Führen Sie diese Abfrage aus, um die Ergebnismenge zu überprüfen.
 
@@ -50,11 +50,11 @@ Für Nutzer:innen, die HIVE zum Erstellen von Abfragen verwenden, verlangt HIVE,
 
 Als Nächstes wählen Sie **Export Results** und wählen eine vorhandene Integrations-Authentifizierung aus.
 
-![]({% image_buster /assets/img/treasure_data/query_2.png %}){: style="max-width:80%;"}
+![Treasure Data Abfrageergebnisseite mit ausgewähltem „Export Results“ und Braze-Integration.]({% image_buster /assets/img/treasure_data/query_2.png %}){: style="max-width:80%;"}
 
 Definieren Sie zusätzliche Parameter für die Exportergebnisse, wie im folgenden [Abschnitt über die Anpassung](#customization) beschrieben. Überprüfen Sie die Integrationsparameter in den Inhalten Ihrer Export-Integration.
 
-![Die Seite „Ergebnisse exportieren“. Auf dieser Seite befinden sich Felder für „mode“, „track record type“ und „pre-formatted fields“. In diesem Beispiel sind „User-Track“ und „Custom Events“ auf diese Felder eingestellt.]({% image_buster /assets/img/treasure_data/braze_export_configuration.png %}){: style="max-width:80%;"}
+![Die Seite „Export Results“. Auf dieser Seite befinden sich Felder für „mode“, „track record type“ und „pre-formatted fields“. In diesem Beispiel sind „User-Track“ und „Custom Events“ auf diese Felder eingestellt.]({% image_buster /assets/img/treasure_data/braze_export_configuration.png %}){: style="max-width:80%;"}
 
 Wählen Sie schließlich **Done**, führen Sie Ihre Abfrage aus und überprüfen Sie, ob Ihre Daten nach Braze verschoben wurden.
 

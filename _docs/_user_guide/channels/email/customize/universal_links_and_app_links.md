@@ -25,6 +25,10 @@ When a universal link or App Link is opened, the operating system checks to see 
 
 Plainly, universal links allow a website to associate its web pages with specific app screens, so when a user clicks a link to a web page that corresponds to an app screen, the app can be opened directly (if the app is currently installed).
 
+{% alert important %}
+Firebase Dynamic Links is deprecated. Braze does not have a direct integration with Firebase, and deep linking is managed outside the Braze platform. Migrate to platform-native solutions (Apple universal links and Android App Links, as described in this article) or to alternative deep linking service providers. For migration guidance, see [Firebase's migration FAQ](https://firebase.google.com/support/dynamic-links-faq).
+{% endalert %}
+
 This table outlines the key differences between universal links and traditional deep links:
 
 |                        | Universal Links and App Links                                  | Deep Links                   |
@@ -143,7 +147,7 @@ The AASA file contains a JSON object with a list of apps and the URL paths on th
 }
 ```
 
-- `appID`: Built by combining your app’s **Team ID** (go to `https://developer.apple.com/account/#/membership/` to get the team ID) and the **Bundle Identifier**. In the example above, "JHGFJHHYX" is the team ID, and "com.facebook.ios" is the bundle ID.
+- `appID`: Built by combining your app’s **Team ID** (go to `https://developer.apple.com/account/#/membership/` to get the team ID) and the **Bundle Identifier**. In this example, "JHGFJHHYX" is the team ID, and "com.facebook.ios" is the bundle ID.
 - `paths`: Array of strings that specify which paths are included or excluded from association. You can use `NOT` before the path to disable paths. In this example, all the links on this path will go to the web instead of opening the app. You can use `*` as a wildcard to enable all paths in a directory and `?` to match a single character (such as /archives/201?/ to match all numbers from 2010-2019).
 
 {% alert note %}
@@ -302,15 +306,15 @@ Make sure your custom paths follow these requirements:
 - **Case sensitivity:** Paths are case-sensitive to match mobile OS requirements
 
 {:start="2"}
-2. Confirm your wrapped tracking URLs include the custom path segment. Links follow this format: `track.yourstore.com/L1/{customPath}/...`
+2. Confirm your wrapped tracking URLs include the custom path segment. Without the attribute, tracked links use `track.yourstore.com/CL0/{encodedUrl}/...`. With the attribute, they follow this format: `track.yourstore.com/CL1/{customPath}/{encodedUrl}/...`
 
 For example:
 
-- `track.yourstore.com/L1/shop/...`
-- `track.yourstore.com/L1/rewards/...`
+- `track.yourstore.com/CL1/shop/...`
+- `track.yourstore.com/CL1/rewards/...`
 
 {:start="3"}
-3. Configure your site association files on your click-tracking domain so paths match `/L1/{customPath}/`.
+3. Configure your site association files on your click-tracking domain so paths match `/CL1/{customPath}/`.
 
 **iOS (Apple App Site Association):**
 
@@ -320,10 +324,10 @@ For example:
     "apps": [],
     "details": [{
       "appID": "TEAMID.com.yourcompany.mainapp",
-      "paths": ["/L1/shop/*", "/L1/rewards/*"]
+      "paths": ["/CL1/shop/*", "/CL1/rewards/*"]
     }, {
       "appID": "TEAMID.com.yourcompany.limitedapp",
-      "paths": ["/L1/limited/*"]
+      "paths": ["/CL1/limited/*"]
     }]
   }
 }
@@ -338,10 +342,11 @@ For example:
     "namespace": "android_app",
     "package_name": "com.yourcompany.mainapp",
     "sha256_cert_fingerprints": ["..."]
-  },
-  "include": ["/L1/shop/*", "/L1/rewards/*"]
+  }
 }]
 ```
+
+Android matches paths in your app rather than in `assetlinks.json`. Set `android:pathPrefix="/CL1/{customPath}/"` on the intent filter in your `AndroidManifest.xml` for each custom path your app handles.
 
 Make sure your app is set up to handle these wrapped links. Add your click-tracking domain to your app's associated domains (iOS) or intent filters (Android), and host the AASA or Digital Asset Links file on that domain as described earlier in this article.
 
@@ -439,8 +444,14 @@ It's important to ensure that these files are always publicly accessible. If you
 
 Make sure you have the correct definitions for domains your app is allowed to open.
 
-- **iOS:** Review the Associated Domains set up in Xcode for your app ([Step 1c: Turn on Associated Domains in your Xcode project]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/?tab=ios#step-1c)). Check that the click-tracking domain is included in that list.
+- **iOS:** Review the Associated Domains set up in Xcode for your app ([Step 1c: Turn on Associated Domains in your Xcode project]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links?tab=ios#step-1c)). Check that the click-tracking domain is included in that list.
 - **Android:** Open the app info page (long press the app icon and click ⓘ). Within the app info menu, locate **Open by default** and tap that. This should show a screen with all verified links the app is allowed to open. Check that the click-tracking domain is included in that list.
+
+#### Every email link opens the app
+
+If every link in an email opens your app, including links you expect to open in a browser, the AASA `paths` (iOS) or Android `pathPrefix` values on your click-tracking domain match the entire domain (for example `*` or `/*`).
+
+Limit those patterns to the URLs that should open the app. For SendGrid, match `/uni/` and add `universal="true"` only on those links. See [Universal links, App Links, and click-tracking](#universal-links-app-links-and-click-tracking).
 
 #### Tracking domain can't serve .well-known files
 
@@ -448,3 +459,15 @@ In some cases, your click-tracking domain may not be able to host the required `
 
 - **Selectively disable click-tracking on deep-link URLs:** You can disable click-tracking for specific universal links so they go directly to your main domain (where you can host the AASA or Digital Asset Links file). Note that this method can cause loss of click analytics for those specific links. Refer to [Turning off click-tracking on a link-to-link basis](#turning-off-click-tracking-on-a-link-to-link-basis) for instructions.
 - **Front the tracking subdomain with a CDN:** If you need full click-tracking coverage and deep linking, you can place a CDN (such as Cloudflare or CloudFront) in front of your tracking subdomain. Configure the CDN to serve the `.well-known` files locally and proxy all other traffic to your ESP. This approach is more involved but gives you full control over both click-tracking and universal links.
+
+#### Links working in one workspace but not another
+
+If universal links or App Links work correctly in your Production workspace but fail in your Development or Test workspace, verify that the sending email address domain matches the tracking domain configured in each workspace's email settings. Inconsistent configuration between workspaces can cause links to behave differently even when using the same email templates and AASA or Digital Asset Links files.
+
+To check your email configuration:
+
+1. Go to **Settings** > **Email Preferences** in the Braze dashboard.
+2. Review the **Outbound Email Settings** under **Sending Configuration**.
+3. Confirm that your sending domain and tracking domain are properly aligned for the workspace where links aren't working.
+
+If your sending domain differs between workspaces, make sure each workspace has the appropriate DNS records configured and that your AASA (iOS) or Digital Asset Links (Android) files are accessible from each tracking domain.

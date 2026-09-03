@@ -18,7 +18,7 @@ description: "이 문서에서는 커스텀 속성 내보내기 Braze 엔드포�
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `custom_attributes.get` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `custom_attributes.get` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key-permissions)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -55,7 +55,7 @@ curl --location --request GET 'https://rest.iad-03.braze.com/custom_attributes?c
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
+    "message": (string) returns 'success' when the request completes without errors,
     "attributes" : [
         {
             "array_length": 100, (number) the maximum array length, or null if not applicable,
@@ -72,10 +72,10 @@ curl --location --request GET 'https://rest.iad-03.braze.com/custom_attributes?c
 
 ### 심각한 오류 응답 코드 {#fatal-export}
 
-요청에 심각한 오류가 발생할 경우 반환되는 상태 코드 및 관련 오류 메시지는 [심각한 오류]({{site.baseurl}}/api/errors/#fatal-errors)를 참조하세요.
+요청에 심각한 오류가 발생할 경우 반환되는 상태 코드 및 관련 오류 메시지는 [심각한 오류]({{site.baseurl}}/api/errors#fatal-errors)를 참조하세요.
 
 {% alert tip %}
-CSV 및 API 내보내기에 대한 도움은 [내보내기 문제 해결]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)을 참조하세요.
+CSV 및 API 내보내기에 대한 도움은 [내보내기 문제 해결]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting)을 참조하세요.
 {% endalert %}
 
 {% endapi %}

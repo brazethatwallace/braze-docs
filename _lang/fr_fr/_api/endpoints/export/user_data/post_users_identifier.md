@@ -6,7 +6,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "Cet article présente en détail l'endpoint Braze Exporter les utilisateurs par identifiant."
-
 ---
 {% api %}
 # Exporter le profil utilisateur par identifiant {#export-user-profile-by-identifier}
@@ -22,7 +21,7 @@ Vous pouvez inclure jusqu'à 50 `external_ids` ou `user_aliases` dans une seule 
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `users.export.ids`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `users.export.ids`.
 
 ## Limite de débit {#rate-limit}
 
@@ -56,7 +55,7 @@ Pour les clients ayant intégré Braze le 22 août 2024 ou après, le paramètre
 | Paramètre | Requis | Type de données | Description |
 | ------------------ | -------- | ------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | `external_ids` | Facultatif | Tableau de chaînes de caractères | Identifiants externes des utilisateurs que vous souhaitez exporter. |
-| `user_aliases` | Facultatif | Tableau d'objets alias d'utilisateur | [Alias d'utilisateur]({{site.baseurl}}/api/objects_filters/user_alias_object/) pour les utilisateurs à exporter. |
+| `user_aliases` | Facultatif | Tableau d'objets alias d'utilisateur | [Alias d'utilisateur]({{site.baseurl}}/api/objects_filters/user_alias_object) pour les utilisateurs à exporter. |
 | `device_id` | Facultatif | Chaîne de caractères | Identifiant d'appareil, tel que renvoyé par diverses méthodes SDK comme `getDeviceId`. |
 | `braze_id` | Facultatif | Chaîne de caractères | Identifiant Braze d'un utilisateur particulier. |
 | `email_address` | Facultatif | Chaîne de caractères | Adresse e-mail de l'utilisateur. |
@@ -81,7 +80,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/ids' 
   ],
   "device_id": "1234567",
   "braze_id": "braze_identifier",
-  "email_address": "example@braze.com",
+  "email_address": "example@example.com",
   "phone": "11112223333",
   "fields_to_export": ["first_name", "email", "purchases"]
 }'
@@ -94,11 +93,11 @@ Voici une liste des valeurs valides pour `fields_to_export`. Utiliser `fields_to
 | Champ à exporter | Type de données | Description |
 | --------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `apps` | Tableau | Applications pour lesquelles l'utilisateur a enregistré des sessions, comprenant les champs :<br><br>- `name` : nom de l'application<br>- `platform` : plateforme de l'application, telle qu'iOS, Android ou Web<br>- `version` : numéro ou nom de version de l'application<br>- `sessions` : nombre total de sessions pour cette application<br>- `first_used` : date de la première session<br>- `last_used` : date de la dernière session<br><br>Tous les champs sont des chaînes de caractères. |
-| `attributed_campaign` | Chaîne de caractères | Données provenant des [intégrations d'attribution]({{site.baseurl}}/partners/message_orchestration/), si elles sont configurées. Identifiant d'une campagne publicitaire donnée. |
-| `attributed_source` | Chaîne de caractères | Données provenant des [intégrations d'attribution]({{site.baseurl}}/partners/message_orchestration/), si elles sont configurées. Identifiant de la plateforme sur laquelle se trouvait l'annonce. |
-| `attributed_adgroup` | Chaîne de caractères | Données provenant des [intégrations d'attribution]({{site.baseurl}}/partners/message_orchestration/), si elles sont configurées. Identifiant d'un sous-groupe facultatif en dessous de la campagne. |
-| `attributed_ad` | Chaîne de caractères | Données provenant des [intégrations d'attribution]({{site.baseurl}}/partners/message_orchestration/), si elles sont configurées. Identifiant d'un sous-groupe facultatif en dessous de la campagne et du groupe d'annonces. |
-| `push_subscribe` | Chaîne de caractères | Statut d'abonnement push de l'utilisateur. |
+| `attributed_campaign` | Chaîne de caractères | Données provenant des [intégrations d'attribution]({{site.baseurl}}/partners/message_orchestration), si elles sont configurées. Identifiant d'une campagne publicitaire donnée. |
+| `attributed_source` | Chaîne de caractères | Données provenant des [intégrations d'attribution]({{site.baseurl}}/partners/message_orchestration), si elles sont configurées. Identifiant de la plateforme sur laquelle se trouvait l'annonce. |
+| `attributed_adgroup` | Chaîne de caractères | Données provenant des [intégrations d'attribution]({{site.baseurl}}/partners/message_orchestration), si elles sont configurées. Identifiant d'un sous-groupe facultatif en dessous de la campagne. |
+| `attributed_ad` | Chaîne de caractères | Données provenant des [intégrations d'attribution]({{site.baseurl}}/partners/message_orchestration), si elles sont configurées. Identifiant d'un sous-groupe facultatif en dessous de la campagne et du groupe d'annonces. |
+| `push_subscribe` | Chaîne de caractères | Statut d'abonnement aux notifications push de l'utilisateur. |
 | `email_subscribe` | Chaîne de caractères | Statut d'abonnement e-mail de l'utilisateur. |
 | `braze_id` | Chaîne de caractères | Identifiant utilisateur unique spécifique à l'appareil, défini par Braze pour cet utilisateur. |
 | `country` | Chaîne de caractères | Pays de l'utilisateur selon la norme [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). |
@@ -118,11 +117,11 @@ Voici une liste des valeurs valides pour `fields_to_export`. Utiliser `fields_to
 | `phone` | Chaîne de caractères | Numéro de téléphone de l'utilisateur au format E.164. |
 | `purchases` | Tableau | Achats effectués par cet utilisateur au cours des 90 derniers jours. |
 | `push_tokens` | Tableau | Identifiant anonyme unique qui spécifie où envoyer les notifications d'une application. |
-| `random_bucket` | Entier | [Numéro de compartiment aléatoire]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events/#random-bucket-number-event) de l'utilisateur, utilisé pour créer des segments uniformément distribués d'utilisateurs aléatoires. |
+| `random_bucket` | Entier | [Numéro de compartiment aléatoire]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) de l'utilisateur, utilisé pour créer des segments uniformément distribués d'utilisateurs aléatoires. |
 | `time_zone` | Chaîne de caractères | Fuseau horaire de l'utilisateur, au même format que la base de données de fuseaux horaires IANA. |
 | `total_revenue` | Float | Chiffre d'affaires total attribué à cet utilisateur. Le chiffre d'affaires total est calculé à partir des achats effectués par l'utilisateur pendant les fenêtres de conversion des campagnes et Canvas qu'il a reçus. |
 | `uninstalled_at` | Horodatage | Date et heure de désinstallation de l'application par l'utilisateur. Absent si l'application n'a pas été désinstallée. |
-| `user_aliases` | Objet | [Objet alias d'utilisateur]({{site.baseurl}}/api/objects_filters/user_alias_object/#user-alias-object-specification) contenant les champs `alias_name` et `alias_label`, s'ils existent. |
+| `user_aliases` | Objet | [Objet alias d'utilisateur]({{site.baseurl}}/api/objects_filters/user_alias_object) contenant les champs `alias_name` et `alias_label`, s'ils existent. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Champs à exporter" }
 
 Sachez que l'endpoint `/users/export/ids` récupère l'intégralité du profil utilisateur, y compris les données telles que toutes les campagnes et Canvas reçus, tous les événements personnalisés effectués, tous les achats réalisés et tous les attributs personnalisés. Par conséquent, cet endpoint est plus lent que les autres endpoints de la REST API.
@@ -133,7 +132,7 @@ En fonction des données demandées, cet endpoint d'API peut ne pas suffire à r
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
+    "message": (string) returns 'success' when the request completes without errors,
     "users" : (array of object) the data for each of the exported users, may be empty if no users are found,
     "invalid_user_ids" : (optional, array of string) each of the identifiers provided in the request that did not correspond to a known user
 }
@@ -303,13 +302,13 @@ Objet d'exportation utilisateur (nous inclurons le minimum de données possible 
     ],
     "braze_id": "5fbd99bac125ca40511f2cb1",
     "random_bucket" : 2365,
-    "first_name" : "Jane",
-    "last_name" : "Doe",
-    "email" : "example@braze.com",
+    "first_name" : "Alex",
+    "last_name" : "Smith",
+    "email" : "example@example.com",
     "dob" : "1980-12-21",
     "home_city" : "Chicago",
     "country" : "US",
-    "phone" : "+442071838750",
+    "phone" : "+15555550123",
     "language" : "en",
     "time_zone" : "Eastern Time (US & Canada)",
     "last_coordinates" : [41.84157636433568, -87.83520818508256],
@@ -432,7 +431,7 @@ Objet d'exportation utilisateur (nous inclurons le minimum de données possible 
 {% endtabs %}
 
 {% alert tip %}
-Pour obtenir de l'aide sur les exportations CSV et API, consultez la section [Résolution des problèmes d'exportation]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+Pour obtenir de l'aide sur les exportations CSV et API, consultez la section [Résolution des problèmes d'exportation]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endapi %}

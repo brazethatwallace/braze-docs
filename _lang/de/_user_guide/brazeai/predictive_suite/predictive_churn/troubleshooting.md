@@ -1,49 +1,79 @@
 ---
 nav_title: Fehlerbehebung
 article_title: Fehlerbehebung für Predictive Churn
-description: "Dieser Referenzartikel behandelt einige Schritte zur Fehlerbehebung und Überlegungen, die Sie bei der Verwendung von Predictive Churn beachten sollten."
+description: "Diagnostizieren Sie Trainings- und Zielgruppenfehler bei Predictive Churn mithilfe eines Symptomindex und der Datenanforderungen."
 page_order: 3
 
 ---
 
-# Fehlerbehebung {#troubleshooting}
+# Fehlerbehebung für Predictive Churn {#troubleshoot-predictive-churn}
 
-> Predictive Churn (und jedes Modell des maschinellen Lernens) ist nur so gut wie die Daten, die dem Modell zur Verfügung stehen. Außerdem ist es in hohem Maße davon abhängig, dass bestimmte Datenmengen zur Verfügung stehen.
+> Verwenden Sie diese Seite, um Trainings- und Zielgruppenfehler bei Predictive Churn zu beheben. Informationen zu Analytics und Modellqualität finden Sie unter [Predictive Churn Analytics]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/analytics).
 
-## Mögliche Fehler {#potential-errors}
+Predictive Churn (und jedes Modell des maschinellen Lernens) ist nur so gut wie die Daten, die dem Modell zur Verfügung stehen. Es hängt außerdem davon ab, dass im Workspace ein ausreichendes Nutzer:innenvolumen vorhanden ist.
 
-### Nicht genügend Daten zum Trainieren {#not-enough-data-to-train}
+## Hier starten: Symptom zuordnen {#start-here-match-your-symptom}
 
-Diese Fehlermeldung erscheint, wenn Ihre Churn-Definition zu eng gefasst ist und zu wenige abgewanderte Nutzer:innen liefert.
+Ordnen Sie die Fehlermeldung, Warnung oder das Ergebnis, das Sie beim Erstellen einer Prognose sehen, dem Abschnitt zu, der die Lösung beschreibt.
 
-Um dies zu beheben, müssen Sie entweder die Anzahl der Tage und/oder die Aktionen, die Churn definieren, ändern, um mehr Nutzer:innen zu erfassen. Vergewissern Sie sich, dass Sie die `AND/OR`-Filter richtig verwenden, um keine zu restriktiven Definitionen zu erstellen.
+| Symptom | Gehe zu |
+| --- | --- |
+| Fehler „Nicht genügend Daten zum Trainieren“ | [Nicht genügend Daten zum Trainieren](#not-enough-data-to-train) |
+| Warnung „Nicht genügend vergangene Nicht-Abgewanderte“ | [Prognosezielgruppe zu klein](#problems-with-prediction-audience-size) |
+| Prognosezielgruppe überschreitet Größenlimit | [Prognosezielgruppe zu groß](#prediction-audience-size-is-too-big) |
+| Prognosequalität unter 40 % | [Prognose hat schlechte Qualität](#prediction-has-poor-quality) |
+| Unsicher, ob Ihre Daten zum Modell passen | [Überlegungen zu Daten](#data-considerations) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Symptome für voraussichtliche Abwanderung" }
+
+## Standardmäßiger Untersuchungspfad {#standard-investigation-path}
+
+Verwenden Sie diesen Workflow, wenn das Erstellen einer Prognose fehlschlägt oder Sie durch Daten- oder Zielgruppenanforderungen blockiert werden. Beginnen Sie bei Schritt 1.
+
+1. Bestätigen Sie, dass die voraussichtliche Abwanderung für Ihr Unternehmen aktiviert ist und der Workspace über ausreichend monatlich aktive Nutzer:innen (MAU) verfügt – in der Regel 300.000 MAU in einem einzelnen Workspace.
+2. Überprüfen Sie Ihre Churn-Definition. Zu restriktive Filter reduzieren die Anzahl der abgewanderten Nutzer:innen, die für das Training verfügbar sind.
+3. Überprüfen Sie die Definition Ihrer Prognose-Zielgruppe. Zu wenige historische nicht abgewanderte Nutzer:innen blockieren das Modelltraining.
+4. Bestätigen Sie, dass angepasste Events (nicht nur angepasste Attribute) die hochwertigen Aktionen erfassen, die auf ein Churn-Risiko hinweisen.
+5. Wenn nach dem Erweitern der Definitionen weiterhin Fehler auftreten, kontaktieren Sie den [Braze-Support]({{site.baseurl}}/braze_support).
+
+## Nicht genügend Daten zum Trainieren {#not-enough-data-to-train}
+
+**Symptom:** Beim Erstellen einer Prognose wird die Fehlermeldung „Nicht genügend Daten zum Trainieren“ angezeigt.
+
+Dieser Fehler tritt auf, wenn Ihre Churn-Definition zu einschränkend ist und zu wenige abgewanderte Nutzer:innen zurückgibt.
+
+Um dies zu beheben, ändern Sie entweder die Anzahl der Tage oder die Aktionen, die Churn definieren, um mehr Nutzer:innen zu erfassen – oder beides. Stellen Sie sicher, dass Sie `AND/OR`-Filter korrekt verwenden, damit Sie keine übermäßig restriktiven Definitionen erstellen.
 
 {% alert important %}
-Auch wenn Predictive Churn auf Unternehmensebene aktiviert ist, haben einige Workspaces möglicherweise nicht genügend Nutzer:innen, um Prognosen zu erstellen. Normalerweise benötigen Sie 300.000 monatlich aktive Nutzer:innen in einem einzigen Workspace.
+Obwohl voraussichtliche Abwanderung auf Unternehmensebene aktiviert ist, verfügen einige Workspaces möglicherweise nicht über genügend Nutzer:innen, um Prognosen zu erstellen. In der Regel benötigen Sie 300.000 monatlich aktive Nutzer:innen (MAU) in einem einzelnen Workspace.
 {% endalert %}
 
-### Probleme mit der Größe der Prognose-Zielgruppe {#problems-with-prediction-audience-size}
+## Probleme mit der Größe der Prognose-Zielgruppe {#problems-with-prediction-audience-size}
 
-Wenn Sie Ihre Prognose-Zielgruppe erstellen, um die Art der Nutzung, für die Sie Ihr Modell trainieren möchten, fein abzustimmen, erhalten Sie möglicherweise diese Meldung, die Sie darüber informiert, dass Ihre Prognose-Zielgruppe zu wenige Nutzer:innen hat:
+**Symptom:** Sie sehen die Meldung „Not enough past non-churners to reliably build the Prediction.“
 
-„Nicht genug nicht abgewanderte Nutzer:innen in der Vergangenheit, um eine zuverlässige Prognose zu erstellen“
+![Datenanforderungen für die Prognose mit 31 früheren Abgewanderten (Anforderung erfüllt) und 0 früheren Nicht-Abgewanderten (unter dem Minimum). Eine Warnmeldung weist darauf hin, dass nicht genügend Nicht-Abgewanderte vorhanden sind, um die Prognose zu erstellen.]({% image_buster /assets/img/churn/audience_size_error.png %})
 
-![Datenanforderungen für die Prognose mit 31 Abgewanderten in der Vergangenheit (erfüllt die Anforderung) und 0 Nicht-Abgewanderten in der Vergangenheit (unter dem Minimum). Eine Warnung weist darauf hin, dass nicht genügend Nicht-Abgewanderte vorhanden sind, um die Prognose zu erstellen.]({% image_buster /assets/img/churn/audience_size_error.png %})
+Wenn Sie Ihre Prognose-Zielgruppe erstellen, um die Art der Nutzung zu verfeinern, gegen die Ihr Modell trainiert werden soll, kann diese Meldung erscheinen, die Sie darauf hinweist, dass Ihre Prognose-Zielgruppe zu wenige Nutzer:innen enthält.
 
-Wenn Ihre Definition der Prognose-Zielgruppe zu eng gefasst ist, haben Sie möglicherweise keinen ausreichend großen Pool an historischen und aktiven Nutzer:innen, mit dem Sie arbeiten können. Um dies zu beheben, müssen Sie entweder die Anzahl der Tage und die Art der Attribute ändern, die in dieser Definition verwendet werden, die Aktionen ändern, die Churn definieren, oder beides.
+Wenn Ihre Definition der Prognose-Zielgruppe zu streng ist, haben Sie möglicherweise keinen ausreichend großen Pool an historischen und aktiven Nutzer:innen zur Verfügung. Um dies zu beheben, ändern Sie entweder die Anzahl der Tage und die Art der in dieser Definition verwendeten Attribute, passen Sie die Aktionen an, die Abwanderung definieren, oder beides.
 
-Wenn Ihre Prognose-Zielgruppe auch nach der Änderung Ihrer Definitionen weiterhin ein Problem darstellt, haben Sie möglicherweise zu wenige Nutzer:innen, um dieses optionale Feature zu unterstützen. Wir empfehlen, stattdessen eine Prognose ohne die zusätzlichen Ebenen und Filter zu erstellen.
+Wenn Ihre Prognose-Zielgruppe auch nach Anpassung Ihrer Definitionen weiterhin ein Problem darstellt, haben Sie möglicherweise zu wenige Nutzer:innen, um dieses optionale Feature zu unterstützen. Versuchen Sie stattdessen, eine Prognose ohne die zusätzlichen Ebenen und Filter zu erstellen.
 
-### Prognose-Zielgruppe ist zu groß {#prediction-audience-size-is-too-big}
+## Die Prognose-Zielgruppe ist zu groß {#prediction-audience-size-is-too-big}
 
-Die Definition einer Prognose-Zielgruppe darf 100 Millionen Nutzer:innen nicht überschreiten. Wenn Sie die Meldung erhalten, dass Ihre Zielgruppe zu groß ist, empfehlen wir Ihnen, weitere Ebenen zu Ihrer Zielgruppe hinzuzufügen oder das Zeitfenster zu ändern, auf dem sie basiert.
+**Symptom:** Ihre Prognose-Zielgruppendefinition überschreitet die maximal zulässige Größe.
 
-### Prognose hat schlechte Qualität {#prediction-has-poor-quality}
+Eine Prognose-Zielgruppendefinition darf 100 Millionen Nutzer:innen nicht überschreiten. Wenn eine Meldung angezeigt wird, dass Ihre Zielgruppe zu groß ist, fügen Sie weitere Ebenen zu Ihrer Zielgruppe hinzu oder ändern Sie das zugrunde liegende Zeitfenster.
 
-![]({% image_buster /assets/img/churn/churn3.png %}){: style="float:right;max-width:40%;margin-left:15px;"}
-Wenn Ihr Modell eine [Prognosequalität]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/analytics/) von 40 % oder mehr hat, sind Sie auf einem guten Weg! Wenn Ihre Prognosequalität jedoch auf 39 % oder weniger sinkt, müssen Sie Ihre Churn- und Prognose-Zielgruppen-Definitionen möglicherweise so ändern, dass sie spezifischer sind oder andere Zeitfenster haben.
+## Prognose hat schlechte Qualität {#prediction-has-poor-quality}
 
-Wenn Sie bei der Erstellung Ihrer Prognose-Definitionen nicht in der Lage sind, sowohl die Anforderungen an die Größe der Zielgruppe zu erfüllen als auch eine Prognosequalität von mehr als 40 % zu erreichen, bedeutet dies wahrscheinlich, dass die an Braze gesendeten Daten für diesen Anwendungsfall nicht ideal sind, dass es nicht genügend Nutzer:innen gibt, anhand derer ein Modell erstellt werden kann, oder dass Ihr Produktlebenszyklus länger ist, als unser aktuelles 60-Tage-Rückblickfenster unterstützt.
+**Symptom:** Die [Prognosequalität]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/analytics) liegt bei 39 % oder darunter.
+
+![Screenshot zum Thema „Prognose hat schlechte Qualität“.]({% image_buster /assets/img/churn/churn3.png %}){: style="float:right;max-width:40%;margin-left:15px;"}
+
+Wenn Ihr Modell eine Prognosequalität von 40 % oder mehr aufweist, sind Sie in einer guten Ausgangslage. Wenn die Prognosequalität jedoch auf 39 % oder weniger sinkt, müssen Sie möglicherweise Ihre Definitionen für Abwanderung und Prognosezielgruppe spezifischer gestalten oder andere Zeitfenster verwenden.
+
+Wenn Sie beim Erstellen Ihrer Prognosedefinitionen sowohl die Anforderung an die Zielgruppengröße nicht erfüllen als auch keine Prognosequalität von über 40 % erreichen können, bedeutet dies wahrscheinlich, dass die an Braze gesendeten Daten für diesen Anwendungsfall nicht ideal sind, dass nicht genügend Nutzer:innen vorhanden sind, um ein Modell zu erstellen, oder dass der Lebenszyklus Ihres Produkts länger ist, als unser aktuelles 60-Tage-Rückblickfenster unterstützt.
 
 ## Überlegungen zu Daten {#data-considerations}
 
@@ -52,4 +82,4 @@ Die folgenden Fragen sollten Sie sich stellen, wenn Sie Predictive Churn einrich
 - Welche wertvollen Aktionen führen zu Bindung und Treue?
 - Haben Sie angepasste Events eingerichtet, die diesen spezifischen Aktionen zugeordnet sind? Predictive Churn arbeitet mit angepassten Events im Gegensatz zu angepassten Attributen.
 - Denken Sie in Zeitfenstern, innerhalb derer Sie Churn definieren? Sie können Churn als etwas definieren, das in bis zu 60 Tagen passiert.
-- Haben Sie an Jahreszeiten gedacht, die zu untypischem Nutzerverhalten führen, wie z. B. Feiertage? Rasche Veränderungen im Verbraucherverhalten werden Ihre Prognosen beeinflussen.
+- Haben Sie an Jahreszeiten gedacht, die zu untypischem Nutzer:innenverhalten führen, wie z. B. Feiertage? Rasche Veränderungen im Verbraucher:innenverhalten werden Ihre Prognosen beeinflussen.

@@ -13,69 +13,77 @@ search_tag: Partner
 
 > [Amplitude](https://amplitude.com/) は製品分析およびビジネスインテリジェンスプラットフォームです。
 
-BrazeとAmplitudeの双方向統合により、[Amplitudeコホート]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_audiences/)、ユーザー特性、およびイベントをBrazeに同期できます。また、Braze Currentsを活用して[BrazeイベントをAmplitudeにエクスポートし](#data-export-integration)、製品データとマーケティングデータのより深い分析を実行できます。
+BrazeとAmplitudeの双方向統合により、[Amplitudeコホート]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_audiences)、ユーザー特性、およびイベントをBrazeに同期できます。また、Braze Currentsを活用して[BrazeイベントをAmplitudeにエクスポートし](#data-export-integration)、製品データとマーケティングデータのより深い分析を実行できます。
 
 ## 前提条件 {#prerequisites}
 
-| 必要条件 | 説明 |
+| 要件 | 説明 |
 |---|---|
-| Amplitudeアカウント | このパートナーシップを活用するには、[Amplitudeアカウント](https://amplitude.com/)が必要です。 |
-| Currents | Amplitudeにデータをエクスポートするには、アカウントに[Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents)を設定する必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+| Amplitude アカウント | このパートナーシップを利用するには、[Amplitude アカウント](https://amplitude.com/)が必要です。 |
+| Currents | Amplitude にデータをエクスポートするには、アカウントに [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents#access-currents) を設定する必要があります。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
-## データエクスポートの統合 {#data-export-integration}
+## データエクスポート連携 {#data-export-integration}
 
-BrazeからAmplitudeにエクスポートできるイベントとイベントプロパティの完全なリストは、以下のセクションに記載されています。Amplitudeに送信されるすべてのイベントには、ユーザーの`external_user_id`がAmplitudeユーザーIDとして含まれます。Braze固有のイベントプロパティは、Amplitudeに送信されるデータの`event_properties`キーで送信されます。
+BrazeからAmplitudeにエクスポートできるイベントとイベントプロパティの完全なリストは、以下のセクションに記載されています。Amplitudeに送信されるすべてのイベントには、ユーザーの`external_user_id`がAmplitudeユーザーIDとして含まれます。Braze固有のイベントプロパティは、Amplitudeに送信されるデータの`event_properties`キーの下に送信されます。
 
 {% alert important %}
-この機能を使用するには、AmplitudeのユーザーIDがBrazeのexternal IDに一致している必要があります。
+この機能を使用するには、AmplitudeのユーザーIDがBrazeのexternal IDと一致している必要があります。
 {% endalert %}
 
-Brazeがイベントデータを送信するのは、`external_user_id`を設定したユーザーか、`device_id`を設定した匿名ユーザーのみです。匿名ユーザーの場合は、SDKでAmplitudeのデバイスIDとBrazeのデバイスIDを同期させる必要があります。以下に例を示します。
+Brazeは、`external_user_id`が設定されているユーザー、または`device_id`が設定されている匿名ユーザーのイベントデータのみを送信します。匿名ユーザーの場合、AmplitudeのデバイスIDをSDK内のBrazeデバイスIDと同期する必要があります。例:
 
 ```java
 amplitude.setDeviceId(Appboy.getInstance(context).getDeviceId();)
 ```
 
-Amplitudeには2種類のイベントをエクスポートできます。[メッセージエンゲージメントイベント](#supported-currents-events)（メッセージ送信に直接関連するBrazeイベントで構成される）と、[顧客行動イベント](#supported-currents-events)（セッション、カスタムイベント、プラットフォーム経由で追跡された購入などのその他のアプリまたはWebサイトアクティビティを含む）です。すべての標準的なイベントには`[Appboy]`が接頭辞として付加され、すべてのカスタムイベントには`[Appboy] [Custom Event]`が付加されます。カスタムイベントプロパティの接頭辞は`[Custom event property]`、購入イベントプロパティの接頭辞は`[Purchase property]`です。
-
-名前が付けられBrazeにインポートされるすべてのコホートには、接頭辞として`[Amplitude]`が、接尾辞として`cohort_id`が付加されます。これは、「TEST_COHORT」という名前のコホートで`cohort_id`が「abcd1234」の場合、Brazeフィルターでは`[Amplitude] TEST_COHORT: abcd1234`という名前になることを意味します。
-
-その他のイベントの種類にアクセスする必要がある場合は、アカウントマネージャーに問い合わせるか、[サポートチケット]({{site.baseurl}}/braze_support/)を開いてください。
-
-### ステップ 1: BrazeでAmplitude統合を設定する {#step-1-configure-amplitude-integration-in-braze}
-
-Amplitudeで、AmplitudeエクスポートAPIキーを見つけます。
-
-{% alert warning %}
-Amplitude APIキーを最新の状態に保ってください。コネクターの認証情報が期限切れになると、コネクターはイベントの送信を停止します。この状態が**48時間**以上続くと、コネクターのイベントは削除され、データは永久に失われます。
-{% endalert %}
-
-### ステップ 2: Braze Currentを作成する {#step-2-create-braze-current}
-
-Brazeで**Currents > + Create Current > Create Amplitude Export**に移動します。統合名、連絡先メール、AmplitudeエクスポートAPIキー、およびAmplitudeリージョンを、リストされているフィールドに入力します。次に、追跡したいイベントを選択します。利用可能なイベントのリストが提供されます。最後に**Launch Current**をクリックします。
+Amplitudeにエクスポートできるイベントは2種類あります。[メッセージエンゲージメントイベント](#supported-currents-events)はメッセージ送信に直接関連するBrazeイベントで構成され、[顧客行動イベント](#supported-currents-events)にはセッション、カスタムイベント、プラットフォームを通じてトラッキングされた購入などのその他のアプリやWebサイトのアクティビティが含まれます。すべての通常イベントには`[Appboy]`のプレフィックスが付き、すべてのカスタムイベントには`[Appboy] [Custom Event]`のプレフィックスが付きます。カスタムイベントと購入イベントのプロパティには、それぞれ`[Custom event property]`と`[Purchase property]`のプレフィックスが付きます。
 
 {% alert note %}
-Braze CurrentsからAmplitudeに送信されたイベントは、Amplitudeのイベントボリューム割り当ての対象となります。
+Braze Currentsは、Amplitudeにイベントをエクスポートする際に`[Appboy]`プレフィックスを適用します。このラベルはBrazeの旧製品名を参照しています。これは想定された動作であり、SDKや連携の問題を示すものではありません。
 {% endalert %}
 
-![Braze Amplitude Currentsページ。このページには、統合名、連絡先メール、APIキー、USリージョンのフィールドがあります。Currentsページの下半分には、送信可能なCurrentsイベントが表示されます。]({% image_buster /assets/img/amplitude4.png %})
+Brazeに命名・インポートされたすべてのコホートには`[Amplitude]`のプレフィックスと`cohort_id`のサフィックスが付きます。つまり、`cohort_id`が「abcd1234」で「TEST_COHORT」という名前のコホートは、Brazeのフィルターでは`[Amplitude] TEST_COHORT: abcd1234`というタイトルになります。
+
+追加のイベント権限へのアクセスが必要な場合は、アカウントマネージャーに連絡するか、[サポートチケット]({{site.baseurl}}/braze_support)を開いてください。
+
+### ステップ1:BrazeでAmplitude連携を設定する {#step-1-configure-amplitude-integration-in-braze}
+
+Amplitudeで、AmplitudeエクスポートAPIキーを確認します。
+
+{% alert warning %}
+AmplitudeのAPIキーを常に最新の状態に保ってください。コネクタの認証情報が期限切れになると、コネクタはイベントの送信を停止します。この状態が**48時間**以上続くと、コネクタのイベントは削除され、データは永久に失われます。
+{% endalert %}
+
+### ステップ2:Braze Currentを作成する {#step-2-create-braze-current}
+
+Brazeで、**Currents > + Create Current > Create Amplitude Export** に移動します。連携名、連絡先メールアドレス、AmplitudeエクスポートAPIキー、およびAmplitudeリージョンを所定のフィールドに入力します。次に、トラッキングするイベントを選択します。利用可能なイベントのリストが表示されます。最後に、**Launch Current** をクリックします。
+
+{% alert note %}
+Braze CurrentsからAmplitudeに送信されるイベントは、Amplitudeのイベントボリュームクォータにカウントされます。
+{% endalert %}
+
+![Braze Amplitude Currentsのページ。このページには連携名、連絡先メールアドレス、APIキー、USリージョンのフィールドがあります。ページの下半分には、送信可能なCurrentsイベントの一覧が表示されます。]({% image_buster /assets/img/amplitude4.png %})
+
+{% alert tip %}
+AmplitudeのAPIキーを貼り付けた際に「無効なAPIキー」エラーが表示された場合は、キーを手動で入力してみてください。一部のブラウザでは、コピー＆ペースト時に隠し文字が追加され、バリデーションエラーの原因になることがあります。
+{% endalert %}
 
 {% tab note %}
-詳細については、Amplitudeの[統合に関するドキュメント](https://amplitude.zendesk.com/hc/en-us/articles/115000217351-Appboy-Amplitude-Integration#how-to-set-up-and-use-the-integration)を参照してください。
+詳細については、Amplitudeの[Appboy Amplitude Integration](https://amplitude.zendesk.com/hc/en-us/articles/115000217351-Appboy-Amplitude-Integration#how-to-set-up-and-use-the-integration)を参照してください。
 {% endtab %}
 
 ## レート制限 {#rate-limits}
 
-CurrentsはAmplitudeのHTTP APIに接続しますが、このAPIには1デバイスあたり30イベント/秒という[レート制限](https://developers.amplitude.com/docs/http-api-v2#upload-limit)と、1デバイスあたり500Kイベント/日という文書化されていない制限があります。これらのしきい値を超えた場合、AmplitudeはCurrentsを通じて記録されるイベントをスロットリングします。統合内のデバイスがこのレート制限を超えると、すべてのデバイスからのイベントがAmplitudeに表示されるタイミングが遅れることがあります。
+CurrentsはAmplitudeのHTTP APIに接続しており、デバイスごとに30イベント/秒の[レート制限](https://developers.amplitude.com/docs/http-api-v2#upload-limit)と、デバイスごとに500Kイベント/日の非公式な制限があります。これらのしきい値を超えると、AmplitudeはCurrentsを通じてログに記録されたイベントをスロットリングします。インテグレーション内のデバイスがこのレート制限を超えた場合、すべてのデバイスからのイベントがAmplitudeに表示されるまでに遅延が生じることがあります。
 
-通常の状況では、デバイスが報告するイベント数は30イベント/秒または500Kイベント/日を超えることはありません。このようなイベントパターンは、統合の設定に誤りがある場合にのみ発生します。このような遅延を回避するには、SDK統合がSDK統合手順で指定されている通常のレートでイベントを報告するようにし、1つのデバイスに対して多くのイベントを生成する自動テストの実行を控えてください。
+通常の状況では、デバイスが30イベント/秒または500Kイベント/日を超えるレポートを行うことはなく、このイベントパターンはインテグレーションの設定ミスによってのみ発生します。このような遅延を回避するには、SDKインテグレーションの手順に記載されている通常のレートでイベントをレポートするようにSDKインテグレーションを設定し、単一のデバイスに対して多数のイベントを生成する自動テストの実行を控えてください。
 
 ## サポートされているCurrentsイベント {#supported-currents-events}
 
-Brazeでは、以下のイベントをAmplitudeにエクスポートできます。
+Brazeは、以下のイベントをAmplitudeにエクスポートすることをサポートしています。
 
-- [メッセージエンゲージメントイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)
-- [顧客行動イベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)
+- [メッセージエンゲージメントイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)
+- [顧客行動イベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)
 
-各イベントのペイロード構造については、[メッセージエンゲージメントイベント用語集]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)および[顧客行動イベント用語集]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)の**Amplitude**タブを選択してください。
+各イベントのペイロード構造については、[メッセージエンゲージメントイベント用語集]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)および[顧客行動イベント用語集]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)の **Amplitude** タブを選択してください。

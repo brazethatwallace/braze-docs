@@ -36,17 +36,17 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 | :--- | :--- |
 | Open-Loyalty-Konto | Sie benötigen ein Admin-Konto auf einem Open-Loyalty-Tenant, um diese Partnerschaft nutzen zu können. |
 | Open Loyalty REST-API-Schlüssel | Ein Open Loyalty REST-API-Schlüssel (für Integrationen, die Daten von Braze an Open Loyalty senden). <br><br> Erstellen Sie diesen unter **Settings > Admins > API Keys**. |
-| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Erstellen Sie diesen Schlüssel im Braze-Dashboard unter **Settings** > **API Keys**. |
+| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Erstellen Sie diesen Schlüssel im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel**. |
 | Braze-Datentransformation | Sie benötigen Zugriff auf den Tab „Dateneinstellungen“ in Braze, um Webhook-Listener zu konfigurieren. |
 | Übereinstimmende IDs | Die `external_id` der Nutzerin oder des Nutzers in Braze muss mit der `loyaltyCardNumber` (oder einem anderen Standardbezeichner) in Open Loyalty übereinstimmen. |
 | Tenant-ID | Ihre Open-Loyalty-Tenant-ID (erforderlich für ausgehende Updates). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
 Die primäre Integration synchronisiert Open-Loyalty-Webhook-Events über Datentransformation mit Braze.
 
-### 1. Schritt: Webhook-URL in Braze generieren {#step-1-generate-the-webhook-url-in-braze}
+### Schritt 1: Webhook-URL in Braze generieren {#step-1-generate-the-webhook-url-in-braze}
 
 Erstellen Sie zunächst eine Datentransformation in Braze, um eine eindeutige URL für den Datenempfang zu generieren.
 
@@ -56,13 +56,13 @@ Erstellen Sie zunächst eine Datentransformation in Braze, um eine eindeutige UR
      * **Transformation name**: Geben Sie einen beschreibenden Namen ein (z. B. „Open Loyalty Point Update Events“).
      * **Select destination**: Wählen Sie **POST: Track users**.
 4.  Klicken Sie auf **Create Transformation**.
-5.  Suchen Sie die **Webhook URL** auf der rechten Seite und klicken Sie auf **Copy**.
+5.  Suchen Sie die **Webhook URL** im Detailbereich und klicken Sie auf **Copy**.
 
 {% alert important %}
 Bewahren Sie diese URL sicher auf – Sie benötigen sie für den nächsten Schritt.
 {% endalert %}
 
-### 2. Schritt: Webhook-Abo in Open Loyalty erstellen {#step-2-create-the-webhook-subscription-in-open-loyalty}
+### Schritt 2: Webhook-Abo in Open Loyalty erstellen {#step-2-create-the-webhook-subscription-in-open-loyalty}
 
 Weisen Sie Open Loyalty an, bestimmte Events an die soeben generierte URL zu senden.
 
@@ -70,17 +70,17 @@ Weisen Sie Open Loyalty an, bestimmte Events an die soeben generierte URL zu sen
 2.  Navigieren Sie zu **General > Webhooks**.
 3.  Klicken Sie auf **Add new webhook** und konfigurieren Sie das Abo:
     * **eventName**: Wählen Sie das Event aus, das Sie tracken möchten (z. B. `AvailablePointsAmountChanged`, `CustomerLevelChanged` oder `CampaignEffectWasApplied`).
-    * **url**: Fügen Sie die Braze-Webhook-URL aus [Schritt 1](#1-schritt-webhook-url-in-braze-generieren) ein.
+    * **url**: Fügen Sie die Braze-Webhook-URL aus Schritt 1 ein.
     * Fügen Sie die folgenden Header hinzu:
       * `Content-Type: application/json`
       * `User-Agent: partner-OpenLoyalty`
 4.  Speichern Sie das Webhook-Abo.
 
-### 3. Schritt: Datentransformation konfigurieren {#step-3-configure-the-data-transformation}
+### Schritt 3: Datentransformation konfigurieren {#step-3-configure-the-data-transformation}
 
 Schreiben Sie die JavaScript-Logik in Braze, um den eingehenden Open-Loyalty-Payload auf Braze-Eigenschaften abzubilden.
 
-1.  Öffnen Sie in Braze die Datentransformation, die Sie in [Schritt 1](#1-schritt-webhook-url-in-braze-generieren) erstellt haben.
+1.  Öffnen Sie in Braze die Datentransformation, die Sie in Schritt 1 erstellt haben.
 2.  Triggern Sie das Event in Open Loyalty (z. B. ändern Sie die Punkte eines Mitglieds oder weisen Sie eine Stufe zu), um einen Beispiel-Payload im Bereich **Webhook details** zu erzeugen.
 3.  Schreiben Sie im **Transformation code**-Editor ein Skript zur Abbildung der eingehenden Daten. Verwenden Sie das folgende Beispiel als Anhaltspunkt:
 
@@ -123,7 +123,7 @@ return brazecall;
 
 Nachdem Sie die eingehende Integration abgeschlossen haben, konfigurieren Sie **ausgehende Updates**, um Open-Loyalty-Mitglieder auf Grundlage des Braze-Verhaltens zu ändern.
 
-### 1. Schritt: Braze-Webhook-Campaign konfigurieren {#step-1-configure-braze-webhook-campaign}
+### Schritt 1: Braze-Webhook-Campaign konfigurieren {#step-1-configure-braze-webhook-campaign}
 
 Dieser Prozess verwendet Braze-Webhooks, um eine `PATCH`-Anfrage an die Open Loyalty Member API zu senden (z. B. um ein „VIP“-Label hinzuzufügen).
 
@@ -155,7 +155,7 @@ Dieser Prozess verwendet Braze-Webhooks, um eine `PATCH`-Anfrage an die Open Loy
 }
 ```
 
-### 2. Schritt: Trigger konfigurieren {#step-2-configure-the-trigger}
+### Schritt 2: Trigger konfigurieren {#step-2-configure-the-trigger}
 
 1.  Navigieren Sie zum Tab **Delivery** oder **Entry Schedule**.
 2.  Füllen Sie die folgenden Felder aus:

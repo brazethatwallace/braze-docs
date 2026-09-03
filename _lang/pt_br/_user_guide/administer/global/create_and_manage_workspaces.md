@@ -29,7 +29,12 @@ Tudo o que você faz na Braze acontece dentro de um espaço de trabalho. Espaço
 
 ### Etapa 1: Tenha um plano {#step-1-have-a-plan}
 
-Antes de começar, certifique-se de que você trabalhou com sua equipe e com o gerente de integração da Braze para determinar a melhor configuração de espaço de trabalho para o seu caso de uso. Para saber mais sobre o planejamento dos seus espaços de trabalho na Braze, confira nosso guia [Primeiros passos: Espaços de trabalho]({{site.baseurl}}/user_guide/get_started/workspaces/).
+Antes de começar, certifique-se de que você trabalhou com sua equipe e com o gerente de integração da Braze para determinar a melhor configuração de espaço de trabalho para o seu caso de uso. Para saber mais sobre o planejamento dos seus espaços de trabalho na Braze, confira nosso guia [Primeiros passos: Espaços de trabalho]({{site.baseurl}}/user_guide/get_started/workspaces).
+
+{% alert warning %}
+**Prática recomendada: use projetos Firebase dedicados por espaço de trabalho**<br>
+Embora a Braze permita o upload do mesmo JSON de conta de serviço do Firebase para vários espaços de trabalho, todos os espaços de trabalho que usam o mesmo ID de projeto do Google compartilham o limite de frequência padrão do Firebase Cloud Messaging de 600.000 mensagens por minuto. Remetentes de alto volume podem encontrar erros de "Quota Exceeded" durante lançamentos simultâneos de Campaigns em vários espaços de trabalho.<br><br>Para isolamento de entregabilidade e gerenciamento de cota, use projetos Firebase separados e dedicados para cada espaço de trabalho da Braze.
+{% endalert %}
 
 ### Etapa 2: Adicione seu espaço de trabalho {#step-2-add-your-workspace}
 
@@ -127,7 +132,7 @@ Para excluir seu espaço de trabalho ou instância do app:
 1. Acesse **Configurações** > **Configurações do app**.
 2. Selecione **Excluir espaço de trabalho** para excluir o respectivo espaço de trabalho, ou selecione o ícone de lixeira ao lado da respectiva instância do app.
 
-Você não pode excluir instâncias do app ou espaços de trabalho que estejam sendo usados para direcionamento de usuários ou que tenham mais de 1.000 usuários. Se você tentar fazer isso, receberá uma mensagem de erro. Para prosseguir e excluí-los, [crie um caso de Suporte]({{site.baseurl}}/user_guide/administer/personal/braze_support/) que inclua um link do dashboard e o nome da instância do app ou espaço de trabalho a ser excluído.
+Você não pode excluir instâncias do app ou espaços de trabalho que estejam sendo usados para direcionamento de usuários ou que tenham mais de 1.000 usuários. Se você tentar fazer isso, receberá uma mensagem de erro. Para prosseguir e excluí-los, [crie um caso de Suporte]({{site.baseurl}}/user_guide/administer/personal/braze_support) que inclua um link do dashboard e o nome da instância do app ou espaço de trabalho a ser excluído.
 
 {% alert warning %}
 Tenha cuidado ao excluir espaços de trabalho! Depois que um espaço de trabalho é excluído, ele não pode ser restaurado.
@@ -143,7 +148,7 @@ Isso depende de você estar atualizando seu app ou criando um totalmente novo.
 
 #### Atualizando seu app {#updating-your-app}
 
-Se você está atualizando seu app, deve separar as versões antiga e nova criando uma nova instância do app dentro do mesmo espaço de trabalho. Dessa forma, você pode direcionar efetivamente os usuários na nova versão ao selecionar esse app durante a segmentação. Se quiser enviar mensagens para usuários que estão na versão antiga, você pode usar filtros para [direcionar a versão anterior do app]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features/#filtering-by-most-recent-app-versions).
+Se você está atualizando seu app, deve separar as versões antiga e nova criando uma nova instância do app dentro do mesmo espaço de trabalho. Dessa forma, você pode direcionar efetivamente os usuários na nova versão ao selecionar esse app durante a segmentação. Se quiser enviar mensagens para usuários que estão na versão antiga, você pode usar filtros para [direcionar a versão anterior do app]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions).
 
 Se você criar um novo espaço de trabalho, seus usuários existirão em dois lugares: o espaço de trabalho antigo e o novo. Eles também podem potencialmente ter o mesmo token por push. Isso pode fazer com que os usuários recebam uma mensagem de marketing destinada apenas aos usuários do espaço de trabalho antigo, mesmo que já tenham feito o upgrade.
 
@@ -165,11 +170,11 @@ Por padrão, um segmento inclui todos os apps e sites no espaço de trabalho. Pa
 
 Você pode então adicionar esse segmento à sua mensagem e começar a refinar ainda mais seu público com segmentos e filtros adicionais, se necessário.
 
-#### Campaigns
+#### Campaigns {#campaigns}
 
 Para Campaigns, adicione seu segmento à etapa **Público-alvo** do criador.
 
-#### Canvas
+#### Canvas {#canvas}
 
 No Canvas, adicione seu segmento às etapas de Mensagem, na seção **Delivery Validations**. As validações de entrega verificam novamente se seu público atende aos critérios de entrega no momento do envio da mensagem. Lembre-se de especificar validações de entrega para cada etapa de Mensagem para garantir que ela seja entregue ao app correto. Não é necessário segmentar no nível de entrada.
 
@@ -183,5 +188,5 @@ No fluxo de trabalho original do Canvas, adicione seu segmento no nível do comp
 
 Após criar seu espaço de trabalho, configure-o:
 
-- [Configurações do espaço de trabalho]({{site.baseurl}}/user_guide/administer/global/workspace_settings/) para configurar chaves de API, preferências de e-mail, configurações de push e mais.
-- [Gerenciar usuários da empresa]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/) para adicionar usuários e atribuir permissões para este espaço de trabalho.
+- [Configurações do espaço de trabalho]({{site.baseurl}}/user_guide/administer/global/workspace_settings) para configurar chaves de API, preferências de e-mail, configurações de push e mais.
+- [Gerenciar usuários da empresa]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users) para adicionar usuários e atribuir permissões para este espaço de trabalho.

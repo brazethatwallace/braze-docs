@@ -114,7 +114,7 @@ You can import audience data from Braze to Lytics using the following methods:
 
 #### Step 1: Create a Lytics API Token
 
-Navigate to the Lytics Account Menu in the bottom left corner by selecting your account name, and select **Access Tokens** from the dropdown menu. Next, select **Create API Token**
+Navigate to the Lytics Account Menu by selecting your account name, and select **Access Tokens** from the dropdown menu. Next, select **Create API Token**
 
 ![Lytics Access Tokens screen with Create API Token selected from the account menu.]({% image_buster /assets/img/lytics/create_token.png %}){: style="max-width:80%;"}
 
@@ -147,7 +147,7 @@ After defining the request type (HTTP `POST` method) and configuring the rest of
 {
   "city": "AnyTown",
   "country": "United States",
-  "first_name": "John",
+  "first_name": "Alex",
   "gender": "male",
   "language": "English",
   "last_name": "Smith",
@@ -155,7 +155,7 @@ After defining the request type (HTTP `POST` method) and configuring the rest of
   "phone_number": "5551231234",
   "time_zone": "GMT+7",
   "twitter_handle": "johnsmith",
-  "email": "john.smith@email.com",
+  "email": "john.smith@example.com",
   "braze_id": "xxxxxx" 
 }
 ```

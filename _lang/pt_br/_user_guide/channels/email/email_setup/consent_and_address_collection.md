@@ -14,14 +14,14 @@ channel: email
 
 ## Estados do assinante {#subscriber-states}
 
-Há três estados de inscrição de e-mail para um usuário: **opted in**, **subscribed** e **unsubscribed**. Para alterar o estado da inscrição de um usuário, consulte nosso artigo sobre [alteração de inscrições]({{site.baseurl}}/user_guide/channels/email/subscriptions/#changing-subscriptions) ou use nossas [APIs de inscrição]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/).
+Há três estados de inscrição de e-mail para um usuário: **opted in**, **subscribed** e **unsubscribed**. Para alterar o estado da inscrição de um usuário, consulte nosso artigo sobre [alteração de inscrições]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-email-subscriptions) ou use nossas [APIs de inscrição]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status).
 
 | Estado do assinante | Descrição |
 |---|---|
 | Opted In | Esses clientes clicaram no link em um e-mail de confirmação e aceitaram ativamente receber suas mensagens. |
 | Subscribed | Por padrão, os usuários são inscritos para receber e-mails desde que tenham um endereço de e-mail válido armazenado em seu perfil. Os usuários permanecem inscritos até que cancelem a inscrição ou façam opt-in. |
-| Unsubscribed | Para ser marcado como cancelado, o cliente deve ter cancelado explicitamente a inscrição em seus e-mails ou marcado um e-mail como spam. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Subscriber states" }
+| Unsubscribed | Para ser marcado como cancelado, o cliente deve ter cancelado explicitamente a inscrição em seus e-mails ou marcado um e-mail como SPAM. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Estados do assinante" }
 
 ## Métodos de coleta de endereços {#address-collection-methods}
 

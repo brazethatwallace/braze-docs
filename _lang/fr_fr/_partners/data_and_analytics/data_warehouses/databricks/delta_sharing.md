@@ -14,10 +14,10 @@ hidden: true
 > Databricks [Delta Sharing](https://docs.databricks.com/en/delta-sharing/index.html) vous permet de partager en toute sécurité des données d'engagement et de campagne Braze en temps réel dans votre environnement Databricks. Cet article décrit le fonctionnement du partage depuis Braze en tant que fournisseur de données vers votre compte Databricks en tant que destinataire, et comment interroger les tables partagées.
 
 {% alert important %}
-Databricks Delta Sharing avec Braze est en **bêta fermée**. La disponibilité, les régions prises en charge et le comportement du produit peuvent changer. Contactez votre gestionnaire de la satisfaction client Braze pour participer ou pour confirmer si cette fonctionnalité est activée pour votre espace de travail.
+Databricks Delta Sharing avec Braze est en **bêta fermée**. La disponibilité, les régions prises en charge et le comportement du produit peuvent changer. Contactez votre gestionnaire du succès des clients Braze pour participer ou pour confirmer si cette fonctionnalité est activée pour votre espace de travail.
 {% endalert %}
 
-Databricks Delta Sharing fait partie de la distribution de données Braze. Pour un aperçu complet des options de distribution de données, consultez [Distribution de données]({{site.baseurl}}/user_guide/data/distribution/).
+Databricks Delta Sharing fait partie de la distribution de données Braze. Pour un aperçu complet des options de distribution de données, consultez [Distribution de données]({{site.baseurl}}/user_guide/data/distribution).
 
 ## Configurer Delta Sharing {#set-up-delta-sharing}
 
@@ -50,16 +50,12 @@ Une fois le partage de données provisionné, créez un catalogue à partir du p
 
 De manière similaire à Currents, vous pouvez utiliser Databricks Delta Sharing pour :
 
-- Créer des rapports complexes
-- Effectuer une modélisation d'attribution
-- Sécuriser le partage au sein de votre propre entreprise
-- Mapper des données brutes d'événements ou d'utilisateurs vers un CRM (comme Salesforce)
-- Et bien plus encore
+{% multi_lang_include partners/data_sharing_use_cases.md %}
 
-Pour une liste complète des tables et colonnes disponibles dans Databricks, [téléchargez les schémas de tables brutes Databricks]({% image_buster /assets/download_file/databricks-data-sharing-raw-table-schemas.txt %}) sous forme de fichier texte. Ce fichier reflète le schéma Databricks Delta Sharing (par exemple, `DB_CREATED_AT` pour l'heure d'ingestion). Il n'est pas interchangeable avec les [schémas de tables brutes Snowflake]({% image_buster /assets/download_file/data-sharing-raw-table-schemas.txt %}) ou la [référence des tables SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/), qui décrivent la nomenclature et les champs Snowflake.
+Pour une liste complète des tables et colonnes disponibles dans Databricks, [téléchargez les schémas de tables brutes Databricks](/docs/assets/download_file/databricks-data-sharing-raw-table-schemas.txt) sous forme de fichier texte. Ce fichier reflète le schéma Databricks Delta Sharing (par exemple, `DB_CREATED_AT` pour l'heure d'ingestion). Il n'est pas interchangeable avec les [schémas de tables brutes Snowflake](/docs/assets/download_file/data-sharing-raw-table-schemas.txt) ou la [référence des tables SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables), qui décrivent la nomenclature et les champs Snowflake.
 
 {% alert note %}
-Pendant la bêta fermée, toutes les tables listées dans le fichier de schéma Databricks peuvent ne pas être disponibles dans votre partage. Les noms et types de colonnes peuvent également différer de Snowflake Data Sharing (par exemple, `DB_CREATED_AT` au lieu de `SF_CREATED_AT`). Contactez votre gestionnaire de la satisfaction client Braze si vous avez besoin de la liste actuelle des tables pour votre espace de travail.
+Pendant la bêta fermée, toutes les tables listées dans le fichier de schéma Databricks peuvent ne pas être disponibles dans votre partage. Les noms et types de colonnes peuvent également différer de Snowflake Data Sharing (par exemple, `DB_CREATED_AT` au lieu de `SF_CREATED_AT`). Contactez votre gestionnaire du succès des clients Braze si vous avez besoin de la liste actuelle des tables pour votre espace de travail.
 {% endalert %}
 
 ### Schéma des identifiants utilisateur {#user-id-schema}
@@ -70,13 +66,13 @@ Notez les différences suivantes entre les conventions de nommage de Braze et de
 | ----------- | ----------- | ----------- |
 | `braze_id` | `USER_ID` | L'identifiant unique que Braze attribue automatiquement. |
 | `external_id` | `EXTERNAL_USER_ID` | L'identifiant unique du profil d'un utilisateur que vous définissez dans Braze. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="User ID schema" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Schéma des identifiants utilisateur" }
 
 ## Informations importantes et limitations {#important-information-and-limitations}
 
 ### Disponibilité de la bêta fermée {#closed-beta-availability}
 
-Pendant la bêta fermée, votre partage peut ne pas inclure toutes les tables du fichier de [schémas de tables brutes Databricks]({% image_buster /assets/download_file/databricks-data-sharing-raw-table-schemas.txt %}). Les données partagées peuvent également différer de Snowflake Data Sharing au niveau des noms et types de colonnes. Par exemple, les partages Databricks utilisent `DB_CREATED_AT` pour l'heure d'ingestion, tandis que les partages Snowflake utilisent `SF_CREATED_AT`.
+Pendant la bêta fermée, votre partage peut ne pas inclure toutes les tables du fichier de [schémas de tables brutes Databricks](/docs/assets/download_file/databricks-data-sharing-raw-table-schemas.txt). Les données partagées peuvent également différer de Snowflake Data Sharing au niveau des noms et types de colonnes. Par exemple, les partages Databricks utilisent `DB_CREATED_AT` pour l'heure d'ingestion, tandis que les partages Snowflake utilisent `SF_CREATED_AT`.
 
 ### Modifications avec et sans rupture {#breaking-versus-non-breaking-changes}
 
@@ -101,7 +97,7 @@ Lorsque cela est possible, les modifications avec rupture sont précédées d'un
 
 ### Régions Databricks {#databricks-regions}
 
-Pendant la bêta fermée, les fournisseurs cloud et les régions pris en charge peuvent varier selon l'espace de travail et le déploiement. Contactez votre gestionnaire de la satisfaction client Braze pour connaître les options applicables à votre compte.
+Pendant la bêta fermée, les fournisseurs cloud et les régions pris en charge peuvent varier selon l'espace de travail et le déploiement. Contactez votre gestionnaire du succès des clients Braze pour connaître les options applicables à votre compte.
 
 ### Politique de rétention {#retention-policy}
 
@@ -121,7 +117,7 @@ Les données d'événements dans les vues de partage de données (par exemple, `
 | ----- | ------- |
 | `TIME` | Horodatage Unix auquel l'événement s'est produit. Privilégiez ce champ pour filtrer par heure d'occurrence. |
 | `DB_CREATED_AT` | Horodatage du chargement de la ligne dans Databricks (heure d'ingestion). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Querying shared data: TIME and query performance" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Interrogation des données partagées : TIME et performances des requêtes" }
 
 ### Vitesse, performances et coût des requêtes {#speed-performance-and-cost-of-queries}
 

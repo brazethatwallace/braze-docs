@@ -77,7 +77,7 @@ Você pode criar uma página de configurações no seu app que permita aos usuá
 
 Quando o app de notícias deseja criar uma Campaign direcionada apenas a usuários interessados em política, ele adiciona o filtro de atributo `Subscribes to Politics` ao segmento. Quando definido como verdadeiro, apenas os usuários que se inscreveram para receber notificações as receberão.
 
-Para saber mais sobre como definir atributos personalizados, consulte os seguintes artigos para [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/analytics/setting_custom_attributes/#setting-custom-attributes) ou [REST API]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-attributes-object-specification).
+Para saber mais sobre como definir atributos personalizados, consulte os seguintes artigos para [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/analytics/setting_custom_attributes#setting-custom-attributes) ou [REST API]({{site.baseurl}}/developer_guide/rest_api/user_data#user-attributes-object-specification).
 
 ## Aumente os opt-ins e a relevância {#increase-opt-ins-and-relevance}
 
@@ -89,15 +89,15 @@ O Android 13 e versões superiores exigem a obtenção de permissão antes que a
 
 ### Prepare os usuários para o push {#prime-users-for-push}
 
-Você tem apenas uma chance de pedir permissão de push a um usuário, e depois que ele recusa, é muito difícil convencê-lo a reativar o push nas configurações do dispositivo. Por esse motivo, você deve preparar os usuários para o push usando uma mensagem no app antes de exibir o prompt do sistema. Consulte [Mensagens no app de preparação para push]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/) para saber mais sobre como aumentar os opt-ins.
+Você tem apenas uma chance de pedir permissão de push a um usuário, e depois que ele recusa, é muito difícil convencê-lo a reativar o push nas configurações do dispositivo. Por esse motivo, você deve preparar os usuários para o push usando uma mensagem no app antes de exibir o prompt do sistema. Consulte [Mensagens no app de preparação para push]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages) para saber mais sobre como aumentar os opt-ins.
 
 ### Adicione controles de inscrição de push {#add-push-subscription-controls}
 
-Para evitar que os usuários desativem as notificações no nível do dispositivo, o que remove completamente o token por push em primeiro plano, permita que os usuários controlem sua inscrição de push diretamente no seu app. Consulte [Atualizando estados de inscrição de push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#update-push-subscription-state) para mais informações.
+Para evitar que os usuários desativem as notificações no nível do dispositivo, o que remove completamente o token por push em primeiro plano, permita que os usuários controlem sua inscrição de push diretamente no seu app. Consulte [Atualizando estados de inscrição de push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states) para mais informações.
 
 ### Use agendamento avançado ou adicione postergações {#use-advanced-scheduling-or-add-delays}
 
-Dependendo do tamanho do seu público e de quanto tempo antes sua mensagem push está agendada, pode haver atrasos na entrega do push. O tempo necessário para enviar pushes depende do poder de processamento alocado. Por exemplo, se sua mensagem push usa várias chamadas de Conteúdo conectado, isso pode aumentar a complexidade da criação do template da mensagem push e resultar em velocidades limitadas pela rapidez com que as APIs de terceiros retornam dados.
+Dependendo do tamanho do seu público e de quanto tempo antes sua mensagem push está agendada, pode haver atrasos na entrega do push. O tempo necessário para enviar pushes depende do poder de processamento alocado. Por exemplo, se sua mensagem push usa várias chamadas de Conteúdo Conectado, isso pode aumentar a complexidade da criação do template da mensagem push e resultar em velocidades limitadas pela rapidez com que as APIs de terceiros retornam dados.
 
 Uma carga útil de push menor e uma prioridade de notificação mais alta podem ajudar a reduzir atrasos e escalar suas mensagens. Você pode adicionar `Push Enabled = true` no filtro de público para reduzir o tamanho do público, de modo que apenas usuários com push ativado sejam processados para o envio da Campaign.
 
@@ -115,20 +115,20 @@ Além disso, se um perfil de usuário não tiver nenhum token por push válido o
 
 Mesmo quando você envia apenas notificações por push relevantes e oportunas, alguns usuários ainda podem não responder a elas e considerá-las spam. Suponha que um usuário mostre um histórico de ignorar repetidamente suas notificações por push. Nesse caso, é uma boa ideia parar de enviar pushes antes que ele fique irritado com as comunicações do seu app ou desinstale-o completamente.
 
-Para fazer isso, crie uma [política de desativação]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies/) que eventualmente pare de enviar notificações por push para usuários que não tiveram uma abertura direta ou por influência por um longo período.
+Para fazer isso, crie uma [política de desativação]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies) que eventualmente pare de enviar notificações por push para usuários que não tiveram uma abertura direta ou por influência por um longo período.
 
 1. Identifique usuários não responsivos com base em aberturas diretas ou por influência.
 2. Pare gradualmente de enviar notificações por push para esses usuários.
 3. Antes de remover as notificações por push completamente, envie uma última notificação explicando por que eles não receberão mais. Isso dá aos usuários a chance de demonstrar seu interesse em continuar recebendo pushes ao abrir essa notificação.
-4. Depois que a política de desativação entrar em vigor, use uma [mensagem no app]({{site.baseurl}}/user_guide/channels/in_app_messages/) para lembrar esses usuários de que, embora não recebam mais pushes, os canais de mensagens no app continuarão a entregar informações interessantes e úteis.
+4. Depois que a política de desativação entrar em vigor, use uma [mensagem no app]({{site.baseurl}}/user_guide/channels/in_app_messages) para lembrar esses usuários de que, embora não recebam mais pushes, os canais de mensagens no app continuarão a entregar informações interessantes e úteis.
 
 Embora você possa relutar em parar de enviar pushes para usuários que originalmente optaram por recebê-los, lembre-se de que outros canais de envio de mensagens podem alcançar esses usuários de forma mais eficaz, especialmente se eles já ignoraram seus pushes anteriormente. Se o usuário abrir seus e-mails, campanhas de e-mail são uma boa maneira de alcançá-lo fora do seu app. Caso contrário, as mensagens no app são a melhor forma de entregar conteúdo sem arriscar que o usuário desinstale seu app.
 
 ## Defina eventos de conversão para aberturas do app {#set-conversion-events-for-app-opens}
 
-Ao atribuir [eventos de conversão]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/) a uma Campaign de push, você pode rastrear aberturas do app por um determinado período após o recebimento da Campaign. Definir um evento de conversão para aberturas do app fornece um insight diferente das estatísticas de resultados que você normalmente recebe após uma Campaign de push.
+Ao atribuir [eventos de conversão]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) a uma Campaign de push, você pode rastrear aberturas do app por um determinado período após o recebimento da Campaign. Definir um evento de conversão para aberturas do app fornece um insight diferente das estatísticas de resultados que você normalmente recebe após uma Campaign de push.
 
-Embora todos os resultados de Campaigns de push detalhem as aberturas diretas e as aberturas de uma mensagem (que incluem tanto aberturas diretas quanto [aberturas por influência]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens/)), o rastreamento de conversão acompanhará qualquer tipo de abertura, seja direta ou por influência.
+Embora todos os resultados de Campaigns de push detalhem as aberturas diretas e as aberturas de uma mensagem (que incluem tanto aberturas diretas quanto [Aberturas por Influência]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens)), o rastreamento de conversão acompanhará qualquer tipo de abertura, seja direta ou por influência.
 
 Além disso, ao usar o evento de conversão "abre o app", você está rastreando aberturas do app que ocorrem antes do prazo de conversão (por exemplo, três dias). Isso difere de uma abertura por influência, pois o tempo que um usuário tem para registrar uma abertura por influência pode variar de pessoa para pessoa, dependendo do comportamento de engajamento anterior de cada usuário.
 
@@ -154,7 +154,7 @@ Como as mensagens push são um tipo intrusivo de envio de mensagens que vai dire
 
 Não encontrou o que procurava? Confira estes artigos adicionais de melhores práticas:
 
-- [Formatos de mensagem e imagem de push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats/)
-- [Mensagens no app de preparação para push]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/)
-- [Entregabilidade para dispositivos Android chineses]({{site.baseurl}}/user_guide/channels/push/best_practices/chinese_push_deliverability/)
-- [Saiba antes de enviar: canais]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/know_before_you_send/)
+- [Formatos de mensagem e imagem de push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats)
+- [Mensagens no app de preparação para push]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages)
+- [Entregabilidade para dispositivos Android chineses]({{site.baseurl}}/user_guide/channels/push/best_practices/chinese_push_deliverability)
+- [Saiba antes de enviar: canais]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/know_before_you_send)

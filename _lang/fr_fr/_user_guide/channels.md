@@ -36,7 +36,7 @@ guide_menu_list:
     link: /docs/user_guide/channels/line
     image: /assets/img/braze_icons/message-chat-circle.svg
   - name: Notifications en direct
-    link: /docs/developer_guide/live_notifications/
+    link: /docs/developer_guide/live_notifications
     image: /assets/img/braze_icons/phone-02.svg
   - name: Push
     link: /docs/user_guide/channels/push
@@ -70,6 +70,6 @@ Bien que la matrice mette en avant les canaux principaux, elle reste adaptable :
 Vous pouvez utiliser Braze pour créer des campagnes de communication accessibles sur chaque canal. Collaborez avec vos équipes techniques pour vous assurer de respecter les normes d'accessibilité dans votre implémentation. Si vous souhaitez des conseils supplémentaires, nous vous recommandons :
 
 - [Fondamentaux de la communication accessible](https://learning.braze.com/accessible-messaging-foundations) : apprenez les principes fondamentaux de l'accessibilité applicables aux communications de marque dans ce cours d'apprentissage Braze.
-- [Créer des messages accessibles]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/) : découvrez comment ajouter du texte alternatif et structurer votre contenu pour les technologies d'assistance directement dans Braze.
+- [Créer des messages accessibles]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility) : découvrez comment ajouter du texte alternatif et structurer votre contenu pour les technologies d'assistance directement dans Braze.
 
-Si vous avez des retours sur l'accessibilité de Braze ou des messages envoyés depuis Braze, nous serions ravis de vous entendre. Ouvrez le menu **Support** dans l'en-tête global et sélectionnez **Share feedback** pour nous faire part de vos remarques.
+Si vous avez des retours sur l'accessibilité de Braze ou des messages envoyés depuis Braze, nous serions ravis de vous entendre. Ouvrez le menu **Assistance** dans l'en-tête global et sélectionnez **Partager un commentaire** pour nous faire part de vos remarques.

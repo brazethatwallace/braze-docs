@@ -15,26 +15,26 @@ description: "Este artigo descreve detalhes sobre o endpoint de origem de tradu�
 /canvas/translations/source
 {% endapimethod %}
 
-> Use este endpoint para ver todas as fontes de tradução padrão para as tags de tradução de um Canvas. Estes são os valores com o {% raw %}`{% translation id %} source {% endtranslation %}`{% endraw %}. Consulte [Locais em mensagens]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) para saber mais sobre os recursos de tradução.
+> Use este endpoint para ver todas as fontes de tradução padrão para as tags de tradução de um Canvas. Estes são os valores com o {% raw %}`{% translation id %} source {% endtranslation %}`{% endraw %}. Consulte [Locais em mensagens]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) para saber mais sobre os recursos de tradução.
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `canvas.translations.get`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `canvas.translations.get`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='translation endpoints' %}
 
 ## Parâmetros de consulta {#query-parameters}
 
-| Parâmetro              | Obrigatória | Tipo de dados | Descrição                        |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 |------------------------|----------|-----------|------------------------------------|
-| `workflow_id`          | Obrigatória | String    | O ID do Canvas.              |
-| `step_id`              | Obrigatória | String    | O ID da sua etapa do Canvas.        |
-| `message_variation_id` | Obrigatória | String | O ID da sua variação de mensagem. |
-| `locale_id`            | Opcional | String    | O ID (UUID) do local.              |
-| `post_launch_draft_version` | Opcional | booleano | Quando `true`, retorna a versão de rascunho mais recente em vez da versão publicada mais recente. O padrão é `false`, retornando a versão publicada mais recente.
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `workflow_id` | Obrigatório | String | O ID do Canvas. |
+| `step_id` | Obrigatório | String | O ID da sua etapa do Canvas. |
+| `message_variation_id` | Obrigatório | String | O ID da sua variação de mensagem. |
+| `locale_id` | Opcional | String | O ID (UUID) do local. |
+| `post_launch_draft_version` | Opcional | Booleano | Quando `true`, retorna a versão de rascunho mais recente em vez da versão publicada mais recente. O padrão é `false`, retornando a versão publicada mais recente.
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de consulta" }
 
 {% alert note %}
 Todos os IDs de tradução são considerados identificadores únicos universais (UUIDs), que podem ser encontrados na resposta do endpoint GET.

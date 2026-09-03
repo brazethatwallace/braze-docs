@@ -14,7 +14,7 @@ channel:
 
 > This guide helps you choose the right deep linking strategy for your iOS app, depending on which messaging channel you're using and whether you use a third-party linking provider like Branch.
 
-For implementation details, see [Deep linking]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/?sdktab=swift). For troubleshooting, see [Deep linking troubleshooting]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting).
+For implementation details, see [Deep linking]({{site.baseurl}}/developer_guide/push_notifications/deep_linking?sdktab=swift). For troubleshooting, see [Deep linking troubleshooting]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting).
 
 ## Choosing a link type
 
@@ -89,7 +89,7 @@ This option opens a web page inside a modal WebView within your app. It's handle
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Universal links" }
 
 {% alert important %}
-If you send emails through Braze, your ESP (SendGrid, SparkPost, or Amazon SES) wraps links in a click-tracking domain. You must host the AASA file on your click-tracking domain as well, not only on your primary domain. For complete setup, see [Universal links and App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/).
+If you send emails through Braze, your ESP (SendGrid, SparkPost, or Amazon SES) wraps links in a click-tracking domain. You must host the AASA file on your click-tracking domain as well, not only on your primary domain. For complete setup, see [Universal links and App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links). If every email link opens the app, see [Every email link opens the app]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting#every-email-link-opens-the-app).
 {% endalert %}
 
 ### "Open Web URL Inside App"
@@ -117,7 +117,7 @@ You don't need an AASA file when:
 - You only use custom scheme deep links (for example, `myapp://`) from push, in-app messages, or Content Cards.
 - You use the **Open Web URL Inside App** option.
 
-For AASA setup instructions, see [Universal links and App Links]({{site.baseurl}}/user_guide/message_building_by_channel/email/universal_links/#setting-up-universal-links-and-app-links).
+For AASA setup instructions, see [Universal links and App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links).
 
 ## When you need app code to handle links {#when-app-code}
 
@@ -131,16 +131,17 @@ Which delegate method you implement depends on the type of link you're using:
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="When you need app code to handle links #when-app-code" }
 
 {% alert tip %}
-If you use a third-party linking provider like Branch, implement `BrazeDelegate.braze(_:shouldOpenURL:)` to intercept URLs and forward them to the provider's SDK. See [Branch for deep linking]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking/) for a complete example.
+If you use a third-party linking provider like Branch, implement `BrazeDelegate.braze(_:shouldOpenURL:)` to intercept URLs and forward them to the provider's SDK. See [Branch for deep linking]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking) for a complete example.
 {% endalert %}
 
 ## Using Branch with Braze {#branch}
 
-If you use [Branch]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking/) as your linking provider, your setup requires a few additional steps beyond a standard universal link configuration:
+If you use [Branch]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking) as your linking provider, your setup requires a few additional steps beyond a standard universal link configuration:
 
 1. **Branch SDK**: Integrate the Branch SDK following [Branch's documentation](https://help.branch.io/developers-hub/docs/native-sdks-overview).
 2. **Associated Domains**: Add your Branch domain (for example, `applinks:yourapp.app.link`) in Xcode under **Signing & Capabilities**.
 3. **BrazeDelegate**: Implement `braze(_:shouldOpenURL:)` to route Branch links to the Branch SDK instead of letting Braze handle them directly.
 4. **Forward universal links**: Set `configuration.forwardUniversalLinks = true` in your Braze SDK configuration.
 
-For implementation details and debugging guidance, see [Branch for deep linking]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking/).
+For implementation details and debugging guidance, see [Branch for deep linking]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking).
+

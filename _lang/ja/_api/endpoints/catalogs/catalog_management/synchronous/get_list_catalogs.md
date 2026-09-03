@@ -1,37 +1,37 @@
 ---
-nav_title: "取得:カタログをリストアップする"
-article_title: "取得:リストカタログ"
-search_tag: エンドポイント
+nav_title: "GET: カタログ一覧"
+article_title: "GET: カタログ一覧"
+search_tag: Endpoint
 page_order: 2
 
 layout: api_page
 page_type: reference
-description: "この記事では、「カタログのリスト」Braze エンドポイントの詳細について説明します。"
+description: "この記事では、「カタログ一覧」Brazeエンドポイントの詳細について説明します。"
 
 ---
 {% api %}
-# カタログをリストアップする
+# カタログ一覧 {#list-catalogs}
 {% apimethod get %}
 /catalogs
 {% endapimethod %}
 
-> ワークスペース内のカタログのリストを返すには、このエンドポイントを使用する。
+> このエンドポイントを使用して、ワークスペース内のカタログの一覧を返します。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#7d65fb86-ccf7-423f-9eb2-f68ab36df824 {% endapiref %}
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、[API キー]({{site.baseurl}}/api/basics#rest-api-key/)と`catalogs.get`の権限が必要です。
+このエンドポイントを使用するには、`catalogs.get` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
-## レート制限
+## レート制限 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='synchronous catalog' %}
 
-## パスとリクエストのパラメータ
+## パスとリクエストパラメーター {#path-and-request-parameters}
 
-このエンドポイントには、パスまたはリクエストパラメータはありません。
+このエンドポイントには、パスパラメーターやリクエストパラメーターはありません。
 
-## 例のリクエスト
+## リクエスト例 {#example-request}
 
 ```
 curl --location --request GET 'https://rest.iad-03.braze.com/catalogs' \
@@ -39,11 +39,11 @@ curl --location --request GET 'https://rest.iad-03.braze.com/catalogs' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## 応答
+## レスポンス {#response}
 
-### 成功応答の例
+### 成功レスポンスの例 {#example-success-response}
 
-ステータスコード `200` は、次の応答本文を返す可能性があります。
+ステータスコード `200` は、次のレスポンスボディを返す可能性があります。
 
 ```json
 {

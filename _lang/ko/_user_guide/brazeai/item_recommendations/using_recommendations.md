@@ -7,25 +7,25 @@ page_order: 1.2
 
 # 메시징에서 항목 추천 사용하기 {#use-item-recommendations-in-your-messaging}
 
-> 추천 학습이 완료되면 Liquid를 사용하여 `product_recommendation` Liquid 오브젝트로 직접 작업하면서 메시지에 추천 항목을 가져와 표시할 수 있습니다.
+> 추천 교육이 완료되면 Liquid를 사용하여 `product_recommendation` Liquid 오브젝트로 직접 작업하면서 메시지에 추천 항목을 가져와 표시할 수 있습니다.
 
 {% alert tip %}
-단계별 안내는 Braze 학습 과정을 확인하세요: [AI로 개인화된 경험 만들기](https://learning.braze.com/ai-item-recommendations-use-case/1996254).
+단계별 안내는 Braze 학습 과정을 확인하세요: [인공지능으로 개인화된 경험 만들기](https://learning.braze.com/ai-item-recommendations-use-case/1996254).
 {% endalert %}
 
 ## 필수 조건 {#prerequisites}
 
-메시징에서 추천을 사용하려면 먼저 [추천 엔진을 생성하고 학습시켜야]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/) 합니다. 학습은 10분에서 36시간까지 소요될 수 있으며&#8212;학습이 완료되거나 오류가 발생하면 이메일을 받게 됩니다.
+메시징에서 추천을 사용하려면 먼저 [추천 엔진을 생성하고 교육시켜야]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations) 합니다. 교육은 10분에서 36시간까지 소요될 수 있으며&#8212;교육이 완료되거나 오류가 발생하면 이메일을 받게 됩니다.
 
 ## 메시징에서 추천 사용하기 {#using-recommendations-in-your-messaging}
 
 ### 1단계: Liquid 코드 추가 {#step-1-add-liquid-code}
 
-추천 학습이 완료되면 Liquid로 메시지를 개인화하여 해당 카탈로그에서 가장 인기 있는 제품을 삽입할 수 있습니다.
+추천 교육이 완료되면 Liquid로 메시지를 개인화하여 해당 카탈로그에서 가장 인기 있는 제품을 삽입할 수 있습니다.
 
 {% tabs local %}
 {% tab 사전 포맷된 코드 %}
-![항목 추천을 개인화 유형으로 선택한 개인화 추가 모달.]({% image_buster /assets/img/add_personalization.png %}){: style="max-width:30%;float:right;margin-left:15px;"}
+![항목 추천을 개인화 유형으로 선택한 개인화 추가 Modal.]({% image_buster /assets/img/add_personalization.png %}){: style="max-width:30%;float:right;margin-left:15px;"}
 
 메시지 작성기의 **개인화 추가** 섹션에서 Liquid를 생성할 수 있습니다:
 
@@ -58,7 +58,7 @@ page_order: 1.2
 
 | 입력 안내 | 설명 |
 |-----------|-----------|
-| `recommendation_name` | Braze에서 생성한 AI 추천의 이름입니다. |
+| `recommendation_name` | Braze에서 생성한 인공지능 추천의 이름입니다. |
 | `items` | 추천 항목 배열을 저장하는 변수입니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="1단계: Liquid 코드 추가" }
 
@@ -82,7 +82,7 @@ page_order: 1.2
 ```
 {% endraw %}
 
-AI 추천은 여러 제품을 배열로 반환하며, `items[0]`은 첫 번째 항목, `items[1]`은 두 번째 항목입니다. 추천이 하나의 항목만 반환하는 경우 `items[1]`을 참조하면 비어 있는 필드가 반환됩니다.
+인공지능 추천은 여러 제품을 배열로 반환하며, `items[0]`은 첫 번째 항목, `items[1]`은 두 번째 항목입니다. 추천이 하나의 항목만 반환하는 경우 `items[1]`을 참조하면 비어 있는 필드가 반환됩니다.
 {% endtab %}
 {% endtabs %}
 

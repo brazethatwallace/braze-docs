@@ -5,16 +5,16 @@ search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Eliminar campañas programadas desencadenadas por API de Braze."
+description: "En este artículo se describen los detalles del endpoint de Braze Eliminar campañas programadas desencadenadas por API."
 
 ---
 {% api %}
 # Eliminar campañas programadas desencadenadas por API {#delete-scheduled-api-triggered-campaigns}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /campaigns/trigger/schedule/delete
 {% endapimethod %}
 
-> Utiliza este punto de conexión para cancelar un mensaje Canvas que hayas programado previamente a través de la API antes de que se haya enviado.
+> Utiliza este endpoint para cancelar un mensaje de Canvas que hayas programado previamente a través de la API antes de que se haya enviado.
 
 Los mensajes programados o desencadenados que se eliminan cerca de la hora a la que debían enviarse o durante la misma se actualizan con el máximo esfuerzo, por lo que Braze puede aplicar eliminaciones de último momento a todos, a algunos o a ninguno de tus usuarios objetivo.
 
@@ -22,7 +22,7 @@ Los mensajes programados o desencadenados que se eliminan cerca de la hora a la 
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `campaigns.trigger.schedule.delete`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `campaigns.trigger.schedule.delete`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -46,7 +46,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
-| `campaign_id` | Obligatorio | Cadena | Ver [identificador de campaña]({{site.baseurl}}/api/identifier_types/). |
+| `campaign_id` | Obligatorio | Cadena | Ver [identificador de campaña]({{site.baseurl}}/api/identifier_types). |
 | `schedule_id` | Obligatorio | Cadena | El `schedule_id` a eliminar (obtenido de la respuesta a crear planificación). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 

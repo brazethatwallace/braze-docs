@@ -15,13 +15,11 @@ tool: Reports
 
 SQL変数を使用するメリットには以下があります。
 
-- レポート作成時にキャンペーン IDを貼り付ける代わりに、キャンペーン変数を作成してリストから選択することで時間を節約できます。
-- 変数を追加して値を入れ替えることで、将来的にわずかに異なるユースケース（異なるカスタムイベントなど）でレポートを再利用できます。
-- 各レポートに必要な編集量を減らすことで、SQLの編集時のユーザーエラーを軽減できます。SQLに慣れているチームメンバーがレポートを作成し、技術的な知識が少ないチームメンバーがそのレポートを使用できます。
+{% multi_lang_include analytics/sql_variables_benefits.md %}
 
 ## 変数の使用 {#using-variables}
 
-### ステップ 1: 変数を追加する {#step-1-add-a-variable}
+### ステップ1: 変数を追加する {#step-1-add-a-variable}
 
 クエリに変数を追加するには、以下の構文を使用します。
 
@@ -36,13 +34,13 @@ SQL変数を使用するメリットには以下があります。
 | プレースホルダー | 説明 |
 |------------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | `variable_type`   | 使用したい定義済みの変数タイプ（`campaign`や`catalog_fields`など）。完全なリストについては、[サポートされている変数タイプ](#variable-types)を参照してください。 |
-| `custom_label` | クエリビルダーの**変数**タブで変数を識別するために使用されるラベル。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ 1: 変数を追加する" }
+| `custom_label` | クエリビルダーの**変数**タブで変数を識別するために使用されるラベルです。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ1: 変数を追加する" }
 
 以下の例では、ある月の初日から最終日までのユーザー総数をキャンペーンに対してクエリしています。各変数には次のステップで値が割り当てられます。
 
 {% raw %}
-`````````sql
+```sql
 SELECT COUNT(*) AS total_users
 FROM USERS_CAMPAIGNS_REVENUE_SHARED
 WHERE campaign_id = '{{campaign.${Campaign}}}'
@@ -51,7 +49,7 @@ WHERE campaign_id = '{{campaign.${Campaign}}}'
 ```
 {% endraw %}
 
-### ステップ 2: 値を割り当てる {#step-2-assign-a-value}
+### ステップ2: 値を割り当てる {#step-2-assign-a-value}
 
 デフォルトでは、クエリビルダーに**変数**タブは表示されません。クエリに最初の変数を追加した後にのみ表示されます。そこで値を割り当てることができます。選択できる具体的な値は、その変数の[タイプ](#variable-types)によって異なります。
 
@@ -68,7 +66,7 @@ WHERE campaign_id = '{{campaign.${Campaign}}}'
 {% tabs %}
 {% tab 使用方法 %}
 {% raw %}
-`````````sql
+```sql
 some_number_column < {{number.${custom_label}}}
 ```
 {% endraw %}
@@ -82,7 +80,7 @@ some_number_column < {{number.${custom_label}}}
 {% tabs %}
 {% tab 使用方法 %}
 {% raw %}
-`````````sql
+```sql
 '{{string.${add a string here.}}}'
 ```
 {% endraw %}
@@ -98,7 +96,7 @@ some_number_column < {{number.${custom_label}}}
 {% subtabs %}
 {% subtab 使用方法 %}
 {% raw %}
-`````````sql
+```sql
 {{options.${metrics} | is_radio_button: 'true' | options: '[{"label": "test", "value": "test_value"}, {"label": "test2", "value": "test_value2"}]'}}
 ```
 {% endraw %}
@@ -110,7 +108,7 @@ some_number_column < {{number.${custom_label}}}
 {% subtabs %}
 {% subtab 使用方法 %}
 {% raw %}
-`````````sql
+```sql
 {{options.${metrics} | is_multi_select: 'true' | options: '[{"label": "test", "value": "test_value"}, {"label": "test2", "value": "test_value2"}]'}}
 ```
 {% endraw %}
@@ -125,7 +123,7 @@ some_number_column < {{number.${custom_label}}}
 
 {% tabs %}
 {% tab 使用方法 %}
-`````````sql
+```sql
 is_radio_button: 'true'
 ```
 {% endtab %}
@@ -139,7 +137,7 @@ is_radio_button: 'true'
 
 {% tabs %}
 {% tab 使用方法 %}
-`````````sql
+```sql
 is_multi_select: 'true'
 ```
 {% endtab %}
@@ -153,7 +151,7 @@ is_multi_select: 'true'
 
 {% tabs %}
 {% tab 使用方法 %}
-`````````sql
+```sql
 options: '[{"label": "test", "value": "test_value"}, {"label": "test2", "value": "test_value2"}]'
 ```
 {% endtab %}
@@ -189,7 +187,7 @@ Liquidは指定された日付範囲内にカレンダーを表示するため�
 
 ![Brazeでレンダリングされたカレンダーの例。]({% image_buster /assets/img_archive/query_builder_time_range.png %}){: style="max-width:50%;"}
 
-### キャンペーン
+### キャンペーン {#campaigns}
 
 {% tabs local %}
 {% tab 1つのキャンペーン %}
@@ -198,7 +196,7 @@ Liquidは指定された日付範囲内にカレンダーを表示するため�
 {% subtabs %}
 {% subtab 使用方法 %}
 {% raw %}
-`````````sql
+```sql
 campaign_id = '{{campaign.${custom_label}}}'
 ```
 {% endraw %}
@@ -214,7 +212,7 @@ campaign_id = '{{campaign.${custom_label}}}'
 {% subtabs %}
 {% subtab 使用方法 %}
 {% raw %}
-`````````sql
+```sql
 campaign_id IN ({{campaigns.${custom_label}}})
 ```
 {% endraw %}
@@ -230,7 +228,7 @@ campaign_id IN ({{campaigns.${custom_label}}})
 {% subtabs %}
 {% subtab 使用方法 %}
 {% raw %}
-`````````sql
+```sql
 message_variation_api_id IN ({{campaign_variants.${custom_label}}})
 ```
 {% endraw %}
@@ -254,7 +252,7 @@ message_variation_api_id IN ({{campaign_variants.${custom_label}}})
 {% subtabs %}
 {% subtab 使用方法 %}
 {% raw %}
-`````````sql
+```sql
 canvas_id = '{{canvas.${custom_label}}}'
 ```
 {% endraw %}
@@ -270,7 +268,7 @@ canvas_id = '{{canvas.${custom_label}}}'
 {% subtabs %}
 {% subtab 使用方法 %}
 {% raw %}
-`````````sql
+```sql
 canvas_id IN ({{canvases.${custom_label}}})
 ```
 {% endraw %}
@@ -284,7 +282,7 @@ canvas_id IN ({{canvases.${custom_label}}})
 {% subtabs %}
 {% subtab 使用方法 %}
 {% raw %}
-`````````sql
+```sql
 canvas_variation_api_id IN ({{canvas_variants.${custom_label}}})
 ```
 {% endraw %}
@@ -298,7 +296,7 @@ canvas_variation_api_id IN ({{canvas_variants.${custom_label}}})
 {% subtabs %}
 {% subtab 使用方法 %}
 {% raw %}
-`````````sql
+```sql
 canvas_step_api_id = '{{canvas_step.${custom_label}}}'
 ```
 {% endraw %}
@@ -312,7 +310,7 @@ canvas_step_api_id = '{{canvas_step.${custom_label}}}'
 {% subtabs %}
 {% subtab 使用方法 %}
 {% raw %}
-`````````sql
+```sql
 canvas_step_api_id IN ({{canvas_steps.${custom_label}}})
 ```
 {% endraw %}
@@ -332,7 +330,7 @@ canvas_step_api_id IN ({{canvas_steps.${custom_label}}})
 {% tabs %}
 {% tab 使用方法 %}
 {% raw %}
-`````````sql
+```sql
 ({{products.${custom_label}}})
 ```
 {% endraw %}
@@ -340,7 +338,7 @@ canvas_step_api_id IN ({{canvas_steps.${custom_label}}})
 
 {% tab 例 %}
 {% raw %}
-`````````sql
+```sql
 SELECT product_name
 FROM FULL_GAME_AND_DLC
 WHERE product_id IN ({{products.${Games with DLC}}});
@@ -360,7 +358,7 @@ WHERE product_id IN ({{products.${Games with DLC}}});
 {% subtabs %}
 {% subtab 使用方法 %}
 {% raw %}
-`````````sql
+```sql
 '{{custom_events.${custom_label}}}'
 ```
 {% endraw %}
@@ -368,7 +366,7 @@ WHERE product_id IN ({{products.${Games with DLC}}});
 
 {% subtab 例 %}
 {% raw %}
-`````````sql
+```sql
 SELECT event_name
 FROM CUSTOM_EVENTS_TABLE
 WHERE event_name IN ({{custom_events.${Purchased Game}}});
@@ -384,7 +382,7 @@ WHERE event_name IN ({{custom_events.${Purchased Game}}});
 {% subtabs %}
 {% subtab 使用方法 %}
 {% raw %}
-`````````sql
+```sql
 name = '{{custom_event_properties.${property names)}}}'
 ```
 {% endraw %}
@@ -400,7 +398,7 @@ name = '{{custom_event_properties.${property names)}}}'
 {% tabs %}
 {% tab 使用方法 %}
 {% raw %}
-`````````sql
+```sql
 workspace_id = '{{workspace.${app_group_id}}}'
 ```
 {% endraw %}
@@ -418,7 +416,7 @@ workspace_id = '{{workspace.${app_group_id}}}'
 {% subtabs %}
 {% subtab 使用方法 %}
 {% raw %}
-`````````sql
+```sql
 catalog_id = '{{catalogs.${catalog}}}'
 ```
 {% endraw %}
@@ -432,7 +430,7 @@ catalog_id = '{{catalogs.${catalog}}}'
 {% subtabs %}
 {% subtab 使用方法 %}
 {% raw %}
-`````````sql
+```sql
 field_name = '{{catalog_fields.${custom_label}}}'
 ```
 {% endraw %}
@@ -441,14 +439,14 @@ field_name = '{{catalog_fields.${custom_label}}}'
 {% endtab %}
 {% endtabs %}
 
-### セグメント
+### セグメント {#segments}
 
-[分析トラッキング]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/)が有効になっているセグメントを選択するために使用します。セグメントの分析IDに設定します。これは、このカラムが利用可能なテーブルの`user_segment_membership_ids`カラムに格納されているIDに対応します。
+[分析トラッキング]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking)が有効になっているセグメントを選択するために使用します。セグメントの分析IDに設定します。これは、このカラムが利用可能なテーブルの`user_segment_membership_ids`カラムに格納されているIDに対応します。
 
 {% tabs %}
 {% tab 使用方法 %}
 {% raw %}
-`````````sql
+```sql
 {{segments.${analytics_segments}}}
 ```
 {% endraw %}
@@ -462,7 +460,7 @@ field_name = '{{catalog_fields.${custom_label}}}'
 {% tabs %}
 {% tab 使用方法 %}
 {% raw %}
-`````````sql
+```sql
 {{tags.${some tags}}}
 ```
 {% endraw %}
@@ -476,7 +474,7 @@ field_name = '{{catalog_fields.${custom_label}}}'
 {% tabs %}
 {% tab 使用方法 %}
 {% raw %}
-`````````sql
+```sql
 {{string.${my var}| is_required: 'false' | description: 'My optional string var'}}
 ```
 {% endraw %}
@@ -490,7 +488,7 @@ field_name = '{{catalog_fields.${custom_label}}}'
 {% tabs %}
 {% tab 使用方法 %}
 {% raw %}
-`````````sql
+```sql
 {{string.${type_name_has_no_value} | visible: 'false'}} or {{string.${type_name_has_value} | visible: 'false'}}
 ```
 {% endraw %}
@@ -500,7 +498,7 @@ field_name = '{{catalog_fields.${custom_label}}}'
 `type`と`name`は参照される変数を指します。例えば、以下のオプション変数をショートサーキットする場合: {% raw %}`{{campaigns.${messaging}}`{% endraw %}:
 
 {% raw %}
-`````````sql
+```sql
 {{string.${campaigns_messaging_has_no_value}  | visible: 'false'}} OR campaign_id IN ({{campaigns.${messaging} | is_required: 'false'}})
 ```
 {% endraw %}
@@ -513,7 +511,7 @@ field_name = '{{catalog_fields.${custom_label}}}'
 
 {% tabs %}
 {% tab 使用方法 %}
-`````````sql
+```sql
 visible: 'false'
 ```
 {% endtab %}
@@ -525,7 +523,7 @@ visible: 'false'
 
 {% tabs %}
 {% tab 使用方法 %}
-`````````sql
+```sql
 required: 'false'
 ```
 {% endtab %}
@@ -537,7 +535,7 @@ required: 'false'
 
 {% tabs %}
 {% tab 使用方法 %}
-`````````sql
+```sql
 order: '1'
 ```
 {% endtab %}
@@ -551,7 +549,7 @@ order: '1'
 
 {% subtabs %}
 {% subtab 使用方法 %}
-`````````sql
+```sql
 include_quotes: 'true'
 ```
 {% endsubtab %}
@@ -563,7 +561,7 @@ include_quotes: 'true'
 
 {% subtabs %}
 {% subtab 使用方法 %}
-`````````sql
+```sql
 include_double_quotes: 'true'
 ```
 {% endsubtab %}
@@ -577,7 +575,7 @@ include_double_quotes: 'true'
 
 {% tabs %}
 {% tab 使用方法 %}
-`````````sql
+```sql
 placeholder: 'enter some value'
 ```
 {% endtab %}
@@ -589,7 +587,7 @@ placeholder: 'enter some value'
 
 {% tabs %}
 {% tab 使用方法 %}
-`````````sql
+```sql
 description: 'some description'
 ```
 {% endtab %}
@@ -601,7 +599,7 @@ description: 'some description'
 
 {% tabs %}
 {% tab 使用方法 %}
-`````````sql
+```sql
 default_value: '5'
 ```
 {% endtab %}
@@ -613,7 +611,7 @@ default_value: '5'
 
 {% tabs %}
 {% tab 使用方法 %}
-`````````sql
+```sql
 hide_label: 'true'
 ```
 {% endtab %}

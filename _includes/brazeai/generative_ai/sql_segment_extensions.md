@@ -29,7 +29,7 @@ To create a full refresh SQL Segment Extension:
 
 1. Go to **Audience** > **Segment Extensions**.
 2. Select **Create New Extension**, then select **Full refresh**.<br><br>
-   ![]({% image_buster /assets/img/segment/segment_extension_modal.png %}){: style="max-width:50%" }<br><br>
+   ![Create New Extension modal with Full refresh and Incremental refresh options.]({% image_buster /assets/img/segment/segment_extension_modal.png %}){: style="max-width:50%" }<br><br>
 3. Add a name for your Segment Extension and input your SQL. Refer to [Step 2](#step-2-write-your-sql) for requirements and resources.<br><br>
    ![SQL editor showing an example SQL Segment Extension.]({% image_buster /assets/img_archive/sql_segments_editor.png %}){: style="max-width:60%" }<br><br>
 4. Save your Segment Extension.
@@ -41,7 +41,7 @@ To create an incremental refresh SQL Segment Extension:
 
 1. Go to **Audience** > **Segment Extensions**.
 2. Select **Create New Extension** and select **Incremental refresh**.<br><br>
-   ![]({% image_buster /assets/img/segment/segment_extension_modal.png %}){: style="max-width:50%" }<br><br>
+   ![Create New Extension modal with Full refresh and Incremental refresh options.]({% image_buster /assets/img/segment/segment_extension_modal.png %}){: style="max-width:50%" }<br><br>
 3. Add a name for your Segment Extension and input your SQL. Refer to the section [Writing SQL](#writing-sql) for requirements and resources.<br><br>
    ![SQL editor showing an example incremental SQL Segment Extension.]({% image_buster /assets/img_archive/sql_segments_editor_incremental.png %}){: style="max-width:60%" }<br><br>
 4. If desired, select **Regenerate Extension Daily**.<br><br>
@@ -63,7 +63,7 @@ The AI SQL generator leverages [GPT](https://openai.com/gpt-4), powered by OpenA
 
 To use the AI SQL generator, do the following:
 
-1. Select **Launch AI SQL Generator** after creating a [SQL segment]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments) using either full or incremental refresh.
+1. Select **Launch AI SQL Generator** after creating a [SQL segment]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/) using either full or incremental refresh.
 2. Type your prompt and select **Generate** to translate your prompt into SQL.
 3. Review the generated SQL to make sure it looks correct, and then save your segment.
 
@@ -74,7 +74,7 @@ To use the AI SQL generator, do the following:
 
 #### Tips
 
-- Familiarize yourself with the available [Snowflake data tables]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/sql_segments_tables/). Asking for data that doesn't exist in these tables may result in ChatGPT making up a fake table.
+- Familiarize yourself with the available [Snowflake data tables]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/). Asking for data that doesn't exist in these tables may result in ChatGPT making up a fake table.
 - Familiarize yourself with the [SQL writing rules]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments?tab=sql%20editor#writing-sql) for this feature. Not following these rules will cause an error. For example, your SQL code must select the `user_id` column. Starting your prompt with "users who" can help.
 - You can send up to 20 prompts per minute with the AI SQL Generator.
 
@@ -91,10 +91,10 @@ When the extension finishes processing, you can [create a segment]({{site.baseur
 
 ### Step 2: Write your SQL
 
-Your SQL query should be written using [Snowflake syntax](https://docs.snowflake.com/en/sql-reference.html). Consult the [table reference]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/sql_segments_tables/) for a full list of tables and columns available to be queried.
+Your SQL query should be written using [Snowflake syntax](https://docs.snowflake.com/en/sql-reference.html). Consult the [table reference]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/) for a full list of tables and columns available to be queried.
 
 {% alert important %}
-Note that the tables available to query contain only event data. If you wish to query for user attributes, you should combine your SQL segment with custom attribute filters from the [classic segmenter]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/).
+Note that the tables available to query contain only event data. If you wish to query for user attributes, you should combine your SQL segment with custom attribute filters from the [classic segmenter]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/).
 {% endalert %} 
 
 {% tabs %}
@@ -124,7 +124,7 @@ Additionally, your standard SQL query must adhere to the following rules:
 All incremental refresh queries consist of two parts: a query, and schema details.
 
 1. In the editor, write a query that selects `user_id`s from your desired table.
-2. Add schema details by selecting an **Operator**, **Number of times**, and **Time period** from the fields above the editor. The query will check if the sum of the aggregate column meets a certain condition specified by the {% raw %}`{{operator}}` and `{{number of times}}`{% endraw %} placeholders. This functions similarly to the workflow for creating classic Segment Extensions.<br><br>
+2. Add schema details by selecting an **Operator**, **Number of times**, and **Time period** from the fields at the top of the editor. The query will check if the sum of the aggregate column meets a certain condition specified by the {% raw %}`{{operator}}` and `{{number of times}}`{% endraw %} placeholders. This functions similarly to the workflow for creating classic Segment Extensions.<br><br>
    - **Operator:** Indicate if the event has happened more than, less than, or equal to a number of occurrences.<br>
    ![Operator field with "More than" selected.]({% image_buster /assets/img_archive/sql_segments_operator.png %})<br><br>
    - **Number of times:** How many times you would like to evaluate the event in relation to the operator.<br>
@@ -203,7 +203,7 @@ Select a SQL Segment Extension to view where the extension is being used, archiv
 
 ### Designating refresh settings
 
-{% multi_lang_include segments.md section='Refresh settings' %}
+{% multi_lang_include audience/segments.md section='Refresh settings' %}
 
 ## Snowflake credits {#credits}
 

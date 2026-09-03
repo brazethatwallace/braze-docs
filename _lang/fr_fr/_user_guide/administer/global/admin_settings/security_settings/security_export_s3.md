@@ -8,7 +8,7 @@ description: "Cet article de référence explique comment exporter automatiqueme
 
 # Exportation des événements de sécurité avec Amazon S3 {#security-events-export-with-amazon-s3}
 
-> Vous pouvez exporter automatiquement les événements de sécurité vers Amazon S3, un fournisseur de stockage cloud, grâce à une tâche quotidienne qui s'exécute à minuit UTC. Une fois la configuration effectuée, il n'est pas nécessaire d'exporter manuellement les événements de sécurité depuis le tableau de bord. Cette tâche exporte les événements de sécurité des dernières 24 heures au format CSV vers votre stockage S3 configuré. Le fichier CSV présente la même structure qu'un rapport exporté manuellement.
+> Vous pouvez exporter automatiquement les événements de sécurité vers Amazon S3, un fournisseur de stockage cloud, grâce à une tâche quotidienne qui s'exécute à minuit UTC. Une fois la configuration effectuée, il n'est pas nécessaire d'exporter manuellement les événements de sécurité depuis le tableau de bord. Cette tâche exporte les événements de sécurité des dernières 24 heures au format CSV vers votre stockage S3 configuré. Le fichier CSV utilise les mêmes colonnes qu'un rapport exporté manuellement, avec en plus une colonne `Version`.
 
 {% alert note %}
 La limite de 10 000 lignes s'applique uniquement au téléchargement manuel du rapport CSV à partir du tableau de bord. Les exportations d'événements de sécurité vers S3 ne sont pas soumises à cette limite de lignes.

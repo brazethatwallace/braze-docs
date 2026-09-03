@@ -18,7 +18,7 @@ Il existe deux types de messages WhatsApp dans Braze : les [messages modèles](#
 |---|---|---|
 | Messages modèles | Communication initiée par l'entreprise ; envoyée à tout moment | Requise ; les modèles doivent être soumis à Meta et approuvés avant l'envoi. |
 | Messages de réponse | Réponses aux messages initiés par l'utilisateur ; uniquement dans la fenêtre de conversation de 24 heures | Non requise |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="WhatsApp message and image formats" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Formats de messages et d'images WhatsApp" }
 
 Les messages modèles doivent être soumis à Meta pour approbation, ce qui peut prendre jusqu'à 24 heures. Une fois approuvés, ils peuvent être envoyés à tout moment. Les messages de réponse (appelés « messages de session » dans la documentation de Meta) ne peuvent être envoyés que lorsqu'une fenêtre de conversation active est ouverte, c'est-à-dire dans les 24 heures suivant le dernier message entrant de l'utilisateur.
 
@@ -36,7 +36,7 @@ Les modèles marketing sont le type le plus couramment utilisé dans Braze. Ils 
 | Corps | Oui | Le contenu principal du message |
 | Pied de page | Non | Texte complémentaire affiché sous le corps |
 | Boutons | Non | Jusqu'à 10 boutons (tous les types de boutons sont pris en charge) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Marketing templates" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Modèles marketing" }
 
 #### Longueur des caractères {#character-length}
 
@@ -47,21 +47,53 @@ Les modèles marketing sont le type le plus couramment utilisé dans Braze. Ils 
 | Libellé du bouton (URL, téléphone, réponse rapide) | 25 caractères |
 | Numéro de téléphone (dans le bouton téléphone) | 20 caractères |
 | Nom du modèle | 512 caractères (minuscules, alphanumériques et underscores uniquement) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Character length" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Longueur des caractères" }
 
 #### Types de boutons {#button-types}
 
 | Type de bouton | Comportement | Notes |
 |---|---|---|
 | Réponse rapide | Envoie le texte du libellé du bouton comme réponse dans la conversation | |
-| URL | Ouvre une URL dans le navigateur par défaut de l'utilisateur ; prend en charge 1 variable ajoutée à la fin de l'URL (2 000 caractères maximum) | |
+| URL | Ouvre une URL dans le navigateur par défaut de l'utilisateur ; prend en charge 1 variable ajoutée à la fin de l'URL (2 000 caractères maximum) | Les URL contenant des caractères spéciaux (tels que `&`, `%`, `<`, `>`) peuvent provoquer des échecs d'envoi de messages. Utilisez le filtre Liquid [`url_param_escape`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#url-filters) ou [`url_escape`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#url-filters) pour encoder correctement les URL contenant des caractères spéciaux. |
 | Numéro de téléphone | Lance un appel vers le numéro de téléphone spécifié | |
 | Copier le code promo | Copie un code promo dans le presse-papiers de l'utilisateur | Nécessite toujours l'approbation de Meta |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Button types" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Types de boutons" }
 
 #### Formatage des paramètres {#parameter-formatting}
 
 Les variables de modèle peuvent utiliser des paramètres nommés (tels que {% raw %}`{{first_name}}`{% endraw %}) ou des paramètres positionnels (tels que {% raw %}`{{1}}`{% endraw %}). Dans Braze, les variables peuvent être remplacées par du Liquid ou du texte brut. Incluez toujours des valeurs par défaut pour les variables Liquid ; les messages dont les valeurs de variables sont manquantes ne seront pas envoyés.
+
+### Modèles d'offre à durée limitée {#limited-time-offer-templates}
+
+Les modèles d'offre à durée limitée affichent une offre promotionnelle limitée dans le temps avec un compte à rebours optionnel à mesure que l'offre approche de son expiration. Utilisez cette mise en page pour les promotions à durée limitée, comme les soldes saisonnières ou les offres personnalisées en fonction d'un attribut utilisateur.
+
+| Composant | Requis | Notes |
+|---|---|---|
+| En-tête | Non | Sélectionnez **Aucun** ou ajoutez un média (image ou vidéo). Consultez les [spécifications média](#media-specifications) pour les exigences relatives aux types de fichiers, tailles et dimensions. |
+| Détails de l'offre | Oui | Titre de l'offre, code de l'offre et une expiration optionnelle. |
+| Corps | Oui | Le contenu principal du message. Prend en charge Liquid. |
+| Pied de page | Non | Texte complémentaire affiché après le corps. |
+| Boutons | Oui | **Copier le code de l'offre** est inclus automatiquement. Vous pouvez ajouter un bouton **Visiter le site web** ; aucun autre type de bouton n'est pris en charge pour ce type de modèle. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Modèles d'offre à durée limitée" }
+
+#### Détails de l'offre {#offer-details}
+
+| Champ | Requis | Notes |
+|---|---|---|
+| Titre | Oui | Une courte ligne décrivant l'offre. |
+| Code | Oui | Le code de l'offre que les destinataires copieront. Celui-ci alimente automatiquement le bouton **Copier le code de l'offre**. |
+| Expiration | Non | Définissez une date et une heure fixes (par exemple, une date de fin pour des soldes d'été), ou personnalisez-la en fonction d'un attribut utilisateur (par exemple, la date d'anniversaire de chaque utilisateur). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Détails de l'offre" }
+
+Si vous définissez une expiration, les destinataires voient un compte à rebours dans le message qui se met à jour à mesure que l'offre approche de sa fin. Par exemple, le message pourrait initialement afficher la date de fin, puis passer à quelque chose comme « 5 jours restants » lorsque la date de fin est plus proche. Si vous ne définissez pas d'expiration, l'offre s'affiche sans compte à rebours. Braze empêche l'envoi des messages lorsque l'expiration est dans le passé (par exemple, si l'expiration est le 1er novembre 2026 mais que l'heure d'envoi est le 15 novembre 2026).
+
+#### Types de boutons
+
+| Type de bouton | Notes |
+|---|---|
+| Copier le code de l'offre | Inclus automatiquement. Le texte du bouton est « Copy offer code » et ne peut pas être modifié. |
+| Visiter le site web | Le seul autre bouton que vous pouvez ajouter. Maximum de 1. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Types de boutons d'offre à durée limitée" }
 
 ### Modèles de carrousel de cartes média {#media-card-carousel-templates}
 
@@ -73,7 +105,7 @@ Les modèles de carrousel affichent un corps de message suivi de 2 à 10 cartes 
 |---|---|---|---|
 | Corps du texte | Oui | 1 024 caractères | Prend en charge les variables |
 | Cartes | Oui | 2 à 10 cartes | Le nombre de cartes est fixé lors de la création du modèle. Un modèle de carrousel approuvé ne peut être envoyé qu'avec le nombre exact de cartes défini lors de la création. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Top-level message" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Message de niveau supérieur" }
 
 #### Spécifications par carte {#per-card-specifications}
 
@@ -82,7 +114,7 @@ Les modèles de carrousel affichent un corps de message suivi de 2 à 10 cartes 
 | En-tête (image ou vidéo) | Oui | Toutes les cartes doivent utiliser le même format (toutes en image ou toutes en vidéo). Cela inclut la même structure de composant ; vous ne pouvez pas mélanger des cartes avec et sans corps de texte ou boutons.<br><br> Les ressources d'en-tête de carte sont automatiquement recadrées en format large en fonction de l'appareil de l'utilisateur. |
 | Corps du texte | Non | Si une carte inclut un corps de texte, toutes les cartes doivent inclure un corps de texte |
 | Boutons | Non | 2 boutons maximum par carte |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Per-card specifications" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Spécifications par carte" }
 
 #### Longueur des caractères par carte {#per-card-character-lengths}
 
@@ -92,7 +124,7 @@ Les modèles de carrousel affichent un corps de message suivi de 2 à 10 cartes 
 | Libellé du bouton | 25 caractères | |
 | Numéro de téléphone (dans le bouton téléphone) | 20 caractères | |
 | URL (dans le bouton URL) | 2 000 caractères ; prend en charge 1 variable ajoutée à la fin | Les boutons URL s'ouvrent dans le navigateur par défaut de l'utilisateur, en dehors de WhatsApp. Aucun webhook de commande ou de conversion n'est déclenché à partir de ce point. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Per-card character lengths" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Longueur des caractères par carte" }
 
 ## Messages de réponse {#response-messages}
 
@@ -111,7 +143,7 @@ Braze prend en charge sept mises en page de messages de réponse :
 | Message de liste | Message avec une liste structurée et défilable d'options sélectionnables |
 | Message de flux | Message qui invite les utilisateurs à remplir un formulaire ou une tâche interactive dans WhatsApp, dont le résultat est renvoyé à Braze |
 | Message produit Meta | Message qui met en avant un seul produit, plusieurs produits ou un catalogue entier à partir d'un catalogue Meta connecté |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Response messages" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Messages de réponse" }
 
 ### Composants du message de liste {#list-message-components}
 
@@ -124,7 +156,7 @@ Braze prend en charge sept mises en page de messages de réponse :
 | Titre de la section | 24 caractères |
 | Titre de la ligne | 24 caractères |
 | Description de la ligne | 72 caractères |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="List message components" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Composants du message de liste" }
 
 ### Composants de réponse rapide {#quick-reply-components}
 
@@ -132,7 +164,7 @@ Braze prend en charge sept mises en page de messages de réponse :
 | --- | --- |
 | Bouton | Jusqu'à 3 |
 | Libellé du bouton | 20 caractères par bouton |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Quick reply components" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Composants de réponse rapide" }
 
 ## Spécifications média {#media-specifications}
 
@@ -142,11 +174,11 @@ Les spécifications suivantes s'appliquent à tous les médias dans les en-tête
 
 ### Images {#images}
 
-{% multi_lang_include image_specs.md variable_name='WhatsApp images' %}
+{% multi_lang_include channels/image_specs.md variable_name='WhatsApp images' %}
 
 ### Vidéo {#video}
 
-{% multi_lang_include image_specs.md variable_name='WhatsApp videos' %}
+{% multi_lang_include channels/image_specs.md variable_name='WhatsApp videos' %}
 
 #### Compatibilité Android {#android-compatibility}
 
@@ -167,7 +199,7 @@ Un message vocal fonctionne comme une note vocale enregistrée, avec des contrô
 | Taille du fichier | 16 Mo maximum |
 | Icône de lecture | Cette icône n'apparaît que si le fichier fait 512 Ko ou moins ; les fichiers plus volumineux affichent une icône de téléchargement |
 | Transcription | S'affiche automatiquement si l'utilisateur a activé les transcriptions vocales WhatsApp |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Voice message" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Message vocal" }
 
 #### Message audio basique {#basic-audio-message}
 
@@ -180,7 +212,7 @@ Les spécifications suivantes s'appliquent au partage de fichiers audio standard
 | MP3 | .mp3 | 16 Mo | |
 | MP4 Audio | .m4a | 16 Mo | |
 | OGG (codec OPUS) | .ogg | 16 Mo | Les fichiers OGG doivent utiliser le codec OPUS. Le format de base `audio/ogg` sans OPUS n'est pas pris en charge.<br><br> Les fichiers OGG/OPUS envoyés en tant que messages audio basiques afficheront une icône de microphone (identique aux messages vocaux) plutôt qu'une icône de musique. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Basic audio message" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Message audio basique" }
 
 #### Considérations {#considerations}
 
@@ -219,4 +251,4 @@ Les spécifications suivantes s'appliquent aux en-têtes de modèles (format doc
 | Audio (vocal) | OGG (OPUS) | 16 Mo | Non |
 | Audio (basique) | AAC, AMR, MP3, M4A, OGG | 16 Mo | Non |
 | Document | PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, TXT | 100 Mo | Oui (1 024 caractères maximum) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Quick reference: WhatsApp media specifications" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Référence rapide : spécifications média WhatsApp" }

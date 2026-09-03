@@ -12,7 +12,7 @@ tool:
 
 # 보고서 빌더 (레거시) {#report-builder-legacy}
 
-> 보고서 빌더를 사용하면 여러 Campaign 또는 Canvases의 결과를 단일 뷰에서 비교할 수 있으므로, 어떤 참여 전략이 핵심 측정기준에 가장 큰 영향을 미쳤는지 쉽게 파악할 수 있습니다. Campaign과 Canvases 모두에서 데이터를 내보내고 보고서를 저장하여 나중에 확인할 수 있습니다.<br><br>보고서에서 확인할 수 있는 측정기준의 상세 목록은 [보고서 측정기준 용어집]({{site.baseurl}}/user_guide/analytics/metrics_glossary/)을 참조하세요.
+> 보고서 빌더를 사용하면 여러 Campaign 또는 Canvases의 결과를 단일 뷰에서 비교할 수 있으므로, 어떤 참여 전략이 핵심 측정기준에 가장 큰 영향을 미쳤는지 쉽게 파악할 수 있습니다. Campaign과 Canvases 모두에서 데이터를 내보내고 보고서를 저장하여 나중에 확인할 수 있습니다.<br><br>보고서에서 확인할 수 있는 측정기준의 상세 목록은 [보고서 측정기준 용어집]({{site.baseurl}}/user_guide/analytics/metrics_glossary)을 참조하세요.
 
 ![Campaign 비교 예시]({% image_buster /assets/img/campaign_comparison/campaign_main.png %}){: style="max-width:80%;"}
 
@@ -64,7 +64,7 @@ Canvas 보고서는 수동 Campaign 보고서와 유사하게 작동하며, Canv
 
 ![Campaign 옵션]({% image_buster /assets/img/campaign_comparison/campaign_comparison_columns.png %}){: style="max-width:80%;"}
 
-선택한 측정기준으로 테이블이 채워집니다. 이러한 측정기준의 정의는 [보고서 측정기준 용어집]({{site.baseurl}}/user_guide/analytics/metrics_glossary/)을 참조하세요. 일부 측정기준은 Campaign 비교 보고서에서만 사용할 수 있습니다.
+선택한 측정기준으로 테이블이 채워집니다. 이러한 측정기준의 정의는 [보고서 측정기준 용어집]({{site.baseurl}}/user_guide/analytics/metrics_glossary)을 참조하세요. 일부 측정기준은 Campaign 비교 보고서에서만 사용할 수 있습니다.
 
 또한 모든 비율 또는 수치 측정기준의 **평균** 계산과 모든 수치 측정기준의 **합계** 계산을 토글할 수 있습니다.
 

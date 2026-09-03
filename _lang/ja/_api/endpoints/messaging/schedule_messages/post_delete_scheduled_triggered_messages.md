@@ -10,7 +10,7 @@ description: "この記事では、スケジュールされたAPIトリガーキ
 ---
 {% api %}
 # スケジュールされたAPIトリガーキャンペーンを削除 {#delete-scheduled-api-triggered-campaigns}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /campaigns/trigger/schedule/delete
 {% endapimethod %}
 
@@ -22,7 +22,7 @@ description: "この記事では、スケジュールされたAPIトリガーキ
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`campaigns.trigger.schedule.delete` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`campaigns.trigger.schedule.delete` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -46,8 +46,8 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | ---------| --------- | ----------- |
-| `campaign_id` | 必須 | 文字列 | [Campaign識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。 |
-| `schedule_id` | 必須 | 文字列 | 削除する `schedule_id`（スケジュール作成の応答から取得）。 |
+| `campaign_id` | 必須 | 文字列 | [キャンペーン識別子]({{site.baseurl}}/api/identifier_types)を参照してください。 |
+| `schedule_id` | 必須 | 文字列 | 削除する`schedule_id`（スケジュール作成のレスポンスから取得）。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 

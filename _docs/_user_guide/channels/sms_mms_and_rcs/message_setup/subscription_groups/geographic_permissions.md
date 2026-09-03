@@ -16,13 +16,13 @@ alias: /geographic_permissions/
 
 > Geographic permissions enhance security and protect against fraudulent SMS, MMS, and RCS traffic by enforcing controls on the countries to which you can send messages. You can specify an allowlist of countries to only send SMS, MMS, and RCS messages to approved regions. Messages are only sent to phone numbers with those countries' dialing codes.<br><br> Only admins can make changes to the country allowlist. Non-admin users have access to a read-only version of the allowlist that indicates which countries a subscription group is able to send to.
 
-If you're an admin, you can configure the countries that are on the allowlist. The country allowlist is configured at the [subscription group]({{site.baseurl}}/sms_rcs_subscription_groups/) level. You can access it by going to **Audience** > **Subscription Group Management** and selecting an SMS, MMS, or RCS subscription group. The allowlist is under **Geographic Permissions**.
+If you're an admin, you can configure the countries that are on the allowlist. The country allowlist is configured at the [subscription group]({{site.baseurl}}/sms_rcs_subscription_groups) level. You can access it by going to **Audience** > **Subscription Group Management** and selecting an SMS, MMS, or RCS subscription group. The allowlist is under **Geographic Permissions**.
 
 ![The editable Geographic Permissions section for an admin with several countries selected in the "Country allowlist".]({% image_buster /assets/img/sms/sms_geographic_permissions.png %}){: style="max-width:80%;"}
 
-### Selecting countries
+## Selecting countries
 
-Add countries to the allowlist with the dropdown. The most common SMS, MMS, and RCS countries are shown at the top, with others shown below. You can also search for countries by typing in the text field.
+Add countries to the allowlist with the dropdown. The most common SMS, MMS, and RCS countries are shown at the top, with others shown in the following section. You can also search for countries by typing in the text field.
 
 ![The "Country allowlist" dropdown with the most common countries displaying at the top.]({% image_buster /assets/img/sms/allowlist_dropdown.png %}){: style="max-width:80%;"}
 
@@ -30,7 +30,7 @@ Remove previously selected countries by clearing the respective boxes next to th
 
 ### Saving your changes
 
-Changes will take effect after you save. Removing countries from your allowlist will prevent all SMS, MMS, and RCS messages from being sent to phone numbers with those countries' dialing codes.
+Changes take effect after you save. Removing countries from your allowlist prevents all SMS, MMS, and RCS messages from being sent to phone numbers with those countries' dialing codes.
 
 ![Warning modal confirming the countries that will be deleted from the allowlist.]({% image_buster /assets/img/sms/delete_allowlist_warning.png %}){: style="max-width:70%;"}
 
@@ -43,12 +43,12 @@ Certain countries have a higher risk of SMS, MMS, and RCS traffic pumping. These
 If you allow sending in these countries, you must first acknowledge the risk of doing so before the country is added to your allowlist.
 
 {% alert note %}
-Limit the countries on your allowlist to only those required to support your business needs. This will minimize your potential for fraudulent traffic. For more guidance on preventing SMS, MMS, and RCS traffic pumping, view [SMS traffic pumping fraud FAQs]({{site.baseurl}}/sms_traffic_pumping_fraud/).
+Limit the countries on your allowlist to only those required to support your business needs. This minimizes your potential for fraudulent traffic. For more guidance on preventing SMS, MMS, and RCS traffic pumping, view [SMS traffic pumping fraud FAQs]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/sms_traffic_pumping_fraud/).
 {% endalert %}
 
 ## Visibility of sends outside the allowlist
 
-Attempted sends to countries that aren't on your country allowlist will be aborted. Aborted messages will be logged to the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) and within the [SMS abort message engagement event]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/). 
+Attempted sends to countries that aren't on your country allowlist will be aborted. Aborted messages will be logged to the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) and within the [SMS abort message engagement event]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events). 
 
 Aborted messages for recipients in countries not on your allowlist show as **Aborted Message Errors** and have the message "The recipient's phone number is in a blocked country".
 
@@ -68,8 +68,8 @@ Furthermore, system routing restrictions are enforced based on destination count
 
 ### Customer responsibility and financial liability 
 
-The customer is responsible for and will be invoiced for all Mobile Messages sent through the Services on its behalf, including any messages resulting from SMS, MMS, and RCS traffic pumping. Platform safeguards, such as the Country Allowlist, will assist you in restricting delivery to trusted regions. Ultimately, however, securing your external-facing endpoints and preventing devastating financial harm remains the sole responsibility of the customer.
+The customer is responsible for and will be invoiced for all Mobile Messages sent through the Services on its behalf, including any messages resulting from SMS, MMS, and RCS traffic pumping. Platform safeguards, such as the Country Allowlist, assist you in restricting delivery to trusted regions. Ultimately, however, securing your external-facing endpoints and preventing devastating financial harm remains the sole responsibility of the customer.
 
 ### How to prevent traffic pumping 
 
-Failure to limit your message distribution strictly to the geographic regions where your actual customers reside creates immediate vulnerability to fraud and severe financial harm. To protect your company, you must proactively restrict your delivery regions using the Country Allowlist. In addition, and most importantly, you should secure any online phone number request form or API endpoint that triggers SMS, MMS, and RCS sends in accordance with industry best practices, as described in [Understanding and preventing SMS, MMS, and RCS traffic pumping fraud]({{site.baseurl}}/sms_traffic_pumping_fraud/).
+Failure to limit your message distribution strictly to the geographic regions where your actual customers reside creates immediate vulnerability to fraud and severe financial harm. To protect your company, you must proactively restrict your delivery regions using the Country Allowlist. In addition, and most importantly, you should secure any online phone number request form or API endpoint that triggers SMS, MMS, and RCS sends in accordance with industry best practices, as described in [Understanding and preventing SMS, MMS, and RCS traffic pumping fraud]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/sms_traffic_pumping_fraud/).

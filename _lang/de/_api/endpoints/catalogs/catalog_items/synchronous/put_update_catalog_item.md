@@ -23,7 +23,7 @@ Wenn die `item_id` nicht gefunden wird, erstellt dieser Endpunkt den Artikel in 
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `catalogs.replace_item`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `catalogs.replace_item`.
 
 ## Rate-Limit
 
@@ -35,14 +35,14 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 |---|---|---|---|
 | `catalog_name` | Erforderlich | String | Name des Katalogs. |
 | `item_id` | Erforderlich | String | Die ID des Katalogartikels. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Pfad-Parameter" }
 
 ## Anfrage-Parameter {#request-parameters}
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
 | `items` | Erforderlich | Array | Ein Array, das Artikel-Objekte enthält. Die Artikelobjekte sollten Felder enthalten, die im Katalog vorhanden sind, mit Ausnahme des Feldes `id`. Pro Anfrage ist nur ein Artikel-Objekt zulässig. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Anfrage-Parameter" }
 
 ## Beispielanfrage {#example-request}
 
@@ -116,7 +116,7 @@ In der folgenden Tabelle finden Sie eine Liste möglicher zurückgegebener Fehle
 
 | Fehler | Fehlerbehebung |
 | --- | --- |
-| `arbitrary-error` | Es ist ein unerwarteter Fehler aufgetreten. Bitte versuchen Sie es erneut oder kontaktieren Sie den [Support]({{site.baseurl}}/support_contact/). |
+| `arbitrary-error` | Es ist ein unerwarteter Fehler aufgetreten. Bitte versuchen Sie es erneut oder kontaktieren Sie den [Support]({{site.baseurl}}/support_contact). |
 | `catalog-not-found` | Prüfen Sie, ob der Katalogname gültig ist. |
 | `filtered-set-field-too-long` | Der Feldwert wird in einer gefilterten Menge verwendet, die die Zeichengrenze für einen Artikel überschreitet. |
 | `id-in-body` | Entfernen Sie alle Artikel-IDs im Anfragekörper. |
@@ -130,6 +130,6 @@ In der folgenden Tabelle finden Sie eine Liste möglicher zurückgegebener Fehle
 | `request-includes-too-many-items` | Sie können pro Anfrage nur einen Katalogartikel erstellen. |
 | `too-deep-nesting-in-value-object` | Artikel-Objekte können nicht mehr als 50 Verschachtelungsebenen haben. |
 | `unable-to-coerce-value` | Artikel-Typen können nicht umgewandelt werden. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Fehlerbehebung" }
 
 {% endapi %}

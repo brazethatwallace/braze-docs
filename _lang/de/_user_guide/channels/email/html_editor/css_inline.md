@@ -28,8 +28,24 @@ Sie können unter **Einstellungen** > **E-Mail-Präferenzen** einen Standardstat
 
 ## Connected-Content und CSS-Inlining {#connected-content-and-css-inlining}
 
-CSS-Inlining wird **vor** der Auswertung von [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) ausgeführt. HTML, das von Connected-Content zurückgegeben wird, durchläuft **nicht** denselben Inlining-Schritt. Fügen Sie Stile, die Sie aus Connected-Content benötigen, direkt in die Antwort ein (Inline-`style`-Attribute oder eingebettete Regeln), oder deaktivieren Sie das Inlining für die Nachricht, wenn das besser zu Ihrem Template passt.
+CSS-Inlining wird **vor** der Auswertung von [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) ausgeführt. HTML, das von Connected-Content zurückgegeben wird, durchläuft **nicht** denselben Inlining-Schritt. Fügen Sie Stile, die Sie aus Connected-Content benötigen, direkt in die Antwort ein (Inline-`style`-Attribute oder eingebettete Regeln), oder deaktivieren Sie das Inlining für die Nachricht, wenn das besser zu Ihrem Template passt.
 
 ## Content Blocks in benutzerdefinierten HTML-Templates {#content-blocks-in-custom-html-templates}
 
-Wenn Sie einen [Content-Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/) mit Liquid in ein **benutzerdefiniertes HTML**-E-Mail-Template oder eine Campaign einbinden, können CSS-Regeln im übergeordneten Template die im Content-Block definierten Stile überschreiben. Prüfen Sie, ob es im Template-Wrapper widersprüchliche Selektoren oder globale Regeln gibt.
+Wenn Sie einen [Content-Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) mit Liquid in ein **benutzerdefiniertes HTML**-E-Mail-Template oder eine Campaign einbinden, können CSS-Regeln im übergeordneten Template die im Content-Block definierten Stile überschreiben. Prüfen Sie, ob es im Template-Wrapper widersprüchliche Selektoren oder globale Regeln gibt.
+
+## CSS-Einschränkungen bei Gmail {#gmail-css-limitations}
+
+Gmail hat bestimmte CSS-Einschränkungen, die dazu führen können, dass E-Mails in der Gmail-App in der Desktop-Ansicht statt in der mobilen Ansicht angezeigt werden. Dies kann aus folgenden Gründen auftreten:
+
+- **Zu viel CSS:** Wenn Ihre E-Mail übermäßig viel CSS enthält, kann Gmail den gesamten Style-Block entfernen.
+- **Inkompatibles CSS:** Jedes CSS, das nicht mit Gmail kompatibel ist (einschließlich gültigem CSS, das Gmail nicht unterstützt), kann dazu führen, dass der Style-Block entfernt wird.
+- **Nicht-Gmail-Konten in der Gmail-App:** CSS im `<head>` wird nicht unterstützt.
+
+### Media-Queries in Gmail {#media-queries-in-gmail}
+
+CSS-Media-Queries funktionieren in Gmail-Apps im Allgemeinen, es gibt jedoch Einschränkungen. Wenn Sie Probleme damit haben, dass Media-Queries in Gmail nicht korrekt funktionieren:
+
+- Überprüfen Sie die [von Gmail unterstützte CSS-Referenz](https://developers.google.com/gmail/design/reference/supported_css), um sicherzustellen, dass Ihr CSS kompatibel ist.
+- Lesen Sie die [Gmail-CSS-Designrichtlinien](https://developers.google.com/gmail/design/css) für Best Practices.
+- Erwägen Sie Mobile-First-responsive-Designmuster, die sich für die mobile Darstellung nicht ausschließlich auf Media-Queries verlassen.

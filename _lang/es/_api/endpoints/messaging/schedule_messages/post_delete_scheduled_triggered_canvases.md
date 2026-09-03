@@ -5,16 +5,16 @@ search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Eliminar Canvas programados desencadenados por API de Braze."
+description: "En este artículo se describen los detalles del endpoint Eliminar Canvas programados desencadenados por API de Braze."
 
 ---
 {% api %}
 # Eliminar Canvas programados desencadenados por API {#delete-scheduled-api-triggered-canvases}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /canvas/trigger/schedule/delete
 {% endapimethod %}
 
-> El punto de conexión para eliminar la programación te permite cancelar un mensaje que hayas programado previamente a través de Canvas desencadenados por API antes de que se haya enviado.
+> El endpoint de eliminar programación te permite cancelar un mensaje que hayas programado previamente a través de Canvas desencadenados por API antes de que se haya enviado.
 
 Los mensajes programados o desencadenados que se eliminan cerca de la hora a la que debían enviarse o durante la misma se actualizan con el máximo esfuerzo, por lo que Braze puede aplicar eliminaciones de último momento a todos, a algunos o a ninguno de tus usuarios objetivo.
 
@@ -22,7 +22,7 @@ Los mensajes programados o desencadenados que se eliminan cerca de la hora a la 
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `canvas.trigger.schedule.delete`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `canvas.trigger.schedule.delete`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -46,7 +46,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
-| `canvas_id` | Obligatorio | Cadena | Ver [identificador de Canvas]({{site.baseurl}}/api/identifier_types/). |
+| `canvas_id` | Obligatorio | Cadena | Ver [identificador de Canvas]({{site.baseurl}}/api/identifier_types). |
 | `schedule_id` | Obligatorio | Cadena | El `schedule_id` a eliminar (obtenido de la respuesta a crear programación). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 

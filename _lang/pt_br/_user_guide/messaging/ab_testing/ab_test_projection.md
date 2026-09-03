@@ -19,16 +19,16 @@ Esse recurso está atualmente em acesso antecipado. Entre em contato com seu ger
 
 Na composição da campanha, insira suas variantes de mensagens e suas linhas de assunto no editor. Quando estiver pronto, acesse a etapa **Target Audience** do fluxo de criação da campanha. No painel **A/B Testing**, selecione **Run Projection**.
 
-<img width="518" alt="imagem" src="https://github.com/braze-inc/braze-docs/assets/17167198/8e74835c-76e4-4241-9763-c4f86a622c75">
+<img width="518" alt="image" src="https://github.com/braze-inc/braze-docs/assets/17167198/8e74835c-76e4-4241-9763-c4f86a622c75">
 
 Um modal será aberto com as linhas de assunto de quaisquer variantes de mensagens que você já tenha criado. Opcionalmente, você pode inserir linhas de assunto adicionais (até no máximo dez) digitando manualmente no campo e executando a projeção. Selecione **Run Projection**.
 
-<img width="722" alt="imagem" src="https://github.com/braze-inc/braze-docs/assets/17167198/f9ad45a3-6565-467b-a7f6-35277bef7699">
+<img width="722" alt="image" src="https://github.com/braze-inc/braze-docs/assets/17167198/f9ad45a3-6565-467b-a7f6-35277bef7699">
 
 A linha de assunto que nossa IA prevê como a melhor será destacada com o rótulo **Projected Winner**.
 
 {% alert note %}
-Para [Campaigns de push para múltiplas plataformas]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/multiple_platform_push/), os testes A/B são compatíveis quando você seleciona múltiplas plataformas.
+Para [Campaigns de push para múltiplas plataformas]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/multiple_platform_push), os testes A/B são compatíveis quando você seleciona múltiplas plataformas.
 {% endalert %}
 
 ### Qual é a precisão das projeções? {#how-accurate-are-the-projections}

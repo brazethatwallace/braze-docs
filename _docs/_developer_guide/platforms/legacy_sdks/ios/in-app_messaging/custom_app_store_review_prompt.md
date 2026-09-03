@@ -15,7 +15,7 @@ noindex: true
 # Custom App Store review prompt
 
 {% alert note %}
-Once you implement this prompt, Braze stops automatically tracking impressions, and you must log your own [analytics]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/in-app_messaging/customization/handing_in_app_display/#logging-impressions-and-clicks).
+Once you implement this prompt, Braze stops automatically tracking impressions, and you must log your own [analytics]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/customization/handling_in_app_display#logging-impressions-and-clicks).
 {% endalert %}
 
 Creating a campaign to ask users for an App Store review is a popular usage of in-app messages.
@@ -96,6 +96,6 @@ Next, create an in-app messaging campaign with the following:
 {% endraw %}
 
 {% alert tip %}
-Apple limits App Store review prompts to a maximum of three (3) times per year for each user, so your campaign should be [rate-limited]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/) to three times per year per user.<br><br>Users may turn off App Store review prompts. As a result, your custom review prompt should not promise that a native App Store review prompt will appear or directly ask for a review.
+Apple limits App Store review prompts to a maximum of three (3) times per year for each user, so your campaign should be [rate-limited]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping) to three times per year per user.<br><br>Users may turn off App Store review prompts. As a result, your custom review prompt should not promise that a native App Store review prompt will appear or directly ask for a review.
 {% endalert %}
 

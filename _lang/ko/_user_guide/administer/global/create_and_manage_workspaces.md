@@ -23,13 +23,18 @@ guide_featured_list:
 
 ## 워크스페이스란? {#what-is-a-workspace}
 
-Braze에서 하는 모든 작업은 워크스페이스 내에서 이루어집니다. 워크스페이스는 관련 모바일 앱이나 웹사이트의 참여를 추적하고 관리하기 위한 공유 환경입니다. 워크스페이스는 동일하거나 매우 유사한 앱을 함께 그룹화합니다. 예를 들어, 모바일 앱의 Android 버전과 iOS 버전을 하나의 워크스페이스에 묶을 수 있습니다.
+Braze에서 하는 모든 작업은 워크스페이스 내에서 이루어집니다. 워크스페이스는 관련 모바일 앱이나 웹사이트의 인게이지먼트를 추적하고 관리하기 위한 공유 환경입니다. 워크스페이스는 동일하거나 매우 유사한 앱을 함께 그룹화합니다. 예를 들어, 모바일 앱의 Android 버전과 iOS 버전을 하나의 워크스페이스에 묶을 수 있습니다.
 
 ## 워크스페이스 생성 {#creating-a-workspace}
 
 ### 1단계: 계획 수립 {#step-1-have-a-plan}
 
-시작하기 전에 팀 및 Braze 온보딩 매니저와 함께 사용 사례에 가장 적합한 워크스페이스 구성을 결정하세요. Braze에서 워크스페이스를 계획하는 방법에 대해 자세히 알아보려면 [시작하기: 워크스페이스]({{site.baseurl}}/user_guide/get_started/workspaces/) 가이드를 확인하세요.
+시작하기 전에 팀 및 Braze 온보딩 매니저와 함께 사용 사례에 가장 적합한 워크스페이스 구성을 결정하세요. Braze에서 워크스페이스를 계획하는 방법에 대해 자세히 알아보려면 [시작하기: 워크스페이스]({{site.baseurl}}/user_guide/get_started/workspaces) 가이드를 확인하세요.
+
+{% alert warning %}
+**모범 사례: 워크스페이스별 전용 Firebase 프로젝트 사용**<br>
+Braze에서는 동일한 Firebase 서비스 계정 JSON을 여러 워크스페이스에 업로드할 수 있지만, 동일한 Google 프로젝트 ID를 사용하는 모든 워크스페이스는 Firebase Cloud Messaging의 기본 사용량 제한인 분당 600,000건의 메시지를 공유합니다. 대량 발송자는 여러 워크스페이스에서 동시에 Campaign을 실행할 때 "Quota Exceeded" 오류가 발생할 수 있습니다.<br><br>전달 가능성과 할당량을 독립적으로 관리하려면 각 Braze 워크스페이스에 별도의 전용 Firebase 프로젝트를 사용하세요.
+{% endalert %}
 
 ### 2단계: 워크스페이스 추가 {#step-2-add-your-workspace}
 
@@ -127,7 +132,7 @@ Braze에서 하는 모든 작업은 워크스페이스 내에서 이루어집니
 1. **설정** > **앱 설정**으로 이동합니다.
 2. 해당 워크스페이스를 삭제하려면 **워크스페이스 삭제**를 선택하거나, 해당 앱 인스턴스 옆의 휴지통 아이콘을 선택합니다.
 
-현재 사용자 타겟팅에 사용 중이거나 1,000명 이상의 사용자가 있는 앱 인스턴스 또는 워크스페이스는 삭제할 수 없습니다. 삭제를 시도하면 오류 메시지가 표시됩니다. 삭제를 진행하려면 대시보드 링크와 삭제할 앱 인스턴스 또는 워크스페이스 이름을 포함하여 [고객지원 케이스를 생성]({{site.baseurl}}/user_guide/administer/personal/braze_support/)하세요.
+현재 사용자 타겟팅에 사용 중이거나 1,000명 이상의 사용자가 있는 앱 인스턴스 또는 워크스페이스는 삭제할 수 없습니다. 삭제를 시도하면 오류 메시지가 표시됩니다. 삭제를 진행하려면 대시보드 링크와 삭제할 앱 인스턴스 또는 워크스페이스 이름을 포함하여 [고객지원 케이스를 생성]({{site.baseurl}}/user_guide/administer/personal/braze_support)하세요.
 
 {% alert warning %}
 워크스페이스를 삭제할 때 주의하세요! 워크스페이스가 삭제되면 복원할 수 없습니다.
@@ -143,7 +148,7 @@ Braze에서 하는 모든 작업은 워크스페이스 내에서 이루어집니
 
 #### 앱 업데이트 {#updating-your-app}
 
-앱을 업데이트하는 경우, 동일한 워크스페이스 내에 새 앱 인스턴스를 생성하여 이전 버전과 새 버전을 분리해야 합니다. 이렇게 하면 세분화 시 해당 앱을 선택하여 새 버전의 사용자를 효과적으로 타겟팅할 수 있습니다. 이전 버전의 사용자에게 메시지를 보내려면 필터를 사용하여 [이전 앱 버전을 타겟팅]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features/#filtering-by-most-recent-app-versions)할 수 있습니다.
+앱을 업데이트하는 경우, 동일한 워크스페이스 내에 새 앱 인스턴스를 생성하여 이전 버전과 새 버전을 분리해야 합니다. 이렇게 하면 세분화 시 해당 앱을 선택하여 새 버전의 사용자를 효과적으로 타겟팅할 수 있습니다. 이전 버전의 사용자에게 메시지를 보내려면 필터를 사용하여 [이전 앱 버전을 타겟팅]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions)할 수 있습니다.
 
 새 워크스페이스를 생성하면 사용자가 이전 워크스페이스와 새 워크스페이스 두 곳에 존재하게 됩니다. 또한 동일한 푸시 토큰을 가질 수도 있습니다. 이로 인해 이미 업그레이드한 사용자가 이전 워크스페이스 사용자만을 대상으로 한 마케팅 메시지를 받을 수 있습니다.
 
@@ -158,18 +163,18 @@ Braze에서 하는 모든 작업은 워크스페이스 내에서 이루어집니
 기본적으로 Segment는 워크스페이스의 모든 앱과 웹사이트를 타겟팅합니다. 하나의 앱이나 웹사이트만 타겟팅하는 Segment를 설정하려면:
 
 1. 의미 있는 이름으로 Segment를 생성합니다. Braze에서는 "All Users ({이름} {플랫폼})" 형식을 사용합니다. 예: "All Users (Upon Voyage iOS)".
-2. **Apps and websites targeted**에서 **Users from specific apps**를 선택합니다.
-3. **Specific apps** 드롭다운에서 앱이나 사이트를 선택합니다.
+2. **타겟팅할 앱 및 웹사이트**에서 **특정 앱의 사용자**를 선택합니다.
+3. **특정 앱** 드롭다운에서 앱이나 사이트를 선택합니다.
 
 ![특정 앱의 사용자를 타겟팅하는 Segment.]({% image_buster /assets/img/workspaces/users_from_specific_apps_filter.png %})
 
 그런 다음 이 Segment를 메시지에 추가하고 필요에 따라 추가 Segment 및 필터로 오디언스를 더 세분화할 수 있습니다.
 
-#### Campaigns
+#### Campaigns {#campaigns}
 
 Campaigns의 경우, 작성기의 **타겟 오디언스** 단계에서 Segment를 추가합니다.
 
-#### Canvas
+#### Canvas {#canvas}
 
 Canvas에서는 메시지 단계의 **전달 유효성 검사** 섹션에서 Segment를 추가합니다. 전달 유효성 검사는 메시지 전송 시 오디언스가 전달 기준을 충족하는지 다시 한번 확인합니다. 올바른 앱에 전달되도록 각 메시지 단계에 대해 전달 유효성 검사를 지정하세요. 진입 수준에서 세분화할 필요는 없습니다.
 
@@ -183,5 +188,5 @@ Canvas에서는 메시지 단계의 **전달 유효성 검사** 섹션에서 Seg
 
 워크스페이스를 생성한 후 다음을 구성하세요:
 
-- [워크스페이스 설정]({{site.baseurl}}/user_guide/administer/global/workspace_settings/)에서 API 키, 이메일 환경설정, 푸시 설정 등을 설정합니다.
-- [회사 사용자 관리]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/)에서 이 워크스페이스에 사용자를 추가하고 권한을 할당합니다.
+- [워크스페이스 설정]({{site.baseurl}}/user_guide/administer/global/workspace_settings)에서 API 키, 이메일 환경설정, 푸시 설정 등을 설정합니다.
+- [회사 사용자 관리]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users)에서 이 워크스페이스에 사용자를 추가하고 권한을 할당합니다.

@@ -37,14 +37,14 @@ Los catálogos admiten hasta 1000 campos por elemento y pueden almacenar millone
 
 Los catálogos también potencian la mensajería automatizada a través de desencadenadores de catálogo. Configura notificaciones de vuelta en stock y notificaciones de bajada de precio para enviar mensajes automáticamente a los usuarios cuando los elementos del catálogo cambien.
 
-Para más información, consulta [Desencadenadores de catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/).
+Para más información, consulta [Desencadenadores de catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers).
 
 ## Selecciones {#selections}
 
 Usa las selecciones para agrupar elementos del catálogo según los filtros que definas. Por ejemplo, crea una selección de elementos por debajo de $20 o elementos en una categoría específica, y luego haz referencia al conjunto filtrado en tus mensajes.
 
-Para más información, consulta [Selecciones]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/).
+Para más información, consulta [Selecciones]({{site.baseurl}}/user_guide/data/activation/catalogs/selections).
 
 ## Primeros pasos {#getting-started}
 
-Para crear y administrar catálogos, consulta [Catálogos]({{site.baseurl}}/user_guide/data/activation/catalogs/). Para aprender a hacer referencia a datos de catálogo en tus mensajes, consulta [Uso de catálogos en un mensaje]({{site.baseurl}}/user_guide/data/activation/catalogs/use/).
+Para crear y administrar catálogos, consulta [Catálogos]({{site.baseurl}}/user_guide/data/activation/catalogs). Para aprender a hacer referencia a datos de catálogo en tus mensajes, consulta [Uso de catálogos en un mensaje]({{site.baseurl}}/user_guide/data/activation/catalogs/use).

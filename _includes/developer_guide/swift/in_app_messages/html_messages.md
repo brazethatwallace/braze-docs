@@ -12,7 +12,10 @@ With the Braze JavaScript interface, you can leverage Braze inside the custom We
 First, add the [`ScriptMessageHandler`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/webviewbridge/scriptmessagehandler) from `WebViewBridge` to your app.
 
 ```swift
-let scriptMessageHandler = Braze.WebViewBridge.ScriptMessageHandler(braze: braze)
+let scriptMessageHandler = Braze.WebViewBridge.ScriptMessageHandler(
+  channel: .inAppMessage,
+  braze: braze
+)
 ```
 
 Add the initialized `scriptMessageHandler` to a WkWebView's `userContentController`.
@@ -34,7 +37,10 @@ When you're finished, your code should be similar to the following:
 
 ```swift
 // Create the script message handler using your initialized Braze instance.
-let scriptMessageHandler = Braze.WebViewBridge.ScriptMessageHandler(braze: braze)
+let scriptMessageHandler = Braze.WebViewBridge.ScriptMessageHandler(
+  channel: .inAppMessage,
+  braze: braze
+)
 
 // Create a web view configuration and setup the script message handler.
 let configuration = WKWebViewConfiguration()

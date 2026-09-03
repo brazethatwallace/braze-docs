@@ -18,13 +18,13 @@ Any integration you set up will count toward your account's data point volume.
 
 In Braze, navigate to **Partner Integrations** > **Technology Partners** and select **Amplitude**. Here, you will find the REST endpoint and generate your Braze data import key. 
 
-Once generated, you can create a new key or invalidate an existing one. The data import key and the REST endpoint are used in the next step when setting up a postback in Amplitude's dashboard.<br><br>![]({% image_buster /assets/img/amplitude3.png %})
+Once generated, you can create a new key or invalidate an existing one. The data import key and the REST endpoint are used in the next step when setting up a postback in Amplitude's dashboard.<br><br>![Braze Amplitude technology partner page showing data import key and endpoint.]({% image_buster /assets/img/amplitude3.png %})
 
 ### Step 2: Set up the Braze integration in Amplitude
 
 In Amplitude, navigate to **Sources & Destinations** > **[project name]** > **Destinations** > **Braze**. In the prompt that appears, provide the Braze data import key and REST endpoint, and click **Save**.
 
-![]({% image_buster /assets/img/amplitude.png %})
+![Amplitude destination settings for Braze cohort sync with credentials entered.]({% image_buster /assets/img/amplitude.png %})
 
 ### Step 3: Export an Amplitude cohort to Braze
 
@@ -54,6 +54,17 @@ In Braze, to create a segment of these users, navigate to **Segments** under **E
 
 After saving, you can reference this segment during Canvas or campaign creation in the targeting users step.
 
-## User Matching
+## User matching
 
 Identified users can be matched by either their `external_id` or `alias`. Anonymous users can be matched by their `device_id`. Identified users who were originally created as anonymous users can't be identified by their `device_id`, and must be identified by their `external_id` or `alias`.
+
+## FAQ
+
+### Can I pull a list of Amplitude cohorts?
+
+Braze doesn't provide an API to export a catalog of every Amplitude cohort definition. You can view and use cohorts in these places:
+
+1. **In Amplitude:** View and manage cohorts in the Amplitude dashboard before you sync them to Braze.
+2. **In Braze:** After a cohort syncs, target users with the **Amplitude Cohorts** segment filter. The filter lists synced cohorts by the name Amplitude sent.
+
+For cohort sync errors, confirm user ID alignment and API keys in Amplitude first. See ["We do not have enough data yet for this filter" when syncing a cohort]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_audiences/#we-do-not-have-enough-data-yet-for-this-filter-when-syncing-a-cohort).

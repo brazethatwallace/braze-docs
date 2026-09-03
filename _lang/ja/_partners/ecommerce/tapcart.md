@@ -15,23 +15,23 @@ _この統合はTapcartによって管理されます。_
 
 ## 前提条件 {#prerequisites}
 
-| 必要条件              | 説明                                                                                                                                         |
+| 要件              | 説明                                                                                                                                         |
 |--------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| Tapcartエンタープライズアカウント | この統合は、**Tapcart Enterpriseの顧客**のみが利用できます。                                                                              |
-| BrazeアプリAPIキー         | [Brazeアプリ識別子APIキー](https://www.braze.com/docs/api/identifier_types)が必要です。各プラットフォーム（iOSやAndroidなど）には、独自のアプリ識別子があります。Brazeダッシュボードで、**Settings** > **APIs and Identifiers** > **App Identifiers** に移動します。 |
+| Tapcart エンタープライズアカウント | この連携は **Tapcart エンタープライズの顧客** のみご利用いただけます。                                                                              |
+| Braze アプリ API キー         | [Braze アプリ識別子 API キー]({{site.baseurl}}/api/identifier_types)が必要です。各プラットフォーム（iOSやAndroidなど）にはそれぞれ独自のアプリ識別子があります。Brazeダッシュボードで、**設定** > **APIと識別子** > **アプリ識別子** に移動してください。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
-## 統合について {#about-the-integration}
+## 連携について {#about-the-integration}
 
-TapcartとBrazeを統合する方法については、Webサイトで直接[Tapcartの統合ガイド](https://help.tapcart.com/hc/en-us/articles/36413383526675-Braze-Integration)をご確認ください。統合後は、以下のTapcart機能をBrazeで活用できます。
+TapcartとBrazeの連携方法については、Tapcartの Web サイトにある[Tapcartの連携ガイド](https://help.tapcart.com/en/articles/13893755-braze-tapcart)を直接ご確認ください。連携後、Brazeで以下のTapcart機能を使用できます。
 
-- ベースSDK統合
-- iOSとAndroidのプッシュ通知
+- ベースSDK連携
+- iOSおよびAndroidプッシュ通知
 - リッチプッシュメッセージ
 - ユーザージャーニーのトラッキングとセグメンテーション
 
 以下の機能は現在サポートされていません：Push Stories、Webプッシュ、アプリ内メッセージのカスタマイズ。
 
 {% alert note %}
-その他ご不明な点があれば、Tapcartのインプリメンテーションスペシャリストにお問い合わせいただくか、[help@tapcart.co](mailto:help@tapcart.co) までメールをお送りください。
+その他のご質問がある場合は、Tapcartの実装スペシャリストにお問い合わせいただくか、[help@tapcart.co](mailto:help@tapcart.co) までメールでご連絡ください。
 {% endalert %}

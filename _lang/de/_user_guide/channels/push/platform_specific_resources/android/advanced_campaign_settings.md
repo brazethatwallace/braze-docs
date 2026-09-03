@@ -30,7 +30,7 @@ Das Feld **Time to Live** ermöglicht es Ihnen, eine benutzerdefinierte Speicher
 
 Um die Gültigkeitsdauer für Ihre Android-Push-Benachrichtigung zu bearbeiten, gehen Sie zum Composer und wählen Sie den Tab **Settings** aus. Suchen Sie das Feld **Time to Live** und geben Sie einen Wert in Tagen, Stunden oder Sekunden ein.
 
-Die Standardwerte für die Gültigkeitsdauer werden von Ihren Admins auf der Seite [Push-Einstellungen]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings/) festgelegt. Standardmäßig setzt Braze die Push TTL auf den Maximalwert für jeden Push-Messaging-Dienst. Während die Standard-TTL-Einstellungen global gelten, können Sie sie bei der Campaign-Erstellung auf Nachrichtenebene überschreiben. Dies ist hilfreich, wenn verschiedene Campaigns unterschiedliche Dringlichkeiten oder Zustellungsfenster erfordern.
+Die Standardwerte für die Gültigkeitsdauer werden von Ihren Admins auf der Seite [Push-Einstellungen]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings) festgelegt. Standardmäßig setzt Braze die Push TTL auf den Maximalwert für jeden Push-Messaging-Dienst. Während die Standard-TTL-Einstellungen global gelten, können Sie sie bei der Campaign-Erstellung auf Nachrichtenebene überschreiben. Dies ist hilfreich, wenn verschiedene Campaigns unterschiedliche Dringlichkeiten oder Zustellungsfenster erfordern.
 
 Nehmen wir zum Beispiel an, Ihre App veranstaltet einen wöchentlichen Quizwettbewerb. Sie senden eine Push-Benachrichtigung eine Stunde vor Beginn. Indem Sie die TTL auf 1 Stunde setzen, stellen Sie sicher, dass Nutzer:innen, die die App nach Beginn des Wettbewerbs öffnen, keine Benachrichtigung über ein bereits gestartetes Ereignis erhalten.
 
@@ -64,7 +64,7 @@ Das Feld **Firebase Messaging Delivery Priority** ermöglicht es Ihnen zu steuer
 
 ### Hinweise {#considerations}
 
-- **Standardeinstellung**: Sie können eine Standard-FCM-Priorität für alle Android-Campaigns in Ihren [Push-Einstellungen]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings/) festlegen. Diese Einstellung auf Campaign-Ebene überschreibt bei Bedarf den Standard.
+- **Standardeinstellung**: Sie können eine Standard-FCM-Priorität für alle Android-Campaigns in Ihren [Push-Einstellungen]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings) festlegen. Diese Einstellung auf Campaign-Ebene überschreibt bei Bedarf den Standard.
 - **Herabstufung**: Wenn FCM erkennt, dass Ihre App häufig Nachrichten mit hoher Priorität sendet, die nicht zu sichtbaren Benachrichtigungen oder Nutzer:innen-Engagement führen, können diese Nachrichten automatisch auf normale Priorität herabgestuft werden.
 - **Akkuauswirkung**: Nachrichten mit hoher Priorität wecken schlafende Geräte aggressiver und verbrauchen mehr Akku. Verwenden Sie diese Priorität mit Bedacht.
 
@@ -84,7 +84,7 @@ Bei Push-Benachrichtigungen mit Bildern wird der Nachrichtentext in der eingekla
 
 ## Benutzerdefinierte URIs {#custom-uris}
 
-Das Feature **Custom URI** ermöglicht es Ihnen, eine Web-URL oder eine Android-Ressource anzugeben, zu der navigiert wird, wenn die Benachrichtigung angeklickt wird. Wenn kein benutzerdefinierter URI angegeben ist, werden Nutzer:innen beim Klicken auf die Benachrichtigung in Ihre App geleitet. Sie können den benutzerdefinierten URI verwenden, um Deep-Links innerhalb Ihrer App zu erstellen sowie Nutzer:innen zu Ressourcen außerhalb Ihrer App weiterzuleiten. Dies kann über unsere [Messaging-API]({{site.baseurl}}/api/endpoints/messaging/) oder im Tab **Compose** des Push-Composers angegeben werden.
+Das Feature **Custom URI** ermöglicht es Ihnen, eine Web-URL oder eine Android-Ressource anzugeben, zu der navigiert wird, wenn die Benachrichtigung angeklickt wird. Wenn kein benutzerdefinierter URI angegeben ist, werden Nutzer:innen beim Klicken auf die Benachrichtigung in Ihre App geleitet. Sie können den benutzerdefinierten URI verwenden, um Deep-Links innerhalb Ihrer App zu erstellen sowie Nutzer:innen zu Ressourcen außerhalb Ihrer App weiterzuleiten. Dies kann über unsere [Messaging-API]({{site.baseurl}}/api/endpoints/messaging) oder im Tab **Compose** des Push-Composers angegeben werden.
 
 ![Feld für benutzerdefinierten URI.]({% image_buster /assets/img_archive/deep_link.png %}){: style="max-width:60%;"}
 
@@ -166,7 +166,7 @@ In Android O wurden Benachrichtigungstöne zu einer Eigenschaft von Benachrichti
 
 Für Geräte mit Android-Versionen vor Android O ermöglicht Braze Ihnen, den Ton einer einzelnen Push-Nachricht über den Dashboard-Composer festzulegen. Sie können dies tun, indem Sie eine lokale Soundressource auf dem Gerät angeben (zum Beispiel `android.resource://com.mycompany.myapp/raw/mysound`).
 
-Wenn Sie in diesem Feld **Default** auswählen, wird der Standard-Benachrichtigungston des Geräts abgespielt. Dies kann über unsere [Messaging-API]({{site.baseurl}}/api/endpoints/messaging/) oder in den **Settings** im Push-Composer angegeben werden.
+Wenn Sie in diesem Feld **Default** auswählen, wird der Standard-Benachrichtigungston des Geräts abgespielt. Dies kann über unsere [Messaging-API]({{site.baseurl}}/api/endpoints/messaging) oder in den **Settings** im Push-Composer angegeben werden.
 
 ![Das Feld „Sound“.]({% image_buster /assets/img_archive/sound_android.png %}){: style="float:right;max-width:50%;margin-left:15px;"}
 

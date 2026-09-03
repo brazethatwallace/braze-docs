@@ -6,14 +6,16 @@ description: "Braze Roku SDK README reference mirrored from GitHub."
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Roku SDK repository guide
+
 ## About the Braze Roku SDK
 
 The Braze Roku SDK helps you integrate Braze messaging, analytics, and user engagement capabilities into your application.
 
 To get started, refer to the following resources:
 
-- [Braze User Guide]({{site.baseurl}}/user_guide/introduction/)
-- [Braze Developer Guide]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=roku)
+- [Braze User Guide](https://www.braze.com/docs/user_guide/introduction/)
+- [Braze Developer Guide](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=roku)
 
 ## Initial SDK Integration
 

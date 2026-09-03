@@ -20,7 +20,7 @@ The distribution between variants is not always even. Every time a message sends
 Similarly, if you want to split multiple variants evenly using whole-number percentages, ensure the number of variants evenly divides 100. Otherwise, some variants have a higher percentage of users distributed to that variant compared to others. For example, if your campaign has seven variants, there can't be an even variant distribution because seven does not equally divide by 100 as a whole number. In this case, you would have two variants of 15% and five variants of 14%. 
 
 {% alert tip %}
-To distribute users in a Canvas, you could add a [Decision Split step]({{site.baseurl}}/decision_split/) and separate users based on their [random bucket numbers]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/).
+To distribute users in a Canvas, you could add a [Decision Split step]({{site.baseurl}}/decision_split) and separate users based on their [random bucket numbers]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers).
 {% endalert %}
 
 ## In-app message distribution

@@ -1,9 +1,9 @@
 ---
 nav_title: Intégration
-article_title: Intégration Push pour iOS
+article_title: Intégration push pour iOS
 platform: iOS
 page_order: 0
-description: "Cet article de référence traite de la manière d'intégrer des notifications push dans votre application iOS."
+description: "Cet article de référence explique comment intégrer les notifications push dans votre application iOS."
 channel:
   - push
 search_rank: 5
@@ -38,7 +38,7 @@ noindex: true
 
 Dans les paramètres de votre projet, assurez-vous que sous l'onglet **Capabilities**, votre fonctionnalité **Push Notifications** est activée.
 
-![]({% image_buster /assets/img_archive/Enable_push_capabilities.png %})
+![Dans les paramètres de votre projet, assurez-vous que sous l'onglet Capabilities, votre fonctionnalité Push Notifications est activée.]({% image_buster /assets/img_archive/Enable_push_capabilities.png %})
 
 Si vous disposez de certificats push distincts pour le développement et la production, veillez à décocher la case **Automatically manage signing** dans l'onglet **General**. Cela vous permettra de choisir différents profils de provisionnement pour chaque configuration de build, car la fonctionnalité de signature de code automatique de Xcode ne gère que la signature de développement.
 
@@ -48,10 +48,10 @@ Si vous disposez de certificats push distincts pour le développement et la prod
 
 L'exemple de code approprié doit être inclus dans la méthode de délégation `application:didFinishLaunchingWithOptions:` de votre application pour que l'appareil de vos utilisateurs s'enregistre auprès des APNs. Assurez-vous d'appeler tout le code d'intégration push dans le thread principal de votre application.
 
-Braze fournit également des catégories push par défaut pour la prise en charge des boutons d'action push, qui doivent être ajoutées manuellement à votre code d'enregistrement push. Reportez-vous aux [boutons d'action push]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/action_buttons/) pour connaître les étapes d'intégration supplémentaires.
+Braze fournit également des catégories push par défaut pour la prise en charge des boutons d'action push, qui doivent être ajoutées manuellement à votre code d'enregistrement push. Reportez-vous aux [boutons d'action push]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/action_buttons) pour connaître les étapes d'intégration supplémentaires.
 
 {% alert warning %}
-Si vous avez mis en place une invite push personnalisée comme décrit dans nos [bonnes pratiques push]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/troubleshooting/), assurez-vous d'appeler le code suivant **à chaque exécution de l'application** après que l'utilisateur a accordé les autorisations push à votre application. **Les applications doivent se réenregistrer auprès des APNs, car [les jetons d'appareils peuvent changer de manière arbitraire](https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/BackgroundExecution/BackgroundExecution.html).**
+Si vous avez mis en place une invite push personnalisée comme décrit dans nos [bonnes pratiques push]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/troubleshooting), assurez-vous d'appeler le code suivant **à chaque exécution de l'application** après que l'utilisateur a accordé les autorisations push à votre application. **Les applications doivent se réenregistrer auprès des APNs, car [les jetons d'appareils peuvent changer de manière arbitraire](https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/BackgroundExecution/BackgroundExecution.html).**
 {% endalert %}
 
 ### Utilisation du framework UserNotification (iOS 10+) {#using-usernotification-framework-ios-10}
@@ -59,7 +59,7 @@ Si vous avez mis en place une invite push personnalisée comme décrit dans nos 
 Si vous utilisez le framework `UserNotifications` (recommandé) introduit dans iOS 10, ajoutez le code suivant à la méthode `application:didFinishLaunchingWithOptions:` de votre délégué d'application.
 
 {% alert important %}
-L'exemple de code suivant inclut l'intégration pour l'authentification push provisoire (lignes 5 et 6). Si vous ne prévoyez pas d'utiliser l'autorisation provisoire dans votre application, vous pouvez supprimer les lignes de code qui ajoutent `UNAuthorizationOptionProvisional` aux options `requestAuthorization`.<br>Consultez les [options de notification iOS]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options/) pour en savoir plus sur l'authentification push provisoire.
+L'exemple de code suivant inclut l'intégration pour l'authentification push provisoire (lignes 5 et 6). Si vous ne prévoyez pas d'utiliser l'autorisation provisoire dans votre application, vous pouvez supprimer les lignes de code qui ajoutent `UNAuthorizationOptionProvisional` aux options `requestAuthorization`.<br>Consultez les [options de notification iOS]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options) pour en savoir plus sur l'authentification push provisoire.
 {% endalert %}
 
 {% tabs %}
@@ -304,8 +304,8 @@ Appboy.sharedInstance()?.register(application,
 
 ## Étape 6 : Liens profonds {#step-6-deep-linking}
 
-La création de liens profonds depuis une notification push vers l'application est gérée automatiquement via notre documentation d'intégration push standard. Si vous souhaitez en savoir plus sur l'ajout de liens profonds vers des emplacements spécifiques dans votre application, consultez nos [cas d'utilisation avancés]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/advanced_use_cases/linking/#linking-implementation).
+La création de liens profonds depuis une notification push vers l'application est gérée automatiquement via notre documentation d'intégration push standard. Si vous souhaitez en savoir plus sur l'ajout de liens profonds vers des emplacements spécifiques dans votre application, consultez nos [cas d'utilisation avancés]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/advanced_use_cases/linking#linking-implementation).
 
 ## Étape 7 : Tests unitaires (facultatif) {#step-7-unit-tests-optional}
 
-Pour ajouter une couverture de test aux étapes d'intégration que vous venez de suivre, implémentez les [tests unitaires push]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/unit_tests/).
+Pour ajouter une couverture de test aux étapes d'intégration que vous venez de suivre, implémentez les [tests unitaires push]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/unit_tests).

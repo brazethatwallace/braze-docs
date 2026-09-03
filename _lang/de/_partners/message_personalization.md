@@ -1,104 +1,30 @@
 ---
-nav_title: Personalisierung von Nachrichten
+nav_title: "Personalisierung von Nachrichten"
 article_title: Partner für die Personalisierung von Nachrichten
 page_order: 1
-
 page_type: landing
-description: "Diese Landing-Page listet Braze-Partner (Technologie-Partner) auf, die es Ihnen ermöglichen, Ihren Braze Campaigns und Canvases zusätzliche Personalisierung hinzuzufügen."
-layout: partner_page
+description: "Entdecken Sie Braze-Technologie-Partner, die Ihren Campaigns und Canvases Personalisierung hinzufügen."
+layout: dev_guide
 search_tag: Partner
 
-partner_top_header: "Personalisierung von Nachrichten"
+guide_top_header: "Personalisierung von Nachrichten"
+guide_top_text: "Diese Partner helfen Ihnen, Braze Campaigns und Canvases mit Personalisierung zu erweitern. Durchsuchen Sie eine Kategorie, um Integrationsleitfäden zu finden. Eine vollständige, durchsuch- und filterbare Liste aller Braze-Technologie-Partner finden Sie im <a href='https://marketplace.braze.com/t/type/technology-partner'>Braze Marketplace</a>."
 
-valid_partner_list:
-- name: Jacquard
-  url: /docs/partners/jacquard/
-- name: Notify
-  url: /docs/partners/notify/
-- name: Trustpilot
-  url: /docs/partners/trustpilot/
-- name: Amazon Personalize
-  url: /docs/partners/amazon_personalize/
-- name: Dynamic Yield
-  url: /docs/partners/dynamic_yield/
-- name: LiftIgniter
-  url: /docs/partners/liftigniter/
-- name: Movable Ink
-  url: /docs/partners/movable_ink/
-- name: Sheetlabs
-  url: /docs/partners/sheetlabs/
-- name: Limbik
-  url: /docs/partners/limbik/
-- name: Amplitude
-  url: /docs/partners/amplitude/
-- name: Certona
-  url: /docs/partners/certona/
-- name: CataBoom
-  url: /docs/partners/cataboom/
-- name: DailyPlay
-  url: /docs/partners/dailyplay/
-- name: Future Anthem
-  url: /docs/partners/future_anthem/
-- name: Judo
-  url: /docs/partners/judo/
-- name: Nifty Images
-  url: /docs/partners/nifty_images/
-- name: Odicci
-  url: /docs/partners/odicci/
-- name: Playable
-  url: /docs/partners/playable/
-- name: SEEN
-  url: /docs/partners/seen/
-- name: Storyly
-  url: /docs/partners/storyly/
-- name: Worthy
-  url: /docs/partners/worthy/
-- name: WSC Sports
-  url: /docs/partners/wsc_sports/
-- name: Wyng
-  url: /docs/partners/wyng/
-- name: Yotpo
-  url: /docs/partners/yotpo/
-- name: Crowdin
-  url: /docs/partners/crowdin/
-- name: Lokalise
-  url: /docs/partners/lokalise/
-- name: Phrase
-  url: /docs/partners/phrase/
-- name: Smartling
-  url: /docs/partners/smartling/
-- name: Tangerine
-  url: /docs/partners/tangerine/
-- name: Stylitics
-  url: /docs/partners/stylitics/
-- name: NiftyImages
-  url: /docs/partners/niftyimages/
-- name: JustAI
-  url: /docs/partners/just_ai/
-- name: Transifex
-  url: /docs/partners/transifex/
-- name: AccuWeather
-  url: /docs/partners/accuweather/
-- name: Bluedot
-  url: /docs/partners/bluedot/
-- name: Foursquare
-  url: /docs/partners/foursquare/
-- name: Infillion
-  url: /docs/partners/infillion/
-- name: loplat
-  url: /docs/partners/loplat/
-- name: Radar
-  url: /docs/partners/radar/
-- name: Extole
-  url: /docs/partners/extole/
-- name: Friendbuy
-  url: /docs/partners/friendbuy/
-- name: ViralSweep
-  url: /docs/partners/viralsweep/
-- name: Mention Me
-  url: /docs/partners/mention_me/
-- name: Talkable
-  url: /docs/partners/talkable/
-- name: VideoSmart
-  url: /docs/partners/videosmart/
+guide_featured_title: "Kategorien"
+guide_featured_list:
+  - name: "Creative Studio"
+    link: /docs/partners/message_personalization/creative_studio
+    image: /assets/img/braze_icons/zap.svg
+  - name: "Dynamische Inhalte"
+    link: /docs/partners/message_personalization/dynamic_content
+    image: /assets/img/braze_icons/layers-three-01.svg
+  - name: "Lokalisierung"
+    link: /docs/partners/message_personalization/localization
+    image: /assets/img/braze_icons/bar-chart-01.svg
+  - name: "Kontextueller Standort"
+    link: /docs/partners/message_personalization/location
+    image: /assets/img/braze_icons/dataflow-01.svg
+  - name: "Empfehlungen"
+    link: /docs/partners/message_personalization/referrals
+    image: /assets/img/braze_icons/users-01.svg
 ---

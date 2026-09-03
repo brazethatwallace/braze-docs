@@ -29,7 +29,12 @@ Tout ce que vous faites dans Braze se déroule au sein d'un espace de travail. L
 
 ### Étape 1 : Avoir un plan {#step-1-have-a-plan}
 
-Avant de commencer, assurez-vous d'avoir travaillé avec votre équipe et votre responsable d'onboarding Braze pour déterminer la meilleure configuration d'espace de travail pour votre cas d'utilisation. Pour en savoir plus sur la planification de vos espaces de travail dans Braze, consultez notre guide [Premiers pas : Espaces de travail]({{site.baseurl}}/user_guide/get_started/workspaces/).
+Avant de commencer, assurez-vous d'avoir travaillé avec votre équipe et votre responsable d'onboarding Braze pour déterminer la meilleure configuration d'espace de travail pour votre cas d'usage. Pour en savoir plus sur la planification de vos espaces de travail dans Braze, consultez notre guide [Premiers pas : Espaces de travail]({{site.baseurl}}/user_guide/get_started/workspaces).
+
+{% alert warning %}
+**Bonne pratique : utilisez des projets Firebase dédiés par espace de travail**<br>
+Bien que Braze permette de télécharger le même fichier JSON de compte de service Firebase dans plusieurs espaces de travail, tous les espaces de travail utilisant le même ID de projet Google partagent la limite de débit par défaut de Firebase Cloud Messaging de 600 000 messages par minute. Les expéditeurs à fort volume peuvent rencontrer des erreurs « Quota Exceeded » lors de lancements simultanés de Campaigns dans plusieurs espaces de travail.<br><br>Pour une livrabilité et une gestion des quotas isolées, utilisez des projets Firebase distincts et dédiés pour chaque espace de travail Braze.
+{% endalert %}
 
 ### Étape 2 : Ajouter votre espace de travail {#step-2-add-your-workspace}
 
@@ -59,13 +64,13 @@ Vous serez redirigé vers la page **Paramètres des applications** pour commence
 
 Les différents sites et applications regroupés au sein d'un espace de travail sont appelés « instances d'application ».
 
-1. Depuis la page **Paramètres des applications**, sélectionnez **+ Add app**.
+1. Depuis la page **Paramètres des applications**, sélectionnez **+ Ajouter une application**.
 2. Donnez un nom à votre instance d'application et sélectionnez la ou les plateformes sur lesquelles elle se trouve. Si vous sélectionnez plusieurs plateformes, Braze créera une instance d'application pour chaque plateforme.
 
 ![Fenêtre modale « Ajouter une nouvelle application à Upon Voyage US - Staging » avec des options pour sélectionner les détails de l'application.]({% image_buster /assets/img/workspaces/workspace_add_app.png %}){: style="max-width:60%" }
 
 {:start="3"}
-3. Sélectionnez **Add app** pour confirmer.
+3. Sélectionnez **Ajouter une application** pour confirmer.
 
 #### Clés API de l'application {#app-api-keys}
 
@@ -127,7 +132,7 @@ Pour supprimer votre espace de travail ou instance d'application :
 1. Allez dans **Paramètres** > **Paramètres des applications**.
 2. Sélectionnez **Supprimer l'espace de travail** pour supprimer l'espace de travail concerné, ou sélectionnez l'icône de corbeille à côté de l'instance d'application concernée.
 
-Vous ne pouvez pas supprimer des instances d'application ou des espaces de travail qui sont actuellement utilisés pour cibler des utilisateurs ou qui comptent plus de 1 000 utilisateurs. Si vous essayez de le faire, vous recevrez un message d'erreur. Pour procéder à la suppression, [créez un cas d'assistance]({{site.baseurl}}/user_guide/administer/personal/braze_support/) en incluant un lien vers le tableau de bord et le nom de l'instance d'application ou de l'espace de travail à supprimer.
+Vous ne pouvez pas supprimer des instances d'application ou des espaces de travail qui sont actuellement utilisés pour cibler des utilisateurs ou qui comptent plus de 1 000 utilisateurs. Si vous essayez de le faire, vous recevrez un message d'erreur. Pour procéder à la suppression, [créez un cas d'assistance]({{site.baseurl}}/user_guide/administer/personal/braze_support) en incluant un lien vers le tableau de bord et le nom de l'instance d'application ou de l'espace de travail à supprimer.
 
 {% alert warning %}
 Soyez prudent lorsque vous supprimez des espaces de travail ! Une fois un espace de travail supprimé, il ne peut pas être restauré.
@@ -143,13 +148,13 @@ Cela dépend de si vous mettez à jour votre application ou si vous en créez un
 
 #### Mettre à jour votre application {#updating-your-app}
 
-Si vous mettez à jour votre application, vous devez séparer l'ancienne et la nouvelle version en créant une nouvelle instance d'application au sein du même espace de travail. De cette façon, vous pouvez cibler efficacement les utilisateurs de la nouvelle version lorsque vous sélectionnez cette application lors de la segmentation. Si vous souhaitez envoyer des messages aux utilisateurs de l'ancienne version, vous pouvez utiliser des filtres pour [cibler la version précédente de l'application]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features/#filtering-by-most-recent-app-versions).
+Si vous mettez à jour votre application, vous devez séparer l'ancienne et la nouvelle version en créant une nouvelle instance d'application au sein du même espace de travail. De cette façon, vous pouvez cibler efficacement les utilisateurs de la nouvelle version lorsque vous sélectionnez cette application lors de la segmentation. Si vous souhaitez envoyer des messages aux utilisateurs de l'ancienne version, vous pouvez utiliser des filtres pour [cibler la version précédente de l'application]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions).
 
 Si vous créez un nouvel espace de travail, vos utilisateurs existeront à deux endroits : l'ancien espace de travail et le nouveau. Ils pourraient également avoir le même jeton de notification push. Cela peut amener des utilisateurs à recevoir un message marketing destiné uniquement aux utilisateurs de l'ancien espace de travail, même s'ils ont déjà effectué la mise à jour.
 
 #### Publier une nouvelle application {#releasing-a-new-app}
 
-Si vous publiez une application entièrement nouvelle sur l'app store, vous devez créer un nouvel espace de travail. En créant un nouvel espace de travail, toutes les données historiques et les profils utilisateurs de l'ancienne version de l'application n'existeront pas dans ce nouvel espace de travail. Ainsi, lorsque les utilisateurs existants passeront à la nouvelle version de l'application, ils auront un nouveau profil créé sans aucune des données comportementales de l'ancienne application.
+Si vous publiez une application entièrement nouvelle sur la boutique d'applications, vous devez créer un nouvel espace de travail. En créant un nouvel espace de travail, toutes les données historiques et les profils utilisateurs de l'ancienne version de l'application n'existeront pas dans ce nouvel espace de travail. Ainsi, lorsque les utilisateurs existants passeront à la nouvelle version de l'application, ils auront un nouveau profil créé sans aucune des données comportementales de l'ancienne application.
 
 ### J'ai plusieurs instances d'application dans un seul espace de travail — comment puis-je m'assurer de ne cibler qu'une seule application avec mon message ? {#singular-app}
 
@@ -165,11 +170,11 @@ Par défaut, un segment cible toutes les applications et tous les sites web de l
 
 Vous pouvez ensuite ajouter ce segment à votre message et affiner davantage votre audience avec des segments et des filtres supplémentaires si nécessaire.
 
-#### Campaigns
+#### Campaigns {#campaigns}
 
 Pour les Campaigns, ajoutez votre segment à l'étape **Audience cible** du composeur.
 
-#### Canvas
+#### Canvas {#canvas}
 
 Dans Canvas, ajoutez votre segment à vos étapes de message, dans la section **Validations de réception/distribution**. Les validations de réception/distribution vérifient que votre audience répond à vos critères de réception/distribution au moment de l'envoi du message. N'oubliez pas de spécifier les validations de réception/distribution pour chaque étape de message afin de vous assurer que le message sera envoyé à la bonne application. Il n'est pas nécessaire de segmenter au niveau de l'entrée.
 
@@ -183,5 +188,5 @@ Dans le workflow Canvas d'origine, ajoutez votre segment au niveau du composant 
 
 Après avoir créé votre espace de travail, configurez-le :
 
-- [Paramètres de l'espace de travail]({{site.baseurl}}/user_guide/administer/global/workspace_settings/) pour configurer les clés API, les préférences des e-mails, les paramètres de notifications push, et plus encore.
-- [Gérer les utilisateurs de l'entreprise]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/) pour ajouter des utilisateurs et attribuer des autorisations pour cet espace de travail.
+- [Paramètres de l'espace de travail]({{site.baseurl}}/user_guide/administer/global/workspace_settings) pour configurer les clés API, les préférences des e-mails, les paramètres de notifications push, et plus encore.
+- [Gérer les utilisateurs de l'entreprise]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users) pour ajouter des utilisateurs et attribuer des autorisations pour cet espace de travail.

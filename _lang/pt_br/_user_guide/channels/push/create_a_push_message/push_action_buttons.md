@@ -20,7 +20,7 @@ channel:
 Cada botão interativo pode direcionar para uma página da web, um deep link ou abrir o app.
 
 - Para Campaigns de push padrão, você pode especificar seus botões de ação por push na seção **Comportamento ao clicar** do criador de mensagens push no dashboard.
-- Para [Campaigns de push multiplataforma]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/multiple_platform_push/), os botões de ação podem ser configurados separadamente para cada plataforma na guia **Configurações**.
+- Para [Campaigns de push multiplataforma]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/multiple_platform_push), os botões de ação podem ser configurados separadamente para cada plataforma na guia **Configurações**.
 
 {% tabs %}
 {% tab iOS %}
@@ -39,10 +39,10 @@ Para usar botões de ação nas suas mensagens push do iOS, faça o seguinte:
 ![Menu suspenso de categoria de notificação do iOS.]({% image_buster /assets/img_archive/push_action_buttons_ios.png %}){: style="max-width:70%"}
 
 {% alert note %}
-Devido à forma como o iOS lida com botões, é necessário realizar etapas adicionais de integração ao configurar botões de ação por push, que estão descritas na nossa [documentação para desenvolvedores]({{site.baseurl}}/developer_guide/push_notifications/customization/?sdktab=swift#swift_customizing-push-categories). Em particular, você precisa configurar as categorias do iOS ou selecionar entre certas opções de botões padrão. Para integrações Android, esses botões funcionam automaticamente.
+Devido à forma como o iOS lida com botões, é necessário realizar etapas adicionais de integração ao configurar botões de ação por push, que estão descritas na nossa [documentação para desenvolvedores]({{site.baseurl}}/developer_guide/push_notifications/customization?sdktab=swift#swift_customizing-push-categories). Em particular, você precisa configurar as categorias do iOS ou selecionar entre certas opções de botões padrão. Para integrações Android, esses botões funcionam automaticamente.
 {% endalert %}
 
-Pares predefinidos como **Yes** / **No** mapeiam o segundo botão para uma ação de descarte (**CLOSE**) por padrão, então ele não abre o app da mesma forma que o primeiro botão. **_Aberturas diretas_** não incluem esse tipo de toque, mas os dados de **Push Notification Open** no Currents ou Snowflake ainda podem registrá-lo com `button_action_type` e `button_string`. Para saber mais, consulte [Botões de ação por push e relatórios]({{site.baseurl}}/user_guide/channels/push/reporting/#push-action-buttons-and-reporting).
+Pares predefinidos como **Yes** / **No** mapeiam o segundo botão para uma ação de descarte (**CLOSE**) por padrão, então ele não abre o app da mesma forma que o primeiro botão. **_Aberturas diretas_** não incluem esse tipo de toque, mas os dados de **Push Notification Open** no Currents ou Snowflake ainda podem registrá-lo com `button_action_type` e `button_string`. Para saber mais, consulte [Botões de ação por push e relatórios]({{site.baseurl}}/user_guide/channels/push/reporting#push-action-buttons-and-reporting).
 {% endtab %}
 {% tab Android %}
 ### Android {#android}
@@ -53,7 +53,7 @@ Para usar botões de ação nas suas mensagens push do Android, faça o seguinte
 2. Selecione <i class="fas fa-plus-circle"></i> **Add Button** e especifique o texto do botão e o **Comportamento ao clicar**. Você pode selecionar entre as seguintes ações disponíveis:
   - Open App
   - Redirect to Web URL
-  - [Deep link]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/) Into Application
+  - [Deep link]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls) Into Application
 
 ![Selecionando "Open App" como o comportamento ao clicar para um botão de notificação.]({% image_buster /assets/img_archive/push_action_buttons_android.png %}){: style="max-width:70%"}
 

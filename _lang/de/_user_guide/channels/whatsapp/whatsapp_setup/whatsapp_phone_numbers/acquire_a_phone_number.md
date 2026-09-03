@@ -26,9 +26,13 @@ Ihre Telefonnummer muss diese WhatsApp-API-Anforderungen erfüllen:
 - Nicht zuvor mit der WhatsApp Business Platform verwendet
 - Nicht mit einem persönlichen WhatsApp-Konto verbunden
 
+{% alert note %}
+Braze empfiehlt dringend, eine Nummer zu verwenden, die Ihrem Unternehmen gehört und auf die Sie dauerhaft vollen Zugriff haben. Während des WhatsApp-Embedded-Sign-up-Prozesses benötigen Sie Zugriff auf Nachrichten, die an diese Nummer gesendet werden, um sie zu verifizieren. Möglicherweise müssen Sie die Nummer später erneut verifizieren, daher müssen Sie den Zugriff darauf beibehalten.
+{% endalert %}
+
 ## Eine Twilio-Telefonnummer erwerben {#acquiring-a-twilio-phone-number}
 
-### 1. Schritt: Eine Telefonnummer über die Twilio-Konsole oder API kaufen {#step-1-buy-a-phone-number-from-the-twilio-console-or-api}
+### Schritt 1: Eine Telefonnummer über die Twilio-Konsole oder API kaufen {#step-1-buy-a-phone-number-from-the-twilio-console-or-api}
 
 1. Gehen Sie in der Twilio-Konsole zu **Develop** > **Phone Numbers** > **Manage** > **Buy a number**. Wenn Sie diese Option nicht sehen, wählen Sie **Explore Products**, scrollen Sie zu **Super Networks** und wählen Sie dann **Phone Number** > **Buy a number**. <br><br>![Twilio-Konsole mit geöffnetem Tab „Develop“ und der Option „Buy a number“.]({% image_buster /assets/img/whatsapp/develop_buy_number.png %}){: style="max-width:20%;"}<br><br>
 
@@ -36,7 +40,7 @@ Ihre Telefonnummer muss diese WhatsApp-API-Anforderungen erfüllen:
 
 3. Gehen Sie nach dem Kauf Ihrer Telefonnummer zu **Active Numbers** und wählen Sie die gerade gekaufte Telefonnummer aus. <br><br>![„Active Numbers“ mit der gekauften Telefonnummer.]({% image_buster /assets/img/whatsapp/active_numbers.png %}){: style="max-width:70%;"}<br><br>
 
-### 2. Schritt: Ihre Telefonnummer konfigurieren {#step-2-configure-your-phone-number}
+### Schritt 2: Ihre Telefonnummer konfigurieren {#step-2-configure-your-phone-number}
 
 Konfigurieren Sie Ihre Twilio-Telefonnummer so, dass Verifizierungscodes per E-Mail empfangen werden. **Verknüpfen Sie Ihre Telefonnummer nicht mit WhatsApp in der Twilio-Konsole.**
 
@@ -48,9 +52,9 @@ Verknüpfen Sie Ihre Telefonnummer nicht mit WhatsApp in der Twilio-Konsole. Wen
 2. Gehen Sie zum Abschnitt **Voice Configuration** und wählen Sie im Dropdown **Configure with** die Option **Webhook, TwiML Bin, Function, Studio Flow, Proxy Service**.
 3. Wählen Sie in der Zeile **A call comes in** die Option **Webhook** und setzen Sie die URL auf `https://twimlets.com/voicemail?Email=YOUR_EMAIL_ADDRESS`, wobei Sie `YOUR_EMAIL_ADDRESS` durch Ihre E-Mail-Adresse ersetzen.
 
-### 3. Schritt: Den Embedded-Sign-up-Workflow abschließen {#step-3-complete-the-embedded-sign-up-workflow}
+### Schritt 3: Den Embedded-Sign-up-Workflow abschließen {#step-3-complete-the-embedded-sign-up-workflow}
 
-1. Nachdem Twilio konfiguriert ist, gehen Sie in Ihrem Braze-Dashboard zu **Technologie-Partner** > **WhatsApp** und wählen Sie **Begin integration** oder **Add WhatsApp Business Account** (je nachdem, was angezeigt wird), um den [Embedded-Sign-up-Workflow]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup/) auszulösen.<br><br>Wählen Sie im Schritt **Add a phone number for WhatsApp** die Option **Phone call**, um Ihre Telefonnummer zu verifizieren. <br><br>![Abschnitt mit den Optionen zur Verifizierung Ihrer Telefonnummer per SMS oder Telefonanruf.]({% image_buster /assets/img/whatsapp/verify.png %}){: style="max-width:50%;"}<br><br>
+1. Nachdem Twilio konfiguriert ist, gehen Sie in Ihrem Braze-Dashboard zu **Technologie-Partner** > **WhatsApp** und wählen Sie **Begin integration** oder **Add WhatsApp Business Account** (je nachdem, was angezeigt wird), um den [Embedded-Sign-up-Workflow]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup) auszulösen.<br><br>Wählen Sie im Schritt **Add a phone number for WhatsApp** die Option **Phone call**, um Ihre Telefonnummer zu verifizieren. <br><br>![Abschnitt mit den Optionen zur Verifizierung Ihrer Telefonnummer per SMS oder Telefonanruf.]({% image_buster /assets/img/whatsapp/verify.png %}){: style="max-width:50%;"}<br><br>
 
 2. Warten Sie einige Minuten, bis der Verifizierungscode an Ihren E-Mail-Posteingang gesendet wird, geben Sie dann den Verifizierungscode ein und schließen Sie die Einrichtung ab.
 
@@ -66,6 +70,6 @@ Verknüpfen Sie Ihre Telefonnummer nicht mit WhatsApp in der Twilio-Konsole. Wen
 
 5. Je nach ausgewähltem Land warten Sie darauf, dass das Infobip-Team Sie bezüglich der Registrierungsdetails kontaktiert (z. B. für 10DLC in den USA).<br><br>
 
-6. Wenn Ihre Telefonnummer in Infobip bereit ist, gehen Sie in Ihrem Braze-Dashboard zu **Technologie-Partner** > **WhatsApp** und wählen Sie **Begin integration** oder **Add WhatsApp Business Account** (je nachdem, was angezeigt wird), um den [Embedded-Sign-up-Workflow]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup/) auszulösen.<br><br> Wählen Sie im Schritt **Add a phone number for WhatsApp** die Option **Text message**, um Ihre Telefonnummer zu verifizieren.<br><br>![Abschnitt mit den Optionen zur Verifizierung Ihrer Telefonnummer per SMS oder Telefonanruf.]({% image_buster /assets/img/whatsapp/infoblip_verify.png %})<br><br>
+6. Wenn Ihre Telefonnummer in Infobip bereit ist, gehen Sie in Ihrem Braze-Dashboard zu **Technologie-Partner** > **WhatsApp** und wählen Sie **Begin integration** oder **Add WhatsApp Business Account** (je nachdem, was angezeigt wird), um den [Embedded-Sign-up-Workflow]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup) auszulösen.<br><br> Wählen Sie im Schritt **Add a phone number for WhatsApp** die Option **Text message**, um Ihre Telefonnummer zu verifizieren.<br><br>![Abschnitt mit den Optionen zur Verifizierung Ihrer Telefonnummer per SMS oder Telefonanruf.]({% image_buster /assets/img/whatsapp/infoblip_verify.png %})<br><br>
 
 7. Überprüfen Sie die [Analyze Logs](https://www.infobip.com/docs/analyze/analyze-logs) von Infobip in deren Kundenportal auf den Verifizierungscode, der möglicherweise einige Minuten benötigt, um zu erscheinen. Geben Sie dann den Verifizierungscode ein und schließen Sie die Einrichtung ab.

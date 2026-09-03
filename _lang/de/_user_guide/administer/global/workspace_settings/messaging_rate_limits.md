@@ -59,10 +59,10 @@ Nachdem Sie das Workspace-Messaging-Rate-Limit festgelegt haben, können Sie es 
 
 ## Workspace-Messaging-Rate-Limit festlegen {#setting-your-workspace-messaging-rate-limit}
 
-1. Gehen Sie im Braze-Dashboard zu **Settings** > **Workspace Settings** > **Messaging Rate Limits**.
-2. Wählen Sie **+ Add rate limit** und dann einen Messaging-Kanal aus.
-3. Geben Sie unter **Messages per minute** das Rate-Limit ein.
-4. Wählen Sie **Save**.
+1. Gehen Sie im Braze-Dashboard zu **Einstellungen** > **Workspace-Einstellungen** > **Messaging-Rate-Limits**.
+2. Wählen Sie **+ Rate-Limit hinzufügen** und dann einen Messaging-Kanal aus.
+3. Geben Sie unter **Messages pro Minute** das Rate-Limit ein.
+4. Wählen Sie **Speichern**.
 
 ## Wissenswertes {#things-to-know}
 
@@ -74,9 +74,13 @@ Braze versucht, die Nachrichtenversendungen gleichmäßig über die Minute zu ve
 
 Beachten Sie, dass Sie weiterhin individuelle Rate-Limits in Ihren Campaigns und Canvases festlegen können. Diese werden unabhängig von Workspace-Messaging-Rate-Limits angewendet.
 
+### Webhook-Sendekapazität {#webhook-sending-capacity}
+
+Für Webhook-Campaigns ohne Rate-Limit für die Zustellgeschwindigkeit wendet Braze kein Standard-Kanal-Rate-Limit an, sodass Sendungen mit hohem Durchsatz erfolgen können. Das tatsächliche Volumen hängt von mehreren Faktoren ab, darunter Server-Latenz, Connected-Content-Nutzung und die Sendegeschwindigkeit des externen Systems, das die Webhooks empfängt. Wenn Ihre Webhook-Campaign kein Rate-Limit hat, bereiten Sie Ihre Server auf hohen Datenverkehr vor. Andernfalls legen Sie ein Rate-Limit fest, um den Nachrichtenfluss zu steuern.
+
 ### Nachrichten, die nicht in den Workspace-Messaging-Rate-Limits enthalten sind {#messages-not-included-in-the-workspace-messaging-rate-limits}
 
-- Nachrichten, die über [Transaktions-E-Mail-Campaigns]({{site.baseurl}}/user_guide/channels/transactional_email/) gesendet werden, sind nicht in den Workspace-Messaging-Rate-Limits enthalten. Das bedeutet, sie unterliegen eigenen Rate-Limits und werden nicht auf die festgelegten Workspace-Messaging-Rate-Limits angerechnet.
-- Nachrichten an [Seed-Gruppen]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#seed-groups) und [Testsendungen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/) sind nicht in den Workspace-Messaging-Rate-Limits enthalten. Das bedeutet, sie unterliegen keinen Rate-Limits und werden nicht auf die festgelegten Workspace-Messaging-Rate-Limits angerechnet.
+- Nachrichten, die über [Transaktions-E-Mail-Campaigns]({{site.baseurl}}/user_guide/channels/transactional_email) gesendet werden, sind nicht in den Workspace-Messaging-Rate-Limits enthalten. Das bedeutet, sie unterliegen eigenen Rate-Limits und werden nicht auf die festgelegten Workspace-Messaging-Rate-Limits angerechnet.
+- Nachrichten an [Seed-Gruppen]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups) und [Testsendungen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages) sind nicht in den Workspace-Messaging-Rate-Limits enthalten. Das bedeutet, sie unterliegen keinen Rate-Limits und werden nicht auf die festgelegten Workspace-Messaging-Rate-Limits angerechnet.
 - Automatische SMS-Antworten sind nicht in den Workspace-Messaging-Rate-Limits enthalten. Das bedeutet, sie unterliegen keinen Rate-Limits und werden nicht auf die festgelegten Workspace-Messaging-Rate-Limits angerechnet.
 - Workspace-Messaging-Rate-Limits werden für In-App-Nachrichten, Feature-Flags und Banner nicht unterstützt.

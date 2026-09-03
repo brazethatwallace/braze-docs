@@ -12,7 +12,7 @@ platform: API
 
 > このページでは、ダッシュボードからの CSV ダウンロードではなくエクスポート API を使用すべきタイミングについて説明します。
 
-Brazeのエクスポート API を使用すると、BrazeデータをJSON としてプログラムでエクスポートできます。エクスポートできるデータ、前提条件、配信の仕組みについて詳しくは、[エクスポートエンドポイント]({{site.baseurl}}/api/endpoints/export/)を参照してください。
+Brazeのエクスポート API を使用すると、BrazeデータをJSON としてプログラムでエクスポートできます。エクスポートできるデータ、前提条件、配信の仕組みについて詳しくは、[エクスポートエンドポイント]({{site.baseurl}}/api/endpoints/export)を参照してください。
 
 ## CSV ダウンロードではなくエクスポート API を使用すべきタイミング {#when-to-use-export-apis-instead-of-csv-downloads}
 
@@ -28,5 +28,5 @@ Brazeのエクスポート API を使用すると、BrazeデータをJSON とし
 {: .reset-td-br-1 .reset-td-br-2 aria-label="CSV ダウンロードではなくエクスポート API を使用すべきタイミング" }
 
 {% alert tip %}
-CSV および API のエクスポートに関するヘルプについては、「[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)」を参照してください。
+CSV および API のエクスポートに関するヘルプについては、[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting)を参照してください。
 {% endalert %}

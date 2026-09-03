@@ -6,7 +6,7 @@ page_order: 1
 
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Eliminar varios elementos del catálogo de Braze."
+description: "En este artículo se describen los detalles del endpoint Eliminar varios elementos del catálogo de Braze."
 
 ---
 {% api %}
@@ -15,15 +15,15 @@ description: "En este artículo se describen los detalles del punto de conexión
 /catalogs/{catalog_name}/items
 {% endapimethod %}
 
-> Usa este punto de conexión para eliminar varios elementos de tu catálogo.
+> Usa este endpoint para eliminar varios elementos de tu catálogo.
 
-Cada solicitud puede admitir hasta 50 elementos. Este punto de conexión es asíncrono.
+Cada solicitud puede admitir hasta 50 elementos. Este endpoint es asíncrono.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#647c82e8-8b38-4df2-bde2-b1d8e19fd332 {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `catalogs.delete_items`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `catalogs.delete_items`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -34,14 +34,14 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
 | `catalog_name` | Obligatorio | Cadena | Nombre del catálogo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parámetros de la ruta" }
 
 ## Parámetros de la solicitud {#request-parameters}
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
 | `items` | Obligatorio | Matriz | Un array que contiene objetos de elemento. Los objetos de elemento deben contener un `id` que haga referencia a los elementos que Braze debe eliminar. Se permite un máximo de 50 objetos por solicitud. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ## Ejemplo de solicitud {#example-request}
 
@@ -60,7 +60,7 @@ curl --location --request DELETE 'https://rest.iad-03.braze.com/catalogs/restaur
 
 ## Respuesta {#response}
 
-Existen tres respuestas de código de estado para este punto de conexión: `202`, `400` y `404`.
+Existen tres respuestas de código de estado para este endpoint: `202`, `400` y `404`.
 
 ### Ejemplo de respuesta correcta {#example-success-response}
 
@@ -103,6 +103,6 @@ La siguiente tabla enumera los posibles errores devueltos y sus pasos asociados 
 | `items-missing-ids` | Algunos elementos no tienen ID de elemento. Comprueba que cada elemento tiene un ID de elemento. |
 | `invalid-ids` | Los ID de elementos solo pueden incluir letras, números, guiones y guiones bajos. |
 | `request-includes-too-many-items` | Tu solicitud tiene demasiados elementos. El límite de elementos por solicitud es de 50. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Solución de problemas" }
 
 {% endapi %}

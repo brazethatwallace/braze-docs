@@ -8,32 +8,33 @@ description: "This article explains how to view and interpret the results of a m
 
 # Multivariate and A/B test analytics
 
-> This article explains how to view the results of a multivariate or A/B test. If you haven't set up your test yet, refer to [Create multivariate and A/B tests]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests/) for steps.
+> This article explains how to view the results of a multivariate or A/B test. If you haven't set up your test yet, refer to [Create multivariate and A/B tests]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests) for steps.
 
 After your campaign has launched, you can check how each variant is performing by selecting your campaign from the **Campaigns** section of the dashboard. 
 
 ## Analytics by optimization option
 
-Your analytics view varies depending on whether you selected an [optimization]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations/) during your initial setup.
+Your analytics view varies depending on whether you selected an [optimization]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations) during your initial setup.
 
-### No optimization
+### Manual variant distribution
 
-If you selected **No optimization** when setting up your campaign, your analytics view will stay the same. The **Campaign Analytics** page of your campaign will show the performance of your variants against your control group, if you included one.
+If **Optimize with BrazeAI™** is off, the **Campaign Analytics** page shows the performance of your variants against the control group, if you included one.
 
 ![Performance section of the Campaign Analytics for an email campaign with multiple variants. The table lists various performance metrics for each variant, such as recipients, bounces, clicks, and conversions.]({% image_buster /assets/img_archive/ab_analytics_no_optimization.png %})
 
-For more details, refer to the [Campaign Analytics]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/) article for your messaging channel.
+For more details, refer to the [Campaign Analytics]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics) article for your messaging channel.
 
-### BrazeAI™ variant selection (push only)
-If you use BrazeAI™ variant selection, depending on whether it is a single send or recurring campaign, once the experiment window (or first period for recurring) has passed, you see the uplift, if any, on the home page of the campaign. You also see further details similar to Winning Variant below if you run a single send campaign.
+### Optimize with BrazeAI™
 
-For more details on how we report uplift on BrazeAI™ Variant Selection, see [Variant selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection/).
+If you use **Optimize with BrazeAI™**, the campaign overview shows any uplift after the experiment window for a single-send campaign or after the first optimization period for a multi-send campaign. Single-send campaigns also show details about the initial test and the best-performing variant.
 
-![Campaign analytics showing uplift from BrazeAI™ variant selection, including comparison metrics after the experiment window.]({% image_buster /assets/img_archive/braze_ai_variant_selection_reporting.png %})
+For more information, see [Optimizing A/B tests with BrazeAI]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection).
 
-### Winning Variant
+![Campaign analytics showing uplift from Optimize with BrazeAI™, including comparison metrics after the experiment window.]({% image_buster /assets/img_archive/braze_ai_variant_selection_reporting.png %})
 
-If you selected **Winning Variant** for your optimization when setting up your campaign, you have access to an additional tab of your campaign analytics called **A/B Test Result**. After the Winning Variant is sent to the remaining users in your test, this tab shows the results of that send.
+### Single-send optimization
+
+For a single-send campaign using **Optimize with BrazeAI™**, the **A/B Test Result** tab shows the results of the initial test and the optimized send.
 
 The **A/B Test Result** is divided into two tabs: **Initial Test** and **Winning Variant**.
 
@@ -42,7 +43,7 @@ The **A/B Test Result** is divided into two tabs: **Initial Test** and **Winning
 
 The **Initial Test** tab shows the metrics for each variant from the initial A/B test sent to a portion of your target segment. You can see a summary of how all the variants performed and whether or not there was a winner during the test.
 
-If one variant outperformed all the others with better than 95% [confidence]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics/#understanding-confidence), Braze marks that variant with a "Winner" label.
+If one variant outperformed all the others with better than 95% [confidence]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics#understanding-confidence), Braze marks that variant with a "Winner" label.
 
 If no variant beats all the others with 95% confidence and you chose to send the best performing variant anyway, the best performing variant will still be sent out and indicated with the label "Winner".
 
@@ -68,9 +69,9 @@ The **Winning Variant** tab shows the results of the second send, where each rem
 
 If you want to see the performance of the Winning Variant throughout the campaign, including the A/B test sends, check the **Campaign Analytics** page.
 
-### Personalized Variant {#personalized-variant}
+### Existing Personalized Variant campaigns {#personalized-variant}
 
-If you selected **Personalized Variant** for your optimization when setting up your campaign, the **A/B Test Result** is divided into two tabs: **Initial Test** and **Personalized Variant**.
+Personalized Variant isn't available for new campaigns. For an existing campaign that uses this optimization, the **A/B Test Result** is divided into two tabs: **Initial Test** and **Personalized Variant**.
 
 {% tabs local %}
 {% tab Initial Test %}
@@ -83,7 +84,7 @@ By default, the test looks for associations between each user's custom events an
 
 The relationships between custom events and message preferences are displayed in the table on the **Initial Send** tab.
 
-![Initial Test tab table summarizing relationships between users' custom events and their preferred message variants.]({% image_buster /assets/img_archive/ab_analytics_pv_3.png %})
+![Custom Event Data tables for Variant 1 and Variant 2 showing custom event impact scores that indicate how each event influences variant preference.]({% image_buster /assets/img_archive/ab_analytics_pv_3.png %})
 
 If the test can't find a meaningful relationship between custom events and path preferences, the test falls back to a session-based analysis method, and no custom event data tables are shown.
 
@@ -124,7 +125,7 @@ The three cards on this page show your projected lift, overall results, and the 
 
 The table on this page shows the metrics for each variant from the Personalized Variant send. Your **Audience %** adds up to the percentage of the target segment you reserved for the Personalized Variant group.
 
-![Personalized Variant tab table listing audience percentage and performance metrics for each variant after the final send.]({% image_buster /assets/img_archive/ab_analytics_pv_2.png %})
+![Personalized Variant send results table showing performance metrics for Variant A, Variant B, and All Variations, including audience percentage, sends, deliveries, opens, clicks, and conversions.]({% image_buster /assets/img_archive/ab_analytics_pv_2.png %})
 
 {% endtab %}
 {% endtabs %}
@@ -143,7 +144,9 @@ Braze compares each variant's conversion rate against the control's conversion r
 
 In general, a confidence of at least 95% is necessary to show that your results are reflective of users' actual preferences, and not due to chance. In rigorous scientific tests, 95% confidence (or otherwise commonly referred to as the "p" value being less than 0.05) is the common benchmark used to determine statistical significance. If you continually fail to achieve 95% confidence, try increasing your sample size or decreasing the number of variants. 
 
-Confidence does not describe whether one variant is better than the others. It is purely a measure of how sure we are that the two (or more) conversion rates are actually different than each other. This is only a function of the sample size and the differences between the apparent conversion rates. Whether the overall rates are high or low does not affect the strength of the confidence measure. It's possible for one variant to have a very different conversion rate from another and yet not have a 95% or higher confidence. It's also possible for two sets of variants to have similar conversion/uplift rates, and yet different confidence.
+Confidence reflects how likely it is that an observed difference between variant and control conversion rates is real rather than due to random chance. It is a function of sample size and the magnitude of the difference between conversion rates. Whether overall conversion rates are high or low is typically less important than the observed difference and sample size in determining the strength of the confidence measure. It's possible for one variant to have a very different conversion rate from another and yet not have a 95% or higher confidence. It's also possible for two sets of variants to have similar conversion or uplift rates, yet different confidence.
+
+As more data arrives, confidence can decline if variant and control conversion rates move closer together—the difference you are measuring is getting smaller, which can outweigh the effect of a larger sample.
 
 ### Statistically insignificant results
 
@@ -156,9 +159,9 @@ A test that doesn't have a confidence of 95% can still hold important insights. 
 
 Whether or not your test has a clear winner, it can be helpful to run a [follow-up test](#recommended-follow-ups) to confirm your results or apply your findings to a slightly different scenario.
 
-## Discrepancies between the control group and variant
+## Discrepancies between the control group and variant {#discrepancies-between-the-control-group-and-variant}
 
-In in-app message campaigns, the way users are tracked and how impressions are logged can cause discrepancies in the expected split between the control group and variant. This is because the actual impressions logged may not reflect this split, and Braze ultimately has no control over the individual user behavior of who will perform the trigger.
+For in-app message campaigns with A/B or multivariate splits, the percentages you configure are assignment targets. Reported impressions rarely match those percentages exactly, because only users who perform the trigger action log impressions, and control-group users who trigger log an impression even though they never see a message.
 
 For example, let's say a campaign has a target audience of 200 users at launch, with 100 users in the control group and 100 users in the variant.
 
@@ -166,9 +169,22 @@ The 100 users in the variant receive the in-app message payload, and 50 of them 
 
 Despite the initial 50/50 split, the unique impressions logged aren't balanced. The variant group has 50 impressions, while the control group has 75 impressions.
 
+Also, variant messages that require longer render time, such as those with large images or templated Connected Content, may log fewer impressions than the control group when users trigger the message but leave before rendering completes.
+
 ### In-app message delays 
 
 For triggered in-app message campaigns that include delayed displays, control group impressions will be recorded when the end user would have originally received the in-app message. For example, if a campaign is set to delay the display by one hour, control group impressions will not be logged until the one-hour delay has passed. This helps with the accurate tracking of impressions related to the intended timing of the message delivery.
+
+## Removing message variants after launch
+
+If you remove a message variant from a campaign or Canvas by clicking the **X** in the composer (for example, when replacing a message from a template), the variant is marked as deleted. Analytics are tied to each variant's unique ID, so removing a variant affects reporting:
+
+- Pre-existing analytics for the deleted variant (such as opens, clicks, and conversions) no longer appear in the current campaign or Canvas step analytics.
+- Variant-level breakdowns exclude deleted variants. If you add a replacement variant, it receives a new variant ID and starts with no historical stats, so metrics may show as 0.
+
+This applies only when you delete and re-add variants. Editing the content of an existing variant in place does not affect historical analytics.
+
+For more details on deleted variants in reporting, see [Deleted message variants]({{site.baseurl}}/user_guide/analytics/reports/report_builder#deleted-message-variants).
 
 ## Recommended follow-ups {#recommended-follow-ups}
 
@@ -204,4 +220,4 @@ Use the insights you gather from past tests to guide your future ones. Does a pr
 
 ### Compare the long-term impact of different variants
 
-If you're A/B testing re-engagement messages, don't forget to compare the long-term impact of different variants using [Retention Reports]({{site.baseurl}}/user_guide/analytics/reports/retention_reports/). You can use Retention Reports to analyze how each variant impacted any user behavior of your choice days, weeks, a month after message receipt, and see if there is uplift.
+If you're A/B testing re-engagement messages, don't forget to compare the long-term impact of different variants using [Retention Reports]({{site.baseurl}}/user_guide/analytics/reports/retention_reports). You can use Retention Reports to analyze how each variant impacted any user behavior of your choice days, weeks, a month after message receipt, and see if there is uplift.

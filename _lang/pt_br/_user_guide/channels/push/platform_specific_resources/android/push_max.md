@@ -13,7 +13,7 @@ channel:
 
 # Push Max
 
-> Saiba mais sobre o Push Max e como você pode usar esse recurso para potencialmente melhorar a entregabilidade das notificações por push para Android em [dispositivos OEM chineses]({{site.baseurl}}/user_guide/channels/push/best_practices/chinese_push_deliverability/).
+> Saiba mais sobre o Push Max e como você pode usar esse recurso para potencialmente melhorar a entregabilidade das notificações por push para Android em [dispositivos OEM chineses]({{site.baseurl}}/user_guide/channels/push/best_practices/chinese_push_deliverability).
 
 ## O que é o Push Max? {#what-is-push-max}
 
@@ -25,11 +25,11 @@ Alguns dispositivos Android fabricados por fabricantes de equipamentos originais
 
 - Disponível apenas para notificações por push para Android
 - Não é compatível com mensagens baseadas em ação ou disparadas por API
-- Não é compatível quando a opção de [enviar apenas para o último dispositivo usado pelo usuário]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/#device-options) está selecionada
+- Não é compatível quando a opção de [enviar apenas para o último dispositivo usado pelo usuário]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#most-recently-used-device) está selecionada
 
 ## Pré-requisitos {#prerequisites}
 
-As notificações por push enviadas usando o Push Max serão entregues apenas a dispositivos que tenham pelo menos a seguinte [versão mínima do SDK]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features/#filtering-by-most-recent-app-versions):
+As notificações por push enviadas usando o Push Max serão entregues apenas a dispositivos que tenham pelo menos a seguinte [versão mínima do SDK]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions):
 
 {% sdk_min_versions android:29.0.1 %}
 
@@ -52,21 +52,21 @@ Para usar o Push Max na sua Campaign:
 
 Para usar o Push Max no seu Canvas:
 
-1. Adicione uma etapa de Mensagem ao seu Canvas.
+1. Adicione uma etapa de mensagem ao seu Canvas.
 2. Selecione **Android Push** como sua plataforma.
 3. Acesse a guia **Delivery Settings**.
 4. Selecione **Send using Push Max**.
 
-![Guia Delivery Settings de uma etapa de Mensagem de push para Android com a opção "Send using Push Max".]({% image_buster /assets/img_archive/push_max_canvas.png %})
+![Guia Delivery Settings de uma etapa de mensagem de push para Android com a opção "Send using Push Max".]({% image_buster /assets/img_archive/push_max_canvas.png %})
 
 {% endtab %}
 {% endtabs %}
 
 Os dois recursos a seguir, Intelligent Timing e TTL, podem ser usados em conjunto com o Push Max para potencialmente aumentar a entregabilidade das suas notificações por push para Android.
 
-### Intelligent Timing
+### Intelligent Timing {#intelligent-timing}
 
-O Push Max funciona melhor quando o [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/) está ativado. O Intelligent Timing pode calcular e enviar a notificação por push no momento em que o usuário tem mais chances de estar usando o app e o push tem mais chances de ser entregue.
+O Push Max funciona melhor quando o [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing) está ativado. O Intelligent Timing pode calcular e enviar a notificação por push no momento em que o usuário tem mais chances de estar usando o app e o push tem mais chances de ser entregue.
 
 ### TTL (Time to Live) {#time-to-live-ttl}
 
@@ -80,10 +80,10 @@ Por padrão, o TTL é definido como 28 dias, que é o máximo. Você pode diminu
 
 ### Códigos de promoção {#promotion-codes}
 
-Recomendamos que você não use [códigos de promoção]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/) da Braze em mensagens com o Push Max ativado.
+Recomendamos que você não use [códigos de promoção]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes) da Braze em mensagens com o Push Max ativado.
 
 Isso porque os códigos de promoção são únicos. Se uma notificação por push que contém um código de promoção falhar na entrega, quando essa notificação for reenviada pelo Push Max, um novo código de promoção será enviado. Isso pode resultar no consumo de códigos de promoção mais rápido do que o esperado.
 
 ### Propriedades de evento e propriedades de entrada do Canvas {#canvas-event-properties-and-entry-properties}
 
-O Push Max pode não funcionar como esperado se você incluir referências Liquid a [propriedades de entrada ou propriedades de evento do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/) na sua mensagem. Isso porque as propriedades de entrada e de evento não estão disponíveis quando o Push Max está tentando reenviar a mensagem.
+O Push Max pode não funcionar como esperado se você incluir referências Liquid a [propriedades de entrada ou propriedades de evento do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) na sua mensagem. Isso porque as propriedades de entrada e de evento não estão disponíveis quando o Push Max está tentando reenviar a mensagem.

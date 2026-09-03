@@ -51,7 +51,7 @@ Você pode então usar esses dados para segmentar seus usuários com base no lif
 
 A Braze também oferece suporte a compras em múltiplas moedas. Se uma compra for registrada em uma moeda diferente de USD, ela será exibida no dashboard da Braze em USD, com base na taxa de câmbio da data em que a compra foi registrada.
 
-Para saber mais, visite nosso artigo dedicado sobre [eventos de compra]({{site.baseurl}}/user_guide/data/activation/events/purchase_events/).
+Para saber mais, visite nosso artigo dedicado sobre [eventos de compra]({{site.baseurl}}/user_guide/data/activation/events/purchase_events).
 
 {% details Exemplo de implementação %}
 
@@ -85,9 +85,9 @@ Aqui está um exemplo de como registrar um evento personalizado em um app iOS us
 Appboy.sharedInstance()?.logCustomEvent("completed_level")
 ```
 
-Neste exemplo, "completed_level" é o nome do evento personalizado que é registrado quando um usuário completa uma fase em um jogo. Esse evento personalizado é então registrado no perfil de usuário na Braze, e você pode usá-lo para disparar campaigns e personalizar o envio de mensagens.
+Neste exemplo, "completed_level" é o nome do evento personalizado que é registrado quando um usuário completa uma fase em um jogo. Esse evento personalizado é então registrado no perfil de usuário na Braze, e você pode usá-lo para disparar Campaigns e personalizar o envio de mensagens.
 
-Para saber mais, visite nosso artigo dedicado sobre [eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/).
+Para saber mais, visite nosso artigo dedicado sobre [eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events).
 
 {% details Exemplo de implementação %}
 

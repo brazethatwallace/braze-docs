@@ -21,39 +21,43 @@ Nehmen wir an, Sie sind in einem Marketing-Team für eine Musik-Streaming-App un
 
 Erstellen wir ein Segment basierend auf einem verschachtelten angepassten Attribut, um Nutzer:innen anzusprechen, die ihren meistgespielten Song mehr als 300 Mal abgespielt haben.
 
-### 1. Schritt: Filter hinzufügen {#step-1-add-the-filter}
+### Schritt 1: Filter hinzufügen {#step-1-add-the-filter}
 
-Wählen Sie den Filter **Nested Custom Attributes** aus, um ein Dropdown-Menü anzuzeigen, aus dem Sie ein bestimmtes verschachteltes angepasstes Attribut auswählen können. Wir wählen `most_played_song`, das Daten über den meistgespielten Song einer Nutzer:in enthält.
+Wählen Sie den Filter **Verschachtelte angepasste Attribute** aus, um ein Dropdown-Menü anzuzeigen, in dem Sie ein bestimmtes verschachteltes angepasstes Attribut auswählen können. Wir wählen `most_played_song` aus, das Daten über den meistgespielten Song einer Nutzer:in enthält.
 
-### 2. Schritt: Eigenschaft auswählen {#step-2-select-the-property}
+### Schritt 2: Eigenschaft auswählen {#step-2-select-the-property}
 
-Wählen Sie die **Property** innerhalb des verschachtelten angepassten Attributs aus, nach der Sie filtern möchten. Wir wählen `play_analytics.count`, das erfasst, wie oft eine Nutzer:in ihren meistgespielten Song abgespielt hat.
+Wählen Sie die **Eigenschaft** innerhalb des verschachtelten angepassten Attributs aus, nach der Sie filtern möchten. Wir wählen `play_analytics.count` aus, das erfasst, wie oft eine Nutzer:in ihren meistgespielten Song abgespielt hat.
 
-### 3. Schritt: Vergleichsoperator und Wert des verschachtelten angepassten Attributs auswählen {#step-3-select-a-comparison-and-nested-custom-attribute-value}
+### Schritt 3: Vergleich und Wert des verschachtelten angepassten Attributs auswählen {#step-3-select-a-comparison-and-nested-custom-attribute-value}
 
-Beim Filtern nach verschachtelten angepassten Attributen bestimmt der Datentyp Ihrer Eigenschaft die verfügbaren Vergleichsoperatoren. Da `play_analytics.count` beispielsweise eine Zahl ist, können Sie einen Vergleichsoperator unter der Kategorie **Number** auswählen.
+Beim Filtern nach verschachtelten angepassten Attributen bestimmt der Datentyp Ihrer Eigenschaft die Vergleichsoperatoren, nach denen Sie filtern können. Da `play_analytics.count` beispielsweise eine Zahl ist, können Sie einen Vergleichsoperator unter der Kategorie **Number** auswählen.
 
-Um nach Nutzer:innen zu filtern, die ihren meistgespielten Song mindestens 300 Mal abgespielt haben, wählen Sie den Vergleich **More than** und geben dann „300“ als Wert ein.
+Um nach Nutzer:innen zu filtern, die ihren meistgespielten Song mindestens 300 Mal abgespielt haben, wählen Sie den Vergleich **More than** aus und geben Sie dann „300“ als Wert ein.
 
-![Eine Nutzer:in wählt einen Operator basierend auf dem Datentyp für das verschachtelte angepasste Attribut aus]({% image_buster /assets/img_archive/nca_comparator.png %})
+![Nutzer:in wählt einen Operator basierend auf dem Datentyp für das verschachtelte angepasste Attribut aus]({% image_buster /assets/img_archive/nca_comparator.png %})
 
-## Nach Zeit-Datentypen filtern {#filter-for-time-data-types}
+## Filter für Zeitdatentypen {#filter-for-time-data-types}
 
-Beim Filtern eines verschachtelten angepassten Zeitattributs können Sie wählen, ob Sie mit Operatoren unter den Kategorien **Day of Year** oder **Time** filtern möchten, wenn Sie den Datumswert vergleichen.
+Beim Filtern eines verschachtelten angepassten Zeitattributs können Sie beim Vergleich des Datumswerts zwischen Operatoren der Kategorie **Tag des Jahres** oder **Zeit** wählen.
 
-Wenn Sie einen Operator unter der Kategorie **Day of Year** auswählen, werden nur Monat und Tag für den Vergleich herangezogen, anstatt des vollständigen Zeitstempels des verschachtelten angepassten Attributwerts. Die Auswahl eines Operators unter der Kategorie **Time** vergleicht den vollständigen Zeitstempel, einschließlich des Jahres.
+Wenn Sie einen Operator unter der Kategorie **Tag des Jahres** auswählen, werden nur Monat und Tag für den Vergleich herangezogen, anstatt des vollständigen Zeitstempels des verschachtelten angepassten Attributwerts. Die Auswahl eines Operators unter der Kategorie **Zeit** vergleicht den vollständigen Zeitstempel einschließlich des Jahres.
 
-## Multi-Criteria Segmentation verwenden {#use-multi-criteria-segmentation}
+{% alert note %}
+Bei der Verwendung von **Zeit**-Operatoren, die Tages- und Wocheneinheiten unterstützen (wie **ist mehr als**, **ist weniger als**, **genau** und **nach**), konvertiert Braze den Wert beim Speichern des Segments automatisch in Wochen. Beispielsweise werden 91 Tage in 13 Wochen umgerechnet. Sowohl Tages- als auch Wocheneinheiten werden für diese Filter unterstützt.
+{% endalert %}
 
-Verwenden Sie **Multi-Criteria Segmentation**, um ein Segment zu erstellen, das mehrere Kriterien innerhalb eines einzelnen Objekts erfüllt. Dies qualifiziert die Nutzer:in für das Segment, wenn sie mindestens ein Objekt im Array hat, das alle angegebenen Kriterien erfüllt. Beispielsweise werden Nutzer:innen nur dann diesem Segment zugeordnet, wenn ihr Schlüssel nicht leer ist und ihre Zahl größer als 0 ist.
+## Multikriterien-Segmentierung verwenden {#use-multi-criteria-segmentation}
+
+Verwenden Sie die **Multikriterien-Segmentierung**, um ein Segment zu erstellen, das mehrere Kriterien innerhalb eines einzelnen Objekts erfüllt. Dadurch wird die Nutzer:in in das Segment aufgenommen, wenn sie mindestens ein Objekt im Array hat, das alle angegebenen Kriterien erfüllt. Zum Beispiel werden Nutzer:innen nur dann diesem Segment zugeordnet, wenn ihr Schlüssel nicht leer ist und ihre Zahl größer als 0 ist.
 
 ### Liquid für Segment kopieren {#copy-liquid-for-segment}
 
-Sie können auch die Funktion **Copy Liquid for segment** verwenden, um Liquid-Code für dieses Segment zu generieren und in einer Nachricht zu verwenden. Nehmen wir beispielsweise an, Sie haben ein Array von Kontoobjekten und ein Segment, das Kund:innen mit aktiven steuerpflichtigen Konten anspricht. Um Kund:innen dazu zu bewegen, zum Kontoziel eines ihrer aktiven und steuerpflichtigen Konten beizutragen, möchten Sie eine Nachricht erstellen, die sie dazu anregt.
+Sie können auch das Feature **Liquid für Segment kopieren** verwenden, um Liquid-Code für dieses Segment zu generieren und diesen in einer Nachricht zu verwenden. Nehmen wir zum Beispiel an, Sie haben ein Array von Konto-Objekten und ein Segment, das Kund:innen mit aktiven steuerpflichtigen Konten anspricht. Um Kund:innen dazu zu bewegen, zum Kontoziel eines ihrer aktiven und steuerpflichtigen Konten beizutragen, möchten Sie eine Nachricht erstellen, die sie dazu anregt.
 
-![Ein Beispiel-Segment mit aktiviertem Kontrollkästchen für Multi-Criteria Segmentation.]({% image_buster /assets/img_archive/nca_multi_criteria.png %})
+![Ein Beispiel-Segment mit aktivierter Checkbox für die Multikriterien-Segmentierung.]({% image_buster /assets/img_archive/nca_multi_criteria.png %})
 
-Wenn Sie **Copy Liquid for segment** auswählen, generiert Braze automatisch Liquid-Code, der ein Objekt-Array zurückgibt, das nur Konten enthält, die aktiv und steuerpflichtig sind.
+Wenn Sie **Liquid für Segment kopieren** auswählen, generiert Braze automatisch Liquid-Code, der ein Objekt-Array zurückgibt, das nur Konten enthält, die aktiv und steuerpflichtig sind.
 
 {% raw %}
 

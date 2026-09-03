@@ -15,27 +15,27 @@ tool: Reports
 
 ## ユースケース {#use-cases}
 
-計算式は、特にカスタムイベントと組み合わせることで、アプリ内のユーザー行動を理解するのに役立ちます。また、Google 広告やテレビなどの有料メディアをBrazeとともに使用している場合でも、計算式によりセグメントの購入パターンについてより深いインサイトが得られます。
+数式は、特にカスタムイベントと組み合わせることで、アプリ内でのユーザーの行動を理解するのに役立ちます。また、数式を使用すると、Google 広告やテレビなどの有料メディアをBrazeと併用している場合でも、セグメントの購買パターンについてより深いインサイトを得ることができます。
 
-以下に、計算式を使用して検出できる行動パターンの例をいくつか示します。
+以下は、数式を使用して検出できる行動パターンの例です。
 
-- **ライドシェアアプリ:** ユーザーが乗車をキャンセルしたときのカスタムイベントがある場合、キャンセルされた乗車数 / DAUの関数を設定して、特定のユーザーセグメントが他よりも多くの乗車をキャンセルする傾向があるかどうかを確認できます。
-- **eコマースアプリ:** 特定の商品ID / MAUの購入に対する関数を設定することで、すべてのプロモーションをBrazeで追跡できなくても、最近プロモーションした商品の人気をセグメント間で比較することができます。
-- **広告を使用したメディアアプリ:** ユーザー体験が動画やオーディオクリップの間にある広告によって中断される場合、広告途中の離脱をカスタムイベントとして記録し、広告途中の離脱 / DAUの比率を計算することで、広告なしのプレミアムサブスクリプションのキャンペーンでターゲットにする最適なセグメントを見つけることができます。
+- **ライドシェアアプリ:** ユーザーが乗車をキャンセルしたときのカスタムイベントがある場合、キャンセルされた乗車数 / DAU の関数を設定して、特定のユーザーセグメントが他のセグメントよりも多く乗車をキャンセルする傾向があるかどうかを確認できます。
+- **eコマースアプリ:** 特定の商品 ID の購入数 / MAU の関数を設定することで、すべてのプロモーションがBrazeでトラッキングできなかった場合でも、最近プロモーションされた商品の人気度をセグメント間で比較できます。
+- **広告を使用するメディアアプリ:** 動画や音声クリップの間に広告が挿入されてユーザー体験が中断される場合、広告途中の離脱をカスタムイベントとして記録し、広告途中の離脱数 / DAU の比率を計算することで、広告なしのプレミアム購読キャンペーンのターゲットに最適なセグメントを見つけるのに役立ちます。
 
-## 計算式の作成 {#creating-formulas}
+## 数式の作成 {#creating-formulas}
 
-計算式には、ダッシュボードの[ホーム]({{site.baseurl}}/user_guide/analytics/dashboards/home/)、[収益レポート]({{site.baseurl}}/user_guide/analytics/reports/revenue_report/)、[カスタムイベントレポート]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)の各ページにある統計パネルからアクセスできます。このパネルを表示するには、**Performance Over Time** チャートに移動し、**Statistics For** ドロップダウンを **KPI Formulas** に変更してから、少なくとも1つのKPI計算式を選択してチャートに入力します。
+数式は、ダッシュボードの[ホーム]({{site.baseurl}}/user_guide/analytics/dashboards/home)、[収益レポート]({{site.baseurl}}/user_guide/analytics/reports/revenue_report)、[カスタムイベントレポート]({{site.baseurl}}/user_guide/analytics/reports/custom_events_report)ページからアクセスできます。**ホーム**および**収益レポート**では、**経時パフォーマンス**チャートを開き、**統計の対象**を**KPI数式**に設定して、少なくとも1つの数式を選択します。**カスタムイベントレポート**ページでは、**フィルター**を開き、1つ以上の**KPI数式**オプションを選択して、**適用**を選択します。
 
-![BrazeダッシュボードでKPI計算式の統計を表示する]({% image_buster /assets/img_archive/kpi_forms.png %})
+![BrazeダッシュボードでKPI数式の統計を表示する]({% image_buster /assets/img_archive/kpi_forms.png %})
 
-新しい計算式を作成するには、次の手順に従います。
+新しい数式を作成するには:
 
-1. 適切なダッシュボード（**Home**、**Revenue Report**、または **Custom Events Report**）に移動します。
-2. **Manage KPI Formulas** を選択します。
-3. 計算式の名前を入力します。
-4. 該当する分子と分母を選択します。
-5. **Save** を選択します。
+1. 適切なダッシュボード（**ホーム**、**収益レポート**、または**カスタムイベントレポート**）に移動します。
+2. **KPI数式を管理**を選択します。
+3. 数式の名前を入力します。
+4. 関連する分子と分母を選択します。
+5. **保存**を選択します。
 
 ## 利用可能な分子と分母 {#available-numerators-and-denominators}
 
@@ -68,15 +68,15 @@ table td {
 | DAU | MAU |
 | セッション | DAU |
 | | セグメントサイズ |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Overview dashboard" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="概要ダッシュボード" }
 
 ### 収益ダッシュボード {#revenue-dashboard}
 
 | 分子 | 分母 |
 | --- | --- |
 | 購入（すべて） | DAU |
-| 選択した購入（ギフトカードや商品IDなど） | MAU |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Revenue dashboard" }
+| 特定の購入（ギフトカードや商品IDなど） | MAU |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="収益ダッシュボード" }
 
 ### カスタムイベントダッシュボード {#custom-event-dashboard}
 
@@ -84,5 +84,5 @@ table td {
 | --- | --- |
 | カスタムイベント数 | MAU |
 |  | DAU |
-|  | セグメントサイズ（[分析トラッキング]({{site.baseurl}}/viewing_and_understanding_segment_data/)が有効なセグメントのみ使用できます） |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom event dashboard" }
+|  | セグメントサイズ（[分析トラッキング]({{site.baseurl}}/viewing_and_understanding_segment_data)が有効になっているセグメントのみ使用できます） |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="カスタムイベントダッシュボード" }

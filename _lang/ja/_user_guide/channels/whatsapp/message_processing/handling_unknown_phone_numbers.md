@@ -16,7 +16,7 @@ page_order: 50
 
 Brazeはまず、一致する番号を持つユーザーを検索します。見つからない場合、Brazeは以下の2つの方法のいずれかで不明な番号を自動的に処理します。
 
-1. **[オプトインキャンバス]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs/)を持つトリガーワードが設定されている場合:**
+1. **[オプトインキャンバス]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs)を持つトリガーワードが設定されている場合:**
 - Brazeは匿名プロファイルを作成します
 - 以下の詳細でプロファイルにユーザーエイリアスを割り当てます:
   - ユーザーが提供した電話番号を値とする`alias_name`

@@ -21,7 +21,7 @@ description: "この記事では、カタログアイテムの編集Brazeエン�
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`catalogs.update_item` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`catalogs.update_item` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -33,14 +33,14 @@ description: "この記事では、カタログアイテムの編集Brazeエン�
 |---|---|---|---|
 | `catalog_name` | 必須 | 文字列 | カタログの名前。 |
 | `item_id` | 必須 | 文字列 | カタログアイテムのID。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="パスパラメーター" }
 
 ## リクエストパラメーター {#request-parameters}
 
 | パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
 | `items` | 必須 | 配列 | アイテムオブジェクトを含む配列。アイテムオブジェクトには、`id` フィールドを除き、カタログに存在するフィールドを含める必要があります。1つのリクエストにつき、1つのアイテムオブジェクトのみが許可されます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}
 
@@ -78,13 +78,13 @@ curl --location --request PATCH 'https://rest.iad-03.braze.com/catalogs/restaura
 - `$add` および `$remove` 演算子は配列型フィールドにのみ適用可能であり、PATCHエンドポイントでのみサポートされています。
 {% endalert %}
 
-## 応答 {#response}
+## レスポンス {#response}
 
-このエンドポイントには、`200`、`400`、`404` の3つのステータスコード応答があります。
+このエンドポイントには、`200`、`400`、`404` の3つのステータスコードレスポンスがあります。
 
-### 成功応答の例 {#example-success-response}
+### 成功レスポンスの例 {#example-success-response}
 
-ステータスコード `200` は、次の応答本文を返す可能性があります。
+ステータスコード `200` は、次のレスポンスボディを返す可能性があります。
 
 ```json
 {
@@ -92,9 +92,9 @@ curl --location --request PATCH 'https://rest.iad-03.braze.com/catalogs/restaura
 }
 ```
 
-### エラー応答の例 {#example-error-response}
+### エラーレスポンスの例 {#example-error-response}
 
-ステータスコード `400` は、次の応答本文を返す可能性があります。発生する可能性のあるエラーの詳細については、[トラブルシューティング](#troubleshooting)を参照してください。
+ステータスコード `400` は、次のレスポンスボディを返す可能性があります。発生する可能性のあるエラーの詳細については、[トラブルシューティング](#troubleshooting)を参照してください。
 
 ```json
 {
@@ -116,11 +116,11 @@ curl --location --request PATCH 'https://rest.iad-03.braze.com/catalogs/restaura
 
 ## トラブルシューティング {#troubleshooting}
 
-次のテーブルに、返される可能性のあるエラーと、関連するトラブルシューティングステップを示します。
+次の表に、返される可能性のあるエラーと、関連するトラブルシューティングステップを示します。
 
 | エラー | トラブルシューティング |
 | --- | --- |
-| `arbitrary-error` | 任意のエラーが発生しました。もう一度試すか、[サポート]({{site.baseurl}}/support_contact/)に連絡してください。 |
+| `arbitrary-error` | 任意のエラーが発生しました。もう一度試すか、[サポート]({{site.baseurl}}/support_contact)に連絡してください。 |
 | `catalog-not-found` | カタログ名が有効であることを確認してください。 |
 | `filtered-set-field-too-long` | フィールド値が、アイテムの文字数制限を超えるフィルターセットで使用されています。 |
 | `id-in-body` | アイテムIDがすでにカタログに存在しています。 |
@@ -134,6 +134,6 @@ curl --location --request PATCH 'https://rest.iad-03.braze.com/catalogs/restaura
 | `request-includes-too-many-items` | 1つのリクエストにつき1つのカタログアイテムのみ編集できます。 |
 | `too-deep-nesting-in-value-object` | アイテムオブジェクトは50レベル以上のネストを持つことはできません。 |
 | `unable-to-coerce-value` | アイテムタイプは変換できません。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="トラブルシューティング" }
 
 {% endapi %}

@@ -1,23 +1,23 @@
 ---
 nav_title: タグ
 article_title: タグ
-page_order: 6
+page_order: 10
 page_type: reference
-description: "このリファレンス記事では、Braze ダッシュボードでのキャンペーン、キャンバス、セグメント、カスタムデータのタグについて説明します。"
+description: "このリファレンス記事では、Brazeダッシュボードでのキャンペーン、キャンバス、セグメント、カスタムデータのタグについて説明します。"
 tool:
-  - キャンペーン
-  - キャンバス
+  - Campaigns
+  - Canvas
 ---
 
 # タグ {#tags}
 
-> Brazeは、セグメント、キャンペーン、キャンバスの作成者、エディター、日付、ステータス情報を追跡し、エンゲージメントをさらに整理・分類するためのタグを作成する機能を提供します。
+> Brazeは、セグメント、キャンペーン、キャンバスの作成者、編集者、日付、ステータス情報を追跡し、エンゲージメントをさらに整理・分類するためのタグを作成する機能を提供します。
 
 ## キャンペーン、キャンバス、セグメントのタグ {#campaign-canvas-and-segment-tags}
 
-キャンペーン、キャンバス、またはセグメントの作成時や編集時にタグを追加できます。エンゲージメント名の下にある <span style="font-size: 14px;margin-bottom: .5rem;height: 16px;width: 16px;" class="fas fa-tag" ></span>**Tags** をクリックし、既存のタグを選択するか、入力を開始して新しいタグを追加します。
+キャンペーン、キャンバス、またはセグメントの作成時や編集時にタグを追加できます。エンゲージメント名の下にある<span style="font-size: 14px;margin-bottom: .5rem;height: 16px;width: 16px;" class="fas fa-tag" ></span>**Tags**をクリックし、既存のタグを選択するか、入力を開始して新しいタグを追加します。
 
-![キャンペーン作成時にタグを追加する。]({% image_buster /assets/img_archive/tags_add_tag.png %}){: style="max-width:60%;" }
+![キャンペーン作成時のタグ追加。]({% image_buster /assets/img_archive/tags_add_tag.png %}){: style="max-width:60%;" }
 
 {% alert important %}
 キャンペーン、キャンバス、またはセグメントには最大175個のタグを追加できます。
@@ -25,7 +25,7 @@ tool:
 
 ### 一括タグ付け {#bulk-tagging}
 
-複数のキャンペーン、キャンバス、またはセグメントを選択し、<span style="font-size: 14px;margin-bottom: .5rem;height: 16px;width: 16px;" class="fas fa-tag" ></span>**Tag As** を選択することで、一括でタグを追加することもできます。
+複数のキャンペーン、キャンバス、またはセグメントを選択し、<span style="font-size: 14px;margin-bottom: .5rem;height: 16px;width: 16px;" class="fas fa-tag" ></span>**Tag As**を選択することで、一括でタグを追加することもできます。
 
 ![複数のキャンペーンに同時にタグを追加する。]({% image_buster /assets/img_archive/tags_apply_multiple.gif %})
 
@@ -41,16 +41,16 @@ tool:
 
 ### タグによるフィルタリング {#filtering-by-tag}
 
-タグは、キャンペーン、キャンバス、またはセグメントのリストに、**Archived** や **Draft** などのステータスラベルの追加タグとともに表示されます。タグでフィルタリングするには、タグのリストからタグ名を選択します。
+タグは、キャンペーン、キャンバス、またはセグメントのリストに表示され、**Archived**や**Draft**などのステータスラベルの追加タグも一緒に表示されます。タグでフィルタリングするには、タグのリストからタグ名を選択します。
 
-![キャンペーンのリストに表示されるタグ。]({% image_buster /assets/img_archive/tags_grid.png %})
+![キャンペーンリストのタグ。]({% image_buster /assets/img_archive/tags_grid.png %})
 
-## カスタムデータのタグ {#custom-data-tags}
+## カスタムデータタグ {#custom-data-tags}
 
-[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#managing-custom-attributes)や[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events/#adding-tags)を管理する際に、カスタムデータにタグを追加することもできます。
+タグは、[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#managing-custom-attributes)や[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events#adding-tags)を管理する際にカスタムデータに追加することもできます。
 
 {% alert important %}
 この機能は現在、早期アクセス段階です。この早期アクセスへの参加に興味がある場合は、カスタマーサクセスマネージャーにお問い合わせください。
 {% endalert %}
 
-ダッシュボード全体でのタグの名前変更、削除、ネストについては、[タグの管理]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/#managing-tags)を参照してください。
+ダッシュボード全体でタグの名前変更、削除、ネストを行う方法については、[タグの管理]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags)を参照してください。

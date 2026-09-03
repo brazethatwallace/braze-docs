@@ -24,11 +24,11 @@ Se requiere lo siguiente para usar esta integración:
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Cuenta de Denada | Se requiere una [cuenta de Denada](https://app.heydenada.com) para usar esta integración. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con permisos completos de **Templates**. <br><br>Se puede crear en el panel de Braze desde **Settings** > **API Keys**. |
-| Punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión depende de la URL de Braze para tu instancia. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con permisos completos de **Templates**. <br><br>Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Endpoint REST de Braze | [La URL de tu endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Tu endpoint depende de la URL de Braze para tu instancia. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
-## Casos de uso {#use-cases}
+## Ejemplos {#use-cases}
 
 Denada está diseñado para especialistas en marketing y expertos en la materia que desean crear contenido de correo electrónico alineado con su marca sin habilidades de diseño o programación. Es ideal para quienes:
 - Quieren usar IA conversacional para generar rápidamente plantillas de correo electrónico y enviarlas directamente a Braze
@@ -39,9 +39,9 @@ Denada está diseñado para especialistas en marketing y expertos en la materia 
 
 ### Paso 1: Configura tu integración {#step-1-configure-your-integration}
 
-En Denada, selecciona el nombre de tu empresa en la esquina inferior izquierda y luego selecciona **Team settings** > **Add integration**.
+En Denada, selecciona el nombre de tu empresa en el menú de perfil y luego selecciona **Team settings** > **Add integration**.
 
-Selecciona **Braze** como la integración, luego introduce tu **API key** de Braze y selecciona tu **REST API endpoint** de la lista de regiones disponibles.
+Selecciona **Braze** como la integración, luego introduce tu **clave de API** de Braze y selecciona tu **endpoint de REST API** de la lista de regiones disponibles.
 
 {% alert note %}
 Esta es una configuración única. Cuando tus credenciales sean validadas, tu configuración se guardará para todas las exportaciones futuras.
@@ -61,6 +61,6 @@ Selecciona **Export**. Denada renderiza la plantilla a HTML, carga las imágenes
 
 ## Uso de la integración {#using-the-integration}
 
-Puedes encontrar tus correos electrónicos de Denada cargados en Braze en **Templates & Media** > **Email Templates**. Están listos para usar en cualquier Campaign o Canvas de Braze.
+Puedes encontrar tus correos electrónicos de Denada cargados en Braze en **Plantillas y medios** > **Plantillas de correo electrónico**. Están listos para usar en cualquier Campaign o Canvas de Braze.
 
 Denada hace seguimiento de las exportaciones anteriores, por lo que las exportaciones posteriores de la misma plantilla pueden actualizar la plantilla existente en Braze en lugar de crear duplicados.

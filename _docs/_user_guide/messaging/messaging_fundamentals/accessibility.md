@@ -122,16 +122,16 @@ Once your structure is in place, the next step is making sure your words are act
 
 - **Write short, clear sentences:** Short sentences are easy for everyone to understand, especially people using screen readers or who have trouble processing complex information. Write to a United States seventh-grade reading level. You can use resources such as [Hemingway App](https://hemingwayapp.com/) to check your text's reading level.
 - **Choose readable font sizes and spacing:** Text that's too small can be hard to read—especially on mobile. Use at least 14px for body text. Make headings larger so users can clearly see the difference. Extra spacing between lines (around 1.5 line-height) and paragraphs improves readability, especially for people with visual or cognitive needs.
-- **Avoid justified text:** Justified text creates uneven spacing between words, making reading difficult for people with dyslexia or cognitive disabilities. Consider making content that wraps to more than two lines aligned left for left-to-right languages or aligned right for [right-to-left languages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/).
+- **Avoid justified text:** Justified text creates uneven spacing between words, making reading difficult for people with dyslexia or cognitive disabilities. Consider making content that wraps to more than two lines aligned left for left-to-right languages or aligned right for [right-to-left languages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
 - **Use bold, italic, and uppercase text sparingly:** Emphasizing too much text makes reading difficult—especially for people with dyslexia or visual impairments. Keep it simple.
 
 #### Clarity and usability
 
 Finally, let's talk about the finer details—the things that help users not just see your content, but understand and interact with it. 
 
-- **Clearly label links and buttons:** Make sure your [link](#links) and [button](#buttons) text clearly explains what happens next. It helps people using screen readers or navigating with a keyboard know what to expect.
+- **Clearly label links and buttons:** Make sure your [link guidance](#links) and [button](#buttons) text clearly explains what happens next. It helps people using screen readers or navigating with a keyboard know what to expect.
 - **Go easy on symbols and emojis:** Special characters and emojis can make your content playful, but they can be confusing when read by screen readers. Use them sparingly, and make sure they don't replace clear, descriptive text.
-- **Test for truncation:** Always test your copy by [sending a test message]({{site.baseurl}}/developer_guide/in_app_messages/sending_test_messages/) to a device to make sure your text isn't truncated. If your message is being cut off, this hurts both you and your audience, since it prevents your content from reaching them.
+- **Test for truncation:** Always test your copy by [sending a test message]({{site.baseurl}}/developer_guide/in_app_messages/sending_test_messages) to a device to make sure your text isn't truncated. If your message is being cut off, this hurts both you and your audience, since it prevents your content from reaching them.
 
 ### Accessibility language {#accessibility-language}
 
@@ -143,11 +143,11 @@ Campaigns and Canvases use the same editors for these options, unless a feature 
 
 #### Configure accessibility language
 
-When your editor includes it, go to the **Accessibility** section in message settings. Pick a language from the dropdown or use Liquid (for example {% raw %}`{{accessibility_language}}`{% endraw %} when [multi-language messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) are turned on and **Localization Settings** are set).
+When your editor includes it, go to the **Accessibility** section in message settings. Pick a language from the dropdown or use Liquid (for example {% raw %}`{{accessibility_language}}`{% endraw %} when [multi-language messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) are turned on and **Localization Settings** are set).
 
 #### Multi-language messages
 
-In **Localization Settings**, set an accessibility language for each locale so Liquid can fill in {% raw %}`{{accessibility_language}}`{% endraw %} for localized sends. Whether that value is already chosen for new messages depends on the channel. For CSV and translation workflows, start with [Language settings and accessibility]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/#language-settings-and-accessibility).
+In **Localization Settings**, set an accessibility language for each locale so Liquid can fill in {% raw %}`{{accessibility_language}}`{% endraw %} for localized sends. Whether that value is already chosen for new messages depends on the channel. For CSV and translation workflows, start with [Language settings and accessibility]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages#language-settings-and-accessibility).
 
 #### Channel and editor support
 
@@ -171,7 +171,7 @@ When Braze adds a root-level language tag to HTML, it follows the HTML [`lang`](
 
 ### Buttons
 
-Use **buttons** to indicate an action, such as sending a form or playing a carousel. If you're navigating to a new URL, consider using a [link](#links) instead.
+Use **buttons** to indicate an action, such as sending a form or playing a carousel. If you're navigating to a new URL, consider using a [link guidance](#links) instead.
 
 #### Write clear, action-oriented text
 
@@ -219,7 +219,7 @@ Keep button text concise to prevent truncation. If a button's text is too long, 
 Button text must be easy to read against the button's background color. Check that your button text meets WCAG 2.2 AA [contrast minimums](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html):
 
 - 4.5:1 contrast ratio for normal-sized text (most buttons)
-- 3:1 contrast ratio for large text (typically above 18pt)
+- 3:1 contrast ratio for large text (typically 18pt or larger)
 
 High contrast helps buttons remain readable and clickable for everyone, including users with visual impairments or those viewing your message in challenging environments. For more guidance, see the [Color contrast](#color-contrast) section.
 
@@ -485,6 +485,12 @@ If an image is functioning like a link or call-to-action, describe the intended 
 
 If the image doesn't have a purpose, make that known too. Decorative images, like logos, should have an empty alt tag (`alt=""`) so screen readers know to skip announcing it. Without it, usually the image file name is read instead.
 
+#### How email clients display alt text
+
+The display and rendering of alt text in email messages is controlled by the recipient's email client (such as Gmail, Outlook, or Apple Mail), not by Braze. If you notice differences in how alt text appears across different email clients or platforms—for example, alt text displaying differently in Gmail on desktop versus the Gmail mobile app—this is due to how each client chooses to render the same HTML.
+
+While you can include alt text of any length in your email HTML, some email clients may truncate or hide alt text that is too long to fit within the image's dimensions. If you have questions about alt text behavior in a specific email client, contact [Support]({{site.baseurl}}/support_contact/).
+
 ### Videos
 
 Videos are engaging, but if they're not accessible, you risk excluding part of your audience. Use the following tips to make your video content more inclusive:
@@ -504,7 +510,10 @@ Include closed captions with your videos so users can follow along with the dial
 
 Closed captions can be toggled on or off, allowing users to choose what works best for them.
 
-{% multi_lang_include accessibility/video.md %}
+{% alert note %}
+Braze doesn't automatically generate captions for your videos. It’s your responsibility to add accurate captions to your video files before including them in your message.
+{% endalert %}
+
 
 #### Provide playback controls {#playback-controls}
 
@@ -533,7 +542,10 @@ Sufficient color contrast helps ensure your messages are easy to read for everyo
 
 You can test your color choices using the [WebAim Contrast Checker Tool](https://webaim.org/resources/contrastchecker/).
 
-{% multi_lang_include accessibility/color.md %}
+{% alert note %}
+Braze editors allow you to select custom color combinations. Keep in mind that certain color choices can negatively affect accessibility. Choose your colors carefully to make sure your content is readable and compliant with accessibility standards.
+{% endalert %}
+
 
 ### Custom HTML
 
@@ -633,8 +645,8 @@ Emails created in the email drag-and-drop editor have presentational elements au
 
 To help you identify and fix accessibility issues early, Braze offers automated accessibility testing in the following areas:
 
-- [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision/#accessibility-testing) for emails
-- [Accessibility scanner]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message#accessibility-scanner) for messages created using our HTML editor (for example, HTML in-app messages, HTML Content Blocks, [custom email footers]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer/), [email opt-in pages]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection/#creating-a-custom-opt-in-page), and [email unsubscribe pages]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection/#creating-a-custom-unsubscribe-page)).
+- [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision#accessibility-testing) for emails
+- [Accessibility scanner]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message#accessibility-scanner) for messages created using our HTML editor (for example, HTML in-app messages, HTML Content Blocks, [custom email footers]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer), [email opt-in pages]({{site.baseurl}}/user_guide/channels/email/subscriptions#creating-a-custom-opt-in-page), and [email unsubscribe pages]({{site.baseurl}}/user_guide/channels/email/subscriptions#creating-a-custom-unsubscribe-page)).
 
 These tests check your message against the Web Content Accessibility Guidelines ([WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/)) standard—a set of internationally recognized technical standards for accessible content. Any issues that can be detected automatically are flagged and categorized by severity to help you prioritize.
 

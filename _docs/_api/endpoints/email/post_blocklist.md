@@ -20,7 +20,7 @@ description: "This article outlines the details about the Blocklist emails Braze
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `email.blacklist` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `email.blacklist` permission.
 
 ## Rate limit
 

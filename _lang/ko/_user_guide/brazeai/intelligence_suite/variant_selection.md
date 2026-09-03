@@ -1,129 +1,81 @@
 ---
-nav_title: 배리언트 선택
-article_title: 배리언트 선택
+nav_title: BrazeAI<sup>TM</sup>로 최적화
+article_title: BrazeAI<sup>TM</sup>로 A/B 테스트 최적화
 page_order: 1.6
-description: "이 문서에서는 A/B Campaign이 최적의 참여를 위해 자동으로 최적화할 수 있도록 하는 기능인 BrazeAI<sup>TM</sup> 배리언트 선택에 대해 설명합니다."
+description: "BrazeAI<sup>TM</sup>로 최적화 기능이 단일 발송 및 다중 발송 Campaign에서 가장 성과가 좋은 배리언트를 자동으로 선택하고 배분하는 방법을 알아보세요."
 search_rank: 10
 toc_headers: h2
 ---
 
-# BrazeAI<sup>TM</sup> 배리언트 선택 {#variant-selection}
+# BrazeAI<sup>TM</sup>로 A/B 테스트 최적화 {#optimizing-ab-tests-with-brazeai}
 
-> BrazeAI<sup>TM</sup> 배리언트 선택은 단일 발송 또는 반복 A/B 테스트에서 자동으로 실험을 실행하고 최적의 참여 결과를 위해 최적화하는 기능입니다.
+> **BrazeAI<sup>TM</sup>로 최적화**를 켜면 여러 배리언트가 포함된 Campaign을 자동으로 최적화할 수 있습니다. 최적화 방법은 Campaign이 한 번 발송되는지 또는 여러 번 발송되는지에 따라 달라집니다.
 
-{% alert note %}
-BrazeAI<sup>TM</sup> 배리언트 선택은 현재 푸시에서만 사용할 수 있습니다.
-{% endalert %}
+## 전제 조건 {#prerequisites}
 
-## 필수 조건 {#prerequisites}
+**BrazeAI<sup>TM</sup>로 최적화**를 사용하려면 Campaign에 최소 두 개의 메시지 배리언트가 포함되어야 합니다.
 
-BrazeAI<sup>TM</sup> 배리언트 선택을 사용하려면 Campaign 또는 Canvas에서 다음 조건을 충족해야 합니다.
+다중 발송 Campaign의 경우 다음 조건도 충족해야 합니다:
 
-{% tabs %}
-{% tab Campaign %}
-- 최소 두 개의 메시지 배리언트를 추가합니다.
-- 단일 발송을 사용하지 않는 경우, 최소 하나의 전환 이벤트를 정의하고 재자격 기간을 24시간 이상으로 설정합니다. 더 짧은 기간은 대조군의 무결성에 영향을 줄 수 있으므로 지원되지 않습니다.
-{% endtab %}
+- 최소 하나의 전환 이벤트를 정의합니다.
+- 재자격 기간을 24시간 이상으로 설정합니다.
 
-{% tab Canvas %}
-- 메시지 단계에 최소 두 개의 메시지 배리언트를 포함합니다.
-- 단일 발송을 사용하지 않는 경우, 최소 하나의 전환 이벤트가 있어야 합니다.
-{% endtab %}
-{% endtabs %}
+## 최적화 켜기 {#turn-on-optimization}
 
-## 단일 발송 {#single-send}
+**타겟 오디언스** 단계에서 **A/B Testing**으로 이동한 다음, **Optimize with BrazeAI<sup>TM</sup>**를 켜세요.
 
-두 번째 배리언트를 추가하면 BrazeAI<sup>TM</sup> 배리언트 선택이 자동으로 활성화되어 실험에 최적의 파라미터를 설정하고(최적 파라미터를 따를 때 약 25%의 향상이 관찰됨), 실험을 실행한 다음 우승 배리언트를 발송합니다. 추가로 할 작업은 없습니다.
+## 단일 발송 Campaign {#single-send-campaigns}
 
-실험을 커스터마이즈하려면 다음과 같은 옵션을 제공합니다.
+단일 발송 Campaign의 경우, Braze는 오디언스의 초기 일부를 각 배리언트에 발송합니다. 실험 기간이 종료되면 BrazeAI<sup>TM</sup>가 가장 성능이 좋은 배리언트를 선택하여 나머지 오디언스에게 발송합니다.
 
-### 최적화 목표 {#optimization-goal}
+최적화를 켜면 Braze가 권장 설정을 적용합니다. 이 설정을 변경하려면 **고급 컨트롤**을 여세요:
 
-알고리즘이 최상의 결과를 제공하는 데 필요한 데이터를 확보할 수 있도록, 의미 있는 양의 전환이 발생하는 강력한 전환 이벤트 설정이 없는 한 열람을 사용하는 것을 권장합니다.
-- 열람
-- 전환 이벤트
+- **최적화 목표:** BrazeAI<sup>TM</sup>가 배리언트를 비교하는 데 사용하는 측정기준을 선택합니다. 사용 가능한 목표는 채널에 따라 다릅니다.
+- **실험 기간:** 4시간, 24시간, 72시간을 선택하거나 커스텀 기간을 입력합니다.
+- **배리언트 분배:** 각 배리언트 또는 대조군에 할당된 비율을 변경합니다.
 
-### 실험 기간 {#experiment-duration}
+기본 실험 기간은 4시간입니다. 주요 전환 이벤트에 대해 최적화하는 경우 기본값은 24시간입니다.
 
-기본값을 사용하는 것을 권장하지만, 커스텀 기간을 사용할 수 있는 옵션을 포함하여 두 가지 다른 옵션도 제공합니다.
-- 4시간
-- 24시간
-- 72시간
-- 커스텀
+### 채널별 기본 최적화 목표 {#default-optimization-goals-by-channel}
 
-### 대조군 및 배리언트 분배 {#control-group-and-variant-distributions}
+| 채널 | 기본 목표 |
+|---|---|
+| 푸시 알림 | *열람* |
+| 이메일 | *고유 클릭* |
+| SMS, MMS, RCS, WhatsApp | *클릭* |
+| 기타 지원 채널 | *주요 전환 이벤트 - A* |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="채널별 기본 최적화 목표" }
 
-대조군을 제거하거나 배리언트 분배를 편집할 수 있지만, 설정된 최적 파라미터를 사용하는 것을 권장합니다.
+## 다중 발송 Campaign {#multi-send-campaigns}
 
-![단일 발송 배리언트 최적화 옵션]({% image_buster /assets/img_archive/braze_ai_variant_selection_single_send_options.png %})
+반복, 행동 기반, API 트리거 Campaign 등 여러 번 발송하는 Campaign의 경우, BrazeAI<sup>TM</sup>가 오디언스 배분을 지속적으로 최적화합니다. 초기 전환 마감 이후 Braze는 12시간마다 성능을 검토하고 더 높은 성능을 보이는 배리언트에 더 많은 사용자를 보냅니다.
 
-## 반복 {#recurring}
+BrazeAI<sup>TM</sup>가 성능 데이터를 수집하는 동안 초기 배분은 균등할 수 있습니다. 최적화가 성능 추세를 파악함에 따라 배분이 변경됩니다.
 
-두 번째 배리언트를 추가하면 BrazeAI<sup>TM</sup> 배리언트 선택이 자동으로 활성화되어 다중 슬롯 머신(multi-armed bandit) 통계 테스트를 사용하여 지속적으로 최적화합니다. 성과가 좋은 배리언트에는 더 많은 메시지를 발송하고, 성과가 낮은 배리언트에는 더 적게 발송합니다.
+**고급 제어**를 열어 대조군을 추가하거나 제거할 수 있습니다. 대조군은 Campaign 성능을 측정하기 위한 기준선을 제공하며 메시지를 수신하지 않습니다.
 
-균등 분배로 시작하여 학습 및 최적화를 진행한 다음, 하루에 두 번 성과가 높은 배리언트 쪽으로 분배를 기울이고 성과가 낮은 배리언트에서 멀어지도록 조정합니다. 최적의 분배를 선택했다는 충분한 근거(95% 이상의 신뢰도)를 확보할 때까지 이 과정을 계속합니다.
+## 리포팅 {#reporting}
 
-## 보고 {#reporting}
+단일 발송 실험이 완료되거나, 다중 발송 Campaign이 충분한 데이터를 수집한 후 **Campaign 분석** 페이지에서 최적화를 통해 달성된 상승 효과를 확인할 수 있습니다.
 
-![향상 보고]({% image_buster /assets/img_archive/braze_ai_variant_selection_reporting.png %}){: style="float:right;max-width:40%;margin-left:15px;border:0"}
+![BrazeAI<sup>TM</sup>로 최적화를 통한 상승 효과를 보여주는 Campaign 분석, 실험 기간 이후의 비교 측정기준 포함.]({% image_buster /assets/img_archive/braze_ai_variant_selection_reporting.png %})
 
-단일 발송의 경우 테스트가 완료된 후, 반복 발송의 경우 짧은 지연 후에 신뢰할 수 있는 데이터를 보고합니다. BrazeAI<sup>TM</sup> 배리언트 선택이 달성할 수 있는 향상을 대시보드에서 보고합니다.
+자세한 내용은 [A/B 테스트 분석]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics)을 참조하세요.
 
-{% tabs %}
-{% tab 단일 발송 %}
-학습 코호트가 발송된 후, Braze는 기간 설정에 지정된 시간 동안 대기한 다음 데이터를 검토합니다. 경쟁 배리언트의 분배를 기반으로, 최적화가 수행되지 않았을 때의 성과 평균을 계산한 다음, 우승 배리언트를 기준으로 향상을 계산합니다.
+## 자주 묻는 질문 {#frequently-asked-questions}
 
-예시(균등 분배 가정):
-- 배리언트 1: 3.5%
-- 배리언트 2: 3%
-- 배리언트 3: 2.5%
-- 배리언트 4: 2%
+### BrazeAI<sup>TM</sup>로 최적화를 켤 수 없는 이유는 무엇인가요? {#why-cant-i-turn-on-optimize-with-brazeai}
 
-최적화 없는 열람률은 2.75%(.035*.25 + .03*.25 + 0.025*.25 + 0.02*.25)이며, 배리언트 선택은 배리언트 1(3.5%)을 선택하므로 향상은 27.3%입니다.
-{% endtab %}
+다음과 같은 경우 최적화를 사용할 수 없습니다:
 
-{% tab 반복 %}
-Braze는 조정 시 정기적으로 결과를 분석하고, 각 기간의 향상 평균을 기반으로 향상을 표시합니다.
+- Campaign에 활성 배리언트가 두 개 미만인 경우.
+- 다중 발송 Campaign에 전환 이벤트가 없는 경우.
+- 다중 발송 Campaign의 재자격 기간이 24시간 미만인 경우.
 
-단일 발송과 유사한 방식으로 조정 정도에 따라 기간별 향상을 계산합니다.
+### 처음에 배리언트의 발송 수가 비슷한 이유는 무엇인가요? {#why-do-my-variants-have-similar-send-counts-at-first}
 
-예시:
-- 배리언트 1: 3.5%, 코호트의 25%
-- 배리언트 2: 3%, 코호트의 25%
-- 배리언트 3: 2.5%, 코호트의 25%
-- 배리언트 4: 2%, 코호트의 25%
+BrazeAI<sup>TM</sup>는 성능 데이터를 수집하기 위해 초기 분배로 시작합니다. 시간이 지남에 따라 성능 추세를 파악하면서 분배를 조정합니다.
 
-최적화 없는 열람률은 2.75%(.035*.25 + .03*.25 + 0.025*.25 + 0.02*.25)입니다. 배리언트 선택은 성과가 높은 배리언트에 더 큰 가중치를 부여합니다.
+### 다중 발송 Campaign이 하나의 배리언트를 선택하지 않고도 최적화를 중단할 수 있나요? {#can-a-multi-send-campaign-stop-optimizing-without-selecting-one-variant}
 
-다음과 같이 분배한다고 가정합니다.
-- 배리언트 1: 65%
-- 배리언트 2: 15%
-- 배리언트 3: 10%
-- 배리언트 4: 5%
-
-이 경우 선택된 열람률은 3.075%(.035*.65 + .03*.15 + 0.025*.1 + 0.02*.05)이며, 이는 11.8%의 향상입니다. 각 기간마다 이를 계산한 다음, 최적화 기간 전체에 걸쳐 평균을 산출합니다.
-{% endtab %}
-{% endtabs %}
-
-## 자주 묻는 질문 {#faq}
-
-### 반복 Campaign 또는 Canvases에서 배리언트 선택과 결합할 때 24시간 미만의 재자격이 불가능한 이유는 무엇인가요? {#why-is-re-eligibility-in-less-than-24-hours-not-available-when-combined-with-variant-selection-for-recurring-campaigns-or-canvases}
-
-테스트 결과 너무 짧은 기간의 재자격은 대조군의 무결성에 영향을 미치고 바람직하지 않은 분배로 이어질 수 있으므로, 배리언트 선택 Campaign에서는 이를 허용하지 않습니다.
-
-### 반복 Campaign 초기 단계에서 배리언트가 균등한 발송량을 보이는 이유는 무엇인가요? {#why-are-my-variants-showing-equal-sends-during-the-early-stages-of-my-recurring-campaign}
-
-배리언트 선택은 학습 기간이 끝난 후에만 최종 배리언트 할당을 결정하며, 학습 기간 동안에는 배리언트 간에 균등하게 발송합니다. 시간이 지남에 따라 성과 추세를 감지하면서 조정합니다. Campaign 초기 단계에서 균등하게 발송하고 싶지 않다면, 기존 A/B 테스트를 위해 고정 배리언트를 사용하세요.
-
-### 반복 배리언트 선택은 명확한 우승자를 선택하지 못한 채 최적화를 중단하나요? {#does-recurring-variant-selection-stop-optimizing-without-picking-a-clear-winner}
-
-네, 실험을 계속해도 전환율이 현재 비율의 1% 이상 개선되지 않을 것이라는 95%의 신뢰도가 확보되면 최적화를 중단합니다.
-
-### Canvas 또는 Campaign에서 배리언트 선택을 활성화할 수 없는 이유는 무엇인가요? {#why-cant-i-enable-variant-selection-in-my-canvas-or-campaign}
-
-단일 발송의 경우, Canvas 또는 Campaign이 단일 배리언트로 구성되어 있으면 배리언트 선택을 활성화할 수 없습니다.
-
-반복의 경우, 다음과 같은 상황에서 배리언트 선택을 활성화할 수 없습니다.
-- Campaign 또는 Canvas에 전환 이벤트를 추가하지 않은 경우
-- 24시간 미만의 기간으로 재자격이 활성화된 경우
-- Canvas 또는 Campaign이 단일 배리언트로 구성된 경우
+네. BrazeAI<sup>TM</sup>가 실험을 계속해도 전환율이 현재 비율의 1% 이상 개선되지 않을 것이라고 95% 신뢰도를 확보하면 최적화가 중단됩니다.

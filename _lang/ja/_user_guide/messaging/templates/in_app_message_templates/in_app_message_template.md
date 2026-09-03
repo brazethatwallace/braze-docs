@@ -12,37 +12,37 @@ search_rank: 1
 
 # アプリ内メッセージテンプレートの作成 {#create-an-in-app-message-template}
 
-> **コンテンツ** > **アプリ内メッセージ**を使用して、アプリ内メッセージやブラウザ内メッセージのレイアウトの再利用可能なライブラリーを構築できます。ドラッグ＆ドロップエディターからデザインを保存したり、[従来のエディター]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/)用の**カラープロファイル**や**CSSテンプレート**アセットを作成したりできます。
+> **コンテンツ** > **アプリ内メッセージ**を使用して、アプリ内メッセージやブラウザ内メッセージのレイアウトの再利用可能なライブラリーを構築できます。ドラッグ＆ドロップエディターからデザインを保存したり、[従来のエディター]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional)用の**カラープロファイル**や**CSSテンプレート**アセットを作成したりできます。
 
-## ステップ 1:アプリ内メッセージテンプレートを開く {#step-1-open-in-app-message-templates}
+## ステップ1:アプリ内メッセージテンプレートを開く {#step-1-open-in-app-message-templates}
 
 Brazeダッシュボードで、**コンテンツ** > **アプリ内メッセージ**に移動します。
 
-## ステップ 2:テンプレートの作成方法を選択する {#step-2-choose-how-to-create-a-template}
+## ステップ2:テンプレートの作成方法を選択する {#step-2-choose-how-to-create-a-template}
 
 テンプレートの追加方法は目的によって異なります。
 
 | 目的 | 操作 |
 |------|------|
-| ドラッグ＆ドロップレイアウトを再利用のために保存する | [ドラッグ＆ドロップのアプリ内メッセージ作成画面]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)で、エディターを終了した後に**テンプレートとして保存**を選択します（先にCampaignを起動するか、下書きとして保存する必要があります）。テンプレートは**テンプレート** > **アプリ内メッセージテンプレート**に表示され、次のメッセージで使用できます。 |
+| ドラッグ＆ドロップレイアウトを再利用のために保存する | [ドラッグ＆ドロップのアプリ内メッセージ作成画面]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)で、エディターを終了した後に**テンプレートとして保存**を選択します（先にキャンペーンを起動するか、下書きとして保存する必要があります）。テンプレートは**テンプレート** > **アプリ内メッセージテンプレート**に表示され、次のメッセージで使用できます。 |
 | カラープロファイルまたはCSSテンプレートを作成する（従来のエディター） | **アプリ内メッセージテンプレート**ページで、**+ 作成**を選択し、**カラープロファイル**または**CSSテンプレート**を選択します。詳細については、[カラープロファイルとCSSテンプレート](#reusable-color-profiles)を参照してください。 |
-| Brazeテンプレートをカスタマイズする | ドラッグ＆ドロップエディターで[アプリ内メッセージを作成]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)し、Brazeテンプレートを選択してカスタマイズを行い、**テンプレートとして保存**を選択します。各Brazeテンプレートの説明については、[アプリ内メッセージテンプレート]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/)を参照してください。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Choose how to create a template" }
+| Brazeテンプレートをカスタマイズする | ドラッグ＆ドロップエディターで[アプリ内メッセージを作成]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)し、Brazeテンプレートを選択してカスタマイズを行い、**テンプレートとして保存**を選択します。各Brazeテンプレートの説明については、[アプリ内メッセージテンプレート]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates)を参照してください。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ2:テンプレートの作成方法を選択する" }
 
 {% alert note %}
-カラープロファイルとCSSテンプレートは従来のエディターに適用されます。ドラッグ＆ドロップエディターを使用している場合は、メッセージレベルのスタイリングに[スタイル設定]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/)を使用してください。
+カラープロファイルとCSSテンプレートは従来のエディターに適用されます。ドラッグ＆ドロップエディターを使用している場合は、メッセージレベルのスタイリングに[スタイル設定]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings)を使用してください。
 {% endalert %}
 
-## ステップ 3:テンプレートを管理する {#step-3-manage-your-templates}
+## ステップ3:テンプレートを管理する {#step-3-manage-your-templates}
 
-**コンテンツ** > **アプリ内メッセージ**で、テンプレートのフィルタリング、検索、または編集のために開くことができます。他のテンプレートタイプと同様に、テンプレートを[複製]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/#duplicate-templates)したり[アーカイブ]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/#archive-templates)したりできます。テンプレートとメディアのワークフローの概要については、[テンプレート]({{site.baseurl}}/user_guide/messaging/templates/)を参照してください。
+**コンテンツ** > **アプリ内メッセージ**で、テンプレートのフィルタリング、検索、または編集のために開くことができます。他のテンプレートタイプと同様に、テンプレートを[複製]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#duplicating-templates)したり[アーカイブ]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#archiving-templates)したりできます。テンプレートとメディアのワークフローの概要については、[テンプレート]({{site.baseurl}}/user_guide/messaging/templates)を参照してください。
 
-アプリ内メッセージテンプレートにアクセスするには、アプリ内メッセージテンプレートの表示または編集を行うための[ユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)が必要です。
+アプリ内メッセージテンプレートにアクセスするには、アプリ内メッセージテンプレートの表示または編集を行うための[ユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)が必要です。
 
 ### カラープロファイルとCSSテンプレートの作成 {#reusable-color-profiles}
 
 {% alert note %}
-以下のオプションは[従来のエディター]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/)に適用されます。ドラッグ＆ドロップエディターを使用している場合は、代わりに[スタイル設定]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/)を使用してください。
+以下のオプションは[従来のエディター]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional)に適用されます。ドラッグ＆ドロップエディターを使用している場合は、代わりに[スタイル設定]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings)を使用してください。
 {% endalert %}
 
 既存のテンプレートを編集するか、**+ 作成**を選択して**カラープロファイル**または**CSSテンプレート**を選択し、アプリ内メッセージ用の新しいテンプレートを作成できます。

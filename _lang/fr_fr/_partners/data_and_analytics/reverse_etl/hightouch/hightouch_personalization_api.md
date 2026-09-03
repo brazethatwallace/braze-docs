@@ -1,7 +1,7 @@
 ---
 nav_title: API de personnalisation Hightouch
 article_title: API de personnalisation Hightouch
-description: "Cet article de référence décrit l'intégration entre Braze et l'API de personnalisation de Hightouch, un service géré permettant d'héberger une API de données à faible latence basée sur n'importe quel ensemble de données de votre entrepôt de données cloud. Cet article de référence passe en revue les cas d'utilisation résolus par l'API de personnalisation Hightouch, les données avec lesquelles elle fonctionne, comment la configurer et comment l'intégrer à Braze."
+description: "Cet article de référence décrit l'intégration entre Braze et l'API de personnalisation de Hightouch, un service géré permettant d'héberger une API de données à faible latence basée sur n'importe quel ensemble de données de votre entrepôt de données cloud. Cet article de référence passe en revue les cas d'usage résolus par l'API de personnalisation Hightouch, les données avec lesquelles elle fonctionne, comment la configurer et comment l'intégrer à Braze."
 page_type: partner
 search_tag: Partner
 ---
@@ -10,32 +10,32 @@ search_tag: Partner
 
 > L'[API de personnalisation](https://hightouch.com/docs/destinations/personalization-api) de Hightouch est un service géré qui vous permet d'héberger une API de données à faible latence basée sur n'importe quel ensemble de données de votre entrepôt de données cloud.
 
-![]({% image_buster /assets/img/hightouch/cohort7.png %})
+![Diagramme d'architecture de l'API de personnalisation Hightouch montrant le flux de données depuis un entrepôt de données via Hightouch vers des applications mobiles, des expériences web et des e-mails dynamiques.]({% image_buster /assets/img/hightouch/cohort7.png %})
 
-L'intégration de Braze et Hightouch vous permet d'utiliser l'API avec le [contenu connecté de Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/) pour intégrer des données à jour sur les clients ou les objets dans vos Campaigns ou Canvas au moment de l'envoi.
+L'intégration de Braze et Hightouch vous permet d'utiliser l'API avec le [contenu connecté de Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call) pour intégrer des données à jour sur les clients ou les objets dans vos Campaigns ou Canvas au moment de l'envoi.
 
 L'API de personnalisation de Hightouch fournit un endpoint REST à utiliser dans votre configuration Braze. Plus précisément, vous pouvez utiliser l'offre de contenu connecté de Braze pour effectuer une requête GET à l'API de personnalisation afin de récupérer toutes les informations liées à un identifiant particulier. Les données exposées par cette API peuvent représenter des données relatives à un client, à un produit ou à tout autre objet.
 
-![]({% image_buster /assets/img/hightouch/cohort6.png %})
+![Diagramme montrant les données de Snowflake, BigQuery et Redshift transitant par l'API de personnalisation Hightouch vers le contenu connecté de Braze.]({% image_buster /assets/img/hightouch/cohort6.png %})
 
 ## Conditions préalables {#prerequisites}
 
 | Condition | Description |
 | --- | --- |
 | [Compte Hightouch](https://app.hightouch.com/login) avec l'API de personnalisation activée | Un [compte Hightouch Business Tier](https://hightouch.com/pricing) est nécessaire pour bénéficier de ce partenariat. |
-| Cas d'utilisation définis | Avant de configurer l'API, vous devez définir votre cas d'utilisation pour cette intégration. Consultez la liste suivante pour les cas d'utilisation courants. |
+| Cas d'usage définis | Avant de configurer l'API, vous devez définir votre cas d'usage pour cette intégration. Consultez la liste suivante pour les cas d'usage courants. |
 | Données stockées dans un entrepôt de données cloud ou une autre source | Hightouch s'intègre à [plus de 25 sources de données](https://hightouch.com/integrations) |
 | Clé API Hightouch | Elle peut être créée dans **Hightouch > Settings > API keys > Add API key**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 {% tabs %}
-{% tab Cas d'utilisation %}
+{% tab Cas d'usage %}
 
-### Cas d'utilisation {#use-cases}
+### Cas d'usage {#use-cases}
 
 Avant de commencer, il est utile de planifier exactement la manière dont vous souhaitez utiliser l'API de personnalisation.
 
-Les cas d'utilisation courants incluent :
+Les cas d'usage courants incluent :
 - **Recommandations de produits** pour simplifier l'intégration de recommandations de produits personnalisées dans les modèles d'e-mails, les Campaigns ou les expériences in-app
 - **Campaigns marketing personnalisées** en enrichissant les points de contact marketing grâce à des recommandations de produits dynamiques
 - **Personnalisation in-app ou sur le Web**, par exemple des résultats de recherche personnalisés, une tarification par cohorte, l'envoi de messages, des recommandations d'articles ou les emplacements des magasins les plus proches
@@ -87,7 +87,7 @@ Suivez ces instructions pour effectuer les deux opérations :
 4. Entrez un nom de collection alphanumérique. Les collections sont conceptuellement similaires aux tables de base de données. Chacune doit représenter un type de données particulier, tel que les clients ou les factures. Les noms des collections doivent être alphanumériques et feront partie intégrante de votre endpoint de l'API de personnalisation.<br><br>
 5. Spécifiez ensuite quelle colonne de votre modèle doit servir d'index principal pour les recherches d'enregistrements. Ce champ doit identifier de manière unique chaque enregistrement de la collection et est souvent identique à la clé primaire de votre modèle. L'API de personnalisation prend en charge les recherches sur plusieurs index. Par exemple, vous souhaiterez peut-être récupérer les profils des clients à l'aide de `user_id`, `anonymous_id` ou `email_address`. Pour activer plusieurs index, contactez l'[assistance Hightouch](mailto:friends@hightouch.com).<br><br>
 6. Utilisez le mappeur de champs pour spécifier quelles colonnes de votre modèle doivent être incluses dans le payload de la réponse de l'API. Vous pouvez renommer ces champs et utiliser le mappeur avancé pour appliquer des transformations à l'aide du langage de modèle Liquid.<br><br>
-7. Sélectionnez le [comportement de suppression](https://www.hightouch.com/docs/destinations/personalization-api#delete-behavior) adapté à votre cas d'utilisation.<br><br>
+7. Sélectionnez le [comportement de suppression](https://www.hightouch.com/docs/destinations/personalization-api#delete-behavior) adapté à votre cas d'usage.<br><br>
 8. Enfin, cliquez sur **Continue**, puis sélectionnez une [planification de synchronisation](https://hightouch.com/docs/syncs/schedule-sync-ui).
 
 Hightouch synchronise désormais les données de votre entrepôt avec une base de données gérée et les expose via l'API de personnalisation.
@@ -124,7 +124,7 @@ Pour l'exemple de payload ci-dessous :
 ```json
 {
     "user_id": 12345,
-    "full_name": "Jane Doe",
+    "full_name": "Alex Smith",
     "lifetime_value": 1492.18,
     "churn_risk": 0.04,
     "90_day_summary": {
@@ -155,7 +155,7 @@ Pour l'exemple de payload ci-dessous :
         ],
         "upcoming_album_release": {
             "title": "Universal Language",
-            "artist": "Simon Doty",
+            "artist": "Alex Lee",
             "label": "Anjunadeep",
             "release_date": "2023-04-28"
         }

@@ -20,7 +20,7 @@ Im verlinkten Braze-Lernkurs zeigen wir Ihnen, wie reguläre Ausdrücke auf [Reg
 ## Ressourcen {#resources}
 
 - [Grundlagen regulärer Ausdrücke](https://learning.braze.com/regular-expression-basics-for-braze) Braze-Lernkurs
-- [Regex-Spickzettel]({{site.baseurl}}/regex_cheat_sheet/)
+- [Regex-Spickzettel]({{site.baseurl}}/regex_cheat_sheet)
 - [Beispieldaten RTF]({% image_buster /assets/download_file/regex-dummy-data.rtf %})
 
 ## Regex-Debugger {#regex-debugger}
@@ -201,7 +201,7 @@ Wenn Sie beispielsweise Nutzer:innen ansprechen möchten, die in Städten leben,
 
 ### Wie filtere ich nach bestimmten Telefonnummern? {#how-do-i-filter-for-specific-phone-numbers}
 
-Bevor Sie Regex zum Filtern von Telefonnummern verwenden, denken Sie daran, dass die für Nutzerprofile protokollierten Nummern im [E.164](https://en.wikipedia.org/wiki/E.164)-Format vorliegen müssen, wie in [Nutzer-Telefonnummern]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers/) angegeben.
+Bevor Sie Regex zum Filtern von Telefonnummern verwenden, denken Sie daran, dass die für Nutzerprofile protokollierten Nummern im [E.164](https://en.wikipedia.org/wiki/E.164)-Format vorliegen müssen, wie in [Nutzer-Telefonnummern]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers) angegeben.
 
 Angenommen, Sie suchen nach US-Telefonnummern, verwenden Sie das Regex-Format `1?\d\d\d\d\d\d\d\d\d\d`, wobei jede Wiederholung von `\d` eine Ziffer ist, die Sie angeben möchten. Die ersten drei Ziffern sind die Vorwahl.
 

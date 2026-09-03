@@ -12,6 +12,12 @@ description: "This page provides an overview of the observability features avail
 
 To access the sync logs, go to **Data Settings** > **Cloud Data Ingestion** and select the **Sync Log** tab.
 
+<!-- support-analyzer-phase2:cdi_updated_at_row_sync -->
+{% alert note %}
+If warehouse row counts do not match **Rows Synced** or you see **Partial Success** runs, open the **Run ID** in Sync Log and review row-level **Error reason** values. CDI selects rows using `UPDATED_AT`—rows with timestamps already processed, unchanged `UPDATED_AT` after edits, or writes during an active sync may be skipped. For common cases, see [Why doesn't "Rows Synced" match the number in my warehouse?]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/faqs/#why-doesnt-rows-synced-match-the-number-in-my-warehouse) and [Cloud Data Ingestion FAQ]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/faqs/).
+{% endalert %}
+
+
 ## Understanding the Sync Log dashboard
 
 The main **Sync Log** page provides a high-level overview of all your sync runs, including an overview of recent syncs by their current or final status.
@@ -27,7 +33,7 @@ The main **Sync Log** page provides a high-level overview of all your sync runs,
 Sync logs also provide the following details for each sync:
 
 * **Sync name:** The name of the sync configuration.  
-* **Run ID:** A unique identifier for a specific execution of the sync. Select this ID to view more details. This can also be used in the [CDI API endpoints]({{site.baseurl}}/api/endpoints/cdi), or to reference a sync run with Braze Support.   
+* **Run ID:** A unique identifier for a specific execution of the sync. Select this ID to view more details or to reference a sync run with Braze Support.   
 * **Status:** The status of the run (success, partial success, error, running).  
 * **New rows read from source:** The number of new rows pulled from your data warehouse for this run.  
 * **Results:** A breakdown of how many rows succeeded or failed within the run.  
@@ -78,7 +84,7 @@ Select **Export rows** to export the row-level logs for a sync run. Then, choose
 * **Rows with errors:** Downloads a file containing only the rows that had an **Error** status.
 * **All rows:** Downloads a file containing every row processed in the run.
 
-{% multi_lang_include early_access_beta_alert.md feature='Exporting sync logs for all rows' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Exporting sync logs for all rows' %}
 
 Logs can't be exported directly from the dashboard. After the export is generated, you’ll receive an email with a link to download the log export file. 
 

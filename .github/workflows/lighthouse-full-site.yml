@@ -1,0 +1,187 @@
+# Lighthouse (Full Site) — monthly performance inventory
+#
+# Audits every eligible English docs URL (~1,400+ pages) against production,
+# shards work across parallel jobs, and uploads:
+#   - lhci-summary.csv / lhci-summary.md (site-wide rollup)
+#   - per-shard JSON/HTML reports
+#
+# Thresholds match the weekly Lighthouse CI workflow but are warnings only.
+# Use this run to prioritize fixes; use weekly Lighthouse CI for regressions.
+#
+# Manual trigger: Actions → "Lighthouse (Full Site)" → Run workflow
+
+name: Lighthouse (Full Site)
+
+on:
+  schedule:
+    - cron: '0 16 1 * *' # 9am PT on the 1st of each month
+  workflow_dispatch:
+    inputs:
+      limit_urls:
+        description: 'Optional: cap total URLs (for testing). Leave blank for full site.'
+        required: false
+        default: ''
+
+permissions:
+  contents: read
+
+concurrency:
+  group: lighthouse-full-site
+  cancel-in-progress: true
+
+jobs:
+  prepare:
+    name: Prepare URL shards
+    runs-on: ubuntu-latest
+    outputs:
+      shard_matrix: ${{ steps.split.outputs.shard_matrix }}
+      url_count: ${{ steps.split.outputs.url_count }}
+      shard_count: ${{ steps.split.outputs.shard_count }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          cache: npm
+
+      - name: Install npm dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Generate full-site URL list
+        env:
+          LIMIT_URLS: ${{ github.event.inputs.limit_urls }}
+        run: |
+          CMD=(node scripts/generate-lhci-urls.js --all --skip-preflight --output lhci-urls.txt)
+          if [ -n "$LIMIT_URLS" ]; then
+            CMD+=(--limit "$LIMIT_URLS")
+          fi
+          "${CMD[@]}"
+          echo "--- URL count ---"
+          wc -l lhci-urls.txt
+
+      - name: Split into shards
+        id: split
+        run: |
+          node scripts/split-lhci-url-shards.js \
+            --input lhci-urls.txt \
+            --output-dir lhci-shards \
+            --target-per-shard 75
+          SHARD_MATRIX=$(node -e "console.log(JSON.stringify(require('./lhci-shards/manifest.json').shardMatrix))")
+          URL_COUNT=$(node -e "console.log(require('./lhci-shards/manifest.json').urlCount)")
+          SHARD_COUNT=$(node -e "console.log(require('./lhci-shards/manifest.json').shardCount)")
+          echo "shard_matrix=$SHARD_MATRIX" >> "$GITHUB_OUTPUT"
+          echo "url_count=$URL_COUNT" >> "$GITHUB_OUTPUT"
+          echo "shard_count=$SHARD_COUNT" >> "$GITHUB_OUTPUT"
+
+      - name: Upload URL shards
+        uses: actions/upload-artifact@v7
+        with:
+          name: lhci-url-shards
+          path: lhci-shards/
+          retention-days: 14
+
+  lighthouse:
+    name: Lighthouse shard ${{ matrix.shard }}
+    needs: prepare
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: ${{ fromJson(needs.prepare.outputs.shard_matrix) }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          cache: npm
+
+      - name: Install npm dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Download URL shard
+        uses: actions/download-artifact@v7
+        with:
+          name: lhci-url-shards
+          path: lhci-shards
+
+      - name: Run Lighthouse CI (shard)
+        run: |
+          SHARD_FILE=$(printf 'lhci-shards/shard-%02d.txt' "${{ matrix.shard }}")
+          cp "$SHARD_FILE" lhci-urls.txt
+          echo "--- Shard ${{ matrix.shard }} URLs ---"
+          wc -l lhci-urls.txt
+          node scripts/run-lhci-shard.js \
+            --input lhci-urls.txt \
+            --config lighthouserc.audit.js \
+            --failures-log "lhci-reports/collect-failures-shard-${{ matrix.shard }}.txt"
+        env:
+          LHCI_BUILD_CONTEXT__CURRENT_BRANCH: ${{ github.ref_name }}
+
+      - name: Upload shard reports
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: lhci-reports-full-site-shard-${{ matrix.shard }}
+          path: lhci-reports/
+          retention-days: 30
+          if-no-files-found: warn
+
+  summarize:
+    name: Summarize full-site results
+    needs: [prepare, lighthouse]
+    runs-on: ubuntu-latest
+    if: always() && needs.prepare.result == 'success'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          cache: npm
+
+      - name: Download all shard reports
+        uses: actions/download-artifact@v7
+        with:
+          pattern: lhci-reports-full-site-shard-*
+          path: lhci-reports
+          merge-multiple: true
+
+      - name: Build summary artifacts
+        run: |
+          node scripts/summarize-lhci-reports.js \
+            --input lhci-reports \
+            --output lhci-summary.csv \
+            --markdown lhci-summary.md \
+            --backlog-csv lhci-fix-backlog.csv \
+            --backlog-markdown lhci-fix-backlog.md
+
+      - name: Upload summary artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: lhci-full-site-summary-${{ github.run_number }}
+          path: |
+            lhci-summary.csv
+            lhci-summary.md
+            lhci-fix-backlog.csv
+            lhci-fix-backlog.md
+          retention-days: 90
+
+      - name: Print summary
+        if: always()
+        run: |
+          if [ -f lhci-summary.md ]; then
+            cat lhci-summary.md >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "No summary generated — shard reports may be missing." >> "$GITHUB_STEP_SUMMARY"
+          fi
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "Audited **${{ needs.prepare.outputs.url_count }}** URLs across **${{ needs.prepare.outputs.shard_count }}** shard(s)." >> "$GITHUB_STEP_SUMMARY"
+          echo "Download \`lhci-full-site-summary-${{ github.run_number }}\` for CSV, Markdown rollups, and the prioritized fix backlog." >> "$GITHUB_STEP_SUMMARY"

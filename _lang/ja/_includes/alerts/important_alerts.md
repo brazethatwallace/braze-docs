@@ -1,11 +1,3 @@
-{% if include.alert == "Shopify deprecation" %}
-
-{% alert important %}
-[Shopify連携の新バージョン]({{site.baseurl}}/partners/shopify/#new-shopify-integration)は、2025年4月から段階的にリリースされます。フェーズは、Shopifyストアのタイプと、初期連携のセットアップに使用されるexternal IDに基づきます。<br><br>**旧バージョンの連携は、2025年8月28日以降利用できなくなります。問題なく連携を引き続き使用するには、この日付までに新バージョンに更新してください。**
-{% endalert %}
-
-{% endif %}
-
 {% if include.alert == 'Web push private browsing' %}
 
 {% alert important %}
@@ -45,7 +37,7 @@
 {% if include.alert == 'SDK auth' %}
 
 {% alert important %}
-さらにセキュリティを高めるために、ユーザーのなりすましを防ぐ[SDK認証]({{site.baseurl}}/developer_guide/authentication/)機能を追加することをお勧めします。
+さらにセキュリティを高めるために、ユーザーのなりすましを防ぐ[SDK認証]({{site.baseurl}}/developer_guide/authentication)機能を追加することをお勧めします。
 {% endalert %}
 
 {% endif %}
@@ -61,7 +53,7 @@ NaverのAndroidアプリやiOSアプリなど、Brazeのユーザー設定セン
 {% if include.alert == 'Purchase event deprecation' %}
 
 {% alert important %}
-レガシーの購入イベントはメンテナンスモードに移行します。既存のBrazeのお客様は、レガシーの購入イベントを引き続き使用できます。購入イベントは引き続き期待どおりに動作しますが、今後はeコマース推奨イベントを基盤として新しい機能が構築されます。Brazeは、サポート終了日が設定されるかなり前に事前通知を行います。新規のBrazeのお客様は、[eコマース推奨イベント]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events/)を使用してください。レガシーの購入イベントは利用できません。
+レガシーの購入イベントはメンテナンスモードに移行します。既存のBrazeのお客様は、レガシーの購入イベントを引き続き使用できます。購入イベントは引き続き期待どおりに動作しますが、今後はeコマース推奨イベントを基盤として新しい機能が構築されます。Brazeは、サポート終了日が設定されるかなり前に事前通知を行います。新規のBrazeのお客様は、[eコマース推奨イベント]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events)を使用してください。レガシーの購入イベントは利用できません。
 {% endalert %}
 
 {% endif %}
@@ -69,7 +61,7 @@ NaverのAndroidアプリやiOSアプリなど、Brazeのユーザー設定セン
 {% if include.alert == 'Purchase event deprecation for eCommerce filters' %}
 
 {% alert important %}
-レガシーの購入イベントは非推奨状態（メンテナンスモード）に移行します。購入イベントは引き続き期待どおりに動作しますが、[eコマース推奨イベント]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events/)が優先されるため、購入イベントの上にまったく新しい機能が構築されることはありません。この移行が行われると、セグメントフィルターは購入動作の下にデータが入力されなくなります。<br><br>現在購入イベントを使用している場合は、段階的廃止計画に関する事前通知を受け取ります。現時点では、正式な非推奨日まで購入イベントを引き続き使用できます。詳細については、[推奨イベントの概要]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/)を参照してください。
+レガシーの購入イベントは非推奨状態（メンテナンスモード）に移行します。購入イベントは引き続き期待どおりに動作しますが、[eコマース推奨イベント]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events)が優先されるため、購入イベントの上にまったく新しい機能が構築されることはありません。この移行が行われると、セグメントフィルターは購入動作の下にデータが入力されなくなります。<br><br>現在購入イベントを使用している場合は、段階的廃止計画に関する事前通知を受け取ります。現時点では、正式な非推奨日まで購入イベントを引き続き使用できます。詳細については、[推奨イベントの概要]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events)を参照してください。
 {% endalert %}
 
 {% endif %}
@@ -85,7 +77,7 @@ S3バケットに保存されたエクスポートファイルは、ダウンロ
 {% if include.alert == 'Shopify customer create' %}
 
 {% alert important %}
-Shopify連携は、Shopifyの顧客作成と顧客更新のWebhookをサポートしています。これらはデータ設定の構成設定にあります。Shopifyでユーザープロファイルが作成または更新されると、対応するBrazeのユーザープロファイルも作成または更新されます。<br><br>これらのアクションはBrazeでカスタムイベントをトリガーせず、[ShopifyのユーザーデータをBrazeと同期]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview/#how-the-integration-works)させるためだけに使用されます。同期されるデータには、[カスタム属性]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#supported-shopify-custom-attributes)、[標準属性項目]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#supported-shopify-standard-attributes)、および設定内で有効にされている場合は[サブスクリプショングループの状態]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview/#syncing-shopify-email-and-sms-marketing-opt-ins)が含まれます。
+Shopify連携は、Shopifyの顧客作成と顧客更新のWebhookをサポートしています。これらはデータ設定の構成設定にあります。Shopifyでユーザープロファイルが作成または更新されると、対応するBrazeのユーザープロファイルも作成または更新されます。<br><br>これらのアクションはBrazeでカスタムイベントをトリガーせず、[ShopifyのユーザーデータをBrazeと同期]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview#how-the-integration-works)させるためだけに使用されます。同期されるデータには、[カスタム属性]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features#supported-shopify-custom-attributes)、[標準属性項目]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features#supported-shopify-standard-attributes)、および設定内で有効にされている場合は[購読グループの状態]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview#syncing-shopify-email-and-sms-marketing-opt-ins)が含まれます。
 {% endalert %}
 
 {% endif %}
@@ -93,7 +85,7 @@ Shopify連携は、Shopifyの顧客作成と顧客更新のWebhookをサポー�
 {% if include.alert == 'context variable' %}
 
 {% alert important %}
-キャンバスのエントリプロパティは、キャンバスコンテキスト変数の一部です。つまり、`canvas_entry_properties`は`context`として参照されます。各`context`変数には、名前、データタイプ、およびLiquidを含めることができる値が含まれます。現在、`canvas_entry_properties`は下位互換性があります。詳細については、[コンテキスト]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/#how-it-works)と[キャンバスコンテキストオブジェクト]({{site.baseurl}}/api/objects_filters/context_object/)を参照してください。
+キャンバスのエントリプロパティは、キャンバスコンテキスト変数の一部です。つまり、`canvas_entry_properties`は`context`として参照されます。各`context`変数には、名前、データタイプ、およびLiquidを含めることができる値が含まれます。現在、`canvas_entry_properties`は下位互換性があります。詳細については、[コンテキスト]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#how-it-works)と[キャンバスコンテキストオブジェクト]({{site.baseurl}}/api/objects_filters/context_object)を参照してください。
 {% endalert %}
 
 {% endif %}
@@ -101,7 +93,7 @@ Shopify連携は、Shopifyの顧客作成と顧客更新のWebhookをサポー�
 {% if include.alert == 'Braze Agents' %}
 
 {% alert important %}
-このパートナーは、[Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/)が有効になっている場合のみ、**テクノロジーパートナー**ページに表示されます。利用開始に関するサポートが必要な場合は、カスタマーサクセスマネージャーにお問い合わせください。
+このパートナーは、[Brazeエージェント]({{site.baseurl}}/user_guide/brazeai/agents)が有効になっている場合にのみ、**テクノロジーパートナー**ページに表示されます。利用開始に関するサポートが必要な場合は、カスタマーサクセスマネージャーにお問い合わせください。
 {% endalert %}
 
 {% endif %}
@@ -109,14 +101,12 @@ Shopify連携は、Shopifyの顧客作成と顧客更新のWebhookをサポー�
 {% if include.alert == 'time filter types' %}
 
 {% alert important %}
-**「Day of year」と「Time」のフィルタータイプの選択について**：日付を含むコンテキスト変数をフィルタリングする際は、その日付が毎年繰り返されるかどうかに基づいて、適切な比較タイプを選択してください。
+**「Day of year」と「Time」のフィルタータイプの選択について**：日付を含むコンテキスト変数をフィルタリングする際は、その日付が毎年繰り返されるかどうかに基づいて、適切な比較タイプを選択してください。コンテキスト変数が生成する値に年が含まれていない場合にのみ、「Day of year」を使用してください。
 
 - **毎年繰り返される日付（誕生日、記念日、クリスマスなどの祝日など）には「Day of year」を使用してください。**この比較タイプは、年の要素を無視し、その年の日数（1〜365/366）に基づいて計算します。
-- **繰り返されない絶対日付（契約終了日、予約日、サブスクリプションの更新日など）には「Time」を使用してください。**この比較タイプは、年を含む完全なタイムスタンプに基づいて計算します。
+- **繰り返されない絶対日付（契約終了日、予約日、購読の更新日など）には「Time」を使用してください。**この比較タイプは、年を含む完全なタイムスタンプに基づいて計算します。
 
 絶対日付に「Day of year」を使用すると、計算が年の要素を無視するため、誤った結果や予期しない結果が生じることがあります。例えば、4月の将来の契約終了日が63日以内かどうかを判断する場合、「Day of year」を使用すると、日付番号（119対359）のみを比較し、実際には4月まで188日あることを考慮しないため、誤った一致が生じる可能性があります。
-
-**一般的な指針**：その日付は毎年繰り返されますか？**はい** → 「Day of year」を使用してください。**いいえ** → 「Time」を使用してください。
 {% endalert %}
 
 {% endif %}
@@ -124,7 +114,7 @@ Shopify連携は、Shopifyの顧客作成と顧客更新のWebhookをサポー�
 {% if include.alert == 'granular permissions ea' %}
 
 {% alert important %}
-詳細な権限設定は早期アクセス中です。会社の移行が計画された場合、Brazeの管理者はメールとダッシュボード上のバナーで[詳細な権限の移行]({{site.baseurl}}/granular_permissions_migration/)に関する通知を受け取ります。
+詳細な権限設定は早期アクセス中です。会社の移行が計画された場合、Brazeの管理者はメールとダッシュボード上のバナーで[詳細な権限の移行]({{site.baseurl}}/granular_permissions_migration)に関する通知を受け取ります。
 {% endalert %}
 
 {% endif %}
@@ -132,7 +122,7 @@ Shopify連携は、Shopifyの顧客作成と顧客更新のWebhookをサポー�
 {% if include.alert == 'WhatsApp audio and documents' %}
 
 {% alert note %}
-[Brazeメディアライブラリ]({{site.baseurl}}/media_library/)は画像と動画のみをサポートしています。オーディオファイルと文書は、ホストされたURLを通じて参照する必要があります。
+[Brazeメディアライブラリ]({{site.baseurl}}/media_library)は画像と動画のみをサポートしています。オーディオファイルと文書は、ホストされたURLを通じて参照する必要があります。
 {% endalert %}
 
 {% endif %}
@@ -166,7 +156,7 @@ Content Cards、アプリ内メッセージ、バナー、およびフィーチ�
 {% if include.alert == 'dynamic image URL' %}
 
 {% alert important %}
-[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)や[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)で画像を取得する場合は、画像URLが`https://`で始まることを確認してください。`http://`を使用すると、アプリがクラッシュします。
+[Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)や[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)で画像を取得する場合は、画像URLが`https://`で始まることを確認してください。`http://`を使用すると、アプリがクラッシュします。
 {% endalert %}
 
 {% endif %}

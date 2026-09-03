@@ -20,20 +20,20 @@ description: "Cet article présente en détail l'endpoint Braze Exporter les inf
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `segments.details`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `segments.details`.
 
 ## Limite de débit {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Paramètres de demande {#request-parameters}
+## Paramètres de requête {#request-parameters}
 
-| Paramètre    | Requis | Type de données | Description            |
+| Paramètre    | Obligatoire | Type de données | Description            |
 | ------------ | -------- | --------- | ---------------------- |
-| `segment_id` | Requis | Chaîne de caractères | Voir [Identifiant API de segment]({{site.baseurl}}/api/identifier_types/).<br><br> Le `segment_id` d'un segment donné se trouve sur la page [Clés API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) de votre compte Braze, ou vous pouvez utiliser l'[endpoint Exporter la liste des segments]({{site.baseurl}}/api/endpoints/export/segments/get_segment/).  |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de demande" }
+| `segment_id` | Obligatoire | Chaîne de caractères | Voir [Identifiant API de segment]({{site.baseurl}}/api/identifier_types).<br><br> Le `segment_id` d'un segment donné se trouve sur la page [Clés API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) de votre compte Braze, ou vous pouvez utiliser l'[endpoint Exporter la liste des segments]({{site.baseurl}}/api/endpoints/export/segments/get_segment).  |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
-## Exemple de demande {#example-request}
+## Exemple de requête {#example-request}
 {% raw %}
 ```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/segments/details?segment_id={{segment_identifier}}' \
@@ -45,7 +45,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/segments/details
 
 ```json
 {
-      "message": (required, string) the status of the export, returns 'success' when completed without errors,
+      "message": (string) returns 'success' when the request completes without errors,
       "created_at" : (string) the date created as ISO 8601 date,
       "updated_at" : (string) the date last updated as ISO 8601 date,
       "name" : (string) the segment name,
@@ -57,7 +57,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/segments/details
 ```
 
 {% alert tip %}
-Pour obtenir de l'aide sur les exportations CSV et API, consultez la section [Résolution des problèmes d'exportation]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+Pour obtenir de l'aide sur les exportations CSV et API, consultez la section [Résolution des problèmes d'exportation]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endapi %}

@@ -1,33 +1,33 @@
 ---
-nav_title: Shopify Segmentsの同期
-article_title: Shopify Segmentsの同期
+nav_title: Shopify セグメントの同期
+article_title: Shopify セグメントの同期
 alias: /shopify_segments_sync/
 page_order: 8
-description: "このリファレンス記事では、統一されたオーディエンス管理とターゲティングのために、Shopify SegmentsをBrazeにコホートとして同期する方法について説明します。"
+description: "このリファレンス記事では、統一されたオーディエンス管理とターゲティングのために、Shopifyセグメントをコホートとして Braze に同期する方法について説明します。"
 ---
 
-# Shopify Segmentsの同期 {#shopify-segments-sync}
+# Shopify セグメントの同期 {#shopify-segments-sync}
 
-> Shopify Segmentsの同期は、Shopifyストアの機能をBrazeに拡張し、マーケティングチームがShopifyに存在するより豊富なユーザーデータ（標準のBraze Shopify連携ではキャプチャされないシグナルを含む）に直接アクセスできるようにします。Shopify Segmentsをコホートとして同期することで、両プラットフォーム間でオーディエンス定義を統一し、ユーザーがShopifyでターゲティングされる場合でもBraze Campaignを通じてエンゲージされる場合でも、一貫性のある連携されたユーザー体験を提供できます。
+> Shopifyセグメントの同期は、Shopifyストアの機能をBrazeに拡張し、マーケティングチームがShopifyに存在するより豊富なユーザーデータ（標準のBraze Shopify連携ではキャプチャされないシグナルを含む）に直接アクセスできるようにします。Shopifyセグメントをコホートとして同期することで、両プラットフォーム間でオーディエンス定義を統一し、Shopifyでターゲティングする場合でもBrazeキャンペーンを通じてリーチする場合でも、一貫性のある連携されたユーザー体験を提供できます。
 
 {% alert important %}
-Shopify Segmentsの同期は現在ベータ版です。アクセスをリクエストするには、カスタマーサクセスマネージャーにお問い合わせください。
+Shopifyセグメントの同期は現在ベータ版です。アクセスをリクエストするには、カスタマーサクセスマネージャーにお問い合わせください。
 {% endalert %}
 
 ## 前提条件 {#prerequisites}
 
 | 要件 | 説明 |
 | --- | --- |
-| Braze Shopify連携 | Braze ShopifyアプリがShopifyストアにインストールされ、Brazeワークスペースに接続されている必要があります。セットアップ手順については、[Shopify標準連携セットアップ]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/)または[Shopifyカスタム連携セットアップ]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration/)を参照してください。 |
-| Shopifyユーザー権限 | セグメントの同期を開始するShopifyユーザーには、顧客データをエクスポートするための**エクスポート**権限が必要です。Shopifyの権限の詳細については、[Shopifyのストア権限ドキュメント](https://help.shopify.com/en/manual/your-account/users/roles/permissions/store-permissions#customers-permissions)を参照してください。 |
+| Braze Shopify連携 | Braze Shopifyアプリが Shopify ストアにインストールされ、Brazeワークスペースに接続されている必要があります。設定手順については、[Shopify標準連携セットアップ]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration)または[Shopifyカスタム連携セットアップ]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration)を参照してください。 |
+| Shopify ユーザー権限 | セグメント同期を開始する Shopify ユーザーには、ユーザーデータをエクスポートするための**エクスポート**権限が必要です。Shopify の権限について詳しくは、[Shopify のストア権限に関するドキュメント](https://help.shopify.com/en/manual/your-account/users/roles/permissions/store-permissions#customers-permissions)を参照してください。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 仕組み {#how-it-works}
 
-Shopify Segmentsの同期は2つのフェーズで動作します。
+Shopifyセグメント同期は2つのフェーズで動作します。
 
-1. セグメントを初めて同期する際、Brazeは現在のすべてのメンバーをバックフィルし、Brazeに対応するコホートを作成します。バックフィルは非同期で実行され、完了までに少し時間がかかる場合があります。
-2. 初回同期中に、Brazeは現在のメンバーをバックフィルし、Shopify webhookをサブスクライブして、メンバーシップがほぼリアルタイムで同期された状態を維持します。
+1. **初期バックフィル:** セグメントを初めて同期すると、Brazeは現在のすべてのメンバーをバックフィルし、Brazeに対応するコホートを作成します。バックフィルは非同期で実行されるため、完了するまでに少し時間がかかる場合があります。
+2. **継続的な同期:** 初期バックフィルの後、BrazeはShopify webhookもサブスクライブするため、メンバーシップはほぼリアルタイムで同期された状態を維持します。
 
 | Webhookトピック | Brazeでの効果 |
 | --- | --- |
@@ -35,46 +35,125 @@ Shopify Segmentsの同期は2つのフェーズで動作します。
 | `customer.left_segment` | ユーザーが対応するBrazeコホートから削除されます。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Webhookトピック" }
 
-同期が失敗した場合、アクション拡張モーダルに推奨アクション付きのエラーバナーが表示されます。**Sync with Braze**を選択してリトライしてください。
+同期が失敗した場合、アクション拡張モーダルに何が起きたか、どのように対処すべきかを説明するエラーバナーが表示されます。一部のエラーでは**同期を再試行**アクションが提供されます。その他のエラーでは、管理者または設定の変更が必要です。
 
 ## データインポート連携 {#data-import-integration}
 
-### ステップ 1: 同期するShopify セグメントを選択する {#step-1-select-a-shopify-segment-to-sync}
+### ステップ1：同期するShopifyセグメントを選択する {#step-1-select-a-shopify-segment-to-sync}
 
-Shopifyで、**Customers** > **Segments**に移動し、Brazeに同期したいセグメントを選択します。注文履歴、製品購入、顧客タグ、生涯支出額、メタフィールドに基づくSegmentsなど、Shopifyのネイティブセグメンテーションを使用して構築された任意のセグメントを同期できます。
+Shopifyで、**Customers** > **セグメント** に移動し、Brazeに同期するセグメントを選択します。注文履歴、商品購入、顧客タグ、生涯支出額、メタフィールドに基づくセグメントなど、Shopifyのネイティブセグメンテーションで構築された任意のセグメントを同期できます。
 
-![Shopify Segmentsのリストが表示されたSegmentsパネル。]({% image_buster /assets/img/shopify/shopify_segments.png %})
+![Shopifyセグメントのリストが表示されたセグメントパネル。]({% image_buster /assets/img/shopify/shopify_segments.png %})
 
-### ステップ 2: 同期を開始する {#step-2-initiate-the-sync}
+### ステップ2：同期を開始する {#step-2-initiate-the-sync}
 
-1. Shopifyのセグメント詳細ページで、**Use segment**ドロップダウンを開き、**Braze Segment Sync**を選択します。
+1. Shopifyのセグメント詳細ページで、**Use segment** ドロップダウンを開き、**Braze セグメント Sync** を選択します。
 
-![「Braze Segment Sync」オプションを含む「Use segment」ドロップダウンが表示されたセグメント詳細ページ。]({% image_buster /assets/img/shopify/braze_segment_sync.png %})
+![「Use segment」ドロップダウンに「Braze セグメント Sync」オプションが表示されたセグメント詳細ページ。]({% image_buster /assets/img/shopify/braze_segment_sync.png %})
 
 {: start="2"}
-2. 表示されるBrazeアクション拡張モーダルに、セグメント名とオーディエンスサイズが表示されます。**Sync with Braze**を選択してインポートを開始します。
+2. Brazeアクション拡張モーダルが開き、セグメント名とオーディエンスサイズが表示されます。**Sync with Braze** を選択してインポートを開始します。
 
 ![Brazeと同期するボタンが表示されたモーダル。]({% image_buster /assets/img/shopify/sync_with_braze.png %}){:style="max-width:70%;"}
 
 {: start="3"}
-3. **Done**を選択します。
+3. モーダルが同期中の状態に切り替わり、Brazeがメンバーをインポートしている間、進行状況のバナーが表示されます。
+
+![同期が進行中であることを示すモーダル。]({% image_buster /assets/img/shopify/sync_in_progress.png %}){:style="max-width:70%;"}
+
+{: start="4"}
+4. **Close** を選択します。同期はバックグラウンドで続行されます。モーダルを閉じても同期は停止しません。
+
+同期が完了したかどうかを確認するには、モーダルを閉じてから再度開きます。同期が完了すると、モーダルに成功バナーが表示されます。
 
 ![同期がアクティブであることを確認するモーダル。]({% image_buster /assets/img/shopify/braze_sync_active.png %}){:style="max-width:70%;"}
 
-### ステップ 3: コホートメンバーシップフィルターでBraze Segmentを作成する {#step-3-create-a-braze-segment-with-the-cohort-membership-filter}
+### ステップ3：コホートメンバーシップフィルターでBrazeセグメントを作成する {#step-3-create-a-braze-segment-with-the-cohort-membership-filter}
 
-Brazeで、**Audience** > **Segments**に移動し、新しいSegmentを作成します。**Add Filter**で**Cohort Membership**フィルターを選択し、ドロップダウンから同期済みのShopify Segmentを選択します。保存後、CampaignまたはCanvasでユーザーをターゲティングする際にこのBraze Segmentを参照できます。
+Brazeで、**オーディエンス** > **セグメント** に移動し、新しいセグメントを作成します。**フィルターを追加** で、**コホートメンバーシップ** フィルターを選択し、ドロップダウンから同期済みのShopifyセグメントを選択します。保存後、キャンペーンやキャンバスでユーザーをターゲティングする際にこのBrazeセグメントを参照できます。
 
-![「Shopify Cohorts」フィルターが表示されたセグメントビルダー。]({% image_buster /assets/img/shopify/segment_builder_cohort_import.png %})
+![「Shopify Cohorts」フィルターが設定されたセグメントビルダー。]({% image_buster /assets/img/shopify/segment_builder_cohort_import.png %})
+
+## セグメントの再同期 {#re-syncing-a-segment}
+
+セグメントが同期された後、同じアクション拡張機能からいつでもコホートメンバーシップを更新できます。
+
+1. Shopifyで、同期されたセグメントを開き、**Use segment** > **Braze セグメント Sync** を選択します。
+2. モーダルで、**Sync now** を選択します。
+3. 確認ダイアログで、**Sync now** を選択して再同期を開始します。
+
+再同期は追加的に行われます。現在のShopifyセグメントに一致するユーザーはコホートに追加されますが、一致しなくなったユーザーはコホートに残ります。
+
+## Brazeでの同期セグメント管理 {#managing-synced-segments-in-braze}
+
+同期されたすべてのセグメントはBrazeダッシュボードから管理できます。**パートナー連携** > **テクノロジーパートナー**に移動し、Shopify連携を選択して、**ユーザー管理**タブを開きます。
+
+### 同期ステータス {#sync-status}
+
+同期されたすべてのセグメントには同期ステータスがあります。
+
+| ステータス | 説明 |
+| --- | --- |
+| **同期中** | Brazeがセグメントのメンバーをインポートしています。 |
+| **キュー待ち** | セグメントは空きの同期スロットを待機しています。 |
+| **アクティブ** | セグメントは同期されており、メンバーシップがほぼリアルタイムで更新されます。 |
+| **一時停止** | このセグメントのメンバーシップ更新は一時停止されています。 |
+| **エラー** | 前回の同期試行が失敗しました。**同期を再試行**を選択して再度お試しください。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="同期ステータス" }
+
+### セグメントの一括同期 {#syncing-segments-in-bulk}
+
+追加のセグメントを同期するには、連携を編集し、**ユーザー管理**ステップに移動して、**セグメント同期**セクションの**セグメントを編集**を選択します。選択モーダルで以下を行います：
+
+- 任意の数のセグメントを選択できます。一度に25件のセグメントが同期され、残りは自動的にキューに入ります。
+- すでに同期中のセグメントはロックされています。セグメントを削除するには、Shopifyで削除してください。
+
+変更を保存すると同期が開始されます。
+
+### 単一セグメントの一時停止 {#pausing-a-single-segment}
+
+1つのセグメントの同期を一時停止するには、セグメントテーブルのその行で**同期を一時停止**を選択し、確認します。セグメントの同期が一時停止されると：
+
+- コホートとそのメンバーはBrazeに残り、ターゲティング可能な状態が維持されます。コホートを使用するキャンペーンやキャンバスは、コホートの現在のメンバーへの送信を続けます。
+- メンバーシップの更新が停止します。
+- Shopifyでセグメント名を変更しても、コホートの表示名は更新されます。
+- Shopifyでセグメントを削除すると、トラッキングは終了します。
+- Shopifyアクション拡張機能からの**今すぐ同期**リクエストは拒否されます。
+
+再開するには、その行で**同期を再開**を選択します。Brazeはメンバーシップの更新を再開し、キャッチアップ同期を実行します。同期が一時停止されている間にShopifyセグメントを離脱したユーザーは、Brazeコホートに残ります。
+
+### すべてのセグメント同期の一時停止 {#pausing-all-segment-syncing}
+
+すべてのセグメントの同期を一括で一時停止するには、連携を編集し、**ユーザー管理**ステップの**セグメント同期**セクションで**同期を一時停止**を選択して、設定を保存します。すべてのセグメント同期が一時停止されている間：
+
+- セグメントテーブルにはセグメント名のみが表示され、見出しの横に**一時停止**ステータスが表示されます。
+- 行レベルのアクションは再開するまで利用できません。
+- BrazeはShopifyでのリネームに対してコホート名を更新しません。コホート名は再開時にリフレッシュされます。
+- アクション拡張機能からの**今すぐ同期**リクエストは拒否されます。拡張機能は各セグメントの最終確認ステータスを引き続き表示し、**今すぐ同期**を選択しても同期は開始されません。
+
+再開するには、同じセクションで**同期を再開**を選択して保存します。Brazeは、以前に選択されたすべてのセグメントをキャッチアップ同期で自動的に再同期します。再選択する必要はありません。個別に一時停止したセグメントは、セグメントテーブルの行から再開するまで一時停止のままです。
+
+## Shopifyにおけるセグメントの更新 {#segment-updates-in-shopify}
+
+### セグメントの名前変更 {#renaming-a-segment}
+
+Shopifyセグメントの名前を変更すると、Brazeは対応するコホートの表示名を自動的に更新します。再同期は不要です。Brazeは、セグメントの同期が個別に一時停止されている間もコホート名を更新します。すべてのセグメント同期が一時停止されている場合、Brazeは再開時にコホート名を更新します。
+
+### セグメント条件の変更 {#changing-segment-criteria}
+
+Shopifyセグメントの条件を変更しても、Brazeはコホートのメンバーシップを自動的に更新しません。新たに条件に一致するユーザーを反映するには、アクション拡張機能からセグメントを再同期してください。条件に一致しなくなったユーザーは、再同期ではメンバーが削除されないため、コホートに残ります。詳細については、[セグメントの再同期](#re-syncing-a-segment)を参照してください。
 
 ## ユーザーマッチング {#user-matching}
 
-Shopify Segmentsから同期されたユーザーは、Braze Shopify連携の一部として設定される`shopify_customer_id`エイリアスを使用してBrazeユーザープロファイルとマッチングされます。一致するBrazeユーザープロファイルがないユーザーは、同期中にスキップされます。
+Shopifyセグメントから同期されたユーザーは、Braze Shopify連携の一部として設定される `shopify_customer_id` エイリアスを使用してBrazeユーザープロファイルと照合されます。一致するBrazeユーザープロファイルが存在しないユーザーは、同期中にスキップされます。
 
-Shopify連携がユーザーを識別しエイリアスを設定する方法の詳細については、[Shopifyデータ機能]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/)を参照してください。
+Shopify連携がユーザーを識別しエイリアスを設定する方法の詳細については、[Shopifyデータ機能]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features)を参照してください。
+
+Brazeは、同期されたユーザーを既存のBrazeユーザープロファイルと照合します。これは、Shopifyの履歴バックフィル、お客様のデータプラットフォーム（Snowflakeやその他のデータウェアハウスなど）、または直接のAPIインポートなど、プロファイルの作成方法に関係なく行われます。コホートがShopifyセグメントよりも小さい場合、一部のセグメントメンバーにはまだ一致するBrazeプロファイルが存在しないことを意味します。マッチカバレッジを向上させるには、同期前にお好みの方法でBrazeユーザープロファイルを作成しておいてください。
 
 ## 制限事項 {#limitations}
 
-- **一方向同期。** セグメントメンバーシップは、ShopifyからBrazeへの一方向のみです。Brazeで直接行われたコホートメンバーシップの変更は、Shopifyにプッシュバックされません。
-- **プロファイル作成なし。** すでにBrazeユーザープロファイルを持つShopify顧客のみがコホートに追加されます。
-- **同期の取り消し不可。** Shopify セグメントが同期されると、取り消すことはできません。
+- **一方向同期。** セグメントのメンバーシップはShopifyからBrazeにのみ流れます。Brazeで直接コホートメンバーシップを変更しても、Shopifyには反映されません。
+- **プロファイルの作成なし。** Brazeのユーザープロファイルが既に存在するShopify顧客のみがコホートに追加されます。
+- **Brazeから同期を停止する方法なし。** セグメントの同期を停止するには、Shopifyでセグメントを削除してください。コホートとそのメンバーはBrazeに残りますが、更新は停止します。
+- **再同期ではメンバーの追加のみ。** セグメントを再同期すると、新たに一致するユーザーがコホートに追加されますが、Shopifyセグメントに含まれなくなったユーザーは削除されません。

@@ -32,7 +32,7 @@ Cuando los usuarios añaden artículos a su carrito a través de mensajes de cat
 | Cuenta de WhatsApp Business | Para usar los mensajes de producto de WhatsApp, debes tener una cuenta de WhatsApp Business conectada con Braze. |
 | Catálogo de Meta | Necesitas configurar un catálogo de Meta en tu Commerce Manager. |
 | Cumplimiento de términos | Cumplir con los [Términos y políticas de comercio de Meta](https://www.facebook.com/policies_center/commerce). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos" }
 
 ## Tipos de mensajes de producto {#product-message-types}
 
@@ -90,7 +90,7 @@ Asegúrate de usar el ID de Braze Business Manager, `332231937299182`, como ID d
 ![Página de configuración de WhatsApp Manager para el catálogo "Catalog_products".]({% image_buster /assets/img/whatsapp/meta_catalog_settings.png %}){: style="max-width:90%;"}
 
 {: start="4"}
-4. En Braze, completa el proceso de [registro integrado]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup/) para proporcionar permisos. Asegúrate de seleccionar **todos** los catálogos para los que deseas proporcionar permisos. Esto desbloqueará el selector de productos integrado de Braze.
+4. En Braze, completa el proceso de [registro integrado]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup) para proporcionar permisos. Asegúrate de seleccionar **todos** los catálogos para los que deseas proporcionar permisos. Esto desbloqueará el selector de productos integrado de Braze.
 
 ![Ventana con cinco catálogos seleccionados para proporcionar permisos.]({% image_buster /assets/img/whatsapp/select_catalogs.png %}){: style="max-width:50%;"}
 
@@ -159,7 +159,7 @@ Si eliminas productos referenciados de tu catálogo, los mensajes asociados no s
 
 ## Recepción de preguntas entrantes sobre productos {#receiving-inbound-product-questions}
 
-Los usuarios pueden responder a tu mensaje de producto o catálogo con preguntas sobre productos. Estas llegan como mensajes entrantes, que luego pueden clasificarse con una [ruta de acción]({{site.baseurl}}/action_paths/).
+Los usuarios pueden responder a tu mensaje de producto o catálogo con preguntas sobre productos. Estas llegan como mensajes entrantes, que luego pueden clasificarse con una [ruta de acción]({{site.baseurl}}/action_paths).
 
 Además, Braze extrae el ID del producto y el ID del catálogo de estas preguntas, por lo que si deseas automatizar respuestas o enviar preguntas a otro equipo (como soporte al cliente), puedes incluir esos detalles. Por ejemplo, podrías personalizar respuestas con las propiedades de WhatsApp `inbound_product_id` o `inbound_catalog_id`.
 
@@ -189,14 +189,14 @@ Cuando un cliente realiza un pedido en WhatsApp, Braze automáticamente:
 El evento de comercio electrónico `ecommerce.cart_update` solo aparece listado en Braze después de que se haya enviado un evento, lo cual se puede hacer generando un mensaje de producto de prueba desde Braze y enviando un evento de carrito.
 El evento de carrito incluye:
 
-- **Cart ID:** identificador único del carrito
-- **Products:** lista de artículos con IDs de productos, cantidades y precios
-- **Total Value:** suma de todos los artículos
-- **Currency:** la moneda del carrito
-- **Source:** marcado como "whats_app"
-- **Metadata:** datos adicionales como el ID del catálogo y el texto del mensaje
+- **ID del carrito:** identificador único del carrito
+- **Productos:** lista de artículos con IDs de productos, cantidades y precios
+- **Valor total:** suma de todos los artículos
+- **Moneda:** la moneda del carrito
+- **Origen:** marcado como "whats_app"
+- **Metadatos:** datos adicionales como el ID del catálogo y el texto del mensaje
 
-Puedes encontrar información adicional sobre eventos de carrito de Braze en [Tipos de eventos de comercio electrónico recomendados]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/#types-of-ecommerce-recommended-events).
+Puedes encontrar información adicional sobre eventos de carrito de Braze en [Tipos de eventos de comercio electrónico recomendados]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events).
 
 ### Configuración de una respuesta desencadenada {#setting-up-a-triggered-response}
 
@@ -235,7 +235,7 @@ Usa Liquid para crear URLs de carrito directamente en tu mensaje de respuesta. E
 
 #### Configuración {#setup}
 
-1. Crea una campaña de mensaje de respuesta de WhatsApp con el desencadenador de un evento de comercio electrónico `ecommerce.cart_update`.
+1. Crea una Campaign de mensaje de respuesta de WhatsApp con el desencadenador de un evento de comercio electrónico `ecommerce.cart_update`.
 2. Crea un mensaje posterior con la URL del carrito.
 3. Construye tu URL de carrito con Liquid. Si usas Shopify, puedes [crear un enlace permanente de carrito](https://shopify.dev/docs/apps/build/checkout/create-cart-permalinks) con el ejemplo de Liquid anterior.
 
@@ -248,10 +248,10 @@ Realiza una llamada API a tu sistema de comercio electrónico para generar una U
 
 #### Configuración
 
-1. Crea una campaña de webhook o un paso en Canvas desencadenado por el evento de comercio electrónico [`ecommerce.cart_update`]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events?tab=ecommerce.cart_updated), que enviará los datos del carrito a tu sistema de comercio electrónico.
-2. Crea una campaña de WhatsApp o un paso de mensaje en Canvas desencadenado por el mismo evento de comercio electrónico para enviar un mensaje de respuesta de WhatsApp con la URL del carrito al usuario. Sigue las instrucciones en el mensaje de respuesta posterior para usar [Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/).
+1. Crea una Campaign de webhook o un paso en Canvas desencadenado por el evento de comercio electrónico [`ecommerce.cart_update`]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events?tab=ecommerce.cart_updated), que enviará los datos del carrito a tu sistema de comercio electrónico.
+2. Crea una Campaign de WhatsApp o un paso de mensaje en Canvas desencadenado por el mismo evento de comercio electrónico para enviar un mensaje de respuesta de WhatsApp con la URL del carrito al usuario. Sigue las instrucciones en el mensaje de respuesta posterior para usar [contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content).
 
-![Diagrama que muestra el flujo de trabajo de la experiencia de pago para una llamada de Contenido conectado: Meta envía un mensaje de pedido recibido a Braze, que tiene llamadas de ida y vuelta con una plataforma de comercio electrónico, y luego envía un mensaje de WhatsApp.]({% image_buster /assets/img/whatsapp/connected_content_checkout.png %})
+![Diagrama que muestra el flujo de trabajo de la experiencia de pago para una llamada de contenido conectado: Meta envía un mensaje de pedido recibido a Braze, que tiene llamadas de ida y vuelta con una plataforma de comercio electrónico, y luego envía un mensaje de WhatsApp.]({% image_buster /assets/img/whatsapp/connected_content_checkout.png %})
 
 {% endtab %}
 {% tab Webhooks y eventos personalizados %}
@@ -260,7 +260,7 @@ Usa webhooks para enviar datos del carrito a tu sistema y luego desencadena mens
 
 #### Configuración
 
-Crea una campaña de webhook o un paso en Canvas desencadenado por el evento de comercio electrónico `ecommerce.cart_update`, que enviará los datos del carrito a tu sistema de comercio electrónico. Tu API entonces:
+Crea una Campaign de webhook o un paso en Canvas desencadenado por el evento de comercio electrónico `ecommerce.cart_update`, que enviará los datos del carrito a tu sistema de comercio electrónico. Tu API entonces:
 1. Recibirá los datos del carrito
 2. Creará un carrito en tu sistema
 3. Generará la URL de pago

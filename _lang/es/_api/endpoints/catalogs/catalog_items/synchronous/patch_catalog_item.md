@@ -6,7 +6,7 @@ page_order: 4
 
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Editar elemento del catálogo de Braze."
+description: "En este artículo se describen los detalles del endpoint Editar elemento del catálogo de Braze."
 
 ---
 {% api %}
@@ -15,13 +15,13 @@ description: "En este artículo se describen los detalles del punto de conexión
 /catalogs/{catalog_name}/items/{item_id}
 {% endapimethod %}
 
-> Usa este punto de conexión para editar un elemento existente en tu catálogo.
+> Usa este endpoint para editar un elemento existente en tu catálogo.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#e35976ae-ff77-42b7-b691-a883c980d8c0 {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
 
-Para usar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `catalogs.update_item`.
+Para usar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `catalogs.update_item`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -33,14 +33,14 @@ Para usar este punto de conexión, necesitarás una [clave de API]({{site.baseur
 |---|---|---|---|
 | `catalog_name` | Obligatorio | Cadena | Nombre del catálogo. |
 | `item_id` | Obligatorio | Cadena | El ID del elemento del catálogo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parámetros de la ruta" }
 
 ## Parámetros de la solicitud {#request-parameters}
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
 | `items` | Obligatorio | Matriz | Un array que contiene objetos de elemento. Los objetos de elemento deben contener campos que existan en el catálogo, excepto el campo `id`. Solo se permite un objeto de elemento por solicitud. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ## Ejemplo de solicitud {#example-request}
 
@@ -75,12 +75,12 @@ curl --location --request PATCH 'https://rest.iad-03.braze.com/catalogs/restaura
 
 {% alert note %}
 - El campo `Location` utiliza el tipo de datos `geo`, que espera un array con el formato `[longitude, latitude]`.
-- Los operadores `$add` y `$remove` solo son aplicables a campos de tipo array, y solo son compatibles con los puntos de conexión PATCH.
+- Los operadores `$add` y `$remove` solo son aplicables a campos de tipo array, y solo son compatibles con los endpoints PATCH.
 {% endalert %}
 
 ## Respuesta {#response}
 
-Existen tres respuestas de código de estado para este punto de conexión: `200`, `400` y `404`.
+Existen tres respuestas de código de estado para este endpoint: `200`, `400` y `404`.
 
 ### Ejemplo de respuesta correcta {#example-success-response}
 
@@ -120,7 +120,7 @@ La siguiente tabla enumera los posibles errores devueltos y sus pasos asociados 
 
 | Error | Solución de problemas |
 | --- | --- |
-| `arbitrary-error` | Se ha producido un error arbitrario. Inténtalo de nuevo o ponte en contacto con [Soporte]({{site.baseurl}}/support_contact/). |
+| `arbitrary-error` | Se ha producido un error arbitrario. Inténtalo de nuevo o ponte en contacto con [Soporte]({{site.baseurl}}/support_contact). |
 | `catalog-not-found` | Comprueba que el nombre del catálogo es válido. |
 | `filtered-set-field-too-long` | El valor del campo se está utilizando en un conjunto filtrado que supera el límite de caracteres de un elemento. |
 | `id-in-body` | Ya existe un ID de elemento en el catálogo. |
@@ -134,6 +134,6 @@ La siguiente tabla enumera los posibles errores devueltos y sus pasos asociados 
 | `request-includes-too-many-items` | Solo puedes editar un elemento del catálogo por solicitud. |
 | `too-deep-nesting-in-value-object` | Los objetos de elemento no pueden tener más de 50 niveles de anidamiento. |
 | `unable-to-coerce-value` | Los tipos de elemento no se pueden convertir. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Solución de problemas" }
 
 {% endapi %}

@@ -13,14 +13,14 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 
 # Crear un mensaje dentro de la aplicación con arrastrar y soltar {#create-an-in-app-message-with-drag-and-drop}
 
-> Con el editor de arrastrar y soltar, puedes crear mensajes dentro de la aplicación completamente personalizados en Campaigns o Canvas usando la experiencia de edición de arrastrar y soltar. Para más información sobre los bloques de construcción disponibles en el editor, consulta [Bloques de editor]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages).
+> Con el editor de arrastrar y soltar, puedes crear mensajes dentro de la aplicación completamente personalizados en Campaigns o Canvas usando la experiencia de edición de arrastrar y soltar. Para más información sobre los bloques de construcción disponibles en el editor, consulta [Bloques de editor]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages).
 
 
 {% multi_lang_include video.html id="j94omgo73o" align="right" source="wistia" %}
 
 Si quieres usar tus plantillas HTML personalizadas existentes o plantillas creadas por terceros, deben recrearse en el editor de arrastrar y soltar.
 
-¿No tienes claro si tu mensaje dentro de la aplicación debe enviarse usando una campaña o un [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas/)? Las campañas son mejores para envíos de mensajería únicos y dirigidos, mientras que los Canvas son mejores para recorridos de usuario de varios pasos. Después de seleccionar dónde construir tu mensaje, veamos los pasos para crear un mensaje dentro de la aplicación con arrastrar y soltar.
+¿No tienes claro si tu mensaje dentro de la aplicación debe enviarse usando una Campaign o un [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas)? Las Campaigns son mejores para envíos de mensajería únicos y dirigidos, mientras que los Canvas son mejores para recorridos de usuario de varios pasos. Después de seleccionar dónde construir tu mensaje, veamos los pasos para crear un mensaje dentro de la aplicación con arrastrar y soltar.
 
 ## Requisitos previos {#prerequisites}
 
@@ -33,7 +33,7 @@ Si quieres usar tus plantillas HTML personalizadas existentes o plantillas cread
 
 {% details Más información sobre los SDK mínimos %}
 
-Los mensajes creados con el editor de arrastrar y soltar solo pueden enviarse a usuarios con las versiones mínimas del SDK (consulta la tabla anterior). Si un usuario no ha actualizado su aplicación (es decir, está en una versión anterior del SDK), no recibirá el mensaje dentro de la aplicación.
+Los mensajes creados con el editor de arrastrar y soltar solo pueden enviarse a usuarios que tengan las versiones mínimas del SDK (consulta la tabla de la sección anterior). Si un usuario no ha actualizado su aplicación (es decir, tiene una versión anterior del SDK), no recibirá el mensaje dentro de la aplicación.
 
 Para aprovechar todas las características disponibles en el editor de arrastrar y soltar, actualiza tus SDK a las versiones recomendadas. Esto te permite aprovechar las siguientes características adicionales:
 
@@ -42,25 +42,25 @@ Para aprovechar todas las características disponibles en el editor de arrastrar
 
 A continuación se describen los requisitos mínimos individuales del SDK para estas características:
 
-| Enlaces de texto*                                                   | Solicitar push primer                                                         |
+| Enlaces de texto*                                                    | Solicitar push primer                                                         |
 | ------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | {::nomarkdown}{% sdk_min_versions swift:6.2.0 android:26.0.0 %}{:/} | {::nomarkdown}{% sdk_min_versions web:4.8.1 swift:6.5.0 android:26.0.0 %}{:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos del SDK" }
 
-*Si incluyes un enlace en tu mensaje dentro de la aplicación que redirige a una URL y el usuario final no está en las versiones mínimas del SDK especificadas, al seleccionar el enlace se cerrará el mensaje y el usuario no podrá volver al mensaje para enviar el formulario.
+*Si incluyes un enlace en tu mensaje dentro de la aplicación que redirige a una URL y el usuario final no tiene las versiones mínimas del SDK especificadas, al seleccionar el enlace se cerrará el mensaje y el usuario no podrá volver al mensaje para enviar el formulario.
 
 {% enddetails %}
 
 ### Requisitos previos adicionales {#additional-prerequisites}
 
-- Para el SDK web, la opción de inicialización [`allowUserSuppliedJavascript`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions) debe establecerse en `true`. La opción `enableHtmlInAppMessages` también permitirá que estos mensajes funcionen, pero está obsoleta y debe actualizarse a `allowUserSuppliedJavascript`.
-- Si estás usando Google Tag Manager, debes habilitar "Allow HTML In-App Messages" en la configuración de GTM.
+- Para el SDK Web, la opción de inicialización [`allowUserSuppliedJavascript`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions) debe establecerse en `true`. La opción `enableHtmlInAppMessages` también permite que estos mensajes funcionen, pero está obsoleta y debe actualizarse a `allowUserSuppliedJavascript`.
+- Si utilizas Google Tag Manager, debes habilitar "Allow HTML In-App Messages" en la configuración de GTM.
 
 ## Paso 1: Crear un mensaje dentro de la aplicación {#step-1-create-an-in-app-message}
 
-Crea un nuevo mensaje dentro de la aplicación o paso en Canvas, luego selecciona **Drag-And-Drop Editor** como tu experiencia de edición.
+Crea un nuevo mensaje dentro de la aplicación o paso en Canvas, luego selecciona **Editor de arrastrar y soltar** como tu experiencia de edición.
 
-## Paso 2: Seleccionar tu plantilla {#step-2-select-your-template}
+## Paso 2: Selecciona tu plantilla {#step-2-select-your-template}
 
 Después de seleccionar el editor de arrastrar y soltar como tu experiencia de edición, puedes elegir:
 
@@ -68,11 +68,11 @@ Después de seleccionar el editor de arrastrar y soltar como tu experiencia de e
 - Usar una plantilla de mensaje dentro de la aplicación de arrastrar y soltar de Braze
 - Seleccionar una plantilla guardada de mensaje dentro de la aplicación de arrastrar y soltar
 
-Selecciona **Build message** para comenzar a diseñar tu mensaje dentro de la aplicación en el editor de arrastrar y soltar.
+Selecciona **Crear mensaje** para empezar a diseñar tu mensaje dentro de la aplicación en el editor de arrastrar y soltar.
 
 ![La sección de plantillas de Braze donde puedes elegir una plantilla básica, de imagen de fondo, de captura de número de teléfono o en blanco.]({% image_buster /assets/img_archive/dnd_iam_select_template.png %})
 
-También puedes acceder a todas las plantillas desde la sección **Templates** del dashboard.
+También puedes acceder a todas las plantillas desde la sección **Plantillas** del panel.
 
 ## Paso 3: Agregar páginas adicionales (opcional) {#multi-page}
 
@@ -130,19 +130,19 @@ Si una página no está enlazada a ninguna otra página, el mensaje no puede lan
 Los usuarios pueden seleccionar el botón de cierre X para salir del mensaje en cualquier momento. Este botón no puede eliminarse.
 {% endalert %}
 
-## Paso 4: Construir y diseñar tu mensaje dentro de la aplicación {#step-4-build-and-design-your-in-app-message}
+## Paso 4: Crea y diseña tu mensaje dentro de la aplicación {#step-4-build-and-design-your-in-app-message}
 
 Aquí es donde tu mensaje puede lucirse, vestido con el estilo distintivo de tu marca. Usando una combinación de bloques de editor y configuraciones de estilo, puedes personalizar y diseñar tu mensaje dentro de la aplicación.
 
-- Para una lista de los bloques de editor disponibles y sus propiedades, consulta [Bloques de editor]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages).
-- Para ayuda personalizando la apariencia de tu mensaje, consulta [Configuración de estilo]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/).
-- Para mejores prácticas al crear mensajes de derecha a izquierda, consulta [Crear mensajes de derecha a izquierda]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/).
+- Para ver una lista de los bloques de editor disponibles y sus propiedades, consulta [Bloques de editor]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages).
+- Para obtener ayuda con la personalización de la apariencia de tu mensaje, consulta [Configuración de estilo]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings).
+- Para conocer las mejores prácticas para crear mensajes de derecha a izquierda, consulta [Crear mensajes de derecha a izquierda]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
 
-## Paso 5: Probar tu mensaje dentro de la aplicación {#step-5-test-your-in-app-message}
+## Paso 5: Prueba tu mensaje dentro de la aplicación {#step-5-test-your-in-app-message}
 
-La sección **Preview & Test** te permite previsualizar tus mensajes dentro de la aplicación en diferentes dispositivos y enviar un mensaje de prueba a tu dispositivo. Aquí puedes asegurarte de que los detalles estén alineados en todas tus plataformas para tu campaña de mensaje dentro de la aplicación de arrastrar y soltar.
+La sección **Vista previa y prueba** te permite previsualizar tus mensajes dentro de la aplicación en diferentes dispositivos y enviar un mensaje de prueba a tu dispositivo. Aquí puedes asegurarte de que los detalles estén alineados en todas tus plataformas para tu campaña de mensajes dentro de la aplicación de arrastrar y soltar.
 
-Es importante siempre probar tus mensajes dentro de la aplicación antes de enviar tus campañas para ayudarte a visualizar cómo se verá tu mensaje final desde la perspectiva de tu usuario.
+Es importante probar siempre tus mensajes dentro de la aplicación antes de enviar tus campañas para ayudarte a visualizar cómo se verá tu mensaje final desde la perspectiva de tu usuario.
 
 ### Previsualizar el mensaje como un usuario {#preview-message-as-a-user}
 
@@ -150,11 +150,11 @@ Es importante siempre probar tus mensajes dentro de la aplicación antes de envi
 Para enviar una prueba a grupos de prueba de contenido o a usuarios individuales, push debe estar habilitado en tus dispositivos de prueba antes de enviar.
 {% endalert %}
 
-Puedes previsualizar mensajes desde la pestaña **Preview & Test**, como si fueras un usuario. Puedes seleccionar un usuario específico, un usuario aleatorio o crear un usuario personalizado:
+Puedes previsualizar los mensajes desde la pestaña **Vista previa y prueba**, como si fueras un usuario. Puedes seleccionar un usuario específico, un usuario aleatorio o crear un usuario personalizado:
 
-- **Random User:** Braze seleccionará aleatoriamente un usuario de la base de datos y previsualizará el mensaje dentro de la aplicación basándose en sus atributos o información de eventos.
-- **Select User:** Puedes seleccionar un usuario específico basándote en su dirección de correo electrónico o `external_id`. El mensaje dentro de la aplicación se previsualizará basándose en los atributos e información de eventos de ese usuario.
-- **Custom User:** Puedes personalizar un usuario. Braze ofrecerá campos de entrada para todos los atributos y eventos disponibles. Ingresa cualquier información que desees ver en la vista previa del correo electrónico.
+- **Usuario aleatorio:** Braze seleccionará aleatoriamente un usuario de la base de datos y previsualizará el mensaje dentro de la aplicación basándose en sus atributos o información de eventos.
+- **Seleccionar usuario:** Puedes seleccionar un usuario específico basándote en su dirección de correo electrónico o `external_id`. El mensaje dentro de la aplicación se previsualizará basándose en los atributos e información de eventos de ese usuario.
+- **Usuario personalizado:** Puedes personalizar un usuario. Braze ofrecerá campos de entrada para todos los atributos y eventos disponibles. Introduce cualquier información que te gustaría ver en el correo electrónico de vista previa.
 
 ### Lista de verificación de pruebas {#test-checklist}
 
@@ -162,34 +162,55 @@ Considera las siguientes preguntas mientras pruebas tu mensaje dentro de la apli
 
 - ¿Has probado el mensaje en diferentes dispositivos?
 - ¿Las imágenes y los medios se muestran y funcionan como se espera?
-- ¿Liquid funciona como se espera? ¿Has considerado un valor de atributo predeterminado en caso de que Liquid no devuelva información?
+- ¿Liquid funciona como se espera? ¿Has contemplado un valor de atributo predeterminado en caso de que Liquid no devuelva información?
 - ¿Tu texto es claro, conciso y correcto?
 - ¿Tus botones dirigen al usuario a donde deben ir?
 
 ## Preguntas frecuentes {#frequently-asked-questions}
 
-#### ¿Por qué los clics en el cuerpo no aparecen en mi página de análisis? {#why-are-body-clicks-not-appearing-on-my-analytics-page}
+### ¿Por qué los clics en el cuerpo no aparecen en mi página de análisis? {#why-are-body-clicks-not-appearing-on-my-analytics-page}
 
 Los clics en el cuerpo no se recopilan automáticamente para los mensajes dentro de la aplicación creados con el editor de arrastrar y soltar. Para más detalles, consulta los registros de cambios del SDK para [iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/changelog/objc_changelog#3310) y [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/changelog#1100).
 
-#### ¿Puedo segmentar basándome en los clics de botones? {#can-i-segment-based-on-button-clicks}
+### ¿Puedo segmentar según los clics en los botones? {#can-i-segment-based-on-button-clicks}
 
-Sí, puedes segmentar basándote en los clics de botones para hasta dos botones en tu mensaje. Para hacerlo, establece el **Identifier for Reporting** de tus botones en "0" y "1", que corresponderán a los filtros de segmentación "Clicked in-app message button 1" y "Clicked in-app message button 2" respectivamente.
+Sí, puedes segmentar según los clics en los botones para hasta dos botones en tu mensaje. Para hacerlo, establece el **Identifier for Reporting** de tus botones en "0" y "1", que corresponderán a los filtros de segmentación "Clicked in-app message button 1" y "Clicked in-app message button 2" respectivamente.
 
 ![El campo "Identifier for Reporting" con un valor de "0".]({% image_buster /assets/img/identifier_for_reporting.png %}){: style="max-width:50%;"}
 
-#### ¿Puedo personalizar mi mensaje dentro de la aplicación usando HTML o JavaScript personalizado, o transferir mensajes HTML existentes al editor? {#can-i-customize-my-in-app-message-using-custom-html-or-javascript-or-transfer-existing-html-messages-into-the-editor}
+### ¿Puedo personalizar mi mensaje dentro de la aplicación usando HTML personalizado o JavaScript, o transferir mensajes HTML existentes al editor? {#can-i-customize-my-in-app-message-using-custom-html-or-javascript-or-transfer-existing-html-messages-into-the-editor}
 
-No puedes transferir directamente mensajes HTML existentes al editor, pero puedes insertar HTML sin procesar, CSS y JavaScript en un bloque de código personalizado. Puedes usar bloques de código personalizado para incrustar videos de terceros y Liquid avanzado, como contenido conectado o sentencias condicionales.
+No puedes transferir directamente mensajes HTML existentes al editor, pero puedes insertar HTML sin procesar, CSS y JavaScript en un bloque de **Custom code**. Puedes usar bloques de **Custom code** para incrustar videos de terceros y Liquid avanzado, como contenido conectado o sentencias condicionales. Para métodos JavaScript de `brazeBridge` y ejemplos de seguimiento de clics, consulta [Mensajes dentro de la aplicación con HTML personalizado]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html).
 
-#### ¿Cómo puedo crear un mensaje dentro de la aplicación de deslizamiento hacia arriba? {#how-can-i-create-a-slideup-in-app-message}
+### ¿Por qué la vista del creador del editor de arrastrar y soltar podría verse diferente del mensaje final? {#why-might-the-drag-and-drop-editors-composer-view-look-different-from-the-final-message}
 
-Actualmente, el editor está limitado solo a mensajes modales y de pantalla completa. Puedes cambiar entre tipos de visualización en la sección **Message container** del panel **Message styles**.
+El editor de arrastrar y soltar renderiza tu mensaje dentro de un creador y aplica estilos y valores predeterminados exclusivos de la vista previa para que puedas construir y revisar el diseño. Estos tratamientos te ayudan a ver la estructura y el contenido de marcador de posición mientras editas; no se incluyen en el mensaje que reciben tus usuarios.
 
-#### ¿Puedo guardar mi mensaje dentro de la aplicación como plantilla después de construirlo dentro de mi campaña o Canvas? {#can-i-save-my-in-app-message-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
+Ejemplos comunes de comportamiento exclusivo del editor incluyen:
 
-Sí. Para cualquier mensaje dentro de la aplicación que quieras reutilizar en una futura campaña o paso en Canvas, puedes guardarlo como plantilla personalizada usando el botón **Save as template**, disponible después de salir del editor. Antes de poder guardarlo como plantilla, primero debes lanzar la campaña O guardarlo como borrador.
+- El editor envuelve los bloques de **Custom code** en un contenedor `bz-html-code-block` con un `min-height` predeterminado de `40px`, para que los bloques vacíos o cortos permanezcan visibles mientras editas
+- Las imágenes que están en blanco o contienen Liquid muestran un marcador de posición en el editor
+- Los grupos de casillas de verificación y botones de radio preseleccionan la primera opción para que puedas previsualizar el estado activo
+
+Si algo se ve diferente solo en el editor, generalmente es un comportamiento de vista previa. Al solucionar problemas del mensaje entregado, revisa los estilos y el marcado en los bloques de tu mensaje, no el marco exclusivo del editor ni los valores predeterminados de la vista previa.
+
+### ¿Cómo puedo crear un mensaje dentro de la aplicación de deslizamiento hacia arriba? {#how-can-i-create-a-slideup-in-app-message}
+
+Actualmente, el editor está limitado solo a mensajes modales y de pantalla completa. Puedes alternar entre tipos de visualización en la sección **Message container** del panel **Message styles**.
+
+### ¿Puedo guardar mi mensaje dentro de la aplicación como plantilla después de crearlo en mi Campaign o Canvas? {#can-i-save-my-in-app-message-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
+
+Sí. Para cualquier mensaje dentro de la aplicación que quieras reutilizar en una futura Campaign o paso en Canvas, puedes guardarlo como plantilla personalizada usando el botón **Save as template**, disponible después de salir del editor. Antes de poder guardarlo como plantilla, primero debes lanzar la Campaign O guardarlo como borrador.
 
 ![Una vista previa de un mensaje dentro de la aplicación para un recorrido de producto.]({% image_buster /assets/img_archive/dnd_iam_save_as_template.png %})
 
-También puedes crear y guardar plantillas de mensajes dentro de la aplicación navegando a **Content** > **In-App Message Templates**.
+También puedes crear y guardar plantillas de mensajes dentro de la aplicación navegando a **Content** > **In-App Message**.
+
+### ¿Por qué mi sintaxis de Liquid aparece como texto plano en mi mensaje dentro de la aplicación paginado? {#why-is-my-liquid-syntax-appearing-as-plain-text-in-my-paginated-in-app-message}
+
+Si ves que la sintaxis de Liquid aparece como texto plano al probar un mensaje dentro de la aplicación paginado (en lugar del contenido personalizado), puede haber un error de sintaxis de Liquid en una de las páginas. Si hay un error de sintaxis en una página, afecta la renderización de Liquid en todas las páginas del mensaje: las páginas no son independientes.
+
+Para solucionar problemas:
+
+1. Revisa cada página de tu mensaje en busca de errores de sintaxis de Liquid. Una vista previa rota en una página no significa que el error esté en esa página; como las páginas no son independientes, el error de sintaxis puede estar en cualquier parte del mensaje.
+2. Verifica que todas las etiquetas de Liquid estén correctamente cerradas y formateadas.

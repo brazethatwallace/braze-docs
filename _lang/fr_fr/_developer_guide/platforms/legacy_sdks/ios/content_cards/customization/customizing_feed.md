@@ -1,9 +1,9 @@
 ---
 nav_title: Flux personnalisé
-article_title: Personnalisation du flux de cartes de contenu pour iOS
+article_title: Personnalisation du flux de Content Cards pour iOS
 platform: iOS
 page_order: 2
-description: "Cet article couvre les options de personnalisation du flux de cartes de contenu dans votre application iOS."
+description: "Cet article couvre les options de personnalisation du flux de Content Cards dans votre application iOS."
 channel:
   - content cards
 noindex: true
@@ -11,30 +11,30 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# Personnaliser le flux des cartes de contenu
+# Personnaliser le flux de Content Cards {#customize-the-content-cards-feed}
 
-Vous pouvez créer votre propre interface de cartes de contenu en étendant le `ABKContentCardsTableViewController` pour personnaliser tous les éléments de l’interface utilisateur et le comportement des cartes de contenu. Les cellules de la carte de contenu peuvent également être sous-classées puis utilisées par programmation ou en introduisant un storyboard personnalisé qui enregistre les nouvelles classes. Consultez l'[exemple d'application](https://github.com/Appboy/appboy-ios-sdk/tree/master/Samples/ContentCards/BrazeContentCardsSampleApp) Cartes de contenu pour un exemple complet. 
+Vous pouvez créer votre propre interface de Content Cards en étendant `ABKContentCardsTableViewController` pour personnaliser tous les éléments de l'interface utilisateur et le comportement des Content Cards. Les cellules de carte de contenu peuvent également être sous-classées puis utilisées par programmation ou en introduisant un storyboard personnalisé qui enregistre les nouvelles classes. Consultez l'[exemple d'application](https://github.com/Appboy/appboy-ios-sdk/tree/master/Samples/ContentCards/BrazeContentCardsSampleApp) Content Cards pour un exemple complet.
 
-Il est également important de déterminer si vous devez utiliser une stratégie de sous-classement plutôt qu'un contrôleur de vue entièrement personnalisé et vous [abonner aux mises à jour de données]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/content_cards/integration/). Par exemple, si vous sous-classez le `ABKContentCardsTableViewController`, vous pouvez utiliser la méthode [`populateContentCards`](#overriding-populated-content-cards) pour filtrer et commander des cartes (recommandé). Cependant, si vous utilisez une personnalisation complète du contrôleur de visualisation, vous disposez d’un plus grand contrôle sur le comportement de la carte, comme l’affichage dans un carrousel ou l’ajout d’éléments interactifs, mais vous devez ensuite compter sur un observateur pour implémenter la logique de tri et de filtrage. Vous devez également implémenter les méthodes d'analyse respectives pour enregistrer correctement les impressions, les événements de rejet et les clics.
+Il est également important de déterminer si vous devez utiliser une stratégie de sous-classement plutôt qu'un contrôleur de vue entièrement personnalisé et vous [abonner aux mises à jour de données]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/content_cards/integration). Par exemple, si vous sous-classez le `ABKContentCardsTableViewController`, vous pouvez utiliser la méthode [`populateContentCards`](#overriding-populated-content-cards) pour filtrer et ordonner les cartes (recommandé). Cependant, si vous utilisez une personnalisation complète du contrôleur de vue, vous disposez d'un plus grand contrôle sur le comportement de la carte — comme l'affichage dans un carrousel ou l'ajout d'éléments interactifs — mais vous devez ensuite compter sur un observateur pour implémenter la logique de tri et de filtrage. Vous devez également implémenter les méthodes d'analyse respectives pour enregistrer correctement les impressions, les événements de rejet et les clics.
 
-## Personnalisation de l’interface utilisateur
+## Personnalisation de l'interface utilisateur {#customizing-ui}
 
-Les extraits de code suivants montrent comment styliser et modifier les cartes de contenu pour répondre à vos besoins d’interface utilisateur à l’aide des méthodes fournies par le SDK. Ces méthodes vous permettent de personnaliser tous les aspects de l’interface utilisateur de la carte de contenu, y compris les polices personnalisées, les composants de couleur personnalisés, le texte personnalisé, etc. 
+Les extraits de code suivants montrent comment styliser et modifier les Content Cards pour répondre à vos besoins d'interface utilisateur à l'aide des méthodes fournies par le SDK. Ces méthodes vous permettent de personnaliser tous les aspects de l'interface utilisateur des Content Cards, y compris les polices personnalisées, les composants de couleur personnalisés, le texte personnalisé, et plus encore.
 
-Il existe deux manières distinctes de personnaliser l’interface utilisateur de la carte de contenu : 
-- Méthode dynamique : Mettre à jour l’interface utilisateur carte par carte
-- Méthode statique : mettre à jour l’interface utilisateur sur toutes les cartes
+Il existe deux manières distinctes de personnaliser l'interface utilisateur des Content Cards :
+- Méthode dynamique : mettre à jour l'interface utilisateur carte par carte
+- Méthode statique : mettre à jour l'interface utilisateur sur toutes les cartes
 
-### Interface utilisateur dynamique
+### Interface utilisateur dynamique {#dynamic-ui}
 
-La méthode `applyCard` de la carte de contenu peut référencer l’objet de carte et lui transmettre les paires clé-valeur qui seront utilisées pour mettre à jour l’IU :
+La méthode `applyCard` de la carte de contenu peut référencer l'objet de carte et lui transmettre les paires clé-valeur qui seront utilisées pour mettre à jour l'interface utilisateur :
 
 {% tabs %}
 {% tab Objective-C %}
 ```objc
 - (void)applyCard:(ABKCaptionedImageContentCard *)captionedImageCard {
-  [super applyCard:captionedImageCard];    
- 
+  [super applyCard:captionedImageCard];
+
   if ([card.extras objectForKey:ContentCardKeyBackgroundColorValue]) {
     NSString *backgroundColor = [card.extras objectForKey:ContentCardKeyBackgroundColor];
     if ([backgroundColor colorValue]) {
@@ -44,15 +44,15 @@ La méthode `applyCard` de la carte de contenu peut référencer l’objet de ca
     }
   } else {
     self.rootView.backgroundColor = [UIColor lightGray];
-  }  
+  }
 }
 ```
 {% endtab %}
 {% tab Swift %}
 ```swift
 override func apply(_ captionedImageCard: ABKCaptionedImageContentCard!) {
-  super.apply(captionedImageCard)         
- 
+  super.apply(captionedImageCard)
+
   if let backgroundColor = card.extras?[ContentCardKey.backgroundColor.rawValue] as? String,
      let backgroundColorValue = backgroundColor.colorValue() {
     rootView.backgroundColor = backgroundColorValue
@@ -64,17 +64,17 @@ override func apply(_ captionedImageCard: ABKCaptionedImageContentCard!) {
 {% endtab %}
 {% endtabs %}
 
-### Interface utilisateur statique
+### Interface utilisateur statique {#static-ui}
 
-La méthode `setUpUI` peut affecter des valeurs aux composants statiques de la carte de contenu sur toutes les cartes :
+La méthode `setUpUI` peut affecter des valeurs aux composants statiques de la carte de contenu sur toutes les cartes :
 
 {% tabs %}
 {% tab Objective-C %}
 ```objc
-#import "CustomClassicContentCardCell.h"  
- 
+#import "CustomClassicContentCardCell.h"
+
 @implementation CustomClassicContentCardCell
- 
+
 - (void)setUpUI {
   [super setUpUI];
   self.rootView.backgroundColor = [UIColor lightGrayColor];
@@ -88,7 +88,7 @@ La méthode `setUpUI` peut affecter des valeurs aux composants statiques de la c
 ```swift
 override func setUpUI() {
   super.setUpUI()
-     
+
   rootView.backgroundColor = .lightGray
   rootView.layer.borderColor = UIColor.purple.cgColor
   unviewedLineViewColor = .red
@@ -98,22 +98,22 @@ override func setUpUI() {
 {% endtab %}
 {% endtabs %}
 
-## Fournir des interfaces personnalisées
+## Fournir des interfaces personnalisées {#providing-custom-interfaces}
 
-Des interfaces personnalisées peuvent être fournies en enregistrant des classes personnalisées pour tous les types de cartes souhaités. 
+Des interfaces personnalisées peuvent être fournies en enregistrant des classes personnalisées pour chaque type de carte souhaité.
 
-![Une bannière Content Card. Une carte de contenu de type bannière affiche une image à droite de la bannière avec le texte « Merci d'avoir téléchargé la démo Braze ! ».]({% image_buster /assets/img/interface1.png %}){: style="max-width:35%;margin-left:15px;"}
-![Une carte de contenu avec une image légendée. Une carte de contenu de type image légendée affiche une image Braze avec la légende superposée en bas « Merci d'avoir téléchargé la démo Braze ! ». ]({% image_buster /assets/img/interface2.png %}){: style="max-width:25%;margin-left:15px;"}
-![Une Classic Content Card. Une carte de contenu classique affiche une image au centre de la carte, accompagnée de la mention « Merci d'avoir téléchargé la démo Braze » en dessous.]({% image_buster /assets/img/interface3.png %}){: style="max-width:18%;margin-left:15px;"}
+![Une carte de contenu de type bannière. Elle affiche une image à droite de la bannière avec le texte « Thanks for downloading Braze Demo! ».]({% image_buster /assets/img/interface1.png %}){: style="max-width:35%;margin-left:15px;"}
+![Une carte de contenu de type image légendée. Elle affiche une image Braze avec la légende superposée en bas « Thanks for downloading Braze Demo! ».]({% image_buster /assets/img/interface2.png %}){: style="max-width:25%;margin-left:15px;"}
+![Une carte de contenu classique. Elle affiche une image au centre de la carte avec la mention « Thanks for downloading Braze Demo » en dessous.]({% image_buster /assets/img/interface3.png %}){: style="max-width:18%;margin-left:15px;"}
 
-Braze propose trois types de modèles de cartes de contenu : (bannière, image légendée et classique). Sinon, si vous souhaitez fournir vos propres interfaces personnalisées, référez-vous aux extraits de code suivants :
+Braze propose trois modèles de Content Cards (bannière, image légendée et classique). Si vous souhaitez fournir vos propres interfaces personnalisées, référez-vous aux extraits de code suivants :
 
 {% tabs %}
 {% tab Objective-C %}
 ```objc
 - (void)registerTableViewCellClasses {
   [super registerTableViewCellClasses];
- 
+
   // Replace the default class registrations with custom classes for these two types of cards
   [self.tableView registerClass:[CustomCaptionedImageContentCardCell class] forCellReuseIdentifier:@"ABKCaptionedImageContentCardCell"];
   [self.tableView registerClass:[CustomClassicContentCardCell class] forCellReuseIdentifier:@"ABKClassicCardCell"];
@@ -124,7 +124,7 @@ Braze propose trois types de modèles de cartes de contenu : (bannière, image 
 ```swift
 override func registerTableViewCellClasses() {
   super.registerTableViewCellClasses()
-     
+
   // Replace the default class registrations with custom classes
   tableView.register(CustomCaptionedImageContentCardCell.self, forCellReuseIdentifier: "ABKCaptionedImageContentCardCell")
   tableView.register(CustomBannerContentCardCell.self, forCellReuseIdentifier: "ABKBannerContentCardCell")
@@ -135,9 +135,9 @@ override func registerTableViewCellClasses() {
 {% endtab %}
 {% endtabs %}
 
-## Remplacer des cartes de contenu remplies
+## Remplacer les Content Cards préremplies {#overriding-populated-content-cards}
 
-Les cartes de contenu peuvent être modifiées de façon programmatique à l’aide de la méthode `populateContentCards` :
+Les Content Cards peuvent être modifiées de façon programmatique à l'aide de la méthode `populateContentCards` :
 
 {% tabs %}
 {% tab Objective-C %}

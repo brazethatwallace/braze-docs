@@ -10,7 +10,7 @@ description: "この記事では、APIのみを使用したBrazeエンドポイ�
 ---
 {% api %}
 # APIのみを使用してメッセージを即座に送信する {#send-messages-immediately-using-the-api-only}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /messages/send
 {% endapimethod %}
 
@@ -23,20 +23,20 @@ description: "この記事では、APIのみを使用したBrazeエンドポイ�
 {% multi_lang_include api/payload_size_alert.md %}
 
 {% alert important %}
-このエンドポイントをAPI Campaignsで使用する場合、リクエストが成功するためには、受信者が既にBrazeに存在している必要があります。これは、`external_user_ids` または `user_aliases` パラメーターでユーザーを指定する際に適用されます。
+このエンドポイントをAPIキャンペーンで使用する場合、リクエストが成功するためには、受信者が既にBrazeに存在している必要があります。これは、`external_user_ids` または `user_aliases` パラメーターでユーザーを指定する際に適用されます。
 {% endalert %}
 
-### API送信で新規ユーザーを作成する {#creating-new-users-with-api-sends}
+## API送信で新規ユーザーを作成する {#creating-new-users-with-api-sends}
 
 APIを使用して送信の一部としてユーザーを作成する必要がある場合、次の2つの方法があります。
 
-#### オプション 1: `/users/track` を使用してから送信する {#option-1-use-userstrack-then-send}
+### オプション1: `/users/track` を使用してから送信する {#option-1-use-userstrack-then-send}
 
-まず、[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)エンドポイントでユーザーを作成し、データが伝播するのを待ちます（通常、数分間待つことを推奨します）。その後にAPIのみの送信を開始します。Brazeは `/users/track` のデータ処理時間を保証しないため、これらの呼び出し間に十分な時間を設けない場合、[競合]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions/)が発生する可能性があります。
+まず、[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)エンドポイントでユーザーを作成し、データが伝播するのを待ちます（通常、数分間待つことを推奨します）。その後にAPIのみの送信を開始します。Brazeは`/users/track`のデータ処理時間を保証しないため、これらの呼び出し間に十分な時間を設けない場合、[競合]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions)が発生する可能性があります。
 
-#### オプション 2: APIトリガー型CampaignまたはCanvasを使用する {#option-2-use-an-api-triggered-campaign-or-canvas}
+### オプション2: APIトリガー型キャンペーンまたはキャンバスを使用する {#option-2-use-an-api-triggered-campaign-or-canvas}
 
-[APIトリガー型Campaign]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/)または[Canvas]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/)ワークフローを使用します。これらを使用すると、受信者がまだ存在しない場合に作成できます。このオプションはバックエンドのプロセスを簡素化しますが、BrazeダッシュボードでCampaignまたはCanvasを設定する必要があります。
+[APIトリガー型キャンペーン]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns)または[キャンバス]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases)ワークフローを使用します。これらを使用すると、受信者がまだ存在しない場合に作成できます。このオプションはバックエンドのプロセスを簡素化しますが、Brazeダッシュボードでキャンペーンまたはキャンバスを設定する必要があります。
 
 
 ## 前提条件 {#prerequisites}
@@ -50,7 +50,7 @@ APIを使用して送信の一部としてユーザーを作成する必要が�
 ## リクエスト本文 {#request-body}
 
 {% alert tip %}
-リクエストを完了するために、必ず[メッセージングオブジェクト]({{site.baseurl}}/api/objects_filters/#messaging-objects)を本文に含めてください。
+リクエストを完了するために、必ず[メッセージングオブジェクト]({{site.baseurl}}/api/objects_filters#messaging-objects)を本文に含めてください。
 {% endalert %}
 
 ```
@@ -69,7 +69,7 @@ Authorization: Bearer YOUR-REST-API-KEY
    "user_aliases": (optional, array of user alias object) see user alias,
    "segment_id": (optional, string) see segment identifier,
    "audience": (optional, connected audience object) see connected audience,
-   "campaign_id": (optional*, string) *required if you wish to track campaign stats (for example, sends, clicks, bounces, etc). see campaign identifier,
+   "campaign_id": (optional*, string) required if you wish to track campaign stats (for example, sends, clicks, bounces, etc). see campaign identifier,
    "send_id": (optional, string) see send identifier,
    "override_frequency_capping": (optional, bool) ignore frequency_capping for campaigns, defaults to false,
    "recipient_subscription_state": (optional, string) use this to send messages to only users who have opted in ('opted_in'), only users who have subscribed or are opted in ('subscribed') or to all users, including unsubscribed users ('all'), the latter being useful for transactional email messaging. Defaults to 'subscribed',
@@ -91,17 +91,17 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | ---------| --------- | ----------- |
-| `broadcast` | オプション | ブール値 | CampaignまたはCanvasが対象とするセグメント全体にメッセージを送信する場合は、`broadcast` をtrueに設定する必要があります。このパラメーターはデフォルトでfalseです（2017年8月31日現在）。<br><br>`broadcast` がtrueに設定されている場合、`recipients` リストを含めることはできません。ただし、`broadcast: true` を設定する場合は注意が必要です。意図せずにこのフラグを設定すると、想定よりも大きなオーディエンスにメッセージが送信される可能性があります。 |
-| `external_user_ids` | オプション | 文字列の配列 | [外部ユーザーID]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields)を参照してください。 |
-| `user_aliases` | オプション | ユーザー別名オブジェクトの配列 | [ユーザー別名オブジェクト]({{site.baseurl}}/api/objects_filters/user_alias_object/)を参照してください。 |
-| `segment_id` | オプション | 文字列 | [セグメント識別子]({{site.baseurl}}/api/identifier_types/#segment-identifier)を参照してください。 |
-| `audience` | オプション | 接続オーディエンスオブジェクト | [接続オーディエンス]({{site.baseurl}}/api/objects_filters/connected_audience/)を参照してください。 |
-| `campaign_id` | オプション* | 文字列 | 詳細は[Campaign識別子]({{site.baseurl}}/api/identifier_types/#campaign-identifier/)を参照してください。<br><br>*Campaignの指標（*送信数*、*クリック数*、*バウンス*など）をBrazeダッシュボードでトラッキングしたい場合、またはユーザープロファイルの[メッセージ履歴タブ]({{site.baseurl}}/user_guide/engagement_tools/segments/user_profiles/#messaging-history-tab)でこのメッセージに関連するイベントを確認したい場合は必須です。 |
-| `send_id` | オプション | 文字列 | [送信識別子]({{site.baseurl}}/api/identifier_types/#send-identifier)を参照してください。 |
-| `override_frequency_capping` | オプション | ブール値 | Campaignsの `frequency_capping` を無視します。デフォルトは `false` です。 |
-| `recipient_subscription_state` | オプション | 文字列 | これを使用して、オプトインしたユーザーのみ（`opted_in`）、配信登録済みかオプトインしているユーザーのみ（`subscribed`）、または配信停止済みのユーザーを含むすべてのユーザー（`all`）にメッセージを送信します。<br><br>`all` ユーザーへの送信は、トランザクションメールメッセージングに便利です。デフォルトは `subscribed` です。 |
-| `messages` | オプション | メッセージングオブジェクト | [利用可能なメッセージングオブジェクト]({{site.baseurl}}/api/objects_filters/#messaging-objects)を参照してください。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+| `broadcast` | オプション | ブール値 | キャンペーンまたはキャンバスが対象とするセグメント全体にメッセージを送信する場合は、`broadcast` をtrueに設定する必要があります。このパラメーターはデフォルトでfalseです（2017年8月31日現在）。<br><br>`broadcast` がtrueに設定されている場合、`recipients` リストを含めることはできません。ただし、`broadcast: true` を設定する場合は注意が必要です。意図せずにこのフラグを設定すると、想定よりも大きなオーディエンスにメッセージが送信される可能性があります。 |
+| `external_user_ids` | オプション | 文字列の配列 | [外部ユーザーID]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields)を参照してください。 |
+| `user_aliases` | オプション | ユーザー別名オブジェクトの配列 | [ユーザー別名オブジェクト]({{site.baseurl}}/api/objects_filters/user_alias_object)を参照してください。 |
+| `segment_id` | オプション | 文字列 | [セグメント識別子]({{site.baseurl}}/api/identifier_types#segment-identifier)を参照してください。 |
+| `audience` | オプション | 接続オーディエンスオブジェクト | [接続オーディエンス]({{site.baseurl}}/api/objects_filters/connected_audience)を参照してください。 |
+| `campaign_id` | オプション* | 文字列 | 詳細は[キャンペーン識別子]({{site.baseurl}}/api/identifier_types#campaign-identifier)を参照してください。<br><br>*キャンペーンの指標（*送信数*、*クリック数*、*バウンス*など）をBrazeダッシュボードでトラッキングしたい場合、またはユーザープロファイルの[メッセージ履歴タブ]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles)でこのメッセージに関連するイベントを確認したい場合は必須です。`campaign_id` がない場合、Brazeはダッシュボードの配信統計をインクリメントしません。送信は[メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)に表示されますが、ダッシュボードのメールパフォーマンス指標には表示されません。 |
+| `send_id` | オプション | 文字列 | [送信識別子]({{site.baseurl}}/api/identifier_types#send-identifier)を参照してください。 |
+| `override_frequency_capping` | オプション | ブール値 | キャンペーンの `frequency_capping` を無視します。デフォルトは `false` です。 |
+| `recipient_subscription_state` | オプション | 文字列 | これを使用して、オプトインしたユーザーのみ（`opted_in`）、購読済みかオプトインしているユーザーのみ（`subscribed`）、または購読解除済みのユーザーを含むすべてのユーザー（`all`）にメッセージを送信します。<br><br>`all` ユーザーへの送信は、トランザクションメールメッセージングに便利です。デフォルトは `subscribed` です。 |
+| `messages` | オプション | メッセージングオブジェクト | [利用可能なメッセージングオブジェクト]({{site.baseurl}}/api/objects_filters#messaging-objects)を参照してください。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}
 ```
@@ -178,6 +178,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/messages/send' \
 
 ## 応答の詳細 {#response-details}
 
-メッセージ送信エンドポイントの応答には、メッセージのディスパッチを参照するための `dispatch_id` が含まれます。`dispatch_id` はメッセージディスパッチのIDであり、Brazeから送信される各「送信」に固有のIDです。詳しくは、[ディスパッチIDの動作]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/)を参照してください。
+メッセージ送信エンドポイントの応答には、メッセージのディスパッチを参照するための `dispatch_id` が含まれます。`dispatch_id` はメッセージディスパッチのIDであり、Brazeから送信される各「送信」に固有のIDです。詳しくは、[ディスパッチIDの動作]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id)を参照してください。
 
 {% endapi %}

@@ -20,7 +20,7 @@ description: "Cet article détaille l'endpoint Braze Mettre à jour un centre de
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `preference_center.update`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `preference_center.update`.
 
 ## Limite de débit {#rate-limit}
 
@@ -31,7 +31,7 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 | Paramètre | Requis | Type de données | Description |
 | --------- | ---------| --------- | ----------- |
 | `preferenceCenterExternalID` | Requis | Chaîne de caractères | L'ID de votre centre de préférences. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Path parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de chemin" }
 
 
 ## Corps de la requête {#request-body}
@@ -73,7 +73,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `confirmation_page_html` | Requis | Chaîne de caractères | Le code HTML de la page de confirmation. |
 | `state` | Facultatif | Chaîne de caractères | Choisissez `active` ou `draft`. |
 | `options` | Facultatif | Objet | Attributs : <br>`meta-viewport-content` : lorsque ce paramètre est présent, une balise méta `viewport` est ajoutée à la page avec `content= <value of attribute>`.<br><br> `link-tags` : permet de définir un favicon pour la page. Lorsque ce paramètre est défini, une balise `<link>` avec un attribut rel est ajoutée à la page. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 ## Exemple de requête {#example-request}
 

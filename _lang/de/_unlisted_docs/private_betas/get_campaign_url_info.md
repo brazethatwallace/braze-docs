@@ -28,8 +28,8 @@ description: "Dieser Artikel beschreibt Details zum Braze-Endpunkt zum Auflisten
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
-| `campaign_id` | Erforderlich | String | Siehe [Campaign-API-Bezeichner](https://www.braze.com/docs/api/identifier_types/#campaign-api-identifier). |
-| `message_variation_id` | Erforderlich | String | API-Bezeichner der Nachrichtenvariante. Sie finden diesen auf der Campaign-Detailseite unter dem Abschnitt **API Identifier**. |
+| `campaign_id` | Erforderlich | String | Siehe [Campaign-API-Bezeichner]({{site.baseurl}}/api/identifier_types#campaign-identifier). |
+| `message_variation_id ` | Erforderlich | String | API-Bezeichner der Nachrichtenvariante. Sie finden diesen auf der Campaign-Detailseite unter dem Abschnitt **API Identifier**. |
 | `includes_link_id` | Optional | String | Ein bestimmter Link-Bezeichner (wie von Braze zugewiesen) oder `null`. Wird verwendet, um die Ergebnisse nach einer bestimmten `link_id` zu filtern. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
@@ -65,8 +65,8 @@ Die folgende Tabelle listet mögliche zurückgegebene Fehler und die zugehörige
 
 | Fehler | Fehlerbehebung |
 | --- | --- |
-| `Missing/Invalid Campaign ID` | Die Campaign-API-ID muss ein API-Bezeichner sein. Sie finden diesen über den [Endpunkt zum Exportieren der Campaign-Liste](https://www.braze.com/docs/api/endpoints/export/campaigns/get_campaigns/) oder indem Sie sich im Dashboard anmelden. |
-| `Missing/Invalid Message Variant ID` | Die API-ID der Nachrichtenvariante muss ein API-Bezeichner sein. Sie finden diesen über den [Endpunkt zum Exportieren von Campaign-Details](https://www.braze.com/docs/api/endpoints/export/campaigns/get_campaign_details/) oder indem Sie sich im Dashboard anmelden. |
+| `Missing/Invalid Campaign ID` | Die Campaign-API-ID muss ein API-Bezeichner sein. Sie finden diesen über den [Endpunkt zum Exportieren der Campaign-Liste]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns) oder indem Sie sich im Dashboard anmelden. |
+| `Missing/Invalid Message Variant ID` | Die API-ID der Nachrichtenvariante muss ein API-Bezeichner sein. Sie finden diesen über den [Endpunkt zum Exportieren von Campaign-Details]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details) oder indem Sie sich im Dashboard anmelden. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 

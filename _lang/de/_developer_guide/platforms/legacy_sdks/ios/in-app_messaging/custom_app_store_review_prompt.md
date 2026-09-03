@@ -15,7 +15,7 @@ noindex: true
 # Angepasste App Store-Bewertungsaufforderung {#custom-app-store-review-prompt}
 
 {% alert note %}
-Sobald Sie diese Aufforderung implementieren, hört Braze auf, Impressionen automatisch zu tracken, und Sie müssen Ihre eigenen [Analytics]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/in-app_messaging/customization/handing_in_app_display/#logging-impressions-and-clicks) protokollieren.
+Sobald Sie diese Aufforderung implementieren, hört Braze auf, Impressionen automatisch zu tracken, und Sie müssen Ihre eigenen [Analytics]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/in-app_messaging/customization/handing_in_app_display#logging-impressions-and-clicks) protokollieren.
 {% endalert %}
 
 Eine Campaign zu erstellen, um Nutzer:innen um eine Bewertung im App Store zu bitten, ist eine beliebte Verwendung von In-App-Nachrichten.
@@ -96,5 +96,5 @@ Als Nächstes erstellen Sie eine In-App-Nachricht-Campaign mit den folgenden Ele
 {% endraw %}
 
 {% alert tip %}
-Apple begrenzt die Anzahl der App Store-Bewertungsaufforderungen auf maximal drei (3) Mal pro Jahr und Nutzer:in. Ihre Campaign sollte daher auf drei Mal pro Jahr und Nutzer:in [begrenzt]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/) werden.<br><br>Nutzer:innen können die Aufforderungen zur Bewertung im App Store deaktivieren. Daher sollte Ihre angepasste Bewertungsaufforderung nicht versprechen, dass eine native App Store-Bewertungsaufforderung erscheint, oder direkt um eine Bewertung bitten.
+Apple begrenzt die Anzahl der App Store-Bewertungsaufforderungen auf maximal drei (3) Mal pro Jahr und Nutzer:in. Ihre Campaign sollte daher auf drei Mal pro Jahr und Nutzer:in [begrenzt]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping) werden.<br><br>Nutzer:innen können die Aufforderungen zur Bewertung im App Store deaktivieren. Daher sollte Ihre angepasste Bewertungsaufforderung nicht versprechen, dass eine native App Store-Bewertungsaufforderung erscheint, oder direkt um eine Bewertung bitten.
 {% endalert %}

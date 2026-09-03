@@ -1,6 +1,6 @@
 ---
 nav_title: Data 
-article_title: Data 
+article_title: "Braze Data Platform"
 page_order: 3
 description: "Learn about the Braze Data Platform, including how to unify, activate, and distribute your data."
 ---
@@ -21,11 +21,11 @@ User data flows into Braze through many entry points. Collect and consolidate fi
 
 ### Activate your data
 
-Clean, organize, and prepare your data for use. This involves understanding your customers' behaviors and preferences in real-time with user profiles and segments. Reference the [Reports metric glossary]({{site.baseurl}}/user_guide/analytics/metrics_glossary/) as you create targeted messages, and use [catalogs]({{site.baseurl}}/user_guide/data/activation/catalogs/) to enrich your messages with product or content data. Identify how your customers are responding to these personalized experiences.
+Clean, organize, and prepare your data for use. This involves understanding your customers' behaviors and preferences in real-time with user profiles and segments. Reference the [Reports metric glossary]({{site.baseurl}}/user_guide/analytics/metrics_glossary) as you create targeted messages, and use [catalogs]({{site.baseurl}}/user_guide/data/activation/catalogs) to enrich your messages with product or content data. Identify how your customers are responding to these personalized experiences.
 
 ### Distribute your data
 
-Stream and [export your data]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/) to external systems for next-step insights and decisions. Use [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) to stream Braze event data into a data warehouse to power business intelligence tools. You can also extend your data capabilities with [technology partner integrations]({{site.baseurl}}/partners/data_and_analytics/).
+Stream and [export your data]({{site.baseurl}}/user_guide/data/distribution/export_braze_data) to external systems for next-step insights and decisions. Use [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) to stream Braze event data into a data warehouse to power business intelligence tools. You can also extend your data capabilities with [technology partner integrations]({{site.baseurl}}/partners/data_and_analytics).
 
 ## Data infrastructure
 

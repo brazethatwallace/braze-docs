@@ -65,7 +65,7 @@ Under Data Protection Laws, data subjects may have the right to obtain:
 
 ### Braze Recommendation
 
-In order to provide Personal Data from Braze in a machine-readable format in response to a data subject’s access request, you may export their end user Profile by making an API call to Braze’s [REST APIs]({{site.baseurl}}/api/endpoints/export/#user-export) with either their user identifier (defined by you as the `external_id` provided to Braze) and/or their device identifier.
+In order to provide Personal Data from Braze in a machine-readable format in response to a data subject’s access request, you may export their end user Profile by making an API call to Braze’s [REST APIs]({{site.baseurl}}/api/endpoints/export) with either their user identifier (defined by you as the `external_id` provided to Braze) and/or their device identifier.
 
 #### BrazeAI Decisioning Studio™ 
 
@@ -77,7 +77,7 @@ Individuals are entitled to have Personal Data corrected if it is inaccurate or 
 
 ### Braze Recommendation
 
-In the event that a Data Subject requests that you rectify inaccuracies within the Personal Data being processed by you or by Braze on your behalf, you can use the Braze SDKs or the Braze [REST APIs]({{site.baseurl}}/api/endpoints/user_data/#user-track-endpoint) to correct such Personal Data.
+In the event that a Data Subject requests that you rectify inaccuracies within the Personal Data being processed by you or by Braze on your behalf, you can use the Braze SDKs or the Braze [REST APIs]({{site.baseurl}}/api/endpoints/user_data/post_user_track) to correct such Personal Data.
 
 ## The Right to Erasure
 
@@ -155,7 +155,7 @@ Data subjects may have the right to ‘block’ or suppress the processing of th
 
 ### Braze Recommendation
 
-The Braze Services do not support the restriction of processing of individual categories of Personal Data. If you have been asked by a data subject to restrict processing of certain subsets of that data subject’s Personal Data, you should use the [Braze APIs]({{site.baseurl}}/api/home/) to export that end user’s entire profile(s) and then [delete]({{site.baseurl}}/api/endpoints/user_data/#user-delete-endpoint) it from Braze. Braze’s APIs can be used to re-import this data in the event that the end user subsequently allows you to process those particular subsets of its Personal Data. In addition, you should recommend that your end user uninstall or logout from any and all of your Applications that use the Braze SDK to stop collecting any additional data on the data subject.
+The Braze Services do not support the restriction of processing of individual categories of Personal Data. If you have been asked by a data subject to restrict processing of certain subsets of that data subject’s Personal Data, you should use the [Braze APIs]({{site.baseurl}}/api/home/) to export that end user’s entire profile(s) and then [delete]({{site.baseurl}}/api/endpoints/user_data/post_user_delete) it from Braze. Braze’s APIs can be used to re-import this data in the event that the end user subsequently allows you to process those particular subsets of its Personal Data. In addition, you should recommend that your end user uninstall or logout from any and all of your Applications that use the Braze SDK to stop collecting any additional data on the data subject.
 
 For Customers who only use BrazeAI Decisioning Studio™, you should no longer send data to Decisioning Studio. 
 
@@ -165,7 +165,7 @@ The right to data portability allows data subjects to obtain and reuse their Per
 
 ### Braze Recommendation
 
-Similar to the Right of Access, you may use the Braze [REST API]({{site.baseurl}}/api/endpoints/export/#user-export) to export an end user’s Personal Data and furnish it to the Data Subject pursuant to their request. In addition, speak to your account manager with the relevant customer_id(s) and/or email(s) to request a copy of any Personal Data held in BrazeAI Decisioning Studio. 
+Similar to the Right of Access, you may use the Braze [REST API]({{site.baseurl}}/api/endpoints/export) to export an end user’s Personal Data and furnish it to the Data Subject pursuant to their request. In addition, speak to your account manager with the relevant customer_id(s) and/or email(s) to request a copy of any Personal Data held in BrazeAI Decisioning Studio. 
 
 ## The Right to Object
 
@@ -177,7 +177,7 @@ Individuals may have the right to object to:
 
 ### Braze Recommendation
 
-Braze provides the ability to mark a User Profile as being unsubscribed from SMS, emails or push notifications via both our [REST APIs]({{site.baseurl}}/api/home/) and via the [iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/analytics/setting_custom_attributes/), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/analytics/setting_custom_attributes/), and [Web]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_custom_attributes/) SDKs. If you receive objections from Data Subjects to receiving such messages, you can use Braze’s APIs to unsubscribe those end users.
+Braze provides the ability to mark a User Profile as being unsubscribed from SMS, emails or push notifications via both our [REST APIs]({{site.baseurl}}/api/home/) and via the [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=android), and [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=web) SDKs. If you receive objections from Data Subjects to receiving such messages, you can use Braze’s APIs to unsubscribe those end users.
 
 If that is not sufficient, to avoid processing of end user Personal Data by Braze, the end user profile should be deleted in the same manner as specified under the ‘Right to Erasure’.
 
@@ -198,7 +198,7 @@ Under some US state privacy laws, data subjects may object to the use of their P
 
 When building audiences for the purposes of targeting ads to your data subjects, you should ensure that you have excluded any data subjects who have objected to targeted advertising, for instance, California consumers who have exercised their “Do Not Sell or Share” right under the CCPA.
 
-For more information on how to build audiences to sync with third-party platforms, refer to [Audience sync]({{site.baseurl}}/partners/canvas_steps).
+For more information on how to build audiences to sync with third-party platforms, refer to [Audience sync]({{site.baseurl}}/partners/canvas_audience_sync).
 
 ## The Right to Non-Discrimination 
 

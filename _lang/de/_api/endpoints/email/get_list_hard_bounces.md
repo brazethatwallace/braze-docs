@@ -20,7 +20,7 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts zum Abfr
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `email.hard_bounces`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `email.hard_bounces`.
 
 ## Rate-Limit
 
@@ -30,12 +30,12 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | ----------|-----------| ----------|----- |
-| `start_date` | Optional* | String im Format JJJJ-MM-TT | *Entweder `start_date` oder `email` ist erforderlich. Dies ist das Startdatum des Bereichs zum Abrufen von Hard Bounces und muss vor `end_date` liegen. Dies wird von der API als Mitternacht in UTC-Zeit behandelt. |
-| `end_date` | Erforderlich | String im Format JJJJ-MM-TT | Enddatum des Bereichs zum Abrufen von Hard Bounces. Dies wird von der API als Mitternacht in UTC-Zeit behandelt. |
+| `start_date` | Optional* | String im Format JJJJ-MM-TT | *Entweder `start_date` oder `email` ist erforderlich. Dies ist das Startdatum des Bereichs zum Abrufen von Hard Bounces und muss vor `end_date` liegen. Dieser Wert wird von der API als Mitternacht in UTC-Zeit behandelt. |
+| `end_date` | Erforderlich | String im Format JJJJ-MM-TT | Enddatum des Bereichs zum Abrufen von Hard Bounces. Dieser Wert wird von der API als Mitternacht in UTC-Zeit behandelt. |
 | `limit` | Optional | Integer | Optionales Feld zur Begrenzung der Anzahl der zurückgegebenen Ergebnisse. Standardmäßig 100, maximal 500. |
 | `offset` | Optional | Integer | Optionaler Anfangspunkt in der Liste, ab dem abgerufen werden soll. |
 | `email` | Optional* | String | *Entweder `start_date` oder `email` ist erforderlich. Falls angegeben, wird zurückgegeben, ob die Nutzer:in einen Hard Bounce hatte oder nicht. Überprüfen Sie, ob die E-Mail-Strings korrekt formatiert sind. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 {% alert important %}
 Sie müssen ein `end_date` und entweder eine `email` oder ein `start_date` angeben. Wenn Sie alle drei angeben – `start_date`, `end_date` und `email` – werden die angegebenen E-Mails priorisiert und der Datumsbereich ignoriert.

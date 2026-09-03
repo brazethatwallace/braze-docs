@@ -23,9 +23,9 @@ Templates, die mit dem Drag-and-Drop-Editor für E-Mails erstellt wurden, werden
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#e98d2d5b-62fe-4358-b391-9fe9e460d0ac {% endapiref %}
 
 ## Voraussetzungen {#prerequisites}
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/api_key/) mit der Berechtigung `templates.email.info`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/api_key) mit der Berechtigung `templates.email.info`.
 
-## Rate-Limits {#rate-limit}
+## Rate-Limit
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
@@ -33,7 +33,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
-| `email_template_id` | Erforderlich | String | Siehe [E-Mail-Template-API-Bezeichner]({{site.baseurl}}/api/identifier_types/). |
+| `email_template_id` | Erforderlich | String | Siehe [E-Mail-Template-API-Bezeichner]({{site.baseurl}}/api/identifier_types). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 ## Beispielanfrage {#example-request}

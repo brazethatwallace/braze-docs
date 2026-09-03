@@ -23,7 +23,7 @@ L'intégration de Braze et Lexer vous permet de synchroniser les données entre 
 | ----------- | ----------- |
 | Compte partenaire | Un compte Lexer est nécessaire pour bénéficier de ce partenariat. |
 | Clé API REST Braze | Une clé API REST Braze avec toutes les autorisations `user` (à l'exception de `user.delete`) et les autorisations `segment.list`. Le jeu d'autorisations peut changer au fur et à mesure que Lexer ajoute la prise en charge de nouveaux objets Braze, de sorte que vous pouvez soit accorder davantage d'autorisations dès maintenant, soit prévoir de les mettre à jour ultérieurement.<br><br> Celle-ci peut être créée dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. |
-| Endpoint REST Braze | Votre [URL d'endpoint REST]({{site.baseurl}}/api/basics/#endpoints). Votre endpoint dépendra de l'URL de Braze pour votre instance. |
+| Endpoint REST Braze | Votre [URL d'endpoint REST]({{site.baseurl}}/api/basics#endpoints). Votre endpoint dépendra de l'URL de Braze pour votre instance. |
 | Compartiment Amazon AWS S3 et identifiants | Avant de commencer l'intégration, vous devez disposer des identifiants d'accès à un compartiment AWS S3 connecté à votre hub Lexer (il peut s'agir d'un compartiment que vous créez ou d'un compartiment que Lexer crée et gère pour vous). Consultez [Lexer](https://learn.lexer.io/docs/amazon-s3) pour obtenir des conseils sur cette exigence. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
@@ -35,14 +35,14 @@ Dans Lexer, accédez à **Manage > Integration**, sélectionnez la tuile **Braze
 - **AWS Credentials**
   - **AWS S3 bucket name**
   - **AWS S3 [bucket region](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingBucket.html)**
-  - **AWS S3 bucket path** : ce chemin doit correspondre à celui que vous avez spécifié lors de la [connexion de votre compartiment S3 à Braze]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3/). Ce champ doit être vide si vous n'avez rien spécifié à Braze.
+  - **AWS S3 bucket path** : ce chemin doit correspondre à celui que vous avez spécifié lors de la [connexion de votre compartiment S3 à Braze]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3). Ce champ doit être vide si vous n'avez rien spécifié à Braze.
   - **AWS S3 secret access key** : consultez Amazon pour obtenir des informations sur la [création d'une clé d'accès](https://aws.amazon.com/premiumsupport/knowledge-center/create-access-key/).
-- **Braze export segment ID** : l'ID du segment que vous avez créé dans Braze et qui contient tous les utilisateurs que vous souhaitez exporter vers Lexer. S'il y a des utilisateurs que vous ne voulez pas exporter vers Lexer, vous pouvez les exclure du segment que vous avez créé dans Braze. Pour trouver votre identifiant de segment, cliquez sur le segment de votre choix dans Braze et localisez l'**Identifiant API de segment**.
+- **Braze export segment ID** : l'ID du segment que vous avez créé dans Braze et qui contient tous les utilisateurs que vous souhaitez exporter vers Lexer. S'il y a des utilisateurs que vous ne voulez pas exporter vers Lexer, vous pouvez les exclure du segment que vous avez créé dans Braze. Pour trouver votre identifiant de segment, cliquez sur le segment de votre choix dans Braze et localisez le **Segment API Identifier**.
 
-![]({% image_buster /assets/img/lexer/braze_integrate_screen.png %})
+![Écran de gestion des intégrations Lexer affichant les champs d'intégration Braze pour l'URL de l'API, la clé API, les détails du compartiment AWS S3 et l'ID du segment d'exportation Braze.]({% image_buster /assets/img/lexer/braze_integrate_screen.png %})
 
 ### Choix d'une option AWS S3 (gérée par Lexer ou autogérée) {#choosing-an-aws-s3-option-lexer-managed-or-self-managed}
-L'utilisation d'un compartiment géré par Lexer est le moyen privilégié de connecter Braze à votre hub Lexer et réduira le nombre de configurations nécessaires. Lexer vous fournira les détails ponctuels dont vous aurez besoin pour configurer Braze.
+L'utilisation d'un compartiment géré par Lexer est le moyen privilégié de connecter Braze à votre hub Lexer et réduit le nombre de configurations nécessaires. Lexer vous fournit les détails ponctuels dont vous avez besoin pour configurer Braze.
 
 Si vous avez déjà connecté un compartiment S3 à Braze et que vous l'utilisez à d'autres fins, vous devrez à la place fournir à Lexer un accès à ce compartiment autogéré en suivant les étapes précédentes.
 
@@ -58,11 +58,11 @@ Lexer Activate mettra automatiquement à jour vos profils Braze, en ajoutant ou 
 2. Sélectionnez l'activation Braze appropriée pour cette campagne.
 3. Ajoutez votre segment.
 4. Mettez à jour le nom de votre audience ; il deviendra votre valeur d'attribut dans Braze.
-5. Il s'agit de l'attribut personnalisé que nous allons mettre à jour dans Braze. Contactez le [service d'assistance de Lexer](support@lexer.io) pour le mettre à jour.
+5. Il s'agit de l'attribut personnalisé que nous allons mettre à jour dans Braze. Contactez le [service d'assistance de Lexer](mailto:support@lexer.io) pour le mettre à jour.
 6. Cochez l'action de liste appropriée — dans la plupart des cas, vous voudrez maintenir votre liste.
 7. Passez en revue les conditions générales et cliquez sur **SEND AUDIENCE**.
 
-![]({% image_buster /assets/img/lexer/lexer.png %})
+![Flux de travail Lexer Activate montrant la sélection du canal d'activation, la création de l'audience et les détails de l'activation avant l'envoi d'une audience à Braze.]({% image_buster /assets/img/lexer/lexer.png %})
 
 ### Étape 2 : Vérifier l'activation {#step-2-verify-activation}
 

@@ -24,7 +24,7 @@ layout: bare
   {% unless hide_url or page.layout == 'redirect' or page.layout == 'blank_config' or page.noindex == true or page.config_only == true %}
   {%- assign sitemap_key = page.relative_path | remove_first: cd -%}
   <url>
-    <loc>{{site.homeurl}}{{site.baseurl}}{{ page.url }}</loc>
+    <loc>{{site.homeurl}}{{site.baseurl}}{{ page.url | public_doc_path }}</loc>
     {%- if lang_sitemap and lang_sitemap[sitemap_key] %}
     <lastmod>{{ lang_sitemap[sitemap_key] }}</lastmod>
     {%- elsif en_sitemap and en_sitemap[sitemap_key] %}

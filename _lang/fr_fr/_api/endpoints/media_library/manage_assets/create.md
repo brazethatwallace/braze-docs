@@ -15,15 +15,35 @@ description: "Cet article fournit des informations détaillées sur l'endpoint `
 /media_library/create
 {% endapimethod %}
 
-> Utilisez cet endpoint pour ajouter une ressource à la [bibliothèque multimédia de Braze](https://www.braze.com/docs/user_guide/engagement_tools/templates_and_media/media_library) à l'aide d'une URL hébergée en externe (`asset_url`) ou de données de fichier binaire envoyées dans le corps de la requête (`asset_file`). Cet endpoint prend en charge les images et les fichiers ZIP contenant des images.
+> Utilisez cet endpoint pour ajouter une ressource à la [bibliothèque multimédia de Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) à l'aide d'une URL hébergée en externe (`asset_url`) ou de données de fichier binaire envoyées dans le corps de la requête (`asset_file`). Cet endpoint prend en charge les images, les documents et les fichiers ZIP qui les contiennent. Pour la liste complète, consultez [Types de fichiers pris en charge](#supported-file-types).
+
+## Types de fichiers pris en charge {#supported-file-types}
+
+Cet endpoint accepte les types de fichiers suivants, que vous les téléchargiez via `asset_url` ou `asset_file`.
+
+| Type de ressource | Types de fichiers pris en charge | Taille maximale |
+| --- | --- | --- |
+| Image | GIF, ICO, JPEG, JPG, PNG, WebP | 5&nbsp;Mo |
+| Image vectorielle | SVG | 5&nbsp;Mo |
+| Document | DOC, DOCX, PDF, PPT, PPTX, XLS, XLSX | 5&nbsp;Mo |
+| Archive | ZIP | 50&nbsp;Mo au total, 5&nbsp;Mo par fichier dans le ZIP |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 style="table-layout: fixed; width: 100%;" aria-label="Types de fichiers pris en charge" }
+
+Si vous téléchargez un type de fichier qui n'est pas répertorié ici, l'endpoint renvoie une erreur `UNSUPPORTED_FILE_TYPE`.
+
+Pour les fichiers ZIP, chaque fichier à l'intérieur de l'archive doit également être l'un des types de fichiers pris en charge répertoriés ici, et tous les fichiers doivent se trouver à la racine du fichier ZIP (pas de sous-répertoires). Tout fichier non pris en charge est ignoré et renvoyé dans le tableau `errors` de la réponse, et le reste de l'archive est tout de même téléchargé.
+
+{% alert note %}
+Les fichiers de contact virtuels (.vcf) et les fichiers vidéo peuvent être téléchargés dans la bibliothèque multimédia, mais uniquement via l'interface du tableau de bord (**Content** > **Media Library**), et non via cet endpoint API.
+{% endalert %}
 
 {% alert tip %}
-Vous pouvez également appeler cet endpoint via le [serveur MCP de Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server/) en utilisant la fonction [`create_media_library_asset`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#media-library). Cela permet à des outils d'intelligence artificielle comme Claude et Cursor de télécharger des ressources dans votre bibliothèque multimédia via des instructions en langage naturel.
+Vous pouvez également appeler cet endpoint via le [serveur MCP de Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server) en utilisant la fonction [`create_media_library_asset`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#media-library). Cela permet à des outils d'IA comme Claude et Cursor de télécharger des ressources dans votre bibliothèque multimédia via des instructions en langage naturel.
 {% endalert %}
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `media_library.create`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `media_library.create`.
 
 ## Limite de débit {#rate-limit}
 
@@ -58,7 +78,7 @@ Le corps de la requête comprend les paramètres suivants :
 | `asset_url` | Facultatif | Chaîne de caractères | Une URL accessible au public pour la ressource à télécharger dans Braze. |
 | `asset_file` | Facultatif | Binaire | Données de fichier binaire. |
 | `name` | Facultatif | Chaîne de caractères | Un nom qui apparaîtra dans la bibliothèque multimédia pour cette ressource. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request body" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Corps de la requête" }
 
 {% alert important %}
 `asset_url` et `asset_file` sont mutuellement exclusifs : vous devez n'inclure qu'un seul d'entre eux dans votre requête API.
@@ -74,7 +94,7 @@ Cette section explique comment l'endpoint attribue des noms aux fichiers téléc
 | --- | --- |
 | `name` fourni | La valeur `name` est utilisée comme nom de la ressource dans la bibliothèque multimédia. |
 | `name` exclu | Le nom de fichier original provenant de l'URL ou du fichier téléchargé est utilisé. |
-{: .reset-td-br-1 .reset-td-br-2 style="table-layout: fixed; width: 100%;" aria-label="Single file uploads" }
+{: .reset-td-br-1 .reset-td-br-2 style="table-layout: fixed; width: 100%;" aria-label="Téléchargements de fichiers individuels" }
 
 #### Téléchargements de fichiers ZIP {#zip-file-uploads}
 
@@ -82,7 +102,7 @@ Cette section explique comment l'endpoint attribue des noms aux fichiers téléc
 | --- | --- |
 | `name` fourni | La valeur `name` est utilisée comme préfixe, avec un numéro incrémentiel ajouté comme suffixe (par exemple, « Mon fichier 1 », « Mon fichier 2 », « Mon fichier 3 »). |
 | `name` exclu | Chaque fichier conserve son nom d'origine tel qu'il figurait dans le fichier ZIP. |
-{: .reset-td-br-1 .reset-td-br-2 style="table-layout: fixed; width: 100%;" aria-label="ZIP file uploads" }
+{: .reset-td-br-1 .reset-td-br-2 style="table-layout: fixed; width: 100%;" aria-label="Téléchargements de fichiers ZIP" }
 
 ## Exemple de requête {#example-request}
 
@@ -127,7 +147,7 @@ Ce tableau répertorie les erreurs de validation possibles.
 | 400 | "Either asset_url or asset_file must be provided." | Aucun paramètre de ressource n'a été fourni dans la requête. |
 | 400 | "Both asset_url and asset_file cannot be provided. Please provide only one." | Les deux paramètres de ressource ont été fournis ; un seul est autorisé. |
 | 403 | "Media Library Public APIs are not enabled for this company." | La fonctionnalité de bibliothèque multimédia n'est pas activée pour cet espace de travail. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Validation errors" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Erreurs de validation" }
 
 #### Erreurs de traitement {#processing-errors}
 
@@ -145,17 +165,17 @@ Ce tableau répertorie les erreurs de traitement possibles.
 
 | Code d'erreur | Statut HTTP | Description |
 | --- | --- | --- |
-| `UNSUPPORTED_FILE_TYPE` | 400 | Le type de fichier téléchargé n'est pas pris en charge. L'objet `meta` contient le `file_type` qui a été rejeté. |
-| `ASSET_SIZE_EXCEEDS_LIMIT` | 400 | Le fichier dépasse la taille maximale autorisée. Les images sont limitées à 5 Mo. |
-| `MEDIA_LIBRARY_LIMIT_REACHED` | 400 | L'espace de travail a atteint son nombre maximal de ressources (200 par défaut pour les entreprises en période d'essai gratuit, illimité dans les autres cas). L'objet `meta` inclut la `limit` actuelle. |
+| `UNSUPPORTED_FILE_TYPE` | 400 | Le type de fichier téléchargé n'est pas pris en charge. Consultez [Types de fichiers pris en charge](#supported-file-types). L'objet `meta` contient le `file_type` qui a été rejeté. |
+| `ASSET_SIZE_EXCEEDS_LIMIT` | 400 | Le fichier dépasse la taille maximale autorisée de 5&nbsp;Mo. |
+| `MEDIA_LIBRARY_LIMIT_REACHED` | 400 | L'espace de travail a atteint son nombre maximal de ressources (200 par défaut pour les entreprises en essai gratuit, illimité dans les autres cas). L'objet `meta` inclut la `limit` actuelle. |
 | `ASSET_UPLOAD_FAILED` | 400 | Le téléchargement de la ressource a échoué en raison de problèmes de traitement. |
 | `INVALID_ASSET_URL` | 400 | La valeur `asset_url` n'est pas un URI valide. L'objet `meta` contient `asset_url`. |
 | `ZIP_UPLOAD_ERROR` | 400 | Le fichier ZIP est endommagé ou n'a pas pu être ouvert. L'objet `meta` contient le message `original_error`. |
-| `ZIP_FILE_TOO_LARGE` | 400 | La taille totale non compressée du fichier ZIP dépasse la limite de 5 Mo. L'objet `meta` comprend le `zip_file_name` et le `zip_file_size`. |
+| `ZIP_FILE_TOO_LARGE` | 400 | La taille totale non compressée du fichier ZIP dépasse la limite de 50&nbsp;Mo. L'objet `meta` comprend le `zip_file_name` et le `zip_file_size`. |
 | `ZIPPED_ENTITY_HAS_NO_NAME` | 400 | Une entrée de fichier à l'intérieur du ZIP n'a pas de nom. Assurez-vous que le fichier ZIP n'est pas endommagé et attribuez un nom à toute entrée de fichier sans nom. |
 | `ZIPPED_ENTITY_CANNOT_HAVE_NESTED_DIRECTORY` | 400 | Le fichier ZIP contient des répertoires imbriqués, qui ne sont pas pris en charge. Tous les fichiers doivent se trouver à la racine du fichier ZIP. |
-| `GENERIC_ERROR` | 500 | Une erreur imprévue s'est produite lors du téléchargement. L'objet `meta` contient le message `original_error` pour le débogage. Réessayez ou contactez l'[assistance]({{site.baseurl}}/support_contact/). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Processing errors" }
+| `GENERIC_ERROR` | 500 | Une erreur imprévue s'est produite lors du téléchargement. L'objet `meta` contient le message `original_error` pour le débogage. Réessayez ou contactez l'[assistance]({{site.baseurl}}/support_contact). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Erreurs de traitement" }
 
 
 ## Réponse {#response}

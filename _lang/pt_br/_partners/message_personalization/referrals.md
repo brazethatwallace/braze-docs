@@ -1,23 +1,30 @@
 ---
-nav_title: Indicações
-article_title: Indicações
+nav_title: "Indicações"
+article_title: "Indicações"
 page_order: 5
 page_type: landing
-description: "Esta página lista os parceiros da Braze (Alloys) que oferecem integrações de marketing de indicação."
-layout: partner_page
+description: "Explore as integrações com parceiros de tecnologia para indicações."
+layout: dev_guide
 search_tag: Partner
 
-partner_top_header: "Parceiros de indicação"
+guide_top_header: "Indicações"
+guide_top_text: "Explore as integrações com parceiros de tecnologia para indicações. Para uma lista completa e filtrável de todos os parceiros de tecnologia da Braze, acesse o <a href='https://marketplace.braze.com/t/type/technology-partner'>Braze Marketplace</a>."
 
-valid_partner_list:
-- name: Extole
-  url: /docs/partners/extole/
-- name: Friendbuy
-  url: /docs/partners/friendbuy/
-- name: Mention Me
-  url: /docs/partners/mention_me/
-- name: Talkable
-  url: /docs/partners/talkable/
-- name: ViralSweep
-  url: /docs/partners/viralsweep/
+guide_featured_title: "Parceiros"
+guide_featured_list:
+  - name: "Extole"
+    link: /docs/partners/message_personalization/referrals/extole
+    image: /assets/img/braze_icons/zap.svg
+  - name: "Friendbuy"
+    link: /docs/partners/message_personalization/referrals/friendbuy
+    image: /assets/img/braze_icons/layers-three-01.svg
+  - name: "Mention Me"
+    link: /docs/partners/message_personalization/referrals/mention_me
+    image: /assets/img/braze_icons/bar-chart-01.svg
+  - name: "Talkable"
+    link: /docs/partners/message_personalization/referrals/talkable
+    image: /assets/img/braze_icons/dataflow-01.svg
+  - name: "ViralSweep"
+    link: /docs/partners/message_personalization/referrals/viralsweep
+    image: /assets/img/braze_icons/users-01.svg
 ---

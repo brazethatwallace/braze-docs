@@ -23,10 +23,20 @@ The Braze Audience Sync to Google integration is supported for Google Ads, not G
 
 Google Ads no longer generates similar audiences, also known as "lookalike audiences," for targeting and reporting. Refer to [Google Ads documentation](https://support.google.com/google-ads/answer/12463119?) to learn more.
 
+## Google Data Manager API
+
+{% alert important %}
+Google Data Manager API support for Audience Sync to Google is in early access. Contact your Braze account manager for eligibility and rollout timing.
+{% endalert %}
+
+Google is consolidating advertising integrations to the Data Manager API. In early access, Braze Audience Sync to Google can use this API to support ongoing Google advertising API changes.
+
+For new and reconnected Google Audience Sync connections, Braze requests the required Data Manager scope automatically. Existing connections continue syncing through the legacy path until they reconnect.
+
+Continue following this guide for account connection, audience setup, and syncing behavior.
+
 **Common use cases for syncing Custom Audiences include:**
-- Targeting high-value users via multiple channels to drive purchases or engagement.
-- Retargeting users who are less responsive to other marketing channels.
-- Creating suppression audiences to prevent users from receiving advertisements when they're already loyal consumers of your brand.
+{% multi_lang_include partners/canvas_audience_sync/common_use_cases.md %}
 
 {% alert note %}
 This feature lets brands control what specific first-party data is shared with Google. At Braze, the integrations with which you can and cannot share your first-party data are given the utmost consideration. Learn more about our [Braze data privacy policy](https://www.braze.com/privacy).
@@ -217,6 +227,19 @@ It can take anywhere between 6 to 12 hours for an audience to be synced into Goo
 ### I've synced an audience, so why is the audience size in Google zero?
 
 For privacy purposes, the user list size will show zero until the list has at least 1,000 members. After that, the size will be rounded to the two most significant digits.
+
+### Why is my matched audience size in Google lower than the number of users synced from Braze?
+
+Although Braze may sync a certain number of users to Google, the actual matched audience size you see in Google Ads may be significantly lower. This is because Google needs to match the user data you provide (such as email addresses or phone numbers) against actual Google accounts on their platform.
+
+Even if your Braze user profiles contain valid matching fields, users only appear in your Google Custom Audience if they have a Google account with matching information.
+
+To improve your match rate:
+- Confirm you're [formatting your data correctly](https://support.google.com/google-ads/answer/7659867).
+- Provide multiple identifiers when possible (for example, both email and phone number).
+- Note that it can take 48 to 72 hours for Google to process and match users, though in some cases it could take several days.
+
+The final matched audience size depends entirely on Google's matching process. Braze doesn't have visibility into Google's matching once the data has passed to their platform.
 
 ### I've synced an audience into Google, but my ads are not serving.
 

@@ -47,7 +47,7 @@ USAGE:
 
 OPTIONS:
   deploy         Create the deploy body text for weekly deployments
-  release        Generate deploy-PR list from last v.* tag through today (gh + git); optional args
+  release        (Deprecated) Generate deploy-PR list; use scripts/generate_releases_deploy.py
   tlinks         Transform reference links to inline links on 1 or more pages
   rlinks         Remove unused reference links on 1 or more pages
   ulinks         Update old links using newest redirect on 1 or more pages
@@ -187,56 +187,33 @@ case $1 in
         ;;
     release)
         require_gh
-        # Latest v.* tag (same anchor as auto date window in generate_releases_deploy.py)
-        git fetch origin main --tags --quiet 2>/dev/null || git fetch origin --tags --quiet 2>/dev/null || true
+        echo "Note: ./bdocs release is deprecated. Prefer: python3 scripts/generate_releases_deploy.py" >&2
         case $# in
             1)
-                python3 "$GEN_RELEASE_DEPLOY" \
-                    --git-repo-root "$PROJECT_ROOT" \
-                    --auto-from-last-release-tag
+                python3 "$GEN_RELEASE_DEPLOY"
                 ;;
             2)
-                OUT="$2"
-                if [[ "$OUT" != /* ]]; then
-                    OUT="$PROJECT_ROOT/$OUT"
-                fi
-                python3 "$GEN_RELEASE_DEPLOY" \
-                    --git-repo-root "$PROJECT_ROOT" \
-                    --auto-from-last-release-tag \
-                    --output "$OUT"
+                python3 "$GEN_RELEASE_DEPLOY" "$2"
                 ;;
             4|5)
-                START_DATE="$2"
-                END_DATE="$3"
-                MONTH_TITLE="$4"
                 if [[ $# -eq 5 ]]; then
-                    OUTPUT="$5"
-                    if [[ "$OUTPUT" != /* ]]; then
-                        OUTPUT="$PROJECT_ROOT/$OUTPUT"
-                    fi
+                    python3 "$GEN_RELEASE_DEPLOY" "$2" "$3" "$4" "$5"
                 else
-                    OUTPUT="$PROJECT_ROOT/scripts/temp/releases_deploy_${START_DATE}_to_${END_DATE}.md"
+                    python3 "$GEN_RELEASE_DEPLOY" "$2" "$3" "$4"
                 fi
-                python3 "$GEN_RELEASE_DEPLOY" \
-                    --git-repo-root "$PROJECT_ROOT" \
-                    --merged-search "${START_DATE}..${END_DATE}" \
-                    --window-start "${START_DATE}T00:00:00Z" \
-                    --window-end "${END_DATE}T23:59:59Z" \
-                    --month-title "$MONTH_TITLE" \
-                    --output "$OUTPUT"
                 ;;
             *)
                 echo "Usage:"
-                echo "  ./bdocs release"
+                echo "  python3 scripts/generate_releases_deploy.py"
                 echo "      Lists merged 'deploy' PRs from the day after the latest v.* tag through today (UTC)."
-                echo "      Default output: scripts/temp/releases_deploy_<start>_to_<end>.md"
                 echo ""
-                echo "  ./bdocs release <output.md>"
+                echo "  python3 scripts/generate_releases_deploy.py <output.md>"
                 echo "      Same window, write to the given path (relative paths are under the repo root)."
                 echo ""
-                echo "  ./bdocs release <start-date> <end-date> <month-title> [output.md]"
+                echo "  python3 scripts/generate_releases_deploy.py <start-date> <end-date> <month-title> [output.md]"
                 echo "      Explicit YYYY-MM-DD range (optional output path)."
                 echo ""
+                echo "Deprecated wrapper: ./bdocs release [same arguments as above]"
                 echo "Filtering and format: scripts/generate_releases_deploy.py"
                 exit 1
                 ;;
@@ -253,10 +230,17 @@ case $1 in
         ;;
     ulinks)
         require_git_fetch
-        require_path_or_file "$2"
+        shift
+        if [[ $# -eq 0 ]]; then
+            echo "Error: A file or directory path is required."
+            exit 1
+        fi
         touch "$REDIRECT_MATCHES"
         "$MRD"
-        logger "$ULINKS" "$2"
+        for target in "$@"; do
+            require_path_or_file "$target"
+            logger "$ULINKS" "$target" || exit $?
+        done
 
         # rm "$REDIRECT_MATCHES"
         ;;

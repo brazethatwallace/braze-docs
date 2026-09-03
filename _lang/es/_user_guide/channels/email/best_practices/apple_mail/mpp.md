@@ -8,17 +8,17 @@ channel:
 
 ---
 
-# Protección de la privacidad del correo de Apple
+# Protección de la privacidad del correo de Apple {#apples-mail-privacy-protection}
 
 > Este artículo cubre la protección de la privacidad en los correos electrónicos (MPP) de Apple, a quién afecta y cómo prepararse para su impacto en las métricas de capacidad de entrega de correo electrónico.
 
-## ¿Qué es la actualización de la protección de la privacidad en los correos electrónicos de Apple?
+## ¿Qué es la actualización de la protección de la privacidad en los correos electrónicos de Apple? {#what-is-apples-mail-privacy-protection-update}
 
-La protección de la privacidad en los correos electrónicos (MPP) de Apple es una actualización de privacidad disponible para los usuarios de la aplicación Apple Mail en iOS 15, iPadOS 15, macOS Monterey y watchOS 8, lanzada a mediados de septiembre de 2021. Para los usuarios que opten por la adhesión voluntaria a MPP (lo cual predecimos que la mayoría de los usuarios hará), los correos electrónicos se precargarán utilizando servidores proxy, almacenando imágenes en caché y dificultando la capacidad de aprovechar los píxeles de seguimiento para métricas como el [seguimiento de aperturas]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#changing-location-of-tracking-pixel).
+La protección de la privacidad en los correos electrónicos (MPP) de Apple es una actualización de privacidad disponible para los usuarios de la aplicación Apple Mail en iOS 15, iPadOS 15, macOS Monterey y watchOS 8, lanzada a mediados de septiembre de 2021. Para los usuarios que opten por la adhesión voluntaria a MPP (lo cual predecimos que la mayoría de los usuarios hará), los correos electrónicos se precargarán utilizando servidores proxy, almacenando imágenes en caché y dificultando la capacidad de aprovechar los píxeles de seguimiento para métricas como el [seguimiento de aperturas]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#update-the-placement).
 
-Las marcas deben esperar que MPP genere problemas en las métricas de capacidad de entrega de correo electrónico y problemas con Campaigns y Canvas preexistentes que se desencadenan en función de estas métricas. Para comprender el impacto en la capacidad de entrega de correo electrónico, consulta [Informes de correo electrónico]({{site.baseurl}}/user_guide/channels/email/reporting/).
+Las marcas deben esperar que MPP genere problemas en las métricas de capacidad de entrega de correo electrónico y problemas con las Campaigns y los Canvas preexistentes que se desencadenan en función de estas métricas. Para comprender el impacto en la capacidad de entrega de correo electrónico, consulta [Informes de correo electrónico]({{site.baseurl}}/user_guide/channels/email/reporting).
 
-### ¿A quién afectará?
+### ¿A quién afectará? {#who-will-this-affect}
 
 A cualquier destinatario que utilice la aplicación nativa de Apple Mail en:
 
@@ -33,7 +33,7 @@ Esto aplica a todos los usuarios que hayan conectado su cuenta de correo a la ap
 Si bien estas actualizaciones en la capacidad de entrega de correo electrónico son significativas, MPP no cambia fundamentalmente ninguna de las reglas que rigen el correo electrónico y la capacidad de entrega. En cambio, afectará la forma en que medimos el éxito y qué herramientas y funcionalidades de correo electrónico se pueden utilizar en adelante.
 {% endalert %}
 
-## ¿Cómo prepararse para MPP?
+## ¿Cómo prepararse para MPP? {#how-to-prepare-for-mpp}
 
 El tiempo es esencial para las marcas que apenas están comenzando a pensar en cómo responder a MPP y su posible impacto en su marketing por correo electrónico y en sus esfuerzos generales de interacción con los clientes. Recomendamos a los usuarios hacer lo siguiente:
 

@@ -9,19 +9,19 @@ local_redirect:
   create-a-feature-flag: '/docs/user_guide/messaging/feature_flags/create_feature_flags'
 ---
 
-# Conmutador de características
+# Conmutador de características {#feature-flag}
 
-> Los conmutadores de características te permiten experimentar y confirmar tus hipótesis sobre nuevas características. Los especialistas en marketing pueden usar los conmutadores de características para segmentar tu audiencia en [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/) y hacer seguimiento del impacto del despliegue de características en las conversiones. Además, los [Recorridos de experimentos]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step#experiment-paths) te permiten optimizar estas conversiones probando diferentes mensajes o recorridos entre sí y determinando cuál es más efectivo. Usa el recorrido ganador a medida que despliegas progresivamente tu característica a una audiencia más amplia.
+> Los conmutadores de características te permiten experimentar y confirmar tus hipótesis sobre nuevas características. Los especialistas en marketing pueden usar los conmutadores de características para segmentar tu audiencia en [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) y hacer seguimiento del impacto del despliegue de características en las conversiones. Además, los [recorridos de experimentos]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) te permiten optimizar estas conversiones probando diferentes mensajes o recorridos entre sí y determinando cuál es más efectivo. Usa el recorrido ganador a medida que despliegas progresivamente tu característica a una audiencia más amplia.
 
-¿Buscas más información sobre los conmutadores de características y cómo se pueden usar en Braze? Consulta nuestros artículos dedicados sobre [conmutadores de características]({{site.baseurl}}/developer_guide/feature_flags/).
+¿Buscas más información sobre los conmutadores de características y cómo se pueden usar en Braze? Consulta nuestros artículos dedicados sobre [conmutadores de características]({{site.baseurl}}/developer_guide/feature_flags).
 
-## Crear un conmutador de características
+## Crear un conmutador de características {#creating-a-feature-flag}
 
 ![Un ejemplo de paso de conmutador de características para la característica de botón de chat en vivo.]({% image_buster /assets/img/feature_flags/feature_flag_canvas_step.png %}){: style="float:right;max-width:40%;margin-left:15px;"}
 
 Para crear un componente de conmutador de características, primero añade un paso a tu Canvas. Arrastra y suelta el componente desde la barra lateral, o haz clic en el botón <i class="fas fa-plus-circle"></i> de signo más en la parte inferior de un paso y selecciona **Feature Flag**. A continuación, selecciona el conmutador de características del menú desplegable, que contiene todos los conmutadores de características que no están archivados.
 
-## Cómo funciona este paso
+## Cómo funciona este paso {#how-this-step-works}
 
 Cuando un Canvas se detiene, se archiva o se elimina un paso de conmutador de características, los usuarios que pasaron por ese paso dejan de recibir el conmutador de características y sus propiedades de ese paso.
 
@@ -34,8 +34,8 @@ Si el conmutador de características tiene un despliegue, un experimento de conm
 
 Las propiedades en un paso en Canvas se pueden cambiar después del lanzamiento, e incluso después de que un usuario pase por el paso. Los usuarios siempre reciben una versión dinámica y en tiempo real del conmutador de características, en lugar de la versión anterior guardada previamente.
 
-- **Dos Canvas hacen referencia al mismo conmutador de características y un usuario entra en ambos:** El usuario recibe el valor establecido en el Canvas en el que entró más recientemente, no en el anterior. Ese valor aparece en la pestaña **Feature Flags Eligibility**.
-- **Un Canvas tiene dos pasos de conmutador de características que hacen referencia al mismo conmutador de características:** El usuario recibe el valor establecido en el segundo paso mientras se encuentra en ese recorrido, y ese valor aparece en la pestaña **Feature Flags Eligibility**.
+- **Dos Canvas hacen referencia al mismo conmutador de características y un usuario entra en ambos:** el usuario recibe el valor establecido en el Canvas en el que entró más recientemente, no en el anterior. Ese valor aparece en la pestaña **Feature Flags Eligibility**.
+- **Un Canvas tiene dos pasos de conmutador de características que hacen referencia al mismo conmutador de características:** el usuario recibe el valor establecido en el segundo paso mientras se encuentra en ese recorrido, y ese valor aparece en la pestaña **Feature Flags Eligibility**.
 
 {% multi_lang_include alerts/important_alerts.md alert='network dependency' %}
 
@@ -47,7 +47,7 @@ Al crear un conmutador de características, especificas propiedades predetermina
 
 Ve a **Mensajería** > **Feature Flags** para editar, añadir o eliminar propiedades adicionales.
 
-## Diferencias entre Canvas y despliegue
+## Diferencias entre Canvas y despliegue {#canvas-and-rollout-differences}
 
 Canvas y el despliegue de un conmutador de características (arrastrando el control deslizante) pueden funcionar de forma independiente entre sí. Una advertencia importante es que la entrada a un paso en Canvas sobrescribirá cualquier configuración de despliegue predeterminada. Esto significa que si un usuario no cumple los requisitos para un conmutador de características, un paso en Canvas puede habilitar la característica para ese usuario.
 

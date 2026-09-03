@@ -18,10 +18,10 @@ Le Générateur de tableaux de bord vous permet de composer et de visualiser des
 ## Créer un tableau de bord personnalisé {#creating-a-custom-dashboard}
 
 1. Accédez à **Analytics** > **Générateur de tableaux de bord**.
-2. Sélectionnez **Créer un tableau de bord**.
+2. Sélectionnez **Create Dashboard**.
 3. Sélectionnez la source de données qui alimentera vos rapports :
-- **Rapports** créés dans le Générateur de rapports
-- **Requêtes personnalisées** créées dans le Générateur de requêtes<br><br>![Fenêtre de sélection de la source de données pour votre tableau de bord.]({% image_buster /assets/img/select_data_source.png %})<br><br>
+- **Reports** créés dans le générateur de rapports
+- **Custom Queries** créées dans le générateur de requêtes<br><br>![Fenêtre de sélection de la source de données pour votre tableau de bord.]({% image_buster /assets/img/select_data_source.png %})<br><br>
 
 Suivez ensuite les étapes correspondant à votre source de données :
 
@@ -29,36 +29,36 @@ Suivez ensuite les étapes correspondant à votre source de données :
 {% tab Reports %}
 
 {: start="4"}
-4. Sélectionnez **+ Ajouter une tuile**, puis choisissez l'un des rapports que vous avez créés dans le [Générateur de rapports (Nouveau)]({{site.baseurl}}/user_guide/analytics/reports/report_builder/).
+4. Sélectionnez **+ Add Tile**, puis choisissez l'un des rapports que vous avez créés dans le [générateur de rapports (nouveau)]({{site.baseurl}}/user_guide/analytics/reports/report_builder).
 
 {% alert important %}
-Une fois qu'un rapport du Générateur de rapports est ajouté à une tuile du Générateur de tableaux de bord, la tuile n'est pas connectée au rapport d'origine. Si vous modifiez le rapport d'origine dans le Générateur de rapports, vous devez supprimer la tuile existante du tableau de bord et en créer une nouvelle en utilisant le rapport mis à jour comme source de données.
+Une fois qu'un rapport du générateur de rapports est ajouté à une tuile du générateur de tableaux de bord, la tuile n'est pas connectée au rapport d'origine. Si vous modifiez le rapport d'origine dans le générateur de rapports, vous devez supprimer la tuile existante du tableau de bord et en créer une nouvelle en utilisant le rapport mis à jour comme source de données.
 {% endalert %}
 
 {: start="5"}
-5. Sélectionnez l'icône de crayon pour modifier l'affichage du titre et du type de graphique dans la tuile.
-    - Vous pouvez basculer entre différents types de graphiques sous la visualisation par défaut. Les options actuelles incluent les graphiques à barres (horizontaux ou verticaux) et les graphiques linéaires (disponibles uniquement si vous avez sélectionné **Date** comme option de ventilation dans la configuration du Générateur de rapports).<br><br>![Boutons de basculement pour les différents types de graphiques.]({% image_buster /assets/img/report_builder_types.png %})<br><br>
-    - Utilisez le menu déroulant des indicateurs pour sélectionner les indicateurs à inclure dans votre visualisation. Par défaut, la première colonne du rapport sera l'indicateur affiché.
-6. Sélectionnez **Enregistrer** une fois que vous avez modifié la visualisation à votre convenance.
-7. Ajoutez un nom, une description et une étiquette pour retrouver plus facilement votre tableau de bord par la suite.
+5. Sélectionnez l'icône en forme de crayon pour modifier l'affichage du titre et du type de graphique dans la tuile.
+    - Vous pouvez basculer entre différents types de graphiques dans les contrôles de type de graphique. Les options actuelles incluent les graphiques à barres (horizontales ou verticales) et les graphiques linéaires (disponibles uniquement si vous avez sélectionné **Date** comme option de ventilation dans la configuration du générateur de rapports).<br><br>![Boutons pour basculer entre les différents types de graphiques.]({% image_buster /assets/img/report_builder_types.png %})<br><br>
+    - Utilisez le menu déroulant des indicateurs pour sélectionner les indicateurs à inclure dans votre visualisation. Par défaut, la première colonne du rapport sera l'indicateur affiché par défaut.
+6. Sélectionnez **Save** après avoir modifié la visualisation à votre convenance.
+7. Ajoutez un nom, une description et une étiquette pour retrouver votre tableau de bord plus facilement par la suite.
 {% endtab %}
 {% tab Custom Queries %}
 {: start="4"}
-4. Sélectionnez **+ Ajouter une tuile**, puis choisissez une requête que vous avez exécutée dans le Générateur de requêtes.
-5. Pour modifier l'affichage des résultats de la requête dans la tuile, sélectionnez l'icône de crayon pour changer le titre et le type de graphique.
-    - Vous pouvez basculer entre différents types de graphiques sous la visualisation par défaut. Les options actuelles incluent les tableaux, les graphiques à barres (horizontaux ou verticaux) et les graphiques linéaires.<br><br>![Boutons de basculement pour les différents types de graphiques.]({% image_buster /assets/img/query_builder_types.png %})<br><br>
-        - Si vous choisissez l'une des options de graphique, utilisez le menu déroulant **Axe X** pour sélectionner une seule colonne de vos résultats de requête à utiliser comme axe X.
-        - Utilisez le menu déroulant **Axe Y** pour sélectionner les indicateurs à inclure dans votre visualisation. Par défaut, toutes les colonnes de vos résultats de requête seront affichées ; désélectionnez celles que vous ne souhaitez pas visualiser.<br><br>![Boutons de basculement pour les différents types de graphiques.]({% image_buster /assets/img/query_builder_axis.png %})<br><br>
-        - (Facultatif) Vous pouvez utiliser le menu déroulant **Regroupement** pour regrouper les résultats de votre requête. Par exemple, si vous avez un ID de campagne comme colonne de résultat et que vous souhaitez additionner toutes les lignes ayant cette valeur, utilisez le menu déroulant **Regroupement**.
-        - (Facultatif) Pour modifier les données affichées, sélectionnez la requête associée au visuel et effectuez vos modifications dans le [Générateur de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder/).
-6. Sélectionnez **Enregistrer** une fois que vous avez modifié la visualisation à votre convenance.
-7. Ajoutez un nom, une description et une étiquette pour retrouver plus facilement votre tableau de bord par la suite.
+4. Sélectionnez **+ Add Tile**, puis choisissez une requête que vous avez exécutée dans le générateur de requêtes.
+5. Pour modifier l'affichage des résultats de la requête dans la tuile, sélectionnez l'icône en forme de crayon pour changer le titre et le type de graphique.
+    - Vous pouvez basculer entre différents types de graphiques dans les contrôles de type de graphique. Les options actuelles incluent les tableaux, les graphiques à barres (horizontales ou verticales) et les graphiques linéaires.<br><br>![Boutons pour basculer entre les différents types de graphiques.]({% image_buster /assets/img/query_builder_types.png %})<br><br>
+        - Si vous choisissez l'une des options de graphique, utilisez le menu déroulant **X-axis** pour sélectionner une seule colonne de vos résultats de requête à utiliser comme axe des abscisses.
+        - Utilisez le menu déroulant **Y-axis** pour sélectionner les indicateurs à inclure dans votre visualisation. Par défaut, toutes les colonnes de vos résultats de requête s'afficheront ; désélectionnez celles que vous ne souhaitez pas visualiser.<br><br>![Boutons pour basculer entre les différents types de graphiques.]({% image_buster /assets/img/query_builder_axis.png %})<br><br>
+        - (Facultatif) Vous pouvez utiliser le menu déroulant **Grouping** pour regrouper vos résultats de requête. Par exemple, si vous avez un identifiant de campagne comme colonne de résultat et que vous souhaitez additionner toutes les lignes ayant cette valeur, utilisez le menu déroulant **Grouping**.
+        - (Facultatif) Pour modifier les données affichées, sélectionnez la requête associée au visuel et effectuez vos modifications dans le [générateur de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder).
+6. Sélectionnez **Save** après avoir modifié la visualisation à votre convenance.
+7. Ajoutez un nom, une description et une étiquette pour retrouver votre tableau de bord plus facilement par la suite.
 {% endtab %}
 {% endtabs %}
 
 {: start="8"}
-8. Répétez les étapes 4 à 7 pour votre méthode respective jusqu'à obtenir le tableau de bord souhaité.
-9. Sélectionnez **Afficher le tableau de bord** > sélectionnez **Exécuter le tableau de bord**.
+8. Répétez les étapes 4 à 7 pour la méthode correspondante jusqu'à obtenir le tableau de bord souhaité.
+9. Sélectionnez **View Dashboard** > puis **Run Dashboard**.
 
 La génération des rapports de votre tableau de bord peut prendre quelques minutes.
 
@@ -66,73 +66,91 @@ La génération des rapports de votre tableau de bord peut prendre quelques minu
 Vous pouvez ajouter jusqu'à 10 tuiles à un tableau de bord.
 {% endalert %}
 
-## Gérer les tuiles du tableau de bord {#managing-dashboard-tiles}
+## Gestion des tuiles du tableau de bord {#managing-dashboard-tiles}
 
 ### Supprimer des tuiles {#delete-tiles}
 
-Supprimez une tuile du tableau de bord en sélectionnant **Supprimer la tuile** en bas de la tuile. **Cette action est irréversible.**
+Supprimez une tuile du tableau de bord en sélectionnant **Delete Tile** en bas de la tuile. **Cette action est irréversible.**
 
 ### Dupliquer des tuiles {#duplicate-tiles}
 
-Créez une copie de votre tuile en sélectionnant **Dupliquer la tuile** en bas de la tuile.
+Créez une copie de votre tuile en sélectionnant **Duplicate Tile** en bas de la tuile.
 
 ### Ajuster la taille et la position des tuiles {#adjust-tile-size-and-position}
 
-Ajustez la taille de la tuile en faisant glisser le coin inférieur droit de la tuile, et ajustez la position de la tuile sur le tableau de bord en faisant glisser la poignée située dans le coin supérieur droit de la tuile.
+Ajustez la taille de la tuile en faisant glisser la poignée de redimensionnement, et ajustez la position de la tuile sur le tableau de bord en faisant glisser la poignée de la tuile.
 
 ## Exécuter un tableau de bord {#running-a-dashboard}
 
-1. Accédez à **Analytics** > **Générateur de tableaux de bord**. La page d'accueil répertorie tous les tableaux de bord existants dans votre espace de travail, avec les tableaux de bord créés par Braze en haut de la liste. Ceux-ci sont identifiés par la mention « (Braze) » dans le titre.
+1. Rendez-vous dans **Analytics** > **Dashboard Builder**. La page d'accueil liste tous les tableaux de bord existants au sein de votre espace de travail, avec les tableaux de bord créés par Braze en haut. Ceux-ci sont identifiés par la mention « (Braze) » dans le titre.
 2. Sélectionnez le tableau de bord qui vous intéresse.
-3. Sélectionnez **Exécuter le tableau de bord** pour charger le tableau de bord correspondant.
+3. Sélectionnez **Run Dashboard** pour charger le tableau de bord correspondant.
 
 ### Tableaux de bord disponibles {#available-dashboards}
 
-Braze fournit des tableaux de bord préconfigurés pour les cas d'utilisation courants, comme l'analyse du chiffre d'affaires par attribution au dernier point de contact. Notez que la possibilité de modifier un tableau de bord n'est pas encore disponible. Contactez votre gestionnaire de la satisfaction client si vous souhaitez voir certains tableaux de bord à l'avenir.
+Braze fournit des tableaux de bord préconfigurés pour les cas d'usage les plus fréquents. Utilisez le tableau suivant comme référence unique pour les tableaux de bord actuellement documentés et leur chemin d'accès.
 
-#### Chiffre d'affaires - Attribution au dernier point de contact {#revenue-last-touch-attribution}
+| Tableau de bord | Chemin d'accès | Documentation |
+| --- | --- | --- |
+| Revenue - Last Touch Attribution | **Analytics** > **Dashboard Builder** | [Revenue - Last Touch Attribution](#revenue---last-touch-attribution) |
+| Devices and carriers | **Analytics** > **Dashboard Builder** | [Devices and carriers](#devices-and-carriers) |
+| Segment Insights - Email | **Analytics** > **Dashboard Builder** | [Segment Insights - Email](#segment-insights---email) |
+| Session Analytics | **Analytics** > **Dashboard Builder** | [Session Analytics](#session-analytics) |
+| eCommerce Revenue - Last Touch Attribution | **Analytics** > **Dashboard Builder** | [Tableau de bord des revenus eCommerce]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/ecommerce_revenue_dashboard) |
+| Messaging Diagnostics | **Analytics** > **Dashboard Builder** | [Tableau de bord de diagnostic des messages]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard) |
+| Industry Benchmarks | **Analytics** > **Dashboard Builder** | [Tableau de bord des benchmarks sectoriels]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/industry_benchmarks_dashboard) |
+| Email performance | **Analytics** > **Email Performance** | [Tableaux de bord de performance par canal]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#email-performance-dashboard) |
+| SMS performance | **Analytics** > **SMS Performance** | [Tableaux de bord de performance par canal]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#sms-performance-dashboard) |
+| Push performance | **Analytics** > **Dashboard Builder** > **Push Channel Dashboard** | [Tableaux de bord de performance par canal]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#push-performance-dashboard) |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tableaux de bord disponibles" }
 
-Le tableau de bord **Revenue - Last Touch Attribution** fournit une vue d'ensemble du chiffre d'affaires par campagne, Canvas et canal. Toutes les données de chiffre d'affaires sont attribuées au dernier message avec lequel l'utilisateur a interagi pendant la fenêtre d'attribution.
+{% alert note %}
+La possibilité de modifier les tableaux de bord créés par Braze n'est pas encore disponible. Contactez votre gestionnaire du succès des clients si vous souhaitez demander des tableaux de bord supplémentaires.
+{% endalert %}
 
-Les points de contact incluent le *clic sur un e-mail* (clic sur un lien), le *clic sur une carte de contenu*, le *clic sur un message in-app* (hors boutons de fermeture), les *ouvertures de notification push*, le *clic sur un lien court SMS*, la *lecture WhatsApp* et l'*envoi de webhook*.
+#### Revenue - Last Touch Attribution {#revenue---last-touch-attribution}
+
+Le tableau de bord **Revenue - Last Touch Attribution** fournit un aperçu du chiffre d'affaires à travers les campagnes, les Canvas et les canaux. Toutes les données de chiffre d'affaires sont attribuées au dernier message avec lequel l'utilisateur a interagi pendant la fenêtre d'attribution.
+
+Les interactions incluent _Email Click_ (clic sur un lien), _Content Card Click_, _In-App Message Click_ (à l'exclusion des boutons de fermeture), _Push Opens_, _SMS Short Link Click_, _WhatsApp Read_ et _Webhook Send_.
 
 | Indicateur | Définition |
 | --- | --- |
-| Chiffre d'affaires total au dernier point de contact | Somme de tous les événements de chiffre d'affaires des campagnes et Canvas ayant un événement de dernier point de contact dans la plage de dates et la fenêtre d'attribution sélectionnées. |
-| Total des conversions d'achat | Nombre de tous les événements de chiffre d'affaires des campagnes et Canvas ayant un événement de dernier point de contact qualifiant. |
-| Nombre moyen de jours avant conversion | Durée moyenne entre tous les événements d'achat des campagnes et Canvas ayant un événement de dernier point de contact qualifiant. |
-| Chiffre d'affaires par destinataire | Somme du chiffre d'affaires des événements de chiffre d'affaires qualifiés divisée par le nombre d'utilisateurs uniques ayant reçu un message dans la plage de dates. |
+| Chiffre d'affaires total (dernière interaction) | Somme de tous les événements de chiffre d'affaires des campagnes et Canvas ayant un événement de dernière interaction dans la plage de dates et la fenêtre d'attribution sélectionnées. |
+| Total des conversions d'achat | Nombre total d'événements de chiffre d'affaires des campagnes et Canvas ayant un événement de dernière interaction qualifié. |
+| Nombre moyen de jours avant conversion | Temps moyen entre tous les événements d'achat des campagnes et Canvas ayant un événement de dernière interaction qualifié. |
+| Chiffre d'affaires par destinataire | Somme du chiffre d'affaires des événements qualifiés divisée par le nombre d'utilisateurs uniques ayant reçu un message dans la plage de dates. |
 | Acheteurs uniques | Nombre d'utilisateurs uniques ayant un événement de chiffre d'affaires qualifié. |
-| Chiffre d'affaires par pays | Somme de tous les événements de chiffre d'affaires des campagnes et Canvas ayant un événement de dernier point de contact, regroupés par pays. |
-| Chiffre d'affaires par campagne | Somme de tous les événements de chiffre d'affaires des campagnes et Canvas ayant un événement de dernier point de contact qualifiant, regroupés par campagne. |
-| Chiffre d'affaires par variante de campagne | Somme de tous les événements de chiffre d'affaires des campagnes et Canvas ayant un événement de dernier point de contact qualifiant, regroupés par variante de campagne. |
-| Chiffre d'affaires par Canvas | Somme de tous les événements de chiffre d'affaires des campagnes et Canvas ayant un événement de dernier point de contact qualifiant, regroupés par Canvas. |
-| Chiffre d'affaires par variante du Canvas | Somme de tous les événements de chiffre d'affaires des campagnes et Canvas ayant un événement de dernier point de contact qualifiant, regroupés par variante du Canvas. |
-| Achats par produit | Nombre de tous les achats regroupés par produit. |
-| Chiffre d'affaires par canal | Somme de tous les événements de chiffre d'affaires des campagnes et Canvas ayant un événement de dernier point de contact qualifiant, regroupés par canal. |
-| Série temporelle du chiffre d'affaires | Somme de tous les événements de chiffre d'affaires des campagnes et Canvas ayant un événement de dernier point de contact qualifiant, regroupés par jour en UTC. |
+| Chiffre d'affaires par pays | Somme de tous les événements de chiffre d'affaires des campagnes et Canvas ayant un événement de dernière interaction, regroupés par pays. |
+| Chiffre d'affaires par campagne | Somme de tous les événements de chiffre d'affaires des campagnes et Canvas ayant un événement de dernière interaction qualifié, regroupés par campagne. |
+| Chiffre d'affaires par variante de campagne | Somme de tous les événements de chiffre d'affaires des campagnes et Canvas ayant un événement de dernière interaction qualifié, regroupés par variante de campagne. |
+| Chiffre d'affaires par Canvas | Somme de tous les événements de chiffre d'affaires des campagnes et Canvas ayant un événement de dernière interaction qualifié, regroupés par Canvas. |
+| Chiffre d'affaires par variante du Canvas | Somme de tous les événements de chiffre d'affaires des campagnes et Canvas ayant un événement de dernière interaction qualifié, regroupés par variante du Canvas. |
+| Achats par produit | Nombre total d'achats regroupés par produit. |
+| Chiffre d'affaires par canal | Somme de tous les événements de chiffre d'affaires des campagnes et Canvas ayant un événement de dernière interaction qualifié, regroupés par canal. |
+| Série temporelle du chiffre d'affaires | Somme de tous les événements de chiffre d'affaires des campagnes et Canvas ayant un événement de dernière interaction qualifié, regroupés par jour en UTC. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Revenue - Last Touch Attribution" }
 
-#### Appareils et opérateurs {#devices-and-carriers}
+#### Devices and carriers {#devices-and-carriers}
 
 | Indicateur | Définition |
 | --- | --- |
-| Opérateurs des appareils | Nombre d'utilisateurs dans la plage de dates sélectionnée ayant ouvert une notification push, regroupés par opérateur de l'appareil. |
+| Opérateurs d'appareils | Nombre d'utilisateurs dans la plage de dates sélectionnée ayant ouvert une notification push, regroupés par opérateur d'appareil. |
 | Modèle d'appareil | Nombre d'utilisateurs dans la plage de dates sélectionnée ayant ouvert une notification push, regroupés par modèle d'appareil. |
 | Système d'exploitation de l'appareil | Nombre d'utilisateurs dans la plage de dates sélectionnée ayant ouvert une notification push, regroupés par système d'exploitation de l'appareil. |
 | Taille d'écran de l'appareil | Nombre d'utilisateurs dans la plage de dates sélectionnée ayant ouvert une notification push, regroupés par résolution d'écran (taille) de l'appareil. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Devices and carriers" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Appareils et opérateurs" }
 
-#### Statistiques des segments - E-mail {#segment-insights-email}
+#### Segment Insights - Email {#segment-insights---email}
 
 | Indicateur | Définition |
 |---|---|
-| Indicateurs e-mail hebdomadaires (taux) | Taux d'engagement e-mail (taux de réception, de rebond, d'ouverture, de clic et de désabonnement) regroupés par segment et affichés sous forme de série temporelle hebdomadaire. |
-| Indicateurs e-mail hebdomadaires (nombres) | Nombres d'engagement e-mail (envois, réceptions, rebonds, ouvertures, clics, désabonnements) regroupés par segment et affichés sous forme de série temporelle hebdomadaire. |
-| Indicateurs d'achat hebdomadaires (taux) | Taux de conversion d'achat (chiffre d'affaires par destinataire) à partir des ouvertures et clics d'e-mails, regroupés par segment et affichés sous forme de série temporelle hebdomadaire. |
-| Indicateurs d'achat hebdomadaires (nombres) | Nombres d'achats et totaux de chiffre d'affaires à partir des ouvertures et clics d'e-mails, regroupés par segment et affichés sous forme de série temporelle hebdomadaire. |
-| Engagement e-mail par segment | Tableau récapitulatif montrant les indicateurs d'engagement e-mail totaux (envois, réceptions, rebonds, ouvertures, clics, désabonnements et leurs taux) agrégés par segment. |
-| Achats et chiffre d'affaires par segment | Tableau récapitulatif montrant les indicateurs d'achat totaux (achats, chiffre d'affaires et chiffre d'affaires par destinataire) à partir des ouvertures et clics d'e-mails, agrégés par segment. |
+| Indicateurs e-mail hebdomadaires (taux) | Taux d'engagement e-mail (distribution, rebonds, ouvertures, clics, taux de désabonnement) regroupés par Segment et affichés sous forme de série temporelle hebdomadaire. |
+| Indicateurs e-mail hebdomadaires (nombres) | Nombres d'engagement e-mail (envoyés, distribués, rebonds, ouvertures, clics, désabonnements) regroupés par Segment et affichés sous forme de série temporelle hebdomadaire. |
+| Indicateurs d'achat hebdomadaires (taux) | Taux de conversion d'achat (chiffre d'affaires par destinataire) à partir des ouvertures et clics e-mail, regroupés par Segment et affichés sous forme de série temporelle hebdomadaire. |
+| Indicateurs d'achat hebdomadaires (nombres) | Nombres d'achats et totaux de chiffre d'affaires à partir des ouvertures et clics e-mail, regroupés par Segment et affichés sous forme de série temporelle hebdomadaire. |
+| Engagement e-mail par Segment | Tableau récapitulatif affichant les indicateurs d'engagement e-mail totaux (envoyés, distribués, rebonds, ouvertures, clics, désabonnements, et leurs taux) agrégés par Segment. |
+| Achats et chiffre d'affaires par Segment | Tableau récapitulatif affichant les indicateurs d'achat totaux (achats, chiffre d'affaires et chiffre d'affaires par destinataire) à partir des ouvertures et clics e-mail, agrégés par Segment. |
 | Top 10 des campagnes pour les indicateurs d'engagement | Liste classée des campagnes ayant les indicateurs d'engagement e-mail les plus élevés (indicateur configurable pour le classement). |
 | 10 dernières campagnes pour les indicateurs d'engagement | Liste classée des campagnes ayant les indicateurs d'engagement e-mail les plus faibles (indicateur configurable pour le classement). |
 | Top 10 des Canvas pour les indicateurs d'engagement | Liste classée des Canvas ayant les indicateurs d'engagement e-mail les plus élevés (indicateur configurable pour le classement). |
@@ -141,19 +159,19 @@ Les points de contact incluent le *clic sur un e-mail* (clic sur un lien), le *c
 | 10 dernières campagnes pour les indicateurs d'achat | Liste classée des campagnes ayant les indicateurs de conversion d'achat les plus faibles à partir de l'engagement e-mail (indicateur configurable pour le classement). |
 | Top 10 des Canvas pour les indicateurs d'achat | Liste classée des Canvas ayant les indicateurs de conversion d'achat les plus élevés à partir de l'engagement e-mail (indicateur configurable pour le classement). |
 | 10 derniers Canvas pour les indicateurs d'achat | Liste classée des Canvas ayant les indicateurs de conversion d'achat les plus faibles à partir de l'engagement e-mail (indicateur configurable pour le classement). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Segment Insights - Email" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Statistiques des segments - E-mail" }
 
-#### Analyse des sessions {#session-analytics}
+#### Session Analytics {#session-analytics}
 
 | Indicateur | Définition |
 |---|---|
 | Nombre de sessions par jour (série temporelle) | Nombre de sessions uniques regroupées par jour dans la plage de dates sélectionnée, affichées sous forme de série temporelle. |
 | Nombre moyen de sessions par utilisateur | Nombre moyen de sessions par utilisateur calculé comme le total des sessions divisé par le nombre d'utilisateurs uniques dans la plage de dates sélectionnée. |
-| Campagnes converties en sessions | Nombre de sessions uniques survenues en même temps que des conversions de campagne, regroupées par ID de campagne et classées par nombre de sessions. |
-| Canvas convertis en sessions | Nombre de sessions uniques survenues en même temps que des conversions de Canvas, regroupées par ID de Canvas et classées par nombre de sessions. |
-| Nombre total de sessions par utilisateur | Liste des 1 000 premiers utilisateurs par nombre total de sessions dans la plage de dates sélectionnée. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Session Analytics" }
+| Campagnes converties en sessions | Nombre de sessions uniques survenues en même temps que des conversions de campagne, regroupées par identifiant de campagne et classées par nombre de sessions. |
+| Canvas convertis en sessions | Nombre de sessions uniques survenues en même temps que des conversions de Canvas, regroupées par identifiant de Canvas et classées par nombre de sessions. |
+| Nombre total de sessions par utilisateur | Liste des 1 000 premiers utilisateurs classés par leur nombre total de sessions dans la plage de dates sélectionnée. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Analyse des sessions" }
 
-## Partagez vos commentaires {#share-your-feedback-with-us}
+## Partagez vos commentaires avec nous {#share-your-feedback-with-us}
 
-Sélectionnez le bouton **Envoyer des commentaires** ou contactez votre gestionnaire de la satisfaction client pour nous faire part de vos retours.
+{% multi_lang_include product_feedback_cta.md context="pain_point" channel="ux" feature="Dashboard Builder" %}

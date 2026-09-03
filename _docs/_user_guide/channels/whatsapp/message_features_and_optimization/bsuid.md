@@ -50,7 +50,7 @@ The key difference is that a user who adopts a username shares only their phone 
 
 ## How Braze will handle BSUIDs
 
-Braze will store BSUIDs as a [user alias]({{site.baseurl}}/user_guide/data/user_data_collection/user_profile_lifecycle/#user-aliases) with the label `whats_app_bsuid` on the user profile. This means BSUID-only users will have full Braze user profiles and can enter Canvases, receive messages, generate events, and be updated through the API.
+Braze will store BSUIDs as a [user alias]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#user-aliases) with the label `whats_app_bsuid` on the user profile. This means BSUID-only users will have full Braze user profiles and can enter Canvases, receive messages, generate events, and be updated through the API.
 
 ### Send messages
 
@@ -74,12 +74,12 @@ You will be able to see a user's BSUID on their Braze user profile in the WhatsA
 
 Subscription group management will work the same way for BSUID users as it does for any user identified by a user alias. You can update subscription status for BSUID users through:
 
-- The [users/track endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) using `user_alias`  
-- The [User Update]({{site.baseurl}}/user_update/) Canvas step (works automatically)  
+- The [users/track endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track) using `user_alias`  
+- The [User Update]({{site.baseurl}}/user_update) Canvas step (works automatically)  
 - CSV upload
 
 {% alert note %} 
-The [subscription/status/set endpoint]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/) will not support [`user_alias`]({{site.baseurl}}/api/objects_filters/user_alias_object/). Use the [users/track endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) to update subscription state for BSUID-only users. 
+The [subscription/status/set endpoint]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) will not support [`user_alias`]({{site.baseurl}}/api/objects_filters/user_alias_object). Use the [users/track endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track) to update subscription state for BSUID-only users. 
 {% endalert %}
 
 ### Currents and event data
@@ -201,8 +201,8 @@ We strongly recommend keeping the Contact Book enabled. If the Contact Book is d
 
 ## Additional resources
 
-* [WhatsApp setup]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/)  
-* [User aliases]({{site.baseurl}}/user_guide/data/user_data_collection/user_profile_lifecycle/#user-aliases)  
-* [WhatsApp subscription groups]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/)  
-* [WhatsApp Currents events]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events/#whatsapp)  
+* [WhatsApp setup]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup)  
+* [User aliases]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#user-aliases)  
+* [WhatsApp subscription groups]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups)  
+* [WhatsApp Currents events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#whatsapp-abort-events)  
 * [Meta: Business-scoped user IDs](https://developers.facebook.com/documentation/business-messaging/whatsapp/business-scoped-user-ids)

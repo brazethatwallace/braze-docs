@@ -8,6 +8,10 @@ Before you can implement deep linking into your Flutter iOS app, configure your 
 {% tab Android %}
 For Flutter Android, no additional native setup is required if you're handling deep links on the Dart layer. The minimal implementation shown in this article is sufficient for most Flutter apps.
 
+{% alert warning %}
+Braze's native `com_braze_handle_push_deep_links_automatically` flag defaults to `false` on Android. Without setting it to `true` in your `braze.xml`, your app isn't automatically brought to the foreground or routed to the deep link destination when a user taps a push notification, even though a `push_opened` event still reaches your Dart listener. For more information, see [Add deep links (Android)]({{site.baseurl}}/developer_guide/push_notifications#flutter_step-4-add-deep-links-android).
+{% endalert %}
+
 If you need advanced native-layer link handling (such as custom `IBrazeDeeplinkHandler` implementations), refer to [Deep linking for Android]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/?sdktab=android).
 {% endtab %}
 {% endtabs %}
@@ -23,7 +27,7 @@ If you need advanced native-layer link handling (such as custom `IBrazeDeeplinkH
 3. Set the key to `FlutterDeepLinkingEnabled`.
 4. Set the type to `Boolean`.
 5. Set the value to `YES`.
-    ![An example project's `Info.plist` file with the added key-value pair.]({% image_buster /assets/img/flutter/flutter-ios-deep-link-info-plist.png %} "Xcode Project Info.plist File")
+    ![An example project's `Info.plist` file with the added key-value pair.]({% image_buster /assets/img/flutter/flutter-ios-deep-link-info-plist.png %} "Xcode Project Info.plist File"){: width="501" height="118"}
 {% endtab %}
 
 {% tab Android %}

@@ -22,7 +22,7 @@ description: "BrazeAI Decisioning Studio에서 액션 뱅크의 추천 옵션이
 | 차원 | 채널, Campaign 또는 플랫폼과 같이 결과를 구성하는 데 사용되는 속성입니다. |
 | 비교 그룹 | 보고서에서 비교하려는 그룹입니다. 여러 비교 그룹을 선택할 수 있습니다. |
 | 파라미터 | 열기, 클릭 수 또는 전환율과 같이 해당 속성에 적용되는 측정기준입니다. |
-| Segment | Braze에서 생성한 [오디언스 Segment]({{site.baseurl}}/user_guide/audience/segments/)입니다. |
+| Segment | Braze에서 생성한 [오디언스 Segment]({{site.baseurl}}/user_guide/audience/segments)입니다. |
 | 옵션 | 액션 뱅크에서 선택된 특정 추천 옵션입니다. |
 | 설명 | 옵션이 나타내는 내용에 대한 간단한 설명입니다. |
 | 선택 횟수 | 옵션이 선택된 총 횟수입니다. |

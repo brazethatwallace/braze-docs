@@ -18,7 +18,7 @@ description: "Dieser Artikel beschreibt Details zum Braze-Endpunkt „SDK-Authen
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `sdk_authentication.create`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `sdk_authentication.create`.
 
 ## Rate-Limit
 
@@ -46,7 +46,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `rsa_public_key_str` | Erforderlich | String | Der String für den öffentlichen RSA-Schlüssel. Muss ein gültiger öffentlicher RSA-Schlüssel sein, andernfalls wird ein Fehler zurückgegeben. |
 | `description` | Erforderlich | String | Beschreibung für den SDK-Authentifizierungsschlüssel. |
 | `make_primary` | Optional | Boolescher Wert | Wenn auf `true` gesetzt, wird dieser Schlüssel bei der Erstellung zum primären SDK-Authentifizierungsschlüssel. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 ## Beispielanfrage {#example-request}
 
@@ -74,7 +74,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/app_group/sdk_auth
 | Parameter | Datentyp | Beschreibung |
 | --------- | --------- | ----------- |
 | `id` | String | Die ID des neu erstellten SDK-Authentifizierungsschlüssels. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Response parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Antwortparameter" }
 
 ### Validierungsregeln {#validation-rules}
 

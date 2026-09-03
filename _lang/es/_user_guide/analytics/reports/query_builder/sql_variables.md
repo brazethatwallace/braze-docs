@@ -15,9 +15,7 @@ tool: Reports
 
 Los beneficios de usar variables SQL incluyen:
 
-- Ahorrar tiempo creando una variable de Campaign para seleccionar de una lista al crear tu informe, en lugar de pegar ID de Campaign.
-- Intercambiar valores añadiendo variables que te permitan reutilizar el informe para casos de uso ligeramente diferentes en el futuro (como un evento personalizado diferente).
-- Reducir errores de usuario al editar tu SQL disminuyendo la cantidad de edición necesaria para cada informe. Los compañeros de equipo que se sientan más cómodos con SQL pueden crear informes que luego pueden usar compañeros menos técnicos.
+{% multi_lang_include analytics/sql_variables_benefits.md %}
 
 ## Uso de variables {#using-variables}
 
@@ -189,7 +187,7 @@ Tu Liquid se usará para mostrar un calendario dentro del rango de fechas dado:
 
 ![Un ejemplo de calendario renderizado en Braze.]({% image_buster /assets/img_archive/query_builder_time_range.png %}){: style="max-width:50%;"}
 
-### Campaigns
+### Campaigns {#campaigns}
 
 {% tabs local %}
 {% tab una Campaign %}
@@ -307,7 +305,7 @@ canvas_step_api_id = '{{canvas_step.${custom_label}}}'
 {% endtab %}
 
 {% tab múltiples pasos en Canvas %}
-Para seleccionar pasos en Canvas que pertenezcan a Canvas elegidos. Debe usarse con una variable de Canvas.
+Para seleccionar pasos en Canvas que pertenezcan a los Canvas elegidos. Debe usarse con una variable de Canvas.
 
 {% subtabs %}
 {% subtab uso %}
@@ -327,7 +325,7 @@ Todas las variables de Campaign y Canvas deben usar los mismos identificadores p
 
 ### Productos {#products}
 
-`products` se usa para seleccionar uno o más productos del dashboard de Braze.
+`products` se usa para seleccionar uno o más productos del panel de Braze.
 
 {% tabs %}
 {% tab uso %}
@@ -355,7 +353,7 @@ Selecciona uno o más eventos personalizados o propiedades de eventos personaliz
 
 {% tabs local %}
 {% tab evento %}
-`custom_events` se usa para seleccionar uno o más eventos personalizados del dashboard de Braze.
+`custom_events` se usa para seleccionar uno o más eventos personalizados del panel de Braze.
 
 {% subtabs %}
 {% subtab uso %}
@@ -395,7 +393,7 @@ name = '{{custom_event_properties.${property names)}}}'
 
 ### Espacio de trabajo {#workspace}
 
-`workspace` se usa para seleccionar un único espacio de trabajo del dashboard de Braze.
+`workspace` se usa para seleccionar un único espacio de trabajo del panel de Braze.
 
 {% tabs %}
 {% tab uso %}
@@ -413,7 +411,7 @@ Selecciona uno o más catálogos o campos de catálogo de una lista.
 
 {% tabs local %}
 {% tab catálogos %}
-`catalogs` se usa para seleccionar uno o más catálogos del dashboard de Braze.
+`catalogs` se usa para seleccionar uno o más catálogos del panel de Braze.
 
 {% subtabs %}
 {% subtab uso %}
@@ -441,9 +439,9 @@ field_name = '{{catalog_fields.${custom_label}}}'
 {% endtab %}
 {% endtabs %}
 
-### Segments
+### Segments {#segments}
 
-Para seleccionar Segments que tengan activado el [seguimiento de análisis]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/). Se establece con el ID de análisis del Segment, que corresponde a los ID almacenados en la columna `user_segment_membership_ids` en las tablas donde esta columna está disponible.
+Para seleccionar Segments que tengan activado el [seguimiento de análisis]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking). Se establece con el ID de análisis del Segment, que corresponde a los ID almacenados en la columna `user_segment_membership_ids` en las tablas donde esta columna está disponible.
 
 {% tabs %}
 {% tab uso %}

@@ -5,7 +5,7 @@ search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Exportar eventos personalizados de Braze."
+description: "En este artículo se describen los detalles del endpoint Exportar eventos personalizados de Braze."
 
 ---
 {% api %}
@@ -14,11 +14,11 @@ description: "En este artículo se describen los detalles del punto de conexión
 /events
 {% endapimethod %}
 
-> Utiliza este punto de conexión para exportar una lista de eventos personalizados registrados para tu aplicación. Los eventos se devuelven en grupos de 50, ordenados alfabéticamente.
+> Utiliza este endpoint para exportar una lista de eventos personalizados registrados para tu aplicación. Los eventos se devuelven en grupos de 50, ordenados alfabéticamente.
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `events.get`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `events.get`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -26,7 +26,7 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 
 ## Parámetros de consulta {#query-parameters}
 
-Ten en cuenta que cada llamada a este punto de conexión devolverá 50 eventos. Para más de 50 eventos, utiliza el encabezado `Link` para recuperar los datos en la página siguiente, como se muestra en el siguiente ejemplo de respuesta.
+Ten en cuenta que cada llamada a este endpoint devolverá 50 eventos. Para más de 50 eventos, utiliza el encabezado `Link` para recuperar los datos en la página siguiente, como se muestra en el siguiente ejemplo de respuesta.
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
@@ -55,7 +55,7 @@ curl --location --request GET 'https://rest.iad-03.braze.com/events?cursor=c2tpc
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
+    "message": (string) returns 'success' when the request completes without errors,
     "events" : [
         {
             "name": "The event name", (string) the event name,
@@ -71,10 +71,10 @@ curl --location --request GET 'https://rest.iad-03.braze.com/events?cursor=c2tpc
 
 ### Códigos de respuesta de error fatal {#fatal-export}
 
-Para conocer los códigos de estado y los mensajes de error asociados que se devolverán si tu solicitud encuentra un error fatal, consulta [Errores fatales]({{site.baseurl}}/api/errors/#fatal-errors).
+Para conocer los códigos de estado y los mensajes de error asociados que se devolverán si tu solicitud encuentra un error fatal, consulta [Errores fatales]({{site.baseurl}}/api/errors#fatal-errors).
 
 {% alert tip %}
-Para obtener ayuda con las exportaciones CSV y API, visita [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+Para obtener ayuda con las exportaciones CSV y API, visita [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endapi %}

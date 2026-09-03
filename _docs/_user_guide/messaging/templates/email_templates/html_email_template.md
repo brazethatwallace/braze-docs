@@ -12,7 +12,7 @@ channel:
 
 # Upload an HTML email template
 
-> The Braze dashboard allows you to upload your very own HTML email templates and save them for later use in campaigns. You can also [create an email template]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/) using our editor.
+> The Braze dashboard lets you upload your own HTML email templates and save them for later use in campaigns. You can also [create an email template]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template) using our editor.
 
 ## Requirements {#upload-requirements}
 
@@ -35,14 +35,14 @@ Provide a template name. Optionally, add a description, teams, and tags.
 
 ### Step 3: Upload your template
 
-In the **Template content** section, select **Upload file** below the **HTML code editor** tile. Select your template from your computer. Refer to the [Requirements](#upload-requirements) section to ensure your template meets the upload requirements.
+In the **Template content** section, select **Upload file**. Select your template from your computer. Refer to the [Requirements](#upload-requirements) section to ensure your template meets the upload requirements.
 
 ### Step 4: Finish and save your template
 
 Be sure to save your template by selecting **Save template**. You're now ready to use this template in any campaign or Canvas you choose.
 
 {% alert note %}
-If you make any edits to an existing template, those changes will not be reflected in campaigns that were created using previous versions of that template.
+If you make any edits to an existing template, those changes are not reflected in campaigns that were created using previous versions of that template.
 {% endalert %}
 
 ## Using your templates in API campaigns {#api_for_upload_email_templates}
@@ -53,9 +53,11 @@ To use your email for an API campaign, you need the `email_template_id`, which c
 
 ## Managing email templates
 
-You can [duplicate]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/) and [archive]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/) email templates! Learn more about creating and managing templates and creative content in [Templates]({{site.baseurl}}/user_guide/messaging/templates/).
+You can [duplicate]({{site.baseurl}}/user_guide/messaging/templates/managing_templates) and [archive]({{site.baseurl}}/user_guide/messaging/templates/managing_templates) email templates. Learn more about creating and managing templates and creative content in [Templates]({{site.baseurl}}/user_guide/messaging/templates).
 
 ## Troubleshooting
+
+### Upload errors
 
 There are several email error messages you may receive when uploading an HTML template file. If you receive an error, refer to the following table for common issues and their recommended fixes:
 
@@ -72,8 +74,16 @@ There are several email error messages you may receive when uploading an HTML te
 
 Note that when downloading the files for HTML campaigns, Canvas steps with email messages, or templates on a Windows machine, the `|` (pipe character) is not supported, so you may need to use a different application to extract the download contents from the ZIP file.
 
+### Email not rendering properly
+
+If your email doesn't render properly, check each content block to make sure there are no additional `<!doctype>` headers.
+
+If there is a `<!doctype>` header in the HTML template itself along with an HTML doctype in one of the content blocks, the email doesn't render properly. Treat content blocks as HTML fragments added to the email template's existing document structure. Content blocks shouldn't contain extra body tags or any of the template HTML code. In some instances, tools like Emailify may import pre-written code with extra HTML structure, so review imported content blocks carefully.
+
+Also check for duplicated tags and class names across your template and content blocks, as these can cause rendering issues.
+
 ## Frequently asked questions
 
-For answers to frequently asked questions about email templates, check out our [email and link templates FAQ]({{site.baseurl}}/user_guide/messaging/templates/email_templates/faq/) page.
+For answers to frequently asked questions about email templates, see our [email and link templates FAQ]({{site.baseurl}}/user_guide/messaging/templates/email_templates/faq) page.
 
 

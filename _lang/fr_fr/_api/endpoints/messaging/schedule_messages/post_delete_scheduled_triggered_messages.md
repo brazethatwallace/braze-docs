@@ -10,11 +10,11 @@ description: "Cet article présente en détail l'endpoint Braze Supprimer des ca
 ---
 {% api %}
 # Supprimer des campagnes planifiées déclenchées par API {#delete-scheduled-api-triggered-campaigns}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /campaigns/trigger/schedule/delete
 {% endapimethod %}
 
-> Utilisez cet endpoint pour annuler un message Canvas que vous avez précédemment planifié via l'API avant qu'il ne soit envoyé.
+> Utilisez cet endpoint pour annuler un message de campagne que vous avez précédemment planifié via l'API avant qu'il ne soit envoyé.
 
 Les messages planifiés ou les déclencheurs supprimés peu avant ou pendant leur heure d'envoi prévue sont mis à jour au mieux. Il est donc possible que Braze applique des suppressions de dernière seconde à la totalité, à une partie ou à aucun de vos utilisateurs ciblés.
 
@@ -22,13 +22,13 @@ Les messages planifiés ou les déclencheurs supprimés peu avant ou pendant leu
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `campaigns.trigger.schedule.delete`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `campaigns.trigger.schedule.delete`.
 
 ## Limite de débit {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Corps de la demande {#request-body}
+## Corps de la requête {#request-body}
 
 ```
 Content-Type: application/json
@@ -42,16 +42,16 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## Paramètres de demande {#request-parameters}
+## Paramètres de requête {#request-parameters}
 
 | Paramètre | Requis | Type de données | Description |
 | --------- | ---------| --------- | ----------- |
-| `campaign_id` | Requis | Chaîne de caractères | Voir [identifiant de campagne]({{site.baseurl}}/api/identifier_types/). |
+| `campaign_id` | Requis | Chaîne de caractères | Voir [identifiant de campagne]({{site.baseurl}}/api/identifier_types). |
 | `schedule_id` | Requis | Chaîne de caractères | Le `schedule_id` à supprimer (obtenu à partir de la réponse de création de planification). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Paramètres de requête" }
 
 
-## Exemple de demande {#example-request}
+## Exemple de requête {#example-request}
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/campaigns/trigger/schedule/delete' \
 --header 'Content-Type: application/json' \

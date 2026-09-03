@@ -15,7 +15,7 @@ tool: Canvas
 
 ## 필수 조건 {#prerequisites}
 
-이 템플릿을 성공적으로 사용하려면 사용자가 기능을 사용한 시점을 참조하는 [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)가 필요합니다.
+이 템플릿을 성공적으로 사용하려면 사용자가 기능을 사용한 시점을 참조하는 [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events)가 필요합니다.
 
 ## 필요에 맞게 템플릿 조정하기 {#tailoring-the-template-to-your-needs}
 
@@ -110,5 +110,5 @@ Canvas 세부 정보를 목표에 맞게 조정해 보겠습니다.
 Canvas를 테스트하고 검토하여 예상대로 작동하는지 확인한 후 **Canvas 시작**을 선택하여 Canvas를 시작합니다. 이제 개인화된 사용자 여정으로 사용자를 타겟팅하여 새로운 기능 Cruise Control 도입을 유도할 수 있습니다.
 
 {% alert tip %}
-Canvas를 시작하기 전후에 고려해야 할 사항은 [시작 전후 체크리스트]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist/#things-to-consider-before-launch)를 확인하세요.
+Canvas를 시작하기 전후에 고려해야 할 사항은 [시작 전후 체크리스트]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist#things-to-consider-before-launch)를 확인하세요.
 {% endalert %}

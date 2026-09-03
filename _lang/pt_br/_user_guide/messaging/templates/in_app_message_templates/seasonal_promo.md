@@ -30,11 +30,11 @@ Para começar a criar sua promoção sazonal, selecione o componente de botão n
 
 ![O editor de mensagens no app com um menu lateral para personalizar o elemento de botão.]({% image_buster /assets/img/drag_and_drop/templates/seasonal_promo_button.png %})
 
-Você também pode adicionar mensagens extras à sua promoção sazonal na seção **Pages** e, em seguida, vinculá-las para criar um fluxo sequencial. Por exemplo, você pode montar uma sequência de mensagens que descrevem brevemente as funcionalidades do produto e terminam com um botão que leva os usuários à página do produto. Saiba como fazer isso em [Conectar páginas]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/?tab=adding%20pages#step-3a-connect-pages-together).
+Você também pode adicionar mensagens extras à sua promoção sazonal na seção **Pages** e, em seguida, vinculá-las para criar um fluxo sequencial. Por exemplo, você pode montar uma sequência de mensagens que descrevem brevemente as funcionalidades do produto e terminam com um botão que leva os usuários à página do produto. Saiba como fazer isso em [Conectar páginas]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop?tab=adding%20pages#step-3a-connect-pages-together).
 
 ### Etapa 4: Estilize sua mensagem {#step-4-style-your-message}
 
-Personalize a aparência da sua promoção sazonal usando os [componentes de mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/#message-components) de arrastar e soltar. Adicione sua própria imagem de fundo substituindo a URL da imagem de fundo padrão no menu **Message container** ou remova a URL e selecione sua imagem na [Biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/).
+Personalize a aparência da sua promoção sazonal usando os [componentes de mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings#message-components) de arrastar e soltar. Adicione sua própria imagem de fundo substituindo a URL da imagem de fundo padrão no menu **Message container** ou remova a URL e selecione sua imagem na [Biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library).
 
 ![O editor de mensagens no app com um menu lateral para selecionar a imagem de fundo.]({% image_buster /assets/img/drag_and_drop/templates/seasonal_promo_image.png %})
 

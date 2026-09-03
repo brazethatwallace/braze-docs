@@ -16,12 +16,25 @@ search_rank: 8
 Currents are included with certain Braze packages. Contact your Braze representative if you have any questions or want to gain access.
 {% endalert %}
 
-If you see "You do not have any remaining Currents integrations" when adding a new integration, common causes are:
+## Troubleshooting
+
+### Cannot add a new Currents integration
+
+If you see "You do not have any remaining Currents integrations" when adding a new integration, or if the button to add a new Currents connector is greyed out, common causes are:
 
 - No Currents entitlement has been purchased for this workspace.
 - The Currents entitlement is available in a different workspace in your company.
 
-Contact your Braze account manager to request an entitlement or adjust your configuration.
+To resolve this, check other workspaces within your company. A different workspace may show an available Currents entitlement. If you need to request an entitlement or adjust your configuration, contact your Braze account manager.
+
+### Cannot enable additional event tracking
+
+If you can create or edit a connector but can't enable one of the optional tracking switches, your workspace may have reached an entitlement limit for that event category.
+
+- **Track Customer Behavior and User Events** requires available **Customer Behavior Events** entitlements.
+- **Track user profiles and attributes** requires available **User Profiles and Attributes** entitlements.
+
+If you need additional entitlements or help adjusting your configuration, contact your Braze account manager.
 
 ## Requirements
 
@@ -29,7 +42,7 @@ Using Currents with any of our partners requires the same basic parameters and c
 
 Each partner requires that Braze has permission to write and send data files to them, and Braze asks for the location they should write those files to, specifically bucket names or keys.
 
-The following requirements are the basic, minimum requirements to integrate with most of our partners. Some partners will require additional parameters, which are listed in their respective [partner documentation]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) along with any nuances associated with these basic requirements.
+The following requirements are the basic, minimum requirements to integrate with most of our partners. Some partners will require additional parameters, which are listed in their respective [partner documentation]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) along with any nuances associated with these basic requirements.
 
 | Requirement | Origin | Access | Description
 |---|---|---|---|
@@ -49,7 +62,7 @@ It's important to keep your Partner Keys, Partner Tokens, and authentication det
 
 Braze Currents allows you to integrate through Data Storage using flat files or to our behavioral analytics and customer data partners using a batched JSON payloads to a designated endpoint.  
 
-Before you begin your integration, it's best to decide which integration is best for your purposes. For example, if you already use mParticle and Segment and would like Braze data to stream there, it would be best to use a batched JSON payload. If you would prefer to manipulate the data on your own or have a more complex system of data analysis, it might be best to use Data Storage ([Braze uses this method]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents/)!)
+Before you begin your integration, it's best to decide which integration is best for your purposes. For example, if you already use mParticle and Segment and would like Braze data to stream there, it would be best to use a batched JSON payload. If you would prefer to manipulate the data on your own or have a more complex system of data analysis, it might be best to use Data Storage ([Braze uses this method]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents)!)
 
 ### Step 2: Open Currents
 
@@ -61,15 +74,17 @@ To get started, go to **Partner Integrations** > **Currents**. You'll be taken t
 
 Add a partner, sometimes called a "Currents connector," by selecting the dropdown at the top of the screen.
 
-Each partner requires a different set of configuration steps. To enable each integration, refer to our list of [available partners]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) and follow the instructions on their respective pages.
+Each partner requires a different set of configuration steps. To enable each integration, refer to our list of [available partners]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) and follow the instructions on their respective pages.
+
+{% multi_lang_include currents/contact_email_notifications.md %}
 
 ### Step 4: Configure your events
 
-Choose the events you wish to pass to that partner by checking from the available options. You can find listings of these events in our [Customer Behavior Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) and [Message Engagement Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) libraries.
+Choose the events you wish to pass to that partner by checking from the available options. You can find listings of these events in our [Customer Behavior Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) and [Message Engagement Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) libraries.
 
-![]({% image_buster /assets/img/current4.png %})
+![Currents configuration page with partner events selected for export.]({% image_buster /assets/img/current4.png %})
 
-If needed, you can learn more about our events in our [event delivery semantics]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/event_delivery_semantics/) article.
+If needed, you can learn more about our events in our [event delivery semantics]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/event_delivery_semantics) article.
 
 ### Step 5: Set up field transformations
 
@@ -88,11 +103,11 @@ Selecting a field for one of these transformations will apply that transformatio
 Currents will drop events with excessively large payloads of greater than 900&nbsp;KB. 
 {% endalert %}
 
-Before you test, consider checking out our [sample Currents data in GitHub](https://github.com/Appboy/currents-examples). When you're ready to test, you choose an option below:
+Before you test, consider checking out our [sample Currents data in GitHub](https://github.com/Appboy/currents-examples). When you're ready to test, you choose an option in the following section:
 
 #### Sending test events
 
-To test your integration, you can select **Send Test Events** to send one event from each of your selected event types to this Current. For detailed information about each event type, refer to our [Customer Behavior Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) and [Message Engagement Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) libraries.
+To test your integration, you can select **Send Test Events** to send one event from each of your selected event types to this Current. For detailed information about each event type, refer to our [Customer Behavior Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) and [Message Engagement Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) libraries.
 
 ![The "Currents Test" page in the Braze dashboard.]({% image_buster /assets/img/currents/current_test_events.png %}){: style="max-width:70%;"}
 
@@ -109,10 +124,10 @@ To upgrade your Test Currents connector, edit the integration in the dashboard a
 
 ## Updating Currents
 
-{% multi_lang_include updating_currents.md %}
+{% multi_lang_include currents/updating_currents.md %}
 
 ## IP allowlisting
 
 Braze will send Currents data from the listed IPs:
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}

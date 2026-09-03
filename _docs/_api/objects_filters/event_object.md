@@ -1,10 +1,9 @@
 ---
 nav_title: "Event object"
-article_title: API Event Object
+article_title: "Event object"
 page_order: 6
 page_type: reference
 description: "This reference article goes over the event object, what it is, and how it's a crucial part of event-based campaign strategies."
-
 ---
 
 # Event object
@@ -15,11 +14,11 @@ description: "This reference article goes over the event object, what it is, and
 
 An event object is an object that gets passed through the API when a specific event occurs. Events objects are housed in an events array. Each event object in the events array represents a single occurrence of a custom event by a particular user at the designated time value. The event object has many different fields that allow you to customize by setting and using event properties in messages, data collection, and personalization.
 
-For steps on how to set up custom events for a specific platform, refer to the Platform Integration Guide in the [Developer Guide]({{site.baseurl}}/developer_guide/home/). Refer to the relevant article based on your platform:
+For steps on how to set up custom events for a specific platform, refer to the Platform Integration Guide in the [Developer Guide]({{site.baseurl}}/developer_guide/home). Refer to the relevant article based on your platform:
 
-- [Android]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=android)
-- [iOS]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=swift)
-- [Web]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=web)
+- [Android]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=android)
+- [iOS]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=swift)
+- [Web]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=web)
 
 ### Object body
 
@@ -42,12 +41,16 @@ For steps on how to set up custom events for a specific platform, refer to the P
 }
 ```
 
-- [External user ID]({{site.baseurl}}/api/basics/#user-ids)
-- [App identifier]({{site.baseurl}}/api/identifier_types/)
+{% alert note %}
+Events with timestamps in the future default to the current time. This ensures that custom events are recorded with accurate timing.
+{% endalert %}
+
+- [External user ID]({{site.baseurl}}/api/basics#user-ids)
+- [App identifier]({{site.baseurl}}/api/identifier_types)
 - [ISO 8601 time code](https://en.wikipedia.org/wiki/ISO_8601)
 
 {% alert note %}
-Some identifier pairs can't be used together in a single request. When both `email` and `phone` are provided, `email` takes precedence over `phone`. For full details, refer to [Identifier resolution]({{site.baseurl}}/api/objects_filters/user_attributes_object/#identifier-resolution).
+Some identifier pairs can't be used together in a single request. When both `email` and `phone` are provided, `email` takes precedence over `phone`. For full details, refer to [Identifier resolution]({{site.baseurl}}/api/objects_filters/user_attributes_object#identifier-resolution).
 {% endalert %}
 
 #### Update existing profiles only
@@ -89,7 +92,7 @@ Using reserved keys as custom event property names will result in API errors whe
 
 ### Event property persistence
 
-Event properties are designed for filtering of, and Liquid personalization in, messages triggered by their parent events. By default, they are not persisted on the Braze user profile. To use event property values in segmentation, refer to [custom events]({{site.baseurl}}/user_guide/data/activation/events/custom_events/), which details the various approaches to storing event property values long-term.
+Event properties are designed for filtering of, and Liquid personalization in, messages triggered by their parent events. By default, they are not persisted on the Braze user profile. To use event property values in segmentation, refer to [custom events]({{site.baseurl}}/user_guide/data/activation/events/custom_events), which details the various approaches to storing event property values long-term.
 
 #### Event example request
 
@@ -112,7 +115,7 @@ Authorization: Bearer YOUR-REST-API-KEY
       "time" : "2013-07-16T19:20:45+01:00",
       "properties": {
         "movie": "The Sad Egg",
-        "director": "Dan Alexander"
+        "director": "Alex Smith"
       }
     },
     {
@@ -128,6 +131,6 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ## Event objects
 
-Using the example provided, we can see that someone watched a trailer recently, and then rented a movie. While we cannot go into a campaign and segment the users based on these properties, we can use these properties strategically by using them in the form of a receipt, to send a custom message through a channel using Liquid. For example, "Hello **Beth**, Thanks for renting **The Sad Egg** by **Dan Alexander**, here are some recommended movies based on your rental..."
+Using the example provided, we can see that someone watched a trailer recently, and then rented a movie. While we cannot go into a campaign and segment the users based on these properties, we can use these properties strategically by using them in the form of a receipt, to send a custom message through a channel using Liquid. For example, "Hello **Alex**, Thanks for renting **The Sad Egg** by **Alex Smith**, here are some recommended movies based on your rental..."
 
 

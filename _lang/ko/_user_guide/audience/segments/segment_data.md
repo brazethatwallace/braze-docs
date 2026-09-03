@@ -16,13 +16,13 @@ tool:
 
 ## Segments 및 멤버십 데이터에 접근하기 {#accessing-data-about-your-segments-and-membership}
 
-Braze 대시보드의 **Segments** 페이지에는 모든 Segments의 요약이 포함되어 있으며, 각 Segment에 대한 상세 데이터를 확인할 수 있습니다. 이 페이지에서 Segment 이름을 검색하고 선택하여 데이터를 편집하고 확인할 수 있습니다. Segment를 생성하는 방법을 알아보려면 [Segment 생성]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#creating-a-segment)을 확인하세요.
+Braze 대시보드의 **Segments** 페이지에는 모든 Segments의 요약이 포함되어 있으며, 각 Segment에 대한 상세 데이터를 확인할 수 있습니다. 이 페이지에서 Segment 이름을 검색하고 선택하여 데이터를 편집하고 확인할 수 있습니다. Segment를 생성하는 방법을 알아보려면 [Segment 생성]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)을 확인하세요.
 
 ![Segments 페이지]({% image_buster /assets/img_archive/segments.png %})
 
 Segment 이름을 선택하면 Segment 통계와 필터를 확인하고, 필터를 추가하거나 삭제하여 Segment를 편집할 수 있습니다. 변경 사항을 반드시 저장하세요!
 
-Segment에 대해 [분석 추적]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/)을 활성화하면, 해당 Segment의 세션, 커스텀 이벤트, 매출을 시간에 따라 확인할 수 있습니다.
+Segment에 대해 [분석 추적]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking)을 활성화하면, 해당 Segment의 세션, 커스텀 이벤트, 매출을 시간에 따라 확인할 수 있습니다.
 
 ![Segment의 분석 추적 토글]({% image_buster /assets/img_archive/A_Tracking_2.png %})
 
@@ -59,7 +59,7 @@ Segment에 대해 [분석 추적]({{site.baseurl}}/user_guide/analytics/tracking
         </tr>
         <tr>
             <td class="no-split">이메일 수신 가능 (옵트인)</td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Emailable' %} <a href="/docs/help/best_practices/spam_regulations/#spam-regulationsspam regulations">스팸 규정</a> 으로 인해 사용자에게 초기 확인 이메일의 링크를 클릭하도록 하는 더블 옵트인 정책을 구현하여 명시적으로 옵트인하도록 요청하는 것이 좋습니다. 더 많은 사용자가 옵트인하도록 유도하려면 <a href="/docs/user_guide/channels/email/subscriptions#segmenting-by-user-subscriptions">옵트인도 옵트아웃도 하지 않은 사용자</a> 를 대상으로 메시지를 보낼 수 있습니다.</td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Emailable' %} <a href="/docs/help/best_practices/spam_regulations#spam-regulationsspam regulations">스팸 규정</a> 으로 인해 사용자에게 초기 확인 이메일의 링크를 클릭하도록 하는 더블 옵트인 정책을 구현하여 명시적으로 옵트인하도록 요청하는 것이 좋습니다. 더 많은 사용자가 옵트인하도록 유도하려면 <a href="/docs/user_guide/channels/email/subscriptions#segmenting-by-user-subscriptions">옵트인도 옵트아웃도 하지 않은 사용자</a> 를 대상으로 메시지를 보낼 수 있습니다.</td>
         </tr>
         <tr>
             <td class="no-split">푸시 활성화 (옵트인)</td>
@@ -70,7 +70,7 @@ Segment에 대해 [분석 추적]({{site.baseurl}}/user_guide/analytics/tracking
 
 ### 세그먼트 인사이트 {#segment-insights}
 
-대시보드의 [세그먼트 인사이트]({{site.baseurl}}/user_guide/audience/segments/segment_insights/) 페이지를 방문하여 사전 선택된 KPI 세트에 대해 하나의 Segment가 다른 Segment와 비교하여 어떻게 성과를 내고 있는지 확인할 수 있습니다.
+대시보드의 [세그먼트 인사이트]({{site.baseurl}}/user_guide/audience/segments/segment_insights) 페이지를 방문하여 사전 선택된 핵심 성과 지표(KPI) 세트에 대해 하나의 Segment가 다른 Segment와 비교하여 어떻게 성과를 내고 있는지 확인할 수 있습니다.
 
 ### 메시징 사용 {#messaging-use}
 **메시징 사용** 섹션에서는 현재 활성화된 Campaigns와 현재 활성화된 Canvases 중 어떤 것이 해당 Segment를 타겟팅하고 있는지 확인할 수 있습니다.
@@ -79,32 +79,32 @@ Segment에 대해 [분석 추적]({{site.baseurl}}/user_guide/analytics/tracking
 
 **과거 멤버십** 섹션에서는 Segment의 크기가 시간에 따라 어떻게 변화했는지 확인할 수 있습니다. 드롭다운을 사용하여 날짜 범위별로 Segment 멤버십을 필터링하세요.
 
-Segment의 멤버십과 크기를 모니터링하는 방법에 대해 자세히 알아보려면 [Segment 크기 측정]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/)을 참조하세요.
+Segment의 멤버십과 크기를 모니터링하는 방법에 대해 자세히 알아보려면 [Segment 크기 측정]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size)을 참조하세요.
 
 ### 사용자 미리보기 {#user-preview}
 
-Segments에 대한 상세한 사용자별 정보를 확인하려면 **User Data**를 클릭하고 **User Preview**를 선택하세요.
+Segments에 대한 상세한 사용자별 정보를 확인하려면 **사용자 데이터**를 클릭하고 **사용자 미리보기**를 선택하세요.
 
 이 페이지에서는 성별, 나이, 세션 수, 푸시 및 이메일 옵트인 여부 등 다양한 사용자별 속성을 확인할 수 있습니다.
 
-워크스페이스 크기에 비해 Segment가 매우 작은 경우, 사용자 미리보기에서 사용자가 0명으로 표시될 수 있습니다. 이것이 반드시 Segment에 사용자가 0명이라는 의미는 아닙니다. Segment의 정확한 크기를 확인하려면 [Calculate Exact Stats]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/#statistics-for-segment-size)를 실행하세요.
+워크스페이스 크기에 비해 Segment가 매우 작은 경우, 사용자 미리보기에서 사용자가 0명으로 표시될 수 있습니다. 이것이 반드시 Segment에 사용자가 0명이라는 의미는 아닙니다. Segment의 정확한 크기를 확인하려면 [정확한 통계 계산]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size#statistics-for-segment-size)을 실행하세요.
 
 ![사용자 미리보기]({% image_buster /assets/img_archive/user_preview.png %})
 
 ## Segment별 성과 데이터 확인하기 {#viewing-performance-data-by-segment}
 
-[쿼리 빌더 보고서 템플릿]({{site.baseurl}}/user_guide/analytics/reports/query_builder/data_by_segments/)을 사용하여 Campaigns, Canvas, 배리언트 및 단계의 성과 측정기준을 Segments별로 분류할 수 있습니다.
+[쿼리 빌더 보고서 템플릿]({{site.baseurl}}/user_guide/analytics/reports/query_builder/data_by_segments)을 사용하여 Campaigns, Canvas, 배리언트 및 단계의 성과 측정기준을 Segments별로 분류할 수 있습니다.
 
 ## 쿼리 빌더를 사용하여 Segment 분류 보고서 생성하기 {#creating-a-segment-breakdown-report-using-query-builder}
 
-[쿼리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) 템플릿에서 보고서를 생성하려면 **쿼리 빌더**로 이동하여 다음을 수행하세요:
+[쿼리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder) 템플릿에서 보고서를 생성하려면 **쿼리 빌더**로 이동하여 다음을 수행하세요:
 
-1. **Create SQL Query** > **Query Template**을 선택합니다.
+1. **SQL 쿼리 생성** > **쿼리 템플릿**을 선택합니다.
 2. "segment breakdowns"를 포함하는 측정기준이 있는 템플릿을 필터링합니다.
 3. 사용할 템플릿을 선택합니다.
 4. [변수](#variables) 탭에서 SQL 템플릿의 변수를 입력합니다.
 5. (선택 사항) 템플릿의 SQL을 직접 편집합니다.
-6. **Run Query**를 선택합니다. 결과가 테이블에 표시됩니다.
+6. **쿼리 실행**을 선택합니다. 결과가 테이블에 표시됩니다.
 
 ## 변수 {#variables}
 
@@ -125,7 +125,7 @@ Segments에 대한 상세한 사용자별 정보를 확인하려면 **User Data*
 
 다음 두 가지 조건이 모두 충족되는 기간에 대해 데이터를 사용할 수 있습니다:
 
-1. 데이터를 확인하려는 Segments에 대해 [Segment 분석 추적]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/)이 활성화되어 있어야 합니다.
+1. 데이터를 확인하려는 Segments에 대해 [Segment 분석 추적]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking)이 활성화되어 있어야 합니다.
 2. Segment별 성과 데이터 기능이 활성화되어 있어야 합니다.
 
 이 기능이 회사에 활성화되기 이전 기간의 데이터에는 접근할 수 없습니다. 예를 들어, Segment A에 대한 분석 추적이 10월 1일에 활성화되고 이 기능이 회사에 10월 2일에 활성화된 경우, 10월 2일 이후에 측정기준을 기록한 Campaigns 및 Canvases에 대한 Segment A 데이터만 확인할 수 있습니다.

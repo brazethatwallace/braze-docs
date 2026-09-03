@@ -17,7 +17,7 @@ This type of email usually means there's an issue with your CDI setup. Here are 
 
 ### CDI can't access the data warehouse or table using your credentials
 
-This could mean the credentials in CDI are incorrect or are misconfigured on the data warehouse. For more information, refer to [Data Warehouse Integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/).
+This could mean the credentials in CDI are incorrect or are misconfigured on the data warehouse. For more information, refer to [Data Warehouse Integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations).
 
 ### The table cannot be found
 
@@ -31,6 +31,19 @@ The catalog set up in the integration doesn't exist in the Braze catalog. A cata
 
 This type of email means that some of your data could not be processed during the sync. To find out the specific error, you can review the logs in Braze by going to **CDI** > **Sync Log**.
 
+## How do I fix "Time must be string in ISO8601 Format" in CDI setup?
+
+This error means the event `time` value in your CDI payload is not in a supported datetime format.
+
+For event and purchase payloads, format `time` as:
+
+- An ISO 8601 string, or
+- `yyyy-MM-dd'T'HH:mm:ss:SSSZ`
+
+If `time` is omitted, Braze uses `UPDATED_AT` as the event time.
+
+For full payload requirements, refer to [Table setup for Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup).
+
 ## How do I fix errors for Test Connection and support emails?
 
 {% tabs %}
@@ -41,9 +54,9 @@ Test Connection is running on your data warehouse, so increasing warehouse capac
 
 ### Error connecting to Snowflake instance: Incoming request with IP is not allowed to access Snowflake
 
-Try adding the official Braze IPs to your IP allowlist. For more information, refer to [Data Warehouse Integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/), or allow the relevant IPs:
+Try adding the official Braze IPs to your IP allowlist. For more information, refer to [Data Warehouse Integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations), or allow the relevant IPs:
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 ### Error executing SQL due to customer config: 002003 (42S02): SQL compilation error: does not exist or not authorized
 
@@ -142,7 +155,7 @@ CDI uses `UPDATED_AT` to decide what data is new. After a future `UPDATED_AT` is
 
 ## Why doesn't "Rows Synced" match the number in my warehouse?
 
-CDI uses `UPDATED_AT` to decide which records to pick up during a sync. Check out [this illustration]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion#what-gets-synced) to see how it works. At the beginning of a sync run, CDI queries your warehouse to get all records with `UPDATED_AT` later than the previously processed `UPDATED_AT` value. Records at the exact boundary timestamp may also be re-synced if new rows share that timestamp. Any record picked up at the time when the query executes is synced into Braze. Here are common cases when a record might not be synced:
+CDI uses `UPDATED_AT` to decide which records to pick up during a sync. Check out [this illustration]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion#how-it-works) to see how it works. At the beginning of a sync run, CDI queries your warehouse to get all records with `UPDATED_AT` later than the previously processed `UPDATED_AT` value. Records at the exact boundary timestamp may also be re-synced if new rows share that timestamp. Any record picked up at the time when the query executes is synced into Braze. Here are common cases when a record might not be synced:
 
 - You're adding records to the table with an `UPDATED_AT` value that has already been processed.
 - You're updating record values after they have been processed by a sync, but leaving `UPDATED_AT` unchanged. 
@@ -156,7 +169,7 @@ To avoid these behaviors in the future, we recommend using monotonically increas
 
 Yes. For high-volume runs (for example, more than approximately 10 million rows), make sure your source data has mostly distinct `UPDATED_AT` values. If too many rows share the same timestamp, CDI is more likely to re-select rows at boundary timestamps in later runs. This can increase duplicate syncs and data point consumption.
 
-For more information about CDI boundary behavior, see [Avoid resyncing rows with duplicate timestamps]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices/#avoid-resyncing-rows-with-duplicate-timestamps).
+For more information about CDI boundary behavior, see [Avoid resyncing rows with duplicate timestamps]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices#avoid-resyncing-rows-with-duplicate-timestamps).
 
 ### Where do I run these SQL checks?
 
@@ -206,7 +219,7 @@ If your warehouse doesn't support `LIMIT` (for example, Fabric), use an equivale
 
 ## Why can a CDI sync with a small number of rows still take several minutes?
 
-A CDI sync includes a fixed startup period before row processing begins. Because this startup time is similar across sync sizes, a small sync can still take several minutes and may appear slower in rows per minute. Total sync time still depends on your source query complexity, data shape, and available capacity in your data warehouse. For more information, see [Data warehouse integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/).
+A CDI sync includes a fixed startup period before row processing begins. Because this startup time is similar across sync sizes, a small sync can still take several minutes and may appear slower in rows per minute. Total sync time still depends on your source query complexity, data shape, and available capacity in your data warehouse. For more information, see [Data warehouse integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations).
 
 ## During a sync, is the order preserved if multiple records share the same ID?
 
@@ -234,4 +247,4 @@ Braze has the following measures in place for CDI:
 We recommend you and your team set up the following security measures on your side: 
 
 - Restrict credential access to the minimum required for CDI to operate. This is because we need to be able to run select (and count) on the specific tables and views.
-- Restrict the IPs that can access the tables to officially published [Braze IPs]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views).
+- Restrict the IPs that can access the tables to officially published [Braze IPs]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).

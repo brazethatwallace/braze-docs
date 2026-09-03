@@ -1,14 +1,13 @@
 ---
-nav_title: "Définir les ID d'utilisateur"
-article_title: Définir les ID d'utilisateur via le SDK Braze
+nav_title: Définir les ID d'utilisateur
+article_title: Définir les ID d'utilisateur
 page_order: 1.1
-description: "Découvrez comment définir des ID d'utilisateur via le SDK de Braze."
-
+description: "Découvrez comment définir des ID d'utilisateur via le SDK Braze."
 ---
 
 # Définir les ID d'utilisateur {#set-user-ids}
 
-> Découvrez comment définir des ID d'utilisateur via le SDK de Braze. Il s'agit d'identifiants uniques qui vous permettent de suivre les utilisateurs sur différents appareils et plateformes, d'importer leurs données via l'[API de données utilisateur]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data) et d'envoyer des messages ciblés via l'[API d'envoi de messages]({{site.baseurl}}/api/endpoints/messaging/). Si vous n'attribuez pas d'ID unique à un utilisateur, Braze lui attribue un ID anonyme à la place. Toutefois, vous ne pourrez pas utiliser ces fonctionnalités tant que vous ne l'aurez pas fait.
+> Découvrez comment définir des ID d'utilisateur via le SDK Braze. Il s'agit d'identifiants uniques qui vous permettent de suivre les utilisateurs sur différents appareils et plateformes, d'importer leurs données via l'[API de données utilisateur]({{site.baseurl}}/api/endpoints/user_data) et d'envoyer des messages ciblés via l'[API d'envoi de messages]({{site.baseurl}}/api/endpoints/messaging). Si vous n'attribuez pas d'ID unique à un utilisateur, Braze lui attribue un ID anonyme à la place. Toutefois, vous ne pourrez pas utiliser ces fonctionnalités tant que vous ne l'aurez pas fait.
 
 {% alert note %}
 Pour les SDK wrapper non répertoriés, utilisez plutôt la méthode native Android ou Swift correspondante.
@@ -20,31 +19,31 @@ Pour les SDK wrapper non répertoriés, utilisez plutôt la méthode native Andr
 
 ### Empêcher le suivi des utilisateurs anonymes {#preventing-anonymous-user-tracking}
 
-Si votre cas d'utilisation exige qu'aucune donnée ne soit collectée avant l'identification d'un utilisateur, vous pouvez retarder l'initialisation du SDK Braze jusqu'à ce que l'utilisateur se connecte et qu'un `external_id` soit disponible. Définissez un indicateur dans votre code qui passe à `true` lorsque l'utilisateur se connecte, et n'initialisez le SDK que lorsque cet indicateur est activé.
+Si votre cas d'usage nécessite qu'aucune donnée ne soit collectée avant qu'un utilisateur ne soit identifié, vous pouvez retarder l'initialisation du SDK Braze jusqu'à ce que l'utilisateur se connecte et qu'un `external_id` soit disponible. Définissez un indicateur dans votre code qui passe à `true` lorsque l'utilisateur se connecte, et n'initialisez le SDK que lorsque cet indicateur est défini.
 
 {% alert warning %}
-Ne retardez l'initialisation que **la première fois** qu'un utilisateur télécharge votre application (avant qu'un `external_id` ne soit défini). Si vous empêchez le SDK de s'initialiser chaque fois qu'un utilisateur se déconnecte ou démarre une nouvelle session, cela interférera avec le préchargement des ressources de messages in-app et de cartes de contenu, ce qui peut entraîner des erreurs de livrabilité pour ces Campaigns.
+Ne retardez l'initialisation que la **première fois** qu'un utilisateur télécharge votre application (avant qu'un `external_id` ne soit défini). Si vous empêchez le SDK de s'initialiser chaque fois qu'un utilisateur se déconnecte ou démarre une nouvelle session, cela interférera avec le préchargement des ressources de messages in-app et de Content Cards, ce qui peut entraîner des erreurs de livrabilité pour ces Campaigns.
 {% endalert %}
 
-## Définition d'un ID utilisateur {#setting-a-user-id}
+## Définir un ID utilisateur {#setting-a-user-id}
 
-Pour définir un ID utilisateur, appelez la méthode `changeUser()` après la première connexion de l'utilisateur. Les ID doivent être uniques et respecter nos [bonnes pratiques de dénomination](#naming-best-practices).
+Pour définir un ID utilisateur, appelez la méthode `changeUser()` après la connexion initiale de l'utilisateur. Les ID doivent être uniques et respecter nos [bonnes pratiques de dénomination](#naming-best-practices).
 
 Si vous hachez un identifiant unique, veillez à normaliser l'entrée de votre fonction de hachage. Par exemple, lors du hachage d'une adresse e-mail, supprimez les espaces en début et en fin de chaîne et tenez compte de la localisation.
 
 {% tabs local %}
 {% tab WEB %}
-Pour une implémentation standard du SDK Web, vous pouvez utiliser la méthode suivante :
+Pour un déploiement standard du SDK Web, vous pouvez utiliser la méthode suivante :
 
 ```javascript
 braze.changeUser(YOUR_USER_ID_STRING);
 ```
 
-Si vous préférez utiliser Google Tag Manager, vous pouvez utiliser le type d'étiquette **Change User** pour appeler la [méthode `changeUser`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser). Utilisez-le chaque fois qu'un utilisateur se connecte ou est identifié d'une autre manière avec son identifiant unique `external_id`.
+Si vous préférez utiliser Google Tag Manager, vous pouvez utiliser le type de balise **Change User** pour appeler la [méthode `changeUser`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser). Utilisez-la chaque fois qu'un utilisateur se connecte ou est identifié avec son identifiant unique `external_id`.
 
-Veillez à saisir l'ID unique de l'utilisateur actuel dans le champ **External User ID**, généralement rempli à l'aide d'une variable de couche de données envoyée par votre site web.
+Veillez à saisir l'ID unique de l'utilisateur actuel dans le champ **External User ID**, généralement alimenté par une variable de couche de données envoyée par votre site web.
 
-![Boîte de dialogue affichant les paramètres de configuration de la balise d'action Braze. Les paramètres inclus sont « tag type » et « external user ID ».]({% image_buster /assets/img/web-gtm/gtm-change-user.png %})
+![Boîte de dialogue affichant les paramètres de configuration de la balise d'action Braze. Les paramètres incluent « tag type » et « external user ID ».]({% image_buster /assets/img/web-gtm/gtm-change-user.png %})
 {% endtab %}
 
 {% tab ANDROID %}
@@ -75,6 +74,32 @@ AppDelegate.braze?.changeUser(userId: "YOUR_USER_ID")
 ```
 {% endsubtab %}
 {% endsubtabs %}
+
+{% alert note %}
+`changeUser` met en file d'attente le changement d'utilisateur et retourne immédiatement sur le fil appelant. Tout setter d'attribut appelé sur `braze.user` par la suite est automatiquement sérialisé derrière les opérations initiées par `changeUser`. La lecture de `braze.user.id` bloque le fil appelant jusqu'à ce que le changement d'utilisateur soit entièrement terminé. Pour les contextes sur le fil principal ou sensibles à la latence, utilisez plutôt les alternatives non bloquantes.
+
+{% subtabs local %}
+{% subtab Swift %}
+```swift
+// Completion handler — always delivers on the main thread.
+AppDelegate.braze?.user.getId { userId in
+  print("User ID:", userId ?? "anonymous")
+}
+
+// Async/await (iOS 13.0+, tvOS 13.0+, watchOS 6.0+, macOS 10.15+)
+let userId = await AppDelegate.braze?.user.getId()
+```
+{% endsubtab %}
+{% subtab Objective-C %}
+```objc
+// Completion handler — always delivers on the main thread.
+[AppDelegate.braze.user getIdWithCompletion:^(NSString * _Nullable userId) {
+  NSLog(@"User ID: %@", userId ?: @"anonymous");
+}];
+```
+{% endsubtab %}
+{% endsubtabs local %}
+{% endalert %}
 {% endtab %}
 
 {% tab CORDOVA %}
@@ -112,11 +137,11 @@ Lorsque vous appelez `changeUser()`, les comportements suivants s'appliquent :
 - Lorsqu'un utilisateur anonyme appelle `changeUser()` avec un ID utilisateur **existant**, les données du profil anonyme ne sont pas fusionnées dans le profil identifié.
 
 {% alert note %}
-L'appel de `changeUser()` déclenche un vidage des données dans le cadre de la fermeture de la session de l'utilisateur en cours. Le SDK envoie automatiquement toutes les données en attente de l'utilisateur précédent avant de basculer vers le nouvel utilisateur. Il n'est donc pas nécessaire de demander manuellement un vidage des données avant d'appeler `changeUser()`.
+L'appel de `changeUser()` déclenche un envoi des données dans le cadre de la fermeture de la session de l'utilisateur actuel. Le SDK envoie automatiquement toutes les données en attente de l'utilisateur précédent avant de passer au nouvel utilisateur, il n'est donc pas nécessaire de demander manuellement un envoi de données avant d'appeler `changeUser()`.
 {% endalert %}
 
 {% alert warning %}
-N'attribuez pas un ID utilisateur unique et partagé (par exemple, un ID externe par défaut statique) et n'appelez pas `changeUser()` lorsqu'un utilisateur se déconnecte. Cela vous empêcherait de réengager les utilisateurs précédemment connectés sur les appareils partagés, et toutes les données seraient enregistrées sous un seul ID utilisateur, ce qui peut entraîner un comportement inattendu d'autres fonctionnalités. Conservez plutôt une trace de tous les ID utilisateur séparément et assurez-vous que le processus de déconnexion de votre application permet de revenir à un utilisateur précédemment connecté. Lorsqu'une nouvelle session commence, Braze actualise automatiquement les données du profil nouvellement actif.
+N'attribuez pas un ID utilisateur unique et partagé (par exemple, un ID externe statique par défaut) et n'appelez pas `changeUser()` lorsqu'un utilisateur se déconnecte. Cela vous empêcherait de réengager les utilisateurs précédemment connectés sur des appareils partagés et entraînerait l'enregistrement de toutes les données sous un seul ID utilisateur, ce qui pourrait provoquer un comportement inattendu d'autres fonctionnalités. Conservez plutôt un suivi distinct de tous les ID utilisateur et assurez-vous que le processus de déconnexion de votre application permet de revenir à un utilisateur précédemment connecté. Lorsqu'une nouvelle session démarre, Braze actualise automatiquement les données du profil nouvellement actif.
 {% endalert %}
 
 ## Alias d'utilisateur {#user-aliases}
@@ -125,9 +150,9 @@ N'attribuez pas un ID utilisateur unique et partagé (par exemple, un ID externe
 
 {% multi_lang_include anonymous_users/about_user_aliases.md %}
 
-### Définition d'un alias d'utilisateur {#setting-a-user-alias}
+### Définir un alias d'utilisateur {#setting-a-user-alias}
 
-Un alias d'utilisateur se compose de deux parties : un nom et un libellé. Le nom correspond à l'identifiant lui-même, tandis que le libellé désigne le type d'identifiant auquel il appartient. Par exemple, si vous avez un utilisateur dans une plateforme d'assistance client tierce avec l'ID externe `987654`, vous pouvez lui attribuer un alias dans Braze avec le nom `987654` et le libellé `support_id`, afin de pouvoir le suivre sur l'ensemble des plateformes.
+Un alias d'utilisateur se compose de deux parties : un nom et une étiquette. Le nom fait référence à l'identifiant lui-même, tandis que l'étiquette fait référence au type d'identifiant auquel il appartient. Par exemple, si vous avez un utilisateur dans une plateforme tierce de support client avec l'ID externe `987654`, vous pouvez lui attribuer un alias dans Braze avec le nom `987654` et l'étiquette `support_id`, afin de le suivre sur différentes plateformes.
 
 {% tabs local %}
 {% tab web %}
@@ -188,22 +213,22 @@ Braze.addAlias("ALIAS_NAME", "ALIAS_LABEL");
 
 Nous vous recommandons de créer des ID utilisateur en utilisant la norme [UUID (Universally Unique Identifier)](https://en.wikipedia.org/wiki/Universally_unique_identifier), c'est-à-dire des chaînes de caractères de 128 bits, aléatoires et bien réparties.
 
-Vous pouvez également hacher un identifiant unique existant (tel qu'un nom ou une adresse e-mail) pour générer vos ID utilisateur. Dans ce cas, veillez à mettre en œuvre l'[authentification SDK]({{site.baseurl}}/developer_guide/sdk_integration/authentication/) afin d'empêcher l'usurpation d'identité.
+Vous pouvez également hacher un identifiant unique existant (tel qu'un nom ou une adresse e-mail) pour générer vos ID utilisateur. Dans ce cas, veillez à mettre en œuvre l'[authentification SDK]({{site.baseurl}}/developer_guide/sdk_integration/authentication) afin d'empêcher l'usurpation d'identité.
 
 {% alert warning %}
 N'utilisez pas une valeur facile à deviner ou un numéro incrémentiel pour votre ID utilisateur. Cela pourrait exposer votre organisation à des attaques malveillantes ou à l'exfiltration de données.
 
-Pour une sécurité accrue, utilisez l'[authentification SDK]({{site.baseurl}}/developer_guide/sdk_integration/authentication/).
+Pour une sécurité accrue, utilisez l'[authentification SDK]({{site.baseurl}}/developer_guide/sdk_integration/authentication).
 {% endalert %}
 
-Bien qu'il soit essentiel de nommer correctement vos ID utilisateur dès le départ, vous pouvez toujours les renommer ultérieurement via l'endpoint [`/users/external_ids/rename`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/).
+Bien qu'il soit essentiel de nommer correctement vos ID utilisateur dès le départ, vous pouvez toujours les renommer ultérieurement via l'endpoint [`/users/external_ids/rename`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration).
 
 | Types d'ID déconseillés | Exemple déconseillé |
 | ------------ | ----------- |
 | ID de profil visible ou nom d'utilisateur | JonDoe829525552 |
 | Adresse e-mail | Anna@email.com |
 | ID utilisateur à incrémentation automatique | 123 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Bonnes pratiques de dénomination des ID" }
 
 {% alert warning %}
 Évitez de divulguer des informations sur la manière dont vous créez les ID utilisateur, car cela pourrait exposer votre organisation à des attaques malveillantes ou à l'exfiltration de données.

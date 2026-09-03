@@ -7,7 +7,6 @@ tool:
   - Dashboard
 channel:
   - email
-
 ---
 
 # Inbox Vision
@@ -46,7 +45,7 @@ To test your email message in Inbox Vision:
 5. Select **Run Inbox Vision**. This may take between two to ten minutes to complete.
 
 {% alert note %}
-Inbox Vision doesn't support email messages that include [abort logic]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/) because these emails render as static content.
+Inbox Vision doesn't support email messages that include [abort logic]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) because these emails render as static content.
 {% endalert %}
 
 ### Previewing as a user
@@ -91,7 +90,7 @@ Accessibility testing highlights potential accessibility issues in your email an
 
 ### How it works
 
-When you run Inbox Vision, Braze automatically checks for common accessibility issues in the [WCAG 2.2 AA rule set](https://www.w3.org/WAI/WCAG22/quickref/?versions=2.2&currentsidebar=%23col_customize&levels=aaa) (such as missing alt text, insufficient color contrast, improper heading structure) and categorizes severity to help you prioritize fixes. 
+When you run Inbox Vision, Braze automatically checks for common accessibility issues in the [WCAG 2.2 AA rule set](https://www.w3.org/WAI/WCAG22/quickref/?versions=2.2&currentsidebar=%23col_customize&levels=aaa) (such as missing alt text, insufficient color contrast, improper heading structure) and categorizes severity to help you prioritize fixes. Note that even when alt text is present, [how it displays]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#how-email-clients-display-alt-text) is controlled by the recipient's email client, not Braze.
 
 {% alert important %}
 Accessibility Testing may be used to support Customer's compliance efforts of regulations or laws such as the [European Accessibility Act](https://www.braze.com/resources/articles/european-accessibility-at-what-it-means-for-marketers); however, Customer acknowledges that Braze makes no representations or warranties with respect to whether or not use of Accessibility Testing satisfies Customer's compliance obligations, and disclaims all liability in relation thereto.
@@ -128,7 +127,7 @@ Inbox Vision classifies accessibility issues by severity to help you prioritize 
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Severity levels" }
 
 {% alert important %}
-The drag-and-drop editor does not support setting a document `<title>` element, so the accessibility scanner always fails this check.<br><br>This limitation is tracked for future improvements. If this affects your workflows or your users, [share your feedback]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard#sharing-feedback) so we can prioritize impactful fixes.
+The drag-and-drop editor does not support setting a document `<title>` element, so the accessibility scanner always fails this check.<br><br>This limitation is tracked for future improvements. {% multi_lang_include product_feedback_cta.md context="pain_point" channel="ux" feature="the drag-and-drop editor document title limitation in Inbox Vision" %}
 {% endalert %}
 
 ### Understanding automated accessibility testing
@@ -139,9 +138,9 @@ The drag-and-drop editor does not support setting a document `<title>` element, 
 
 ### Review your email subscriber list
 
-Reference the [email insights dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#email-insights-dashboard) to determine the most popular device type and providers where your subscribers are engaging. If you need more granularity, such as the browser, device model, and more, you can leverage your [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) data or [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) to retrieve this level of detail about your users’ recent email engagement.
+Reference the [email insights dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#email-insights-dashboard) to determine the most popular device type and providers where your subscribers are engaging. 
 
-Otherwise, Braze defaults to the top 20 previews based on general industry and expert data, which covers the majority of where your subscribers are engaging with your emails. If your data analysis points to other, more popular previews, you can define a default set of previews every time you run Inbox Vision.
+If you need more granularity, such as the browser, device model, and more, you can leverage your [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) data or [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder) to retrieve this level of detail about your users’ recent email engagement.
 
 ### Select meaningful previews and impacted previews
 
@@ -155,8 +154,20 @@ We suggest running Inbox Vision when the email message is production-ready or cl
 
 Running Inbox Vision every time you make a single edit or change can quickly consume previews. We suggest making all the necessary changes to the email first, and then running Inbox Vision to preview how all your changes can affect the rendering of your email across environments.
 
-Braze runs tests through actual email clients and works to ensure renderings are accurate. If you consistently see an issue with a client, open a [support ticket]({{site.baseurl}}/braze_support/).
+Braze runs tests through actual email clients and works to ensure renderings are accurate. Braze defaults to the top 20 previews based on general industry and expert data, which covers the majority of where your users are engaging with your emails. If your data analysis points to other, more popular previews, you can define a default set of previews every time you run Inbox Vision. 
+
+If you consistently see an issue with a client, open a [support ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 
 ### Test accuracy versus live inboxes
 
 A sent message can look different from the editor preview because providers interpret the same HTML differently. Download a copy of the sent HTML to compare, and use CSS inlining where clients strip `<style>` blocks.
+
+#### Blank email bodies
+
+If recipients report blank email bodies but can still see the sender name or subject line:
+
+1. Confirm which email clients are affected.
+2. Use Inbox Vision to test the variant in those clients and identify HTML or CSS compatibility issues.
+3. If a client strips `<style>` blocks, add `style` attributes to the affected HTML elements. For more on inlining behavior and its limitations, see [CSS inlining]({{site.baseurl}}/user_guide/channels/email/html_editor/css_inline). In Gmail, too much CSS can cause the entire `<style>` block to be dropped, which is a common cause of blank email bodies.
+4. In the HTML editor, you can also turn on **Enable inline CSS** under **Sending Info** > **Advanced** to inline stylesheet rules for the entire message. This option isn't available for drag-and-drop emails, which are already inlined by the editor.
+5. Retest in Inbox Vision before sending future campaigns.

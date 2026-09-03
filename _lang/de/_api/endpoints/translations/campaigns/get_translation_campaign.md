@@ -15,11 +15,11 @@ description: "Dieser Artikel beschreibt den Endpunkt „Alle Übersetzungen für
 /campaigns/translations
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um alle Übersetzungen für jede Nachrichtenvariante in einer Campaign anzuzeigen. Weitere Informationen zu den Übersetzungsfeatures finden Sie unter [Locales in Nachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/).
+> Verwenden Sie diesen Endpunkt, um alle Übersetzungen für jede Nachrichtenvariante in einer Campaign anzuzeigen. Weitere Informationen zu den Übersetzungsfeatures finden Sie unter [Locales in Nachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages).
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `campaigns.translations.get`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `campaigns.translations.get`.
 
 ## Rate-Limit
 
@@ -33,7 +33,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 | `message_variation_id` | Erforderlich | String | Die ID Ihrer Nachrichtenvariante. |
 | `locale_id` | Optional | String | Eine Locale-UUID zum Filtern der Antworten. |
 | `post_launch_draft_version` | Optional | Boolescher Wert | Bei `true` wird die neueste Entwurfsversion anstelle der zuletzt veröffentlichten Live-Version zurückgegeben. Standardmäßig `false`, wodurch die aktuellste Live-Version zurückgegeben wird. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Query parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Abfrageparameter" }
 
 {% alert note %}
 Alle Übersetzungs-IDs gelten als universelle eindeutige Bezeichner (UUIDs), die in der Antwort des GET-Endpunkts zu finden sind.

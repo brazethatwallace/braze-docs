@@ -1,16 +1,16 @@
 ---
-nav_title: "GET : Lister des catalogues"
-article_title: "GET : Lister des catalogues"
+nav_title: "GET : Lister les catalogues"
+article_title: "GET : Lister les catalogues"
 search_tag: Endpoint
 page_order: 2
 
 layout: api_page
 page_type: reference
-description: "Cet article présente en détail l’endpoint Braze Lister des catalogues."
+description: "Cet article présente en détail l'endpoint Braze Lister les catalogues."
 
 ---
 {% api %}
-# Lister des catalogues
+# Lister les catalogues {#list-catalogs}
 {% apimethod get %}
 /catalogs
 {% endapimethod %}
@@ -19,19 +19,19 @@ description: "Cet article présente en détail l’endpoint Braze Lister des cat
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#7d65fb86-ccf7-423f-9eb2-f68ab36df824 {% endapiref %}
 
-## Conditions préalables
+## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l’autorisation `catalogs.get`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `catalogs.get`.
 
-## Limite de débit
+## Limite de débit {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='synchronous catalog' %}
 
-## Paramètres de chemin et de requête
+## Paramètres de chemin et de requête {#path-and-request-parameters}
 
-Cet endpoint n’a pas de paramètres de chemin ni de requête.
+Cet endpoint n'a pas de paramètres de chemin ni de requête.
 
-## Exemple de demande
+## Exemple de requête {#example-request}
 
 ```
 curl --location --request GET 'https://rest.iad-03.braze.com/catalogs' \
@@ -39,9 +39,9 @@ curl --location --request GET 'https://rest.iad-03.braze.com/catalogs' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## Réponse
+## Réponse {#response}
 
-### Exemple de réponse réussie
+### Exemple de réponse réussie {#example-success-response}
 
 Le code de statut `200` pourrait renvoyer le corps de réponse suivant.
 

@@ -28,8 +28,8 @@ description: "Cet article décrit en détail l'endpoint Braze permettant de list
 
 | Paramètre | Requis | Type de données | Description |
 |---|---|---|---|
-| `campaign_id` | Requis | Chaîne de caractères | Voir [identifiant API de Campaign](https://www.braze.com/docs/api/identifier_types/#campaign-api-identifier). |
-| `message_variation_id` | Requis | Chaîne de caractères | Identifiant API de la variante de message. Vous pouvez le trouver sur la page de détails de la Campaign, dans la section **Identifiant API**. |
+| `campaign_id` | Requis | Chaîne de caractères | Voir [identifiant API de Campaign]({{site.baseurl}}/api/identifier_types#campaign-identifier). |
+| `message_variation_id` | Requis | Chaîne de caractères | Identifiant API de la variante de message. Vous pouvez le trouver sur la page de détails de la Campaign, dans la section **API Identifier**. |
 | `includes_link_id` | Facultatif | Chaîne de caractères | Un identifiant de lien spécifique (tel qu'attribué par Braze) ou `null`. Ce paramètre permet de filtrer les résultats par un `link_id` spécifique. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
@@ -65,8 +65,8 @@ Le tableau suivant répertorie les erreurs possibles renvoyées et les étapes d
 
 | Erreur | Résolution des problèmes |
 | --- | --- |
-| `Missing/Invalid Campaign ID` | L'ID API de la Campaign doit être un identifiant API. Vous pouvez le trouver en utilisant l'[endpoint Exporter la liste des Campaigns](https://www.braze.com/docs/api/endpoints/export/campaigns/get_campaigns/) ou en vous connectant au tableau de bord. |
-| `Missing/Invalid Message Variant ID` | L'ID API de la variante de message doit être un identifiant API. Vous pouvez le trouver en utilisant l'[endpoint Exporter les détails d'une Campaign](https://www.braze.com/docs/api/endpoints/export/campaigns/get_campaign_details/) ou en vous connectant au tableau de bord. |
+| `Missing/Invalid Campaign ID` | L'ID API de la Campaign doit être un identifiant API. Vous pouvez le trouver en utilisant l'[endpoint Exporter la liste des Campaigns]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns) ou en vous connectant au tableau de bord. |
+| `Missing/Invalid Message Variant ID` | L'ID API de la variante de message doit être un identifiant API. Vous pouvez le trouver en utilisant l'[endpoint Exporter les détails d'une Campaign]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details) ou en vous connectant au tableau de bord. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 

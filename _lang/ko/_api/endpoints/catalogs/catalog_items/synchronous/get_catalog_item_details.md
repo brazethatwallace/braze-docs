@@ -21,7 +21,7 @@ description: "이 문서에서는 카탈로그 항목 세부 정보 나열 Braze
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `catalogs.get_item` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `catalogs.get_item` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key-permissions)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -33,7 +33,7 @@ description: "이 문서에서는 카탈로그 항목 세부 정보 나열 Braze
 |---|---|---|---|
 | `catalog_name` | 필수 | 문자열 | 카탈로그의 이름입니다. |
 | `item_id` | 필수 | 문자열 | 카탈로그 항목의 ID입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="경로 매개변수" }
 
 ## 요청 매개변수 {#request-parameters}
 
@@ -102,6 +102,6 @@ curl --location --request GET 'https://rest.iad-03.braze.com/catalogs/restaurant
 | --- | --- |
 | `catalog-not-found` | 카탈로그 이름이 유효한지 확인하세요. |
 | `item-not-found` | 해당 항목이 카탈로그에 있는지 확인하세요. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="문제 해결" }
 
 {% endapi %}

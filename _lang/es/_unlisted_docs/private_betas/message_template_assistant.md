@@ -1,53 +1,45 @@
 ---
-nav_title: Asistente de plantillas de mensajes
-article_title: Asistente de plantillas de mensajes
+nav_title: Plantillas de correo electrónico HTML
+article_title: Generar plantillas de correo electrónico HTML
 permalink: "/template_assistant/"
-description: "Este artículo de referencia explica cómo usar el asistente de plantillas de mensajes para generar plantillas para tu mensajería de correo electrónico."
+description: "Este artículo de referencia explica cómo generar plantillas de correo electrónico HTML con Operator, incluyendo cómo funciona y ejemplos de prompts."
 page_type: reference
 ---
 
-# Asistente de plantillas de mensajes {#message-template-assistant}
+# Generar plantillas de correo electrónico HTML {#generate-html-email-templates}
 
-> El asistente de plantillas de mensajes te ayuda a iterar sobre una plantilla de correo electrónico HTML existente utilizando GenAI para generar plantillas basadas en tus necesidades específicas. Esta funcionalidad puede ayudarte a optimizar tu contenido para un caso de uso, audiencia o conversión específicos, y a reducir el tiempo y el esfuerzo al redactar correos electrónicos.
+> Genera e itera plantillas de correo electrónico HTML con Operator. Describe la plantilla que necesitas en lenguaje natural, y Operator la crea o modifica utilizando tus directrices de marca y la configuración de estilo global.
 
 {% alert important %}
-El asistente de plantillas de mensajes se encuentra en acceso anticipado. Ponte en contacto con tu administrador del éxito del cliente si te interesa participar en este acceso anticipado. <br><br>Actualmente, esta funcionalidad solo es compatible con el canal de correo electrónico y solo en el editor HTML, no en otros editores (como arrastrar y soltar o AMP).
+La generación de plantillas de correo electrónico HTML con Operator se encuentra en acceso anticipado. Ponte en contacto con tu director de cuentas de Braze si te interesa participar en este acceso anticipado.
+
+Esta funcionalidad solo es compatible con el canal de correo electrónico en el editor HTML, no en otros editores (como arrastrar y soltar o AMP).
 {% endalert %}
+
+{% multi_lang_include brazeai/generative_ai/unification_note.md %}
+
+## Cómo acceder {#how-to-access}
+
+En el editor de plantillas de correo electrónico HTML, el grupo de la barra lateral **Generar** contiene la opción **Plantilla**. Selecciónala para generar o iterar una plantilla de correo electrónico HTML acorde con tu marca. Operator aplica tus [directrices de marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) para que el resultado coincida con tu voz y estilo.
 
 ## Cómo funciona {#how-it-works}
 
-El asistente de plantillas de mensajes utiliza tus [directrices de marca](https://www.braze.com/docs/user_guide/administrative/app_settings/brand_guidelines) y la [configuración de estilo global](https://www.braze.com/docs/user_guide/message_building_by_channel/email/drag_and_drop/dnd_email_style_settings) para adaptar el contenido y el estilo del mensaje a tu marca.
+Operator usa tus [directrices de marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) y [configuración de estilo global]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings) para adaptar el contenido y el estilo del mensaje a tu marca.
 
-Por ejemplo, si tienes configurados los ajustes de estilo global, el asistente de plantillas de mensajes incorporará los colores y estilos de tu marca. Si tienes directrices de marca definidas en Braze, el asistente también puede hacer referencia a ellas para crear textos con el tono y la personalidad de tu marca.
+Por ejemplo, si tienes configurada la configuración de estilo global, Operator incorpora los colores y estilos de tu marca. Si tienes directrices de marca definidas en Braze, Operator también las usa como referencia para crear textos con el tono y la personalidad de tu marca.
 
-El asistente de plantillas de mensajes puede recordar tu historial de chat solo mientras sigas en la misma ventana de chat. Esto significa que puede hacer referencia a prompts anteriores utilizados para generar los futuros. El asistente también intentará iterar tu plantilla para que sea adaptable a dispositivos móviles.
+Operator también itera tu plantilla para lograr una experiencia receptiva en dispositivos móviles.
 
-Por ejemplo, si pasas de un prompt específico sobre una marca de fitness a una marca genérica en tus prompts posteriores, el asistente de plantillas de mensajes puede informar a la plantilla de que se trata de esa misma marca de fitness. Para iniciar un nuevo chat, selecciona **Borrar historial** en la ventana de chat y abre de nuevo el asistente de plantillas de mensajes.
+## Ejemplos de prompts {#example-prompts}
 
-## Crear una plantilla {#creating-a-template}
+{% include copy_block.html content="Build a responsive HTML email template for a product launch with a hero image and two feature blocks." %}
 
-1. En el dashboard, ve a **Plantillas** > **Plantillas de correo electrónico**.
-2. Selecciona una plantilla de correo electrónico existente.
-3. En la sección **Crear con IA** del editor HTML, selecciona **Plantilla**.
-4. Desde aquí, puedes introducir una variedad de prompts o hacer preguntas sobre tu contenido.
-5. El asistente de plantillas de mensajes proporcionará una respuesta y determinará qué cambios son necesarios en tu plantilla.
-6. Selecciona **Generar** para aplicar las sugerencias.
+{% include copy_block.html content="Create a clean, single-column newsletter template that matches our brand guidelines." %}
 
-{% alert important %}
-Recomendamos encarecidamente probar el resultado generado para asegurarte de que coincide con tu mensajería.
-{% endalert %}
+{% include copy_block.html content="Add a feedback survey at the bottom of the email" %}
 
-![Un ejemplo de prompt para crear una plantilla con múltiples secciones que se usará para varios correos electrónicos. El asistente de plantillas de mensajes explica las modificaciones a la plantilla actual.]({% image_buster /assets/unlisted_docs/img/ai_message_template_assistant1.png %}){: style="width:70%;"}
+{% include copy_block.html content="Change font to [font name] and font size of the paragraph to size [number]" %}
 
-### Ejemplos de prompts {#example-prompts}
+{% include copy_block.html content="Make all the images have rounded corners" %}
 
-Aquí tienes algunos ejemplos de prompts para empezar:
-
-- Añadir un cuestionario de opinión al final del correo electrónico
-- Cambiar la fuente a {% raw %}`{{font name}}` y el tamaño de fuente del párrafo a tamaño `{{number}}`{% endraw %}
-- Hacer que todas las imágenes tengan esquinas redondeadas
-- Añadir otra sección con una imagen y una llamada a la acción
-
-{% alert note %}
-Dependiendo de tu prompt y la respuesta, el asistente de plantillas de mensajes puede añadir imágenes de marcador de posición al generar la nueva plantilla.
-{% endalert %}
+{% include copy_block.html content="Add another section with an image and a call-to-action" %}

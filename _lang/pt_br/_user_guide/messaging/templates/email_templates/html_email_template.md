@@ -12,7 +12,7 @@ channel:
 
 # Fazer upload de um modelo de e-mail HTML {#upload-an-html-email-template}
 
-> O dashboard da Braze permite que você faça upload dos seus próprios modelos de e-mail HTML e os salve para uso posterior em Campaigns. Você também pode [criar um modelo de e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/) usando nosso editor.
+> O dashboard da Braze permite que você faça upload dos seus próprios modelos de e-mail HTML e os salve para uso posterior em Campaigns. Você também pode [criar um modelo de e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template) usando nosso editor.
 
 ## Requisitos {#upload-requirements}
 
@@ -35,7 +35,7 @@ Forneça um nome para o modelo. Opcionalmente, adicione uma descrição, equipes
 
 ### Etapa 3: Faça upload do seu modelo {#step-3-upload-your-template}
 
-Na seção **Template content**, selecione **Upload file** abaixo do bloco **HTML code editor**. Selecione seu modelo no computador. Consulte a seção [Requisitos](#upload-requirements) para garantir que seu modelo atenda aos requisitos de upload.
+Na seção **Template content**, selecione **Upload file**. Selecione seu modelo no computador. Consulte a seção [Requisitos](#upload-requirements) para garantir que seu modelo atenda aos requisitos de upload.
 
 ### Etapa 4: Finalize e salve seu modelo {#step-4-finish-and-save-your-template}
 
@@ -53,9 +53,11 @@ Para usar seu e-mail em uma Campaign da API, você precisa do `email_template_id
 
 ## Gerenciando modelos de e-mail {#managing-email-templates}
 
-Você pode [duplicar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/) e [arquivar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/) modelos de e-mail! Saiba mais sobre como criar e gerenciar modelos e conteúdo criativo em [Modelos]({{site.baseurl}}/user_guide/messaging/templates/).
+Você pode [duplicar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates) e [arquivar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates) modelos de e-mail. Saiba mais sobre como criar e gerenciar modelos e conteúdo criativo em [Modelos]({{site.baseurl}}/user_guide/messaging/templates).
 
 ## Solução de problemas {#troubleshooting}
+
+### Erros de upload {#upload-errors}
 
 Existem várias mensagens de erro de e-mail que você pode receber ao fazer upload de um arquivo de modelo HTML. Se você receber um erro, consulte a tabela a seguir para problemas comuns e suas correções recomendadas:
 
@@ -68,10 +70,18 @@ Existem várias mensagens de erro de e-mail que você pode receber ao fazer uplo
 | `Images over 5&nbsp;MB` | Reduza o número de imagens e tente fazer upload novamente. |
 | `Extra Images` | Pode haver imagens adicionais no seu arquivo que não são referenciadas no arquivo HTML. Isso não causa um erro de falha, mas as imagens extras são descartadas. Se essas imagens deveriam ser referenciadas no arquivo HTML, verifique o conteúdo, corrija quaisquer erros e tente fazer upload novamente.|
 | `Missing Images` | Se houver imagens referenciadas no seu arquivo HTML, mas essas imagens não estiverem incluídas na pasta de imagens do arquivo ZIP, você receberá um erro de arquivo. Inspecione seu arquivo e corrija quaisquer erros (como erros de digitação), ou adicione as imagens ausentes ao seu arquivo ZIP e tente fazer upload novamente.|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Solução de problemas" }
 
 Observe que, ao baixar os arquivos de Campaigns HTML, etapas do Canvas com mensagens de e-mail ou modelos em uma máquina Windows, o caractere `|` (pipe) não é suportado, então pode ser necessário usar um aplicativo diferente para extrair o conteúdo do download do arquivo ZIP.
 
+### E-mail não renderiza corretamente {#email-not-rendering-properly}
+
+Se o seu e-mail não renderizar corretamente, verifique cada bloco de conteúdo para garantir que não haja cabeçalhos `<!doctype>` adicionais.
+
+Se houver um cabeçalho `<!doctype>` no próprio modelo HTML junto com um doctype HTML em um dos blocos de conteúdo, o e-mail não renderizará corretamente. Trate os blocos de conteúdo como fragmentos HTML adicionados à estrutura de documento existente do modelo de e-mail. Os blocos de conteúdo não devem conter tags body extras nem qualquer código HTML do modelo. Em alguns casos, ferramentas como o Emailify podem importar código pré-escrito com estrutura HTML extra, então revise os blocos de conteúdo importados com atenção.
+
+Verifique também se há tags e nomes de classe duplicados entre o modelo e os blocos de conteúdo, pois isso pode causar problemas de renderização.
+
 ## Perguntas frequentes {#frequently-asked-questions}
 
-Para respostas a perguntas frequentes sobre modelos de e-mail, confira nossa página de [perguntas frequentes sobre modelos de e-mail e links]({{site.baseurl}}/user_guide/messaging/templates/email_templates/faq/).
+Para respostas a perguntas frequentes sobre modelos de e-mail, confira nossa página de [perguntas frequentes sobre modelos de e-mail e links]({{site.baseurl}}/user_guide/messaging/templates/email_templates/faq).

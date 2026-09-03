@@ -58,7 +58,7 @@ In Braze, segments are dynamic groups of users that fit specific criteria you de
 
 You can create as many segments as you like to target users. Explore different combinations of segment features and segmentation filters to discover creative ways to utilize your user data, and unlock new ways to send relevant messages to users and increase engagement.
 
-Check out the use cases below for a small preview of how Braze segments can help you target your users.
+Check out the following use cases for a small preview of how Braze segments can help you target your users.
 
 ### Use cases
 
@@ -70,11 +70,11 @@ Check out the use cases below for a small preview of how Braze segments can help
 
 #### Segment Extension use cases
 
-You can further refine your segments by using [Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) to target users based on custom event or purchase behavior stored for the lifetime of their user profile.
+You can further refine your segments by using [Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension) to target users based on custom event or purchase behavior stored for the lifetime of their user profile.
 
 - **Historical purchases:** Segment users by whether they purchased a specific color of a specific product at least twice in the past two years.
 - **Events and message interactions:** Segment users by whether they made a purchase in the last thirty days and also interacted with a specific in-app message.
 - **Query data:** 
-  - **Query Snowflake:** Segment users with data combined from Braze and external sources, such as a CRM or a data warehouse, by using [SQL Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/) to query Snowflake.
-  - **Sync from data warehouse:** Segment users with data directly synced from your data warehouse or file storage system to Braze by using [CDI Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments/).
+  - **Query Snowflake:** Segment users with data combined from Braze and external sources, such as a CRM or a data warehouse, by using [SQL Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) to query Snowflake.
+  - **Sync from data warehouse:** Segment users with data directly synced from your data warehouse or file storage system to Braze by using [CDI Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments).
 

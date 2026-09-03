@@ -24,7 +24,7 @@ Les attributs personnalisés représentent les caractéristiques ou propriétés
 - **Personnalisation :** Les attributs sont parfaits pour la personnalisation. Vous pouvez intégrer la `favorite_category` d'un utilisateur dans la ligne d'objet d'un e-mail pour attirer son attention.
 - **Stockage :** Ces données restent sur le profil utilisateur indéfiniment tant que le profil reste actif.
 
-Pour en savoir plus, consultez [Attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/).
+Pour en savoir plus, consultez [Attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes).
 
 ### Événements personnalisés : ce que font vos utilisateurs {#custom-events-what-your-users-do}
 
@@ -35,7 +35,7 @@ Les événements personnalisés suivent les actions spécifiques que vos utilisa
 - **Métadonnées :** Vous pouvez ajouter des détails supplémentaires à un événement à l'aide de propriétés d'événement, comme le nom de l'article ajouté au panier.
 - **Analytique :** Les événements alimentent la segmentation, les rapports et l'analytique, ce qui vous permet de mesurer l'engagement et d'optimiser vos messages.
 
-Pour en savoir plus, consultez [Événements personnalisés]({{site.baseurl}}/user_guide/data/activation/events/custom_events/).
+Pour en savoir plus, consultez [Événements personnalisés]({{site.baseurl}}/user_guide/data/activation/events/custom_events).
 
 ## Catalogues {#catalogs}
 
@@ -43,13 +43,13 @@ Alors que les attributs et les événements se concentrent sur vos utilisateurs,
 
 En important ces métadonnées via CSV ou API, vous pouvez enrichir vos messages avec des informations qui ne sont pas stockées sur le profil utilisateur. Par exemple, vous pouvez utiliser un catalogue pour notifier automatiquement vos clients lorsqu'un article qu'ils ont consulté précédemment est de nouveau en stock ou a baissé de prix.
 
-Pour en savoir plus, consultez [Catalogues]({{site.baseurl}}/user_guide/data/activation/catalogs/).
+Pour en savoir plus, consultez [Catalogues]({{site.baseurl}}/user_guide/data/activation/catalogs).
 
 ## Types de données {#data-types}
 
 Braze prend en charge plusieurs types de données pour vos données personnalisées — notamment les types valeur booléenne, nombre, chaîne de caractères, tableau, date/heure et objet — chacun avec des comportements et des options de segmentation spécifiques. Le type de données que vous choisissez détermine la manière dont vous pouvez filtrer et personnaliser dans vos campagnes et segments.
 
-Pour une référence complète des types de données pris en charge pour les attributs personnalisés, les propriétés d'événement et les catalogues, consultez [Types de données]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/).
+Pour une référence complète des types de données pris en charge pour les attributs personnalisés, les propriétés d'événement et les catalogues, consultez [Types de données]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types).
 
 ## Préserver l'intégrité de vos données {#managing-your-data-integrity}
 
@@ -59,11 +59,11 @@ Braze fournit plusieurs outils pour vous aider à gérer vos données personnali
 
 Braze reconnaît automatiquement le type de données (comme un nombre ou une chaîne de caractères) de la première valeur reçue pour un attribut. Pour garantir la précision, assurez-vous que votre équipe envoie des types de données cohérents dans tous vos environnements. Si vous devez modifier un type de données, gardez à l'esprit que les données existantes sur les profils utilisateur ne seront pas mises à jour rétroactivement, ce qui peut affecter vos segments.
 
-### Liste de blocage et suppression {#blocklist-and-delete}
+### Blocage et suppression {#blocklist-and-delete}
 
 Si vous constatez que certains attributs ou événements ne sont plus utiles ou ont été ajoutés par erreur, vous pouvez les supprimer de votre espace de travail.
 
-- **Liste de blocage :** Empêche Braze de collecter de nouvelles données pour cet objet. Les données n'apparaissent plus dans les filtres ni les graphiques, mais les données existantes sont conservées sur les profils.
-- **Suppression :** Supprime définitivement les données de tous les profils utilisateur. Vous devez placer un objet de données en liste de blocage pendant 7 jours avant qu'il ne devienne éligible à la suppression.
+- **Blocage :** Empêche Braze de collecter de nouvelles données pour cet objet. Les données n'apparaissent plus dans les filtres ni les graphiques, mais les données existantes sont conservées sur les profils.
+- **Suppression :** Supprime définitivement les données de tous les profils utilisateur. Vous devez bloquer un objet de données pendant 7 jours avant qu'il ne devienne éligible à la suppression.
 
-Pour en savoir plus, consultez [Gérer les données personnalisées]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/) et [Bloquer des données personnalisées]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/).
+Pour en savoir plus, consultez [Gérer les données personnalisées]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data) et [Bloquer des données personnalisées]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data).

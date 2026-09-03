@@ -29,7 +29,7 @@ WCAG 2.1を満たす最小のSDKバージョンはv3.4.0に近いです。ただ
 | **3.1.2** | マイナー | 画像のデフォルト代替テキスト |
 | **2.4.1** | **メジャー** | セマンティックHTML（`h1`または`button`）、ARIA属性、キーボードナビゲーション、フォーカス管理 |
 | **2.0.5** | マイナー | フォーカス管理、キーボードナビゲーション、ラベル |
-{: .reset-td-br-1, .reset-td-br-2 aria-label="Notable accessibility fixes" }
+{: .reset-td-br-1, .reset-td-br-2 aria-label="主なアクセシビリティの修正" }
 
 ## サポートされているアクセシビリティ機能 {#supported-accessibility-features}
 
@@ -43,7 +43,7 @@ Content Cardsとアプリ内メッセージでは、以下の機能をサポー�
 
 ## SDK統合のためのアクセシビリティガイドライン {#accessibility-guidelines-for-sdk-integrations}
 
-アクセシビリティに関する一般的なガイドラインについては、[Brazeでアクセシブルなメッセージを作成する]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/)を参照してください。このガイドでは、Braze Web SDKをWebアプリケーションに統合する際のアクセシビリティを最大限に高めるためのヒントとベストプラクティスを提供します。
+アクセシビリティに関する一般的なガイドラインについては、[Brazeでアクセシブルなメッセージを作成する]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility)を参照してください。このガイドでは、Braze Web SDKをWebアプリケーションに統合する際のアクセシビリティを最大限に高めるためのヒントとベストプラクティスを提供します。
 
 ### Content Cards
 
@@ -72,7 +72,7 @@ Content Cardsが縦方向のスペースを過剰に占めるのを防ぎ、ア�
 インラインで表示されるContent Cardsについては、以下の例のようにビューポートの制約を考慮してください。
 
 {% raw %}
-`````````css
+```css
 /* Limit feed height on mobile to prevent covering too much screen */
 @media (max-width: 768px) {
   body > .ab-feed {
@@ -95,7 +95,7 @@ Content Cardsが縦方向のスペースを過剰に占めるのを防ぎ、ア�
 SDKにはレスポンシブブレークポイントが含まれています。カスタマイズがさまざまな画面サイズで正しく機能することを確認してください。以下はその例です。
 
 {% raw %}
-`````````css
+```css
 /* Mobile-specific accessibility considerations */
 @media (max-width: 768px) {
   /* Ensure readable font sizes */
