@@ -62,7 +62,7 @@ Puedes añadir etiquetas y nombrar los pasos y variantes en un Canvas. Para más
 
 *Partiendo del "qué", ¿por qué estás construyendo este Canvas?*
 
-Siempre es importante tener un objetivo definido en mente, y Canvas te ayuda a entender cómo estás rindiendo en relación con KPI como la participación en sesiones, compras y eventos personalizados.
+Siempre es importante tener un objetivo definido en mente, y Canvas te ayuda a entender cómo estás rindiendo en relación con indicador clave de rendimiento como la participación en sesiones, compras y eventos personalizados.
 
 Seleccionar al menos un [evento de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) te dará la capacidad de entender cómo optimizar el rendimiento dentro del Canvas. Y si tu Canvas tiene múltiples variantes o un grupo de control, Braze usará el evento de conversión para determinar la mejor variante para alcanzar este objetivo.
 

@@ -14,11 +14,13 @@ channel:
 
 # SMS, MMS, and RCS subscription groups
 
-> Subscription groups are the foundation for sending SMS, MMS, and RCS messages through Braze. A subscription group is a collection of [sending entities]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup) (such RCS-verified senders, SMS short codes, SMS long codes, or SMS alphanumeric sender IDs) that are used for a specific type of messaging purpose. For example, if a brand has plans to send both transactional and promotional SMS messaging, two subscription groups with separate pools of sending phone numbers will need to be set up within your Braze dashboard.
+> Subscription groups are the foundation for sending SMS, MMS, and RCS messages through Braze. A subscription group is a collection of [sending entities]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup)—such as RCS-verified senders, SMS short codes, SMS long codes, or SMS alphanumeric sender IDs—used for a specific messaging purpose (for example, transactional versus promotional). For a cross-channel overview of subscription groups, see [Subscription groups]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups).
 
 {% multi_lang_include alerts/note_alerts.md alert='subscription group limit' %}
 
+<a id="subscription-group-states"></a>
 ## Subscription group states
+{: #sms-subscription-states}
 
 There are two subscription states for SMS and RCS users: `subscribed` and `unsubscribed`. A user's subscription state resides at the subscription group level and is not shared across subscription groups, meaning a user can be `subscribed` to a transactional subscription group but `unsubscribed` to a promotional one. For brands, this separation of states ensures that they can continue to send relevant SMS and RCS messages to their users.
 
@@ -64,7 +66,7 @@ To check a user's subscription group, use one of the following methods:
 
 To launch an SMS or RCS campaign through Braze, select a subscription group from the **SMS/MMS/RCS Variants** dropdown. After it's selected, an audience filter is added to your campaign or Canvas automatically, ensuring that only users `subscribed` to the selected subscription group are in the target audience.
 
-Before users can receive messages from a campaign or Canvas, they must be subscribed to the selected subscription group. If sends fail for otherwise valid users, confirm they are subscribed using one of the methods in [Set a user's state](#set-a-users-state). For double opt-in requirements, see [Subscription group states](#subscription-group-states).
+Before users can receive messages from a campaign or Canvas, they must be subscribed to the selected subscription group. If sends fail for otherwise valid users, confirm they are subscribed using one of the methods in [Set a user's state](#set-a-users-state). For double opt-in requirements, see [Subscription group states](#sms-subscription-states).
 
 {% alert important %}
 In adherence with international [telecommunication compliance and guidelines]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations), Braze never sends SMS or RCS to users that have not subscribed to the selected subscription group.  

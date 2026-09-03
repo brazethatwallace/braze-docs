@@ -1,12 +1,12 @@
 ---
-nav_title: E-Mail-Registrierung mit Bild
-article_title: E-Mail-Registrierung mit Hintergrundbild
+nav_title: E-Mail-registrieren mit Bild
+article_title: E-Mail-registrieren mit Hintergrundbild
 alias: "/email_image/"
 page_order: 5
 description: "Diese Seite beschreibt, wie Sie den Drag-and-Drop-Editor für In-App-Nachrichten verwenden, um Ihren Markenstil mit einer einfachen Nachricht zu präsentieren und Ihre E-Mail-Liste aufzubauen."
 ---
 
-# E-Mail-Registrierung mit Hintergrundbild {#email-sign-up-with-background-image}
+# E-Mail-registrieren mit Hintergrundbild {#email-sign-up-with-background-image}
 
 > Verwenden Sie den Drag-and-Drop-Editor für In-App-Nachrichten, um Ihren Markenstil mit einer einfachen Nachricht zu präsentieren und Ihre E-Mail-Liste aufzubauen.
 
@@ -16,7 +16,7 @@ description: "Diese Seite beschreibt, wie Sie den Drag-and-Drop-Editor für In-A
 
 ### 1. Schritt: Template auswählen {#step-1-choose-your-template}
 
-Wählen Sie beim Erstellen einer Drag-and-Drop-In-App-Nachricht **Email sign-up with background image** als Template aus und klicken Sie dann auf **Build message**. Dieses Template wird sowohl für mobile Apps als auch für Webbrowser unterstützt.
+Wählen Sie beim Erstellen einer Drag-and-Drop-In-App-Nachricht **Email Registrierung with background image** als Template aus und klicken Sie dann auf **Build message**. Dieses Template wird sowohl für mobile Apps als auch für Webbrowser unterstützt.
 
 ![Der In-App-Nachrichten-Editor mit dem Template für ein E-Mail-Registrierungsformular mit Hintergrundbild.]({% image_buster /assets/img/drag_and_drop/templates/email_capture_image.png %})
 

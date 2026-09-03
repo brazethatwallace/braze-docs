@@ -17,7 +17,7 @@
 
 ## ステップ 1: 次の予約データをBrazeユーザープロファイルに書き込む {#step-1}
 
-予約が行われるたびに、Brazeの[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)エンドポイントを使用して、[階層化カスタム属性]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support)をユーザープロファイルに書き込みます。階層化カスタム属性には、リマインダーメッセージの送信とパーソナライズに必要な情報がすべて含まれていることを確認してください。このユースケースでは、階層化カスタム属性に「trips」という名前を付けます。
+予約が行われるたびに、Brazeの[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)エンドポイントを使用して、[階層化カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support)をユーザープロファイルに書き込みます。階層化カスタム属性には、リマインダーメッセージの送信とパーソナライズに必要な情報がすべて含まれていることを確認してください。このユースケースでは、階層化カスタム属性に「trips」という名前を付けます。
 
 ### 予約の追加 {#add-booking}
 
@@ -99,7 +99,7 @@
 {% endraw %}
 {% endtab %}
 {% tab SDK %}
-#### SDK経由で階層化属性をユーザープロファイルに書き込む {#write-nested-attributes-to-user-profiles-through-the-sdk}
+#### SDKを通じて階層化属性をユーザープロファイルに書き込む {#write-nested-attributes-to-user-profiles-through-the-sdk}
 
 アプリ、Webサイト、またはその両方で予約を収集し、そのデータをユーザープロファイルに直接書き込む場合は、Braze SDKを使用してこのデータを送信できます。以下はWeb SDKを使用した例です。
 
@@ -127,6 +127,7 @@ Brazeはユーザープロファイルの階層化カスタム属性から指定
 ## ステップ 2: 予約リマインダーメッセージを設定して起動する {#step-2}
 
 ### ステップ 2a: ターゲットオーディエンスを作成する {#step-2a-create-a-target-audience}
+
 複数条件のセグメンテーションを使用して、リマインダーを受信するターゲットオーディエンスを作成します。例えば、予約日の2日前にリマインダーを送信する場合は、次のように選択します。
 
 - 開始日まで**1日超**かつ
@@ -136,7 +137,7 @@ Brazeはユーザープロファイルの階層化カスタム属性から指定
 
 ### ステップ 2b: メッセージを作成する {#step-2b-create-your-message}
 
-[カスタムHTMLを使用したメールの作成]({{site.baseurl}}/user_guide/message_building_by_channel/email/html_editor)のステップに従って、リマインダーメールメッセージを作成します。この例のように、Liquidを使用して、作成したカスタム顧客属性（「trips」）のデータでメッセージをパーソナライズします。
+[カスタムHTMLを使用したメールの作成]({{site.baseurl}}/user_guide/channels/email/html_editor)のステップに従って、リマインダーメールメッセージを作成します。この例のように、Liquidを使用して、作成したカスタム顧客属性（「trips」）のデータでメッセージをパーソナライズします。
 
 {% raw %}
 ```liquid
@@ -193,7 +194,7 @@ You have the following booked in 2 days! Check the information below:
 {% endtab %}
 {% tab SDK %}
 
-#### SDK経由でカスタムイベントをユーザープロファイルに送信する
+#### SDK経由でユーザープロファイルに階層化属性を書き込む
 
 SDK経由でカスタムイベントをユーザープロファイルに送信します。例えば、Web SDKを使用している場合は、次のように送信できます。
 
@@ -212,7 +213,7 @@ braze.logCustomEvent("trip_updated", {
 
 ### ステップ 3b: 更新を確認するメッセージを作成する {#step-3b-create-a-message-to-confirm-the-update}
 
-[アクションベースのキャンペーン]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery)を作成して、更新された予約の確認をユーザーに送信します。[Liquidを使用してイベントプロパティをテンプレート化]({{site.baseurl}}/user_guide/data/custom_data/custom_events)し、予約の名前、以前の時刻、新しい時刻（キャンセルの場合は名前のみ）をメッセージ自体に反映できます。
+[アクションベースのキャンペーン]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery)を作成して、更新された予約の確認をユーザーに送信します。[Liquidを使用してイベントプロパティをテンプレート化]({{site.baseurl}}/user_guide/data/activation/events/custom_events)し、予約の名前、以前の時刻、新しい時刻（キャンセルの場合は名前のみ）をメッセージ自体に反映できます。
 
 例えば、次のようなメッセージを作成できます。
 

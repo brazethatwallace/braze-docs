@@ -17,9 +17,9 @@ channel: email
 | 症状 | 参照先 |
 | --- | --- |
 | テストメールのHTMLが正しく表示されない | [テストメールでHTMLが正しくレンダリングされない](#html-renders-incorrectly-in-test-emails) |
-| Chromeでエディターの動作がおかしい | [拡張機能の競合](#extension-conflicts) |
+| Chromeでエディターが正しく動作しない | [拡張機能の競合](#extension-conflicts) |
 | メールクライアントによって表示が異なる | [メールのレンダリング](#email-rendering) |
-| メールにLiquidコードや壊れたリンクが表示される | [LiquidテンプレートでのHTML不均衡](#unbalanced-html-in-liquid-templates) |
+| メールにLiquidコードや壊れたリンクが表示される | [LiquidテンプレートのHTML不均衡](#unbalanced-html-in-liquid-templates) |
 | Inbox Visionのプレビューが送信済みメールと一致しない | [CSSインライン化](#css-inlining) |
 | テストメールで画像の後に余白や線が表示される | [画像下の余白](#white-space-under-images) |
 | クリック分析にクエリパラメーターが含まれない | [リンククリック分析の制限事項](#link-click-analytics-limitations) |
@@ -31,16 +31,16 @@ channel: email
 HTMLメールのレンダリングやエディターの動作が期待どおりでない場合は、このワークフローを使用してください。ステップ1から始めてください。
 
 1. エディターまたは外部バリデーターでHTMLマークアップを検証します。
-2. [テストメール]({{site.baseurl}}/developer_guide/platform_wide/sending_test_messages#sending-a-test-push-notification-or-in-app-messages-a-classmargin-fix-namepush-inapp-testa)を送信し、どのメールクライアントやブラウザーで問題が発生するかを確認します。
+2. [テストメール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages)を送信し、どのメールクライアントまたはブラウザーで問題が発生するかを確認します。
 3. [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision)でプレビューし、クライアント間のレンダリングを比較します。
 4. エディター自体が正常に動作しない場合は、[ブラウザー拡張機能の競合](#extension-conflicts)を除外します。
-5. 問題が解決しない場合は、Inbox Visionのスクリーンショットと影響を受けたクライアントの情報を添えて[サポートチケット]({{site.baseurl}}/braze_support)を作成してください。
+5. 問題が解消されない場合は、Inbox Visionのスクリーンショットと影響を受けたクライアントの情報を添えて、[サポートチケット]({{site.baseurl}}/user_guide/administer/personal/braze_support)を提出してください。
 
 ## テストメールでHTMLが正しくレンダリングされない {#html-renders-incorrectly-in-test-emails}
 
 ### 症状 {#symptom}
 
-[テストメール]({{site.baseurl}}/developer_guide/platform_wide/sending_test_messages#sending-a-test-push-notification-or-in-app-messages-a-classmargin-fix-namepush-inapp-testa)の表示がエディターでの見た目と一致しません。
+[テストメール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages)の表示がエディターでの見た目と一致しません。
 
 まずHTMLの設定を確認し、次に[拡張機能の競合](#extension-conflicts)、[メールのレンダリング](#email-rendering)、[CSSインライン化](#css-inlining)、[画像下の余白](#white-space-under-images)を確認してください。
 
@@ -163,7 +163,7 @@ Brazeは、パラメーター付きURL（クエリパラメーターあり）と
 
 外部プラットフォームでユーザー固有の行動をトラッキングするために一意のクエリパラメーターに依存している場合（例：`https://example.com?user_id=USER_ID`）、Brazeのクリック分析ではクリックされた最初の100個の一意のリンクについてのみそれらのパラメーターが保持されることに注意してください。そのしきい値を超えた後もクリックは分析に記録されますが、パラメーターが除去されたURLに帰属されます。
 
-ユーザーレベルのクリックデータは、クリックされた一意のパラメーター付きリンクの数に関係なく、[Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents)または[メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)を通じて引き続き利用可能です。
+ユーザーレベルのクリックデータは、クリックされた一意のパラメーター付きリンクの数に関係なく、[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)または[メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)を通じて引き続き利用可能です。
 
 ### 上付き文字の行の高さの問題 {#superscript-line-height-issues}
 

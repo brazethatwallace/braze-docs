@@ -15,9 +15,9 @@
 
 | メッセージングシステム | 推奨ペイロード |
 | --- | --- |
-| iOS (iOS 8 以前) | 0.256 KB |
-| iOS (iOS 8 以降) | 2 KB |
-| Android (FCM) | 4 KB |
+| iOS（iOS 8以前） | 0.256 KB |
+| iOS（iOS 8以降） | 2 KB |
+| Android（FCM） | 4 KB |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="テーブル" }
 
 {% endif %}
@@ -82,11 +82,11 @@ Web SDKでのアプリ内メッセージのレンダリングは、ブラウザ�
 
 | メッセージタイプ | メッセージの最大長 | タイトルの最大長 |
 | --- | --- | --- |
-| iOSロック画面 | 175 文字 | 43 文字 |
-| iOS通知 | 175 文字 | 43 文字 |
-| iOSバナーアラート | 85 文字 | 43 文字 |
-| Androidロック画面 | 49 文字 | 43 文字 |
-| Android通知ドロワー | 597 文字 | 43 文字 |
+| iOSロック画面 | 175文字 | 43文字 |
+| iOS通知 | 175文字 | 43文字 |
+| iOSバナーアラート | 85文字 | 43文字 |
+| Androidロック画面 | 49文字 | 43文字 |
+| Android通知ドロワー | 597文字 | 43文字 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="テーブル" }
 
 すべてのプッシュ画像の推奨サイズは500 KBです。
@@ -165,9 +165,9 @@ table td {
 
 | テキスト仕様 | 推奨最大プロパティ |
 | --- | --- |
-| 件名の長さ | 35 文字<br>6〜10 ワード |
-| `"From: Name"` の長さ | 25 文字 |
-| プレヘッダーの長さ | 85 文字 |
+| 件名の長さ | 35文字<br>6〜10ワード |
+| `"From: Name"`の長さ | 25文字 |
+| プレヘッダーの長さ | 85文字 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="テーブル" }
 
 {% endif %}
@@ -181,7 +181,21 @@ table td {
 | バナー    | 任意のアスペクト比 | 最小幅 600&nbsp;px |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="テーブル" }
 
-詳細については、[Content Cardsのクリエイティブ詳細]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details)を参照してください。
+詳細については、[Content Cardsのクリエイティブ詳細]({{site.baseurl}}/user_guide/channels/content_cards/creative_details)を参照してください。
+
+{% endif %}
+
+{% if include.variable_name == "sms and mms" %}
+
+MMSメッセージは1メッセージにつき1枚の画像をサポートしています。MMS対応の購読グループのみが画像を送信できます。
+
+| プロパティ | 推奨 |
+| --- | --- |
+| サイズ | キャリアによる確実な配信のため、600&nbsp;KB以下を推奨します。コンポーザーでは1&nbsp;MBを超えるアップロードはブロックされます。 |
+| ファイルタイプ | PNG、JPEG、GIF |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SMSとMMS" }
+
+キャリアのファイルサイズ制限とスループットについては、[MMSメッセージの制限とスループット]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup#mms-message-limits-and-throughput)を参照してください。
 
 {% endif %}
 

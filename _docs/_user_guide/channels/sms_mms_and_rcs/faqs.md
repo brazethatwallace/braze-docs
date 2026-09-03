@@ -80,19 +80,19 @@ While we can't promise that you won't occasionally have an overage, you could fo
 
 - Pay attention to the number of characters in your SMS. Unintentionally sending more than one segment could cause overages. For more details, refer to our [segment breakdown]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator).
 - Carefully calculate your SMS characters to account for Liquid or Connected Content. The Braze SMS composer in your dashboard does not estimate or factor in the usage of either of these features.
-- Consider the type of encoding your message uses - if your message uses GSM-7 encoding, you can usually estimate that you can send a message with 128 characters per message segment. If your message uses [UCS-2](https://en.wikipedia.org/wiki/Universal_Coded_Character_Set) encoding, you can usually estimate that you can send a message with 67 characters per message segment.
+- Consider the type of encoding your message uses. If your message uses GSM-7 encoding, you can usually estimate 160 characters per message segment (fewer if you use characters from the GSM-7 extension table). If your message uses [UCS-2](https://en.wikipedia.org/wiki/Universal_Coded_Character_Set) encoding, you can usually estimate 67 characters per message segment.
 - Test, test, and test! Always test your SMS messages before launch, especially when using Liquid and Connected Content.
 
 ### If a message is sent to a landline, will the message still count toward my SMS send count?
 
 In the US, Canada, and UK:
-- If an SMS is sent to a landline, it will be marked as **Undelivered**. Note that Twilio will still charge for attempted delivery, so messages marked as **Sent**, **Delivered**, or **Undelivered** in your message logs will be billed.
-- In the UK, some carriers will convert the SMS into a voicemail, delivering the message.
+- If an SMS is sent to a landline, it is marked as **Undelivered**. Billing behavior depends on your SMS service provider. With Twilio, attempted delivery is still charged, so messages marked as **Sent**, **Delivered**, or **Undelivered** in your message logs are billed.
+- In the UK, some carriers convert the SMS into a voicemail, delivering the message.
 
 In other countries:
-- Twilio will throw an error, and you will not be billed for the attempted SMS message.
+- With Twilio, an error is thrown and you are not billed for the attempted SMS message.
 
-### Why is the Braze dashboard warning me I may be charged for additional message segments when my message is under 160 (GSM-7) or 70 (UCS-2) characters?
+### Why is the Braze dashboard warning me I may be charged for additional message segments when my message is under 160 (GSM-7) or 67 (UCS-2) characters?
 
 You might be charged additional message segments if you have Liquid personalization included in your message. Content Block templating does not occur until the message is preparing to be sent. When you are editing an SMS with a Content Block, Braze does not know what the Content Block will contain but provides a rough estimate. We recommend that users use the test pane to preview the message to better understand what to expect.
 
@@ -136,7 +136,7 @@ Custom keywords would be written as custom events, so you would want to create s
 
 ### If a user texts "Stop" to our short code, are they unsubscribed from the subscription group?
 
-What does that look like on the user profile? The subscription group will revert to 2 dashes (- -), and there will be custom events for subscribe and unsubscribe.
+What does that look like on the user profile? The subscription group shows as unsubscribed under **Contact Settings**, and there are custom events for subscribe and unsubscribe.
 
 ### If a user is opted out and sends a keyword to our short and long code, do they receive the response we configured for that keyword in Braze?
 
@@ -189,6 +189,14 @@ MMS is only displayed on the Braze dashboard when a subscription group is consid
 
 Additionally, certain situations will require Twilio to re-approve the enablement of short codes that originally didn't have MMS enabled. This approval process could take weeks.
 
+### Why does my MMS with an image fail to send?
+
+Some SMS providers validate the `Content-Type` header on image URLs. If an MMS with an image aborts, confirm the hosted image URL returns `image/png` or another supported image type (for example, with `curl -I <image-url>`). Re-host the asset in the Braze media library or on a CDN that serves the correct `Content-Type`.
+
+### Why doesn't my contact card image appear in an MMS?
+
+MMS contact card photos can fail to render when the contact card file references an image URL the recipient's device can't fetch. Create the contact card on a phone, export the file, and upload it to the media library for use in your MMS message.
+
 ## RCS
 
 ### Why doesn't my RCS message render accurately on iOS devices?
@@ -197,10 +205,22 @@ RCS messages may render differently on an iOS device depending on the operating 
 
 - Suggested actions from different RCS messages in the same conversation thread may be grouped together and shown in the wrong order.
 - Rich card buttons and suggested actions that are outside the rich card may remain visible even after tapping a rich card button or a suggested action.
+- GIFs in rich cards display as static images. For details, see [Why do GIFs in RCS rich cards appear static on iOS?](#why-do-gifs-in-rcs-rich-cards-appear-static-on-ios).
 
 {% alert note %}
 Braze sends the RCS payload you compose, while the messaging client controls how suggested actions are ordered, grouped, and hidden. Be sure to test RCS messages, especially those that use rich cards with suggested actions or suggested replies, on both Android and iOS devices before sending.
 {% endalert %}
+
+### Why do GIFs in RCS rich cards appear static on iOS?
+
+On iOS, GIFs in RCS rich cards display as a static image (the first frame). On Android, they animate as expected.
+
+The iOS messaging client controls this behavior. A GIF may still animate in the Braze preview. Send a test message to an iOS device to confirm how the delivered message looks.
+
+To send animated content to iOS:
+
+- Use an RCS **Media** message, which sends the GIF as a file
+- Use video in the rich card
 
 ### Can I send pre-recorded voicemails with RCS?
 

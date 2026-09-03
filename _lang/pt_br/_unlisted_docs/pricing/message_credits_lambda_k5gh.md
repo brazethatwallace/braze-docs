@@ -17,10 +17,9 @@ hide_toc: true
 As definições das colunas são as seguintes:
 
 |---------|-------------------------------------------------|
-| **Destino** | Região final específica, país ou tipo de ação enviada pela plataforma Braze |
-| **Créditos por 1 envio** | Número exato de Message Credits para realizar um envio<br> (créditos por envio = proporção de créditos x multiplicador de destino) |
+| **Destino** | Região final específica, país ou tipo de ação sendo enviada pela plataforma Braze |
+| **Créditos por 1 envio** | Número exato de créditos de mensagem para realizar um envio<br> (créditos por envio = proporção de créditos x multiplicador de destino) |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
-
 
 ## Tabela de proporção de créditos para Message Credits - Lambda {#credit-ratio-table-for-message-credits-lambda}
 
@@ -1894,13 +1893,13 @@ As definições das colunas são as seguintes:
         <td>5.80</td>
     </tr>
     <tr>
-        <td>Line</td>
-        <td>All Regions</td>
+        <td>LINE</td>
+        <td>Todas as regiões</td>
         <td>0.15</td>
     </tr>
     <tr>
         <td>KakaoTalk</td>
-        <td>All Regions</td>
+        <td>Todas as regiões</td>
         <td>0.20</td>
     </tr>
     <tr>
@@ -1910,12 +1909,12 @@ As definições das colunas são as seguintes:
     </tr>
     <tr>
         <td>BYO SMS Connector</td>
-        <td>Infobip - All Regions</td>
+        <td>Infobip - Todas as regiões</td>
         <td>0.30</td>
     </tr>
     <tr>
         <td>BYO SMS Connector</td>
-        <td>Twilio - All Regions</td>
+        <td>Twilio - Todas as regiões</td>
         <td>0.30</td>
     </tr>
     <tr>
@@ -2041,21 +2040,21 @@ As definições das colunas são as seguintes:
 ------
 
 ## Detalhes do Agent Console {#agent-console-details}
-A Braze cobrará Message Credits por invocações do Agent Console enviadas pela plataforma Braze. Uma invocação é registrada quando um agente inicia uma chamada a um LLM. Por padrão, seu contrato inclui dez mil invocações por cada período do seu prazo de assinatura.
+A Braze cobrará Créditos de Mensagem pelas Invocações do Agent Console enviadas a partir da plataforma Braze. Uma Invocação é registrada quando um Agente inicia uma chamada para um LLM. Por padrão, seu contrato inclui dez mil Invocações por cada Período do seu Prazo de Inscrição.
 
-## Detalhes do canal SMS/MMS {#smsmms-channel-details}
+## Detalhes do canal de SMS/MMS {#smsmms-channel-details}
 
 ### Segmentos de SMS {#sms-segments}
 
-Os segmentos de mensagem SMS são a forma como o setor de SMS contabiliza as mensagens. Um segmento de mensagem é um agrupamento de até um número definido de caracteres (160 para codificação GSM-7; 67 para codificação UCS-2) que será enviado em um único despacho de SMS. Se você enviar um SMS com 161 caracteres usando codificação GSM-7, verá que dois (2) segmentos de mensagem foram enviados. O envio de múltiplos segmentos de mensagem resultará em cobranças adicionais.
+Segmentos de mensagem SMS são a forma como o setor de SMS contabiliza as mensagens. Um Segment de mensagem é um agrupamento de até um número definido de caracteres (160 para codificação GSM-7; 67 para codificação UCS-2) que será enviado em um único despacho de SMS. Se você enviar um SMS com 161 caracteres usando codificação GSM-7, verá que dois (2) segmentos de mensagem foram enviados. O envio de múltiplos segmentos de mensagem resultará em cobranças adicionais.
 
 ### Segmentos de MMS {#mms-segments}
 
-Para MMS, o limite da mensagem é de 5 MB (isso inclui o ativo multimídia e o tamanho do corpo da mensagem). Para maior segurança, a Braze recomenda não exceder 600 KB para o seu ativo multimídia, incluindo também o corpo da mensagem.
+Para MMS, o limite da mensagem é de 5 MB (isso inclui o ativo multimídia e o tamanho do corpo da mensagem). Para maior segurança, a Braze recomenda não exceder 600 KB para o seu ativo multimídia e também incluir um corpo de mensagem.
 
 ### Tipos de RCS {#rcs-types}
 
-O RCS é a próxima geração do SMS e MMS. Ele oferece os benefícios de um canal direto e de alto engajamento como o SMS, com recursos mais ricos que os consumidores modernos esperam, como conteúdo rico (imagens, vídeos, documentos), envio verificado e com marca, recursos interativos como respostas e ações sugeridas, e muito mais.
+O RCS é a próxima geração de SMS e MMS. Ele oferece os benefícios de um canal direto e de alto engajamento como o SMS, com recursos mais avançados que os consumidores modernos esperam, como conteúdo rico (imagens, vídeos, documentos), envio verificado e com marca, recursos interativos como respostas e ações sugeridas, e muito mais.
 
 {% multi_lang_include pricing/rcs_billing_message_types.md %}
 
@@ -2063,19 +2062,21 @@ O RCS é a próxima geração do SMS e MMS. Ele oferece os benefícios de um can
 
 {% multi_lang_include whatsapp/about_credits.md content="h3" %}
 
-## Detalhes adicionais dos canais {#additional-channel-details}
+## Detalhes adicionais do canal {#additional-channel-details}
 
 ### Webhooks
 
-Os webhooks passaram a fazer parte dos Message Credits em 9 de dezembro de 2024. A Braze cobrará Message Credits por quaisquer webhooks enviados pela plataforma Braze. Por padrão, seu contrato inclui cem mil webhooks por cada período do seu prazo de assinatura. Webhooks adicionais serão cobrados conforme o seu formulário de pedido.
+Os webhooks passaram a fazer parte dos Créditos de Mensagem em 9 de dezembro de 2024. A Braze cobrará Créditos de Mensagem por quaisquer webhooks enviados a partir da plataforma da Braze. Por padrão, seu contrato inclui cem mil webhooks por cada Período do seu Prazo de Inscrição. Webhooks adicionais serão cobrados conforme seu Formulário de Pedido.
+
+{% multi_lang_include pricing/webhook_failed_requests_billing.md credit_name='Message Credits' %}
 
 ### Conectores SMS próprios (BYO) {#bring-your-own-byo-sms-connectors}
 
-A Braze permite que os clientes integrem provedores terceiros para enviar mensagens SMS por meio do modelo de "conector SMS BYO". A Braze cobrará Message Credits por cada mensagem enviada pela plataforma Braze por meio de conectores SMS BYO.
+A Braze permite que os clientes integrem provedores terceiros para enviar mensagens SMS por meio do modelo "conector SMS BYO". A Braze cobrará Créditos de Mensagem por cada mensagem enviada a partir da plataforma da Braze por meio de conectores SMS BYO.
 
 ### LINE
 
-A Braze cobrará Message Credits por quaisquer mensagens LINE enviadas pela plataforma Braze.
+A Braze cobrará Créditos de Mensagem por quaisquer mensagens LINE enviadas a partir da plataforma da Braze.
 
 ## Detalhamento por região de cobrança {#billing-region-breakdown}
 

@@ -19,7 +19,7 @@ description: "この記事では、ユーザーのメール購読ステータス
 ユーザーは`opted_in`、`unsubscribed`、または`subscribed`（特にオプトインまたはオプトアウトされていない状態）に設定できます。
 
 {% alert note %}
-このエンドポイントはユーザーのグローバルなメール購読状態を更新するもので、購読グループのステータスとは異なります。グローバル購読状態はすべてのメールに適用されますが、[購読グループ]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-groups)を使用すると、特定の種類のメールに対してより細かい制御が可能です。ユーザーがグローバルに購読解除されている場合、購読グループのステータスに関係なくメールを受信しません。購読グループのステータスを照会するには、[ユーザーの購読グループステータス一覧エンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status)を使用してください。
+このエンドポイントはユーザーのグローバルなメール購読状態を更新するもので、購読グループのステータスとは異なります。グローバル購読状態はすべてのメールに適用されますが、[購読グループ]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups)を使用すると、特定の種類のメールに対してより細かい制御が可能です。ユーザーがグローバルに購読解除されている場合、購読グループのステータスに関係なくメールを受信しません。購読グループのステータスを照会するには、[ユーザーの購読グループステータス一覧エンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status)を使用してください。
 {% endalert %}
 
 Braze内のどのユーザーにもまだ関連付けられていないメールアドレスのメール購読状態を設定できます。その後、そのメールアドレスがユーザーに関連付けられると、アップロードしたメール購読状態が自動的に設定されます。

@@ -20,7 +20,7 @@ platform:
 `MismatchSenderId` indique un échec d'authentification. Firebase Cloud Messaging (FCM) s'authentifie avec deux éléments clés : le senderID et la clé API FCM. Ces deux éléments doivent être validés pour leur exactitude. Pour plus d'informations, consultez la [documentation Android](https://firebase.google.com/docs/cloud-messaging/http-server-ref#error-codes) à ce sujet.
 
 Les échecs courants peuvent inclure :
-- Un [senderID]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration#step-1-enable-firebase) incorrect
+- Un [senderID]({{site.baseurl}}/developer_guide/push_notifications?sdktab=android) incorrect
 - Des enregistrements multiples si l'utilisateur s'enregistre auprès d'un autre service push avec un senderID différent
 
 ### Rebond push : InvalidRegistration {#push-bounced-invalidregistration}
@@ -82,7 +82,7 @@ Les causes courantes incluent :
 
 L'erreur `BadToken` peut se produire pour plusieurs raisons :
 - Le jeton de notification push n'est pas envoyé correctement à Braze (par exemple, dans `registerDeviceToken:` ou l'équivalent de votre plateforme).
-	- Vérifiez le jeton dans le [Journal d'activité des messages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log). Il devrait généralement ressembler à une longue chaîne de lettres et de chiffres (comme `6e407a9be8d07f0cdeb9e714733a89445f57a89ec890d63867c482a483506fa6`). Si ce n'est pas le cas, vérifiez le code impliqué dans l'envoi du jeton de notification push à Braze.<br><br>
+	- Vérifiez le jeton dans le [journal d'activité des messages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log). Il devrait généralement ressembler à une longue chaîne de lettres et de chiffres (comme `6e407a9be8d07f0cdeb9e714733a89445f57a89ec890d63867c482a483506fa6`). Si ce n'est pas le cas, vérifiez le code impliqué dans l'envoi du jeton de notification push à Braze.<br><br>
 - Environnement de provisionnement non concordant :
 	- Si vous vous enregistrez avec un certificat de développement et essayez d'envoyer avec un certificat de production, vous pouvez voir cette erreur.
 	- Braze ne prend en charge que les certificats universels pour les environnements de production. Tester les notifications push dans les environnements de développement avec un certificat universel ne fonctionnera pas.

@@ -6,7 +6,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "Este artigo traz informações sobre o endpoint da Braze \"Exportar detalhes da campanha\"."
-
 ---
 {% api %}
 # Exportar detalhes da campanha {#export-campaign-details}

@@ -4,10 +4,10 @@ nav_title: Home
 article_title: Braze API-Leitfaden
 layout: api_glossary
 glossary_top_header: "Braze API-Leitfaden"
-glossary_top_text: "Braze bietet eine leistungsstarke REST API, mit der Sie Nutzer:innen verfolgen, Nachrichten versenden, Daten exportieren und vieles mehr können. Auf dieser Seite sind die verfügbaren Braze-API-Endpunkte und ihre Verwendungszwecke aufgeführt."
+glossary_top_text: "Braze bietet eine leistungsstarke REST API, mit der Sie Nutzer:innen verfolgen, Nachrichten versenden, Daten exportieren und Campaigns, Canvases, Kataloge und vieles mehr verwalten können. Verwenden Sie dieses Glossar, um Endpunkte nach Typ zu durchsuchen, Referenzartikel für Anfrage- und Antwortdetails zu öffnen und Links zu Authentifizierung, Rate-Limits und Objektdokumentation zu finden."
+description: "Durchsuchen Sie die Braze REST API-Endpunkte nach Typ, mit Links zu Authentifizierung, Rate-Limits und Objektreferenz-Dokumentation."
 page_type: glossary
-description: "Diese Landing-Page listet die verfügbaren Braze-API-Endpunkte und ihre Verwendungszwecke auf."
-glossary_tag_name: Endpoint Type
+glossary_tag_name: Endpunkttyp
 
 glossary_filter_text: "Wählen Sie den Endpunkttyp aus, um das Glossar einzugrenzen:"
 
@@ -40,10 +40,13 @@ glossary_tags:
   - name: Catalogs
   - name: Content Blocks
   - name: Custom Events
+  - name: Data Objects
   - name: Email List
   - name: Email Templates
+  - name: Webhook Templates
   - name: KPI
   - name: Media Library
+  - name: Device Messaging API
   - name: Purchases
   - name: Preference Center
   - name: Schedule Messages
@@ -106,6 +109,46 @@ glossaries:
     description: Ein Nutzerprofil mit einem anderen zusammenführen.
     tags:
       - User Data
+  - name: <a href='/docs/api/endpoints/data_objects'>/data_objects/*</a>
+    description: Die vollständige Endpunktreferenz für Data Objects anzeigen, einschließlich Objekttypen, Objekten und Beziehungsendpunkten.
+    tags:
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/types/get_list_data_object_types'>/data_objects/types</a>
+    description: Data-Object-Typen im Workspace auflisten.
+    tags:
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/types/get_data_object_type'>/data_objects/types/{type_name}</a>
+    description: Einen Data-Object-Typ und seine Schema-Definition abrufen.
+    tags:
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/types/get_list_user_relationship_types'>/data_objects/types/{type_name}/user_relationship_types</a>
+    description: Nutzer-Beziehungsarten für einen Data-Object-Typ auflisten.
+    tags:
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/types/get_list_object_relationship_types'>/data_objects/types/{type_name}/object_relationship_types</a>
+    description: Objekt-Beziehungsarten für einen Data-Object-Typ auflisten.
+    tags:
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/objects/get_list_data_objects'>/data_objects/objects/{type_name}</a>
+    description: Data Objects für einen Typ auflisten.
+    tags:
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/objects/get_data_object'>/data_objects/objects/{type_name}/{external_id}</a>
+    description: Ein Data Object abrufen oder es ersetzen, aktualisieren und löschen.
+    tags:
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/object_relationships/get_list_object_relationships'>/data_objects/objects/{type_name}/{external_id}/object_relationships</a>
+    description: Objekt-zu-Objekt-Beziehungen auflisten, erstellen, ersetzen, aktualisieren und löschen.
+    tags:
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/user_relationships/get_list_user_relationships'>/data_objects/objects/{type_name}/{external_id}/user_relationships</a>
+    description: Nutzer-Beziehungen für ein Data Object auflisten.
+    tags:
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/user_relationships/post_create_user_relationship'>/data_objects/objects/{type_name}/{external_id}/users</a>
+    description: Nutzer-zu-Objekt-Beziehungen erstellen, ersetzen, aktualisieren und löschen.
+    tags:
+      - Data Objects
   - name: <a href='/docs/api/endpoints/messaging/send_messages/post_send_triggered_campaigns'>/campaigns/trigger/send</a>
     description: Sofortige, einmalige Nachrichten an bestimmte Nutzer:innen über API-getriggerte Zustellung senden.
     tags:
@@ -126,6 +169,14 @@ glossaries:
     description: Sofortige, einmalige transaktionsbezogene Nachrichten an bestimmte Nutzer:innen senden.
     tags:
       - Send Messages
+  - name: <a href='/docs/api/device_messaging_api/endpoints/banners/post_sync_banners'>/v1/device-messaging/banners/sync</a>
+    description: Berechtigte Banner für Nutzer:innen und eine Reihe von Placements abrufen.
+    tags:
+      - Device Messaging API
+  - name: <a href='/docs/api/device_messaging_api/endpoints/banners/post_track_banner_events'>/v1/device-messaging/banners/track</a>
+    description: Impression- und Klick-Events für Banner aufzeichnen.
+    tags:
+      - Device Messaging API
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns'>/campaigns/trigger/schedule/create</a>
     description: Im Dashboard erstellte Campaign-Nachrichten über API-getriggerte Zustellung senden.
     tags:
@@ -226,6 +277,18 @@ glossaries:
     description: Eine Liste der verfügbaren E-Mail-Templates in Ihrem Braze-Konto abrufen.
     tags:
       - Email Templates
+  - name: <a href='/docs/api/endpoints/translations/webhook_templates/get_view_source_webhook_template'>/templates/webhook/translations/source</a>
+    description: Die Standard-Quellübersetzungen für ein Webhook-Template anzeigen.
+    tags:
+      - Webhook Templates
+  - name: <a href='/docs/api/endpoints/translations/webhook_templates/get_view_translations_webhook_template'>/templates/webhook/translations</a>
+    description: Übersetzungen für ein Webhook-Template anzeigen.
+    tags:
+      - Webhook Templates
+  - name: <a href='/docs/api/endpoints/translations/webhook_templates/put_update_webhook_template'>/templates/webhook/translations</a>
+    description: Übersetzungen für ein Webhook-Template aktualisieren.
+    tags:
+      - Webhook Templates
   - name: <a href='/docs/api/endpoints/export/campaigns/get_campaign_analytics'>/campaigns/data_series</a>
     description: Eine tägliche Reihe verschiedener Statistiken für eine Campaign über einen Zeitraum abrufen.
     tags:

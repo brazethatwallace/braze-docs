@@ -47,7 +47,7 @@ Cada solicitação `/users/track/bulk` tem um limite de carga útil de 4&nbsp;MB
 Cada objeto (arrays de evento, atributo e compra) pode atualizar um usuário cada, o que significa que até 10.000 usuários diferentes podem ser atualizados em uma única solicitação. Um único perfil de usuário pode ser atualizado com até 100 objetos em uma única solicitação.
 
 {% alert note %}
-Se precisar aumentar seu limite de taxa, entre em contato com o gerente de sucesso do cliente.
+Se precisar aumentar seu limite de taxa, entre em contato com o CSM.
 {% endalert %}
 
 

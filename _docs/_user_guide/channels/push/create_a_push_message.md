@@ -86,7 +86,7 @@ For more information on platform-specific notification options, see [iOS Notific
 
 ### Language
 
-Add copy in multiple languages using the **Add Languages** button. We recommend selecting your languages before writing your content so you can fill in your text where it belongs in the Liquid. For our full list of available languages you can use, refer to [Languages supported]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/localization#languages-supported).
+Add copy in multiple languages using the **Add Languages** button. We recommend selecting your languages before writing your content so you can fill in your text where it belongs in the Liquid. For our full list of available languages you can use, refer to [Languages supported]({{site.baseurl}}/developer_guide/localization?tab=android).
 
 If you're adding copy in a language that is written right-to-left, note that the final appearance of right-to-left messages depends largely on how service providers render them. For best practices on crafting right-to-left messages that display as accurately as possible, refer to [Creating right-to-left messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
 
@@ -223,7 +223,7 @@ Braze allows you to track how often users perform specific actions, [conversion 
 
 {% tab Canvas %}
 
-If you haven't done so already, complete the remaining sections of your Canvas component. For details on how to build out the rest of your Canvas, implement multivariate testing and Intelligent Selection, and more, refer to the [Build your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) step of our Canvas documentation.
+If you haven't done so already, complete the remaining sections of your Canvas component. For details about building the rest of your Canvas, including multivariate testing and [Optimize with BrazeAI™]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#optimize-canvas-variants-with-brazeai), see [Build your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas).
 
 {% endtab %}
 {% endtabs %}

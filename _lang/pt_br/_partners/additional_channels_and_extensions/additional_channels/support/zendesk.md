@@ -84,7 +84,7 @@ Defina os detalhes do ticket, como tipo, assunto e status, na carga útil do web
 
 Seu texto bruto será automaticamente destacado se for uma tag Braze aplicável.
 
-Pré-visualize a solicitação no painel **Preview** ou navegue até a guia **Test**, onde é possível selecionar um usuário aleatório, um usuário existente ou personalizar o seu próprio usuário para testar o webhook.
+Pré-visualize a solicitação no painel **prévia** ou navegue até a guia **Test**, onde é possível selecionar um usuário aleatório, um usuário existente ou personalizar o seu próprio usuário para testar o webhook.
 
 Por fim, verifique se o ticket foi criado no lado do Zendesk.
 

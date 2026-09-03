@@ -4,10 +4,10 @@ article_title: 사용자 지정
 page_order: 4
 layout: dev_guide
 guide_top_header: "사용자 지정"
-guide_top_text: "글로벌 스타일 설정, 사용자 지정 바닥글, AMP 지원, 유니버설 링크를 사용하여 이메일의 모양과 동작을 사용자 지정하세요."
+guide_top_text: "글로벌 스타일 설정, 사용자 지정 바닥글, 가속 모바일 페이지 지원, 유니버설 링크를 사용하여 이메일의 모양과 동작을 사용자 지정하세요."
 
 page_type: landing
-description: "Braze에서 이메일 글로벌 스타일 설정, 바닥글, AMP, 유니버설 링크를 사용자 지정합니다."
+description: "Braze에서 이메일 글로벌 스타일 설정, 바닥글, 가속 모바일 페이지, 유니버설 링크를 사용자 지정합니다."
 
 guide_featured_title: "섹션 문서"
 guide_featured_list:

@@ -42,10 +42,10 @@ Para usar o Push Max na sua Campaign:
 
 1. Crie uma Campaign de push.
 2. Selecione **Android Push** como sua plataforma.
-3. Acesse a etapa **Schedule Delivery**.
+3. Acesse a etapa **agendar/cronograma Delivery**.
 4. Selecione **Send using Push Max**.
 
-![Seção de entregabilidade de push para Android na etapa Schedule Delivery com a opção "Send using Push Max".]({% image_buster /assets/img_archive/push_max_campaigns.png %})
+![Seção de entregabilidade de push para Android na etapa agendar/cronograma Delivery com a opção "Send using Push Max".]({% image_buster /assets/img_archive/push_max_campaigns.png %})
 
 {% endtab %}
 {% tab Canvas %}

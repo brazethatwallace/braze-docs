@@ -23,7 +23,7 @@ A integração da Braze com a Splio permite planejar e executar melhores estrat�
 
 ## Integração de importação de dados {#data-import-integration}
 
-Para integrar a Braze e a Splio, é necessário configurar a plataforma da Splio, exportar uma campanha existente da Splio e criar um segmento de coorte na Braze para direcionar usuários em campanhas futuras.
+Para integrar a Braze e a Splio, é necessário configurar a plataforma da Splio, exportar uma campanha existente da Splio e criar um Segment de coorte na Braze para direcionar usuários em campanhas futuras.
 
 ### Etapa 1: Obter a chave de importação de dados da Braze {#step-1-get-the-braze-data-import-key}
 
@@ -41,9 +41,9 @@ Na Splio, selecione as campanhas que deseja exportar e clique em **Export Campai
 
 ![Exportação de campanhas da plataforma Splio.]({% image_buster /assets/img/tinyclues/tinyclues_1.png %})
 
-### Etapa 3: Criar um segmento a partir do público personalizado da Splio {#step-3-create-a-segment-from-the-splio-custom-audience}
+### Etapa 3: Criar um Segment a partir do público personalizado da Splio {#step-3-create-a-segment-from-the-splio-custom-audience}
 
-Na Braze, navegue até **Segments**, nomeie seu segmento de coorte Splio e selecione **Splio Cohorts** como seu filtro. A partir daí, escolha a coorte da Splio a ser incluída. Depois de criar seu segmento de coorte da Splio, você pode selecioná-lo como um filtro de público ao criar uma Campaign ou um Canvas.
+Na Braze, navegue até **Segments**, nomeie seu Segment de coorte Splio e selecione **Splio Cohorts** como seu filtro. A partir daí, escolha a coorte da Splio a ser incluída. Depois de criar seu Segment de coorte da Splio, você pode selecioná-lo como um filtro de público ao criar uma Campaign ou um Canvas.
 
 ![Criação de um segmento de coorte Splio na Braze.]({% image_buster /assets/img/tinyclues/tinyclues_3.png %}){: style="max-width:90%;"}<br><br>
 ![No criador de segmentos da Braze, o filtro de atributos do usuário "Splio cohort" está definido como "includes" e "Primary cohort".]({% image_buster /assets/img/tinyclues/tinyclues_4.png %}){: style="max-width:90%;"}
@@ -56,7 +56,7 @@ Somente os usuários que já existem na Braze são adicionados ou removidos de u
 
 ## Usando essa integração {#using-this-integration}
 
-Para usar seu segmento Splio, crie uma Campaign ou um Canvas na Braze e selecione o segmento como seu público-alvo.
+Para usar seu Segment Splio, crie uma Campaign ou um Canvas na Braze e selecione o Segment como seu público-alvo.
 
 ![No criador de campanhas da Braze, na etapa de direcionamento, o filtro "Direcionar usuários por segmento" está definido como "Coorte Splio".]({% image_buster /assets/img/tinyclues/tinyclues_5.png %}){: style="max-width:90%;"}
 

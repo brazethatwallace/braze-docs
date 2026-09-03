@@ -1,6 +1,6 @@
 ## Protokollierung von Daten mit der Braze API (empfohlen) {#logging-data-with-the-braze-api-recommended}
 
-Analytics können in Realtime mit Hilfe des [`/users/track`-Endpunkts]({{site.baseurl}}/api/endpoints/user_data/post_user_track) der Braze API protokolliert werden. Senden Sie dazu den Wert `braze_id` im Feld der Schlüssel-Wert-Paare (wie im folgenden Screenshot zu sehen), um das zu aktualisierende Nutzerprofil zu identifizieren.
+Analytics können in Realtime mit Hilfe des [`/users/track`-Endpunkts]({{site.baseurl}}/api/endpoints/user_data/post_user_track) der Braze API protokolliert werden. Senden Sie dazu den Wert `braze_id` im Feld der Schlüssel-Wert-Paare (wie im folgenden Screenshot zu sehen), um das zu aktualisierende Kundenprofil zu identifizieren.
 
 ![Eine Push-Nachricht mit drei Gruppen von Schlüssel-Wert-Paaren. 1. „Braze_id“ als Liquid-Aufruf zum Abrufen der Braze ID. 2. „cert_title“ als „Braze Marketer Certification“. 3. „Cert_description“ als „Certified Braze marketers drive…“.]({% image_buster /assets/img/push_implementation_guide/push18.png %}){: style="max-width:80%;"}
 
@@ -164,7 +164,7 @@ func logPendingCustomEventsIfNecessary() {
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
-{% tab Custom Attributes %}
+{% tab angepasste Attribute %}
 
 #### Angepasste Attribute speichern {#saving-custom-attributes}
 

@@ -26,19 +26,19 @@ channel: email
 
 ## Caminho de investigação padrão {#standard-investigation-path}
 
-1. Confirme se o subdomínio de rastreamento de cliques aponta para a sua [rede de distribuição de conteúdo (CDN)]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#what-is-a-cdn-and-why-do-i-need-it) — e não diretamente para o seu provedor de serviços de e-mail (SendGrid, SparkPost ou Amazon SES). Peça à sua equipe de TI ou web para verificar se as configurações do domínio correspondem à sua configuração na Braze. Para os requisitos da Braze, consulte [Obter um certificado SSL]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate).
-2. Confirme se o certificado SSL está ativo para o domínio de rastreamento. Peça à sua equipe de TI ou web para confirmar se o certificado está atualizado e cobre o subdomínio de rastreamento de cliques. Para etapas de configuração e guias específicos de CDN, consulte [Obter um certificado SSL]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate) e [Recursos adicionais]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#additional-resources).
+1. Confirme se o subdomínio de rastreamento de cliques aponta para a sua [rede de distribuição de conteúdo (CDN)]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#what-is-a-cdn-and-why-do-i-need-it) — e não diretamente para o seu provedor de serviços de e-mail (SendGrid, SparkPost ou Amazon SES). Peça à sua equipe de TI ou web para verificar se as configurações do domínio correspondem à configuração da Braze. Para os requisitos da Braze, consulte [Adquirir um certificado SSL]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate).
+2. Confirme se o certificado SSL está ativo para o domínio de rastreamento. Peça à sua equipe de TI ou web para confirmar se o certificado está atualizado e cobre o subdomínio de rastreamento de cliques. Para etapas de configuração e guias específicos de CDN, consulte [Adquirir um certificado SSL]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate) e [Recursos adicionais]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#additional-resources).
 3. Envie um e-mail de teste usando o [modelo de solução de problemas de rastreamento de cliques](#click-tracking-issues). Compare as URLs rastreadas com as não rastreadas.
 4. Se os links rastreados falharem com erro 403, revise as regras de CDN e WAF (user agents, query strings, padrões de redirecionamento).
-5. Se a configuração estiver completa, mas os links continuarem em HTTP, entre em contato com o seu gerente de sucesso do cliente da Braze para confirmar se a Braze ativou o SSL.
-6. Para problemas persistentes, coordene com a sua CDN ou equipe de TI e entre em contato com o [suporte da Braze]({{site.baseurl}}/braze_support) informando os códigos de erro e quaisquer detalhes do seu provedor de CDN ou domínio.
+5. Se a configuração estiver completa, mas os links continuarem em HTTP, entre em contato com o seu CSM da Braze para confirmar se a Braze ativou o SSL.
+6. Para problemas persistentes, coordene com a sua equipe de CDN ou TI e entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) informando códigos de erro e quaisquer detalhes do seu CDN ou provedor de domínio.
 
 ## Conceitos-chave {#key-concepts}
 
 - **Domínio de rastreamento de cliques (CTD):** O subdomínio personalizado que a Braze usa para encapsular links para rastreamento de cliques (por exemplo, `clicks.mail.yourbrand.com`).
-- **URL rastreada:** Encapsula o link HTTPS original no seu domínio de rastreamento. Quando um usuário clica nela, o domínio de rastreamento resolve a solicitação e redireciona para o destino final. Uma CDN permite rastrear URLs seguras (HTTPS). Sem ela, os usuários podem encontrar um erro de privacidade informando que "a conexão não é segura".
+- **URL rastreada:** Encapsula o link HTTPS original no seu domínio de rastreamento. Quando um usuário clica nela, o domínio de rastreamento resolve a solicitação e redireciona para o destino final. Uma CDN permite rastrear URLs seguras (HTTPS). Sem ela, os usuários podem encontrar um erro de privacidade informando que a "conexão não é segura".
 - **URL não rastreada:** Mantém a URL original intacta, ignorando a CDN para servir como um ambiente de controle.
-- **Roteamento Fase 1 e Fase 2:** A Fase 1 aponta o CNAME do seu domínio de rastreamento de cliques diretamente para o seu provedor de serviços de e-mail (ESP) para verificação HTTP inicial. A Fase 2 aponta o CNAME para a sua CDN ou firewall de aplicação web (WAF), que encerra o SSL e encaminha as solicitações por proxy para o ESP com os cabeçalhos necessários. Para destinos CNAME específicos de cada ESP, consulte [Roteamento de Fase 1 e Fase 2 por ESP](#esp-phase-1-and-phase-2-routing).
+- **Roteamento Fase 1 e Fase 2:** A Fase 1 aponta o CNAME do seu domínio de rastreamento de cliques diretamente para o seu provedor de serviços de e-mail (ESP) para verificação HTTP inicial. A Fase 2 aponta o CNAME para a sua CDN ou firewall de aplicação web (WAF), que encerra o SSL e encaminha as solicitações por proxy para o ESP com os cabeçalhos necessários. Para destinos CNAME específicos de cada ESP, consulte [Roteamento de Fase 1 e Fase 2 do ESP](#esp-phase-1-and-phase-2-routing).
 
 ## Domínios de rastreamento de cliques e fases de DNS {#click-tracking-domains-and-dns-phases}
 
@@ -144,7 +144,7 @@ Se você vir uma mensagem de erro informando que sua conexão não é privada, i
 
 **Sintoma:** A configuração do SSL está concluída, mas os links rastreados ainda aparecem como HTTP.
 
-Se você concluiu a configuração do SSL e os links ainda aparecem como HTTP, entre em contato com o seu gerente de sucesso do cliente da Braze para confirmar que a Braze ativou o SSL. A Braze ativa o SSL somente após todas as etapas de configuração estarem concluídas.
+Se você concluiu a configuração do SSL e os links ainda aparecem como HTTP, entre em contato com o seu CSM da Braze para confirmar que a Braze ativou o SSL. A Braze ativa o SSL somente após todas as etapas de configuração estarem concluídas.
 
 ### Amazon SES {#amazon-ses}
 
@@ -161,6 +161,48 @@ Se você está usando o Amazon SES como provedor de serviços de e-mail, os segu
 **Sintoma:** Links de e-mail rastreados falham, mas links não rastreados funcionam, ou os usuários veem erros de certificado ou DNS após clicar.
 
 Problemas comuns de redirecionamento geralmente resultam de uma configuração inadequada entre a rede de distribuição de conteúdo (CDN) que hospeda o domínio de rastreamento e seus certificados SSL associados ou registros DNS CNAME. Essas configurações incorretas frequentemente fazem com que os usuários recebam um erro de privacidade "a conexão não é segura" ou uma falha `404` após clicar em um link de e-mail rastreado.
+
+### Requisitos de formatação de links HTML {#html-link-formatting-requirements}
+
+Para que o rastreamento de cliques funcione, seu provedor de serviços de e-mail (SendGrid, SparkPost ou Amazon SES) precisa encontrar e substituir links no seu HTML. Em todos esses provedores, os links devem atender a estes requisitos de formatação:
+
+- Os links devem estar em uma tag HTML `<a>` com um atributo `href`.
+- A URL deve começar com `http://` ou `https://`.
+
+Regras adicionais específicas de cada provedor:
+
+- **SendGrid:** Coloque a URL entre aspas simples ou duplas e não inclua espaços ao redor do `=` no atributo `href`.
+- **Amazon SES:** As URLs devem estar em conformidade com a [RFC 3986](https://datatracker.ietf.org/doc/html/rfc3986). Espaços não codificados em uma URL impedem que o Amazon SES rastreie o link.
+
+Para saber mais sobre quais esquemas de URL o rastreamento de cliques da Braze suporta, consulte [Requisitos de links para rastreamento de cliques]({{site.baseurl}}/user_guide/channels/email/email_setup/open_pixel_and_click_tracking#click-tracking-link-requirements). Para detalhes sobre HTML de cada provedor, consulte [Melhores práticas de HTML para rastreamento de cliques do SendGrid](https://www.twilio.com/docs/sendgrid/ui/analytics-and-reporting/click-tracking-html-best-practices), [Linguagem de modelo do SparkPost](https://developers.sparkpost.com/api/template-language/) e [Perguntas frequentes sobre métricas de envio de e-mail do Amazon SES](https://docs.aws.amazon.com/ses/latest/dg/faqs-metrics.html).
+
+Exemplos válidos incluem:
+
+```html
+<a href="http://www.example.com">Link</a>
+<a href='https://example.com'>Link</a>
+<a target="_blank" href="https://example.com">Link</a>
+```
+
+Os exemplos a seguir omitem `http://` ou `https://` e não são rastreados:
+
+```html
+<a href="example.com">Link</a>
+<a href="www.example.com">Link</a>
+```
+
+Se você usa SendGrid, os exemplos a seguir também não são rastreados:
+
+```html
+<a href= http://www.example.com>Link</a>
+<a href = "https://example.com">Link</a>
+```
+
+{% alert note %}
+Embora o subdomínio `www` seja opcional, `http://` ou `https://` é obrigatório para que o rastreamento de cliques funcione corretamente.
+{% endalert %}
+
+### Testando o rastreamento de cliques {#testing-click-tracking}
 
 Após concluir o [fluxo de triagem](#triage-workflow), use o modelo a seguir para testar a configuração do CDN do seu domínio de rastreamento, que é o mecanismo que suporta a análise de dados dos links nos seus e-mails.
 

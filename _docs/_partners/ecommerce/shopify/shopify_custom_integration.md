@@ -29,12 +29,20 @@ To complete these goals, follow these steps:
 
 ## Initialize and load the Braze Web SDK
 
-### Step 1: Create a Braze website app {#step-1}
+### Step 1: Select a website app and copy SDK credentials {#step-1}
 
-In Braze, go to **Settings** > **App Settings**, then select **Add app**. Enter "Shopify" as the app name.
+Before you add code to your Hydrogen storefront, connect your Shopify store and start custom setup onboarding. If you haven't connected your store yet, complete [Connect your Shopify store](#connect-your-shopify-store), then continue with [Enable Braze SDKs](#enable-braze-sdks) and select **Custom setup**.
+
+In the custom setup flow, Braze prompts you to select the website app for your headless storefront:
+
+1. Select an existing website app or create a new one. You can name the app anything except **Shopify**, which Braze reserves for the standard Shopify integration path.
+2. Braze displays the selected app's API key and base URL (your SDK endpoint) in the onboarding step. Select **Copy** for each value—you don't need to open **Settings** > **App Settings**.
+3. Use the copied API key as `BRAZE_API_KEY` and the SDK endpoint as `BRAZE_API_URL` in your Shopify environment variables ([Step 2](#step-2)).
+
+After you connect the store, you can rename the selected website app in **Settings** > **App Settings**. You can't delete the app while it's connected to your Shopify integration.
 
 {% alert warning %}
-The shop must be named “Shopify” or the integration may not work properly.
+Use the API key for the website app you selected during onboarding. If your Hydrogen environment uses a different API key than the one connected to your Shopify integration, Braze may create duplicate users and SDK methods may not work as expected.
 {% endalert %}
 
 ### Step 2: Add subdomain and environmental variables {#step-2}
@@ -42,7 +50,7 @@ The shop must be named “Shopify” or the integration may not work properly.
 1. Set up your Shopify subdomain to [redirect traffic from your online store to Hydrogen](https://shopify.dev/docs/storefronts/headless/hydrogen/migrate/redirect-traffic).  
 2. Add a [callback URI](https://shopify.dev/docs/storefronts/headless/building-with-the-customer-account-api/hydrogen#step-2-set-up-the-environment) for login. (The URI will automatically be added when the domain is added.)
 3. Set up your [Shopify environment variables](https://shopify.dev/docs/storefronts/headless/hydrogen/environments#create-a-new-environment-variable):
-  - Create two environment variables using the values from the website app you created in [Step 1](#step-1).
+  - Create two environment variables using the API key and SDK endpoint you copied during custom setup onboarding in [Step 1](#step-1).
     - `BRAZE_API_KEY` 
     - `BRAZE_API_URL`
 
@@ -573,17 +581,19 @@ function CartLineUpdateButton({children, lines}) {
 
 ## Install the Braze Shopify integration
 
-### Step 1: Connect your Shopify store
+### Step 1: Connect your Shopify store {#connect-your-shopify-store}
 
 Go to the Shopify partner page to start your setup. First, select **Begin Setup** to install the Braze application from the Shopify App Store. Follow the guided steps to complete the installation process.
 
 ![Shopify integration setup page on the Braze dashboard.]({% image_buster /assets/img/shopify/braze_shopify_integration_page.png %})
 
-### Step 2: Enable Braze SDKs 
+### Step 2: Enable Braze SDKs {#enable-braze-sdks}
 
-For Shopify Hydrogen or headless stores, select the **Custom setup** option. 
+For Shopify Hydrogen or headless stores, select the **Custom setup** option.
 
-Before continuing with the onboarding process, confirm that you've enabled the Braze SDK on your Shopify website.
+Custom setup includes a website app picker. Select or create the app that powers your storefront, then copy the API key and SDK endpoint shown in the onboarding step. For details, see [Step 1: Select a website app and copy SDK credentials](#step-1).
+
+Before continuing with the onboarding process, confirm that you've added the Braze SDK to your Shopify website using those credentials.
 
 ![Setup step to enable Braze SDKs.]({% image_buster /assets/img/shopify/enable_braze_sdks_setup.png %})
 

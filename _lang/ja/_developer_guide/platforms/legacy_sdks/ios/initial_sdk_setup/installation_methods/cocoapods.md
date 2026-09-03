@@ -49,7 +49,7 @@ Pod の更新がマイナーバージョンの更新よりも小さいものを�
 | サブスペック | 詳細 |
 | ------- | ------- |
 | `pod 'Appboy-iOS-SDK/InAppMessage'` | `InAppMessage` サブスペックには、Braze のアプリ内メッセージ UI と Core SDKが含まれています。|
-| `pod 'Appboy-iOS-SDK/ContentCards'` | `ContentCards` サブスペックには、Braze Content Card UI と Core SDKが含まれています。 |
+| `pod 'Appboy-iOS-SDK/ContentCards'` | `ContentCards` サブスペックには、Braze Content カード UI と Core SDKが含まれています。 |
 | `pod 'Appboy-iOS-SDK/NewsFeed'` | `NewsFeed` サブスペックには Braze Core SDKが含まれています。 |
 | `pod 'Appboy-iOS-SDK/Core'` | `Core` サブスペックは、カスタムイベントや属性などの分析をサポートしています。 |
 {: .ws-td-nw-1 aria-label="サブスペック" }

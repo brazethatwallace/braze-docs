@@ -27,7 +27,7 @@ Atualmente, o MMS é compatível com short codes dos EUA (números de 5 a 6 díg
 
 Alguns usuários podem não implementar ou usar short codes MMS, mas eles estão disponíveis caso sejam necessários posteriormente.
 
-Para usuários que obtiveram seus short codes antes de a Braze oferecer suporte a MMS, todos os clientes existentes com short codes dos EUA são elegíveis para ativar MMS instantaneamente. Entre em contato com seu gerente de sucesso do cliente se essa situação se aplica a você e você deseja ativar o MMS.
+Para usuários que obtiveram seus short codes antes de a Braze oferecer suporte a MMS, todos os clientes existentes com short codes dos EUA são elegíveis para ativar MMS instantaneamente. Entre em contato com seu CSM se essa situação se aplica a você e você deseja ativar o MMS.
 
 {% alert important %}
 Ao ativar o MMS para short codes que anteriormente não tinham MMS ativado, os short codes podem precisar ser reaprovados em um processo de aprovação que pode levar semanas. É importante considerar esse prazo ao decidir ativar o MMS.
@@ -46,7 +46,7 @@ Mensagens MMS não podem ser enviadas com um ID de remetente alfanumérico.
 
 ### Limites de mensagens MMS e throughput {#mms-message-limits-and-throughput}
 
-O throughput de MMS é de um segmento por segundo por meio de um long code.
+O throughput de MMS é de um Segment por segundo por meio de um long code.
 
 As operadoras impõem seus próprios limites de tamanho de arquivo, que determinam o sucesso dos envios de MMS. Esses limites podem variar por região e operadora, então a Braze recomenda não exceder 600&nbsp;KB para seu ativo multimídia e também incluir um corpo de mensagem. No criador de SMS ou MMS da Braze, uploads acima de 1&nbsp;MB são bloqueados. A mensagem de erro recomenda fazer upload de um arquivo de 600&nbsp;KB ou menos. Também recomendamos testar para confirmar que sua mídia pode ser entregue nas operadoras dos seus usuários.
 

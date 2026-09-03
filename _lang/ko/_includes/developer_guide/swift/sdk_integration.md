@@ -11,7 +11,7 @@
 Braze Swift SDK를 설치하려면 [스위프트 패키지 매니저(SwiftPM)](https://swift.org/package-manager/) 또는 [CocoaPods](http://cocoapods.org/)를 사용하는 것을 권장합니다. 또는 SDK를 수동으로 설치할 수도 있습니다.
 
 {% tabs local %}
-{% tab Swift Package Manager %}
+{% tab 스위프트 패키지 매니저 %}
 #### 1.1단계: SDK 버전 가져오기 {#step-11-import-sdk-version}
 
 프로젝트를 열고 프로젝트 설정으로 이동합니다. **Swift Packages** 탭을 선택하고 패키지 목록 아래에 있는 <i class="fas fa-plus"></i> 추가 버튼을 클릭합니다.

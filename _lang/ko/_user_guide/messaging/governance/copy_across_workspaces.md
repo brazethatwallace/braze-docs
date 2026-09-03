@@ -240,7 +240,7 @@ Campaign 또는 Canvas는 출시 후를 포함하여 수명 주기의 어느 시
 | HTML 및 드래그 앤 드롭 콘텐츠 | 번역 |
 | 프리헤더 |  |
 | 인라인 CSS |  |
-| AMP HTML |  |
+| 가속 모바일 페이지 HTML |  |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="이메일 본문" }
 
 {% endtab %}
@@ -252,7 +252,7 @@ Campaign 또는 Canvas는 출시 후를 포함하여 수명 주기의 어느 시
 | HTML 및 드래그 앤 드롭 콘텐츠 | 번역 |
 | 프리헤더 |  |
 | 인라인 CSS |  |
-| AMP HTML |  |
+| 가속 모바일 페이지 HTML |  |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="이메일 본문" }
 
 {% endtab %}

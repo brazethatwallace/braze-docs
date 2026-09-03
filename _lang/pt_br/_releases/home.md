@@ -1,11 +1,10 @@
 ---
 nav_title: Início
 article_title: O que há de novo na Braze
-description: "As notas de versão da Braze são publicadas mensalmente para que você possa se manter atualizado sobre os principais lançamentos de produtos, melhorias contínuas de produtos, parcerias da Braze, alterações significativas no SDK e descontinuações de recursos."
+description: "As notas de versão da Braze são publicadas mensalmente para que você possa se manter atualizado sobre os principais lançamentos de produtos, melhorias contínuas de produtos, parcerias da Braze."
 page_order: 0
 search_rank: 1
 page_type: reference
-
 ---
 
 # O que há de novo na Braze {#whats-new-in-braze}
@@ -14,17 +13,218 @@ page_type: reference
 Para saber mais sobre qualquer uma das atualizações listadas nesta página, entre em contato com o gerente da sua conta ou [abra um ticket de suporte]({{site.baseurl}}/user_guide/administer/personal/braze_support). Confira também nossos [Changelogs do SDK]({{site.baseurl}}/developer_guide/changelogs) para mais informações sobre nossas versões mensais do SDK, melhorias e alterações significativas.
 {% endalert %}
 
+{% details 20 de agosto de 2026 %}
+
+## Lançamento de 20 de agosto de 2026 {#august-20-2026-release}
+
+### Dados e relatórios {#data-reporting}
+
+#### Editor SQL da Ingestão de Dados na Nuvem {#cloud-data-ingestion-sql-editor}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+O [editor SQL]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sql_editor) permite criar e editar sincronizações de Ingestão de Dados na Nuvem (CDI) escrevendo uma consulta SQL em qualquer tabela ou visualização no seu data warehouse, em vez de construir e manter uma tabela dedicada específica para a Braze. Ele está disponível para todos os tipos de dados de sincronização em todas as fontes de data warehouse CDI: Snowflake, Redshift, BigQuery, Databricks e Fabric.
+
+#### Mapeador visual da Ingestão de Dados na Nuvem {#cloud-data-ingestion-visual-mapper}
+
+{% multi_lang_include release_type.md release="Beta" %}
+
+O [mapeador visual]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/visual_mapper) permite criar uma sincronização de Ingestão de Dados na Nuvem (CDI) mapeando as colunas de uma tabela existente do data warehouse para campos da Braze diretamente no dashboard, sem necessidade de SQL ou tabela dedicada. Esta versão beta suporta sincronizações de atributos de usuário em todas as fontes de data warehouse CDI. O mapeador visual e o editor SQL são complementares: use o mapeador visual para mapeamento direto de coluna para campo e o editor SQL para casos avançados como transformações, junções e lógica condicional.
+
+#### Ingestão de Dados na Nuvem para Google Cloud Storage e Azure Blob Storage {#cloud-data-ingestion-for-google-cloud-storage-and-azure-blob-storage}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+A Ingestão de Dados na Nuvem (CDI) suporta duas novas fontes de armazenamento de arquivos: Google Cloud Storage, disponível agora, e Azure Blob Storage, chegando na semana de 31 de agosto de 2026. Ambas as fontes funcionam como a fonte existente do Amazon S3 — a Braze ingere os arquivos assim que são gravados no bucket ou contêiner — para que os clientes no Google Cloud ou Azure tenham a mesma velocidade e confiabilidade sem replicar arquivos no S3 ou construir uma integração personalizada.
+
+#### Ingestão de Dados na Nuvem para o BrazeAI Decisioning Studio {#cloud-data-ingestion-to-brazeai-decisioning-studio}
+
+{% multi_lang_include release_type.md release="Early access" %}
+
+A Ingestão de Dados na Nuvem (CDI) agora pode sincronizar dados do data warehouse diretamente para o BrazeAI Decisioning Studio para clientes que usam ambos os produtos, para que você possa trazer dados além do seu espaço de trabalho da Braze para aprendizado por reforço e tomada de decisão por IA sem construir jobs ETL personalizados. Esta versão de acesso antecipado suporta fontes Snowflake, com fontes adicionais de data warehouse chegando em breve.
+
+### BrazeAI<sup>TM</sup>
+
+#### O Operator pode navegar pelo dashboard para você {#operator-can-navigate-the-dashboard-for-you}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+O [Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#navigate-the-dashboard) pode navegar para uma página diferente do dashboard para concluir sua solicitação. Quando um prompt precisa de uma parte diferente do dashboard, o Operator identifica o destino, propõe a navegação e leva você até lá antes de continuar seu trabalho.
+
+Isso permite que o Operator encadeie trabalhos de várias etapas a partir de um único prompt. Por exemplo, se você pedir ao Operator na página inicial para configurar as definições do editor de arrastar e soltar para corresponder às diretrizes da sua marca, ele navega até as configurações de e-mail relevantes e continua ajudando você a partir daí.
+
+Por padrão, o Operator pede sua aprovação antes de navegar para uma nova página. Para permitir que o Operator navegue sem esperar sua aprovação a cada vez, ative [Aprovar ações automaticamente]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions#auto-approve-actions).
+
+#### O Operator pode atuar em mais páginas do dashboard {#operator-can-act-on-more-dashboard-pages}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+O [Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities) pode concluir trabalhos em páginas adicionais do dashboard quando você descreve o resultado em linguagem natural. Os exemplos incluem a criação de relatórios e dashboards, trabalho a partir de páginas de lista de modelos de e-mail e Content Blocks, importação ou gerenciamento de usuários, criação de previsões e atualização de mais superfícies de administração e configurações.
+
+Por exemplo, na página do Criador de relatórios, peça ao Operator para criar um relatório que mostre o engajamento de SMS do espaço de trabalho nos últimos 30 dias.
+
+Para uma cobertura representativa, consulte [O que você pode fazer com o Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities). Pergunte ao Operator na página em que você está para obter a resposta mais atualizada.
+
+#### O Operator pode criar e editar Canvas {#operator-can-create-and-edit-canvases}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+O [Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities) pode criar um rascunho de Canvas a partir de uma descrição em linguagem natural e editar um Canvas existente da mesma forma. Descreva a jornada que você deseja — critérios de entrada, atrasos e mensagens — e o Operator monta um rascunho que você revisa e refina antes de lançar.
+
+Por exemplo, peça ao Operator para criar uma jornada de carrinho abandonado que espere uma hora após o abandono do carrinho, envie um lembrete por e-mail e, em seguida, um push após 24 horas se o usuário ainda não tiver comprado.
+
+Para etapas suportadas e limitações, consulte [O que você pode fazer com o Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities).
+
+#### Atualizações da etapa do Otimizador de Conteúdo {#content-optimizer-step-updates}
+
+{% multi_lang_include release_type.md release="Beta" %}
+
+A etapa do [Otimizador de Conteúdo]({{site.baseurl}}/user_guide/brazeai/content_optimizer) inclui as seguintes atualizações:
+
+- **Estados da etapa:** As etapas do Otimizador de Conteúdo mostram se estão em **Learning**, **Optimizing** ou **Action Recommended**, para que você possa ver onde cada etapa se encontra.
+- **Verificações de configuração pré-lançamento:** O Otimizador de Conteúdo verifica configurações incorretas importantes enquanto você elabora o rascunho, para que você possa identificar problemas antes de lançar.
+- **Rastrear qual combinação cada usuário recebeu:** Uma nova Liquid tag e visibilidade no perfil do usuário permitem rastrear qual combinação de variantes cada usuário recebeu, de ponta a ponta.
+- **Novos dados do Currents:** Três novos tipos de evento permitem que você extraia dados do Otimizador de Conteúdo para o seu warehouse: `users.canvas.costep.Send`, `users.canvas.costep.Conversion` e `contentoptimizer.ComponentStore`.
+
+Para detalhes de configuração, consulte [Etapa do Otimizador de Conteúdo]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step).
+
+### Orquestração {#orchestration}
+
+#### Horário de silêncio do espaço de trabalho {#workspace-quiet-hours}
+
+{% multi_lang_include release_type.md release="Early access" %}
+
+O [horário de silêncio do espaço de trabalho]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/workspace_quiet_hours) permite definir uma janela padrão de horário de silêncio para um canal de envio de mensagens em todo o seu espaço de trabalho. Cada Campaign e Canvas nesse canal respeita a janela no fuso horário local de cada destinatário. Você pode manter o padrão do espaço de trabalho ou optar por não usá-lo e aplicar uma janela específica da Campaign ou Canvas.
+
+As mensagens que seriam enviadas durante a janela são retidas para entrega posterior ou abortadas, dependendo do tipo de campanha. O horário de silêncio do espaço de trabalho nunca modifica o conteúdo da mensagem.
+
+#### Alertas de limite do Canvas {#canvas-threshold-alerts}
+
+{% multi_lang_include release_type.md release="Early access" %}
+
+Os [alertas de limite do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/canvas_threshold_alerts) notificam você quando as entradas de usuários ou mensagens enviadas ficam fora do volume esperado. Defina um limite, escolha com que frequência a Braze verifica (a cada 3 a 12 horas, ou a cada 24 horas) e receba notificações por e-mail, webhook ou ambos quando uma regra for atendida. Você pode criar vários alertas para o mesmo Canvas, inclusive em rascunhos — o alerta começa a verificar após o lançamento do Canvas.
+
+#### Atribuição automática de equipe {#automatic-team-assignment}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+Para usuários com permissões apenas no nível de equipe, a Braze pode atribuir uma [equipe]({{site.baseurl}}/user_guide/administer/global/user_management/teams#automatic-team-assignment) automaticamente durante a criação do objeto.
+
+### Canais e pontos de contato {#channels-touchpoints}
+
+#### Depurador de Connected Content {#connected-content-debugger}
+
+{% multi_lang_include release_type.md release="Early access" %}
+
+O [depurador de Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/debugger) mostra a solicitação e a resposta ao vivo para cada chamada de Connected Content em **prévia & Test**, para que você possa verificar seu endpoint, cabeçalhos e Liquid tags antes de lançar uma Campaign ou Canvas. Abra **View details** para inspecionar o URL, método, código de status, cabeçalhos de solicitação e resposta, carga útil, duração e se a resposta foi servida do cache.
+
+Durante o acesso antecipado, o depurador está disponível para Content Cards, e-mail, mensagens no app, push, SMS/MMS/RCS, webhooks e WhatsApp.
+
+#### Pesquisas em mensagens no app e landing pages {#in-app-message-and-landing-page-surveys}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+As pesquisas da Braze coletam feedback em [mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/surveys) e [landing pages]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/surveys) que você pode analisar e usar em mensagens de acompanhamento.
+
+#### Mensagem de carrossel do KakaoTalk {#kakaotalk-carousel-message}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+Uma [mensagem de carrossel do KakaoTalk]({{site.baseurl}}/user_guide/channels/kakaotalk/create_kakaotalk_message#step-2-compose-your-kakaotalk-message) inclui até seis cartões roláveis. Cada cartão tem uma imagem, cabeçalho, mensagem, URL de website opcional e pelo menos um botão.
+
+#### Melhorias no WhatsApp Template Builder {#whatsapp-template-builder-improvements}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+O [WhatsApp Template Builder]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder) suporta mais caminhos de criação e opções de modelo:
+
+- **Criar modelos ao construir Campaigns e Canvas:** Crie um novo modelo de WhatsApp diretamente no criador em vez de apenas selecionar modelos existentes do Conteúdo.
+- **Mensagens de resposta em carrossel:** Crie layouts de carrossel como mensagens de resposta, não apenas como modelos de saída.
+- **Novos tipos de modelo: Utility e Flow:** O Template Builder suporta modelos Utility e modelos Flow, inclusive quando você cria modelos a partir de Campaigns, Canvas ou da experiência independente de Modelos de conteúdo.
+
+#### Blocos de formulário personalizados e ponte JavaScript para landing pages {#custom-form-blocks-and-javascript-bridge-for-landing-pages}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+As landing pages agora suportam [blocos de formulário personalizados]({{site.baseurl}}/user_guide/messaging/landing_pages/custom_form_blocks) e uma [ponte JavaScript]({{site.baseurl}}/user_guide/messaging/landing_pages/javascript_bridge), para que você possa capturar entradas de formulário personalizadas e sincronizar eventos e atributos do lado do cliente por meio da sua experiência de landing page.
+
+#### Formulários de landing page com várias etapas {#multi-step-landing-page-forms}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+Os [formulários de landing page com várias etapas]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/multi_step_forms) permitem dividir um formulário longo em várias etapas em uma única linha de **Formulário**, com uma etapa de confirmação integrada após o envio.
+
+#### Bloco Gerenciar inscrições para landing pages {#manage-subscriptions-block-for-landing-pages}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+O bloco [Gerenciar inscrições]({{site.baseurl}}/user_guide/messaging/landing_pages/manage_subscriptions) permite que os usuários visualizem, optem por participar e atualizem grupos de inscrições de e-mail em uma landing page.
+
+### Parcerias {#partnerships}
+
+#### Audience Sync: Google Data Manager API
+
+{% multi_lang_include release_type.md release="Early access" %}
+
+O [Audience Sync para Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync) suporta a Google Data Manager API em acesso antecipado.
+
+#### Amazon Bedrock - Provedor de modelos de IA {#amazon-bedrock-ai-model-provider}
+
+O [Amazon Bedrock](https://aws.amazon.com/bedrock/) é um serviço AWS totalmente gerenciado que fornece acesso a modelos de base de empresas líderes de IA por meio de uma API unificada, para que as marcas possam construir e escalar aplicações de IA generativa na AWS.
+
+Para saber mais, consulte [Amazon Bedrock]({{site.baseurl}}/partners/amazon_bedrock).
+
+#### Bynder - Orquestração de mensagens - CMS e DAM {#bynder-message-orchestration-cms-and-dam}
+
+O [Bynder](https://www.bynder.com) é uma plataforma de gerenciamento de ativos digitais (DAM) que ajuda os clientes a criar, gerenciar, encontrar e distribuir ativos digitais aprovados (imagens, vídeos e outros criativos) a partir de uma única fonte de verdade. Quando integrado à Braze, a extensão Universal Compact View (UCV) do Google Chrome do Bynder permite que os profissionais de marketing pesquisem e selecionem ativos do Bynder sem sair do dashboard da Braze. Insira links para esses ativos diretamente em Campaigns e Canvas.
+
+Para saber mais, consulte [Bynder]({{site.baseurl}}/partners/bynder).
+
+#### Multiplied Media - Personalização de mensagens - Conteúdo visual e interativo {#multiplied-media-message-personalization-visual-and-interactive-content}
+
+O [Multiplied Media](https://multiplied.media) é um estúdio de criação e automação que usa seus dados de CRM para criar imagens, GIFs e vídeos personalizados — um ativo único para cada cliente. A integração entre o Multiplied Media e a Braze permite enviar essa mídia por e-mail, notificações por push, mensagens no app, Content Cards e WhatsApp.
+
+Para saber mais, consulte [Multiplied Media]({{site.baseurl}}/partners/multiplied_media).
+
+### SDK
+
+As seguintes atualizações do SDK foram lançadas. Para mais detalhes, consulte os [Changelogs do SDK]({{site.baseurl}}/developer_guide/changelogs).
+
+#### Atualizações significativas do SDK {#sdk-breaking-updates}
+
+As atualizações mais recentes do SDK foram lançadas. As atualizações significativas estão listadas na seção de atualizações do SDK; todas as outras atualizações podem ser encontradas nos changelogs correspondentes do SDK.
+
+- Unity SDK 12.0.0
+    - Atualiza a bridge nativa do iOS [do Braze Swift SDK 14.1.0 para 18.0.0](https://github.com/braze-inc/braze-swift-sdk/compare/14.1.0...18.0.0#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed).
+    - Atualiza a bridge nativa do Android [do Braze Android SDK 42.2.0 para 43.0.0](https://github.com/braze-inc/braze-android-sdk/compare/v42.2.0...v43.0.0#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed).
+- Flutter SDK 22.0.0
+    - Atualiza a bridge nativa do Android [do Braze Android SDK 42.3.1 para 43.0.0](https://github.com/braze-inc/braze-android-sdk/compare/v42.3.1...v43.0.0#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed).
+    - Atualiza a bridge nativa do iOS [do Braze Swift SDK 17.0.0 para 18.0.0](https://github.com/braze-inc/braze-swift-sdk/compare/17.0.0...18.0.0#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed).
+- Swift SDK 18.0.0-18.1.0
+    - Renomeia `Braze.Ecommerce.ProductViewedEvent.typeIdentifiers` para `type` nas superfícies de API Swift e Objective-C.
+    Renomeia os eventos de atualização push-to-start de Live Activities em `Braze.LiveActivities.UpdateEvent.ActivityType`, que são emitidos ao usar `Braze.LiveActivities.subscribeToStateUpdates(_:)`:
+        - `pushToStartOptedOut` para `pushToStartUnregistered`
+        - `pushToStartOptOutFlushed` para `pushToStartUnregisterFlushed`
+
+#### Resumo dos recursos e correções recentes do SDK {#summary-of-recent-sdk-features-and-fixes}
+
+- **Swift SDK v18.1.0:** Adiciona métodos de logout de token por push, além do método de logout de push existente, para suportar casos de uso adicionais de logout. Também atualiza o tipo de evento de eCommerce.
+- **Flutter SDK v22.0.0:** Atualiza a bridge nativa para herdar funcionalidades dos SDKs Android e Swift.
+- **Unity SDK v12.0.0:** Atualiza a bridge nativa para herdar funcionalidades dos SDKs Android e Swift.
+
+Para mais detalhes, consulte os [Changelogs do SDK]({{site.baseurl}}/developer_guide/changelogs).
+{% enddetails %}
 {% details 23 de julho de 2026 %}
 
 ## Lançamento de 23 de julho de 2026 {#july-23-2026-release}
 
-### Dados e relatórios {#data-reporting}
+### Dados e relatórios
 
 #### Dashboard de Diagnóstico de Mensagens {#messaging-diagnostics-dashboard}
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-O [dashboard de Diagnóstico de Mensagens]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard) fornece uma visão geral dos resultados de envio de mensagens, permitindo que você identifique tendências e diagnostique possíveis problemas na sua configuração de envio de mensagens. Esse dashboard pode ajudá-lo a entender por que as mensagens das suas Campaigns ou Canvas podem não ter sido enviadas como esperado. Entre em contato com o seu gerente de sucesso do cliente para obter acesso ao recurso.
+O [dashboard de Diagnóstico de Mensagens]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard) fornece uma visão geral dos resultados de envio de mensagens, permitindo que você identifique tendências e diagnostique possíveis problemas na sua configuração de envio de mensagens. Esse dashboard pode ajudá-lo a entender por que as mensagens das suas Campaigns ou Canvas podem não ter sido enviadas como esperado. Entre em contato com o seu CSM para obter acesso ao recurso.
 
 #### Mapeador de eventos personalizados na importação por CSV {#csv-custom-events-mapper}
 
@@ -59,11 +259,11 @@ Por exemplo, na página de Horário de silêncio, peça ao Operator para definir
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-O [servidor MCP da Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server) é uma conexão hospedada remotamente que permite conectar agentes de IA como Claude, ChatGPT, Cursor, VSCode, Codex, Google Antigravity e Claude Code diretamente à Braze. Por meio de linguagem natural, os agentes podem ler análises de Campaigns, Canvas e Segments, atributos personalizados, eventos, KPIs e catálogos, além de criar ou atualizar modelos de e-mail, Content Blocks e ativos da biblioteca de mídia. Nenhuma PII de perfil de usuário é exposta.
+O [servidor MCP da Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server) é uma conexão hospedada remotamente que permite conectar agentes de IA como Claude, ChatGPT, Cursor, VSCode, Codex, Google Antigravity e Claude Code diretamente à Braze. Por meio de linguagem natural, os agentes podem ler análises de Campaigns, Canvas e Segments, atributos personalizados, eventos, KPIs e catálogos, além de criar ou atualizar modelos de e-mail, Content Blocks e ativos da biblioteca de mídia. Nenhuma IPI de perfil de usuário é exposta.
 
 Para conectar, cole um único URL de endpoint no seu cliente MCP — `https://mcp.braze.com/mcp` para US ou `https://mcp.braze.eu/mcp` para EU — e faça login com OAuth, incluindo SSO. O servidor é iniciado com as ferramentas disponíveis.
 
-### Orquestração {#orchestration}
+### Orquestração
 
 #### Escopo de público por equipes {#teams-audience-scoping}
 
@@ -71,13 +271,13 @@ Para conectar, cole um único URL de endpoint no seu cliente MCP — `https://mc
 
 A configuração de público das [Equipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams) agora suporta múltiplos filtros.
 
-### Canais e pontos de contato {#channels-touchpoints}
+### Canais e pontos de contato
 
 #### Escala de avaliação de pesquisa para mensagens no app e landing pages {#survey-rating-scale-for-in-app-messages-and-landing-pages}
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-Adicione uma escala de avaliação numérica a um bloco de formulário em [pesquisas de landing page]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/surveys#rating-scale) e [pesquisas de mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/surveys#rating-scale) para capturar sentimento, satisfação e probabilidade de recomendação sem nenhum código personalizado. Três intervalos são suportados: 1–10, 1–5 e 0–10 (o intervalo padrão de NPS).
+Adicione uma escala de avaliação numérica a um bloco de formulário em [pesquisas de landing page]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/surveys#rating-scale) e [pesquisas de mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/surveys#rating-scale) para capturar sentimento, satisfação e probabilidade de recomendação sem nenhum código personalizado. Três intervalos são suportados: 1–10, 1–5 e 0–10 (o intervalo padrão de Net Promoter Score (NPS)).
 
 #### Modelos de oferta por tempo limitado do WhatsApp {#whatsapp-limited-time-offer-templates}
 
@@ -129,11 +329,11 @@ A partir de uma Campaign ou mensagem, gere um link e compartilhe-o com revisores
 
 Agora você pode atualizar credenciais de push programaticamente com o [endpoint de atualização de credenciais de push]({{site.baseurl}}/api/endpoints/apps/post_update_push_credential). Cada solicitação atualiza um app e uma plataforma (`apple`, `firebase`, `huawei` ou `kindle`) e aceita cargas úteis de credenciais como valores codificados em Base64. Isso ajuda equipes a gerenciar grandes portfólios de apps e políticas de rotação de credenciais sem depender de uploads manuais no dashboard.
 
-### Parcerias {#partnerships}
+### Parcerias
 
 #### Refiner - Pesquisas {#refiner-surveys}
 
-O [Refiner](https://refiner.io) é uma plataforma de pesquisas no app para apps SaaS e móveis. Ele permite que equipes de produto e voz do cliente lancem pesquisas direcionadas no app e coletem continuamente NPS, CSAT, CES, feedback de produto e dados zero-party dos usuários.
+O [Refiner](https://refiner.io) é uma plataforma de pesquisas no app para apps SaaS e móveis. Ele permite que equipes de produto e voz do cliente lancem pesquisas direcionadas no app e coletem continuamente Net Promoter Score (NPS), CSAT, CES, feedback de produto e dados zero-party dos usuários.
 
 #### Stayfilm - Conteúdo visual e interativo {#stayfilm-visual-and-interactive-content}
 
@@ -147,7 +347,7 @@ O [Validity Everest](https://www.validity.com/everest/) é uma plataforma de ent
 
 As seguintes atualizações do SDK foram lançadas. Para mais detalhes, consulte os [Changelogs do SDK]({{site.baseurl}}/developer_guide/changelogs).
 
-#### Atualizações significativas do SDK {#sdk-breaking-updates}
+#### Atualizações significativas do SDK
 
 As atualizações mais recentes do SDK foram lançadas. As atualizações significativas estão listadas na seção de atualizações do SDK; todas as outras atualizações podem ser encontradas nos changelogs correspondentes do SDK.
 
@@ -276,11 +476,11 @@ Quando a reelegibilidade está habilitada para Campaigns de Banner, os usuários
 
 Os testes A/B de Quick Push agora suportam Campaigns de push multiplataforma e etapas do Canvas por meio de grupos de variantes, para que você possa testar variações de mensagens alinhadas para iOS e Android em um único fluxo de trabalho. Para saber mais, consulte [Mensagens push multiplataforma]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/multiple_platform_push#use-cases).
 
-#### BrazeAI<sup>TM</sup> Variant Selection {#brazeai-variant-selection}
+#### Otimizar com BrazeAI<sup>TM</sup> {#optimize-with-brazeai}
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-O BrazeAI<sup>TM</sup> Variant Selection é ativado automaticamente quando você adiciona múltiplas variantes de push, aplica padrões de experimento recomendados e otimiza para a variante de melhor desempenho para melhorar o engajamento. Você pode desativá-lo se precisar enviar imediatamente. Para saber mais, consulte [BrazeAI<sup>TM</sup> Variant Selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection).
+**Otimizar com BrazeAI<sup>TM</sup>** é ativado automaticamente quando você adiciona múltiplas variantes de push, aplica padrões de experimento recomendados e otimiza para a variante de melhor desempenho. Você pode desativá-lo se precisar enviar imediatamente. Para saber mais, consulte [Otimizando testes A/B com BrazeAI]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection).
 
 #### Resultados de envio de teste do WhatsApp {#whatsapp-test-send-results}
 
@@ -298,11 +498,11 @@ O [Copy Pastd]({{site.baseurl}}/partners/copy_pastd) Building Blocks é um const
 
 #### Databricks Mosaic - Provedores de modelos de IA {#databricks-mosaic-ai-model-providers}
 
-O [Databricks Mosaic]({{site.baseurl}}/partners/databricks_mosaic) é a plataforma unificada da Databricks para construir, implantar e gerenciar modelos de IA e machine learning em escala na Databricks Data Intelligence Platform.
+O [Databricks Mosaic]({{site.baseurl}}/partners/ai_model_providers/databricks_mosaic) é a plataforma unificada da Databricks para construir, implantar e gerenciar modelos de IA e machine learning em escala na Databricks Data Intelligence Platform.
 
 #### DinMo - Dados e análises - Reverse ETL {#dinmo-data-and-analytics-reverse-etl}
 
-O [DinMo]({{site.baseurl}}/partners/dinmo) é uma plataforma de dados do cliente (CDP) composável que conecta seu data warehouse na nuvem à Braze por meio de Reverse Extract, Transform, Load (ETL). As equipes de marketing podem construir segmentos de público a partir de dados do warehouse, sincronizar atributos e eventos de usuários na Braze e manter os status de inscrição atualizados sem uploads de CSV ou suporte de engenharia.
+O [DinMo]({{site.baseurl}}/partners/dinmo) é uma CDP (CDP) composável que conecta seu data warehouse na nuvem à Braze por meio de Reverse ETL (ETL). As equipes de marketing podem construir segmentos de público a partir de dados do warehouse, sincronizar atributos e eventos de usuários na Braze e manter os status de inscrição atualizados sem uploads de CSV ou suporte de engenharia.
 
 #### EmailShepherd - Orquestração de mensagens - Modelos {#emailshepherd-message-orchestration-templates}
 
@@ -376,9 +576,9 @@ A Braze [gerencia automaticamente registros de estado de inscrição órfãos]({
 
 ### Parcerias
 
-#### Chord - Plataforma de dados do cliente {#chord-customer-data-platform}
+#### Chord - CDP {#chord-customer-data-platform}
 
-O [Chord](https://www.chord.co/) fornece uma plataforma de dados do cliente que captura e padroniza eventos da sua loja de eCommerce. Quando você conecta o Chord à Braze, atividades de compra, eventos comportamentais e atualizações de identidade fluem para a Braze, para que você possa acionar campanhas e manter os perfis atualizados sem precisar construir esses pipelines por conta própria.
+O [Chord](https://www.chord.co/) fornece uma CDP que captura e padroniza eventos da sua loja de eCommerce. Quando você conecta o Chord à Braze, atividades de compra, eventos comportamentais e atualizações de identidade fluem para a Braze, para que você possa acionar campanhas e manter os perfis atualizados sem precisar construir esses pipelines por conta própria.
 
 Para saber mais, consulte [Chord]({{site.baseurl}}/partners/chord).
 
@@ -459,7 +659,7 @@ Componha [mensagens multilíngues]({{site.baseurl}}/user_guide/messaging/messagi
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Gerenciar quem pode acessar sua conta e executar ações específicas é fundamental tanto para a segurança quanto para a eficiência operacional. Para dar a você mais controle, a Braze está introduzindo [permissões granulares]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/granular_permissions_migration), uma forma mais flexível e precisa de gerenciar o acesso dos usuários em toda a sua conta.
+Gerenciar quem pode acessar sua conta e executar ações específicas é fundamental tanto para a segurança quanto para a eficiência operacional. Para dar a você mais controle, a Braze está introduzindo [permissões granulares]({{site.baseurl}}/user_guide/administer/global/user_management/permissions), uma forma mais flexível e precisa de gerenciar o acesso dos usuários em toda a sua conta.
 
 #### Componente Send to Destination do Canvas {#send-to-destination-canvas-component}
 
@@ -559,7 +759,7 @@ O [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator) agora inclui 
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Depois de adicionar localidades ao seu espaço de trabalho, use [traduções multilíngues]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/localization/locales) para direcionar usuários em diferentes idiomas, tudo dentro de um único push, e-mail, Banner, mensagem no app ou Content Block.
+Depois de adicionar localidades ao seu espaço de trabalho, use [traduções multilíngues]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) para direcionar usuários em diferentes idiomas, tudo dentro de um único push, e-mail, Banner, mensagem no app ou Content Block.
 
 ![Pré-visualizações de localidade]({% image_buster /assets/img/multi-language_support/multi_language_user_preview.png %}){: style="max-width:70%;"}
 
@@ -569,10 +769,10 @@ Depois de adicionar localidades ao seu espaço de trabalho, use [traduções mul
 
 No Canvas, agora você pode referenciar variáveis de contexto para definir:
 
-- Uma [expiração]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/context_variables#set-an-expiration) para Banners e mensagens no app em uma etapa de Mensagem
-- [Atrasos personalizados]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/context_variables#action-path-delays) para etapas de jornadas de ação
+- Uma [expiração]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables) para Banners e mensagens no app em uma etapa de Mensagem
+- [Atrasos personalizados]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables) para etapas de jornadas de ação
 
-No campo de nome da variável de contexto, você também pode digitar o nome da variável de contexto ou selecioná-lo no menu suspenso do editor de etapas. Para mais detalhes, consulte [Contexto]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/context) e [Variáveis de contexto]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/context_variables).
+No campo de nome da variável de contexto, você também pode digitar o nome da variável de contexto ou selecioná-lo no menu suspenso do editor de etapas. Para mais detalhes, consulte [Contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) e [Variáveis de contexto]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables).
 
 ### Canais e pontos de contato
 
@@ -588,7 +788,7 @@ O [KakaoTalk]({{site.baseurl}}/kakaotalk) é um canal de envio de mensagens que 
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Você pode usar [Banners]({{site.baseurl}}/user_guide/message_building_by_channel/banners) como canal de envio de mensagens nas [etapas de Mensagem]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/message_step) do Canvas. Os Banners permitem personalizar o conteúdo do app ou site de forma dinâmica, refletindo a elegibilidade e o comportamento do usuário em tempo real.
+Você pode usar [Banners]({{site.baseurl}}/user_guide/channels/banners) como canal de envio de mensagens nas [etapas de Mensagem]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) do Canvas. Os Banners permitem personalizar o conteúdo do app ou site de forma dinâmica, refletindo a elegibilidade e o comportamento do usuário em tempo real.
 
 ### Parcerias
 
@@ -694,7 +894,7 @@ Os [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents) são ajudantes com
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-A Braze está introduzindo [permissões granulares]({{site.baseurl}}/user_guide/administer/global/user_management/permissions), uma forma mais flexível de gerenciar o acesso dos usuários. Consulte [Migrando para permissões granulares]({{site.baseurl}}/granular_permissions_migration) para saber sobre o processo de migração, incluindo como as permissões legadas são mapeadas para permissões granulares.
+A Braze está introduzindo [permissões granulares]({{site.baseurl}}/user_guide/administer/global/user_management/permissions), uma forma mais flexível de gerenciar o acesso dos usuários. Consulte [Migrando para permissões granulares]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) para saber sobre o processo de migração, incluindo como as permissões legadas são mapeadas para permissões granulares.
 
 #### Limite de taxa baseado em canal {#channel-based-rate-limiting}
 
@@ -728,7 +928,7 @@ O [Anthropic]({{site.baseurl}}/partners/ai_model_providers/anthropic) é uma emp
 
 #### Canva - Personalização de mensagens - Estúdio criativo {#canva-message-personalization-creative-studio}
 
-O [Canva]({{site.baseurl}}/partners/canva) sincroniza suas imagens no Canva diretamente com a Biblioteca de mídia da Braze, otimizando seu fluxo de trabalho criativo e mantendo seus ativos visuais atualizados em todos os seus canais de envio de mensagens.
+O [Canva]({{site.baseurl}}/partners/canva) sincroniza suas imagens no Canva diretamente com a biblioteca de mídia da Braze, otimizando seu fluxo de trabalho criativo e mantendo seus ativos visuais atualizados em todos os seus canais de envio de mensagens.
 
 #### DOTS.ECO - Recompensas {#dotseco-rewards}
 
@@ -736,7 +936,7 @@ O [DOTS.ECO]({{site.baseurl}}/partners/additional_channels_and_extensions/extens
 
 #### Figma - Personalização de mensagens - Estúdio criativo {#figma-message-personalization-creative-studio}
 
-O [Figma]({{site.baseurl}}/partners/figma) é uma plataforma de design colaborativo que permite construir, projetar e prototipar produtos. Use essa integração para enviar imagens e ativos visuais do Figma diretamente para a Biblioteca de mídia da Braze.
+O [Figma]({{site.baseurl}}/partners/figma) é uma plataforma de design colaborativo que permite construir, projetar e prototipar produtos. Use essa integração para enviar imagens e ativos visuais do Figma diretamente para a biblioteca de mídia da Braze.
 
 #### Flybuy - Personalização de mensagens - Localização {#flybuy-message-personalization-location}
 
@@ -830,7 +1030,7 @@ Use o [aquecimento automatizado de IP]({{site.baseurl}}/user_guide/channels/emai
 
 #### LinkedIn – Canvas Audience Sync
 
-Usando o [Braze Audience Sync para LinkedIn]({{site.baseurl}}/partners/canvas_audience_sync/linkedin_audience_sync), adicione dados de usuários da sua integração com a Braze às listas de clientes do LinkedIn para fornecer anúncios com base em acionadores comportamentais, segmentação e muito mais. Qualquer critério que você normalmente usaria para acionar uma mensagem (como push, e-mail, SMS e webhook) em um Braze Canvas com base nos dados do usuário agora pode acionar um anúncio para esse usuário em suas listas de clientes do LinkedIn.
+Usando o [Braze Audience Sync para LinkedIn]({{site.baseurl}}/partners/canvas_audience_sync/linkedin_audience_sync), adicione dados de usuários da sua integração com a Braze às listas de clientes do LinkedIn para fornecer anúncios com base em acionadores comportamentais, segmentação e muito mais. Qualquer critério que você normalmente usaria para acionar uma mensagem (como push, e-mail, SMS e webhook) em um BRAZE CANVAS com base nos dados do usuário agora pode acionar um anúncio para esse usuário em suas listas de clientes do LinkedIn.
 
 #### Oracle Crowdtwist - Dados e análises {#oracle-crowdtwist-data-analytics}
 
@@ -854,11 +1054,11 @@ O [Mailizio]({{site.baseurl}}/partners/mailizio) é uma plataforma de criação 
 
 ### APIs
 
-#### APIs POST da Biblioteca de mídia {#media-library-post-apis}
+#### APIs POST da biblioteca de mídia {#media-library-post-apis}
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Os ativos da Biblioteca de mídia agora podem ser adicionados via API, permitindo que clientes, parceiros e agências automatizem mais fluxos de trabalho de criação de mensagens. Use a [API]({{site.baseurl}}/api/endpoints/media_library/manage_assets/create) para fazer upload de um arquivo de ativo diretamente ou copiar um arquivo de um URL existente. Esse recurso desbloqueia recursos de integração e automação.
+Os ativos da biblioteca de mídia agora podem ser adicionados via API, permitindo que clientes, parceiros e agências automatizem mais fluxos de trabalho de criação de mensagens. Use a [API]({{site.baseurl}}/api/endpoints/media_library/manage_assets/create) para fazer upload de um arquivo de ativo diretamente ou copiar um arquivo de um URL existente. Esse recurso desbloqueia recursos de integração e automação.
 
 ### Currents e Datashare
 
@@ -866,7 +1066,7 @@ Os ativos da Biblioteca de mídia agora podem ser adicionados via API, permitind
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Dois novos [eventos]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) estão agora disponíveis para destinos de armazenamento (AWS S3, GCS e Azure Blob Storage) e Snowflake Datashare: `agentconsole.AgentExecuted` e `agentconsole.ToolInvocation`. Esses eventos permitem que você analise o uso e os detalhes do Console do agente em seus sistemas downstream, ajudando-o a entender e aproveitar ao máximo o uso do agente. Os agentes permitem que você crie e implante agentes inteligentes que podem executar tarefas específicas na Braze, incluindo a geração de conteúdo em Canvas ou catálogos e o encaminhamento de usuários por diferentes caminhos com base em tomada de decisões inteligente. Para saber mais, consulte o [changelog do Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs#changes-in-version-5-release-date-2026-02-04).
+Dois novos [eventos]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) estão agora disponíveis para destinos de armazenamento (AWS S3, GCS e Azure Blob Storage) e Snowflake Datashare: `agentconsole.AgentExecuted` e `agentconsole.ToolInvocation`. Esses eventos permitem que você analise o uso e os detalhes do Console do agente em seus sistemas downstream, ajudando-o a entender e aproveitar ao máximo o uso do agente. Os agentes permitem que você crie e implante agentes inteligentes que podem executar tarefas específicas na Braze, incluindo a geração de conteúdo em Canvas ou catálogos e o encaminhamento de usuários por diferentes caminhos com base em tomada de decisão inteligente. Para saber mais, consulte o [changelog do Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs#changes-in-version-5-release-date-2026-02-04).
 
 #### Novos eventos de nova tentativa para canais individuais {#new-retry-events-for-individual-channels}
 
@@ -894,7 +1094,7 @@ Os eventos que não têm um ID de usuário externo definido agora podem ser tran
 
 #### Evento de abertura de e-mail — campo "machine_open" {#email-open-event-machine_open-field}
 
-O [evento de abertura de e-mail]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#email-open-events) agora gera o valor do campo "machine_open" para que você possa gerar relatórios sobre a métrica [_Abertura de máquina_]({{site.baseurl}}/user_guide/analytics/reporting/report_metrics#machine-opens).
+O [evento de abertura de e-mail]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#email-open-events) agora gera o valor do campo "machine_open" para que você possa gerar relatórios sobre a métrica [_Machine Open_]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
 
 ### SDK
 

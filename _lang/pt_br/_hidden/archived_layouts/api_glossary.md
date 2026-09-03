@@ -273,7 +273,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | email | (string) |
 | email_subscribe | (string) Os valores disponíveis são "opted_in" (registrado explicitamente para receber mensagens de e-mail), "unsubscribed" (cancelou explicitamente a inscrição para receber mensagens de e-mail) e "subscribed" (nem optou por receber nem por não receber).  |
 | external_id | (string) Do identificador exclusivo do usuário. |
-| facebook | hash contendo qualquer um dos seguintes itens: `id` (string), `likes` (vetor de strings), `num_friends` (inteiro). |
+| Facebook | hash contendo qualquer um dos seguintes itens: `id` (string), `likes` (vetor de strings), `num_friends` (inteiro). |
 | first_name | (string) |
 | gender | (string) "M", "F", "O" (outro), "N" (não aplicável), "P" (prefere não dizer) ou nil (desconhecido). |
 | home_city | (string) |

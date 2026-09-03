@@ -117,6 +117,6 @@ Wenn Sie diesen Fehler beim [Importieren einer Amplitude-Kohorte]({{site.baseurl
 2. **Generieren Sie Ihren Braze-API-Schlüssel neu.** Gehen Sie im Braze-Dashboard zu **Partnerintegrationen** > **Technologie-Partner** > **Amplitude** und wählen Sie **Generate New Key**. Versuchen Sie dann die Amplitude-Kohortensynchronisierung mit dem neuen API-Schlüssel erneut.
 3. **Bestätigen Sie, dass die Kohorte in Amplitude synchronisiert wurde.** Kontaktieren Sie den [Amplitude-Support](https://help.amplitude.com/), um zu bestätigen, dass die Kohorte auf Amplitude-Seite erfolgreich synchronisiert wurde, bevor Sie die Fehlerbehebung in Braze fortsetzen.
 
-## Amplitude-Nutzerprofil-API-Endpunkte {#amplitude-user-profile-api-endpoints}
+## Amplitude-Kundenprofil-API-Endpunkte {#amplitude-user-profile-api-endpoints}
 
 Einige der gängigen Amplitude-API-Endpunkte, die mit Connected-Content verwendet werden können, finden Sie in unserer speziellen [Amplitude-API-Dokumentation]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_user_profile_api).

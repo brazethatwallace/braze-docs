@@ -8,16 +8,16 @@ description: "Durchsuchen Sie Beispiel-Prompts für BrazeAI Operator, organisier
 
 # Prompt-Bibliothek für BrazeAI Operator {#prompt-library-for-brazeai-operator}
 
-> Durchsuchen Sie eine kuratierte Sammlung von Beispiel-Prompts für den Operator, zusammengestellt von Braze-Expert:innen. Wählen Sie ein Ziel aus, um relevante Prompts zu finden. Weitere Informationen finden Sie unter [Seitenabhängigen Kontext nutzen]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context).
+> Durchsuchen Sie eine kuratierte Sammlung von Beispiel-Prompts für den Operator, zusammengestellt von Braze-Expert:innen. Wählen Sie ein Ziel aus, um relevante Prompts zu finden. Sie können von überall in Braze starten. Wenn der Operator einen anderen Bereich des Dashboards benötigt, [navigiert er dorthin]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#navigate-the-dashboard). Weitere Informationen finden Sie unter [Seitenabhängigen Kontext nutzen]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context).
 
 
 <div class="prompt-library-tabs">
 {% sdktabs local %}
 {% sdktab Datenanalyse %}
 
-{% include copy_block.html content="Fassen Sie die wichtigsten Trends für MAU, DAU und neue Nutzer:innen in diesem Zeitraum zusammen und nennen Sie die nächsten Schritte." available="Home page" %}
+{% include copy_block.html content="Fassen Sie die wichtigsten Trends für MAU, täglich aktive:r Nutzer:in; täglich aktiv und neue Nutzer:innen in diesem Zeitraum zusammen und nennen Sie die nächsten Schritte." available="Home page" %}
 
-{% include copy_block.html content="Zeigen Sie die MAU-, DAU- und Neue-Nutzer:innen-Trends der letzten 90 Tage – wo sind die größten Einbrüche und Spitzen?" available="Home page" %}
+{% include copy_block.html content="Zeigen Sie die MAU-, täglich aktive:r Nutzer:in; täglich aktiv- und Neue-Nutzer:innen-Trends der letzten 90 Tage – wo sind die größten Einbrüche und Spitzen?" available="Home page" %}
 
 {% include copy_block.html content="Schlüsseln Sie die Sitzungen nach App auf (falls verfügbar) und heben Sie hervor, welche App diesen Monat das meiste Wachstum antreibt." available="Home page" %}
 
@@ -30,21 +30,32 @@ description: "Durchsuchen Sie Beispiel-Prompts für BrazeAI Operator, organisier
 {% endsdktab %}
 {% sdktab Strategie und Optimierung %}
 
-{% include copy_block.html content="Welche 3 Möglichkeiten gibt es, diese App-Nutzungs-Insights zu nutzen, um einen Re-Engagement-Canvas für Nutzer:innen mit Churn-Risiko zu gestalten?" available="Home page" %}
+{% include copy_block.html content="Welche 3 Möglichkeiten gibt es, diese App-Nutzungs-Insights zu nutzen, um einen Re-Engagement-Canvas für Nutzer:innen mit Abwanderung-Risiko zu gestalten?" available="Home page" %}
 
 {% include copy_block.html content="Was bedeutet unsere x%-Kundenbindung, und welche 3 Möglichkeiten gibt es, sie mit Lifecycle-Messaging zu verbessern?" available="Home page" %}
 
-{% include copy_block.html content="Welche 3 Möglichkeiten gibt es, unsere aktiven Lifecycle-Canvases zu optimieren, um die Aktivierung zu steigern und Churn zu reduzieren?" available="Canvas" %}
+{% include copy_block.html content="Welche 3 Möglichkeiten gibt es, unsere aktiven Lifecycle-Canvases zu optimieren, um die Aktivierung zu steigern und Abwanderung zu reduzieren?" available="Canvas" %}
 
 {% include copy_block.html content="Welche 3 Möglichkeiten gibt es, unsere Onboarding-Canvases umzustrukturieren, um Abbrüche zu reduzieren und die Aktivierung zu verbessern?" available="Canvas" %}
 
 {% include copy_block.html content="Zeigen Sie meine inaktiven Canvases und fassen Sie zusammen, was sie zuletzt gesendet haben und wann Nutzer:innen zuletzt eingetreten sind (letzte 90 Tage)." available="Canvas" %}
 
-{% include copy_block.html content="Wie können wir das Segment [Ihr Segmentname] nutzen, um eine Re-Engagement-Journey aufzubauen und Churn zu reduzieren?" available="Segments" %}
+{% include copy_block.html content="Wie können wir das Segment [Ihr Segmentname] nutzen, um eine Re-Engagement-Journey aufzubauen und Abwanderung zu reduzieren?" available="Segments" %}
 
 {% include copy_block.html content="Wie sollten wir Frequency-Capping-Segmenterweiterungen (E-Mail/SMS/48 h) strukturieren, um Über-Messaging zu reduzieren, ohne Conversions zu beeinträchtigen?" available="Segment Extensions" %}
 
 {% include copy_block.html content="Welche 3 wirkungsvollen Berichte sollten wir hier erstellen, um die wöchentliche Campaign- und Canvas-Performance zu überwachen und Probleme frühzeitig zu erkennen?" available="Report Builder" %}
+
+{% endsdktab %}
+{% sdktab Erstellen und bearbeiten %}
+
+{% include copy_block.html content="Erstellen Sie einen Canvas, der 1 Stunde nach Warenkorb-Abbruch wartet, eine E-Mail-Erinnerung sendet und dann nach 24 Stunden eine Push-Benachrichtigung sendet, wenn die Nutzer:innen noch nicht gekauft haben." %}
+
+{% include copy_block.html content="Aktualisieren Sie meinen Warenkorb-Abbruch-Canvas, um nach der E-Mail-Erinnerung eine Push-Nachricht hinzuzufügen." %}
+
+{% include copy_block.html content="Erstellen Sie ein Segment von Nutzer:innen, die in den letzten 30 Tagen einen Kauf getätigt, aber die App in den letzten 7 Tagen nicht geöffnet haben." %}
+
+{% include copy_block.html content="Erstellen Sie mir einen Bericht, der das SMS-Engagement unseres Workspace in den letzten 30 Tagen zeigt." %}
 
 {% endsdktab %}
 {% sdktab Messaging-Performance %}
@@ -127,8 +138,6 @@ description: "Durchsuchen Sie Beispiel-Prompts für BrazeAI Operator, organisier
 {% endsdktab %}
 {% sdktab Zielgruppenverwaltung %}
 
-{% include copy_block.html content="Erstellen Sie ein Segment von Nutzer:innen, die in den letzten 30 Tagen einen Kauf getätigt, aber die App in den letzten 7 Tagen nicht geöffnet haben." available="Segments" %}
-
 {% include copy_block.html content="Welche unserer aktiven Segmente wurden zuletzt bearbeitet, und welche sehen nach Duplikaten aus, die wir konsolidieren sollten?" available="Segments" %}
 
 {% include copy_block.html content='Was bedeutet hier „Complex audience“, und wie kann ich diese Campaigns vereinfachen, ohne das Targeting zu verlieren?' available="Campaigns" %}
@@ -140,7 +149,7 @@ description: "Durchsuchen Sie Beispiel-Prompts für BrazeAI Operator, organisier
 
 {% include copy_block.html content="Welche 5 Stellen in Braze sollte ich basierend auf diesem Dashboard zuerst besuchen, um unser Setup zu verstehen (Daten, Kanäle, Versand und Targeting)?" available="Home page" %}
 
-{% include copy_block.html content="Ich fühle mich überfordert und möchte mit der Agentenkonsole loslegen, weiß aber nicht wie. Was könnte ich basierend auf meinen aktuell laufenden Campaigns tun?" available="Campaigns" %}
+{% include copy_block.html content="Ich fühle mich überfordert und möchte mit der Agent Console loslegen, weiß aber nicht wie. Was könnte ich basierend auf meinen aktuell laufenden Campaigns tun?" available="Campaigns" %}
 
 {% include copy_block.html content="Was kann ich auf der Seite „Knowledge Sources“ tun, und wie richte ich am schnellsten meine erste Quelle ein?" available="Agent Console" %}
 

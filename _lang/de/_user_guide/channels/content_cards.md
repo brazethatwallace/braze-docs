@@ -15,7 +15,7 @@ search_rank: 5
 
 ## Voraussetzungen {#prerequisites}
 
-Die Verfügbarkeit von Content Cards hängt von Ihrem Braze-Paket ab. Kontaktieren Sie Ihren Account Manager oder Customer-Success-Manager, um loszulegen.
+Die Verfügbarkeit von Content Cards hängt von Ihrem Braze-Paket ab. Kontaktieren Sie Ihren Account Manager:in oder CSM, um loszulegen.
 
 Bevor Sie Content Cards verwenden können, müssen Sie das [Braze SDK]({{site.baseurl}}/developer_guide/content_cards) in Ihre App oder Website integrieren. Es ist kein zusätzliches Setup erforderlich. Wenn Sie stattdessen eine eigene UI erstellen möchten, lesen Sie den [Leitfaden zur Anpassung von Content Cards]({{site.baseurl}}/developer_guide/content_cards/customizing_cards).
 

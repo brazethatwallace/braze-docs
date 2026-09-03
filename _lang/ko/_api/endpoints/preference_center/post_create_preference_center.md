@@ -6,7 +6,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "이 문서에서는 환경설정 센터 생성 Braze 엔드포인트에 대한 세부 정보를 설명합니다."
-
 ---
 {% api %}
 # 환경설정 센터 생성 {#create-preference-center}
@@ -14,7 +13,7 @@ description: "이 문서에서는 환경설정 센터 생성 Braze 엔드포인�
 /preference_center/v1
 {% endapimethod %}
 
-> 이 엔드포인트를 사용하여 사용자가 이메일 캠페인에 대한 알림 환경설정을 관리할 수 있는 환경설정 센터를 생성합니다. API로 생성된 환경설정 센터를 구축하는 방법에 대한 단계는 [API를 사용하여 환경설정 센터 생성]({{site.baseurl}}/user_guide/message_building_by_channel/email/preference_center/overview#creating-a-preference-center-with-api)을 참조하세요.
+> 이 엔드포인트를 사용하여 사용자가 이메일 캠페인에 대한 알림 환경설정을 관리할 수 있는 환경설정 센터를 생성합니다. API로 생성된 환경설정 센터를 구축하는 방법에 대한 단계는 [API를 사용하여 환경설정 센터 생성]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/api_preference_center)을 참조하세요.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#e15d7065-2cbc-4eb3-ae16-32efe43357a6 {% endapiref %}
 
@@ -176,7 +175,7 @@ Authorization: Bearer YOUR-REST-API-KEY
         background-color: #fff;
         color: #333335;
         font-family:
-          Sailec W00 Medium,
+          Aribau Grotesk Regular,
           helvetica,
           arial,
           sans-serif;

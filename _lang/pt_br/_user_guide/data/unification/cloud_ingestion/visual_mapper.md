@@ -12,7 +12,7 @@ toc_headers: h2
 > Esta página explica como usar o mapeador visual para sincronizar uma tabela ou view do seu data warehouse com a Braze sem escrever SQL ou reestruturar seus dados.
 
 {% alert important %}
-O mapeador visual está atualmente em beta. Ele está disponível para sincronizações de atributos de usuário de todas as fontes de data warehouse da Ingestão de dados na nuvem, e tipos de sincronização adicionais serão disponibilizados ao longo do beta. Entre em contato com seu gerente de sucesso do cliente ou gerente de conta para obter acesso.
+O mapeador visual está atualmente em beta. Ele está disponível para sincronizações de atributos de usuário de todas as fontes de data warehouse da Ingestão de dados na nuvem, e tipos de sincronização adicionais serão disponibilizados ao longo do beta. Entre em contato com seu CSM ou gerente de conta para obter acesso.
 {% endalert %}
 
 Com o mapeador visual, você pode sincronizar uma tabela ou view existente do seu data warehouse sem escrever SQL ou reestruturar seus dados. Em vez de criar uma tabela específica da Braze com as colunas `EXTERNAL_ID`, `UPDATED_AT` e `PAYLOAD`, você mapeia as colunas da sua tabela existente para campos da Braze diretamente no dashboard.
@@ -69,12 +69,12 @@ Campos cujo tipo de dados não corresponde ao tipo detectado da sua coluna exibe
 
 ### Etapa 4: Pré-visualizar e validar {#step-4-preview-and-validate}
 
-Selecione **Preview and validate** para executar uma verificação somente leitura na sua tabela ou view. A prévia mostra as primeiras 10 linhas usando os nomes dos campos mapeados e inclui apenas as colunas que você está importando.
+Selecione **prévia and validate** para executar uma verificação somente leitura na sua tabela ou view. A prévia mostra as primeiras 10 linhas usando os nomes dos campos mapeados e inclui apenas as colunas que você está importando.
 
 ### Etapa 5: Finalizar a criação da sincronização {#step-5-finish-creating-the-sync}
 
 1. Na etapa **Notifications**, insira pelo menos um e-mail de contato para notificações de erros de sincronização. Opcionalmente, você pode ativar alertas de **Row Error** (enviados quando uma porcentagem de linhas falha na atualização) e notificações de **Sync success**.
-2. Na etapa **Schedule**, ative **Recurring sync** para executar a sincronização em um cronograma, ou deixe desativado para uma sincronização única.
+2. Na etapa **agendar/cronograma**, ative **Recurring sync** para executar a sincronização em um cronograma, ou deixe desativado para uma sincronização única.
 3. Revise a etapa **Summary**. Ela lista sua configuração, quais atributos são novos versus existentes e quaisquer colunas excluídas da importação devido a problemas de tipo de dados ou às suas seleções.
 4. Selecione **Create sync**. Você também pode selecionar **Save as draft** em qualquer etapa para finalizar depois.
 

@@ -1,10 +1,9 @@
 ---
 nav_title: Message activity log
-article_title: Message Activity Log
+article_title: "Message Activity Log {#dev-console-troubleshooting}"
 page_order: 3
 page_type: reference
-description: "This reference article describes the Message Activity Log shows you messages associated with your campaigns and sends. Here, you can also find information on how to understand log messages."
-
+description: "This reference article describes the Message Activity Log shows you messages associated with your campaigns and sends. Here, you can also find."
 ---
 
 # Message Activity Log {#dev-console-troubleshooting}
@@ -13,7 +12,7 @@ description: "This reference article describes the Message Activity Log shows yo
 
 You can see API campaign transactions, troubleshoot details on failed messages, and gather insight on how to improve notification delivery or solve existing technical issues.
 
-To access the log, go to **Settings** > **Message Activity Log**.
+To access the log, go to **Settings** > **Setup and Testing** > **Message Activity Log**.
 
 ![Message Activity Log]({% image_buster /assets/img_archive/message_activity_log.png %})
 

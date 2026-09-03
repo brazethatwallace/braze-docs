@@ -7,7 +7,6 @@ layout: api_page
 page_type: reference
 alias: /users_identify_merge/
 description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Nutzer:innen identifizieren“."
-
 ---
 {% api %}
 # Nutzer:innen identifizieren {#identify-users}
@@ -32,7 +31,7 @@ Die Identifizierung von Nutzer:innen erfordert eine `external_id` in den folgend
 Wenn keine Nutzer:in mit dieser `external_id` vorhanden ist, wird die `external_id` zum Datensatz der Alias-Nutzer:in hinzugefügt, und die Nutzer:in gilt als identifiziert. Nutzer:innen können nur einen Alias für ein bestimmtes Label haben. Wenn bereits eine Nutzer:in mit der `external_id` existiert und einen bestehenden Alias mit dem gleichen Label wie das Nur-Alias-Profil hat, werden die Nutzerprofile nicht zusammengeführt.
 
 {% alert tip %}
-Um unerwartete Datenverluste bei der Identifizierung von Nutzer:innen zu vermeiden, empfehlen wir Ihnen dringend, zunächst die [Best Practices für die Datenerfassung]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/best_practices#capturing-user-data-when-alias-only-user-info-is-already-present) zu lesen, um zu erfahren, wie Sie Nutzerdaten erfassen können, wenn bereits Nur-Alias-Nutzerinformationen vorhanden sind.
+Um unerwartete Datenverluste bei der Identifizierung von Nutzer:innen zu vermeiden, empfehlen wir Ihnen dringend, zunächst die [Best Practices für die Datenerfassung]({{site.baseurl}}/user_guide/data/unification/user_data/best_practices) zu lesen, um zu erfahren, wie Sie Nutzerdaten erfassen können, wenn bereits Nur-Alias-Nutzerinformationen vorhanden sind.
 {% endalert %}
 
 ### Verhalten bei der Zusammenführung {#merging-behavior}
@@ -77,7 +76,7 @@ Standardmäßig führt dieser Endpunkt die folgenden Felder, die **ausschließli
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/api_key) mit der Berechtigung `users.identify`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics) mit der Berechtigung `users.identify`.
 
 ## Rate-Limit
 
@@ -166,7 +165,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/identify' \
 Das Feld `alias_name` unterscheidet zwischen Groß- und Kleinschreibung. Eine Anfrage, die einen `201`-Statuscode zurückgibt, bestätigt nur, dass die Anfrage-Syntax gültig war – sie bestätigt nicht, dass der Alias zugeordnet wurde. Wenn die Groß-/Kleinschreibung von `alias_name` in Ihrer Anfrage nicht exakt mit dem im Nutzerprofil gespeicherten Alias übereinstimmt, schlägt der Vorgang stillschweigend fehl und die `external_id` wird nicht zugewiesen. Wenn der gespeicherte Alias beispielsweise `JimJones@example.com` lautet, gibt eine Anfrage mit `jimjones@example.com` zwar Erfolg zurück, erzeugt aber kein Ergebnis.
 
 {% alert tip %}
-Weitere Informationen zu `alias_name` und `alias_label` finden Sie in unserer Dokumentation zu [Nutzer-Aliase]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases).
+Weitere Informationen zu `alias_name` und `alias_label` finden Sie in unserer Dokumentation zu [Nutzer-Aliase]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle).
 {% endalert %}
 
 ### Warum gibt meine Identifizierungsanfrage Erfolg zurück, aber das Profil wurde nicht zusammengeführt? {#why-does-my-identify-request-return-success-but-the-profile-did-not-merge}

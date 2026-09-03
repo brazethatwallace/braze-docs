@@ -1,4 +1,4 @@
-이 템플릿을 사용하여 기술 파트너 문서를 만들 수 있습니다. 예시는 [Scuba Analytics]({{site.baseurl}}/partners/data_and_analytics/business_intelligence/scuba/)를 참조하세요.
+이 템플릿을 사용하여 기술 파트너 설명서를 만들 수 있습니다. 예시는 [Scuba Analytics]({{site.baseurl}}/partners/data_and_analytics)를 참조하세요.
 
 {% details 템플릿 보기 %}
 {% raw %}
@@ -43,7 +43,7 @@ Before you start, you need the following:
 |-----------------------|-----------------|
 | A PARTNER_NAME account   | A PARTNER_NAME account is required to take advantage of this partnership.  |
 | A Braze REST API key  | A Braze REST API key with `users.track` permissions. <br><br> Create this key in the Braze dashboard from **Settings** > **API Keys**. |
-| A Braze REST endpoint | [Your REST endpoint URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Your endpoint depends on the Braze URL for your instance.  |
+| A Braze REST endpoint | [Your REST endpoint URL]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Your endpoint depends on the Braze URL for your instance.  |
 {: .reset-td-br-1 .reset-td-br-2 aria-label=”Prerequisites” }
 
 ## Integrating TOOL_NAME
@@ -73,12 +73,12 @@ curl -X POST "PARTNER_POST_URL" \
 
 다음을 교체하세요:
 
-| 플레이스홀더 | 설명 |
+| 입력 안내 | 설명 |
 |---------------------|---------------------|
-| `BRAZE_API_ENDPOINT` | 현재 Braze 인스턴스의 Braze REST 엔드포인트 URL입니다. 자세한 내용은 [REST API 키]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/#rest-api-keys)를 참조하세요. |
+| `BRAZE_API_ENDPOINT` | 현재 Braze 인스턴스의 Braze REST 엔드포인트 URL입니다. 자세한 내용은 [REST API 키]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab#rest-api-keys)를 참조하세요. |
 | `BRAZE_API_KEY` | `users.track` 권한이 있는 Braze REST API 키입니다. |                                                                                                                                    | `HOSTNAME` | 현재 PARTNER_NAME 인스턴스의 호스트 이름입니다. |
 | `PARTNER_NAME_API_TOKEN` | PARTNER_NAME API 토큰입니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Make a POST request" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="2단계: POST 요청 보내기" }
 
 #### 기본 동작
 
@@ -100,7 +100,7 @@ CONTENT.
 CONTENT.
 
 ## Braze에서 TOOL_NAME 사용하기 / USE_CASE
-<!-- Braze와 통합을 사용하는 방법을 설명하는 섹션입니다. 예를 들어, Braze로 전송된 데이터에 접근하는 방법, Braze 메시징과 통합을 활용하는 방법, 또는 "활용 사례" 섹션의 특정 사용 사례를 완료하는 방법 등을 설명합니다. -->
+<!-- Braze와 통합을 사용하는 방법을 설명하는 섹션입니다. 예를 들어, Braze로 전송된 데이터에 접근하는 방법, Braze 메시징과 통합을 활용하는 방법, 또는 "사용 사례" 섹션의 특정 사용 사례를 완료하는 방법 등을 설명합니다. -->
 
 ### 1단계: ACTION_TO_COMPLETE
 
@@ -118,7 +118,7 @@ CONTENT.
 CONTENT.
 
 ## 문제 해결
-<!-- 통합을 설정하는 동안 발생할 수 있는 문제를 안내하는 선택 섹션입니다. 하이퍼링크를 사용하여 사용자를 문서 사이트로 안내할 수도 있습니다. -->
+<!-- 통합을 설정하는 동안 발생할 수 있는 문제를 안내하는 선택 섹션입니다. 하이퍼링크를 사용하여 사용자를 설명서 사이트로 안내할 수도 있습니다. -->
 
 ### TROUBLESHOOTING_ITEM
 

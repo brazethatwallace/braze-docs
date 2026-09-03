@@ -6,7 +6,6 @@ page_order: 6
 layout: api_page
 page_type: reference
 description: "Cet article présente en détail l'endpoint Braze Exporter les utilisateurs dans les groupes de contrôle globaux."
-
 ---
 {% api %}
 # Exporter le profil utilisateur par groupe de contrôle global {#export-user-profile-by-global-control-group}
@@ -89,10 +88,10 @@ Les attributs personnalisés individuels ne peuvent pas être exportés. Cependa
 
 ## Paramètres de demande {#request-parameters}
 
-| Paramètre | Requis | Type de données | Description |
+| Paramètre | Obligatoire | Type de données | Description |
 | ------------------- | --------- | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `callback_endpoint` | Facultatif | Chaîne de caractères | Endpoint auquel publier une URL de téléchargement lorsque l'exportation est disponible. |
-| `fields_to_export` | Requis* | Tableau de chaînes de caractères | Nom des champs de données utilisateur à exporter. Vous pouvez également exporter des attributs personnalisés. <br><br>*À partir d'avril 2021, les nouveaux comptes doivent préciser des champs spécifiques à exporter. |
+| `fields_to_export` | Obligatoire* | Tableau de chaînes de caractères | Nom des champs de données utilisateur à exporter. Vous pouvez également exporter des attributs personnalisés. <br><br>*À partir d'avril 2021, les nouveaux comptes doivent préciser des champs spécifiques à exporter. |
 | `output_format` | Facultatif | Chaîne de caractères | Lorsque vous utilisez votre propre compartiment S3, vous pouvez spécifier le format de fichier `zip` ou `gzip`. Le format de fichier ZIP est défini par défaut. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de demande" }
 
@@ -136,7 +135,7 @@ Voici une liste des `fields_to_export` valides. Utiliser `fields_to_export` pour
 | `last_name` | Chaîne de caractères | Nom de famille de l'utilisateur. |
 | `phone` | Chaîne de caractères | Numéro de téléphone de l'utilisateur au format E.164. |
 | `purchases` | Tableau | Achats réalisés par cet utilisateur au cours des 90 derniers jours. |
-| `random_bucket` | Entier | [Numéro de compartiment aléatoire]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events#random-bucket-number-event) de l'utilisateur, utilisé pour créer des segments uniformément distribués d'utilisateurs aléatoires. |
+| `random_bucket` | Entier | [Numéro de compartiment aléatoire]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events#random-bucket-number-update-events) de l'utilisateur, utilisé pour créer des segments uniformément distribués d'utilisateurs aléatoires. |
 | `time_zone` | Chaîne de caractères | Fuseau horaire de l'utilisateur au même format que la base de données de fuseaux horaires IANA. |
 | `total_revenue` | Float | Chiffre d'affaires total attribué à cet utilisateur. Le chiffre d'affaires total est calculé à partir des achats réalisés par l'utilisateur pendant les fenêtres de conversion des Campaigns et Canvas qu'il a reçus. |
 | `uninstalled_at` | Horodatage | Date et heure de désinstallation de l'application par l'utilisateur. Absent si l'application n'a pas été désinstallée. |

@@ -41,7 +41,7 @@ Braze와 ActionIQ 통합을 통해 브랜드는 ActionIQ 데이터를 Braze에 �
 이러한 사용자의 Segment를 생성하려면 다음을 수행하세요:
 1. Braze에서 **Segments**로 이동합니다.
 2. 새 Segment를 생성합니다.
-3. 필터로 **Custom Attributes**를 선택합니다.
+3. 필터로 **커스텀 속성**를 선택합니다.
 4. 여기에서 ActionIQ 커스텀 속성을 선택합니다.
 5. Segment가 생성되면 Campaign 또는 Canvas를 생성할 때 오디언스 필터로 선택할 수 있습니다.
 

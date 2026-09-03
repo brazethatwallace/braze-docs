@@ -18,43 +18,43 @@ tool: Media
 {% tabs %}
 {% tab Klassisch %}
 
-Die klassische Card eignet sich hervorragend für Standard-Nachrichten und Benachrichtigungen oder auch zur visuellen Kategorisierung von Nachrichten mit Icons. Das Bild ist optional, muss aber ein Seitenverhältnis von 1:1 haben.
+Die klassische Card eignet sich hervorragend für Standard-Nachrichten und -Benachrichtigungen oder auch zur visuellen Kategorisierung von Nachrichten mithilfe von Symbolen. Das Bild ist optional, muss aber ein Seitenverhältnis von 1:1 haben.
 
-![Bild einer klassischen Card mit empfohlenen Details und einem Beispiel für eine klassische Card]({% image_buster /assets/img/content_card_classic.png %}){: style="max-width:45%;border:0;"}
+![Darstellung einer klassischen Card mit empfohlenen Details und ein Beispiel einer klassischen Card]({% image_buster /assets/img/content_card_classic.png %}){: width="1358" height="2871" style="max-width:45%;border:0;"}
 
-| Card-Eigenschaft | Details |
+| Card-Funktion | Details |
 | --- | ---|
-| Überschrift | 18px; Fett <br> Eine Textzeile ist ideal. <br> Sie können hier Liquid verwenden, um Ihre Nachricht zu personalisieren. |
-| Nachrichtentext | 13px; Normale Schriftstärke <br> Zwei bis vier Textzeilen sind ideal. <br> Sie können hier Liquid verwenden, um Ihre Nachricht zu personalisieren. |
-| Linktext | Optional. <br> 13&nbsp;px <br> Link zu einer Webseite oder Deeplink innerhalb Ihrer App. |
-| Bild | Optional. <br> Muss ein Seitenverhältnis von 1:1 haben. <br> Wir empfehlen eine Bildqualität von 60 x 60&nbsp;px. |
+| Kopfzeilentext | 18 px; Fett <br> Eine Textzeile ist ideal. <br> Sie können hier Liquid verwenden, um Ihre Nachricht zu personalisieren. |
+| Nachrichtentext | 13 px; Normale Schriftstärke <br> Zwei bis vier Textzeilen sind ideal. <br> Sie können hier Liquid verwenden, um Ihre Nachricht zu personalisieren. |
+| Linktext | Optional. <br> 13&nbsp;px <br> Link zu einer Webseite oder Deeplink in Ihre App. |
+| Bild | Optional. <br> Muss ein 1:1-Verhältnis haben. <br> Wir empfehlen eine Bildqualität von 60 x 60&nbsp;px. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Content-Card-Typen" }
 
 {% endtab %}
-{% tab Captioned Image %}
+{% tab Bild mit Beschriftung %}
 
-Die Captioned-Image-Card ist eine großartige Möglichkeit, wichtige Inhalte hervorzuheben und Aufmerksamkeit zu erregen, z. B. für einen großen Sale oder ein neues App-Feature.
+Die Card „Bild mit Beschriftung“ ist eine großartige Möglichkeit, wichtige Inhalte wie eine große Aktion oder ein neues App-Feature hervorzuheben und Aufmerksamkeit zu erregen.
 
-![Bild einer Captioned-Image-Card mit empfohlenen Details und einem Beispiel für eine Captioned-Image-Card]({% image_buster /assets/img/content_card_captioned.png %}){: style="max-width:90%;border:0;"}
+![Darstellung einer Card mit beschriftetem Bild mit empfohlenen Details und ein Beispiel einer Card mit beschriftetem Bild]({% image_buster /assets/img/content_card_captioned.png %}){: width="2880" height="2877" style="max-width:90%;border:0;"}
 
-| Card-Eigenschaft | Details |
+| Card-Funktion | Details |
 | --- | ---|
-| Überschrift | 18px; Fett <br> Eine Textzeile ist ideal. <br> Sie können hier Liquid verwenden, um Ihre Nachricht zu personalisieren. |
-| Nachrichtentext | 13px; Normale Schriftstärke <br> Zwei bis vier Textzeilen sind ideal. <br> Sie können hier Liquid verwenden, um Ihre Nachricht zu personalisieren. |
-| Linktext | Optional. <br> 13&nbsp;px <br> Link zu einer Webseite oder Deeplink innerhalb Ihrer App. |
+| Kopfzeilentext | 18 px; Fett <br> Eine Textzeile ist ideal. <br> Sie können hier Liquid verwenden, um Ihre Nachricht zu personalisieren. |
+| Nachrichtentext | 13 px; Normale Schriftstärke <br> Zwei bis vier Textzeilen sind ideal. <br> Sie können hier Liquid verwenden, um Ihre Nachricht zu personalisieren. |
+| Linktext | Optional. <br> 13&nbsp;px <br> Link zu einer Webseite oder Deeplink in Ihre App. |
 | Bild | Empfohlenes Seitenverhältnis 4:3. <br> Mindestbreite 600&nbsp;px. <br> Unterstützt hochauflösende PNG-, JPEG- und GIF-Dateien. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Content-Card-Typen" }
 
 {% endtab %}
 {% tab Nur Bild %}
 
-Wenn Sie mehr kreative Kontrolle wünschen, ist die Image-only-Card genau das Richtige für Sie. Erstellen Sie Ihr Bild mit einem beliebigen Tool und laden Sie es in diesen Card-Typ hoch.
+Wenn Sie mehr kreative Kontrolle wünschen, ist die Card „Nur Bild“ genau das Richtige für Sie. Erstellen Sie Ihr Bild mit einem beliebigen Tool und laden Sie es in diesen Card-Typ hoch.
 
-![Bild einer Image-only-Content-Card mit empfohlenen Details und einem Image-only-Beispiel]({% image_buster /assets/img/content_card_banner.png %}){: style="max-width:45%;border:0;"}
+![Darstellung einer Content-Card „Nur Bild“ mit empfohlenen Details und ein Beispiel einer reinen Bild-Card]({% image_buster /assets/img/content_card_banner.png %}){: width="1358" height="2871" style="max-width:45%;border:0;"}
 
-| Card-Eigenschaft | Details |
+| Card-Funktion | Details |
 | --- | ---|
-| Verlinkte Card | Optional. <br> 13&nbsp;px <br> Klick-Verhalten verlinkt auf eine Webseite oder einen Deeplink innerhalb Ihrer App. |
+| Verlinkte Card | Optional. <br> 13&nbsp;px <br> Klickverhalten verlinkt zu einer Webseite oder einem Deeplink in Ihre App. |
 | Bild | Jedes Seitenverhältnis wird unterstützt. <br> Mindestbreite 600&nbsp;px. <br> Unterstützt hochauflösende PNG-, JPEG- und GIF-Dateien. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Content-Card-Typen" }
 
@@ -69,11 +69,11 @@ Content Cards unterstützen standardmäßig Text und Bilder, einschließlich GIF
 
 Um eine Card zu schließen, können Nutzer:innen sie auf dem Mobilgerät wegwischen oder die `close X`-Funktion verwenden, wie im folgenden Screenshot gezeigt. Das `x` erscheint beim Hovern nur im Web-SDK.
 
-![Bild, das das Wisch- oder Schließ-Verhalten für eine Card zeigt]({% image_buster /assets/img/dismissal-cc.png %})
+![Bild, das das Wisch- oder Schließ-Verhalten für eine Card zeigt]({% image_buster /assets/img/dismissal-cc.png %}){: width="1800" height="504"}
 
 Wenn Nutzer:innen alle ihre Cards geschlossen haben oder Sie keine neuen Updates gesendet haben, sieht der Feed der Nutzer:innen normalerweise so aus:
 
-![Bild eines leeren Content-Card-Feeds]({% image_buster /assets/img/empty-cc.png %}){: style="max-width:45%"}
+![Bild eines leeren Content-Card-Feeds]({% image_buster /assets/img/empty-cc.png %}){: width="832" height="1478" style="max-width:45%"}
 
 {% alert tip %}
 Halten Sie Content Cards relevant, indem Sie sie so einstellen, dass sie geschlossen werden, wenn Nutzer:innen relevante Aktionen ausführen. Stellen Sie z. B. Werbe-Content-Cards so ein, dass sie geschlossen werden, sobald Nutzer:innen einen Kauf tätigen, damit sie nicht weiterhin ein Angebot für etwas sehen, das sie bereits gekauft haben.

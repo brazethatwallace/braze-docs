@@ -10,7 +10,7 @@ search_tag: Partner
 
 # SalesWings
 
-> [SalesWings](https://www.saleswingsapp.com/?utm_source=braze&utm_campaign=technicaldocs)는 B2B SaaS 영업 및 마케팅 운영 솔루션으로, 전체적인 리드 스코어링 및 등급을 통해 리드 및 계정 자격을 관리하고 영업 인사이트 및 알림, B2B 기여도 보고와 함께 긴밀한 Salesforce CRM 통합을 제공합니다. Digioh와 유사한 웹사이트 참여 애드온을 통해 웹사이트에서 리드를 생성할 수 있습니다. Canvas와 세분화에서 개인화를 위해 Braze 내부의 관심사와 참여를 활용할 수 있습니다.
+> [SalesWings](https://www.saleswingsapp.com/?utm_source=braze&utm_campaign=technicaldocs)는 B2B SaaS(software-as-a-service) 영업 및 마케팅 운영 솔루션으로, 전체적인 리드 스코어링 및 등급을 통해 리드 및 계정 자격을 관리하고 영업 인사이트 및 알림, B2B 기여도 보고와 함께 긴밀한 Salesforce CRM 통합을 제공합니다. Digioh와 유사한 웹사이트 참여 애드온을 통해 웹사이트에서 리드를 생성할 수 있습니다. Canvas와 세분화에서 개인화를 위해 Braze 내부의 관심사와 참여를 활용할 수 있습니다.
 
 _이 통합은 SalesWings에서 유지 관리합니다._
 

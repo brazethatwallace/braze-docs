@@ -22,15 +22,15 @@ Vous devriez toujours [prévisualiser et tester vos messages]({{site.baseurl}}/u
 
 ## Vidéo {#video}
 
-Les vidéos téléchargées dans la bibliothèque multimédia ne peuvent être utilisées que dans les messages WhatsApp. Pour en savoir plus, consultez [Créer un message WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#outbound-messages).
+Les vidéos téléchargées dans la bibliothèque multimédia ne peuvent être utilisées que dans les messages WhatsApp. Pour plus d'informations, consultez [Créer un message WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#outbound-messages).
 
 ## GIF {#gifs}
 
-Les GIF sont pris en charge dans les notifications push iOS, les messages in-app, les e-mails, les Content Cards et les messages MMS ou RCS. Les GIF avec des formes très allongées (par exemple, 3000 x 2 pixels) ou comportant 300 images ou plus peuvent échouer au téléchargement, même si la taille totale du fichier est faible.
+Les GIF sont pris en charge dans les notifications push iOS, les messages in-app, les e-mails, les Content Cards et les messages MMS ou RCS. Les GIF avec des formes très allongées (par exemple, 3000 x 2 pixels) ou comportant 300 images ou plus peuvent échouer lors du téléversement, même si la taille totale du fichier est petite. Pour le comportement spécifique des GIF en RCS sur iOS, consultez [RCS](#rcs).
 
 {% multi_lang_include alerts/note_alerts.md alert='GIF platform support' %}
 
-## Recommandations par canal {#channel-guidance}
+## Conseils par canal {#channel-guidance}
 
 ### Content Cards
 
@@ -44,7 +44,7 @@ Les GIF sont pris en charge dans les notifications push iOS, les messages in-app
 
 {% multi_lang_include channels/image_specs.md variable_name='in-app messages' %}
 
-{% alert tip %} Créez vos ressources en toute confiance ! Nos modèles d'images pour messages in-app et nos superpositions de zones sûres sont conçus pour s'adapter parfaitement aux appareils de toutes tailles. [Télécharger le ZIP des modèles de conception]({% image_buster /assets/download_file/Braze-In-App-Message-Design-Templates.zip %}). {% endalert %}
+{% alert tip %} Créez vos ressources en toute confiance ! Nos modèles d'images pour les messages in-app et nos superpositions de zones sûres sont conçus pour s'adapter harmonieusement aux appareils de toutes tailles. [Télécharger le fichier ZIP des modèles de conception]({% image_buster /assets/download_file/Braze-In-App-Message-Design-Templates.zip %}). {% endalert %}
 
 Pour en savoir plus, consultez [Détails créatifs des messages in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/customize).
 
@@ -62,7 +62,7 @@ Braze prend en charge l'utilisation de [Font Awesome v4.3.0](https://fontawesome
 
 Pour de meilleurs résultats, consultez les recommandations de longueur de message suivantes lors de la rédaction de vos notifications push. Il peut y avoir des variations en fonction de la présence d'une image, de l'état de la notification (iOS) et des paramètres d'affichage de l'appareil de l'utilisateur, ainsi que de la taille de l'appareil.
 
-| Type de message | Longueur recommandée (texte uniquement) | Longueur recommandée (enrichi) |
+| Type de message | Longueur recommandée (texte seul) | Longueur recommandée (enrichi) |
 | --- | --- | --- |
 | Écran de verrouillage iOS | 160 caractères | 130 caractères |
 | Centre de notifications iOS | 160 caractères | 130 caractères |
@@ -82,11 +82,11 @@ Pour en savoir plus sur le nombre de caractères iOS, consultez les [recommandat
 | --- | --- |
 | Chrome | 192 x 192 px ou plus |
 | Firefox | 192 x 192 px ou plus |
-| Safari | 192 x 192 px ou plus (configurable par campagne avec Safari 16 sur macOS 13+) |
+| Safari | 192 x 192 px ou plus (configurable par Campaign avec Safari 16 sur macOS 13+) |
 | Opera | 192 x 192 px ou plus |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Notification push Web" }
 
-| Navigateur | Plateforme | Taille de la grande image |
+| Navigateur | Plateforme | Taille des grandes images |
 | --- | --- | --- |
 | Chrome | Android | Rapport hauteur/largeur 2:1 |
 | Firefox | Android | N/A |
@@ -125,7 +125,7 @@ Pour en savoir plus sur le nombre de caractères iOS, consultez les [recommandat
 {% tabs %}
 {% tab iOS %}
 
-![Notification push iOS avec le texte « Hi! This is an iOS Push with an image » et un emoji. Une petite image est affichée à côté du texte.]({% image_buster /assets/img_archive/braze_richpush1.png %}){: style="max-width:50%;"}
+![Notification push iOS avec un texte indiquant : « Hi! This is an iOS Push with an image » accompagné d'un emoji. Une petite image est affichée à côté du texte.]({% image_buster /assets/img_archive/braze_richpush1.png %}){: style="max-width:50%;"}
 ![Notification push iOS en mode étendu avec le même texte que le message précédent et une image agrandie précédant le texte.]({% image_buster /assets/img_archive/braze_richpush2.png %}){: style="max-width:50%;"}
 
 {% endtab %}
@@ -134,10 +134,22 @@ Pour en savoir plus sur le nombre de caractères iOS, consultez les [recommandat
 ![Notification push Android avec une grande image sous le texte du message.]({% image_buster /assets/img_archive/android_push_img2.png %})
 
 {% alert note %}
-Les notifications avec grande image s'affichent de manière optimale avec une image d'au moins 600 x 300 pixels.
+Les notifications avec de grandes images s'affichent de manière optimale lorsqu'on utilise une image d'au moins 600 x 300 pixels.
 {% endalert %}
 
 {% endtab %}
 {% endtabs %}
 
-Pour des ressources supplémentaires, consultez [Spécifications des images et du texte pour les notifications push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats).
+Pour des ressources supplémentaires, consultez [Spécifications des images et du texte des notifications push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats).
+
+### SMS et MMS {#sms-and-mms}
+
+{% multi_lang_include channels/image_specs.md variable_name='sms and mms' %}
+
+Pour composer des messages MMS, consultez [Créer un message SMS, MMS ou RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create).
+
+### RCS {#rcs}
+
+Les messages multimédias RCS prennent en charge les images JPG, JPEG et GIF. Pour les détails concernant la taille des fichiers et les formats, consultez [Créer un message SMS, MMS ou RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create).
+
+Sur iOS, les GIF dans les cartes enrichies RCS s'affichent sous forme d'images statiques. Sur Android, ils s'animent comme prévu. Pour en savoir plus, consultez [Pourquoi les GIF dans les cartes enrichies RCS apparaissent-ils en mode statique sur iOS ?]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs#why-do-gifs-in-rcs-rich-cards-appear-static-on-ios).

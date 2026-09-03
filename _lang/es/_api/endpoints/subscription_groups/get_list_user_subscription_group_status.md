@@ -18,6 +18,8 @@ description: "En este artículo se describen los detalles del endpoint Listar el
 
 Estos grupos estarán disponibles en la página **Grupo de suscripción**. La respuesta de este endpoint incluirá el ID externo y el valor suscrito, dado de baja o desconocido para el grupo de suscripción específico solicitado en la llamada a la API. Esto se puede utilizar para actualizar el estado del grupo de suscripción en posteriores llamadas a la API o para mostrarlo en una página web alojada.
 
+Si recopilas correos electrónicos a través de un formulario personalizado y luego estableces la pertenencia al grupo de suscripción a través de la REST API, llama primero a este endpoint para comprobar si ya existe un perfil. Si no existe un perfil coincidente, crea o suscribe al usuario con el endpoint [Actualizar el estado del grupo de suscripción del usuario]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status). De lo contrario, actualiza el perfil existente en lugar de crear un duplicado. Para otros patrones de recopilación, consulta [Prácticas recomendadas de recopilación]({{site.baseurl}}/user_guide/data/unification/user_data/best_practices).
+
 Si quieres ver ejemplos o probar este endpoint para **grupos de suscripción de correo electrónico**:
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#488c8923-fa44-4124-9245-036d13c615f2 {% endapiref %}

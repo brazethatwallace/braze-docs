@@ -290,7 +290,7 @@ jobs:
           python-version: '3.12'
 
       - name: Install Python dependencies
-        run: pip install anthropic pyyaml
+        run: pip install -r scripts/ci/requirements.txt
 
       - name: Ensure locale directory exists for artifact upload
         run: mkdir -p "_lang/${{ matrix.lang_dir }}"
@@ -369,7 +369,7 @@ jobs:
           python-version: '3.12'
 
       - name: Install Python dependencies
-        run: pip install anthropic pyyaml
+        run: pip install -r scripts/ci/requirements.txt
 
       - name: Download all locale artifacts
         uses: actions/download-artifact@v8
@@ -455,7 +455,7 @@ jobs:
           python-version: '3.12'
 
       - name: Install Python dependencies
-        run: pip install anthropic pyyaml
+        run: pip install -r scripts/ci/requirements.txt
 
       - name: Fail on case-only path collisions
         run: python scripts/auto_translate.py check-path-case-collisions

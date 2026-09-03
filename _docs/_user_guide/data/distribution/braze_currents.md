@@ -6,7 +6,7 @@ article_title: Currents
 layout: dev_guide
 
 page_type: landing
-description: "This landing page lists articles about the Braze data product called Currents. Here, you can find out how to set up Currents, available partners, delivery semantics, event glossaries, and more."
+description: "Learn how to set up Braze Currents, explore data partners, delivery semantics, and event glossaries for engagement data export."
 tool: currents
 search_rank: 9
 guide_top_header: "Braze Currents"
@@ -36,6 +36,18 @@ Currents allow you to:
 * Route Braze event data to a variety of other systems using [Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium), [Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment) or [mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle_for_currents).
 
 There's so much more you can do with event data, accessed by Currents. [Braze uses Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents) too!
+
+## Currents data distribution model
+
+Currents uses entitlement pools to control connector creation and optional event tracking.
+
+- **Engagement Events entitlements** are required for each standard Currents connector you create.
+- **Customer Behavior Events entitlements** are required when you enable **Track Customer Behavior and User Events** on a connector.
+- **User Profiles and Attributes entitlements** are required when you enable **Track user profiles and attributes** on a connector.
+
+Test Currents connectors use a separate test limit and don't consume standard connector entitlements.
+
+If you reach any entitlement limit, refer to [Set up Currents troubleshooting]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents#troubleshooting) and [Currents FAQ]({{site.baseurl}}/user_guide/data/distribution/braze_currents/faq), or contact your account manager.
 
 ## How to access Currents
 

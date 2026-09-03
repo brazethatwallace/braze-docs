@@ -5,7 +5,7 @@ alias: /message_events_glossary/
 page_order: 5
 excerpt_separator: ""
 page_type: glossary
-description: "Dieses Glossar listet die verschiedenen Nachrichten-Engagement-Ereignisse auf, die Braze verfolgen und mithilfe von Currents an ausgewählte Data Warehouses senden kann."
+description: "Dieses Glossar listet die verschiedenen Nachrichten-Engagement-Ereignisse auf, die Braze erfassen und mithilfe von Currents an ausgewählte Data Warehouses senden kann."
 tool: Currents
 search_rank: 6
 lazy_partner_tabs: true
@@ -13,7 +13,7 @@ lazy_partner_tabs: true
 
 <div class="api-glossary-preamble" markdown="1">
 
-{% details Schemabereich und zugehörige Ressourcen %}
+{% details Schemabereich und verwandte Ressourcen %}
 
 Speicherschemata gelten für die Flat-File-Ereignisdaten, die wir an Data-Warehouse-Speicherpartner senden (Google Cloud Storage, Amazon S3 und Microsoft Azure Blob Storage). Für Schemata, die für andere Partner gelten, lesen Sie unsere Liste der [verfügbaren Partner]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) und prüfen Sie die jeweiligen Seiten.
 
@@ -21,17 +21,17 @@ Speicherschemata gelten für die Flat-File-Ereignisdaten, die wir an Data-Wareho
 Diese Ereignisse sind auch als SQL-Tabellen im [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder), in [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) und im [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake) verfügbar. Für SQL-Tabellenschemata und Spaltendetails lesen Sie die [SQL-Tabellenreferenz]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
 {% endalert %}
 
-Wenden Sie sich an Ihren Account Manager oder eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/braze_support), wenn Sie Zugriff auf zusätzliche Ereignisberechtigungen benötigen. Falls Sie in diesem Artikel nicht finden, was Sie suchen, sehen Sie sich unsere [Kundenverhalten-Ereignisbibliothek]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) oder unsere [Currents-Beispieldaten](https://github.com/Appboy/currents-examples/tree/master/sample-data) an.
+Wenden Sie sich an Ihren Account Manager:in oder eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support), wenn Sie Zugriff auf zusätzliche Ereignisberechtigungen benötigen. Wenn Sie in diesem Artikel nicht finden, was Sie suchen, lesen Sie unsere [Kundenverhalten-Ereignisbibliothek]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) oder unsere [Currents-Beispieldaten](https://github.com/Appboy/currents-examples/tree/master/sample-data).
 
 {% enddetails %}
 
-{% details Erläuterung der Struktur und Plattformwerte von Nachrichten-Engagement-Ereignissen %}
+{% details Erläuterung der Nachrichten-Engagement-Ereignisstruktur und Plattformwerte %}
 
 ## Ereignisstruktur {#event-structure}
 
-Diese Ereignisaufschlüsselung zeigt, welche Art von Informationen in der Regel in einem Nachrichten-Engagement-Ereignis enthalten sind. Mit einem soliden Verständnis der Komponenten können Ihre Entwickler:innen und Ihr Business-Intelligence-Strategieteam die eingehenden Currents-Ereignisdaten nutzen, um datengestützte Berichte und Charts zu erstellen und weitere wertvolle Datenmetriken zu nutzen.
+Diese Ereignisaufschlüsselung zeigt, welche Art von Informationen in einem Nachrichten-Engagement-Ereignis in der Regel enthalten sind. Mit einem soliden Verständnis der Bestandteile können Ihre Entwickler:innen und Ihr Business-Intelligence-Strategieteam die eingehenden Currents-Ereignisdaten nutzen, um datengestützte Berichte und Charts zu erstellen und andere wertvolle Datenmetriken zu verwenden.
 
-![Aufschlüsselung eines Nachrichten-Engagement-Ereignisses, das ein E-Mail-Abmeldeereignis mit den aufgelisteten Eigenschaften zeigt, gruppiert nach nutzerspezifischen Eigenschaften, Campaign- oder Canvas-Tracking-Eigenschaften und ereignisspezifischen Eigenschaften]({% image_buster /assets/img/message_engagement_event.png %})
+![Aufschlüsselung eines Nachrichten-Engagement-Ereignisses, das ein E-Mail-Abmeldeereignis zeigt, mit den aufgeführten Eigenschaften, gruppiert nach nutzerspezifischen Eigenschaften, Campaign- oder Canvas-Tracking-Eigenschaften und ereignisspezifischen Eigenschaften]({% image_buster /assets/img/message_engagement_event.png %}){: width="2300" height="770" style="max-width:100%;height:auto;"}
 
 Nachrichten-Engagement-Ereignisse bestehen aus **nutzerspezifischen** Eigenschaften, **Campaign-/Canvas-Tracking**-Eigenschaften und **ereignisspezifischen** Eigenschaften.
 
@@ -41,8 +41,8 @@ Beachten Sie die Namenskonventionen für Nutzer-IDs.
 
 | Braze-Schema | Currents-Schema | Beschreibung |
 | ----------- | ----------- | ----------- |
-| `braze_id` | `"USER_ID"` | Der eindeutige Bezeichner, der automatisch von Braze zugewiesen wird. |
-| `external_id` | `"EXTERNAL_USER_ID"` | Der eindeutige Bezeichner eines Nutzerprofils, der von der Kund:in festgelegt wird. |
+| `braze_id` | `"USER_ID"` | Die eindeutige Kennung, die automatisch von Braze vergeben wird. |
+| `external_id` | `"EXTERNAL_USER_ID"` | Die eindeutige Kennung eines Nutzerprofils, die vom Kunden festgelegt wird. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Nutzer-ID-Schema" }
 
 ### Plattformwerte {#platform-values}
@@ -50,7 +50,7 @@ Beachten Sie die Namenskonventionen für Nutzer-IDs.
 Bestimmte Ereignisse geben einen `platform`-Wert zurück, der die Plattform des Geräts der Nutzer:in angibt.
 <br>Die folgende Tabelle zeigt die möglichen zurückgegebenen Werte:
 
-| Gerät der Nutzer:in | Plattformwert |
+| Nutzergerät | Plattformwert |
 | --- | --- |
 | iOS | `ios` |
 | Android | `android` |
@@ -65,9 +65,9 @@ Bestimmte Ereignisse geben einen `platform`-Wert zurück, der die Plattform des 
 
 {% details Hinweise zu Nachrichten-Engagement-Ereignissen %}
 
-- Currents verwirft Ereignisse mit Payloads von mehr als 900&nbsp;KB.
-- Objekte im Zusammenhang mit Canvas Flow haben IDs, die Sie zur Gruppierung verwenden und über den [Endpunkt „Canvas-Details exportieren“]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details) in lesbare Namen übersetzen können.
-- Bestimmte Felder zeigen möglicherweise nicht sofort ihren aktuellsten Status an, nachdem Sie eine Campaign oder ein Canvas aktualisiert haben:
+- Currents verwirft Ereignisse mit Payloads größer als 900&nbsp;KB.
+- Objekte in Bezug auf Canvas Flow verfügen über IDs, die Sie zur Gruppierung verwenden und über den [Endpunkt „Canvas-Details exportieren“]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details) in lesbare Namen übersetzen können.
+- Bestimmte Felder zeigen möglicherweise nicht sofort ihren aktuellsten Status an, nachdem Sie eine Campaign oder einen Canvas aktualisiert haben:
   - `campaign_name`
   - `canvas_name`
   - `canvas_step_name`
@@ -75,7 +75,7 @@ Bestimmte Ereignisse geben einen `platform`-Wert zurück, der die Plattform des 
   - `canvas_variation_name`
   - `experiment_split_name`
   - `message_variation_name`
-- Wenn Sie für diese Felder vollständige Konsistenz benötigen, warten Sie eine Stunde nach der letzten Aktualisierung, bevor Sie Nachrichten an Ihre Nutzer:innen senden.
+- Wenn Sie vollständige Konsistenz für diese Felder benötigen, warten Sie nach der letzten Aktualisierung eine Stunde, bevor Sie Nachrichten an Ihre Nutzer:innen senden.
 
 {% enddetails %}
 
@@ -730,7 +730,7 @@ Dieses Ereignis tritt ein, wenn Braze eine Anfrage zur Aktualisierung des global
 | Quelle | Beschreibung |
 | --- | --- |
 | SDK | SDK-Endpunkte |
-| Dashboard | Wenn der Abo-Status einer Nutzer:in auf der Seite **Nutzerprofil** im Dashboard aktualisiert wird |
+| Dashboard | Wenn der Abo-Status einer Nutzer:in auf der Seite **Kundenprofil** im Dashboard aktualisiert wird |
 | Abo-Seite | Wenn sich eine Nutzer:in über einen E-Mail-Link abmeldet, der nicht das Präferenzzentrum ist |
 | REST API | REST API-Endpunkte |
 | CSV-Import | CSV-Nutzerimport |
@@ -1021,9 +1021,9 @@ Abo-Gruppen sind derzeit nur für E-Mail-, SMS-, RCS- und WhatsApp-Kanäle verf�
 </thead>
 <tbody>
 <tr><td>SDK</td><td>SDK-Endpunkte</td></tr>
-<tr><td>Dashboard</td><td>Wenn der Abo-Status einer Nutzer:in auf der Seite „Nutzerprofil“ im Dashboard aktualisiert wird</td></tr>
+<tr><td>Dashboard</td><td>Wenn der Abo-Status einer Nutzer:in auf der Seite „Kundenprofil“ im Dashboard aktualisiert wird</td></tr>
 <tr><td>Subscription Page</td><td>Wenn sich eine Nutzer:in über einen E-Mail-Link abmeldet, der nicht das Präferenzzentrum ist</td></tr>
-<tr><td>REST API</td><td>REST API-Endpunkte</td></tr>
+<tr><td>REST API</td><td>REST-API-Endpunkte</td></tr>
 <tr><td>CSV import</td><td>CSV-Nutzerimport</td></tr>
 <tr><td>Preference Center</td><td>Wenn eine Nutzer:in über das Präferenzzentrum aktualisiert wird</td></tr>
 <tr><td>Inbound Message</td><td>Wenn eine Nutzer:in durch eingehende Nachrichten von Endnutzer:innen über Kanäle wie z. B. SMS aktualisiert wird</td></tr>
@@ -1048,6 +1048,10 @@ Dieses Ereignis tritt ein, wenn eine Nutzer:in eine Aktion ausführt, die als Ko
 
 {% alert important %}
 Beachten Sie, dass das Konversions-Event im Feld `conversion_behavior` kodiert wird, das die Art des Konversions-Events, das Fenster (Zeitrahmen) und zusätzliche Informationen je nach Art des Konversions-Events enthält. Das Feld `conversion_behavior_index` gibt an, welches Konversions-Event vorliegt, z. B. 0 = A, 1 = B, 2 = C, 3 = D.
+{% endalert %}
+
+{% alert note %}
+Das Feld `message_extras` ist nur in Sendeereignissen verfügbar (z. B. E-Mail-Versand, Push-Versand). Es ist nicht in Konversions-Ereignissen enthalten. Um `message_extras`-Daten mit nachgelagertem Engagement zu verknüpfen, verwenden Sie `dispatch_id` oder `send_id`, um Sendeereignisse mit Konversions-Ereignissen in Ihrem Data Warehouse zu verknüpfen. Zur Bewertung der Wirksamkeit von Texten anhand der Konversionsrate sollten Sie stattdessen [Kampagnenvarianten]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing/create_multivariate_campaign) verwenden.
 {% endalert %}
 
 {% tabs %}
@@ -1432,6 +1436,10 @@ Dieses Ereignis tritt ein, wenn eine Nutzer:in eine Aktion ausführt, die als Ko
 Beachten Sie, dass das Konversions-Event im Feld `conversion_behavior` kodiert wird, das die Art des Konversions-Events, das Fenster (Zeitrahmen) und zusätzliche Informationen je nach Art des Konversions-Events enthält. Das Feld `conversion_behavior_index` gibt an, welches Konversions-Event vorliegt, z. B. 0 = A, 1 = B, 2 = C, 3 = D.
 {% endalert %}
 
+{% alert note %}
+Das Feld `message_extras` ist nur in Sendeereignissen verfügbar (z. B. E-Mail-Versand, Push-Versand). Es ist nicht in Konversions-Ereignissen enthalten. Um `message_extras`-Daten mit nachgelagertem Engagement zu verknüpfen, verwenden Sie `send_id`, um Sendeereignisse mit Konversions-Ereignissen in Ihrem Data Warehouse zu verknüpfen. Zur Bewertung der Wirksamkeit von Texten anhand der Konversionsrate sollten Sie stattdessen [Canvas-Varianten]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests) verwenden.
+{% endalert %}
+
 {% tabs %}
 {% tab Cloud Storage %}
 ```json
@@ -1626,7 +1634,7 @@ Beachten Sie, dass das Konversions-Event im Feld `conversion_behavior` kodiert w
 Canvas, Entry
 {% endapitags %}
 
-Dieses Ereignis tritt ein, wenn eine Nutzerin oder ein Nutzer in den Canvas eintritt. Dieses Ereignis teilt Ihnen mit, in welche Variante die Person eingetreten ist.
+Dieses Ereignis tritt ein, wenn ein:e Nutzer:in in den Canvas eintritt. Dieses Ereignis teilt Ihnen mit, in welche Variante die Person eingetreten ist.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -2874,7 +2882,7 @@ Dieses Ereignis tritt ein, wenn ein:e Nutzer:in einen Canvas-Experiment-Schritt-
 Canvas, Progression
 {% endapitags %}
 
-Dieses Ereignis tritt ein, wenn Nutzer:innen einen Schritt in einem Canvas mit einem bestimmten Ergebnis durchlaufen. Beachten Sie, dass dieses Ereignis nicht eintritt, wenn Schritte betreten oder verlassen werden. Derzeit erzeugen nur geteilte Schritte (Zielgruppenpfade, Decision-Split, Aktionspfade, Experiment) und Fortschrittsergebnisse Schrittfortschrittsereignisse.
+Dieses Ereignis tritt ein, wenn Nutzer:innen einen Schritt in einem Canvas mit einem bestimmten Ergebnis durchlaufen. Beachten Sie, dass dieses Ereignis nicht eintritt, wenn Schritte betreten oder verlassen werden. Derzeit erzeugen nur Split-Schritte (Zielgruppenpfade, Decision-Split, Aktionspfade, Experiment) und Fortschrittsergebnisse Schrittfortschrittsereignisse.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -4763,7 +4771,7 @@ Dieses Ereignis tritt ein, wenn Nutzer:innen auf eine Content Card klicken.
 ### Eigenschaftsdetails
 
 - Für `ad_id`, `ad_id_type` und `ad_tracking_enabled` müssen Sie die iOS-IDFA und die Android-Google-Advertising-ID explizit über die nativen SDKs erfassen. Erfahren Sie mehr über diese Einrichtung für [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) und [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
-- Wenn Sie Kafka zur Aufnahme von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren Customer-Success-Manager, um das Senden von `ad_id` zu aktivieren.
+- Wenn Sie Kafka zur Aufnahme von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren CSM, um das Senden von `ad_id` zu aktivieren.
 
 {% endapi %}
 
@@ -5040,7 +5048,7 @@ Dieses Ereignis tritt ein, wenn eine Nutzerin oder ein Nutzer eine Content Card 
 ### Eigenschaftsdetails
 
 - Für `ad_id`, `ad_id_type` und `ad_tracking_enabled` müssen Sie die iOS-IDFA und die Android-Google-Advertising-ID explizit über die nativen SDKs erfassen. Erfahren Sie mehr über diese Einrichtung für [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) und [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
-- Wenn Sie Kafka zur Aufnahme von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren Customer-Success-Manager, um das Senden von `ad_id` zu aktivieren.
+- Wenn Sie Kafka zur Aufnahme von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren CSM, um das Senden von `ad_id` zu aktivieren.
 
 {% endapi %}
 
@@ -5317,7 +5325,7 @@ Dieses Ereignis tritt ein, wenn eine Nutzerin oder ein Nutzer eine Content Card 
 ### Eigenschaftsdetails
 
 - Für `ad_id`, `ad_id_type` und `ad_tracking_enabled` müssen Sie die iOS-IDFA und die Android-Google-Advertising-ID explizit über die nativen SDKs erfassen. Erfahren Sie mehr über diese Einrichtung für [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) und [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
-- Wenn Sie Kafka zur Aufnahme von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren Customer-Success-Manager, um das Senden von `ad_id` zu aktivieren.
+- Wenn Sie Kafka zur Aufnahme von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren CSM, um das Senden von `ad_id` zu aktivieren.
 
 {% endapi %}
 
@@ -5798,6 +5806,7 @@ Dieses Ereignis tritt ein, wenn eine E-Mail-Nachricht aufgrund von Liquid-Abbrü
 - Das Feld `abort_type` beschreibt den Grund, warum die Nachricht abgebrochen wurde. Eine vollständige Liste der Werte finden Sie unter [Abbruchtypen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` hat den Wert `frequency_capped`, wenn die Nachricht aufgrund einer globalen Frequenzbegrenzungsregel abgebrochen wurde.
 - `abort_log` enthält Informationen über die spezifische Regel, die den Abbruch ausgelöst hat. Ein Beispiel hierfür ist: `Frequency cap rule: 5 email messages every 1 week`
+- `message_extras` wird nur dann befüllt, wenn ein Abbruch eintritt, nachdem das {% raw %}`{% message_extras %}`{% endraw %}-Tag während des Renderings ausgeführt wurde.
 
 {% endapi %}
 
@@ -8738,6 +8747,10 @@ In-App Messages, Abort
 
 Dieses Ereignis tritt ein, wenn eine ursprünglich geplante In-App-Nachricht abgebrochen wurde.
 
+{% alert note %}
+[Abbruchereignisse]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) werden nur für [vorlagenbasierte In-App-Nachrichten]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages#templated_iam-templated) protokolliert. Standard-In-App-Nachrichten protokollieren keine Abbruchereignisse, da die Liquid-Auswertung vor der Trigger-Aktion stattfindet. Weitere Details zum Abbruchverhalten von In-App-Nachrichten finden Sie unter [FAQ zu In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#how-does-abort-behavior-work-for-in-app-messages).
+{% endalert %}
+
 {% tabs %}
 {% tab Cloud Storage %}
 ```json
@@ -9294,7 +9307,7 @@ Bei In-App-Nachrichten gibt `dispatch_id` den Wert `null` zurück.
 ### Eigenschaftsdetails
 
 - Für `ad_id`, `ad_id_type` und `ad_tracking_enabled` müssen Sie die iOS IDFA und die Android Google Advertising ID explizit über die nativen SDKs erfassen. Erfahren Sie mehr über diese Einrichtung für [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) und [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
-- Wenn Sie Kafka zur Aufnahme von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren Customer-Success-Manager, um das Senden von `ad_id` zu aktivieren.
+- Wenn Sie Kafka zur Aufnahme von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren CSM, um das Senden von `ad_id` zu aktivieren.
 
 {% endapi %}
 
@@ -9581,7 +9594,7 @@ Bei In-App-Nachrichten gibt `dispatch_id` den Wert `null` zurück.
 ### Eigenschaftsdetails
 
 - Für `ad_id`, `ad_id_type` und `ad_tracking_enabled` müssen Sie die iOS IDFA und die Android Google Advertising ID explizit über die nativen SDKs erfassen. Erfahren Sie mehr über diese Einrichtung für [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) und [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
-- Wenn Sie Kafka zur Aufnahme von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren Customer-Success-Manager, um das Senden von `ad_id` zu aktivieren.
+- Wenn Sie Kafka zur Aufnahme von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren CSM, um das Senden von `ad_id` zu aktivieren.
 
 {% endapi %}
 
@@ -10285,6 +10298,7 @@ Dieses Ereignis tritt ein, wenn eine geplante LINE-Nachricht nicht zugestellt we
 - Das Feld `abort_type` beschreibt den Grund für den Abbruch der Nachricht. Eine vollständige Liste der Werte finden Sie unter [Abbruchtypen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` hat den Wert `frequency_capped`, wenn die Nachricht aufgrund einer globalen Frequency-Capping-Regel abgebrochen wurde.
 - `abort_log` enthält Informationen über die spezifische Regel, die den Abbruch ausgelöst hat. Ein Beispiel: `Frequency cap rule: 5 LINE messages every 1 week`
+- `message_extras` wird nur befüllt, wenn ein Abbruch auftritt, nachdem das {% raw %}`{% message_extras %}`{% endraw %}-Tag während des Renderings ausgeführt wurde.
 
 {% endapi %}
 
@@ -11840,6 +11854,7 @@ Dieses Ereignis tritt ein, wenn eine Push-Benachrichtigung aufgrund von Liquid-A
 - Das Feld `abort_type` beschreibt den Grund, warum die Nachricht abgebrochen wurde. Eine vollständige Liste der Werte finden Sie unter [Abbruchtypen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` hat den Wert `frequency_capped`, wenn die Nachricht aufgrund einer globalen Frequency-Capping-Regel abgebrochen wurde.
 - `abort_log` enthält Informationen über die spezifische Regel, die den Abbruch ausgelöst hat. Ein Beispiel: `Frequency cap rule: 5 push messages every 1 week`
+- `message_extras` wird nur dann befüllt, wenn ein Abbruch eintritt, nachdem das {% raw %}`{% message_extras %}`{% endraw %}-Tag während des Renderings ausgeführt wurde.
 
 {% endapi %}
 
@@ -12099,7 +12114,7 @@ Dieses Ereignis tritt ein, wenn ein Fehler vom Apple Push Notification Service o
 
 ### Eigenschaftsdetails
 
-- Wenn Sie Kafka zum Importieren von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren Customer-Success-Manager oder Account Manager, um den Feature-Flipper zum Senden von `ad_id` zu aktivieren.
+- Wenn Sie Kafka zum Importieren von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren CSM oder Account Manager:in, um den Feature-Flipper zum Senden von `ad_id` zu aktivieren.
 - `dispatch_id` ist eine ID für einen bestimmten Nachrichtenversand, z. B. den Versand einer Campaign. Alle Push-Ereignisse, die aus demselben Versand stammen, enthalten dieselbe `dispatch_id`. Verwenden Sie `dispatch_id`, um Ereignisse zu gruppieren, die zum selben Versand gehören. So können Sie den Lebenszyklus der Push-Nachricht für diesen Versand (z. B. Senden, Bounce und Öffnung) gruppieren und korrelieren.
 
 {% endapi %}
@@ -12310,7 +12325,7 @@ Dieses Ereignis wird von unserem [Swift SDK](https://github.com/braze-inc/braze-
 ### Eigenschaftsdetails
 
 - Für `ad_id`, `ad_id_type` und `ad_tracking_enabled` müssen Sie die iOS-IDFA und die Android Google Advertising ID explizit über die nativen SDKs erfassen. Mehr über diese Einrichtung erfahren Sie für [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) und [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
-- Wenn Sie Kafka zum Importieren von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren Customer-Success-Manager, um das Senden von `ad_id` zu aktivieren.
+- Wenn Sie Kafka zum Importieren von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren CSM, um das Senden von `ad_id` zu aktivieren.
 - `dispatch_id` ist eine ID für einen bestimmten Nachrichtenversand, z. B. den Versand einer Campaign. Alle Push-Ereignisse, die aus demselben Versand stammen, enthalten dieselbe `dispatch_id`. Verwenden Sie `dispatch_id`, um Ereignisse zu gruppieren, die zum selben Versand gehören. So können Sie den Lebenszyklus der Push-Nachricht für diesen Versand (z. B. Senden, Bounce und Öffnung) gruppieren und korrelieren.
 
 {% endapi %}
@@ -12588,7 +12603,7 @@ In seltenen Fällen kann eine Push-Öffnung vor dem entsprechenden Push-Sendeere
 ### Eigenschaftsdetails
 
 - Für `ad_id`, `ad_id_type` und `ad_tracking_enabled` müssen Sie die iOS-IDFA und die Android Google Advertising ID explizit über die nativen SDKs erfassen. Mehr über diese Einrichtung erfahren Sie für [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) und [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
-- Wenn Sie Kafka zum Importieren von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren Customer-Success-Manager, um das Senden von `ad_id` zu aktivieren.
+- Wenn Sie Kafka zum Importieren von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren CSM, um das Senden von `ad_id` zu aktivieren.
 - `dispatch_id` ist eine ID für einen bestimmten Nachrichtenversand, z. B. den Versand einer Campaign. Alle Push-Ereignisse, die aus demselben Versand stammen, enthalten dieselbe `dispatch_id`. Verwenden Sie `dispatch_id`, um Ereignisse zu gruppieren, die zum selben Versand gehören. So können Sie den Lebenszyklus der Push-Nachricht für diesen Versand (z. B. Senden, Bounce und Öffnung) gruppieren und korrelieren.
 
 {% endapi %}
@@ -12844,7 +12859,7 @@ Dieses Ereignis tritt ein, wenn eine Nachricht herabgestuft oder durch Frequency
 Push, Sends
 {% endapitags %}
 
-Dieses Ereignis tritt ein, wenn Braze eine Push-Nachricht für Nutzer:innen verarbeitet und diese an den Apple Push Notification Service oder Fire Cloud Messaging weiterleitet. Das bedeutet nicht, dass der Push an das Gerät zugestellt wurde, sondern nur, dass eine Nachricht gesendet wurde.
+Dieses Ereignis tritt ein, wenn Braze eine Push-Nachricht für Nutzer:innen verarbeitet und diese an den Apple Push Notification Service oder Fire Cloud Messaging weiterleitet. Das bedeutet nicht, dass die Push-Benachrichtigung an das Gerät zugestellt wurde, sondern nur, dass eine Nachricht gesendet wurde.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -13106,7 +13121,7 @@ Dieses Ereignis tritt ein, wenn Braze eine Push-Nachricht für Nutzer:innen vera
 ### Eigenschaftsdetails
 
 - Für `ad_id`, `ad_id_type` und `ad_tracking_enabled` müssen Sie die iOS-IDFA und die Android Google Advertising ID explizit über die nativen SDKs erfassen. Mehr über diese Einrichtung erfahren Sie für [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) und [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
-- Wenn Sie Kafka zum Importieren von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren Customer-Success-Manager, um das Senden von `ad_id` zu aktivieren.
+- Wenn Sie Kafka zum Importieren von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren CSM, um das Senden von `ad_id` zu aktivieren.
 - Mit `message_extras` können Sie Ihre Sende-Ereignisse mit dynamischen Daten aus Connected-Content, angepassten Attributen (z. B. Sprache, Land) und Canvas-Entry-Eigenschaften versehen. Weitere Informationen finden Sie unter [Nachrichten-Extras]({{site.baseurl}}/message_extras_tag).
 - `dispatch_id` ist eine ID für einen bestimmten Nachrichtenversand, z. B. den Versand einer Campaign. Alle Push-Ereignisse, die aus demselben Versand stammen, enthalten dieselbe `dispatch_id`. Verwenden Sie `dispatch_id`, um Ereignisse zu gruppieren, die zum selben Versand gehören. So können Sie den Lebenszyklus der Push-Nachricht für diesen Versand (z. B. Senden, Bounce und Öffnung) gruppieren und korrelieren.
 
@@ -13835,7 +13850,7 @@ Dieses Ereignis wird ausgelöst, wenn eine RCS-Nachricht erfolgreich an das Mobi
 
 ### Eigenschaftsdetails
 
-- `dispatch_id` ist eine ID für einen bestimmten Nachrichtenversand, beispielsweise den Versand einer Campaign. Alle Push-Ereignisse, die aus demselben Versand stammen, enthalten dieselbe `dispatch_id`. Verwenden Sie `dispatch_id`, um Ereignisse zu gruppieren, die zu demselben Versand gehören. So können Sie den Lebenszyklus der Push-Nachricht für diesen Versand (z. B. Senden, Bounce und Öffnung) gruppieren und korrelieren.
+- `dispatch_id` ist eine ID für einen bestimmten Nachrichtenversand, beispielsweise den Versand einer Campaign. Alle Push-Ereignisse, die aus demselben Versand stammen, enthalten dieselbe `dispatch_id`. Verwenden Sie `dispatch_id`, um Ereignisse zu gruppieren, die zum selben Versand gehören. So können Sie den Lebenszyklus der Push-Nachricht für diesen Versand (z. B. Senden, Bounce und Öffnung) gruppieren und korrelieren.
 
 {% endapi %}
 
@@ -15000,6 +15015,7 @@ Dieses Ereignis tritt ein, wenn eine SMS-Nachricht aufgrund von Liquid-Abbrüche
 - Das Feld `abort_type` beschreibt den Grund, warum die Nachricht abgebrochen wurde. Eine vollständige Liste der Werte finden Sie unter [Abbruchtypen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` hat den Wert `frequency_capped`, wenn die Nachricht aufgrund einer globalen Frequenzbegrenzungsregel abgebrochen wurde.
 - `abort_log` enthält Informationen über die spezifische Regel, die den Abbruch ausgelöst hat. Ein Beispiel hierfür ist: `Frequency cap rule: 5 SMS messages every 1 week`
+- `message_extras` wird nur befüllt, wenn ein Abbruch auftritt, nachdem das {% raw %}`{% message_extras %}`{% endraw %}-Tag während des Renderings ausgeführt wurde.
 
 {% endapi %}
 
@@ -15985,10 +16001,10 @@ Wenn Braze erkennt, dass diese eingehende Nachricht eine Antwort auf eine ausgeh
 SMS, Rejection
 {% endapitags %}
 
-Dieses Ereignis tritt ein, wenn eine SMS-Sendung vom Netzbetreiber abgelehnt wird. Dies kann aus verschiedenen Gründen geschehen. Verwenden Sie dieses Ereignis und die bereitgestellten Fehlercodes, um Probleme mit der SMS-Zustellung zu beheben.
+Dieses Ereignis tritt ein, wenn ein SMS-Versand vom Netzbetreiber abgelehnt wird. Dies kann aus verschiedenen Gründen geschehen. Verwenden Sie dieses Ereignis und die bereitgestellten Fehlercodes, um Probleme mit der SMS-Zustellung zu beheben.
 
 {% alert note %}
-Braze gibt `users.messages.sms.Rejection` nur dann an Currents, Snowflake-Datenfreigabe und zugehörige Exporte aus, wenn das Braze-Nutzerprofil zum Zeitpunkt der Verarbeitung des Ereignisses für die Protokollierung noch im Workspace vorhanden ist. Wurde dieses Profil zuvor gelöscht, wird dieses Ereignis nicht in Ihrem Data Warehouse oder Currents-Export angezeigt. Dieselbe Verarbeitungsregel gilt für andere ausgehende `users.messages.sms.*`-Ereignisse, die Braze über dieselbe Pipeline protokolliert (z. B. Zustellung, Zustellungsfehler und Gesendet-an-Netzbetreiber). SMS-Metriken auf Workspace-Ebene können weiterhin aggregierte Zählungen enthalten, die nicht eins zu eins den Zeilen in Snowflake entsprechen.
+Braze gibt `users.messages.sms.Rejection` nur dann an Currents, Snowflake Data Sharing und zugehörige Exporte aus, wenn das Braze-Kundenprofil zum Zeitpunkt der Verarbeitung des Ereignisses für die Protokollierung noch im Workspace vorhanden ist. Wurde dieses Profil zuvor gelöscht, wird dieses Ereignis nicht in Ihrem Data Warehouse oder Currents-Export angezeigt. Dieselbe Verarbeitungsregel gilt für andere ausgehende `users.messages.sms.*`-Ereignisse, die Braze über dieselbe Pipeline protokolliert (z. B. Zustellung, Zustellungsfehler und Gesendet-an-Netzbetreiber). SMS-Metriken auf Workspace-Ebene können weiterhin aggregierte Zählungen enthalten, die nicht eins zu eins den Zeilen in Snowflake entsprechen.
 {% endalert %}
 
 {% tabs %}
@@ -17593,6 +17609,7 @@ Dieses Ereignis tritt ein, wenn eine Webhook-Nachricht aufgrund von Liquid-Abbr�
 - Das Feld `abort_type` beschreibt den Grund, warum die Nachricht abgebrochen wurde. Eine vollständige Liste der Werte finden Sie unter [Abbruchtypen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` hat den Wert `frequency_capped`, wenn die Nachricht aufgrund einer globalen Frequency-Capping-Regel abgebrochen wurde.
 - `abort_log` enthält Informationen über die spezifische Regel, die den Abbruch ausgelöst hat. Ein Beispiel hierfür ist: `Frequency cap rule: 5 webhook messages every 1 week`
+- `message_extras` wird nur dann befüllt, wenn ein Abbruch auftritt, nachdem das Tag {% raw %}`{% message_extras %}`{% endraw %} während des Renderings ausgeführt wurde.
 
 {% endapi %}
 
@@ -18573,6 +18590,7 @@ Dieses Ereignis tritt ein, wenn eine WhatsApp-Nachricht aufgrund von Liquid-Abbr
 - Das Feld `abort_type` beschreibt den Grund, warum die Nachricht abgebrochen wurde. Eine vollständige Liste der Werte finden Sie unter [Abbruchtypen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` hat den Wert `frequency_capped`, wenn die Nachricht aufgrund einer globalen Frequenzbegrenzungsregel abgebrochen wurde.
 - `abort_log` enthält Informationen über die spezifische Regel, die den Abbruch ausgelöst hat. Ein Beispiel hierfür ist: `Frequency cap rule: 5 WhatsApp messages every 1 week`
+- `message_extras` wird nur befüllt, wenn ein Abbruch auftritt, nachdem das {% raw %}`{% message_extras %}`{% endraw %}-Tag während des Renderings ausgeführt wurde.
 
 {% endapi %}
 

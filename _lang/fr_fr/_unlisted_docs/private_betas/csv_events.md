@@ -27,32 +27,32 @@ Vous pouvez utiliser l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/
 
 ## Importation CSV {#csv-import}
 
-Vous pouvez charger et mettre à jour des profils utilisateur via des fichiers CSV depuis **Audience** > **Importer des utilisateurs**.
+Vous pouvez charger et mettre à jour des profils utilisateur via des fichiers CSV depuis **Audience** > **Import Users**.
 
-L'importation de données utilisateur à l'aide de fichiers CSV prend en charge l'enregistrement et la mise à jour d'attributs utilisateur tels que le prénom et l'e-mail, en plus d'attributs personnalisés tels que la pointure. Vous pouvez importer un CSV en spécifiant l'un des deux identifiants utilisateur uniques : un `external_id` ou un alias d'utilisateur.
+L'importation de données utilisateur à l'aide de fichiers CSV permet d'enregistrer et de mettre à jour les attributs utilisateur tels que le prénom et l'e-mail, en plus des attributs personnalisés tels que la pointure. Vous pouvez importer un CSV en spécifiant l'un des deux identifiants utilisateur uniques : un `external_id` ou un alias d'utilisateur.
 
 {% alert important %}
-L'importation d'utilisateurs prend également en charge l'enregistrement et la mise à jour d'événements personnalisés utilisateur. Comme pour les attributs utilisateur, vous pouvez importer avec un `external_id`, un `braze_id` ou avec `user_alias_name` et `user_alias_label`. Pour plus de détails, consultez [Importation d'événements personnalisés](#importing-custom-events).
+L'importation d'utilisateurs permet également d'enregistrer et de mettre à jour les événements personnalisés des utilisateurs. Comme pour les attributs utilisateur, vous pouvez importer avec un `external_id`, un `braze_id` ou avec `user_alias_name` et `user_alias_label`. Pour plus de détails, consultez [Importer des événements personnalisés](#importing-custom-events).
 {% endalert %}
 
 {% alert note %}
-Si vous chargez un mélange d'utilisateurs avec un `external_id` et d'utilisateurs sans, vous devez créer un fichier CSV pour chaque importation. Un fichier CSV ne peut pas contenir à la fois des `external_ids` et des alias d'utilisateur.
+Si vous chargez un mélange d'utilisateurs avec un `external_id` et d'utilisateurs sans, vous devez créer un fichier CSV pour chaque importation. Un seul fichier CSV ne peut pas contenir à la fois des `external_ids` et des alias d'utilisateur.
 {% endalert %}
 
 ### Importation avec un ID externe {#importing-with-external-id}
 
-Lors de l'importation de vos données client, vous devrez spécifier l'identifiant unique de chaque client, également appelé `external_id`. Avant de commencer votre importation CSV, il est important de comprendre auprès de votre équipe d'ingénierie comment les utilisateurs seront identifiés dans Braze. En général, il s'agit d'un ID de base de données interne. Cela doit correspondre à la façon dont les utilisateurs seront identifiés par le SDK Braze sur mobile et web, et est conçu pour que chaque client dispose d'un profil utilisateur unique dans Braze sur l'ensemble de ses appareils. En savoir plus sur le [cycle de vie du profil utilisateur]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle) de Braze.
+Lors de l'importation de vos données clients, vous devez spécifier l'identifiant unique de chaque client, également appelé `external_id`. Avant de commencer votre importation CSV, il est important de comprendre avec votre équipe d'ingénierie comment les utilisateurs seront identifiés dans Braze. En général, il s'agit d'un ID de base de données interne. Celui-ci doit correspondre à la façon dont les utilisateurs seront identifiés par le SDK Braze sur mobile et web, et est conçu pour que chaque client dispose d'un seul profil utilisateur dans Braze sur l'ensemble de ses appareils. En savoir plus sur le [cycle de vie du profil utilisateur]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle) Braze.
 
-Lorsque vous fournissez un `external_id` dans votre importation, Braze mettra à jour tout utilisateur existant avec le même `external_id` ou créera un nouvel utilisateur identifié avec cet `external_id` défini s'il n'en trouve pas.
+Lorsque vous fournissez un `external_id` dans votre importation, Braze met à jour tout utilisateur existant avec le même `external_id` ou crée un nouvel utilisateur identifié avec cet `external_id` défini si aucun n'est trouvé.
 
-- **Télécharger :** [Modèle d'importation CSV d'attributs][import_template]
-- **Télécharger :** [Modèle d'importation CSV d'événements][events_template]
+- **Télécharger :** [Modèle d'importation d'attributs CSV][import_template]
+- **Télécharger :** [Modèle d'importation d'événements CSV][events_template]
 
 ### Importation avec un alias d'utilisateur {#importing-with-user-alias}
 
-Pour cibler des utilisateurs qui n'ont pas d'`external_id`, vous pouvez importer une liste d'utilisateurs avec des alias d'utilisateur. Un alias sert d'identifiant utilisateur unique alternatif et peut être utile si vous essayez de cibler des utilisateurs anonymes qui ne se sont pas inscrits ou n'ont pas créé de compte sur votre application.
+Pour cibler les utilisateurs qui n'ont pas d'`external_id`, vous pouvez importer une liste d'utilisateurs avec des alias d'utilisateur. Un alias sert d'identifiant utilisateur unique alternatif et peut être utile si vous essayez de cibler des utilisateurs anonymes qui ne se sont pas inscrits ou n'ont pas créé de compte sur votre application.
 
-Si vous chargez ou mettez à jour des profils utilisateur qui sont uniquement des alias, vous devez avoir les deux colonnes suivantes dans votre CSV :
+Si vous chargez ou mettez à jour des profils utilisateur qui sont uniquement basés sur un alias, vous devez avoir les deux colonnes suivantes dans votre CSV :
 
 - `user_alias_name` : Un identifiant utilisateur unique ; une alternative à l'`external_id`
 - `user_alias_label` : Un libellé commun permettant de regrouper les alias d'utilisateur
@@ -63,16 +63,16 @@ Si vous chargez ou mettez à jour des profils utilisateur qui sont uniquement de
 | 182736486 | my_alt_identifier | Nguyen | nguyen@user.com | FALSE |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
-Lorsque vous fournissez à la fois un `user_alias_name` et un `user_alias_label` dans votre importation, Braze mettra à jour tout utilisateur existant avec les mêmes `user_alias_name` et `user_alias_label`. Si aucun utilisateur n'est trouvé, Braze créera un nouvel utilisateur identifié avec ce `user_alias_name` défini.
+Lorsque vous fournissez à la fois un `user_alias_name` et un `user_alias_label` dans votre importation, Braze met à jour tout utilisateur existant avec le même `user_alias_name` et `user_alias_label`. Si aucun utilisateur n'est trouvé, Braze crée un nouvel utilisateur identifié avec ce `user_alias_name` défini.
 
 {% alert important %}
-Vous ne pouvez pas utiliser une importation CSV pour mettre à jour un utilisateur existant avec un `user_alias_name` s'il possède déjà un `external_id`. Au lieu de cela, un nouveau profil utilisateur sera créé avec le `user_alias_name` associé. Pour associer un utilisateur alias uniquement à un `external_id`, utilisez l'[endpoint Identifier les utilisateurs]({{site.baseurl}}/api/endpoints/user_data/post_user_identify).
+Vous ne pouvez pas utiliser une importation CSV pour mettre à jour un utilisateur existant avec un `user_alias_name` s'il possède déjà un `external_id`. Cela créera à la place un nouveau profil utilisateur avec le `user_alias_name` associé. Pour associer un utilisateur basé uniquement sur un alias à un `external_id`, utilisez l'[endpoint Identifier les utilisateurs]({{site.baseurl}}/api/endpoints/user_data/post_user_identify).
 {% endalert %}
 
-- **Télécharger :** [Modèle d'importation CSV d'attributs par alias][template_alias_attributes]
-- **Télécharger :** [Modèle d'importation CSV d'événements par alias][template_alias_events]
+- **Télécharger :** [Modèle d'importation d'attributs d'alias CSV][template_alias_attributes]
+- **Télécharger :** [Modèle d'importation d'événements d'alias CSV][template_alias_events]
 
-### Importation avec un ID Braze {#importing-with-braze-id}
+### Importation avec l'ID Braze {#importing-with-braze-id}
 
 Pour mettre à jour des profils utilisateur existants dans Braze en utilisant une valeur d'ID Braze interne au lieu d'un `external_id` ou d'une valeur `user_alias_name` et `user_alias_label`, spécifiez `braze_id` comme en-tête de colonne.
 
@@ -83,41 +83,41 @@ Vous ne pouvez pas utiliser une importation CSV pour créer un nouvel utilisateu
 {% endalert %}
 
 {% alert tip %}
-La valeur `braze_id` peut être libellée `Appboy ID` dans les exportations CSV du tableau de bord de Braze. Cet ID sera le même que le `braze_id` d'un utilisateur, vous pouvez donc renommer cette colonne en `braze_id` lorsque vous réimportez le CSV.
+La valeur `braze_id` peut être libellée `Appboy ID` dans les exportations CSV du tableau de bord de Braze. Cet ID sera le même que le `braze_id` d'un utilisateur, vous pouvez donc renommer cette colonne en `braze_id` lors de la réimportation du CSV.
 {% endalert %}
 
-### Importation d'attributs par défaut {#importing-default-attributes}
+### Importation des attributs par défaut {#importing-default-attributes}
 
-Pour importer des attributs par défaut pour les utilisateurs, accédez à **Importer des utilisateurs** > **Attributs**. Les attributs utilisateur par défaut sont des clés réservées dans Braze. Par exemple, `first_name` ou `email`. Les attributs personnalisés sont propres à votre entreprise. Par exemple, une application de réservation de voyages peut avoir un attribut personnalisé appelé `last_destination_searched`.
+Pour importer les attributs par défaut des utilisateurs, accédez à **Import Users** > **Attributes**. Les attributs utilisateur par défaut sont des clés réservées dans Braze. Par exemple, `first_name` ou `email`. Les attributs personnalisés sont propres à votre activité. Par exemple, une application de réservation de voyages peut avoir un attribut personnalisé appelé `last_destination_searched`.
 
 {% alert important %}
-Lors de l'importation de données client en tant qu'attributs, les en-têtes de colonne que vous utilisez doivent correspondre exactement à l'orthographe et à la casse des attributs utilisateur par défaut. Sinon, Braze créera automatiquement un attribut personnalisé sur le profil de cet utilisateur.
+Lors de l'importation de données clients en tant qu'attributs, les en-têtes de colonnes que vous utilisez doivent correspondre exactement à l'orthographe et à la casse des attributs utilisateur par défaut. Sinon, Braze créera automatiquement un attribut personnalisé sur le profil de cet utilisateur.
 {% endalert %}
 
-#### En-têtes de colonne des données utilisateur par défaut {#default-user-data-column-headers}
+#### En-têtes de colonnes par défaut des données utilisateur {#default-user-data-column-headers}
 
-| CHAMP DU PROFIL UTILISATEUR | TYPE DE DONNÉES | INFORMATIONS | REQUIS |
+| CHAMP DU PROFIL UTILISATEUR | TYPE DE DONNÉE | INFORMATION | OBLIGATOIRE |
 |---|---|---|---|
-| `external_id` | Chaîne de caractères | Un identifiant utilisateur unique pour votre client. | Oui, voir la [note suivante](#about-external-ids). |
-| `user_alias_name` | Chaîne de caractères | Un identifiant utilisateur unique pour les utilisateurs anonymes. Une alternative à l'`external_id`. | Non, voir la [note suivante](#about-external-ids). |
-| `user_alias_label` | Chaîne de caractères | Un libellé commun permettant de regrouper les alias d'utilisateur. | Oui, si `user_alias_name` est utilisé. |
-| `first_name` | Chaîne de caractères | Le prénom de vos utilisateurs tel qu'ils l'ont indiqué (par exemple, `Jane`). | Non |
-| `last_name` | Chaîne de caractères | Le nom de famille de vos utilisateurs tel qu'ils l'ont indiqué (par exemple, `Doe`). | Non |
-| `email` | Chaîne de caractères | L'e-mail de vos utilisateurs tel qu'ils l'ont indiqué (par exemple, `jane.doe@braze.com`). | Non |
-| `country` | Chaîne de caractères | Les codes pays doivent être transmis à Braze selon la norme ISO-3166-1 alpha-2 (par exemple, `GB`). | Non |
-| `dob` | Chaîne de caractères | Doit être transmis au format « AAAA-MM-JJ » (par exemple, `1980-12-21`). Cela importera la date de naissance de votre utilisateur et vous permettra de cibler les utilisateurs dont l'anniversaire est « aujourd'hui ». | Non |
-| `gender` | Chaîne de caractères | « M », « F », « O » (autre), « N » (non applicable), « P » (préfère ne pas dire), ou nil (inconnu). | Non |
-| `home_city` | Chaîne de caractères | La ville de résidence de vos utilisateurs telle qu'ils l'ont indiquée (par exemple, `London`). | Non |
-| `language` | Chaîne de caractères | La langue doit être transmise à Braze selon la norme ISO-639-1 (par exemple, `en`). <br>Consultez notre [liste des langues acceptées]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/language_codes). | Non |
-| `phone` | Chaîne de caractères | Un numéro de téléphone tel qu'indiqué par vos utilisateurs, au format `E.164` (par exemple, `+442071838750`). <br> Consultez [Numéros de téléphone des utilisateurs]({{site.baseurl}}/user_guide/message_building_by_channel/sms/phone_numbers/user_phone_numbers) pour des conseils de formatage. | Non |
-| `email_open_tracking_disabled` | Valeur booléenne | true ou false accepté. Définissez sur true pour désactiver l'ajout du pixel de suivi d'ouverture à tous les futurs e-mails envoyés à cet utilisateur. | Non |
-| `email_click_tracking_disabled` | Valeur booléenne | true ou false accepté. Définissez sur true pour désactiver le suivi des clics pour tous les liens dans un futur e-mail envoyé à cet utilisateur. | Non |
-| `email_subscribe` | Chaîne de caractères | Les valeurs disponibles sont `opted_in` (explicitement inscrit pour recevoir des e-mails), `unsubscribed` (explicitement désabonné des e-mails) et `subscribed` (ni inscrit ni désabonné). | Non |
-| `push_subscribe` | Chaîne de caractères | Les valeurs disponibles sont `opted_in` (explicitement inscrit pour recevoir des notifications push), `unsubscribed` (explicitement désabonné des notifications push) et `subscribed` (ni inscrit ni désabonné). | Non |
-| `time_zone` | Chaîne de caractères | Le fuseau horaire doit être transmis à Braze dans le même format que la base de données des fuseaux horaires IANA (par exemple, `America/New_York` ou `Eastern Time (US & Canada)`). | Non |
-| `date_of_first_session` <br><br> `date_of_last_session`| Chaîne de caractères | Peut être transmis dans l'un des formats ISO-8601 suivants : {::nomarkdown} <ul> <li> "YYYY-MM-DD" </li> <li> "YYYY-MM-DDTHH:MM:SS+00:00" </li> <li> "YYYY-MM-DDTHH:MM:SSZ" </li> <li> "YYYY-MM-DDTHH:MM:SS" (par exemple, 2019-11-20T18:38:57) </li> </ul> {:/} | Non |
-| `subscription_group_id` | Chaîne de caractères | L'`id` de votre groupe d'abonnement. Cet identifiant se trouve sur la page des groupes d'abonnement de votre tableau de bord. | Non |
-| `subscription_state` | Chaîne de caractères | L'état d'abonnement pour le groupe d'abonnement spécifié par `subscription_group_id`. Les valeurs autorisées sont `unsubscribed` (pas dans le groupe d'abonnement) ou `subscribed` (dans le groupe d'abonnement). | Non, mais fortement recommandé si `subscription_group_id` est utilisé. |
+| `external_id` | String | Un identifiant utilisateur unique pour votre client. | Oui, voir la [note suivante](#about-external-ids). |
+| `user_alias_name` | String | Un identifiant utilisateur unique pour les utilisateurs anonymes. Une alternative à l'`external_id`. | Non, voir la [note suivante](#about-external-ids). |
+| `user_alias_label` | String | Un libellé commun permettant de regrouper les alias d'utilisateur. | Oui, si `user_alias_name` est utilisé. |
+| `first_name` | String | Le prénom de vos utilisateurs tel qu'ils l'ont indiqué (par exemple, `Jane`). | Non |
+| `last_name` | String | Le nom de famille de vos utilisateurs tel qu'ils l'ont indiqué (par exemple, `Doe`). | Non |
+| `email` | String | L'e-mail de vos utilisateurs tel qu'ils l'ont indiqué (par exemple, `jane.doe@braze.com`). | Non |
+| `country` | String | Les codes pays doivent être transmis à Braze selon la norme ISO-3166-1 alpha-2 (par exemple, `GB`). | Non |
+| `dob` | String | Doit être transmis au format « YYYY-MM-DD » (par exemple, `1980-12-21`). Cela importera la date de naissance de votre utilisateur et vous permettra de cibler les utilisateurs dont l'anniversaire est « aujourd'hui ». | Non |
+| `gender` | String | « M », « F », « O » (autre), « N » (non applicable), « P » (préfère ne pas répondre), ou nil (inconnu). | Non |
+| `home_city` | String | La ville de résidence de vos utilisateurs telle qu'ils l'ont indiquée (par exemple, `London`). | Non |
+| `language` | String | La langue doit être transmise à Braze selon la norme ISO-639-1 (par exemple, `en`). <br>Consultez notre [liste des langues acceptées]({{site.baseurl}}/user_guide/data/unification/user_data/language_codes). | Non |
+| `phone` | String | Un numéro de téléphone tel qu'indiqué par vos utilisateurs, au format `E.164` (par exemple, `+442071838750`). <br> Consultez [Numéros de téléphone des utilisateurs]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers) pour des conseils de formatage. | Non |
+| `email_open_tracking_disabled` | Boolean | true ou false accepté. Définissez sur true pour désactiver l'ajout du pixel de suivi d'ouverture à tous les futurs e-mails envoyés à cet utilisateur. | Non |
+| `email_click_tracking_disabled` | Boolean | true ou false accepté. Définissez sur true pour désactiver le suivi des clics pour tous les liens dans les futurs e-mails envoyés à cet utilisateur. | Non |
+| `email_subscribe` | String | Les valeurs disponibles sont `opted_in` (explicitement inscrit pour recevoir des e-mails), `unsubscribed` (explicitement désabonné des e-mails), et `subscribed` (ni inscrit ni désabonné). | Non |
+| `push_subscribe` | String | Les valeurs disponibles sont `opted_in` (explicitement inscrit pour recevoir des notifications push), `unsubscribed` (explicitement désabonné des notifications push), et `subscribed` (ni inscrit ni désabonné). | Non |
+| `time_zone` | String | Le fuseau horaire doit être transmis à Braze dans le même format que la base de données des fuseaux horaires IANA (par exemple, `America/New_York` ou `Eastern Time (US & Canada)`). | Non |
+| `date_of_first_session` <br><br> `date_of_last_session`| String | Peut être transmis dans l'un des formats ISO-8601 suivants : {::nomarkdown} <ul> <li> « YYYY-MM-DD » </li> <li> « YYYY-MM-DDTHH:MM:SS+00:00 » </li> <li> « YYYY-MM-DDTHH:MM:SSZ » </li> <li> « YYYY-MM-DDTHH:MM:SS » (par exemple, 2019-11-20T18:38:57) </li> </ul> {:/} | Non |
+| `subscription_group_id` | String | L'`id` de votre groupe d'abonnement. Cet identifiant se trouve sur la page des groupes d'abonnement de votre tableau de bord. | Non |
+| `subscription_state` | String | L'état d'abonnement pour le groupe d'abonnement spécifié par `subscription_group_id`. Les valeurs autorisées sont `unsubscribed` (ne fait pas partie du groupe d'abonnement) ou `subscribed` (fait partie du groupe d'abonnement). | Non, mais fortement recommandé si `subscription_group_id` est utilisé. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
 ##### À propos des ID externes {#about-external-ids}
@@ -129,38 +129,38 @@ Bien que l'`external_id` ne soit pas obligatoire, vous **devez** inclure l'un de
 
 ### Importation d'attributs personnalisés {#importing-custom-attributes}
 
-Vous pouvez importer des attributs personnalisés pour les utilisateurs en accédant à **Importer des utilisateurs** > **Attributs**. Tout en-tête qui ne correspond pas exactement aux attributs par défaut crée un attribut personnalisé dans Braze.
+Vous pouvez importer des attributs personnalisés pour les utilisateurs en accédant à **Import Users** > **Attributes**. Tout en-tête qui ne correspond pas exactement aux attributs par défaut crée un attribut personnalisé dans Braze.
 
 Les types de données suivants sont acceptés lors de l'importation d'utilisateurs :
 
-| Type de données | Description |
+| Type de donnée | Description |
 |-----------|-------------|
 | Datetime | Doit être stocké au format ISO-8601 |
-| Valeur booléenne | TRUE ou FALSE |
-| Nombre | Entier ou float sans espaces ni virgules, les floats doivent utiliser un point (.) comme séparateur décimal |
-| Chaîne de caractères | Peut contenir des virgules tant que des guillemets doubles entourent la valeur de la colonne |
+| Boolean | TRUE ou FALSE |
+| Number | Entier ou float sans espace ni virgule, les floats doivent utiliser un point (.) comme séparateur décimal |
+| String | Peut contenir des virgules tant qu'il y a des guillemets doubles entourant la valeur de la colonne |
 | Vide | Les valeurs vides n'écraseront pas les valeurs existantes sur le profil utilisateur, et vous n'avez pas besoin d'inclure tous les attributs utilisateur existants dans votre fichier CSV |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert important %}
-Les tableaux et les jetons de notification push ne sont pas pris en charge dans l'importation d'utilisateurs. En particulier pour les tableaux, les virgules dans votre fichier CSV seront interprétées comme un séparateur de colonne, de sorte que toute virgule dans les valeurs provoquera des erreurs lors de l'analyse du fichier. <br>Pour charger ces types de valeurs, utilisez l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) ou l'[ingestion de données cloud]({{site.baseurl}}/user_guide/data_and_analytics/cloud_ingestion).
+Les tableaux et les jetons de notification push ne sont pas pris en charge dans l'importation d'utilisateurs. En particulier pour les tableaux, les virgules dans votre fichier CSV seront interprétées comme un séparateur de colonne, de sorte que toute virgule dans les valeurs provoquera des erreurs lors de l'analyse du fichier. <br>Pour charger ce type de valeurs, utilisez l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) ou l'[ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion).
 {% endalert %}
 
-### Mise à jour du statut du groupe d'abonnement {#updating-subscription-group-status}
+### Mise à jour du statut des groupes d'abonnement {#updating-subscription-group-status}
 
 Vous pouvez ajouter des utilisateurs à des groupes d'abonnement e-mail ou SMS via l'importation d'utilisateurs. Cela est particulièrement utile pour les SMS, car un utilisateur doit être inscrit dans un groupe d'abonnement SMS pour recevoir des messages via le canal SMS. Pour plus d'informations, consultez [Groupes d'abonnement SMS]({{site.baseurl}}/user_guide/message_building_by_channel/sms/sms_subscription_group#subscription-group-mms-enablement).
 
-Si vous mettez à jour le statut du groupe d'abonnement, vous devez avoir les deux colonnes suivantes dans votre CSV :
+Si vous mettez à jour le statut d'un groupe d'abonnement, vous devez avoir les deux colonnes suivantes dans votre CSV :
 
 - `subscription_group_id` : L'`id` du [groupe d'abonnement]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions#subscription-groups).
-- `subscription_state` : Les valeurs disponibles sont `unsubscribed` (pas dans le groupe d'abonnement) ou `subscribed` (dans le groupe d'abonnement).
+- `subscription_state` : Les valeurs disponibles sont `unsubscribed` (ne fait pas partie du groupe d'abonnement) ou `subscribed` (fait partie du groupe d'abonnement).
 
 <style type="text/css">
 .tg td{word-break:normal;}
-.tg th{word-break:normal;font-size: 14px; font-weight: bold; background-color: #f4f4f7; text-transform: lowercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
+.tg th{word-break:normal;font-size: 14px; font-weight: bold; background-color: #f4f4f7; text-transform: lowercase; color: #212123; font-family: "Aribau Grotesk Bold", "Aribau Grotesk", "Aribau Grotesk Regular", Arial, Helvetica, sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
-<table class="tg" aria-label="Mise à jour du statut du groupe d'abonnement">
+<table class="tg" aria-label="Mise à jour du statut des groupes d'abonnement">
 <thead>
   <tr>
     <th class="tg-0pky">external_id</th>
@@ -195,9 +195,9 @@ Un seul `subscription_group_id` peut être défini par ligne dans l'importation 
 L'importation d'événements personnalisés est actuellement en accès anticipé. Contactez votre gestionnaire de compte Braze si vous souhaitez participer à l'accès anticipé.
 {% endalert %}
 
-Pour importer des événements personnalisés pour vos utilisateurs, accédez à **Importer des utilisateurs** > **Événements**.
+Pour importer des événements personnalisés pour vos utilisateurs, accédez à **Import Users** > **Events**.
 
-Les événements personnalisés sont propres à votre entreprise. Par exemple, une application de streaming peut avoir un événement personnalisé appelé rented_movie. Votre CSV doit avoir des en-têtes de colonne pour :
+Les événements personnalisés sont propres à votre activité. Par exemple, une application de streaming peut avoir un événement personnalisé appelé rented_movie. Votre CSV doit avoir des en-têtes de colonnes pour :
 
 - L'un des éléments suivants :
   - `external_id`, **ou**
@@ -206,17 +206,17 @@ Les événements personnalisés sont propres à votre entreprise. Par exemple, u
 - Name
 - Time
 
-Les événements personnalisés peuvent avoir des propriétés d'événement. Par exemple, l'événement personnalisé rented_movie peut avoir les propriétés title et genre. Ces propriétés d'événement doivent avoir un en-tête de colonne au format `<event_name>.properties.<property name>`. Un exemple est `rented_movie.properties.title`.
+Les événements personnalisés peuvent avoir des propriétés d'événement. Par exemple, l'événement personnalisé rented_movie peut avoir les propriétés title et genre. Ces propriétés d'événement doivent avoir un en-tête de colonne au format `<event_name>.properties.<property name>`. Par exemple, `rented_movie.properties.title`.
 
-| CHAMP DU PROFIL UTILISATEUR | TYPE DE DONNÉES | INFORMATIONS | REQUIS |
+| CHAMP DU PROFIL UTILISATEUR | TYPE DE DONNÉE | INFORMATION | OBLIGATOIRE |
 |-----------------------------------------|-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------|
-| `external_id` | Chaîne de caractères | Un identifiant utilisateur unique pour votre utilisateur. | Oui, l'un des champs `external_id`, `braze_id`, ou `user_alias_name` et `user_alias_label` est requis. |
-| `braze_id` | Chaîne de caractères | Un identifiant attribué par Braze pour votre utilisateur. | Oui, l'un des champs `external_id`, `braze_id`, ou `user_alias_name` et `user_alias_label` est requis. |
-| `user_alias_name` | Chaîne de caractères | Un identifiant utilisateur unique pour les utilisateurs anonymes. Une alternative à l'external_id. | Oui, l'un des champs `external_id`, `braze_id`, ou `user_alias_name` et `user_alias_label` est requis. |
-| `user_alias_label` | Chaîne de caractères | Un libellé commun permettant de regrouper les alias d'utilisateur. | Oui, l'un des champs `external_id`, `braze_id`, ou `user_alias_name` et `user_alias_label` est requis. |
-| `name` | Chaîne de caractères | Un événement personnalisé de vos utilisateurs. | Oui |
-| `time` | Chaîne de caractères | L'heure de l'événement. Peut être transmis dans l'un des formats ISO-8601 suivants : {::nomarkdown} <ul> <li> "YYYY-MM-DD" </li> <li> "YYYY-MM-DDTHH:MM:SS+00:00" </li> <li> "YYYY-MM-DDTHH:MM:SSZ" </li> <li> "YYYY-MM-DDTHH:MM:SS" (par exemple, 2019-11-20T18:38:57) </li> </ul> {:/} | Oui |
-| `<event name>.properties.<property name>` | Plusieurs | Une propriété d'événement associée à un événement personnalisé. Un exemple est `rented_movie.properties.title` | Non |
+| `external_id` | String | Un identifiant utilisateur unique pour votre utilisateur. | Oui, l'un des champs `external_id`, `braze_id`, ou `user_alias_name` et `user_alias_label` est obligatoire. |
+| `braze_id` | String | Un identifiant attribué par Braze pour votre utilisateur. | Oui, l'un des champs `external_id`, `braze_id`, ou `user_alias_name` et `user_alias_label` est obligatoire. |
+| `user_alias_name` | String | Un identifiant utilisateur unique pour les utilisateurs anonymes. Une alternative à l'external_id. | Oui, l'un des champs `external_id`, `braze_id`, ou `user_alias_name` et `user_alias_label` est obligatoire. |
+| `user_alias_label` | String | Un libellé commun permettant de regrouper les alias d'utilisateur. | Oui, l'un des champs `external_id`, `braze_id`, ou `user_alias_name` et `user_alias_label` est obligatoire. |
+| `name` | String | Un événement personnalisé de vos utilisateurs. | Oui |
+| `time` | String | L'heure de l'événement. Peut être transmis dans l'un des formats ISO-8601 suivants : {::nomarkdown} <ul> <li> « YYYY-MM-DD » </li> <li> « YYYY-MM-DDTHH:MM:SS+00:00 » </li> <li> « YYYY-MM-DDTHH:MM:SSZ » </li> <li> « YYYY-MM-DDTHH:MM:SS » (par exemple, 2019-11-20T18:38:57) </li> </ul> {:/} | Oui |
+| `<event name>.properties.<property name>` | Multiple | Une propriété d'événement associée à un événement personnalisé. Par exemple, `rented_movie.properties.title` | Non |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
 {% alert note %}
@@ -229,66 +229,66 @@ Braze accepte les données utilisateur au format CSV standard à partir de fichi
 
 #### Considérations relatives aux points de donnée {#data-point-considerations}
 
-Chaque donnée client importée via CSV écrasera la valeur existante sur les profils utilisateur et comptera comme un point de donnée, à l'exception des ID externes et des valeurs vides.
+Chaque élément de donnée client importé via CSV écrasera la valeur existante sur les profils utilisateur et comptera comme un point de donnée, à l'exception des ID externes et des valeurs vides.
 
-- Les ID externes chargés via l'importation CSV ne consommeront pas de points de donnée. Si vous chargez un fichier CSV pour segmenter des utilisateurs Braze existants en chargeant uniquement des ID externes, cela peut être fait sans consommer de points de donnée. Si vous ajoutiez des données supplémentaires comme l'e-mail ou le numéro de téléphone d'un utilisateur dans votre importation, cela écraserait les données utilisateur existantes et consommerait vos points de donnée.
+- Les ID externes chargés via l'importation CSV ne consommeront pas de points de donnée. Si vous chargez un fichier CSV pour segmenter des utilisateurs Braze existants en ne chargeant que des ID externes, cela peut être fait sans consommer de points de donnée. Si vous ajoutiez des données supplémentaires comme l'e-mail ou le numéro de téléphone d'un utilisateur dans votre importation, cela écraserait les données utilisateur existantes et consommerait vos points de donnée.
     - Les importations CSV à des fins de segmentation (importations effectuées avec `external_id`, `braze_id` ou `user_alias_name` comme seul champ) ne consommeront pas de points de donnée.
-- Les valeurs vides n'écraseront pas les valeurs existantes sur le profil utilisateur, et vous n'avez pas besoin d'inclure tous les attributs utilisateur ou événements personnalisés existants dans votre fichier CSV.
+- Les valeurs vides n'écraseront pas les valeurs existantes sur le profil utilisateur, et vous n'avez pas besoin d'inclure tous les attributs utilisateur existants ou événements personnalisés dans votre fichier CSV.
 - La mise à jour de `email_subscribe`, `push_subscribe`, `subscription_group_id` ou `subscription_state` ne sera pas comptabilisée dans la consommation de points de donnée.
 
 {% alert important %}
-Définir la langue ou le pays d'un utilisateur via l'importation CSV ou l'API empêchera Braze de capturer automatiquement ces informations via le SDK.
+Définir la langue ou le pays d'un utilisateur via une importation CSV ou l'API empêchera Braze de capturer automatiquement ces informations via le SDK.
 {% endalert %}
 
-## Importation d'un CSV {#importing-a-csv}
+## Importer un CSV {#importing-a-csv}
 
 Pour importer votre fichier CSV :
-1. Accédez à **Audience** > **Importer des utilisateurs**.
-2. Sélectionnez **Parcourir les fichiers** et sélectionnez votre fichier, puis sélectionnez **Démarrer l'importation**. Braze chargera votre fichier et vérifiera les en-têtes de colonne ainsi que les types de données de chaque colonne.
+1. Accédez à **Audience** > **Import Users**.
+2. Sélectionnez **Browse Files** et choisissez le fichier souhaité, puis sélectionnez **Start import**. Braze téléchargera votre fichier et vérifiera les en-têtes de colonnes ainsi que les types de données de chaque colonne.
 
 {% alert important %}
-Les importations CSV sont sensibles à la casse. Cela signifie que les majuscules dans les importations CSV écriront le champ comme un attribut personnalisé au lieu d'un attribut standard. Par exemple, « email » est correct, mais « Email » serait écrit comme un attribut personnalisé.
+Les importations CSV sont sensibles à la casse. Cela signifie que les majuscules dans les importations CSV enregistreront le champ en tant qu'attribut personnalisé au lieu d'un attribut standard. Par exemple, « email » est correct, mais « Email » serait enregistré comme attribut personnalisé.
 {% endalert %}
 
-![L'option « Événements » est sélectionnée comme type d'informations utilisateur à importer.][5]
+![L'option « Events » est sélectionnée comme type d'informations utilisateur à importer.][5]
 
-Une fois le chargement terminé, vous pouvez voir un aperçu du contenu de votre fichier. Les informations du tableau sont basées sur les valeurs des premières lignes de votre fichier CSV.
+Une fois le téléchargement terminé, vous pouvez afficher un aperçu du contenu de votre fichier. Les informations du tableau sont basées sur les valeurs des premières lignes de votre fichier CSV.
 
-Vous pouvez suivre la progression sur la page **Importer des utilisateurs**, qui s'actualise toutes les cinq secondes, ou lorsque vous sélectionnez **Actualiser le tableau**. Vous pouvez continuer à utiliser le reste du tableau de bord de Braze pendant l'importation, et vous recevrez des notifications lorsque l'importation commence et se termine.
+Vous pouvez suivre la progression sur la page **Import Users**, qui s'actualise toutes les cinq secondes, ou lorsque vous sélectionnez **Refresh table**. Vous pouvez continuer à utiliser le reste du tableau de bord de Braze pendant l'importation, et vous recevrez des notifications lorsque l'importation commence et se termine.
 
-Vous pouvez également consulter vos importations les plus récentes, leurs noms de fichier, le type de CSV, le nombre de lignes dans le fichier, le nombre de lignes importées avec succès, le nombre total de lignes dans chaque fichier et le statut de chaque importation.
+Vous pouvez également consulter vos importations les plus récentes, leurs noms de fichiers, le type de CSV, le nombre de lignes dans le fichier, le nombre de lignes importées avec succès, le nombre total de lignes dans chaque fichier et le statut de chaque importation.
 
-Vous pouvez importer plusieurs fichiers CSV en même temps. Les importations CSV s'exécuteront simultanément, ce qui signifie que l'ordre des mises à jour n'est pas garanti comme étant séquentiel. Si vous avez besoin que les importations CSV s'exécutent l'une après l'autre, vous devez attendre qu'une importation CSV soit terminée avant d'en charger une seconde.
+Vous pouvez importer plusieurs fichiers CSV en même temps. Les importations CSV s'exécuteront simultanément, ce qui signifie que l'ordre des mises à jour n'est pas garanti comme étant séquentiel. Si vous avez besoin que les importations CSV s'exécutent l'une après l'autre, vous devez attendre qu'une importation CSV soit terminée avant d'en télécharger une seconde.
 
-Si le processus d'importation rencontre une erreur, une icône d'avertissement apparaîtra à côté du nombre total de lignes dans le fichier. Vous pouvez survoler l'icône pour voir les détails sur les raisons de l'échec de certaines lignes. Une fois l'importation terminée, toutes les données seront ajoutées aux profils existants ou de nouveaux profils seront créés.
+Si le processus d'importation rencontre une erreur, une icône d'avertissement apparaîtra à côté du nombre total de lignes dans le fichier. Vous pouvez survoler l'icône pour voir les détails expliquant pourquoi certaines lignes ont échoué. Une fois l'importation terminée, toutes les données seront ajoutées aux profils existants ou de nouveaux profils seront créés.
 
-![Chargement de fichier CSV terminé avec des erreurs impliquant des types de données mixtes dans une seule colonne][4]{: style="max-width:70%"}
+![Téléchargement du fichier CSV terminé avec des erreurs liées à des types de données mixtes dans une seule colonne][4]{: style="max-width:70%"}
 
 ### Considérations {#considerations}
 
-Si Braze détecte quelque chose de mal formé dans les premières lignes de votre fichier lors du chargement, ces erreurs seront affichées avec le résumé. Par exemple, si votre fichier contient une ligne mal formée, cette erreur sera signalée dans l'aperçu lorsque vous importerez le fichier. Bien qu'un fichier puisse être importé avec des erreurs, il est recommandé de corriger ces erreurs dans votre fichier avant de poursuivre votre importation.
+Si Braze détecte un élément malformé dans les premières lignes de votre fichier lors du téléchargement, ces erreurs seront affichées avec le résumé. Par exemple, si votre fichier contient une ligne malformée, cette erreur sera signalée dans l'aperçu lorsque vous importez le fichier. Bien qu'un fichier puisse être importé avec des erreurs, il est recommandé de corriger ces erreurs dans votre fichier avant de poursuivre l'importation.
 
-De plus, il est important d'examiner l'intégralité du fichier CSV avant le chargement, car Braze ne parcourt pas chaque ligne du fichier d'entrée pour l'aperçu. Cela signifie que des erreurs peuvent exister sans que Braze ne les détecte lors de la génération de cet aperçu.
+De plus, il est important d'examiner l'intégralité du fichier CSV avant le téléchargement, car Braze n'analyse pas chaque ligne du fichier d'entrée pour l'aperçu. Cela signifie que des erreurs peuvent exister sans que Braze les détecte lors de la génération de cet aperçu.
 
-Les lignes mal formées et les lignes sans ID externe ne seront pas importées. Toutes les autres erreurs peuvent être importées, mais peuvent interférer avec le filtrage lors de la création d'un segment. Pour plus d'informations, passez à la section [Résolution des problèmes](#troubleshooting).
+Les lignes malformées et les lignes ne contenant pas d'ID externe ne seront pas importées. Toutes les autres erreurs peuvent être importées, mais peuvent interférer avec le filtrage lors de la création d'un Segment. Pour plus d'informations, consultez la section [Résolution des problèmes](#troubleshooting).
 
 {% alert warning %}
-Les erreurs sont basées uniquement sur le type de données et la structure du fichier. Par exemple, une adresse e-mail mal formatée serait quand même importée car elle peut toujours être analysée comme une chaîne de caractères.
+Les erreurs sont basées uniquement sur le type de données et la structure du fichier. Par exemple, une adresse e-mail mal formatée serait quand même importée, car elle peut toujours être analysée comme une chaîne de caractères.
 {% endalert %}
 
 ### Importation CSV d'utilisateurs via Lambda {#lambda-user-csv-import}
 
-Vous pouvez utiliser notre script Lambda S3 sans serveur d'importation CSV pour charger des attributs utilisateur sur la plateforme. Cette solution fonctionne comme un chargeur CSV où vous déposez vos CSV dans un compartiment S3, et les scripts les chargent via notre API.
+Vous pouvez utiliser notre script Lambda S3 serverless d'importation CSV pour télécharger des attributs utilisateur vers la plateforme. Cette solution fonctionne comme un outil de téléchargement CSV : vous déposez vos fichiers CSV dans un compartiment S3, et les scripts les téléchargent via notre API.
 
-Les temps d'exécution estimés pour un fichier d'un million de lignes sont d'environ cinq minutes. Pour plus d'informations, consultez [Importation CSV d'attributs utilisateur vers Braze]({{site.baseurl}}/user_csv_lambda).
+Les temps d'exécution estimés pour un fichier d'un million de lignes sont d'environ cinq minutes. Pour plus d'informations, consultez [Importation CSV d'attributs utilisateur vers Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion).
 
 ## Segmentation {#segmenting}
 
-L'importation d'utilisateurs crée et met à jour des profils utilisateur, et peut également être utilisée pour créer des segments. Pour créer un segment, sélectionnez **Générer automatiquement un segment à partir des utilisateurs importés depuis ce CSV** avant de démarrer l'importation.
+L'importation d'utilisateurs crée et met à jour les profils utilisateur, et peut également être utilisée pour créer des segments. Pour créer un segment, sélectionnez **Générer automatiquement un segment à partir des utilisateurs importés depuis ce CSV** avant de lancer l'importation.
 
-Vous pouvez définir le nom du segment ou accepter le nom par défaut, qui est le nom de votre fichier. Les fichiers utilisés pour créer un segment auront un lien pour afficher le segment une fois l'importation terminée.
+Vous pouvez définir le nom du segment ou accepter le nom par défaut, qui correspond au nom de votre fichier. Les fichiers utilisés pour créer un segment comporteront un lien permettant de consulter le segment une fois l'importation terminée.
 
-Le filtre utilisé pour créer le segment sélectionne les utilisateurs qui ont été créés ou mis à jour dans une importation sélectionnée et est disponible avec tous les autres filtres dans la page de modification du segment.
+Le filtre utilisé pour créer le segment sélectionne les utilisateurs qui ont été créés ou mis à jour lors d'une importation donnée. Il est disponible avec tous les autres filtres sur la page de modification du segment.
 
 ## Résolution des problèmes {#troubleshooting}
 

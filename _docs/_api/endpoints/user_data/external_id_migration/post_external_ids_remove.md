@@ -6,7 +6,6 @@ page_order: 2
 layout: api_page
 page_type: reference
 description: "This article outlines details about the Remove external IDs endpoint."
-
 ---
 {% api %}
 # Remove external ID
@@ -26,7 +25,7 @@ This endpoint completely removes the deprecated ID and cannot be undone. Using t
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/api_key) with the `users.external_ids.remove` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics) with the `users.external_ids.remove` permission.
 
 ## Rate limit
 

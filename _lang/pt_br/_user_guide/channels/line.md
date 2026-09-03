@@ -16,7 +16,7 @@ alias: /line/
 
 ## Pré-requisitos {#prerequisites}
 
-A disponibilidade do LINE depende do seu pacote da Braze. Entre em contato com seu gerente de conta ou gerente de sucesso do cliente para começar.
+A disponibilidade do LINE depende do seu pacote da Braze. Entre em contato com seu gerente de conta ou CSM para começar.
 
 Antes de começar, verifique se você tem o seguinte:
 

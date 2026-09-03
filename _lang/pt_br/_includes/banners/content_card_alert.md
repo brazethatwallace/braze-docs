@@ -1,3 +1,3 @@
 {% alert tip %}
-Usando cartões de conteúdo de conteúdo de banner? Experimente [os banners -]({{site.baseurl}}/user_guide/message_building_by_channel/banners/)perfeitos para mensagens em linha e persistentes no app e na Internet.
+Usando Content Cards para mensagens no estilo banner? Experimente os [Banners]({{site.baseurl}}/user_guide/channels/banners) — perfeitos para mensagens persistentes e inline no app e na web.
 {% endalert %}

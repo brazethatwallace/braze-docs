@@ -26,7 +26,7 @@ Esta tabela lista os operadores compatíveis. Observe que parênteses são carac
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Operadores" }
 
 {% alert note %}
-Os operadores podem ser usados em instruções condicionais (`if`, `elsif`, `unless`), mas não em instruções `assign`, loops `for` ou colchetes de acesso a arrays. Nas tags `case` e `when`, cada ramificação compara a expressão `case` com um valor `when` usando igualdade, em vez de expressões arbitrárias com operadores. Para exemplos, consulte [Lógica condicional de mensagens]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#case-and-when). Para uma explicação completa, consulte [Onde usar operadores e filtros]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#where-to-use-operators-and-filters).
+Os operadores podem ser usados em instruções condicionais (`if`, `elsif`, `unless`), mas não em instruções `assign`, loops `for` ou colchetes de acesso a arrays. Nas tags `case` e `when`, cada Branch compara a expressão `case` com um valor `when` usando igualdade, em vez de expressões arbitrárias com operadores. Para exemplos, consulte [Lógica condicional de mensagens]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#case-and-when). Para uma explicação completa, consulte [Onde usar operadores e filtros]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#where-to-use-operators-and-filters).
 {% endalert %}
 
 ## Agrupando condições sem parênteses {#grouping-conditions-without-parentheses}

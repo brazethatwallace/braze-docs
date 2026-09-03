@@ -124,6 +124,17 @@
 			}
 		}
 
+		// Reserve aspect ratio when markdown supplies width/height (CLS).
+		img[width][height] {
+			height: auto;
+			max-width: 100%;
+		}
+
+		video[width][height] {
+			height: auto;
+			max-width: 100%;
+		}
+
     span.inline-link {
       display: inline-block;
     }
@@ -1349,4 +1360,11 @@ svg[id^="mermaid"] {
     opacity: 0;
     font-size: 12px;
   }
+}
+
+// Scopes tall code samples (e.g. the landing page custom form block examples)
+// to a fixed, scrollable height so they don't dominate page scroll length.
+.scrollable-code-examples div.highlight {
+  max-height: 480px !important;
+  overflow-y: auto !important;
 }

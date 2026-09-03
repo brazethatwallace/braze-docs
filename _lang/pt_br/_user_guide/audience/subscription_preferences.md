@@ -4,13 +4,19 @@ article_title: Preferências de inscrição
 page_order: 5
 layout: dev_guide
 guide_top_header: "Preferências de inscrição"
-guide_top_text: "Gerencie como os usuários optam por receber ou deixar de receber mensagens nos seus canais de envio de mensagens. Use centrais de preferências para dar aos usuários controle sobre suas preferências de comunicação por e-mail."
+guide_top_text: "Gerencie como os usuários optam por receber ou deixar de receber mensagens nos seus canais de envio de mensagens. Revise o <a href='/docs/user_guide/audience/subscription_preferences/subscription_status'>status de inscrição</a> em todos os canais, use <a href='/docs/user_guide/audience/subscription_preferences/subscription_groups'>grupos de inscrições</a> para preferências por categoria e centrais de preferências para dar aos usuários controle sobre a comunicação por e-mail."
 
 page_type: landing
-description: "Esta seção aborda as preferências de inscrição na Braze, incluindo centrais de preferências e gerenciamento de inscrições."
+description: "Esta seção aborda as preferências de inscrição na Braze, incluindo status de inscrição, grupos de inscrições, centrais de preferências e gerenciamento de inscrições."
 
 guide_featured_title: "Artigos da seção"
 guide_featured_list:
+  - name: Status de inscrição
+    link: /docs/user_guide/audience/subscription_preferences/subscription_status
+    image: /assets/img/braze_icons/check-verified-02.svg
+  - name: Grupos de inscrições
+    link: /docs/user_guide/audience/subscription_preferences/subscription_groups
+    image: /assets/img/braze_icons/users-01.svg
   - name: Central de Preferências
     link: /docs/user_guide/audience/subscription_preferences/preference_center
     image: /assets/img/braze_icons/mail-01.svg

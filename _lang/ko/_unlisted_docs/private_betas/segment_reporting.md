@@ -12,7 +12,7 @@ page_type: reference
 
 > 이 문서에서는 보고서 빌더에서 Segment를 보고 차원으로 사용하는 방법, Segment별 보고 방법, Segment별 세분화 방법, 지원되는 조합에 대해 설명합니다.
 
-{% multi_lang_include alerts/early_access_beta_alert.md feature='Segment reporting' contact='customer success manager' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Segment reporting' contact='customer success 매니저' %}
 
 보고서 빌더는 행 및 드릴다운 옵션으로 **Segments**를 지원하므로, Segment의 성능을 확인하고 Campaign 또는 Canvas 성능을 Segment 멤버십별로 세분화할 수 있습니다. **행** 또는 **드릴다운** 드롭다운에 **Segments**가 표시되지 않는 경우, 해당 기능이 계정에 활성화되지 않은 것입니다.
 

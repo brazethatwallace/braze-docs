@@ -1,9 +1,8 @@
 ---
 nav_title: Track sessions
-article_title: Track sessions through the Braze SDK
+article_title: "Track sessions"
 page_order: 3.3
 description: "Learn how to track sessions through the Braze SDK."
-
 ---
 
 # Track sessions
@@ -22,7 +21,7 @@ Understanding how inactivity is defined and measured is key to managing session 
 
 ### How inactivity is measured
 
-The Web SDK tracks inactivity based on [SDK-tracked events]({{site.baseurl}}/user_guide/data/activation/custom_data/events#events). The SDK maintains an internal timer that resets each time a tracked event is sent. If no SDK-tracked events occur within the configured timeout period, the session is considered inactive and ends.
+The Web SDK tracks inactivity based on [SDK-tracked events]({{site.baseurl}}/user_guide/data/activation/events/events_overview). The SDK maintains an internal timer that resets each time a tracked event is sent. If no SDK-tracked events occur within the configured timeout period, the session is considered inactive and ends.
 
 For more information on how session lifecycle is implemented in the Web SDK, see the session management source code in the [Braze Web SDK GitHub repository](https://github.com/braze-inc/braze-web-sdk/blob/master/src/session.ts).
 

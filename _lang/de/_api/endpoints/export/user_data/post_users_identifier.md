@@ -6,7 +6,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "Dieser Artikel enthält Details zum Braze-Endpunkt „Nutzer:innen nach Bezeichner exportieren“."
-
 ---
 {% api %}
 # Nutzerprofil nach Bezeichner exportieren {#export-user-profile-by-identifier}
@@ -118,7 +117,7 @@ Im Folgenden finden Sie eine Liste der gültigen `fields_to_export`. Die Verwend
 | `phone` | String | Telefonnummer der Nutzer:in im E.164-Format. |
 | `purchases` | Array | Käufe, die diese:r Nutzer:in in den letzten 90 Tagen getätigt hat. |
 | `push_tokens` | Array | Eindeutiger anonymer Bezeichner, der angibt, wohin die Benachrichtigungen einer App gesendet werden sollen. |
-| `random_bucket` | Integer | [Zufällige Bucket-Nummer]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events#random-bucket-number-event) der Nutzer:in, mit der gleichmäßig verteilte Segmente aus zufälligen Nutzer:innen erstellt werden. |
+| `random_bucket` | Integer | [Zufällige Bucket-Nummer]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) der Nutzer:in, mit der gleichmäßig verteilte Segmente aus zufälligen Nutzer:innen erstellt werden. |
 | `time_zone` | String | Zeitzone der Nutzer:in im gleichen Format wie in der IANA-Zeitzonendatenbank. |
 | `total_revenue` | Gleitkommazahl | Gesamtumsatz, der dieser Nutzer:in zugerechnet wird. Der Gesamtumsatz wird auf Grundlage der Käufe berechnet, die die Nutzer:innen während der Conversion-Fenster für die Campaigns und Canvases, die sie erhalten haben, getätigt haben. |
 | `uninstalled_at` | Zeitstempel | Datum und Uhrzeit der Deinstallation der App durch die Nutzer:in. Entfällt, wenn die App nicht deinstalliert wurde. |

@@ -13,7 +13,7 @@ hidden: true
 > A etapa de IA no Canvas utiliza o ChatGPT para automatizar o marketing personalizado, interpretando entradas geradas pelo usuário (como feedback de pesquisas), determinando a resposta apropriada e disparando mensagens — tudo dentro da Braze. O ChatGPT é desenvolvido pela OpenAI, um provedor terceirizado.
 
 {% alert note %}
-A etapa de IA está disponível atualmente como recurso beta. Entre em contato com seu gerente de sucesso do cliente se tiver interesse em participar deste teste beta.
+A etapa de IA está disponível atualmente como recurso beta. Entre em contato com seu CSM se tiver interesse em participar deste teste beta.
 {% endalert %}
 
 ## Criando uma etapa de IA {#create-ai-step}

@@ -17,7 +17,7 @@ Sie können jetzt Daten zur Änderung des Zustands von Abo-Gruppen aus Braze nac
 Außerdem wurde die Eigenschaft `canvas_step_id` zu den verfügbaren [Konversions-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) hinzugefügt.
 
 {% alert important %}
-Um von diesen Updates zu profitieren, müssen Sie die Einstellungen Ihres Currents-Konnektors bearbeiten und die Events aktivieren, die Sie verwenden möchten. Kontaktieren Sie Ihren Account Manager, wenn Sie Fragen haben.
+Um von diesen Updates zu profitieren, müssen Sie die Einstellungen Ihres Currents-Konnektors bearbeiten und die Events aktivieren, die Sie verwenden möchten. Kontaktieren Sie Ihren Account Manager:in, wenn Sie Fragen haben.
 {% endalert %}
 
 ## Abo-Gruppen archivieren {#subscription-groups-archiving}

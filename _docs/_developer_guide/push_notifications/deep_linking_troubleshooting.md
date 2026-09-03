@@ -23,6 +23,7 @@ Find the behavior you're seeing in the table, then follow that section's steps. 
 | Custom scheme link opens app but wrong screen | [Custom scheme deep link doesn't open the correct view](#custom-scheme-deep-link-does-not-open-the-correct-view) |
 | Universal link opens Safari instead of app | [Universal link opens in Safari instead of the app](#universal-link-opens-in-safari-instead-of-the-app) |
 | Email link doesn't open the app | [Deep link from email doesn't open the app](#deep-link-from-email-does-not-open-the-app) |
+| Every email link opens the app | [Every email link opens the app](#every-email-link-opens-the-app) |
 | Works from push but not in-app message (or the other way around) | [Deep link works from push but not from in-app message](#deep-link-works-from-push-but-not-from-in-app-message) |
 | "Open Web URL Inside App" shows blank WebView | ["Open Web URL Inside App" shows a blank or broken page](#open-web-url-inside-app-shows-a-blank-or-broken-page) |
 | Branch link doesn't open the app or route correctly | [Troubleshooting Branch with Braze](#branch) |
@@ -38,7 +39,7 @@ Use this workflow for every deep linking incident. Start at step 1.
 3. For universal links, validate your AASA file and Associated Domains entitlement.
 4. For email links, confirm the click-tracking domain hosts a valid AASA file.
 5. If you implement `BrazeDelegate.braze(_:shouldOpenURL:)`, verify it handles links consistently across channels.
-6. If the issue persists, contact [Braze Support]({{site.baseurl}}/braze_support) with verbose logs and the link URL.
+6. If the issue persists, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) with verbose logs and the link URL.
 
 ## Custom scheme deep link doesn't open the correct view {#custom-scheme-deep-link-does-not-open-the-correct-view}
 
@@ -139,6 +140,16 @@ To test:
 1. Send yourself a test email.
 2. Long-press the link and inspect the URL — this is the click-tracking URL.
 3. Verify this domain has a valid AASA file.
+
+## Every email link opens the app {#every-email-link-opens-the-app}
+
+**Symptom:** Every link in an email opens your app, including links you expect to open in a browser.
+
+Your AASA file on the click-tracking domain uses `paths` that match every URL on that domain (for example `*` or `/*`). iOS then treats every click-tracked email link as a universal link.
+
+Limit `paths` to the URLs that should open the app. For SendGrid, match `/uni/` and add `universal="true"` only on those links.
+
+For ESP-specific setup, including Android `pathPrefix` values, see [Universal links and App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#universal-links-app-links-and-click-tracking).
 
 ## Deep link works from push but not from in-app message (or the other way around) {#deep-link-works-from-push-but-not-from-in-app-message}
 

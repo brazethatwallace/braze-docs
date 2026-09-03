@@ -12,14 +12,14 @@ Ces types d'abandon peuvent survenir sur n'importe quel canal de communication.
 
 | Valeur `abort_type` | Description |
 | --- | --- |
-| `liquid_abort_message` | L'étiquette Liquid [abort_message]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/aborting_messages) a été appelée, l'envoi a donc été annulé. |
+| `liquid_abort_message` | L'étiquette Liquid [abort_message]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) a été appelée, l'envoi a donc été annulé. |
 | `template_parse_error` | Le modèle de message n'a pas pu être analysé en raison d'une erreur de syntaxe ou de rendu, l'envoi a donc été annulé. |
-| `rate_limit` | Le message a été abandonné car il a dépassé la [limite de débit]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting) configurée. |
+| `rate_limit` | Le message a été abandonné car il a dépassé la [limite de débit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping) configurée. |
 | `campaign_disabled` | La Campaign a été désactivée avant que le message ne puisse être envoyé. |
 | `campaign_does_not_exist` | La Campaign associée à ce message n'existe plus. |
 | `campaign_action_does_not_exist` | L'action de Campaign associée à ce message n'existe plus. |
 | `message_variation_does_not_exist` | La variante de message affectée à cet utilisateur n'existe plus. |
-| `user_not_in_segment` | L'utilisateur ne fait pas partie du segment cible, le message n'a donc pas été envoyé. |
+| `user_not_in_segment` | L'utilisateur ne fait pas partie du Segment cible, le message n'a donc pas été envoyé. |
 | `trigger_event_blacklisted` | L'événement déclencheur est sur liste de blocage, le message n'a donc pas été envoyé. |
 | `exhausted_retries` | Le message n'a pas pu être envoyé après le nombre maximal de tentatives. |
 | `frequency_capped` | L'utilisateur a déjà reçu le nombre maximal de messages autorisé par les règles de [limite de fréquence]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting#about-frequency-capping) de votre espace de travail. |
@@ -33,8 +33,8 @@ Ces types d'abandon peuvent survenir sur n'importe quel canal de communication.
 
 | Valeur `abort_type` | Description |
 | --- | --- |
-| `exhausted_cc_retries` | Le Contenu connecté a échoué après le nombre maximal de tentatives, le message a donc été abandonné. |
-| `connected_content_not_supported` | Le [Contenu connecté]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content) n'est pas pris en charge dans ce contexte, le message a donc été abandonné. |
+| `exhausted_cc_retries` | Le contenu connecté a échoué après le nombre maximal de tentatives, le message a donc été abandonné. |
+| `connected_content_not_supported` | Le [contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) n'est pas pris en charge dans ce contexte, le message a donc été abandonné. |
 | `promo_codes_not_supported` | Les codes de promotion ne sont pas pris en charge dans ce contexte, le message a donc été abandonné. |
 | `catalog_items_rerender_not_supported` | Le re-rendu des éléments de catalogue n'est pas pris en charge dans ce contexte, le message a donc été abandonné. |
 | `blacklisted_media_url` | L'URL du média est sur liste de blocage et ne peut pas être utilisée dans les messages. |
@@ -50,8 +50,8 @@ Ces types d'abandon peuvent survenir sur n'importe quel canal de communication.
 
 | Valeur `abort_type` | Description |
 | --- | --- |
-| `exhausted_cc_retries` | Le Contenu connecté a échoué après le nombre maximal de tentatives, le message a donc été abandonné. |
-| `connected_content_not_supported` | Le [Contenu connecté]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content) n'est pas pris en charge dans ce contexte, le message a donc été abandonné. |
+| `exhausted_cc_retries` | Le contenu connecté a échoué après le nombre maximal de tentatives, le message a donc été abandonné. |
+| `connected_content_not_supported` | Le [contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) n'est pas pris en charge dans ce contexte, le message a donc été abandonné. |
 | `promo_codes_not_supported` | Les codes de promotion ne sont pas pris en charge dans ce contexte, le message a donc été abandonné. |
 | `catalog_items_rerender_not_supported` | Le re-rendu des éléments de catalogue n'est pas pris en charge dans ce contexte, le message a donc été abandonné. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Contenu et rendu" }
@@ -63,14 +63,14 @@ Ces types d'abandon peuvent survenir sur n'importe quel canal de communication.
 
 | Valeur `abort_type` | Description |
 | --- | --- |
-| `exhausted_cc_retries` | Le Contenu connecté a échoué après le nombre maximal de tentatives, le message a donc été abandonné. |
-| `connected_content_not_supported` | Le [Contenu connecté]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content) n'est pas pris en charge dans ce contexte, le message a donc été abandonné. |
+| `exhausted_cc_retries` | Le contenu connecté a échoué après le nombre maximal de tentatives, le message a donc été abandonné. |
+| `connected_content_not_supported` | Le [contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) n'est pas pris en charge dans ce contexte, le message a donc été abandonné. |
 | `promo_codes_not_supported` | Les codes de promotion ne sont pas pris en charge dans ce contexte, le message a donc été abandonné. |
 | `catalog_items_rerender_not_supported` | Le re-rendu des éléments de catalogue n'est pas pris en charge dans ce contexte, le message a donc été abandonné. |
 | `blacklisted_media_url` | L'URL du média est sur liste de blocage et ne peut pas être utilisée dans les messages. |
 | `blocked_media_url` | L'URL du média a été bloquée par les politiques de sécurité. |
 | `invalid_media_url` | L'URL du média n'est pas valide ou n'a pas pu être résolue. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Contenu et rendu — URL de médias" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering media URLs" }
 
 {% endunless %}
 {% endif %}
@@ -80,15 +80,15 @@ Ces types d'abandon peuvent survenir sur n'importe quel canal de communication.
 
 | Valeur `abort_type` | Description |
 | --- | --- |
-| `exhausted_cc_retries` | Le Contenu connecté a échoué après le nombre maximal de tentatives, le message a donc été abandonné. |
-| `connected_content_not_supported` | Le [Contenu connecté]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content) n'est pas pris en charge dans ce contexte, le message a donc été abandonné. |
+| `exhausted_cc_retries` | Le contenu connecté a échoué après le nombre maximal de tentatives, le message a donc été abandonné. |
+| `connected_content_not_supported` | Le [contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) n'est pas pris en charge dans ce contexte, le message a donc été abandonné. |
 | `promo_codes_not_supported` | Les codes de promotion ne sont pas pris en charge dans ce contexte, le message a donc été abandonné. |
 | `catalog_items_rerender_not_supported` | Le re-rendu des éléments de catalogue n'est pas pris en charge dans ce contexte, le message a donc été abandonné. |
 | `ssl_error` | Une erreur SSL s'est produite lors de l'exécution d'une requête. |
 | `invalid_http_status` | Une requête HTTP a renvoyé un code d'état indiquant un échec. |
 | `http_timeout` | Une requête HTTP a expiré avant de recevoir une réponse. |
 | `missing_hostname` | L'URL de la requête ne contient pas de nom d'hôte. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Contenu et rendu — HTTP et SSL" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering HTTP and SSL" }
 
 {% endunless %}
 {% endif %}

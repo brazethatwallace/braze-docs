@@ -7,11 +7,11 @@ description: "증상 색인, HTTP 오류 표, 비정상 호스트 감지 안내�
 
 # 웹훅 및 연결된 콘텐츠 요청 문제 해결 {#troubleshoot-webhook-and-connected-content-requests}
 
-> 이 페이지에서는 웹훅 및 연결된 콘텐츠의 일반적인 오류 코드를 문제 해결하는 방법을 안내합니다. 설정 방법은 [웹훅 만들기]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) 및 [API 호출하기]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call)를 참조하세요.
+> 이 페이지에서는 웹훅 및 연결된 콘텐츠의 일반적인 오류 코드를 문제 해결하는 방법을 안내합니다. 설정 방법은 [웹훅 만들기]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) 및 [API 호출하기]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call)를 참조하세요. 미리보기에서 연결된 콘텐츠 요청을 검사하려면 [연결된 콘텐츠 디버거]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/debugger)를 참조하세요.
 
-## 여기서 시작하세요: 증상 확인하기 {#start-here-match-your-symptom}
+## 시작하기: 증상 매칭 {#start-here-match-your-symptom}
 
-아래 표에서 해당하는 증상을 찾아 관련 섹션으로 이동하세요.
+아래 표에서 해당 증상을 찾아 관련 섹션으로 이동하세요.
 
 | 증상 | 이동 |
 | --- | --- |
@@ -19,8 +19,9 @@ description: "증상 색인, HTTP 오류 표, 비정상 호스트 감지 안내�
 | `5XX` 서버 오류 또는 타임아웃 | [5XX 오류](#5xx-errors) |
 | `598 Host Unhealthy` 또는 요청이 일시적으로 중단됨 | [비정상 호스트 감지]({{site.baseurl}}/support_contact) |
 | 연결된 콘텐츠가 미리보기 또는 발송 시 빈 값으로 렌더링됨 | [연결된 콘텐츠가 응답 본문을 반환하지 않음](#connected-content-returns-no-response-body) |
-| Braze에서 자동 오류 이메일 수신 | [자동 이메일 및 메시지 활동 로그 항목](#automated-emails-and-message-activity-log-entries) |
-| Currents에서 웹훅 실패 이벤트가 필요함 | [Braze 커런츠의 추가 실패 인사이트](#additional-failure-insights-in-braze-currents) |
+| 미리보기에서 연결된 콘텐츠 요청을 검사해야 하는 경우 | [연결된 콘텐츠 디버거]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/debugger) |
+| Braze에서 발송된 자동 오류 이메일 | [자동 이메일 및 메시지 활동 로그 항목](#automated-emails-and-message-activity-log-entries) |
+| Currents에서 웹훅 실패 이벤트가 필요한 경우 | [Braze Currents의 추가 실패 인사이트](#additional-failure-insights-in-braze-currents) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="웹훅 및 연결된 콘텐츠 증상" }
 
 ## 표준 조사 경로 {#standard-investigation-path}
@@ -28,16 +29,16 @@ description: "증상 색인, HTTP 오류 표, 비정상 호스트 감지 안내�
 웹훅 또는 연결된 콘텐츠 요청이 실패하거나 올바르게 렌더링되지 않을 때 이 워크플로를 사용하세요. 1단계부터 시작합니다.
 
 1. [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)를 열고 오류 코드, 타임스탬프, 엔드포인트 URL을 확인합니다.
-2. `4XX` 오류의 경우, 엔드포인트 설명서를 기준으로 요청 구문, 인증 헤더, URL 경로, HTTP 메서드를 확인합니다.
+2. `4XX` 오류의 경우, 엔드포인트 설명서를 기준으로 요청 구문, 인증 헤더, URL 경로, HTTP 메서드를 검증합니다.
 3. `5XX` 오류의 경우, 엔드포인트 상태, 사용량 제한, Braze가 해당 호스트를 비정상으로 표시했는지 여부를 확인합니다.
-4. 연결된 콘텐츠의 경우, 테스트 사용자로 메시지를 미리보기하고 Liquid이 빈 값이나 JSON을 깨뜨리는 값으로 확인되지 않는지 점검합니다.
-5. 비정상 호스트 감지가 관련되어 있을 수 있는 경우, [Braze 지원팀](#unhealthy-host-detection)에 문의하기 전에 [비정상 호스트 감지](#unhealthy-host-detection)를 검토하세요.
+4. 연결된 콘텐츠의 경우, 테스트 사용자로 메시지를 미리보기합니다. [연결된 콘텐츠 디버거]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/debugger)를 사용하여 요청과 응답을 검사하고, Liquid가 빈 값이나 JSON을 깨뜨리는 값으로 확인되지 않는지 확인합니다.
+5. 비정상 호스트 감지가 관련될 수 있는 경우, [Braze 지원팀](#unhealthy-host-detection)에 문의하기 전에 [비정상 호스트 감지](#unhealthy-host-detection)를 검토하세요.
 
 ## 4XX 오류 {#4xx-errors}
 
-`4XX` 오류는 엔드포인트로 전송된 요청에 문제가 있음을 나타냅니다. 이러한 오류는 일반적으로 잘못된 매개변수, 누락된 인증 헤더 또는 잘못된 URL 등 잘못된 요청으로 인해 발생합니다. 이러한 오류는 [보고서 빌더]({{site.baseurl}}/user_guide/analytics/reports/report_builder)에도 적용됩니다.
+`4XX` 오류는 엔드포인트로 전송된 요청에 문제가 있음을 나타냅니다. 이러한 오류는 일반적으로 잘못된 파라미터, 누락된 인증 헤더 또는 잘못된 URL을 포함한 오류가 있는 요청에 의해 발생합니다. 이러한 오류는 [보고서 빌더]({{site.baseurl}}/user_guide/analytics/reports/report_builder)에도 적용됩니다.
 
-오류 코드 세부 정보 및 해결 단계는 다음 표를 참조하세요.
+오류 코드 세부 정보 및 해결 방법은 다음 표를 참조하세요.
 
 <style>
 table td {
@@ -50,7 +51,7 @@ table td {
     <tr>
       <th>오류 코드</th>
       <th>의미</th>
-      <th>해결 단계</th>
+      <th>해결 방법</th>
     </tr>
   </thead>
   <tbody>
@@ -59,10 +60,10 @@ table td {
       <td>요청에 잘못된 구문이 있습니다.</td>
       <td>
         <ul>
-          <li>요청 페이로드에 구문 오류가 없는지 확인합니다.</li>
-          <li>모든 필수 필드가 포함되어 있고 올바른 형식인지 확인합니다.</li>
+          <li>요청 페이로드에 구문 오류가 있는지 확인합니다.</li>
+          <li>모든 필수 필드가 포함되어 있고 올바르게 형식이 지정되어 있는지 확인합니다.</li>
           <li>JSON 페이로드를 전송하는 경우 JSON 구조를 검증합니다.</li>
-          <li>웹훅 요청에서 Liquid를 사용하여 개인화 태그를 템플릿으로 지정하는 경우, Liquid가 빈 값으로 확인되거나 JSON을 깨뜨리는 문자(이스케이프되지 않은 따옴표 등)를 생성하지 않는지 확인합니다. 테스트 사용자에 대해 메시지를 미리보기하여 렌더링된 출력이 유효한지 확인합니다.</li>
+          <li>Liquid를 사용하여 웹훅 요청에서 개인화 태그를 템플릿화하는 경우, Liquid가 빈 값으로 확인되거나 JSON을 깨뜨리는 문자(이스케이프되지 않은 따옴표 등)를 생성하지 않는지 확인합니다. 테스트 사용자를 대상으로 메시지를 미리 보기하여 렌더링된 출력이 유효한지 확인합니다.</li>
         </ul>
       </td>
     </tr>
@@ -71,19 +72,19 @@ table td {
       <td>요청에 사용자 인증이 필요합니다.</td>
       <td>
         <ul>
-          <li>올바른 인증 자격 증명(API 키 또는 토큰 등)이 요청 헤더에 포함되어 있는지 확인합니다.</li>
-          <li>엔드포인트에 접근할 수 있는 사용자 권한이 있는지 확인합니다.</li>
+          <li>올바른 인증 자격 증명(예: API 키 또는 토큰)이 요청 헤더에 포함되어 있는지 확인합니다.</li>
+          <li>엔드포인트에 액세스할 수 있는 사용자 권한이 있는지 확인합니다.</li>
         </ul>
       </td>
     </tr>
     <tr>
       <td><b>403 Forbidden</b></td>
-      <td>엔드포인트가 요청을 이해하지만 승인을 거부합니다.</td>
+      <td>엔드포인트가 요청을 이해했지만 승인을 거부합니다.</td>
       <td>
         <ul>
           <li>API 키 또는 토큰에 필요한 권한이 있는지 확인합니다.</li>
-          <li>엔드포인트에 접근할 수 있는 사용자 권한이 있는지 확인합니다.</li>
-          <li>요청이 지속적으로 <code>403</code>을 반환하고 인증이 올바른 것으로 보이는 경우, 서버, API 게이트웨이 또는 WAF가 Braze의 아웃바운드 IP 주소를 차단하고 있을 수 있습니다. Braze 클러스터의 IP를 허용 목록에 추가하세요. 웹훅의 경우 <a href="{{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#ip-allowlisting">IP 허용 목록</a> 을 참조하세요. 연결된 콘텐츠의 경우 <a href="{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting">연결된 콘텐츠 IP 허용 목록</a> 을 참조하세요.</li>
+          <li>엔드포인트에 액세스할 수 있는 사용자 권한이 있는지 확인합니다.</li>
+          <li>요청이 지속적으로 <code>403</code>을 반환하고 인증이 올바르게 보이는 경우, 서버, API 게이트웨이 또는 WAF가 Braze의 아웃바운드 IP 주소를 차단하고 있을 수 있습니다. Braze 클러스터의 IP를 허용 목록에 추가하세요. 웹훅의 경우 <a href="{{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#ip-allowlisting">IP 허용 목록</a> 을 참조하세요. 연결된 콘텐츠의 경우 <a href="{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting">연결된 콘텐츠 IP 허용 목록</a> 을 참조하세요.</li>
         </ul>
       </td>
     </tr>
@@ -92,14 +93,14 @@ table td {
       <td>엔드포인트가 요청된 리소스를 찾을 수 없습니다.</td>
       <td>
         <ul>
-          <li>엔드포인트 URL에 오타나 잘못된 경로가 없는지 확인합니다.</li>
-          <li>접근하려는 리소스가 존재하는지 확인합니다.</li>
+          <li>엔드포인트 URL에 오타나 잘못된 경로가 있는지 확인합니다.</li>
+          <li>액세스하려는 리소스가 존재하는지 확인합니다.</li>
         </ul>
       </td>
     </tr>
     <tr>
       <td><b>405 Method Not Allowed</b></td>
-      <td>요청 메서드가 엔드포인트에서 인식되지만 대상 리소스에서 지원되지 않습니다.</td>
+      <td>요청 메서드는 엔드포인트에서 알고 있지만 대상 리소스에서 지원하지 않습니다.</td>
       <td>
         <ul>
           <li>요청에 사용된 HTTP 메서드(DELETE, GET, POST, PUT)를 확인합니다.</li>
@@ -109,7 +110,7 @@ table td {
     </tr>
     <tr>
       <td><b>408 Request Timeout</b></td>
-      <td>엔드포인트가 요청을 처리하는 동안 시간이 초과되었습니다.</td>
+      <td>엔드포인트에서 요청 처리 시간이 초과되었습니다.</td>
       <td>
         <ul>
           <li>요청에 사용된 HTTP 메서드(DELETE, GET, POST, PUT)를 확인합니다.</li>
@@ -129,7 +130,7 @@ table td {
     </tr>
     <tr>
       <td><b>429 Too Many Requests</b></td>
-      <td>주어진 시간 내에 너무 많은 요청이 전송되었습니다.</td>
+      <td>지정된 시간 내에 너무 많은 요청이 전송되었습니다.</td>
       <td>
         <ul>
           <li>Campaign 또는 캔버스 단계의 사용량 제한을 낮추세요.</li>
@@ -146,24 +147,24 @@ table td {
 | 오류 코드                    | 의미                                                                                                                                         |
 |-------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **500 Internal Server Error** | 엔드포인트가 요청을 완료하지 못하게 하는 예기치 않은 상태를 만났습니다.                                                       |
-| **502 Bad Gateway**           | 엔드포인트가 업스트림 서버로부터 잘못된 응답을 수신했습니다.                                                                                   |
+| **502 Bad Gateway**           | 엔드포인트가 업스트림 서버로부터 잘못된 응답을 받았습니다.                                                                                   |
 | **503 Service Unavailable**   | 엔드포인트가 일시적인 과부하 또는 유지보수로 인해 현재 요청을 처리할 수 없습니다.                                                    |
 | **504 Gateway Timeout**       | 엔드포인트가 업스트림 서버로부터 적시에 응답을 받지 못했습니다.                                                                               |
-| **529 Host Overloaded**       | 엔드포인트 호스트가 과부하 상태여서 응답할 수 없습니다. |
-| **598 Host Unhealthy**        | 엔드포인트 호스트가 일시적으로 비정상으로 표시되어 Braze가 응답을 시뮬레이션했습니다. 자세한 내용은 [비정상 호스트 감지](#unhealthy-host-detection)를 참조하세요. |
+| **529 Host Overloaded**       | 엔드포인트 호스트가 과부하되어 응답할 수 없습니다. |
+| **598 Host Unhealthy**        | 엔드포인트 호스트가 일시적으로 비정상으로 표시되었기 때문에 Braze가 응답을 시뮬레이션했습니다. 자세한 내용은 [비정상 호스트 감지](#unhealthy-host-detection)를 참조하세요. |
 | **599 Connection Error**      | Braze가 엔드포인트에 연결을 설정하는 동안 네트워크 연결 시간 초과 오류가 발생했습니다. 이는 엔드포인트가 불안정하거나 다운되었을 수 있음을 의미합니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="5XX 오류" }
 
 ### 5XX 오류 해결 {#resolving-5xx-errors}
 
-일반적인 `5XX` 오류를 해결하기 위한 팁은 다음과 같습니다:
+다음은 일반적인 `5XX` 오류를 해결하기 위한 팁입니다:
 
-- **Message Activity Log**에서 확인할 수 있는 구체적인 세부 정보를 오류 메시지에서 확인하세요. 웹훅의 경우 Braze 홈 페이지의 **Performance Over Time** 섹션으로 이동하여 웹훅 통계를 선택하세요. 여기에서 오류가 발생한 시점을 나타내는 타임스탬프를 확인할 수 있습니다.
-- 엔드포인트에 과부하를 일으킬 만큼 너무 많은 요청을 보내고 있지 않은지 확인하세요. 배치로 전송하거나 사용량 제한을 조정하여 오류가 줄어드는지 확인할 수 있습니다.
+- **Message Activity Log**에서 확인할 수 있는 구체적인 세부 사항을 오류 메시지에서 검토하세요. 웹훅의 경우 Braze 홈 페이지의 **Performance Over Time** 섹션으로 이동하여 웹훅 통계를 선택하세요. 여기에서 오류가 발생한 시점을 나타내는 타임스탬프를 확인할 수 있습니다.
+- 엔드포인트에 과부하를 일으킬 만큼 너무 많은 요청을 보내고 있지 않은지 확인하세요. 일괄 처리로 전송하거나 사용량 제한을 조정하여 오류가 줄어드는지 확인할 수 있습니다.
 
 ## 비정상 호스트 감지 {#unhealthy-host-detection}
 
-Braze 웹훅 및 연결된 콘텐츠는 대상 호스트가 상당한 속도 저하 또는 과부하로 인해 시간 초과, 과다 요청 또는 Braze가 대상 엔드포인트와 성공적으로 통신하지 못하게 하는 기타 결과가 높은 비율로 발생할 때 이를 감지하는 비정상 호스트 감지 메커니즘을 사용합니다. 이는 대상 호스트에 어려움을 줄 수 있는 불필요한 부하를 줄이기 위한 안전장치 역할을 합니다. 또한 Braze 인프라를 안정화하고 빠른 메시징 속도를 유지하는 데 도움이 됩니다.
+Braze 웹훅 및 연결된 콘텐츠는 대상 호스트가 상당한 속도 저하 또는 과부하로 인해 시간 초과, 과다 요청, 또는 Braze가 대상 엔드포인트와 성공적으로 통신하지 못하게 하는 기타 결과가 높은 비율로 발생할 때 이를 감지하는 비정상 호스트 감지 메커니즘을 사용합니다. 이 메커니즘은 대상 호스트에 어려움을 줄 수 있는 불필요한 부하를 줄이기 위한 안전장치 역할을 합니다. 또한 Braze 인프라를 안정화하고 빠른 메시징 속도를 유지하는 데 도움이 됩니다.
 
 감지 임계값은 웹훅과 연결된 콘텐츠 간에 다릅니다:
 - **웹훅의 경우**: 1분 이동 시간 창에서 실패 횟수가 3,000건을 초과하면(호스트 이름과 앱 그룹의 고유 조합 기준&#8212;엔드포인트 경로 기준이 아님), Braze가 대상 호스트에 대한 요청을 1분 동안 일시적으로 중단합니다.
@@ -183,10 +184,11 @@ Braze 웹훅 및 연결된 콘텐츠는 대상 호스트가 상당한 속도 저
 
 **증상:** 연결된 콘텐츠 호출이 메시지 미리보기 또는 발송에서 빈 값으로 렌더링됩니다.
 
-연결된 콘텐츠 호출이 메시지 미리보기 또는 발송에서 빈 값으로 렌더링되는 경우 다음을 확인하세요:
+연결된 콘텐츠 호출이 메시지 미리보기 또는 발송에서 빈 값으로 렌더링되는 경우 [연결된 콘텐츠 디버거]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/debugger)를 사용하여 요청과 응답을 검사한 후 다음을 확인하세요:
 
 - **URL의 줄 바꿈 없는 공백:** Braze는 요청을 보내기 전에 연결된 콘텐츠 URL에서 줄 바꿈 없는 공백(`&nbsp;` 또는 유니코드 `U+00A0`)을 제거합니다. 문서나 대시보드 필드에서 복사한 URL에 문자 사이에 줄 바꿈 없는 공백이 삽입된 경우, 요청이 실패하거나 사용 가능한 본문을 반환하지 않을 수 있습니다. URL을 일반 텍스트로 다시 입력하거나 숨겨진 공백을 제거한 후 다시 미리보기하세요.
-- **HTTP 오류 및 빈 본문:** 300 이상의 상태 코드 또는 차단된 호스트의 경우, 연결된 콘텐츠는 빈 문자열을 렌더링할 수 있습니다. [API 호출하기]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call)를 참조하고 **메시지 활동 로그**에서 실패를 확인하세요.
+- **리다이렉트 응답(`3xx`):** 연결된 콘텐츠는 리다이렉트를 따르지 않습니다. `2xx` 응답만 성공으로 처리되므로, 동일한 URL이 Postman에서 작동하더라도 `301` 또는 `302`는 빈 값으로 렌더링될 수 있습니다. 최종 대상 URL을 사용하거나, Braze가 호출하는 URL에서 `2xx` 응답(일반적으로 `200`)을 반환하도록 엔드포인트를 구성하세요. [엔드포인트가 리다이렉트를 반환할 때 연결된 콘텐츠가 실패하는 이유는 무엇인가요?]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#why-does-connected-content-fail-when-my-endpoint-returns-a-redirect-301-or-302)를 참조하세요.
+- **HTTP 오류 및 빈 본문:** `2xx` 범위 밖의 상태 코드 또는 차단된 호스트의 경우, 연결된 콘텐츠는 빈 문자열을 렌더링할 수 있습니다. [API 호출하기]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call)를 참조하고 **메시지 활동 로그**에서 실패를 확인하세요.
 
 ## 자동 이메일 및 메시지 활동 로그 항목 {#automated-emails-and-message-activity-log-entries}
 

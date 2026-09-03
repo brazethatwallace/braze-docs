@@ -11,164 +11,15 @@ alias: /scim_api_appendix/
 > Este artículo explica los diferentes objetos de la API SCIM y el apéndice.
 
 {% sdktabs %}
-{% sdktab Legacy SCIM API %}
-
-{% alert important %}
-Braze ahora ofrece [permisos granulares]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/?sdktab=granular%20permissions), una forma más flexible de gestionar el acceso de los usuarios. Para más información, consulta [Migración a permisos granulares]({{site.baseurl}}/granular_permissions_migration) y la pestaña [API SCIM granular]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api/) para ver los objetos y el apéndice de la API SCIM granular.
-{% endalert %}
-
-## Objeto de permisos {#permissions-object}
-
-El objeto de permisos es un campo que se encuentra en algunas de las solicitudes y respuestas al interactuar con el recurso de usuario a través de los permisos de ID SCIM.
-
-{% alert note %}
-Los grupos de aplicaciones se han renombrado a espacios de trabajo en Braze, pero las claves en esta página aún hacen referencia a la terminología anterior (por ejemplo, `appGroup`, `appGroupName`).
-{% endalert %}
-
-```
-{
-  "permissions": {
-    "companyPermissions": (required, array),
-    "appGroup": (required, array)
-  }
-}
-```
-
-Un objeto de permisos válido es un objeto JSON con los siguientes pares clave-valor:
-
-| Clave | Obligatorio | Tipo de datos | Descripción |
-| --- | --- | --- | --- |
-| `companyPermissions` | Opcional | Array | Array de cadenas de permisos a nivel de empresa de la tabla [Cadenas de permisos de empresa]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_company), en la que la presencia de la cadena corresponde a que el usuario tiene el permiso correspondiente. |
-| `roles` | Opcional | Array | Array de [objetos de rol]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_role-object). |
-| `appGroup` | Obligatorio | Array | Array de [objetos de permisos de espacio de trabajo]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_workspace-permission-object). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Objeto de permisos" }
-
-### Objeto de permisos de espacio de trabajo {#workspace-permission-object}
-
-Un objeto de permisos de espacio de trabajo válido es un objeto JSON con los siguientes pares clave-valor:
-
-| Clave | Obligatorio | Tipo de datos | Descripción |
-| --- | --- | --- | --- |
-| `appGroupName` | Opcional | String | Nombre del espacio de trabajo. Se utiliza para especificar a qué espacio de trabajo corresponden los permisos contenidos en este objeto. |
-| `appGroupId` | Obligatorio si falta `appGroupName` | String | ID del espacio de trabajo, que sirve como método alternativo para especificar el espacio de trabajo. |
-| `appGroupPermissionSets` | Opcional | Array | Array con un único [objeto de conjunto de permisos de espacio de trabajo]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_workspace-permissions-set-object). |
-| `appGroupPermissions` | Obligatorio | Array | Array de cadenas de permisos a nivel de espacio de trabajo de la tabla [Cadenas de permisos de espacio de trabajo]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_workspace-strings), en la que la presencia de la cadena corresponde a que el usuario tiene el permiso correspondiente para el espacio de trabajo especificado. |
-| `team` | Opcional | Array | Array de [objetos de permisos de equipo]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_team-permissions-object). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Objeto de permisos de espacio de trabajo #workspace-permission-object" }
-
-### Objeto de conjunto de permisos de espacio de trabajo {#workspace-permissions-set-object}
-
-Un objeto de conjunto de permisos de espacio de trabajo válido es un objeto JSON con los siguientes pares clave-valor:
-
-| Clave | Obligatorio | Tipo de datos | Descripción |
-| --- | --- | --- | --- |
-| `appGroupPermissionSetName` | Opcional | String | Nombre del conjunto de permisos de espacio de trabajo que se asigna al usuario para este espacio de trabajo. |
-| `appGroupPermissionSetID` | Obligatorio si falta `appGroupPermissionSetName` | String | ID del espacio de trabajo, que sirve como método alternativo para especificar el conjunto de permisos de espacio de trabajo asignado al usuario para este espacio de trabajo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Objeto de conjunto de permisos de espacio de trabajo #workspace-permissions-set-object" }
-
-### Objeto de permisos de equipo {#team-permissions-object}
-
-Un objeto de permisos de equipo válido es un objeto JSON con los siguientes pares clave-valor:
-
-| Clave | Obligatorio | Tipo de datos | Descripción |
-| --- | --- | --- | --- |
-| `teamName` | Opcional | String | Nombre del equipo, que se puede utilizar para especificar a qué equipo corresponden los permisos dentro de este objeto. |
-| `teamId` | Obligatorio si falta `teamName` | String | ID del equipo, que sirve como método alternativo para especificar el equipo. |
-| `teamPermissions` | Obligatorio | Array | Array de cadenas de permisos a nivel de equipo de la tabla [Cadenas de permisos de equipo]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_team), en la que la presencia de la cadena corresponde a que el usuario tiene el permiso correspondiente para el equipo especificado. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Objeto de permisos de equipo" }
-
-## Objeto de rol {#role-object}
-
-Un objeto de rol válido es un objeto JSON con los siguientes pares clave-valor:
-
-| Clave | Obligatorio | Tipo de datos | Descripción |
-| --- | --- | --- | --- |
-| `roleName` | Opcional | String | Nombre del rol que se asigna al usuario. |
-| `roleId` | Obligatorio si falta `roleName` | String | ID del rol, que sirve como método alternativo para especificar el rol. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Objeto de rol" }
-
-## Apéndice {#appendix}
-
-### Cadenas de permisos de empresa {#company}
-
-| Como se muestra en la interfaz | Cadena de la API SCIM |
-| --- | --- |
-| Administrator | `admin` |
-| Can Manage Company Settings | `manage_company_settings` |
-| Can Add/Remove Workspaces | `add_remove_app_groups` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Cadenas de permisos de empresa #company" }
-
-### Cadenas de permisos de espacio de trabajo {#workspace-strings}
-
-| Nombre del permiso | Cadena de la API SCIM |
-| --- | --- |
-| Admin | `admin` |
-| Access Campaigns, Canvases, Cards, Segments, Media Library | `basic_access` |
-| Approve and Deny Canvases | `approve_deny_campaigns` |
-| Send Campaigns, Canvases | `send_campaigns_canvases` |
-| Publish Cards | `publish_cards` |
-| Edit Segments | `edit_segments` |
-| Export User Data | `export_user_data` |
-| View PII | `view_pii` |
-| View User Profiles PII Compliant | `view_user_profile` |
-| Manage Dashboard Users | `manage_dashboard_users` |
-| Manage Media Library Assets | `manage_media_library` |
-| View Usage Data | `view_usage_data` |
-| Import and Update User Data | `import_update_user_data` |
-| View Billing Details | `view_billing_details` |
-| Access Dev Console | `dev_console` |
-| Launch Content Blocks | `launch_content_blocks` |
-| Manage External Integrations | `manage_external_integrations` |
-| Manage Apps | `manage_apps` |
-| Manage Teams | `manage_teams` |
-| Manage Events, Attributes, Purchases | `manage_events_attributes_purchases` |
-| Manage Tags | `manage_tags` |
-| Manage Email Settings | `manage_email_settings` |
-| Manage Subscription Groups | `manage_subscription_groups` |
-| Manage Approval Settings | `manage_approval_settings` |
-| Manage Catalogs Dashboard Permission | `manage_catalogs_dashboard_permission` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Cadenas de permisos de espacio de trabajo #workspace-strings" }
-
-### Cadenas de permisos de equipo {#team}
-
-| Nombre del permiso | Cadena de la API SCIM |
-| --- | --- |
-| Admin | `admin` |
-| Access Campaigns, Canvases, Cards, Segments, Media Library | `basic_access` |
-| Approve and Deny Canvases | `approve_deny_campaigns` |
-| Send Campaigns, Canvases | `send_campaigns_canvases` |
-| Publish Cards | `publish_cards` |
-| Edit Segments | `edit_segments` |
-| Export User Data | `export_user_data` |
-| View User Profile | `view_user_profile` |
-| Manage Dashboard Users | `manage_dashboard_users` |
-| Manage Media Library Assets | `manage_media_library` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Cadenas de permisos de equipo #team" }
-
-### Cadenas de departamento {#department-strings}
-
-| Como se muestra en la interfaz | Cadena de la API SCIM |
-| --- | --- |
-| Agency / Third Party | `agency` |
-| BI / Analytics | `bi` |
-| C-Suite | `c_suite` |
-| Engineering | `engineering` |
-| Finance | `finance` |
-| Marketing / Editorial | `marketing` |
-| Product Management | `pm` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Cadenas de departamento" }
-
-
-{% endsdktab %}
 {% sdktab Granular SCIM API %}
 
 ## Migración de permisos granulares {#granular-permissions-migration}
 
-Las integraciones SCIM existentes y los [objetos de la API SCIM heredada]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api) siguen funcionando después de la migración de permisos granulares a finales de abril.
+Las integraciones SCIM existentes y los [objetos de la API SCIM heredada]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api) siguen funcionando después de la migración de permisos granulares, pero Braze dejará de aceptar valores de la API SCIM heredada en diciembre de 2026.
 
-No es necesario que tomes ninguna acción inmediata. Sin embargo, revisa tus integraciones en busca de permisos que se trasladen a permisos granulares. Por ejemplo, si actualmente envías `basic_access` en la API, actualiza tu integración después de la granularización para incluir los permisos específicos (por ejemplo, `"appGroupPermissions":["view_campaigns","edit_campaigns"]`). Braze sigue aceptando cadenas heredadas, como `basic_access`, después de la migración de permisos granulares para que las integraciones existentes no se rompan.
+No es necesario que tomes ninguna acción inmediata. Sin embargo, revisa tus integraciones en busca de permisos que se trasladen a permisos granulares. Por ejemplo, si actualmente envías `basic_access` en la API, actualiza tu integración después de migrar a permisos granulares para incluir los permisos específicos (por ejemplo, `"appGroupPermissions":["view_campaigns","edit_campaigns"]`). Braze sigue aceptando cadenas heredadas, como `basic_access`, después de la migración de permisos granulares para que las integraciones existentes no se rompan.
 
-## Objeto de permisos
+## Objeto de permisos {#permissions-object}
 
 El objeto de permisos es un campo que se encuentra en algunas de las solicitudes y respuestas al interactuar con el recurso de usuario a través de los permisos de ID SCIM.
 
@@ -203,11 +54,11 @@ Un objeto de permisos de espacio de trabajo válido es un objeto JSON con los si
 | `appGroupName` | Opcional | String | Nombre del espacio de trabajo. Se utiliza para especificar a qué espacio de trabajo corresponden los permisos contenidos en este objeto. |
 | `appGroupId` | Obligatorio si falta `appGroupName` | String | ID del espacio de trabajo, que sirve como método alternativo para especificar el espacio de trabajo. |
 | `appGroupPermissionSets` | Opcional | Array | Array con un único [objeto de conjunto de permisos de espacio de trabajo]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-permissions-set-object). |
-| `appGroupPermissions` | Obligatorio | Array | Array de cadenas de permisos a nivel de espacio de trabajo de la tabla [Cadenas de permisos de espacio de trabajo]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-strings), en la que la presencia de la cadena corresponde a que el usuario tiene el permiso correspondiente para el espacio de trabajo especificado. |
+| `appGroupPermissions` | Obligatorio | Array | Array de cadenas de permisos a nivel de espacio de trabajo de la tabla [cadenas de permisos de espacio de trabajo]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-strings), en la que la presencia de la cadena corresponde a que el usuario tiene el permiso correspondiente para el espacio de trabajo especificado. |
 | `team` | Opcional | Array | Array de [objetos de permisos de equipo]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_team-permissions-object). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Objeto de permisos de espacio de trabajo" }
 
-### Objeto de conjunto de permisos de espacio de trabajo
+### Objeto de conjunto de permisos de espacio de trabajo {#workspace-permissions-set-object}
 
 Un objeto de conjunto de permisos de espacio de trabajo válido es un objeto JSON con los siguientes pares clave-valor:
 
@@ -217,7 +68,7 @@ Un objeto de conjunto de permisos de espacio de trabajo válido es un objeto JSO
 | `appGroupPermissionSetID` | Obligatorio si falta `appGroupPermissionSetName` | String | ID del espacio de trabajo, que sirve como método alternativo para especificar el conjunto de permisos de espacio de trabajo asignado al usuario para este espacio de trabajo. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Objeto de conjunto de permisos de espacio de trabajo #workspace-permissions-set-object" }
 
-### Objeto de permisos de equipo
+### Objeto de permisos de equipo {#team-permissions-object}
 
 Un objeto de permisos de equipo válido es un objeto JSON con los siguientes pares clave-valor:
 
@@ -225,10 +76,10 @@ Un objeto de permisos de equipo válido es un objeto JSON con los siguientes par
 | --- | --- | --- | --- |
 | `teamName` | Opcional | String | Nombre del equipo, que se puede utilizar para especificar a qué equipo corresponden los permisos dentro de este objeto. |
 | `teamId` | Obligatorio si falta `teamName` | String | ID del equipo, que sirve como método alternativo para especificar el equipo. |
-| `teamPermissions` | Obligatorio | Array | Array de cadenas de permisos a nivel de equipo de la tabla [Cadenas de permisos de equipo]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_team), en la que la presencia de la cadena corresponde a que el usuario tiene el permiso correspondiente para el equipo especificado. |
+| `teamPermissions` | Obligatorio | Array | Array de cadenas de permisos a nivel de equipo de la tabla [cadenas de permisos de equipo]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_team), en la que la presencia de la cadena corresponde a que el usuario tiene el permiso correspondiente para el equipo especificado. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Objeto de permisos de equipo" }
 
-## Objeto de rol
+## Objeto de rol {#role-object}
 
 Un objeto de rol válido es un objeto JSON con los siguientes pares clave-valor:
 
@@ -238,9 +89,9 @@ Un objeto de rol válido es un objeto JSON con los siguientes pares clave-valor:
 | `roleId` | Obligatorio si falta `roleName` | String | ID del rol, que sirve como método alternativo para especificar el rol. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Objeto de rol" }
 
-## Apéndice
+## Apéndice {#appendix}
 
-### Cadenas de permisos de empresa
+### Cadenas de permisos de empresa {#company}
 
 | Como se muestra en la interfaz | Cadena de la API SCIM |
 | --- | --- |
@@ -249,7 +100,7 @@ Un objeto de rol válido es un objeto JSON con los siguientes pares clave-valor:
 | Create and delete workspaces | `add_remove_app_groups` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Cadenas de permisos de empresa #company" }
 
-### Cadenas de permisos de espacio de trabajo
+### Cadenas de permisos de espacio de trabajo {#workspace-strings}
 
 | Nombre del permiso | Cadena de la API SCIM |
 | --- | --- |
@@ -366,7 +217,7 @@ Un objeto de rol válido es un objeto JSON con los siguientes pares clave-valor:
 | Edit Technology Partners | `edit_technology_partners` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Cadenas de permisos de espacio de trabajo #workspace-strings" }
 
-### Cadenas de permisos de equipo
+### Cadenas de permisos de equipo {#team}
 
 | Nombre del permiso | Cadena de la API SCIM |
 | --- | --- |
@@ -419,6 +270,154 @@ Un objeto de rol válido es un objeto JSON con los siguientes pares clave-valor:
 | Edit Dashboard Users | `edit_dashboard_users` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Cadenas de permisos de equipo #team" }
 
+### Cadenas de departamento {#department-strings}
+
+| Como se muestra en la interfaz | Cadena de la API SCIM |
+| --- | --- |
+| Agency / Third Party | `agency` |
+| BI / Analytics | `bi` |
+| C-Suite | `c_suite` |
+| Engineering | `engineering` |
+| Finance | `finance` |
+| Marketing / Editorial | `marketing` |
+| Product Management | `pm` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Cadenas de departamento" }
+{% endsdktab %}
+{% sdktab Legacy SCIM API %}
+
+
+{% alert important %}
+Braze ahora ofrece [permisos granulares]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/?sdktab=granular%20permissions), una forma más flexible de gestionar el acceso de los usuarios. Para más información, consulta [Migración a permisos granulares]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) y la pestaña [API SCIM granular]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api/) para ver los objetos y el apéndice de la API SCIM granular. Braze dejará de aceptar valores de la API SCIM heredada en diciembre de 2026.
+{% endalert %}
+
+## Objeto de permisos
+
+El objeto de permisos es un campo que se encuentra en algunas de las solicitudes y respuestas al interactuar con el recurso de usuario a través de los permisos de ID SCIM.
+
+{% alert note %}
+Los grupos de aplicaciones se han renombrado a espacios de trabajo en Braze, pero las claves en esta página aún hacen referencia a la terminología anterior (por ejemplo, `appGroup`, `appGroupName`).
+{% endalert %}
+
+```
+{
+  "permissions": {
+    "companyPermissions": (required, array),
+    "appGroup": (required, array)
+  }
+}
+```
+
+Un objeto de permisos válido es un objeto JSON con los siguientes pares clave-valor:
+
+| Clave | Obligatorio | Tipo de datos | Descripción |
+| --- | --- | --- | --- |
+| `companyPermissions` | Opcional | Array | Array de cadenas de permisos a nivel de empresa de la tabla [cadenas de permisos de empresa]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_company), en la que la presencia de la cadena corresponde a que el usuario tiene el permiso correspondiente. |
+| `roles` | Opcional | Array | Array de [objetos de rol]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_role-object). |
+| `appGroup` | Obligatorio | Array | Array de [objetos de permisos de espacio de trabajo]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_workspace-permission-object). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Objeto de permisos" }
+
+### Objeto de permisos de espacio de trabajo {#workspace-permission-object}
+
+Un objeto de permisos de espacio de trabajo válido es un objeto JSON con los siguientes pares clave-valor:
+
+| Clave | Obligatorio | Tipo de datos | Descripción |
+| --- | --- | --- | --- |
+| `appGroupName` | Opcional | String | Nombre del espacio de trabajo. Se utiliza para especificar a qué espacio de trabajo corresponden los permisos contenidos en este objeto. |
+| `appGroupId` | Obligatorio si falta `appGroupName` | String | ID del espacio de trabajo, que sirve como método alternativo para especificar el espacio de trabajo. |
+| `appGroupPermissionSets` | Opcional | Array | Array con un único [objeto de conjunto de permisos de espacio de trabajo]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_workspace-permissions-set-object). |
+| `appGroupPermissions` | Obligatorio | Array | Array de cadenas de permisos a nivel de espacio de trabajo de la tabla [cadenas de permisos de espacio de trabajo]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_workspace-strings), en la que la presencia de la cadena corresponde a que el usuario tiene el permiso correspondiente para el espacio de trabajo especificado. |
+| `team` | Opcional | Array | Array de [objetos de permisos de equipo]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_team-permissions-object). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Objeto de permisos de espacio de trabajo #workspace-permission-object" }
+
+### Objeto de conjunto de permisos de espacio de trabajo
+
+Un objeto de conjunto de permisos de espacio de trabajo válido es un objeto JSON con los siguientes pares clave-valor:
+
+| Clave | Obligatorio | Tipo de datos | Descripción |
+| --- | --- | --- | --- |
+| `appGroupPermissionSetName` | Opcional | String | Nombre del conjunto de permisos de espacio de trabajo que se asigna al usuario para este espacio de trabajo. |
+| `appGroupPermissionSetID` | Obligatorio si falta `appGroupPermissionSetName` | String | ID del espacio de trabajo, que sirve como método alternativo para especificar el conjunto de permisos de espacio de trabajo asignado al usuario para este espacio de trabajo. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Objeto de conjunto de permisos de espacio de trabajo #workspace-permissions-set-object" }
+
+### Objeto de permisos de equipo
+
+Un objeto de permisos de equipo válido es un objeto JSON con los siguientes pares clave-valor:
+
+| Clave | Obligatorio | Tipo de datos | Descripción |
+| --- | --- | --- | --- |
+| `teamName` | Opcional | String | Nombre del equipo, que se puede utilizar para especificar a qué equipo corresponden los permisos dentro de este objeto. |
+| `teamId` | Obligatorio si falta `teamName` | String | ID del equipo, que sirve como método alternativo para especificar el equipo. |
+| `teamPermissions` | Obligatorio | Array | Array de cadenas de permisos a nivel de equipo de la tabla [cadenas de permisos de equipo]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_team), en la que la presencia de la cadena corresponde a que el usuario tiene el permiso correspondiente para el equipo especificado. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Objeto de permisos de equipo" }
+
+## Objeto de rol
+
+Un objeto de rol válido es un objeto JSON con los siguientes pares clave-valor:
+
+| Clave | Obligatorio | Tipo de datos | Descripción |
+| --- | --- | --- | --- |
+| `roleName` | Opcional | String | Nombre del rol que se asigna al usuario. |
+| `roleId` | Obligatorio si falta `roleName` | String | ID del rol, que sirve como método alternativo para especificar el rol. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Objeto de rol" }
+
+## Apéndice
+
+### Cadenas de permisos de empresa
+
+| Como se muestra en la interfaz | Cadena de la API SCIM |
+| --- | --- |
+| Administrator | `admin` |
+| Can Manage Company Settings | `manage_company_settings` |
+| Can Add/Remove Workspaces | `add_remove_app_groups` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Cadenas de permisos de empresa #company" }
+
+### Cadenas de permisos de espacio de trabajo
+
+| Nombre del permiso | Cadena de la API SCIM |
+| --- | --- |
+| Admin | `admin` |
+| Access Campaigns, Canvases, Cards, Segments, Media Library | `basic_access` |
+| Approve and Deny Canvases | `approve_deny_campaigns` |
+| Send Campaigns, Canvases | `send_campaigns_canvases` |
+| Publish Cards | `publish_cards` |
+| Edit Segments | `edit_segments` |
+| Export User Data | `export_user_data` |
+| View PII | `view_pii` |
+| View User Profiles PII Compliant | `view_user_profile` |
+| Manage Dashboard Users | `manage_dashboard_users` |
+| Manage Media Library Assets | `manage_media_library` |
+| View Usage Data | `view_usage_data` |
+| Import and Update User Data | `import_update_user_data` |
+| View Billing Details | `view_billing_details` |
+| Access Dev Console | `dev_console` |
+| Launch Content Blocks | `launch_content_blocks` |
+| Manage External Integrations | `manage_external_integrations` |
+| Manage Apps | `manage_apps` |
+| Manage Teams | `manage_teams` |
+| Manage Events, Attributes, Purchases | `manage_events_attributes_purchases` |
+| Manage Tags | `manage_tags` |
+| Manage Email Settings | `manage_email_settings` |
+| Manage Subscription Groups | `manage_subscription_groups` |
+| Manage Approval Settings | `manage_approval_settings` |
+| Manage Catalogs Dashboard Permission | `manage_catalogs_dashboard_permission` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Cadenas de permisos de espacio de trabajo #workspace-strings" }
+
+### Cadenas de permisos de equipo
+
+| Nombre del permiso | Cadena de la API SCIM |
+| --- | --- |
+| Admin | `admin` |
+| Access Campaigns, Canvases, Cards, Segments, Media Library | `basic_access` |
+| Approve and Deny Canvases | `approve_deny_campaigns` |
+| Send Campaigns, Canvases | `send_campaigns_canvases` |
+| Publish Cards | `publish_cards` |
+| Edit Segments | `edit_segments` |
+| Export User Data | `export_user_data` |
+| View User Profile | `view_user_profile` |
+| Manage Dashboard Users | `manage_dashboard_users` |
+| Manage Media Library Assets | `manage_media_library` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Cadenas de permisos de equipo #team" }
+
 ### Cadenas de departamento
 
 | Como se muestra en la interfaz | Cadena de la API SCIM |
@@ -431,7 +430,5 @@ Un objeto de rol válido es un objeto JSON con los siguientes pares clave-valor:
 | Marketing / Editorial | `marketing` |
 | Product Management | `pm` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Cadenas de departamento" }
-
-
 {% endsdktab %}
 {% endsdktabs %}

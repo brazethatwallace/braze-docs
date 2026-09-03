@@ -15,6 +15,7 @@
 # Manual trigger: Actions → "Lighthouse CI" → Run workflow
 #
 # To add or change sampled pages, edit scripts/generate-lhci-urls.js.
+# For a monthly full-site inventory, see the "Lighthouse (Full Site)" workflow.
 # To change thresholds, edit lighthouserc.js.
 
 name: Lighthouse CI

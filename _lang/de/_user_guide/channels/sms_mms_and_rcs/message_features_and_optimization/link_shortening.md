@@ -46,11 +46,11 @@ Verkürzte Braze-Links enthalten immer das Protokoll `https://` und können nich
 
 Um die Linkverkürzung zu verwenden, stellen Sie sicher, dass der Linkverkürzungs-Toggle im Nachrichten-Editor aktiviert ist. Wählen Sie dann entweder Basis- oder erweitertes Tracking.
 
-![Nachrichten-Editor mit einem Toggle für die Linkverkürzung.]({% image_buster /assets/img/link_shortening/legacy/temp_shortening1.png %})
+![Nachrichten-Editor mit einem Toggle für die Linkverkürzung.]({% image_buster /assets/img/link_shortening/legacy/temp_shortening1.png %}){: width="1614" height="994"}
 
 Braze erkennt nur URLs, die mit `http://` oder `https://` beginnen. Wenn eine URL erkannt wird, aktualisiert sich der Bereich **Vorschau** mit einer Platzhalter-URL. Braze schätzt die Länge der URL nach der Verkürzung, aber eine Warnung fordert Sie auf, eine:n Testnutzer:in auszuwählen und die Nachricht als Entwurf zu speichern, um eine genauere Schätzung zu erhalten.
 
-![Nachrichten-Editor mit einer langen URL im Feld „Nachricht“ und einem generierten verkürzten Link in der Vorschau.]({% image_buster /assets/img/link_shortening/legacy/temp_shortening3.png %})
+![Nachrichten-Editor mit einer langen URL im Feld „Nachricht“ und einem generierten verkürzten Link in der Vorschau.]({% image_buster /assets/img/link_shortening/legacy/temp_shortening3.png %}){: width="1569" height="516"}
 
 {% alert note %}
 Wenn Sie den BrazeAI<sup>TM</sup> [Filter „Intelligenter Kanal“]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel) verwenden möchten und die SMS- und RCS-Kanäle auswählbar sein sollen, aktivieren Sie die Linkverkürzung mit erweitertem Tracking.
@@ -117,17 +117,17 @@ Damit Canvases im Filter „Verkürzten SMS-Link angeklickt“ erscheinen, muss 
 Wenn ein Entwurf innerhalb eines aktiven Canvas erstellt wird, wird keine verkürzte URL generiert. Die tatsächliche verkürzte URL wird generiert, wenn der Canvas-Entwurf aktiviert wird.
 {% endalert %}
 
-![Tab „Test“ der Nachricht mit Feldern zur Auswahl von Testempfänger:innen.]({% image_buster /assets/img/link_shortening/legacy/temp_shortening2.png %})
+![Tab „Test“ der Nachricht mit Feldern zur Auswahl von Testempfänger:innen.]({% image_buster /assets/img/link_shortening/legacy/temp_shortening2.png %}){: width="1569" height="947"}
 
 {% alert note %}
-Liquid-Personalisierung und verkürzte URLs werden im Tab **Test** erst nach Auswahl einer/eines Nutzer:in gerendert. Stellen Sie sicher, dass eine:r Nutzer:in ausgewählt ist, um eine genaue Zeichenanzahl zu erhalten.
+Liquid-Personalisierung und verkürzte URLs werden im Tab **Test** erst nach Auswahl einer/eines Nutzer:in gerendert. Stellen Sie sicher, dass ein:e Nutzer:in ausgewählt ist, um eine genaue Zeichenanzahl zu erhalten.
 {% endalert %}
 
 ## Klick-Tracking {#click-tracking}
 
-Wenn die Linkverkürzung aktiviert ist, enthält die Tabelle **SMS/MMS/RCS-Performance** eine Spalte mit dem Titel **Klicks gesamt**, die eine Anzahl der Klick-Ereignisse pro Variante und eine zugehörige Klickrate anzeigt. Weitere Details zu Metriken finden Sie unter [Nachrichten-Performance]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting).
+Wenn die Linkverkürzung aktiviert ist, enthält die Tabelle **SMS/MMS/RCS-Performance** eine Spalte mit dem Titel **Klicks gesamt**, die eine Anzahl der Klick-Ereignisse pro Variante und eine zugehörige Klickrate anzeigt. **Klicks gesamt** schließt vermutete Bot-Klicks aus den Dashboard-Zählungen aus. Weitere Details zu Metriken finden Sie unter [Nachrichten-Performance]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting) und [Bot-Klick-Filterung]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/bot_click_filtering).
 
-![Tabelle mit SMS- und MMS-Performance-Metriken.]({% image_buster /assets/img/link_shortening/shortening4.png %})
+![Tabelle mit SMS- und MMS-Performance-Metriken.]({% image_buster /assets/img/link_shortening/shortening4.png %}){: width="1586" height="191"}
 
 Die Tabellen **Historische Performance** und **SMS/MMS/RCS-Performance** enthalten ebenfalls eine Option für **Klicks gesamt** und zeigen eine tägliche Zeitreihe der Klick-Ereignisse an. Klicks werden bei einer Weiterleitung gezählt (z. B. wenn Nutzer:innen einen Link besuchen) und können pro Nutzer:in mehrfach gezählt werden.
 

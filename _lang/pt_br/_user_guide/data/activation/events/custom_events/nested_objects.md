@@ -167,13 +167,13 @@ Se a propriedade do seu evento contiver os caracteres `[]` ou `.`, faça o escap
 
 ### Segmentação {#segmentation}
 
-Para segmentar usuários com base em propriedades de evento aninhadas, você deve usar [Extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension). Depois de gerar um esquema, o explorador de objetos aninhados será exibido na seção de segmentação.
+Para segmentar usuários com base em propriedades de evento aninhadas, você deve usar [Extensões de Segment]({{site.baseurl}}/user_guide/audience/segments/segment_extension). Depois de gerar um esquema, o explorador de objetos aninhados será exibido na seção de segmentação.
 
 ![Captura de tela relacionada à segmentação.]({% image_buster /assets/img_archive/nested_event_properties_segmentation.png %})
 
 A segmentação usa a mesma notação do disparo (consulte [Disparo de mensagens](#message-triggering)).
 
-Para editar ou criar extensões de segmento, você precisará da permissão "Editar segmentos".
+Para editar ou criar extensões de Segment, você precisará da permissão "Editar segmentos".
 
 ### Personalização {#personalization}
 
@@ -204,7 +204,7 @@ As propriedades de evento aninhadas não podem ser pré-visualizadas no dashboar
 
 ### O uso de objetos aninhados registra pontos de dados adicionais? {#does-using-nested-objects-log-additional-data-points}
 
-Não há mudança na forma como registramos pontos de dados com a adição dessa funcionalidade. A segmentação baseada em objetos aninhados usa extensões de segmento, que não consomem pontos de dados adicionais.
+Não há mudança na forma como registramos pontos de dados com a adição dessa funcionalidade. A segmentação baseada em objetos aninhados usa extensões de Segment, que não consomem pontos de dados adicionais.
 
 ### Quantos dados aninhados podem ser enviados? {#how-much-nested-data-can-be-sent}
 

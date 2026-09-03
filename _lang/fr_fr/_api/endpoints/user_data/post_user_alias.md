@@ -6,7 +6,6 @@ page_order: 1
 layout: api_page
 page_type: reference
 description: "Cet article présente en détail l'endpoint Braze Créer un nouvel alias utilisateur."
-
 ---
 {% api %}
 # Créer un nouvel alias utilisateur {#create-new-user-alias}
@@ -26,7 +25,7 @@ Vous pouvez envoyer des Campaigns déclenchées par API aux utilisateurs par `us
 
 ## Lorsque `alias_label` et `alias_name` existent déjà {#when-alias_label-and-alias_name-already-exist}
 
-La combinaison de `alias_label` et `alias_name` doit être unique dans l'ensemble de votre base d'utilisateurs. Pour plus d'informations, consultez [Alias d'utilisateur]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases).
+La combinaison de `alias_label` et `alias_name` doit être unique dans l'ensemble de votre base d'utilisateurs. Pour plus d'informations, consultez [Alias d'utilisateur]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#user-aliases).
 
 Si vous envoyez une requête dans laquelle la paire `alias_label` et `alias_name` existe déjà pour un utilisateur (que ce soit le même utilisateur ou un autre), l'endpoint renvoie tout de même une réponse de succès (par exemple, `"aliases_processed": 1`, `"message": "success"`). Dans ce cas, aucun nouvel alias n'est ajouté à l'utilisateur de la requête. Étant donné que la paire `alias_label` et `alias_name` est déjà utilisée, la requête n'effectue aucune modification, et il peut sembler que l'alias n'a jamais été ajouté à l'utilisateur en question.
 
@@ -34,7 +33,7 @@ Si vous envoyez une requête dans laquelle la paire `alias_label` et `alias_name
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/api_key) avec l'autorisation `users.alias.new`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics) avec l'autorisation `users.alias.new`.
 
 ## Limite de débit {#rate-limit}
 
@@ -57,7 +56,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 | Paramètre | Obligatoire | Type de données | Description |
 | --------- | ---------| --------- | ----------- |
-| `user_aliases` | Obligatoire | Tableau d'objets nouvel alias d'utilisateur | Voir l'[objet alias d'utilisateur]({{site.baseurl}}/api/objects_filters/user_alias_object).<br><br> Pour plus d'informations sur `alias_name` et `alias_label`, consultez notre documentation sur les [alias d'utilisateur]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases). |
+| `user_aliases` | Obligatoire | Tableau d'objets nouvel alias d'utilisateur | Voir l'[objet alias d'utilisateur]({{site.baseurl}}/api/objects_filters/user_alias_object).<br><br> Pour plus d'informations sur `alias_name` et `alias_label`, consultez notre documentation sur les [alias d'utilisateur]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#user-aliases). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 ### Corps de requête de l'endpoint avec spécification de l'objet nouvel alias d'utilisateur {#endpoint-request-body-with-new-user-alias-object-specification}

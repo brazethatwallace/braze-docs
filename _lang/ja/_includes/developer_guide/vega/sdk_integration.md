@@ -1,12 +1,12 @@
 ## Braze Vega SDKについて {#about-the-braze-vega-sdk}
 
-Braze Vega SDKを使用すると、分析データを収集し、リッチなアプリ内メッセージをユーザーに表示できます。Braze Vega SDKのメソッドの大半は非同期であり、awaitまたはresolveすべきPromiseを返します。
+Braze Vega SDKを使用すると、分析データを収集し、リッチなアプリ内メッセージをユーザーに表示できます。Braze Vega SDKのほとんどのメソッドは非同期であり、awaitまたはresolveする必要があるPromiseを返します。
 
 ## Braze Vega SDKの統合 {#integrating-the-braze-vega-sdk}
 
-### ステップ 1: Brazeライブラリーをインストールする {#step-1-install-the-braze-library}
+### ステップ1：Brazeライブラリをインストールする {#step-1-install-the-braze-library}
 
-お好みのパッケージマネージャーを使って、Braze Vega SDKをインストールします。
+お好みのパッケージマネージャーを使用してBraze Vega SDKをインストールします。
 
 {% tabs local %}
 {% tab npm %}
@@ -16,7 +16,7 @@ Braze Vega SDKを使用すると、分析データを収集し、リッチなア
 npm install @braze/vega-sdk --save
 ```
 
-インストール後、必要なメソッドをインポートできます：
+インストール後、必要なメソッドをインポートできます。
 
 ```javascript
 import { initialize, changeUser, openSession } from "@braze/vega-sdk";
@@ -30,7 +30,7 @@ import { initialize, changeUser, openSession } from "@braze/vega-sdk";
 yarn add @braze/vega-sdk
 ```
 
-インストール後、必要なメソッドをインポートできます：
+インストール後、必要なメソッドをインポートできます。
 
 ```javascript
 import { initialize, changeUser, openSession } from "@braze/vega-sdk";
@@ -38,9 +38,9 @@ import { initialize, changeUser, openSession } from "@braze/vega-sdk";
 {% endtab %}
 {% endtabs %}
 
-### ステップ 2: SDKを初期化する {#step-2-initialize-the-sdk}
+### ステップ2：SDKを初期化する {#step-2-initialize-the-sdk}
 
-プロジェクトにBraze Vega SDKを追加した後、Brazeダッシュボードの**Settings** > **App Settings**にあるAPIキーと[SDKエンドポイントURL]({{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints/)を使用してライブラリーを初期化します。
+Braze Vega SDKをプロジェクトに追加した後、Brazeダッシュボードの**設定** > **アプリ設定**にあるAPIキーと[SDKエンドポイントURL]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints)を使用してライブラリを初期化します。
 
 {% alert important %}
 他のBrazeメソッドを呼び出す前に、`changeUser`のPromiseをawaitまたはresolveする必要があります。そうしないと、イベントや属性が誤ったユーザーに設定される可能性があります。
@@ -89,18 +89,18 @@ const App = () => {
 ```
 
 {% alert important %}
-匿名ユーザーは[MAU]({{site.baseurl}}/user_guide/data_and_analytics/reporting/understanding_your_app_usage_data/#monthly-active-users)にカウントされる可能性があります。そのため、これらのユーザーをMAUカウントから除外するために、条件付きでSDKを読み込むか初期化することを検討してください。
+匿名ユーザーは[MAU]({{site.baseurl}}/user_guide/data_and_analytics/reporting/understanding_your_app_usage_data#monthly-active-users)にカウントされる場合があります。そのため、MAUカウントからこれらのユーザーを除外するために、SDKの読み込みまたは初期化を条件付きで行うことを検討してください。
 {% endalert %}
 
-## オプション設定 {#optional-configurations}
+## オプションの設定 {#optional-configurations}
 
-### ロギング {#logging}
+### ログ {#logging}
 
-SDKのロギングを有効にすると、デバッグやトラブルシューティングに役立ちます。ロギングを有効にする方法は複数あります。
+デバッグやトラブルシューティングに役立つSDKログを有効にできます。ログを有効にするには複数の方法があります。
 
-#### 初期化中にロギングを有効にする {#enable-logging-during-initialization}
+#### 初期化時にログを有効にする {#enable-logging-during-initialization}
 
-デバッグメッセージをコンソールに記録するには、`initialize()`に`enableLogging: true`を渡します：
+`initialize()` に `enableLogging: true` を渡すと、デバッグメッセージがコンソールに出力されます：
 
 ```javascript
 initialize("YOUR-API-KEY", "YOUR-SDK-ENDPOINT", {
@@ -109,12 +109,12 @@ initialize("YOUR-API-KEY", "YOUR-SDK-ENDPOINT", {
 ```
 
 {% alert important %}
-基本ログはすべてのユーザーに表示されるため、本番環境にコードをリリースする前にロギングを無効にすることを検討してください。
+基本的なログはすべてのユーザーに表示されるため、コードを本番環境にリリースする前にログを無効にすることを検討してください。
 {% endalert %}
 
-#### 初期化後にロギングを有効にする {#enable-logging-after-initialization}
+#### 初期化後にログを有効にする {#enable-logging-after-initialization}
 
-初期化後にSDKのロギングを有効または無効にするには、`toggleLogging()`を使用します：
+`toggleLogging()` を使用して、初期化後にSDKログを有効または無効にできます：
 
 ```javascript
 import { toggleLogging } from "@braze/vega-sdk";
@@ -123,9 +123,9 @@ import { toggleLogging } from "@braze/vega-sdk";
 toggleLogging();
 ```
 
-#### カスタムロギング {#custom-logging}
+#### カスタムログ {#custom-logging}
 
-SDKのログ処理をより細かくコントロールするために、`setLogger()`を使用してカスタムロガー関数を指定します：
+`setLogger()` を使用してカスタムロガー関数を提供することで、SDKログの処理方法をより細かくコントロールできます：
 
 ```javascript
 import { setLogger } from "@braze/vega-sdk";
@@ -138,7 +138,7 @@ setLogger((message) => {
 
 ### 設定オプション {#configuration-options}
 
-SDKの動作をカスタマイズするために、`initialize()`に追加の設定オプションを渡すことができます：
+`initialize()` に追加の設定オプションを渡すことで、SDKの動作をカスタマイズできます：
 
 ```javascript
 await initialize("YOUR-API-KEY", "YOUR-SDK-ENDPOINT", {
@@ -148,9 +148,9 @@ await initialize("YOUR-API-KEY", "YOUR-SDK-ENDPOINT", {
 });
 ```
 
-## SDKをアップグレードする {#upgrading-the-sdk}
+## SDKのアップグレード {#upgrading-the-sdk}
 
-NPMやYarnからBraze Vega SDKを参照している場合、パッケージの依存関係を更新することで最新バージョンにアップグレードできます：
+NPMまたはYarnからBraze Vega SDKを参照している場合、パッケージの依存関係を更新することで最新バージョンにアップグレードできます。
 
 ```bash
 npm update @braze/vega-sdk
@@ -160,10 +160,10 @@ yarn upgrade @braze/vega-sdk
 
 ## 統合のテスト {#testing-your-integration}
 
-SDKの統合が正しく動作していることを確認するには：
+SDK統合が正しく動作しているかどうかを確認するには：
 
-1. コンソールにデバッグメッセージを表示するために、`enableLogging: true`を指定してSDKを初期化します
-2. 他のSDKメソッドを呼び出す前に、必ず`await changeUser()`を実行します
-3. `await openSession()`を呼び出してセッションを開始します
-4. Brazeダッシュボードの**Overview**で、セッションデータが記録されていることを確認します
-5. カスタムイベントのログ記録をテストし、ダッシュボードに表示されることを確認します
+1. `enableLogging: true` を設定してSDKを初期化し、コンソールにデバッグメッセージが表示されることを確認します
+2. 他のSDKメソッドを呼び出す前に、必ず `await changeUser()` を実行します
+3. `await openSession()` を呼び出してセッションを開始します
+4. Brazeダッシュボードの**概要**でセッションデータが記録されていることを確認します
+5. カスタムイベントのログを記録し、ダッシュボードに表示されることを確認します

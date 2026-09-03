@@ -148,12 +148,12 @@ Quando um usuário tem múltiplos dispositivos com diferentes estados de inscri�
 - Dispositivo A: Android, aceitou push
 - Dispositivo B: iOS, não aceitou push
 
-**Filtros de segmento que não funcionam:**
-- `Push enabled = false` - O usuário está habilitado para push no dispositivo Android, então ele não entra no segmento. O segmento não inclui o dispositivo iOS.
-- `Push subscription status is not opted in` - O usuário está habilitado para push no dispositivo Android, então ele não entra no segmento. O segmento não inclui o dispositivo iOS.
+**Filtros de Segment que não funcionam:**
+- `Push enabled = false` - O usuário está habilitado para push no dispositivo Android, então ele não entra no Segment. O Segment não inclui o dispositivo iOS.
+- `Push subscription status is not opted in` - O usuário está habilitado para push no dispositivo Android, então ele não entra no Segment. O Segment não inclui o dispositivo iOS.
 
-**Filtros de segmento que funcionam:**
-- `Push enabled for iOS = false` - O usuário está habilitado para push no dispositivo Android, mas estamos direcionando apenas dispositivos iOS, então o usuário entra no segmento. O segmento inclui o dispositivo iOS.
+**Filtros de Segment que funcionam:**
+- `Push enabled for iOS = false` - O usuário está habilitado para push no dispositivo Android, mas estamos direcionando apenas dispositivos iOS, então o usuário entra no Segment. O Segment inclui o dispositivo iOS.
 
 {% enddetails %}
 
@@ -163,13 +163,13 @@ Quando um usuário tem múltiplos dispositivos com diferentes estados de inscri�
 - Dispositivo A: Aceitou push
 - Dispositivo B: Provisoriamente habilitado, mas não aceitou
 
-**Filtros de segmento que não funcionam:**
-- `Push enabled = false` - O Dispositivo A aceitou push, então o usuário não entra no segmento. O segmento não inclui o Dispositivo B.
-- `Provisionally opted in = true` - O Dispositivo A aceitou completamente, o que significa que não está em estado provisório. O usuário não entra no segmento. O segmento não inclui o Dispositivo B.
-- `Push enabled for app > iOS = false` - O Dispositivo A aceitou push no iOS, então o usuário não entra no segmento. O segmento não inclui o Dispositivo B.
-- `Push subscription status is not opted in` - O Dispositivo A aceitou push, então o usuário não entra no segmento. O segmento não inclui o Dispositivo B.
+**Filtros de Segment que não funcionam:**
+- `Push enabled = false` - O Dispositivo A aceitou push, então o usuário não entra no Segment. O Segment não inclui o Dispositivo B.
+- `Provisionally opted in = true` - O Dispositivo A aceitou completamente, o que significa que não está em estado provisório. O usuário não entra no Segment. O Segment não inclui o Dispositivo B.
+- `Push enabled for app > iOS = false` - O Dispositivo A aceitou push no iOS, então o usuário não entra no Segment. O Segment não inclui o Dispositivo B.
+- `Push subscription status is not opted in` - O Dispositivo A aceitou push, então o usuário não entra no Segment. O Segment não inclui o Dispositivo B.
 
-**Resultado:** Usar qualquer combinação desses filtros de push resulta na exclusão de pelo menos um dispositivo do segmento.
+**Resultado:** Usar qualquer combinação desses filtros de push resulta na exclusão de pelo menos um dispositivo do Segment.
 
 {% enddetails %}
 
@@ -180,10 +180,10 @@ Quando um usuário tem múltiplos dispositivos com diferentes estados de inscri�
 - Dispositivo B: Não aceitou push
 - Dispositivo C: Não aceitou push
 
-**Filtros de segmento que não funcionam:**
-- `Push enabled = false` - O Dispositivo A aceitou push, então o usuário não entra no segmento. O segmento não inclui os Dispositivos B e C.
-- `Push enabled for app > X = false` - O Dispositivo A aceitou push no app especificado, então o usuário não entra no segmento. O segmento não inclui os Dispositivos B e C.
-- `Push subscription status is not opted in` - O Dispositivo A aceitou push, então o usuário não entra no segmento. O segmento não inclui os Dispositivos B e C.
+**Filtros de Segment que não funcionam:**
+- `Push enabled = false` - O Dispositivo A aceitou push, então o usuário não entra no Segment. O Segment não inclui os Dispositivos B e C.
+- `Push enabled for app > X = false` - O Dispositivo A aceitou push no app especificado, então o usuário não entra no Segment. O Segment não inclui os Dispositivos B e C.
+- `Push subscription status is not opted in` - O Dispositivo A aceitou push, então o usuário não entra no Segment. O Segment não inclui os Dispositivos B e C.
 
 **Resultado:** Usar qualquer combinação desses filtros de push deixa pelo menos um dispositivo sem direcionamento.
 

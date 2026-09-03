@@ -170,7 +170,7 @@ Consider the following questions as you test your in-app message:
 
 ### Why are body clicks not appearing on my analytics page?
 
-Body clicks are not automatically collected for in-app messages created with the drag-and-drop editor. For more details, refer to the SDK changelogs for [iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/changelog/objc_changelog#3310) and [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/changelog#1100).
+Body clicks are not automatically collected for in-app messages created with the drag-and-drop editor. For more details, refer to the SDK changelogs for [iOS]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/changelog/objc_changelog) and [Android]({{site.baseurl}}/developer_guide/changelogs?sdktab=android).
 
 ### Can I segment based on button clicks?
 
@@ -181,6 +181,18 @@ Yes, you can segment based on button clicks for up to two buttons in your messag
 ### Can I customize my in-app message using custom HTML or JavaScript or transfer existing HTML messages into the editor?
 
 You can't directly transfer existing HTML messages into the editor, but you can insert raw HTML, CSS, and JavaScript into a **Custom code** block. You can use **Custom code** blocks to embed third-party videos and advanced Liquid, such as Connected Content or conditional statements. For `brazeBridge` JavaScript methods and click tracking examples, see [Custom HTML in-app messages]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/).
+
+### Why might the drag-and-drop editor's composer view look different from the final message?
+
+The drag-and-drop editor renders your message inside a composer and applies preview-only styles and defaults so you can build and review the layout. Those treatments help you see structure and placeholder content while you edit; they aren't included in the message your users receive.
+
+Common examples of editor-only behavior include:
+
+- The editor wraps **Custom code** blocks in a `bz-html-code-block` container with a default `min-height` of `40px`, so empty or short blocks stay visible while you edit
+- Images that are blank or contain Liquid displaying a placeholder in the editor
+- Checkbox groups and radio buttons that preselect the first option so you can preview the active state
+
+If something looks different only in the editor, it is usually preview behavior. When troubleshooting the delivered message, review the styles and markup in your message blocks—not the editor-only frame or preview defaults.
 
 ### How can I create a slideup in-app message?
 

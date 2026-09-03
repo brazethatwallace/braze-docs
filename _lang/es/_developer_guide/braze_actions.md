@@ -10,17 +10,17 @@ hidden: true
 
 > Las acciones de Braze te permiten utilizar "enlaces profundos" para realizar funciones nativas del SDK.<br><br>El panel de Braze incluye varias acciones estándar al hacer clic (Solicitar permiso push, Registrar evento personalizado y Registrar atributo personalizado) que pueden utilizarse en mensajes dentro de la aplicación y en Content Cards.<br><br>Para todas las demás acciones, o para combinar varias acciones, utiliza esta guía para construir tu propio enlace profundo de acción de Braze.
 
-## Compatibilidad del SDK {#sdk-support}
+## Soporte del SDK {#sdk-support}
 
 {% sdk_min_versions swift:5.4.0 android:21.0.0 web:4.0.3 %}
 
-El esquema de enlace profundo `brazeActions://` puede utilizarse siempre que exista una opción de enlace profundo o de redireccionamiento dentro de los mensajes dentro de la aplicación y de Content Cards.
+El esquema de enlace profundo `brazeActions://` se puede utilizar en cualquier lugar donde exista una opción de enlace profundo o redirección dentro de los mensajes dentro de la aplicación y Content Cards.
 
-Para los mensajes HTML dentro de la aplicación, utiliza [`Javascript Bridge`]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/customize#javascript-bridge) en su lugar, ya que los enlaces profundos no son compatibles con los tipos de mensajes HTML.
+Para los mensajes dentro de la aplicación en HTML, utiliza el [`Javascript Bridge`]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#javascript-bridge) en su lugar, ya que los enlaces profundos no son compatibles con los tipos de mensajes HTML.
 
 ## Esquema {#schema}
 
-Puedes incluir varias acciones `steps` dentro de un tipo de acción `container`. También es válido un solo paso sin `container`.
+Puedes incluir múltiples `steps` de acción dentro de un tipo de acción `container`. Un solo paso sin un `container` también es válido.
 
 ```json
 {
@@ -29,7 +29,7 @@ Puedes incluir varias acciones `steps` dentro de un tipo de acción `container`.
 }
 ```
 
-Un `step` individual contiene un `type` de acción y una matriz opcional `args`:
+Un `step` individual contiene un `type` de acción y un array `args` opcional:
 
 ```json
 {
@@ -79,25 +79,25 @@ function encode(input) {
 
 ## Acciones compatibles {#supported-actions}
 
-| Tipo | Args |
+|Tipo|Argumentos|
 |--|--|
-| `container` | Una matriz de otras acciones a realizar |
-| `logCustomEvent` | 1. `event name`<br>2. `event properties JSON object` (opcional) |
-| `setEmailNotificationSubscriptionType` | `"opted_in" | "subscribed" | "unsubscribed"` |
-| `setPushNotificationSubscriptionType` | `"opted_in" | "subscribed" | "unsubscribed"` |
-| `setCustomUserAttribute` | 1. `attribute_name`<br>2. `attribute_value` |
-| `requestPushPermission` | N/A |
-| `openLink` | 1. `url`<br>2. `openInNewTab` (booleano) |
-| `openLinkInWebview` | `url` |
-| `addToSubscriptionGroup` | `subscriptionGroupId` |
-| `removeFromSubscriptionGroup` | `subscriptionGroupId` |
-| `addToCustomAttributeArray` | 1. `attribute_name`<br>2. `attribute_value` |
-| `removeFromCustomAttributeArray` | 1. `attribute_name`<br>2. `attribute_value` |
+|`container`|Un array de otras acciones a realizar|
+|`logCustomEvent`|1. `event name`<br>2. `event properties JSON object` (opcional)|
+|`setEmailNotificationSubscriptionType`|`"opted_in" | "subscribed" | "unsubscribed"`|
+|`setPushNotificationSubscriptionType`|`"opted_in" | "subscribed" | "unsubscribed"`|
+|`setCustomUserAttribute`|1. `attribute_name`<br>2. `attribute_value`|
+|`requestPushPermission`| N/A |
+|`openLink`|1. `url`<br>2. `openInNewTab` (booleano)|
+|`openLinkInWebview`| `url`|
+|`addToSubscriptionGroup`| `subscriptionGroupId`|
+|`removeFromSubscriptionGroup`| `subscriptionGroupId`|
+|`addToCustomAttributeArray`|1. `attribute_name`<br>2. `attribute_value`|
+|`removeFromCustomAttributeArray`|1. `attribute_name`<br>2. `attribute_value`|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Acciones compatibles" }
 
 ## Codificador JSON {#json-encoder}
 
-Introduce una cadena JSON para ver el URI resultante `brazeActions://`. O introduce un URI `brazeActions://` para decodificar su JSON.
+Introduce una cadena JSON para ver la URI `brazeActions://` resultante. O bien, introduce una URI `brazeActions://` para decodificar su JSON.
 
 <div><h4>Entrada JSON</h4></div>
 <textarea id="braze-actions-input" rows="12"></textarea>

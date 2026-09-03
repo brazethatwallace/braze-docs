@@ -12,8 +12,8 @@ description: >
 
 Turn internal TAM solution assets into generalized, product-accurate articles for the Braze User Guide.
 
-**REQUIRED SUB-SKILL:** For prose and structure use [braze-docs](../braze-docs/SKILL.md) (`braze-docs:braze-docs`). **REQUIRED SUB-SKILL:** For product verification use [reference-repos](../reference-repos/SKILL.md) (`braze-docs:reference-repos`). Open [`braze-workspace.code-workspace`](../../../braze-workspace.code-workspace) so `platform` and SDK repos are sibling folders when verifying behavior.
-
+**REQUIRED SUB-SKILL:** For prose and structure use [braze-docs](../braze-docs/SKILL.md) (`braze-docs:braze-docs`). 
+**REQUIRED SUB-SKILL:** For product verification use [reference-repos](../reference-repos/SKILL.md) (`braze-docs:reference-repos`). Open [`braze-workspace.code-workspace`](../../../braze-workspace.code-workspace) so `platform` and SDK repos are sibling folders when verifying behavior.
 **Output location:** `_docs/_user_guide/example_library/` (English canonical only; do not edit `_lang/`).
 
 ## Context
@@ -25,17 +25,30 @@ Turn internal TAM solution assets into generalized, product-accurate articles fo
 
 ## Source material
 
-TAM solutions may live in either location. Use whichever the user provides, or search both when auditing inventory.
+TAM solutions may live in any of these sources. Use whichever the user provides, or search Drive and Confluence when auditing inventory.
 
 | Source | Location |
 |--------|----------|
-| **Google Drive** | [TAM Assets folder](https://drive.google.com/drive/folders/1APchTnf3UWN6MGpGkeBfryGMn73LBUM0) |
+| **Google Doc URL** | User supplies a `docs.google.com/document/d/<ID>/` link — read via Google Docs MCP (see below) |
+| **Google Drive folder** | [TAM Assets folder](https://drive.google.com/drive/folders/1APchTnf3UWN6MGpGkeBfryGMn73LBUM0) |
 | **Confluence** | TAM solution pages (user supplies URL), or Atlassian MCP when available |
 | **Local JSON export** | `_data/tam_solutions/export_<YYYYMMDD>.json` from [`scripts/tam-solutions/export_drive_solutions.py`](../../../scripts/tam-solutions/export_drive_solutions.py) |
+| **Example library tracker** | [TAM solutions to Docs tracker — Example library](https://docs.google.com/spreadsheets/d/1YChWu-L-hPMRo9cVIMfqSYKBQQdNRs4PkFnXPnKk5RE/edit) — **Product team** per solution (used as **Product team:** on the BD Story). After the draft PR exists, write the PR URL into **PR link** on the matching row (see Step 7). |
+
+### Google Doc URL
+
+Do **not** `WebFetch` private Docs URLs (SSO). When the user gives a Google Doc link:
+
+1. Parse the document ID from `https://docs.google.com/document/d/<DOCUMENT_ID>/edit` (the path segment after `/d/`).
+2. If Google Docs MCP is available, call `get_document` with `document_id` set to that ID. Do **not** set `include_comments` (comment metadata can include emails).
+3. Run Step 1 audit on the returned plain text. Record the original Docs URL for the PR **TAM source** line.
+4. If MCP is missing, unauthorized, or the call fails (no access, not a native Doc), ask the user to **paste** the relevant sections or to run the Drive export below. Do not guess the TAM content.
+
+Word uploads (`.doc` / `.docx`) may still return via `get_document`. PDFs and other Drive files are not Google Docs — use paste, convert to a Doc, or `gdrive` file read if available.
 
 ### Google Drive export (optional)
 
-Cursor cannot read private Google Docs URLs directly. For bulk inventory or offline triage, run the Drive export script locally:
+For bulk inventory or offline triage (a folder of Docs, not a single URL), run the Drive export script locally:
 
 ```bash
 pip install google-api-python-client google-auth
@@ -51,9 +64,9 @@ python3 scripts/tam-solutions/export_drive_solutions.py
 
 When the user invokes this skill with a local export file, read the matching `solutions[]` entry by `title`, `path`, or `web_view_link` instead of fetching Drive.
 
-**Reading sources (fallback order):** Local JSON export → user paste → Confluence (MCP) → Drive URL (often fails without auth). If all fail, ask the user to paste or export before continuing.
+**Reading sources (fallback order):** Google Doc URL (Docs MCP `get_document`) → local JSON export → user paste → Confluence (MCP) → Drive folder URL (not a substitute for a single Doc). If all fail, ask the user to paste or export before continuing.
 
-**Traceability:** Record the exact source URL (Drive `web_view_link`, Confluence page URL, or export path) for the PR body. Never paste raw internal content that contains customer PII into public PR descriptions.
+**Traceability:** Record the exact source URL (Google Doc URL, Drive `web_view_link`, Confluence page URL, or export path) for the PR body. Never paste raw internal content that contains customer PII into public PR descriptions.
 
 ---
 
@@ -74,7 +87,7 @@ If only part of a solution is skippable, extract the generalizable portion only 
 
 ## Step 1: Read and audit the TAM solution
 
-For each solution the user assigns:
+For each solution the user assigns. If they provide a Google Doc URL, follow **Google Doc URL** above before auditing.
 
 ### 1a. Completeness
 
@@ -241,7 +254,7 @@ Offer a short summary: target file, sections added, verification status, and any
 | **Label** | `tam solutions` — `gh pr edit --add-label "tam solutions"` after create |
 | **Assignees** | Longest-prefix match in [`.github/support_analyzer_doc_assignees.csv`](../../support_analyzer_doc_assignees.csv) for paths touched; otherwise `braze-inc/docs-team` |
 
-**Jira:** A parent epic or ticket is **not yet created**. When it exists, link each PR to that parent. Until then, omit Jira links or note "Parent epic pending."
+**Jira:** Parent epic [**BD-7190**](https://jira.atl.braze.com/browse/BD-7190) (Migrate generalized TAM solutions to Example library). After the draft PR exists, create one **Story** under that epic (see **After the PR is created** below).
 
 **Body** — use the create-pr template and include:
 
@@ -265,7 +278,8 @@ Offer a short summary: target file, sections added, verification status, and any
 
 ### Jira
 
-- Parent epic: pending
+- Parent epic: [BD-7190](https://jira.atl.braze.com/browse/BD-7190)
+- Story: pending (agent fills the new key after create)
 
 ### Contributor checklist
 
@@ -273,6 +287,71 @@ Offer a short summary: target file, sections added, verification status, and any
 ```
 
 If verified against product source, include **Verified against Braze source code.** — do **not** paste `platform/` or SDK paths in the PR description.
+
+### After the PR is created (Jira Story under BD-7190)
+
+Run this only after `gh pr create` succeeds and the user already approved the draft (Step 6). Do not create a Story during audit or for skipped solutions.
+
+Tracker sync and Jira Story create are **independent**. Always match the tracker row and write **PR link** after the draft PR exists, even if you skip Story create (Dedup) or Jira create fails.
+
+1. **Match the tracker row** — Resolve the Example library tracker row from the [TAM solutions to Docs tracker — Example library](https://docs.google.com/spreadsheets/d/1YChWu-L-hPMRo9cVIMfqSYKBQQdNRs4PkFnXPnKk5RE/edit) Google Sheet (spreadsheet ID `1YChWu-L-hPMRo9cVIMfqSYKBQQdNRs4PkFnXPnKk5RE`). Do **not** `WebFetch` the Sheet (SSO). Use Google Sheets MCP `get_sheet_data`.
+
+   1. Read both tabs: **Customer agnostic — Confluence** and **TAM assets — Google Drive**.
+   2. Match the TAM source to a row: Google Doc ID in the **Link** cell, or the Confluence page URL. Prefer URL/ID match over title.
+   3. Keep the matched tab name, row number, and **Product team** cell for later steps. Do not copy customer names from tracker titles. Do not read the **PM** column unless the user asks.
+
+2. **Write the PR onto the tracker** — Always run this after `gh pr create`, using the row from step 1. Do **not** wait for Story create. Use Google Sheets MCP `update_cell` (Editor access on the Sheet). Do **not** `WebFetch`. Do **not** insert a new row.
+
+   Resolve the cell from **row 1 of the matched tab**. Use the column whose header is exactly **PR link**. Do **not** hardcode column `E` for both tabs — layouts differ:
+
+   | Tab | **PR link** | Adjacent columns (do not write) |
+   |-----|-------------|--------------------------------|
+   | **Customer agnostic — Confluence** | Column `E` (`E1` is already **PR link**) | `D` = **PM**, `F` = **Status** |
+   | **TAM assets — Google Drive** | Column `D` (`D1` is already **PR link**) | `E` = **Status**, `F` = **Note** |
+
+   If row 1 has no **PR link** header, stop and tell the user. Do **not** create `E1` as **PR link** on Drive (that overwrites **Status**). Never write a PR URL into a **Status**, **PM**, **Product team**, or **Note** cell.
+
+   Call `update_cell` with `spreadsheet_id` `1YChWu-L-hPMRo9cVIMfqSYKBQQdNRs4PkFnXPnKk5RE`, the tab name, the resolved cell (for example `E3` on Confluence, `D31` on Drive), and content `[{"text": "<pr url>", "url": "<pr url>"}]`.
+
+   - If **PR link** is empty, write the new PR URL.
+   - If it already equals this PR, skip.
+   - If it is a **different** URL, do not overwrite; tell the user.
+   - If no row matched, Sheets MCP lacks write access, or `update_cell` fails: leave the PR up and tell the user. Do not block the PR or skip later Jira steps.
+
+3. **Dedup Story create** — Skip **only** Story create (step 4) if the PR title or body already has a `BD-####` other than `BD-7190`, or if JQL finds an open child of the epic for this PR:
+   `parent = BD-7190 AND description ~ "<github pull request url>"`
+   Dedup does **not** skip tracker write (step 2).
+
+4. **Create the Story** — Prefer Rovo `createJiraIssue` (workspace Jira access). Project `BD`, issue type `Story`, parent **BD-7190** (`parent` and epic-link field if required). Priority **P4**. Summary: `TAM solutions - <example title>`.
+
+   **Assignee** — Assign every Story this skill creates to **Lydia Xie** (GitHub `lydia-xie`). Before create, call Rovo `lookupJiraAccountId` with search string `Lydia Xie` and pass the returned account ID as `assignee_account_id` on `createJiraIssue`. If lookup returns more than one person, pick the Braze Docs / Technical Writing match. If lookup or assign fails, still create the Story unassigned and tell the user.
+
+   **Product team:** — Copy the **Product team** cell from the matched tracker row (step 1) as-is, including multiple values separated by `;`. If step 1 found no row, Sheets MCP failed, or that cell is empty, set **Product team:** to `Unknown — confirm in tracker` and tell the user. Still create the Story.
+
+   Description must be markdown in this exact shape (fill each value; do not omit labels). Confirm required BD fields with issue-type metadata if create fails.
+
+   ```markdown
+   **GitHub PR:**
+   <pull request URL>
+
+   **Docs path for example:**
+   `_docs/_user_guide/example_library/<category>/<slug>.md`
+
+   **TAM source:**
+   <Google Doc, Drive, or Confluence URL>
+
+   **Product team:**
+   <Product team from the matching tracker row>
+
+   **Example description:**
+   <one line on what the example covers>
+   ```
+
+   Do not put customer names or other PII in **Example description**.
+
+5. **Write back** — If step 4 created a Story, `gh pr edit` the title to `[TAM solutions][BD-####] <short summary>` (child Story key, not `BD-7190`). Set **### Jira** to the Story URL and keep the BD-7190 epic link. Optionally comment on the Story with the PR URL. Skip this step when Dedup skipped create.
+
+6. **Jira failure** — If Jira MCP is unavailable or create fails, leave the PR up, keep the epic link in the PR body, and tell the user the Story was not created. Still complete tracker write (step 2) if it has not run yet. Do not block the PR. Do not use branch names like `jira-BD-####` (reserved for feedback-handler).
 
 ---
 
@@ -286,7 +365,7 @@ If verified against product source, include **Verified against Braze source code
 | 4 | Draft article with four required sections | User reviews draft |
 | 5 | Branch, commit, push | — |
 | 6 | — | **User approves before PR** |
-| 7 | Open draft PR with label and TAM source link | — |
+| 7 | Open draft PR; create a BD Story under [BD-7190](https://jira.atl.braze.com/browse/BD-7190); write the PR URL to the tracker **PR link** cell; patch PR with the Story key | — |
 
 No CI or scripts for v1 — Cursor-driven only.
 
@@ -298,6 +377,10 @@ Natural-language example requests:
 
 ```
 Audit and generalize this TAM solution from Confluence: [URL]
+```
+
+```
+Audit this TAM solution Google Doc and draft an example: https://docs.google.com/document/d/<DOCUMENT_ID>/edit
 ```
 
 ```

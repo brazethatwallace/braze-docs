@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Refiner
 
-> [Refiner](https://refiner.io) ist eine In-App-Umfrageplattform für SaaS- und mobile Apps. Sie ermöglicht es Produkt- und Voice-of-Customer-Teams, gezielte In-App-Umfragen zu starten und kontinuierlich NPS-, CSAT-, CES-, Produktfeedback- und Zero-Party-Nutzerdaten zu erfassen.
+> [Refiner](https://refiner.io) ist eine In-App-Umfrageplattform für SaaS- und mobile Apps. Sie ermöglicht es Produkt- und Voice-of-Customer-Teams, gezielte In-App-Umfragen zu starten und kontinuierlich Net Promoter Score-, CSAT-, CES-, Produktfeedback- und Zero-Party-Nutzerdaten zu erfassen.
 
 _Diese Integration wird von Refiner gepflegt._
 
@@ -20,7 +20,7 @@ Verwenden Sie die Integration von Refiner und Braze, um Umfrageereignisse und An
 
 ## Anwendungsfälle {#use-cases}
 
-- Nutzer:innen anhand von Umfrageantworten segmentieren, z. B. NPS-Werte oder CSAT-Bewertungen.
+- Nutzer:innen anhand von Umfrageantworten segmentieren, z. B. Net Promoter Score-Werte oder CSAT-Bewertungen.
 - Personalisierte Campaigns in Braze basierend auf Umfrageergebnissen triggern.
 - Kanalübergreifende Journeys mit Braze-Canvas oder anderen Orchestrierungstools steuern.
 
@@ -41,7 +41,7 @@ Wählen Sie im Bereich **Integrations** Ihres Refiner-Projekts **Connect Braze**
 
 ### Schritt 2: Nutzerbezeichner zuordnen {#step-2-map-user-identifiers}
 
-Ordnen Sie den Refiner-Nutzerbezeichner dem von Ihnen verwendeten Braze-Bezeichner zu, z. B. einer Braze-`external_id` oder E-Mail-Adresse. So wird sichergestellt, dass Ereignisse dem richtigen Nutzerprofil in Braze zugeordnet werden.
+Ordnen Sie den Refiner-Nutzerbezeichner dem von Ihnen verwendeten Braze-Bezeichner zu, z. B. einer Braze-`external_id` oder E-Mail-Adresse. So wird sichergestellt, dass Ereignisse dem richtigen Kundenprofil in Braze zugeordnet werden.
 
 ### Schritt 3: Zu synchronisierende Daten auswählen {#step-3-choose-data-to-sync}
 

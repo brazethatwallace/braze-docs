@@ -91,7 +91,7 @@ Braze에 ODP로 매핑하려는 추가 데이터 필드가 있는 경우, ODP에
 6. **Targeting** 섹션을 확장한 다음 **Target Identifier**를 선택합니다.
 7. **Configure** 섹션에서 **Add Users To**에 대해 다음 옵션 중 하나를 선택합니다:
     - **Campaign:** Braze의 특정 Campaign에 고객을 추가합니다. 이 옵션을 선택한 후 Braze Campaign을 선택해야 합니다.
-    - **Canvas:** Braze의 특정 Canvas에 고객을 추가합니다. 이 옵션을 선택한 후 Braze Canvas를 선택해야 합니다.
+    - **Canvas:** Braze의 특정 Canvas에 고객을 추가합니다. 이 옵션을 선택한 후 BRAZE 캔버스를 선택해야 합니다.
     - **Profile Update Only:** Braze 고객 프로필만 업데이트합니다.
 8. (선택 사항) Braze로 동기화할 **Number of Additional Fields**(최대 20개)를 선택합니다.
     그런 다음 각 추가 필드의 드롭다운 목록과 입력 필드에 대해 다음을 선택합니다:

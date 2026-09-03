@@ -15,7 +15,7 @@ tool:
 
 # 지오펜스 {#geofences}
 
-> Braze SDK에 지오펜스를 설정하는 방법을 알아보세요. [지오펜스]({{site.baseurl}}/user_guide/engagement_tools/locations_and_geofences/#about-locations-and-geofences)는 특정 글로벌 위치를 중심으로 원을 형성하는 가상의 지리적 영역으로, 위도, 경도, 반경을 결합하여 표현합니다.
+> Braze SDK에 지오펜스를 설정하는 방법을 알아보세요. [지오펜스]({{site.baseurl}}/user_guide/audience/locations_and_geofences)는 특정 글로벌 위치를 중심으로 원을 형성하는 가상의 지리적 영역으로, 위도, 경도, 반경을 결합하여 표현합니다.
 
 {% sdktabs %}
 {% sdktab android %}

@@ -11,9 +11,9 @@ Esto puede ocurrir por varias razones:
 
 {% if include.section == "Refresh settings" %}
 
-Si no necesitas que tu extensión se actualice de forma periódica, puedes guardarla sin utilizar la configuración de actualización, y Braze generará por defecto tu extensión de segmento basándose en la pertenencia de usuarios en ese momento. Utiliza el comportamiento predeterminado si solo quieres generar la audiencia una vez y luego dirigirte a ella con una Campaign puntual.
+Si no necesitas que tu extensión se actualice de forma periódica, puedes guardarla sin utilizar la configuración de actualización, y Braze generará por defecto tu extensión de segmento basándose en la pertenencia de usuarios en ese momento. Utiliza el comportamiento predeterminado si solo quieres generar la audiencia una vez y luego dirigirte a ella con una campaña puntual.
 
-Tu segmento siempre empezará a procesarse después del guardado inicial. Cada vez que se actualice tu segmento, Braze volverá a ejecutar el segmento y actualizará la pertenencia al mismo para reflejar los usuarios de tu segmento en el momento de la actualización. Esto puede ayudar a que tus Campaigns recurrentes lleguen a los usuarios más relevantes.
+Tu segmento siempre empezará a procesarse después del guardado inicial. Cada vez que se actualice tu segmento, Braze volverá a ejecutar el segmento y actualizará la pertenencia al mismo para reflejar los usuarios de tu segmento en el momento de la actualización. Esto puede ayudar a que tus campañas recurrentes lleguen a los usuarios más relevantes.
 
 #### Configurar una actualización periódica {#setting-up-a-recurring-refresh}
 
@@ -34,7 +34,7 @@ Braze notificará al contacto de la empresa y al creador de la extensión si se 
 
 En el panel **Configuración del intervalo de actualización**, puedes seleccionar la frecuencia con la que se actualizará esta extensión de segmento: cada hora, cada día, cada semana o cada mes. También se te pedirá que selecciones la hora concreta (que corresponde a la zona horaria de tu empresa) a la que se produciría la actualización, por ejemplo:
 
-- Si tienes una Campaign de correo electrónico que se envía todos los lunes a las 11 de la mañana, hora de la empresa, y quieres asegurarte de que tu segmento se actualiza justo antes de enviarlo, debes elegir un programa de actualización semanal a las 10 de la mañana de los lunes.
+- Si tienes una campaña de correo electrónico que se envía todos los lunes a las 11 de la mañana, hora de la empresa, y quieres asegurarte de que tu segmento se actualiza justo antes de enviarlo, debes elegir un programa de actualización semanal a las 10 de la mañana de los lunes.
 - Si quieres que tu segmento se actualice todos los días, selecciona la frecuencia de actualización diaria y, a continuación, elige la hora del día en que se actualizará.
 
 {% alert note %}
@@ -73,5 +73,15 @@ Cuando estés listo para utilizar una extensión de segmento obsoleta, revisa la
 {% if include.section == "same channel identifier" %}
 
 Cuando un mensaje se recibe, se abre o se hace clic en él, Braze actualiza los datos de todos los perfiles que comparten el mismo identificador de canal que el perfil que registró la interacción (por ejemplo, la misma dirección de correo electrónico para correo electrónico, o el mismo número de teléfono para SMS o WhatsApp). Los usuarios que comparten un identificador con alguien que recibió, abrió o hizo clic en el mensaje pueden coincidir con este filtro incluso si no formaban parte originalmente de la Campaign o no recibieron el mensaje directamente.
+
+{% endif %}
+
+{% if include.section == "Canvas variant archived segment" %}
+
+### No se puede eliminar una variante en Canvas debido a un segmento archivado {#cant-delete-a-canvas-variant-because-of-an-archived-segment}
+
+Si Braze bloquea la eliminación de una variante en Canvas porque un filtro de segmento aún hace referencia a esa variante, abre el segmento que usa la referencia —incluidos los segmentos archivados— y elimina la variante de sus filtros. Después de guardar el segmento, vuelve al Canvas e intenta eliminar la variante de nuevo.
+
+Para encontrar qué segmentos hacen referencia a un Canvas, abre el Canvas y revisa sus filtros de audiencia, o comprueba la sección [Uso en mensajería]({{site.baseurl}}/user_guide/audience/segments/managing_segments#messaging-use) de cada segmento para ver los Canvas vinculados.
 
 {% endif %}

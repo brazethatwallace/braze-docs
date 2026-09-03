@@ -13,26 +13,26 @@ description: "Este artigo aborda insights sobre a versão do iOS 18 para ajudar 
 
 A [WWDC](https://developer.apple.com/wwdc24/) da Apple foi realizada de 9 a 11 de junho de 2024. Saiba mais sobre os anúncios em nossa [publicação no blog](https://www.braze.com/resources/articles/wwdc-announcements-bring-apple-intelligence-rcs-and-more-to-ios-18) ou continue lendo para saber como aproveitar o iOS 18 com a Braze.
 
-## Alterações no iOS 18 {#changes-in-ios-18}
+## Mudanças no iOS 18 {#changes-in-ios-18}
 
 ### Live Activities no Apple Watch {#live-activities-on-apple-watch}
 
-O [Live Activities]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?sdktab=swift) será compatível com o watchOS 11. Não é necessária nenhuma configuração adicional. No entanto, a Apple oferece a opção de personalizar a interface do relógio.
+As [Live Activities]({{site.baseurl}}/developer_guide/live_notifications?sdktab=swift) serão compatíveis com o watchOS 11. Nenhuma configuração adicional é necessária. No entanto, a Apple oferece a opção de personalizar a interface do relógio.
 
 ### Apple Vision Pro
 
-O Vision Pro já está disponível na China, Japão, Cingapura, Austrália, Canadá, França, Alemanha e Reino Unido. Confira nosso blog para ver como a [Braze oferece suporte ao visionOS](https://www.braze.com/resources/articles/building-braze-a-new-era-of-customer-engagement-braze-announces-visionos-support).
+O Vision Pro agora está disponível na China, Japão, Singapura, Austrália, Canadá, França, Alemanha e Reino Unido. Confira nosso blog para saber como a [Braze oferece suporte ao visionOS](https://www.braze.com/resources/articles/building-braze-a-new-era-of-customer-engagement-braze-announces-visionos-support).
 
 ### Notificações do iPhone no macOS {#iphone-notifications-on-macos}
 
-O novo recurso de [espelhamento do iPhone](https://www.apple.com/newsroom/2024/06/macos-sequoia-takes-productivity-and-intelligence-on-mac-to-new-heights/) da Apple permite que os usuários recebam notificações do iPhone em seus dispositivos macOS. Lembre-se de que alguns tipos de mídia, como imagens de story por push e GIFs, não são compatíveis, pois não podem ser renderizados como uma notificação no macOS.
+O novo recurso de [espelhamento do iPhone](https://www.apple.com/newsroom/2024/06/macos-sequoia-takes-productivity-and-intelligence-on-mac-to-new-heights/) da Apple permite que os usuários recebam notificações do iPhone em seus dispositivos macOS. Tenha em mente que alguns tipos de mídia, como imagens de Push Story e GIFs, não são compatíveis, pois não podem ser renderizados como uma notificação do macOS.
 
 ### Apple Intelligence
 
-O [Apple Intelligence](https://developer.apple.com/documentation/Updates/Apple-Intelligence) já está disponível para dispositivos com iOS 18.1 e posterior.
+O [Apple Intelligence](https://developer.apple.com/documentation/Updates/Apple-Intelligence) agora está disponível para dispositivos com iOS 18.1 e versões posteriores.
 
-Como usuário da Braze, o novo recurso mais importante que você deve conhecer são os [resumos de notificação](https://support.apple.com/en-us/108781), que usam o processamento no dispositivo para agrupar e gerar automaticamente resumos de texto para notificações por push relacionadas enviadas de um único app. Os usuários finais podem tocar para expandir um resumo e visualizar cada notificação por push como foi enviada originalmente.
+Como usuário da Braze, o novo recurso mais importante para você conhecer são os [resumos de notificações](https://support.apple.com/en-us/108781), que usam processamento no dispositivo para agrupar e gerar automaticamente resumos de texto para notificações por push relacionadas enviadas por um único app. Os usuários finais podem tocar para expandir um resumo e visualizar cada notificação por push como foi originalmente enviada.
 
-Devido à forma como esses resumos são gerados, você não terá controle sobre o comportamento específico deles ou sobre o texto gerado. No entanto, isso não afetará nenhum recurso de análise de dados ou relatórios, como o rastreamento de cliques em push.
+Devido à forma como esses resumos são gerados, você não terá controle sobre o comportamento específico deles ou sobre o texto gerado. No entanto, isso não afetará nenhum recurso de análise de dados ou relatório, como o rastreamento de cliques em push.
 
-![Exemplo de captura de tela de um resumo de pré-visualização de notificação por push.]({% image_buster /assets/img/apple/apple_intelligence/notification_preview_summary.png %})
+![Exemplo de captura de tela de um resumo de prévia de notificação por push.]({% image_buster /assets/img/apple/apple_intelligence/notification_preview_summary.png %})

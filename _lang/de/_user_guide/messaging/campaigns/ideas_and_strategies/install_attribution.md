@@ -17,18 +17,18 @@ Braze bietet zwar kein Install-Attribution-Tracking an, lässt sich aber mit [Di
 
 ## Segmentieren Sie Ihre Nutzer:innen {#segment-your-users}
 
-Sobald Nutzer:innen Ihre App installiert haben, können Sie sie anhand der folgenden [Install-Attribution-Filter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#install-attribution) segmentieren. Eine Reise-App könnte beispielsweise Nutzer:innen, die über eine Anzeige zu Strandurlaubs-Angeboten gekommen sind, einem Segment „Strandliebhaber“ hinzufügen. Ebenso könnte eine Musik-App Nutzer:innen basierend auf dem Musikgenre segmentieren, das in der Werbeanzeige angezeigt wurde, die zur Installation geführt hat.
+Sobald Nutzer:innen Ihre App installiert haben, können Sie sie anhand der folgenden [Install-Attribution-Filter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#install-attribution) segmentieren. Eine Reise-App könnte beispielsweise Nutzer:innen, die über eine Anzeige zu Strandurlaubs-Angeboten gekommen sind, einem Segment „Strandliebhaber:innen“ hinzufügen. Ebenso könnte eine Musik-App Nutzer:innen basierend auf dem Musikgenre segmentieren, das in der Anzeige angezeigt wurde, die zur Installation geführt hat.
 
 ## Best Practices {#best-practices}
 
 ### Personalisiertes Onboarding {#personalized-onboarding}
 
-Da Sie nun mehr Informationen über Ihre Nutzer:innen haben, können Sie deren Onboarding-Prozess personalisieren. Das kann so einfach sein wie das Anpassen der Bilder in Ihren Nachrichten an die Vorlieben der Nutzer:innen, oder so komplex wie das Erstellen eines individuellen Onboardings für jede Anzeige, die zu einer Installation führen könnte. Um eine umfassende Abfolge von Nachrichten zu erstellen, die das Verhalten der Nutzer:innen berücksichtigt, lesen Sie unsere Dokumentation zu [Canvas]({{site.baseurl}}/developer_guide/rest_api/messaging#canvas).
+Jetzt, da Sie mehr Informationen über Ihre Nutzer:innen haben, können Sie deren Onboarding-Prozess personalisieren. Das kann so einfach sein wie das Ändern der Bilder in Ihren Nachrichten entsprechend den Präferenzen, oder so komplex wie das Erstellen eines einzigartigen Nutzer:innen-Onboardings für jede Anzeige, die zu einer Installation führen könnte. Um eine umfassende Abfolge von Nachrichten zu skalieren, die das Nutzer:innenverhalten berücksichtigt, lesen Sie unsere Dokumentation zu [Canvas]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases).
 
-### Daten aus der Anzeige referenzieren {#reference-data-from-the-ad}
+### Referenzdaten aus der Anzeige {#reference-data-from-the-ad}
 
-Nutzer:innen werden möglicherweise durch eine Aktion oder ein Gewinnspiel auf Ihre App aufmerksam. Mithilfe von Install-Attribution-Daten können Sie Campaigns mit Rabattcodes oder Angeboten ausschließlich an diejenigen Nutzer:innen senden, die aufgrund dieser Aktionen installiert haben. Auf ähnliche Weise können Sie, wenn Ihre Anzeige Informationen zu einem bestimmten Produkt enthält (z. B. einen bestimmten Film in einer Video-App oder einen Sale in einer E-Commerce-App), Campaigns senden, die Nutzer:innen zur richtigen Seite Ihrer App weiterleiten.
+Nutzer:innen können durch ein Werbeangebot oder eine Aktion auf Ihre App aufmerksam werden. Mithilfe von Install-Attribution-Daten können Sie Campaigns mit Rabattcodes oder Angeboten ausschließlich an jene Nutzer:innen senden, die Ihre App aufgrund dieser Aktionen installiert haben. Auf ähnliche Weise können Sie, wenn Ihre Anzeige Informationen zu einem bestimmten Produkt enthält (z. B. einen bestimmten Film in einer Video-App oder einen Sale in einer E-Commerce-App), Campaigns senden, die Nutzer:innen zur richtigen Seite in Ihrer App weiterleiten.
 
-## Werbemaßnahmen bewerten {#evaluate-advertising-efforts}
+## Werbeaufwand bewerten {#evaluate-advertising-efforts}
 
-Install-Attribution-Daten können wertvoll sein, um die Effektivität verschiedener Marketingkampagnen zu beurteilen. Zu analysieren, welche Anzeigen und Campaigns zu den meisten Installationen führen und welche zurückbleiben, kann Ihnen helfen, Ihre Ressourcen auf die wirkungsvollsten Anzeigen zu konzentrieren.
+Install-Attribution-Daten können wertvoll sein, um die Effektivität verschiedener Marketing-Campaigns zu bewerten. Durch die Analyse, welche Anzeigen und Campaigns die meisten Installationen generieren und welche hinterherhinken, können Sie Ihre Ressourcen auf die überzeugendsten Anzeigen konzentrieren.

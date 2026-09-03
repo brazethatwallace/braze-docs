@@ -83,7 +83,7 @@ A Okendo envia dados do perfil do usuário como atributos personalizados na Braz
 - Métricas de avaliação como *Classificação média da avaliação* e *Sentimento médio da avaliação*
 - Métricas de fidelidade, como *Saldo de pontos* e *Nível VIP*
 - Métricas de indicações, como o *Número de indicações bem-sucedidas* e *Receita total de indicações*
-- Pontuação NPS coletada de uma pesquisa
+- Pontuação Net Promoter Score (NPS) coletada de uma pesquisa
 
 ## Usando a Braze com produtos Okendo {#using-braze-with-okendo-products}
 

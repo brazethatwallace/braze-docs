@@ -13,17 +13,21 @@ description: "Este artículo de referencia explica cómo implementar el píxel d
 
 ## Activar el seguimiento de píxel de apertura o de clics {#turning-on-open-pixel-or-click-tracking}
 
-Al importar o actualizar un perfil de usuario a través de la [API]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields), [CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) o la [ingesta de datos en la nube (CDI)]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion), hay dos campos disponibles que puedes modificar:
+Al importar o actualizar un perfil de usuario a través de la [API]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields), [CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) o la [ingesta de datos en la nube (CDI)]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion), hay dos campos disponibles para que los modifiques:
 
 - `email_open_tracking_disabled`: Acepta `true` o `false`. Establécelo en `false` para añadir el píxel de seguimiento de apertura a todos los correos electrónicos futuros enviados a este usuario.
 - `email_click_tracking_disabled`: Acepta `true` o `false`. Establécelo en `false` para añadir el seguimiento de clics a todos los enlaces dentro de un correo electrónico futuro enviado a este usuario.
 
-Como referencia, esta información se refleja en el perfil de usuario en la sección de correo electrónico **Configuración de contacto**, ubicada en la pestaña **Engagement**.
+Como referencia, esta información se refleja en el perfil de usuario en la **Configuración de contacto** de correo electrónico, ubicada en la pestaña **Engagement**.
 
 ![Campos de píxel de seguimiento de apertura y clics de correo electrónico en la pestaña Engagement del perfil de un usuario]({% image_buster /assets/img_archive/open_click_user_profile.png %}){: style="max-width:60%;"}
 
 ## Requisitos de los enlaces de seguimiento de clics {#click-tracking-link-requirements}
 
-El seguimiento de clics de Braze solo reescribe los enlaces que utilizan URL con `http://` o `https://`. Los enlaces que utilizan otros esquemas, como `mailto:` o `tel:`, no se rastrean con seguimiento de clics.
+El seguimiento de clics de Braze solo reescribe los enlaces que utilizan URL con `http://` o `https://`. Los enlaces que utilizan otros esquemas, como `mailto:` o `tel:`, no se rastrean para clics.
 
-Para rastrear clics en números de teléfono o direcciones de correo electrónico, utiliza una URL de redireccionamiento con `https://` que reenvíe al destino `tel:` o `mailto:`.
+Para rastrear clics en números de teléfono o direcciones de correo electrónico, utiliza una URL de redireccionamiento `https://` que reenvíe al destino `tel:` o `mailto:` en su lugar.
+
+### Patrones de URL de seguimiento de clics {#click-tracking-url-patterns}
+
+Cuando tu proveedor de servicios de correo electrónico (ESP) reescribe un enlace para el seguimiento de clics, la URL resultante utiliza tu dominio de seguimiento de clics y un prefijo de ruta específico del ESP. Para los patrones que genera cada ESP, que necesitas para las reglas de firewall y las listas de permitidos de seguridad, consulta [Patrones de URL de seguimiento de clics y aperturas]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#click-and-open-tracking-url-patterns).

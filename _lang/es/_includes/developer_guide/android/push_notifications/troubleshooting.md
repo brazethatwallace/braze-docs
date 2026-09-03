@@ -1,6 +1,6 @@
-## Comprender el flujo de trabajo push de Braze {#understanding-the-braze-push-workflow}
+## Comprensión del flujo de trabajo push de Braze {#understanding-the-braze-push-workflow}
 
-El servicio de mensajería en la nube de Firebase (FCM) es la infraestructura de Google para las notificaciones push enviadas a las aplicaciones de Android. Esta es la estructura simplificada de cómo se habilitan las notificaciones push para los dispositivos de tus usuarios y cómo Braze puede enviarles notificaciones push:
+Firebase Cloud Messaging (FCM) es la infraestructura de Google para las notificaciones push enviadas a aplicaciones Android. Aquí se muestra la estructura simplificada de cómo se habilitan las notificaciones push para los dispositivos de tus usuarios y cómo Braze puede enviarles notificaciones push:
 
 ```mermaid
 ---
@@ -37,110 +37,110 @@ sequenceDiagram
 
 ```
 
-### Paso 1: Configurar tu clave de API de Google Cloud {#step-1-configure-your-google-cloud-api-key}
+### Paso 1: Configura tu clave de API de Google Cloud {#step-1-configure-your-google-cloud-api-key}
 
-Al desarrollar tu aplicación, tendrás que proporcionar al SDK de Android de Braze tu ID de remitente de Firebase. Además, tendrás que proporcionar al panel de Braze una clave de API para aplicaciones de servidor. Braze utilizará esta clave de API para enviar mensajes a tus dispositivos. También tendrás que comprobar que el servicio FCM está habilitado en la consola para desarrolladores de Google.
+Al desarrollar tu aplicación, deberás proporcionar al SDK de Braze para Android tu ID de remitente de Firebase. Además, deberás proporcionar una clave de API para aplicaciones de servidor al panel de Braze. Braze utilizará esta clave de API para enviar mensajes a tus dispositivos. También deberás verificar que el servicio FCM esté habilitado en la consola para desarrolladores de Google.
 
 {% alert note %}
-Un error común durante este paso es utilizar la clave de API del identificador de la aplicación en lugar de la clave de API REST.
+Un error común durante este paso es usar la clave de API del identificador de la aplicación en lugar de la clave de API REST.
 {% endalert %}
 
-### Paso 2: Los dispositivos se registran en FCM y proporcionan a Braze tokens de notificaciones push {#step-2-devices-register-for-fcm-and-provide-braze-with-push-tokens}
+### Paso 2: Los dispositivos se registran en FCM y proporcionan a Braze los tokens de notificaciones push {#step-2-devices-register-for-fcm-and-provide-braze-with-push-tokens}
 
-En las integraciones típicas, el SDK de Android de Braze se encargará de registrar los dispositivos para la función FCM. Esto suele ocurrir inmediatamente después de abrir la aplicación por primera vez. Tras el registro, Braze recibirá un ID de registro de FCM, que se utiliza para enviar mensajes a ese dispositivo en concreto. Almacenaremos el ID de registro de ese usuario, y ese usuario se convertirá en "registrado push" si antes no tenía un token de notificaciones push para ninguna de tus aplicaciones.
+En integraciones típicas, el SDK de Braze para Android se encargará de registrar los dispositivos para la funcionalidad de FCM. Esto generalmente ocurre inmediatamente al abrir la aplicación por primera vez. Después del registro, Braze recibirá un ID de registro de FCM, que se utiliza para enviar mensajes a ese dispositivo específicamente. Almacenaremos el ID de registro para ese usuario, y ese usuario pasará a estar "registrado para push" si anteriormente no tenía un token de notificaciones push para ninguna de tus aplicaciones.
 
-### Paso 3: Lanzamiento de una Campaign push de Braze {#step-3-launch-a-braze-push-campaign}
+### Paso 3: Lanza una Campaign push de Braze {#step-3-launch-a-braze-push-campaign}
 
-Cuando se lance una Campaign push, Braze hará solicitudes a FCM para que entregue tu mensaje. Braze utilizará la clave de API copiada en el panel para autenticar y verificar que podemos enviar notificaciones push a los tokens de notificaciones push proporcionados.
+Cuando se lanza una Campaign push, Braze realiza solicitudes a FCM para entregar tu mensaje. Braze usa la clave de API copiada en el panel para autenticarse y verificar que podemos enviar notificaciones push a los tokens de notificaciones push proporcionados.
 
-### Paso 4: Eliminar tokens no válidos {#step-4-remove-invalid-tokens}
+### Paso 4: Elimina los tokens no válidos {#step-4-remove-invalid-tokens}
 
-Si FCM nos informa de que alguno de los tokens de notificaciones push a los que intentábamos enviar un mensaje no es válido, eliminamos esos tokens de los perfiles de usuario a los que estaban asociados. Si los usuarios no tienen otros tokens de notificaciones push, ya no aparecerán como "Registrados push" en la página **Segments**.
+Si FCM nos informa de que alguno de los tokens de notificaciones push a los que intentábamos enviar un mensaje no es válido, eliminamos esos tokens de los perfiles de usuario con los que estaban asociados. Si los usuarios no tienen otros tokens de notificaciones push, ya no aparecerán como "registrados para push" en la página de **Segments**.
 
-Para más detalles sobre FCM, visita [Mensajería en la nube](https://firebase.google.com/docs/cloud-messaging/).
+Para más detalles sobre FCM, visita [Cloud messaging](https://firebase.google.com/docs/cloud-messaging/).
 
-## Utilizar los registros de errores push {#use-the-push-error-logs}
+## Usa los registros de errores de push {#use-the-push-error-logs}
 
-Braze proporciona errores de notificación push dentro del registro de actividad de mensajes. Este registro de errores proporciona una serie de advertencias que pueden ser muy útiles para identificar por qué tus campañas no funcionan como esperabas. Si seleccionas un mensaje de error, se te redirigirá a la documentación pertinente para ayudarte a solucionar una incidencia concreta.
+Braze proporciona errores de notificaciones push dentro del registro de actividad de mensajes. Este registro de errores ofrece una variedad de advertencias que pueden ser muy útiles para identificar por qué tus Campaigns no están funcionando como se esperaba. Al seleccionar un mensaje de error, se te redirige a la documentación relevante para ayudarte a solucionar un incidente en particular.
 
 ![Registro de actividad de mensajes de Braze mostrando entradas de errores de notificaciones push.]({% image_buster /assets/img_archive/message_activity_log.png %})
 
 ## Solución de problemas {#troubleshooting}
 
-### Push no se envía {#push-isnt-sending}
+### Las notificaciones push no se envían {#push-isnt-sending}
 
-Puede que tus mensajes push no se envíen debido a las siguientes situaciones:
+Es posible que tus mensajes push no se envíen debido a las siguientes situaciones:
 
-- Tus credenciales existen en un ID de proyecto de Google Cloud Platform incorrecto (ID de remitente incorrecto).
-- Tus credenciales tienen un ámbito de permiso incorrecto.
-- Has cargado credenciales erróneas en el espacio de trabajo de Braze equivocado (ID de remitente incorrecto).
+- Tus credenciales existen en el ID de proyecto incorrecto de Google Cloud Platform (ID de remitente incorrecto).
+- Tus credenciales tienen el alcance de permisos incorrecto.
+- Subiste credenciales incorrectas al espacio de trabajo de Braze equivocado (ID de remitente incorrecto).
 
-Para otros problemas que puedan impedirte enviar un mensaje push, consulta la [Guía del usuario: Solución de problemas de notificaciones push]({{site.baseurl}}/user_guide/message_building_by_channel/push/troubleshooting).
+Para otros problemas que puedan impedir el envío de un mensaje push, consulta [Guía del usuario: solución de problemas de notificaciones push]({{site.baseurl}}/user_guide/channels/push/troubleshooting).
 
-### No se muestran usuarios "registrados push" en el panel de Braze (antes de enviar mensajes) {#no-push-registered-users-showing-in-the-braze-dashboard-prior-to-sending-messages}
+### No se muestran usuarios "push registered" en el panel de Braze (antes de enviar mensajes) {#no-push-registered-users-showing-in-the-braze-dashboard-prior-to-sending-messages}
 
-Confirma que tu aplicación está correctamente configurada para permitir notificaciones push. Los puntos de fallo habituales que hay que comprobar incluyen lo siguiente:
+Confirma que tu aplicación está correctamente configurada para permitir notificaciones push. Los puntos de fallo comunes que debes verificar incluyen:
 
 #### ID de remitente incorrecto {#incorrect-sender-id}
 
-Comprueba que el ID de remitente de FCM correcto está incluido en el archivo `braze.xml`. Un ID de remitente incorrecto dará lugar a errores de `MismatchSenderID` en el registro de actividad de mensajes del panel.
+Verifica que el ID de remitente de FCM correcto esté incluido en el archivo `braze.xml`. Un ID de remitente incorrecto provocará errores de `MismatchSenderID` reportados en el registro de actividad de mensajes del panel.
 
-#### No se produce el registro de Braze {#braze-registration-not-occurring}
+#### El registro de Braze no se realiza {#braze-registration-not-occurring}
 
-Dado que el registro de FCM se gestiona fuera de Braze, el fallo en el registro solo puede producirse en dos lugares:
+Dado que el registro de FCM se gestiona fuera de Braze, la falla en el registro solo puede ocurrir en dos lugares:
 
-1. Durante el registro en FCM
+1. Durante el registro con FCM
 2. Al pasar el token de notificaciones push generado por FCM a Braze
 
-Recomendamos establecer un punto de interrupción o de registro para confirmar que el token de notificaciones push generado por FCM se envía a Braze. Si un token no se genera correctamente o no se genera en absoluto, te recomendamos que consultes la [documentación de FCM](https://firebase.google.com/docs/cloud-messaging/android/client).
+Recomendamos establecer un punto de interrupción o un registro para confirmar que el token de notificaciones push generado por FCM se está enviando a Braze. Si un token no se genera correctamente o no se genera en absoluto, recomendamos consultar la [documentación de FCM](https://firebase.google.com/docs/cloud-messaging/android/client).
 
-#### Los servicios de Google Play no están presentes {#google-play-services-not-present}
+#### Google Play Services no está presente {#google-play-services-not-present}
 
-Para que FCM push funcione, Google Play Services debe estar presente en el dispositivo. Si Google Play Services no está en un dispositivo, no se producirá el registro push.
+Para que las notificaciones push de FCM funcionen, Google Play Services debe estar presente en el dispositivo. Si Google Play Services no está en un dispositivo, el registro push no ocurrirá.
 
 {% alert note %}
-Los servicios de Google Play no se instalan en emuladores de Android que no tengan instaladas las API de Google.
+Google Play Services no se instala en emuladores de Android sin las API de Google instaladas.
 {% endalert %}
 
-#### Dispositivo no conectado a Internet {#device-not-connected-to-the-internet}
+#### Dispositivo no conectado a internet {#device-not-connected-to-the-internet}
 
-Comprueba que tu dispositivo tiene una buena conexión a Internet y que no está enviando tráfico de red a través de un proxy.
+Verifica que tu dispositivo tenga buena conectividad a internet y no esté enviando tráfico de red a través de un proxy.
 
-### Al tocar la notificación push no se abre la aplicación {#tapping-push-notification-doesnt-open-the-app}
+### Tocar la notificación push no abre la aplicación {#tapping-push-notification-doesnt-open-the-app}
 
-Comprueba si `com_braze_handle_push_deep_links_automatically` está configurado como `true` o `false`. Para habilitar Braze para que abra automáticamente la aplicación y cualquier vínculo profundo al tocar una notificación push, configura `com_braze_handle_push_deep_links_automatically` en `true` en tu archivo `braze.xml`.
+Verifica si `com_braze_handle_push_deep_links_automatically` está configurado como `true` o `false`. Para habilitar que Braze abra automáticamente la aplicación y cualquier vínculo profundo cuando se toca una notificación push, establece `com_braze_handle_push_deep_links_automatically` en `true` en tu archivo `braze.xml`.
 
-Si `com_braze_handle_push_deep_links_automatically` está configurado con su valor predeterminado de `false`, tienes que utilizar una devolución de llamada push de Braze para escuchar y gestionar las intenciones push recibidas y abiertas.
+Si `com_braze_handle_push_deep_links_automatically` está configurado con su valor predeterminado de `false`, necesitas usar una devolución de llamada push de Braze para escuchar y gestionar las intenciones de push recibido y abierto.
 
-### Notificaciones push rebotadas {#push-notifications-bounced}
+### Las notificaciones push rebotaron {#push-notifications-bounced}
 
-Si no se entrega una notificación push, asegúrate de que no ha rebotado consultando la [consola para desarrolladores]({{site.baseurl}}/developer_guide/platforms/android/push_notifications/troubleshooting#utilizing-the-push-error-logs). A continuación se describen errores comunes que pueden registrarse en la consola para desarrolladores:
+Si una notificación push no se entrega, asegúrate de que no haya rebotado revisando la [consola para desarrolladores]({{site.baseurl}}/developer_guide/platforms/android/push_notifications/troubleshooting#utilizing-the-push-error-logs). A continuación se describen los errores comunes que pueden registrarse en la consola para desarrolladores:
 
 #### Error: MismatchSenderID
 
-`MismatchSenderID` indica un fallo de autenticación. Confirma que tu ID de remitente de Firebase y tu clave de API de FCM son correctos.
+`MismatchSenderID` indica una falla de autenticación. Confirma que tu ID de remitente de Firebase y tu clave de API de FCM sean correctos.
 
 #### Error: InvalidRegistration
 
-`InvalidRegistration` puede deberse a un token de notificaciones push mal formado.
+`InvalidRegistration` puede ser causado por un token de notificaciones push mal formado.
 
 1. Asegúrate de pasar un token de notificaciones push válido a Braze desde [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/android/client#retrieve-the-current-registration-token).
 
 #### Error: NotRegistered
 
-2. `NotRegistered` también puede ocurrir cuando se producen varios registros y un segundo registro invalida el primer token.
+2. `NotRegistered` también puede ocurrir cuando se realizan múltiples registros y un segundo registro invalida el primer token.
 
 ### Notificaciones push enviadas pero no mostradas en los dispositivos de los usuarios {#push-notifications-sent-but-not-displayed-on-users-devices}
 
-Hay algunas razones por las que esto podría estar ocurriendo:
+Hay varias razones por las que esto podría estar ocurriendo:
 
-#### Se forzó la salida de la aplicación {#application-was-force-quit}
+#### La aplicación fue forzada a cerrarse {#application-was-force-quit}
 
-Si fuerzas la salida de tu aplicación a través de la configuración del sistema, no se enviarán tus notificaciones push. Si vuelves a iniciar la aplicación, tu dispositivo volverá a estar habilitado para recibir notificaciones push.
+Si fuerzas el cierre de tu aplicación a través de la configuración del sistema, tus notificaciones push no se enviarán. Volver a iniciar la aplicación habilitará nuevamente tu dispositivo para recibir notificaciones push.
 
 #### BrazeFirebaseMessagingService no registrado {#brazefirebasemessagingservice-not-registered}
 
-El servicio BrazeFirebaseMessagingService debe estar correctamente registrado en `AndroidManifest.xml` para que aparezcan las notificaciones push:
+BrazeFirebaseMessagingService debe estar correctamente registrado en `AndroidManifest.xml` para que las notificaciones push aparezcan:
 
 ```xml
 <service android:name="com.braze.push.BrazeFirebaseMessagingService"
@@ -151,53 +151,53 @@ El servicio BrazeFirebaseMessagingService debe estar correctamente registrado en
 </service>
 ```
 
-#### El cortafuegos bloquea el push {#firewall-is-blocking-push}
+#### El firewall está bloqueando las notificaciones push {#firewall-is-blocking-push}
 
-Si estás probando el push a través de Wi-Fi, puede que tu cortafuegos esté bloqueando los puertos necesarios para que FCM reciba mensajes. Confirma que los puertos `5228`, `5229` y `5230` están abiertos. Además, como FCM no especifica sus IP, también debes permitir que tu cortafuegos acepte conexiones salientes a todas las direcciones IP contenidas en los bloques IP enumerados en el ASN de Google de `15169`.
+Si estás probando notificaciones push a través de Wi-Fi, tu firewall podría estar bloqueando los puertos necesarios para que FCM reciba mensajes. Confirma que los puertos `5228`, `5229` y `5230` estén abiertos. Además, dado que FCM no especifica sus IPs, también debes permitir que tu firewall acepte conexiones salientes a todas las direcciones IP contenidas en los bloques de IP listados en el ASN de Google `15169`.
 
-#### Fábrica de notificaciones personalizada que devuelve null {#custom-notification-factory-returning-null}
+#### La fábrica de notificaciones personalizada devuelve null {#custom-notification-factory-returning-null}
 
-Si has implementado una [fábrica de notificaciones personalizada]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/integration/standard_integration#custom-displaying-notifications), asegúrate de que no devuelve `null`. Esto hará que no se muestren las notificaciones.
+Si has implementado una [fábrica de notificaciones personalizada]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/integration/standard_integration#custom-displaying-notifications), asegúrate de que no esté devolviendo `null`. Esto hará que las notificaciones no se muestren.
 
-### Los usuarios "registrados push" ya no están habilitados después de enviar mensajes {#push-registered-users-no-longer-enabled-after-sending-messages}
+### Los usuarios "push registered" ya no están habilitados después de enviar mensajes {#push-registered-users-no-longer-enabled-after-sending-messages}
 
-Hay varias razones por las que esto puede estar ocurriendo:
+Hay varias razones por las que esto podría estar sucediendo:
 
-#### Se ha desinstalado la aplicación {#application-was-uninstalled}
+#### La aplicación fue desinstalada {#application-was-uninstalled}
 
 Los usuarios han desinstalado la aplicación. Esto invalidará su token de notificaciones push de FCM.
 
-#### Clave inválida del servidor de Firebase Cloud Messaging {#invalid-firebase-cloud-messaging-server-key}
+#### Clave de servidor de Firebase Cloud Messaging inválida {#invalid-firebase-cloud-messaging-server-key}
 
-La clave del servidor de Firebase Cloud Messaging proporcionada en el panel de Braze no es válida. El ID de remitente proporcionado debe coincidir con el indicado en el archivo `braze.xml` de tu aplicación. La clave del servidor y el ID del remitente se encuentran aquí, en tu consola de Firebase:
+La clave de servidor de Firebase Cloud Messaging proporcionada en el panel de Braze es inválida. El ID de remitente proporcionado debe coincidir con el referenciado en el archivo `braze.xml` de tu aplicación. La clave de servidor y el ID de remitente se encuentran aquí en tu consola de Firebase:
 
-![La plataforma Firebase, en «Configuración» y luego en «Mensajería en la nube», mostrará el ID de tu servidor y la clave del servidor.]({% image_buster /assets/img_archive/finding_firebase_server_key.png %} "FirebaseServerKey")
+![La plataforma de Firebase en "Settings" y luego "Cloud Messaging" mostrará tu ID de servidor y clave de servidor.]({% image_buster /assets/img_archive/finding_firebase_server_key.png %} "FirebaseServerKey")
 
 ### Los clics push no se registran {#push-clicks-not-logged}
 
-Si no se registran los clics push, es posible que los datos de los clics push aún no se hayan enviado a nuestros servidores. El SDK de Android de Braze puede regular la frecuencia de los envíos.
+Si los clics push no se están registrando, es posible que los datos de clics push aún no se hayan enviado a nuestros servidores. El SDK de Braze para Android puede limitar la frecuencia de los envíos.
 
-Si implementaste un controlador push personalizado, asegúrate de que estás [preservando correctamente los análisis push nativos]({{site.baseurl}}/developer_guide/push_notifications/logging_message_data/?tab=android#preserving-native-push-analytics-with-custom-push-handling).
+Si implementaste un controlador push personalizado, asegúrate de que estés [preservando correctamente los análisis push nativos]({{site.baseurl}}/developer_guide/push_notifications/logging_message_data/?tab=android#preserving-native-push-analytics-with-custom-push-handling).
 
-El registro de clics push es una operación de red y está sujeto a las limitaciones de la red. Por ello, aunque el SDK de Android de Braze intenta adaptarse a los fallos de red y reintenta las solicitudes fallidas, es de esperar cierta pérdida de eventos.
+El registro de clics push es una operación de red y está sujeto a las limitaciones de la red. Por lo tanto, aunque el SDK de Braze para Android intenta acomodarse a los fallos de red y reintentará las solicitudes fallidas, se puede esperar cierta pérdida de eventos.
 
 ### Los vínculos profundos no funcionan {#deep-links-not-working}
 
-#### Verificar la configuración del vínculo profundo {#verify-deep-link-configuration}
+#### Verifica la configuración de vínculos profundos {#verify-deep-link-configuration}
 
-Los vínculos profundos pueden [probarse con ADB](https://developer.android.com/training/app-indexing/deep-linking.html#testing-filters). Te recomendamos que pruebes tu vínculo profundo con el siguiente comando:
+Los vínculos profundos se pueden [probar con ADB](https://developer.android.com/training/app-indexing/deep-linking.html#testing-filters). Recomendamos probar tu vínculo profundo con el siguiente comando:
 
 `adb shell am start -W -a android.intent.action.VIEW -d "THE_DEEP_LINK" THE_PACKAGE_NAME`
 
 Si el vínculo profundo no funciona, es posible que esté mal configurado. Un vínculo profundo mal configurado no funcionará cuando se envíe a través de notificaciones push de Braze.
 
-#### Verificar la lógica de gestión personalizada {#verify-custom-handling-logic}
+#### Verifica la lógica de manejo personalizado {#verify-custom-handling-logic}
 
-Si el vínculo profundo [funciona correctamente con ADB](https://developer.android.com/training/app-indexing/deep-linking.html#testing-filters) pero no funciona desde Braze push, comprueba si se ha implementado alguna [gestión personalizada de apertura de push]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/integration/standard_integration#android-push-listener-callback). Si es así, comprueba que el código de gestión personalizado gestiona correctamente el vínculo profundo entrante.
+Si el vínculo profundo [funciona correctamente con ADB](https://developer.android.com/training/app-indexing/deep-linking.html#testing-filters) pero no funciona desde las notificaciones push de Braze, verifica si se ha implementado algún [manejo personalizado de apertura push]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/integration/standard_integration#android-push-listener-callback). Si es así, verifica que el código de manejo personalizado gestione correctamente el vínculo profundo entrante.
 
-#### Desactivar el comportamiento del back stack {#disable-back-stack-behavior}
+#### Deshabilitar el comportamiento de pila de retroceso {#disable-back-stack-behavior}
 
-Si el vínculo profundo [funciona correctamente con ADB](https://developer.android.com/training/app-indexing/deep-linking.html#testing-filters) pero no funciona desde Braze push, prueba a desactivar el [back stack](https://developer.android.com/guide/components/activities/tasks-and-back-stack). Para ello, actualiza tu archivo **braze.xml** para incluir:
+Si el vínculo profundo [funciona correctamente con ADB](https://developer.android.com/training/app-indexing/deep-linking.html#testing-filters) pero no funciona desde las notificaciones push de Braze, intenta deshabilitar la [pila de retroceso](https://developer.android.com/guide/components/activities/tasks-and-back-stack). Para hacerlo, actualiza tu archivo **braze.xml** para incluir:
 
 ```xml
 <bool name="com_braze_push_deep_link_back_stack_activity_enabled">false</bool>

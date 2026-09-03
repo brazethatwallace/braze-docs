@@ -1,7 +1,7 @@
 ---
 nav_title: Peak
 article_title: Peak
-description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Peak, einer Plattform für Entscheidungsintelligenz, die es Ihnen ermöglicht, prognostizierte Churn-Wahrscheinlichkeiten und Attribute basierend auf Kundenverhalten und -interaktionen in Braze zu importieren, um sie für die Segmentierung und das Targeting zu verwenden."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Peak, einer Plattform für Entscheidungsintelligenz, die es Ihnen ermöglicht, prognostizierte Abwanderung-Wahrscheinlichkeiten und Attribute basierend auf Kundenverhalten und -interaktionen in Braze zu importieren, um sie für die Segmentierung und das Targeting zu verwenden."
 alias: /partners/peak/
 page_type: partner
 search_tag: Partner
@@ -16,7 +16,7 @@ _Diese Integration wird von Peak gepflegt._
 
 ## Über die Integration {#about-the-integration}
 
-Die Partnerschaft zwischen Braze und Peak ermöglicht es Ihnen, prognostizierte Churn-Wahrscheinlichkeiten und Attribute basierend auf Kundenverhalten und -interaktionen in Braze zu importieren, um sie für die Segmentierung und das Targeting zu verwenden.
+Die Partnerschaft zwischen Braze und Peak ermöglicht es Ihnen, prognostizierte Abwanderung-Wahrscheinlichkeiten und Attribute basierend auf Kundenverhalten und -interaktionen in Braze zu importieren, um sie für die Segmentierung und das Targeting zu verwenden.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -31,7 +31,7 @@ Als Ausgangspunkt muss ein Peak-Tenant die Integration zwischen Peak und Braze h
 
 ## Integration
 
-Die Peak-Lösung Customer Intelligence nutzt ein Modell zur Prognose einer Reihe zukunftsorientierter Attribute basierend auf Kundenverhalten und -interaktionen. Diese Attribute werden in Peak gespeichert und können für eine prädiktive Segmentierung verwendet werden, einschließlich der Churn-Wahrscheinlichkeit von Kund:innen. Die Aktualisierung dieser prognostischen Attribute erfolgt in einem konfigurierbaren Rhythmus (täglich oder wöchentlich).
+Die Peak-Lösung Customer Intelligence nutzt ein Modell zur Prognose einer Reihe zukunftsorientierter Attribute basierend auf Kundenverhalten und -interaktionen. Diese Attribute werden in Peak gespeichert und können für eine prädiktive Segmentierung verwendet werden, einschließlich der Abwanderung-Wahrscheinlichkeit von Kund:innen. Die Aktualisierung dieser prognostischen Attribute erfolgt in einem konfigurierbaren Rhythmus (täglich oder wöchentlich).
 
 ### Schritt 1: Modell ausführen und Kund:innen extrahieren {#step-1-run-model-and-extract-customers}
 

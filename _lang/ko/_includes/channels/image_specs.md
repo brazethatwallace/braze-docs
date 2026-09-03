@@ -181,7 +181,21 @@ table td {
 | 배너    | 모든 종횡비 | 최소 너비 600&nbsp;px |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="표" }
 
-자세한 내용은 [Content Cards 크리에이티브 세부 정보]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details)를 참조하세요.
+자세한 내용은 [Content Cards 크리에이티브 세부 정보]({{site.baseurl}}/user_guide/channels/content_cards/creative_details)를 참조하세요.
+
+{% endif %}
+
+{% if include.variable_name == "sms and mms" %}
+
+MMS 메시지는 메시지당 하나의 이미지를 지원합니다. MMS가 활성화된 구독 그룹만 이미지를 전송할 수 있습니다.
+
+| 속성 | 권장 사항 |
+| --- | --- |
+| 크기 | 안정적인 통신사 전달을 위해 600&nbsp;KB 이하를 권장합니다. 작성기에서는 1&nbsp;MB보다 큰 업로드를 차단합니다. |
+| 파일 유형 | PNG, JPEG, GIF |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SMS 및 MMS" }
+
+통신사 파일 크기 제한 및 처리량에 대한 자세한 내용은 [MMS 메시지 제한 및 처리량]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup#mms-message-limits-and-throughput)을 참조하세요.
 
 {% endif %}
 
@@ -189,7 +203,7 @@ table td {
 
 이 사양은 템플릿 헤더, 응답 미디어 메시지 및 이미지 메시지에 적용됩니다.
 
-| 속성정보 | 사양 | 참고 |
+| 속성 | 사양 | 참고 |
 |---|---|---|
 | 지원 형식 | JPEG, PNG | Meta는 이미지 메시지에 대해 JPEG와 PNG만 공식적으로 지원합니다. WebP는 스티커에만 지원되며 일반 이미지 메시지에는 지원되지 않습니다. |
 | 최대 파일 크기 | 5 MB | |
@@ -205,7 +219,7 @@ table td {
 
 다음 사양은 템플릿 헤더, 응답 미디어 메시지, 비디오 메시지 및 캐러셀 카드 헤더에 적용됩니다.
 
-| 속성정보 | 사양 |
+| 속성 | 사양 |
 |---|---|
 | 지원 형식 | MP4, 3GPP |
 | 파일 크기 | 최대 16 MB |

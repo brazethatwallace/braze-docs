@@ -9,7 +9,7 @@ page_type: landing
 tool:
   - Campaigns
   - Canvas
-description: "Aprobaciones, archivar, duplicar, copiar entre espacios de trabajo, vista previa compartible, estados y etiquetas para campañas, Canvas y páginas de destino."
+description: "Aprobaciones, archivar, duplicar, copiar entre espacios de trabajo, vista previa compartible, estados, Campaigns y Canvas inactivos, y etiquetas para Campaigns, Canvas y páginas de destino."
 
 guide_featured_title: "Artículos de la sección"
 guide_featured_list:
@@ -31,6 +31,9 @@ guide_featured_list:
   - name: Estados
     link: /docs/user_guide/messaging/governance/statuses
     image: /assets/img/braze_icons/book-closed.svg
+  - name: Campaigns y Canvas inactivos
+    link: /docs/user_guide/messaging/governance/statuses/idle_messages
+    image: /assets/img/braze_icons/clock-snooze.svg
   - name: Etiquetas
     link: /docs/user_guide/messaging/governance/tags
     image: /assets/img/braze_icons/tag-01.svg

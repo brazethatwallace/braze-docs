@@ -9,7 +9,7 @@ It's often a good idea for sites to implement a "soft" push prompt where you "pr
 Alternatively, if you would like to include special custom handling, instead of calling `requestPushPermission()` directly as described in the standard [Web push integration]({{site.baseurl}}/developer_guide/platform_integration_guides/web/push_notifications/integration/#step-2-browser-registration), use our [triggered in-app messages]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages/?tab=web).
 
 {% alert tip %}
-This can be done without SDK customization using our new [no code push primer]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages/). 
+This can be done without SDK customization using our new [no code push primer]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/). 
 {% endalert %}
 
 ## Setting up soft push prompts

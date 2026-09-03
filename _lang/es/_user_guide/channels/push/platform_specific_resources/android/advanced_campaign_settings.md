@@ -24,13 +24,13 @@ Para asignar un ID de notificación, ve a la página de composición del push qu
 
 ![Campo de ID de notificación.]({% image_buster /assets/img_archive/notification_ids.png %}){: style="max-width:60%;" }
 
-## Tiempo de vida (TTL) {#ttl}
+## TTL (TTL) {#ttl}
 
-El campo **Time to Live** te permite establecer una duración personalizada para almacenar mensajes con el servicio de mensajería push. Si el dispositivo permanece sin conexión más allá del TTL, el mensaje expirará y no se entregará.
+El campo **TTL** te permite establecer una duración personalizada para almacenar mensajes con el servicio de mensajería push. Si el dispositivo permanece sin conexión más allá del TTL, el mensaje expirará y no se entregará.
 
-Para editar el tiempo de vida de tu push de Android, ve al compositor y selecciona la pestaña **Settings**. Encuentra el campo **Time to Live** e ingresa un valor en días, horas o segundos.
+Para editar el TTL de tu push de Android, ve al compositor y selecciona la pestaña **Settings**. Encuentra el campo **TTL** e ingresa un valor en días, horas o segundos.
 
-Los valores predeterminados para el tiempo de vida son definidos por tu administrador en la página de [Configuración de push]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings). De forma predeterminada, Braze establece el TTL de push en el valor máximo para cada servicio de mensajería push. Aunque la configuración predeterminada del TTL se aplica globalmente, puedes anularla a nivel de mensaje durante la creación de la Campaign. Esto es útil cuando diferentes Campaigns requieren distintos niveles de urgencia o ventanas de entrega.
+Los valores predeterminados para el TTL son definidos por tu administrador en la página de [Configuración de push]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings). De forma predeterminada, Braze establece el TTL de push en el valor máximo para cada servicio de mensajería push. Aunque la configuración predeterminada del TTL se aplica globalmente, puedes anularla a nivel de mensaje durante la creación de la Campaign. Esto es útil cuando diferentes Campaigns requieren distintos niveles de urgencia o ventanas de entrega.
 
 Por ejemplo, supongamos que tu aplicación organiza un concurso de trivia semanal. Envías una notificación push una hora antes de que comience. Al establecer el TTL en 1 hora, te aseguras de que los usuarios que abran la aplicación después de que el concurso haya comenzado no reciban una notificación sobre un evento que ya ha iniciado.
 

@@ -37,7 +37,7 @@ Après qu’un utilisateur a effectué un achat in-app, voici quelques recommand
 
 Puisque vous avez fourni un service aux utilisateurs, ils seront peut-être plus enclins à partager leurs impressions. Voici un exemple d’e-mail de Restaurant.com :
 
-![E-mail transactionnel envoyé par Restaurants.com demandant aux utilisateurs leur avis. L’e-mail indique « Racontez-nous tout ! Nous espérons que vous avez apprécié votre repas et votre expérience chez REDACTED. Pour nous assurer que nous faisons tout notre possible pour vous offrir le meilleur service, la meilleure cuisine et la meilleure expérience globale, veuillez prendre un moment pour nous donner votre avis. Votre opinion est très précieuse pour nous et nous apprécions vos commentaires. » L’appel à l’action indique « Répondre au sondage ».]({% image_buster /assets/img_archive/Restaurant_email.png %}){: style="max-width:80%;"}
+![E-mail transactionnel envoyé par Restaurants.com demandant aux utilisateurs leur avis. L’e-mail indique « Racontez-nous tout ! Nous fournisseur de services d'e-mailingérons que vous avez apprécié votre repas et votre expérience chez REDACTED. Pour nous assurer que nous faisons tout notre possible pour vous offrir le meilleur service, la meilleure cuisine et la meilleure expérience globale, veuillez prendre un moment pour nous donner votre avis. Votre opinion est très précieuse pour nous et nous apprécions vos commentaires. » L’appel à l’action indique « Répondre au sondage ».]({% image_buster /assets/img_archive/Restaurant_email.png %}){: style="max-width:80%;"}
 
 ## Rétention
 

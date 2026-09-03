@@ -85,7 +85,7 @@ Um Ihren Webhook zu testen, gehen Sie wie folgt vor:
 
 Wenn Sie den Webhook fertiggestellt und getestet haben, [planen Sie Ihre Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
 
-Braze unterstützt geplante, aktionsbasierte und API-getriggerte Zustellungen. Die [aktionsbasierte Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) ist in der Regel die beste Lösung für die meisten Anwendungsfälle mit Verhaltens-Events. Bei Fragen dazu, was für Ihren Anwendungsfall sinnvoll ist, wenden Sie sich an Ihre Customer-Success-Manager von Braze und Movable Ink.
+Braze unterstützt geplante, aktionsbasierte und API-getriggerte Zustellungen. Die [aktionsbasierte Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) ist in der Regel die beste Lösung für die meisten Anwendungsfälle mit Verhaltens-Events. Bei Fragen dazu, was für Ihren Anwendungsfall sinnvoll ist, wenden Sie sich an Ihre CSM von Braze und Movable Ink.
 
 Für aktionsbasierte Zustellung:
 
@@ -123,7 +123,7 @@ Stellen Sie sicher, dass der eindeutige Nutzer-Bezeichner (UUID), den Sie als `m
 
 Dadurch wird sichergestellt, dass die Verhaltens-Events, auf die Movable Ink bei der Erstellung eines Bildes referenziert, mit derselben Kund:in verknüpft sind, für die die Verhaltens-Events empfangen wurden. Wenn der UUID-Wert nicht mit der Braze `external_id` übereinstimmt, muss die UUID erfasst und als Attribut oder in den Event-Eigenschaften eines Braze-Events an Braze übergeben werden, um diesen Bezeichner zu nutzen.
 
-Braze trackt das Nutzerverhalten über mehrere Plattformen hinweg (z. B. Internet und mobile App), sodass eine einzelne Nutzer:in mehrere verschiedene anonyme IDs haben kann. Diese IDs können in das einzige bekannte Stories-Nutzerprofil zusammengeführt werden, wenn ein `identify`-Event an Movable Ink gesendet wird, solange das `identify`-Event sowohl einen anonymen Bezeichner als auch den einzigen bekannten Bezeichner enthält.
+Braze trackt das Nutzerverhalten über mehrere Plattformen hinweg (z. B. Internet und mobile App), sodass eine einzelne Nutzer:in mehrere verschiedene anonyme IDs haben kann. Diese IDs können in das einzige bekannte Stories-Kundenprofil zusammengeführt werden, wenn ein `identify`-Event an Movable Ink gesendet wird, solange das `identify`-Event sowohl einen anonymen Bezeichner als auch den einzigen bekannten Bezeichner enthält.
 
 Sobald Movable Ink eine `user_id` für eine einzelne Nutzer:in erhält, müssen alle zukünftigen Events für diese Nutzer:in dieselbe `user_id` enthalten.
 
@@ -139,7 +139,7 @@ Wenn Sie mehr über angepasste Event-Eigenschaften und das erwartete Format der 
 
 ### Bekannte versus anonyme Nutzer:innen {#known-versus-anonymous-users}
 
-In Braze können Events unter einem anonymen Nutzerprofil aufgezeichnet werden. Welche Bezeichner bei der Event-Protokollierung mit dem Nutzerprofil verknüpft werden, hängt davon ab, wie die Nutzer:in erstellt wurde (über das Braze SDK oder die APIs) und in welcher Phase des Nutzerlebenszyklus sich die Nutzer:in befindet.
+In Braze können Events unter einem anonymen Kundenprofil aufgezeichnet werden. Welche Bezeichner bei der Event-Protokollierung mit dem Kundenprofil verknüpft werden, hängt davon ab, wie die Nutzer:in erstellt wurde (über das Braze SDK oder die APIs) und in welcher Phase des Nutzerlebenszyklus sich die Nutzer:in befindet.
 
 #### Nur Braze-Events für bekannte Nutzer:innen weiterleiten {#only-forwarding-braze-events-for-known-users}
 
@@ -147,7 +147,7 @@ Verwenden Sie in Ihrer Webhook-Campaign den Filter `External User ID`, um nur Nu
 
 #### Braze-Events für anonyme und bekannte Nutzer:innen weiterleiten {#forwarding-braze-events-for-anonymous-and-known-users}
 
-Wenn Sie Braze-Events von anonymen Nutzer:innen (Nutzer:innen, deren Profil noch keine `external_id` zugewiesen wurde) weiterleiten möchten, müssen Sie entscheiden, welchen Bezeichner Sie als `anonymous_id` für Movable Ink verwenden möchten, bis eine `external_id` verfügbar ist. Wählen Sie eine `anonymous_id`, die in Ihrem Braze-Nutzerprofil konstant bleibt. Sie können die Liquid-Logik im Webhook-Body verwenden, um zu entscheiden, ob eine `anonymous_id` oder eine `user_id` übergeben werden soll.
+Wenn Sie Braze-Events von anonymen Nutzer:innen (Nutzer:innen, deren Profil noch keine `external_id` zugewiesen wurde) weiterleiten möchten, müssen Sie entscheiden, welchen Bezeichner Sie als `anonymous_id` für Movable Ink verwenden möchten, bis eine `external_id` verfügbar ist. Wählen Sie eine `anonymous_id`, die in Ihrem Braze-Kundenprofil konstant bleibt. Sie können die Liquid-Logik im Webhook-Body verwenden, um zu entscheiden, ob eine `anonymous_id` oder eine `user_id` übergeben werden soll.
 
 Weitere Informationen finden Sie in den Beispiel-Webhooks unter [Beispiel-Payloads](#sample-payloads).
 

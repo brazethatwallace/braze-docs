@@ -6,7 +6,6 @@ page_order: 2
 layout: api_page
 page_type: reference
 description: "この記事では、外部IDの削除エンドポイントについて詳しく説明します。"
-
 ---
 {% api %}
 # 外部IDを削除する {#remove-external-id}
@@ -14,9 +13,9 @@ description: "この記事では、外部IDの削除エンドポイントにつ�
 /users/external_ids/remove
 {% endapimethod %}
 
-> このエンドポイントを使用して、ユーザーの古い非推奨の外部IDを削除します。
+> このエンドポイントを使用して、ユーザーの古い非推奨のexternal IDを削除します。
 
-1回のリクエストで送信できる外部IDは最大50個です。
+1回のリクエストで送信できるexternal IDは最大50個です。
 
 {% alert warning %}
 このエンドポイントは非推奨IDを完全に削除し、元に戻すことはできません。このエンドポイントを使用して、システム内でまだユーザーに関連付けられている非推奨の`external_ids`を削除すると、それらのユーザーのデータを永久に見つけることができなくなる可能性があります。
@@ -26,7 +25,7 @@ description: "この記事では、外部IDの削除エンドポイントにつ�
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`users.external_ids.remove` 権限を持つ[APIキー]({{site.baseurl}}/api/api_key)が必要です。
+このエンドポイントを使用するには、`users.external_ids.remove`権限を持つ[APIキー]({{site.baseurl}}/api/basics)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -67,12 +66,12 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/external_ids
 ```
 
 {% alert important %}
-削除できるのは非推奨IDのみです。プライマリ外部IDを削除しようとするとエラーになります。
+削除できるのは非推奨IDのみです。プライマリexternal IDを削除しようとするとエラーになります。
 {% endalert %}
 
-## 応答 {#response}
+## レスポンス {#response}
 
-応答では、成功したすべての削除と、関連するエラーを伴う失敗した削除が確認されます。`removal_errors`フィールドのエラーメッセージは、元のリクエストの配列内のインデックスを参照します。
+レスポンスでは、成功したすべての削除と、関連するエラーを伴う失敗した削除が確認されます。`removal_errors`フィールドのエラーメッセージは、元のリクエストの配列内のインデックスを参照します。
 
 ```
 {

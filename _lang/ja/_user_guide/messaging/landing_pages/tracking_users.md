@@ -11,11 +11,11 @@ page_order: 2
 
 ## 前提条件 {#prerequisites}
 
-開始する前に、[ランディングページ]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages)と[キャンペーン]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign)を作成する必要があります。
+始める前に、[ランディングページ]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages)と[キャンペーン]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign)を作成する必要があります。
 
 ## 仕組み {#how-it-works}
 
-Brazeの単一チャネルまたはマルチチャネルメッセージに{% raw %}`{% landing_page_url %}`{% endraw %}Liquidタグを追加できます。ユーザーがそのランディングページにアクセスしてフォームを送信すると、Brazeは新しいプロファイルを作成するのではなく、そのデータを既存のプロファイルに自動的にリンクします。以下の例では、ランディングページのLiquidタグを使用して顧客を調査にリンクしています。
+Brazeのシングルチャネルまたはマルチチャネルメッセージに{% raw %}`{% landing_page_url %}`{% endraw %} Liquidタグを追加できます。ユーザーがそのランディングページにアクセスしてフォームを送信すると、Brazeはそのユーザーの新しいプロファイルを作成するのではなく、既存のプロファイルにデータを自動的にリンクします。以下の例では、ランディングページのLiquidタグを使用して、顧客を調査にリンクしています。
 
 {% raw %}
 ```html
@@ -24,7 +24,7 @@ Brazeの単一チャネルまたはマルチチャネルメッセージに{% raw
 {% endraw %}
 
 {% alert tip %}
-ランディングページは、ページURLを外部チャネルに埋め込むことでリードジェネレーションにも使用できます。ランディングページを作成した後、**Landing Page Details**に移動して、ランディングページのユニークURLを取得してください。
+ランディングページは、外部チャネルにページURLを埋め込むことで、リードジェネレーションにも活用できます。ランディングページを作成した後、**Landing Page Details** にアクセスして、ランディングページの一意のURLを取得してください。
 {% endalert %}
 
 ## ランディングページのLiquidタグの使用 {#using-landing-page-liquid-tags}
@@ -41,7 +41,7 @@ BrazeはランディングページのURLを使用して、ユニークなLiquid
 
 ### ステップ 2: Liquidタグの生成 {#step-2-generate-the-liquid-tag}
 
-**メッセージング** > **キャンペーン**に移動し、キャンペーンを選択します。メッセージエディターで**Personalization**を選択します。
+**メッセージング** > **キャンペーン**に移動し、キャンペーンを選択します。メッセージエディターで**パーソナライゼーション**を選択します。
 
 ![ドラッグ＆ドロップエディターのパーソナライゼーション追加ボタン。]({% image_buster /assets/img/landing_pages/select-personalization.png %}){: style="max-width:75%;"}
 
@@ -73,4 +73,8 @@ Liquidスニペットをメッセージに埋め込み、残りのメッセー�
 ```
 {% endraw %}
 
-準備ができたら、メッセージを送信してランディングページを通じたユーザーの追跡を開始できます。
+準備ができたら、メッセージを送信してランディングページを通じたユーザーのトラッキングを開始できます。
+
+### Content CardsでのランディングページURLの使用 {#use-landing-page-urls-in-content-cards}
+
+Content Cardsには、Liquidがレンダリングされた後のカード全体に適用される[2&nbsp;KBのペイロード制限]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card#size-limitations-for-content-cards)があります。{% raw %}`{% landing_page_url %}`{% endraw %}Liquidタグを含める場合、Brazeはランディングページのトラッキングトークンをその制限に対して固定の32&nbsp;バイトとしてカウントします。トークンの全長ではありません。URLの残りの部分やカードのタイトル、本文、その他のフィールドは通常どおり制限に対してカウントされます。

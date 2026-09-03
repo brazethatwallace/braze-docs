@@ -1,7 +1,7 @@
 ---
 nav_title: Dynamics 365 Customer Insights
 article_title: Dynamics 365 Customer Insights
-description: "Este artigo de referência descreve a parceria entre a Braze e o Dynamics 365 Customer Insights, uma plataforma de dados do cliente líder no mercado, que permite exportar segmentos de clientes para a Braze para usar em Campaigns ou Canvas."
+description: "Este artigo de referência descreve a parceria entre a Braze e o Dynamics 365 Customer Insights, uma CDP líder no mercado, que permite exportar segmentos de clientes para a Braze para usar em Campaigns ou Canvas."
 alias: /partners/dynamics_365_customer_insights/
 page_type: partner
 search_tag: Partner

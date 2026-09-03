@@ -33,9 +33,9 @@ Braze.requestContentCardsRefresh();
 | `launchContentCards()`                   | Content CardsのUI要素を起動します。                                                                 |
 | `requestContentCardsRefresh()`           | Braze SDKサーバーから最新のContent Cardsをリクエストします。結果として得られるカードのリストは、以前に登録された[コンテンツカードイベントの各リスナー](#reactnative_cards-methods)に渡されます。 |
 | `getCachedContentCards()`                | キャッシュから最新のContent Cards配列を返します。                                            |
-| `logContentCardClicked(cardId)`          | 指定されたContent Card IDのクリックを記録します。このメソッドは分析専用です。クリックアクションを実行するには、追加で`processContentCardClickAction(cardId)`を呼び出してください。                                                        |
-| `logContentCardImpression(cardId)`       | 指定されたContent Card IDのインプレッションを記録します。                                                      |
-| `logContentCardDismissed(cardId)`        | 指定されたContent Card IDの非表示を記録します。                                                        |
+| `logContentCardClicked(cardId)`          | 指定されたContent カード IDのクリックを記録します。このメソッドは分析専用です。クリックアクションを実行するには、追加で`processContentCardClickAction(cardId)`を呼び出してください。                                                        |
+| `logContentCardImpression(cardId)`       | 指定されたContent カード IDのインプレッションを記録します。                                                      |
+| `logContentCardDismissed(cardId)`        | 指定されたContent カード IDの非表示を記録します。                                                        |
 | `processContentCardClickAction(cardId)`  | 特定のカードのアクションを実行します。                                                               |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="カードのメソッド" }
 

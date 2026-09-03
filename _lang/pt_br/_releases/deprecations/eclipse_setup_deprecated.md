@@ -56,7 +56,7 @@ Nesse momento, você poderá ver erros no código da Braze, porque suas dependê
    - Clique com o botão direito do mouse no projeto Braze UI e selecione Properties->Android para garantir que o alvo de compilação esteja definido para a versão atual das ferramentas de compilação da Braze.
 
       ![Alvo de compilação]({{site.baseurl}}/assets/img_archive/build_target.png)
-   - Clique com o botão direito do mouse no projeto Braze UI e selecione Properties->Java Build Path->Add JARs… e adicione 'android-support-v4.jar' do aplicativo principal como uma biblioteca.
+   - Clique com o botão direito do mouse no projeto Braze UI e selecione Properties->Java Build jornada->Add JARs… e adicione 'android-support-v4.jar' do aplicativo principal como uma biblioteca.
 
       ![Suporte]({{site.baseurl}}/assets/img_archive/android_support_v4.png)
 

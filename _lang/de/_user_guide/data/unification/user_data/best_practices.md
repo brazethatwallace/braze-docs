@@ -9,60 +9,63 @@ description: "Der folgende Artikel erläutert verschiedene Methoden und Best Pra
 
 # Best Practices bei der Datenerfassung {#collection-best-practices}
 
-> Zu wissen, wann und wie Nutzerdaten für bekannte und unbekannte Nutzer:innen erfasst werden, kann eine Herausforderung darstellen, wenn man den Nutzerprofil-Lebenszyklus Ihrer Kund:innen betrachtet. Dieser Artikel erläutert verschiedene Methoden und Best Practices zur Erfassung neuer und bestehender Nutzerdaten, indem er Sie durch einen Anwendungsfall führt.
+> Zu wissen, wann und wie Nutzerdaten für bekannte und unbekannte Nutzer:innen erfasst werden, kann eine Herausforderung darstellen, wenn man den Kundenprofil-Lebenszyklus Ihrer Kund:innen betrachtet. Dieser Artikel erläutert verschiedene Methoden und Best Practices zur Erfassung neuer und bestehender Nutzerdaten, indem er Sie durch einen Anwendungsfall führt.
 
 Das folgende Beispiel ist ein Anwendungsfall für die E-Mail-Erfassung, aber die Logik gilt für viele verschiedene Szenarien der Datenerfassung. In diesem Beispiel gehen wir davon aus, dass Sie bereits ein Registrierungsformular oder eine Möglichkeit zur Erfassung von Nutzerinformationen integriert haben.
 
-Nachdem ein:e Nutzer:in Ihnen Informationen zur Verfügung gestellt hat, empfehlen wir Ihnen, zu überprüfen, ob die Daten bereits in Ihrer Datenbank vorhanden sind, und gegebenenfalls ein Nutzer-Alias-Profil zu erstellen oder das vorhandene Nutzerprofil zu aktualisieren.
+Nachdem ein:e Nutzer:in Ihnen Informationen zur Verfügung gestellt hat, empfehlen wir Ihnen, zu überprüfen, ob die Daten bereits in Ihrer Datenbank vorhanden sind, und gegebenenfalls ein Nutzer-Alias-Profil zu erstellen oder das vorhandene Kundenprofil zu aktualisieren.
 
 Wenn ein:e unbekannte:r Nutzer:in Ihre Website besucht und zu einem späteren Zeitpunkt ein Konto erstellt oder sich durch eine E-Mail-Registrierung identifiziert, muss das Zusammenführen von Profilen sorgfältig gehandhabt werden. Je nach der Methode, mit der Sie die Zusammenführung vornehmen, können Alias-Nutzerdaten oder anonyme Daten überschrieben werden.
 
-## Erfassen von Nutzerdaten über ein Webformular {#capturing-user-data-through-a-web-form}
+## Nutzerdaten über ein Webformular erfassen {#capturing-user-data-through-a-web-form}
 
-### Schritt 1: Prüfen Sie, ob der oder die Nutzer:in existiert {#step-1-check-if-the-user-exists}
+### Schritt 1: Prüfen, ob der/die Nutzer:in bereits existiert {#step-1-check-if-the-user-exists}
 
-Wenn ein:e Nutzer:in Inhalte über ein Webformular eingibt, prüfen Sie, ob in Ihrer Datenbank bereits ein:e Nutzer:in mit dieser E-Mail existiert. Es gibt zwei Möglichkeiten, dies zu tun:
+Wenn ein/eine Nutzer:in Inhalte über ein Webformular eingibt, prüfen Sie, ob ein/eine Nutzer:in mit dieser E-Mail-Adresse bereits in Ihrer Datenbank existiert. Sie können dies auf eine der folgenden Weisen tun:
 
-- **Interne Datenbank prüfen (empfohlen):** Wenn Sie über einen externen Datensatz oder eine externe Datenbank verfügen, der/die die angegebenen Nutzerinformationen enthält und außerhalb von Braze existiert, referenzieren Sie diesen/diese zum Zeitpunkt der E-Mail-Übermittlung oder der Kontoerstellung, um zu bestätigen, dass die Informationen nicht bereits erfasst wurden.
-- **[`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track):** Verwenden Sie `email` als Bezeichner, und ein neues Nutzerprofil wird erstellt, falls die E-Mail-Adresse noch nicht vorhanden ist.
+- **Interne Datenbank prüfen (empfohlen):** Wenn Sie einen externen Datensatz oder eine Datenbank mit den bereitgestellten Nutzerinformationen haben, die außerhalb von Braze existiert, verwenden Sie diese zum Zeitpunkt der E-Mail-Übermittlung oder Kontoerstellung, um zu bestätigen, dass die Informationen nicht bereits erfasst wurden.
+- **[`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track):** Verwenden Sie `email` als Bezeichner, und es wird ein neues Kundenprofil erstellt, wenn die E-Mail-Adresse noch nicht existiert.
+- **[`/subscription/status/get`-Endpunkt]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status):** Wenn Sie E-Mail-Adressen über ein benutzerdefiniertes Formular erfassen und dann die Abo-Gruppen-Zugehörigkeit über die REST API festlegen, rufen Sie zuerst diesen Endpunkt auf. Wenn kein passendes Profil existiert, erstellen oder abonnieren Sie den/die Nutzer:in mit dem [`/subscription/status/set`-Endpunkt]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status). Andernfalls aktualisieren Sie das bestehende Profil, anstatt ein Duplikat zu erstellen.
 
-### Schritt 2: Nutzer:innen protokollieren oder aktualisieren {#step-2-log-or-update-user}
+### Schritt 2: Nutzer:in protokollieren oder aktualisieren {#step-2-log-or-update-user}
 
-- **Wenn ein:e Nutzer:in vorhanden ist:**
-  - Legen Sie kein neues Profil an.
-  - Protokollieren Sie ein angepasstes Attribut (z. B. `newsletter_subscribed: true`) im Nutzerprofil, um anzuzeigen, dass der oder die Nutzer:in seine oder ihre E-Mail über ein Newsletter-Abo übermittelt hat. Wenn mehrere Braze-Nutzerprofile mit der gleichen E-Mail-Adresse existieren, werden alle Profile exportiert.<br><br>
-- **Wenn ein:e Nutzer:in nicht existiert:**
-  - Erstellen Sie ein reines Alias-Profil über den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track). Dieser Endpunkt akzeptiert ein [`user_alias`-Objekt]({{site.baseurl}}/api/objects_filters/user_alias_object) und erstellt ein reines Alias-Profil, wenn `update_existing_only` auf `false` festgelegt ist. Legen Sie die E-Mail des Nutzers oder der Nutzerin als Nutzer-Alias fest, um diese:n Nutzer:in in Zukunft zu referenzieren (da der oder die Nutzer:in keine `external_id` hat).
+- **Wenn ein/eine Nutzer:in existiert:**
+  - Erstellen Sie kein neues Profil.
+  - Protokollieren Sie ein angepasstes Attribut (zum Beispiel `newsletter_subscribed: true`) im Profil des/der Nutzer:in, um anzuzeigen, dass er/sie die E-Mail-Adresse über ein Newsletter-Abo übermittelt hat. Wenn mehrere Braze-Nutzerprofile mit derselben E-Mail-Adresse existieren, werden alle Profile exportiert.<br><br>
+- **Wenn ein/eine Nutzer:in nicht existiert:**
+  - Erstellen Sie ein Alias-only-Profil über den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track). Dieser Endpunkt akzeptiert ein [`user_alias`-Objekt]({{site.baseurl}}/api/objects_filters/user_alias_object) und erstellt ein Alias-only-Profil, wenn `update_existing_only` auf `false` gesetzt ist. Legen Sie die E-Mail-Adresse des/der Nutzer:in als Nutzer-Alias fest, um diese/n Nutzer:in in Zukunft referenzieren zu können (da der/die Nutzer:in keine `external_id` hat).
 
-![Diagramm, das den Prozess zur Aktualisierung eines reinen Alias-Nutzerprofils zeigt. Ein:e Nutzer:in gibt seine/ihre E-Mail-Adresse und ein angepasstes Attribut, die Postleitzahl, auf einer Marketing-Landing-Page ein. Ein Pfeil, der von der Landing-Page-Erfassung zu einem reinen Alias-Nutzerprofil zeigt, stellt eine Braze-API-Anfrage an den Endpunkt „Nutzer:in verfolgen“ dar, wobei der Anfragetext den Aliasnamen, das Alias-Label, die E-Mail-Adresse und die Postleitzahl des Nutzers oder der Nutzerin enthält. Das Profil hat das Label „Nur in Braze erstellte:r Alias-Nutzer:in“ mit den Attributen aus dem Anfragetext, um die Daten anzuzeigen, die im neu erstellten Profil wiedergegeben werden.]({% image_buster /assets/img/user_profile_process3.png %}){: style="max-width:90%;"}
+![Diagramm, das den Prozess zur Aktualisierung eines Alias-only-Nutzerprofils zeigt. Ein/eine Nutzer:in übermittelt die E-Mail-Adresse und ein angepasstes Attribut, die Postleitzahl, auf einer Marketing-Landing-Page. Ein Pfeil von der Landing-Page-Erfassung zu einem Alias-only-Nutzerprofil zeigt eine Braze-API-Anfrage an den Track-User-Endpunkt, wobei der Anfragekörper den Alias-Namen, das Alias-Label, die E-Mail und die Postleitzahl enthält. Das Profil trägt die Bezeichnung „Alias-only-Nutzer:in erstellt in Braze“ mit den Attributen aus dem Anfragekörper, um zu zeigen, dass die Daten im neu erstellten Profil widergespiegelt werden.]({% image_buster /assets/img/user_profile_process3.png %}){: style="max-width:90%;"}
 
-## Erfassen von Nutzer-E-Mails über ein E-Mail-Erfassungsformular {#capturing-user-emails-through-an-email-capture-form}
+## E-Mail-Adressen über ein E-Mail-Erfassungsformular sammeln {#capturing-user-emails-through-an-email-capture-form}
 
-Verwenden Sie ein E-Mail-Erfassungsformular, um die Nutzer:innen aufzufordern, ihre E-Mail-Adresse anzugeben, die ihrem Nutzerprofil hinzugefügt wird. Weitere Informationen zum Einrichten dieses Formulars finden Sie unter [E-Mail-Erfassungsformular]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/email_capture_form).
+Verwenden Sie ein E-Mail-Erfassungsformular, um Nutzer:innen aufzufordern, ihre E-Mail-Adresse einzugeben, die dann zu ihrem Kundenprofil hinzugefügt wird. Weitere Informationen zur Einrichtung dieses Formulars finden Sie unter [E-Mail-Erfassungsformular]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/email_capture_form).
 
-## Identifizierung von reinen Alias-Nutzer:innen {#identifying-alias-only-users}
+Wenn Sie ein angepasstes Formular verwenden und die Abo-Gruppen-Zugehörigkeit über die REST API festlegen, prüfen Sie zunächst, ob bereits ein Profil vorhanden ist, bevor Sie eine:n Nutzer:in erstellen. Siehe [Schritt 1: Prüfen, ob der/die Nutzer:in existiert](#step-1-check-if-user-exists).
 
-Bei der Identifizierung von Nutzer:innen bei der Kontoerstellung können reine Alias-Nutzer:innen über den [`/users/identify`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) identifiziert und mit einer externen ID versehen werden, indem der oder die Alias-Nutzer:in mit dem bekannten Profil zusammengeführt wird.
+## Alias-only-Nutzer:innen identifizieren {#identifying-alias-only-users}
 
-Um zu überprüfen, ob ein:e Nutzer:in nur über einen Alias verfügt, [prüfen Sie, ob der oder die Nutzer:in](#step-1-check-if-user-exists) in Ihrer Datenbank existiert.
-- Wenn ein externer Datensatz existiert, können Sie den Endpunkt `/users/identify/` aufrufen.
-- Wenn der [`/users/export/id`-Endpunkt]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) eine `external_id` zurückgibt, können Sie den Endpunkt `/users/identify/` aufrufen.
-- Wenn der Endpunkt nichts zurückgibt, sollte der Aufruf von `/users/identify/` nicht durchgeführt werden.
+Beim Identifizieren von Nutzer:innen bei der Kontoerstellung können Alias-only-Nutzer:innen über den [`/users/identify`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) identifiziert und einer externen ID zugewiesen werden, indem das Alias-only-Profil mit dem bekannten Profil zusammengeführt wird.
 
-## Erfassen von Nutzerdaten, wenn bereits Alias-Nutzerinformationen vorhanden sind {#capturing-user-data-when-alias-only-user-information-is-already-present}
+Um zu prüfen, ob ein:e Nutzer:in alias-only ist, [überprüfen Sie, ob der/die Nutzer:in existiert](#step-1-check-if-user-exists) in Ihrer Datenbank.
+- Falls ein externer Datensatz vorhanden ist, können Sie den `/users/identify/`-Endpunkt aufrufen.
+- Falls der [`/users/export/id`-Endpunkt]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) eine `external_id` zurückgibt, können Sie den `/users/identify/`-Endpunkt aufrufen.
+- Falls der Endpunkt nichts zurückgibt, sollte kein `/users/identify/`-Aufruf erfolgen.
 
-Wenn ein:e Nutzer:in ein Konto erstellt oder sich per E-Mail-Registrierung identifiziert, können Sie die Profile zusammenführen. Eine Liste der Felder, die zusammengeführt werden können, finden Sie unter [Verhalten bei der Zusammenführung von Updates]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior).
+## Nutzerdaten erfassen, wenn bereits Nur-Alias-Nutzerinformationen vorhanden sind {#capturing-user-data-when-alias-only-user-information-is-already-present}
 
-### Zusammenführen von doppelten Nutzerprofilen {#merging-duplicate-user-profiles}
+Wenn Nutzer:innen ein Konto erstellen oder sich durch eine E-Mail-Registrierung identifizieren, können Sie die Profile zusammenführen. Eine Liste der Felder, die zusammengeführt werden können, finden Sie unter [Verhalten bei Zusammenführungsaktualisierungen]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior).
 
-Wenn Ihre Nutzerdaten immer umfangreicher werden, können Sie doppelte Nutzerprofile über das Braze-Dashboard zusammenführen. Diese doppelten Profile müssen mit der gleichen Suchanfrage gefunden werden. Weitere Informationen zum Zusammenführen von doppelten Nutzerprofilen finden Sie unter [Doppelte Nutzer:innen zusammenführen]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users).
+### Doppelte Nutzerprofile zusammenführen {#merging-duplicate-user-profiles}
 
-Sie können auch den [Endpunkt „Nutzer:innen zusammenführen“]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) verwenden, um ein Nutzerprofil mit einem anderen zusammenzuführen.
+Wenn Ihre Nutzerdaten wachsen, können Sie doppelte Nutzerprofile über das Braze-Dashboard zusammenführen. Diese doppelten Profile müssen mithilfe derselben Suchanfrage gefunden werden. Weitere Informationen zum Zusammenführen doppelter Nutzerprofile finden Sie unter [Doppelte Nutzer:innen zusammenführen]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users).
+
+Sie können auch den [Endpunkt „Nutzer:innen zusammenführen“]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) verwenden, um ein Kundenprofil mit einem anderen zusammenzuführen.
 
 {% alert note %}
-Nachdem Nutzerprofile zusammengeführt wurden, kann diese Aktion nicht mehr rückgängig gemacht werden.
+Nachdem Nutzerprofile zusammengeführt wurden, kann diese Aktion nicht rückgängig gemacht werden.
 {% endalert %}
 
 ## Zusätzliche Ressourcen {#additional-resources}
-- Lesen Sie unseren Artikel über den [Nutzerprofil-Lebenszyklus]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle) von Braze, um weitere Informationen zu erhalten.<br>
-- Sehen Sie sich unsere Dokumentation zum Festlegen von Nutzer-IDs und zum Aufrufen der Methode `changeUser()` für [Android]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=android), [iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_user_ids#suggested-user-id-naming-convention) und [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=web) an.
+- Lesen Sie unseren Artikel zum Braze [Kundenprofil-Lebenszyklus]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle) für weiteren Kontext.<br>
+- Sehen Sie sich unsere Dokumentation zum Festlegen von Nutzer-IDs und zum Aufrufen der `changeUser()`-Methode für [Android]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=android), [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=swift#naming-best-practices) und [Internet]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=web) an.

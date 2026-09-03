@@ -138,8 +138,8 @@ Die <i>Rate der fehlgeschlagenen Zustellungen</i> ist der Prozentsatz der Sendun
 <i>Lifetime-Umsatz</i> ist der gesamte <code>PurchaseEvents</code>-Preiswert (in USD), der seit der Einführung eingenommen wurde.
 {% endif %}
 
-{% if include.metric == "Lifetime Value Per User" %}
-Der <i>Lifetime-Value pro Nutzer:in</i> ist der <i>Lifetime-Umsatz</i> geteilt durch Ihre gesamten <i>Nutzer:innen</i> (auf Ihrer Startseite).
+{% if include.metric == "LTV Per User" %}
+Der <i>LTV pro Nutzer:in</i> ist der <i>Lifetime-Umsatz</i> geteilt durch Ihre gesamten <i>Nutzer:innen</i> (auf Ihrer Startseite).
 {% endif %}
 
 {% if include.metric == "Average Daily Revenue" %}
@@ -155,9 +155,9 @@ Der <i>Tagesumsatz pro Nutzer:in</i> ist der durchschnittliche Tagesumsatz pro t
 {% endif %}
 
 {% if include.metric == "Machine Opens" %}
-<i>Automatische Öffnungen</i> umfasst sowohl nicht-menschliche als auch menschliche Öffnungen, die auf eine Öffnung durch eine:n Nutzer:in mit aktiviertem Apple Mail Privacy Protection (MPP) hinweisen. Das bedeutet, dass ein:e Nutzer:in mehrere <i>automatische Öffnungen</i> protokollieren kann. <i>Automatische Öffnungen</i> werden nicht automatisch generiert, wenn das Gerät nicht mit WLAN verbunden ist, sodass ein:e Nutzer:in eine E-Mail in der Apple-Mail-App möglicherweise öffnet, bevor Apple die Bilder vorab abruft, was dennoch als <i>automatische Öffnung</i> protokolliert wird.
+<i>Automatische Öffnungen</i> umfasst sowohl nicht-menschliche als auch menschliche Öffnungen, die auf eine Öffnung durch eine:n Nutzer:in mit aktiviertem Apple E-Mail-Datenschutz (E-Mail-Datenschutz) hinweisen. Das bedeutet, dass ein:e Nutzer:in mehrere <i>automatische Öffnungen</i> protokollieren kann. <i>Automatische Öffnungen</i> werden nicht automatisch generiert, wenn das Gerät nicht mit WLAN verbunden ist, sodass ein:e Nutzer:in eine E-Mail in der Apple-Mail-App möglicherweise öffnet, bevor Apple die Bilder vorab abruft, was dennoch als <i>automatische Öffnung</i> protokolliert wird.
 <br><br>
-Für Nutzer:innen mit aktiviertem MPP:
+Für Nutzer:innen mit aktiviertem E-Mail-Datenschutz:
 <ul>
   <li>1+ <i>automatische Öffnung</i>: Apple hat die Nachricht vorab abgerufen oder die Nutzer:in hat eine E-Mail auf einem iOS-Gerät proaktiv geöffnet</li>
   <li>2+ <i>automatische Öffnungen</i>: Braze hat keinen Einblick in menschliche gegenüber nicht-menschlichen Öffnungen, sodass dies aus mehreren menschlichen Öffnungen (auf einem Apple-Gerät oder mehreren) oder einer Kombination aus menschlichen Öffnungen und einer Öffnung durch Apples Vorabruf der Nachricht bestehen kann</li>
@@ -165,16 +165,16 @@ Für Nutzer:innen mit aktiviertem MPP:
 {% endif %}
 
 {% if include.metric == "Other Opens" %}
-<i>Andere Öffnungen</i> umfasst menschliche Öffnungen, die nicht von MPP betroffen sind (z. B. wenn ein:e Nutzer:in eine E-Mail in der Gmail-App oder auf Gmail Desktop öffnet, wodurch ein Tracking-Pixel ausgelöst und eine reguläre Öffnung protokolliert wird). <i>Andere Öffnungen</i> sind in der Regel menschliche Öffnungen, es kann jedoch auch Szenarien geben, in denen ein Gerät die E-Mail öffnet (ein Bot oder ein Posteingangs-Dienstleister wie Gmail oder Yahoo). Es ist auch möglich, dass ein:e Nutzer:in eine E-Mail auf einem Nicht-iOS-Gerät öffnet und die <i>andere Öffnung</i> protokolliert wird, bevor eine <i>automatische Öffnung</i> protokolliert wird.
+<i>Andere Öffnungen</i> umfasst menschliche Öffnungen, die nicht von E-Mail-Datenschutz betroffen sind (z. B. wenn ein:e Nutzer:in eine E-Mail in der Gmail-App oder auf Gmail Desktop öffnet, wodurch ein Tracking-Pixel ausgelöst und eine reguläre Öffnung protokolliert wird). <i>Andere Öffnungen</i> sind in der Regel menschliche Öffnungen, es kann jedoch auch Szenarien geben, in denen ein Gerät die E-Mail öffnet (ein Bot oder ein Posteingangs-Dienstleister wie Gmail oder Yahoo). Es ist auch möglich, dass ein:e Nutzer:in eine E-Mail auf einem Nicht-iOS-Gerät öffnet und die <i>andere Öffnung</i> protokolliert wird, bevor eine <i>automatische Öffnung</i> protokolliert wird.
 <br><br>
-Da <i>automatische Öffnungen</i> nutzergesteuert sein können, ist das Verhältnis zwischen <i>automatischen Öffnungen</i> und <i>anderen Öffnungen</i> nicht menschlich gegenüber nicht-menschlich, sondern vielmehr MPP-betroffen gegenüber nicht MPP-betroffen. Während <i>andere Öffnungen</i> weiterhin herangezogen werden können, um einen Teil der menschlichen Öffnungen zu messen, ist es derzeit nicht möglich, den Prozentsatz der <i>automatischen Öffnungen</i> zu bestimmen, die menschlich gesteuert sind, sodass eine genaue „echte“ Öffnungsrate derzeit nicht ermittelt werden kann.
+Da <i>automatische Öffnungen</i> nutzergesteuert sein können, ist das Verhältnis zwischen <i>automatischen Öffnungen</i> und <i>anderen Öffnungen</i> nicht menschlich gegenüber nicht-menschlich, sondern vielmehr E-Mail-Datenschutz-betroffen gegenüber nicht E-Mail-Datenschutz-betroffen. Während <i>andere Öffnungen</i> weiterhin herangezogen werden können, um einen Teil der menschlichen Öffnungen zu messen, ist es derzeit nicht möglich, den Prozentsatz der <i>automatischen Öffnungen</i> zu bestimmen, die menschlich gesteuert sind, sodass eine genaue „echte“ Öffnungsrate derzeit nicht ermittelt werden kann.
 <br><br>
-Für Nutzer:innen mit aktiviertem MPP:
+Für Nutzer:innen mit aktiviertem E-Mail-Datenschutz:
 <ul>
   <li>+1 <i>andere Öffnung(en)</i>: Die Nutzer:in hat eine E-Mail auf einem Nicht-iOS-Gerät proaktiv geöffnet</li>
   <li>+1 <i>automatische Öffnung(en)</i> und +1 <i>andere Öffnungen</i>: Apple hat die Nachricht vorab abgerufen oder die Nutzer:in hat eine E-Mail auf einem iOS-Gerät proaktiv geöffnet und eine E-Mail auf einem Nicht-iOS-Gerät proaktiv geöffnet</li>
 </ul>
-Für Nutzer:innen ohne aktiviertes MPP:
+Für Nutzer:innen ohne aktiviertes E-Mail-Datenschutz:
 <ul>
   <li>+1 <i>andere Öffnung(en)</i>: Die Nutzer:in hat eine E-Mail auf einem beliebigen Gerät proaktiv geöffnet</li>
 </ul>
@@ -189,7 +189,7 @@ Für Nutzer:innen ohne aktiviertes MPP:
 {% endif %}
 
 {% if include.metric == "Pending Retry" %}
-<i>Ausstehende Wiederholung</i> ist die Anzahl der Anfragen, die vom empfangenden Server vorübergehend abgelehnt wurden, bei denen der E-Mail-Anbieter (ESP) aber dennoch versucht hat, sie erneut zuzustellen. Der ESP versucht die Zustellung so lange zu wiederholen, bis eine Timeout-Periode erreicht ist (normalerweise nach 72 Stunden).
+<i>Ausstehende Wiederholung</i> ist die Anzahl der Anfragen, die vom empfangenden Server vorübergehend abgelehnt wurden, bei denen der E-Mail-Anbieter (E-Mail-Anbieter) aber dennoch versucht hat, sie erneut zuzustellen. Der E-Mail-Anbieter versucht die Zustellung so lange zu wiederholen, bis eine Timeout-Periode erreicht ist (normalerweise nach 72 Stunden).
 {% endif %}
 
 {% if include.metric == "Primary Conversions (A) or Primary Conversion Event" %}

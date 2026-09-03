@@ -15,7 +15,7 @@ Supongamos que formas parte de un equipo de marketing de una aplicación de stre
 
 - Configurar un filtro de segmento con atributos personalizados anidados, validar rutas y elegir comparadores que coincidan con el tipo de datos de cada propiedad.
 - Saber cuándo usar los operadores **Day of Year** frente a **Time** para valores de fecha anidados, y cómo la **segmentación multicriterio** coincide con usuarios cuando al menos un objeto en una matriz cumple todos los criterios listados.
-- Generar un esquema para un objeto o una matriz de objetos, explorarlo en el dashboard y completar un segmento (por ejemplo, usuarios con saldo inferior a 100) usando el selector de rutas en lugar de escribir las rutas de memoria.
+- Generar un esquema para un objeto o una matriz de objetos, explorarlo en el dashboard y completar un segmento (por ejemplo, usuarios con saldo inferior a 100) usando el SELECTOR de rutas en lugar de escribir las rutas de memoria.
 
 ## Filtrar por atributos personalizados anidados {#filter-by-nested-custom-attributes}
 

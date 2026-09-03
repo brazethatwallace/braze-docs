@@ -30,7 +30,7 @@ The [Airbridge and Braze integration]({{site.baseurl}}/partners/message_orchestr
 
 ### Census - Customer data platform
 
-[Census]({{site.baseurl}}/partners/data_and_infrastructure_agility/workflow_automation/census#census) allows you to keep your customer success, sales, and marketing teams all on the same page by keeping your customer data in sync, all without ongoing help from your engineering department.
+[Census]({{site.baseurl}}/partners/data_and_analytics/reverse_etl/census) allows you to keep your customer success, sales, and marketing teams all on the same page by keeping your customer data in sync, all without ongoing help from your engineering department.
 
 ### Treasure Data - Customer data platform
 

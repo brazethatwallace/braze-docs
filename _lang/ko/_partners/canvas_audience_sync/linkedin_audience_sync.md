@@ -11,7 +11,7 @@ page_order: 4
 
 # LinkedIn으로 오디언스 동기화 {#audience-sync-to-linkedin}
 
-Braze Audience Sync to LinkedIn을 사용하면 브랜드는 Braze 통합에서 LinkedIn 고객 목록에 사용자 데이터를 추가하여 행동 트리거, 세분화 등을 기반으로 광고를 전달할 수 있습니다. 사용자 데이터를 기반으로 Braze Canvas에서 메시지(푸시, 이메일, SMS, 웹훅 등)를 트리거하는 데 일반적으로 사용하는 모든 기준을 이제 LinkedIn 고객 목록에서 해당 사용자에게 광고를 트리거하는 데 사용할 수 있습니다.
+Braze Audience Sync to LinkedIn을 사용하면 브랜드는 Braze 통합에서 LinkedIn 고객 목록에 사용자 데이터를 추가하여 행동 트리거, 세분화 등을 기반으로 광고를 전달할 수 있습니다. 사용자 데이터를 기반으로 BRAZE 캔버스에서 메시지(푸시, 이메일, SMS, 웹훅 등)를 트리거하는 데 일반적으로 사용하는 모든 기준을 이제 LinkedIn 고객 목록에서 해당 사용자에게 광고를 트리거하는 데 사용할 수 있습니다.
 
 **오디언스 동기화의 일반적인 사용 사례는 다음과 같습니다**:
 

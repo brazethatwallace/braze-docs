@@ -13,7 +13,7 @@ description: "Diese Referenzseite listet Filter auf, mit denen Sie statischen od
 Filter ermöglichen es Ihnen, die Ausgabe von Zahlen, Strings, Variablen und Objekten in Liquid zu verändern. Sie können Filter verwenden, um statischen oder dynamischen Text umzuformatieren, z. B. um einen String von Kleinbuchstaben in Großbuchstaben umzuwandeln oder mathematische Operationen wie Addition oder Division durchzuführen.
 
 {% alert important %}
-Braze unterstützt nicht alle Liquid-Filter von Shopify. Diese Seite versucht, die Liquid-Filter aufzulisten, die Braze getestet hat, aber es handelt sich möglicherweise nicht um eine vollständige Liste. Testen Sie Ihr Liquid immer, bevor Sie Nachrichten versenden. <br><br>Wenn Sie Fragen zu einem Filter haben, der hier nicht aufgeführt ist, wenden Sie sich an Ihren Customer-Success-Manager.
+Braze unterstützt nicht alle Liquid-Filter von Shopify. Diese Seite versucht, die Liquid-Filter aufzulisten, die Braze getestet hat, aber es handelt sich möglicherweise nicht um eine vollständige Liste. Testen Sie Ihr Liquid immer, bevor Sie Nachrichten versenden. <br><br>Wenn Sie Fragen zu einem Filter haben, der hier nicht aufgeführt ist, wenden Sie sich an Ihren CSM.
 {% endalert %}
 
 ## Filter-Syntax {#filter-syntax}

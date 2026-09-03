@@ -146,7 +146,7 @@ In-App Message
 Feature Flags
 {% endapitags %}
 
-さまざまなチャネルにおけるメッセージのパフォーマンスです。表示される指標は、選択したメッセージングチャネルと、[フィーチャーフラグ実験]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/experiments#campaign-analytics)が多変量テストかどうかによって異なります。
+さまざまなチャネルにおけるメッセージのパフォーマンスです。表示される指標は、選択したメッセージングチャネルと、[フィーチャーフラグ実験]({{site.baseurl}}/developer_guide/feature_flags/experiments#campaign-analytics)が多変量テストかどうかによって異なります。
 
 {% endapi %}
 
@@ -533,7 +533,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, LINE
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Lifetime Value Per User' %}
+{% multi_lang_include analytics/metrics.md metric='LTV Per User' %}
 
 {% endapi %}
 
@@ -641,7 +641,7 @@ Email
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, WhatsApp
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or Primary Conversion Event' %}
+{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or 1次コンバージョン Event' %}
 
 | チャネル | 追加情報 |
 |-------|-----------------------|
@@ -786,7 +786,7 @@ Content Cardsの場合、この指標は[カード作成]({{site.baseurl}}/user_
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, WhatsApp, LINE
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Messages Sent' %} この指標はBrazeによって提供されます。スケジュールされたキャンペーンを起動すると、この指標にはレート制限によりまだ送信されていないメッセージも含め、送信されたすべてのメッセージが含まれます。
+{% multi_lang_include analytics/metrics.md metric='Messages Sent' %}  この指標はBrazeによって提供されます。スケジュールされたキャンペーンを起動すると、この指標にはレート制限によりまだ送信されていないメッセージも含め、送信されたすべてのメッセージが含まれます。
 
 {% alert tip %}
 Content Cardsの場合、この指標は[カード作成]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation)で選択した内容によって計算方法が異なります。
@@ -1122,6 +1122,8 @@ Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, RCS, 
 {% multi_lang_include analytics/metrics.md metric='Unique Recipients' %}
 
 閲覧者は毎日ユニーク受信者になり得るため、この数値は<i>ユニークインプレッション数</i>よりも高くなることが予想されます。この数値はBrazeから受信され、`user_id`に基づいています。ユニーク受信者数はキャンペーンまたはキャンバスステップレベルでカウントされ、<a href='{{ site.homeurl }}{{ site.baseurl }}/api/identifier_types/#send-identifier'>送信識別子</a> レベルではカウントされません。
+
+バウンスしたユーザーも、Brazeがその送信日の受信者としてカウントした場合、<i>ユニーク受信者数</i>に含まれます。<i>ユニーク受信者数</i>は、Brazeがその日にメッセージのターゲットとしたユーザーに基づいており、配信が成功したユーザーのみではありません。
 
 <span class="calculation-line">計算式: カウント</span>
 

@@ -6,7 +6,6 @@ layout: api_page
 page_order: 4.5
 page_type: reference
 description: "This article outlines details about the synchronous Track user Braze endpoint."
-
 ---
 {% api %}
 # Create and update users (synchronous)
@@ -32,7 +31,7 @@ For example, if you're sending consecutive requests for the same user over a sho
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/api_key) with the `users.track.sync` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics) with the `users.track.sync` permission.
 
 Customers using the API for server-to-server calls may need to allowlist `rest.iad-01.braze.com` if they're behind a firewall.
 

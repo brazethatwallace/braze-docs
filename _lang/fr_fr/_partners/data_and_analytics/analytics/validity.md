@@ -100,7 +100,7 @@ Les tests peuvent également vous aider à diagnostiquer pourquoi des e-mails ar
 
 ### Santé de la liste de test {#seed-list-health}
 
-Validity surveille les utilisateurs de la liste de test et peut les mettre à jour ou les supprimer s'ils commencent à perdre en efficacité — par exemple, si les fournisseurs de services d'e-mailing (ESP) commencent à signaler les membres de l'audience de la liste de test comme spam. Ces permissions permettent à Validity de surveiller la santé de la liste de test et de la mettre à jour en conséquence.
+Validity surveille les utilisateurs de la liste de test et peut les mettre à jour ou les supprimer s'ils commencent à perdre en efficacité — par exemple, si les fournisseurs de services d'e-mail marketing (fournisseur de services d'e-mailing) commencent à signaler les membres de l'audience de la liste de test comme spam. Ces permissions permettent à Validity de surveiller la santé de la liste de test et de la mettre à jour en conséquence.
 
 ### Gestion du contenu dynamique {#how-dynamic-content-is-handled}
 

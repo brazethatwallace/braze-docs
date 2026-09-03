@@ -6,7 +6,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "Cet article présente en détail l'endpoint Braze Répertorier les modèles d'e-mail disponibles."
-
 ---
 {% api %}
 # Répertorier les modèles d'e-mail disponibles {#list-available-email-templates}
@@ -19,7 +18,7 @@ description: "Cet article présente en détail l'endpoint Braze Répertorier les
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#eec24bf4-a3f4-47cb-b4d8-bb8f03964cca {% endapiref %}
 
 ## Conditions préalables {#prerequisites}
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/api_key) avec l'autorisation `templates.email.list`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics) avec l'autorisation `templates.email.list`.
 
 ## Limite de débit {#rate-limit}
 

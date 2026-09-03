@@ -12,12 +12,11 @@ noindex: true
 
 > Ce guide décrit les modifications introduites dans iOS 15 (WWDC21) et les étapes de mise à niveau requises pour votre intégration SDK Braze pour iOS. Pour obtenir la liste complète des nouvelles mises à jour d'iOS 15, consultez les [notes de publication iOS 15](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-15-release-notes) d'Apple.
 
+## Changements de transparence dans la navigation de l'interface utilisateur {#transparency-changes-to-ui-navigations}
 
-## Changements de transparence dans les navigations de l'interface utilisateur {#transparency-changes-to-ui-navigations}
+Dans le cadre de nos tests annuels des bêtas iOS, nous avons identifié un changement effectué par Apple qui fait apparaître certaines barres de navigation de l'interface utilisateur comme transparentes au lieu d'opaques. Ce changement sera visible sur iOS 15 lors de l'utilisation de l'interface utilisateur par défaut de Braze pour les Content Cards, ou lorsque des deep links web sont ouverts dans votre application au lieu d'une application de navigateur distincte.
 
-Dans le cadre de nos tests annuels des versions bêta d'iOS, nous avons identifié une modification apportée par Apple qui fait que certaines barres de navigation de l'interface utilisateur apparaissent transparentes au lieu d'opaques. Cela sera visible sur iOS 15 lors de l'utilisation de l'interface utilisateur par défaut de Braze pour les Content Cards, ou lorsque les liens profonds web sont ouverts à l'intérieur de votre application au lieu d'une application de navigateur séparée.
-
-Pour éviter ce changement visuel dans iOS 15, nous vous recommandons vivement de mettre à jour vers le [SDK iOS Braze v4.3.2](https://github.com/Appboy/appboy-ios-sdk/releases/tag/4.3.2) dès que possible, avant que les utilisateurs ne commencent à mettre à jour leur téléphone vers le nouveau système d'exploitation iOS 15.
+Pour éviter ce changement visuel sur iOS 15, nous vous recommandons vivement de passer au [SDK iOS Braze v4.3.2](https://github.com/Appboy/appboy-ios-sdk/releases/tag/4.3.2) dès que possible, avant que les utilisateurs ne commencent à mettre à jour leur téléphone vers le nouveau système d'exploitation iOS 15.
 
 ## Nouveaux paramètres de notification {#notification-settings}
 
@@ -38,7 +37,7 @@ Dans iOS 15, les notifications push peuvent être envoyées avec l'un des quatre
 * **Urgent** (nouveau) — Permet le son, la vibration, le réveil de l'écran, peut franchir les contrôles système si autorisé.
 * **Critique** — Permet le son, la vibration, le réveil de l'écran, peut franchir les contrôles système et contourner le commutateur de sonnerie.
 
-Consultez les [options de notification iOS]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options#interruption-level) pour en savoir plus sur la manière de définir cette option dans les notifications push iOS.
+Consultez les [options de notification iOS]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#interruption-level) pour en savoir plus sur la manière de définir cette option dans les notifications push iOS.
 
 ### Résumé des notifications {#notification-summary}
 
@@ -48,7 +47,7 @@ Dans iOS 15, les utilisateurs peuvent (facultativement) choisir certaines heures
 
 Pour chaque notification que vous envoyez, vous serez bientôt en mesure de spécifier un « score de pertinence » pour contrôler quelle notification doit apparaître en haut du résumé.
 
-Consultez les [options de notification iOS]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options#relevance-score) pour en savoir plus sur la manière de définir le « score de pertinence » d'une notification.
+Consultez les [options de notification iOS]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#relevance-score) pour en savoir plus sur la manière de définir le « score de pertinence » d'une notification.
 
 ## Boutons de localisation {#location-buttons}
 
@@ -74,4 +73,4 @@ Cette année, Apple a annoncé de nombreuses mises à jour concernant le suivi d
 
 ## Localisation de l'adresse IP dans Safari {#safari-ip-address-location}
 
-Dans iOS 15, les utilisateurs pourront configurer Safari pour anonymiser ou généraliser la localisation déterminée à partir de leurs adresses IP. Gardez cela à l'esprit lorsque vous utilisez un ciblage ou une segmentation basé sur la localisation.
+Depuis iOS 15, les utilisateurs peuvent configurer Safari pour anonymiser ou généraliser la localisation déterminée à partir de leurs adresses IP. Gardez cela à l'esprit lorsque vous utilisez le ciblage ou la segmentation basés sur la localisation.

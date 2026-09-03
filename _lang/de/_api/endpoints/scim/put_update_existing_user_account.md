@@ -94,8 +94,8 @@ Authorization: Bearer YOUR-SCIM-TOKEN-KEY
 | --------- | -------- | --------- | ----------- |
 | `schemas` | Erforderlich | String-Array | Erwarteter SCIM-2.0-Schemaname für das Nutzerobjekt. |
 | `name` | Erforderlich | JSON-Objekt | Dieses Objekt enthält den Vornamen und den Nachnamen der Nutzer:in. |
-| `department` | Erforderlich | String | Gültiger Abteilungs-String aus der [Dokumentation zu Abteilungs-Strings]({{site.baseurl}}/scim_api_appendix#department-strings). |
-| `permissions` | Erforderlich | JSON-Objekt | Berechtigungsobjekt wie in der [Dokumentation zum Berechtigungsobjekt]({{site.baseurl}}/scim_api_appendix#permissions-object) beschrieben. |
+| `department` | Erforderlich | String | Gültiger Abteilungs-String aus der [Dokumentation zu Abteilungs-Strings]({{site.baseurl}}/api/objects_filters/scim_api_appendix). |
+| `permissions` | Erforderlich | JSON-Objekt | Berechtigungsobjekt wie in der [Dokumentation zum Berechtigungsobjekt]({{site.baseurl}}/api/objects_filters/scim_api_appendix) beschrieben. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 

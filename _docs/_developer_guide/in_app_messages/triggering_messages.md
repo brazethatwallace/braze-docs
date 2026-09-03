@@ -1,6 +1,6 @@
 ---
 nav_title: Trigger messages
-article_title: Trigger in-app messages through the Braze SDK
+article_title: "Trigger in-app messages"
 page_order: 0.2
 description: "Learn how to trigger in-app messages through the Braze SDK, including chaining messages in one session and overriding the default rate limit."
 platform: 
@@ -30,7 +30,7 @@ Braze sends the following types of in-app messages to user devices upon session 
 
 ### `inapp` (standard)
 
-An `inapp` (or "[standard]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages#standard-message-types)") in-app message is already templated with the necessary information, such as custom attributes that Braze already knows. Generally, when the in-app message downloads to the device, the trigger event causes the SDK to display the `inapp` in-app message even when the device is offline or on airplane mode.
+An `inapp` (or "[standard]({{site.baseurl}}/user_guide/channels/in_app_messages)") in-app message is already templated with the necessary information, such as custom attributes that Braze already knows. Generally, when the in-app message downloads to the device, the trigger event causes the SDK to display the `inapp` in-app message even when the device is offline or on airplane mode.
 
 ### `templated_iam` (templated)
 
@@ -344,7 +344,7 @@ If a server-sent event is logged while the app is not in the foreground, the eve
 {% tab swift %}
 #### Step 1: Handle silent push and key-value pairs
 
-Implement the following function and call it within the [`application(_:didReceiveRemoteNotification:fetchCompletionHandler:)`: method](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623013-application/):
+Implement the following function and call it within the [`application(_:didReceiveRemoteNotification:fetchCompletionHandler:)`: method](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/application(_:didreceiveremotenotification:fetchcompletionhandler:)):
 
 {% subtabs %}
 {% subtab swift %}

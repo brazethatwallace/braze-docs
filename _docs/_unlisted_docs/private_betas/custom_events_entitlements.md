@@ -6,7 +6,7 @@ hidden: true
 
 # [![Braze Learning course]({% image_buster /assets/unlisted_docs/img/logos/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"}Custom events
 
-> This article describes custom events and properties, related segmentation filters, Canvas entry properties, relevant analytics, and more. To learn about Braze events in general, refer to [Events]({{site.baseurl}}/user_guide/data/custom_data/events/).
+> This article describes custom events and properties, related segmentation filters, Canvas entry properties, relevant analytics, and more. To learn about Braze events in general, refer to [Events]({{site.baseurl}}/user_guide/data/activation/events).
 
 Custom events are actions taken by, or updates about, your users. When custom events are logged, they can trigger any number and type of follow-up campaigns. You can then use [segmentation filters](#segmentation-filters) to segment users based on how recently and frequently those custom events occurred. This makes custom events best suited for tracking high-value user interactions within your application.
 
@@ -42,11 +42,11 @@ Additionally, if a blocked custom event is currently referenced by filters or tr
 
 ### Adding descriptions
 
-You can add a description to a custom event after it's created if you have the `Manage Events, Attributes, Purchases` [user permission]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/). Select **Edit description** for the custom event and input whatever you like, such as a note for your team.
+You can add a description to a custom event after it's created if you have the `Manage Events, Attributes, Purchases` [user permission]({{site.baseurl}}/user_guide/administer/global/user_management/permissions). Select **Edit description** for the custom event and input whatever you like, such as a note for your team.
 
 ## Adding tags
 
-You can add tags to a custom event after it's created if you have the "Manage Events, Attributes, Purchases" [user permission]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/). The tags can then be used to filter the list of events.
+You can add tags to a custom event after it's created if you have the "Manage Events, Attributes, Purchases" [user permission]({{site.baseurl}}/user_guide/administer/global/user_management/permissions). The tags can then be used to filter the list of events.
 
 ### Viewing usage reports
 
@@ -98,9 +98,9 @@ The following table shows the filters available for segmenting users by custom e
 
 ## Analytics
 
-Braze notes the number of times custom events have occurred and the last time they were performed by each user for segmentation. View these analytics by going to **Analytics** > **Custom Events Report**.
+Braze notes the number of times custom events have occurred and the last time they were performed by each user for segmentation. For report setup, filters, and export options, see [Custom events report]({{site.baseurl}}/user_guide/analytics/reports/custom_events_report).
 
-On the **Custom Events Report** page in the dashboard, you can view in aggregate how often each custom event occurs. The gray lines overlaid on the time series indicate the last time a campaign was sent, which is useful for viewing how your campaigns affected custom event activity.
+On the **Custom Events Report** page, you can view in aggregate how often each custom event occurs. The gray lines overlaid on the time series indicate the last time a campaign was sent, which is useful for viewing how your campaigns affected custom event activity.
 
 ![Custom event counts graph on the Custom Events page in the dashboard showing trends for a custom event][8]
 
@@ -143,7 +143,7 @@ Property values can be any of the following data types:
 
 Event property objects that contain array or object values can have an event property payload up to 100&nbsp;KB.
 
-You can change the data type of your custom event property, but be aware of the impacts of [changing data types]({{site.baseurl}}/help/help_articles/data/change_custom_data_type/) after data has been collected.
+You can change the data type of your custom event property, but be aware of the impacts of [changing data types]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#changing-custom-attribute-or-event-data-type) after data has been collected.
 
 ### Using custom event properties
 
@@ -222,7 +222,7 @@ In regards to subscription usage, custom event properties enabled for segmentati
 
 ### Canvas entry properties and event properties
 
-You can use `canvas_entry_properties` and `event_properties` in your Canvas user journeys. Refer to [Canvas entry properties and event properties]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/canvas_entry_properties_event_properties/) for more information and examples.
+You can use `canvas_entry_properties` and `event_properties` in your Canvas user journeys. Refer to [Canvas entry properties and event properties]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) for more information and examples.
 
 {% tabs local %}
 {% tab Canvas Entry Properties %}
@@ -290,7 +290,7 @@ For the original Canvas editor, `event_properties` can't be used in scheduled fu
 
 You can use nested objects (objects inside of another object) to send nested JSON data as properties of custom events and purchases. This nested data can be used for templating personalized information in messages, triggering message sends, and segmenting users.
 
-To learn more, refer to our dedicated page on [Nested objects]({{site.baseurl}}/user_guide/data/custom_data/custom_events/nested_objects/).
+To learn more, refer to our dedicated page on [Nested objects]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects).
 
 ## Custom event property storage
 
@@ -299,7 +299,7 @@ Custom event properties are designed to help you increase targeting precision an
 You can segment based on the values of event properties in two ways:
 
 1. **Within 30 days:** Braze support personnel can enable event property segmentation based on the frequency and recency of specific event property values within Braze segments. If you'd like to leverage event properties within segments, contact your Braze account executive or customer success manager. This option will impact data usage.<br><br>
-2. **Within and beyond 30 days:** To cover both short-term and long-term event property segmentation, you can use [Segment Extensions]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension/). This feature segments users based on custom events and event properties tracked within the past two years. This option won't impact data usage.
+2. **Within and beyond 30 days:** To cover both short-term and long-term event property segmentation, you can use [Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension). This feature segments users based on custom events and event properties tracked within the past two years. This option won't impact data usage.
 
 Contact your Braze customer success manager for recommendations on the best approach depending on your specific needs.
 

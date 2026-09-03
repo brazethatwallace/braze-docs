@@ -101,7 +101,7 @@ When you run an activation:
 
 If you do not enable insert mode, DinMo updates only users who already exist in Braze and have a matching external ID.
 
-During activation setup, map the field in your DinMo model that corresponds to the user's [external ID]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_user_ids/) or Braze ID. Map each DinMo field to the exact attribute name in Braze. If an attribute does not exist in Braze, DinMo creates it.
+During activation setup, map the field in your DinMo model that corresponds to the user's [external ID]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=web) or Braze ID. Map each DinMo field to the exact attribute name in Braze. If an attribute does not exist in Braze, DinMo creates it.
 
 The following sync modes are available for user attribute activations:
 

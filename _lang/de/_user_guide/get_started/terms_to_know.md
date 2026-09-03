@@ -15,7 +15,7 @@ glossaries:
   - name: Alloys
     description: "Alloys sind unsere <a href=\"/docs/partners/home\">Technologie-Partner</a>."
   - name: Anonymous users
-    description: "Wenn ein Nutzerprofil über das SDK erkannt wird, wird ein anonymes Nutzerprofil mit der zugehörigen <a href=\"/docs/api/basics#user-ids\">Braze-Nutzer-ID</a> erstellt."
+    description: "Wenn ein Kundenprofil über das SDK erkannt wird, wird ein anonymes Kundenprofil mit der zugehörigen <a href=\"/docs/api/basics#user-ids\">Braze-Nutzer-ID</a> erstellt."
   - name: API campaigns
     description: "<a href=\"/docs/api/api_campaigns\">API-Kampagnen</a> verwenden das Braze-Dashboard, um eine <code>campaign_id</code> (und Varianten-IDs) zu generieren, während Sie Text, Zielgruppe, Zeitplan und Assets über die <a href=\"/docs/api/endpoints/messaging\">Messaging-APIs</a> bereitstellen. Sie unterscheiden sich von <a href=\"/docs/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery\">API-getriggerten Campaigns</a>, bei denen Sie eine vollständig konfigurierte Campaign aus dem Dashboard per API triggern."
   - name: Application program interface (API)
@@ -53,7 +53,7 @@ glossaries:
   - name: Exception event
     description: "In Canvas sind <a href=\"/docs/user_guide/messaging/canvas/create_a_canvas/exit_criteria#exception-events\">Ausnahme-Events</a> bestimmte Aktionen, die eine:n Nutzer:in aus der Journey entfernen, wenn sie eintreten (z. B. eine Bestellung aufgeben). Sie sorgen dafür, dass Folgenachrichten relevant bleiben, nachdem die:der Nutzer:in Ihr Ziel erreicht hat. Unter <a href=\"/docs/user_guide/messaging/canvas/create_a_canvas/exit_criteria\">Ausstiegskriterien</a> erfahren Sie, wie Ausstiege ausgewertet und zeitlich gesteuert werden."
   - name: External ID
-    description: "Die <code>external_id</code> ist der primäre Nutzerbezeichner in einem Braze-Nutzerprofil. Sie verknüpft dieselbe Person über Kanäle und Geräte hinweg, wenn Sie IDs aus Ihren eigenen Systemen zuweisen. Anonyme Profile haben möglicherweise keine <code>external_id</code>, bis Sie die:den Nutzer:in identifizieren. Weitere Informationen finden Sie unter <a href=\"/docs/user_guide/get_started/users_and_segments\">Nutzer:innen und Segmente</a> und <a href=\"/docs/api/basics#user-ids\">Nutzer-IDs</a>."
+    description: "Die <code>external_id</code> ist der primäre Nutzerbezeichner in einem Braze-Kundenprofil. Sie verknüpft dieselbe Person über Kanäle und Geräte hinweg, wenn Sie IDs aus Ihren eigenen Systemen zuweisen. Anonyme Profile haben möglicherweise keine <code>external_id</code>, bis Sie die:den Nutzer:in identifizieren. Weitere Informationen finden Sie unter <a href=\"/docs/user_guide/get_started/users_and_segments\">Nutzer:innen und Segmente</a> und <a href=\"/docs/api/basics#user-ids\">Nutzer-IDs</a>."
   - name: Frequency capping
     description: "<a href=\"/docs/user_guide/messaging/messaging_fundamentals/frequency_capping\">Frequency-Capping</a> ermöglicht es Ihnen, die Kommunikation zu steuern, ohne Ihre Zielgruppe zu überfordern. Es handelt sich um eine automatische Begrenzung der Nachrichten, um zu verhindern, dass Nutzer:innen zu viele Nachrichten in kurzer Zeit erhalten."
   - name: HIPAA
@@ -95,7 +95,7 @@ glossaries:
   - name: Software development kit (SDK)
     description: "<a href=\"/docs/developer_guide/getting_started/sdk_overview\">SDKs</a> werden in Ihre mobilen Apps, Websites und verbundenen Erlebnisse integriert und bieten Marketing-, Messaging- und Analysetools. Braze veröffentlicht SDK-Integrationsleitfäden für Plattformen wie <a href=\"/docs/developer_guide/sdk_integration?sdktab=swift\">Swift</a> und <a href=\"/docs/developer_guide/sdk_integration?sdktab=android\">Android</a>; für Web und andere Plattformen folgen Sie den Integrationspfaden, die in der SDK-Übersicht verlinkt sind."
   - name: Subscription groups
-    description: "<a href=\"/docs/user_guide/channels/email/subscriptions#subscription-groups\">Abo-Gruppen</a> bauen auf den globalen Abo-Status auf, sodass Sie granulare Opt-in-Optionen anbieten können (z. B. Newsletter versus Aktionen). Ähnliche Muster gibt es für Kanäle wie SMS und WhatsApp; verwenden Sie immer eine Abo-Gruppe, wenn Ihr Kanal dies erfordert."
+    description: "<a href=\"/docs/user_guide/audience/subscription_preferences/subscription_groups\">Abo-Gruppen</a> bauen auf den globalen Abo-Status auf, sodass Sie granulare Opt-in-Optionen anbieten können (z. B. Newsletter versus Aktionen). Ähnliche Muster gibt es für Kanäle wie SMS und WhatsApp; verwenden Sie immer eine Abo-Gruppe, wenn Ihr Kanal dies erfordert."
   - name: Sunsetting
     description: "Sunsetting bezieht sich auf den Prozess der Identifizierung von Nutzer:innen, die sich nicht mehr engagieren, und die Beendigung der aktiven Nachrichtenübermittlung an diese Nutzer:innen, ohne dass diese etwas unternehmen müssen. Die Erstellung von Sunset-Richtlinien für Ihre <a href=\"/docs/user_guide/channels/email/best_practices/sunset_policies\">E-Mails</a> und <a href=\"/docs/user_guide/channels/push/best_practices#implement-a-sunset-policy-for-unresponsive-users\">Push-Nachrichten</a> kann dazu beitragen, die Auswirkungen auf Ihre Öffnungsraten einzudämmen."
   - name: Tag
@@ -105,7 +105,7 @@ glossaries:
   - name: User archival
     description: "<a href=\"/docs/user_archival\">Nutzerarchivierung</a> bezieht sich auf Nutzer:innen, die archiviert wurden. Bei Braze umfasst dies sowohl inaktive als auch ruhende Nutzer:innen. Die Archivierung wertet die Regeln für inaktive und ruhende Nutzer:innen in den Braze-Diensten aus (siehe Nutzerarchivierung für Zeitplanung, Workspace-Berechtigung wie Nutzeranzahl-Schwellenwerte und wie Sie Zeitfenster mit Unternehmenseinstellungen oder Canvas anpassen können)."
   - name: User profile
-    description: "Ein <a href=\"/docs/user_guide/audience/manage_audience/user_profiles\">Nutzerprofil</a> ist der zentrale Datensatz für jede Person in Braze, einschließlich Bezeichnern, Attributen, Events, Käufen, Geräten, Engagement-Verlauf und Nachrichtenverlauf. Profile bilden die Grundlage für Segmentierung, Personalisierung und Compliance-Workflows über alle Kanäle hinweg."
+    description: "Ein <a href=\"/docs/user_guide/audience/manage_audience/user_profiles\">Kundenprofil</a> ist der zentrale Datensatz für jede Person in Braze, einschließlich Bezeichnern, Attributen, Events, Käufen, Geräten, Engagement-Verlauf und Nachrichtenverlauf. Profile bilden die Grundlage für Segmentierung, Personalisierung und Compliance-Workflows über alle Kanäle hinweg."
   - name: Webhook
     description: "Mit <a href=\"/docs/user_guide/channels/webhooks\">Webhooks</a> können Sie Nicht-App-Aktionen wie den Versand von SMS-Nachrichten auslösen. Sie können Webhooks verwenden, um anderen Systemen und Anwendungen Realtime-Informationen zur Verfügung zu stellen. Die Flexibilität dieses Features erlaubt es Ihnen, Informationen an jeden beliebigen Endpunkt zu senden."
   - name: Workspace

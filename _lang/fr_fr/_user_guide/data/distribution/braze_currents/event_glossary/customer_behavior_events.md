@@ -5,7 +5,7 @@ layout: customer_behavior_events_glossary
 page_order: 4
 excerpt_separator: ""
 page_type: glossary
-description: "Ce glossaire répertorie les différents comportements des clients et événements utilisateur que Braze peut suivre et envoyer via Currents à des entrepôts de données désignés."
+description: "Ce glossaire répertorie les différents comportements des clients et événements utilisateurs que Braze peut suivre et envoyer via Currents à des entrepôts de données désignés."
 tool: Currents
 search_rank: 7
 ---
@@ -20,19 +20,19 @@ Les schémas de stockage s'appliquent aux données d'événements sous forme de 
 Ces événements sont également disponibles sous forme de tables SQL dans le [Générateur de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder), les [extensions de segments SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) et le [Partage de données Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Pour les schémas de tables SQL et les détails des colonnes, consultez la [référence des tables SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
 {% endalert %}
 
-Contactez votre conseiller Braze ou ouvrez un [ticket d'assistance]({{site.baseurl}}/braze_support) si vous avez besoin d'accéder à des droits d'événements supplémentaires. Si vous ne trouvez pas ce dont vous avez besoin sur cette page, consultez notre [bibliothèque des événements d'engagement lié aux messages]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) ou nos [exemples d'échantillons de données Currents](https://github.com/Appboy/currents-examples/tree/master/sample-data).
+Contactez votre conseiller Braze ou ouvrez un [ticket d'assistance]({{site.baseurl}}/user_guide/administer/personal/braze_support) si vous avez besoin d'accéder à des droits d'événements supplémentaires. Si vous ne trouvez pas ce dont vous avez besoin sur cette page, consultez notre [bibliothèque des événements d'engagement lié aux messages]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) ou nos [exemples d'échantillons de données Currents](https://github.com/Appboy/currents-examples/tree/master/sample-data).
 
 {% enddetails %}
 
-{% details Explication de la structure des comportements des clients et des événements utilisateur, et des valeurs de plateforme %}
+{% details Explication de la structure des comportements des clients et des événements utilisateurs, et des valeurs de plateforme %}
 
 ## Structure d'événement {#event-structure}
 
-Cette ventilation des comportements des clients et des événements utilisateur montre le type d'informations généralement incluses dans un comportement client ou un événement utilisateur. Avec une bonne compréhension de ses composants, vos développeurs et votre équipe d'aide à la décision peuvent utiliser les données d'événements Currents entrants pour créer des rapports et des graphiques axés sur les données, et tirer parti des précieux indicateurs fournis.
+Cette ventilation des comportements des clients et des événements utilisateurs montre le type d'informations généralement incluses dans un comportement client ou un événement utilisateur. Avec une bonne compréhension de ses composants, vos développeurs et votre équipe d'aide à la décision peuvent utiliser les données d'événements Currents entrants pour créer des rapports et des graphiques axés sur les données, et tirer parti des précieux indicateurs fournis.
 
 ![Décomposition d'un événement utilisateur montrant un événement d'achat avec les propriétés répertoriées regroupées par propriétés spécifiques à l'utilisateur, propriétés spécifiques au comportement et propriétés spécifiques à l'appareil]({% image_buster /assets/img/customer_engagement_event.png %})
 
-Les comportements des clients et les événements utilisateur se composent de propriétés **propres à l'utilisateur**, de propriétés **propres au comportement** et de propriétés **propres à l'appareil**.
+Les comportements des clients et les événements utilisateurs se composent de propriétés **propres à l'utilisateur**, de propriétés **propres au comportement** et de propriétés **propres à l'appareil**.
 
 ### Valeurs de la plateforme {#platform-values}
 
@@ -52,7 +52,7 @@ Certains événements renvoient une valeur `platform` qui spécifie la plateform
 
 {% enddetails %}
 
-{% details Considérations relatives aux comportements des clients et aux événements utilisateur %}
+{% details Considérations relatives aux comportements des clients et aux événements utilisateurs %}
 
 - Currents abandonne les événements dont le payload est excessivement volumineux (plus de 900&nbsp;Ko).
 - De nombreux événements de ce glossaire sont initiés par le SDK. Certains événements, tels que `token_state_change`, peuvent être initiés par le SDK ou par le backend (par exemple, en réponse à un rebond de notification push). Les champs `sdk_version`, `gender`, `language` et `country` ne sont définis que pour les événements initiés par le SDK ; pour les événements initiés par le backend, ou lorsque ces informations ne sont pas disponibles ou non définies pour l'utilisateur, ces champs peuvent être `null`.
@@ -70,7 +70,7 @@ Certains événements renvoient une valeur `platform` qui spécifie la plateform
 Random Bucket Number
 {% endapitags %}
 
-Cet événement utilisateur se produit chaque fois qu'un nouvel utilisateur est créé dans son espace de travail. Au cours de cet événement, chaque nouvel utilisateur se voit attribuer un numéro de compartiment aléatoire que vous pouvez ensuite utiliser pour créer des segments d'utilisateurs aléatoires uniformément répartis. Utilisez cette fonctionnalité pour regrouper une série de numéros de compartiment aléatoires et comparer les performances de vos Campaigns et de leurs variantes.
+Cet événement utilisateur se produit chaque fois qu'un nouvel utilisateur est créé dans son espace de travail. Au cours de cet événement, chaque nouvel utilisateur se voit attribuer un numéro de compartiment aléatoire que vous pouvez ensuite utiliser pour créer des segments d'utilisateurs aléatoires uniformément répartis. Utilisez cette fonctionnalité pour regrouper une série de numéros de compartiment aléatoires et comparer les performances de vos campagnes et de leurs variantes.
 
 {% alert important %}
 Cet événement Currents n'est disponible que pour les clients qui ont acheté un « connecteur tous événements » et n'est disponible que pour les connecteurs d'événements de stockage (tels que Amazon S3, Microsoft Azure et Google Cloud Storage).
@@ -1131,13 +1131,13 @@ Lorsqu'un utilisateur démarre sa première session, un événement `FirstSessio
 {% endapi %}
 
 {% api %}
-## Événements de changement de jeton Push To Start pour les Live Activity {#live-activity-push-to-start-token-change-events}
+## Événements de changement de jeton Push To Start pour les en direct Activity {#live-activity-push-to-start-token-change-events}
 
 {% apitags %}
-Live Activity, Push To Start Token
+en direct Activity, Push To Start Token
 {% endapitags %}
 
-Cet événement se produit lorsque Braze synchronise le jeton Push To Start de la Live Activity avec l'utilisateur.
+Cet événement se produit lorsque Braze synchronise le jeton Push To Start de la en direct Activity avec l'utilisateur.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -1264,18 +1264,18 @@ Cet événement se produit lorsque Braze synchronise le jeton Push To Start de l
 
 ### Détails des propriétés
 
-- Braze émet un événement « update » avec `push_token_state_change_type` défini sur `"update"` lorsqu'un utilisateur anonyme est identifié sur le même profil et que les jetons Push To Start de Live Activity iOS existants restent sur ce profil. Dans ce cas, `user_id` ne change pas et `external_user_id` est défini sur l'ID externe de l'utilisateur identifié. Cela inclut l'identification via l'endpoint [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) et le `changeUser` du SDK lorsqu'il attribue un ID externe au profil anonyme sur l'appareil.
+- Braze émet un événement « update » avec `push_token_state_change_type` défini sur `"update"` lorsqu'un utilisateur anonyme est identifié sur le même profil et que les jetons Push To Start de en direct Activity iOS existants restent sur ce profil. Dans ce cas, `user_id` ne change pas et `external_user_id` est défini sur l'ID externe de l'utilisateur identifié. Cela inclut l'identification via l'endpoint [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) et le `changeUser` du SDK lorsqu'il attribue un ID externe au profil anonyme sur l'appareil.
 
 {% endapi %}
 
 {% api %}
-## Événements de changement de jeton de mise à jour des Live Activity {#live-activity-update-token-change-events}
+## Événements de changement de jeton de mise à jour des en direct Activity {#live-activity-update-token-change-events}
 
 {% apitags %}
-Live Activity, Update Token
+en direct Activity, Update Token
 {% endapitags %}
 
-Cet événement se produit lorsque Braze synchronise le jeton de mise à jour de la Live Activity avec l'utilisateur.
+Cet événement se produit lorsque Braze synchronise le jeton de mise à jour de la en direct Activity avec l'utilisateur.
 
 {% tabs %}
 {% tab Cloud Storage %}

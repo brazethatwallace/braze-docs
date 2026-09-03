@@ -50,7 +50,7 @@ Tags sind in der Liste der Campaigns, Canvases oder Segments sichtbar, zusammen 
 Tags können auch zu angepassten Daten hinzugefügt werden, wenn Sie [angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#managing-custom-attributes) und [angepasste Events]({{site.baseurl}}/user_guide/data/activation/events/custom_events#adding-tags) verwalten.
 
 {% alert important %}
-Dieses Feature befindet sich derzeit im Early Access. Wenden Sie sich an Ihren Customer-Success-Manager, wenn Sie an diesem Early Access teilnehmen möchten.
+Dieses Feature befindet sich derzeit im Early Access. Wenden Sie sich an Ihren CSM, wenn Sie an diesem Early Access teilnehmen möchten.
 {% endalert %}
 
 Informationen zum Umbenennen, Entfernen oder Verschachteln von Tags in Ihrem Dashboard finden Sie unter [Tags verwalten]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags).

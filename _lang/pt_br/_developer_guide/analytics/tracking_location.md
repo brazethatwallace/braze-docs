@@ -1,9 +1,8 @@
 ---
 nav_title: Rastrear local
-article_title: Rastrear local através do SDK da Braze
+article_title: Rastrear local
 page_order: 3.4
 description: "Aprenda como rastrear local através do SDK da Braze."
-
 ---
 
 # Rastrear local {#track-location}
@@ -69,7 +68,7 @@ Para saber como desativar o monitoramento contínuo, consulte a [documentação 
 {% multi_lang_include developer_guide/swift/analytics/tracking_location.md %}
 {% endsdktab %}
 
-{% sdktab react native %}
+{% sdktab React Native %}
 {% multi_lang_include developer_guide/react_native/analytics/tracking_location.md %}
 {% endsdktab %}
 {% endsdktabs %}

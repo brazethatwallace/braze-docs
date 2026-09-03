@@ -1,12 +1,11 @@
 ---
 nav_title: "POST: Merge users"
-article_title: "POST: Merge Users"
+article_title: "Merge users"
 search_tag: Endpoint
 page_order: 6
 layout: api_page
 page_type: reference
 description: "This article outlines details about the Merge users Braze endpoint."
-
 ---
 {% api %}
 # Merge users
@@ -22,7 +21,7 @@ Up to 50 merges may be specified per request. This endpoint is asynchronous.
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/api_key) with the `users.merge` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics) with the `users.merge` permission.
 
 ## Rate limit
 

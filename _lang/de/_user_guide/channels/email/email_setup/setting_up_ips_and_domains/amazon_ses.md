@@ -18,7 +18,7 @@ Bevor Sie mit der Einrichtung von Amazon SES beginnen, stellen Sie sicher, dass 
 - Versand-Domain-Namen
 - IP-Pool-Namen (z. B. Marketing, Transaktion, Staging)
 - Die Zahl der IP-Adressen für jeden IP-Pool
-- Bevorzugter Anhang für Klick-Tracking-Domains (z. B. „clicks“ oder „click“, „links“ oder „link“)
+- Bevorzugter Anhang für Klick-Tracking-Domains (z. B. „clicks“ oder „Click“, „links“ oder „link“)
 
 ## Einrichtungsbeispiel {#setup-example}
 

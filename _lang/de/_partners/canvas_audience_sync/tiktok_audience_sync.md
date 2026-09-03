@@ -21,7 +21,7 @@ Mit diesem Feature können Marken kontrollieren, welche spezifischen First-Party
 
 {% alert important %}
 **Audience Sync Pro – Haftungsausschluss**<br>
-Braze Audience Sync to TikTok ist eine Integration von Audience Sync Pro. Für weitere Informationen zu dieser Integration wenden Sie sich bitte an Ihren Braze Account Manager.
+Braze Audience Sync to TikTok ist eine Integration von Audience Sync Pro. Für weitere Informationen zu dieser Integration wenden Sie sich bitte an Ihren Braze Account Manager:in.
 {% endalert %}
 
 ## Voraussetzungen {#prerequisites}
@@ -31,7 +31,7 @@ Sie müssen sicherstellen, dass die folgenden Punkte erstellt, abgeschlossen und
 | Anforderung | Herkunft | Beschreibung |
 | ----------- | ------ | ----------- |
 | TikTok for Business Center-Konto | [TikTok](https://business.tiktok.com/) | Ein zentrales Tool zur Verwaltung der TikTok-Assets Ihrer Marke (z. B. Werbekonten, Seiten, Apps). |
-| TikTok-Werbekonto | [TikTok](https://ads.tiktok.com/) | Ein aktives TikTok-Werbekonto, das mit dem Business Center-Konto Ihrer Marke verknüpft ist.<br><br>Stellen Sie sicher, dass Ihnen der Admin-Manager Ihres TikTok Business Centers Administratorberechtigungen für die TikTok-Werbekonten erteilt hat, die Sie mit Braze verwenden möchten. |
+| TikTok-Werbekonto | [TikTok](https://ads.tiktok.com/) | Ein aktives TikTok-Werbekonto, das mit dem Business Center-Konto Ihrer Marke verknüpft ist.<br><br>Stellen Sie sicher, dass Ihnen der Admin-Manager:in Ihres TikTok Business Centers Administratorberechtigungen für die TikTok-Werbekonten erteilt hat, die Sie mit Braze verwenden möchten. |
 | TikTok-Nutzungsbedingungen und -Richtlinien | [TikTok](https://ads.tiktok.com/i18n/official/policy/terms) | Stimmen Sie zu, alle erforderlichen Nutzungsbedingungen, Richtlinien, Leitlinien und Dokumentationen von TikTok einzuhalten, die sich auf Ihre Nutzung von TikTok Audience Sync beziehen, einschließlich aller darin durch Verweis einbezogenen Nutzungsbedingungen, Richtlinien, Leitlinien und Dokumentationen, die unter anderem Folgendes umfassen können: die Commercial Terms of Service, Advertising Terms, Privacy Policy, Custom Audience Terms, Developer Terms of Service, Developer Data Sharing Agreement, Advertising Policies, Brand Guidelines und Community Guidelines. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Voraussetzungen" }
 
@@ -104,7 +104,7 @@ Braze bietet auch die Möglichkeit, Nutzer:innen zu bestehenden TikTok-Zielgrupp
 
 Sobald Sie Ihre TikTok Audience-Komponente konfiguriert haben, starten Sie den Canvas! Es wird eine neue Zielgruppe erstellt, und Nutzer:innen, die die TikTok Audience-Komponente durchlaufen, werden in diese Zielgruppe auf TikTok übertragen. Wenn Ihr Canvas nachfolgende Komponenten enthält, werden Ihre Nutzer:innen zum nächsten Schritt in ihrer User Journey vorangebracht.
 
-Sie können die Zielgruppe in TikTok einsehen, indem Sie Ihr **Ads Manager Account** aufrufen und **Audiences** aus dem Dropdown-Menü **Assets** auswählen. Auf der Seite **Audience** sehen Sie die Größe jeder Zielgruppe, sobald sie &#126;1.000 erreicht hat.
+Sie können die Zielgruppe in TikTok einsehen, indem Sie Ihr **Ads Manager:in Account** aufrufen und **Audiences** aus dem Dropdown-Menü **Assets** auswählen. Auf der Seite **Audience** sehen Sie die Größe jeder Zielgruppe, sobald sie &#126;1.000 erreicht hat.
 
 ![TikTok-Seite mit den folgenden Metriken für die angegebene Zielgruppe.]({% image_buster /assets/img/tiktok/tiktok5.png %})
 
@@ -149,7 +149,7 @@ TikTok stellt diese Informationen aufgrund seiner Datenschutzrichtlinien nicht z
 
 ### Wie lange dauert es, bis meine Zielgruppen in TikTok befüllt sind? {#how-long-will-it-take-for-my-audiences-to-populate-in-tiktok}
 
-Die Zielgruppengröße wird innerhalb von 24–48 Stunden auf der Zielgruppenseite im TikTok Ads Manager aktualisiert.
+Die Zielgruppengröße wird innerhalb von 24–48 Stunden auf der Zielgruppenseite im TikTok Ads Manager:in aktualisiert.
 
 ### Wie viele Zielgruppen kann ich maximal in meinem TikTok-Anzeigenkonto haben? {#what-is-the-maximum-number-of-audiences-i-can-have-in-my-tiktok-ad-account}
 

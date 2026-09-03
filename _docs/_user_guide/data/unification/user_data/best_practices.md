@@ -21,10 +21,11 @@ If an unknown user were to view your site and then, at a later date, create an a
 
 ### Step 1: Check if the user exists
 
-When a user enters content through a web form, check if a user with that email already exists within your database. This can be done in one of two ways:
+When a user enters content through a web form, check if a user with that email already exists within your database. You can do this in one of these ways:
 
 - **Check internal database (recommended):** If you have an external record or database containing the provided user information that exists outside of Braze, reference this at the time of email submission or account creation to confirm the information hasn't already been captured.
 - **[`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track):** Use `email` as an identifier, and a new user profile will be created if the email address doesn't exist yet.
+- **[`/subscription/status/get` endpoint]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status):** If you collect email through a custom form and then set subscription group membership through the REST API, call this endpoint first. If no matching profile exists, create or subscribe the user with the [`/subscription/status/set` endpoint]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status). Otherwise, update the existing profile instead of creating a duplicate.
 
 ### Step 2: Log or update user
 
@@ -39,6 +40,8 @@ When a user enters content through a web form, check if a user with that email a
 ## Capturing user emails through an email capture form
 
 Use an email capture form to prompt users to submit their email address, which will be added to their user profile. For more information on how to set up this form, check out [Email capture form]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/email_capture_form).
+
+If you use a custom form and set subscription group membership through the REST API, check whether a profile already exists before creating a user. See [Step 1: Check if the user exists](#step-1-check-if-user-exists).
  
 ## Identifying alias-only users
 
@@ -65,5 +68,5 @@ After user profiles are merged, this action cannot be undone.
 
 ## Additional resources
 - Check out our article on the Braze [user profile lifecycle]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle) for additional context.<br>
-- View our documentation on setting user IDs and calling the `changeUser()` method for [Android]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=android), [iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_user_ids#suggested-user-id-naming-convention), and [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=web).
+- View our documentation on setting user IDs and calling the `changeUser()` method for [Android]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=android), [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=swift#naming-best-practices), and [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=web).
 

@@ -39,9 +39,9 @@ channel:
 
 ### テンプレートメッセージ {#template-messages}
 
-テンプレートメッセージのクリックトラッキングを有効にするには、Brazeの**WhatsAppテンプレートビルダー**を使用することをお勧めします。この方法では、URLフォーマットの要件が自動的に処理されるため、WhatsApp Business Managerで手動設定する必要はありません。
+テンプレートメッセージのクリックトラッキングを有効にするには、Brazeの**WhatsAppテンプレートビルダー**を使用することをお勧めします。この方法では、URLフォーマットの要件が自動的に処理されるため、WhatsApp Business マネージャーで手動設定する必要はありません。
 
-WhatsApp Business Managerで直接テンプレートを作成する場合は、[WhatsApp Business Managerからのクリックトラッキング設定](#configuring-click-tracking-from-whatsapp-business-manager)を参照してください。
+WhatsApp Business マネージャーで直接テンプレートを作成する場合は、[WhatsApp Business マネージャーからのクリックトラッキング設定](#configuring-click-tracking-from-whatsapp-business-manager)を参照してください。
 
 #### テンプレートビルダーを使用する {#use-the-template-builder}
 
@@ -78,13 +78,13 @@ WhatsApp Business Managerで直接テンプレートを作成する場合は、[
 
 テンプレートがMetaに送信された後、トラッキングドメインはロックされますが、送信先URLはいつでも編集可能です。リンクの送信先を更新するには、そのボタンの**クリックトラッキングURL**フィールドを編集します。トラッキングURLフォーマットは変わりません。Brazeは送信時にユーザーを新しい送信先にリダイレクトします。
 
-#### WhatsApp Business Managerからクリックトラッキングを設定する {#configure-click-tracking-from-whatsapp-business-manager}
+#### WhatsApp Business マネージャーからクリックトラッキングを設定する {#configure-click-tracking-from-whatsapp-business-manager}
 
-テンプレートビルダーではなくWhatsApp Business Managerでテンプレートを作成する場合は、Brazeでテンプレートを使用する際にクリックトラッキングが正しく機能するように、以下のステップに従ってください。
+テンプレートビルダーではなくWhatsApp Business マネージャーでテンプレートを作成する場合は、Brazeでテンプレートを使用する際にクリックトラッキングが正しく機能するように、以下のステップに従ってください。
 
-##### ステップ1: WhatsApp Business Managerでクリックトラッキング対応テンプレートを作成する {#step-1-build-a-click-tracking-supported-template-in-whatsapp-business-manager}
+##### ステップ1: WhatsApp Business マネージャーでクリックトラッキング対応テンプレートを作成する {#step-1-build-a-click-tracking-supported-template-in-whatsapp-business-manager}
 
-1. WhatsApp Business Managerで、カスタムドメインまたは `brz.ai` のいずれかのベースURLを作成します。
+1. WhatsApp Business マネージャーで、カスタムドメインまたは `brz.ai` のいずれかのベースURLを作成します。
 2. テンプレートに含まれるリンクがクリックトラッキングと互換性があることを確認します。
 3. Brazeでキャンペーンとして設定した後は、テンプレート変数を変更しないでください。ダウンストリームの変更は反映できません。
 4. CTAボタンリンクの場合、**Dynamic**を選択し、ベースURL（`brz.ai` またはカスタムドメイン）を入力します。
@@ -92,7 +92,7 @@ WhatsApp Business Managerで直接テンプレートを作成する場合は、[
 ![コールトゥアクションを作成するセクション。]({% image_buster /assets/img/whatsapp/click_tracking/create_cta.png %}){: style="max-width:70%;"}
 
 {: start="5"}
-5. 本文テキスト内のリンクの場合、WhatsApp Business Managerでテンプレートを作成する際に、トラッキングしたい本文内のリンクに挿入されたスペースを削除します。
+5. 本文テキスト内のリンクの場合、WhatsApp Business マネージャーでテンプレートを作成する際に、トラッキングしたい本文内のリンクに挿入されたスペースを削除します。
 
 ![コールトゥアクションのコンテンツ本文を入力するテキストボックス。]({% image_buster /assets/img/whatsapp/click_tracking/cta_textbox.png %}){: style="max-width:70%;"}
 

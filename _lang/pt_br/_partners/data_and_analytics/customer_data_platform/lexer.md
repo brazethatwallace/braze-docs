@@ -1,7 +1,7 @@
 ---
 nav_title: Lexer
 article_title: Lexer
-description: "Este artigo de referência descreve a parceria entre a Braze e a Lexer, uma plataforma de dados do cliente que coloca os dados do cliente nas mãos dos profissionais de marketing para inspirar experiências que impulsionam as vendas."
+description: "Este artigo de referência descreve a parceria entre a Braze e a Lexer, uma CDP que coloca os dados do cliente nas mãos dos profissionais de marketing para inspirar experiências que impulsionam as vendas."
 alias: /partners/lexer/
 page_type: partner
 search_tag: Partner
@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Lexer
 
-> [Lexer](https://lexer.io/), uma plataforma de dados do cliente construída para o varejo, ajuda as marcas a impulsionar vendas incrementais por meio de experiências de cliente aprimoradas, combinando enriquecimento de dados robusto com as ferramentas mais intuitivas e consultoria especializada.
+> [Lexer](https://lexer.io/), uma CDP construída para o varejo, ajuda as marcas a impulsionar vendas incrementais por meio de experiências de cliente aprimoradas, combinando enriquecimento de dados robusto com as ferramentas mais intuitivas e consultoria especializada.
 
 _Esta integração é mantida pela Lexer._
 
@@ -35,9 +35,9 @@ Na Lexer, navegue até **Manage > Integration**, selecione o bloco **Braze** e c
 - **AWS Credentials**
   - **AWS S3 bucket name**
   - **AWS S3 [bucket region](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingBucket.html)**
-  - **AWS S3 bucket path**: Esse caminho deve corresponder ao caminho que você especificou ao [conectar seu bucket S3 à Braze]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3). Deixe em branco se você não especificou nada para a Braze.
+  - **AWS S3 bucket jornada**: Esse caminho deve corresponder ao caminho que você especificou ao [conectar seu bucket S3 à Braze]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3). Deixe em branco se você não especificou nada para a Braze.
   - **AWS S3 secret access key**: Visite a Amazon para informações sobre [criar uma chave de acesso](https://aws.amazon.com/premiumsupport/knowledge-center/create-access-key/).
-- **Braze export segment ID**: O ID do segmento que você criou na Braze contendo todos os usuários que deseja exportar para a Lexer. Se houver usuários que não deseja exportar para a Lexer, você poderá excluí-los do segmento criado na Braze. Para encontrar seu identificador de segmento, clique no segmento desejado na Braze e localize o **Segment API Identifier**.
+- **Braze export segment ID**: O ID do Segment que você criou na Braze contendo todos os usuários que deseja exportar para a Lexer. Se houver usuários que não deseja exportar para a Lexer, você poderá excluí-los do Segment criado na Braze. Para encontrar seu identificador de Segment, clique no Segment desejado na Braze e localize o **Segment API Identifier**.
 
 ![Tela de gerenciamento de integrações da Lexer mostrando os campos de integração com a Braze para URL da API, chave de API, detalhes do bucket S3 do AWS e ID do segmento de exportação da Braze.]({% image_buster /assets/img/lexer/braze_integrate_screen.png %})
 
@@ -52,11 +52,11 @@ Essa integração funciona fornecendo à Lexer seu token de API e segredos exist
 
 ### Etapa 1: Criar ativação {#step-1-create-activation}
 
-O Lexer Activate atualizará automaticamente seus perfis da Braze, adicionando ou removendo atributos à medida que os clientes entram e saem do seu segmento.
+O Lexer Activate atualizará automaticamente seus perfis da Braze, adicionando ou removendo atributos à medida que os clientes entram e saem do seu Segment.
 
 1. Na Lexer, em **Lexer Activations**, clique em **ACTIVATE NEW AUDIENCE**.
 2. Selecione a ativação Braze apropriada para essa campanha.
-3. Adicione seu segmento.
+3. Adicione seu Segment.
 4. Atualize o nome do seu público; esse será o valor do seu atributo na Braze.
 5. Esse é o atributo personalizado que será atualizado na Braze. Entre em contato com o [suporte da Lexer](mailto:support@lexer.io) para atualizar.
 6. Marque a ação de lista apropriada — na maioria dos casos, você desejará manter sua lista.
@@ -68,10 +68,10 @@ O Lexer Activate atualizará automaticamente seus perfis da Braze, adicionando o
 
 Depois que a ativação for confirmada como enviada no Activate, os registros começarão a ser atualizados na Braze. Seus perfis só estarão totalmente atualizados na Braze após o recebimento de um e-mail de confirmação da Lexer.
 
-### Etapa 3: Criar seu segmento na Braze {#step-3-create-your-braze-segment}
+### Etapa 3: Criar seu Segment na Braze {#step-3-create-your-braze-segment}
 
 Na Braze, você verá que o nome do público na Lexer agora é um valor no atributo personalizado `lexer_audience`. A Braze tem um limite de 100 valores por atributo.
 
-Para criar seu segmento, navegue até **Segment > + Create Segment** e selecione **Custom Attribute** como filtro. Em seguida, selecione `lexer_audience` como seu atributo e o nome do público da Lexer desejado. Quando terminar, **salve** seu público.
+Para criar seu Segment, navegue até **Segment > + Create Segment** e selecione **Custom Attribute** como filtro. Em seguida, selecione `lexer_audience` como seu atributo e o nome do público da Lexer desejado. Quando terminar, **salve** seu público.
 
-Agora é possível adicionar esse segmento recém-criado a futuras Campaigns e Canvas da Braze para direcionar esses usuários finais.
+Agora é possível adicionar esse Segment recém-criado a futuras Campaigns e Canvas da Braze para direcionar esses usuários finais.

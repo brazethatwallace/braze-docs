@@ -89,7 +89,7 @@ Aquí encontrarás el endpoint REST y generarás tu clave de importación de dat
 ### Paso 3: Configurar fuentes de datos {#step-3-set-up-data-feeds}
 
 1. En Branch, en la sección **Exports**, selecciona **Data Feeds**.
-2. En la página **Data Feeds Manager**, selecciona la pestaña **Data Integrations** en la parte superior de la página.
+2. En la página **Data Feeds Administrador**, selecciona la pestaña **Data Integrations** en la parte superior de la página.
 3. Selecciona Braze de la lista de partners de datos disponibles.
 4. En la página de exportación de Braze, proporciona la clave de importación de datos y el endpoint REST que encontraste en el panel de Braze y selecciona **Enable**.
 

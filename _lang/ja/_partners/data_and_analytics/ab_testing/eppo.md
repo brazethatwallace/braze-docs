@@ -17,49 +17,49 @@ BrazeとEppoの統合により、BrazeでABテストを設定し、Eppoで結果
 
 ## 前提条件 {#prerequisites}
 
-| 必要条件 | 説明 |
-|---|---|
-| Eppoアカウント | このパートナーシップを利用するには、Eppoアカウントが必要です。 |
-| CurrentsまたはSnowflakeデータ共有 | Eppoが実験データを分析するには、CurrentsまたはSnowflakeデータ共有が必要です。 |
+| 要件                        | 説明                                                                         |
+|------------------------------------|-------------------------------------------------------------------------------------|
+| Eppo アカウント                       | このパートナーシップを活用するには、Eppo アカウントが必要です。                   |
+| Currents または Snowflake データ共有 | Eppo が実験データを分析するには、Currents または Snowflake データ共有が必要です。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
-## 統合 {#integration}
+## インテグレーション {#integration}
 
-### ステップ 1:BrazeでCurrentsまたはSnowflakeデータ共有を設定する {#step-1-configure-currents-or-snowflake-data-sharing-in-braze}
+### ステップ1：Braze で Currents または Snowflake データ共有を設定する {#step-1-configure-currents-or-snowflake-data-sharing-in-braze}
 
-Eppoはデータウェアハウスで直接実験を分析します。統合を有効にするには、Brazeのメッセージエンゲージメントデータが、Eppoに接続されたデータウェアハウスで利用可能である必要があります。Currentsを使用してBrazeからキャンペーンデータをエクスポートしたり、[Snowflakeデータ共有]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/)を使用してSnowflakeインスタンスでBrazeデータにアクセスしたりできます。
+Eppo はデータウェアハウス内で直接実験を分析します。このインテグレーションを有効にするには、Eppo に接続されているデータウェアハウスで Braze のメッセージエンゲージメントデータが利用可能である必要があります。Currents を使用して Braze からキャンペーンデータをエクスポートするか、[Snowflake データ共有]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake)を使用して Snowflake インスタンス内の Braze データにアクセスできます。
 
-### ステップ 2:Brazeのキャンペーンまたはキャンバスで実験を設定する {#step-2-set-up-your-experiment-in-a-braze-campaign-or-canvas}
+### ステップ2：Braze のキャンペーンまたはキャンバスで実験を設定する {#step-2-set-up-your-experiment-in-a-braze-campaign-or-canvas}
 
-キャンペーンやキャンバスでネイティブのABテスト機能を使用できます。詳しくは、[多変量テストとABテスト]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing/#what-are-multivariate-and-ab-testing)を参照してください。
+キャンペーンやキャンバスでネイティブの AB テスト機能を使用できます。詳しくは、[多変量テストと AB テスト]({{site.baseurl}}/user_guide/messaging/ab_testing)を参照してください。
 
-### ステップ 3:Eppoを設定してBrazeの実験を測定する {#step-3-set-up-eppo-to-measure-braze-experiments}
+### ステップ3：Eppo で Braze の実験を測定するための設定を行う {#step-3-set-up-eppo-to-measure-braze-experiments}
 
-EppoでBrazeデータを使用して実験を実行するには、Brazeからエクスポートされたユーザーレベルのメッセージイベントデータに基づいて、データウェアハウスに[割り当てテーブル](https://docs.geteppo.com/data-management/definitions/assignment-sql/)を作成します。キャンバスとキャンペーンの実験は異なるメタデータに依存しているため、別々のテーブルを使用することを推奨します。
+Eppo で Braze データを使用して実験を実行するには、Braze からエクスポートされたユーザーレベルのメッセージイベントデータに基づいて、データウェアハウスに[割り当てテーブル](https://docs.geteppo.com/data-management/definitions/assignment-sql/)を作成します。キャンバスとキャンペーンの実験では異なるメタデータに依存するため、それぞれ別のテーブルを作成することを推奨します。
 
 {% tabs local %}
 {% tab キャンバス実験 %}
-キャンバスの実験では、割り当ては以下のいずれかで作成できます。
+キャンバス実験の場合、割り当ては以下のいずれかで作成できます：
 
-- キャンバスエントリレベル（`users.canvas.Entry`）
-- キャンバス実験ステップ（`users.canvas.experimentstep.SplitEntry`）
+- キャンバスのエントリレベル（`users.canvas.Entry`）
+- またはキャンバスの実験ステップ（`users.canvas.experimentstep.SplitEntry`）
 
-このようなケースでは、`canvas_name`、`experiment_step_id`、`canvas_variation_name`、`experiment_split_id`のようなフィールドが、実験名とバリエーションを定義するために使用されます。
+これらの場合、`canvas_name`、`experiment_step_id`、`canvas_variation_name`、`experiment_split_id` などのフィールドを使用して、実験名とバリエーションを定義します。
 
 {% endtab %}
 
 {% tab キャンペーン実験 %}
-キャンペーンの実験では、送信イベント（プッシュ、メール、SMSなど）を使って、ユーザーがいつ実験に参加したかを判断します。`campaign_name`、`message_variation_name`、および`time`は、割り当てテーブルに入力するために使用されます。
+キャンペーン実験の場合、送信イベント（プッシュ、メール、SMS など）を使用して、ユーザーが実験に参加したタイミングを判定します。`campaign_name`、`message_variation_name`、`time` を使用して割り当てテーブルにデータを格納します。
 
 {% endtab %}
 {% endtabs %}
 
-メッセージ固有の指標（クリック数や開封など）をトラッキングするには、ユーザーIDとキャンペーン名またはキャンバス名を結合した`combined_id`を作成することによって**セカンダリエンティティ**を含めます。この`combined_id`は、ファクトテーブルでも使用され、指標を正しい実験とバリエーションに合わせます。
+メッセージ固有の指標（クリックや開封など）を追跡するには、ユーザー IDとキャンペーンまたはキャンバス名を結合した `combined_id` を作成して、**セカンダリエンティティ**を含めます。この `combined_id` は、指標を正しい実験およびバリエーションに関連付けるために、ファクトテーブルでも使用されます。
 
-Eppoは、これらの割り当てとファクトテーブルを使用して結果を分析します。Eppoで**プロトコル**を設定して、将来の実験セットアップを標準化することをお勧めします。詳細については、[Eppoのドキュメント](https://docs.geteppo.com/guides/marketing/integrating-with-braze/)を参照してください。
+Eppo はこれらの割り当てテーブルとファクトテーブルを使用して結果を分析します。今後の実験設定を標準化するために、Eppo で**プロトコル**を設定することを推奨します。詳しくは、[Eppo のドキュメント](https://docs.geteppo.com/guides/marketing/integrating-with-braze/)を参照してください。
 
 ## サポート {#support}
 
-Braze Currentsの設定、Snowflakeデータ共有、または多変量キャンペーンの設定については、Brazeカスタマーサクセスマネージャーにお問い合わせください。
+Braze Currentsの設定、Snowflakeデータ共有、または多変量キャンペーンの設定に関するご質問は、Brazeのカスタマーサクセスマネージャーにお問い合わせください。
 
 Brazeの実験を測定するためのEppoの設定に関するサポートについては、Eppoサポートチームにお問い合わせください。

@@ -49,7 +49,7 @@ Nachdem Sie ein Segment in Zeotap erfolgreich erstellt, gepusht und verarbeitet 
 
 ![Ein Braze-Nutzerprofil, in dem unter „Angepasste Attribute“ die Segmente eins bis vier als „true“ aufgeführt sind.]({% image_buster /assets/img/zeotap/zeotap4.png %})
 
-Wenn ein:e Nutzer:in Teil des Zeotap-Segments ist, erscheint der Segmentname als angepasstes Attribut im Nutzerprofil mit dem booleschen Wert `true`. Notieren Sie sich den Namen des angepassten Attributs, da Sie ihn bei der Erstellung eines Braze-Segments benötigen.
+Wenn ein:e Nutzer:in Teil des Zeotap-Segments ist, erscheint der Segmentname als angepasstes Attribut im Kundenprofil mit dem booleschen Wert `true`. Notieren Sie sich den Namen des angepassten Attributs, da Sie ihn bei der Erstellung eines Braze-Segments benötigen.
 
 Als Nächstes müssen Sie dieses Segment in Braze erstellen und definieren:
 1. Wählen Sie im Braze-Dashboard **Segments** und dann **Create Segment**.

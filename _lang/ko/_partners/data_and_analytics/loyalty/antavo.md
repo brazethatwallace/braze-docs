@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Antavo Loyalty Cloud
 
-> [Antavo](https://antavo.com/)는 브랜드 충성도를 높이고 고객 행동을 변화시키는 종합 로열티 프로그램을 구축하는 엔터프라이즈급 SaaS 로열티 기술 제공업체입니다.
+> [Antavo](https://antavo.com/)는 브랜드 충성도를 높이고 고객 행동을 변화시키는 종합 로열티 프로그램을 구축하는 엔터프라이즈급 SaaS(software-as-a-service) 로열티 기술 제공업체입니다.
 
 _이 통합은 Antavo에서 유지 관리합니다._
 

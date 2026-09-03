@@ -5,7 +5,6 @@ page_order: 1
 description: "This reference article outlines the partnership between Braze and Punchh, a loyalty and engagement platform, enabling you to sync data across the two platforms. Data published in Braze will be available for segmentation and can sync user data back into Punchh via webhook templates setup in Braze."
 page_type: partner
 search_tag: Partner
-
 ---
 
 # Punchh
@@ -176,7 +175,7 @@ For more information on how webhooks are used at Braze, check out [Create a webh
 
 #### Triggering
 
-Use cases for Braze messaging triggered by Punchh events being sent to Braze, such as reward events or guest events, can be created as [action-based campaigns]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery#action-based-delivery) or Canvases triggered by the relevant Punchh event.
+Use cases for Braze messaging triggered by Punchh events being sent to Braze, such as reward events or guest events, can be created as [action-based campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) or Canvases triggered by the relevant Punchh event.
 
 Adding a trigger will pull up the list of events created in Braze. Choose the event that should trigger your campaign or Canvas to be sent to the user who logged the event.
 

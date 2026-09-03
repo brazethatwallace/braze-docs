@@ -11,15 +11,11 @@ search_rank: 7
 
 <div class="api-glossary-preamble" markdown="1">
 
-{% alert important %}
-User profile events are in beta. Contact your customer success manager or account manager for access.
-{% endalert %}
-
 {% alert tip %}
-These events are also available as SQL tables in the [Query Builder]({{site.baseurl}}/user_guide/analytics/query_builder), [SQL Segment Extensions]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments), and [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). For SQL table schemas and column details, refer to the [SQL table reference]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension/sql_segments/sql_segments_tables). For Snowflake Data Sharing schemas for user profile attribute views, refer to [User profile attributes]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/user_attributes).
+These events are also available as SQL tables in the [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder), [SQL Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments), and [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). For SQL table schemas and column details, refer to the [SQL table reference]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables). For Snowflake Data Sharing schemas for user profile attribute views, refer to [User profile attributes]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/user_attributes).
 {% endalert %}
 
-Contact your Braze representative or open a [support ticket]({{site.baseurl}}/braze_support) if you need access to additional event entitlements. If you can't find what you need on this page, see the [Customer Behavior Events Library]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/customer_behavior_events), [Message Engagement Events Library]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events), or [Currents sample data examples](https://github.com/Appboy/currents-examples/tree/master/sample-data).
+Contact your Braze representative or open a [support ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support) if you need access to additional event entitlements. If you can't find what you need on this page, see the [Customer Behavior Events Library]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events), [Message Engagement Events Library]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events), or [Currents sample data examples](https://github.com/Appboy/currents-examples/tree/master/sample-data).
 
 {% details Explanation of user profile update event structure %}
 
@@ -28,7 +24,7 @@ Contact your Braze representative or open a [support ticket]({{site.baseurl}}/br
 This customer behavior and user events breakdown shows what type of information is generally included in a user profile update event. With a solid understanding of its components, your developers and business intelligence strategy team can use the incoming Currents event data to make data-driven reports and charts, and take advantage of other valuable data metrics.
 
 {% alert important %}
-Storage schemas apply to flat file event data sent to data warehouse storage partners, such as Google Cloud Storage, Amazon S3, and Microsoft Azure Blob Storage. Some event and destination combinations listed here are not yet generally available. For information about supported events by partner, see [available partners]({{site.baseurl}}/user_guide/data/braze_currents/available_partners) and the related partner pages.
+Storage schemas apply to flat file event data sent to data warehouse storage partners, such as Google Cloud Storage, Amazon S3, and Microsoft Azure Blob Storage. Some event and destination combinations listed here are not yet generally available. For information about supported events by partner, see [available partners]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) and the related partner pages.
 
 Currents drops events with payloads larger than 900 KB.
 {% endalert %}
@@ -38,6 +34,7 @@ Currents drops events with payloads larger than 900 KB.
 </div>
 
 <!--overview-end-->
+
 
 {% api %}
 ## User Delete Request events {#user-delete-request-events}
@@ -58,6 +55,24 @@ when a user is deleted by customer request
   "id" : "(required, string) Globally unique ID for this event",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+}
+```
+{% endtab %}
+
+{% tab Custom HTTP Connector %}
+```json
+// users.UserDeleteRequest
+
+{
+  "event_type" : "(required, string) The name of the event type",
+  "id" : "(required, string) Globally unique ID for this event",
+  "properties" : {
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to"
+  },
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user" : {
+    "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  }
 }
 ```
 {% endtab %}
@@ -91,6 +106,28 @@ when a user is orphaned, meaning the user is merged with another user's profile
 }
 ```
 {% endtab %}
+
+{% tab Custom HTTP Connector %}
+```json
+// users.UserOrphan
+
+{
+  "event_type" : "(required, string) The name of the event type",
+  "id" : "(required, string) Globally unique ID for this event",
+  "properties" : {
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "app_id" : "(optional, string) API ID of the app on which this event occurred",
+    "orphaned_by_id" : "(required, string) BSON ID of the user whose profile was merged with the orphaned user's profile"
+  },
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user" : {
+    "device_id" : "(optional, string) ID of the device on which the event occurred",
+    "external_user_id" : "(optional, string) [PII] External ID of the user",
+    "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  }
+}
+```
+{% endtab %}
 {% endtabs %}
 
 {% endapi %}
@@ -103,6 +140,10 @@ Profile
 {% endapitags %}
 
 This represents the profile updates for a user.
+
+{% alert important %}
+The user profile update event is in beta. Contact your customer success manager or account manager for access.
+{% endalert %}
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -163,6 +204,31 @@ This represents the profile updates for a user.
     "external_user_id" : "(optional, string) [PII] External ID of the user",
     "timezone" : "(optional, string) Time zone of the user",
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  }
+}
+```
+{% endtab %}
+
+{% tab Shopify %}
+```json
+// User Profile Update (users.profile.Update)
+
+{
+  "variables" : {
+    "identifier" : {
+      "customId" : {
+        "key" : "user_id",
+        "namespace" : "braze",
+        "value" : "(required, string) [PII] Braze user ID of the user who performed this event"
+      }
+    },
+    "input" : {
+      "email" : "(optional, string) [PII] Email address of the user",
+      "firstName" : "(optional, string) [PII] First name of the user",
+      "lastName" : "(optional, string) [PII] Last name of the user",
+      "locale" : "(optional, string) [PII] Language of the user",
+      "phone" : "(optional, string) [PII] Phone number of the user in e.164 format"
+    }
   }
 }
 ```

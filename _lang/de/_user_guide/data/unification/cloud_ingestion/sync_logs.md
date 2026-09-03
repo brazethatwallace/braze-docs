@@ -12,87 +12,92 @@ description: "Diese Seite bietet eine Übersicht über die in CDI verfügbaren O
 
 Um auf die Sync-Protokolle zuzugreifen, navigieren Sie zu **Dateneinstellungen** > **Cloud-Datenaufnahme** und wählen Sie den Tab **Sync Log** aus.
 
+<!-- support-analyzer-phase2:cdi_updated_at_row_sync -->
+{% alert note %}
+Wenn die Zeilenanzahl im Data Warehouse nicht mit **Rows Synced** übereinstimmt oder Sie Durchläufe mit **Partial Success** sehen, öffnen Sie die **Run ID** im Sync Log und überprüfen Sie die **Error reason**-Werte auf Zeilenebene. CDI wählt Zeilen anhand von `UPDATED_AT` aus – Zeilen mit bereits verarbeiteten Zeitstempeln, unverändertem `UPDATED_AT` nach Bearbeitungen oder Schreibvorgänge während eines aktiven Syncs können übersprungen werden. Häufige Fälle finden Sie unter [Warum stimmt „Rows Synced“ nicht mit der Anzahl in meinem Data Warehouse überein?]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/faqs#why-doesnt-rows-synced-match-the-number-in-my-warehouse) und [Cloud-Datenaufnahme – FAQ]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/faqs).
+{% endalert %}
+
 ## Das Sync-Log-Dashboard verstehen {#understanding-the-sync-log-dashboard}
 
-Die Hauptseite **Sync Log** bietet einen umfassenden Überblick über alle Ihre Synchronisierungsläufe, einschließlich einer Übersicht über die letzten Synchronisierungen nach ihrem aktuellen oder endgültigen Status.
+Die Hauptseite **Sync-Log** bietet eine allgemeine Übersicht über alle Ihre Sync-Durchläufe, einschließlich einer Übersicht der letzten Syncs nach ihrem aktuellen oder endgültigen Status.
 
-* **Running:** Synchronisierungsaufträge, die derzeit ausgeführt werden.
-* **Success:** Synchronisierungsaufträge, die abgeschlossen wurden und bei denen alle Zeilen erfolgreich verarbeitet wurden.
-* **Partial Success:** Synchronisierungsaufträge, die abgeschlossen wurden, bei denen jedoch eine oder mehrere Zeilen einen Fehler verursacht haben.
-* **Error:** Synchronisierungsaufträge, die nicht abgeschlossen werden konnten.
-* **Limit Exceeded:** Synchronisierungsaufträge, deren Verarbeitung gestoppt wurde, weil ein Datenlimit überschritten wurde.
+* **Running:** Sync-Jobs, die derzeit ausgeführt werden.
+* **Success:** Sync-Jobs, die abgeschlossen wurden und bei denen alle Zeilen erfolgreich verarbeitet wurden.
+* **Partial Success:** Sync-Jobs, die abgeschlossen wurden, bei denen jedoch eine oder mehrere Zeilen einen Fehler aufwiesen.
+* **Error:** Sync-Jobs, die nicht abgeschlossen werden konnten.
+* **Limit Exceeded:** Sync-Jobs, die die Verarbeitung gestoppt haben, weil ein Datenlimit überschritten wurde.
 
-![Ein Beispiel für Sync-Protokolle mit insgesamt 6.576 erfolgreichen Vorgängen.]({% image_buster /assets/img/cloud_ingestion/sync_logs1.png %}){: style="max-width:80%"}
+![Ein Beispiel für Sync-Logs mit insgesamt 6.576 erfolgreichen Durchläufen.]({% image_buster /assets/img/cloud_ingestion/sync_logs1.png %}){: style="max-width:80%"}
 
-Sync-Protokolle enthalten außerdem die folgenden Details zu jeder Synchronisierung:
+Sync-Logs liefern außerdem die folgenden Details für jeden Sync:
 
-* **Sync-Name:** Der Name der Synchronisierungskonfiguration.
-* **Run-ID:** Ein eindeutiger Bezeichner für eine bestimmte Ausführung der Synchronisierung. Wählen Sie diese ID aus, um weitere Details anzuzeigen oder um einen Synchronisierungslauf mit Braze Support zu referenzieren.
-* **Status:** Der Status des Laufs (Success, Partial Success, Error, Running).
-* **Neue Zeilen aus der Quelle gelesen:** Die Anzahl der neuen Zeilen, die für diesen Durchlauf aus Ihrem Data Warehouse abgerufen wurden.
-* **Ergebnisse:** Eine Aufschlüsselung der Anzahl der erfolgreichen und fehlgeschlagenen Zeilen innerhalb des Durchlaufs.
-* **Letzter `UPDATED_AT`:** Der Zeitstempel des letzten Datensatzes, der in diesem Synchronisierungslauf verarbeitet wurde.
-* **Startzeit des Laufs:** Wann der Synchronisierungsauftrag begonnen hat.
-* **Laufdauer:** Die Gesamtzeit, die der Synchronisierungsauftrag bis zum Abschluss benötigt hat.
+* **Sync name:** Der Name der Sync-Konfiguration.
+* **Run ID:** Ein eindeutiger Bezeichner für eine bestimmte Ausführung des Syncs. Wählen Sie diese ID aus, um weitere Details anzuzeigen oder um einen Sync-Durchlauf beim Braze-Support zu referenzieren.
+* **Status:** Der Status des Durchlaufs (Success, Partial Success, Error, Running).
+* **New rows read from source:** Die Anzahl der neuen Zeilen, die für diesen Durchlauf aus Ihrem Data Warehouse abgerufen wurden.
+* **Results:** Eine Aufschlüsselung, wie viele Zeilen innerhalb des Durchlaufs erfolgreich waren oder fehlgeschlagen sind.
+* **Last "UPDATED_AT":** Der Zeitstempel des zuletzt verarbeiteten Datensatzes in diesem Sync-Durchlauf.
+* **Run start time:** Wann der Sync-Job gestartet wurde.
+* **Run duration:** Die Gesamtdauer, die der Sync-Job bis zum Abschluss benötigt hat.
 
 ### Datenaufbewahrung {#data-retention}
 
-Sync-Protokolldaten, einschließlich aller Payloads auf Zeilenebene und Fehlerdetails, werden bis zu **30 Tage** lang aufbewahrt. Protokolle, die älter als 30 Tage sind, werden automatisch gelöscht.
+Sync-Log-Daten, einschließlich aller Payloads auf Zeilenebene und Fehlerdetails, werden bis zu **30 Tage** aufbewahrt. Logs, die älter als 30 Tage sind, werden automatisch gelöscht.
 
-Metadaten zu Synchronisierungsläufen, wie beispielsweise die Anzahl der verarbeiteten Zeilen, werden mindestens 12 Monate lang aufbewahrt.
+Metadaten zu Sync-Durchläufen, wie die Anzahl der verarbeiteten Zeilen, werden mindestens 12 Monate aufbewahrt.
 
-### Sync-Protokolle filtern {#filtering-sync-logs}
+### Sync-Logs filtern {#filtering-sync-logs}
 
-Sie können die Sync-Protokolltabelle filtern, um bestimmte Durchläufe zu finden. Die verfügbaren Filter umfassen:
+Sie können die Sync-Log-Tabelle filtern, um bestimmte Durchläufe zu finden. Die verfügbaren Filter umfassen:
 
-* **Startdatum des Auftrags:** Wählen Sie einen vordefinierten Zeitraum (z. B. „Letzte 30 Tage“) oder einen angepassten Datumsbereich aus.
-* **Status:** Filtern Sie nach einem oder mehreren Synchronisierungsstatus (z. B. nur **Error**- und **Partial Success**-Status anzeigen).
-* **Sync-Name:** Suchen Sie nach einer bestimmten Synchronisierung anhand ihres Namens.
+* **Job start date:** Wählen Sie einen vordefinierten Zeitraum (wie „Letzte 30 Tage“) oder einen benutzerdefinierten Datumsbereich aus.
+* **Status:** Filtern Sie nach einem oder mehreren Sync-Status (z. B. nur **Error**- und **Partial Success**-Status anzeigen).
+* **Sync name:** Suchen Sie nach einem bestimmten Sync anhand seines Namens.
 
-Um eine bestimmte Synchronisierung zu untersuchen, wählen Sie die entsprechende **Run ID** aus der Sync-Protokolltabelle aus. Auf der Seite **Run details** finden Sie ein detailliertes Protokoll der Synchronisierung, das Zeile für Zeile aufgeführt ist.
+Um einen bestimmten Sync zu untersuchen, wählen Sie die entsprechende **Run ID** aus der Sync-Log-Tabelle aus. Auf der Seite **Run details** finden Sie ein detailliertes, zeilenweises Protokoll des Syncs.
 
-### Laufübersicht {#run-overview}
+### Übersicht des Durchlaufs {#run-overview}
 
-Dieser Abschnitt fasst den ausgewählten Lauf zusammen, einschließlich Startzeit, Endzeit, Dauer und Gesamtzahl der aus der Quelle gelesenen Zeilen. Er gibt auch an, wie viele Zeilen erfolgreich verarbeitet wurden und wie viele zu einem Fehler geführt haben.
+Dieser Abschnitt fasst den ausgewählten Durchlauf zusammen, einschließlich Startzeit, Endzeit, Dauer und der Gesamtanzahl der aus der Quelle gelesenen Zeilen. Er zeigt außerdem, wie viele Zeilen erfolgreich waren und wie viele zu einem Fehler geführt haben.
 
-### In diesem Lauf verarbeitete Zeilen {#rows-processed-in-this-run}
+### In diesem Durchlauf verarbeitete Zeilen {#rows-processed-in-this-run}
 
-Diese Tabelle bietet Transparenz auf Zeilenebene hinsichtlich der während der Synchronisierung verarbeiteten Daten, sodass Sie einzelne Datensätze überprüfen können.
+Diese Tabelle bietet Einblick auf Zeilenebene in die während des Syncs verarbeiteten Daten und ermöglicht es Ihnen, einzelne Datensätze zu überprüfen.
 
-* **Suchen:** Sie können mithilfe der Suchleiste **Search by user ID** innerhalb der Ergebnisse des Durchlaufs nach bestimmten Nutzer:innen suchen.
+* **Suche:** Sie können innerhalb der Ergebnisse des Durchlaufs nach einer bestimmten Nutzer:in suchen, indem Sie die Leiste **Search by user ID** verwenden.
 * **Verfügbare Details:**
-  * **`UPDATED_AT`:** Der Zeitstempel aus der `UPDATED_AT`-Spalte für diese bestimmte Zeile.
-  * **ID:** Die Nutzer-Bezeichner (wie `external_id`, `email` oder `alias_name`), die verwendet werden, um den Datensatz mit einem Braze-Nutzerprofil abzugleichen.
+  * **UPDATED_AT:** Der Zeitstempel aus der `UPDATED_AT`-Spalte für die jeweilige Zeile.
+  * **ID:** Die Nutzer:innen-Bezeichner (wie `external_id`, `email` oder `alias_name`), die verwendet werden, um den Datensatz einem Braze-Kundenprofil zuzuordnen.
   * **Status:** Der individuelle Verarbeitungsstatus für diese Zeile (**Success** oder **Error**).
-  * **Quell-Payload:** Ein Link zum Anzeigen des Daten-Payloads.
-  * **Fehlergrund:** Wenn der Status **Error** lautet, enthält diese Spalte eine Nachricht, die erklärt, warum die Zeile nicht synchronisiert werden konnte.
+  * **Source payload:** Ein Link zum Anzeigen des Daten-Payloads.
+  * **Error reason:** Wenn der Status **Error** ist, enthält diese Spalte eine Meldung, die erklärt, warum die Zeile nicht synchronisiert werden konnte.
 
 #### Payloads anzeigen {#viewing-payloads}
 
-Um die genauen Daten anzuzeigen, die für eine bestimmte Zeile an Braze gesendet wurden, wählen Sie **View payload** in der Spalte **Source** payload aus. Hiermit wird der rohe JSON-Payload angezeigt, der für diese:n Nutzer:in verarbeitet wurde.
+Um die genauen Daten zu sehen, die für eine bestimmte Zeile an Braze gesendet wurden, wählen Sie **View payload** in der Spalte **Source** payload aus. Dies zeigt den rohen JSON-Payload an, der für diese Nutzer:in verarbeitet wurde.
 
-#### Sync-Protokolle exportieren {#exporting-sync-logs}
+#### Sync-Logs exportieren {#exporting-sync-logs}
 
-Wählen Sie **Export rows** aus, um die Protokolle auf Zeilenebene für einen Synchronisierungslauf zu exportieren. Wählen Sie anschließend die Exportmethode:
+Wählen Sie **Export rows** aus, um die Protokolle auf Zeilenebene für einen Sync-Durchlauf zu exportieren. Wählen Sie dann den Export nach:
 
-* **Zeilen mit Fehlern:** Lädt eine Datei herunter, die ausschließlich die Zeilen mit dem Status **Error** enthält.
-* **Alle Zeilen:** Lädt eine Datei herunter, die alle in diesem Durchlauf verarbeiteten Zeilen enthält.
+* **Rows with errors:** Lädt eine Datei herunter, die nur die Zeilen mit dem Status **Error** enthält.
+* **All rows:** Lädt eine Datei herunter, die jede im Durchlauf verarbeitete Zeile enthält.
 
 {% multi_lang_include alerts/early_access_beta_alert.md feature='Exporting sync logs for all rows' %}
 
-Protokolle können nicht direkt aus dem Dashboard exportiert werden. Nach der Erstellung des Exports erhalten Sie eine E-Mail mit einem Link zum Herunterladen der Protokollexportdatei.
+Logs können nicht direkt aus dem Dashboard exportiert werden. Nachdem der Export erstellt wurde, erhalten Sie eine E-Mail mit einem Link zum Herunterladen der Log-Exportdatei.
 
 ## Benachrichtigungen {#notifications}
 
-Sie können E-Mail-Benachrichtigungen konfigurieren, um über den Status Ihrer CDI-Synchronisierungen auf dem Laufenden zu bleiben. Diese Einstellungen werden beim Erstellen einer Synchronisierung konfiguriert und können jederzeit aktualisiert werden.
+Sie können E-Mail-Benachrichtigungen konfigurieren, um über den Status Ihrer CDI-Synchronisierungen informiert zu bleiben. Diese Einstellungen werden beim Erstellen einer Synchronisierung konfiguriert und können jederzeit aktualisiert werden.
 
 ### Fehlerbenachrichtigungen {#error-notifications}
 
-Es ist mindestens eine E-Mail-Adresse als Kontakt erforderlich, um Benachrichtigungen über Fehler auf Synchronisierungsebene zu erhalten. Diese Benachrichtigungen werden versendet, wenn ein gesamter Synchronisierungsauftrag nicht ausgeführt oder abgeschlossen werden kann oder wenn bei der Synchronisierung ein Fehler auftritt, der ein Eingreifen erfordert, beispielsweise abgelaufene Zugangsdaten oder eine fehlende Quelltabelle.
+Mindestens eine E-Mail-Adresse als Kontakt ist erforderlich, um Benachrichtigungen über Fehler auf Synchronisierungsebene zu erhalten. Diese Warnungen werden gesendet, wenn ein gesamter Synchronisierungsauftrag nicht ausgeführt oder abgeschlossen werden kann, oder wenn bei der Synchronisierung ein Fehler auftritt, der ein Eingreifen der Nutzer:innen erfordert, z. B. abgelaufene Zugangsdaten oder eine fehlende Quelltabelle.
 
-Weitere Benachrichtigungen umfassen:
+Zusätzliche Benachrichtigungen umfassen:
 
-- **Zeilenfehler:** Erhalten Sie Benachrichtigungen, wenn ein bestimmter Prozentsatz der Zeilen bei einer Synchronisierung nicht aktualisiert werden kann.
-- **Fehlerschwelle (%):** Geben Sie den Prozentsatz der Zeilenfehler an, der eine Benachrichtigung triggern soll. Wenn Sie diesen Wert beispielsweise auf **1** setzen, wird eine Benachrichtigung gesendet, wenn 1 % oder mehr der Zeilen in einem Synchronisierungslauf zu einem Fehler führen.
-- **Synchronisierung erfolgreich:** Erhalten Sie eine Benachrichtigung, sobald eine Synchronisierung erfolgreich abgeschlossen wurde.
-- **Benachrichtigung auch ohne Zeilenänderungen:** Erhalten Sie eine Benachrichtigung, auch wenn bei einer erfolgreichen Synchronisierung keine neuen oder aktualisierten Zeilen verarbeitet werden.
+- **Zeilenfehler:** Erhalten Sie Warnungen, wenn ein bestimmter Prozentsatz an Zeilen innerhalb einer Synchronisierung nicht aktualisiert werden kann.
+- **Fehlerschwellenwert (%):** Geben Sie den Prozentsatz an Zeilenfehlern an, der eine Warnung auslösen soll. Wenn Sie diesen Wert beispielsweise auf **1** setzen, wird eine Benachrichtigung gesendet, wenn 1 % oder mehr der Zeilen in einem Synchronisierungslauf zu einem Fehler führen.
+- **Synchronisierung erfolgreich:** Erhalten Sie eine Benachrichtigung nach dem erfolgreichen Abschluss einer Synchronisierung.
+- **Warnung auch wenn keine Zeilen geändert werden:** Erhalten Sie eine Benachrichtigung, auch wenn ein erfolgreicher Synchronisierungslauf keine neuen oder aktualisierten Zeilen verarbeitet.

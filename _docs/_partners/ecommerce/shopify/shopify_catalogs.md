@@ -12,7 +12,7 @@ description: "This reference article covers how to import your products from Sho
 
 Shopify catalogs will update in near real-time as you make edits and changes to the products in your Shopify store. You can enrich your abandoned cart, order confirmation, and more with the most up-to-date product details and information.
 
-In addition to supporting [core Shopify product data](#supported-shopify-catalog-data), you can sync Shopify collections, product tags, and product metafields to your Braze catalog. These additional fields unlock richer personalization, more precise catalog selections, and more powerful segmentation through [Segment Extensions]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension/).
+In addition to supporting [core Shopify product data](#supported-shopify-catalog-data), you can sync Shopify collections, product tags, and product metafields to your Braze catalog. These additional fields unlock richer personalization, more precise catalog selections, and more powerful segmentation through [Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension).
 
 ## Set up your Shopify product sync {#set-up}
 
@@ -297,7 +297,7 @@ Checkout the latest women's clothing:
 
 ### Catalog segmentation (SQL) 
 
-Use [Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) to build segments based on users who interacted with a product tag. For example, to find users who have engaged with catalog items that contain a specific product tag, use this query:
+Use [Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension) to build segments based on users who interacted with a product tag. For example, to find users who have engaged with catalog items that contain a specific product tag, use this query:
 
 {% raw %}
 ```liquid
@@ -415,7 +415,7 @@ Check out the latest summer products:
 
 ### Catalog segmentation (SQL) 
 
-Use [Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) to build segments based on users who interacted with a product metafield. For example, to find users who triggered an ecommerce event with a product whose metafield array contains a specific value, use this query:
+Use [Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension) to build segments based on users who interacted with a product metafield. For example, to find users who triggered an ecommerce event with a product whose metafield array contains a specific value, use this query:
 
 {% raw %}
 ```sql
@@ -677,7 +677,7 @@ Checkout the latest women's clothing:
 
 ### Catalog segmentation (SQL) 
 
-Create a segment of users who interacted with a collection. Use [Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) to build segments based on collection membership. For example, to find users who purchased products from a specific collection in the last year, use this query:
+Create a segment of users who interacted with a collection. Use [Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension) to build segments based on collection membership. For example, to find users who purchased products from a specific collection in the last year, use this query:
 
 {% raw %}
 ```json

@@ -44,4 +44,4 @@ Um eine WhatsApp-Abo-Gruppe zu archivieren, gehen Sie wie folgt vor:
 ## Hinweise {#considerations}
 
 - Wenn Sie die WhatsApp-Telefonnummer zurück in den ursprünglichen Workspace übertragen müssen, wiederholen Sie die Schritte. Archivieren Sie die Abo-Gruppe im Ziel-Workspace und integrieren Sie sie dann in den ursprünglichen Workspace.
-- Sie müssen die WhatsApp-Telefonnummer während der Übertragung nicht aus Ihrem Meta Business Manager entfernen.
+- Sie müssen die WhatsApp-Telefonnummer während der Übertragung nicht aus Ihrem Meta Business Manager:in entfernen.

@@ -6,7 +6,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint da Braze \"Criar bloco de conteúdo\"."
-
 ---
 {% api %}
 # Criar bloco de conteúdo {#create-content-block}
@@ -23,9 +22,9 @@ Você também pode chamar esse endpoint por meio do [servidor MCP da Braze]({{si
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#f1cefa8b-7a28-4e64-b579-198a4610d0a5 {% endapiref %}
 
 ## Pré-requisitos {#prerequisites}
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/api_key) com a permissão `content_blocks.create`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics) com a permissão `content_blocks.create`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
@@ -48,11 +47,11 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 |---|---|---|---|
-| `name` | Obrigatória | String | Nome do bloco de conteúdo. Deve ter menos de 100 caracteres. |
+| `name` | Obrigatório | String | Nome do bloco de conteúdo. Deve ter menos de 100 caracteres. |
 | `description` | Opcional | String | Descrição do bloco de conteúdo. Deve ter menos de 250 caracteres. |
-| `content` | Obrigatória | String | Conteúdo HTML ou de texto no bloco de conteúdo. |
+| `content` | Obrigatório | String | Conteúdo HTML ou de texto no bloco de conteúdo. |
 | `state` | Opcional | String | Escolha `active` ou `draft`. O padrão é `active` se não for especificado. |
 | `tags` | Opcional | Matriz de strings | As [tags]({{site.baseurl}}/user_guide/messaging/governance/tags) já devem existir. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }

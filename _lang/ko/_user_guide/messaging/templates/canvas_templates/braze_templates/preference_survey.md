@@ -3,7 +3,7 @@ nav_title: 선호도 설문조사를 활용한 온보딩
 article_title: 선호도 설문조사를 활용한 온보딩
 page_order: 5.5
 page_type: reference
-description: "이 문서에서는 Braze Canvas 템플릿을 사용하여 신규 사용자에게 브랜드를 소개하고 선호도를 수집하여 장기적으로 참여를 유지하는 가이드 온보딩 플로우를 통해 초기 도입을 촉진하는 방법을 설명합니다."
+description: "이 문서에서는 BRAZE 캔버스 템플릿을 사용하여 신규 사용자에게 브랜드를 소개하고 선호도를 수집하여 장기적으로 참여를 유지하는 가이드 온보딩 플로우를 통해 초기 도입을 촉진하는 방법을 설명합니다."
 tool: Canvas
 ---
 
@@ -45,7 +45,7 @@ tool: Canvas
 
 ### 2단계: 전환 이벤트 할당하기 {#step-2-assign-conversion-events}
 
-**Primary Conversion Event - A**를 **Performs Custom Event**로 업데이트합니다. 그런 다음 커스텀 이벤트로 **Last Used App**을 선택합니다.
+**주요 전환 Event - A**를 **Performs Custom Event**로 업데이트합니다. 그런 다음 커스텀 이벤트로 **Last Used App**을 선택합니다.
 
 ![전환 이벤트의 선택된 커스텀 이벤트 이름으로 Last Used App이 표시됨.]({% image_buster /assets/img/canvas_templates/preference_survey3.png %}){: style="max-width:90%;"}
 
@@ -53,7 +53,7 @@ tool: Canvas
 
 사용자가 앱에서 세션을 시작할 때 Canvas에 진입하도록 진입 스케줄을 **Action-Based**로 유지하겠습니다. 이렇게 하면 적시에 참여를 유도하며 관계를 구축할 수 있습니다.
 
-이 섹션에서 **Entry Window**를 원하는 날짜와 시간으로 조정하는 한 가지 업데이트를 하겠습니다.
+이 섹션에서 **항목 Window**를 원하는 날짜와 시간으로 조정하는 한 가지 업데이트를 하겠습니다.
 
 ![시작 시간이 2025년 1월 30일 오후 12시로 설정된 "진입 기간" 섹션.]({% image_buster /assets/img/canvas_templates/preference_survey4.png %}){: style="max-width:90%;"}
 

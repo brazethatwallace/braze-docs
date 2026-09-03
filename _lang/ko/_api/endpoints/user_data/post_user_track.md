@@ -28,7 +28,7 @@ Braze는 API를 통해 전달된 데이터를 액면 그대로 처리하며, 불
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `users.track` 권한이 있는 [API 키]({{site.baseurl}}/api/api_key)가 필요합니다.
+이 엔드포인트를 사용하려면 `users.track` 권한이 있는 [API 키]({{site.baseurl}}/api/basics)가 필요합니다.
 
 서버 간 호출에 API를 사용하는 고객이 방화벽 뒤에 있는 경우 `rest.iad-01.braze.com`을 허용 목록에 추가해야 할 수 있습니다.
 

@@ -30,7 +30,7 @@ description: "この記事では、Brazeダッシュボードの多言語設定�
 ![言語と国を指定する「ロケールを追加 - デフォルト言語と国」というウィンドウ。]({% image_buster /assets/img/multi-language_support/default_option.png %})
 
 {% endtab %}
-{% tab Custom attributes %}
+{% tab カスタム属性 %}
 
 **カスタム属性**の場合、ドロップダウンを使用して関連付けるカスタム属性を選択し、テキストフィールドに値を入力します。
 

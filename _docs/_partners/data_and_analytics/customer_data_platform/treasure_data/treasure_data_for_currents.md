@@ -21,8 +21,8 @@ The recommended method is the **Braze Currents Streaming** connector in Treasure
 - Optional automatic table routing by event type
 - A flat, SQL-queryable schema that doesn't require JSON parsing
 
-{% alert important %}
-The Braze Currents Streaming connector is in beta. Contact Treasure Data support to enable it on your Treasure Data account. For partner-side setup details, see Treasure Data's [Braze Currents Import Integration](https://docs.treasuredata.com/int/braze-currents-import-integration).
+{% alert note %}
+The Braze Currents Streaming connector is available by request. Contact Treasure Data support to enable it on your Treasure Data account. For partner-side setup details, see Treasure Data's [Braze Currents Import Integration](https://docs.treasuredata.com/int/braze-currents-import-integration).
 {% endalert %}
 
 ## Prerequisites
@@ -31,7 +31,7 @@ The Braze Currents Streaming connector is in beta. Contact Treasure Data support
 | ----------- | ----------- |
 | Treasure Data account | An active [Treasure Data account](https://console.treasuredata.com) is required to take advantage of this partnership. |
 | Currents | To export data to Treasure Data, you need [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/#how-to-access-currents) set up for your account. |
-| Braze Currents Streaming connector | Contact Treasure Data support to enable the Braze Currents Streaming connector (beta) on your Treasure Data account. |
+| Braze Currents Streaming connector | Contact Treasure Data support to enable the Braze Currents Streaming connector on your Treasure Data account. |
 | Treasure Data Write API key | A Treasure Data Write API key authenticates the inbound stream from Braze. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 

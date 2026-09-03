@@ -34,7 +34,7 @@ Bei separaten Root-Domains ist die Web-Push-Registrierung pro Domain isoliert.
 
 ## Nutzer:innen konsistent über Domains hinweg identifizieren {#identify-users-consistently-across-domains}
 
-Standardmäßig speichert jede Root-Domain ihren eigenen SDK-Status. Um Aktivitäten demselben Braze-Nutzerprofil über Domains hinweg zuzuordnen:
+Standardmäßig speichert jede Root-Domain ihren eigenen SDK-Status. Um Aktivitäten demselben Braze-Kundenprofil über Domains hinweg zuzuordnen:
 
 - Rufen Sie [`changeUser()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser) mit derselben `external_id` auf jeder Domain nach der Anmeldung auf.
 - Behalten Sie beide Apps im selben Workspace, wenn Sie separate API-Schlüssel verwenden.

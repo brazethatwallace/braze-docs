@@ -73,7 +73,7 @@ Os eventos de exceção só serão disparados enquanto o usuário estiver aguard
 
 ### Etapa 4: Continuar com a criação da campanha {#step-4-proceed-with-campaign-creation}
 
-Continue criando sua campanha normalmente. Se você quiser garantir que enviará uma mensagem a todos os usuários que vão interagir com uma campanha específica, o ideal é direcionar um segmento que contenha todos os usuários do seu app.
+Continue criando sua campanha normalmente. Se você quiser garantir que enviará uma mensagem a todos os usuários que vão interagir com uma campanha específica, o ideal é direcionar um Segment que contenha todos os usuários do seu app.
 
 ## Casos de uso {#use-cases}
 

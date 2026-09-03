@@ -10,7 +10,11 @@
 # CI check. Path-resolution logic mirrors convertLinkToMarkdownPath in
 # find_broken_links.ts.
 module DocAnchorLinks
-  Link = Struct.new(:source_file, :kind, :raw_url, :target_path, :anchor, keyword_init: true)
+  # target_path is a best guess from the URL's shape; target_url is the URL the
+  # link actually points at, so a caller holding Jekyll's URL map can correct
+  # target_path for pages whose `permalink` frontmatter breaks the convention
+  # (see resolve_doc_path). Same-page links leave target_url nil.
+  Link = Struct.new(:source_file, :kind, :raw_url, :target_path, :target_url, :anchor, keyword_init: true)
 
   INLINE_MD_RE = /(!?)\[.*?\]\((.*?)\)/m.freeze
   REF_DEF_RE = /^\s*\[([^\]]+)\]:\s*(.+)$/.freeze
@@ -88,11 +92,15 @@ module DocAnchorLinks
     return if last_segment.include?(".") # points at a real file (image, pdf, etc.), not a page
 
     links << Link.new(source_file: source_file, kind: kind, raw_url: raw_url,
-                       target_path: resolve_doc_path(path_part), anchor: anchor)
+                       target_path: resolve_doc_path(path_part), target_url: path_part,
+                       anchor: anchor)
   end
   private_class_method :add_link
 
-  # Mirrors convertLinkToMarkdownPath in scripts/find_broken_links.ts.
+  # Mirrors convertLinkToMarkdownPath in scripts/find_broken_links.ts. Pages
+  # that set a custom `permalink` do not follow this convention; callers with a
+  # Jekyll URL map should prefer it over this guess (find_broken_links.ts makes
+  # the same allowance by matching links against declared permalinks).
   def self.resolve_doc_path(path_part)
     trimmed = path_part.sub(%r{\A/}, "").sub(%r{/\z}, "")
     segments = trimmed.split("/")

@@ -104,7 +104,7 @@ After reviewing the finer details of your Canvas, check out [Sending test Canvas
 
 ### Confirm your Canvas saves correctly and all steps are valid
 
-If your Canvas isn't loading and won't progress, this can be caused when a previous version of the Canvas wasn't saved properly and contains invalid steps. You can duplicate the Canvas from the dashboard. If the issue persists, open a [support ticket]({{site.baseurl}}/braze_support).
+If your Canvas isn't loading and won't progress, this can be caused when a previous version of the Canvas wasn't saved properly and contains invalid steps. You can duplicate the Canvas from the dashboard. If the issue persists, open a [support ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 
 ## Troubleshooting
 

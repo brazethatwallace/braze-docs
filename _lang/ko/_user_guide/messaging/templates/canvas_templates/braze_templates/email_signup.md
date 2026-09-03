@@ -3,7 +3,7 @@ nav_title: 더블 옵트인을 통한 이메일 가입
 article_title: 더블 옵트인을 통한 이메일 가입
 page_order: 2
 page_type: reference
-description: "이 문서에서는 Braze Canvas 템플릿을 사용하여 인증된 이메일 가입으로 도달 범위를 확장하는 방법을 설명합니다."
+description: "이 문서에서는 BRAZE 캔버스 템플릿을 사용하여 인증된 이메일 가입으로 도달 범위를 확장하는 방법을 설명합니다."
 tool: Canvas
 ---
 
@@ -58,7 +58,7 @@ tool: Canvas
 
 ![세션을 시작하는 사용자를 Canvas에 진입시키는 액션 기반 진입 스케줄.]({% image_buster /assets/img/canvas_templates/email_signup4.png %}){: style="max-width:90%;"}
 
-**Entry Window**에서 **Started Time (Required)**을 원하는 날짜와 시간으로 업데이트합니다.
+**항목 Window**에서 **Started Time (Required)**을 원하는 날짜와 시간으로 업데이트합니다.
 
 ![시작 시간이 2025년 1월 16일 오후 12:30인 진입 기간. 사용자는 현지 시간대에 따라 이 메시지에 진입합니다.]({% image_buster /assets/img/canvas_templates/email_signup5.png %}){: style="max-width:90%;"}
 

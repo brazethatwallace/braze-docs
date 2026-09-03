@@ -18,29 +18,29 @@ tool: Media
 {% tabs %}
 {% tab Clásica %}
 
-La tarjeta clásica es ideal para mensajería y notificaciones estándar, o incluso para categorizar visualmente los mensajes con iconos. La imagen es opcional, pero debe tener una proporción de 1:1.
+La tarjeta clásica es ideal para mensajes y notificaciones estándar, o incluso para categorizar visualmente los mensajes con iconos. La imagen es opcional, pero debe tener una proporción de 1:1.
 
-![Imagen de una tarjeta clásica con detalles recomendados y un ejemplo de tarjeta clásica]({% image_buster /assets/img/content_card_classic.png %}){: style="max-width:45%;border:0;"}
+![Imagen de una tarjeta clásica con detalles recomendados y un ejemplo de tarjeta clásica]({% image_buster /assets/img/content_card_classic.png %}){: width="1358" height="2871" style="max-width:45%;border:0;"}
 
 | Capacidad de la tarjeta | Detalles |
 | --- | ---|
-| Texto del encabezado | 18px; Negrita <br> Una línea de texto es lo ideal. <br> Puedes usar Liquid aquí para personalizar tu mensaje. |
-| Texto del mensaje | 13px; Peso regular <br> De dos a cuatro líneas de texto es lo ideal. <br> Puedes usar Liquid aquí para personalizar tu mensaje. |
+| Texto del encabezado | 18 px; Negrita <br> Lo ideal es una línea de texto. <br> Puedes usar Liquid aquí para personalizar tu mensaje. |
+| Texto del mensaje | 13 px; Peso normal <br> Lo ideal son de dos a cuatro líneas de texto. <br> Puedes usar Liquid aquí para personalizar tu mensaje. |
 | Texto del enlace | Opcional. <br> 13&nbsp;px <br> Enlace a una página web o vínculo profundo dentro de tu aplicación. |
-| Imagen | Opcional. <br> Debe tener proporción 1:1. <br> Recomendamos una calidad de imagen de 60 x 60&nbsp;px. |
+| Imagen | Opcional. <br> Debe tener una proporción de 1:1. <br> Recomendamos una calidad de imagen de 60 x 60&nbsp;px. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Tipos de Content Cards" }
 
 {% endtab %}
 {% tab Imagen con subtítulo %}
 
-La tarjeta de imagen con subtítulo es una excelente manera de mostrar y atraer la atención hacia contenido importante, como una gran oferta o una nueva característica de la aplicación.
+La tarjeta de imagen con subtítulo es una excelente forma de destacar y llamar la atención sobre contenido importante, como una gran oferta o una nueva característica de la aplicación.
 
-![Imagen de una tarjeta de imagen con subtítulo con detalles recomendados y un ejemplo de tarjeta de imagen con subtítulo]({% image_buster /assets/img/content_card_captioned.png %}){: style="max-width:90%;border:0;"}
+![Imagen de una tarjeta de imagen con subtítulo con detalles recomendados y un ejemplo de tarjeta de imagen con subtítulo]({% image_buster /assets/img/content_card_captioned.png %}){: width="2880" height="2877" style="max-width:90%;border:0;"}
 
 | Capacidad de la tarjeta | Detalles |
 | --- | ---|
-| Texto del encabezado | 18px; Negrita <br> Una línea de texto es lo ideal. <br> Puedes usar Liquid aquí para personalizar tu mensaje. |
-| Texto del mensaje | 13px; Peso regular <br> De dos a cuatro líneas de texto es lo ideal. <br> Puedes usar Liquid aquí para personalizar tu mensaje. |
+| Texto del encabezado | 18 px; Negrita <br> Lo ideal es una línea de texto. <br> Puedes usar Liquid aquí para personalizar tu mensaje. |
+| Texto del mensaje | 13 px; Peso normal <br> Lo ideal son de dos a cuatro líneas de texto. <br> Puedes usar Liquid aquí para personalizar tu mensaje. |
 | Texto del enlace | Opcional. <br> 13&nbsp;px <br> Enlace a una página web o vínculo profundo dentro de tu aplicación. |
 | Imagen | Se sugiere una proporción de 4:3. <br> 600&nbsp;px de ancho mínimo.  <br> Compatible con PNG, JPEG y GIF de alta resolución. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Tipos de Content Cards" }
@@ -48,14 +48,14 @@ La tarjeta de imagen con subtítulo es una excelente manera de mostrar y atraer 
 {% endtab %}
 {% tab Solo imagen %}
 
-Si quieres más control creativo, la tarjeta de solo imagen es para ti. Crea tu imagen usando cualquier herramienta que prefieras y cárgala en este tipo de tarjeta.
+Si quieres más control creativo, la tarjeta de solo imagen es para ti. Crea tu imagen con cualquier herramienta que prefieras y súbela a este tipo de tarjeta.
 
-![Imagen de una Content Card de solo imagen con detalles recomendados y un ejemplo de solo imagen]({% image_buster /assets/img/content_card_banner.png %}){: style="max-width:45%;border:0;"}
+![Imagen de una Content Card de solo imagen con detalles recomendados y un ejemplo de solo imagen]({% image_buster /assets/img/content_card_banner.png %}){: width="1358" height="2871" style="max-width:45%;border:0;"}
 
 | Capacidad de la tarjeta | Detalles |
 | --- | ---|
-| Tarjeta con enlace | Opcional. <br> 13&nbsp;px <br> Comportamiento al hacer clic: enlace a una página web o vínculo profundo dentro de tu aplicación. |
-| Imagen | Cualquier proporción es compatible. <br> 600&nbsp;px de ancho mínimo.  <br> Compatible con PNG, JPEG y GIF de alta resolución. |
+| Tarjeta con enlace | Opcional. <br> 13&nbsp;px <br> Al hacer clic, enlaza a una página web o un vínculo profundo dentro de tu aplicación. |
+| Imagen | Compatible con cualquier proporción de aspecto. <br> 600&nbsp;px de ancho mínimo.  <br> Compatible con PNG, JPEG y GIF de alta resolución. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Tipos de Content Cards" }
 
 {% endtab %}
@@ -63,17 +63,17 @@ Si quieres más control creativo, la tarjeta de solo imagen es para ti. Crea tu 
 
 ## Detalles creativos generales {#general}
 
-Las Content Cards admiten texto e imágenes, incluidos GIF, de forma nativa. Actualmente, el estilo personalizado para la tarjeta, como diferentes colores de fuente o múltiples imágenes, no se puede configurar en el dashboard. Puedes aplicar estilo personalizado a tu Content Card y fuente durante la integración. Para más detalles, consulta [Personalizar tarjetas]({{site.baseurl}}/developer_guide/content_cards/customizing_cards) del SDK de Braze.
+Content Cards admite texto e imágenes, incluidos GIF, de forma nativa. Actualmente, el estilo personalizado para la tarjeta, como diferentes colores de fuente o múltiples imágenes, no se puede configurar en el panel. Puedes aplicar estilo personalizado a tu Content Card y fuente durante la integración. Para más detalles, consulta [Personalizar tarjetas]({{site.baseurl}}/developer_guide/content_cards/customizing_cards) del SDK de Braze.
 
 ### Comportamiento de descarte {#dismissal-behavior}
 
 Para que un usuario descarte una tarjeta, puede deslizarla en el móvil o usar la función de `close X`, como se muestra en la siguiente captura de pantalla. La `x` aparecerá al pasar el cursor solo en el SDK Web.
 
-![Imagen que muestra los comportamientos de descarte por deslizamiento o cierre de una tarjeta]({% image_buster /assets/img/dismissal-cc.png %})
+![Imagen que muestra los comportamientos de descarte por deslizamiento o cierre de una tarjeta]({% image_buster /assets/img/dismissal-cc.png %}){: width="1800" height="504"}
 
 Si un usuario ha descartado todas sus tarjetas o no has enviado nuevas actualizaciones, la fuente del usuario normalmente se verá así:
 
-![Imagen de una fuente de Content Cards vacía]({% image_buster /assets/img/empty-cc.png %}){: style="max-width:45%"}
+![Imagen de una fuente de Content Cards vacía]({% image_buster /assets/img/empty-cc.png %}){: width="832" height="1478" style="max-width:45%"}
 
 {% alert tip %}
 Mantén las Content Cards relevantes configurándolas para que se descarten cuando un usuario realice acciones relevantes. Por ejemplo, configura las Content Cards promocionales para que se descarten tan pronto como los usuarios realicen una compra, de modo que no sigan viendo una oferta de algo que ya compraron.

@@ -2,17 +2,17 @@
 
 {% tabs local %}
 {% tab iOS %}
-Flutter iOS 앱에서 딥링킹을 구현하기 전에, `Info.plist` 파일에서 URL 스킴을 구성해야 합니다. 자세한 내용은 [iOS 딥링킹]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/?sdktab=swift#url-schemes)을 참조하세요.
+Flutter iOS 앱에서 딥링킹을 구현하려면 먼저 `Info.plist` 파일에서 URL 스킴을 설정해야 합니다. 자세한 내용은 [iOS 딥링킹]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/?sdktab=swift#url-schemes)을 참조하세요.
 {% endtab %}
 
 {% tab Android %}
-Flutter Android의 경우, Dart 레이어에서 딥링크를 처리하고 있다면 추가적인 네이티브 설정이 필요하지 않습니다. 이 문서에 나와 있는 최소한의 구현만으로 대부분의 Flutter 앱에 충분합니다.
+Flutter Android의 경우, Dart 레이어에서 딥링크를 처리하는 경우 추가적인 네이티브 설정이 필요하지 않습니다. 이 문서에 나와 있는 최소 구현만으로 대부분의 Flutter 앱에 충분합니다.
 
 {% alert warning %}
-Braze의 네이티브 `com_braze_handle_push_deep_links_automatically` 플래그는 Android에서 기본적으로 `false`로 설정되어 있습니다. `braze.xml`에서 이 값을 `true`로 설정하지 않으면, 사용자가 푸시 알림을 탭해도 `push_opened` 이벤트가 Dart 리스너에 전달되더라도 앱이 자동으로 포그라운드로 전환되거나 딥링크 대상으로 라우팅되지 않습니다. 자세한 내용은 [딥링크 추가 (Android)]({{site.baseurl}}/developer_guide/push_notifications#flutter_step-4-add-deep-links-android)를 참조하세요.
+Braze의 네이티브 `com_braze_handle_push_deep_links_automatically` 플래그는 Android에서 기본값이 `false`입니다. `braze.xml`에서 이 값을 `true`로 설정하지 않으면, 사용자가 푸시 알림을 탭해도 `push_opened` 이벤트가 Dart 리스너에 전달되더라도 앱이 자동으로 포그라운드로 전환되거나 딥링크 목적지로 라우팅되지 않습니다. 자세한 내용은 [딥링크 추가 (Android)]({{site.baseurl}}/developer_guide/push_notifications#flutter_step-4-add-deep-links-android)를 참조하세요.
 {% endalert %}
 
-고급 네이티브 레이어 링크 처리(예: 커스텀 `IBrazeDeeplinkHandler` 구현)가 필요한 경우, [Android 딥링킹]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/?sdktab=android)을 참조하세요.
+고급 네이티브 레이어 링크 처리(커스텀 `IBrazeDeeplinkHandler` 구현 등)가 필요한 경우 [Android 딥링킹]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/?sdktab=android)을 참조하세요.
 {% endtab %}
 {% endtabs %}
 
@@ -27,7 +27,7 @@ Braze의 네이티브 `com_braze_handle_push_deep_links_automatically` 플래그
 3. 키를 `FlutterDeepLinkingEnabled`로 설정합니다.
 4. 타입을 `Boolean`으로 설정합니다.
 5. 값을 `YES`로 설정합니다.
-    ![추가된 키-값 페어가 포함된 예제 프로젝트의 Info.plist 파일]({% image_buster /assets/img/flutter/flutter-ios-deep-link-info-plist.png %} "Xcode Project Info.plist File")
+    ![추가된 키-값 페어가 있는 예제 프로젝트의 Info.plist 파일]({% image_buster /assets/img/flutter/flutter-ios-deep-link-info-plist.png %} "Xcode Project Info.plist File"){: width="501" height="118"}
 {% endtab %}
 
 {% tab Android %}
@@ -47,10 +47,10 @@ Braze의 네이티브 `com_braze_handle_push_deep_links_automatically` 플래그
 #### 예시: 알림 대화 상자로 딥링킹 {#example-deep-linking-to-an-alert-dialog}
 
 {% alert note %}
-다음 예시는 추가 패키지에 의존하지 않지만, [`go_router`](https://pub.dev/packages/go_router)와 같은 네이티브, 퍼스트파티 또는 서드파티 패키지를 구현하는 데 유사한 접근 방식을 사용할 수 있습니다. 추가 Dart 코드가 필요할 수 있습니다.
+다음 예시는 추가 패키지에 의존하지 않지만, 유사한 접근 방식을 사용하여 [`go_router`](https://pub.dev/packages/go_router)와 같은 네이티브, 퍼스트파티 또는 서드파티 패키지를 구현할 수 있습니다. 추가 Dart 코드가 필요할 수 있습니다.
 {% endalert %}
 
-먼저, 네이티브 레이어에서 메서드 채널을 사용하여 딥링크의 URL 문자열 데이터를 Dart 레이어로 전달합니다.
+먼저 네이티브 레이어에서 메서드 채널을 사용하여 딥링크의 URL 문자열 데이터를 Dart 레이어로 전달합니다.
 
 {% tabs %}
 {% tab iOS %}
@@ -110,7 +110,7 @@ class MainActivity : FlutterActivity() {
 {% endtab %}
 {% endtabs %}
 
-다음으로, Dart 레이어에서 콜백 함수를 사용하여 이전에 전송된 URL 문자열 데이터를 활용해 알림 대화 상자를 표시합니다.
+다음으로, Dart 레이어에서 콜백 함수를 사용하여 이전에 전송된 URL 문자열 데이터로 알림 대화 상자를 표시합니다.
 
 ```dart
 MethodChannel('deepLinkChannel').setMethodCallHandler((call) async {

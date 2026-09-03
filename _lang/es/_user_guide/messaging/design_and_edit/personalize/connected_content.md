@@ -28,6 +28,9 @@ guide_featured_list:
 - name: Reintentos de Contenido conectado
   link: /docs/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries
   image: /assets/img/braze_icons/refresh-ccw-01.svg
+- name: Depurador de Contenido conectado
+  link: /docs/user_guide/messaging/design_and_edit/personalize/connected_content/debugger
+  image: /assets/img/braze_icons/search-refraction.svg
 - name: Solución de problemas de webhooks y contenido conectado
   link: /docs/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content
   image: /assets/img/braze_icons/check-square-broken.svg
@@ -37,5 +40,3 @@ guide_featured_list:
 ---
 
 <br><br>
-
-[16]: [success@braze.com](mailto:success@braze.com)

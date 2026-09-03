@@ -19,7 +19,7 @@ If you intend to create more than one of the same Currents connectors (for examp
 {% if include.alert == 'Canvas race condition audience trigger' %}
 
 {% alert warning %}
-Avoid configuring an action-based campaign or Canvas with the same trigger as the audience filter (such as a changed attribute or performed a custom event). A [race condition]({{site.baseurl}}/user_guide/engagement_tools/testing/race_conditions) may occur in which the user is not in the audience at the time they perform the trigger event, which means they won't receive the campaign or enter the Canvas.
+Avoid configuring an action-based campaign or Canvas with the same trigger as the audience filter (such as a changed attribute or performed a custom event). A [race condition]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions/) may occur in which the user is not in the audience at the time they perform the trigger event, which means they won't receive the campaign or enter the Canvas.
 {% endalert %}
 
 {% endif %}

@@ -19,26 +19,26 @@ channel: email
 | 추적 링크가 HTTP 403을 반환함 | [리디렉트 링크에서 HTTP 403 발생](#http-403-on-redirect-links) |
 | DNS 또는 CNAME이 CDN 대신 ESP를 가리킴 | [도메인 레지스트리 문제](#domain-registry-issues) |
 | "연결이 비공개가 아닙니다" 오류 또는 설정 중 링크가 깨짐 | [CDN 문제](#cdn-issues) |
-| SSL 설정이 완료되었지만 링크가 여전히 HTTP로 표시됨 | [SSL 활성화 상태](#ssl-enablement-status) |
+| SSL 설정이 완료되었지만 링크가 여전히 HTTP를 표시함 | [SSL 활성화 상태](#ssl-enablement-status) |
 | 추적된 URL은 실패하지만 추적되지 않은 URL은 작동함 | [클릭 추적 문제](#click-tracking-issues) |
 | Amazon SES 관련 SSL 활성화 오류 | [Amazon SES](#amazon-ses) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="SSL 증상" }
 
 ## 표준 조사 경로 {#standard-investigation-path}
 
-1. 클릭 추적 하위 도메인이 이메일 서비스 공급자(SendGrid, SparkPost 또는 Amazon SES)가 아닌 [콘텐츠 전송 네트워크(CDN)]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#what-is-a-cdn-and-why-do-i-need-it)를 가리키는지 확인하세요. IT 또는 웹 팀에 도메인 설정이 Braze 설정과 일치하는지 확인을 요청하세요. Braze 요구 사항에 대해서는 [SSL 인증서 취득]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate)을 참조하세요.
-2. 추적 도메인에 대해 SSL 인증서가 활성 상태인지 확인하세요. IT 또는 웹 팀에 인증서가 최신이며 클릭 추적 하위 도메인을 포함하는지 확인을 요청하세요. 설정 단계 및 CDN별 가이드에 대해서는 [SSL 인증서 취득]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate) 및 [추가 리소스]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#additional-resources)를 참조하세요.
+1. 클릭 추적 하위 도메인이 이메일 서비스 공급자(SendGrid, SparkPost 또는 Amazon SES)가 아닌 [콘텐츠 전송 네트워크(CDN)]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#what-is-a-cdn-and-why-do-i-need-it)를 가리키는지 확인하세요. IT 또는 웹 팀에 도메인 설정이 Braze 설정과 일치하는지 확인을 요청하세요. Braze 요구 사항에 대해서는 [SSL 인증서 획득]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate)을 참조하세요.
+2. 추적 도메인에 대한 SSL 인증서가 활성 상태인지 확인하세요. IT 또는 웹 팀에 인증서가 최신 상태이며 클릭 추적 하위 도메인을 포함하는지 확인을 요청하세요. 설정 단계 및 CDN별 가이드에 대해서는 [SSL 인증서 획득]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate) 및 [추가 리소스]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#additional-resources)를 참조하세요.
 3. [클릭 추적 문제 해결 템플릿](#click-tracking-issues)을 사용하여 테스트 이메일을 발송하세요. 추적된 URL과 추적되지 않은 URL을 비교하세요.
 4. 추적된 링크가 403 오류로 실패하는 경우, CDN 및 WAF 규칙(사용자 에이전트, 쿼리 문자열, 리디렉션 패턴)을 검토하세요.
-5. 설정이 완료되었지만 링크가 여전히 HTTP인 경우, Braze 고객 성공 매니저에게 연락하여 Braze에서 SSL이 활성화되었는지 확인하세요.
-6. 문제가 지속되는 경우, CDN 또는 IT 팀과 협력하고 오류 코드 및 CDN 또는 도메인 공급자의 세부 정보를 포함하여 [Braze 고객지원]({{site.baseurl}}/braze_support)에 문의하세요.
+5. 설정이 완료되었지만 링크가 HTTP로 유지되는 경우, Braze 고객 성공 매니저에게 연락하여 Braze에서 SSL이 활성화되었는지 확인하세요.
+6. 문제가 지속되는 경우, CDN 또는 IT 팀과 협력하고 오류 코드 및 CDN 또는 도메인 공급자의 세부 정보를 포함하여 [Braze 고객지원]({{site.baseurl}}/user_guide/administer/personal/braze_support)에 문의하세요.
 
 ## 주요 개념 {#key-concepts}
 
 - **클릭 추적 도메인(CTD):** Braze가 클릭 추적을 위해 링크를 래핑하는 데 사용하는 브랜드 하위 도메인입니다(예: `clicks.mail.yourbrand.com`).
-- **추적 URL:** 원래 HTTPS 링크를 추적 도메인으로 래핑합니다. 사용자가 클릭하면 추적 도메인이 요청을 처리하고 최종 목적지로 리디렉션합니다. CDN을 사용하면 보안(HTTPS) URL을 추적할 수 있습니다. CDN이 없으면 사용자에게 "연결이 안전하지 않습니다" 개인정보 보호 오류가 표시될 수 있습니다.
-- **비추적 URL:** 원래 URL을 그대로 유지하며, CDN을 우회하여 대조 환경으로 사용됩니다.
-- **1단계 및 2단계 라우팅:** 1단계에서는 클릭 추적 도메인 CNAME을 이메일 서비스 공급자(ESP)로 직접 지정하여 초기 HTTP 인증을 수행합니다. 2단계에서는 CNAME을 CDN 또는 웹 애플리케이션 방화벽(WAF)으로 지정하여 SSL을 종료하고 필요한 헤더와 함께 요청을 ESP로 프록시합니다. ESP별 CNAME 대상에 대해서는 [ESP 1단계 및 2단계 라우팅](#esp-phase-1-and-phase-2-routing)을 참조하세요.
+- **추적 URL:** 원래 HTTPS 링크를 추적 도메인으로 래핑합니다. 사용자가 클릭하면 추적 도메인이 요청을 해석하고 최종 목적지로 리디렉션합니다. CDN을 사용하면 보안(HTTPS) URL을 추적할 수 있습니다. CDN이 없으면 사용자에게 "연결이 안전하지 않습니다"라는 개인정보 보호 오류가 표시될 수 있습니다.
+- **추적되지 않는 URL:** 원래 URL을 그대로 유지하며 CDN을 우회하여 대조 환경으로 사용합니다.
+- **1단계 및 2단계 라우팅:** 1단계에서는 클릭 추적 도메인 CNAME을 이메일 서비스 공급자(ESP)로 직접 지정하여 초기 HTTP 인증을 수행합니다. 2단계에서는 CNAME을 CDN 또는 웹 애플리케이션 방화벽(WAF)으로 지정하여 SSL을 종료하고 필요한 헤더를 포함하여 요청을 ESP로 프록시합니다. ESP별 CNAME 대상에 대해서는 [ESP 1단계 및 2단계 라우팅](#esp-phase-1-and-phase-2-routing)을 참조하세요.
 
 ## 클릭 추적 도메인 및 DNS 단계 {#click-tracking-domains-and-dns-phases}
 
@@ -161,6 +161,48 @@ SSL 설정을 완료했는데도 링크가 여전히 HTTP로 표시되는 경우
 **증상:** 추적된 이메일 링크는 실패하지만 비추적 링크는 작동하거나, 사용자가 클릭 후 인증서 또는 DNS 오류를 경험합니다.
 
 일반적인 리디렉션 문제는 추적 도메인을 호스팅하는 CDN과 관련 SSL 인증서 또는 DNS CNAME 레코드 간의 부적절한 구성에서 발생합니다. 이러한 잘못된 구성으로 인해 사용자가 추적된 이메일 링크를 클릭한 후 "연결이 안전하지 않습니다" 개인정보 보호 오류 또는 `404` 실패를 경험하는 경우가 많습니다.
+
+### HTML 링크 형식 요구 사항 {#html-link-formatting-requirements}
+
+클릭 추적이 작동하려면 이메일 서비스 공급자(SendGrid, SparkPost 또는 Amazon SES)가 HTML에서 링크를 찾아 대체해야 합니다. 이러한 공급자에서 링크는 다음 형식 요구 사항을 충족해야 합니다.
+
+- 링크는 `href` 속성이 포함된 HTML `<a>` 태그 안에 있어야 합니다.
+- URL은 `http://` 또는 `https://`로 시작해야 합니다.
+
+추가 공급자별 규칙:
+
+- **SendGrid:** URL을 작은따옴표 또는 큰따옴표로 감싸고, `href` 속성의 `=` 주위에 공백을 넣지 마세요.
+- **Amazon SES:** URL은 [RFC 3986](https://datatracker.ietf.org/doc/html/rfc3986)을 준수해야 합니다. URL에 인코딩되지 않은 공백이 있으면 Amazon SES가 해당 링크를 추적하지 못합니다.
+
+Braze 클릭 추적이 지원하는 URL 스킴에 대한 자세한 내용은 [클릭 추적 링크 요구 사항]({{site.baseurl}}/user_guide/channels/email/email_setup/open_pixel_and_click_tracking#click-tracking-link-requirements)을 참조하세요. 공급자 HTML 세부 정보는 [SendGrid 클릭 추적 HTML 모범 사례](https://www.twilio.com/docs/sendgrid/ui/analytics-and-reporting/click-tracking-html-best-practices), [SparkPost 템플릿 언어](https://developers.sparkpost.com/api/template-language/) 및 [Amazon SES 이메일 발송 측정기준 FAQ](https://docs.aws.amazon.com/ses/latest/dg/faqs-metrics.html)를 참조하세요.
+
+유효한 예시는 다음과 같습니다.
+
+```html
+<a href="http://www.example.com">Link</a>
+<a href='https://example.com'>Link</a>
+<a target="_blank" href="https://example.com">Link</a>
+```
+
+다음 예시는 `http://` 또는 `https://`를 생략하여 추적되지 않습니다.
+
+```html
+<a href="example.com">Link</a>
+<a href="www.example.com">Link</a>
+```
+
+SendGrid를 사용하는 경우, 다음 예시도 추적되지 않습니다.
+
+```html
+<a href= http://www.example.com>Link</a>
+<a href = "https://example.com">Link</a>
+```
+
+{% alert note %}
+`www` 하위 도메인은 선택 사항이지만, 클릭 추적이 올바르게 작동하려면 `http://` 또는 `https://`가 필요합니다.
+{% endalert %}
+
+### 클릭 추적 테스트 {#testing-click-tracking}
 
 [분류 워크플로](#triage-workflow)를 완료한 후, 다음 템플릿을 사용하여 추적 도메인의 CDN 구성을 테스트하세요. 이는 이메일 내 링크에 대한 분석을 지원하는 메커니즘입니다.
 

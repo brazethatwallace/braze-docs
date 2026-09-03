@@ -1,7 +1,7 @@
 ---
 nav_title: Stylitics
 article_title: Stylitics
-description: "이 참조 문서에서는 Braze와 Stylitics 간의 파트너십에 대해 설명합니다. Stylitics는 클라우드 기반 SaaS 플랫폼으로, 기존 이메일 캠페인에 매력적이고 관련성 높은 번들 콘텐츠를 추가하여 개인화된 고객 경험을 만들 수 있습니다."
+description: "이 참조 문서에서는 Braze와 Stylitics 간의 파트너십에 대해 설명합니다. Stylitics는 클라우드 기반 SaaS(software-as-a-service) 플랫폼으로, 기존 이메일 캠페인에 매력적이고 관련성 높은 번들 콘텐츠를 추가하여 개인화된 고객 경험을 만들 수 있습니다."
 alias: /partners/stylitics/
 page_type: partner
 search_tag: Partner
@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Stylitics
 
-> [Stylitics](https://stylitics.com/)는 소매업체가 시각적 콘텐츠를 대규모로 자동화하고 배포할 수 있는 클라우드 기반 SaaS 플랫폼입니다. Stylitics 번들은 제품에 상황별 맥락을 부여하여 영감을 주고, 구매 확신을 높이며, 인게이지먼트를 증가시켜 궁극적으로 평균 주문 금액과 전환율을 향상시킵니다.
+> [Stylitics](https://stylitics.com/)는 소매업체가 시각적 콘텐츠를 대규모로 자동화하고 배포할 수 있는 클라우드 기반 SaaS(software-as-a-service) 플랫폼입니다. Stylitics 번들은 제품에 상황별 맥락을 부여하여 영감을 주고, 구매 확신을 높이며, 인게이지먼트를 증가시켜 궁극적으로 평균 주문 금액과 전환율을 향상시킵니다.
 
 _이 통합은 Stylitics에서 유지 관리합니다._
 

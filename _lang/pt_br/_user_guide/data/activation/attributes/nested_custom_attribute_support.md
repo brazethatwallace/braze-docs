@@ -15,7 +15,7 @@ description: "Este artigo de referência aborda o uso de atributos personalizado
 
 Os atributos aninhados permitem criar segmentos mais detalhados e personalizar mensagens com dados de um único objeto de atributo personalizado.
 
-No exemplo a seguir, o atributo personalizado `favorite_book` contém os atributos aninhados `title`, `author` e `publishing_date`. Esse objeto pode ser usado para segmentar usuários por autor, filtrar por data de publicação ou inserir o título do livro diretamente em uma mensagem:
+No exemplo a seguir, o atributo personalizado `favorite_book` contém os atributos aninhados `title`, `author` e `publishing_date`. Esse objeto pode ser usado para direcionar usuários por autor, filtrar por data de publicação ou inserir o título do livro diretamente em uma mensagem:
 
 ```json
 "favorite_book": {
@@ -32,13 +32,13 @@ No exemplo a seguir, o atributo personalizado `favorite_book` contém os atribut
 
 - Os atributos personalizados aninhados são destinados a atributos personalizados enviados por meio do SDK ou da API da Braze.
 - Os objetos têm um tamanho máximo de 100&nbsp;KB. Se uma atualização fizer com que o objeto exceda 100&nbsp;KB, a Braze descarta a atualização e o atributo permanece inalterado.
-- Os nomes das chaves e os valores de string têm um limite de 255 caracteres.
-- Os nomes das chaves não podem conter espaços.
-- Pontos (`.`) e cifrões (`$`) não são caracteres compatíveis em uma carga útil de API se você estiver tentando enviar um atributo personalizado aninhado para um perfil de usuário.
-- Nem todos os parceiros da Braze oferecem suporte a atributos personalizados aninhados. Consulte a [documentação de parceiros]({{site.baseurl}}/partners/home) para confirmar se integrações com parceiros específicos oferecem suporte a esse recurso.
+- Os nomes de chave e os valores de string têm um limite de tamanho de 255 caracteres.
+- Os nomes de chave não podem conter espaços.
+- Pontos (`.`) e cifrões (`$`) não são caracteres compatíveis em uma carga útil da API se você estiver tentando enviar um atributo personalizado aninhado para um perfil de usuário.
+- Nem todos os parceiros da Braze oferecem suporte a atributos personalizados aninhados. Consulte a [documentação de parceiros]({{site.baseurl}}/partners/home) para confirmar se integrações específicas com parceiros oferecem suporte a esse recurso.
 - Os atributos personalizados aninhados não podem ser usados como filtro ao fazer uma chamada de API de Connected Audience.
-- Por padrão, o filtro de Segment **Atributos personalizados aninhados** inclui atributos personalizados do tipo objeto, atributos de vetor de objetos e atributos personalizados do tipo vetor. Ao selecionar um atributo, o seletor de esquema de propriedade inclui caminhos de vetor (usando a notação `[]`) para campos de vetor aninhados. Para ocultar atributos personalizados de vetor de nível superior desse filtro, entre em contato com o [suporte da Braze]({{site.baseurl}}/braze_support).
-- Ao pré-visualizar mensagens no dashboard usando **Preview as a Custom User**, você pode inserir dados simulados apenas como string ou vetor de strings — objetos aninhados não são compatíveis. Para pré-visualizar uma mensagem que faz referência a atributos personalizados aninhados, selecione um usuário existente que já tenha o atributo aninhado em seu perfil. Para propriedades de eventos personalizados aninhados, você deve lançar uma campanha ativa direcionada a um usuário teste para verificar a renderização.
+- Por padrão, o filtro de Segment **Atributos personalizados aninhados** inclui atributos personalizados do tipo objeto, atributos de vetor de objetos e atributos personalizados do tipo vetor. Ao selecionar um atributo, o seletor de esquema de propriedade inclui caminhos de vetor (usando a notação `[]`) para campos de vetor aninhados. Para ocultar atributos personalizados de vetor de nível superior desse filtro, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support).
+- Ao pré-visualizar mensagens no dashboard usando **prévia as a Custom User**, você pode inserir dados simulados apenas como uma string ou vetor de strings — objetos aninhados não são compatíveis. Para pré-visualizar uma mensagem que faz referência a atributos personalizados aninhados, selecione um usuário existente que já tenha o atributo aninhado em seu perfil. Para propriedades de eventos personalizados aninhados, você precisa lançar uma campanha ativa direcionada a um usuário teste para verificar a renderização.
 
 ## Exemplo de API {#api-example}
 
@@ -84,7 +84,7 @@ Para atualizar um objeto existente, envie um POST para `users/track` com o parâ
 }
 ```
 
-Após o recebimento dessa solicitação, o objeto de atributo personalizado ficará assim:
+Depois que essa solicitação for recebida, o objeto de atributo personalizado ficará assim:
 
 ```json
 {"most_played_song": {
@@ -274,12 +274,12 @@ AppboyBinding.UnsetCustomUserAttribute("most_played_song");
 {% endtab %}
 {% endtabs %}
 
-## Capturando datas como propriedades de objeto {#capturing-dates-as-object-properties}
+## Capturando datas como propriedades de objetos {#capturing-dates-as-object-properties}
 
-Para capturar datas como propriedades de objeto, você deve usar a chave `$time`. No exemplo a seguir, um objeto "Important Dates" é usado para capturar o conjunto de propriedades de objeto, `birthday` e `wedding_anniversary`. O valor dessas datas é um objeto com uma chave `$time`, que não pode ser um valor nulo.
+Para capturar datas como propriedades de objetos, você deve usar a chave `$time`. No exemplo a seguir, um objeto "Important Dates" é usado para capturar o conjunto de propriedades de objeto, `birthday` e `wedding_anniversary`. O valor dessas datas é um objeto com uma chave `$time`, que não pode ser um valor nulo.
 
 {% alert note %}
-Se você não capturou datas como propriedades de objeto inicialmente, recomendamos reenviar esses dados usando a chave `$time` para todos os usuários. Caso contrário, isso pode resultar em Segments incompletos ao usar o atributo `$time`. No entanto, se o valor de `$time` em um atributo personalizado aninhado não estiver formatado corretamente, todo o atributo personalizado aninhado não será atualizado.
+Se você não capturou datas como propriedades de objetos inicialmente, recomendamos reenviar esses dados usando a chave `$time` para todos os usuários. Caso contrário, isso pode resultar em Segments incompletos ao usar o atributo `$time`. No entanto, se o valor de `$time` em um atributo personalizado aninhado não estiver formatado corretamente, todo o atributo personalizado aninhado não será atualizado.
 {% endalert %}
 
 ```json
@@ -300,11 +300,11 @@ Se você não capturou datas como propriedades de objeto inicialmente, recomenda
 Para atributos personalizados aninhados, se o ano for menor que 0 ou maior que 3000, a Braze não armazena esses valores no perfil do usuário.
 {% endalert %}
 
-## Modelos Liquid {#liquid-templating}
+## Templating com Liquid {#liquid-templating}
 
-O exemplo de modelo Liquid a seguir mostra como referenciar as propriedades do objeto de atributo personalizado salvas a partir da solicitação de API anterior e usá-las no seu envio de mensagens.
+O exemplo de templating com Liquid a seguir mostra como referenciar as propriedades do objeto de atributo personalizado salvas a partir da requisição de API anterior e usá-las no seu envio de mensagens.
 
-Use a tag de personalização `custom_attribute` e a notação de ponto para acessar propriedades em um objeto. Especifique o nome do objeto (e a posição no vetor, se estiver referenciando um vetor de objetos), seguido de um ponto, seguido do nome da propriedade.
+Use a tag de personalização `custom_attribute` e a notação de ponto para acessar propriedades em um objeto. Especifique o nome do objeto (e a posição no vetor, se estiver referenciando um vetor de objetos), seguido de um ponto (período), seguido do nome da propriedade.
 
 {% raw %}
 `{{custom_attribute.${most_played_song}[0].artist_name}}` — "Miles Davis"
@@ -312,11 +312,11 @@ Use a tag de personalização `custom_attribute` e a notação de ponto para ace
 <br> `{{custom_attribute.${most_played_song}[0].play_analytics.count}}` — "1000"
 {% endraw %}
 
-Para usar Liquid de atributos personalizados aninhados na sua mensagem:
+Para usar atributos personalizados aninhados com Liquid na sua mensagem:
 
-1. Acesse uma Campaign ou Canvas e abra a etapa de mensagem onde deseja adicionar personalização.
-2. No criador de mensagem, insira o snippet Liquid onde deseja que o valor apareça.
-3. Use **Preview & Test** com um usuário existente que já tenha o atributo personalizado aninhado no perfil para confirmar que o valor é renderizado conforme esperado.
+1. Acesse uma Campaign ou um Canvas e abra a etapa de mensagem onde você deseja adicionar personalização.
+2. No criador de mensagem, insira o snippet de Liquid onde você deseja que o valor apareça.
+3. Use **prévia & Test** com um usuário existente que já tenha o atributo personalizado aninhado no perfil para confirmar que o valor é renderizado conforme esperado.
 
 ### Personalização {#personalization}
 
@@ -324,13 +324,13 @@ Você pode usar **Add Personalization** para inserir um atributo personalizado a
 
 Para abrir **Add Personalization**:
 
-1. Acesse uma Campaign ou Canvas e abra a etapa de mensagem onde deseja adicionar personalização.
+1. Acesse uma Campaign ou um Canvas e abra a etapa de mensagem onde você deseja adicionar personalização.
 2. No criador de mensagem, selecione **Personalization** para abrir a barra lateral **Add Personalization**, onde você pode escolher opções de personalização.
 
 Para configurar a personalização de atributos personalizados aninhados:
 
 1. Em **Personalization Type**, selecione **Nested Custom Attributes**.
-2. Em **Top Level Attribute**, selecione o caminho do atributo personalizado aninhado que deseja inserir.
+2. Em **Top Level Attribute**, selecione o caminho do atributo personalizado aninhado que você deseja inserir.
    Por exemplo, selecione `preferences.neighborhood_office`.
 3. Opcional: Em **Default value**, insira um valor de fallback para usuários que não possuem um valor próprio para esse atributo.
 4. Revise o **Liquid Snippet** gerado para confirmar que ele corresponde ao caminho esperado.
@@ -375,17 +375,17 @@ Se os dados não aparecerem como esperado após regenerar o esquema, o atributo 
 
 ## Disparar alterações em atributos personalizados aninhados {#trigger-nested-custom-attribute-changes}
 
-Você pode disparar quando um objeto de atributo personalizado aninhado é alterado. Essa opção não está disponível para alterações em vetores de objeto. Se você não vir uma opção para visualizar o explorador de jornadas, verifique se você gerou um esquema.
+Você pode disparar quando um objeto de atributo personalizado aninhado for alterado. Essa opção não está disponível para alterações em vetores de objeto. Se você não vir uma opção para visualizar o explorador de jornadas, verifique se você gerou um esquema.
 
-Por exemplo, em uma campanha baseada em ação, você pode adicionar uma nova ação-gatilho para **Alterar valor de atributo personalizado** para direcionar usuários que alteraram suas preferências de escritório do bairro.
+Por exemplo, em uma campanha baseada em ação, você pode adicionar uma nova ação-gatilho para **Change Custom Attribute Value** para segmentar usuários que alteraram suas preferências de escritório do bairro.
 
-Para configurar esse disparador em uma campanha baseada em ação:
+Para configurar esse disparo em uma campanha baseada em ação:
 
 1. Crie ou edite uma campanha e defina o tipo de entrega como **Entrega baseada em ação**.
-2. Nas configurações de disparador, selecione **Alterar valor de atributo personalizado**.
-3. Selecione o caminho do atributo personalizado aninhado que você deseja monitorar.
+2. Nas configurações de disparo, selecione **Change Custom Attribute Value**.
+3. Selecione a jornada do atributo personalizado aninhado que você deseja monitorar.
    Por exemplo, selecione `preferences.neighborhood_office`.
-4. Selecione a condição de disparador desejada, como **qualquer novo valor**.
+4. Selecione a condição de disparo desejada, como **any new value**.
 5. Termine de configurar a mensagem e o público da sua campanha e, em seguida, lance a campanha.
 
 ## Solução de problemas {#troubleshooting}
@@ -402,17 +402,17 @@ Para diagnosticar e resolver esse problema:
    - As propriedades estão armazenadas como um vetor de propriedades?
 3. **Verifique o filtro de segmentação:** Compare a estrutura de dados armazenada com a forma como o atributo personalizado aninhado é referenciado nos seus filtros de segmentação.
 4. **Verifique o tipo de dados:** Para identificar o tipo de dados de um atributo personalizado:
-   - Acesse **Configurações de dados** > **Atributos personalizados**.
+   - Acesse **Data Settings** > **Custom Attributes**.
    - Pesquise o atributo personalizado de nível superior que contém o atributo aninhado que você deseja verificar.
-   - Se a linha exibir **Generate Schema**, selecione essa opção para gerar o esquema primeiro.
-   - Após o esquema ser gerado, selecione o ícone de mais na coluna **Attribute Name** para esse atributo.
+   - Se a linha mostrar **Generate Schema**, selecione essa opção para gerar o esquema primeiro.
+   - Após o esquema ser gerado, selecione o ícone de mais na coluna **Attribute Name** desse atributo.
    - No modal **Edit schema**, revise os atributos aninhados e seus valores correspondentes na coluna **Data type**.
 
-Se você descobrir que o tipo de dados não corresponde ao formato pretendido nos perfis de usuário, remova o valor formatado incorretamente dos perfis de usuário afetados e reenvie o atributo no formato correto usando a solicitação de API ou o método do SDK apropriado.
+Se você descobrir que o tipo de dados não corresponde ao formato pretendido nos perfis de usuário, remova o valor formatado incorretamente dos perfis de usuário afetados e reenvie o atributo no formato correto usando a requisição de API ou o método do SDK apropriado.
 
-## Comportamento de segmentação com vetores de objetos {#segmentation-behavior-with-arrays-of-objects}
+## Comportamento da segmentação com vetores de objetos {#segmentation-behavior-with-arrays-of-objects}
 
-Quando você usa múltiplos filtros de `Nested Custom Attribute` com lógica AND para segmentar em um vetor de objetos, cada filtro é avaliado independentemente em todos os itens do vetor. Um usuário se qualifica para o Segment se _qualquer_ item no vetor satisfizer cada filtro individual — os filtros não precisam corresponder ao _mesmo_ item.
+Quando você usa vários filtros de `Nested Custom Attribute` com lógica AND para segmentar em um vetor de objetos, cada filtro é avaliado independentemente em todos os itens do vetor. Um usuário se qualifica para o Segment se _qualquer_ item no vetor satisfizer cada filtro individual — os filtros não precisam corresponder ao _mesmo_ item.
 
 Por exemplo, suponha que um usuário tenha o seguinte vetor:
 
@@ -432,7 +432,7 @@ Um Segment com os seguintes filtros AND:
 
 Esse usuário se qualificaria porque o primeiro filtro corresponde ao item "Shoes" (80 > 50) e o segundo filtro corresponde ao item "Hat" (25 < 30). Mesmo que nenhum item individual satisfaça ambas as condições, o usuário ainda entra no Segment.
 
-Se você precisa que todas as condições correspondam ao mesmo item dentro de um vetor, use a [segmentação multicritério]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes#use-multi-criteria-segmentation) no mesmo caminho, ou reestruture seus dados para evitar correspondência entre itens.
+Se você precisa que todas as condições correspondam ao mesmo item dentro de um vetor, use a [segmentação multicritério]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes#use-multi-criteria-segmentation) no mesmo caminho, ou reestruture seus dados para evitar correspondência entre itens diferentes.
 
 ## Pontos de dados {#data-points}
 

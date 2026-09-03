@@ -27,7 +27,7 @@ Ihre Telefonnummer muss diese WhatsApp-API-Anforderungen erfüllen:
 - Nicht mit einem persönlichen WhatsApp-Konto verbunden
 
 {% alert note %}
-Braze empfiehlt dringend, eine Nummer zu verwenden, die Ihrem Unternehmen gehört und auf die Sie dauerhaft vollen Zugriff haben. Während des WhatsApp-Embedded-Sign-up-Prozesses benötigen Sie Zugriff auf Nachrichten, die an diese Nummer gesendet werden, um sie zu verifizieren. Möglicherweise müssen Sie die Nummer später erneut verifizieren, daher müssen Sie den Zugriff darauf beibehalten.
+Braze empfiehlt dringend, eine Nummer zu verwenden, die Ihrem Unternehmen gehört und auf die Sie dauerhaft vollen Zugriff haben. Während des WhatsApp-Embedded-Registrierung-Prozesses benötigen Sie Zugriff auf Nachrichten, die an diese Nummer gesendet werden, um sie zu verifizieren. Möglicherweise müssen Sie die Nummer später erneut verifizieren, daher müssen Sie den Zugriff darauf beibehalten.
 {% endalert %}
 
 ## Eine Twilio-Telefonnummer erwerben {#acquiring-a-twilio-phone-number}
@@ -45,14 +45,14 @@ Braze empfiehlt dringend, eine Nummer zu verwenden, die Ihrem Unternehmen gehör
 Konfigurieren Sie Ihre Twilio-Telefonnummer so, dass Verifizierungscodes per E-Mail empfangen werden. **Verknüpfen Sie Ihre Telefonnummer nicht mit WhatsApp in der Twilio-Konsole.**
 
 {% alert warning %}
-Verknüpfen Sie Ihre Telefonnummer nicht mit WhatsApp in der Twilio-Konsole. Wenn Sie dies tun, wird die Nummer beim WhatsApp Business Account von Twilio registriert, was Sie daran hindert, sie über den Embedded-Sign-up-Workflow mit Braze zu verbinden.
+Verknüpfen Sie Ihre Telefonnummer nicht mit WhatsApp in der Twilio-Konsole. Wenn Sie dies tun, wird die Nummer beim WhatsApp Business Account von Twilio registriert, was Sie daran hindert, sie über den Embedded-Registrierung-Workflow mit Braze zu verbinden.
 {% endalert %}
 
 1. Gehen Sie in der Twilio-Konsole zur Seite [Active Numbers](https://www.twilio.com/console/phone-numbers/incoming) und wählen Sie die gekaufte Telefonnummer aus.
 2. Gehen Sie zum Abschnitt **Voice Configuration** und wählen Sie im Dropdown **Configure with** die Option **Webhook, TwiML Bin, Function, Studio Flow, Proxy Service**.
 3. Wählen Sie in der Zeile **A call comes in** die Option **Webhook** und setzen Sie die URL auf `https://twimlets.com/voicemail?Email=YOUR_EMAIL_ADDRESS`, wobei Sie `YOUR_EMAIL_ADDRESS` durch Ihre E-Mail-Adresse ersetzen.
 
-### Schritt 3: Den Embedded-Sign-up-Workflow abschließen {#step-3-complete-the-embedded-sign-up-workflow}
+### Schritt 3: Den Embedded-Registrierung-Workflow abschließen {#step-3-complete-the-embedded-sign-up-workflow}
 
 1. Nachdem Twilio konfiguriert ist, gehen Sie in Ihrem Braze-Dashboard zu **Technologie-Partner** > **WhatsApp** und wählen Sie **Begin integration** oder **Add WhatsApp Business Account** (je nachdem, was angezeigt wird), um den [Embedded-Sign-up-Workflow]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup) auszulösen.<br><br>Wählen Sie im Schritt **Add a phone number for WhatsApp** die Option **Phone call**, um Ihre Telefonnummer zu verifizieren. <br><br>![Abschnitt mit den Optionen zur Verifizierung Ihrer Telefonnummer per SMS oder Telefonanruf.]({% image_buster /assets/img/whatsapp/verify.png %}){: style="max-width:50%;"}<br><br>
 

@@ -15,7 +15,7 @@ Bevor Sie beginnen, müssen Sie eine [Landing-Page]({{site.baseurl}}/user_guide/
 
 ## So funktioniert es {#how-it-works}
 
-Sie können einen {% raw %}`{% landing_page_url %}`{% endraw %}-Liquid-Tag zu jeder Ihrer Einzel- oder Multi-Channel-Nachrichten in Braze hinzufügen. Wenn Nutzer:innen diese Landing-Page besuchen und das Formular absenden, verknüpft Braze diese Daten automatisch mit dem bestehenden Profil, anstatt ein neues Profil zu erstellen. Im folgenden Beispiel wird der Landing-Page-Liquid-Tag verwendet, um Kund:innen mit einer Umfrage zu verknüpfen:
+Sie können einen {% raw %}`{% landing_page_url %}`{% endraw %} Liquid-Tag zu jeder Ihrer Einzel- oder Mehrkanal-Nachrichten in Braze hinzufügen. Wenn Nutzer:innen diese Landing-Page besuchen und das Formular absenden, verknüpft Braze diese Daten automatisch mit ihrem bestehenden Profil, anstatt ein neues Profil für diese Nutzer:innen zu erstellen. Im folgenden Beispiel wird der Landing-Page-Liquid-Tag verwendet, um Kund:innen mit einer Umfrage zu verknüpfen:
 
 {% raw %}
 ```html
@@ -31,7 +31,7 @@ Sie können Landing-Pages auch zur Lead-Generierung nutzen, indem Sie die Seiten
 
 ### 1. Schritt: Seiten-URL überprüfen {#page-url}
 
-Braze verwendet die URL Ihrer Landing-Page, um den eindeutigen Liquid-Tag zu generieren. Wenn Sie die aktuelle Seiten-URL ändern möchten, gehen Sie zu **Messaging** > **Landing Pages** und öffnen Sie Ihre Landing-Page. Unter **Page URL** können Sie eine neue Seiten-URL eingeben.
+Braze verwendet die URL Ihrer Landing-Page, um den eindeutigen Liquid-Tag zu generieren. Wenn Sie die aktuelle Seiten-URL ändern möchten, gehen Sie zu **Messaging** > **Landing-Pages** und öffnen Sie Ihre Landing-Page. Unter **Page URL** können Sie eine neue Seiten-URL eingeben.
 
 {% alert warning %}
 Wenn Sie die Seiten-URL nach dem Senden Ihrer Nachricht ändern, werden Nutzer:innen, die versuchen, Ihre Landing-Page über die alte URL zu besuchen, auf eine `404`-Seite weitergeleitet.
@@ -51,7 +51,7 @@ Braze generiert automatisch einen Liquid-Tag unter Verwendung Ihrer [Landing-Pag
 | **Landing-Page** | Wählen Sie die Landing-Page aus, die Sie [zuvor erstellt haben](#prerequisites). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="2. Schritt: Liquid-Tag generieren" }
 
-Um den Liquid-Tag zu Ihrer Nachricht hinzuzufügen, können Sie entweder **Einfügen** auswählen oder das Snippet in Ihre Zwischenablage kopieren und manuell hinzufügen.
+Um den Liquid-Tag zu Ihrer Nachricht hinzuzufügen, können Sie entweder **Insert** auswählen oder das Snippet in Ihre Zwischenablage kopieren und manuell hinzufügen.
 
 ![Ein automatisch generierter Liquid-Tag für die ausgewählte Landing-Page.]({% image_buster /assets/img/landing_pages/get-snippet.png %}){: style="max-width:40%;"}
 
@@ -74,3 +74,7 @@ Betten Sie das Liquid-Snippet in Ihre Nachricht ein und stellen Sie den Rest Ihr
 {% endraw %}
 
 Wenn Sie bereit sind, können Sie die Nachricht senden, um Nutzer:innen über Ihre Landing-Page zu tracken.
+
+### Landing-Page-URLs in Content Cards verwenden {#use-landing-page-urls-in-content-cards}
+
+Content Cards haben ein [Payload-Limit von 2 KB]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card#size-limitations-for-content-cards), das für die gesamte Karte gilt, nachdem Liquid gerendert wurde. Wenn Sie einen {% raw %}`{% landing_page_url %}`{% endraw %}-Liquid-Tag einfügen, zählt Braze das Landing-Page-Tracking-Token als feste 32 Bytes für dieses Limit – nicht die volle Länge des Tokens. Die restliche URL sowie Titel, Text und andere Felder der Karte werden wie gewohnt auf das Limit angerechnet.

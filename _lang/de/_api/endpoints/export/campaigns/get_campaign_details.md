@@ -6,7 +6,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Kampagnendetails exportieren“."
-
 ---
 {% api %}
 # Details zur Kampagne exportieren {#export-campaign-details}

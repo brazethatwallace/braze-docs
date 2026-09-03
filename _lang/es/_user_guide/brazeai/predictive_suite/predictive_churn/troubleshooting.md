@@ -21,19 +21,19 @@ Busca el mensaje de error, la advertencia o el resultado que ves al crear una pr
 | Error "No hay suficientes datos para entrenar" | [No hay suficientes datos para entrenar](#not-enough-data-to-train) |
 | Advertencia "No hay suficientes usuarios no perdidos en el pasado" | [Audiencia de predicción demasiado pequeña](#problems-with-prediction-audience-size) |
 | La audiencia de predicción supera el límite de tamaño | [Audiencia de predicción demasiado grande](#prediction-audience-size-is-too-big) |
-| La calidad de la predicción está por debajo del 40 % | [La predicción tiene mala calidad](#prediction-has-poor-quality) |
+| La calidad de la predicción está por debajo del 40 % | [La predicción tiene una calidad deficiente](#prediction-has-poor-quality) |
 | No tienes claro si tus datos se ajustan al modelo | [Consideraciones sobre los datos](#data-considerations) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Síntoma de Predictive Churn" }
 
 ## Ruta de investigación estándar {#standard-investigation-path}
 
-Usa este flujo de trabajo cuando la creación de una predicción falle o te encuentres bloqueado por requisitos de datos o audiencia. Empieza en el paso 1.
+Usa este flujo de trabajo cuando la creación de una predicción falla o estás bloqueado por requisitos de datos o audiencia. Comienza en el paso 1.
 
-1. Confirma que Predictive Churn está activado para tu empresa y que el espacio de trabajo tiene suficientes usuarios activos al mes (MAU), normalmente 300.000 MAU en un solo espacio de trabajo.
-2. Revisa tu definición de cancelación. Los filtros demasiado restrictivos reducen el número de usuarios perdidos disponibles para el entrenamiento.
-3. Revisa la definición de tu audiencia de predicción. Muy pocos no cancelados históricos bloquean el entrenamiento del modelo.
+1. Confirma que Predictive Churn está activado para tu empresa y que el espacio de trabajo tiene suficientes MAU (MAU), generalmente 300,000 MAU en un solo espacio de trabajo.
+2. Revisa tu definición de cancelación. Los filtros demasiado restrictivos reducen la cantidad de usuarios perdidos disponibles para el entrenamiento.
+3. Revisa la definición de tu audiencia de predicción. Muy pocos usuarios históricos que no cancelaron bloquean el entrenamiento del modelo.
 4. Confirma que los eventos personalizados (no solo los atributos personalizados) capturan las acciones de alto valor que indican riesgo de cancelación.
-5. Si los errores persisten después de ampliar las definiciones, ponte en contacto con [soporte de Braze]({{site.baseurl}}/braze_support).
+5. Si los errores persisten después de ampliar las definiciones, ponte en contacto con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 
 ## No hay suficientes datos para entrenar {#not-enough-data-to-train}
 
@@ -44,7 +44,7 @@ Este error aparece cuando tu definición de cancelación es demasiado restrictiv
 Para solucionarlo, cambia el número de días, las acciones que definen la cancelación para captar más usuarios, o ambos. Asegúrate de que estás utilizando correctamente los filtros `AND/OR` para no crear definiciones excesivamente restrictivas.
 
 {% alert important %}
-Aunque Predictive Churn está activado a nivel de empresa, algunos espacios de trabajo pueden no tener suficientes usuarios para crear predicciones. Normalmente, necesitas 300.000 usuarios activos al mes en un solo espacio de trabajo.
+Aunque Predictive Churn está activado a nivel de empresa, algunos espacios de trabajo pueden no tener suficientes usuarios para crear predicciones. Normalmente, necesitas 300.000 MAU en un solo espacio de trabajo.
 {% endalert %}
 
 ## Problemas con el tamaño de la audiencia de predicción {#problems-with-prediction-audience-size}

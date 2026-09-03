@@ -1,12 +1,11 @@
 ---
 nav_title: "POST: API 트리거 전송을 사용하여 캠페인 보내기"
-article_title: "POST: API 트리거 전송을 사용하여 캠페인 보내기"
+article_title: "API 트리거 전송을 사용하여 Campaign 메시지 보내기"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
 description: "이 문서에서는 API 트리거 전송을 사용하여 캠페인을 보내는 Braze 엔드포인트에 대해 자세히 설명합니다."
-
 ---
 {% api %}
 # API 트리거 전송을 사용하여 Campaign 메시지 보내기 {#send-campaign-messages-using-api-triggered-delivery}
@@ -58,11 +57,12 @@ Authorization: Bearer YOUR-REST-API-KEY
       "attributes": (optional, object) fields in the attributes object create or update an attribute of that name with the given value on the specified user profile before the message is sent and existing values are overwritten
     }
   ],
-  "attachments": (optional, array) array of JSON objects that define the files you need attached, defined by "file_name" and "url",
+  "attachments": (optional, array) array of JSON objects that define the files you need attached, defined by "file_name", "url", and optionally "basic_auth_credential",
     [
       {
        "file_name": (required, string) the name of the file you want to attach to your email, excluding the extension (for example, ".pdf"). Attach files up to 2 MB. This is required if you use "attachments",
        "url": (required, string) the corresponding URL of the file you want to attach to your email. The file name's extension is detected automatically from the URL defined, which should return the appropriate "Content-Type" as a response header. This is required if you use "attachments",
+       "basic_auth_credential": (optional, string) the name of the stored basic authentication credential to use when the attachment URL requires a login,
       }
     ]
 }
@@ -75,10 +75,10 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `campaign_id` | 필수 | 문자열 | [Campaign 식별자]({{site.baseurl}}/api/identifier_types)를 참조하세요. |
 | `send_id` | 선택 사항 | 문자열 | [전송 식별자]({{site.baseurl}}/api/identifier_types)를 참조하세요. |
 | `trigger_properties` | 선택 사항 | 오브젝트 | [트리거 속성]({{site.baseurl}}/api/objects_filters/trigger_properties_object)을 참조하세요. 개인화 키-값 페어는 이 요청의 모든 사용자에게 적용됩니다. |
-| `broadcast` | 선택 사항 | 부울 | Braze 대시보드에서 Campaign의 타겟 오디언스로 구성된 전체 Segment에 메시지를 전송할 때 `broadcast`를 true로 설정해야 합니다. 이 매개변수는 기본적으로 false로 설정됩니다(2017년 8월 31일 기준). <br><br> `broadcast`가 true로 설정되면 `recipients` 목록을 포함할 수 없습니다. 그러나 이 플래그를 실수로 설정하면 예상보다 많은 오디언스에게 메시지를 보낼 수 있으므로 `broadcast: true`를 설정할 때는 주의하세요. |
+| `broadcast` | 선택 사항 | 부울 | Braze 대시보드에서 Campaign의 타겟 오디언스로 구성된 전체 Segment에 메시지를 전송할 때 `broadcast`를 true로 설정해야 합니다. 이 매개변수는 기본적으로 false로 설정됩니다(2017년 8월 31일 기준). <br><br>`broadcast`가 true로 설정되면 `recipients` 목록을 포함할 수 없습니다. 그러나 이 플래그를 실수로 설정하면 예상보다 많은 오디언스에게 메시지를 보낼 수 있으므로 `broadcast: true`를 설정할 때는 주의하세요. |
 | `audience` | 선택 사항 | 연결된 오디언스 오브젝트 | [연결된 오디언스]({{site.baseurl}}/api/objects_filters/connected_audience)를 참조하세요. `audience`를 포함하면, 커스텀 속성 및 구독 상태와 같은 정의된 필터와 일치하는 사용자에게만 메시지가 전송됩니다. |
 | `recipients` | 선택 사항 | 배열 | [수신자 오브젝트]({{site.baseurl}}/api/objects_filters/recipient_object)를 참조하세요.<br><br>`send_to_existing_only`가 `false`인 경우 `attributes` 오브젝트를 포함해야 합니다.<br><br>중첩된 `attributes` 오브젝트에 `subscription_groups`를 포함하여 사용자의 구독 그룹 상태를 업데이트할 수 있습니다. 자세한 내용은 [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object)를 참조하세요.<br><br>`recipients`가 제공되지 않고 `broadcast`가 true로 설정된 경우, Braze 대시보드에서 Campaign의 타겟 오디언스로 구성된 전체 Segment에 메시지가 전송됩니다.<br><br>`email`이 식별자인 경우 수신자 오브젝트에 [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email-addresses-and-phone-numbers)을 포함해야 합니다. |
-| `attachments` | 선택 사항 | 배열 | `broadcast`가 true로 설정되어 있으면 `attachments` 목록을 포함할 수 없습니다. |
+| `attachments` | 선택 사항 | 배열 | `broadcast`가 true로 설정되어 있으면 `attachments` 목록을 포함할 수 없습니다. <br><br>첨부 파일 URL에 로그인이 필요한 경우, 해당 첨부 파일에 `basic_auth_credential`을 포함하고 저장된 기본 인증 자격 증명의 이름으로 설정하세요. 자격 증명을 설정하려면 [이메일 파일 첨부를 위한 인증]({{site.baseurl}}/api/objects_filters/messaging/email_object#authentication-for-email-file-attachments)을 참조하세요. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 ### 수신자 확인 동작 {#recipient-resolution-behavior}
@@ -195,7 +195,8 @@ curl --location --request POST 'https://rest.iad-01.braze.com/campaigns/trigger/
   "attachments": [
     {
       "file_name" : "YourFileName",
-      "url" : "https://exampleurl.com/YourFileName.pdf"
+      "url" : "https://exampleurl.com/YourFileName.pdf",
+      "basic_auth_credential": "company_basic_auth_credential_name"
     }
   ]
 }'

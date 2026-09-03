@@ -1,22 +1,22 @@
-# Perguntas frequentes
+# Perguntas frequentes {#frequently-asked-questions}
 
 > Este artigo fornece respostas a algumas perguntas frequentes sobre os Feature Flags.
 
-## Funcionalidade e suporte
+## Funcionalidade e suporte {#functionality-and-support}
 
-### Em quais plataformas os feature flags da Braze podem ser usados? {#platforms}
+### Em quais plataformas as Feature Flags da Braze são suportadas? {#platforms}
 
-A Braze oferece suporte a feature flags nas plataformas iOS, Android e Web com os seguintes requisitos de versão do SDK:
+A Braze suporta Feature Flags nas plataformas iOS, Android e web com os seguintes requisitos mínimos de versão do SDK:
 
 {% sdk_min_versions swift:5.9.0 android:24.2.0 web:4.6.0 unity:4.1.0 cordova:5.0.0 reactnative:4.1.0 flutter:6.0.0 roku:1.0.0 %}
 
-Você precisa de suporte em outras plataformas? Envie um e-mail para nossa equipe: [feature-flags-feedback@braze.com](mailto:feature-flags-feedback@braze.com).
+Precisa de suporte em outras plataformas? Envie um e-mail para nossa equipe: [feature-flags-feedback@braze.com](mailto:feature-flags-feedback@braze.com).
 
-### Qual é o nível de esforço envolvido na implementação de um Feature Flag? {#level-of-effort}
+### Qual é o nível de esforço envolvido na implementação de uma Feature Flag? {#level-of-effort}
 
-Um Feature Flag pode ser criado e integrado em poucos minutos. 
+Uma Feature Flag pode ser criada e integrada em poucos minutos.
 
-A maior parte do esforço envolvido estará relacionada à sua equipe de engenharia que está desenvolvendo o novo recurso que você planeja implementar. Mas quando se trata de adicionar um sinalizador de recurso, é tão simples quanto uma declaração `IF`/`ELSE` no código do seu app ou site:
+A maior parte do esforço envolvido estará relacionada à sua equipe de engenharia construindo o novo recurso que você planeja lançar. Mas quando se trata de adicionar uma Feature Flag, é tão simples quanto uma instrução `IF`/`ELSE` no código do seu app ou website:
 
 {% tabs %}
 {% tab JavaScript %}
@@ -57,69 +57,68 @@ if (braze.getFeatureFlag("new_shopping_cart")?.enabled == true) {
 {% endtab %}
 {% endtabs %}
 
-### Como os sinalizadores de recursos podem beneficiar as equipes de marketing? {#marketing-teams}
+### Como as Feature Flags podem beneficiar equipes de marketing? {#marketing-teams}
 
-As equipes de marketing podem usar sinalizadores de recursos para coordenar anúncios de produtos (como e-mails de lançamento de produtos) quando um recurso é ativado apenas para uma pequena porcentagem de usuários.
+As equipes de marketing podem usar Feature Flags para coordenar anúncios de produtos (como e-mails de lançamento de produto) quando um recurso está ativado apenas para uma pequena porcentagem de usuários.
 
-Por exemplo, com os sinalizadores de recursos do Braze, você pode implementar um novo programa de fidelidade do cliente para 10% dos usuários do seu app e enviar um e-mail, push ou outra mensagem para esses mesmos 10% de usuários ativados usando a etapa do sinalizador de recursos do Canva. 
+Por exemplo, com as Feature Flags da Braze, você pode lançar um novo programa de fidelidade do cliente para 10% dos usuários no seu app e enviar um e-mail, push ou outro envio de mensagens para os mesmos 10% de usuários habilitados usando a etapa Feature Flag do Canvas.
 
-### Como os sinalizadores de recursos podem beneficiar as equipes de produtos? {#product-teams}
+### Como as Feature Flags podem beneficiar equipes de produto? {#product-teams}
 
-As equipes de produto podem usar sinalizadores de recursos para realizar implementações graduais ou lançamentos suaves de novos recursos a fim de monitorar os indicadores-chave de desempenho e o feedback dos clientes antes de disponibilizá-los para todos os usuários.
+As equipes de produto podem usar Feature Flags para realizar lançamentos graduais ou lançamentos suaves de novos recursos, monitorando indicadores chave de desempenho (KPIs) e feedback dos clientes antes de disponibilizar para todos os usuários.
 
-As equipes de produtos podem usar [as propriedades do feature flag]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create/#properties) para preencher remotamente o conteúdo de um app, como deep linking, texto, imagens ou outro conteúdo dinâmico.
+As equipes de produto podem usar [propriedades de Feature Flag]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create#properties) para preencher remotamente conteúdo em um app, como deep links, texto, imagens ou outro conteúdo dinâmico.
 
-Usando a etapa do Canva Feature Flag, as equipes de produto também podem executar um teste A/B dividido para medir como um novo recurso afeta as taxas de conversão em comparação com os usuários com o recurso desativado. 
+Usando a etapa Feature Flag do Canvas, as equipes de produto também podem executar um teste A/B para medir como um novo recurso impacta as taxas de conversão em comparação com usuários que têm o recurso desativado.
 
-### Como os sinalizadores de recursos podem beneficiar as equipes de engenharia? {#engineering-teams}
+### Como as Feature Flags podem beneficiar equipes de engenharia? {#engineering-teams}
 
-As equipes de engenharia podem usar sinalizadores de recursos para reduzir o risco inerente ao lançamento de novos recursos e evitar a pressa de implantar correções de código no meio da noite.
+As equipes de engenharia podem usar Feature Flags para reduzir o risco inerente ao lançamento de novos recursos e evitar a correria de implementar correções de código no meio da noite.
 
-Ao liberar um novo código oculto por trás de um sinalizador de recurso, sua equipe pode ativar ou desativar o recurso remotamente a partir do dashboard do Braze, evitando a postergação de push de um novo código ou a espera pela aprovação de uma atualização na loja de aplicativos.
+Ao lançar novo código escondido atrás de uma Feature Flag, sua equipe pode ativar ou desativar o recurso remotamente pelo dashboard da Braze, evitando o atraso de enviar novo código ou aguardar a aprovação de uma atualização na loja de apps.
 
-## Implementação e direcionamento de recursos
+## Implementação de recursos e direcionamento {#feature-rollouts-and-targeting}
 
-### Um Feature Flag pode ser implementado apenas para um grupo seleto de usuários? {#target-users}
+### Um Feature Flag pode ser liberado apenas para um grupo específico de usuários? {#target-users}
 
-Sim, crie um segmento na Braze que direcione usuários específicos por endereço de e-mail, `user_id` ou qualquer outra atribuição em seus perfis de usuário. Em seguida, implante o Feature Flag em 100% desse segmento.
+Sim, crie um Segment na Braze que direcione usuários específicos — por endereço de e-mail, `user_id` ou qualquer outro atributo nos perfis de usuário. Em seguida, implante o Feature Flag para 100% desse Segment.
 
-### Como o ajuste da porcentagem de distribuição afeta os usuários que foram previamente agrupados no grupo ativado? {#random-buckets}
+### Como o ajuste da porcentagem de implementação afeta os usuários que já foram alocados no grupo ativado? {#random-buckets}
 
-As implementações de Feature Flag permanecem consistentes para os usuários em todos os dispositivos e sessões.
+A implementação de Feature Flags permanece consistente para os usuários entre dispositivos e sessões.
 
-- Quando um sinalizador de recurso é implementado em 10% dos usuários aleatórios, esses 10% permanecerão ativados e persistirão durante a vida útil desse sinalizador de recurso.
-- Se você aumentar a distribuição de 10% para 20%, os mesmos 10% permanecerão capacitados, além de um novo grupo adicional de 10% de usuários que serão adicionados ao grupo capacitado.
-- Se você reduzir a distribuição de 20% para 10%, apenas os 10% originais dos usuários permanecerão ativados.
+- Quando um Feature Flag é liberado para 10% de usuários aleatórios, esses 10% permanecem ativados e persistem por toda a vida útil desse Feature Flag.
+- Se você aumentar a implementação de 10% para 20%, os mesmos 10% continuarão ativados, e mais 10% de usuários adicionais serão incluídos no grupo ativado.
+- Se você reduzir a implementação de 20% para 10%, apenas os 10% originais de usuários permanecerão ativados.
 
-Essa estratégia ajuda a garantir que os usuários tenham uma experiência consistente no app e não fiquem alternando entre as sessões. Obviamente, a desativação de um recurso até 0% removerá todos os usuários do sinalizador de recurso, o que é útil se você descobrir um bug ou precisar desativar o recurso por completo.
+Essa estratégia ajuda a garantir que os usuários tenham uma experiência consistente no seu app, sem ficar alternando entre ativado e desativado entre sessões. É claro que desativar um recurso para 0% removerá todos os usuários do Feature Flag, o que é útil se você descobrir um bug ou precisar desativar o recurso por completo.
 
-## Tópicos técnicos
+## Tópicos técnicos {#technical-topics}
 
-### Os Feature Flags podem ser usados para controlar quando o SDK da Braze é inicializado? {#initialization}
+### Feature Flags podem ser usados para controlar quando o SDK da Braze é inicializado? {#initialization}
 
-Não, o SDK deve ser inicializado para baixar e sincronizar os feature flags para o usuário atual. Isso significa que não é possível usar sinalizadores de recursos para limitar quais usuários são criados ou rastreados no Braze.
+Não, o SDK precisa ser inicializado para baixar e sincronizar as Feature Flags do usuário atual. Isso significa que você não pode usar Feature Flags para limitar quais usuários são criados ou rastreados na Braze.
 
-### Com que frequência o SDK atualiza os feature flags? {#refresh-frequency}
+### Com que frequência o SDK atualiza as Feature Flags? {#refresh-frequency}
 
-Os Feature Flags são atualizados no início da sessão e ao mudar os usuários ativos. Os Feature Flags também podem ser atualizados manualmente usando o [método de atualização]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create/#refreshing) do SDK. As atualizações do Feature Flag estão limitadas de frequência a uma vez a cada cinco minutos (sujeito a alterações).
+As Feature Flags são atualizadas no início da sessão e ao trocar de usuário ativo. As Feature Flags também podem ser atualizadas manualmente usando o [método de atualização]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create#refreshing) do SDK. As atualizações de Feature Flags têm um limite de frequência de uma vez a cada cinco minutos (sujeito a alterações).
 
-Lembre-se de que as boas práticas de dados recomendam não atualizar os sinalizadores de recursos muito rapidamente (com possível limite de frequência se isso for feito), portanto, é melhor atualizar apenas antes que um usuário interaja com novos recursos ou periodicamente no app, se necessário.
+Tenha em mente que boas práticas de dados recomendam não atualizar Feature Flags com muita rapidez (com possível limite de frequência se isso for feito), então o ideal é atualizar apenas antes de o usuário interagir com novos recursos ou periodicamente no app, se necessário.
 
-### Os Feature Flags estão disponíveis enquanto o usuário estiver off-line? {#offline}
+### As Feature Flags ficam disponíveis enquanto o usuário está offline? {#offline}
 
-Sim, depois que os Featureags são atualizados, eles são armazenados localmente no dispositivo do usuário e podem ser acessados off-line.
+Sim, após as Feature Flags serem atualizadas, elas são armazenadas localmente no dispositivo do usuário e podem ser acessadas enquanto estiver offline.
 
-### O que acontece se os sinalizadores de recursos forem atualizados no meio da sessão? {#listen-for-updates}
+### O que acontece se as Feature Flags forem atualizadas no meio da sessão? {#listen-for-updates}
 
-Os Feature Flags podem ser atualizados no meio da sessão. Há cenários em que você pode querer atualizar seu app se determinadas variáveis ou sua configuração forem alteradas. Há outros cenários em que talvez você não queira atualizar seu app, para evitar uma mudança chocante na forma como a interface do usuário é renderizada.
+As Feature Flags podem ser atualizadas no meio da sessão. Existem cenários em que você pode querer atualizar seu app caso certas variáveis ou a configuração mudem. Existem outros cenários em que talvez você não queira atualizar o app, para evitar uma mudança brusca na renderização da interface.
 
-Para controlar isso, [ouça as atualizações]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create/#updates) dos sinalizadores de recursos e determine se o app deve ser renderizado novamente com base em quais sinalizadores de recursos foram alterados. 
+Para controlar isso, [escute atualizações]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create#updates) das Feature Flags e determine se deve renderizar novamente seu app com base em quais Feature Flags foram alteradas.
 
-### Por que os usuários do meu grupo de controle global não estão recebendo experimentos de sinalizadores de recursos?
+### Por que os usuários do meu grupo de controle global não estão recebendo experimentos de Feature Flags? {#why-arent-users-in-my-global-control-group-receiving-feature-flags-experiments}
 
-Não é possível ativar sinalizadores de recursos para usuários do seu [grupo de controle global]({{site.baseurl}}/user_guide/engagement_tools/testing/global_control_group/). Isso significa que os usuários do seu grupo de controle global também não podem fazer parte dos experimentos do Feature Flag.
+Não é possível ativar Feature Flags para usuários no seu [grupo de controle global]({{site.baseurl}}/user_guide/audience/global_control_group). Isso significa que os usuários no grupo de controle global também não podem fazer parte de experimentos de Feature Flags.
 
-## Outras perguntas?
+## Perguntas adicionais? {#additional-questions}
 
-Tem dúvidas ou comentários? Envie um e-mail para nossa equipe: [feature-flags-feedback@braze.com](mailto:feature-flags-feedback@braze.com).
-
+Tem dúvidas ou feedback? Envie um e-mail para nossa equipe: [feature-flags-feedback@braze.com](mailto:feature-flags-feedback@braze.com).

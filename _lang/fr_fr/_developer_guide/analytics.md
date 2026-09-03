@@ -26,49 +26,49 @@ Lors de la mise en œuvre de Braze, n'oubliez pas de discuter des objectifs mark
 
 ## Données collectées automatiquement {#automatically-collected-data}
 
-Certaines données utilisateur sont collectées automatiquement par notre SDK, par exemple la première utilisation de l'application, la dernière utilisation de l'application, le nombre total de sessions, le système d'exploitation de l'appareil, etc. Si vous suivez nos guides d'intégration pour déployer nos SDK, vous pourrez tirer parti de cette [collecte de données par défaut]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection). Consulter cette liste peut vous aider à éviter de stocker les mêmes informations sur les utilisateurs en double. À l'exception du début et de la fin de session, toutes les autres données suivies automatiquement ne sont pas comptabilisées dans votre consommation de points de donnée.
+Certaines données utilisateur sont collectées automatiquement par notre SDK, par exemple : première utilisation de l'application, dernière utilisation de l'application, nombre total de sessions, système d'exploitation de l'appareil, etc. Si vous suivez nos guides d'intégration pour déployer nos SDK, vous pourrez tirer parti de cette [collecte de données par défaut]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection). Consulter cette liste peut vous aider à éviter de stocker plusieurs fois les mêmes informations sur vos utilisateurs. À l'exception du début et de la fin de session, toutes les autres données suivies automatiquement ne sont pas comptabilisées dans votre consommation de points de donnée.
 
 Consultez notre article [Présentation du SDK]({{site.baseurl}}/developer_guide/getting_started/sdk_overview) pour ajouter à la liste d'autorisation les processus qui bloquent la collecte par défaut de certains éléments de données.
 
 ## Événements personnalisés {#custom-events}
 
-Les événements personnalisés sont des actions effectuées par vos utilisateurs ; ils sont particulièrement adaptés au suivi des interactions à forte valeur ajoutée avec votre application. L'enregistrement d'un événement personnalisé peut déclencher un nombre illimité de campagnes de suivi avec des délais configurables, et permet d'utiliser les filtres de segmentation suivants autour de la récence et de la fréquence de cet événement :
+Les événements personnalisés sont des actions effectuées par vos utilisateurs ; ils sont parfaitement adaptés au suivi des interactions utilisateur à forte valeur avec votre application. L'enregistrement d'un événement personnalisé peut déclencher un nombre illimité de Campaigns de suivi avec des délais configurables, et permet d'utiliser les filtres de segmentation suivants autour de la récence et de la fréquence de cet événement :
 
-| Options de segmentation | Filtre déroulant | Options de saisie |
+| Options de segmentation | Filtre déroulant | Options d'entrée |
 | ---------------------| --------------- | ------------- |
-| Vérifier si l'événement personnalisé s'est produit **plus de X fois** | **MORE THAN** | **NUMBER** |
-| Vérifier si l'événement personnalisé s'est produit **moins de X fois** | **LESS THAN** | **NUMBER** |
-| Vérifier si l'événement personnalisé s'est produit **exactement X fois** | **EXACTLY** | **NUMBER** |
-| Vérifier si l'événement personnalisé s'est produit pour la dernière fois **après la date X** | **AFTER** | **TIME** |
-| Vérifier si l'événement personnalisé s'est produit pour la dernière fois **avant la date X** | **BEFORE** | **TIME** |
-| Vérifier si l'événement personnalisé s'est produit pour la dernière fois **il y a plus de X jours** | **MORE THAN** | **NUMBER OF DAYS AGO** (nombre positif) |
-| Vérifier si l'événement personnalisé s'est produit pour la dernière fois **il y a moins de X jours** | **LESS THAN** | **NUMBER OF DAYS AGO** (nombre positif) |
-| Vérifier si l'événement personnalisé s'est produit **plus de X fois (max = 50)** | **MORE THAN** | au cours des **Y derniers jours (Y = 1,3,7,14,21,30)** |
-| Vérifier si l'événement personnalisé s'est produit **moins de X fois (max = 50)** | **LESS THAN** | au cours des **Y derniers jours (Y = 1,3,7,14,21,30)** |
-| Vérifier si l'événement personnalisé s'est produit **exactement X fois (max = 50)** | **EXACTLY** | au cours des **Y derniers jours (Y = 1,3,7,14,21,30)** |
+| Vérifier si l'événement personnalisé s'est produit **plus de X fois** | **PLUS DE** | **NOMBRE** |
+| Vérifier si l'événement personnalisé s'est produit **moins de X fois** | **MOINS DE** | **NOMBRE** |
+| Vérifier si l'événement personnalisé s'est produit **exactement X fois** | **EXACTEMENT** | **NOMBRE** |
+| Vérifier si l'événement personnalisé s'est produit pour la dernière fois **après la date X** | **APRÈS** | **DATE** |
+| Vérifier si l'événement personnalisé s'est produit pour la dernière fois **avant la date X** | **AVANT** | **DATE** |
+| Vérifier si l'événement personnalisé s'est produit pour la dernière fois **il y a plus de X jours** | **PLUS DE** | **NOMBRE DE JOURS** (nombre positif) |
+| Vérifier si l'événement personnalisé s'est produit pour la dernière fois **il y a moins de X jours** | **MOINS DE** | **NOMBRE DE JOURS** (nombre positif) |
+| Vérifier si l'événement personnalisé s'est produit **plus de X fois (max. = 50)** | **PLUS DE** | au cours des **Y derniers jours (Y = 1,3,7,14,21,30)** |
+| Vérifier si l'événement personnalisé s'est produit **moins de X fois (max. = 50)** | **MOINS DE** | au cours des **Y derniers jours (Y = 1,3,7,14,21,30)** |
+| Vérifier si l'événement personnalisé s'est produit **exactement X fois (max. = 50)** | **EXACTEMENT** | au cours des **Y derniers jours (Y = 1,3,7,14,21,30)** |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Événements personnalisés" }
 
-Braze enregistre le nombre de fois où ces événements se sont produits ainsi que la dernière fois qu'ils ont été effectués par chaque utilisateur à des fins de segmentation. Sur la page d'analyse **Custom Events**, vous pouvez visualiser de manière agrégée la fréquence de chaque événement personnalisé, ainsi que par Segment au fil du temps pour une analyse plus détaillée. Cela est particulièrement utile pour observer l'impact de vos Campaigns sur l'activité des événements personnalisés en examinant les lignes grises que Braze superpose sur la série temporelle pour indiquer la dernière fois qu'une Campaign a été envoyée.
+Braze enregistre le nombre de fois où ces événements se sont produits ainsi que la dernière fois qu'ils ont été effectués par chaque utilisateur à des fins de segmentation. Sur la page d'analyse des **événements personnalisés**, vous pouvez visualiser de manière agrégée la fréquence de chaque événement personnalisé, ainsi que par Segment au fil du temps pour une analyse plus détaillée. Cela est particulièrement utile pour observer l'impact de vos Campaigns sur l'activité des événements personnalisés en examinant les lignes grises que Braze superpose sur les séries temporelles pour indiquer la dernière fois qu'une Campaign a été envoyée.
 
-![Un graphique d'analyse d'événements personnalisés montrant les statistiques des utilisateurs ayant ajouté une carte de crédit et effectué une recherche sur une période de trente jours.]({% image_buster /assets/img_archive/custom_event_analytics_example.png %} "custom_event_analytics_example.png")
+![Un graphique d'analyse d'événement personnalisé montrant des statistiques sur les utilisateurs qui ont ajouté une carte bancaire et effectué une recherche sur une période de trente jours.]({% image_buster /assets/img_archive/custom_event_analytics_example.png %} "custom_event_analytics_example.png")
 
 {% alert note %}
-Les [attributs personnalisés incrémentaux]({{site.baseurl}}/api/endpoints/messaging) peuvent être utilisés pour maintenir un compteur sur une action utilisateur similaire à un événement personnalisé. Cependant, vous ne pourrez pas visualiser les données d'attributs personnalisés sous forme de série temporelle. Les actions utilisateur qui n'ont pas besoin d'être analysées en série temporelle doivent être enregistrées via cette méthode.
+Les [attributs personnalisés incrémentaux]({{site.baseurl}}/api/endpoints/messaging) peuvent être utilisés pour maintenir un compteur sur une action utilisateur, de manière similaire à un événement personnalisé. Cependant, vous ne pourrez pas visualiser les données d'attributs personnalisés sous forme de série temporelle. Les actions utilisateur qui n'ont pas besoin d'être analysées en série temporelle doivent être enregistrées via cette méthode.
 {% endalert %}
 
 ### Stockage des événements personnalisés {#custom-event-storage}
 
-Toutes les données de profil utilisateur (événements personnalisés, attributs personnalisés, données personnalisées) sont conservées tant que ces profils sont actifs.
+Toutes les données de profil utilisateur (événements personnalisés, attributs personnalisés, données personnalisées) sont stockées tant que ces profils sont actifs.
 
-### Propriétés d'événements personnalisés {#custom-event-properties}
+### Propriétés des événements personnalisés {#custom-event-properties}
 
-Grâce aux propriétés d'événements personnalisés, Braze vous permet de définir des propriétés sur les événements personnalisés et les achats. Ces propriétés peuvent ensuite être utilisées pour affiner les conditions de déclenchement, accroître la personnalisation des messages et générer des analyses plus sophistiquées via l'exportation de données brutes. Les valeurs de propriétés peuvent être de type chaîne de caractères, nombre, booléen ou objet temporel. Cependant, les valeurs de propriétés ne peuvent pas être des objets de type tableau.
+Avec les propriétés des événements personnalisés, Braze vous permet de définir des propriétés sur les événements personnalisés et les achats. Ces propriétés peuvent ensuite être utilisées pour affiner les conditions de déclenchement, améliorer la personnalisation des messages et générer des analyses plus sophistiquées via l'exportation de données brutes. Les valeurs des propriétés peuvent être des chaînes de caractères, des nombres, des booléens ou des objets temporels. Cependant, les valeurs des propriétés ne peuvent pas être des tableaux.
 
-Par exemple, si une application d'e-commerce souhaitait envoyer un message à un utilisateur lorsqu'il abandonne son panier, elle pourrait également améliorer son audience cible et permettre une personnalisation accrue de la Campaign en ajoutant une propriété d'événement personnalisé correspondant à la `cart_value` du panier de l'utilisateur.
+Par exemple, si une application d'e-commerce souhaitait envoyer un message à un utilisateur lorsqu'il abandonne son panier, elle pourrait également améliorer son audience cible et permettre une personnalisation accrue de la Campaign en ajoutant une propriété d'événement personnalisée pour la `cart_value` des paniers des utilisateurs.
 
 ![Un exemple d'événement personnalisé qui enverra une Campaign à un utilisateur ayant abandonné son panier avec une valeur de panier supérieure à 100 et inférieure à 200.]({% image_buster /assets/img_archive/customEventProperties.png %} "customEventProperties.png")
 
-Les propriétés d'événements personnalisés peuvent également être utilisées pour la personnalisation au sein du modèle de message. Toute Campaign utilisant la [livraison par événement]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) avec un événement déclencheur peut exploiter les propriétés d'événements personnalisés de cet événement pour personnaliser le message. Si une application de jeu souhaitait envoyer un message aux utilisateurs ayant terminé un niveau, elle pourrait personnaliser davantage le message avec une propriété indiquant le temps qu'il a fallu aux utilisateurs pour terminer ce niveau. Dans cet exemple, le message est personnalisé pour trois Segments différents à l'aide de la [logique conditionnelle]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic). La propriété d'événement personnalisé appelée ``time_spent`` peut être incluse dans le message en appelant ``{% raw %} {{event_properties.${time_spent}}} {% endraw %}``.
+Les propriétés des événements personnalisés peuvent également être utilisées pour la personnalisation dans le modèle de message. Toute Campaign utilisant la [livraison par événement]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) avec un événement déclencheur peut exploiter les propriétés d'événement personnalisées de cet événement pour la personnalisation des messages. Si une application de jeu souhaitait envoyer un message aux utilisateurs ayant terminé un niveau, elle pourrait personnaliser davantage le message avec une propriété indiquant le temps qu'il a fallu aux utilisateurs pour compléter ce niveau. Dans cet exemple, le message est personnalisé pour trois Segments différents à l'aide de la [logique conditionnelle]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic). La propriété d'événement personnalisée appelée ``time_spent`` peut être incluse dans le message en appelant ``{% raw %} {{event_properties.${time_spent}}} {% endraw %}``.
 
 {% raw %}
 ```liquid
@@ -82,15 +82,15 @@ Talk to villagers for essential tips on how to beat levels!
 ```
 {% endraw %}
 
-Les propriétés d'événements personnalisés sont conçues pour vous aider à personnaliser vos messages ou à créer des Campaigns granulaires basées sur la livraison par événement. Si vous souhaitez créer des Segments basés sur la récence et la fréquence des propriétés d'événements, contactez votre gestionnaire du succès des clients ou notre équipe d'assistance.
+Les propriétés des événements personnalisés sont conçues pour vous aider à personnaliser vos messages ou à créer des Campaigns de livraison par événement granulaires. Si vous souhaitez créer des Segments basés sur la récence et la fréquence des propriétés d'événement, contactez votre gestionnaire du succès des clients ou notre équipe d'assistance.
 
 ## Attributs personnalisés {#custom-attributes}
 
-Les attributs personnalisés sont des outils extrêmement flexibles qui vous permettent de cibler les utilisateurs avec une plus grande précision qu'avec les attributs standard. Les attributs personnalisés sont parfaits pour stocker des informations spécifiques à votre marque concernant vos utilisateurs. Gardez à l'esprit que nous ne stockons pas d'informations de séries temporelles pour les attributs personnalisés, vous n'obtiendrez donc pas de graphiques basés sur ceux-ci comme dans l'exemple précédent pour les événements personnalisés.
+Les attributs personnalisés sont des outils extrêmement flexibles qui vous permettent de cibler les utilisateurs avec une précision bien supérieure à celle des attributs standard. Les attributs personnalisés sont parfaits pour stocker des informations propres à votre marque sur vos utilisateurs. Gardez à l'esprit que nous ne stockons pas d'informations de séries temporelles pour les attributs personnalisés, vous n'obtiendrez donc pas de graphiques basés sur ceux-ci, comme dans l'exemple précédent pour les événements personnalisés.
 
 ### Stockage des attributs personnalisés {#custom-attribute-storage}
 
-Toutes les données de profil utilisateur (événements personnalisés, attributs personnalisés, données personnalisées) sont stockées tant que ces profils sont actifs.
+Toutes les données de profil utilisateur (événements personnalisés, attributs personnalisés, données personnalisées) sont stockées aussi longtemps que ces profils sont actifs.
 
 ### Types de données des attributs personnalisés {#custom-attribute-data-types}
 
@@ -98,7 +98,7 @@ Les types de données suivants peuvent être stockés en tant qu'attributs perso
 
 #### Chaînes de caractères (caractères alphanumériques) {#strings-alphanumeric-characters}
 
-Les attributs de type chaîne de caractères sont utiles pour stocker les saisies utilisateur, comme une marque préférée, un numéro de téléphone ou une dernière chaîne de recherche dans votre application. Les attributs de type chaîne de caractères sont soumis aux [contraintes de longueur](#length-constraints) pour les données personnalisées (479 octets ; environ 479 caractères mono-octet ou environ 160 caractères pour les scripts multi-octets comme le japonais).
+Les attributs de type chaîne de caractères sont utiles pour stocker les saisies des utilisateurs, telles qu'une marque préférée, un numéro de téléphone ou la dernière recherche effectuée dans votre application. Les attributs de type chaîne de caractères sont soumis aux [contraintes de longueur](#length-constraints) des données personnalisées (479 octets ; environ 479 caractères mono-octet ou environ 160 caractères pour les écritures multi-octets comme le japonais).
 
 Le tableau suivant décrit les options de segmentation disponibles pour les attributs de type chaîne de caractères.
 
@@ -113,25 +113,25 @@ Le tableau suivant décrit les options de segmentation disponibles pour les attr
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Chaînes de caractères (caractères alphanumériques)" }
 
 {% alert important %}
-Lors de la segmentation avec le filtre **DOES NOT MATCH REGEX**, il est nécessaire qu'un attribut personnalisé avec une valeur assignée existe déjà dans le profil de cet utilisateur. Braze suggère d'utiliser la logique « OU » pour vérifier si un attribut personnalisé est vide afin de cibler correctement les utilisateurs.
+Lors de la segmentation avec le filtre **DOES NOT MATCH REGEX**, il est nécessaire qu'un attribut personnalisé avec une valeur attribuée existe déjà dans le profil utilisateur. Braze suggère d'utiliser la logique « OR » pour vérifier si un attribut personnalisé est vide afin de cibler correctement les utilisateurs.
 {% endalert %}
 
 {% alert tip %}
 Pour en savoir plus sur l'utilisation de notre filtre d'expressions régulières, consultez cette documentation sur les [expressions régulières compatibles Perl (PCRE)](http://www.regextester.com/pregsyntax.html).
 <br>
-Ressources supplémentaires sur les regex :
-- [Regex avec Braze]({{site.baseurl}}/user_guide/audience/segments/regex)
-- [Débogueur et testeur de regex](https://regex101.com/)
-- [Tutoriel regex](https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285)
+Ressources supplémentaires sur les expressions régulières :
+- [Les expressions régulières avec Braze]({{site.baseurl}}/user_guide/audience/segments/regex)
+- [Débogueur et testeur d'expressions régulières](https://regex101.com/)
+- [Tutoriel sur les expressions régulières](https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285)
 {% endalert %}
 
 #### Tableaux {#arrays}
 
-Les attributs de type tableau sont utiles pour stocker des listes d'informations liées à vos utilisateurs. Par exemple, stocker les 100 derniers contenus consultés par un utilisateur dans un tableau permet une segmentation par centres d'intérêt spécifiques.
+Les attributs de type tableau sont adaptés au stockage de listes d'informations connexes sur vos utilisateurs. Par exemple, stocker les 100 derniers contenus consultés par un utilisateur dans un tableau permet une segmentation par centres d'intérêt spécifiques.
 
 Les tableaux d'attributs personnalisés sont des ensembles unidimensionnels ; les tableaux multidimensionnels ne sont pas pris en charge. **L'ajout d'un élément à un tableau d'attributs personnalisés ajoute l'élément à la fin du tableau, sauf s'il est déjà présent, auquel cas il est déplacé de sa position actuelle vers la fin du tableau.** Par exemple, si un tableau `['hotdog','hotdog','hotdog','pizza']` est importé, il apparaîtra dans l'attribut de type tableau sous la forme `['hotdog', 'pizza']` car seules les valeurs uniques sont prises en charge.
 
-Si le tableau contient son nombre maximum d'éléments, le premier élément sera supprimé et le nouvel élément sera ajouté à la fin. Voici un exemple de code illustrant le comportement des tableaux dans le SDK web :
+Si le tableau contient son nombre maximum d'éléments, le premier élément est supprimé et le nouvel élément est ajouté à la fin. Voici un exemple de code illustrant le comportement des tableaux dans le SDK web :
 
 ```js
 var abUser = appboy.getUser();
@@ -142,10 +142,10 @@ abUser.addToCustomAttributeArray('favorite_foods', 'pizza'); // => ['wings', 'pa
 abUser.addToCustomAttributeArray('favorite_foods', 'ice cream'); // => ['pasta', 'fries', 'pizza', 'ice cream']
 ```
 
-Le nombre par défaut et maximum d'éléments dans un tableau est de 500. Vous pouvez modifier le nombre maximum de tableaux dans le tableau de bord de Braze, sous **Data Settings** > **Custom Attributes**. Les tableaux dépassant le nombre maximum d'éléments sont tronqués pour contenir le nombre maximum d'éléments.
+Le nombre par défaut et maximum d'éléments dans un tableau est de 500. Vous pouvez mettre à jour le nombre maximum de tableaux dans le tableau de bord de Braze, sous **Data Settings** > **Custom Attributes**. Les tableaux dépassant le nombre maximum d'éléments sont tronqués pour contenir le nombre maximum d'éléments.
 
 {% alert note %}
-Si un attribut personnalisé de type tableau apparaît sur un profil utilisateur mais n'affiche aucune valeur, vérifiez la **Max Length** de l'attribut dans **Data Settings** > **Custom Attributes**. Une **Max Length** de `0` empêche les valeurs de s'afficher sur le profil. Pour les étapes de résolution des problèmes, consultez [Types de données des attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#arrays).
+Si un attribut personnalisé de type tableau apparaît sur un profil utilisateur mais n'affiche aucune valeur, vérifiez la **Max Length** de l'attribut dans **Data Settings** > **Custom Attributes**. Une **Max Length** de `0` empêche l'affichage des valeurs sur le profil. Pour les étapes de résolution des problèmes, consultez [Types de données des attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#arrays).
 {% endalert %}
 
 Le tableau suivant décrit les options de segmentation disponibles pour les attributs de type tableau.
@@ -155,7 +155,7 @@ Le tableau suivant décrit les options de segmentation disponibles pour les attr
 | Vérifier si l'attribut de type tableau **inclut une valeur qui correspond exactement** à une valeur saisie | **INCLUDES VALUE** | **STRING** |
 | Vérifier si l'attribut de type tableau **n'inclut pas une valeur qui correspond exactement** à une valeur saisie | **DOESN'T INCLUDE VALUE** | **STRING** |
 | Vérifier si l'attribut de type tableau **contient une valeur qui correspond partiellement** à une valeur saisie **OU** à une expression régulière | **MATCHES REGEX** | **STRING** **OU** **REGULAR EXPRESSION** |
-| Vérifier si l'attribut de type tableau **a une valeur** | **HAS A VALUE** | **N/A** |
+| Vérifier si l'attribut de type tableau **possède une valeur** | **HAS A VALUE** | **N/A** |
 | Vérifier si l'attribut de type tableau **est vide** | **IS EMPTY** | **N/A** |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tableaux" }
 
@@ -163,28 +163,28 @@ Le tableau suivant décrit les options de segmentation disponibles pour les attr
 Nous utilisons les [expressions régulières compatibles Perl (PCRE)](http://www.regextester.com/pregsyntax.html).
 {% endalert %}
 
-#### Dates {#dates}
+#### Dates
 
-Les attributs de type date sont utiles pour stocker la dernière fois qu'une action spécifique a été effectuée, afin de proposer des messages de réengagement ciblés à vos utilisateurs.
+Les attributs temporels sont utiles pour stocker la date de la dernière action spécifique effectuée, ce qui vous permet d'adresser des messages de réengagement ciblés à vos utilisateurs.
 
 {% alert note %}
-La dernière date à laquelle un événement personnalisé ou un événement d'achat s'est produit est automatiquement enregistrée et ne doit pas être enregistrée en double via un attribut personnalisé de type date.
+La date de la dernière occurrence d'un événement personnalisé ou d'un événement d'achat est automatiquement enregistrée et ne doit pas être enregistrée en double via un attribut temporel personnalisé.
 {% endalert %}
 
-Les filtres de date utilisant des dates relatives (par exemple, il y a plus d'un jour, il y a moins de deux jours) mesurent un jour comme 24 heures. Toute campagne que vous exécutez avec ces filtres inclura tous les utilisateurs par tranches de 24 heures. Par exemple, « dernière utilisation de l'application il y a plus d'un jour » capturera tous les utilisateurs qui « ont utilisé l'application pour la dernière fois il y a plus de 24 heures » à partir du moment exact où la campagne s'exécute. Il en va de même pour les campagnes avec des plages de dates plus longues : cinq jours à partir de l'activation signifient les 120 heures précédentes.
+Les filtres de date utilisant des dates relatives (par exemple, il y a plus d'un jour, il y a moins de 2 jours) mesurent 1 jour comme 24 heures. Toute Campaign que vous exécutez avec ces filtres inclura tous les utilisateurs par tranches de 24 heures. Par exemple, le filtre « dernière utilisation de l'application il y a plus d'un jour » capturera tous les utilisateurs qui « ont utilisé l'application pour la dernière fois il y a plus de 24 heures » à partir du moment exact où la Campaign est exécutée. Il en va de même pour les Campaigns avec des plages de dates plus longues — cinq jours à compter de l'activation correspondront aux 120 heures précédentes.
 
-Le tableau suivant décrit les options de segmentation disponibles pour les attributs de type date.
+Le tableau suivant décrit les options de segmentation disponibles pour les attributs temporels.
 
 | Options de segmentation | Filtre déroulant | Options de saisie |
 | ---------------------| --------------- | ------------- |
-| Vérifier si l'attribut de type date **est antérieur** à une **date sélectionnée** | **BEFORE** | **CALENDAR DATE SELECTOR** |
-| Vérifier si l'attribut de type date **est postérieur** à une **date sélectionnée** | **AFTER** | **CALENDAR DATE SELECTOR** |
-| Vérifier si l'attribut de type date remonte à **plus de X** **jours** | **MORE THAN** | **NUMBER OF DAYS AGO** |
-| Vérifier si l'attribut de type date remonte à **moins de X** **jours** | **LESS THAN** | **NUMBER OF DAYS AGO** |
-| Vérifier si l'attribut de type date est **dans plus de X** **jours dans le futur** | **IN MORE THAN** | **NUMBER OF DAYS IN FUTURE** |
-| Vérifier si l'attribut de type date est **dans moins de X** **jours dans le futur** | **IN LESS THAN** | **NUMBER OF DAYS IN FUTURE**  |
-| Vérifier si l'attribut de type date **existe** sur le profil d'un utilisateur | **BLANK** | **N/A** |
-| Vérifier si l'attribut de type date **n'existe pas** sur le profil d'un utilisateur | **IS NOT BLANK** | **N/A** |
+| Vérifier si l'attribut temporel **est antérieur** à une **date sélectionnée** | **BEFORE** | **CALENDAR DATE sélecteur** |
+| Vérifier si l'attribut temporel **est postérieur** à une **date sélectionnée** | **AFTER** | **CALENDAR DATE sélecteur** |
+| Vérifier si l'attribut temporel remonte à **plus de X jours** | **MORE THAN** | **NUMBER OF DAYS AGO** |
+| Vérifier si l'attribut temporel remonte à **moins de X jours** | **LESS THAN** | **NUMBER OF DAYS AGO** |
+| Vérifier si l'attribut temporel est **dans plus de X jours** dans le futur | **IN MORE THAN** | **NUMBER OF DAYS IN FUTURE** |
+| Vérifier si l'attribut temporel est **dans moins de X jours** dans le futur | **IN LESS THAN** | **NUMBER OF DAYS IN FUTURE** |
+| Vérifier si l'attribut temporel **existe** sur le profil d'un utilisateur | **BLANK** | **N/A** |
+| Vérifier si l'attribut temporel **n'existe pas** sur le profil d'un utilisateur | **IS NOT BLANK** | **N/A** |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Dates" }
 
 #### Nombres {#integers}
@@ -192,7 +192,7 @@ Le tableau suivant décrit les options de segmentation disponibles pour les attr
 Les attributs numériques offrent une grande variété de cas d'usage. Les attributs personnalisés numériques incrémentaux sont utiles pour stocker le nombre de fois qu'une action ou un événement donné s'est produit. Les nombres standard ont toutes sortes d'utilisations, comme l'enregistrement de la pointure, du tour de taille ou du nombre de fois qu'un utilisateur a consulté une fonctionnalité ou une catégorie de produit donnée.
 
 {% alert note %}
-Les dépenses ne doivent pas être enregistrées par cette méthode. Elles doivent plutôt être enregistrées via nos [méthodes d'achat]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview#purchase-events--revenue-tracking).
+Les dépenses ne doivent pas être enregistrées par cette méthode. Elles doivent plutôt être enregistrées via nos [méthodes d'achat]({{site.baseurl}}/developer_guide/analytics#purchase-events--revenue-tracking).
 {% endalert %}
 
 Le tableau suivant décrit les options de segmentation disponibles pour les attributs numériques.
@@ -201,7 +201,7 @@ Le tableau suivant décrit les options de segmentation disponibles pour les attr
 | ---------------------| --------------- | ------------- |
 | Vérifier si l'attribut numérique **est supérieur** à un **nombre** | **MORE THAN** | **NUMBER** |
 | Vérifier si l'attribut numérique **est inférieur** à un **nombre** | **LESS THAN** | **NUMBER** |
-| Vérifier si l'attribut numérique **est exactement** un **nombre** | **EXACTLY** | **NUMBER** |
+| Vérifier si l'attribut numérique **est exactement égal** à un **nombre** | **EXACTLY** | **NUMBER** |
 | Vérifier si l'attribut numérique **n'est pas égal** à un **nombre** | **DOES NOT EQUAL** | **NUMBER** |
 | Vérifier si l'attribut numérique **existe** sur le profil d'un utilisateur | **EXISTS** | **N/A** |
 | Vérifier si l'attribut numérique **n'existe pas** sur le profil d'un utilisateur | **DOES NOT EXIST** | **N/A** |
@@ -209,15 +209,15 @@ Le tableau suivant décrit les options de segmentation disponibles pour les attr
 
 #### Booléens (vrai/faux) {#booleans-truefalse}
 
-Les attributs booléens sont utiles pour stocker les statuts d'abonnement et d'autres données binaires simples concernant vos utilisateurs. Les options de saisie que nous fournissons vous permettent de trouver les utilisateurs pour lesquels une variable a été explicitement définie sur une valeur booléenne, ainsi que ceux qui n'ont aucun enregistrement de cet attribut.
+Les attributs booléens sont utiles pour stocker les statuts d'abonnement et d'autres données binaires simples sur vos utilisateurs. Les options de saisie que nous proposons vous permettent de trouver les utilisateurs pour lesquels une variable a été explicitement définie sur une valeur booléenne, en plus de ceux pour lesquels aucun enregistrement de cet attribut n'existe encore.
 
 Le tableau suivant décrit les options de segmentation disponibles pour les attributs booléens.
 
 | Options de segmentation | Filtre déroulant | Options de saisie |
 | ---------------------| --------------- | ------------- |
-| Vérifier si la valeur booléenne **est** | **IS**  | **TRUE**, **FALSE**, **TRUE OR NOT SET** ou **FALSE OR NOT SET** |
-| Vérifier si la valeur booléenne **existe** sur le profil d'un utilisateur | **EXISTS**  | **N/A** |
-| Vérifier si la valeur booléenne **n'existe pas** sur le profil d'un utilisateur | **DOES NOT EXIST**  | **N/A** |
+| Vérifier si la valeur booléenne **est** | **IS** | **TRUE**, **FALSE**, **TRUE OR NOT SET** ou **FALSE OR NOT SET** |
+| Vérifier si la valeur booléenne **existe** sur le profil d'un utilisateur | **EXISTS** | **N/A** |
+| Vérifier si la valeur booléenne **n'existe pas** sur le profil d'un utilisateur | **DOES NOT EXIST** | **N/A** |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Booléens (vrai/faux)" }
 
 ## Événements d'achat / suivi des revenus {#purchase-events-revenue-tracking}
@@ -301,50 +301,50 @@ L'ajout de ces attributs vous permettrait d'envoyer des campagnes aux utilisateu
 
 - Nommez un événement personnalisé de manière à décrire une action effectuée par un utilisateur.
 - Faites un usage généreux des propriétés d'événement personnalisées pour représenter les données importantes relatives à un événement.
-- Par exemple, plutôt que de capturer un événement personnalisé distinct pour le visionnage de chacun des 50 films différents, il serait plus efficace de capturer simplement le visionnage d'un film comme événement et d'inclure une propriété d'événement contenant le nom du film.
+- Par exemple, plutôt que de capturer un événement personnalisé distinct pour chacun des 50 films visionnés, il serait plus efficace de capturer simplement le visionnage d'un film comme événement et d'inclure le nom du film en tant que propriété d'événement.
 
 ### Bonnes pratiques de développement {#development-best-practices}
 
 #### Définir des ID utilisateur pour chaque utilisateur {#set-user-ids-for-every-user}
 
-Les ID utilisateur doivent être définis pour chacun de vos utilisateurs. Ils doivent être immuables et accessibles lorsqu'un utilisateur ouvre l'application. Nous **recommandons fortement** de fournir cet identifiant, car il vous permettra de :
+Des ID utilisateur doivent être définis pour chacun de vos utilisateurs. Ils doivent être immuables et accessibles lorsqu'un utilisateur ouvre l'application. Nous **recommandons vivement** de fournir cet identifiant, car il vous permettra de :
 
-- Suivre vos utilisateurs sur différents appareils et plateformes, améliorant ainsi la qualité de vos données comportementales et démographiques.
+- Suivre vos utilisateurs sur plusieurs appareils et plateformes, améliorant ainsi la qualité de vos données comportementales et démographiques.
 - Importer des données sur vos utilisateurs à l'aide de notre [API de données utilisateur]({{site.baseurl}}/api/endpoints/user_data).
 - Cibler des utilisateurs spécifiques avec notre [API de communication]({{site.baseurl}}/api/endpoints/messaging) pour les messages généraux et transactionnels.
 
-Les ID utilisateur doivent comporter moins de 512 caractères et doivent être privés et difficiles à obtenir (par exemple, pas une simple adresse e-mail ou un nom d'utilisateur). Si un tel identifiant n'est pas disponible, Braze attribuera un identifiant unique à vos utilisateurs, mais vous ne bénéficierez pas des fonctionnalités listées pour les ID utilisateur. Vous devez éviter de définir des ID utilisateur pour les utilisateurs pour lesquels vous ne disposez pas d'un identifiant unique lié à eux en tant qu'individu. Transmettre un identifiant d'appareil n'offre aucun avantage par rapport au suivi automatique des utilisateurs anonymes que Braze propose par défaut. Voici quelques exemples d'ID utilisateur appropriés et inappropriés.
+Les ID utilisateur doivent comporter moins de 512 caractères et doivent rester privés et difficiles à obtenir (par exemple, il ne doit pas s'agir d'une simple adresse e-mail ou d'un nom d'utilisateur). Si un tel identifiant n'est pas disponible, Braze attribuera un identifiant unique à vos utilisateurs, mais vous ne disposerez pas des fonctionnalités mentionnées pour les ID utilisateur. Vous devez éviter de définir des ID utilisateur pour les utilisateurs pour lesquels vous ne disposez pas d'un identifiant unique qui leur est propre en tant qu'individu. La transmission d'un identifiant d'appareil n'offre aucun avantage par rapport au suivi automatique des utilisateurs anonymes proposé par défaut par Braze. Voici quelques exemples d'ID utilisateur adaptés et inadaptés.
 
 Bonnes options pour les ID utilisateur :
 
 - Adresse e-mail hachée ou nom d'utilisateur unique
 - Identifiant de base de données unique
 
-Ceux-ci ne doivent pas être utilisés comme ID utilisateur :
+Ces éléments ne doivent pas être utilisés comme ID utilisateur :
 
-- ID d'appareil
-- Nombre aléatoire ou ID de session
-- Tout ID non unique
+- Identifiant d'appareil
+- Nombre aléatoire ou identifiant de session
+- Tout identifiant non unique
 - Adresse e-mail
-- ID utilisateur d'un autre fournisseur tiers
+- Identifiant utilisateur d'un autre fournisseur tiers
 
 {% multi_lang_include alerts/important_alerts.md alert='SDK auth' %}
 
 #### Donner des noms lisibles aux événements et attributs personnalisés {#give-custom-events-and-attributes-readable-names}
 
-Imaginez que vous êtes un marketeur qui commence à utiliser Braze un an ou deux après le déploiement : lire une liste déroulante remplie de noms comme « usr_no_acct » sans contexte supplémentaire peut être intimidant. Donner à vos événements et attributs des noms identifiables et lisibles facilitera les choses pour tous les utilisateurs de votre plateforme. Tenez compte des bonnes pratiques suivantes :
+Imaginez que vous êtes un marketeur qui commence à utiliser Braze un an ou deux après le déploiement : parcourir une liste déroulante remplie de noms comme « usr_no_acct » sans contexte supplémentaire peut être intimidant. Donner à vos événements et attributs des noms identifiables et lisibles facilitera la vie de tous les utilisateurs de votre plateforme. Voici quelques bonnes pratiques à considérer :
 
-- Ne commencez pas un événement personnalisé par un caractère numérique. La liste déroulante est triée par ordre alphabétique et commencer par un caractère numérique rend la segmentation par le filtre de votre choix plus difficile.
+- Ne commencez pas un événement personnalisé par un caractère numérique. La liste déroulante est triée par ordre alphabétique et commencer par un caractère numérique rend plus difficile la segmentation par le filtre de votre choix.
 - Essayez de ne pas utiliser d'abréviations obscures ou de jargon technique lorsque c'est possible.
   - Exemple : `usr_ctry` peut convenir comme nom de variable pour le pays d'un utilisateur dans un morceau de code, mais l'attribut personnalisé devrait être envoyé à Braze sous une forme comme `user_country` pour apporter de la clarté à un marketeur utilisant le tableau de bord par la suite.
 
 #### Ne journaliser les attributs que lorsqu'ils changent {#only-log-attributes-when-they-change}
 
-Nous comptabilisons chaque attribut transmis à Braze comme un point de donnée, même si l'attribut transmis contient la même valeur que celle précédemment enregistrée. Ne journaliser les données que lorsqu'elles changent permet d'éviter une utilisation redondante des points de donnée et favorise une expérience plus fluide en évitant les appels API inutiles.
+Nous comptabilisons chaque attribut transmis à Braze comme un point de donnée, même si l'attribut transmis contient la même valeur que celle déjà enregistrée. Ne journaliser les données que lorsqu'elles changent permet d'éviter une utilisation redondante des points de donnée et favorise une expérience plus fluide en évitant les appels API inutiles.
 
-#### Éviter de générer des noms d'événement de manière programmatique {#avoid-programmatically-generating-event-names}
+#### Éviter de générer des noms d'événements de manière programmatique {#avoid-programmatically-generating-event-names}
 
-Si vous créez constamment de nouveaux noms d'événement, il sera impossible de segmenter vos utilisateurs de manière significative. Vous devriez généralement capturer des événements génériques (« A regardé une vidéo » ou « A lu un article ») plutôt que des événements très spécifiques tels que (« A regardé Gangnam Style » ou « A lu l'article : Les 10 meilleurs restaurants pour déjeuner à Midtown Manhattan »). Les données spécifiques relatives à l'événement doivent être incluses en tant que propriété d'événement, et non dans le nom de l'événement.
+Si vous créez constamment de nouveaux noms d'événements, il vous sera impossible de segmenter vos utilisateurs de manière pertinente. Vous devriez généralement capturer des événements génériques (« A regardé une vidéo » ou « A lu un article ») plutôt que des événements très spécifiques tels que (« A regardé Gangnam Style » ou « A lu l'article : Les 10 meilleurs restaurants du centre-ville de Manhattan »). Les données spécifiques à l'événement doivent être incluses en tant que propriété d'événement, et non dans le nom de l'événement.
 
 ### Limitations et contraintes techniques {#technical-limitations-and-constraints}
 
@@ -352,18 +352,17 @@ Soyez attentif aux limitations et contraintes suivantes lors du déploiement d'�
 
 #### Contraintes de longueur {#length-constraints}
 
-Braze impose une limite de longueur en octets (479 octets) pour les noms d'événements personnalisés, les noms d'attributs personnalisés (clés) et les valeurs de chaîne de caractères des événements personnalisés. Les valeurs dépassant cette limite sont tronquées. Exprimé en caractères, cela correspond à environ 479 caractères mono-octet (par exemple, ASCII), ou environ 160 caractères pour les scripts multi-octets tels que le japonais (en supposant environ 3 octets par caractère en UTF-8). Idéalement, gardez les noms et les valeurs aussi courts que possible pour améliorer les performances réseau et la consommation de batterie de votre application — si possible, limitez-les à 50 caractères.
+Braze impose une limite de longueur en octets (479 octets) pour les noms d'événements personnalisés, les noms d'attributs personnalisés (clés) et les valeurs de chaîne de caractères des événements personnalisés. Les valeurs dépassant cette limite sont tronquées. Exprimé en caractères, cela correspond à environ 479 caractères mono-octet (par exemple, ASCII), ou environ 160 caractères pour les scripts multi-octets tels que le japonais (en supposant environ 3 octets par caractère en UTF-8). Dans l'idéal, gardez les noms et les valeurs aussi courts que possible pour améliorer les performances réseau et la consommation de batterie de votre application — si possible, limitez-les à 50 caractères.
 
 #### Contraintes de contenu {#content-constraints}
-
-Le contenu suivant sera supprimé automatiquement de vos attributs et événements. Veillez à ne pas utiliser les éléments suivants :
+Le contenu suivant sera automatiquement supprimé de vos attributs et événements. Veillez à ne pas utiliser les éléments suivants :
 
 - Espaces en début et en fin de chaîne
 - Retours à la ligne
 - Tous les caractères non numériques dans les numéros de téléphone
   - Exemple : « (732) 178-1038 » sera condensé en « 7321781038 »
-- Les caractères non-espace doivent être convertis en espaces
-- $ ne doit pas être utilisé comme préfixe pour les événements personnalisés
+- Les caractères non-espacement doivent être convertis en espaces
+- Le symbole $ ne doit pas être utilisé comme préfixe pour les événements personnalisés
 - Toute valeur d'encodage UTF-8 invalide
   -  « My \x80 Field » sera condensé en « My Field »
 
@@ -385,4 +384,4 @@ Les clés suivantes sont réservées et ne peuvent pas être utilisées comme pr
 
 ### Analyser un champ de nom générique {#parsing-a-generic-name-field}
 
-Si un seul champ de nom générique existe pour un utilisateur (par exemple, « JohnDoe »), vous pouvez attribuer ce titre entier à l'attribut Prénom de votre utilisateur. De plus, vous pouvez tenter d'extraire à la fois le prénom et le nom de famille de l'utilisateur en utilisant les espaces, mais cette dernière méthode comporte le risque potentiel de mal nommer certains de vos utilisateurs.
+Si un seul champ de nom générique existe pour un utilisateur (par exemple, « JohnDoe »), vous pouvez attribuer ce titre entier à l'attribut Prénom de votre utilisateur. Vous pouvez également tenter d'extraire le prénom et le nom de famille de l'utilisateur en utilisant les espaces comme séparateurs, mais cette dernière méthode comporte le risque potentiel de mal nommer certains de vos utilisateurs.

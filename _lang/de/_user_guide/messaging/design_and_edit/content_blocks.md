@@ -80,7 +80,7 @@ Fehlausrichtungen im Drag-and-drop-Editor können auftreten, wenn mehrere Conten
 
 So fügen Sie einen Content-Block mit Liquid ein:
 
-1. Kopieren Sie den **Content Block Liquid Tag** aus dem Abschnitt **Content Block Details**.
+1. Kopieren Sie den **Content Block Liquid-Tag** aus dem Abschnitt **Content Block Details**.
 2. Fügen Sie den Content-Block-Liquid-Tag in die Nachricht ein. Sie können auch beginnen, den Liquid-Code einzugeben, und der Tag wird automatisch vervollständigt.
 
 Im Drag-and-drop-Editor können Sie einen Content-Block auch über das Panel **Personalisierung** hinzufügen:

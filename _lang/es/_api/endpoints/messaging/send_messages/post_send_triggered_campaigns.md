@@ -1,24 +1,23 @@
 ---
 nav_title: "POST: Enviar campañas utilizando la entrega desencadenada por API"
-article_title: "POST: Enviar campañas mediante entrega desencadenada por API"
+article_title: "Enviar mensajes de Campaign mediante entrega desencadenada por API"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
 description: "Este artículo describe en detalle el endpoint de Braze para enviar campañas mediante entrega desencadenada por API."
-
 ---
 {% api %}
-# Envía mensajes de Campaign utilizando la entrega desencadenada por API {#send-campaign-messages-using-api-triggered-delivery}
+# Enviar mensajes de Campaign mediante entrega desencadenada por API {#send-campaign-messages-using-api-triggered-delivery}
 {% apimethod post core_endpoint|/docs/core_endpoints %}
 /campaigns/trigger/send
 {% endapimethod %}
 
-> Utiliza este endpoint para enviar mensajes inmediatos y puntuales a usuarios designados utilizando la entrega desencadenada por la API.
+> Utiliza este endpoint para enviar mensajes inmediatos y puntuales a usuarios designados mediante la entrega desencadenada por API.
 
 La entrega desencadenada por API te permite alojar el contenido de los mensajes dentro del panel de Braze, al tiempo que dictas cuándo se envía un mensaje y a quién mediante tu API.
 
-Si te diriges a un Segment, se almacena un registro de tu solicitud en la [consola para desarrolladores](https://dashboard.braze.com/app_settings/developer_console/activitylog/). Para enviar mensajes con este endpoint, debes tener un [ID de Campaign]({{site.baseurl}}/api/identifier_types) creado al crear una [Campaign desencadenada por la API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery).
+Si te diriges a un Segment, se almacena un registro de tu solicitud en la [consola para desarrolladores](https://dashboard.braze.com/app_settings/developer_console/activitylog/). Para enviar mensajes con este endpoint, debes tener un [ID de Campaign]({{site.baseurl}}/api/identifier_types) creado al crear una [Campaign desencadenada por API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#aef185ae-f591-452a-93a9-61d4bc023b05 {% endapiref %}
 
@@ -58,11 +57,12 @@ Authorization: Bearer YOUR-REST-API-KEY
       "attributes": (optional, object) fields in the attributes object create or update an attribute of that name with the given value on the specified user profile before the message is sent and existing values are overwritten
     }
   ],
-  "attachments": (optional, array) array of JSON objects that define the files you need attached, defined by "file_name" and "url",
+  "attachments": (optional, array) array of JSON objects that define the files you need attached, defined by "file_name", "url", and optionally "basic_auth_credential",
     [
       {
        "file_name": (required, string) the name of the file you want to attach to your email, excluding the extension (for example, ".pdf"). Attach files up to 2 MB. This is required if you use "attachments",
        "url": (required, string) the corresponding URL of the file you want to attach to your email. The file name's extension is detected automatically from the URL defined, which should return the appropriate "Content-Type" as a response header. This is required if you use "attachments",
+       "basic_auth_credential": (optional, string) the name of the stored basic authentication credential to use when the attachment URL requires a login,
       }
     ]
 }
@@ -78,7 +78,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `broadcast` | Opcional | Booleano | Debes establecer `broadcast` en verdadero cuando envíes un mensaje a todo el Segment configurado como público objetivo de la Campaign en el panel de Braze. Este parámetro está predeterminado como falso (a 31 de agosto de 2017). <br><br> Si `broadcast` tiene el valor true, no se puede incluir una lista `recipients`. Sin embargo, ten cuidado al configurar `broadcast: true`, ya que si lo haces involuntariamente puede que envíes tu mensaje a una audiencia mayor de la esperada. |
 | `audience` | Opcional | Objeto de audiencia conectada | Ver [audiencia conectada]({{site.baseurl}}/api/objects_filters/connected_audience). Cuando incluyes `audience`, el mensaje solo se envía a los usuarios que coinciden con los filtros definidos, como los atributos personalizados y los estados de suscripción. |
 | `recipients` | Opcional | Matriz | Ver [objeto de destinatarios]({{site.baseurl}}/api/objects_filters/recipient_object).<br><br>Si `send_to_existing_only` es `false`, debe incluirse un objeto `attributes`.<br><br>Puedes actualizar el estado del grupo de suscripción de un usuario incluyendo `subscription_groups` en el objeto `attributes` anidado. Para más detalles, consulta [Objeto de atributos de usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object).<br><br>Si no se proporciona `recipients` y `broadcast` se establece en verdadero, el mensaje se envía a todo el Segment configurado como público objetivo de la Campaign en el panel de Braze.<br><br>Si `email` es el identificador, debes incluir [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email-addresses-and-phone-numbers) en el objeto de destinatarios. |
-| `attachments` | Opcional | Matriz | Si `broadcast` está configurado como verdadero, no se puede incluir la lista `attachments`. |
+| `attachments` | Opcional | Matriz | Si `broadcast` está configurado como verdadero, no se puede incluir la lista `attachments`. <br><br>Cuando la URL de un archivo adjunto requiera inicio de sesión, incluye `basic_auth_credential` en ese archivo adjunto y establécelo con el nombre de una credencial de autenticación básica almacenada. Para configurar una credencial, consulta [Autenticación para archivos adjuntos de correo electrónico]({{site.baseurl}}/api/objects_filters/messaging/email_object#authentication-for-email-file-attachments). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ### Comportamiento de resolución de destinatarios {#recipient-resolution-behavior}
@@ -195,7 +195,8 @@ curl --location --request POST 'https://rest.iad-01.braze.com/campaigns/trigger/
   "attachments": [
     {
       "file_name" : "YourFileName",
-      "url" : "https://exampleurl.com/YourFileName.pdf"
+      "url" : "https://exampleurl.com/YourFileName.pdf",
+      "basic_auth_credential": "company_basic_auth_credential_name"
     }
   ]
 }'
@@ -212,7 +213,7 @@ Si tu solicitud encuentra un error fatal, consulta [Errores y respuestas]({{site
 Braze tiene un objeto de mensajería llamado `attributes` que te permite añadir, crear o actualizar atributos y valores para un usuario antes de enviarle una Campaign desencadenada por API. Usar el endpoint `campaign/trigger/send` como esta llamada a la API procesa el objeto de atributos de usuario antes de procesar y enviar la Campaign. Esto ayuda a minimizar el riesgo de que se produzcan problemas causados por [condiciones de carrera]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions).
 
 {% alert tip %}
-¿Buscas la versión Canvas de este endpoint? Echa un vistazo a [Enviar mensajes Canvas utilizando la entrega desencadenada por API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases).
+¿Buscas la versión Canvas de este endpoint? Consulta [Enviar mensajes Canvas mediante entrega desencadenada por API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases).
 {% endalert %}
 
 ### ¿Por qué Liquid no se renderiza cuando lo pongo directamente en el cuerpo JSON? {#why-doesnt-liquid-render-when-i-put-it-directly-in-my-json-body}

@@ -33,7 +33,7 @@ Use this workflow when building a prediction fails or you're blocked by data or 
 2. Review your churn definition. Overly restrictive filters reduce the number of churned users available for training.
 3. Review your prediction audience definition. Too few historic non-churners blocks model training.
 4. Confirm custom events (not custom attributes alone) capture the high-value actions that indicate churn risk.
-5. If errors persist after broadening definitions, contact [Braze Support]({{site.baseurl}}/braze_support).
+5. If errors persist after broadening definitions, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 
 ## Not enough data to train {#not-enough-data-to-train}
 

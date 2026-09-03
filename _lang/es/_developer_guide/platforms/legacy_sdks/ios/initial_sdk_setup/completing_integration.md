@@ -12,9 +12,9 @@ noindex: true
 
 # Completa la integración {#complete-the-integration}
 
-Antes de seguir estos pasos, asegúrate de haber integrado el SDK mediante [Carthage]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/carthage_integration), [CocoaPods]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/cocoapods), [Swift Package Manager]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/swift_package_manager) o una integración [manual]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options).
+Antes de seguir estos pasos, asegúrate de haber integrado el SDK mediante [Carthage]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/carthage_integration), [CocoaPods]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/cocoapods), [Swift Package Administrador]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/swift_package_manager) o una integración [manual]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options).
 
-## Paso 1: Actualiza el delegado de tu aplicación {#step-1-update-your-app-delegate}
+## Paso 1: Actualiza tu app delegate {#step-1-update-your-app-delegate}
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -25,13 +25,13 @@ Si estás integrando el SDK de Braze con CocoaPods, Carthage o con una [integrac
 #import "Appboy-iOS-SDK/AppboyKit.h"
 ```
 
-Si estás integrando con Swift Package Manager o con una [integración manual estática]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options), utiliza esta línea en su lugar:
+Si estás integrando con Swift Package Administrador o con una [integración manual estática]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options), usa esta línea en su lugar:
 
 ```objc
 #import "AppboyKit.h"
 ```
 
-A continuación, dentro de tu archivo `AppDelegate.m`, añade el siguiente fragmento de código dentro de tu método `application:didFinishLaunchingWithOptions:`:
+A continuación, dentro de tu archivo `AppDelegate.m`, añade el siguiente fragmento de código en tu método `application:didFinishLaunchingWithOptions:`:
 
 ```objc
 [Appboy startWithApiKey:@"YOUR-APP-IDENTIFIER-API-KEY"
@@ -39,7 +39,7 @@ A continuación, dentro de tu archivo `AppDelegate.m`, añade el siguiente fragm
       withLaunchOptions:launchOptions];
 ```
 
-Actualiza `YOUR-APP-IDENTIFIER-API-KEY` con el valor correcto desde tu página **Administrar configuración**. Consulta nuestra [documentación sobre la API]({{site.baseurl}}/api/api_key#the-app-identifier-api-key) para obtener más información sobre dónde encontrar la clave de API del identificador de tu aplicación.
+Actualiza `YOUR-APP-IDENTIFIER-API-KEY` con el valor correcto de tu página **Administrar configuración**. Consulta nuestra [documentación de API]({{site.baseurl}}/api/identifier_types#app-identifier) para obtener más información sobre dónde encontrar tu clave de API del identificador de aplicación.
 
 {% endtab %}
 {% tab swift %}
@@ -50,62 +50,61 @@ Si estás integrando el SDK de Braze con CocoaPods, Carthage o con una [integrac
 import Appboy_iOS_SDK
 ```
 
-Si estás integrando con Swift Package Manager o con una [integración manual estática]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options), utiliza esta línea en su lugar:
+Si estás integrando con Swift Package Administrador o con una [integración manual estática]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options), usa esta línea en su lugar:
 
 ```swift
 import AppboyKit
 ```
-Consulta [la documentación para desarrolladores de Apple](https://developer.apple.com/library/ios/documentation/swift/conceptual/buildingcocoaapps/MixandMatch.html) para obtener más información sobre el uso de código Objective-C en proyectos Swift.
+Consulta la [documentación para desarrolladores de Apple](https://developer.apple.com/library/ios/documentation/swift/conceptual/buildingcocoaapps/MixandMatch.html) para obtener más información sobre cómo usar código Objective-C en proyectos Swift.
 
-A continuación, en `AppDelegate.swift`, añade el siguiente fragmento de código a tu `application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool`:
+A continuación, en `AppDelegate.swift`, añade el siguiente fragmento de código en tu `application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool`:
 
 ```swift
 Appboy.start(withApiKey: "YOUR-APP-IDENTIFIER-API-KEY", in:application, withLaunchOptions:launchOptions)
 ```
 
-Actualiza `YOUR-APP-IDENTIFIER-API-KEY` con el valor correcto desde tu página **Administrar configuración**. Consulta nuestra [documentación sobre la API]({{site.baseurl}}/api/api_key#the-app-identifier-api-key) para obtener más información sobre dónde encontrar la clave de API del identificador de tu aplicación.
+Actualiza `YOUR-APP-IDENTIFIER-API-KEY` con el valor correcto de tu página **Administrar configuración**. Consulta nuestra [documentación de API]({{site.baseurl}}/api/identifier_types#app-identifier) para obtener más información sobre dónde encontrar tu clave de API del identificador de aplicación.
 
 {% endtab %}
 {% endtabs %}
 
 {% alert note %}
-El singleton `sharedInstance` será nulo antes de llamar a `startWithApiKey:`, ya que es un requisito previo para utilizar cualquier función de Braze.
+El singleton `sharedInstance` será nil antes de que se llame a `startWithApiKey:`, ya que es un requisito previo para usar cualquier funcionalidad de Braze.
 {% endalert %}
 
 {% alert warning %}
-Asegúrate de inicializar Braze en el hilo principal de tu aplicación. Inicializar de forma asíncrona puede provocar fallos en la funcionalidad.
+Asegúrate de inicializar Braze en el hilo principal de tu aplicación. La inicialización asíncrona puede provocar un funcionamiento incorrecto.
 {% endalert %}
-
 
 ## Paso 2: Especifica tu clúster de datos {#step-2-specify-your-data-cluster}
 
 {% alert note %}
-Ten en cuenta que, a partir de diciembre de 2019, ya no se proporcionan puntos de conexión personalizados. Si tienes un punto de conexión personalizado preexistente, puedes seguir utilizándolo. Para más detalles, consulta nuestra <a href="{{site.baseurl}}/api/basics#endpoints">lista de puntos de conexión disponibles</a>.
+Ten en cuenta que, a partir de diciembre de 2019, ya no se proporcionan endpoints personalizados. Si tienes un endpoint personalizado preexistente, puedes seguir utilizándolo. Para más detalles, consulta nuestra <a href="{{site.baseurl}}/api/basics#endpoints">lista de endpoints disponibles</a>.
 {% endalert %}
 
-### Configuración del punto de conexión en tiempo de compilación (recomendado) {#compile-time-endpoint-configuration-recommended}
+### Configuración del endpoint en tiempo de compilación (recomendado) {#compile-time-endpoint-configuration-recommended}
 
-Si se te proporcionó un punto de conexión personalizado preexistente:
-- A partir de la versión 3.0.2 del SDK iOS de Braze, puedes establecer un punto de conexión personalizado utilizando el archivo `Info.plist`. Añade el diccionario `Braze` a tu archivo `Info.plist`. Dentro del diccionario `Braze`, añade la subentrada de cadena `Endpoint` y establece el valor en la autoridad de la URL de tu punto de conexión personalizado (por ejemplo, `sdk.iad-01.braze.com`, no `https://sdk.iad-01.braze.com`). Ten en cuenta que antes de la versión 4.0.2 del SDK iOS de Braze, se debe utilizar la clave de diccionario `Appboy` en lugar de `Braze`.
+Si se te proporcionó un endpoint personalizado preexistente:
+- A partir de Braze iOS SDK v3.0.2, puedes establecer un endpoint personalizado utilizando el archivo `Info.plist`. Añade el diccionario `Braze` a tu archivo `Info.plist`. Dentro del diccionario `Braze`, añade la subentrada de cadena `Endpoint` y establece el valor con la autoridad de la URL de tu endpoint personalizado (por ejemplo, `sdk.iad-01.braze.com`, no `https://sdk.iad-01.braze.com`). Ten en cuenta que antes de Braze iOS SDK v4.0.2, se debe utilizar la clave de diccionario `Appboy` en lugar de `Braze`.
 
-Tu representante de Braze ya debería haberte indicado el [punto de conexión correcto]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints).
+Tu representante de Braze ya debería haberte indicado el [endpoint correcto]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints).
 
-### Configuración del punto de conexión en tiempo de ejecución {#runtime-endpoint-configuration}
+### Configuración del endpoint en tiempo de ejecución {#runtime-endpoint-configuration}
 
-Si se te proporcionó un punto de conexión personalizado preexistente:
-- A partir de la versión 3.17.0+ del SDK iOS de Braze, puedes anular la configuración de tu punto de conexión a través de `ABKEndpointKey` dentro del parámetro `appboyOptions` pasado a `startWithApiKey:inApplication:withLaunchOptions:withAppboyOptions:`. Establece el valor en la autoridad de la URL de tu punto de conexión personalizado (por ejemplo, `sdk.iad-01.braze.com`, no `https://sdk.iad-01.braze.com`).
+Si se te proporcionó un endpoint personalizado preexistente:
+- A partir de Braze iOS SDK v3.17.0+, puedes sobrescribir tu endpoint a través de `ABKEndpointKey` dentro del parámetro `appboyOptions` pasado a `startWithApiKey:inApplication:withLaunchOptions:withAppboyOptions:`. Establece el valor con la autoridad de la URL de tu endpoint personalizado (por ejemplo, `sdk.iad-01.braze.com`, no `https://sdk.iad-01.braze.com`).
 
-## Integración del SDK completa {#sdk-integration-complete}
+## Integración de SDK completa {#sdk-integration-complete}
 
-Ahora Braze debería estar recopilando datos de tu aplicación, y tu integración básica debería estar completa. Consulta los artículos siguientes para habilitar [el seguimiento de eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=swift), la [mensajería push]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration) y la línea completa de características de Braze.
+Braze debería estar recopilando datos de tu aplicación, y tu integración básica debería estar completa. Consulta los siguientes artículos para habilitar el [seguimiento de eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=swift), la [mensajería push]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration) y la línea de productos completa de características de Braze.
 
-## Personalizar Braze al iniciarse {#customizing-braze-on-startup}
+## Personalización de Braze al inicio {#customizing-braze-on-startup}
 
-Si deseas personalizar Braze al iniciarse, puedes utilizar en su lugar el método de inicialización de Braze `startWithApiKey:inApplication:withLaunchOptions:withAppboyOptions:` y pasar un `NSDictionary` opcional de claves de inicio de Braze.
+Si deseas personalizar Braze al inicio, puedes usar en su lugar el método de inicialización de Braze `startWithApiKey:inApplication:withLaunchOptions:withAppboyOptions:` y pasar un `NSDictionary` opcional de claves de inicio de Braze.
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-En tu archivo `AppDelegate.m`, dentro de tu método `application:didFinishLaunchingWithOptions:`, añade el siguiente método de Braze:
+En tu archivo `AppDelegate.m`, dentro del método `application:didFinishLaunchingWithOptions:`, añade el siguiente método de Braze:
 
 ```objc
 [Appboy startWithApiKey:@"YOUR-APP-IDENTIFIER-API-KEY"
@@ -114,12 +113,12 @@ En tu archivo `AppDelegate.m`, dentro de tu método `application:didFinishLaunch
       withAppboyOptions:appboyOptions];
 ```
 
-Ten en cuenta que este método sustituiría al método de inicialización `startWithApiKey:inApplication:withLaunchOptions:`.
+Ten en cuenta que este método reemplazaría al método de inicialización `startWithApiKey:inApplication:withLaunchOptions:`.
 
 {% endtab %}
 {% tab swift %}
 
-En `AppDelegate.swift`, dentro de tu método `application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool`, añade el siguiente método de Braze donde `appboyOptions` es un `Dictionary` de valores de configuración de inicio:
+En `AppDelegate.swift`, dentro del método `application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool`, añade el siguiente método de Braze, donde `appboyOptions` es un `Dictionary` de valores de configuración de inicio:
 
 ```swift
 Appboy.start(withApiKey: "YOUR-APP-IDENTIFIER-API-KEY",
@@ -128,25 +127,25 @@ Appboy.start(withApiKey: "YOUR-APP-IDENTIFIER-API-KEY",
                  withAppboyOptions:appboyOptions)
 ```
 
-Ten en cuenta que este método sustituiría al método de inicialización `startWithApiKey:inApplication:withLaunchOptions:`.
+Ten en cuenta que este método reemplazaría al método de inicialización `startWithApiKey:inApplication:withLaunchOptions:`.
 
 {% endtab %}
 {% endtabs %}
 
 Este método se llama con los siguientes parámetros:
 
-- `YOUR-APP-IDENTIFIER-API-KEY` – Tu clave de API del [identificador de la aplicación]({{site.baseurl}}/api/api_key#the-app-identifier-api-key) desde el panel de Braze.
+- `YOUR-APP-IDENTIFIER-API-KEY` – Tu clave de API de [identificador de aplicación]({{site.baseurl}}/api/identifier_types#app-identifier) del panel de Braze.
 - `application` – La aplicación actual.
-- `launchOptions` – Las opciones `NSDictionary` que obtienes de `application:didFinishLaunchingWithOptions:`.
+- `launchOptions` – El `NSDictionary` de opciones que obtienes de `application:didFinishLaunchingWithOptions:`.
 - `appboyOptions` – Un `NSDictionary` opcional con valores de configuración de inicio para Braze.
 
-Consulta [Appboy.h](https://github.com/braze-inc/braze-ios-sdk/blob/master/AppboyKit/include/Appboy.h) para ver una lista de las claves de inicio de Braze.
+Consulta [Appboy.h](https://github.com/braze-inc/braze-ios-sdk/blob/master/AppboyKit/include/Appboy.h) para ver una lista de claves de inicio de Braze.
 
-## Appboy.sharedInstance() y anulabilidad en Swift {#appboysharedinstance-and-swift-nullability}
-A diferencia de la práctica habitual, el singleton `Appboy.sharedInstance()` es opcional. Esto se debe a que `sharedInstance` es `nil` antes de que se llame a `startWithApiKey:`, y hay algunas implementaciones no estándar pero válidas en las que se puede utilizar una inicialización retardada.
+## Appboy.sharedInstance() y la nulabilidad en Swift {#appboysharedinstance-and-swift-nullability}
+A diferencia de la práctica común, el singleton `Appboy.sharedInstance()` es opcional. Esto se debe a que `sharedInstance` es `nil` antes de que se llame a `startWithApiKey:`, y existen algunas implementaciones no estándar pero válidas en las que se puede utilizar una inicialización diferida.
 
-Si llamas a `startWithApiKey:` en tu delegado `didFinishLaunchingWithOptions:` antes de cualquier acceso al `sharedInstance` de Appboy (la implementación estándar), puedes utilizar el encadenamiento opcional, como `Appboy.sharedInstance()?.changeUser("testUser")`, para evitar comprobaciones engorrosas. Esto tendrá paridad con una implementación de Objective-C que haya asumido un `sharedInstance` no nulo.
+Si llamas a `startWithApiKey:` en tu delegado `didFinishLaunchingWithOptions:` antes de cualquier acceso al `sharedInstance` de Appboy (la implementación estándar), puedes usar encadenamiento opcional, como `Appboy.sharedInstance()?.changeUser("testUser")`, para evitar comprobaciones engorrosas. Esto tendrá paridad con una implementación en Objective-C que asumiera un `sharedInstance` no nulo.
 
 ## Recursos adicionales {#additional-resources}
 
-La [documentación completa de las clases de iOS](http://appboy.github.io/appboy-ios-sdk/docs/annotated.html) está disponible para proporcionar orientación adicional sobre cualquier método del SDK.
+La [documentación completa de clases de iOS](http://appboy.github.io/appboy-ios-sdk/docs/annotated.html) está disponible para proporcionar orientación adicional sobre cualquier método del SDK.

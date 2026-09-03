@@ -6,26 +6,25 @@ noindex: true
 hide_toc: true
 ---
 
-# Crédits de message - Theta (confidentiel)
+# Crédits de message - Theta (confidentiel) {#message-credits-theta-confidential}
 
 > Les crédits de message constituent la structure de packaging multi-produits de Braze pour nos offres natives Agent Console, SMS, MMS, RCS, WhatsApp et LINE. Les crédits de message offrent une expérience flexible et transparente lorsque vous tirez parti des canaux de communication de Braze et de certaines fonctionnalités d'IA. Les crédits vous donnent accès à n'importe lequel des canaux présentés dans le tableau de cette page.
 
 {% multi_lang_include pricing/message_credits_units_of_measure.md %}
 
-## Définitions
+## Définitions {#definitions}
 
 Les définitions des colonnes sont les suivantes :
 
 |---------|-------------------------------------------------|
-| **Destination** | Région finale, pays ou type d'action spécifique envoyé via la plateforme Braze |
-| **Crédits par envoi** | Nombre exact de crédits de message pour effectuer un envoi<br> (crédits par envoi = ratio de crédits x multiplicateur de destination) |
+| **Destination** | Région finale spécifique, pays ou type d'action envoyé via la plateforme Braze |
+| **Crédits par envoi** | Nombre exact de crédits de message nécessaires pour effectuer un envoi<br> (crédits par envoi = ratio de crédits x multiplicateur de destination) |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-
-## Tableau des ratios de crédits pour les crédits de message - Theta
+## Tableau des ratios de crédits pour Message Credits - Theta {#credit-ratio-table-for-message-credits-theta}
 
 {% details Cliquez pour développer %}
-<table class="credits-table" aria-label="Tableau des ratios de crédits pour les crédits de message - Theta">
+<table class="credits-table" aria-label="Tableau des ratios de crédits pour Message Credits - Theta">
     <colgroup>
         <col span="3">
         <col class="col-highlight">
@@ -1285,7 +1284,7 @@ Les définitions des colonnes sont les suivantes :
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Argentina Marketing - BYO</td>
+        <td>Argentina Marketing - BYO or Meta Direct</td>
         <td>0.62</td>
     </tr>
     <tr>
@@ -1310,7 +1309,7 @@ Les définitions des colonnes sont les suivantes :
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Brazil Marketing - BYO</td>
+        <td>Brazil Marketing - BYO or Meta Direct</td>
         <td>0.63</td>
     </tr>
     <tr>
@@ -1335,7 +1334,7 @@ Les définitions des colonnes sont les suivantes :
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Chile Marketing - BYO</td>
+        <td>Chile Marketing - BYO or Meta Direct</td>
         <td>0.89</td>
     </tr>
     <tr>
@@ -1360,7 +1359,7 @@ Les définitions des colonnes sont les suivantes :
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Colombia Marketing - BYO</td>
+        <td>Colombia Marketing - BYO or Meta Direct</td>
         <td>0.13</td>
     </tr>
     <tr>
@@ -1390,7 +1389,7 @@ Les définitions des colonnes sont les suivantes :
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Egypt Marketing - BYO</td>
+        <td>Egypt Marketing - BYO or Meta Direct</td>
         <td>0.64</td>
     </tr>
     <tr>
@@ -1415,7 +1414,7 @@ Les définitions des colonnes sont les suivantes :
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>France Marketing - BYO</td>
+        <td>France Marketing - BYO or Meta Direct</td>
         <td>0.86</td>
     </tr>
     <tr>
@@ -1440,7 +1439,7 @@ Les définitions des colonnes sont les suivantes :
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Germany Marketing - BYO</td>
+        <td>Germany Marketing - BYO or Meta Direct</td>
         <td>1.37</td>
     </tr>
     <tr>
@@ -1470,7 +1469,7 @@ Les définitions des colonnes sont les suivantes :
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>India Marketing - BYO</td>
+        <td>India Marketing - BYO or Meta Direct</td>
         <td>0.12</td>
     </tr>
     <tr>
@@ -1500,7 +1499,7 @@ Les définitions des colonnes sont les suivantes :
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Indonesia Marketing - BYO</td>
+        <td>Indonesia Marketing - BYO or Meta Direct</td>
         <td>0.41</td>
     </tr>
     <tr>
@@ -1525,7 +1524,7 @@ Les définitions des colonnes sont les suivantes :
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Israel Marketing - BYO</td>
+        <td>Israel Marketing - BYO or Meta Direct</td>
         <td>0.35</td>
     </tr>
     <tr>
@@ -1550,7 +1549,7 @@ Les définitions des colonnes sont les suivantes :
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Italy Marketing - BYO</td>
+        <td>Italy Marketing - BYO or Meta Direct</td>
         <td>0.69</td>
     </tr>
     <tr>
@@ -1580,7 +1579,7 @@ Les définitions des colonnes sont les suivantes :
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Malaysia Marketing - BYO</td>
+        <td>Malaysia Marketing - BYO or Meta Direct</td>
         <td>0.86</td>
     </tr>
     <tr>
@@ -1605,7 +1604,7 @@ Les définitions des colonnes sont les suivantes :
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Mexico Marketing - BYO</td>
+        <td>Mexico Marketing - BYO or Meta Direct</td>
         <td>0.31</td>
     </tr>
     <tr>
@@ -1630,7 +1629,7 @@ Les définitions des colonnes sont les suivantes :
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Netherlands Marketing - BYO</td>
+        <td>Netherlands Marketing - BYO or Meta Direct</td>
         <td>1.60</td>
     </tr>
     <tr>
@@ -1660,7 +1659,7 @@ Les définitions des colonnes sont les suivantes :
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Nigeria Marketing - BYO</td>
+        <td>Nigeria Marketing - BYO or Meta Direct</td>
         <td>0.52</td>
     </tr>
     <tr>
@@ -1685,7 +1684,7 @@ Les définitions des colonnes sont les suivantes :
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>North America Marketing - BYO</td>
+        <td>North America Marketing - BYO or Meta Direct</td>
         <td>0.25</td>
     </tr>
     <tr>
@@ -1710,7 +1709,7 @@ Les définitions des colonnes sont les suivantes :
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Other Marketing - BYO</td>
+        <td>Other Marketing - BYO or Meta Direct</td>
         <td>0.60</td>
     </tr>
     <tr>
@@ -1740,7 +1739,7 @@ Les définitions des colonnes sont les suivantes :
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Pakistan Marketing - BYO</td>
+        <td>Pakistan Marketing - BYO or Meta Direct</td>
         <td>0.47</td>
     </tr>
     <tr>
@@ -1765,7 +1764,7 @@ Les définitions des colonnes sont les suivantes :
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Peru Marketing - BYO</td>
+        <td>Peru Marketing - BYO or Meta Direct</td>
         <td>0.70</td>
     </tr>
     <tr>
@@ -1790,7 +1789,7 @@ Les définitions des colonnes sont les suivantes :
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Africa Marketing - BYO</td>
+        <td>Rest of Africa Marketing - BYO or Meta Direct</td>
         <td>0.23</td>
     </tr>
     <tr>
@@ -1815,7 +1814,7 @@ Les définitions des colonnes sont les suivantes :
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Asia Pacific Marketing - BYO</td>
+        <td>Rest of Asia Pacific Marketing - BYO or Meta Direct</td>
         <td>0.73</td>
     </tr>
     <tr>
@@ -1840,7 +1839,7 @@ Les définitions des colonnes sont les suivantes :
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Central & Eastern Europe Marketing - BYO</td>
+        <td>Rest of Central & Eastern Europe Marketing - BYO or Meta Direct</td>
         <td>0.86</td>
     </tr>
     <tr>
@@ -1865,7 +1864,7 @@ Les définitions des colonnes sont les suivantes :
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Latin America Marketing - BYO</td>
+        <td>Rest of Latin America Marketing - BYO or Meta Direct</td>
         <td>0.74</td>
     </tr>
     <tr>
@@ -1880,7 +1879,7 @@ Les définitions des colonnes sont les suivantes :
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Message Types - BYO</td>
+        <td>Rest of Message Types - BYO or Meta Direct</td>
         <td>0.10</td>
     </tr>
     <tr>
@@ -1895,7 +1894,7 @@ Les définitions des colonnes sont les suivantes :
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Middle East Marketing - BYO</td>
+        <td>Rest of Middle East Marketing - BYO or Meta Direct</td>
         <td>0.34</td>
     </tr>
     <tr>
@@ -1920,7 +1919,7 @@ Les définitions des colonnes sont les suivantes :
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Western Europe Marketing - BYO</td>
+        <td>Rest of Western Europe Marketing - BYO or Meta Direct</td>
         <td>0.59</td>
     </tr>
     <tr>
@@ -1945,7 +1944,7 @@ Les définitions des colonnes sont les suivantes :
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Russia Marketing - BYO</td>
+        <td>Russia Marketing - BYO or Meta Direct</td>
         <td>0.80</td>
     </tr>
     <tr>
@@ -1975,7 +1974,7 @@ Les définitions des colonnes sont les suivantes :
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Saudi Arabia Marketing - BYO</td>
+        <td>Saudi Arabia Marketing - BYO or Meta Direct</td>
         <td>0.46</td>
     </tr>
     <tr>
@@ -2005,7 +2004,7 @@ Les définitions des colonnes sont les suivantes :
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>South Africa Marketing - BYO</td>
+        <td>South Africa Marketing - BYO or Meta Direct</td>
         <td>0.38</td>
     </tr>
     <tr>
@@ -2030,7 +2029,7 @@ Les définitions des colonnes sont les suivantes :
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Spain Marketing - BYO</td>
+        <td>Spain Marketing - BYO or Meta Direct</td>
         <td>0.62</td>
     </tr>
     <tr>
@@ -2055,7 +2054,7 @@ Les définitions des colonnes sont les suivantes :
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Turkey Marketing - BYO</td>
+        <td>Turkey Marketing - BYO or Meta Direct</td>
         <td>0.11</td>
     </tr>
     <tr>
@@ -2085,7 +2084,7 @@ Les définitions des colonnes sont les suivantes :
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>United Arab Emirates Marketing - BYO</td>
+        <td>United Arab Emirates Marketing - BYO or Meta Direct</td>
         <td>0.50</td>
     </tr>
     <tr>
@@ -2110,7 +2109,7 @@ Les définitions des colonnes sont les suivantes :
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>United Kingdom Marketing - BYO</td>
+        <td>United Kingdom Marketing - BYO or Meta Direct</td>
         <td>0.53</td>
     </tr>
     <tr>
@@ -2275,67 +2274,71 @@ Les définitions des colonnes sont les suivantes :
 
 {% multi_lang_include pricing/agent_console_details.md %}
 
-## Détails du canal SMS/MMS
+## Détails du canal SMS/MMS {#smsmms-channel-details}
 
-### Segments SMS
+### Segments SMS {#sms-segments}
 
 Les segments de message SMS correspondent à la manière dont l'industrie du SMS comptabilise les messages. Un segment de message est un regroupement pouvant contenir jusqu'à un nombre défini de caractères (160 pour l'encodage GSM-7 ; 67 pour l'encodage UCS-2) qui sera envoyé en un seul envoi SMS. Si vous envoyez un SMS de 161 caractères en utilisant l'encodage GSM-7, vous constaterez que deux (2) segments de message ont été envoyés. L'envoi de plusieurs segments de message entraînera des frais supplémentaires.
 
-### Segments MMS
+### Segments MMS {#mms-segments}
 
 Pour les MMS, la limite de message est de 5 Mo (cela inclut la ressource multimédia et la taille du corps du message). Par mesure de précaution, Braze recommande de ne pas dépasser 600 Ko pour votre ressource multimédia tout en incluant également un corps de message.
 
-### Types RCS
+### Types RCS {#rcs-types}
 
-Le RCS est la prochaine génération du SMS et du MMS. Il offre les avantages d'un canal direct et à fort engagement comme le SMS, avec des capacités plus riches auxquelles les consommateurs modernes s'attendent, telles que du contenu enrichi (images, vidéos, documents), un envoi vérifié et brandé, des fonctionnalités interactives comme les réponses et actions suggérées, et bien plus encore.
+Le RCS est la prochaine génération du SMS et du MMS. Il offre les avantages d'un canal direct et à fort engagement comme le SMS, avec des fonctionnalités plus riches auxquelles les consommateurs modernes s'attendent, telles que du contenu enrichi (images, vidéos, documents), un envoi vérifié et brandé, des fonctionnalités interactives comme les réponses et actions suggérées, et bien plus encore.
 
 {% multi_lang_include pricing/rcs_billing_message_types.md %}
 
-## Détails du canal WhatsApp
+## Détails du canal WhatsApp {#whatsapp-channel-details}
 
 {% multi_lang_include whatsapp/about_credits.md content="h3" %}
 
+## Détails supplémentaires par canal {#additional-channel-details}
+
 ### Webhooks
 
-Les webhooks font partie des crédits de messages depuis le 9 décembre 2024. Braze facturera des crédits de messages pour tout webhook envoyé depuis la plateforme Braze. Par défaut, votre contrat inclut cent mille webhooks par période de votre durée d'abonnement. Les webhooks supplémentaires seront facturés conformément à votre bon de commande.
+Les webhooks font partie des Message Credits depuis le 9 décembre 2024. Braze facturera des Message Credits pour tout webhook envoyé depuis la plateforme Braze. Par défaut, votre contrat inclut cent mille webhooks par période de votre durée d'abonnement. Les webhooks supplémentaires seront facturés conformément à votre bon de commande.
 
-### Connecteurs SMS tiers (BYO)
+{% multi_lang_include pricing/webhook_failed_requests_billing.md credit_name='Message Credits' %}
 
-Braze permet aux clients de s'intégrer à des fournisseurs tiers pour envoyer des messages SMS via le modèle « connecteur SMS BYO ». Braze facturera des crédits de messages pour chaque message envoyé depuis la plateforme Braze via les connecteurs SMS BYO.
+### Connecteurs SMS en gestion propre (BYO) {#bring-your-own-byo-sms-connectors}
+
+Braze permet aux clients de s'intégrer à des fournisseurs tiers pour envoyer des messages SMS via le modèle « connecteur SMS BYO ». Braze facturera des Message Credits pour chaque message envoyé depuis la plateforme Braze via les connecteurs SMS BYO.
 
 ### LINE
 
-Braze facturera des crédits de messages pour tout message LINE envoyé depuis la plateforme Braze.
+Braze facturera des Message Credits pour tout message LINE envoyé depuis la plateforme Braze.
 
-## Répartition par région de facturation
+## Répartition par région de facturation {#billing-region-breakdown}
 
-### Amérique du Nord
+### Amérique du Nord {#north-america}
 
 États-Unis, Canada
 
-### Reste de l'Afrique
+### Reste de l'Afrique {#rest-of-africa}
 
 Algérie, Angola, Bénin, Botswana, Burkina Faso, Burundi, Cameroun, Tchad, Congo, Érythrée, Éthiopie, Gabon, Gambie, Ghana, Guinée-Bissau, Côte d'Ivoire, Kenya, Lesotho, Liberia, Libye,
 Madagascar, Malawi, Mali, Mauritanie, Maroc, Mozambique, Namibie, Niger, Rwanda, Sénégal, Sierra Leone, Somalie, Soudan du Sud, Soudan, Eswatini, Tanzanie, Togo, Tunisie, Ouganda, Zambie
 
-### Reste de l'Asie-Pacifique
+### Reste de l'Asie-Pacifique {#rest-of-asia-pacific}
 
 Afghanistan, Australie, Bangladesh, Cambodge, Chine, Japon, Laos, Mongolie, Népal, Nouvelle-Zélande, Papouasie-Nouvelle-Guinée, Philippines, Sri Lanka, Taïwan, Tadjikistan, Thaïlande,
 Turkménistan, Ouzbékistan, Vietnam
 
-### Reste de l'Europe centrale et orientale
+### Reste de l'Europe centrale et orientale {#rest-of-central-eastern-europe}
 
 Albanie, Arménie, Azerbaïdjan, Biélorussie, Bulgarie, Croatie, République tchèque, Géorgie, Grèce, Lettonie, Lituanie, Macédoine, Moldavie, Serbie, Slovaquie, Slovénie, Ukraine
 
-### Reste de l'Amérique latine
+### Reste de l'Amérique latine {#rest-of-latin-america}
 
 Bolivie, Costa Rica, République dominicaine, Équateur, El Salvador,
 Guatemala, Haïti, Honduras, Jamaïque, Nicaragua, Panama, Paraguay, Porto Rico, Uruguay, Venezuela
 
-### Reste du Moyen-Orient
+### Reste du Moyen-Orient {#rest-of-middle-east}
 
 Bahreïn, Irak, Jordanie, Koweït, Liban, Oman, Yémen
 
-### Reste de l'Europe occidentale
+### Reste de l'Europe occidentale {#rest-of-western-europe}
 
 Autriche, Belgique, Danemark, Finlande, Irlande, Norvège, Portugal, Suède, Suisse

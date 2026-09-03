@@ -30,7 +30,7 @@ WhatsApp製品メッセージをユーザーに送信すると、ユーザーは
 | 要件 | 説明 |
 | --- | --- |
 | WhatsApp Businessアカウント | WhatsApp製品メッセージを使用するには、Brazeに接続されたWhatsApp Businessアカウントが必要です。 |
-| Metaカタログ | Commerce ManagerでMetaカタログを設定する必要があります。 |
+| Metaカタログ | Commerce マネージャーでMetaカタログを設定する必要があります。 |
 | 規約の遵守 | [Meta Commerce利用規約とポリシー](https://www.facebook.com/policies_center/commerce)に準拠する必要があります。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="要件" }
 
@@ -75,12 +75,12 @@ Metaのマルチ製品メッセージテンプレートには、既知のヘッ�
 
 ## 製品メッセージの設定 {#setting-up-product-messages}
 
-1. [Meta Commerce Manager](https://business.facebook.com/business/loginpage/?next=https%3A%2F%2Fbusiness.facebook.com%2Fcommerce_manager%2F#)で、[Metaの手順](https://www.facebook.com/business/help/1275400645914358?id=725943027795860&ref=search_new_1)に従ってMetaカタログを作成します。Brazeに接続されたWhatsApp Businessアカウントが存在するMeta Business Portfolioと同じポートフォリオにいることを確認してください。
-2. Metaの手順に従って、Meta Business Managerで「Manage Catalog」権限を割り当てることにより、[Metaカタログを接続](https://www.facebook.com/business/help/1953352334878186?id=2042840805783715)してBrazeに接続されたWhatsApp Businessアカウントに紐付けます。
+1. [Meta Commerce マネージャー](https://business.facebook.com/business/loginpage/?next=https%3A%2F%2Fbusiness.facebook.com%2Fcommerce_manager%2F#)で、[Metaの手順](https://www.facebook.com/business/help/1275400645914358?id=725943027795860&ref=search_new_1)に従ってMetaカタログを作成します。Brazeに接続されたWhatsApp Businessアカウントが存在するMeta Business Portfolioと同じポートフォリオにいることを確認してください。
+2. Metaの手順に従って、Meta Business マネージャーで「Manage Catalog」権限を割り当てることにより、[Metaカタログを接続](https://www.facebook.com/business/help/1953352334878186?id=2042840805783715)してBrazeに接続されたWhatsApp Businessアカウントに紐付けます。
 
 ![「sweeney_catalog」というカタログの「Assign partner」ボタンを指す矢印が表示されたMetaの「Catalogs」ページ]({% image_buster /assets/img/whatsapp/meta_catalog.png %}){: style="max-width:90%;"}
 
-パートナービジネスIDとして、Braze Business Manager ID `332231937299182` を使用してください。
+パートナービジネスIDとして、Braze Business マネージャー ID `332231937299182` を使用してください。
 
 ![パートナービジネスIDを入力するフィールドと「Manage catalog」権限を割り当てるフィールドを含む、パートナーとカタログを共有するウィンドウ]({% image_buster /assets/img/whatsapp/share_meta_catalog.png %}){: style="max-width:70%;"}
 
@@ -95,7 +95,7 @@ Metaのマルチ製品メッセージテンプレートには、既知のヘッ�
 ![権限を付与するために5つのカタログが選択されたウィンドウ]({% image_buster /assets/img/whatsapp/select_catalogs.png %}){: style="max-width:50%;"}
 
 {% alert tip %}
-Metaカタログ作成時のベストプラクティスについては、[Commerce Managerで高品質なカタログを構築するためのヒント](https://www.facebook.com/business/help/2086567618225367?id=725943027795860)を参照してください。
+Metaカタログ作成時のベストプラクティスについては、[Commerce マネージャーで高品質なカタログを構築するためのヒント](https://www.facebook.com/business/help/2086567618225367?id=725943027795860)を参照してください。
 {% endalert %}
 
 ## 製品メッセージの作成 {#building-a-product-message}
@@ -105,13 +105,13 @@ Metaカタログ作成時のベストプラクティスについては、[Commer
 {% tabs local %}
 {% tab WhatsAppメッセージテンプレート %}
 
-1. Meta Business Managerで、**Message Templates**に移動します。
+1. Meta Business マネージャーで、**Message Templates**に移動します。
 2. フォーマットとして**Catalog**を選択し、**Catalog message**（カタログ全体を表示）または**Multi-product catalog message**（特定のアイテムをハイライト）を選択します。
 3. Brazeで、WhatsAppキャンペーンまたはキャンバスメッセージステップを作成します。
 4. テンプレートを送信した購読グループと一致するものを選択します。
 5. **WhatsApp Template Message**を選択します。
 6. 使用するテンプレートを選択します。
-    - マルチ製品テンプレートを選択した場合、ハイライトする製品のセクションタイトルとコンテンツIDを入力します。Meta Commerce ManagerからコンテンツIDを直接コピーするか、統合製品セレクターの権限を有効にしている場合はアイテムを選択できます。
+    - マルチ製品テンプレートを選択した場合、ハイライトする製品のセクションタイトルとコンテンツIDを入力します。Meta Commerce マネージャーからコンテンツIDを直接コピーするか、統合製品セレクターの権限を有効にしている場合はアイテムを選択できます。
 
 ![セクションタイトルとコンテンツIDを入力するフィールドを含むアイテムリスト]({% image_buster /assets/img/whatsapp/multi_product_template.png %}){: style="max-width:60%;"}
 
@@ -145,9 +145,9 @@ Metaカタログ作成時のベストプラクティスについては、[Commer
 
 ## 製品の管理 {#managing-products}
 
-### Commerce Managerへのアクセス {#accessing-commerce-manager}
+### Commerce マネージャーへのアクセス {#accessing-commerce-manager}
 
-Meta Business Managerで、**Commerce Manager**に移動し、組織を選択します。ここでは、以下のようなカタログアセットを管理できます。
+Meta Business マネージャーで、**Commerce マネージャー**に移動し、組織を選択します。ここでは、以下のようなカタログアセットを管理できます。
 - 新しいカタログの作成
 - 既存のカタログへの製品の追加
 - 製品情報の更新

@@ -12,7 +12,7 @@ description: "Este artigo de referência aborda o arquivamento de mensagem, um r
 
 > O arquivamento de mensagem permite que você salve uma cópia das mensagens enviadas aos usuários para fins de arquivamento ou conformidade em seu bucket S3 da AWS, contêiner de Blob Storage do Azure ou bucket do Google Cloud Storage. <br><br> Este artigo aborda como configurar o arquivamento de mensagem, referências de carga útil JSON e perguntas frequentes.
 
-O arquivamento de mensagem está disponível como um recurso complementar. Para começar a usar o arquivamento de mensagem, entre em contato com seu gerente de sucesso do cliente da Braze.
+O arquivamento de mensagem está disponível como um recurso complementar. Para começar a usar o arquivamento de mensagem, entre em contato com seu CSM da Braze.
 
 ## Como funciona {#how-it-works}
 

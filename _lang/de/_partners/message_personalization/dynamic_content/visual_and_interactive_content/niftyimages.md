@@ -57,7 +57,7 @@ Verbinden Sie Ihr Braze-Konto in NiftyImages, um Kontakteigenschaften zu synchro
 
 1. Gehen Sie in Braze zu **Einstellungen** > **APIs und Bezeichner**.
 2. Erstellen oder wählen Sie einen REST-API-Schlüssel für die NiftyImages-Integration aus.
-3. Wählen Sie unter **Custom Attributes** die Option `custom_attributes.get` aus.
+3. Wählen Sie unter **angepasste Attribute** die Option `custom_attributes.get` aus.
 4. Wählen Sie unter **Content Blocks** die Option `content_blocks.create` aus.
 5. Speichern Sie den API-Schlüssel und kopieren Sie dann den REST-API-Schlüssel und Ihren [REST-Endpunkt]({{site.baseurl}}/api/basics#endpoints).
 

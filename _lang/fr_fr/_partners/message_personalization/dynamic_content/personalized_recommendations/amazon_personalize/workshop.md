@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Atelier Amazon Personalize
 
-> Cet article de référence vous guidera dans le processus de configuration d'Amazon Personalize et de son intégration dans votre environnement Braze à l'aide du contenu connecté. Pour ce faire, un atelier pratique vous guidera à travers toutes les étapes nécessaires au déploiement et à la formation des solutions Amazon Personalize et à leur intégration dans une campagne d'e-mailing de Braze.
+> Cet article de référence vous guidera dans le processus de configuration d'Amazon Personalize et de son intégration dans votre environnement Braze à l'aide du contenu connecté. Pour ce faire, un atelier pratique vous guidera à travers toutes les étapes nécessaires au déploiement et à la formation des solutions Amazon Personalize et à leur intégration dans une campagne d'e-mail marketing de Braze.
 
 _Cette intégration est gérée par Amazon Personalize._
 

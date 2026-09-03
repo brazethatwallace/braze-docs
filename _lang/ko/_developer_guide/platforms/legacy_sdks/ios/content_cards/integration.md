@@ -93,7 +93,7 @@ Braze는 배너, 캡션 이미지, 클래식의 세 가지 Content Cards 유형�
 |---|---|
 | `image` | 이 속성정보는 카드 이미지의 URL입니다. |
 | `imageAspectRatio` | 이 속성정보는 카드 이미지의 종횡비이며 이미지 로드가 완료되기 전에 힌트로 사용됩니다. 특정 상황에서는 속성정보가 제공되지 않을 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Banner Content Card properties - ABKBannerContentCard" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="BCC properties - ABKBannerContentCard" }
 
 ### 캡션 이미지 콘텐츠 카드 속성정보 - ABKCaptionedImageCard {#captioned-image-content-card-properties-abkcaptionedimagecard}
 

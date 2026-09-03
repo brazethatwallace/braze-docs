@@ -1,4 +1,7 @@
 ---
+# This file is a template consumed by the external `braze-currents-generate-docs` tool
+# (braze-agent-plugins / braze-currents plugin) to generate the Currents event glossary
+# docs. It is not referenced from within braze-docs, so do not delete it as "unused".
 nav_title: Message engagement events
 layout: message_engagement_events_glossary
 alias: /message_events_glossary/
@@ -21,7 +24,7 @@ Storage schemas apply to the flat file event data we send to Data Warehouse Stor
 These events are also available as SQL tables in the [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder), [SQL Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments), and [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). For SQL table schemas and column details, refer to the [SQL table reference]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
 {% endalert %}
 
-Contact your account manager or open a [support ticket]({{site.baseurl}}/braze_support) if you need access to additional event entitlements. If you can't find what you need in this article, check out our [Customer Behavior Events Library]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) or our [Currents sample data examples](https://github.com/Appboy/currents-examples/tree/master/sample-data).
+Contact your account manager or open a [support ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support) if you need access to additional event entitlements. If you can't find what you need in this article, check out our [Customer Behavior Events Library]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) or our [Currents sample data examples](https://github.com/Appboy/currents-examples/tree/master/sample-data).
 
 {% enddetails %}
 
@@ -31,7 +34,7 @@ Contact your account manager or open a [support ticket]({{site.baseurl}}/braze_s
 
 This event breakdown shows what type of information is generally included in a message engagement event. With a solid understanding of its components, your developers and business intelligence strategy team can use the incoming Currents event data to make data-driven reports and charts, and take advantage of other valuable data metrics.
 
-![Breakdown of a message engagement event showing an email unsubscribe event with the listed properties grouped by user-specific properties, campaign or Canvas tracking properties, and event-specific properties]({% image_buster /assets/img/message_engagement_event.png %})
+![Breakdown of a message engagement event showing an email unsubscribe event with the listed properties grouped by user-specific properties, campaign or Canvas tracking properties, and event-specific properties]({% image_buster /assets/img/message_engagement_event.png %}){: width="2300" height="770" style="max-width:100%;height:auto;"}
 
 Message engagement events are comprised of **user-specific** properties, **campaign/canvas tracking** properties, and **event-specific** properties.
 
@@ -82,6 +85,7 @@ Certain events return a `platform` value that specifies the platform of the user
 </div>
 
 <!--overview-end-->
+
 
 {% api %}
 ## Agent executed events {#agent-executed-events}
@@ -1011,28 +1015,7 @@ Subscription groups are only available for email, SMS, RCS, and WhatsApp channel
 {% endtabs %}
 
 ### Property details {#property-details}
-<ul>
-<li><code>dispatch_id</code> is an ID for a specific message dispatch, such as a campaign send. All push events that originate from the same dispatch include the same <code>dispatch_id</code>. Use <code>dispatch_id</code> to group events that belong to the same dispatch, allowing you to group and correlate the push message lifecycle for that dispatch (such as Send, Bounce, and Open).</li>
-<li><code>state_change_source</code> returns a string of the full source name. For example, the source CSV import will return the string <code>CSV import</code>. Available sources are listed as follows:</li>
-</ul>
-<table class="reset-td-br-1 reset-td-br-2" role="presentation">
-<thead>
-<tr><th>Source</th><th>Description</th></tr>
-</thead>
-<tbody>
-<tr><td>SDK</td><td>SDK endpoints</td></tr>
-<tr><td>Dashboard</td><td>When a user's subscription state is updated from the User Profile page in Dashboard</td></tr>
-<tr><td>Subscription Page</td><td>When a user unsubscribes through an email link that is not the preference center</td></tr>
-<tr><td>REST API</td><td>REST API endpoints</td></tr>
-<tr><td>CSV import</td><td>CSV user import</td></tr>
-<tr><td>Preference Center</td><td>When a user is updated from the preference center</td></tr>
-<tr><td>Inbound Message</td><td>When a user is updated by inbound messages from end-users through channels such as SMS</td></tr>
-<tr><td>Migration</td><td>When a user is updated by internal migrations or maintenance scripts</td></tr>
-<tr><td>User Merge</td><td>When a user is updated by the user merge process</td></tr>
-<tr><td>Canvas User Update Step</td><td>When a user is updated by the Canvas user update step</td></tr>
-</tbody>
-</table>
-
+{% multi_lang_include currents/property_details_dispatch_state_source.md %}
 
 
 {% endapi %}
@@ -1045,6 +1028,10 @@ Campaign, Conversion
 {% endapitags %}
 
 This event occurs when a user does an action that has been set as a conversion event in a campaign.
+
+{% alert note %}
+The `message_extras` field is only available in send events (for example, Email Send, Push Send). It is not included in conversion events. To associate `message_extras` data with downstream engagement, use `dispatch_id` or `send_id` to join send events with conversion events in your data warehouse. For evaluating copy effectiveness by conversion rate, consider using [campaign variants]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing/create_multivariate_campaign) instead.
+{% endalert %}
 
 {% alert important %}
 Note that the conversion event is encoded in the `conversion_behavior` field, which includes the type of conversion event, the window (timeframe), and additional information depending on the conversion event type. The `conversion_behavior_index` field represents which conversion event, such as 0 = A, 1 = B, 2 = C, 3 = D.
@@ -1427,6 +1414,10 @@ Canvas, Conversion
 {% endapitags %}
 
 This event occurs when a user does an action that has been set as a conversion event in Canvas.
+
+{% alert note %}
+The `message_extras` field is only available in send events (for example, Email Send, Push Send). It is not included in conversion events. To associate `message_extras` data with downstream engagement, use `send_id` to join send events with conversion events in your data warehouse. For evaluating copy effectiveness by conversion rate, consider using [Canvas variants]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests) instead.
+{% endalert %}
 
 {% alert important %}
 Note that the conversion event is encoded in the `conversion_behavior` field, which includes the type of conversion event, the window (timeframe), and additional information depending on the conversion event type. The `conversion_behavior_index` field represents which conversion event, such as 0 = A, 1 = B, 2 = C, 3 = D.
@@ -5585,6 +5576,7 @@ This event occurs if an email message was aborted based on Liquid aborts, etc.
   "external_user_id" : "(optional, string) [PII] External ID of the user",
   "id" : "(required, string) Globally unique ID for this event",
   "ip_pool" : "(optional, string) IP pool from which the email send was made",
+  "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
   "message_variation_id" : "(optional, string) API ID of the message variation this user received",
   "message_variation_name" : "(optional, string) Name of the message variation",
   "send_id" : "(optional, string) Message send ID this message belongs to",
@@ -5616,6 +5608,7 @@ This event occurs if an email message was aborted based on Liquid aborts, etc.
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "email_address" : "(required, string) [PII] Email address of the user",
     "ip_pool" : "(optional, string) IP pool from which the email send was made",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to"
@@ -5651,6 +5644,7 @@ This event occurs if an email message was aborted based on Liquid aborts, etc.
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "email_address" : "(required, string) [PII] Email address of the user",
     "ip_pool" : "(optional, string) IP pool from which the email send was made",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to"
@@ -5691,6 +5685,7 @@ This event occurs if an email message was aborted based on Liquid aborts, etc.
     "email_address" : "(required, string) [PII] Email address of the user",
     "$insert_id" : "(required, string) Globally unique ID for this event",
     "ip_pool" : "(optional, string) IP pool from which the email send was made",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to",
@@ -5728,6 +5723,7 @@ This event occurs if an email message was aborted based on Liquid aborts, etc.
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
           "ip_pool" : "(optional, string) IP pool from which the email send was made",
+          "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
           "message_variation_name" : "(optional, string) Name of the message variation",
           "send_id" : "(optional, string) Message send ID this message belongs to",
@@ -5780,6 +5776,7 @@ This event occurs if an email message was aborted based on Liquid aborts, etc.
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "ip_pool" : "(optional, string) IP pool from which the email send was made",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to"
@@ -5798,6 +5795,7 @@ This event occurs if an email message was aborted based on Liquid aborts, etc.
 - The `abort_type` field describes the reason the message was aborted. For a full list of values, see [Abort types]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` will be `frequency_capped` if the message was aborted due to a global frequency cap rule.
 - `abort_log` includes information about the specific rule that triggered the abort. An example is: `Frequency cap rule: 5 email messages every 1 week`
+- `message_extras` is populated only when an abort occurs after the {% raw %}`{% message_extras %}`{% endraw %} tag runs during rendering.
 
 {% endapi %}
 
@@ -5837,6 +5835,7 @@ This event occurs when an Internet Service Provider returns a hard bounce. A har
   "message_variation_id" : "(optional, string) API ID of the message variation this user received",
   "message_variation_name" : "(optional, string) Name of the message variation",
   "send_id" : "(optional, string) Message send ID this message belongs to",
+  "send_time" : "(optional, int) Time of the corresponding Send Event",
   "sending_ip" : "(optional, string) IP address from which the email send was made",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
@@ -5870,7 +5869,8 @@ This event occurs when an Internet Service Provider returns a hard bounce. A har
     "is_drop" : "(optional, boolean) Indicates that this event counts as a drop event",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
-    "send_id" : "(optional, string) Message send ID this message belongs to"
+    "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time of the corresponding Send Event"
   },
   "event_type" : "(required, string) The event type name, as it is exported to Amplitude",
   "insert_id" : "(required, string) Globally unique ID for this event",
@@ -5908,6 +5908,7 @@ This event occurs when an Internet Service Provider returns a hard bounce. A har
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time of the corresponding Send Event",
     "sending_ip" : "(optional, string) IP address from which the email send was made"
   },
   "time" : "(required, int) UNIX timestamp at which the event happened",
@@ -5951,6 +5952,7 @@ This event occurs when an Internet Service Provider returns a hard bounce. A har
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time of the corresponding Send Event",
     "time" : "(required, int) UNIX timestamp at which the event happened",
     "token" : "(required, string) The Mixpanel API token"
   }
@@ -5990,6 +5992,7 @@ This event occurs when an Internet Service Provider returns a hard bounce. A har
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
           "message_variation_name" : "(optional, string) Name of the message variation",
           "send_id" : "(optional, string) Message send ID this message belongs to",
+          "send_time" : "(optional, int) Time of the corresponding Send Event",
           "source_request_id" : "(required, string) Globally unique ID for this event"
         },
         "custom_event_type" : "(required, string) The mParticle custom event type if the event_type is 'custom_event' (always 'other')",
@@ -6043,7 +6046,8 @@ This event occurs when an Internet Service Provider returns a hard bounce. A har
     "is_drop" : "(optional, boolean) Indicates that this event counts as a drop event",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
-    "send_id" : "(optional, string) Message send ID this message belongs to"
+    "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time of the corresponding Send Event"
   },
   "timestamp" : "(required, int) UNIX timestamp at which the event happened",
   "type" : "track",
@@ -6093,16 +6097,19 @@ This event occurs when a user clicks an email. Multiple events may be generated 
   "esp" : "(optional, string) ESP related to the event (SparkPost, SendGrid, or Amazon SES)",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
   "from_domain" : "(optional, string) Sending domain for the email",
+  "has_url_parameters" : "(optional, boolean) Whether the clicked URL contained query parameters",
   "id" : "(required, string) Globally unique ID for this event",
   "ip_pool" : "(optional, string) IP pool from which the email send was made",
   "is_amp" : "(optional, boolean) Indicates that this is an AMP event",
   "is_suspected_bot_click" : "(optional, boolean) Indicates that this is a suspected bot click. Will only populate when Bot Filtering setting is enabled",
   "link_alias" : "(optional, string) Alias associated with this link ID",
+  "link_aliasing_enabled" : "(optional, boolean) Whether link aliasing was enabled for the workspace when this click was processed",
   "link_id" : "(optional, string) Unique ID for the link which was clicked, as created by Braze",
   "mailbox_provider" : "(optional, string) Mailbox provider value returned by the esp for this event",
   "message_variation_id" : "(optional, string) API ID of the message variation this user received",
   "message_variation_name" : "(optional, string) Name of the message variation",
   "send_id" : "(optional, string) Message send ID this message belongs to",
+  "send_time" : "(optional, int) Time in seconds of the corresponding Send Event",
   "suspected_bot_click_reason" : "(optional, array of string) Reason(s) why this is a suspected bot click. Will always populate even if Bot Filtering setting is disabled.",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
@@ -6137,15 +6144,18 @@ This event occurs when a user clicks an email. Multiple events may be generated 
     "email_address" : "(required, string) [PII] Email address of the user",
     "esp" : "(optional, string) ESP related to the event (SparkPost, SendGrid, or Amazon SES)",
     "from_domain" : "(optional, string) Sending domain for the email",
+    "has_url_parameters" : "(optional, boolean) Whether the clicked URL contained query parameters",
     "ip_pool" : "(optional, string) IP pool from which the email send was made",
     "is_amp" : "(optional, boolean) Indicates that this is an AMP event",
     "is_suspected_bot_click" : "(optional, boolean) Indicates that this is a suspected bot click. Will only populate when Bot Filtering setting is enabled",
     "link_alias" : "(optional, string) Alias associated with this link ID",
+    "link_aliasing_enabled" : "(optional, boolean) Whether link aliasing was enabled for the workspace when this click was processed",
     "link_id" : "(optional, string) Unique ID for the link which was clicked, as created by Braze",
     "mailbox_provider" : "(optional, string) Mailbox provider value returned by the esp for this event",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time in seconds of the corresponding Send Event",
     "suspected_bot_click_reason" : "(optional, array of string) Reason(s) why this is a suspected bot click. Will always populate even if Bot Filtering setting is disabled.",
     "url" : "(optional, string) URL that the user clicked on",
     "user_agent" : "(optional, string) User agent on which the click occurred"
@@ -6184,15 +6194,18 @@ This event occurs when a user clicks an email. Multiple events may be generated 
     "email_address" : "(required, string) [PII] Email address of the user",
     "esp" : "(optional, string) ESP related to the event (SparkPost, SendGrid, or Amazon SES)",
     "from_domain" : "(optional, string) Sending domain for the email",
+    "has_url_parameters" : "(optional, boolean) Whether the clicked URL contained query parameters",
     "ip_pool" : "(optional, string) IP pool from which the email send was made",
     "is_amp" : "(optional, boolean) Indicates that this is an AMP event",
     "is_suspected_bot_click" : "(optional, boolean) Indicates that this is a suspected bot click. Will only populate when Bot Filtering setting is enabled",
     "link_alias" : "(optional, string) Alias associated with this link ID",
+    "link_aliasing_enabled" : "(optional, boolean) Whether link aliasing was enabled for the workspace when this click was processed",
     "link_id" : "(optional, string) Unique ID for the link which was clicked, as created by Braze",
     "mailbox_provider" : "(optional, string) Mailbox provider value returned by the esp for this event",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time in seconds of the corresponding Send Event",
     "suspected_bot_click_reason" : "(optional, array of string) Reason(s) why this is a suspected bot click. Will always populate even if Bot Filtering setting is disabled.",
     "url" : "(optional, string) URL that the user clicked on",
     "user_agent" : "(optional, string) User agent on which the click occurred"
@@ -6235,16 +6248,19 @@ This event occurs when a user clicks an email. Multiple events may be generated 
     "email_address" : "(required, string) [PII] Email address of the user",
     "esp" : "(optional, string) ESP related to the event (SparkPost, SendGrid, or Amazon SES)",
     "from_domain" : "(optional, string) Sending domain for the email",
+    "has_url_parameters" : "(optional, boolean) Whether the clicked URL contained query parameters",
     "$insert_id" : "(required, string) Globally unique ID for this event",
     "ip_pool" : "(optional, string) IP pool from which the email send was made",
     "is_amp" : "(optional, boolean) Indicates that this is an AMP event",
     "is_suspected_bot_click" : "(optional, boolean) Indicates that this is a suspected bot click. Will only populate when Bot Filtering setting is enabled",
     "link_alias" : "(optional, string) Alias associated with this link ID",
+    "link_aliasing_enabled" : "(optional, boolean) Whether link aliasing was enabled for the workspace when this click was processed",
     "link_id" : "(optional, string) Unique ID for the link which was clicked, as created by Braze",
     "mailbox_provider" : "(optional, string) Mailbox provider value returned by the esp for this event",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time in seconds of the corresponding Send Event",
     "suspected_bot_click_reason" : "(optional, array of string) Reason(s) why this is a suspected bot click. Will always populate even if Bot Filtering setting is disabled.",
     "time" : "(required, int) UNIX timestamp at which the event happened",
     "token" : "(required, string) The Mixpanel API token",
@@ -6285,15 +6301,18 @@ This event occurs when a user clicks an email. Multiple events may be generated 
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
           "esp" : "(optional, string) ESP related to the event (SparkPost, SendGrid, or Amazon SES)",
           "from_domain" : "(optional, string) Sending domain for the email",
+          "has_url_parameters" : "(optional, boolean) Whether the clicked URL contained query parameters",
           "ip_pool" : "(optional, string) IP pool from which the email send was made",
           "is_amp" : "(optional, boolean) Indicates that this is an AMP event",
           "is_suspected_bot_click" : "(optional, boolean) Indicates that this is a suspected bot click. Will only populate when Bot Filtering setting is enabled",
           "link_alias" : "(optional, string) Alias associated with this link ID",
+          "link_aliasing_enabled" : "(optional, boolean) Whether link aliasing was enabled for the workspace when this click was processed",
           "link_id" : "(optional, string) Unique ID for the link which was clicked, as created by Braze",
           "mailbox_provider" : "(optional, string) Mailbox provider value returned by the esp for this event",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
           "message_variation_name" : "(optional, string) Name of the message variation",
           "send_id" : "(optional, string) Message send ID this message belongs to",
+          "send_time" : "(optional, int) Time in seconds of the corresponding Send Event",
           "source_request_id" : "(required, string) Globally unique ID for this event",
           "url" : "(optional, string) URL that the user clicked on",
           "user_agent" : "(optional, string) User agent on which the click occurred"
@@ -6349,16 +6368,19 @@ This event occurs when a user clicks an email. Multiple events may be generated 
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "esp" : "(optional, string) ESP related to the event (SparkPost, SendGrid, or Amazon SES)",
     "from_domain" : "(optional, string) Sending domain for the email",
+    "has_url_parameters" : "(optional, boolean) Whether the clicked URL contained query parameters",
     "ip_pool" : "(optional, string) IP pool from which the email send was made",
     "is_amp" : "(optional, boolean) Indicates that this is an AMP event",
     "is_suspected_bot_click" : "(optional, boolean) Indicates that this is a suspected bot click. Will only populate when Bot Filtering setting is enabled",
     "link_alias" : "(optional, string) Alias associated with this link ID",
+    "link_aliasing_enabled" : "(optional, boolean) Whether link aliasing was enabled for the workspace when this click was processed",
     "link_id" : "(optional, string) Unique ID for the link which was clicked, as created by Braze",
     "link_url" : "(optional, string) URL that the user clicked on",
     "mailbox_provider" : "(optional, string) Mailbox provider value returned by the esp for this event",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time in seconds of the corresponding Send Event",
     "suspected_bot_click_reason" : "(optional, array of string) Reason(s) why this is a suspected bot click. Will always populate even if Bot Filtering setting is disabled.",
     "user_agent" : "(optional, string) User agent on which the click occurred"
   },
@@ -6385,7 +6407,10 @@ This event occurs when a user clicks an email. Multiple events may be generated 
   "event_id" : "(required, string) Globally unique ID for this event",
   "event_time" : "(required, int) UNIX timestamp at which the event happened",
   "event_type" : "(required, string) The Shopify event type name (e.g. email_sent, sms_sent)",
-  "external_user_id" : "(optional, string) [PII] External ID of the user"
+  "external_user_id" : "(optional, string) [PII] External ID of the user",
+  "has_url_parameters" : "(optional, boolean) Whether the clicked URL contained query parameters",
+  "link_aliasing_enabled" : "(optional, boolean) Whether link aliasing was enabled for the workspace when this click was processed",
+  "send_time" : "(optional, int) Time in seconds of the corresponding Send Event"
 }
 ```
 {% endtab %}
@@ -6436,6 +6461,7 @@ This event occurs when an Internet Service Provider does not immediately deliver
   "message_variation_name" : "(optional, string) Name of the message variation",
   "recipient_domain" : "(optional, string) Recipient's email domain",
   "send_id" : "(optional, string) Message send ID this message belongs to",
+  "send_time" : "(optional, int) Time of the corresponding Send Event",
   "sending_ip" : "(optional, string) IP address from which the email send was made",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
@@ -6470,6 +6496,7 @@ This event occurs when an Internet Service Provider does not immediately deliver
     "message_variation_name" : "(optional, string) Name of the message variation",
     "recipient_domain" : "(optional, string) Recipient's email domain",
     "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time of the corresponding Send Event",
     "timezone" : "(optional, string) Time zone of the user"
   },
   "event_type" : "(required, string) The event type name, as it is exported to Amplitude",
@@ -6509,6 +6536,7 @@ This event occurs when an Internet Service Provider does not immediately deliver
     "message_variation_name" : "(optional, string) Name of the message variation",
     "recipient_domain" : "(optional, string) Recipient's email domain",
     "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time of the corresponding Send Event",
     "sending_ip" : "(optional, string) IP address from which the email send was made"
   },
   "time" : "(required, int) UNIX timestamp at which the event happened",
@@ -6551,6 +6579,7 @@ This event occurs when an Internet Service Provider does not immediately deliver
     "message_variation_name" : "(optional, string) Name of the message variation",
     "recipient_domain" : "(optional, string) Recipient's email domain",
     "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time of the corresponding Send Event",
     "time" : "(required, int) UNIX timestamp at which the event happened",
     "token" : "(required, string) The Mixpanel API token"
   }
@@ -6588,6 +6617,7 @@ This event occurs when an Internet Service Provider does not immediately deliver
           "message_variation_name" : "(optional, string) Name of the message variation",
           "recipient_domain" : "(optional, string) Recipient's email domain",
           "send_id" : "(optional, string) Message send ID this message belongs to",
+          "send_time" : "(optional, int) Time of the corresponding Send Event",
           "source_request_id" : "(required, string) Globally unique ID for this event"
         },
         "custom_event_type" : "(required, string) The mParticle custom event type if the event_type is 'custom_event' (always 'other')",
@@ -6641,7 +6671,8 @@ This event occurs when an Internet Service Provider does not immediately deliver
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "recipient_domain" : "(optional, string) Recipient's email domain",
-    "send_id" : "(optional, string) Message send ID this message belongs to"
+    "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time of the corresponding Send Event"
   },
   "timestamp" : "(required, int) UNIX timestamp at which the event happened",
   "type" : "track",
@@ -6692,6 +6723,7 @@ This event occurs when an email sent made it successfully to the end-users inbox
   "message_variation_id" : "(optional, string) API ID of the message variation this user received",
   "message_variation_name" : "(optional, string) Name of the message variation",
   "send_id" : "(optional, string) Message send ID this message belongs to",
+  "send_time" : "(optional, int) Time of the corresponding Send Event",
   "sending_ip" : "(optional, string) IP address from which the email send was made",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
@@ -6723,7 +6755,8 @@ This event occurs when an email sent made it successfully to the end-users inbox
     "ip_pool" : "(optional, string) IP pool from which the email send was made",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
-    "send_id" : "(optional, string) Message send ID this message belongs to"
+    "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time of the corresponding Send Event"
   },
   "event_type" : "(required, string) The event type name, as it is exported to Amplitude",
   "insert_id" : "(required, string) Globally unique ID for this event",
@@ -6759,6 +6792,7 @@ This event occurs when an email sent made it successfully to the end-users inbox
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time of the corresponding Send Event",
     "sending_ip" : "(optional, string) IP address from which the email send was made"
   },
   "time" : "(required, int) UNIX timestamp at which the event happened",
@@ -6800,6 +6834,7 @@ This event occurs when an email sent made it successfully to the end-users inbox
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time of the corresponding Send Event",
     "time" : "(required, int) UNIX timestamp at which the event happened",
     "token" : "(required, string) The Mixpanel API token"
   }
@@ -6837,6 +6872,7 @@ This event occurs when an email sent made it successfully to the end-users inbox
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
           "message_variation_name" : "(optional, string) Name of the message variation",
           "send_id" : "(optional, string) Message send ID this message belongs to",
+          "send_time" : "(optional, int) Time of the corresponding Send Event",
           "source_request_id" : "(required, string) Globally unique ID for this event"
         },
         "custom_event_type" : "(required, string) The mParticle custom event type if the event_type is 'custom_event' (always 'other')",
@@ -6888,7 +6924,8 @@ This event occurs when an email sent made it successfully to the end-users inbox
     "ip_pool" : "(optional, string) IP pool from which the email send was made",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
-    "send_id" : "(optional, string) Message send ID this message belongs to"
+    "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time of the corresponding Send Event"
   },
   "timestamp" : "(required, int) UNIX timestamp at which the event happened",
   "type" : "track",
@@ -6939,6 +6976,7 @@ This event occurs when the end-user hits the "spam" button on the email. Note th
   "message_variation_id" : "(optional, string) API ID of the message variation this user received",
   "message_variation_name" : "(optional, string) Name of the message variation",
   "send_id" : "(optional, string) Message send ID this message belongs to",
+  "send_time" : "(optional, int) Time of the corresponding Send Event",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
   "user_agent" : "(optional, string) User agent on which the spam report occurred",
@@ -6971,6 +7009,7 @@ This event occurs when the end-user hits the "spam" button on the email. Note th
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time of the corresponding Send Event",
     "user_agent" : "(optional, string) User agent on which the spam report occurred"
   },
   "event_type" : "(required, string) The event type name, as it is exported to Amplitude",
@@ -7007,6 +7046,7 @@ This event occurs when the end-user hits the "spam" button on the email. Note th
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time of the corresponding Send Event",
     "user_agent" : "(optional, string) User agent on which the spam report occurred"
   },
   "time" : "(required, int) UNIX timestamp at which the event happened",
@@ -7048,6 +7088,7 @@ This event occurs when the end-user hits the "spam" button on the email. Note th
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time of the corresponding Send Event",
     "time" : "(required, int) UNIX timestamp at which the event happened",
     "token" : "(required, string) The Mixpanel API token",
     "user_agent" : "(optional, string) User agent on which the spam report occurred"
@@ -7086,6 +7127,7 @@ This event occurs when the end-user hits the "spam" button on the email. Note th
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
           "message_variation_name" : "(optional, string) Name of the message variation",
           "send_id" : "(optional, string) Message send ID this message belongs to",
+          "send_time" : "(optional, int) Time of the corresponding Send Event",
           "source_request_id" : "(required, string) Globally unique ID for this event",
           "user_agent" : "(optional, string) User agent on which the spam report occurred"
         },
@@ -7139,6 +7181,7 @@ This event occurs when the end-user hits the "spam" button on the email. Note th
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time of the corresponding Send Event",
     "user_agent" : "(optional, string) User agent on which the spam report occurred"
   },
   "timestamp" : "(required, int) UNIX timestamp at which the event happened",
@@ -7201,6 +7244,7 @@ It's known behavior that the email open event fields `device_model` and `mailbox
   "message_variation_id" : "(optional, string) API ID of the message variation this user received",
   "message_variation_name" : "(optional, string) Name of the message variation",
   "send_id" : "(optional, string) Message send ID this message belongs to",
+  "send_time" : "(optional, int) Time of the corresponding Send Event",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
   "user_agent" : "(optional, string) User agent on which the open occurred",
@@ -7240,6 +7284,7 @@ It's known behavior that the email open event fields `device_model` and `mailbox
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time of the corresponding Send Event",
     "user_agent" : "(optional, string) User agent on which the open occurred"
   },
   "event_type" : "(required, string) The event type name, as it is exported to Amplitude",
@@ -7283,6 +7328,7 @@ It's known behavior that the email open event fields `device_model` and `mailbox
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time of the corresponding Send Event",
     "user_agent" : "(optional, string) User agent on which the open occurred"
   },
   "time" : "(required, int) UNIX timestamp at which the event happened",
@@ -7331,6 +7377,7 @@ It's known behavior that the email open event fields `device_model` and `mailbox
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time of the corresponding Send Event",
     "time" : "(required, int) UNIX timestamp at which the event happened",
     "token" : "(required, string) The Mixpanel API token",
     "user_agent" : "(optional, string) User agent on which the open occurred"
@@ -7376,6 +7423,7 @@ It's known behavior that the email open event fields `device_model` and `mailbox
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
           "message_variation_name" : "(optional, string) Name of the message variation",
           "send_id" : "(optional, string) Message send ID this message belongs to",
+          "send_time" : "(optional, int) Time of the corresponding Send Event",
           "source_request_id" : "(required, string) Globally unique ID for this event",
           "user_agent" : "(optional, string) User agent on which the open occurred"
         },
@@ -7437,6 +7485,7 @@ It's known behavior that the email open event fields `device_model` and `mailbox
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time of the corresponding Send Event",
     "user_agent" : "(optional, string) User agent on which the open occurred"
   },
   "timestamp" : "(required, int) UNIX timestamp at which the event happened",
@@ -7460,7 +7509,8 @@ It's known behavior that the email open event fields `device_model` and `mailbox
   "event_id" : "(required, string) Globally unique ID for this event",
   "event_time" : "(required, int) UNIX timestamp at which the event happened",
   "event_type" : "(required, string) The Shopify event type name (e.g. email_sent, sms_sent)",
-  "external_user_id" : "(optional, string) [PII] External ID of the user"
+  "external_user_id" : "(optional, string) [PII] External ID of the user",
+  "send_time" : "(optional, int) Time of the corresponding Send Event"
 }
 ```
 {% endtab %}
@@ -8018,6 +8068,7 @@ This event occurs when an Internet Service Provider returns a soft bounce. A sof
   "message_variation_id" : "(optional, string) API ID of the message variation this user received",
   "message_variation_name" : "(optional, string) Name of the message variation",
   "send_id" : "(optional, string) Message send ID this message belongs to",
+  "send_time" : "(optional, int) Time of the corresponding Send Event",
   "sending_ip" : "(optional, string) IP address from which the email send was made",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
@@ -8050,7 +8101,8 @@ This event occurs when an Internet Service Provider returns a soft bounce. A sof
     "ip_pool" : "(optional, string) IP pool from which the email send was made",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
-    "send_id" : "(optional, string) Message send ID this message belongs to"
+    "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time of the corresponding Send Event"
   },
   "event_type" : "(required, string) The event type name, as it is exported to Amplitude",
   "insert_id" : "(required, string) Globally unique ID for this event",
@@ -8087,6 +8139,7 @@ This event occurs when an Internet Service Provider returns a soft bounce. A sof
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time of the corresponding Send Event",
     "sending_ip" : "(optional, string) IP address from which the email send was made"
   },
   "time" : "(required, int) UNIX timestamp at which the event happened",
@@ -8129,6 +8182,7 @@ This event occurs when an Internet Service Provider returns a soft bounce. A sof
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time of the corresponding Send Event",
     "time" : "(required, int) UNIX timestamp at which the event happened",
     "token" : "(required, string) The Mixpanel API token"
   }
@@ -8167,6 +8221,7 @@ This event occurs when an Internet Service Provider returns a soft bounce. A sof
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
           "message_variation_name" : "(optional, string) Name of the message variation",
           "send_id" : "(optional, string) Message send ID this message belongs to",
+          "send_time" : "(optional, int) Time of the corresponding Send Event",
           "source_request_id" : "(required, string) Globally unique ID for this event"
         },
         "custom_event_type" : "(required, string) The mParticle custom event type if the event_type is 'custom_event' (always 'other')",
@@ -8219,7 +8274,8 @@ This event occurs when an Internet Service Provider returns a soft bounce. A sof
     "ip_pool" : "(optional, string) IP pool from which the email send was made",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
-    "send_id" : "(optional, string) Message send ID this message belongs to"
+    "send_id" : "(optional, string) Message send ID this message belongs to",
+    "send_time" : "(optional, int) Time of the corresponding Send Event"
   },
   "timestamp" : "(required, int) UNIX timestamp at which the event happened",
   "type" : "track",
@@ -8737,6 +8793,10 @@ In-App Messages, Abort
 {% endapitags %}
 
 This event occurs when an originally scheduled in-app message was aborted.
+
+{% alert note %}
+[Abort events]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) are only logged for [templated in-app messages]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages#templated_iam-templated). Standard in-app messages don't log abort events because Liquid evaluation occurs before the trigger action. For more details on in-app message abort behavior, refer to [In-app messages FAQ]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#how-does-abort-behavior-work-for-in-app-messages).
+{% endalert %}
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -10076,6 +10136,7 @@ This event occurs when a scheduled LINE message cannot be delivered, before send
   "id" : "(required, string) Globally unique ID for this event",
   "line_channel_id" : "(required, string) The LINE Channel ID the message was sent to or received from",
   "line_channel_name" : "(required, string) The LINE Channel Name the message was sent to or received from",
+  "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
   "message_variation_id" : "(optional, string) API ID of the message variation this user received",
   "native_line_id" : "(required, string) [PII] The user's Line ID from which the message was sent to or received from",
   "send_id" : "(optional, string) Message send ID this message belongs to",
@@ -10106,6 +10167,7 @@ This event occurs when a scheduled LINE message cannot be delivered, before send
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "line_channel_id" : "(required, string) The LINE Channel ID the message was sent to or received from",
     "line_channel_name" : "(required, string) The LINE Channel Name the message was sent to or received from",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "native_line_id" : "(required, string) [PII] The user's Line ID from which the message was sent to or received from",
     "send_id" : "(optional, string) Message send ID this message belongs to",
@@ -10141,6 +10203,7 @@ This event occurs when a scheduled LINE message cannot be delivered, before send
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "line_channel_id" : "(required, string) The LINE Channel ID the message was sent to or received from",
     "line_channel_name" : "(required, string) The LINE Channel Name the message was sent to or received from",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "native_line_id" : "(required, string) [PII] The user's Line ID from which the message was sent to or received from",
     "send_id" : "(optional, string) Message send ID this message belongs to",
@@ -10180,6 +10243,7 @@ This event occurs when a scheduled LINE message cannot be delivered, before send
     "$insert_id" : "(required, string) Globally unique ID for this event",
     "line_channel_id" : "(required, string) The LINE Channel ID the message was sent to or received from",
     "line_channel_name" : "(required, string) The LINE Channel Name the message was sent to or received from",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "native_line_id" : "(required, string) [PII] The user's Line ID from which the message was sent to or received from",
     "send_id" : "(optional, string) Message send ID this message belongs to",
@@ -10217,6 +10281,7 @@ This event occurs when a scheduled LINE message cannot be delivered, before send
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
           "line_channel_id" : "(required, string) The LINE Channel ID the message was sent to or received from",
           "line_channel_name" : "(required, string) The LINE Channel Name the message was sent to or received from",
+          "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
           "native_line_id" : "(required, string) [PII] The user's Line ID from which the message was sent to or received from",
           "send_id" : "(optional, string) Message send ID this message belongs to",
@@ -10266,6 +10331,7 @@ This event occurs when a scheduled LINE message cannot be delivered, before send
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "line_channel_id" : "(required, string) The LINE Channel ID the message was sent to or received from",
     "line_channel_name" : "(required, string) The LINE Channel Name the message was sent to or received from",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "native_line_id" : "(required, string) [PII] The user's Line ID from which the message was sent to or received from",
     "send_id" : "(optional, string) Message send ID this message belongs to",
@@ -10285,6 +10351,7 @@ This event occurs when a scheduled LINE message cannot be delivered, before send
 - The `abort_type` field describes the reason the message was aborted. For a full list of values, see [Abort types]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` will be `frequency_capped` if the message was aborted due to a global frequency cap rule.
 - `abort_log` includes information about the specific rule that triggered the abort. An example is: `Frequency cap rule: 5 LINE messages every 1 week`
+- `message_extras` is populated only when an abort occurs after the {% raw %}`{% message_extras %}`{% endraw %} tag runs during rendering.
 
 {% endapi %}
 
@@ -11627,6 +11694,7 @@ This event occurs if a push notification message was aborted based on Liquid abo
   "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
   "id" : "(required, string) Globally unique ID for this event",
+  "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
   "message_variation_id" : "(optional, string) API ID of the message variation this user received",
   "message_variation_name" : "(optional, string) Name of the message variation",
   "platform" : "(required, string) Platform of the device",
@@ -11658,6 +11726,7 @@ This event occurs if a push notification message was aborted based on Liquid abo
     "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
     "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "platform" : "(optional, string) Platform of the device",
@@ -11693,6 +11762,7 @@ This event occurs if a push notification message was aborted based on Liquid abo
     "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
     "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "platform" : "(optional, string) Platform of the device",
@@ -11733,6 +11803,7 @@ This event occurs if a push notification message was aborted based on Liquid abo
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "distinct_id" : "(required, string) [PII] External ID of the user",
     "$insert_id" : "(required, string) Globally unique ID for this event",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "platform" : "(optional, string) Platform of the device",
@@ -11772,6 +11843,7 @@ This event occurs if a push notification message was aborted based on Liquid abo
           "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
+          "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
           "message_variation_name" : "(optional, string) Name of the message variation",
           "send_id" : "(optional, string) Message send ID this message belongs to",
@@ -11821,6 +11893,7 @@ This event occurs if a push notification message was aborted based on Liquid abo
     "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "platform" : "(required, string) Platform of the device",
@@ -11840,6 +11913,7 @@ This event occurs if a push notification message was aborted based on Liquid abo
 - The `abort_type` field describes the reason the message was aborted. For a full list of values, see [Abort types]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` will be `frequency_capped` if the message was aborted due to a global frequency cap rule.
 - `abort_log` includes information about the specific rule that triggered the abort. An example is: `Frequency cap rule: 5 push messages every 1 week`
+- `message_extras` is populated only when an abort occurs after the {% raw %}`{% message_extras %}`{% endraw %} tag runs during rendering.
 
 {% endapi %}
 
@@ -13141,6 +13215,7 @@ This event is created when an RCS send is interrupted due to an error detected w
   "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
   "id" : "(required, string) Globally unique ID for this event",
+  "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
   "message_variation_id" : "(optional, string) API ID of the message variation this user received",
   "message_variation_name" : "(optional, string) Name of the message variation",
   "subscription_group_id" : "(optional, string) Subscription group API ID",
@@ -13167,6 +13242,7 @@ This event is created when an RCS send is interrupted due to an error detected w
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
     "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
     "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "subscription_group_id" : "(optional, string) Subscription group API ID"
@@ -13199,6 +13275,7 @@ This event is created when an RCS send is interrupted due to an error detected w
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
     "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
     "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "subscription_group_id" : "(optional, string) Subscription group API ID"
@@ -13233,6 +13310,7 @@ This event is created when an RCS send is interrupted due to an error detected w
     "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
     "distinct_id" : "(required, string) [PII] External ID of the user",
     "$insert_id" : "(required, string) Globally unique ID for this event",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "subscription_group_id" : "(optional, string) Subscription group API ID",
@@ -13265,6 +13343,7 @@ This event is created when an RCS send is interrupted due to an error detected w
           "canvas_step_name" : "(optional, string) Name of the Canvas step",
           "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
           "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
           "message_variation_name" : "(optional, string) Name of the message variation",
           "source_request_id" : "(required, string) Globally unique ID for this event",
@@ -13311,6 +13390,7 @@ This event is created when an RCS send is interrupted due to an error detected w
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
     "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
     "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "subscription_group_id" : "(optional, string) Subscription group API ID"
@@ -14813,6 +14893,7 @@ This event occurs if an SMS message was aborted based on Liquid aborts, etc.
   "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
   "id" : "(required, string) Globally unique ID for this event",
+  "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
   "message_variation_id" : "(optional, string) API ID of the message variation this user received",
   "message_variation_name" : "(optional, string) Name of the message variation",
   "subscription_group_id" : "(optional, string) Subscription group API ID",
@@ -14839,6 +14920,7 @@ This event occurs if an SMS message was aborted based on Liquid aborts, etc.
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
     "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
     "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "subscription_group_id" : "(optional, string) Subscription group API ID"
@@ -14871,6 +14953,7 @@ This event occurs if an SMS message was aborted based on Liquid aborts, etc.
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
     "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
     "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "subscription_group_id" : "(optional, string) Subscription group API ID"
@@ -14905,6 +14988,7 @@ This event occurs if an SMS message was aborted based on Liquid aborts, etc.
     "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
     "distinct_id" : "(required, string) [PII] External ID of the user",
     "$insert_id" : "(required, string) Globally unique ID for this event",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "subscription_group_id" : "(optional, string) Subscription group API ID",
@@ -14937,6 +15021,7 @@ This event occurs if an SMS message was aborted based on Liquid aborts, etc.
           "canvas_step_name" : "(optional, string) Name of the Canvas step",
           "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
           "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
           "message_variation_name" : "(optional, string) Name of the message variation",
           "source_request_id" : "(required, string) Globally unique ID for this event",
@@ -14983,6 +15068,7 @@ This event occurs if an SMS message was aborted based on Liquid aborts, etc.
     "canvas_step_name" : "(optional, string) Name of the Canvas step",
     "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
     "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "subscription_group_id" : "(optional, string) Subscription group API ID"
@@ -15000,6 +15086,7 @@ This event occurs if an SMS message was aborted based on Liquid aborts, etc.
 - The `abort_type` field describes the reason the message was aborted. For a full list of values, see [Abort types]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` will be `frequency_capped` if the message was aborted due to a global frequency cap rule.
 - `abort_log` includes information about the specific rule that triggered the abort. An example is: `Frequency cap rule: 5 SMS messages every 1 week`
+- `message_extras` is populated only when an abort occurs after the {% raw %}`{% message_extras %}`{% endraw %} tag runs during rendering.
 
 {% endapi %}
 
@@ -17391,6 +17478,7 @@ This event occurs if a webhook message was aborted based on Liquid aborts, etc.
   "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
   "id" : "(required, string) Globally unique ID for this event",
+  "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
   "message_variation_id" : "(optional, string) API ID of the message variation this user received",
   "message_variation_name" : "(optional, string) Name of the message variation",
   "send_id" : "(optional, string) Message send ID this message belongs to",
@@ -17420,6 +17508,7 @@ This event occurs if a webhook message was aborted based on Liquid aborts, etc.
     "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
     "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to"
@@ -17453,6 +17542,7 @@ This event occurs if a webhook message was aborted based on Liquid aborts, etc.
     "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
     "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to"
@@ -17491,6 +17581,7 @@ This event occurs if a webhook message was aborted based on Liquid aborts, etc.
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "distinct_id" : "(required, string) [PII] External ID of the user",
     "$insert_id" : "(required, string) Globally unique ID for this event",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to",
@@ -17527,6 +17618,7 @@ This event occurs if a webhook message was aborted based on Liquid aborts, etc.
           "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
+          "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
           "message_variation_name" : "(optional, string) Name of the message variation",
           "send_id" : "(optional, string) Message send ID this message belongs to",
@@ -17575,6 +17667,7 @@ This event occurs if a webhook message was aborted based on Liquid aborts, etc.
     "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to"
@@ -17593,6 +17686,7 @@ This event occurs if a webhook message was aborted based on Liquid aborts, etc.
 - The `abort_type` field describes the reason the message was aborted. For a full list of values, see [Abort types]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` will be `frequency_capped` if the message was aborted due to a global frequency cap rule.
 - `abort_log` includes information about the specific rule that triggered the abort. An example is: `Frequency cap rule: 5 webhook messages every 1 week`
+- `message_extras` is populated only when an abort occurs after the {% raw %}`{% message_extras %}`{% endraw %} tag runs during rendering.
 
 {% endapi %}
 
@@ -18358,6 +18452,7 @@ This event occurs if a WhatsApp message was aborted based on Liquid aborts, etc.
   "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
   "id" : "(required, string) Globally unique ID for this event",
+  "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
   "message_variation_id" : "(optional, string) API ID of the message variation this user received",
   "message_variation_name" : "(optional, string) Name of the message variation",
   "subscription_group_id" : "(optional, string) Subscription group API ID",
@@ -18389,6 +18484,7 @@ This event occurs if a WhatsApp message was aborted based on Liquid aborts, etc.
     "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
     "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "subscription_group_id" : "(optional, string) Subscription group API ID",
@@ -18424,6 +18520,7 @@ This event occurs if a WhatsApp message was aborted based on Liquid aborts, etc.
     "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
     "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "subscription_group_id" : "(optional, string) Subscription group API ID",
@@ -18464,6 +18561,7 @@ This event occurs if a WhatsApp message was aborted based on Liquid aborts, etc.
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "distinct_id" : "(required, string) [PII] External ID of the user",
     "$insert_id" : "(required, string) Globally unique ID for this event",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "subscription_group_id" : "(optional, string) Subscription group API ID",
@@ -18502,6 +18600,7 @@ This event occurs if a WhatsApp message was aborted based on Liquid aborts, etc.
           "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
+          "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
           "message_variation_name" : "(optional, string) Name of the message variation",
           "source_request_id" : "(required, string) Globally unique ID for this event",
@@ -18555,6 +18654,7 @@ This event occurs if a WhatsApp message was aborted based on Liquid aborts, etc.
     "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "subscription_group_id" : "(optional, string) Subscription group API ID"
@@ -18573,6 +18673,7 @@ This event occurs if a WhatsApp message was aborted based on Liquid aborts, etc.
 - The `abort_type` field describes the reason the message was aborted. For a full list of values, see [Abort types]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` will be `frequency_capped` if the message was aborted due to a global frequency cap rule.
 - `abort_log` includes information about the specific rule that triggered the abort. An example is: `Frequency cap rule: 5 WhatsApp messages every 1 week`
+- `message_extras` is populated only when an abort occurs after the {% raw %}`{% message_extras %}`{% endraw %} tag runs during rendering.
 
 {% endapi %}
 

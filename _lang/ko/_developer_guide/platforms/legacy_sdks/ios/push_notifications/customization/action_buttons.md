@@ -20,9 +20,9 @@ Braze iOS SDK는 각 푸시 실행 버튼에 대한 URL 처리 지원을 포함�
 
 기본 푸시 카테고리를 등록하려면 통합 지침을 따르세요.
 
-## 1단계: Braze 기본 푸시 카테고리 추가하기 {#step-1-adding-braze-default-push-categories}
+## 1단계: Braze 기본 푸시 카테고리 추가 {#step-1-adding-braze-default-push-categories}
 
-[푸시를 등록할]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/push_notifications/integration#step-4-register-push-tokens-with-braze) 때 다음 코드를 사용하여 기본 푸시 카테고리에 등록하세요:
+[푸시 등록]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration#step-4-register-push-tokens-with-braze) 시 다음 코드를 사용하여 기본 푸시 카테고리를 등록하세요:
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -56,13 +56,13 @@ UIApplication.shared.registerUserNotificationSettings(settings)
 {% endtab %}
 {% endtabs %}
 
-백그라운드 활성화 모드에서 푸시 실행 버튼을 클릭하면 알림만 해제되고 앱은 열리지 않습니다. 다음에 사용자가 앱을 열면 해당 동작에 대한 버튼 클릭 분석이 서버로 플러시됩니다.
+백그라운드 활성화 모드의 푸시 실행 버튼을 클릭하면 알림만 닫히고 앱은 열리지 않습니다. 사용자가 다음에 앱을 열면 해당 액션에 대한 버튼 클릭 분석이 서버로 전송됩니다.
 
-커스텀 알림 카테고리를 직접 만들려면 [실행 버튼 커스터마이징]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/push_notifications/customization/action_buttons#push-category-customization)을 참조하세요.
+커스텀 알림 카테고리를 직접 생성하려면 [실행 버튼 커스터마이징]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/action_buttons#push-category-customization)을 참조하세요.
 
-## 2단계: 대화형 푸시 처리 활성화 {#step-2-enable-interactive-push-handling}
+## 2단계: 인터랙티브 푸시 처리 활성화 {#step-2-enable-interactive-push-handling}
 
-`UNNotification` 프레임워크를 사용하고 Braze [델리게이트]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/push_notifications/integration#step-5-enable-push-handling)를 구현한 경우 이 메서드가 이미 통합되어 있을 것입니다.
+`UNNotification` 프레임워크를 사용하고 Braze [델리게이트]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration#step-5-enable-push-handling)를 구현한 경우, 이 메서드가 이미 통합되어 있을 것입니다.
 
 클릭 분석 및 URL 라우팅을 포함한 푸시 실행 버튼 처리를 활성화하려면 앱의 `(void)userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:` 델리게이트 메서드에 다음 코드를 추가하세요:
 
@@ -87,7 +87,7 @@ Appboy.sharedInstance()?.userNotificationCenter(center,
 {% endtab %}
 {% endtabs %}
 
-UNNotification 프레임워크를 사용하지 않는 경우, 앱의 `application:handleActionWithIdentifier:forRemoteNotification:completionHandler:`에 다음 코드를 추가하여 푸시 실행 버튼 처리를 활성화해야 합니다:
+UNNotification 프레임워크를 사용하지 않는 경우, 푸시 실행 버튼 처리를 활성화하기 위해 앱의 `application:handleActionWithIdentifier:forRemoteNotification:completionHandler:`에 다음 코드를 추가해야 합니다:
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -111,15 +111,15 @@ Appboy.sharedInstance()?.getActionWithIdentifier(identifier,
 {% endtabs %}
 
 {% alert important %}
-`handleActionWithIdentifier`를 사용하는 분들은 `UNNotification` 프레임워크를 사용하기 시작할 것을 강력히 권장합니다. [`handleActionWithIdentifier`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623068-application?language=objc)가 더 이상 사용되지 않기 때문입니다.
+`handleActionWithIdentifier`를 사용하는 경우 `UNNotification` 프레임워크를 사용하는 것을 강력히 권장합니다. 이는 [`handleActionWithIdentifier`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623068-application?language=objc)가 지원 중단되었기 때문입니다.
 {% endalert %}
 
 ## 푸시 카테고리 커스터마이징 {#push-category-customization}
 
-Braze는 [기본 푸시 카테고리]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/action_buttons) 세트를 제공하는 것 외에도 커스텀 알림 카테고리 및 동작을 지원합니다. 애플리케이션에 카테고리를 등록한 후 Braze 대시보드를 사용하여 사용자에게 알림 카테고리를 보낼 수 있습니다.
+Braze는 [기본 푸시 카테고리]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/action_buttons) 세트를 제공하는 것 외에도 커스텀 알림 카테고리와 액션을 지원합니다. 애플리케이션에 카테고리를 등록하면 Braze 대시보드를 사용하여 사용자에게 알림 카테고리를 전송할 수 있습니다.
 
-`UserNotifications` 프레임워크를 사용하지 않는 경우 [대체 카테고리](https://developer.apple.com/documentation/usernotifications/unnotificationcategory) 문서를 참조하세요.
+`UserNotifications` 프레임워크를 사용하지 않는 경우 [대체 카테고리](https://developer.apple.com/documentation/usernotifications/unnotificationcategory) 설명서를 참조하세요.
 
-그런 다음 대시보드를 통해 이러한 카테고리를 푸시 알림에 할당하여 디자인에 맞는 실행 버튼 구성을 트리거할 수 있습니다. 다음은 기기에 표시되는 `LIKE_CATEGORY`를 활용하는 예제입니다:
+이러한 카테고리는 대시보드를 통해 푸시 알림에 할당하여 원하는 디자인의 실행 버튼 구성을 트리거할 수 있습니다. 다음은 기기에 표시되는 `LIKE_CATEGORY`를 활용하는 예시입니다:
 
-!['싫어요' 및 '좋아요' 두 개의 푸시 실행 버튼을 표시하는 푸시 메시지.]({% image_buster /assets/img_archive/push_example_category.png %})
+![두 개의 푸시 실행 버튼 "unlike"와 "like"가 표시된 푸시 메시지.]({% image_buster /assets/img_archive/push_example_category.png %})

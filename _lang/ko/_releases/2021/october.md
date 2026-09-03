@@ -40,9 +40,9 @@ Braze는 이 설정이 해제되면 회사 연락처와 확장 생성자에게 �
 
 ### Adobe - 고객 데이터 플랫폼 {#adobe-customer-data-platform}
 
-Adobe Experience Platform을 기반으로 구축된 Adobe의 실시간 고객 데이터 플랫폼(실시간 CDP)은 기업이 여러 엔터프라이즈 소스의 알려진 데이터와 익명 데이터를 통합하여 모든 채널과 기기에서 개인화된 고객 경험을 실시간으로 제공하는 데 사용할 수 있는 고객 프로필을 생성할 수 있도록 지원합니다.
+Adobe Experience Platform을 기반으로 구축된 Adobe의 실시간 고객 데이터 플랫폼(실시간 고객 데이터 플랫폼)은 기업이 여러 엔터프라이즈 소스의 알려진 데이터와 익명 데이터를 통합하여 모든 채널과 기기에서 개인화된 고객 경험을 실시간으로 제공하는 데 사용할 수 있는 고객 프로필을 생성할 수 있도록 지원합니다.
 
-Braze와 [Adobe]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/adobe) CDP 통합을 통해 브랜드는 Adobe 데이터(커스텀 속성 및 Segments)를 실시간으로 Braze에 연결하고 매핑할 수 있습니다. 그런 다음 브랜드는 이 데이터를 기반으로 행동을 취하여 해당 사용자에게 개인화된 타겟팅 경험을 제공할 수 있습니다.
+Braze와 [Adobe]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/adobe) 고객 데이터 플랫폼 통합을 통해 브랜드는 Adobe 데이터(커스텀 속성 및 Segments)를 실시간으로 Braze에 연결하고 매핑할 수 있습니다. 그런 다음 브랜드는 이 데이터를 기반으로 행동을 취하여 해당 사용자에게 개인화된 타겟팅 경험을 제공할 수 있습니다.
 
 ### Shopify - 이커머스 {#shopify-ecommerce}
 

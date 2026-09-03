@@ -1,4 +1,4 @@
-2025年7月1日より、WhatsAppはメッセージ単位で課金されるようになりました。メッセージ料金は、受信者の電話番号の国コードと送信するメッセージタイプの両方に基づいて決まります。メッセージタイプは、WhatsApp Managerで承認申請する[メッセージテンプレート](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines/)によって決定されます。
+2025年7月1日より、WhatsAppはメッセージ単位で課金されるようになりました。メッセージ料金は、受信者の電話番号の国コードと送信するメッセージタイプの両方に基づいて決まります。メッセージタイプは、WhatsApp マネージャーで承認申請する[メッセージテンプレート](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines/)によって決定されます。
 
 {% alert note %}
 プラットフォーム上のすべてのビジネス主導の会話は、承認済みのテンプレートメッセージから開始する必要があります。
@@ -6,7 +6,7 @@
 
 {% if include.content == "h2" %}##{% else include.content == "h3" %}###{% endif %} メッセージテンプレートの定義
 
-以下は、WhatsApp Managerで承認申請できるメッセージテンプレートです。
+以下は、WhatsApp マネージャーで承認申請できるメッセージテンプレートです。
 
 | テンプレート | 定義 |
 |----------|------------|

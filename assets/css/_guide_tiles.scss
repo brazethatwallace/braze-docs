@@ -1,0 +1,78 @@
+// Link tiles inside standard article pages. Markup comes from the article_tiles Liquid tag.
+// Scoped to #article-main with a class so these rules outrank the global link, list,
+// and image rules nested in _content.scss.
+#main_content #article-main {
+	.guide_tiles {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 12px;
+		list-style: none;
+		margin: 0 0 25px;
+		padding: 0;
+		width: 100%;
+
+		> li {
+			display: flex;
+			flex: 0 1 100%;
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			@media (min-width: $window-medium-px) {
+				flex: 0 1 calc(33.333% - 8px);
+			}
+		}
+
+		a {
+			align-items: center;
+			background-color: $white;
+			border: 1px solid $grey-ghost;
+			border-radius: 8px;
+			box-shadow: 0 0 6px 0 rgba(32, 32, 36, 0.12);
+			color: $black-shark;
+			display: flex;
+			font-family: $braze-regular;
+			font-size: 14px;
+			font-weight: normal;
+			line-height: 1.4;
+			padding: 18px 20px;
+			text-decoration: none;
+			transition: border-color ease 0.2s;
+			width: 100%;
+
+			&:hover {
+				background-color: transparent;
+				border-color: $braze-link-color;
+			}
+
+			&:focus-visible {
+				@include focus-ring($radius: 8px);
+			}
+		}
+
+		.guide_tile {
+			align-items: center;
+			display: flex;
+			width: 100%;
+		}
+
+		.guide_tile_has_description {
+			align-items: flex-start;
+		}
+
+		.guide_tile_title {
+			display: block;
+			font-family: $braze-bold;
+			font-size: 14px;
+			line-height: 1.4;
+		}
+
+		.guide_tile_description {
+			color: $text-color;
+			display: block;
+			font-size: 14px;
+			font-weight: normal;
+			line-height: 1.4;
+			margin-top: 6px;
+		}
+	}
+}

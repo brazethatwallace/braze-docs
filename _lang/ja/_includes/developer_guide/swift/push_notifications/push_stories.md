@@ -36,9 +36,9 @@ Xcodeで、メインアプリターゲットの**Signing & Capabilities**パネ�
 ### ステップ 3: アプリにPush Storyフレームワークを追加する
 
 {% tabs local %}
-{% tab Swift Package Manager %}
+{% tab Swift Package マネージャー %}
 
-[Swift Package Managerの統合ガイド]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/sdk_integration/?tab=swift%20package%20manager/)に従って、`BrazePushStory`を`Notification Content Extension`に追加します。
+[Swift Package マネージャーの統合ガイド]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/sdk_integration/?tab=swift%20package%20manager/)に従って、`BrazePushStory`を`Notification Content Extension`に追加します。
 
 ![Xcodeで、フレームワークとライブラリの下にある「+」アイコンを選択してフレームワークを追加します。]({% image_buster /assets/img/swift/push_story/spm1.png %})
 

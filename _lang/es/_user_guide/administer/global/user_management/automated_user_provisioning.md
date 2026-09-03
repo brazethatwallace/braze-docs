@@ -17,23 +17,23 @@ alias: /scim/automated_user_provisioning/
 ## Acceder a la configuración de aprovisionamiento SCIM {#accessing-scim-provisioning-settings}
 
 {% alert important %}
-La disponibilidad del aprovisionamiento SCIM depende de tu edición de la plataforma. Si esta característica no está en tu espacio de trabajo, contacta a tu administrador de éxito de cliente para obtener información.
+La disponibilidad del aprovisionamiento SCIM depende de tu edición de la plataforma. Si esta característica no está en tu espacio de trabajo, contacta a tu CSM para obtener información.
 {% endalert %}
 
-1. En el panel de Braze, ve a **Configuración** > **Configuración de administrador** > **Aprovisionamiento SCIM** y selecciona **Configurar integración SCIM**.
+1. En el panel de Braze, ve a **Configuración** > **Configuración de la empresa** > **Configuración de administrador** > **Aprovisionamiento SCIM** y selecciona **Configurar integración SCIM**.
 2. En el paso **Configuración de Braze**, selecciona un método de aprovisionamiento y proporciona la configuración de acceso.
 
 ![Una página para configurar la integración SCIM con secciones para seleccionar un método de aprovisionamiento y proporcionar la configuración de acceso.]({% image_buster /assets/img_archive/scim_braze_config.png %}){: style="max-width:70%;"}
 
 {: start="3"}
-3. En el paso **Configuración del IdP**, sigue los pasos dentro de la plataforma para tu método de aprovisionamiento seleccionado.
+3. En el paso **Configuración del IdP**, sigue los pasos dentro de la plataforma para el método de aprovisionamiento seleccionado.
 
 {% tabs %}
 {% tab Okta - Braze app %}
 
 {% multi_lang_include alerts/early_access_beta_alert.md feature='The Okta integration' %}
 
-Usa la opción **Okta - Braze app** si configuraste la aplicación de Braze para SAML SSO en Okta. Si configuraste una aplicación personalizada para SSO, sigue las instrucciones en la pestaña [Okta - Custom app integration]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning?tab=okta%20-%20custom%20app%20integration#step-1-set-up-scim-provisioning).
+Usa la opción **Okta - Braze app** si configuraste la aplicación de Braze para SAML inicio de sesión único en Okta. Si configuraste una aplicación personalizada para inicio de sesión único, sigue las instrucciones en la pestaña [Okta - Custom app integration]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning?tab=okta%20-%20custom%20app%20integration#step-1-set-up-scim-provisioning).
 
 {% multi_lang_include scim/scim_alerts.md alert='idp_integration' idp='Okta' %}
 
@@ -53,7 +53,7 @@ Usa la opción **Okta - Braze app** si configuraste la aplicación de Braze para
 
 ### Paso 1.2: Desactivar la visibilidad de la aplicación {#step-12-disable-application-visibility}
 
-1. En el campo **Application visibility**, selecciona la casilla **Do not display application icon to user**. Esto evita que los usuarios accedan a SSO a través de la aplicación, que está destinada únicamente para SCIM.
+1. En el campo **Application visibility**, selecciona la casilla **Do not display application icon to user**. Esto evita que los usuarios accedan a inicio de sesión único a través de la aplicación, que está destinada únicamente para SCIM.
 2. Selecciona **Save**.
 
 ### Paso 1.3: Configurar la integración SCIM {#step-13-set-up-the-scim-integration}
@@ -86,7 +86,7 @@ Selecciona **Test API Credentials**. Si la integración es exitosa, aparece un m
 
 {% multi_lang_include alerts/early_access_beta_alert.md feature='The Okta integration' %}
 
-Usa la opción **Okta - Custom app integration** si configuraste una aplicación personalizada para SSO. Si configuraste la aplicación de Braze para SAML SSO en Okta, sigue las instrucciones en la pestaña [Okta - Braze app]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning?tab=okta%20-%20braze%20app#step-1-set-up-scim-provisioning).
+Usa la opción **Okta - Custom app integration** si configuraste una aplicación personalizada para inicio de sesión único. Si configuraste la aplicación de Braze para SAML inicio de sesión único en Okta, sigue las instrucciones en la pestaña [Okta - Braze app]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning?tab=okta%20-%20braze%20app#step-1-set-up-scim-provisioning).
 
 {% multi_lang_include scim/scim_alerts.md alert='idp_integration' idp='Okta' %}
 
@@ -152,7 +152,7 @@ Inicia sesión en tu centro de administración de Microsoft Entra.
 
 ### Paso 1.4: Habilitar el aprovisionamiento en la aplicación {#step-14-enable-provisioning-to-the-app}
 
-1. Ve a la sección **Manage** > **Attribute mapping (Preview)** de tu aplicación SCIM.
+1. Ve a la sección **Manage** > **Attribute mapping (vista previa)** de tu aplicación SCIM.
 2. Selecciona **Provision Microsoft Entra ID Users**.
 3. Revisa y configura la sección **Attribute Mapping** para que coincida con los atributos que aparecen en la tabla de la página **Setup SCIM provisioning**.
 4. Cierra la página **Attribute Mapping**.
@@ -174,14 +174,14 @@ El atributo `userName` debe coincidir exactamente con la dirección de correo el
 ## Paso 1: Configurar tus ajustes SCIM {#step-1-configure-your-scim-settings}
 
 - **Espacio de trabajo predeterminado:** Selecciona el espacio de trabajo donde se deben agregar los nuevos usuarios de forma predeterminada. Si no especificas un espacio de trabajo en tu [solicitud de API SCIM]({{site.baseurl}}/post_create_user_account), Braze asigna a los usuarios a este espacio de trabajo.
-- **Service Origin:** Ingresa el dominio de origen de tus solicitudes SCIM. Braze lo utiliza en el encabezado `X-Request-Origin` para verificar de dónde provienen las solicitudes.
-- **Lista de IP permitidas (opcional):** Puedes restringir las solicitudes SCIM a direcciones IP específicas. Ingresa una lista separada por comas o un rango de direcciones IP a permitir. El encabezado `X-Request-Origin` en cada solicitud se utiliza para verificar la dirección IP de la solicitud contra la lista de permitidos.
+- **Service Origin:** Ingresa el dominio de origen de tus solicitudes SCIM. Braze lo usa en el encabezado `X-Request-Origin` para verificar de dónde provienen las solicitudes.
+- **Lista de IP permitidas (opcional):** Puedes restringir las solicitudes SCIM a direcciones IP específicas. Ingresa una lista separada por comas o un rango de direcciones IP a permitir. El encabezado `X-Request-Origin` en cada solicitud se usa para verificar la dirección IP de la solicitud contra la lista de permitidos.
 
 ## Paso 2: Generar un token SCIM {#step-2-generate-a-scim-token}
 
 Después de completar los campos obligatorios, presiona **Generate SCIM token** para generar un token SCIM y ver tu endpoint de API SCIM. Asegúrate de copiar el token SCIM antes de navegar a otra página. **Este token aparece solo una vez.**
 
-![Campos de endpoint de API SCIM y token SCIM mostrados con valores enmascarados y botones de copiar. Debajo del campo del token hay un botón "Reset Token".]({% image_buster /assets/img/scim.png %})
+![Campos de endpoint de API SCIM y token SCIM mostrados con valores enmascarados y botones de copiar. Debajo del campo del token hay un botón de reinicio de token.]({% image_buster /assets/img/scim.png %})
 
 Braze espera que todas las solicitudes SCIM contengan el token bearer de la API SCIM adjunto a través de un encabezado HTTP `Authorization`.
 

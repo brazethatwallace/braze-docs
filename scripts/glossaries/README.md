@@ -42,6 +42,15 @@ lists English glossary keys that are too generic for blind `_lang/` substring
 replacement during sync (for example `monitoring`, which would corrupt
 `{#monitoring-...}` heading anchor IDs).
 
+Propagation uses only the **first** Phrase synonym when a glossary value contains
+` or ` (for example `SDK or Software-Development-Kit` → `SDK`). Files under
+`_lang/*/_api/` are skipped entirely so API reference pages keep English acronyms
+and endpoint literals intact.
+
+If a sync PR still contains known corruption patterns (for example `Taxi for Email`
+in rideshare examples or `On-Klick, der` from the `click` glossary key), run
+`python scripts/repair_glossary_propagation_corruption.py` before merging.
+
 ### Sync exclusions
 
 [`../phrase_glossary_sync_exclusions.json`](../phrase_glossary_sync_exclusions.json)

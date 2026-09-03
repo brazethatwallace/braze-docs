@@ -50,7 +50,7 @@ Braze uses Google's [libphonenumber](https://github.com/google/libphonenumber) l
 
 ### Handling invalid phone numbers
 
-When a phone number is deemed invalid, Braze will mark the user's phone number as invalid and will not attempt to send further communications to that phone number. An invalid phone number is marked in the **Engagement Tab** of a user profile.
+When a phone number is deemed invalid, Braze marks the user's phone number as invalid and does not attempt to send further communications to that phone number. An invalid phone number is marked in the **Engagement Tab** of a user profile.
 
 ![Example error message for invalid phone numbers in Braze.]({% image_buster /assets/img/sms/invalid_banner.png %}){: style="max-width:50%;border: 0;"}
 
@@ -70,7 +70,7 @@ You can also include or exclude any users with invalid phone numbers when [creat
 ## Exclude rejected SMS sends from segmentation
 
 {% alert important %}
-SMS rejections are charged toward your SMS allotment.
+SMS rejections may count toward your SMS allotment depending on your Braze contract and SMS provider. For billing outcomes, see [Reporting]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting).
 {% endalert %}
 
 To exclude users with rejected SMS sends from your segments, use [SQL Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments), do the following:
@@ -91,4 +91,4 @@ Braze relies on third-party tools to source invalid numbers. Braze is not respon
 
 ## Phone number capture
 
-To capture phone numbers through in-app messages, refer to [Phone number capture]({{site.baseurl}}/phone_number_capture).
+To capture phone numbers through in-app messages, refer to [SMS, RCS, and WhatsApp sign-up form]({{site.baseurl}}/phone_number_capture).

@@ -24,7 +24,7 @@ Die Integration von Braze und DataGrail ermöglicht es Ihnen, die in Braze erfas
 |---|---|
 | DataGrail-Konto | Ein DataGrail-Konto ist erforderlich, um die Vorteile dieser Partnerschaft zu nutzen.<br>Wenden Sie sich bei Problemen oder Fragen zur Integration an Ihren Administrator oder senden Sie eine E-Mail an support@datagrail.io. |
 | Braze-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit den Berechtigungen `events.list`, `users.export.ids`, `users.delete` und `users.track`.<br><br>Dieser kann im Braze-Dashboard unter **Settings** > **API Keys** erstellt werden. |
-| Braze-Instanz | Ihre Braze-Instanz erhalten Sie von Ihrem Braze-Onboarding-Manager oder auf der [API-Übersichtsseite]({{site.baseurl}}/api/basics/#endpoints). |
+| Braze-Instanz | Ihre Braze-Instanz erhalten Sie von Ihrem Braze-Onboarding-Manager:in oder auf der [API-Übersichtsseite]({{site.baseurl}}/api/basics/#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Integration

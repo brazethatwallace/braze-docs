@@ -92,7 +92,7 @@ Braze의 사용자는 일반적으로 두 가지 상태 중 하나에 해당합�
 
 {% tab API 및 통합 %}
 - [REST API]({{site.baseurl}}/api/endpoints/user_data) 또는 [CSV 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import)를 통해 사용자를 직접 생성하거나 업데이트할 수 있습니다.
-- 외부 도구(CDP, CRM, 데이터 웨어하우스 등)를 통해 사용자를 Braze에 자동으로 동기화할 수 있습니다.
+- 외부 도구(고객 데이터 플랫폼, CRM, 데이터 웨어하우스 등)를 통해 사용자를 Braze에 자동으로 동기화할 수 있습니다.
 {% endtab %}
 {% endtabs %}
 

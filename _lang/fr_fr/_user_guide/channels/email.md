@@ -11,30 +11,31 @@ search_rank: 2
 
 # E-mail {#email}
 
-> Avec l'e-mail de Braze, vous pouvez créer des messages e-mail entièrement personnalisés dans des Campaigns ou des Canvas pour capter l'attention de vos utilisateurs en dehors de votre application ou de votre site web. Personnalisez vos messages e-mail, de la gestion de votre audience à l'intégration de contenu multimédia accrocheur. Pour consulter des exemples de campagnes e-mail, reportez-vous aux [études de cas](https://www.braze.com/customers/) de Braze.
+> Avec l'e-mail de Braze, vous créez des messages e-mail personnalisés dans des Campaigns ou des Canvas qui atteignent vos utilisateurs en dehors de votre application ou de votre site web. Ce hub couvre la configuration des e-mails, les éditeurs par glisser-déposer et HTML, la gestion des abonnements, les modèles et les tests afin que vous puissiez lancer des programmes e-mail conformes et fidèles à votre marque. Utilisez les modèles d'e-mail de Braze ou du HTML personnalisé pour refléter le ton et la mise en page de votre marque. Commencez par la [configuration des e-mails]({{site.baseurl}}/user_guide/channels/email/email_setup) si vous configurez un nouveau domaine d'envoi. Pour consulter des exemples de campagnes e-mail, reportez-vous aux [études de cas](https://www.braze.com/customers/) de Braze.
 
 ## Prérequis {#prerequisites}
 
-Avant de pouvoir envoyer des e-mails avec Braze, vous devez configurer vos adresses IP dédiées, vos domaines, l'authentification des e-mails et l'IP warming. Pour un guide complet, consultez la section [Configuration des e-mails]({{site.baseurl}}/user_guide/channels/email/email_setup).
+Avant de pouvoir envoyer des e-mails avec Braze, vous devez configurer vos IP dédiées, vos domaines, l'authentification des e-mails et l'IP warming. Pour une procédure complète, consultez la section [Configuration des e-mails]({{site.baseurl}}/user_guide/channels/email/email_setup).
 
 ## Personnalisez vos e-mails {#customize-your-emails}
 
-Vous pouvez personnaliser vos e-mails de différentes manières, notamment :
+Vous pouvez personnaliser vos communications par e-mail de différentes manières, notamment :
 
 - [Modèles d'e-mails Braze]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template)
 - [Modèles HTML personnalisés]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template)
 - [Blocs de l'éditeur (e-mail)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=email)
 - [Abonnements des utilisateurs]({{site.baseurl}}/user_guide/channels/email/subscriptions)
+- [Groupes d'abonnement]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups)
 
 ## Testez vos e-mails {#test-your-emails}
 
-Les [groupes initiateurs]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups) envoient automatiquement des copies de vos campagnes e-mail aux utilisateurs internes pour effectuer un contrôle qualité. Les e-mails initiateurs incluent `[SEED]` ajouté au début de la ligne d'objet pour vous aider à les identifier.
+Les [groupes initiateurs]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups) envoient automatiquement des copies de vos campagnes e-mail aux utilisateurs internes à des fins d'assurance qualité. Les e-mails initiateurs incluent `[SEED]` ajouté au début de la ligne d'objet pour vous aider à les identifier.
 
 ## Cas d'usage {#use-cases}
 
 | Cas d'usage | Explication |
 | --- | --- |
-| Réengagement | Contactez les utilisateurs en dehors de votre application, y compris ceux qui ne l'ont pas installée. |
+| Réengagement | Contactez les utilisateurs en dehors de votre application, y compris ceux qui n'ont pas installé l'application. |
 | Onboarding | Accueillez et encouragez les nouveaux utilisateurs à activer les notifications push ou à partager l'application sur les réseaux sociaux. |
 | Messages enrichis | Permettez l'envoi de messages HTML riches et dynamiques. |
 | Contenu multimédia | Facilitez l'intégration de contenu multimédia engageant pour les utilisateurs, comme des vidéos et des images. |
@@ -62,7 +63,21 @@ Ces services peuvent inclure :
   - Formuler des recommandations pour améliorer les performances et les résultats de votre programme e-mail en s'appuyant sur les données et les bonnes pratiques établies
 - Atténuer et résoudre les situations de crise liées à des événements entraînant des problèmes tels qu'une mise en liste de blocage affectant la livrabilité
 
-## Étapes suivantes {#next-steps}
+## Questions fréquemment posées {#frequently-asked-questions}
+
+### Comment configurer l'envoi d'e-mails dans Braze ? {#how-do-i-set-up-email-sending-in-braze}
+
+Configurez des IP dédiées, des domaines, l'authentification et l'IP warming avant votre premier envoi. Consultez la [Configuration des e-mails]({{site.baseurl}}/user_guide/channels/email/email_setup) pour la liste complète des étapes.
+
+### Quelle est la différence entre les abonnements utilisateur et les groupes d'abonnement ? {#what-is-the-difference-between-user-subscriptions-and-subscription-groups}
+
+Les abonnements utilisateur contrôlent le statut d'abonnement global pour un canal (par exemple, abonné ou désabonné aux e-mails). Les groupes d'abonnement permettent aux utilisateurs de choisir des catégories de messages spécifiques au sein de ce canal. Consultez [Abonnements utilisateur]({{site.baseurl}}/user_guide/channels/email/subscriptions) et [Groupes d'abonnement]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups).
+
+### Comment puis-je tester un e-mail avant d'envoyer une campagne ? {#how-can-i-test-an-email-before-i-send-a-campaign}
+
+Utilisez les [groupes initiateurs]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups) pour envoyer des copies d'aperçu à des réviseurs internes et vérifier le rendu sur différents clients de messagerie.
+
+## Prochaines étapes {#next-steps}
 
 - [Configuration des e-mails]({{site.baseurl}}/user_guide/channels/email/email_setup)
 - [Créer un e-mail avec l'éditeur par glisser-déposer]({{site.baseurl}}/user_guide/channels/email/drag_and_drop)

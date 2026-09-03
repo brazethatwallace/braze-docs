@@ -15,7 +15,7 @@ tool:
 
 # Géorepérages {#geofences}
 
-> Découvrez comment configurer des géorepérages pour le SDK de Braze. Un [géorepérage]({{site.baseurl}}/user_guide/engagement_tools/locations_and_geofences/#about-locations-and-geofences) est une zone géographique virtuelle qui forme un cercle autour d'une position globale spécifique et qui est représentée en combinant la latitude, la longitude et un rayon.
+> Découvrez comment configurer des géorepérages pour le SDK de Braze. Un [géorepérage]({{site.baseurl}}/user_guide/audience/locations_and_geofences) est une zone géographique virtuelle qui forme un cercle autour d'une position globale spécifique, représentée par la combinaison d'une latitude, d'une longitude et d'un rayon.
 
 {% sdktabs %}
 {% sdktab android %}

@@ -32,7 +32,7 @@ Wenn Sie beispielsweise innerhalb eines kurzen Zeitraums aufeinanderfolgende Anf
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/api_key) mit der Berechtigung `users.track.sync`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics) mit der Berechtigung `users.track.sync`.
 
 Kund:innen, die die API für Server-zu-Server-Aufrufe verwenden, müssen möglicherweise `rest.iad-01.braze.com` auf die Zulassungsliste setzen, wenn sie sich hinter einer Firewall befinden.
 

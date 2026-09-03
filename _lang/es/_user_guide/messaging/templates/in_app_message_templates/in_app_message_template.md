@@ -49,7 +49,7 @@ Puedes editar plantillas existentes o seleccionar **+ Crear** y elegir **Perfil 
 
 #### Perfil de color {#color-profile}
 
-Puedes personalizar la combinación de colores de tu plantilla de mensaje introduciendo un código de color HEX o seleccionando el cuadro de color y eligiendo un color con el selector de colores. Si quieres que este perfil se aplique de forma predeterminada cuando crees nuevos mensajes dentro de la aplicación en el editor tradicional, selecciona **Usar como perfil predeterminado**.
+Puedes personalizar la combinación de colores de tu plantilla de mensaje introduciendo un código de color HEX o seleccionando el cuadro de color y eligiendo un color con el SELECTOR de colores. Si quieres que este perfil se aplique de forma predeterminada cuando crees nuevos mensajes dentro de la aplicación en el editor tradicional, selecciona **Usar como perfil predeterminado**.
 
 Selecciona **Guardar perfil de color** cuando hayas terminado.
 

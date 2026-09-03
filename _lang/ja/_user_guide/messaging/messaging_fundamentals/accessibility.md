@@ -22,7 +22,7 @@ description: "このリファレンス記事では、マーケティングコン
 
 アクセシブルなコミュニケーションをサポートするということは、オープンで好奇心を持ち、学び続ける姿勢を大切にすることです。Brazeでは、人々のつながりを支援することを大切にしており、すべての人を受け入れることがその実現の一部であると考えています。アクセシビリティは「完了」とみなすものではなく、学び続ける機会を歓迎しています。
 
-{% multi_lang_include accessibility/feedback.md %}
+{% multi_lang_include accessibility/フィードバック.md %}
 
 ## 考慮すべき障害の領域 {#areas-of-disability-to-consider}
 

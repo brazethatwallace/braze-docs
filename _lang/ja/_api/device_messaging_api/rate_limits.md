@@ -1,0 +1,40 @@
+---
+nav_title: レート制限
+article_title: Device Messaging APIのレート制限
+page_order: 3
+page_type: reference
+description: "Device Messaging APIのレート制限とレスポンスヘッダーの仕組みについて説明します。"
+hidden: true
+---
+
+# Device Messaging APIのレート制限 {#device-messaging-api-rate-limits}
+
+BrazeはワークスペースごとにDevice Messaging APIのレート制限を適用します。ワークスペースが制限を超えた場合、Brazeは`429 Too Many Requests`ステータスコードを返します。
+
+Device Messaging APIの制限は、他のBraze REST APIエンドポイントに記載されているデフォルトの制限とは別のものです。他のエンドポイントに記載されている制限、時間枠、ペイロードサイズ、またはリセットスケジュールがDevice Messaging APIに適用されると想定しないでください。
+
+{% alert important %}
+このページはベータ版です。Device Messaging APIの機能とドキュメントは変更される可能性があります。アクセスをリクエストするには、Brazeアカウントマネージャーにお問い合わせください。
+{% endalert %}
+
+## レート制限ヘッダー {#rate-limit-headers}
+
+レート制限情報が利用可能な場合、レスポンスには以下のヘッダーが含まれます。
+
+| ヘッダー | 説明 |
+|---|---|
+| `X-RateLimit-Limit` | 現在のインターバルで許可されるリクエストの最大数。 |
+| `X-RateLimit-Remaining` | 現在のレート制限ウィンドウで残っているリクエスト数。 |
+| `X-RateLimit-Reset` | 現在のレート制限ウィンドウがリセットされるUTCエポック時間。 |
+| `X-RateLimit-Retry-After` | レート制限されたリクエストを再試行するまでの待機秒数。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Device Messaging APIのレート制限ヘッダー" }
+
+これらのヘッダーを使用して、制限に達する前にリクエストを減らすか一時停止してください。ヘッダーはすべてのレスポンスに含まれるとは限りません。
+
+## レート制限の処理 {#handling-rate-limits}
+
+`429`レスポンスを受信した場合：
+
+1. 影響を受けるワークスペースへのリクエストを停止または削減します。
+2. `X-RateLimit-Retry-After`が存在する場合は、それを使用して待機時間を決定します。それ以外の場合は、`X-RateLimit-Reset`が利用可能であれば、それを使用してリクエスト再開のタイミングを決定します。
+3. 指数バックオフと最大リトライ回数を設定してリトライします。

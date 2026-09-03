@@ -4,76 +4,73 @@ page_order: 0
 noindex: true
 ---
 
-# Beispiel-Layout: Übersicht {#example-layout-overview}
+# Beispiel-Layout: Übersicht
 
 > Das Übersichtslayout eignet sich gut, um eine spezielle Navigationsoption am oberen Rand einer Seite zu erstellen, die es Nutzer:innen ermöglicht, durch Klicken auf einen Button zu einem bestimmten Teil einer Seite oder zu einer ganz anderen Seite zu gelangen.
 
-Klassische Beispiele für das Selektor-Layout sind die Seite [SDK Changelogs]({{site.baseurl}}/developer_guide/changelogs/) oder die Seite [Kreative Details für In-App-Nachrichten]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/creative_details/).
+Klassische Beispiele für das Selektor-Layout sind die Seite [SDK Changelogs]({{site.baseurl}}/developer_guide/changelogs) oder die Seite [Kreative Details für In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types).
 
-## Erforderliche Komponenten {#required-components}
+## Erforderliche Komponenten
 
-1. YAML-Notation für Öffnungen und Schließungen. Mit anderen Worten: --- vor dem Inhalt und --- danach.
+1. YAML-Anfangs- und Endmarkierung. Das heißt, --- vor dem Inhalt und --- danach.
 2. Anführungszeichen um bestimmte Parameterinhalte. (Header-Parameter, Textparameter, Inhalte mit Bindestrichen oder anderen Sonderzeichen.)
-3. Glossar-Tags-Notation (Dies sind Filter-Tags)
+3. Glossary-Tags-Notation (Dies sind Filter-Tags)
 
-## Erforderliche Parameter {#required-parameters}
+## Erforderliche Parameter
 
 | Parameter | Inhaltstyp | Details |
 |---|---|---|
-| `page_order` | Numerisch | Ordnen Sie die Seite innerhalb des Abschnitts. Diese Reihenfolge wird in der linken Navigation angezeigt. |
-| `nav-title` | Alphanumerisch | Titel, der in der linken Navigation erscheint. |
-| `layout` | Alphanumerisch – Keine Leerzeichen | Wählen Sie ein Layout aus dem [Layoutbereich](https://github.com/Appboy/braze-docs/tree/develop/_layouts) der Dokumentation aus. |
-| `guide_top_header` | Alphanumerisch | Betiteln Sie Ihre Seite. |
-| `guide_top_text` | Alphanumerisch | Beschreiben Sie Ihre Seite. Dies wird direkt über den Buttons und deren Titel angezeigt. Anführungszeichen um den Inhalt erforderlich. |
-| `guide_featured_title` | Alphanumerisch | Betiteln Sie Ihre Karten. Dies wird direkt über den Buttons angezeigt. |
-| `guide_featured_list` | Mehr YAML, Alphanumerisch | Siehe [Leitfaden-Listenformat](#guide-listing-format) unten. |
+| `page_order` | Numerisch | Ordnet die Seite innerhalb des Abschnitts an. Diese Reihenfolge wird in der linken Navigation widergespiegelt. |
+| `nav-title` | Alphanumerisch | Titel, der in der linken Navigation angezeigt wird. |
+| `layout` | Alphanumerisch – Keine Leerzeichen | Wählen Sie ein Layout aus dem [Layout-Bereich](https://github.com/Appboy/braze-docs/tree/develop/_layouts) der Dokumentation aus. |
+| `guide_top_header` | Alphanumerisch | Vergeben Sie einen Titel für Ihre Seite. |
+| `guide_top_text` | Alphanumerisch | Beschreiben Sie Ihre Seite. Dieser Text wird direkt über den Buttons und deren Titel angezeigt. Der Inhalt muss in Anführungszeichen stehen. |
+| `guide_featured_title` | Alphanumerisch | Vergeben Sie einen Titel für Ihre Karten. Dieser wird direkt über den Buttons angezeigt. |
+| `guide_featured_list` | Weiteres YAML, Alphanumerisch | Siehe [Format für Guide-Auflistung](#guide-listing-format) unten. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Erforderliche Parameter" }
 
-### Leitfaden-Listenformat {#guide-listing-format}
+### Format für Guide-Auflistung {#guide-listing-format}
 
 | Parameter | Inhaltstyp | Details |
 |---|---|---|
-| `name` | Alphanumerisch | Benennen Sie das Feld. |
-| `link` | URL oder Pfad | Link zum Ziel des Feldes. Muss die vollständige URL enthalten oder (bei einem internen Link) `/docs...` |
+| `name` | Alphanumerisch | Benennen Sie die Box. |
+| `link` | URL oder Pfad | Link zum Ziel der Box. Muss eine vollständige URL oder (bei einem internen Link) `/docs...` enthalten. |
 | `image` | Pfad | Link zum Speicherort des Bildes. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Leitfaden-Listenformat" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Format für Guide-Auflistung" }
 
-Beispiel für das Format:
+Formatbeispiel:
 
 ```yaml
 - name: Modal
-  link: /docs/user_guide/message_building_by_channel/in-app_messages/creative_details/#modal
+  link: /docs/user_guide/channels/in_app_messages/message_types/#modal
   image: /assets/img/braze_icons/layout-alt-01.svg
 ```
 
-## Beispiel {#example}
-
 ```yaml
 ---
-nav_title: Creative Details
+nav_title: Kreative Details
 page_order: 4
 layout: featured
-guide_top_header: "Creative Details"
-guide_top_text: "Get creative with our in-app messages! But you should know some of the guidelines, first! After all, you have to know those rules to break them! Check out the individual message type's Creative Specs or the global Creative Details below."
+guide_top_header: "Kreative Details"
+guide_top_text: "Werden Sie kreativ mit unseren In-App-Nachrichten! Aber Sie sollten zuerst einige Richtlinien kennen! Schließlich müssen Sie die Regeln kennen, um sie zu brechen! Sehen Sie sich die kreativen Spezifikationen der einzelnen Nachrichtentypen oder die allgemeinen kreativen Details unten an."
 
-guide_featured_title: "Message Type Creative Specs"
+guide_featured_title: "Kreative Spezifikationen nach Nachrichtentyp"
 guide_featured_list:
 - name: Modal
-  link: /docs/user_guide/message_building_by_channel/in-app_messages/creative_details/#modal
+  link: /docs/user_guide/channels/in_app_messages/message_types/#modal
   image: /assets/img/braze_icons/layout-alt-01.svg
 - name: Slideup
-  link: /docs/user_guide/message_building_by_channel/in-app_messages/creative_details/#slideup
+  link: /docs/user_guide/channels/in_app_messages/message_types/#slideup
   image: /assets/img/braze_icons/arrow-circle-broken-up.svg
-- name: Full-Screen
-  link: /docs/user_guide/message_building_by_channel/in-app_messages/creative_details/#full-screen
+- name: Vollbild
+  link: /docs/user_guide/channels/in_app_messages/message_types/#full-screen
   image: /assets/img/braze_icons/expand-05.svg
 ---
 
-# Creative Details {#general}
+# Kreative Details {#general}
 
-Braze in-app messages have both global and individual creative specifications. For more information on our more customizable in-app message types, go to our [Customize]({{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/customize/) page.
+In-App-Nachrichten von Braze verfügen sowohl über allgemeine als auch über individuelle kreative Spezifikationen. Weitere Informationen zu unseren stärker anpassbaren In-App-Nachrichtentypen finden Sie auf unserer Seite [Anpassen]({{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/customize/).
 
 {% alert important %}
-  These details only apply to our most recent in-app message generation (Generation 3). If you are not using our newest generation of in-app messages, check out our [previous in-app message generations]({{ site.baseurl }}/help/best_practices/in-app_messages/previous_in-app_message_generations/) documentation.
+  Diese Details gelten nur für unsere neueste In-App-Nachrichten-Generation (Generation 3). Wenn Sie nicht unsere neueste Generation von In-App-Nachrichten verwenden, lesen Sie unsere Dokumentation zu [früheren In-App-Nachrichten-Generationen]({{ site.baseurl }}/help/best_practices/in-app_messages/previous_in-app_message_generations/).
 {% endalert %}
-```

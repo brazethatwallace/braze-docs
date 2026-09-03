@@ -24,7 +24,7 @@ Speicherschemata gelten für die Flat-File-Eventdaten, die wir an Data-Warehouse
 Diese Events sind auch als SQL-Tabellen im [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder), in [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) und im [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake) verfügbar. Für SQL-Tabellenschemata und Spaltendetails lesen Sie die [SQL-Tabellenreferenz]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
 {% endalert %}
 
-Wenden Sie sich an Ihren Account Manager oder eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/braze_support), wenn Sie Zugriff auf zusätzliche Event-Berechtigungen benötigen. Falls Sie in diesem Artikel nicht finden, was Sie suchen, besuchen Sie unsere [Kundenverhalten-Event-Bibliothek]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) oder unsere [Currents-Beispieldaten](https://github.com/Appboy/currents-examples/tree/master/sample-data).
+Wenden Sie sich an Ihren Account Manager:in oder eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/braze_support), wenn Sie Zugriff auf zusätzliche Event-Berechtigungen benötigen. Falls Sie in diesem Artikel nicht finden, was Sie suchen, besuchen Sie unsere [Kundenverhalten-Event-Bibliothek]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) oder unsere [Currents-Beispieldaten](https://github.com/Appboy/currents-examples/tree/master/sample-data).
 
 {% enddetails %}
 
@@ -34,7 +34,7 @@ Wenden Sie sich an Ihren Account Manager oder eröffnen Sie ein [Support-Ticket]
 
 Diese Aufschlüsselung zeigt, welche Art von Informationen in der Regel in einem Nachrichten-Engagement-Event enthalten sind. Mit einem soliden Verständnis der Komponenten können Ihre Entwickler:innen und Ihr Business-Intelligence-Strategie-Team die eingehenden Currents-Eventdaten nutzen, um datengestützte Berichte und Charts zu erstellen und weitere wertvolle Datenmetriken auszuwerten.
 
-![Aufschlüsselung eines Nachrichten-Engagement-Events, das ein E-Mail-Abmelde-Event mit den aufgelisteten Eigenschaften zeigt, gruppiert nach nutzerspezifischen Eigenschaften, Campaign- oder Canvas-Tracking-Eigenschaften und eventspezifischen Eigenschaften]({% image_buster /assets/img/message_engagement_event.png %})
+![Aufschlüsselung eines Nachrichten-Engagement-Events, das ein E-Mail-Abmelde-Event mit den aufgelisteten Eigenschaften zeigt, gruppiert nach nutzerspezifischen Eigenschaften, Campaign- oder Canvas-Tracking-Eigenschaften und eventspezifischen Eigenschaften]({% image_buster /assets/img/message_engagement_event.png %}){: width="2300" height="770" style="max-width:100%;height:auto;"}
 
 Nachrichten-Engagement-Events bestehen aus **nutzerspezifischen** Eigenschaften, **Campaign-/Canvas-Tracking**-Eigenschaften und **eventspezifischen** Eigenschaften.
 
@@ -45,7 +45,7 @@ Beachten Sie die Namenskonventionen für Nutzer:innen-IDs.
 | Braze-Schema | Currents-Schema | Beschreibung |
 | ----------- | ----------- | ----------- |
 | `braze_id` | `"USER_ID"` | Der eindeutige Bezeichner, der automatisch von Braze zugewiesen wird. |
-| `external_id` | `"EXTERNAL_USER_ID"` | Der eindeutige Bezeichner eines Nutzer:innenprofils, der von der Kund:in festgelegt wird. |
+| `external_id` | `"EXTERNAL_USER_ID"` | Der eindeutige Bezeichner eines Nutzerprofils, der von der Kund:in festgelegt wird. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Nutzer:innen-ID-Schema" }
 
 ### Plattformwerte {#platform-values}

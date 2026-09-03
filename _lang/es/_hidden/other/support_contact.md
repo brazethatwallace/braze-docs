@@ -1317,7 +1317,7 @@ var ticket_lookuptable = {
                 },
                 'Other' : {
                   'ShowSubmit': true,
-                  'LinksTitle': ['Braze Developer Guide','SDK Changelog','Sending Test Messages','Braze Learning Course: Technical Integration Checklist and Toolkits'],
+                  'LinksTitle': ['Braze Developer Guide','SDK Registro de cambios','Sending Test Messages','Braze Learning Course: Technical Integration Checklist and Toolkits'],
                   'Links' : ['{{site.baseurl}}/developer_guide/home','{{site.baseurl}}/developer_guide/platform_integration_guides/sdk_changelogs','{{site.baseurl}}/developer_guide/platform_wide/sending_test_messages/','https://learning.braze.com/technical-integration-checklists-and-toolkits']
                 }
               }
@@ -1345,7 +1345,7 @@ var ticket_lookuptable = {
                 },
                 'Other' : {
                   'ShowSubmit': true,
-                  'LinksTitle': ['Braze Developer Guide','SDK Changelog','Sending Test Messages','Braze Learning Course: Technical Integration Checklist and Toolkits'],
+                  'LinksTitle': ['Braze Developer Guide','SDK Registro de cambios','Sending Test Messages','Braze Learning Course: Technical Integration Checklist and Toolkits'],
                   'Links' : ['{{site.baseurl}}/developer_guide/home','{{site.baseurl}}/developer_guide/platform_integration_guides/sdk_changelogs','{{site.baseurl}}/developer_guide/platform_wide/sending_test_messages/','https://learning.braze.com/technical-integration-checklists-and-toolkits']
                 }
               }
@@ -1372,7 +1372,7 @@ var ticket_lookuptable = {
                 },
                 'Other' : {
                   'ShowSubmit': true,
-                  'LinksTitle': ['Braze Developer Guide','SDK Changelog','Sending Test Messages','Braze Learning Course: Technical Integration Checklist and Toolkits'],
+                  'LinksTitle': ['Braze Developer Guide','SDK Registro de cambios','Sending Test Messages','Braze Learning Course: Technical Integration Checklist and Toolkits'],
                   'Links' : ['{{site.baseurl}}/developer_guide/home','{{site.baseurl}}/developer_guide/platform_integration_guides/sdk_changelogs','{{site.baseurl}}/developer_guide/platform_wide/sending_test_messages/','https://learning.braze.com/technical-integration-checklists-and-toolkits']
                 }
               }
@@ -1448,7 +1448,7 @@ var ticket_lookuptable = {
           'SelectOption': {
             'Setup (whitelabeled IPs, DNS records)' : {
               'ShowSubmit': true,
-              'LinksTitle': ['Email Onboarding Resources','Setting Up IPs and Domains','IP warming'],
+              'LinksTitle': ['Email Onboarding Resources','Setting Up IPs and Domains','calentamiento de IP'],
               'Links' : ['{{site.baseurl}}/user_guide/channels/email/email_setup','{{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/','{{site.baseurl}}/user_guide/channels/email/email_setup#ip-warming']
             },
             'Reporting and Analytics' : {
@@ -1463,7 +1463,7 @@ var ticket_lookuptable = {
             },
             'Deliverability' :{
               'ShowSubmit': true,
-              'LinksTitle': ['Deliverability Pitfalls and Spam Traps','IP Warming','Braze Learning Course: Achieving High Email Deliverability'],
+              'LinksTitle': ['Deliverability Pitfalls and Spam Traps','calentamiento de IP','Braze Learning Course: Achieving High Email Deliverability'],
                'Links' : ['{{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps#deliverability-pitfalls-and-spam-traps','{{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/#ip-warming','https://learning.braze.com/email-onboarding-for-pro-and-enterprise-achieving-high-deliverability']
             },
             'User Subscriptions' :{
@@ -1695,7 +1695,7 @@ var ticket_lookuptable = {
       'Label': '* Category',
       'SelectDefault': 'Select a category...',
       'Links': [],
-      'ReferenceText': 'Your account manager is a great resource for billing and contract related questions. ',
+      'ReferenceText': 'Your account Administrador is a great resource for billing and contract related questions. ',
       'SelectOption' : {
         'Data Points' : {
           'ShowSubmit': true,
@@ -1709,7 +1709,7 @@ var ticket_lookuptable = {
         },
         'Other' :{
           'ShowSubmit': true,
-          'ReferenceText': 'Your account manager is a great resource for billing and contract related questions. ',
+          'ReferenceText': 'Your account Administrador is a great resource for billing and contract related questions. ',
           'LinksTitle': [''],
           'Links':  ['']
         }

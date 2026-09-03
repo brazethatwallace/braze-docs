@@ -1,7 +1,8 @@
 ---
 page_order: 2.2
 nav_title: Content Cards
-article_title: Braze SDKのContent Cards
+article_title: Content Cards
+description: "データモデル、カードタイプ、カスタマイズオプションなど、Braze SDKでContent Cardsを実装する方法について説明します。"
 channel:
   - content cards
 platform:
@@ -55,7 +56,7 @@ Content CardsのデータモデルはAndroid SDKで利用可能で、以下の�
 | `isClicked()` | このカードのクリック状態を示すブール値を返します。|
 | `isDismissed` | カードが非表示にされたかどうかを示すブール値を返します。カードを非表示としてマークするには`true`に設定します。すでに非表示としてマークされているカードは、再度非表示としてマークすることはできません。|
 | `isControl()` | このカードがコントロールカードであり、レンダリングすべきでない場合にブール値を返します。|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="ベースカードモデル #base-card-for-android" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ベースカードモデル #base-カード-for-android" }
 
 ### 画像のみ {#banner-image-card-for-android}
 
@@ -66,7 +67,7 @@ Content CardsのデータモデルはAndroid SDKで利用可能で、以下の�
 | `getImageUrl()` | カードの画像のURLを返します。|
 | `getUrl()` | カードがクリックされた後に開かれるURLを返します。HTTP(s) URLまたはプロトコルURLの場合があります。|
 | `getDomain()` | プロパティURLのリンクテキストを返します。|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="画像のみ #banner-image-card-for-android" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="画像のみ #banner-image-カード-for-android" }
 
 ### キャプション付き画像 {#captioned-image-card-for-android}
 
@@ -79,7 +80,7 @@ Content CardsのデータモデルはAndroid SDKで利用可能で、以下の�
 | `getDescription()` | カードの本文テキストを返します。|
 | `getUrl()` | カードがクリックされた後に開かれるURLを返します。HTTP(s) URLまたはプロトコルURLの場合があります。|
 | `getDomain()` | プロパティURLのリンクテキストを返します。|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="キャプション付き画像 #captioned-image-card-for-android" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="キャプション付き画像 #captioned-image-カード-for-android" }
 
 ### クラシック {#text-Announcement-card-for-android}
 
@@ -93,7 +94,7 @@ Content CardsのデータモデルはAndroid SDKで利用可能で、以下の�
 | `getDomain()` | プロパティURLのリンクテキストを返します。|
 | `getImageUrl()` | カードの画像のURLを返します。クラシックショートニュースカードにのみ適用されます。|
 | `isDismissed` | カードが非表示にされたかどうかを示すブール値を返します。カードを非表示としてマークするには`true`に設定します。すでに非表示としてマークされているカードは、再度非表示としてマークすることはできません。|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="クラシック #text-Announcement-card-for-android" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="クラシック #text-Announcement-カード-for-android" }
 
 ## カードメソッド {#card-methods}
 
@@ -138,7 +139,7 @@ Content CardsはSwift SDKを使用したヘッドレスUIでサポートされ�
 
 Brazeで、**設定** > **アプリ設定**を選択し、**アプリを追加**を選択します。tvOSアプリの名前を入力し、**iOS**（_tvOSではありません_）を選択してから、**アプリを追加**を選択します。
 
-![tvOSアプリを登録するためにiOSプラットフォームが選択されたBrazeのアプリ追加ダイアログ。]({% image_buster /assets/img/tvos.png %}){: style="width:70%"}
+![tvOSアプリを登録するためにiOSプラットフォームが選択されたBrazeのアプリ追加ダイアログ]({% image_buster /assets/img/tvos.png %}){: style="width:70%"}
 
 {% alert warning %}
 **tvOS**チェックボックスを選択すると、tvOS用のContent Cardsをカスタマイズできなくなります。
@@ -148,7 +149,7 @@ Brazeで、**設定** > **アプリ設定**を選択し、**アプリを追加**
 
 アプリ設定で、新しいtvOSアプリを選択し、アプリのAPIキーをメモします。このキーを使用して、Xcodeでアプリを設定します。
 
-![SDK統合に使用されるAPIキーが表示されたtvOSアプリのアプリ設定。]({% image_buster /assets/img/tvos1.png %}){: style="width:70%"}
+![SDK統合に使用されるAPIキーが表示されたtvOSアプリのアプリ設定]({% image_buster /assets/img/tvos1.png %}){: style="width:70%"}
 
 ### ステップ3:BrazeKitを統合する {#step-3-integrate-brazekit}
 

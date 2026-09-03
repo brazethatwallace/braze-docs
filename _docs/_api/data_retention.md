@@ -1,11 +1,10 @@
 ---
 nav_title: Data retention
-article_title: Data Retention
+article_title: "Braze Data Retention Information"
 alias: /data_retention/
 description: "This reference article covers general Braze data retention information."
 page_type: reference
 page_order: 2.5
-
 ---
 
 <!--
@@ -58,7 +57,7 @@ Data sent by Braze to certain subprocessors may still exist in Braze's internal 
 
 ### Braze Data Lake Data Retention
 
-Data available to Customers within the Braze dashboard is mostly aggregated. Detailed logs are kept in a separate database created by Braze (the "Data Lake"). Data Lake data is used for aggregate reporting and other advanced functionality. Braze removes personally identifiable information from events data stored in the Data Lake after two years (see more information in our [Snowflake Data Retention]({{site.baseurl}}/partners/data_and_infrastructure_agility/data_warehouses/snowflake/data_retention#snowflake-data-retention) page).
+Data available to Customers within the Braze dashboard is mostly aggregated. Detailed logs are kept in a separate database created by Braze (the "Data Lake"). Data Lake data is used for aggregate reporting and other advanced functionality. Braze removes personally identifiable information from events data stored in the Data Lake after two years (see more information in our [Snowflake Data Retention]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_retention) page).
 
 If you use our APIs to delete user profiles or delete or amend attributes from user profiles, it may take up to three weeks for that data to be deleted from Braze's Data Lake. Deletion of data in the Data Lake will not affect segmentation or personalization but rather ensures the data is removed from all Braze systems.
 

@@ -16,7 +16,7 @@ Registre as compras no app para poder rastrear sua receita ao longo do tempo e e
 
 A Braze oferece suporte a compras em várias moedas. As compras informadas em uma moeda diferente do dólar americano serão mostradas no dashboard em dólares americanos com base na taxa de câmbio na data em que foram informadas.
 
-Antes da implementação, não deixe de analisar exemplos das opções de segmentação oferecidas por eventos personalizados, atributos personalizados e eventos de compra em nossas [práticas recomendadas]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview#user-data-collection), bem como nossas notas sobre [convenções de nomenclatura de eventos]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions).
+Antes da implementação, não deixe de analisar exemplos das opções de segmentação oferecidas por eventos personalizados, atributos personalizados e eventos de compra em nossas [práticas recomendadas]({{site.baseurl}}/developer_guide/analytics), bem como nossas notas sobre [convenções de nomenclatura de eventos]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions).
 
 ## Rastreamento de compras e receitas {#tracking-purchases-and-revenue}
 
@@ -41,25 +41,25 @@ Appboy.sharedInstance()?.logPurchase("your product ID", inCurrency: "USD", atPri
 {% endtab %}
 {% endtabs %}
 
-- Os símbolos de moeda compatíveis incluem: USD, CAD, EUR, GBP, JPY, AUD, CHF, NOK, MXN, NZD, CNY, RUB, TRY, INR, IDR, ILS, SAR, ZAR, AED, SEK, HKD, SPD, DKK e muito mais.
-  - Qualquer outro símbolo de moeda fornecido resultará em um aviso registrado e nenhuma outra ação será realizada pelo SDK.
-- A ID do produto pode ter no máximo 255 caracteres.
-- Note que, se o identificador do produto estiver vazio, a compra não será registrada na Braze.
+- Os símbolos de moeda compatíveis incluem: USD, CAD, EUR, GBP, JPY, AUD, CHF, NOK, MXN, NZD, CNY, RUB, TRY, INR, IDR, ILS, SAR, ZAR, AED, SEK, HKD, SPD, DKK, entre outros.
+  - Qualquer outro símbolo de moeda fornecido resultará em um aviso registrado, sem nenhuma outra ação realizada pelo SDK.
+- O identificador do produto pode ter no máximo 255 caracteres.
+- Observe que, se o identificador do produto estiver vazio, a compra não será registrada na Braze.
 
-### Adição de propriedades {#properties-purchases}
+### Adicionando propriedades {#properties-purchases}
 
-Você pode adicionar metadados sobre as compras transmitindo uma [matriz de propriedades de eventos]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events#nested-objects) ou transmitindo um `NSDictionary` preenchido com os valores `NSNumber`, `NSString` ou `NSDate`.
+Você pode adicionar metadados sobre compras passando um [vetor de propriedades de evento]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties#nested-objects) ou passando um `NSDictionary` preenchido com valores `NSNumber`, `NSString` ou `NSDate`.
 
-Consulte a [documentação da classe iOS](http://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#aaca4b885a8f61ac9fad3936b091448cc) para obter mais detalhes.
+Consulte a [documentação da classe iOS](http://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#aaca4b885a8f61ac9fad3936b091448cc) para mais detalhes.
 
-### Adição de quantidade {#adding-quantity}
-Você pode adicionar uma quantidade às suas compras se os clientes fizerem a mesma compra várias vezes em um único checkout. Você pode fazer isso passando um `NSUInteger` para a quantidade.
+### Adicionando quantidade {#adding-quantity}
+Você pode adicionar uma quantidade às suas compras se os clientes fizerem a mesma compra várias vezes em um único checkout. Para isso, basta passar um `NSUInteger` para a quantidade.
 
-* Uma entrada de quantidade deve estar na faixa de [0, 100] para o SDK registrar uma compra.
-* Os métodos sem uma entrada de quantidade terão um valor de quantidade padrão de 1.
-* Os métodos com uma entrada de quantidade não têm valor padrão e **devem** receber uma entrada de quantidade para que o SDK registre uma compra.
+* O valor de quantidade deve estar no intervalo de [0, 100] para que o SDK registre a compra.
+* Os métodos sem entrada de quantidade terão um valor padrão de 1.
+* Os métodos com entrada de quantidade não possuem valor padrão e **devem** receber um valor de quantidade para que o SDK registre a compra.
 
-Consulte a [documentação da classe iOS](http://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#ab50403068be47c0acba9943583e259fa) para obter mais detalhes.
+Consulte a [documentação da classe iOS](http://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#ab50403068be47c0acba9943583e259fa) para mais detalhes.
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -82,11 +82,11 @@ Appboy.sharedInstance()?.logPurchase("your product ID", inCurrency: "USD", atPri
 {% endtabs %}
 
 {% alert tip %}
-Se você passar um valor de 10 dólares e uma quantidade de 3, isso será registrado no perfil do usuário como três compras de 10 dólares, totalizando 30 dólares.
+Se você passar um valor de 10 USD e uma quantidade de 3, isso será registrado no perfil do usuário como três compras de 10 dólares, totalizando 30 dólares.
 {% endalert %}
 
 ### Registrar compras no nível do pedido {#log-purchases-at-the-order-level}
-Se quiser registrar as compras no nível do pedido em vez de no nível do produto, você pode usar o nome do pedido ou a categoria do pedido como `product_id`. Consulte nossa [especificação de objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object#naming-conventions) para saber mais.
+Se você deseja registrar compras no nível do pedido em vez do nível do produto, pode usar o nome do pedido ou a categoria do pedido como `product_id`. Consulte nossa [especificação do objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object#naming-conventions) para saber mais.
 
 ### Chaves reservadas {#reserved-keys}
 
@@ -101,4 +101,4 @@ As seguintes chaves são reservadas e não podem ser usadas como propriedades de
 
 ### REST API
 
-Também é possível usar nossa REST API para registrar compras. Consulte a [documentação da API do usuário]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data) para obter detalhes.
+Você também pode usar nossa REST API para registrar compras. Consulte a [documentação da API de usuário]({{site.baseurl}}/api/endpoints/user_data) para mais detalhes.

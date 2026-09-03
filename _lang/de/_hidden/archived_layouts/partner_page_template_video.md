@@ -33,6 +33,7 @@ channel:
   - SMS
   - Webhooks
 
+
 noindex: true
 #ATTENTION: remove noindex and this alert from template
 
@@ -46,37 +47,37 @@ noindex: true
 
 Im zweiten Absatz sollten Sie die Beziehung zwischen Braze und diesem Partner untersuchen und erklären. Dieser Absatz sollte erklären, wie Braze und dieser Partner zusammenarbeiten, um die Bindung zwischen Braze-Nutzer:innen und ihren Kund:innen zu festigen. Erläutern Sie den Mehrwert, der entsteht, wenn Braze-Nutzer:innen diesen Partner und seine Dienste integrieren oder nutzen.
 
-## Anforderungen oder Voraussetzungen {#requirements-or-prerequisites}
+## Voraussetzungen {#requirements-or-prerequisites}
 
-In diesem Abschnitt erfahren Sie alles, was Sie für die Integration mit dem Partner und die Nutzung seiner Dienste benötigen. Am besten stellen Sie diese Informationen in einem kurzen Anweisungsabsatz bereit, in dem alle nichttechnischen, wichtigen Details beschrieben werden, die Sie wissen müssen, z. B. ob Ihre Integration zusätzlichen Sicherheitsprüfungen oder Genehmigungen unterliegt oder nicht. Dann sollten Sie ein Chart verwenden, um die technischen Anforderungen der Integration zu beschreiben.
+In diesem Abschnitt geht es darum, was Sie für die Integration mit dem Partner benötigen, um dessen Dienste nutzen zu können. Am besten vermitteln Sie diese Informationen in einem kurzen Absatz, der alle wichtigen, nicht-technischen Details beschreibt, die man wissen sollte – zum Beispiel, ob Ihre Integration zusätzlichen Sicherheitsprüfungen oder Freigaben unterliegt. Anschließend sollten Sie die technischen Anforderungen der Integration in einer Tabelle darstellen.
 
 {% alert important %}
-Die folgenden Anforderungen sind typische Anforderungen, die Sie von Braze benötigen könnten. Wir empfehlen, die zugeordneten Titel, Herkunft, Links und Formulierungen zu verwenden, die in dem folgenden Chart aufgeführt sind. Passen Sie die Beschreibung so an, dass Sie wissen, wozu diese Anforderungen jeweils dienen.
+Die folgenden Anforderungen sind typische Voraussetzungen, die Sie möglicherweise von Braze benötigen. Wir empfehlen, die zugeordneten Bezeichnungen, Herkunft, Links und Formulierungen wie in der folgenden Tabelle aufgeführt zu verwenden. Passen Sie die Beschreibung unbedingt so an, dass klar ist, wofür die einzelnen Anforderungen verwendet werden.
 {% endalert %}
 
 | Anforderung | Herkunft | Zugang | Beschreibung |
 |---|---|---|---|
-| Braze-Workspace-REST-API-Schlüssel | Braze-Plattform | **Settings** > **App Settings** | Diese Beschreibung sollte Ihnen sagen, was Sie mit dem REST-API-Schlüssel für den Workspace tun sollen. |
-| Braze-API-Endpunkt | Braze-Plattform | Sehen Sie sich unsere [aufgelisteten Endpunkte]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints) an oder öffnen Sie ein [Support-Ticket]({{site.baseurl}}/braze_support/). | Beschreibung ausstehend. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| REST-API-Schlüssel des Braze-Workspace | Braze-Plattform | Seite **Einstellungen** > **App-Einstellungen** | Diese Beschreibung sollte erklären, was mit dem REST-API-Schlüssel des Workspace zu tun ist. |
+| Braze-API-Endpunkt | Braze-Plattform | Sehen Sie sich unsere [aufgelisteten Endpunkte]({{site.baseurl}}/api/basics#endpoints) an oder eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/braze_support). | Beschreibung ausstehend. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Voraussetzungen" }
 
-## [Art der Integration] Integration {#type-of-integration-integration}
+## [Integrationstyp]-Integration {#type-of-integration-integration}
 
-Hier können Sie die Integration in einzelne Schritte untergliedern. Schreiben Sie nicht einfach nur endlose Absätze – dies sind technische Dokumente, die von Marketern und Entwickler:innen gleichermaßen verwendet werden, um die Integration zum Laufen zu bringen. Ihr einziges Ziel in diesem Abschnitt ist es, eine beschreibende Dokumentation zu verfassen, die Braze-Nutzer:innen hilft, ihre Arbeit zu erledigen. Mit „Art der Integration“ im Titel des Abschnitts geben wir an, ob es sich um eine Side-by-side-Integration, eine Server-zu-Server-Integration oder um den Standard handelt. So können Sie mehrere Integrationsabschnitte haben, wenn es mehr als eine Möglichkeit der Integration mit diesem Partner gibt.
+Hier wird die Integration in einzelne Schritte aufgeschlüsselt. Schreiben Sie keine endlosen Absätze – dies sind technische Dokumente, die sowohl von Marketern als auch von Entwickler:innen genutzt werden, um die Integration zum Laufen zu bringen. Ihr einziges Ziel in diesem Abschnitt ist es, eine verständliche Dokumentation zu verfassen, die Braze-Nutzer:innen hilft, die Aufgabe zu erledigen. Mit „Integrationstyp“ im Abschnittstitel ist gemeint, ob es sich um eine Side-by-side-Integration, eine Server-zu-Server-Integration oder eine Standard-Integration handelt. So können Sie mehrere Integrationsabschnitte anlegen, wenn es mehr als einen Weg gibt, mit diesem Partner zu integrieren.
 
-Wenn es sich um eine Currents-Integration handelt, sollte sich diese Seite im Abschnitt Currents befinden, und es sollte eine entsprechende Navigationsseite erstellt werden, die zu diesem Standort in Currents weiterleitet.
+Wenn es sich um eine Currents-Integration handelt, sollte sich diese Seite im Currents-Bereich befinden. Eine entsprechende Navigationsseite sollte erstellt werden, die zu diesem Currents-Standort weiterleitet.
 
-### 1. Schritt: Dies ist eine kurze Beschreibung von Schritt eins {#step-1-this-is-a-short-description-of-step-one}
+### Schritt 1: Dies ist eine kurze Beschreibung von Schritt eins {#step-1-this-is-a-short-description-of-step-one}
 
-Gliedern Sie dies einfach auf und fügen Sie bei Bedarf Code hinzu. Denken Sie daran, dass Sie mehrere verschiedene Code-Varianten anbieten können – es ist nicht nötig, nur eine Art der Integration anzubieten.
+Schlüsseln Sie dies einfach auf und fügen Sie bei Bedarf Code ein. Beachten Sie, dass Sie mehrere Code-Varianten anbieten können – es ist nicht nötig, nur einen Integrationsweg aufzuzeigen.
 
-### 2. Schritt: Dieser Schritt beschreibt Bilder {#step-2-this-step-will-describe-images}
+### Schritt 2: In diesem Schritt werden Bilder beschrieben {#step-2-this-step-will-describe-images}
 
-Sie haben die Möglichkeit, Bilder in Ihre Dokumentation aufzunehmen. Wir empfehlen Ihnen, dies zu tun, und zwar mit Bedacht.
+Sie haben die Möglichkeit, Bilder in Ihre Dokumentation einzufügen. Wir empfehlen, dies zu tun – und zwar bewusst.
 
 ### Code-Beispiel {#code-sample}
 
-Wenn Sie ein technisches Konzept erklären, vermerken Sie das hier und zeigen Sie ein Code-Beispiel.
+Wenn Sie ein technisches Konzept erklären, weisen Sie hier darauf hin und zeigen Sie ein Code-Beispiel.
 
 ```html
 <!DOCTYPE html>
@@ -93,34 +94,34 @@ Wenn Sie ein technisches Konzept erklären, vermerken Sie das hier und zeigen Si
 </html>
 ```
 
-Stellen Sie sicher, dass Sie Parameter oder Elemente definieren, die Nutzer:innen aus dem Code-Beispiel anpassen müssen. Viele Nutzer:innen werden einfach kopieren und einfügen.
+Stellen Sie sicher, dass Sie Parameter oder Elemente definieren, die Nutzer:innen möglicherweise im Code-Beispiel anpassen müssen. Viele Nutzer:innen werden den Code einfach kopieren und einfügen.
 
 | Variable | Beschreibung |
 | -------- | ----------- |
-| Page Title | Sie können Ihre Seite beliebig betiteln. Dies ist erforderlich. |
-| My First Heading | Wir empfehlen, dies in Großbuchstaben zu schreiben. Dies ist optional. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Page Title | Sie können Ihrer Seite einen beliebigen Titel geben. Dieser ist erforderlich. |
+| My First Heading | Wir empfehlen, dies in Großbuchstaben zu schreiben. Dieser Eintrag ist optional. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Code-Beispiel" }
 
 
-### 3. Schritt: Wie viele Schritte {#step-3-how-many-steps}
+### Schritt 3: Wie viele Schritte {#step-3-how-many-steps}
 
-Skizzieren Sie die Nutzung der Integration – vor allem, wenn es darum geht, Liquid in unseren Nachrichten-Editor einzufügen.
+Beschreiben Sie die Nutzung der Integration – insbesondere wenn dabei Liquid in den Nachrichten-Editor eingefügt werden muss.
 
 ## Anpassung {#customization}
 
-Dies ist ein **optionaler** Abschnitt. Hier könnten Sie alle spezifischen Möglichkeiten zur Anpassung Ihrer Integration zwischen den beiden Partnern skizzieren.
+Dies ist ein **optionaler** Abschnitt. Hier können Sie spezifische Möglichkeiten zur Anpassung Ihrer Integration zwischen den beiden Partnern beschreiben.
 
 ## Diese Integration verwenden {#using-this-integration}
 
-Hier sollten Sie beschreiben, wie Sie die Integration nutzen können – lassen Sie Ihre Leser:innen wissen, ob sie ein paar Buttons drücken müssen oder ob sie nach der Integration überhaupt nichts mehr tun müssen.
+Hier sollte beschrieben werden, wie die Integration verwendet wird – teilen Sie Ihren Lesenden mit, ob sie ein paar Buttons drücken müssen oder ob nach der Integration nichts weiter zu tun ist.
 
-### 1. Schritt: Dies ist eine kurze Beschreibung von Schritt eins
+### Schritt 1: Dies ist eine kurze Beschreibung von Schritt eins
 
 Einfach eine typische Schritt-für-Schritt-Anleitung.
 
 ### Code-Beispiel
 
-Wenn Sie ein technisches Konzept erklären, vermerken Sie das hier und zeigen Sie ein Code-Beispiel.
+Wenn Sie ein technisches Konzept erklären, vermerken Sie dies hier und zeigen Sie ein Code-Beispiel.
 
 ```html
 <!DOCTYPE html>
@@ -137,15 +138,14 @@ Wenn Sie ein technisches Konzept erklären, vermerken Sie das hier und zeigen Si
 </html>
 ```
 
-Stellen Sie sicher, dass Sie Parameter oder Elemente definieren, die Nutzer:innen aus dem Code-Beispiel anpassen müssen. Viele Nutzer:innen werden einfach kopieren und einfügen.
+Stellen Sie sicher, dass Sie Parameter oder Elemente definieren, die Nutzer:innen möglicherweise aus dem Code-Beispiel anpassen müssen. Viele Nutzer:innen werden den Code einfach kopieren und einfügen.
 
 | Variable | Beschreibung |
 | -------- | ----------- |
-| Page Title | Sie können Ihre Seite beliebig betiteln. Dies ist erforderlich. |
-| My First Heading | Wir empfehlen, dies in Großbuchstaben zu schreiben. Dies ist optional. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
-
+| Page Title | Sie können Ihre Seite beliebig benennen. Dieses Element ist erforderlich. |
+| My First Heading | Wir empfehlen, dies in Großbuchstaben zu schreiben. Dieses Element ist optional. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Code-Beispiel" }
 
 ## Anwendungsfälle {#use-cases}
 
-Dies kann ein entscheidender Teil Ihrer Dokumentation sein. Dies ist zwar optional, aber es ist ein guter Ort, um typische oder sogar neuartige Anwendungsfälle für die Integration zu skizzieren. Dies kann als Mittel zum Verkauf oder Upselling der Beziehung genutzt werden – es liefert Kontext, Ideen und vor allem eine Möglichkeit, die Fähigkeiten der Integration zu visualisieren.
+Dies kann ein entscheidender Teil Ihrer Dokumentation sein. Auch wenn dieser Abschnitt optional ist, eignet er sich hervorragend, um typische oder auch neuartige Anwendungsfälle für die Integration darzustellen. Dies kann genutzt werden, um die Partnerschaft zu fördern oder auszubauen – es bietet Kontext, Ideen und vor allem eine Möglichkeit, die Funktionen der Integration zu veranschaulichen.

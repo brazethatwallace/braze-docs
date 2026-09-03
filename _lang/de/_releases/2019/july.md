@@ -12,11 +12,11 @@ description: "Dieser Artikel enthält Versionshinweise für Juli 2019."
 Braze hat in diesem Monat zwei (Sie haben richtig gelesen – **zwei**) Produkt-Release-Zyklen gehabt! Die neueste Version steht ganz oben, die frühere Version wird im Abschnitt [Zu Beginn dieses Monats](#earlier-this-month) behandelt!
 {% endalert %}
 
-## SAML/SSO
+## SAML/Single Sign-on
 
-[Single Sign-on]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on) (SSO) bietet Unternehmen eine sichere und zentralisierte Möglichkeit, den Zugriff auf das Braze-Dashboard zu kontrollieren. Kurz gesagt, ein einziger Satz Zugangsdaten kann für den Zugriff auf verschiedene Anwendungen, einschließlich Braze, verwendet werden.
+[Single Sign-on]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on) (Single Sign-on) bietet Unternehmen eine sichere und zentralisierte Möglichkeit, den Zugriff auf das Braze-Dashboard zu kontrollieren. Kurz gesagt, ein einziger Satz Zugangsdaten kann für den Zugriff auf verschiedene Anwendungen, einschließlich Braze, verwendet werden.
 
-Zusätzlich zu [Google Sign-In mit OAuth 2.0-Unterstützung](https://developers.google.com/identity/protocols/OAuth2) wünschen sich Unternehmen SSO mit Security Assertion Markup Language (SAML) Unterstützung. Dies ermöglicht ihnen die nahtlose Integration mit großen Identitätsanbietern (IdPs), einschließlich [Azure Active Directory]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/microsoft_entra_sso) und [Okta]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/okta), die die neuesten Branchenstandards (SAML 2.0) unterstützen.
+Zusätzlich zu [Google Sign-In mit OAuth 2.0-Unterstützung](https://developers.google.com/identity/protocols/OAuth2) wünschen sich Unternehmen Single Sign-on mit Security Assertion Markup Language (SAML) Unterstützung. Dies ermöglicht ihnen die nahtlose Integration mit großen Identitätsanbietern (IdPs), einschließlich [Azure Active Directory]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/microsoft_entra_sso) und [Okta]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/okta), die die neuesten Branchenstandards (SAML 2.0) unterstützen.
 
 Braze unterstützt:
 - [OneLogin]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/onelogin)

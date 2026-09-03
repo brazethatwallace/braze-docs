@@ -19,7 +19,7 @@ description: "Cet article présente en détail l'endpoint Braze Voir les informa
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#589adda3-0def-4369-9ddc-eae71923c0ee {% endapiref %}
 
 ## Conditions préalables {#prerequisites}
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/api_key) avec l'autorisation `content_blocks.info`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics) avec l'autorisation `content_blocks.info`.
 
 ## Limite de débit {#rate-limit}
 
@@ -30,7 +30,7 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 | Paramètre | Requis | Type de données | Description |
 |---|---|---|---|
 | `content_block_id`  | Requis | Chaîne de caractères | L'identifiant du Content Block. <br><br>Vous pouvez le trouver soit en listant les informations du Content Block par le biais d'un appel API, soit en vous rendant sur la page des [clés API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers), puis en défilant vers le bas et en recherchant l'identifiant API de votre Content Block.|
-| `include_inclusion_data`  | Facultatif | Valeur booléenne | Lorsque ce paramètre est défini sur `true`, l'API renvoie l'identifiant API de la variation de message des Campaigns et des Canvas dans lesquels ce Content Block est inclus, afin qu'il puisse être utilisé dans les appels ultérieurs.  Les résultats excluent les Campaigns ou les Canvas archivés ou supprimés. |
+| `include_inclusion_data`  | Facultatif | Valeur booléenne | Lorsque ce paramètre est défini sur `true`, l'API renvoie l'identifiant API de la variation de message des Campaigns et des Canvas dans lesquels ce Content Block est inclus, afin qu'il puisse être utilisé dans les appels ultérieurs. Les résultats excluent les Campaigns ou les Canvas archivés ou supprimés. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 ## Exemple de requête {#example-request}

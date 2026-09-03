@@ -20,9 +20,9 @@ Braze iOS SDKは、各プッシュアクションボタンのURL処理サポー�
 
 デフォルトのプッシュカテゴリーを登録するには、統合手順に従ってください。
 
-## ステップ 1:Brazeのデフォルトプッシュカテゴリーの追加 {#step-1-adding-braze-default-push-categories}
+## ステップ1: Brazeデフォルトプッシュカテゴリの追加 {#step-1-adding-braze-default-push-categories}
 
-以下のコードを使用して、[プッシュ登録]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/push_notifications/integration#step-4-register-push-tokens-with-braze)時にデフォルトのプッシュカテゴリーに登録します。
+[プッシュ登録]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration#step-4-register-push-tokens-with-braze)時に、以下のコードを使用してデフォルトのプッシュカテゴリを登録します。
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -56,15 +56,15 @@ UIApplication.shared.registerUserNotificationSettings(settings)
 {% endtab %}
 {% endtabs %}
 
-バックグラウンドアクティベーションモードでプッシュアクションボタンをクリックすると、通知が閉じられるだけで、アプリは開きません。ユーザーが次回アプリを開くと、これらのアクションのボタンクリック分析がサーバーにフラッシュされます。
+バックグラウンドアクティベーションモードのプッシュアクションボタンをクリックすると、通知は閉じられますがアプリは開きません。次回ユーザーがアプリを開いた際に、これらのアクションのボタンクリック分析がサーバーにフラッシュされます。
 
-独自のカスタム通知カテゴリーを作成する場合は、[アクションボタンのカスタマイズ]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/push_notifications/customization/action_buttons#push-category-customization)を参照してください。
+独自のカスタム通知カテゴリを作成する場合は、[アクションボタンのカスタマイズ]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/action_buttons#push-category-customization)を参照してください。
 
-## ステップ 2:インタラクティブなプッシュ処理を有効にする {#step-2-enable-interactive-push-handling}
+## ステップ2: インタラクティブプッシュ処理を有効にする {#step-2-enable-interactive-push-handling}
 
-`UNNotification`フレームワークを使用しており、Brazeの[デリゲート]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/push_notifications/integration#step-5-enable-push-handling)を実装している場合は、このメソッドがすでに統合されているはずです。
+`UNNotification`フレームワークを使用し、Brazeの[デリゲート]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration#step-5-enable-push-handling)を実装している場合は、このメソッドはすでに統合されているはずです。
 
-クリック分析やURLルーティングを含むプッシュアクションボタンの処理を有効にするには、アプリの`(void)userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:`デリゲートメソッドに次のコードを追加します。
+クリック分析やURLルーティングを含むプッシュアクションボタンの処理を有効にするには、アプリの`(void)userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:`デリゲートメソッドに以下のコードを追加してください：
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -87,7 +87,7 @@ Appboy.sharedInstance()?.userNotificationCenter(center,
 {% endtab %}
 {% endtabs %}
 
-UNNotificationフレームワークを使用していない場合は、プッシュアクションボタンの処理を有効にするために、アプリの`application:handleActionWithIdentifier:forRemoteNotification:completionHandler:`に次のコードを追加する必要があります。
+UNNotificationフレームワークを使用していない場合は、プッシュアクションボタンの処理を有効にするために、アプリの`application:handleActionWithIdentifier:forRemoteNotification:completionHandler:`に以下のコードを追加する必要があります：
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -111,15 +111,15 @@ Appboy.sharedInstance()?.getActionWithIdentifier(identifier,
 {% endtabs %}
 
 {% alert important %}
-`handleActionWithIdentifier`を使用している方は、`UNNotification`フレームワークの使用を開始することを強くお勧めします。[`handleActionWithIdentifier`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623068-application?language=objc)が非推奨になったため、これをお勧めします。
+`handleActionWithIdentifier`を使用している方は、`UNNotification`フレームワークの使用を開始することを強くお勧めします。これは、[`handleActionWithIdentifier`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623068-application?language=objc)が非推奨となっているためです。
 {% endalert %}
 
-## プッシュカテゴリーのカスタマイズ {#push-category-customization}
+## プッシュカテゴリのカスタマイズ {#push-category-customization}
 
-Brazeは、[デフォルトのプッシュカテゴリー]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/action_buttons)のセットを提供するだけでなく、カスタムの通知カテゴリーやアクションもサポートしています。アプリケーションにカテゴリーを登録すると、Brazeダッシュボードを使用して通知カテゴリーをユーザーに送信できます。
+Brazeは、一連の[デフォルトプッシュカテゴリ]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/action_buttons)の提供に加えて、カスタム通知カテゴリとアクションをサポートしています。アプリケーションにカテゴリを登録すると、Brazeダッシュボードを使用して通知カテゴリをユーザーに送信できます。
 
-`UserNotifications`フレームワークを使用していない場合は、[代替カテゴリー](https://developer.apple.com/documentation/usernotifications/unnotificationcategory)のドキュメントを参照してください。
+`UserNotifications`フレームワークを使用していない場合は、[代替カテゴリ](https://developer.apple.com/documentation/usernotifications/unnotificationcategory)のドキュメントを参照してください。
 
-その後、これらのカテゴリーをダッシュボードからプッシュ通知に割り当てて、デザインのアクションボタン構成をトリガーできます。デバイスに表示される`LIKE_CATEGORY`を活用する例を次に示します。
+これらのカテゴリは、ダッシュボードからプッシュ通知に割り当てることで、設計したアクションボタン構成をトリガーできます。以下は、デバイスに表示される`LIKE_CATEGORY`を活用した例です。
 
-![「いいねを取り消す」と「いいね」の2つのプッシュアクションボタンを表示するプッシュメッセージ。]({% image_buster /assets/img_archive/push_example_category.png %})
+![「unlike」と「like」の2つのプッシュアクションボタンを表示するプッシュメッセージ。]({% image_buster /assets/img_archive/push_example_category.png %})

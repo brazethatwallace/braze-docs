@@ -46,7 +46,7 @@ La possibilité de définir une planification d'actualisation horaire n'est pas 
 Étant donné que les actualisations réexécutent la requête de votre segment, chaque actualisation pour les segments SQL consommera des crédits de segment SQL, et chaque actualisation pour les extensions de segments CDI entraînera un coût au sein de votre entrepôt de données third-party.
 
 {% alert note %}
-L'actualisation des segments peut prendre jusqu'à 60 minutes en raison des temps de traitement des données. Les segments en cours d'actualisation auront un état « En cours de traitement » dans votre liste d'extensions de segments. Cela a plusieurs implications :
+L'actualisation des segments peut prendre jusqu'à 60 minutes en raison des temps de traitement des données. Les segments en cours d'actualisation auront un statut « En cours de traitement » dans votre liste d'extensions de segments. Cela a plusieurs implications :
 
 - Pour terminer le traitement de votre segment avant une heure précise, choisissez une heure d'actualisation située 60 minutes plus tôt.
 - Il ne peut y avoir qu'une seule actualisation à la fois pour une extension de segments donnée. En cas de conflit où une nouvelle actualisation est lancée alors qu'une actualisation existante a déjà commencé à être traitée, Braze annulera la nouvelle demande d'actualisation et poursuivra le traitement en cours.
@@ -73,5 +73,15 @@ Lorsque vous êtes prêt à utiliser une extension de segments périmée, passez
 {% if include.section == "same channel identifier" %}
 
 Lorsqu'un message est reçu, ouvert ou cliqué, Braze met à jour les données de tous les profils partageant le même identifiant de canal que le profil ayant enregistré l'interaction (par exemple, la même adresse e-mail pour les e-mails, ou le même numéro de téléphone pour les SMS ou WhatsApp). Les utilisateurs qui partagent un identifiant avec une personne ayant reçu, ouvert ou cliqué le message peuvent correspondre à ce filtre même s'ils ne faisaient pas partie de la campagne à l'origine ou n'ont pas reçu le message directement.
+
+{% endif %}
+
+{% if include.section == "Canvas variant archived segment" %}
+
+### Impossible de supprimer une variante de Canvas à cause d'un segment archivé {#cant-delete-a-canvas-variant-because-of-an-archived-segment}
+
+Si Braze empêche la suppression d'une variante de Canvas parce qu'un filtre de segment fait encore référence à cette variante, ouvrez le segment qui utilise cette référence — y compris les segments archivés — et supprimez la variante de ses filtres. Après avoir enregistré le segment, retournez au Canvas et réessayez de supprimer la variante.
+
+Pour trouver quels segments font référence à un Canvas, ouvrez le Canvas et examinez ses filtres d'audience, ou consultez la section [Utilisation dans les messages]({{site.baseurl}}/user_guide/audience/segments/managing_segments#messaging-use) de chaque segment pour identifier les Canvas associés.
 
 {% endif %}

@@ -26,7 +26,7 @@ Puedes enviar Campaigns activadas por API a usuarios mediante `user_alias` utili
 
 ## Cuando `alias_label` y `alias_name` ya existen {#when-alias_label-and-alias_name-already-exist}
 
-La combinación de `alias_label` y `alias_name` debe ser única en toda tu base de usuarios. Para más información, consulta [Alias de usuario]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases).
+La combinación de `alias_label` y `alias_name` debe ser única en toda tu base de usuarios. Para más información, consulta [Alias de usuario]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#user-aliases).
 
 Si envías una solicitud en la que el par `alias_label` y `alias_name` ya existe para cualquier usuario (ya sea en el mismo usuario o en otro), el endpoint seguirá devolviendo una respuesta exitosa (por ejemplo, `"aliases_processed": 1`, `"message": "success"`). En ese caso, no se añade ningún alias nuevo al usuario de la solicitud. Dado que el par `alias_label` y `alias_name` ya está en uso, la solicitud no realiza ningún cambio, y puede parecer que el alias nunca se añadió al usuario en cuestión.
 
@@ -34,7 +34,7 @@ Si envías una solicitud en la que el par `alias_label` y `alias_name` ya existe
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/api_key) con el permiso `users.alias.new`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics) con el permiso `users.alias.new`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -57,7 +57,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
-| `user_aliases` | Obligatorio | Matriz de nuevos objetos alias de usuario | Consulta [objeto alias de usuario]({{site.baseurl}}/api/objects_filters/user_alias_object).<br><br> Para más información sobre `alias_name` y `alias_label`, consulta nuestra documentación sobre [alias de usuario]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases).|
+| `user_aliases` | Obligatorio | Matriz de nuevos objetos alias de usuario | Consulta [objeto alias de usuario]({{site.baseurl}}/api/objects_filters/user_alias_object).<br><br> Para más información sobre `alias_name` y `alias_label`, consulta nuestra documentación sobre [alias de usuario]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#user-aliases).|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ### Cuerpo de la solicitud del endpoint con la especificación del nuevo objeto alias de usuario {#endpoint-request-body-with-new-user-alias-object-specification}

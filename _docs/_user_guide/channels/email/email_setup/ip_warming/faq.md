@@ -35,6 +35,12 @@ Braze calculates the minimum from your planned send volumes and the emailable us
 
 Within a single active plan, Braze automatically excludes users who already received prior IP warming sends for the same template. If you stop a plan and start a new one that reuses the same segments, add a filter to exclude users who received campaigns from the previous plan.
 
+## Can a user receive more than one email template on the same day?
+
+Yes. Braze excludes users who already received a given template within the plan, but users who received a different template remain eligible. When the audience available for a day's schedule runs out, the plan cycles back through your templates and some users receive a second template that day.
+
+This happens when the total number of emailable users across your selected segments is smaller than your **Target send volume**, most often on the final day or days of the plan. For example, with 400,000 emailable users and a target send volume of 600,000, about 200,000 users receive two templates on the last day. To avoid this, keep your total number of emailable users greater than or equal to your target send volume. For more information, see [Audience size and multiple sends per user]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/automated_ip_warming#audience-size-and-multiple-sends-per-user).
+
 ## Can I start IP warming mid-schedule?
 
 Automated IP warming always builds the schedule from the start of the ramp. To approximate a mid-schedule start, set **Current daily send volume** greater than 0 to match your current volume. When current volume is greater than 0, Braze does not apply IP-count scaling to day 1.
@@ -45,7 +51,7 @@ Sends use the workspace time zone when one is set; otherwise they use the compan
 
 ## How many IP warming plans can run at the same time?
 
-If your workspace supports multiple plans, more than one plan can run concurrently. For details, see [Multiple IP warming]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/automated_ip_warming#multiple-ip-warming).
+More than one plan can run concurrently. For details, see [Multiple IP warming]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/automated_ip_warming#multiple-ip-warming).
 
 ## How does volume scale for IP pools with multiple IPs?
 

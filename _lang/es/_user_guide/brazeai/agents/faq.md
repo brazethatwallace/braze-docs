@@ -109,7 +109,7 @@ Si tu agente funciona correctamente durante las pruebas pero no recibe datos esp
 
 ### ¿Agent Console cumple con el RGPD/CCPA? {#is-agent-console-gdprccpa-compliant}
 
-Sí. Cuando un cliente utiliza el modelo Braze Auto (impulsado por Gemini), Google actúa como subencargado del tratamiento de Braze, sujeto a los términos del Anexo de Tratamiento de Datos (DPA) entre el cliente y Braze.
+Sí. Cuando un cliente utiliza el modelo Braze Auto (impulsado por Gemini), Google actúa como subencargado del tratamiento de Braze, sujeto a los términos del Anexo de Tratamiento de Datos (asesor sobre protección de datos) entre el cliente y Braze.
 
 ### ¿Agent Console cumple con HIPAA? {#is-agent-console-hipaa-compliant}
 

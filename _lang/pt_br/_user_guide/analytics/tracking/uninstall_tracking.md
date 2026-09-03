@@ -37,17 +37,17 @@ Quando você ativa o rastreamento de desinstalação para um app, a Braze envia 
 
 ### Configuração {#configuration}
 
-Para configurar o rastreamento de desinstalação para seu aplicativo iOS, use um [método utilitário]({{site.baseurl}}/developer_guide/analytics/tracking_uninstalls?sdktab=swift). Para seu aplicativo Android, use [`isUninstallTrackingPush()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.push/-braze-notification-payload/is-uninstall-tracking-push.html). Quando a Braze detectar uma desinstalação, seja por rastreamento de desinstalação ou por entrega normal de campanha push, registraremos o melhor horário estimado da desinstalação para o usuário. Esse horário é armazenado no perfil do usuário como um atributo padrão e pode ser usado para definir um segmento de usuários para campanhas de recuperação.
+Para configurar o rastreamento de desinstalação para seu aplicativo iOS, use um [método utilitário]({{site.baseurl}}/developer_guide/analytics/tracking_uninstalls?sdktab=swift). Para seu aplicativo Android, use [`isUninstallTrackingPush()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.push/-braze-notification-payload/is-uninstall-tracking-push.html). Quando a Braze detectar uma desinstalação, seja por rastreamento de desinstalação ou por entrega normal de campanha push, registraremos o melhor horário estimado da desinstalação para o usuário. Esse horário é armazenado no perfil do usuário como um atributo padrão e pode ser usado para definir um Segment de usuários para campanhas de recuperação.
 
 ## Filtragem de segmentos por desinstalações {#filtering-segments-by-uninstalls}
 
-O filtro **Uninstalled** seleciona usuários que desinstalaram seu app dentro de um intervalo de tempo. Como é difícil determinar a hora exata de uma desinstalação, recomendamos que os filtros de desinstalação tenham intervalos de tempo mais amplos para garantir que todos os que desinstalam sejam incluídos no segmento em algum momento.
+O filtro **Uninstalled** seleciona usuários que desinstalaram seu app dentro de um intervalo de tempo. Como é difícil determinar a hora exata de uma desinstalação, recomendamos que os filtros de desinstalação tenham intervalos de tempo mais amplos para garantir que todos os que desinstalam sejam incluídos no Segment em algum momento.
 
 As estatísticas diárias sobre desinstalações estão na página **inicial**.
 
-![Segmento de desinstalação.]({% image_buster /assets/img_archive/Uninstall_Segment.png %} "Uninstall Segment")
+![Segment de desinstalação.]({% image_buster /assets/img_archive/Uninstall_Segment.png %} "Uninstall Segment")
 
-O gráfico pode ser dividido por app e segmento, semelhante a outras estatísticas que a Braze fornece. Na seção **Performance overview**, selecione o intervalo de datas e, se desejar, um app. Em seguida, role a tela para baixo até o gráfico **Performance Over Time** e faça o seguinte:
+O gráfico pode ser dividido por app e Segment, semelhante a outras estatísticas que a Braze fornece. Na seção **Performance overview**, selecione o intervalo de datas e, se desejar, um app. Em seguida, role a tela para baixo até o gráfico **Performance Over Time** e faça o seguinte:
 
 1. No menu suspenso **Statistics For**, selecione **Uninstalls**.
 2. No menu suspenso **Breakdown**, selecione **By segment**.
@@ -97,11 +97,11 @@ Por razões de privacidade, os provedores de push da Braze podem revogar tokens 
 
 Verifique a análise de dados das campanhas que enviaram mensagens por volta do mesmo período em que o pico de desinstalação ocorreu. Se uma mensagem específica se correlacionar com um aumento nas desinstalações, ela pode estar influenciando os usuários a desinstalar.
 
-Para visualizar desinstalações por segmento:
+Para visualizar desinstalações por Segment:
 1. Acesse a página **inicial** do dashboard.
 2. Na seção **Performance Over Time**, selecione **Uninstalls** em **Statistics For** e **By Segment** em **Breakdown**.
 
-Se você tiver um segmento rastreando usuários inativos com [rastreamento de análise de dados]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) ativado, compare a tendência de desinstalação dele com a tendência geral do app.
+Se você tiver um Segment rastreando usuários inativos com [rastreamento de análise de dados]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) ativado, compare a tendência de desinstalação dele com a tendência geral do app.
 
 ### Como confirmar se as desinstalações são genuínas? {#how-do-i-confirm-uninstalls-are-genuine}
 

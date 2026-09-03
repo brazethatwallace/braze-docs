@@ -31,27 +31,27 @@ L'objet destinataire vous permet de combiner l'[objet alias d'utilisateur]({{sit
 }]
 ```
 
-Lorsque `send_to_existing_only` est défini sur `true`, Braze envoie le message uniquement aux utilisateurs existants. Cependant, il n'est pas possible d'utiliser ce paramètre avec les alias d'utilisateurs.
+Lorsque `send_to_existing_only` est défini sur `true`, Braze envoie le message uniquement aux utilisateurs existants. Cependant, vous ne pouvez pas utiliser ce paramètre avec les alias d'utilisateur.
 
-Lorsque `send_to_existing_only` est défini sur `false`, vous devez inclure un objet `attributes` sur le même destinataire. Ce paramètre ne remplace pas `attributes`. Braze utilise `attributes` pour la création ou la mise à jour du profil avant l'envoi (par exemple, l'ajout de champs `email` ou téléphone pour la distribution par e-mail ou SMS, ou la mise à jour des groupes d'abonnement). Sans cet objet, vous n'obtenez pas le comportement combiné attendu pour les nouveaux utilisateurs sur [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) ou [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases).
+Lorsque `send_to_existing_only` est défini sur `false`, vous devez inclure un objet `attributes` pour le même destinataire. Ce paramètre ne remplace pas `attributes`. Braze utilise `attributes` pour la création ou la mise à jour du profil avant l'envoi (par exemple, l'ajout de champs `email` ou téléphone pour la distribution par e-mail ou SMS, ou la mise à jour des groupes d'abonnement). Sans cet objet, vous n'obtiendrez pas le comportement combiné attendu pour les nouveaux utilisateurs sur [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) ou [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases).
 
-Ce profil doit tout de même respecter les règles d'audience et d'éligibilité au canal du message avant que Braze ne procède à l'envoi.
+Ce profil doit tout de même satisfaire les règles d'audience et d'éligibilité au canal du message avant que Braze ne procède à l'envoi.
 
-- [ID Braze]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle)
-- [Alias d'utilisateurs]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases)
+- [Braze ID]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle)
+- [Alias d'utilisateur]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#user-aliases)
 - [ID utilisateur externe]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields)
 - [Priorisation]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email-addresses-and-phone-numbers)
 - [Objet attributs utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object)
 
 ## Déduplication de l'objet destinataire {#recipient-object-deduping}
 
-Lorsqu'un appel API est effectué avec l'objet destinataire, **s'il existe un destinataire en double ciblant la même adresse (c'est-à-dire e-mail, notification push), Braze procède à la déduplication de l'utilisateur**, ce qui signifie que les doublons sont supprimés et qu'un seul est conservé.
+Lors d'un appel API avec l'objet destinataire, **s'il existe un destinataire en double ciblant la même adresse (c'est-à-dire e-mail, notification push), Braze déduplique l'utilisateur**, ce qui signifie que Braze supprime les utilisateurs identiques et n'en conserve qu'un seul.
 
-Par exemple, si vous utilisez le même `external_user_id`, l'utilisateur ne recevra qu'un seul message. Si vous avez besoin de contourner ce comportement, envisagez d'effectuer plusieurs appels API.
+Par exemple, si vous utilisez le même `external_user_id`, l'utilisateur ne reçoit qu'un seul message. Envisagez d'effectuer plusieurs appels API si vous avez besoin d'une solution de contournement pour ce comportement.
 
-Lorsque le même `external_user_id` apparaît plusieurs fois dans le tableau des destinataires, Braze n'envoie qu'un seul message et utilise les propriétés du déclencheur de la dernière occurrence dans le tableau. Ce comportement est déterministe et basé sur l'ordre du tableau.
+Lorsque le même `external_user_id` apparaît plusieurs fois dans le tableau des destinataires, Braze n'envoie qu'un seul message et utilise les propriétés de déclenchement de la dernière occurrence dans le tableau. Ce comportement est déterministe et basé sur l'ordre du tableau.
 
-Dans l'exemple suivant, `userid1` reçoit un seul message avec `"name": "Beth Test 2"`, car cette entrée apparaît en dernier dans le tableau.
+Dans l'exemple suivant, `userid1` reçoit un seul message utilisant `"name": "Beth Test 2"` car cette entrée apparaît en dernier dans le tableau.
 
 ```json
 {"campaign_id":"#####","recipients":[

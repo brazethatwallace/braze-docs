@@ -30,7 +30,7 @@ tool: Media
 **ドラッグ＆ドロップエディター**でのメール作成の詳細については、[ドラッグ＆ドロップでメールを作成する]({{site.baseurl}}/user_guide/channels/email/drag_and_drop)および同記事の<a href="{{site.baseurl}}/user_guide/channels/email/drag_and_drop/#other-customizations">その他のカスタマイズ</a> を参照してください。
 
 {% alert tip %}
-`Image`、`Button`、または`Text`エディターブロック内の任意のURLに[カスタム属性]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes)を追加することもできます。
+`Image`、`Button`、または`Text`エディターブロック内の任意のURLに[カスタム属性]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types)を追加することもできます。
 {% endalert %}
 
 ### タイトル {#title}
@@ -306,7 +306,7 @@ LiquidまたはConnected Contentを使用してメールにパーソナライゼ
 
 {% multi_lang_include drag_and_drop/editor_block_properties/radio_button_properties.md %}
 
-### 画像 {#image}
+### 画像
 
 [メディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library)から画像を挿入します。
 
@@ -330,7 +330,7 @@ LiquidまたはConnected Contentを使用してメールにパーソナライゼ
 
 {% multi_lang_include drag_and_drop/editor_block_properties/link_actions.md %}
 
-### スペーサー {#spacer}
+### スペーサー
 
 他のブロック間にスペースやパディングを追加します。
 
@@ -388,9 +388,9 @@ LiquidまたはConnected Contentを使用してメールにパーソナライゼ
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 
 <!-- Saved row is not yet released. Uncomment when available.
-### 保存済み行 {#saved-row}
+### Saved row {#saved-row}
 
-以前ドラッグ＆ドロップContent Blockとして保存した再利用可能な行を挿入します。保存済み行は元のContent Blockに**リンクされていません**。元のContent Blockが更新された場合、最新バージョンを取得するにはエディターに再度ドラッグする必要があります。詳細については、[Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks)を参照してください。**行**の下に**保存済み行**が表示されない場合は、[Brazeサポート]({{site.baseurl}}/user_guide/administer/personal/braze_support)またはBrazeのカスタマーサクセスマネージャーにお問い合わせください。
+Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved rows are **not linked** to the original Content Block — if the original is updated, you'll need to drag it into the editor again to get the latest version. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze customer success マネージャー.
 -->
 
 ## 知っておくべきこと {#things-to-know}
@@ -462,7 +462,7 @@ LiquidまたはConnected Contentを使用してメールにパーソナライゼ
 
 ### カスタムコード
 
-[Google Tag Manager]({{site.baseurl}}/user_guide/messaging/landing_pages#adding-google-tag-manager-to-a-landing-page)などの高度なカスタマイズ用にカスタムHTML、CSS、またはJavaScriptを挿入します。
+[Google Tag マネージャー]({{site.baseurl}}/user_guide/messaging/landing_pages#adding-google-tag-manager-to-a-landing-page)などの高度なカスタマイズ用にカスタムHTML、CSS、またはJavaScriptを挿入します。
 
 | プロパティ | 説明 |
 | --- | --- |
@@ -470,11 +470,11 @@ LiquidまたはConnected Contentを使用してメールにパーソナライゼ
 {: .reset-td-br-1 .reset-td-br-2 aria-label="カスタムコード" }
 
 <!-- Countdown timer is not yet released. Uncomment when available.
-### カウントダウンタイマー {#countdown-timer}
+### Countdown timer {#countdown-timer}
 
-設定した日時までのカウントダウンを表示します。このブロックが表示されない場合は、[Brazeサポート]({{site.baseurl}}/user_guide/administer/personal/braze_support)またはBrazeのカスタマーサクセスマネージャーにお問い合わせください。
+Displays a countdown to a date and time you set. If you don't see this block, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze customer success マネージャー.
 
-**カウントダウンタイマー**ブロックを追加した後、プロパティパネルを使用してターゲットの日時、ラベル、スタイルを設定します。
+After you add a **Countdown timer** block, use the properties panel to set the target date and time, labels, and styling.
 -->
 
 ### メールキャプチャ
@@ -513,6 +513,28 @@ LiquidまたはConnected Contentを使用してメールにパーソナライゼ
 
 {% multi_lang_include drag_and_drop/editor_block_properties/checkbox_group_properties.md %}
 
+### 購読管理 {#manage-subscriptions}
+
+訪問者がフォーム送信時に購読のオプトインや管理ができるよう、[メール]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups#email-subscription-groups)、[SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups#sms-subscription-states)、または[WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-subscription-states)購読グループのチェックリストを追加します。各ブロックは1つのチャネル用です。ブロックに購読グループを追加した後に設定してください。このブロックはRCS購読グループをリストしません。
+
+ランディングページの[Liquidタグ]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users)を通じてページを開いた識別済みユーザーの場合、ブロックは各チェックボックスにユーザーの現在の購読状態を事前入力するため、ユーザー設定管理ページとしても機能します。
+
+エディターでブロックを選択すると、以下の操作ができます:
+
+- 購読グループの並べ替え
+- 購読グループの追加または削除
+- 説明の追加または削除
+- ブロック内のすべての購読グループを選択する「すべて購読」チェックボックスの追加または削除
+
+| プロパティ | 説明 |
+| --- | --- |
+| 購読グループ | ブロックに表示される購読グループを追加、削除、または並べ替えます。 |
+| 説明を含める | 各購読グループの名前の横に説明を表示します。 |
+| **すべて購読**チェックボックス | ブロック内のすべての購読グループを選択するチェックボックスを追加します。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="購読管理" }
+
+完全な設定フローについては、[購読管理ブロック]({{site.baseurl}}/user_guide/messaging/landing_pages/manage_subscriptions)を参照してください。
+
 ### ロングテキスト
 
 アンケートスタイルのフロー用の複数行テキストフィールドです。このブロックが表示されない場合は、[Brazeサポート]({{site.baseurl}}/user_guide/administer/personal/braze_support)またはBrazeのカスタマーサクセスマネージャーにお問い合わせください。このブロックは標準ランディングページでは利用できません。
@@ -520,9 +542,9 @@ LiquidまたはConnected Contentを使用してメールにパーソナライゼ
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 
 <!-- Saved row is not yet released. Uncomment when available.
-### 保存済み行
+### Saved row
 
-以前ドラッグ＆ドロップContent Blockとして保存した再利用可能な行を挿入します。保存済み行は元のContent Blockに**リンクされていません**。元のContent Blockが更新された場合、最新バージョンを取得するにはエディターに再度ドラッグする必要があります。詳細については、[Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks)を参照してください。**行**の下に**保存済み行**が表示されない場合は、[Brazeサポート]({{site.baseurl}}/user_guide/administer/personal/braze_support)またはBrazeのカスタマーサクセスマネージャーにお問い合わせください。
+Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved rows are **not linked** to the original Content Block — if the original is updated, you'll need to drag it into the editor again to get the latest version. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze customer success マネージャー.
 -->
 
 ## 知っておくべきこと
@@ -588,7 +610,7 @@ LiquidまたはConnected Contentを使用してメールにパーソナライゼ
 
 ### カスタムコード
 
-高度なレイアウトや埋め込みコンテンツ（例: 動画）用にカスタムHTMLを挿入します。カスタムHTML内のクリックは、`brazeBridge.logClick()`を呼び出さない限り追跡されません。詳細については、[バナーのカスタムコードとJavaScriptブリッジ]({{site.baseurl}}/user_guide/channels/banners/custom_code)を参照してください。
+高度なレイアウトや埋め込みコンテンツ（例: 動画）用にカスタムHTMLを挿入します。カスタムHTML内のクリックは、`brazeBridge.logClick()`を呼び出さない限りトラッキングされません。詳細については、[バナーのカスタムコードとJavaScriptブリッジ]({{site.baseurl}}/user_guide/channels/banners/custom_code)を参照してください。
 
 | プロパティ | 説明 |
 | --- | --- |
@@ -614,9 +636,9 @@ LiquidまたはConnected Contentを使用してメールにパーソナライゼ
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 
 <!-- Saved row is not yet released. Uncomment when available.
-### 保存済み行
+### Saved row
 
-以前ドラッグ＆ドロップContent Blockとして保存した再利用可能な行を挿入します。保存済み行は元のContent Blockに**リンクされていません**。元のContent Blockが更新された場合、最新バージョンを取得するにはエディターに再度ドラッグする必要があります。詳細については、[Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks)を参照してください。**行**の下に**保存済み行**が表示されない場合は、[Brazeサポート]({{site.baseurl}}/user_guide/administer/personal/braze_support)またはBrazeのカスタマーサクセスマネージャーにお問い合わせください。
+Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved rows are **not linked** to the original Content Block — if the original is updated, you'll need to drag it into the editor again to get the latest version. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze customer success マネージャー.
 -->
 
 ## 知っておくべきこと

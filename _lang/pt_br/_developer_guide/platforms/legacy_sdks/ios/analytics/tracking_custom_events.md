@@ -14,9 +14,9 @@ noindex: true
 
 Você pode registrar eventos personalizados na Braze para saber mais sobre os padrões de uso do seu app e segmentar seus usuários por suas ações no dashboard.
 
-Antes da implementação, não deixe de analisar exemplos das opções de segmentação oferecidas por eventos personalizados, atributos personalizados e eventos de compra em nossas [melhores práticas]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview#user-data-collection), bem como nossas notas sobre [convenções de nomenclatura de eventos]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions).
+Antes da implementação, não deixe de analisar exemplos das opções de segmentação oferecidas por eventos personalizados, atributos personalizados e eventos de compra em nossas [melhores práticas]({{site.baseurl}}/developer_guide/analytics), bem como nossas notas sobre [convenções de nomenclatura de eventos]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions).
 
-## Adição de um evento personalizado {#adding-a-custom-event}
+## Adicionando um evento personalizado {#adding-a-custom-event}
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -35,7 +35,7 @@ Appboy.sharedInstance()?.logCustomEvent("YOUR_EVENT_NAME")
 {% endtab %}
 {% endtabs %}
 
-### Adição de propriedades {#adding-properties}
+### Adicionando propriedades {#adding-properties}
 
 Você pode adicionar metadados sobre eventos personalizados passando um `NSDictionary` preenchido com valores `NSNumber`, `NSString` ou `NSDate`.
 
@@ -82,12 +82,12 @@ Consulte nossa [documentação de classe](http://appboy.github.io/appboy-ios-sdk
 
 ### Chaves reservadas {#event-reserved-keys}
 
-As seguintes chaves são reservadas e não podem ser usadas como propriedades de evento personalizado:
+As seguintes chaves são reservadas e não podem ser usadas como propriedades de eventos personalizados:
 
 - `time`
 - `event_name`
 
 ## Recursos adicionais {#additional-resources}
 
-- Consulte a declaração do método no [arquivo](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/Appboy.h) `Appboy.h`.
-- Consulte a documentação de [`logCustomEvent`](http://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#ad80c39e8c96482a77562a5b1a1d387aa) para saber mais.
+- Veja a declaração do método no [arquivo](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/Appboy.h) `Appboy.h`.
+- Consulte a documentação do [`logCustomEvent`](http://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#ad80c39e8c96482a77562a5b1a1d387aa) para saber mais.

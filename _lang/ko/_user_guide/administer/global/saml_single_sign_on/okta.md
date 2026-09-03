@@ -11,11 +11,15 @@ description: "이 문서에서는 Okta를 사용하여 싱글 사인온을 위�
 
 > Okta는 모든 기기에서 모든 사람을 모든 애플리케이션과 연결합니다. 클라우드를 위해 구축된 엔터프라이즈급 ID 관리 서비스로, 많은 온프레미스 애플리케이션과 호환됩니다. Okta를 사용하면 IT 팀이 모든 직원의 애플리케이션 또는 기기에 대한 액세스를 관리할 수 있습니다.
 
+{% alert note %}
+사전 구축된 Braze Okta 마켓플레이스 앱은 공유 Entity ID `braze_dashboard`를 사용합니다. 이 대시보드에 고유한 Entity ID가 필요한 경우(예: Okta를 통해 여러 Braze 대시보드를 연결하려는 경우) 마켓플레이스 앱 대신 커스텀 SAML 앱을 설정한 다음, [커스텀 Entity ID 사용]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup#using-a-custom-entity-id)을 따르세요.
+{% endalert %}
+
 ## 요구 사항 {#requirements}
 
-| 요구 사항 | 세부 정보 |
+| 요구 사항 | 세부 사항 |
 | ----------- | ------- |
-| 계정에 Okta 활성화 | 계정에 이 기능을 활성화하려면 Braze 계정 매니저에게 문의하세요. |
+| 계정에 Okta 활성화 | Braze 계정 매니저에게 연락하여 계정에 Okta를 활성화하세요. |
 | Okta 관리자 권한 | Okta를 설정하기 전에 관리자 권한이 있는지 확인하세요. |
 | Braze 관리자 권한 | Okta를 설정하기 전에 관리자 권한이 있는지 확인하세요. |
 | RelayState API 키 | IdP 로그인을 활성화하려면 **설정** > **API 키**로 이동하여 `sso.saml.login` 권한이 있는 API 키를 생성하세요. |
@@ -25,24 +29,24 @@ description: "이 문서에서는 Okta를 사용하여 싱글 사인온을 위�
 
 ### 1a단계: Braze에서 보안 설정으로 이동 {#step-1a-navigate-to-security-settings-in-braze}
 
-계정 매니저가 계정에 대해 SAML SSO를 활성화한 후, **설정** > **관리자 설정** > **보안 설정**으로 이동하여 SAML SSO 섹션을 **ON**으로 토글합니다.
+계정 매니저가 계정에 SAML SSO를 활성화한 후, **설정** > **관리자 설정** > **보안 설정**으로 이동하여 SAML SSO 섹션을 **ON**으로 토글합니다.
 
 ![보안 설정 페이지에서 Okta SAML SSO가 활성화된 모습.]({% image_buster/assets/img/Okta/okta1.png %})
 
 ### 1b단계: SAML SSO 설정 편집 {#step-1b-edit-saml-sso-settings}
 
-Okta 관리자 대시보드에서 타겟 URL(로그인 URL)과 `x.509` 인증서를 제공하며, 이를 Braze 계정의 **보안 설정** 페이지에 입력해야 합니다.
+Okta 관리 대시보드에서 Okta는 대상 URL(로그인 URL)과 `x.509` 인증서를 제공하며, 이를 Braze 계정의 **보안 설정** 페이지에 입력해야 합니다.
 
-![SAML SSO 설정 편집과 관련된 스크린샷.]({% image_buster /assets/img/Okta/okta5.png %}){: style="max-width:75%"}
+![1b단계: SAML SSO 설정 편집과 관련된 스크린샷.]({% image_buster /assets/img/Okta/okta5.png %}){: style="max-width:75%"}
 
 | 요구 사항 | 세부 정보 |
 |---|---|
-| `SAML Name` | 로그인 화면에 버튼 텍스트로 표시됩니다. 일반적으로 ID 공급자의 이름을 사용합니다. 예를 들어, "Okta"입니다. |
-| `Target URL` | Okta 관리자 대시보드에서 제공하는 로그인 URL입니다. **Applications** > 내 애플리케이션 > **General** 탭 > **App Embed Link** > **Embed Link**에서 찾을 수 있습니다. |
-| `Certificate` | `x.509` PEM 인코딩 인증서는 ID 공급자가 제공합니다. 이 필드에 복사하여 붙여넣어야 합니다. Okta에서 **SAML Signing Certificates**로 이동하여 **Actions** > **Download certificate**를 선택하면 받을 수 있습니다. |
+| `SAML Name` | 로그인 화면의 버튼 텍스트로 표시됩니다. 일반적으로 ID 공급자의 이름입니다. 예: "Okta". |
+| `Target URL` | Okta 관리 대시보드에서 제공하는 로그인 URL입니다. **Applications** > 사용자의 애플리케이션 > **General** 탭 > **App Embed Link** > **Embed Link**로 이동하여 찾을 수 있습니다. |
+| `Certificate` | ID 공급자가 제공하는 `x.509` PEM 인코딩 인증서입니다. 이 필드에 복사하여 붙여넣어야 합니다. Okta에서 **SAML Signing Certificates**로 이동하고 **Actions** > **Download certificate**를 선택하여 가져올 수 있습니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="1b단계: SAML SSO 설정 편집" }
 
-완료되면 페이지 하단에서 **변경 사항 저장**을 선택합니다.
+완료되면 페이지 하단에서 **Save Changes**를 선택합니다.
 
 ## 2단계: Okta 구성 {#step-2-configure-okta}
 
@@ -50,12 +54,12 @@ Okta에서 Braze SAML 앱의 **Sign On** 탭을 선택한 다음 **Edit**을 클
 
 그런 다음 `sso.saml.login` 권한이 있는 RelayState API 키를 **Default Relay State** 필드에 입력합니다.
 
-![Sign On 탭에 표시된 Okta Default RelayState.]({% image_buster /assets/img/Okta/okta2.png %}){: style="max-width:75%"}
+![Sign On 탭의 Okta 기본 RelayState.]({% image_buster /assets/img/Okta/okta2.png %}){: style="max-width:75%"}
 
-새 설정을 저장하세요.
+이 새로운 설정을 저장해야 합니다.
 
 {% alert tip %}
-Braze 계정 사용자가 SAML SSO로만 로그인하도록 하려면 **회사 설정** 페이지에서 [싱글 사인온 인증을 제한]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup#restriction)할 수 있습니다.
+Braze 계정 사용자가 SAML SSO로만 로그인하도록 하려면 **회사 설정** 페이지에서 [SSO 인증을 제한]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup#restriction)할 수 있습니다.
 {% endalert %}
 
 ## 3단계: 로그인 {#step-3-log-in}

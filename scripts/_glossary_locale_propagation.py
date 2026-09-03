@@ -22,6 +22,8 @@ SCRIPTS_DIR = Path(__file__).resolve().parent
 PROPAGATION_EXCLUSIONS_PATH = (
     SCRIPTS_DIR / "phrase_glossary_locale_propagation_exclusions.json"
 )
+# API reference pages keep English acronyms, endpoint paths, and code literals.
+PROPAGATION_SKIP_PATH_MARKERS = ("/_api/",)
 HEADING_ANCHOR_RE = re.compile(r"\{#[^}]+\}")
 
 # Glossary JSON keys (``scripts/glossaries/{lang}.json``) → ``_lang/`` folders.
@@ -98,6 +100,23 @@ SEGMENT_SKIP_RE = re.compile(
 
 def _is_ascii_term(s: str) -> bool:
     return bool(s) and all(ord(c) < 128 for c in s)
+
+
+def propagation_replace_value(value: str) -> str:
+    """Return the primary glossary synonym for locale propagation.
+
+    Phrase term bases often store multiple valid translations joined with
+    `` or `` (for example ``SDK or Software-Development-Kit``). Propagation
+    must use only the first synonym; the full chain is unreadable in docs and
+    can recurse when shorter synonyms appear inside longer ones.
+    """
+    primary, _sep, _rest = value.partition(" or ")
+    return primary.strip() if primary.strip() else value
+
+
+def _should_skip_propagation_file(md_path: Path, repo_root: Path) -> bool:
+    rel = md_path.relative_to(repo_root).as_posix()
+    return any(marker in rel for marker in PROPAGATION_SKIP_PATH_MARKERS)
 
 
 def _term_pattern(search: str) -> re.Pattern[str]:
@@ -334,7 +353,7 @@ def build_locale_changes_from_glossary_diff(
     for term in sorted(new_keys - old_keys, key=str.casefold):
         if is_propagation_excluded(lang, term, exclusions):
             continue
-        replace = new[term]
+        replace = propagation_replace_value(new[term])
         if not replace or term == replace:
             continue
         changes.append(
@@ -352,19 +371,25 @@ def build_locale_changes_from_glossary_diff(
         new_val = new[term]
         if old_val == new_val or is_propagation_excluded(lang, term, exclusions):
             continue
-        if old_val and old_val != new_val:
-            changes.append(
-                {
-                    "lang": lang,
-                    "term": term,
-                    "kind": "updated",
-                    "search": old_val,
-                    "replace": new_val,
-                }
-            )
+        new_replace = propagation_replace_value(new_val)
+        if old_val and old_val != new_replace:
+            old_replace = propagation_replace_value(old_val)
+            if old_replace != new_replace:
+                changes.append(
+                    {
+                        "lang": lang,
+                        "term": term,
+                        "kind": "updated",
+                        # Search the full previous glossary string. Using only the
+                        # primary synonym can rewrite unrelated short tokens when
+                        # Phrase reorders an `` or `` chain.
+                        "search": old_val,
+                        "replace": new_replace,
+                    }
+                )
         if (
             _is_ascii_term(term)
-            and term != new_val
+            and term != new_replace
             and old_val.casefold() != term.casefold()
         ):
             changes.append(
@@ -373,7 +398,7 @@ def build_locale_changes_from_glossary_diff(
                     "term": term,
                     "kind": "updated",
                     "search": term,
-                    "replace": new_val,
+                    "replace": new_replace,
                 }
             )
 
@@ -534,6 +559,8 @@ def propagate_glossary_changes(
             continue
 
         for md_path in sorted(locale_root.rglob("*.md")):
+            if _should_skip_propagation_file(md_path, repo_root):
+                continue
             original = md_path.read_text(encoding="utf-8")
             text = original
             file_count = 0

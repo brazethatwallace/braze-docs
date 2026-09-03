@@ -9,6 +9,8 @@ tool:
   - Campaigns
 
 
+
+
 ---
 
 # Push-Nachricht erstellen {#create-a-push-message}
@@ -48,15 +50,15 @@ Wenn alle Nachrichten in Ihrer Campaign ähnlich sein oder denselben Inhalt habe
 
 ## Schritt 2: Push-Plattformen auswählen {#step-2-select-push-platforms}
 
-Wählen Sie als Nächstes aus, welche Kombination aus Plattform und mobilem Gerät die Push-Benachrichtigung erhalten soll. Verwenden Sie diese Auswahl, um die Zustellung einer Push-Benachrichtigung auf eine bestimmte Gruppe von Apps zu beschränken.
+Wählen Sie als Nächstes aus, welche Kombination aus Plattform und mobilem Gerät die Push-Benachrichtigung erhalten soll. Mit dieser Auswahl können Sie die Zustellung einer Push-Benachrichtigung auf eine bestimmte Gruppe von Apps beschränken.
 
 Je nach Ihren vorherigen Auswahlen gibt es verschiedene Möglichkeiten:
 
 | Vorherige Auswahl | Optionen |
 | --- | --- |
-| Push-Benachrichtigungs-Campaign | Wählen Sie eine oder mehrere Plattformen und Geräte aus. Wenn Sie mehrere Geräte und Plattformen ansprechen möchten, wird Ihre Bearbeitungsoberfläche für das Verfassen einer Nachricht für alle ausgewählten Plattformen optimiert. Unter [Push-Nachrichten für mehrere Plattformen]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/multiple_platform_push) erfahren Sie, was in dieser Bearbeitungsoberfläche anders ist. |
-| Multichannel-Campaign | Wählen Sie **Messaging-Kanal hinzufügen**, um zusätzliche Push-Plattformen hinzuzufügen. Da die Plattformauswahl für jede Variante spezifisch ist, können Sie das Nachrichten-Engagement pro Plattform testen. |
-| Canvas | Wählen Sie in Ihrem Nachrichtenschritt **+ Weitere hinzufügen**, um zusätzliche Push-Plattformen hinzuzufügen. Ähnlich wie bei Multichannel-Campaigns ist die Plattformauswahl für jede Variante spezifisch. |
+| Push-Benachrichtigungs-Campaign | Wählen Sie eine oder mehrere Plattformen und Geräte aus. Wenn Sie mehrere Geräte und Plattformen ansprechen möchten, wird die Bearbeitungsoberfläche so optimiert, dass Sie eine Nachricht für alle ausgewählten Plattformen verfassen können. Unter [Push-Nachrichten für mehrere Plattformen]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/multiple_platform_push) erfahren Sie, was in dieser Bearbeitungsoberfläche anders ist. |
+| Mehrkanalige Campaign | Wählen Sie **Add Messaging Channel** aus, um zusätzliche Push-Plattformen hinzuzufügen. Da die Plattformauswahl für jede Variante spezifisch ist, können Sie das Nachrichten-Engagement pro Plattform testen. |
+| Canvas | Wählen Sie in Ihrem Nachrichtenschritt **+ Add more** aus, um zusätzliche Push-Plattformen hinzuzufügen. Ähnlich wie bei mehrkanaligen Campaigns ist die Plattformauswahl für jede Variante spezifisch. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 2: Push-Plattformen auswählen" }
 
 ## Schritt 3: Benachrichtigungstyp auswählen (iOS und Android) {#step-3-select-notification-type-ios-and-android}
@@ -71,7 +73,7 @@ Andernfalls wählen Sie für iOS und Android Ihren Benachrichtigungstyp aus:
 - [Push-Storys]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories) (unterstützt auf Android + iOS)
 - Inline-Bild (nur Android)
 
-Wenn Sie Bilder in Ihre Push-Campaign einbinden möchten, lesen Sie die folgenden Anleitungen zum Erstellen einer Rich-Benachrichtigung für [iOS]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications) oder [Android]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/rich_notifications).
+Wenn Sie Bilder in Ihre Push-Campaign aufnehmen möchten, lesen Sie die folgenden Anleitungen zum Erstellen einer Rich-Benachrichtigung für [iOS]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications) oder [Android]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/rich_notifications).
 
 ## Schritt 4: Push-Nachricht verfassen {#step-4-compose-your-push-message}
 
@@ -87,39 +89,39 @@ Weitere Informationen zu plattformspezifischen Benachrichtigungsoptionen finden 
 
 ### Sprache {#language}
 
-Fügen Sie Texte in mehreren Sprachen über den Button **Sprachen hinzufügen** hinzu. Wir empfehlen, Ihre Sprachen auszuwählen, bevor Sie Ihren Inhalt verfassen, damit Sie Ihren Text an der richtigen Stelle im Liquid einfügen können. Eine vollständige Liste der verfügbaren Sprachen finden Sie unter [Unterstützte Sprachen]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/localization#languages-supported).
+Fügen Sie Text in mehreren Sprachen hinzu, indem Sie den Button **Sprachen hinzufügen** verwenden. Wir empfehlen, Ihre Sprachen auszuwählen, bevor Sie Ihren Inhalt schreiben, damit Sie Ihren Text an der richtigen Stelle im Liquid einfügen können. Eine vollständige Liste der verfügbaren Sprachen finden Sie unter [Unterstützte Sprachen]({{site.baseurl}}/developer_guide/localization?tab=android).
 
-Wenn Sie Text in einer Sprache hinzufügen, die von rechts nach links geschrieben wird, beachten Sie, dass das endgültige Erscheinungsbild von Rechts-nach-links-Nachrichten weitgehend davon abhängt, wie Dienstanbieter sie darstellen. Best Practices zum Erstellen von Rechts-nach-links-Nachrichten, die möglichst korrekt angezeigt werden, finden Sie unter [Rechts-nach-links-Nachrichten erstellen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
+Wenn Sie Text in einer Sprache hinzufügen, die von rechts nach links geschrieben wird, beachten Sie, dass das endgültige Erscheinungsbild von Rechts-nach-links-Nachrichten weitgehend davon abhängt, wie Dienstanbieter sie darstellen. Best Practices für die Erstellung von Rechts-nach-links-Nachrichten, die möglichst korrekt angezeigt werden, finden Sie unter [Rechts-nach-links-Nachrichten erstellen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
 
 ### Titel und Text {#title-and-body}
 
 {% tabs local %}
 {% tab iOS %}
-Beginnen Sie mit der Eingabe im Nachrichtenfeld und beobachten Sie, wie eine Vorschau im Vorschaufeld daneben erscheint. Push-Nachrichten müssen als reiner Text formatiert sein.
+Beginnen Sie mit der Eingabe im Nachrichtenfeld und beobachten Sie, wie eine Vorschau im daneben befindlichen Vorschaufenster erscheint. Push-Nachrichten müssen als reiner Text formatiert sein.
 
-Fügen Sie eine Überschrift über das Feld **Titel** hinzu. Um Ihre Push-Nachricht personalisiert und zielgerichtet zu gestalten, können Sie [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) verwenden.
+Fügen Sie eine Überschrift über das Feld **Titel** hinzu. Um Ihre Push-Benachrichtigung personalisiert und gezielt zu gestalten, können Sie [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) verwenden.
 {% endtab %}
 
 {% tab Android %}
-Beginnen Sie mit der Eingabe im Nachrichtenfeld und beobachten Sie, wie eine Vorschau im Vorschaufeld daneben erscheint. Push-Nachrichten müssen als reiner Text formatiert sein.
+Beginnen Sie mit der Eingabe im Nachrichtenfeld und beobachten Sie, wie eine Vorschau im daneben befindlichen Vorschaufenster erscheint. Push-Nachrichten müssen als reiner Text formatiert sein.
 
-Um Ihre Push-Nachricht personalisiert und zielgerichtet zu gestalten, können Sie [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) verwenden.
+Um Ihre Push-Benachrichtigung personalisiert und gezielt zu gestalten, können Sie [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) verwenden.
 
 {% alert important %}
-Sie **können** eine Android-Push-Nachricht nicht ohne Titel senden&#8212;Sie können jedoch stattdessen ein einzelnes Leerzeichen eingeben. Beachten Sie, dass Ihre Nachricht als stille Push-Benachrichtigung gesendet wird, wenn sie nur ein einzelnes Leerzeichen enthält. Weitere Informationen finden Sie unter [Stille Push-Benachrichtigungen]({{site.baseurl}}/developer_guide/push_notifications/silent?sdktab=android).
+Sie **können** keine Android-Push-Nachricht ohne einen Titel senden&#8212;Sie können jedoch stattdessen ein einzelnes Leerzeichen eingeben. Beachten Sie, dass Ihre Nachricht als stille Push-Benachrichtigung gesendet wird, wenn sie nur ein einzelnes Leerzeichen enthält. Weitere Informationen finden Sie unter [Stille Push-Benachrichtigungen]({{site.baseurl}}/developer_guide/push_notifications/silent?sdktab=android).
 {% endalert %}
 {% endtab %}
 {% endtabs %}
 
 {% alert tip %}
-Brauchen Sie Hilfe beim Erstellen überzeugender Texte? Probieren Sie den [KI-Textassistenten]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy) aus. Geben Sie einen Produktnamen oder eine Beschreibung ein, und die KI generiert menschenähnliche Marketingtexte zur Verwendung in Ihren Nachrichten.
+Brauchen Sie Hilfe beim Verfassen überzeugender Texte? Nutzen Sie den [KI-Textassistenten]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy). Geben Sie einen Produktnamen oder eine Beschreibung ein, und die KI generiert menschenähnlichen Marketingtext zur Verwendung in Ihren Nachrichten.
 
-![Button „KI-Textassistent starten“ im Textfeld des Push-Composers.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_push.png %}){: style="max-width:60%"}
+![Button „KI-Texter starten“ im Textfeld des Push-Composers.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_push.png %}){: style="max-width:60%"}
 {% endalert %}
 
 ### Bild {#image}
 
-Sofern unterstützt, wird Ihr App-Symbol automatisch als Bild für Ihre Push-Benachrichtigung hinzugefügt. Sie haben außerdem die Möglichkeit, Rich-Benachrichtigungen zu senden, die eine stärkere Anpassung Ihrer Push-Benachrichtigungen ermöglichen, indem zusätzliche Inhalte über den reinen Text hinaus hinzugefügt werden.
+Sofern unterstützt, wird Ihr App-Symbol automatisch als Bild für Ihre Push-Benachrichtigung hinzugefügt. Sie haben außerdem die Möglichkeit, Rich-Benachrichtigungen zu senden, die mehr Anpassungsmöglichkeiten in Ihren Push-Benachrichtigungen bieten, indem zusätzliche Inhalte über den Text hinaus hinzugefügt werden.
 
 Weitere Hinweise zur Verwendung von Bildern in Ihren Push-Benachrichtigungen finden Sie in den folgenden Artikeln:
 
@@ -130,9 +132,9 @@ Weitere Hinweise zur Verwendung von Bildern in Ihren Push-Benachrichtigungen fin
 
 ### Klickverhalten {#on-click-behavior}
 
-Legen Sie mit **Klickverhalten** fest, was passiert, wenn Nutzer:innen den Text einer Push-Benachrichtigung antippen. Sie können beispielsweise Kund:innen auffordern, Ihre App zu öffnen, Kund:innen zu einer bestimmten Web-URL weiterleiten oder sogar eine bestimmte Seite Ihrer App mit einem [Deeplink]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls) öffnen.
+Legen Sie mit **Klickverhalten** fest, was passiert, wenn Nutzer:innen auf den Text einer Push-Benachrichtigung tippen. Sie können beispielsweise Kund:innen dazu auffordern, Ihre App zu öffnen, sie zu einer bestimmten Web-URL weiterleiten oder sogar eine bestimmte Seite Ihrer App über einen [Deeplink]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls) öffnen.
 
-Hier können Sie auch Button-Aufforderungen innerhalb Ihrer Push-Benachrichtigung einrichten, wie zum Beispiel:
+Hier können Sie auch Button-Aktionen innerhalb Ihrer Push-Benachrichtigung einrichten, wie zum Beispiel:
 
 - Akzeptieren/Ablehnen
 - Ja/Nein
@@ -143,29 +145,29 @@ Hier können Sie auch Button-Aufforderungen innerhalb Ihrer Push-Benachrichtigun
 
 Wenn Nutzer:innen Ihre App auf mehreren Geräten installiert haben, wird Ihre Push-Nachricht standardmäßig an alle Geräte mit einem gültigen Push-Token gesendet. Falls gewünscht, können Sie **Zuletzt verwendetes Gerät** auswählen.
 
-![Geräteoptionen-Checkbox, um diese Push-Nachricht nur an das zuletzt verwendete Gerät der Nutzer:innen zu senden.]({% image_buster /assets/img_archive/push_recent_device.png %}){: style="max-width:70%;" }
+![Checkbox für Geräteoptionen, um diese Push-Benachrichtigung nur an das zuletzt verwendete Gerät der Nutzer:innen zu senden.]({% image_buster /assets/img_archive/push_recent_device.png %}){: style="max-width:70%;" }
 
-Bei dieser Einstellung gibt es einige Feinheiten. Wenn diese Option ausgewählt ist, begrenzt Braze mehrfache Zustellungen, außer wenn eine Campaign mehrere Plattformen anspricht, wie z. B. sowohl iOS als auch Android. Wenn Nutzer:innen Ihre App sowohl auf einem iOS- als auch auf einem Android-Gerät haben, erhalten sie eine Push-Nachricht für beide Plattformen. Wenn das zuletzt verwendete Gerät von Nutzer:innen nicht [Push-fähig]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states#foreground-push-enabled) ist, wird die Nachricht nicht gesendet.
+Es gibt einige Feinheiten bei dieser Einstellung. Wenn diese Option aktiviert ist, begrenzt Braze mehrfache Sendungen, außer wenn eine Campaign auf mehrere Plattformen abzielt, z. B. sowohl iOS als auch Android. Wenn Nutzer:innen Ihre App sowohl auf einem iOS- als auch auf einem Android-Gerät haben, erhalten sie eine Push-Benachrichtigung für beide Plattformen. Wenn das zuletzt verwendete Gerät von Nutzer:innen nicht [Push-aktiviert]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states#foreground-push-enabled) ist, wird die Nachricht nicht gesendet.
 
-Standardmäßig sendet Braze Nachrichten an jedes Gerät, das Nutzer:innen besitzen und das über ein gültiges Push-Token verfügt. Für iOS können Sie Ihre Reichweite weiter eingrenzen, indem Sie Benachrichtigungen nur an iPad-Geräte oder nur an iPhone- und iPod-Geräte senden.
+Standardmäßig sendet Braze Nachrichten an jedes Gerät von Nutzer:innen, das ein gültiges Push-Token besitzt. Für iOS können Sie Ihre Reichweite weiter eingrenzen, indem Sie Benachrichtigungen nur an iPad-Geräte oder nur an iPhone- und iPod-Geräte senden.
 
 Falls gewünscht, können Sie das Push-Ziel auf **Zuletzt verwendetes Gerät** setzen.
 
 #### Zuletzt verwendetes Gerät {#most-recently-used-device}
 
-„Zuletzt verwendet“ ist ein technischer Status, kein verhaltensbezogener. Da Braze standardmäßig alle Geräte anspricht, schränkt der Wechsel zu dieser Einstellung Ihre Reichweite erheblich ein und stützt sich vollständig auf den Status des einzelnen Geräts mit dem neuesten Token.
+„Zuletzt verwendet“ ist ein technischer Status, kein verhaltensbezogener. Da Braze standardmäßig alle Geräte anspricht, schränkt der Wechsel zu dieser Einstellung Ihre Reichweite erheblich ein und stützt sich ausschließlich auf den Status des einzelnen Geräts mit dem neuesten Token.
 
-Das zuletzt verwendete Gerät wird dadurch bestimmt, welches Gerät das zuletzt aktualisierte Push-Token hat, und nicht dadurch, welches Gerät die letzte Sitzung hatte.
-* Wenn das Push-Token eines neuen Geräts über die API zu einem Nutzerprofil hinzugefügt wird, gilt dieses Gerät sofort als zuletzt verwendet, auch wenn die Nutzer:innen noch keine Sitzung darauf gestartet haben.
-* Wenn das zuletzt verwendete Gerät von Nutzer:innen nicht [Push-fähig]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states#foreground-push-enabled) ist, wird die Nachricht überhaupt nicht gesendet.
+Das zuletzt verwendete Gerät wird anhand des Geräts mit dem zuletzt aktualisierten Push-Token bestimmt, nicht anhand des Geräts mit der letzten Sitzung.
+* Wenn ein Push-Token eines neuen Geräts über die API zu einem Kundenprofil hinzugefügt wird, gilt dieses Gerät sofort als das zuletzt verwendete, auch wenn die Nutzer:innen noch keine Sitzung darauf gestartet haben.
+* Wenn das zuletzt verwendete Gerät von Nutzer:innen nicht [Push-aktiviert]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states#foreground-push-enabled) ist, wird die Nachricht überhaupt nicht gesendet.
 
-Mehrfache Zustellungen können weiterhin auftreten, wenn eine Campaign verschiedene Plattformen anspricht, wie z. B. sowohl iOS als auch Android. Wenn Nutzer:innen die App auf beiden Plattformen haben, können sie eine Push-Nachricht für beide Plattformen erhalten.
+Mehrfache Sendungen können weiterhin auftreten, wenn eine Campaign auf verschiedene Plattformen abzielt, z. B. sowohl iOS als auch Android. Wenn Nutzer:innen die App auf beiden Plattformen haben, können sie eine Push-Benachrichtigung für beide Plattformen erhalten.
 
 Für iOS können Sie das Messaging weiter einschränken, indem Sie Push-Benachrichtigungen nur an iPad-Geräte oder nur an iPhone- und iPod-Geräte senden.
 
 ## Schritt 5: Vorschau anzeigen und Nachricht testen (optional) {#step-5-preview-and-test-your-message-optional}
 
-Das Testen ist wohl einer der wichtigsten Schritte. Nachdem Sie Ihre perfekte Push-Nachricht verfasst haben, testen Sie sie, bevor Sie sie versenden. Wählen Sie den Tab **Test** aus, um die verschiedenen Optionen zum Testen Ihrer Push-Nachricht anzuzeigen. Unter **Testempfänger:innen** können Sie eine Inhalts-Testgruppe oder einzelne Nutzer:innen auswählen. Sie können auch **Nachricht als Nutzer:in in der Vorschau anzeigen** verwenden, um einen Eindruck davon zu bekommen, wie Ihre Nachricht auf dem Mobilgerät für zufällige Nutzer:innen, bestehende Nutzer:innen, angepasste Nutzer:innen oder mehrsprachige Nutzer:innen aussehen könnte.
+Das Testen ist wohl einer der wichtigsten Schritte. Nachdem Sie Ihre perfekte Push-Nachricht verfasst haben, testen Sie sie, bevor Sie sie versenden. Wählen Sie den Tab **Test** aus, um zwischen verschiedenen Optionen zum Testen Ihrer Push-Nachricht zu wählen. Unter **Testempfänger:innen** können Sie eine Inhalts-Testgruppe oder einzelne Nutzer:innen auswählen. Sie können auch **Nachricht als Nutzer:in in der Vorschau anzeigen** verwenden, um einen Eindruck davon zu bekommen, wie Ihre Nachricht auf dem Mobilgerät für zufällige Nutzer:innen, vorhandene Nutzer:innen, benutzerdefinierte Nutzer:innen oder mehrsprachige Nutzer:innen aussehen könnte.
 
 Weitere Informationen finden Sie unter [Testnachrichten senden]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=push).
 
@@ -174,25 +176,25 @@ Weitere Informationen finden Sie unter [Testnachrichten senden]({{site.baseurl}}
 {% tabs %}
 {% tab Campaign %}
 
-Erstellen Sie den Rest Ihrer Campaign. In den folgenden Abschnitten finden Sie weitere Details zur optimalen Nutzung unserer Tools für Push-Benachrichtigungen.
+Erstellen Sie den Rest Ihrer Campaign. In den folgenden Abschnitten erfahren Sie, wie Sie unsere Tools optimal für die Erstellung von Push-Benachrichtigungen nutzen können.
 
 ### Zustellungszeitplan oder Trigger wählen {#choose-delivery-schedule-or-trigger}
 
-Push-Nachrichten können basierend auf einem geplanten Zeitpunkt, einer Aktion oder einem API-Trigger zugestellt werden. Weitere Informationen finden Sie unter [Ihre Campaign planen]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
+Push-Nachrichten können basierend auf einem geplanten Zeitpunkt, einer Aktion oder einem API-Trigger zugestellt werden. Weitere Informationen finden Sie unter [Zeitplanung Ihrer Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
 
-Bei aktionsbasierter Zustellung können Sie auch die Dauer der Campaign und [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) festlegen.
+Bei aktionsbasierter Zustellung können Sie außerdem die Dauer der Campaign und [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) festlegen.
 
 In diesem Schritt können Sie auch Zustellungskontrollen festlegen, z. B. ob Nutzer:innen erneut [berechtigt]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#turning-on-re-eligibility) werden können, die Campaign zu erhalten, oder ob [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping)-Regeln aktiviert werden sollen.
 
 ### Zielgruppe zusammenstellen {#choose-users-to-target}
 
-Als Nächstes müssen Sie [Nutzer:innen ansprechen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users), indem Sie Segmente oder Filter auswählen, um Ihre Zielgruppe einzugrenzen. Sie erhalten automatisch eine Vorschau der ungefähren Segmentgröße. Detaillierte Zielgruppenstatistiken für die von Ihrer Campaign angesprochenen Kanäle sind in der Fußzeile verfügbar. Um zu sehen, welcher Prozentsatz Ihrer Nutzerbasis angesprochen wird und den Lifetime-Value für dieses Segment, wählen Sie **Show Additional Stats**.
+Als Nächstes müssen Sie [Nutzer:innen als Zielgruppe auswählen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users), indem Sie Segmente oder Filter verwenden, um Ihre Zielgruppe einzugrenzen. Sie erhalten automatisch eine Vorschau auf die ungefähre Größe der Segmentpopulation. Detaillierte Zielgruppenstatistiken für die von Ihrer Campaign angesprochenen Kanäle sind in der Fußzeile verfügbar. Um zu sehen, welcher Prozentsatz Ihrer Nutzerbasis angesprochen wird und welchen LTV dieses Segment hat, wählen Sie **Zusätzliche Statistiken anzeigen**.
 
 {% multi_lang_include audience/target_audiences.md %}
 
-{% details Warum stimmt meine Metrik „Gesamte erreichbare Nutzer:innen“ nicht mit der Summe aller Kanäle überein? %}
+{% details Warum stimmt meine Kennzahl „Insgesamt erreichbare Nutzer:innen“ nicht mit der Summe aller Kanäle überein? %}
 
-Wenn Sie die gesamten erreichbaren Nutzer:innen für Ihre gefilterte Zielgruppe anzeigen, stellen Sie möglicherweise fest, dass die Summe der einzelnen Spalten kleiner ist als die gesamten erreichbaren Nutzer:innen. Diese Differenz entsteht in der Regel dadurch, dass eine Reihe von Nutzer:innen zwar für das Segment oder die Filter in der Campaign qualifiziert sind, aber nicht über Push erreichbar sind (z. B. weil sie keine gültigen oder aktiven [Push-Token]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle#push-tokens) haben).
+Wenn Sie die insgesamt erreichbaren Nutzer:innen für Ihre gefilterte Zielgruppe betrachten, fällt Ihnen möglicherweise auf, dass die Summe der einzelnen Spalten kleiner ist als die Gesamtzahl der erreichbaren Nutzer:innen. Diese Abweichung entsteht in der Regel dadurch, dass eine Reihe von Nutzer:innen zwar für das Segment oder die Filter der Campaign qualifiziert sind, aber nicht per Push erreichbar sind (z. B. weil sie keine gültigen oder aktiven [Push-Token]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle#push-tokens) haben).
 
 {% enddetails %}
 
@@ -200,31 +202,31 @@ Wenn Sie die gesamten erreichbaren Nutzer:innen für Ihre gefilterte Zielgruppe 
 
 Beachten Sie, dass die genaue Segmentzugehörigkeit immer berechnet wird, bevor die Nachricht gesendet wird.
 
-Sie können auch festlegen, dass Ihre Campaign nur an Nutzer:innen mit einem bestimmten [Abo-Status]({{site.baseurl}}/user_guide/channels/email/subscriptions) gesendet wird, z. B. an diejenigen, die abonniert und für Push angemeldet sind.
+Sie können Ihre Campaign auch so einrichten, dass sie nur an Nutzer:innen mit einem bestimmten [Abo-Status]({{site.baseurl}}/user_guide/channels/email/subscriptions) gesendet wird, z. B. an Nutzer:innen, die Push-Nachrichten abonniert haben und per Opt-in zugestimmt haben.
 
-Optional können Sie die Zustellung auch auf eine bestimmte Anzahl von Nutzer:innen innerhalb des Segments beschränken oder Nutzer:innen erlauben, dieselbe Nachricht bei einer Wiederholung der Campaign zweimal zu erhalten.
+Optional können Sie die Zustellung auch auf eine bestimmte Anzahl von Nutzer:innen innerhalb des Segments beschränken oder es erlauben, dass Nutzer:innen bei einer Wiederholung der Campaign dieselbe Nachricht zweimal erhalten.
 
 #### Multichannel-Campaigns mit E-Mail und Push {#multichannel-campaigns-with-email-and-push}
 
-Bei Multichannel-Campaigns, die sowohl E-Mail- als auch Push-Kanäle ansprechen, möchten Sie Ihre Campaign möglicherweise so einschränken, dass nur Nutzer:innen, die ausdrücklich angemeldet sind, die Nachricht erhalten (unter Ausschluss von abonnierten oder abgemeldeten Nutzer:innen). Angenommen, Sie haben drei Nutzer:innen mit unterschiedlichem Opt-in-Status:
+Bei Multichannel-Campaigns, die sowohl E-Mail- als auch Push-Kanäle ansprechen, möchten Sie Ihre Campaign möglicherweise so einschränken, dass nur Nutzer:innen die Nachricht erhalten, die ausdrücklich per Opt-in zugestimmt haben (unter Ausschluss von abonnierten oder abgemeldeten Nutzer:innen). Nehmen wir beispielsweise an, Sie haben drei Nutzer:innen mit unterschiedlichen Opt-in-Status:
 
 {% multi_lang_include messaging/intelligent_channel_user_examples.md %}
 
-Wählen Sie dazu unter **Audience Summary** aus, diese Campaign nur an „angemeldete Nutzer:innen“ zu senden. Diese Option stellt sicher, dass nur angemeldete Nutzer:innen Ihre E-Mail erhalten, und Braze sendet Ihre Push-Benachrichtigung standardmäßig nur an Nutzer:innen, die für Push aktiviert sind.
+Wählen Sie dazu unter **Zusammenfassung der Zielgruppe** die Option, diese Campaign nur an „Nutzer:innen mit Opt-in“ zu senden. Diese Option stellt sicher, dass nur Nutzer:innen mit Opt-in Ihre E-Mail erhalten, und Braze sendet Ihre Push-Nachrichten standardmäßig nur an Nutzer:innen, die Push-fähig sind.
 
 {% alert important %}
-Fügen Sie bei dieser Konfiguration im Schritt **Target Audiences** keine Filter hinzu, die die Zielgruppe auf einen einzelnen Kanal beschränken (z. B. `Foreground Push Enabled = True` oder `Email Subscription = Opted-In`).
+Fügen Sie bei dieser Konfiguration im Schritt **Zielgruppen** keine Filter hinzu, die die Zielgruppe auf einen einzelnen Kanal beschränken (z. B. `Foreground Push Enabled = True` oder `Email Subscription = Opted-In`).
 {% endalert %}
 
 ### Konversions-Events wählen {#choose-conversion-events}
 
-Braze ermöglicht es Ihnen zu verfolgen, wie oft Nutzer:innen bestimmte Aktionen, sogenannte [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), nach Erhalt einer Campaign ausführen. Sie haben die Möglichkeit, ein Zeitfenster von bis zu 30 Tagen festzulegen, in dem eine Konversion gezählt wird, wenn die Nutzer:innen die angegebene Aktion ausführen.
+Mit Braze können Sie nachverfolgen, wie oft Nutzer:innen bestimmte Aktionen ausführen, sogenannte [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), nachdem sie eine Campaign erhalten haben. Sie haben die Möglichkeit, ein Zeitfenster von bis zu 30 Tagen festzulegen, in dem eine Konversion gezählt wird, wenn Nutzer:innen die angegebene Aktion ausführen.
 
 {% endtab %}
 
 {% tab Canvas %}
 
-Falls noch nicht geschehen, vervollständigen Sie die verbleibenden Abschnitte Ihrer Canvas-Komponente. Weitere Details zum Aufbau Ihres Canvas, zur Implementierung multivariater Tests und intelligenter Auswahl und mehr finden Sie im Schritt [Canvas erstellen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) unserer Canvas-Dokumentation.
+Falls noch nicht geschehen, vervollständigen Sie die verbleibenden Abschnitte Ihrer Canvas-Komponente. Weitere Informationen zum Aufbau des restlichen Canvas, einschließlich multivariater Tests und [Optimieren mit BrazeAI<sup>TM</sup>]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#optimize-canvas-variants-with-brazeai), finden Sie unter [Canvas erstellen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas).
 
 {% endtab %}
 {% endtabs %}

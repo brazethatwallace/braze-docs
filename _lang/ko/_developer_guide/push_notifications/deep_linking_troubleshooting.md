@@ -16,29 +16,30 @@ channel:
 
 ## 여기서 시작하세요: 증상 확인하기 {#start-here-match-your-symptom}
 
-아래 표에서 현재 겪고 있는 동작을 찾은 다음, 해당 섹션의 단계를 따르세요. 어떤 섹션이 해당되는지 확실하지 않은 경우 [표준 조사 경로](#standard-investigation-path)를 사용하세요.
+아래 표에서 현재 겪고 있는 동작을 찾은 다음, 해당 섹션의 단계를 따르세요. 어떤 섹션에 해당하는지 확실하지 않으면 [표준 조사 경로](#standard-investigation-path)를 사용하세요.
 
 | 증상 | 이동 |
 | --- | --- |
 | 커스텀 스킴 링크가 앱을 열지만 잘못된 화면이 표시됨 | [커스텀 스킴 딥링크가 올바른 뷰를 열지 않음](#custom-scheme-deep-link-does-not-open-the-correct-view) |
 | 유니버설 링크가 앱 대신 Safari에서 열림 | [유니버설 링크가 앱 대신 Safari에서 열림](#universal-link-opens-in-safari-instead-of-the-app) |
 | 이메일 링크가 앱을 열지 않음 | [이메일의 딥링크가 앱을 열지 않음](#deep-link-from-email-does-not-open-the-app) |
+| 모든 이메일 링크가 앱을 열음 | [모든 이메일 링크가 앱을 열음](#every-email-link-opens-the-app) |
 | 푸시에서는 작동하지만 인앱 메시지에서는 작동하지 않음(또는 그 반대) | [딥링크가 푸시에서는 작동하지만 인앱 메시지에서는 작동하지 않음](#deep-link-works-from-push-but-not-from-in-app-message) |
 | "Open Web URL Inside App"이 빈 WebView를 표시함 | ["Open Web URL Inside App"이 빈 페이지 또는 깨진 페이지를 표시함](#open-web-url-inside-app-shows-a-blank-or-broken-page) |
-| Branch 링크가 앱을 열지 않거나 올바르게 라우팅되지 않음 | [Braze에서 Branch 문제 해결](#branch) |
+| Branch 링크가 앱을 열지 않거나 올바르게 라우팅하지 않음 | [Braze에서 Branch 문제 해결](#branch) |
 | 명확한 원인 없이 딥링크가 실패함 | [일반 디버깅 팁](#general-debugging-tips) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="딥링킹 증상" }
 
 ## 표준 조사 경로 {#standard-investigation-path}
 
-모든 딥링킹 문제에 대해 이 워크플로를 사용하세요. 1단계부터 시작합니다.
+모든 딥링킹 문제에 대해 이 워크플로를 사용합니다. 1단계부터 시작합니다.
 
 1. Braze 외부에서 링크를 테스트합니다. 커스텀 스킴의 경우, 터미널에서 `xcrun simctl openurl booted "<URL>"`을 실행합니다(예: `xcrun simctl openurl booted "myapp://products/123"`). 유니버설 링크의 경우, 실제 기기의 메모 앱에 URL을 붙여넣고 탭합니다.
 2. [상세 로깅을 활성화]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging)하고 문제를 재현합니다. `channel`, `useWebView`, `isUniversalLink`가 포함된 `Opening '<URL>':` 항목을 확인합니다.
 3. 유니버설 링크의 경우, AASA 파일과 Associated Domains 엔타이틀먼트를 검증합니다.
 4. 이메일 링크의 경우, 클릭 추적 도메인이 유효한 AASA 파일을 호스팅하고 있는지 확인합니다.
-5. `BrazeDelegate.braze(_:shouldOpenURL:)`을 구현한 경우, 모든 채널에서 링크를 일관되게 처리하는지 확인합니다.
-6. 문제가 지속되면, 상세 로그와 링크 URL을 첨부하여 [Braze 지원팀]({{site.baseurl}}/braze_support)에 문의하세요.
+5. `BrazeDelegate.braze(_:shouldOpenURL:)`를 구현하는 경우, 모든 채널에서 링크를 일관되게 처리하는지 확인합니다.
+6. 문제가 지속되면 상세 로그와 링크 URL을 포함하여 [Braze 지원팀]({{site.baseurl}}/user_guide/administer/personal/braze_support)에 문의합니다.
 
 ## 커스텀 스킴 딥링크가 올바른 뷰를 열지 않음 {#custom-scheme-deep-link-does-not-open-the-correct-view}
 
@@ -140,6 +141,16 @@ ESP별 설정 안내는 [유니버설 링크 및 앱 링크]({{site.baseurl}}/us
 2. 링크를 길게 눌러 URL을 확인합니다. 이것이 클릭 추적 URL입니다.
 3. 이 도메인에 유효한 AASA 파일이 있는지 확인합니다.
 
+## 모든 이메일 링크가 앱을 여는 경우 {#every-email-link-opens-the-app}
+
+**증상:** 이메일의 모든 링크가 브라우저에서 열릴 것으로 예상되는 링크까지 포함하여 앱을 엽니다.
+
+클릭 추적 도메인의 AASA 파일이 해당 도메인의 모든 URL과 일치하는 `paths`를 사용하고 있습니다(예: `*` 또는 `/*`). 이 경우 iOS는 클릭 추적된 모든 이메일 링크를 유니버설 링크로 처리합니다.
+
+`paths`를 앱에서 열어야 하는 URL로만 제한하세요. SendGrid의 경우 `/uni/`를 매칭하고 해당 링크에만 `universal="true"`를 추가하세요.
+
+Android `pathPrefix` 값을 포함한 ESP별 설정에 대해서는 [유니버설 링크 및 App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#universal-links-app-links-and-click-tracking)를 참조하세요.
+
 ## 딥링크가 푸시에서는 작동하지만 인앱 메시지에서는 작동하지 않는 경우(또는 그 반대) {#deep-link-works-from-push-but-not-from-in-app-message}
 
 **증상:** 동일한 딥링크가 하나의 Braze 채널에서는 작동하지만 다른 채널에서는 작동하지 않습니다.
@@ -227,7 +238,7 @@ Branch 대시보드에서 다음을 확인하세요:
 1. 기기에서 Safari로 Branch 링크를 여세요. 앱이 열리지 않는다면, 문제는 Braze가 아닌 Branch 또는 AASA 구성에 있습니다.
 2. Branch 링크를 메모 앱에 붙여넣고 탭하세요. 유니버설 링크는 Safari 주소창보다 메모 앱에서 더 안정적으로 작동합니다.
 
-## 일반적인 디버깅 팁 {#general-debugging-tips}
+## 일반 디버깅 팁 {#general-debugging-tips}
 
 ### 상세 로깅 사용 {#use-verbose-logging}
 
@@ -235,18 +246,18 @@ Branch 대시보드에서 다음을 확인하세요:
 
 | 로그 항목 | 의미 |
 |---|---|
-| `Opening '<URL>': - channel: notification` | SDK가 푸시 알림의 링크를 처리하고 있습니다 |
-| `Opening '<URL>': - channel: inAppMessage` | SDK가 인앱 메시지의 링크를 처리하고 있습니다 |
-| `Opening '<URL>': - channel: contentCard` | SDK가 Content Cards의 링크를 처리하고 있습니다 |
-| `useWebView: true` | SDK가 인앱 WebView에서 URL을 엽니다 |
-| `isUniversalLink: true` | SDK가 해당 URL을 유니버설 링크로 식별했습니다 |
+| `Opening '<URL>': - channel: notification` | SDK가 푸시 알림의 링크를 처리하고 있음 |
+| `Opening '<URL>': - channel: inAppMessage` | SDK가 인앱 메시지의 링크를 처리하고 있음 |
+| `Opening '<URL>': - channel: contentCard` | SDK가 콘텐츠 카드의 링크를 처리하고 있음 |
+| `useWebView: true` | SDK가 인앱 WebView에서 URL을 여는 중 |
+| `isUniversalLink: true` | SDK가 해당 URL을 유니버설 링크로 식별함 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="상세 로깅 사용" }
 
 이러한 로그를 읽는 방법에 대한 자세한 내용은 [상세 로그 읽기]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging)를 참조하세요.
 
 ### 링크를 개별적으로 테스트 {#test-links-in-isolation}
 
-Braze를 통해 테스트하기 전에, 딥링크 또는 유니버설 링크가 자체적으로 작동하는지 확인하세요.
+Braze를 통해 테스트하기 전에, 딥링크 또는 유니버설 링크가 단독으로 작동하는지 확인하세요.
 
 - **커스텀 스킴**: 터미널에서 `xcrun simctl openurl booted "myapp://path"`를 실행합니다.
 - **유니버설 링크**: 실제 기기의 메모 앱에 URL을 붙여넣고 탭합니다. Safari 주소 표시줄에서는 테스트하지 마세요. iOS는 입력된 URL과 탭한 링크를 다르게 처리합니다.

@@ -75,3 +75,13 @@ When you're ready to use a stale Segment Extension, review the refresh settings,
 When a message is received, opened, or clicked, Braze updates data for all profiles that share the same channel identifier as the profile that logged the interaction (for example, the same email address for email, or the same phone number for SMS or WhatsApp). Users who share an identifier with someone who received, opened, or clicked the message can match this filter even if they were not originally in the campaign or were not directly sent the message.
 
 {% endif %}
+
+{% if include.section == "Canvas variant archived segment" %}
+
+### Can't delete a Canvas variant because of an archived segment {#cant-delete-a-canvas-variant-because-of-an-archived-segment}
+
+If Braze blocks deleting a Canvas variant because a segment filter still references that variant, open the segment that uses the reference—including archived segments—and remove the variant from its filters. After you save the segment, return to the Canvas and retry deleting the variant.
+
+To find which segments reference a Canvas, open the Canvas and review its audience filters, or check each segment's [Messaging Use]({{site.baseurl}}/user_guide/audience/segments/managing_segments#messaging-use) section for linked Canvases.
+
+{% endif %}

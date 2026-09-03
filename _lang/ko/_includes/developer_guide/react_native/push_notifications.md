@@ -467,11 +467,11 @@ macOS 13부터 특정 기기에서는 Xcode 14 이상에서 실행되는 iOS 16+
 
 ![자신의 사용자 ID를 테스트 수신자로 추가하여 푸시 알림을 테스트할 수 있는 Braze 푸시 Campaign.]({% image_buster /assets/img/react-native/push-notification-test.png %} "Push Campaign Test")
 
-## Expo 플러그인 사용 {#using-the-expo-plugin}
+## Expo 플러그인 사용하기 {#using-the-expo-plugin}
 
-[Expo용 푸시 알림을 설정한 후](#reactnative_setting-up-push-notifications), 네이티브 Android 또는 iOS 레이어에서 코드를 작성할 필요 없이 다음 푸시 알림 동작을 처리할 수 있습니다.
+[Expo용 푸시 알림을 설정](#reactnative_setting-up-push-notifications)한 후에는 네이티브 Android 또는 iOS 레이어에 코드를 작성하지 않고도 다음과 같은 푸시 알림 동작을 처리할 수 있습니다.
 
-### Android 푸시를 추가 FMS로 전달 {#forwarding-android-push-to-additional-fms}
+### 추가 FMS로 Android 푸시 전달하기 {#forwarding-android-push-to-additional-fms}
 
 추가 Firebase Messaging Service(FMS)를 사용하려는 경우, 애플리케이션이 Braze에서 보낸 것이 아닌 푸시를 수신할 때 호출할 대체 FMS를 지정할 수 있습니다. 예를 들면 다음과 같습니다:
 
@@ -492,42 +492,42 @@ macOS 13부터 특정 기기에서는 Xcode 14 이상에서 실행되는 iOS 16+
 }
 ```
 
-### Expo Application Services로 앱 확장 사용 {#app-extensions}
+### Expo Application Services에서 앱 확장 사용하기 {#app-extensions}
 
-Expo Application Services(EAS)를 사용하고 `enableBrazeIosRichPush` 또는 `enableBrazeIosPushStories`를 활성화한 경우, 프로젝트의 각 앱 확장에 해당하는 번들 식별자를 선언해야 합니다. EAS에서 코드 서명을 관리하는 프로젝트 구성 방식에 따라 여러 가지 방법으로 접근할 수 있습니다.
+Expo Application Services(EAS)를 사용하고 `enableBrazeIosRichPush` 또는 `enableBrazeIosPushStories`를 활성화한 경우, 프로젝트에서 각 앱 확장에 해당하는 번들 식별자를 선언해야 합니다. 프로젝트가 EAS로 코드 서명을 관리하도록 구성된 방식에 따라 이 단계를 수행하는 여러 방법이 있습니다.
 
-한 가지 방법은 Expo의 [앱 확장 설명서](https://docs.expo.dev/build-reference/app-extensions/)에 따라 `app.json` 파일에서 `appExtensions` 구성을 사용하는 것입니다. 또는 Expo의 [로컬 자격 증명 설명서](https://docs.expo.dev/app-signing/local-credentials/#multi-target-project)에 따라 `credentials.json` 파일에서 `multitarget` 설정을 구성할 수도 있습니다.
+한 가지 방법은 Expo의 [앱 확장 설명서](https://docs.expo.dev/build-reference/app-extensions/)에 따라 `app.json` 파일의 `appExtensions` 구성을 사용하는 것입니다. 또는 Expo의 [로컬 자격 증명 설명서](https://docs.expo.dev/app-signing/local-credentials/#multi-target-project)에 따라 `credentials.json` 파일에서 `multitarget` 설정을 구성할 수 있습니다.
 
 ### 문제 해결 {#troubleshooting}
 
-Braze React Native SDK 및 Expo 플러그인을 사용한 푸시 알림 통합의 일반적인 문제 해결 단계입니다.
+다음은 Braze React Native SDK 및 Expo 플러그인을 사용한 푸시 알림 통합에서 흔히 발생하는 문제 해결 단계입니다.
 
-#### 푸시 알림이 작동하지 않음 {#troubleshooting-stopped-working}
+#### 푸시 알림이 작동하지 않는 경우 {#troubleshooting-stopped-working}
 
-Expo 플러그인을 통한 푸시 알림이 작동하지 않는 경우:
+Expo 플러그인을 통한 푸시 알림이 작동을 멈춘 경우:
 
 1. Braze SDK가 여전히 세션을 추적하고 있는지 확인합니다.
-2. SDK가 `wipeData`에 대한 명시적 또는 암시적 호출로 비활성화되지 않았는지 확인합니다.
-3. Expo 또는 관련 라이브러리의 최근 업그레이드를 검토합니다. Braze 구성과 충돌이 있을 수 있습니다.
-4. 최근에 추가된 프로젝트 종속성을 검토하고, 기존 푸시 알림 델리게이트 메서드를 수동으로 재정의하고 있는지 확인합니다.
+2. 명시적 또는 암시적 `wipeData` 호출로 SDK가 비활성화되지 않았는지 확인합니다.
+3. Expo 또는 관련 라이브러리의 최근 업그레이드를 검토하여 Braze 구성과 충돌이 있는지 확인합니다.
+4. 최근 추가된 프로젝트 종속성을 검토하고, 기존 푸시 알림 델리게이트 메서드를 수동으로 오버라이드하고 있는지 확인합니다.
 
 {% alert tip %}
-iOS 통합의 경우, 프로젝트 종속성과의 잠재적 충돌을 식별하는 데 도움이 되는 [푸시 알림 설정 튜토리얼](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/b1-standard-push-notifications)을 참조할 수도 있습니다.
+iOS 통합의 경우, [푸시 알림 설정 튜토리얼](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/b1-standard-push-notifications)을 참조하여 프로젝트 종속성과의 잠재적 충돌을 식별하는 데 활용할 수 있습니다.
 {% endalert %}
 
-#### 기기 토큰이 Braze에 등록되지 않음 {#troubleshooting-token-registration}
+#### 기기 토큰이 Braze에 등록되지 않는 경우 {#troubleshooting-token-registration}
 
-기기 토큰이 Braze에 등록되지 않는 경우, 먼저 [푸시 알림이 작동하지 않음](#troubleshooting-stopped-working)을 검토하세요.
+기기 토큰이 Braze에 등록되지 않는 경우, 먼저 [푸시 알림이 작동하지 않는 경우](#troubleshooting-stopped-working)를 검토합니다.
 
-문제가 지속되면 Braze 푸시 알림 구성을 방해하는 별도의 종속성이 있을 수 있습니다. 해당 종속성을 제거하거나 `Braze.registerPushToken`을 수동으로 호출해 보세요.
+문제가 지속되면 별도의 종속성이 Braze 푸시 알림 구성을 방해하고 있을 수 있습니다. 해당 종속성을 제거하거나 수동으로 `Braze.registerPushToken`을 호출해 보세요.
 
-#### 푸시 알림의 딥링크가 열리지 않음 {#troubleshooting-deep-links}
+#### 푸시 알림의 딥링크가 열리지 않는 경우 {#troubleshooting-deep-links}
 
-마이그레이션 후 푸시 알림의 딥링크가 열리지 않는 경우, 다음 사항을 확인하세요:
+마이그레이션 후 푸시 알림의 딥링크가 열리지 않는 경우, 다음 사항을 확인합니다:
 
 1. 업그레이드된 앱에서 [React Native Linking](https://reactnative.dev/docs/linking) 설정이 여전히 유효한지 확인합니다.
-2. iOS 네이티브 통합의 경우, `populateInitialPayloadFromLaunchOptions`와 `Braze.getInitialPushPayload`를 구현하여 앱이 종료된 상태에서 시작될 때 초기 푸시 페이로드를 가져와 `url`을 딥링크 핸들러에 전달할 수 있는지 확인합니다.
+2. iOS 네이티브 통합의 경우, `populateInitialPayloadFromLaunchOptions` 및 `Braze.getInitialPushPayload`를 구현하여 앱이 종료된 상태에서 실행될 때 초기 푸시 페이로드를 검색하고 해당 `url`을 딥링크 핸들러에 전달할 수 있는지 확인합니다.
 3. Braze Expo 플러그인을 사용하는 경우, `androidHandlePushDeepLinksAutomatically`가 구현에 맞게 올바르게 설정되어 있는지 확인합니다.
-4. 최근에 추가된 종속성이 알림 처리 또는 앱 델리게이트 동작을 재정의하고 있는지 검토합니다.
+4. 최근 추가된 종속성이 알림 처리 또는 앱 델리게이트 동작을 오버라이드하고 있는지 검토합니다.
 
-이러한 확인을 완료한 후에도 문제가 지속되면, [고객지원 티켓을 열고]({{site.baseurl}}/user_guide/administrative/access_braze/support) SDK 로그와 재현 단계를 포함해 주세요.
+이 단계를 모두 완료했는데도 문제가 지속되면, [지원 티켓을 제출]({{site.baseurl}}/user_guide/administer/personal/braze_support)하고 SDK 로그 및 재현 단계를 포함해 주세요.

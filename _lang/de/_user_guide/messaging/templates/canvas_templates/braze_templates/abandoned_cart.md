@@ -14,7 +14,7 @@ tool: Canvas
 In diesem Artikel führen wir Sie durch einen Anwendungsfall für das Template **Abandoned Intent**, das für die Überlegungsphase des Nutzer:innen-Lebenszyklus vorgesehen ist. Nach diesem Artikel haben Sie eine User-Journey angepasst, die Käufe von Nutzer:innen fördert, die nach dem Hinzufügen von Artikeln zu ihren Warenkörben keine Käufe getätigt haben.
 
 {% alert tip %}
-Verwenden Sie [BrazeAI Operator<sup>TM</sup>]({{site.baseurl}}/user_guide/brazeai/operator), um dieses Template einzurichten und anzupassen. Wählen Sie **BrazeAI Operator<sup>TM</sup>** neben Ihrem Nutzerprofil, während Sie Ihr Canvas erstellen oder bearbeiten. Beschreiben Sie dann Ihr Ziel, z. B. „Hilf mir, das Abandoned-Intent-Template zu konfigurieren, um Nutzer:innen erneut anzusprechen, die ihren Warenkorb abgebrochen haben“.
+Verwenden Sie [BrazeAI Operator<sup>TM</sup>]({{site.baseurl}}/user_guide/brazeai/operator), um dieses Template einzurichten und anzupassen. Wählen Sie **BrazeAI Operator<sup>TM</sup>** neben Ihrem Kundenprofil, während Sie Ihr Canvas erstellen oder bearbeiten. Beschreiben Sie dann Ihr Ziel, z. B. „Hilf mir, das Abandoned-Intent-Template zu konfigurieren, um Nutzer:innen erneut anzusprechen, die ihren Warenkorb abgebrochen haben“.
 {% endalert %}
 
 ## Voraussetzungen {#prerequisites}

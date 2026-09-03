@@ -20,7 +20,7 @@ platform:
 `MismatchSenderId` は認証の失敗を示します。Firebase Cloud Messaging (FCM) は、senderIDとFCM APIキーという2つの重要なデータで認証を行います。これらの両方が正確であることを確認する必要があります。詳細については、この問題に関する[Androidドキュメント](https://firebase.google.com/docs/cloud-messaging/http-server-ref#error-codes)を参照してください。
 
 一般的な失敗の原因には以下が含まれます:
-- 不正な[senderID]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration#step-1-enable-firebase)
+- 不正な[senderID]({{site.baseurl}}/developer_guide/push_notifications?sdktab=android)
 - 異なるsenderIDを持つ別のプッシュサービスに登録した場合の多重登録
 
 ### プッシュバウンス: InvalidRegistration {#push-bounced-invalidregistration}
@@ -75,7 +75,7 @@ Brazeでは、このダッシュボードメッセージは以下のAPNsエラ�
 
 次のステップ:
 
-- カスタムキーを削減し、大きな動的値を短縮してペイロードサイズを縮小してください。
+- カスタムキーを削減し、大きなダイナミックな値を短縮してペイロードサイズを縮小してください。
 - APIを通じて送信する場合は、送信前に最終的なJSONペイロード（サイズを含む）を検証してください。
 
 ### プッシュバウンス: BadToken {#push-bounced-badtoken}
@@ -94,7 +94,7 @@ Brazeでは、このダッシュボードメッセージは以下のAPNsエラ�
 
 ### バンドルIDが許可されていない {#bundle-id-not-allowed}
 
-`TopicDisallowed` エラーは、リクエスト内のトピック（バンドルID）が使用されている認証資格情報で許可されていないため、APNsがプッシュを拒否したことを意味します。これを解決するには:
+`TopicDisallowed` エラーは、リクエスト内のトピック（バンドルID）が使用されている認証情報で許可されていないため、APNsがプッシュを拒否したことを意味します。これを解決するには:
 
 1. **バンドルIDを確認してください。** Brazeのアプリ設定で構成されているバンドルIDが、アプリのバンドルIDと正確に一致していることを確認してください。これにはサフィックスのバリエーション（たとえば、`.debug`、`.staging`）も含まれます。
 2. **APNs認証設定を確認してください。** アプリが正しいAPNs `.p8` キーで構成されていること、およびそのキーが送信先のアプリと同じApple Developer Teamに関連付けられていることを確認してください。

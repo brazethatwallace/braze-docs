@@ -7,7 +7,6 @@ page_order: 1
 layout: api_page
 page_type: reference
 description: "Este artigo traz informações sobre o endpoint \"Atualizar atividade ao vivo\"."
-
 ---
 {% api %}
 # Atualizar atividade ao vivo {#update-live-activity}
@@ -15,7 +14,7 @@ description: "Este artigo traz informações sobre o endpoint \"Atualizar ativid
 /messages/live_activity/update
 {% endapimethod %}
 
-> Use este endpoint para atualizar e encerrar [atividades ao vivo]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?sdktab=swift) exibidas pelo seu app iOS. Este endpoint requer configuração adicional.
+> Use este endpoint para atualizar e encerrar [atividades ao vivo]({{site.baseurl}}/developer_guide/live_notifications?sdktab=swift) exibidas pelo seu app iOS. Este endpoint requer configuração adicional.
 
 Depois de registrar uma atividade ao vivo, você pode passar uma carga útil JSON para atualizar seu serviço de Notificações por Push da Apple (APNs). Consulte a documentação da Apple sobre [atualizar sua atividade ao vivo com cargas úteis de notificação por push](https://developer.apple.com/documentation/activitykit/updating-and-ending-your-live-activity-with-activitykit-push-notifications) para saber mais.
 
@@ -28,7 +27,7 @@ Se `content-available` não estiver definido, a prioridade padrão do serviço d
 Para usar este endpoint, você precisará concluir o seguinte:
 
 - Gerar uma chave de API com a permissão `messages.live_activity.update`.
-- Registrar uma atividade ao vivo [remotamente]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?tab=remote&sdktab=swift) ou [localmente]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?tab=local&sdktab=swift) usando o SDK Swift da Braze.
+- Registrar uma atividade ao vivo [remotamente]({{site.baseurl}}/developer_guide/live_notifications?tab=remote&sdktab=swift) ou [localmente]({{site.baseurl}}/developer_guide/live_notifications?tab=local&sdktab=swift) usando o SDK Swift da Braze.
 
 {% multi_lang_include api/payload_size_alert.md %}
 

@@ -75,3 +75,13 @@ Wenn Sie bereit sind, eine veraltete Segmenterweiterung zu verwenden, überprüf
 Wenn eine Nachricht empfangen, geöffnet oder angeklickt wird, aktualisiert Braze die Daten für alle Profile, die denselben Kanal-Bezeichner wie das Profil teilen, das die Interaktion protokolliert hat (z. B. dieselbe E-Mail-Adresse bei E-Mails oder dieselbe Telefonnummer bei SMS oder WhatsApp). Nutzer:innen, die einen Bezeichner mit einer Person teilen, die die Nachricht empfangen, geöffnet oder angeklickt hat, können diesem Filter entsprechen, auch wenn sie ursprünglich nicht in der Campaign enthalten waren oder die Nachricht nicht direkt erhalten haben.
 
 {% endif %}
+
+{% if include.section == "Canvas-Variante archived segment" %}
+
+### Eine Canvas-Variante kann aufgrund eines archivierten Segments nicht gelöscht werden {#cant-delete-a-canvas-variant-because-of-an-archived-segment}
+
+Wenn Braze das Löschen einer Canvas-Variante blockiert, weil ein Segment-Filter diese Variante noch referenziert, öffnen Sie das Segment, das die Referenz verwendet – einschließlich archivierter Segmente – und entfernen Sie die Variante aus den Filtern. Nachdem Sie das Segment gespeichert haben, kehren Sie zum Canvas zurück und versuchen Sie erneut, die Variante zu löschen.
+
+Um herauszufinden, welche Segmente ein Canvas referenzieren, öffnen Sie das Canvas und überprüfen Sie seine Zielgruppenfilter, oder prüfen Sie den Abschnitt [Messaging-Nutzung]({{site.baseurl}}/user_guide/audience/segments/managing_segments#messaging-use) jedes Segments auf verknüpfte Canvases.
+
+{% endif %}

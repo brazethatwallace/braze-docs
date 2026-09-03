@@ -8,24 +8,24 @@ Os links são encurtados usando nosso domínio curto compartilhado (`brz.ai`) ou
 
 ## Usando o encurtamento de links {#using-link-shortening}
 
-Para usar o encurtamento de links, certifique-se de que a caixa de seleção de encurtamento de links no criador de mensagens esteja marcada.
+Para usar o encurtamento de links, certifique-se de que a caixa de seleção de encurtamento de links no criador de mensagem esteja marcada.
 
 {% tabs %}
 {% tab SMS composer %}
 
-![Criador de mensagens SMS com uma caixa de seleção marcada para encurtamento de links.]({% image_buster /assets/img/link_shortening/shortening1.png %})
+![Criador de mensagem SMS com a caixa de seleção para encurtamento de links marcada.]({% image_buster /assets/img/link_shortening/shortening1.png %}){: width="1562" height="1068"}
 
 {% endtab %}
 {% tab RCS composer %}
 
-![Criador de mensagens RCS com uma caixa de seleção marcada para encurtamento de links.]({% image_buster /assets/img/link_shortening/shortening1_rcs.png %})
+![Criador de mensagem RCS com a caixa de seleção para encurtamento de links marcada.]({% image_buster /assets/img/link_shortening/shortening1_rcs.png %}){: width="1476" height="1222"}
 
 {% endtab %}
 {% endtabs %}
 
 A Braze reconhece apenas URLs que começam com `http://` ou `https://`. Quando uma URL é reconhecida, a seção **Prévia** é atualizada com uma URL de espaço reservado. A Braze estima o comprimento da mensagem após o encurtamento, mas um alerta solicita que você selecione um usuário teste e salve a mensagem como rascunho para uma estimativa mais precisa.
 
-![Criador de mensagens com uma URL longa no campo "Mensagem" e um link encurtado gerado na prévia.]({% image_buster /assets/img/link_shortening/shortening3.png %})
+![Criador de mensagem com uma URL longa na caixa de mensagem e um link encurtado gerado na prévia.]({% image_buster /assets/img/link_shortening/shortening3.png %}){: width="1552" height="612"}
 
 ### Adicionando parâmetros UTM {#adding-utm-parameters}
 
@@ -33,33 +33,33 @@ A Braze reconhece apenas URLs que começam com `http://` ou `https://`. Quando u
 
 ## Personalização com Liquid em URLs {#liquid-personalization-in-urls}
 
-Para informações sobre como construir URLs dinamicamente diretamente no criador da Braze, permitindo adicionar parâmetros UTM dinâmicos às suas URLs ou enviar links exclusivos aos usuários, consulte [Usar personalização com Liquid em URLs]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#use-liquid-personalization-in-urls).
+Para saber como criar URLs dinamicamente diretamente no criador da Braze, permitindo adicionar parâmetros UTM dinâmicos às suas URLs ou enviar links exclusivos aos usuários, consulte [Usar personalização com Liquid em URLs]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#use-liquid-personalization-in-urls).
 
 ## Testes {#testing}
 
-Antes de lançar sua Campaign ou Canvas, a prática recomendada é visualizar e testar sua mensagem primeiro. Para isso, acesse a guia **Teste** para visualizar e enviar uma mensagem SMS ou RCS para [grupos de teste de conteúdo]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) ou um usuário individual.
+Antes de lançar sua Campaign ou Canvas, é recomendável pré-visualizar e testar sua mensagem primeiro. Para isso, acesse a guia **Teste** para pré-visualizar e enviar uma mensagem SMS ou RCS para [grupos de teste de conteúdo]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) ou para um usuário individual.
 
-Essa prévia é atualizada com a personalização relevante e a URL encurtada. O número de caracteres e os [segmentos faturáveis]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator) também são atualizados para refletir a personalização renderizada e a URL encurtada.
+Essa prévia é atualizada com a personalização relevante e a URL encurtada. A contagem de caracteres e os [segmentos faturáveis]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator) também são atualizados para refletir a personalização renderizada e a URL encurtada.
 
-Certifique-se de salvar a Campaign ou Canvas antes de enviar uma mensagem de teste para receber uma representação da URL encurtada que é enviada na sua mensagem. Se a Campaign ou Canvas não for salva antes de um envio de teste, o envio de teste incluirá uma URL de espaço reservado.
+Salve a Campaign ou o Canvas antes de enviar uma mensagem de teste para receber uma representação da URL encurtada que é enviada na sua mensagem. Se a Campaign ou o Canvas não for salvo antes do envio de teste, o envio de teste incluirá uma URL de espaço reservado.
 
 {% alert important %}
 Se um rascunho for criado dentro de um Canvas ativo, uma URL encurtada não será gerada. A URL encurtada real é gerada quando o rascunho do Canvas é ativado.
 {% endalert %}
 
-![Guia "Teste" da mensagem com campos para selecionar destinatários de teste.]({% image_buster /assets/img/link_shortening/shortening2.png %})
+![Guia "Teste" da mensagem com campos para seleção de destinatários de teste.]({% image_buster /assets/img/link_shortening/shortening2.png %}){: width="1544" height="1140"}
 
 {% alert note %}
-A personalização com Liquid e as URLs encurtadas são processadas na guia **Teste** após um usuário ter sido selecionado. Certifique-se de que um usuário esteja selecionado para obter uma contagem precisa de caracteres.
+A personalização com Liquid e as URLs encurtadas são modeladas na guia **Teste** após um usuário ser selecionado. Certifique-se de que um usuário esteja selecionado para obter uma contagem precisa de caracteres.
 {% endalert %}
 
 ## Rastreamento de cliques {#click-tracking}
 
-Quando o encurtamento de links está ativado, a tabela **Desempenho de SMS/MMS/RCS** inclui uma coluna intitulada **Total de Cliques** que mostra uma contagem de eventos de clique por variante e uma taxa de cliques associada. Para mais informações sobre métricas, consulte [Desempenho de mensagens]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting).
+Quando o encurtamento de links está ativado, a tabela **SMS/MMS/RCS Performance** inclui uma coluna chamada **Total Clicks** que mostra a contagem de eventos de clique por variante e uma taxa de cliques associada. Para mais detalhes sobre métricas, consulte [Desempenho da mensagem]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting).
 
-![Tabela de métricas de desempenho de SMS e MMS.]({% image_buster /assets/img/link_shortening/shortening4.png %})
+![Tabela de métricas de desempenho de SMS e MMS.]({% image_buster /assets/img/link_shortening/shortening4.png %}){: width="1586" height="191"}
 
-As tabelas **Desempenho Histórico** e **Desempenho de SMS/MMS/RCS** também incluem uma opção para **Total de Cliques** e mostram uma série temporal diária de eventos de clique. Os cliques são incrementados no redirecionamento (como quando um usuário visita um link) e podem ser incrementados mais de uma vez por usuário.
+As tabelas **Historical Performance** e **SMS/MMS/RCS Performance** também incluem uma opção para **Total Clicks** e mostram uma série temporal diária de eventos de clique. Os cliques são incrementados no redirecionamento (por exemplo, quando um usuário acessa um link) e podem ser incrementados mais de uma vez por usuário.
 
 ## Redirecionamento de usuários {#retargeting-users}
 
@@ -69,13 +69,13 @@ Para orientações sobre redirecionamento, visite [Redirecionamento]({{site.base
 
 {% multi_lang_include analytics/click_tracking.md section='Frequently Asked Questions' %}
 
-### É possível saber quais usuários individuais estão clicando em uma URL? {#do-i-know-which-individual-users-are-clicking-on-a-url}
+### Eu consigo saber quais usuários individuais estão clicando em uma URL? {#do-i-know-which-individual-users-are-clicking-on-a-url}
 
 Sim. Você pode redirecionar usuários que clicaram em URLs usando os [filtros de redirecionamento de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting) ou os eventos de clique de SMS (`users.messages.sms.ShortLinkClick`) enviados pelo Currents.
 
 ### O encurtamento de links funciona com deep links ou links universais? {#does-link-shortening-work-with-deep-links-or-universal-links}
 
-O encurtamento de links não funciona com deep links. Como alternativa, você pode encurtar links universais de provedores terceiros como Branch ou Appsflyer, mas os usuários podem experimentar um breve redirecionamento ou efeito de "flickering". Isso ocorre porque o link encurtado passa pela web primeiro antes de resolver para o link universal que permite a abertura do app. Além disso, a Braze não consegue solucionar problemas que possam surgir ao encurtar links universais, como quebrar a atribuição ou causar redirecionamentos inesperados.
+O encurtamento de links não funciona com deep links. Como alternativa, você pode encurtar links universais de provedores terceiros, como Branch ou Appsflyer, mas os usuários podem experimentar um breve redirecionamento ou efeito de "cintilação". Isso ocorre porque o link encurtado passa pela web antes de resolver para o link universal que permite a abertura do app. Além disso, a Braze não consegue solucionar problemas que possam surgir ao encurtar links universais, como quebra de atribuição ou redirecionamentos inesperados.
 
 {% alert note %}
 Teste a experiência do usuário antes de implementar o encurtamento de links com links universais para confirmar que atende às suas expectativas.
@@ -83,7 +83,7 @@ Teste a experiência do usuário antes de implementar o encurtamento de links co
 
 ### Os `send_ids` estão associados a eventos de clique de SMS? {#are-send_ids-associated-with-sms-click-events}
 
-Não. No entanto, você geralmente pode associar `send_ids` a eventos de clique usando o [Criador de consultas]({{site.baseurl}}/query_builder) para consultar dados do Currents com esta consulta:
+Não. No entanto, você geralmente pode atribuir `send_ids` a eventos de clique usando o [Criador de Consultas]({{site.baseurl}}/query_builder) para consultar dados do Currents com esta consulta:
 
 ```sql
 SELECT c.*, s.send_id

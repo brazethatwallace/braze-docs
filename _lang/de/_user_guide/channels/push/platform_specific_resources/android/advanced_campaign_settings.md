@@ -26,9 +26,9 @@ Um eine Benachrichtigungs-ID zuzuweisen, navigieren Sie zur Erstellungsseite der
 
 ## Gültigkeitsdauer (TTL) {#ttl}
 
-Das Feld **Time to Live** ermöglicht es Ihnen, eine benutzerdefinierte Speicherdauer für Nachrichten beim Push-Messaging-Dienst festzulegen. Wenn das Gerät über die TTL hinaus offline bleibt, läuft die Nachricht ab und wird nicht zugestellt.
+Das Feld **TTL** ermöglicht es Ihnen, eine benutzerdefinierte Speicherdauer für Nachrichten beim Push-Messaging-Dienst festzulegen. Wenn das Gerät über die TTL hinaus offline bleibt, läuft die Nachricht ab und wird nicht zugestellt.
 
-Um die Gültigkeitsdauer für Ihre Android-Push-Benachrichtigung zu bearbeiten, gehen Sie zum Composer und wählen Sie den Tab **Settings** aus. Suchen Sie das Feld **Time to Live** und geben Sie einen Wert in Tagen, Stunden oder Sekunden ein.
+Um die Gültigkeitsdauer für Ihre Android-Push-Benachrichtigung zu bearbeiten, gehen Sie zum Composer und wählen Sie den Tab **Settings** aus. Suchen Sie das Feld **TTL** und geben Sie einen Wert in Tagen, Stunden oder Sekunden ein.
 
 Die Standardwerte für die Gültigkeitsdauer werden von Ihren Admins auf der Seite [Push-Einstellungen]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings) festgelegt. Standardmäßig setzt Braze die Push TTL auf den Maximalwert für jeden Push-Messaging-Dienst. Während die Standard-TTL-Einstellungen global gelten, können Sie sie bei der Campaign-Erstellung auf Nachrichtenebene überschreiben. Dies ist hilfreich, wenn verschiedene Campaigns unterschiedliche Dringlichkeiten oder Zustellungsfenster erfordern.
 

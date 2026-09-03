@@ -23,7 +23,7 @@ Braze SDKs erfassen automatisch die neueste App-Version einer Nutzer:in. Diese V
 ![Das Panel „Targeting-Optionen“ im Schritt „Zielgruppe zusammenstellen“ im Workflow zur Campaign-Erstellung. Der Abschnitt „Zusätzliche Filter“ enthält den folgenden Filter: „Neueste App-Versionsnummer für Android Stopwatch (Android) ist unter 3.7.0 (134.0.0.0)“.]({% image_buster /assets/img_archive/new_app_version.png %}){: style="max-width:90%;"}
 
 {% alert note %}
-Es kann einige Zeit dauern, bis die aktuellen App-Versionen befüllt werden. Die App-Version im Nutzerprofil wird aktualisiert, wenn die Informationen vom SDK erfasst werden – das hängt davon ab, wann Nutzer:innen ihre App öffnen. Wenn Nutzer:innen die App nicht öffnen, wird die aktuelle Version nicht aktualisiert. <br><br> Diese Filter gelten außerdem nicht rückwirkend. Es empfiehlt sich, „größer als“ oder „gleich“ für aktuelle und zukünftige Versionen zu verwenden. Die Verwendung von Filtern für vergangene Versionen kann zu unerwartetem Verhalten führen.
+Es kann einige Zeit dauern, bis die aktuellen App-Versionen befüllt werden. Die App-Version im Kundenprofil wird aktualisiert, wenn die Informationen vom SDK erfasst werden – das hängt davon ab, wann Nutzer:innen ihre App öffnen. Wenn Nutzer:innen die App nicht öffnen, wird die aktuelle Version nicht aktualisiert. <br><br> Diese Filter gelten außerdem nicht rückwirkend. Es empfiehlt sich, „größer als“ oder „gleich“ für aktuelle und zukünftige Versionen zu verwenden. Die Verwendung von Filtern für vergangene Versionen kann zu unerwartetem Verhalten führen.
 {% endalert %}
 
 ### App-Versionsnummer {#app-version-number}

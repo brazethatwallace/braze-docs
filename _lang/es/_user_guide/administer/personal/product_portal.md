@@ -31,7 +31,7 @@ El portal de productos se encuentra en **Comunidad** > **Hoja de ruta del produc
 | --- | --- |
 | Clasificar la importancia de una característica | Clasifica la importancia de una característica seleccionando **Nice to Have**, **Important** o **Critical**. |
 | Comentar sobre una característica | Después de clasificar una característica, puedes dejar un comentario con tus opiniones. |
-| Responder la pregunta de un Product Manager | Busca la sección "How Customers Can Help" en una tarjeta de característica para responder preguntas de nuestro equipo de producto. |
+| Responder la pregunta de un Product Administrador | Busca la sección "How Customers Can Help" en una tarjeta de característica para responder preguntas de nuestro equipo de producto. |
 | Enviar una idea | Ve a la página **Submit Ideas** del portal y selecciona una de las diez tarjetas para clasificar su importancia. ¡Incluye tu idea o solicitud en los comentarios! <br><br>Una vez enviada, tu idea será revisada por un miembro de nuestro equipo de producto. No podemos proporcionar actualizaciones sobre el estado de una solicitud. Revisa de vez en cuando para ver si tu idea ha sido añadida a las secciones "Under Consideration" o "Planned Features". |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Cómo puedes unirte a la conversación" }
 

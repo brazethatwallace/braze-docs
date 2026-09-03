@@ -1,9 +1,9 @@
-Sie können Canvas-Eingangs-Eigenschaften und Event-Eigenschaften in Ihren Canvas-Journeys für Nutzer:innen verwenden.
+Sie können Canvas-Entry-Eigenschaften und Event-Eigenschaften in Ihren Canvas-Journeys für Nutzer:innen verwenden.
 
 {% tabs local %}
 {% tab Canvas Entry Properties %}
 
-[Canvas-Eingangs-Eigenschaften]({{site.baseurl}}/api/objects_filters/context_object) sind die Eigenschaften, die Sie für Canvases zuordnen, die aktionsbasiert oder API-getriggert sind. Beachten Sie, dass das Objekt `canvas_entry_properties` eine maximale Größe von 50 KB hat.
+[Canvas-Entry-Eigenschaften]({{site.baseurl}}/api/objects_filters/context_object) sind die Eigenschaften, die Sie für Canvases zuordnen, die aktionsbasiert oder API-getriggert sind. Beachten Sie, dass das Objekt `canvas_entry_properties` eine maximale Größe von 50 KB hat.
 
 {% alert note %}
 Speziell für In-App-Nachricht-Kanäle gilt: `context` kann nur in Canvas referenziert werden.
@@ -34,7 +34,7 @@ RetailApp kann auch spezielle Nachrichten für verschiedene `product_name`-Eigen
 
 {% details Für den Original-Canvas-Editor erweitern %}
 
-Sie können Canvases nicht mehr mit dem Original-Editor erstellen oder duplizieren. Dieser Abschnitt dient nur als Referenz. Bei Canvases, die mit dem Original-Editor erstellt wurden, können Canvas-Eingangs-Eigenschaften nur im ersten vollständigen Schritt eines Canvas referenziert werden.
+Sie können Canvases nicht mehr mit dem Original-Editor erstellen oder duplizieren. Dieser Abschnitt dient nur als Referenz. Bei Canvases, die mit dem Original-Editor erstellt wurden, können Canvas-Entry-Eigenschaften nur im ersten vollständigen Schritt eines Canvas referenziert werden.
 
 {% enddetails %}
 {% endtab %}
@@ -49,7 +49,7 @@ Sie können `event_properties` nicht im ersten Nachrichten-Schritt Ihres Canvas 
 
 In Canvas können angepasste Event- und Kauf-Event-Eigenschaften in Liquid in jedem Nachrichten-Schritt verwendet werden, der auf einen Aktionspfade-Schritt folgt. Stellen Sie sicher, dass Sie {% raw %} ``{{event_properties.${property_name}}}``{% endraw %} verwenden, wenn Sie auf diese Event-Eigenschaften verweisen. Diese Events müssen angepasste Events oder Kauf-Events sein, um auf diese Weise in der Nachrichten-Komponente verwendet werden zu können.
 
-Im ersten Nachrichten-Schritt, der auf einen Aktionspfade-Schritt folgt, können Sie Event-Eigenschaften verwenden, die sich auf das in diesem Aktions-Pfad referenzierte Event beziehen. Diese Event-Eigenschaften können jedoch nur verwendet werden, wenn die Nutzer:innen die Aktion tatsächlich durchgeführt haben (und nicht in die Gruppe „Alle anderen“ einsortiert wurden). Zwischen diesem Aktionspfade-Schritt und dem Nachrichten-Schritt können Sie weitere Schritte einfügen (die selbst keine Aktionspfade- oder Nachrichten-Schritte sind).
+Im ersten Nachrichten-Schritt, der auf einen Aktionspfade-Schritt folgt, können Sie Event-Eigenschaften verwenden, die sich auf das in diesem Aktionspfad referenzierte Event beziehen. Diese Event-Eigenschaften können jedoch nur verwendet werden, wenn die Nutzer:innen die Aktion tatsächlich durchgeführt haben (und nicht in die Gruppe „Alle anderen“ einsortiert wurden). Zwischen diesem Aktionspfade-Schritt und dem Nachrichten-Schritt können Sie weitere Schritte einfügen (die selbst keine Aktionspfade- oder Nachrichten-Schritte sind).
 
 {% details Für den Original-Canvas-Editor erweitern %}
 
@@ -60,4 +60,4 @@ Sie können Canvases nicht mehr mit dem Original-Editor erstellen oder duplizier
 {% endtab %}
 {% endtabs %}
 
-Weitere Informationen und Beispiele finden Sie unter [Canvas-Eingangs-Eigenschaften und Event-Eigenschaften]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/canvas_entry_properties_event_properties).
+Weitere Informationen und Beispiele finden Sie unter [Canvas-Entry-Eigenschaften und Event-Eigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties).

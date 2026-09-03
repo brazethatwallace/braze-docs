@@ -38,7 +38,7 @@ Alternatively, you can enable optimized delivery directly in your WhatsApp manag
 
 ### Troubleshooting your setup
 
-- **General error:** If something goes wrong during the upgrade, this error banner will display and advise you to [contact Support]({{site.baseurl}}/braze_support).
+- **General error:** If something goes wrong during the upgrade, this error banner will display and advise you to [contact Support]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 - **Ineligible error:** If you are restricted by Meta, this error banner will display: "At least one WhatsApp Business Account is restricted by Meta. Accounts must be in good standing to upgrade.” This can’t be dismissed until the issue is resolved.
 
 ## Using optimized delivery in campaigns and Canvases

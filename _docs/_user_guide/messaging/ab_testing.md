@@ -4,7 +4,7 @@ article_title: "A/B tests"
 page_order: 6
 layout: dev_guide
 guide_top_header: "A/B tests"
-guide_top_text: "Run experiments to optimize your messaging. An A/B test compares users' responses to multiple versions of the same campaign, while a multivariate test extends this to two or more variables. In Braze, the terms are used interchangeably because the setup process is the same. Use A/B testing with <a href='/docs/user_guide/brazeai/intelligence_suite/intelligent_selection'>Intelligent Selection</a> to automatically optimize your results."
+guide_top_text: "Run experiments to optimize your messaging. An A/B test compares users' responses to multiple versions of the same campaign, while a multivariate test extends this to two or more variables. In Braze, the terms are used interchangeably because the setup process is the same. Use <a href='/docs/user_guide/brazeai/intelligence_suite/variant_selection'>Optimize with BrazeAI™</a> to automatically optimize your results."
 
 page_type: landing
 description: "Set up and analyze A/B tests and multivariate experiments in Braze."

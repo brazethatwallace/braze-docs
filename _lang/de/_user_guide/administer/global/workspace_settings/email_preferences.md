@@ -15,36 +15,36 @@ toc_headers: h2
 
 > Unter E-Mail-Präferenzen können Sie spezifische Einstellungen für ausgehende E-Mails festlegen, wie angepasste Fußzeilen, angepasste Opt-in- und Opt-out-Seiten und mehr. Die Einbindung dieser Optionen in Ihre ausgehenden E-Mails sorgt für ein nahtloses und einheitliches Erlebnis für Ihre Nutzer:innen.
 
-**E-Mail-Präferenzen** finden Sie im Dashboard unter **Einstellungen**.
+**E-Mail-Präferenzen** finden Sie im Dashboard unter **Einstellungen** > **Workspace-Einstellungen**.
 
 ## Sendekonfiguration {#sending-configuration}
 
-Die E-Mail-Einstellungen im Abschnitt **Sendekonfiguration** legen fest, welche Details in Ihren E-Mail-Campaigns enthalten sind. Diese Einstellungen beziehen sich hauptsächlich darauf, was Ihre Nutzer:innen sehen, wenn sie eine E-Mail von Braze erhalten.
+Die E-Mail-Einstellungen im Abschnitt **Sendekonfiguration** bestimmen, welche Details in Ihren E-Mail-Campaigns enthalten sind. Diese Einstellungen beziehen sich insbesondere darauf, was Ihre Nutzer:innen sehen, wenn sie eine E-Mail von Braze erhalten.
 
 ### Einstellungen für ausgehende E-Mails {#outbound-email-settings}
 
-Beim Konfigurieren Ihrer E-Mail-Einstellungen legen die Einstellungen für ausgehende E-Mails fest, welche Namen und E-Mail-Adressen verwendet werden, wenn Braze E-Mails an Ihre Nutzer:innen sendet.
+Wenn Sie Ihre E-Mail-Einstellungen konfigurieren, legen die Einstellungen für ausgehende E-Mails fest, welche Namen und E-Mail-Adressen verwendet werden, wenn Braze E-Mails an Ihre Nutzer:innen sendet.
 
-Wenn Sie eine neue Domain oder einen neuen IP-Pool (Sendeanbieter) zu Ihrem Workspace hinzufügen oder aus der verfügbaren Liste entfernen müssen, wenden Sie sich an Ihren Customer-Success-Manager.
+Wenn Sie eine neue Domain oder einen neuen IP-Pool (Sendeanbieter) zu Ihrem Workspace hinzufügen oder aus der verfügbaren Liste entfernen möchten, wenden Sie sich an Ihren CSM.
 
 {% tabs local %}
 {% tab Anzeigename und Adresse %}
 
-In diesem Abschnitt können Sie die Namen und E-Mail-Adressen hinzufügen, die Sie verwenden können, wenn Braze E-Mails an Ihre Nutzer:innen sendet. Die Anzeigenamen und E-Mail-Adressen stehen in den **Sendeinformationen** zur Verfügung, wenn Sie Ihre E-Mail-Campaign erstellen. Beachten Sie, dass Änderungen an den Einstellungen für ausgehende E-Mails bestehende Sendungen nicht rückwirkend betreffen.
+In diesem Abschnitt können Sie die Namen und E-Mail-Adressen hinzufügen, die Sie verwenden können, wenn Braze E-Mails an Ihre Nutzer:innen sendet. Die Anzeigenamen und E-Mail-Adressen stehen in den **Absenderinformationen** zur Verfügung, wenn Sie Ihre E-Mail-Campaign erstellen. Beachten Sie, dass Änderungen an den Einstellungen für ausgehende E-Mails keine rückwirkende Auswirkung auf bestehende Sendungen haben.
 
 ![Abschnitt „Einstellungen für ausgehende E-Mails“ mit Feldern für verschiedene Anzeigenamen und Domains.]({% image_buster /assets/img/email_settings/display_name_address.png %})
 
 {% alert note %}
-Apple-Mail-Clients erkennen das `@`-Symbol nicht, wenn es in einem benutzerdefinierten Anzeigenamen verwendet wird. Verschiedene Postfachanbieter steuern, wie die Anzeigenamenadresse für ihre Nutzer:innen angezeigt wird, sodass der Anzeigename je nach E-Mail-Client unterschiedlich erscheinen kann.
+Apple-Mail-Clients erkennen das `@`-Symbol nicht, wenn es in einem benutzerdefinierten Anzeigenamen verwendet wird. Verschiedene Postfach-Anbieter steuern, wie die Anzeigenamen-Adresse für ihre Nutzer:innen angezeigt wird, sodass der Anzeigename je nach E-Mail-Client unterschiedlich erscheinen kann.
 {% endalert %}
 
 #### Mit Liquid personalisieren {#personalize-with-liquid}
 
-Sie können auch [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) in den Feldern **Absender-Anzeigename**, **Lokaler Teil** und **Domain** verwenden, um den Absendernamen und die E-Mail-Adresse dynamisch auf Basis angepasster Attribute zu erstellen. Beachten Sie, dass Sie zur Verwendung von Liquid im Feld **Domain** zu den **Sendeinformationen** einer E-Mail-Campaign navigieren und das Kontrollkästchen **Absender-Anzeigename und -Adresse anpassen** aktivieren müssen.
+Sie können auch [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) in den Feldern **Absender-Anzeigename**, **Lokaler Teil** und **Domain** verwenden, um den Absendernamen und die E-Mail-Adresse dynamisch auf Basis angepasster Attribute zu erstellen. Beachten Sie, dass Sie zur Verwendung von Liquid im Feld **Domain** zu den **Absenderinformationen** einer E-Mail-Campaign navigieren und das Kontrollkästchen **Absender-Anzeigename + Adresse anpassen** aktivieren müssen.
 
 ![Sendeeinstellungen mit Feldern zum Anpassen des Absender-Anzeigenamens, der Adresse und der Domain.]({% image_buster /assets/img/email_settings/email_campaign_domain.png %})
 
-Beispielsweise können Sie bedingte Logik verwenden, um von verschiedenen Marken oder Regionen aus zu senden:
+Zum Beispiel können Sie bedingte Logik verwenden, um von verschiedenen Marken oder Regionen aus zu senden:
 
 {% raw %}
 ```liquid
@@ -61,17 +61,17 @@ Default to English Display Name
 {% endtab %}
 {% tab Antwortadresse %}
 
-Durch Hinzufügen einer E-Mail-Adresse in diesem Abschnitt können Sie diese als Antwortadresse für Ihre E-Mail-Campaign auswählen. Sie können eine E-Mail-Adresse auch als Standard festlegen, indem Sie **Als Standard festlegen** auswählen. Diese E-Mail-Adressen stehen in den **Sendeinformationen** zur Verfügung, wenn Sie Ihre E-Mail-Campaign erstellen.
+Wenn Sie in diesem Abschnitt eine E-Mail-Adresse hinzufügen, können Sie diese als Antwortadresse für Ihre E-Mail-Campaign auswählen. Sie können eine E-Mail-Adresse auch als Standard festlegen, indem Sie **Als Standard festlegen** auswählen. Diese E-Mail-Adressen stehen in den **Absenderinformationen** zur Verfügung, wenn Sie Ihre E-Mail-Campaign erstellen.
 
 ![Abschnitt „Antwortadresse“ mit Feldern zur Eingabe mehrerer Antwortadressen.]({% image_buster /assets/img/email_settings/reply_to_address.png %}){: style="max-width:75%;" }
 
 {% alert note %}
-Braze-Sendedomains akzeptieren keine eingehenden E-Mails. Wenn Empfänger:innen auf eine E-Mail antworten, die von einer in Braze konfigurierten Sendedomain gesendet wurde, wird ihre Antwort mit einem `550 5.7.1 relaying denied`-Fehler zurückgewiesen. Die Antwortadresse muss nicht dieselbe Domain wie die Absenderadresse verwenden. Wenn Sie Antworten empfangen müssen – beispielsweise um Kalendereinladungsbestätigungen zu erfassen – verwenden Sie eine Subdomain, die nicht für den Versand konfiguriert ist und über ein Postfach verfügt, das E-Mails empfangen kann.
+Braze-Sendedomains akzeptieren keine eingehenden E-Mails. Wenn ein:e Empfänger:in auf eine E-Mail antwortet, die von einer in Braze konfigurierten Sendedomain gesendet wurde, wird die Antwort mit dem Fehler `550 5.7.1 relaying denied` zurückgewiesen. Die Antwortadresse muss nicht dieselbe Domain wie die Absenderadresse verwenden. Wenn Sie Antworten empfangen müssen – beispielsweise um Bestätigungen für Kalendereinladungen zu sammeln – verwenden Sie eine Subdomain, die nicht für den Versand konfiguriert ist und über ein Postfach zum Empfang von E-Mails verfügt.
 {% endalert %}
 
 #### Mit Liquid personalisieren
 
-Sie können auch [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) im Feld **Antwortadresse** verwenden, um die Antwortadresse dynamisch auf Basis angepasster Attribute zu erstellen. Beispielsweise können Sie bedingte Logik verwenden, um Antworten an verschiedene Regionen oder Abteilungen zu senden:
+Sie können auch [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) im Feld **Antwortadresse** verwenden, um die Antwortadresse dynamisch auf Basis angepasster Attribute zu erstellen. Zum Beispiel können Sie bedingte Logik verwenden, um Antworten an verschiedene Regionen oder Abteilungen zu senden:
 
 {% raw %}
 ```liquid
@@ -85,7 +85,7 @@ Sie können auch [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/
 {% endraw %}
 
 {% alert tip %}
-Wenn Sie einen Content-Block verwenden, um die **Antwortadresse** zu befüllen, stellen Sie sicher, dass der endgültig gerenderte Wert eine gültige E-Mail-Adresse ist und ein `@` enthält. Braze kann dies beim Speichern der Einstellung nicht validieren, da der endgültige Wert erst zum Sendezeitpunkt bekannt ist.
+Wenn Sie einen Content-Block verwenden, um die **Antwortadresse** zu befüllen, stellen Sie sicher, dass der final gerenderte Wert eine gültige E-Mail-Adresse ist und ein `@` enthält. Braze kann dies beim Speichern der Einstellung nicht validieren, da der endgültige Wert erst zum Sendezeitpunkt bekannt ist.
 
 - Wenn Ihr Content-Block den lokalen Teil (den Text vor `@`) und die Domain separat speichert, erstellen Sie das Feld als eine Adresse (zum Beispiel {% raw %}`{{content_blocks.${reply_to_local}}}@{{content_blocks.${reply_to_domain}}}`{% endraw %}).
 {% endalert %}
@@ -93,23 +93,23 @@ Wenn Sie einen Content-Block verwenden, um die **Antwortadresse** zu befüllen, 
 {% endtab %}
 {% tab BCC-Adresse %}
 
-In diesem Abschnitt können Sie BCC-Adressen verwalten, die Sie an ausgehende E-Mail-Nachrichten von Braze anhängen können. Durch Anhängen einer BCC-Adresse an eine E-Mail-Nachricht wird eine identische Kopie der Nachricht, die Ihre Nutzer:innen erhalten, an Ihr BCC-Postfach gesendet. Dies ist ein nützliches Werkzeug, um Kopien von Nachrichten aufzubewahren, die Sie an Ihre Nutzer:innen gesendet haben – für Compliance-Anforderungen oder Kundensupport-Anliegen. BCC-E-Mails sind nicht in E-Mail-Berichten und Analytics enthalten.
+In diesem Abschnitt können Sie BCC-Adressen verwalten, die Sie an ausgehende E-Mail-Nachrichten anhängen können, die von Braze gesendet werden. Wenn Sie einer E-Mail-Nachricht eine BCC-Adresse hinzufügen, wird eine identische Kopie der Nachricht, die Ihre Nutzer:innen erhalten, an Ihr BCC-Postfach gesendet. Dies ist ein nützliches Tool, um Kopien von Nachrichten aufzubewahren, die Sie an Ihre Nutzer:innen gesendet haben – etwa für Compliance-Anforderungen oder Kundenservice-Angelegenheiten. BCC-E-Mails sind nicht in den E-Mail-Berichten und Analytics enthalten.
 
-BCC-Adressen sind für Amazon SES, SendGrid und SparkPost verfügbar. Als Alternative zu BCC-Adressen empfehlen wir die Verwendung der [Nachrichtenarchivierung]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/message_archiving), um eine Kopie der an Nutzer:innen gesendeten Nachrichten für Archivierungs- oder Compliance-Zwecke zu speichern.
+BCC-Adressen sind für Amazon SES, SendGrid und SparkPost verfügbar. Als Alternative zu BCC-Adressen empfehlen wir die Verwendung der [Nachrichtenarchivierung]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/message_archiving), um eine Kopie von Nachrichten zu speichern, die zu Archivierungs- oder Compliance-Zwecken an Nutzer:innen gesendet wurden.
 
 {% multi_lang_include alerts/important_alerts.md alert='BCC address billable emails' %}
 
-Nachdem Sie eine Adresse hinzugefügt haben, steht diese zur Auswahl bereit, wenn Sie eine E-Mail in Campaigns oder Canvas-Schritten erstellen. Wählen Sie **Als Standard festlegen** neben einer Adresse, um diese Adresse standardmäßig beim Starten einer neuen E-Mail-Campaign oder Canvas-Komponente auszuwählen. Um dies auf Nachrichtenebene zu überschreiben, können Sie beim Einrichten Ihrer Nachricht **Kein BCC** auswählen.
+Nachdem Sie eine Adresse hinzugefügt haben, steht die Adresse zur Auswahl bereit, wenn Sie eine E-Mail in Campaigns oder Canvas-Schritten erstellen. Wählen Sie **Als Standard festlegen** neben einer Adresse, um diese Adresse standardmäßig beim Starten einer neuen E-Mail-Campaign oder Canvas-Komponente auszuwählen. Um dies auf Nachrichtenebene zu überschreiben, können Sie beim Einrichten Ihrer Nachricht **Kein BCC** auswählen.
 
-Wenn Sie verlangen, dass alle von Braze gesendeten E-Mail-Nachrichten eine BCC-Adresse enthalten, können Sie den Schalter **BCC-Adresse für alle Ihre E-Mail-Campaigns erforderlich machen** aktivieren. Dazu müssen Sie eine Standardadresse auswählen, die automatisch bei neuen E-Mail-Campaigns oder Canvas-Schritten ausgewählt wird. Die Standardadresse wird auch automatisch zu allen über unsere REST API ausgelösten Nachrichten hinzugefügt. Es ist nicht erforderlich, die bestehende API-Anfrage zu ändern, um die Adresse einzuschließen.
+Wenn alle E-Mail-Nachrichten, die von Braze gesendet werden, eine BCC-Adresse enthalten sollen, können Sie die Option **BCC-Adresse für alle Ihre E-Mail-Campaigns erforderlich** umschalten. Dadurch müssen Sie eine Standardadresse auswählen, die automatisch für neue E-Mail-Campaigns oder Canvas-Schritte ausgewählt wird. Die Standardadresse wird auch automatisch allen Nachrichten hinzugefügt, die über unsere REST API ausgelöst werden. Es ist nicht erforderlich, die bestehende API-Anfrage zu ändern, um die Adresse einzuschließen.
 
 #### Dynamisches BCC {#dynamic-bcc}
 
-Mit dynamischem BCC können Sie Liquid in Ihrer BCC-Adresse verwenden. Beachten Sie, dass dieses Feature nur in den **E-Mail-Präferenzen** verfügbar ist und nicht in der Campaign selbst festgelegt werden kann. Pro E-Mail-Empfänger:in ist nur eine BCC-Adresse zulässig.
+Mit dynamischem BCC können Sie Liquid in Ihrer BCC-Adresse verwenden. Beachten Sie, dass dieses Feature nur in den **E-Mail-Präferenzen** verfügbar ist und nicht in der Campaign selbst festgelegt werden kann. Nur eine BCC-Adresse pro E-Mail-Empfänger:in ist zulässig.
 
-Beispielsweise können Sie {% raw %}`{{custom_attribute.${support_agent}}}`{% endraw %} als BCC-Adresse für E-Mails Ihres Support-Teams hinzufügen.
+Zum Beispiel können Sie {% raw %}`{{custom_attribute.${support_agent}}}`{% endraw %} als BCC-Adresse für E-Mails Ihres Support-Teams hinzufügen.
 
-![BCC-Adressabschnitt im Tab „E-Mail-Einstellungen“ mit einer BCC-Adresse, die Liquid verwendet.]({% image_buster /assets/img/email_settings/dynamic_bcc.png %}){: style="max-width:90%;" }
+![BCC-Adresse-Abschnitt des Tabs „E-Mail-Einstellungen“ mit einer BCC-Adresse, die Liquid verwendet.]({% image_buster /assets/img/email_settings/dynamic_bcc.png %}){: style="max-width:90%;" }
 
 {% endtab %}
 {% endtabs %}
@@ -118,36 +118,36 @@ Beispielsweise können Sie {% raw %}`{{custom_attribute.${support_agent}}}`{% en
 
 [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/email-open-tracking-pixel/){: style="float:right;width:120px;border:0;" class="noimgborder"}
 
-Das Tracking-Pixel für E-Mail-Öffnungen ist ein unsichtbares 1 x 1&nbsp;px großes Bild, das automatisch in Ihr E-Mail-HTML eingefügt wird. Dieses Pixel hilft Braze zu erkennen, ob Ihre Nutzer:innen Ihre E-Mail geöffnet haben. Wenn der E-Mail-Client einer Nutzerin oder eines Nutzers eine Anfrage an unser Tracking-Pixel sendet, kann die Anfrage Informationen wie die IP-Adresse, den User-Agent und den Zeitstempel enthalten. Informationen über E-Mail-Öffnungen können sehr nützlich sein und Ihnen helfen, effektive Marketingstrategien zu bestimmen, indem Sie die entsprechenden Öffnungsraten verstehen.
+Das Tracking-Pixel für E-Mail-Öffnungen ist ein unsichtbares 1 x 1&nbsp;px großes Bild und wird automatisch in Ihr E-Mail-HTML eingefügt. Dieses Pixel hilft Braze zu erkennen, ob Ihre Nutzer:innen Ihre E-Mail geöffnet haben. Wenn der E-Mail-Client einer Nutzerin oder eines Nutzers eine Anfrage an unser Tracking-Pixel sendet, kann die Anfrage Informationen wie die IP-Adresse, den User Agent und den Zeitstempel enthalten. Informationen zu E-Mail-Öffnungen können sehr nützlich sein und helfen Ihnen, effektive Marketingstrategien zu ermitteln, indem Sie die entsprechenden Öffnungsraten analysieren.
 
 ### Platzierung {#placement}
 
-Das Standardverhalten in Braze besteht darin, das Tracking-Pixel am Ende Ihrer E-Mail anzufügen, typischerweise in einem `<body>`-Tag. Für die Mehrheit der Nutzer:innen ist dies der ideale Ort für das Pixel.
+Das Standardverhalten in Braze besteht darin, das Tracking-Pixel am Ende Ihrer E-Mail anzufügen, in der Regel in einem `<body>`-Tag. Für die meisten Nutzer:innen ist dies der ideale Ort für das Pixel.
 
-Obwohl das Pixel bereits so gestaltet ist, dass es so wenige visuelle Änderungen wie möglich verursacht, wären unbeabsichtigte visuelle Änderungen am Ende einer E-Mail am wenigsten sichtbar. Dies ist auch die Standardeinstellung für E-Mail-Anbieter wie SendGrid und SparkPost.
+Obwohl das Pixel bereits so gestylt ist, dass es möglichst wenige visuelle Änderungen verursacht, wären unbeabsichtigte visuelle Änderungen am Ende einer E-Mail am wenigsten sichtbar. Dies ist auch der Standard bei E-Mail-Anbietern wie SendGrid und SparkPost.
 
-Um unerwartetes Verhalten zu reduzieren, halten Sie Liquid innerhalb von `<html>`-Tags. Verschachtelte oder doppelte Tags auf Dokumentebene können die Art und Weise ändern, wie die E-Mail geparst wird und wo das Pixel platziert wird, was sich auf das Öffnungs-Tracking und das Layout auswirken kann. Weitere Informationen finden Sie unter [Liquid verwenden]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/using_liquid).
+Um unerwartetes Verhalten zu vermeiden, sollten Sie Liquid innerhalb von `<html>`-Tags verwenden. Verschachtelte oder doppelte Tags auf Dokumentebene können beeinflussen, wie die E-Mail geparst wird und wo das Pixel platziert wird, was das Öffnungs-Tracking und das Layout beeinträchtigen kann. Weitere Informationen finden Sie unter [Liquid verwenden]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid).
 
 ### Platzierung aktualisieren {#update-the-placement}
 
-Braze unterstützt derzeit das Überschreiben der Standard-Platzierung des Öffnungs-Tracking-Pixels des ESP (das letzte Tag im `<body>` einer E-Mail), um es zum ersten Tag im `<body>` zu verschieben.
+Braze unterstützt derzeit die Möglichkeit, die standardmäßige Platzierung des Öffnungs-Tracking-Pixels des E-Mail-Anbieter (das letzte Tag im `<body>` einer E-Mail) zu überschreiben und es an das erste Tag im `<body>` zu verschieben.
 
-![Abschnitt „Öffnungs-Tracking-Pixel“ mit den Optionen zum Verschieben für SendGrid, SparkPost oder Amazon SES.]({% image_buster /assets/img/open_pixel.png %}){: style="max-width:80%;" }
+![Bereich „Open Tracking Pixel“ mit den Optionen zum Verschieben für SendGrid, SparkPost oder Amazon SES.]({% image_buster /assets/img/open_pixel.png %}){: style="max-width:80%;" }
 
 So ändern Sie die Platzierung:
 
-1. Gehen Sie in Braze zu **Einstellungen** > **E-Mail-Einstellungen**.
+1. Gehen Sie in Braze zu **Einstellungen** > **Workspace-Einstellungen** > **E-Mail-Einstellungen**.
 2. Wählen Sie eine der folgenden Optionen aus: **Move for SendGrid**, **Move for SparkPost** oder **Move for Amazon SES**
-3. Wählen Sie **Speichern**.
+3. Wählen Sie **Speichern** aus.
 
-Nachdem Sie gespeichert haben, sendet Braze spezielle Anweisungen an den ESP, um das Öffnungs-Tracking-Pixel am Anfang aller HTML-E-Mails zu platzieren.
+Nach dem Speichern sendet Braze spezielle Anweisungen an den E-Mail-Anbieter, um das Öffnungs-Tracking-Pixel am Anfang aller HTML-E-Mails zu platzieren.
 
 {% alert important %}
 Die SSL-Aktivierung umschließt die URL des Tracking-Pixels mit HTTPS anstelle von HTTP. Wenn Ihr SSL falsch konfiguriert ist, kann dies die Wirksamkeit des Tracking-Pixels beeinträchtigen.
 {% endalert %}
 
 {% alert important %}
-Klick-Tracking gilt nur für Links, die mit `http://` oder `https://` beginnen. `mailto:`-Links (zum Beispiel `mailto:support@example.com`) werden nicht für das Tracking umgeschrieben.
+Klick-Tracking gilt nur für Links, die mit `http://` oder `https://` beginnen. `mailto:`-Links (z. B. `mailto:support@example.com`) werden nicht für das Tracking umgeschrieben.
 {% endalert %}
 
 ## List-Unsubscribe-Header {#list-unsubscribe}
@@ -208,7 +208,7 @@ Bei Verwendung des „Workspace-Standards“ fügt Braze den One-Click-Abmelde-H
 Gmail beabsichtigt, dass Absender die One-Click-Abmeldung für alle ihre ausgehenden kommerziellen und werblichen Nachrichten ab dem 1. Juni 2024 implementieren. Weitere Informationen finden Sie in den [Gmail-Absenderrichtlinien](https://support.google.com/mail/answer/81126?hl=en#subscriptions&zippy=%2Crequirements-for-sending-or-more-messages-per-day:~:text=Make%20it%20easy%20to%20unsubscribe) und den [FAQ zu Gmails E-Mail-Absenderrichtlinien](https://support.google.com/a/answer/14229414#zippy=%2Cwhat-time-range-or-duration-is-used-when-calculating-spam-rate%2Cif-the-list-header-is-missing-is-the-message-body-checked-for-a-one-click-unsubscribe-link%2Cif-unsubscribe-links-are-temporarily-unavailable-due-to-maintenance-or-other-reasons-are-messages-flagged-as-spam%2Ccan-a-one-click-unsubscribe-link-to-a-landing-or-preferences-page%2Cwhat-is-a-bulk-sender%2Chow-can-bulk-senders-make-sure-theyre-meeting-the-sender-guidelines%2Cdo-the-sender-guidelines-apply-to-messages-sent-to-google-workspace-accounts%2Cdo-the-sender-guidelines-apply-to-messages-sent-from-google-workspace-accounts%2Cwhat-happens-if-senders-dont-meet-the-requirements-in-the-sender-guidelines%2Cif-messages-are-rejected-because-they-dont-meet-the-sender-guidelines-do-you-send-an-error-message-or-other-alert%2Cwhat-happens-when-sender-spam-rate-exceeds-the-maximum-spam-rate-allowed-by-the-guidelines%2Cwhat-is-the-dmarc-alignment-requirement-for-bulk-senders%2Cif-messages-fail-dmarc-authentication-can-they-be-delivered-using-ip-allow-lists-or-spam-bypass-lists-or-will-these-messages-be-quarantined%2Ccan-bulk-senders-get-technical-support-for-email-delivery-issues%2Cdo-all-messages-require-one-click-unsubscribe:~:text=for%20mitigations.-,Unsubscribe%20links,-Do%20all%20messages). Yahoo hat einen Zeitplan für Anfang 2024 für die aktualisierten Anforderungen angekündigt. Weitere Informationen finden Sie unter [More Secure, Less Spam: Enforcing Email Standards for a Better Experience](https://blog.postmaster.yahooinc.com/).
 {% endalert %}
 
-Um die Braze-Abmeldefunktion zur direkten Verarbeitung von Abmeldungen zu verwenden, wählen Sie **Include a one-click list-unsubscribe (mailto and HTTP) email header for emails sent to subscribed or opted-in users** und wählen Sie **Braze default** als Standard-Braze-URL und Mail-to.
+Um die Braze-Abmeldefunktion zur direkten Verarbeitung von Abmeldungen zu verwenden, wählen Sie **Include a one-Click list-unsubscribe (mailto and HTTP) email header for emails sent to subscribed or opted-in users** und wählen Sie **Braze default** als Standard-Braze-URL und Mail-to.
 
 ![Option zum automatischen Einschließen eines List-Unsubscribe-Headers für E-Mails an abonnierte oder angemeldete Nutzer:innen.]({% image_buster /assets/img/email_settings/email_unsubscribe_header.png %})
 
@@ -277,41 +277,41 @@ Wählen Sie **Custom list-unsubscribe header**, um Ihren eigenen konfigurierten 
 
 ## E-Mail-Betreffzeilen ergänzen {#append-email-subject-lines}
 
-Verwenden Sie den Schalter, um „[TEST]“ und „[SEED]“ in die Betreffzeilen Ihrer Test- und Seed-E-Mails aufzunehmen. Dies kann dabei helfen, E-Mail-Campaigns zu identifizieren, die als Tests gesendet wurden.
+Verwenden Sie den Umschalter, um „[TEST]“ und „[SEED]“ in Ihre Test- und Seed-E-Mail-Betreffzeilen aufzunehmen. Dies kann helfen, E-Mail-Campaigns zu identifizieren, die als Tests gesendet wurden.
 
-![Workspace-E-Mail-Einstellung zum Umschalten, die TEST- und SEED-Präfixe zu den Betreffzeilen von Test- und Seed-E-Mails hinzufügt.]({% image_buster /assets/img/email_settings/test_and_seed_email_subject_line.png %}){: style="max-width:70%;"}
+![Workspace-E-Mail-Einstellung mit Umschalter, der TEST- und SEED-Präfixe zu Test- und Seed-E-Mail-Betreffzeilen hinzufügt.]({% image_buster /assets/img/email_settings/test_and_seed_email_subject_line.png %}){: style="max-width:70%;"}
 
-## Inline-CSS für neue E-Mails standardmäßig {#inline-css-on-new-emails-by-default}
+## Inline-CSS bei neuen E-Mails standardmäßig {#inline-css-on-new-emails-by-default}
 
-CSS-Inlining ist eine Technik, die CSS-Stile automatisch für Ihre E-Mails und neue E-Mails inline einfügt. Bei einigen E-Mail-Clients kann dies die Darstellung Ihrer E-Mails verbessern.
+CSS-Inlining ist eine Technik, die CSS-Stile automatisch in Ihre E-Mails und neue E-Mails einbettet. Bei einigen E-Mail-Clients kann dies das Rendering Ihrer E-Mails verbessern.
 
-Das Ändern dieser Einstellung hat keine Auswirkungen auf Ihre bestehenden E-Mail-Nachrichten oder Templates. Sie können diese Standardeinstellung jederzeit beim Erstellen von Nachrichten oder Templates überschreiben. Weitere Informationen finden Sie unter [CSS-Inlining]({{site.baseurl}}/user_guide/channels/email/html_editor/css_inline).
+Das Ändern dieser Einstellung hat keine Auswirkungen auf Ihre bestehenden E-Mail-Nachrichten oder Templates. Sie können diesen Standard jederzeit beim Verfassen von Nachrichten oder Templates überschreiben. Weitere Informationen finden Sie unter [CSS-Inlining]({{site.baseurl}}/user_guide/channels/email/html_editor/css_inline).
 
-## Nutzer:innen bei Änderung der E-Mail-Adresse erneut anmelden {#resubscribe-users-when-their-email-changes}
+## Nutzer:innen bei Änderung ihrer E-Mail-Adresse erneut anmelden {#resubscribe-users-when-their-email-changes}
 
-Sie können Nutzer:innen automatisch erneut anmelden, wenn sie ihre E-Mail-Adresse ändern. Wenn beispielsweise ein:e zuvor abgemeldete:r Workspace-Nutzer:in die E-Mail-Adresse in eine ändert, die nicht auf der Abmeldeliste von Braze steht, wird diese Person automatisch wieder angemeldet.
+Sie können Nutzer:innen automatisch erneut anmelden, wenn sie ihre E-Mail-Adresse ändern. Wenn beispielsweise ein:e zuvor abgemeldete:r Workspace-Nutzer:in ihre oder seine E-Mail-Adresse in eine Adresse ändert, die nicht auf der Abmeldeliste für Braze steht, wird sie oder er automatisch wieder angemeldet.
 
-![Workspace-Einstellung, die Nutzer:innen automatisch erneut anmeldet, wenn sich ihre E-Mail-Adresse ändert.]({% image_buster /assets/img/email_settings/resubscribe_users.png %}){: style="max-width:90%;" }
+![Workspace-Einstellung, die Nutzer:innen bei Änderung ihrer E-Mail-Adresse automatisch erneut anmeldet.]({% image_buster /assets/img/email_settings/resubscribe_users.png %}){: style="max-width:90%;" }
 
 ## Abo-Seiten und Fußzeilen {#subscription-pages-and-footers}
 
 {% tabs local %}
 {% tab Angepasste Fußzeile %}
 
-Für kommerzielle E-Mails schreibt der [CAN-SPAM Act](https://en.wikipedia.org/wiki/CAN-SPAM_Act_of_2003) vor, dass alle kommerziellen E-Mails eine Abmeldeoption enthalten müssen. Mit den Einstellungen für angepasste Fußzeilen können Sie CAN-SPAM-konform bleiben und gleichzeitig Ihre E-Mail-Abmelde-Fußzeile individuell gestalten. Um konform zu bleiben, müssen Sie Ihre angepasste Fußzeile zu allen E-Mails hinzufügen, die im Rahmen von Campaigns für diesen Workspace versendet werden.
+Für kommerzielle E-Mails schreibt der [CAN-SPAM Act](https://en.wikipedia.org/wiki/CAN-SPAM_Act_of_2003) vor, dass alle kommerziellen E-Mails eine Abmeldeoption enthalten müssen. Mit den Einstellungen für angepasste Fußzeilen können Sie CAN-SPAM-konform bleiben und gleichzeitig Ihre E-Mail-Abmelde-Fußzeile anpassen. Um konform zu bleiben, müssen Sie Ihre angepasste Fußzeile zu allen E-Mails hinzufügen, die im Rahmen von Campaigns für diesen Workspace versendet werden.
 
 Beachten Sie die folgenden Anforderungen beim Erstellen einer angepassten Fußzeile für Ihr E-Mail-Messaging:
 - Muss eine Abmelde-URL und eine physische Postanschrift enthalten.
-- Sollte kleiner als 100 KB sein.
+- Sollte weniger als 100 KB groß sein.
 
 ![Editor für angepasste E-Mail-Fußzeilen mit Feldern für Abmeldelink und Postanschrift zur CAN-SPAM-Konformität.]({% image_buster /assets/img/email_settings/custom_footer.png %})
 
-Informationen zum Liquid-Templating für angepasste Fußzeilen finden Sie unter [Angepasste Fußzeilen]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-email-subscriptions).
+Informationen zu Liquid-Templates für angepasste Fußzeilen finden Sie unter [Angepasste Fußzeilen]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-email-subscriptions).
 
 {% endtab %}
 {% tab Angepasste Abmeldeseite %}
 
-Braze ermöglicht es Ihnen, eine **angepasste Abmeldeseite** mit Ihrem eigenen HTML einzurichten. Diese Seite wird angezeigt, nachdem sich Nutzer:innen über den unteren Bereich einer E-Mail abgemeldet haben. Beachten Sie, dass diese Seite kleiner als 750 KB sein sollte.
+In Braze können Sie eine **angepasste Abmeldeseite** mit eigenem HTML erstellen. Diese Seite wird angezeigt, nachdem sich Nutzer:innen über den Link am Ende einer E-Mail abgemeldet haben. Beachten Sie, dass diese Seite weniger als 750 KB groß sein sollte.
 
 ![HTML-Editor und Vorschau für eine angepasste Abmeldeseite, die nach der Abmeldung von E-Mails angezeigt wird.]({% image_buster /assets/img/email_settings/custom_unsubscribe.png %})
 
@@ -320,9 +320,9 @@ Braze ermöglicht es Ihnen, eine **angepasste Abmeldeseite** mit Ihrem eigenen H
 {% endtab %}
 {% tab Angepasste Opt-in-Seite %}
 
-Sie können eine angepasste Opt-in-Seite mit Ihrem eigenen HTML erstellen. Die Einbindung in Ihre E-Mails kann besonders vorteilhaft sein, wenn Sie möchten, dass Ihr Branding und Ihre Botschaft während des gesamten Nutzerlebenszyklus konsistent bleiben. Beachten Sie, dass diese Seite kleiner als 750 KB sein sollte.
+Sie können eine angepasste Opt-in-Seite mit eigenem HTML erstellen. Diese in Ihre E-Mails einzubinden kann besonders vorteilhaft sein, wenn Ihr Branding und Ihre Botschaft während des gesamten Lebenszyklus Ihrer Nutzer:innen konsistent bleiben sollen. Beachten Sie, dass diese Seite weniger als 750 KB groß sein sollte.
 
-![HTML-Editor und Vorschau für eine angepasste Opt-in-Seite zur gebrandeten E-Mail-Abo-Bestätigung.]({% image_buster /assets/img/email_settings/custom_opt_in.png %})
+![HTML-Editor und Vorschau für eine angepasste Opt-in-Seite zur Bestätigung des E-Mail-Abos im eigenen Branding.]({% image_buster /assets/img/email_settings/custom_opt_in.png %})
 
 {% multi_lang_include email/external_font_domains.md page_type='opt-in' %}
 
@@ -330,7 +330,7 @@ Sie können eine angepasste Opt-in-Seite mit Ihrem eigenen HTML erstellen. Die E
 {% endtabs %}
 
 {% alert tip %}
-Wenn Sie sich im Bereich **Vorschau** für eine Abo-Seite oder Fußzeile befinden, wählen Sie **Vorschaulink kopieren**, um einen teilbaren Vorschaulink zu generieren und zu kopieren, der zeigt, wie die E-Mail-Fußzeile, Abmeldeseite oder Opt-in-Seite für zufällige Nutzer:innen aussieht. Weitere Informationen finden Sie unter [Teilbare Vorschau]({{site.baseurl}}/user_guide/messaging/governance/shareable_preview).
+Wählen Sie im Bereich **Vorschau** einer Abo-Seite oder Fußzeile die Option **Vorschau-Link kopieren**, um einen teilbaren Vorschau-Link zu generieren und zu kopieren, der zeigt, wie die E-Mail-Fußzeile, die Abmeldeseite oder die Opt-in-Seite für zufällig ausgewählte Nutzer:innen aussieht. Weitere Informationen finden Sie unter [Teilbare Vorschau]({{site.baseurl}}/user_guide/messaging/governance/shareable_preview).
 {% endalert %}
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
@@ -342,11 +342,11 @@ Nein, das entspricht nicht RFC 8058, was bedeutet, dass Sie die Anforderungen vo
 {% enddetails %}
 
 {% details Warum erhalte ich die Fehlermeldung „Your email body does not include an unsubscribe link“, wenn ich mein Präferenzcenter erstelle? %}
-Ein Präferenzcenter gilt nicht als Abmeldelink. Ihre E-Mail-Empfänger:innen müssen die Möglichkeit haben, sich von kommerziellen E-Mails abzumelden, um CAN-SPAM-konform zu bleiben.
+Ein Präferenzcenter wird nicht als Abmeldelink betrachtet. Ihre E-Mail-Empfänger:innen müssen die Möglichkeit haben, sich von allen kommerziellen E-Mails abzumelden, um CAN-SPAM-konform zu bleiben.
 {% enddetails %}
 
-{% details Muss ich vergangene E-Mail-Campaigns und Canvases bearbeiten, um die Ein-Klick-Abmeldeeinstellung nach der Aktivierung anzuwenden? %}
-Wenn keiner der Anwendungsfälle für die Ein-Klick-List-Unsubscribe-Einstellung auf Nachrichtenebene auf Sie zutrifft, ist keine Aktion erforderlich, solange die Einstellung unter **E-Mail-Präferenzen** aktiviert ist. Braze fügt automatisch die Ein-Klick-Abmelde-Header zu allen ausgehenden Marketing- und Werbenachrichten hinzu. Wenn Sie jedoch das Ein-Klick-Abmeldeverhalten auf Nachrichtenebene konfigurieren müssen, müssen Sie vorherige E-Mail-Campaigns und Canvas-Schritte entsprechend aktualisieren.
+{% details Muss ich vergangene E-Mail-Campaigns und Canvases bearbeiten, um die Ein-Klick-Abmelde-Einstellung nach der Aktivierung anzuwenden? %}
+Wenn Sie keinen der Anwendungsfälle für die Ein-Klick-List-Unsubscribe-Einstellung auf Nachrichtenebene haben, sind keine weiteren Maßnahmen erforderlich, solange die Einstellung unter **E-Mail-Präferenzen** aktiviert ist. Braze fügt automatisch die Ein-Klick-Abmelde-Header zu allen ausgehenden Marketing- und Werbenachrichten hinzu. Wenn Sie jedoch das Ein-Klick-Abmeldeverhalten auf Nachrichtenebene konfigurieren müssen, müssen Sie vorherige E-Mail-Campaigns und Canvas-Schritte entsprechend aktualisieren.
 {% enddetails %}
 
 {% details Ich kann den List-Unsubscribe- und Ein-Klick-Abmelde-Header in der Originalnachricht oder den Rohdaten sehen, aber warum wird der Abmelde-Button in Gmail oder Yahoo nicht angezeigt? %}
@@ -363,26 +363,26 @@ Wenn Sie bedingte Logik hinzufügen, vermeiden Sie Ausgabewerte, die Leerzeichen
 
 ### Ein-Klick-List-Unsubscribe auf Nachrichtenebene
 
-{% details Wenn ich die E-Mail-Header für Ein-Klick manuell hinzufüge und der E-Mail-Abmelde-Header aktiviert ist, welches Verhalten ist zu erwarten? %}
+{% details Wenn ich die E-Mail-Header für die Ein-Klick-Abmeldung manuell hinzufüge und der E-Mail-Unsubscribe-Header aktiviert ist, was ist das erwartete Verhalten? %}
 Die für die Ein-Klick-List-Unsubscribe hinzugefügten E-Mail-Header gelten für alle zukünftigen Sendungen dieser Campaign.
 {% enddetails %}
 
 {% details Warum müssen Abo-Gruppen über Nachrichtenvarianten hinweg übereinstimmen, um den Versand zu starten? %}
-Bei einer Campaign mit A/B-Tests sendet Braze einer Nutzer:in zufällig eine der Varianten. Wenn Sie zwei verschiedene Abo-Gruppen für dieselbe Campaign festgelegt haben (Variante A ist auf Abo-Gruppe A eingestellt und Variante B auf Abo-Gruppe B), können wir nicht garantieren, dass Nutzer:innen, die nur Abo-Gruppe B abonniert haben, auch Variante B erhalten. Es kann vorkommen, dass sich Nutzer:innen von einer Abo-Gruppe abmelden, aus der sie bereits ausgetreten sind.
+Bei einer Campaign mit A/B-Tests sendet Braze zufällig eine der Varianten an Nutzer:innen. Wenn Sie zwei verschiedene Abo-Gruppen für dieselbe Campaign festgelegt haben (Variante A ist auf Abo-Gruppe A eingestellt und Variante B ist auf Abo-Gruppe B eingestellt), können wir nicht garantieren, dass Nutzer:innen, die nur Abo-Gruppe B abonniert haben, Variante B erhalten. Es kann vorkommen, dass sich Nutzer:innen von einer Abo-Gruppe abmelden, aus der sie sich bereits abgemeldet haben.
 {% enddetails %}
 
-{% details Die E-Mail-Abmelde-Header-Einstellung ist in den E-Mail-Präferenzen deaktiviert, aber in den Versandinformationen meiner Campaign ist die Ein-Klick-List-Unsubscribe-Einstellung auf „Workspace-Standard verwenden“ gesetzt. Ist das ein Fehler? %}
+{% details Die E-Mail-Unsubscribe-Header-Einstellung ist in den E-Mail-Präferenzen deaktiviert, aber in den Versandinformationen meiner Campaign ist die Ein-Klick-List-Unsubscribe-Einstellung auf „Workspace-Standard verwenden“ gesetzt. Ist das ein Fehler? %}
 Nein. Wenn die Workspace-Einstellung deaktiviert ist und die Nachrichteneinstellung auf **Workspace-Standard verwenden** gesetzt ist, folgt Braze der Konfiguration in den **E-Mail-Präferenzen**. Das bedeutet, dass wir den Ein-Klick-Abmelde-Header für die Campaign nicht hinzufügen.
 {% enddetails %}
 
-{% details Was passiert, wenn eine Abo-Gruppe archiviert wird? Beeinträchtigt das die Ein-Klick-Abmeldung bei bereits gesendeten E-Mails? %}
-Wenn eine Abo-Gruppe, die in den **Versandinformationen** für die Ein-Klick-Abmeldung referenziert wird, archiviert wird, verarbeitet Braze weiterhin Abmeldungen über die Ein-Klick-Funktion. Die Abo-Gruppe wird im Dashboard nicht mehr angezeigt (Segment-Filter, Nutzerprofil und ähnliche Bereiche).
+{% details Was passiert, wenn eine Abo-Gruppe archiviert wird? Bricht das die Ein-Klick-Abmeldung bei bereits gesendeten E-Mails? %}
+Wenn eine in den **Versandinformationen** für die Ein-Klick-Abmeldung referenzierte Abo-Gruppe archiviert wird, verarbeitet Braze die Abmeldungen über die Ein-Klick-Funktion weiterhin. Die Abo-Gruppe wird im Dashboard nicht mehr angezeigt (Segment-Filter, Kundenprofil und ähnliche Bereiche).
 {% enddetails %}
 
-{% details Ist die Ein-Klick-Abmeldeeinstellung für E-Mail-Templates verfügbar? %}
-Nein, wir planen derzeit nicht, dies für E-Mail-Templates hinzuzufügen, da diese Templates keiner Sendedomain zugewiesen sind. {% multi_lang_include product_feedback_cta.md context="gap" feature="per-domain sending for email templates" %}
+{% details Ist die Ein-Klick-Abmelde-Einstellung für E-Mail-Templates verfügbar? %}
+Nein, wir planen derzeit nicht, diese Funktion für E-Mail-Templates hinzuzufügen, da diesen Templates keine Versanddomain zugewiesen ist. {% multi_lang_include product_feedback_cta.md context="gap" feature="per-domain sending for email templates" %}
 {% enddetails %}
 
-{% details Prüft dieses Feature, ob die Ein-Klick-Abmelde-URL, die zur benutzerdefinierten Option hinzugefügt wurde, gültig ist? %}
+{% details Prüft diese Funktion, ob die zur benutzerdefinierten Option hinzugefügte Ein-Klick-Abmelde-URL gültig ist? %}
 Nein, wir prüfen oder validieren keine Links im Braze-Dashboard. Stellen Sie sicher, dass Sie Ihre URL vor dem Start ordnungsgemäß testen.
 {% enddetails %}

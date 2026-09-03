@@ -82,6 +82,8 @@ Liquid does not natively support arrays of arrays. Store values as an array of c
 
 You can create and assign variables by using the `assign` tag. This creates a variable in the message composer that can also be referenced throughout your message.
 
+You can split an `assign` across multiple lines if you wrap all Braze Liquid variables with double curly braces {% raw %}(`{{ }}`){% endraw %}. Without those braces, multi-line assign statements can cause unexpected rendering, including custom attributes that fail to template. For examples and related syntax rules, see [Use Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#liquid-syntax).
+
 ### When should I use `assign` versus `capture`?
 
 Both `assign` and `capture` create Liquid variables, but they serve different purposes:
@@ -253,7 +255,7 @@ Remove all line breaks so the Liquid is on one continuous line:
 ```
 {% endraw %}
 
-Both approaches prevent unwanted empty lines in your rendered message. This applies to the in-app message drag-and-drop editor, the email drag-and-drop editor, and Content Blocks with Liquid. For more information, see [Whitespace control](https://shopify.github.io/liquid/basics/whitespace/).
+Both approaches prevent unwanted empty lines in your rendered message. This applies to the in-app message drag-and-drop editor, the email drag-and-drop editor, and Content Blocks with Liquid. For more information, see Shopify's [Whitespace control](https://shopify.github.io/liquid/basics/whitespace/) documentation and Braze [Liquid syntax]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#liquid-syntax).
 
 ### Why is my Content Block missing from **Row** in the drag-and-drop search tool?
 

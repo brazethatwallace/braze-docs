@@ -5,6 +5,8 @@ page_order: 4.2
 page_type: reference
 description: "このリファレンス記事では、コンテキストとイベントプロパティの違い、およびそれぞれのプロパティを使用するタイミングについて説明します。"
 tool: Canvas
+local_redirect:
+  timestamps-for-triggers: '/docs/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties#timestamps'
 ---
 
 # コンテキストとイベントプロパティ {#context-and-event-properties}
@@ -44,21 +46,21 @@ tool: Canvas
 ## 知っておくべきこと {#things-to-know}
 
 - コンテキストはLiquidでの参照にのみ使用できます。キャンバス内のプロパティでフィルタリングするには、代わりに[イベントプロパティセグメンテーション]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects)を使用してください。
-- アプリ内メッセージチャネルでは、キャンバスで`context`と`event_properties`を参照できます。`event_properties`はトリガーベースであるため、最初のキャンバスステップに含まれている場合にアクセスできます。
-- 先頭のメッセージステップでは`event_properties`を使用できません。代わりに、`context`を使用するか、`event_properties`を含むメッセージステップの**前**に対応するイベントを持つアクションパスステップを追加できます。
-- アクションパスステップに「SMS受信メッセージを送信」または「WhatsApp受信メッセージを送信」トリガーが含まれている場合、後続のキャンバスステップにSMSまたはWhatsAppのLiquidプロパティを含めることができます。これはキャンバスでのイベントプロパティの動作と同様です。これにより、メッセージを活用してファーストパーティデータをユーザープロファイルや会話型メッセージングに保存・参照できます。
+- アプリ内メッセージチャネルでは、キャンバスで`context`と`event_properties`を参照できます。`event_properties`は、トリガーベースであるため、最初のキャンバスステップに含まれている場合にアクセスできます。
+- リードのメッセージステップでは`event_properties`を使用できません。代わりに、`context`を使用するか、`event_properties`を含むメッセージステップの**前に**、対応するイベントを持つアクションパスステップを追加してください。
+- アクションパスステップに「SMS受信メッセージを送信」または「WhatsApp受信メッセージを送信」トリガーが含まれている場合、後続のキャンバスステップにSMSまたはWhatsAppのLiquidプロパティを含めることができます。これはキャンバスでイベントプロパティが機能する仕組みと同じです。これにより、メッセージを活用してユーザープロファイルや会話型メッセージングにファーストパーティデータを保存・参照できます。
 
 {% alert note %}
-オーディエンスの適格性は、キャンバスエントリ時に一度だけ評価されます。エントリ中にユーザーがマージされた場合、識別されたユーザーはキャンバスを続行し、キャンバスのセグメント基準に対して再評価されることはありません。
+オーディエンスの適格性は、キャンバスのエントリ時に一度だけ評価されます。エントリ中にユーザーがマージされた場合、識別されたユーザーはキャンバスを通じて進み続け、キャンバスのセグメント基準に対して再評価されることはありません。
 {% endalert %}
 
 {% multi_lang_include alerts/tip_alerts.md alert='Reference properties from triggering event' %}
 
-### トリガーのタイムスタンプ {#timestamps-for-triggers}
+### タイムスタンプ {#timestamps}
 
-アクションベースのキャンバスをトリガーするイベントからの[日時型]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties)のタイムスタンプを使用し、[コンテキスト]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties)を使用して参照する場合、タイムスタンプはUTCに正規化されます。
+アクションベースのキャンバスをトリガーするイベントからの[日時タイプ]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties)のタイムスタンプを使用し、[コンテキスト]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties)を通じて参照する場合、タイムスタンプはUTCに正規化されます。
 
-この動作を考慮して、メッセージが[希望するタイムゾーン]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters)で送信されることを保証するために、以下の例のようなLiquidタイムゾーンフィルターを使用することを強くお勧めします。
+この動作を踏まえ、メッセージが[希望のタイムゾーン]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters)で送信されることを保証するために、以下の例のようなLiquidタイムゾーンフィルターを使用することを強く推奨します。
 
 {% raw %}
 ```liquid
@@ -68,14 +70,14 @@ tool: Canvas
 
 ## ユースケース {#use-case}
 
-![ウィッシュリストにアイテムを追加したユーザー向けのアクションパスステップ、遅延ステップ、メッセージステップ、およびその他のユーザー向けのパス。]({% image_buster /assets/img_archive/canvas_entry_properties1.png %}){: style="float:right;max-width:30%;margin-left:15px;"}
+![ウィッシュリストにアイテムを追加したユーザー向けのアクションパスステップ、遅延ステップ、メッセージステップと、その他全員のパスが続くキャンバスフロー。]({% image_buster /assets/img_archive/canvas_entry_properties1.png %}){: style="float:right;max-width:30%;margin-left:15px;"}
 
 `context`と`event_properties`の違いをさらに理解するために、ユーザーがカスタムイベント「ウィッシュリストにアイテムを追加」を実行した場合にアクションベースのキャンバスに入るシナリオを考えてみましょう。
 
 コンテキストはキャンバス作成の[エントリスケジュール]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-12-determine-your-canvas-entry-schedule)ステップで設定され、ユーザーがキャンバスに入るタイミングに対応します。コンテキストは任意のメッセージステップでも参照できます。
 
-このキャンバスでは、ユーザーがウィッシュリストにアイテムを追加したかどうかを判定するアクションパスステップからユーザージャーニーが始まります。ここで、ユーザーがアイテムを追加した場合、遅延を経てメッセージステップから「ウィッシュリストに新しいアイテムがあります！」というメッセージを受け取ります。
+このキャンバスでは、ユーザーがウィッシュリストにアイテムを追加したかどうかを判定するアクションパスステップから始まるユーザージャーニーがあります。ここで、ユーザーがアイテムを追加した場合、遅延を経験した後、メッセージステップから「ウィッシュリストに新しいアイテムがあります！」というメッセージを受け取ります。
 
-ユーザージャーニーの最初のメッセージステップは、アクションパスステップからのカスタム`event_properties`にアクセスできます。この場合、メッセージコンテンツの一部として、このメッセージステップに``{% raw %} {{event_properties.${property_name}}} {% endraw %}``を含めることができます。ユーザーがウィッシュリストにアイテムを追加しなかった場合、その他のユーザーパスを通過するため、`event_properties`は参照できず、無効な設定エラーが表示されます。
+ユーザージャーニーの最初のメッセージステップは、アクションパスステップからのカスタム`event_properties`にアクセスできます。この場合、メッセージコンテンツの一部としてこのメッセージステップに``{% raw %} {{event_properties.${property_name}}} {% endraw %}``を含めることができます。ユーザーがウィッシュリストにアイテムを追加しなかった場合、「その他全員」パスを通過するため、`event_properties`は参照できず、無効な設定エラーが表示されます。
 
-`event_properties`にアクセスできるのは、メッセージステップがアクションパスステップのその他のユーザー以外のパスに遡れる場合のみです。メッセージステップがその他のユーザーパスに接続されていても、ユーザージャーニー内のアクションパスステップに遡れる場合は、`event_properties`にアクセスできます。これらの動作の詳細については、[メッセージステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)を参照してください。
+`event_properties`にアクセスできるのは、メッセージステップがアクションパスステップの「その他全員」以外のパスに遡れる場合のみです。メッセージステップが「その他全員」パスに接続されていても、ユーザージャーニー内のアクションパスステップに遡ることができる場合は、`event_properties`に引き続きアクセスできます。これらの動作の詳細については、[メッセージステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)を参照してください。

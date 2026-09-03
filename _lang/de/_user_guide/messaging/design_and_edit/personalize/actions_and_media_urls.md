@@ -12,12 +12,12 @@ description: "Dieser Referenzartikel beschreibt, wie Sie Aktions- und Medien-URL
 ## Deeplink zu In-App-Inhalten {#deep-link-to-in-app-content}
 
 {% alert tip %}
-**Für Entwickler:innen:** Eine Anleitung zur Auswahl zwischen benutzerdefinierten Schemata, Universal Links und anderen Optionen – einschließlich der Frage, wann Sie eine AASA-Datei benötigen, welche App-Delegate-Methoden zu implementieren sind und wie Sie Probleme debuggen – finden Sie unter [iOS-Deeplinking-Leitfaden]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide) und [Fehlerbehebung bei Deeplinking]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting).
+**Für Entwickler:innen:** Integrationsanweisungen finden Sie unter [Android-Deeplinking]({{site.baseurl}}/developer_guide/push_notifications/deep_linking?sdktab=android) oder [Swift-Deeplinking]({{site.baseurl}}/developer_guide/push_notifications/deep_linking?sdktab=swift). Hilfe bei der Auswahl eines iOS-Linktyps finden Sie im [iOS-Deeplinking-Leitfaden]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide). Zur Diagnose von Problemen siehe [Fehlerbehebung bei Deeplinking]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting).
 {% endalert %}
 
 ### Was ist Deeplinking? {#what-is-deep-linking}
 
-Deeplinking ist eine Methode, eine native App zu starten und ihr zusätzliche Informationen bereitzustellen, die sie anweisen, eine bestimmte Aktion auszuführen oder bestimmte Inhalte anzuzeigen.
+Deeplinking ist eine Methode, eine native App zu starten und ihr zusätzliche Informationen zu übergeben, damit sie eine bestimmte Aktion ausführt oder bestimmte Inhalte anzeigt.
 
 Dies besteht aus drei Teilen:
 
@@ -25,7 +25,7 @@ Dies besteht aus drei Teilen:
 2. Die App anweisen, welche Aktion ausgeführt werden soll.
 3. Der Aktion alle zusätzlichen Daten bereitstellen, die sie benötigt.
 
-Deeplinks sind benutzerdefinierte URIs, die auf einen bestimmten Teil der App verweisen und alle drei dieser Teile enthalten. Der Schlüssel liegt in der Definition eines benutzerdefinierten Schemas. `http:` ist das Schema, mit dem fast jeder vertraut ist, aber Schemata können mit jedem Wort beginnen. Ein Schema muss mit einem Buchstaben beginnen, kann dann aber Buchstaben, Zahlen, Pluszeichen, Minuszeichen oder Punkte enthalten. Da es praktisch kein zentrales Register gibt, um Konflikte zu vermeiden, ist es eine Best Practice, Ihren Domain-Namen in das Schema aufzunehmen. Zum Beispiel ist `twitter://` der iOS-URI zum Starten der mobilen App für X, ehemals Twitter.
+Deeplinks sind benutzerdefinierte URIs, die auf einen bestimmten Teil der App verweisen und alle drei dieser Teile enthalten. Der Schlüssel liegt in der Definition eines benutzerdefinierten Schemas. `http:` ist das Schema, mit dem fast alle vertraut sind, aber Schemata können mit jedem Wort beginnen. Ein Schema muss mit einem Buchstaben beginnen, kann dann aber Buchstaben, Zahlen, Pluszeichen, Minuszeichen oder Punkte enthalten. Da es praktisch kein zentrales Register gibt, um Konflikte zu vermeiden, ist es eine Best Practice, Ihren Domainnamen in das Schema aufzunehmen. Zum Beispiel ist `twitter://` der iOS-URI zum Starten der mobilen App für X, ehemals Twitter.
 
 Alles nach dem Doppelpunkt innerhalb eines Deeplinks ist Freitext. Es liegt an Ihnen, dessen Struktur und Interpretation zu definieren; eine gängige Konvention ist jedoch, ihn nach dem Vorbild von `http:`-URLs zu modellieren, einschließlich eines führenden `//` und Abfrageparametern (zum Beispiel `?foo=1&bar=2`). Für das vorherige Beispiel würde `twitter://user?screen_name=[id]` verwendet, um ein bestimmtes Profil in der App zu starten.
 
@@ -44,29 +44,44 @@ Standard-URI-Schemata, die nativ von iOS und Android verarbeitet werden (wie `te
 | `sms:` | `sms:+18005555555` | Öffnet die SMS-Erstellung |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="System-URI-Schemata"}
 
-Diese funktionieren für Push-Benachrichtigungs-Klickverhalten und In-App-Nachricht-Button-Aktionen. Es sind keine zusätzlichen SDK-Konfigurationen oder App-Code-Änderungen erforderlich.
+Diese funktionieren für das Klickverhalten von Push-Benachrichtigungen und Button-Aktionen in In-App-Nachrichten. Es sind keine zusätzlichen SDK-Konfigurationen oder App-Code-Änderungen erforderlich.
+
+### Deeplink in die Anwendung {#deep-link-into-application}
+
+Beim Erstellen von Push-Benachrichtigungen, In-App-Nachrichten, Bannern oder Content Cards wählen Sie **Deeplink into application**, um einen bestimmten Bildschirm oder eine bestimmte Aktion in Ihrer App zu öffnen. In einigen Composern erscheint diese Option als **Deep Link Into App**.
+
+Bevor Sie diese Option verwenden, arbeiten Sie mit Ihren Entwickler:innen zusammen, um das URI-Format zu definieren und Ihre App so zu konfigurieren, dass sie es öffnet. Benutzerdefinierte Schemata wie `myapp://` öffnen die installierte App direkt. Universal Links (iOS) und App Links (Android) verwenden `https://`-URLs, die die App öffnen können, wenn sie installiert ist, und auf eine Webseite zurückfallen, wenn die App nicht installiert ist.
+
+So legen Sie dieses Klickverhalten fest:
+
+1. Suchen Sie in Ihrem Campaign- oder Canvas-Composer nach **On-Click behavior**:
+   - Für Push-Benachrichtigungen und Content Cards gehen Sie zum Tab **Compose**.
+   - Für In-App-Nachrichten gehen Sie zum Tab **Compose**. Wählen Sie im Drag-and-Drop-Editor einen Button- oder Bildblock aus und öffnen Sie dessen Eigenschaftenpanel.
+2. Wählen Sie **Deeplink into application** oder **Deep Link Into App**.
+3. Geben Sie den Link in das URL-Feld ein – zum Beispiel `myapp://products/12345` für ein benutzerdefiniertes Schema oder `https://example.com/products/12345` für einen Universal Link oder App Link.
+4. Senden Sie eine Testnachricht an ein physisches Gerät. Ein erfolgreicher Test öffnet die App und leitet zum beabsichtigten Bildschirm oder zur beabsichtigten Aktion weiter. Testen Sie bei einem Universal Link oder App Link auch ein Gerät ohne installierte App, um den erwarteten Web-Fallback zu bestätigen.
 
 ### UTM Tags und Campaign-Attribution {#utm-tags-and-campaign-attribution}
 
 #### Was ist ein UTM Tag? {#what-is-a-utm-tag}
 
-[UTM (Urchin Traffic Manager) Tags](https://support.google.com/analytics/answer/10917952?sjid=14344007686729081565-NC#zippy=%2Cin-this-article) ermöglichen es Ihnen, Campaign-Attribution-Details direkt in Links einzubinden. UTM Tags werden von Google Analytics verwendet, um Campaign-Attribution-Daten zu erfassen, und können zum Tracking der folgenden Eigenschaften verwendet werden:
+[UTM (Urchin Traffic Manager:in) Tags](https://support.google.com/analytics/answer/10917952?sjid=14344007686729081565-NC#zippy=%2Cin-this-article) ermöglichen es Ihnen, Campaign-Attribution-Details direkt in Links einzubetten. UTM Tags werden von Google Analytics verwendet, um Campaign-Attribution-Daten zu erfassen, und können zur Nachverfolgung der folgenden Eigenschaften verwendet werden:
 
-- `utm_source`: Der Bezeichner für die Traffic-Quelle (zum Beispiel `my_app`)
+- `utm_source`: Der Bezeichner für die Quelle des Traffics (zum Beispiel `my_app`)
 - `utm_medium`: Das Campaign-Medium (zum Beispiel `newsfeed`)
 - `utm_campaign`: Der Bezeichner für die Campaign (zum Beispiel `spring_2016_campaign`)
 - `utm_term`: Bezeichner für einen bezahlten Suchbegriff, der Nutzer:innen zu Ihrer App oder Website geführt hat (zum Beispiel `pizza`)
 - `utm_content`: Ein Bezeichner für den spezifischen Link oder Inhalt, auf den Nutzer:innen geklickt haben (zum Beispiel `toplink` oder `android_iam_button2`)
 
-UTM Tags können sowohl in reguläre HTTP-(Web-)Links als auch in Deeplinks eingebettet und über Google Analytics getrackt werden.
+UTM Tags können sowohl in reguläre HTTP-(Web-)Links als auch in Deeplinks eingebettet und über Google Analytics nachverfolgt werden.
 
-##### UTM-Tag-Berechnungen {#utm-tag-calculations}
+##### Berechnung von UTM Tags {#utm-tag-calculations}
 
-Braze meldet _Gesamtklicks_ für alle Links in einer Campaign oder einem Canvas-Schritt, was auch Links ohne UTM Tags umfassen kann. Das bedeutet, dass Sie in Ihren Google-Analytics-Campaign-Tracking-Links möglicherweise ein anderes (oft niedrigeres) Ergebnis sehen als die in Ihrer Campaign-Performance oder im Berichts-Builder angezeigten _Gesamtklicks_.
+Braze meldet _Gesamtklicks_ für alle Links in einer Campaign oder einem Canvas-Schritt, was auch Links ohne UTM Tags umfassen kann. Das bedeutet, dass Sie in Ihren Google Analytics Campaign-Tracking-Links möglicherweise ein anderes (oft niedrigeres) Ergebnis sehen als die in Ihrer Campaign-Performance oder im Berichts-Builder angezeigten _Gesamtklicks_.
 
-#### UTM Tags mit Braze verwenden {#using-utm-tags-with-braze}
+#### Verwendung von UTM Tags mit Braze {#using-utm-tags-with-braze}
 
-Wenn Sie UTM Tags mit regulären HTTP-(Web-)Links verwenden möchten (zum Beispiel für Campaign-Attribution Ihrer E-Mail-Campaigns) und Ihre Organisation bereits Google Analytics nutzt, können Sie [Googles URL-Builder](https://ga-dev-tools.google/ga4/campaign-url-builder/) verwenden, um UTM-Links zu generieren. Diese Links können wie jeder andere Link in den Braze-Campaign-Text eingebettet werden.
+Wenn Sie UTM Tags mit regulären HTTP-(Web-)Links verwenden möchten (zum Beispiel für die Campaign-Attribution Ihrer E-Mail-Campaigns) und Ihre Organisation bereits Google Analytics nutzt, können Sie [Googles URL-Builder](https://ga-dev-tools.google/ga4/campaign-url-builder/) verwenden, um UTM-Links zu generieren. Diese Links können wie jeder andere Link problemlos in den Braze-Campaign-Text eingebettet werden.
 
 Um UTM Tags in Deeplinks zu Ihrer App zu verwenden, muss Ihre App das entsprechende [Google Analytics SDK](https://developers.google.com/analytics/devguides/collection/) integriert und korrekt für die Verarbeitung von Deeplinks konfiguriert haben. Wenden Sie sich an Ihre Entwickler:innen, wenn Sie sich diesbezüglich unsicher sind.
 
@@ -77,7 +92,7 @@ Nachdem das Analytics SDK integriert und konfiguriert ist, können UTM Tags mit 
 {% tabs %}
 {% tab Push-Öffnungen %}
 
-Um UTM Tags in Ihre Deeplinks für Push-Benachrichtigungen einzubinden, setzen Sie das Klickverhalten der Push-Nachricht auf einen Deeplink und schreiben Sie die Deeplink-Adresse mit den gewünschten UTM Tags im folgenden Format:
+Um UTM Tags in Ihre Deeplinks für Push-Benachrichtigungen einzufügen, legen Sie das Klickverhalten der Push-Nachricht als Deeplink fest und geben Sie die Deeplink-Adresse ein. Fügen Sie die gewünschten UTM Tags wie folgt ein:
 
 ```
 myapp://products/20-gift-card?utm_source=my_app&utm_medium=push&utm_campaign=spring2016giftcards&utm_content=ios_deeplink
@@ -88,7 +103,7 @@ myapp://products/20-gift-card?utm_source=my_app&utm_medium=push&utm_campaign=spr
 {% endtab %}
 {% tab In-App-Nachricht-Klicks %}
 
-Um UTM Tags in die Deeplinks Ihrer In-App-Nachrichten einzubinden, verwenden Sie Folgendes:
+Um UTM Tags in die Deeplinks Ihrer In-App-Nachrichten einzufügen, verwenden Sie Folgendes:
 
 ```
 myapp://products/20-gift-card?utm_source=my_app&utm_medium=iam&utm_campaign=spring2021giftcards&utm_content=web_link
@@ -101,7 +116,7 @@ myapp://products/20-gift-card?utm_source=my_app&utm_medium=iam&utm_campaign=spri
 
 ## Liquid-Personalisierung in URLs verwenden {#use-liquid-personalization-in-urls}
 
-Sie können Ihre URL direkt im Braze-Composer dynamisch erstellen, um dynamische UTM-Parameter zu Ihren URLs hinzuzufügen oder Nutzer:innen eindeutige Links zu senden (z. B. um Nutzer:innen zu ihrem abgebrochenen Warenkorb oder zu einem bestimmten Produkt weiterzuleiten, das wieder auf Lager ist).
+Sie können Ihre URL direkt im Braze-Composer dynamisch erstellen, sodass Sie dynamische UTM-Parameter zu Ihren URLs hinzufügen oder Nutzer:innen eindeutige Links senden können (z. B. um Nutzer:innen zu ihrem abgebrochenen Warenkorb oder zu einem bestimmten Produkt weiterzuleiten, das wieder auf Lager ist).
 
 ### Eine URL mit unterstützten Liquid-Personalisierungs-Tags erstellen {#create-a-url-with-supported-liquid-personalization-tags}
 
@@ -128,13 +143,13 @@ https://example.com/{{url_var}}
 
 **Unterstützte Kanäle:** KakaoTalk, LINE, SMS, RCS, WhatsApp
 
-Wir kürzen URLs, die von Liquid gerendert werden, einschließlich solcher, die in API-Trigger-Eigenschaften enthalten sind. Wenn beispielsweise {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} eine gültige URL darstellt, kürzen und tracken wir diese URL, bevor die Nachricht gesendet wird.
+Wir kürzen URLs, die von Liquid gerendert werden, auch solche, die in API-Trigger-Eigenschaften enthalten sind. Wenn beispielsweise {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} eine gültige URL darstellt, kürzen und tracken wir diese URL, bevor die Nachricht gesendet wird.
 
 ### URLs im `/messages/send`-Endpunkt kürzen {#shorten-urls-in-messagessend-endpoint}
 
-Die Linkkürzung ist auch für reine API-Nachrichten über den [`/messages/send`-Endpunkt]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) aktiviert. Eine vollständige Liste der Anfrageparameter finden Sie unter [Anfrageparameter]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#request-parameters).
+Link-Kürzung ist auch für reine API-Nachrichten über den [`/messages/send`-Endpunkt]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) aktiviert. Eine vollständige Liste der Anfrageparameter finden Sie unter [Anfrageparameter]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#request-parameters).
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | ---------| --------- | ----------- |
-| `link_shortening_enabled` | Ja | Boolean | Setzen Sie `link_shortening_enabled` auf `true`, um die Linkkürzung zu aktivieren. Um Tracking zu verwenden, müssen eine `campaign_id` und eine `message_variation_id` vorhanden sein. |
+| `link_shortening_enabled` | Ja | Boolean | Setzen Sie `link_shortening_enabled` auf `true`, um die Link-Kürzung zu aktivieren. Um Tracking zu verwenden, müssen eine `campaign_id` und eine `message_variation_id` vorhanden sein. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="URLs im /messages/send-Endpunkt kürzen" }

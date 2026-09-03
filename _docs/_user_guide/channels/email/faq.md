@@ -50,7 +50,7 @@ If you send an API campaign through an API call (excluding API-triggered campaig
 
 #### A/B testing with duplicate email addresses
 
-Avoid [multivariate and A/B tests]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing) on email when multiple profiles can share the same email address. Variants are assigned per profile, which can produce more than one message to the same inbox. If you must test in that situation, do not combine a **winning variant** step with [local time zone delivery]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/scheduled_delivery#local-time-zone-campaigns) in a way that delays selecting the winner—those options together can increase the chance of duplicate sends.
+Avoid [multivariate and A/B tests]({{site.baseurl}}/user_guide/messaging/ab_testing/) on email when multiple profiles can share the same email address. Variants are assigned per profile, which can produce more than one message to the same inbox. If you must test in that situation, do not combine a **winning variant** step with [local time zone delivery]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/scheduled_delivery#local-time-zone-campaigns) in a way that delays selecting the winner—those options together can increase the chance of duplicate sends.
 
 #### Canvas and duplicate email addresses
 
@@ -72,7 +72,7 @@ However, a delivery rate of 98% or higher can still have deliverability issues. 
 
 Additionally, messages may be getting delivered and ending up in Spam, indicating potentially serious reputation issues. It's important to monitor not just the number of messages being delivered, but also open and click rates to determine whether users are actually seeing the messages in their inboxes. Because providers usually don't report every spam instance, a spam rate of even 1% could be cause for concern and further analysis.
 
-Finally, your business and the types of emails you send may also affect delivery. For example, someone sending mostly [transactional emails]({{site.baseurl}}/api/api_campaigns/transactional_api_campaign) should expect to see a better rate than someone sending many marketing messages.
+Finally, your business and the types of emails you send may also affect delivery. For example, someone sending mostly [transactional emails]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/) should expect to see a better rate than someone sending many marketing messages.
 
 ### Why are my email delivery metrics not adding up to 100%?
 
@@ -107,6 +107,12 @@ When a recipient forwards an email, the forwarded email includes the same open t
 Braze cannot distinguish between opens and clicks from the original recipient and those from people who received a forwarded copy. This is standard behavior for email tracking pixels and affects all email service providers.
 
 When analyzing email metrics, be aware that forwarding activity can contribute to open and click counts. If you notice unusually high engagement rates or repeated activity from the same profile over time, forwarding may be a factor.
+
+### Can a sent email campaign or Canvas be recalled?
+
+No. After Braze hands a send request to your email service provider (ESP), that send can't be recalled. After the message is in the recipient's inbox, it also can't be removed.
+
+To stop further sends, select **Stop Campaign** or **Stop Canvas**. Messages already handed off to the ESP can still be delivered. For details, see [What happens when an email campaign or Canvas is stopped?](#what-happens-when-an-email-campaign-or-canvas-is-stopped).
 
 ### What happens when an email campaign or Canvas is stopped?
 
@@ -211,6 +217,10 @@ While you can set the `target` attribute (such as `target="_blank"` or `target="
 
 Because email client behavior varies, the `target` attribute should not be relied on to control how links open. For details on which email clients support the `target` attribute, refer to [caniemail.com](https://www.caniemail.com/features/html-target/).
 
+### Why does a plus sign `+` in my email link turn into a space?
+
+Some query parsers treat an unencoded plus sign `+` as a space. If your destination URL needs a plus sign in a query parameter, percent-encode it as `%2B` before you add the link to your email.
+
 ### Why are my users being auto-unsubscribed by email security software?
 
 Some corporate email security tools (such as Barracuda, Proofpoint, and similar services) pre-fetch or scan all URLs in incoming emails, including unsubscribe links. This can cause unintended unsubscribes when the security tool follows the one-click list-unsubscribe link.
@@ -246,6 +256,8 @@ To work around this:
 ### Does the *Unique Opens* metric include *Machine Opens*?
 
 Yes. *Unique Opens* include *Machine Opens*. You can view both metrics in the **Campaign Analytics** view and **Report Builder**.
+
+For how this affects **Conversion Dashboard** attribution, see [Why don't email open totals match Campaign Analytics?]({{site.baseurl}}/user_guide/analytics/dashboards/conversions#why-dont-email-open-totals-match-campaign-analytics) in [Troubleshooting]({{site.baseurl}}/user_guide/analytics/dashboards/conversions#troubleshooting) on the Conversions Dashboard page.
 
 ### Why does my email delivery volume not match my send volume?
 

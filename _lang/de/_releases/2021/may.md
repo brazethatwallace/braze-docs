@@ -32,5 +32,5 @@ Im Mai 2021 hat Braze die folgenden Bezeichnungen und Begriffe im Braze-Dashboar
 - App Settings --> Settings
 - Manage App Group --> Manage Settings
 - Money Spent In-App --> Money Spent
-- App Usage (User Profile) --> Sessions Overview
+- App Usage (Kundenprofil) --> Sessions Overview
 - Import a CSV of user information to add and/or update users in this App Group --> Import a CSV of user information to add or update users

@@ -109,7 +109,7 @@ Canvas 단계 에이전트의 경우, 호출이 실패할 때 사용자가 여�
 
 ### Agent Console은 GDPR/CCPA를 준수하나요? {#is-agent-console-gdprccpa-compliant}
 
-네. 고객이 Braze Auto 모델(Gemini 기반)을 사용하는 경우, Google은 고객과 Braze 간의 데이터 처리 부록(DPA) 조건에 따라 Braze의 하위 처리자로서 역할을 합니다.
+네. 고객이 Braze Auto 모델(Gemini 기반)을 사용하는 경우, Google은 고객과 Braze 간의 데이터 처리 부록(데이터 보호 어드바이저) 조건에 따라 Braze의 하위 처리자로서 역할을 합니다.
 
 ### Agent Console은 HIPAA를 준수하나요? {#is-agent-console-hipaa-compliant}
 

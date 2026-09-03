@@ -25,204 +25,206 @@ tool:
 
 この機能により、ブランドはFacebookと共有する特定のファーストパーティデータを制御できます。Brazeでは、ファーストパーティデータを共有できる統合と共有できない統合を最大限に考慮しています。詳細については、[プライバシーポリシー](https://www.braze.com/privacy)を参照してください。
 
-## ユーザーの同期とレート制限の考慮事項 {#user-syncing-and-rate-limit-considerations}
+## ユーザー同期とレート制限に関する考慮事項 {#user-syncing-and-rate-limit-considerations}
 
-ユーザーがAudience Syncステップに達すると、BrazeはFacebookのMarketing APIレート制限を尊重しながら、ほぼリアルタイムで同期します。Brazeは、Facebookに送信する前に、5秒ごとに可能な限り多くのユーザーをバッチ処理します。
+ユーザーがオーディエンス同期ステップに到達すると、BrazeはFacebookのMarketing APIレート制限を遵守しながら、ほぼリアルタイムでユーザーを同期します。Brazeは5秒ごとにできるだけ多くのユーザーをバッチ処理し、Facebookに送信します。
 
-FacebookのMarketing APIレート制限では、広告アカウント1つにつき、1時間以内に&#126;190,000 APIリクエストまでしか許可されません。顧客がこの制限に達した場合、Brazeは最大&#126;13時間まで同期を再試行します。それでも同期できない場合、BrazeはこれらのユーザーをUsers Errored指標の下にリストアップします。
+FacebookのMarketing APIレート制限では、1時間あたり1つの広告アカウントにつき&#126;190,000件以下のAPIリクエストしか許可されていません。顧客がこの制限に達した場合、Brazeは最大&#126;13時間にわたって同期をリトライします。それでも同期ができない場合、Brazeはこれらのユーザーをユーザーエラー指標に記録します。
 
 ## 前提条件 {#prerequisites}
 
-キャンバスでFacebookオーディエンスのステップを設定するには、以下の項目の作成および完了を確認する必要があります。
+キャンバスでFacebook オーディエンスステップを設定する前に、以下の項目が作成・完了していることを確認する必要があります。
 
-| 必要条件 | 提供元 | 説明 |
+| 要件 | Origin | 説明 |
 | ----------- | ------ | ----------- |
-| Facebook Business Manager | [Facebook](https://www.facebook.com/business/help/113163272211510) | ブランドのFacebookアセット（広告アカウント、ページ、アプリなど）を管理するための集中型ツールです。 |
-| Facebook広告アカウント | [Facebook](https://www.facebook.com/business/help/910137316041095) | ブランドのビジネスマネージャーと結びついたアクティブなFacebook広告アカウント。<br><br>Facebook Business Managerの管理者が、Brazeで使用する予定のFacebook広告アカウントに対して「Manage キャンペーン」または「Manage ad accounts」のいずれかの権限を付与していることを確認してください。また、広告アカウントの利用規約に同意していることも確認してください。 |
-| Facebookカスタムオーディエンス利用規約 | [Facebook](https://www.facebook.com/ads/manage/customaudiences/tos.php) | Brazeで使用する予定のFacebook広告アカウントについて、Facebookのカスタムオーディエンス規約に同意します。 |
+| Facebook ビジネスマネージャー | [Facebook](https://www.facebook.com/business/help/113163272211510) | ブランドのFacebookアセット（広告アカウント、ページ、アプリなど）を管理するための一元的なツールです。 |
+| Facebook 広告アカウント | [Facebook](https://www.facebook.com/business/help/910137316041095) | ブランドのビジネスマネージャーに紐づけられたアクティブなFacebook広告アカウントです。<br><br>Facebook ビジネスマネージャーの管理者が、Brazeで使用する予定のFacebook広告アカウントに対して「キャンペーンの管理」または「広告アカウントの管理」権限を付与していることを確認してください。また、広告アカウントの利用規約に同意していることも確認してください。 |
+| Facebook カスタムオーディエンス規約 | [Facebook](https://www.facebook.com/ads/manage/customaudiences/tos.php) | Brazeで使用する予定のFacebook広告アカウントについて、Facebookのカスタムオーディエンス規約に同意してください。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="前提条件" }
 
-## 統合 {#integration}
+## 連携 {#integration}
 
-### ステップ1: Facebookに接続する {#step-1-connect-to-facebook}
-
-{% alert important %}
-FacebookをBrazeアカウントに接続するには[「管理者」権限]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions#admin)が必要です。
-{% endalert %}
-
-Brazeダッシュボードで**パートナー連携** > **テクノロジーパートナー**に移動し、**Facebook**を選択します。Facebook Audience Exportで、**Connect Facebook**を選択します。
-
-![概要セクションと、Connect Facebookボタンのある Facebook Audience Exportセクションを含むBrazeのFacebookテクノロジーページ。]({% image_buster /assets/img/fb/afb_1.png %}){: style="max-width:85%;"}
-
-Facebook oAuthダイアログウィンドウが表示され、BrazeがFacebook広告アカウントにカスタムオーディエンスを作成することを承認します。
-
-![最初のFacebookダイアログボックス。「Connect as X」（XはFacebookユーザー名）で接続するように促されます。]({% image_buster /assets/img/fb/afb_3.png %}){: style="max-width:30%;"}  ![広告アカウントの広告を管理する許可を求める2番目のFacebookダイアログボックス。]({% image_buster /assets/img/fb/afb_2.png %}){: style="max-width:40%;"}
-
-BrazeをFacebookアカウントにリンクしてから、Brazeワークスペース内で同期する広告アカウントを選択します。接続されると、パートナーページに戻ります。このページで接続されているアカウントを表示したり、既存のアカウントの接続を解除したりできます。
-
-![広告アカウントが接続されたことを示す更新後のFacebookテクノロジーパートナーページ。]({% image_buster /assets/img/fb/afb_5.png %}){: style="max-width:85%;"}
-
-Facebookとの接続は、Brazeのワークスペースレベルで適用されます。Facebookの管理者がFacebook Business Managerからあなたを削除したり、接続されているFacebookアカウントへのアクセスを削除した場合、Brazeは無効なトークンを検出します。そのため、Facebook Audienceコンポーネントを使用しているアクティブなキャンバスにはエラーが表示され、Brazeはユーザーを同期できません。
+### ステップ1：Facebookに接続する {#step-1-connect-to-facebook}
 
 {% alert important %}
-これまでに[Ads Management](https://developers.facebook.com/docs/facebook-login/permissions/#reference-ads_management)および[Ads Management Standard Access](https://developers.facebook.com/docs/marketing-api/access#standard)のFacebookアプリレビュープロセスを受けたことがある顧客のシステムユーザートークンは、Facebook Audienceコンポーネントに対して引き続き有効です。FacebookパートナーページからFacebookシステムユーザートークンを編集したり、取り消したりすることはできません。その代わりに、Facebookアカウントに接続して、Brazeワークスペース内でFacebookシステムユーザートークンを置き換えることができます。
-
-<br><br>Facebook oAuthの設定は、[セグメントを使用したFacebookのエクスポート]({{site.baseurl}}/partners/message_orchestration/additional_channels/retargeting/facebook#prerequisites)にも適用されます。
+FacebookをBrazeアカウントに接続するには、[「管理者」権限]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions#admin)が必要です。
 {% endalert %}
 
-### ステップ2: カスタムオーディエンスの利用規約に同意する {#step-2-accept-custom-audiences-terms-of-service}
+Brazeダッシュボードで、**パートナー連携** > **テクノロジーパートナー**に移動し、**Facebook**を選択します。Facebookオーディエンスエクスポートの下で、**Connect Facebook**を選択します。
 
-キャンバスを構築する前に、以下のリンクからFacebookの下記の利用規約に同意する必要があります。
+![概要セクションとFacebookオーディエンスエクスポートセクションを含むBrazeのFacebookテクノロジーページ。Connect Facebookボタンが表示されています。]({% image_buster /assets/img/fb/afb_1.png %}){: style="max-width:85%;"}
 
-- **利用する個人アカウントのCustomer List Custom Audiences規約：** `https://www.facebook.com/ads/manage/customaudiences/tos.php?act=<ACCOUNT_ID>`
-- **ビジネスアカウントのFacebook Business Tools規約：** `https://business.facebook.com/customaudiences/value_based/tos.php?act=<ACCOUNT_ID>&business_id=<BUSINESS_ID>`
+Facebook oAuthダイアログウィンドウが表示され、BrazeがFacebook広告アカウントにカスタムオーディエンスを作成する権限を承認します。
 
-![顧客リストカスタムオーディエンスに関して同意が必要になる規約の例。]({% image_buster /assets/img/fb_audience_sync/fb_sync_tos.png %}){: style="max-width:85%;"}
-![Facebookビジネスツールに関して同意が必要になる規約の例。]({% image_buster /assets/img/fb_audience_sync/fb_sync_tos2.png %}){: style="max-width:85%;"}
+![最初のFacebookダイアログボックス。「Xとして接続」と表示され、XはFacebookのユーザー名です。]({% image_buster /assets/img/fb/afb_3.png %}){: style="max-width:30%;"}  ![2番目のFacebookダイアログボックス。広告アカウントの広告を管理する権限を求めています。]({% image_buster /assets/img/fb/afb_2.png %}){: style="max-width:40%;"}
 
-統合時のFacebookアカウントの監査に関する詳細は、[FAQセクション](#terms)を参照してください。
+BrazeをFacebookアカウントにリンクした後、Brazeワークスペース内で同期したい広告アカウントを選択します。接続が完了すると、パートナーページに戻り、接続されているアカウントの確認や既存アカウントの切断ができます。
 
-### ステップ3: キャンバスにFacebook Audienceコンポーネントを追加する {#step-3-add-a-facebook-audience-component-in-canvas}
+![正常に接続された広告アカウントが表示されている、更新されたFacebookテクノロジーパートナーページ。]({% image_buster /assets/img/fb/afb_5.png %}){: style="max-width:85%;"}
+
+Facebook接続はBrazeワークスペースレベルで適用されます。Facebook管理者がFacebook Business マネージャーからあなたを削除したり、接続されたFacebookアカウントへのアクセスを取り消したりした場合、Brazeは無効なトークンを検出します。その結果、Facebookオーディエンスコンポーネントを使用しているアクティブなキャンバスにエラーが表示され、Brazeはユーザーを同期できなくなります。
+
+{% alert important %}
+以前に[広告管理](https://developers.facebook.com/docs/facebook-login/permissions/#reference-ads_management)および[広告管理標準アクセス](https://developers.facebook.com/docs/marketing-api/access#standard)のFacebookアプリレビュープロセスを完了しているお客様の場合、システムユーザートークンはFacebookオーディエンスコンポーネントで引き続き有効です。Facebookパートナーページからはシステムユーザートークンの編集や取り消しはできません。代わりに、Facebookアカウントを接続して、Brazeワークスペース内のFacebookシステムユーザートークンを置き換えることができます。
+
+<br><br>Facebook oAuth設定は、[セグメントを使用したFacebookエクスポート]({{site.baseurl}}/partners/message_orchestration/additional_channels/retargeting/facebook#prerequisites)にも適用されます。
+{% endalert %}
+
+### ステップ2：カスタムオーディエンスの利用規約に同意する {#step-2-accept-custom-audiences-terms-of-service}
+
+キャンバスを構築する前に、以下のリンクからFacebookの利用規約に同意する必要があります。
+
+- **個人アカウントの顧客リストカスタムオーディエンス利用規約：** `https://www.facebook.com/ads/manage/customaudiences/tos.php?act=<ACCOUNT_ID>`
+- **ビジネスアカウントのFacebookビジネスツール利用規約：** `https://business.facebook.com/customaudiences/value_based/tos.php?act=<ACCOUNT_ID>&business_id=<BUSINESS_ID>`
+
+![顧客リストカスタムオーディエンスの同意が必要な利用規約の例。]({% image_buster /assets/img/fb_audience_sync/fb_sync_tos.png %}){: style="max-width:85%;"}
+![Facebookビジネスツールの同意が必要な利用規約の例。]({% image_buster /assets/img/fb_audience_sync/fb_sync_tos2.png %}){: style="max-width:85%;"}
+
+連携時のFacebookアカウントの監査について詳しくは、[FAQセクション](#terms)を参照してください。
+
+### ステップ3：キャンバスにFacebookオーディエンスコンポーネントを追加する {#step-3-add-a-facebook-audience-component-in-canvas}
 
 キャンバスにコンポーネントを追加し、**Facebook Audience**を選択します。
 
-![キャンバスに追加するコンポーネントのリスト。]({% image_buster /assets/img/audience_sync/audience_sync3.png %}){: style="max-width:35%;"} ![Audience Syncコンポーネント。]({% image_buster /assets/img/audience_sync/audience_sync5.png %}){: style="max-width:28%;"}
+![キャンバスに追加できるコンポーネントのリスト。]({% image_buster /assets/img/audience_sync/audience_sync3.png %}){: style="max-width:35%;"} ![オーディエンス同期コンポーネント。]({% image_buster /assets/img/audience_sync/audience_sync5.png %}){: style="max-width:28%;"}
 
-### ステップ4: 同期設定 {#step-4-sync-setup}
+### ステップ4：同期の設定 {#step-4-sync-setup}
 
-**Custom Audience**ボタンを選択してコンポーネントエディターを開きます。次に、Audience Syncパートナーとして**Facebook**を選択します。
+**Custom Audience**ボタンを選択してコンポーネントエディターを開きます。次に、オーディエンス同期パートナーとして**Facebook**を選択します。
 
-![パートナー選択のオプションを含む「Audience Syncを設定」画面。]({% image_buster /assets/img/audience_sync/audience_sync4.png %}){: style="max-width:80%;"}
+![パートナーを選択するオプションが表示された「オーディエンス同期の設定」画面。]({% image_buster /assets/img/audience_sync/audience_sync4.png %}){: style="max-width:80%;"}
 
-任意のFacebook広告アカウントを選択します。**Choose a New or Existing Audience**ドロップダウンで、新規または既存のオーディエンスの名前を入力します。
+目的のFacebook広告アカウントを選択します。**Choose a New or Existing Audience**ドロップダウンで、新規または既存のオーディエンス名を入力します。
 
 {% tabs %}
-{% tab 新しいオーディエンスを作成する %}
+{% tab 新しいオーディエンスを作成 %}
 
 1. 新しいカスタムオーディエンスの名前を入力します。
 2. **Add Users to Audience**を選択し、Facebookと同期するフィールドを選択します。
 3. 次に、**Create Audience**を選択してオーディエンスを保存します。
 
-![メール、電話、名、姓の情報が一致するオーディエンスの同期設定。]({% image_buster /assets/img/audience_sync/fb_sync.png %})
+![メール、電話番号、名、姓の情報をマッチングするオーディエンス同期の設定。]({% image_buster /assets/img/audience_sync/fb_sync.png %})
 
-オーディエンスが正常に作成された場合、またはこのプロセス中にエラーが発生した場合は、ステップエディターの上部に通知が表示されます。また、オーディエンスは下書きモードで作成されているため、キャンバスジャーニーの後半でユーザーを削除する際にこのオーディエンスを参照することもできます。
+オーディエンスが正常に作成された場合、またはこのプロセス中にエラーが発生した場合は、ステップエディターの上部に通知が表示されます。オーディエンスは下書きモードで作成されるため、キャンバスジャーニーの後半でユーザー削除のためにこのオーディエンスを参照することもできます。
 
-新しいオーディエンスでキャンバスを起動すると、Brazeはキャンバスの起動と同時に新しいカスタムオーディエンスを作成し、その後Audience Syncステップに入るとほぼリアルタイムでユーザーを同期します。
+新しいオーディエンスを含むキャンバスを起動すると、Brazeはキャンバスの起動時に新しいカスタムオーディエンスを作成し、その後ユーザーがオーディエンス同期ステップに入るとほぼリアルタイムで同期します。
+
+各オーディエンス同期ステップは、そのステップで設定されたFacebookオーディエンスにマッピングされます。キャンバスが再度実行される場合（例えば、定期スケジュールで）、Brazeは対象ユーザーを同じオーディエンスに同期します。キャンバスの実行ごとに新しいFacebookオーディエンスが作成されるわけではありません。
 
 {% endtab %}
-{% tab 既存のオーディエンスと同期する %}
+{% tab 既存のオーディエンスと同期 %}
 
-Brazeは、既存のFacebookカスタムオーディエンスからユーザーの追加または削除を行い、これらのオーディエンスを最新の状態に保持する機能も提供しています。既存のオーディエンスと同期するには、以下の手順に従います。
+Brazeでは、既存のFacebookカスタムオーディエンスにユーザーを追加または削除して、オーディエンスを最新の状態に保つことができます。既存のオーディエンスと同期するには、以下の手順を実行します。
 
 1. ドロップダウンに既存のオーディエンス名を入力します。
-2. **Add to the Audience**するか、**Remove from the Audience**するかを選択します。
-3. Brazeは、ユーザーがFacebook Audienceステップに入ると、ほぼリアルタイムでユーザーを追加または削除します。
+2. **Add to the Audience**または**Remove from the Audience**のいずれかを選択します。
+3. ユーザーがFacebookオーディエンスステップに入ると、Brazeはほぼリアルタイムでユーザーを追加または削除します。
 
-![オーディエンス同期の設定で、メール、電話、名、姓の情報を削除する。]({% image_buster /assets/img/audience_sync/fb_sync3.png %})
+![メール、電話番号、名、姓の情報を削除するオーディエンス同期の設定。]({% image_buster /assets/img/audience_sync/fb_sync3.png %})
 
 {% alert important %}
-Facebookでは、オーディエンスのサイズが小さすぎる場合（通常は1,000ユーザー未満）、カスタムオーディエンスからのユーザーの削除を禁止しています。その結果、オーディエンスが適切なサイズに達するまで、BrazeはAudience Syncステップからの削除対象ユーザーを同期できません。
+Facebookでは、オーディエンスサイズが小さすぎる（通常1,000ユーザー未満）カスタムオーディエンスからのユーザー削除を禁止しています。そのため、オーディエンスが適切なサイズに達するまで、Brazeはオーディエンス同期ステップからの削除のためにユーザーを同期できません。
 {% endalert %}
 
 {% endtab %}
 {% endtabs %}
 
-### ステップ5: キャンバスを起動する {#step-5-launch-canvas}
+### ステップ5：キャンバスを起動する {#step-5-launch-canvas}
 
-Facebook Audienceコンポーネントを設定したら、キャンバスを起動できます。新しいカスタムオーディエンスが作成され、Facebook Audienceステップを通過したユーザーはFacebook上のこのカスタムオーディエンスに渡されます。キャンバスに後続のステップが含まれている場合、ユーザーはユーザージャーニーの次のステップに進みます。
+Facebookオーディエンスコンポーネントの設定が完了したら、キャンバスを起動します。新しいカスタムオーディエンスが作成され、Facebookオーディエンスステップを通過するユーザーはFacebook上のこのカスタムオーディエンスに渡されます。キャンバスに後続のステップが含まれている場合、ユーザーはユーザージャーニーの次のステップに進みます。
 
-Facebook Audience Managerのカスタムオーディエンスの**History**タブには、Brazeからオーディエンスに送られたユーザー数が反映されます。ユーザーが再びステップに入ると、再びFacebookに送られます。
+Facebookオーディエンスマネージャーのカスタムオーディエンスの**履歴**タブには、Brazeからオーディエンスに送信されたユーザー数が反映されます。ユーザーがステップに再度入った場合、再びFacebookに送信されます。
 
-![オーディエンスの詳細と、特定のFacebookオーディエンスのHistoryタブ。このタブには、アクティビティ、アクティビティの詳細、変更されたアイテム、および日時の列を含むAudience Historyテーブルが表示されています。]({% image_buster /assets/img/fb_audience_sync/audience_history.png %}){: style="max-width:80%;"}
+![オーディエンスの詳細と、特定のFacebookオーディエンスの履歴タブ。アクティビティ、アクティビティの詳細、変更された項目、日時の列を含むオーディエンス履歴テーブルが表示されています。]({% image_buster /assets/img/fb_audience_sync/audience_history.png %}){: style="max-width:80%;"}
 
 ## 分析の理解 {#understanding-analytics}
 
-次の表に、Audience Syncコンポーネントからの分析をよりよく理解するのに役立つ指標と説明を示します。
+以下の表には、Audience Sync コンポーネントの分析をより深く理解するための指標と説明が含まれています。
 
 | 指標 | 説明 |
 | --- | --- |
-| 入力 | Facebookと同期するためにこのコンポーネントに入ったユーザーの数。 |
-| 次のステップに進む | 次のコンポーネントがある場合、次のコンポーネントに進んだユーザーの数。これがキャンバスブランチの最後のステップである場合、すべてのユーザーは自動的に進みます。 |
-| 同期されたユーザー | Facebookとの同期に成功したユーザー数。 |
-| 同期されていないユーザー | 一致するフィールドが不足しているため、同期されていないユーザーの数。フィールドは「OR」演算子を使用して照合されます。このため、ユーザーにFacebookのフィールドのいずれか1つがあれば、他のすべてのフィールドで一致するものがなくても、Facebookはそのユーザーを一致と判断します。 |
-| 保留中のユーザー | 現在、BrazeがFacebookへの同期処理を行っているユーザー数。 |
-| エラーが発生したユーザー数 | 約13時間の再試行後、APIエラーのためにFacebookに同期されなかったユーザーの数。エラーの原因としては、無効なFacebookトークンや、Facebook上でカスタムオーディエンスが削除された場合などが考えられます。 |
-| キャンバスを退出 | キャンバスを退出したユーザーの数。これは、キャンバスの最後のステップがFacebookステップである場合に発生します。 |
+| 入場済み | Facebook に同期するためにこのコンポーネントに入ったユーザーの数です。 |
+| 次のステップに進んだ | 次のコンポーネントがある場合、そこに進んだユーザーの数です。キャンバスブランチの最後のステップである場合、すべてのユーザーが自動的に進みます。 |
+| 同期済みユーザー | Facebook に正常に同期されたユーザーの数です。 |
+| 未同期ユーザー | マッチングに必要なフィールドが不足しているため同期されなかったユーザーの数です。フィールドは「OR」演算子を使用してマッチングされるため、ユーザーが Facebook のフィールドのうち1つでも持っていれば、他のすべてのフィールドでマッチしなくても Facebook はそのユーザーをマッチングします。 |
+| 保留中のユーザー | 現在 Braze が Facebook への同期を処理中のユーザーの数です。 |
+| エラーが発生したユーザー | 約13時間のリトライ後に API エラーにより Facebook に同期されなかったユーザーの数です。エラーの原因としては、無効な Facebook トークンや、Facebook 上でカスタムオーディエンスが削除された場合などが考えられます。 |
+| キャンバスを退出 | キャンバスを退出したユーザーの数です。これは、キャンバスの最後のステップが Facebook ステップである場合に発生します。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="分析の理解" }
 
 {% alert important %}
-内部処理のため、同期したユーザーとエラーが発生したユーザーの指標のレポートに遅延が生じます。
+内部処理のため、同期済みユーザーおよびエラーが発生したユーザーの指標のレポートには遅延が生じます。
 {% endalert %}
 
 ## よくある質問 {#frequently-asked-questions}
 
-### Audience Syncパートナーのダッシュボードに、オーディエンスが取り込まれるまでどのくらいの時間がかかりますか？ {#how-long-does-it-take-for-my-audiences-to-populate-in-my-audience-sync-partner-dashboard}
+### オーディエンス同期パートナーのダッシュボードにオーディエンスが反映されるまでどのくらいかかりますか？ {#how-long-does-it-take-for-my-audiences-to-populate-in-my-audience-sync-partner-dashboard}
 
-オーディエンスの取り込みにかかる時間は、パートナーに応じて異なります。すべてのネットワークがBrazeからのリクエストを処理し、ユーザーとのマッチングを試みます。カスタムオーディエンスの更新には最大24時間かかることがあります。
+オーディエンスが反映されるまでの時間は、パートナーによって異なります。すべてのネットワークはBrazeからのリクエストを処理し、ユーザーのマッチングを試みます。カスタムオーディエンスの更新には最大24時間かかる場合があります。
 
-### 無効なトークンエラーが表示された場合、次に何をすればよいですか？ {#what-should-i-do-next-if-i-receive-an-invalid-token-error}
+### 無効なトークンエラーが表示された場合、どうすればよいですか？ {#what-should-i-do-next-if-i-receive-an-invalid-token-error}
 
-FacebookパートナーページでFacebookアカウントの接続を解除してから再接続できます。Facebook Business Managerの管理者に、同期先の広告アカウントに対する適切な権限があることを確認してください。
+Facebookパートナーページで、Facebookアカウントを切断してから再接続してください。同期したい広告アカウントに対する適切な権限があることを、Facebook Business マネージャーの管理者に確認してください。
 
 ### キャンバスを起動できないのはなぜですか？ {#why-is-my-canvas-not-allowed-to-launch}
 
-- システムユーザートークンが認証され、Facebook Business Managerで目的の広告アカウントにアクセスできることを確認してください。
-- 広告アカウントを選択し、新しいカスタムオーディエンスの名前を入力し、一致するフィールドを選択していることを確認してください。
-- Facebookのカスタムオーディエンス数の上限である500に達した可能性があります。キャンバスを使って新しいカスタムオーディエンスを作成する前に、Facebook Audience Managerに移動して不要なオーディエンスを削除してください。
+- システムユーザートークンが認証されており、Facebook Business マネージャーで目的の広告アカウントにアクセスできることを確認してください。
+- 広告アカウントを選択し、新しいカスタムオーディエンスの名前を入力し、マッチングするフィールドを選択していることを確認してください。
+- Facebookのカスタムオーディエンスの上限（500件）に達している可能性があります。キャンバスを使用して新しいカスタムオーディエンスを作成する前に、Facebook Audience マネージャーで不要なものを削除してください。
 
-### Facebookにユーザーを渡した後、ユーザーが一致していることを確認するにはどうすればよいですか？ {#how-do-i-know-if-users-have-matched-after-passing-users-to-facebook}
+### ユーザーをFacebookに渡した後、ユーザーがマッチしたかどうかはどうすればわかりますか？ {#how-do-i-know-if-users-have-matched-after-passing-users-to-facebook}
 
-Facebookはプライバシー上の理由からこの情報を提供していません。
+Facebookはプライバシー上の理由から、この情報を提供していません。
 
-### Brazeはバリューベースのカスタムオーディエンスに対応していますか？ {#does-braze-support-value-based-custom-audiences}
+### Brazeは価値ベースのカスタムオーディエンスをサポートしていますか？ {#does-braze-support-value-based-custom-audiences}
 
-現時点では、バリューベースのカスタムオーディエンスはBrazeでサポートされていません。{% multi_lang_include product_feedback_cta.md context="gap" feature="value-based custom audience sync" %}
+現時点では、価値ベースのカスタムオーディエンスはBrazeでサポートされていません。{% multi_lang_include product_feedback_cta.md context="gap" feature="value-based custom audience sync" %}
 
-### BrazeはAudience Syncパートナーにデータを送信する前にハッシュ化しますか？ {#does-braze-hash-data-before-sending-it-to-audience-sync-partners}
+### Brazeはオーディエンス同期パートナーにデータを送信する前にハッシュ化しますか？ {#does-braze-hash-data-before-sending-it-to-audience-sync-partners}
 
-メールデータが正規化されると、BrazeはそれをSHA256でハッシュ化します。
+メールデータが正規化されると、BrazeはSHA256でハッシュ化します。
 
-**IDFA/AAID/電話：** BrazeはSHA256でハッシュ化します。同期するオーディエンスのタイプは常に以下のいずれかになります。
+**IDFA/AAID/電話番号：** BrazeはSHA256でハッシュ化します。同期するオーディエンスタイプは、常に以下のいずれかです。
 
 - IDFA_SHA256
 - AAID_SHA256
 - EMAIL_SHA256
 - PHONE_SHA256
 
-頻度に関して、Brazeは、ユーザーが同期の準備段階としてユーザージャーニーのAudience Syncステップに入ったときにのみ、個人識別情報（PII）をハッシュ化します。
+頻度に関しては、Brazeは同期の準備として、ユーザーがユーザージャーニーのオーディエンス同期ステップに入った時点でのみ、ユーザーの個人識別情報（PII）をハッシュ化します。
 
-### バリューベースの類似カスタムオーディエンスの同期に関する問題を解決するにはどうすればよいですか？ {#how-do-i-resolve-an-issue-with-syncing-a-value-based-lookalike-custom-audience}
+### 価値ベースの類似カスタムオーディエンスの同期に関する問題を解決するにはどうすればよいですか？ {#how-do-i-resolve-an-issue-with-syncing-a-value-based-lookalike-custom-audience}
 
-現時点では、バリューベースの類似カスタムオーディエンスはBrazeでサポートされていません。このオーディエンスに同期しようとすると、Audience Syncステップでエラーが発生する可能性があります。これを解決するには、次の手順に従います。
+現時点では、価値ベースの類似カスタムオーディエンスはBrazeでサポートされていません。このオーディエンスに同期しようとすると、オーディエンス同期ステップでエラーが発生する可能性があります。この問題を解決するには、以下のステップに従ってください。
 
-1. Facebook Ad Managerダッシュボードを開き、**Audiences**を選択します。
-2. **Create audience** > **Custom audience**を選択します。
-3. **Customer list**を選択します。
-4. **Value**列を除いたCSVまたはリストをアップロードします。**No, continue with a customer list that doesn't include customer value**を選択します。
+1. Facebook Ad マネージャーダッシュボードに移動し、**Audiences** を選択します。
+2. **Create audience** > **Custom audience** を選択します。
+3. **Customer list** を選択します。
+4. **Value** 列を含まないCSVまたはリストをアップロードします。**No, continue with a customer list that doesn't include customer value** を選択します。
 5. カスタムオーディエンスの作成を完了します。
-6. Brazeで、作成したカスタムオーディエンスを使用してFacebook Audience Syncステップを更新します。
+6. Brazeで、作成したカスタムオーディエンスを使用してFacebookオーディエンス同期ステップを更新します。
 
-### Facebookのカスタムオーディエンス利用規約に関連するメールが届きました。これを解決するにはどうすればよいですか？ {#ive-received-an-email-related-to-facebook-custom-audience-terms-of-service-what-should-i-do-to-resolve-this}
+### Facebookカスタムオーディエンスの利用規約に関するメールを受け取りました。この問題を解決するにはどうすればよいですか？ {#ive-received-an-email-related-to-facebook-custom-audience-terms-of-service-what-should-i-do-to-resolve-this}
 
-FacebookへのAudience Syncを利用するには、これらの利用規約に同意する必要があります。
+Facebookへのオーディエンス同期を使用するには、この利用規約に同意する必要があります。
 
-- 広告アカウントがFacebookの個人アカウントに直接関連付けられている場合は、こちらから個人アカウントの利用規約に同意できます：`https://www.facebook.com/ads/manage/customaudiences/tos.php?act=<ACCOUNT_ID>`
-- 広告アカウントが会社のBusiness Managerアカウントと関連付けられている場合は、こちらからFacebook Business Managerアカウントの利用規約に同意する必要があります：`https://business.facebook.com/customaudiences/value_based/tos.php?act=<ACCOUNT_ID>&business_id=<BUSINESS_ID>`
+- 広告アカウントが個人のFacebookアカウントに直接関連付けられている場合は、個人アカウントから利用規約に同意できます：`https://www.facebook.com/ads/manage/customaudiences/tos.php?act=<ACCOUNT_ID>`
+- 広告アカウントが会社のBusiness マネージャーアカウントに紐づいている場合は、Facebook Business マネージャーアカウントから利用規約に同意する必要があります：`https://business.facebook.com/customaudiences/value_based/tos.php?act=<ACCOUNT_ID>&business_id=<BUSINESS_ID>`
 
-Facebookカスタムオーディエンスの利用規約に同意したら、以下を行います。
+Facebookカスタムオーディエンスの利用規約に同意した後、以下を行ってください。
 
-1. Facebookアカウントを一旦切断し、再接続することで、BrazeでFacebookアクセストークンをリフレッシュします。
-2. キャンバスを編集して更新することにより、Facebook Audience Syncステップを再度有効にします。
+1. Facebookアカウントを切断してから再接続し、BrazeでFacebookアクセストークンを更新します。
+2. キャンバスを編集・更新して、Facebookオーディエンス同期ステップを再度有効にします。
 
-これにより、ユーザーがFacebook Audience Syncステップに到達するとすぐに、Brazeでユーザーを同期できます。
+これにより、ユーザーがFacebookオーディエンス同期ステップに到達するとすぐに、Brazeがユーザーを同期できるようになります。
 
-### **Connected Facebook**フィルターと**Number of Facebook Friends Using App**フィルターはどうなりましたか？ {#what-happened-to-the-connected-facebook-and-number-of-facebook-friends-using-app-filters}
+### **Connected Facebook** フィルターと **Number of Facebook Friends Using App** フィルターはどうなりましたか？ {#what-happened-to-the-connected-facebook-and-number-of-facebook-friends-using-app-filters}
 
-**Number of Facebook Friends Using App**および**Connected Facebook**のBrazeセグメンテーションフィルターは非推奨になりました。FacebookおよびBraze SDKは、これらのフィルターが依存していた基盤データを収集しなくなりました。
+**Number of Facebook Friends Using App** および **Connected Facebook** のBrazeセグメンテーションフィルターは非推奨になりました。FacebookおよびBraze SDKは、これらのフィルターが依存していた基礎データを収集しなくなりました。
 
-非推奨のフィルターは、カスタム属性、カスタムイベント、またはエンゲージメントベースのセグメントに置き換えてください。例えば、**Connected Facebook**の代わりにFacebookログインやソーシャルリンキングを、**Number of Facebook Friends Using App**の代わりに紹介、招待、共有を使用できます。
+非推奨のフィルターは、カスタム属性、カスタムイベント、またはエンゲージメントベースのセグメントに置き換えてください。たとえば、**Connected Facebook** の代わりにFacebookログインやソーシャルリンキングを、**Number of Facebook Friends Using App** の代わりに紹介、招待、共有を使用できます。
 
-キャンバスのリターゲティングについては、[ステップ4: 同期設定](#step-4-sync-setup)で示されているように、メール、電話、名、姓を使用してユーザーをマッチングします。リーチを拡大するには、高価値のセグメントをFacebookに同期し、Meta Ads Managerで類似オーディエンスを作成します。
+キャンバスのリターゲティングでは、[ステップ4：同期の設定](#step-4-sync-setup)で示されているように、メール、電話番号、名、姓でユーザーをマッチングします。リーチを拡大するには、高価値セグメントをFacebookに同期し、Meta Ads マネージャーで類似オーディエンスを作成してください。
 
 ## トラブルシューティング {#troubleshooting}
 
@@ -251,116 +253,116 @@ table td {
   </thead>
   <tbody>
     <tr>
-      <td><b>無効なトークン</b></td>
-      <td>一般的には、統合に接続したユーザーのパスワードの変更や、認証情報の有効期限切れなどが原因となります。</td>
-      <td><b>パートナー連携</b> > <b>Facebook</b>に移動し、アカウントの接続を解除してから再接続します。Facebookアカウントを監査する追加手順については、<a href='/docs/partners/canvas_steps/facebook_audience_sync/#audit-your-facebook-account'>このトラブルシューティングセクション</a> を参照してください。</td>
+      <td><b>Invalid Token</b></td>
+      <td>連携を接続したユーザーがパスワードを変更した場合や、認証情報の有効期限が切れた場合などに発生します。</td>
+      <td><b>パートナー連携</b> > <b>Facebook</b> に移動し、アカウントを切断してから再接続してください。Facebookアカウントを監査するための追加手順については、<a href='/docs/partners/canvas_steps/facebook_audience_sync/#audit-your-facebook-account'>このトラブルシューティングセクション</a> を参照してください。</td>
     </tr>
     <tr>
-      <td><b>オーディエンスのサイズが小さすぎる</b></td>
-      <td>このエラーは、オーディエンスからユーザーを削除するAudience Syncステップを作成した場合に発生することがあります。オーディエンスのサイズがゼロに近づくと、ネットワークはオーディエンスのサイズが小さすぎて配信できないというフラグを立てることがあります。</td>
-      <td>オーディエンスサイズを使い尽くさない範囲で、定期的にユーザーの追加と削除を行うAudience Sync戦略を使用してください。</td>
+      <td><b>Audience Size Too Low</b></td>
+      <td>このエラーは、オーディエンスからユーザーを削除するオーディエンス同期ステップを作成した場合に発生することがあります。オーディエンスサイズがゼロに近づくと、ネットワークがオーディエンスサイズが小さすぎると判断する場合があります。</td>
+      <td>オーディエンスサイズを完全に枯渇させないよう、定期的にユーザーを追加および削除するオーディエンス同期戦略を使用してください。</td>
     </tr>
     <tr>
-      <td><b>オーディエンスが存在しない</b></td>
-      <td>Audience Syncステップで、存在しないオーディエンスまたは削除されたオーディエンスが使用されています。これは、オーディエンスへのアクセスに必要な権限がなくなった場合にもトリガーされます。</td>
-      <td>パートナープラットフォームで管理者にオーディエンスがまだ存在するかどうかを確認してもらってください。<br><br>存在する場合は、統合を接続したユーザーがオーディエンスに対する権限を持っているかどうかを確認します。権限がない場合は、そのオーディエンスへのアクセス権をユーザーに付与する必要があります。<br><br>オーディエンスが意図的に削除された場合は、アクティブなオーディエンスを追加し、そのステップで新しいオーディエンスを作成します。</td>
+      <td><b>Audience Does Not Exist</b></td>
+      <td>オーディエンス同期ステップが、存在しないか削除されたオーディエンスを使用しています。オーディエンスへのアクセスに必要な権限がなくなった場合にもトリガーされることがあります。</td>
+      <td>管理者にパートナープラットフォームでオーディエンスがまだ存在するかどうかを確認してもらってください。<br><br>存在する場合は、連携を接続したユーザーがそのオーディエンスへの権限を持っているかどうかを確認してください。権限がない場合は、そのオーディエンスへのアクセスを付与する必要があります。<br><br>オーディエンスが意図的に削除された場合は、アクティブなオーディエンスを追加し、ステップで新しいオーディエンスを作成してください。</td>
     </tr>
     <tr>
-      <td><b>広告アカウントへのアクセス試行</b></td>
+      <td><b>Ad Account Access Attempt</b></td>
       <td>選択した広告アカウントまたはオーディエンスに対する権限がありません。</td>
-      <td>広告アカウントの管理者と協力して、適切なアクセス権と権限を取得してください。</td>
+      <td>広告アカウントの管理者と連携して、適切なアクセスと権限を取得してください。</td>
     </tr>
     <tr>
-      <td><b>利用規約への同意がない</b></td>
-      <td>Facebookなど、Audience Syncの送信先によっては、Audience Sync機能を使用するために特定の利用規約に同意することが広告ネットワークによって義務付けられています。このエラーは、該当する規約に同意していない場合に発生します。この場合、Brazeから「Your authorization credentials for Facebook are invalid.」という件名のメールが届くこともあります。</td>
-      <td>Facebookの必要な規約に同意したことを確認してください。</td>
+      <td><b>Terms of Service Not Accepted</b></td>
+      <td>Facebookなどの一部のオーディエンス同期送信先では、オーディエンス同期機能を使用するために広告ネットワークの特定の利用規約に同意する必要があります。このエラーは、適切な利用規約に同意していない場合にトリガーされます。その結果、Brazeから「Your authorization credentials for Facebook are invalid.」という件名のメールを受信している場合もあります。</td>
+      <td>Facebookの必要な利用規約に同意しているか確認してください。</td>
     </tr>
     <tr>
-      <td><b>すべてのユーザーでエラーが発生している</b></td>
-      <td>ユーザーにステップで選択したフィールドの値があることを確認しているにもかかわらず、すべてのユーザーでエラーが発生している場合、Facebookアカウントに問題がある可能性があります。</td>
-      <td><a href='/docs/partners/canvas_steps/facebook_audience_sync/#audit-your-facebook-account'>このトラブルシューティングセクション</a> の手順に従って、アカウントに問題がないかを確認してください。
+      <td><b>All Users Are Erroring Out</b></td>
+      <td>ステップで選択したフィールドに値があることを確認したにもかかわらず、すべてのユーザーがステップでエラーになっている場合、Facebookアカウントに問題がある可能性があります。</td>
+      <td><a href='/docs/partners/canvas_steps/facebook_audience_sync/#audit-your-facebook-account'>このトラブルシューティングセクション</a> の手順に従って、アカウントに問題がないか確認してください。
       </td>
     </tr>
     <tr>
-      <td><b>オーディエンスを作成できない</b></td>
-      <td>Facebookテクノロジーパートナーのページでは「Connected」と表示されているにもかかわらず、Facebook Audience Syncステップでオーディエンスの同期時に「Failed to create audience 'audience name'」というエラーが表示されます。Facebookアカウントの認証に失敗しています。テクノロジーパートナーのページにアクセスして、アカウントを再接続してください。</td>
-      <td><a href='/docs/partners/canvas_steps/facebook_audience_sync/#audit-your-facebook-account'>このトラブルシューティングセクション</a> の手順に従って、アカウントに問題がないかを確認してください。
+      <td><b>Failed to create audience</b></td>
+      <td>Facebookテクノロジーパートナーページでは「Connected」と表示されていますが、Facebookオーディエンス同期ステップでオーディエンスを同期する際に「Failed to create audience 'audience name'」というエラーが発生します。Facebookアカウントの認証に失敗しました。テクノロジーパートナーページにアクセスしてアカウントを再接続してください。</td>
+      <td><a href='/docs/partners/canvas_steps/facebook_audience_sync/#audit-your-facebook-account'>このトラブルシューティングセクション</a> の手順に従って、アカウントに問題がないか確認してください。
       </td>
     </tr>
     <tr>
-      <td><b>広告アカウントがドロップダウンに表示されない</b></td>
-      <td>Facebook Audienceステップを設定する際に、期待する広告アカウントが広告アカウントピッカーに表示されません。</td>
-      <td>Facebookアプリが、Marketing APIの使用にFacebookが要求するアクセスレベルで<code>ads_management</code>の<a href="https://developers.facebook.com/docs/facebook-login/permissions/#reference-ads_management">アプリレビュー</a> を完了していることを確認してください。<a href="https://business.facebook.com/">Facebook Business Manager</a> で、システムユーザートークンが適切な権限を持ち、Brazeで使用する広告アカウントに関連付けられていること、および広告アカウントの利用規約に同意していることを確認してください。<br><br>新しいキャンバスではドロップダウンが機能するが、既に編集したキャンバスでは機能しない場合は、ブラウザのハードリフレッシュ（またはキャッシュのクリア）を試し、それらの広告アカウントにアクセスできるユーザーとしてサインインしていることを確認してください。</td>
+      <td><b>Ad account missing from dropdown</b></td>
+      <td>Facebookオーディエンスステップを設定する際に、期待する広告アカウントが広告アカウントピッカーに表示されません。</td>
+      <td>Facebookアプリが、Marketing APIの使用にFacebookが要求するアクセスレベルで<code>ads_management</code>の<a href="https://developers.facebook.com/docs/facebook-login/permissions/#reference-ads_management">アプリレビュー</a> を完了していることを確認してください。<a href="https://business.facebook.com/">Facebook Business マネージャー</a> で、システムユーザートークンが適切な権限を持ち、Brazeで使用する広告アカウントに関連付けられていること、および広告アカウントの利用規約に同意していることを確認してください。<br><br>新しいキャンバスではドロップダウンが機能するが、既に編集したキャンバスでは機能しない場合は、ブラウザのハードリフレッシュ（またはキャッシュのクリア）を試し、それらの広告アカウントへのアクセス権を持つユーザーとしてサインインしていることを確認してください。</td>
     </tr>
     <tr>
-      <td><b>アクセストークンの検証エラー</b></td>
+      <td><b>Error validating access token</b></td>
       <td>BrazeをFacebookに接続する際、またはオーディエンスを同期する際に、Facebookアクセストークンの検証に関するエラーが表示されます。</td>
-      <td>ブラウザでFacebookからサインアウトします。Brazeで<b>パートナー連携</b> &gt; <b>Facebook</b>に移動し、保存されたFacebook認証情報を削除してから、再度Facebookに接続します。FacebookのBraze向けテクノロジーパートナーページで、オプションが利用可能な場合は統合を切断してから再接続します。<br><br>問題が続く場合は、<a href="#audit-your-facebook-account">Facebookアカウントの監査</a> に従ってください。</td>
+      <td>ブラウザでFacebookからサインアウトしてください。Brazeで<b>パートナー連携</b> &gt; <b>Facebook</b>に移動し、保存されたFacebook認証情報を削除してから、Facebookを再接続してください。FacebookのBraze用テクノロジーパートナーページで、オプションが利用可能な場合は連携を切断して再接続してください。<br><br>問題が続く場合は、<a href="#audit-your-facebook-account">Facebookアカウントの監査</a> に従ってください。</td>
     </tr>
     <tr>
-      <td><b>オーディエンスのエクスポートまたは同期の権限エラー</b></td>
+      <td><b>Audience export or sync permission errors</b></td>
       <td>Facebookオーディエンスのエクスポートまたは同期が、認証、管理者、または広告アカウントのエラーで失敗します。</td>
-      <td><a href="https://developers.facebook.com/">Meta for Developers</a> でアプリを開き、<b>App roles</b>でユーザーに<b>Admin</b>ロールがあることを確認します。<b>App settings</b> &gt; <b>Advanced</b>で、<b>Advertising accounts</b>にBrazeで使用するアカウントが含まれていることを確認します。<a href="https://business.facebook.com/latest/settings">ビジネス設定</a> で、接続ユーザーまたはシステムユーザーが正しい広告アカウントにアクセスできることを確認します。</td>
+      <td><a href="https://developers.facebook.com/">Meta for Developers</a> でアプリを開き、<b>App roles</b>でユーザーに<b>Admin</b>ロールがあることを確認してください。<b>App settings</b> &gt; <b>Advanced</b>で、<b>Advertising accounts</b>にBrazeで使用するアカウントが含まれていることを確認してください。<a href="https://business.facebook.com/latest/settings">Business settings</a> で、接続ユーザーまたはシステムユーザーが正しい広告アカウントへのアクセス権を持っていることを確認してください。</td>
     </tr>
   </tbody>
 </table>
 
-### Facebookアカウントを監査する {#audit-your-facebook-account}
+### Facebookアカウントの監査 {#audit-your-facebook-account}
 
-統合でさらに問題が発生した場合は、以下のセクションと手順を参照して、Facebookアカウントを監査してください。
+連携に関する追加の問題が発生した場合は、以下のセクションと手順を参照してFacebookアカウントを監査してください。
 
 #### アカウント権限の確認 {#review-account-permissions}
 
-1. [Facebookのドキュメント](https://www.facebook.com/business/help/186007118118684?id=829106167281625)で、プラットフォームにおける権限の管理方法を確認してください。Facebook Business Managerの場合、少なくとも必要な広告アカウントにアクセスできる**Admin**または**Employee**のBusiness Managerロールが必要です。
-2. **Employee**として、管理者が、オーディエンスの作成やオーディエンスへのユーザーの同期に使用する各広告アカウントのすべての**Manage Ad Account**権限を付与していることを確認します。
-3. 権限が付与された後、アカウントを切断してから再接続する必要があります。
+1. プラットフォームでこれらの権限を管理する方法については、[Facebookのドキュメント](https://www.facebook.com/business/help/186007118118684?id=829106167281625)を確認してください。Facebook Business マネージャーでは、必要な広告アカウントへのアクセス権を持つ**Admin**または**Employee**のBusiness マネージャーロールが少なくとも必要です。
+2. **Employee**の場合は、オーディエンスの作成やオーディエンスへのユーザー同期を行うために、管理者が各広告アカウントに対する完全な**Manage Ad Account**権限を付与していることを確認してください。
+3. 権限が付与された後、アカウントを切断して再接続する必要があります。
 
-#### 利用規約に同意する {#terms}
+#### 利用規約への同意 {#terms}
 
-Facebookから保留中の利用規約（TOS）に同意します。Facebookは定期的に、あなた（ユーザー）とビジネスマネージャーに、利用規約への再同意を求めます。
+Facebookからの保留中の利用規約（TOS）に同意してください。Facebookは定期的にユーザーとビジネスマネージャーに利用規約の再承認を求めます。
 
-1. 接続ユーザーは、各広告アカウントのすべての利用規約に同意する必要があります。
-- Facebook個人アカウントのカスタムオーディエンス利用規約：
+1. 接続ユーザーは、各広告アカウントのすべての利用規約に同意する必要があります:
+- 個人のFacebookアカウントのカスタムオーディエンスTOS:
 `https://business.facebook.com/ads/manage/customaudiences/tos/?act=<AD_ACCOUNT_ID>`
 
-![広告アカウントを管理するためのフルコントロール権限を持つアカウント。]({% image_buster /assets/img/fb_audience_sync/ad_account_permission.png %}){: style="max-width:70%;"}
+![広告アカウントを管理するための完全なコントロール権限を持つアカウント。]({% image_buster /assets/img/fb_audience_sync/ad_account_permission.png %}){: style="max-width:70%;"}
 
-アカウントIDとビジネスIDを見つけるには、次の手順に従います。
+アカウントIDとビジネスIDを確認するには、以下の手順に従ってください:
 
-1. [Facebook広告マネージャーのアカウント](https://adsmanager.facebook.com/)にアクセスします。
-2. 適正な広告アカウントを使用しているかを、ドロップダウンメニューから確認します。
-3. URLで、`act=`の後にアカウントIDが、`business_id=`の後にビジネスIDがあることを確認します。
+1. [Facebook Ads マネージャーアカウント](https://adsmanager.facebook.com/)にアクセスします。
+2. ドロップダウンメニューで正しい広告アカウントを使用していることを確認します。
+3. URLで、`act=`の後にアカウントID、`business_id=`の後にビジネスIDを確認します。
 
 ![アカウントIDとビジネスIDがハイライトされたURL。]({% image_buster /assets/img/fb_audience_sync/fb_businessid_url.png %}){: style="max-width:90%;"}
 
 {:start="4"}
 
-4. カスタムオーディエンス規約を読み、**Accept**を選択します。利用規約の上部にあるドロップダウンを使用して、利用規約への署名がどのアカウントに対するものであるかを確認することをおすすめします。
+4. カスタムオーディエンスの利用規約を読み、**Accept**を選択してください。利用規約の上部にあるドロップダウンを使用して、どのアカウントの利用規約に署名しているかを確認することをお勧めします。
 
-![利用規約に署名しているアカウントを示すドロップダウン。]({% image_buster /assets/img/fb_audience_sync/confirm_accept_tos.png %}){: style="max-width:90%;"}
-
-{:start="5"}
-5. 利用規約に対して**Accept**を選択する必要があります。その後、次のメッセージが表示されます：「You have accepted these terms of service on behalf of Braze」。
-6. Facebookアカウントを一旦切断し、再接続することで、BrazeでFacebookアクセストークンをリフレッシュします。
-7. キャンバスを編集して更新することにより、Facebook Audience Syncステップを再度有効にします。これにより、ユーザーがFacebook Audienceステップに到達するとすぐに、Brazeで同期できるようになります。
-8. 問題が解決しない場合は、管理者権限を持つ別のユーザーを使用して、Ads Managerから手動で規約に同意してみてください。
-
-#### 保留中のタスクを完了させる {#complete-any-pending-tasks}
-
-Facebook Adsサービスの使用をブロックしている可能性がある保留中のタスクがFacebookにないかを確認します。
-
-1. [Facebook Ads Managerにログインします](https://adsmanager.facebook.com/)。
-2. 問題のある広告アカウントを選択します。
-3. ナビゲーションで、**Account Overview**を選択します。<br> ![Account Overviewを選択したナビゲーション。]({% image_buster /assets/img/fb_audience_sync/ads_manager_accouint_overview.png %})
-4. 対処が必要なアラートがあるかどうかを確認します。<br> ![有効期限が切れたクレジットカードのアカウント。]({% image_buster /assets/img/fb_audience_sync/resolve_alerts.png %})
+![利用規約に署名するアカウントを表示するドロップダウン。]({% image_buster /assets/img/fb_audience_sync/confirm_accept_tos.png %}){: style="max-width:90%;"}
 
 {:start="5"}
+5. 利用規約に対して**Accept**を選択する必要があります。その後、「You have accepted these terms of service on behalf of Braze」というメッセージが表示されます。
+6. Facebookアカウントを切断して再接続することで、BrazeのFacebookアクセストークンを更新してください。
+7. キャンバスを編集して更新することで、Facebookオーディエンス同期ステップを再有効化してください。これにより、Brazeはユーザーがキャンバスのオーディエンスステップに到達するとすぐに同期できるようになります。
+8. 問題が解決しない場合は、管理者権限を持つ別のユーザーを使用して、Ads マネージャーから手動で利用規約に同意してみてください。
 
-5. 未完了のセットアップタスクがあるかどうかを確認します。<br> ![アカウントのセットアップが一部完了しているアカウント。]({% image_buster /assets/img/fb_audience_sync/confirm_tasks.png %})
+#### 保留中のタスクの完了 {#complete-any-pending-tasks}
+
+Facebook広告サービスの使用をブロックしている可能性のある保留中のタスクがないか確認してください:
+
+1. [Facebook Ads マネージャーにログイン](https://adsmanager.facebook.com/)します。
+2. 問題が発生している広告アカウントを選択します。
+3. ナビゲーションで**Account Overview**を選択します。<br> ![Account Overviewが選択されたナビゲーション。]({% image_buster /assets/img/fb_audience_sync/ads_manager_accouint_overview.png %})
+4. 対処が必要なアラートがないか確認します。<br> ![クレジットカードの有効期限が切れたアカウント。]({% image_buster /assets/img/fb_audience_sync/resolve_alerts.png %})
+
+{:start="5"}
+
+5. 完了する必要のあるセットアップタスクがないか確認します。<br> ![アカウント設定が部分的に完了したアカウント。]({% image_buster /assets/img/fb_audience_sync/confirm_tasks.png %})
 
 #### 別のユーザーで接続する {#connect-with-a-different-user}
 
-その他のトラブルシューティング手順として、別の管理者ユーザーが次の手順でアカウントに接続してみることをおすすめします。
+別のトラブルシューティング手順として、別の管理者ユーザーが以下の手順でアカウントを接続することをお勧めします:
 
-1. 現在の統合を切断します。
+1. 現在の連携を切断します。
 2. 管理者権限を持つ別のユーザーがFacebookユーザーアカウントを接続します。

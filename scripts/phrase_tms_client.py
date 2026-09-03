@@ -14,6 +14,7 @@ import urllib.parse
 import urllib.request
 from io import BytesIO
 from pathlib import Path
+from dataclasses import dataclass
 from typing import Any
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -113,8 +114,61 @@ def export_term_base_xlsx(bearer: str, uid: str) -> bytes:
     )
 
 
-def load_term_base_config() -> dict[str, dict[str, str]]:
-    return json.loads(TERM_BASES_PATH.read_text())
+@dataclass(frozen=True)
+class TermBaseConfig:
+    """Phrase term-base settings for glossary sync."""
+
+    term_base_uid: str
+    term_base_name: str
+    source_lang: str
+    locales: dict[str, dict[str, str]]
+
+
+def _normalize_legacy_term_base_config(raw: dict[str, Any]) -> TermBaseConfig:
+    """Convert per-locale term base entries to the unified config shape."""
+    uids = {entry.get("uid") for entry in raw.values() if isinstance(entry, dict)}
+    if len(uids) != 1:
+        raise RuntimeError(
+            "Legacy phrase_term_bases.json maps locales to different term-base UIDs. "
+            "Use the unified term_base + locales structure instead."
+        )
+    sample = next(entry for entry in raw.values() if isinstance(entry, dict))
+    locales = {
+        locale_key: {
+            "target_lang": entry["target_lang"],
+            "source_lang": entry.get("source_lang", "en_us"),
+        }
+        for locale_key, entry in raw.items()
+        if isinstance(entry, dict) and "target_lang" in entry
+    }
+    source_langs = {
+        entry.get("source_lang", "en_us")
+        for entry in locales.values()
+    }
+    if len(source_langs) != 1:
+        raise RuntimeError("Legacy phrase_term_bases.json uses mixed source_lang values.")
+    return TermBaseConfig(
+        term_base_uid=next(iter(uids)),
+        term_base_name=sample.get("name", "Phrase term base"),
+        source_lang=next(iter(source_langs)),
+        locales={
+            locale_key: {"target_lang": entry["target_lang"]}
+            for locale_key, entry in locales.items()
+        },
+    )
+
+
+def load_term_base_config() -> TermBaseConfig:
+    raw = json.loads(TERM_BASES_PATH.read_text())
+    if "term_base" in raw and "locales" in raw:
+        term_base = raw["term_base"]
+        return TermBaseConfig(
+            term_base_uid=term_base["uid"],
+            term_base_name=term_base.get("name", "Phrase term base"),
+            source_lang=raw.get("source_lang", "en_us"),
+            locales=raw["locales"],
+        )
+    return _normalize_legacy_term_base_config(raw)
 
 
 def load_sync_exclusions() -> dict[str, list[str]]:
@@ -228,21 +282,113 @@ def parse_term_base_xlsx(
     return glossary
 
 
+def parse_term_base_xlsx_multi(
+    xlsx_bytes: bytes,
+    *,
+    source_lang: str,
+    locale_targets: dict[str, str],
+) -> dict[str, dict[str, str]]:
+    """Parse one Phrase Xlsx export into per-locale ``{english: translation}`` maps."""
+    try:
+        import openpyxl
+    except ImportError as exc:
+        raise RuntimeError(
+            "openpyxl is required. Install with: pip install -r scripts/requirements-glossaries.txt"
+        ) from exc
+
+    workbook = openpyxl.load_workbook(BytesIO(xlsx_bytes), read_only=True, data_only=True)
+    worksheet = workbook.active
+    rows = worksheet.iter_rows(values_only=True)
+    header = next(rows, None)
+    if not header:
+        workbook.close()
+        return {locale_key: {} for locale_key in locale_targets}
+
+    source_cols = [i for i, label in enumerate(header) if label == source_lang]
+    target_cols = {
+        locale_key: [i for i, label in enumerate(header) if label == target_lang]
+        for locale_key, target_lang in locale_targets.items()
+    }
+    missing_targets = [
+        locale_key
+        for locale_key, cols in target_cols.items()
+        if not cols
+    ]
+    if not source_cols:
+        workbook.close()
+        raise RuntimeError(
+            f"Xlsx header missing source column {source_lang!r}: {header}"
+        )
+    if missing_targets:
+        workbook.close()
+        raise RuntimeError(
+            "Xlsx header missing target column(s) for locale(s) "
+            f"{missing_targets}: {header}"
+        )
+
+    glossaries = {locale_key: {} for locale_key in locale_targets}
+    for row in rows:
+        if not row:
+            continue
+        source_terms = []
+        for col in source_cols:
+            if col < len(row) and row[col]:
+                term = normalize_phrase_term(str(row[col]))
+                if term and term not in source_terms:
+                    source_terms.append(term)
+        if not source_terms:
+            continue
+        for locale_key, cols in target_cols.items():
+            target_terms = []
+            for col in cols:
+                if col < len(row) and row[col]:
+                    term = normalize_phrase_term(str(row[col]))
+                    if term and term not in target_terms:
+                        target_terms.append(term)
+            if not target_terms:
+                continue
+            translation = " or ".join(target_terms)
+            for english in source_terms:
+                glossaries[locale_key][english] = translation
+    workbook.close()
+    return glossaries
+
+
+def fetch_glossaries_for_locales(
+    bearer: str,
+    locale_keys: list[str],
+    config: TermBaseConfig | None = None,
+) -> dict[str, dict[str, str]]:
+    """Download the configured term base once and parse selected locales."""
+    config = config or load_term_base_config()
+    unknown = [locale_key for locale_key in locale_keys if locale_key not in config.locales]
+    if unknown:
+        raise KeyError(
+            f"Unknown locale(s): {unknown!r}; expected one of {sorted(config.locales)}"
+        )
+    xlsx_bytes = export_term_base_xlsx(bearer, config.term_base_uid)
+    locale_targets = {
+        locale_key: config.locales[locale_key]["target_lang"]
+        for locale_key in locale_keys
+    }
+    glossaries = parse_term_base_xlsx_multi(
+        xlsx_bytes,
+        source_lang=config.source_lang,
+        locale_targets=locale_targets,
+    )
+    return {
+        locale_key: apply_sync_overrides(
+            apply_sync_exclusions(glossaries[locale_key], locale_key),
+            locale_key,
+        )
+        for locale_key in locale_keys
+    }
+
+
 def fetch_glossary_for_locale(
     bearer: str,
     locale_key: str,
-    config: dict[str, dict[str, str]] | None = None,
+    config: TermBaseConfig | None = None,
 ) -> dict[str, str]:
-    """Download and parse one locale's term base."""
-    config = config or load_term_base_config()
-    if locale_key not in config:
-        raise KeyError(f"Unknown locale {locale_key!r}; expected one of {sorted(config)}")
-    entry = config[locale_key]
-    xlsx_bytes = export_term_base_xlsx(bearer, entry["uid"])
-    glossary = parse_term_base_xlsx(
-        xlsx_bytes,
-        source_lang=entry["source_lang"],
-        target_lang=entry["target_lang"],
-    )
-    glossary = apply_sync_exclusions(glossary, locale_key)
-    return apply_sync_overrides(glossary, locale_key)
+    """Download and parse one locale from the configured term base."""
+    return fetch_glossaries_for_locales(bearer, [locale_key], config)[locale_key]

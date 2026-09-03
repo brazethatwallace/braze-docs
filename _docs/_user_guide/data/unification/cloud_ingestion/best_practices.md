@@ -1,11 +1,10 @@
 ---
 nav_title: Best practices
-article_title: Cloud Data Ingestion Best Practices
+article_title: "Best practices"
 toc_headers: h2
 page_order: 1
 page_type: reference
 description: "This page provides an overview of Cloud Data Ingestion, best practices, and product limitations."
-
 ---
 
 # Best practices
@@ -309,7 +308,7 @@ This example shows the general process for syncing data for the first time, then
 
 <style type="text/css">
 .tg td{word-break:normal;}
-.tg th{word-break:normal;font-size: 14px; font-weight: bold; background-color: #f4f4f7; text-transform: lowercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
+.tg th{word-break:normal;font-size: 14px; font-weight: bold; background-color: #f4f4f7; text-transform: lowercase; color: #212123; font-family: "Aribau Grotesk Bold", "Aribau Grotesk", "Aribau Grotesk Regular", Arial, Helvetica, sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
 

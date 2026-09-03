@@ -18,7 +18,7 @@ _Diese Integration wird von AccuWeather gepflegt._
 
 | Anforderung | Beschreibung |
 |---|---|
-| AccuWeather API-Schlüssel | Kontaktieren Sie Ihren AccuWeather Account Manager, um kompatible API-Schlüssel für Ihre Anfrage-URLs zu erhalten.<br><br>Weitere Anweisungen finden Sie auf der Seite [AccuWeather Enterprise API](https://apidev.accuweather.com/developers/). |
+| AccuWeather API-Schlüssel | Kontaktieren Sie Ihren AccuWeather Account Manager:in, um kompatible API-Schlüssel für Ihre Anfrage-URLs zu erhalten.<br><br>Weitere Anweisungen finden Sie auf der Seite [AccuWeather Enterprise API](https://apidev.accuweather.com/developers/). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Verfügbare AccuWeather APIs {#available-accuweather-apis}

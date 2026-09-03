@@ -22,4 +22,4 @@ Die API-ID für einen Content-Block wird jetzt auf der ausgewählten Content-Blo
 
 ## Erstellung und Identifizierung von Nutzer:innen mit einem Alias über die API {#alias-only-user-creation-and-identification-via-the-api}
 
-Sie können jetzt [eine API-Anfrage]({{site.baseurl}}/api/objects_filters/user_attributes_object) mit beliebigen Feldern im Attribut-Objekt verwenden, um ein Attribut dieses Namens mit dem angegebenen Wert im angegebenen Nutzerprofil zu erstellen oder zu aktualisieren.
+Sie können jetzt [eine API-Anfrage]({{site.baseurl}}/api/objects_filters/user_attributes_object) mit beliebigen Feldern im Attribut-Objekt verwenden, um ein Attribut dieses Namens mit dem angegebenen Wert im angegebenen Kundenprofil zu erstellen oder zu aktualisieren.

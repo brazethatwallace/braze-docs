@@ -63,26 +63,26 @@ Content Cards können entfernt werden, wenn Nutzer:innen einen Kauf tätigen ode
 
 ![„Cards entfernen, wenn Nutzer:innen einen Kauf tätigen oder ein angepasstes Event ausführen“ ausgewählt, mit dem Trigger, Cards für Nutzer:innen zu entfernen, die eine bestimmte Bestellung aufgeben.]({% image_buster /assets/img_archive/content-cards-in-canvas-removal-event.png %})
 
-## Berichte und Analytics {#reporting-and-analytics}
+## Reporting und Analytics {#reporting-and-analytics}
 
-Nach dem Start eines Content-Card-Schritts in Canvas können Sie verschiedene Metriken für diesen Schritt analysieren. Dazu gehören die Anzahl der gesendeten Nachrichten, eindeutige tägliche Impressionen, Konversionsraten, Gesamtumsatz und mehr.
+Nach dem Start eines Content-Cards-Schritts in Canvas können Sie verschiedene Metriken für diesen Schritt analysieren. Diese Metriken umfassen die Anzahl der gesendeten Nachrichten, eindeutige tägliche Impressionen, Konversionsraten, den Gesamtumsatz und mehr.
 
 ![Analytics für einen Nachrichtenschritt mit der Content-Card-Nachrichten-Performance.]({% image_buster /assets/img_archive/content-cards-in-canvas-analytics.png %})
 
-Weitere Informationen zu den verfügbaren Metriken und deren Definitionen finden Sie in unserem [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
+Weitere Informationen zu den verfügbaren Metriken und ihren Definitionen finden Sie in unserem [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
 
 ## Anwendungsfälle {#use-cases}
 
 ### Aktionsangebote {#promotional-offers}
 
-Fügen Sie Cards zum Feed der Nutzer:innen hinzu, sobald diese sich für bestimmte Aktionen und Werbeangebote qualifizieren. Wenn Nutzer:innen beispielsweise nach einer Aktion oder einem Kauf für ein neues Angebot berechtigt werden, können Sie ihnen über Canvas eine Content-Card – zusätzlich zu anderen Messaging-Kanälen – senden, sodass das Angebot beim nächsten Öffnen der App verfügbar ist.
+Fügen Sie dem Feed von Nutzer:innen Cards hinzu, sobald sie sich für bestimmte Aktionen und Werbeangebote qualifizieren. Wenn beispielsweise Nutzer:innen nach einer Aktion oder einem Kauf für ein neues Angebot in Frage kommen, können Sie ihnen über Canvas eine Content-Card zusammen mit anderen Messaging-Kanälen senden, sodass das Angebot beim nächsten Öffnen der App für sie verfügbar ist.
 
 ### Push-Benachrichtigungs-Posteingang {#push-notification-inbox}
 
-Es gibt Situationen, in denen Nutzer:innen eine Push-Benachrichtigung verwerfen oder eine E-Mail löschen, Sie sie aber dennoch an das Angebot erinnern oder es bewerben möchten, falls sie es sich anders überlegen.
+Es gibt Situationen, in denen Nutzer:innen eine Push-Benachrichtigung verwerfen oder eine E-Mail löschen, Sie sie aber an das Angebot erinnern oder es erneut bewerben möchten, falls sie ihre Meinung ändern.
 
-Mit Canvas können Sie eine Komponente hinzufügen, die sowohl eine Content-Card als auch eine Push-Benachrichtigung sendet, um Nutzer:innen einen persistenten „Posteingang“ mit Cards zu bieten, die zu den per Push gesendeten Aktionsnachrichten passen.
+Mit Canvas können Sie eine Komponente hinzufügen, die sowohl eine Content-Card als auch eine Push-Benachrichtigung sendet, um Nutzer:innen einen persistenten „Posteingang“ mit Cards bereitzustellen, die zu den über Push gesendeten Aktionsnachrichten passen.
 
 ### Mehrere Feeds basierend auf Kategorien {#multiple-feeds-based-on-categories}
 
-Sie können Ihre Content Cards in mehrere Feeds aufteilen, basierend auf Kategorien wie verschiedenen Themen, die Nutzer:innen durchsuchen können, oder transaktionalen und Marketing-Feeds. Weitere Informationen zum Erstellen mehrerer Feeds mithilfe von Schlüssel-Wert-Paaren finden Sie in unserem Leitfaden zum [Anpassen von Content-Card-Feeds]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed#multiple-feeds).
+Sie können Ihre Content Cards in mehrere Feeds aufteilen, die auf Kategorien wie verschiedenen Themen, die Nutzer:innen durchstöbern können, oder auf transaktionalen und Marketing-Feeds basieren. Weitere Informationen zum Erstellen mehrerer Feeds mithilfe von Schlüssel-Wert-Paaren finden Sie in unserem Leitfaden zum [Anpassen von Content-Card-Feeds]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed#implementing-multiple-feeds).

@@ -11,7 +11,7 @@ Pour les canaux de messages in-app en particulier, `context` ne peut être réf�
 
 Vous pouvez faire référence à `context` dans n'importe quelle étape Message avec ce format Liquid : ``{% raw %} context.${property_name} {% endraw %}``. Notez que les événements doivent être des événements personnalisés ou des événements d'achat pour être utilisés de cette manière.
 
-#### Cas d'utilisation {#use-case}
+#### Cas d'usage {#use-case}
 
 {% raw %}
 Supposons qu'un magasin de détail, RetailApp, ait la requête suivante : `"context" : {"product_name" : "shoes", "product_price" : 79.99}`.
@@ -44,12 +44,12 @@ Vous ne pouvez plus créer ni dupliquer de Canvas à l'aide de l'éditeur d'orig
 Les propriétés d'événement font référence aux propriétés que vous définissez pour les événements personnalisés et les achats. Ces `event_properties` peuvent être utilisées dans des Campaigns avec livraison par événement et dans des Canvas.
 
 {% alert important %}
-Il n'est pas possible d'utiliser `event_properties` dans la première étape Message de votre Canvas. Vous devez utiliser `context` ou ajouter une étape Parcours d'actions avec l'événement correspondant **avant** l'étape Message qui inclut `event_properties`.
+Il n'est pas possible d'utiliser `event_properties` dans la première étape Message de votre Canvas. Vous devez utiliser `context` ou ajouter une étape parcours d'action avec l'événement correspondant **avant** l'étape Message qui inclut `event_properties`.
 {% endalert %}
 
-Dans Canvas, les propriétés d'événement personnalisé et d'événement d'achat peuvent être utilisées dans Liquid dans n'importe quelle étape Message qui suit une étape Parcours d'actions. Veillez à utiliser {% raw %} ``{{event_properties.${property_name}}}``{% endraw %} si vous faites référence à ces propriétés d'événement. Ces événements doivent être des événements personnalisés ou des événements d'achat pour être utilisés de cette manière dans le composant Message.
+Dans Canvas, les propriétés d'événement personnalisé et d'événement d'achat peuvent être utilisées dans Liquid dans n'importe quelle étape Message qui suit une étape parcours d'action. Veillez à utiliser {% raw %} ``{{event_properties.${property_name}}}``{% endraw %} si vous faites référence à ces propriétés d'événement. Ces événements doivent être des événements personnalisés ou des événements d'achat pour être utilisés de cette manière dans le composant Message.
 
-Dans la première étape Message suivant un Parcours d'actions, vous pouvez utiliser les propriétés d'événement associées à l'événement référencé dans ce Parcours d'actions. Cependant, ces propriétés d'événement ne peuvent être utilisées que si l'utilisateur a réellement effectué l'action (et n'a pas été classé dans le groupe Tous les autres). Vous pouvez avoir d'autres étapes (qui ne sont pas un autre Parcours d'actions ou une étape Message) entre ce Parcours d'actions et l'étape Message.
+Dans la première étape Message suivant un parcours d'action, vous pouvez utiliser les propriétés d'événement associées à l'événement référencé dans ce parcours d'action. Cependant, ces propriétés d'événement ne peuvent être utilisées que si l'utilisateur a réellement effectué l'action (et n'a pas été classé dans le groupe Tous les autres). Vous pouvez avoir d'autres étapes (qui ne sont pas un autre parcours d'action ou une étape Message) entre ce parcours d'action et l'étape Message.
 
 {% details Développer pour l'éditeur Canvas d'origine %}
 
@@ -60,4 +60,4 @@ Vous ne pouvez plus créer ni dupliquer de Canvas à l'aide de l'éditeur d'orig
 {% endtab %}
 {% endtabs %}
 
-Consultez [Propriétés d'entrée de Canvas et propriétés d'événement]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/canvas_entry_properties_event_properties) pour plus d'informations et d'exemples.
+Consultez [Propriétés d'entrée de Canvas et propriétés d'événement]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) pour plus d'informations et d'exemples.

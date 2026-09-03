@@ -116,7 +116,7 @@ Count
 <span class="calculation-line">Berechnung: (Sends) - (Bounces) </span>
 
 {% alert note %}
-Für den **Empfangen**-Status auf Nutzer:innen-Ebene und die zugehörige Logik (z. B. Frequency-Capping) markiert Braze Nutzer:innen in der Regel, wenn der Versand verarbeitet und zur Zustellung übergeben wird – nicht erst, wenn der E-Mail-Anbieter (ESP) die endgültige Zustellung an den Posteingang bestätigt. Dadurch werden Zeitverzögerungen zwischen der ESP-Bestätigung und den produktinternen Regeln vermieden. Dies kann von ESP- oder Drittanbieter-Zustellberichten abweichen.
+Für den **Empfangen**-Status auf Nutzer:innen-Ebene und die zugehörige Logik (z. B. Frequency-Capping) markiert Braze Nutzer:innen in der Regel, wenn der Versand verarbeitet und zur Zustellung übergeben wird – nicht erst, wenn der E-Mail-Anbieter (E-Mail-Anbieter) die endgültige Zustellung an den Posteingang bestätigt. Dadurch werden Zeitverzögerungen zwischen der E-Mail-Anbieter-Bestätigung und den produktinternen Regeln vermieden. Dies kann von E-Mail-Anbieter- oder Drittanbieter-Zustellberichten abweichen.
 {% endalert %}
 
 {% endapi %}
@@ -150,7 +150,7 @@ Bei E-Mails ist *Bounce %* oder *Bounce-Rate* der Prozentsatz der Nachrichten, d
 Ein E-Mail-Bounce für Kund:innen, die SendGrid verwenden, umfasst Hard Bounces, Spam (`spam_report_drops`) und E-Mails, die an ungültige Adressen gesendet wurden (`invalid_emails`).
 
 {% alert note %}
-In [Braze-Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) werden temporäre ESP-Zurückstellungen häufig als Soft Bounces dargestellt. Zustellbarkeits-Tools (z. B. native SendGrid-Berichte oder Looker-Modelle) verwenden möglicherweise Zurückstellungen für dieselbe Situation. Zurückstellungen sind in der Regel vorübergehend, und die E-Mail wird nach Wiederholungsversuchen oft zugestellt. Nach längeren Wiederholungsversuchen (bis zu ca. 72 Stunden für Soft Bounces in Campaign-Analytics) kann eine Nachricht je nach ESP als unzustellbar behandelt werden. Currents-E-Mail-Ereignisse sind append-only – ein protokollierter Soft Bounce wird nicht nachträglich entfernt, wenn die Nachricht schließlich zugestellt wird.
+In [Braze-Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) werden temporäre E-Mail-Anbieter-Zurückstellungen häufig als Soft Bounces dargestellt. Zustellbarkeits-Tools (z. B. native SendGrid-Berichte oder Looker-Modelle) verwenden möglicherweise Zurückstellungen für dieselbe Situation. Zurückstellungen sind in der Regel vorübergehend, und die E-Mail wird nach Wiederholungsversuchen oft zugestellt. Nach längeren Wiederholungsversuchen (bis zu ca. 72 Stunden für Soft Bounces in Campaign-Analytics) kann eine Nachricht je nach E-Mail-Anbieter als unzustellbar behandelt werden. Currents-E-Mail-Ereignisse sind append-only – ein protokollierter Soft Bounce wird nicht nachträglich entfernt, wenn die Nachricht schließlich zugestellt wird.
 {% endalert %}
 
 {::nomarkdown}
@@ -249,7 +249,7 @@ Count, Percentage
 Count, Percentage
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Dies wird bei E-Mails über einen Zeitraum von sieben Tagen erfasst und anhand der <a href='/docs/user_guide/messaging/messaging_fundamentals/dispatch_id'>dispatch_id</a> (ein einzelner Sendeversuch) gemessen. Dies umfasst Klicks auf von Braze bereitgestellte Abmeldelinks. Erfasste angepasste Abmelde-URLs zählen ebenfalls zu den *Unique Clicks*, wenn Nutzer:innen den Link auswählen. Nach sieben Tagen wird ein weiterer eindeutiger Klick für dieselbe:n Nutzer:in gezählt, wenn er/sie erneut klickt. E-Mail-Engagement-Metriken im Dashboard, einschließlich _Unique Clicks_, werden in Braze berechnet und nicht mit aggregierten ESP-Berichten abgeglichen. Um die Dashboard-Zähler mit Currents abzugleichen, filtern Sie nach Ereignissen, bei denen `is_unique` den Wert `true` hat.
+{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Dies wird bei E-Mails über einen Zeitraum von sieben Tagen erfasst und anhand der <a href='/docs/user_guide/messaging/messaging_fundamentals/dispatch_id'>dispatch_id</a> (ein einzelner Sendeversuch) gemessen. Dies umfasst Klicks auf von Braze bereitgestellte Abmeldelinks. Erfasste angepasste Abmelde-URLs zählen ebenfalls zu den *Unique Clicks*, wenn Nutzer:innen den Link auswählen. Nach sieben Tagen wird ein weiterer eindeutiger Klick für dieselbe:n Nutzer:in gezählt, wenn er/sie erneut klickt. E-Mail-Engagement-Metriken im Dashboard, einschließlich _Unique Clicks_, werden in Braze berechnet und nicht mit aggregierten E-Mail-Anbieter-Berichten abgeglichen. Um die Dashboard-Zähler mit Currents abzugleichen, filtern Sie nach Ereignissen, bei denen `is_unique` den Wert `true` hat.
 
 {::nomarkdown}
 <span class="calculation-line">

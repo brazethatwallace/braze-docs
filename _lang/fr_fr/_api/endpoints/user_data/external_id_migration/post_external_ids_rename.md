@@ -6,7 +6,6 @@ page_order: 1
 layout: api_page
 page_type: reference
 description: "Cet article présente en détail l'endpoint Renommer des ID externes."
-
 ---
 {% api %}
 # Renommer des ID externes {#rename-external-id}
@@ -38,7 +37,7 @@ L'endpoint n'enregistre pas de points de données et n'affecte pas le nombre de 
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/api_key) avec l'autorisation `users.external_ids.rename`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics) avec l'autorisation `users.external_ids.rename`.
 
 ## Limite de débit {#rate-limit}
 

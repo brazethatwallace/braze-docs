@@ -1200,7 +1200,7 @@ All episodes of {{new_shows_clean | join: ', ' }} expire on 9/8 - watch them now
 
 ### String als Telefonnummer formatieren {#phone-number}
 
-Dieser Anwendungsfall zeigt, wie das Nutzerprofil-Feld `phone_number` (standardmäßig als String aus Ziffern formatiert) indiziert und basierend auf Ihren lokalen Telefonnummernstandards neu formatiert wird. Beispiel: 1234567890 wird zu (123)-456-7890.
+Dieser Anwendungsfall zeigt, wie das Kundenprofil-Feld `phone_number` (standardmäßig als String aus Ziffern formatiert) indiziert und basierend auf Ihren lokalen Telefonnummernstandards neu formatiert wird. Beispiel: 1234567890 wird zu (123)-456-7890.
 
 {% raw %}
 ```liquid

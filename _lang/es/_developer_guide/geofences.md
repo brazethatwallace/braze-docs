@@ -15,7 +15,7 @@ tool:
 
 # Geovallas {#geofences}
 
-> Aprende a configurar geovallas para el SDK de Braze. Una [geovalla]({{site.baseurl}}/user_guide/engagement_tools/locations_and_geofences/#about-locations-and-geofences) es un área geográfica virtual que forma un círculo alrededor de una posición global específica y se representa combinando la latitud, la longitud y un radio.
+> Aprende a configurar geovallas para el SDK de Braze. Una [geovalla]({{site.baseurl}}/user_guide/audience/locations_and_geofences) es un área geográfica virtual que forma un círculo alrededor de una posición global específica y se representa combinando la latitud, la longitud y un radio.
 
 {% sdktabs %}
 {% sdktab android %}

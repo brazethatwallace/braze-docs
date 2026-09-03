@@ -3,13 +3,13 @@ page_order: 0
 nav_title: 홈
 layout: dev_guide
 guide_top_header: "Braze 개발자 가이드"
-guide_top_text: "개발자는 여기에서 Braze SDK에 대해 알아야 할 모든 것을 찾을 수 있습니다. 각 SDK는 자체 공개 GitHub 리포지토리에서 호스팅되며, Braze 기능을 테스트하거나 자체 애플리케이션과 함께 구현하는 데 사용할 수 있는 완전히 빌드 가능한 샘플 앱이 포함되어 있습니다. 자세히 알아보려면 <a href='/docs/developer_guide/references'>참조, 리포지토리 및 샘플 앱</a> 을 확인하세요.<br><br>Braze로 구축하는 다른 개발자들과 교류하고, 배우고, 영감을 얻고 싶으신가요? <a href='https://www.braze.com/dev-portal'>Braze 개발자 커뮤니티</a> 에 가입하세요!"
+guide_top_text: "개발자는 여기에서 Braze SDK 및 관련 API를 통합하는 데 필요한 모든 것을 찾을 수 있습니다. 각 SDK는 자체 공개 GitHub 리포지토리에서 호스팅되며, Braze 기능을 테스트하거나 자체 애플리케이션과 함께 구현하는 데 사용할 수 있는 완전히 빌드 가능한 샘플 앱이 포함되어 있습니다. 웹, iOS, Android 및 기타 통합에 대한 플랫폼 가이드를 살펴본 다음, <a href='/docs/developer_guide/references'>참조, 리포지토리 및 샘플 앱</a> 에서 리포지토리 링크를 확인하세요. Braze로 구축하는 다른 개발자들과 교류하고 싶으신가요? <a href='https://www.braze.com/dev-portal'>Braze 개발자 커뮤니티</a> 에 가입하세요!"
 article_title: Braze 개발자 가이드
 description: "이 랜딩 페이지에서는 개발자가 Braze에서 사용할 수 있는 모든 통합을 찾을 수 있습니다."
 
 guide_featured_title: "주요 통합"
 guide_featured_list:
-- name: Web
+- name: 웹
   link: /docs/developer_guide/sdk_integration?sdktab=web
   image: /assets/img/braze_icons/globe-02.svg
   nav_link: web

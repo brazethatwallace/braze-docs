@@ -25,9 +25,9 @@ Braze에서 푸시 구독 상태, 등록 및 활성화를 확인할 수 있는 �
 
 ### 사용자 프로필 및 푸시 변경 로그 {#user-profiles-and-push-changelog}
 
-사용자 프로필([**사용자 검색**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles) > 사용자 선택 > **Engagement** 탭)에서 **Contact Settings**는 푸시 구독 상태를 나열하고, **Push Registered For**(Braze가 해당 프로필에 포그라운드 푸시를 보내는 데 사용할 수 있는 앱 및 플랫폼)와 토큰 이동, 오류 및 등록 업데이트에 대한 **Push Changelog**를 표시합니다. **Push Registered For** 및 포그라운드 대 백그라운드 승인을 읽는 방법에 대해서는 [푸시 등록 상태 확인]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle#checking-push-registration-status)을 참조하세요.
+사용자 프로필([**사용자 검색**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles) > 사용자 선택 > **Engagement** 탭)에서 **Contact Settings**는 푸시 구독 상태를 나열하고, **Push Registered For**(Braze가 해당 프로필에 포그라운드 푸시를 보내는 데 사용할 수 있는 앱 및 플랫폼)와 토큰 이동, 오류 및 등록 업데이트에 대한 **Push 체인지로그**를 표시합니다. **Push Registered For** 및 포그라운드 대 백그라운드 승인을 읽는 방법에 대해서는 [푸시 등록 상태 확인]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle#checking-push-registration-status)을 참조하세요.
 
-iOS 및 Android에서 기기가 포그라운드 푸시 승인에서 백그라운드 전용으로 전환되면(예: 사용자가 시스템 설정에서 알림을 끄고 SDK가 변경 사항을 보고한 후), 푸시 변경 로그에 "Push token was updated from foreground push enabled to foreground push disabled"와 같은 항목이 포함될 수 있습니다.
+iOS 및 Android에서 기기가 포그라운드 푸시 승인에서 백그라운드 전용으로 전환되면(예: 사용자가 시스템 설정에서 알림을 끄고 SDK가 변경 사항을 보고한 후), 푸시 변경 로그에 "푸시 토큰 was updated from foreground push enabled to foreground push disabled"와 같은 항목이 포함될 수 있습니다.
 
 새 SDK 데이터를 기대하는 경우(예: 테스트 세션 직후), 값이 오래된 것처럼 보이면 사용자 프로필에서 **새로고침**을 선택하세요. SDK가 데이터를 플러시하고 프로필에 최신 푸시 등록이 반영되기까지 약간의 지연이 있을 수 있습니다.
 
@@ -159,7 +159,7 @@ iOS 12에서 Apple은 [임시 승인](https://www.braze.com/resources/articles/m
 - **Campaign 분석** – 단일 Campaign 또는 Canvas에 대한 푸시 통계 및 피드백을 확인합니다.
 - **사용자 프로필(Engagement 탭)** – 특정 사용자의 **Contact Settings** 및 푸시 변경 로그를 확인합니다.
 
-푸시 활성화 상태를 검토할 때, **Push Registered for**는 Braze가 해당 사용자에게 포그라운드 푸시를 보낼 수 있는 플랫폼을 나타냅니다. iOS 및 Android에서 사용자가 포그라운드 푸시 활성화에서 백그라운드 푸시 활성화(`remote_notification_enabled`)로 전환된 경우, 푸시 변경 로그에 "Push token was updated from foreground push enabled to foreground push disabled."로 기록됩니다.
+푸시 활성화 상태를 검토할 때, **Push Registered for**는 Braze가 해당 사용자에게 포그라운드 푸시를 보낼 수 있는 플랫폼을 나타냅니다. iOS 및 Android에서 사용자가 포그라운드 푸시 활성화에서 백그라운드 푸시 활성화(`remote_notification_enabled`)로 전환된 경우, 푸시 변경 로그에 "푸시 토큰 was updated from foreground push enabled to foreground push disabled."로 기록됩니다.
 
 사용자가 테스트 사용자로 추가된 경우, **개발자 콘솔** > **이벤트 사용자 로그**에서 사용자 프로필에 `remote_notification_enabled`가 `true` 또는 `false`인 SDK 요청이 표시됩니다. SDK 업데이트가 사용자 프로필에 반영되기까지 약간의 지연이 있으므로, 업데이트를 확인하려면 사용자 프로필을 새로고침해야 할 수 있습니다.
 

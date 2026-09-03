@@ -5,7 +5,6 @@ page_order: 1
 page_type: reference
 description: "This reference article outlines the data partners you can use to integrate with Braze Currents, and their use cases."
 tool: Currents
-
 ---
 
 # Available partners
@@ -31,11 +30,11 @@ These customer data platforms collect and route information from multiple source
 
 * [mParticle]({{site.baseurl}}/partners/mparticle_for_currents)
 * [Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment_for_currents)
-* [Tealium]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/tealium/tealium_for_currents#tealium-for-currents)
+* [Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium_for_currents)
 * [Treasure Data]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/treasure_data/treasure_data_for_currents)
 * [RudderStack]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/rudderstack/rudderstack_for_currents)
 * [Adobe]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/adobe/adobe_for_currents)
-* [Amperity]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/amperity#using-amperity-with-braze-currents)
+* [Amperity]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amperity#using-amperity-with-braze-currents)
 
 ## Behavioral analytics
 

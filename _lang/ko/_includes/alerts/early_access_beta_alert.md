@@ -5,7 +5,7 @@
   - type(선택 사항): "early_access"(기본값) 또는 "beta"
   - contact(선택 사항): 연락할 담당자, 예: "Braze 계정 매니저"(기본값) 또는 "고객 성공 매니저"
 {% endcomment %}
-{% assign contact_role = include.contact | default: "Braze account manager" %}
+{% assign contact_role = include.contact | default: "Braze account 매니저" %}
 {% if include.type == "beta" %}
 {% alert important %}
 {{ include.feature }}은(는) 현재 베타 단계입니다. 베타 참여에 관심이 있으시면 {{ contact_role }}에게 문의하세요.

@@ -1,6 +1,6 @@
 ---
 nav_title: Agent Console
-article_title: Braze Agents
+article_title: "Braze Agents in Agent Console"
 page_order: 1
 description: "Braze Agents can generate content, make intelligent decisions, and enrich your data so you can deliver more personalized customer experiences."
 ---
@@ -96,5 +96,9 @@ The Braze-provided LLM for Braze Agents, identified as “Auto”, uses Google G
 
 Now that you know about Braze Agents, you’re ready for the next steps:
 
-- [Create custom agents]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents)
-- [Deploy custom agents]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents)
+{% article_tiles %}
+- name: Create custom agents
+  link: /docs/user_guide/brazeai/agents/creating_agents
+- name: Deploy custom agents
+  link: /docs/user_guide/brazeai/agents/deploying_agents
+{% endarticle_tiles %}

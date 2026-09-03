@@ -17,50 +17,50 @@ En intégrant Braze et Typeform, vous pouvez :
 - Déclencher l'envoi de messages dans Braze en fonction de l'engagement d'un utilisateur avec un typeform
 - Personnaliser les messages de Braze en fonction des réponses Typeform d'un utilisateur
 
-## Conditions préalables {#prerequisites}
+## Prérequis {#prerequisites}
 
 | Condition | Description |
 | ----------- | ----------- |
-| Compte Typeform | Un compte Typeform avec accès aux webhooks est nécessaire pour profiter de ce partenariat. |
-| Transformation des données Braze | Une [URL de Transformation des données]({{site.baseurl}}/data_transformation) est nécessaire pour recevoir des données de Typeform. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
+| Compte Typeform | Un compte Typeform avec accès aux webhooks est requis pour tirer parti de ce partenariat. |
+| Transformation de données Braze | Une [URL de transformation de données]({{site.baseurl}}/user_guide/data/unification/data_transformation) est nécessaire pour recevoir les données de Typeform. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prérequis" }
 
 ## Intégration {#integration}
 
-### Étape 1 : Configurer la Transformation des données Braze pour accepter les webhooks de Typeform {#step-1}
+### Étape 1 : Configurer la transformation de données Braze pour accepter les webhooks de Typeform {#step-1}
 
 {% multi_lang_include data_activation/create_transformation.md location="typeform" %}
 
-### Étape 2 : Configurer les webhooks de Typeform {#step-2-set-up-typeform-webhooks}
+### Étape 2 : Configurer les webhooks Typeform {#step-2-set-up-typeform-webhooks}
 
 Suivez les étapes de la [documentation sur les webhooks de Typeform](https://www.typeform.com/help/a/webhooks-360029573471/) pour configurer un webhook.
 
-À l'étape 4, ajoutez l'URL de votre webhook de Transformation des données en tant qu'**URL de destination**.
+À l'étape 4, ajoutez l'URL du webhook de votre transformation de données en tant qu'**URL de destination**.
 
 ![Configuration du webhook Typeform avec le champ URL de destination.]({% image_buster /assets/img/typeform/typeform_add_webhook.png %}){: style="max-width:50%" }
 
-Envoyez un événement de test à votre Transformation des données en cliquant sur **View deliveries**, puis sur **Send test request**.
+Envoyez un événement de test à votre transformation de données en cliquant sur **View deliveries**, puis sur **Send test request**.
 
 ![Page View deliveries de Typeform avec l'option Send test request sélectionnée.]({% image_buster /assets/img/typeform/typeform_test_request.png %})
 
 ### Étape 3 : Écrire le code de transformation pour accepter les événements Typeform choisis {#step-3-write-transformation-code-to-accept-your-chosen-typeform-events}
 
-Dans cette étape, vous transformez le payload du webhook envoyé par Typeform en une valeur de retour sous forme d'objet JavaScript.
+Au cours de cette étape, vous transformez le payload du webhook envoyé par Typeform en une valeur de retour sous forme d'objet JavaScript.
 
-1. Actualisez votre Transformation des données et assurez-vous que vous pouvez voir le payload de test Typeform dans les **détails du webhook**.
-2. Mettez à jour votre code de Transformation des données pour prendre en charge les événements Typeform que vous avez choisis.
-3. Cliquez sur **Validate** pour obtenir un aperçu de la sortie de votre code et vérifier s'il s'agit d'une requête `/users/track` acceptable.
-4. Enregistrez et activez votre Transformation des données.
+1. Actualisez votre transformation de données et vérifiez que vous pouvez voir le payload de test Typeform dans les **détails du webhook**.
+2. Mettez à jour le code de votre transformation de données pour prendre en charge les événements Typeform choisis.
+3. Cliquez sur **Validate** pour obtenir un aperçu de la sortie de votre code et vérifier s'il s'agit d'une requête `/users/track` valide.
+4. Enregistrez et activez votre transformation de données.
 
-![Aperçu de la Transformation des données montrant une validation réussie du payload de test Typeform.]({% image_buster /assets/img/typeform/typeform_test_result.png %})
+![Aperçu de la transformation de données montrant une validation réussie du payload de test Typeform.]({% image_buster /assets/img/typeform/typeform_test_result.png %})
 
 #### Format du corps de la requête {#request-body-format}
 
-Cette valeur de retour doit respecter le format du corps de la requête `/users/track` de Braze :
+Cette valeur de retour doit respecter le format du corps de requête `/users/track` de Braze :
 
 {% multi_lang_include data_transformation/transformation_code_requirements.md %}
 
-## Exemple de payload de webhook Typeform {#example-typeform-webhook-payload}
+## Exemple de payload webhook Typeform {#example-typeform-webhook-payload}
 
 ```http
 Content-Type: application/json
@@ -316,18 +316,18 @@ Content-Type: application/json
 }
 ```
 
-## Cas d'usage de la Transformation des données {#data-transformation-use-cases}
+## Cas d'usage de la transformation de données {#data-transformation-use-cases}
 
-Voici des exemples de modèles créés à l'aide de notre [exemple de payload de webhook Typeform](#example-typeform-webhook-payload). Ces modèles peuvent servir de point de départ. Vous pouvez repartir de zéro ou supprimer des composants spécifiques selon vos besoins.
+Voici des exemples de modèles construits à l'aide de notre [exemple de payload webhook Typeform](#example-typeform-webhook-payload). Ces modèles peuvent servir de point de départ. Vous pouvez partir de zéro ou supprimer des composants spécifiques selon vos besoins.
 
-Dans ces exemples de modèles, nous enregistrons un événement personnalisé dans le profil Braze. Le titre du Typeform est transmis comme nom de l'événement personnalisé, et les résultats du Typeform sont transmis comme propriétés d'événement. Ces exemples de modèles ne prennent pas en charge les types de questions Calendly, téléchargement de fichier ou paiement dans Typeform.
+Dans ces exemples de modèles, nous enregistrons un événement personnalisé sur le profil Braze. Le titre du Typeform est transmis comme nom de l'événement personnalisé, et les résultats du Typeform sont transmis comme propriétés d'événement. Ces exemples de modèles ne prennent pas en charge les types de questions Calendly, File Upload ou Payment dans Typeform.
 
-### Cas d'usage : l'e-mail comme identifiant {#use-case-email-as-identifier}
+### Cas d'usage : e-mail comme identifiant {#use-case-email-as-identifier}
 
-Dans cet exemple de modèle, nous utilisons une adresse e-mail (capturée à partir d'une question d'adresse e-mail dans le typeform) comme identifiant.
+Dans cet exemple de modèle, nous utilisons une adresse e-mail (capturée à partir d'une question d'adresse e-mail dans le Typeform) comme identifiant.
 
 {% alert note %}
-Si vous avez l'intention d'utiliser une adresse e-mail comme identifiant, consultez notre [foire aux questions]({{site.baseurl}}/api/endpoints/user_data/post_user_track#frequently-asked-questions) pour l'endpoint `/users/track` afin d'obtenir plus d'informations sur le comportement attendu.
+Si vous prévoyez d'utiliser une adresse e-mail comme identifiant, consultez notre [foire aux questions]({{site.baseurl}}/api/endpoints/user_data/post_user_track#frequently-asked-questions) pour l'endpoint `/users/track` afin d'obtenir plus d'informations sur le comportement attendu.
 {% endalert %}
 
 {% tabs local %}
@@ -464,11 +464,11 @@ return brazecall;
 {% endtab %}
 {% endtabs %}
 
-### Cas d'usage : utilisation d'un identifiant transmis via les champs cachés {#use-case-using-identifier-passed-in-hidden-fields}
+### Cas d'usage : utilisation d'un identifiant transmis via les champs masqués (Hidden Fields) {#use-case-using-identifier-passed-in-hidden-fields}
 
-Vous pouvez utiliser les champs cachés de Typeform pour transmettre des données dans le payload du webhook Typeform, comme l'ID d'un utilisateur, sans avoir à inclure ces informations dans la réponse Typeform.
+Vous pouvez utiliser les champs masqués (Hidden Fields) de Typeform pour transmettre des données dans le payload du webhook Typeform, comme l'ID d'un utilisateur, sans avoir à inclure ces informations dans la réponse du Typeform.
 
-Dans cet exemple de modèle, nous utilisons un champ caché « user_id » et le transmettons dans le payload de la requête `/users/track` en tant qu'`external_id`. Bien que nous utilisions « user_id », les champs peuvent être modifiés pour répondre à vos besoins.
+Dans cet exemple de modèle, nous utilisons un champ masqué « user_id » et le transmettons dans le payload de la requête `/users/track` en tant que `external_id`. Bien que nous utilisions « user_id », les champs peuvent être modifiés selon vos besoins.
 
 {% tabs local %}
 {% tab Input %}
@@ -604,14 +604,14 @@ return brazecall;
 {% endtab %}
 {% endtabs %}
 
-### Étape 4 : Publier votre webhook Typeform {#step-4-publish-your-typeform-webhook}
+### Étape 4 : publier votre webhook Typeform {#step-4-publish-your-typeform-webhook}
 
-Après avoir écrit votre transformation de données, cliquez sur **Validate** pour vous assurer que votre code de Transformation des données est correctement formaté et fonctionnera comme prévu. Ensuite, enregistrez et activez votre Transformation des données.
+Une fois votre transformation de données rédigée, cliquez sur **Validate** pour vous assurer que votre code de transformation de données est correctement formaté et fonctionnera comme prévu. Enregistrez ensuite et activez votre transformation de données.
 
-Une fois activée, les données d'événements personnalisés sont enregistrées dans le profil de l'utilisateur lorsqu'il remplit votre formulaire.
+Une fois activée, les données d'événements personnalisés sont enregistrées sur le profil d'un utilisateur lorsqu'il complète votre formulaire.
 
-![Profil utilisateur montrant un événement personnalisé enregistré après la soumission d'un Typeform.]({% image_buster /assets/img/typeform/typeform_custom_event.png %})
+![Profil utilisateur affichant un événement personnalisé enregistré après la soumission d'un Typeform.]({% image_buster /assets/img/typeform/typeform_custom_event.png %})
 
 ## Surveillance et résolution des problèmes {#monitoring-and-troubleshooting}
 
-Consultez la section [Surveiller votre transformation]({{site.baseurl}}/user_guide/data_and_analytics/data_transformation/creating_a_transformation#step-5-monitor-your-transformation) pour plus d'informations sur la surveillance et la résolution des problèmes liés à votre transformation.
+Consultez la section [Surveiller votre transformation]({{site.baseurl}}/user_guide/data_and_analytics/data_transformation/creating_a_transformation#step-5-monitor-your-transformation) pour en savoir plus sur la surveillance et la résolution des problèmes liés à votre transformation.

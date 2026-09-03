@@ -24,7 +24,7 @@ La integración de Braze y Segment te permite utilizar [Engage](https://segment.
 | ----------- | ----------- |
 | Cuenta de Segment | Se necesita una [cuenta de Segment](https://app.segment.com/login) para beneficiarse de esta asociación. |
 | Destino en la nube Braze | Ya debes haber configurado [Braze como destino]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings/) en tu integración de Segment.<br><br>Esto incluye proporcionar el centro de datos Braze y la clave de API REST correctos en tu [configuración de conexión]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment#connection-settings). |
-| Clave de importación de datos de Braze | Para sincronizar audiencias de Engage con Braze como cohortes, debes generar una clave de importación de datos.<br><br>La importación de cohortes está en acceso anticipado; ponte en contacto con tu administrador de éxito de cliente de Braze para acceder a esta característica. |
+| Clave de importación de datos de Braze | Para sincronizar audiencias de Engage con Braze como cohortes, debes generar una clave de importación de datos.<br><br>La importación de cohortes está en acceso anticipado; ponte en contacto con tu CSM de Braze para acceder a esta característica. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }

@@ -11,15 +11,11 @@ search_rank: 7
 
 <div class="api-glossary-preamble" markdown="1">
 
-{% alert important %}
-Os eventos de perfil de usuário estão em beta. Entre em contato com seu gerente de sucesso do cliente ou gerente de conta para obter acesso.
-{% endalert %}
-
 {% alert tip %}
-Esses eventos também estão disponíveis como tabelas SQL no [Criador de consultas]({{site.baseurl}}/user_guide/analytics/query_builder), nas [Extensões de segmento SQL]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments) e no [Compartilhamento de dados Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Para esquemas de tabelas SQL e detalhes de colunas, consulte a [referência de tabelas SQL]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension/sql_segments/sql_segments_tables). Para esquemas de Compartilhamento de dados Snowflake para visualizações de atributos de perfil de usuário, consulte [Atributos de perfil de usuário]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/user_attributes).
+Esses eventos também estão disponíveis como tabelas SQL no [Criador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder), nas [Extensões de Segment SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) e no [Compartilhamento de dados Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Para esquemas de tabelas SQL e detalhes de colunas, consulte a [referência de tabelas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables). Para esquemas de Compartilhamento de dados Snowflake para visualizações de atributos de perfil de usuário, consulte [Atributos de perfil de usuário]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/user_attributes).
 {% endalert %}
 
-Entre em contato com seu representante da Braze ou abra um [ticket de suporte]({{site.baseurl}}/braze_support) se precisar de acesso a direitos de eventos adicionais. Se você não encontrar o que precisa nesta página, consulte a [Biblioteca de eventos de comportamento do cliente]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/customer_behavior_events), a [Biblioteca de eventos de engajamento com mensagem]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events) ou os [exemplos de dados de amostra do Currents](https://github.com/Appboy/currents-examples/tree/master/sample-data).
+Entre em contato com seu representante da Braze ou abra um [ticket de suporte]({{site.baseurl}}/user_guide/administer/personal/braze_support) se precisar de acesso a direitos de eventos adicionais. Se você não encontrar o que precisa nesta página, consulte a [Biblioteca de eventos de comportamento do cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events), a [Biblioteca de eventos de engajamento com mensagem]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) ou os [exemplos de dados de amostra do Currents](https://github.com/Appboy/currents-examples/tree/master/sample-data).
 
 {% details Explicação da estrutura de eventos de atualização de perfil de usuário %}
 
@@ -28,7 +24,7 @@ Entre em contato com seu representante da Braze ou abra um [ticket de suporte]({
 Esta análise de comportamento do cliente e eventos de usuário mostra que tipo de informação geralmente está incluída em um evento de atualização de perfil de usuário. Com uma compreensão sólida de seus componentes, seus desenvolvedores e a equipe de estratégia de business intelligence podem usar os dados de eventos recebidos do Currents para criar relatórios e gráficos orientados por dados, além de aproveitar outras métricas de dados valiosas.
 
 {% alert important %}
-Os esquemas de armazenamento se aplicam a dados de eventos em arquivo simples enviados para parceiros de armazenamento em data warehouse, como Google Cloud Storage, Amazon S3 e Microsoft Azure Blob Storage. Algumas combinações de eventos e destinos listadas aqui ainda não estão disponíveis de forma geral. Para informações sobre eventos compatíveis por parceiro, consulte [parceiros disponíveis]({{site.baseurl}}/user_guide/data/braze_currents/available_partners) e as páginas de parceiros relacionadas.
+Os esquemas de armazenamento se aplicam a dados de eventos em arquivo simples enviados para parceiros de armazenamento em data warehouse, como Google Cloud Storage, Amazon S3 e Microsoft Azure Blob Storage. Algumas combinações de eventos e destinos listadas aqui ainda não estão disponíveis de forma geral. Para informações sobre eventos compatíveis por parceiro, consulte [parceiros disponíveis]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) e as páginas de parceiros relacionadas.
 
 O Currents descarta eventos com cargas úteis maiores que 900 KB.
 {% endalert %}
@@ -38,6 +34,7 @@ O Currents descarta eventos com cargas úteis maiores que 900 KB.
 </div>
 
 <!--overview-end-->
+
 
 {% api %}
 ## Eventos de solicitação de exclusão de usuário {#user-delete-request-events}
@@ -58,6 +55,24 @@ Quando um usuário é excluído por solicitação do cliente.
   "id" : "(required, string) Globally unique ID for this event",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+}
+```
+{% endtab %}
+
+{% tab Custom HTTP Connector %}
+```json
+// users.UserDeleteRequest
+
+{
+  "event_type" : "(required, string) The name of the event type",
+  "id" : "(required, string) Globally unique ID for this event",
+  "properties" : {
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to"
+  },
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user" : {
+    "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  }
 }
 ```
 {% endtab %}
@@ -91,6 +106,28 @@ Quando um usuário se torna órfão, ou seja, o perfil do usuário é mesclado c
 }
 ```
 {% endtab %}
+
+{% tab Custom HTTP Connector %}
+```json
+// users.UserOrphan
+
+{
+  "event_type" : "(required, string) The name of the event type",
+  "id" : "(required, string) Globally unique ID for this event",
+  "properties" : {
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "app_id" : "(optional, string) API ID of the app on which this event occurred",
+    "orphaned_by_id" : "(required, string) BSON ID of the user whose profile was merged with the orphaned user's profile"
+  },
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user" : {
+    "device_id" : "(optional, string) ID of the device on which the event occurred",
+    "external_user_id" : "(optional, string) [PII] External ID of the user",
+    "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  }
+}
+```
+{% endtab %}
 {% endtabs %}
 
 {% endapi %}
@@ -103,6 +140,10 @@ Profile
 {% endapitags %}
 
 Isso representa as atualizações de perfil de um usuário.
+
+{% alert important %}
+O evento de atualização de perfil de usuário está em beta. Entre em contato com seu CSM ou gerente de conta para obter acesso.
+{% endalert %}
 
 {% tabs %}
 {% tab Cloud Storage %}

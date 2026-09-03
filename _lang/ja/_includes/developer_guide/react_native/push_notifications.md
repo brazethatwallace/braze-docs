@@ -467,13 +467,13 @@ macOS 13以降の特定のデバイスでは、Xcode 14以降で実行されて�
 
 ![Brazeのプッシュ通知キャンペーンでは、自分のユーザーIDをテスト受信者として追加し、プッシュ通知をテストすることができます。]({% image_buster /assets/img/react-native/push-notification-test.png %} "Push Campaign Test")
 
-## Expoプラグインを使う {#using-the-expo-plugin}
+## Expoプラグインの使用 {#using-the-expo-plugin}
 
-[Expoでプッシュ通知を設定](#reactnative_setting-up-push-notifications)した後、ネイティブのAndroidやiOSレイヤーでコードを書く必要なく、以下のプッシュ通知の動作を処理できます。
+[Expoのプッシュ通知を設定](#reactnative_setting-up-push-notifications)した後、プラグインを使用して以下のプッシュ通知の動作を処理できます&#8212;ネイティブのAndroidまたはiOSレイヤーでコードを記述する必要はありません。
 
-### Androidプッシュを追加FMSに転送する {#forwarding-android-push-to-additional-fms}
+### AndroidプッシュをFMSに転送する {#forwarding-android-push-to-additional-fms}
 
-追加のFirebase Messaging Service（FMS）を使用する場合は、アプリケーションがBraze以外からプッシュを受信した場合に呼び出すフォールバックFMSを指定できます。以下に例を示します。
+追加のFirebase Messaging Service（FMS）を使用する場合、アプリケーションがBraze以外からのプッシュを受信したときに呼び出すフォールバックFMSを指定できます。例：
 
 ```json
 {
@@ -494,40 +494,40 @@ macOS 13以降の特定のデバイスでは、Xcode 14以降で実行されて�
 
 ### Expo Application Servicesでアプリ拡張機能を使用する {#app-extensions}
 
-Expo Application Services（EAS）を使用していて、`enableBrazeIosRichPush` または `enableBrazeIosPushStories` を有効にしている場合は、プロジェクト内の各アプリ拡張機能に対応するバンドル識別子を宣言する必要があります。EASでコード署名を管理するためにプロジェクトがどのように構成されているかによって、このステップにアプローチする方法は複数あります。
+Expo Application Services（EAS）を使用しており、`enableBrazeIosRichPush`または`enableBrazeIosPushStories`を有効にしている場合、プロジェクト内の各アプリ拡張機能に対応するバンドル識別子を宣言する必要があります。このステップにはいくつかのアプローチがあり、プロジェクトでEASによるコード署名をどのように管理しているかによって異なります。
 
-一つの方法は、Expoの[アプリ拡張ドキュメント](https://docs.expo.dev/build-reference/app-extensions/)に従って、`app.json` ファイルで `appExtensions` 設定を使用することです。あるいは、Expoの[ローカル認証情報ドキュメント](https://docs.expo.dev/app-signing/local-credentials/#multi-target-project)に従って、`credentials.json` ファイルで `multitarget` 設定を行うこともできます。
+1つのアプローチは、Expoの[アプリ拡張機能のドキュメント](https://docs.expo.dev/build-reference/app-extensions/)に従って、`app.json`ファイルの`appExtensions`設定を使用する方法です。または、Expoの[ローカル認証情報のドキュメント](https://docs.expo.dev/app-signing/local-credentials/#multi-target-project)に従って、`credentials.json`ファイルの`multitarget`設定をセットアップすることもできます。
 
 ### トラブルシューティング {#troubleshooting}
 
-以下は、Braze React Native SDKおよびExpoプラグインとのプッシュ通知統合における一般的なトラブルシューティングステップです。
+以下は、Braze React Native SDKとExpoプラグインを使用したプッシュ通知統合の一般的なトラブルシューティング手順です。
 
-#### プッシュ通知が機能しなくなった {#troubleshooting-stopped-working}
+#### プッシュ通知が動作しなくなった {#troubleshooting-stopped-working}
 
-Expoプラグイン経由のプッシュ通知が機能しなくなった場合：
+Expoプラグインを介したプッシュ通知が動作しなくなった場合：
 
-1. Braze SDKがまだセッションをトラッキングしているか確認してください。
-2. SDKが明示的または暗黙的な `wipeData` 呼び出しによって無効化されていないことを確認してください。
-3. Expoや関連ライブラリの最近のアップグレードを確認してください。Brazeの設定と競合する可能性があります。
-4. 最近追加されたプロジェクトの依存関係を確認し、それらが既存のプッシュ通知デリゲートメソッドを手動で上書きしていないかチェックしてください。
+1. Braze SDKがまだセッションをトラッキングしていることを確認します。
+2. `wipeData`の明示的または暗黙的な呼び出しによってSDKが無効にされていないことを確認します。
+3. Expoまたは関連ライブラリの最近のアップグレードを確認します。Braze設定との競合が発生している可能性があります。
+4. 最近追加されたプロジェクト依存関係を確認し、既存のプッシュ通知デリゲートメソッドを手動でオーバーライドしていないか確認します。
 
 {% alert tip %}
-iOS統合については、プロジェクトの依存関係との潜在的な競合を識別するのに役立つ、[プッシュ通知設定チュートリアル](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/b1-standard-push-notifications)も参照できます。
+iOSの統合については、[プッシュ通知設定チュートリアル](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/b1-standard-push-notifications)を参照して、プロジェクトの依存関係との潜在的な競合を特定することもできます。
 {% endalert %}
 
 #### デバイストークンがBrazeに登録されない {#troubleshooting-token-registration}
 
-デバイストークンがBrazeに登録されない場合、まず[プッシュ通知が機能しなくなった](#troubleshooting-stopped-working)を確認してください。
+デバイストークンがBrazeに登録されない場合、まず[プッシュ通知が動作しなくなった](#troubleshooting-stopped-working)のセクションを確認してください。
 
-問題が解決しない場合、別の依存関係がBrazeのプッシュ通知設定に干渉している可能性があります。その依存関係を削除するか、代わりに手動で `Braze.registerPushToken` を呼び出すことを試してください。
+問題が解決しない場合、別の依存関係がBrazeのプッシュ通知設定に干渉している可能性があります。その依存関係を削除するか、代わりに手動で`Braze.registerPushToken`を呼び出すことを試してください。
 
 #### プッシュ通知からのディープリンクが開かない {#troubleshooting-deep-links}
 
-移行後にプッシュ通知からのディープリンクが開かなくなった場合は、以下を確認してください：
+移行後にプッシュ通知からのディープリンクが開かなくなった場合、以下を確認してください：
 
-1. アップグレードしたアプリで[React Native Linking](https://reactnative.dev/docs/linking)の設定がまだ有効であることを確認してください。
-2. iOSネイティブ統合の場合、`populateInitialPayloadFromLaunchOptions` と `Braze.getInitialPushPayload` を実装していることを確認してください。これにより、アプリが終了状態から起動された際に、初期プッシュペイロードを取得し、その `url` をディープリンクハンドラーに渡すことができます。
-3. Braze Expoプラグインを使用している場合、`androidHandlePushDeepLinksAutomatically` が実装に合わせて正しく設定されていることを確認してください。
-4. 最近追加された依存関係が通知処理やアプリデリゲートの動作を上書きしていないか確認してください。
+1. アップグレードしたアプリで[React Native Linking](https://reactnative.dev/docs/linking)の設定がまだ有効であることを確認します。
+2. iOSのネイティブ統合の場合、`populateInitialPayloadFromLaunchOptions`と`Braze.getInitialPushPayload`を実装していることを確認します。これにより、アプリが終了状態から起動されたときに、初期プッシュペイロードを取得し、その`url`をディープリンクハンドラーに渡すことができます。
+3. Braze Expoプラグインを使用している場合、`androidHandlePushDeepLinksAutomatically`が実装に応じて正しく設定されていることを確認します。
+4. 最近追加された依存関係が通知処理やアプリデリゲートの動作をオーバーライドしていないか確認します。
 
-これらの確認を完了しても問題が解決しない場合は、[サポートチケットを開いて]({{site.baseurl}}/user_guide/administrative/access_braze/support)、SDKログと再現手順を添付してください。
+これらの確認を完了しても問題が解決しない場合は、[サポートチケットを送信]({{site.baseurl}}/user_guide/administer/personal/braze_support)し、SDKログと再現手順を含めてください。

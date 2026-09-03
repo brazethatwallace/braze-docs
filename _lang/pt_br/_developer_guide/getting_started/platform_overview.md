@@ -20,7 +20,7 @@ platform:
 > Este artigo aborda as partes básicas e os recursos da plataforma Braze. Os links deste artigo se conectam a tópicos essenciais da Braze.
 
 {% alert tip %}
-Confira nosso curso gratuito [Developer Learning Path](https://learning.braze.com/path/developer) junto com estes artigos.
+Confira nosso curso gratuito [Developer Learning jornada](https://learning.braze.com/path/developer) junto com estes artigos.
 {% endalert %}
 
 ## O que é a Braze? {#what-is-braze}
@@ -72,13 +72,13 @@ O dashboard da Braze exibe gráficos atualizados em tempo real com base em métr
 
 ### Segmentação de usuários {#user-segmentation}
 
-A segmentação permite criar grupos de usuários com base em filtros poderosos de seu comportamento no app, dados demográficos e similares. A Braze também permite que você defina qualquer ação do usuário no app como um "evento personalizado" se a ação desejada não for capturada por padrão. O mesmo se aplica às características do usuário por meio de "atributos personalizados". Depois que um segmento de usuários for criado no dashboard, seus usuários entrarão e sairão do segmento à medida que atenderem (ou não atenderem) aos critérios definidos. Por exemplo, você pode criar um segmento que inclua todos os usuários que gastaram dinheiro no app e que usaram o aplicativo pela última vez há mais de duas semanas.
+A segmentação permite criar grupos de usuários com base em filtros poderosos de seu comportamento no app, dados demográficos e similares. A Braze também permite que você defina qualquer ação do usuário no app como um "evento personalizado" se a ação desejada não for capturada por padrão. O mesmo se aplica às características do usuário por meio de "atributos personalizados". Depois que um Segment de usuários for criado no dashboard, seus usuários entrarão e sairão do Segment à medida que atenderem (ou não atenderem) aos critérios definidos. Por exemplo, você pode criar um Segment que inclua todos os usuários que gastaram dinheiro no app e que usaram o aplicativo pela última vez há mais de duas semanas.
 
 Para saber mais sobre nossos modelos de dados, confira: [Primeiros passos: Visão geral da análise de dados]({{site.baseurl}}/developer_guide/getting_started/architecture_overview).
 
 ## Mensagens em vários canais {#multichannel-messaging}
 
-Depois de definir um segmento, as ferramentas de envio de mensagens da Braze permitem o engajamento com seus usuários de forma dinâmica e personalizada. A Braze foi projetada com um modelo de dados independente de canal e centrado no usuário. O envio de mensagens é feito dentro do seu aplicativo ou site (como o envio de mensagens no app ou por meio de elementos gráficos como carrosséis e banners do Content Cards) ou fora da experiência no app (como o envio de notificações por push ou e-mails). Por exemplo, seus profissionais de marketing podem enviar uma notificação por push e um e-mail para o segmento de exemplo definido na seção anterior.
+Depois de definir um Segment, as ferramentas de envio de mensagens da Braze permitem o engajamento com seus usuários de forma dinâmica e personalizada. A Braze foi projetada com um modelo de dados independente de canal e centrado no usuário. O envio de mensagens é feito dentro do seu aplicativo ou site (como o envio de mensagens no app ou por meio de elementos gráficos como carrosséis e banners do Content Cards) ou fora da experiência no app (como o envio de notificações por push ou e-mails). Por exemplo, seus profissionais de marketing podem enviar uma notificação por push e um e-mail para o Segment de exemplo definido na seção anterior.
 
 ![Crie e dispare mensagens personalizadas em qualquer canal, seja fora ou dentro do seu app ou site.]({% image_buster /assets/img/getting-started/messaging-channels.png %}){: style="border:none" }
 

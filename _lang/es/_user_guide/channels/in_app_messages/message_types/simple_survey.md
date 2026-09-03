@@ -105,7 +105,7 @@ Si deseas guiar a los usuarios a otra página de tu aplicación o sitio web, cam
 
 ### Paso 5: Estiliza tu mensaje (opcional) {#styling}
 
-Puedes personalizar el color de la fuente y el color de acento del mensaje usando el selector de **Color Theme**.
+Puedes personalizar el color de la fuente y el color de acento del mensaje usando el SELECTOR de **Color Theme**.
 
 ![Pestaña Redactar del editor de cuestionario simple con el selector de Color Theme expandido después de que un usuario ha hecho clic en la paleta de colores.]({% image_buster /assets/img/iam/color-theme-picker.png %}){: style="max-width:80%"}
 

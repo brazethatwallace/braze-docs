@@ -140,13 +140,13 @@ In-App Message
 
 {% api %}
 
-## Campaign analytics {#campaign-analytics}
+## Análise de dados da campanha {#campaign-analytics}
 
 {% apitags %}
 Feature Flags
 {% endapitags %}
 
-O desempenho da mensagem em vários canais. As métricas exibidas dependem do canal de envio de mensagens selecionado e se o [experimento de Feature Flag]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/experiments#campaign-analytics) é um teste multivariante.
+O desempenho da mensagem em vários canais. As métricas exibidas dependem do canal de envio de mensagens selecionado e se o [experimento de Feature Flag]({{site.baseurl}}/developer_guide/feature_flags/experiments#campaign-analytics) é um teste multivariante.
 
 {% endapi %}
 
@@ -635,26 +635,26 @@ Email
 
 {% api %}
 
-## Primary Conversions (A) ou Primary Conversion Event {#primary-conversions-a-or-primary-conversion-event}
+## Primary Conversions (A) ou conversão primária Event {#primary-conversions-a-or-primary-conversion-event}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, WhatsApp
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or Primary Conversion Event' %}
+{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or conversão primária Event' %}
 
 | Canal | Informações adicionais |
 |-------|-----------------------|
 | E-mail, push, webhooks | Após o envio inicial. |
 | Content Cards, mensagens no app | Quando o usuário visualiza o Content Card ou a mensagem pela primeira vez. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Primary Conversions (A) or Primary Conversion Event" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Primary Conversions (A) or conversão primária Event" }
 
 {::nomarkdown}
 <span class="calculation-line">
     Cálculo:
     <ul>
-        <li><i>Primary Conversions (A) ou Primary Conversion Event</i>: Contagem</li>
-        <li><i>Primary Conversions (A) %</i> ou <i>Primary Conversion Event Rate</i>: (Primary Conversions) / (Unique Recipients)</li>
+        <li><i>Primary Conversions (A) ou conversão primária Event</i>: Contagem</li>
+        <li><i>Primary Conversions (A) %</i> ou <i>conversão primária Event Rate</i>: (Primary Conversions) / (Unique Recipients)</li>
     </ul>
 </span>
 {:/}
@@ -833,7 +833,7 @@ Email
 
 Observe que _Soft Bounces_ diferem de _Deferrals_. Se nenhum e-mail for entregue com sucesso durante esse período de nova tentativa, a Braze envia um evento de soft bounce por tentativa de envio de campanha. Antes de 25 de fevereiro de 2025, essas novas tentativas eram contadas como múltiplos soft bounces para um envio de campanha.
 
-Embora os soft bounces não sejam rastreados na análise de dados da sua campanha, você pode monitorar os soft bounces no [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log). Você também pode excluir esses usuários do seu envio ou verificar a quantidade de soft bounces dos últimos 30 dias com o [filtro de segmento Soft Bounced]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#soft-bounced). No Registro de atividades de envio de mensagem, você também pode ver o motivo dos soft bounces e entender possíveis discrepâncias entre os "envios" e as "entregas" das suas campanhas de e-mail.
+Embora os soft bounces não sejam rastreados na análise de dados da sua campanha, você pode monitorar os soft bounces no [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log). Você também pode excluir esses usuários do seu envio ou verificar a quantidade de soft bounces dos últimos 30 dias com o [filtro de Segment Soft Bounced]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#soft-bounced). No Registro de atividades de envio de mensagem, você também pode ver o motivo dos soft bounces e entender possíveis discrepâncias entre os "envios" e as "entregas" das suas campanhas de e-mail.
 
 {% endapi %}
 
@@ -1122,6 +1122,8 @@ Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, RCS, 
 {% multi_lang_include analytics/metrics.md metric='Unique Recipients' %}
 
 Como um visualizador pode ser um destinatário único a cada dia, você deve esperar que esse número seja maior do que <i>Unique Impressions</i>. Esse número é recebido da Braze e é baseado no `user_id`. Os destinatários únicos são contados no nível da campanha ou etapa do Canvas, não no nível do <a href='{{ site.homeurl }}{{ site.baseurl }}/api/identifier_types/#send-identifier'>identificador de envio</a>.
+
+Os usuários que recebem bounce ainda contam como <i>Unique Recipients</i> quando a Braze os conta como destinatários para aquele dia de envio. <i>Unique Recipients</i> é baseado nos usuários que a Braze direcionou para a mensagem naquele dia, não apenas nas entregas bem-sucedidas.
 
 <span class="calculation-line">Cálculo: Contagem</span>
 

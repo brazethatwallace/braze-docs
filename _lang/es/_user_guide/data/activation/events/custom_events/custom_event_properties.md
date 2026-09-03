@@ -44,7 +44,7 @@ No puedes usar claves reservadas como nombres de propiedades de eventos. Usar un
 
 ## Uso de propiedades de eventos personalizados {#using-custom-event-properties}
 
-Las propiedades de eventos personalizados se pueden utilizar para calificar desencadenantes de Campaigns, realizar seguimiento de conversiones y personalizar la mensajería.
+Las propiedades de eventos personalizados se pueden utilizar para calificar desencadenantes de Campaign, realizar seguimiento de conversiones y personalizar la mensajería.
 
 ### Desencadenar mensajes {#trigger-messages}
 
@@ -62,12 +62,12 @@ También puedes usar las propiedades de eventos personalizados para la personali
 
 #### Consideraciones con los filtros {#considerations-with-filters}
 
-- **Llamadas a la API:** Al realizar llamadas a la API y usar el filtro "está en blanco", una propiedad de evento personalizado se considera "en blanco" si se excluye de la llamada. Por ejemplo, si incluyes `"event_property": ""`, tus usuarios se consideran "no en blanco".
+- **Llamadas a la API:** Al realizar llamadas a la API y usar el filtro "está en blanco", una propiedad de evento personalizado se considera "en blanco" si se excluye de la llamada o si el valor es una cadena vacía (`""`). Por ejemplo, si incluyes `"event_property": ""`, tus usuarios se consideran "en blanco".
 - **Enteros:** Al filtrar por una propiedad de evento personalizado numérica y el número es muy grande, no uses el filtro "exactamente". Si un número es demasiado grande, puede redondearse a cierta longitud, por lo que tu filtro no funcionará como se espera.
 
 #### Coerción de tipos para comparaciones {#type-coercion-for-comparisons}
 
-Al usar propiedades de eventos en sentencias condicionales de Liquid, puedes encontrar el error `Liquid error: comparison of String with 0 failed` si estás comparando una propiedad de evento de tipo entero usando operadores como mayor que, menor que o igual a. Esto ocurre porque Liquid trata la propiedad como una cadena de forma predeterminada.
+Al usar propiedades de eventos en sentencias condicionales de Liquid, puedes encontrar el error `Liquid error: comparison of String with 0 failed` si estás comparando una propiedad de evento de tipo entero usando operadores como mayor que, menor que o igual a. Esto sucede porque Liquid trata la propiedad como una cadena de forma predeterminada.
 
 Para solucionarlo, usa el filtro `plus: 0` para convertir la propiedad a un número antes de la comparación:
 
@@ -120,11 +120,11 @@ Para más información, consulta [Contexto y propiedades de eventos]({{site.base
 
 Usa la segmentación por propiedades de eventos para segmentar usuarios en función de los eventos personalizados realizados y las propiedades asociadas a esos eventos. Esto aumenta tus opciones de filtrado al segmentar por compras y eventos personalizados.
 
-Las propiedades de eventos para eventos personalizados se actualizan en tiempo real para cualquier Segment que las utilice. Puedes gestionar las propiedades yendo a **Configuración de datos** > **Eventos personalizados** y seleccionando **Gestionar propiedades** para el evento personalizado asociado. Las propiedades de eventos personalizados utilizadas en ciertos filtros de Segment tienen un historial máximo de retrospectiva de 30 días.
+Las propiedades de eventos para eventos personalizados se actualizan en tiempo real para cualquier segmento que las utilice. Puedes gestionar las propiedades yendo a **Configuración de datos** > **Eventos personalizados** y seleccionando **Gestionar propiedades** para el evento personalizado asociado. Las propiedades de eventos personalizados utilizadas en ciertos filtros de segmento tienen un historial máximo de retrospectiva de 30 días.
 
 #### Añadir propiedades de eventos para segmentación {#adding-event-properties-for-segmentation}
 
-Necesitas el [permiso de usuario]({{site.baseurl}}/user_guide/data/infrastructure/data_points#viewing-data-point-usage) "Edit Custom Event Property Segmentation" para crear Segments basados en la frecuencia y la antigüedad de las propiedades de eventos.
+Necesitas el [permiso de usuario]({{site.baseurl}}/user_guide/data/infrastructure/data_points#viewing-data-point-usage) "Edit Custom Event Property Segmentation" para crear segmentos basados en la recencia y frecuencia de las propiedades de eventos.
 
 De forma predeterminada, puedes tener 20 propiedades de eventos segmentables por espacio de trabajo. Contacta a tu director de cuentas de Braze para aumentar este límite.
 
@@ -162,9 +162,9 @@ Para obtener más información, consulta nuestra página dedicada sobre [Objetos
 
 Las propiedades de eventos personalizados están diseñadas para ayudarte a aumentar la precisión de la segmentación y hacer que los mensajes se sientan aún más personalizados. Las propiedades de eventos personalizados se pueden almacenar en Braze tanto a corto como a largo plazo.
 
-Puedes segmentar en función de los valores de las propiedades de eventos de dos maneras:
+Puedes segmentar en función de los valores de las propiedades del evento de dos maneras:
 
-1. **En los últimos 30 días:** Puedes usar la segmentación por propiedades de eventos basada en la frecuencia y la antigüedad de valores específicos de propiedades de eventos dentro de Braze Segments. Esta opción afecta al uso de datos.<br><br>
-2. **Dentro y más allá de 30 días:** Para cubrir tanto la segmentación por propiedades de eventos a corto como a largo plazo, puedes usar las [extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension). Esta característica segmenta a los usuarios en función de eventos personalizados y propiedades de eventos registrados en los últimos dos años. Esta opción no afecta al uso de datos.
+1. **En los últimos 30 días:** Puedes usar la segmentación por propiedades del evento basándote en la frecuencia y la antigüedad de valores específicos de propiedades del evento dentro de Braze Segments. Esta opción afecta al uso de datos.<br><br>
+2. **Dentro y más allá de 30 días:** Para cubrir tanto la segmentación por propiedades del evento a corto como a largo plazo, puedes usar las [extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension). Esta característica segmenta a los usuarios en función de eventos personalizados y propiedades del evento registrados en los últimos dos años. Esta opción no afecta al uso de datos.
 
-Ponte en contacto con tu administrador de éxito de cliente de Braze para obtener recomendaciones sobre el mejor enfoque en función de tus necesidades específicas.
+Ponte en contacto con tu CSM de Braze para obtener recomendaciones sobre el mejor enfoque en función de tus necesidades específicas.

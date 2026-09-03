@@ -33,8 +33,8 @@ Los objetos de cuenta te permiten almacenar datos de cuenta una vez y reutilizar
 Esto te permite:
 
 - Segmentar por atributos de cuenta
-- Personalizar mensajes con contexto de cuenta compartido (como nombre de empresa o industria)
-- Modelar relaciones entre cuentas y conectar un perfil de usuario a múltiples cuentas
+- Personalizar mensajes con contexto de cuenta compartido (como el nombre de la empresa o la industria)
+- Modelar relaciones entre cuentas y conectar un perfil de usuario a varias cuentas
 
 Este enfoque reemplaza la duplicación de los mismos atributos de cuenta en muchos perfiles de usuario.
 
@@ -42,17 +42,17 @@ Este enfoque reemplaza la duplicación de los mismos atributos de cuenta en much
 
 Antes de comenzar:
 
-- Tu espacio de trabajo debe estar habilitado para el acceso anticipado de Cuentas. Contacta a tu equipo de cuenta de Braze.
+- Tu espacio de trabajo debe estar habilitado para el acceso anticipado de Accounts. Contacta a tu equipo de cuenta de Braze.
 - Ya debes tener usuarios en Braze.
-- Después de que Cuentas esté habilitado, aparece en **Configuración de datos** > **Cuentas**. Si es la primera vez que usas Cuentas, sigue las instrucciones de inicialización en pantalla.
+- Una vez que Accounts esté habilitado, aparecerá en **Configuración de datos** > **Accounts**. Si es la primera vez que usas Accounts, sigue las instrucciones de inicialización en pantalla.
 
 ## Modelo de datos de cuenta {#account-data-model}
 
 Cada cuenta requiere un ID externo (`id`) y un nombre (`name`).
 
-Los campos de cuenta en esta sección definen el esquema del objeto de cuenta. Esos campos se aplican a cada registro de cuenta individual que almacenas en Braze.
+Los campos de cuenta de esta sección definen el esquema del objeto Cuenta. Estos campos se aplican a cada registro de cuenta individual que almacenes en Braze.
 
-Braze incluye objetos de cuenta con campos estándar de forma predeterminada. Puedes agregar y eliminar campos personalizados según tu caso de uso.
+Braze incluye objetos de cuenta con campos estándar de forma predeterminada. Puedes añadir y eliminar campos personalizados según tu ejemplo.
 
 | Nombre del campo | Tipo de campo | Obligatorio | Descripción |
 | --- | --- | --- | --- |
@@ -60,9 +60,9 @@ Braze incluye objetos de cuenta con campos estándar de forma predeterminada. Pu
 | `name` | cadena | Sí | Nombre de la cuenta. |
 | `type` | cadena | No | Tipo de cuenta, como cliente, partner o revendedor. |
 | `annual_revenue` | número | No | Ingresos anuales de la cuenta. |
-| `industry` | cadena | No | Industria de la cuenta. |
-| `number_of_employees` | número | No | Cantidad de empleados/as. |
-| `address` | cadena | No | Dirección. |
+| `industry` | cadena | No | Sector de la cuenta. |
+| `number_of_employees` | número | No | Número de empleados/as. |
+| `address` | cadena | No | Dirección postal. |
 | `city` | cadena | No | Ciudad. |
 | `state` | cadena | No | Estado o provincia. |
 | `postal_code` | cadena | No | Código postal. |
@@ -77,51 +77,57 @@ Braze incluye objetos de cuenta con campos estándar de forma predeterminada. Pu
 
 ## Opciones de integración de datos {#data-integration-options}
 
-Puedes gestionar registros de cuenta a través de:
+Puedes gestionar los registros de cuentas a través de:
 
-- Endpoints de REST API para registros de cuenta
-- Edición en el navegador en **Configuración de datos** > **Cuentas** para registros individuales
+- Endpoints de REST API para registros de cuentas
+- Edición en el navegador en **Data Settings** > **Accounts** para registros individuales
 
 ## Primeros pasos {#get-started}
 
-### Paso 1: Habilitar Cuentas {#step-1-enable-accounts}
+### Paso 1: Habilitar Accounts {#step-1-enable-accounts}
 
-Cuentas se habilita a nivel de empresa. Durante el acceso anticipado, tu equipo de cuenta de Braze se encarga de la habilitación única.
+Accounts se habilita a nivel de empresa. Durante el acceso anticipado, tu equipo de cuenta de Braze se encarga de la habilitación única.
 
-Cuando Cuentas esté habilitado, ve a **Configuración de datos** > **Cuentas** y completa el flujo de inicialización única si se te solicita.
+Cuando Accounts esté habilitado, ve a **Configuración de datos** > **Accounts** y completa el flujo de inicialización único si se te solicita.
 
 ### Paso 2: Agregar registros de cuenta {#step-2-add-account-records}
 
-Agrega o actualiza registros de cuenta a través de la REST API o la edición en el navegador.
+Agrega o actualiza registros de cuenta a través de la REST API o mediante la edición en el navegador.
 
-### Paso 3: Crear un filtro calculado para criterios de cuenta {#step-3-create-a-calculated-filter-for-account-criteria}
+### Paso 3: Crear un filtro calculado para los criterios de cuenta {#step-3-create-a-calculated-filter-for-account-criteria}
 
-Antes de segmentar con datos de cuenta, crea un filtro calculado que defina tus criterios de cuenta. Para más detalles, consulta [Cómo funcionan los filtros calculados]({{site.baseurl}}/user_guide/audience/segments/calculated_filters#how-it-works).
+Antes de segmentar según los datos de cuenta, crea un filtro calculado que defina tus criterios de cuenta:
 
-### Paso 4: Usar el filtro calculado en el generador de segmentos {#step-4-use-the-calculated-filter-in-segment-builder}
+1. Ve a **Audiencia** > **Filtros calculados**.
+2. Selecciona **Crear filtro** y luego selecciona **Filtros de objetos de datos**.
+3. Define tus criterios de cuenta.
 
-En el generador de segmentos, selecciona el filtro calculado que creaste y luego agrega cualquier filtro de atributo de usuario adicional que respalde la segmentación de tu Campaign o Canvas.
+Para más detalles, consulta [Filtros calculados]({{site.baseurl}}/user_guide/audience/segments/calculated_filters#create-a-calculated-filter).
 
-## Crear segmentos basados en cuentas {#build-account-based-segments}
+### Paso 4: Usar el filtro calculado en el generador de Segments {#step-4-use-the-calculated-filter-in-segment-builder}
 
-Después de que tus registros de cuenta y filtro calculado estén listos:
+En el generador de Segments, selecciona el filtro calculado que creaste y luego agrega cualquier filtro de atributo de usuario adicional que apoye la segmentación de tu Campaign o Canvas.
 
-1. Ve al [generador de segmentos]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment).
-2. Agrega tu filtro calculado preconfigurado para criterios de cuenta.
-3. Agrega cualquier filtro de atributo de usuario adicional.
-4. Guarda tu segmento.
+## Construir segmentos basados en cuentas {#build-account-based-segments}
+
+Cuando tus registros de cuentas y tu filtro calculado estén listos:
+
+1. Ve al [constructor de Segments]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment).
+2. Añade tu filtro calculado preconfigurado para los criterios de cuenta.
+3. Añade cualquier filtro de atributo de usuario adicional.
+4. Guarda tu Segment.
 
 Por ejemplo:
 
-- **Filtro calculado:** la `industry` de la cuenta es exactamente `healthcare`
+- **Filtro calculado:** la cuenta `industry` es exactamente `healthcare`
 - **Filtro de atributo de usuario:** `days_since_last_login` es menor que `30`
 
-## Personalizar con Liquid {#personalize-with-liquid}
+## Personalización con Liquid {#personalize-with-liquid}
 
 Usa la etiqueta de Liquid `{% raw %}{% data_object account %}{% endraw %}` para cargar datos de cuenta del usuario en el array `data_objects`.
 
 {% alert note %}
-Al usar **Vista previa y prueba**, usa un segmento que incluya datos de cuenta para que la personalización pueda resolverse correctamente.
+Cuando uses **vista previa and Test**, utiliza un Segment que incluya datos de cuenta para que la personalización pueda resolverse correctamente.
 {% endalert %}
 
 {% raw %}
@@ -147,18 +153,16 @@ Para iterar sobre todas las cuentas coincidentes:
 
 Puedes usar la REST API para gestionar registros de cuenta durante el acceso anticipado.
 
-{% alert note %}
-Los detalles de los endpoints para Cuentas se proporcionan durante la incorporación del acceso anticipado. Si necesitas acceso o detalles de incorporación, contacta a tu equipo de cuenta de Braze.
-{% endalert %}
+Para obtener detalles sobre los endpoints, consulta [Endpoints de objetos de datos]({{site.baseurl}}/api/endpoints/data_objects).
 
-Para autenticación y conceptos básicos de endpoints REST, consulta [Resumen de la API de Braze]({{site.baseurl}}/api/basics).
+Para conocer los conceptos básicos de autenticación y endpoints REST, consulta [Resumen de la API de Braze]({{site.baseurl}}/api/basics).
 
 ## Preguntas frecuentes {#frequently-asked-questions}
 
-### ¿Puedo agregar campos personalizados a las cuentas? {#can-i-add-custom-fields-to-accounts}
+### ¿Puedo añadir campos personalizados a las cuentas? {#can-i-add-custom-fields-to-accounts}
 
-Sí. Puedes definir y gestionar campos de cuenta personalizados en tu espacio de trabajo. Para los requisitos de los campos, consulta [Modelo de datos de cuenta](#account-data-model).
+Sí. Puedes definir y gestionar campos de cuenta personalizados en tu espacio de trabajo. Para conocer los requisitos de los campos, consulta [Modelo de datos de cuenta](#account-data-model).
 
-### ¿Cuentas es un complemento de pago? {#is-accounts-a-paid-add-on}
+### ¿Accounts es un complemento de pago? {#is-accounts-a-paid-add-on}
 
-No. Cuentas no es un complemento de pago y está disponible en todos los planes. Durante el acceso anticipado, tu equipo de cuenta de Braze debe habilitarlo para tu espacio de trabajo.
+No. Accounts no es un complemento de pago y está disponible en todos los planes. Durante el acceso anticipado, tu equipo de cuenta de Braze debe habilitarlo para tu espacio de trabajo.

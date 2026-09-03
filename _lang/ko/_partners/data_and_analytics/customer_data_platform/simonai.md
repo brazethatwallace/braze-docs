@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Simon AI
 
-> [Simon AI][1] 에이전틱 마케팅 플랫폼은 마케팅 팀이 진정한 일대일 개인화를 달성할 수 있도록 지원합니다. 컴포저블 CDP와 Snowflake AI Data Cloud에서 직접 작동하는 AI 에이전트를 결합하여 마케터의 데이터 및 실행 팀 역할을 수행합니다.
+> [Simon AI][1] 에이전틱 마케팅 플랫폼은 마케팅 팀이 진정한 일대일 개인화를 달성할 수 있도록 지원합니다. 컴포저블 고객 데이터 플랫폼와 Snowflake AI Data Cloud에서 직접 작동하는 AI 에이전트를 결합하여 마케터의 데이터 및 실행 팀 역할을 수행합니다.
 
 Braze와 Simon AI 통합을 사용하여 고급 오디언스를 구축하고 Braze에 동기화하여 실시간, 노코드 오케스트레이션을 수행할 수 있습니다. 이 통합을 통해 Simon AI의 ID 확인, 고객 데이터 통합, AI 기반 세분화를 활용하여 다운스트림에서 더욱 개인화되고 효과적인 Braze Campaigns를 구동할 수 있습니다.
 
@@ -26,7 +26,7 @@ Braze와 Simon AI 통합을 사용하여 고급 오디언스를 구축하고 Bra
 
 ## 사용 사례 {#use-cases}
 
-- Braze Canvas 또는 이메일 트리거
+- BRAZE 캔버스 또는 이메일 트리거
 - Segment 속성 전달 및 유지
 - 특성 및 연락처 속성 동기화
 
@@ -55,7 +55,7 @@ Simon AI에서 Braze 계정을 인증한 후 [플로우][4] 및 [여정][5]에 B
 세 가지 액션을 사용할 수 있습니다:
 
 - **Simon Segment 속성 동기화**: Segment 세부 정보를 Braze의 신규 또는 기존 커스텀 속성과 동기화합니다.
-- **Braze Canvas 트리거**: Simon Segment 데이터를 활용하는 Braze Canvas를 트리거합니다.
+- **BRAZE 캔버스 트리거**: Simon Segment 데이터를 활용하는 BRAZE 캔버스를 트리거합니다.
 - **Braze Campaign 전송**: Simon에서 전체 Braze Campaign을 시작합니다.
 
 ![Simon AI에서 사용 가능한 Braze 액션 목록을 보여주는 드롭다운.][9]{: style="max-width:60%"}

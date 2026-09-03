@@ -4,12 +4,22 @@ nav_title: Home
 article_title: Technologie-Partner
 alias: /partners/partners/
 search_tag: Partner
-description: "Durchsuchen Sie Braze-Technologie-Partner (Alloys) alphabetisch. Finden Sie Integrationsdokumentation für Personalisierung, Orchestrierung, Daten, E-Commerce, Audience Sync und mehr."
+description: "Durchsuchen Sie Braze-Technologie-Partner (Alloys) und Integrationsdokumentation für Personalisierung, Daten, E-Commerce und Audience Sync."
 ---
 
 # Technologie-Partner {#technology-partners}
 
-Willkommen bei der Dokumentation der Braze-Technologie-Partner (Alloys). Durchsuchen Sie die Partner alphabetisch.
+> Braze-Technologie-Partner (Alloys) erweitern Braze um Personalisierung, Dateninfrastruktur, Attribution, E-Commerce, Audience Sync und Workflow-Tools. Dieser Dokumentationsbereich listet Partner alphabetisch auf und verlinkt zu Integrationsleitfäden für jede Anbindung. Nutzen Sie diese Artikel, um Voraussetzungen, Einrichtungsschritte und unterstützte Braze-Features zu prüfen, bevor Sie einen Partner in Ihrem Workspace aktivieren. Durchsuchen Sie die alphabetische Partnerliste oder springen Sie zu einem Buchstaben, um eine bestimmte Integration zu finden, und öffnen Sie dann den Artikel des Partners für Konfigurationsdetails. Für Partnerkategorien und Anwendungsfälle lesen Sie die nachfolgenden Abschnitte.
+
+## Häufig gestellte Fragen {#frequently-asked-questions}
+
+### Wie finde ich eine Braze-Technologie-Partnerintegration? {#how-do-i-find-a-braze-technology-partner-integration}
+
+Durchsuchen Sie die alphabetische Liste auf dieser Seite oder springen Sie zu einer Buchstabenüberschrift, um einen Partner nach Namen zu finden. Jeder Eintrag verlinkt zum jeweiligen Braze-Integrationsartikel des Partners.
+
+### Was ist Braze Alloys? {#what-is-braze-alloys}
+
+Braze Alloys ist das Technologie-Partnerprogramm von Braze. Partner erweitern die Braze-Plattform um ergänzende Funktionen für Daten, Inhalte, Attribution und Orchestrierung, die in diesem Hub dokumentiert sind.
 
 <div class="partners-az-list" markdown="1">
 
@@ -50,6 +60,7 @@ Willkommen bei der Dokumentation der Braze-Technologie-Partner (Alloys). Durchsu
 - [BlueConic]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/blueconic)
 - [Bluedot]({{site.baseurl}}/partners/message_personalization/location/bluedot)
 - [Branch]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking)
+- [Bynder]({{site.baseurl}}/partners/message_orchestration/cms_dam/bynder)
 
 </div>
 
@@ -167,7 +178,6 @@ Willkommen bei der Dokumentation der Braze-Technologie-Partner (Alloys). Durchsu
 - [Jasper]({{site.baseurl}}/partners/message_orchestration/templates/jasper)
 - [Jebbit]({{site.baseurl}}/partners/additional_channels_and_extensions/extensions/surveys/jebbit)
 - [Judo]({{site.baseurl}}/partners/message_personalization/dynamic_content/visual_and_interactive_content/judo)
-- [JustAI]({{site.baseurl}}/partners/message_personalization/dynamic_content/content_optimization_testing/just_ai)
 - [Justuno]({{site.baseurl}}/partners/data_and_analytics/leads_capture/justuno)
 
 </div>
@@ -263,7 +273,7 @@ Willkommen bei der Dokumentation der Braze-Technologie-Partner (Alloys). Durchsu
 
 - [PassKit]({{site.baseurl}}/partners/additional_channels_and_extensions/additional_channels/mobile_wallet/passkit)
 - [Peak]({{site.baseurl}}/partners/ecommerce/analytics_workflow/peak)
-- [Personalize.AI]({{site.baseurl}}/partners/message_personalization/dynamic_content/personalized_recommendations/personalize)
+- [Personalize.KI]({{site.baseurl}}/partners/message_personalization/dynamic_content/personalized_recommendations/personalize)
 - [Phrase]({{site.baseurl}}/partners/message_personalization/localization/phrase)
 - [Pinterest Audience Sync]({{site.baseurl}}/partners/canvas_audience_sync/pinterest_audience_sync)
 - [Playable]({{site.baseurl}}/partners/message_personalization/dynamic_content/visual_and_interactive_content/playable)
@@ -309,7 +319,7 @@ Willkommen bei der Dokumentation der Braze-Technologie-Partner (Alloys). Durchsu
 - [Sheetlabs]({{site.baseurl}}/partners/message_personalization/dynamic_content/personalization_engines/sheetlabs)
 - [Shopgate]({{site.baseurl}}/partners/additional_channels_and_extensions/additional_channels/shopgate)
 - [Shopify]({{site.baseurl}}/partners/ecommerce/shopify)
-- [Simon AI]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/simonai)
+- [Simon KI]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/simonai)
 - [Singular]({{site.baseurl}}/partners/message_orchestration/attribution/singular)
 - [SmarterSends]({{site.baseurl}}/partners/message_orchestration/templates/smartersends)
 - [Smartling]({{site.baseurl}}/partners/message_personalization/localization/smartling)
@@ -400,12 +410,12 @@ Eine vollständige, durchsuchbare und filterbare Liste aller Braze-Technologie-P
 
 ## Fehlerbehebung bei Partnerverbindungen {#troubleshooting-partner-connections}
 
-Wenn die Integration eine Einrichtung auf Braze-Seite erfordert, melden Sie sich in Ihrem Braze-Dashboard an und navigieren Sie zu **Partnerintegrationen** > **Technologie-Partner**.
+Wenn die Integration eine Einrichtung auf der Braze-Seite erfordert, melden Sie sich in Ihrem Braze-Dashboard an und navigieren Sie zu **Partnerintegrationen** > **Technologie-Partner**.
 
 {% alert note %}
-Vollständig vom Partner verwaltete Integrationen sind hier möglicherweise nicht aufgeführt. Lesen Sie die partnerspezifische Dokumentation, um die Zuständigkeit für die Integration und die Konfigurationsschritte zu überprüfen.
+Vollständig partnereigene Integrationen sind hier möglicherweise nicht aufgeführt. Lesen Sie die partnerspezifische Dokumentation, um die Zuständigkeit für die Integration und die Konfigurationsschritte zu überprüfen.
 {% endalert %}
 
-Wenn in Braze **Ungültige Zugangsdaten** für einen Partner angezeigt werden, die Integration im Dashboard des Partners aber korrekt aussieht, trennen Sie die Integration auf der Technologie-Partnerseite und verbinden Sie sie erneut. Bestätigen Sie API-Schlüssel, OAuth-Token und Berechtigungen auf der Partnerseite.
+Wenn Sie für einen Partner in Braze **Ungültige Zugangsdaten** sehen, die Integration im Dashboard des Partners aber korrekt aussieht, trennen Sie die Integration auf der Technologie-Partnerseite und verbinden Sie sie erneut. Bestätigen Sie API-Schlüssel, OAuth-Token und Berechtigungen auf der Partnerseite.
 
 Einige externe Dashboards (z. B. Tools zur Zustellbarkeits- oder Posteingangsüberwachung) können einen anderen Verbindungs- oder Verifizierungsstatus anzeigen als die Braze-Technologie-Partnerseite. Verwenden Sie die Partner-Kachel in Braze für den Verbindungsstatus, auf den sich Braze für Synchronisierung und Versand stützt.

@@ -46,7 +46,7 @@ Intelligent Creative propose de nombreuses offres dont les utilisateurs peuvent 
 | Règles de ciblage | Date | ✔* | ✔ | * Pris en charge mais non recommandé car les notifications push sont mises en cache dès leur réception et ne s'actualisent pas |
 | Jour de la semaine | ✔* | ✔ | * Pris en charge mais non recommandé car les notifications push sont mises en cache dès leur réception et ne s'actualisent pas |
 | Heure de la journée | ✔* | ✔ | * Pris en charge mais non recommandé car les notifications push sont mises en cache dès leur réception et ne s'actualisent pas |
-| Stories/Activités comportementales | | ✔* | ✔* | * L'identifiant unique de l'utilisateur utilisé pour Braze doit être lié à l'identifiant de votre ESP |
+| Stories/Activités comportementales | | ✔* | ✔* | * L'identifiant unique de l'utilisateur utilisé pour Braze doit être lié à l'identifiant de votre fournisseur de services d'e-mailing |
 | Création de liens profonds dans l'application | | ✔* | ✔* | * Pour offrir une expérience fluide à vos clients, utilisez une solution de création de liens profonds établie via Branch ou une solution validée avec l'équipe Expérience client de Movable Ink. |
 | Applications | Compte à rebours | ✔* | ✔ | * Pris en charge mais non recommandé car les notifications push sont mises en cache dès leur réception et ne s'actualisent pas |
 | Sondage | ✗ | ✔* | * Après avoir voté, l'utilisateur quittera l'application pour accéder à une page de destination mobile |

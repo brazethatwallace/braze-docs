@@ -2,7 +2,7 @@
 
 ## Android용 Google 태그 관리자 사용
 
-다음 예시에서는 음악 스트리밍 앱에서 사용자가 노래를 들을 때 다양한 이벤트를 기록하려고 합니다. Android용 Google Tag Manager를 사용하여 어떤 타사 공급업체가 이 이벤트를 수신할지 제어하고, Braze 전용 태그를 생성할 수 있습니다.
+다음 예시에서는 음악 스트리밍 앱에서 사용자가 노래를 들을 때 다양한 이벤트를 기록하려고 합니다. Android용 Google Tag 매니저를 사용하여 어떤 서드파티 업체가 이 이벤트를 수신할지 제어하고, Braze 전용 태그를 생성할 수 있습니다.
 
 ### 1단계: 커스텀 이벤트 트리거 만들기
 
@@ -22,13 +22,13 @@
 커스텀 이벤트를 보낼 때 `actionType` 을 `logEvent` 으로 설정하고 `eventName` 에 값을 설정하여 Braze가 올바른 이벤트 이름과 조치를 수신할 수 있도록 하세요.
 {% endalert %}
 
-태그에 추가적인 키-값 페어 인수를 포함할 수 있습니다. 그러면 Braze에 커스텀 이벤트 속성정보로 전송됩니다. `eventName` 및 `actionType`은 커스텀 이벤트 속성정보에 대해 무시되지 않습니다. 다음 예제 태그에서 `genre` 은 앱에 기록된 커스텀 이벤트에서 소싱된 Google Tag Manager의 태그 변수를 사용하여 전달되고 정의됩니다.
+태그에 추가적인 키-값 페어 인수를 포함할 수 있습니다. 그러면 Braze에 커스텀 이벤트 속성정보로 전송됩니다. `eventName` 및 `actionType`은 커스텀 이벤트 속성정보에 대해 무시되지 않습니다. 다음 예제 태그에서 `genre` 은 앱에 기록된 커스텀 이벤트에서 소싱된 Google Tag 매니저의 태그 변수를 사용하여 전달되고 정의됩니다.
 
 Android용 Google 태그 관리자는 데이터 계층으로 Firebase를 사용하므로 `genre` 이벤트 속성정보는 "Firebase - 이벤트 파라미터" 변수로 Google 태그 관리자에게 전송됩니다.
 
 ![Google Tag Manager의 변수로, "Braze - Played Song Event" 태그에 "genre"가 이벤트 매개변수로 추가됩니다.]({% image_buster /assets/img/android_google_tag_manager/gtm_android_eventname_variable.png %})
 
-사용자가 앱에서 노래를 재생하면 태그의 트리거 이름( `played song`)과 일치하는 Firebase 분석 이벤트 이름을 사용하여 Firebase 및 Google Tag Manager를 통해 이벤트가 기록됩니다:
+사용자가 앱에서 노래를 재생하면 태그의 트리거 이름( `played song`)과 일치하는 Firebase 분석 이벤트 이름을 사용하여 Firebase 및 Google Tag 매니저를 통해 이벤트가 기록됩니다:
 
 {% tabs %}
 {% tab JAVA %}
@@ -107,15 +107,15 @@ mFirebaseAnalytics.logEvent("changeUser", params)
 
 ### 4단계: 커스텀 태그 공급자 추가하기 {#adding-android-google-tag-provider}
 
-태그 및 트리거를 설정한 상태에서 Google Tag Manager를 Android 앱에서도 구현해야 합니다(Google [설명서](https://developers.google.com/tag-manager/android/v5/) 참조).
+태그 및 트리거를 설정한 상태에서 Google Tag 매니저를 Android 앱에서도 구현해야 합니다(Google [설명서](https://developers.google.com/tag-manager/android/v5/) 참조).
 
 앱에 Google 태그 매니저를 설치한 후 커스텀 태그 공급자를 추가하여 Google 태그 매니저 내에서 구성한 태그를 기반으로 Braze 소프트웨어 개발 키트 메서드를 호출하세요.
 
-"클래스 경로"를 파일에 기록해 두십시오. 이는 [Google Tag Manager](https://tagmanager.google.com/) 콘솔에서 태그를 설정할 때 입력할 내용입니다.
+"클래스 경로"를 파일에 기록해 두십시오. 이는 [Google Tag 매니저](https://tagmanager.google.com/) 콘솔에서 태그를 설정할 때 입력할 내용입니다.
 
 이 예는 커스텀 태그 공급자를 구성할 수 있는 여러 방법 중 하나를 강조합니다. 특히 GTM 태그에서 전송된 `actionType` 키-값 페어에 따라 호출할 Braze SDK 메서드를 결정하는 방법을 보여줍니다.
 
-이 예제에 표시된 `actionType` 은 `logEvent`, `customAttribute`, `changeUser` 이지만 태그 제공업체가 Google Tag Manager에서 데이터를 처리하는 방식을 변경할 수 있습니다.
+이 예제에 표시된 `actionType` 은 `logEvent`, `customAttribute`, `changeUser` 이지만 태그 제공업체가 Google Tag 매니저에서 데이터를 처리하는 방식을 변경할 수 있습니다.
 
 {% tabs %}
 {% tab JAVA %}

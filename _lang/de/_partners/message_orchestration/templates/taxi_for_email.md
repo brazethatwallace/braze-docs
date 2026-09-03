@@ -10,13 +10,13 @@ search_tag: Partner
 
 # Taxi for Email
 
-> [Taxi for Email](http://taxiforemail.com/) ist ein Online-Tool für E-Mail-Marketing, das einen intuitiven visuellen Drag-and-Drop-Editor für E-Mails bietet. Taxi ermöglicht Teams eine einfache Zusammenarbeit bei E-Mail-Campaigns und gibt Texter:innen und Redakteur:innen den Zugriff auf die Ressourcen, die sie für die Erstellung von E-Mails benötigen – ganz ohne Code.
+> [Taxi for Email](http://taxiforemail.com/) ist ein Online-Tool für E-Mail-Marketing, das einen intuitiven visuellen Drag-and-Drop-Editor für E-Mails bietet. Taxi for Email ermöglicht Teams eine einfache Zusammenarbeit bei E-Mail-Campaigns und gibt Texter:innen und Redakteur:innen den Zugriff auf die Ressourcen, die sie für die Erstellung von E-Mails benötigen – ganz ohne Code.
 
 _Diese Integration wird von Taxi for Email gepflegt._
 
 ## Über die Integration {#about-the-integration}
 
-Die Integration von Braze und Taxi nutzt die einfache, aber leistungsstarke Syntax von Taxi, um intelligente E-Mail-Templates zu erstellen und nach Braze zu exportieren.
+Die Integration von Braze und Taxi for Email nutzt die einfache, aber leistungsstarke Syntax von Taxi for Email, um intelligente E-Mail-Templates zu erstellen und nach Braze zu exportieren.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -29,9 +29,9 @@ Die Integration von Braze und Taxi nutzt die einfache, aber leistungsstarke Synt
 
 ## Integration
 
-### 1. Schritt: Taxi-E-Mail-Template erstellen {#step-1-create-a-taxi-email-template}
+### 1. Schritt: Taxi for Email-E-Mail-Template erstellen {#step-1-create-a-taxi-email-template}
 
-Erstellen Sie ein Taxi-Template auf der Taxi-Plattform. Nachdem das Template erstellt wurde, navigieren Sie zu Ihren **Organisationseinstellungen** und wählen Sie den Tab **ESP Connectors** aus.
+Erstellen Sie ein Taxi for Email-Template auf der Taxi for Email-Plattform. Nachdem das Template erstellt wurde, navigieren Sie zu Ihren **Organisationseinstellungen** und wählen Sie den Tab **E-Mail-Anbieter Connectors** aus.
 
 ### 2. Schritt: Braze-Konnektor erstellen {#step-2-create-braze-connector}
 
@@ -43,4 +43,4 @@ Das Feld für Ihren Konnektor ändert seine Farbe, nachdem die Details mit den r
 
 ## Nutzung {#usage}
 
-Ihr hochgeladenes Taxi-Template finden Sie in Ihrem Braze-Konto im Bereich **Templates und Medien > E-Mail-Templates**. Sie können dieses E-Mail-Template jetzt verwenden, um ansprechende E-Mail-Nachrichten an Ihre Kund:innen zu versenden!
+Ihr hochgeladenes Taxi for Email-Template finden Sie in Ihrem Braze-Konto im Bereich **Templates und Medien > E-Mail-Templates**. Sie können dieses E-Mail-Template jetzt verwenden, um ansprechende E-Mail-Nachrichten an Ihre Kund:innen zu versenden!

@@ -146,7 +146,7 @@ In-App Message
 Feature Flags
 {% endapitags %}
 
-Die Performance der Nachricht über verschiedene Kanäle hinweg. Die angezeigten Metriken hängen vom ausgewählten Messaging-Kanal ab und davon, ob das [Feature-Flag-Experiment]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/experiments#campaign-analytics) ein multivariater Test ist.
+Die Performance der Nachricht über verschiedene Kanäle hinweg. Die angezeigten Metriken hängen vom ausgewählten Messaging-Kanal ab und davon, ob das [Feature-Flag-Experiment]({{site.baseurl}}/developer_guide/feature_flags/experiments#campaign-analytics) ein multivariater Test ist.
 
 {% endapi %}
 
@@ -357,7 +357,7 @@ SMS/MMS
 
 {% multi_lang_include analytics/metrics.md metric='Delivery Failures' %}
 
-Kontaktieren Sie den <a href="/docs/braze_support/">Braze-Support</a>, um Unterstützung beim Verständnis der Gründe für Zustellungsfehler zu erhalten.
+Kontaktieren Sie den <a href="/docs/braze_support">Braze-Support</a>, um Unterstützung beim Verständnis der Gründe für Zustellungsfehler zu erhalten.
 
 <span class="calculation-line">Berechnung: (Sends) - (Sends to Carrier)</span>
 
@@ -373,7 +373,7 @@ RCS
 
 {% multi_lang_include analytics/metrics.md metric='Delivery Failures RCS' %}
 
-Kontaktieren Sie den <a href="/docs/braze_support/">Braze-Support</a>, um Unterstützung beim Verständnis der Gründe für Zustellungsfehler zu erhalten.
+Kontaktieren Sie den <a href="/docs/braze_support">Braze-Support</a>, um Unterstützung beim Verständnis der Gründe für Zustellungsfehler zu erhalten.
 
 <span class="calculation-line">Berechnung: (Sends) - (Sends to Carrier)</span>
 
@@ -389,7 +389,7 @@ SMS/MMS
 
 {% multi_lang_include analytics/metrics.md metric='Failed Delivery Rate' %}
 
-Kontaktieren Sie den <a href="/docs/braze_support/">Braze-Support</a>, um Unterstützung beim Verständnis der Gründe für Zustellungsfehler zu erhalten.
+Kontaktieren Sie den <a href="/docs/braze_support">Braze-Support</a>, um Unterstützung beim Verständnis der Gründe für Zustellungsfehler zu erhalten.
 
 <span class="calculation-line">Berechnung: (Zustellungsfehler) / (Sends)</span>
 
@@ -527,13 +527,13 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 {% api %}
 
-## Lifetime-Value pro Nutzer:in {#lifetime-value-per-user}
+## LTV pro Nutzer:in {#lifetime-value-per-user}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, LINE
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Lifetime Value Per User' %}
+{% multi_lang_include analytics/metrics.md metric='LTV Per User' %}
 
 {% endapi %}
 
@@ -1122,6 +1122,8 @@ Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, RCS, 
 {% multi_lang_include analytics/metrics.md metric='Unique Recipients' %}
 
 Da ein:e Betrachter:in jeden Tag ein:e eindeutige:r Empfänger:in sein kann, sollten Sie erwarten, dass dieser Wert höher ist als die <i>eindeutigen Impressionen</i>. Diese Zahl wird von Braze bereitgestellt und basiert auf der `user_id`. Eindeutige Empfänger:innen werden auf Campaign- oder Canvas-Schritt-Ebene gezählt, nicht auf der Ebene des <a href='{{ site.homeurl }}{{ site.baseurl }}/api/identifier_types/#send-identifier'>Send-Identifiers</a>.
+
+Nutzer:innen, die einen Bounce verursachen, zählen weiterhin zu den <i>eindeutigen Empfänger:innen</i>, wenn Braze sie als Empfänger:in für diesen Versandtag zählt. <i>Eindeutige Empfänger:innen</i> basieren auf den Nutzer:innen, die Braze für die Nachricht an diesem Tag angesprochen hat, nicht nur auf erfolgreichen Zustellungen.
 
 <span class="calculation-line">Berechnung: Anzahl</span>
 

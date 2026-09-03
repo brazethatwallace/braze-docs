@@ -101,7 +101,7 @@ Als Nächstes müssen wir die Details für die **In-App Messages**-Variante ausf
 2. Für die Überschrift und den Text verwenden wir eine Formulierung, die Nutzer:innen ermutigt, ehrlich über ihre Erfahrung mit Proxy War 3 zu berichten.
 3. Da wir möchten, dass ihre Umfrageantworten in ihren Profilen protokolliert werden, behalten wir die Umfrage als **Single-choice selection** und **Log attributes upon submission** bei.
 4. Wählen Sie für jede der drei Umfrageoptionen **Experience Feedback** als unser angepasstes Attribut.
-5. Wir behalten die Attributwerte im Nutzerprofil bei, da diese Werte mit unserem angepassten Attribut übereinstimmen.
+5. Wir behalten die Attributwerte im Kundenprofil bei, da diese Werte mit unserem angepassten Attribut übereinstimmen.
 
 ![Eine Umfrage, die Nutzer:innen fragt, ob sie ihren kürzlichen Kauf von Proxy War 3 genossen haben, mit drei Optionen: „Loved it“, „It was OK“ und „Not for me“.]({% image_buster /assets/img/canvas_templates/post_purchase_feedback/survey_example_iam.png %}){: style="max-width:90%;"}
 

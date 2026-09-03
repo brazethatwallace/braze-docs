@@ -1,6 +1,6 @@
 ---
 platform: REST APIs
-nav_title: Puntos finales interactivos
+nav_title: Endpoints interactivos
 page_order: 2.5
 noindex: true
 hidden: true
@@ -14,80 +14,80 @@ hidden: true
   display: none !important;
 }
 
-#main_content \#artículo-principal {
-  acolchado-top: 0px;
+#main_content #article-main {
+  padding-top: 0px;
 }
 
-#main_content \#article-main .block ul>li::before,#main_content \#article-main .block ol>li::before {
-  contenido: "";
+#main_content #article-main .block ul>li::before,#main_content #article-main .block ol>li::before {
+  content: "";
 }
-#main_content \#article-main #swagger-ui .global-server-container, #main_content \#article-main #swagger-ui .scheme-container {
-  background-color: #f4f4f7;  
+#main_content #article-main #swagger-ui .global-server-container, #main_content #article-main #swagger-ui .scheme-container {
+  background-color: #f4f4f7;
 }
 
-#main_content \#article-main #swagger-ui .opblock-tag {
-  borde inferior: 1px solid rgba(59,65,81,.3);
+#main_content #article-main #swagger-ui  .opblock-tag {
+  border-bottom: 1px solid rgba(59,65,81,.3);
 }
-#main_content \#article-main #swagger-ui .auth-container p {
-  margen inferior: 5px;
+#main_content #article-main #swagger-ui .auth-container p {
+  margin-bottom: 5px;
 }
-#main_content \#article-main #swagger-ui .auth-wrapper {
-  -webkit-box-pack: inicio;
-  -ms-flex-pack: inicio;
+#main_content #article-main #swagger-ui .auth-wrapper {
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
 }
 
-#main_content \#article-main #swagger-ui .dialog-ux .modal-ux-content {
-  acolchado-top: 0px;
+#main_content #article-main #swagger-ui .dialog-ux .modal-ux-content {
+  padding-top: 0px;
 }
-#main_content \#article-main #swagger-ui .auth-container input[type=text]{
+#main_content #article-main #swagger-ui .auth-container input[type=text]{
   border: 1px solid #f4f4f7;
-  anchura: 100%;
+  width: 100%;
 
 }
-#main_content \#article-main #swagger-ui .opblock-tag-section a {
-    font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;
-    visualización: en línea;
+#main_content #article-main #swagger-ui .opblock-tag-section a {
+    font-family: "Aribau Grotesk Bold", "Aribau Grotesk", "Aribau Grotesk Regular", Arial, Helvetica, sans-serif;
+    display: inline;
     color: #212123;
-    ancho del borde inferior: 0px;
-    color del borde: transparente;
-    decoración del texto: ninguna;
+    border-bottom-width: 0px;
+    border-color: transparent;
+    text-decoration: none;
     font-weight: 700;
-    transición: todo facilidad .2s;
-    -webkit-transición: todo facilidad .2s;
-    -moz-transición: todo facilidad .2s
+    transition: all ease .2s;
+    -webkit-transition: all ease .2s;
+    -moz-transition: all ease .2s
 }
-#main_content \#article-main #swagger-ui .opblock-tag-section .pestaña a {
-  font-family: "Sailec W00 Regular",Arial,Helvetica,sans-serif;
+#main_content #article-main  #swagger-ui .opblock-tag-section .tab a  {
+  font-family: "Aribau Grotesk Regular", "Aribau Grotesk", Arial, Helvetica, sans-serif;
   font-weight: 500;
 }
-#main_content \#article-main #swagger-ui .opblock-tag-section .pestaña .active a {
-  font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;
+#main_content #article-main  #swagger-ui .opblock-tag-section .tab .active a  {
+  font-family: "Aribau Grotesk Bold", "Aribau Grotesk", "Aribau Grotesk Regular", Arial, Helvetica, sans-serif;
   font-weight: 700;
 }
-#main_content \#article-main #swagger-ui .opblock-tag-section a:hover {
-    color de fondo: transparente;
+#main_content #article-main #swagger-ui .opblock-tag-section a:hover {
+    background-color: transparent;
 }
 
 
-\#swagger-ui table, #swagger-ui table td, #swagger-ui table thead, #swagger-ui table tr {
-  borde: ninguno !importante;
+#swagger-ui table, #swagger-ui table td, #swagger-ui table thead, #swagger-ui table tr {
+  border: none !important;
 }
-\#swagger-ui .model-box {
-  anchura: 100%;
+#swagger-ui .model-box {
+  width: 100%;
 }
-\#swagger-ui tabla td.col, #swagger-ui tabla th.col {
+#swagger-ui table td.col, #swagger-ui table th.col  {
   width: auto !important;
 }
-\#swagger-ui table thead {
-  fondo: transparente;
+#swagger-ui table thead {
+  background: transparent;
 
 }
-\#swagger-ui table thead tr td, #swagger-ui table thead tr th {
-  borde inferior: 1px solid rgba(59,65,81,.2) !important;
+#swagger-ui  table thead tr td, #swagger-ui table thead tr th {
+  border-bottom: 1px solid rgba(59,65,81,.2) !important;
 }
 
-\#swagger-ui .btn.authorize , #swagger-ui .servers select{
+#swagger-ui .btn.authorize , #swagger-ui .servers select{
   background-color: #ffffff;
 
 }
@@ -98,21 +98,21 @@ hidden: true
 <script>
 $(document).ready(function() {
 
-  // Construye un sistema
+  // Build a system
   const ui = SwaggerUIBundle({
     url: "/docs/assets/js/swagger/braze_swagger.json",
-    dom_id: \#swagger-ui
-    docExpansion: 'ninguna',
+    dom_id: '#swagger-ui',
+    docExpansion: 'none',
     deepLinking: true,
-    preajustes: [
-          SwaggerUIBundle.presets.apis,
-          SwaggerUIStandalonePreset
-      ],
-plugins: [
+    presets: [
+      SwaggerUIBundle.presets.apis,
+      SwaggerUIStandalonePreset
+    ],
+    plugins: [
       SwaggerUIBundle.plugins.DownloadUrl
     ],
-diseño: "BaseLayout"
-})
+    layout: "BaseLayout"
+  })
 
   window.ui = ui;
 });

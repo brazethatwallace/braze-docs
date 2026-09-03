@@ -69,7 +69,7 @@ No Phrase, navegue até **Settings > Integrations > Connectors > New**.
     {% endif %}
     ```
     O Liquid acima deve ser rigorosamente seguido, mas o atributo de idioma, as chaves e os valores são ajustáveis.<br><br>
-    Cada código de idioma só pode ser usado uma vez. No entanto, vários idiomas podem ser usados para um segmento, por exemplo:
+    Cada código de idioma só pode ser usado uma vez. No entanto, vários idiomas podem ser usados para um Segment, por exemplo:
     ```liquid
     {% elsif {{custom_attribute.${attribute_name}}} == 'de-DE' or {{custom_attribute.${attribute_name}}} == 'de-AT' or {{custom_attribute.${attribute_name}}} == 'de-CH' %}
     {% endraw %}

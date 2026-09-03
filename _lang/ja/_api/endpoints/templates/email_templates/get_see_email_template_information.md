@@ -6,7 +6,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "この記事では、メールテンプレートの表示Brazeエンドポイントの詳細について説明します。"
-
 ---
 {% api %}
 # メールテンプレート情報の表示 {#see-email-template-information}
@@ -17,13 +16,13 @@ description: "この記事では、メールテンプレートの表示Brazeエ�
 > このエンドポイントを使用して、メールテンプレートに関する情報を取得します。
 
 {% alert important %}
-メール用のドラッグアンドドロップエディターを使用して作成されたテンプレートは受け付けられません。
+メール用のドラッグ＆ドロップエディターを使用して作成されたテンプレートは受け付けられません。
 {% endalert %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#e98d2d5b-62fe-4358-b391-9fe9e460d0ac {% endapiref %}
 
 ## 前提条件 {#prerequisites}
-このエンドポイントを使用するには、`templates.email.info` 権限を持つ [API キー]({{site.baseurl}}/api/api_key)が必要です。
+このエンドポイントを使用するには、`templates.email.info` 権限を持つ[APIキー]({{site.baseurl}}/api/basics)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -44,7 +43,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/templates/email/
 ```
 {% endraw %}
 
-## 応答 {#response}
+## レスポンス {#response}
 
 ```json
 {
@@ -62,6 +61,6 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/templates/email/
 }
 ```
 
-この応答の画像は、HTMLとして `body` 変数に表示されます。
+このレスポンスの画像は、HTMLとして `body` 変数に表示されます。
 
 {% endapi %}

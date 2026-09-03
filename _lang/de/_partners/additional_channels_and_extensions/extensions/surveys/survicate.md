@@ -184,7 +184,7 @@ Standardmäßig sendet Survicate den Inhalt einer Umfrageantwort als Attributwer
 ![Klicken Sie auf „Edit mapping“, um diese Werte zu ändern.]({% image_buster /assets/img/survicate/survicate_19.png %})
 
 {% alert note %}
-Für NPS sendet Survicate abgebildete Werte basierend auf der Antwortgruppe der NPS®-Frage. Wenn Sie jedoch numerische Werte empfangen möchten, können Sie die Option „Send Answers as 0-10 values“ aktivieren.
+Für Net Promoter Score sendet Survicate abgebildete Werte basierend auf der Antwortgruppe der Net Promoter Score®-Frage. Wenn Sie jedoch numerische Werte empfangen möchten, können Sie die Option „Send Answers as 0-10 values“ aktivieren.
 {% endalert %}
 
 ![Survicate sendet Werte, die auf der Grundlage der Antwortgruppe abgebildet werden.]({% image_buster /assets/img/survicate/survicate_20.png %})

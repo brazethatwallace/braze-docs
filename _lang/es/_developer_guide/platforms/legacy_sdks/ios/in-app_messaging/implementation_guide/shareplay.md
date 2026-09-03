@@ -18,26 +18,27 @@ noindex: true
 > SharePlay es una característica recién lanzada que habilita a los usuarios de FaceTime de iOS 15 a tener una experiencia multimedia compartida en todos sus dispositivos, ofreciendo sincronización de audio y video en tiempo real. SharePlay es una forma estupenda de que los usuarios experimenten el contenido con amigos y familiares, ofreciendo a los clientes de Braze una vía adicional para el contenido de video y oportunidades para presentar tu aplicación a nuevos usuarios.
 
 ![SharePlay]({% image_buster /assets/img/shareplay/shareplay6.png %}){: style="border:0;margin-top:10px;"}
+
 ## Resumen {#overview}
 
-El nuevo framework `GroupActivities` que lanzó Apple como parte de la actualización de iOS 15 te permite aprovechar FaceTime integrando SharePlay en tus aplicaciones con la ayuda de los mensajes dentro de la aplicación de Braze.
-![SharePlay]({% image_buster /assets/img/shareplay/shareplay3.png %}){: style="float:right;max-width:30%;margin-left:15px;margin-top:10px;"}
+El nuevo framework `GroupActivities` lanzado por Apple como parte de la actualización de iOS 15 te permite aprovechar FaceTime integrando SharePlay en tus aplicaciones con la ayuda de los mensajes dentro de la aplicación de Braze.
+![SharePlay]({% image_buster /assets/img/shareplay/shareplay3.png %}){: width="924" height="550" style="float:right;max-width:30%;margin-left:15px;margin-top:10px;"}
 
-Cuando los usuarios inicien un video SharePlay en una llamada FaceTime, aparecerá un botón "Abrir" en la parte superior de la pantalla de todos. Cuando se abra, el audio y el video se sincronizarán en todos los dispositivos compatibles, permitiendo a los usuarios ver videos juntos en tiempo real. Los que no tengan la aplicación descargada serán redirigidos a la App Store.
+Cuando los usuarios inician un video de SharePlay en una llamada de FaceTime, aparece un botón "Abrir" en la parte superior de la pantalla de todos. Al abrirlo, el audio y el video se sincronizan en todos los dispositivos compatibles, lo que permite a los usuarios ver videos juntos en tiempo real. Quienes no tengan la aplicación descargada son redirigidos a la App Store.
 
-**Reproducción multimedia sincronizada**<br>
-Con la reproducción multimedia sincronizada, si una persona pausa el video de SharePlay, se pausará en todos los dispositivos. <br><br>
-![SharePlay]({% image_buster /assets/img/shareplay/shareplay7.png %}){: style="border:0"}
+**Reproducción de medios sincronizada**<br>
+Con la reproducción de medios sincronizada, si una persona pausa el video de SharePlay, se pausará en todos los dispositivos. <br><br>
+![SharePlay]({% image_buster /assets/img/shareplay/shareplay7.png %}){: width="3770" height="1408" style="border:0"}
 
 ## Integración {#integration}
 
-El mensaje dentro de la aplicación utilizado en esta integración es un controlador de vista de mensaje modal dentro de la aplicación subclaseado. Encontrarás una guía de configuración en la [guía de implementación]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/implementation_guide) de casos de uso avanzados de mensajes dentro de la aplicación de iOS. Antes de la integración, asegúrate de añadir el derecho `GroupActivities` a tu proyecto de Xcode.
+El mensaje dentro de la aplicación utilizado en esta integración es un controlador de vista de mensaje dentro de la aplicación modal subclasificado. Puedes encontrar una guía de configuración en la [guía de implementación]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/implementation_guide) de casos de uso avanzados de mensajes dentro de la aplicación de iOS. Antes de integrar, asegúrate de agregar la autorización `GroupActivities` a tu proyecto Xcode.
 
 {% alert important %}
-Recomendamos abrir la [documentación de Apple SharePlay](https://developer.apple.com/documentation/avfoundation/media_playback_and_selection/supporting_coordinated_media_playback) junto a esta guía para completar la integración.
+Recomendamos abrir la [documentación de Apple SharePlay](https://developer.apple.com/documentation/avfoundation/media_playback_and_selection/supporting_coordinated_media_playback) junto con esta guía para completar la integración.
 {% endalert %}
 
-### Paso 1: Sustitución y carga de XIB {#step-1-overriding-and-loading-xib}
+### Paso 1: Sobrescribir y cargar XIB {#step-1-overriding-and-loading-xib}
 
 {% tabs %}
 {% tab Swift %}
@@ -56,7 +57,7 @@ override func loadView() {
 
 ### Paso 2: Configurar AVPlayer para mensajes dentro de la aplicación {#step-2-configure-avplayer-for-in-app-messages}
 
-Los mensajes dentro de la aplicación pueden reproducir videos de forma nativa con un ligero trabajo de desarrollo. Al hacerlo, tendrás acceso a todas las funciones de `AVPlayerVideoController`, como SharePlay. El mensaje dentro de la aplicación utilizado para este ejemplo es una subclase de `ABKInAppMessageModalViewController` que tiene una vista personalizada para incrustar un reproductor de video nativo.
+Los mensajes dentro de la aplicación pueden reproducir videos de forma nativa con algo de trabajo ligero del desarrollador. Al hacer esto, tienes acceso a todas las características de `AVPlayerVideoController`, como SharePlay. El mensaje dentro de la aplicación utilizado en este ejemplo es un `ABKInAppMessageModalViewController` subclasificado que tiene una vista personalizada para incrustar un reproductor de video nativo.
 
 {% tabs %}
 {% tab Swift %}
@@ -81,19 +82,19 @@ func configureVideoPlayer() {
 {% endtab %}
 {% endtabs %}
 
-#### Configuración del dashboard {#dashboard-configuration}
+#### Configuración del panel {#dashboard-configuration}
 
-**Pares clave-valor**: El archivo de video debe establecerse en los pares clave-valor del mensaje dentro de la aplicación y no puede adjuntarse al propio elemento multimedia. También puedes añadir la comprobación de validez de la URL en `beforeInAppMessageDisplayed` como barrera antes de mostrar el contenido.
+**Pares clave-valor**: El archivo de video debe configurarse en los pares clave-valor del mensaje dentro de la aplicación y no puede adjuntarse al elemento multimedia en sí. También puedes agregar una verificación de validez de URL en `beforeInAppMessageDisplayed` como medida de seguridad antes de mostrar el contenido.
 
-**Desencadenamiento**: El mensaje dentro de la aplicación debe ser elegible para todos los usuarios con la reelegibilidad habilitada. Esto se puede hacer estableciendo dos desencadenantes: uno predeterminado para lanzar el mensaje y otro para lanzar el mensaje cuando se inicie desde SharePlay. Los usuarios que no usen iOS 15 solo podrán ver los mensajes localmente.
+**Desencadenamiento**: El mensaje dentro de la aplicación debe ser elegible para todos los usuarios con la reelegibilidad habilitada. Esto se puede hacer configurando dos desencadenadores, uno predeterminado para lanzar el mensaje y otro para lanzar el mensaje cuando se inicia desde SharePlay. Los usuarios que no estén en iOS 15 solo podrán ver los mensajes de forma local.
 
 {% alert important %}
-Ten en cuenta cualquier otro mensaje dentro de la aplicación desencadenado al iniciar la sesión que pueda entrar en conflicto entre sí.
+Ten en cuenta cualquier otro mensaje dentro de la aplicación desencadenado al inicio de sesión que pueda entrar en conflicto entre sí.
 {% endalert %}
 
-### Paso 3: Crear actividad de visualización en grupo {#step-3-create-group-watching-activity}
+### Paso 3: Crear actividad de visualización grupal {#step-3-create-group-watching-activity}
 
-Crea un objeto conforme al protocolo `GroupActivity`. El objeto serán los metadatos del `GroupSession` compartidos a lo largo del ciclo de vida de SharePlay.
+Crea un objeto que se ajuste al protocolo `GroupActivity`. El objeto será los metadatos del `GroupSession` compartido durante todo el ciclo de vida de SharePlay.
 
 {% tabs %}
 {% tab Swift %}
@@ -123,18 +124,18 @@ struct MediaItemActivity: GroupActivity {
 
 #### Prepararse para reproducir {#prepare-to-play}
 
-Cuando te preparas para reproducir el elemento multimedia, cada actividad de grupo tiene tres estados de `prepareForActivation()`:
-- `.activationDisabled` - ver individualmente
-- `.activationPreferred` - visualización conjunta
-- `.cancelled` - ignorar y manejar con elegancia
+Cuando te preparas para reproducir el elemento multimedia, cada actividad grupal tiene tres estados de `prepareForActivation()`:
+- `.activationDisabled` - visualización individual
+- `.activationPreferred` - visualización en conjunto
+- `.cancelled` - ignorar y manejar con gracia
 
-Cuando el estado vuelva a ser `activationPreferred`, esa será tu señal para activar el resto del ciclo de vida de la actividad de grupo.
+Cuando el estado regresa como `activationPreferred`, esa es tu señal para activar el resto del ciclo de vida de la actividad grupal.
 
-![SharePlay]({% image_buster /assets/img/shareplay/shareplay.png %}){: style="border:0;"}
+![SharePlay]({% image_buster /assets/img/shareplay/shareplay.png %}){: width="3816" height="1408" style="border:0;"}
 
 ### Paso 4: Lanzar mensaje dentro de la aplicación desde la API de SharePlay {#step-4-launch-in-app-message-from-shareplay-api}
 
-La API `GroupActivities` determina si hay un video presente. Si es así, debes desencadenar el evento personalizado para lanzar tu mensaje dentro de la aplicación apto para SharePlay. El `CoordinationManager` es responsable de los cambios de estado de SharePlay, como si el usuario o usuarios abandonan la llamada o se unen a ella.
+La API `GroupActivities` determina si hay un video presente. Si es así, deberías desencadenar el evento personalizado para lanzar tu mensaje dentro de la aplicación compatible con SharePlay. El `CoordinationManager` es responsable de los cambios de estado de SharePlay, como cuando los usuarios abandonan o se unen a la llamada.
 
 {% tabs %}
 {% tab Swift %}
@@ -162,9 +163,9 @@ private func launchVideoPlayerIfNecessary() {
 {% endtab %}
 {% endtabs %}
 
-### Paso 5: Abandonar una sesión de grupo al descartar el mensaje dentro de la aplicación {#step-5-leaving-a-group-session-on-in-app-message-dismissal}
+### Paso 5: Abandonar una sesión grupal al cerrar el mensaje dentro de la aplicación {#step-5-leaving-a-group-session-on-in-app-message-dismissal}
 
-Cuando se descarta el mensaje dentro de la aplicación es el momento apropiado para abandonar la sesión de SharePlay y descartar el objeto de sesión.
+Cuando se cierra el mensaje dentro de la aplicación, es un momento apropiado para abandonar la sesión de SharePlay y descartar el objeto de sesión.
 
 {% tabs %}
 {% tab Swift %}
@@ -192,9 +193,9 @@ class CoordinationManager() {
 {% endtab %}
 {% endtabs %}
 
-### Configurar la visibilidad del botón SharePlay {#configure-shareplay-button-visibility}
+### Configurar la visibilidad del botón de SharePlay {#configure-shareplay-button-visibility}
 
-Es una buena práctica ocultar o mostrar dinámicamente cualquier indicador de SharePlay. Utiliza la variable `isEligibleForGroupSession` para observar si el usuario está actualmente en una llamada FaceTime o no. Si se encuentra en una llamada FaceTime, debe aparecer un botón para compartir el video entre los dispositivos compatibles en el chat. La primera vez que el usuario inicie SharePlay, aparecerá un aviso en el dispositivo original para seleccionar las opciones. A continuación, en los dispositivos de los usuarios compartidos aparecerá una solicitud para interactuar con el contenido.
+Es una buena práctica ocultar o mostrar dinámicamente cualquier indicador de SharePlay. Usa la variable `isEligibleForGroupSession` para observar si el usuario se encuentra actualmente en una llamada de FaceTime o no. Si está en una llamada de FaceTime, debería mostrarse un botón para compartir el video en los dispositivos compatibles del chat. La primera vez que el usuario inicia SharePlay, aparecerá un aviso en el dispositivo original para seleccionar las opciones. Un aviso posterior aparecerá entonces en los dispositivos de los usuarios compartidos para interactuar con el contenido.
 
 {% tabs %}
 {% tab Swift %}

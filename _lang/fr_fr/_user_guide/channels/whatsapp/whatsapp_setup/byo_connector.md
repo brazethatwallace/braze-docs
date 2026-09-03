@@ -2,7 +2,7 @@
 nav_title: Connecteur BYO WhatsApp
 article_title: Connecteur Bring Your Own WhatsApp
 page_order: 2
-description: "Cet article de référence fournit un guide étape par étape pour configurer un connecteur Bring Your Own WhatsApp, qui donne à Braze l'accès à votre Infobip WhatsApp Business Manager."
+description: "Cet article de référence fournit un guide étape par étape pour configurer un connecteur Bring Your Own WhatsApp, qui donne à Braze l'accès à votre Infobip WhatsApp Business gestionnaire."
 page_type: reference
 channel:
   - WhatsApp
@@ -10,7 +10,7 @@ channel:
 
 # Connecteur Bring Your Own WhatsApp {#bring-your-own-whatsapp-connector}
 
-> Le connecteur Bring Your Own (BYO) WhatsApp offre un partenariat entre Braze et Infobip, dans lequel vous donnez à Braze l'accès à votre Infobip WhatsApp Business Manager (WABA). Cela vous permet de gérer et de payer les coûts d'envoi de messages directement avec Infobip tout en utilisant Braze pour la segmentation, la personnalisation et l'orchestration des campagnes. Braze conserve toutes les fonctionnalités existantes offertes par le canal WhatsApp, telles que les messages sortants, le traitement des messages entrants, les flux WhatsApp et l'analytique.
+> Le connecteur Bring Your Own (BYO) WhatsApp offre un partenariat entre Braze et Infobip, dans lequel vous donnez à Braze l'accès à votre Infobip WhatsApp Business gestionnaire (WABA). Cela vous permet de gérer et de payer les coûts d'envoi de messages directement avec Infobip tout en utilisant Braze pour la segmentation, la personnalisation et l'orchestration des campagnes. Braze conserve toutes les fonctionnalités existantes offertes par le canal WhatsApp, telles que les messages sortants, le traitement des messages entrants, les flux WhatsApp et l'analytique.
 
 {% alert note %}
 Pour migrer depuis d'autres fournisseurs de solutions métier (BSP) vers l'intégration Braze, consultez [Migrer depuis un autre fournisseur de solutions métier]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number#migrate-from-another-business-solution-provider).

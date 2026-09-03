@@ -131,7 +131,7 @@ Nachdem Sie eine Kategorie registriert haben, verwenden Sie das Braze-Dashboard,
 Sie müssen Aktions-Buttons im Braze-Dashboard nur für Verhaltensweisen definieren, die nicht lokal in Ihrem Swift-Code erstellt werden können, wie beispielsweise Deeplinking in Ihre App oder Weiterleitungen zu einer Web-URL. Diese Aktionen müssen im Dashboard konfiguriert werden, damit sie festlegen können, welche URL oder welcher Deeplink geöffnet werden soll. Für Aktions-Buttons, die die Benachrichtigung einfach schließen, ohne die App zu öffnen, ist keine Konfiguration im Dashboard erforderlich – das Schließen wird automatisch von iOS übernommen. Registrieren Sie einfach Ihre angepasste Kategorie und die zugehörigen Aktionen in Ihrem App-Code und geben Sie anschließend den entsprechenden Kategorienamen im Dashboard ein.
 {% endalert %}
 
-1. Wählen Sie im Braze-Dashboard **Messaging** > **Push-Benachrichtigungen** und wählen Sie dann Ihre iOS-[Push-Campaign]({{site.baseurl}}/user_guide/message_building_by_channel/push/creating_a_push_message).
+1. Wählen Sie im Braze-Dashboard **Messaging** > **Push-Benachrichtigungen** und wählen Sie dann Ihre iOS-[Push-Campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message).
 2. Schalten Sie unter **Push-Benachrichtigung verfassen** die **Aktions-Buttons** ein.
 3. Wählen Sie in der Dropdown-Liste **iOS-Benachrichtigungskategorie** die Option **Vorregistrierte, angepasste iOS-Kategorie eingeben**.
 4. Geben Sie schließlich eine der Kategorien ein, die Sie zuvor erstellt haben. Das folgende Beispiel verwendet die angepasste Kategorie: `LIKE_CATEGORY`.
@@ -165,13 +165,13 @@ UNUserNotificationCenter.current().setNotificationCategories(Braze.Notifications
 
 Da `MANAGE_IDENTIFIER` einen Deeplink in die App setzt, würden Sie diesen Aktions-Button im Braze-Dashboard mit der zugehörigen Deeplink-URL einrichten. Es ist jedoch nicht erforderlich, einen Button im Dashboard für `KEEP_IDENTIFIER` zu definieren, da dieser lediglich die Benachrichtigung schließt. Im Dashboard müssen Sie nur den Kategorienamen eingeben (zum Beispiel `YOUR_CATEGORY`), der mit dem Namen übereinstimmt, den Sie in Ihrem App-Code registriert haben.
 
-## Anpassen von Badges {#customizing-badges}
+## Badges anpassen {#customizing-badges}
 
-Badges sind kleine Symbole, die ideal dazu geeignet sind, die Aufmerksamkeit von Nutzer:innen zu gewinnen. Sie können die Badge-Anzahl im Tab [**Einstellungen**]({{site.baseurl}}/developer_guide/push_notifications/customization/?sdktab=swift#swift_settings) festlegen, wenn Sie eine Push-Benachrichtigung über das Braze-Dashboard erstellen. Sie können die Badge-Anzahl auch manuell über die Eigenschaft [`applicationIconBadgeNumber`](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIApplication_Class/index.html#//apple_ref/occ/instp/UIApplication/applicationIconBadgeNumber) Ihrer Anwendung oder die [Remote-Benachrichtigungs-Payload](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/CreatingtheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH10-SW1) aktualisieren.
+Badges sind kleine Symbole, die ideal geeignet sind, um die Aufmerksamkeit von Nutzer:innen zu gewinnen. Sie können eine Badge-Anzahl im Tab [**Einstellungen**]({{site.baseurl}}/developer_guide/push_notifications/customization/?sdktab=swift#swift_settings) festlegen, wenn Sie eine Push-Benachrichtigung über das Braze-Dashboard erstellen. Sie können Ihre Badge-Anzahl auch manuell über die [`applicationIconBadgeNumber`](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIApplication_Class/index.html#//apple_ref/occ/instp/UIApplication/applicationIconBadgeNumber)-Eigenschaft Ihrer Anwendung oder die [Remote-Benachrichtigungs-Payload](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/CreatingtheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH10-SW1) aktualisieren.
 
-Braze löscht die Badge-Anzahl automatisch, wenn eine Braze-Benachrichtigung empfangen wird, während die App im Vordergrund ist. Wenn Sie die Badge-Nummer manuell auf 0 setzen, werden auch die Benachrichtigungen in der Benachrichtigungszentrale gelöscht.
+Braze löscht die Badge-Anzahl automatisch, wenn eine Braze-Benachrichtigung empfangen wird, während die App im Vordergrund ist. Das manuelle Setzen der Badge-Nummer auf 0 löscht ebenfalls die Benachrichtigungen in der Mitteilungszentrale.
 
-Wenn Sie nicht vorhaben, Badges im Rahmen des normalen App-Betriebs oder durch das Senden von Push-Nachrichten zu löschen, sollten Sie die Badges löschen, wenn die App aktiv wird, indem Sie den folgenden Code in die Methode `sceneDidBecomeActive(_:)` Ihrer `SceneDelegate.swift`-Datei einfügen (oder in die Delegate-Methode `applicationDidBecomeActive:` Ihrer App, falls Ihre App noch nicht den [`UIScene`-Lebenszyklus](https://developer.apple.com/documentation/technotes/tn3187-migrating-to-the-uikit-scene-based-life-cycle) übernommen hat):
+Wenn Sie keinen Plan zum Löschen von Badges im Rahmen des normalen App-Betriebs oder durch das Senden von Push-Benachrichtigungen, die den Badge löschen, haben, sollten Sie den Badge löschen, wenn die App aktiv wird, indem Sie den folgenden Code zur Methode `sceneDidBecomeActive(_:)` in Ihrer `SceneDelegate.swift`-Datei hinzufügen (oder zur `applicationDidBecomeActive:`-Delegate-Methode Ihrer App, falls Ihre App noch nicht den [`UIScene`-Lebenszyklus](https://developer.apple.com/documentation/technotes/tn3187-migrating-to-the-uikit-scene-based-life-cycle) übernommen hat):
 
 {% tabs %}
 {% tab swift %}
@@ -208,69 +208,69 @@ UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotification
 {% endtab %}
 {% endtabs %}
 
-## Anpassen von Sounds {#customizing-sounds}
+## Sounds anpassen {#customizing-sounds}
 
-### Schritt 1: Sound in Ihre App integrieren {#step-1-host-the-sound-in-your-app}
+### Schritt 1: Sound in Ihrer App hosten {#step-1-host-the-sound-in-your-app}
 
-Angepasste Push-Benachrichtigungstöne müssen lokal innerhalb des Haupt-Bundles Ihrer App gehostet werden. Die folgenden Audiodatenformate werden akzeptiert:
+Angepasste Push-Benachrichtigungs-Sounds müssen lokal im Hauptpaket Ihrer App gehostet werden. Die folgenden Audiodatenformate werden akzeptiert:
 
 - Linear PCM
 - MA4
 - µLaw
 - aLaw
 
-Sie können die Audiodaten in eine AIFF-, WAV- oder CAF-Datei packen. Fügen Sie in Xcode die Sounddatei als nicht lokalisierte Ressource des Anwendungsbundles zu Ihrem Projekt hinzu.
+Sie können die Audiodaten in einer AIFF-, WAV- oder CAF-Datei verpacken. Fügen Sie in Xcode die Sound-Datei als nicht-lokalisierte Ressource des Anwendungspakets zu Ihrem Projekt hinzu.
 
 {% alert note %}
-Angepasste Sounds müssen beim Abspielen unter 30 Sekunden lang sein. Wenn ein angepasster Sound dieses Limit überschreitet, wird stattdessen der standardmäßige Systemton abgespielt.
+Angepasste Sounds dürfen bei der Wiedergabe nicht länger als 30 Sekunden sein. Wenn ein angepasster Sound dieses Limit überschreitet, wird stattdessen der standardmäßige System-Sound abgespielt.
 {% endalert %}
 
-#### Konvertieren von Sounddateien {#converting-sound-files}
+#### Sound-Dateien konvertieren {#converting-sound-files}
 
-Sie können das Tool afconvert verwenden, um Sounds zu konvertieren. Um zum Beispiel den linearen 16-Bit-PCM-Systemsound Submarine.aiff in IMA4-Audio in einer CAF-Datei zu konvertieren, verwenden Sie den folgenden Befehl im Terminal:
+Sie können das Tool afconvert verwenden, um Sounds zu konvertieren. Um beispielsweise den 16-Bit-Linear-PCM-System-Sound Submarine.aiff in IMA4-Audio in einer CAF-Datei umzuwandeln, verwenden Sie den folgenden Befehl im Terminal:
 
 ```bash
 afconvert /System/Library/Sounds/Submarine.aiff ~/Desktop/sub.caf -d ima4 -f caff -v
 ```
 
 {% alert tip %}
-Sie können einen Sound untersuchen, um sein Datenformat zu bestimmen, indem Sie ihn im QuickTime Player öffnen und im Menü **Film** die Option **Filminspektor anzeigen** wählen.
+Sie können einen Sound überprüfen, um sein Datenformat zu ermitteln, indem Sie ihn im QuickTime Player öffnen und im Menü **Film** die Option **Filminspektor anzeigen** auswählen.
 {% endalert %}
 
 ### Schritt 2: Protokoll-URL für den Sound angeben {#step-2-provide-a-protocol-url-for-the-sound}
 
-Sie müssen eine Protokoll-URL angeben, die auf den Speicherort der Sounddatei in Ihrer App verweist. Dafür gibt es zwei Methoden:
+Sie müssen eine Protokoll-URL angeben, die auf den Speicherort der Sound-Datei in Ihrer App verweist. Dafür gibt es zwei Methoden:
 
 * Verwenden Sie den Parameter `sound` des [Apple-Push-Objekts]({{site.baseurl}}/api/objects_filters/messaging/apple_object), um die URL an Braze zu übergeben.
-* Geben Sie die URL im Dashboard an. Wählen Sie im [Push-Composer]({{site.baseurl}}/user_guide/message_building_by_channel/push/creating_a_push_message#step-3-select-notification-type-ios-and-android) **Einstellungen** und geben Sie die Protokoll-URL in das Feld **Sound** ein.
+* Geben Sie die URL im Dashboard an. Wählen Sie im [Push-Composer]({{site.baseurl}}/user_guide/message_building_by_channel/push/creating_a_push_message#step-3-select-notification-type-ios-and-android) die Option **Einstellungen** und geben Sie die Protokoll-URL im Feld **Sound** ein.
 
 ![Der Push-Composer im Braze-Dashboard]({% image_buster /assets/img_archive/sound_push_ios.png %})
 
-Wenn die angegebene Sounddatei nicht existiert oder das Schlüsselwort „default“ eingegeben wird, verwendet Braze den standardmäßigen Alarmton des Geräts. Neben dem Dashboard kann der Sound auch über unsere [Messaging-API][12] konfiguriert werden.
+Wenn die angegebene Sound-Datei nicht existiert oder das Schlüsselwort „default“ eingegeben wird, verwendet Braze den standardmäßigen Gerätealarm-Sound. Neben unserem Dashboard kann der Sound auch über unsere [Messaging-API][12] konfiguriert werden.
 
-Weitere Informationen finden Sie in der Apple-Entwicklerdokumentation zur [Vorbereitung angepasster Warntöne](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/SupportingNotificationsinYourApp.html).
+Weitere Informationen finden Sie in der Apple-Entwicklerdokumentation zu [Vorbereiten angepasster Alarm-Sounds](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/SupportingNotificationsinYourApp.html).
 
 ## Einstellungen {#settings}
 
-Wenn Sie über das Dashboard eine Push-Campaign erstellen, klicken Sie im Schritt **Erstellen** auf den Tab **Einstellungen**, um die verfügbaren erweiterten Einstellungen anzuzeigen.
+Wenn Sie eine Push-Campaign über das Dashboard erstellen, klicken Sie im Schritt **Erstellen** auf den Tab **Einstellungen**, um die verfügbaren erweiterten Einstellungen anzuzeigen.
 
-![Braze iOS Push-Campaign – Tab „Einstellungen“ im Erstellungsschritt mit erweiterten Optionen.]({% image_buster /assets/img_archive/ios_advanced_settings.png %})
+![Tab „Einstellungen“ mit erweiterten Optionen beim Erstellen einer Braze iOS Push-Campaign.]({% image_buster /assets/img_archive/ios_advanced_settings.png %})
 
 ### Schlüssel-Wert-Paare {#key-value-pairs}
 
-Braze ermöglicht es Ihnen, angepasste String-Schlüssel-Wert-Paare, bekannt als `extras`, zusammen mit einer Push-Benachrichtigung an Ihre Anwendung zu senden. Extras können über das Dashboard oder die API definiert werden und stehen als Schlüssel-Wert-Paare im `notification`-Wörterbuch zur Verfügung, das an Ihre Push-Delegate-Implementierungen übergeben wird.
+Braze ermöglicht es Ihnen, benutzerdefinierte Schlüssel-Wert-Paare vom Typ String, sogenannte `extras`, zusammen mit einer Push-Benachrichtigung an Ihre Anwendung zu senden. Extras können über das Dashboard oder die API definiert werden und stehen als Schlüssel-Wert-Paare im `notification`-Dictionary zur Verfügung, das an Ihre Push-Delegate-Implementierungen übergeben wird.
 
-### Meldungsoptionen {#alert-options}
+### Benachrichtigungsoptionen {#alert-options}
 
-Aktivieren Sie das Kontrollkästchen **Meldungsoptionen**, um ein Dropdown-Menü mit Schlüsselwerten anzuzeigen, mit denen Sie die Darstellung der Benachrichtigung auf Geräten anpassen können.
+Aktivieren Sie das Kontrollkästchen **Alert Options**, um ein Dropdown mit verfügbaren Schlüssel-Wert-Paaren anzuzeigen, mit denen Sie die Darstellung der Benachrichtigung auf Geräten anpassen können.
 
-### Flag für verfügbaren Content hinzufügen {#adding-content-available-flag}
+### Content-Available-Flag hinzufügen {#adding-content-available-flag}
 
-Aktivieren Sie das Kontrollkästchen **Flag für verfügbaren Content hinzufügen**, um die Geräte anzuweisen, neue Inhalte im Hintergrund herunterzuladen. In der Regel können Sie diese Option aktivieren, wenn Sie [stille Benachrichtigungen]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift) versenden möchten.
+Aktivieren Sie das Kontrollkästchen **Add Content-Available Flag**, um Geräte anzuweisen, neue Inhalte im Hintergrund herunterzuladen. Dies ist vor allem dann sinnvoll, wenn Sie [stille Benachrichtigungen]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift) senden möchten.
 
-### Flag für veränderbare Inhalte hinzufügen {#adding-mutable-content-flag}
+### Mutable-Content-Flag hinzufügen {#adding-mutable-content-flag}
 
-Aktivieren Sie das Kontrollkästchen **Flag für veränderbare Inhalte hinzufügen**, um die erweiterte Empfängeranpassung zu aktivieren. Dieses Flag wird automatisch gesendet, wenn Sie eine [Rich-Benachrichtigung]({{site.baseurl}}/developer_guide/push_notifications/rich/?sdktab=swift) verfassen, unabhängig vom Wert dieses Kontrollkästchens.
+Aktivieren Sie das Kontrollkästchen **Add Mutable-Content Flag**, um erweiterte Empfängeranpassungen zu ermöglichen. Dieses Flag wird beim Erstellen einer [Rich-Benachrichtigung]({{site.baseurl}}/developer_guide/push_notifications/rich/?sdktab=swift) automatisch gesendet, unabhängig vom Wert dieses Kontrollkästchens.
 
 ### Collapse-ID
 
@@ -278,4 +278,4 @@ Geben Sie eine Collapse-ID an, um ähnliche Benachrichtigungen zusammenzufassen.
 
 ### Ablauf {#expiry}
 
-Wenn Sie das Kontrollkästchen **Ablauf** aktivieren, können Sie eine Ablaufzeit für Ihre Nachricht festlegen. Sollte das Gerät von Nutzer:innen die Verbindung verlieren, wird Braze weiterhin versuchen, die Nachricht bis zur angegebenen Zeit zu senden. Wenn dieser Wert nicht eingestellt ist, verwendet die Plattform standardmäßig einen Ablauf von 30 Tagen. Beachten Sie, dass Push-Benachrichtigungen, die vor der Zustellung ablaufen, nicht als fehlgeschlagen gelten und nicht als Bounce registriert werden.
+Durch Aktivieren des Kontrollkästchens **Expiry** können Sie eine Ablaufzeit für Ihre Nachricht festlegen. Sollte das Gerät einer Nutzerin bzw. eines Nutzers die Verbindung verlieren, versucht Braze weiterhin, die Nachricht bis zum angegebenen Zeitpunkt zuzustellen. Wenn kein Wert festgelegt wird, verwendet die Plattform standardmäßig eine Ablaufzeit von 30 Tagen. Beachten Sie, dass Push-Benachrichtigungen, die vor der Zustellung ablaufen, nicht als fehlgeschlagen gelten und nicht als Bounce erfasst werden.

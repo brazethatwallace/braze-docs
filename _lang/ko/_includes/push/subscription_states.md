@@ -92,5 +92,5 @@ Braze는 사용자가 OS, 브라우저 또는 앱 수준에서 알림을 옵트�
 
 Braze를 사용하여 사용자의 푸시 구독 상태를 확인할 수 있는 방법은 다음과 같습니다:
 
-* **고객 프로필:** Braze 대시보드의 **[사용자 검색]({{site.baseurl}}/user_guide/engagement_tools/segments/user_profiles)** 페이지에서 개별 고객 프로필에 접근할 수 있습니다. 이메일 주소, 전화번호 또는 외부 사용자 ID를 통해 사용자의 프로필을 찾은 후 **인게이지먼트** 탭을 선택하여 사용자의 구독 상태를 확인하고 수동으로 조정할 수 있습니다.
+* **고객 프로필:** Braze 대시보드의 **[사용자 검색]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles)** 페이지에서 개별 고객 프로필에 접근할 수 있습니다. 이메일 주소, 전화번호 또는 외부 사용자 ID를 통해 사용자의 프로필을 찾은 후 **인게이지먼트** 탭을 선택하여 사용자의 구독 상태를 확인하고 수동으로 조정할 수 있습니다.
 * **REST API 내보내기:** [Segment별 사용자]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) 또는 [식별자별 사용자]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) 내보내기 엔드포인트를 사용하여 개별 고객 프로필을 JSON 형식으로 내보낼 수 있습니다. Braze는 각 기기에 대한 푸시 활성화 정보를 포함하는 푸시 토큰 오브젝트를 반환합니다.

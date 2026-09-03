@@ -34,7 +34,7 @@ Antes de começar, você precisa dos seguintes itens:
 | Pré-requisito | Descrição |
 |---|---|
 | Conta DOTS.ECO | Acesso à conta DOTS.ECO. |
-| Credenciais DOTS.ECO | A solicitação deste artigo requer um token de aplicativo DOTS.ECO, uma chave de API e um ID de alocação. Para obtê-los, entre em contato com o seu gerente de sucesso do cliente DOTS.ECO. |
+| Credenciais DOTS.ECO | A solicitação deste artigo requer um token de aplicativo DOTS.ECO, uma chave de API e um ID de alocação. Para obtê-los, entre em contato com o seu CSM DOTS.ECO. |
 | Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. Crie essa chave no dashboard da Braze em **Configurações** > **Chaves de API**. |
 | Endpoint REST da Braze | [Sua URL de endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }

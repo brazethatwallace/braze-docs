@@ -37,7 +37,7 @@ Les limites de l'objet de requête de l'endpoint `/users/track` varient en fonct
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous devez disposer d'une [clé API]({{site.baseurl}}/api/api_key) avec la permission `users.track.bulk`.
+Pour utiliser cet endpoint, vous devez disposer d'une [clé API]({{site.baseurl}}/api/basics) avec la permission `users.track.bulk`.
 
 Si vous effectuez des appels serveur à serveur derrière un pare-feu, vous devrez peut-être ajouter votre endpoint REST Braze à votre liste d'autorisation (par exemple, `rest.iad-01.braze.com`). Pour plus d'informations, consultez [Endpoints API]({{site.baseurl}}/api/basics#api-definitions).
 
@@ -218,10 +218,10 @@ Si vous recevez l'erreur « provided external_id is blacklisted and disallowed �
 
 ### Dois-je utiliser cet endpoint ou `/users/track` ? {#should-i-use-this-endpoint-or-userstrack}
 
-Utilisez les deux endpoints en fonction de votre cas d'utilisation :
+Utilisez les deux endpoints en fonction de votre cas d'usage :
 
 - Pour les remplissages et synchronisations volumineux, utilisez `/users/track/bulk`.
-- Pour les cas d'utilisation en temps réel, utilisez `/users/track`.
+- Pour les cas d'usage en temps réel, utilisez `/users/track`.
 
 ### Quels identifiants puis-je utiliser dans `/users/track/bulk` ? {#what-identifiers-can-i-use-in-userstrackbulk}
 

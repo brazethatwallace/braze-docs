@@ -24,7 +24,7 @@ No, los activos subidos a la biblioteca de medios se conservan durante toda la d
 
 ### ¿Puedo subir activos de video? {#can-i-upload-video-assets}
 
-No, la biblioteca de medios no admite archivos de video. Te recomendamos alojarlos externamente o en una plataforma como YouTube.
+No, la biblioteca de medios no admite archivos de video. Alójalos externamente o en una plataforma como YouTube.
 
 ### ¿Puedo recortar todos los tipos de imagen? {#can-i-crop-all-image-types}
 
@@ -36,19 +36,19 @@ Para copiar la URL de una imagen subida a la biblioteca de medios, ve a **Conten
 
 ### ¿Puedo usar imágenes SVG en correo electrónico? {#can-i-use-svg-images-in-email}
 
-No se recomiendan las imágenes SVG para correo electrónico debido a la compatibilidad limitada entre los clientes de correo electrónico. Gmail y varios otros proveedores de correo electrónico importantes no renderizan imágenes SVG, lo que puede resultar en imágenes rotas o faltantes para los destinatarios. Para una renderización confiable del correo electrónico, usa los formatos PNG, JPEG o GIF en su lugar.
+No se recomiendan las imágenes SVG para correo electrónico debido al soporte limitado entre los clientes de correo electrónico. Gmail y varios otros proveedores de correo electrónico importantes no renderizan imágenes SVG, lo que puede resultar en imágenes rotas o faltantes para los destinatarios. Para una renderización confiable del correo electrónico, usa los formatos PNG, JPEG o GIF en su lugar.
 
 ### ¿Cómo recorto una imagen existente? {#how-do-i-crop-an-existing-image}
 
 Puedes recortar una imagen existente seleccionándola en la biblioteca de medios y haciendo clic en **Recortar y guardar nueva imagen**.
 
-![Vista previa de una imagen en la biblioteca de medios.]({% image_buster /assets/img_archive/media_library_crop1.png %}){: height="75%" width="75%"}
+![Vista previa de una imagen de la biblioteca de medios.]({% image_buster /assets/img_archive/media_library_crop1.png %}){: height="75%" width="75%"}
 
-Luego serás redirigido a un creador de recorte donde puedes seleccionar el tipo de proporción y editar el nombre de la nueva imagen. Cuando selecciones **Guardar**, tu nueva imagen estará lista para usar.
+Se abre el creador de recorte, donde puedes seleccionar el tipo de proporción y editar el nombre de la nueva imagen. Cuando seleccionas **Guardar**, puedes usar tu nueva imagen.
 
 ![Ventana para recortar y guardar una imagen de la biblioteca de medios.]({% image_buster /assets/img_archive/media_library_crop2.png %}){: height="75%" width="75%"}
 
-### Mi imagen se agota el tiempo de espera cuando intento subirla. ¿Qué puedo hacer? {#my-image-keeps-timing-out-when-i-try-to-upload-it-what-can-i-do-about-this}
+### Mi imagen sigue agotando el tiempo de espera cuando intento subirla. ¿Qué puedo hacer al respecto? {#my-image-keeps-timing-out-when-i-try-to-upload-it-what-can-i-do-about-this}
 
 Esto puede ocurrir por diversas razones, pero una solución común es asegurarte de que tu imagen esté optimizada antes de intentar subirla. Esto significa pasar tu imagen por un optimizador de imágenes como [ImageOptim](https://imageoptim.com/mac).
 
@@ -67,15 +67,27 @@ Esto se debe a que la mayoría de los creadores tienen restricciones en la propo
 
 ### Generar una imagen usando IA {#generate-an-image-using-ai}
 
-Puedes generar imágenes desde **Contenido** > **Biblioteca de medios** seleccionando **Generador de imágenes con IA**. Necesitas el permiso **Editar activos de la biblioteca de medios**. Si no ves la opción, contacta a tu equipo de clientes de Braze. Para conocer los pasos y los detalles de la política, consulta [Generar imágenes con BrazeAI]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-images) y [Generación de imágenes con BrazeAI]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#generate-ai).
+Puedes generar imágenes desde **Contenido** > **Biblioteca de medios** seleccionando **Generar con Operator**. Necesitas el permiso "Edit Media Library Assets". Si no ves la opción, contacta con tu equipo de cuenta de Braze. Para conocer los pasos y los detalles de la política, consulta [Generar imágenes con BrazeAI]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-images) y [Generación de imágenes con BrazeAI]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#generate-ai).
 
 ### ¿Qué sucede cuando elimino una imagen de la biblioteca de medios? {#what-happens-when-i-delete-an-image-from-the-media-library}
 
-Eliminar un activo lo quita de la interfaz de la biblioteca de medios, pero Braze mantiene el archivo alojado en su URL existente, por lo que las Campaigns activas y los Canvas que hacen referencia a esa URL continúan cargando la imagen. Para eliminar permanentemente un activo del alojamiento de Braze, contacta a soporte de Braze. Para actualizar lo que ven los destinatarios sin cambiar las URL en cada mensaje, usa [Reemplazar un archivo]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file) en su lugar.
+Eliminar un activo lo retira de la interfaz de la biblioteca de medios, pero Braze mantiene el archivo alojado en su URL existente, por lo que las Campaigns activas y los Canvas que hacen referencia a esa URL continúan cargando la imagen. Para eliminar permanentemente un activo del alojamiento de Braze, contacta con soporte de Braze. Para actualizar lo que ven los destinatarios sin cambiar las URL en cada mensaje, usa [Reemplazar un archivo]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file) en su lugar.
+
+### ¿Puedo cambiar los activos de imagen en correos electrónicos que ya se han enviado? {#can-i-change-image-assets-in-emails-that-have-already-been-sent}
+
+Puedes actualizar la imagen en un correo electrónico ya enviado [reemplazando el archivo]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file) en su URL existente. La URL y el ID del activo permanecen iguales, por lo que cualquier mensaje que lo referencie, incluidos los correos electrónicos ya enviados, refleja el nuevo archivo. Algunos destinatarios pueden seguir viendo la imagen anterior si ya estaba almacenada en caché en su dispositivo antes de que realizaras el cambio, por lo que esto no garantiza que todos los destinatarios vean la actualización de inmediato.
+
+### ¿Braze almacena en caché las imágenes añadidas a través de una URL externa en Content Cards y mensajes dentro de la aplicación? {#does-braze-cache-images-added-through-an-external-url-in-content-cards-and-in-app-messages}
+
+Depende del canal:
+
+- **Content Cards y mensajes dentro de la aplicación tradicionales** (modal, deslizamiento hacia arriba y pantalla completa): Sí. Cuando configuras el mensaje, Braze copia la imagen a su propio CDN. La imagen en el mensaje se sirve desde esa copia, por lo que cambiar o eliminar la fuente original (como eliminar el activo de un contenedor de S3) no afecta a las Content Cards que ya se han creado o enviado.
+- **Mensajes dentro de la aplicación HTML y mensajes dentro de la aplicación de arrastrar y soltar:** No. Braze no almacena la imagen en caché. El mensaje carga la imagen directamente desde la URL que proporcionaste, por lo que cambiar o eliminar la URL de origen rompe la imagen en las campañas en vivo.
+- **Correo electrónico:** El comportamiento depende de cómo se añadió la imagen. Para más información, consulta [¿Puedo cambiar los activos de imagen en correos electrónicos que ya se han enviado?](#can-i-change-image-assets-in-emails-that-have-already-been-sent).
 
 ### ¿Puedo crear URL personalizadas para los activos de imagen de la biblioteca de medios? {#can-i-create-vanity-urls-for-media-library-image-assets}
 
-Las URL personalizadas para los activos de la biblioteca de medios no son compatibles porque las URL personalizadas interrumpirían la entrega por CDN. Puedes reemplazar una imagen en su URL existente cuando las Campaigns ya hacen referencia a esa URL. Para más información, consulta [Reemplazar un archivo]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file).
+Las URL personalizadas para los activos de la biblioteca de medios no son compatibles porque las URL personalizadas romperían la entrega del CDN. Puedes reemplazar una imagen en su URL existente cuando las campañas ya hacen referencia a esa URL. Para más información, consulta [Reemplazar un archivo]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file).
 
 ### ¿Por qué Chrome guarda las imágenes JPEG o PNG como archivos WebP? {#why-does-chrome-save-jpeg-or-png-images-as-webp-files}
 

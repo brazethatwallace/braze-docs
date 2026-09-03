@@ -13,17 +13,13 @@ channel: email
 
 ## How it works
 
-You can use automated IP warming to gradually increase your daily send volume, allowing inbox providers to learn and trust your sending patterns. When you add a domain to your workspace, you can select the **Automated IP Warming** tile in the **Pick up where you left off** section of your home dashboard. This tile remains for 60 days while your workspace is in the new-sender onboarding window. If your workspace supports multiple plans, the tile is also hidden after you complete at least one plan.
+You can use automated IP warming to gradually increase your daily send volume, allowing inbox providers to learn and trust your sending patterns. When you add a domain to your workspace, you can select the **Automated IP Warming** tile in the **Pick up where you left off** section of your home dashboard. This tile remains for 60 days while your workspace is in the new-sender onboarding window, and is hidden after you complete at least one plan.
 
 Each automated IP warming plan is tied to one from address. That from address maps to a sending subdomain and an IP pool. If the pool contains multiple dedicated IPs, Braze warms them together in a single plan.
 
 Braze sends to your most engaged subscribers first, which allows daily volume to grow at a pace that matches best practices. Then, Braze tracks engagement and deliverability signals. If Braze detects any issues, the system adjusts your schedule automatically.
 
 After you complete at least one plan, you can view completed plans at **Settings** > **Email Preferences** > **Automated IP warming**.
-
-{% alert note %}
-If you see only a single-plan experience in your dashboard, your workspace may not have access to multiple IP warming plans yet. Contact your Braze account team for availability.
-{% endalert %}
 
 ## Prerequisites
 
@@ -44,15 +40,11 @@ To perform automated IP warming, you must have the following:
 If the campaign approval workflow is turned on, Braze automatically approves campaigns created by automated IP warming on your behalf.
 {% endalert %}
 
-{% alert important %}
-This feature may not be supported depending on your email infrastructure.
-{% endalert %}
-
 ## Set up an automated IP warming plan
 
 ### Step 1: Set a schedule
 
-1. If your workspace supports multiple IP warming plans, enter a unique **Plan name**. Plan names may contain letters, numbers, hyphens, and underscores only, and must be unique in your workspace. A plan name is required before you can launch.
+1. Enter a unique **Plan name**. Plan names may contain letters, numbers, hyphens, and underscores only, and must be unique in your workspace. A plan name is required before you can launch.
 2. In the **Sending information** section, select the **From address** to warm IP addresses for. Braze displays the associated **IP pool** and the number of **IP addresses in pool** for that from address.
 3. Enter the **Current daily send volume** and **Target send volume**. Braze suggests a target send volume of up to 2 million sends per IP in the selected pool. If your current daily send volume is 0, the first day of your schedule starts at up to 50 sends per IP, capped at 500 total.
 4. Select the start date for automated IP warming. This date must be at least one day after the plan is launched.
@@ -66,6 +58,10 @@ This feature may not be supported depending on your email infrastructure.
 1. Next, select the segments to target. During IP warming, Braze starts sending to your highest engaged users and gradually increases send volume over time and slowly adds in segments with less engagement. 
 2. Then, drag and drop the segments to rank them from high to low engagement. High engagement includes recipients who consistently open and click on your emails. Low engagement includes recipients who are inconsistent in their engagement with your emails or haven't engaged with your emails in a very long time.
 3. Select **Next: Messages** to continue the setup.
+
+{% alert important %}
+Make sure the total number of emailable users across all selected segments is greater than or equal to your **Target send volume**. When your audience is smaller than your target volume, some users receive more than one email template on the same day. For more information, see [Audience size and multiple sends per user](#audience-size-and-multiple-sends-per-user).
+{% endalert %}
 
 ![Two segments selected to target for automated IP warming.]({% image_buster /assets/img/automated_ip_warming_segment.png %})
 
@@ -146,6 +142,19 @@ Braze evaluates deliverability for campaigns that sent between 12 and 20 hours a
 
 For what happens when volume is held, see [What happens when volume is held?]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/faq#what-happens-when-volume-is-held).
 
+## Audience size and multiple sends per user
+
+To reach the send goal for each day, Braze cycles through the email templates you selected. Within a plan, Braze excludes users who already received a given template, but users who received a different template remain eligible. When the audience available for that day's schedule runs out, the plan cycles back through your templates, so some users receive a second template on the same day.
+
+If the total number of emailable users across your selected segments is smaller than your **Target send volume**, this outcome is unavoidable on the final day or days of the plan, when daily volume is at its highest. For example, if your segments contain 400,000 emailable users and your target send volume is 600,000, about 200,000 users receive two templates on the last day and the remaining 200,000 users receive one.
+
+Users can also receive different templates on different days, even when your audience is larger than your target send volume. Because Braze splits each day's audience across your templates without accounting for which template a user received previously, a user who received one template can be selected for a different template later in the plan.
+
+Braze doesn't prevent you from launching a plan when your target send volume is greater than your available audience. To keep each user to one template per send day, do one of the following before you launch:
+
+- Add segments so that the total number of emailable users is greater than or equal to your target send volume.
+- Lower your **Target send volume** so that it's no greater than your total number of emailable users.
+
 ## Stop an IP warmup plan
 
 You can stop an IP warming plan to prevent creation of future campaigns. Stopping a plan also disables all associated campaigns. After you stop a plan, you can't resume it. Set up a new plan to pick up from where you left off by:
@@ -158,7 +167,7 @@ You can stop an IP warming plan to prevent creation of future campaigns. Stoppin
 
 IP warming is marked as completed when the last day of IP warming ends at midnight in your workspace time zone (or company time zone if the workspace has no override). For example, if the last campaign in the plan sends at 8 pm, the plan is marked complete at midnight four hours later.
 
-Completed plans remain available from **Settings** > **Email Preferences** > **Automated IP warming**. If your workspace uses the single-plan experience, the tracker also stays on the home dashboard for 90 days after the plan ends. After 90 days, the home dashboard tracker is removed.
+Completed plans remain available from **Settings** > **Email Preferences** > **Automated IP warming**. The tracker also stays on the home dashboard for 90 days after the plan ends. After 90 days, the home dashboard tracker is removed.
 
 Downloading the data includes these standard email metrics:
 

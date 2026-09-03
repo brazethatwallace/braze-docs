@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Databricks Mosaic
 
-> [Databricks Mosaic AI](https://www.databricks.com/product/artificial-intelligence) ist die einheitliche Plattform von Databricks zum Erstellen, Bereitstellen und Verwalten von KI- und maschinellen Lernmodellen im großen Maßstab auf der Databricks Data Intelligence Platform.
+> [Databricks Mosaic KI](https://www.databricks.com/product/artificial-intelligence) ist die einheitliche Plattform von Databricks zum Erstellen, Bereitstellen und Verwalten von KI- und maschinellen Lernmodellen im großen Maßstab auf der Databricks Data Intelligence Platform.
 
 {% multi_lang_include alerts/important_alerts.md alert='Braze Agents' %}
 

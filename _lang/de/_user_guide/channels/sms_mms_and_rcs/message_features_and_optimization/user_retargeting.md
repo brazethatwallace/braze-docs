@@ -16,7 +16,7 @@ channel:
 
 # Nutzer:innen-Retargeting {#user-retargeting}
 
-> Zusätzlich zur Änderung des Abo-Status von Nutzer:innen und dem Senden automatischer Antworten basierend auf eingehenden Schlüsselwörtern zeichnet Braze auch Interaktionen im Nutzerprofil auf, um Nachrichten zu filtern und zu triggern.<br><br>Diese Filter und Trigger ermöglichen es Ihnen, Aktionen basierend auf Nutzer:innen zu filtern, die SMS-, MMS- und RCS-Kampagnen erhalten haben oder darauf geantwortet haben, oder Nutzer:innen weiter anzusprechen, die auf gekürzte URLs geklickt haben.
+> Zusätzlich zur Änderung des Abo-Status von Nutzer:innen und dem Senden automatischer Antworten basierend auf eingehenden Schlüsselwörtern zeichnet Braze auch Interaktionen im Kundenprofil auf, um Nachrichten zu filtern und zu triggern.<br><br>Diese Filter und Trigger ermöglichen es Ihnen, Aktionen basierend auf Nutzer:innen zu filtern, die SMS-, MMS- und RCS-Kampagnen erhalten haben oder darauf geantwortet haben, oder Nutzer:innen weiter anzusprechen, die auf gekürzte URLs geklickt haben.
 
 {% alert tip %}
 Um mehr über angepasste Schlüsselwörter zu erfahren und wie Sie Zwei-Wege-Messaging einrichten, um diese Retargeting-Optionen zu nutzen, besuchen Sie unseren Artikel zu [angepassten Schlüsselwörtern]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling).

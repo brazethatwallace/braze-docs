@@ -28,7 +28,7 @@ The following Braze SDK version is required to implement this feature:
 
 ### Step 1: Review your current policies
 
-Review your Braze SDK's current data-collection policies with your legal team to determine whether your app collects tracking data [as defined by Apple](#what-is-tracking-data). If you're not collecting any tracking data, you don't need to customize your privacy manifest for the Braze SDK at this time. For more information about the Braze SDK's data-collection policies, see [SDK data collection]({{site.baseurl}}/user_guide/data/user_data_collection/sdk_data_collection/).
+Review your Braze SDK's current data-collection policies with your legal team to determine whether your app collects tracking data [as defined by Apple](#what-is-tracking-data). If you're not collecting any tracking data, you don't need to customize your privacy manifest for the Braze SDK at this time. For more information about the Braze SDK's data-collection policies, see [SDK data collection]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/).
 
 {% alert important %}
 If any of your non-Braze SDKs collect tracking data, you'll need to review those policies separately.
@@ -337,6 +337,10 @@ In previous versions of the Braze iOS SDK, the IDFV (Identifier for Vendor) fiel
 The `useUUIDAsDeviceId` feature configures the [Swift SDK](https://github.com/braze-inc/braze-swift-sdk) to set the device ID as a UUID. Traditionally, the iOS SDK would assign the device ID equal to the Apple-generated IDFV value. With this feature enabled by default on your iOS app, all new users created through the SDK would be assigned a device ID equal to a UUID.
 
 If you still want to collect IDFV separately, you can use [`set(identifierforvendor:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/set(identifierforvendor:)).
+
+{% alert note %}
+Apple is responsible for creating IDFV, and IDFV is Apple-managed. Braze does not transform or change IDFVs, and Apple makes no guarantees about casing or format.
+{% endalert %}
 
 {% alert note %}
 Reading `braze.deviceId` blocks the calling thread until the SDK has completed its post-initialization operations. For main-thread or latency-sensitive contexts, use the non-blocking alternatives instead.

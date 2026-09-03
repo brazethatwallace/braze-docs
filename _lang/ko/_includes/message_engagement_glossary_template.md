@@ -34,7 +34,7 @@ lazy_partner_tabs: true
 
 이 이벤트 분석은 메시지 인게이지먼트 이벤트에 일반적으로 포함되는 정보 유형을 보여줍니다. 구성 요소를 확실히 이해하면 개발자와 비즈니스 인텔리전스 전략 팀이 수신되는 Currents 이벤트 데이터를 사용하여 데이터 중심 보고서와 차트를 만들고 기타 유용한 데이터 측정기준을 활용할 수 있습니다.
 
-![사용자별 속성, Campaign 또는 Canvas 추적 속성, 이벤트별 속성으로 그룹화된 속성이 나열된 이메일 탈퇴 이벤트를 보여주는 메시지 인게이지먼트 이벤트 분석]({% image_buster /assets/img/message_engagement_event.png %})
+![사용자별 속성, Campaign 또는 Canvas 추적 속성, 이벤트별 속성으로 그룹화된 속성이 나열된 이메일 탈퇴 이벤트를 보여주는 메시지 인게이지먼트 이벤트 분석]({% image_buster /assets/img/message_engagement_event.png %}){: width="2300" height="770" style="max-width:100%;height:auto;"}
 
 메시지 인게이지먼트 이벤트는 **사용자별** 속성, **Campaign/Canvas 추적** 속성, **이벤트별** 속성으로 구성됩니다.
 

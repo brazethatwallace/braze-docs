@@ -23,7 +23,7 @@ channel:
 
 ## オンボーディング {#onboarding}
 
-新しいWhatsApp Businessアカウントが作成されると、Metaはさまざまな要素を使用して初期送信制限を決定します。この制限はWhatsApp Business Managerで確認でき、追加の詳細は電話番号インサイトページで確認できます。
+新しいWhatsApp Businessアカウントが作成されると、Metaはさまざまな要素を使用して初期送信制限を決定します。この制限はWhatsApp Business マネージャーで確認でき、追加の詳細は電話番号インサイトページで確認できます。
 
 [制限の確認](https://developers.facebook.com/docs/whatsapp/messaging-limits#checking-your-limit)と[電話番号の要件](https://developers.facebook.com/docs/whatsapp/cloud-api/phone-numbers)について詳しくはMetaのドキュメントをご覧ください。
 

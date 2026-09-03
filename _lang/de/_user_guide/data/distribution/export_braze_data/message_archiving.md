@@ -12,7 +12,7 @@ description: "Dieser Referenzartikel behandelt die Nachrichtenarchivierung, ein 
 
 > Mit der Nachrichtenarchivierung können Sie eine Kopie der an Nutzer:innen gesendeten Nachrichten zu Archivierungs- oder Compliance-Zwecken in Ihrem AWS S3-Bucket, Azure Blob Storage-Container oder Google Cloud Storage-Bucket speichern. <br><br> Dieser Artikel behandelt die Einrichtung der Nachrichtenarchivierung, JSON-Payload-Referenzen und häufig gestellte Fragen.
 
-Die Nachrichtenarchivierung ist als zusätzliches Feature verfügbar. Um mit der Nachrichtenarchivierung zu beginnen, wenden Sie sich bitte an Ihren Braze-Customer-Success-Manager.
+Die Nachrichtenarchivierung ist als zusätzliches Feature verfügbar. Um mit der Nachrichtenarchivierung zu beginnen, wenden Sie sich bitte an Ihren Braze-CSM.
 
 ## Funktionsweise {#how-it-works}
 

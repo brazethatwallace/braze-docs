@@ -24,7 +24,7 @@ Braze는 [통합 링크 단축]({{site.baseurl}}/user_guide/channels/sms_mms_and
 {% sdktabs %}
 {% sdktab Legacy %}
 
-링크 단축 및 클릭 추적을 사용하면 SMS 또는 RCS 메시지에 포함된 URL을 자동으로 단축하고 클릭률 분석을 수집하여 사용자가 Campaign에 어떻게 참여하고 있는지 이해하는 데 도움이 되는 추가 인게이지먼트 측정기준을 제공합니다.
+링크 단축 및 클릭 추적을 사용하면 SMS 또는 RCS 메시지에 포함된 URL을 자동으로 단축하고 클릭률 분석을 수집하여 사용자가 Campaigns에 어떻게 참여하고 있는지 이해하는 데 도움이 되는 추가 인게이지먼트 측정기준을 제공합니다.
 
 링크 단축 및 클릭 추적은 Campaigns와 Canvases 모두에서 [메시지 배리언트 수준]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#step-1-create-your-campaign)에서 활성화할 수 있습니다.
 
@@ -46,11 +46,11 @@ Braze 단축 링크는 항상 `https://` 프로토콜을 포함하며, 다른 �
 
 링크 단축을 사용하려면 메시지 작성기에서 링크 단축 토글이 활성화되어 있는지 확인하세요. 그런 다음 기본 추적 또는 고급 추적 중 하나를 선택합니다.
 
-![링크 단축 토글이 있는 메시지 작성기.]({% image_buster /assets/img/link_shortening/legacy/temp_shortening1.png %})
+![링크 단축 토글이 있는 메시지 작성기.]({% image_buster /assets/img/link_shortening/legacy/temp_shortening1.png %}){: width="1614" height="994"}
 
 Braze는 `http://` 또는 `https://`로 시작하는 URL만 인식합니다. URL이 인식되면 **미리보기** 섹션이 입력 안내 URL로 업데이트됩니다. Braze는 단축 후 URL의 길이를 추정하지만, 더 정확한 추정을 위해 테스트 사용자를 선택하고 메시지를 초안으로 저장하라는 경고가 표시됩니다.
 
-![메시지 상자에 긴 URL이 있고 미리보기에 생성된 단축 링크가 표시된 메시지 작성기.]({% image_buster /assets/img/link_shortening/legacy/temp_shortening3.png %})
+![메시지 상자에 긴 URL이 있고 미리보기에 생성된 단축 링크가 표시된 메시지 작성기.]({% image_buster /assets/img/link_shortening/legacy/temp_shortening3.png %}){: width="1569" height="516"}
 
 {% alert note %}
 BrazeAI<sup>TM</sup> [인텔리전트 채널 필터]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel)를 사용할 계획이고 SMS 및 RCS 채널을 선택 가능하게 하려면, 고급 추적이 포함된 링크 단축을 활성화하세요.
@@ -117,17 +117,17 @@ Canvases가 "단축된 SMS 링크 클릭" 필터에 표시되려면 단축 링�
 활성 Canvas 내에서 초안이 생성된 경우 단축 URL이 생성되지 않습니다. 실제 단축 URL은 Canvas 초안이 활성화될 때 생성됩니다.
 {% endalert %}
 
-![테스트 수신자를 선택하는 필드가 있는 메시지 테스트 탭.]({% image_buster /assets/img/link_shortening/legacy/temp_shortening2.png %})
+![테스트 수신자를 선택하는 필드가 있는 메시지 테스트 탭.]({% image_buster /assets/img/link_shortening/legacy/temp_shortening2.png %}){: width="1569" height="947"}
 
 {% alert note %}
-Liquid 개인화 및 단축 URL은 사용자가 선택된 후 **테스트** 탭에서 템플릿됩니다. 정확한 문자 수를 받으려면 사용자를 선택하세요.
+Liquid 개인화 및 단축 URL은 사용자가 선택된 후 **테스트** 탭에서 템플릿화됩니다. 정확한 문자 수를 받으려면 사용자를 선택하세요.
 {% endalert %}
 
 ## 클릭 추적 {#click-tracking}
 
-링크 단축이 활성화되면 **SMS/MMS/RCS 성능** 테이블에 배리언트별 클릭 이벤트 수와 관련 클릭률을 보여주는 **총 클릭 수** 열이 포함됩니다. 측정기준에 대한 자세한 내용은 [메시지 성능]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting)을 참조하세요.
+링크 단축이 활성화되면 **SMS/MMS/RCS 성능** 테이블에 배리언트별 클릭 이벤트 수와 관련 클릭률을 보여주는 **총 클릭 수** 열이 포함됩니다. **총 클릭 수**는 대시보드 수치에서 봇 클릭 의심 건을 제외합니다. 측정기준에 대한 자세한 내용은 [메시지 성능]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting) 및 [봇 클릭 필터링]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/bot_click_filtering)을 참조하세요.
 
-![SMS 및 MMS 성능 측정기준 테이블.]({% image_buster /assets/img/link_shortening/shortening4.png %})
+![SMS 및 MMS 성능 측정기준 테이블.]({% image_buster /assets/img/link_shortening/shortening4.png %}){: width="1586" height="191"}
 
 **과거 성능** 및 **SMS/MMS/RCS 성능** 테이블에도 **총 클릭 수** 옵션이 포함되어 있으며 클릭 이벤트의 일별 시계열을 보여줍니다. 클릭은 리디렉션 시(예: 사용자가 링크를 방문할 때) 증가하며, 사용자당 두 번 이상 증가할 수 있습니다.
 

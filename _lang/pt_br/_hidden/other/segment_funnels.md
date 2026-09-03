@@ -1,15 +1,15 @@
 ---
-nav_title: Funis de segmento
+nav_title: Funis de Segment
 permalink: /segment_funnels/
 hidden: true
 page_type: reference
 ---
 
-# Funis de segmento
+# Funis de Segment
 
-> Os funis de segmento são ótimos para restringir seu público para um caso de uso de campanha específico, aprender sobre esse público e suas interações e usar esse conhecimento para criar estratégias e desenvolver campanhas eficazes.
+> Os funis de Segment são ótimos para restringir seu público para um caso de uso de campanha específico, aprender sobre esse público e suas interações e usar esse conhecimento para criar estratégias e desenvolver campanhas eficazes.
 
-Os funis de segmento permitem que você veja como cada filtro adicionado afeta as estatísticas do segmento. Ao criar um segmento, uma linha de dados aparecerá sob cada filtro. Esses dados fornecerão as seguintes informações para os usuários que foram direcionados por todos os filtros até aquele momento:
+Os funis de Segment permitem que você veja como cada filtro adicionado afeta as estatísticas do Segment. Ao criar um Segment, uma linha de dados aparecerá sob cada filtro. Esses dados fornecerão as seguintes informações para os usuários que foram direcionados por todos os filtros até aquele momento:
 
 - Número total de usuários direcionados e a porcentagem da sua base de público
 - LTV e LTV para usuários pagantes  
@@ -24,7 +24,7 @@ Os funis de segmento permitem que você veja como cada filtro adicionado afeta a
 
 - Ao adicionar filtros que documentam o fluxo do usuário, você pode ver os pontos em que os usuários caem. Por instância do app, se você for um aplicativo de rede social e quiser ver onde pode estar perdendo usuários durante o processo de integração, talvez queira adicionar filtros de dados personalizados para inscrever-se, adicionar amigos e enviar a primeira mensagem. Se descobrir que 85% dos usuários estão inscrevendo-se e adicionando amigos, mas apenas 45% enviaram a primeira mensagem, então saberá que deve se concentrar em incentivar mais envios de mensagens durante suas campanhas de integração e marketing.
 
-- Os funis de segmento permitem comparar a porcentagem de usuários que realizam ações diferentes. Por exemplo, os usuários ativos, ou aqueles com alto LTV, [tendem a interagir mais com push ou e-mail](#push-email)? Para descobrir isso, crie um segmento de usuários ativos com um ou mais filtros e, em seguida, veja como as estatísticas mudam quando você adiciona um filtro para aceitação de push e quando adiciona um filtro para aceitação de envio de e-mail.
+- Os funis de Segment permitem comparar a porcentagem de usuários que realizam ações diferentes. Por exemplo, os usuários ativos, ou aqueles com alto LTV, [tendem a interagir mais com push ou e-mail](#push-email)? Para descobrir isso, crie um Segment de usuários ativos com um ou mais filtros e, em seguida, veja como as estatísticas mudam quando você adiciona um filtro para aceitação de push e quando adiciona um filtro para aceitação de envio de e-mail.
 
 - Analise como o LTV muda à medida que você adiciona filtros. Para usuários ativos, aqueles que se conectam ao Facebook ou aqueles que se conectam ao X (antigo Twitter) têm um LTV mais alto? Ou o LTV é significativamente maior para aqueles que se conectaram a ambos? Se você descobrir, por exemplo, que a conexão com o X (antigo Twitter) tem muito pouco impacto sobre o LTV, mas a conexão com o Facebook tem um grande impacto, talvez queira que suas campanhas de marketing se concentrem em incentivar as conexões com o Facebook.
 
@@ -39,13 +39,13 @@ Ao analisar o impacto de uma determinada ação do usuário (como adicionar iten
 
 Por exemplo, digamos que você tenha um grupo em que todos os usuários que adicionaram itens a uma lista de desejos também fizeram uma compra. Como apenas uma pequena porcentagem de usuários adicionou itens a uma lista de desejos, esse app pode querer incentivar mais esse comportamento por meio de campanhas de marketing.
 
-![Exemplo de funil de segmento com os seguintes filtros: "Usou o app pela última vez há menos de 30 dias", "Item adicionado à lista de espera há menos de 30 dias" e "Última compra feita há menos de 30 dias" para alcançar 4.302 usuários.]({% image_buster /assets/img_archive/Wish_List_2.png %})
+![Exemplo de funil de Segment com os seguintes filtros: "Usou o app pela última vez há menos de 30 dias", "Item adicionado à lista de espera há menos de 30 dias" e "Última compra feita há menos de 30 dias" para alcançar 4.302 usuários.]({% image_buster /assets/img_archive/Wish_List_2.png %})
 
 ### Compare os canais de envio de mensagens
 
-Crie um segmento de usuários ativos (ou usuários com as características desejadas) e compare suas interações com diferentes canais de engajamento, como envio de e-mail e notificações por push. Por exemplo, se mais usuários fiéis estiverem inscritos no push, talvez seja melhor dedicar mais tempo ao envio de campanhas de usuários ativos via push. No entanto, se descobrir que o LTV é maior para os assinantes de e-mail, convém solicitar que os usuários mais ativos assinem o e-mail.
+Crie um Segment de usuários ativos (ou usuários com as características desejadas) e compare suas interações com diferentes canais de engajamento, como envio de e-mail e notificações por push. Por exemplo, se mais usuários fiéis estiverem inscritos no push, talvez seja melhor dedicar mais tempo ao envio de campanhas de usuários ativos via push. No entanto, se descobrir que o LTV é maior para os assinantes de e-mail, convém solicitar que os usuários mais ativos assinem o e-mail.
 
-![Funil de segmento para exemplo de e-mail com os seguintes filtros: "Last Made Purchase less than 30 days ago", "Last used these apps less than 30 days ago", "Foreground Push Enabled is true" e "Email Subscription Status is Opted In" para alcançar 2.799 usuários.]({% image_buster /assets/img_archive/Wish_List_Email.png %})
+![Funil de Segment para exemplo de e-mail com os seguintes filtros: "Last Made Purchase less than 30 days ago", "Last used these apps less than 30 days ago", "Foreground Push Enabled is true" e "Email Subscription Status is Opted In" para alcançar 2.799 usuários.]({% image_buster /assets/img_archive/Wish_List_Email.png %})
 
 ### Aceitações push para iOS ou Android
 

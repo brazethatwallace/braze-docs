@@ -13,7 +13,7 @@ description: "この記事では、「無効な電話番号を照会する」Bra
 /sms/invalid_phone_numbers
 {% endapimethod %}
 
-> このエンドポイントを使用して、一定期間内に「無効」とマークされた電話番号のリストを取得します。詳細については、[無効な電話番号の処理]({{site.baseurl}}/user_guide/message_building_by_channel/sms/phone_numbers/user_phone_numbers#handling-invalid-phone-numbers)のドキュメントを参照してください。
+> このエンドポイントを使用して、一定期間内に「無効」とマークされた電話番号のリストを取得します。詳細については、[無効な電話番号の処理]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#handling-invalid-phone-numbers)のドキュメントを参照してください。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#81ceae19-15d1-4ac1-ad22-a6b86a92456d {% endapiref %}
 

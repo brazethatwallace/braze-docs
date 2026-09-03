@@ -94,8 +94,8 @@ Authorization: Bearer YOUR-SCIM-TOKEN-KEY
 | --------- | -------- | --------- | ----------- |
 | `schemas` | Requis | Tableau de chaînes de caractères | Nom du schéma SCIM 2.0 attendu pour l'objet utilisateur. |
 | `name` | Requis | Objet JSON | Cet objet contient le prénom et le nom de famille de l'utilisateur. |
-| `department` | Requis | Chaîne de caractères | Chaîne de caractères valide du département, tirée de la [documentation sur les chaînes de caractères du département]({{site.baseurl}}/scim_api_appendix#department-strings). |
-| `permissions` | Requis | Objet JSON | Objet d'autorisations tel que décrit dans la [documentation de l'objet d'autorisations]({{site.baseurl}}/scim_api_appendix#permissions-object). |
+| `department` | Requis | Chaîne de caractères | Chaîne de caractères valide du département, tirée de la [documentation sur les chaînes de caractères du département]({{site.baseurl}}/api/objects_filters/scim_api_appendix). |
+| `permissions` | Requis | Objet JSON | Objet d'autorisations tel que décrit dans la [documentation de l'objet d'autorisations]({{site.baseurl}}/api/objects_filters/scim_api_appendix). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 

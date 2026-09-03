@@ -1,21 +1,21 @@
 ---
-nav_title: Swift Package Manager
-article_title: iOS 向け Swift Package Manager の統合
+nav_title: Swift Package マネージャー
+article_title: iOS 向け Swift Package マネージャー の統合
 platform: iOS
 page_order: 3
-description: "このチュートリアルでは、iOS 用 Swift Package Manager を使用した Braze SDKのインストールについて説明します。"
+description: "このチュートリアルでは、iOS 用 Swift Package マネージャー を使用した Braze SDKのインストールについて説明します。"
 
 noindex: true
 ---
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# Swift Package Manager の統合 {#swift-package-manager-integration}
+# Swift Package マネージャー の統合 {#swift-package-manager-integration}
 
-[Swift Package Manager](https://swift.org/package-manager/) (SPM) 経由で iOS SDKをインストールすると、インストールプロセスの大部分が自動化されます。このプロセスを開始する前に、Xcode 12 以降を使用していることを確認してください。
+[Swift Package マネージャー](https://swift.org/package-manager/) (SPM) 経由で iOS SDKをインストールすると、インストールプロセスの大部分が自動化されます。このプロセスを開始する前に、Xcode 12 以降を使用していることを確認してください。
 
 {% alert note %}
-tvOS は現在、Swift Package Manager 経由では利用できません。
+tvOS は現在、Swift Package マネージャー 経由では利用できません。
 {% endalert %}
 
 ## ステップ 1:依存関係をプロジェクトに追加する {#step-1-adding-the-dependency-to-your-project}
@@ -32,7 +32,7 @@ SDKバージョン `3.33.1` 以降をインポートする場合、iOS SDKリポ
 
 ![Braze iOS SDKリポジトリURLの Xcode パッケージ依存関係追加ダイアログ。]({% image_buster /assets/img/ios/spm/importsdk_example.png %})
 
-次の画面で、SDKバージョンを選択し、**Next** をクリックします。バージョン `3.29.0` 以降は Swift Package Manager と互換性があります。
+次の画面で、SDKバージョンを選択し、**Next** をクリックします。バージョン `3.29.0` 以降は Swift Package マネージャー と互換性があります。
 
 ![Braze iOS SDKの Xcode パッケージバージョン選択画面。]({% image_buster /assets/img/ios/spm/select_version.png %})
 

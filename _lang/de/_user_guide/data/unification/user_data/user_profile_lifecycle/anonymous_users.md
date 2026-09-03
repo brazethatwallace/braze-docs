@@ -11,7 +11,7 @@ description: "Dieser Artikel bietet eine Übersicht über anonyme Nutzer:innen u
 
 > Nutzer:innen, die Ihre Website oder Anwendung besuchen, ohne sich anzumelden – wie Gastbesucher:innen –, werden als anonyme Nutzer:innen erkannt. Diese Nutzer:innen verfügen nicht über `external_ids`, die zum Aktualisieren von Nutzerprofilen mit der Braze API verwendet werden, aber ihnen sind dennoch [Datenpunkte]({{site.baseurl}}/user_guide/data/infrastructure/data_points) zugeordnet und sie können in Ihren Segmenten gezielt angesprochen werden.
 
-Wenn anonyme Nutzer:innen Ihre Website oder Anwendung besuchen, erstellt das Braze SDK ein „anonymes“ Nutzerprofil und ordnet es ihnen zu. Während die Nutzer:innen surfen, erfasst das SDK automatisch Daten für ihr anonymes Nutzerprofil, z. B. Nutzungsinformationen, Geräteinformationen und mehr, wenn Sie angepasste Attribute und angepasste Events eingerichtet haben.
+Wenn anonyme Nutzer:innen Ihre Website oder Anwendung besuchen, erstellt das Braze SDK ein „anonymes“ Kundenprofil und ordnet es ihnen zu. Während die Nutzer:innen surfen, erfasst das SDK automatisch Daten für ihr anonymes Kundenprofil, z. B. Nutzungsinformationen, Geräteinformationen und mehr, wenn Sie angepasste Attribute und angepasste Events eingerichtet haben.
 
 Mit erfassten anonymen Nutzer:innen können Sie Folgendes tun:
 
@@ -25,19 +25,19 @@ Mit erfassten anonymen Nutzer:innen können Sie Folgendes tun:
 
 {% multi_lang_include anonymous_users/about_anonymous_users.md section='user_guide' %}
 
-## Nutzer-Aliase zuweisen {#assigning-user-aliases}
+## Zuweisen von Nutzer-Aliassen {#assigning-user-aliases}
 
 {% multi_lang_include anonymous_users/about_user_aliases.md section='user_guide' %}
 
-## Anonyme Nutzer:innen zusammenführen {#merging-anonymous-users}
+## Zusammenführen anonymer Nutzer:innen {#merging-anonymous-users}
 
-Manchmal handelt es sich bei anonymen Nutzerprofilen um Duplikate, die dieselbe Telefonnummer oder E-Mail-Adresse wie andere Nutzerprofile haben. Eines der Duplikate kann sogar ein identifiziertes Nutzerprofil sein. Diese Duplikate können mit dem [POST: Nutzer:innen zusammenführen-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) oder einem der Zusammenführungs-Tools auf der Braze-Plattform, wie z. B. der [regelbasierten Zusammenführung]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users#rules-based-merging), zu einem Nutzerprofil zusammengeführt werden.
+Manchmal sind anonyme Nutzerprofile Duplikate, die dieselbe Telefonnummer oder E-Mail-Adresse wie andere Nutzerprofile haben. Eines der Duplikate kann sogar ein identifiziertes Kundenprofil sein. Diese Duplikate können mit dem [POST: Nutzer:innen zusammenführen-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) oder einem der Zusammenführungstools auf der Braze-Plattform, wie z. B. der [regelbasierten Zusammenführung]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users#rules-based-merging), zu einem Kundenprofil zusammengeführt werden.
 
-## Anonyme Nutzer:innen nachschlagen {#looking-up-an-anonymous-user}
+## Suchen nach anonymen Nutzer:innen {#looking-up-an-anonymous-user}
 
-Da anonyme Nutzer:innen keine `external_id` haben, können Sie eine Geräte-ID verwenden, um ein bestimmtes Profil zu suchen. Die folgenden Schritte zeigen, wie Sie die Geräte-ID für die aktuellen Nutzer:innen in Ihrer Web-SDK-Integration abrufen:
+Da anonyme Nutzer:innen keine `external_id` haben, können Sie eine Geräte-ID verwenden, um nach einem bestimmten Profil zu suchen. Die folgenden Schritte zeigen, wie Sie die Geräte-ID für die aktuelle Nutzer:in in Ihrer Web-SDK-Integration abrufen:
 
-1. Öffnen Sie die Entwicklertools Ihres Browsers (z. B. in Chrome: **Command + Option + J** auf Mac oder **Strg + Umschalt + I** unter Windows).
+1. Öffnen Sie die Entwicklertools Ihres Browsers (z. B. in Chrome durch Drücken von **Command + Option + J** auf dem Mac oder **Strg + Umschalt + I** unter Windows).
 2. Führen Sie im Tab **Console** Folgendes aus:
 
 ```javascript
@@ -45,15 +45,15 @@ console.log(braze.getDeviceId());
 ```
 
 {:start="3"}
-3. Verwenden Sie im Braze-Dashboard die [Nutzersuche]({{site.baseurl}}/user_guide/engagement_tools/segments/using_user_search), um nach der zurückgegebenen Geräte-ID zu suchen.
+3. Verwenden Sie im Braze-Dashboard die [Nutzersuche]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles), um nach der zurückgegebenen Geräte-ID zu suchen.
 
 ## Anwendungsfälle {#use-cases}
 
 ### Anonyme Nutzer:innen in Ihrem Segment ansprechen {#target-anonymous-users-in-your-segment}
 
-Da anonyme Nutzer:innen keine `external_id` haben, können Sie sie in großen Mengen mit dem Segmentierungsfilter **Externe Nutzer-ID ist leer** ansprechen. Für eine höhere Genauigkeit können Sie den anonymen Nutzer:innen, die Sie ansprechen möchten, ein angepasstes Attribut hinzufügen und danach filtern.
+Da anonyme Nutzer:innen keine `external_id` haben, können Sie sie in großer Zahl ansprechen, indem Sie den Segmentierungsfilter **Externe Nutzer-ID ist leer** verwenden. Für eine höhere Genauigkeit können Sie den anonymen Nutzer:innen, die Sie ansprechen möchten, ein angepasstes Attribut zuweisen und danach filtern.
 
-Nehmen wir an, Sie weisen jedem anonymen Nutzerprofil das angepasste Attribut „is_lead_profile“ zu. Sie könnten diese Profile mit einem oder beiden der folgenden Filter ansprechen:
+Nehmen wir an, Sie weisen jedem anonymen Kundenprofil das angepasste Attribut „is_lead_profile“ zu. Sie könnten diese Profile mit einem oder beiden der folgenden Filter ansprechen:
 
 - **Externe Nutzer-ID ist leer**
 - „is_lead_profile“ **ist wahr**
@@ -62,9 +62,9 @@ Nehmen wir an, Sie weisen jedem anonymen Nutzerprofil das angepasste Attribut �
 
 ### Checkout-Daten von anonymen Nutzer:innen erfassen {#capture-checkout-data-from-an-anonymous-user}
 
-Sie können Checkout-Daten von anonymen Nutzer:innen (oder Gastbesucher:innen) erfassen, indem Sie während des Bestellvorgangs ein Nutzer-Alias-Profil erstellen. Wenn anonyme Nutzer:innen über ein Web-Capture-Formular auschecken, lassen Sie einen API-Aufruf triggern, um ein Nutzer-Alias-Profil zu erstellen und ein Kauf-Event zu protokollieren. Anschließend können Sie das erstellte Nutzerprofil über die Braze API aktualisieren.
+Sie können Checkout-Daten von anonymen Nutzer:innen (oder Gastbesucher:innen) erfassen, indem Sie während des Checkout-Prozesses ein Kundenprofil mit Nutzer-Alias erstellen. Wenn anonyme Nutzer:innen über ein Web-Erfassungsformular einen Checkout durchführen, lassen Sie einen API-Aufruf ein Kundenprofil mit Nutzer-Alias erstellen und ein Kauf-Event protokollieren. Anschließend können Sie das erstellte Kundenprofil über die Braze API aktualisieren.
 
-Hier ist ein Beispiel für eine Payload, die generiert wird, wenn das Web-Capture-Formular übermittelt wird:
+Hier ist ein Beispiel-Payload, das generiert wird, wenn das Web-Erfassungsformular abgesendet wird:
 
 {% raw %}
 ```json

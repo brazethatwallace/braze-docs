@@ -47,9 +47,9 @@ Jampp es una plataforma de marketing del rendimiento para captar y reorientar cl
 
 Los clientes de Braze pueden [integrarse con Jampp]({{site.baseurl}}/partners/jampp) configurando el canal webhook de Braze para transmitir eventos a Jampp. Como resultado, los clientes tienen la posibilidad de añadir conjuntos de datos más ricos a sus iniciativas de reorientación con Jampp dentro del ecosistema de publicidad móvil.
 
-## Selector de plataforma para mensajes dentro de la aplicación {#platform-picker-for-in-app-messages}
+## SELECTOR de plataforma para mensajes dentro de la aplicación {#platform-picker-for-in-app-messages}
 
-Hemos facilitado la selección de dónde van tus mensajes dentro de la aplicación y para qué plataformas se han creado con nuestro selector de plataformas, que enfatiza este paso en el proceso de creación de la Campaign.
+Hemos facilitado la selección de dónde van tus mensajes dentro de la aplicación y para qué plataformas se han creado con nuestro SELECTOR de plataformas, que enfatiza este paso en el proceso de creación de la Campaign.
 
 ![Selector de plataforma]({% image_buster /assets/img/iam_platforms.gif %})
 

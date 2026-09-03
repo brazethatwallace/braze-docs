@@ -9,7 +9,7 @@
 {% if include.alert == 'BCC address billable emails' %}
 
 {% alert important %}
-キャンペーンまたはキャンバスにBCCアドレスを追加すると、請求対象となるメール数が倍増します。これは、Brazeがユーザー宛てに1通、BCCアドレス宛てに1通のメッセージを送信するためです。
+キャンペーンまたはキャンバスにBCCアドレスを追加すると、キャンペーンまたはキャンバスコンポーネントの請求対象メール数が倍増します。これは、Brazeがユーザー宛てに1通、BCCアドレス宛てに1通のメッセージを送信するためです。
 {% endalert %}
 
 {% endif %}
@@ -53,7 +53,7 @@ NaverのAndroidアプリやiOSアプリなど、Brazeのユーザー設定セン
 {% if include.alert == 'Purchase event deprecation' %}
 
 {% alert important %}
-レガシーの購入イベントはメンテナンスモードに移行します。既存のBrazeのお客様は、レガシーの購入イベントを引き続き使用できます。購入イベントは引き続き期待どおりに動作しますが、今後はeコマース推奨イベントを基盤として新しい機能が構築されます。Brazeは、サポート終了日が設定されるかなり前に事前通知を行います。新規のBrazeのお客様は、[eコマース推奨イベント]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events)を使用してください。レガシーの購入イベントは利用できません。
+レガシーの購入イベントはメンテナンスモードに移行します。既存のBrazeのお客様は、レガシーの購入イベントを引き続き使用できます。購入イベントは引き続き期待どおりに動作しますが、今後はeコマース推奨イベントを基盤として新しい機能が構築されます。Brazeは、サポート終了日が設定されるかなり前に事前通知を行います。新規のBrazeのお客様は、[eコマース推奨イベント]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events)を使用してください。レガシーの購入イベントは利用できません。
 {% endalert %}
 
 {% endif %}
@@ -61,7 +61,7 @@ NaverのAndroidアプリやiOSアプリなど、Brazeのユーザー設定セン
 {% if include.alert == 'Purchase event deprecation for eCommerce filters' %}
 
 {% alert important %}
-レガシーの購入イベントは非推奨状態（メンテナンスモード）に移行します。購入イベントは引き続き期待どおりに動作しますが、[eコマース推奨イベント]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events)が優先されるため、購入イベントの上にまったく新しい機能が構築されることはありません。この移行が行われると、セグメントフィルターは購入動作の下にデータが入力されなくなります。<br><br>現在購入イベントを使用している場合は、段階的廃止計画に関する事前通知を受け取ります。現時点では、正式な非推奨日まで購入イベントを引き続き使用できます。詳細については、[推奨イベントの概要]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events)を参照してください。
+レガシーの購入イベントは非推奨状態（メンテナンスモード）に移行します。購入イベントは引き続き期待どおりに動作しますが、[eコマース推奨イベント]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events)が優先されるため、購入イベントの上にまったく新しい機能が構築されることはありません。この移行が行われると、セグメントフィルターは購入行動の下にデータが入力されなくなります。<br><br>現在購入イベントを使用している場合は、段階的廃止計画に関する事前通知を受け取ります。現時点では、正式な非推奨日まで購入イベントを引き続き使用できます。詳細については、[推奨イベントの概要]({{site.baseurl}}/user_guide/data/activation/events/recommended_events)を参照してください。
 {% endalert %}
 
 {% endif %}
@@ -77,7 +77,7 @@ S3バケットに保存されたエクスポートファイルは、ダウンロ
 {% if include.alert == 'Shopify customer create' %}
 
 {% alert important %}
-Shopify連携は、Shopifyの顧客作成と顧客更新のWebhookをサポートしています。これらはデータ設定の構成設定にあります。Shopifyでユーザープロファイルが作成または更新されると、対応するBrazeのユーザープロファイルも作成または更新されます。<br><br>これらのアクションはBrazeでカスタムイベントをトリガーせず、[ShopifyのユーザーデータをBrazeと同期]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview#how-the-integration-works)させるためだけに使用されます。同期されるデータには、[カスタム属性]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features#supported-shopify-custom-attributes)、[標準属性項目]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features#supported-shopify-standard-attributes)、および設定内で有効にされている場合は[購読グループの状態]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview#syncing-shopify-email-and-sms-marketing-opt-ins)が含まれます。
+Shopify連携は、Shopifyの顧客作成と顧客更新のWebhookをサポートしています。これらはデータ設定の構成設定にあります。Shopifyでユーザープロファイルが作成または更新されると、対応するBrazeのユーザープロファイルも作成または更新されます。<br><br>これらのアクションはBrazeでカスタムイベントをトリガーせず、[ShopifyのユーザーデータをBrazeと同期]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview#how-the-integration-works)するためだけに使用されます。同期されるデータには、[カスタム属性]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features#supported-shopify-custom-attributes)、[標準属性項目]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features#supported-shopify-standard-attributes)、および設定内で有効にされている場合は[購読グループの状態]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview#syncing-shopify-email-and-sms-marketing-opt-ins)が含まれます。
 {% endalert %}
 
 {% endif %}

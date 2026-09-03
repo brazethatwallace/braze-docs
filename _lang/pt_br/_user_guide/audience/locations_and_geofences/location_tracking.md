@@ -40,7 +40,7 @@ Para direcionamento por cidade ou código postal, use [`setLastKnownLocation()`]
 
 Usando dados de monitoramento de localização e segmentos, você pode configurar campanhas e estratégias baseadas em localização. Por exemplo, você pode querer executar uma campanha promocional para usuários que moram em uma região específica ou excluir usuários em uma região que possui regulamentações mais rígidas.
 
-Consulte [Direcionamento por localização]({{site.baseurl}}/user_guide/audience/segments/location_targeting) para mais informações sobre como criar um segmento de localização.
+Consulte [Direcionamento por localização]({{site.baseurl}}/user_guide/audience/segments/location_targeting) para mais informações sobre como criar um Segment de localização.
 
 ## Definição fixa do atributo de localização padrão {#hard-setting-the-default-location-attribute}
 
@@ -110,7 +110,7 @@ Confirme que seu app está coletando dados de localização:
 
 Para verificar se os dados de localização do usuário estão sendo enviados para a Braze, use o filtro **Location Available**. Esse filtro permite ver a porcentagem de usuários com uma "localização mais recente".
 
-![Um segmento "Test Location" que usa o filtro "Location Available".]({% image_buster /assets/img_archive/trouble7.png %})
+![Um Segment "Test Location" que usa o filtro "Location Available".]({% image_buster /assets/img_archive/trouble7.png %})
 
 #### Transferência de dados {#data-transfer}
 

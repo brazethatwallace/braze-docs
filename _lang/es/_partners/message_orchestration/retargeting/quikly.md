@@ -25,7 +25,7 @@ La asociación entre Braze y Quikly te permite acelerar las conversiones en even
 | Cuenta Quikly | Se requiere una cuenta de partner de marca de [Quikly](https://www.quikly.com) para aprovechar esta asociación. |
 | Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`, `subscription.status.set`, `users.export.ids` y `subscription.status.get`. <br><br> Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
 | Endpoint REST de Braze | [La URL de tu endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Tu endpoint dependerá de la URL de Braze de tu instancia. |
-| Clave de API de Quikly (opcional) | Una clave de API de Quikly proporcionada por tu administrador de éxito de clientes (solo webhook). |
+| Clave de API de Quikly (opcional) | Una clave de API de Quikly proporcionada por tu CSMs (solo webhook). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Casos de uso {#use-cases}
@@ -88,7 +88,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ### Suscripciones SMS {#sms-subscriptions}
 
-Las activaciones de Quikly pueden recopilar números de teléfono móvil directamente de los clientes e iniciar una nueva suscripción por SMS. Para habilitar esta integración, proporciona a tu administrador de éxito de clientes de Quikly el `subscription_group_id`. Puedes acceder al `subscription_group_id` de un grupo de suscripción navegando a la página **Grupo de suscripción**.
+Las activaciones de Quikly pueden recopilar números de teléfono móvil directamente de los clientes e iniciar una nueva suscripción por SMS. Para habilitar esta integración, proporciona a tu CSMs de Quikly el `subscription_group_id`. Puedes acceder al `subscription_group_id` de un grupo de suscripción navegando a la página **Grupo de suscripción**.
 
 Quikly realizará una búsqueda de suscripciones utilizando el número de teléfono del cliente y lo acreditará automáticamente en la activación si ya existe una suscripción SMS. En caso contrario, se iniciará una nueva suscripción y, una vez verificado el estado de la misma, se acreditará al cliente.
 
@@ -175,4 +175,4 @@ Recuerda guardar tu plantilla antes de salir de la página. <br>Las plantillas d
 {% endtabs %}
 
 ## Soporte {#support}
-Ponte en contacto con tu administrador de éxito de clientes en Quikly si tienes alguna pregunta.
+Ponte en contacto con tu CSMs en Quikly si tienes alguna pregunta.

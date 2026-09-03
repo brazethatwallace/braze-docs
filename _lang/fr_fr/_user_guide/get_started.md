@@ -4,7 +4,6 @@ article_title: "Pour commencer : Aperçu de Braze"
 page_order: 1
 page_type: reference
 description: "Familiarisez-vous avec les concepts fondamentaux à connaître pour travailler avec Braze."
-
 ---
 
 # Pour commencer : Aperçu de Braze {#get-started-braze-overview}
@@ -21,44 +20,44 @@ Explorons ensemble la puissance de Braze.
 
 ## Comment fonctionne Braze {#how-braze-works}
 
-Braze est une plateforme d'engagement client qui aide les marques de toutes tailles à créer des campagnes personnalisées et ciblées sur différents canaux. Braze vous donne la possibilité d'écouter vos clients, de comprendre ce que leur comportement signifie, puis d'agir en envoyant le bon message, par le bon canal, au bon moment.
+Braze est une plateforme d'engagement client qui aide les marques de toutes tailles à créer des campagnes personnalisées et ciblées sur différents canaux. Braze vous offre la possibilité d'écouter vos clients, de comprendre ce que leur comportement signale, puis d'agir en envoyant le bon message, par le bon canal, au bon moment.
 
 {% alert tip %}
-N'oubliez pas d'[ajouter vos collègues à Braze]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users) pour qu'ils puissent explorer la plateforme avec vous.
+N'oubliez pas d'[ajouter vos collègues à Braze]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users) afin qu'ils puissent explorer la plateforme avec vous.
 {% endalert %}
 
-## Utilisateurs et segments {#users-and-segments}
+## Utilisateurs et Segments {#users-and-segments}
 
-Les utilisateurs sont vos clients, c'est-à-dire les personnes qui reçoivent les messages que vous envoyez via Braze. Toutes les données que vous collectez sur un utilisateur et que vous ingérez dans Braze sont stockées dans son profil utilisateur : données démographiques, informations personnelles, préférences et comportements. Ces informations alimentent votre envoi de messages et vous permettent d'adapter vos messages au bon utilisateur.
+Les utilisateurs sont vos clients, c'est-à-dire les personnes qui reçoivent les messages que vous envoyez via Braze. Toutes les données que vous collectez sur un utilisateur et que vous ingérez dans Braze sont stockées dans son profil utilisateur, telles que ses données démographiques, ses informations personnelles, ses préférences et ses comportements. Ces informations alimentent votre communication et vous permettent d'adapter vos messages au bon utilisateur.
 
-![Capture d'écran liée aux utilisateurs et aux segments.]({% image_buster /assets/img/getting_started/user_profile.png %})
+![Capture d'écran relative aux utilisateurs et aux Segments.]({% image_buster /assets/img/getting_started/user_profile.png %})
 
-Les segments divisent votre base de clients en groupes plus petits que vous pouvez ensuite cibler avec des messages spécifiques. Vous pouvez utiliser différentes variables pour créer des segments, allant de caractéristiques telles que le genre, la localisation et l'âge à des comportements tels que les schémas d'interaction avec les Campaigns précédentes ou la position dans le parcours client.
+Les Segments divisent votre base de clients en groupes plus petits que vous pouvez ensuite cibler avec des messages spécifiques. Vous pouvez utiliser différentes variables pour créer des Segments, allant de caractéristiques telles que le genre, la localisation et l'âge à des comportements comme les schémas d'interaction avec les Campaigns précédentes ou la position de l'utilisateur dans le parcours client.
 
-Les segments sont dynamiques : les utilisateurs peuvent entrer et sortir des segments en temps réel en fonction de leur comportement et de leur relation avec votre marque. Vos clients reçoivent ainsi les messages les plus pertinents à tout moment. Vous pouvez créer autant de segments que nécessaire pour vos objectifs de ciblage et d'envoi de messages.
+Les Segments sont dynamiques : les utilisateurs peuvent entrer et sortir des Segments en temps réel en fonction de leur comportement et de leur relation avec votre marque. Cela garantit que vos clients reçoivent les messages les plus pertinents à tout moment. Vous pouvez créer autant de Segments que nécessaire pour vos besoins de ciblage et de communication.
 
-![Les segments sont dynamiques : les utilisateurs peuvent entrer et sortir des segments en temps réel en fonction de leur comportement et de leur relation avec votre marque. Vos clients reçoivent ainsi les messages les plus pertinents à tout moment. Vous pouvez créer autant de segments que nécessaire pour vos objectifs de ciblage et d'envoi de messages.]({% image_buster /assets/img/getting_started/segment.png %})
+![Les Segments sont dynamiques : les utilisateurs peuvent entrer et sortir des Segments en temps réel en fonction de leur comportement et de leur relation avec votre marque. Cela garantit que vos clients reçoivent les messages les plus pertinents à tout moment. Vous pouvez créer autant de Segments que nécessaire pour vos besoins de ciblage et de communication.]({% image_buster /assets/img/getting_started/segment.png %})
 
-Pour en savoir plus, consultez : [Pour commencer : Utilisateurs et segments]({{site.baseurl}}/user_guide/get_started/users_and_segments).
+Pour en savoir plus, consultez : [Pour commencer : Utilisateurs et Segments]({{site.baseurl}}/user_guide/get_started/users_and_segments).
 
 ## Campaigns et Canvas {#campaigns-and-canvases}
 
-Les Campaigns et les Canvas vous permettent d'envoyer des messages à vos utilisateurs.
+Les Campaigns et les Canvas sont les moyens par lesquels vous envoyez des messages à vos utilisateurs.
 
-Les Campaigns sont idéales pour les messages uniques envoyés à un segment d'audience spécifique sur différents canaux. Vous pouvez tirer parti de tous les canaux de communication pris en charge dans votre Campaign (e-mail, notification push, messages in-app, SMS, et plus encore).
+Les Campaigns sont idéales pour envoyer des messages uniques à un Segment d'audience spécifique sur différents canaux. Vous pouvez tirer parti de n'importe lequel de nos canaux de communication pris en charge dans votre Campaign (e-mail, notification push, In-App Messages, SMS, et plus encore).
 
-Les Canvas sont des workflows avancés qui vous permettent d'automatiser et d'orchestrer des parcours clients personnalisés sur plusieurs canaux. Dans un Canvas, vous pouvez mettre en place une logique de branchement, des délais, des points de décision et des événements de conversion pour guider les clients à travers une série d'interactions. Les Canvas assurent une communication cohérente et fluide sur différents points de contact, augmentant ainsi les chances d'engagement et de conversion des clients.
+Les Canvas sont des workflows avancés qui vous permettent d'automatiser et d'orchestrer des parcours clients personnalisés sur plusieurs canaux. Au sein d'un Canvas, vous pouvez configurer une logique de branchement, des délais, des points de décision et des événements de conversion pour guider les clients à travers une série d'interactions. Les Canvas contribuent à garantir une communication cohérente et fluide sur les différents points de contact, augmentant ainsi les chances d'engagement et de conversion des clients.
 
 Pour en savoir plus, consultez : [Pour commencer : Campaigns et Canvas]({{site.baseurl}}/user_guide/get_started/campaigns_and_canvases).
 
 ## Espaces de travail {#workspaces}
 
-Les espaces de travail regroupent vos données — utilisateurs, segments, Campaigns et Canvas — en un seul emplacement. Les informations ne sont pas partagées entre les espaces de travail, gardez donc cela à l'esprit lorsque vous ajoutez des sites web et des applications à vos espaces de travail. Nous vous conseillons de ne regrouper que les différentes versions d'une même application ou d'applications très similaires au sein d'un même espace de travail.
+Les espaces de travail regroupent vos données — utilisateurs, Segments, Campaigns et Canvas — en un seul endroit. Les informations ne sont pas partagées entre les espaces de travail, gardez donc cela à l'esprit lorsque vous ajoutez des sites web et des applications à vos espaces de travail. Nous recommandons, comme bonne pratique, de ne regrouper sous un même espace de travail que les différentes versions d'une même application ou d'applications très similaires.
 
-Voici quelques exemples d'utilisation des espaces de travail :
+Exemples d'utilisation des espaces de travail :
 
-- Différentes lignes de produits ou applications
-- Différentes audiences (par exemple, les livreurs et les clients)
+- Différentes gammes de produits ou applications
+- Différentes audiences (comme les livreurs par rapport aux clients)
 - Entreprises distinctes
 - Environnement de test
 
@@ -66,20 +65,20 @@ Pour en savoir plus, consultez : [Pour commencer : Espaces de travail]({{site.ba
 
 ## Intégrer Braze {#integrating-braze}
 
-Braze est conçu pour être opérationnel rapidement et facilement. Notre délai moyen de rentabilisation est de six semaines pour notre clientèle composée de centaines de marques.
+Braze est conçu pour être opérationnel rapidement et facilement. Notre délai moyen de ROI est de six semaines pour l'ensemble de notre base de clients composée de centaines de marques.
 
 ![Capture d'écran liée à l'intégration de Braze.]({% image_buster /assets/img/getting_started/timetovalue.png %})
 
-Voici le cadre proposé par Braze pour estimer la durée de votre intégration, basé sur quatre composants sur lesquels vous pouvez travailler en parallèle. La fourchette habituelle est de 30 à 180 jours, la plupart des comptes achevant leur intégration dans un délai de 45 à 60 jours.
+Voici le cadre de référence Braze pour estimer la durée de votre intégration, basé sur quatre composantes sur lesquelles vous pouvez travailler en parallèle. La fourchette typique est de 30 à 180 jours, la plupart des comptes finalisant leur intégration en 45 à 60 jours.
 
-- **Niveau de complexité de la migration des campagnes :** Le temps nécessaire à la migration des campagnes dépend de leur nombre, de leur degré de personnalisation et de vos ressources. Si vous avez moins de dix campagnes à migrer, cela prendra moins de 60 jours. En revanche, si vous avez plus de 100 campagnes, ce sera plus complexe. Une seule personne qui migre 100 campagnes, ce n'est pas la même chose que 10 personnes qui en migrent 100.
+- **Niveau de complexité de la migration des Campaigns :** le temps nécessaire pour migrer des Campaigns dépend de leur nombre, de leur degré de personnalisation et de vos ressources. Si vous avez moins de dix Campaigns à migrer, cela prendra moins de 60 jours. Mais si vous en avez plus de 100, ce sera plus complexe. La situation est différente si une seule personne migre 100 Campaigns ou si dix personnes s'en chargent.
 
 {% alert tip %}
-Besoin d'aide pour votre migration ? Nos [partenaires certifiés Braze](https://www.braze.com/partners/solutions-partners) peuvent vous aider !
+Besoin d'aide pour votre migration ? Nos [partenaires Braze certifiés](https://www.braze.com/partners/solutions-partners) peuvent vous accompagner !
 {% endalert %}
 
-- **Volume d'e-mails :** Pour envoyer des e-mails, vous devez réchauffer vos adresses IP. L'[IP warming]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming) est le processus qui consiste à établir la réputation de l'expéditeur avec vos nouvelles adresses IP. Si vous envoyez moins de 2 à 3 millions d'e-mails par jour, le réchauffement devrait prendre 30 jours ou moins. Gardez à l'esprit vos pics d'envoi. Si vous envoyez normalement 2 millions d'e-mails par jour mais que vous prévoyez d'en envoyer 7 millions pendant une période saisonnière, c'est ce « pic » d'envoi que vous devez viser lors du réchauffement. Les expéditeurs à fort volume peuvent utiliser plusieurs adresses IP pour accélérer le processus.
-- **Complexité organisationnelle :** Notre processus d'onboarding peut s'adapter aux besoins de votre entreprise. Que vous soyez une seule unité commerciale, que vous disposiez d'un centre d'excellence, de plusieurs unités indépendantes, ou que vous fassiez appel à des agences pour renforcer vos équipes, Braze a l'expérience de tous ces scénarios.
-- **Sophistication de l'infrastructure de données :** Si vous ne déployez que le SDK Braze ou si vous disposez déjà d'une plateforme de données client (CDP), il est possible de tout configurer en seulement 30 jours. L'utilisation d'une CDP moderne peut accélérer le processus. En revanche, si vous avez de nombreux systèmes back-end, outils ou bases de données à connecter à Braze, cela peut prendre plus de temps et nécessiter davantage de ressources dédiées pour finaliser la configuration.
+- **Volume d'e-mails :** pour envoyer des e-mails, vous devrez chauffer vos adresses IP. L'[IP warming]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming) est le processus de construction de la réputation de l'expéditeur avec vos adresses IP nouvellement attribuées. Si vous envoyez moins de 2 à 3 millions d'e-mails par jour, votre IP warming devrait prendre 30 jours ou moins. Gardez à l'esprit vos pics d'envoi. Si vous envoyez habituellement 2 millions d'e-mails par jour mais prévoyez d'en envoyer 7 millions lors d'une période saisonnière, c'est ce volume « de pointe » que vous devriez atteindre lors du warming. Les expéditeurs à fort volume peuvent utiliser plusieurs adresses IP pour accélérer le processus de warming.
+- **Complexité organisationnelle :** notre processus d'onboarding peut s'adapter aux besoins de votre entreprise. Que vous soyez une unité commerciale unique, que vous disposiez d'un centre d'excellence, de plusieurs unités indépendantes ou que vous fassiez appel à des agences pour renforcer vos équipes, Braze a l'expérience de tous ces scénarios.
+- **Sophistication de l'infrastructure de données :** si vous implémentez uniquement le SDK Braze ou si vous disposez déjà d'une plateforme de données client (CDP), il est possible de tout mettre en place en seulement 30 jours. L'utilisation d'une CDP moderne peut accélérer le processus. En revanche, si vous avez de nombreux systèmes backend, outils ou bases de données à connecter avec Braze, cela peut prendre plus de temps et nécessiter davantage de ressources dédiées pour finaliser la configuration.
 
-Pour en savoir plus, consultez : [Pour commencer : Aperçu de l'intégration]({{site.baseurl}}/user_guide/get_started/integrations).
+Pour en savoir plus, consultez : [Pour commencer : aperçu de l'intégration]({{site.baseurl}}/user_guide/get_started/integrations).

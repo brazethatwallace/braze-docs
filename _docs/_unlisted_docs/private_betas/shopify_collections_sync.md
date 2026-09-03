@@ -32,7 +32,7 @@ From your Shopify catalog, you can view your Shopify collection in the **Selecti
 
 ## Using Shopify collections
 
-Use your Shopify collections to personalize a message for each user in your campaign, similar to how you'd use a [Braze selection]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/catalogs/selections/).
+Use your Shopify collections to personalize a message for each user in your campaign, similar to how you'd use a [Braze selection]({{site.baseurl}}/user_guide/data/activation/catalogs/selections).
 
 {% alert warning %}
 Be aware of the following behavior in the beta: <br><br>If you update the Shopify collection description or the filter settings, you will break your Shopify collection sync. As a result, your Shopify collection will not work as expected. 

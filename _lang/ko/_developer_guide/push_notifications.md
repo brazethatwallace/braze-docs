@@ -1,6 +1,6 @@
 ---
 nav_title: 푸시 알림
-article_title: "Braze SDK용 푸시 알림"
+article_title: 푸시 알림
 page_order: 2.3
 description: "이 랜딩 페이지에서는 푸시 알림에 관한 모든 것을 확인할 수 있습니다."
 ---

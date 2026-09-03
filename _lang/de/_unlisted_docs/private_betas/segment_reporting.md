@@ -12,7 +12,7 @@ page_type: reference
 
 > Dieser Artikel erläutert, wie Sie Segments als Berichtsdimension im Berichts-Builder verwenden, einschließlich der Berichterstattung über Segments, der Aufschlüsselung nach Segment und der unterstützten Kombinationen.
 
-{% multi_lang_include alerts/early_access_beta_alert.md feature='Segment reporting' contact='customer success manager' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Segment reporting' contact='CSM' %}
 
 Der Berichts-Builder unterstützt **Segments** in Zeilen und als Drilldown-Option, sodass Sie sehen können, wie Ihre Segmente performen, und die Campaign- oder Canvas-Performance nach Segment-Zugehörigkeit aufschlüsseln können. Wenn **Segments** nicht in Ihren **Zeilen**- oder **Drilldown**-Dropdowns erscheint, wurde dieses Feature für Ihr Konto noch nicht aktiviert.
 

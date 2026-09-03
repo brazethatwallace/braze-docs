@@ -50,7 +50,8 @@ markdown_api: true
 # Markdown copy plugin - copies original .md files to _site for LLM processing
 markdown_copies: true
 
-# LLMs.txt generator - creates dynamic llms.txt and llms-full.txt for supported guide collections.
+# LLMs.txt generator - creates dynamic llms.txt and llms-full.txt for collections
+# listed in _data/llms_config.yml (collection list, labels, and output filenames).
 llms_txt: true
 
 # CLA Endpoint
@@ -219,6 +220,7 @@ exclude:
     "404.html",
     "public",
     "proxy.rb",
+    "build_status_broadcaster.rb",
     "*.log",
     "MigrationTool",
     "Archive",
@@ -236,6 +238,7 @@ exclude:
     "scripts",
     ".claude",
     ".cursor",
+    ".dev",
     "*.pii-audit-dismiss.json",
   ]
 
@@ -245,6 +248,10 @@ image_buster:
   paths:
     - "/assets/img/*.*"
     - "/assets/unlisted_docs/img/*.*" # assets for the unlisted_docs collection (migrated from braze-docs-hidden)
+
+# Auto-inject width/height on local raster images at build time (CLS).
+image_dimensions:
+  enabled: true
 
 # Image asset pipeline setting for japr
 asset_pipeline:

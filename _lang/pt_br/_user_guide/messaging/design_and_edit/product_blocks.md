@@ -181,7 +181,7 @@ Altere as [opções de layout](#layout-options) para atualizar como os produtos 
 {% tabs %}
 {% tab Bloco de produto dinâmico %}
 
-1. Na seção **Preview & Test**, pré-visualize a mensagem como um usuário personalizado.
+1. Na seção **prévia & Test**, pré-visualize a mensagem como um usuário personalizado.
 2. Especifique quantos itens deseja renderizar na pré-visualização.
 3. Confirme que o número correto de itens aparece e que suas opções de layout estão aplicadas corretamente. Os itens que aparecem são selecionados aleatoriamente.
 

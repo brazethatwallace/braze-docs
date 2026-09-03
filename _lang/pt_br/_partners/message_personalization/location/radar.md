@@ -62,11 +62,11 @@ Envie uma notificação por push para o usuário com instruções de chegada ass
 
 ![Uma campanha de entrega baseada em ação mostrando que a campanha será entregue quando o evento personalizado "arrived_at_trip_destination" ocorrer, e o "trip_metadata" for igual a "curbside".]({% image_buster /assets/img_archive/radar-campaign.png %})
 
-### Construir um segmento de público de visitantes recentes da loja {#build-an-audience-segment-of-recent-store-visitors}
+### Construir um Segment de público de visitantes recentes da loja {#build-an-audience-segment-of-recent-store-visitors}
 
 Por exemplo, direcione qualquer usuário que tenha visitado sua loja nos últimos 7 dias, independentemente de ter feito uma compra ou não.
 
-![Um segmento onde "radar_geofence_tags" inclui o valor my_store e "radar_updated_at" foi há menos de 7 dias.]({% image_buster /assets/img_archive/radar-segment.png %})
+![Um Segment onde "radar_geofence_tags" inclui o valor my_store e "radar_updated_at" foi há menos de 7 dias.]({% image_buster /assets/img_archive/radar-segment.png %})
 
 ## Conteúdo conectado {#connected-content}
 

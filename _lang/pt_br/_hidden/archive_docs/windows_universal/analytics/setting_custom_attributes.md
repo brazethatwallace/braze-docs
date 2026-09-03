@@ -12,13 +12,13 @@ hidden: true
 
 A Braze fornece métodos para atribuir atributos aos usuários. Você poderá filtrar e segmentar seus usuários de acordo com esses atributos no dashboard.
 
-Antes da implementação, certifique-se de revisar exemplos das opções de segmentação oferecidas por eventos personalizados, atributos personalizados e eventos de compra em nossas [melhores práticas]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#user-data-collection).
+Antes da implementação, certifique-se de revisar exemplos das opções de segmentação oferecidas por eventos personalizados, atributos personalizados e eventos de compra em nossas [melhores práticas]({{site.baseurl}}/developer_guide/analytics#best-practices).
 
 Os atributos do usuário podem ser atribuídos ao `IAppboyUser` atual. Para obter uma referência ao `IAppboyUser` atual, chame `Appboy.SharedInstance.AppboyUser`
 
 ## Atribuindo atributos de usuário padrão {#assigning-default-user-attributes}
 
-Os seguintes atributos devem ser definidos como propriedades do `IAppboyUser`:
+Os seguintes atributos devem ser definidos como propriedades de `IAppboyUser`:
 
 - `FirstName`
 - `LastName`
@@ -37,9 +37,9 @@ Appboy.SharedInstance.AppboyUser.FirstName = "User's First Name"
 
 ## Atribuindo atributos personalizados ao usuário {#assigning-custom-user-attributes}
 
-Além dos atributos de usuário padrão, a Braze também permite que você defina atributos personalizados usando vários tipos diferentes de dados. Para saber mais sobre as opções de segmentação e como cada um desses atributos afetará você, consulte nossas [melhores práticas]({{site.baseurl}}/developer_guide/platform_integration_guides/windows_universal/analytics/setting_user_ids/#user-id-integration-best-practices-and-notes).
+Além dos atributos de usuário padrão, a Braze também permite que você defina atributos personalizados usando vários tipos de dados diferentes. Para saber mais sobre as opções de segmentação e como cada um desses atributos afetará você, consulte nossas [Melhores práticas]({{site.baseurl}}/hidden/archive_docs/windows_universal/analytics/setting_user_ids#user-id-integration-best-practices-and-notes).
 
-### Definindo valores de atributo personalizado {#setting-custom-attribute-values}
+### Definindo valores de atributos personalizados {#setting-custom-attribute-values}
 
 {% tabs %}
 {% tab Boolean %}
@@ -88,7 +88,7 @@ Appboy.SharedInstance.EventLogger.RemoveFromCustomAttributeArray("custom_attribu
 
 ### Incrementando/decrementando atributos personalizados {#incrementingdecrementing-custom-attributes}
 
-Este código é um exemplo de um atributo personalizado sendo incrementado. Você pode incrementar o valor de um atributo personalizado por qualquer valor inteiro positivo ou negativo.
+Este código é um exemplo de incremento de atributo personalizado. Você pode incrementar o valor de um atributo personalizado por qualquer valor inteiro positivo ou negativo.
 
 ```csharp
 bool IncrementCustomAttribute(STRING_KEY, INCREMENT_INTEGER_VALUE);
@@ -104,26 +104,26 @@ bool UnsetCustomAttribute(STRING_KEY);
 
 ### Definindo um atributo personalizado via REST API {#setting-a-custom-attribute-via-the-rest-api}
 
-Você também pode usar nossa REST API para definir atributos de usuário. Consulte a documentação da [API de usuários]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data) para obter detalhes.
+Você também pode usar nossa REST API para definir atributos de usuário. Consulte a documentação da [API de usuários]({{site.baseurl}}/api/endpoints/user_data) para mais detalhes.
 
-### Limites de valor de atributo personalizado {#custom-attribute-value-limits}
+### Limites de valores de atributos personalizados {#custom-attribute-value-limits}
 
 Os valores de atributos personalizados têm um comprimento máximo de 255 caracteres; valores mais longos serão truncados.
 
-## Gerenciamento do status de inscrição de notificações {#managing-notification-subscription-statuses}
+## Gerenciando status de inscrição de notificações {#managing-notification-subscription-statuses}
 
-Para configurar uma inscrição para seus usuários (seja e-mail ou push), você pode definir os seguintes status de inscrição como propriedades do `IAppboyUser`. Os status de inscrição na Braze têm três estados diferentes para e-mail e push:
+Para configurar uma inscrição para seus usuários (e-mail ou push), você pode definir os seguintes status de inscrição como propriedades de `IAppboyUser`. Os status de inscrição na Braze possuem três estados diferentes tanto para e-mail quanto para push:
 
 | Status de inscrição | Definição |
 | ------------------- | ---------- |
 | `OptedIn` | Inscrito e com aceitação explícita |
 | `Subscribed` | Inscrito, mas sem aceitação explícita |
-| `UnSubscribed` | Cancelamento da inscrição e/ou recusa explícita |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Managing notification subscription statuses" }
+| `UnSubscribed` | Inscrição cancelada e/ou com recusa explícita |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Gerenciando status de inscrição de notificações" }
 
 - `EmailNotificationSubscriptionType`
-  - Os usuários serão configurados para `Subscribed` automaticamente após o recebimento de um endereço de e-mail válido. No entanto, sugerimos que você estabeleça um processo de aceitação explícita e defina este valor para `OptedIn` após o recebimento do consentimento explícito do seu usuário.
+  - Os usuários serão definidos como `Subscribed` automaticamente ao receber um endereço de e-mail válido. No entanto, recomendamos que você estabeleça um processo explícito de aceitação e defina esse valor como `OptedIn` após receber o consentimento explícito do seu usuário.
 - `PushNotificationSubscriptionType`
-  - Os usuários serão configurados para `Subscribed` automaticamente após o registro válido de push. No entanto, sugerimos que você estabeleça um processo de aceitação explícita e defina este valor para `OptedIn` após o recebimento do consentimento explícito do seu usuário.
+  - Os usuários serão definidos como `Subscribed` automaticamente ao realizar um registro de push válido. No entanto, recomendamos que você estabeleça um processo explícito de aceitação e defina esse valor como `OptedIn` após receber o consentimento explícito do seu usuário.
 
->  Esses tipos se enquadram em `AppboyPlatform.PCL.Models.NotificationSubscriptionType`. Para saber mais, consulte [Gerenciar inscrições de usuários]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#managing-user-subscriptions).
+>  Esses tipos pertencem a `AppboyPlatform.PCL.Models.NotificationSubscriptionType`. Acesse [Gerenciando inscrições de usuários]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-states) para saber mais.

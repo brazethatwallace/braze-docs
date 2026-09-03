@@ -1,12 +1,11 @@
 ---
 nav_title: "POST: Mesclar usuários"
-article_title: "POST: Mesclar usuários"
+article_title: "Mesclar usuários"
 search_tag: Endpoint
 page_order: 6
 layout: api_page
 page_type: reference
 description: "Este artigo traz informações sobre o endpoint da Braze \"Mesclar usuários\"."
-
 ---
 {% api %}
 # Mesclar usuários {#merge-users}
@@ -22,7 +21,7 @@ Até 50 mesclagens podem ser especificadas por solicitação. Este endpoint é a
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/api_key) com a permissão `users.merge`.
+Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics) com a permissão `users.merge`.
 
 ## Limite de taxa {#rate-limit}
 

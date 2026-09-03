@@ -12,35 +12,35 @@ channel: email
 
 ## Empieza aquí: identifica tu síntoma {#start-here-match-your-symptom}
 
-Busca tu síntoma en la tabla para navegar a la sección correspondiente.
+Busca tu síntoma en la siguiente tabla para navegar a la sección correspondiente.
 
 | Síntoma | Ir a |
 | --- | --- |
-| El HTML del correo electrónico de prueba se ve mal | [El HTML se renderiza incorrectamente en los correos electrónicos de prueba](#html-renders-incorrectly-in-test-emails) |
+| El HTML del correo electrónico de prueba se ve mal | [El HTML se muestra incorrectamente en los correos electrónicos de prueba](#html-renders-incorrectly-in-test-emails) |
 | El editor se comporta de forma extraña en Chrome | [Conflictos de extensiones](#extension-conflicts) |
 | El correo electrónico se ve diferente en distintos clientes | [Renderizado de correo electrónico](#email-rendering) |
-| El correo electrónico muestra código Liquid o enlaces rotos | [HTML desequilibrado en plantillas Liquid](#unbalanced-html-in-liquid-templates) |
+| El correo electrónico muestra código Liquid o enlaces rotos | [HTML desbalanceado en plantillas Liquid](#unbalanced-html-in-liquid-templates) |
 | La vista previa de Inbox Vision no coincide con el correo electrónico enviado | [Inlining de CSS](#css-inlining) |
-| Espacios en blanco o líneas después de las imágenes en los correos electrónicos de prueba | [Espacio en blanco debajo de las imágenes](#white-space-under-images) |
+| Espacios en blanco o líneas después de las imágenes en correos electrónicos de prueba | [Espacio en blanco debajo de las imágenes](#white-space-under-images) |
 | Los análisis de clics no incluyen parámetros de consulta | [Limitaciones de los análisis de clics en enlaces](#link-click-analytics-limitations) |
 | Los superíndices causan un espaciado de línea inconsistente | [Problemas de altura de línea con superíndices](#superscript-line-height-issues) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Síntoma de correo electrónico HTML" }
 
 ## Ruta de investigación estándar {#standard-investigation-path}
 
-Usa este flujo de trabajo cuando la representación del correo electrónico HTML o el comportamiento del editor no coincida con lo que esperas. Empieza en el paso 1.
+Usa este flujo de trabajo cuando el renderizado del correo electrónico HTML o el comportamiento del editor no coincida con lo que esperas. Empieza en el paso 1.
 
 1. Valida tu marcado HTML en el editor o en un validador externo.
-2. Envía un [correo electrónico de prueba]({{site.baseurl}}/developer_guide/platform_wide/sending_test_messages#sending-a-test-push-notification-or-in-app-messages-a-classmargin-fix-namepush-inapp-testa) y anota qué clientes de correo electrónico o navegadores muestran el problema.
-3. Previsualiza con [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision) para comparar la representación en distintos clientes.
-4. Descarta [conflictos con extensiones del navegador](#extension-conflicts) si el propio editor se comporta de forma inesperada.
-5. Si el problema persiste, abre un [ticket de soporte]({{site.baseurl}}/braze_support) con capturas de pantalla de Inbox Vision y los clientes afectados.
+2. Envía un [correo electrónico de prueba]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages) y anota qué clientes de correo electrónico o navegadores muestran el problema.
+3. Previsualiza con [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision) para comparar el renderizado entre clientes.
+4. Descarta [conflictos con extensiones del navegador](#extension-conflicts) si el propio editor se comporta de forma incorrecta.
+5. Si el problema persiste, abre un [ticket de soporte]({{site.baseurl}}/user_guide/administer/personal/braze_support) con capturas de pantalla de Inbox Vision y los clientes afectados.
 
 ## El HTML se renderiza incorrectamente en los correos electrónicos de prueba {#html-renders-incorrectly-in-test-emails}
 
 ### Síntoma {#symptom}
 
-Un [correo electrónico de prueba]({{site.baseurl}}/developer_guide/platform_wide/sending_test_messages#sending-a-test-push-notification-or-in-app-messages-a-classmargin-fix-namepush-inapp-testa) no se ve como esperas desde el editor.
+Un [correo electrónico de prueba]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages) no se ve como esperas desde el editor.
 
 Revisa primero tu configuración HTML y después consulta [conflictos de extensiones](#extension-conflicts), [renderizado de correo electrónico](#email-rendering), [inlining de CSS](#css-inlining) y [espacio en blanco debajo de las imágenes](#white-space-under-images).
 
@@ -73,7 +73,7 @@ Braze utiliza un analizador HTML interno para preparar los correos electrónicos
 - Espaciado extraño por etiquetas `<p>` añadidas al cuerpo del correo electrónico
 - Contenido de la etiqueta `<head>` movido al preencabezado
 - Renderizado inconsistente entre sistemas operativos móviles
-- Código específico de AMP eliminado de los cuerpos de correo electrónico AMP, lo que causa fallos de validación
+- Código específico de páginas móviles aceleradas eliminado de los cuerpos de correo electrónico páginas móviles aceleradas, lo que causa fallos de validación
 - Enlaces rotos cuando se utilizan muchos parámetros de consulta o media queries diferentes
 
 #### Balancear HTML dentro de bloques Liquid {#balance-html-within-liquid-blocks}
@@ -163,7 +163,7 @@ Este comportamiento evita que los análisis se inflen con miles de combinaciones
 
 Si dependes de parámetros de consulta únicos para realizar el seguimiento del comportamiento específico de los usuarios en plataformas externas (por ejemplo, `https://example.com?user_id=USER_ID`), ten en cuenta que los análisis de clics de Braze solo conservarán esos parámetros para los primeros 100 enlaces únicos en los que se haga clic. Después de ese umbral, los clics siguen registrándose en tus análisis, pero se atribuyen a la URL sin parámetros.
 
-Los datos de clics a nivel de usuario siguen disponibles a través de [Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents) o el [registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log), independientemente de cuántos enlaces parametrizados únicos se hayan clicado.
+Los datos de clics a nivel de usuario siguen disponibles a través de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) o el [registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log), independientemente de cuántos enlaces parametrizados únicos se hayan clicado.
 
 ### Problemas de altura de línea con superíndices {#superscript-line-height-issues}
 

@@ -31,7 +31,7 @@ Es gibt zwei Methoden zur Konfiguration der SDK-Verbindung in Pilot: Demo-QR-Cod
 
 ### Methode 1: Demo-QR-Codes {#method-1-demo-qr-codes}
 
-Scannen Sie einen QR-Code, der alle erforderlichen Details zur Initialisierung des SDK enthält, Ihr Nutzerprofil erstellt und Sie per Deeplink zu einer bestimmten App-Simulation in Braze Pilot weiterleitet. Demo-QR-Codes werden in der Begleitleiste für bestimmte Demo-Kampagnen in Ihrer kostenlosen Demo angezeigt.
+Scannen Sie einen QR-Code, der alle erforderlichen Details zur Initialisierung des SDK enthält, Ihr Kundenprofil erstellt und Sie per Deeplink zu einer bestimmten App-Simulation in Braze Pilot weiterleitet. Demo-QR-Codes werden in der Begleitleiste für bestimmte Demo-Kampagnen in Ihrer kostenlosen Demo angezeigt.
 
 | Pilot für Android | Pilot für iOS |
 | --- | --- |

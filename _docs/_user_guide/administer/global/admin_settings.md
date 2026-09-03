@@ -4,10 +4,10 @@ article_title: Admin settings
 page_order: 3
 layout: dev_guide
 guide_top_header: "Admin settings"
-guide_top_text: "Admin settings apply across your entire company and affect all workspaces and users. Use these settings to manage company contact information, configure notification preferences, and enforce security policies such as authentication rules and IP allowlisting.<br><br>To manage these settings, go to <b>Settings</b> > <b>Admin Settings</b>. Most features are only available to Braze account administrators. For workspace-specific configuration, see <a href='/docs/user_guide/administer/global/workspace_settings'>Workspace settings</a>."
+guide_top_text: "Admin settings apply across your entire company and affect all workspaces and users. Use these settings to manage company contact information, configure notification preferences, enforce security policies such as authentication rules and IP allowlisting, and control OAuth access for the Braze MCP server.<br><br>To manage these settings, go to <b>Settings</b> > <b>Admin Settings</b>. Most features are only available to Braze account administrators. For workspace-specific configuration, see <a href='/docs/user_guide/administer/global/workspace_settings'>Workspace settings</a>."
 
 page_type: landing
-description: "Manage company-wide admin settings that apply across all workspaces, including contact information, notification preferences, and security policies."
+description: "Manage company-wide admin settings that apply across all workspaces, including contact information, notification preferences, security policies, and OAuth access."
 
 guide_featured_title: "Topics"
 guide_featured_list:
@@ -23,6 +23,9 @@ guide_featured_list:
 - name: Workspace time zones
   link: /docs/user_guide/administer/global/admin_settings/workspace_time_zone
   image: /assets/img/braze_icons/user-circle.svg
+- name: OAuth settings
+  link: /docs/user_guide/administer/global/admin_settings/oauth_admin
+  image: /assets/img/braze_icons/lock-04.svg
 - name: SCIM provisioning
   link: /docs/user_guide/administer/global/user_management/automated_user_provisioning
   image: /assets/img/braze_icons/users-01.svg

@@ -38,7 +38,7 @@ If your page exceeds these size limits, you'll receive an email that it may be u
 
 To prevent your page from exceeding size limits or experiencing slow load times, make sure to use Liquid personalization that:
 
-- Doesn't continuously loops through or references large data sets.
+- Doesn't continuously loop through or reference large data sets.
 - Doesn't rely on extensive mathematical or conditional logic within the Liquid block.
 
 Additionally, avoid embedding large scripts, stylesheets, and base64-encoded assets directly in your landing page code. These inline assets count toward the page size limit and can slow down rendering. Instead, upload fonts, images, stylesheets, and scripts to the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). Assets served from the media library are hosted on Braze's CDN, so they do not get processed for Liquid rendering and do not count toward the page size limit.
@@ -74,6 +74,10 @@ If a user forwards a landing page link (from an email, SMS, or other message) to
 ## Fetching external data with custom code
 
 You can use a **Custom Code** block to fetch data from external endpoints and display it in your landing page. This approach makes the request on the client side (in the user's browser), so the page loads quickly without server-side rendering delays.
+
+{% alert tip %}
+For other advanced uses of the **Custom Code** block, see [JavaScript bridge for landing pages]({{site.baseurl}}/user_guide/messaging/landing_pages/javascript_bridge) and [Create custom form blocks]({{site.baseurl}}/user_guide/messaging/landing_pages/custom_form_blocks).
+{% endalert %}
 
 {% alert warning %}
 When fetching external data, you are responsible for the security of your implementation. External identifiers used in API calls should be UUIDs or use an equivalently secure naming scheme, see [User ID naming best practices]({{site.baseurl}}/developer_guide/analytics/setting_user_ids#naming-best-practices).

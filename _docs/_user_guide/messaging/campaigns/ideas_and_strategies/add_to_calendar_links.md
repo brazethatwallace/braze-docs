@@ -86,7 +86,7 @@ When clicked, Google Calendar opens in a new tab or window with the event's deta
 
 ### iCal or Outlook
 
-When clicked on desktop, an ICS file is downloaded. The user then needs to open the ICS file, which opens iCal or Outlook and prompts the user to add the event to their calendar.
+When clicked on desktop, an ICS file is downloaded to your browser's default download location (typically the **Downloads** folder). The user then needs to open the ICS file, which opens iCal or Outlook and prompts the user to add the event to their calendar.
 
 ![iCal calendar with a dialog for adding a new event, which prompts the user to select a calendar and confirm.]({% image_buster /assets/img_archive/calendar_3.png %}){: style="max-width:75%"}
 
@@ -95,7 +95,7 @@ When clicked on desktop, an ICS file is downloaded. The user then needs to open 
 On mobile, behavior depends on the device and email app.
 
 {% alert note %}
-On iPhone, the Mail app and Microsoft Outlook download the ICS file when users tap the iCal link, but those apps do not open Calendar from the link. To add the event, open the downloaded file from **Files**, **Downloads**, or the attachment view (depending on the app), then complete the steps in Calendar.
+On iPhone, the Mail app and Microsoft Outlook download the ICS file to the device when users tap the iCal link, but those apps do not open Calendar from the link. To add the event, open the downloaded file from **Files**, **Downloads**, or the attachment view (depending on the app), then complete the steps in Calendar. The specific location depends on the email app and iOS settings.
 {% endalert %}
 
 In some other mobile email apps or browsers, pressing and holding the link can show an option to add the event to a calendar.

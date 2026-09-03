@@ -197,7 +197,7 @@ NPSの場合、SurvicateはNPS®の質問の回答グループに基づいてマ
 ### Brazeコンタクトのプロファイルにイベントを送信する {#sending-events-to-braze-contacts-profiles}
 
 これまでの設定とは別に、回答者がアンケートの質問に回答するたびに、Survicateは`survicate-question-answered`というカスタムイベントをBrazeに送信できます。
-Survicateパネルの「Send responses as custom attributes」で、すべての質問に対してイベントを送信するか、「Update fields」タブで選択した質問に対してイベントを送信するか、またはまったく送信しないかを選択できます：
+Survicateパネルの「Send responses as カスタム属性」で、すべての質問に対してイベントを送信するか、「Update fields」タブで選択した質問に対してイベントを送信するか、またはまったく送信しないかを選択できます：
 
 ![すべての質問に対してイベントを送信するかどうかを選択できる]({% image_buster /assets/img/survicate/survicate_22.png %})
 

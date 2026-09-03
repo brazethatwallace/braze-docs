@@ -11,9 +11,9 @@ hidden: true
 ---
 # Windowsオブジェクト仕様 {#windows-object-specification}
 
-`windows_phone8_push`および`windows_universal_push`オブジェクトは、[メッセージングエンドポイント]({{site.baseurl}}/api/endpoints/messaging/)を介して、Windows Phone 8 PushおよびWindows Universal Pushコンテンツに関連する情報を定義または要求するために使用されます。
+`windows_phone8_push`および`windows_universal_push`オブジェクトは、[メッセージングエンドポイント]({{site.baseurl}}/api/endpoints/messaging)を介して、Windows Phone 8 PushおよびWindows Universal Pushコンテンツに関連する情報を定義または要求するために使用されます。
 
-## Windows Phone 8プッシュオブジェクト {#windows-phone-8-push-object}
+## Windows Phone 8 プッシュオブジェクト {#windows-phone-8-push-object}
 
 ```json
 {
@@ -26,7 +26,7 @@ hidden: true
 }
 ```
 
-## Windowsユニバーサルプッシュオブジェクト {#windows-universal-push-object}
+## Windows Universalプッシュオブジェクト {#windows-universal-push-object}
 
 `push_type`のオプションの詳細については、Windows Universalの[トーストテンプレートカタログ](https://msdn.microsoft.com/en-us/library/windows/apps/hh761494.aspx)を参照してください。
 
@@ -42,4 +42,4 @@ hidden: true
 }
 ```
 
-[ディープリンク]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking)に`extra_launch_string`パラメーターを使用する方法の詳細については、[Windows Universalでのディープリンク]({{site.baseurl}}/developer_guide/platform_integration_guides/windows_universal/push_notifications/integration/#step-4-deep-linking-from-push-into-your-app)を参照してください。
+`extra_launch_string`パラメーターを使用した[ディープリンク]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking)の詳細については、[Windows Universalでのディープリンク]({{site.baseurl}}/hidden/archive_docs/windows_universal/push_notifications#step-5-deep-linking-from-push-into-your-app)を参照してください。

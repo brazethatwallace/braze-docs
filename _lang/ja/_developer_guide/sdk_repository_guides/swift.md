@@ -66,7 +66,7 @@ visionOS|1.0+
 Xcode|26.0+ (17A324)
 
 ## パッケージマネージャー {#package-managers}
-- Swift Package Manager
+- Swift Package マネージャー
 - CocoaPods
 
 ## ライブラリ {#libraries}

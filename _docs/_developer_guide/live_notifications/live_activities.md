@@ -1,6 +1,6 @@
 ---
 nav_title: Live activities for Swift
-article_title: Live Activities for the Swift Braze SDK
+article_title: "Live Activities for Swift"
 page_order: 0.2
 description: "Learn how to set up Live Activities for the Swift Braze SDK."
 platform:
@@ -314,7 +314,7 @@ When a Live Activity is active, it is shown on both a user's lock screen and Dyn
 To improve reliability when ending a Live Activity, take the following optional steps:
 
 1. Optionally include `dismissal_date` in that same `update` request to suggest when iOS should remove the Live Activity UI.
-2. Verify delivery outcomes in the [Message Activity Log]({{site.baseurl}}/user_guide/administrative/app_settings/message_activity_log_tab).
+2. Verify delivery outcomes in the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log).
 
 #### Arranging automatic dismissal
 
@@ -338,10 +338,10 @@ See our [`/messages/live_activity/update` endpoint]({{site.baseurl}}/api/endpoin
 
 Live Activity events are available in Currents, Snowflake Data Sharing, and Query Builder. The following events can help you understand and monitor the lifecycle of your Live Activities, track token availability, and independently diagnose issues or verify delivery statuses.
 
-- [Live Activity Push To Start Token Change]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/customer_behavior_events#live-activity-push-to-start-token-change-events): Captures when a push-to-start (PTS) token is added or updated in Braze, enabling you to track token registrations and availability per user.
-- [Live Activity Update Token Change]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/customer_behavior_events#live-activity-update-token-change-events): Tracks the addition, update, or removal of Live Activity Update (LAU) tokens.
-- [Live Activity Send]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events#live-activity-send-events): Logs each time a Live Activity is started, updated, or ended by Braze.
-- [Live Activity Outcome]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events#live-activity-outcome-events): Indicates the final delivery status to Apple Push Notification service (APNs) for every Live Activity sent from Braze.
+- [Live Activity Push To Start Token Change]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events): Captures when a push-to-start (PTS) token is added or updated in Braze, enabling you to track token registrations and availability per user.
+- [Live Activity Update Token Change]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events): Tracks the addition, update, or removal of Live Activity Update (LAU) tokens.
+- [Live Activity Send]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events): Logs each time a Live Activity is started, updated, or ended by Braze.
+- [Live Activity Outcome]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events): Indicates the final delivery status to Apple Push Notification service (APNs) for every Live Activity sent from Braze.
 
 ## Verify Live Activity sends
 
@@ -643,9 +643,11 @@ func findActivityInstance<Attributes: ActivityAttributes>(
 
 Currently, Live Activities are a feature specific to iOS and iPadOS. By default, activities launched on an iPhone or iPad are additionally displayed on any paired watchOS 11+ or macOS 26+ device.
 
+Braze does not currently provide native Live Activities support on Android. For Android, you can build live-update experiences through Braze push notifications and custom notification rendering.
+
 ![A screenshot of a macOS menu bar displaying a Live Activity as an alert.]({% image_buster /assets/img/live-activity-macos.png %}){: style="max-width:60%;"}
 
-The Live Activities article covers the [prerequisites]({{site.baseurl}}/developer_guide/platforms/swift/live_activities#prerequisites) for managing Live Activities through the Braze Swift SDK.
+The Live Activities article covers the [prerequisites]({{site.baseurl}}/developer_guide/live_notifications/live_activities#implementing-a-live-activity) for managing Live Activities through the Braze Swift SDK.
 
 #### Do React Native apps support Live Activities?
 
@@ -689,7 +691,7 @@ To verify that your push-to-start notification successfully arrived at the devic
 
 #### After starting my Live Activity with push-to-start, why isn't it receiving new updates?
 
-Verify that you have correctly implemented the instructions described in [Swift BrazeActivityAttributes setup](#swift_brazeActivityAttributes). Your `ActivityAttributes` should contain both the `BrazeLiveActivityAttributes` protocol conformance and the `brazeActivityId` property.
+Verify that you have correctly implemented the instructions in [Step 2.2: Add the BrazeLiveActivityAttributes protocol](#swift_brazeActivityAttributes). Your `ActivityAttributes` should contain both the `BrazeLiveActivityAttributes` protocol conformance and the `brazeActivityId` property.
 
 After receiving a Live Activity push-to-start notification, double-check that you can see an outgoing network request to the `/push_token_tag` endpoint of your Braze URL and that it contains the correct activity ID under the `"tag"` field.
 

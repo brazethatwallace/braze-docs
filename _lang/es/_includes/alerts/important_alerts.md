@@ -9,7 +9,7 @@ Las ventanas de navegación privada no admiten notificaciones push web.
 {% if include.alert == 'BCC address billable emails' %}
 
 {% alert important %}
-Añadir una dirección BCC a tu Campaign o Canvas hace que se dupliquen los correos electrónicos facturables para la Campaign o el componente de Canvas, ya que Braze envía un mensaje a tu usuario y otro a tu dirección BCC.
+Añadir una dirección tarjeta de contenido de banner a tu Campaign o Canvas hace que se dupliquen los correos electrónicos facturables para la Campaign o el componente de Canvas, ya que Braze envía un mensaje a tu usuario y otro a tu dirección tarjeta de contenido de banner.
 {% endalert %}
 
 {% endif %}
@@ -53,7 +53,7 @@ Hay ciertos navegadores, como las aplicaciones Naver para Android e iOS, que no 
 {% if include.alert == 'Purchase event deprecation' %}
 
 {% alert important %}
-El evento de compra heredado está entrando en modo de mantenimiento. Los clientes existentes de Braze pueden seguir utilizando los eventos de compra heredados. Seguirán funcionando como se espera, pero las nuevas funcionalidades se desarrollarán sobre los eventos recomendados de comercio electrónico en adelante. Braze proporcionará un aviso previo con suficiente antelación antes de que se establezca cualquier fecha de fin de vida. Los nuevos clientes de Braze deben utilizar los [eventos recomendados de comercio electrónico]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events), ya que los eventos de compra heredados no estarán disponibles.
+El evento de compra heredado está entrando en modo de mantenimiento. Los clientes existentes de Braze pueden seguir utilizando los eventos de compra heredados. Seguirán funcionando como se espera, pero las nuevas funcionalidades se desarrollarán sobre los eventos recomendados de comercio electrónico en adelante. Braze proporcionará un aviso previo con suficiente antelación antes de que se establezca cualquier fecha de fin de vida. Los nuevos clientes de Braze deben utilizar los [eventos recomendados de comercio electrónico]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events), ya que los eventos de compra heredados no estarán disponibles.
 {% endalert %}
 
 {% endif %}
@@ -61,7 +61,7 @@ El evento de compra heredado está entrando en modo de mantenimiento. Los client
 {% if include.alert == 'Purchase event deprecation for eCommerce filters' %}
 
 {% alert important %}
-El evento de compra heredado entrará en un estado obsoleto (modo de mantenimiento). Los eventos de compra seguirán funcionando como se espera, pero no se desarrollarán nuevas funcionalidades netas sobre ellos, en favor de los [eventos recomendados de comercio electrónico]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events). Cuando esto ocurra, los filtros de segmento ya no aparecerán en el comportamiento de compra.<br><br> Si actualmente utilizas eventos de compra, recibirás un aviso previo sobre los planes de eliminación gradual. Por ahora, puedes seguir utilizando los eventos de compra hasta la fecha oficial de obsolescencia. Para más información, consulta el [resumen de eventos recomendados]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events).
+El evento de compra heredado entrará en un estado obsoleto (modo de mantenimiento). Los eventos de compra seguirán funcionando como se espera, pero no se desarrollarán nuevas funcionalidades netas sobre ellos, en favor de los [eventos recomendados de comercio electrónico]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events). Cuando esto ocurra, los filtros de segmento ya no aparecerán en el comportamiento de compra.<br><br> Si actualmente utilizas eventos de compra, recibirás un aviso previo sobre los planes de eliminación gradual. Por ahora, puedes seguir utilizando los eventos de compra hasta la fecha oficial de obsolescencia. Para más información, consulta el [resumen de eventos recomendados]({{site.baseurl}}/user_guide/data/activation/events/recommended_events).
 {% endalert %}
 
 {% endif %}
@@ -93,7 +93,7 @@ Las propiedades de entrada de Canvas forman parte de las variables de contexto d
 {% if include.alert == 'Braze Agents' %}
 
 {% alert important %}
-Este partner aparece en tu página de **Partners tecnológicos** solo si tienes habilitados los [agentes de Braze]({{site.baseurl}}/user_guide/brazeai/agents). Para obtener ayuda para empezar, ponte en contacto con tu administrador de éxito de cliente.
+Este partner aparece en tu página de **Partners tecnológicos** solo si tienes habilitados los [agentes de Braze]({{site.baseurl}}/user_guide/brazeai/agents). Para obtener ayuda para empezar, ponte en contacto con tu CSM.
 {% endalert %}
 
 {% endif %}

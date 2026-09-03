@@ -5,7 +5,6 @@ description: "This reference article outlines the integration between Braze and 
 alias: /partners/facebook_via_zapier/
 page_type: partner
 search_tag: Partner
-
 ---
 
 # Facebook Lead Ads via Zapier integration
@@ -152,7 +151,7 @@ To use this integration, you must have a <a href="https://zapier.com/app/pricing
 {% enddetails %}
 
 {% details Why am I seeing duplicate user profiles with the same email? %}
-There are unique ways of creating and managing user profiles in Braze based on their [user profile lifecycle]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-profile-lifecycle).
+There are unique ways of creating and managing user profiles in Braze based on their [user profile lifecycle]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle).
 
 Depending on your internal processes and when you are triggering customers to be created within Braze, you may encounter duplicate user profiles due to a race condition of the user profile being created by the integration and when the user is created from your system. You can [merge user profiles]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/) in Braze.
 {% enddetails %}

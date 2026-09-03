@@ -26,7 +26,7 @@ tool: Canvas
 {: start="4"}
 4. 新しいキャンバスの名前を入力し、**キャンバスフローに複製**をクリックします。
 
-![Content Cardのモーダル配置の例。]({% image_buster /assets/img_archive/clone_to_v2_modal.png %}){: style="max-width:70%;"}
+![Content カードのモーダル配置の例。]({% image_buster /assets/img_archive/clone_to_v2_modal.png %}){: style="max-width:70%;"}
 
 これで、キャンバスの2つのバージョンが作成されました。オリジナルのキャンバスとキャンバスフローバージョンです。オリジナルのキャンバスは元のステータスのままで、複製されたキャンバスは**下書き**ステータスになります。引き続きオリジナルのキャンバスにアクセスできますが、Brazeではキャンバスフローワークフローを使用してキャンバスの構築を続けることを推奨しています。
 

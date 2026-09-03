@@ -2,7 +2,7 @@
 
 ## Androidでのグーグルタグマネージャの使用
 
-次の例では、音楽ストリーミングアプリは、ユーザーが曲を聴くときに別のイベントを記録したいと考えています。Google タグ Manager for Android を使用すると、どのサードパーティベンダがこのイベントを受信するかをコントロールし、Brazeに固有のBrazeを作成できます。
+次の例では、音楽ストリーミングアプリは、ユーザーが曲を聴くときに別のイベントを記録したいと考えています。Google タグ マネージャー for Android を使用すると、どのサードパーティベンダがこのイベントを受信するかをコントロールし、Brazeに固有のBrazeを作成できます。
 
 ### ステップ 1: カスタムイベント s のトリガーの作成
 
@@ -24,7 +24,7 @@
 
 また、追加のキーと値のペア引数をタグに含めることもできます。この引数は、カスタムイベントプロパティとして Braze に送信されます。`eventName` および `actionType` は、カスタムイベントプロパティで無視されません。次のサンプルタグでは、`genre` が渡され、Google タグマネージャでアプリにログインしたカスタムイベントから取得される変数を使用して定義されます。
 
-Google Tag Manager for Android はFirebase をデータレイヤーとして使用するため、`genre` イベントプロパティは"Firebase - Event Parameter" 変数としてGoogle Tag Manager に送信されます。
+Google Tag マネージャー for Android はFirebase をデータレイヤーとして使用するため、`genre` イベントプロパティは"Firebase - Event Parameter" 変数としてGoogle Tag マネージャー に送信されます。
 
 ![Google Tag Managerの変数で、「Braze - Played Song Event」タグのイベントパラメータとして「genre」が追加されます。]({% image_buster /assets/img/android_google_tag_manager/gtm_android_eventname_variable.png %})
 

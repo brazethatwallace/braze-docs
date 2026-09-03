@@ -17,7 +17,7 @@ tool:
 
 ## Übersicht {#overview}
 
-Wenn ein Nutzerprofil in Braze erstellt wird, wird dieser Person automatisch eine zufällige Bucket-Nummer zwischen 0 und 9999 (einschließlich) zugewiesen. Sie können diese Segmente verwenden, um die Effektivität mehrerer Campaigns oder Canvases bei Gruppen von Nutzer:innen im Laufe der Zeit zu testen.
+Wenn ein Kundenprofil in Braze erstellt wird, wird dieser Person automatisch eine zufällige Bucket-Nummer zwischen 0 und 9999 (einschließlich) zugewiesen. Sie können diese Segmente verwenden, um die Effektivität mehrerer Campaigns oder Canvases bei Gruppen von Nutzer:innen im Laufe der Zeit zu testen.
 
 ### Verwendung der globalen Kontrollgruppe {#global-control-group-usage}
 

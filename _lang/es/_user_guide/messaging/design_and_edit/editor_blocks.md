@@ -30,7 +30,7 @@ Los bloques de editor se encuentran en la sección **Contenido** para mensajes d
 Para más información sobre cómo crear correos electrónicos en el **editor de arrastrar y soltar**, consulta [Crear un correo electrónico con arrastrar y soltar]({{site.baseurl}}/user_guide/channels/email/drag_and_drop) y <a href="{{site.baseurl}}/user_guide/channels/email/drag_and_drop/#other-customizations">Otras personalizaciones</a> en ese artículo.
 
 {% alert tip %}
-También puedes añadir [atributos personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes) a cualquier URL dentro de los bloques de editor `Image`, `Button` o `Text`.
+También puedes añadir [atributos personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types) a cualquier URL dentro de los bloques de editor `Image`, `Button` o `Text`.
 {% endalert %}
 
 ### Título {#title}
@@ -306,7 +306,7 @@ Añade una lista de opciones de las cuales los usuarios pueden seleccionar una. 
 
 {% multi_lang_include drag_and_drop/editor_block_properties/radio_button_properties.md %}
 
-### Imagen {#image}
+### Imagen
 
 Inserta una imagen de la [biblioteca de medios]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library).
 
@@ -330,7 +330,7 @@ Inserta un hipervínculo en el que los usuarios pueden hacer clic para navegar a
 
 {% multi_lang_include drag_and_drop/editor_block_properties/link_actions.md %}
 
-### Espaciador {#spacer}
+### Espaciador
 
 Añade espacio o relleno entre otros bloques.
 
@@ -383,14 +383,14 @@ Los usuarios pueden seleccionar entre múltiples opciones. Los valores se establ
 
 ### Texto largo {#long-text}
 
-Campo de texto multilínea para flujos de tipo cuestionario. Si no ves este bloque, contacta con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) o tu administrador de éxito de cliente de Braze.
+Campo de texto multilínea para flujos de tipo cuestionario. Si no ves este bloque, contacta con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) o tu CSM de Braze.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 
 <!-- Saved row is not yet released. Uncomment when available.
 ### Fila guardada {#saved-row}
 
-Inserta una fila reutilizable que guardaste anteriormente como un Content Block de arrastrar y soltar. Las filas guardadas **no están vinculadas** al Content Block original — si el original se actualiza, necesitarás arrastrarlo al editor de nuevo para obtener la última versión. Para más información, consulta [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Si no ves **Fila guardada** en **Filas**, contacta con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) o tu administrador de éxito de cliente de Braze.
+Inserta una fila reutilizable que guardaste anteriormente como un Content Block de arrastrar y soltar. Las filas guardadas **no están vinculadas** al Content Block original — si el original se actualiza, necesitarás arrastrarlo al editor de nuevo para obtener la última versión. Para más información, consulta [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Si no ves **Fila guardada** en **Filas**, contacta con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) o tu CSM de Braze.
 -->
 
 ## Cosas que debes saber {#things-to-know}
@@ -462,7 +462,7 @@ Añade espaciado vertical entre elementos.
 
 ### Código personalizado
 
-Inserta HTML, CSS o JavaScript personalizado para personalización avanzada, como [Google Tag Manager]({{site.baseurl}}/user_guide/messaging/landing_pages#adding-google-tag-manager-to-a-landing-page).
+Inserta HTML, CSS o JavaScript personalizado para personalización avanzada, como [Google Tag Administrador]({{site.baseurl}}/user_guide/messaging/landing_pages#adding-google-tag-manager-to-a-landing-page).
 
 | Propiedad | Descripción |
 | --- | --- |
@@ -472,7 +472,7 @@ Inserta HTML, CSS o JavaScript personalizado para personalización avanzada, com
 <!-- Countdown timer is not yet released. Uncomment when available.
 ### Temporizador de cuenta regresiva {#countdown-timer}
 
-Muestra una cuenta regresiva hasta una fecha y hora que establezcas. Si no ves este bloque, contacta con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) o tu administrador de éxito de cliente de Braze.
+Muestra una cuenta regresiva hasta una fecha y hora que establezcas. Si no ves este bloque, contacta con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) o tu CSM de Braze.
 
 Después de añadir un bloque de **Temporizador de cuenta regresiva**, usa el panel de propiedades para establecer la fecha y hora objetivo, las etiquetas y el estilo.
 -->
@@ -513,16 +513,38 @@ Los usuarios eligen múltiples opciones; los valores se establecen o añaden a u
 
 {% multi_lang_include drag_and_drop/editor_block_properties/checkbox_group_properties.md %}
 
+### Gestionar suscripciones {#manage-subscriptions}
+
+Añade una lista de verificación de grupos de suscripción de [correo electrónico]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups#email-subscription-groups), [SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups#sms-subscription-states) o [WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-subscription-states) para que los visitantes puedan optar por suscribirse o gestionar sus suscripciones cuando envíen el formulario. Cada bloque es para un canal. Configúralo después de añadir grupos de suscripción al bloque. Este bloque no incluye grupos de suscripción de RCS.
+
+Para usuarios identificados que abren la página a través de la [etiqueta de Liquid]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) de la página de destino, el bloque rellena previamente cada casilla de verificación con el estado de suscripción actual del usuario, por lo que también puede servir como página de gestión de preferencias.
+
+Selecciona el bloque en el editor para:
+
+- Reordenar grupos de suscripción
+- Añadir o eliminar grupos de suscripción
+- Añadir o eliminar descripciones
+- Añadir o eliminar una casilla de verificación "Suscribirse a todos" que selecciona todos los grupos de suscripción del bloque
+
+| Propiedad | Descripción |
+| --- | --- |
+| Grupos de suscripción | Añade, elimina o reordena los grupos de suscripción que se muestran en el bloque. |
+| Incluir descripciones | Muestra la descripción de cada grupo de suscripción junto a su nombre. |
+| Casilla de verificación **Suscribirse a todos** | Añade una casilla de verificación que selecciona todos los grupos de suscripción del bloque. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Gestionar suscripciones" }
+
+Para el flujo de configuración completo, consulta [Bloque de gestión de suscripciones]({{site.baseurl}}/user_guide/messaging/landing_pages/manage_subscriptions).
+
 ### Texto largo
 
-Campo de texto multilínea para flujos de tipo cuestionario. Si no ves este bloque, contacta con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) o tu administrador de éxito de cliente de Braze. Este bloque no está disponible para páginas de destino estándar.
+Campo de texto multilínea para flujos de tipo cuestionario. Si no ves este bloque, contacta con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) o tu CSM de Braze. Este bloque no está disponible para páginas de destino estándar.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 
 <!-- Saved row is not yet released. Uncomment when available.
 ### Fila guardada
 
-Inserta una fila reutilizable que guardaste anteriormente como un Content Block de arrastrar y soltar. Las filas guardadas **no están vinculadas** al Content Block original — si el original se actualiza, necesitarás arrastrarlo al editor de nuevo para obtener la última versión. Para más información, consulta [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Si no ves **Fila guardada** en **Filas**, contacta con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) o tu administrador de éxito de cliente de Braze.
+Inserta una fila reutilizable que guardaste anteriormente como un Content Block de arrastrar y soltar. Las filas guardadas **no están vinculadas** al Content Block original — si el original se actualiza, necesitarás arrastrarlo al editor de nuevo para obtener la última versión. Para más información, consulta [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Si no ves **Fila guardada** en **Filas**, contacta con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) o tu CSM de Braze.
 -->
 
 ## Cosas que debes saber
@@ -609,14 +631,14 @@ Recopila una dirección de correo electrónico y la añade al perfil de Braze de
 
 ### Texto largo
 
-Campo de texto multilínea para flujos de tipo cuestionario. Si no ves este bloque, contacta con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) o tu administrador de éxito de cliente de Braze.
+Campo de texto multilínea para flujos de tipo cuestionario. Si no ves este bloque, contacta con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) o tu CSM de Braze.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 
 <!-- Saved row is not yet released. Uncomment when available.
 ### Fila guardada
 
-Inserta una fila reutilizable que guardaste anteriormente como un Content Block de arrastrar y soltar. Las filas guardadas **no están vinculadas** al Content Block original — si el original se actualiza, necesitarás arrastrarlo al editor de nuevo para obtener la última versión. Para más información, consulta [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Si no ves **Fila guardada** en **Filas**, contacta con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) o tu administrador de éxito de cliente de Braze.
+Inserta una fila reutilizable que guardaste anteriormente como un Content Block de arrastrar y soltar. Las filas guardadas **no están vinculadas** al Content Block original — si el original se actualiza, necesitarás arrastrarlo al editor de nuevo para obtener la última versión. Para más información, consulta [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Si no ves **Fila guardada** en **Filas**, contacta con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) o tu CSM de Braze.
 -->
 
 ## Cosas que debes saber
@@ -626,7 +648,7 @@ Inserta una fila reutilizable que guardaste anteriormente como un Content Block 
 
 {% endsdktab %}
 
-{% sdktab preference center %}
+{% sdktab centro de preferencias %}
 ## Bloques de editor del centro de preferencias {#preference-center-editor-blocks}
 
 Arrastra bloques desde la sección **Crear** a una fila en el editor de arrastrar y soltar del centro de preferencias. Cada bloque tiene su propia configuración; el panel del lado derecho cambia a propiedades o estilo para el elemento seleccionado.

@@ -20,66 +20,66 @@ LINE-Klick-Tracking kann für Text-, Rich- und kartenbasierte Nachrichten verwen
 
 ## Funktionsweise {#how-it-works}
 
-Sie können die Einstellungen für das LINE-Klick-Tracking im Tab **Einstellungen** verwalten, während Sie eine Nachricht verfassen. Wenn es aktiviert ist, werden URLs mit der Standard-Braze-Domain (`https://brz.ai`) oder der für die Abo-Gruppe angegebenen benutzerdefinierten Domain gekürzt und für die Nutzer:innen personalisiert.
+Sie können die Einstellungen für das LINE-Klick-Tracking im Tab **Einstellungen** verwalten, während Sie eine Nachricht erstellen. Wenn diese Option aktiviert ist, werden URLs mithilfe der Standard-Braze-Domain (`https://brz.ai`) oder der für die Abo-Gruppe angegebenen benutzerdefinierten Domain gekürzt und für die Nutzer:innen personalisiert.
 
-Alle URLs, die mit `http://` oder `https://` beginnen, werden gekürzt. Sie können bis zu 25 URLs in einer Nachricht verwenden. Gekürzte URLs, die Liquid-Personalisierung enthalten (wie nutzerspezifisches Tracking oder UTM-Parameter), sind zwei Monate lang gültig.
+Alle URLs, die mit `http://` oder `https://` beginnen, werden gekürzt. Sie können bis zu 25 URLs in einer Nachricht verwenden. Gekürzte URLs, die Liquid-Personalisierung enthalten (z. B. Tracking auf Nutzerebene oder UTM-Parameter), sind zwei Monate lang gültig.
 
 ## Klick-Tracking einrichten {#setting-up-click-tracking}
 
 ### Textnachrichten {#text-messages}
 
-So richten Sie das Klick-Tracking für eine Textnachricht ein:
+So richten Sie Klick-Tracking für eine Textnachricht ein:
 
 1. Ziehen Sie eine **Text**-Nachricht in den Editor und fügen Sie eine URL in das Textfeld ein.
 
-![LINE-Nachrichten-Editor mit einer Textnachricht, die eine lange URL enthält: {{site.baseurl}}/user_guide/channels/line/create/]({% image_buster /assets/img/line/click_tracking_text_message.png %})
+![LINE-Nachrichten-Editor mit einer Textnachricht, die vor der Kürzung eine lange URL enthält.]({% image_buster /assets/img/line/click_tracking_text_message.png %})
 
 {: start="2"}
-2. Gehen Sie zum Tab **Einstellungen** und bestätigen Sie, dass **Click Tracking** aktiviert ist. Klick-Tracking ist standardmäßig für alle neuen Nachrichten aktiviert.
+2. Gehen Sie zum Tab **Einstellungen** und bestätigen Sie, dass **Klick-Tracking** aktiviert ist. Klick-Tracking ist standardmäßig für alle neuen Nachrichten aktiviert.
 
 {% alert note %}
-Sie können Vorschauen des gekürzten Links im Tab **Einstellungen** oder **Vorschau & Test** anzeigen. Der vollständige Link wird im Editor angezeigt, während Sie Ihre Nachricht erstellen.
+Sie können eine Vorschau des gekürzten Links im Tab **Einstellungen** oder **Vorschau und Test** anzeigen. Der vollständige Link wird im Editor angezeigt, während Sie Ihre Nachricht erstellen.
 {% endalert %}
 
-![LINE-Nachrichten-Editor, Tab „Einstellungen“ mit aktiviertem „Click Tracking“ und einer Vorschau-Textnachricht mit gekürzter URL: https://olaf.brz.ai/p/9rcfdqdD]({% image_buster /assets/img/line/click_tracking_settings.png %})
+![Tab „Einstellungen“ im LINE-Nachrichten-Editor mit aktiviertem „Klick-Tracking“ und einer Vorschau-Textnachricht mit gekürzter URL: https://olaf.brz.ai/p/9rcfdqdD]({% image_buster /assets/img/line/click_tracking_settings.png %})
 
 ### Rich-Nachrichten {#rich-messages}
 
-So richten Sie das Klick-Tracking für eine Rich-Nachricht ein:
+So richten Sie Klick-Tracking für eine Rich-Nachricht ein:
 
-1. Ziehen Sie eine **Rich message** in den Editor und wählen Sie ein Template aus.
-2. Wählen Sie **URI** für das **On-click behavior** des entsprechenden tippbaren Bereichs.
-3. Geben Sie eine URL in das Feld **Open URL** ein.
+1. Ziehen Sie eine **Rich-Nachricht** in den Editor und wählen Sie ein Template aus.
+2. Wählen Sie **URI** als **Klickverhalten** für den entsprechenden tippbaren Bereich.
+3. Geben Sie eine URL in das Feld **URL öffnen** ein.
 
-![LINE-Nachrichten-Editor mit einer Rich-Nachricht mit zwei tippbaren Bereichen, die jeweils eine URL haben.]({% image_buster /assets/img/line/rich_message_click_tracking.png %})
+![LINE-Nachrichten-Editor mit einer Rich-Nachricht mit zwei tippbaren Bereichen, die jeweils eine URL enthalten.]({% image_buster /assets/img/line/rich_message_click_tracking.png %})
 
 {: start="4"}
-4. Gehen Sie zum Tab **Einstellungen** und bestätigen Sie, dass **Click Tracking** aktiviert ist. Klick-Tracking ist standardmäßig für alle neuen Nachrichten aktiviert.
+4. Gehen Sie zum Tab **Einstellungen** und bestätigen Sie, dass **Klick-Tracking** aktiviert ist. Klick-Tracking ist standardmäßig für alle neuen Nachrichten aktiviert.
 
 ### Kartenbasierte Nachrichten {#card-based-messages}
 
-So richten Sie das Klick-Tracking für eine kartenbasierte Nachricht ein:
+So richten Sie Klick-Tracking für eine kartenbasierte Nachricht ein:
 
-1. Ziehen Sie eine **Card-based message** in den Editor.
-2. Wählen Sie **URI** für das **On-click behavior** der entsprechenden Karten- oder Button-Bereiche.
+1. Ziehen Sie eine **Kartenbasierte Nachricht** in den Editor.
+2. Wählen Sie **URI** als **Klickverhalten** für die entsprechenden Karten- oder Button-Bereiche.
 
-![LINE-Nachrichten-Editor mit einer kartenbasierten Nachricht mit zwei Buttons, die jeweils eine URL haben.]({% image_buster /assets/img/line/card_based_message_click_tracking.png %})
+![LINE-Nachrichten-Editor mit einer kartenbasierten Nachricht mit zwei Buttons, die jeweils eine URL enthalten.]({% image_buster /assets/img/line/card_based_message_click_tracking.png %})
 
 {: start="3"}
-3. Gehen Sie zum Tab **Einstellungen** und bestätigen Sie, dass **Click Tracking** aktiviert ist. Klick-Tracking ist standardmäßig für alle neuen Nachrichten aktiviert.
+3. Gehen Sie zum Tab **Einstellungen** und bestätigen Sie, dass **Klick-Tracking** aktiviert ist. Klick-Tracking ist standardmäßig für alle neuen Nachrichten aktiviert.
 
 {% alert note %}
-URLs in den Feldern **Title** oder **Description** werden nicht gekürzt, da diese Felder innerhalb von LINE nicht klickbar sind.
+URLs in den Feldern **Titel** oder **Beschreibung** werden nicht gekürzt, da diese Felder in LINE nicht anklickbar sind.
 {% endalert %}
 
-## Benutzerdefinierte Domains {#custom-domains}
+## Angepasste Domains {#custom-domains}
 
-LINE-Klick-Tracking ermöglicht es Ihnen, Ihre eigene Domain zu verwenden, um das Erscheinungsbild Ihrer gekürzten URLs zu personalisieren und so ein einheitliches Markenbild zu vermitteln. Weitere Informationen finden Sie unter [Benutzerdefinierte Domains]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/custom_domains/).
+LINE-Klick-Tracking ermöglicht es Ihnen, Ihre eigene Domain zu verwenden, um das Erscheinungsbild Ihrer gekürzten URLs zu personalisieren und so ein einheitliches Markenbild zu vermitteln. Weitere Informationen finden Sie unter [Angepasste Domains]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/custom_domains).
 
 ## Liquid-Personalisierung in URLs {#liquid-personalization-in-urls}
 
-Sie können Ihre URL direkt im Braze-Editor dynamisch erstellen, sodass Sie dynamische UTM-Parameter zu Ihren URLs hinzufügen oder Nutzer:innen eindeutige Links senden können (z. B. Nutzer:innen zu ihrem abgebrochenen Warenkorb oder zu einem bestimmten Produkt weiterleiten, das wieder auf Lager ist).
-URLs können durch die Verwendung aller unterstützten Liquid-Personalisierungs-Tags dynamisch generiert werden.
+Sie können Ihre URL direkt im Braze-Nachrichten-Editor dynamisch erstellen, sodass Sie dynamische UTM-Parameter zu Ihren URLs hinzufügen oder Nutzer:innen eindeutige Links senden können (z. B. um Nutzer:innen zu ihrem verlassenen Warenkorb oder zu einem bestimmten Produkt weiterzuleiten, das wieder auf Lager ist).
+Sie können URLs dynamisch generieren, indem Sie beliebige unterstützte Liquid-Personalisierungs-Tags verwenden.
 
 {% raw %}
 ```
@@ -87,7 +87,7 @@ https://example.com/?campaign_utm={{campaign.${api_id}}}&user_attribute={{custom
 ```
 {% endraw %}
 
-Sie können auch benutzerdefinierte Liquid-Variablen kürzen, wie im folgenden Beispiel gezeigt:
+Sie können auch angepasst definierte Liquid-Variablen kürzen, wie im folgenden Beispiel gezeigt:
 
 {% raw %}
 ```liquid
@@ -96,23 +96,23 @@ https://example.com/{{url_var}}
 ```
 {% endraw %}
 
-## Durch Liquid-Variablen gerenderte URLs kürzen {#shorten-urls-rendered-by-liquid-variables}
+## URLs kürzen, die durch Liquid-Variablen gerendert werden {#shorten-urls-rendered-by-liquid-variables}
 
-Braze kürzt URLs, die durch Liquid gerendert werden, auch solche, die in API-Trigger-Eigenschaften enthalten sind. Wenn beispielsweise {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} eine gültige URL darstellt, wird diese URL vor dem Senden der LINE-Nachricht gekürzt und getrackt.
+Braze kürzt URLs, die durch Liquid gerendert werden, auch solche, die in API-Trigger-Eigenschaften enthalten sind. Wenn z. B. {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} eine gültige URL darstellt, kürzen und tracken wir diese URL, bevor die LINE-Nachricht gesendet wird.
 
 ## Testen {#testing}
 
-Bevor Sie Ihre Kampagne oder Ihren Canvas starten, empfiehlt es sich, Ihre Nachricht zunächst in der Vorschau anzuzeigen und zu testen. Gehen Sie dazu zum Tab **Test**, um eine LINE-Nachricht an Inhaltstestgruppen oder einzelne Nutzer:innen in der Vorschau anzuzeigen und zu senden.
+Bevor Sie Ihre Campaign oder Ihren Canvas starten, sollten Sie Ihre Nachricht zunächst in der Vorschau anzeigen und testen. Gehen Sie dazu auf den Tab **Test**, um eine LINE-Nachricht in der Vorschau anzuzeigen und an Content-Testgruppen oder einzelne Nutzer:innen zu senden.
 
-Diese Vorschau wird mit der relevanten Personalisierung und der gekürzten URL aktualisiert.
+Diese Vorschau wird mit relevanter Personalisierung und der gekürzten URL aktualisiert.
 
 {% alert important %}
 Wenn ein Entwurf innerhalb eines aktiven Canvas erstellt wird, wird keine gekürzte URL generiert. Die tatsächliche gekürzte URL wird generiert, wenn der Canvas-Entwurf aktiviert wird.
 {% endalert %}
 
-## Berichte und Auswertung {#reporting}
+## Reporting {#reporting}
 
-Die LINE-Performance-Tabelle enthält die Spalte **Total Clicks**, die eine Anzahl der Klick-Ereignisse pro Variante und eine zugehörige Klickrate anzeigt. Weitere Details zu LINE-Metriken finden Sie unter [LINE-Nachrichten-Performance]({{site.baseurl}}/user_guide/channels/line/reporting/).
+Die LINE-Performance-Tabelle enthält die Spalte **Klicks insgesamt**, die eine Anzahl der Klick-Ereignisse pro Variante und eine zugehörige Klickrate anzeigt. Weitere Details zu LINE-Metriken finden Sie unter [LINE-Nachrichten-Performance]({{site.baseurl}}/user_guide/channels/line/reporting).
 
 ![Performance für einen LINE-Canvas-Schritt.]({% image_buster /assets/img/line/line_step_performance.png %}){: style="max-width:30%;"}
 
@@ -128,7 +128,7 @@ Sie können Nutzer:innen, die auf eine URL in einer LINE-Nachricht geklickt habe
     - Mit Campaign interagieren
     - Mit Schritt interagieren
 
-![Aktionsbasierter LINE-Zustellungstrigger.]({% image_buster /assets/img/line/line_action_based.png %})
+![Aktionsbasierter Zustellungs-Trigger für LINE.]({% image_buster /assets/img/line/line_action_based.png %})
 
 - Segmentierungsfilter
     - Campaign angeklickt/geöffnet
@@ -141,11 +141,11 @@ Sie können Nutzer:innen, die auf eine URL in einer LINE-Nachricht geklickt habe
 
 ### Sind die Links, die ich beim Testsenden erhalte, echte URLs? {#are-the-links-i-receive-when-test-sending-real-urls}
 
-Ja, beim Testsenden werden echte URLs generiert. Die genaue URL, die in einer gestarteten Kampagne gesendet wird, kann sich jedoch von der im Testsenden gesendeten URL unterscheiden.
+Ja, beim Testsenden werden echte URLs generiert. Die genaue URL, die in einer gestarteten Campaign gesendet wird, kann sich jedoch von der in einem Testsenden gesendeten unterscheiden.
 
 ### Kann ich UTM-Parameter zu einer URL hinzufügen, bevor sie gekürzt wird? {#can-i-add-utm-parameters-to-a-url-before-it-is-shortened}
 
-Ja, sowohl statische als auch dynamische Parameter können hinzugefügt werden.
+Ja, es können sowohl statische als auch dynamische Parameter hinzugefügt werden.
 
 ### Wie lange bleiben gekürzte URLs gültig? {#how-long-do-shortened-urls-remain-valid}
 
@@ -153,15 +153,15 @@ Personalisierte URLs sind ab dem Zeitpunkt der URL-Registrierung zwei Monate lan
 
 ### Muss das Braze SDK installiert sein, um URLs zu kürzen? {#does-the-braze-sdk-need-to-be-installed-in-order-to-shorten-urls}
 
-Nein, Klick-Tracking funktioniert ohne jegliche SDK-Integration.
+Nein, das Klick-Tracking funktioniert ohne jegliche SDK-Integration.
 
-### Weiß ich, welche einzelnen Nutzer:innen auf eine URL klicken? {#do-i-know-which-individual-users-are-clicking-on-a-url}
+### Kann ich sehen, welche einzelnen Nutzer:innen auf eine URL klicken? {#do-i-know-which-individual-users-are-clicking-on-a-url}
 
-Ja. Wenn Klick-Tracking aktiviert ist, können Sie Nutzer:innen, die auf URLs geklickt haben, mithilfe der [LINE-Retargeting-Filter](#retargeting-users) erneut ansprechen.
+Ja. Wenn das Klick-Tracking aktiviert ist, können Sie Nutzer:innen, die auf URLs geklickt haben, mithilfe der [LINE-Retargeting-Filter](#retargeting-users) erneut ansprechen.
 
-### Funktioniert Klick-Tracking mit Deeplinks oder Universal Links? {#does-click-tracking-work-with-deep-links-or-universal-links}
+### Funktioniert das Klick-Tracking mit Deeplinks oder Universal Links? {#does-click-tracking-work-with-deep-links-or-universal-links}
 
-Klick-Tracking funktioniert nicht mit Deeplinks. Sie können Universal Links von Anbietern wie Branch oder Appsflyer kürzen, aber Braze kann keine Probleme beheben, die dabei auftreten können (z. B. fehlerhafte Attribution oder fehlgeschlagene Weiterleitungen).
+Das Klick-Tracking funktioniert nicht mit Deeplinks. Sie können Universal Links von Anbietern wie Branch oder Appsflyer kürzen, aber Braze kann bei Problemen, die dabei auftreten können (z. B. fehlerhaftes Attribution-Tracking oder fehlgeschlagene Weiterleitungen), keine Unterstützung bieten.
 
 ### Zählen Vorschauen in der LINE-App als Klicks? {#do-previews-on-the-line-app-count-as-clicks}
 

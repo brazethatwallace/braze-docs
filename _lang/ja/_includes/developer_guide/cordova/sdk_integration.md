@@ -4,13 +4,13 @@
 
 開始する前に、お使いの環境が[最新のBraze Cordova SDKバージョン](https://github.com/braze-inc/braze-cordova-sdk?tab=readme-ov-file#minimum-version-requirements)でサポートされていることを確認してください。
 
-### ステップ1:プロジェクトにSDKを追加する {#step-1-add-the-sdk-to-your-project}
+### ステップ1：プロジェクトにSDKを追加する {#step-1-add-the-sdk-to-your-project}
 
 {% alert warning %}
 Braze Cordova SDKは、以下の方法でのみ追加してください。他の方法でインストールしようとすると、セキュリティ上の問題が発生する可能性があります。
 {% endalert %}
 
-Cordova 6以降をお使いの場合は、GitHubから直接SDKを追加できます。または、[GitHubリポジトリ](https://github.com/braze-inc/braze-cordova-sdk)のZIPをダウンロードして、SDKを手動で追加することもできます。
+Cordova 6以降をお使いの場合は、GitHubから直接SDKを追加できます。また、[GitHubリポジトリ](https://github.com/braze-inc/braze-cordova-sdk)のZIPをダウンロードして、手動でSDKを追加することもできます。
 
 {% tabs local %}
 {% tab ジオフェンス無効 %}
@@ -34,7 +34,7 @@ cordova plugin add https://github.com/braze-inc/braze-cordova-sdk#geofence-branc
 このステップを繰り返すことで、`master`と`geofence-branch`をいつでも切り替えることができます。
 {% endalert %}
 
-### ステップ2:プロジェクトを設定する {#step-2-configure-your-project}
+### ステップ2：プロジェクトを設定する {#step-2-configure-your-project}
 
 次に、プロジェクトの`config.xml`ファイルの`platform`要素に以下の設定を追加します。
 
@@ -56,11 +56,11 @@ cordova plugin add https://github.com/braze-inc/braze-cordova-sdk#geofence-branc
 
 以下の値を置き換えてください：
 
-| 値                    | 説明                                                                                                                             |
+| 値 | 説明 |
 | --------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `BRAZE_API_KEY`       | [Braze REST APIキー]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab#rest-api-keys)。                  |
-| `CUSTOM_API_ENDPOINT` | カスタムAPIエンドポイント。このエンドポイントは、Brazeインスタンスのデータを、Brazeダッシュボードの正しいアプリグループにルーティングするために使用されます。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ2:プロジェクトを設定する" }
+| `BRAZE_API_KEY` | [Braze REST APIキー]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab#rest-api-keys)。 |
+| `CUSTOM_API_ENDPOINT` | カスタムAPIエンドポイント。このエンドポイントは、Brazeインスタンスのデータをダッシュボード内の正しいアプリグループにルーティングするために使用されます。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ2：プロジェクトを設定する" }
 
 `config.xml`ファイルの`platform`要素は、以下のようになります：
 
@@ -86,13 +86,13 @@ cordova plugin add https://github.com/braze-inc/braze-cordova-sdk#geofence-branc
 
 ## プラットフォーム固有の構文 {#platform-specific-syntax}
 
-以下のセクションでは、CordovaをiOSまたはAndroidで使用する場合のプラットフォーム固有の構文について説明します。
+以下のセクションでは、CordovaをiOSまたはAndroidで使用する際のプラットフォーム固有の構文について説明します。
 
 ### 整数 {#integers}
 
 {% tabs %}
 {% tab ios %}
-整数のプリファレンスは、以下の例のように文字列表現として読み取られます。
+整数のプリファレンスは、次の例のように文字列表現として読み取られます。
 
 ```xml
 <platform name="ios">
@@ -103,7 +103,7 @@ cordova plugin add https://github.com/braze-inc/braze-cordova-sdk#geofence-branc
 {% endtab %}
 
 {% tab android %}
-Cordova 8.0.0以降のフレームワークがプリファレンスを処理する方法により、整数のみのプリファレンス（送信者IDなど）は、以下の例のように`str_`を先頭に付加した文字列として設定する必要があります。
+Cordova 8.0.0以降のフレームワークがプリファレンスを処理する方法に起因し、整数のみのプリファレンス（送信者IDなど）は、次の例のように `str_` を先頭に付加した文字列として設定する必要があります。
 
 ```xml
 <platform name="android">
@@ -118,7 +118,7 @@ Cordova 8.0.0以降のフレームワークがプリファレンスを処理す�
 
 {% tabs %}
 {% tab ios %}
-ブール値のプリファレンスは、以下の例のように`YES`および`NO`キーワードを文字列表現としてSDKによって読み取られます。
+ブール値のプリファレンスは、次の例のように `YES` および `NO` キーワードを文字列表現としてSDKに読み取られます。
 
 ```xml
 <platform name="ios">
@@ -129,7 +129,7 @@ Cordova 8.0.0以降のフレームワークがプリファレンスを処理す�
 {% endtab %}
 
 {% tab android %}
-ブール値のプリファレンスは、以下の例のように`true`および`false`キーワードを文字列表現としてSDKによって読み取られます。
+ブール値のプリファレンスは、次の例のように `true` および `false` キーワードを文字列表現としてSDKに読み取られます。
 
 ```xml
 <platform name="android">
@@ -284,9 +284,9 @@ Cordova 8.0.0以降のフレームワークがプリファレンスを処理す�
 
 ## ヘッドアップ通知用の通知チャネルの設定（Androidのみ） {#configuring-notification-channels-for-heads-up-notifications-android-only}
 
-Android 8.0（APIレベル26）以降では、通知の動作は通知チャネルによって制御されます。ヘッドアップ通知（ユーザーがデバイスを使用中に画面上部に短時間表示されるアラート）を表示するには、Androidアプリケーションコードで`NotificationManager.IMPORTANCE_HIGH`を指定した通知チャネルを作成する必要があります。
+Android 8.0（API レベル 26）以降では、通知の動作は通知チャネルによって制御されます。ヘッドアップ通知（ユーザーがデバイスを使用中に画面上部に短時間表示されるアラート）を表示するには、Androidアプリケーションコードで`NotificationManager.IMPORTANCE_HIGH`を指定した通知チャネルを作成する必要があります。
 
-Cordova SDKでは`config.xml`の設定（`default_notification_channel_name`および`default_notification_channel_description`）を通じてデフォルトの通知チャネル名と説明を設定できますが、重要度レベルはネイティブのAndroidコードでプログラム的に設定する必要があります。
+Cordova SDKでは、`config.xml`の設定（`default_notification_channel_name`および`default_notification_channel_description`）を通じてデフォルトの通知チャネル名と説明を設定できますが、重要度レベルはネイティブのAndroidコードでプログラム的に設定する必要があります。
 
 ### 例：高重要度の通知チャネルの作成 {#example-creating-a-high-importance-notification-channel}
 
@@ -346,4 +346,8 @@ public void onCreate() {
 {% endsubtab %}
 {% endsubtabs %}
 
-Androidコードでチャネルを作成した後、Brazeダッシュボードからプッシュ通知を送信する際にそのチャネルIDを使用します。通知チャネルの詳細については、[Android通知チャネル]({{site.baseurl}}/user_guide/message_building_by_channel/push/android/notification_channels)を参照してください。
+Androidコードでチャネルを作成した後、Brazeダッシュボードからプッシュ通知を送信する際にそのチャネルIDを使用します。通知チャネルの詳細については、[Androidの通知チャネル]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/notification_channels)を参照してください。
+
+## プラグインアップグレード後のiOSビルドのトラブルシューティング {#troubleshooting-ios-builds-after-upgrading-the-plugin}
+
+Cordova Braze SDK 9.0.0以降は、Swift SDK 9.0.0以降を使用します。Swift SDK 8.0.0以降、このネイティブSDKは**Xcode 15.2**でコンパイルされています。Cordovaプラグインを9.0.0以降にアップグレードした後にiOSビルドが失敗する場合は、Xcodeを15.2以降に更新し、プラグインが使用するネイティブiOSバージョンの[Swift SDKの変更ログ]({{site.baseurl}}/developer_guide/changelogs/?sdktab=swift)と一致していることを確認してください。

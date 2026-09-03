@@ -11,7 +11,7 @@ description: "재사용 가능한 캔버스 템플릿을 생성하고 관리하�
 > 이 참조 문서에서는 Canvas 템플릿을 생성하고 관리하는 방법을 다룹니다. 템플릿을 사용하면 Canvases 전반에서 특정 목표에 맞게 쉽게 커스터마이즈할 수 있는 일관된 프레임워크를 만들어 메시징을 개선할 수 있습니다.
 
 {% alert tip %}
-[Braze Canvas 템플릿](#available-braze-templates)을 사용하여 시간을 절약하고 Canvas 생성을 간소화하세요! 미리 구축된 템플릿 라이브러리를 탐색하여 사용 사례에 맞는 템플릿을 찾고 특정 요구 사항에 맞게 커스터마이즈하세요.
+[BRAZE 캔버스 템플릿](#available-braze-templates)을 사용하여 시간을 절약하고 Canvas 생성을 간소화하세요! 미리 구축된 템플릿 라이브러리를 탐색하여 사용 사례에 맞는 템플릿을 찾고 특정 요구 사항에 맞게 커스터마이즈하세요.
 {% endalert %}
 
 ## 방법 1: 기존 Canvas에서 생성 {#method-1-create-from-an-existing-canvas}
@@ -59,7 +59,7 @@ Canvas를 작성할 때 템플릿을 사용하는 두 가지 방법이 있습니
 
 ### 사용 가능한 Braze 템플릿 {#available-braze-templates}
 
-사용 가능한 Canvas 템플릿 목록은 [Braze Canvas 템플릿]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates)을 참조하세요. eCommerce Canvas 템플릿 사용에 대한 자세한 내용은 [eCommerce 추천 이벤트 사용 방법]({{site.baseurl}}/ecommerce_use_cases)을 참조하세요.
+사용 가능한 Canvas 템플릿 목록은 [BRAZE 캔버스 템플릿]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates)을 참조하세요. eCommerce Canvas 템플릿 사용에 대한 자세한 내용은 [eCommerce 추천 이벤트 사용 방법]({{site.baseurl}}/ecommerce_use_cases)을 참조하세요.
 
 ## 캔버스 템플릿 관리 {#managing-canvas-templates}
 

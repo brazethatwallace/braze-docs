@@ -1,7 +1,7 @@
 ---
 nav_title: SDK-Übersicht
 article_title: SDK-Übersicht für Entwickler:innen
-description: "Dieser Onboarding-Referenzartikel enthält eine technische Übersicht für Entwickler:innen des Braze SDK. Er behandelt die Standard-Analytics, die vom SDK getrackt werden, die Sperrung der automatischen Datenerfassung und die aktive SDK-Version Ihrer App."
+description: "Dieser Onboarding-Referenzartikel bietet eine technische Übersicht für Entwickler:innen des Braze SDK. Er behandelt die Standard-Analytics, die vom SDK erfasst werden."
 page_order: 0
 ---
 
@@ -12,8 +12,8 @@ page_order: 0
 Sind Sie ein Marketer, der einen grundlegenden Überblick über das SDK benötigt? Sehen Sie sich stattdessen unsere [Übersicht für Marketer]({{site.baseurl}}/user_guide/get_started/sdk_overview) an.
 
 Kurz gesagt, das Braze SDK:
-* Sammelt und synchronisiert Nutzerdaten in einem konsolidierten Nutzerprofil
-* Sammelt automatisch Sitzungsdaten, Geräteinformationen und Push-Tokens
+* Sammelt und synchronisiert Nutzerdaten in einem konsolidierten Kundenprofil
+* Sammelt automatisch Sitzungsdaten, Geräteinformationen und Push-Token
 * Erfasst Marketingdaten und angepasste Daten speziell für Ihr Unternehmen
 * Unterstützt Push-Benachrichtigungen, In-App Messages und Content-Card-Nachrichtenkanäle
 
@@ -21,87 +21,87 @@ Sehen Sie sich das folgende Video an, um eine kurze Einführung in die Grundlage
 
 {% multi_lang_include video.html id="il152jayp0" source="wistia" %}
 
-## App-Performance {#app-performance}
+## App-Performance
 
 Braze sollte keine negativen Auswirkungen auf die Performance Ihrer App haben.
 
-Die Braze SDKs haben einen sehr geringen Platzbedarf. Wir ändern die Flush-Rate der Nutzerdaten automatisch in Abhängigkeit von der Qualität des Netzwerks und ermöglichen darüber hinaus eine manuelle Netzwerksteuerung. Wir stapeln API-Anfragen aus dem SDK automatisch, um sicherzustellen, dass die Daten schnell erfasst werden und gleichzeitig die maximale Netzwerkeffizienz erhalten bleibt. Und schließlich ist die Menge der Daten, die bei jedem API-Aufruf vom Client an Braze gesendet wird, äußerst gering.
+Die Braze SDKs haben einen sehr geringen Ressourcenverbrauch. Wir passen automatisch die Rate an, mit der Nutzerdaten übertragen werden, abhängig von der Netzwerkqualität, und ermöglichen zusätzlich eine manuelle Netzwerksteuerung. Wir fassen API-Anfragen aus dem SDK automatisch in Batches zusammen, um sicherzustellen, dass Daten schnell protokolliert werden und gleichzeitig eine maximale Netzwerkeffizienz gewährleistet ist. Zudem ist die Datenmenge, die bei jedem API-Aufruf vom Client an Braze gesendet wird, äußerst gering.
 
 ## SDK-Kompatibilität {#sdk-compatibility}
 
-Das Braze SDK ist so konzipiert, dass es andere SDKs in Ihrer App nicht beeinträchtigt. Sollten Sie Probleme feststellen, die Ihrer Meinung nach auf Inkompatibilität mit einem anderen SDK zurückzuführen sind, wenden Sie sich bitte an den Braze-Support.
+Das Braze SDK ist so konzipiert, dass es sich sehr gut verhält und nicht mit anderen SDKs in Ihrer App interferiert. Wenn Sie Probleme feststellen, die möglicherweise auf eine Inkompatibilität mit einem anderen SDK zurückzuführen sind, wenden Sie sich an den Braze-Support.
 
 ## Standard-Analytics und Sitzungsbehandlung {#default-analytics-and-session-handling}
 
-Bestimmte Nutzerdaten werden von unserem SDK automatisch erfasst, z. B. die zuerst verwendete App, die zuletzt verwendete App, die Gesamtzahl der Sitzungen, das Betriebssystem des Geräts usw. Wenn Sie unseren Integrationsleitfäden folgen, um unsere SDKs zu implementieren, können Sie die Vorteile dieser [Standard-Datenerfassung]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection) nutzen. Wenn Sie diese Liste überprüfen, können Sie vermeiden, die gleichen Informationen über Nutzer:innen mehrfach zu speichern. Mit Ausnahme des Sitzungsbeginns und des Sitzungsendes werden alle anderen automatisch erfassten Daten nicht auf Ihre Datenpunkt-Nutzung angerechnet.
+Bestimmte Nutzerdaten werden automatisch von unserem SDK erfasst – zum Beispiel „Erste App-Nutzung“, „Letzte App-Nutzung“, „Gesamtanzahl der Sitzungen“, „Geräte-Betriebssystem“ usw. Wenn Sie unsere Integrationsleitfäden befolgen, um unsere SDKs zu implementieren, können Sie von dieser [standardmäßigen Datenerfassung]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection) profitieren. Ein Blick auf diese Liste kann Ihnen helfen, die gleichen Informationen über Nutzer:innen nicht mehrfach zu speichern. Mit Ausnahme von Sitzungsstart und Sitzungsende zählen alle anderen automatisch erfassten Daten nicht zu Ihrer Datenpunkt-Nutzung.
 
 {% alert note %}
-Alle unsere Features sind konfigurierbar, aber es empfiehlt sich, das Standardmodell für die Datenerfassung vollständig zu implementieren.
+Alle unsere Features sind konfigurierbar, aber es empfiehlt sich, das standardmäßige Datenerfassungsmodell vollständig zu implementieren.
 
-<br>Falls erforderlich können Sie nach Abschluss der Integration [die Erfassung bestimmter Daten beschränken](#blocking-data-collection).
+<br>Falls es für Ihren Anwendungsfall erforderlich ist, können Sie die [Erfassung bestimmter Daten nach Abschluss der Integration einschränken](#blocking-data-collection).
 {% endalert %}
 
-## Daten hoch- und herunterladen {#data-upload-and-download}
+## Daten-Upload und -Download {#data-upload-and-download}
 
-Das Braze SDK speichert Daten (Sitzungen, angepasste Events usw.) im Cache und lädt sie in regelmäßigen Abständen hoch. Erst nachdem die Daten hochgeladen wurden, werden die Werte im Dashboard aktualisiert. Das Upload-Intervall berücksichtigt den Zustand des Geräts und richtet sich nach der Qualität der Netzwerkverbindung:
+Das Braze SDK speichert Daten (Sitzungen, angepasste Events usw.) zwischen und lädt sie regelmäßig hoch. Erst nachdem die Daten hochgeladen wurden, werden die Werte im Dashboard aktualisiert. Das Upload-Intervall berücksichtigt den Zustand des Geräts und wird durch die Qualität der Netzwerkverbindung bestimmt:
 
-| Qualität der Netzwerkverbindung | Data-Flush-Intervall |
+|Qualität der Netzwerkverbindung |    Intervall für Datenübertragung|
 |---|---|
-| Sehr gut | 10 Sekunden |
-| Gut | 30 Sekunden |
-| Schlecht | 60 Sekunden |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Daten hoch- und herunterladen" }
+|Sehr gut    |10 Sekunden|
+|Gut    |30 Sekunden|
+|Schlecht    |60 Sekunden|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Daten-Upload und -Download" }
 
-Wenn keine Netzwerkverbindung besteht, werden die Daten lokal auf dem Gerät zwischengespeichert, bis die Netzwerkverbindung wiederhergestellt ist. Wenn die Verbindung wiederhergestellt ist, werden die Daten auf Braze hochgeladen.
+Wenn keine Netzwerkverbindung besteht, werden die Daten lokal auf dem Gerät zwischengespeichert, bis die Netzwerkverbindung wiederhergestellt ist. Sobald die Verbindung wiederhergestellt ist, werden die Daten an Braze hochgeladen.
 
-Braze sendet zu Beginn einer Sitzung Daten an das SDK, die darauf basieren, in welche Segmente die Nutzer:innen zum Zeitpunkt der Sitzung fallen. Die neuen In-App-Nachrichten werden während der Sitzung nicht aktualisiert. Allerdings werden die Nutzerdaten während der Sitzung kontinuierlich verarbeitet, wenn sie vom Client gesendet werden. Inaktive Nutzer:innen (die die App das letzte Mal vor mehr als 7 Tagen genutzt haben) erhalten zum Beispiel bei ihrer ersten Sitzung in der App immer noch gezielte Inhalte.
+Braze sendet zu Beginn einer Sitzung Daten an das SDK, basierend darauf, in welche Segmente die Nutzer:innen zum Zeitpunkt der Sitzung fallen. Die neuen In-App Messages werden während der Sitzung nicht aktualisiert. Nutzerdaten, die während der Sitzung erfasst werden, werden jedoch kontinuierlich verarbeitet, sobald sie vom Client gesendet werden. Zum Beispiel erhalten inaktive Nutzer:innen (die die App seit mehr als 7 Tagen nicht mehr genutzt haben) bei ihrer ersten Sitzung nach der Rückkehr in die App weiterhin Inhalte, die auf inaktive Nutzer:innen ausgerichtet sind.
 
-## Sperrung der Datenerfassung {#blocking-data-collection}
+## Datenerfassung blockieren {#blocking-data-collection}
 
-Es ist möglich (wird aber nicht empfohlen), die automatische Erfassung bestimmter Daten aus Ihrer SDK-Integration zu blockieren bzw. Prozesse, die dies tun, zuzulassen.
+Es ist möglich (jedoch nicht empfohlen), die automatische Erfassung bestimmter Daten aus Ihrer SDK-Integration zu blockieren oder Prozesse, die dies tun, auf eine Zulassungsliste zu setzen.
 
-Die Sperrung der Datenerfassung ist nicht empfehlenswert, da die Entfernung von analytischen Daten die Kapazität Ihrer Plattform für Personalisierung und Targeting verringert. Zum Beispiel:
+Das Blockieren der Datenerfassung wird nicht empfohlen, da das Entfernen analytischer Daten die Fähigkeit Ihrer Plattform zur Personalisierung und zum Targeting verringert. Zum Beispiel:
 
-- Wenn Sie keine vollständige Integration für den Standort auf einem der SDKs vornehmen, können Sie Ihre Nachrichten nicht anhand von Sprache oder Standort personalisieren.
-- Wenn Sie die Integration für die Zeitzone nicht wählen, können Sie möglicherweise keine Nachrichten innerhalb der Zeitzone von Nutzer:innen versenden.
-- Wenn Sie sich dafür entscheiden, keine visuellen Informationen für bestimmte Geräte zu integrieren, wird der Inhalt der Nachrichten möglicherweise nicht für dieses Gerät optimiert.
+- Wenn Sie die Standortintegration bei einem der SDKs nicht vollständig vornehmen, können Sie Ihr Messaging nicht basierend auf Sprache oder Standort personalisieren.
+- Wenn Sie die Zeitzonenintegration nicht vornehmen, können Sie möglicherweise keine Nachrichten innerhalb der Zeitzone der Nutzer:innen senden.
+- Wenn Sie bestimmte visuelle Geräteinformationen nicht integrieren, werden Nachrichteninhalte möglicherweise nicht für das jeweilige Gerät optimiert.
 
-Wir empfehlen Ihnen dringend, die SDKs vollständig zu integrieren, um die Möglichkeiten unseres Produkts voll auszuschöpfen.
+Wir empfehlen dringend, die SDKs vollständig zu integrieren, um die Funktionen unseres Produkts voll auszuschöpfen.
 
 {% tabs %}
 {% tab Web SDK %}
 
-Sie können entweder bestimmte Teile des SDK einfach nicht integrieren oder [`disableSDK`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#disablesdk) für spezifische Nutzer:innen verwenden. Diese Methode synchronisiert die Daten, die vor dem Aufruf von `disableSDK()` aufgezeichnet wurden, und führt dazu, dass alle nachfolgenden Aufrufe des Braze Web SDK für diese Seite und zukünftige Seitenladungen ignoriert werden. Wenn Sie die Datenerfassung zu einem späteren Zeitpunkt wieder aufnehmen möchten, können Sie mit der Methode [`enableSDK()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#enablesdk) die Datenerfassung fortsetzen. Mehr dazu erfahren Sie in unserem Artikel [Deaktivieren von Web-Tracking]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=web).
+Sie können bestimmte Teile des SDK einfach nicht integrieren oder [`disableSDK`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#disablesdk) für eine:n Nutzer:in verwenden. Diese Methode synchronisiert Daten, die vor dem Aufruf von `disableSDK()` protokolliert wurden, und bewirkt, dass alle nachfolgenden Aufrufe des Braze Web SDK für diese Seite und zukünftige Seitenladevorgänge ignoriert werden. Wenn Sie die Datenerfassung zu einem späteren Zeitpunkt wieder aufnehmen möchten, können Sie die Methode [`enableSDK()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#enablesdk) verwenden, um die Datenerfassung fortzusetzen. Weitere Informationen finden Sie in unserem Artikel [Web-Tracking deaktivieren]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=web).
 
 {% endtab %}
 {% tab Android SDK %}
 
-Sie können mit [`setDeviceObjectAllowlist`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-device-object-allowlist.html?query=fun%20setDeviceObjectAllowlist(deviceObjectAllowlist:%20EnumSet%3CDeviceKey%3E):%20BrazeConfig.Builder) das SDK so konfigurieren, dass es nur eine Teilmenge der Schlüssel oder Werte des Geräteobjekts gemäß einer festgelegten Allowlist sendet. Dies muss über [`setDeviceObjectAllowlistEnabled`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-device-object-allowlist-enabled.html?query=fun%20setDeviceObjectAllowlistEnabled(enabled:%20Boolean):%20BrazeConfig.Builder) aktiviert werden.
+Sie können [`setDeviceObjectAllowlist`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-device-object-allowlist.html?query=fun%20setDeviceObjectAllowlist(deviceObjectAllowlist:%20EnumSet%3CDeviceKey%3E):%20BrazeConfig.Builder) verwenden, um das SDK so zu konfigurieren, dass nur eine Teilmenge der Geräteobjekt-Schlüssel oder -Werte gemäß einer festgelegten Zulassungsliste gesendet wird. Dies muss über [`setDeviceObjectAllowlistEnabled`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-device-object-allowlist-enabled.html?query=fun%20setDeviceObjectAllowlistEnabled(enabled:%20Boolean):%20BrazeConfig.Builder) aktiviert werden.
 
 {% alert important %}
-Eine leere Allowlist führt dazu, dass **keine** Gerätedaten an Braze gesendet werden.
+Eine leere Zulassungsliste führt dazu, dass **keine** Gerätedaten an Braze gesendet werden.
 {% endalert %}
 
 {% endtab %}
 {% tab Swift SDK %}
 
-Sie können die zulässigen Felder zu [`configuration.devicePropertyAllowList`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/devicepropertyallowlist) in Ihrer `Braze.Configuration` zuweisen, um eine Allowlist für Gerätefelder anzulegen, die vom SDK erfasst werden. Die vollständige Liste der Felder ist definiert in [`Braze.Configuration.DeviceProperty`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/deviceproperty). Um die Erfassung aller Gerätefelder zu deaktivieren, setzen Sie den Wert dieser Eigenschaft auf ein leeres Set (`[]`).
+Sie können eine Gruppe zulässiger Felder [`configuration.devicePropertyAllowList`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/devicepropertyallowlist) in Ihrer `Braze.Configuration` zuweisen, um eine Zulassungsliste für Gerätefelder festzulegen, die vom SDK erfasst werden. Die vollständige Liste der Felder ist in [`Braze.Configuration.DeviceProperty`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/deviceproperty) definiert. Um die Erfassung aller Gerätefelder zu deaktivieren, setzen Sie den Wert dieser Eigenschaft auf ein leeres Set (`[]`).
 
 {% alert important %}
-Standardmäßig werden alle Felder durch das Braze Swift SDK erfasst. Das Entfernen einiger Geräteeigenschaften kann SDK-Features deaktivieren.
+Standardmäßig werden alle Felder vom Braze Swift SDK erfasst. Das Entfernen einiger Geräteeigenschaften kann SDK-Features deaktivieren.
 {% endalert %}
 
-Weitere Einzelheiten zur Verwendung finden Sie unter [Speicher]({{site.baseurl}}/developer_guide/storage?tab=swift) in der Dokumentation zum Swift SDK.
+Weitere Details zur Verwendung finden Sie unter [Speicher]({{site.baseurl}}/developer_guide/storage?tab=swift) in der Swift-SDK-Dokumentation.
 
 {% endtab %}
 {% endtabs %}
 
-## Welche Version des SDK verwende ich? {#what-version-of-the-sdk-am-i-on}
+## Welche SDK-Version verwende ich? {#what-version-of-the-sdk-am-i-on}
 
-Sie können die SDK-Version einer bestimmten App im Dashboard unter **Einstellungen > App Settings** sehen. Unter **Live SDK Version** finden Sie die höchste Braze SDK-Version, die von Ihrer letzten Live-App für mindestens 5 % Ihrer Nutzer:innen verwendet wurde.
+Sie können über das Dashboard die SDK-Version einer bestimmten App einsehen, indem Sie **Einstellungen > App-Einstellungen** aufrufen. Die **Live-SDK-Version** zeigt die höchste Braze-SDK-Version an, die von Ihrer aktuellsten Live-Anwendung bei mindestens 5 % Ihrer Nutzer:innen verwendet wird.
 
-![Eine App namens „Swifty“ in einem Workspace. Die Live SDK-Version ist 6.6.0.]({% image_buster /assets/img/live-sdk-version.png %}){: style="max-width:80%"}
+![Eine App namens „Swifty“ in einem Workspace. Die Live-SDK-Version ist 6.6.0.]({% image_buster /assets/img/live-sdk-version.png %}){: style="max-width:80%"}
 
 {% alert tip %}
-Wenn Sie eine iOS-App haben, können Sie sich vergewissern, dass Sie das [Swift SDK]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=swift) anstelle des alten [Objective-C iOS SDK]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview) verwenden, wenn Ihre **Live SDK Version** gleich oder höher als 5.0.0 ist, was die erste veröffentlichte Version des Swift SDK war.
+Wenn Sie eine iOS-App haben, können Sie bestätigen, dass Sie das [Swift SDK]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=swift) anstelle des veralteten [Objective-C iOS SDK]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview) verwenden, wenn Ihre **Live-SDK-Version** 5.0.0 oder höher ist – das war die erste veröffentlichte Version des Swift SDK.
 {% endalert %}

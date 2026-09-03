@@ -48,7 +48,7 @@ func handleExtras(userInfo: [AnyHashable : Any]) {
 {% endtab %}
 {% endtabs %}
 
-Beim Empfang einer stillen Push-Benachrichtigung wird ein vom SDK aufgezeichnetes Event des Typs „In-App-Nachrichten-Trigger“ im Nutzerprofil protokolliert. Beachten Sie, dass diese In-App-Nachrichten nur ausgelöst werden, wenn sich die Anwendung beim Empfang der stillen Push-Benachrichtigung im Vordergrund befindet.
+Beim Empfang einer stillen Push-Benachrichtigung wird ein vom SDK aufgezeichnetes Event des Typs „In-App-Nachrichten-Trigger“ im Kundenprofil protokolliert. Beachten Sie, dass diese In-App-Nachrichten nur ausgelöst werden, wenn sich die Anwendung beim Empfang der stillen Push-Benachrichtigung im Vordergrund befindet.
 
 ## 2. Schritt: Eine Push-Kampagne erstellen {#step-2-create-a-push-campaign}
 

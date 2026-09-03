@@ -66,14 +66,34 @@ If you want to add query parameters after a URL in your email message:
 
 ![Template Position, Query Parameters, and Template Preview fields for the link template insertion process after a URL.]({% image_buster /assets/img_archive/link_template_postappend.png %}){: style="max-width:90%;"}
 
+#### Liquid tags for `utm_campaign`
+
+Liquid tags for `utm_campaign` differ between campaigns and Canvases.
+
+In campaigns, use:
+
+{% raw %}
+- `{{campaign.${name}}}` to pull the campaign name
+- `{{campaign.${message_name}}}` to pull the message variant name
+{% endraw %}
+
+In Canvases, use:
+
+{% raw %}
+- `{{canvas.${name}}}` to pull the Canvas name
+- `{{campaign.${name}}}` to pull the Canvas step name (Message steps only)
+{% endraw %}
+
+For a full comparison of these attributes in Liquid, the REST API, and Currents, see [Campaign and Canvas attributes across sources]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/campaign_and_canvas_attributes_across_sources). For URL encoding guidance, see [Campaign names in URLs]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#campaign-names-in-urls).
+
 ## Using link templates in email campaigns
 
 After you set up your link templates, you can apply them in your email.
 
 To apply a link template in the HTML editor or the drag-and-drop editor, follow these steps:
 
-{% alert important %}
-To access the **Link Management** tab in the updated HTML editor or the drag-and-drop editor, you must have link aliasing turned on. To turn on link aliasing, contact your account manager. For more information, see [Link aliasing]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing).
+{% alert note %}
+If email link templates or [link aliasing]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing) are enabled for your workspace, you can access the **Link Management** tab in the updated HTML editor and drag-and-drop editor.
 {% endalert %}
 
 - **Updated HTML editor:** On the **Content** tab, select **Link Management**, select **Add a Link Template**, choose your link template, and then select **Add**.

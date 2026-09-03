@@ -94,8 +94,8 @@ Um objeto de função válido é um objeto JSON com os seguintes pares de chave-
 | Publish Cards | `publish_cards` |
 | Edit Segments | `edit_segments` |
 | Export User Data | `export_user_data` |
-| View PII | `view_pii` |
-| View User Profiles PII Compliant | `view_user_profile` |
+| View IPI | `view_pii` |
+| View User Profiles IPI Compliant | `view_user_profile` |
 | Manage Dashboard Users | `manage_dashboard_users` |
 | Manage Media Library Assets | `manage_media_library` |
 | View Usage Data | `view_usage_data` |

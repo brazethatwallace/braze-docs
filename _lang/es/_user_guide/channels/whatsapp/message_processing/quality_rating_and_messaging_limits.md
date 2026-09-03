@@ -23,13 +23,13 @@ channel:
 
 ## Incorporación {#onboarding}
 
-Cuando se crea una nueva cuenta de WhatsApp Business, Meta utiliza una variedad de factores para determinar el límite de envío inicial. Puedes encontrar este límite en tu WhatsApp Business Manager, y detalles adicionales en tu página de Phone Number Insights.
+Cuando se crea una nueva cuenta de WhatsApp Business, Meta utiliza una variedad de factores para determinar el límite de envío inicial. Puedes encontrar este límite en tu WhatsApp Business Administrador, y detalles adicionales en tu página de Phone Number Insights.
 
 Consulta la documentación de Meta para obtener más información sobre [cómo verificar tu límite](https://developers.facebook.com/docs/whatsapp/messaging-limits#checking-your-limit) y los [requisitos de número de teléfono](https://developers.facebook.com/docs/whatsapp/cloud-api/phone-numbers).
 
 ## Rendimiento {#throughput}
 
-Meta inicia cada número de teléfono empresarial registrado con un rendimiento de 80 mensajes por segundo. Las actualizaciones a 1000 mensajes por segundo pueden ocurrir automáticamente o bajo solicitud. Información.
+Meta inicia cada número de teléfono empresarial registrado con un rendimiento de 80 MPS. Las actualizaciones a 1000 MPS pueden ocurrir automáticamente o bajo solicitud. Información.
 
 Consulta la documentación de Meta para obtener más información sobre tu [rendimiento](https://developers.facebook.com/docs/whatsapp/cloud-api/overview#throughput).
 

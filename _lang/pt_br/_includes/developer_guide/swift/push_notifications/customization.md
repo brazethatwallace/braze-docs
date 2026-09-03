@@ -131,7 +131,7 @@ Depois de registrar uma categoria, use o dashboard da Braze para enviar notifica
 Você só precisa definir botões de ação no dashboard da Braze para comportamentos que não podem ser criados localmente no seu código Swift, como deep linking no seu app ou redirecionamento para uma URL da web. Essas ações precisam ser configuradas no dashboard para que possam definir qual URL ou deep link abrir. Para botões de ação que simplesmente descartam a notificação sem abrir o app, você não precisa configurá-los no dashboard — o comportamento de descarte é tratado automaticamente pelo iOS. Basta registrar sua categoria personalizada e suas ações no código do seu app e depois inserir o nome da categoria correspondente no dashboard.
 {% endalert %}
 
-1. No dashboard da Braze, selecione **Messaging** > **Push Notifications** e, em seguida, escolha sua [Campaign de push]({{site.baseurl}}/user_guide/message_building_by_channel/push/creating_a_push_message) para iOS.
+1. No dashboard da Braze, selecione **Messaging** > **Push Notifications** e, em seguida, escolha sua [Campaign de push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message) para iOS.
 2. Em **Compose push notification**, ative os **Action Buttons**.
 3. No menu suspenso **iOS Notification Category**, selecione **Enter pre-registered custom iOS Category**.
 4. Por fim, insira uma das categorias que você criou anteriormente. O exemplo a seguir usa a categoria personalizada: `LIKE_CATEGORY`.
@@ -167,11 +167,11 @@ Como `MANAGE_IDENTIFIER` faz deep link no app, você deve configurar esse botão
 
 ## Personalizando emblemas {#customizing-badges}
 
-Os emblemas são ícones pequenos, ideais para chamar a atenção do usuário. Você pode especificar uma contagem de emblemas na guia [**Settings**]({{site.baseurl}}/developer_guide/push_notifications/customization/?sdktab=swift#swift_settings) quando compuser uma notificação por push usando o dashboard da Braze. Você também pode atualizar a contagem de emblemas manualmente por meio da propriedade [`applicationIconBadgeNumber`](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIApplication_Class/index.html#//apple_ref/occ/instp/UIApplication/applicationIconBadgeNumber) do aplicativo ou da [carga útil da notificação remota](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/CreatingtheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH10-SW1).
+Emblemas são pequenos ícones ideais para chamar a atenção do usuário. Você pode especificar uma contagem de emblemas na guia [**Configurações**]({{site.baseurl}}/developer_guide/push_notifications/customization/?sdktab=swift#swift_settings) ao criar uma notificação por push usando o dashboard da Braze. Você também pode atualizar a contagem de emblemas manualmente por meio da propriedade [`applicationIconBadgeNumber`](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIApplication_Class/index.html#//apple_ref/occ/instp/UIApplication/applicationIconBadgeNumber) do seu aplicativo ou pela [carga útil de notificação remota](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/CreatingtheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH10-SW1).
 
-A Braze limpará automaticamente a contagem de emblemas quando uma notificação da Braze for recebida enquanto o app estiver em primeiro plano. A configuração manual do número do emblema como 0 também limpará as notificações na central de notificações.
+A Braze limpa automaticamente a contagem de emblemas quando uma notificação da Braze é recebida enquanto o app está em primeiro plano. Definir manualmente o número do emblema como 0 também limpa as notificações na central de notificações.
 
-Se você não tiver um plano para limpar os emblemas como parte da operação normal do aplicativo ou enviando pushes que limpem o emblema, deverá limpar o emblema quando o aplicativo se tornar ativo, adicionando o seguinte código ao método `sceneDidBecomeActive(_:)` do arquivo `SceneDelegate.swift` (ou ao método delegado `applicationDidBecomeActive:` do seu app, caso ele ainda não tenha adotado o [ciclo de vida `UIScene`](https://developer.apple.com/documentation/technotes/tn3187-migrating-to-the-uikit-scene-based-life-cycle)):
+Se você não tem um plano para limpar emblemas como parte da operação normal do app ou enviando pushes que limpem o emblema, você deve limpar o emblema quando o app se tornar ativo adicionando o seguinte código ao método `sceneDidBecomeActive(_:)` do arquivo `SceneDelegate.swift` (ou ao método delegado `applicationDidBecomeActive:` do seu app, caso ele ainda não tenha adotado o [ciclo de vida `UIScene`](https://developer.apple.com/documentation/technotes/tn3187-migrating-to-the-uikit-scene-based-life-cycle)):
 
 {% tabs %}
 {% tab swift %}
@@ -212,22 +212,22 @@ UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotification
 
 ### Etapa 1: Hospede o som no seu app {#step-1-host-the-sound-in-your-app}
 
-Os sons de notificação por push personalizados devem ser hospedados localmente no pacote principal do seu app. São aceitos os seguintes formatos de dados de áudio:
+Sons personalizados de notificação por push devem ser hospedados localmente no bundle principal do seu app. Os seguintes formatos de dados de áudio são aceitos:
 
-- PCM linear
+- Linear PCM
 - MA4
 - µLaw
 - aLaw
 
-É possível empacotar os dados de áudio em um arquivo AIFF, WAV ou CAF. No Xcode, adicione o arquivo de som ao seu projeto como um recurso não localizado do pacote de aplicativos.
+Você pode empacotar os dados de áudio em um arquivo AIFF, WAV ou CAF. No Xcode, adicione o arquivo de som ao seu projeto como um recurso não localizado do bundle do aplicativo.
 
 {% alert note %}
-Os sons personalizados devem ter menos de 30 segundos quando reproduzidos. Se um som personalizado estiver acima desse limite, o som padrão do sistema será reproduzido.
+Sons personalizados devem ter menos de 30 segundos quando reproduzidos. Se um som personalizado ultrapassar esse limite, o som padrão do sistema será reproduzido no lugar.
 {% endalert %}
 
-#### Conversão de arquivos de som {#converting-sound-files}
+#### Convertendo arquivos de som {#converting-sound-files}
 
-Você pode usar a ferramenta afconvert para converter sons. Por exemplo, para converter o som do sistema PCM linear de 16 bits Submarine.aiff para áudio IMA4 em um arquivo CAF, use o seguinte comando no terminal:
+Você pode usar a ferramenta afconvert para converter sons. Por exemplo, para converter o som de sistema Submarine.aiff em PCM linear de 16 bits para áudio IMA4 em um arquivo CAF, use o seguinte comando no terminal:
 
 ```bash
 afconvert /System/Library/Sounds/Submarine.aiff ~/Desktop/sub.caf -d ima4 -f caff -v
@@ -237,45 +237,45 @@ afconvert /System/Library/Sounds/Submarine.aiff ~/Desktop/sub.caf -d ima4 -f caf
 Você pode inspecionar um som para determinar seu formato de dados abrindo-o no QuickTime Player e escolhendo **Show Movie Inspector** no menu **Movie**.
 {% endalert %}
 
-### Etapa 2: Forneça uma URL de protocolo para o som {#step-2-provide-a-protocol-url-for-the-sound}
+### Etapa 2: Forneça um URL de protocolo para o som {#step-2-provide-a-protocol-url-for-the-sound}
 
-Você deve especificar uma URL de protocolo que direcione para o local do arquivo de som no seu app. Há dois métodos para fazer isso:
+Você deve especificar um URL de protocolo que direcione para o local do arquivo de som no seu app. Existem dois métodos para fazer isso:
 
-* Use o parâmetro `sound` do [objeto Apple push]({{site.baseurl}}/api/objects_filters/messaging/apple_object) para passar a URL para a Braze.
-* Especifique a URL no dashboard. No [criador do push]({{site.baseurl}}/user_guide/message_building_by_channel/push/creating_a_push_message#step-3-select-notification-type-ios-and-android), selecione **Settings** e insira a URL do protocolo no campo **Sound**.
+* Use o parâmetro `sound` do [objeto de push da Apple]({{site.baseurl}}/api/objects_filters/messaging/apple_object) para passar o URL para a Braze.
+* Especifique o URL no dashboard. No [criador de push]({{site.baseurl}}/user_guide/message_building_by_channel/push/creating_a_push_message#step-3-select-notification-type-ios-and-android), selecione **Settings** e insira o URL de protocolo no campo **Sound**.
 
-![O criador do push no dashboard da Braze]({% image_buster /assets/img_archive/sound_push_ios.png %})
+![O criador de push no dashboard da Braze]({% image_buster /assets/img_archive/sound_push_ios.png %})
 
-Se o arquivo de som especificado não existir ou se a palavra-chave "default" for inserida, a Braze usará o som de alerta padrão do dispositivo. Além do nosso dashboard, o som também pode ser configurado por meio da nossa [API de envio de mensagens][12].
+Se o arquivo de som especificado não existir ou a palavra-chave "default" for inserida, a Braze usará o som de alerta padrão do dispositivo. Além do nosso dashboard, o som também pode ser configurado por meio da nossa [API de envio de mensagens][12].
 
-Consulte a documentação para desenvolvedores da Apple sobre a [preparação de sons de alerta personalizados](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/SupportingNotificationsinYourApp.html) para obter informações adicionais.
+Consulte a documentação para desenvolvedores da Apple sobre [preparação de sons de alerta personalizados](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/SupportingNotificationsinYourApp.html) para mais informações.
 
 ## Configurações {#settings}
 
-Ao criar uma Campaign de push por meio do dashboard, clique na guia **Settings** na etapa **Compose** para visualizar as configurações avançadas disponíveis.
+Ao criar uma campanha de push pelo dashboard, clique na guia **Settings** na etapa **Compose** para visualizar as configurações avançadas disponíveis.
 
-![Guia de configurações de composição da Campaign de push iOS da Braze com opções avançadas.]({% image_buster /assets/img_archive/ios_advanced_settings.png %})
+![Guia de configurações avançadas de composição de campanha de push iOS na Braze.]({% image_buster /assets/img_archive/ios_advanced_settings.png %})
 
-### Pares de chave-valor {#key-value-pairs}
+### Pares chave-valor {#key-value-pairs}
 
-A Braze permite que você envie pares de chave-valor de string personalizados, conhecidos como `extras`, juntamente com uma notificação por push para o seu app. Os extras podem ser definidos por meio do dashboard ou da API e estarão disponíveis como pares de chave-valor no dicionário `notification` passado para suas implementações de delegados push.
+A Braze permite que você envie pares chave-valor de strings personalizadas, conhecidos como `extras`, junto com uma notificação por push para o seu app. Os extras podem ser definidos pelo dashboard ou pela API e estarão disponíveis como pares chave-valor dentro do dicionário `notification` passado para as implementações do seu delegate de push.
 
 ### Opções de alerta {#alert-options}
 
-Marque a caixa de seleção **Alert Options** para ver um menu suspenso de valores-chave disponíveis para ajustar como a notificação aparece nos dispositivos.
+Marque a caixa de seleção **Alert Options** para ver um menu suspenso de chave-valores disponíveis para ajustar como a notificação aparece nos dispositivos.
 
-### Adição do sinalizador content-available {#adding-content-available-flag}
+### Adicionando a flag content-available {#adding-content-available-flag}
 
-Marque a caixa de seleção **Add Content-Available Flag** para instruir os dispositivos a baixar novos conteúdos em segundo plano. Geralmente, isso pode ser marcado se você estiver interessado em enviar [notificações silenciosas]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift).
+Marque a caixa de seleção **Add Content-Available Flag** para instruir os dispositivos a baixar novo conteúdo em segundo plano. Na maioria dos casos, isso pode ser marcado se você tiver interesse em enviar [notificações silenciosas]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift).
 
-### Adição do sinalizador de conteúdo mutável {#adding-mutable-content-flag}
+### Adicionando a flag mutable-content {#adding-mutable-content-flag}
 
-Marque a caixa de seleção **Add Mutable-Content Flag** para ativar a personalização avançada do receptor. Esse sinalizador será enviado automaticamente ao criar uma [notificação Rich]({{site.baseurl}}/developer_guide/push_notifications/rich/?sdktab=swift), independentemente do valor dessa caixa de seleção.
+Marque a caixa de seleção **Add Mutable-Content Flag** para ativar a personalização avançada do receptor. Essa flag será enviada automaticamente ao compor uma [notificação Rich]({{site.baseurl}}/developer_guide/push_notifications/rich/?sdktab=swift), independentemente do valor dessa caixa de seleção.
 
-### ID de recolhimento {#collapse-id}
+### Collapse ID
 
-Especifique uma ID de recolhimento para agrupar notificações semelhantes. Se você enviar várias notificações com a mesma ID de recolhimento, o dispositivo mostrará apenas a notificação recebida mais recentemente. Consulte a documentação da Apple sobre [notificações agrupadas](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1).
+Especifique um collapse ID para agrupar notificações semelhantes. Se você enviar múltiplas notificações com o mesmo collapse ID, o dispositivo exibirá apenas a notificação recebida mais recentemente. Consulte a documentação da Apple sobre [notificações agrupadas](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1).
 
 ### Vencimento {#expiry}
 
-Ao marcar a caixa de seleção **Expiry**, você poderá definir um tempo de expiração para sua mensagem. Se o dispositivo de um usuário perder a conectividade, a Braze continuará tentando enviar a mensagem até o horário especificado. Se isso não for definido, a plataforma terá como padrão uma expiração de 30 dias. Observe que as notificações por push que expiram antes da entrega não são consideradas falhas e não serão registradas como bounce.
+Marcar a caixa de seleção **Expiry** permitirá definir um tempo de expiração para a sua mensagem. Caso o dispositivo de um usuário perca a conectividade, a Braze continuará tentando enviar a mensagem até o horário especificado. Se isso não for definido, a plataforma usará como padrão um vencimento de 30 dias. Observe que notificações por push que expiram antes da entrega não são consideradas falhas e não serão registradas como bounce.

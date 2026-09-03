@@ -116,7 +116,7 @@ API campaigns cannot use campaign-level quiet hours. Only the workspace quiet ho
 
 The following are never held by workspace quiet hours, regardless of channel:
 
-- Transactional and SLA-backed messages
+- Transactional email messages
 - SMS auto-responses (for example, `STOP` or `HELP` keyword replies)
 - Test sends and Seed Group sends
 

@@ -4,31 +4,27 @@ layout: user_profiles_event_glossary
 page_order: 4
 excerpt_separator: ""
 page_type: glossary
-description: "Dieses Glossar listet die Nutzerprofil-Updates auf, die Braze verfolgen und über Currents an ausgewählte Data Warehouses senden kann."
+description: "Dieses Glossar listet die Kundenprofil-Updates auf, die Braze verfolgen und über Currents an ausgewählte Data Warehouses senden kann."
 tool: Currents
 search_rank: 7
 ---
 
 <div class="api-glossary-preamble" markdown="1">
 
-{% alert important %}
-Nutzerprofil-Events befinden sich in der Beta-Phase. Wenden Sie sich an Ihren Customer-Success-Manager oder Account Manager, um Zugang zu erhalten.
-{% endalert %}
-
 {% alert tip %}
-Diese Events sind auch als SQL-Tabellen im [Abfrage-Builder]({{site.baseurl}}/user_guide/analytics/query_builder), in [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments) und in der [Snowflake-Datenfreigabe]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake) verfügbar. Informationen zu SQL-Tabellenschemata und Spaltendetails finden Sie in der [SQL-Tabellenreferenz]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension/sql_segments/sql_segments_tables). Informationen zu Snowflake-Datenfreigabe-Schemata für Nutzerprofil-Attribut-Views finden Sie unter [Nutzerprofilattribute]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/user_attributes).
+Diese Events sind auch als SQL-Tabellen im [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder), in [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) und in der [Snowflake-Datenfreigabe]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake) verfügbar. Informationen zu SQL-Tabellenschemata und Spaltendetails finden Sie in der [SQL-Tabellenreferenz]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables). Informationen zu Snowflake-Datenfreigabe-Schemata für Kundenprofil-Attribut-Views finden Sie unter [Nutzerprofilattribute]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/user_attributes).
 {% endalert %}
 
-Wenden Sie sich an Ihre Braze-Vertretung oder eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/braze_support), wenn Sie Zugang zu zusätzlichen Event-Berechtigungen benötigen. Falls Sie auf dieser Seite nicht finden, was Sie suchen, sehen Sie sich die [Kundenverhalten-Events-Bibliothek]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/customer_behavior_events), die [Nachrichten-Engagement-Events-Bibliothek]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events) oder die [Currents-Beispieldaten](https://github.com/Appboy/currents-examples/tree/master/sample-data) an.
+Wenden Sie sich an Ihre Braze-Vertretung oder eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support), wenn Sie Zugang zu zusätzlichen Event-Berechtigungen benötigen. Falls Sie auf dieser Seite nicht finden, was Sie suchen, sehen Sie sich die [Kundenverhalten-Events-Bibliothek]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events), die [Nachrichten-Engagement-Events-Bibliothek]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) oder die [Currents-Beispieldaten](https://github.com/Appboy/currents-examples/tree/master/sample-data) an.
 
-{% details Erläuterung der Struktur von Nutzerprofil-Update-Events %}
+{% details Erläuterung der Struktur von Kundenprofil-Update-Events %}
 
 ### Event-Struktur {#event-structure}
 
-Diese Aufschlüsselung von Kundenverhalten- und Nutzer-Events zeigt, welche Art von Informationen in der Regel in einem Nutzerprofil-Update-Event enthalten sind. Mit einem soliden Verständnis der Komponenten können Ihre Entwickler:innen und Ihr Business-Intelligence-Strategie-Team die eingehenden Currents-Event-Daten nutzen, um datengestützte Berichte und Charts zu erstellen und weitere wertvolle Datenmetriken auszuwerten.
+Diese Aufschlüsselung von Kundenverhalten- und Nutzer-Events zeigt, welche Art von Informationen in der Regel in einem Kundenprofil-Update-Event enthalten sind. Mit einem soliden Verständnis der Komponenten können Ihre Entwickler:innen und Ihr Business-Intelligence-Strategie-Team die eingehenden Currents-Event-Daten nutzen, um datengestützte Berichte und Charts zu erstellen und weitere wertvolle Datenmetriken auszuwerten.
 
 {% alert important %}
-Speicherschemata gelten für Flat-File-Event-Daten, die an Data-Warehouse-Speicherpartner wie Google Cloud Storage, Amazon S3 und Microsoft Azure Blob Storage gesendet werden. Einige der hier aufgeführten Event- und Zielkombinationen sind noch nicht allgemein verfügbar. Informationen zu unterstützten Events nach Partner finden Sie unter [Verfügbare Partner]({{site.baseurl}}/user_guide/data/braze_currents/available_partners) und auf den zugehörigen Partnerseiten.
+Speicherschemata gelten für Flat-File-Event-Daten, die an Data-Warehouse-Speicherpartner wie Google Cloud Storage, Amazon S3 und Microsoft Azure Blob Storage gesendet werden. Einige der hier aufgeführten Event- und Zielkombinationen sind noch nicht allgemein verfügbar. Informationen zu unterstützten Events nach Partner finden Sie unter [Verfügbare Partner]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) und auf den zugehörigen Partnerseiten.
 
 Currents verwirft Events mit Payloads, die größer als 900 KB sind.
 {% endalert %}
@@ -38,6 +34,7 @@ Currents verwirft Events mit Payloads, die größer als 900 KB sind.
 </div>
 
 <!--overview-end-->
+
 
 {% api %}
 ## Events für Nutzerlöschanfragen {#user-delete-request-events}
@@ -61,6 +58,24 @@ Wenn ein:e Nutzer:in auf Kundenanfrage gelöscht wird
 }
 ```
 {% endtab %}
+
+{% tab Custom HTTP Connector %}
+```json
+// users.UserDeleteRequest
+
+{
+  "event_type" : "(required, string) The name of the event type",
+  "id" : "(required, string) Globally unique ID for this event",
+  "properties" : {
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to"
+  },
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user" : {
+    "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  }
+}
+```
+{% endtab %}
 {% endtabs %}
 
 {% endapi %}
@@ -72,7 +87,7 @@ Wenn ein:e Nutzer:in auf Kundenanfrage gelöscht wird
 User Orphan
 {% endapitags %}
 
-Wenn ein:e Nutzer:in verwaist, d. h. das Nutzerprofil mit dem Profil eines/einer anderen Nutzer:in zusammengeführt wird
+Wenn ein:e Nutzer:in verwaist, d. h. das Kundenprofil mit dem Profil eines/einer anderen Nutzer:in zusammengeführt wird
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -91,18 +106,44 @@ Wenn ein:e Nutzer:in verwaist, d. h. das Nutzerprofil mit dem Profil eines/einer
 }
 ```
 {% endtab %}
+
+{% tab Custom HTTP Connector %}
+```json
+// users.UserOrphan
+
+{
+  "event_type" : "(required, string) The name of the event type",
+  "id" : "(required, string) Globally unique ID for this event",
+  "properties" : {
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "app_id" : "(optional, string) API ID of the app on which this event occurred",
+    "orphaned_by_id" : "(required, string) BSON ID of the user whose profile was merged with the orphaned user's profile"
+  },
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user" : {
+    "device_id" : "(optional, string) ID of the device on which the event occurred",
+    "external_user_id" : "(optional, string) [PII] External ID of the user",
+    "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  }
+}
+```
+{% endtab %}
 {% endtabs %}
 
 {% endapi %}
 
 {% api %}
-## Nutzerprofil-Update-Events {#user-profile-update-events}
+## Kundenprofil-Update-Events {#user-profile-update-events}
 
 {% apitags %}
 Profile
 {% endapitags %}
 
 Dies stellt die Profil-Updates für ein:e Nutzer:in dar.
+
+{% alert important %}
+Das Kundenprofil-Update-Event befindet sich in der Beta-Phase. Wenden Sie sich an Ihren CSM oder Account Manager:in, um Zugang zu erhalten.
+{% endalert %}
 
 {% tabs %}
 {% tab Cloud Storage %}

@@ -1,6 +1,6 @@
 ## Swift SDKの統合 {#integrating-the-swift-sdk}
 
-Braze Swift SDKは、Swift Package Manager（SPM）、CocoaPods、または手動での統合方法を使って統合しカスタマイズできます。各種SDKシンボルに関する詳細情報は、[Braze Swiftリファレンスドキュメント](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/)を参照してください。
+Braze Swift SDKは、Swift Package マネージャー（SPM）、CocoaPods、または手動での統合方法を使って統合しカスタマイズできます。各種SDKシンボルに関する詳細情報は、[Braze Swiftリファレンスドキュメント](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/)を参照してください。
 
 ### 前提条件 {#prerequisites}
 
@@ -8,10 +8,10 @@ Braze Swift SDKは、Swift Package Manager（SPM）、CocoaPods、または手�
 
 ### ステップ1：Braze Swift SDKをインストールする {#step-1-install-the-braze-swift-sdk}
 
-Braze Swift SDKのインストールには、[Swift Package Manager（SwiftPM）](https://swift.org/package-manager/)または[CocoaPods](http://cocoapods.org/)の使用を推奨します。あるいは、SDKを手動でインストールすることもできます。
+Braze Swift SDKのインストールには、[Swift Package マネージャー（SwiftPM）](https://swift.org/package-manager/)または[CocoaPods](http://cocoapods.org/)の使用を推奨します。あるいは、SDKを手動でインストールすることもできます。
 
 {% tabs local %}
-{% tab Swift Package Manager %}
+{% tab Swift Package マネージャー %}
 #### ステップ1.1：SDKバージョンのインポート {#step-11-import-sdk-version}
 
 プロジェクトを開き、プロジェクトの設定に移動します。**Swift Packages**タブを選択し、パッケージリストの下にある<i class="fas fa-plus"></i>追加ボタンをクリックします。

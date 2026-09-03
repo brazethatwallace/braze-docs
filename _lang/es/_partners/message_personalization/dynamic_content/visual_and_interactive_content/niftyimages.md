@@ -80,7 +80,7 @@ Después de conectar Braze, usa la sincronización de variables de contacto y la
 La sincronización de variables de contacto te permite usar propiedades de contacto de Braze existentes directamente dentro de NiftyImages sin necesidad de escribir o recrear etiquetas merge manualmente.
 
 1. Crea o edita una imagen personalizada u otro activo de NiftyImages.
-2. Abre el selector de etiquetas merge o personalización.
+2. Abre el SELECTOR de etiquetas merge o personalización.
 3. Selecciona **Pick from connected integrations** y luego elige las propiedades de Braze que quieras usar.
 4. Añade esos valores a capas de texto, imagen, temporizador, mapa, gráfico, calendario o contenido dinámico.
 5. Guarda la imagen.

@@ -28,7 +28,7 @@ You'll need the following to integrate LINE with Braze:
 Sending LINE messages from Braze draws from your account's Message or Action Credits.
 
 {% alert note %}
-**Setting `native_line_id`**: You can set `native_line_id` by sending user updates to Braze (for example, with the [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) endpoint, [CSV import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv), or [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)). If your client-side SDK doesn’t have a dedicated field for `native_line_id`, send it in server-side user updates using one of these methods.
+**Setting `native_line_id`**: You can set `native_line_id` by sending user updates to Braze (for example, with the [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) endpoint, [CSV import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv), or [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)). If your app's SDK doesn’t have a dedicated field for `native_line_id`, send it in server-side user updates using one of these methods.
 {% endalert %}
 
 ## Types of LINE accounts
@@ -78,12 +78,12 @@ You can import or update users using any of the methods that Braze supports, inc
 Regardless of the method you use, update the `native_line_id` to provide the user’s LINE ID. To learn more the `native_line_id`, see [User setup](#user-setup).
 
 {% alert note %}
-The subscription group state shouldn't be specified, and it will be ignored. LINE is the source of truth for user subscription status, which will be synced to Braze either through the subscription sync tool or by event updates.
+Don't specify the subscription group state—it's ignored. LINE is the source of truth for user subscription status, which syncs to Braze through the subscription sync tool or event updates.
 {% endalert %}
 
 ## Step 2: Integrate LINE channel
 
-After the integration process completes, Braze will automatically pull that channel’s LINE followers into Braze. For any LINE IDs that are already associated with a Braze user profile, each profile will be updated with the “subscribed” status, and any LINE IDs that are remaining will generate anonymous users. Additionally, new followers of your LINE channel will have unidentified user profiles created when they follow the channel.
+After the integration process completes, Braze automatically pulls that channel’s LINE followers into Braze. For any LINE IDs that are already associated with a Braze user profile, each profile is updated with the “subscribed” status, and any LINE IDs that remain generate anonymous users. Additionally, new followers of your LINE channel have unidentified user profiles created when they follow the channel.
 
 ### Step 2.1: Edit webhook settings
 
@@ -114,6 +114,8 @@ You can update or rotate the channel secret and channel access token for an alre
 ![Response settings page with toggles for how your account will handle chats.]({% image_buster /assets/img/line/response_settings.png %}){: style="max-width:80%;"}
 
 ### Step 2.2: Generate LINE subscription groups in Braze
+
+Braze creates a [subscription group]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups#line-subscription-groups) for each LINE channel you integrate. For how LINE subscription groups work, see [LINE subscription groups]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups).
 
 {% multi_lang_include alerts/note_alerts.md alert='subscription group limit' %}
 
@@ -239,7 +241,7 @@ To use a LINE channel in a different Braze workspace:
 
 Confirm you have the [Manage Subscription Groups]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions) permission in both workspaces. Without permissions in both workspaces, the integration fails with an error indicating the channel is already connected.
 
-For how archiving affects subscription groups, refer to [LINE subscription groups]({{site.baseurl}}/line/subscription_groups/#archive-behavior).
+For how archiving affects subscription groups, refer to [LINE subscription groups]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups#archive-behavior).
 
 ## Use cases
 

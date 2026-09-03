@@ -11,9 +11,9 @@ hidden: true
 ---
 # Windows 오브젝트 사양 {#windows-object-specification}
 
-`windows_phone8_push` 및 `windows_universal_push` 오브젝트는 [메시징 엔드포인트]({{site.baseurl}}/api/endpoints/messaging/)를 통해 Windows Phone 8 푸시 및 Windows Universal 푸시 콘텐츠와 관련된 정보를 정의하거나 요청하는 데 사용됩니다.
+`windows_phone8_push` 및 `windows_universal_push` 오브젝트는 [메시징 엔드포인트]({{site.baseurl}}/api/endpoints/messaging)를 통해 Windows Phone 8 푸시 및 Windows Universal 푸시 콘텐츠와 관련된 정보를 정의하거나 요청하는 데 사용됩니다.
 
-## Windows Phone 8 푸시 오브젝트 {#windows-phone-8-push-object}
+## Windows Phone 8 푸시 객체 {#windows-phone-8-push-object}
 
 ```json
 {
@@ -26,9 +26,9 @@ hidden: true
 }
 ```
 
-## Windows Universal 푸시 오브젝트 {#windows-universal-push-object}
+## Windows Universal 푸시 객체 {#windows-universal-push-object}
 
-`push_type` 옵션에 대한 자세한 내용은 Windows Universal [토스트 템플릿 카탈로그](https://msdn.microsoft.com/en-us/library/windows/apps/hh761494.aspx)를 참조하세요.
+`push_type`의 옵션에 대한 자세한 내용은 Windows Universal [토스트 템플릿 카탈로그](https://msdn.microsoft.com/en-us/library/windows/apps/hh761494.aspx)를 참조하세요.
 
 ```json
 {
@@ -42,4 +42,4 @@ hidden: true
 }
 ```
 
-[딥링킹]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking)을 위해 `extra_launch_string` 파라미터를 사용하는 방법에 대한 자세한 내용은 [Windows Universal로 딥링킹]({{site.baseurl}}/developer_guide/platform_integration_guides/windows_universal/push_notifications/integration/#step-4-deep-linking-from-push-into-your-app)을 참조하세요.
+`extra_launch_string` 파라미터를 [딥링킹]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking)에 활용하는 방법에 대한 자세한 내용은 [Windows Universal 딥링킹]({{site.baseurl}}/hidden/archive_docs/windows_universal/push_notifications#step-5-deep-linking-from-push-into-your-app)을 참조하세요.

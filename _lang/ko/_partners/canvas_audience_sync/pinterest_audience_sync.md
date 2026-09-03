@@ -12,7 +12,7 @@ tool:
 
 # Pinterest로 Audience Sync {#audience-sync-to-pinterest}
 
-Braze Audience Sync to Pinterest를 사용하면 브랜드는 자체 Braze 통합에서 사용자 데이터를 Pinterest 오디언스에 추가하여 행동 트리거, 세분화 등을 기반으로 광고를 전달할 수 있습니다. 일반적으로 사용자 데이터를 기반으로 Braze Canvas에서 메시지(푸시, 이메일, SMS, 웹훅 등)를 트리거하는 데 사용하는 모든 기준을 이제 Pinterest 오디언스에서 해당 사용자에게 광고를 트리거하는 데 사용할 수 있습니다.
+Braze Audience Sync to Pinterest를 사용하면 브랜드는 자체 Braze 통합에서 사용자 데이터를 Pinterest 오디언스에 추가하여 행동 트리거, 세분화 등을 기반으로 광고를 전달할 수 있습니다. 일반적으로 사용자 데이터를 기반으로 BRAZE 캔버스에서 메시지(푸시, 이메일, SMS, 웹훅 등)를 트리거하는 데 사용하는 모든 기준을 이제 Pinterest 오디언스에서 해당 사용자에게 광고를 트리거하는 데 사용할 수 있습니다.
 
 **오디언스 동기화의 일반적인 사용 사례는 다음과 같습니다:**
 
@@ -135,7 +135,7 @@ Pinterest의 Segment API 사용량 제한은 사용자당 초당 최대 7개의 
 
 ### Pinterest에서 오디언스가 채워지는 데 얼마나 걸리나요? {#how-long-will-it-take-for-my-audiences-to-populate-in-pinterest}
 
-오디언스 크기는 Pinterest Ads Manager의 **Audiences** 페이지에서 24~48시간 이내에 업데이트됩니다.
+오디언스 크기는 Pinterest Ads 매니저의 **Audiences** 페이지에서 24~48시간 이내에 업데이트됩니다.
 
 ### 사용자를 Pinterest에 전달한 후 사용자가 매칭되었는지 어떻게 알 수 있나요? {#how-do-i-know-if-users-have-matched-after-passing-users-to-pinterest}
 

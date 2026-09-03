@@ -4,13 +4,19 @@ article_title: Preferencias de suscripción
 page_order: 5
 layout: dev_guide
 guide_top_header: "Preferencias de suscripción"
-guide_top_text: "Administra cómo los usuarios aceptan o rechazan tus canales de mensajería. Usa los centros de preferencias para dar a los usuarios control sobre sus preferencias de comunicación por correo electrónico."
+guide_top_text: "Administra cómo los usuarios aceptan o rechazan tus canales de mensajería. Revisa el <a href='/docs/user_guide/audience/subscription_preferences/subscription_status'>estado de suscripción</a> en todos los canales, usa los <a href='/docs/user_guide/audience/subscription_preferences/subscription_groups'>grupos de suscripción</a> para preferencias a nivel de categoría, y los centros de preferencias para dar a los usuarios control sobre la comunicación por correo electrónico."
 
 page_type: landing
-description: "Esta sección cubre las preferencias de suscripción en Braze, incluidos los centros de preferencias y la gestión de suscripciones."
+description: "Esta sección cubre las preferencias de suscripción en Braze, incluidos el estado de suscripción, los grupos de suscripción, los centros de preferencias y la gestión de suscripciones."
 
 guide_featured_title: "Artículos de la sección"
 guide_featured_list:
+  - name: Estado de suscripción
+    link: /docs/user_guide/audience/subscription_preferences/subscription_status
+    image: /assets/img/braze_icons/check-verified-02.svg
+  - name: Grupos de suscripción
+    link: /docs/user_guide/audience/subscription_preferences/subscription_groups
+    image: /assets/img/braze_icons/users-01.svg
   - name: Centro de preferencias
     link: /docs/user_guide/audience/subscription_preferences/preference_center
     image: /assets/img/braze_icons/mail-01.svg
@@ -35,7 +41,7 @@ guide_menu_list:
 
 guide_menu_title2: "Artículos relacionados"
 guide_menu_list2:
-  - name: Puntos de conexión de API
+  - name: Endpoints de API
     link: /docs/api/endpoints/subscription_groups
     image: /assets/img/braze_icons/brackets.svg
 ---

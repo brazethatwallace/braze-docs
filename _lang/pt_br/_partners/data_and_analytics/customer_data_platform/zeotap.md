@@ -5,7 +5,7 @@ page_type: partner
 search_tag: Partner
 layout: dev_guide
 guide_top_header: "Zeotap"
-guide_top_text: "A Zeotap é a plataforma de dados do cliente do futuro. Ele permite que as marcas unifiquem, aprimorem e ativem os dados de clientes em um futuro sem cookies, ao mesmo tempo em que colocam a privacidade e a conformidade dos clientes no centro das atenções."
+guide_top_text: "A Zeotap é a CDP do futuro. Ele permite que as marcas unifiquem, aprimorem e ativem os dados de clientes em um futuro sem cookies, ao mesmo tempo em que colocam a privacidade e a conformidade dos clientes no centro das atenções."
 
 description: "Esta landing page contém tudo sobre a Zeotap, inclusive como integrar a Zeotap e usar o Zeotap Symphony."
 

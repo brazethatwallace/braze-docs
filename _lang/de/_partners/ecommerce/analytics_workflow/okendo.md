@@ -9,7 +9,7 @@ alias: /partners/okendo/
 
 # Okendo
 
-> [Okendo](https://okendo.io/) ist eine einheitliche Plattform für das Kundenmarketing, die Tools zur Pflege der Kundenbindung, zum Ausbau der Mundpropaganda und zur Maximierung des Lifetime-Value bietet, um Ihre Kund:innen für ein schnelleres und effizienteres Wachstum zu mobilisieren.
+> [Okendo](https://okendo.io/) ist eine einheitliche Plattform für das Kundenmarketing, die Tools zur Pflege der Kundenbindung, zum Ausbau der Mundpropaganda und zur Maximierung des LTV bietet, um Ihre Kund:innen für ein schnelleres und effizienteres Wachstum zu mobilisieren.
 
 *Diese Integration wird von Okendo gepflegt.*
 
@@ -77,13 +77,13 @@ Beispiele für Event-Daten finden Sie in der [Dokumentation von Okendo](https://
 
 ### Angepasste Attribute {#custom-attributes}
 
-Okendo sendet Nutzerprofil-Daten als angepasste Attribute in Braze, die zur Erstellung von Zielgruppen-Segmenten verwendet werden können. Beispiele hierfür sind:
+Okendo sendet Kundenprofil-Daten als angepasste Attribute in Braze, die zur Erstellung von Zielgruppen-Segmenten verwendet werden können. Beispiele hierfür sind:
 
 - Profilfragen, die in Umfragen und bei der Einreichung einer Bewertung gestellt werden, wie Alter, Geburtstag, Hauttyp und Haarfarbe
 - Review-Metriken wie _Average Review Rating_ und _Average Review Sentiment_
 - Loyalty-Metriken wie _Points Balance_ und _VIP Tier_
 - Referral-Metriken wie die _Number of Successful Referrals_ und _Total Referral Revenue_
-- NPS-Score aus einer Umfrage
+- Net Promoter Score-Score aus einer Umfrage
 
 ## Verwendung von Braze mit Okendo-Produkten {#using-braze-with-okendo-products}
 

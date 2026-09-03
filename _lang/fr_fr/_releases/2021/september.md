@@ -20,19 +20,19 @@ iOS 15 a introduit de nouvelles fonctionnalités de notification pour aider les 
 
 ## Cartes de contact {#contact-cards}
 
-Les cartes de contact sont un format de fichier normalisé pour l'envoi d'informations professionnelles et de contact facilement importables dans les carnets d'adresses ou de contacts. Vous pouvez maintenant télécharger et créer des cartes de contact pour vos messages SMS et MMS. Pour en savoir plus sur la manière de créer des cartes de contact dans notre générateur de cartes de contact intégré, consultez notre [documentation]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/contact_card).
+Les cartes de contact sont un format de fichier standardisé permettant d'envoyer des informations professionnelles et de contact qui peuvent être facilement importées dans des carnets d'adresses ou des répertoires de contacts. Vous pouvez désormais télécharger et créer des cartes de contact pour vos messages SMS et MMS. Pour en savoir plus sur la création de cartes de contact dans notre générateur de cartes de contact intégré, consultez notre [documentation]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/contact_card).
 
-## Personnalisation des Content Cards par défaut {#default-content-cards-customization}
+## Personnalisation par défaut des Content Cards {#default-content-cards-customization}
 
-Vous pouvez créer votre propre interface de Content Cards en étendant le `ABKContentCardsTableViewController` pour personnaliser tous les éléments de l'interface utilisateur et le comportement des Content Cards. Pour en savoir plus sur la manière de personnaliser le flux des Content Cards, consultez notre [documentation]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/style).
+Vous pouvez créer votre propre interface de Content Cards en étendant `ABKContentCardsTableViewController` pour personnaliser tous les éléments de l'interface utilisateur et le comportement des Content Cards. Pour en savoir plus sur la personnalisation du flux de Content Cards, consultez notre [documentation]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/style).
 
 ## Limites de débit de l'API {#api-rate-limits}
 
-Les [limites de débit]({{site.baseurl}}/api/basics#api-limits) s'appliqueront à tous les clients intégrés après le 16 septembre 2021.
+Les [limites de débit]({{site.baseurl}}/api/api_limits) s'appliqueront à tous les clients intégrés après le 16 septembre 2021.
 
-## Mises à jour des guides du développeur pour Android et FireOS {#updates-to-android-and-fireos-developer-guides}
+## Mises à jour des guides pour développeurs Android et FireOS {#updates-to-android-and-fireos-developer-guides}
 
-Les guides du développeur pour Android et FireOS ont été fusionnés en un seul endroit. Des articles dédiés à FireOS seront disponibles dans cette [nouvelle section Android]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android).
+Les guides pour développeurs Android et FireOS ont été fusionnés en un seul emplacement. Les articles dédiés à FireOS seront disponibles dans cette [nouvelle section Android]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android).
 
 ## Mises à jour des rapports d'entonnoir et de rétention {#updates-to-funnel-and-retention-reports}
 

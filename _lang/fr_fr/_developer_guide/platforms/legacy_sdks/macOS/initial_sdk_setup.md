@@ -25,9 +25,9 @@ Une fois que votre application prend en charge Catalyst, suivez [ces instruction
 
 ## Fonctionnalités prises en charge {#supported-features}
 
-Braze prend en charge les [notifications push]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift), les [Content Cards]({{site.baseurl}}/developer_guide/platforms/swift/content_cards#content-cards-data-model), les [messages in-app]({{site.baseurl}}/developer_guide/analytics/tracking_location?sdktab=swift) et la [collecte automatique de localisation]({{site.baseurl}}/developer_guide/analytics/tracking_location?sdktab=swift) lors de l'exécution sur Mac Catalyst.
+Braze prend en charge les [notifications push]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift), les [Content Cards]({{site.baseurl}}/developer_guide/content_cards?sdktab=swift), les [messages in-app]({{site.baseurl}}/developer_guide/analytics/tracking_location?sdktab=swift) et la [collecte automatique de la localisation]({{site.baseurl}}/developer_guide/analytics/tracking_location?sdktab=swift) lors de l'exécution sur Mac Catalyst.
 
-Notez que Push Stories, le push riche et le géorepérage ne sont pas pris en charge sur macOS.
+Notez que les Push Stories, les pushs riches et le géorepérage ne sont pas pris en charge sur macOS.
 
 [1]:https://github.com/Appboy/appboy-ios-sdk/releases/tag/3.32.0
 [2]:https://developer.apple.com/mac-catalyst/

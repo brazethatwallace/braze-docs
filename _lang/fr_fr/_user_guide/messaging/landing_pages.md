@@ -19,9 +19,9 @@ La disponibilité des pages d'accueil et des domaines personnalisés dépend de 
 
 {% multi_lang_include video.html id="eg4r7agod1" source="wistia" %}
 
-## Conditions préalables {#prerequisites}
+## Prérequis {#prerequisites}
 
-Avant de pouvoir accéder aux pages d'accueil, les créer et les publier, vous devez disposer des [autorisations]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions) d'administrateur ou de toutes les autorisations suivantes :
+Avant de pouvoir accéder aux pages de destination, en créer et les publier, vous devez disposer des [autorisations]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions) d'administrateur ou de toutes les autorisations suivantes :
 
 - View Landing Pages
 - Edit Landing Page Drafts
@@ -29,21 +29,27 @@ Avant de pouvoir accéder aux pages d'accueil, les créer et les publier, vous d
 
 {% multi_lang_include drag_and_drop/drag_and_drop_access.md variable_name='dnd editors' %}
 
-## Niveaux d'offre {#plan-tiers}
+## Niveaux de forfait {#plan-tiers}
 
-Le nombre de pages d'accueil publiées, de domaines personnalisés et de fonctionnalités que vous pouvez utiliser dépend de votre type d'offre : gratuite ou payante (incrémentale).
+Le nombre de pages de destination publiées, de domaines personnalisés et de fonctionnalités que vous pouvez utiliser dépend de votre type de forfait : gratuit ou pro (incrémental).
 
-| Fonctionnalité | Offre gratuite | Offre payante (incrémentale) |
+| Fonctionnalité                                                                                                   | Niveau gratuit     | Niveau pro (incrémental)     |
 | :---------------------------------------------------------------------------------------------------------------- | :--------------- | ----------------- |
-| Pages d'accueil publiées | Cinq par société | 20 supplémentaires |
-| Domaines personnalisés | Un par société | Cinq supplémentaires |
+| Pages de destination publiées                                                                 | Cinq par entreprise | 20 supplémentaires |
+| Domaines personnalisés          | Un par entreprise | Cinq supplémentaires |
 | [Personnalisation Liquid]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages) | Non disponible | Disponible |
 | Champs de formulaire préremplis | Non disponible | Disponible |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Niveaux d'offre" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Niveaux de forfait" }
 
-## Ajouter Google Tag Manager à une page d'accueil {#adding-google-tag-manager-to-a-landing-page}
+## Limites de débit {#rate-limits}
 
-Pour ajouter Google Tag Manager à vos pages d'accueil, ajoutez un bloc **Custom Code** à votre page d'accueil dans l'éditeur par glisser-déposer, puis insérez le code Tag Manager dans le bloc. Veillez à ajouter une couche de données avant le code Tag Manager, comme dans cet exemple :
+Braze applique une limite de débit de 500 requêtes par trois secondes (environ 167 requêtes par seconde) par espace de travail pour les pages de destination non mises en cache. Cette limite contribue à maintenir les performances et la fiabilité du système pendant les périodes de fort trafic.
+
+Les consultations de pages de destination mises en cache ne sont pas comptabilisées dans cette limite. Pour savoir comment la mise en cache affecte le trafic, consultez [Les pages de destination peuvent-elles gérer des scénarios de fort trafic ?](#can-landing-pages-handle-high-traffic-scenarios).
+
+## Ajouter Google Tag gestionnaire à une page de destination {#adding-google-tag-manager-to-a-landing-page}
+
+Pour ajouter Google Tag gestionnaire à vos pages de destination, ajoutez un bloc **Custom Code** à votre page de destination dans l'éditeur par glisser-déposer, puis insérez le code Tag gestionnaire dans le bloc. Assurez-vous d'ajouter une couche de données avant le code Tag gestionnaire, comme dans cet exemple :
 
 ```
 <script>
@@ -58,41 +64,43 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 ```
 
-Pour plus de détails sur l'implémentation de Google Tag Manager, consultez la [documentation de Google](https://developers.google.com/tag-platform/tag-manager/datalayer#installation).
+Pour plus de détails sur l'implémentation de Google Tag gestionnaire, consultez la [documentation de Google](https://developers.google.com/tag-platform/tag-manager/datalayer#installation).
 
 ## Questions fréquemment posées {#frequently-asked-questions}
 
-### Quelle est la taille maximale des pages d'accueil ? {#whats-the-maximum-size-for-landing-pages}
+### Quelle est la taille maximale des pages de destination ? {#whats-the-maximum-size-for-landing-pages}
 
-Le corps de la page d'accueil peut atteindre 500 Ko.
+La taille du corps de la page de destination peut atteindre 500 Ko.
 
-### Les pages d'accueil peuvent-elles gérer des scénarios à fort trafic ? {#can-landing-pages-handle-high-traffic-scenarios}
+### Les pages de destination peuvent-elles gérer des scénarios à fort trafic ? {#can-landing-pages-handle-high-traffic-scenarios}
 
-Oui, les pages d'accueil non personnalisées peuvent gérer efficacement des scénarios à fort trafic. Lorsqu'une page d'accueil non personnalisée est demandée pour la première fois, Braze la met en cache via Cloudflare. Cela signifie que toutes les requêtes suivantes pour le même lien sont servies depuis le cache, de sorte que les performances ne sont pas dégradées lors de requêtes à fort volume. Ce cache dure 24 heures, et les pages vues en cache ne sont pas comptabilisées dans les limites de débit.
+Oui. Les pages de destination non personnalisées gèrent efficacement les scénarios à fort trafic. Lorsqu'une page de destination est demandée pour la première fois, Braze la met en cache via Cloudflare. Les requêtes suivantes pour le même lien sont servies depuis le cache, ce qui aide lors des périodes de fort trafic. Ce cache dure 24 heures, et les pages vues en cache ne comptent pas dans les [limites de débit](#rate-limits).
 
-Pour les pages d'accueil personnalisées (utilisant la personnalisation Liquid), les limites de débit s'appliquent aux requêtes non mises en cache. Pour maintenir des performances optimales, consultez [Considérations relatives à la personnalisation]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages#personalization-considerations).
+Les pages de destination personnalisées utilisent un cache Cloudflare plus court et génèrent davantage de requêtes non mises en cache vers Braze. Ces requêtes non mises en cache sont soumises à la limite de débit par espace de travail décrite dans [Limites de débit](#rate-limits).
 
-### Y a-t-il des exigences techniques pour publier une page d'accueil ? {#are-there-any-technical-requirements-to-publish-a-landing-page}
+Pour les limites de taille et d'autres recommandations de performance pour les pages personnalisées, consultez [Considérations relatives à la personnalisation]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages#personalization-considerations).
+
+### Y a-t-il des exigences techniques pour publier une page de destination ? {#are-there-any-technical-requirements-to-publish-a-landing-page}
 
 Non, il n'y a aucune exigence technique.
 
-### Existe-t-il un éditeur HTML pour les pages d'accueil ? {#is-there-an-html-editor-for-landing-pages}
+### Existe-t-il un éditeur HTML pour les pages de destination ? {#is-there-an-html-editor-for-landing-pages}
 
-Oui. Utilisez le bloc **Custom Code** dans l'éditeur par glisser-déposer pour ajouter ou modifier du HTML.
+Oui. Utilisez le bloc **Custom Code** dans l'éditeur par glisser-déposer pour ajouter ou modifier du HTML. Pour interagir avec le SDK Braze depuis votre code personnalisé, consultez [Pont JavaScript pour les pages de destination]({{site.baseurl}}/user_guide/messaging/landing_pages/javascript_bridge). Pour connecter une interface entièrement personnalisée à un formulaire de page de destination, consultez [Créer des blocs de formulaire personnalisés]({{site.baseurl}}/user_guide/messaging/landing_pages/custom_form_blocks).
 
-### Puis-je utiliser des iframes sur les pages d'accueil ? {#can-i-use-iframes-on-landing-pages}
+### Puis-je utiliser des iframes sur les pages de destination ? {#can-i-use-iframes-on-landing-pages}
 
 Oui. Ajoutez un bloc **Custom Code** dans l'éditeur par glisser-déposer et incluez un élément iframe avec l'URL du contenu que vous souhaitez intégrer.
 
-Si le site web intégré restreint l'encadrement via `frame-ancestors` dans sa politique de sécurité du contenu (CSP) ou `X-Frame-Options`, la page peut ne pas se charger dans l'iframe. Braze ne peut pas contourner ces paramètres — le site intégré doit être configuré pour autoriser le domaine de votre page d'accueil.
+Si le site web intégré restreint l'encadrement via `frame-ancestors` dans sa Content Security Policy (CSP) ou `X-Frame-Options`, la page peut ne pas se charger dans l'iframe. Braze ne peut pas outrepasser ces paramètres : le site intégré doit être configuré pour autoriser le domaine de votre page de destination.
 
-### Puis-je créer un webhook à l'intérieur d'une page d'accueil ? {#can-i-create-a-webhook-inside-a-landing-page}
+### Puis-je créer un webhook à l'intérieur d'une page de destination ? {#can-i-create-a-webhook-inside-a-landing-page}
 
-Non, mais l'événement **Submitted a Landing Page form** peut servir de déclencheur pour des Canvas ou des campagnes webhook :
+Non, mais l'événement **Submitted a Landing Page form** peut servir de déclencheur pour des Canvas ou des Campaigns webhook :
 
-- **Canvas :** utilisez l'événement **Submitted a Landing Page form** comme déclencheur d'entrée dans un Canvas et ajoutez une étape webhook.
-- **Campaign :** utilisez l'événement **Submitted a Landing Page form** pour déclencher un envoi en fonction de la soumission du formulaire.
+- **Canvas :** Utilisez l'événement **Submitted a Landing Page form** comme déclencheur d'entrée Canvas et ajoutez une étape webhook.
+- **Campaign :** Utilisez l'événement **Submitted a Landing Page form** pour déclencher une action basée sur la soumission du formulaire.
 
-Lorsque la page n'est pas envoyée via un canal Braze (par exemple via un site web ou une publicité), un nouveau profil utilisateur peut être créé lors de la soumission, même si cette personne existe déjà dans Braze. Pour gérer ce cas, configurez un Canvas déclenché par **Submitted a Landing Page form** et ajoutez une étape webhook Braze-to-Braze qui appelle l'endpoint [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) pour fusionner le nouveau profil avec le profil existant.
+Lorsque la page n'est pas envoyée via un canal Braze (par exemple via un site web ou une publicité), un nouveau profil utilisateur peut être créé lors de la soumission, même si cette personne existe déjà dans Braze. Pour gérer cela, configurez un Canvas déclenché par **Submitted a Landing Page form** et ajoutez une étape webhook Braze-to-Braze qui appelle l'endpoint [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) pour fusionner le nouveau profil avec le profil existant.
 
-Lorsque vous utilisez l'étiquette Liquid `landing_page_url` pour partager la page, les soumissions de formulaire sont automatiquement associées au profil utilisateur existant. Vous pouvez ensuite référencer les attributs utilisateur soumis sur la page d'accueil via Liquid pour la personnalisation de vos messages suivants.
+Lorsque vous utilisez l'étiquette Liquid `landing_page_url` pour partager la page, les soumissions de formulaire sont automatiquement associées au profil utilisateur existant. Vous pouvez ensuite référencer les attributs utilisateur soumis sur la page de destination via Liquid pour la personnalisation ultérieure.

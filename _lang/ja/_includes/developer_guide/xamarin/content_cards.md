@@ -78,7 +78,7 @@ Braze .NET MAUI SDKには、共通のベースモデルを持つ3種類のユニ
 | ---------------------------------------- | ------------------------------------------------------------------------------------------------------ |
 | `requestContentCardsRefresh()` | Braze SDKサーバーから最新のContent Cardsをリクエストします。 |
 | `getContentCards()` | Braze SDKからContent Cardsを取得します。サーバーからの最新のカードリストが返されます。 |
-| `logContentCardClicked(cardId)` | 指定されたContent Card IDのクリックを記録します。このメソッドは分析のみに使用されます。 |
-| `logContentCardImpression(cardId)` | 指定されたContent Card IDのインプレッションを記録します。 |
-| `logContentCardDismissed(cardId)` | 指定されたContent Card IDの却下を記録します。 |
+| `logContentCardClicked(cardId)` | 指定されたContent カード IDのクリックを記録します。このメソッドは分析のみに使用されます。 |
+| `logContentCardImpression(cardId)` | 指定されたContent カード IDのインプレッションを記録します。 |
+| `logContentCardDismissed(cardId)` | 指定されたContent カード IDの却下を記録します。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="カードメソッド" }

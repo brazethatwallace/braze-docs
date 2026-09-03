@@ -7,7 +7,7 @@ layout: dev_guide
 search_rank: 6
 guide_top_header: "Resumen de la integración"
 guide_top_text: ""
-description: "Esta página de inicio cubre las guías de integración del SDK de Braze para CocoaPods, Swift Package Manager, Carthage y más."
+description: "Esta página de inicio cubre las guías de integración del SDK de Braze para CocoaPods, Swift Package Administrador, Carthage y más."
 
 guide_featured_title: "Opciones básicas de integración"
 guide_featured_list:
@@ -36,7 +36,7 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-La instalación del SDK de Braze para iOS te proporcionará una funcionalidad básica de análisis (gestión de sesiones) y mensajes básicos dentro de la aplicación. Debes personalizar aún más tu integración para canales y características adicionales. <br> <br> El SDK de Braze para iOS puede instalarse o actualizarse mediante CocoaPods, Carthage, Swift Package Manager o una integración manual. <br> <br> Además, el SDK de Braze para iOS es totalmente compatible con las aplicaciones RubyMotion.
+La instalación del SDK de Braze para iOS te proporcionará una funcionalidad básica de análisis (gestión de sesiones) y mensajes básicos dentro de la aplicación. Debes personalizar aún más tu integración para canales y características adicionales. <br> <br> El SDK de Braze para iOS puede instalarse o actualizarse mediante CocoaPods, Carthage, Swift Package Administrador o una integración manual. <br> <br> Además, el SDK de Braze para iOS es totalmente compatible con las aplicaciones RubyMotion.
 
 {% alert important %}
 El SDK de iOS añadirá de 1&nbsp;MB a 2&nbsp;MB al archivo IPA de la aplicación, además de un archivo APP, y 30&nbsp;MB para el framework.

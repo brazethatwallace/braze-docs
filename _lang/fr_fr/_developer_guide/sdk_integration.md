@@ -77,7 +77,7 @@ config[config_fields.HEARTBEAT_FREQ_IN_SECONDS] = 5
 globalNode.addFields({brazeConfig: config})
 ```
 
-Vous pouvez trouver votre [endpoint SDK]({{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints) et votre clé API dans le tableau de bord de Braze.
+Vous pouvez trouver votre [endpoint SDK]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) et votre clé API dans le tableau de bord de Braze.
 
 ### Étape 4 : Initialiser Braze {#step-4-initialize-braze}
 

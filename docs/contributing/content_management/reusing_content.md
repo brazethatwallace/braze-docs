@@ -87,6 +87,30 @@ The reference would be similar to the following:
 
 ![Content reuse example on Braze Docs.](../../../assets/img/contributing/styling_examples/includes.png)
 
+## Link tiles
+
+Landing page layouts (such as `featured` and `dev_guide`) render link tiles from the `guide_featured_list` front matter key, but only at the top of the page, before the article body. Those landing page tiles keep the existing layout (icons and front matter fields such as `image` or `fa_icon`).
+
+To use tiles inside a regular article—for example, under a "Next steps" heading—use the `{% article_tiles %}` tag. Put the tile YAML in the tag body, next to the heading.
+
+Each `{% article_tiles %}` entry requires `name` and `link`. Write each `link` as a `/docs/...` path. Add `description` only when the tile name alone is not enough; if a topic needs more context, link to it from the surrounding article instead.
+
+### Example input
+
+```markdown
+## Next steps
+
+{% article_tiles %}
+- name: Create a transactional email
+  link: /docs/user_guide/channels/transactional_email/create_a_transactional_email
+- name: Tracking
+  link: /docs/user_guide/channels/transactional_email/tracking
+{% endarticle_tiles %}
+```
+
+> [!TIP]
+> A page can have more than one tile group. Add another `{% article_tiles %}` block wherever the next group should appear.
+
 ## Sitemap last-modified dates
 
 The nightly sitemap workflow sets each article's `lastmod` to the latest git commit date among the article and every include it references (including nested includes). If you change only a shared include, every page that renders that include gets an updated `lastmod` on the next nightly run, even when the article `.md` file did not change.

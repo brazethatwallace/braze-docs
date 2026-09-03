@@ -56,6 +56,13 @@ When setting your "from" addresses, make sure your "from" email domain matches y
 Unicode encoding is not supported in "from" addresses.
 {% endalert %}
 
+
+### Sending domains and inbound mail
+
+Braze delivers email outbound only. Sending domains and subdomains are configured for deliverability (SPF, DKIM, and related DNS records) but are not inbound mailboxes.
+
+You cannot forward replies sent to a sending subdomain into a personal inbox through Braze. To receive user replies, configure a separate Reply-To address on a domain you control with an inbound mailbox. See [From and reply-to addresses](#from-and-reply-to-addresses).
+
 ## Attachments in email {#attachments}
 
 When you add attachments to email messages, follow these deliverability best practices:

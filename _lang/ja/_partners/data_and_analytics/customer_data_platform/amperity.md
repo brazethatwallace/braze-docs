@@ -124,7 +124,7 @@ Amperityプラットフォームで**Destinations**タブに移動します。�
 
 #### ステップ2e：データテンプレートを追加する {#step-2e-add-a-data-template}
 
-**Destinations**タブでBraze送信先のメニューを開き、**Add data template**を選択します。テンプレートの名前と説明（たとえば「Braze」と「Send custom attributes to Braze」）を入力し、ビジネスユーザーのアクセスを確認し、すべての設定をチェックします。
+**Destinations**タブでBraze送信先のメニューを開き、**Add data template**を選択します。テンプレートの名前と説明（たとえば「Braze」と「Send カスタム属性 to Braze」）を入力し、ビジネスユーザーのアクセスを確認し、すべての設定をチェックします。
 
 必要な設定が送信先の一部として構成されていない場合は、データテンプレートの一部として構成します。データテンプレートを保存します。
 

@@ -19,6 +19,8 @@ For the full reference — descriptions, when-to-use guidance, and invocation sy
 | [`redirect-management`](.github/skills/redirect-management/SKILL.md) | Adding, updating, and validating redirects in `broken_redirect_list.js` |
 | [`reference-repos`](.github/skills/reference-repos/SKILL.md) | Verifying product, API, or SDK behavior against source repos |
 | [`docs-discrepancies`](.github/skills/docs-discrepancies/SKILL.md) | Page-by-page doc vs platform audits and discrepancy PRs |
+| [`find-ux-debt`](.github/skills/find-ux-debt/SKILL.md) | Scanning Braze platform UI files for 8 detectable copy problem types; routes Tier 1 findings to `log-ux-debt` and offers to log Tier 2 findings as a consolidated UXW story |
+| [`log-ux-debt`](.github/skills/log-ux-debt/SKILL.md) | Filing UX Debt Jira tickets for factual copy inconsistencies found in platform source (CODEOWNERS lookup, dedup, ticket creation) |
 | [`support-analyzer`](.github/skills/support-analyzer/SKILL.md) | Manual triage of support case CSVs (after CI digest / Phase 2) |
 | [`salesforce-migration`](.github/skills/salesforce-migration/SKILL.md) | Jira SF KB migration tickets and `_data/sf_*.xml` / CSV workflows |
 | [`image-pruner`](.github/skills/image-pruner/SKILL.md) | Finding and removing unreferenced `assets/img/` files (all locales) |
@@ -28,6 +30,7 @@ For the full reference — descriptions, when-to-use guidance, and invocation sy
 | [`snippet-pii`](scripts/check_snippet_pii.py) | Advisory fenced-code-block PII scan for `_docs/` and `_includes/` (see `check-snippet-pii.yml`) |
 | [`tam-solutions`](.github/skills/tam-solutions/SKILL.md) | Converting TAM solution assets into public User Guide example articles |
 | [`slack-to-docs`](.github/skills/slack-to-docs/SKILL.md) | Mining SME Slack channels for source-verified doc PRs with dedup and thread citations |
+| [`audit-page-seo`](.github/skills/audit-page-seo/SKILL.md) | SEO/AEO page scoring, link fix tables, and pilot recommendation packets for `_docs/` |
 
 ## How to invoke (Cursor)
 

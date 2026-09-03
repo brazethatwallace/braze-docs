@@ -68,7 +68,7 @@ Para más detalles, consulta la [documentación](https://hightouch.com/docs) de 
 Los modelos de Hightouch definen qué datos extraer de tu fuente. Para configurar un nuevo modelo, sigue estos pasos:
 
 1. En Hightouch, ve a [**Models overview**](https://app.hightouch.com/models) > **Add model** y selecciona la fuente que acabas de conectar. <br><br>
-2. A continuación, elige un [método de modelado](https://hightouch.com/docs/models/creating-models). Como toda tu información debe estar unida en una sola tabla, puedes utilizar el selector visual de tablas para definirla. Como alternativa, puedes escribir SQL para incluir solo las columnas que desees o basarte en tus modelos dbt, Looker Looks o libros de trabajo Sigma existentes.<br><br>
+2. A continuación, elige un [método de modelado](https://hightouch.com/docs/models/creating-models). Como toda tu información debe estar unida en una sola tabla, puedes utilizar el SELECTOR visual de tablas para definirla. Como alternativa, puedes escribir SQL para incluir solo las columnas que desees o basarte en tus modelos dbt, Looker Looks o libros de trabajo Sigma existentes.<br><br>
 3. Antes de continuar, previsualiza tu modelo para asegurarte de que consulta los datos que te interesan. Por defecto, Braze limita la vista previa a los 100 primeros registros. Una vez validados los datos, haz clic en **Continue**.<br><br>
 4. Nombra tu modelo, por ejemplo, "Recomendaciones de usuarios".<br><br>
 5. Por último, selecciona una clave primaria y haz clic en **Finish**. Una clave primaria debe ser una columna con identificadores únicos. Este es también el campo que utilizarás para llamar a la API de personalización y recuperar las recomendaciones de un usuario en particular.

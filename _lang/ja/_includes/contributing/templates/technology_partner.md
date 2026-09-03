@@ -1,4 +1,4 @@
-このテンプレートを使ってテクノロジーパートナードキュメントを作成できます。例については、[Scuba Analytics]({{site.baseurl}}/partners/data_and_analytics/business_intelligence/scuba/) を参照してください。
+このテンプレートを使ってテクノロジーパートナーのドキュメントを作成できます。例については、[Scuba Analytics]({{site.baseurl}}/partners/data_and_analytics)を参照してください。
 
 {% details テンプレートを表示 %}
 {% raw %}
@@ -43,7 +43,7 @@ Before you start, you need the following:
 |-----------------------|-----------------|
 | A PARTNER_NAME account   | A PARTNER_NAME account is required to take advantage of this partnership.  |
 | A Braze REST API key  | A Braze REST API key with `users.track` permissions. <br><br> Create this key in the Braze dashboard from **Settings** > **API Keys**. |
-| A Braze REST endpoint | [Your REST endpoint URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Your endpoint depends on the Braze URL for your instance.  |
+| A Braze REST endpoint | [Your REST endpoint URL]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Your endpoint depends on the Braze URL for your instance.  |
 {: .reset-td-br-1 .reset-td-br-2 aria-label=”Prerequisites” }
 
 ## Integrating TOOL_NAME
@@ -62,7 +62,7 @@ The following request uses cURL. For better API request management, we recommend
 
 To upload your PARTNER_NAME data to Braze, make a POST request to `PARTNER_POST_URL` using the `application/json` content-type:
 
-`````````bash
+```bash
 curl -X POST "PARTNER_POST_URL" \
 -H "content-type: application/json" \
 -d '{"braze_host":"BRAZE_API_ENDPOINT", \
@@ -75,10 +75,10 @@ curl -X POST "PARTNER_POST_URL" \
 
 | プレースホルダー     | 説明      |
 |---------------------|---------------------|
-| `BRAZE_API_ENDPOINT`    | 現在のBrazeインスタンスのBraze RESTエンドポイントURL。詳細については、[REST APIキー]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/#rest-api-keys)を参照してください。 |
+| `BRAZE_API_ENDPOINT`    | 現在のBrazeインスタンスのBraze RESTエンドポイントURL。詳細については、[REST APIキー]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab#rest-api-keys)を参照してください。 |
 | `BRAZE_API_KEY`         | `users.track` 権限を持つBraze REST APIキー。 |                                                                                                                                    | `HOSTNAME`                  | 現在のPARTNER_NAMEインスタンスのホスト名。  |
 | `PARTNER_NAME_API_TOKEN`       | PARTNER_NAMEのAPIトークン。  |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ 2: POSTリクエストを送信する" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ2: POSTリクエストを送信する" }
 
 #### デフォルトの動作
 
@@ -89,24 +89,24 @@ CONTENT.
 CONTENT.
 
 ## TOOL_NAMEのカスタマイズ
-<!-- 追加のカスタマイズ手順を概説するために使用できるオプションのセクションです。簡潔にし、必要最小限のステップを概説することが重要です。 -->
+<!-- 追加のカスタマイズステップを概説するために使用できるオプションのセクションです。簡潔にし、必要最小限のステップを概説することが重要です。 -->
 
-### ステップ 1: ACTION_TO_COMPLETE
+### ステップ1: ACTION_TO_COMPLETE
 
 CONTENT.
 
-### ステップ 2: ACTION_TO_COMPLETE
+### ステップ2: ACTION_TO_COMPLETE
 
 CONTENT.
 
 ## BrazeでのTOOL_NAMEの使用 / USE_CASE
 <!-- Brazeとの連携の使用方法を概説するセクションです。たとえば、Brazeに送信されたデータへのアクセス方法、Brazeメッセージングとの連携の活用方法、または「ユースケース」セクションの特定のユースケースの完了方法などです。 -->
 
-### ステップ 1: ACTION_TO_COMPLETE
+### ステップ1: ACTION_TO_COMPLETE
 
 CONTENT.
 
-### ステップ 2: ACTION_TO_COMPLETE
+### ステップ2: ACTION_TO_COMPLETE
 
 CONTENT.
 
@@ -118,11 +118,11 @@ CONTENT.
 CONTENT.
 
 ## トラブルシューティング
-<!-- 連携のセットアップ中にユーザーが遭遇する可能性のある問題をガイドするオプションのセクションです。ハイパーリンクを使用してドキュメントサイトにユーザーを誘導することもできます。 -->
+<!-- 連携のセットアップ中にユーザーが遭遇する可能性のある問題についてガイドするオプションのセクションです。ハイパーリンクを使用してドキュメントサイトにユーザーを誘導することもできます。 -->
 
 ### TROUBLESHOOTING_ITEM
 
 CONTENT.
-```
+`````
 {% endraw %}
 {% enddetails %}

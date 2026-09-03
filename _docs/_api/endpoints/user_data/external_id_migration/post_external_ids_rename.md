@@ -6,7 +6,6 @@ page_order: 1
 layout: api_page
 page_type: reference
 description: "This article outlines details about the Rename external IDs endpoint."
-
 ---
 {% api %}
 # Rename external ID
@@ -38,7 +37,7 @@ The endpoint does not log data points and does not affect MAU counts. All histor
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/api_key) with the `users.external_ids.rename` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics) with the `users.external_ids.rename` permission.
 
 ## Rate limit
 

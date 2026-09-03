@@ -36,9 +36,9 @@ Si no añades tu aplicación a un grupo de aplicaciones, es posible que tu aplic
 ### Paso 3: Añadir el framework de historias push a tu aplicación
 
 {% tabs local %}
-{% tab Swift Package Manager %}
+{% tab Swift Package Administrador %}
 
-Después de seguir la [guía de integración de Swift Package Manager]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/sdk_integration/?tab=swift%20package%20manager/), añade `BrazePushStory` a tu `Notification Content Extension`:
+Después de seguir la [guía de integración de Swift Package Administrador]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/sdk_integration/?tab=swift%20package%20manager/), añade `BrazePushStory` a tu `Notification Content Extension`:
 
 ![En Xcode, en frameworks y bibliotecas, selecciona el icono «+» para añadir un framework.]({% image_buster /assets/img/swift/push_story/spm1.png %})
 

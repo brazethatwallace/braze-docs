@@ -25,7 +25,7 @@ Para criar ou editar seu rodapé personalizado, faça o seguinte:
 1. Acesse **Settings** > **Email Preferences** > **Subscription Pages and Footers**.
 2. Acesse a seção **Custom footer** e ative os rodapés personalizados.
 3. Selecione **Edit** e edite seu rodapé na seção **Compose**.
-4. Selecione **Preview** para visualizar como o rodapé do seu e-mail aparecerá na caixa de entrada do cliente. Opcionalmente, você pode selecionar **Copy preview link** para gerar e copiar um link de prévia compartilhável que mostra como o e-mail ficará para um usuário aleatório. Para saber mais, consulte [Prévia compartilhável]({{site.baseurl}}/user_guide/messaging/governance/shareable_preview).
+4. Selecione **prévia** para visualizar como o rodapé do seu e-mail aparecerá na caixa de entrada do cliente. Opcionalmente, você pode selecionar **Copy prévia link** para gerar e copiar um link de prévia compartilhável que mostra como o e-mail ficará para um usuário aleatório. Para saber mais, consulte [Prévia compartilhável]({{site.baseurl}}/user_guide/messaging/governance/shareable_preview).
 5. Envie uma mensagem de teste.
 
 ![Um exemplo de rodapé personalizado.]({% image_buster /assets/img_archive/custom_footer.png %})

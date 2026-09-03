@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Refiner
 
-> A [Refiner](https://refiner.io) é uma plataforma de pesquisas in-app para SaaS e apps móveis. Ela permite que equipes de produto e de voz do cliente lancem pesquisas direcionadas in-app e coletem continuamente NPS, CSAT, CES, feedback de produto e dados zero-party dos usuários.
+> A [Refiner](https://refiner.io) é uma plataforma de pesquisas in-app para SaaS e apps móveis. Ela permite que equipes de produto e de voz do cliente lancem pesquisas direcionadas in-app e coletem continuamente Net Promoter Score (NPS), CSAT, CES, feedback de produto e dados zero-party dos usuários.
 
 _Essa integração é mantida pela Refiner._
 
@@ -20,9 +20,9 @@ Use a integração entre a Refiner e a Braze para enviar eventos de pesquisa e d
 
 ## Casos de uso {#use-cases}
 
-- Segmentar usuários com base nas respostas de pesquisas, como pontuações de NPS ou classificações de CSAT.
+- Segmentar usuários com base nas respostas de pesquisas, como pontuações de Net Promoter Score (NPS) ou classificações de CSAT.
 - Disparar campanhas personalizadas na Braze com base nos resultados de pesquisas.
-- Conduzir jornadas entre canais usando o Braze Canvas ou outras ferramentas de orquestração.
+- Conduzir jornadas entre canais usando o BRAZE CANVAS ou outras ferramentas de orquestração.
 
 ## Pré-requisitos {#prerequisites}
 

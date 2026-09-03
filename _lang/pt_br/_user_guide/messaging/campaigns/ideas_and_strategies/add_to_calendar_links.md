@@ -21,7 +21,7 @@ A forma de anexar as URLs depende do editor de e-mail que você usa:
 
 ## Formato da URL {#url-format}
 
-Adicione a seguinte URL aos seus links, substituindo os espaços reservados. A única diferença entre essas duas URLs é que o Google Calendar precisa de um parâmetro adicional: `&format=gcal`.
+Adicione a URL a seguir aos seus links, substituindo os espaços reservados. A única diferença entre essas duas URLs é que o Google Calendar precisa de um parâmetro adicional: `&format=gcal`.
 
 {% tabs %}
 {% tab Google Calendar %}
@@ -70,38 +70,38 @@ Os parâmetros a seguir são opcionais e podem ser usados para definir aspectos 
 Você também pode adicionar parâmetros adicionais para eventos recorrentes:
 - **Eventos semanais:** `&recur=weekly`
 - **Eventos mensais:** `&recur=monthly`
-- **Fim da recorrência:** `&recuruntil=END_DATE`, em que `END_DATE` é a data e o horário em que a recorrência termina no formato ISO 8601 (YYYY-MM-DDTHH:MM:SSZ) em UTC
+- **Fim da recorrência:** `&recuruntil=END_DATE`, em que `END_DATE` é a data e hora em que a recorrência termina no formato ISO 8601 (YYYY-MM-DDTHH:MM:SSZ) em UTC
 
 ## Comportamento do link {#link-behavior}
 
 Quando um usuário clica no link, os calendários transformam automaticamente os timestamps UTC nas URLs para refletir o fuso horário do usuário definido no calendário.
 
-Por exemplo, se você abrir o link de exemplo "Adicionar ao Google Agenda" e seu calendário estiver configurado para CST, o horário do evento será preenchido automaticamente de acordo com o que 15h UTC representa em CST (10h).
+Por exemplo, se você abrir o link de exemplo "Adicionar ao Google Agenda" e seu calendário estiver definido como CST, o horário do evento será preenchido automaticamente de acordo com o que 15h UTC é em CST (10h).
 
 ### Google Agenda {#google-calendar}
 
-Ao clicar, o Google Agenda abre em uma nova guia ou janela com os detalhes do evento preenchidos no convite e prontos para o usuário salvar. Isso acontece tanto no celular quanto no desktop.
+Ao clicar, o Google Agenda abre em uma nova guia ou janela com os detalhes do evento pré-preenchidos no convite e prontos para o usuário salvar. Isso acontece tanto em dispositivos móveis quanto em desktop.
 
-![Caixa de diálogo do Google Agenda para adicionar um evento com os detalhes do evento preenchidos e prontos para salvar.]({% image_buster /assets/img_archive/calendar_2.png %}){: style="max-width:75%"}
+![Caixa de diálogo do Google Agenda para adicionar um evento com os detalhes do evento adicionados e prontos para salvar.]({% image_buster /assets/img_archive/calendar_2.png %}){: style="max-width:75%"}
 
 ### iCal ou Outlook {#ical-or-outlook}
 
-Ao clicar no desktop, um arquivo ICS é baixado. O usuário precisa então abrir o arquivo ICS, que abre o iCal ou o Outlook e solicita que o usuário adicione o evento ao calendário.
+Ao clicar no desktop, um arquivo ICS é baixado no local de download padrão do seu navegador (normalmente a pasta **Downloads**). O usuário então precisa abrir o arquivo ICS, que abre o iCal ou o Outlook e solicita que o usuário adicione o evento ao calendário.
 
-![Calendário iCal com uma caixa de diálogo para adicionar um novo evento, que solicita ao usuário selecionar um calendário e confirmar.]({% image_buster /assets/img_archive/calendar_3.png %}){: style="max-width:75%"}
+![Calendário do iCal com uma caixa de diálogo para adicionar um novo evento, que solicita ao usuário selecionar um calendário e confirmar.]({% image_buster /assets/img_archive/calendar_3.png %}){: style="max-width:75%"}
 
-![Calendário iCal com o evento adicionado.]({% image_buster /assets/img_archive/calendar_4.png %}){: style="max-width:81%"}
+![Calendário do iCal com o evento adicionado.]({% image_buster /assets/img_archive/calendar_4.png %}){: style="max-width:81%"}
 
-No celular, o comportamento depende do dispositivo e do app de e-mail.
+Em dispositivos móveis, o comportamento depende do dispositivo e do app de e-mail.
 
 {% alert note %}
-No iPhone, o app Mail e o Microsoft Outlook baixam o arquivo ICS quando os usuários tocam no link do iCal, mas esses apps não abrem o Calendário a partir do link. Para adicionar o evento, abra o arquivo baixado em **Arquivos**, **Downloads** ou na visualização de anexos (dependendo do app) e conclua as etapas no Calendário.
+No iPhone, o app Mail e o Microsoft Outlook baixam o arquivo ICS para o dispositivo quando os usuários tocam no link do iCal, mas esses apps não abrem o Calendário a partir do link. Para adicionar o evento, abra o arquivo baixado em **Arquivos**, **Downloads** ou na visualização de anexos (dependendo do app), e então conclua as etapas no Calendário. A localização específica depende do app de e-mail e das configurações do iOS.
 {% endalert %}
 
-Em alguns outros apps de e-mail ou navegadores no celular, pressionar e segurar o link pode exibir uma opção para adicionar o evento a um calendário.
+Em alguns outros apps de e-mail ou navegadores em dispositivos móveis, pressionar e segurar o link pode exibir uma opção para adicionar o evento ao calendário.
 
-![Pop-up do iOS quando você pressiona e segura um link de calendário, que inclui um botão "Adicionar ao Calendário".]({% image_buster /assets/img_archive/calendar_5.png %}){: style="max-width:50%"}
+![Pop-up do iOS quando você pressiona e segura um link de calendário, que inclui um botão para "Adicionar ao Calendário".]({% image_buster /assets/img_archive/calendar_5.png %}){: style="max-width:50%"}
 
 Para saber mais, consulte:
-* [Criar eventos para o Google Agenda](https://developers.google.com/calendar/api/guides/create-events)
-* [Criar um link Adicionar ao calendário em uma mensagem de e-mail](https://support.microsoft.com/en-us/office/create-an-add-to-calendar-link-in-an-email-message-34f8ea28-322a-4867-b423-2998f9634e59)
+* [Criar eventos no Google Agenda](https://developers.google.com/calendar/api/guides/create-events)
+* [Criar um link "Adicionar ao calendário" em uma mensagem de e-mail](https://support.microsoft.com/en-us/office/create-an-add-to-calendar-link-in-an-email-message-34f8ea28-322a-4867-b423-2998f9634e59)

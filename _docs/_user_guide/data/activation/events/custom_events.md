@@ -72,9 +72,9 @@ Custom events require additional setup. Refer to the following platform document
 - [Android and FireOS]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=android)
 - [iOS]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=swift)
 - [Web]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=web)
-- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics#logging-custom-events)
+- [React Native]({{site.baseurl}}/developer_guide/analytics#custom-events)
 - [Unity]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=unity)
-- [.NET MAUI (formerly Xamarin)]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics#tracking-custom-events)
+- [.NET MAUI (formerly Xamarin)]({{site.baseurl}}/developer_guide/analytics?sdktab=xamarin#custom-events)
 - [Roku]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=roku)
 
 {% enddetails %}
@@ -84,10 +84,6 @@ Custom events require additional setup. Refer to the following platform document
 All data stored on the **User Profile**, including custom event metadata (first or last occurrence, total count, and X in Y over 30 days), is retained indefinitely as long as each profile is <a href="/docs/user_archival#active-users">active</a>.
 
 ## View a user's event history
-
-{% alert important %}
-Event History is currently in early access. Contact your Braze account manager if you're interested in participating.
-{% endalert %}
 
 Use the **Event History** tab on a user's profile to view that user's recent custom events and purchases. This helps you confirm your integration is logging events correctly and troubleshoot user-level issues directly in the dashboard.
 
@@ -135,9 +131,9 @@ The following table shows the filters available for segmenting users by custom e
 
 ## Analytics
 
-Braze notes the number of times custom events have occurred and the last time they were performed by each user for segmentation. View these analytics by going to **Analytics** > **Custom Events Report**.
+Braze notes the number of times custom events have occurred and the last time they were performed by each user for segmentation. For report setup, filters, and export options, see [Custom events report]({{site.baseurl}}/user_guide/analytics/reports/custom_events_report).
 
-On the **Custom Events Report** page in the dashboard, you can view in aggregate how often each custom event occurs. The gray lines overlaid on the time series indicate the last time a campaign was sent, which is useful for viewing how your campaigns affected custom event activity.
+On the **Custom Events Report** page, you can view in aggregate how often each custom event occurs. The gray lines overlaid on the time series indicate the last time a campaign was sent, which is useful for viewing how your campaigns affected custom event activity.
 
 ![Custom event counts graph on the Custom Events page in the dashboard showing trends for a custom event]({% image_buster /assets/img_archive/custom_event_analytics_example.png %} "custom_event_analytics_example.png")
 

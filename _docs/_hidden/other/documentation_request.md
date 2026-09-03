@@ -12,7 +12,7 @@ hide_toc: true
       background-color: #fff;
       font-weight: 400;
       font-size: 15px;
-      font-family: Sailec W00 Regular,Arial,sans-serif;
+      font-family: 'Aribau Grotesk Regular', 'Aribau Grotesk', Arial, sans-serif;
       font-style: normal;
       color: #212123;
   }
@@ -74,7 +74,7 @@ hide_toc: true
     }
     .h1, h1  {
       font-size: 34pt;
-      font-family: Sailec W00 Bold, Arial, sans-serif;
+      font-family: 'Aribau Grotesk Bold', 'Aribau Grotesk', 'Aribau Grotesk Regular', Arial, sans-serif;
       margin-bottom: 24px;
     }
 
@@ -83,7 +83,7 @@ hide_toc: true
     }
     .subhead {
       font-size: 14pt;
-      font-family: Sailec W00 Regular,Arial,sans-serif;
+      font-family: 'Aribau Grotesk Regular', 'Aribau Grotesk', Arial, sans-serif;
       margin-bottom: 16px;
     }
 
@@ -118,7 +118,7 @@ hide_toc: true
       padding: 0px 1.5rem;
       height: 40px;
       min-width: 200px;
-      font-family: Sailec W00 Bold, Arial, sans-serif;
+      font-family: 'Aribau Grotesk Bold', 'Aribau Grotesk', 'Aribau Grotesk Regular', Arial, sans-serif;
       font-size: 12pt;
       font-weight: 700;
       border-radius: 2px;
@@ -185,7 +185,7 @@ hide_toc: true
     }
     .form-group label {
       font-size: 13pt !important;
-      font-family: Sailec W00 Bold, Arial, sans-serif;
+      font-family: 'Aribau Grotesk Bold', 'Aribau Grotesk', 'Aribau Grotesk Regular', Arial, sans-serif;
       margin-bottom: 6px;
     }
     input[type=text] {
@@ -196,25 +196,25 @@ hide_toc: true
     }
     #doc_release_notes_label {
       font-size: 12pt !important;
-      font-family: Sailec W00 Regular,Arial,sans-serif;
+      font-family: 'Aribau Grotesk Regular', 'Aribau Grotesk', Arial, sans-serif;
     }
     #doc_verify_label {
       font-size: 12pt !important;
-      font-family: Sailec W00 Regular,Arial,sans-serif;
+      font-family: 'Aribau Grotesk Regular', 'Aribau Grotesk', Arial, sans-serif;
     }
     input[type="checkbox"] {
         display:none;
     }
     input[type="checkbox"] + label {
       font-size: 14pt !important;
-      font-family: Sailec W00 Regular,Arial,sans-serif;
+      font-family: 'Aribau Grotesk Regular', 'Aribau Grotesk', Arial, sans-serif;
     }
     .form-check {
       padding-left: 0;
     }
     .sublabel {
       font-size: 12pt !important;
-      font-family: Sailec W00 Regular,Arial,sans-serif;
+      font-family: 'Aribau Grotesk Regular', 'Aribau Grotesk', Arial, sans-serif;
       color: #5E6C75;
       line-height: 1.4;
     }
@@ -264,7 +264,7 @@ hide_toc: true
     }
     .inline_text {
       display: flex;
-      font-family: Sailec, Arial, sans-serif;
+      font-family: 'Aribau Grotesk Regular', 'Aribau Grotesk', Arial, sans-serif;
       font-size: 10pt;
     }
     #braze_internal {
@@ -273,7 +273,7 @@ hide_toc: true
       background-color: #FFEEE3;
       padding: 10px;
       height: 45px;
-      font-family: Sailec W00 Bold, Arial, sans-serif;
+      font-family: 'Aribau Grotesk Bold', 'Aribau Grotesk', 'Aribau Grotesk Regular', Arial, sans-serif;
       font-size: 12tpt;
       position: absolute;
       left: 0;

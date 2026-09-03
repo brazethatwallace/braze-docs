@@ -103,7 +103,7 @@ Brazeでは、既存のTikTokオーディエンスにユーザーを追加して
 ### ステップ4：キャンバスを起動する {#step-4-launch-canvas}
 TikTok Audienceコンポーネントを設定したら、キャンバスを起動します。新しいオーディエンスが作成され、TikTok Audienceコンポーネントを通過するユーザーはTikTok上のこのオーディエンスに渡されます。キャンバスに後続のコンポーネントが含まれている場合、ユーザーはユーザージャーニーの次のステップに進みます。
 
-TikTokでオーディエンスを確認するには、**Ads Manager Account**にアクセスし、**Assets**ドロップダウンから**Audiences**を選択します。**Audience**ページでは、各オーディエンスのサイズが&#126;1,000に達した後に確認できます。
+TikTokでオーディエンスを確認するには、**Ads マネージャー Account**にアクセスし、**Assets**ドロップダウンから**Audiences**を選択します。**Audience**ページでは、各オーディエンスのサイズが&#126;1,000に達した後に確認できます。
 
 ![指定されたオーディエンスの以下の指標を一覧表示するTikTokページ。]({% image_buster /assets/img/tiktok/tiktok5.png %})
 
@@ -148,7 +148,7 @@ TikTokはデータプライバシーポリシーにより、この情報を提�
 
 ### TikTokでオーディエンスが反映されるまでどのくらいかかりますか？ {#how-long-will-it-take-for-my-audiences-to-populate-in-tiktok}
 
-オーディエンスサイズは、TikTok Ads Managerのオーディエンスページで24〜48時間以内に更新されます。
+オーディエンスサイズは、TikTok Ads マネージャーのオーディエンスページで24〜48時間以内に更新されます。
 
 ### TikTok広告アカウントで保持できるオーディエンスの最大数はいくつですか？ {#what-is-the-maximum-number-of-audiences-i-can-have-in-my-tiktok-ad-account}
 

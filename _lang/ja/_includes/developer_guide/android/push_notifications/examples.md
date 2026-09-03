@@ -2,21 +2,21 @@
 
 ## カスタム通知レイアウト {#custom-notification-layout}
 
-Brazeの通知は[データメッセージ](https://firebase.google.com/docs/cloud-messaging/concept-options)として送信されます。つまり、アプリがバックグラウンドにある場合でも、アプリケーションは常に応答して適切な動作を実行する機会を持ちます（アプリがバックグラウンドにあるときにシステムによって自動的に処理される通知メッセージとは対照的です）。そのため、通知トレイに配信される通知内にパーソナライズされたUI要素を表示するなど、アプリケーションでエクスペリエンスをカスタマイズできます。この方法でプッシュを実装することに慣れていない方もいるかもしれませんが、Brazeでよく知られている機能の1つである[Push Stories]({{site.baseurl}}/user_guide/message_building_by_channel/push/advanced_push_options/push_stories)は、カスタムビューコンポーネントを使用して魅力的なエクスペリエンスを生み出す代表的な例です。
+Brazeの通知は[データメッセージ](https://firebase.google.com/docs/cloud-messaging/concept-options)として送信されます。つまり、アプリがバックグラウンドにある場合でも、アプリは常に応答して適切な動作を実行する機会を得ることができます（これは、アプリがバックグラウンドにある場合にシステムによって自動的に処理される通知メッセージとは対照的です）。そのため、通知トレイに配信される通知内にパーソナライズされたUI要素を表示するなど、アプリがエクスペリエンスをカスタマイズする機会があります。この方法でプッシュを実装することに慣れていない方もいるかもしれませんが、Brazeのよく知られた機能の1つである[Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories)は、カスタムビューコンポーネントを使用して魅力的なエクスペリエンスを作成する代表的な例です。
 
 {% alert important %}
-Androidでは、カスタム通知ビューを実装するために使用できるコンポーネントにいくつかの制限があります。通知ビューレイアウトには、[RemoteViews](https://developer.android.com/reference/android/widget/RemoteViews)フレームワークと互換性のあるViewオブジェクト_のみ_を含める必要があります。
+Androidでは、カスタム通知ビューの実装に使用できるコンポーネントにいくつかの制限があります。通知ビューのレイアウトには、[RemoteViews](https://developer.android.com/reference/android/widget/RemoteViews)フレームワークと互換性のあるViewオブジェクト_のみ_を含める必要があります。
 {% endalert %}
 
-[`IBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html)インターフェイスを使用して、Brazeプッシュ通知の表示方法をカスタマイズできます。`BrazeNotificationFactory`を拡張することで、通知がユーザーに表示される前にBrazeがファクトリーの`createNotification()`メソッドを呼び出します。その後、BrazeダッシュボードまたはREST APIを通じて送信されたカスタムのキーと値のペアを含むペイロードが渡されます。
+[`IBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html)インターフェイスを使用して、Brazeプッシュ通知の表示方法をカスタマイズできます。`BrazeNotificationFactory`を拡張すると、通知がユーザーに表示される前にBrazeがファクトリの`createNotification()`メソッドを呼び出します。その後、BrazeダッシュボードまたはREST API経由で送信されたカスタムキーと値のペアを含むペイロードが渡されます。
 
-このセクションでは、野生動物救助チームが誰が一番多くのフクロウを救えるかを競う新しいゲーム番組のホスト、Superb Owlとパートナーを組みます。彼らはAndroidアプリでライブ更新通知を活用し、進行中の試合のステータスを表示してリアルタイムでダイナミックな更新を行えるようにしたいと考えています。
+このセクションでは、野生動物救護チームが最も多くのフクロウを救えるかを競う新しいゲーム番組のホスト、Superb Owlと一緒に作業します。彼らはAndroidアプリでライブ更新通知を活用して、進行中の試合のステータスを表示し、通知をリアルタイムでダイナミックに更新したいと考えています。
 
-![Superb Owlが表示したいライブ更新。Wild Bird FundとOwl Rescueの間で進行中の試合を表示しています。現在第4クォーターで、スコアは2-4でOWLがリードしています。]({% image_buster /assets/img/android/android-live-activity-superb-owl-example.jpg %}){: style="max-width:65%;"}
+![Superb Owlが表示したいライブアップデート。「Wild Bird Fund」と「Owl Rescue」の間の進行中の試合を表示しています。現在第4クォーターで、スコアは2-4、OWLがリードしています。]({% image_buster /assets/img/android/android-live-activity-superb-owl-example.jpg %}){: style="max-width:65%;"}
 
-### ステップ1: カスタムレイアウトを追加する {#step-1-add-a-custom-layout}
+### ステップ1:カスタムレイアウトを追加する {#step-1-add-a-custom-layout}
 
-1つ以上のカスタム通知RemoteViewレイアウトをプロジェクトに追加できます。これらは、通知が折りたたまれた状態や展開された状態でどのように表示されるかを処理するのに役立ちます。ディレクトリ構造は次のようになります。
+プロジェクトに1つ以上のカスタム通知RemoteViewレイアウトを追加できます。これらは、通知が折りたたまれた状態や展開された状態でどのように表示されるかを処理するのに役立ちます。ディレクトリ構造は以下のようになります。
 
 ```plaintext
 .
@@ -27,10 +27,10 @@ Androidでは、カスタム通知ビューを実装するために使用でき�
         └── liveupdate_expanded.xml
 ```
 
-各XMLファイルで、カスタムレイアウトを作成します。Superb Owlは、折りたたみ時と展開時のRemoteViewレイアウト用に次のレイアウトを作成しました。
+各XMLファイルでカスタムレイアウトを作成します。Superb Owlは、折りたたみ時と展開時のRemoteViewレイアウトに以下のレイアウトを作成しました。
 
 {% tabs local %}
-{% tab  Example: Collapsed layout %}
+{% tab  例：折りたたみレイアウト %}
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -48,7 +48,7 @@ Androidでは、カスタム通知ビューを実装するために使用でき�
 ```
 {% endtab %}
 
-{% tab Example: Expanded layout %}
+{% tab 例：展開レイアウト %}
 {% details サンプルコードを表示 %}
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -133,11 +133,11 @@ Androidでは、カスタム通知ビューを実装するために使用でき�
 {% endtab %}
 {% endtabs %}
 
-### ステップ2: カスタム通知ファクトリーを作成する {#step-2-create-a-custom-notification-factory}
+### ステップ2:カスタム通知ファクトリを作成する {#step-2-create-a-custom-notification-factory}
 
-アプリケーション内で、[`BrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html)を拡張する`MyCustomNotificationFactory.kt`という名前の新しいファイルを作成し、カスタムRemoteViewレイアウトの表示方法を処理します。
+アプリで、[`BrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html)を拡張した`MyCustomNotificationFactory.kt`という新しいファイルを作成して、カスタムRemoteViewレイアウトの表示方法を処理します。
 
-次の例では、Superb Owlが進行中の試合のRemoteViewレイアウトを表示するカスタム通知ファクトリーを作成しました。[次のステップ](#android_step-3-map-custom-data)では、チームのデータをアクティビティにマッピングする`getTeamInfo`という新しいメソッドを作成します。
+以下の例では、Superb Owlが進行中の試合のRemoteViewレイアウトを表示するカスタム通知ファクトリを作成しました。[次のステップ](#android_step-3-map-custom-data)では、チームのデータをアクティビティにマッピングする`getTeamInfo`という新しいメソッドを作成します。
 
 {% details サンプルコードを表示 %}
 ```kotlin
@@ -205,11 +205,11 @@ class MyCustomNotificationFactory : BrazeNotificationFactory() {
 ```
 {% enddetails %}
 
-### ステップ3: カスタムデータをマッピングする {#step-3-map-custom-data}
+### ステップ3:カスタムデータをマッピングする {#step-3-map-custom-data}
 
-`MyCustomNotificationFactory.kt`で、ライブ更新が表示されたときにデータを処理するための新しいメソッドを作成します。
+`MyCustomNotificationFactory.kt`で、ライブアップデートが表示される際にデータを処理する新しいメソッドを作成します。
 
-Superb Owlは、各チームの名前とロゴを展開されたライブ更新にマッピングするために、次のメソッドを作成しました。
+Superb Owlは、各チームの名前とロゴを展開されたライブアップデートにマッピングする以下のメソッドを作成しました。
 
 ```kotlin
 class CustomNotificationFactory : BrazeNotificationFactory() {
@@ -229,9 +229,9 @@ class CustomNotificationFactory : BrazeNotificationFactory() {
 }
 ```
 
-### ステップ4: カスタム通知ファクトリーを設定する {#step-4-set-the-custom-notification-factory}
+### ステップ4:カスタム通知ファクトリを設定する {#step-4-set-the-custom-notification-factory}
 
-アプリケーションクラスで[`customBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/custom-braze-notification-factory.html?query=var%20customBrazeNotificationFactory:%20IBrazeNotificationFactory?)を使用して、カスタム通知ファクトリーを設定します。
+アプリケーションクラスで、[`customBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/custom-braze-notification-factory.html?query=var%20customBrazeNotificationFactory:%20IBrazeNotificationFactory?)を使用してカスタム通知ファクトリを設定します。
 
 ```kotlin
 import com.braze.Braze
@@ -246,13 +246,13 @@ class MyApplication : Application() {
 }
 ```
 
-### ステップ5: アクティビティを送信する {#step-5-send-the-activity}
+### ステップ5:アクティビティを送信する {#step-5-send-the-activity}
 
 [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) REST APIエンドポイントを使用して、ユーザーのAndroidデバイスにプッシュ通知を送信できます。
 
 #### curlコマンドの例 {#example-curl-command}
 
-Superb Owlは次のcurlコマンドを使用してリクエストを送信しました。
+Superb Owlは以下のcurlコマンドを使用してリクエストを送信しました。
 
 ```
 curl -X POST "https://BRAZE_REST_ENDPOINT/messages/send" \
@@ -280,32 +280,32 @@ curl -X POST "https://BRAZE_REST_ENDPOINT/messages/send" \
 ```
 
 {% alert tip %}
-curlコマンドはテストに役立ちますが、すでに[iOSライブアクティビティ]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?sdktab=swift)を処理しているバックエンドでこの呼び出しを処理することをおすすめします。
+curlコマンドはテストに便利ですが、すでに[iOSライブアクティビティ]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?sdktab=swift)を処理しているバックエンドでこの呼び出しを処理することをお勧めします。
 {% endalert %}
 
 #### リクエストパラメーター {#request-parameters}
 
 | キー | 説明 |
 | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `REST_API_KEY`                | `messages.send`権限を持つBraze REST APIキー。<br><br>これはBrazeダッシュボードの**設定** > **APIキー**から作成できます。                                                                                                     |
-| `BRAZE_REST_ENDPOINT`         | RESTエンドポイントのURL。エンドポイントはインスタンスの[Braze URL]({{site.baseurl}}/api/basics#endpoints)に応じて異なります。                                                                                                                  |
-| `USER_ID`                     | 通知を送信するユーザーのID。                                                                                                                                                                                          |
-| `messages.android_push.title` | メッセージのタイトル。デフォルトでは、カスタム通知ファクトリーのライブ通知には使用されませんが、フォールバックとして使用される場合があります。                                                                                                    |
-| `messages.android_push.alert` | メッセージの本文。デフォルトでは、カスタム通知ファクトリーのライブ通知には使用されませんが、フォールバックとして使用される場合があります。                                                                                                     |
-| `messages.extra`              | カスタム通知ファクトリーがライブ通知に使用するキーと値のペア。この値には任意の文字列を割り当てることができます。ただし、この例では`live_updates`を使用して、デフォルトのプッシュ通知かライブプッシュ通知かを判断しています。 |
-| `ASSIGNED_NOTIFICATION_ID`    | 選択したユーザーのライブ通知に割り当てる通知ID。IDはこのゲームに対して一意である必要があり、後で[既存の通知を更新する](#android_step-4-update-data-with-the-braze-rest-api)ために使用する必要があります。 |
+| `REST_API_KEY`                | `messages.send`権限を持つBraze REST APIキー。<br><br>これはBrazeダッシュボードの**設定** > **APIキー**から作成できます。 |
+| `BRAZE_REST_ENDPOINT`         | RESTエンドポイントURL。エンドポイントは[お使いのインスタンスのBraze URL]({{site.baseurl}}/api/basics#endpoints)によって異なります。 |
+| `USER_ID`                     | 通知を送信するユーザーのID。 |
+| `messages.android_push.title` | メッセージのタイトル。デフォルトでは、カスタム通知ファクトリのライブ通知には使用されませんが、フォールバックとして使用される場合があります。 |
+| `messages.android_push.alert` | メッセージの本文。デフォルトでは、カスタム通知ファクトリのライブ通知には使用されませんが、フォールバックとして使用される場合があります。 |
+| `messages.extra`              | カスタム通知ファクトリがライブ通知に使用するキーと値のペア。この値には任意の文字列を割り当てることができます。ただし、この例では`live_updates`を使用して、デフォルトのプッシュ通知かライブプッシュ通知かを判別しています。 |
+| `ASSIGNED_NOTIFICATION_ID`    | 選択したユーザーのライブ通知に割り当てる通知ID。このIDはこのゲームに対して一意である必要があり、後で[既存の通知を更新する](#android_step-4-update-data-with-the-braze-rest-api)ために使用する必要があります。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="リクエストパラメーター" }
 
-### ステップ6: アクティビティを更新する {#step-6-update-the-activity}
+### ステップ6:アクティビティを更新する {#step-6-update-the-activity}
 
-既存のRemoteView通知を新しいデータで更新するには、`messages.extra`に割り当てられた関連するキーと値のペアを変更し、同じ`notification_id`を使用して`/messages/send`エンドポイントを再度呼び出します。
+既存のRemoteView通知を新しいデータで更新するには、`messages.extra`に割り当てた関連するキーと値のペアを変更し、同じ`notification_id`を使用して`/messages/send`エンドポイントを再度呼び出します。
 
 ## パーソナライズされたプッシュ通知 {#personalized-push-notifications}
 
-プッシュ通知では、カスタムビュー階層内にユーザー固有の情報を表示できます。次の例では、APIトリガーを使用してパーソナライズされたプッシュ通知をユーザーに送信し、アプリで特定のタスクを完了した後に現在の進捗状況を確認できるようにしています。
+プッシュ通知では、カスタムビュー階層内にユーザー固有の情報を表示できます。次の例では、APIトリガーを使用してパーソナライズされたプッシュ通知をユーザーに送信し、アプリ内で特定のタスクを完了した後に現在の進捗状況を確認できるようにしています。
 
-![パーソナライズされたプッシュのダッシュボード例]({% image_buster /assets/img/push_implementation_guide/android_push_custom_layout.png %}){: style="max-width:65%;border:0"}
+![パーソナライズされたプッシュ通知のダッシュボード例]({% image_buster /assets/img/push_implementation_guide/android_push_custom_layout.png %}){: style="max-width:65%;border:0"}
 
-ダッシュボードでパーソナライズされたプッシュを設定するには、表示する特定のカテゴリを登録し、Liquidを使用して表示する関連ユーザー属性を設定します。
+ダッシュボードでパーソナライズされたプッシュを設定するには、表示したい特定のカテゴリを登録し、Liquidを使用して表示したい関連するユーザー属性を設定します。
 
-![パーソナライズされたプッシュのダッシュボード例]({% image_buster /assets/img/push_implementation_guide/push5.png %}){: style="max-width:60%;"}
+![パーソナライズされたプッシュ通知のダッシュボード例]({% image_buster /assets/img/push_implementation_guide/push5.png %}){: style="max-width:60%;"}

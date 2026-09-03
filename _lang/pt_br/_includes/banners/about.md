@@ -4,7 +4,7 @@
 
 ## Pré-requisitos {#prerequisites}
 
-A disponibilidade de Banners depende do seu pacote Braze. Entre em contato com seu gerente de conta ou gerente de sucesso do cliente para começar.
+A disponibilidade de Banners depende do seu pacote Braze. Entre em contato com seu gerente de conta ou CSM para começar.
 
 Antes de começar, certifique-se de que você tenha [posicionamentos de Banner]({{site.baseurl}}/developer_guide/banners/placements) criados no seu app ou website.
 

@@ -1,12 +1,11 @@
 ---
 nav_title: "POST: Enviar mensajes Canvas mediante entrega desencadenada por API"
-article_title: "POST: Enviar mensajes Canvas mediante entrega desencadenada por API"
+article_title: "Enviar mensajes Canvas mediante entrega desencadenada por API"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
 description: "Este artículo describe en detalle el endpoint de Braze para enviar Canvas mediante entrega desencadenada por API."
-
 ---
 {% api %}
 # Enviar mensajes Canvas mediante entrega desencadenada por API {#send-canvas-messages-using-api-triggered-delivery}

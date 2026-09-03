@@ -1,0 +1,70 @@
+# Search-keyword extraction for {% api %} blocks.
+# Consumed by _plugins/api.rb to build the data-search-keywords attribute used
+# by in-page glossary search (agents_use_case_glossary.js,
+# message_engagement_glossary.js). Algolia indexes rendered HTML, not this
+# attribute. Changing these patterns changes which heading, tag, description,
+# and JSON field names are assembled into that attribute.
+#
+# Heading uses first-match of h1 or h2:
+# - Glossary entries have no h1; the first heading is the h2 entry title.
+# - API endpoint pages wrap the article in one {% api %} block, so the first
+#   heading is the h1 endpoint name (not the first h2, which is usually
+#   "Prerequisites"). See BD-7189.
+#
+# Use single-quoted YAML so regex backslashes stay literal. `options` maps to
+# Ruby Regexp flags: i = IGNORECASE, m = MULTILINE (dot matches newline).
+
+version: 1
+
+# Joined in this order (space-separated, then lowercased) into data-search-keywords.
+keyword_fields:
+  - heading
+  - tags
+  - description
+  - json_field_names
+
+patterns:
+  heading:
+    regex: '<h[12][^>]*>(.*?)</h[12]>'
+    options: i
+    mode: match
+    capture: 1
+    transforms:
+      - strip_html
+      - strip
+  tags:
+    regex: 'data-tags=[''"]([^''"]*)[''"]'
+    options: i
+    mode: match
+    capture: 1
+    transforms:
+      - strip
+  description:
+    regex: 'class=[''"]api_tags[''"][^>]*></div>\s*<p>(.*?)</p>'
+    options: m
+    mode: match
+    capture: 1
+    transforms:
+      - strip_sr_only
+      - strip_html
+      - strip
+  json_field_names:
+    # JSON object keys are wrapped in <span class="nl">"field_name"</span> by Rouge.
+    regex: '<span class="nl">"([a-z][a-z0-9_]+)"</span>'
+    mode: scan
+    unique: true
+    join: ' '
+
+transforms:
+  strip_html:
+    regex: '<[^>]+>'
+    replacement: ''
+  strip_sr_only:
+    regex: '<span class=[''"]sr-only[''"][^>]*>.*?</span>'
+    options: m
+    replacement: ''
+
+# Applied in order after keyword assembly.
+keyword_escaping:
+  '"': '&quot;'
+  "'": '&#39;'

@@ -1,10 +1,9 @@
 ---
 nav_title: "User attributes object"
-article_title: API User Attributes Object
+article_title: "User attributes object"
 page_order: 11
 page_type: reference
 description: "This reference article explains the different components of the user attributes object."
-
 ---
 
 # User attributes object
@@ -49,7 +48,7 @@ Use Braze user profile field names (listed as follows or any listed in the secti
 ```
 
 - [External user ID]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields)
-- [User aliases]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases)
+- [User aliases]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle)
 
 {% alert note %}
 For regular array custom attributes, use `add` and `remove` (without `$`).

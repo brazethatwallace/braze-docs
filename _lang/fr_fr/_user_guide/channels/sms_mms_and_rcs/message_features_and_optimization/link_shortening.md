@@ -39,18 +39,18 @@ Les liens sont raccourcis à l'aide de notre domaine court partagé (`brz.ai`) o
 Toutes les URL statiques commençant par `http://` ou `https://` sont raccourcies. Les URL statiques raccourcies sont valides pendant un an à compter de leur date de création. Les URL raccourcies contenant une personnalisation Liquid sont valides pendant deux mois.
 
 {% alert note %}
-Les liens raccourcis Braze incluent toujours le protocole `https://` et ne peuvent pas être configurés pour utiliser un protocole différent.
+Les liens raccourcis de Braze incluent toujours le protocole `https://` et ne peuvent pas être configurés pour utiliser un protocole différent.
 {% endalert %}
 
 ## Utiliser le raccourcissement de liens {#using-link-shortening}
 
 Pour utiliser le raccourcissement de liens, assurez-vous que le bouton bascule de raccourcissement de liens dans le composeur de messages est activé. Ensuite, choisissez d'utiliser le suivi basique ou avancé.
 
-![Composeur de messages avec un bouton bascule pour le raccourcissement de liens.]({% image_buster /assets/img/link_shortening/legacy/temp_shortening1.png %})
+![Composeur de messages avec un bouton bascule pour le raccourcissement de liens.]({% image_buster /assets/img/link_shortening/legacy/temp_shortening1.png %}){: width="1614" height="994"}
 
 Braze ne reconnaît que les URL commençant par `http://` ou `https://`. Lorsqu'une URL est reconnue, la section **Aperçu** se met à jour avec une URL de substitution. Braze estime la longueur de l'URL après raccourcissement, mais un avertissement vous invite à sélectionner un utilisateur test et à enregistrer le message en tant que brouillon pour une estimation plus précise.
 
-![Composeur de messages avec une longue URL dans le champ « Message » et un lien raccourci généré dans l'aperçu.]({% image_buster /assets/img/link_shortening/legacy/temp_shortening3.png %})
+![Composeur de messages avec une longue URL dans le champ « Message » et un lien raccourci généré dans l'aperçu.]({% image_buster /assets/img/link_shortening/legacy/temp_shortening3.png %}){: width="1569" height="516"}
 
 {% alert note %}
 Si vous prévoyez d'utiliser le [filtre de canal intelligent]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel) BrazeAI<sup>TM</sup> et souhaitez que les canaux SMS et RCS soient sélectionnables, activez le raccourcissement de liens avec le suivi avancé.
@@ -103,7 +103,7 @@ Le raccourcissement de liens est également activé pour les messages API unique
 
 Pour une liste complète des paramètres de requête, consultez les [paramètres de requête]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#request-parameters).
 
-## Test {#testing}
+## Test {#legacy_testing}
 
 Avant de lancer votre Campaign ou Canvas, il est recommandé de prévisualiser et de tester votre message au préalable. Pour ce faire, accédez à l'onglet **Test** pour prévisualiser et envoyer un message SMS ou RCS à des [groupes de test de contenu]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) ou à un utilisateur individuel.
 
@@ -117,7 +117,7 @@ Pour que les Canvas apparaissent dans le filtre « A cliqué sur un lien SMS rac
 Si un brouillon est créé au sein d'un Canvas actif, une URL raccourcie ne sera pas générée. L'URL raccourcie réelle est générée lorsque le brouillon du Canvas est rendu actif.
 {% endalert %}
 
-![Onglet « Test » du message avec des champs pour sélectionner les destinataires de test.]({% image_buster /assets/img/link_shortening/legacy/temp_shortening2.png %})
+![Onglet « Test » du message avec des champs pour sélectionner les destinataires de test.]({% image_buster /assets/img/link_shortening/legacy/temp_shortening2.png %}){: width="1569" height="947"}
 
 {% alert note %}
 La personnalisation Liquid et les URL raccourcies sont modélisées dans l'onglet **Test** après qu'un utilisateur a été sélectionné. Assurez-vous qu'un utilisateur est sélectionné pour recevoir un décompte de caractères précis.
@@ -125,9 +125,9 @@ La personnalisation Liquid et les URL raccourcies sont modélisées dans l'ongle
 
 ## Suivi des clics {#click-tracking}
 
-Lorsque le raccourcissement de liens est activé, le tableau **Performances SMS/MMS/RCS** inclut une colonne intitulée **Total des clics** qui affiche un décompte des événements de clic par variante et un taux de clics associé. Pour plus de détails sur les indicateurs, consultez [Performances des messages]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting).
+Lorsque le raccourcissement de liens est activé, le tableau **Performances SMS/MMS/RCS** inclut une colonne intitulée **Total des clics** qui affiche un décompte des événements de clic par variante et un taux de clics associé. Le **Total des clics** exclut les clics suspects de bots des décomptes du tableau de bord. Pour plus de détails sur les indicateurs, consultez [Performances des messages]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting) et [Filtrage des clics de bots]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/bot_click_filtering).
 
-![Tableau des indicateurs de performances SMS et MMS.]({% image_buster /assets/img/link_shortening/shortening4.png %})
+![Tableau des indicateurs de performances SMS et MMS.]({% image_buster /assets/img/link_shortening/shortening4.png %}){: width="1586" height="191"}
 
 Les tableaux **Performances historiques** et **Performances SMS/MMS/RCS** incluent également une option pour le **Total des clics** et affichent une série temporelle quotidienne des événements de clic. Les clics sont incrémentés lors de la redirection (par exemple lorsqu'un utilisateur visite un lien) et peuvent être incrémentés plus d'une fois par utilisateur.
 

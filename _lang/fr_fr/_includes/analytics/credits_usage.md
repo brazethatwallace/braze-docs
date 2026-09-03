@@ -12,10 +12,10 @@ Accédez au tableau de bord en allant dans **Paramètres** > **Facturation** > *
 
 L'**aperçu de l'utilisation des crédits de messages** fournit une vue d'ensemble de l'utilisation sur tous les canaux qui consomment des crédits. Vous pouvez voir comment vous progressez par rapport à votre allocation globale de crédits, et trouver des détails sur votre contrat actif et votre période contractuelle.
 
-Cette page s'affiche si vous êtes sous un contrat de crédits. Les canaux qui consomment des crédits sont affichés dans **Utilisation des crédits**.
+Cette page s'affiche si vous êtes sous contrat de crédits. Les canaux qui utilisent des crédits sont affichés dans **Utilisation des crédits**.
 
 {% alert note %}
-Si vous avez acheté WhatsApp mais que vous n'êtes pas sous un contrat de crédits, vous verrez tout de même la consommation de crédits pour WhatsApp, car c'est ainsi que les anciens contrats WhatsApp sont facturés. Cela diffère de l'ancien SMS, qui ne consomme des crédits que lorsque vous êtes sous un contrat de crédits.
+Si vous avez acheté WhatsApp mais que vous n'êtes pas sous contrat de crédits, vous verrez tout de même la consommation de crédits pour WhatsApp, car c'est ainsi que les anciens contrats WhatsApp sont facturés. Cela diffère de l'ancien SMS, qui ne consomme des crédits que lorsque vous êtes sous contrat de crédits.
 {% endalert %}
 
 Les données de l'aperçu de l'utilisation des crédits sont limitées à la période contractuelle, qui est affichée dans l'**aperçu du contrat de crédits**. Vous ne pouvez pas filtrer sur une plage de dates en dehors de la **période de crédits**.
@@ -29,23 +29,23 @@ Le graphique **Utilisation des crédits de messages sur la durée du contrat** a
 
 ## Onglet Aperçu {#overview-tab}
 
-L'onglet **Aperçu de l'utilisation** affiche la consommation de crédits par canal applicable à votre entreprise. Par exemple, si vous n'utilisez pas WhatsApp, son onglet n'apparaîtra pas.
+L'onglet **Aperçu de l'utilisation** affiche la consommation de crédits par canal, en fonction des canaux applicables à votre entreprise. Par exemple, si vous n'utilisez pas WhatsApp, son onglet n'apparaîtra pas.
 
-### Fonctionnalités consommant des crédits {#credits-features}
+### Fonctionnalités de crédits {#credits-features}
 
-Consultez les onglets suivants pour obtenir des détails sur ce qui est affiché pour chaque fonctionnalité consommant des crédits.
+Consultez les onglets suivants pour en savoir plus sur ce qui est affiché pour chaque fonctionnalité consommant des crédits.
 
 {% tabs %}
 {% tab Banners %}
 
 ### Banners
 
-**Utilisation des crédits Banners** affiche la consommation de crédits Banners sur l'ensemble des comptes. Les tuiles indiquent le total de crédits consommés et le total d'impressions uniques quotidiennes. Le tableau **Utilisation par compte** comprend **Espace de travail Braze**, **Impressions uniques quotidiennes**, **Ratio de crédits** et **Crédits**. Lorsque des données sont disponibles, **Dernière mise à jour** indique la date de rafraîchissement du tableau.
+**Utilisation des crédits Banners** affiche la consommation de crédits Banners sur l'ensemble des comptes. Les tuiles indiquent le total de crédits consommés et le total d'impressions uniques quotidiennes. Le tableau **Utilisation par compte** comprend **Espace de travail Braze**, **Impressions uniques quotidiennes**, **Ratio de crédits** et **Crédits**. Lorsque des données sont disponibles, **Dernière mise à jour** indique la date de la dernière actualisation du tableau.
 
 #### Filtres {#filters}
 
 Vous pouvez filtrer vos données par :
-- Plage de dates (par défaut, les 30 derniers jours)
+- Plage de dates (30 derniers jours par défaut)
 - Espace de travail Braze
 
 Utilisez **Exporter** pour télécharger les données du tableau.
@@ -57,12 +57,12 @@ Utilisez **Exporter** pour télécharger les données du tableau.
 
 ### Content Cards
 
-**Utilisation des crédits Content Cards** affiche la consommation de crédits Content Cards sur l'ensemble des comptes. Les tuiles indiquent le total de crédits consommés et le total d'impressions uniques quotidiennes. Le tableau **Utilisation par compte** comprend **Espace de travail Braze**, **Type de carte**, **Impressions uniques quotidiennes**, **Ratio de crédits** et **Crédits**. Lorsque des données sont disponibles, **Dernière mise à jour** indique la date de rafraîchissement du tableau.
+**Utilisation des crédits Content Cards** affiche la consommation de crédits Content Cards sur l'ensemble des comptes. Les tuiles indiquent le total de crédits consommés et le total d'impressions uniques quotidiennes. Le tableau **Utilisation par compte** comprend **Espace de travail Braze**, **Type de carte**, **Impressions uniques quotidiennes**, **Ratio de crédits** et **Crédits**. Lorsque des données sont disponibles, **Dernière mise à jour** indique la date de la dernière actualisation du tableau.
 
 #### Filtres
 
 Vous pouvez filtrer vos données par :
-- Plage de dates (par défaut, les 30 derniers jours)
+- Plage de dates (30 derniers jours par défaut)
 - Espace de travail Braze
 - Type de carte
 
@@ -75,12 +75,12 @@ Utilisez **Exporter** pour télécharger les données du tableau.
 
 ### E-mail {#email}
 
-**Utilisation des crédits e-mail** affiche la consommation de crédits e-mail sur l'ensemble des comptes. Les tuiles indiquent le total de crédits consommés et le total d'e-mails envoyés. Le tableau **Utilisation par compte** comprend **Espace de travail Braze**, **E-mails envoyés**, **Ratio de crédits** et **Crédits**. Lorsque des données sont disponibles, **Dernière mise à jour** indique la date de rafraîchissement du tableau.
+**Utilisation des crédits e-mail** affiche la consommation de crédits e-mail sur l'ensemble des comptes. Les tuiles indiquent le total de crédits consommés et le total d'e-mails envoyés. Le tableau **Utilisation par compte** comprend **Espace de travail Braze**, **E-mails envoyés**, **Ratio de crédits** et **Crédits**. Lorsque des données sont disponibles, **Dernière mise à jour** indique la date de la dernière actualisation du tableau.
 
 #### Filtres
 
 Vous pouvez filtrer vos données par :
-- Plage de dates (par défaut, les 30 derniers jours)
+- Plage de dates (30 derniers jours par défaut)
 - Espace de travail Braze
 
 Utilisez **Exporter** pour télécharger les données du tableau.
@@ -92,12 +92,12 @@ Utilisez **Exporter** pour télécharger les données du tableau.
 
 ### KakaoTalk
 
-**Utilisation des crédits KakaoTalk** affiche la consommation de crédits KakaoTalk sur l'ensemble des comptes. Les tuiles indiquent le total de crédits consommés et le total d'envois KakaoTalk. Le tableau de la section **KakaoTalk** comprend **Espace de travail Braze**, **Mois**, **Année**, **Entreprise**, **Envois**, **Ratio de crédits** et **Crédits**. Lorsque des données sont disponibles, **Dernière mise à jour** indique la date de rafraîchissement du tableau.
+**Utilisation des crédits KakaoTalk** affiche la consommation de crédits KakaoTalk sur l'ensemble des comptes. Les tuiles indiquent le total de crédits consommés et le total d'envois KakaoTalk. Le tableau de la section **KakaoTalk** comprend **Espace de travail Braze**, **Mois**, **Année**, **Entreprise**, **Envois**, **Ratio de crédits** et **Crédits**. Lorsque des données sont disponibles, **Dernière mise à jour** indique la date de la dernière actualisation du tableau.
 
 #### Filtres
 
 Vous pouvez filtrer vos données par :
-- Plage de dates (par défaut, les 30 derniers jours)
+- Plage de dates (30 derniers jours par défaut)
 - Espace de travail Braze
 - Mois
 - Année
@@ -112,12 +112,12 @@ Utilisez **Exporter** pour télécharger les données du tableau.
 
 ### LINE
 
-**Utilisation des crédits LINE** affiche la consommation de crédits LINE sur l'ensemble des comptes. Les tuiles indiquent le total de crédits consommés et le total d'envois facturables. Le tableau de la section **Line** comprend **Espace de travail Braze**, **Mois**, **Année**, **Entreprise**, **Destination**, **Envois facturables**, **Ratio de crédits** et **Crédits**. Lorsque des données sont disponibles, **Dernière mise à jour** indique la date de rafraîchissement du tableau.
+**Utilisation des crédits LINE** affiche la consommation de crédits LINE sur l'ensemble des comptes. Les tuiles indiquent le total de crédits consommés et le total d'envois facturables. Le tableau de la section **Line** comprend **Espace de travail Braze**, **Mois**, **Année**, **Entreprise**, **Destination**, **Envois facturables**, **Ratio de crédits** et **Crédits**. Lorsque des données sont disponibles, **Dernière mise à jour** indique la date de la dernière actualisation du tableau.
 
 #### Filtres
 
 Vous pouvez filtrer vos données par :
-- Plage de dates (par défaut, les 30 derniers jours)
+- Plage de dates (30 derniers jours par défaut)
 - Espace de travail Braze
 - Mois
 - Année
@@ -142,7 +142,7 @@ Des filtres sont disponibles pour filtrer par **Pays** ou par type SMS et RCS.
 Contrairement à l'**Aperçu de l'utilisation des crédits**, cette section contient des données historiques provenant de périodes contractuelles antérieures.
 
 {% alert note %}
-Il est possible de sélectionner une plage de dates contenant à la fois une consommation hors crédits et une consommation de crédits. Dans ce cas, la consommation effectuée en dehors des crédits affichera `—` (nul) dans les colonnes **Ratio de crédits** et **Crédits**.
+Il est possible de sélectionner une plage de dates contenant à la fois une consommation hors crédits et une consommation de crédits. Dans ce cas, la consommation survenue en dehors du système de crédits affichera `—` (null) dans les colonnes **Ratio de crédits** et **Crédits**.
 {% endalert %}
 
 ![Tableau d'utilisation des crédits SMS/MMS/RCS avec des valeurs nulles.]({% image_buster /assets/img/app_settings/sms_table_null3.png %})
@@ -152,24 +152,24 @@ Il est possible de sélectionner une plage de dates contenant à la fois une con
 
 ### Webhooks
 
-**Utilisation des crédits webhooks** affiche la consommation de crédits webhooks sur l'ensemble des comptes. Les tuiles indiquent le total de crédits consommés et le total d'envois webhook. Le tableau **Utilisation par compte** comprend **Espace de travail Braze**, **Envois**, **Ratio de crédits** et **Crédits**. Lorsque des données sont disponibles, **Dernière mise à jour** indique la date de rafraîchissement du tableau.
+**Utilisation des crédits webhooks** affiche la consommation de crédits webhooks sur l'ensemble des comptes. Les tuiles indiquent le total de crédits consommés et le total d'envois de webhooks. Le tableau **Utilisation par compte** comprend **Espace de travail Braze**, **Envois**, **Ratio de crédits** et **Crédits**. Lorsque des données sont disponibles, **Dernière mise à jour** indique la date de la dernière actualisation du tableau.
 
 #### Filtres
 
 Vous pouvez filtrer vos données par :
-- Plage de dates (par défaut, les 30 derniers jours)
+- Plage de dates (30 derniers jours par défaut)
 - Espace de travail Braze
 
 Utilisez **Exporter** pour télécharger les données du tableau.
 
-![Utilisation des crédits webhooks avec des tuiles pour les crédits et les envois webhook, et un tableau d'utilisation par compte.]({% image_buster /assets/img/app_settings/credits_usage_webhooks.png %})
+![Utilisation des crédits webhooks avec des tuiles pour les crédits et les envois de webhooks, et un tableau d'utilisation par compte.]({% image_buster /assets/img/app_settings/credits_usage_webhooks.png %})
 
 {% endtab %}
 {% tab WhatsApp %}
 
 ### WhatsApp
 
-**Utilisation des crédits WhatsApp** affiche la répartition de la consommation pour le canal WhatsApp. Les tuiles affichent le total de crédits WhatsApp consommés, qui peut être détaillé dans la section **Utilisation par compte** en appliquant des filtres pour limiter les résultats du tableau à un espace de travail spécifique.
+**Utilisation des crédits WhatsApp** affiche la répartition de la consommation pour le canal WhatsApp. Les tuiles affichent la consommation totale de crédits WhatsApp, qui peut être détaillée dans la section **Utilisation par compte** en appliquant des filtres pour limiter les résultats du tableau à un espace de travail spécifique.
 
 #### Filtres
 
@@ -180,38 +180,38 @@ Vous pouvez filtrer vos données par :
 - Type de catégorie de conversation
 - Région
 
-![Utilisation des crédits WhatsApp avec une tuile pour le total de crédits consommés et un tableau d'utilisation par compte.]({% image_buster /assets/img/app_settings/whatsapp_credit_consumption4.png %})
+![Utilisation des crédits WhatsApp avec une tuile pour le total des crédits consommés et un tableau d'utilisation par compte.]({% image_buster /assets/img/app_settings/whatsapp_credit_consumption4.png %})
 
 {% endtab %}
 {% tab Ratios de crédits %}
 
 ### Ratios de crédits {#credit-ratios}
 
-**Ratios de crédits** affiche les ratios de crédits pour les différents canaux et destinations. Il n'y a pas de tuiles de synthèse ni de contrôle **Plage de dates** sur cette page. Le tableau **Ratios de crédits** comprend **Groupe de canaux**, **Destination** et **Ratio de crédits**.
+**Ratios de crédits** affiche les ratios de crédits pour les différents canaux et destinations. Il n'y a pas de tuiles de synthèse ni de contrôle **Plage de dates** sur cette page. Le tableau **Ratios de crédits** comprend **Regroupement de canaux**, **Destination** et **Ratio de crédits**.
 
 #### Filtres
 
 Vous pouvez filtrer vos données par :
-- Groupe de canaux
+- Regroupement de canaux
 - Destination
 
 Utilisez **Exporter** pour télécharger les données du tableau.
 
-![Page des ratios de crédits avec un tableau de ratios de crédits et des filtres par canal et destination.]({% image_buster /assets/img/app_settings/credits_usage_credit_ratios.png %})
+![Page des ratios de crédits avec un tableau de ratios de crédits et des filtres par canal et par destination.]({% image_buster /assets/img/app_settings/credits_usage_credit_ratios.png %})
 
 {% endtab %}
 {% tab Agent Console %}
 
 ### Agent Console
 
-**Utilisation des crédits Agent Console** affiche la consommation de crédits Agent Console sur l'ensemble des comptes. Les tuiles indiquent le total de crédits consommés et le total d'invocations. Le tableau **Utilisation par compte** comprend **Espace de travail Braze**, **Nom de l'agent**, **Propriétaire du modèle**, **Total d'invocations**, **Ratio de crédits** et **Crédits**. Lorsque des données sont disponibles, **Dernière mise à jour** indique la date de rafraîchissement du tableau.
+**Utilisation des crédits Agent Console** affiche la consommation de crédits Agent Console sur l'ensemble des comptes. Les tuiles indiquent le total de crédits consommés et le total d'invocations. Le tableau **Utilisation par compte** comprend **Espace de travail Braze**, **Nom de l'agent**, **Propriétaire du modèle**, **Total d'invocations**, **Ratio de crédits** et **Crédits**. Lorsque des données sont disponibles, **Dernière mise à jour** indique la date de la dernière actualisation du tableau.
 
 Pour planifier les dépenses quotidiennes avant le lancement, comparez ces ratios avec la **Limite quotidienne de crédits d'action** de chaque agent dans Agent Console (limite d'invocations quotidiennes × ratio de crédits). Consultez [Limites quotidiennes d'invocations et de crédits]({{site.baseurl}}/user_guide/brazeai/agents/reference#daily-invocation-and-credit-limits).
 
 #### Filtres
 
 Vous pouvez filtrer vos données par :
-- Plage de dates (par défaut, les 30 derniers jours)
+- Plage de dates (30 derniers jours par défaut)
 - Espace de travail Braze
 - Nom de l'agent
 - Propriétaire du modèle
@@ -225,12 +225,12 @@ Utilisez **Exporter** pour télécharger les données du tableau.
 
 ### Audience Sync
 
-**Utilisation des crédits Audience Sync** affiche la consommation de crédits Audience Sync sur l'ensemble des comptes. Les tuiles indiquent le total de crédits consommés et le total de synchronisations d'audience. Le tableau **Utilisation par compte** comprend **Espace de travail Braze**, **Fournisseur**, **Total de synchronisations**, **Ratio de crédits** et **Crédits**. Lorsque des données sont disponibles, **Dernière mise à jour** indique la date de rafraîchissement du tableau.
+**Utilisation des crédits Audience Sync** affiche la consommation de crédits Audience Sync sur l'ensemble des comptes. Les tuiles indiquent le total de crédits consommés et le total de synchronisations d'audience. Le tableau **Utilisation par compte** comprend **Espace de travail Braze**, **Fournisseur**, **Total des synchronisations**, **Ratio de crédits** et **Crédits**. Lorsque des données sont disponibles, **Dernière mise à jour** indique la date de la dernière actualisation du tableau.
 
 #### Filtres
 
 Vous pouvez filtrer vos données par :
-- Plage de dates (par défaut, les 30 derniers jours)
+- Plage de dates (30 derniers jours par défaut)
 - Espace de travail Braze
 - Fournisseur
 
@@ -239,34 +239,34 @@ Utilisez **Exporter** pour télécharger les données du tableau.
 ![Utilisation des crédits Audience Sync avec des tuiles pour les crédits et les synchronisations d'audience, et un tableau d'utilisation par compte.]({% image_buster /assets/img/app_settings/credits_usage_audience_sync.png %})
 
 {% endtab %}
-{% tab Archivage des messages %}
+{% tab Archivage de messages %}
 
-### Archivage des messages {#message-archiving}
+### Archivage de messages {#message-archiving}
 
-**Utilisation des crédits d'archivage des messages** affiche la consommation de crédits d'archivage des messages sur l'ensemble des comptes. Les tuiles indiquent le total de crédits consommés et le total de messages archivés. Le tableau **Utilisation par compte** comprend **Espace de travail Braze**, **Canal**, **Messages archivés**, **Ratio de crédits** et **Crédits**. Lorsque des données sont disponibles, **Dernière mise à jour** indique la date de rafraîchissement du tableau.
+**Utilisation des crédits d'archivage de messages** affiche la consommation de crédits d'archivage de messages sur l'ensemble des comptes. Les tuiles indiquent le total de crédits consommés et le total de messages archivés. Le tableau **Utilisation par compte** comprend **Espace de travail Braze**, **Canal**, **Messages archivés**, **Ratio de crédits** et **Crédits**. Lorsque des données sont disponibles, **Dernière mise à jour** indique la date de la dernière actualisation du tableau.
 
 #### Filtres
 
 Vous pouvez filtrer vos données par :
-- Plage de dates (par défaut, les 30 derniers jours)
+- Plage de dates (30 derniers jours par défaut)
 - Espace de travail Braze
 - Canal
 
 Utilisez **Exporter** pour télécharger les données du tableau.
 
-![Utilisation des crédits d'archivage des messages avec des tuiles pour les crédits et les messages archivés, et un tableau d'utilisation par compte.]({% image_buster /assets/img/app_settings/credits_usage_message_archiving.png %})
+![Utilisation des crédits d'archivage de messages avec des tuiles pour les crédits et les messages archivés, et un tableau d'utilisation par compte.]({% image_buster /assets/img/app_settings/credits_usage_message_archiving.png %})
 
 {% endtab %}
 {% endtabs %}
 
-## Ce qu'il faut savoir {#things-to-know}
+## Points à connaître {#things-to-know}
 
 {% alert important %}
 Les données affichées dans le tableau de bord **Credits Usage** sont au niveau du contrat et ne sont pas limitées à une entreprise ou un espace de travail individuel du tableau de bord. Ces données reflètent l'utilisation de tous les espaces de travail au sein de votre tableau de bord, et potentiellement de tous les tableaux de bord (si vous en avez plusieurs).
 {% endalert %}
 
 - Les données sous-jacentes sont fournies quotidiennement, les tables de données étant actualisées à 3 h, 9 h, 12 h et 18 h EST. Le tableau de bord **Credits Usage** peut mettre plus de 24 heures à se mettre à jour.
-- Lorsqu'une nouvelle période contractuelle commence, les informations mises à jour sur le contrat et les crédits de messages peuvent prendre jusqu'à 24 heures pour apparaître. En attendant le chargement de ces données, le tableau de bord peut n'afficher que l'onglet **Credit Ratios** au lieu de l'aperçu complet et des détails d'utilisation par canal.
+- Lorsqu'une nouvelle période contractuelle commence, les informations mises à jour sur le contrat et les crédits de messages peuvent prendre jusqu'à 24 heures pour apparaître. Tant que ces données ne sont pas chargées, le tableau de bord peut afficher uniquement l'onglet **Credit Ratios** au lieu de l'aperçu complet et des détails d'utilisation par canal.
 - Braze suit la méthodologie d'arrondi standard : les nombres sont arrondis au dixième supérieur.
 
 ### Sélection de la plage de dates {#date-range-selection}
@@ -277,7 +277,7 @@ Le tableau de bord **Credits Usage** exclut la date de fin de la plage sélectio
 
 Lorsque vous comparez les données d'utilisation des crédits Braze avec celles de fournisseurs tiers (tels qu'Infobip), gardez à l'esprit les points suivants :
 
-- **Segments de message versus messages** : Braze comptabilise les messages SMS par segments. Un seul message SMS divisé en plusieurs segments (par exemple, en raison de sa longueur) est comptabilisé comme plusieurs segments dans Braze. Pour plus d'informations, consultez les [calculateurs de facturation SMS et RCS]({{site.baseurl}}/user_guide/message_building_by_channel/sms_mms_rcs/segments).
-- **Messages basés sur les crédits versus messages non basés sur les crédits** : le tableau de bord inclut à la fois les messages basés sur les crédits et ceux qui ne le sont pas. Les fournisseurs tiers peuvent ne comptabiliser que les messages basés sur les crédits, ce qui peut entraîner des écarts dans les totaux.
-- **Entrant versus sortant** : assurez-vous de comparer les mêmes types de messages. Certains tableaux de bord tiers incluent à la fois les messages entrants et sortants dans leurs totaux, tandis que Braze vous permet de filtrer par direction.
-- **Alignement des plages de dates** : étant donné que le tableau de bord exclut la date de fin, les comparaisons jour par jour peuvent être plus cohérentes que les comparaisons sur des plages de dates plus longues. Si vous comparez des données pour une période spécifique, prolongez votre plage de dates Braze d'un jour pour inclure le dernier jour de votre période de comparaison.
+- **Segments de messages versus messages** : Braze compte les messages SMS par segments. Un seul message SMS divisé en plusieurs segments (par exemple, en raison de sa longueur) est comptabilisé comme plusieurs segments dans Braze. Pour plus d'informations, consultez [Calculateurs de facturation SMS et RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator).
+- **Messages basés sur les crédits versus messages non basés sur les crédits** : Le tableau de bord inclut à la fois les messages basés sur les crédits et ceux qui ne le sont pas. Les fournisseurs tiers peuvent ne compter que les messages basés sur les crédits, ce qui peut entraîner des écarts dans les totaux.
+- **Entrants versus sortants** : Assurez-vous de comparer les mêmes types de messages. Certains tableaux de bord tiers incluent à la fois les messages entrants et sortants dans leurs totaux, tandis que Braze vous permet de filtrer par direction.
+- **Alignement des plages de dates** : Étant donné que le tableau de bord exclut la date de fin, les comparaisons jour par jour peuvent être plus cohérentes que les comparaisons sur des plages de dates plus longues. Si vous comparez des données pour une période spécifique, prolongez votre plage de dates Braze d'un jour pour inclure le dernier jour de votre période de comparaison.

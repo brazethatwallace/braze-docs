@@ -6,7 +6,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "Este artigo descreve o endpoint da Braze \"Atualizar blocos de conteúdo\"."
-
 ---
 {% api %}
 # Atualizar bloco de conteúdo {#update-content-block}
@@ -23,9 +22,9 @@ Você também pode chamar esse endpoint por meio do [servidor MCP da Braze]({{si
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#4782239a-cb60-4217-9de0-51411434d57d {% endapiref %}
 
 ## Pré-requisitos {#prerequisites}
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/api_key) com a permissão `content_blocks.update`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics) com a permissão `content_blocks.update`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
@@ -49,9 +48,9 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 |---|---|---|---|
-| `content_block_id` | Obrigatória | String | O identificador de API do seu bloco de conteúdo. |
+| `content_block_id` | Obrigatório | String | O identificador de API do seu bloco de conteúdo. |
 | `name` | Opcional | String | Nome do bloco de conteúdo. Deve ter menos de 100 caracteres. |
 | `description` | Opcional | String | Descrição do bloco de conteúdo. Deve ter menos de 250 caracteres. |
 | `content` | Opcional | String | Conteúdo HTML ou de texto em Content Blocks. |

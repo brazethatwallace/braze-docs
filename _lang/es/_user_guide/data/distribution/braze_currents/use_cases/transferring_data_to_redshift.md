@@ -3,7 +3,7 @@ nav_title: Transferir datos a Redshift
 article_title: Transferencia de datos a Redshift
 page_order: 8
 page_type: tutorial
-description: "Este artículo te explicará cómo transferir datos de Amazon S3 a Redshift mediante un proceso de extraer, transformar, cargar (ETL)."
+description: "Este artículo te explicará cómo transferir datos de Amazon S3 a Redshift mediante un proceso de ETL (ETL)."
 tool: Currents
 
 ---

@@ -107,7 +107,7 @@ Après avoir configuré l'intégration, vous pouvez mettre en place une activati
     - **Repeat Every :** Définissez sur **1 day**.
     - **Timing :** Saisissez l'heure à laquelle vous souhaitez envoyer les données à Braze.
     - **Time Zone :** Sélectionnez le fuseau horaire dans lequel vous souhaitez envoyer ces données.
-12. Sélectionnez **Apply**, **Save**, puis **Go Live**. Votre synchronisation démarre à la date et à l'heure de début désignées (ou lorsque l'événement déclencheur se produit).
+12. Sélectionnez **Apply**, **Save**, puis **Go en direct**. Votre synchronisation démarre à la date et à l'heure de début désignées (ou lorsque l'événement déclencheur se produit).
 
 ## Résolution des problèmes {#troubleshooting}
 

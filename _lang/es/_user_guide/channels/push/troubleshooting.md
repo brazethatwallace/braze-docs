@@ -19,23 +19,23 @@ channel: push
 | Las notificaciones push llegan tarde | [Notificaciones push retrasadas](#delayed-push-notifications) |
 | Los envíos push son más lentos de lo esperado | [Las notificaciones push se envían más lento de lo esperado](#push-notifications-are-sending-slower-than-expected) |
 | Error `MismatchSenderID` (Android) | [Error: MismatchSenderID](#error-mismatch-sender-id) |
-| Tocar una notificación push no abre la aplicación | [Hacer clic en una notificación push no abre la aplicación](#clicking-a-push-notification-does-not-open-the-app) |
-| Los enlaces push se abren en la aplicación en lugar del navegador | [Los clics push se abren inesperadamente en la aplicación](#push-clicks-unexpectedly-open-in-app) |
-| Problemas con permisos o entrega de notificaciones push web | [Las notificaciones push web no se comportan como se esperaba](#web-push-notifications-are-not-behaving-as-expected) |
+| Tocar una notificación push no abre la aplicación | [Al hacer clic en una notificación push no se abre la aplicación](#clicking-a-push-notification-does-not-open-the-app) |
+| Los enlaces push se abren en la aplicación en lugar del navegador | [Los clics en push se abren inesperadamente en la aplicación](#push-clicks-unexpectedly-open-in-app) |
+| Problemas de permisos o entrega de notificaciones push web | [Las notificaciones push web no se comportan como se esperaba](#web-push-notifications-are-not-behaving-as-expected) |
 | Necesitas migrar de `.p12` a `.p8` (iOS) | [Migrar a una clave de autenticación .p8](#migrate-to-a-p8-authentication-key) |
 | Código de error push específico en los registros | [Mensajes de error push](#push-error-messages) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Síntoma push" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Síntoma de push" }
 
 ## Ruta de investigación estándar {#standard-investigation-path}
 
-Usa este flujo de trabajo cuando un usuario o dispositivo de prueba no recibió una notificación push. Empieza en el paso 1.
+Usa este flujo de trabajo cuando un usuario o dispositivo de prueba no haya recibido una notificación push. Empieza en el paso 1.
 
-1. Confirma que el usuario está suscrito o ha optado por recibir notificaciones push y tiene un token de notificaciones push válido en la pestaña **Engagement** de su perfil.
+1. Confirma que el usuario tiene la suscripción push activa o ha dado su consentimiento y que tiene un token de notificaciones push válido en la pestaña **Engagement** de su perfil.
 2. Confirma que el usuario está en el público objetivo de la Campaign o Canvas en el momento del envío (los Segments se actualizan en tiempo real).
-3. Comprueba los límites de frecuencia globales, los límites de velocidad y la asignación al grupo de control de la Campaign o Canvas.
+3. Comprueba la limitación de frecuencia global, los límites de velocidad y la asignación al grupo de control de la Campaign o Canvas.
 4. Confirma que estás usando el tipo de push correcto para el dispositivo (por ejemplo, Android, iOS o Kindle).
-5. Para pruebas internas, confirma que el tester ha iniciado sesión en la aplicación correcta en el dispositivo.
-6. Si la entrega sigue fallando, revisa los [mensajes de error de push comunes]({{site.baseurl}}/user_guide/channels/push/push_error_codes) o ponte en contacto con [soporte de Braze]({{site.baseurl}}/braze_support) con el ID de la Campaign o Canvas, el ID de usuario y la marca de tiempo con zona horaria.
+5. Para pruebas internas, confirma que la persona que está probando ha iniciado sesión en la aplicación correcta del dispositivo.
+6. Si la entrega sigue fallando, revisa los [mensajes de error push comunes]({{site.baseurl}}/user_guide/channels/push/push_error_codes) o ponte en contacto con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) con el ID de la Campaign o Canvas, el ID de usuario y la marca de tiempo con zona horaria.
 
 ## Notificaciones push faltantes {#missing-push-notifications}
 
@@ -144,23 +144,23 @@ No cambies tu ID de remitente en el panel de Braze. Hacerlo invalida los registr
 
 **Síntoma:** Las notificaciones push llegan más tarde de lo esperado.
 
-Tus notificaciones push pueden retrasarse por estas razones:
+Tus notificaciones push pueden retrasarse por las siguientes razones:
 
 - Una conexión de datos débil en el dispositivo
 - Código personalizado en la aplicación que puede suprimir las notificaciones push de Braze
 - Preferencias del usuario para las notificaciones push en la configuración del dispositivo
 - Prioridad del mensaje de la notificación push cuando se crea en la Campaign o Canvas
-- Retrasos en el tráfico o problemas con los proveedores de servicios de notificaciones push (FCM y APN)
+- Retrasos en el tráfico o problemas con los proveedores de servicios de notificaciones push (FCM y APNs)
 
 ### Las notificaciones push se envían más lento de lo esperado {#push-notifications-are-sending-slower-than-expected}
 
 **Síntoma:** Los envíos push de Campaigns o Canvas tardan más de lo esperado en completarse.
 
-Confirma que la configuración de tus notificaciones push sigue estas prácticas recomendadas:
+Confirma que la configuración de tus notificaciones push sigue estas buenas prácticas:
 
-- Si estás enviando a audiencias grandes sin considerar el estado de habilitación de push, esto puede provocar una velocidad de envío más lenta. En su lugar, considera enviar solo a usuarios con push habilitado para reducir el tamaño de tu audiencia.
-- Si es posible, intenta programar tus Campaigns con antelación en lugar de enviarlas de inmediato.
-- Si estás dirigiéndote a un número mayor de usuarios con notificaciones push en un Canvas, puedes anticipar que los pasos de mensaje posteriores en el Canvas requerirán tiempos de procesamiento diferentes a los de una Campaign que envía a los usuarios de inmediato. En este caso, las Campaigns normalmente terminarían de enviarse antes que un Canvas, ya que el primer "paso" de un Canvas es comprobar si los usuarios califican para el recorrido de usuario específico.
+- Si envías a audiencias grandes sin considerar el estado de habilitación de push, esto puede provocar una velocidad de envío más lenta. En su lugar, considera enviar solo a usuarios con push habilitado para reducir el tamaño de tu audiencia.
+- Si es posible, intenta programar tus Campaigns con antelación en lugar de inmediatamente.
+- Si estás enviando notificaciones push a un mayor número de usuarios en un Canvas, puedes anticipar que los pasos de mensaje posteriores en el Canvas requerirán tiempos de procesamiento diferentes a los de una Campaign que envía a los usuarios de inmediato. En este caso, las Campaigns normalmente terminarían de enviar antes que un Canvas, ya que el primer "paso" de un Canvas es verificar si los usuarios califican para el recorrido de usuario específico.
 
 ## Al hacer clic en una notificación push no se abre la aplicación {#clicking-a-push-notification-does-not-open-the-app}
 
@@ -192,7 +192,7 @@ Si tienes problemas con enlaces en notificaciones push que se abren inesperadame
 
 En tu Campaign o paso en Canvas, verifica que **Open web URL inside mobile app** no esté seleccionado. Si lo está, desmarca la selección y vuelve a lanzar.
 
-La interacción predeterminada para el comportamiento al hacer clic «Open web URL» difiere según la versión del SDK. Para las versiones del SDK iOS 2.29.0 y Android 2.0.0 y superiores, esta opción está seleccionada de forma predeterminada y las URL web se abren en una vista web dentro de la aplicación. Antes de estas versiones, esta opción está desmarcada de forma predeterminada y las URL web se abren en el navegador web predeterminado del dispositivo.
+La interacción predeterminada para el comportamiento al hacer clic "Open web URL" difiere según la versión del SDK. Para las versiones del SDK iOS 2.29.0 y Android 2.0.0 y superiores, esta opción está seleccionada de forma predeterminada y las URL web se abren en una vista web dentro de la aplicación. Antes de estas versiones, esta opción está desmarcada de forma predeterminada y las URL web se abren en el navegador web predeterminado del dispositivo.
 
 Si este no es el problema, puede haber un problema con tu implementación push.
 
@@ -200,10 +200,10 @@ Si este no es el problema, puede haber un problema con tu implementación push.
 
 Si los enlaces en tus notificaciones push se abren inesperadamente en la aplicación, puede deberse a problemas con la integración de notificaciones push o la configuración de personalización. Sigue estos pasos para solucionar el problema:
 
-1. **Revisa la implementación del delegado push:** asegúrate de que el delegado push de Braze esté implementado correctamente. Para instrucciones detalladas, consulta la guía de integración de notificaciones push para tu [plataforma]({{site.baseurl}}/developer_guide/home).
-2. **Inspecciona el manejo personalizado de enlaces:** comprueba si la aplicación incluye un manejo personalizado para todos los enlaces `https://`. Las configuraciones personalizadas pueden anular los comportamientos predeterminados. Colabora con tu equipo de desarrollo para revisar y ajustar esta configuración si es necesario.
-3. **Verifica el registro push en iOS:** para iOS, revisa el paso 1 de la guía de integración push sobre [registrar notificaciones push con APNs]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#step-1-register-for-push-notifications-with-apns). Asegúrate de que tu objeto delegado se asigne de forma sincrónica antes de que la aplicación termine de lanzarse. Este paso debe completarse en el método `application:didFinishLaunchingWithOptions:`.
-4. **Prueba tu integración:** después de realizar los ajustes, prueba el comportamiento de las notificaciones push en dispositivos iOS y Android para confirmar que el problema se ha resuelto.
+1. **Revisa la implementación del delegado push:** Asegúrate de que el delegado push de Braze esté implementado correctamente. Para instrucciones detalladas, consulta la guía de integración de notificaciones push para tu [plataforma]({{site.baseurl}}/developer_guide/home).
+2. **Inspecciona el manejo personalizado de enlaces:** Comprueba si la aplicación incluye un manejo personalizado para todos los enlaces `https://`. Las configuraciones personalizadas pueden anular los comportamientos predeterminados. Colabora con tu equipo de desarrollo para revisar y ajustar esta configuración si es necesario.
+3. **Verifica el registro push en iOS:** Para iOS, revisa el paso 1 de la guía de integración push sobre [registrar notificaciones push con APN]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift). Asegúrate de que tu objeto delegado se asigne de forma sincrónica antes de que la aplicación termine de lanzarse. Este paso debe completarse en el método `application:didFinishLaunchingWithOptions:`.
+4. **Prueba tu integración:** Después de realizar los ajustes, prueba el comportamiento de las notificaciones push en dispositivos iOS y Android para confirmar que el problema se ha resuelto.
 
 ### Vínculos profundos con la aplicación aún ejecutándose en segundo plano (iOS) {#deep-links-with-app-still-running-in-the-background-ios}
 
@@ -325,7 +325,7 @@ Tus permisos de push se han restablecido. Abre una nueva pestaña con tu sitio y
 {% endtab %}
 {% endtabs %}
 
-## Métricas de apertura de push {#push-open-metrics}
+## Métricas de apertura push {#push-open-metrics}
 
 Braze registra una apertura directa cuando un usuario toca la notificación y tu aplicación inicia una sesión. Expandir una notificación push enriquecida sin abrir la aplicación no registra una apertura directa.
 

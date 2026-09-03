@@ -6,7 +6,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "Cet article présente en détail l'endpoint Braze Exporter les utilisateurs par identifiant."
-
 ---
 {% api %}
 # Exporter le profil utilisateur par identifiant {#export-user-profile-by-identifier}
@@ -118,7 +117,7 @@ Voici une liste des valeurs valides pour `fields_to_export`. Utiliser `fields_to
 | `phone` | Chaîne de caractères | Numéro de téléphone de l'utilisateur au format E.164. |
 | `purchases` | Tableau | Achats effectués par cet utilisateur au cours des 90 derniers jours. |
 | `push_tokens` | Tableau | Identifiant anonyme unique qui spécifie où envoyer les notifications d'une application. |
-| `random_bucket` | Entier | [Numéro de compartiment aléatoire]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events#random-bucket-number-event) de l'utilisateur, utilisé pour créer des segments uniformément distribués d'utilisateurs aléatoires. |
+| `random_bucket` | Entier | [Numéro de compartiment aléatoire]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) de l'utilisateur, utilisé pour créer des segments uniformément distribués d'utilisateurs aléatoires. |
 | `time_zone` | Chaîne de caractères | Fuseau horaire de l'utilisateur, au même format que la base de données de fuseaux horaires IANA. |
 | `total_revenue` | Float | Chiffre d'affaires total attribué à cet utilisateur. Le chiffre d'affaires total est calculé à partir des achats effectués par l'utilisateur pendant les fenêtres de conversion des campagnes et Canvas qu'il a reçus. |
 | `uninstalled_at` | Horodatage | Date et heure de désinstallation de l'application par l'utilisateur. Absent si l'application n'a pas été désinstallée. |

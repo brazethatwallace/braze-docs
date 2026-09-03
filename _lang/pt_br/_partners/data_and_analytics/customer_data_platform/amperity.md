@@ -164,9 +164,9 @@ Execute a orquestração para executar a consulta e enviar os resultados para a 
 
 Os usuários do AmpIQ podem criar segmentos na Amperity por meio de uma interface não SQL e sincronizá-los com destinos downstream, como a Braze. Os usuários podem selecionar destinos e, em seguida, configurar uma lista de atributos a serem enviados para cada destino.
 
-##### Etapa 1: Criar um segmento na Amperity {#step-1-create-a-segment-in-amperity}
+##### Etapa 1: Criar um Segment na Amperity {#step-1-create-a-segment-in-amperity}
 
-Crie um segmento na Amperity que retorne uma lista de clientes. Esse segmento deve estar associado aos atributos personalizados que você deseja atualizar na Braze.
+Crie um Segment na Amperity que retorne uma lista de clientes. Esse Segment deve estar associado aos atributos personalizados que você deseja atualizar na Braze.
 
 {% alert note %}
 Consulte a documentação da Amperity para obter exemplos de diferentes tipos de segmentos que você pode querer enviar para a Braze.
@@ -184,7 +184,7 @@ Consulte a documentação da Amperity para obter exemplos de diferentes tipos de
 
 ##### Etapa 3: Executar a campanha {#step-3-run-the-campaign}
 
-Execute a campanha para enviar o segmento para a Braze. Isso pode ser feito manualmente ou com base na programação que você definiu nas configurações da campanha.
+Execute a campanha para enviar o Segment para a Braze. Isso pode ser feito manualmente ou com base na programação que você definiu nas configurações da campanha.
 
 
 ### Como usar a Amperity com o Braze Currents {#using-amperity-with-braze-currents}

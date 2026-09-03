@@ -146,7 +146,7 @@ In-App Message
 Feature Flags
 {% endapitags %}
 
-The performance of the message across various channels. The metrics shown depend on the selected messaging channel, and whether the [Feature Flag experiment]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/experiments#campaign-analytics) is a multivariate test.
+The performance of the message across various channels. The metrics shown depend on the selected messaging channel, and whether the [Feature Flag experiment]({{site.baseurl}}/developer_guide/feature_flags/experiments#campaign-analytics) is a multivariate test.
 
 {% endapi %}
 
@@ -1122,6 +1122,8 @@ Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, RCS, 
 {% multi_lang_include analytics/metrics.md metric='Unique Recipients' %}
 
 Because a viewer can be a unique recipient every day, you should expect this to be higher than <i>Unique Impressions</i>. This number is received from Braze and is based on the `user_id`. Unique recipients are counted at the campaign or Canvas step level, not the <a href='{{ site.homeurl }}{{ site.baseurl }}/api/identifier_types/#send-identifier'>send identifier</a> level.
+
+Users who bounce still count toward <i>Unique Recipients</i> when Braze counts them as a recipient for that send day. <i>Unique Recipients</i> is based on users Braze targeted for the message that day, not only successful deliveries.
 
 <span class="calculation-line">Calculation: Count</span>
 

@@ -37,7 +37,7 @@ Die folgenden Anwendungsfälle zeigen Ihnen einige Möglichkeiten, wie Sie die I
 
 ## Integration
 
-Führen Sie die folgenden Schritte aus, um Ihre Integration schnell zum Laufen zu bringen. Ihre Extole-Implementierungs- und Customer-Success-Manager unterstützen Sie bei diesem Prozess und beantworten alle Ihre Fragen.
+Führen Sie die folgenden Schritte aus, um Ihre Integration schnell zum Laufen zu bringen. Ihre Extole-Implementierungs- und CSM unterstützen Sie bei diesem Prozess und beantworten alle Ihre Fragen.
 
 ### Verbindung mit Ihrem Braze-Konto herstellen {#connect-to-your-braze-account}
 
@@ -52,7 +52,7 @@ Führen Sie die folgenden Schritte aus, um Ihre Integration schnell zum Laufen z
 
 ### Extole-Programm-Events {#extole-program-events}
 
-Im Folgenden finden Sie die Standard-Events, Event-Eigenschaften und Nutzerattribute, die Extole an Braze sendet. Wenden Sie sich an Ihre Extole-Implementierungs- oder Customer-Success-Manager, um zusätzliche Extole-Events zu identifizieren und zu Ihrer Integration hinzuzufügen.
+Im Folgenden finden Sie die Standard-Events, Event-Eigenschaften und Nutzerattribute, die Extole an Braze sendet. Wenden Sie sich an Ihre Extole-Implementierungs- oder CSM, um zusätzliche Extole-Events zu identifizieren und zu Ihrer Integration hinzuzufügen.
 
 | Event | Beschreibung | Event-Eigenschaften | Nutzerattribute |
 | ----------- | ----------- | ----------- | ----------- |
@@ -89,7 +89,7 @@ Standardmäßig sendet Extole Reward-Events im Status `FULFILLED` an Braze, dami
 
 ### Nutzer:innen in Braze finden und erstellen {#find-and-create-users-in-braze}
 
-Für bestimmte Anwendungsfälle, wie z. B. ein neues E-Mail- oder SMS-Abo, für das Extole keine externe ID (Nutzer-ID) hat, kann Extole über den Braze-Endpunkt [Nutzerprofil nach Bezeichner exportieren]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) nach dem Bezeichner der/des Nutzer:in suchen. Extole fügt alle Profilattribute hinzu und aktualisiert sie, wenn die/der Nutzer:in in Braze existiert. Wenn die Anfrage kein Nutzerprofil zurückgibt, verwendet Extole den Endpunkt `/users/track`, um einen Nutzer-Alias mit der E-Mail-Adresse der/des Nutzer:in als Alias-Namen zu erstellen.
+Für bestimmte Anwendungsfälle, wie z. B. ein neues E-Mail- oder SMS-Abo, für das Extole keine externe ID (Nutzer-ID) hat, kann Extole über den Braze-Endpunkt [Kundenprofil nach Bezeichner exportieren]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) nach dem Bezeichner der/des Nutzer:in suchen. Extole fügt alle Profilattribute hinzu und aktualisiert sie, wenn die/der Nutzer:in in Braze existiert. Wenn die Anfrage kein Kundenprofil zurückgibt, verwendet Extole den Endpunkt `/users/track`, um einen Nutzer-Alias mit der E-Mail-Adresse der/des Nutzer:in als Alias-Namen zu erstellen.
 
 ## Verwendung dieser Integration {#using-this-integration}
 

@@ -79,9 +79,9 @@ if #available(iOS 10, *) {
 {% endtab %}
 {% endtabs %}
 
-## Etapa 2: Anexar o verificador de evento personalizado ao arquivo AppDelegate.m {#step-2-append-custom-event-checker-to-appdelegatem-file}
+## Etapa 2: Adicionar o verificador de evento personalizado ao arquivo AppDelegate.m {#step-2-append-custom-event-checker-to-appdelegatem-file}
 
-O seguinte trecho de código verifica se um evento personalizado precisa ser disparado. Adicione a seguinte linha de código ao seu `AppDelegate.m`.
+O snippet de código a seguir verifica se um evento personalizado precisa ser disparado. Adicione a seguinte linha de código ao seu `AppDelegate.m`.
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -128,11 +128,11 @@ let notificationSettiings = UIApplication.shared.currentUserNotificationSettings
 {% endtab %}
 {% endtabs %}
 
-## Etapa 3: Configurar um manipulador de deep links {#step-3-set-up-a-deep-link-handler}
+## Etapa 3: Configurar um handler de deep link {#step-3-set-up-a-deep-link-handler}
 
-Coloque o seguinte trecho de código dentro do seu código de manipulação de deep links. Você só deve executar esse código de deep linking para a mensagem no app do seu push primer.
+Coloque o snippet de código a seguir dentro do seu código de tratamento de deep link. Você deve executar esse código de deep linking apenas para a mensagem no app de push primer.
 
-Para saber mais sobre deep linking, consulte a [personalização do tratamento de links]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/advanced_use_cases/linking#linking-handling-customization).
+Consulte [personalização do tratamento de links]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/advanced_use_cases/linking#linking-handling-customization) para saber mais sobre deep linking.
 
 {% tabs %}
 {% tab OBJECTIVE-C %}

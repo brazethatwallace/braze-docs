@@ -49,4 +49,4 @@ Para que um cliente receba uma mensagem do WhatsApp, ele deve ter um número de 
 
 ### Múltiplos usuários com o mesmo número de telefone {#multiple-users-with-the-same-phone-number}
 
-Se vários usuários tiverem o mesmo número de telefone dentro de um segmento de uma única Campaign ou etapa do Canvas, a Braze fará a deduplicação do envio e enviará apenas uma mensagem para aquele número de telefone.
+Se vários usuários tiverem o mesmo número de telefone dentro de um Segment de uma única Campaign ou etapa do Canvas, a Braze fará a deduplicação do envio e enviará apenas uma mensagem para aquele número de telefone.

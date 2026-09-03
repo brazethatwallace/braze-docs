@@ -12,7 +12,7 @@ search_tag: Partner
 
 > [Census](https://www.getcensus.com/) es una plataforma de activación de datos que conecta almacenes de datos en la nube como Snowflake y BigQuery con Braze. Los equipos de marketing pueden liberar la potencia de sus datos propios para crear segmentos de audiencia dinámicos, sincronizar los atributos de los clientes para personalizar campañas y mantener actualizados todos sus datos en Braze. Ahora es más fácil que nunca actuar con datos fiables y procesables, sin necesidad de cargar archivos CSV ni hacer favores de ingeniería.
 
-La integración de Braze y Census te permite importar dinámicamente audiencias o datos de productos a Braze para enviar campañas personalizadas. Por ejemplo, puedes crear una cohorte en Braze para "Suscriptores de boletines con CLV > 1000" para dirigirte a clientes de alto valor o "Usuarios activos en los últimos 30 días" para dirigirte a usuarios específicos y probar una próxima función beta.
+La integración de Braze y Census te permite importar dinámicamente audiencias o datos de productos a Braze para enviar campañas personalizadas. Por ejemplo, puedes crear una cohorte en Braze para "Suscriptores de boletines con valor del ciclo de vida del cliente > 1000" para dirigirte a clientes de alto valor o "Usuarios activos en los últimos 30 días" para dirigirte a usuarios específicos y probar una próxima función beta.
 
 ## Requisitos previos {#prerequisites}
 

@@ -1,10 +1,9 @@
 ---
 nav_title: "Event-Objekt"
-article_title: API-Event-Objekt
+article_title: "Event-Objekt"
 page_order: 6
 page_type: reference
 description: "Dieser Referenzartikel behandelt das Event-Objekt, was es ist und warum es ein wichtiger Bestandteil eventbasierter Campaign-Strategien ist."
-
 ---
 
 # Event-Objekt {#event-object}
@@ -13,9 +12,9 @@ description: "Dieser Referenzartikel behandelt das Event-Objekt, was es ist und 
 
 ## Was ist ein Event-Objekt? {#what-is-an-event-object}
 
-Ein Event-Objekt ist ein Objekt, das über die API übergeben wird, wenn ein bestimmtes Ereignis eintritt. Event-Objekte sind in einem Events-Array untergebracht. Jedes Event-Objekt im Events-Array repräsentiert ein einzelnes Vorkommen eines angepassten Events durch eine:n bestimmte:n Nutzer:in zum angegebenen Zeitwert. Das Event-Objekt verfügt über viele verschiedene Felder, mit denen Sie durch das Festlegen und Verwenden von Event-Eigenschaften in Nachrichten, Datenerfassung und Personalisierung anpassen können.
+Ein Event-Objekt ist ein Objekt, das über die API übergeben wird, wenn ein bestimmtes Event auftritt. Event-Objekte befinden sich in einem Events-Array. Jedes Event-Objekt im Events-Array repräsentiert ein einzelnes Vorkommen eines angepassten Events durch eine:n bestimmte:n Nutzer:in zum angegebenen Zeitwert. Das Event-Objekt verfügt über viele verschiedene Felder, mit denen Sie Anpassungen vornehmen können, indem Sie Event-Eigenschaften in Nachrichten, der Datenerfassung und Personalisierung festlegen und verwenden.
 
-Wie Sie angepasste Events für eine bestimmte Plattform einrichten, erfahren Sie in der Anleitung zur Plattformintegration im [Entwicklerhandbuch]({{site.baseurl}}/developer_guide/home). Lesen Sie den entsprechenden Artikel für Ihre Plattform:
+Schritte zur Einrichtung angepasster Events für eine bestimmte Plattform finden Sie im Plattform-Integrationsleitfaden im [Entwickler:innen-Leitfaden]({{site.baseurl}}/developer_guide/home). Lesen Sie den entsprechenden Artikel für Ihre Plattform:
 
 - [Android]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=android)
 - [iOS]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=swift)
@@ -42,56 +41,60 @@ Wie Sie angepasste Events für eine bestimmte Plattform einrichten, erfahren Sie
 }
 ```
 
+{% alert note %}
+Events mit Zeitstempeln in der Zukunft verwenden standardmäßig die aktuelle Uhrzeit. Dadurch wird sichergestellt, dass angepasste Events mit genauem Timing erfasst werden.
+{% endalert %}
+
 - [Externe Nutzer-ID]({{site.baseurl}}/api/basics#user-ids)
 - [App-Bezeichner]({{site.baseurl}}/api/identifier_types)
-- [ISO 8601 Zeitcode](https://en.wikipedia.org/wiki/ISO_8601)
+- [ISO 8601-Zeitcode](https://en.wikipedia.org/wiki/ISO_8601)
 
 {% alert note %}
-Einige Bezeichnerpaare können nicht zusammen in einer einzigen Anfrage verwendet werden. Wenn sowohl `email` als auch `phone` angegeben sind, hat `email` Vorrang vor `phone`. Ausführliche Informationen finden Sie unter [Bezeichnerauflösung]({{site.baseurl}}/api/objects_filters/user_attributes_object#identifier-resolution).
+Einige Bezeichner-Paare können nicht gemeinsam in einer einzelnen Anfrage verwendet werden. Wenn sowohl `email` als auch `phone` angegeben werden, hat `email` Vorrang vor `phone`. Vollständige Details finden Sie unter [Bezeichner-Auflösung]({{site.baseurl}}/api/objects_filters/user_attributes_object#identifier-resolution).
 {% endalert %}
 
 #### Nur bestehende Profile aktualisieren {#update-existing-profiles-only}
 
-Um nur bestehende Nutzerprofile in Braze zu aktualisieren, sollten Sie den Schlüssel `_update_existing_only` mit dem Wert `true` im Hauptteil Ihrer Anfrage übergeben. Wenn dieser Wert weggelassen wird, erstellt Braze ein neues Nutzerprofil, wenn die `external_id` nicht bereits existiert.
+Um nur bestehende Nutzerprofile in Braze zu aktualisieren, sollten Sie den Schlüssel `_update_existing_only` mit dem Wert `true` im Body Ihrer Anfrage übergeben. Wenn dieser Wert weggelassen wird, erstellt Braze ein neues Nutzerprofil, falls die `external_id` noch nicht existiert.
 
 {% alert note %}
-Wenn Sie über den Endpunkt `/users/track` ein Nutzerprofil erstellen, das nur aus Aliasen besteht, muss `_update_existing_only` auf `false` gesetzt werden. Wenn dieser Wert weggelassen wird, wird das Profil, das nur einen Alias enthält, nicht erstellt.
+Wenn Sie ein reines Alias-Nutzerprofil über den Endpunkt `/users/track` erstellen, muss `_update_existing_only` auf `false` gesetzt werden. Wenn dieser Wert weggelassen wird, wird das reine Alias-Profil nicht erstellt.
 {% endalert %}
 
 ## Event-Eigenschaften-Objekt {#event-properties-object}
 
-Angepasste Events und Käufe können Event-Eigenschaften haben. Die „properties“-Werte sollten ein Objekt sein, bei dem die Schlüssel die Eigenschaftsnamen und die Werte die Eigenschaftswerte sind. Eigenschaftsnamen müssen nicht-leere Strings mit maximal 255 Zeichen sein, ohne führende Dollarzeichen ($).
+Angepasste Events und Käufe können Event-Eigenschaften haben. Die „properties“-Werte sollten ein Objekt sein, bei dem die Schlüssel die Eigenschaftsnamen und die Werte die Eigenschaftswerte sind. Eigenschaftsnamen müssen nicht-leere Strings mit maximal 255 Zeichen sein und dürfen kein vorangestelltes Dollarzeichen ($) enthalten.
 
-Bei den Eigenschaftswerten kann es sich um jeden der folgenden Datentypen handeln:
+Eigenschaftswerte können einen der folgenden Datentypen haben:
 
 | Datentyp | Beschreibung |
 | --- | --- |
-| Zahlen | Entweder als [Ganzzahlen](https://en.wikipedia.org/wiki/Integer) oder [Gleitkommazahlen](https://en.wikipedia.org/wiki/Floating-point_arithmetic) |
+| Zahlen | Als [Ganzzahlen](https://en.wikipedia.org/wiki/Integer) oder [Gleitkommazahlen](https://en.wikipedia.org/wiki/Floating-point_arithmetic) |
 | Boolesche Werte | `true` oder `false` |
-| Datumsangaben | Müssen als Strings im Format [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) oder in einem der folgenden Formate formatiert sein: <br>- `yyyy-MM-ddTHH:mm:ss:SSSZ` <br>- `yyyy-MM-ddTHH:mm:ss` <br>- `yyyy-MM-dd HH:mm:ss` <br>- `yyyy-MM-dd` <br>- `MM/dd/yyyy` <br>- `ddd MM dd HH:mm:ss.TZD YYYY` <br><br>Innerhalb von Arrays nicht unterstützt. <br><br>Beachten Sie, dass „T“ ein Zeitbezeichner und kein Platzhalter ist und nicht geändert oder entfernt werden sollte. <br><br>Zeitattribute ohne Zeitzone werden standardmäßig auf Mitternacht UTC gesetzt (und auf dem Dashboard als das Äquivalent zu Mitternacht UTC in der Zeitzone des Unternehmens formatiert). <br><br> Ereignisse mit Zeitstempeln in der Zukunft werden standardmäßig auf die aktuelle Zeit gesetzt.  |
+| Datums-/Zeitwerte | Müssen als Strings im [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)-Format oder in einem der folgenden Formate angegeben werden: <br>- `yyyy-MM-ddTHH:mm:ss:SSSZ` <br>- `yyyy-MM-ddTHH:mm:ss` <br>- `yyyy-MM-dd HH:mm:ss` <br>- `yyyy-MM-dd` <br>- `MM/dd/yyyy` <br>- `ddd MM dd HH:mm:ss.TZD YYYY` <br><br>Innerhalb von Arrays nicht unterstützt. <br><br>Beachten Sie, dass „T“ ein Zeitkennzeichen ist, kein Platzhalter, und nicht geändert oder entfernt werden sollte. <br><br> Zeitattribute ohne Zeitzone werden standardmäßig auf Mitternacht UTC gesetzt (und im Dashboard als Äquivalent von Mitternacht UTC in der Zeitzone des Unternehmens formatiert). <br><br> Events mit Zeitstempeln in der Zukunft werden standardmäßig auf die aktuelle Zeit gesetzt.  |
 | Strings | 255 Zeichen oder weniger. |
-| Arrays | Arrays können keine Datumsangaben enthalten. |
+| Arrays | Arrays können keine Datums-/Zeitwerte enthalten. |
 | Objekte | Objekte werden als Strings eingelesen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Event-Eigenschaften-Objekt" }
 
-Event-Eigenschaftsobjekte, die Array- oder Objektwerte enthalten, können eine Event-Eigenschafts-Nutzlast von bis zu 100&nbsp;KB haben.
+Event-Eigenschaftsobjekte, die Array- oder Objektwerte enthalten, können eine Event-Eigenschafts-Payload von bis zu 100&nbsp;KB haben.
 
 ### Reservierte Schlüssel {#reserved-keys}
 
-Die folgenden Schlüssel sind reserviert und können nicht als angepasste Event-Eigenschaftsnamen verwendet werden:
+Die folgenden Schlüssel sind reserviert und können nicht als Eigenschaftsnamen angepasster Events verwendet werden:
 
 - `time`
 - `event_name`
 
 {% alert important %}
-Die Verwendung reservierter Schlüssel als angepasste Event-Eigenschaftsnamen führt zu API-Fehlern beim Senden von Anfragen an den Endpunkt `/users/track`.
+Die Verwendung reservierter Schlüssel als Eigenschaftsnamen angepasster Events führt zu API-Fehlern beim Senden von Anfragen an den `/users/track`-Endpunkt.
 {% endalert %}
 
 ### Persistenz von Event-Eigenschaften {#event-property-persistence}
 
-Event-Eigenschaften dienen zum Filtern und zur Liquid-Personalisierung von Nachrichten, die durch ihre übergeordneten Ereignisse getriggert werden. Standardmäßig werden sie nicht auf dem Braze-Nutzerprofil persistent gehalten. Um Event-Eigenschaftswerte bei der Segmentierung zu verwenden, lesen Sie den Abschnitt [Angepasste Events]({{site.baseurl}}/user_guide/data/activation/events/custom_events), in dem die verschiedenen Ansätze zur langfristigen Speicherung von Event-Eigenschaftswerten beschrieben werden.
+Event-Eigenschaften sind für die Filterung und Liquid-Personalisierung in Nachrichten vorgesehen, die durch ihre übergeordneten Events ausgelöst werden. Standardmäßig werden sie nicht im Braze-Nutzerprofil gespeichert. Um Event-Eigenschaftswerte in der Segmentierung zu verwenden, lesen Sie den Abschnitt [Angepasste Events]({{site.baseurl}}/user_guide/data/activation/events/custom_events), der die verschiedenen Ansätze zur langfristigen Speicherung von Event-Eigenschaftswerten erläutert.
 
-#### Beispielanfrage für ein Event {#event-example-request}
+#### Beispielanfrage für Events {#event-example-request}
 
 ```http
 POST https://YOUR_REST_API_URL/users/track
@@ -124,8 +127,8 @@ Authorization: Bearer YOUR-REST-API-KEY
   ]
 }
 ```
-- [ISO 8601 Zeitcode Wiki](http://en.wikipedia.org/wiki/ISO_8601)
+- [ISO 8601 Time Code Wiki](http://en.wikipedia.org/wiki/ISO_8601)
 
 ## Event-Objekte {#event-objects}
 
-Anhand des angegebenen Beispiels können wir sehen, dass jemand vor Kurzem einen Trailer gesehen und dann einen Film ausgeliehen hat. Wir können zwar nicht in eine Campaign gehen und die Nutzer:innen auf der Grundlage dieser Eigenschaften segmentieren, aber wir können diese Eigenschaften strategisch nutzen, indem wir sie in Form einer Quittung verwenden, um eine angepasste Nachricht über einen Kanal mit Liquid zu versenden. Zum Beispiel: „Hallo **Alex**, danke, dass Sie **The Sad Egg** von **Alex Smith** ausgeliehen haben. Hier sind einige Filmempfehlungen, die auf Ihrer Ausleihe basieren …“
+Anhand des bereitgestellten Beispiels können wir sehen, dass jemand kürzlich einen Trailer angesehen und dann einen Film ausgeliehen hat. Zwar können wir nicht in eine Campaign gehen und die Nutzer:innen anhand dieser Eigenschaften segmentieren, doch wir können diese Eigenschaften strategisch nutzen, indem wir sie in Form einer Quittung verwenden, um über einen Kanal mit Liquid eine angepasste Nachricht zu senden. Zum Beispiel: „Hallo **Alex**, vielen Dank, dass du **The Sad Egg** von **Alex Smith** ausgeliehen hast. Hier sind einige empfohlene Filme basierend auf deiner Ausleihe …“

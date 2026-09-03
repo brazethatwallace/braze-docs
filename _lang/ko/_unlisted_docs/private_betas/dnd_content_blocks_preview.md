@@ -6,7 +6,7 @@ hidden: true
 
 # 드래그 앤 드롭 에디터 Content Blocks 미리보기 {#preview-drag-and-drop-editor-content-blocks}
 
-[드래그 앤 드롭 이메일 Campaign용 Content Blocks]({{site.baseurl}}/user_guide/message_building_by_channel/email/drag_and_drop/dnd_content_blocks/)를 생성한 후, 드래그 앤 드롭 에디터에서 이러한 Content Blocks 라이브러리를 확인할 수 있습니다.
+[드래그 앤 드롭 이메일 Campaign용 Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks?tab=drag-and-drop)를 생성한 후, 드래그 앤 드롭 에디터에서 이러한 Content Blocks 라이브러리를 확인할 수 있습니다.
 
 {% alert important %}
 드래그 앤 드롭 Content Blocks의 미리보기 기능은 현재 얼리 액세스 단계입니다. 얼리 액세스에 참여하려면 Braze 계정 매니저에게 문의하세요.

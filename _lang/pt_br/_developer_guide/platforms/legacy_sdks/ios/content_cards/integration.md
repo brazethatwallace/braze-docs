@@ -83,7 +83,7 @@ A Braze oferece três tipos de Content Cards: banner, imagem legendada e clássi
 | `pinned` | Essa propriedade reflete se o cartão foi configurado como "fixado" no dashboard. |
 | `dismissed` | Essa propriedade reflete se o usuário descartou o cartão. |
 | `url` | A URL que será aberta após o cartão ser clicado. Pode ser uma URL HTTP(s) ou uma URL de protocolo. |
-| `openURLInWebView` | Essa propriedade determina se a URL será aberta dentro do app ou em um navegador web externo. |
+| `openURLInWebView` | Essa propriedade determina se a URL será aberta dentro do app ou em um navegador de internet externo. |
 | `extras` | Um `NSDictionary` opcional de valores `NSString`. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Base Content Card model properties - ABKContentCard" }
 

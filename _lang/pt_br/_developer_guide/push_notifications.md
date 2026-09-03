@@ -1,6 +1,6 @@
 ---
 nav_title: Notificações por push
-article_title: "Notificações por push para o SDK Braze"
+article_title: Notificações por push
 page_order: 2.3
 description: "Esta landing page reúne tudo sobre notificações por push."
 ---
@@ -79,7 +79,7 @@ A resposta de entrega e clique retornada pelo FCM segue a mesma convenção de u
 {% multi_lang_include developer_guide/huawei/push_notifications.md %}
 {% endsdktab %}
 
-{% sdktab react native %}
+{% sdktab React Native %}
 {% multi_lang_include developer_guide/react_native/push_notifications.md %}
 {% endsdktab %}
 

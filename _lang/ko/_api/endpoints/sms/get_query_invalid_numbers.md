@@ -13,7 +13,7 @@ description: "이 문서에서는 유효하지 않은 전화번호를 조회하�
 /sms/invalid_phone_numbers
 {% endapimethod %}
 
-> 이 엔드포인트를 사용하여 특정 기간 내에 '유효하지 않음'으로 표시된 전화번호 목록을 가져올 수 있습니다. 자세한 내용은 [유효하지 않은 전화번호 처리]({{site.baseurl}}/user_guide/message_building_by_channel/sms/phone_numbers/user_phone_numbers#handling-invalid-phone-numbers) 설명서를 참조하세요.
+> 이 엔드포인트를 사용하여 특정 기간 내에 "유효하지 않음"으로 표시된 전화번호 목록을 가져올 수 있습니다. 자세한 내용은 [유효하지 않은 전화번호 처리]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#handling-invalid-phone-numbers) 설명서를 참조하세요.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#81ceae19-15d1-4ac1-ad22-a6b86a92456d {% endapiref %}
 

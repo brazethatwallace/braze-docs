@@ -3,7 +3,7 @@ nav_title: カスタムアプリストアのレビュー依頼
 article_title: カスタム App Store レビュープロンプト
 platform: iOS
 page_order: 4
-description: "このリファレンス記事では、iOS App Store のカスタムレビュープロンプトを設定する方法について説明します。"
+description: "このリファレンス記事では、iOS App Storeのカスタムレビュープロンプトを設定する方法について説明します。"
 channel:
   - in-app messages
 
@@ -15,7 +15,7 @@ noindex: true
 # カスタム App Store レビュープロンプト {#custom-app-store-review-prompt}
 
 {% alert note %}
-このプロンプトを実装すると、Brazeはインプレッションの自動トラッキングを停止するため、独自の[分析]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/in-app_messaging/customization/handing_in_app_display#logging-impressions-and-clicks)を記録する必要があります。
+このプロンプトを実装すると、Brazeはインプレッションの自動トラッキングを停止するため、独自の[分析]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/customization/handling_in_app_display#logging-impressions-and-clicks)を記録する必要があります。
 {% endalert %}
 
 アプリ内メッセージの一般的な用途として、ユーザーにApp Storeでのレビューを依頼するキャンペーンの作成があります。
@@ -53,7 +53,7 @@ func before(inAppMessageDisplayed inAppMessage: ABKInAppMessage) -> ABKInAppMess
 {% endtab %}
 {% endtabs %}
 
-ディープリンク処理コードで、以下のコードを追加して `{YOUR-APP-SCHEME}:appstore-review` ディープリンクを処理します。`SKStoreReviewController`を使用するには `StoreKit` をインポートする必要があることに注意してください。
+ディープリンク処理コードで、以下のコードを追加して`{YOUR-APP-SCHEME}:appstore-review`ディープリンクを処理します。`SKStoreReviewController`を使用するには`StoreKit`をインポートする必要があることに注意してください。
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -88,10 +88,10 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 
 {% raw %}
 
-次に、以下の内容でアプリ内メッセージングキャンペーンを作成します。
+次に、以下の内容でアプリ内メッセージキャンペーンを作成します。
 
-- キーと値のペア `"Appstore Review" : "true"`
-- ディープリンク `{YOUR-APP-SCHEME}:appstore-review` を使用して、クリック時の動作を「アプリにディープリンクする」に設定します。
+- キーと値のペア`"Appstore Review" : "true"`
+- ディープリンク`{YOUR-APP-SCHEME}:appstore-review`を使用して、クリック時の動作を「アプリにディープリンクする」に設定します。
 
 {% endraw %}
 

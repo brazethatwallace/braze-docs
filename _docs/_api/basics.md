@@ -35,7 +35,7 @@ The following is an overview of terms you may see in the Braze REST API document
 
 ### Endpoints
 
-Braze manages a number of different instances for our dashboard and REST endpoints. When your account is provisioned, you log in to one of the following URLs. Use the correct REST endpoint based on which instance you are provisioned to. If you are unsure, open a [support ticket]({{site.baseurl}}/braze_support) or use the following table to match the URL of the dashboard you use to the correct REST Endpoint.
+Braze manages a number of different instances for our dashboard and REST endpoints. When your account is provisioned, you log in to one of the following URLs. Use the correct REST endpoint based on which instance you are provisioned to. If you are unsure, open a [support ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support) or use the following table to match the URL of the dashboard you use to the correct REST Endpoint.
 
 To find your REST endpoint in Braze:
 
@@ -349,7 +349,7 @@ A good security practice is to assign a user only as much access as is necessary
 Given that REST API keys allow access to potentially sensitive REST API endpoints, make sure they are stored and used securely. For example, do not use this key to make AJAX calls from your website or expose it in any other public manner.
 {% endalert %}
 
-If you accidentally expose a key, you can delete it from the Developer Console. For help with this process, open a [support ticket]({{site.baseurl}}/braze_support).
+If you accidentally expose a key, you can delete it from the Developer Console. For help with this process, open a [support ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 
 ### Security of REST API keys and SDK API keys
 
@@ -371,7 +371,7 @@ For additional security, you can specify a list of IP addresses and subnets whic
 If you don't specify any, requests can be sent from any IP address.
 
 {% alert tip %}
-If you're making a Braze-to-Braze webhook and using allowlisting, see the list of [IPs to whitelist]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks/creating_a_webhook#ip-whitelisting).
+If you're making a Braze-to-Braze webhook and using allowlisting, see the list of [IPs to whitelist]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook).
 {% endalert %}
 
 ## API authentication and security
@@ -390,6 +390,12 @@ On each request, Braze performs the following server-side validation checks:
 2. **Token authorization:** Confirms the API key has the required permissions for the requested endpoint.
 
 If authentication fails, the API returns an error response with an HTTP status code. For example, `401 Unauthorized` indicates an invalid or missing key, while `403 Forbidden` indicates the key doesn't have permission for the requested endpoint. For more information, see [API errors]({{site.baseurl}}/api/errors).
+
+### Request header casing {#header-casing}
+
+HTTP header names are case-insensitive, so `Authorization` and `authorization` are equivalent. The same applies to other standard request headers, such as `Content-Type`. Send whichever casing your HTTP client produces.
+
+Braze also accepts any casing of the `Bearer` scheme (`Bearer`, `bearer`, or `BEARER`). Send the REST API key itself exactly as it was issued.
 
 ### Network-level security
 

@@ -13,55 +13,55 @@ description: "Dieser Referenzartikel beschreibt empfohlene Events – Empfehlung
 
 ## Empfohlene E-Commerce-Events {#ecommerce-recommended-events}
 
-[Empfohlene E-Commerce-Events]({{site.baseurl}}/ecommerce_events) decken sechs Schritte der Kauf-Journey ab: `product_viewed`, `cart_updated`, `checkout_started`, `order_placed`, `order_cancelled` und `order_refunded`. Wenn Sie diese Events erfolgreich senden, validiert Braze die Daten und stellt sie einer wachsenden Reihe von Plattform-Features zur Verfügung.
+[Empfohlene E-Commerce-Events]({{site.baseurl}}/ecommerce_events) decken sechs Schritte der Kaufreise ab: `product_viewed`, `cart_updated`, `checkout_started`, `order_placed`, `order_cancelled` und `order_refunded`. Wenn Sie diese Events erfolgreich senden, validiert Braze die Daten und stellt sie einer wachsenden Anzahl von Plattform-Features zur Verfügung.
 
-Zu diesen Features gehören Canvas-Templates für abgebrochenes Browsen, Warenkorb-Abbruch, abgebrochenen Checkout und Bestellbestätigungs-Flows; E-Commerce-Reporting; sowie berechnete Nutzerprofil-Felder für _Gesamtumsatz_, _Gesamtbestellungen_ und _Gesamterstattungen_. Sie können außerdem Segmente mithilfe verschachtelter Produkteigenschafts-Filterung über [Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension) erstellen, Warenkorb-Abbruch-Nachrichten mit dem {% raw %}`{% shopping_cart %}`{% endraw %} Liquid-Tag personalisieren und BrazeAI<sup>TM</sup>-Funktionen wie [Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events), [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn) und [Artikelempfehlungen]({{site.baseurl}}/user_guide/brazeai/item_recommendations) sowie weitere Funktionen nutzen.
+Zu diesen Features gehören Canvas-Templates für abgebrochenes Browsen, Warenkorb-Abbruch, abgebrochenen Checkout und Bestellbestätigungs-Flows; E-Commerce-Reporting; und berechnete Nutzerprofilfelder für _Gesamtumsatz_, _Gesamtbestellungen_ und _Gesamterstattungen_. Sie können außerdem Segmente mithilfe verschachtelter Produkteigenschafts-Filterung über [Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension) erstellen, Warenkorb-Abbruch-Nachrichten mit dem {% raw %}`{% shopping_cart %}`{% endraw %} Liquid-Tag personalisieren und BrazeAI<sup>TM</sup>-Funktionen wie [Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events), [voraussichtliche Abwanderung]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn) und [Artikelempfehlungen]({{site.baseurl}}/user_guide/brazeai/item_recommendations) sowie weitere Funktionen nutzen.
 
-Da diese Events einem definierten Schema folgen, kann jedes unterstützte Feature die strukturierten Daten ohne benutzerdefiniertes Property-Mapping oder Feature-spezifische Konfiguration auf Ihrer Seite lesen.
+Da diese Events einem definierten Schema folgen, kann jedes unterstützte Feature die strukturierten Daten ohne angepasstes Property-Mapping oder Feature-spezifische Konfiguration auf Ihrer Seite lesen.
 
 {% multi_lang_include alerts/important_alerts.md alert='Purchase event deprecation' %}
 
 ### So funktionieren E-Commerce-Events {#how-ecommerce-events-work}
 
-E-Commerce-Events sind angepasste Events mit vordefinierten Namen und Eigenschafts-Schemata. Sie senden sie über das [Braze SDK]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events), den [`/users/track` REST-API-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) oder [Cloud Data Ingestion (CDI)]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion), und Braze validiert jedes Event bei der Aufnahme gegen sein Schema. Wenn die Validierung erfolgreich ist, wendet Braze automatisch eine für diesen Event-Typ spezifische Nachbearbeitung an, wie z. B. die Berechnung von Umsatzfeldern und die Verwaltung des Warenkorb-Status in Nutzerprofilen.
+E-Commerce-Events sind angepasste Events mit vordefinierten Namen und Eigenschafts-Schemas. Sie senden sie über das [Braze SDK]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events), den [`/users/track` REST API-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) oder [Cloud Data Ingestion (CDI)]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion), und Braze validiert jedes Event bei der Aufnahme gegen sein Schema. Wenn die Validierung erfolgreich ist, wendet Braze automatisch eine für diesen Event-Typ spezifische Nachverarbeitung an, wie z. B. die Berechnung von Umsatzfeldern und die Verwaltung des Warenkorb-Status in Nutzerprofilen.
 
 {% alert note %}
 CSV-Uploads unterstützen keine E-Commerce-Events. Verwenden Sie das SDK, `/users/track` oder CDI, um diese Events zu senden.
 {% endalert %}
 
-E-Commerce-Events funktionieren überall dort, wo auch andere angepasste Events funktionieren: Trigger und Filter für durchgeführte angepasste Events, Reporting zu angepassten Events und mehr. Ihre Schema-Validierung schaltet jedoch zusätzliche Funktionen frei, darunter:
+E-Commerce-Events funktionieren überall dort, wo auch andere angepasste Events funktionieren: Trigger und Filter für durchgeführte angepasste Events, Reporting für angepasste Events und mehr. Ihre Schema-Validierung schaltet jedoch zusätzliche Funktionen frei, darunter:
 
-- „Bestellung aufgegeben“-Trigger-Aktionen in Campaigns, Canvases, Aktionspfaden, In-App-Nachricht-Triggern und Content-Card-Entfernung
-- Berechnete E-Commerce-Nutzerprofil-Felder (**Gesamtumsatz**, **Gesamtbestellungen**, **Gesamterstattungen**)
+- Trigger-Aktionen „Gibt Bestellung auf“ in Campaigns, Canvases, Aktionspfaden, In-App-Nachricht-Triggern und Content-Card-Entfernung
+- Berechnete E-Commerce-Nutzerprofilfelder (**Gesamtumsatz**, **Gesamtbestellungen**, **Gesamterstattungen**)
 - Warenkorb-Status-Verwaltung für Warenkorb-Abbruch-Flows
-- Reichhaltigere Daten für BrazeAI<sup>TM</sup>-Features wie Predictive Events, Predictive Churn und Artikelempfehlungen
+- Umfangreichere Daten für BrazeAI<sup>TM</sup>-Features wie Predictive Events, voraussichtliche Abwanderung und Artikelempfehlungen
 
-Sie können E-Commerce-Events auch namentlich überall dort referenzieren, wo die Plattform angepasste Events unterstützt. Beispielsweise können Sie eine aktionsbasierte Campaign mit `ecommerce.product_viewed`-Events triggern, ein Segment erstellen, das nach `ecommerce.checkout_started`-Events filtert, oder `ecommerce.order_placed`-Events über Currents exportieren.
+Sie können E-Commerce-Events auch überall dort namentlich referenzieren, wo die Plattform angepasste Events unterstützt. Zum Beispiel können Sie eine aktionsbasierte Campaign mit `ecommerce.product_viewed`-Events triggern, ein Segment erstellen, das nach `ecommerce.checkout_started`-Events filtert, oder `ecommerce.order_placed`-Events über Currents exportieren.
 
 #### Event-Benennung {#event-naming}
 
-Event-Namen sind exakt, Groß-/Kleinschreibung-sensitiv und durch Punkte getrennt. Verwenden Sie immer das kanonische Format. Wenn ein Event-Name nicht exakt einem der sechs kanonischen Namen entspricht, behandelt Braze ihn als Standard-angepasstes-Event und es findet keine E-Commerce-Nachbearbeitung statt.
+Event-Namen sind exakt, Groß-/Kleinschreibung wird beachtet, und sie sind durch Punkte getrennt. Verwenden Sie immer das kanonische Format. Wenn ein Event-Name nicht exakt einem der sechs kanonischen Namen entspricht, behandelt Braze ihn als Standard-Event und es findet keine E-Commerce-Nachverarbeitung statt.
 
 Sie können Events nicht anpassen oder umbenennen.
 
 - **Korrekt:** `ecommerce.order_placed`
 - **Falsch:** `order.placed`, `eCommerce_order_placed`, `Order_Placed`
 
-#### Event-Schemata {#event-schemas}
+#### Event-Schemas {#event-schemas}
 
-Die sechs empfohlenen E-Commerce-Events bilden Phasen der Kauf-Journey ab. Lösen Sie jedes Event in dem Moment aus, in dem die Nutzer:in die entsprechende Aktion abschließt.
+Die sechs empfohlenen E-Commerce-Events bilden Phasen der Kaufreise ab. Lösen Sie jedes Event in dem Moment aus, in dem die Nutzer:innen die entsprechende Aktion abschließen.
 
-![Diagramm der Nutzer-Journey durch alle sechs empfohlenen E-Commerce-Events: product_viewed, cart_updated, checkout_started, order_placed, order_cancelled und order_refunded.]({% image_buster /assets/img/shopify/event_schemas.png %})
+![Diagramm der Nutzerreise durch alle sechs empfohlenen E-Commerce-Events: product_viewed, cart_updated, checkout_started, order_placed, order_cancelled und order_refunded.]({% image_buster /assets/img/shopify/event_schemas.png %})
 
 {% alert tip %}
-Die folgenden Beispiele zeigen die REST-API-Payload für jedes Event.
+Die folgenden Beispiele zeigen den REST API-Payload für jedes Event.
 Für die clientseitige Protokollierung verwenden `ecommerce.product_viewed`, `ecommerce.cart_updated`, `ecommerce.checkout_started` und `ecommerce.order_placed` die SDK-E-Commerce-Event-APIs, sofern verfügbar, während `ecommerce.order_cancelled` und `ecommerce.order_refunded` `logCustomEvent` verwenden. Plattformspezifische Implementierungsbeispiele finden Sie unter [E-Commerce-Events über das Braze SDK protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
 {% endalert %}
 
 {% tabs %}
 {% tab ecommerce.product_viewed %}
 
-Lösen Sie dieses Event aus, wenn eine Nutzer:in eine Produktdetailseite aufruft. Dieses Event ist kompatibel mit den Braze-Katalog-Funktionen [Wieder-auf-Lager-Benachrichtigungen]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications) und [Preissenkungsbenachrichtigungen]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications).
+Lösen Sie dieses Event aus, wenn Nutzer:innen eine Produktdetailseite aufrufen. Dieses Event ist kompatibel mit den Braze-Katalog-Features [Wieder-verfügbar-Benachrichtigungen]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications) und [Preissenkungsbenachrichtigungen]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications).
 
 #### Clientseitige Implementierung {#client-side-implementation}
 
@@ -71,19 +71,19 @@ Verwenden Sie die SDK-E-Commerce-Event-APIs, sofern verfügbar. Plattformspezifi
 
 | Eigenschaftsname | Datentyp | Erforderlich | Beschreibung |
 | -------------- | ---------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `product_id`   | String           | Ja      | Eindeutiger Produktbezeichner (z. B. SKU oder Artikel-ID). |
-| `product_name` | String           | Ja      | Anzeigename des Produkts. |
-| `variant_id`   | String           | Ja      | Produktvarianten-Bezeichner (z. B. `shirt_medium_blue`). |
-| `image_url`    | String           | Nein       | Produktbild-URL. |
-| `product_url`  | String           | Nein       | URL zur Produktseite für weitere Details. |
-| `price`        | Gleitkommazahl   | Ja      | Varianten-Stückpreis zum Zeitpunkt der Ansicht. |
-| `currency`     | String           | Ja      | Dreistelliger ISO-4217-Code (z. B. `USD` oder `EUR`). |
-| `source`       | String           | Ja      | Quelle, von der das Event stammt (z. B. `web`, `ios` oder `android`). |
-| `type`         | String-Array     | Nein       | Erforderlich, um die Braze-Katalog-Trigger-Features für Wieder-auf-Lager- und Preissenkungsbenachrichtigungen zu nutzen. Akzeptierte Werte: `"price_drop"`, `"back_in_stock"` |
-| `metadata`     | Objekt           | Nein       | Flexible Schlüssel-Wert-Paare (z. B. `category` oder `brand`). |
+| `product_id` | String | Ja | Eindeutiger Produktbezeichner (z. B. SKU oder Artikel-ID). |
+| `product_name` | String | Ja | Anzeigename des Produkts. |
+| `variant_id` | String | Ja | Produktvarianten-Bezeichner (z. B. `shirt_medium_blue`). |
+| `image_url` | String | Nein | Produktbild-URL. |
+| `product_url` | String | Nein | URL zur Produktseite für weitere Details. |
+| `price` | Gleitkommazahl | Ja | Varianten-Stückpreis zum Zeitpunkt der Ansicht. |
+| `currency` | String | Ja | Dreistelliger ISO-4217-Code (z. B. `USD` oder `EUR`). |
+| `source` | String | Ja | Quelle, von der das Event stammt (z. B. `web`, `ios` oder `android`). |
+| `type` | String-Array | Nein | Erforderlich, um die Braze-Katalog-Trigger-Features für Wieder-verfügbar- und Preissenkungsbenachrichtigungen zu nutzen. Akzeptierte Werte: `"price_drop"`, `"back_in_stock"` |
+| `metadata` | Object | Nein | Flexible Schlüssel-Wert-Paare (z. B. `category` oder `brand`). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event-Eigenschaften" }
 
-#### REST-API-Beispiel {#rest-api-example}
+#### REST API-Beispiel {#rest-api-example}
 
 ```json
 {
@@ -115,7 +115,7 @@ Verwenden Sie die SDK-E-Commerce-Event-APIs, sofern verfügbar. Plattformspezifi
 {% endtab %}
 {% tab ecommerce.cart_updated %}
 
-Lösen Sie dieses Event jedes Mal aus, wenn sich der Inhalt des Warenkorbs einer Nutzer:in ändert.
+Lösen Sie dieses Event jedes Mal aus, wenn sich der Inhalt des Warenkorbs ändert.
 
 #### Clientseitige Implementierung
 
@@ -124,46 +124,46 @@ Verwenden Sie die SDK-E-Commerce-Event-APIs, sofern verfügbar. Plattformspezifi
 Sie können dieses Event auf zwei Arten senden:
 
 - **Vollständiger Warenkorb-Ersatz:** Lassen Sie `action` weg oder setzen Sie `action` auf `replace`. Fügen Sie den vollständigen Satz an Positionen in `products` mit absoluten Mengen (Gesamteinheiten pro Variante im Warenkorb) ein. Sie müssen `total_value` angeben.
-- **Inkrementelle Warenkorb-Updates:** Setzen Sie `action` auf `add` oder `remove`. Fügen Sie nur die geänderten Positionen ein. Jede `quantity` ist die Anzahl der hinzuzufügenden oder zu entfernenden Einheiten, nicht die Gesamtmenge im Warenkorb. Bei `add` erhöht Braze die Positionsmenge oder fügt eine neue Position hinzu. Bei `remove` verringert Braze die Positionsmenge und entfernt die Position, wenn die Menge `0` erreicht. `total_value` ist bei `add` und `remove` optional.
+- **Inkrementelle Warenkorb-Aktualisierungen:** Setzen Sie `action` auf `add` oder `remove`. Fügen Sie nur die geänderten Positionen ein. Jede `quantity` ist die Anzahl der hinzuzufügenden oder zu entfernenden Einheiten, nicht die Gesamtmenge im Warenkorb. Bei `add` erhöht Braze die Positionsmenge oder fügt eine neue Position hinzu. Bei `remove` verringert Braze die Positionsmenge und entfernt die Position, wenn die Menge `0` erreicht. `total_value` ist bei `add` und `remove` optional.
 
 {% alert warning %}
-Verwenden Sie entweder inkrementelle Warenkorb-Updates (`add` oder `remove`) oder vollständigen Ersatz (kein `action` oder `replace`) für einen bestimmten Warenkorb. Das Mischen beider Ansätze für dieselbe `cart_id` wird nicht empfohlen und kann zu einem inkonsistenten Warenkorb-Status in Braze führen.
+Verwenden Sie entweder inkrementelle Warenkorb-Aktualisierungen (`add` oder `remove`) oder vollständigen Ersatz (kein `action` oder `replace`) für einen bestimmten Warenkorb. Das Mischen beider Ansätze für dieselbe `cart_id` wird nicht empfohlen und kann zu einem inkonsistenten Warenkorb-Status in Braze führen.
 {% endalert %}
 
-Um Messaging über dieses Event zu triggern, verwenden Sie den Trigger **Warenkorb-Aktualisierungs-Event durchführen** in Canvas und Campaigns. Dieser Trigger enthält eine spezielle Behandlung, um zu verhindern, dass der Warenkorb im Shopping-Funnel weiter voranschreitet.
+Um Messaging über dieses Event auszulösen, verwenden Sie den Trigger **Warenkorb-Aktualisierungs-Event durchführen** in Canvas und Campaigns. Dieser Trigger enthält eine spezielle Behandlung, um zu verhindern, dass der Warenkorb im Shopping-Funnel weiter fortschreitet.
 
 {% alert tip %}
-Der Warenkorb erstellt ein Warenkorb-Mapping-Objekt im Nutzerprofil, das den {% raw %}`{% shopping_cart %}`{% endraw %} Liquid-Tag unterstützt. Der Warenkorb läuft nach 30 Tagen ohne Update ab. Wenn zwei Nutzerprofile zusammengeführt werden, behält Braze beide Warenkörbe bei.
+Der Warenkorb erstellt ein Warenkorb-Mapping-Objekt im Kundenprofil, das den {% raw %}`{% shopping_cart %}`{% endraw %} Liquid-Tag unterstützt. Der Warenkorb läuft nach 30 Tagen ohne Aktualisierung ab. Wenn zwei Nutzerprofile zusammengeführt werden, behält Braze beide Warenkörbe bei.
 {% endalert %}
 
 #### Event-Eigenschaften
 
 | Eigenschaft | Datentyp | Erforderlich | Beschreibung |
 |-----------------|-----------|----------|-------------------------------------------------------------------------------------------------------------------------------|
-| `cart_id`       | String    | Ja      | Eindeutiger Bezeichner für den Warenkorb. Wird über Warenkorb-, Checkout- und Bestell-Events für das Warenkorb-Mapping der Nutzer:in geteilt. |
-| `action`        | String    | Nein       | `add` (Menge erhöhen oder neue Position hinzufügen), `remove` (Menge verringern; Position wird bei `0` entfernt) oder `replace` (vollständiger Warenkorb-Ersatz, identisch mit dem Weglassen von `action`). |
-| `total_value`   | Gleitkommazahl | Bedingt | Erforderlich, wenn `action` weggelassen wird oder `replace` ist. Optional bei `action` `add` oder `remove`. |
-| `subtotal_value`| Gleitkommazahl | Nein       | Zwischensumme des Warenkorbs (nach Rabatt, vor Steuern/Versand). |
-| `tax`           | Gleitkommazahl | Nein       | Gesamte auf den Warenkorb angewandte Steuer. |
-| `shipping`      | Gleitkommazahl | Nein       | Gesamte Versandkosten für den Warenkorb. |
-| `currency`      | String    | Ja      | Dreistelliger ISO-4217-Code. |
-| `products`      | Array     | Ja      | Positionen für dieses Update. Beim vollständigen Ersatz (kein `action` oder `replace`) den vollständigen Warenkorb mit absoluten Mengen einfügen. Bei `add` oder `remove` nur geänderte Positionen einfügen; siehe Produkteigenschaften. |
-| `source`        | String    | Ja      | Quelle, von der das Event stammt. |
-| `metadata`      | Objekt    | Nein       | Flexible Schlüssel-Wert-Paare für zusätzliche Daten auf Event-Ebene. |
+| `cart_id` | String | Ja | Eindeutiger Bezeichner für den Warenkorb. Wird über Warenkorb-, Checkout- und Bestell-Events für das Warenkorb-Mapping der Nutzer:innen geteilt. |
+| `action` | String | Nein | `add` (Menge erhöhen oder Position hinzufügen), `remove` (Menge verringern; Position wird bei `0` entfernt) oder `replace` (vollständiger Warenkorb-Ersatz, identisch mit dem Weglassen von `action`). |
+| `total_value` | Gleitkommazahl | Bedingt | Erforderlich, wenn `action` weggelassen wird oder `replace` ist. Optional, wenn `action` `add` oder `remove` ist. |
+| `subtotal_value` | Gleitkommazahl | Nein | Zwischensumme des Warenkorbs (nach Rabatt, vor Steuern/Versand). |
+| `tax` | Gleitkommazahl | Nein | Gesamtsteuer auf den Warenkorb. |
+| `shipping` | Gleitkommazahl | Nein | Gesamtversandkosten für den Warenkorb. |
+| `currency` | String | Ja | Dreistelliger ISO-4217-Code. |
+| `products` | Array | Ja | Positionen für diese Aktualisierung. Für vollständigen Ersatz (kein `action` oder `replace`) den vollständigen Warenkorb mit absoluten Mengen angeben. Für `add` oder `remove` nur geänderte Positionen angeben; siehe Produkteigenschaften. |
+| `source` | String | Ja | Quelle, von der das Event stammt. |
+| `metadata` | Object | Nein | Flexible Schlüssel-Wert-Paare für zusätzliche Daten auf Event-Ebene. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event-Eigenschaften" }
 
 #### Produkteigenschaften (`products[]`) {#product-properties-products}
 
 | Eigenschaft | Datentyp | Erforderlich | Beschreibung |
 |-----------------|-----------|----------|-------------------------------------------------|
-| `product_id`    | String    | Ja      | Eindeutiger Produktbezeichner. |
-| `product_name`  | String    | Ja      | Anzeigename des Produkts. |
-| `variant_id`    | String    | Ja      | Varianten-Bezeichner. |
-| `image_url`     | String    | Nein       | Produktbild-URL. |
-| `product_url`   | String    | Nein       | URL zur Produktseite. |
-| `quantity`      | Integer   | Ja      | Beim vollständigen Ersatz (kein `action` oder `replace`) die Einheiten im Warenkorb für diese Position. Bei `add` oder `remove` die Anzahl der hinzuzufügenden oder zu entfernenden Einheiten. |
-| `price`         | Gleitkommazahl | Ja      | Varianten-Stückpreis. |
-| `metadata`      | Objekt    | Nein       | Flexible Schlüssel-Wert-Paare (z. B. `color` oder `size`). |
+| `product_id` | String | Ja | Eindeutiger Produktbezeichner. |
+| `product_name` | String | Ja | Anzeigename des Produkts. |
+| `variant_id` | String | Ja | Varianten-Bezeichner. |
+| `image_url` | String | Nein | Produktbild-URL. |
+| `product_url` | String | Nein | URL zur Produktseite. |
+| `quantity` | Integer | Ja | Für vollständigen Ersatz (kein `action` oder `replace`) die Einheiten im Warenkorb für diese Position. Für `add` oder `remove` die Anzahl der hinzuzufügenden oder zu entfernenden Einheiten. |
+| `price` | Gleitkommazahl | Ja | Varianten-Stückpreis. |
+| `metadata` | Object | Nein | Flexible Schlüssel-Wert-Paare (z. B. `color` oder `size`). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Produkteigenschaften (products[])" }
 
 {% comment %}
@@ -173,7 +173,7 @@ Der Warenkorb erstellt ein Warenkorb-Mapping-Objekt im Nutzerprofil, das den {% 
 
 ##### `add`
 
-`add` increases quantity or adds a new line. The `quantity` property is how many units to add.
+`add` erhöht die Menge oder fügt eine neue Position hinzu. Die Eigenschaft `quantity` gibt an, wie viele Einheiten hinzugefügt werden sollen.
 
 ```javascript
 braze.logCustomEvent("ecommerce.cart_updated", {
@@ -194,7 +194,7 @@ braze.logCustomEvent("ecommerce.cart_updated", {
 ```
 ##### `remove`
 
-`remove` decreases quantity by the amount in `quantity`. The line is removed when quantity reaches `0`.
+`remove` verringert die Menge um den Wert in `quantity`. Die Position wird entfernt, wenn die Menge `0` erreicht.
 
 ```javascript
 braze.logCustomEvent("ecommerce.cart_updated", {
@@ -216,7 +216,7 @@ braze.logCustomEvent("ecommerce.cart_updated", {
 
 ##### `replace`
 
-`replace` (or omit `action`) sends the full cart. `total_value` is required.
+`replace` (oder `action` weglassen) sendet den vollständigen Warenkorb. `total_value` ist erforderlich.
 
 ```javascript
 braze.logCustomEvent("ecommerce.cart_updated", {
@@ -253,7 +253,7 @@ braze.logCustomEvent("ecommerce.cart_updated", {
 
 ##### Add
 
-`add` increases quantity or adds a new line. The `quantity` property is how many units to add.
+`add` erhöht die Menge oder fügt eine neue Position hinzu. Die Eigenschaft `quantity` gibt an, wie viele Einheiten hinzugefügt werden sollen.
 
 ```text
 Kotlin
@@ -302,7 +302,7 @@ Braze.getInstance(context).logCustomEvent(
 
 ##### Remove
 
-`remove` decreases quantity by the amount in `quantity`. The line is removed when quantity reaches `0`.
+`remove` verringert die Menge um den Wert in `quantity`. Die Position wird entfernt, wenn die Menge `0` erreicht.
 
 ```text
 Kotlin
@@ -351,7 +351,7 @@ Braze.getInstance(context).logCustomEvent(
 
 ##### Replace
 
-`replace` (or omit `action`) sends the full cart. `total_value` is required.
+`replace` (oder `action` weglassen) sendet den vollständigen Warenkorb. `total_value` ist erforderlich.
 
 ```text
 Kotlin
@@ -420,7 +420,7 @@ Braze.getInstance(context).logCustomEvent(
 
 ##### Add
 
-`add` increases quantity or adds a new line. The `quantity` property is how many units to add.
+`add` erhöht die Menge oder fügt eine neue Position hinzu. Die Eigenschaft `quantity` gibt an, wie viele Einheiten hinzugefügt werden sollen.
 
 ```text
 Swift
@@ -466,7 +466,7 @@ Objective-C
 
 ##### Remove
 
-`remove` decreases quantity by the amount in `quantity`. The line is removed when quantity reaches `0`.
+`remove` verringert die Menge um den Wert in `quantity`. Die Position wird entfernt, wenn die Menge `0` erreicht.
 
 ```text
 Swift
@@ -512,7 +512,7 @@ Objective-C
 
 ##### Replace
 
-`replace` (or omit `action`) sends the full cart. `total_value` is required.
+`replace` (oder `action` weglassen) sendet den vollständigen Warenkorb. `total_value` ist erforderlich.
 
 ```text
 Swift
@@ -579,7 +579,7 @@ Objective-C
 
 ##### `add`
 
-`add` increases quantity or adds a new line. The `quantity` property is how many units to add.
+`add` erhöht die Menge oder fügt eine neue Position hinzu. Die Eigenschaft `quantity` gibt an, wie viele Einheiten hinzugefügt werden sollen.
 
 ```json
 {
@@ -610,7 +610,7 @@ Objective-C
 
 ##### `remove`
 
-`remove` decreases quantity by the amount in `quantity`. The line is removed when quantity reaches `0`.
+`remove` verringert die Menge um den Wert in `quantity`. Die Position wird entfernt, wenn die Menge `0` erreicht.
 
 ```json
 {
@@ -641,7 +641,7 @@ Objective-C
 
 ##### `replace`
 
-`replace` (or omit `action`) sends the full cart. `total_value` is required.
+`replace` (oder `action` weglassen) sendet den vollständigen Warenkorb. `total_value` ist erforderlich.
 
 ```json
 {
@@ -703,7 +703,7 @@ Objective-C
 {% endtab %}
 {% tab ecommerce.checkout_started %}
 
-Lösen Sie dieses Event aus, wenn die Nutzer:in den Checkout-Prozess startet (z. B. „Zur Kasse“ auswählt oder auf der Checkout-Seite landet).
+Lösen Sie dieses Event aus, wenn Nutzer:innen den Checkout-Flow starten (z. B. „Zur Kasse“ auswählen oder auf der Checkout-Seite landen).
 
 #### Clientseitige Implementierung
 
@@ -713,33 +713,33 @@ Verwenden Sie die SDK-E-Commerce-Event-APIs, sofern verfügbar. Plattformspezifi
 
 | Eigenschaft | Typ | Erforderlich | Beschreibung |
 |----------------|---------|----------|------------------------------------------------------------------------------------------------------------------|
-| checkout_id    | String  | Ja      | Eindeutiger Bezeichner für die Checkout-Sitzung. |
-| cart_id        | String  | Nein       | Warenkorb-Bezeichner. Wird über Warenkorb-, Checkout- und Bestell-Events für das Warenkorb-Mapping der Nutzer:in geteilt. |
-| total_value    | Gleitkommazahl | Ja      | Gesamter Geldwert des Checkouts. |
-| subtotal_value | Gleitkommazahl | Nein       | Zwischensumme (nach Rabatt, vor Steuern/Versand). |
-| tax            | Gleitkommazahl | Nein       | Gesamte auf den Checkout angewandte Steuer. |
-| shipping       | Gleitkommazahl | Nein       | Gesamte Versandkosten. |
-| currency       | String  | Ja      | Dreistelliger ISO-4217-Code. |
-| products       | Array   | Ja      | Artikel im Checkout. Siehe Produkteigenschaften-Untertabelle. |
-| source         | String  | Ja      | Quelle, von der das Event stammt. |
-| metadata       | Objekt  | Nein       | Flexible Schlüssel-Wert-Paare. Erkannte Untereigenschaft: `checkout_url` (String) |
+| checkout_id | String | Ja | Eindeutiger Bezeichner für die Checkout-Sitzung. |
+| cart_id | String | Nein | Warenkorb-Bezeichner. Wird über Warenkorb-, Checkout- und Bestell-Events für das Warenkorb-Mapping der Nutzer:innen geteilt. |
+| total_value | Gleitkommazahl | Ja | Gesamtgeldwert des Checkouts. |
+| subtotal_value | Gleitkommazahl | Nein | Zwischensumme (nach Rabatt, vor Steuern/Versand). |
+| tax | Gleitkommazahl | Nein | Gesamtsteuer auf den Checkout. |
+| shipping | Gleitkommazahl | Nein | Gesamtversandkosten. |
+| currency | String | Ja | Dreistelliger ISO-4217-Code. |
+| products | Array | Ja | Artikel im Checkout. Siehe Produkteigenschaften-Untertabelle. |
+| source | String | Ja | Quelle, von der das Event stammt. |
+| metadata | Object | Nein | Flexible Schlüssel-Wert-Paare. Erkannte Untereigenschaft: `checkout_url` (String) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event-Eigenschaften" }
 
 #### Produkteigenschaften (`products[]`)
 
 | Eigenschaft | Datentyp | Erforderlich | Beschreibung |
 |----------------|-----------|----------|----------------------------------------------------------|
-| `product_id`   | String    | Ja      | Eindeutiger Produktbezeichner. |
-| `product_name` | String    | Ja      | Anzeigename des Produkts. |
-| `variant_id`   | String    | Ja      | Varianten-Bezeichner. |
-| `image_url`    | String    | Nein       | Produktbild-URL. |
-| `product_url`  | String    | Nein       | URL zur Produktseite. |
-| `quantity`     | Integer   | Ja      | Anzahl der Einheiten im Warenkorb. |
-| `price`        | Gleitkommazahl | Ja      | Varianten-Stückpreis. |
-| `metadata`     | Objekt    | Nein       | Flexible Schlüssel-Wert-Paare (z. B. Farbe, Größe). |
+| `product_id` | String | Ja | Eindeutiger Produktbezeichner. |
+| `product_name` | String | Ja | Anzeigename des Produkts. |
+| `variant_id` | String | Ja | Varianten-Bezeichner. |
+| `image_url` | String | Nein | Produktbild-URL. |
+| `product_url` | String | Nein | URL zur Produktseite. |
+| `quantity` | Integer | Ja | Anzahl der Einheiten im Warenkorb. |
+| `price` | Gleitkommazahl | Ja | Varianten-Stückpreis. |
+| `metadata` | Object | Nein | Flexible Schlüssel-Wert-Paare (z. B. Farbe, Größe). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Produkteigenschaften (products[])" }
 
-#### REST-API-Beispiel
+#### REST API-Beispiel
 
 ```json
 {
@@ -798,49 +798,49 @@ Verwenden Sie die SDK-E-Commerce-Event-APIs, sofern verfügbar. Plattformspezifi
 {% endtab %}
 {% tab ecommerce.order_placed %}
 
-Lösen Sie dieses Event aus, wenn eine Bestellung erfolgreich abgeschlossen oder die Zahlung bestätigt wurde.
+Lösen Sie dieses Event aus, wenn eine Bestellung erfolgreich abgeschlossen oder die Zahlung bestätigt wird.
 
 #### Clientseitige Implementierung
 
 Verwenden Sie die SDK-E-Commerce-Event-APIs, sofern verfügbar. Plattformspezifische Implementierungsbeispiele finden Sie unter [E-Commerce-Events über das Braze SDK protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
 
 {% alert important %}
-Dieses Event ist der primäre Umsatztreiber. Es erhöht `total_revenue` um den Wert in `total_value` und `total_orders` um 1 im Nutzerprofil.
+Dieses Event ist der primäre Umsatztreiber. Es erhöht `total_revenue` um den Wert in `total_value` und `total_orders` um 1 im Kundenprofil.
 {% endalert %}
 
 #### Event-Eigenschaften
 
 | Eigenschaft | Datentyp | Erforderlich | Beschreibung |
 |-----------------|-----------|----------|-----------------------------------------------------------------------------------------------|
-| `order_id`      | String    | Ja      | Eindeutiger Bezeichner für die Bestellung. |
-| `cart_id`       | String    | Nein       | Warenkorb-Bezeichner. Wird über Warenkorb-, Checkout- und Bestell-Events für das Warenkorb-Mapping der Nutzer:in geteilt. |
-| `total_value`   | Gleitkommazahl | Ja      | Gesamter Geldwert der Bestellung. |
-| `subtotal_value`| Gleitkommazahl | Nein       | Zwischensumme (nach Rabatt, vor Steuern/Versand). |
-| `tax`           | Gleitkommazahl | Nein       | Gesamte auf die Bestellung angewandte Steuer. |
-| `shipping`      | Gleitkommazahl | Nein       | Gesamte Versandkosten. |
-| `currency`      | String    | Ja      | Dreistelliger ISO-4217-Code. |
-| `total_discounts`| Gleitkommazahl | Nein       | Gesamtbetrag der auf die Bestellung angewandten Rabatte. |
-| `discounts`     | Array     | Nein       | Detaillierte Liste der angewandten Rabatte. |
-| `products`      | Array     | Ja      | Artikel in der Bestellung. Siehe Produkteigenschaften-Untertabelle. |
-| `source`        | String    | Ja      | Quelle, von der das Event stammt. |
-| `metadata`      | Objekt    | Nein       | Flexible Schlüssel-Wert-Paare. Erkannte Untereigenschaft: `order_status_url` (String) |
+| `order_id` | String | Ja | Eindeutiger Bezeichner für die Bestellung. |
+| `cart_id` | String | Nein | Warenkorb-Bezeichner. Wird über Warenkorb-, Checkout- und Bestell-Events für das Warenkorb-Mapping der Nutzer:innen geteilt. |
+| `total_value` | Gleitkommazahl | Ja | Gesamtgeldwert der Bestellung. |
+| `subtotal_value` | Gleitkommazahl | Nein | Zwischensumme (nach Rabatt, vor Steuern/Versand). |
+| `tax` | Gleitkommazahl | Nein | Gesamtsteuer auf die Bestellung. |
+| `shipping` | Gleitkommazahl | Nein | Gesamtversandkosten. |
+| `currency` | String | Ja | Dreistelliger ISO-4217-Code. |
+| `total_discounts` | Gleitkommazahl | Nein | Gesamtbetrag der auf die Bestellung angewendeten Rabatte. |
+| `discounts` | Array | Nein | Detaillierte Liste der angewendeten Rabatte. |
+| `products` | Array | Ja | Artikel in der Bestellung. Siehe Produkteigenschaften-Untertabelle. |
+| `source` | String | Ja | Quelle, von der das Event stammt. |
+| `metadata` | Object | Nein | Flexible Schlüssel-Wert-Paare. Erkannte Untereigenschaft: `order_status_url` (String) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event-Eigenschaften" }
 
 #### Produkteigenschaften (`products[]`)
 
 | Eigenschaft | Datentyp | Erforderlich | Beschreibung |
 |-----------------|-----------|----------|---------------------------------------------|
-| `product_id`    | String    | Ja      | Eindeutiger Produktbezeichner. |
-| `product_name`  | String    | Ja      | Anzeigename des Produkts. |
-| `variant_id`    | String    | Ja      | Varianten-Bezeichner. |
-| `image_url`     | String    | Nein       | Produktbild-URL. |
-| `product_url`   | String    | Nein       | URL zur Produktseite. |
-| `quantity`      | Integer   | Ja      | Anzahl der Einheiten im Warenkorb. |
-| `price`         | Gleitkommazahl | Ja      | Varianten-Stückpreis. |
-| `metadata`      | Objekt    | Nein       | Flexible Schlüssel-Wert-Paare (z. B. `color` oder `size`). |
+| `product_id` | String | Ja | Eindeutiger Produktbezeichner. |
+| `product_name` | String | Ja | Anzeigename des Produkts. |
+| `variant_id` | String | Ja | Varianten-Bezeichner. |
+| `image_url` | String | Nein | Produktbild-URL. |
+| `product_url` | String | Nein | URL zur Produktseite. |
+| `quantity` | Integer | Ja | Anzahl der Einheiten im Warenkorb. |
+| `price` | Gleitkommazahl | Ja | Varianten-Stückpreis. |
+| `metadata` | Object | Nein | Flexible Schlüssel-Wert-Paare (z. B. `color` oder `size`). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Produkteigenschaften (products[])" }
 
-#### REST-API-Beispiel
+#### REST API-Beispiel
 
 ```json
 {
@@ -913,42 +913,42 @@ Lösen Sie dieses Event aus, wenn eine Bestellung storniert wird.
 Verwenden Sie `logCustomEvent`. Plattformspezifische Implementierungsbeispiele finden Sie unter [E-Commerce-Events über das Braze SDK protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
 
 {% alert important %}
-Dieses Event verringert `total_orders` um 1 im Nutzerprofil. Es hat keinen Einfluss auf `total_revenue`; verwenden Sie `order_refunded`, um den Umsatz anzupassen.
+Dieses Event verringert `total_orders` um 1 im Kundenprofil. Es hat keinen Einfluss auf `total_revenue`; verwenden Sie `order_refunded`, um den Umsatz anzupassen.
 {% endalert %}
 
 #### Event-Eigenschaften
 
 | Eigenschaft | Typ | Erforderlich | Beschreibung |
 |------------------|---------|----------|--------------------------------------------------------------------------------------------------|
-| `order_id`       | String  | Ja      | Eindeutiger Bezeichner für die Bestellung. |
-| `total_value`    | Gleitkommazahl | Ja      | Gesamter Geldwert der stornierten Bestellung. Muss ≥ 0 sein – senden Sie den absoluten Betrag; Braze übernimmt die Verringerung. |
-| `subtotal_value` | Gleitkommazahl | Nein       | Zwischensumme (nach Rabatt, vor Steuern/Versand). |
-| `tax`            | Gleitkommazahl | Nein       | Gesamte auf die Bestellung angewandte Steuer. |
-| `shipping`       | Gleitkommazahl | Nein       | Gesamte Versandkosten. |
-| `currency`       | String  | Ja      | Dreistelliger ISO-4217-Code. |
-| `total_discounts`| Gleitkommazahl | Nein       | Gesamtbetrag der auf die Bestellung angewandten Rabatte. |
-| `discounts`      | Array   | Nein       | Detaillierte Liste der angewandten Rabatte. |
-| `cancel_reason`  | String  | Ja      | Grund für die Stornierung der Bestellung. |
-| `products`       | Array   | Ja      | Artikel in der stornierten Bestellung. Siehe Produkteigenschaften-Untertabelle. |
-| `source`         | String  | Ja      | Quelle, von der das Event stammt. |
-| `metadata`       | Objekt  | Nein       | Flexible Schlüssel-Wert-Paare. Erkannte Untereigenschaft: `order_status_url` (String) |
+| `order_id` | String | Ja | Eindeutiger Bezeichner für die Bestellung. |
+| `total_value` | Gleitkommazahl | Ja | Gesamtgeldwert der stornierten Bestellung. Muss ≥ 0 sein – senden Sie den absoluten Betrag; Braze übernimmt die Verringerung. |
+| `subtotal_value` | Gleitkommazahl | Nein | Zwischensumme (nach Rabatt, vor Steuern/Versand). |
+| `tax` | Gleitkommazahl | Nein | Gesamtsteuer auf die Bestellung. |
+| `shipping` | Gleitkommazahl | Nein | Gesamtversandkosten. |
+| `currency` | String | Ja | Dreistelliger ISO-4217-Code. |
+| `total_discounts` | Gleitkommazahl | Nein | Gesamtbetrag der auf die Bestellung angewendeten Rabatte. |
+| `discounts` | Array | Nein | Detaillierte Liste der angewendeten Rabatte. |
+| `cancel_reason` | String | Ja | Grund für die Stornierung der Bestellung. |
+| `products` | Array | Ja | Artikel in der stornierten Bestellung. Siehe Produkteigenschaften-Untertabelle. |
+| `source` | String | Ja | Quelle, von der das Event stammt. |
+| `metadata` | Object | Nein | Flexible Schlüssel-Wert-Paare. Erkannte Untereigenschaft: `order_status_url` (String) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event-Eigenschaften" }
 
 #### Produkteigenschaften (`products[]`)
 
 | Eigenschaft | Datentyp | Erforderlich | Beschreibung |
 |----------------|-----------|----------|-----------------------------------------------|
-| `product_id`   | String    | Ja      | Eindeutiger Produktbezeichner. |
-| `product_name` | String    | Ja      | Anzeigename des Produkts. |
-| `variant_id`   | String    | Ja      | Varianten-Bezeichner. |
-| `image_url`    | String    | Nein       | Produktbild-URL. |
-| `product_url`  | String    | Nein       | URL zur Produktseite. |
-| `quantity`     | Integer   | Ja      | Anzahl der Einheiten im Warenkorb. |
-| `price`        | Gleitkommazahl | Ja      | Varianten-Stückpreis. |
-| `metadata`     | Objekt    | Nein       | Flexible Schlüssel-Wert-Paare (z. B. `color` oder `size`). |
+| `product_id` | String | Ja | Eindeutiger Produktbezeichner. |
+| `product_name` | String | Ja | Anzeigename des Produkts. |
+| `variant_id` | String | Ja | Varianten-Bezeichner. |
+| `image_url` | String | Nein | Produktbild-URL. |
+| `product_url` | String | Nein | URL zur Produktseite. |
+| `quantity` | Integer | Ja | Anzahl der Einheiten im Warenkorb. |
+| `price` | Gleitkommazahl | Ja | Varianten-Stückpreis. |
+| `metadata` | Object | Nein | Flexible Schlüssel-Wert-Paare (z. B. `color` oder `size`). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Produkteigenschaften (products[])" }
 
-#### REST-API-Beispiel
+#### REST API-Beispiel
 
 ```json
 {
@@ -1003,45 +1003,45 @@ Dieses Event verringert `total_orders` um 1 im Nutzerprofil. Es hat keinen Einfl
 {% endtab %}
 {% tab ecommerce.order_refunded %}
 
-Lösen Sie dieses Event aus, wenn eine vollständige oder teilweise Erstattung erfolgt.
+Lösen Sie dieses Event aus, wenn eine vollständige oder teilweise Erstattung ausgestellt wird.
 
 #### Clientseitige Implementierung
 
 Verwenden Sie `logCustomEvent`. Plattformspezifische Implementierungsbeispiele finden Sie unter [E-Commerce-Events über das Braze SDK protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
 
 {% alert important %}
-Dieses Event verringert `total_revenue` um den Wert in `total_value` und erhöht `total_refunds` im Nutzerprofil. Setzen Sie bei Teilerstattungen `total_value` nur auf den erstatteten Betrag, nicht auf den ursprünglichen Bestellwert.
+Dieses Event verringert `total_revenue` um den Wert in `total_value` und erhöht `total_refunds` im Kundenprofil. Setzen Sie bei Teilerstattungen `total_value` nur auf den erstatteten Betrag, nicht auf den ursprünglichen Bestellwert.
 {% endalert %}
 
 #### Event-Eigenschaften
 
 | Eigenschaft | Datentyp | Erforderlich | Beschreibung |
 |-------------------|-----------|----------|------------------------------------------------------------------------------------------------------|
-| `order_id`        | String    | Ja      | Eindeutiger Bezeichner für die ursprüngliche Bestellung. |
-| `total_value`     | Gleitkommazahl | Ja      | Gesamter Geldwert der Erstattung. Muss ≥ 0 sein – senden Sie den absoluten Betrag; Braze übernimmt die Erhöhung von total_refunds. |
-| `currency`        | String    | Ja      | Dreistelliger ISO-4217-Code. |
-| `total_discounts` | Gleitkommazahl | Nein       | Gesamtbetrag der ursprünglich angewandten Rabatte. |
-| `discounts`       | Array     | Nein       | Detaillierte Liste der Rabatte. |
-| `products`        | Array     | Ja      | Erstattete Artikel. Siehe Produkteigenschaften-Untertabelle. |
-| `source`          | String    | Ja      | Quelle, von der das Event stammt. |
-| `metadata`        | Objekt    | Nein       | Flexible Schlüssel-Wert-Paare. Erkannte Untereigenschaft: `order_status_url` (String). |
+| `order_id` | String | Ja | Eindeutiger Bezeichner für die ursprüngliche Bestellung. |
+| `total_value` | Gleitkommazahl | Ja | Gesamtgeldwert der Erstattung. Muss ≥ 0 sein – senden Sie den absoluten Betrag; Braze übernimmt die Erhöhung von total_refunds. |
+| `currency` | String | Ja | Dreistelliger ISO-4217-Code. |
+| `total_discounts` | Gleitkommazahl | Nein | Gesamtbetrag der ursprünglich angewendeten Rabatte. |
+| `discounts` | Array | Nein | Detaillierte Liste der Rabatte. |
+| `products` | Array | Ja | Erstattete Artikel. Siehe Produkteigenschaften-Untertabelle. |
+| `source` | String | Ja | Quelle, von der das Event stammt. |
+| `metadata` | Object | Nein | Flexible Schlüssel-Wert-Paare. Erkannte Untereigenschaft: `order_status_url` (String). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event-Eigenschaften" }
 
 #### Produkteigenschaften (`products[]`)
 
 | Eigenschaft | Datentyp | Erforderlich | Beschreibung |
 |-----------------|-----------|----------|-------------------------------------------------------|
-| `product_id`    | String    | Ja      | Eindeutiger Produktbezeichner. |
-| `product_name`  | String    | Ja      | Anzeigename des Produkts. |
-| `variant_id`    | String    | Ja      | Varianten-Bezeichner. |
-| `image_url`     | String    | Nein       | Produktbild-URL. |
-| `product_url`   | String    | Nein       | URL zur Produktseite. |
-| `quantity`      | Integer   | Ja      | Anzahl der Einheiten im Warenkorb. |
-| `price`         | Gleitkommazahl | Ja      | Varianten-Stückpreis. |
-| `metadata`      | Objekt    | Nein       | Flexible Schlüssel-Wert-Paare (z. B. `color` oder `size`). |
+| `product_id` | String | Ja | Eindeutiger Produktbezeichner. |
+| `product_name` | String | Ja | Anzeigename des Produkts. |
+| `variant_id` | String | Ja | Varianten-Bezeichner. |
+| `image_url` | String | Nein | Produktbild-URL. |
+| `product_url` | String | Nein | URL zur Produktseite. |
+| `quantity` | Integer | Ja | Anzahl der Einheiten im Warenkorb. |
+| `price` | Gleitkommazahl | Ja | Varianten-Stückpreis. |
+| `metadata` | Object | Nein | Flexible Schlüssel-Wert-Paare (z. B. `color` oder `size`). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Produkteigenschaften (products[])" }
 
-#### REST-API-Beispiele {#rest-api-examples}
+#### REST API-Beispiele {#rest-api-examples}
 
 {% subtabs %}
 {% subtab Vollständige Erstattung %}
@@ -1125,21 +1125,21 @@ Dieses Event verringert `total_revenue` um den Wert in `total_value` und erhöht
 {% endtab %}
 {% endtabs %}
 
-### E-Commerce-Event-Nachbearbeitung {#ecommerce-event-post-processing}
+### E-Commerce-Event-Nachverarbeitung {#ecommerce-event-post-processing}
 
 Wenn Sie ein E-Commerce-Event senden, validiert Braze es gegen das erwartete Schema für diesen Event-Namen.
 
-Die folgende Tabelle fasst zusammen, was Braze automatisch für jedes Event tut, wenn die Validierung erfolgreich ist. Informationen dazu, was bei fehlgeschlagener Validierung passiert, finden Sie unter [Event-Validierung und Fehlerbehebung](#event-validation-and-troubleshooting).
+Die folgende Tabelle fasst zusammen, was Braze automatisch für jedes Event tut, wenn die Validierung erfolgreich ist. Was passiert, wenn die Validierung fehlschlägt, erfahren Sie unter [Event-Validierung und Fehlerbehebung](#event-validation-and-troubleshooting).
 
 | Event | Was Braze automatisch tut |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------|
-| `ecommerce.order_placed`     | Erhöht **Gesamtumsatz** um `total_value` und **Gesamtbestellungen** um 1 im Nutzerprofil. |
-| `ecommerce.order_cancelled`  | Verringert **Gesamtbestellungen** um 1. |
-| `ecommerce.order_refunded`   | Verringert **Gesamtumsatz** um `total_value` und erhöht **Gesamterstattungswert**. |
-| `ecommerce.cart_updated`     | Erstellt oder aktualisiert das Warenkorb-Mapping-Objekt im Nutzerprofil (vollständige Warenkorb-Payloads oder inkrementelle Warenkorb-Updates mit optionalem `action`: `add`, `remove` oder `replace`). Der Warenkorb läuft nach 30 Tagen ohne Update ab. |
-| `ecommerce.product_viewed`   | Keine Änderungen am Nutzerprofil. Verfügbar für Segmentierung, Triggering und BrazeAI<sup>TM</sup>-Features (wie Artikelempfehlungen). |
-| `ecommerce.checkout_started` | Keine Änderungen am Nutzerprofil. Verfügbar für Segmentierung und Triggering (z. B. abgebrochene Checkout-Flows). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="E-Commerce-Event-Nachbearbeitung" }
+| `ecommerce.order_placed` | Erhöht **Gesamtumsatz** um `total_value` und **Gesamtbestellungen** um 1 im Kundenprofil. |
+| `ecommerce.order_cancelled` | Verringert **Gesamtbestellungen** um 1. |
+| `ecommerce.order_refunded` | Verringert **Gesamtumsatz** um `total_value` und erhöht **Gesamterstattungswert**. |
+| `ecommerce.cart_updated` | Erstellt oder aktualisiert das Warenkorb-Mapping-Objekt im Kundenprofil (vollständige Warenkorb-Payloads oder inkrementelle Warenkorb-Aktualisierungen mit optionalem `action`: `add`, `remove` oder `replace`). Der Warenkorb läuft nach 30 Tagen ohne Aktualisierung ab. |
+| `ecommerce.product_viewed` | Keine Änderungen am Kundenprofil. Verfügbar für Segmentierung, Triggering und BrazeAI<sup>TM</sup>-Features (wie Artikelempfehlungen). |
+| `ecommerce.checkout_started` | Keine Änderungen am Kundenprofil. Verfügbar für Segmentierung und Triggering (z. B. abgebrochene Checkout-Flows). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="E-Commerce-Event-Nachverarbeitung" }
 
 {% alert important %}
 Nicht-USD-Währungswerte werden automatisch anhand des Wechselkurses am Tag der Event-Meldung in USD umgerechnet. Wenn Sie bereits in USD berichten, setzen Sie `USD` als Währung fest, um eine unbeabsichtigte Umrechnung zu vermeiden.
@@ -1151,84 +1151,84 @@ Nicht-USD-Währungswerte werden automatisch anhand des Wechselkurses am Tag der 
 
 E-Commerce-Events verbrauchen keine [Datenpunkte]({{site.baseurl}}/user_guide/data/infrastructure/data_points). Sie können sie ohne Auswirkungen auf Ihre Datenpunkt-Nutzung protokollieren.
 
-### Event-Größenlimit {#event-size-limit}
+### Begrenzung der Event-Größe {#event-size-limit}
 
 Event-Eigenschaften, die an `/users/track` gesendet werden, sind auf 102.400 Bytes (100 KB) pro Event begrenzt. Für getriggerte Campaign- und Canvas-Nachrichten haben die `trigger_properties`, die an [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) und [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases) gesendet werden, ein strengeres Standardlimit von 51.200 Bytes (50 KB).
 
-Als Best Practice senden Sie nur die Produktinformationen, die Sie zum Triggern, Personalisieren oder Zuordnen des Events benötigen. Speichern Sie umfangreichere Produktdetails – wie Beschreibungen, vollständige Variantenlisten, Lagerbestand oder alternative Bilder – in Braze-Katalogen. Referenzieren Sie diese Details beim Senden von Nachrichten über `product_id` oder `variant_id`. Verwenden Sie das `metadata`-Objekt selektiv für bestell- oder produktspezifischen Kontext, den das Messaging nutzen wird.
+Als Best Practice senden Sie nur die Produktinformationen, die Sie zum Triggern, Personalisieren oder Zuordnen des Events benötigen. Speichern Sie umfangreichere Produktdetails – wie Beschreibungen, vollständige Variantenlisten, Lagerbestände oder alternative Bilder – in Braze Catalogs. Referenzieren Sie diese Details beim Senden von Nachrichten über `product_id` oder `variant_id`. Verwenden Sie das `metadata`-Objekt gezielt für bestell- oder produktspezifischen Kontext, den das Messaging nutzen wird.
 
 ### Währungsbehandlung {#currency-handling}
 
-Braze rechnet Nicht-USD-Währungswerte automatisch anhand des Wechselkurses am Tag der Event-Meldung in USD um. Dieser umgerechnete Wert wird in den Umsatzmetriken angezeigt.
+Braze konvertiert Nicht-USD-Währungswerte automatisch in USD unter Verwendung des Wechselkurses am Tag, an dem das Event gemeldet wird. Dieser konvertierte Wert wird in den Umsatz-Metriken angezeigt.
 
 {% alert tip %}
-Wenn Sie ausschließlich in USD arbeiten, setzen Sie `"currency": "USD"` in jedem Event fest, um eine unnötige Umrechnung zu vermeiden.
+Wenn Sie ausschließlich in USD arbeiten, codieren Sie `"currency": "USD"` in jedem Event fest, um unnötige Konvertierungen zu vermeiden.
 {% endalert %}
 
-### Quellfeld {#source-field}
+### Source-Feld {#source-field}
 
-Die Eigenschaft „source“ ist ein erforderlicher String, der angibt, woher das Event stammt. Zum Beispiel `shopify`, `in-store POS` oder `custom_api`. Dies hilft Ihnen, Integrationsquellen bei der Analyse von Daten in Currents-Exporten oder bei der Fehlerbehebung von Validierungsproblemen zu unterscheiden.
+Die Source-Eigenschaft ist ein erforderlicher String, der angibt, woher das Event stammt. Zum Beispiel `shopify`, `in-store POS` oder `custom_api`. Dies hilft Ihnen, Integrationsquellen zu unterscheiden, wenn Sie Daten in Currents-Exporten analysieren oder Validierungsprobleme debuggen.
 
-### Metadata-Flexibilität {#metadata-flexibility}
+### Flexibilität der Metadaten {#metadata-flexibility}
 
-Sowohl die Metadata-Objekte auf Event-Ebene als auch auf Produktebene akzeptieren beliebige Schlüssel-Wert-Paare, sodass Sie benutzerdefinierte Dimensionen anhängen können, ohne das Kernschema zu ändern. Gängige Beispiele sind `order_status_url`, `gift_wrapped`, `loyalty_points_earned` oder `warehouse_id`. Diese Eigenschaften sind in der Liquid-Personalisierung, in Currents-Exporten und in der Segmentierung über [Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension) verfügbar.
+Sowohl die Metadaten-Objekte auf Event-Ebene als auch auf Produktebene akzeptieren beliebige Schlüssel-Wert-Paare, sodass Sie angepasste Dimensionen hinzufügen können, ohne das Kernschema zu ändern. Gängige Beispiele sind `order_status_url`, `gift_wrapped`, `loyalty_points_earned` oder `warehouse_id`. Diese Eigenschaften stehen in der Liquid-Personalisierung, in Currents-Exporten und in der Segmentierung über [Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension) zur Verfügung.
 
 {% alert important %}
-Empfohlene Events verwenden ein striktes Schema. Daher schlägt das Hinzufügen benutzerdefinierter Eigenschaften auf der obersten Ebene von „properties“ die Validierung fehl. Platzieren Sie alle benutzerdefinierten Eigenschaften im `metadata`-Objekt auf Event-Ebene oder im `metadata`-Objekt auf Produktebene innerhalb von `products[]`. Diese bleiben für Liquid, Currents und Segmentierung genauso verfügbar wie Felder auf der obersten Ebene.
+Empfohlene Events verwenden ein striktes Schema. Daher schlägt das Hinzufügen angepasster Eigenschaften auf der obersten Ebene der Properties die Validierung fehl. Platzieren Sie alle angepassten Eigenschaften im `metadata`-Objekt auf Event-Ebene oder im `metadata`-Objekt auf Produktebene innerhalb von `products[]`. Diese bleiben für Liquid, Currents und Segmentierung genauso verfügbar wie Felder auf der obersten Ebene.
 {% endalert %}
 
 ## Event-Validierung und Fehlerbehebung {#event-validation-and-troubleshooting}
 
-Wenn Sie ein empfohlenes E-Commerce-Event über `/users/track` oder ein Braze SDK senden, validiert Braze die Payload gegen das JSON-Schema des Events während der Verarbeitung des empfohlenen Events. Die Validierung wird automatisch bei jedem Event ausgeführt, dessen Name exakt einem empfohlenen Event entspricht (z. B. `ecommerce.order_placed` oder `ecommerce.cart_updated`).
+Wenn Sie ein empfohlenes E-Commerce-Event über `/users/track` oder ein Braze SDK senden, validiert Braze den Payload während der Verarbeitung des empfohlenen Events anhand des JSON-Schemas des Events. Die Validierung läuft automatisch bei jedem Event, dessen Name exakt mit einem empfohlenen Event übereinstimmt (zum Beispiel `ecommerce.order_placed` oder `ecommerce.cart_updated`).
 
 ### Was wir validieren {#what-we-validate}
 
-Für jedes Event, dessen Name einem empfohlenen E-Commerce-Event entspricht, prüft Braze:
+Für jedes Event, dessen Name mit einem empfohlenen E-Commerce-Event übereinstimmt, prüft Braze:
 
-| Prüfung | Beispiel |
+| Prüfung                     | Beispiel                                                                                                                      |
 |---------------------------|------------------------------------------------------------------------------------------------------------------------------|
-| Event-Name                | Muss exakt sein. Zum Beispiel ist `ecommerce.cart_updated` korrekt – nicht `ecommerce.Cart_Updated`, `cartupdated` oder `cart_updated`. |
-| Erforderliche Eigenschaften vorhanden | `order_placed` erfordert `order_id`, `total_value`, `currency`, `products` und `source`. |
-| Korrekte Datentypen        | `total_value` muss eine Zahl sein; `currency` muss ein String sein; `products` muss ein Array sein. |
-| Keine zusätzlichen Eigenschaften auf oberster Ebene | Benutzerdefinierte Felder unter „properties“ führen zum Fehlschlagen. Verwenden Sie stattdessen das `metadata`-Objekt. |
-| Wertbeschränkungen         | Geldbetragsfelder müssen ≥ `0` sein. `currency` muss ein gültiger ISO-4217-String sein. |
-| Felder pro Produkt        | Jeder Eintrag in `products[]` muss `product_id`, `product_name`, `variant_id`, `quantity` und `price` enthalten. |
+| Event-Name                | Muss exakt übereinstimmen. Zum Beispiel ist `ecommerce.cart_updated` korrekt – nicht `ecommerce.Cart_Updated`, `cartupdated` oder `cart_updated`. |
+| Erforderliche Eigenschaften vorhanden | `order_placed` erfordert `order_id`, `total_value`, `currency`, `products` und `source`.                                   |
+| Korrekte Datentypen        | `total_value` muss eine Zahl sein; `currency` muss ein String sein; `products` muss ein Array sein.                                   |
+| Keine zusätzlichen Top-Level-Eigenschaften | Angepasste Felder unter „properties“ führen zum Fehler. Verwenden Sie stattdessen das `metadata`-Objekt.                                         |
+| Wertbeschränkungen         | Geldbetragsfelder müssen ≥ `0` sein. `currency` muss ein gültiger ISO-4217-String sein.                                                  |
+| Felder pro Produkt        | Jedes Element in `products[]` muss `product_id`, `product_name`, `variant_id`, `quantity` und `price` enthalten.                 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Was wir validieren" }
 
 ### Warum wir validieren {#why-we-validate}
 
-E-Commerce-Events unterstützen Features, die auf konsistente, vorhersagbare Daten angewiesen sind – darunter Umsatz-Tracking, der {% raw %}`{% shopping_cart %}`{% endraw %} Liquid-Tag, der Warenkorb-Abbruch-Trigger und Reporting. Wenn Payloads vom Schema abweichen, erzeugen diese Features stille Ungenauigkeiten (falsche Umsatzsummen, fehlende Warenkörbe, fehlerhafte Trigger). Die Validierung erzwingt den Vertrag im Voraus, damit nachgelagerte Features vorhersagbar funktionieren.
+E-Commerce-Events steuern Features, die auf konsistente, vorhersagbare Daten angewiesen sind – darunter Umsatz-Tracking, der {% raw %}`{% shopping_cart %}`{% endraw %} Liquid-Tag, der Warenkorb-Abbruch-Trigger und Reporting. Wenn Payloads vom Schema abweichen, erzeugen diese Features stille Ungenauigkeiten (falsche Umsatzsummen, fehlende Warenkörbe, fehlerhafte Trigger). Die Validierung erzwingt den Vertrag im Voraus, damit nachgelagerte Features vorhersagbar funktionieren.
 
 ### Wenn die Validierung erfolgreich ist {#when-validation-passes}
 
-Das Event wird als empfohlenes E-Commerce-Event mit der gesamten zugehörigen Nachbearbeitung verarbeitet. Siehe [Event-Schemata](#event-schemas) für die vollständige Liste der durch jeden Event-Typ ausgelösten Verhaltensweisen.
+Das Event wird als empfohlenes E-Commerce-Event mit allen zugehörigen Nachverarbeitungsschritten verarbeitet. Unter [Empfohlene E-Commerce-Events](#event-schemas) finden Sie die vollständige Liste der Verhaltensweisen, die durch jeden Event-Typ ausgelöst werden.
 
 #### Ein erfolgreiches Event überprüfen {#verify-a-successful-event}
 
 Nachdem Sie ein Event gesendet haben, können Sie mit einer der folgenden Methoden bestätigen, dass es akzeptiert und korrekt verarbeitet wurde:
 
-- [Event-Nutzerprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log): Öffnen Sie das Profil der Nutzer:in im Dashboard und überprüfen Sie die Aktivität. Empfohlene Events erscheinen mit ihrer vollständigen Eigenschafts-Payload, sodass Sie bestätigen können, dass das Event angekommen ist und die Werte mit dem übereinstimmen, was Sie gesendet haben.
-- [Bericht zu angepassten Events]({{site.baseurl}}/user_guide/analytics/reports/custom_events_report): Gehen Sie zu **Analytics** > **Custom Events**, um aggregierte Zählungen jedes empfohlenen Events über die Zeit zu sehen. Dies ist nützlich, um zu bestätigen, dass der Produktions-Traffic wie erwartet fließt, wenn Ihre Integration live ist.
-- [Testnutzer:innen]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups?utm_source=operator_user&utm_medium=dashboard#adding-test-users): Markieren Sie eine Nutzer:in in Ihrem Entwicklungs-Workspace als Testnutzer:in und triggern Sie dann Events aus Ihrer Integration gegen diese Nutzer:in. Testnutzer:innen sind im Dashboard gekennzeichnet, was es einfach macht, das End-to-End-Verhalten zu isolieren und zu überprüfen.
+- [Event-Nutzerprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log): Öffnen Sie das Profil der Nutzer:in im Dashboard und überprüfen Sie die Aktivität. Empfohlene Events werden mit ihrem vollständigen Eigenschafts-Payload angezeigt, sodass Sie bestätigen können, dass das Event angekommen ist und die Werte mit dem übereinstimmen, was Sie gesendet haben.
+- [Bericht über angepasste Events]({{site.baseurl}}/user_guide/analytics/reports/custom_events_report): Gehen Sie zu **Analytics** > **Custom Events Report**, um aggregierte Zählungen jedes empfohlenen Events über die Zeit zu sehen. Dies ist nützlich, um zu bestätigen, dass der Produktions-Traffic wie erwartet fließt, wenn Ihre Integration live ist.
+- [Testnutzer:innen]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups?utm_source=operator_user&utm_medium=dashboard#adding-test-users): Markieren Sie eine Nutzer:in in Ihrem Entwicklungs-Workspace als Testnutzer:in und lösen Sie dann Events aus Ihrer Integration für diese Nutzer:in aus. Testnutzer:innen sind im Dashboard gekennzeichnet, sodass Sie das End-to-End-Verhalten leicht isolieren und überprüfen können.
 
 ### Wenn die Validierung fehlschlägt {#when-validation-fails}
 
 Das Event wird nicht als empfohlenes Event verarbeitet. Im Einzelnen:
 
-- **Das Event wird vollständig verworfen.** Ungültige empfohlene E-Commerce-Events landen nicht im Nutzerprofil, erscheinen nicht in Currents und sind nicht für die Segmentierung verfügbar.
+- **Das Event wird vollständig verworfen.** Ungültige empfohlene E-Commerce-Events landen nicht im Kundenprofil, erscheinen nicht in Currents und stehen nicht für die Segmentierung zur Verfügung.
 - Nachgelagerte Features für empfohlene Events werden nicht ausgeführt, darunter:
   - Umsatz-Tracking (Umsatz-Reporting, berechnete Nutzerfelder wie `total_revenue`)
-  - Warenkorb-Objekt-Updates im Nutzerprofil
-  - „Warenkorb-Aktualisierungs-Event durchführen“- oder „Bestellung aufgegeben“-Trigger in Canvas und Campaigns
+  - Warenkorb-Objekt-Aktualisierungen im Kundenprofil
+  - „Perform Cart Updated Event“- oder „Placed Order“-Trigger in Canvas und Campaigns
 
 Wie Fehler gemeldet werden, hängt vom Aufnahmepfad ab:
 
-- **REST API (`/users/track`):** Jedes ungültige Event wird im Fehler-Array der Antwort gemeldet. Jeder Eintrag gibt an, welches Event fehlgeschlagen ist (Index) und warum (Typ). Das `message`-Feld auf oberster Ebene zeigt weiterhin „success“ an, was nur bedeutet, dass Ihre Anfrage Braze erreicht hat – nicht, dass jedes Event gültig war. Prüfen Sie immer das Fehler-Array in der Antwort.
-- **Braze SDKs:** SDK-Aufrufe kehren sofort zurück und die Validierung läuft im Hintergrund, sodass Fehler nicht an Ihre App zurückgesendet werden. Um E-Commerce-Event-Validierungsfehler zu erfahren, achten Sie auf die Fehlerübersichts-E-Mail (siehe [Fehler finden](#find-failures)).
+- **REST API (`/users/track`):** Jedes ungültige Event wird im Fehler-Array der Antwort gemeldet. Jeder Eintrag gibt an, welches Event fehlgeschlagen ist (Index) und warum (Typ). Das Top-Level-Feld „message“ zeigt weiterhin „success“ an, was nur bedeutet, dass Ihre Anfrage Braze erreicht hat – nicht, dass jedes Event gültig war. Prüfen Sie immer das Fehler-Array in der Antwort.
+- **Braze SDKs:** SDK-Aufrufe kehren sofort zurück, und die Validierung läuft im Hintergrund, sodass Fehler nicht an Ihre App zurückgesendet werden. Um über Validierungsfehler bei E-Commerce-Events informiert zu werden, achten Sie auf die Zusammenfassungs-E-Mail zu Fehlern (siehe [Fehler finden](#find-failures)).
 
 #### Beispiel einer API-Fehlerantwort {#example-api-error-response}
 
-Der `/users/track`-Endpunkt gibt Fehler auf Feldebene zurück, die angeben, welche Eigenschaften fehlgeschlagen sind und warum. Beachten Sie, dass die `message` auf oberster Ebene möglicherweise `"success"` zurückgibt, da das Event in die Pipeline aufgenommen wurde; das `errors`-Array gibt an, welche Felder die Schema-Validierung nicht bestanden haben. Siehe das folgende Beispiel einer Fehlerantwort.
+Der `/users/track`-Endpunkt gibt Fehler auf Feldebene zurück, die angeben, welche Eigenschaften fehlgeschlagen sind und warum. Beachten Sie, dass das Top-Level-Feld `message` möglicherweise `"success"` zurückgibt, da das Event in die Pipeline aufgenommen wurde; das `errors`-Array gibt an, welche Felder die Schema-Validierung nicht bestanden haben. Im folgenden Beispiel sehen Sie eine Fehlerantwort.
 
 ```json
 {
@@ -1237,17 +1237,17 @@ Der `/users/track`-Endpunkt gibt Fehler auf Feldebene zurück, die angeben, welc
 }
 ```
 
-Fehler werden auch intern klassifiziert und für die Fehlerübersichts-E-Mail aggregiert:
+Fehler werden außerdem intern klassifiziert und für die Zusammenfassungs-E-Mail zu Fehlern aggregiert:
 
-| Fehlertyp | Bedeutung | Beispiel |
+| Fehlertyp           | Bedeutung                                           | Beispiel                                                        |
 |------------------------|---------------------------------------------------|----------------------------------------------------------------|
-| `missing_property`     | Ein erforderliches Feld fehlt. | `order_placed` ohne `order_id` gesendet. |
-| `extra_property`       | Ein Feld wurde hinzugefügt, das das Schema nicht definiert. | Ein benutzerdefiniertes `gift_wrapped`-Feld auf der obersten Ebene von `properties` statt innerhalb von `metadata`. |
-| `unexpected_data_type` | Ein Feld hat den falschen Typ. | `total_value: "29.99"` (String) statt `29.99` (Zahl). |
+| `missing_property`     | Ein erforderliches Feld fehlt.                       | `order_placed` ohne `order_id` gesendet.                        |
+| `extra_property`       | Ein Feld wurde hinzugefügt, das das Schema nicht definiert. | Ein angepasstes `gift_wrapped`-Feld auf der obersten Ebene von `properties` statt innerhalb von `metadata`. |
+| `unexpected_data_type` | Ein Feld hat den falschen Typ.                        | `total_value: "29.99"` (String) statt `29.99` (Zahl).   |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Beispiel einer API-Fehlerantwort" }
 
 {% alert note %}
-Event-Namen, die nicht exakt einem empfohlenen Event entsprechen (z. B. `ecommerce.OrderPlaced`), überspringen die Validierung vollständig und werden als gewöhnliche angepasste Events aufgezeichnet. Sie erscheinen in Currents und der Segmentierung unter dem von Ihnen gesendeten Namen, erhalten jedoch keine Nachbearbeitung für empfohlene Events und keinen `errors`-Eintrag in der Antwort.
+Event-Namen, die nicht exakt mit einem empfohlenen Event übereinstimmen (zum Beispiel `ecommerce.OrderPlaced`), überspringen die Validierung vollständig und werden als gewöhnliche angepasste Events aufgezeichnet. Sie erscheinen in Currents und der Segmentierung unter dem von Ihnen gesendeten Namen, erhalten aber keine Verarbeitung als empfohlenes Event und keinen `errors`-Eintrag in der Antwort.
 {% endalert %}
 
 #### Fehler finden {#find-failures}
@@ -1256,22 +1256,22 @@ Braze sendet Ihren Workspace-Admins eine Zusammenfassung der Validierungsfehler 
 
 Die Zusammenfassungs-E-Mail enthält:
 
-- **Gesamtfehleranzahl:** Fehleranzahlen für den Berichtszeitraum.
-- **Fehler nach Event:** Eine Aufschlüsselung, wie viele Events für jeden empfohlenen Event-Typ fehlgeschlagen sind (z. B. `ecommerce.cart_updated` und `ecommerce.order_placed`). Nutzen Sie dies, um zu identifizieren, welche Events in Ihrer Integration zuerst Aufmerksamkeit benötigen.
+- **Gesamtanzahl der Fehler:** Fehlerzählungen für den Berichtszeitraum.
+- **Fehler nach Event:** Eine Aufschlüsselung, wie viele Events für jeden empfohlenen Event-Typ fehlgeschlagen sind (zum Beispiel `ecommerce.cart_updated` und `ecommerce.order_placed`). Nutzen Sie dies, um zu identifizieren, welche Events in Ihrer Integration zuerst Aufmerksamkeit benötigen.
 - **Fehler nach Quelle:** Eine Aufteilung zwischen API und SDK, damit Sie feststellen können, welche Integration die Fehler verursacht.
 
-Wenn Sie diese E-Mails nicht erhalten oder die Empfängerliste überprüfen möchten, wenden Sie sich an Ihr Braze-Account-Team.
+Wenn Sie diese E-Mails nicht erhalten oder die Empfängerliste überprüfen möchten, wenden Sie sich an Ihr Braze-Konto-Team.
 
 #### Fehler diagnostizieren und beheben {#diagnose-and-fix-failures}
 
-Wenn Sie eine Fehlerübersichts-E-Mail erhalten:
+Wenn Sie eine Zusammenfassungs-E-Mail zu Fehlern erhalten:
 
-1. **Identifizieren Sie das fehlgeschlagene Event und die Quelle.** Die E-Mail trennt Fehler nach Event-Name und Integrationsquelle (`sdk` versus `rest_api`), sodass Sie feststellen können, welche Integration die Korrektur benötigt. Wenn Sie mehrere Quellen haben, die dasselbe Event senden (z. B. Ihr Storefront-SDK und ein Backend-Webhook, die beide `cart_updated` senden), behandeln Sie diese unabhängig voneinander.
-2. **Vergleichen Sie Ihre Payload mit dem Schema** in [Event-Schemata](#event-schemas). Die meisten Fehler fallen in eines von drei Mustern:
+1. **Identifizieren Sie das fehlgeschlagene Event und die Quelle.** Die E-Mail trennt Fehler nach Event-Name und Integrationsquelle (`sdk` versus `rest_api`), sodass Sie feststellen können, welche Integration die Korrektur benötigt. Wenn Sie mehrere Quellen haben, die dasselbe Event senden (zum Beispiel Ihr Storefront-SDK und ein Backend-Webhook, die beide `cart_updated` senden), behandeln Sie diese unabhängig voneinander.
+2. **Vergleichen Sie Ihren Payload mit dem Schema** unter [Event-Schemas](#event-schemas). Die meisten Fehler fallen in eines von drei Mustern:
    - `missing_property`: Ein erforderliches Feld fehlt. Lösung: Fügen Sie das erforderliche Feld hinzu.
-   - `extra_property`: Ein benutzerdefiniertes Feld befindet sich auf der obersten Ebene von `properties`. Lösung: Verschieben Sie das benutzerdefinierte Feld in `metadata` (Event-Ebene) oder `products[].metadata` (pro Produkt).
-   - `unexpected_data_type`: Ein Wert hat den falschen Typ (z. B. `total_value` als String gesendet). Lösung: Konvertieren Sie den Wert vor dem Senden.
-3. **Testen Sie die korrigierte Payload in einem Entwicklungs-Workspace**, bevor Sie sie in die Produktion ausrollen. Senden Sie ein bekanntes Test-Event für eine Testnutzer:in und überprüfen Sie dann das erwartete Verhalten des empfohlenen Events im Profil dieser Nutzer:in (z. B. ob das Warenkorb-Objekt aktualisiert wird, der Umsatz steigt oder der Warenkorb-Abbruch-Trigger ausgelöst wird).
+   - `extra_property`: Ein angepasstes Feld befindet sich auf der obersten Ebene von `properties`. Lösung: Verschieben Sie das angepasste Feld in `metadata` (Event-Ebene) oder `products[].metadata` (pro Produkt).
+   - `unexpected_data_type`: Ein Wert hat den falschen Typ (zum Beispiel `total_value` als String gesendet). Lösung: Konvertieren Sie den Wert vor dem Senden.
+3. **Testen Sie den korrigierten Payload in einem Entwicklungs-Workspace**, bevor Sie ihn in die Produktion ausrollen. Senden Sie ein bekanntes Test-Event für eine Testnutzer:in und überprüfen Sie dann das erwartete Verhalten des empfohlenen Events im Profil dieser Nutzer:in (zum Beispiel ob das Warenkorb-Objekt aktualisiert wird, der Umsatz steigt oder der Warenkorb-Abbruch-Trigger ausgelöst wird).
 4. **Überwachen Sie die nächste Fehler-E-Mail**, um zu bestätigen, dass die Fehleranzahl für dieses Event, diese Quelle und diesen Typ auf null sinkt.
 
-Die vollständigen Eigenschaftsanforderungen pro Event finden Sie unter [Event-Schemata](#event-schemas).
+Die vollständigen Eigenschaftsanforderungen pro Event finden Sie unter [Event-Schemas](#event-schemas).

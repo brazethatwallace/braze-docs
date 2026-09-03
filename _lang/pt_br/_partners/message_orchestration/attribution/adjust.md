@@ -90,9 +90,9 @@ Esse status é alterado somente depois que a Braze recebe dados sobre uma atribu
 
 ## Campos de dados disponíveis {#available-data-fields}
 
-Supondo que você configure sua integração conforme sugerido, a Braze mapeará os dados da Adjust para os filtros de segmento, conforme descrito na tabela a seguir.
+Supondo que você configure sua integração conforme sugerido, a Braze mapeará os dados da Adjust para os filtros de Segment, conforme descrito na tabela a seguir.
 
-| Campo de dados da Adjust | Filtro de segmento da Braze |
+| Campo de dados da Adjust | Filtro de Segment da Braze |
 | --- | --- |
 | `{network_name}` | Attributed Source |
 | `{campaign_name}` | Attributed Campaign |

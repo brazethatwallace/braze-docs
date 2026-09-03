@@ -14,7 +14,7 @@ channel:
 
 Wenn Sie Unterstützung von Braze für die Registrierung Ihrer 10DLC erworben haben, müssen Sie uns alle erforderlichen Informationen, die unten aufgeführt sind, an die im folgenden Abschnitt angegebene E-Mail-Adresse senden, wie in Ihrem Vertrag mit uns vereinbart.
 
-Bitte fügen Sie alle relevanten Screenshots und Anhänge bei und senden Sie alles an [smsapplications@braze.com](mailto:smsapplications@braze.com). Wenn Sie Fragen zu 10DLC haben, lesen Sie den [Braze SMS 10DLC-Leitfaden]({{site.baseurl}}/assets/pdf/SMS_10DLC_Guide.pdf) oder wenden Sie sich an Ihren Braze Customer-Success-Manager.
+Bitte fügen Sie alle relevanten Screenshots und Anhänge bei und senden Sie alles an [smsapplications@braze.com](mailto:smsapplications@braze.com). Wenn Sie Fragen zu 10DLC haben, lesen Sie den [Braze SMS 10DLC-Leitfaden]({{site.baseurl}}/assets/pdf/SMS_10DLC_Guide.pdf) oder wenden Sie sich an Ihren Braze CSM.
 
 
 ## Unternehmensinformationen (10DLC) {#company-information-10dlc}
@@ -56,7 +56,7 @@ Wir müssen jede SMS-Abo-Gruppe, die einen US-Langcode enthält, mit einer eigen
 
 | Feld | Optionen (falls zutreffend) | Beschreibung |
 | ------ | ------------------------ | --------------- |
-| Campaign-Anwendungsfall (wählen Sie den am besten passenden) | {::nomarkdown} <ul><li>Marketing</li><li>Account Notifications</li><li>Delivery Notifications</li><li>Customer Care</li><li>Security Alert</li><li>Fraud Alert Messaging</li><li>Higher Education</li><li>Mixed</li><li>Polling and Voting</li><li>Public Service Announcement</li></ul>{:/} | Hinweis: Wenn Sie einen „Mixed“-Anwendungsfall für eine Abo-Gruppe verwenden möchten, wenden Sie sich vorab an Ihren Customer-Success-Manager oder Customer-Onboarding-Manager für wichtige Details. |
+| Campaign-Anwendungsfall (wählen Sie den am besten passenden) | {::nomarkdown} <ul><li>Marketing</li><li>Account Notifications</li><li>Delivery Notifications</li><li>Customer Care</li><li>Security Alert</li><li>Fraud Alert Messaging</li><li>Higher Education</li><li>Mixed</li><li>Polling and Voting</li><li>Public Service Announcement</li></ul>{:/} | Hinweis: Wenn Sie einen „Mixed“-Anwendungsfall für eine Abo-Gruppe verwenden möchten, wenden Sie sich vorab an Ihren CSM oder Customer-Onboarding-Manager:in für wichtige Details. |
 | Campaign-Name | | {::nomarkdown}<p>Der SMS-Campaign-Name muss einheitlich in Ihren Nachrichten, Nutzungsbedingungen und überall dort angezeigt werden, wo sich Ihre Nutzer:innen für Ihr Programm anmelden.</p><p>Beispiele:</p><ul><li>Braze Marketing Alerts</li><li>Braze Account Notifications</li><li>Braze Cart Reminders</li></ul>{:/} |
 | Beschreibung der Campaign | | Diese Campaign sendet Marketing- und Werbenachrichten an Nutzer:innen, die sich für den Empfang von SMS entschieden haben, einschließlich Sonderangeboten/Gutscheinen und Warenkorb-Erinnerungen. |
 | E-Mail-Adresse des Kundensupports | | Wo können Endnutzer:innen per E-Mail Hilfe und Support erhalten? |

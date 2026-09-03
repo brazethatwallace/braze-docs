@@ -93,10 +93,10 @@ Se a mensagem for recebida com êxito, você poderá definir as configurações 
 
 ## Usando esta integração {#using-this-integration}
 
-Depois de configurada, use essa integração para direcionar os usuários do Facebook Messenger. Se você não estiver enviando mensagens usando os números de telefone dos usuários e planeja enviar mensagens do Messenger repetidamente, [crie um segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment#creating-a-segment) para todos os usuários para os quais o Messenger ID existe como um atributo personalizado e ative o [rastreamento de análise de dados]({{site.baseurl}}/user_guide/audience/segments/segment_data) para acompanhar as taxas de inscrição no Messenger ao longo do tempo.
+Depois de configurada, use essa integração para direcionar os usuários do Facebook Messenger. Se você não estiver enviando mensagens usando os números de telefone dos usuários e planeja enviar mensagens do Messenger repetidamente, [crie um Segment]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment#creating-a-segment) para todos os usuários para os quais o Messenger ID existe como um atributo personalizado e ative o [rastreamento de análise de dados]({{site.baseurl}}/user_guide/audience/segments/segment_data) para acompanhar as taxas de inscrição no Messenger ao longo do tempo.
 
-![Filtro de segmento "messenger_id" definido como "não está em branco".]({% image_buster /assets/img_archive/fbm-segmentation.png %})
+![Filtro de Segment "messenger_id" definido como "não está em branco".]({% image_buster /assets/img_archive/fbm-segmentation.png %})
 
-Se você optar por não criar um segmento específico para assinantes do Messenger, certifique-se de incluir um filtro para o Messenger ID existente para evitar erros.
+Se você optar por não criar um Segment específico para assinantes do Messenger, certifique-se de incluir um filtro para o Messenger ID existente para evitar erros.
 
 Você também pode usar outras segmentações para direcionar suas Campaigns do Messenger e o restante do processo de criação de Campaigns, como acontece com qualquer outra Campaign.

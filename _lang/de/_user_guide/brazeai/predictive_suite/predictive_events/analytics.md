@@ -8,7 +8,7 @@ page_order: 1.3
 
 # Predictive-Event-Analytics {#predictive-event-analytics}
 
-> Nachdem Ihre Prognose erstellt und trainiert wurde, haben Sie Zugriff auf die Seite **Prediction Analytics**. Diese Seite hilft Ihnen bei der Entscheidung, welche Nutzer:innen Sie auf der Grundlage ihres Wahrscheinlichkeitswerts oder ihrer Kategorie ansprechen sollten.
+> Nachdem Ihre Prognose erstellt und trainiert wurde, haben Sie Zugriff auf die Seite **Prognose-Analytics**. Diese Seite hilft Ihnen bei der Entscheidung, welche Nutzer:innen Sie auf der Grundlage ihres Wahrscheinlichkeitswerts oder ihrer Kategorie ansprechen sollten.
 
 ## Über Predictive-Event-Analytics {#about-predictive-event-analytics}
 
@@ -44,12 +44,12 @@ Die Werte und die entsprechenden Kategorien werden entsprechend dem Zeitplan akt
 Um den Wahrscheinlichkeitswert für eine:n einzelne:n Nutzer:in anzuzeigen, suchen Sie diese:n Nutzer:in im Dashboard und gehen Sie zu **Engagement** > **Predictions**, um den Wert anzuzeigen. Um auf die Werte und Kategorien für mehrere Nutzer:innen gleichzeitig zuzugreifen, erstellen Sie ein [Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) mithilfe der Filter [Event Likelihood Score]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#event-likelihood-score) oder [Event Likelihood Category]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#event-likelihood-category) und exportieren Sie anschließend die Nutzer:innen aus diesem Segment. Beim Exportieren können Sie die Wahrscheinlichkeitswerte in die Exportdaten aufnehmen.
 
 {% alert note %}
-Obwohl sowohl bei Predictive Events als auch bei [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn) den Nutzer:innen Werte zugewiesen werden, gibt es wichtige Unterschiede:<br><br>
+Obwohl sowohl bei Predictive Events als auch bei [Predictive Abwanderung]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn) den Nutzer:innen Werte zugewiesen werden, gibt es wichtige Unterschiede:<br><br>
 
 - **Predictive Events** (Kaufprognosen): Berücksichtigen alle Nutzer:innen in der Prognosegruppe, unabhängig davon, ob sie das Ziel-Event zuvor durchgeführt haben. Beispielsweise kann eine Kaufprognose Nutzer:innen identifizieren, die wahrscheinlich ihren ersten Kauf tätigen werden.
-- **Predictive Churn**: Berücksichtigt nur Nutzer:innen, die das angepasste Event bereits durchgeführt haben. Churn-Prognosen identifizieren Nutzer:innen, die zuvor eine bestimmte Handlung durchgeführt haben und diese wahrscheinlich nicht mehr ausführen werden. Ein:e Nutzer:in, die sich noch nie angemeldet hat, kann nicht als „abgewandert“ betrachtet werden, wenn sie sich nicht anmeldet.
+- **Predictive Abwanderung**: Berücksichtigt nur Nutzer:innen, die das angepasste Event bereits durchgeführt haben. Abwanderung-Prognosen identifizieren Nutzer:innen, die zuvor eine bestimmte Handlung durchgeführt haben und diese wahrscheinlich nicht mehr ausführen werden. Ein:e Nutzer:in, die sich noch nie angemeldet hat, kann nicht als „abgewandert“ betrachtet werden, wenn sie sich nicht anmeldet.
 
-Beim Exportieren von Churn-Risiko-Werten aus einem Segment spiegeln diese Werte das Churn-Prognosemodell wider, das sich von Kauf- oder anderen Event-Prognosemodellen unterscheidet.
+Beim Exportieren von Abwanderung-Risiko-Werten aus einem Segment spiegeln diese Werte das Abwanderung-Prognosemodell wider, das sich von Kauf- oder anderen Event-Prognosemodellen unterscheidet.
 {% endalert %}
 
 ## Geschätzte Genauigkeit {#estimated_results}
@@ -85,7 +85,7 @@ Die Tabellen sind in links und rechts unterteilt – für höhere bzw. geringere
 Diese Tabelle wird nur aktualisiert, wenn die Prognose neu trainiert wird, und nicht, wenn die Wahrscheinlichkeitswerte der Nutzer:innen aktualisiert werden.
 
 {% alert note %}
-Die Korrelationsdaten für Vorschau-Prognosen werden teilweise ausgeblendet. Um diese Informationen zu erhalten, ist ein Kauf erforderlich. Kontaktieren Sie Ihren Account Manager für weitere Informationen.
+Die Korrelationsdaten für Vorschau-Prognosen werden teilweise ausgeblendet. Um diese Informationen zu erhalten, ist ein Kauf erforderlich. Kontaktieren Sie Ihren Account Manager:in für weitere Informationen.
 {% endalert %}
 
 ## Fehlerbehebung {#troubleshooting}

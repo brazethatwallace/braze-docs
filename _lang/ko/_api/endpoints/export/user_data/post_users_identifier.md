@@ -6,7 +6,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "이 문서에서는 식별자별 사용자 내보내기 Braze 엔드포인트에 대한 자세한 내용을 설명합니다."
-
 ---
 {% api %}
 # 식별자로 사용자 프로필 내보내기 {#export-user-profile-by-identifier}
@@ -118,7 +117,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/ids' 
 | `phone` | 문자열 | E.164 형식의 사용자 전화번호입니다. |
 | `purchases` | 배열 | 이 사용자가 지난 90일 동안 수행한 구매입니다. |
 | `push_tokens` | 배열 | 앱의 알림을 보낼 위치를 지정하는 고유 익명 식별자입니다. |
-| `random_bucket` | 정수 | 무작위 사용자의 균일하게 분산된 세그먼트를 생성하는 데 사용되는 사용자의 [무작위 버킷 번호]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events#random-bucket-number-event)입니다. |
+| `random_bucket` | 정수 | 무작위 사용자의 균일하게 분산된 세그먼트를 생성하는 데 사용되는 사용자의 [무작위 버킷 번호]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)입니다. |
 | `time_zone` | 문자열 | IANA 시간대 데이터베이스와 동일한 형식의 사용자 시간대입니다. |
 | `total_revenue` | 플로트 | 이 사용자에게 귀속된 총 매출입니다. 총 매출은 사용자가 수신한 Campaigns 및 Canvases의 전환 기간 동안 수행한 구매를 기반으로 계산됩니다. |
 | `uninstalled_at` | 타임스탬프 | 사용자가 앱을 삭제한 날짜와 시간입니다. 앱이 삭제되지 않은 경우 생략됩니다. |
@@ -143,7 +142,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/ids' 
 
 ### 사용자 내보내기 파일 출력 예시 {#example-user-export-file-output}
 
-사용자 내보내기 오브젝트(가능한 최소한의 데이터만 포함 - 오브젝트에서 필드가 누락된 경우 null 또는 비어있는 것으로 가정해야 합니다):
+사용자 내보내기 오브젝트(가능한 최소한의 데이터만 포함 - 오브젝트에서 필드가 누락된 경우 null 또는 비어 있는 것으로 가정해야 합니다):
 
 {% tabs %}
 {% tab 모든 필드 %}

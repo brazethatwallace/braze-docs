@@ -80,7 +80,7 @@ Review any audience filters, action triggers, or segments used in the beginning 
 
 #### Canvas control group 
 
-Review the distribution of users between your variants and your control group. Is the control group larger than you meant it to be? If so, you can edit this setting. If you have **Intelligent Selection** turned on, and the control group is winning, consider stopping your Canvas and trying a new approach.
+Review the distribution of users between your variants and your control group. Is the control group larger than you meant it to be? If so, you can edit this setting. If **Optimize with BrazeAI™** is on and the control group is winning, consider stopping your Canvas and trying a new approach.
 
 ### An empty total audience
 

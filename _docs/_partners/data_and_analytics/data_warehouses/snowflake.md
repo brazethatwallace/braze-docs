@@ -2,10 +2,9 @@
 nav_title: Snowflake
 article_title: Snowflake
 alias: /partners/snowflake/
-description: "This article outlines the partnership between Braze and Snowflake, covering both Data Sharing (Braze to Snowflake) and Cloud Data Ingestion (Snowflake to Braze)."
+description: "This article outlines the partnership between Braze and Snowflake, covering both Data Sharing (Braze to Snowflake) and Cloud Data Ingestion."
 page_type: partner
 search_tag: Partner
-
 ---
 
 # Snowflake

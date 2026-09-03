@@ -145,7 +145,7 @@ implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1"
 implementation 'androidx.core:core:1.6.0'
 ```
 
-[External Dependency Manager](https://github.com/googlesamples/unity-jar-resolver)를 사용하여 이러한 종속성을 설정할 수도 있습니다.
+[External Dependency 매니저](https://github.com/googlesamples/unity-jar-resolver)를 사용하여 이러한 종속성을 설정할 수도 있습니다.
 
 #### 3.4단계: Unity Android 통합 자동화 {#step-34-automate-the-unity-android-integration}
 

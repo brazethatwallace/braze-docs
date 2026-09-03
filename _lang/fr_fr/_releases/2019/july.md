@@ -12,11 +12,11 @@ description: "Cet article contient les notes de version de juillet 2019."
 Braze a eu deux (vous avez bien lu — **deux**) cycles de lancement de produits ce mois-ci ! La dernière version est indiquée en haut de page, la version précédente est couverte dans la section [Plus tôt ce mois-ci](#earlier-this-month) !
 {% endalert %}
 
-## SAML/SSO
+## SAML/authentification unique
 
-L'[authentification unique]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on) (SSO) offre aux entreprises un moyen sécurisé et centralisé de contrôler l'accès au tableau de bord de Braze. En résumé, un seul jeu d'identifiants peut être utilisé pour accéder à différentes applications, y compris Braze.
+L'[authentification unique]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on) (authentification unique) offre aux entreprises un moyen sécurisé et centralisé de contrôler l'accès au tableau de bord de Braze. En résumé, un seul jeu d'identifiants peut être utilisé pour accéder à différentes applications, y compris Braze.
 
-En plus de [Google Sign-In avec la prise en charge d'OAuth 2.0](https://developers.google.com/identity/protocols/OAuth2), les entreprises souhaitent un SSO avec la prise en charge de SAML (Security Assertion Markup Language). Cela leur permet de s'intégrer de façon fluide aux grands fournisseurs d'identité (IdP), notamment [Azure Active Directory]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/microsoft_entra_sso) et [Okta]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/okta), qui prennent en charge les dernières normes du secteur (SAML 2.0).
+En plus de [Google Sign-In avec la prise en charge d'OAuth 2.0](https://developers.google.com/identity/protocols/OAuth2), les entreprises souhaitent un authentification unique avec la prise en charge de SAML (Security Assertion Markup Language). Cela leur permet de s'intégrer de façon fluide aux grands fournisseurs d'identité (IdP), notamment [Azure Active Directory]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/microsoft_entra_sso) et [Okta]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/okta), qui prennent en charge les dernières normes du secteur (SAML 2.0).
 
 Braze prend en charge :
 - [OneLogin]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/onelogin)

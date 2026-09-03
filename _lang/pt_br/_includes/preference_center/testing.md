@@ -27,7 +27,7 @@ Para outras limitações de envio de teste, consulte [Enviar mensagens de teste]
 
 | Método | Prévia do layout | Salvar alterações de inscrição |
 | --- | --- | --- |
-| Guia **Preview** do editor de arrastar e soltar | Sim | Não |
+| Guia **prévia** do editor de arrastar e soltar | Sim | Não |
 | **Send Test** de Campaign ou Canvas | Parcial (o e-mail é entregue) | Não |
 | Envio ativo para um usuário teste ou Segment | Sim | Sim |
 | API [Gerar URL da Central de Preferências]({{site.baseurl}}/api/endpoints/preference_center/get_create_url_preference_center) | Sim | Sim |

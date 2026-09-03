@@ -9,25 +9,25 @@ page_order: 0
 
 > Os alertas de uso da API fornecem visibilidade crítica sobre o uso da sua API, permitindo que você detecte proativamente tráfego inesperado. Ao configurar esses alertas para monitorar volumes de solicitações de API, você pode receber notificações em tempo real e resolver problemas antes que eles impactem suas campanhas de marketing.
 
-## Sobre os alertas de uso da API {#about-api-usage-alerts}
+## Sobre alertas de uso de API {#about-api-usage-alerts}
 
-Você pode usar alertas de uso da API para monitorar volumes de solicitações para as seguintes categorias:
+Você pode usar alertas de uso de API para monitorar volumes de solicitações nas seguintes categorias:
 
-| Categoria da API | Detalhes |
+| Categoria de API | Detalhes |
 |--------------|---------|
-| Endpoints da REST API | Monitora o uso de todas as chamadas da REST API feitas para o backend da Braze, como enviar mensagens, criar campanhas ou exportar usuários. |
-| Solicitações da API do SDK | Monitora as solicitações da API feitas a partir dos SDKs da Braze em apps clientes, como disparar mensagens no app ou sincronizar dados de usuários.<br><br>_*Disponível apenas para clientes que adquiriram Usuários Ativos Mensais – CY 24-25._ |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Sobre os alertas de uso da API" }
+| Endpoints da REST API | Rastreia o uso de todas as chamadas da REST API feitas ao backend da Braze, como envio de mensagens, criação de Campaigns ou exportação de usuários. |
+| Solicitações de API do SDK | Rastreia solicitações de API feitas a partir dos SDKs da Braze em apps de clientes, como disparar In-App Messages ou sincronizar dados de usuários.<br><br>_*Disponível apenas para clientes que adquiriram Monthly Active Users – CY 24-25._ |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Sobre alertas de uso de API" }
 
-## Criando um alerta de uso da API {#creating-an-api-usage-alert}
+## Criando um alerta de uso de API {#creating-an-api-usage-alert}
 
-Para criar um alerta de uso da API:
+Para criar um alerta de uso de API:
 
-1. Acesse **Configurações** > **APIs e identificadores** > **Alertas de Uso da API** e crie um novo alerta.
-2. Digite um nome para o seu alerta e escolha os endpoints da REST API e as chaves de API para as quais você gostaria de ser alertado.
+1. Acesse **Configurações** > **APIs e Identificadores** > **Alertas de uso de API** e crie um novo alerta.
+2. Insira um nome para o alerta e escolha os endpoints da REST API e as chaves de API para os quais você deseja ser alertado.
 3. Defina os critérios do alerta escolhendo um ou mais códigos de resposta e especificando os [limites do alerta](#api-usage-alert-thresholds).
 4. Quando terminar, ative **Alerta ativado**.
-    ![Um exemplo de alerta de uso da API que envia notificações quando o endpoint Track users aumenta em 100 por cento dentro de uma hora.]({% image_buster /assets/img/api_usage_alerts/api_usage_alerts1.png %})
+    ![Exemplo de um alerta de uso de API que envia notificações quando o endpoint Track users aumenta em 100 por cento em uma hora.]({% image_buster /assets/img/api_usage_alerts/api_usage_alerts1.png %})
 
 ## Limites do alerta {#api-usage-alert-thresholds}
 
@@ -67,54 +67,79 @@ Ao definir os critérios do alerta, você pode ajustar os seguintes limites:
 
 ## Configurando notificações de alerta {#setting-up-alert-notifications}
 
-Você pode configurar um alerta por e-mail, um alerta por webhook ou ambos. Alertas por webhook podem ser muito úteis para casos de uso como enviar um alerta para plataformas externas, como um canal do Slack. Para ver um exemplo, consulte nossa [documentação]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences) sobre integração de alertas com o Slack nas preferências de notificação.
+Você pode configurar um alerta por e-mail, um alerta por webhook ou ambos. Alertas por webhook podem ser muito úteis para casos de uso como enviar um alerta para plataformas externas, como um canal do Slack. Para ver um exemplo, consulte nossa [documentação]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences) sobre a integração de alertas com o Slack para nossas preferências de notificação.
 
 ![Um e-mail será enviado para o endereço selecionado quando os critérios do alerta forem atingidos.]({% image_buster /assets/img/api_usage_alerts/api_usage_alerts2.png %})
 
 ### Exemplo de carga útil {#payload}
 
-A seguir, um exemplo de carga útil para o corpo de um webhook de alerta de uso da API.
+A seguir, um exemplo de carga útil para o corpo de um webhook de alerta de uso de API.
 
 ```json
 {
+  "text": "Your My First API Usage Alert alert has triggered. Please note that this alert is reset every 8 hours, and only one notification will be sent per reset period. You can view your alert and usage here: <link>.",
   "data": {
     "alert_name": "My First API Usage Alert",
     "alert_type": "API Usage Alert",
+    "app_group_name": "My Workspace",
     "alert_criteria": {
-    	"response_codes": ["201", "202", "203"],
-    	"threshold_condition": "Increased by %",
-    	"threshold_volume": 50,
-    	"within": "1 day"
+      "response_codes": "201, 202 and 203",
+      "threshold_condition": "increase by",
+      "threshold_volume": "50%",
+      "within": "1 hour"
     },
-    "timeframe_start": "2025-03-20T15:35:00Z",
-    "timeframe_end": "2025-03-20T16:35:00Z",
+    "timeframe_start": "2025-03-20 15:35:00",
+    "timeframe_end": "2025-03-20 16:35:00",
     "volume": 1500,
-    "previous_timeframe_start": "2025-03-20T14:35:00Z",
-    "previous_timeframe_end": "2025-03-20T15:35:00Z",
+    "previous_timeframe_start": "2025-03-20 14:35:00",
+    "previous_timeframe_end": "2025-03-20 15:35:00",
     "previous_volume": 1000
-  },
-  "text": "Your My First API Usage Alert alert has triggered. You can view your alert and usage here: <link>. Note that this alert will reset in 1 day, as each alert will only send one notification per 8 hours."
+  }
 }
 ```
 
+{% alert note %}
+Os campos `previous_timeframe_start`, `previous_timeframe_end` e `previous_volume` são opcionais e só aparecem quando o alerta usa uma condição de limite comparativa (`increase by`, `decrease by`). Esses campos são omitidos para alertas `greater than or equal` ou `less than or equal`.
+{% endalert %}
+
+#### Detalhes dos campos da carga útil {#payload-field-details}
+
+| Campo | Tipo | Descrição |
+|-------|------|-----------|
+| `text` | string | Mensagem de alerta legível. |
+| `data.alert_name` | string | Nome do alerta. |
+| `data.alert_type` | string | Tipo de alerta (sempre `"API Usage Alert"`). |
+| `data.app_group_name` | string | Nome do espaço de trabalho. |
+| `data.alert_criteria.response_codes` | string | Códigos de resposta selecionados para o alerta. Retorna `"all response codes"` se nenhum for selecionado, um código único como `"201"`, ou múltiplos códigos como `"201, 202 and 203"`. |
+| `data.alert_criteria.threshold_condition` | string | Tipo de condição: `"increase by"`, `"decrease by"`, `"greater than or equal"` ou `"less than or equal"`. |
+| `data.alert_criteria.threshold_volume` | string ou número | Valor do limite. Quando a condição usa uma porcentagem, é uma string terminando em `%` (por exemplo, `"50%"`). Quando a condição usa um valor numérico, é um número (por exemplo, `50`). |
+| `data.alert_criteria.within` | string | Janela de tempo para avaliação do alerta (por exemplo, `"1 day"`). |
+| `data.timeframe_start` | string | Início do período do alerta em formato UTC `YYYY-MM-DD HH:MM:SS`. |
+| `data.timeframe_end` | string | Fim do período do alerta em formato UTC `YYYY-MM-DD HH:MM:SS`. |
+| `data.volume` | número | Volume de requisições durante o período do alerta. |
+| `data.previous_timeframe_start` | string | (Opcional) Início do período anterior. Presente apenas para condições de limite comparativas. |
+| `data.previous_timeframe_end` | string | (Opcional) Fim do período anterior. Presente apenas para condições de limite comparativas. |
+| `data.previous_volume` | número | (Opcional) Volume de requisições durante o período anterior. Presente apenas para condições de limite comparativas. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Detalhes dos campos da carga útil" }
+
 ### Exemplos de alertas {#example-alerts}
 
-Aqui estão algumas formas de configurar seus alertas de uso da API para ser notificado nos seguintes cenários.
+Aqui estão algumas formas de configurar seus alertas de uso de API para ser notificado nos cenários a seguir.
 
 {% tabs local %}
-{% tab integridade da API %}
-Você pode configurar alertas para monitorar a integridade geral da sua API. Por exemplo, você pode configurar esses alertas quando os erros da API aumentam drasticamente, como 20% em relação à hora anterior.
+{% tab Integridade da API %}
+Você pode configurar alertas para monitorar a integridade geral da sua API. Por exemplo, é possível configurar esses alertas quando os erros de API aumentam drasticamente, como 20% em relação à hora anterior.
 
-| Endpoint | Chave de API | Código de resposta | Condição do limite | Volume do limite | Dentro de |
+| Endpoint | Chave de API | Código de resposta | Condição de limite | Volume de limite | Dentro de |
 | --- | --- | --- | --- | --- | --- |
-| Todos os endpoints | Todas as chaves de API | `4XX` e `5XX` | Aumentou em 10% | 10 | 1 hora |
+| Todos os endpoints | Todas as chaves de API | `4XX` e `5XX` | Aumento de 10% | 10 | 1 hora |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="Exemplos de alertas" }
 {% endtab %}
 
-{% tab limite de frequência do endpoint %}
+{% tab Limite de frequência do endpoint %}
 Seja alertado quando seu espaço de trabalho atingir o limite de frequência para o endpoint `/users/track`. Você também pode aplicar essa configuração para outros endpoints da Braze.
 
-| Endpoint | Chave de API | Código de resposta | Condição do limite | Volume do limite | Dentro de |
+| Endpoint | Chave de API | Código de resposta | Condição de limite | Volume de limite | Dentro de |
 | --- | --- | --- | --- | --- | --- |
 | `/users/track` | Todas as chaves de API | `429` | Maior ou igual a | 100 | 1 hora |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="Exemplos de alertas" }
@@ -123,16 +148,16 @@ Seja alertado quando seu espaço de trabalho atingir o limite de frequência par
 {% tab Campaigns disparadas por API %}
 Essa configuração de alerta notifica você quando ocorrem erros em Campaigns e Canvas disparados por API, alguns dos quais podem ser de alta prioridade.
 
-| Endpoint | Chave de API | Código de resposta | Condição do limite | Volume do limite | Dentro de |
+| Endpoint | Chave de API | Código de resposta | Condição de limite | Volume de limite | Dentro de |
 | --- | --- | --- | --- | --- | --- |
 | {::nomarkdown}<ul><li><code>/campaigns/trigger/send</code></li><li><code>/canvas/trigger/send</code></li><li><code>/messages/send</code></li></ul>{:/} | Todas as chaves de API | `4XX` e `5XX` | Maior ou igual a | 1 | 1 hora |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="Exemplos de alertas" }
 {% endtab %}
 
-{% tab integrações com parceiros %}
-Use a seguinte configuração de alerta para ser notificado quando uma integração com parceiros parar de enviar dados para a Braze.
+{% tab Integrações com parceiros %}
+Use a configuração de alerta a seguir para ser alertado quando uma integração com parceiros parar de enviar dados para a Braze.
 
-| Endpoint | Chave de API | Código de resposta | Condição do limite | Volume do limite | Dentro de |
+| Endpoint | Chave de API | Código de resposta | Condição de limite | Volume de limite | Dentro de |
 | --- | --- | --- | --- | --- | --- |
 | Todos os endpoints | A chave de API usada para sua integração com parceiros | Todos os códigos de resposta | Menor ou igual a | 0 | 1 dia |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="Exemplos de alertas" }
@@ -141,5 +166,5 @@ Use a seguinte configuração de alerta para ser notificado quando uma integraç
 
 ## Considerações {#considerations}
 
-- Cada alerta ativo enviará apenas uma notificação por e-mail ou webhook a cada 8 horas. Isso é para evitar notificações excessivas de um único alerta. Se o seu alerta está notificando você prematuramente, considere editar os critérios do alerta para melhor atender ao seu caso de uso.
+- Cada alerta ativo enviará apenas um e-mail ou notificação por webhook a cada 8 horas. Isso evita o envio de muitas notificações de um único alerta. Se o alerta estiver notificando você prematuramente, considere editar os critérios do alerta para que se adequem melhor ao seu caso de uso.
 - Você pode ter até 10 alertas por espaço de trabalho.

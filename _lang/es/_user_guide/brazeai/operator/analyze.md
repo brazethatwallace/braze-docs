@@ -12,7 +12,7 @@ hidden: true
 > Operator Analyze responde preguntas de rendimiento en lenguaje natural dentro de BrazeAI Operator<sup>TM</sup>. Las respuestas incluyen gráficos, comparaciones e información breve. No necesitas crear un panel ni generar un informe completo primero.
 
 {% alert important %}
-Operator Analyze se encuentra actualmente en fase beta. Las capacidades y los análisis compatibles están en evolución. Para solicitar acceso para tu cuenta, ponte en contacto con tu administrador de éxito de cliente.
+Operator Analyze se encuentra actualmente en fase beta. Las capacidades y los análisis compatibles están en evolución. Para solicitar acceso para tu cuenta, ponte en contacto con tu CSM.
 {% endalert %}
 
 ## ¿Por qué usar Operator Analyze? {#why-use-operator-analyze}
@@ -140,14 +140,14 @@ Si los resultados difieren en más del 50 % entre ventanas, Operator muestra las
 
 ## Actualización de datos {#data-freshness}
 
-Los datos se actualizan diariamente. La actividad del mismo día aparece después de la siguiente actualización. Cada respuesta indica la fecha más reciente del conjunto de datos. Si esa fecha parece desactualizada, ponte en contacto con tu administrador de éxito de cliente.
+Los datos se actualizan diariamente. La actividad del mismo día aparece después de la siguiente actualización. Cada respuesta indica la fecha más reciente del conjunto de datos. Si esa fecha parece desactualizada, ponte en contacto con tu CSM.
 
 ## Fuera del alcance {#whats-out-of-scope}
 
-* **Desgloses de rendimiento a nivel de producto.** Los *ingresos atribuidos* y la participación se agregan a nivel de Campaign, Canvas, canal o programa. No se desglosan por productos o SKU. Las preguntas a nivel de producto o SKU no son compatibles. Ponte en contacto con tu administrador de éxito de cliente para esos análisis.
+* **Desgloses de rendimiento a nivel de producto.** Los *ingresos atribuidos* y la participación se agregan a nivel de Campaign, Canvas, canal o programa. No se desglosan por productos o SKU. Las preguntas a nivel de producto o SKU no son compatibles. Ponte en contacto con tu CSM para esos análisis.
 * **Puntos de referencia del sector para WhatsApp y RCS.** Las métricas de participación para ambos canales son compatibles. Los puntos de referencia aún no están disponibles.
 
-Las preguntas fuera del alcance reciben una respuesta directa, una alternativa sugerida cuando es posible, o una referencia a tu administrador de éxito de cliente.
+Las preguntas fuera del alcance reciben una respuesta directa, una alternativa sugerida cuando es posible, o una referencia a tu CSM.
 
 ## Consejos para obtener mejores resultados {#tips-for-better-results}
 

@@ -28,14 +28,10 @@
     }
   </script>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://fast.fonts.net" crossorigin>
+<link rel="preload" href="{{site.baseurl}}/assets/fonts/AribauGrotesk-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{site.baseurl}}/assets/fonts/AribauGrotesk-Bold.woff2" as="font" type="font/woff2" crossorigin>
 
 <link href="{{site.baseurl}}/assets/css/bootstrap.css" rel="stylesheet" />
-<link type="text/css" rel="stylesheet" href="//fast.fonts.net/cssapi/34a7ffbc-6962-4ab8-b4f5-9aa2b4258efc.css"/>
-
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap">
 
 <link rel="preload" href="{{site.baseurl}}/assets/css/fontawesome.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link href="{{site.baseurl}}/assets/css/fontawesome.css" rel="stylesheet" /></noscript>
@@ -139,7 +135,11 @@
 <meta name="tool" content="{{ page.tool | join: ', ' | default: '' }}" />
 <meta name="platform" content="{{ page.platform | join: ', ' | default: '' }}" />
 {% assign page_ids = page.id | split: '/' %}
-<meta name="type" content="{{ page_ids[1] | replace: '_', ' ' | default: '' }}" />
+{% assign page_type = page_ids[1] | replace: '_', ' ' | default: '' %}
+{% if page_ids[1] == 'api' %}
+{% assign page_type = 'API' %}
+{% endif %}
+<meta name="type" content="{{ page_type }}" />
 <meta name="category" content="{{ page_ids[2] | replace: '_', ' ' | default: '' }}" />
 <meta name="page_name" content="{{ page_ids | last | replace: '_', ' ' | default: '' }}" />
 <meta name="channel" content="{{ page.channel | join: ', ' | default: '' }}" />

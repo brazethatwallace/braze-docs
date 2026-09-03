@@ -11,11 +11,11 @@ description: "Erfahren Sie, wie Braze Ihre Nutzer:innen definiert und verwaltet,
 
 > Erfahren Sie, wie Braze Ihre Nutzer:innen definiert und verwaltet, Nutzer:innen identifiziert und Nutzerdaten für Segmentierung, Personalisierung und kanalübergreifendes Messaging nutzt.
 
-In Braze repräsentiert ein:e Nutzer:in (und das zugehörige Nutzerprofil) eine einzelne Person, der Sie Nachrichten senden und die Sie analysieren können.
+In Braze repräsentiert ein:e Nutzer:in (und das zugehörige Kundenprofil) eine einzelne Person, der Sie Nachrichten senden und die Sie analysieren können.
 
 ## Nutzerprofile {#user-profiles}
 
-Ein [Nutzerprofil]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles) dient als zentrale Informationsquelle für alles, was Braze über diese Person weiß, einschließlich:
+Ein [Kundenprofil]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles) dient als zentrale Informationsquelle für alles, was Braze über diese Person weiß, einschließlich:
 
 - Bezeichner (wie Nutzer-IDs oder externe IDs)
 - Geräte und Messaging-Kanäle
@@ -23,7 +23,7 @@ Ein [Nutzerprofil]({{site.baseurl}}/user_guide/audience/manage_audience/user_pro
 - Attribute und Präferenzen
 - Verlauf des Nachrichten-Engagements
 
-Ein einzelnes Nutzerprofil kann mit mehreren Geräten und Kanälen verknüpft sein, sodass Sie eine Person plattformübergreifend verstehen und ansprechen können.
+Ein einzelnes Kundenprofil kann mit mehreren Geräten und Kanälen verknüpft sein, sodass Sie eine Person plattformübergreifend verstehen und ansprechen können.
 
 ## Anonyme Nutzer:innen und identifizierte Nutzer:innen {#anonymous-users-and-identified-users}
 
@@ -64,9 +64,9 @@ Ein [Kanal]({{site.baseurl}}/user_guide/channels) ist eine bestimmte Art, wie Br
 - [LINE]({{site.baseurl}}/user_guide/channels/line)
 - [Webhooks]({{site.baseurl}}/user_guide/channels/webhooks)
 
-Ein einzelnes Nutzerprofil kann mehrere Kanäle umfassen, z. B. sowohl eine E-Mail-Adresse als auch ein Mobilgerät. Braze nutzt dieses Modell, um Messaging kanalübergreifend zu koordinieren und gleichzeitig eine einheitliche Sicht auf die Nutzer:innen beizubehalten.
+Ein einzelnes Kundenprofil kann mehrere Kanäle umfassen, z. B. sowohl eine E-Mail-Adresse als auch ein Mobilgerät. Braze nutzt dieses Modell, um Messaging kanalübergreifend zu koordinieren und gleichzeitig eine einheitliche Sicht auf die Nutzer:innen beizubehalten.
 
-Jeder Kanal hat eigene Zustellungsregeln, Opt-in-Anforderungen und Metadaten, ist aber immer mit demselben Nutzerprofil verknüpft.
+Jeder Kanal hat eigene Zustellungsregeln, Opt-in-Anforderungen und Metadaten, ist aber immer mit demselben Kundenprofil verknüpft.
 
 ## Wie Nutzer:innen in Braze angelegt werden {#ways-users-enter-braze}
 
@@ -74,7 +74,7 @@ Nutzer:innen werden in Braze angelegt, sobald jemand über eine unterstützte In
 
 {% tabs %}
 {% tab Mobile Apps %}
-- Wenn Nutzer:innen Ihre App zum ersten Mal öffnen, erstellt das Braze SDK ein Nutzerprofil.
+- Wenn Nutzer:innen Ihre App zum ersten Mal öffnen, erstellt das Braze SDK ein Kundenprofil.
 - Geräte und Push-Token werden automatisch registriert.
 - Events und Attribute können sofort protokolliert werden.
 {% endtab %}

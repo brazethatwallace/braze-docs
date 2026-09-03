@@ -2,11 +2,12 @@
 nav_title: Criar uma mensagem
 article_title: Criar uma mensagem SMS, MMS ou RCS
 page_order: 1
-description: "Este artigo aborda como criar e enviar uma mensagem SMS, MMS ou RCS na Braze."
+description: "Crie uma mensagem SMS, MMS ou RCS e configure tipos de mensagem, campos, encurtamento de links, configurações de entrega e comportamento específicos do canal."
 page_type: reference
 alias: /create_sms_mms_rcs_message/
 tool:
   - Campaigns
+  - Canvas
 channel:
   - SMS
   - MMS
@@ -16,44 +17,50 @@ search_rank: 1
 
 # Criar uma mensagem SMS, MMS ou RCS {#create-an-sms-mms-or-rcs-message}
 
-> Campanhas de SMS, MMS e RCS são ótimas para alcançar diretamente e conversar de forma programática com seus clientes. Você pode usar Liquid e outros conteúdos dinâmicos para criar uma experiência pessoal com seus usuários e criar um ambiente que promova e aprimore uma experiência de usuário discreta com sua marca.
+> Crie mensagens personalizadas de SMS, MMS e Rich Communication Services (RCS) em Campaigns ou Canvas. O grupo de inscrições selecionado determina quais tipos de mensagem e remetentes estão disponíveis.
 
-## Etapa 1: Escolha onde criar sua mensagem {#step-1-choose-where-to-build-your-message}
+## Pré-requisitos {#prerequisites}
 
-Não tem certeza se sua mensagem deve ser enviada usando uma Campaign ou um Canvas? Campaigns são melhores para envios de mensagens únicos e direcionados, enquanto Canvas são melhores para jornadas de usuário com várias etapas.
+Antes de começar, verifique se você tem o seguinte:
+
+| Requisito | Descrição |
+| --- | --- |
+| Configuração do remetente | Conclua a [configuração do remetente]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup). Para enviar MMS, seu grupo de inscrições precisa de um número de telefone com MMS ativado. Para enviar RCS, conclua a [configuração de RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/rcs_setup) e adicione um remetente RCS verificado. |
+| Grupo de inscrições | Crie um [grupo de inscrições]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups) que contenha os remetentes para esta mensagem. |
+| Números de telefone e consentimento dos usuários | Importe os números de telefone dos usuários e colete as [aceitações de SMS, MMS e RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/collecting_user_opt_ins) apropriadas. |
+| Campaign ou Canvas | Use uma Campaign para uma única mensagem direcionada ou Canvas para uma jornada de usuário com várias etapas. |
+| Créditos de mensagem ou de ação | Confirme se a sua conta tem créditos disponíveis. O envio de mensagens SMS, MMS e RCS pela Braze utiliza esses créditos. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos para mensagens SMS, MMS e RCS" }
+
+## Criar uma mensagem {#create-a-message}
+
+### Etapa 1: Escolha onde criar sua mensagem {#step-1-choose-where-to-build-your-message}
 
 {% tabs %}
 {% tab Campaign %}
 
-1. Acesse **Envio de mensagens** > **Campaigns** e selecione **Criar Campaign**.
-2. Selecione **SMS/MMS/RCS** ou, para campanhas direcionadas a múltiplos canais, selecione **Multicanal**.
-3. Dê à sua Campaign um nome claro e significativo.
-4. Adicione [equipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams) e [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) conforme necessário.
-   * Tags facilitam a busca e a criação de relatórios das suas campanhas. Por exemplo, ao usar o [Criador de relatórios]({{site.baseurl}}/user_guide/analytics/reports/report_builder), você pode filtrar por tags específicas.
-5. Adicione e nomeie quantas variantes forem necessárias para sua Campaign. Você pode escolher diferentes plataformas, tipos de mensagem e layouts para cada uma das variantes adicionadas. Para saber mais sobre esse tópico, consulte [Testes multivariantes e A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
-   * A Braze permite incluir variantes de SMS e RCS em uma única Campaign, para que você possa comparar o desempenho de cada uma.
+1. Acesse **Messaging** > **Campaigns** e selecione **Create Campaign**.
+2. Selecione **SMS/MMS/RCS** ou, para campanhas direcionadas a vários canais, selecione **Multichannel Campaign**.
+3. Dê à sua campanha um nome claro e significativo.
+4. Adicione [Equipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams) e [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) conforme necessário.
+  - As tags facilitam encontrar e usar suas campanhas em relatórios.
+5. Adicione e nomeie as variantes da sua campanha. Você pode incluir variantes de SMS/MMS e RCS na mesma campanha. Para saber mais, consulte [Testes multivariantes e A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
 
 {% alert tip %}
-Se todas as mensagens da sua Campaign forem semelhantes ou tiverem o mesmo conteúdo, redija sua mensagem antes de adicionar variantes adicionais. Depois, escolha **Copiar da variante** no menu suspenso **Adicionar variante**.
+Se as variantes da sua campanha tiverem conteúdo semelhante, crie a primeira mensagem antes de adicionar mais variantes. Em seguida, selecione **Copy from Variant** no menu suspenso **Add Variant**.
 {% endalert %}
 
 {% endtab %}
 {% tab Canvas %}
 
-1. [Crie seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) usando o criador de Canvas.
-2. Depois de configurar seu Canvas, adicione uma etapa de mensagem **SMS/MMS/RCS** no construtor de Canvas.
-3. Dê à sua etapa um nome claro e significativo.
-4. Escolha um [agendamento de etapa]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types) e especifique uma postergação conforme necessário.
-5. Filtre seu público para esta etapa conforme necessário. Você pode refinar ainda mais os destinatários desta etapa especificando segmentos e adicionando filtros adicionais. As opções de público serão verificadas após a postergação, no momento em que as mensagens forem enviadas.
-6. Escolha seu [comportamento de avanço]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases).
-7. Escolha quaisquer outros canais de envio de mensagens que você deseja combinar com sua mensagem.
+{% multi_lang_include messaging/canvas_message_step_setup.md %}
 
 {% endtab %}
 {% endtabs %}
 
-## Etapa 2: Selecione um grupo de inscrições {#step-2-select-a-subscription-group}
+### Etapa 2: Selecione um grupo de inscrições e o tipo de mensagem {#step-2-select-a-subscription-group-and-message-type}
 
-Selecione um [grupo de inscrições]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups) para garantir que você está enviando sua mensagem para os usuários corretos. Ao selecionar um grupo de inscrições, a Braze adicionará automaticamente um filtro de segmentação, garantindo que apenas usuários inscritos receberão a Campaign.
+Selecione o **grupo de inscrições** que contém o remetente desta mensagem. A Braze utiliza o grupo selecionado para calcular o público alcançável e determinar a elegibilidade no momento do envio.
 
 O grupo de inscrições selecionado determina quais tipos de mensagem estão disponíveis no criador:
 
@@ -61,259 +68,186 @@ O grupo de inscrições selecionado determina quais tipos de mensagem estão dis
 | --- | --- |
 | Somente SMS | SMS |
 | SMS com números habilitados para MMS | SMS e MMS |
-| Habilitado para RCS (com remetente verificado para RCS) | SMS, MMS (se habilitado) e RCS |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 2: Selecione um grupo de inscrições" }
+| Habilitado para RCS com um remetente RCS verificado | RCS e SMS quando o grupo também contém um remetente SMS. MMS também está disponível quando esse remetente é habilitado para MMS. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tipos de mensagem disponíveis por grupo de inscrições" }
 
 {% alert tip %}
-A Braze recomenda fortemente que todo grupo de inscrições que contenha um remetente RCS também inclua pelo menos um código SMS para fallback. Isso garante que, se uma mensagem RCS não for entregue (por exemplo, devido a incompatibilidade de dispositivo ou cobertura incompleta da operadora), a mensagem ainda chegue ao seu usuário via SMS.
+Adicione pelo menos um remetente SMS a um grupo de inscrições RCS para poder enviar um SMS de fallback quando a entrega RCS falhar.
 {% endalert %}
 
-Após selecionar seu grupo de inscrições, escolha o tipo de mensagem que deseja redigir. Se seu grupo de inscrições suportar múltiplos tipos, você verá opções para selecionar entre eles.
+Se o grupo de inscrições suportar ambos os protocolos, selecione **SMS/MMS** ou **RCS**. Para RCS, selecione **Text**, **Media** ou **Card**.
 
-![Opções para selecionar entre um tipo de mensagem RCS ou SMS/MMS.]({% image_buster /assets/img/rcs/rcs_message_type.png %}){: style="max-width:65%;"}
+### Etapa 3: Componha sua mensagem {#step-3-compose-your-message}
 
-## Etapa 3: Redija sua mensagem {#step-3-compose-your-message}
-
-A experiência de redação muda dependendo do tipo de mensagem selecionado. Selecione a guia do seu tipo de mensagem.
+Os campos e limites no criador dependem do tipo de mensagem selecionado.
 
 {% tabs local %}
-{% tab SMS %}
+{% tab SMS e MMS %}
 
-Escreva sua mensagem usando idiomas e personalização (Liquid, Conteúdo Conectado e emojis) conforme necessário. Certifique-se de seguir nossos limites de texto para reduzir suas chances de cobranças excedentes.
+#### Campos e configurações de SMS e MMS {#sms-and-mms-fields-and-settings}
 
-{% alert important %}
-Antes de prosseguir, leia as diretrizes sobre [segmentos de mensagem SMS e limites de texto]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator). Segmentos de mensagem SMS são os lotes de caracteres que as operadoras de telefonia usam para medir mensagens de texto. As mensagens são cobradas por segmento de mensagem, então é uma boa ideia entender as nuances de como as mensagens serão divididas.
-{% endalert %}
+| Campo ou configuração | Descrição |
+| --- | --- |
+| **Language** | Insere conteúdo específico do idioma na mensagem. |
+| **Message** | Insira até 1.600 caracteres, incluindo Liquid, Connected Content e emojis. O criador estima a codificação, a contagem de caracteres e o número de segmentos de SMS faturáveis. Uma mensagem MMS pode conter mídia sem corpo de mensagem. |
+| **Media** | Para um grupo de inscrições habilitado para MMS, adicione uma imagem PNG, JPEG ou GIF da biblioteca de mídia ou por URL. Você pode adicionar um vCard em vez de uma imagem. |
+| **Link shortening** | Encurta URLs HTTP e HTTPS e rastreia o engajamento. Para encurtamento de links legado, selecione rastreamento básico ou avançado. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Campos e configurações de SMS e MMS" }
 
-![Criador de SMS na Braze com a mensagem "Olá first_name, agradecemos seu apoio! Que tal passar em uma de nossas lojas e mostrar este SMS para um desconto exclusivo? Responda PARAR para deixar de receber mensagens nossas."]({% image_buster /assets/img/sms_campaign_compose.png %})
+As mensagens SMS usam codificação GSM-7 ou UCS-2 e são cobradas por Segment de mensagem. Um único caractere pode alterar a codificação e aumentar o número de segmentos faturáveis. Para regras de codificação, tamanhos de Segment e a calculadora de segmentos, consulte [Calculadoras de faturamento de SMS e RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator).
 
-### Adicionando um cartão de contato {#adding-a-contact-card}
+![Criador de SMS mostrando o texto da mensagem e as estimativas de contagem de caracteres e segmentos.]({% image_buster /assets/img/sms_campaign_compose.png %})
 
-Você pode adicionar um cartão de contato à sua mensagem SMS para que os clientes possam adicionar as informações da sua empresa e de contato aos contatos do dispositivo. Você pode atribuir propriedades como nome da empresa, número de telefone, endereço, e-mail e uma foto pequena. Consulte [Cartões de contato]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/contact_card) para mais detalhes.
+#### Especificações de mídia MMS {#mms-media-specifications}
 
-{% endtab %}
-{% tab MMS %}
+{% multi_lang_include channels/image_specs.md variable_name='sms and mms' %}
 
-Para enviar uma mensagem MMS, seu grupo de inscrições deve ter pelo menos um número de telefone habilitado para MMS. Isso é indicado por uma tag **MMS** ao lado do grupo de inscrições no criador.
-
-Insira o corpo da sua mensagem e, em seguida, faça upload de uma imagem PNG, JPEG ou GIF da [biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) ou especifique uma URL de imagem. Apenas uma imagem é suportada por mensagem.
+Para enviar dados comerciais que os usuários possam salvar nos contatos do dispositivo, consulte [Cartões de contato]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/contact_card). O envio de um cartão de contato é cobrado como MMS.
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
-![A guia de redação para escrever uma mensagem MMS.]({% image_buster /assets/img/sms/mms_composer.png %}){: style="max-width:80%;"}
+A disponibilidade e a renderização de MMS dependem da operadora receptora. Quando uma operadora não pode aceitar MMS, a mídia se torna um link no corpo do SMS por meio do provedor. Evite enviar MMS para números do Google Voice, pois o suporte limitado de MMS pode causar entregas não confiáveis.
 
-### Especificações de imagem {#image-specifications}
-
-| Propriedade | Recomendação |
-| --- | --- |
-| Tamanho | Até 600&nbsp;KB |
-| Tipos de arquivo | PNG, JPEG, GIF |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Especificações de imagem" }
-
-### Cartões de contato {#contact-cards}
-
-Você também pode incluir um [cartão de contato]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/contact_card) (vCard) em vez de uma imagem.
-
-### Comportamento da operadora {#carrier-behavior}
-
-Mensagens MMS são cobradas a uma taxa diferente das mensagens SMS somente texto. Nem todas as operadoras aceitam MMS. Nesses casos, o MMS é automaticamente convertido em um link de imagem que o usuário pode selecionar.
-
-{% alert note %}
-Evite enviar MMS para números do Google Voice. O Google Voice tem suporte limitado a MMS, o que causa entrega de mensagens não confiável.
-{% endalert %}
-
-### MMS de entrada e personalização {#inbound-mms-and-personalization}
-
-Quando um cliente envia uma mensagem de entrada que inclui mídia, a Braze expõe a mídia nos [eventos de entrada de SMS do Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events) e em Liquid como {% raw %}`{{sms.${inbound_media_urls}}}`{% endraw %} (por exemplo, em mensagens de redirecionamento ou acompanhamento). Para saber mais sobre o uso de propriedades de SMS de entrada no Canvas, consulte [Etapa de mensagem]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step).
+Quando um usuário envia mídia de entrada, a Braze expõe suas URLs nos [eventos de entrada de SMS do Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events) e por meio de {% raw %}`{{sms.${inbound_media_urls}}}`{% endraw %} em Liquid.
 
 {% endtab %}
 {% tab RCS %}
 
-Assista a este passo a passo rápido para ver como criar uma mensagem RCS de texto ou mídia.
+#### Tipos de mensagem RCS {#rcs-message-types}
 
-{% multi_lang_include video.html id="3y0iiqqygw" source="wistia" %}
+| Tipo de mensagem | Campos e configurações | Limites e comportamento |
+| --- | --- | --- |
+| **Text** | Corpo da mensagem obrigatório, respostas sugeridas ou ações Open URL opcionais, SMS de fallback opcional e encurtamento de links | O corpo da mensagem pode conter até 1.600 ou 3.072 caracteres, dependendo do provedor de serviço SMS. Adicione até cinco sugestões. |
+| **Media** | Imagem, vídeo, documento ou áudio obrigatório; corpo de mensagem opcional; sugestões opcionais, SMS de fallback e encurtamento de links | O corpo da mensagem pode conter até 1.600 ou 3.072 caracteres, dependendo do provedor, e é cobrado como uma mensagem RCS adicional. Adicione até cinco sugestões. |
+| **Card** | Cartão de mídia ou cartão somente texto, título, descrição, botões, sugestões opcionais e SMS de fallback opcional | O título pode conter até 200 caracteres. A descrição pode conter até 1.600 ou 2.000 caracteres, dependendo do provedor. Adicione entre um e quatro botões. O suporte do provedor determina se cartões somente texto e sugestões fora do cartão estão disponíveis. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tipos de mensagem RCS, campos e limites" }
 
-Escolha entre um tipo de mensagem **Texto** ou **Mídia**.
+As sugestões podem ser respostas sugeridas, que pré-preenchem a entrada de texto do usuário, ou ações Open URL. Adicione até 25 caracteres de texto a cada sugestão e uma URL de até 2.048 caracteres a cada ação Open URL.
 
-![Opções para selecionar entre um tipo de mensagem Texto ou Mídia.]({% image_buster /assets/img/rcs/rcs_text_media.png %}){: style="max-width:65%;"}
+Para qualquer tipo de mensagem RCS, ative **Send SMS if RCS fails** para adicionar uma mensagem de fallback de até 1.600 caracteres. O grupo de inscrições selecionado deve conter um remetente SMS. Para mensagens **Card**, os links na descrição não são clicáveis; use um botão Open URL em vez disso.
 
-{% subtabs %}
-{% subtab Texto %}
+Alguns provedores de serviço SMS não suportam mensagens **Media** independentes ou cartões somente texto. O criador exibe apenas os tipos de mensagem RCS suportados. Para mensagens **Card**, o encurtamento de links se aplica apenas aos links no SMS de fallback.
 
-Mensagens RCS de texto focam no texto como meio. Se sua mensagem tiver até 160 caracteres sem elementos ricos, ela é cobrada como uma mensagem RCS básica. Se você exceder 160 caracteres ou usar um elemento rico, ela é cobrada como uma mensagem RCS rica (única) com um limite de 3.072 caracteres.
+O faturamento de mensagens RCS depende do tipo e do conteúdo da mensagem. Para regras de faturamento básico, rich e rich card, consulte [Faturamento de mensagens RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator#rcs-message-billing).
 
-**Recursos:**
+#### Especificações de mídia RCS {#rcs-media-specifications}
 
-- Todos os recursos de SMS estão incluídos, com rastreamento avançado disponível para rastreamento de cliques em URL.
-- **Respostas sugeridas**: Botões contendo respostas sugeridas que os usuários podem selecionar para preencher automaticamente no campo de texto.
-- **Ações sugeridas**: Botões que iniciam uma ação no dispositivo do usuário. Atualmente, a Braze suporta ações sugeridas OpenURL, que redirecionam os usuários para uma página da web ou outro local identificado por URL.
-
-![Três ações sugeridas para uma mensagem RCS promovendo estilos de moda em tendência.]({% image_buster /assets/img/rcs/rcs_suggested_actions.gif %}){: style="max-width:70%;"}
-
-**Considerações:**
-
-- Android e iOS podem truncar de forma diferente: o Android mostra o texto completo da mensagem rica, enquanto o iOS trunca após a terceira linha.
-- Você pode adicionar até cinco botões por mensagem. Eles podem ser ações sugeridas ou respostas sugeridas.
-- Blocos de texto longos e muitos botões podem sobrecarregar os destinatários; prefira a simplicidade quando possível.
-- Em alguns casos, pode ser mais econômico enviar mensagens de texto mais longas via RCS do que via SMS, porque mensagens SMS mais longas são divididas em múltiplos segmentos cobráveis, enquanto mensagens RCS são cobradas por mensagem.
-
-{% endsubtab %}
-{% subtab Mídia %}
-
-Mensagens RCS de mídia permitem usar formatos de mídia envolventes que não são possíveis com SMS, incluindo arquivos de imagem, vídeo e documento.
-
-{% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
-
-**Recursos:**
-
-- Suporta tudo disponível nos tipos de mensagem de texto, incluindo texto, respostas sugeridas e ações sugeridas.
-- Arquivos de imagem (JPEG, PNG) enviados da [biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library).
-- Arquivos de vídeo (MP4, MPEG, MV4) adicionados por URL no criador de mensagens.
-- Arquivos de documento (PDF) adicionados por URL no criador de mensagens.
-
-![Criador de RCS com uma opção para fazer upload de um arquivo de mídia.]({% image_buster /assets/img/rcs/rcs_media_type.png %})
-
-**Especificações de arquivo:**
+O criador aceita uma URL de mídia com até 1.000 caracteres. Os formatos disponíveis e o tamanho máximo do arquivo dependem do provedor de serviço SMS.
 
 | Tipo de arquivo | Especificações |
 | --- | --- |
-| Todos | Tamanho do arquivo limitado a 100 MB. A URL do arquivo pode ter até 2.048 caracteres. |
-| Imagem | Formatos suportados: JPG, JPEG, GIF |
-| Vídeo | Formatos suportados: H263, M4V, MP4, MPEG-4, MPEG, WEBM |
-| Documento | Formato suportado: PDF |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Especificações de arquivo" }
+| Todos | O tamanho máximo do arquivo é 16&nbsp;MB ou 100&nbsp;MB, dependendo do provedor. |
+| Imagem | JPEG, JPG, GIF, PNG |
+| Vídeo | H263, M4V, MP4, MPEG, MPEG-4, WEBM |
+| Documento | PDF. Disponível para mensagens **Media**, mas não para cartões de mídia. |
+| Áudio | AAC, MP3, MPEG, MP4, 3GPP, OGG. O suporte do provedor varia. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Especificações de mídia RCS" }
 
-**Considerações:**
-
-A experiência do usuário ao receber mensagens RCS pode variar com base na cobertura da operadora, hardware do dispositivo móvel e sistema operacional. O RCS se integra de forma mais natural com dispositivos Android, e diferentes dispositivos podem renderizar a experiência em diferentes velocidades e qualidades.
-
-{% endsubtab %}
-{% endsubtabs %}
-
-Escreva sua mensagem usando idiomas e personalização ([Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid), [Conteúdo Conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) e emojis) conforme necessário. Certifique-se de seguir os limites de texto para reduzir suas chances de cobranças excedentes.
-
-{% alert important %}
-Antes de prosseguir, leia as [diretrizes de tipo de mensagem RCS](#step-3-compose-your-message) anteriormente nesta seção. Mensagens RCS são [cobradas por mensagem]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator), então é uma boa ideia entender o que pode ser incluído em cada tipo.
-{% endalert %}
+{% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
 {% endtab %}
 {% endtabs %}
 
-### Dicas {#tips}
+#### Personalização {#personalization}
 
-#### Usando Liquid {#using-liquid}
+Use [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid), [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), emojis e conteúdo específico por idioma para personalizar sua mensagem. Inclua um valor padrão para a personalização com Liquid para que perfis com dados incompletos não recebam conteúdo em branco.
 
-{% raw %}
-Se você planeja usar Liquid, certifique-se de incluir um valor padrão para a personalização escolhida para que, caso o perfil do usuário esteja incompleto, ele não receba um espaço em branco `Olá, !` em vez do nome ou uma frase coerente.
-{% endraw %}
+Para criar o texto da mensagem a partir de um prompt, use [Gerar texto]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy) com o Operator.
 
-#### Gerando texto com IA {#generating-ai-copy}
-
-Experimente usar o [Assistente de Copywriting com IA]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy). Insira o nome ou a descrição de um produto, e a IA gerará um texto de marketing semelhante ao humano para uso no seu envio de mensagens.
-
-![Botão Iniciar Copywriter com IA, localizado no campo Mensagem do criador de SMS.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_sms.png %}){: style="max-width:60%"}
-
-#### Criando mensagens da direita para a esquerda {#creating-right-to-left-messages}
-
-A aparência final das mensagens da direita para a esquerda depende em grande parte de como os provedores de serviço as renderizam. Para práticas recomendadas sobre como criar mensagens da direita para a esquerda que sejam exibidas da forma mais precisa possível, consulte [Criando mensagens da direita para a esquerda]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
+Para idiomas escritos da direita para a esquerda, consulte [Criando mensagens da direita para a esquerda]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
 
 #### Criar fluxos de mensagens conversacionais (RCS) {#create-conversational-message-workflows-rcs}
 
-Fluxos de mensagens conversacionais permitem responder dinamicamente aos usuários, criando uma experiência de mensagens de ida e volta. Para construir um fluxo, crie um Canvas e combine respostas sugeridas com [jornadas de ação]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) para direcionar seu fluxo com base na resposta que o usuário selecionar.
+Os fluxos de mensagens conversacionais permitem que você responda dinamicamente aos usuários, criando uma experiência de mensagens de ida e volta. Para criar um fluxo, crie um Canvas e combine respostas sugeridas com [jornadas de ação]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) para direcionar seu fluxo com base na resposta que o usuário selecionar.
 
-1. No construtor de Canvas, crie uma etapa de mensagem RCS com múltiplas respostas sugeridas.
+1. No criador de Canvas, crie uma etapa de mensagem RCS com várias respostas sugeridas.
 
 ![Criador de mensagem RCS com respostas sugeridas.]({% image_buster /assets/img/rcs/suggested_replies.png %})
 
 {: start="2"}
-2. Conecte essa mensagem a uma jornada de ação com um grupo de ação para cada resposta sugerida.
-3. Para cada grupo de ação:
-   - Selecione o gatilho **Enviar uma mensagem SMS de entrada**.
-   - Defina o corpo da mensagem para ser o mesmo da resposta sugerida correspondente.
+2. Conecte essa mensagem a uma jornada de ação com um grupo de ações para cada resposta sugerida.
+3. Para cada grupo de ações:
+   - Selecione o disparador **Send an SMS inbound message**.
+   - Defina o corpo da mensagem para ser igual à resposta sugerida correspondente.
 
-![Etapa de jornada de ação configurada com três grupos de ação, um para cada resposta sugerida.]({% image_buster /assets/img/rcs/quick_reply.png %})
+![Etapa de jornada de ação configurada com três grupos de ações, um para cada resposta sugerida.]({% image_buster /assets/img/rcs/quick_reply.png %})
 
 {: start="4"}
-4. Conecte cada grupo de ação a uma etapa de mensagem RCS e adicione conteúdo com base na resposta sugerida associada.
-5. Continue o fluxo conversacional adicionando respostas sugeridas a quaisquer mensagens de acompanhamento.
+4. Conecte cada grupo de ações a uma etapa de mensagem RCS e adicione conteúdo com base na resposta sugerida associada.
+5. Continue o fluxo conversacional adicionando respostas sugeridas a qualquer mensagem de acompanhamento.
 6. Repita as etapas 2 a 4 até que o fluxo esteja completo.
 
 ![Canvas mostrando um fluxo conversacional com duas jornadas de ação.]({% image_buster /assets/img/rcs/full_conversational_workflow.png %})
 
-## Etapa 4: Pré-visualize e teste sua mensagem {#step-4-preview-and-test-your-message}
+### Etapa 4: Configure o encurtamento de links {#step-4-configure-link-shortening}
 
-A Braze sempre recomenda pré-visualizar e testar sua mensagem antes de enviá-la. Alterne para a guia **Teste** para enviar um SMS, MMS ou RCS de teste para [grupos de teste de conteúdo]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) ou usuários individuais, ou pré-visualize a mensagem como um usuário diretamente na Braze.
+Ative **Link shortening** para encurtar URLs HTTP e HTTPS e rastrear cliques em links de SMS, MMS e RCS suportados. Dependendo da versão disponível no seu espaço de trabalho, selecione rastreamento básico ou avançado, ou use o encurtamento de links unificado.
+
+O rastreamento avançado adiciona dados de cliques no nível do usuário para segmentação e redirecionamento. O encurtamento de links unificado combina links encurtados de SMS e RCS em um formato personalizado. Para URLs suportadas, comportamento de Liquid, requisitos de teste, domínios personalizados e redirecionamento, consulte [Encurtamento de links]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening).
+
+A Braze encurta até 25 links em uma mensagem. Uma URL com mais de 4.000 caracteres não pode ser encurtada e faz com que a mensagem falhe no momento do envio.
+
+### Etapa 5: Prévia e teste da mensagem {#step-5-preview-and-test-your-message}
+
+Acesse a guia **Test** para visualizar a prévia da mensagem como um usuário ou enviar um SMS, MMS ou RCS de teste para um [grupo de teste de conteúdo]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) ou usuário individual.
 
 {% alert tip %}
-Se você quiser testar em quantos segmentos seu SMS pode ser dividido, teste o comprimento do seu texto com a [calculadora de segmentos SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator#segment-calculator).
+Use a [calculadora de segmentos de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator#segment-calculator) para estimar quantos segmentos sua mensagem contém.
 {% endalert %}
 
-![Pré-visualização do texto SMS na guia Teste do criador. Na seção de perfil, o campo Nome está definido como "James". Na seção de pré-visualização, o SMS agora diz "Olá James, agradecemos seu apoio!"]({% image_buster /assets/img/sms_campaign_test.png %})
+![Prévia do texto do SMS na guia Test do criador. Na seção de perfil, o campo nome está definido como "James". Na seção de prévia, o SMS agora diz "Hi James, we appreciate your support!"]({% image_buster /assets/img/sms_campaign_test.png %})
+
+Para MMS, o telefone receptor determina se a mídia aparece antes ou depois do corpo da mensagem.
 
 {% alert note %}
-Para MMS, a ordenação dos ativos (imagem e corpo da mensagem) não pode ser personalizada. A ordenação depende do telefone que recebe a mensagem.
-{% endalert %}
-
-{% alert note %}
-Como a renderização do RCS é controlada pelo sistema operacional do usuário, fabricante do dispositivo, operadora e app de mensagens (por exemplo, Google Messages vs. Apple Messages), a aparência da mensagem pode variar. A pré-visualização mostrada na Braze pode não corresponder exatamente ao que o usuário final recebe. Valide a renderização final em dispositivos reais sempre que possível. Para saber mais sobre a renderização do RCS em dispositivos iOS, consulte [Por que minha mensagem RCS não é renderizada corretamente em dispositivos iOS?]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs#why-doesnt-my-rcs-message-render-accurately-on-ios-devices).
+Como a renderização RCS é controlada pelo sistema operacional do usuário, fabricante do dispositivo, operadora e app de mensagens (por exemplo, Google Messages vs. Apple Messages), a aparência da mensagem pode variar. A prévia mostrada na Braze pode não corresponder exatamente ao que o usuário final recebe. Valide a renderização final em dispositivos reais sempre que possível. Para detalhes sobre a renderização RCS em dispositivos iOS, consulte [Por que minha mensagem RCS não renderiza corretamente em dispositivos iOS?]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs#why-doesnt-my-rcs-message-render-accurately-on-ios-devices). Para GIFs em rich cards, consulte [Por que GIFs em rich cards RCS aparecem estáticos no iOS?]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs#why-do-gifs-in-rcs-rich-cards-appear-static-on-ios).
 {% endalert %}
 
 Para saber mais, consulte [Enviar mensagens de teste]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=sms%2Fmms%20and%20rcs).
 
-## Etapa 5: Construa o restante da sua Campaign ou Canvas {#step-5-build-the-remainder-of-your-campaign-or-canvas}
+### Etapa 6: Construa o restante da campanha ou Canvas {#step-6-build-the-remainder-of-your-campaign-or-canvas}
 
 {% tabs %}
 {% tab Campaign %}
 
-Em seguida, construa o restante da sua Campaign. Consulte as seções a seguir para mais detalhes sobre como usar melhor nossas ferramentas para criar sua mensagem.
+#### Escolha um cronograma ou disparador de entrega {#choose-a-delivery-schedule-or-trigger}
 
-### Escolha o agendamento ou gatilho de entrega {#choose-delivery-schedule-or-trigger}
+Entregue mensagens em um horário agendado ou em resposta a uma ação ou disparador de API. Para opções de agendamento e disparadores, consulte [Agende sua campanha]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
 
-As mensagens podem ser entregues com base em um horário agendado, uma ação ou um gatilho de API. Para saber mais, consulte [Agendando sua Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
+Configure controles de entrega como [reelegibilidade]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#turning-on-re-eligibility) e [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping). Para entrega baseada em ação, defina a duração da campanha e o [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours).
 
-Para entrega baseada em ação, você também pode definir a duração da Campaign e o [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours).
+#### Escolha os usuários-alvo {#choose-users-to-target}
 
-Nesta etapa, você também pode especificar controles de entrega, como permitir que os usuários se tornem [reelegíveis]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#turning-on-re-eligibility) para receber a Campaign, ou ativar regras de [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping).
+[Direcione usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) selecionando Segments e filtros. A Braze calcula a associação exata ao Segment antes de enviar a mensagem.
 
-### Escolha os usuários a direcionar {#choose-users-to-target}
-
-Em seguida, [direcione os usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) escolhendo segmentos ou filtros para restringir seu público. Você já deve ter escolhido o grupo de inscrições, que restringe os usuários pelo nível ou categoria de comunicação que desejam ter com você.
+O grupo de inscrições selecionado filtra os usuários inscritos. Os destinatários de SMS e MMS também precisam de um número de telefone válido. Os destinatários de RCS precisam de um dispositivo e conexão de operadora com capacidade RCS; use um SMS de fallback para alcançar usuários elegíveis quando a entrega RCS falhar.
 
 {% multi_lang_include audience/target_audiences.md %}
 
-Selecione o público maior dos seus segmentos e restrinja ainda mais esse segmento com filtros opcionais. Você receberá automaticamente uma prévia da população aproximada desse segmento. Tenha em mente que a composição exata do segmento é sempre calculada antes do envio da mensagem.
+Para direcionamento por cliques e interações, consulte [Redirecionamento de usuários]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting).
 
-{% alert tip %}
-Interessado em redirecionamento? Consulte [Redirecionamento de usuários]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting) para saber mais.
-{% endalert %}
+#### Escolha eventos de conversão {#choose-conversion-events}
 
-### Escolha eventos de conversão {#choose-conversion-events}
-
-A Braze permite rastrear com que frequência os usuários realizam ações específicas, [eventos de conversão]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), após receberem uma Campaign. Você tem a opção de permitir uma janela de até 30 dias durante a qual uma conversão será contada se o usuário realizar a ação especificada.
-
-Eventos de conversão ajudam a medir o sucesso da sua Campaign. Por exemplo:
-
-- Se você está usando geotargeting para disparar uma mensagem cujo objetivo final é o usuário fazer uma compra, defina o evento de conversão como `Purchase`.
-- Se você está tentando direcionar o usuário para o seu app, defina o evento de conversão como `Starts Session`.
-
-Você também pode definir eventos de conversão personalizados com base no seu caso de uso específico.
+Use [eventos de conversão]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) para medir ações após um usuário receber a campanha. Defina uma janela de conversão de até 30 dias.
 
 {% endtab %}
 {% tab Canvas %}
 
-Se ainda não o fez, conclua as seções restantes do seu componente de Canvas. Para mais detalhes sobre como construir o restante do seu Canvas, implementar testes multivariantes e seleção inteligente, e mais, consulte a etapa [Construa seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) da nossa documentação de Canvas.
+Complete as seções restantes do seu Canvas. Para cronogramas de entrada, configurações de público e controles de envio, consulte [Criar um Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas).
 
 {% endtab %}
 {% endtabs %}
 
-## Etapa 6: Revise e implante {#step-6-review-and-deploy}
+### Etapa 7: Revise e implante {#step-7-review-and-deploy}
 
-Depois de terminar de construir a última parte da sua Campaign ou Canvas, revise seus detalhes, teste e envie!
+Depois de finalizar a construção da sua campanha ou Canvas, revise os detalhes e teste a mensagem antes de enviá-la.
 
-Em seguida, confira [Relatórios de SMS, MMS e RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting) para saber como acessar os resultados das suas campanhas.
+Após o lançamento, use os [relatórios de SMS, MMS e RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting) para acompanhar o desempenho das mensagens.
 
-## Perguntas frequentes {#frequently-asked-questions}
+## Informações importantes {#things-to-know}
 
-### Posso enviar mensagens de voz pré-gravadas com RCS? {#can-i-send-pre-recorded-voicemails-with-rcs}
-
-Sim, você pode usar mensagens de mídia para suportar arquivos de áudio.
+- O SMS é cobrado por Segment de mensagem, o MMS tem sua própria taxa, e o RCS é cobrado por tipo de mensagem. Consulte as [calculadoras de faturamento de SMS e RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator) antes de enviar.
+- O MMS é compatível com uma imagem ou vCard. O suporte da operadora determina se os destinatários recebem a mídia ou um link para a imagem.
+- Os recursos e limites do RCS variam de acordo com o provedor de serviços de SMS. O criador exibe apenas as opções disponíveis para o grupo de inscrições selecionado.
+- Você pode enviar um correio de voz pré-gravado como áudio em uma mensagem RCS do tipo **Mídia**.
+- O comportamento de renderização e interação varia de acordo com o dispositivo, a operadora, o sistema operacional e o app de mensagens.

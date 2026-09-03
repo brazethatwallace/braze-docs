@@ -9,7 +9,7 @@ description: "Dieser Artikel enthält Versionshinweise für Januar 2019."
 
 Willkommen in einem neuen Jahr!
 
-## Push-Time-to-Live (TTL)
+## Push TTL (TTL)
 
 Klicken Sie in Ihrem Konto unter **Einstellungen verwalten** auf den Tab [Push TTL-Einstellungen]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings/), um die Zeitdauer für Sendeversuche zu verwalten, wenn ein Gerät offline ist.
 

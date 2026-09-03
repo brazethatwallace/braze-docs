@@ -18,7 +18,7 @@ Braze.enableSDK();
 
 ## ローカルに保存されたデータを消去する {#wiping-data}
 
-デバイスに保存されたすべてのBraze SDKデータを削除するには、`wipeData`メソッドを使用します。このメソッドを呼び出すと、SDKは無効になり、`enableSDK`で再度有効にする必要があります。
+デバイス上にローカルに保存されたすべてのBraze SDKデータを削除するには、`wipeData`メソッドを使用します。このメソッドを呼び出すと、SDKは無効になり、`enableSDK`で再度有効にする必要があります。
 
 ```javascript
 Braze.wipeData();
@@ -32,9 +32,9 @@ Braze.wipeData();
 Braze.requestImmediateDataFlush();
 ```
 
-## 広告トラッキングの有効化を設定する {#setting-ad-tracking-enabled}
+## 広告トラッキングの有効化設定 {#setting-ad-tracking-enabled}
 
-このデバイスで広告トラッキングが有効かどうかをBrazeに通知するには、`setAdTrackingEnabled`メソッドを使用します。SDKはこのデータを自動的に収集しません。
+Brazeにこのデバイスで広告トラッキングが有効かどうかを通知するには、`setAdTrackingEnabled`メソッドを使用します。SDKはこのデータを自動的に収集しません。
 
 ```javascript
 Braze.setAdTrackingEnabled(true, "GOOGLE_ADVERTISING_ID");
@@ -44,7 +44,7 @@ Braze.setAdTrackingEnabled(true, "GOOGLE_ADVERTISING_ID");
 
 ## トラッキングプロパティ許可リストの更新（iOSのみ） {#updating-the-tracking-property-allow-list-ios-only}
 
-トラッキングとして宣言されたデータタイプのリストを更新するには、`updateTrackingPropertyAllowList`を使用します。これはAndroidでは何も実行されません。
+トラッキング対象として宣言するデータタイプのリストを更新するには、`updateTrackingPropertyAllowList`を使用します。Androidではこの操作は何も行いません。
 
 ```javascript
 Braze.updateTrackingPropertyAllowList({
@@ -57,7 +57,7 @@ Braze.updateTrackingPropertyAllowList({
 });
 ```
 
-詳細については、[プライバシーマニフェスト]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/privacy_manifest)を参照してください。
+詳細については、[プライバシーマニフェスト]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift#swift_privacy-manifest)を参照してください。
 
 ## ログアウトとプッシュ登録解除 {#logout-and-unregister-push}
 

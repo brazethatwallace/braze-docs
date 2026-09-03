@@ -6,7 +6,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "Este artigo traz informações sobre o endpoint da Braze para listar modelos de e-mail disponíveis."
-
 ---
 {% api %}
 # Listar modelos de e-mail disponíveis {#list-available-email-templates}
@@ -19,15 +18,15 @@ description: "Este artigo traz informações sobre o endpoint da Braze para list
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#eec24bf4-a3f4-47cb-b4d8-bb8f03964cca {% endapiref %}
 
 ## Pré-requisitos {#prerequisites}
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/api_key) com a permissão `templates.email.list`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics) com a permissão `templates.email.list`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 |---|---|---|---|
 | `modified_after` | Opcional | String no formato [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) | Recupera apenas modelos atualizados no momento ou após o momento informado. |
 | `modified_before` | Opcional | String no formato [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) | Recupera apenas modelos atualizados no momento ou antes do momento informado. |

@@ -14,27 +14,27 @@ noindex: true
 
 # Envio de mensagens no app {#in-app-message-delivery}
 
-## Tipos de disparo {#trigger-types}
+## Tipos de gatilho {#trigger-types}
 
-Nosso produto de mensagens no app permite disparar a exibição de mensagens no app como resultado de vários tipos de eventos diferentes: `Any Purchase`, `Specific Purchase`, `Session Start`, `Custom Event` e `Push Click`. Além disso, os disparos `Specific Purchase` e `Custom Event` contêm filtros de propriedade robustos.
+Nosso produto de In-App Messages permite disparar a exibição de mensagens no app como resultado de diversos tipos de evento: `Any Purchase`, `Specific Purchase`, `Session Start`, `Custom Event` e `Push Click`. Além disso, os gatilhos `Specific Purchase` e `Custom Event` contam com filtros robustos de propriedades.
 
 {% alert note %}
-As mensagens no app disparadas só funcionam com eventos personalizados registrados por meio do SDK da Braze. As mensagens no app não podem ser disparadas por meio da API ou por eventos da API (como eventos de compra). Se estiver trabalhando com iOS, visite nosso artigo sobre [rastreamento de eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=swift) para saber mais.
+As mensagens no app disparadas só funcionam com eventos personalizados registrados por meio do SDK da Braze. As mensagens no app não podem ser disparadas pela API ou por eventos da API (como eventos de compra). Se você está trabalhando com iOS, acesse nosso artigo sobre [rastreamento de eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=swift) para saber mais.
 {% endalert %}
 
 ## Semântica de entrega {#delivery-semantics}
 
-Todas as mensagens no app para as quais um usuário é elegível são entregues ao dispositivo do usuário no início da sessão. No caso de duas mensagens no app serem disparadas por um evento, será mostrada a mensagem no app com a prioridade mais alta. Para saber mais sobre a semântica de início de sessão do SDK, leia sobre nosso [ciclo de vida de sessão]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/analytics/tracking_sessions#session-lifecycle). Após a entrega, o SDK fará a pré-busca de ativos para que estejam disponíveis imediatamente no momento do disparo, minimizando a latência da exibição.
+Todas as mensagens no app para as quais um usuário é elegível são entregues ao dispositivo do usuário no início da sessão. Quando duas mensagens no app são disparadas por um mesmo evento, a mensagem no app com maior prioridade será exibida. Para saber mais sobre a semântica de início de sessão do SDK, leia sobre nosso [ciclo de vida da sessão]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/analytics/tracking_sessions#session-lifecycle). Ao serem entregues, o SDK fará o pré-carregamento dos ativos para que estejam disponíveis imediatamente no momento do disparo, minimizando a latência de exibição.
 
-Quando um evento de gatilho tiver mais de uma mensagem no app elegível associada a ele, só será entregue a mensagem no app com a prioridade mais alta.
+Quando um evento-gatilho tem mais de uma mensagem no app elegível associada a ele, apenas a mensagem no app com a maior prioridade será entregue.
 
-Pode haver alguma latência para mensagens no app que são exibidas imediatamente após a entrega (início da sessão, clique no push) devido ao fato de os ativos não terem sido pré-processados.
+Pode haver alguma latência para mensagens no app que são exibidas imediatamente na entrega (início de sessão, clique de push) devido aos ativos não terem sido pré-carregados.
 
-## Intervalo de tempo mínimo entre disparos {#minimum-time-interval-between-triggers}
+## Intervalo mínimo de tempo entre disparos {#minimum-time-interval-between-triggers}
 
-Por padrão, limitamos a frequência das mensagens no app para uma vez a cada 30 segundos para facilitar uma experiência de usuário de qualidade.
+Por padrão, limitamos a frequência de In-App Messages para uma vez a cada 30 segundos, a fim de proporcionar uma experiência de qualidade ao usuário.
 
-Você pode alterar esse valor em `ABKMinimumTriggerTimeIntervalKey` no parâmetro `appboyOptions` passado para `startWithApiKey:inApplication:withLaunchOptions:withAppboyOptions:`. Defina `ABKMinimumTriggerTimeIntervalKey` como o valor inteiro que deseja como tempo mínimo em segundos entre mensagens no app:
+Você pode substituir esse valor por meio do `ABKMinimumTriggerTimeIntervalKey` dentro do parâmetro `appboyOptions` passado para `startWithApiKey:inApplication:withLaunchOptions:withAppboyOptions:`. Defina o `ABKMinimumTriggerTimeIntervalKey` com o valor inteiro desejado como o tempo mínimo em segundos entre In-App Messages:
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -57,55 +57,55 @@ Appboy.start(withApiKey: "YOUR-API-KEY", in:application, withLaunchOptions:launc
 {% endtab %}
 {% endtabs %}
 
-## Falha ao encontrar um disparador correspondente {#failing-to-find-a-matching-trigger}
+## Falha ao encontrar um gatilho correspondente {#failing-to-find-a-matching-trigger}
 
-Quando a Braze não conseguir encontrar um gatilho correspondente para um determinado evento, ela chamará o método [noMatchingTriggerForEvent:name:](https://appboy.github.io/appboy-ios-sdk/docs/protocol_a_b_k_in_app_message_controller_delegate-p.html#ab4d57b13c51545d487227945a37d4ab8) de [`ABKInAppMessageControllerDelegate`](https://appboy.github.io/appboy-ios-sdk/docs/protocol_a_b_k_in_app_message_controller_delegate-p.html). Implemente esse método em sua classe adotando o protocolo de delegação para lidar com esse cenário.
+Quando a Braze não encontra um gatilho correspondente para um determinado evento, ela chama o método [noMatchingTriggerForEvent:name:](https://appboy.github.io/appboy-ios-sdk/docs/protocol_a_b_k_in_app_message_controller_delegate-p.html#ab4d57b13c51545d487227945a37d4ab8) do [`ABKInAppMessageControllerDelegate`](https://appboy.github.io/appboy-ios-sdk/docs/protocol_a_b_k_in_app_message_controller_delegate-p.html). Implemente esse método na sua classe que adota o protocolo de delegado para lidar com esse cenário.
 
-## Envio local de mensagens no app {#local-in-app-message-delivery}
+## Entrega local de mensagens no app {#local-in-app-message-delivery}
 
 ### A pilha de mensagens no app {#the-in-app-message-stack}
 
-#### Exibição de mensagens no app {#showing-in-app-messages}
+#### Exibindo mensagens no app {#showing-in-app-messages}
 
-Quando um usuário for elegível para receber uma mensagem no app, `ABKInAppMessageController` receberá a mensagem no app mais recente da pilha de mensagens no app. A pilha só mantém na memória as mensagens no app armazenadas e é limpa entre as inicializações do app a partir do modo suspenso.
+Quando um usuário é elegível para receber uma mensagem no app, o `ABKInAppMessageController` receberá a mensagem no app mais recente da pilha de mensagens no app. A pilha mantém apenas mensagens no app armazenadas em memória e é limpa entre inicializações do app a partir do modo suspenso.
 
 {% alert important %}
-Não exiba mensagens no app quando o teclado estiver sendo exibido na tela, pois a renderização é indefinida nessa circunstância.
+Não exiba mensagens no app quando o teclado estiver visível na tela, pois a renderização é indefinida nessa circunstância.
 {% endalert %}
 
-#### Adição de mensagens no app à pilha {#adding-in-app-messages-to-the-stack}
+#### Adicionando mensagens no app à pilha {#adding-in-app-messages-to-the-stack}
 
 Os usuários são elegíveis para receber uma mensagem no app nas seguintes situações:
 
-- Um evento de gatilho de mensagem no app é disparado
-- Evento de início da sessão
+- Um evento-gatilho de mensagem no app é disparado
+- Evento de início de sessão
 - O app é aberto a partir de uma notificação por push
 
-As mensagens no app disparadas são colocadas na pilha quando o evento de gatilho é disparado. Se várias mensagens no app estiverem na pilha e aguardando para serem exibidas, a Braze exibirá primeiro a mensagem no app recebida mais recentemente (última a entrar, primeira a sair).
+Mensagens no app disparadas são colocadas na pilha quando seu evento-gatilho é disparado. Se várias mensagens no app estiverem na pilha esperando para serem exibidas, a Braze exibirá primeiro a mensagem no app recebida mais recentemente (último a entrar, primeiro a sair).
 
-#### Retorno de mensagens no app à pilha {#returning-in-app-messages-to-the-stack}
+#### Retornando mensagens no app à pilha {#returning-in-app-messages-to-the-stack}
 
 Uma mensagem no app disparada pode ser retornada à pilha nas seguintes situações:
 
-- A mensagem no app é disparada quando o aplicativo está em segundo plano.
+- A mensagem no app é disparada quando o app está em segundo plano.
 - Outra mensagem no app está visível no momento.
-- O [método delegado de interface]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/in-app_messaging/customization/setting_delegates#in-app-message-delegate) obsoleto `beforeInAppMessageDisplayed:withKeyboardIsUp:` não foi implementado, e o teclado está em exibição no momento.
-- O [método delegado]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/in-app_messaging/customization/setting_delegates#core-in-app-message-delegate) `beforeInAppMessageDisplayed:` ou o [método delegado de interface]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/in-app_messaging/customization/setting_delegates#in-app-message-delegate) obsoleto `beforeInAppMessageDisplayed:withKeyboardIsUp:` retornou `ABKDisplayInAppMessageLater`.
+- O método [delegado de UI]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/customization/setting_delegates#in-app-message-delegate) descontinuado `beforeInAppMessageDisplayed:withKeyboardIsUp:` não foi implementado e o teclado está sendo exibido no momento.
+- O [método delegado]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/customization/setting_delegates#core-in-app-message-delegate) `beforeInAppMessageDisplayed:` ou o [método delegado de UI]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/customization/setting_delegates#in-app-message-delegate) descontinuado `beforeInAppMessageDisplayed:withKeyboardIsUp:` retornou `ABKDisplayInAppMessageLater`.
 
-#### Descarte de mensagens no app {#discarding-in-app-messages}
+#### Descartando mensagens no app {#discarding-in-app-messages}
 
 Uma mensagem no app disparada será descartada nas seguintes situações:
 
-- O [método delegado]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/in-app_messaging/customization/setting_delegates#core-in-app-message-delegate) `beforeInAppMessageDisplayed:` ou o [método delegado de interface]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/in-app_messaging/customization/setting_delegates#in-app-message-delegate) obsoleto `beforeInAppMessageDisplayed:withKeyboardIsUp:` retornou `ABKDiscardInAppMessage`.
-- O ativo (imagem ou arquivo ZIP) da mensagem no app não foi baixado.
-- A mensagem no app está pronta para ser exibida, mas ultrapassou o tempo limite.
+- O [método delegado]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/customization/setting_delegates#core-in-app-message-delegate) `beforeInAppMessageDisplayed:` ou o [método delegado de UI]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/customization/setting_delegates#in-app-message-delegate) descontinuado `beforeInAppMessageDisplayed:withKeyboardIsUp:` retornou `ABKDiscardInAppMessage`.
+- O ativo (imagem ou arquivo ZIP) da mensagem no app falhou ao ser baixado.
+- A mensagem no app está pronta para ser exibida, mas excedeu o tempo limite de duração.
 - A orientação do dispositivo não corresponde à orientação da mensagem no app disparada.
-- A mensagem no app é uma mensagem no app em tela cheia, mas não tem imagem.
-- A mensagem no app é uma mensagem modal no app somente de imagem, mas não tem imagem.
+- A mensagem no app é uma mensagem no app em tela cheia, mas não possui imagem.
+- A mensagem no app é uma mensagem no app modal somente com imagem, mas não possui imagem.
 
 #### Enfileirar manualmente a exibição de mensagens no app {#manually-queue-in-app-message-display}
 
-Para exibir uma mensagem no app em outros momentos no app, você poderá exibir manualmente a mensagem no app que estiver mais à frente na pilha chamando o método a seguir:
+Se você deseja exibir uma mensagem no app em outros momentos dentro do seu app, pode exibir manualmente a mensagem no app do topo da pilha chamando o seguinte método:
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -126,7 +126,7 @@ Appboy.sharedInstance()!.inAppMessageController.displayNextInAppMessage()
 
 ### Criação e exibição de mensagens no app em tempo real {#real-time-in-app-message-creation-and-display}
 
-As mensagens no app também podem ser criadas localmente no aplicativo e exibidas via Braze. Isso é particularmente útil para exibir mensagens que você deseja disparar no app em tempo real. A Braze não oferece suporte à análise de dados em mensagens no app criadas localmente.
+Mensagens no app também podem ser criadas localmente dentro do app e exibidas pela Braze. Isso é particularmente útil para exibir mensagens que você deseja disparar dentro do app em tempo real. A Braze não oferece suporte a análise de dados em mensagens no app criadas localmente.
 
 {% tabs %}
 {% tab OBJECTIVE-C %}

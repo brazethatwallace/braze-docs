@@ -4,7 +4,6 @@ article_title: Merkury
 description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Merkury, einer Unternehmensidentitätsplattform für Ihre Apps, die es Ihnen erlaubt, die `MerkuryID` zu nutzen, um die Erkennungsrate von Website-Besucher:innen für Braze-Kund:innen zu erhöhen."
 page_type: partner
 search_tag: Partner
-
 ---
 
 # Merkury
@@ -15,48 +14,48 @@ _Diese Integration wird von Merkury gepflegt._
 
 ## Über die Integration {#about-the-integration}
 
-Die Integration von Braze und Merkury erlaubt es Ihnen, die `MerkuryID` zu nutzen, um die Erkennungsrate von Website-Besucher:innen für Braze-Kund:innen zu erhöhen. Wenn Merkury erkennt, dass Besucher:innen E-Mail-Abonnent:innen der Marke sind, aktualisiert es das Braze-Profil und fügt die E-Mail-Adresse der Abonnent:innen hinzu. Die verbesserten Erkennungsmöglichkeiten der `MerkuryID` steigern das Engagement und die Personalisierungschancen und erhöhen sofort die Anzahl der gesendeten E-Mails bei Website-Abbrüchen sowie den damit verbundenen Umsatz.
+Die Integration von Braze und Merkury ermöglicht es Ihnen, die `MerkuryID` zu nutzen, um die Erkennungsraten von Website-Besucher:innen für Braze-Kund:innen zu erhöhen. Wenn Besucher:innen erkannt werden, die E-Mail-Abonnent:innen der Marke sind, aktualisiert Merkury das Braze-Profil und fügt die E-Mail-Adresse der Abonnent:innen hinzu. Die verbesserten Erkennungsfähigkeiten der `MerkuryID` steigern die Möglichkeiten für Engagement und Personalisierung und erhöhen unmittelbar die Versandmengen von E-Mails bei Website-Abbrüchen sowie den damit verbundenen Umsatz.
 
 ## Voraussetzungen {#prerequisites}
 
 | Anforderung | Beschreibung |
 | --- | --- |
-| Merkle-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Merkle-Konto. |
-| Merkle-Client-ID | Erhalten Sie Ihre Client-ID von Ihrer Merkle-Vertretung. |
-| Merkury-Tag | Platzieren Sie den Merkle-Merkury-Tag auf Ihrer Website. |
-| Braze-REST- und SDK-Endpunkt | Ihre REST- oder SDK-Endpunkt-URL. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/api/basics/#endpoints) ab. |
-| Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit den Berechtigungen `users.track, users.export.ids, users.export.segment, and segments.list`. <br><br>Dieser kann über **Braze-Dashboard > Entwicklungskonsole > REST-API-Schlüssel > Neuen API-Schlüssel erstellen** erstellt werden. |
+| Merkle-Konto | Ein Merkle-Konto ist erforderlich, um diese Partnerschaft zu nutzen. |
+| Merkle Client-ID | Erhalten Sie Ihre Client-ID von Ihrer Merkle-Vertretung. |
+| Merkury-Tag | Platzieren Sie den Merkury-Tag von Merkle auf Ihrer Website. |
+| Braze REST- und SDK-Endpunkt | Ihre REST- oder SDK-Endpunkt-URL. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/api/basics#endpoints) ab. |
+| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit den Berechtigungen `users.track, users.export.ids, users.export.segment, and segments.list`. <br><br>Dieser kann unter **Braze-Dashboard > Entwicklungskonsole > REST-API-Schlüssel > Neuen API-Schlüssel erstellen** erstellt werden. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 {% alert important %}
-Die Anfragen des Merkury-Identitätskonnektors an Braze bewegen sich im Rahmen der Braze-API-Rate-Limits. Kontaktieren Sie Braze oder Ihre:n Merkle-Account-Manager:in, wenn Sie Fragen haben.<br><br>Merkury sendet mindestens eine Anfrage am Ende einer qualifizierten Sitzung.
+Die Anfragen des Merkury-Identitätskonnektors an Braze erfolgen innerhalb der Braze-API-Rate-Limits. Wenden Sie sich an Braze oder Ihre:n Merkle Account Manager:in, wenn Sie Fragen haben.<br><br>Merkury sendet mindestens eine Anfrage am Ende einer qualifizierten Sitzung.
 {% endalert %}
 
-## Side-by-side-SDK-Integration
+## Side-by-Side-SDK-Integration
 
-Verwendet den clientseitigen Merkury-Tag von Merkle, um Braze-Geräte zu erfassen, und leitet sie zur Identifizierung an den Endpunkt des Merkury-Identitätskonnektors weiter.
+Nutzt Merkles clientseitigen Merkury-Tag, um Braze-Geräte zu erfassen und an den Merkury-Identity-Konnektor-Endpunkt zur Identifizierung weiterzuleiten.
 
-### 1. Schritt: Braze-Web-SDK-Tag einrichten {#step-1-setup-braze-web-sdk-tag}
+### Schritt 1: Braze Web SDK-Tag einrichten {#step-1-setup-braze-web-sdk-tag}
 
-Sie müssen das [Braze Web SDK]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup/#install-gtm) auf Ihrer Website installiert haben, um diese Integration nutzen zu können.
+Sie müssen das [Braze Web SDK]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup#install-gtm) auf Ihrer Website bereitgestellt haben, um diese Integration nutzen zu können.
 
-### 2. Schritt: Merkury-Tag von Merkle bereitstellen {#step-2-deploy-merkles-merkury-tag}
+### Schritt 2: Merkles Merkury-Tag bereitstellen {#step-2-deploy-merkles-merkury-tag}
 
-Setzen Sie den Merkury-Tag auf Ihrer Website ein, um den Merkury-Identitätskonnektor auf Ihrer Website verfügbar zu machen. Ihre:r Merkle-Account-Manager:in wird Ihnen einen detaillierten Leitfaden mit Anweisungen zur Verfügung stellen.
+Stellen Sie den Merkury-Tag auf Ihrer Website bereit, um den Merkury-Identity-Konnektor auf Ihrer Website verfügbar zu machen. Ihr Merkle Account Manager:in stellt Ihnen eine detaillierte Anleitung mit Anweisungen zur Verfügung.
 
-### 3. Schritt: Angepasste Attribute erstellen {#step-3-create-custom-attributes}
+### Schritt 3: Angepasste Attribute erstellen {#step-3-create-custom-attributes}
 
-Der Merkury-Identitätskonnektor füllt die folgenden Felder auf, die Sie in Braze als [angepasste Attribute]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#custom-attributes) erstellen müssen.
+Der Merkury-Identity-Konnektor befüllt die folgenden Felder, die Sie in Braze als [angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) erstellen müssen.
 
 | Attributname | Datentyp | Beschreibung |
 | --- | --- | --- |
-| `hmid` | String | Merkury-ID von Merkle |
-| `confidence_score` | Zahl | Wie sicher Merkury bei der Identifizierung war (1–8, niedriger ist besser) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="3. Schritt: Angepasste Attribute erstellen" }
+| `hmid` | String | Merkles Merkury-ID |
+| `confidence_score` | Zahl | Wie sicher Merkury die Identifizierung vornehmen konnte (1–8, niedriger ist besser) |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Schritt 3: Angepasste Attribute erstellen" }
 
-### 4. Schritt: Merkle mit dem E-Mail-Universum der Nutzer:innen versorgen {#step-4-provide-merkle-with-user-email-universe}
+### Schritt 4: Merkle das E-Mail-Universum der Nutzer:innen bereitstellen {#step-4-provide-merkle-with-user-email-universe}
 
-Merkle empfiehlt einen Segmentierungsexport Ihres zulässigen E-Mail-Universums. Dies kann durch tägliche Exporte aktiver zulässiger Nutzer:innen ergänzt werden.
+Merkle empfiehlt einen Segmentierungsexport Ihres zulässigen E-Mail-Universums. Darauf können tägliche Exporte aktiver zulässiger Nutzer:innen folgen.
 
 Die folgenden Felder sind erforderlich:
 
@@ -64,4 +63,4 @@ Die folgenden Felder sind erforderlich:
 - `external_id`
 - E-Mail-Adresse
 
-Wenden Sie sich für weitere Informationen an Ihre Braze-Vertretung.
+Wenden Sie sich an Ihre Braze-Vertretung für weitere Informationen.

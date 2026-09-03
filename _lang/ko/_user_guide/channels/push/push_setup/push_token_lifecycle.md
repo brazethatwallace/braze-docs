@@ -52,7 +52,7 @@ channel:
 푸시 공급자(APNs/FCM)가 하나의 기기에서 여러 사용자를 구분할 방법이 없기 때문에, 마지막으로 로그인한 사용자에게 푸시 토큰을 전달하여 기기에서 푸시를 타겟팅할 사용자를 결정합니다.
 
 {% alert tip %}
-**Contact Settings** > **Push Changelog**에서 오류 메시지가 표시되면, [일반적인 푸시 오류 메시지]({{site.baseurl}}/user_guide/channels/push/push_error_codes)에서 설명과 다음 단계를 확인하세요.
+**Contact Settings** > **Push 체인지로그**에서 오류 메시지가 표시되면, [일반적인 푸시 오류 메시지]({{site.baseurl}}/user_guide/channels/push/push_error_codes)에서 설명과 다음 단계를 확인하세요.
 {% endalert %}
 
 ## 푸시 토큰 등록 {#push-token-registration}

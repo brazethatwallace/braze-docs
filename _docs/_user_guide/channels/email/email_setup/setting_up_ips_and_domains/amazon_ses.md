@@ -75,4 +75,7 @@ This is based on the rule that the click tracking domain needs to match at least
 
 ## Next steps
 
-- [Set up SSL]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl)
+{% article_tiles %}
+- name: Set up SSL
+  link: /docs/user_guide/channels/email/email_setup/ssl
+{% endarticle_tiles %}

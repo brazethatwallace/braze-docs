@@ -100,7 +100,7 @@ A guia **Engajamento** contém informações sobre as interações de um usuári
 ### Guia Histórico de eventos {#event-history-tab}
 
 {% alert note %}
-Para visualizar a guia **Histórico de eventos**, você precisa das [permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) **Search Users**, **View User Event Properties** e **View PII**, pois as propriedades de eventos podem conter dados pessoais.
+Para visualizar a guia **Histórico de eventos**, você precisa das [permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) **Search Users**, **View User Event Properties** e **View IPI**, pois as propriedades de eventos podem conter dados pessoais.
 {% endalert %}
 
 A guia **Histórico de eventos** mostra os eventos personalizados e as compras que um usuário registrou. Use-a para verificar se os dados de eventos estão chegando corretamente e solucionar problemas no nível do usuário diretamente no dashboard, sem necessidade de exportações de dados ou ferramentas externas.

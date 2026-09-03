@@ -44,4 +44,4 @@ WhatsApp 구독 그룹을 아카이브하려면 다음 단계를 따르세요:
 ## 고려 사항 {#considerations}
 
 - WhatsApp 전화번호를 원래 워크스페이스로 다시 전환해야 하는 경우, 동일한 단계를 반복하세요. 대상 워크스페이스에서 구독 그룹을 아카이브한 다음, 원래 워크스페이스에 통합합니다.
-- 전환 과정에서 Meta Business Manager에서 WhatsApp 전화번호를 제거할 필요는 없습니다.
+- 전환 과정에서 Meta Business 매니저에서 WhatsApp 전화번호를 제거할 필요는 없습니다.

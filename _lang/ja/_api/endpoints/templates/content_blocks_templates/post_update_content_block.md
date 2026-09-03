@@ -6,7 +6,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "この記事では、「コンテンツブロックを更新する」Brazeエンドポイントの詳細について説明します。"
-
 ---
 {% api %}
 # コンテンツブロックを更新する {#update-content-block}
@@ -23,7 +22,7 @@ description: "この記事では、「コンテンツブロックを更新する
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#4782239a-cb60-4217-9de0-51411434d57d {% endapiref %}
 
 ## 前提条件 {#prerequisites}
-このエンドポイントを使用するには、`content_blocks.update` 権限を持つ[APIキー]({{site.baseurl}}/api/api_key)が必要です。
+このエンドポイントを使用するには、`content_blocks.update` 権限を持つ[APIキー]({{site.baseurl}}/api/basics)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -54,7 +53,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | `content_block_id` | 必須 | 文字列 | コンテンツブロックのAPI識別子。|
 | `name` | オプション | 文字列 | コンテンツブロックの名前。100文字未満でなければなりません。 |
 | `description` | オプション | 文字列 | コンテンツブロックの説明。250文字未満でなければなりません。 |
-| `content` | オプション | 文字列 | Content Blocks内のHTMLまたはテキストコンテンツ。 |
+| `content` | オプション | 文字列 | コンテンツブロック内のHTMLまたはテキストコンテンツ。 |
 | `state` | オプション | 文字列 | `active` または `draft` を選択します。指定がない場合のデフォルトは `active` です。 |
 | `tags` | オプション | 文字列の配列 | [タグ]({{site.baseurl}}/user_guide/messaging/governance/tags)はすでに存在している必要があります。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }

@@ -181,7 +181,21 @@ table td {
 | Banner    | Cualquier relación de aspecto | 600&nbsp;px de anchura mínima |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tabla" }
 
-Para más información, consulta [Detalles creativos de Content Cards]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details).
+Para más información, consulta [Detalles creativos de Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/creative_details).
+
+{% endif %}
+
+{% if include.variable_name == "sms and mms" %}
+
+Los mensajes MMS admiten una sola imagen por mensaje. Solo los grupos de suscripción habilitados para MMS pueden enviar imágenes.
+
+| Propiedad | Recomendación |
+| --- | --- |
+| Tamaño | 600&nbsp;KB o menos para una entrega fiable por parte del operador. El creador bloquea las subidas superiores a 1&nbsp;MB. |
+| Tipos de archivo | PNG, JPEG, GIF |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SMS y MMS" }
+
+Para conocer los límites de tamaño de archivo y rendimiento del operador, consulta [Límites y rendimiento de los mensajes MMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup#mms-message-limits-and-throughput).
 
 {% endif %}
 

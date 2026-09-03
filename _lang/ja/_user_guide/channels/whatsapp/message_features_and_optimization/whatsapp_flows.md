@@ -6,7 +6,7 @@ description: "このリファレンス記事では、WhatsApp Flowsメッセー�
 alias: /whatsapp_flows/
 page_type: reference
 tool:
-  - キャンバス
+  - Canvas
 channel:
   - WhatsApp
 ---
@@ -19,30 +19,34 @@ channel:
 
 1. Metaアカウントにログインします。
 2. 以下の2つの主要な場所のいずれかからFlowsを作成します。
-    - **アカウントツール:** **Flows**タブに移動して、Flow IDを確認し、新しいFlowを作成します。
-    - **テンプレートの管理:** Flowsを作成するための推奨方法です。ここでは、テンプレートを生成し、テンプレート作成プロセス中にFlowオプションを選択できます。
+    - **アカウントツール：** **Flows**タブに移動して、Flow IDを表示し、新しいFlowを作成します。
+    - **テンプレートの管理：** Flowsを作成する場合は、この方法が推奨されます。ここでは、テンプレートを生成し、テンプレート作成プロセス中にFlowオプションを選択できます。
 
 ![Flowsテンプレートを作成するページが表示されたWhatsApp Manager。]({% image_buster /assets/img/whatsapp/flows/create_flows_template.png %})
 
+{% alert tip %}
+Brazeの[WhatsAppテンプレートビルダー]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder)を使用して、マーケティングまたはユーティリティのFlowテンプレートを作成することもできます。MetaのWhatsApp マネージャーでFlow自体を作成・管理し、Brazeでテンプレートを作成する際にそのFlowを選択します。
+{% endalert %}
+
 {: start="3"}
 3. 既存のFlowを選択するか、新しいFlowを作成します。Flowを作成する場合は、以下の2つのオプションから選択します。
-  - **カスタムフォーム:** 特定の要件がある場合
-  - **事前デザイン済み要素:** より迅速なセットアップの場合
+  - **カスタムフォーム：** 特定の要件がある場合
+  - **デザイン済み要素：** より迅速な設定を行う場合
 
 ## WhatsApp Flowメッセージとレスポンスの設定 {#configuring-whatsapp-flow-messages-and-responses}
 
 {% tabs local %}
 {% tab テンプレートメッセージ %}
 
-1. Brazeのキャンバスで、該当するFlowを含むテンプレートメッセージを使用するWhatsAppメッセージステップを作成します。
-2. テンプレートの作成を続けます。必要に応じて、メディア、変数コンテンツ、またはその両方をメッセージに追加します。Flowの選択はテンプレート作成時に行われるため、Flowエクスペリエンスに関する追加情報は不要です。
+1. Brazeキャンバスで、該当するFlowを含むテンプレートメッセージを使用するWhatsAppメッセージステップを作成します。
+2. テンプレートの作成を続けます。必要に応じて、メディアや変数コンテンツ、またはその両方をメッセージに追加します。Flowの選択はテンプレート作成時に行われるため、Flowエクスペリエンスの追加情報は不要です。
 
 ![WhatsApp Flowテンプレートを使用したWhatsAppメッセージ作成画面。]({% image_buster /assets/img/whatsapp/flows/composer_flow_template.png %}){: style="max-width:80%;"}
 
 {% endtab %}
 {% tab レスポンスメッセージ %}
 
-1. Brazeのキャンバスで、レスポンスメッセージとFlowメッセージを使用するWhatsAppメッセージステップを作成します。
+1. Brazeキャンバスで、レスポンスメッセージとFlowメッセージを使用するWhatsAppメッセージステップを作成します。
 
 ![WhatsAppレスポンスメッセージタイプとFlowメッセージレイアウトのメッセージステップ。]({% image_buster /assets/img/whatsapp/flows/message_step_flow_message.png %}){: style="max-width:80%;"}
 
@@ -56,9 +60,9 @@ channel:
 
 ### Flowのプレビュー {#preview-flow}
 
-Flowを含むキャンバスを起動する前に、**Preview Flow**を選択して、Braze内で直接Flowをプレビューし、期待どおりに動作することを確認できます。プレビューでFlowを操作して、ユーザーがFlowをどのようにナビゲートするかを体験し、リアルタイムで調整を行うこともできます。Flowに複数のページが含まれている場合は、各ページを操作できます。
+Flowを含むキャンバスを起動する前に、**Preview Flow**を選択してBraze内で直接Flowをプレビューし、期待どおりに動作することを確認できます。また、プレビューでFlowを操作して、ユーザーがFlowをどのようにナビゲートするかを体験し、リアルタイムで調整を行うこともできます。Flowに複数のページが含まれている場合は、各ページを操作できます。
 
-![ユーザーがサインアップを完了するためのフォームが表示されたプレビューウィンドウ。]({% image_buster /assets/img/whatsapp/flows/flow_preview.png %}){: style="max-width:50%;"}
+![ユーザーがサインアップを完了するためのフォームを表示するプレビューウィンドウ。]({% image_buster /assets/img/whatsapp/flows/flow_preview.png %}){: style="max-width:50%;"}
 
 ## Flowレスポンス全体の保存 {#full-flow}
 
@@ -129,66 +133,66 @@ Flowが完了すると、BrazeはFlow IDに基づいた名前でFlowカスタム
 - **一貫性:** 生成されたFlowカスタム属性は一貫しており、使用されるキャンバスに関係なく、この特定のFlowに対して同じ属性になります。
 - **手動オプション:** **Flowレスポンスをカスタム属性として保存**チェックボックスを選択する必要はありません。[Flowレスポンスから特定のフィールドを特定のカスタム属性に保存する](#saving-specific-fields-from-flow-responses-to-a-specific-custom-attribute)ことで、カスタム属性を手動で生成でき、ユーザーステップの重複を回避できます。
 
-## Flowレスポンスから特定のフィールドを特定のカスタム属性に保存する {#saving-specific-fields-from-flow-responses-to-a-specific-custom-attribute}
+## Flowの回答から特定のフィールドを特定のカスタム属性に保存する {#saving-specific-fields-from-flow-responses-to-a-specific-custom-attribute}
 
-### ステップ 1: アクションパスの作成 {#step-1-create-an-action-path}
+### ステップ1：アクションパスを作成する {#step-1-create-an-action-path}
 
-[アクションパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)のキャンバスステップまたはアクションベースのキャンペーンを作成します。**WhatsApp インバウンドメッセージを送信**トリガーと**フローに応答しました**条件を選択し、該当するFlowまたは**任意のフロー**を選択します。
+[アクションパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)キャンバスステップまたはアクションベースのキャンペーンを作成します。**WhatsApp受信メッセージを送信**トリガーと**Flowに回答済み**条件を選択し、該当するFlowまたは**任意のFlow**を選択します。
 
-![WhatsAppインバウンドメッセージを送信し、任意のFlowに応答したユーザーのトリガー。]({% image_buster /assets/img/whatsapp/flows/trigger_responded_flow.png %})
+![WhatsApp受信メッセージを送信し、任意のFlowに回答したユーザーに対するトリガー。]({% image_buster /assets/img/whatsapp/flows/trigger_responded_flow.png %})
 
-### ステップ 2: Flowレスポンスからフィールドを抽出する {#step-2-extract-fields-from-flow-responses}
+### ステップ2：Flowの回答からフィールドを抽出する {#step-2-extract-fields-from-flow-responses}
 
-階層化カスタム属性または`json_parse` Liquidタグを使用して、Flowレスポンスから特定のフィールドを抽出できます。
+階層化カスタム属性または`json_parse` Liquidタグを使用して、Flowの回答から特定のフィールドを抽出できます。
 
 {% tabs %}
 {% tab 階層化カスタム属性 %}
 
-ユーザーのFlowレスポンスの特定の部分を保存するには、**キャンバスの起動を含む**[Flowレスポンス全体の保存](#full-flow)のすべてのステップを完了します。キャンバスを起動して、参照する階層化カスタム属性を作成する必要があります。キャンバスを起動してFlowを完了した後、以下のステップを実行します。
+ユーザーのFlow回答の特定の部分を保存するには、[Flowの完全な回答を保存する](#full-flow)のすべてのステップを完了してください（**キャンバスの起動を含む**）。参照する階層化カスタム属性を作成するために、キャンバスを起動する必要があります。キャンバスを起動してFlowを完了したら、以下のステップを実行します。
 
-1. UIエディターを使用する後続のユーザーの更新ステップを作成します。
-2. **Add Personalization**を選択し、**Nested Custom Attribute**とFlowが保存されている対応するトップレベル属性を選択します。
+1. UIエディターを使用する後続のユーザー更新ステップを作成します。
+2. **パーソナライゼーションを追加**を選択し、**階層化カスタム属性**とFlowが保存されている対応するトップレベルの属性を選択します。
 
-![階層化カスタム属性のパーソナライゼーションを使用したユーザーの更新ステップ。]({% image_buster /assets/img/whatsapp/flows/nested_custom_attributes.png %})
+![階層化カスタム属性のパーソナライゼーションを含むユーザー更新ステップ。]({% image_buster /assets/img/whatsapp/flows/nested_custom_attributes.png %})
 
 {: start="3" }
-3. 保存したいキー属性を選択し、**Key Value**フィールドにLiquidを挿入します。
+3. 保存したいキー属性を選択し、Liquidを**キー値**フィールドに挿入します。
 
-![選択可能な属性が表示された「flow_1」のウィンドウ。]({% image_buster /assets/img/whatsapp/flows/attribute_key.png %})
+![選択可能な属性を含む「flow_1」のウィンドウ。]({% image_buster /assets/img/whatsapp/flows/attribute_key.png %})
 
 {: start="4" }
 4. 保存先の属性を選択します。
 5. テストメッセージを送信してFlowをテストします。
 
 {% endtab %}
-{% tab パース関数 %}
+{% tab Parse関数 %}
 
-`json_parse` Liquidタグを使用して、Flowから特定のレスポンスを抽出します。例えば、Flowトークンと選択されたオプションを取得して、フォローアップメッセージをカスタマイズできます。
+`json_parse` Liquidタグを使用して、Flowから特定の回答を抽出します。たとえば、Flowトークンと選択されたオプションを取り出して、フォローアップメッセージをカスタマイズできます。
 
-UIエディターで、以下を選択します。
+UIエディターで以下を選択します。
 
-- **Attribute Name:** YOUR_CUSTOM_ATTRIBUTE（この例では「First_name」）
-- **Action:** Update
-- **Key Value:** {% raw %} `{% assign parsed_json = {{whats_app.${inbound_flow_response}}} | json_parse %}{{ parsed_json.FIELDS_THAT_APPLY }}`{% endraw %}
+- **属性名：** YOUR_CUSTOM_ATTRIBUTE（この例では「First_name」）
+- **アクション：** 更新
+- **キー値：** {% raw %} `{% assign parsed_json = {{whats_app.${inbound_flow_response}}} | json_parse %}{{ parsed_json.FIELDS_THAT_APPLY }}`{% endraw %}
 
-![カスタム属性`inbound_flow_response`を使用したWhatsAppプロパティのパーソナライゼーションを挿入する「Add Personalization」コンポーネントが表示されたWhatsAppメッセージ作成画面。]({% image_buster /assets/img/whatsapp/flows/parsed_json.png %})
+![カスタム属性`inbound_flow_response`を使用したWhatsAppプロパティのパーソナライゼーションを挿入する「パーソナライゼーションを追加」コンポーネントを含むWhatsAppメッセージ作成画面。]({% image_buster /assets/img/whatsapp/flows/parsed_json.png %})
 
-準備ができたら、テストメッセージを送信してFlowをテストします。その後、キャンバスを起動しましょう！
+準備ができたら、テストメッセージを送信してFlowをテストします。その後、キャンバスを起動してください。
 
 {% endtab %}
 {% endtabs %}
 
 {% alert note %}
-新しいWhatsAppメッセージは、キャンバスがLiquid Flowレスポンスを使用（および再利用）する機能を「クリア」するため、フォローアップメッセージは、Liquid Flowレスポンスを使用するすべてのユーザーの更新ステップ、webhook、またはその他のステップの後に配置してください。
+新しいWhatsAppメッセージは、キャンバスがLiquid Flowの回答を使用（および再使用）する機能を「クリア」します。そのため、フォローアップメッセージは、Liquid Flowの回答を使用するすべてのユーザー更新ステップ、webhook、またはその他のステップの後に配置してください。
 {% endalert %}
 
 ## Flowパーソナライゼーションタグの追加 {#adding-a-flow-personalization-tag}
 
-[サポートされているパーソナライゼーションタグ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags)を使用してLiquidでFlowレスポンスを利用するには、以下のステップを完了します。
+[サポートされているパーソナライゼーションタグ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags)でLiquidを使用してFlowのレスポンスを利用するには、以下のステップを完了してください。
 
-1. WhatsAppメッセージの作成時に、<i class="fas fa-plus-circle"></i> **Add Personalization**を選択して**Add Personalization**ウィンドウを開きます。
-2. パーソナライゼーションタイプとして**WhatsApp Properties**を選択し、カスタム属性として**inbound_flow_response**を選択します。これを使用して、ユーザープロファイルに情報を保存したり、メッセージに含めたり、webhookなどの他のサービスに転送したりできます。
+1. WhatsAppメッセージを作成する際に、<i class="fas fa-plus-circle" aria-label="パーソナライゼーションを追加"></i> **パーソナライゼーションを追加**を選択して、**パーソナライゼーションを追加**ウィンドウを開きます。
+2. パーソナライゼーションタイプとして**WhatsAppプロパティ**を選択し、カスタム属性として**inbound_flow_response**を選択します。これにより、ユーザープロファイルに情報を保存したり、メッセージに含めたり、webhookなどの他のサービスに転送したりできます。
 
-![カスタム属性inbound_flow_responseを使用したWhatsAppプロパティのパーソナライゼーションを挿入する「Add Personalization」コンポーネントが表示されたWhatsAppメッセージ作成画面。]({% image_buster /assets/img/whatsapp/flows/inbound_flow_response.png %}){: style="max-width:80%;"}
+![WhatsAppメッセージ作成画面。「パーソナライゼーションを追加」コンポーネントにより、カスタム属性 inbound_flow_response を使用したWhatsAppプロパティのパーソナライゼーションを挿入できます。]({% image_buster /assets/img/whatsapp/flows/inbound_flow_response.png %}){: style="max-width:80%;"}
 
-ご質問やサポートが必要な場合は、[サポート]({{site.baseurl}}/braze_support)にお問い合わせください。
+ご質問やサポートが必要な場合は、[サポート]({{site.baseurl}}/user_guide/administer/personal/braze_support)にお問い合わせください。

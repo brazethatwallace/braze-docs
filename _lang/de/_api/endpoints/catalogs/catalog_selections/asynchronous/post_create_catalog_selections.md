@@ -45,10 +45,10 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 | ---------------- | -------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `name`           | Erforderlich | String    | Der Name der Katalogauswahl. |
 | `description`    | Optional | String    | Eine Beschreibung der Katalogauswahl. |
-| `external_id`    | Erforderlich | String    | Ein eindeutiger Bezeichner für die Auswahl. |
-| `source`         | Erforderlich | String    | Die Quelle der Katalogdaten. Für Shopify-Kataloge verwenden Sie `"Shopify"`. Für angepasste Kataloge verwenden Sie `"custom"`. |
-| `filters`        | Optional | Array    | Ein Array von Filterobjekten, die auf die Katalogartikel angewendet werden sollen. Sie können bis zu vier Filter pro Anfrage angeben. Wenn keine Filter angegeben werden, werden alle Artikel aus dem Katalog einbezogen. |
-| `results_limit`  | Optional | Integer   | Die maximale Anzahl der zurückzugebenden Ergebnisse. Es muss sich um eine Zahl zwischen 1 und 50 handeln. |
+| `external_id`    | Optional | String    | Ein eindeutiger Bezeichner für die Auswahl. |
+| `source`         | Optional | String    | Die Quelle der Katalogdaten. Für Shopify-Kataloge setzen Sie diesen Wert auf `"Shopify"`. Zulässige Werte sind `"Shopify"` und `"Braze"`. |
+| `filters`        | Erforderlich | Array    | Ein Array von Filterobjekten, die auf die Katalogartikel angewendet werden sollen. Sie können bis zu zehn Filter pro Anfrage angeben. Wenn ein leeres Filter-Array angegeben wird, werden alle Artikel aus dem Katalog einbezogen. |
+| `results_limit`  | Erforderlich | Integer   | Die maximale Anzahl der zurückzugebenden Ergebnisse. Es muss sich um eine Zahl zwischen 1 und 50 handeln. |
 | `sort_field`     | Optional | String    | Das Feld, nach dem die Ergebnisse sortiert werden sollen. Dies muss zusammen mit `sort_order` verwendet werden. Wenn weder `sort_field` noch `sort_order` vorhanden sind, werden die Ergebnisse in zufälliger Reihenfolge zurückgegeben. |
 | `sort_order`     | Optional | String    | Die Reihenfolge, in der die Ergebnisse sortiert werden sollen. Zulässige Werte sind `"asc"` (aufsteigend) oder `"desc"` (absteigend). Dies muss zusammen mit `sort_field` verwendet werden. Wenn weder `sort_field` noch `sort_order` vorhanden sind, werden die Ergebnisse in zufälliger Reihenfolge zurückgegeben. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
@@ -68,7 +68,7 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
     "name": "favorite-restaurants",
     "description": "Favorite restaurants in NYC",
     "external_id": "favorite-nyc-restaurants",
-    "source": "custom",
+    "source": "Braze",
     "filters": [
       {
         "field": "City",
@@ -101,7 +101,7 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert note %}
-Die API unterstützt maximal vier Filter pro Auswahlanfrage. Im Braze-Dashboard können Sie bis zu 10 Filter pro Auswahl hinzufügen. Filter werden in der Reihenfolge angewendet, in der sie im Array erscheinen.
+Die API unterstützt maximal zehn Filter pro Auswahlanfrage. Filter werden in der Reihenfolge angewendet, in der sie im Array erscheinen.
 {% endalert %}
 
 {% alert note %}

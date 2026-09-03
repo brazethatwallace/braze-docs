@@ -1,4 +1,4 @@
-2025년 7월 1일부터 WhatsApp은 메시지당 과금 방식을 적용합니다. 메시지 요금은 수신자 전화번호의 국가 코드와 발송하는 메시지 유형에 따라 결정됩니다. 메시지 유형은 WhatsApp Manager에서 승인을 위해 제출하는 [메시지 템플릿](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines/)에 의해 결정됩니다.
+2025년 7월 1일부터 WhatsApp은 메시지당 과금 방식을 적용합니다. 메시지 요금은 수신자 전화번호의 국가 코드와 발송하는 메시지 유형에 따라 결정됩니다. 메시지 유형은 WhatsApp 매니저에서 승인을 위해 제출하는 [메시지 템플릿](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines/)에 의해 결정됩니다.
 
 {% alert note %}
 플랫폼에서 비즈니스가 시작하는 모든 대화는 승인된 템플릿 메시지로 시작해야 합니다.
@@ -6,7 +6,7 @@
 
 {% if include.content == "h2" %}##{% else include.content == "h3" %}###{% endif %} 메시지 템플릿 정의
 
-WhatsApp Manager에서 승인을 위해 제출할 수 있는 메시지 템플릿은 다음과 같습니다.
+WhatsApp 매니저에서 승인을 위해 제출할 수 있는 메시지 템플릿은 다음과 같습니다.
 
 | 템플릿 | 정의 |
 |----------|------------|

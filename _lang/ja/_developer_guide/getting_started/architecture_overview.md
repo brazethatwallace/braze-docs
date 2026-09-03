@@ -60,9 +60,8 @@ Brazeはさまざまな機能に対して異なるデータストレージシス
 #### Snowflakeを活用した機能 {#snowflake-powered-features}
 - [SQLセグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments)
 - [予測スイート]({{site.baseurl}}/user_guide/brazeai)
-- [パーソナライズされたパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths)と[パーソナライズされたバリアント]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing/optimizations#personalized-variant)
 - [AIによるパーソナライズされた商品レコメンデーション]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai)
-- [推定実開封率]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/email_reporting#estimated-real-open-rate)（カスタムイベントを使用しません）
+- [推定実開封率]({{site.baseurl}}/user_guide/channels/email/reporting#estimated-real-open-rate)（カスタムイベントを使用しません）
 
 {% alert important %}
 **データ削除に関する考慮事項：** カスタムイベントはMongoDBに保存され、Snowflakeのデータとは別物です。誤ったカスタムイベントデータを削除する必要がある場合、MongoDBで対処しなければなりません。Snowflakeを活用した機能（SQLセグメントエクステンションやその他のSnowflakeを活用した機能など）は、Snowflakeのデータを使用しており、別途扱われます。一方のシステムからデータを削除しても、もう一方のシステムから自動的に削除されるわけではありません。
@@ -120,31 +119,31 @@ Brazeは、チャネルに依存しないユーザー中心のデータモデル
 ![SDKを通じて利用可能なBrazeメッセージングチャネルの図]({% image_buster /assets/img/getting_started/channels.png %})
 
 ## データのエクスポート {#exporting-data}
-重要なことに、すべてのエンドユーザーのBrazeとのやり取りが追跡されるため、エンゲージメントとアウトリーチを測定できます。そして、Brazeがこれらすべてのソースからデータを集約した後、さまざまなツールを使用してテックスタックにデータをエクスポートし、ループを閉じることができます。
+重要な点として、Brazeではエンドユーザーとのすべてのインタラクションが追跡されるため、エンゲージメントやアウトリーチを測定できます。また、Brazeがこれらすべてのソースからデータを集約した後、さまざまなツールを使用してデータをテックスタックにエクスポートし、ループを完結させることができます。
 
 ### Currents
-[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)は、スタックの他の送信先に継続的にフィードするきめ細かいストリーミングエクスポートを提供するオプションのBrazeアドオンです。Currentsは、ユーザーごとのイベントごとの生データフィードで、5分ごと、または15,000イベントごとにデータをエクスポートします（どちらか早い方）。Currentsの下流の送信先の例としては、セグメント、S3、Redshift、Mixpanelなどがあります。
+[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)はBrazeのオプションアドオンで、スタック内の他の送信先に継続的にフィードする詳細なストリーミングエクスポートを提供します。Currentsはユーザーごと・イベントごとの生データフィードで、5分ごと、または15,000イベントごと（いずれか早い方）にデータをエクスポートします。Currentsの下流の送信先の例としては、セグメント、S3、Redshift、Mixpanelなどがあります。
 
 ### Snowflakeデータ共有 {#snowflake-data-sharing}
-Snowflakeの[Secure Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake)機能により、Brazeは、ワークフローの摩擦、障害ポイント、一般的なデータプロバイダー関係に伴う不要なコストを気にせずに、Snowflakeポータルのデータに安全にアクセスできるようになります。共有はすべてSnowflakeのユニークなサービスレイヤーとメタデータストアを通じて行われます。データは実際にはアカウント間でコピーまたは転送されません。共有データはコンシューマーアカウントのストレージを一切使用しないため、これは重要な概念です。したがって、毎月のデータストレージ料金には影響しません。コンシューマーに請求されるのは、共有データをクエリするために使用されるコンピューティングリソース（つまり、仮想ウェアハウス）のみです。
+Snowflakeの[セキュアデータ共有]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake)機能により、Brazeはワークフローの摩擦、障害ポイント、一般的なデータプロバイダーとの関係で生じる不要なコストを心配することなく、Snowflakeポータルでのデータへのセキュアなアクセスを提供できます。すべての共有はSnowflake固有のサービスレイヤーとメタデータストアを通じて行われ、アカウント間で実際にデータがコピーまたは転送されることはありません。これは重要な概念です。共有データは消費者アカウントのストレージを一切消費しないため、月額データストレージ料金に影響しません。消費者に発生する唯一の料金は、共有データのクエリに使用されるコンピューティングリソース（つまり仮想ウェアハウス）の費用です。
 
 ### BrazeエクスポートAPI {#braze-export-apis}
-Braze APIには、プログラムで集約分析をエクスポートしたり、個々のユーザーデータをエクスポートしたりできる[エンドポイント]({{site.baseurl}}/api/endpoints/export)が用意されています。このデータは、あらゆるサイズのオーディエンスおよびセグメントに対してエクスポートできます。
+Braze APIは、集約分析をプログラム的にエクスポートしたり、個別のユーザーデータをエクスポートしたりできる[エンドポイント]({{site.baseurl}}/api/endpoints/export)を提供しています。このデータは、あらゆるサイズのオーディエンスやセグメントに対してエクスポートできます。
 
 ### CSV {#csvs}
-最後に、ダッシュボードから直接[CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data)として集約レベルのデータをダウンロードするオプションがあります。CSVオプションを使用すると、チームメンバーはBrazeからデータを簡単にエクスポートできます。
+最後に、ダッシュボードから集計レベルのデータを直接[CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data)としてダウンロードするオプションがあります。CSVオプションを使用すると、チームメンバーがBrazeからデータを簡単にエクスポートできます。
 
 {% alert tip %}
-CSVエクスポートには500,000行の基本制限がありますが、APIにはこの点に関して制限がありません。
+CSVエクスポートには500,000行の基本制限がありますが、APIにはこの点に関する制限はありません。
 {% endalert %}
 
 ## すべてをまとめる {#putting-it-all-together}
-あなたのユーザーの一人（メルと呼びましょう）が、ちょうどあなたの製品に関するお知らせを受け取ったところです。舞台裏では、Brazeプラットフォームのすべてのレイヤーが連携して、このプロセスがスムーズに進むようにしました。
+あなたのユーザーの1人、ここではメルと呼びましょう。メルはあなたの製品アナウンスを受け取ったばかりです。舞台裏では、Brazeプラットフォームのすべてのレイヤーが連携して、このプロセスがスムーズに進むようにしていました。
 
-メルの情報はCSVインポートを通じて、従来のカスタマーエンゲージメントプラットフォームからBrazeに取り込まれました。統合後、メルがアプリを操作するたびに、彼女の顧客プロファイルにより多くのデータが追加されました。
+メルの情報は、CSVインポートを通じて、レガシーのカスタマーエンゲージメントプラットフォームからBrazeに取り込まれました。統合後にメルがアプリを操作するたびに、彼女の顧客プロファイルにさらに多くのデータが追加されました。
 
-あなたの製品に関するお知らせは、アプリで類似のアイテムに「いいね」を付けたすべての顧客に送信されました。このデータをカスタムイベントとして定義しました。SDKはこのイベントを追跡し、ユーザー群をそれに応じてセグメント化しました。Brazeはこのお知らせを送信する最適な時間帯を調整し、メルを彼女の好みの名前で呼ぶことでお知らせをパーソナライズしました。
+製品アナウンスは、アプリで類似アイテムに「いいね」をしたすべての顧客に送信されました。このデータはカスタムイベントとして定義しました。SDKがこのイベントを追跡し、それに応じてユーザー群をセグメント化しました。Brazeはこのアナウンスを送信する最適な時間帯をオーケストレーションし、メルの希望する名前で呼びかけることでアナウンスをパーソナライズしました。
 
-メルがお知らせを開くと、彼女はあなたの新しい製品をウィッシュリストに追加します。Brazeは彼女がメールをクリックしたことを自動的に追跡します。SDKは、彼女があなたの新製品をウィッシュリストに追加したことを追跡します。ブランドと関わりを持つたびに、あなたとあなたのユーザーはお互いについてより多くのことを学んでいきます。
+メルがアナウンスを開封すると、新製品をウィッシュリストに追加します。Brazeは彼女がメールをクリックしたことを自動的に追跡します。SDKは彼女が新製品をウィッシュリストに追加したことを追跡します。ユーザーがブランドとやり取りするたびに、あなたとユーザーはお互いについてより多くのことを学んでいきます。
 
-![メッセージングチャネル全体でユーザーアクションをBrazeがどのように追跡するかを示す図]({% image_buster /assets/img/getting-started/putting-it-all-together.png %})
+![Brazeがメッセージングチャネル全体でユーザーアクションを追跡する仕組みを示した図。]({% image_buster /assets/img/getting-started/putting-it-all-together.png %})

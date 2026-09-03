@@ -43,7 +43,7 @@ Vamos ajustar os detalhes do Canvas para refletir nosso objetivo.
 Em seguida, vamos adicionar um evento de conversão ao nosso Canvas para sinalizar a adoção da funcionalidade. Isso nos permitirá personalizar a jornada experimental na jornada do usuário mais adiante.
 
 1. Em **Assign Conversion Events**, selecione **Add Conversion Event**.
-2. Em **Primary Conversion Event - A**, selecione **Performs Custom Event** como o **Conversion event type**.
+2. Em **conversão primária Event - A**, selecione **Performs Custom Event** como o **Conversion event type**.
 3. Selecione nosso evento personalizado `scheduled_delivery`.
 4. Vamos manter o prazo de conversão como três dias.
 
@@ -65,7 +65,7 @@ Vamos manter a opção de permitir que os usuários entrem no Canvas no horário
 
 Agora, vamos configurar nosso público-alvo atualizando os seguintes detalhes no modelo:
 
-1. Selecione o segmento **All Users**.
+1. Selecione o Segment **All Users**.
 2. Remova os filtros adicionais do modelo.
 3. Crie este filtro usando nosso evento personalizado: `Has scheduled_delivery for exactly 0 times`. Isso nos permite excluir os usuários que já usaram a funcionalidade de entrar no nosso Canvas.
 

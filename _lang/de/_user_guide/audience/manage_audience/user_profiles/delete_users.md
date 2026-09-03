@@ -38,7 +38,7 @@ Sie können einzelne Nutzer:innen ([Einzellöschung](#delete-individual)) oder e
 
 ### Einzelne Nutzer:innen löschen {#delete-individual}
 
-Um einzelne Nutzer:innen aus Braze zu löschen, gehen Sie zu **Audience** > **Search Users**, suchen Sie dann nach den gewünschten Nutzer:innen und wählen Sie sie aus. Wenn Sie ein doppeltes Nutzerprofil löschen, vergewissern Sie sich, dass Sie das richtige ausgewählt haben.
+Um einzelne Nutzer:innen aus Braze zu löschen, gehen Sie zu **Audience** > **Search Users**, suchen Sie dann nach den gewünschten Nutzer:innen und wählen Sie sie aus. Wenn Sie ein doppeltes Kundenprofil löschen, vergewissern Sie sich, dass Sie das richtige ausgewählt haben.
 
 ![Die Seite „Search Users“ in Braze.]({% image_buster /assets/img/audience_management/duplicate_users/individual_merging/search_user.png %}){: style="max-width:75%;"}
 

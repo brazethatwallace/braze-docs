@@ -37,7 +37,7 @@ Para medir o impacto de uma mensagem individual do LINE, você pode adicionar um
 
 ### Desempenho do LINE {#line-performance}
 
-O painel **LINE Performance** descreve o desempenho da sua mensagem em várias dimensões. As métricas neste painel variam dependendo do canal de envio de mensagens escolhido e se você está executando um teste multivariante ou não. Você pode clicar no ícone <i class="fa fa-eye preview-icon" aria-label="Pré-visualização" title="Pré-visualização"></i> **Preview** para visualizar sua mensagem para cada variante ou canal.
+O painel **LINE Performance** descreve o desempenho da sua mensagem em várias dimensões. As métricas neste painel variam dependendo do canal de envio de mensagens escolhido e se você está executando um teste multivariante ou não. Você pode clicar no ícone <i class="fa fa-eye prévia-icon" aria-label="Pré-visualização" title="Pré-visualização"></i> **prévia** para visualizar sua mensagem para cada variante ou canal.
 
 ![O painel "LINE Performance" mostrando métricas para duas variantes.]({% image_buster /assets/img/line/line_performance.png %})
 

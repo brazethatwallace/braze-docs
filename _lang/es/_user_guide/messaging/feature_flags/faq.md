@@ -24,11 +24,11 @@ Braze admite conmutadores de características en las plataformas iOS, Android y 
 
 ¿Necesitas soporte en otras plataformas? Envía un correo electrónico a nuestro equipo: [feature-flags-feedback@braze.com](mailto:feature-flags-feedback@braze.com).
 
-### ¿Cuánto esfuerzo implica implementar un conmutador de características? {#level-of-effort}
+### ¿Cuál es el nivel de esfuerzo implicado en la implementación de un conmutador de características? {#level-of-effort}
 
-Un conmutador de características se puede crear e integrar en pocos minutos.
+Un conmutador de características se puede crear e integrar en unos minutos.
 
-La mayor parte del esfuerzo estará relacionada con tu equipo de ingeniería construyendo la nueva característica que planeas lanzar. Pero cuando se trata de añadir un conmutador de características, es tan sencillo como una sentencia `IF`/`ELSE` en el código de tu aplicación o sitio web:
+La mayor parte del esfuerzo estará relacionada con que tu equipo de ingeniería construya la nueva característica que planeas lanzar. Pero en lo que respecta a añadir un conmutador de características, es tan sencillo como una sentencia `IF`/`ELSE` en el código de tu aplicación o sitio web:
 
 {% tabs %}
 {% tab JavaScript %}
@@ -69,68 +69,76 @@ if (braze.getFeatureFlag("new_shopping_cart")?.enabled == true) {
 {% endtab %}
 {% endtabs %}
 
-### ¿Cómo pueden beneficiar los conmutadores de características a los equipos de marketing? {#marketing-teams}
+### ¿Cómo pueden los conmutadores de características beneficiar a los equipos de marketing? {#marketing-teams}
 
-Los equipos de marketing pueden usar conmutadores de características para coordinar anuncios de productos (como correos electrónicos de lanzamiento de productos) cuando una característica solo está habilitada para un pequeño porcentaje de usuarios.
+Los equipos de marketing pueden utilizar los conmutadores de características para coordinar los anuncios de productos (como los correos electrónicos de lanzamiento de productos) cuando una característica solo está habilitada para un pequeño porcentaje de usuarios.
 
-Por ejemplo, con los conmutadores de características de Braze, puedes lanzar un nuevo programa de fidelización de clientes al 10 % de los usuarios de tu aplicación, y enviar un correo electrónico, push u otra mensajería a ese mismo 10 % de usuarios habilitados usando el paso de conmutador de características de Canvas.
+Por ejemplo, con los conmutadores de características de Braze, puedes lanzar un nuevo programa de fidelización de clientes al 10 % de los usuarios en tu aplicación, y enviar un correo electrónico, push u otros mensajes a ese mismo 10 % de usuarios habilitados mediante el paso de conmutador de características en Canvas.
 
-### ¿Cómo pueden beneficiar los conmutadores de características a los equipos de producto? {#product-teams}
+### ¿Cómo pueden los conmutadores de características beneficiar a los equipos de producto? {#product-teams}
 
-Los equipos de producto pueden usar conmutadores de características para realizar lanzamientos graduales o lanzamientos suaves de nuevas características con el fin de monitorear indicadores clave de rendimiento y la retroalimentación de los clientes antes de ponerlas a disposición de todos los usuarios.
+Los equipos de producto pueden utilizar los conmutadores de características para realizar despliegues graduales o lanzamientos suaves de nuevas características con el fin de monitorizar indicadores clave de rendimiento y los comentarios de los clientes antes de ponerlas a disposición de todos los usuarios.
 
-Los equipos de producto pueden usar las [propiedades de los conmutadores de características]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create#properties) para rellenar contenido de forma remota en una aplicación, como vínculos profundos, texto, imágenes u otro contenido dinámico.
+Los equipos de producto pueden usar las [propiedades de los conmutadores de características]({{site.baseurl}}/developer_guide/feature_flags/create#accessing-properties) para rellenar contenido de forma remota en una aplicación, como vínculos profundos, texto, imágenes u otro contenido dinámico.
 
-Usando el paso de conmutador de características de Canvas, los equipos de producto también pueden ejecutar una prueba A/B dividida para medir cómo una nueva característica afecta las tasas de conversión en comparación con los usuarios que tienen la característica deshabilitada.
+Mediante el paso de conmutador de características en Canvas, los equipos de producto también pueden ejecutar una prueba A/B de división para medir cómo una nueva característica impacta en las tasas de conversión en comparación con los usuarios que tienen la característica deshabilitada.
 
-### ¿Cómo pueden beneficiar los conmutadores de características a los equipos de ingeniería? {#engineering-teams}
+### ¿Cómo pueden los conmutadores de características beneficiar a los equipos de ingeniería? {#engineering-teams}
 
-Los equipos de ingeniería pueden usar conmutadores de características para reducir el riesgo inherente al lanzamiento de nuevas características y evitar tener que desplegar correcciones de código de forma apresurada en medio de la noche.
+Los equipos de ingeniería pueden utilizar los conmutadores de características para reducir el riesgo inherente al lanzamiento de nuevas características y evitar tener que desplegar correcciones de código de forma urgente en mitad de la noche.
 
-Al publicar código nuevo oculto detrás de un conmutador de características, tu equipo puede activar o desactivar la característica de forma remota desde el panel de Braze, evitando la demora de publicar código nuevo o esperar la aprobación de una actualización en la tienda de aplicaciones.
+Al lanzar nuevo código oculto detrás de un conmutador de características, tu equipo puede activar o desactivar la característica de forma remota desde el panel de Braze, evitando la demora de publicar nuevo código o esperar la aprobación de una actualización en la tienda de aplicaciones.
 
-## Lanzamientos de características y segmentación {#feature-rollouts-and-targeting}
+## Implementación de características y segmentación {#feature-rollouts-and-targeting}
 
-### ¿Se puede lanzar un conmutador de características solo a un grupo selecto de usuarios? {#target-users}
+### ¿Se puede implementar un conmutador de características solo para un grupo selecto de usuarios? {#target-users}
 
-Sí, crea un segmento en Braze que se dirija a usuarios específicos&mdash;por dirección de correo electrónico, `user_id` o cualquier otro atributo en sus perfiles de usuario. Luego, despliega el conmutador de características para el 100 % de ese segmento.
+Sí, crea un Segment en Braze que se dirija a usuarios específicos, ya sea por dirección de correo electrónico, `user_id` o cualquier otro atributo en sus perfiles de usuario. Después, despliega el conmutador de características para el 100% de ese Segment.
 
-### ¿Cómo afecta el ajuste del porcentaje de lanzamiento a los usuarios que previamente fueron asignados al grupo habilitado? {#random-buckets}
+### ¿Cómo afecta el ajuste del porcentaje de implementación a los usuarios que previamente fueron asignados al grupo habilitado? {#random-buckets}
 
-Los lanzamientos de conmutadores de características se mantienen consistentes para los usuarios entre dispositivos y sesiones.
+Las implementaciones de conmutadores de características se mantienen consistentes para los usuarios en todos los dispositivos y sesiones.
 
-- Cuando un conmutador de características se lanza al 10 % de usuarios aleatorios, ese 10 % permanecerá habilitado y persistirá durante toda la vida útil de ese conmutador de características.
-- Si aumentas el lanzamiento del 10 % al 20 %, el mismo 10 % permanecerá habilitado, más un nuevo 10 % adicional de usuarios se añadirá al grupo habilitado.
-- Si reduces el lanzamiento del 20 % al 10 %, solo el 10 % original de usuarios permanecerá habilitado.
+- Cuando un conmutador de características se implementa para el 10% de usuarios aleatorios, ese 10% permanecerá habilitado y se mantendrá durante toda la vida útil de ese conmutador de características.
+- Si aumentas la implementación del 10% al 20%, el mismo 10% permanecerá habilitado, y un 10% adicional de usuarios nuevos se añadirá al grupo habilitado.
+- Si reduces la implementación del 20% al 10%, solo el 10% original de usuarios permanecerá habilitado.
 
-Esta estrategia ayuda a garantizar que los usuarios vean una experiencia consistente en tu aplicación y no alternen de un lado a otro entre sesiones. Por supuesto, deshabilitar una característica al 0 % eliminará a todos los usuarios del conmutador de características, lo cual es útil si descubres un error o necesitas deshabilitar la característica por completo.
+Esta estrategia ayuda a garantizar que los usuarios vean una experiencia consistente en tu aplicación y no alternen entre estados de una sesión a otra. Por supuesto, desactivar una característica al 0% eliminará a todos los usuarios del conmutador de características, lo cual es útil si descubres un error o necesitas desactivar la característica por completo.
 
 ## Temas técnicos {#technical-topics}
 
 ### ¿Se pueden usar los conmutadores de características para controlar cuándo se inicializa el SDK de Braze? {#initialization}
 
-No, el SDK debe inicializarse para descargar y sincronizar los conmutadores de características del usuario actual. Esto significa que no puedes usar conmutadores de características para limitar qué usuarios se crean o rastrean en Braze.
+No, el SDK debe inicializarse para descargar y sincronizar los conmutadores de características del usuario actual. Esto significa que no puedes usar los conmutadores de características para limitar qué usuarios se crean o rastrean en Braze.
 
 ### ¿Con qué frecuencia actualiza el SDK los conmutadores de características? {#refresh-frequency}
 
-Los conmutadores de características se actualizan al inicio de la sesión y al cambiar de usuario activo. Los conmutadores de características también se pueden actualizar manualmente usando el [método de actualización]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create#refreshing) del SDK. Las actualizaciones de conmutadores de características tienen un límite de velocidad de una vez cada cinco minutos (sujeto a cambios).
+Los conmutadores de características se actualizan al inicio de la sesión y al cambiar de usuario activo. Los conmutadores de características también pueden actualizarse manualmente usando el [método de actualización]({{site.baseurl}}/developer_guide/feature_flags/create#refreshing) del SDK. Las actualizaciones de conmutadores de características están limitadas a una vez cada cinco minutos (sujeto a cambios).
 
-Ten en cuenta que las buenas prácticas de datos recomiendan no actualizar los conmutadores de características con demasiada frecuencia (con posible limitación de velocidad si se hace así), por lo que es mejor actualizarlos solo antes de que un usuario interactúe con nuevas características o periódicamente en la aplicación si es necesario.
+Ten en cuenta que las buenas prácticas de datos recomiendan no actualizar los conmutadores de características demasiado rápido (con posible limitación de velocidad si se hace), por lo que es mejor actualizar solo antes de que un usuario interactúe con nuevas características o periódicamente en la aplicación si es necesario.
 
-### ¿Están disponibles los conmutadores de características cuando un usuario está sin conexión? {#offline}
+### ¿Los conmutadores de características están disponibles mientras un usuario está sin conexión? {#offline}
 
 Sí, después de que los conmutadores de características se actualizan, se almacenan localmente en el dispositivo del usuario y se puede acceder a ellos sin conexión.
 
-### ¿Qué sucede si los conmutadores de características se actualizan a mitad de sesión? {#listen-for-updates}
+### ¿Qué pasa si los conmutadores de características se actualizan a mitad de sesión? {#listen-for-updates}
 
-Los conmutadores de características pueden actualizarse a mitad de sesión. Hay escenarios en los que puedes querer actualizar tu aplicación si ciertas variables o tu configuración deben cambiar. Hay otros escenarios en los que puedes no querer actualizar tu aplicación, para evitar un cambio brusco en cómo se renderiza tu interfaz de usuario.
+Los conmutadores de características pueden actualizarse a mitad de sesión. Hay escenarios en los que puedes querer actualizar tu aplicación si ciertas variables o tu configuración deben cambiar. Hay otros escenarios en los que puedes no querer actualizar tu aplicación, para evitar un cambio abrupto en cómo se renderiza tu interfaz.
 
-Para controlar esto, [escucha las actualizaciones]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create#updates) de los conmutadores de características y determina si volver a renderizar tu aplicación en función de qué conmutadores de características han cambiado.
+Para controlar esto, [escucha las actualizaciones]({{site.baseurl}}/developer_guide/feature_flags/create#updates) de los conmutadores de características y determina si volver a renderizar tu aplicación en función de qué conmutadores de características han cambiado.
 
 ### ¿Por qué los usuarios de mi grupo de control global no reciben experimentos de conmutadores de características? {#why-arent-users-in-my-global-control-group-receiving-feature-flags-experiments}
 
-No puedes habilitar conmutadores de características para usuarios en tu [grupo de control global]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts). Esto significa que los usuarios en tu grupo de control global tampoco pueden formar parte de experimentos de conmutadores de características.
+No puedes habilitar conmutadores de características para los usuarios de tu [grupo de control global]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts). Esto significa que los usuarios de tu grupo de control global tampoco pueden ser parte de experimentos de conmutadores de características.
 
-## ¿Tienes preguntas adicionales? {#additional-questions}
+### ¿La identificación de destinatarios basada en correo electrónico es parte de los conmutadores de características de Braze? {#is-email-based-recipient-identification-part-of-braze-feature-flags}
+
+No. Identificar destinatarios por correo electrónico cuando envías un mensaje no es parte del producto de conmutadores de características en esta página. Los conmutadores de características controlan experiencias dentro de la aplicación o en el sitio a través del SDK de Braze.
+
+Los envíos de Campaigns y Canvas activados por API pueden incluir `email` en el [objeto de destinatarios]({{site.baseurl}}/api/objects_filters/recipient_object) en lugar de un `external_user_id`. Cuando usas `email`, incluye `prioritization` para que Braze pueda seleccionar el perfil de usuario coincidente. Esta opción de envío no está disponible en todos los espacios de trabajo.
+
+Para la estructura de la solicitud, consulta [POST: Enviar Campaigns usando entrega activada por API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) y [POST: Enviar mensajes de Canvas usando entrega activada por API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases).
+
+## ¿Tienes más preguntas? {#additional-questions}
 
 ¿Tienes preguntas o comentarios? Envía un correo electrónico a nuestro equipo: [feature-flags-feedback@braze.com](mailto:feature-flags-feedback@braze.com).

@@ -62,19 +62,19 @@ Para usar Push Max en tu Canvas:
 {% endtab %}
 {% endtabs %}
 
-Las dos características siguientes, sincronización inteligente y tiempo de vida, se pueden usar junto con Push Max para mejorar potencialmente la capacidad de entrega de tus notificaciones push de Android.
+Las dos características siguientes, sincronización inteligente y TTL, se pueden usar junto con Push Max para mejorar potencialmente la capacidad de entrega de tus notificaciones push de Android.
 
 ### Sincronización inteligente {#intelligent-timing}
 
 Push Max funciona mejor cuando la [sincronización inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing) está activada. La sincronización inteligente puede calcular y enviar la notificación push en el momento en que es más probable que el usuario esté usando la aplicación y que el push se entregue.
 
-### Tiempo de vida (TTL) {#time-to-live-ttl}
+### TTL (TTL) {#time-to-live-ttl}
 
-El tiempo de vida (TTL) puede rastrear las notificaciones push fallidas a Firebase Cloud Messaging (FCM) y reintentar la notificación cuando es probable que el usuario la reciba.
+El TTL (TTL) puede rastrear las notificaciones push fallidas a Firebase Cloud Messaging (FCM) y reintentar la notificación cuando es probable que el usuario la reciba.
 
-De forma predeterminada, el tiempo de vida está configurado en 28 días, que es el máximo. Puedes reducir el TTL predeterminado para todos los nuevos mensajes push de Android desde **Configuración** > **Configuración del espacio de trabajo** > **Configuración de push**, o puedes configurar el número de días por mensaje en la pestaña **Settings** al redactar una notificación push de Android.
+De forma predeterminada, el TTL está configurado en 28 días, que es el máximo. Puedes reducir el TTL predeterminado para todos los nuevos mensajes push de Android desde **Configuración** > **Configuración del espacio de trabajo** > **Configuración de push**, o puedes configurar el número de días por mensaje en la pestaña **Settings** al redactar una notificación push de Android.
 
-![Campo de tiempo de vida configurado en 28 días.]({% image_buster /assets/img_archive/time_to_live.png %}){: style="max-width:60%"}
+![Campo de TTL configurado en 28 días.]({% image_buster /assets/img_archive/time_to_live.png %}){: style="max-width:60%"}
 
 ## Cosas que debes saber {#things-to-know}
 

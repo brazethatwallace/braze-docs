@@ -2,130 +2,130 @@
 
 > 기능 플래그를 사용하면 선택한 사용자에 대해 원격으로 기능을 활성화 또는 비활성화할 수 있습니다. Braze 대시보드 내에서 새 기능 플래그를 만듭니다. 이 기능을 활성화할 사용자의 이름과 `ID`, 타겟 오디언스 및 비율을 입력합니다. 그런 다음, 앱이나 웹사이트의 코드에서 동일한 `ID`를 사용하여 비즈니스 로직의 특정 부분을 조건부로 실행할 수 있습니다. 기능 플래그와 Braze에서 기능 플래그를 사용하는 방법에 대해 자세히 알아보려면 [기능 플래그 정보]({{site.baseurl}}/developer_guide/feature_flags)를 참조하세요.
 
-## 필수 조건 {#prerequisites}
+## 사전 준비 사항 {#prerequisites}
 
 ### SDK 버전 {#sdk-version}
 
-기능 플래그를 사용하려면 SDK가 이 최소 버전 이상의 최신 상태인지 확인하세요.
+기능 플래그를 사용하려면 SDK가 최소 다음 버전 이상으로 업데이트되어 있어야 합니다:
 
 {% sdk_min_versions swift:5.9.0 android:24.2.0 web:4.6.0 unity:4.1.0 cordova:5.0.0 reactnative:4.1.0 flutter:6.0.0 roku:1.0.0 %}
 
 ### Braze 권한 {#braze-permissions}
 
-대시보드에서 기능 플래그를 관리하려면 관리자이거나 다음 [권한]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions)이 있어야 합니다:
+대시보드에서 기능 플래그를 관리하려면 관리자이거나, 다음 [권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)이 있어야 합니다:
 
-| 권한 | 할 수 있는 작업 |
+| 권한                                                                    | 수행할 수 있는 작업                           |
 |-------------------------------------------------------------------------------|-------------------------------------------|
-| **기능 플래그 관리** | 기능 플래그를 보고, 만들고, 편집합니다. |
-| **Campaigns, Canvases, 카드, 기능 플래그, Segments, 미디어 라이브러리에 액세스** | 사용 가능한 기능 플래그 목록을 확인합니다. |
+| **Manage Feature Flags**                                                      | 기능 플래그를 보고, 생성하고, 편집합니다.     |
+| **Access Campaigns, Canvases, Cards, Feature Flags, Segments, Media Library** | 사용 가능한 기능 플래그 목록을 확인합니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Braze 권한" }
 
 ## 기능 플래그 만들기 {#creating-a-feature-flag}
 
 ### 1단계: 새 기능 플래그 만들기 {#step-1-create-a-new-feature-flag}
 
-**메시징** > **기능 플래그**로 이동한 다음, **기능 플래그 생성**을 선택합니다.
+**메시징** > **Feature Flags**로 이동하여 **기능 플래그 만들기**를 선택합니다.
 
 ![기존 기능 플래그를 보여주는 데이터 테이블과 새 기능 플래그를 만드는 방법.]({% image_buster /assets/img/feature_flags/create_ff.png %}){: style="max-width:75%"}
 
 ### 2단계: 세부 정보 입력 {#step-2-fill-out-the-details}
 
-**기능 플래그 세부정보** 아래에 기능 플래그의 이름, ID 및 설명을 입력하세요.
+**기능 플래그 세부 정보**에서 기능 플래그의 이름, ID, 설명을 입력합니다.
 
-![이름, ID, 설명 및 속성정보를 기능 플래그에 추가할 수 있음을 보여주는 양식.]({% image_buster /assets/img/feature_flags/create_ff_properties.png %}){: style="max-width:75%"}
+![이름, ID, 설명 및 속성정보를 기능 플래그에 추가할 수 있는 양식.]({% image_buster /assets/img/feature_flags/create_ff_properties.png %}){: style="max-width:75%"}
 
 
-| 필드 | 설명 |
+| 필드        | 설명                                                                |
 |--------------|----------------------------------------------------------------------------|
-| 이름 | 마케터와 관리자를 위한 사람이 읽을 수 있는 제목입니다. |
-| ID | 코드에서 이 기능이 [사용자에 대해 활성화되어](#enabled) 있는지 확인하기 위해 사용할 고유 ID입니다. 이 ID는 나중에 변경할 수 없으므로 계속하기 전에 [ID 이름 지정 모범 사례](#naming-conventions)를 검토하세요. |
-| 설명 | 기능 플래그에 대한 컨텍스트를 제공하는 선택적 설명입니다. |
-| 속성정보 | 기능 플래그를 원격으로 구성하는 선택적 속성정보입니다. 캔버스 단계나 기능 플래그 실험에서 덮어쓸 수 있습니다. |
+| 이름         | 마케터와 관리자를 위한 사람이 읽을 수 있는 제목입니다.              |
+| ID           | 코드에서 이 기능이 [사용자에 대해 활성화되었는지](#enabled) 확인하는 데 사용할 고유 ID입니다. 이 ID는 나중에 변경할 수 없으므로 계속하기 전에 [ID 명명 모범 사례](#naming-conventions)를 검토하세요. |
+| 설명  | 기능 플래그에 대한 맥락을 제공하는 선택 사항 설명입니다.   |
+| 속성정보   | 기능 플래그를 원격으로 구성하는 선택 사항 속성정보입니다. Canvas 단계 또는 기능 플래그 실험에서 재정의할 수 있습니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="2단계: 세부 정보 입력" }
 
 ### 2a단계: 커스텀 속성정보 만들기 {#step-2a-create-custom-properties}
 
-**속성정보** 아래에서 기능이 활성화될 때 앱이 Braze SDK를 통해 접근할 수 있는 커스텀 속성정보를 선택적으로 생성할 수 있습니다. 각 변수에 문자열, 부울, 이미지, 타임스탬프, JSON 또는 숫자 값을 할당할 수 있으며 기본값을 설정할 수 있습니다.
+**속성정보**에서 기능이 활성화되었을 때 앱이 Braze SDK를 통해 접근할 수 있는 커스텀 속성정보를 선택적으로 만들 수 있습니다. 각 변수에 문자열, 부울, 이미지, 타임스탬프, JSON 또는 숫자 값을 할당하고 기본값을 설정할 수 있습니다.
 
 {% tabs local %}
 {% tab 예시 %}
-다음 예시에서 기능 플래그는 나열된 커스텀 속성정보를 사용하여 이커머스 상점에 품절 배너를 표시합니다:
+다음 예시에서 기능 플래그는 나열된 커스텀 속성정보를 사용하여 이커머스 스토어의 품절 배너를 표시합니다:
 
-| 속성정보 이름 | 유형 | 값 |
+|속성정보 이름|유형|값|
 |--|--|--|
-| `banner_height` | `number` | `75` |
-| `banner_color` | `string` | `blue` |
-| `banner_text` | `string` | `Widgets are out of stock until July 1.` |
-| `dismissible` | `boolean` | `false` |
-| `homepage_icon` | `image` | `http://s3.amazonaws.com/[bucket_name]/` |
-| `account_start` | `timestamp` | `2011-01-01T12:00:00Z` |
-| `footer_settings` | `JSON` | `{ "colors": [ "red", "blue", "green" ], "placement": 123 }` |
+| `banner_height`|`number`|`75`|
+| `banner_color`|`string`|`blue`|
+| `banner_text`|`string`|`Widgets are out of stock until July 1.`|
+|`dismissible`|`boolean`|`false`|
+| `homepage_icon`|`image`|`http://s3.amazonaws.com/[bucket_name]/`|
+| `account_start`|`timestamp`|`2011-01-01T12:00:00Z`|
+| `footer_settings`|`JSON`|`{ "colors": [ "red", "blue", "green" ], "placement": 123 }`|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="2a단계: 커스텀 속성정보 만들기" }
 
 {% alert tip %}
-추가할 수 있는 속성정보 수에는 제한이 없습니다. 그러나 기능 플래그의 속성정보는 총 10,000자로 제한됩니다.
+추가할 수 있는 속성정보의 수에는 제한이 없습니다. 다만 기능 플래그의 속성정보는 총 10,000자로 제한됩니다.
 {% endalert %}
 {% endtab %}
 {% endtabs %}
 
-### 4단계: 타겟팅할 Segment 선택 {#step-4-choose-segments-to-target}
+### 4단계: 타겟 Segments 선택 {#step-4-choose-segments-to-target}
 
-기능 플래그를 롤아웃하기 전에 타겟팅할 사용자 [Segment]({{site.baseurl}}/user_guide/engagement_tools/segments)를 선택해야 합니다. 새로 생성된 플래그에서 **규칙 추가**를 선택한 다음 필터 그룹 및 Segment 드롭다운 메뉴를 사용하여 타겟 오디언스에서 사용자를 필터링합니다. 여러 필터를 추가하여 오디언스를 더욱 좁힙니다.
+기능 플래그를 출시하기 전에 타겟으로 할 사용자 [Segment]({{site.baseurl}}/user_guide/audience/segments)를 선택해야 합니다. 새로 만든 플래그에서 **규칙 추가**를 선택한 다음 필터 그룹 및 Segment 드롭다운 메뉴를 사용하여 타겟 오디언스에서 사용자를 필터링합니다. 여러 필터를 추가하여 오디언스를 더 좁힐 수 있습니다.
 
-![Segment 및 필터를 추가할 수 있는 롤아웃 트래픽이라는 레이블이 붙은 텍스트 상자.]({% image_buster /assets/img/feature_flags/segmentation_ff.png %}){: style="max-width:75%;"}
+![Segments 및 필터를 추가할 수 있는 출시 트래픽이라고 표시된 텍스트 상자.]({% image_buster /assets/img/feature_flags/segmentation_ff.png %}){: style="max-width:75%;"}
 
-### 5단계: 롤아웃 트래픽 설정 {#rollout}
+### 5단계: 출시 트래픽 설정 {#rollout}
 
-기본적으로 기능 플래그는 항상 비활성 상태이며, 이를 통해 기능 출시 날짜를 전체 사용자 활성화와 분리할 수 있습니다. 롤아웃을 시작하려면 **롤아웃 트래픽** 섹션을 사용하여 텍스트 상자에 비율을 입력하세요. 이것은 선택한 Segment의 무작위 사용자 중 이 새로운 기능을 받을 비율을 선택합니다.
+기본적으로 기능 플래그는 항상 비활성 상태이므로 기능 릴리스 날짜와 전체 사용자 활성화를 분리할 수 있습니다. 출시를 시작하려면 **출시 트래픽** 섹션의 텍스트 상자에 백분율을 입력합니다. 선택한 Segment에서 이 새 기능을 받을 무작위 사용자의 비율이 결정됩니다.
 
 {% alert important %}
-새 기능을 출시할 준비가 될 때까지 롤아웃 트래픽을 0% 이상으로 설정하지 마세요. 대시보드에서 처음 기능 플래그를 정의할 때는 이 설정을 0%로 유지합니다.
+새 기능을 실제로 출시할 준비가 될 때까지 출시 트래픽을 0%보다 높게 설정하지 마세요. 대시보드에서 기능 플래그를 처음 정의할 때 이 설정을 0%로 유지하세요.
 {% endalert %}
 
 {% alert important %}
-하나의 규칙으로만 플래그를 롤아웃하거나 단일 오디언스에 롤아웃하려면 세분화 기준과 롤아웃 비율을 선택하여 첫 번째 규칙을 추가하세요. 마지막으로 **다른 모든 사용자** 규칙이 꺼져 있는지 확인하고 플래그를 저장하세요.
+단일 규칙만으로 또는 단일 오디언스에 플래그를 출시하려면, 세분화 기준과 출시 비율을 선택하여 첫 번째 규칙을 추가합니다. 마지막으로 **Everyone Else** 규칙이 꺼져 있는지 확인하고 플래그를 저장합니다.
 {% endalert %}
 
 ## 다중 규칙 기능 플래그 롤아웃 {#multi-rule-feature-flag-rollouts}
 
-다중 규칙 기능 플래그 롤아웃을 사용하여 사용자를 평가하기 위한 규칙의 순서를 정의하면 정밀한 세분화 및 제어된 기능 출시가 가능합니다. 이 방법은 다양한 오디언스에 동일한 기능을 배포하는 데 이상적입니다.
+다중 규칙 기능 플래그 롤아웃을 사용하면 사용자를 평가하기 위한 규칙 시퀀스를 정의할 수 있어 정밀한 세분화와 통제된 기능 릴리스가 가능합니다. 이 방법은 다양한 오디언스에게 동일한 기능을 배포할 때 이상적입니다.
 
 ### 평가 순서 {#evaluation-order}
 
-기능 플래그 규칙은 나열된 순서대로 위에서 아래로 평가됩니다. 사용자는 충족하는 첫 번째 규칙에 자격이 부여됩니다. 사용자가 어떤 규칙도 충족하지 않으면, 기본 "다른 모든 사용자" 규칙에 의해 자격이 결정됩니다.
+기능 플래그 규칙은 나열된 순서대로 위에서 아래로 평가됩니다. 사용자는 자신이 충족하는 첫 번째 규칙에 해당됩니다. 어떤 규칙에도 해당하지 않는 사용자는 기본 "Everyone Else" 규칙에 의해 자격이 결정됩니다.
 
-### 사용자 자격 {#user-qualification}
+### 사용자 자격 조건 {#user-qualification}
 
-- 사용자가 첫 번째 규칙의 기준을 충족하면, 즉시 기능 플래그를 받을 자격이 있습니다.
-- 사용자가 첫 번째 규칙에 자격이 없으면, 두 번째 규칙에 대해 평가되고, 이후 계속 진행됩니다.
+- 사용자가 첫 번째 규칙의 기준을 충족하면 즉시 기능 플래그를 받을 자격이 생깁니다.
+- 사용자가 첫 번째 규칙에 해당하지 않으면 두 번째 규칙으로 평가되며, 이후 순서대로 계속됩니다.
 
-순차적 평가는 사용자가 규칙에 자격이 있거나 목록의 맨 아래에 있는 "다른 모든 사용자" 규칙에 도달할 때까지 계속됩니다.
+순차적 평가는 사용자가 규칙에 해당하거나 목록 하단의 "Everyone Else" 규칙에 도달할 때까지 계속됩니다.
 
-### "다른 모든 사용자" 규칙 {#everyone-else-rule}
+### "Everyone Else" 규칙 {#everyone-else-rule}
 
-"다른 모든 사용자" 규칙은 기본값으로 작용합니다. 사용자가 이전의 어떤 규칙에도 자격이 없으면, 기능 플래그에 대한 자격은 "다른 모든 사용자" 규칙의 토글 설정에 의해 결정됩니다. 예를 들어, "다른 모든 사용자" 규칙이 기본 상태에서 "꺼짐"으로 토글되어 있다면, 다른 규칙의 기준을 충족하지 않는 사용자는 세션 시작 시 기능 플래그를 받지 못합니다.
+"Everyone Else" 규칙은 기본값 역할을 합니다. 사용자가 앞선 규칙 중 어디에도 해당하지 않는 경우, 기능 플래그 자격은 "Everyone Else" 규칙의 토글 설정에 의해 결정됩니다. 예를 들어, "Everyone Else" 규칙이 기본 상태에서 "Off"로 토글되어 있으면, 다른 규칙의 기준을 충족하지 않는 사용자는 세션 시작 시 기능 플래그를 받지 못합니다.
 
-### 규칙 재정렬 {#re-ordering-rules}
+### 규칙 순서 변경 {#re-ordering-rules}
 
-기본적으로 규칙은 생성된 순서대로 정렬되지만, 대시보드에서 드래그 앤 드롭하여 규칙을 재정렬할 수 있습니다.
+기본적으로 규칙은 생성된 순서대로 정렬되지만, 대시보드에서 드래그 앤 드롭으로 순서를 변경할 수 있습니다.
 
-![사용자가 기능 플래그에 규칙을 추가할 수 있음을 보여주는 이미지.]({% image_buster /assets/img/feature_flags/add_rule.png %}){: style="max-width:80%;"}
+![기능 플래그에 규칙을 추가하는 방법을 보여주는 이미지.]({% image_buster /assets/img/feature_flags/add_rule.png %}){: style="max-width:80%;"}
 
-![여러 규칙이 추가된 기능 플래그의 요약과 다른 모든 사용자 규칙을 보여주는 이미지.]({% image_buster /assets/img/feature_flags/mr_rules_overview.png %}){: style="max-width:80%;"}
+![여러 규칙과 Everyone Else 규칙이 추가된 기능 플래그 요약을 보여주는 이미지.]({% image_buster /assets/img/feature_flags/mr_rules_overview.png %}){: style="max-width:80%;"}
 
 ### 다중 규칙 기능 플래그 사용 사례 {#multi-rule-feature-flag-use-cases}
 
-#### 체크아웃 페이지를 점진적으로 출시하기 {#gradually-release-a-checkout-page}
+#### 결제 페이지 점진적 릴리스 {#gradually-release-a-checkout-page}
 
-이커머스 브랜드에서 일하고 있으며, 안정성을 보장하기 위해 다양한 지역에 걸쳐 출시하고자 하는 새로운 체크아웃 페이지가 있다고 가정해 보겠습니다. 다중 규칙 기능 플래그를 사용하여 다음을 설정할 수 있습니다:
+이커머스 브랜드에서 일하면서 안정성을 확보하기 위해 다양한 지역에 걸쳐 새로운 결제 페이지를 롤아웃하려 한다고 가정해 보겠습니다. 다중 규칙 기능 플래그를 사용하면 다음과 같이 설정할 수 있습니다:
 
-- **규칙 1:** 미국 Segment는 100%로 설정됩니다.
-- **규칙 2:** 브라질 사용자의 50%로 Segment가 설정되어 모든 사용자가 한 번에 흐름을 받지는 않습니다.
-- **규칙 3 (다른 모든 사용자):** 모든 다른 사용자에 대해서는 "다른 모든 사용자" 규칙을 토글하여 15%로 설정하여 일부 사용자가 새로운 흐름으로 체크아웃할 수 있도록 합니다.
+- **규칙 1:** 미국 Segment를 100%로 설정합니다.
+- **규칙 2:** 브라질 사용자의 50%로 Segment를 설정하여, 모든 사용자가 한 번에 플로우를 받지 않도록 합니다.
+- **규칙 3(Everyone Else):** 나머지 모든 사용자에 대해 "Everyone Else" 규칙을 켜고 15%로 설정하여, 일부 사용자가 새로운 플로우로 결제할 수 있도록 합니다.
 
-#### 먼저 내부 테스터에게 도달하기 {#reach-internal-testers-first}
+#### 내부 테스터를 먼저 도달시키기 {#reach-internal-testers-first}
 
-새로운 제품을 출시할 때 내부 테스터가 항상 기능 플래그를 받을 수 있도록 하고 싶은 제품 매니저라고 가정해 보겠습니다. 내부 테스터 Segment를 첫 번째 규칙에 추가하고 100%로 설정하여 내부 테스터가 모든 기능 롤아웃 동안 자격을 갖추도록 할 수 있습니다.
+새 제품을 릴리스할 때 내부 테스터가 항상 기능 플래그를 받도록 하려는 제품 매니저라고 가정해 보겠습니다. 내부 테스터 Segment를 첫 번째 규칙에 추가하고 100%로 설정하면, 모든 기능 롤아웃에서 내부 테스터가 자격을 갖추게 됩니다.
 
 ## 기능 플래그에 "활성화됨" 필드 사용 {#enabled}
 
@@ -887,25 +887,25 @@ export const useFeatureFlag = (id: string): FeatureFlag => {
 
 ## 사용자 자격 확인 {#checking-user-eligibility}
 
-Braze에서 사용자가 어떤 기능 플래그에 자격이 있는지 확인하려면 **오디언스** > **사용자 검색**으로 이동한 다음 사용자를 검색하고 선택하세요.
+Braze에서 사용자가 어떤 기능 플래그에 대해 자격이 있는지 확인하려면 **오디언스** > **사용자 검색**으로 이동한 다음 사용자를 검색하고 선택합니다.
 
-**기능 플래그 자격** 탭에서 플랫폼, 애플리케이션 또는 기기별로 자격이 있는 기능 플래그 목록을 필터링할 수 있습니다. 기능 플래그 옆에 있는 <i class="fa-solid fa-eye" aria-label="미리보기"></i>를 선택하여 사용자에게 반환될 페이로드를 미리 볼 수도 있습니다.
+**기능 플래그 자격** 탭에서 플랫폼, 애플리케이션 또는 기기별로 자격이 있는 기능 플래그 목록을 필터링할 수 있습니다. 또한 기능 플래그 옆에 있는 <i class="fa-solid fa-eye" aria-label="미리보기"></i>를 선택하여 사용자에게 반환될 페이로드를 미리 볼 수 있습니다.
 
-![사용자가 자격이 있는 기능 플래그의 테이블을 보여주는 이미지.]({% image_buster /assets/img/feature_flags/eligibility.png %}){: style="max-width:85%;"}
+![사용자가 자격이 있는 기능 플래그 테이블을 보여주는 이미지.]({% image_buster /assets/img/feature_flags/eligibility.png %}){: style="max-width:85%;"}
 
 ## 체인지로그 보기 {#viewing-the-changelog}
 
 기능 플래그의 체인지로그를 보려면 기능 플래그를 열고 **체인지로그**를 선택합니다.
 
-![기능 플래그의 편집 페이지로, 체인지로그 버튼이 강조 표시되어 있습니다.]({% image_buster /assets/img/feature_flags/changelog/open_changelog.png %}){: style="max-width:60%;"}
+![기능 플래그의 "편집" 페이지에서 "Changelog" 버튼이 강조 표시된 모습.]({% image_buster /assets/img/feature_flags/changelog/open_changelog.png %}){: style="max-width:60%;"}
 
-여기에서 변경이 발생한 시기, 변경을 수행한 사람, 변경이 속한 카테고리 등을 검토할 수 있습니다.
+여기에서 변경이 발생한 시점, 변경한 사람, 해당 카테고리 등을 확인할 수 있습니다.
 
 ![선택한 기능 플래그의 체인지로그.]({% image_buster /assets/img/feature_flags/changelog/changelog.png %}){: style="max-width:90%;"}
 
 ## 기능 플래그로 세분화 {#segmentation}
 
-Braze는 현재 어떤 사용자가 기능 플래그를 활성화했는지 자동으로 추적합니다. [**기능 플래그** 필터]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters#feature-flags)를 사용하여 Segment 또는 타겟 메시지를 생성할 수 있습니다. Segment 필터링에 대한 자세한 내용은 [Segment 생성]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment)을 참조하세요.
+Braze는 현재 어떤 사용자가 기능 플래그를 활성화했는지 자동으로 추적합니다. [**기능 플래그** 필터]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters#feature-flags)를 사용하여 Segment 또는 타겟 메시징을 생성할 수 있습니다. Segment 필터링에 대한 자세한 내용은 [Segment 생성]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)을 참조하세요.
 
 ![필터 검색창에 "기능 플래그"가 입력된 필터 섹션.]({% image_buster /assets/img/feature_flags/feature-flags-filter-name.png %}){: style="max-width:75%;"}
 
@@ -915,28 +915,28 @@ Braze는 현재 어떤 사용자가 기능 플래그를 활성화했는지 자�
 
 ## 모범 사례 {#best-practices}
 
-### 롤아웃과 Canvas 또는 실험을 결합하지 마세요 {#dont-combine-rollouts-with-canvases-or-experiments}
+### 롤아웃을 Canvases나 실험과 결합하지 마세요 {#dont-combine-rollouts-with-canvases-or-experiments}
 
-다른 진입점에 의해 사용자가 활성화 및 비활성화되는 것을 방지하려면 롤아웃 슬라이더를 0보다 큰 값으로 설정하거나 Canvas 또는 실험에서 기능 플래그를 활성화해야 합니다. Canvas나 실험에서 기능 플래그를 사용하려는 경우 롤아웃 비율을 0으로 유지하는 것이 모범 사례입니다.
+사용자가 서로 다른 진입점에 의해 활성화되거나 비활성화되는 것을 방지하려면, 롤아웃 슬라이더를 0보다 큰 값으로 설정하거나 Canvas 또는 실험에서 기능 플래그를 활성화해야 합니다. 모범 사례로, Canvas 또는 실험에서 기능 플래그를 사용할 계획이라면 롤아웃 비율을 0으로 유지하세요.
 
-### 이름 지정 규칙 {#naming-conventions}
+### 명명 규칙 {#naming-conventions}
 
-코드를 명확하고 일관되게 유지하려면 기능 플래그 ID의 이름을 지정할 때 다음 형식을 사용하는 것이 좋습니다.
+코드를 명확하고 일관성 있게 유지하려면 기능 플래그 ID의 이름을 지정할 때 다음 형식을 사용하는 것을 고려하세요:
 
 ```plaintext
 BEHAVIOR_PRODUCT_FEATURE
 ```
 
-다음을 교체합니다:
+각 항목을 다음과 같이 대체합니다:
 
 | 입력 안내 | 설명 |
 |-------------|---------------------------------------------------------------------------------------------------------------------------|
-| `BEHAVIOR` | 기능의 동작. 코드에서 동작이 기본적으로 비활성화되어 있는지 확인하고 기능 플래그 이름에 `disabled`와 같은 문구를 사용하지 마세요. |
-| `PRODUCT` | 해당 기능이 속한 제품입니다. |
-| `FEATURE` | 기능의 이름입니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="이름 지정 규칙" }
+| `BEHAVIOR`  | 기능의 동작입니다. 코드에서 동작이 기본적으로 비활성화되어 있는지 확인하고, 기능 플래그 이름에 `disabled`와 같은 문구를 사용하지 마세요. |
+| `PRODUCT`   | 기능이 속한 제품입니다.                                                                                       |
+| `FEATURE`    | 기능의 이름입니다.                                                                                                  |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="명명 규칙" }
 
-다음은 기능 플래그의 예시입니다. 여기서 `show`는 동작, `animation_profile`은 제품, `driver`는 기능입니다:
+다음은 `show`가 동작, `animation_profile`이 제품, `driver`가 기능인 기능 플래그 예시입니다:
 
 ```plaintext
 show_animation_profile_driver
@@ -944,19 +944,19 @@ show_animation_profile_driver
 
 ### 미리 계획하기 {#planning-ahead}
 
-항상 안전하게 작업하세요. 끄기 스위치가 필요할 수 있는 새로운 기능을 고려할 때는 새로운 앱 업데이트가 필요하다는 점을 나중에 깨닫는 것보다 필요하지 않더라도 기능 플래그를 포함하여 새 코드를 출시하는 것이 좋습니다.
+항상 안전하게 진행하세요. 끄기 스위치가 필요할 수 있는 새로운 기능을 고려할 때, 기능 플래그와 함께 새 코드를 릴리스하고 필요하지 않은 것이 새 앱 업데이트가 필요하다는 것을 나중에 깨닫는 것보다 낫습니다.
 
-### 설명하기 {#be-descriptive}
+### 설명을 자세히 작성하세요 {#be-descriptive}
 
-기능 플래그에 설명을 추가합니다. 이 필드는 Braze에서 선택 사항이지만, 다른 사람이 사용 가능한 기능 플래그를 검색할 때 궁금해할 수 있는 질문에 답하는 데 도움이 될 수 있습니다.
+기능 플래그에 설명을 추가하세요. Braze에서 선택 필드이지만, 사용 가능한 기능 플래그를 탐색할 때 다른 사람들이 가질 수 있는 질문에 답하는 데 도움이 될 수 있습니다.
 
-- 이 플래그의 인에이블먼트 및 동작을 담당하는 담당자에 대한 연락처 정보
+- 이 플래그의 활성화 및 동작을 담당하는 사람의 연락처 정보
 - 이 플래그를 비활성화해야 하는 시기
-- 이 플래그가 제어하는 새로운 기능에 대한 설명서 또는 참고 사항 링크
+- 이 플래그가 제어하는 새로운 기능에 대한 설명서 또는 메모 링크
 - 기능 사용 방법에 대한 종속성 또는 참고 사항
 
-### 오래된 기능 플래그 정리 {#clean-up-old-feature-flags}
+### 오래된 기능 플래그 정리하기 {#clean-up-old-feature-flags}
 
-기능의 롤아웃을 필요 이상으로 오랫동안 100% 상태로 두는 상황에 대해 모두가 책임을 안고 있습니다.
+누구나 필요 이상으로 오랫동안 100% 롤아웃 상태로 기능을 방치한 경험이 있습니다.
 
-코드 및 Braze 대시보드를 깔끔하게 유지하려면 모든 사용자가 업그레이드하여 기능을 비활성화하는 옵션이 더 이상 필요하지 않게 된 후 코드 베이스에서 영구 기능 플래그를 제거합니다. 이렇게 하면 개발 환경의 복잡성을 줄일 수 있을 뿐만 아니라 기능 플래그 목록도 깔끔하게 정리할 수 있습니다.
+코드(및 Braze 대시보드)를 깔끔하게 유지하려면, 모든 사용자가 업그레이드를 완료하고 기능을 비활성화할 필요가 더 이상 없는 경우 코드베이스에서 영구 기능 플래그를 제거하세요. 이렇게 하면 개발 환경의 복잡성을 줄이는 데 도움이 될 뿐만 아니라, 기능 플래그 목록도 깔끔하게 유지됩니다.

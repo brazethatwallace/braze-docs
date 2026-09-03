@@ -10,17 +10,17 @@ hidden: true
 
 > As ações da Braze permitem que você use "deep links" para executar a funcionalidade nativa do SDK.<br><br>O dashboard da Braze inclui várias ações padrão ao clicar (Solicitar permissão para push, Registrar evento personalizado e Registrar atributo personalizado) que podem ser usadas em mensagens no app e Content Cards.<br><br>Para todas as outras ações, ou para combinar várias ações, use este guia para construir seu próprio deep link de Braze Action.
 
-## Suporte ao SDK {#sdk-support}
+## Suporte do SDK {#sdk-support}
 
 {% sdk_min_versions swift:5.4.0 android:21.0.0 web:4.0.3 %}
 
-O esquema de deep link `brazeActions://` pode ser usado sempre que houver uma opção de deep link ou redirecionamento nas mensagens no app e nos Content Cards.
+O esquema de deeplink `brazeActions://` pode ser usado em qualquer lugar onde exista uma opção de deeplink ou redirecionamento dentro de In-App Messages e Content Cards.
 
-Para mensagens no app em HTML, use o [`Javascript Bridge`]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/customize#javascript-bridge) em vez disso, pois os deep links não são compatíveis com tipos de mensagens HTML.
+Para In-App Messages em HTML, use o [`Javascript Bridge`]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#javascript-bridge), pois deeplinks não são compatíveis com tipos de mensagem HTML.
 
-## Esquema {#schema}
+## Schema {#schema}
 
-Você pode incluir várias `steps` de ação em um tipo de ação `container`. Uma única etapa sem um `container` também é válida.
+Você pode incluir várias `steps` de ação dentro de um tipo de ação `container`. Uma única etapa sem um `container` também é válida.
 
 ```json
 {
@@ -29,7 +29,7 @@ Você pode incluir várias `steps` de ação em um tipo de ação `container`. U
 }
 ```
 
-Um `step` individual contém um `type` de ação e um array `args` opcional:
+Uma `step` individual contém um `type` de ação e um array `args` opcional:
 
 ```json
 {
@@ -77,23 +77,23 @@ function encode(input) {
 }
 ```
 
-## Ações compatíveis {#supported-actions}
+## Ações suportadas {#supported-actions}
 
-| Tipo | Args |
+|Tipo|Argumentos|
 |--|--|
-| `container` | Um array de outras ações a serem executadas |
-| `logCustomEvent` | 1. `event name`<br>2. `event properties JSON object` (opcional) |
-| `setEmailNotificationSubscriptionType` | `"opted_in" | "subscribed" | "unsubscribed"` |
-| `setPushNotificationSubscriptionType` | `"opted_in" | "subscribed" | "unsubscribed"` |
-| `setCustomUserAttribute` | 1. `attribute_name`<br>2. `attribute_value` |
-| `requestPushPermission` | N/D |
-| `openLink` | 1. `url`<br>2. `openInNewTab` (booleano) |
-| `openLinkInWebview` | `url` |
-| `addToSubscriptionGroup` | `subscriptionGroupId` |
-| `removeFromSubscriptionGroup` | `subscriptionGroupId` |
-| `addToCustomAttributeArray` | 1. `attribute_name`<br>2. `attribute_value` |
-| `removeFromCustomAttributeArray` | 1. `attribute_name`<br>2. `attribute_value` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Ações compatíveis" }
+|`container`|Um array de outras ações a serem executadas|
+|`logCustomEvent`|1. `event name`<br>2. `event properties JSON object` (opcional)|
+|`setEmailNotificationSubscriptionType`|`"opted_in" | "subscribed" | "unsubscribed"`|
+|`setPushNotificationSubscriptionType`|`"opted_in" | "subscribed" | "unsubscribed"`|
+|`setCustomUserAttribute`|1. `attribute_name`<br>2. `attribute_value`|
+|`requestPushPermission`| N/A |
+|`openLink`|1. `url`<br>2. `openInNewTab` (booleano)|
+|`openLinkInWebview`| `url`|
+|`addToSubscriptionGroup`| `subscriptionGroupId`|
+|`removeFromSubscriptionGroup`| `subscriptionGroupId`|
+|`addToCustomAttributeArray`|1. `attribute_name`<br>2. `attribute_value`|
+|`removeFromCustomAttributeArray`|1. `attribute_name`<br>2. `attribute_value`|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Ações suportadas" }
 
 ## Codificador JSON {#json-encoder}
 
@@ -101,7 +101,7 @@ Insira uma string JSON para ver o URI `brazeActions://` resultante. Ou insira um
 
 <div><h4>Entrada JSON</h4></div>
 <textarea id="braze-actions-input" rows="12"></textarea>
-<div><h4>Saída do deep link</h4></div>
+<div><h4>Saída de Deeplink</h4></div>
 <textarea id="braze-actions-output" rows="6"></textarea>
 <style>
     #braze-actions-input, #braze-actions-output {

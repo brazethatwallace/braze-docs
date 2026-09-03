@@ -29,7 +29,7 @@ Die Integration von Braze und Amperity bietet eine einheitliche Sicht auf Ihre K
 | ----------- | ----------- |
 | Amperity-Konto | Sie benötigen ein [Amperity-Konto](https://amperity.com/request-a-demo), um die Vorteile dieser Partnerschaft zu nutzen. |
 | Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit `users.track`-Berechtigungen. <br> Dieser kann im Braze-Dashboard erstellt werden, indem Sie zu **Entwicklungskonsole** > **REST-API-Schlüssel** > **Neuen API-Schlüssel erstellen** navigieren. |
-| Braze-Instanz | Ihre Braze-Instanz erhalten Sie von Ihrem Braze-Onboarding-Manager oder auf der [API-Übersichtsseite]({{site.baseurl}}/api/basics#endpoints). |
+| Braze-Instanz | Ihre Braze-Instanz erhalten Sie von Ihrem Braze-Onboarding-Manager:in oder auf der [API-Übersichtsseite]({{site.baseurl}}/api/basics#endpoints). |
 | Braze-REST-Endpunkt | Ihre Braze-Endpunkt-URL. Ihr Endpunkt hängt von Ihrer Braze-Instanz ab. |
 | Currents-Konnektor (optional) | Der S3-Currents-Konnektor. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
@@ -84,7 +84,7 @@ Der verwendete Datentyp hängt von der Art des Attributs ab. Eine E-Mail-Adresse
 
 ### Duplizierung von Attributen {#duplication-of-attributes}
 
-Vermeiden Sie das Senden angepasster Attribute, die die Felder des Standard-Nutzerprofils duplizieren. Das Geburtsdatum sollte beispielsweise als Nutzerprofil-Feld mit dem Namen „dob“ an Braze gesendet werden, damit es mit dem Braze-Standardattribut übereinstimmt. Wenn es als „birthday“, „Birthdate“ oder ein anderer String gesendet wird, wird ein angepasstes Attribut erstellt, und die Werte im Feld „dob“ werden nicht aktualisiert.
+Vermeiden Sie das Senden angepasster Attribute, die die Felder des Standard-Nutzerprofils duplizieren. Das Geburtsdatum sollte beispielsweise als Kundenprofil-Feld mit dem Namen „dob“ an Braze gesendet werden, damit es mit dem Braze-Standardattribut übereinstimmt. Wenn es als „birthday“, „Birthdate“ oder ein anderer String gesendet wird, wird ein angepasstes Attribut erstellt, und die Werte im Feld „dob“ werden nicht aktualisiert.
 
 ### Datenpunkte {#data-points}
 
@@ -124,7 +124,7 @@ Geben Sie unter **Braze settings** die Braze-Zugangsdaten und die Zieleinstellun
 
 #### Schritt 2e: Daten-Template hinzufügen {#step-2e-add-a-data-template}
 
-Öffnen Sie auf dem Tab **Destinations** das Menü für das Braze-Ziel und wählen Sie **Add data template**. Geben Sie einen Namen und eine Beschreibung für das Template ein (z. B. „Braze“ und „Send custom attributes to Braze“), überprüfen Sie den Zugriff der geschäftlichen Nutzer:innen und kontrollieren Sie alle Konfigurationseinstellungen.
+Öffnen Sie auf dem Tab **Destinations** das Menü für das Braze-Ziel und wählen Sie **Add data template**. Geben Sie einen Namen und eine Beschreibung für das Template ein (z. B. „Braze“ und „Send angepasste Attribute to Braze“), überprüfen Sie den Zugriff der geschäftlichen Nutzer:innen und kontrollieren Sie alle Konfigurationseinstellungen.
 
 Wenn die erforderlichen Einstellungen nicht als Teil des Ziels konfiguriert wurden, konfigurieren Sie sie als Teil des Daten-Templates. Speichern Sie das Daten-Template.
 

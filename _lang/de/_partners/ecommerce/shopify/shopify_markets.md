@@ -13,7 +13,7 @@ hidden: true
 > Dieser Artikel behandelt die Shopify Markets-Integration (derzeit in der Beta-Phase), einschließlich des Umfangs, der Funktionsweise und der Nutzung Ihrer Markets-Daten in Ihrem Messaging. Braze veröffentlicht im Laufe der Beta-Phase schrittweise zusätzliche Markets-Funktionalitäten und skaliert die Unterstützung für komplexere Marktstrukturen im Laufe der Zeit.
 
 {% alert important %}
-Shopify Markets befindet sich derzeit in der Beta-Phase. Für weitere Informationen wenden Sie sich an Ihren Braze Customer-Success-Manager.
+Shopify Markets befindet sich derzeit in der Beta-Phase. Für weitere Informationen wenden Sie sich an Ihren Braze CSM.
 {% endalert %}
 
 ## Funktionsweise der Integration {#how-the-integration-works}
@@ -93,7 +93,7 @@ Folgendes wird in dieser Beta nicht unterstützt:
 
 Zur Unterstützung von Shopify Markets synchronisiert Braze mehr Daten als die [Standard-Events und -Attribute]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features#tracked-shopify-events) der Integration.
 
-Braze schreibt diesen zusätzlichen Marktkontext in jedes Nutzerprofil:
+Braze schreibt diesen zusätzlichen Marktkontext in jedes Kundenprofil:
 
 | Datentyp | Wert | Datenquelle |
 | --- | --- | --- |

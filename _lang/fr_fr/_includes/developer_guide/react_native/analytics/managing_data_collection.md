@@ -8,7 +8,7 @@ Pour désactiver la collecte de données, utilisez la méthode `disableSDK`. Apr
 Braze.disableSDK();
 ```
 
-## Reprise du suivi des données {#resuming-data-tracking}
+## Reprendre le suivi des données {#resuming-data-tracking}
 
 Pour reprendre la collecte de données après l'avoir désactivée, utilisez la méthode `enableSDK`.
 
@@ -16,9 +16,9 @@ Pour reprendre la collecte de données après l'avoir désactivée, utilisez la 
 Braze.enableSDK();
 ```
 
-## Effacer les données {#wiping-data}
+## Effacement des données {#wiping-data}
 
-Pour supprimer toutes les données du SDK Braze stockées localement sur l'appareil, utilisez la méthode `wipeData`. Après avoir appelé cette méthode, le SDK est désactivé et doit être réactivé avec `enableSDK`.
+Pour supprimer toutes les données du SDK Braze stockées localement sur l'appareil, utilisez la méthode `wipeData`. Après l'appel de cette méthode, le SDK est désactivé et doit être réactivé avec `enableSDK`.
 
 ```javascript
 Braze.wipeData();
@@ -57,7 +57,7 @@ Braze.updateTrackingPropertyAllowList({
 });
 ```
 
-Pour plus d'informations, consultez [Manifeste de confidentialité]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/privacy_manifest).
+Pour plus d'informations, consultez [Manifeste de confidentialité]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift#swift_privacy-manifest).
 
 ## Déconnexion et désinscription des notifications push {#logout-and-unregister-push}
 

@@ -16,7 +16,7 @@ Cuando utilizas la integración de Braze y Outgrow para contenido interactivo, l
 - **Personalización mejorada**: Recopila datos de cuestionarios, encuestas y calculadoras de Outgrow que puedan mapearse a atributos personalizados en Braze. Estos datos permiten una segmentación precisa y campañas personalizadas.
 - **Sincronización de datos en tiempo real**: Recibe datos de Outgrow en Braze en tiempo real, lo que te permite actuar de inmediato sobre la información de los usuarios. Esto permite un seguimiento puntual o mensajes personalizados basados en las interacciones más recientes de los usuarios.
 - **Gestión de datos optimizada**: Automatiza la transferencia de datos entre Outgrow y Braze, eliminando las exportaciones e importaciones manuales de datos, reduciendo las discrepancias de datos y ahorrando tiempo.
-- **Mejora de la experiencia del usuario**: Aprovecha la información de los usuarios para crear experiencias más relevantes, que conduzcan a una mayor satisfacción, retención y valor de duración del ciclo de vida.
+- **Mejora de la experiencia del usuario**: Aprovecha la información de los usuarios para crear experiencias más relevantes, que conduzcan a una mayor satisfacción, retención y LTV.
 - **Segmentación y orientación flexibles**: Perfecciona la segmentación en Braze utilizando los datos de Outgrow, lo que te permite dirigirte a los usuarios en función de interacciones específicas (como las puntuaciones de los cuestionarios o las respuestas a las encuestas) para crear campañas que resuenen entre tus usuarios.
 
 ## Requisitos previos {#prerequisites}
