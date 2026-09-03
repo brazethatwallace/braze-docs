@@ -108,7 +108,9 @@ lines-MainActivity.kt=10-14
 
 ### 3. Refresh your placements
 
-After initializing the Braze SDK, call `requestBannersRefresh(["PLACEMENT_ID"])`  to fetch the latest Banner content for that placement.
+After initializing the Braze SDK, call `requestBannersRefresh(["PLACEMENT_ID"])` to fetch the latest Banner content for that placement.
+
+This call merges into the existing Banner cache. Only the placement IDs you request are added, updated, or removed. Cached Banners for other placements stay in the cache and expire at their original expiry time. If the server returns no Banner for a requested placement, that placement is dropped from the cache.
 
 !!step
 lines-banners.xml=15-19
@@ -116,5 +118,7 @@ lines-banners.xml=15-19
 ### 4. Define `BannerView` in your `banners.xml`
 
 In `banners.xml`, declare a `<com.braze.ui.banners.BannerView>` element with `app:placementId="PLACEMENT_ID"`. Braze will use this element to insert your Banner into your UI.
+
+After a refresh, the SDK updates a `BannerView` only when that placement's content changes. Unchanged displayed Banners stay as-is.
 
 {% endscrolly %}
