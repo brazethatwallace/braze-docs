@@ -786,3 +786,18 @@ class TestJaCampaignComposerUiRepairs:
         assert "**キャンペーンを作成**" in new_content
         assert "Create キャンペーン" not in new_content
         assert repairs
+
+
+class TestRepairMultiLangIncludePaths:
+    def test_restores_translated_include_filename(self):
+        english = (
+            '{% multi_lang_include brazeai/recommendations/ai.md '
+            'section="Plan-specific features" %}\n'
+        )
+        translated = (
+            '{% multi_lang_include brazeai/recommendations/KI.md '
+            'section="Plan-specific features" %}\n'
+        )
+        repaired, repairs = at.repair_multi_lang_include_paths(english, translated)
+        assert repaired == english
+        assert repairs
