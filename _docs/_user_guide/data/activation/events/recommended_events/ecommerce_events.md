@@ -111,7 +111,7 @@ Use this template when you want to remind users about items in their cart and dr
 {: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce Canvas templates" }
 
 {% alert tip %}
-The `ecommerce.cart_updated` event supports full cart replacement (each event can describe the entire cart) or incremental updates using the `add` and `remove` values for the optional `action` property. Pick one approach per cart and avoid mixing replacement and incremental cart updates for the same `cart_id`. Use the {% raw %}`{% shopping_cart %}`{% endraw %} Liquid tag in your message to dynamically display the current cart contents at send time.
+The `ecommerce.cart_updated` event supports full cart replacement (each event can describe the entire cart) or incremental updates using the `add` and `remove` values for the optional `action` property. Pick one approach per cart and avoid mixing replacement and incremental cart updates for the same `cart_id`. The stored cart keeps the `currency` from the most recent cart event; a cart update in a different currency replaces the stored cart instead of mixing values from two currencies. Use the {% raw %}`{% shopping_cart %}`{% endraw %} Liquid tag in your message to dynamically display the current cart contents at send time.
 {% endalert %}
 
 {% endtab %}
