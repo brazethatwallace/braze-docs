@@ -5537,6 +5537,13 @@ validurls['/docs/message_credits_sigma_pow2'] = '/docs/message_credits_sigma_pow
 validurls['/docs/message_credits_theta_d9kw'] = '/docs/message_credits_theta_d9kw';
 validurls['/docs/track_users_bulk'] = '/docs/track_users_bulk';
 validurls['/docs/rate_limiting'] = '/docs/rate_limiting';
+validurls['/docs/rate_limiting_v3'] = '/docs/user_guide/messaging/messaging_fundamentals/frequency_capping';
+validurls['/docs/de/rate_limiting_v3'] = '/docs/de/user_guide/messaging/messaging_fundamentals/frequency_capping';
+validurls['/docs/es/rate_limiting_v3'] = '/docs/es/user_guide/messaging/messaging_fundamentals/frequency_capping';
+validurls['/docs/fr/rate_limiting_v3'] = '/docs/fr/user_guide/messaging/messaging_fundamentals/frequency_capping';
+validurls['/docs/ja/rate_limiting_v3'] = '/docs/ja/user_guide/messaging/messaging_fundamentals/frequency_capping';
+validurls['/docs/ko/rate_limiting_v3'] = '/docs/ko/user_guide/messaging/messaging_fundamentals/frequency_capping';
+validurls['/docs/pt-br/rate_limiting_v3'] = '/docs/pt-br/user_guide/messaging/messaging_fundamentals/frequency_capping';
 validurls['/docs/whatsapp_pricing_updates'] = '/docs/whatsapp_pricing_updates';
 validurls['/docs/message_prioritization/'] = '/docs/message_prioritization/';
 
