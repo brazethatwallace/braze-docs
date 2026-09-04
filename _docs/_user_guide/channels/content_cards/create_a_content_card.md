@@ -314,10 +314,10 @@ You can manually remove cards for all users' feeds at any time by stopping the c
 
 You can automatically remove a card when a user performs a specific action, such as completing a purchase or activating a feature.
 
-In your campaign or Canvas step, specify a removal event. When a user performs that event, the card is removed from their feed on a subsequent refresh after Braze processes the event. 
+In your campaign or Canvas step, specify a removal event. When a user performs that event, Braze processes the event and then removes the card from their feed.
 
 {% alert note %}
-This removal is not instantaneous. There is a processing delay, so it may take several minutes and more than one feed refresh for the card to disappear.
+This removal is not instantaneous because Braze processes the event first. On supported SDK versions, the removal then reaches the device during the current session through [real-time delivery]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed#real-time-delivery). On earlier versions, it may take several minutes and more than one feed refresh for the card to disappear.
 {% endalert %}
 
 {% alert tip %}
@@ -344,7 +344,7 @@ If you want a card to seem like it's always available, you can create a recurrin
 
 ### Content Card sync and refresh
 
-Content Cards sync on a schedule and when your app refreshes the feed. Sync behavior differs between full and partial syncs, and your SDK integration affects when cards refresh at session start. For implementation details, see [Customize the Content Card feed]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed) and [Creating Content Cards]({{site.baseurl}}/developer_guide/content_cards/creating_cards).
+Content Cards sync on a schedule and when your app refreshes the feed. Sync behavior differs between full and partial syncs, and your SDK integration affects when cards refresh at session start. On supported SDK versions, Braze also delivers sends and removals during an active session through [real-time delivery]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed#real-time-delivery). For implementation details, see [Customize the Content Card feed]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed) and [Creating Content Cards]({{site.baseurl}}/developer_guide/content_cards/creating_cards).
 
 ### Impact of stopping Content Cards campaigns
 
@@ -359,11 +359,11 @@ For action-based delivery campaigns (such as session start), there is an expecte
 - The trigger event is flushed to Braze's servers
 - The campaign is triggered and the user's eligibility is recorded
 - The Content Card is created in the database for that user
-- The SDK syncs and pulls all available cards to the device
+- The card reaches the device
 
-If the SDK sync happens before the user's eligibility is recorded, the user does not receive the card.
+On supported SDK versions, [real-time delivery]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed#real-time-delivery) sends the card to the device as soon as Braze creates it, so the card arrives during the current session. On earlier versions, the SDK pulls the card on its next sync, and a sync that runs before the user's eligibility is recorded returns nothing.
 
-For new users in their first session, this delay is unavoidable. For existing users who need instant availability, consider using scheduled delivery instead.
+For new users in their first session, this processing delay is unavoidable. For existing users who need instant availability, consider using scheduled delivery instead.
 
 If you need to minimize delays for both new and existing users, you can create two campaigns:
 
