@@ -21,9 +21,9 @@ platform:
 
 ## 배치 만들기 {#create-a-placement}
 
-### 필수 조건 {#prerequisites}
+### 사전 요구 사항 {#prerequisites}
 
-배너 배치를 만들려면 다음과 같은 최소 SDK 버전이 필요합니다:
+Banner 배치를 만들기 위해 필요한 최소 SDK 버전은 다음과 같습니다.
 
 {% multi_lang_include developer_guide/sdk_versions.md feature='banners' %}
 
@@ -33,22 +33,22 @@ platform:
 
 배치를 새로고침하려면 SDK의 새로고침 메서드를 호출합니다(웹 및 Android에서는 `requestBannersRefresh()`, Swift에서는 `requestRefresh()`).
 
-배너 새로고침 동작에는 두 가지 경로가 있습니다:
+Banner 새로고침 동작에는 두 가지 경로가 있습니다.
 
 1. **명시적 새로고침:** 활성 세션 중 어느 시점에서든 새로고침 메서드를 호출할 수 있습니다.
-2. **새 세션 시 자동 새로고침:** 명시적 새로고침 요청을 한 번 이상 하면, 새 Braze 세션이 시작될 때(예: `changeUser()` 이후 또는 세션 타임아웃 이후) SDK가 가장 최근에 요청된 배치 ID를 다시 요청할 수 있습니다.
+2. **새 세션에서 자동 새로고침:** 최소 한 번의 명시적 새로고침 요청을 수행한 후, SDK는 새 Braze 세션이 시작될 때(예: `changeUser()` 이후 또는 세션 타임아웃 후) 가장 최근에 요청된 배치 ID를 다시 요청할 수 있습니다.
 
-`subscribeToBannersUpdates()`의 역할은 플랫폼에 따라 다릅니다:
+`subscribeToBannersUpdates()`의 역할은 플랫폼에 따라 다릅니다.
 
-- **iOS 및 Android:** `subscribeToBannersUpdates()`(Swift에서는 `subscribeToUpdates()`)는 업데이트 콜백을 등록합니다. 자동 세션 시작 새로고침은 구독 활성 여부에 의존하지 않습니다.
+- **iOS 및 Android:** `subscribeToBannersUpdates()`(Swift에서는 `subscribeToUpdates()`)는 업데이트 콜백을 등록합니다. 자동 세션 시작 새로고침은 구독이 활성화되어 있는지 여부에 의존하지 않습니다.
 - **웹:** 자동 세션 시작 새로고침은 `subscribeToBannersUpdates()`가 등록되어 있는지에 연결됩니다. 활성 구독이 없으면 SDK는 새 세션에서 자동으로 새로고침을 반복하지 않습니다.
 
-모든 경우에서, SDK가 어떤 배치 ID를 계속 업데이트해야 하는지 알 수 있도록 앱 생명주기당 최소 한 번은 명시적 새로고침 요청을 해야 합니다. 배너는 초기 호출 없이는 첫 실행 시 자동으로 가져오지 않으며, 추적 중인 배치 ID는 앱 재시작 후 초기화됩니다.
+모든 경우에, SDK가 어떤 배치 ID를 최신 상태로 유지해야 하는지 알 수 있도록 앱 수명 주기당 최소 한 번의 명시적 새로고침 요청을 해야 합니다. Banner는 초기 호출 없이 첫 실행 시 자동으로 가져오지 않으며, 추적 중인 배치 ID는 앱이 다시 시작된 후 재설정됩니다.
 
 자동 세션 시작 새로고침은 사용량 제한 토큰을 소비하지 않습니다.
 
 {% alert tip %}
-배너 다운로드 또는 표시 지연을 방지하려면 가능한 한 빨리 배치를 새로고침하세요.
+Banner의 다운로드 또는 표시 지연을 방지하려면 가능한 한 빨리 배치를 새로고침합니다.
 {% endalert %}
 
 {% tabs %}
@@ -69,6 +69,15 @@ AppDelegate.braze?.banners.requestRefresh(placementIds: ["global_banner", "navig
 
 {% endtab %}
 {% tab Android %}
+
+`requestBannersRefresh()`는 기존 Banner 캐시에 병합됩니다. 전달한 배치 ID만 추가, 업데이트 또는 제거됩니다.
+
+- 서버가 요청된 배치에 대한 Banner를 반환하면 해당 배치의 캐시된 Banner가 교체됩니다.
+- 서버가 요청된 배치에 대한 Banner를 반환하지 않으면 해당 배치는 캐시에서 제거됩니다.
+- 요청하지 않은 배치의 캐시된 Banner는 캐시에 남아 있으며 원래 만료 시간에 만료됩니다.
+
+새로고침당 요청할 수 있는 배치 수에 대해서는 [배치 요청 정보](#requests)를 참조합니다. 시간이 지남에 따라 다양한 배치 세트(예: 현재 화면의 배치)를 새로고침하고 다른 배치의 Banner를 캐시에 유지할 수 있습니다.
+
 {% subtabs %}
 {% subtab Java %}
 
@@ -129,14 +138,14 @@ This feature is not currently supported on Roku.
 ### 3단계: 업데이트 수신 대기 {#subscribeToBannersUpdates}
 
 {% alert tip %}
-이 가이드의 SDK 메서드를 사용하여 배너를 삽입하면 모든 분석 이벤트(예: 노출 및 클릭)가 자동으로 처리되며, 노출은 배너가 보이는 경우에만 기록됩니다.
+이 가이드의 SDK 메서드를 사용하여 Banner를 삽입하면 모든 분석 이벤트(예: 노출 횟수 및 클릭)가 자동으로 처리되며, 노출 횟수는 Banner가 화면에 보일 때만 기록됩니다.
 {% endalert %}
 
 {% tabs %}
 {% tab 웹 %}
 {% subtabs %}
 {% subtab JavaScript %}
-웹 Braze SDK에서 바닐라 JavaScript를 사용하는 경우, [`subscribeToBannersUpdates`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetobannersupdates)를 사용하여 배치 업데이트를 수신 대기한 다음 [`requestBannersRefresh`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestbannersrefresh)를 호출하여 가져옵니다.
+웹 Braze SDK와 함께 바닐라 JavaScript를 사용하는 경우, [`subscribeToBannersUpdates`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetobannersupdates)를 사용하여 배치 업데이트를 수신 대기한 다음 [`requestBannersRefresh`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestbannersrefresh)를 호출하여 가져옵니다.
 
 ```javascript
 import * as braze from "@braze/web-sdk";
@@ -150,7 +159,7 @@ braze.requestBannersRefresh(["global_banner", "navigation_square_banner"]);
 ```
 {% endsubtab %}
 {% subtab React %}
-웹 Braze SDK에서 React를 사용하는 경우, `useEffect` 훅 내에서 [`subscribeToBannersUpdates`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetobannersupdates)를 설정하고 리스너를 등록한 후 [`requestBannersRefresh`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestbannersrefresh)를 호출합니다.
+웹 Braze SDK와 함께 React를 사용하는 경우, `useEffect` 훅 내에서 [`subscribeToBannersUpdates`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetobannersupdates)를 설정하고 리스너를 등록한 후 [`requestBannersRefresh`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestbannersrefresh)를 호출합니다.
 
 ```typescript
 import * as braze from "@braze/web-sdk";
@@ -175,7 +184,7 @@ useEffect(() => {
 {% tab Swift %}
 
 {% alert note %}
-배너 업데이트 리스너는 SDK의 인메모리 배너 상태를 반영합니다. 단일 업데이트에는 가장 최근의 `requestRefresh` 호출에서의 배치 ID뿐만 아니라 이미 캐시된 배치(예: 이전 새로고침, 다른 화면 또는 자동 SDK 작업에서)도 포함될 수 있습니다. 특정 배치에만 관심이 있는 경우 리스너에서 각 배너의 배치 ID를 확인하고 나머지는 건너뛰세요. 리스너를 등록한 후, Braze에서 동기화하려는 배치에 대해 `requestRefresh`를 호출하세요.
+Banner 업데이트 리스너는 SDK의 인메모리 Banner 상태를 반영합니다. 단일 업데이트에는 가장 최근 `requestRefresh` 호출의 배치 ID뿐만 아니라 이미 캐시된 배치(예: 이전 새로고침, 다른 화면 또는 SDK 자동 작업에서 가져온 배치)가 포함될 수 있습니다. 특정 배치에만 관심이 있는 경우 리스너에서 각 Banner의 배치 ID를 확인하고 나머지는 건너뛰세요. 리스너를 등록한 후, Braze에서 동기화하려는 배치에 대해 `requestRefresh`를 호출합니다.
 {% endalert %}
 
 ```swift
@@ -193,7 +202,7 @@ brazeClient.braze()?.banners.requestRefresh(placementIds: placementIds)
 {% tab Android %}
 
 {% alert note %}
-배너 업데이트 리스너는 SDK의 인메모리 배너 상태를 반영합니다. 단일 업데이트에는 가장 최근의 `requestBannersRefresh` 호출에서의 배치 ID뿐만 아니라 이미 캐시된 배치(예: 이전 새로고침, 다른 화면 또는 자동 SDK 작업에서)도 포함될 수 있습니다. 특정 배치에만 관심이 있는 경우 리스너에서 각 배너의 배치 ID를 확인하고 나머지는 건너뛰세요. 리스너를 등록한 후, Braze에서 동기화하려는 배치에 대해 `requestBannersRefresh`를 호출하세요.
+Banner 업데이트 리스너는 SDK의 인메모리 Banner 상태를 반영합니다. 단일 업데이트에는 가장 최근 `requestBannersRefresh` 호출의 배치 ID뿐만 아니라 이미 캐시된 배치(예: 이전 새로고침, 다른 화면 또는 SDK 자동 작업에서 가져온 배치)가 포함될 수 있습니다. 특정 배치에만 관심이 있는 경우 리스너에서 각 Banner의 배치 ID를 확인하고 나머지는 건너뛰세요. 리스너를 등록한 후, Braze에서 동기화하려는 배치에 대해 `requestBannersRefresh`를 호출합니다.
 {% endalert %}
 
 {% subtabs %}
@@ -282,13 +291,13 @@ This feature is not currently supported on Roku.
 ### 4단계: 배치 ID를 사용하여 삽입 {#insertBanner}
 
 {% alert tip %}
-전체 단계별 튜토리얼은 [배치 ID로 배너 표시하기]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners)를 확인하세요.
+전체 단계별 튜토리얼은 [배치 ID로 Banner 표시하기]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners)를 확인하세요.
 {% endalert %}
 
 {% tabs %}
 {% tab 웹 %}
 
-배너의 컨테이너 요소를 만듭니다. 너비와 높이를 반드시 설정하세요.
+Banner용 컨테이너 요소를 만듭니다. 너비와 높이를 반드시 설정하세요.
 
 ```html
 <div id="global-banner-container" style="width: 100%; height: 450px;"></div>
@@ -296,7 +305,7 @@ This feature is not currently supported on Roku.
 
 {% subtabs local %}
 {% subtab JavaScript %}
-웹 Braze SDK에서 바닐라 JavaScript를 사용하는 경우, [`insertBanner`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#insertbanner) 메서드를 호출하여 컨테이너 요소의 내부 HTML을 교체합니다.
+웹 Braze SDK와 함께 바닐라 JavaScript를 사용하는 경우, [`insertBanner`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#insertbanner) 메서드를 호출하여 컨테이너 요소의 내부 HTML을 교체합니다.
 
 ```javascript
 import * as braze from "@braze/web-sdk";
@@ -331,7 +340,7 @@ braze.requestBannersRefresh(["global_banner", "navigation_square_banner"]);
 {% endsubtab %}
 
 {% subtab React %}
-웹 Braze SDK에서 React를 사용하는 경우, `ref`와 함께 [`insertBanner`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#insertbanner) 메서드를 호출하여 컨테이너 요소의 내부 HTML을 교체합니다.
+웹 Braze SDK와 함께 React를 사용하는 경우, `ref`를 사용하여 [`insertBanner`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#insertbanner) 메서드를 호출하여 컨테이너 요소의 내부 HTML을 교체합니다.
 
 ```tsx
 import { useRef } from 'react';
@@ -356,7 +365,7 @@ export default function App() {
 {% endsubtabs %}
 
 {% alert tip %}
-노출을 추적하려면 `isControl`에 대해서도 `insertBanner`를 호출하세요. 그런 다음 컨테이너를 숨기거나 축소할 수 있습니다.
+노출 횟수를 추적하려면 `isControl`에 대해 `insertBanner`를 반드시 호출하세요. 그런 다음 컨테이너를 숨기거나 축소할 수 있습니다.
 {% endalert %}
 
 {% endtab %}
@@ -414,15 +423,18 @@ if let braze = AppDelegate.braze {
 
 {% endtab %}
 {% tab Android %}
+
+새로고침 후, SDK는 해당 배치의 캐시된 콘텐츠가 변경(추가, 제거 또는 업데이트)된 경우에만 `BannerView`를 업데이트합니다. 변경되지 않은 표시된 Banner는 그대로 유지됩니다. `changeUser()`를 호출하면 등록된 모든 `BannerView`가 업데이트됩니다.
+
 {% subtabs %}
 {% subtab Java %}
-Java 코드에서 배너를 가져오려면 다음을 사용합니다:
+Java 코드에서 Banner를 가져오려면 다음을 사용합니다.
 
 ```java
 Banner globalBanner = Braze.getInstance(context).getBanner("global_banner");
 ```
 
-Android 뷰 레이아웃에서 다음 XML을 포함하여 배너를 만들 수 있습니다:
+Android 뷰 레이아웃에 다음 XML을 포함하여 Banner를 만들 수 있습니다.
 
 ```xml
 <com.braze.ui.banners.BannerView
@@ -434,7 +446,7 @@ Android 뷰 레이아웃에서 다음 XML을 포함하여 배너를 만들 수 �
 {% endsubtab %}
 
 {% subtab Kotlin %}
-Android Views를 사용하는 경우 다음 XML을 사용합니다:
+Android Views를 사용하는 경우 다음 XML을 사용합니다.
 
 ```xml
 <com.braze.ui.banners.BannerView
@@ -444,10 +456,10 @@ Android Views를 사용하는 경우 다음 XML을 사용합니다:
     app:placementId="global_banner" />
 ```
 
-Jetpack Compose를 사용하려면 앱 모듈에 `com.braze:android-sdk-jetpack-compose` 아티팩트를 추가합니다. 다른 Braze Android SDK 의존성과 동일한 버전을 사용하세요. 이 모듈은 `android-sdk-ui`와 별개이며 `com.braze.jetpackcompose.banners` 아래에 [`Banner`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.banners/-banner.html) 컴포저블을 제공합니다.
+Jetpack Compose를 사용하려면 앱 모듈에 `com.braze:android-sdk-jetpack-compose` 아티팩트를 추가합니다. 다른 Braze Android SDK 종속성과 동일한 버전을 사용하세요. 이 모듈은 `android-sdk-ui`와 별도이며 `com.braze.jetpackcompose.banners` 아래에 [`Banner`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.banners/-banner.html) 컴포저블을 제공합니다.
 
 {% alert note %}
-일부 Compose UI 라이브러리는 자체 `Banner` 컴포저블을 정의합니다. Braze API를 호출하려면 `com.braze.jetpackcompose.banners.Banner`를 명시적으로 가져오세요.
+일부 Compose UI 라이브러리는 자체 `Banner` 컴포저블을 정의합니다. Braze의 API를 호출하려면 `com.braze.jetpackcompose.banners.Banner`를 명시적으로 가져오세요.
 {% endalert %}
 
 ```kotlin
@@ -459,9 +471,9 @@ fun myBannerSlot() {
 }
 ```
 
-선택적으로 `heightCallback`을 전달하여 배너 크기가 변경될 때 렌더링된 높이를 dp 단위로 받을 수 있습니다. 참조는 [`Banner`에 대한 KDoc](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.banners/-banner.html)을 확인하세요.
+선택적으로 `heightCallback`을 전달하여 Banner 크기가 변경될 때 렌더링된 높이(dp)를 수신할 수 있습니다. 자세한 내용은 [`Banner`의 KDoc](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.banners/-banner.html)을 참조하세요.
 
-Jetpack Compose 모듈을 추가하지 않은 경우 [`BannerView`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.banners/-banner-view/index.html)를 [`AndroidView`](https://developer.android.com/reference/kotlin/androidx/compose/ui/viewinterop/AndroidView)로 래핑합니다:
+Jetpack Compose 모듈을 추가하지 않는 경우, [`BannerView`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.banners/-banner-view/index.html)를 [`AndroidView`](https://developer.android.com/reference/kotlin/androidx/compose/ui/viewinterop/AndroidView)로 래핑합니다.
 
 ```kotlin
 import android.view.ViewGroup
@@ -485,7 +497,7 @@ fun myBannerSlot() {
 }
 ```
 
-Kotlin에서 배너를 가져오려면 다음을 사용합니다:
+Kotlin에서 Banner를 가져오려면 다음을 사용합니다.
 ```kotlin
 val banner = Braze.getInstance(context).getBanner("global_banner")
 ```
@@ -494,7 +506,7 @@ val banner = Braze.getInstance(context).getBanner("global_banner")
 {% endtab %}
 {% tab React Native %}
 
-[React Native의 New Architecture](https://reactnative.dev/architecture/landing-page)를 사용하는 경우 `AppDelegate.mm`에서 `BrazeBannerView`를 Fabric 컴포넌트로 등록해야 합니다.
+[React Native의 새 아키텍처](https://reactnative.dev/architecture/landing-page)를 사용하는 경우 `AppDelegate.mm`에서 `BrazeBannerView`를 Fabric 컴포넌트로 등록해야 합니다.
 
 ```swift
 #ifdef RCT_NEW_ARCH_ENABLED
@@ -506,7 +518,7 @@ val banner = Braze.getInstance(context).getBanner("global_banner")
 }
 #endif
 ```
-가장 간단한 통합을 위해 다음 JavaScript XML(JSX) 스니펫을 뷰 계층에 추가하고 배치 ID만 제공합니다.
+가장 간단한 통합을 위해, 배치 ID만 제공하여 다음 JavaScript XML(JSX) 스니펫을 뷰 계층 구조에 추가합니다.
 
 ```javascript
 <Braze.BrazeBannerView
@@ -514,7 +526,7 @@ val banner = Braze.getInstance(context).getBanner("global_banner")
 />
 ```
 
-React Native에서 배너의 데이터 모델을 가져오거나 사용자의 캐시에서 해당 배치의 존재 여부를 확인하려면 다음을 사용합니다:
+React Native에서 Banner의 데이터 모델을 가져오거나 사용자 캐시에서 해당 배치의 존재 여부를 확인하려면 다음을 사용합니다.
 
 ```javascript
 const banner = await Braze.getBanner("global_banner");
@@ -536,7 +548,7 @@ This feature is not currently supported on Cordova.
 
 {% endtab %}
 {% tab Flutter %}
-가장 간단한 통합을 위해 다음 위젯을 뷰 계층에 추가하고 배치 ID만 제공합니다.
+가장 간단한 통합을 위해, 배치 ID만 제공하여 다음 위젯을 뷰 계층 구조에 추가합니다.
 
 ```dart
 BrazeBannerView(
@@ -545,7 +557,7 @@ BrazeBannerView(
 To get the Banner's data model in Flutter, use:
 ```
 
-`getBanner` 메서드를 사용하여 사용자의 캐시에서 해당 배치의 존재 여부를 확인할 수 있습니다.
+`getBanner` 메서드를 사용하여 사용자 캐시에서 해당 배치의 존재 여부를 확인할 수 있습니다.
 
 ```dart
 braze.getBanner("global_banner").then((banner) {
@@ -567,29 +579,29 @@ This feature is not currently supported on Roku.
 {% endtab %}
 {% endtabs %}
 
-### 5단계: 테스트 배너 보내기(선택 사항) {#handling-test-cards}
+### 5단계: 테스트 Banner 전송(선택 사항) {#handling-test-cards}
 
-배너 Campaign을 시작하기 전에 통합을 확인하기 위해 [테스트 배너를 보낼]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=banners) 수 있습니다. 테스트 배너는 별도의 인메모리 캐시에 저장되며 앱 재시작 시 유지되지 않습니다. 추가 설정은 필요 없지만, 테스트 기기가 포그라운드 푸시 알림을 수신할 수 있어야 테스트를 표시할 수 있습니다.
+Banner Campaign을 시작하기 전에 [테스트 Banner를 전송]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=banners)하여 통합을 확인할 수 있습니다. 테스트 Banner는 별도의 인메모리 캐시에 저장되며 앱을 다시 시작하면 유지되지 않습니다. 추가 설정은 필요하지 않지만, 테스트를 표시하려면 테스트 기기가 포그라운드 푸시 알림을 수신할 수 있어야 합니다.
 
 {% alert note %}
-테스트 배너는 다른 배너와 동일하지만, 다음 앱 세션에서 제거됩니다.
+테스트 Banner는 다른 Banner와 동일하지만, 다음 앱 세션에서 제거됩니다.
 {% endalert %}
 
 ## 노출 횟수 기록 {#log-impressions}
 
-Braze는 SDK 메서드를 사용하여 배너를 삽입할 때 화면에 표시되는 배너의 노출 횟수를 자동으로 기록하므로, 수동으로 노출 횟수를 추적할 필요가 없습니다.
+Braze는 SDK 메서드를 사용하여 배너를 삽입할 때 화면에 표시되는 배너의 노출 횟수를 자동으로 기록하므로 수동으로 노출 횟수를 추적할 필요가 없습니다.
 
 ## 클릭 로깅 {#logging-clicks}
 
-배너 클릭을 로깅하는 데 사용하는 메서드는 배너가 렌더링되는 방식과 클릭 핸들러의 위치에 따라 달라집니다.
+배너 클릭을 로깅하는 데 사용하는 메서드는 배너가 렌더링되는 방식과 클릭 핸들러의 위치에 따라 다릅니다.
 
-### 표준 배너 콘텐츠 (자동) {#standard-banner-content-automatic}
+### 표준 배너 콘텐츠(자동) {#standard-banner-content-automatic}
 
-기본 제공 SDK 메서드를 사용하여 배너를 삽입하고, 배너가 표준 편집기 구성 요소(이미지, 버튼, 텍스트)를 사용하는 경우 클릭이 자동으로 추적됩니다. SDK가 이러한 요소에 클릭 리스너를 연결하므로 추가 코드가 필요하지 않습니다.
+기본 SDK 메서드를 사용하여 배너를 삽입하고, 배너가 표준 편집기 구성 요소(이미지, 버튼, 텍스트)를 사용하는 경우 클릭은 자동으로 추적됩니다. SDK가 이러한 요소에 클릭 리스너를 부착하므로 추가 코드가 필요하지 않습니다.
 
 ### 커스텀 코드 블록 {#custom-code-blocks}
 
-배너가 Braze 대시보드의 **커스텀 코드** 편집기 블록을 사용하는 경우, 커스텀 HTML 내에서 클릭을 로깅하려면 `brazeBridge.logClick()`을 사용해야 합니다. SDK 메서드를 사용하여 배너를 렌더링하는 경우에도 해당되는데, SDK가 커스텀 코드 내부의 요소에 자동으로 리스너를 연결할 수 없기 때문입니다.
+배너가 Braze 대시보드에서 **커스텀 코드** 편집기 블록을 사용하는 경우, 해당 커스텀 HTML 내에서 클릭을 로깅하려면 `brazeBridge.logClick()`을 사용해야 합니다. 이는 SDK 메서드를 사용하여 배너를 렌더링하는 경우에도 해당됩니다. SDK가 커스텀 코드 내부의 요소에 리스너를 자동으로 부착할 수 없기 때문입니다.
 
 ```html
 <button onclick="brazeBridge.logClick()">
@@ -597,17 +609,17 @@ Braze는 SDK 메서드를 사용하여 배너를 삽입할 때 화면에 표시�
 </button>
 ```
 
-전체 레퍼런스는 [배너용 커스텀 코드 및 JavaScript 브리지]({{site.baseurl}}/user_guide/channels/banners/custom_code)를 참조하세요. `brazeBridge`는 배너의 내부 HTML과 상위 Braze SDK 사이의 커뮤니케이션 레이어를 제공합니다.
+전체 레퍼런스는 [배너용 커스텀 코드 및 JavaScript 브리지]({{site.baseurl}}/user_guide/channels/banners/custom_code)를 참조하세요. `brazeBridge`는 배너의 내부 HTML과 상위 Braze SDK 간의 커뮤니케이션 레이어를 제공합니다.
 
-### 커스텀 UI 구현 (헤드리스) {#custom-ui-implementations-headless}
+### 커스텀 UI 구현(헤드리스) {#custom-ui-implementations-headless}
 
-배너 HTML을 렌더링하는 대신 배너의 [커스텀 속성정보](#custom-properties)를 사용하여 완전히 커스텀 UI를 구축하는 경우, 애플리케이션 코드에서 클릭과 노출 횟수를 수동으로 로깅해야 합니다. SDK가 배너를 렌더링하지 않으므로 커스텀 UI 요소와의 상호작용을 자동으로 추적할 수 없습니다.
+배너 HTML을 렌더링하는 대신 배너의 [커스텀 속성정보](#custom-properties)를 사용하여 완전히 커스텀된 UI를 구축하는 경우, 앱 코드에서 클릭과 노출 횟수를 수동으로 로깅해야 합니다. SDK가 배너를 렌더링하지 않으므로, 커스텀 UI 요소와의 상호작용을 자동으로 추적할 수 없습니다.
 
-메서드 시그니처 및 전체 세부 정보는 [Braze SDK 레퍼런스 설명서]({{site.baseurl}}/developer_guide/references)를 참조하세요.
+메서드 시그니처 및 자세한 내용은 [Braze SDK 레퍼런스 설명서]({{site.baseurl}}/developer_guide/references)를 참조하세요.
 
 #### 노출 횟수 로깅 {#logging-impressions}
 
-커스텀 UI에서 배너가 "조회됨"으로 간주될 때 플랫폼의 배너 노출 횟수 메서드를 호출하세요. 중복 이벤트를 방지하기 위해 노출 횟수로 집계되는 기준에 대한 견고한 로직을 구축하세요. 예를 들어, 배너가 뷰포트(또는 이에 상응하는 영역)에 진입할 때만 로깅하고, 동일한 배너가 다시 스크롤되어 보이거나 새 조회 이벤트 없이 컴포넌트가 다시 렌더링될 때는 중복 로깅하지 마세요.
+커스텀 UI에서 배너가 "조회됨"으로 간주되는 시점에 플랫폼의 배너 노출 횟수 메서드를 호출합니다. 중복 이벤트를 방지하기 위해 노출 횟수로 간주되는 기준에 대한 견고한 로직을 구축하세요. 예를 들어, 배너가 뷰포트에 진입할 때(또는 이에 상응하는 시점)에만 로깅하고, 동일한 배너가 다시 스크롤되어 보이거나 새로운 뷰 이벤트 없이 컴포넌트가 다시 렌더링될 때는 다시 로깅하지 마세요.
 
 {% tabs %}
 {% tab 웹 %}
@@ -666,7 +678,7 @@ braze.logBannerImpression("placement_id_homepage_top");
 
 #### 클릭 로깅
 
-사용자가 커스텀 배너(또는 특정 버튼)를 탭할 때 플랫폼의 배너 클릭 메서드를 호출하세요. 클릭이 특정 버튼에서 발생한 경우 선택적 `buttonId`를 전달하면 분석에서 클릭을 올바르게 어트리뷰션할 수 있습니다.
+사용자가 커스텀 배너(또는 특정 버튼)를 탭할 때 플랫폼의 배너 클릭 메서드를 호출합니다. 클릭이 특정 버튼에서 발생한 경우 선택적 `buttonId`를 전달하여 분석에서 클릭을 올바르게 어트리뷰션할 수 있도록 하세요.
 
 {% tabs %}
 {% tab 웹 %}
@@ -720,13 +732,13 @@ braze.logBannerClicked("placement_id_homepage_top", buttonId);  // buttonID para
 {% endtab %}
 {% endtabs %}
 
-## 닫기 기록 {#log-dismissals}
+## 해제 기록 {#log-dismissals}
 
-배너 닫기는 사용자가 능동적으로 배너를 닫을 때 배치에서 배너를 프로그래밍 방식으로 제거합니다. 닫기가 실행되면 해당 사용자에 대해 배너가 표시되지 않습니다. 다음에 배치 목록이 새로고침되면, 사용자가 자격이 있는 경우 새 배너가 반환됩니다.
+배너 해제는 사용자가 배너를 능동적으로 해제할 때 배치에서 배너를 프로그래밍 방식으로 제거합니다. 해제된 배너는 해당 사용자에 대해 표시되지 않습니다. 다음번 배치 목록이 새로고침되면, 사용자가 자격이 있는 경우 새 배너가 반환됩니다.
 
-### 전제 조건
+### 사전 요구 사항
 
-배너 닫기를 기록하는 데 필요한 최소 SDK 버전은 다음과 같습니다:
+배너 해제를 기록하는 데 필요한 최소 SDK 버전은 다음과 같습니다:
 
 {% sdk_min_versions swift:14.1.0 android:42.1.0 web:6.7.1 %}
 
@@ -734,11 +746,11 @@ braze.logBannerClicked("placement_id_homepage_top", buttonId);  // buttonID para
 
 #### 표준 배너 통합 (드래그 앤 드롭 편집기) {#standard-banner-integrations-drag-and-drop-editor}
 
-배너가 드래그 앤 드롭 편집기를 사용하고 닫기 버튼 컴포넌트를 포함하는 경우 추가 코드가 필요하지 않습니다. 사용자가 닫기 버튼을 클릭하면 메시지가 숨겨지고, 닫기가 트리거된 후 분석을 위한 닫기 이벤트가 기록됩니다.
+배너가 드래그 앤 드롭 편집기를 사용하고 해제 버튼 컴포넌트를 포함하는 경우 추가 코드가 필요하지 않습니다. 사용자가 해제 버튼을 클릭하면 메시지가 숨겨지고, 해제가 트리거되며, 분석을 위한 해제 이벤트가 기록됩니다.
 
 #### 커스텀 코드 블록
 
-배너가 **커스텀 코드** 편집기 블록을 사용하는 경우, 배너의 HTML 내에서 `brazeBridge.closeMessage()`를 사용하여 닫기를 직접 트리거할 수 있습니다.
+배너가 **커스텀 코드** 편집기 블록을 사용하는 경우, 배너의 HTML 내에서 `brazeBridge.closeMessage()`를 사용하여 직접 해제를 트리거할 수 있습니다.
 
 ```html
 <button onclick="brazeBridge.closeMessage()">
@@ -746,13 +758,13 @@ braze.logBannerClicked("placement_id_homepage_top", buttonId);  // buttonID para
 </button>
 ```
 
-#### 프로그래밍 방식으로 배너 닫기 {#dismiss-a-banner-programmatically}
+#### 프로그래밍 방식으로 배너 해제하기 {#dismiss-a-banner-programmatically}
 
-표준 `BrazeBannerView`와 드래그 앤 드롭 편집기에서 생성한 닫기 버튼을 사용하는 경우 추가 코드가 필요하지 않습니다. 닫기가 자동으로 처리됩니다.
+드래그 앤 드롭 편집기에서 생성한 해제 버튼이 포함된 표준 `BrazeBannerView`를 사용하는 경우 추가 코드가 필요하지 않습니다. 해제가 자동으로 처리됩니다.
 
-커스텀 UI 통합의 경우, Braze 인스턴스에서 직접 닫기 메서드를 호출하여 프로그래밍 방식으로 배너를 닫고 닫기 이벤트를 기록할 수 있습니다. 닫기 메서드는 여러 번 안전하게 호출할 수 있으며, SDK는 동일한 배너에 대한 중복 호출을 무시합니다.
+커스텀 UI 통합의 경우, Braze 인스턴스에서 직접 해제 메서드를 호출하여 프로그래밍 방식으로 배너를 해제하고 해제 이벤트를 기록할 수 있습니다. 해제 메서드는 여러 번 호출해도 안전합니다. SDK는 동일한 배너에 대한 중복 호출을 무시합니다.
 
-프로그래밍 방식으로 배너를 닫기 위해 필요한 최소 SDK 버전은 다음과 같습니다:
+프로그래밍 방식으로 배너를 해제하는 데 필요한 최소 SDK 버전은 다음과 같습니다:
 
 {% sdk_min_versions swift:15.1.0 android:42.3.0 web:6.9.0 reactnative:22.0.0 flutter:20.0.0 %}
 
@@ -805,7 +817,7 @@ Braze.getInstance(context).dismissBanner("your-placement-id")
 
 {% tab Swift %}
 
-배너의 컨텍스트가 있는 경우 `dismiss()`를 사용합니다. 이 메서드는 멱등성이며 `onDismiss` 콜백을 자동으로 실행합니다. 컨텍스트를 사용할 수 없는 경우, 배너에서 직접 `dismiss(using:)`을 호출합니다. 두 메서드 모두 메인 스레드에서 호출해야 합니다.
+배너 컨텍스트가 사용 가능한 경우 `dismiss()`를 사용합니다. 이 메서드는 멱등(idempotent)이며 `onDismiss` 콜백을 자동으로 실행합니다. 컨텍스트를 사용할 수 없는 경우 배너에서 직접 `dismiss(using:)`를 호출합니다. 두 메서드 모두 메인 스레드에서 호출해야 합니다.
 
 ```swift
 // Preferred: dismiss via context.
@@ -832,16 +844,16 @@ braze.dismissBanner("your-placement-id");
 {% endtab %}
 {% endtabs %}
 
-### 배너 닫기 시 커스텀 분석 기록 {#log-custom-analytics-on-banner-dismissal}
+### 배너 해제 시 커스텀 분석 기록 {#log-custom-analytics-on-banner-dismissal}
 
-배너가 닫힐 때 분석 기록과 같은 커스텀 로직을 실행하려면 SDK의 닫기 콜백을 사용합니다. 콜백은 배너의 `placementId`, `stableKey`, `trackingId`가 포함된 이벤트 객체를 수신합니다.
+배너가 해제될 때 분석 기록 등 커스텀 로직을 실행하려면 SDK의 해제 콜백을 사용합니다. 콜백은 배너의 `placementId`, `stableKey`, `trackingId`가 포함된 이벤트 객체를 수신합니다.
 
 {% tabs %}
 {% tab 웹 %}
-[`Banner.subscribeToDismissedEvent()`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.banner.html#subscribetodismissedevent)를 사용하여 특정 배너가 닫힐 때 커스텀 로직을 실행합니다. 배너를 표시하기 전에 이벤트를 구독합니다.
+[`Banner.subscribeToDismissedEvent()`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.banner.html#subscribetodismissedevent)를 사용하여 특정 배너가 해제될 때 커스텀 로직을 실행합니다. 배너를 표시하기 전에 이벤트를 구독합니다.
 
 {% alert note %}
-`Banner.subscribeToDismissedEvent()`는 웹 SDK 6.9.0 이상이 필요합니다. 이전 버전에서는 `braze.subscribeToBannersUpdates()`를 사용하고 업데이트된 배너 맵에서 배너가 더 이상 존재하지 않는지 확인하여 닫기를 감지합니다.
+`Banner.subscribeToDismissedEvent()`는 웹 SDK 6.9.0 이상이 필요합니다. 이전 버전에서는 `braze.subscribeToBannersUpdates()`를 사용하고, 업데이트된 배너 맵에 해당 배너가 더 이상 존재하지 않는지 확인하여 해제를 감지합니다.
 {% endalert %}
 
 {% subtabs %}
@@ -892,7 +904,7 @@ useEffect(() => {
 {% endtab %}
 
 {% tab Android %}
-[`BannerView`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.banners/-banner-view/index.html)에서 선택적 [`onDismissCallback`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.banners/-banner-view/on-dismiss-callback.html) 속성을 설정합니다.
+[`BannerView`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.banners/-banner-view/index.html)에 선택적 [`onDismissCallback`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.banners/-banner-view/on-dismiss-callback.html) 속성을 설정합니다.
 
 {% subtabs %}
 {% subtab Java %}
@@ -949,7 +961,7 @@ bannerView.onDismiss = { event in
 {% endtab %}
 
 {% tab React Native %}
-`Braze.BrazeBannerView`에서 `onDismiss` prop을 설정하여 배너가 닫힐 때 커스텀 로직을 실행합니다.
+`Braze.BrazeBannerView`에 `onDismiss` prop을 설정하여 배너가 해제될 때 커스텀 로직을 실행합니다.
 
 ```javascript
 import Braze from "@braze/react-native-sdk";
@@ -965,7 +977,7 @@ import Braze from "@braze/react-native-sdk";
 {% endtab %}
 
 {% tab Flutter %}
-`BrazeBannerView`에서 `onDismiss` 매개변수를 설정하여 배너가 닫힐 때 커스텀 로직을 실행합니다.
+`BrazeBannerView`에 `onDismiss` 매개변수를 설정하여 배너가 해제될 때 커스텀 로직을 실행합니다.
 
 ```dart
 BrazeBannerView(
@@ -979,21 +991,21 @@ BrazeBannerView(
 {% endtab %}
 {% endtabs %}
 
-### 대기 중인 닫기 저장 한도 {#pending-dismissal-storage-cap}
+### 보류 중인 해제 저장 한도 {#pending-dismissal-storage-cap}
 
-닫기 이벤트는 다음 `requestBannersRefresh` 호출 시 Braze 서버에 동기화될 수 있을 때까지 대기 항목으로 로컬에 저장됩니다.
+해제 이벤트는 다음 `requestBannersRefresh` 호출 시 Braze 서버에 동기화될 때까지 보류 항목으로 로컬에 저장됩니다.
 
 {% alert warning %}
-동기화가 성공하지 못한 상태에서 많은 수의 닫기가 누적되는 드문 경우, 오래된 대기 중인 닫기가 삭제될 수 있습니다. 이 경우 다음 동기화가 성공적으로 완료될 때까지 이전에 닫은 배너가 다시 나타날 수 있습니다. 이 위험을 최소화하려면 앱이 네트워크 연결을 다시 확보할 때마다 `requestBannersRefresh`를 호출하세요.
+드물지만 동기화에 성공하지 못한 채 많은 수의 해제가 누적되는 경우, 오래된 보류 해제가 삭제될 수 있습니다. 이 경우 다음 동기화가 성공적으로 완료될 때까지 이전에 해제된 배너가 다시 나타날 수 있습니다. 이 위험을 최소화하려면 앱이 네트워크 연결을 복구할 때마다 `requestBannersRefresh`를 호출합니다.
 {% endalert %}
 
-## 크기 및 사이즈 조정 {#dimensions-and-sizing}
+## 크기 및 치수 {#dimensions-and-sizing}
 
-배너 크기 및 사이즈 조정에 대해 알아야 할 사항은 다음과 같습니다.
+Banner 크기 및 치수에 대해 알아야 할 사항은 다음과 같습니다.
 
-- 작성기에서 다양한 크기로 배너를 미리 볼 수 있지만, 해당 정보는 저장되거나 SDK로 전송되지 않습니다.
+- 컴포저에서 다양한 크기로 Banner를 미리 볼 수 있지만, 해당 정보는 저장되거나 SDK로 전송되지 않습니다.
 - HTML은 렌더링되는 컨테이너의 전체 너비를 차지합니다.
-- 고정 크기 요소를 만들고 작성기에서 해당 크기를 테스트하는 것을 권장합니다.
+- 고정 크기 요소를 만들고 컴포저에서 해당 크기를 테스트하는 것을 권장합니다.
 
 ## 커스텀 속성 {#custom-properties}
 

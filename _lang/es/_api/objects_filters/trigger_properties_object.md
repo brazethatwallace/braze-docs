@@ -22,7 +22,7 @@ El objeto `trigger_properties` y la sintaxis {% raw %}`api_trigger_properties.${
 
 ## Cuerpo del objeto {#object-body}
 
-El objeto `trigger_properties` admite cadenas, números, booleanos, fechas, objetos y arrays como tipos de datos.
+El objeto `trigger_properties` admite cadenas, números, booleanos, fechas, objetos y matrices como tipos de datos.
 
 ```json
 {
@@ -36,7 +36,27 @@ El objeto `trigger_properties` admite cadenas, números, booleanos, fechas, obje
         "country" : "US"
       }
     },
-    "related_skus": ["123", "456", "789"]
+    "related_skus": ["123", "456", "789"],
+    "line_items": [
+      {
+        "sku": "WH-9000",
+        "name": "Wireless Headphones",
+        "quantity": 1,
+        "pricing": {
+          "amount": 79.99,
+          "currency": "USD"
+        }
+      },
+      {
+        "sku": "RS-450",
+        "name": "Running Shoes",
+        "quantity": 2,
+        "pricing": {
+          "amount": 129.99,
+          "currency": "USD"
+        }
+      }
+    ]
   }
 }
 ```
@@ -48,4 +68,5 @@ Haz referencia a las propiedades de desencadenamiento en tus plantillas de mensa
 - Cadenas: {% raw %}`{{api_trigger_properties.${product_name}}}`{% endraw %} devuelve `"shoes"`
 - Números: {% raw %}`{{api_trigger_properties.${product_price}}}`{% endraw %} devuelve `79.99`
 - Objetos anidados: {% raw %}`{{api_trigger_properties.${details}.${color}}}`{% endraw %} devuelve `"red"`
-- Elementos de array: {% raw %}`{{api_trigger_properties.${related_skus}[0]}}`{% endraw %} devuelve `"123"`
+- Elementos de matriz: {% raw %}`{{api_trigger_properties.${related_skus}[0]}}`{% endraw %} devuelve `"123"`
+- Matrices de objetos complejas: {% raw %}`{{api_trigger_properties.${line_items}[0]}}`{% endraw %} devuelve el primer objeto de línea de pedido

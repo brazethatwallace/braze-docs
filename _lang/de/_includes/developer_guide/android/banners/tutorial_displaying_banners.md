@@ -94,27 +94,31 @@ lines-MainApplication.kt=12
 
 ### 1. Debugging aktivieren (optional) {#1-enable-debugging-optional}
 
-Um die Fehlerbehebung während der Entwicklung zu erleichtern, sollten Sie das Debugging aktivieren.
+Um die Fehlerbehebung während der Entwicklung zu erleichtern, sollten Sie Debugging aktivieren.
 
 !!step
 lines-MainApplication.kt=21-28
 
 ### 2. Banner-Updates abonnieren {#2-subscribe-to-banner-updates}
 
-Verwenden Sie `subscribeToBannersUpdates()`, um einen Handler zu registrieren, der immer dann ausgeführt wird, wenn ein Banner aktualisiert wird.
+Verwenden Sie `subscribeToBannersUpdates()`, um einen Handler zu registrieren, der ausgeführt wird, wenn ein Banner aktualisiert wird.
 
 !!step
 lines-MainActivity.kt=10-14
 
-### 3. Platzierungen aktualisieren {#3-refresh-your-placements}
+### 3. Ihre Platzierungen aktualisieren {#3-refresh-your-placements}
 
-Rufen Sie nach der Initialisierung des Braze SDK `requestBannersRefresh(["PLACEMENT_ID"])` auf, um die neuesten Banner-Inhalte für diese Platzierung abzurufen.
+Rufen Sie nach der Initialisierung des Braze SDK `requestBannersRefresh(["PLACEMENT_ID"])` auf, um den neuesten Banner-Inhalt für diese Platzierung abzurufen.
+
+Dieser Aufruf wird in den bestehenden Banner-Cache zusammengeführt. Nur die von Ihnen angeforderten Platzierungs-IDs werden hinzugefügt, aktualisiert oder entfernt. Gecachte Banner für andere Platzierungen bleiben im Cache und laufen zu ihrer ursprünglichen Ablaufzeit ab. Wenn der Server für eine angeforderte Platzierung kein Banner zurückgibt, wird diese Platzierung aus dem Cache entfernt.
 
 !!step
 lines-banners.xml=15-19
 
 ### 4. `BannerView` in Ihrer `banners.xml` definieren {#4-define-bannerview-in-your-bannersxml}
 
-Deklarieren Sie in `banners.xml` ein `<com.braze.ui.banners.BannerView>`-Element mit `app:placementId="PLACEMENT_ID"`. Braze verwendet dieses Element, um Ihr Banner in Ihre UI einzufügen.
+Deklarieren Sie in `banners.xml` ein `<com.braze.ui.banners.BannerView>`-Element mit `app:placementId="PLACEMENT_ID"`. Braze wird dieses Element verwenden, um Ihr Banner in Ihre UI einzufügen.
+
+Nach einer Aktualisierung aktualisiert das SDK eine `BannerView` nur dann, wenn sich der Inhalt dieser Platzierung geändert hat. Unveränderte angezeigte Banner bleiben unverändert.
 
 {% endscrolly %}
