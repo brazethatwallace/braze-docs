@@ -6170,6 +6170,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/de/shopify_collections_sync",
+    "destination": "/docs/de/partners/ecommerce/shopify/shopify_catalogs#shopify-product-sync",
+    "permanent": true
+  },
+  {
     "source": "/docs/de/user_guide/administer/global/user_management/permissions/granular_permissions_migration",
     "destination": "/docs/de/user_guide/administer/global/user_management/permissions",
     "permanent": true
@@ -22700,6 +22705,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/es/shopify_collections_sync",
+    "destination": "/docs/es/partners/ecommerce/shopify/shopify_catalogs#shopify-product-sync",
+    "permanent": true
+  },
+  {
     "source": "/docs/es/user_guide/administer/global/user_management/permissions/granular_permissions_migration",
     "destination": "/docs/es/user_guide/administer/global/user_management/permissions",
     "permanent": true
@@ -25877,6 +25887,11 @@
   {
     "source": "/docs/fr/rate_limiting_v3",
     "destination": "/docs/fr/user_guide/messaging/messaging_fundamentals/frequency_capping",
+    "permanent": true
+  },
+  {
+    "source": "/docs/fr/shopify_collections_sync",
+    "destination": "/docs/fr/partners/ecommerce/shopify/shopify_catalogs#shopify-product-sync",
     "permanent": true
   },
   {
@@ -29650,6 +29665,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/ja/shopify_collections_sync",
+    "destination": "/docs/ja/partners/ecommerce/shopify/shopify_catalogs#shopify-product-sync",
+    "permanent": true
+  },
+  {
     "source": "/docs/ja/user_guide/administer/global/billing/message_usage_dashboard",
     "destination": "/docs/ja/credits_usage_dashboard",
     "permanent": true
@@ -32327,6 +32347,11 @@
   {
     "source": "/docs/ko/rate_limiting_v3",
     "destination": "/docs/ko/user_guide/messaging/messaging_fundamentals/frequency_capping",
+    "permanent": true
+  },
+  {
+    "source": "/docs/ko/shopify_collections_sync",
+    "destination": "/docs/ko/partners/ecommerce/shopify/shopify_catalogs#shopify-product-sync",
     "permanent": true
   },
   {
@@ -37290,6 +37315,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/pt-br/shopify_collections_sync",
+    "destination": "/docs/pt-br/partners/ecommerce/shopify/shopify_catalogs#shopify-product-sync",
+    "permanent": true
+  },
+  {
     "source": "/docs/pt-br/sms_faq",
     "destination": "/docs/pt-br/user_guide/channels/sms_mms_and_rcs/faqs",
     "permanent": true
@@ -39317,6 +39347,11 @@
   {
     "source": "/docs/setting_up_shopify_legacy",
     "destination": "/docs/partners/ecommerce/shopify/shopify_overview",
+    "permanent": true
+  },
+  {
+    "source": "/docs/shopify_collections_sync",
+    "destination": "/docs/partners/ecommerce/shopify/shopify_catalogs#shopify-product-sync",
     "permanent": true
   },
   {
