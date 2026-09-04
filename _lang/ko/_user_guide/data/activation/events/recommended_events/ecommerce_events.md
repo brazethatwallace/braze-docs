@@ -52,147 +52,147 @@ eCommerce 추천 이벤트는 **Commerce** 탭의 **구매 내역** 섹션에 �
 
 ### 세분화 {#segmentation}
 
-Braze는 이커머스 데이터를 기반으로 사용자를 세분화하는 세 가지 방법을 제공합니다.
+Braze는 이커머스 데이터를 기반으로 사용자를 세분화하는 세 가지 방법을 제공합니다:
 
-- **이커머스 필터:** 세그먼터의 **이커머스** 카테고리를 사용합니다. 이 카테고리에는 이커머스 권장 이벤트로 구동되는 필터(**최근 주문 완료**, **총 매출**, **평균 주문 금액** 등)가 포함되어 있습니다. 사용 가능한 필터의 전체 목록은 [Segment 필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters)를 참조하세요.
-- **커스텀 이벤트 필터:** 이커머스 이벤트는 커스텀 이벤트처럼 작동하므로 기존의 모든 커스텀 이벤트 필터가 즉시 사용 가능합니다. 예를 들어 "커스텀 이벤트 `ecommerce.order_placed`를 X회 이상 수행함" 또는 "커스텀 이벤트 `ecommerce.order_placed`를 처음 수행함"으로 필터링할 수 있습니다.
-- **세그먼트 확장:** 중첩된 products 배열이나 metadata 객체 속성정보를 포함한 중첩된 이벤트 속성정보를 기반으로 세분화하려면 중첩된 이벤트 속성정보 필터링이 포함된 [세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension)을 사용하세요. 이를 통해 "지난 90일 동안 제품 SKU-123을 구매한 사용자"와 같은 오디언스를 구축하거나 동일한 주문의 여러 속성정보에 걸쳐 기준을 결합할 수 있습니다.
+- **이커머스 필터:** 세그먼터에서 **이커머스** 카테고리를 사용합니다. 이 카테고리에는 이커머스 권장 이벤트(**최근 주문**, **총 매출**, **평균 주문 금액** 등)로 구동되는 필터가 포함되어 있습니다. 사용 가능한 필터의 전체 목록은 [Segment 필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters)를 참조하세요.
+- **커스텀 이벤트 필터:** 이커머스 이벤트는 커스텀 이벤트처럼 동작하므로, 기존의 모든 커스텀 이벤트 필터가 즉시 작동합니다. 예를 들어 "커스텀 이벤트 `ecommerce.order_placed`를 X회 이상 수행한 사용자" 또는 "커스텀 이벤트 `ecommerce.order_placed`를 처음 수행한 사용자"로 필터링할 수 있습니다.
+- **세그먼트 확장:** 중첩된 제품 배열이나 메타데이터 객체 속성정보를 포함한 중첩된 이벤트 속성정보를 기준으로 세분화하려면 중첩된 이벤트 속성정보 필터링과 함께 [세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension)을 사용하세요. 이를 통해 "지난 90일 동안 제품 SKU-123을 구매한 사용자"와 같은 오디언스를 구축하거나 동일 주문의 여러 속성정보 기준을 결합할 수 있습니다.
 
 {% alert important %}
-이커머스 권장 이벤트에 대한 세그먼트 확장은 유료 기능이며 얼리 액세스 단계에 있습니다. 얼리 액세스 참여에 관심이 있으시면 고객 성공 매니저에게 문의하세요. 팀에 중첩된 속성정보 세분화를 권장하기 전에 플랜에 액세스 권한이 포함되어 있는지 확인하세요.
+이커머스 권장 이벤트를 위한 세그먼트 확장은 유료 기능이며 얼리 액세스 중입니다. 얼리 액세스 참여에 관심이 있으시면 고객 성공 매니저에게 문의하세요. 팀에 중첩된 속성정보 세분화를 추천하기 전에 플랜에 액세스 권한이 포함되어 있는지 확인하세요.
 {% endalert %}
 
 ### 트리거 {#triggering}
 
-다른 커스텀 이벤트와 마찬가지로 Braze 전반에서 이커머스 이벤트와 함께 수행된 커스텀 이벤트 트리거를 사용할 수 있습니다. 유기한 장바구니 플로우의 경우, 장바구니 업데이트를 제대로 캡처하려면 **Perform Cart Updated Event** 트리거를 사용하세요.
+Braze 전체에서 다른 커스텀 이벤트와 마찬가지로 이커머스 이벤트에 대해 수행된 커스텀 이벤트 트리거를 사용할 수 있습니다. 유기한 장바구니 플로우의 경우 **장바구니 업데이트 이벤트 수행** 트리거를 사용하여 장바구니 업데이트를 적절하게 캡처하세요.
 
-또한 Braze는 전용 **Places Order** 트리거를 제공하며, 이를 통해 모든 주문 또는 특정 제품이 포함된 주문을 기반으로 여정을 시작하거나 작업을 수행할 수 있습니다. 이 트리거를 제품 이름, `product_id` 또는 `variant_id`로 필터링하여 특정 구매 시나리오를 타겟팅할 수 있습니다. 자세한 내용은 [실행 기반 전달]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery)을 참조하세요.
+또한 Braze는 전용 **주문 완료** 트리거를 제공하며, 이를 통해 모든 주문 또는 특정 제품이 포함된 주문을 기반으로 여정을 시작하거나 액션을 수행할 수 있습니다. 이 트리거는 제품 이름, `product_id`, 또는 `variant_id`로 필터링하여 특정 구매 시나리오를 타겟팅할 수 있습니다. 자세한 내용은 [실행 기반 전달]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery)을 참조하세요.
 
-![주문 완료를 선택한 옵션이 있는 Places Order 트리거.]({% image_buster /assets/img/recommended_events/places_order_trigger.png %})
+![모든 주문을 완료하는 옵션이 선택된 주문 완료 트리거.]({% image_buster /assets/img/recommended_events/places_order_trigger.png %})
 
 ### Liquid 개인화 {#liquid-personalization}
 
-이커머스 이벤트는 커스텀 이벤트와 동일한 방식으로 [Liquid 개인화]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid)를 지원합니다. 메시징에서 이벤트 속성정보를 직접 참조할 수 있습니다. 제품 이미지, 가격 또는 기타 카탈로그 데이터를 메시지에 가져오려면 `product_id` 또는 `variant_id`를 연결 식별자로 사용하여 카탈로그를 이벤트와 결합하세요. {% raw %}`{% shopping_cart %}`{% endraw %} Liquid 태그를 사용하면 유기한 장바구니 리마인더, 결제 유도 또는 주문 확인을 위해 사용자의 현재 장바구니 내용을 반복 조회할 수 있습니다. 바로 사용할 수 있는 코드 샘플은 [이커머스 사용 사례]({{site.baseurl}}/ecommerce_use_cases)를 참조하세요.
+이커머스 이벤트는 커스텀 이벤트와 동일한 방식으로 [Liquid 개인화]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid)를 지원합니다. 메시징에서 이벤트 속성정보를 직접 참조할 수 있습니다. 메시지에 제품 이미지, 가격 또는 기타 카탈로그 데이터를 가져오려면 `product_id` 또는 `variant_id`를 연결 식별자로 사용하여 카탈로그를 이벤트와 조인하세요. {% raw %}`{% shopping_cart %}`{% endraw %} Liquid 태그를 사용하면 유기한 장바구니 알림, 결제 유도 또는 주문 확인을 위해 사용자의 현재 장바구니 내용을 반복 처리할 수 있습니다. 바로 사용할 수 있는 코드 샘플은 [이커머스 사용 사례]({{site.baseurl}}/ecommerce_use_cases)를 참조하세요.
 
 노코드 대안으로 [드래그 앤 드롭 제품 블록]({{site.baseurl}}/user_guide/messaging/design_and_edit/product_blocks)이 얼리 액세스 프로그램에서 제공됩니다.
 
 ### 이커머스 Canvas 템플릿 {#ecommerce-canvas-templates}
 
-Braze는 이커머스 권장 이벤트를 진입, 종료 및 전환 기준으로 사전 구성한 바로 사용 가능한 Canvas 템플릿을 제공하므로 커스텀 설정 없이 라이프사이클 플로우를 시작할 수 있습니다. 각 템플릿에는 드래그 앤 드롭 이메일 디자인이 포함되어 있으며 드래그 앤 드롭 제품 블록(현재 얼리 액세스)을 지원합니다. 상세한 사용 사례와 Liquid 예제는 [이커머스 사용 사례]({{site.baseurl}}/ecommerce_use_cases)를 참조하세요.
+Braze는 이커머스 권장 이벤트를 진입, 종료, 전환 기준으로 사전 구성한 바로 사용 가능한 Canvas 템플릿을 제공하므로, 커스텀 설정 없이 라이프사이클 플로우를 시작할 수 있습니다. 각 템플릿에는 드래그 앤 드롭 이메일 디자인이 포함되어 있으며 드래그 앤 드롭 제품 블록(현재 얼리 액세스)을 지원합니다. 자세한 사용 사례와 Liquid 예제는 [이커머스 사용 사례]({{site.baseurl}}/ecommerce_use_cases)를 참조하세요.
 
-이 템플릿은 가장 일반적인 이커머스 라이프사이클 플로우를 다룹니다. 시작점으로 활용한 후 오디언스에 맞게 타이밍, 채널 및 크리에이티브를 맞춤 설정하세요.
+이러한 템플릿은 가장 일반적인 이커머스 라이프사이클 플로우를 다룹니다. 시작점으로 활용한 다음 오디언스에 맞게 타이밍, 채널, 크리에이티브를 커스터마이즈하세요.
 
 {% tabs %}
-{% tab 유기한 탐색 %}
+{% tab 탐색 이탈 %}
 
-제품을 조회했지만 장바구니에 추가하지 않은 사용자를 다시 참여시킵니다.
+제품을 조회했지만 장바구니에 추가하지 않은 사용자를 재참여시킵니다.
 
-최근에 조회했지만 행동으로 이어지지 않은 제품을 고려하도록 브라우저를 다시 불러오고 싶을 때 이 템플릿을 사용하세요.
+최근 조회했지만 행동하지 않은 제품을 다시 고려하도록 브라우저를 되돌리고 싶을 때 이 템플릿을 사용하세요.
 
 | 설정 | 값 |
 | --- | --- |
 | 진입 이벤트 | `ecommerce.product_viewed` |
-| 종료 이벤트 | `ecommerce.product_viewed`, `ecommerce.cart_updated`, `ecommerce.checkout_started`, Placed Order |
-| 전환 이벤트 | Placed Order |
+| 종료 이벤트 | `ecommerce.product_viewed`, `ecommerce.cart_updated`, `ecommerce.checkout_started`, 주문 완료 |
+| 전환 이벤트 | 주문 완료 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="이커머스 Canvas 템플릿" }
 
 {% endtab %}
-{% tab 유기한 장바구니 %}
+{% tab 장바구니 이탈 %}
 
 장바구니에 항목을 추가했지만 결제를 시작하지 않은 사용자를 복구합니다.
 
-장바구니에 있는 항목을 사용자에게 리마인드하고 결제를 완료하도록 유도하고 싶을 때 이 템플릿을 사용하세요.
+장바구니에 있는 항목을 사용자에게 알리고 결제를 완료하도록 유도하고 싶을 때 이 템플릿을 사용하세요.
 
 | 설정 | 값 |
 | --- | --- |
 | 진입 이벤트 | `ecommerce.cart_updated` |
-| 종료 이벤트 | `ecommerce.cart_updated`, `ecommerce.checkout_started`, Placed Order |
-| 전환 이벤트 | Placed Order |
+| 종료 이벤트 | `ecommerce.cart_updated`, `ecommerce.checkout_started`, 주문 완료 |
+| 전환 이벤트 | 주문 완료 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="이커머스 Canvas 템플릿" }
 
 {% alert tip %}
-`ecommerce.cart_updated` 이벤트는 전체 장바구니 교체(각 이벤트가 전체 장바구니를 설명할 수 있음) 또는 선택적 `action` 속성정보의 `add` 및 `remove` 값을 사용한 증분 업데이트를 지원합니다. 장바구니당 하나의 접근 방식을 선택하고 동일한 `cart_id`에 대해 교체와 증분 장바구니 업데이트를 혼합하지 마세요. 전송 시점에 현재 장바구니 내용을 동적으로 표시하려면 메시지에 {% raw %}`{% shopping_cart %}`{% endraw %} Liquid 태그를 사용하세요.
+`ecommerce.cart_updated` 이벤트는 전체 장바구니 교체(각 이벤트가 전체 장바구니를 설명) 또는 선택적 `action` 속성정보의 `add` 및 `remove` 값을 사용한 증분 업데이트를 지원합니다. 장바구니당 하나의 접근 방식을 선택하고 동일한 `cart_id`에 대해 교체와 증분 장바구니 업데이트를 혼합하지 마세요. 저장된 장바구니는 가장 최근 장바구니 이벤트의 `currency`를 유지하며, 다른 통화로 된 장바구니 업데이트는 두 통화의 값을 혼합하는 대신 저장된 장바구니를 교체합니다. 메시지에서 {% raw %}`{% shopping_cart %}`{% endraw %} Liquid 태그를 사용하여 전송 시점의 현재 장바구니 내용을 동적으로 표시하세요.
 {% endalert %}
 
 {% endtab %}
-{% tab 유기한 결제 %}
+{% tab 결제 이탈 %}
 
 결제를 시작했지만 구매를 완료하지 않은 사용자를 복구합니다.
 
-퍼널의 가장 높은 구매 의도 단계에서 구매를 복구하고 싶을 때 이 템플릿을 사용하세요.
+퍼널에서 가장 높은 의도 단계에서 구매를 복구하고 싶을 때 이 템플릿을 사용하세요.
 
 | 설정 | 값 |
 | --- | --- |
 | 진입 이벤트 | `ecommerce.checkout_started` |
-| 종료 이벤트 | Placed Order |
-| 전환 이벤트 | Placed Order |
+| 종료 이벤트 | 주문 완료 |
+| 전환 이벤트 | 주문 완료 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="이커머스 Canvas 템플릿" }
 
 {% endtab %}
 {% tab 주문 확인 및 설문조사 %}
 
-성공적인 구매를 확인하고 피드백 설문조사로 후속 조치하여 리뷰 수집과 구매 후 인게이지먼트를 촉진합니다.
+성공적인 구매를 확인하고 리뷰 수집 및 구매 후 인게이지먼트를 촉진하기 위한 피드백 설문조사를 후속 발송합니다.
 
 구매 후 커뮤니케이션을 간소화하고 단일 워크플로우에서 고객 피드백을 수집하고 싶을 때 이 템플릿을 사용하세요.
 
 | 설정 | 값 |
 | --- | --- |
 | 진입 이벤트 | `ecommerce.order_placed` |
-| 전환 이벤트 | Start Session 또는 `ecommerce.product_viewed` |
+| 전환 이벤트 | 세션 시작 또는 `ecommerce.product_viewed` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="이커머스 Canvas 템플릿" }
 
 {% endtab %}
 {% endtabs %}
 
-#### 템플릿 맞춤 설정 {#customize-templates}
+#### 템플릿 커스터마이즈 {#customize-templates}
 
-이 템플릿은 시작점으로 설계되었습니다. 일반적인 맞춤 설정에는 다음이 포함됩니다.
-  - **이메일 맞춤 설정:** 각 템플릿에는 드래그 앤 드롭 에디터로 구축된 사전 구성 이메일이 포함되어 있으며, 브랜드와 콘텐츠에 맞게 완전히 편집할 수 있습니다.
+이러한 템플릿은 시작점으로 설계되었습니다. 일반적인 커스터마이즈 항목은 다음과 같습니다:
+  - **이메일 커스터마이즈:** 각 템플릿에는 드래그 앤 드롭 편집기로 구축된 사전 구성된 이메일이 포함되어 있으며, 브랜드와 콘텐츠에 맞게 완전히 편집할 수 있습니다.
   - **채널 추가:** 크로스채널 강화를 위해 이메일에 푸시, SMS 또는 인앱 메시지를 결합하세요.
-  - **지연 및 결정 분할 추가:** 행동(예: 고가치 장바구니 대비 저가치 장바구니)별로 사용자를 분기하거나 메시지 사이에 대기 기간을 설정하세요.
+  - **지연 및 결정 분할 추가:** 행동별로 사용자를 분기하거나(예: 고가치 장바구니와 저가치 장바구니 비교) 메시지 간 대기 기간을 설정하세요.
   - **크리에이티브 교체:** 포함된 이메일 템플릿을 브랜드의 비주얼 스타일로 교체하세요.
-  - **제품 블록 사용:** 드래그 앤 드롭 제품 블록(얼리 액세스 프로그램)을 사용하여 커스텀 Liquid를 작성하지 않고도 유기한 장바구니 내용이나 조회한 제품을 동적으로 렌더링하세요.
+  - **제품 블록 사용:** 드래그 앤 드롭 제품 블록(얼리 액세스 프로그램)을 사용하여 커스텀 Liquid를 작성하지 않고도 유기한 장바구니 내용이나 탐색한 제품을 동적으로 렌더링하세요.
 
-더 고급 라이프사이클 전략(Liquid 개인화 예제 포함)은 [이커머스 사용 사례]({{site.baseurl}}/ecommerce_use_cases)를 참조하세요.
+더 고급 라이프사이클 전략과 Liquid 개인화 예제는 [이커머스 사용 사례]({{site.baseurl}}/ecommerce_use_cases)를 참조하세요.
 
-## 이커머스 리포트 {#ecommerce-reporting}
+## 이커머스 보고 {#ecommerce-reporting}
 
-이커머스 추천 이벤트는 고객이 이미 사용하고 있는 동일한 매출 화면을 지원합니다. 통합에서 이커머스 이벤트를 전송하고 있다면, 다음 리포트에 이커머스 매출이 자동으로 포함됩니다:
+이커머스 권장 이벤트는 고객이 현재 사용하고 있는 동일한 매출 관련 화면을 구동합니다. 통합에서 이커머스 이벤트를 전송하면 다음 보고서에 이커머스 매출이 자동으로 포함됩니다.
 
-| 리포트                                      | 표시 내용                             |
+| 보고서                                      | 표시 내용                             |
 |---------------------------------------------|-------------------------------------------|
-| 매출 리포트                              | 선택한 날짜 범위 및 앱에 대한 전체 소스의 총 매출, 일일 평균 매출, 일일 구매 건수, 사용자당 매출을 시간별로 보여줍니다.                                                                                     |
-| 라스트 터치 기여도 매출 대시보드     | 주문 전 사용자가 마지막으로 상호작용한 Campaign 또는 Canvas에 귀속된 매출입니다. 터치 이벤트에는 이메일 클릭, 푸시 열람, 콘텐츠 카드 클릭, 인앱 메시지 클릭, SMS 또는 WhatsApp 단축 링크 클릭이 포함됩니다. |
-| Campaign 및 Canvas 분석                | 주요 전환 기간 내에 특정 Campaign 또는 Canvas에 귀속된 총 매출입니다.                                                                                   |
-| 전환 리포트                          | Campaigns 및 Canvases의 전환 이벤트에 연결된 매출입니다.<br> **참고:** `ecommerce.order_placed` 매출을 집계하려면, Campaign 또는 Canvas에서 전환 이벤트로 "Place Order" 전환 이벤트 유형을 사용해야 합니다.                                                                                    |
-| 세그먼트 인사이트                            | 세그먼트 인사이트 대시보드에서 Segments 간 매출 비교입니다.                                                               |
-| 보고서 빌더                              | 보고서 빌더에서 작성한 커스텀 리포트의 매출 측정기준입니다.                                                                                  |
-| 대시보드 빌더                           | 대시보드 빌더에서 작성한 커스텀 대시보드의 매출 측정기준입니다.                                                                                  |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="이커머스 리포트" }
+| 매출 보고서                              | 선택한 날짜 범위 및 앱의 모든 소스에 대한 총 매출, 일일 평균 매출, 일일 구매, 사용자당 매출(시간별).                                                                                     |
+| 라스트 터치 기여도 매출 대시보드     | 사용자가 주문하기 전에 마지막으로 상호작용한 Campaign 또는 Canvas에 기여한 매출. 터치 이벤트에는 이메일 클릭, 푸시 열람, 콘텐츠 카드 클릭, 인앱 메시지 클릭, SMS 또는 WhatsApp 단축 링크 클릭이 포함됩니다. |
+| Campaign 및 Canvas 분석                | 주요 전환 기간 내 특정 Campaign 또는 Canvas에 기여한 총 매출.                                                                                   |
+| 전환 보고서                          | Campaigns 및 Canvases의 전환 이벤트에 연결된 매출.<br> **참고:** `ecommerce.order_placed` 매출을 집계하려면, Campaign 또는 Canvas의 전환 이벤트로 "Place Order" 전환 이벤트 유형을 사용해야 합니다.                                                                                    |
+| 세그먼트 인사이트                            | 세그먼트 인사이트 대시보드에서 Segments 간 매출 비교.                                                               |
+| 보고서 빌더                              | 보고서 빌더에서 작성한 커스텀 보고서의 매출 측정기준.                                                                                  |
+| 대시보드 빌더                           | 대시보드 빌더에서 작성한 커스텀 대시보드의 매출 측정기준.                                                                                  |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="이커머스 보고" }
 
-사용자가 아닌 계산 필드(예: Campaign 또는 Canvas 매출)의 경우, 모든 리포트에서 매출은 동일한 방식으로 계산됩니다: 주문 내 제품별 `price`에 `quantity`를 곱한 값을 각 `order_placed` 이벤트의 제품 전체에 걸쳐 합산합니다.
+비사용자 계산 필드(예: Campaign 또는 Canvas 매출)의 경우, 매출은 모든 보고서에서 동일한 방식으로 계산됩니다: 주문 내 제품별 `price`에 `quantity`를 곱한 값을 각 `order_placed` 이벤트의 제품 전체에 걸쳐 합산합니다.
 
 {% alert note %}
-매출 계산 시 개별 제품 수량은 주문당 최대 1,000개로 제한됩니다. 제품에 수량 필드가 없는 경우 기본값은 1개입니다. 원래의 `ecommerce.order_placed` 이벤트는 전송한 전체 수량을 유지하며, 매출 계산에만 상한이 적용됩니다.<br><br>
-레거시 구매 이벤트에서 `ecommerce.order_placed`로 마이그레이션하는 경우, 통합을 변경하기 전에 Braze 계정 팀과 조율하세요. 전환 기간 동안 레거시 구매 이벤트와 `ecommerce.order_placed` 이벤트를 모두 전송하여 올바르게 트리거되는지 확인하고, 활성 Campaigns, Canvases, Segments를 새 이벤트로 마이그레이션할 준비를 하세요. 계정 팀이 레거시 구매 이벤트에서 `ecommerce.order_placed`로 매출 리포트를 전환하는 계획을 수립하는 데 도움을 드릴 수 있습니다.
+매출 계산에서 개별 제품 수량은 주문당 최대 1,000개로 제한됩니다. 제품의 수량 필드가 누락된 경우 기본값은 1개입니다. 원래 `ecommerce.order_placed` 이벤트에는 전송한 전체 수량이 유지되며, 매출 계산에서만 상한이 적용됩니다.<br><br>
+레거시 구매 이벤트에서 `ecommerce.order_placed`로 마이그레이션하는 경우, 통합을 변경하기 전에 Braze 계정 팀과 조율하세요. 전환 기간 동안 레거시 구매 이벤트와 `ecommerce.order_placed` 이벤트를 모두 전송하여 올바르게 트리거되는지 확인하고, 활성 Campaigns, Canvases 및 Segments를 새 이벤트로 마이그레이션할 준비를 하세요. 그런 다음 계정 팀이 레거시 구매 이벤트에서 `ecommerce.order_placed`로 매출 보고를 전환하는 계획을 수립하는 데 도움을 드릴 수 있습니다.
 {% endalert %}
 
 ### BrazeAI<sup>TM</sup>
 
-[예측 이벤트]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events), [예측 이탈]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn), [아이템 추천]({{site.baseurl}}/user_guide/brazeai/item_recommendations)은 이커머스 이벤트를 타겟 이벤트 및 신호로 지원하며, 전용 "Order Placed" 옵션이 있습니다. 표준화된 스키마 덕분에 데이터가 사용자 기반 전체에서 일관되므로 이러한 모델의 신뢰성이 높아집니다.
+[예측 이벤트]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events), [예측 이탈]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn), [아이템 추천]({{site.baseurl}}/user_guide/brazeai/item_recommendations)은 이커머스 이벤트를 대상 이벤트 및 신호로 지원하며, 전용 "Order Placed" 옵션을 제공합니다. 표준화된 스키마 덕분에 데이터가 사용자 기반 전체에서 일관되므로 이러한 모델의 신뢰성이 더 높아집니다.
 
 ### 데이터 내보내기 {#export-data}
 
-Braze는 데이터 웨어하우스, BI 도구 또는 다운스트림 시스템에서 사용할 수 있도록 이커머스 이벤트 데이터를 내보내는 여러 방법을 제공합니다. 이커머스 추천 이벤트는 다른 이벤트 데이터와 동일한 채널을 통해 내보내집니다.
+Braze는 데이터 웨어하우스, BI 도구 또는 다운스트림 시스템에서 사용할 수 있도록 이커머스 이벤트 데이터를 내보내는 여러 가지 방법을 제공합니다. 이커머스 권장 이벤트는 다른 이벤트 데이터와 동일한 채널을 통해 내보내집니다.
 
 | 내보내기 경로                         | 포함 내용                                                                                                                                                                                 |
 |------------------------------------- |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)                            | 이커머스 이벤트는 커스텀 이벤트로 스트리밍됩니다. `ecommerce.*` 네임스페이스를 검색하여 찾을 수 있습니다. 각 주문의 제품은 구매로 사용할 수 있습니다.                                                |
-| [Snowflake 데이터 공유]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing)               | 이커머스 이벤트는 커스텀 이벤트로 공유됩니다. `ecommerce.*` 네임스페이스를 검색하여 찾을 수 있습니다. 각 주문의 제품은 구매 테이블에서 사용할 수 있습니다.                                   |
-| [Segment 데이터를 CSV로 내보내기]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv)           | Segment 멤버의 CSV 내보내기입니다. 이커머스 이벤트를 포함하려면 커스텀 이벤트 드롭다운에서 이름으로 선택하세요.                                                                                |
-| [Segment별 사용자 프로필 내보내기 (API)]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment#prerequisites) | Segment 멤버의 사용자 프로필 데이터로, API를 통해 반환됩니다. 이커머스 이벤트는 커스텀 이벤트로 포함됩니다.                                                                                        |
+| [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)                            | 이커머스 이벤트는 커스텀 이벤트로 스트리밍됩니다. `ecommerce.*` 네임스페이스를 검색하여 찾을 수 있습니다. 각 주문의 제품은 구매로 제공됩니다.                                                |
+| [Snowflake 데이터 공유]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing)               | 이커머스 이벤트는 커스텀 이벤트로 공유됩니다. `ecommerce.*` 네임스페이스를 검색하여 찾을 수 있습니다. 각 주문의 제품은 구매 테이블에서 확인할 수 있습니다.                                   |
+| [세그먼트 데이터를 CSV로 내보내기]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv)           | Segment 멤버의 CSV 내보내기. 이커머스 이벤트를 포함하려면 커스텀 이벤트 드롭다운에서 이름으로 선택합니다.                                                                                |
+| [Segment별 고객 프로필 내보내기(API)]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment#prerequisites) | Segment 멤버의 고객 프로필 데이터로, API를 통해 반환됩니다. 이커머스 이벤트는 커스텀 이벤트로 포함됩니다.                                                                                        |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="데이터 내보내기" }
 
-### 특정 제품별로 사용자를 세분화하려면 어떻게 하나요? {#how-do-i-segment-users-by-a-specific-product}
+### 특정 제품으로 사용자를 세분화하려면 어떻게 하나요? {#how-do-i-segment-users-by-a-specific-product}
 
-세그멘터를 사용하면 사용자가 이커머스 이벤트를 수행한 횟수로 필터링할 수 있습니다. 특정 제품 속성정보(예: `product_id` 또는 `product_name`)로 필터링하려면 중첩된 이벤트 속성정보 필터링을 지원하는 [세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension)을 사용하세요. 예를 들어, 지난 90일 동안 제품 "SKU-123"을 구매한 모든 사용자를 찾을 수 있습니다.
+세분화 도구를 사용하면 사용자가 이커머스 이벤트를 수행한 횟수로 필터링할 수 있습니다. 특정 제품 속성정보(예: `product_id` 또는 `product_name`)로 필터링하려면, 중첩된 이벤트 속성정보 필터링을 지원하는 [세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension)을 사용하세요. 예를 들어 지난 90일 이내에 제품 "SKU-123"을 구매한 모든 사용자를 찾을 수 있습니다.

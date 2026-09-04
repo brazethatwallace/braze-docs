@@ -43,24 +43,22 @@ Ya no puedes crear ni duplicar Canvas usando el editor original. Ten en cuenta q
 
 {% enddetails %}
 
-## Cosas que debes saber {#things-to-know}
+## Lo que debes saber {#things-to-know}
 
-- El contexto solo está disponible como referencia en Liquid. Para filtrar las propiedades dentro del Canvas, usa la [segmentación por propiedades del evento]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects) en su lugar.
-- Para los canales de mensaje dentro de la aplicación, puedes hacer referencia a `context` y `event_properties` en un Canvas. Se puede acceder a `event_properties` cuando se incluye en el primer paso del Canvas porque está basado en un desencadenante.
+- El contexto solo está disponible como referencia en Liquid. Para filtrar según las propiedades dentro del Canvas, utiliza en su lugar la [segmentación por propiedades del evento]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects).
+- Para los canales de mensajes dentro de la aplicación, puedes hacer referencia a `context` y `event_properties` en un Canvas. Se puede acceder a `event_properties` cuando se incluye en el primer paso del Canvas porque está basado en desencadenadores.
 - No puedes usar `event_properties` en el paso de mensaje principal. En su lugar, puedes usar `context` o añadir un paso de Rutas de Acción con el evento correspondiente **antes** del paso de mensaje que incluye `event_properties`.
-- Cuando un paso de Rutas de Acción contiene un desencadenante "Sent an SMS Inbound Message" o "Sent a WhatsApp Inbound Message", los pasos posteriores del Canvas pueden incluir una propiedad Liquid de SMS o WhatsApp. Esto refleja cómo funcionan las propiedades del evento en los Canvas. De esta forma, puedes aprovechar tus mensajes para guardar y hacer referencia a datos propios en los perfiles de usuario y la mensajería conversacional.
+- Cuando un paso de Rutas de Acción contiene un desencadenador "Sent an SMS Inbound Message" o "Sent a WhatsApp Inbound Message", los pasos de Canvas posteriores pueden incluir una propiedad Liquid de SMS o WhatsApp. Esto refleja cómo funcionan las propiedades del evento en Canvas. De esta forma, puedes aprovechar tus mensajes para guardar y hacer referencia a datos propios en perfiles de usuario y mensajería conversacional.
 
 {% alert note %}
-La elegibilidad de la audiencia se evalúa una vez al momento de la entrada al Canvas. Si un usuario se fusiona durante la entrada, el usuario identificado continúa a través del Canvas y no se vuelve a evaluar con respecto a los criterios del Segment del Canvas.
+La elegibilidad de la audiencia se evalúa una sola vez en la entrada al Canvas. Si un usuario se fusiona durante la entrada, el usuario identificado continúa a través del Canvas y no se reevalúa con respecto a los criterios de Segment del Canvas.
 {% endalert %}
 
 {% multi_lang_include alerts/tip_alerts.md alert='Reference properties from triggering event' %}
 
 ### Marcas de tiempo {#timestamps}
 
-Si estás usando marcas de tiempo con un [tipo datetime]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties) de eventos que desencadenan Canvas basados en acciones, las cuales se hacen referencia usando [contexto]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties), las marcas de tiempo se normalizan a UTC.
-
-Dado este comportamiento, Braze recomienda encarecidamente que uses un filtro de zona horaria de Liquid como el siguiente ejemplo para garantizar que tus mensajes se envíen con tu [zona horaria preferida]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters).
+Todas las marcas de tiempo en Canvas se normalizan a UTC. Dado este comportamiento, Braze recomienda encarecidamente que utilices un filtro de zona horaria de Liquid, como en el siguiente ejemplo, para que tus mensajes se envíen en tu [zona horaria preferida]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters).
 
 {% raw %}
 ```liquid
@@ -70,9 +68,9 @@ Dado este comportamiento, Braze recomienda encarecidamente que uses un filtro de
 
 ## Caso de uso {#use-case}
 
-![Un paso de Rutas de Acción seguido de un paso de Retraso y un paso de Mensaje para usuarios que han añadido un artículo a su lista de deseos, y una ruta para todos los demás.]({% image_buster /assets/img_archive/canvas_entry_properties1.png %}){: style="float:right;max-width:30%;margin-left:15px;"}
+![Un paso de Rutas de Acción seguido de un paso de Retraso y un paso de Mensaje para los usuarios que han añadido un artículo a su lista de deseos, y una ruta para todos los demás.]({% image_buster /assets/img_archive/canvas_entry_properties1.png %}){: style="float:right;max-width:30%;margin-left:15px;"}
 
-Para comprender mejor las diferencias entre `context` y `event_properties`, consideremos este escenario donde los usuarios entran en un Canvas basado en acciones si realizan el evento personalizado "añadir artículo a la lista de deseos".
+Para comprender mejor las diferencias entre `context` y `event_properties`, consideremos este escenario en el que los usuarios entran en un Canvas basado en acciones si realizan el evento personalizado "añadir artículo a la lista de deseos".
 
 El contexto se configura en el paso [Programación de entrada]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-12-determine-your-canvas-entry-schedule) de la creación de un Canvas y corresponde al momento en que un usuario entra en un Canvas. El contexto también puede referenciarse en cualquier paso de Mensaje.
 
@@ -80,4 +78,4 @@ En este Canvas, tenemos un recorrido de usuario que comienza con un paso de Ruta
 
 El primer paso de Mensaje en un recorrido de usuario tiene acceso a las `event_properties` personalizadas de tu paso de Rutas de Acción. En este caso, podemos incluir ``{% raw %} {{event_properties.${property_name}}} {% endraw %}`` en este paso de Mensaje como parte del contenido de nuestro mensaje. Si un usuario no añade un artículo a su lista de deseos, pasa por la ruta Todos los demás, lo que significa que no se puede hacer referencia a `event_properties` y se muestra un error de configuración no válida.
 
-Ten en cuenta que solo tendrás acceso a `event_properties` si tu paso de Mensaje puede rastrearse hasta una ruta que no sea Todos los demás en un paso de Rutas de Acción. Si el paso de Mensaje está conectado a una ruta de Todos los demás pero puede rastrearse hasta un paso de Rutas de Acción en el recorrido del usuario, entonces también tienes acceso a `event_properties`. Para más información sobre estos comportamientos, consulta [Paso de mensaje]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step).
+Ten en cuenta que solo tendrás acceso a `event_properties` si tu paso de Mensaje puede rastrearse hasta una ruta que no sea Todos los demás en un paso de Rutas de Acción. Si el paso de Mensaje está conectado a una ruta Todos los demás pero puede rastrearse hasta un paso de Rutas de Acción en el recorrido del usuario, entonces también tienes acceso a `event_properties`. Para más información sobre estos comportamientos, consulta [Paso de Mensaje]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step).

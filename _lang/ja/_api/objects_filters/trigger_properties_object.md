@@ -20,7 +20,7 @@ tool: Campaigns
 `trigger_properties`オブジェクトと{% raw %}`api_trigger_properties.${product_name}`{% endraw %}構文はキャンペーンでのみサポートされます。キャンバスのAPIトリガーリクエストからのキーと値でメッセージをカスタマイズするには、[キャンバスエントリプロパティオブジェクト]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)を使用してください。`trigger_properties`オブジェクトの最大サイズ制限は50 KBです。
 {% endalert %}
 
-## オブジェクト本体 {#object-body}
+## オブジェクト本文 {#object-body}
 
 `trigger_properties` オブジェクトは、データ型として文字列、数値、ブール値、日付、オブジェクト、および配列をサポートしています。
 
@@ -36,16 +36,37 @@ tool: Campaigns
         "country" : "US"
       }
     },
-    "related_skus": ["123", "456", "789"]
+    "related_skus": ["123", "456", "789"],
+    "line_items": [
+      {
+        "sku": "WH-9000",
+        "name": "Wireless Headphones",
+        "quantity": 1,
+        "pricing": {
+          "amount": 79.99,
+          "currency": "USD"
+        }
+      },
+      {
+        "sku": "RS-450",
+        "name": "Running Shoes",
+        "quantity": 2,
+        "pricing": {
+          "amount": 129.99,
+          "currency": "USD"
+        }
+      }
+    ]
   }
 }
 ```
 
-## Liquid テンプレートの例 {#liquid-templating-examples}
+## Liquidテンプレートの例 {#liquid-templating-examples}
 
-`api_trigger_properties` 名前空間を使用して、メッセージテンプレートでトリガープロパティを参照できます。
+`api_trigger_properties`名前空間を使用して、メッセージテンプレート内でトリガープロパティを参照できます。
 
-- 文字列: {% raw %}`{{api_trigger_properties.${product_name}}}`{% endraw %} は `"shoes"` を返します
-- 数値: {% raw %}`{{api_trigger_properties.${product_price}}}`{% endraw %} は `79.99` を返します
-- ネストされたオブジェクト: {% raw %}`{{api_trigger_properties.${details}.${color}}}`{% endraw %} は `"red"` を返します
-- 配列要素: {% raw %}`{{api_trigger_properties.${related_skus}[0]}}`{% endraw %} は `"123"` を返します
+- 文字列: {% raw %}`{{api_trigger_properties.${product_name}}}`{% endraw %} は`"shoes"`を返します
+- 数値: {% raw %}`{{api_trigger_properties.${product_price}}}`{% endraw %} は`79.99`を返します
+- ネストされたオブジェクト: {% raw %}`{{api_trigger_properties.${details}.${color}}}`{% endraw %} は`"red"`を返します
+- 配列要素: {% raw %}`{{api_trigger_properties.${related_skus}[0]}}`{% endraw %} は`"123"`を返します
+- 複合オブジェクト配列: {% raw %}`{{api_trigger_properties.${line_items}[0]}}`{% endraw %} は最初のラインアイテムオブジェクトを返します

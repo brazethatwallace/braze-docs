@@ -92,29 +92,33 @@ class MainActivity : ComponentActivity() {
 !!step
 lines-MainApplication.kt=12
 
-### 1. Habilitar depuración (opcional) {#1-enable-debugging-optional}
+### 1. Habilitar depuración (opcional) {#1-enable-debugging-optional} {#1-enable-debugging-optional}
 
 Para facilitar la solución de problemas durante el desarrollo, considera habilitar la depuración.
 
 !!step
 lines-MainApplication.kt=21-28
 
-### 2. Suscríbete a las actualizaciones de banner {#2-subscribe-to-banner-updates}
+### 2. Suscribirse a las actualizaciones de banner {#2-subscribe-to-banner-updates} {#2-subscribe-to-banner-updates}
 
-Utiliza `subscribeToBannersUpdates()` para registrar un controlador que se ejecute cada vez que se actualice un banner.
+Usa `subscribeToBannersUpdates()` para registrar un controlador que se ejecute cada vez que se actualice un banner.
 
 !!step
 lines-MainActivity.kt=10-14
 
-### 3. Actualiza tus ubicaciones {#3-refresh-your-placements}
+### 3. Actualizar tus ubicaciones {#3-refresh-your-placements} {#3-refresh-your-placements}
 
-Después de inicializar el SDK de Braze, llama a `requestBannersRefresh(["PLACEMENT_ID"])` para obtener el contenido más reciente del banner para esa ubicación.
+Después de inicializar el SDK de Braze, llama a `requestBannersRefresh(["PLACEMENT_ID"])` para obtener el contenido de banner más reciente para esa ubicación.
+
+Esta llamada se fusiona con la caché de banners existente. Solo se añaden, actualizan o eliminan los ID de ubicación que solicites. Los banners en caché de otras ubicaciones permanecen en la caché y caducan en su tiempo de caducidad original. Si el servidor no devuelve ningún banner para una ubicación solicitada, esa ubicación se elimina de la caché.
 
 !!step
 lines-banners.xml=15-19
 
-### 4. Define `BannerView` en tu `banners.xml` {#4-define-bannerview-in-your-bannersxml}
+### 4. Definir `BannerView` en tu `banners.xml` {#4-define-bannerview-in-your-bannersxml} {#4-define-bannerview-in-your-bannersxml}
 
 En `banners.xml`, declara un elemento `<com.braze.ui.banners.BannerView>` con `app:placementId="PLACEMENT_ID"`. Braze utilizará este elemento para insertar tu banner en tu interfaz de usuario.
+
+Después de una actualización, el SDK solo actualiza un `BannerView` cuando el contenido de esa ubicación cambia. Los banners mostrados que no hayan cambiado permanecen tal cual.
 
 {% endscrolly %}

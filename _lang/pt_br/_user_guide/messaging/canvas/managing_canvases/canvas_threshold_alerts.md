@@ -22,10 +22,10 @@ Não sabe por onde começar? O [Operator]({{site.baseurl}}/user_guide/brazeai/op
 
 ## Etapa 1: Criar um alerta {#step-1-create-an-alert}
 
-Os alertas são definidos no nível do Canvas, e você pode configurá-los tanto para Canvas ativos quanto para rascunhos. Para abrir a página **Gerenciar alertas** de um Canvas, faça uma das seguintes opções:
+Os alertas são configurados no nível do Canvas, e você pode configurá-los tanto para Canvas ativos quanto para rascunhos. Para abrir a página **Gerenciar alertas** de um Canvas, você pode:
 
-- Acesse **Messaging** > **Canvas** e selecione **Gerenciar alertas** no menu de contexto de um Canvas individual.
-- Para Canvas ativos, abra **Canvas Analytics** e selecione **Gerenciar alertas**.
+- Acessar **Messaging** > **Canvas** e selecionar **Gerenciar alertas** no menu de contexto de um Canvas individual
+- Para Canvas ativos, abrir **Canvas Analytics** e selecionar **Gerenciar alertas**.
 
 Na página **Gerenciar alertas**, selecione **Configurar alerta** para criar um novo alerta.
 
@@ -33,7 +33,7 @@ Na página **Gerenciar alertas**, selecione **Configurar alerta** para criar um 
 
 Dê um nome ao seu alerta e confirme o Canvas ao qual ele se aplica.
 
-![O painel Configurar Alerta mostrando os campos de nome do alerta e nome do Canvas, um grupo de regras vazio e uma barra lateral de resumo para regras de alerta, cronograma e notificações.]({% image_buster /assets/img/canvas_threshold_alerts/configure_alert.png %})
+![O painel Configurar alerta mostrando os campos de nome do alerta e nome do Canvas, um grupo de regras vazio e uma barra lateral de resumo para regras de alerta, cronograma e notificações.]({% image_buster /assets/img/canvas_threshold_alerts/configure_alert.png %})
 
 ## Etapa 3: Definir regras de alerta {#step-3-set-alert-rules}
 
@@ -44,31 +44,31 @@ As regras de alerta definem o limite que dispara uma notificação. Você pode c
 
 Para cada regra, escolha uma comparação (menor que, maior que, menor ou igual a, maior ou igual a, ou igual a), uma unidade e um limite.
 
-- **Volume:** Compara a contagem absoluta na janela de verificação atual. Por exemplo, "Entradas de usuários menor que 3.000" sinaliza um Canvas que normalmente alcança milhares de usuários, mas parou repentinamente — um sinal de problema no público ou na entrada que vale a pena investigar.
-- **Porcentagem:** Compara a contagem atual com uma linha de base para este Canvas. A linha de base é a média da mesma janela de tempo nos 7 dias anteriores. Por exemplo, se o alerta verifica a cada 3 horas, uma verificação das 14h às 17h é comparada com a média das sete janelas anteriores de 14h às 17h. Uma regra para "Mensagens enviadas menor que 50%" sinaliza uma queda para menos da metade do volume habitual.
+- **Volume:** Compara a contagem absoluta na janela de verificação atual. Por exemplo, "Entradas de usuários menor que 3.000" sinaliza um Canvas que normalmente alcança milhares de usuários, mas parou repentinamente — um sinal de problema no público ou na entrada upstream que vale a pena investigar.
+- **Porcentagem:** Compara a contagem atual com uma linha de base para esse Canvas. A linha de base é a média da mesma janela de tempo nos 7 dias anteriores. Por exemplo, se o alerta verifica a cada 3 horas, uma verificação das 14h às 17h compara com a média das sete janelas anteriores de 14h às 17h. Uma regra de "Mensagens enviadas menor que 50%" sinaliza uma queda para menos da metade do volume habitual.
 
-Os limites são números inteiros. Para regras de porcentagem com **menor que** ou **menor ou igual a**, insira um valor de 1 a 100. Para **maior que**, **maior ou igual a** ou **igual a**, a porcentagem pode ser 0 ou superior, incluindo valores acima de 100, para que você possa criar alertas para picos em relação à linha de base.
+Os limites são números inteiros. Para regras de porcentagem com **menor que** ou **menor ou igual a**, insira um valor de 1 a 100. Para **maior que**, **maior ou igual a** ou **igual a**, a porcentagem pode ser 0 ou superior, incluindo valores acima de 100, para que você possa alertar sobre um pico em relação à linha de base.
 
-Você pode agrupar múltiplas regras — incluindo a combinação de regras de volume e porcentagem — e combinar grupos de regras com lógica AND ou OR para criar condições de alerta mais específicas.
+Você pode agrupar várias regras — incluindo a combinação de regras de volume e porcentagem — e combinar grupos de regras com lógica AND ou OR para criar condições de alerta mais específicas.
 
-## Etapa 4: Definir o cronograma do alerta {#step-4-set-the-alert-schedule}
+## Etapa 4: Definir o cronograma de alertas {#step-4-set-the-alert-schedule}
 
-Defina com que frequência suas regras de alerta são verificadas. Você pode configurar a frequência de verificação de 3 a 12 horas (em incrementos de 1 hora), ou a cada 24 horas. Uma vez ativado, o alerta continua verificando nesse cronograma enquanto o alerta e o Canvas associado a ele estiverem ativos.
+Defina com que frequência as regras de alerta são verificadas. Você pode definir a frequência de verificação de 3 a 12 horas (em incrementos de 1 hora) ou a cada 24 horas. Uma vez ativado, o alerta continua verificando nesse cronograma enquanto o alerta e o Canvas associado estiverem ativos.
 
 ## Etapa 5: Configurar notificações {#step-5-set-up-notifications}
 
-Escolha quem deve ser notificado quando uma regra de alerta for acionada e como será notificado:
+Escolha quem deve ser notificado quando uma regra de alerta é acionada e como a notificação será enviada:
 
 - **E-mail:** adicione um ou mais endereços de e-mail de destinatários
-- **Webhook:** insira a URL do webhook para notificação e, opcionalmente, adicione cabeçalhos de solicitação personalizados exigidos pelo destino do seu webhook
+- **Webhook:** insira a URL do webhook para notificação e, opcionalmente, adicione cabeçalhos de solicitação personalizados exigidos pelo destino do webhook
 
 Você pode ativar um ou ambos os métodos de notificação para um único alerta.
 
-Alertas por webhook são úteis para encaminhar notificações para plataformas externas, como um canal do Slack. Para saber mais, consulte a documentação do Slack sobre [envio de mensagens usando webhooks de entrada](https://docs.slack.dev/messaging/sending-messages-using-incoming-webhooks/). Cada notificação por webhook envia uma carga útil JSON com o nome do alerta, a janela de avaliação e as condições que dispararam o alerta. Cada condição inclui um `threshold_unit` de `volume` ou `percentage`. Condições de porcentagem também incluem `percentage_metric_value` (a contagem observada como uma porcentagem inteira da linha de base). `metric_value` é sempre a contagem absoluta.
+Alertas por webhook são úteis para encaminhar notificações a plataformas externas, como um canal do Slack. Para saber mais, consulte a documentação do Slack sobre [envio de mensagens usando webhooks de entrada](https://docs.slack.dev/messaging/sending-messages-using-incoming-webhooks/). Cada notificação por webhook envia uma carga útil JSON com o nome do alerta, a janela de avaliação e as condições que dispararam o alerta. Cada condição inclui um `threshold_unit` de `volume` ou `percentage`. Condições de porcentagem também incluem `percentage_metric_value` (a contagem observada como porcentagem em número inteiro da linha de base). `metric_value` é sempre a contagem absoluta.
 
-### Exemplo de carga útil do webhook {#example-webhook-payload}
+### Exemplo de carga útil de webhook {#example-webhook-payload}
 
-A seguir, um exemplo da carga útil JSON enviada em uma solicitação POST para o endpoint do seu webhook quando um alerta é disparado. A primeira condição é uma regra de volume. A segunda é uma regra de porcentagem: 51.235 mensagens enviadas, o que representa 57% da linha de base da mesma janela de 7 dias, comparado a um limite superior a 55%.
+A seguir, um exemplo da carga útil JSON enviada em uma solicitação POST para o endpoint do seu webhook quando um alerta é disparado. A primeira condição é uma regra de volume. A segunda é uma regra de porcentagem: 51.235 mensagens enviadas, o que representa 57% da linha de base da mesma janela de 7 dias, em relação a um limite acima de 55%.
 
 ```json
 {
@@ -106,9 +106,15 @@ Revise as regras do alerta, o cronograma e as configurações de notificação n
 
 ## Etapa 7: Ativar o alerta {#step-7-activate-the-alert}
 
-Salvar um alerta não o ativa. Para ativá-lo, acesse a página **Gerenciar alertas** e use o botão de alternância **Status** do seu alerta. Um alerta permanece ativo até que você o desative ou até que o Canvas associado a ele não esteja mais ativo. A coluna **Alertas configurados** na página do **Canvas** exibe um ícone de sino para qualquer Canvas com pelo menos um alerta salvo.
+Salvar um alerta não o ativa. Para ativá-lo, acesse a página **Manage Alerts** e use o botão de alternância **Status** do seu alerta. Um alerta permanece ativo até que você o desative ou até que o Canvas associado a ele não esteja mais ativo. A coluna **Alerts Configured** na página **Canvas** exibe um ícone de sino para qualquer Canvas com pelo menos um alerta salvo.
 
 ## Considerações {#considerations}
 
 - **Canvas em rascunho:** Você pode configurar um alerta de limite para um Canvas que ainda está em rascunho, mas o alerta não começará a verificar suas regras até que o Canvas seja lançado.
-- **Linha de base de porcentagem:** As regras de porcentagem precisam de sete dias completos anteriores com a mesma janela após o lançamento do Canvas. Até que essas janelas existam, ou quando a média da linha de base for zero (sem atividade nas janelas anteriores), as regras de porcentagem não disparam uma notificação.
+- **Linha de base de porcentagem:** As regras de porcentagem precisam de sete dias completos anteriores com a mesma janela após o lançamento do Canvas. Até que essas janelas existam, ou quando a média da linha de base for zero (nenhuma atividade nessas janelas anteriores), as regras de porcentagem não disparam uma notificação.
+
+## Perguntas frequentes {#frequently-asked-questions}
+
+### Os alertas de limite do Canvas contam para o uso de webhooks? {#do-canvas-threshold-alerts-count-toward-webhook-usage}
+
+Não. Os alertas de limite do Canvas não contam para os limites de frequência de webhooks nem para as métricas de uso.

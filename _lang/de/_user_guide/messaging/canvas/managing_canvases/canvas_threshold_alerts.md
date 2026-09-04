@@ -20,55 +20,55 @@ Legen Sie einen Volumen- oder Prozentschwellenwert für Nutzer:innen-Eintritte o
 
 Sie wissen nicht, wo Sie anfangen sollen? [Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities) kann Sie durch die Einrichtung einer Canvas-Schwellenwert-Benachrichtigung führen.
 
-## Schritt 1: Einen Alert erstellen {#step-1-create-an-alert}
+## Schritt 1: Eine Benachrichtigung erstellen {#step-1-create-an-alert}
 
-Alerts werden auf Canvas-Ebene festgelegt, und Sie können sie sowohl für aktive als auch für Entwurfs-Canvases konfigurieren. Um die Seite **Alerts verwalten** für ein Canvas zu öffnen, haben Sie zwei Möglichkeiten:
+Benachrichtigungen werden auf Canvas-Ebene festgelegt. Sie können sie sowohl für aktive als auch für Entwurfs-Canvases konfigurieren. Um die Seite **Benachrichtigungen verwalten** für ein Canvas zu öffnen, haben Sie zwei Möglichkeiten:
 
-- Gehen Sie zu **Messaging** > **Canvas** und wählen Sie im Kontextmenü eines einzelnen Canvas **Alerts verwalten** aus.
-- Öffnen Sie bei aktiven Canvases **Canvas Analytics** und wählen Sie **Alerts verwalten** aus.
+- Gehen Sie zu **Messaging** > **Canvas** und wählen Sie **Benachrichtigungen verwalten** aus dem Kontextmenü eines einzelnen Canvas aus.
+- Öffnen Sie bei aktiven Canvases **Canvas Analytics** und wählen Sie **Benachrichtigungen verwalten** aus.
 
-Wählen Sie auf der Seite **Alerts verwalten** die Option **Alert konfigurieren** aus, um einen neuen Alert zu erstellen.
+Wählen Sie auf der Seite **Benachrichtigungen verwalten** die Option **Benachrichtigung konfigurieren** aus, um eine neue Benachrichtigung zu erstellen.
 
-## Schritt 2: Benennen Sie Ihren Alert und wählen Sie einen Canvas aus {#step-2-name-your-alert-and-select-a-canvas}
+## Schritt 2: Benennen Sie Ihre Benachrichtigung und wählen Sie einen Canvas aus {#step-2-name-your-alert-and-select-a-canvas}
 
-Geben Sie Ihrem Alert einen Namen und bestätigen Sie den Canvas, für den er gelten soll.
+Geben Sie Ihrer Benachrichtigung einen Namen und bestätigen Sie den Canvas, für den sie gilt.
 
-![Das Panel „Alert konfigurieren“ mit den Feldern für den Alert-Namen und den Canvas-Namen, einer leeren Regelgruppe und einer Zusammenfassungs-Seitenleiste für Alert-Regeln, Zeitplan und Benachrichtigungen.]({% image_buster /assets/img/canvas_threshold_alerts/configure_alert.png %})
+![Das Panel „Benachrichtigung konfigurieren“ mit den Feldern für den Benachrichtigungsnamen und den Canvas-Namen, einer leeren Regelgruppe und einer Zusammenfassungs-Seitenleiste für Benachrichtigungsregeln, Zeitplan und Benachrichtigungen.]({% image_buster /assets/img/canvas_threshold_alerts/configure_alert.png %})
 
-## Schritt 3: Warnregeln festlegen {#step-3-set-alert-rules}
+## Schritt 3: Alarmregeln festlegen {#step-3-set-alert-rules}
 
-Warnregeln definieren den Schwellenwert, der eine Benachrichtigung auslöst. Sie können Regeln anhand von zwei Metriken erstellen:
+Alarmregeln definieren den Schwellenwert, der eine Benachrichtigung auslöst. Sie können Regeln mit zwei Metriken erstellen:
 
-- **Nutzereintritte:** Anzahl der Nutzer:innen, die den Canvas betreten haben
+- **Nutzer:innen-Eintritte:** Anzahl der Nutzer:innen, die den Canvas betreten haben
 - **Gesendete Nachrichten:** Anzahl der vom Canvas gesendeten Nachrichten
 
 Wählen Sie für jede Regel einen Vergleich (kleiner als, größer als, kleiner oder gleich, größer oder gleich oder gleich), eine Einheit und einen Schwellenwert.
 
-- **Volumen:** Vergleicht die absolute Anzahl im aktuellen Prüffenster. Zum Beispiel kennzeichnet „Nutzereintritte kleiner als 3.000“ einen Canvas, der normalerweise Tausende von Nutzer:innen erreicht, aber plötzlich stagniert – ein Hinweis auf ein vorgelagertes Zielgruppen- oder Entry-Problem, das untersucht werden sollte.
-- **Prozentsatz:** Vergleicht die aktuelle Anzahl mit einem Referenzwert für diesen Canvas. Der Referenzwert ist der Durchschnitt desselben Zeitfensters über die vorherigen 7 Tage. Wenn die Warnung beispielsweise alle 3 Stunden prüft, vergleicht eine Prüfung um 14–17 Uhr den Wert mit dem Durchschnitt der vorherigen sieben 14–17-Uhr-Fenster. Eine Regel für „Gesendete Nachrichten kleiner als 50 %“ kennzeichnet einen Rückgang auf unter die Hälfte des üblichen Volumens.
+- **Volumen:** Vergleicht die absolute Anzahl im aktuellen Prüffenster. Beispiel: „Nutzer:innen-Eintritte kleiner als 3.000“ markiert einen Canvas, der normalerweise Tausende von Nutzer:innen erreicht, aber plötzlich stagniert – ein Hinweis auf ein vorgelagertes Zielgruppen- oder Entry-Problem, das untersucht werden sollte.
+- **Prozentsatz:** Vergleicht die aktuelle Anzahl mit einem Referenzwert für diesen Canvas. Der Referenzwert ist der Durchschnitt desselben Zeitfensters über die letzten 7 Tage. Wenn der Alarm beispielsweise alle 3 Stunden prüft, vergleicht eine Prüfung von 14–17 Uhr den Wert mit dem Durchschnitt der vorherigen sieben 14–17-Uhr-Fenster. Eine Regel für „Gesendete Nachrichten kleiner als 50 %“ markiert einen Rückgang auf weniger als die Hälfte des üblichen Volumens.
 
-Schwellenwerte sind ganze Zahlen. Für Prozentregeln mit **kleiner als** oder **kleiner oder gleich** geben Sie einen Wert von 1 bis 100 ein. Für **größer als**, **größer oder gleich** oder **gleich** kann der Prozentsatz 0 oder höher sein, einschließlich Werten über 100, sodass Sie bei einem Anstieg im Vergleich zum Referenzwert eine Warnung auslösen können.
+Schwellenwerte sind ganze Zahlen. Geben Sie bei Prozentsatzregeln mit **kleiner als** oder **kleiner oder gleich** einen Wert von 1 bis 100 ein. Bei **größer als**, **größer oder gleich** oder **gleich** kann der Prozentsatz 0 oder höher sein, einschließlich Werten über 100, sodass Sie bei einem Anstieg im Vergleich zum Referenzwert alarmiert werden können.
 
-Sie können mehrere Regeln zusammenfassen – einschließlich einer Kombination aus Volumen- und Prozentregeln – und Regelgruppen mit UND- oder ODER-Logik verknüpfen, um spezifischere Warnbedingungen zu erstellen.
+Sie können mehrere Regeln gruppieren – einschließlich einer Mischung aus Volumen- und Prozentsatzregeln – und Regelgruppen mit UND- oder ODER-Logik kombinieren, um spezifischere Alarmbedingungen zu erstellen.
 
-## Schritt 4: Zeitplan für Benachrichtigungen festlegen {#step-4-set-the-alert-schedule}
+## Schritt 4: Zeitplan für die Benachrichtigung festlegen {#step-4-set-the-alert-schedule}
 
-Legen Sie fest, wie oft Ihre Benachrichtigungsregeln überprüft werden. Sie können die Prüfhäufigkeit auf einen Wert zwischen 3 und 12 Stunden (in Schritten von 1 Stunde) oder auf alle 24 Stunden einstellen. Sobald eine Benachrichtigung aktiviert ist, wird sie nach diesem Zeitplan so lange geprüft, wie die Benachrichtigung und der zugehörige Canvas aktiv sind.
+Legen Sie fest, wie oft Ihre Benachrichtigungsregeln überprüft werden. Sie können die Prüfhäufigkeit auf einen Wert zwischen 3 und 12 Stunden (in 1-Stunden-Schritten) oder auf alle 24 Stunden einstellen. Nach der Aktivierung wird die Benachrichtigung so lange in diesem Zeitplan überprüft, wie die Benachrichtigung und der zugehörige Canvas aktiv sind.
 
 ## Schritt 5: Benachrichtigungen einrichten {#step-5-set-up-notifications}
 
 Legen Sie fest, wer benachrichtigt werden soll, wenn eine Alarmregel ausgelöst wird, und auf welchem Weg:
 
 - **E-Mail:** Fügen Sie eine oder mehrere E-Mail-Adressen der Empfänger:innen hinzu
-- **Webhook:** Geben Sie die Webhook-URL für die Benachrichtigung ein und fügen Sie optional angepasste Anfrage-Header hinzu, die von Ihrem Webhook-Ziel benötigt werden
+- **Webhook:** Geben Sie die Webhook-URL für die Benachrichtigung ein und fügen Sie optional angepasste Anfrage-Header hinzu, die Ihr Webhook-Ziel erfordert
 
 Sie können eine oder beide Benachrichtigungsmethoden für einen einzelnen Alarm aktivieren.
 
-Webhook-Benachrichtigungen sind nützlich, um Benachrichtigungen an externe Plattformen weiterzuleiten, z. B. an einen Slack-Kanal – weitere Informationen finden Sie in der Slack-Dokumentation zum [Senden von Nachrichten über eingehende Webhooks](https://docs.slack.dev/messaging/sending-messages-using-incoming-webhooks/). Jede Webhook-Benachrichtigung sendet einen JSON-Payload mit dem Alarmnamen, dem Auswertungszeitraum und den Bedingungen, die den Alarm ausgelöst haben. Jede Bedingung enthält eine `threshold_unit` mit dem Wert `volume` oder `percentage`. Prozentuale Bedingungen enthalten zusätzlich `percentage_metric_value` (die beobachtete Anzahl als ganzzahliger Prozentsatz der Baseline). `metric_value` ist immer die absolute Anzahl.
+Webhook-Alarme eignen sich, um Benachrichtigungen an externe Plattformen wie einen Slack-Kanal weiterzuleiten – weitere Informationen finden Sie in der Slack-Dokumentation zum [Senden von Nachrichten über eingehende Webhooks](https://docs.slack.dev/messaging/sending-messages-using-incoming-webhooks/). Jede Webhook-Benachrichtigung sendet einen JSON-Payload mit dem Alarmnamen, dem Auswertungszeitraum und den Bedingungen, die den Alarm ausgelöst haben. Jede Bedingung enthält eine `threshold_unit` mit dem Wert `volume` oder `percentage`. Prozentuale Bedingungen enthalten zusätzlich `percentage_metric_value` (die beobachtete Anzahl als ganzzahliger Prozentwert der Baseline). `metric_value` ist immer die absolute Anzahl.
 
-### Beispiel für einen Webhook-Payload {#example-webhook-payload}
+### Beispiel eines Webhook-Payloads {#example-webhook-payload}
 
-Das Folgende ist ein Beispiel für den JSON-Payload, der bei einem POST-Request an Ihren Webhook-Endpunkt gesendet wird, wenn ein Alarm ausgelöst wird. Die erste Bedingung ist eine Volumenregel. Die zweite ist eine Prozentregel: 51.235 gesendete Nachrichten, was 57 % der Baseline im selben Zeitfenster der letzten 7 Tage entspricht, bei einem Schwellenwert von mehr als 55 %.
+Das Folgende ist ein Beispiel für den JSON-Payload, der in einer POST-Anfrage an Ihren Webhook-Endpunkt gesendet wird, wenn ein Alarm ausgelöst wird. Die erste Bedingung ist eine Volumenregel. Die zweite ist eine Prozentregel: 51.235 gesendete Nachrichten, was 57 % der 7-Tage-Baseline im gleichen Zeitfenster entspricht, gemessen an einem Schwellenwert von mehr als 55 %.
 
 ```json
 {
@@ -106,9 +106,15 @@ Das Folgende ist ein Beispiel für den JSON-Payload, der bei einem POST-Request 
 
 ## Schritt 7: Benachrichtigung aktivieren {#step-7-activate-the-alert}
 
-Durch das Speichern einer Benachrichtigung wird diese nicht aktiviert. Um sie einzuschalten, gehen Sie zur Seite **Benachrichtigungen verwalten** und verwenden Sie den **Status**-Schalter für Ihre Benachrichtigung. Eine Benachrichtigung bleibt aktiv, bis Sie sie deaktivieren oder bis der zugehörige Canvas nicht mehr aktiv ist. Die Spalte **Konfigurierte Benachrichtigungen** auf der **Canvas**-Seite zeigt ein Glockensymbol für jeden Canvas mit mindestens einer gespeicherten Benachrichtigung an.
+Das Speichern einer Benachrichtigung aktiviert sie nicht. Um sie einzuschalten, gehen Sie zur Seite **Benachrichtigungen verwalten** und verwenden Sie den **Status**-Schalter für Ihre Benachrichtigung. Eine Benachrichtigung bleibt aktiv, bis Sie sie deaktivieren oder bis der zugehörige Canvas nicht mehr aktiv ist. Die Spalte **Konfigurierte Benachrichtigungen** auf der **Canvas**-Seite zeigt ein Glockensymbol für jeden Canvas mit mindestens einer gespeicherten Benachrichtigung an.
 
 ## Überlegungen {#considerations}
 
 - **Canvases im Entwurf:** Sie können eine Schwellenwert-Benachrichtigung für ein Canvas einrichten, das sich noch im Entwurf befindet, aber die Benachrichtigung beginnt erst dann mit der Überprüfung Ihrer Regeln, wenn das Canvas gestartet wird.
-- **Prozentuale Basislinie:** Prozentuale Regeln benötigen sieben vollständige vorherige Zeitfenster desselben Typs nach dem Start des Canvas. Solange diese Zeitfenster nicht vorhanden sind oder die durchschnittliche Basislinie null beträgt (keine Aktivität in den vorherigen Zeitfenstern), lösen prozentuale Regeln keine Benachrichtigung aus.
+- **Prozentuale Basislinie:** Prozentuale Regeln benötigen sieben vollständige vorherige Zeitfenster desselben Typs nach dem Start des Canvas. Solange diese Zeitfenster nicht vorhanden sind oder der Basislinie-Durchschnitt null beträgt (keine Aktivität in diesen vorherigen Zeitfenstern), lösen prozentuale Regeln keine Benachrichtigung aus.
+
+## Häufig gestellte Fragen {#frequently-asked-questions}
+
+### Zählen Canvas-Schwellenwert-Benachrichtigungen zum Webhook-Verbrauch? {#do-canvas-threshold-alerts-count-toward-webhook-usage}
+
+Nein. Canvas-Schwellenwert-Benachrichtigungen werden nicht auf Webhook-Rate-Limits oder Nutzungsmetriken angerechnet.

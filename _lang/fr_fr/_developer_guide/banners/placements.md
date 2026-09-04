@@ -23,7 +23,7 @@ platform:
 
 ### Prérequis {#prerequisites}
 
-Voici les versions minimales du SDK nécessaires pour créer des placements de Banner :
+Voici les versions minimales du SDK nécessaires pour créer des placements de bannières :
 
 {% multi_lang_include developer_guide/sdk_versions.md feature='banners' %}
 
@@ -33,22 +33,22 @@ Voici les versions minimales du SDK nécessaires pour créer des placements de B
 
 Pour actualiser les placements, appelez la méthode d'actualisation de votre SDK (`requestBannersRefresh()` sur Web et Android, ou `requestRefresh()` sur Swift).
 
-Le comportement d'actualisation des Banners suit deux chemins :
+Le comportement d'actualisation des bannières suit deux chemins :
 
-1. **Actualisation explicite :** Vous pouvez appeler la méthode d'actualisation à tout moment au cours d'une session active.
-2. **Actualisation automatique lors d'une nouvelle session :** Après avoir effectué au moins une demande d'actualisation explicite, le SDK peut redemander les ID de placement les plus récemment demandés lorsqu'une nouvelle session Braze démarre (par exemple, après `changeUser()` ou après l'expiration d'une session).
+1. **Actualisation explicite :** vous pouvez appeler la méthode d'actualisation à tout moment pendant une session active.
+2. **Actualisation automatique lors d'une nouvelle session :** après avoir effectué au moins une demande d'actualisation explicite, le SDK peut re-demander les ID de placement les plus récemment demandés lorsqu'une nouvelle session Braze démarre (par exemple, après `changeUser()` ou après l'expiration d'une session).
 
 Le rôle de `subscribeToBannersUpdates()` diffère selon la plateforme :
 
-- **iOS et Android :** `subscribeToBannersUpdates()` (ou `subscribeToUpdates()` sur Swift) enregistre un rappel de mise à jour. L'actualisation automatique au démarrage de session ne dépend pas de l'abonnement actif.
-- **Web :** L'actualisation automatique au démarrage de session est liée à l'enregistrement de `subscribeToBannersUpdates()`. Sans abonnement actif, le SDK ne répète pas automatiquement l'actualisation lors d'une nouvelle session.
+- **iOS et Android :** `subscribeToBannersUpdates()` (ou `subscribeToUpdates()` sur Swift) enregistre un rappel de mise à jour. L'actualisation automatique au démarrage de session ne dépend pas de l'activation de l'abonnement.
+- **Web :** l'actualisation automatique au démarrage de session est liée à l'enregistrement de `subscribeToBannersUpdates()`. Sans abonnement actif, le SDK ne répète pas automatiquement l'actualisation lors d'une nouvelle session.
 
-Dans tous les cas, vous devez effectuer au moins une demande d'actualisation explicite par cycle de vie de l'application pour que le SDK sache quels ID de placement maintenir à jour. Les Banners ne sont pas récupérés automatiquement au premier lancement sans cet appel initial, et les ID de placement suivis sont réinitialisés après le redémarrage de l'application.
+Dans tous les cas, vous devez effectuer au moins une demande d'actualisation explicite par cycle de vie de l'application afin que le SDK sache quels ID de placement maintenir à jour. Les bannières ne sont pas récupérées automatiquement au premier lancement sans cet appel initial, et les ID de placement suivis sont réinitialisés après le redémarrage de l'application.
 
 Les actualisations automatiques au démarrage de session ne consomment pas de jeton de limitation du débit.
 
 {% alert tip %}
-Actualisez les placements dès que possible pour éviter les retards de téléchargement ou d'affichage des Banners.
+Actualisez les placements le plus tôt possible pour éviter les retards de téléchargement ou d'affichage des bannières.
 {% endalert %}
 
 {% tabs %}
@@ -69,6 +69,15 @@ AppDelegate.braze?.banners.requestRefresh(placementIds: ["global_banner", "navig
 
 {% endtab %}
 {% tab Android %}
+
+`requestBannersRefresh()` fusionne les données dans le cache de bannières existant. Seuls les ID de placement que vous transmettez sont ajoutés, mis à jour ou supprimés :
+
+- Si le serveur renvoie une bannière pour un placement demandé, la bannière en cache pour ce placement est remplacée.
+- Si le serveur ne renvoie aucune bannière pour un placement demandé, ce placement est supprimé du cache.
+- Les bannières en cache pour les placements que vous n'avez pas demandés restent dans le cache et expirent à leur heure d'expiration d'origine.
+
+Pour savoir combien de placements vous pouvez demander par actualisation, consultez [À propos des demandes de placement](#requests). Vous pouvez actualiser différents ensembles de placements au fil du temps (par exemple, les placements sur l'écran actuel) et conserver les bannières pour d'autres placements dans le cache.
+
 {% subtabs %}
 {% subtab Java %}
 
@@ -129,14 +138,14 @@ This feature is not currently supported on Roku.
 ### Étape 3 : Écouter les mises à jour {#subscribeToBannersUpdates}
 
 {% alert tip %}
-Si vous insérez des Banners à l'aide des méthodes du SDK décrites dans ce guide, tous les événements d'analyse (tels que les impressions et les clics) sont gérés automatiquement, et les impressions ne sont enregistrées que lorsque le banner est visible.
+Si vous insérez des bannières à l'aide des méthodes du SDK décrites dans ce guide, tous les événements d'analyse (tels que les impressions et les clics) sont gérés automatiquement, et les impressions ne sont enregistrées que lorsque la bannière est visible.
 {% endalert %}
 
 {% tabs %}
 {% tab Web %}
 {% subtabs %}
 {% subtab JavaScript %}
-Si vous utilisez du JavaScript standard avec le SDK Web de Braze, utilisez [`subscribeToBannersUpdates`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetobannersupdates) pour écouter les mises à jour de placement, puis appelez [`requestBannersRefresh`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestbannersrefresh) pour les récupérer.
+Si vous utilisez du JavaScript natif avec le SDK Web de Braze, utilisez [`subscribeToBannersUpdates`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetobannersupdates) pour écouter les mises à jour de placement, puis appelez [`requestBannersRefresh`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestbannersrefresh) pour les récupérer.
 
 ```javascript
 import * as braze from "@braze/web-sdk";
@@ -150,7 +159,7 @@ braze.requestBannersRefresh(["global_banner", "navigation_square_banner"]);
 ```
 {% endsubtab %}
 {% subtab React %}
-Si vous utilisez React avec le SDK Web de Braze, configurez [`subscribeToBannersUpdates`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetobannersupdates) à l'intérieur d'un hook `useEffect` et appelez [`requestBannersRefresh`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestbannersrefresh) après avoir enregistré votre listener.
+Si vous utilisez React avec le SDK Web de Braze, configurez [`subscribeToBannersUpdates`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetobannersupdates) à l'intérieur d'un hook `useEffect` et appelez [`requestBannersRefresh`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestbannersrefresh) après avoir enregistré votre écouteur.
 
 ```typescript
 import * as braze from "@braze/web-sdk";
@@ -175,7 +184,7 @@ useEffect(() => {
 {% tab Swift %}
 
 {% alert note %}
-Votre listener de mise à jour de banner reflète l'état en mémoire des banners dans le SDK. Une seule mise à jour peut inclure des placements déjà mis en cache (par exemple, lors d'une actualisation précédente, depuis un autre écran ou par un traitement automatique du SDK), et pas uniquement les ID de placement de votre appel `requestRefresh` le plus récent. Si vous ne vous intéressez qu'à certains placements, vérifiez l'ID de placement de chaque banner dans votre listener et ignorez les autres. Après avoir enregistré votre listener, appelez `requestRefresh` pour les placements que vous souhaitez synchroniser depuis Braze.
+Votre écouteur de mise à jour de bannières reflète l'état en mémoire des bannières du SDK. Une seule mise à jour peut inclure des placements déjà en cache (par exemple, provenant d'une actualisation précédente, d'un autre écran ou d'un traitement automatique du SDK), et pas uniquement les ID de placement de votre appel `requestRefresh` le plus récent. Si vous ne vous intéressez qu'à certains placements, vérifiez l'ID de placement de chaque bannière dans votre écouteur et ignorez les autres. Une fois votre écouteur enregistré, appelez `requestRefresh` pour les placements que vous souhaitez synchroniser depuis Braze.
 {% endalert %}
 
 ```swift
@@ -193,7 +202,7 @@ brazeClient.braze()?.banners.requestRefresh(placementIds: placementIds)
 {% tab Android %}
 
 {% alert note %}
-Votre listener de mise à jour de banner reflète l'état en mémoire des banners dans le SDK. Une seule mise à jour peut inclure des placements déjà mis en cache (par exemple, lors d'une actualisation précédente, depuis un autre écran ou par un traitement automatique du SDK), et pas uniquement les ID de placement de votre appel `requestBannersRefresh` le plus récent. Si vous ne vous intéressez qu'à certains placements, vérifiez l'ID de placement de chaque banner dans votre listener et ignorez les autres. Après avoir enregistré votre listener, appelez `requestBannersRefresh` pour les placements que vous souhaitez synchroniser depuis Braze.
+Votre écouteur de mise à jour de bannières reflète l'état en mémoire des bannières du SDK. Une seule mise à jour peut inclure des placements déjà en cache (par exemple, provenant d'une actualisation précédente, d'un autre écran ou d'un traitement automatique du SDK), et pas uniquement les ID de placement de votre appel `requestBannersRefresh` le plus récent. Si vous ne vous intéressez qu'à certains placements, vérifiez l'ID de placement de chaque bannière dans votre écouteur et ignorez les autres. Une fois votre écouteur enregistré, appelez `requestBannersRefresh` pour les placements que vous souhaitez synchroniser depuis Braze.
 {% endalert %}
 
 {% subtabs %}
@@ -279,16 +288,16 @@ This feature is not currently supported on Roku.
 {% endtab %}
 {% endtabs %}
 
-### Étape 4 : Insérer à l'aide de l'ID de placement {#insertBanner}
+### Étape 4 : Insérer en utilisant l'ID de placement {#insertBanner}
 
 {% alert tip %}
-Pour un tutoriel complet étape par étape, consultez [Afficher un Banner par ID de placement]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners).
+Pour un tutoriel complet étape par étape, consultez [Afficher une bannière par ID de placement]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners).
 {% endalert %}
 
 {% tabs %}
 {% tab Web %}
 
-Créez un élément conteneur pour le Banner. Assurez-vous de définir sa largeur et sa hauteur.
+Créez un élément conteneur pour la bannière. Assurez-vous de définir sa largeur et sa hauteur.
 
 ```html
 <div id="global-banner-container" style="width: 100%; height: 450px;"></div>
@@ -296,7 +305,7 @@ Créez un élément conteneur pour le Banner. Assurez-vous de définir sa largeu
 
 {% subtabs local %}
 {% subtab JavaScript %}
-Si vous utilisez du JavaScript standard avec le SDK Web de Braze, appelez la méthode [`insertBanner`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#insertbanner) pour remplacer le HTML interne de l'élément conteneur.
+Si vous utilisez du JavaScript natif avec le SDK Web de Braze, appelez la méthode [`insertBanner`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#insertbanner) pour remplacer le HTML interne de l'élément conteneur.
 
 ```javascript
 import * as braze from "@braze/web-sdk";
@@ -414,15 +423,18 @@ if let braze = AppDelegate.braze {
 
 {% endtab %}
 {% tab Android %}
+
+Après une actualisation, le SDK met à jour un `BannerView` uniquement lorsque le contenu en cache de ce placement change (ajouté, supprimé ou mis à jour). Les bannières affichées qui n'ont pas changé restent telles quelles. L'appel à `changeUser()` met tout de même à jour chaque `BannerView` enregistré.
+
 {% subtabs %}
 {% subtab Java %}
-Pour obtenir le Banner en code Java, utilisez :
+Pour obtenir la bannière en code Java, utilisez :
 
 ```java
 Banner globalBanner = Braze.getInstance(context).getBanner("global_banner");
 ```
 
-Vous pouvez créer des Banners dans la mise en page de vos vues Android en incluant ce XML :
+Vous pouvez créer des bannières dans la mise en page de vos vues Android en incluant ce XML :
 
 ```xml
 <com.braze.ui.banners.BannerView
@@ -444,7 +456,7 @@ Si vous utilisez Android Views, utilisez ce XML :
     app:placementId="global_banner" />
 ```
 
-Pour utiliser Jetpack Compose, ajoutez l'artifact `com.braze:android-sdk-jetpack-compose` au module de votre application. Utilisez la même version que vos autres dépendances du SDK Android de Braze. Ce module est distinct de `android-sdk-ui` et fournit le composable [`Banner`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.banners/-banner.html) sous `com.braze.jetpackcompose.banners`.
+Pour utiliser Jetpack Compose, ajoutez l'artefact `com.braze:android-sdk-jetpack-compose` à votre module d'application. Utilisez la même version que vos autres dépendances du SDK Android de Braze. Ce module est distinct de `android-sdk-ui` et fournit le composable [`Banner`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.banners/-banner.html) sous `com.braze.jetpackcompose.banners`.
 
 {% alert note %}
 Certaines bibliothèques d'interface Compose définissent leur propre composable `Banner`. Importez explicitement `com.braze.jetpackcompose.banners.Banner` pour vous assurer d'appeler l'API de Braze.
@@ -459,7 +471,7 @@ fun myBannerSlot() {
 }
 ```
 
-Vous pouvez éventuellement passer `heightCallback` pour recevoir la hauteur rendue en dp lorsque la taille du banner change. Pour référence, consultez la [KDoc de `Banner`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.banners/-banner.html).
+Vous pouvez éventuellement passer `heightCallback` pour recevoir la hauteur rendue en dp lorsque la taille de la bannière change. Pour référence, consultez la [KDoc de `Banner`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.banners/-banner.html).
 
 Si vous n'ajoutez pas le module Jetpack Compose, encapsulez [`BannerView`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.banners/-banner-view/index.html) dans [`AndroidView`](https://developer.android.com/reference/kotlin/androidx/compose/ui/viewinterop/AndroidView) :
 
@@ -485,7 +497,7 @@ fun myBannerSlot() {
 }
 ```
 
-Pour obtenir le Banner en Kotlin, utilisez :
+Pour obtenir la bannière en Kotlin, utilisez :
 ```kotlin
 val banner = Braze.getInstance(context).getBanner("global_banner")
 ```
@@ -506,7 +518,7 @@ Si vous utilisez la [nouvelle architecture de React Native](https://reactnative.
 }
 #endif
 ```
-Pour l'intégration la plus simple, ajoutez l'extrait JavaScript XML (JSX) suivant dans votre hiérarchie de vues, en fournissant uniquement l'ID de placement.
+Pour l'intégration la plus simple, ajoutez l'extrait JSX (JavaScript XML) suivant dans votre hiérarchie de vues, en fournissant uniquement l'ID de placement.
 
 ```javascript
 <Braze.BrazeBannerView
@@ -514,7 +526,7 @@ Pour l'intégration la plus simple, ajoutez l'extrait JavaScript XML (JSX) suiva
 />
 ```
 
-Pour obtenir le modèle de données du Banner en React Native, ou pour vérifier la présence de ce placement dans le cache de votre utilisateur, utilisez :
+Pour obtenir le modèle de données de la bannière en React Native, ou pour vérifier la présence de ce placement dans le cache de votre utilisateur, utilisez :
 
 ```javascript
 const banner = await Braze.getBanner("global_banner");
@@ -567,29 +579,29 @@ This feature is not currently supported on Roku.
 {% endtab %}
 {% endtabs %}
 
-### Étape 5 : Envoyer un Banner de test (facultatif) {#handling-test-cards}
+### Étape 5 : Envoyer une bannière de test (facultatif) {#handling-test-cards}
 
-Avant de lancer une campagne Banner, vous pouvez [envoyer un Banner de test]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=banners) pour vérifier votre intégration. Les Banners de test sont stockés dans un cache en mémoire séparé et ne persistent pas après le redémarrage de l'application. Bien qu'aucune configuration supplémentaire ne soit nécessaire, votre appareil de test doit être capable de recevoir des notifications push au premier plan pour pouvoir afficher le test.
+Avant de lancer une campagne de bannières, vous pouvez [envoyer une bannière de test]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=banners) pour vérifier votre intégration. Les bannières de test sont stockées dans un cache en mémoire séparé et ne persistent pas entre les redémarrages de l'application. Bien qu'aucune configuration supplémentaire ne soit nécessaire, votre appareil de test doit être capable de recevoir des notifications push au premier plan pour pouvoir afficher le test.
 
 {% alert note %}
-Les Banners de test fonctionnent comme n'importe quel autre banner, sauf qu'ils sont supprimés à la session d'application suivante.
+Les bannières de test sont comme n'importe quelle autre bannière, sauf qu'elles sont supprimées à la prochaine session de l'application.
 {% endalert %}
 
 ## Enregistrer les impressions {#log-impressions}
 
-Braze enregistre automatiquement les impressions pour les Banners visibles à l'écran lorsque vous utilisez les méthodes du SDK pour insérer un Banner — il n'est donc pas nécessaire de suivre les impressions manuellement.
+Braze enregistre automatiquement les impressions pour les Banners visibles lorsque vous utilisez les méthodes du SDK pour insérer un Banner — il n'est donc pas nécessaire de suivre les impressions manuellement.
 
 ## Enregistrement des clics {#logging-clicks}
 
-La méthode utilisée pour enregistrer les clics sur les bannières dépend de la façon dont votre bannière est affichée et de l'emplacement de votre gestionnaire de clics.
+La méthode utilisée pour enregistrer les clics sur un Banner dépend de la façon dont votre Banner est rendu et de l'emplacement de votre gestionnaire de clics.
 
-### Contenu de bannière standard (automatique) {#standard-banner-content-automatic}
+### Contenu standard du Banner (automatique) {#standard-banner-content-automatic}
 
-Si vous utilisez les méthodes SDK par défaut et prêtes à l'emploi pour insérer des bannières, et que votre bannière utilise des composants d'éditeur standard (images, boutons, texte), les clics sont suivis automatiquement. Le SDK attache des écouteurs de clics à ces éléments, et aucun code supplémentaire n'est nécessaire.
+Si vous utilisez les méthodes par défaut du SDK pour insérer des Banners et que votre Banner utilise des composants standard de l'éditeur (images, boutons, texte), les clics sont suivis automatiquement. Le SDK attache des écouteurs de clics à ces éléments, et aucun code supplémentaire n'est nécessaire.
 
 ### Blocs de code personnalisé {#custom-code-blocks}
 
-Si votre bannière utilise le bloc éditeur **Code personnalisé** dans le tableau de bord de Braze, vous devez utiliser `brazeBridge.logClick()` pour enregistrer les clics depuis ce HTML personnalisé. Cela s'applique même lorsque vous utilisez les méthodes SDK pour afficher la bannière, car le SDK ne peut pas attacher automatiquement des écouteurs aux éléments à l'intérieur de votre code personnalisé.
+Si votre Banner utilise le bloc éditeur **Custom Code** dans le tableau de bord de Braze, vous devez utiliser `brazeBridge.logClick()` pour enregistrer les clics depuis ce HTML personnalisé. Cela s'applique même lorsque vous utilisez les méthodes du SDK pour afficher le Banner, car le SDK ne peut pas attacher automatiquement des écouteurs aux éléments à l'intérieur de votre code personnalisé.
 
 ```html
 <button onclick="brazeBridge.logClick()">
@@ -597,17 +609,17 @@ Si votre bannière utilise le bloc éditeur **Code personnalisé** dans le table
 </button>
 ```
 
-Pour la référence complète, consultez [Code personnalisé et pont JavaScript pour les bannières]({{site.baseurl}}/user_guide/channels/banners/custom_code). Le `brazeBridge` fournit une couche de communication entre le HTML interne de la bannière et le SDK Braze parent.
+Pour la référence complète, consultez [Code personnalisé et pont JavaScript pour les Banners]({{site.baseurl}}/user_guide/channels/banners/custom_code). Le `brazeBridge` fournit une couche de communication entre le HTML interne du Banner et le SDK Braze parent.
 
 ### Implémentations d'interface personnalisée (headless) {#custom-ui-implementations-headless}
 
-Si vous créez une interface entièrement personnalisée en utilisant les [propriétés personnalisées](#custom-properties) de la bannière plutôt que d'afficher le HTML de la bannière, vous devez enregistrer manuellement les clics et les impressions depuis le code de votre application. Étant donné que le SDK n'effectue pas le rendu de la bannière, il n'a aucun moyen de suivre automatiquement les interactions avec vos éléments d'interface personnalisée.
+Si vous construisez une interface entièrement personnalisée en utilisant les [propriétés personnalisées](#custom-properties) du Banner plutôt que de rendre le HTML du Banner, vous devez enregistrer manuellement les clics et les impressions depuis le code de votre application. Étant donné que le SDK n'affiche pas le Banner, il n'a aucun moyen de suivre automatiquement les interactions avec vos éléments d'interface personnalisés.
 
-Pour les signatures de méthode et les détails complets, consultez la [documentation de référence du SDK Braze]({{site.baseurl}}/developer_guide/references).
+Pour les signatures de méthodes et les détails complets, consultez la [documentation de référence du SDK Braze]({{site.baseurl}}/developer_guide/references).
 
 #### Enregistrement des impressions {#logging-impressions}
 
-Appelez la méthode d'impression de bannière de la plateforme lorsque votre interface personnalisée considère la bannière comme « vue ». Construisez une logique robuste pour déterminer ce qui compte comme une impression afin d'éviter les événements en double — par exemple, enregistrez uniquement lorsque la bannière entre dans la zone visible (ou équivalent), et n'enregistrez pas à nouveau lorsque la même bannière est de nouveau visible par défilement ou lorsque votre composant se recharge sans nouvel événement de vue.
+Appelez la méthode d'impression du Banner de la plateforme lorsque votre interface personnalisée considère le Banner comme « vu ». Construisez une logique robuste pour définir ce qui constitue une impression afin d'éviter les événements en double — par exemple, enregistrez uniquement lorsque le Banner entre dans la zone visible (ou équivalent), et n'enregistrez pas à nouveau lorsque le même Banner revient dans la zone visible ou lorsque votre composant se re-rend sans un nouvel événement de vue.
 
 {% tabs %}
 {% tab Web %}
@@ -653,7 +665,7 @@ braze.banners.getBanner(for: "placement_id_homepage_top") { banner in
 // Log impression when your custom UI considers the banner viewed (for example, once when it enters viewport)
 Braze.logBannerImpression("placement_id_homepage_top");
 ```
-Consultez le [dépôt du SDK React Native](https://github.com/braze-inc/braze-react-native-sdk) pour les dernières signatures de méthode.
+Consultez le [dépôt du SDK React Native](https://github.com/braze-inc/braze-react-native-sdk) pour les signatures de méthodes les plus récentes.
 {% endtab %}
 {% tab Flutter %}
 ```dart
@@ -666,7 +678,7 @@ braze.logBannerImpression("placement_id_homepage_top");
 
 #### Enregistrement des clics
 
-Appelez la méthode de clic de bannière de la plateforme lorsque l'utilisateur appuie sur votre bannière personnalisée (ou sur un bouton spécifique). Transmettez le paramètre optionnel `buttonId` lorsque le clic concerne un bouton spécifique afin que l'analytique puisse attribuer le clic correctement.
+Appelez la méthode de clic du Banner de la plateforme lorsque l'utilisateur appuie sur votre Banner personnalisé (ou sur un bouton spécifique). Passez le `buttonId` optionnel lorsque le clic concerne un bouton spécifique afin que l'analytique puisse attribuer le clic correctement.
 
 {% tabs %}
 {% tab Web %}
@@ -709,7 +721,7 @@ braze.banners.getBanner(for: "placement_id_homepage_top") { banner in
 // Log click
 Braze.logBannerClick("placement_id_homepage_top", buttonId);  // buttonID is optional
 ```
-Consultez le [dépôt du SDK React Native](https://github.com/braze-inc/braze-react-native-sdk) pour les dernières signatures de méthode.
+Consultez le [dépôt du SDK React Native](https://github.com/braze-inc/braze-react-native-sdk) pour les signatures de méthodes les plus récentes.
 {% endtab %}
 {% tab Flutter %}
 ```dart
@@ -722,7 +734,7 @@ braze.logBannerClicked("placement_id_homepage_top", buttonId);  // buttonID para
 
 ## Enregistrer les fermetures {#log-dismissals}
 
-Les fermetures de bannières suppriment de manière programmatique une bannière d'un emplacement lorsqu'un utilisateur la ferme activement. Lorsqu'elle est fermée, la bannière est masquée pour cet utilisateur. La prochaine fois que la liste des emplacements est actualisée, une nouvelle bannière est renvoyée si l'utilisateur est éligible.
+Les fermetures de bannières suppriment de manière programmatique une bannière d'un emplacement lorsqu'un utilisateur la ferme activement. Une fois fermée, la bannière est masquée pour cet utilisateur. Lors de la prochaine actualisation de la liste des emplacements, une nouvelle bannière est renvoyée si l'utilisateur est éligible.
 
 ### Prérequis
 
@@ -750,7 +762,7 @@ Si votre bannière utilise le bloc éditeur **Custom Code**, vous pouvez déclen
 
 Si vous utilisez le `BrazeBannerView` standard avec le bouton de fermeture créé dans l'éditeur par glisser-déposer, aucun code supplémentaire n'est nécessaire ; la fermeture est gérée automatiquement.
 
-Pour les intégrations d'interface utilisateur personnalisées, vous pouvez appeler la méthode de fermeture directement sur votre instance Braze pour fermer une bannière de manière programmatique et enregistrer un événement de fermeture. La méthode de fermeture peut être appelée plusieurs fois en toute sécurité — le SDK ignore les appels en double pour la même bannière.
+Pour les intégrations d'interface personnalisées, vous pouvez appeler la méthode de fermeture directement sur votre instance Braze pour fermer une bannière de manière programmatique et enregistrer un événement de fermeture. La méthode de fermeture peut être appelée plusieurs fois sans risque : le SDK ignore les appels en double pour la même bannière.
 
 Voici les versions minimales du SDK requises pour fermer une bannière de manière programmatique :
 
@@ -834,14 +846,14 @@ braze.dismissBanner("your-placement-id");
 
 ### Enregistrer des analyses personnalisées lors de la fermeture d'une bannière {#log-custom-analytics-on-banner-dismissal}
 
-Pour exécuter une logique personnalisée lorsqu'une bannière est fermée — comme enregistrer des analyses —, utilisez le rappel de fermeture de votre SDK. Le rappel reçoit un objet événement contenant le `placementId`, le `stableKey` et le `trackingId` de la bannière.
+Pour exécuter une logique personnalisée lorsqu'une bannière est fermée — comme l'enregistrement d'analyses — utilisez le rappel de fermeture de votre SDK. Le rappel reçoit un objet événement contenant le `placementId`, le `stableKey` et le `trackingId` de la bannière.
 
 {% tabs %}
 {% tab Web %}
 Utilisez [`Banner.subscribeToDismissedEvent()`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.banner.html#subscribetodismissedevent) pour exécuter une logique personnalisée lorsqu'une bannière spécifique est fermée. Abonnez-vous à l'événement avant d'afficher la bannière.
 
 {% alert note %}
-`Banner.subscribeToDismissedEvent()` nécessite le SDK Web 6.9.0 ou ultérieur. Sur les versions antérieures, utilisez `braze.subscribeToBannersUpdates()` et détectez la fermeture en vérifiant si la bannière n'est plus présente dans la carte des bannières mise à jour.
+`Banner.subscribeToDismissedEvent()` nécessite le SDK Web 6.9.0 ou une version ultérieure. Sur les versions antérieures, utilisez `braze.subscribeToBannersUpdates()` et détectez la fermeture en vérifiant si la bannière n'est plus présente dans la carte des bannières mise à jour.
 {% endalert %}
 
 {% subtabs %}
@@ -892,7 +904,7 @@ useEffect(() => {
 {% endtab %}
 
 {% tab Android %}
-Définissez la propriété optionnelle [`onDismissCallback`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.banners/-banner-view/on-dismiss-callback.html) sur [`BannerView`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.banners/-banner-view/index.html).
+Définissez la propriété facultative [`onDismissCallback`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.banners/-banner-view/on-dismiss-callback.html) sur [`BannerView`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.banners/-banner-view/index.html).
 
 {% subtabs %}
 {% subtab Java %}
@@ -984,7 +996,7 @@ BrazeBannerView(
 Les événements de fermeture sont stockés localement en tant qu'entrées en attente jusqu'à ce qu'ils puissent être synchronisés avec le serveur Braze lors du prochain appel à `requestBannersRefresh`.
 
 {% alert warning %}
-Dans de rares cas où un grand nombre de fermetures s'accumulent sans synchronisation réussie, les fermetures en attente les plus anciennes peuvent être supprimées. Si cela se produit, des bannières précédemment fermées peuvent réapparaître jusqu'à ce que la prochaine synchronisation réussie soit terminée. Pour minimiser ce risque, appelez `requestBannersRefresh` chaque fois que votre application retrouve une connectivité réseau.
+Dans de rares cas où un grand nombre de fermetures s'accumulent sans synchronisation réussie, les fermetures en attente les plus anciennes peuvent être supprimées. Si cela se produit, les bannières précédemment fermées peuvent réapparaître jusqu'à ce que la prochaine synchronisation réussie soit terminée. Pour minimiser ce risque, appelez `requestBannersRefresh` chaque fois que votre application retrouve une connectivité réseau.
 {% endalert %}
 
 ## Dimensions et dimensionnement {#dimensions-and-sizing}
@@ -992,8 +1004,8 @@ Dans de rares cas où un grand nombre de fermetures s'accumulent sans synchronis
 Voici ce que vous devez savoir sur les dimensions et le dimensionnement des Banners :
 
 - Bien que le composeur vous permette de prévisualiser les Banners dans différentes dimensions, ces informations ne sont ni enregistrées ni envoyées au SDK.
-- Le HTML occupera toute la largeur du conteneur dans lequel il est affiché.
-- Nous vous recommandons de créer un élément à dimensions fixes et de tester ces dimensions dans le composeur.
+- Le HTML occupera toute la largeur du conteneur dans lequel il est rendu.
+- Nous recommandons de créer un élément de dimension fixe et de tester ces dimensions dans le composeur.
 
 ## Propriétés personnalisées {#custom-properties}
 

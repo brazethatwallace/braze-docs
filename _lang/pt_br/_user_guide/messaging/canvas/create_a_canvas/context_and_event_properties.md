@@ -46,21 +46,19 @@ Não é mais possível criar ou duplicar Canvas usando o editor original. Observ
 ## O que saber {#things-to-know}
 
 - O contexto está disponível apenas para referência em Liquid. Para filtrar pelas propriedades dentro do Canvas, use a [segmentação por propriedade de evento]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects).
-- Para canais de mensagem no app, você pode referenciar `context` e `event_properties` em um Canvas. `event_properties` pode ser acessado quando incluído na primeira etapa do Canvas, pois é baseado em disparo.
-- Você não pode usar `event_properties` na etapa de mensagem principal. Em vez disso, use `context` ou adicione uma etapa de jornadas de ação com o evento correspondente **antes** da etapa de mensagem que inclui `event_properties`.
-- Quando uma etapa de jornada de ação contém um disparador "Sent an SMS Inbound Message" ou "Sent a WhatsApp Inbound Message", as etapas subsequentes do Canvas podem incluir uma propriedade Liquid de SMS ou WhatsApp. Isso reflete como as propriedades de evento funcionam em Canvas. Dessa forma, você pode alavancar suas mensagens para salvar e referenciar dados primários em perfis de usuário e envio de mensagens conversacionais.
+- Para canais de mensagem no app, você pode referenciar `context` e `event_properties` em um Canvas. `event_properties` pode ser acessado quando incluído na primeira etapa do Canvas porque é baseado em disparo.
+- Você não pode usar `event_properties` na etapa de mensagem principal. Em vez disso, você pode usar `context` ou adicionar uma etapa de jornadas de ação com o evento correspondente **antes** da etapa de mensagem que inclui `event_properties`.
+- Quando uma etapa de jornadas de ação contém um disparo "Sent an SMS Inbound Message" ou "Sent a WhatsApp Inbound Message", as etapas subsequentes do Canvas podem incluir uma propriedade Liquid de SMS ou WhatsApp. Isso reflete como as propriedades de evento funcionam em Canvas. Dessa forma, você pode alavancar suas mensagens para salvar e referenciar dados primários em perfis de usuário e envio de mensagens conversacionais.
 
 {% alert note %}
-A elegibilidade do público é avaliada uma única vez na entrada do Canvas. Se um usuário for mesclado durante a entrada, o usuário identificado continua pelo Canvas e não é reavaliado em relação aos critérios de Segment do Canvas.
+A elegibilidade do público é avaliada uma vez na entrada do Canvas. Se um usuário for mesclado durante a entrada, o usuário identificado continua pelo Canvas e não é reavaliado em relação aos critérios de Segment do Canvas.
 {% endalert %}
 
 {% multi_lang_include alerts/tip_alerts.md alert='Reference properties from triggering event' %}
 
 ### Timestamps {#timestamps}
 
-Se você está usando timestamps com um [tipo datetime]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties) de eventos que disparam Canvas baseados em ação, que são referenciados usando [contexto]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties), os timestamps são normalizados para UTC.
-
-Dado esse comportamento, a Braze recomenda fortemente que você use um filtro de fuso horário em Liquid como o exemplo a seguir para garantir que suas mensagens sejam enviadas com o [fuso horário de sua preferência]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters).
+Todos os timestamps no Canvas são normalizados para UTC. Dado esse comportamento, a Braze recomenda fortemente que você use um filtro de fuso horário Liquid, como no exemplo a seguir, para que suas mensagens sejam enviadas no seu [fuso horário preferido]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters).
 
 {% raw %}
 ```liquid
@@ -70,14 +68,14 @@ Dado esse comportamento, a Braze recomenda fortemente que você use um filtro de
 
 ## Caso de uso {#use-case}
 
-![Uma etapa de jornadas de ação seguida por uma etapa de postergação e uma etapa de mensagem para usuários que adicionaram um item à lista de desejos, e uma jornada para todos os outros.]({% image_buster /assets/img_archive/canvas_entry_properties1.png %}){: style="float:right;max-width:30%;margin-left:15px;"}
+![Uma etapa de jornada de ação seguida por uma etapa de postergação e uma etapa de mensagem para usuários que adicionaram um item à lista de desejos, e uma jornada para todos os outros.]({% image_buster /assets/img_archive/canvas_entry_properties1.png %}){: style="float:right;max-width:30%;margin-left:15px;"}
 
 Para entender melhor as diferenças entre `context` e `event_properties`, vamos considerar este cenário em que os usuários entram em um Canvas baseado em ação ao realizar o evento personalizado "adicionar item à lista de desejos".
 
 O contexto é configurado na etapa [Cronograma de entrada]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-12-determine-your-canvas-entry-schedule) da criação de um Canvas e corresponde ao momento em que um usuário entra em um Canvas. O contexto também pode ser referenciado em qualquer etapa de mensagem.
 
-Neste Canvas, temos uma jornada de usuário que começa com uma etapa de jornadas de ação para determinar se um usuário adicionou um item à sua lista de desejos. A partir daqui, se o usuário tiver adicionado um item, ele passa por uma postergação antes de receber a mensagem "Novo item na sua lista de desejos!" da etapa de mensagem.
+Neste Canvas, temos uma jornada de usuário que começa com uma etapa de jornadas de ação para determinar se um usuário adicionou um item à sua lista de desejos. A partir daí, se o usuário adicionou um item, ele passa por uma postergação antes de receber a mensagem "Novo item na sua lista de desejos!" da etapa de mensagem.
 
-A primeira etapa de mensagem em uma jornada de usuário tem acesso às `event_properties` personalizadas da sua etapa de jornadas de ação. Neste caso, podemos incluir ``{% raw %} {{event_properties.${property_name}}} {% endraw %}`` nesta etapa de mensagem como parte do conteúdo da nossa mensagem. Se um usuário não adicionar um item à sua lista de desejos, ele segue pela jornada Todos os outros, o que significa que as `event_properties` não podem ser referenciadas e resultam em um erro de configurações inválidas.
+A primeira etapa de mensagem em uma jornada de usuário tem acesso às `event_properties` personalizadas da sua etapa de jornadas de ação. Neste caso, podemos incluir ``{% raw %} {{event_properties.${property_name}}} {% endraw %}`` nessa etapa de mensagem como parte do conteúdo da nossa mensagem. Se um usuário não adicionar um item à lista de desejos, ele segue pela jornada Todos os outros, o que significa que as `event_properties` não podem ser referenciadas e refletem um erro de configuração inválida.
 
-Note que você só terá acesso às `event_properties` se a sua etapa de mensagem puder ser rastreada de volta a uma jornada diferente de Todos os outros em uma etapa de jornadas de ação. Se a etapa de mensagem estiver conectada a uma jornada Todos os outros, mas puder ser rastreada de volta a uma etapa de jornadas de ação na jornada do usuário, você ainda terá acesso às `event_properties`. Para saber mais sobre esses comportamentos, consulte [Etapa de mensagem]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step).
+Observe que você só terá acesso às `event_properties` se a sua etapa de mensagem puder ser rastreada até uma jornada que não seja Todos os outros em uma etapa de jornadas de ação. Se a etapa de mensagem estiver conectada a uma jornada Todos os outros, mas puder ser rastreada até uma etapa de jornadas de ação na jornada do usuário, você ainda terá acesso às `event_properties`. Para saber mais sobre esses comportamentos, consulte [Etapa de mensagem]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step).
