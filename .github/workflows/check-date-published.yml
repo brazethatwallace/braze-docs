@@ -58,6 +58,15 @@ jobs:
           git fetch --no-tags origin "${BASE_REF}"
           echo "ref=origin/${BASE_REF}" >> "$GITHUB_OUTPUT"
 
+      - name: Restore check scripts from base branch if missing
+        run: |
+          BASE="${{ github.event.pull_request.base.ref || 'develop' }}"
+          for f in scripts/check_date_published.py scripts/test_check_date_published.py; do
+            if [ ! -f "$f" ]; then
+              git show "origin/${BASE}:${f}" > "$f"
+            fi
+          done
+
       - name: Run unit tests
         run: python3 scripts/test_check_date_published.py
 
