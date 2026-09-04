@@ -179,18 +179,21 @@ codepoints
 Cofounder
 Cofounders
 Comcel
+COMPONENTSTORE
 Comunicacion
 companyid
 Content Cards
 CONTENTCARD
 Contentful
 Contentful's
+CONTENTOPTIMIZER
 Contentsquare
 Convercus
 cookieless
 Cooldown
 cooldowns
 Cordova
+COSTEP
 Cpolyline
 CPRA
 CROWDTWIST
@@ -312,6 +315,7 @@ Fmms
 fontawesome
 FONYI
 focusout
+FORMSUBMISSION
 Foursquare
 Français
 FREQUENCYCAP
@@ -341,6 +345,7 @@ GLOBALSTATECHANGE
 granularization
 granularized
 granularscimapi
+LANDINGPAGE
 legacyscimapi
 GRAVTY
 Grindr
