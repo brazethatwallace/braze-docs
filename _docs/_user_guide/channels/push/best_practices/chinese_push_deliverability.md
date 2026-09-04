@@ -11,7 +11,7 @@ channel: push
 
 # Push deliverability for Chinese Android devices
 
-> Some Android devices manufactured by Chinese Original Equipment Manufacturers (OEMs), such as Xiaomi, OPPO, and Vivo, optimize for longer battery lives through aggressive app lifecycle management. This optimization may have the unintended consequence of shutting down background app processing, which can reduce the deliverability of your push notifications.<br><br>To make sure that your app's messaging performance works as expected on these devices, your marketing and engineering teams should collaborate and follow the steps outlined in this article.
+> Some Android devices manufactured by Chinese Original Equipment Manufacturers (OEMs), such as Xiaomi, OPPO, Vivo, and Huawei, optimize for longer battery lives through aggressive app lifecycle management. This optimization may have the unintended consequence of shutting down background app processing, which can reduce the deliverability of your push notifications.<br><br>To make sure that your app's messaging performance works as expected on these devices, your marketing and engineering teams should collaborate and follow the steps outlined in this article.
 
 ## Steps for developers
 These OEMs perform their optimizations through aggressive killing of background applications and blocking them from self starting to run background tasks. As a developer, you'll need to configure your app to ask the user to ease these restrictions whenever possible.
@@ -26,4 +26,32 @@ After your users opt in to receive push notifications, there are additional step
 - Enable "auto-start" for the app
 - Disable battery optimization for the app
 
-To further amplify your message, add other channels to resurface information from unopened push notifications through out-of-app channels such as SMS, WhatsApp, and LINE and in-app channels like in-app messages and Content Cards. Your users will be able to see anything they might have missed the next time they open the app.
+### Identifying users on Chinese OEM devices
+
+To target your in-app message to users on specific Chinese OEM devices, use the **Device Model** or **Device OS** [segmentation filters]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters):
+
+- **Device Model:** Use this filter to target users by their mobile phone's model. For example, to identify Huawei devices, use a regex pattern containing `huawei` to match model names. For step-by-step setup instructions, see [Build a Device Model regex for Huawei devices](#build-a-device-model-regex-for-huawei-devices).
+- **Device OS:** Use this filter to target users by operating system. Some Chinese OEMs, such as Huawei, may explicitly specify their custom Android version in the device OS field. For verification steps, see [Verify Device OS values before you target](#verify-device-os-values-before-you-target).
+
+#### Build a Device Model regex for Huawei devices
+
+1. Go to **Audience** > **Segments**, then create or edit a segment.
+2. Add the **Device Model** filter.
+3. Set the operator to **matches regex**.
+4. Enter `huawei` to match Huawei model names.
+5. (Optional) If you also want Honor-branded devices, use `(huawei|honor)`.
+
+For more information on regex behavior in Braze and pattern testing, see [Regular expressions]({{site.baseurl}}/user_guide/audience/segments/regex).
+
+#### Verify Device OS values before you target
+
+Some OEM variants can report customized OS naming in device metadata. Because this value can vary by device model and Android distribution, verify what your users send in Braze before building the segment:
+
+1. Go to **Search Users**, then open a profile for a known target user.
+2. In the **Overview** tab, check **Recent devices** and review the OS value shown for that device.
+3. Copy the exact OS string into your segment filter:
+   - Use **Device OS** when you need an exact or regex-based OS string match.
+   - Use **Device OS Version Number** when you need numeric version ranges.
+4. In the segment composer, use **User Lookup** to confirm that test users match as expected.
+
+For details on where to find device metadata in profiles, see [User profiles]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles). For details on testing segment logic, see [Create a segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#testing-segments).
