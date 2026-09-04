@@ -165,7 +165,7 @@ Some email clients, including GMX, render messages inside iframes and may strip 
 
 - Use table-based layouts instead of CSS-positioned layouts.
 - Apply critical styles as inline `style` attributes on the affected elements.
-- For drag-and-drop emails, use **Hide on desktop** and **Hide on mobile** on rows to show or hide content by viewport.
+- Note that **Hide on desktop** and **Hide on mobile** rely on media queries in the `<style>` block, so they may not work in these clients—content hidden by viewport can appear in both views.
 
 Before sending, test the updated message in Inbox Vision with the affected client preview.
 
