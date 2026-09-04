@@ -101,7 +101,6 @@ Click each URL. It should return HTTP 200 and render either the full page or, fo
 - [ ] [Upgrading Shopify (Custom)](http://127.0.0.1:5006/docs/shopify_custom_upgrade/) — `private_betas/shopify_beta/shopify_custom_integration_upgrade.md`
 - [ ] [Upgrading Shopify](http://127.0.0.1:5006/docs/shopify_standard_upgrade/) — `private_betas/shopify_beta/shopify_standard_integration_upgrade.md`
 - [ ] [Shopify Upgrade Overview](http://127.0.0.1:5006/docs/shopify_upgrade_overview/) — `private_betas/shopify_beta/shopify_upgrade_overview.md`
-- [ ] [Shopify Collections Sync](http://127.0.0.1:5006/docs/shopify_collections_sync/) — `private_betas/shopify_collections_sync.md`
 - [ ] [In-app message surveys](http://127.0.0.1:5006/docs/user_guide/channels/in_app_messages/drag_and_drop/surveys/) — `channels/in_app_messages/drag_and_drop/surveys.md`
 - [ ] [Landing page surveys](http://127.0.0.1:5006/docs/user_guide/messaging/landing_pages/create_landing_pages/surveys/) — `messaging/landing_pages/create_landing_pages/surveys.md`
 - [ ] [Workspace rate limits](http://127.0.0.1:5006/docs/workspace_rate_limits/) — `private_betas/workspace_rate_limits.md`
@@ -175,7 +174,6 @@ urls=(
   "http://127.0.0.1:5006/docs/shopify_custom_upgrade/"
   "http://127.0.0.1:5006/docs/shopify_standard_upgrade/"
   "http://127.0.0.1:5006/docs/shopify_upgrade_overview/"
-  "http://127.0.0.1:5006/docs/shopify_collections_sync/"
   "http://127.0.0.1:5006/docs/user_guide/channels/in_app_messages/drag_and_drop/surveys/"
   "http://127.0.0.1:5006/docs/user_guide/messaging/landing_pages/create_landing_pages/surveys/"
   "http://127.0.0.1:5006/docs/workspace_rate_limits/"

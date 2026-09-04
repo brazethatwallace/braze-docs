@@ -1789,6 +1789,13 @@ validurls['/docs/partners/message_orchestration/channel_extensions/ecommerce/sho
 validurls['/docs/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_data_processing'] = '/docs/partners/ecommerce/shopify/shopify_data_features';
 validurls['/docs/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify'] = '/docs/partners/ecommerce/shopify/shopify_overview';
 validurls['/docs/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_catalogs'] = '/docs/partners/ecommerce/shopify/shopify_catalogs';
+validurls['/docs/shopify_collections_sync'] = '/docs/partners/ecommerce/shopify/shopify_catalogs#shopify-product-sync';
+validurls['/docs/de/shopify_collections_sync'] = '/docs/de/partners/ecommerce/shopify/shopify_catalogs#shopify-product-sync';
+validurls['/docs/es/shopify_collections_sync'] = '/docs/es/partners/ecommerce/shopify/shopify_catalogs#shopify-product-sync';
+validurls['/docs/fr/shopify_collections_sync'] = '/docs/fr/partners/ecommerce/shopify/shopify_catalogs#shopify-product-sync';
+validurls['/docs/ja/shopify_collections_sync'] = '/docs/ja/partners/ecommerce/shopify/shopify_catalogs#shopify-product-sync';
+validurls['/docs/ko/shopify_collections_sync'] = '/docs/ko/partners/ecommerce/shopify/shopify_catalogs#shopify-product-sync';
+validurls['/docs/pt-br/shopify_collections_sync'] = '/docs/pt-br/partners/ecommerce/shopify/shopify_catalogs#shopify-product-sync';
 validurls['/docs/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_catalogs#troubleshooting'] = '/docs/partners/ecommerce/shopify/shopify_catalogs#troubleshooting';
 validurls['/docs/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_catalogs/back_in_stock'] = '/docs/partners/ecommerce/shopify/shopify_catalogs#back-in-stock-and-price-drop-use-cases';
 validurls['/docs/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_features/shopify_catalogs'] = '/docs/partners/ecommerce/shopify/shopify_catalogs';
