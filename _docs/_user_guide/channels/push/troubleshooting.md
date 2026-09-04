@@ -24,6 +24,9 @@ channel: push
 | Web push permissions or delivery issues | [Web push notifications aren't behaving as expected](#web-push-notifications-are-not-behaving-as-expected) |
 | Need to migrate from `.p12` to `.p8` (iOS) | [Migrate to a .p8 authentication key](#migrate-to-a-p8-authentication-key) |
 | Specific push error code in logs | [Push error messages](#push-error-messages) |
+| Uninstall counts don't match by platform | [Uninstall metrics](#uninstall-metrics) |
+| Migrating users or push data to another workspace | [Workspace data migration](#workspace-data-migration) |
+| Need to know if a session started from a push open | [Session and attribution](#session-and-attribution) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Push symptom" }
 
 ## Standard investigation path
@@ -337,4 +340,32 @@ If a user opens your app after receiving a push without tapping the notification
 
 For definitions of common push error codes (including `DEVICE_UNREGISTERED`, `NotRegistered`, and `Unregistered`), see [Common push error messages]({{site.baseurl}}/user_guide/channels/push/push_error_codes/).
 
-When FCM returns errors such as `DEVICE_UNREGISTERED` or `NotRegistered`, Braze typically removes the affected push token from the user profile. That removal often indicates the app was uninstalled or the token is no longer valid. Uninstall tracking campaigns use the same token-removal logic at scale.
+When a push provider signals that a registration token is no longer valid (for example, `DEVICE_UNREGISTERED` or `NotRegistered` from FCM), Braze removes the affected push token from the user profile and counts the user as uninstalled. Uninstall tracking campaigns use the same token-removal logic at scale.
+
+Other push errors are recorded as bounces and don't remove the token. For example, an authentication failure such as [`MismatchSenderID`](#error-mismatch-sender-id) means Braze couldn't authenticate with FCM, so fix the credential instead of treating it as an uninstall signal.
+
+For Android uninstall tracking, Braze sends uninstall detection pushes as a dry run (validation only) or as a live silent push, depending on your workspace configuration. Because a dry run validates the request without delivering the message, its results can differ from a live send. If uninstall counts look low, confirm your Android integration meets [uninstall tracking]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking) prerequisites and review bounce errors in the Message Activity Log.
+
+## Uninstall metrics {#uninstall-metrics}
+
+### Why don't total uninstalls match Android plus iOS?
+
+Workspace **Total Uninstalls** can exceed the sum of platform-specific uninstall metrics because web push token invalidation also contributes to uninstall counts. When a web push token becomes invalid (for example, after the user clears site data or revokes permission), Braze may record an uninstall for that web registration even when mobile uninstall metrics are unchanged.
+
+### What subscription status do imported iOS push tokens show?
+
+Imported iOS push tokens usually appear as **Subscribed** until the user logs a session in an app that uses the Braze SDK for that workspace. After the SDK registers the token on session start, the profile typically moves to **Opted-In** when push authorization is granted. For subscription states and profile fields, see [Push subscription states]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states).
+
+## Workspace data migration {#workspace-data-migration}
+
+### Can I migrate data between workspaces?
+
+Braze does not offer a one-click migration between workspaces. Point your app or site at the destination workspace's API key, then recreate users there with the [Users Track]({{site.baseurl}}/api/endpoints/user_data/post_user_track) endpoint or [CSV import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import). Export source profiles first with [Export users by identifier]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) or [Export users by segment]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment).
+
+For what you can copy, what you must rebuild, and push-token limits, see [Migrate data between workspaces]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces/migrate_workspace_data). Work with your Braze account team when planning a large workspace move.
+
+## Session and attribution {#session-and-attribution}
+
+### Can I tell from session start whether the user opened the app from a push?
+
+No. Session start events do not include a flag that indicates whether the session began from a push open. Use push **Direct Opens**, **Influenced Opens**, or custom events (for example, logging a click handler in your app) to correlate sessions with push engagement. See [Push open metrics](#push-open-metrics).
