@@ -47,6 +47,7 @@ Run applicable gates **before** writing the PR description. Skip gates that do n
 | `_docs/**/*.md`, root `_includes/**/*.md` (prose edits) | **Style QA (required):** follow [style-qa-changed-files.md](../braze-docs/workflows/style-qa-changed-files.md) — load [writing-style.md](../braze-docs/references/writing-style.md) and [glossary.md](../braze-docs/references/glossary.md), fix bold-for-emphasis and glossary casing on **changed lines only**, and never touch `_docs/_hidden/other/support_contact.md` unless the change is explicitly about that page |
 | `assets/img/**` (new or updated screenshots) | **REQUIRED SUB-SKILL:** [screenshot-pii-audit](../screenshot-pii-audit/SKILL.md) (`braze-docs:screenshot-pii-audit`). Skip for deletion-only image-pruner batches with no added or replaced images. |
 | Root `_includes/**` added/deleted/renamed, or `{% multi_lang_include %}` / `{% include %}` lines added or removed in `_docs/**` or root `_includes/**` | **Include hygiene (advisory):** follow [include-hygiene.md](../braze-docs/workflows/include-hygiene.md) — run `python3 scripts/find_single_use_includes.py`, confirm `jekyll build` passes, and note remaining single-use count in the PR body when the change is part of include cleanup |
+| `_docs/_user_guide/**`, `_docs/_developer_guide/**`, `_docs/_api/**`, `_docs/_partners/**`, `_docs/_help/**` | Run `python3 scripts/check_date_published.py --base origin/develop` (and `python3 scripts/test_check_date_published.py` if you edited the checker). On first public ship, `date_published` must be today's UTC date or a future UTC merge date, not the past. |
 | Product behavior claims in prose | **REQUIRED SUB-SKILL:** [reference-repos](../reference-repos/SKILL.md) (`braze-docs:reference-repos`) when verifying against source; include repo-relative paths in the PR body (for example `platform/shared_code/...`), never local filesystem paths |
 
 If Style QA finds issues in the prose diff, fix them (or note intentional exceptions in the PR body) before continuing to Step 1.
@@ -119,6 +120,7 @@ Skip this section entirely for trivial PRs.>
     - My style and voice follow the [in-repo Braze Docs style guide](https://github.com/braze-inc/braze-docs/blob/develop/docs/contributing/style_guide.md), especially the [writing style guide](https://github.com/braze-inc/braze-docs/blob/develop/docs/contributing/style_guide/writing_style_guide.md). For images, alerts, and API pages, see [image style](https://github.com/braze-inc/braze-docs/blob/develop/docs/contributing/style_guide/image_style_guide.md), [alerts](https://github.com/braze-inc/braze-docs/blob/develop/docs/contributing/style_guide/alerts.md), and [API endpoint guidelines](https://github.com/braze-inc/braze-docs/blob/develop/docs/contributing/style_guide/api_endpoint_guidelines.md) as needed.
     - My content contains correct spelling and grammar.
     - All links are working correctly.
+    - If I added a new public article, it includes [`date_published`](https://github.com/braze-inc/braze-docs/blob/develop/docs/contributing/yaml_front_matter/metadata.md#date-published) (today's UTC date, or the UTC date I expect this PR to merge). I confirmed that date before merge. I did not change `date_published` on an existing public article.
     - If I renamed or moved a file or directory, I set up [URL redirects](https://github.com/braze-inc/braze-docs/blob/develop/docs/contributing/content_management/redirecting_urls.md) for each file.
     - If I updated or replaced an image, I did not remove the original image file from the repository. (For more information, see [Updating an image](https://github.com/braze-inc/braze-docs/blob/develop/docs/contributing/content_management/images.md).)
     - If my PR is related to a paid SKU, third party, SMS, AI, or privacy, I have received written approval from Braze Legal.
@@ -128,7 +130,7 @@ Skip this section entirely for trivial PRs.>
 
 **Do not** checklist CI jobs — CI already runs these on every PR:
 
-- `broken-links.yml`, `check-content-accessibility.yml`, `check-table-accessibility.yml`, `check-screenshot-pii.yml`, `check-snippet-pii.yml`, `cspell.yml`, `review-docs-style.yml`, `lighthouse-ci.yml`
+- `broken-links.yml`, `check-content-accessibility.yml`, `check-table-accessibility.yml`, `check-screenshot-pii.yml`, `check-snippet-pii.yml`, `cspell.yml`, `review-docs-style.yml`, `check-date-published.yml`, `lighthouse-ci.yml`
 
 **Do** checklist what a human must verify:
 

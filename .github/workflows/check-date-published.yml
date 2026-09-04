@@ -1,0 +1,263 @@
+# Enforces date_published on first public ship of English articles under
+# user_guide, developer_guide, api, partners, and help.
+#
+# Check 1: new eligible files (and unhide / leave-config_only with no date
+# already present) must have date_published as YYYY-MM-DD, not in the past
+# (UTC). Today and future dates are allowed (anticipated merge date). Hidden
+# and config_only pages are exempt until they become public.
+# Redirect stubs (`layout: redirect`) are exempt and must not appear on the New card.
+# Check 2: an existing date_published value must not change once the page is
+# public, or when unhiding a page that already has a date.
+# Late add: adding the field to an already-public article is allowed only when
+# the date is older than the 14-day homepage window and is not in the future.
+#
+# This workflow always runs (no path filters) so the job name can be a required
+# status check without blocking unrelated PRs. The checker no-ops when no
+# in-scope files changed. merge_group re-runs the same rule on a merge queue.
+#
+# BLOCKING: this check must pass before merging. After this workflow is on
+# develop, add "date_published frontmatter" as a required status check in
+# branch protection. Prefer also requiring the branch to be up to date with
+# develop so a parked PR cannot keep a stale green check.
+#
+# Run locally:
+#   python3 scripts/test_check_date_published.py
+#   python3 scripts/check_date_published.py --base origin/develop
+
+name: Check date_published
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+  merge_group:
+
+concurrency:
+  group: check-date-published-${{ github.event.pull_request.number || github.event.merge_group.head_sha || github.sha }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  check-date-published:
+    name: date_published frontmatter
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
+
+      - name: Fetch base branch for three-dot diff
+        id: base
+        run: |
+          BASE_REF="${{ github.event.pull_request.base.ref || 'develop' }}"
+          git fetch --no-tags origin "${BASE_REF}"
+          echo "ref=origin/${BASE_REF}" >> "$GITHUB_OUTPUT"
+
+      - name: Run unit tests
+        run: python3 scripts/test_check_date_published.py
+
+      - name: Check date_published
+        id: lint
+        continue-on-error: true
+        shell: bash
+        run: |
+          set +e
+          python3 scripts/check_date_published.py \
+            --base "${{ steps.base.outputs.ref }}" \
+            --json findings.json \
+            2>&1 | tee lint-output.txt
+          LINT_EXIT=${PIPESTATUS[0]}
+          echo "exit_code=${LINT_EXIT}" >> "$GITHUB_OUTPUT"
+          exit "${LINT_EXIT}"
+
+      - name: Emit GitHub annotations for findings
+        if: steps.lint.outputs.exit_code == '1'
+        run: python3 scripts/check_date_published.py --github-annotations findings.json
+
+      - name: Post findings as PR comment and suggestions
+        if: >
+          always() &&
+          github.event_name == 'pull_request' &&
+          steps.lint.outcome != 'skipped' &&
+          (steps.lint.outputs.exit_code == '0' ||
+           steps.lint.outputs.exit_code == '1' ||
+           steps.lint.outputs.exit_code == '2')
+        uses: actions/github-script@v9
+        env:
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          LINT_EXIT_CODE: ${{ steps.lint.outputs.exit_code }}
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const marker = '<!-- braze-docs-date-published-bot -->';
+            const suggestionMarker = '<!-- braze-docs-date-published-suggestion -->';
+            const prNumber = context.payload.pull_request.number;
+            const { owner, repo } = context.repo;
+            const headSha = process.env.HEAD_SHA;
+            const exitCode = process.env.LINT_EXIT_CODE;
+            const fs = require('fs');
+
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner, repo, issue_number: prNumber, per_page: 100,
+            });
+            const existing = comments.find(c => c.body && c.body.includes(marker));
+
+            const reviewComments = await github.paginate(
+              github.rest.pulls.listReviewComments,
+              { owner, repo, pull_number: prNumber, per_page: 100 }
+            );
+            for (const comment of reviewComments) {
+              if (comment.body && comment.body.includes(suggestionMarker)) {
+                try {
+                  await github.rest.pulls.deleteReviewComment({
+                    owner, repo, comment_id: comment.id,
+                  });
+                } catch (e) {
+                  core.warning('Could not delete prior suggestion ' + comment.id + ': ' + e.message);
+                }
+              }
+            }
+
+            const upsert = async (body) => {
+              if (existing) {
+                await github.rest.issues.updateComment({
+                  owner, repo, comment_id: existing.id, body,
+                });
+              } else {
+                await github.rest.issues.createComment({
+                  owner, repo, issue_number: prNumber, body,
+                });
+              }
+            };
+
+            if (exitCode === '0') {
+              if (existing) {
+                await github.rest.issues.deleteComment({
+                  owner, repo, comment_id: existing.id,
+                });
+              }
+              return;
+            }
+
+            if (exitCode === '2') {
+              const lines = [marker, ''];
+              lines.push('### date_published check could not complete');
+              lines.push('');
+              lines.push(
+                'The checker exited with an error (for example a git or script failure). ' +
+                'This check is **blocking** until the error is fixed.'
+              );
+              lines.push('');
+              lines.push(
+                'Run locally: `python3 scripts/check_date_published.py --base origin/develop`'
+              );
+              lines.push('');
+              if (fs.existsSync('lint-output.txt')) {
+                const output = fs.readFileSync('lint-output.txt', 'utf8').trim().slice(0, 4000);
+                if (output) {
+                  lines.push('<details><summary>Checker output</summary>');
+                  lines.push('');
+                  lines.push('```');
+                  lines.push(output);
+                  lines.push('```');
+                  lines.push('</details>');
+                }
+              }
+              await upsert(lines.join('\n'));
+              return;
+            }
+
+            let findings = [];
+            try {
+              findings = JSON.parse(fs.readFileSync('findings.json', 'utf8'));
+            } catch (e) {
+              core.warning('Could not read findings.json: ' + e.message);
+              return;
+            }
+            if (!Array.isArray(findings) || findings.length === 0) return;
+
+            const lines = [marker, ''];
+            lines.push('### date_published check failed');
+            lines.push('');
+            lines.push(
+              `**${findings.length} issue(s)** with \`date_published\`. ` +
+              'This field records the first day a public article shipped. ' +
+              'On first ship it must be today\'s UTC date or a future UTC date ' +
+              '(the day you expect this PR to merge). Confirm the date is still ' +
+              'accurate before you merge. Do not change it on an existing public article.'
+            );
+            lines.push('');
+            lines.push(
+              'Run locally: `python3 scripts/check_date_published.py --base origin/develop`'
+            );
+            lines.push('');
+
+            const suggestionComments = [];
+            for (const finding of findings) {
+              const loc = finding.line ? `${finding.file}:${finding.line}` : finding.file;
+              lines.push(`- **\`${loc}\`** — ${finding.message}`);
+              if (finding.expected_date && finding.code !== 'modified' && finding.code !== 'recency') {
+                lines.push(`  \`date_published: "${finding.expected_date}"\``);
+              }
+              if (
+                finding.suggested_anchor_line &&
+                finding.suggested_original &&
+                finding.suggested_replacement
+              ) {
+                suggestionComments.push({
+                  path: finding.file,
+                  line: finding.suggested_anchor_line,
+                  side: 'RIGHT',
+                  body: [
+                    suggestionMarker,
+                    '',
+                    finding.message,
+                    '',
+                    '```suggestion',
+                    finding.suggested_replacement,
+                    '```',
+                  ].join('\n'),
+                });
+              }
+            }
+
+            await upsert(lines.join('\n'));
+
+            if (suggestionComments.length === 0) return;
+            try {
+              await github.rest.pulls.createReview({
+                owner,
+                repo,
+                pull_number: prNumber,
+                commit_id: headSha,
+                event: 'COMMENT',
+                body: 'date_published suggestions',
+                comments: suggestionComments,
+              });
+            } catch (e) {
+              core.warning(
+                'Could not post inline suggestions (line may be outside the diff): ' +
+                e.message
+              );
+            }
+
+      - name: Fail job if the checker did not pass
+        if: always() && steps.lint.outcome != 'skipped'
+        run: |
+          EXIT="${{ steps.lint.outputs.exit_code }}"
+          if [ "$EXIT" = "0" ]; then
+            exit 0
+          fi
+          if [ "$EXIT" = "2" ]; then
+            echo "date_published check could not complete."
+          elif [ "$EXIT" = "1" ]; then
+            echo "date_published check failed. Add or restore the field as described in the PR comment."
+          else
+            echo "date_published check did not succeed (exit_code=${EXIT:-missing})."
+          fi
+          exit 1
