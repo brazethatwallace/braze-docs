@@ -183,12 +183,12 @@ To download a list of your users and their permissions, go to **Settings** > **U
 | Campaigns | Launch Campaigns | Start, stop, pause, or resume existing campaigns |
 | Campaigns | Archive Campaigns | Move campaigns to archive |
 | Campaigns | Edit Campaigns | Create and update campaigns |
-| Campaigns | Approve and Deny Campaigns | Approve or deny campaigns. The [approval workflow for campaigns]({{site.baseurl}}/user_guide/messaging/governance/approvals) must be turned on for this permission to apply. This setting is currently in early access. Contact your account manager if you’re interested in participating in the early access. |
+| Campaigns | Approve and Deny Campaigns | Approve or deny campaigns. The [approval workflow for campaigns]({{site.baseurl}}/user_guide/messaging/governance/approvals) must be turned on for this permission to apply. |
 | Canvas | View Canvases | View Canvases |
 | Canvas | Archive Canvases | Move Canvases to archive |
 | Canvas | Edit Canvases | Create and update Canvases |
 | Canvas | Launch Canvases | Start, stop, pause, or resume existing Canvases |
-| Canvas | Approve and Deny Canvases | Approve or deny Canvases. The [approval workflow for Canvases]({{site.baseurl}}/user_guide/messaging/governance/approvals) must be turned on for this permission to apply. This setting is currently in early access. Contact your account manager if you’re interested in participating in the early access. |
+| Canvas | Approve and Deny Canvases | Approve or deny Canvases. The [approval workflow for Canvases]({{site.baseurl}}/user_guide/messaging/governance/approvals) must be turned on for this permission to apply. |
 | Feature flags | View Feature Flags | View feature flags |
 | Feature flags | Archive Feature Flags | Move feature flags to archive |
 | Feature flags | Edit Feature Flags | Create and update feature flags |
