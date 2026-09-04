@@ -95,7 +95,6 @@ Click each URL. It should return HTTP 200 and render either the full page or, fo
 - [ ] [Message Template Assistant](http://127.0.0.1:5006/docs/template_assistant/) — `private_betas/message_template_assistant.md`
 - [ ] [POST: Track Users (Bulk)](http://127.0.0.1:5006/docs/track_users_bulk/) — `private_betas/post_track_users_bulk.md`
 - [ ] [POST: Track Users (Bulk) for Braze Partners](http://127.0.0.1:5006/docs/track_users_bulk_partners/) — `private_betas/post_track_users_bulk_partners.md`
-- [ ] [Rate Limiting for Push Campaigns and Multichannel Canvases](http://127.0.0.1:5006/docs/rate_limiting_v3/) — `private_betas/rate_limiting_v3.md`
 - [ ] [Creating an RCS Message](http://127.0.0.1:5006/docs/create_rcs_message/) — `private_betas/rich_cards.md`
 - [ ] [Sender Verification](http://127.0.0.1:5006/docs/sender_verification/) — `private_betas/sender_verification.md`
 - [ ] [Shopify](http://127.0.0.1:5006/docs/shopify/) — `private_betas/shopify_beta.md`
@@ -170,7 +169,6 @@ urls=(
   "http://127.0.0.1:5006/docs/template_assistant/"
   "http://127.0.0.1:5006/docs/track_users_bulk/"
   "http://127.0.0.1:5006/docs/track_users_bulk_partners/"
-  "http://127.0.0.1:5006/docs/rate_limiting_v3/"
   "http://127.0.0.1:5006/docs/create_rcs_message/"
   "http://127.0.0.1:5006/docs/sender_verification/"
   "http://127.0.0.1:5006/docs/shopify/"

@@ -6165,6 +6165,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/de/rate_limiting_v3",
+    "destination": "/docs/de/user_guide/messaging/messaging_fundamentals/frequency_capping",
+    "permanent": true
+  },
+  {
     "source": "/docs/de/user_guide/administer/global/user_management/permissions/granular_permissions_migration",
     "destination": "/docs/de/user_guide/administer/global/user_management/permissions",
     "permanent": true
@@ -22685,6 +22690,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/es/rate_limiting_v3",
+    "destination": "/docs/es/user_guide/messaging/messaging_fundamentals/frequency_capping",
+    "permanent": true
+  },
+  {
     "source": "/docs/es/releases/release_notes",
     "destination": "/docs/es/releases/home",
     "permanent": true
@@ -25862,6 +25872,11 @@
   {
     "source": "/docs/fr/partners/message_orchestration/learning/edume",
     "destination": "/docs/fr/partners/additional_channels_and_extensions/extensions/learning/edume",
+    "permanent": true
+  },
+  {
+    "source": "/docs/fr/rate_limiting_v3",
+    "destination": "/docs/fr/user_guide/messaging/messaging_fundamentals/frequency_capping",
     "permanent": true
   },
   {
@@ -29630,6 +29645,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/ja/rate_limiting_v3",
+    "destination": "/docs/ja/user_guide/messaging/messaging_fundamentals/frequency_capping",
+    "permanent": true
+  },
+  {
     "source": "/docs/ja/user_guide/administer/global/billing/message_usage_dashboard",
     "destination": "/docs/ja/credits_usage_dashboard",
     "permanent": true
@@ -32302,6 +32322,11 @@
   {
     "source": "/docs/ko/partners/message_orchestration/learning/edume",
     "destination": "/docs/ko/partners/additional_channels_and_extensions/extensions/learning/edume",
+    "permanent": true
+  },
+  {
+    "source": "/docs/ko/rate_limiting_v3",
+    "destination": "/docs/ko/user_guide/messaging/messaging_fundamentals/frequency_capping",
     "permanent": true
   },
   {
@@ -37260,6 +37285,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/pt-br/rate_limiting_v3",
+    "destination": "/docs/pt-br/user_guide/messaging/messaging_fundamentals/frequency_capping",
+    "permanent": true
+  },
+  {
     "source": "/docs/pt-br/sms_faq",
     "destination": "/docs/pt-br/user_guide/channels/sms_mms_and_rcs/faqs",
     "permanent": true
@@ -39137,6 +39167,11 @@
   {
     "source": "/docs/quick_wins/personalized_messaging",
     "destination": "/docs/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic",
+    "permanent": true
+  },
+  {
+    "source": "/docs/rate_limiting_v3",
+    "destination": "/docs/user_guide/messaging/messaging_fundamentals/frequency_capping",
     "permanent": true
   },
   {
