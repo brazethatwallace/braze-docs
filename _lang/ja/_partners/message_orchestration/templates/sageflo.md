@@ -23,7 +23,7 @@ _この統合はSagefloによって管理されています。_
 | 必要条件 | 説明 |
 | ----------- | ----------- |
 | Sageflo Radiate アカウント | このパートナーシップを活用するには、Sageflo Radiateアカウントが必要です。 |
-| Braze REST APIキー | 完全な`templates`および`campaigns`権限を持つBraze REST APIキー。<br><br> これはBrazeダッシュボードの**Settings** > **API Keys**から作成できます。 |
+| Braze REST APIキー | 完全な`templates`および`campaigns`権限を持つBraze REST APIキー。<br><br> これはBrazeダッシュボードの**設定** > **API キー**から作成できます。 |
 | Braze RESTエンドポイント | [RESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)。APIエンドポイントは、BrazeインスタンスのダッシュボードURLと一致します。<br><br> たとえば、ダッシュボードURLが`https://dashboard-03.braze.com`の場合、エンドポイントは`dashboard-03`になります。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 

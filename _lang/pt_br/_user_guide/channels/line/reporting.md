@@ -19,7 +19,7 @@ Procurando definições para os termos e métricas do seu relatório? Consulte o
 
 ## Análise de dados da Campaign {#campaign-analytics}
 
-Na guia **Campaign Analytics**, você pode visualizar seus relatórios em uma série de painéis. Você pode ver mais ou menos do que os listados nas seções abaixo, mas cada um tem sua finalidade.
+Na guia **Campaign Analytics**, você pode visualizar seus relatórios em uma série de painéis. Você pode ver mais ou menos do que os listados aqui, mas cada um tem sua finalidade.
 
 {% alert note %}
 As estatísticas relacionadas a aberturas e cliques do LINE só são calculadas se mais de 20 usuários realizarem o evento em um determinado dia.
@@ -33,11 +33,11 @@ Revise este painel para ver métricas gerais, como o número de mensagens enviad
 
 #### Grupos de controle {#control-groups}
 
-Para medir o impacto de uma mensagem individual do LINE, você pode adicionar um [grupo de controle]({{site.baseurl}}/user_guide/messaging/ab_testing) a um teste A/B. O painel de nível superior **Campaign Details** não inclui métricas da Variante do grupo de controle.
+Para medir o impacto de uma mensagem individual do LINE, você pode adicionar um [grupo de controle]({{site.baseurl}}/user_guide/messaging/ab_testing) a um teste A/B. O painel de nível superior **Campaign Details** não inclui métricas da variante do grupo de controle.
 
 ### Desempenho do LINE {#line-performance}
 
-O painel **LINE Performance** descreve o desempenho da sua mensagem em várias dimensões. As métricas neste painel variam dependendo do canal de envio de mensagens escolhido e se você está executando um teste multivariante ou não. Você pode clicar no ícone <i class="fa fa-eye preview-icon" title="Pré-visualização"></i> **Preview** para visualizar sua mensagem para cada variante ou canal.
+O painel **LINE Performance** descreve o desempenho da sua mensagem em várias dimensões. As métricas neste painel variam dependendo do canal de envio de mensagens escolhido e se você está executando um teste multivariante ou não. Você pode clicar no ícone <i class="fa fa-eye prévia-icon" aria-label="Pré-visualização" title="Pré-visualização"></i> **prévia** para visualizar sua mensagem para cada variante ou canal.
 
 ![O painel "LINE Performance" mostrando métricas para duas variantes.]({% image_buster /assets/img/line/line_performance.png %})
 

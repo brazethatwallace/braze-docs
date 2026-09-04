@@ -5,7 +5,6 @@ page_order: 10
 page_type: FAQ
 description: "This page provides answers to frequently asked questions about campaigns."
 tool: Campaigns
-
 ---
 
 # Frequently asked questions
@@ -14,7 +13,7 @@ tool: Campaigns
 
 ## How do I create a multichannel campaign?
 
-See [Multichannel campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#multichannel-campaigns) in **Create a campaign** for setup steps and supported channels.
+See [Multichannel campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#create-a-multichannel-campaign) in **Create a campaign** for setup steps and supported channels.
 
 ### Can I add a control group to my multichannel campaign?
 
@@ -170,7 +169,7 @@ For further assistance with campaign troubleshooting, be sure to contact Braze S
 
 ### Why did users receive my campaign twice after I edited it?
 
-If you edit a live campaign without stopping it first, users may receive the message twice. This happens because editing a live campaign re-enqueues users for the updated version while the original queue is still being processed. Users who haven't received the original message yet can end up in both queues. To prevent this, always [stop the campaign]({{site.baseurl}}/user_guide/engagement_tools/campaigns/managing_campaigns/change_your_campaign_after_launch#stopping-your-campaign) before making changes.
+If you edit a live campaign without stopping it first, users may receive the message twice. This happens because editing a live campaign re-enqueues users for the updated version while the original queue is still being processed. Users who haven't received the original message yet can end up in both queues. To prevent this, always [stop the campaign]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/change_your_campaign_after_launch#stopping-your-campaign) before making changes.
 
 ### What is the difference between the CSV Export User Data and CSV Export Email Address options on my campaign analytics page?
 
@@ -233,13 +232,9 @@ API-triggered and server-triggered campaigns are ideal for handling more advance
 
 ### What should I include when submitting a support ticket for a "Request Timed Out" error?
 
-If you encounter a "Request Timed Out" error while creating or editing a campaign or Canvas and need to contact [Braze Support]({{site.baseurl}}/braze_support), include the following information to help speed up resolution:
+If you encounter a "Request Timed Out" error while creating or editing a campaign or Canvas and need to contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support), include the following information to help speed up resolution:
 
-- **Screen recording:** A recording of the steps you took before seeing the error, including any page transitions.
-- **Timestamp and time zone:** The exact time the error occurred and your time zone.
-- **Browser and version:** The browser you're using (for example, Chrome 120, Safari 17) and whether you've tried reproducing the error in a different browser.
-- **Steps to reproduce:** A clear description of the actions that trigger the error, including any specific campaign or Canvas settings involved.
-- **Network logs (optional):** Open your browser developer tools (**Network** tab), reproduce the error, and export the network log as a HAR (HTTP Archive) log. This helps the support team identify which API call is timing out.
+{% multi_lang_include messaging/support_ticket_request_timed_out_details.md context='campaign' %}
 
 ### Why don't my send analytics match the maximum recipient limit I set?
 
@@ -262,11 +257,12 @@ Several factors can cause the number of sends to be lower than the estimated aud
 - **Delivery timing and windows:** For local time zone or scheduled campaigns, users must qualify at both entry and send time; users in certain time zones may fall outside the delivery window.
 - **Email deduplication:** Your campaign or Canvas targets multiple users with matching emails, so a random user with that email address is chosen at the time of send. The message only sends once and is deduplicated so that it doesn’t send to the same email multiple times, but your estimated audience size includes all users.
 - **Email deliverability filters:** For email campaigns, Braze excludes users who have hard-bounced, unsubscribed from emails, been marked as spam, have no email address on their profile, or are not subscribed to a required subscription group. These checks run at send time, so a user present in your segment can still be excluded from the actual send count.
+- **CSV import timing:** When segment membership is maintained by [CSV import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import), email addresses added after a scheduled campaign sends are not reached by that send. Because Braze does not retain a snapshot of segment membership at send time, the current segment size can exceed the number of users who were actually messaged.
 - **Global frequency capping:** Workspace-level caps can prevent eligible users from receiving another message in the same window, which lowers realized sends.
 - **Newly imported users:** Profiles that just became eligible may not receive until the next evaluation or send pass, so counts catch up on a later run.
 - **Push reachability:** For push campaigns, confirm the audience is push-enabled for the correct app. If you don't filter for push-enabled users, the estimated audience can include profiles that can't receive push. Check **Reachable users** in the **Target Users** step for a closer operational estimate.
 - **Rate limiting:** A [delivery speed rate limit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) caps how many messages Braze sends per minute during a single send occurrence. Braze spreads delivery across a longer window, so some sends may be deferred, not yet reflected in the count, or not completed if the limit is low relative to the eligible audience.
-- **Re-eligibility windows:** Users who aren't re-eligible yet won't receive again during the cooldown, so sends fall below the estimated audience size for that period.
+- **Re-eligibility windows:** Users who aren't re-eligible yet won't receive again during the cooldown, so sends fall short of the estimated audience size for that period.
 - **Reporting window:** The analytics time range may not include every send.
 - **Segment re-evaluation:** For action-based or scheduled campaigns that re-evaluate at send time, users who were in the segment when the campaign was enqueued may no longer qualify when the message is actually sent.
 - **Send caps:** A Maximum number of users (or similar cap) in **Target Audiences** stops delivery when the cap is hit.

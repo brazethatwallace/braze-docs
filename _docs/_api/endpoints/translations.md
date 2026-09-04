@@ -9,7 +9,7 @@ description: "This landing page lists the Braze translation endpoints."
 page_type: landing
 
 guide_top_header: "Translation Endpoints"
-guide_top_text: "Use the Braze translation endpoints to manage and update translations in your campaigns, Canvases, and Content Blocks."
+guide_top_text: "Use the Braze translation endpoints to manage and update translations in your campaigns, Canvases, Content Blocks, email templates, and webhook templates."
 
 guide_featured_title: "Campaign endpoints"
 guide_featured_list:
@@ -59,6 +59,18 @@ guide_menu_list3:
     link: /docs/api/endpoints/translations/content_blocks/put_update_translation_content_block
     image: /assets/img/braze_icons/target-04.svg
 
+guide_menu_title4: "Webhook template endpoints"
+guide_menu_list4:
+  - name: "GET: View Webhook Template Default Source Translations"
+    link: /docs/api/endpoints/translations/webhook_templates/get_view_source_webhook_template
+    image: /assets/img/braze_icons/message-plus-square.svg
+  - name: "GET: View Webhook Template Translations"
+    link: /docs/api/endpoints/translations/webhook_templates/get_view_translations_webhook_template
+    image: /assets/img/braze_icons/target-04.svg
+  - name: "PUT: Update Translations in a Webhook Template"
+    link: /docs/api/endpoints/translations/webhook_templates/put_update_webhook_template
+    image: /assets/img/braze_icons/target-04.svg
+
 ---
 
 {% multi_lang_include alerts/early_access_beta_alert.md feature='Access to the Braze translation endpoints' %}
@@ -69,18 +81,18 @@ Our translation endpoints work with [multi-language composition]({{site.baseurl}
 
 ### Prerequisites
 
-Before using these endpoints, you must [add your locales]({{site.baseurl}}/user_guide/administrative/app_settings/multi_language_settings#add-a-locale).
+Before using these endpoints, you must [add your locales]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings#add-a-locale).
 
 ### How to test your translations
 
-There are two ways you can validate translation support using the API and the Braze dashboard across campaigns, Canvases (including individual steps), Content Blocks, and email templates:
+There are two ways you can validate translation support using the API and the Braze dashboard across campaigns, Canvases (including individual steps), Content Blocks, email templates, and webhook templates:
 
 - During composition (before launch)
 - After launch (using post-launch drafts)
 
 Before testing updating translations, you must:
 
-1. [Add your locales]({{site.baseurl}}/user_guide/administrative/app_settings/multi_language_settings#add-a-locale).
+1. [Add your locales]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings#add-a-locale).
 2. Create a message and use translation tags where appropriate.
 3. Save the message.
 4. Select the locales to be included.

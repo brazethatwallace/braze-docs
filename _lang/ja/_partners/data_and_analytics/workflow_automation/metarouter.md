@@ -30,7 +30,7 @@ _この統合はMetarouterによって管理されています。_
 | 要件 | 説明 |
 |-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
 | MetaRouterアカウント | [MetaRouter Enterpriseアカウント](https://enterprise.metarouter.io/)。 |
-| Braze REST APIキー | `users.track` 権限を持つBraze REST APIキー。作成するには、**Settings** > **API Keys** に移動します。 |
+| Braze REST APIキー | `users.track` 権限を持つBraze REST APIキー。作成するには、**設定** > **API キー** に移動します。 |
 | Braze RESTエンドポイント | [RESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)。エンドポイントは、お使いのインスタンスのBraze URLに依存します。 |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 

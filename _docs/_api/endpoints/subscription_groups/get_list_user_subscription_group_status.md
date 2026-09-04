@@ -18,6 +18,8 @@ description: "This article outlines details about the List user's subscription g
 
 These groups will be available on the **Subscription Group** page. The response from this endpoint will include the external ID and either subscribed, unsubscribed, or unknown for the specific subscription group requested in the API call. This can be used to update the subscription group state in subsequent API calls or to be displayed on a hosted web page.
 
+If you collect email through a custom form and then set subscription group membership through the REST API, call this endpoint first to check whether a profile already exists. If no matching profile exists, create or subscribe the user with the [Update user's subscription group status]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) endpoint. Otherwise, update the existing profile instead of creating a duplicate. For other collection patterns, see [Collection best practices]({{site.baseurl}}/user_guide/data/unification/user_data/best_practices).
+
 If you want to see examples or test this endpoint for **Email Subscription Groups**:
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#488c8923-fa44-4124-9245-036d13c615f2 {% endapiref %}
@@ -32,7 +34,7 @@ If you want to see examples or test this endpoint for **WhatsApp Groups**:
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `subscription.status.get` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `subscription.status.get` permission.
 
 ## Rate limit
 

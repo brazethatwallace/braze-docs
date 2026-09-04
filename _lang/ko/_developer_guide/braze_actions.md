@@ -14,13 +14,13 @@ hidden: true
 
 {% sdk_min_versions swift:5.4.0 android:21.0.0 web:4.0.3 %}
 
-`brazeActions://` 딥링크 스키마는 인앱 메시지 및 Content Cards 내에서 딥링크 또는 리디렉션 옵션이 있는 모든 곳에서 사용할 수 있습니다.
+`brazeActions://` 딥링크 스킴은 인앱 메시지 및 Content Cards 내에서 딥링크 또는 리디렉션 옵션이 있는 곳이라면 어디에서든 사용할 수 있습니다.
 
-HTML 인앱 메시지의 경우 딥링크가 HTML 메시지 유형에서 지원되지 않으므로 대신 [`Javascript Bridge`]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/customize#javascript-bridge)를 사용하세요.
+HTML 인앱 메시지의 경우, HTML 메시지 유형에서는 딥링크가 지원되지 않으므로 [`Javascript Bridge`]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#javascript-bridge)를 대신 사용하세요.
 
 ## 스키마 {#schema}
 
-`container` 동작 유형 내에 여러 동작 `steps`를 포함할 수 있습니다. `container` 없이 단일 단계만 사용하는 것도 유효합니다.
+`container` 액션 타입 내에 여러 액션 `steps`를 포함할 수 있습니다. `container` 없이 단일 스텝만 사용하는 것도 유효합니다.
 
 ```json
 {
@@ -29,7 +29,7 @@ HTML 인앱 메시지의 경우 딥링크가 HTML 메시지 유형에서 지원�
 }
 ```
 
-개별 `step`에는 동작 `type`과 선택적 `args` 배열이 포함됩니다.
+개별 `step`에는 액션 `type`과 선택적 `args` 배열이 포함됩니다:
 
 ```json
 {
@@ -77,27 +77,27 @@ function encode(input) {
 }
 ```
 
-## 지원되는 동작 {#supported-actions}
+## 지원되는 액션 {#supported-actions}
 
 | 유형 | 인수 |
 |--|--|
-| `container` | 수행할 다른 동작의 배열 |
+| `container` | 수행할 다른 액션의 배열 |
 | `logCustomEvent` | 1. `event name`<br>2. `event properties JSON object` (선택 사항) |
 | `setEmailNotificationSubscriptionType` | `"opted_in" | "subscribed" | "unsubscribed"` |
 | `setPushNotificationSubscriptionType` | `"opted_in" | "subscribed" | "unsubscribed"` |
 | `setCustomUserAttribute` | 1. `attribute_name`<br>2. `attribute_value` |
 | `requestPushPermission` | N/A |
-| `openLink` | 1. `url`<br>2. `openInNewTab` (부울) |
+| `openLink` | 1. `url`<br>2. `openInNewTab` (boolean) |
 | `openLinkInWebview` | `url` |
 | `addToSubscriptionGroup` | `subscriptionGroupId` |
 | `removeFromSubscriptionGroup` | `subscriptionGroupId` |
 | `addToCustomAttributeArray` | 1. `attribute_name`<br>2. `attribute_value` |
 | `removeFromCustomAttributeArray` | 1. `attribute_name`<br>2. `attribute_value` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="지원되는 동작" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="지원되는 액션" }
 
 ## JSON 인코더 {#json-encoder}
 
-JSON 문자열을 입력하여 결과 `brazeActions://` URI를 확인하세요. 또는 `brazeActions://` URI를 입력하여 해당 JSON을 디코딩하세요.
+JSON 문자열을 입력하면 결과 `brazeActions://` URI를 확인할 수 있습니다. 또는 `brazeActions://` URI를 입력하면 해당 JSON을 디코딩할 수 있습니다.
 
 <div><h4>JSON 입력</h4></div>
 <textarea id="braze-actions-input" rows="12"></textarea>

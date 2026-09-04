@@ -12,9 +12,9 @@ page_order: 1.5
 
 ## À propos des analyses prédictives de l'attrition {#about-predictive-churn-analytics}
 
-Dès que la prédiction est terminée et que cette page est remplie, vous pouvez passer à l'utilisation des [filtres]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/messaging_users/#filters) dans les segments ou les campagnes pour commencer à utiliser les résultats du modèle. Mais si vous voulez de l'aide pour décider qui cibler et pourquoi, cette page peut le faire en fonction de l'exactitude historique du modèle et de vos propres objectifs métier.
+Dès que la prédiction est terminée et que cette page est remplie, vous pouvez passer à l'utilisation des [filtres]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/messaging_users#filters) dans les Segments ou les Campaigns pour commencer à exploiter les résultats du modèle. Mais si vous souhaitez de l'aide pour décider qui cibler et pourquoi, cette page peut vous guider en fonction de l'exactitude historique du modèle et de vos propres objectifs métier.
 
-Tels sont les composants de l'analyse prédictive de l'attrition :
+Tels sont les composants des analyses prédictives de l'attrition :
 
 - [Score et catégorie d'attrition](#churn_score)
 - [Qualité de prédiction](#prediction_quality)
@@ -25,15 +25,15 @@ La répartition des scores pour l'ensemble de l'audience de prédiction est affi
 
 Au fur et à mesure que vous déplacez le curseur, la barre située dans la moitié gauche du panneau inférieur vous informe du nombre d'utilisateurs ciblés sur l'ensemble de l'audience de prédiction.
 
-![]({% image_buster /assets/img/churn/churnTargeting.gif %})
+![Graphique d'analyse prédictive de l'attrition avec un curseur permettant de sélectionner une plage de scores cibles.]({% image_buster /assets/img/churn/churnTargeting.gif %})
 
 ## Score et catégorie d'attrition {#churn_score}
 
 Les utilisateurs de l'audience de prédiction se verront attribuer un _score de risque d'attrition_ compris entre 0 et 100. Plus le score est élevé, plus la probabilité d'attrition est grande.
 - Les utilisateurs dont le score est compris entre 0 et 50 seront classés dans la catégorie _Risque faible_.
-- Les utilisateurs dont le score est compris entre 50 et 75, et entre 75 et 100, seront classés respectivement dans les catégories _Risque moyen_ et _Risque fort_.
+- Les utilisateurs dont le score est compris entre 50 et 75, et entre 75 et 100, seront classés respectivement dans les catégories _Risque moyen_ et _Risque élevé_.
 
-Les scores et les catégories correspondantes seront mis à jour conformément à la planification que vous avez choisie sur la page de création du modèle. Le nombre d'utilisateurs avec des scores d'attrition dans chacun des 20 compartiments de taille égale s'affiche dans le graphique en haut de la page. Cela peut vous aider à déterminer ce à quoi ressemble le risque d'attrition sur la population selon cette prédiction.
+Les scores et les catégories correspondantes seront mis à jour conformément à la planification que vous avez choisie sur la page de création du modèle. Le nombre d'utilisateurs avec des scores d'attrition dans chacun des 20 compartiments de taille égale s'affiche dans le graphique en haut de la page. Cela peut vous aider à déterminer ce à quoi ressemble le risque d'attrition au sein de la population selon cette prédiction.
 
 ## Qualité de prédiction {#prediction_quality}
 
@@ -43,7 +43,7 @@ Les scores et les catégories correspondantes seront mis à jour conformément �
 
 Dans la moitié droite du panneau situé sous le graphique, nous présentons des estimations de la précision attendue du ciblage de cette partie de l'audience de prédiction. Sur la base des données relatives aux utilisateurs de l'audience de prédiction dans le passé et de la précision apparente du modèle pour distinguer les utilisateurs qui se désabonnent de ceux qui ne se désabonnent pas sur ces données passées, ces barres de progression permettent d'estimer, pour un futur message potentiel utilisant l'audience mise en évidence par le curseur :
 
-![]({% image_buster /assets/img/churn/churnEstimatedResults.png %}){: style="float:right;max-width:40%;margin-left:15px;"}
+![Panneau de précision estimée montrant les désabonnés attendus et les non-désabonnés pour la plage d'audience sélectionnée.]({% image_buster /assets/img/churn/churnEstimatedResults.png %}){: style="float:right;max-width:40%;margin-left:15px;"}
 
 - Combien d'utilisateurs sélectionnés sont susceptibles de se désabonner
 - Combien d'utilisateurs sélectionnés sont susceptibles de **ne pas** se désabonner
@@ -60,7 +60,7 @@ Il s'agit d'une estimation du nombre d'utilisateurs qui ne se seraient pas désa
 
 ## Tableau de corrélation de l'attrition {#correlation_table}
 
-Cette analyse affiche tous les attributs ou comportements des utilisateurs qui sont en corrélation avec l'attrition des utilisateurs dans l'audience de prédiction historique. Les tableaux sont divisés en une partie gauche et une partie droite correspondant respectivement à « plus » et « moins » susceptibles de se désabonner. Pour chaque ligne, le rapport indiquant si les utilisateurs ayant le comportement ou l'attribut dans la colonne de gauche sont plus ou moins susceptibles de se désabonner s'affiche dans la colonne de droite. Ce chiffre est le rapport entre la probabilité d'attrition des utilisateurs ayant ce comportement ou cet attribut et la probabilité d'attrition de l'ensemble de l'audience de prédiction.
+Cette analyse affiche tous les attributs ou comportements des utilisateurs qui sont en corrélation avec l'attrition des utilisateurs dans l'audience de prédiction historique. Les tableaux sont divisés en une partie gauche et une partie droite correspondant respectivement à « plus » et « moins » susceptibles de se désabonner. Pour chaque ligne, le rapport indiquant dans quelle mesure les utilisateurs ayant le comportement ou l'attribut de la première colonne sont plus ou moins susceptibles de se désabonner s'affiche dans la deuxième colonne. Ce chiffre est le rapport entre la probabilité d'attrition des utilisateurs ayant ce comportement ou cet attribut et la probabilité d'attrition de l'ensemble de l'audience de prédiction.
 
 Ce tableau est uniquement mis à jour lorsque la prédiction est réentraînée et non lorsque les _scores de risque d'attrition_ des utilisateurs sont actualisés.
 

@@ -23,9 +23,11 @@ description: "이 문서에서는 기존 대시보드 사용자 계정 업데이
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#5f9a1642-988e-4011-8fb8-db4340ea1ac7 {% endapiref %}
 
+{% multi_lang_include scim/scim_alerts.md alert='custom_endpoint' %}
+
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 SCIM 토큰이 필요합니다. 서비스 출처를 `X-Request-Origin` 헤더로 사용합니다. 자세한 내용은 [자동화된 사용자 프로비저닝]({{site.baseurl}}/scim/automated_user_provisioning)을 참조하세요.
+이 엔드포인트를 사용하려면 SCIM 토큰이 필요합니다. 서비스 Origin을 `X-Request-Origin` 헤더로 사용합니다. 자세한 내용은 [자동화된 사용자 프로비저닝]({{site.baseurl}}/scim/automated_user_provisioning)을 참조하세요.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -92,8 +94,8 @@ Authorization: Bearer YOUR-SCIM-TOKEN-KEY
 | --------- | -------- | --------- | ----------- |
 | `schemas` | 필수 | 문자열 배열 | 사용자 오브젝트에 대한 예상 SCIM 2.0 스키마 이름입니다. |
 | `name` | 필수 | JSON 오브젝트 | 이 오브젝트에는 사용자의 이름과 성이 포함되어 있습니다. |
-| `department` | 필수 | 문자열 | [부서 문자열 설명서]({{site.baseurl}}/scim_api_appendix#department-strings)에 있는 유효한 부서 문자열입니다. |
-| `permissions` | 필수 | JSON 오브젝트 | [권한 오브젝트 설명서]({{site.baseurl}}/scim_api_appendix#permissions-object)에 설명된 권한 오브젝트입니다. |
+| `department` | 필수 | 문자열 | [부서 문자열 설명서]({{site.baseurl}}/api/objects_filters/scim_api_appendix)에 있는 유효한 부서 문자열입니다. |
+| `permissions` | 필수 | JSON 오브젝트 | [권한 오브젝트 설명서]({{site.baseurl}}/api/objects_filters/scim_api_appendix)에 설명된 권한 오브젝트입니다. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 

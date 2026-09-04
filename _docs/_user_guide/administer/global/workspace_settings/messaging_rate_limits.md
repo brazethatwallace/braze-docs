@@ -34,7 +34,7 @@ For example, let’s say you have a workspace messaging rate limit of 100,000 me
 
 The messages are dispatched over a 3-minute interval.
 
-Messages are processed in parallel. When processed, messages are scheduled out to respect the workspace messaging rate limit on a first-come, first-served basis. This means that in the example above, the messages sent out each minute are a varying mix from Campaigns 1, 2, and 3 that add up to 100,000.
+Messages are processed in parallel. When processed, messages are scheduled out to respect the workspace messaging rate limit on a first-come, first-served basis. This means that in this example, the messages sent out each minute are a varying mix from Campaigns 1, 2, and 3 that add up to 100,000.
 
 ![Example of how messages are dispatched for the three campaigns.]({% image_buster /assets/img/workspace_messaging_rate_limits2.png %})
 
@@ -73,6 +73,10 @@ When a campaign or Canvas has its own rate limit set and a workspace-level rate 
 Braze tries to evenly distribute the message dispatches throughout the minute, but can’t guarantee this. For example, if you have a campaign with a rate limit of 500,000 messages per minute, we’ll try to distribute the 500,000 messages evenly through the minute (about 8,400 messages per second), but there may be some variation in the per-second rate.
 
 Note that you can still set individual rate limits in your campaigns and Canvases. These are applied independently of workspace messaging rate limits.
+
+### Webhook sending capacity
+
+For webhook campaigns without a delivery speed rate limit, Braze does not apply a default channel rate limit, so sends can proceed at high throughput. Actual volume depends on several factors, including server latency, Connected Content usage, and the send speed of the external system receiving the webhooks. If your webhook campaign does not have a rate limit, prepare your servers for high-volume traffic. Otherwise, apply a rate limit to control the flow of messages.
 
 ### Messages not included in the workspace messaging rate limits
 

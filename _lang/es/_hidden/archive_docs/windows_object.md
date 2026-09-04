@@ -11,9 +11,9 @@ hidden: true
 ---
 # Especificación de objetos de Windows {#windows-object-specification}
 
-Los objetos `windows_phone8_push` y `windows_universal_push` se utilizan para definir o solicitar información relacionada con el contenido de Windows Phone 8 Push y Windows Universal Push a través de nuestros [puntos finales de mensajería]({{site.baseurl}}/api/endpoints/messaging/).
+Los objetos `windows_phone8_push` y `windows_universal_push` se utilizan para definir o solicitar información relacionada con el contenido de Windows Phone 8 Push y Windows Universal Push a través de nuestros [puntos finales de mensajería]({{site.baseurl}}/api/endpoints/messaging).
 
-## Objeto push de Windows Phone 8 {#windows-phone-8-push-object}
+## Objeto de push de Windows Phone 8 {#windows-phone-8-push-object}
 
 ```json
 {
@@ -28,7 +28,7 @@ Los objetos `windows_phone8_push` y `windows_universal_push` se utilizan para de
 
 ## Objeto push de Windows Universal {#windows-universal-push-object}
 
-Consulta el [catálogo de plantillas de notificaciones toast](https://msdn.microsoft.com/en-us/library/windows/apps/hh761494.aspx) de Windows Universal para conocer los detalles sobre las opciones de `push_type`.
+Consulta el [catálogo de plantillas de notificación](https://msdn.microsoft.com/en-us/library/windows/apps/hh761494.aspx) de Windows Universal para obtener detalles sobre las opciones de `push_type`.
 
 ```json
 {
@@ -42,4 +42,4 @@ Consulta el [catálogo de plantillas de notificaciones toast](https://msdn.micro
 }
 ```
 
-Para obtener más información sobre el uso del parámetro `extra_launch_string` para la [vinculación en profundidad]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking), consulta [Vinculación en profundidad con Windows Universal.]({{site.baseurl}}/developer_guide/platform_integration_guides/windows_universal/push_notifications/integration/#step-4-deep-linking-from-push-into-your-app)
+Para más información sobre el uso del parámetro `extra_launch_string` para la [vinculación en profundidad]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking), consulta [Vinculación en profundidad con Windows Universal.]({{site.baseurl}}/hidden/archive_docs/windows_universal/push_notifications#step-5-deep-linking-from-push-into-your-app)

@@ -3,15 +3,43 @@ nav_title: トラブルシューティング
 article_title: プッシュ通知のトラブルシューティング
 page_order: 5
 page_type: reference
-description: "プッシュメッセージングチャネルに関する問題のトラブルシューティング手順です。"
+description: "症状インデックスと標準的な調査パスを使用して、プッシュ通知の配信、クリック動作、認証情報の問題を診断します。"
 channel: push
 ---
 
 # プッシュ通知のトラブルシューティング {#troubleshoot-push}
 
-> このページでは、プッシュメッセージングチャネルに関する問題のトラブルシューティングを行います。
+> このページでは、プッシュ通知の配信、クリック動作、認証情報の問題をトラブルシューティングします。SDKに固有の設定については、[Braze SDKのプッシュ通知のトラブルシューティング]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting)を参照してください。エラーコードについては、[一般的なプッシュエラーメッセージ]({{site.baseurl}}/user_guide/channels/push/push_error_codes)を参照してください。
+
+## まずはここから：症状を確認する {#start-here-match-your-symptom}
+
+| 症状 | 参照先 |
+| --- | --- |
+| ユーザーがプッシュ通知を受信しなかった | [プッシュ通知が届かない](#missing-push-notifications) |
+| プッシュ通知が遅延して届く | [プッシュ通知の遅延](#delayed-push-notifications) |
+| プッシュ送信が予想より遅い | [プッシュ通知の送信が予想より遅い](#push-notifications-are-sending-slower-than-expected) |
+| `MismatchSenderID` エラー（Android） | [エラー：MismatchSenderID](#error-mismatch-sender-id) |
+| プッシュをタップしてもアプリが開かない | [プッシュ通知をクリックしてもアプリが開かない](#clicking-a-push-notification-does-not-open-the-app) |
+| プッシュリンクがブラウザーではなくアプリで開く | [プッシュクリックが予期せずアプリ内で開く](#push-clicks-unexpectedly-open-in-app) |
+| Webプッシュの許可または配信の問題 | [Webプッシュ通知が期待どおりに動作しない](#web-push-notifications-are-not-behaving-as-expected) |
+| `.p12` から `.p8` への移行が必要（iOS） | [.p8 認証キーへの移行](#migrate-to-a-p8-authentication-key) |
+| ログに特定のプッシュエラーコードが表示される | [プッシュエラーメッセージ](#push-error-messages) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="プッシュ通知の症状" }
+
+## 標準的な調査パス {#standard-investigation-path}
+
+ユーザーまたはテストデバイスがプッシュを受信しなかった場合は、このワークフローを使用してください。ステップ1から始めてください。
+
+1. ユーザーがプッシュ通知を購読済みまたはオプトイン済みで、プロファイルの**エンゲージメント**タブに有効なプッシュトークンがあることを確認します。
+2. 送信時にユーザーがキャンペーンまたはキャンバスのターゲットオーディエンスに含まれていることを確認します（セグメントはリアルタイムで更新されます）。
+3. キャンペーンまたはキャンバスのグローバルフリークエンシーキャップ、レート制限、コントロールグループの割り当てを確認します。
+4. デバイスに対して正しいプッシュタイプを使用していることを確認します（例：Android、iOS、またはKindle）。
+5. 内部テストの場合、テスターがデバイス上で正しいアプリにログインしていることを確認します。
+6. それでも配信に失敗する場合は、[プッシュのよくあるエラーメッセージ]({{site.baseurl}}/user_guide/channels/push/push_error_codes)を確認するか、キャンペーンまたはキャンバスのID、ユーザーID、タイムゾーン付きのタイムスタンプを添えて[Brazeサポート]({{site.baseurl}}/user_guide/administer/personal/braze_support)にお問い合わせください。
 
 ## プッシュ通知が届かない {#missing-push-notifications}
+
+**症状：** ユーザーが期待されるプッシュ通知を受信しなかった。
 
 プッシュ通知が期待どおりに届かない場合は、以下の項目を順に確認してください。
 
@@ -28,7 +56,7 @@ channel: push
 
 プッシュ通知は、購読中またはオプトインしたユーザーにのみ送信できます。**ユーザープロファイル**で[エンゲージメント]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#engagement-tab)タブを開き、テスト対象のワークスペースでプッシュ通知に登録されていることを確認してください。複数のアプリに登録している場合は、**Push Registered For**に一覧表示されます。
 
-![Push Registered For]({% image_buster /assets/img_archive/trouble1.png %})
+![プッシュ登録済みアプリの一覧]({% image_buster /assets/img_archive/trouble1.png %})
 
 Brazeのエクスポートエンドポイントを使用してユーザープロファイルをエクスポートすることもできます。
 
@@ -41,28 +69,30 @@ Brazeのエクスポートエンドポイントを使用してユーザープロ
 
 ターゲットにしているセグメントに自分が含まれていることを確認してください（ライブキャンペーンの場合、テストではない場合）。**ユーザープロファイル**には、ユーザーが現在含まれているセグメントの一覧が表示されます。セグメントメンバーシップはリアルタイムで更新されます。
 
-![List of セグメント]({% image_buster /assets/img_archive/trouble2.png %})
+![セグメントの一覧]({% image_buster /assets/img_archive/trouble2.png %})
 
 セグメントを作成する際に**ユーザー検索**を使用して、ユーザーがそのセグメントに含まれていることを確認することもできます。**ユーザー検索**は`external_id`または`braze_id`のみを受け付けます。メールアドレスや電話番号は使用できません。メール、電話番号、プッシュトークン、またはユーザーエイリアスで検索するには、[**ユーザーを検索**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles)を参照してください。
 
-![検索フィールドを含むユーザー検索セクション。]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:80%;"}
+![検索フィールドを含むユーザー検索セクション]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:80%;"}
 
 ### プッシュ通知キャップ {#push-notification-caps}
 
-ワークスペースにグローバルフリークエンシーキャップが設定されている場合、指定された期間のキャップにすでに達しているため、プッシュ通知を受信できなかった可能性があります。ダッシュボードで[グローバルフリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#freq-cap-feat-over)と制限値を確認してください。キャンペーンがフリークエンシーキャップルールに従っている場合、キャンペーンの詳細に影響を受けたユーザー数が表示されます。
+グローバルフリークエンシーキャップを確認してください。ワークスペースにグローバルフリークエンシーキャップが設定されており、指定された期間のプッシュ通知キャップにすでに達しているため、プッシュ通知を受信できなかった可能性があります。
 
-![キャンペーン Details]({% image_buster /assets/img_archive/trouble3.png %})
+キャンペーンの**分析**ページで、フリークエンシーキャップのバナーを確認し、過去30日間にキャンペーンを受信しなかったユーザーのおおよその数を確認してください。個別の送信を調査するには、[メッセージング診断ダッシュボード]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard)を使用し、**フリークエンシーキャップ**でフィルタリングしてください。ルールの確認や変更については、[グローバルフリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#freq-cap-feat-over)を参照してください。
+
+![キャンペーンの詳細]({% image_buster /assets/img_archive/trouble3.png %})
 
 ### レート制限 {#rate-limits}
 
-キャンペーンまたはキャンバスにレート制限が設定されている場合、その制限を超えたためにメッセージを受信できなくなっている可能性があります。詳細については、[レート制限]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#rate-limiting)を参照してください。
+キャンペーンまたはキャンバスにレート制限が設定されている場合、その制限を超えたためにメッセージを受信できなくなっている可能性があります。詳細については、[レート制限]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-rate-limiting)を参照してください。
 
 ### コントロールグループのステータス {#control-group-status}
 
 単一チャネルのキャンペーンまたはコントロールグループを含むキャンバスの場合、コントロールグループに入っている可能性があります。
 
-  1. [バリアント配分]({{site.baseurl}}/user_guide/messaging/ab_testing#step-5-distribute-users-among-your-variants)を確認して、コントロールグループがあるかどうかを確認します。
-  2. コントロールグループがある場合は、[キャンペーンコントロールグループ内]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns#in-campaign-control-group-filter)でフィルタリングするセグメントを作成し、[セグメントをエクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#exporting-to-csv)して、自分のユーザーIDがリストに含まれているかどうかを確認します。
+  1. [バリアント配分]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#step-4-choose-a-segment-and-distribute-your-users-across-variants)を確認して、コントロールグループがあるかどうかを確認します。
+  2. コントロールグループがある場合は、[キャンペーンコントロールグループ内]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns#in-campaign-control-group)でフィルタリングするセグメントを作成し、[セグメントをエクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#segment-csv-export-details)して、自分のユーザーIDがリストに含まれているかどうかを確認します。
 
 ### 有効なプッシュトークン {#valid-push-token}
 
@@ -72,7 +102,7 @@ Brazeはユーザープロファイルごとに最大20台のデバイスを保�
 
 ### プッシュ通知の種類 {#push-notification-type}
 
-ターゲットにしているデバイスまたはプラットフォームに合ったプッシュの種類を使用してください。たとえば、Fire TVをターゲットにする場合は、AndroidプッシュキャンペーンではなくKindleプッシュ通知を使用します。Androidデバイスの場合は、iOSプッシュキャンペーンではなくAndroidプッシュ通知を使用します。
+ターゲットにしているデバイスまたはプラットフォームに合ったプッシュの種類を使用してください。たとえば、Fire TVをターゲットにする場合は、Androidプッシュキャンペーンではなく、Kindleプッシュ通知を使用します。Androidデバイスの場合は、iOSプッシュキャンペーンではなく、Androidプッシュ通知を使用します。
 
 プラットフォーム固有のトラブルシューティングワークフローについては、以下を参照してください。
 
@@ -87,73 +117,80 @@ Brazeはユーザープロファイルごとに最大20台のデバイスを保�
 Androidで画像付きのプッシュメッセージを送信する場合、FCMが画像を破棄し、プッシュメッセージにテキストのみを表示することがあります。この問題は通常、サーバー接続の問題が原因です。
 {% endalert %}
 
-## エラー: MismatchSenderID {#error-mismatchsenderid}
+## エラー：MismatchSenderID {#error-mismatch-sender-id}
 
-MismatchSenderIDは、Firebase Cloud Messaging（FCM）での認証エラーを示します。Firebase送信者IDとFCM APIキーが正しいことを確認してください。
+**症状：** Androidプッシュが`MismatchSenderID`エラーで失敗します。
 
-正しいFirebaseサーバーキーを見つけて置き換えるには:
+MismatchSenderIDは、Firebase Cloud Messaging（FCM）での認証失敗を示します。FirebaseのSender IDとFCM APIキーが正しいことを確認してください。
+
+正しいFirebaseサーバーキーを見つけて置き換えるには：
 
 1. アプリのFirebaseコンソールに移動します。
-2. **Project Overview**の下で、**Project Settings**を選択します。
-3. **Cloud Messaging**タブで、APIキーの下にある送信者IDがBraze（**設定** > **アプリ設定** > **Cloud Messaging API Key**）のものと一致していることを確認します。
+2. **Project Overview**で、**Project Settings**を選択します。
+3. **Cloud Messaging**タブで、APIキーとともに表示されているSender IDがBrazeのもの（**設定** > **アプリ設定** > **Cloud Messaging API Key**）と一致していることを確認します。
 
 {% alert warning %}
-Brazeダッシュボードで送信者IDを変更しないでください。変更すると、既存のプッシュ登録が無効になります。送信者IDが一致しない場合は、一致する送信者IDを持つFirebaseプロジェクトを見つける必要があります。
+Brazeダッシュボードでは、Sender IDを変更しないでください。変更すると、既存のプッシュ登録が無効になります。Sender IDが一致しない場合は、一致するSender IDを持つFirebaseプロジェクトを見つける必要があります。
 {% endalert %}
 
-{:start="4"}
 4. **Project credentials**の下にある**Server Key**をコピーします。
 5. Brazeで、**設定** > **アプリ設定**に移動し、アプリを選択して、サーバーキーを**Cloud Messaging API Key**フィールドに貼り付けます（古いキーを置き換えます）。
 6. **Save**を選択します。
-7. 確認のため、APIキーを変更する前後に、アプリを開かずにデバイスにテストプッシュを送信します。これにより、新しいプッシュ登録ID（プッシュトークン）を生成する必要なく、ユーザーが引き続きプッシュ通知を受信できることを確認できます。
+7. 確認するには、APIキーを変更する前と後に、アプリを開かずにデバイスにテストプッシュを送信します。これにより、新しいプッシュ登録ID（プッシュトークン）を生成しなくても、ユーザーが引き続きプッシュ通知を受信できることを確認できます。
 
-## トラブルシューティングシナリオ {#troubleshooting-scenarios}
+## トラブルシューティングのシナリオ {#troubleshooting-scenarios}
 
 ### プッシュ通知の遅延 {#delayed-push-notifications}
 
-プッシュ通知は以下の理由で遅延する可能性があります。
+**症状：** プッシュ通知が予想より遅く届きます。
+
+プッシュ通知が遅延する原因として、以下が考えられます。
 
 - デバイスのデータ接続が弱い
-- Brazeのプッシュ通知を抑制するアプリ内のカスタムコード
+- アプリ内のカスタムコードがBrazeのプッシュ通知を抑制している
 - デバイスの設定でのプッシュ通知に関するユーザーの設定
-- キャンペーンまたはキャンバスで作成されたプッシュのメッセージ優先度
-- プッシュサービスプロバイダー（FCMおよびAPNs）のトラフィック遅延または問題
+- キャンペーンまたはキャンバスで作成する際のプッシュのメッセージ優先度
+- プッシュサービスプロバイダー（FCMおよびAPNs）でのトラフィックの遅延や問題
 
 ### プッシュ通知の送信が予想より遅い {#push-notifications-are-sending-slower-than-expected}
 
+**症状：** キャンペーンまたはキャンバスのプッシュ送信が、完了するまで予想以上に時間がかかります。
+
 プッシュ通知の設定が以下のベストプラクティスに従っていることを確認してください。
 
-- プッシュ有効ステータスを考慮せずに大規模なオーディエンスに送信している場合、送信速度が遅くなる可能性があります。代わりに、プッシュ有効なユーザーのみに送信してオーディエンスのサイズを縮小することを検討してください。
-- 可能であれば、即時送信ではなく事前にキャンペーンをスケジュールしてください。
-- キャンバスで多数のユーザーにプッシュ通知をターゲットにしている場合、キャンバス内の後続のメッセージステップは、ユーザーに即時送信するキャンペーンとは異なる処理時間を必要とすることが予想されます。この場合、キャンペーンは通常キャンバスよりも先に送信を完了します。キャンバスの最初の「ステップ」は、ユーザーが特定のユーザージャーニーに適格かどうかを確認することだからです。
+- プッシュ有効ステータスを考慮せずに大規模なオーディエンスに送信している場合、送信速度が低下する可能性があります。代わりに、プッシュ有効なユーザーのみに送信して、オーディエンスのサイズを削減することを検討してください。
+- 可能であれば、即時送信ではなく、事前にキャンペーンをスケジュールしてください。
+- キャンバスで多数のユーザーにプッシュ通知をターゲティングしている場合、キャンバス内の後続のメッセージステップは、ユーザーに即時送信するキャンペーンとは異なる処理時間を必要とすることが予想されます。この場合、キャンバスの最初の「ステップ」はユーザーが特定のユーザージャーニーに適格かどうかを確認することであるため、通常キャンペーンの方がキャンバスより先に送信を完了します。
 
-## プッシュ通知をタップしてもアプリが開かない {#clicking-a-push-notification-doesnt-open-the-app}
+## プッシュ通知をタップしてもアプリが開かない {#clicking-a-push-notification-does-not-open-the-app}
+
+**症状：** プッシュ通知をタップしても、アプリが開かない、または設定どおりに遷移しない。
 
 プッシュ通知をタップしてもアプリが開かない場合は、プラットフォームに応じて以下を確認してください。
 
 ### Android
 
-1. **クリック時の動作を確認する:** キャンペーンがクリック時にアプリを開くように設定されていることを確認します。
-2. **ディープリンクの処理を確認する:** `braze.xml`ファイルで、`com_braze_handle_push_deep_links_automatically`が`true`または`false`に設定されているか確認します。
-   - `true`に設定されている場合、Braze SDKがディープリンクを直接処理し、アプリは期待どおりに開くはずです。
-   - `false`に設定されている場合、アプリにはプッシュ受信およびオープンインテントをリッスンして処理するブロードキャストレシーバーが必要です。このレシーバーが正しく実装されていることを確認してください。
-3. **詳細ログを収集する:** [詳細ログを有効にし]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging)、問題を再現して、ログと`braze.xml`および`AndroidManifest.xml`をBrazeサポートに提供してください。
+1. **クリック時の動作を確認する：** キャンペーンがクリック時にアプリを開くように設定されていることを確認します。
+2. **ディープリンクの処理を確認する：** `braze.xml` ファイルで、`com_braze_handle_push_deep_links_automatically` が `true` に設定されているか `false` に設定されているかを確認します。
+   - `true` に設定されている場合、Braze SDKがディープリンクを直接処理し、アプリは期待どおりに開きます。
+   - `false` に設定されている場合、アプリにはプッシュの受信および開封インテントをリッスンして処理するブロードキャストレシーバーが必要です。このレシーバーが正しく実装されていることを確認してください。
+3. **詳細ログを収集する：** [詳細ログを有効にし]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging)、問題を再現して、ログと `braze.xml` および `AndroidManifest.xml` をBrazeサポートに提供してください。
 
 ### iOS
 
-1. **クリック時の動作を確認する:** キャンペーンがクリック時にアプリを開くように設定されていることを確認します。
-2. **プッシュ統合を確認する:** プッシュからアプリへのディープリンクは、Brazeの[標準プッシュ統合]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift)によって自動的に処理されます。カスタムデリゲート処理を含め、統合が正しく実装されていることを確認してください。
-3. **詳細ログを収集する:** [詳細ログを有効にし]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging)、問題を再現して、ログをBrazeサポートに提供してください。
+1. **クリック時の動作を確認する：** キャンペーンがクリック時にアプリを開くように設定されていることを確認します。
+2. **プッシュの統合を確認する：** プッシュからアプリへのディープリンクは、Brazeの[標準プッシュ統合]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift)によって自動的に処理されます。カスタムデリゲートの処理を含め、統合が正しく実装されていることを確認してください。
+3. **詳細ログを収集する：** [詳細ログを有効にし]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging)、問題を再現して、ログをBrazeサポートに提供してください。
 
 ## プッシュのクリックが予期せずアプリ内で開く {#push-clicks-unexpectedly-open-in-app}
+
+**症状:** プッシュ通知内のリンクが、デバイスのWebブラウザではなくアプリ内で開きます。
 
 プッシュ通知内のリンクがWebブラウザではなく予期せずアプリ内で開く問題が発生している場合、キャンペーンの設定またはSDKの実装に問題がある可能性があります。以下の手順を参照してください。
 
 ### クリック時の動作を確認する {#verify-on-click-behavior}
 
 キャンペーンまたはキャンバスステップで、**モバイルアプリ内でWeb URLを開く**が選択されていないことを再確認してください。選択されている場合は、選択を解除して再起動してください。
-
-![「クリック時の動作」フィールドで「Web URLを開く」に設定され、「モバイルアプリ内でWeb URLを開く」のチェックが外されているプッシュ設定。]({% image_buster /assets/img/push_on_click.png %})
 
 クリック時の動作「Web URLを開く」のデフォルトの動作はSDKバージョンによって異なります。SDKバージョンiOS 2.29.0およびAndroid 2.0.0以降では、このオプションはデフォルトで選択されており、Web URLはアプリ内のWebビューで開きます。これらのバージョンより前では、このオプションはデフォルトで選択解除されており、Web URLはデバイスのデフォルトWebブラウザで開きます。
 
@@ -165,7 +202,7 @@ Brazeダッシュボードで送信者IDを変更しないでください。変�
 
 1. **プッシュデリゲートの実装を確認する:** Brazeプッシュデリゲートが正しく実装されていることを確認します。詳細な手順については、お使いの[プラットフォーム]({{site.baseurl}}/developer_guide/home)のプッシュ通知統合ガイドを参照してください。
 2. **カスタムリンク処理を確認する:** アプリにすべての`https://`リンクに対するカスタム処理が含まれていないか確認します。カスタム設定がデフォルトの動作を上書きしている可能性があります。開発チームと協力して、必要に応じてこれらの設定を確認・調整してください。
-3. **iOSプッシュ登録を確認する:** iOSの場合、[APNsへのプッシュ通知の登録]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#step-1-register-for-push-notifications-with-apns)に関するプッシュ統合ガイドのステップ1を再確認してください。デリゲートオブジェクトがアプリの起動完了前に同期的に割り当てられていることを確認します。このステップは`application:didFinishLaunchingWithOptions:`メソッドで完了する必要があります。
+3. **iOSプッシュ登録を確認する:** iOSの場合、[APNsへのプッシュ通知の登録]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift)に関するプッシュ統合ガイドのステップ1を再確認してください。デリゲートオブジェクトがアプリの起動完了前に同期的に割り当てられていることを確認します。このステップは`application:didFinishLaunchingWithOptions:`メソッドで完了する必要があります。
 4. **統合をテストする:** 調整を行った後、iOSとAndroidの両方のデバイスでプッシュ通知の動作をテストし、問題が解決されたことを確認してください。
 
 ### アプリがバックグラウンドで実行中のディープリンク（iOS） {#deep-links-with-app-still-running-in-the-background-ios}
@@ -173,6 +210,8 @@ Brazeダッシュボードで送信者IDを変更しないでください。変�
 アプリが実行されていないとき、またはリンクを直接使用したときにはディープリンクが機能するが、アプリがすでにバックグラウンドで実行されているときには機能しない場合、アプリがリンクを処理する方法に問題がある可能性があります。メソッドスウィズリングを使用するサードパーティライブラリを使用していないか確認してください。スウィズリングはディープリンクの実装に問題を引き起こす可能性があるため、オフにすることをお勧めします。
 
 ## .p8認証キーへの移行 {#migrate-to-a-p8-authentication-key}
+
+**症状：** iOSプッシュ認証情報をレガシー証明書から`.p8`キーに移行する必要がある、または認証情報の変更後にプッシュ配信が失敗した。
 
 Appleの`.p8`認証キーは、BrazeでのAPNsプッシュに必要なアプローチです。レガシーの証明書ファイルタイプとは異なり、`.p8`キーは有効期限がなく、単一のキーですべてのアプリをサポートするため、年次の証明書更新が不要になり、プッシュ配信の失敗リスクが軽減されます。
 
@@ -194,18 +233,20 @@ Appleの`.p8`認証キーは、BrazeでのAPNsプッシュに必要なアプロ�
 
 [Braze Swift SDK 10.0.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/10.0.0)以降のアプリでは、[動的APNsゲートウェイ管理]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift#dynamic-apns-gateway-management)を使用して、トークンを正しいAPNs環境に自動的にルーティングできます。
 
-## Webプッシュ通知が期待どおりに動作しない {#web-push-notifications-arent-behaving-as-expected}
+## Webプッシュ通知が期待どおりに動作しない {#web-push-notifications-are-not-behaving-as-expected}
 
-ブラウザでプッシュ通知に問題が発生している場合は、サイトの通知権限をリセットし、サイトのストレージをクリアする必要がある場合があります。以下の手順を参照してください。
+**症状：** ブラウザーのプッシュ通知が表示されない、またはサイトの権限が固まっているように見えます。
+
+ブラウザーでプッシュ通知に問題が発生している場合は、サイトの通知権限をリセットし、サイトのストレージをクリアする必要がある場合があります。以下の手順を参考にしてください。
 
 {% tabs %}
 {% tab Chrome %}
 
 ### デスクトップでChromeをリセットする {#reset-chrome-on-desktop}
 
-1. ChromeブラウザのURLの横にある**サイト情報を表示**スライダーアイコンを選択します。
-2. **通知**の下で、**権限をリセット**を選択します。
-3. Chrome DevToolsを開きます。以下はオペレーティングシステムごとの関連するショートカットです。
+1. Chromeブラウザーで URL の横にある **View Site Information** スライダーアイコンを選択します。
+2. **Notifications** の下で、**Reset permission** を選択します。
+3. Chrome DevToolsを開きます。オペレーティングシステムごとの関連するショートカットは以下のとおりです。
 
 <style>
 table {
@@ -220,28 +261,28 @@ table {
 {: .reset-td-br-1 .reset-td-br-2 aria-label="デスクトップでChromeをリセットする" }
 
 {:start="4"}
-4. DevToolsで、**Application**タブに移動します。
-5. サイドバーで**Storage**を選択します。
-6. **Clear site data**を選択します。
-7. Chromeが更新された設定を適用するためにページの再読み込みを求めます。**Reload**を選択します。
+4. DevToolsで、**Application** タブに移動します。
+5. サイドバーで **Storage** を選択します。
+6. **Clear site data** を選択します。
+7. Chromeが更新された設定を適用するためにページの再読み込みを求めます。**Reload** を選択します。
 
 プッシュ権限がリセットされました。サイトの新しいタブを開いて試してみてください。
 
 ### AndroidでChromeをリセットする {#reset-chrome-on-android}
 
-サイトからの通知がAndroidの通知ドロワーに表示されている場合:
+サイトからの通知がAndroidの通知ドロワーに表示されている場合：
 
-1. プッシュ通知から<i class="fas fa-cog" title="Settings"></i> **設定**をタップし、**Site settings**を選択します。
-2. **Site settings**から**Clear & Reset**をタップします。
+1. プッシュ通知から <i class="fas fa-cog" title="設定"></i> **Settings** を選択し、**Site settings** を選択します。
+2. **Site settings** から、**Clear & Reset** をタップします。
 
-サイトからの通知が開いていない場合:
+サイトからの通知が開いていない場合：
 
 1. AndroidでChromeを開きます。
-2. <i class="fas fa-ellipsis-vertical"></i>メニューをタップします。
-3. **Settings** > **Site Settings** > **Notifications**に移動します。
-4. 通知が**Ask before sending (recommended)**に設定されていることを確認します。
+2. <i class="fas fa-ellipsis-vertical"></i> メニューをタップします。
+3. **Settings** > **Site Settings** > **Notifications** に移動します。
+4. 通知が **Ask before sending (recommended)** に設定されていることを確認します。
 5. リストからサイトを見つけます。
-6. エントリを選択し、**Clear and Reset**をタップします。
+6. エントリを選択し、**Clear and Reset** をタップします。
 
 プッシュ権限がリセットされました。サイトの新しいタブを開いて試してみてください。
 
@@ -250,16 +291,16 @@ table {
 
 ### デスクトップでFirefoxをリセットする {#reset-firefox-on-desktop}
 
-1. サイトのURLの横にある<i class="fa-solid fa-circle-info" alt="info icon"></i>または<i class="fas fa-lock" alt="lock icon"></i>を選択します。
-2. **権限**の下で、**通知を受信**の横にある<i class="fa-solid fa-circle-xmark" title="Clear this permission and ask again"></i> **権限をクリア**を選択して通知権限をクリアします。
-3. 同じメニューで、**Cookieとサイトデータを消去**を選択します。
-4. 確認ダイアログで**OK**を選択します。
+1. サイトのURLの横にある <i class="fa-solid fa-circle-info" alt="情報アイコン"></i> または <i class="fas fa-lock" alt="ロックアイコン"></i> を選択します。
+2. **Permissions** の下で、**Receive Notifications** の横にある <i class="fa-solid fa-circle-xmark" title="この権限をクリアして再度確認する"></i> **Clear permission** を選択して通知権限をクリアします。
+3. 同じメニューで、**Clear Cookies and Site Data** を選択します。
+4. 選択を確認するダイアログで、**OK** を選択します。
 
 プッシュ権限がリセットされました。サイトの新しいタブを開いて試してみてください。
 
 ### AndroidでFirefoxをリセットする {#reset-firefox-on-android}
 
-Androidでプッシュ権限をリセットするには、Mozillaサポートの[閲覧履歴やその他の個人データを消去する](https://support.mozilla.org/en-US/kb/clear-your-browsing-history-and-other-personal-data#w_clear-specific-items-from-your-browser)を参照してください。
+Androidでプッシュ権限をリセットするには、Mozilla Supportの[Clear your browsing history and other personal data](https://support.mozilla.org/en-US/kb/clear-your-browsing-history-and-other-personal-data#w_clear-specific-items-from-your-browser)を参照してください。
 
 {% endtab %}
 {% tab Safari %}
@@ -267,17 +308,17 @@ Androidでプッシュ権限をリセットするには、Mozillaサポートの
 ### macOSでSafariをリセットする {#reset-safari-on-macos}
 
 {% alert note %}
-これらの手順はmacOSのみを対象としています。AppleはWindows上のSafariではWebプッシュをサポートしていません。
+これらの手順はmacOS専用です。AppleはWindows上のSafariではWebプッシュをサポートしていません。
 {% endalert %}
 
 1. Safariを開きます。
-2. [Macのメニューバー](https://support.apple.com/guide/mac-help/whats-in-the-menu-bar-mchlp1446/mac)から、**Safari** > **設定** > **Webサイト** > **通知**に移動します。
+2. [Macのメニューバー](https://support.apple.com/guide/mac-help/whats-in-the-menu-bar-mchlp1446/mac)から、**Safari** > **Settings** > **Websites** > **Notifications** に移動します。
 3. リストからサイトを選択します。
-4. **削除**を選択して、サイトの通知権限を削除します。
-5. 次に、**プライバシー** > **Webサイトデータを管理**に移動します。
+4. **Remove** を選択して、サイトの通知権限を削除します。
+5. 次に、**Privacy** > **Manage Website Data** に移動します。
 6. リストからサイトを選択します。
-7. **削除**を選択するか、すべてのサイトデータを削除するには**すべてを削除**を選択します。
-8. **完了**を選択します。
+7. **Remove** を選択するか、すべてのサイトデータを削除するには **Remove All** を選択します。
+8. **Done** を選択します。
 
 プッシュ権限がリセットされました。サイトの新しいタブを開いて試してみてください。
 
@@ -286,14 +327,14 @@ Androidでプッシュ権限をリセットするには、Mozillaサポートの
 
 ## プッシュ開封指標 {#push-open-metrics}
 
-Brazeは、ユーザーが通知をタップしてアプリがセッションを開始したときに直接開封を記録します。リッチプッシュ通知を展開しただけでアプリを開かなかった場合、直接開封は記録されません。
+Brazeは、ユーザーが通知をタップしてアプリがセッションを開始した場合に直接開封を記録します。アプリを開かずにリッチプッシュ通知を展開しただけでは、直接開封は記録されません。
 
 ユーザーがプッシュ通知を受信した後、通知をタップせずにアプリを開いた場合、Brazeは代わりに影響を受けた開封を記録することがあります。定義とレポートについては、[影響を受けた開封]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens)を参照してください。
 
 ## プッシュエラーメッセージ {#push-error-messages}
 
+**症状：** 特定のプッシュエラーコード（例：`DEVICE_UNREGISTERED`、`Unregistered`、`NotRegistered`）が表示されます。
+
 一般的なプッシュエラーコード（`DEVICE_UNREGISTERED`、`NotRegistered`、`Unregistered`など）の定義については、[一般的なプッシュエラーメッセージ]({{site.baseurl}}/user_guide/channels/push/push_error_codes)を参照してください。
 
 FCMが`DEVICE_UNREGISTERED`や`NotRegistered`などのエラーを返した場合、Brazeは通常、影響を受けたプッシュトークンをユーザープロファイルから削除します。この削除は、アプリがアンインストールされたか、トークンが無効になったことを示す場合が多いです。アンインストール追跡キャンペーンは、同じトークン削除ロジックを大規模に使用します。
-
-さらにサポートが必要ですか？[サポートチケット]({{site.baseurl}}/braze_support)を開いてください。

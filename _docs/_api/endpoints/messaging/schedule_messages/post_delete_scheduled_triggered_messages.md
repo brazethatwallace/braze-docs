@@ -22,7 +22,7 @@ Scheduled messages or triggers that are deleted close to or during the time they
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `campaigns.trigger.schedule.delete` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `campaigns.trigger.schedule.delete` permission.
 
 ## Rate limit
 

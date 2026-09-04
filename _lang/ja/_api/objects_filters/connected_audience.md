@@ -4,7 +4,6 @@ article_title: API接続オーディエンスオブジェクト
 page_order: 3
 page_type: reference
 description: "この記事では、接続オーディエンスオブジェクトについて、その仕組み、ユースケース、およびそれを構成するさまざまなフィルターを説明します。"
-
 ---
 
 # 接続オーディエンスオブジェクト {#connected-audience-object}
@@ -15,19 +14,19 @@ description: "この記事では、接続オーディエンスオブジェクト
 
 ## 仕組み {#how-it-works}
 
-1. BrazeダッシュボードでAPIトリガーのキャンペーンまたはキャンバスを作成してメッセージを定義するか、APIリクエストの[メッセージングオブジェクト]({{site.baseurl}}/api/objects_filters#messaging-objects)を使用してメッセージコンテンツを完全にインラインで定義します。ダイナミックなパーソナライゼーションには[トリガープロパティ]({{site.baseurl}}/api/objects_filters/trigger_properties_object)または[キャンバスコンテキスト]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)を使用します。
-2. 対応するエンドポイントを呼び出し、接続オーディエンスフィルターを`audience`パラメーターに含めます。`/messages/live_activity/start`の場合は`custom_audience`に含めます。カスタム属性、プッシュ通知のサブスクリプションステータス、メールのサブスクリプションステータス、最後にアプリを使用した時間でフィルターできます。
+1. Brazeダッシュボードで API トリガーのキャンペーンまたはキャンバスを作成してメッセージを定義するか、API リクエスト内の[メッセージングオブジェクト]({{site.baseurl}}/api/objects_filters#messaging-objects)を使用してメッセージコンテンツを完全にインラインで定義します。ダイナミックなパーソナライゼーションには、[トリガープロパティ]({{site.baseurl}}/api/objects_filters/trigger_properties_object)または[キャンバスコンテキスト]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)を使用します。
+2. サポートされているエンドポイントを呼び出し、`audience` パラメーターにコネクテッドオーディエンスフィルターを含めます（`/messages/live_activity/start` の場合は `custom_audience` を使用します）。カスタム属性、プッシュ購読ステータス、メール購読ステータス、最終アプリ使用日時でフィルタリングできます。
 3. Brazeは送信時にフィルターを評価し、条件に一致するユーザーにのみメッセージを配信します。
 
 {% alert tip %}
-`audience`パラメーターを使用する場合、`campaign_id`は必須ではありません。[`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages)および[`/messages/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages)エンドポイントでは、事前に作成したキャンペーンなしでメッセージコンテンツをインラインで定義できます。ただし、ダッシュボードでキャンペーンレベルの指標（送信数、クリック数、バウンスなど）を追跡したい場合は、`campaign_id`を含めてください。
+`audience` パラメーターを使用する場合、`campaign_id` は必須ではありません。[`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) および [`/messages/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages) エンドポイントでは、事前にキャンペーンを作成しなくてもメッセージコンテンツをインラインで定義できます。ただし、ダッシュボードでキャンペーンレベルのメトリクス（送信数、クリック数、バウンス数など）を追跡したい場合は、`campaign_id` を含めてください。
 {% endalert %}
 
-オーディエンスはリクエストごとに定義されるため、バックエンドシステムは任意のビジネスイベント（価格変更、気象警報、ライブスコア更新など）に応じて、ダッシュボードの操作なしに状況に即した関連メッセージをトリガーできます。
+オーディエンスはリクエストごとに定義されるため、バックエンドシステムは任意のビジネスイベント（価格変更、気象アラート、ライブスコア更新など）に応じて、ダッシュボードの操作なしに状況に即したメッセージをトリガーできます。
 
-### 対応エンドポイント {#compatible-endpoints}
+### 互換性のあるエンドポイント {#compatible-endpoints}
 
-接続オーディエンスオブジェクトは、以下のエンドポイントで使用できます。
+以下のエンドポイントでコネクテッドオーディエンスオブジェクトを使用できます。
 
 - [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages)
 - [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns)
@@ -35,27 +34,29 @@ description: "この記事では、接続オーディエンスオブジェクト
 - [`/messages/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages)
 - [`/campaigns/trigger/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns)
 - [`/canvas/trigger/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases)
-- [`/messages/live_activity/start`]({{site.baseurl}}/api/endpoints/messaging/live_activity/start)（`custom_audience`を使用）
+- [`/messages/live_activity/start`]({{site.baseurl}}/api/endpoints/messaging/live_activity/start)（`custom_audience` を使用）
+
+`audience` パラメーターはオブジェクトの配列をサポートしていません。
 
 ## ユースケース {#use-cases}
 
-バックエンドシステムがイベントを検出し、動的に決定されたユーザーセットに通知する必要があるシナリオで接続オーディエンスを使用します。
+コネクテッドオーディエンスは、バックエンドシステムがイベントを検出し、動的に決定されたユーザーのセットに通知する必要があるシナリオで使用します。
 
 | カテゴリ | 例 |
 | --- | --- |
-| 気象警報 | 気象データプロバイダーが深刻な気象イベントを検出し、`preferred_city`属性が影響を受ける地域に一致するユーザーにプッシュ通知を送信します。 |
-| スポーツ・ライブイベント | スポーツアプリが、`favorite_team`属性が試合中のチームに一致するユーザーにリアルタイムのスコア更新や試合アラートを送信します。 |
-| コンテンツ・エンターテイメント | ストリーミングサービスが、新しいエピソードがリリースされるたびに、`favorite_shows`配列にそのシリーズタイトルを含むユーザーに通知します。 |
-| Eコマース | オンライン小売業者が、`wishlisted_products`配列に該当する商品IDを含むユーザーに値下げや再入荷のアラートを送信します。 |
+| 天気アラート | 気象データプロバイダーが重大な気象イベントを検出し、`preferred_city`属性が影響を受ける地域に一致するユーザーにプッシュ通知を送信します。 |
+| スポーツとライブイベント | スポーツアプリが、`favorite_team`属性が試合中のいずれかのチームに一致するユーザーにリアルタイムのスコア更新や試合アラートを送信します。 |
+| コンテンツとエンターテイメント | ストリーミングサービスが、新しいエピソードがリリースされるたびに、`favorite_shows`配列にそのシリーズタイトルが含まれるユーザーに通知します。 |
+| Eコマース | オンライン小売店が、`wishlisted_products`配列に該当する商品IDが含まれるユーザーに値下げや再入荷のアラートを送信します。 |
 | 旅行 | 旅行アプリが、`booked_flight`属性が影響を受けるフライト番号に一致するユーザーにフライト遅延通知を送信します。 |
-| 金融サービス | 取引プラットフォームが、`watchlist`配列に価格閾値を超えた銘柄コードを含むユーザーにアラートを送信します。 |
+| 金融サービス | トレーディングプラットフォームが、`watchlist`配列に価格しきい値を超えた株式ティッカーが含まれるユーザーにアラートを送信します。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="ユースケース" }
 
-いずれの場合も、1つのキャンペーンまたはAPIのみのメッセージ定義ですべてのバリエーションに対応します。バックエンドがフィルター値を決定してAPIリクエストに渡すため、商品、番組、チーム、ロケーションごとに個別のセグメントやキャンペーンを作成する必要はありません。
+いずれの場合も、単一のキャンペーンまたはAPIのみのメッセージ定義ですべてのバリエーションに対応できます。バックエンドがフィルター値を決定しAPIリクエストで渡すため、製品、番組、チーム、場所ごとに個別のセグメントやキャンペーンを作成する必要はありません。
 
 ## リクエスト例 {#example-request}
 
-以下の例では、[`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns)エンドポイントを使用して、特定の番組をお気に入りに登録し、プッシュ通知をオプトインしているユーザーをターゲットにしています。
+以下の例では、[`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) エンドポイントを使用して、特定の番組をお気に入りに登録し、プッシュ通知にオプトインしているユーザーをターゲットにしています。
 
 ```json
 {
@@ -86,11 +87,11 @@ description: "この記事では、接続オーディエンスオブジェクト
 }
 ```
 
-## オブジェクト本文 {#object-body}
+## オブジェクト本体 {#object-body}
 
-接続オーディエンスオブジェクトは、1つの接続オーディエンスフィルター、または`AND`と`OR`演算子で組み合わせた複数の接続オーディエンスフィルターで構成されます。
+コネクテッドオーディエンスオブジェクトは、単一のコネクテッドオーディエンスフィルターか、`AND` および `OR` 演算子で組み合わされた複数のコネクテッドオーディエンスフィルターで構成されます。
 
-**複数フィルターの例：**
+**複数フィルターの例:**
 
 ```json
 {
@@ -109,13 +110,26 @@ description: "この記事では、接続オーディエンスオブジェクト
 }
 ```
 
-## 接続オーディエンスフィルター {#connected-audience-filters}
+## Connected Audience フィルター {#connected-audience-filters}
 
-複数のフィルターを`AND`および`OR`演算子と組み合わせて、接続オーディエンスフィルターを作成します。
+`AND` 演算子と `OR` 演算子を使用して複数のフィルターを組み合わせ、Connected Audience フィルターを作成します。
+
+### 注意事項 {#considerations}
+
+Connected Audience では、以下の条件でユーザーをフィルタリングすることはできません。
+
+ - デフォルト属性
+ - カスタムイベント
+ - セグメント
+ - メッセージエンゲージメントイベント
+ - 階層化カスタム属性
+
+これらのフィルターを使用するには、オーディエンスセグメントに組み込んでから、[`/messages/send` エンドポイント]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#request-parameters)の `segment_id` パラメーターでそのセグメントを指定することをお勧めします。他のエンドポイントを使用する場合は、まず Braze ダッシュボードで API トリガーのキャンペーンまたはキャンバスにセグメントを追加する必要があります。階層化属性でフィルタリングする必要がある場合は、代わりに[標準セグメント]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)を使用してください。
+
 
 ### カスタム属性フィルター {#custom-attribute-filter}
 
-このフィルターでは、ユーザーのカスタム属性に基づいてセグメント化できます。これらのフィルターには最大3つのフィールドが含まれます。
+このフィルターでは、ユーザーのカスタム属性に基づいてセグメントを作成できます。これらのフィルターには最大3つのフィールドが含まれます。
 
 ```json
 {
@@ -128,28 +142,44 @@ description: "この記事では、接続オーディエンスオブジェクト
 }
 ```
 
-#### データタイプ別の許容される比較 {#allowed-comparisons-by-data-type}
+#### データ型別の許可される比較 {#allowed-comparisons-by-data-type}
 
-カスタム属性のデータタイプによって、指定されたフィルターで有効な比較が決まります。
+カスタム属性のデータ型によって、特定のフィルターで有効な比較が決まります。
 
-| カスタム属性タイプ | 許容される比較 |
+| カスタム属性の型 | 許可される比較 |
 | ---------------------| --------------- |
-| 文字列 | `equals`、`not_equal`、`matches_regex`、`does_not_match_regex`、`exists`、`does_not_exist` |
-| 配列 | `includes_value`、`does_not_include_value`、`exists`、`does_not_exist` |
-| 数値 | `equals`、`not_equal`、`greater_than`、`greater_than_or_equal_to`、`less_than`、`less_than_or_equal_to`、`exists`、`does_not_exist` |
-| ブール値 | `equals`、`not_equal`、`exists`、`does_not_exist` |
-| 時刻 | `less_than_x_days_ago`、`greater_than_x_days_ago`、`less_than_x_days_in_the_future`、`greater_than_x_days_in_the_future`、`after`、`before`、`exists`、`does_not_exist` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="データタイプ別の許容される比較" }
+| String | `equals`, `not_equal`, `matches_regex`, `does_not_match_regex`, `exists`, `does_not_exist`, `is_any_of`, `is_none_of` |
+| Array | `includes_value`, `does_not_include_value`, `exists`, `does_not_exist`, `is_any_of`, `is_none_of` |
+| Numeric | `equals`, `not_equal`, `greater_than`, `greater_than_or_equal_to`, `less_than`, `less_than_or_equal_to`, `exists`, `does_not_exist` |
+| Boolean | `equals`, `not_equal`, `exists`, `does_not_exist` |
+| Time | `less_than_x_days_ago`, `greater_than_x_days_ago`, `less_than_x_days_in_the_future`, `greater_than_x_days_in_the_future`, `after`, `before`, `exists`, `does_not_exist` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="データ型別の許可される比較" }
 
-#### 属性比較の注意点 {#attribute-comparison-caveats}
+#### 属性比較に関する注意事項 {#attribute-comparison-caveats}
 
-| 比較 | その他の考慮事項 |
+| 比較 | 追加の注意事項 |
 | --- | --- |
-| `value` | `exists`または`does_not_exist`の比較を使用する場合、`value`は必要ありません。`before`および`after`の比較を使用する場合、`value`はISO 8601日時文字列である必要があります。 |
-| `matches_regex` | `matches_regex`比較を使用する場合、渡される値は文字列である必要があります。Brazeでの正規表現の使用については、[正規表現]({{site.baseurl}}/user_guide/engagement_tools/segments/regex#regex-with-braze)と[カスタム属性のデータタイプ]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview#custom-attribute-data-types)を参照してください。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="属性比較の注意点" }
+| `value` | `exists` または `does_not_exist` の比較を使用する場合、`value` は不要です。`before` および `after` の比較を使用する場合、`value` は ISO 8601 日時文字列である必要があります。 |
+| `matches_regex` | `matches_regex` の比較を使用する場合、渡される値は文字列である必要があります。Braze での正規表現の使用について詳しくは、[正規表現]({{site.baseurl}}/user_guide/audience/segments/regex)と[カスタム属性のデータ型]({{site.baseurl}}/developer_guide/analytics#custom-attribute-data-types)を参照してください。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="属性比較に関する注意事項" }
 
-#### カスタム属性の例 {#custom-attribute-example}
+#### 複数値の比較 {#multi-value-comparisons}
+
+`is_any_of` と `is_none_of` は、1回の比較で複数の値に対するマッチングをサポートしています。これらの比較は、String 型と Array 型のカスタム属性の両方で使用できます。
+
+- `is_any_of`: ユーザーの属性値が指定された値のいずれかと一致する場合にマッチします。`value` は単一の文字列または文字列の配列を指定できます。
+- `is_none_of`: ユーザーの属性値が指定されたどの値とも一致しない場合にマッチします。`value` は単一の文字列または文字列の配列を指定できます。なお、プロファイルにその属性を持たないユーザーは、常にこの比較の条件を満たします。
+
+Array 型の属性の場合:
+
+- `includes_value` は、ユーザーの配列に指定された値のいずれかが含まれているかどうかを確認するために、値の配列を受け取ることもできます。
+- Array 型の属性で `is_any_of` または `is_none_of` を使用する場合、それぞれ `includes_value` および `does_not_include_value` と同じように機能します。
+
+{% alert tip %}
+複数値のマッチングには、`includes_value` ではなく `is_any_of` を使用してください。
+{% endalert %}
+
+#### カスタム属性の例 {#custom-attribute-examples}
 
 ```json
 {
@@ -183,11 +213,55 @@ description: "この記事では、接続オーディエンスオブジェクト
   }
 }
 ```
-### プッシュ通知のサブスクリプションフィルター {#push-subscription-filter}
 
-このフィルターでは、ユーザーのプッシュ通知のサブスクリプションステータスに基づいてセグメント化できます。
+#### 複数値の比較の例 {#multi-value-comparison-examples}
 
-#### フィルター本文 {#filter-body}
+##### 文字列の配列を使用した `is_any_of` {#is_any_of-with-an-array-of-strings}
+
+```json
+{
+  "custom_attribute":
+  {
+    "custom_attribute_name": "favorite_color",
+    "comparison": "is_any_of",
+    "value": ["red", "blue", "green"]
+  }
+}
+```
+
+##### 文字列の配列を使用した `is_none_of` {#is_none_of-with-an-array-of-strings}
+
+```json
+{
+  "custom_attribute":
+  {
+    "custom_attribute_name": "subscription_tier",
+    "comparison": "is_none_of",
+    "value": ["bronze", "silver"]
+  }
+}
+```
+
+##### 配列を使用した `includes_value`（Array 型属性） {#includes_value-with-an-array-array-attribute}
+
+```json
+{
+  "custom_attribute":
+  {
+    "custom_attribute_name": "subscribed_products",
+    "comparison": "includes_value",
+    "value": ["1001", "1002", "1003"]
+  }
+}
+```
+
+これは、`subscribed_products` 配列に `"1001"`、`"1002"`、または `"1003"` のいずれかの値が含まれるユーザーにマッチします。
+
+### プッシュ購読フィルター {#push-subscription-filter}
+
+このフィルターでは、ユーザーのプッシュ購読ステータスに基づいてセグメントを作成できます。
+
+#### フィルター本体 {#filter-body}
 
 ```json
 {
@@ -199,14 +273,14 @@ description: "この記事では、接続オーディエンスオブジェクト
 }
 ```
 
-- **許容される比較：** `is`、`is_not`
-- **許容される値：** `opted_in`、`subscribed`、`unsubscribed`
+- **許可される比較:** `is`, `is_not`
+- **許可される値:** `opted_in`, `subscribed`, `unsubscribed`
 
-### メールのサブスクリプションフィルター {#email-subscription-filter}
+### メール購読フィルター {#email-subscription-filter}
 
-このフィルターでは、ユーザーのメールのサブスクリプションステータスに基づいてセグメント化できます。
+このフィルターでは、ユーザーのメール購読ステータスに基づいてセグメントを作成できます。
 
-#### フィルター本文
+#### フィルター本体
 
 ```json
 {
@@ -218,14 +292,14 @@ description: "この記事では、接続オーディエンスオブジェクト
 }
 ```
 
-- **許容される比較：** `is`、`is_not`
-- **許容される値：** `opted_in`、`subscribed`、`unsubscribed`
+- **許可される比較:** `is`, `is_not`
+- **許可される値:** `opted_in`, `subscribed`, `unsubscribed`
 
-### 最後に使用したアプリフィルター {#last-used-app-filter}
+### 最終アプリ使用フィルター {#last-used-app-filter}
 
-このフィルターでは、ユーザーが最後にアプリを使用した時間に基づいてセグメント化できます。これらのフィルターには2つのフィールドが含まれます。
+このフィルターでは、ユーザーが最後にアプリを使用した日時に基づいてセグメントを作成できます。これらのフィルターには2つのフィールドが含まれます。
 
-#### フィルター本文
+#### フィルター本体
 
 ```json
 {
@@ -237,17 +311,5 @@ description: "この記事では、接続オーディエンスオブジェクト
 }
 ```
 
-- **許容される比較：** `after`、`before`
-- **許容される値：** datetime（ISO 8601文字列）
-
-### 考慮事項 {#considerations}
-
-接続オーディエンスでは、以下の条件によるユーザーのフィルタリングはできません。
-
- - デフォルト属性
- - カスタムイベント
- - セグメント
- - メッセージエンゲージメントイベント
- - 階層化カスタム属性
-
-これらのフィルターを使用するには、オーディエンスセグメントに組み込んだうえで、[`/messages/send`エンドポイント]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#request-parameters)の`segment_id`パラメーターでそのセグメントを指定することをお勧めします。他のエンドポイントを使用する場合は、まずBrazeダッシュボードでAPIトリガーのキャンペーンまたはキャンバスにセグメントを追加する必要があります。
+- **許可される比較:** `after`, `before`
+- **許可される値:** 日時（ISO 8601 文字列）

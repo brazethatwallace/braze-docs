@@ -22,7 +22,7 @@ A Braze não é responsável pelo registro dos usuários no Google nem pelo cump
 | AMP para e-mail ativado | O AMP está disponível para todos os usuários. |
 | Capacitação da conta do Gmail | Consulte [Ativando a conta do Gmail](#enabling-gmail-account). |
 | Autenticação de remetente do Google | O Gmail [autentica o remetente](https://developers.google.com/gmail/ampemail/security-requirements#sender_authentication) de e-mails AMP com DKIM, SPF e DMARC. Esses protocolos devem estar configurados na sua conta. <br><br>- [Domain Keys Identified Mail](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) (DKIM) <br>- [Sender Policy Framework](https://en.wikipedia.org/wiki/Sender_Policy_Framework)(SPF)<br>- [Domain-based Message Authentication, Reporting, and Conformance](https://en.wikipedia.org/wiki/DMARC)(DMARC)
-| Elementos de e-mail AMP | Um e-mail AMP atraente inclui o uso estratégico de diversos componentes. Consulte a guia Essenciais na seção [Componentes](#components) abaixo. |
+| Elementos de e-mail AMP | Um e-mail AMP atraente inclui o uso estratégico de diversos componentes. Consulte a guia Essenciais na seção [Componentes](#components). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
 
 ### Clientes de e-mail compatíveis {#supported-email-clients}
@@ -51,7 +51,7 @@ Acesse as configurações do Gmail e selecione **Ativar e-mail dinâmico** na gu
 
 ## Uso da API {#api-usage}
 
-Você também pode usar o AMP para e-mail com a nossa API. Se você usar qualquer um dos [endpoints de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging) da Braze para enviar um e-mail, adicione `amp_body` como uma especificação de objeto, conforme mostrado abaixo.
+Você também pode usar o AMP para e-mail com a nossa API. Se você usar qualquer um dos [endpoints de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging) da Braze para enviar um e-mail, adicione `amp_body` como uma especificação de objeto, conforme mostrado na seção a seguir.
 
 ### Especificação do objeto de e-mail {#email-object-specification}
 
@@ -208,12 +208,12 @@ Ao envolver seu conteúdo com a tag `raw`, o mecanismo de processamento da Braze
     }
 </style>
 
-<table aria-label="Metrics and analytics">
+<table aria-label="Métricas e análise de dados">
   <caption>Métricas e análise de dados</caption>
     <thead>
         <tr>
             <th>Métrica</th>
-            <th>Informações</th>
+            <th>Detalhes</th>
         </tr>
     </thead>
     <tbody>
@@ -260,7 +260,7 @@ Se nenhuma dessas condições estiver causando o erro, entre em contato com o [S
 
 Você pode configurar sua caixa de entrada do Gmail para renderizar e-mails AMP para fins de teste seguindo os passos abaixo:
 
-1. No Gmail, selecione **Configurações** no canto superior direito da sua caixa de entrada.
+1. No Gmail, selecione **Configurações** na barra de ferramentas da sua caixa de entrada.
 2. Selecione **Ver todas as configurações**.
 3. Na guia **Geral**, vá até a seção **E-mail dinâmico** e confirme que a caixa de seleção **Ativar e-mail dinâmico** está marcada.
 4. Em seguida, selecione **Configurações de desenvolvedor** e marque a caixa de seleção **Sempre permitir e-mails dinâmicos deste remetente:**.

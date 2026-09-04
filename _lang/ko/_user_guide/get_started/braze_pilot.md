@@ -22,7 +22,7 @@ guide_featured_list:
 
 ## Pilot 앱 시뮬레이션 {#pilot-app-simulations}
 
-Braze Pilot의 핵심은 앱 시뮬레이션 라이브러리입니다. 각 앱은 산업별 가상 브랜드를 사실적으로 시뮬레이션한 것으로, 다양한 이벤트와 속성을 기록하도록 계측되어 일반적인 Braze 활용 사례를 구현할 수 있는 무한한 기회를 제공합니다.
+Braze Pilot의 핵심은 앱 시뮬레이션 라이브러리입니다. 각 앱은 산업별 가상 브랜드를 사실적으로 시뮬레이션한 것으로, 다양한 이벤트와 속성을 기록하도록 계측되어 일반적인 Braze 사용 사례를 구현할 수 있는 무한한 기회를 제공합니다.
 
 {% tabs local %}
 {% tab Fitness %}
@@ -38,7 +38,7 @@ Steppington은 운동, 운동 목표, Steppington+ 프리미엄 서비스를 제
 
 ### PantsLabyrinth
 
-PantsLabyrinth는 (예상하셨겠지만) 바지를 판매하는 이커머스 앱입니다! PantsLabyrinth 앱에는 전체 장바구니 결제 경험, 피처 플래그로 활성화할 수 있는 선택적 위시리스트 기능, 그리고 영국 친구들과 재치 있는 농담을 나눌 수 있는 다양한 기회가 포함되어 있습니다.
+PantsLabyrinth는 (예상하셨겠지만) 바지를 판매하는 이커머스 앱입니다! PantsLabyrinth 앱에는 전체 장바구니 결제 경험, 기능 플래그로 활성화할 수 있는 선택적 위시리스트 기능, 그리고 영국 친구들과 재치 있는 농담을 나눌 수 있는 다양한 기회가 포함되어 있습니다.
 
 ![장바구니에 청바지를 추가할 수 있는 옵션이 있는 PantsLabyrinth 제품 페이지.]({% image_buster /assets/img/braze_pilot/pantslabyrinth_app.png %}){:style="max-width:50%"}
 
@@ -47,7 +47,7 @@ PantsLabyrinth는 (예상하셨겠지만) 바지를 판매하는 이커머스 �
 
 ### MovieCanon
 
-MovieCanon은 콘텐츠 참여와 관련된 일반적인 Braze 활용 사례를 보여주기 위해 완벽하게 설계된 스트리밍 서비스입니다.
+MovieCanon은 콘텐츠 참여와 관련된 일반적인 Braze 사용 사례를 보여주기 위해 완벽하게 설계된 스트리밍 서비스입니다.
 
 ![시청할 수 있는 다양한 스릴러가 있는 MovieCanon 앱.]({% image_buster /assets/img/braze_pilot/moviecanon_app.png %}){:style="max-width:50%"}
 
@@ -68,7 +68,7 @@ Pilot이 Braze 대시보드에 연결되면, Braze SDK는 자체 앱이나 웹�
 
 Braze SDK에 대한 자세한 내용은 [통합]({{site.baseurl}}/user_guide/get_started/integrations)을 확인하세요.
 
-![통합, API, 데이터 수집을 위한 SDK, 분류, 오케스트레이션, 개인화, 그리고 고객과의 상호 피드백 루프를 위한 메시징 채널의 동작을 포함하는 Braze 고객 참여 스택.]({% image_buster /assets/img/braze_pilot/braze_sdk_diagram.png %}){:style="max-width:70%"}
+![통합, API, 데이터 수집을 위한 SDK, 분류, 오케스트레이션, 개인화, 그리고 고객과의 인터랙티브 피드백 루프를 위한 메시징 채널의 동작을 포함하는 Braze 고객 참여 스택.]({% image_buster /assets/img/braze_pilot/braze_sdk_diagram.png %}){:style="max-width:70%"}
 
 ## Braze의 고객 프로필 {#user-profiles-in-braze}
 
@@ -84,7 +84,7 @@ Braze에 전송된 모든 데이터는 앱이나 웹사이트의 특정 사용�
 
 ### 연결 유형 {#connection-type}
 
-연결 유형을 확인하려면 Pilot 앱 오른쪽 상단의 연결 상태 표시를 확인하세요.
+연결 유형을 확인하려면 Pilot 앱 상단의 연결 상태 표시를 확인하세요.
 
 {% tabs local %}
 {% tab 익명 사용자 %}
@@ -104,11 +104,11 @@ Braze에 전송된 모든 데이터는 앱이나 웹사이트의 특정 사용�
 {% endtab %}
 {% endtabs %}
 
-## Campaigns 및 Canvases {#campaigns-and-canvases}
+## Campaigns와 Canvases {#campaigns-and-canvases}
 
 Campaigns와 Canvases는 사용자에게 메시지를 보내는 방법입니다.
 
-- Campaigns는 다양한 채널을 통해 특정 오디언스 Segment에 단일 메시지를 보내는 데 가장 적합합니다.
+- Campaigns는 다양한 채널을 통해 특정 오디언스 세그먼트에 단일 메시지를 보내는 데 가장 적합합니다.
 - Canvases는 여러 채널에서 개인화된 고객 여정을 자동화하고 오케스트레이션할 수 있는 고급 Campaign 워크플로우입니다. Canvas 내에서 분기 로직, 지연, 결정 지점, 전환 이벤트를 설정하여 일련의 상호작용을 통해 고객을 안내할 수 있습니다. Canvases는 다양한 접점에서 일관되고 원활한 커뮤니케이션을 보장하여 고객 참여와 전환 가능성을 높이는 데 도움을 줍니다.
 
 ## 지원되는 메시징 채널 {#supported-messaging-channels}

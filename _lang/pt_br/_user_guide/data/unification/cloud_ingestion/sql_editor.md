@@ -20,36 +20,32 @@ Use o Editor SQL quando quiser:
 - Evitar a construção de uma coluna `PAYLOAD`
 - Lidar com casos de uso de dados mais complexos com SQL
 
-{% alert important %}
-O Editor SQL da Ingestão de dados na nuvem está em beta. Fale com o seu gerente de sucesso do cliente ou gerente de conta para obter acesso.
-{% endalert %}
-
 ## Pré-requisitos e limitações {#prerequisites-and-limitations}
 
-O Editor SQL tem as seguintes limitações:
+O SQL Editor tem as seguintes limitações:
 
 - Disponível apenas para fontes de data warehouse: Snowflake, Redshift, BigQuery, Databricks e Fabric.
-- Apenas consultas de leitura com uma única instrução são suportadas.
+- Somente consultas de instrução única e somente leitura são suportadas.
 
 {% alert note %}
-A Braze executa apenas consultas de leitura nos seus dados e não modifica suas tabelas subjacentes. Objetos temporários podem ser criados durante a execução da consulta, mas não são persistidos.
+A Braze executa apenas consultas somente leitura nos seus dados e não modifica suas tabelas subjacentes. Objetos temporários podem ser criados durante a execução da consulta, mas não são persistidos.
 {% endalert %}
 
-## Criar uma nova sincronização com o Editor SQL {#create-a-new-sql-editor-sync}
+## Criar uma nova sincronização com o SQL Editor {#create-a-new-sql-editor-sync}
 
-Siga estas etapas para criar primeiro uma fonte e depois uma sincronização com o Editor SQL. Se você já configurou uma fonte para CDI, pule para a Etapa 3.
+Siga estas etapas para criar primeiro uma fonte e depois uma sincronização com o SQL Editor. Se você já configurou uma fonte para CDI, pode pular para a Etapa 3.
 
 {% alert note %}
-Essas etapas usam uma fonte Snowflake como exemplo. O processo de configuração para outras fontes de data warehouse é semelhante e pode ser encontrado na [Etapa 2: Criar uma nova fonte no dashboard da Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-2-create-a-new-source-in-the-braze-dashboard) da documentação [Configurando integrações de data warehouse]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#setting-up-data-warehouse-integrations).
+Essas etapas usam uma fonte Snowflake como exemplo. O processo de configuração para outras fontes de data warehouse é semelhante e pode ser encontrado em [Etapa 2: Criar uma nova fonte no dashboard da Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-2-create-a-new-source-in-the-braze-dashboard) na documentação [Configurando integrações de data warehouse]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#setting-up-data-warehouse-integrations).
 {% endalert %}
 
-### Etapa 1: Configurar sua role, permissões, warehouse e usuário no Snowflake {#step-1-set-up-your-snowflake-role-permissions-warehouse-and-user}
+### Etapa 1: Configurar sua role, permissões, warehouse e usuário do Snowflake {#step-1-set-up-your-snowflake-role-permissions-warehouse-and-user}
 
-Antes de criar sua fonte Snowflake no CDI, verifique se o usuário Snowflake que a Braze utiliza tem acesso aos dados que você deseja consultar e um warehouse para executar consultas.
+Antes de criar sua fonte Snowflake no CDI, verifique se o usuário do Snowflake que a Braze utiliza tem acesso aos dados que você deseja consultar e a um warehouse para executar consultas.
 
-#### Etapa 1.1: (Opcional) Criar um banco de dados e schema {#step-11-optional-create-a-database-and-schema}
+#### Etapa 1.1: (Opcional) Criar um banco de dados e um esquema {#step-11-optional-create-a-database-and-schema}
 
-Se necessário, crie um banco de dados e schema dedicados para seus dados CDI:
+Se necessário, crie um banco de dados e um esquema dedicados para seus dados de CDI:
 
 ```sql
 CREATE DATABASE BRAZE_CLOUD_PRODUCTION;
@@ -68,7 +64,7 @@ GRANT USAGE ON SCHEMA BRAZE_CLOUD_PRODUCTION.INGESTION TO ROLE BRAZE_INGESTION_R
 GRANT SELECT ON TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.MY_USER_TABLE TO ROLE BRAZE_INGESTION_ROLE;
 ```
 
-Você também pode conceder acesso a múltiplas tabelas ou tabelas futuras, dependendo do seu caso de uso. Por exemplo, para conceder acesso a todas as tabelas futuras em um schema:
+Você também pode conceder acesso a várias tabelas ou tabelas futuras, dependendo do seu caso de uso. Por exemplo, para conceder acesso a todas as tabelas futuras em um esquema:
 
 ```sql
 GRANT SELECT ON FUTURE TABLES IN SCHEMA BRAZE_CLOUD_PRODUCTION.INGESTION TO ROLE BRAZE_INGESTION_ROLE;
@@ -84,10 +80,10 @@ GRANT USAGE ON WAREHOUSE BRAZE_INGESTION_WAREHOUSE TO ROLE BRAZE_INGESTION_ROLE;
 ```
 
 {% alert note %}
-O warehouse deve ter a retomada automática ativada. Se não tiver, conceda à Braze privilégios adicionais de `OPERATE` no warehouse para que a Braze possa ativá-lo quando a consulta for executada.
+O warehouse precisa ter a flag de retomada automática ativada. Caso contrário, conceda à Braze privilégios adicionais de `OPERATE` no warehouse para que a Braze possa ativá-lo quando a consulta for executada.
 {% endalert %}
 
-#### Etapa 1.4: Criar um usuário Snowflake {#step-14-create-a-snowflake-user}
+#### Etapa 1.4: Criar um usuário do Snowflake {#step-14-create-a-snowflake-user}
 
 Crie um usuário para a Braze e atribua a role:
 
@@ -104,23 +100,23 @@ Nesta etapa, crie sua fonte Snowflake na Braze e valide a conexão.
 
 #### Etapa 2.1: Adicionar uma fonte Snowflake {#step-21-add-a-snowflake-source}
 
-1. No dashboard da Braze, acesse **Configurações de dados** > **Ingestão de dados na nuvem** > **Fontes**.
+1. No dashboard da Braze, acesse **Data Settings** > **Cloud Data Ingestion** > **Sources**.
 2. Selecione **Add data source**.
 3. Selecione **Snowflake**.
 
-#### Etapa 2.2: Inserir detalhes da conexão {#step-22-enter-connection-details}
+#### Etapa 2.2: Inserir detalhes de conexão {#step-22-enter-connection-details}
 
-Escolha um nome para sua fonte e insira suas credenciais e configuração do Snowflake.
+Escolha um nome para sua fonte e insira suas credenciais e configurações do Snowflake.
 
 {% alert note %}
-Para o campo **Snowflake Account Locator**, insira o [identificador de conta](https://docs.snowflake.com/en/user-guide/admin-account-identifier) do Snowflake, que normalmente segue um formato como `xy12345.us-east-1.aws`. Isso não é o mesmo que um nome de banco de dados ou nome de warehouse.
+Para o campo **Snowflake Account Locator**, insira seu [identificador de conta](https://docs.snowflake.com/en/user-guide/admin-account-identifier) do Snowflake, que normalmente segue um formato como `xy12345.us-east-1.aws`. Isso não é o mesmo que um nome de banco de dados ou nome de warehouse.
 {% endalert %}
 
 #### Etapa 2.3: Concluir a configuração da chave RSA {#step-23-complete-rsa-key-setup}
 
-Após inserir suas credenciais e configuração, selecione **Save credentials** e gere uma chave RSA. Em seguida, volte ao Snowflake para concluir a configuração. Adicione a chave pública exibida no dashboard ao usuário que você criou para a Braze se conectar ao Snowflake.
+Após inserir suas credenciais e configurações, selecione **Save credentials** e gere uma chave RSA. Em seguida, volte ao Snowflake para concluir a configuração. Adicione a chave pública exibida no dashboard ao usuário que você criou para a Braze se conectar ao Snowflake.
 
-Para mais informações, consulte [Autenticação por par de chaves do Snowflake](https://docs.snowflake.com/en/user-guide/key-pair-auth). Se quiser rotacionar as chaves em algum momento, a Braze pode gerar um novo par de chaves e fornecer a nova chave pública.
+Para informações adicionais, consulte [Autenticação por par de chaves do Snowflake](https://docs.snowflake.com/en/user-guide/key-pair-auth). Se você quiser fazer a rotação de chaves em algum momento, a Braze pode gerar um novo par de chaves e fornecer a nova chave pública.
 
 ```sql
 ALTER USER BRAZE_INGESTION_USER SET RSA_PUBLIC_KEY='MIIBIjANBgkqhkiG9w0BA...';
@@ -130,23 +126,23 @@ De volta à Braze, selecione **Test connection** para verificar o acesso à font
 
 ### Etapa 3: Criar uma nova sincronização e escrever sua consulta SQL {#step-3-create-a-new-sync-and-write-your-sql-query}
 
-1. Acesse **Configurações de dados** > **Ingestão de dados na nuvem** > **Syncs**.
+1. Acesse **Data Settings** > **Cloud Data Ingestion** > **Syncs**.
 2. Selecione **Create data sync**.
 3. Escolha qualquer sincronização em **Data Type**.
 4. Referencie a fonte da Etapa 2.
-5. Selecione **SQL** e escreva uma consulta SQL que retorne dados de usuários do seu warehouse. Sua consulta SQL define os dados que serão sincronizados com a Braze. O resultado da consulta se torna o schema da sua sincronização.
+5. Selecione **SQL** e escreva uma consulta SQL que retorne dados de usuários do seu warehouse. Sua consulta SQL define os dados que serão sincronizados com a Braze. O resultado da consulta se torna o esquema da sua sincronização.
 
 Você pode usar o Source Explorer para navegar pelas tabelas e views disponíveis para sincronização, ou o gerador de SQL com IA para obter a ajuda do Braze Operator na sua consulta SQL.
 
 {% alert note %}
-Apenas consultas de leitura são suportadas, incluindo cláusulas `JOIN`. Para mais detalhes, consulte [Restrições de SQL](#sql-constraints).
+Apenas consultas somente leitura são suportadas, incluindo cláusulas `JOIN`. Para mais detalhes, consulte [Restrições de SQL](#sql-constraints).
 {% endalert %}
 
-### Etapa 4: Pré-visualizar e validar sua consulta {#step-4-preview-and-validate-your-query}
+### Etapa 4: Visualizar e validar sua consulta {#step-4-preview-and-validate-your-query}
 
-Selecione **Preview and validate** para executar sua consulta.
+Selecione **prévia and validate** para executar sua consulta.
 
-A pré-visualização:
+A prévia:
 
 - Exibe os resultados em formato de tabela
 - Mostra até 100 linhas
@@ -156,23 +152,23 @@ Para validar com sucesso, sua consulta SQL deve retornar várias colunas obrigat
 
 | Tipo de dados da sincronização | Colunas obrigatórias |
 |---|---|
-| Atributos | - Um identificador de usuário, sendo um dos seguintes: `external_id`, `braze_id`, `alias_name` e `alias_label`, e-mail ou número de telefone.<br>- `UPDATED_AT`.<br>- Pelo menos uma coluna adicional (atributo) para sincronizar. |
-| Excluir usuários | - Um identificador de usuário, sendo um dos seguintes: `external_id`, `braze_id`, `alias_name` e `alias_label`, e-mail ou número de telefone.<br>- `UPDATED_AT`. |
-| Canvas Triggers | - Um identificador de usuário, sendo um dos seguintes: `external_id`, `braze_id`, `alias_name` e `alias_label`, e-mail ou número de telefone.<br>- `UPDATED_AT`. |
-| Eventos personalizados | - Um identificador de usuário, sendo um dos seguintes: `external_id`, `braze_id`, `alias_name` e `alias_label`, e-mail ou número de telefone.<br>- `UPDATED_AT`.<br>- `NAME` para representar o nome do evento.<br>- `TIME` para representar o horário do evento. Se indisponível, o CDI usa `UPDATED_AT` como substituto. |
-| Eventos de compra | - Um identificador de usuário, sendo um dos seguintes: `external_id`, `braze_id`, `alias_name` e `alias_label`, e-mail ou número de telefone.<br>- `UPDATED_AT`.<br>- `PRODUCT_ID`.<br>- `CURRENCY`.<br>- `PRICE`.<br>- `TIME` para representar o horário do evento de compra. Se indisponível, o CDI usa `UPDATED_AT` como substituto. |
+| Atributos | - Um identificador de usuário, sendo um entre `external_id`, `braze_id`, `alias_name` e `alias_label`, e-mail ou número de telefone.<br>- `UPDATED_AT`.<br>- Pelo menos uma coluna adicional (atributo) para sincronizar. |
+| Excluir usuários | - Um identificador de usuário, sendo um entre `external_id`, `braze_id`, `alias_name` e `alias_label`, e-mail ou número de telefone.<br>- `UPDATED_AT`. |
+| Canvas Triggers | - Um identificador de usuário, sendo um entre `external_id`, `braze_id`, `alias_name` e `alias_label`, e-mail ou número de telefone.<br>- `UPDATED_AT`. |
+| Eventos personalizados | - Um identificador de usuário, sendo um entre `external_id`, `braze_id`, `alias_name` e `alias_label`, e-mail ou número de telefone.<br>- `UPDATED_AT`.<br>- `NAME` para representar o nome do evento.<br>- `TIME` para representar o horário do evento. Se indisponível, o CDI usa `UPDATED_AT` como substituto. |
+| Eventos de compra | - Um identificador de usuário, sendo um entre `external_id`, `braze_id`, `alias_name` e `alias_label`, e-mail ou número de telefone.<br>- `UPDATED_AT`.<br>- `PRODUCT_ID`.<br>- `CURRENCY`.<br>- `PRICE`.<br>- `TIME` para representar o horário do evento de compra. Se indisponível, o CDI usa `UPDATED_AT` como substituto. |
 | Catálogo | - `ID` para representar o identificador do item do catálogo.<br>- `UPDATED_AT`.<br>- Pelo menos uma coluna adicional (campo do catálogo) para sincronizar. |
 | Contas | - `ID` para representar o identificador da conta.<br>- `NAME` para representar o nome da conta.<br>- `UPDATED_AT`.<br>- Pelo menos uma coluna adicional (campo da conta) para sincronizar. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 4: Pré-visualizar e validar sua consulta" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 4: Visualizar e validar sua consulta" }
 
-Colunas adicionais além das obrigatórias são sincronizadas como atributos, propriedades de contexto do Canvas, propriedades de eventos, campos de catálogo e campos de conta, respectivamente. Consulte [Comportamento de validação](#validation-behavior) e [Solução de problemas](#troubleshooting) para dicas úteis sobre erros de pré-visualização e validação e como corrigi-los.
+Colunas adicionais além das obrigatórias são sincronizadas como atributos, propriedades de contexto do Canvas, propriedades de eventos, campos de catálogo e campos de conta, respectivamente. Consulte [Comportamento de validação](#validation-behavior) e [Solução de problemas](#troubleshooting) para dicas úteis sobre erros de prévia e validação e como corrigi-los.
 
 ### Etapa 5: Revisar o mapeamento de atributos e criar a sincronização {#step-5-review-attribute-mapping-and-create-sync}
 
 Quando a validação for bem-sucedida, continue para **Next: Notifications** e crie sua sincronização.
 
 {% alert important %}
-Uma configuração SQL incorreta pode levar a resultados indesejados, incluindo o consumo excessivo de data points e riscos operacionais mais amplos. Você é responsável por garantir que a lógica da sua consulta esteja correta e deve pré-visualizar cuidadosamente todos os resultados antes de ativar uma sincronização.
+Uma configuração SQL imprecisa pode levar a resultados indesejados, incluindo o consumo excessivo de pontos de dados e riscos operacionais mais amplos. Você é responsável por garantir que a lógica da sua consulta esteja correta e deve visualizar cuidadosamente todos os resultados antes de ativar uma sincronização.
 {% endalert %}
 
 ## Restrições de SQL {#sql-constraints}
@@ -251,11 +247,11 @@ Se sua consulta retornar zero linhas:
 - Você ainda pode criar a sincronização
 - Nenhum usuário é atualizado até que linhas sejam retornadas
 
-## Suporte a `PAYLOAD` (legado) {#payload-support-legacy}
+## Suporte a PAYLOAD (legado) {#payload-support-legacy}
 
-O Editor SQL suporta [tabelas CDI legadas]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations?tab=snowflake#step-1-set-up-tables-or-views) onde uma coluna `PAYLOAD` está presente.
+O SQL Editor oferece suporte a [tabelas CDI legadas]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations?tab=snowflake#step-1-set-up-tables-or-views) em que uma coluna `PAYLOAD` está presente.
 
-Se sua consulta incluir:
+Se a sua consulta incluir:
 
 - Um identificador válido
 - `UPDATED_AT`
@@ -272,7 +268,7 @@ Então:
 Ao editar uma sincronização existente:
 
 - Qualquer alteração no SQL requer revalidação
-- Você não pode salvar alterações inválidas
+- Não é possível salvar alterações inválidas
 - Alterações válidas entram em vigor após salvar
 
 Se uma execução de sincronização já estiver em andamento, suas alterações entrarão em vigor na próxima execução.
@@ -283,11 +279,11 @@ Esta seção inclui erros comuns e orientações sobre como solucioná-los.
 
 ### Sem pré-visualização disponível {#no-preview-available}
 
-Quando você vê "No preview available", um dos seguintes tipos de erro pode estar causando isso.
+Quando você vê "No prévia available", um dos seguintes tipos de erro pode estar causando isso.
 
 | Tipo de erro | Etapas para resolver |
 |---|---|
-| "No preview available" | Leia o banner de erro para obter dicas. |
+| "No prévia available" | Leia o banner de erro para obter dicas. |
 | "Unable to connect to the source" | Verifique o nome de usuário configurado, o localizador de conta e a configuração de autenticação por par de chaves RSA.<br>Verifique se o warehouse está em execução.<br>Confirme o acesso à rede. |
 | "SQL syntax error" | Verifique a sintaxe do seu SQL. |
 | "Object does not exist or not authorized" | Verifique se a role tem acesso `SELECT` à tabela.<br>Confirme as permissões de banco de dados e schema.<br>Verifique erros de digitação no nome da tabela. |

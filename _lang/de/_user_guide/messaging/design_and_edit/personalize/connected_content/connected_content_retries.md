@@ -12,15 +12,15 @@ description: "Dieser Referenzartikel behandelt den Umgang mit Connected-Content-
 
 ## Funktionsweise von Wiederholungsversuchen {#how-retries-work}
 
-Da Connected-Content auf den Empfang von Daten von APIs angewiesen ist, kann eine API zeitweise nicht verfügbar sein, während Braze den Aufruf durchführt. In diesem Fall unterstützt Braze eine Wiederholungslogik, um die Anfrage mit exponentiellem Backoff erneut zu versuchen.
+Da Connected Content auf den Empfang von Daten aus APIs angewiesen ist, kann eine API vorübergehend nicht verfügbar sein, während Braze den Aufruf durchführt. In diesem Fall unterstützt Braze eine Wiederholungslogik, um die Anfrage mithilfe von exponentiellem Backoff erneut zu versuchen.
 
 {% alert note %}
-Connected-Content `:retry` ist für In-App-Nachrichten nicht verfügbar.
+Connected-Content `:retry` ist für In-App Messages nicht verfügbar.
 {% endalert %}
 
-## Wiederholungslogik verwenden {#using-retry-logic}
+## Verwendung der Wiederholungslogik {#using-retry-logic}
 
-Um die Wiederholungslogik zu verwenden, fügen Sie das `:retry`-Tag zum Connected-Content-Aufruf hinzu, wie im folgenden Code-Snippet gezeigt:
+Um die Wiederholungslogik zu verwenden, fügen Sie dem Connected-Content-Aufruf den Tag `:retry` hinzu, wie im folgenden Code-Snippet gezeigt:
 
 {% raw %}
 ```
@@ -29,18 +29,22 @@ Um die Wiederholungslogik zu verwenden, fügen Sie das `:retry`-Tag zum Connecte
 ```
 {% endraw %}
 
-Wenn ein `:retry`-Tag im Connected-Content-Aufruf enthalten ist, versucht Braze den Aufruf bis zu fünf Mal zu wiederholen.
+Wenn ein `:retry`-Tag im Connected-Content-Aufruf enthalten ist, versucht Braze, den Aufruf bis zu fünfmal zu wiederholen.
 
-### Ergebnisse der Wiederholungsversuche {#retry-outcomes}
+### Vorschauverhalten {#preview-behavior}
 
-#### Wenn ein Wiederholungsversuch erfolgreich ist {#when-a-retry-succeeds}
+Die Wiederholungslogik gilt nur für Live-Sendungen (einschließlich Testsendungen), nicht für Vorschauen. Wenn ein Connected-Content-Aufruf mit `:retry` während der Vorschau fehlschlägt, zeigt die Vorschau möglicherweise die Nachricht „This message would not have been shown because retry functionality was triggered“ an, anstatt den Inhalt zu rendern. Dies ist das erwartete Verhalten und weist nicht auf ein Problem innerhalb von Braze hin.
 
-Wenn ein erneuter Versuch erfolgreich ist, wird die Nachricht gesendet und es werden keine weiteren Wiederholungsversuche für diese Nachricht unternommen.
+### Ergebnisse der Wiederholung {#retry-outcomes}
 
-#### Wenn der API-Aufruf fehlschlägt und Wiederholungsversuche aktiviert sind {#when-the-api-call-fails-and-retries-are-enabled}
+#### Wenn eine Wiederholung erfolgreich ist {#when-a-retry-succeeds}
 
-Wenn der API-Aufruf fehlschlägt und diese Funktion aktiviert ist, wiederholt Braze den Aufruf unter Einhaltung der [Rate-Limits]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting), die Sie für jeden erneuten Versand festgelegt haben. Braze verschiebt fehlgeschlagene Nachrichten an das Ende der Warteschlange und fügt bei Bedarf zusätzliche Minuten zur Gesamtzeit hinzu, die für den Versand Ihrer Nachricht benötigt wird.
+Wenn ein wiederholter Versuch erfolgreich ist, wird die Nachricht gesendet und es werden keine weiteren Wiederholungen für diese Nachricht unternommen.
 
-Wenn der Connected-Content-Aufruf mehr als fünf Mal fehlschlägt, wird die Nachricht abgebrochen, ähnlich wie ein [Nachricht-abbrechen-Tag]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content) ausgelöst wird.
+#### Wenn der API-Aufruf fehlschlägt und Wiederholungen aktiviert sind {#when-the-api-call-fails-and-retries-are-enabled}
+
+Wenn der API-Aufruf fehlschlägt und diese Funktion aktiviert ist, wiederholt Braze den Aufruf unter Einhaltung des [Rate-Limits]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting), das Sie für jede erneute Sendung festgelegt haben. Braze verschiebt fehlgeschlagene Nachrichten an das Ende der Warteschlange und fügt bei Bedarf zusätzliche Minuten zur Gesamtdauer hinzu, die für den Versand Ihrer Nachricht benötigt wird.
+
+Wenn der Connected-Content-Aufruf mehr als fünfmal fehlschlägt, wird die Nachricht abgebrochen, ähnlich wie bei einem ausgelösten [Abbruch-Nachrichten-Tag]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content).
 
 {% multi_lang_include connected_content/abort_and_retry_logic.md %}

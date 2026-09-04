@@ -44,13 +44,12 @@ To create an internal group:
 
 | Group type         | Description                                                                                 |
 |--------------------|---------------------------------------------------------------------------------------------|
-| **User Event Group**   | Use this to verify events or logs from your test device.                                    |
+| **User Event Group**   | Use this to verify events or logs from your test device.<br><br>To capture SDK and REST API logs for group members, select the **User Events** checkbox. Without this setting, users added to the group won't show logs in the [Event User Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log). |
 | **Content Test Group** | Use this across push, email, and in-app messages to send a rendered copy of the message. |
 | **Seed Group**         | Automatically sends a copy of the email to everyone in the Seed Group upon send.               |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Creating an internal group" }
 
 {:start="5"}
-
 5. Select **Create internal group** again.
 
 ### Adding test users

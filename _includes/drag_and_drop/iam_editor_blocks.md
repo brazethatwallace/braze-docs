@@ -91,13 +91,13 @@ Inserts a dropdown with a predefined list of items from which users can select o
 
 ### Checkbox
 
-Inserts a checkbox. If the user checks the box, the block's [boolean custom attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#custom-attribute-data-types) is set to `true`. If left unchecked, its attribute is set to `false`.
+Inserts a checkbox. If the user checks the box, the block's [boolean custom attribute]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) is set to `true`. If left unchecked, its attribute is set to `false`.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/checkbox_properties.md %}
 
 ### Checkbox group
 
-Users can select from multiple choices. Values are set or added to a defined [array custom attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#custom-attribute-data-types).
+Users can select from multiple choices. Values are set or added to a defined [array custom attribute]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types).
 
 {% multi_lang_include drag_and_drop/editor_block_properties/checkbox_group_properties.md %}
 

@@ -4,7 +4,7 @@ article_title: Configuración de mensajes
 page_order: 0
 layout: dev_guide
 guide_top_header: "Configuración de mensajes"
-guide_top_text: "Configura tu mensajería SMS, MMS y RCS estableciendo remitentes, grupos de suscripción y números de teléfono. Para orientación sobre cumplimiento, consulta Cumplimiento y entrega."
+guide_top_text: "Configura tu mensajería SMS, MMS y RCS estableciendo remitentes, grupos de suscripción y números de teléfono. Para un resumen multicanal de los grupos de suscripción, consulta <a href='/docs/user_guide/audience/subscription_preferences/subscription_groups'>Grupos de suscripción</a>. Para orientación sobre cumplimiento, consulta Cumplimiento y entrega."
 page_type: landing
 description: "Configura la mensajería SMS, MMS y RCS en Braze, incluyendo la configuración de remitentes, grupos de suscripción y números de teléfono."
 channel:

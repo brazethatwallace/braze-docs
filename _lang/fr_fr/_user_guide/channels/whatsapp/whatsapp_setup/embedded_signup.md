@@ -2,7 +2,7 @@
 nav_title: Inscription intégrée
 article_title: Inscription intégrée WhatsApp
 page_order: 1
-description: "Cet article de référence fournit un guide étape par étape du processus d'inscription intégrée WhatsApp dans Braze."
+description: "Cet article de référence explique comment accéder au flux d'inscription intégrée WhatsApp dans Braze, ce qu'il faut préparer avant l'inscription Meta et ce qui se passe une fois l'inscription terminée."
 page_type: reference
 channel:
   - WhatsApp
@@ -10,38 +10,68 @@ channel:
 
 # Inscription intégrée WhatsApp {#whatsapp-embedded-signup}
 
-> Cet article de référence fournit un guide étape par étape du processus d'inscription intégrée WhatsApp dans Braze.
+> Utilisez l'inscription intégrée pour connecter Braze à un compte WhatsApp Business (WABA) via le flux d'inscription hébergé par Meta.
 
-Le processus d'inscription intégrée WhatsApp est accessible lorsque vous [intégrez WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup) pour la première fois dans votre espace de travail Braze, et lorsque vous [ajoutez un compte WhatsApp Business]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups) à une intégration WhatsApp existante.
+Le flux d'inscription intégrée WhatsApp s'ouvre lorsque vous [intégrez WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup) pour la première fois dans votre espace de travail Braze, et lorsque vous [ajoutez un compte WhatsApp Business ou un numéro de téléphone]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups) à une intégration existante.
 
 {% alert note %}
-Vous pouvez ajouter [plusieurs comptes WhatsApp Business]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups) à un espace de travail Braze. Cependant, chaque compte WhatsApp Business spécifique ne peut être ajouté qu'à un seul espace de travail Braze.
+Vous pouvez ajouter [plusieurs comptes WhatsApp Business]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/multiple_business_accounts) à un espace de travail Braze. Cependant, chaque compte WhatsApp Business spécifique ne peut être ajouté qu'à un seul espace de travail Braze.
 {% endalert %}
 
-## Accéder au processus {#accessing-the-workflow}
+## Accéder au workflow {#accessing-the-workflow}
 
-Accédez à **Intégrations partenaires** > **Partenaires technologiques**, puis recherchez et sélectionnez **WhatsApp**. Votre prochaine sélection dépend de votre cas d'utilisation :
+1. Accédez à **Partner Integrations** > **Technology Partners**.
+2. Recherchez et sélectionnez **WhatsApp**.
+3. Sélectionnez l'option qui correspond à votre cas d'usage :
+   - **Première intégration :** Sélectionnez **Begin Integration**.
+   - **Compte ou numéro supplémentaire :** Sur la page **WhatsApp Messaging Integration**, sélectionnez **Add account or number** ou **Add WhatsApp Business Account**.
 
-- Si vous intégrez WhatsApp dans votre espace de travail, sélectionnez **Begin Integration**. <br><br>![Page partenaire WhatsApp avec un bouton pour commencer l'intégration.]({% image_buster /assets/img/whatsapp/whatsapp1.png %}){: style="max-width:80%;"}<br><br>
-- Si vous ajoutez un compte WhatsApp Business à une intégration WhatsApp existante, sélectionnez **Add WhatsApp Business Account**. <br><br>![« WhatsApp Messaging Integration » avec des options pour ajouter un compte WhatsApp Business ou un groupe d'abonnement et un numéro.]({% image_buster /assets/img/whatsapp/multiple_wabas.png %}){: style="max-width:80%;"}
+Le flux d'inscription intégrée de Meta est le même une fois que vous l'avez lancé depuis l'un ou l'autre point d'entrée. Votre espace de travail peut également afficher des onglets d'intégration, tels que **Native Integration** ou **BYO Connector - Infobip**, en fonction de votre configuration. Sélectionnez l'onglet qui correspond à votre configuration avant de commencer.
 
-Le processus à partir de ce point est le même pour les deux cas d'utilisation.
+## Préparer l'inscription {#prepare-for-signup}
+
+Lorsque vous sélectionnez **Begin Integration**, Braze ouvre une fenêtre d'onboarding. Parcourez chaque diapositive, puis sélectionnez à nouveau **Begin Integration** pour lancer l'inscription intégrée Meta.
+
+Avant de commencer, préparez les éléments suivants :
+
+- **Accès au Meta Business gestionnaire :** La plupart des entreprises utilisent Meta Business gestionnaire pour gérer les pages Facebook, les publicités et les ressources professionnelles associées. Si vous n'y avez pas accès, demandez à un administrateur de vous accorder les autorisations nécessaires ou créez un compte Business gestionnaire lors de l'inscription.
+- **Numéro de téléphone :** Utilisez un numéro qui répond aux [exigences de Meta pour les numéros de téléphone WhatsApp](https://developers.facebook.com/docs/whatsapp/phone-numbers). Vous recevrez un code de vérification à usage unique par SMS ou appel téléphonique lors de l'inscription.
+
+{% alert important %}
+Vous n'effectuerez l'inscription intégrée initiale qu'une seule fois par chemin d'intégration, alors saisissez vos informations professionnelles avec le plus de précision possible.
+{% endalert %}
 
 ## Processus d'inscription intégrée WhatsApp {#whatsapp-embedded-signup-workflow}
 
-1. Dans la fenêtre de connexion Meta (Facebook), sélectionnez **Login as** ou **Continue**. <br><br>![Fenêtre de connexion Meta.]({% image_buster /assets/img/whatsapp/login_screen.png %}){: style="max-width:60%;"}<br><br>
-2. Lisez les autorisations que vous partagerez avec Braze, puis sélectionnez **Get Started**. <br><br>![Liste des autorisations que vous partagerez avec Braze pour l'intégration.]({% image_buster /assets/img/whatsapp/get_started.png %}){: style="max-width:50%;"}<br><br>
-3. Sur cet écran, configurez les éléments suivants, puis sélectionnez **Next** :
-- Dans le menu déroulant **Business portfolio**, sélectionnez votre portefeuille d'entreprise. Celui-ci est lié à votre compte WhatsApp Business. Si vous ne voyez pas le portefeuille d'entreprise attendu, vérifiez vos autorisations.
-- Dans le champ **WhatsApp business account**, sélectionnez **Create a new WhatsApp Business Account**, y compris lorsque vous ajoutez un autre compte WhatsApp Business à votre espace de travail ou lorsque ce compte existe déjà dans Meta. Choisissez cette option au lieu de sélectionner un compte WhatsApp Business existant dans le menu déroulant. <br><br>![Une fenêtre avec des champs pour saisir les informations de votre entreprise, y compris le nom de votre portefeuille d'entreprise.]({% image_buster /assets/img/whatsapp/business_info.png %}){: style="max-width:50%;"}<br><br>
-4. Sélectionnez les options suivantes dans les menus déroulants, puis sélectionnez **Next**.
-- **Choose a WhatsApp Business account** : Create a WhatsApp business account
-- **Create or select a WhatsApp Business profile** : Create a new WhatsApp business profile <br><br>![Champs pour spécifier si vous choisissez ou créez un compte et un profil WhatsApp Business.]({% image_buster /assets/img/whatsapp/create_select_waba.png %}){: style="max-width:50%;"}<br><br>
-5. Fournissez les informations suivantes, puis sélectionnez **Next**.
-- Nom du compte WhatsApp Business
-- Nom d'affichage WhatsApp Business
-- Catégorie <br><br>![Champs pour fournir les détails du nouveau compte WhatsApp Business.]({% image_buster /assets/img/whatsapp/waba_details.png %}){: style="max-width:50%;"}<br><br>
-6. Saisissez votre numéro de téléphone et choisissez **Text message** ou **Phone call**. Pour un nouveau numéro, celui-ci doit respecter les exigences de WhatsApp en matière de numéro de téléphone, y compris ne pas être enregistré sur un autre compte WhatsApp. Si vous migrez un numéro existant (voir l'étape 3) et que Meta indique que le numéro est déjà utilisé, ignorez l'avertissement pour terminer la migration. <br><br>![Champs pour ajouter un numéro de téléphone.]({% image_buster /assets/img/whatsapp/add_phone_number.png %}){: style="max-width:50%;"}<br><br>
-7. Saisissez votre code d'authentification à deux facteurs, puis sélectionnez **Next**. <br><br>![Un champ de saisie pour un code d'authentification à deux facteurs.]({% image_buster /assets/img/whatsapp/two_factor.png %}){: style="max-width:50%;"}<br><br>
-8. Vérifiez les autorisations que votre compte WhatsApp Business recevra, puis sélectionnez **Continue**. <br><br>![Liste des autorisations demandées par le compte WhatsApp Business.]({% image_buster /assets/img/whatsapp/permissions.png %}){: style="max-width:50%;"}<br><br>
-9. C'est terminé ! <br><br>![Fenêtre indiquant que vous êtes prêt à commencer à envoyer des messages.]({% image_buster /assets/img/whatsapp/finish.png %}){: style="max-width:50%;"}
+Après que Braze a lancé l'inscription intégrée Meta, connectez-vous avec un compte Meta ayant accès au Business gestionnaire de votre entreprise. Meta héberge les écrans d'inscription ; Braze ne contrôle ni leur mise en page ni leurs libellés.
+
+{% alert note %}
+Meta peut modifier les écrans d'inscription intégrée sans préavis. Si le processus diffère de cet article, suivez les instructions de Meta et consultez la [documentation de Meta sur l'inscription intégrée](https://developers.facebook.com/docs/whatsapp/embedded-signup/embed-the-flow).
+{% endalert %}
+
+De manière générale, Meta vous guide à travers les étapes suivantes :
+
+1. **Connexion et octroi des autorisations.** Authentifiez-vous auprès de Meta et autorisez Braze à se connecter à votre compte WhatsApp Business.
+2. **Sélection de votre portefeuille d'entreprise.** Connectez le portefeuille Business gestionnaire qui doit posséder le compte WhatsApp Business. Si vous ne voyez pas le portefeuille attendu, vérifiez vos autorisations Meta.
+3. **Connexion ou création d'un compte WhatsApp Business.** Créez un nouveau compte ou sélectionnez un compte inutilisé lorsque vous y êtes invité. Ne sélectionnez pas un compte WhatsApp Business activement connecté à un autre fournisseur de communication ; cette connexion ne fonctionnera pas dans Braze. Pour [migrer un numéro depuis un autre fournisseur]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number), contactez votre équipe Braze avant de commencer.
+4. **Fourniture des informations d'entreprise et d'affichage.** Saisissez le nom du compte, le nom d'affichage et la catégorie que Meta demande pour votre compte WhatsApp Business.
+5. **Vérification de votre numéro de téléphone.** Ajoutez le numéro que vous souhaitez utiliser pour la communication WhatsApp et effectuez la vérification par SMS ou appel téléphonique.
+
+Lorsque Meta termine l'inscription intégrée, le contrôle revient à Braze.
+
+## Finaliser l'intégration Braze {#complete-the-braze-integration}
+
+Après l'inscription intégrée, Braze exécute automatiquement les étapes de configuration. Sur la page **WhatsApp Messaging Integration**, vous pouvez voir des messages de progression tels que **Sign-up flow completed, integration with WhatsApp in progress** pendant que Braze effectue les opérations suivantes :
+
+- Récupère l'identifiant de votre compte WhatsApp Business et les numéros de téléphone depuis Meta
+- Ajoute l'utilisateur système Braze à votre compte WhatsApp Business
+- Enregistre les numéros de téléphone et s'abonne aux événements webhook
+- Crée un [groupe d'abonnement]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups) Braze pour chaque numéro connecté
+
+Attendez que l'intégration soit terminée avant d'envoyer des messages. Si la configuration échoue, consultez l'erreur sur la page d'intégration et reportez-vous à la section [Configuration de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup) pour obtenir des conseils généraux.
+
+## Étapes suivantes {#next-steps}
+
+- [Acquérir ou migrer un numéro de téléphone WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers)
+- [Créer un message WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message)
+- [Gérer les groupes d'abonnement]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups)

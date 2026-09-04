@@ -58,7 +58,7 @@ Luego, determina si vas a [recopilar atributos personalizados](#custom-attribute
 
 #### Recopilar atributos personalizados {#custom-attributes}
 
-Selecciona **Log attributes upon submission** para recopilar atributos basados en la respuesta del usuario. Puedes usar esta opción para crear nuevos segmentos y campañas de reorientación. Por ejemplo, en un [cuestionario de satisfacción](#user-satisfaction), podrías enviar un correo electrónico de seguimiento a todos los usuarios que no estaban contentos.
+Selecciona **Log attributes upon submission** para recopilar atributos basados en la respuesta del usuario. Puedes usar esta opción para crear nuevos segmentos y Campaigns de reorientación. Por ejemplo, en un [cuestionario de satisfacción](#user-satisfaction), podrías enviar un correo electrónico de seguimiento a todos los usuarios que no estaban contentos.
 
 Para agregar un atributo personalizado a cada opción, selecciona un nombre de atributo personalizado del menú desplegable (o crea uno nuevo), y luego ingresa el valor que se establecerá cuando se envíe esta opción. También puedes crear un nuevo atributo personalizado en tu [página de configuración]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data).
 
@@ -75,7 +75,7 @@ Cuando la recopilación de atributos personalizados está habilitada, las opcion
 
 Por ejemplo, en un [cuestionario de preferencias de notificación](#notification-preferences), podrías hacer que cada opción sea un atributo booleano (verdadero/falso) para permitir que los usuarios seleccionen los temas que les interesan. Si un usuario marca la opción "Promociones", eso actualizará su [perfil de usuario]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle) con el atributo personalizado `Promotions Topic` establecido en `true`. Si deja la opción sin marcar, ese mismo atributo permanecerá sin cambios.
 
-Luego puedes usar el filtro `Custom Attribute` para crear un segmento de usuarios con el atributo personalizado `Promotions Topic` `is` `true` para asegurarte de que solo los usuarios interesados en tus promociones reciban las campañas relevantes.
+Luego puedes usar el filtro `Custom Attribute` para crear un Segment de usuarios con el atributo personalizado `Promotions Topic` `is` `true` para asegurarte de que solo los usuarios interesados en tus promociones reciban las Campaigns relevantes.
 
 #### Registrar solo las respuestas {#no-attributes}
 
@@ -85,9 +85,13 @@ Estas métricas de clics no están disponibles para reorientación.
 
 ### Paso 4: Elige el comportamiento de envío {#step-4-choose-submission-behavior}
 
-Una vez que un usuario envía su respuesta, puedes opcionalmente mostrar una página de confirmación o simplemente cerrar el mensaje.
+Cuando un usuario envía su respuesta, puedes opcionalmente mostrar una página de confirmación o simplemente cerrar el mensaje.
 
 Una página de confirmación es un excelente lugar para agradecer a los usuarios por su tiempo o proporcionar información adicional. Puedes personalizar la llamada a la acción en esta página para guiar a los usuarios a otra página de tu aplicación o sitio web.
+
+{% alert note %}
+Al usar una página de confirmación, el campo **Header** es obligatorio. Si ves un mensaje de "Composer has validation errors" al intentar guardar tu Campaign, agrega un encabezado a tu página de confirmación.
+{% endalert %}
 
 Edita el texto de tu botón y el comportamiento al hacer clic en la sección **Submit Button** en la parte inferior de la pestaña **Survey**:
 
@@ -101,7 +105,7 @@ Si deseas guiar a los usuarios a otra página de tu aplicación o sitio web, cam
 
 ### Paso 5: Estiliza tu mensaje (opcional) {#styling}
 
-Puedes personalizar el color de la fuente y el color de acento del mensaje usando el selector de **Color Theme**.
+Puedes personalizar el color de la fuente y el color de acento del mensaje usando el SELECTOR de **Color Theme**.
 
 ![Pestaña Redactar del editor de cuestionario simple con el selector de Color Theme expandido después de que un usuario ha hecho clic en la paleta de colores.]({% image_buster /assets/img/iam/color-theme-picker.png %}){: style="max-width:80%"}
 
@@ -115,7 +119,7 @@ Las opciones de cuestionario eliminadas seguirán apareciendo en los análisis, 
 
 Puedes encontrar las métricas de rendimiento de tu cuestionario expandiendo el menú desplegable **Results** para una variante específica en la sección **In-App Message Performance** de los análisis. Aquí tienes un desglose de lo que verás:
 
-- **Interacción con el cuestionario** muestra cómo los usuarios interactuaron con el cuestionario en general, incluyendo envíos totales, descartes y clics dentro del cuerpo del mensaje.
+- **Participación en el cuestionario** muestra cómo los usuarios interactuaron con el cuestionario en general, incluyendo envíos totales, descartes y clics dentro del cuerpo del mensaje.
 - **Resultados del cuestionario** muestran un desglose de cuántos usuarios seleccionaron cada opción de respuesta, junto con el porcentaje del total de envíos que representa cada opción.
 - **Métricas de la página de confirmación** (si está habilitada) incluyen cuántos usuarios vieron la pantalla de confirmación, hicieron clic en su botón o la descartaron sin interactuar.
 
@@ -125,9 +129,9 @@ Consulta [Informes de mensajes dentro de la aplicación]({{site.baseurl}}/user_g
 
 ### Currents {#currents}
 
-Las opciones seleccionadas fluirán automáticamente a Currents, bajo el campo `button_id` de [**In-App Message Click Events**]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#api_fzzdoylmrtwe). Cada opción se enviará con su identificador único universal (UUID).
+Las opciones seleccionadas fluirán automáticamente a Currents, bajo el campo `button_id` de [**In-App Message Click Events**]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#in-app-message-click-events). Cada opción se enviará con su identificador único universal (UUID).
 
-## Casos de uso {#use-cases}
+## Ejemplos {#use-cases}
 
 {% tabs %}
 {% tab Satisfacción del usuario %}
@@ -136,18 +140,18 @@ Las opciones seleccionadas fluirán automáticamente a Currents, bajo el campo `
 
 **Objetivo:** Medir la satisfacción del cliente y enviar campañas de recuperación a los usuarios que dejaron puntuaciones bajas.
 
-Para configurar esto, usa un cuestionario de selección de opción única con cinco opciones que van desde "😡 Muy insatisfecho" hasta "😍 Muy satisfecho". Cada opción está mapeada al atributo personalizado `customer_satisfaction`, con un valor numérico del 1 al 5, donde 1 indica el menos satisfecho y 5 el más satisfecho. Ten en cuenta que estos valores numéricos se almacenan como cadenas, ya que los atributos personalizados de tipo cadena son obligatorios para la selección de opción única.
+Para configurar esto, usa un cuestionario de selección única con cinco opciones que van desde "😡 Muy insatisfecho" hasta "😍 Muy satisfecho". Cada opción se asigna al atributo personalizado `customer_satisfaction`, con un valor numérico del 1 al 5, donde 1 indica la menor satisfacción y 5 la mayor. Ten en cuenta que estos valores numéricos se almacenan como cadenas, ya que los atributos personalizados de cadena son obligatorios para la selección única.
 
-| Opción | Atributo | Valor |
-|---------------------------------------|------------------------|-------|
-| 😡 Muy insatisfecho | `customer_satisfaction` | 1 |
-| 😟 Insatisfecho | `customer_satisfaction` | 2 |
-| 🙂 Ni satisfecho ni insatisfecho | `customer_satisfaction` | 3 |
-| 😊 Satisfecho | `customer_satisfaction` | 4 |
-| 😍 Muy satisfecho | `customer_satisfaction` | 5 |
+| Opción                                      | Atributo               | Valor |
+|---------------------------------------------|------------------------|-------|
+| 😡 Muy insatisfecho                         | `customer_satisfaction` | 1     |
+| 😟 Insatisfecho                             | `customer_satisfaction` | 2     |
+| 🙂 Ni satisfecho ni insatisfecho            | `customer_satisfaction` | 3     |
+| 😊 Satisfecho                               | `customer_satisfaction` | 4     |
+| 😍 Muy satisfecho                           | `customer_satisfaction` | 5     |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Satisfacción del usuario" }
 
-Cuando un usuario envía el cuestionario, su valor seleccionado se registra como un atributo personalizado. Luego puedes crear campañas de seguimiento usando filtros de audiencia. Por ejemplo, dirige mensajes de recuperación a los usuarios cuyo atributo `customer_satisfaction` sea "1" o "2".
+Cuando un usuario envía el cuestionario, el valor seleccionado se registra como un atributo personalizado. Luego puedes crear campañas de seguimiento usando filtros de audiencia. Por ejemplo, dirige mensajes de recuperación a los usuarios cuyo atributo `customer_satisfaction` sea "1" o "2".
 
 {% endtab %}
 {% tab Preferencias de notificación %}
@@ -156,15 +160,15 @@ Cuando un usuario envía el cuestionario, su valor seleccionado se registra como
 
 **Objetivo:** Permitir que los usuarios opten por tipos específicos de notificaciones.
 
-Para configurar esto, usa un cuestionario de selección de opción múltiple donde cada opción representa un tema de notificación. En lugar de asignar el mismo atributo con diferentes valores, cada opción se mapea a un atributo booleano distinto que refleja el interés del usuario en ese tema. Si un usuario selecciona una opción, el atributo correspondiente se establece en `true`. Si se deja sin seleccionar, el atributo permanece sin cambios.
+Para configurar esto, usa un cuestionario de selección múltiple donde cada opción representa un tema de notificación. En lugar de asignar el mismo atributo con diferentes valores, cada opción se asigna a un atributo booleano distinto que refleja el interés del usuario en ese tema. Si un usuario selecciona una opción, el atributo correspondiente se establece en `true`. Si no se selecciona, el atributo permanece sin cambios.
 
-| Opción | Atributo | Valor |
-|--------------------|------------------------|--------|
+| Opción                    | Atributo               | Valor  |
+|---------------------------|------------------------|--------|
 | Actualizaciones de producto | `wants_product_updates` | `true` |
-| Promociones | `wants_promotions` | `true` |
-| Invitaciones a eventos | `wants_event_invites` | `true` |
-| Cuestionarios y comentarios | `wants_surveys` | `true` |
-| Consejos y tutoriales | `wants_tips` | `true` |
+| Promociones               | `wants_promotions`     | `true` |
+| Invitaciones a eventos    | `wants_event_invites`  | `true` |
+| Cuestionarios y comentarios | `wants_surveys`       | `true` |
+| Consejos y tutoriales     | `wants_tips`           | `true` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Preferencias de notificación" }
 
 {% endtab %}
@@ -174,15 +178,15 @@ Para configurar esto, usa un cuestionario de selección de opción múltiple don
 
 **Objetivo:** Identificar las principales razones por las que los usuarios visitan tu aplicación.
 
-Para configurar esto, usa un cuestionario de selección de opción única con cada opción representando un objetivo o intención común. Cada opción está mapeada al atributo personalizado `product_goal` con un valor correspondiente a la intención del usuario seleccionada.
+Para configurar esto, usa un cuestionario de selección única con cada opción representando un objetivo o intención común. Cada opción se asigna al atributo personalizado `product_goal` con un valor correspondiente a la intención del usuario seleccionada.
 
-| Opción | Atributo | Valor |
-|----------------------------|------------------|-----------|
-| Verificar estado | `product_goal` | `status` |
-| Actualizar mi cuenta | `product_goal` | `upgrade` |
-| Programar una cita | `product_goal` | `schedule` |
-| Soporte al cliente | `product_goal` | `support` |
-| Solo explorando | `product_goal` | `browse` |
+| Opción                       | Atributo         | Valor     |
+|------------------------------|------------------|-----------|
+| Consultar estado             | `product_goal`   | `status`  |
+| Mejorar mi cuenta            | `product_goal`   | `upgrade` |
+| Programar una cita           | `product_goal`   | `schedule`|
+| Soporte al cliente           | `product_goal`   | `support` |
+| Solo navegando               | `product_goal`   | `browse`  |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Identificar objetivos del cliente" }
 
 Cuando un usuario envía el cuestionario, el valor seleccionado se registra como un atributo personalizado en su perfil. Luego puedes usar estos datos para personalizar experiencias futuras o segmentar usuarios según su objetivo principal.
@@ -192,17 +196,17 @@ Cuando un usuario envía el cuestionario, el valor seleccionado se registra como
 
 ### Mejorar tasas de conversión {#improve-conversion-rates}
 
-**Objetivo:** Entender por qué los clientes no están actualizando o comprando.
+**Objetivo:** Comprender por qué los clientes no están actualizando o comprando.
 
-Para configurar esto, usa un cuestionario de selección de opción única con cada opción representando una barrera común para la actualización. Cada opción está mapeada al atributo personalizado `upgrade_reason` con un valor correspondiente que refleja la selección del usuario.
+Para configurar esto, usa un cuestionario de selección única con cada opción representando una barrera común para la actualización. Cada opción se asigna al atributo personalizado `upgrade_reason` con un valor correspondiente que refleja la selección del usuario.
 
-| Opción | Atributo | Valor |
-|---------------------|------------------|-------------|
-| Demasiado caro | `upgrade_reason` | `expensive` |
-| No es valioso | `upgrade_reason` | `value` |
-| Difícil de usar | `upgrade_reason` | `difficult` |
-| Uso un competidor | `upgrade_reason` | `competitor` |
-| Otra razón | `upgrade_reason` | `other` |
+| Opción                  | Atributo         | Valor       |
+|-------------------------|------------------|-------------|
+| Demasiado caro          | `upgrade_reason` | `expensive` |
+| No es valioso           | `upgrade_reason` | `value`     |
+| Difícil de usar         | `upgrade_reason` | `difficult` |
+| Uso un competidor       | `upgrade_reason` | `competitor`|
+| Otra razón              | `upgrade_reason` | `other`     |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Mejorar tasas de conversión" }
 
 Cuando un usuario envía el cuestionario, el valor seleccionado se guarda en su perfil. Luego puedes dirigirte a estos usuarios con campañas adaptadas a su objeción específica, como ofertas de descuento o mejoras de usabilidad.
@@ -212,22 +216,22 @@ Cuando un usuario envía el cuestionario, el valor seleccionado se guarda en su 
 
 ### Características favoritas {#favorite-features}
 
-**Objetivo:** Entender qué características disfrutan usar los clientes.
+**Objetivo:** Comprender qué características disfrutan usar los clientes.
 
-Para configurar esto, usa un cuestionario de selección de opción múltiple donde cada opción representa una característica de tu aplicación. Cada opción está mapeada al atributo personalizado `favorite_features`, y cuando el usuario envía el cuestionario, el atributo se establece como un array de los valores seleccionados.
+Para configurar esto, usa un cuestionario de selección múltiple donde cada opción representa una característica de tu aplicación. Cada opción se asigna al atributo personalizado `favorite_features`, y cuando el usuario envía el cuestionario, el atributo se establece como un arreglo de los valores seleccionados.
 
-| Opción | Atributo | Valor |
-|-------------------|--------------------|--------------|
-| Marcadores | `favorite_features` | `bookmarks` |
-| Aplicación móvil | `favorite_features` | `mobile` |
-| Compartir publicaciones | `favorite_features` | `sharing` |
-| Soporte al cliente | `favorite_features` | `support` |
-| Personalización | `favorite_features` | `custom` |
-| Precio / Valor | `favorite_features` | `value` |
-| Comunidad | `favorite_features` | `community` |
+| Opción               | Atributo           | Valor        |
+|-----------------------|--------------------|--------------|
+| Marcadores            | `favorite_features` | `bookmarks`  |
+| Aplicación móvil      | `favorite_features` | `mobile`     |
+| Compartir publicaciones | `favorite_features` | `sharing`    |
+| Soporte al cliente    | `favorite_features` | `support`    |
+| Personalización       | `favorite_features` | `custom`     |
+| Precio / Valor        | `favorite_features` | `value`      |
+| Comunidad             | `favorite_features` | `community`  |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Características favoritas" }
 
-Dado que este cuestionario usa selección de opción múltiple, el perfil del usuario se actualizará con una lista de todos los valores de características seleccionados.
+Dado que este cuestionario usa selección múltiple, el perfil del usuario se actualizará con una lista de todos los valores de características seleccionados.
 
 {% endtab %}
 {% endtabs %}

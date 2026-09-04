@@ -9,7 +9,7 @@ search_rank: 1
 
 # Create a Canvas
 
-> This reference article covers the necessary steps involved in creating, maintaining, and testing a Canvas. Follow this guide, or check out our [Canvas Braze Learning course](https://learning.braze.com/quick-overview-canvas-setup). You can also start from a [Braze Canvas template]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates) to speed up your setup. For more information, see [Canvas templates]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates).
+> This reference article covers the necessary steps involved in creating, maintaining, and testing a Canvas. Follow this guide, or check out our [Canvas Braze Learning course](https://learning.braze.com/quick-overview-canvas-setup). You can also start from a [Braze Canvas template]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates) to speed up your setup. For more information, see [Canvas templates]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates). To draft a Canvas from a natural-language description, ask [Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#canvases).
 
 {% details Expand for original Canvas editor details %}
 You can no longer create or duplicate Canvases using the original Canvas experience. Braze recommends [cloning your Canvases]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases) to the most current editor.
@@ -68,7 +68,7 @@ The Canvas builder will guide you step-by-step through setting up your Canvas—
 
 ### Step 1.1: Start with your Canvas basics
 
-Here, you'll name your Canvas, assign [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams#teams), and create or add [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags#tags). You can also assign conversion events for the Canvas.
+Here, you'll name your Canvas, assign [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams), and create or add [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags). You can also assign conversion events for the Canvas.
 
 {% alert tip %}
 Tag your Canvases so they're easy to find and build reports out of. For instance, when using [Report Builder]({{site.baseurl}}/user_guide/analytics/reports/report_builder), you can filter by particular tags.
@@ -109,6 +109,10 @@ You can control other aspects of the Canvas behavior from the **Entry Audience**
 
 ![An example of action-based delivery. Users will enter the Canvas if they make a purchase with an entry window beginning at 1:30 pm on June 10, 2025.]({% image_buster /assets/img_archive/Canvas_Action_Based_Delivery.png %})
 
+{% alert note %}
+**Interact with Canvas Step** is not available as an action-based entry trigger for Canvases. It can only be used as a trigger for campaigns. To trigger one Canvas from another, use the [Send to Destination]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination) Canvas component, or create a [Braze-to-Braze webhook]({{site.baseurl}}/user_guide/channels/webhooks/use_case_create_a_braze_to_braze_webhook#trigger-a-second-canvas-from-an-initial-canvas) that calls the `/canvas/trigger/send` endpoint.
+{% endalert %}
+
 {% alert important %}
 If your action-based Canvas sends messages earlier than expected, check that your custom event timestamp is sent with the current time instead of a backdated time. For example, if an action-based Canvas has a three-hour delay after a user performs a custom event, Braze uses the timestamp sent with the custom event to evaluate that delay. If the timestamp is backdated by more than three hours, Braze treats the delay as already elapsed and sends the message immediately.
 {% endalert %}
@@ -136,6 +140,14 @@ If a user re-enters the Canvas, reaches the same component as their previous ent
 ### Step 1.3: Set your target entry audience
 
 Only the users who match your defined criteria can enter the journey in the **Target Audience** step, meaning Braze evaluates the target audience for eligibility first **before** users enter the Canvas journey. For example, if you want to target new users, you can select a segment of users who first used your app less than a week ago.
+
+{% alert important %}
+In workspaces with multiple apps, Canvas entry audience eligibility (including segments and filters) is evaluated only when users enter the Canvas, not at individual Message steps. If your workspace has multiple apps and you need to ensure message steps target only users of a specific app, use one of the following approaches in each Message step:
+- Turn on **Validate audience at message send** in the Message step [delivery validations]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#delivery-validations) and add app-specific segments or filters.
+- Use Liquid to check the targeted device or app at send time.
+
+Without these safeguards, users who qualified for the journey in one app may receive messages intended for another app if they also use other apps in your workspace.
+{% endalert %}
 
 In **Entry Controls**, you can limit the number of users every time the Canvas is scheduled to run. For API trigger-based and action-based Canvases, this limit occurs at every UTC hour. 
 
@@ -169,7 +181,7 @@ Setting the [exit criteria]({{site.baseurl}}/user_guide/messaging/canvas/create_
 
 #### Calculating target population
 
-In the **Target Population** section, you can view a summary of your audience, such as your selected segments and additional filters, and a breakdown of how many users are reachable per messaging channel. To calculate the exact number of reachable users in your target audience instead of the default estimation, select [Calculate exact statistics]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#calculating-exact-statistics).
+In the **Target Population** section, you can view a summary of your audience, such as your selected segments and additional filters, and a breakdown of how many users are reachable per messaging channel. To calculate the exact number of reachable users in your target audience instead of the default estimation, select [Calculate exact statistics]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size#calculating-exact-statistics).
 
 Note that:
 
@@ -187,13 +199,11 @@ To view additional statistics, such as the average lifetime revenue for targeted
 
 ### Step 1.4: Select your send settings
 
-Select **Send Settings** to edit your subscription settings, turn on rate limiting, and to turn on [quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours). By turning on [rate limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#rate-limiting-and-canvas-components) or [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping), you can ease the marketing pressure placed on your users and ensure you aren't over-messaging them.
+Select **Send Settings** to edit your subscription settings, turn on rate limiting, and to turn on [quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours). By turning on [rate limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-rate-limiting) or [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping), you can ease the marketing pressure placed on your users and ensure you aren't over-messaging them.
 
 For Canvases targeting email and push channels, you may want to limit your Canvas so that only the users who are explicitly opted in will receive the message (excluding subscribed or unsubscribed users). For example, say you have three users of different opt-in status:
 
-- **User A** is subscribed to email and is push enabled. This user doesn't receive the email but will receive the push.
-- **User B** is opted-in to email but is not push enabled. This user will receive the email but doesn't receive the push.
-- **User C** is opted-in to email and is push enabled. This user will receive both the email and the push.
+{% multi_lang_include messaging/intelligent_channel_user_examples.md %}
 
 To do so, set the **Subscription Settings** to send this Canvas to "opted-in users only". This option will ensure that only opted-in users will receive your email, and Braze will only send your push to users who are push enabled by default. 
 
@@ -343,17 +353,15 @@ In this example, we have our Canvas divided into two variants. Variant 1 has 70%
 
 ![An example variant in a Braze Canvas, where 70% go to "Variant 1", which delays for 1 day in the first step, then sends a message in the second step. The other 30% go to a "Control" that does not have any follow-up steps.]({% image_buster /assets/img_archive/Canvas_Multivariate_Flow.png %})
 
-### Intelligent Selection for Canvas
+### Optimize Canvas variants with BrazeAI
 
-Intelligent Selection capabilities are now available within multivariate Canvases. Similar to the [Intelligent Selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection) feature for multivariate Campaigns, Intelligent Selection for Canvas analyzes the performance of each Canvas variant and adjusts the percentage of users being funneled through each variant. This distribution is based on each variant's performance metrics to maximize the total expected number of conversions.
+For a Canvas with multiple top-level variants, turn on **Optimize with BrazeAI™** to automatically adjust the percentage of users entering each variant. BrazeAI™ uses variant performance to maximize the expected number of conversions.
 
-Keep in mind that multivariate Canvases allow you to test more than copy, but timing and channels as well. Through Intelligent Selection, you can test Canvases more efficiently and have confidence that your users will be sent on the best possible Canvas journey.
+Add at least two variants and one conversion event. Then, select a variant percentage to open **Edit Variant Distribution** and turn on **Optimize with BrazeAI™**.
 
-![The "Intelligent Selection" option is enabled in the "Edit Variant Distribution" page. As it analyzes and optimizes the Canvas, it displays a horizontal bar across the page that's split into several sections, each varying in color and size. This is only a visual representation and does not correlate to any specific analytics.]({% image_buster /assets/img_archive/canvas_intelligent_selection.png %})
+After the initial conversion deadline, BrazeAI™ reviews performance every 12 hours and shifts more users toward the variant that drives the most conversions. When the optimization identifies a decisive winner, all future eligible users enter that variant.
 
-Intelligent Selection for Canvas optimizes your Canvas results by making gradual real-time adjustments to the distribution of users sorted into each variant. When the statistical algorithm determines a decisive winner among your variants, it will rule out the underperforming variants and slot all future eligible recipients of the Canvas into the Winning Variants. 
-
-For this reason, Intelligent Selection works best on Canvases that have new users entering frequently.
+This optimization works best for Canvases that have new users entering frequently.
 
 ## Step 4: Save and launch
 

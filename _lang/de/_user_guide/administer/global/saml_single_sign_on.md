@@ -4,12 +4,12 @@ article_title: SAML und Single Sign-on
 page_order: 2
 layout: dev_guide
 guide_top_header: "SAML und Single Sign-on"
-guide_top_text: "Single Sign-on (SSO) bietet Unternehmen eine sichere und zentrale Möglichkeit, den Zugriff auf das Braze-Dashboard zu steuern. Kurz gesagt kann ein einziger Satz von Zugangsdaten für den Zugriff auf verschiedene Anwendungen, einschließlich Braze, verwendet werden. <br> <br> Braze unterstützt SAML SSO, das die neuesten Industriestandards der Security Assertion Markup Language (SAML 2.0) unterstützt, sowie Microsoft Entra ID (ehemals Azure Active Directory), Okta und OneLogin."
+guide_top_text: "Single Sign-on (Single Sign-on) bietet Unternehmen eine sichere und zentrale Möglichkeit, den Zugriff auf das Braze-Dashboard zu steuern. Kurz gesagt kann ein einziger Satz von Zugangsdaten für den Zugriff auf verschiedene Anwendungen, einschließlich Braze, verwendet werden. <br> <br> Braze unterstützt SAML Single Sign-on, das die neuesten Industriestandards der Security Assertion Markup Language (SAML 2.0) unterstützt, sowie Microsoft Entra ID (ehemals Azure Active Directory), Okta und OneLogin."
 
 page_type: landing
-description: "Diese Landing-Page enthält Artikel zum Thema Single Sign-on (SSO). Hier finden Sie Hilfe bei der Einrichtung unterstützter Identitätsanbieter oder bei einer angepassten Konfiguration."
+description: "Diese Landing-Page enthält Artikel zum Thema Single Sign-on (Single Sign-on). Hier finden Sie Hilfe bei der Einrichtung unterstützter Identitätsanbieter oder bei einer angepassten Konfiguration."
 
-guide_featured_title: "SAML SSO-Themen"
+guide_featured_title: "SAML Single Sign-on-Themen"
 guide_featured_list:
 - name: SAML SSO-Einrichtung
   link: /docs/user_guide/administer/global/saml_single_sign_on/saml_sso_setup
@@ -32,7 +32,7 @@ guide_featured_list:
 <br>
 
 {% alert important %}
-Google SSO und SAML SSO sind für Pro- und Enterprise-Kund:innen verfügbar. Andere Kund:innen können sich für weitere Informationen an ihren Braze Account Manager wenden.
+Google Single Sign-on und SAML Single Sign-on sind für Pro- und Enterprise-Kund:innen verfügbar. Andere Kund:innen können sich für weitere Informationen an ihren Braze Account Manager:in wenden.
 {% endalert %}
 
 <br>

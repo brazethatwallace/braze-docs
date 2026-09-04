@@ -95,22 +95,22 @@ Puedes bloquear atributos personalizados individualmente en el menú de acciones
 
 ### Marcar como información de identificación personal (PII) {#marking-as-personally-identifiable-information-pii}
 
-Los administradores también pueden crear atributos personalizados y marcarlos como PII desde esta página. Estos atributos solo son visibles para administradores y usuarios del dashboard con el permiso "View Custom Attributes Marked as PII".
+Los administradores también pueden crear atributos personalizados y marcarlos como PII desde esta página. Estos atributos solo son visibles para administradores y usuarios del panel con el permiso "View Custom Attributes Marked as PII".
 
 ### Añadir descripciones {#adding-descriptions}
 
-Puedes añadir una descripción a un atributo personalizado después de crearlo si tienes el [permiso de usuario]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions) `Manage Events, Attributes, Purchases`. Edita el atributo personalizado e introduce lo que desees, como una nota para tu equipo.
+Puedes añadir una descripción a un atributo personalizado después de crearlo si tienes el [permiso de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) `Manage Events, Attributes, Purchases`. Edita el atributo personalizado e introduce lo que desees, como una nota para tu equipo.
 
 ### Añadir etiquetas {#adding-tags}
 
-Puedes añadir etiquetas a un atributo personalizado después de crearlo si tienes el [permiso de usuario]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions) "Manage Events, Attributes, Purchases". Luego puedes usar las etiquetas para filtrar la lista de atributos.
+Puedes añadir etiquetas a un atributo personalizado después de crearlo si tienes el [permiso de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) "Manage Events, Attributes, Purchases". Luego puedes usar las etiquetas para filtrar la lista de atributos.
 
 ### Eliminar atributos personalizados {#removing-custom-attributes}
 
 Hay dos formas de eliminar atributos personalizados de los perfiles de usuario:
 
-* Selecciona el nombre del atributo personalizado a eliminar en un [paso de Actualización de usuario]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update#removing-custom-attributes).
-* Establece el valor `null` en tu solicitud de API al [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#user-track).
+- Selecciona el nombre del atributo personalizado a eliminar en un [paso de Actualización de usuario]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update).
+- Establece el valor `null` en tu solicitud de API al [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track).
 
 #### Establecer el valor `null` {#setting-the-null-value}
 
@@ -121,7 +121,7 @@ Establecer un atributo como `null` y establecerlo como `""` (cadena vacía) no e
 - `null` elimina el atributo del perfil de usuario por completo. No aparece en el perfil ni coincide con ningún filtro **IS NOT BLANK**.
 - `""` establece el atributo como un valor de cadena vacía. El atributo aparece en el perfil con un valor de cadena vacía, pero no coincide con los filtros **IS NOT BLANK** (se trata como vacío).
 
-Además, `""` solo es válido para atributos de tipo cadena. Si el tipo de datos del atributo está configurado como un tipo que no es cadena (como booleano, número u hora) en el dashboard, enviar `""` no borra el valor; usa `null` en su lugar.
+Además, `""` solo es válido para atributos de tipo cadena. Si el tipo de datos del atributo está configurado como un tipo que no es cadena (como booleano, número u hora) en el panel, enviar `""` no borra el valor; usa `null` en su lugar.
 
 ### Exportar datos {#exporting-data}
 
@@ -129,28 +129,28 @@ Para exportar la lista de atributos personalizados como un archivo CSV, seleccio
 
 ## Ver informes de uso {#viewing-usage-reports}
 
-El informe de uso enumera todos los Canvas, Campaigns y Segments que utilizan un atributo personalizado específico. Esta lista no incluye usos de Liquid.
+El informe de uso enumera todos los Canvas, Campaigns y Segments que utilizan un atributo personalizado específico. Esta lista no incluye los usos de Liquid.
 
-Puedes ver hasta 100 informes de uso a la vez seleccionando las casillas de verificación junto a los atributos personalizados correspondientes y luego seleccionando **View usage report**.
+Puedes ver hasta 100 informes de uso a la vez seleccionando las casillas de verificación junto a los atributos personalizados respectivos y luego seleccionando **View usage report**.
 
 ### Pestaña de valores {#values-tab}
 
-Al ver un informe de uso, selecciona la pestaña **Values** para ver los valores principales de los atributos personalizados seleccionados basándose en una muestra de aproximadamente 250.000 usuarios. Ten en cuenta que, dado que los resultados se muestrean de un subconjunto de usuarios, la muestra no incluye todos los valores existentes. Esto significa que la pestaña **Values** no debe usarse para solución de problemas ni para casos de uso que requieran incorporar datos de todos los usuarios.
+Al ver un informe de uso, selecciona la pestaña **Values** para ver los principales valores de los atributos personalizados seleccionados en función de una muestra de aproximadamente 250,000 usuarios. Ten en cuenta que, como los resultados se muestrean de un subconjunto de usuarios, la muestra no incluye todos los valores existentes. Esto significa que la pestaña **Values** no debe usarse para la solución de problemas ni para casos de uso que requieran incorporar datos de todos los usuarios.
 
 ![Informe de uso para atributos personalizados seleccionados con una pestaña "Values" abierta que muestra un gráfico circular de valores del atributo de país, como "US" y "PR".]({% image_buster /assets/img/usage_report_values.png %}){: style="max-width:80%;"}
 
 ## Configurar atributos personalizados {#setting-custom-attributes}
 
-A continuación se enumeran los métodos en varias plataformas que se utilizan para configurar atributos personalizados.
+A continuación se enumeran los métodos en las diferentes plataformas que se utilizan para configurar atributos personalizados.
 
-{% details Expandir para ver la documentación por plataforma %}
+{% details Expande para ver la documentación por plataforma %}
 
 - [Android y FireOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=android)
 - [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=swift)
 - [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=web)
-- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics#logging-custom-attributes)
+- [React Native]({{site.baseurl}}/developer_guide/analytics)
 - [Unity]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=unity)
-- [.NET MAUI (anteriormente Xamarin)]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics#setting-custom-attributes)
+- [.NET MAUI (anteriormente Xamarin)]({{site.baseurl}}/developer_guide/analytics?sdktab=xamarin)
 - [Roku]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes)
 
 {% enddetails %}
@@ -170,101 +170,117 @@ Los siguientes tipos de datos pueden almacenarse como atributos personalizados:
 - [Cadenas](#strings)
 - [Matrices](#arrays)
 - [Hora](#time)
-- [Objetos]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support)
-- [Matrices de objetos]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/array_of_objects)
+- [Objetos]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support)
+- [Matrices de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects)
 
 ### Booleanos (verdadero/falso) {#booleans}
 
-Los atributos booleanos son útiles para almacenar datos binarios simples sobre tus usuarios, como estados de suscripción. Puedes encontrar usuarios que tienen explícitamente una variable establecida como verdadera o falsa, además de aquellos que aún no tienen ningún registro de ese atributo.
+Los atributos booleanos son útiles para almacenar datos binarios simples sobre tus usuarios, como estados de suscripción. Puedes encontrar usuarios que explícitamente tienen una variable configurada en un valor verdadero o falso, además de aquellos que aún no tienen ningún registro de ese atributo.
 
 Para los atributos **booleanos**, están disponibles las siguientes opciones de segmentación.
 
 | Opciones de segmentación | Filtro desplegable | Opciones de entrada | Ejemplos |
 | ---------------------| --------------- | ------------- | -------- |
-| Comprobar si el valor booleano **es** verdadero, falso, verdadero o no establecido, o falso o no establecido | **IS**  | **TRUE**, **FALSE**, **TRUE OR NOT SET** o **FALSE OR NOT SET** | Si este filtro especifica `coffee_drinker`, un usuario coincidirá con este filtro en las siguientes circunstancias: <br> {::nomarkdown}<ul><li>Si este filtro es <code>true</code> y el usuario tiene el valor <code>coffee_drinker</code></li><li>Si este filtro es <code>false</code> y el usuario no tiene el valor <code>coffee_drinker</code></li><li>Si este filtro es <code>true or not set</code> y el usuario tiene el valor <code>coffee_drinker</code> o ningún valor</li><li>Si este filtro es <code>false or not set</code> y el usuario no tiene <code>coffee_drinker</code> o ningún valor</li></ul>{:/} |
-| Comprobar si el valor booleano **existe** en el perfil de un usuario y no es nulo | **IS NOT BLANK**  | **N/A** | Si este filtro especifica `coffee_drinker` y un usuario tiene un valor para el atributo `coffee_drinker`, el usuario coincidirá con este filtro. |
-| Comprobar si el valor booleano **no existe** en el perfil de un usuario o es nulo | **IS BLANK**  | **N/A** | Si este filtro especifica `coffee_drinker` y un usuario no tiene el atributo `coffee_drinker` o el valor de `coffee_drinker` es nulo, el usuario coincidirá con este filtro.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Booleans (true/false) #booleans" }
+| Comprobar si el valor booleano **es** verdadero, falso, verdadero o no configurado, o falso o no configurado | **IS**  | **TRUE**, **FALSE**, **TRUE OR NOT SET**, o **FALSE OR NOT SET** | Si este filtro especifica `coffee_drinker`, un usuario coincidirá con este filtro en las siguientes circunstancias: <br> {::nomarkdown}<ul><li>Si este filtro es <code>true</code> y el usuario tiene el valor <code>coffee_drinker</code></li><li>Si este filtro es <code>false</code> y el usuario no tiene el valor <code>coffee_drinker</code></li><li>Si este filtro es <code>true or not set</code> y el usuario tiene el valor <code>coffee_drinker</code> o no tiene ningún valor</li><li>Si este filtro es <code>false or not set</code> y el usuario no tiene <code>coffee_drinker</code> ni ningún valor</li></ul>{:/} |
+| Comprobar si el valor booleano **existe** en el perfil de un usuario y no es null | **IS NOT BLANK**  | **N/A** | Si este filtro especifica `coffee_drinker` y un usuario tiene un valor para el atributo `coffee_drinker`, el usuario coincidirá con este filtro. |
+| Comprobar si el valor booleano **no existe** en el perfil de un usuario o es null | **IS BLANK**  | **N/A** | Si este filtro especifica `coffee_drinker` y un usuario no tiene el atributo `coffee_drinker` o el valor de `coffee_drinker` es null, el usuario coincidirá con este filtro.|
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Booleanos (verdadero/falso) #booleans" }
 
 {% endtab %}
 {% tab Números %}
 
 {% alert tip %}
-El dinero gastado no debe registrarse con este método. Más bien, debe registrarse a través de [eventos de compra]({{site.baseurl}}/user_guide/data/activation/events/purchase_events).
+El dinero gastado no debe registrarse con este método. Más bien debe registrarse a través de [eventos de compra]({{site.baseurl}}/user_guide/data/activation/events/purchase_events).
 {% endalert %}
 
 Para los atributos **numéricos**, están disponibles las siguientes opciones de segmentación.
 
 | Opciones de segmentación | Filtro desplegable | Opciones de entrada | Ejemplos |
 | ---------------------| --------------- | ------------- | -------- |
-| Comprobar si el atributo numérico **es exactamente** un **número**| **EXACTLY** | **NUMBER** | Si este filtro especifica `10` y un perfil de usuario tiene el valor `10`, el usuario coincidirá con este filtro. |
-| Comprobar si el atributo numérico **no es igual a** un **número**| **DOES NOT EQUAL** | **NUMBER** | Si este filtro especifica `10` y un perfil de usuario no tiene el valor `10`, el usuario coincidirá con este filtro. |
-| Comprobar si el atributo numérico **es mayor que** un **número**| **MORE THAN** | **NUMBER** | Si este filtro especifica `10` y un perfil de usuario tiene un valor mayor que `10`, el usuario coincidirá con este filtro. |
-| Comprobar si el atributo numérico **es menor que** un **número**| **LESS THAN** | **NUMBER** | Si este filtro especifica `10` y un perfil de usuario tiene un valor menor que `10`, el usuario coincidirá con este filtro. |
-| Comprobar si el atributo numérico **existe** en el perfil de un usuario y no es nulo | **IS NOT BLANK** | **N/A** | Si un perfil de usuario contiene el atributo numérico especificado, independientemente del valor, el usuario coincidirá con este filtro. |
-| Comprobar si el atributo numérico **no existe** en el perfil de un usuario o es nulo | **IS BLANK** | **N/A** | Si un perfil de usuario no contiene el atributo numérico especificado o el valor del atributo es nulo, el usuario coincidirá con este filtro.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Booleans (true/false) #booleans" }
+| Comprobar si el atributo numérico **es exactamente** un **número** | **EXACTLY** | **NUMBER** | Si este filtro especifica `10` y un perfil de usuario tiene el valor `10`, el usuario coincidirá con este filtro. |
+| Comprobar si el atributo numérico **no es igual a** un **número** | **DOES NOT EQUAL** | **NUMBER** | Si este filtro especifica `10` y un perfil de usuario no tiene el valor `10`, el usuario coincidirá con este filtro. |
+| Comprobar si el atributo numérico **es mayor que** un **número** | **MORE THAN** | **NUMBER** | Si este filtro especifica `10` y un perfil de usuario tiene un valor mayor que `10`, el usuario coincidirá con este filtro. |
+| Comprobar si el atributo numérico **es menor que** un **número** | **LESS THAN** | **NUMBER** | Si este filtro especifica `10` y un perfil de usuario tiene un valor menor que `10`, el usuario coincidirá con este filtro. |
+| Comprobar si el atributo numérico **existe** en el perfil de un usuario y no es null | **IS NOT BLANK** | **N/A** | Si un perfil de usuario contiene el atributo numérico especificado, independientemente del valor, el usuario coincidirá con este filtro. |
+| Comprobar si el atributo numérico **no existe** en el perfil de un usuario o es null | **IS BLANK** | **N/A** | Si un perfil de usuario no contiene el atributo numérico especificado o el valor del atributo es null, el usuario coincidirá con este filtro.|
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Detalles de atributos numéricos" }
 
 #### Detalles de atributos numéricos {#number-attribute-details}
 
-- Los filtros "Exactamente 0" y "Menor que" incluyen usuarios con campos NULL
-  - Para excluir usuarios sin un valor para atributos personalizados, necesitas incluir el filtro **is not blank**.
+- Los filtros "Exactamente 0" y "Menos que" incluyen usuarios con campos NULL.
+  - Para excluir usuarios sin un valor para atributos personalizados, debes incluir el filtro **is not blank**.
 
 {% endtab %}
 {% tab Cadenas %}
 
-Los atributos de cadena pueden tener hasta 255 caracteres de longitud. Ten en cuenta que si introduces valores con espacios entre, antes o después de las palabras, Braze también comprobará esos mismos espacios.
+Los atributos de cadena pueden tener hasta 255 caracteres de longitud. Ten en cuenta que si introduces valores con espacios entre, antes o después de las palabras, Braze también verificará esos mismos espacios.
 
 Para los atributos de **cadena**, están disponibles las siguientes opciones de segmentación.
 
 | Opciones de segmentación | Filtro desplegable | Opciones de entrada | Ejemplos |
 | ---------------------| --------------- | ------------- | -------- |
-| Comprobar si el atributo de cadena **coincide parcialmente** con una cadena introducida **O** expresión regular | **MATCHES REGEX** | **STRING** **O** **REGULAR EXPRESSION** <br>No distingue entre mayúsculas y minúsculas; máximo de 32.764 caracteres |
-| Comprobar si el atributo de cadena **no coincide parcialmente** con una cadena introducida **O** expresión regular | **DOES NOT MATCH REGEX** * | **STRING** **O** **REGULAR EXPRESSION**<br>No distingue entre mayúsculas y minúsculas; máximo de 32.764 caracteres |
-| Comprobar si el atributo de cadena **existe** en el perfil de un usuario y no es una cadena vacía | **IS NOT BLANK** | **N/A** | Si este filtro especifica `favorite_genre` y un perfil de usuario tiene el atributo `favorite_genre`, el usuario coincidirá con este filtro independientemente del valor del atributo. Por ejemplo, el usuario puede tener `sci-fi`, `romance` u otro valor.|
+| Comprobar si el atributo de cadena **coincide parcialmente** con una cadena introducida **O** una expresión regular | **MATCHES REGEX** | **STRING** **O** **REGULAR EXPRESSION** <br>No distingue entre mayúsculas y minúsculas; máximo de 32,764 caracteres |
+| Comprobar si el atributo de cadena **no coincide parcialmente** con una cadena introducida **O** una expresión regular | **DOES NOT MATCH REGEX** * | **STRING** **O** **REGULAR EXPRESSION**<br>No distingue entre mayúsculas y minúsculas; máximo de 32,764 caracteres |
+| Comprobar si el atributo de cadena **existe** en el perfil de un usuario y no es una cadena vacía | **IS NOT BLANK** | **N/A** | Si este filtro especifica `favorite_genre` y un perfil de usuario tiene el atributo `favorite_genre`, el usuario coincidirá con este filtro independientemente del valor de su atributo. Por ejemplo, el usuario puede tener `sci-fi`, `romance` u otro valor.|
 | Comprobar si el atributo de cadena **no existe** en el perfil de un usuario | **BLANK** | **N/A** | Si este filtro especifica `favorite_genre` y un perfil de usuario no tiene el atributo `favorite_genre`, el usuario coincidirá con este filtro.|
-| Comprobar si la cadena coincide exactamente con **alguna** de las cadenas introducidas | **IS ANY OF** | **STRING**<br>Distingue entre mayúsculas y minúsculas; se permiten múltiples cadenas (máximo 256) | Si este filtro especifica `book`, `bookmark` y `reading light`, y un perfil de usuario tiene al menos una de esas cadenas, el usuario coincidirá con este filtro. |
-| Comprobar si el atributo de cadena **no coincide exactamente con ninguna** de las cadenas introducidas | **IS NONE OF** |**STRING**<br>Distingue entre mayúsculas y minúsculas; se permiten múltiples cadenas (máximo 256) | Si este filtro especifica `book`, `bookmark` y `reading light`, y un perfil de usuario no contiene ninguna de esas cadenas, el usuario coincidirá con el filtro.|
-| Comprobar si el atributo de cadena **coincide parcialmente con alguna** de las cadenas introducidas | **CONTAINS ANY OF** | **STRING**<br>Distingue entre mayúsculas y minúsculas; se permiten múltiples cadenas (máximo 256) | Si este filtro especifica `gold` y un perfil de usuario contiene `gold` en cualquier cadena, como `gold_tier` o `former_gold_tier`, el usuario coincidirá con el filtro. |
-| Comprobar si el atributo de cadena **no coincide parcialmente con ninguna** de las cadenas introducidas | **DOESN'T CONTAIN ANY OF** | **STRING**<br>Distingue entre mayúsculas y minúsculas; se permiten múltiples cadenas (máximo 256) | Si este filtro especifica `gold` y un perfil de usuario no contiene `gold` en ninguna cadena, el usuario coincidirá con este filtro.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Number attribute details" }
+| Comprobar si la cadena coincide exactamente con **cualquiera** de las cadenas introducidas | **IS ANY OF** | **STRING**<br>Distingue entre mayúsculas y minúsculas; se permiten múltiples cadenas (máximo de 256) | Si este filtro especifica `book`, `bookmark` y `reading light`, y un perfil de usuario tiene al menos una de esas cadenas, el usuario coincidirá con este filtro. |
+| Comprobar si el atributo de cadena **no coincide exactamente con ninguna** de las cadenas introducidas | **IS NONE OF** | **STRING**<br>Distingue entre mayúsculas y minúsculas; se permiten múltiples cadenas (máximo de 256) | Si este filtro especifica `book`, `bookmark` y `reading light`, y un perfil de usuario no contiene ninguna de esas cadenas, el usuario coincidirá con el filtro.|
+| Comprobar si el atributo de cadena **coincide parcialmente con cualquiera** de las cadenas introducidas | **CONTAINS ANY OF** | **STRING**<br>Distingue entre mayúsculas y minúsculas; se permiten múltiples cadenas (máximo de 256) | Si este filtro especifica `gold` y un perfil de usuario contiene `gold` en cualquier cadena, como `gold_tier` o `former_gold_tier`, el usuario coincidirá con el filtro. |
+| Comprobar si el atributo de cadena **no coincide parcialmente con ninguna** de las cadenas introducidas | **DOESN'T CONTAIN ANY OF** | **STRING**<br>Distingue entre mayúsculas y minúsculas; se permiten múltiples cadenas (máximo de 256) | Si este filtro especifica `gold` y un perfil de usuario no contiene `gold` en ninguna cadena, el usuario coincidirá con este filtro.|
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Detalles de atributos numéricos" }
 
 {% multi_lang_include alerts/note_alerts.md alert='Custom Attributes time attribute' %}
 
 {% alert important %}
-Al segmentar usando el filtro **DOES NOT MATCH REGEX**, ya debes tener un atributo personalizado con un valor asignado en ese perfil de usuario. Braze sugiere usar la lógica "OR" para comprobar si un atributo personalizado está vacío y así asegurar que los usuarios se segmenten correctamente.
+Al segmentar con el filtro **DOES NOT MATCH REGEX**, ya debes tener un atributo personalizado con un valor asignado en ese perfil de usuario. Braze sugiere usar la lógica "OR" para verificar si un atributo personalizado está en blanco a fin de asegurar que los usuarios sean segmentados correctamente.
 {% endalert %}
 
 {% endtab %}
 {% tab Matrices %}
 
-Las matrices tienen un tamaño máximo de 100&nbsp;KB. La longitud predeterminada de un atributo es de hasta 500 elementos (por ejemplo, si envías un atributo como "Películas vistas" configurado en 500, cuando un usuario vea una película número 501, la primera película se elimina y se añade la más reciente). Ten en cuenta que si introduces valores con espacios entre, antes o después de las palabras, Braze también comprobará esos mismos espacios.
+### Matrices {#arrays}
 
-Los atributos personalizados de tipo matriz no se pueden importar mediante [importación CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import). Para cargar valores de matriz, usa el [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) o la [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/cloud_ingestion).
+Las matrices tienen un tamaño máximo de 100&nbsp;KB. La longitud predeterminada para un atributo es de hasta 500 elementos (por ejemplo, si envías un atributo como "Películas vistas" configurado a 500, cuando un usuario vea una película número 501, la primera película se elimina y se añade la más reciente). Ten en cuenta que si introduces valores con espacios entre, antes o después de las palabras, Braze también verificará esos mismos espacios.
+
+Los atributos personalizados de tipo matriz no pueden importarse mediante [importación CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import). Para cargar valores de matriz, usa el [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) o la [ingesta de datos en la nube]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion).
 
 {% alert note %}
-La opción de aumentar la longitud máxima no estará disponible si el atributo está configurado para detectar automáticamente el tipo de datos; el tipo de datos debe establecerse como matriz.
+La opción de aumentar la longitud máxima no estará disponible si el atributo está configurado para detectar automáticamente el tipo de datos; el tipo de datos debe estar configurado como matriz.
 {% endalert %}
+
+#### Solución de problemas: el atributo personalizado de matriz no muestra ningún valor en el perfil de usuario {#troubleshooting-array-custom-attribute-shows-no-value-on-a-user-profile}
+
+Si un atributo personalizado de matriz aparece en un perfil de usuario pero no muestra valores, verifica si la **longitud máxima** del atributo está configurada en `0` en el panel.
+
+1. Ve a **Data Settings** > **Custom Attributes**.
+2. Filtra la lista por **Array**.
+3. Encuentra el atributo y revisa su **Max Length**.
+4. Si **Max Length** es `0`, actualízalo a un valor mayor que `0`.
+
+Configurar **Max Length** en `0` impide que los valores se muestren en el perfil de usuario.
+
+Para ver ejemplos de comportamiento de matrices orientados al SDK, consulta [Resumen de análisis]({{site.baseurl}}/developer_guide/analytics).
 
 Para los atributos de **matriz**, están disponibles las siguientes opciones de segmentación.
 
 | Opciones de segmentación | Filtro desplegable | Opciones de entrada | Ejemplos |
 | ---------------------| --------------- | ------------- | -------- |
-| Comprobar si el atributo de matriz **incluye un valor que coincide exactamente** con un valor introducido| **INCLUDES VALUE** | **STRING** | Si este filtro especifica `sci-fi` y un perfil de usuario tiene el valor `sci-fi`, el usuario coincidirá con este filtro.|
-| Comprobar si el atributo de matriz **no incluye un valor que coincida exactamente** con un valor introducido| **DOESN'T INCLUDE VALUE** | **STRING** | Si este filtro especifica `sci-fi` y un perfil de usuario no tiene el valor `sci-fi`, el usuario coincidirá con este filtro.|
-| Comprobar si el atributo de matriz **contiene un valor que coincide parcialmente** con un valor introducido **O** expresión regular | **MATCHES REGEX** | **STRING** **O** **REGULAR EXPRESSION**<br>Máximo de 32.764 caracteres | |
+| Comprobar si el atributo de matriz **incluye un valor que coincide exactamente** con un valor introducido | **INCLUDES VALUE** | **STRING** | Si este filtro especifica `sci-fi` y un perfil de usuario tiene el valor `sci-fi`, el usuario coincidirá con este filtro.|
+| Comprobar si el atributo de matriz **no incluye un valor que coincide exactamente** con un valor introducido | **DOESN'T INCLUDE VALUE** | **STRING** | Si este filtro especifica `sci-fi` y un perfil de usuario no tiene el valor `sci-fi`, el usuario coincidirá con este filtro.|
+| Comprobar si el atributo de matriz **contiene un valor que coincide parcialmente** con un valor introducido **O** una expresión regular | **MATCHES REGEX** | **STRING** **O** **REGULAR EXPRESSION**<br>Máximo de 32,764 caracteres | |
 | Comprobar si el atributo de matriz **tiene algún valor** o no está vacío | **HAS A VALUE** | **N/A** | Si este filtro especifica `favorite_genres` y un perfil de usuario contiene `favorite_genres` con cualquier valor, el usuario coincidirá con este filtro. |
 | Comprobar si el atributo de matriz **está vacío** o no existe | **IS EMPTY** | **N/A** | Si este filtro especifica `favorite_genres` y un perfil de usuario no contiene `favorite_genres` o contiene `favorite_genres` pero no tiene valores, el usuario coincidirá con este filtro.|
-| Comprobar si el atributo de matriz **incluye un valor que coincide exactamente con alguno** de los valores introducidos | **INCLUDES ANY OF** | **STRING**<br>Distingue entre mayúsculas y minúsculas; se permiten múltiples valores (máximo 256) | Si este filtro especifica `sci-fi, fantasy, romance` y un perfil de usuario tiene cualquier combinación de `sci-fi`, `fantasy` o `romance`, incluyendo solo uno de ellos (como solo `sci-fi`). Un usuario puede tener `horror` u otro valor en su cadena si también tiene alguno de `sci-fi`, `fantasy` y `romance`.|
-| Comprobar si el atributo de matriz **no incluye un valor que coincida exactamente con ninguno** de los valores introducidos | **INCLUDES NONE OF** | **STRING**<br>Distingue entre mayúsculas y minúsculas; se permiten múltiples valores (máximo 256) | Si este filtro especifica `sci-fi, fantasy, romance` y un perfil de usuario no tiene ninguna combinación de `sci-fi`, `fantasy` o `romance`, el usuario coincidirá con este filtro. El usuario puede tener `horror` u otro valor si no tiene ninguno de `sci-fi`, `fantasy` o `romance`.|
-| Comprobar si el atributo de matriz **contiene un valor que coincide parcialmente con alguno** de los valores introducidos | **VALUES CONTAIN ANY OF** | **STRING**<br>Distingue entre mayúsculas y minúsculas; se permiten múltiples valores (máximo 256) | Si este filtro especifica `gold` y una matriz del perfil de usuario contiene `gold` en al menos una cadena, el usuario coincidirá con este filtro. Esto incluye valores de cadena como `gold_tier`, `former_gold_tier` y otros.|
-| Comprobar si el atributo de matriz **no incluye un valor que coincida parcialmente con ninguno** de los valores introducidos | **VALUES DON'T CONTAIN ANY OF** | **STRING**<br>Distingue entre mayúsculas y minúsculas; se permiten múltiples valores (máximo 256) | Si este filtro especifica `gold` y una matriz del perfil de usuario no contiene `gold` en ninguna cadena, el usuario coincidirá con este filtro. Esto significa que los usuarios con valores de cadena como `gold_tier` y `former_gold_tier` no coincidirán con este filtro.|
-| Comprobar si el atributo de matriz **incluye todos** los valores introducidos | **IS ALL OF** | **STRING**<br>Distingue entre mayúsculas y minúsculas; se permiten múltiples valores (máximo 256) | Si este filtro especifica `sci-fi, fantasy, romance` y un perfil de usuario tiene todos esos valores, el usuario coincidirá con este filtro. El usuario también puede tener `horror` u otros valores y coincidir con este filtro.|
-| Comprobar si el atributo de matriz **no incluye todos** los valores introducidos | **ISN'T ALL OF** | **STRING**<br>Distingue entre mayúsculas y minúsculas; se permiten múltiples valores (máximo 256)|  Si este filtro especifica `sci-fi, fantasy, romance` y un perfil de usuario no tiene todos esos valores, el usuario coincidirá con este filtro.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Number attribute details" }
+| Comprobar si el atributo de matriz **incluye un valor que coincide exactamente con cualquiera** de los valores introducidos | **INCLUDES ANY OF** | **STRING**<br>Distingue entre mayúsculas y minúsculas; se permiten múltiples valores (máximo de 256) | Si este filtro especifica `sci-fi, fantasy, romance` y un perfil de usuario tiene cualquier combinación de `sci-fi`, `fantasy` o `romance`, incluyendo solo uno de ellos (como solo `sci-fi`). Un usuario puede tener `horror` u otro valor en su cadena si también tiene alguno de `sci-fi`, `fantasy` y `romance`.|
+| Comprobar si el atributo de matriz **no incluye un valor que coincide exactamente con ninguno** de los valores introducidos | **INCLUDES NONE OF** | **STRING**<br>Distingue entre mayúsculas y minúsculas; se permiten múltiples valores (máximo de 256) | Si este filtro especifica `sci-fi, fantasy, romance` y un perfil de usuario no tiene ninguna combinación de `sci-fi`, `fantasy` o `romance`, el usuario coincidirá con este filtro. El usuario puede tener `horror` u otro valor si no tiene ninguno de `sci-fi`, `fantasy` o `romance`.|
+| Comprobar si el atributo de matriz **contiene un valor que coincide parcialmente con cualquiera** de los valores introducidos | **VALUES CONTAIN ANY OF** | **STRING**<br>Distingue entre mayúsculas y minúsculas; se permiten múltiples valores (máximo de 256) | Si este filtro especifica `gold` y una matriz del perfil de usuario contiene `gold` en al menos una cadena, el usuario coincidirá con este filtro. Esto incluye valores de cadena como `gold_tier`, `former_gold_tier` y otros.|
+| Comprobar si el atributo de matriz **no incluye un valor que coincide parcialmente con ninguno** de los valores introducidos | **VALUES DON'T CONTAIN ANY OF** | **STRING**<br>Distingue entre mayúsculas y minúsculas; se permiten múltiples valores (máximo de 256) | Si este filtro especifica `gold` y una matriz del perfil de usuario no contiene `gold` en ninguna cadena, el usuario coincidirá con este filtro. Esto significa que los usuarios con valores de cadena como `gold_tier` y `former_gold_tier` no coincidirán con este filtro.|
+| Comprobar si el atributo de matriz **incluye todos** los valores introducidos | **IS ALL OF** | **STRING**<br>Distingue entre mayúsculas y minúsculas; se permiten múltiples valores (máximo de 256) | Si este filtro especifica `sci-fi, fantasy, romance` y un perfil de usuario tiene todos esos valores, el usuario coincidirá con este filtro. El usuario también puede tener `horror` u otros valores y aún coincidir con este filtro.|
+| Comprobar si el atributo de matriz **no incluye todos** los valores introducidos | **ISN'T ALL OF** | **STRING**<br>Distingue entre mayúsculas y minúsculas; se permiten múltiples valores (máximo de 256) | Si este filtro especifica `sci-fi, fantasy, romance` y un perfil de usuario no tiene todos esos valores, el usuario coincidirá con este filtro.|
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Detalles de atributos numéricos" }
 
 {% alert tip %}
-Para más información sobre cómo usar expresiones regulares (regex), consulta estos recursos:
+Para obtener más información sobre cómo usar expresiones regulares (regex), consulta estos recursos:
+
 - [Expresiones regulares compatibles con Perl (PCRE)](https://www.regextester.com/pregsyntax.html)
 - [Regex con Braze]({{site.baseurl}}/user_guide/audience/segments/regex)
 - [Depurador y probador de regex](https://www.regex101.com/)
@@ -274,64 +290,64 @@ Para más información sobre cómo usar expresiones regulares (regex), consulta 
 {% endtab %}
 {% tab Hora %}
 
-Los atributos de hora son útiles para almacenar la última vez que se realizó una acción específica, de modo que puedas ofrecer mensajería de reactivación de la interacción con contenido específico a tus usuarios.
+Los atributos de hora son útiles para almacenar la última vez que se realizó una acción específica, de modo que puedas ofrecer mensajería de reactivación con contenido específico a tus usuarios.
 
-Los filtros de hora que usan fechas relativas (por ejemplo, hace más de 1 día, hace menos de 2 días) miden 1 día como 24 horas. Cualquier campaña que ejecutes usando estos filtros incluirá a todos los usuarios en incrementos de 24 horas. Por ejemplo, `last used app more than 1 day ago` capturará a todos los usuarios que "usaron la aplicación por última vez hace más de 24 horas" desde el momento exacto en que se ejecuta la campaña. Lo mismo se aplica a campañas configuradas con rangos de fechas más largos, por lo que cinco días desde la activación significarán las 120 horas anteriores.
+Los filtros de hora que utilizan fechas relativas (por ejemplo, hace más de 1 día, hace menos de 2 días) miden 1 día como 24 horas. Cualquier Campaign que ejecutes con estos filtros incluirá a todos los usuarios en incrementos de 24 horas. Por ejemplo, `last used app more than 1 day ago` capturará a todos los usuarios que "usaron la aplicación por última vez hace más de 24 horas" desde el momento exacto en que se ejecuta la Campaign. Lo mismo sucederá con las Campaigns configuradas con rangos de fechas más amplios, de modo que cinco días desde la activación significarán las 120 horas previas.
 
-Para segmentar usuarios que tienen un atributo de hora dentro de un rango de tiempo, usa dos filtros de audiencia: `in more than` para el límite inferior e `in less than` para el límite superior. Un solo filtro no puede expresar ambos lados de ese rango. Por ejemplo, para segmentar usuarios con un atributo de hora en las próximas 24 horas (entre ahora y un día a partir de ahora), aplica `in more than 0 days` e `in less than 1 day`.
+Para segmentar usuarios que tienen un atributo de hora que cae dentro de un rango de tiempo, usa dos filtros de audiencia: `in more than` para el límite inferior e `in less than` para el límite superior. Un solo filtro no puede expresar ambos lados de ese rango. Por ejemplo, para segmentar usuarios con un atributo de hora en las próximas 24 horas (entre ahora y un día a partir de ahora), aplica `in more than 0 days` e `in less than 1 day`.
 
 {% alert warning %}
-La última fecha en que ocurrió un evento personalizado o un evento de compra se registra automáticamente y no debe registrarse de nuevo a través de un atributo personalizado de hora.
+La última fecha en que ocurrió un evento personalizado o un evento de compra se registra automáticamente y no debe registrarse nuevamente a través de un atributo de hora personalizado.
 {% endalert %}
 
 Para los atributos de **hora**, están disponibles las siguientes opciones de segmentación.
 
 | Opciones de segmentación | Filtro desplegable | Opciones de entrada | Ejemplos |
 | ---------------------| --------------- | ------------- | -------- |
-| Comprobar si el atributo de hora **es anterior a** una **fecha seleccionada**| **BEFORE** | **CALENDAR DATE SELECTOR** | Si este filtro especifica `2024-01-31` y un perfil de usuario tiene una fecha anterior a `2024-1-31`, el usuario coincidirá con este filtro. |
-| Comprobar si el atributo de hora **es posterior a** una **fecha seleccionada**| **AFTER** | **CALENDAR DATE SELECTOR** | Si este filtro especifica `2024-01-31` y un perfil de usuario tiene una fecha posterior a `2024-1-31`, el usuario coincidirá con este filtro. |
-| Comprobar si el atributo de hora es **hace más de X número** de **días** | **MORE THAN** | **NUMBER OF DAYS AGO** | Si este filtro especifica `7` y un perfil de usuario tiene una fecha de hace más de siete días, el usuario coincidirá con este filtro. |
-| Comprobar si el atributo de hora es **hace menos de X número** de **días**| **LESS THAN** | **NUMBER OF DAYS AGO** | Si este filtro especifica `7` y un perfil de usuario tiene una fecha de hace menos de siete días, el usuario coincidirá con este filtro.|
+| Comprobar si el atributo de hora **es anterior a** una **fecha seleccionada** | **BEFORE** | **CALENDAR DATE SELECTOR** | Si este filtro especifica `2024-01-31` y un perfil de usuario tiene una fecha anterior a `2024-1-31`, el usuario coincidirá con este filtro. |
+| Comprobar si el atributo de hora **es posterior a** una **fecha seleccionada** | **AFTER** | **CALENDAR DATE SELECTOR** | Si este filtro especifica `2024-01-31` y un perfil de usuario tiene una fecha posterior a `2024-1-31`, el usuario coincidirá con este filtro. |
+| Comprobar si el atributo de hora es **de hace más de X número** de **días** | **MORE THAN** | **NUMBER OF DAYS AGO** | Si este filtro especifica `7` y un perfil de usuario tiene una fecha de hace más de siete días, el usuario coincidirá con este filtro. |
+| Comprobar si el atributo de hora es **de hace menos de X número** de **días** | **LESS THAN** | **NUMBER OF DAYS AGO** | Si este filtro especifica `7` y un perfil de usuario tiene una fecha de hace menos de siete días, el usuario coincidirá con este filtro.|
 | Comprobar si el atributo de hora es **en más de X número** de **días en el futuro** | **IN MORE THAN** | **NUMBER OF DAYS IN FUTURE** | Si este filtro especifica `7` y un perfil de usuario tiene una fecha de más de siete días en el futuro, el usuario coincidirá con este filtro.|
 | Comprobar si el atributo de hora es **en menos de X número** de **días en el futuro** | **IN LESS THAN** | **NUMBER OF DAYS IN FUTURE**  | Si este filtro especifica `7` y un perfil de usuario tiene una fecha de menos de siete días en el futuro, el usuario coincidirá con este filtro.|
-| Comprobar si el atributo de hora **existe** en el perfil de un usuario y no es nulo | **IS NOT BLANK** | **N/A** | Si este filtro especifica un atributo de hora que está en un perfil de usuario, el usuario coincidirá con este filtro.|
-| Comprobar si el atributo de hora **no existe** en el perfil de un usuario o es nulo | **IS BLANK** | **N/A** | Si este filtro especifica un atributo de hora que no está en un perfil de usuario, el usuario coincidirá con este filtro. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Number attribute details" }
+| Comprobar si el atributo de hora **existe** en el perfil de un usuario y no es null | **IS NOT BLANK** | **N/A** | Si este filtro especifica un atributo de hora que está en un perfil de usuario, el usuario coincidirá con este filtro.|
+| Comprobar si el atributo de hora **no existe** en el perfil de un usuario o es null | **IS BLANK** | **N/A** | Si este filtro especifica un atributo de hora que no está en un perfil de usuario, el usuario coincidirá con este filtro. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Detalles de atributos numéricos" }
+
+{% alert note %}
+Al usar los operadores **in less than** o **in more than** con 90 días o más, Braze convierte automáticamente el valor a semanas cuando guardas el Segment. Por ejemplo, 90 días se convierten en 13 semanas.
+{% endalert %}
 
 #### Detalles de atributos de hora {#time-attribute-details}
 
-- Día de evento recurrente
-  - Al usar el filtro "Día de evento recurrente" y luego se te solicita seleccionar el "Día del calendario del evento recurrente", si seleccionas `IS LESS THAN` o `IS MORE THAN`, la fecha actual se contará para ese filtro de segmentación.
-  - Por ejemplo, si el 10 de marzo de 2020 seleccionaste la fecha del atributo como `LESS THAN ... March 10, 2020`, los atributos se considerarán para los días hasta e incluyendo el 10 de marzo de 2020.
-- Hace menos de X días: el filtro "Hace menos de X días" incluye fechas entre hace X días y la fecha/hora actual.
-- En menos de X días en el futuro: incluye fechas entre la fecha/hora actual y X días en el futuro.
+{% multi_lang_include data_activation/day_of_recurring_event_filter.md %}
 
 {% endtab %}
 {% tab Objetos %}
 
-Puedes usar atributos personalizados anidados para enviar objetos como tipo de datos para atributos personalizados. Para más información, consulta [Atributos personalizados anidados]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
+Puedes usar atributos personalizados anidados para enviar objetos como un tipo de datos para atributos personalizados. Para obtener más información, consulta [Atributos personalizados anidados]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
 
 {% endtab %}
 {% tab Matrices de objetos %}
 
-Usa una matriz de objetos para agrupar atributos relacionados. Para más detalles, consulta [Matriz de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects).
+Usa una matriz de objetos para agrupar atributos relacionados. Para obtener más información, consulta [Matriz de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects).
 
 {% endtab %}
 {% endtabs %}
 
-Puedes cambiar el tipo de datos de tu atributo personalizado, pero debes tener en cuenta los impactos. Consulta [Cambiar el tipo de datos de un atributo personalizado o evento](#changing-custom-attribute-or-event-data-type) para más información.
+Puedes cambiar el tipo de datos de tu atributo personalizado, pero debes tener en cuenta los impactos. Consulta [Cambiar el tipo de datos de un atributo personalizado o evento](#changing-custom-attribute-or-event-data-type) para obtener más información.
 
 ### Operadores consolidados {#consolidated-operators}
 
 Hemos consolidado la lista de operadores disponibles para usar en filtros de atributos, filtros de atributos personalizados y filtros de atributos personalizados anidados. Si tienes filtros existentes que usan estos operadores, se actualizarán automáticamente para usar los nuevos operadores.
 
-| Tipo de datos | Operador anterior | Nuevo operador | Valor |
+| Tipo de datos | Operador antiguo | Operador nuevo | Valor |
 | --- | --- | --- | --- |
 | Cadena | equals | is any of | Al menos 1 valor |
 | Cadena | does not equal | is none of | Al menos 1 valor |
 | Matriz | includes value | includes any of | Al menos 1 valor |
 | Matriz | doesn't include value | includes none of | Al menos 1 valor |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Consolidated operators #consolidated-operators" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Operadores consolidados #consolidated-operators" }
 
 ## Tipos de datos de propiedades del evento {#event-property-data-types}
 
@@ -360,7 +376,7 @@ Los datos de compras e ingresos se registran a través de [eventos de compra]({{
 Los eventos recomendados tienen esquemas predefinidos con tipos de datos establecidos. Para más detalles, consulta [Eventos recomendados de comercio electrónico]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events).
 {% endalert %}
 
-Registrar eventos de compra establece el valor de duración del ciclo de vida (LTV) para cada perfil de usuario, y estos datos se pueden ver en la página de ingresos en series temporales. Puedes segmentar por dinero gastado, fecha de última compra, número de compras en un período de tiempo y más.
+Registrar eventos de compra establece el LTV (LTV) para cada perfil de usuario, y estos datos se pueden ver en la página de ingresos en series temporales. Puedes segmentar por dinero gastado, fecha de última compra, número de compras en un período de tiempo y más.
 
 ### Tipos de datos de propiedades de eventos de compra {#purchase-event-property-data-types}
 
@@ -374,19 +390,19 @@ Para el esquema completo del objeto de compra y ejemplos, consulta [Objeto de co
 
 Para cambiar el tipo de datos de un atributo personalizado o evento:
 
-1. Ve a **Configuración de datos** y selecciona **Atributos personalizados** o **Eventos personalizados**.
+1. Ve a **Data Settings** y selecciona **Custom Attributes** o **Custom Events**.
 2. Busca tu atributo o evento en la lista y selecciona <i class="fa fa-ellipsis-v" aria-hidden="true"></i> **Más acciones**.
 3. Selecciona un nuevo **Tipo de datos** en el desplegable.
 4. Selecciona **Guardar**.
 
 Si cambias el tipo de datos de un atributo personalizado o evento (por ejemplo, cambiar `time` a `string`), ten en cuenta lo siguiente:
 
-- **Los filtros no se actualizan automáticamente.** Los Segments, Campaigns, Canvas u otras ubicaciones que usen el atributo o evento modificado no se actualizan. Antes de cambiar el tipo de datos, detén cualquier campaña o Canvas que use el atributo en Segments o filtros, y elimina el atributo de los filtros que lo referencian.
-- **Los datos de usuario existentes no se actualizan retroactivamente.** Si el atributo modificado estaba en un perfil de usuario antes del cambio, ese valor permanece con el tipo de datos anterior. Los usuarios pueden salir de Segments que contienen el atributo modificado porque el filtro busca el nuevo tipo de datos. Actualiza esos perfiles de usuario (por ejemplo, con el [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)) para que coincidan con el nuevo tipo y vuelvan a entrar en el Segment si es necesario.
+- **Los filtros no se actualizan automáticamente.** Los segmentos, las campañas, los Canvas u otras ubicaciones que usen el atributo o evento modificado no se actualizan. Antes de cambiar el tipo de datos, detén cualquier campaña o Canvas que use el atributo en segmentos o filtros, y elimina el atributo de los filtros que lo referencian.
+- **Los datos de usuario existentes no se actualizan retroactivamente.** Si el atributo modificado estaba en un perfil de usuario antes del cambio, ese valor permanece con el tipo de datos anterior. Los usuarios pueden salir de segmentos que contienen el atributo modificado porque el filtro busca el nuevo tipo de datos. Actualiza esos perfiles de usuario (por ejemplo, con el [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)) para que coincidan con el nuevo tipo y vuelvan a entrar en el segmento si es necesario.
 - **Los nuevos datos deben coincidir con el nuevo tipo.** Las llamadas a la API que envíen el tipo de datos anterior para el atributo modificado no se aceptan. Envía el nuevo tipo de datos.
 
 {% alert important %}
-La capacidad de evitar que la detección automática actualice el tipo de datos del atributo personalizado está actualmente en acceso anticipado. Ponte en contacto con tu administrador del éxito del cliente si te interesa participar.
+La capacidad de evitar que la detección automática actualice el tipo de datos del atributo personalizado está actualmente en acceso anticipado. Ponte en contacto con tu CSM si te interesa participar.
 {% endalert %}
 
 ## Tipos de datos de catálogos {#catalog-data-types}
@@ -395,7 +411,7 @@ Los catálogos admiten los tipos enumerados en la tabla de [Definiciones](#defin
 
 | Tipo de datos | Descripción | Disponible mediante carga CSV | Disponible mediante API y CDI |
 | --- | --- | --- | --- |
-| Cadena | Una secuencia de caracteres (por ejemplo, nombres, descripciones, IDs). | ✅ Sí | ✅ Sí |
+| Cadena | Una secuencia de caracteres (por ejemplo, nombres, descripciones, ID). | ✅ Sí | ✅ Sí |
 | Número | Un valor numérico, ya sea entero o decimal (por ejemplo, precios, cantidades, calificaciones). | ✅ Sí | ✅ Sí |
 | Booleano | Un valor `true` o `false`. | ✅ Sí | ✅ Sí |
 | Hora | Fecha y hora en formato [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) o marca de tiempo Unix en segundos. | ✅ Sí | ✅ Sí |

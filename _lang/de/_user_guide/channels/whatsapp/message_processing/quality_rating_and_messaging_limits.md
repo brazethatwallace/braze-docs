@@ -23,13 +23,13 @@ channel:
 
 ## Onboarding {#onboarding}
 
-Wenn ein neues WhatsApp Business-Konto erstellt wird, verwendet Meta verschiedene Faktoren, um das anfängliche Sendelimit zu bestimmen. Sie finden dieses Limit in Ihrem WhatsApp Business Manager sowie weitere Details auf Ihrer Seite „Phone Number Insights“.
+Wenn ein neues WhatsApp Business-Konto erstellt wird, verwendet Meta verschiedene Faktoren, um das anfängliche Sendelimit zu bestimmen. Sie finden dieses Limit in Ihrem WhatsApp Business Manager:in sowie weitere Details auf Ihrer Seite „Phone Number Insights“.
 
 Lesen Sie die Dokumentation von Meta, um mehr über das [Überprüfen Ihres Limits](https://developers.facebook.com/docs/whatsapp/messaging-limits#checking-your-limit) und die [Anforderungen an Telefonnummern](https://developers.facebook.com/docs/whatsapp/cloud-api/phone-numbers) zu erfahren.
 
 ## Durchsatz {#throughput}
 
-Meta startet jede registrierte geschäftliche Telefonnummer mit einem Durchsatz von 80 Messages pro Sekunde. Upgrades auf 1.000 Messages pro Sekunde können automatisch oder auf Anfrage erfolgen.
+Meta startet jede registrierte geschäftliche Telefonnummer mit einem Durchsatz von 80 MPS. Upgrades auf 1.000 MPS können automatisch oder auf Anfrage erfolgen.
 
 Lesen Sie die Dokumentation von Meta, um mehr über Ihren [Durchsatz](https://developers.facebook.com/docs/whatsapp/cloud-api/overview#throughput) zu erfahren.
 

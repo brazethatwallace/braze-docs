@@ -16,29 +16,29 @@ page_order: 5
 Las propiedades de entrada persistentes son un artefacto del editor original de Canvas, por lo que existen referencias obsoletas a términos como propiedades de entrada de Canvas que permanecen como referencia histórica. Para el editor actual de Canvas, consulta [Propiedades de contexto y propiedades del evento]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties).<br><br>Para usar propiedades de entrada persistentes en el editor actual de Canvas, debes crear un nuevo Canvas o [clonar]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases) uno existente en el editor actual.
 {% endalert %}
 
-## Uso de las propiedades de entrada {#using-entry-properties}
+## Uso de propiedades de entrada {#using-entry-properties}
 
-Las propiedades de entrada se pueden usar en Canvas basados en acciones y desencadenados por API. Estas propiedades de entrada se definen cuando un Canvas se desencadena mediante un evento personalizado, una compra o una llamada a la API. Consulta los siguientes artículos para más información:
+Las propiedades de entrada pueden utilizarse en Canvas basados en acciones y activados por API. Estas propiedades de entrada se definen cuando un Canvas se desencadena mediante un evento personalizado, una compra o una llamada a la API. Consulta los siguientes artículos para obtener más información:
 
 - [Objeto de propiedades de entrada de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)
 - [Objeto de propiedades del evento]({{site.baseurl}}/api/objects_filters/event_object)
-- [Objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object#purchase-product_id)
+- [Objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object#purchase-product-id)
 
-Las propiedades pasadas desde estos objetos se pueden referenciar usando la etiqueta de Liquid `canvas_entry_properties`. Por ejemplo, una solicitud con `"canvas_entry_properties": {"product_name": "shoes", "product_price": 79.99}` podría añadir la palabra "shoes" a un mensaje agregando el Liquid {% raw %}`{{canvas_entry_properties.${product_name}}}`{% endraw %}.
+Las propiedades pasadas desde estos objetos pueden referenciarse utilizando la etiqueta de Liquid `canvas_entry_properties`. Por ejemplo, una solicitud con `"canvas_entry_properties": {"product_name": "shoes", "product_price": 79.99}` podría añadir la palabra "shoes" a un mensaje agregando el Liquid {% raw %}`{{canvas_entry_properties.${product_name}}}`{% endraw %}.
 
-Cuando un Canvas incluye un mensaje con la etiqueta de Liquid `canvas_entry_properties`, los valores asociados con esas propiedades se guardarán durante toda la trayectoria del usuario en el Canvas y se eliminarán cuando el usuario salga del Canvas. Ten en cuenta que las propiedades de entrada de Canvas solo están disponibles para referencia en Liquid. Para filtrar por las propiedades dentro del Canvas, usa la [segmentación por propiedades del evento]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects) en su lugar.
+Cuando un Canvas incluye un mensaje con la etiqueta de Liquid `canvas_entry_properties`, los valores asociados con esas propiedades se guardarán durante toda la duración del recorrido del usuario en el Canvas y se eliminarán cuando el usuario salga del Canvas. Ten en cuenta que las propiedades de entrada de Canvas solo están disponibles para referencia en Liquid. Para filtrar por las propiedades dentro del Canvas, utiliza la [segmentación de propiedades del evento]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects) en su lugar.
 
 {% alert note %}
-El objeto de propiedades de entrada de Canvas tiene un límite máximo de tamaño de 50 KB.
+El objeto de propiedades de entrada de Canvas tiene un límite de tamaño máximo de 50 KB.
 {% endalert %}
 
 ## Actualización de Canvas para usar propiedades de entrada {#updating-canvas-to-use-entry-properties}
 
-Si un Canvas activo que anteriormente no incluía ningún mensaje que use `canvas_entry_properties` se edita para incluir `canvas_entry_properties`, el valor correspondiente a esa propiedad no estará disponible para los usuarios que entraron al Canvas antes de que se añadiera `canvas_entry_properties` al Canvas. Los valores solo se guardarán para los usuarios que entren al Canvas después de que se realice el cambio.
+Si se edita un Canvas activo que anteriormente no incluía ningún mensaje que use `canvas_entry_properties` para incluir `canvas_entry_properties`, el valor correspondiente a esa propiedad no estará disponible para los usuarios que entraron al Canvas antes de que se añadiera `canvas_entry_properties` al Canvas. Los valores solo se guardarán para los usuarios que entren al Canvas después de que se realice el cambio.
 
 Por ejemplo, si inicialmente lanzaste un Canvas que no usaba ninguna propiedad de entrada el 3 de noviembre, y luego añadiste una nueva propiedad `product_name` al Canvas el 11 de noviembre, los valores de `product_name` solo se guardarían para los usuarios que entraron al Canvas a partir del 11 de noviembre.
 
-En el caso de que una propiedad de entrada de Canvas sea nula o esté en blanco, puedes cancelar mensajes usando condicionales. El siguiente fragmento de código es un ejemplo de cómo podrías usar Liquid para cancelar un mensaje.
+En el caso de que una propiedad de entrada de Canvas sea nula o esté vacía, puedes cancelar mensajes usando condicionales. El siguiente fragmento de código es un ejemplo de cómo podrías usar Liquid para cancelar un mensaje.
 {%raw%}
 ```
 {% if canvas_entry_properties.${product_name} == blank %}
@@ -47,11 +47,11 @@ En el caso de que una propiedad de entrada de Canvas sea nula o esté en blanco,
 ```
 {%endraw%}
 
-Para leer más sobre la cancelación de mensajes con Liquid, consulta nuestra [documentación de Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages#abort-messages).
+Para leer más sobre la cancelación de mensajes con Liquid, consulta nuestra [documentación de Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages).
 
 ## Propiedades de entrada globales de Canvas {#global-canvas-entry-properties}
 
-Con `canvas_entry_properties`, puedes establecer propiedades globales que se aplican a todos los usuarios o propiedades específicas del usuario que solo se aplican al usuario especificado. La propiedad específica del usuario sustituirá a la propiedad global para ese usuario.
+Con `canvas_entry_properties`, puedes establecer propiedades globales que se aplican a todos los usuarios o propiedades específicas del usuario que solo se aplican al usuario indicado. La propiedad específica del usuario prevalecerá sobre la propiedad global para ese usuario.
 
 ### Ejemplo de solicitud {#example-request}
 
@@ -79,14 +79,22 @@ curl -X POST \
     }'
 ```
 
-En esta solicitud, el valor global para "food allergies" es "none". Para Customer_123, el valor es "dairy". Los mensajes en este Canvas que contengan el fragmento de Liquid {%raw%}`{{canvas_entry_properties.${food_allergies}}}`{%endraw%} se renderizarán con "dairy" para Customer_123 y "none" para el resto.
+En esta solicitud, el valor global para "food allergies" es "none". Para Customer_123, el valor es "dairy". Los mensajes en este Canvas que contengan el fragmento de Liquid {%raw%}`{{canvas_entry_properties.${food_allergies}}}`{%endraw%} se renderizarán con "dairy" para Customer_123 y "none" para todos los demás.
 
 ## Caso de uso {#use-case}
 
-Si tienes un Canvas que se desencadena cuando un usuario navega por un artículo en tu sitio de comercio electrónico pero no lo añade a su carrito, el primer paso del Canvas podría ser una notificación push preguntándole si está interesado en comprar el artículo. Podrías referenciar el nombre del producto usando {% raw %}`{{canvas_entry_properties.${product_name}}}`{% endraw %}
+Si tienes un Canvas que se desencadena cuando un usuario explora un artículo en tu sitio de eCommerce pero no lo añade a su carrito, el primer paso del Canvas podría ser una notificación push preguntándole si está interesado en comprar el artículo. Podrías hacer referencia al nombre del producto usando {% raw %}`{{canvas_entry_properties.${product_name}}}`{% endraw %}
 
-![Si tienes un Canvas que se desencadena cuando un usuario navega por un artículo en tu sitio de comercio electrónico pero no lo añade a su carrito, el primer paso del Canvas podría ser una notificación push preguntándole si está interesado en comprar el artículo. Podrías referenciar el nombre del producto usando canvas_entry_properties.product_name.]({% image_buster /assets/img/persistent_entry_properties/PEP1.png %}){: style="border:0;margin-left:15px;"}
+![Si tienes un Canvas que se desencadena cuando un usuario explora un artículo en tu sitio de eCommerce pero no lo añade a su carrito, el primer paso del Canvas podría ser una notificación push preguntándole si está interesado en comprar el artículo. Podrías hacer referencia al nombre del producto usando {% raw %}{{canvas_entry_properties.${product_name}}}{% endraw %}.]({% image_buster /assets/img/persistent_entry_properties/PEP1.png %}){: style="border:0;margin-left:15px;"}
 
-El segundo paso puede enviar otra notificación push invitando al usuario a finalizar la compra si añadió el artículo a su carrito pero aún no lo ha comprado. Puedes seguir referenciando la propiedad de entrada `product_name` usando {% raw %}`{{canvas_entry_properties.${product_name}}}`{% endraw %}.
+El segundo paso puede enviar otra notificación push indicándole al usuario que finalice la compra si añadió el artículo a su carrito pero aún no lo ha comprado. Puedes seguir haciendo referencia a la propiedad de entrada `product_name` usando {% raw %}`{{canvas_entry_properties.${product_name}}}`{% endraw %}.
 
 ![Captura de pantalla relacionada con el caso de uso.]({% image_buster /assets/img/persistent_entry_properties/PEP12.png %}){: style="border:0;margin-left:15px;"}
+
+## Solución de problemas {#troubleshooting}
+
+### Las propiedades de entrada están vacías con múltiples desencadenantes de entrada {#entry-properties-are-blank-with-multiple-entry-triggers}
+
+Braze almacena `canvas_entry_properties` del desencadenante que hizo entrar a este usuario, no de cada desencadenante configurado en el Canvas. Si ese desencadenante no tiene un evento o carga útil de API —por ejemplo, **Start Session** o **Change Custom Attribute Value**—, el Liquid `canvas_entry_properties` estará vacío para ese recorrido. Los usuarios que entran al mismo Canvas desde un evento personalizado, una compra o una llamada a la API sí tendrán las propiedades de esa carga útil.
+
+Para mantener las propiedades de entrada con datos para cada usuario, usa únicamente tipos de entrada que pasen esas propiedades (evento personalizado, compra o desencadenado por API). Para la personalización en el editor actual de Canvas, usa las [propiedades de contexto y de evento]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties). Para filtrar por propiedades, usa la [segmentación por propiedades de evento]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects) en lugar de Liquid `canvas_entry_properties`.

@@ -3,7 +3,7 @@ nav_title: ゼロコピーパーソナライゼーション
 article_title: CDI を用いたゼロコピーパーソナライゼーション
 page_order: 7
 page_type: reference
-description: "このページでは、CDI を使用して Braze Canvasをトリガーする方法の概要を説明します。"
+description: "このページでは、CDI を使用して Braze キャンバスをトリガーする方法の概要を説明します。"
 ---
 
 # CDI を用いたゼロコピーパーソナライゼーション {#zero-copy-personalization-using-cdi}

@@ -1,0 +1,3 @@
+- Répondre à des requêtes telles que « Je souhaite envoyer à nos utilisateurs inactifs une notification push avec un code promo de 20 % de réduction la prochaine fois qu'ils ouvrent l'application ou enregistrent un événement personnalisé qui annule leur abonnement ».
+- Vous assister à chaque étape de l'assistant de création de Campaign, avec une visibilité complète sur votre travail en cours et la possibilité de modifier les champs du formulaire sur la page.
+- Naviguer vers l'étape appropriée de l'assistant pour commencer à agir, que vous partiez d'une Campaign ouverte ou de la page **Campaigns**.

@@ -9,19 +9,19 @@ description: "이 참조 문서에서는 카탈로그를 사용하여 Liquid를 
 
 > 카탈로그를 생성한 후, [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)를 통해 Braze Campaign에서 비사용자 데이터를 참조할 수 있습니다. 드래그 앤 드롭 편집기에서 Liquid가 지원되는 곳이라면 어디서든 모든 메시징 채널에서 카탈로그를 사용할 수 있습니다.
 
-## 메시지에서 카탈로그 사용 {#using-catalogs-in-a-message}
+## 메시지에서 카탈로그 사용하기 {#using-catalogs-in-a-message}
 
-다음 동영상에서는 메시지에서 카탈로그를 사용하는 방법을 안내합니다.
+다음 비디오에서는 메시지에서 카탈로그를 사용하는 방법을 안내합니다.
 
 {% multi_lang_include video.html id="4yc2jkyn6w" source="wistia" %}
 
 ### 1단계: 개인화 유형 추가 {#step-one-personalization}
 
-선택한 메시지 작성기에서 <i class="fas fa-plus-circle"></i> **Add Personalization**을 선택하고 **Personalization type**으로 **Catalog Items**를 선택합니다. 그런 다음 카탈로그 이름을 선택합니다. 이전 예제를 사용하여 "Games" 카탈로그를 선택하겠습니다.
+원하는 메시지 작성기에서 <i class="fas fa-plus-circle"></i> **개인화 추가**를 선택하고 **개인화 유형**으로 **Catalog Items**를 선택합니다. 그런 다음 카탈로그 이름을 선택합니다. 이전 예시를 사용하여 "Games" 카탈로그를 선택하겠습니다.
 
-![Catalog Items가 선택되고 Games 카탈로그가 선택된 Add Personalization 모달과 catalog_items 태그를 보여주는 Liquid 미리보기.]({% image_buster /assets/img_archive/use_catalog_personalization.png %})
+![Catalog Items가 선택되고 Games 카탈로그가 선택된 개인화 추가 모달. Liquid 미리보기에 catalog_items 태그가 표시됩니다.]({% image_buster /assets/img_archive/use_catalog_personalization.png %})
 
-다음과 같은 Liquid 미리보기를 즉시 확인할 수 있습니다:
+다음과 같은 Liquid 미리보기가 즉시 표시됩니다:
 
 {% raw %}
 ```liquid
@@ -31,7 +31,7 @@ description: "이 참조 문서에서는 카탈로그를 사용하여 Liquid를 
 
 ### 2단계: 카탈로그 항목 선택 {#step-2-select-catalog-items}
 
-이제 카탈로그 항목을 추가할 차례입니다! 드롭다운을 사용하여 카탈로그 항목과 표시할 정보를 선택합니다. 이 정보는 카탈로그를 생성하는 데 사용된 업로드한 CSV 파일의 열에 해당합니다.
+다음으로 카탈로그 항목을 추가합니다! 드롭다운을 사용하여 카탈로그 항목과 표시할 정보를 선택합니다. 이 정보는 카탈로그를 생성하는 데 사용된 업로드된 CSV 파일의 열에 해당합니다.
 
 예를 들어, Tales 게임의 제목과 가격을 참조하려면 카탈로그 항목으로 Tales의 `id`(1234)를 선택하고 표시할 정보로 `title`과 `price`를 요청할 수 있습니다.
 
@@ -49,22 +49,22 @@ Get {{ items[0].title }} for just {{ items[0].price }}!
 
 ## 카탈로그 내보내기 {#exporting-catalogs}
 
-대시보드에서 카탈로그를 내보내는 방법에는 두 가지가 있습니다:
+대시보드에서 카탈로그를 내보내는 방법은 두 가지가 있습니다:
 
-- **카탈로그** 섹션에서 카탈로그 행 위로 마우스를 가져갑니다. 그런 다음 **카탈로그 내보내기** 버튼을 선택합니다.
+- **카탈로그** 섹션에서 카탈로그 행 위에 마우스를 올립니다. 그런 다음 **카탈로그 내보내기** 버튼을 선택합니다.
 - 카탈로그를 선택합니다. 그런 다음 카탈로그의 **미리보기** 탭에서 **카탈로그 내보내기** 버튼을 선택합니다.
 
-내보내기를 시작하면 CSV 파일을 다운로드할 수 있는 이메일이 전송됩니다. 이 파일은 최대 4시간 이내에 다운로드할 수 있습니다.
+내보내기를 시작하면 CSV 파일을 다운로드할 수 있는 이메일을 받게 됩니다. 이 파일은 최대 4시간 이내에 받을 수 있습니다.
 
-## 추가 활용 사례 {#additional-use-cases}
+## 추가 사용 사례 {#additional-use-cases}
 
-### 다중 항목 {#multiple-items}
+### 여러 항목 {#multiple-items}
 
-메시지에 항목 하나로 제한되지 않습니다. **Add Personalization** 모달을 사용하여 한 번에 최대 세 개의 카탈로그 항목을 추가할 수 있습니다. 더 추가하려면 작성기에서 **Add Personalization**을 다시 선택하고 추가 카탈로그 항목 및 표시할 정보를 선택합니다.
+메시지에 하나의 항목만 사용할 수 있는 것은 아닙니다. **개인화 추가** Modal을 사용하여 한 번에 최대 세 개의 카탈로그 항목을 추가할 수 있습니다. 더 추가하려면 메시지 작성기에서 **개인화 추가**를 다시 선택하고 추가 카탈로그 항목과 표시할 정보를 선택하세요.
 
-이 예제에서는 **Catalog Items**에 세 가지 게임인 Tales, Teslagrad, Acaratus의 `id`를 추가하고 **Information to Display**에 `title`을 선택합니다.
+이 예제에서는 Tales, Teslagrad, Acaratus 세 가지 게임의 `id`를 **Catalog Items**에 추가하고, **Information to Display**에 `title`을 선택합니다.
 
-![세 개의 카탈로그 항목 ID가 선택되고 Information to Display에 title이 선택된 Add Personalization 모달과 각 항목 제목을 나열하는 Liquid 미리보기.]({% image_buster /assets/img_archive/catalog_multiple_items.png %}){: style="max-width:70%" }
+![세 개의 카탈로그 항목 ID가 선택되고 표시할 정보로 title이 선택된 개인화 추가 Modal과 각 항목 제목을 나열하는 Liquid 미리보기.]({% image_buster /assets/img_archive/catalog_multiple_items.png %}){: style="max-width:70%" }
 
 Liquid 주변에 텍스트를 추가하여 메시지를 더욱 개인화할 수 있습니다:
 
@@ -75,7 +75,7 @@ Get the ultimate trio {% catalog_items Games 1234 1235 1236 %}
 ```
 {% endraw %}
 
-그러면 다음과 같이 반환됩니다:
+이것은 다음과 같이 표시됩니다:
 
 ```Get the ultimate trio Tales, Teslagrad, and Acaratus today!```
 
@@ -102,7 +102,7 @@ You can use catalog items to create conditional statements. For example, you can
 
 이 예제에서 `catalog_items` 태그는 `Games` 카탈로그에서 항목 `1234`를 가져오고, `if` 문은 `on_sale` 필드를 확인하여 다른 메시지를 표시합니다.
 
-#### 카탈로그 선택 항목 사용
+#### 카탈로그 셀렉션 사용
 
 {% raw %}
 ```liquid
@@ -117,9 +117,9 @@ Message if the venue name's size is 10 characters or fewer.
 ```
 {% endraw %}
 
-이 예제에서는 `venue_name` 필드의 문자 수가 10자보다 많은지 적은지에 따라 다른 메시지가 표시됩니다. `venue_name`이 비어 있으면 메시지가 중단됩니다.
+이 예제에서는 `venue_name` 필드가 10자를 초과하는지 또는 이하인지에 따라 다른 메시지가 표시됩니다. `venue_name`이 비어 있으면 메시지가 중단됩니다.
 
-선택 항목이 반환하는 항목 수를 출력하려면 태그 뒤에 단일 필드가 아닌 `items` 배열에 Liquid `size` 필터를 사용합니다:
+셀렉션이 반환하는 항목 수를 출력하려면, 단일 필드가 아닌 태그 뒤의 `items` 배열에 Liquid `size` 필터를 사용하세요:
 
 {% raw %}
 ```liquid
@@ -128,14 +128,14 @@ Message if the venue name's size is 10 characters or fewer.
 {% endraw %}
 
 {% alert tip %}
-Liquid 구문 오류를 방지하려면 메시지 작성기에서 **+** 더하기 버튼을 선택하여 카탈로그 Liquid 태그를 자동으로 삽입하세요.
+Liquid 구문 오류를 방지하려면, 메시지 작성기에서 **+** 플러스 버튼을 선택하여 카탈로그 Liquid 태그를 자동으로 삽입하세요.
 {% endalert %}
 
-### 이미지 사용 {#using-images}
+### 이미지 사용하기 {#using-images}
 
-카탈로그에서 이미지를 참조하여 메시징에 사용할 수도 있습니다. 이렇게 하려면 이미지의 Liquid 필드에서 `catalogs` 태그와 `item` 오브젝트를 사용합니다.
+카탈로그의 이미지를 참조하여 메시징에 사용할 수도 있습니다. 이를 위해 이미지용 Liquid 필드에서 `catalogs` 태그와 `item` 객체를 사용합니다.
 
-예를 들어, Games 카탈로그의 `image_link`를 Tales 프로모션 메시지에 추가하려면 **Catalog Items** 필드에 `id`를 선택하고 **Information to Display** 필드에 `image_link`를 선택합니다. 이렇게 하면 이미지 필드에 다음 Liquid 태그가 추가됩니다:
+예를 들어, Games 카탈로그의 `image_link`를 Tales 프로모션 메시지에 추가하려면, **Catalog Items** 필드에서 `id`를 선택하고 **Information to Display** 필드에서 `image_link`를 선택합니다. 그러면 이미지 필드에 다음 Liquid 태그가 추가됩니다:
 
 {% raw %}
 ```liquid
@@ -152,12 +152,12 @@ Liquid가 렌더링되었을 때의 모습은 다음과 같습니다:
 ![카탈로그 Liquid 태그가 렌더링된 콘텐츠 카드 예시.]({% image_buster /assets/img_archive/catalog_image_link2.png %}){: style="max-width:50%" }
 
 {% alert important %}
-이메일과 같은 **HTML** 채널에서는 닫는 `{% raw %}{% catalog_items ... %}{% endraw %}` 태그와 이미지 URL을 출력하는 Liquid(예: `{% raw %}{{ items[0].image_link }}{% endraw %}`) 사이에 불필요한 공백이나 줄바꿈을 넣지 마세요. 템플릿의 불필요한 공백은 렌더링된 메시지에서 이미지 URL이 올바르게 확인되지 않을 수 있습니다. 다음과 같이 URL 표현식을 카탈로그 태그에 바로 인접하게 유지하세요: `{% raw %}<img src="{% catalog_items Games 1234 %}{{ items[0].image_link }}">{% endraw %}`.
+이메일 등 **HTML** 채널에서는 닫는 `{% raw %}{% catalog_items ... %}{% endraw %}` 태그와 이미지 URL을 출력하는 Liquid(예: `{% raw %}{{ items[0].image_link }}{% endraw %}`) 사이에 추가 공백이나 줄 바꿈을 넣지 마세요. 템플릿의 추가 공백으로 인해 렌더링된 메시지에서 이미지 URL이 올바르게 확인되지 않을 수 있습니다. 다음과 같이 URL 표현식을 카탈로그 태그에 바로 인접하게 유지하세요: `{% raw %}<img src="{% catalog_items Games 1234 %}{{ items[0].image_link }}">{% endraw %}`.
 {% endalert %}
 
-### 카탈로그 항목 템플릿 지정
+### 카탈로그 항목 템플릿화
 
-템플릿을 사용하여 커스텀 속성을 기반으로 카탈로그 항목을 동적으로 가져올 수도 있습니다. 예를 들어 사용자가 카탈로그의 게임 ID 배열을 포함하는 커스텀 속성 `wishlist`를 가지고 있다고 가정해 보겠습니다.
+템플릿화를 사용하여 커스텀 속성에 기반한 카탈로그 항목을 동적으로 가져올 수도 있습니다. 예를 들어, 사용자에게 카탈로그의 게임 ID 배열을 포함하는 커스텀 속성 `wishlist`가 있다고 가정해 보겠습니다.
 
 ```json
 {
@@ -171,16 +171,16 @@ Liquid가 렌더링되었을 때의 모습은 다음과 같습니다:
 ```
 
 {% alert note %}
-카탈로그의 JSON 오브젝트는 API를 통해서만 수집됩니다. CSV 파일을 사용하여 JSON 오브젝트를 업로드할 수 없습니다.
+카탈로그의 JSON 객체는 API를 통해서만 수집됩니다. CSV 파일을 사용하여 JSON 객체를 업로드할 수 없습니다.
 {% endalert %}
 
-Liquid 템플릿을 사용하면 위시리스트 ID를 동적으로 가져와서 메시지에서 사용할 수 있습니다. 이렇게 하려면 커스텀 속성에 [변수를 할당]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#assigning-variables)한 다음 **Add Personalization** 모달을 사용하여 배열에서 특정 항목을 가져옵니다. 카탈로그 항목 ID로 참조되는 변수는 올바르게 참조되려면 중괄호로 감싸야 합니다(예: `{{result}}`).
+Liquid 템플릿화를 사용하면 위시리스트 ID를 동적으로 가져온 다음 메시지에 사용할 수 있습니다. 이를 위해 커스텀 속성에 [변수를 할당]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/dashboard_tools#assign-variables)한 다음, **개인화 추가** Modal을 사용하여 배열에서 특정 항목을 가져옵니다. 카탈로그 항목 ID로 참조되는 변수는 올바르게 참조되려면 중괄호로 감싸야 합니다(예: `{{result}}`).
 
 {% alert tip %}
-배열은 `1`이 아닌 `0`에서 시작한다는 점을 기억하세요.
+배열은 `1`이 아닌 `0`부터 시작한다는 점을 기억하세요.
 {% endalert %}
 
-예를 들어, 사용자에게 Tales(카탈로그에서 사용자가 위시리스트에 추가한 항목)가 세일 중임을 알리기 위해 메시지 작성기에 다음을 추가할 수 있습니다:
+예를 들어, 사용자에게 Tales(카탈로그에 있는 항목으로 사용자가 위시리스트에 추가한 항목)가 할인 중임을 알리려면 메시지 작성기에 다음을 추가할 수 있습니다:
 
 {% raw %}
 ```liquid
@@ -191,26 +191,26 @@ Get {{ items[0].title }} now for {{ items[0].price }}!
 ```
 {% endraw %}
 
-다음과 같이 표시됩니다:
+이것은 다음과 같이 표시됩니다:
 > Get Tales now for just 7.49!
 
-템플릿을 사용하면 개별 커스텀 속성, 이벤트 속성정보 또는 기타 템플릿 가능한 필드에 따라 각 사용자마다 다른 카탈로그 항목을 렌더링할 수 있습니다.
+템플릿화를 사용하면 각 사용자의 개별 커스텀 속성, 이벤트 속성정보, 또는 기타 템플릿화 가능한 필드에 기반하여 사용자마다 다른 카탈로그 항목을 렌더링할 수 있습니다.
 
-### CSV 업로드
+### CSV 업로드하기
 
 추가할 새 카탈로그 항목이나 업데이트할 카탈로그 항목의 CSV를 업로드할 수 있습니다. 항목 목록을 삭제하려면 항목 ID의 CSV를 업로드하여 삭제할 수 있습니다.
 
-### Liquid 사용
+### Liquid 사용하기
 
-Liquid 로직을 사용하여 카탈로그를 수동으로 구성할 수도 있습니다. 그러나 존재하지 않는 ID를 입력해도 Braze는 여전히 오브젝트가 없는 항목 배열을 반환한다는 점에 유의하세요. 배열의 크기를 확인하고 `if` 문을 사용하여 빈 배열의 경우를 처리하는 등의 오류 처리를 포함하는 것을 권장합니다.
+Liquid 로직으로 카탈로그를 수동으로 조합할 수도 있습니다. 단, 존재하지 않는 ID를 입력하면 Braze는 여전히 객체 없이 항목 배열을 반환합니다. 배열의 크기를 확인하고 `if` 문을 사용하여 빈 배열의 경우를 처리하는 등의 오류 처리를 포함하는 것을 권장합니다.
 
-#### Liquid를 포함한 카탈로그 항목 템플릿 {#templating-catalog-items-including-liquid}
+#### Liquid를 포함하는 카탈로그 항목 템플릿화
 
-[연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)와 유사하게, 카탈로그 항목의 Liquid 콘텐츠를 렌더링하려면 Liquid 태그에서 `:rerender` 플래그를 사용해야 합니다. `:rerender` 플래그는 한 단계 깊이에만 적용되므로 중첩된 Liquid 태그 호출에는 적용되지 않는다는 점에 유의하세요.
+[연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)와 유사하게, 카탈로그 항목의 Liquid 콘텐츠를 렌더링하려면 Liquid 태그에서 `:rerender` 플래그를 사용해야 합니다. `:rerender` 플래그는 한 단계 깊이까지만 적용되므로, 중첩된 Liquid 태그 호출에는 적용되지 않습니다.
 
-카탈로그 항목에 고객 프로필 필드가 포함되어 있는 경우(Liquid 개인화 태그 내), Liquid를 올바르게 렌더링하기 위해 이러한 값은 메시지에서 템플릿 지정 이전에 Liquid에서 먼저 정의되어야 합니다. `:rerender` 플래그가 제공되지 않으면 원시 Liquid 콘텐츠가 렌더링됩니다.
+카탈로그 항목에 사용자 프로필 필드(Liquid 개인화 태그 내)가 포함된 경우, Liquid가 올바르게 렌더링되려면 이러한 값이 메시지에서 템플릿화보다 먼저 Liquid로 정의되어야 합니다. `:rerender` 플래그가 제공되지 않으면 원시 Liquid 콘텐츠가 렌더링됩니다.
 
-예를 들어 "Messages"라는 이름의 카탈로그에 이 Liquid가 있는 항목이 있는 경우:
+예를 들어, "Messages"라는 카탈로그에 다음 Liquid가 포함된 항목이 있는 경우:
 
 ![id가 greet_msg이고 Welcome_Message 열에 이름 Liquid 변수가 포함된 환영 메시지가 있는 카탈로그 테이블 행.]({% image_buster /assets/img_archive/catalog_liquid_templating.png %}){: style="max-width:80%;"}
 
@@ -225,7 +225,7 @@ Hi ${first_name},
 ```
 {% endraw %}
 
-다음과 같이 표시됩니다:
+이것은 다음과 같이 표시됩니다:
 
 {% raw %}
 ```
@@ -241,43 +241,43 @@ Welcome to our store, Peter!
 
 ## 카탈로그 개인화 문제 해결
 
-카탈로그 또는 선택 항목 Liquid가 메시지나 캔버스 단계에서 예상대로 표시되지 않는 경우 다음을 확인하세요:
+카탈로그 또는 셀렉션 Liquid가 메시지나 캔버스 단계에서 예상대로 표시되지 않는 경우, 다음 사항을 확인하세요:
 
 | 증상 | 확인 사항 |
 | --- | --- |
-| 미리보기에는 항목이 표시되지만 실제 발송에서는 비어 있음 | 발송 시점에 카탈로그 **항목 ID**가 존재하는지 확인하세요. Liquid의 ID가 행과 일치하지 않으면 Braze는 빈 항목 배열을 반환합니다—[Liquid 사용](#using-liquid)을 참조하세요. 오타가 있는지, 트리거 또는 고객 프로필에 ID 소스(예: 이벤트 속성정보)가 누락되어 있는지 확인하세요. |
-| 작성기 미리보기는 Campaign에서 작동하지만 Canvas에서는 작동하지 않음 | 올바른 Liquid 컨텍스트—**Canvas 컨텍스트 속성** 대 **이벤트 속성정보**—를 사용하고 있는지, 해당 필드가 트리거에 존재하는지 확인하세요. [컨텍스트 및 이벤트 속성정보]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties)를 참조하세요. |
-| 선택 항목이 항목을 반환하지 않음 | [선택 항목 필터]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) 및 제한을 검토하세요. 카탈로그 데이터가 동기화되어 있고 열 이름이 필터와 일치하는지 확인하세요. |
-| `:rerender` 또는 템플릿 전달이 올바르지 않음 | 카탈로그 필드 내 중첩된 Liquid의 경우 `:rerender`와 올바른 변수 순서가 필요합니다—[Liquid를 포함한 카탈로그 항목 템플릿](#templating-catalog-items-including-liquid)을 참조하세요. 템플릿 인앱 메시지는 트리거 시점에 확인됩니다. [템플릿 인앱 메시지란?]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#what-are-templated-in-app-messages)을 참조하세요. 일부 채널에서는 카탈로그 태그가 제한됩니다(예: 배너에서의 특정 **:rerender** 사용)—배너 FAQ의 [모든 Liquid 태그가 지원되나요?]({{site.baseurl}}/user_guide/channels/banners/faq#are-all-liquid-tags-supported)를 참조하세요. |
+| 미리보기에서는 항목이 표시되지만 실시간 발송에서는 비어 있음 | 카탈로그 **항목 ID**가 발송 시점에 존재하는지 확인하세요. Liquid의 ID가 행과 일치하지 않으면 Braze는 빈 항목 배열을 반환합니다. [Liquid 사용하기](#using-liquid)를 참조하세요. 오타가 없는지, 그리고 ID 소스(이벤트 속성정보 등)가 트리거나 고객 프로필에 누락되지 않았는지 확인하세요. |
+| 작성기 미리보기가 Campaign에서는 작동하지만 Canvas에서는 작동하지 않음 | 올바른 Liquid 컨텍스트(**Canvas 컨텍스트 속성** 대 **이벤트 속성정보**)를 사용하고 있는지, 그리고 해당 필드가 트리거에 존재하는지 확인하세요. [컨텍스트 및 이벤트 속성정보]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties)를 참조하세요. |
+| 셀렉션이 항목을 반환하지 않음 | [셀렉션 필터]({{site.baseurl}}/user_guide/data/activation/catalogs/selections)와 제한을 검토하고, 카탈로그 데이터가 동기화되었는지, 그리고 열 이름이 필터와 일치하는지 확인하세요. |
+| `:rerender` 또는 템플릿 전달이 올바르게 표시되지 않음 | 카탈로그 필드 내 중첩된 Liquid의 경우 `:rerender`와 올바른 변수 순서가 필요합니다. [Liquid를 포함한 카탈로그 항목 템플릿](#templating-catalog-items-including-liquid)을 참조하세요. 템플릿 인앱 메시지는 트리거 시점에 해석됩니다. [템플릿 인앱 메시지란 무엇인가요?]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#what-are-templated-in-app-messages)를 참조하세요. 일부 채널에서는 카탈로그 태그가 제한됩니다(예: 배너에서의 특정 **:rerender** 사용). 배너 FAQ의 [모든 Liquid 태그가 지원되나요?]({{site.baseurl}}/user_guide/channels/banners/faq#are-all-liquid-tags-supported)를 참조하세요. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="카탈로그 개인화 문제 해결" }
 
-일반적인 Liquid 동작에 대해서는 [Liquid 활용 사례]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases) 및 [Liquid 사용]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid)을 참조하세요.
+일반적인 Liquid 동작에 대해서는 [Liquid 사용 사례]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases) 및 [Liquid 사용하기]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid)를 참조하세요.
 
 ## 카탈로그 데이터 구조화
 
-카탈로그 데이터를 구조화하는 방법을 계획할 때, 의도한 사용 사례에서 시작하여 그에 맞게 카탈로그를 설계하세요. 카탈로그의 각 행은 하나의 항목(고유한 `id` 포함)을 나타냅니다. 열에는 URL, 설명 텍스트, 이미지 URL, 가격, 평점, 크기 또는 색상 등 해당 항목의 속성이 포함되어야 합니다.
+카탈로그 데이터를 구조화하는 방법을 계획할 때는 의도한 사용 사례에서 시작하여 그에 맞게 카탈로그를 설계하세요. 카탈로그의 각 행은 하나의 항목(고유한 `id` 포함)을 나타냅니다. 열에는 URL, 설명 문구, 이미지 URL, 가격, 평점, 크기, 색상 등 해당 항목의 속성이 포함되어야 합니다.
 
-### 표준 카탈로그 호출을 사용해야 하는 경우
+### 표준 카탈로그 호출을 사용할 때
 
-표준 카탈로그 호출에서는 `id` 열에 대해 값을 매칭합니다. 커스텀 속성 또는 이벤트 속성정보(ID 문자열)를 카탈로그 Liquid 태그에 삽입하면 단일 항목에 대한 여러 속성을 메시지에 가져올 수 있습니다. 일반적인 사용 사례는 다음과 같습니다:
+표준 카탈로그 호출에서는 `id` 열에 대해 값을 매칭합니다. 커스텀 속성 또는 이벤트 속성정보(ID 문자열)를 카탈로그 Liquid 태그에 삽입하면, 단일 항목의 여러 속성을 메시지로 가져올 수 있습니다. 일반적인 사용 사례는 다음과 같습니다:
 
 - 최근 조회한 제품 또는 서비스
 - 위시리스트 항목
-- 위치별 거래
+- 위치별 할인 정보
 - 구매한 제품
 - 라이프사이클 단계 콘텐츠
-- 가장 최근 검색한 제품 또는 서비스
+- 가장 최근에 검색한 제품 또는 서비스
 
-### 카탈로그 선택 항목을 사용해야 하는 경우
+### 카탈로그 셀렉션을 사용할 때
 
-[카탈로그 선택 항목]({{site.baseurl}}/user_guide/data/activation/catalogs/selections)을 사용하면 카탈로그의 모든 열에 대해 필터링하고 최대 50개의 일치하는 항목을 반환할 수 있습니다. 선택 항목 필터에 커스텀 속성 또는 이벤트 속성정보를 삽입하면 각 사용자에 맞게 결과가 개인화됩니다. 일반적인 사용 사례는 다음과 같습니다:
+[카탈로그 셀렉션]({{site.baseurl}}/user_guide/data/activation/catalogs/selections)을 사용하면 카탈로그의 모든 열을 기준으로 필터링하고 최대 50개의 일치 항목을 반환할 수 있습니다. 셀렉션 필터에 커스텀 속성 또는 이벤트 속성정보를 삽입하면, 결과가 각 사용자에 맞게 개인화됩니다. 일반적인 사용 사례는 다음과 같습니다:
 
 - 카테고리가 사용자의 선호도와 일치하는 항목
-- 사용자가 선호하는 브랜드, 요리 또는 크기와 일치하는 항목
-- 구독 유형 또는 로열티 등급 콘텐츠
-- 사용자의 평균 주문 금액 범위 내의 제품
+- 사용자가 선호하는 브랜드, 요리 종류 또는 크기와 일치하는 항목
+- 가입 유형 또는 로열티 등급 콘텐츠
+- 사용자의 평균 주문 금액 범위 내 제품
 
-핵심 차이점은 표준 카탈로그 호출은 `id`로 알려진 단일 항목을 조회하는 반면, 카탈로그 선택 항목은 카탈로그 전체를 쿼리하여 필터 기준에 일치하는 여러 항목을 반환한다는 것입니다.
+핵심적인 차이점은 표준 카탈로그 호출은 `id`로 알려진 단일 항목을 조회하는 반면, 카탈로그 셀렉션은 카탈로그 전체를 쿼리하여 필터 조건에 맞는 여러 항목을 반환한다는 것입니다.
 
 [1]: {% image_buster /assets/img_archive/use_catalog_personalization.png %}
 [2]: {% image_buster /assets/img_archive/catalog_multiple_items.png %}

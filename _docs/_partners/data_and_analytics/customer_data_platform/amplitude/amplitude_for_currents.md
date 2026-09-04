@@ -39,9 +39,13 @@ amplitude.setDeviceId(Appboy.getInstance(context).getDeviceId();)
 
 You can export two types of events to Amplitude: [Message Engagement Events](#supported-currents-events) consisting of the Braze Events directly related to message sending, and [Customer Behavior Events](#supported-currents-events), including other app or website activity such as sessions, custom events, and purchases tracked through the platform. All regular events are prefixed with `[Appboy]`, and all custom events are prefixed with `[Appboy] [Custom Event]`. Custom event and purchase event properties are prefixed with `[Custom event property]` and `[Purchase property]`, respectively.
 
+{% alert note %}
+Braze Currents applies the `[Appboy]` prefix when exporting events to Amplitude. The label references Braze's legacy product name. This is expected behavior and does not indicate an SDK or integration issue.
+{% endalert %}
+
 All cohorts named and imported into Braze will be prefixed with `[Amplitude]` and suffixed with their `cohort_id`. This means that a cohort named "TEST_COHORT" with the `cohort_id` "abcd1234" will be titled `[Amplitude] TEST_COHORT: abcd1234` in Braze filters.
 
-Contact your account manager or open a [support ticket]({{site.baseurl}}/braze_support/) if you need access to additional event entitlements.
+Contact your account manager or open a [support ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support) if you need access to additional event entitlements.
 
 ### Step 1: Configure Amplitude Integration in Braze 
 
@@ -61,8 +65,12 @@ Events sent from Braze Currents to Amplitude will count toward your Amplitude ev
 
 ![The Braze Amplitude Currents page. This page includes fields for integration name, contact email, API key, and US region. The lower half of the Currents page lists available Currents events you can send.]({% image_buster /assets/img/amplitude4.png %})
 
+{% alert tip %}
+If you receive an "Invalid API key" error when pasting your Amplitude API key, try manually typing the key instead. Some browsers may add hidden characters when copying and pasting that can cause validation errors.
+{% endalert %}
+
 {% tab note %}
-Check out Amplitude's [integration docs](https://amplitude.zendesk.com/hc/en-us/articles/115000217351-Appboy-Amplitude-Integration#how-to-set-up-and-use-the-integration) to learn more. 
+For more information, see Amplitude's [Appboy Amplitude Integration](https://amplitude.zendesk.com/hc/en-us/articles/115000217351-Appboy-Amplitude-Integration#how-to-set-up-and-use-the-integration).
 {% endtab %}
 
 ## Rate limits

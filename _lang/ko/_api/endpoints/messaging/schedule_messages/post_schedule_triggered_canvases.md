@@ -20,13 +20,17 @@ Canvas의 첫 번째 단계에서 전송되는 메시지에 템플릿으로 적�
 
 {% multi_lang_include alerts/important_alerts.md alert='context variable' %}
 
-이 엔드포인트로 메시지를 보내려면 Canvas를 구축할 때 생성된 [Canvas ID]({{site.baseurl}}/api/identifier_types#canvas-api-identifier)가 있어야 합니다.
+이 엔드포인트로 메시지를 보내려면 Canvas를 구축할 때 생성된 [Canvas ID]({{site.baseurl}}/api/identifier_types#canvas-identifier)가 있어야 합니다.
+
+{% alert note %}
+Canvas 진입은 이 API 요청이 이루어진 시점이 아니라 예약된 메시지 시간에 기록됩니다. 미래 날짜로 예약된 사용자는 해당 예약 시간이 도래할 때까지 진입으로 표시되지 않습니다.
+{% endalert %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#4bc75890-b807-405d-b226-5aca284e6b7d {% endapiref %}
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `canvas.trigger.schedule.create` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
+이 엔드포인트를 사용하려면 `canvas.trigger.schedule.create` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key-permissions)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 

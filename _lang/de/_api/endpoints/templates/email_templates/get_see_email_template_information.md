@@ -6,7 +6,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts zum Anzeigen von E-Mail-Template-Informationen."
-
 ---
 {% api %}
 # E-Mail-Template-Informationen anzeigen {#see-email-template-information}
@@ -23,7 +22,7 @@ Templates, die mit dem Drag-and-Drop-Editor für E-Mails erstellt wurden, werden
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#e98d2d5b-62fe-4358-b391-9fe9e460d0ac {% endapiref %}
 
 ## Voraussetzungen {#prerequisites}
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/api_key) mit der Berechtigung `templates.email.info`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics) mit der Berechtigung `templates.email.info`.
 
 ## Rate-Limit
 

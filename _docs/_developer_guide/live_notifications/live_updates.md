@@ -1,12 +1,13 @@
 ---
 nav_title: Live updates for Android
 article_title: Live Updates for the Android Braze SDK
-layout: redirect
-redirect_to: /docs/developer_guide/live_notifications/
-noindex: true
+page_order: 0.3
+description: "Learn how to use Android Live Updates in the Braze SDK."
+platform:
+  - Android
+hidden: true
 ---
 
-<!--
 # Live Updates for Android
 
 > Learn how to use Android Live Updates in the Braze SDK, also known as [Progress Centric Notifications](https://developer.android.com/about/versions/16/features/progress-centric-notifications). These notifications are similar to [Live Activities for the Swift Braze SDK]({{site.baseurl}}/developer_guide/live_notifications/live_activities), allowing you to display interactive lock-screen notifications. Android 16 introduces progress-centric notifications to help users seamlessly track user-initiated, start-to-end journeys.
@@ -21,7 +22,7 @@ In this section, you'll partner with Superb Owl, the host of a new game show whe
 
 ![An example Live Update from Android]({% image_buster /assets/img/android/android-live-update.png %}){: style="max-width:40%;"}
 
-#{% multi_lang_include developer_guide/prerequisites/android.md %}
+{% multi_lang_include developer_guide/prerequisites/android.md %}
 
 ### Step 1: Create a custom notification factory
 
@@ -140,7 +141,7 @@ curl -X POST "https://BRAZE_REST_ENDPOINT/messages/send" \
 ```
 
 {% alert tip %}
-While curl commands are helpful for testing, we recommend handling this call in your backend where you're already handling your [iOS Live Activities]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?sdktab=swift).
+While curl commands are helpful for testing, we recommend handling this call in your backend where you're already handling your [iOS Live Activities]({{site.baseurl}}/developer_guide/live_notifications?sdktab=swift).
 {% endalert %}
 
 #### Request parameters
@@ -159,4 +160,3 @@ While curl commands are helpful for testing, we recommend handling this call in 
 ### Step 5: Update the activity
 
 To update the existing Live Update with new data, modify the relevant key-value pairs assigned to `messages.extra`, then use the same `notification_id` and call the `/messages/send` endpoint again.
--->

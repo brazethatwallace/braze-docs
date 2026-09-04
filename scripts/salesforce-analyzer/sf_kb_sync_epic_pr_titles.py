@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Rename BD-6308 child PRs to `[BD-####](SF) …`.
+Rename BD-7051 child PRs to `[BD-####](SF) …`.
 
 Needs `JIRA_USER_EMAIL`, `JIRA_API_TOKEN`, `gh` (braze-inc/braze-docs).
 

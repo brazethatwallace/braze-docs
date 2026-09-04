@@ -1,85 +1,133 @@
 ---
 nav_title: Troubleshooting
-article_title: Export Troubleshooting
+article_title: Export troubleshooting
 page_order: 6
 page_type: reference
-description: "This reference article covers common troubleshooting scenarios for exports in both CSV and API workflows."
+description: "Diagnose CSV and API export failures using a symptom index, standard investigation path, and storage-specific error guidance."
 ---
 
 # Export troubleshooting
 
-> This page covers common troubleshooting scenarios for exports in both CSV and API workflows.  
+> Use this page to diagnose CSV and API export issues in the dashboard and Export APIs. For export workflows and limits, see [Export segment data to CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv) and [Export APIs]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_apis).
 
-Use the tabs to select whether you're exporting to the **default Braze S3 bucket** or to a **cloud storage partner**.
+## Start here: Match your symptom
+
+Find the behavior you're seeing in the table, then go to that section for targeted checks.
+
+| Symptom | Go to |
+| --- | --- |
+| CSV download link returns `AccessDenied`, `ExpiredToken`, or "file doesn't exist" | [Default export: CSV errors](#defaultexport_csv-exports) or [Cloud storage: CSV errors](#csv-exports-1) |
+| API export download URL returns `403 Forbidden` | [Can't download an exported segment ZIP](#cant-download-an-exported-segment-zip-from-a-braze-url) |
+| Segment export fails or says segment is too large | [Segment is too large](#segment-is-too-large-or-export-fails-when-my-segment-looks-under-500000-users) |
+| No segment export email received | [No segment export email](#not-receiving-segment-export-emails) |
+| CSV row count doesn't match campaign analytics | [Campaign and Canvas analytics mismatch](#number-of-users-in-csv-export-doesnt-match-messages-sent-or-unique-recipients) |
+| Expected columns missing from export file | [Missing columns](#expected-columns-are-missing-from-a-segment-export-file) |
+| Cloud storage export shows `AccessDenied` or `ExpiredToken` | [Cloud storage connected: API errors](#common-errors-1) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Export symptom" }
+
+## Standard investigation path
+
+Use this workflow for every export incident. Start at step 1.
+
+1. Confirm whether you're exporting to the default Braze S3 bucket or a connected cloud storage partner. Link expiration and retry behavior differ between the two.
+2. For dashboard CSV exports, confirm you're logged in to Braze when opening the download link. Default-bucket links require an active dashboard session.
+3. Check how long ago the export completed. Emailed dashboard download links expire after four hours, whether you use the default Braze bucket or a connected storage partner. When a storage partner is connected, Braze also delivers a copy to your bucket; that copy follows your retention policies and may remain available after the email link expires.
+4. For large segment exports, confirm the audience is under the 500,000-user dashboard CSV export limit. Segment builder estimates can differ from the export pipeline evaluation.
+5. For API exports, wait for processing to finish before downloading. Use `callback_endpoint` on [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) or poll with exponential backoff instead of requesting the URL immediately.
+6. If you're still blocked, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) with the export type (CSV or API), segment or campaign ID, timestamp (with timezone), and the exact error message.
+
+## Storage destinations {#cloud-storage-connected}
+
+Use the tabs to select whether you're exporting to the default Braze S3 bucket or to a cloud storage partner. For cloud storage guidance, open the **Cloud storage connected** tab and review the CSV and API sections.
 
 {% sdktabs %}
 {% sdktab Default export %}
 
-When you don't have a storage partner marked as your default export destination, Braze uses its own Amazon S3 bucket to hold your export files. Files in this setup are temporary and expire after four hours.  
+When you don't have a storage partner marked as your default export destination, Braze uses its own Amazon S3 bucket to hold your export files. Files in this setup are temporary and expire after four hours.
 
-## CSV exports  
-When you export a CSV from the dashboard, Braze emails a download link to the logged-in user. That link points to a ZIP file hosted in Braze's S3 bucket. Inside the ZIP are multiple smaller files that together make up your export.  
+### CSV exports {#csv-exports}
 
-You must be logged in to the Braze dashboard to use the link, and the file is available for only four hours. After that, the link no longer works and the data is deleted. If you run into repeated failures with very large exports (over 500,000 users), the export may fail. In that case, try splitting your export into smaller groups or fields, or consider setting up a storage partner.  
+Symptom: A dashboard CSV export email arrives but the download link fails, or the export never completes.
 
-### Common errors
 
-- If you see an `AccessDenied` error, the file may have already expired or you may have tried to open it before it was ready. Larger reports take longer to generate, so wait a few minutes and try again.  
-- An `ExpiredToken` error means the four-hour window has passed. Re-run the export to generate a fresh link.  
-- The message `Looks like the file doesn't exist anymore` usually appears when the email is sent but the file hasn't finished uploading to S3. Waiting a few minutes typically resolves it.  
-- Apostrophes added at the start of certain fields (like `-`, `=`, `+`, or `@`) are expected. For example, `-1943` becomes `'-1943` in the CSV. Braze does this to prevent spreadsheet programs from misinterpreting the data. This doesn't apply to JSON exports, such as those returned by the [`/users/export/segment` endpoint]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment).  
+When you export a CSV from the dashboard, Braze emails a download link to the logged-in user. That link points to a ZIP file hosted in Braze's S3 bucket. Inside the ZIP are multiple smaller files that together make up your export.
 
-## API exports  
-When you export through the Export APIs without cloud storage, Braze writes the files to its S3 bucket. You won't receive an email—instead, the API response includes a temporary download URL. The export comes as a ZIP containing multiple JSON files, each with one user per line.  
+You must be logged in to the Braze dashboard to use the link, and the file is available for only four hours. After that, the link no longer works and the data is deleted. If you run into repeated failures with very large exports (over 500,000 users), the export may fail. In that case, try splitting your export into smaller groups or fields, or consider setting up a storage partner.
 
-Like CSV exports, links from the API expire after four hours. If you click the link too early, you may see errors because the file isn't ready yet. You can provide a `callback_endpoint` in your request if you want Braze to notify you when the file is available.  
+#### Common errors
 
-Large API exports can also time out. If that happens, try making smaller requests or connect a storage partner to handle the volume.  
+- If you see an `AccessDenied` error, the file may have already expired or you may have tried to open it before it was ready. Larger reports take longer to generate, so wait a few minutes and try again.
+- An `ExpiredToken` error means the four-hour window has passed. Re-run the export to generate a fresh link.
+- The message `Looks like the file doesn't exist anymore` usually appears when the email is sent but the file hasn't finished uploading to S3. Waiting a few minutes typically resolves it.
+- Apostrophes added at the start of certain fields (like `-`, `=`, `+`, or `@`) are expected. For example, `-1943` becomes `'-1943` in the CSV. Braze does this to prevent spreadsheet programs from misinterpreting the data. This doesn't apply to JSON exports, such as those returned by the [`/users/export/segment` endpoint]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment).
 
-### Common errors  
-- `AccessDenied` or `ExpiredToken` typically mean the link expired or wasn't ready yet. Run the export again or wait a bit longer.  
+### API exports
+
+Symptom: An Export API call succeeds but the download URL fails or returns empty data.
+
+
+When you export through the Export APIs without cloud storage, Braze writes the files to its S3 bucket. You won't receive an email—instead, the API response includes a temporary download URL. The export comes as a ZIP containing multiple JSON files, each with one user per line.
+
+Like CSV exports, links from the API expire after four hours. If you open the link too early, you may see errors because the file isn't ready yet. You can provide a `callback_endpoint` in your request if you want Braze to notify you when the file is available.
+
+Large API exports can also time out. If that happens, try making smaller requests or connect a storage partner to handle the volume.
+
+#### Common errors
+
+- `AccessDenied` or `ExpiredToken` typically mean the link expired or wasn't ready yet. Run the export again or wait a bit longer.
 
 {% endsdktab %}
 
 {% sdktab Cloud storage connected %}
 
-When you connect a storage partner (such as Amazon S3, Google Cloud Storage, or Azure Blob) and mark it as your default export destination from the **Technology Partners** page in the dashboard, Braze writes your exports directly to your bucket. This setup is typically more reliable for larger exports.  
+When you connect a storage partner (such as Amazon S3, Google Cloud Storage, or Azure Blob) and mark it as your default export destination from the **Technology Partners** page in the dashboard, Braze writes your exports directly to your bucket. This setup is typically more reliable for larger exports.
 
-## CSV exports  
-With CSV exports, Braze emails you a download link. That link expires after a short window (typically around four hours). When you have a storage partner connected and marked as your default export destination, Braze also delivers a copy of the export to your connected bucket. That copy lives in your own infrastructure, where expiration and retention follow your storage policies.  
+### CSV exports {#csv-exports-1}
 
-In cloud storage, CSV exports are bundled into a ZIP file. Inside the ZIP are multiple smaller CSV files. Large exports are often split into chunks (for example, around 5,000 users each), and chunk size can vary. Smaller files don't indicate missing data. If the emailed link fails but the copy in your storage succeeds, you can always retrieve your data directly from your bucket.  
+Symptom: The emailed CSV link fails but files appear (or don't appear) in your connected bucket.
 
-### Common errors
 
-- `AccessDenied` means Braze couldn't write to your bucket. Double-check that your credentials and permissions are still valid.  
-- `ExpiredToken` appears if Braze has lost access to your bucket. Update your credentials in the Braze dashboard.  
-- If some files look smaller than expected, that's normal behavior. The export process intentionally splits files for stability.  
-- Apostrophes added at the start of certain fields (like `-`, `=`, `+`, or `@`) are expected. For example, `-1943` becomes `'-1943` in the CSV. Braze does this to prevent spreadsheet programs from misinterpreting the data. This doesn't apply to JSON exports, such as those returned by the [`/users/export/segment` endpoint]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment).  
+With CSV exports, Braze emails you a download link. That link expires after a short window (typically around four hours). When you have a storage partner connected and marked as your default export destination, Braze also delivers a copy of the export to your connected bucket. That copy lives in your own infrastructure, where expiration and retention follow your storage policies.
 
-## API exports  
+In cloud storage, CSV exports are bundled into a ZIP file. Inside the ZIP are multiple smaller CSV files. Large exports are often split into chunks (for example, around 5,000 users each), and chunk size can vary. Smaller files don't indicate missing data. If the emailed link fails but the copy in your storage succeeds, you can always retrieve your data directly from your bucket.
+
+#### Common errors
+
+- `AccessDenied` means Braze couldn't write to your bucket. Double-check that your credentials and permissions are still valid.
+- `ExpiredToken` appears if Braze has lost access to your bucket. Update your credentials in the Braze dashboard.
+- If some files look smaller than expected, that's normal behavior. The export process intentionally splits files for stability.
+- Apostrophes added at the start of certain fields (like `-`, `=`, `+`, or `@`) are expected. For example, `-1943` becomes `'-1943` in the CSV. Braze does this to prevent spreadsheet programs from misinterpreting the data. This doesn't apply to JSON exports, such as those returned by the [`/users/export/segment` endpoint]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment).
+
+### API exports
+
+Symptom: API exports don't appear in your bucket or files are incomplete.
+
+
 When you export data through the APIs with a storage partner connected, the export files are written to your bucket. No email is sent. The underlying objects live in your storage and follow your retention settings, even though the download URLs Braze returns may still be time-limited.
 
 Files typically appear in your bucket as the export runs, so you don't need to wait for the entire job to finish before accessing partial results. Braze uploads each completed batch incrementally instead of holding everything until the end. Large exports are split into multiple compressed files (ZIP or GZIP), each containing JSON objects, one per line. This makes this method more reliable for heavy exports.
 
-### Common errors
+#### Common errors {#common-errors-1}
 
-- `AccessDenied` happens when Braze can't write to your bucket or the objects were deleted afterward. Check permissions and confirm nothing external is clearing files.  
-- `ExpiredToken` means Braze's access credentials to your bucket are outdated. Refresh them in the dashboard.  
-- If files are missing or smaller than expected, first confirm that nothing outside Braze is deleting objects. Smaller file sizes themselves are expected.  
+- `AccessDenied` happens when Braze can't write to your bucket or the objects were deleted afterward. Check permissions and confirm nothing external is clearing files.
+- `ExpiredToken` means Braze's access credentials to your bucket are outdated. Refresh them in the dashboard.
+- If files are missing or smaller than expected, first confirm that nothing outside Braze is deleting objects. Smaller file sizes themselves are expected.
 
 {% endsdktab %}
 {% endsdktabs %}
 
 ## Campaign and Canvas analytics
 
-### Number of users in CSV export doesn't match _Messages Sent_ or _Unique Recipients_
+### Number of users in CSV export doesn't match *Messages Sent* or *Unique Recipients*
 
-A campaign's CSV export can show a different number of users than _Messages Sent_ and _Unique recipients_ for these reasons:
+Symptom: A campaign's CSV export shows a different user count than *Messages Sent* or *Unique Recipients* on the analytics page.
+
+
+A campaign's CSV export can show a different number of users than *Messages Sent* and *Unique Recipients* for these reasons:
 
 #### Re-eligibility is turned on
 
-If users are (or were at one point) able to receive the campaign more than once, the campaign analytics numbers and the number of rows in the user data export don't line up. _Messages Sent_ counts every send, including when the same user is messaged more than once. The **CSV Export User Data** download lists unique users—one row per profile that received the campaign—not one row per send. For example, if _Messages Sent_ is 12 and the CSV has 10 rows, those 12 sends went to 10 distinct users (some users were sent the campaign more than once).
+If users are (or were at one point) able to receive the campaign more than once, the campaign analytics numbers and the number of rows in the user data export don't line up. *Messages Sent* counts every send, including when the same user is messaged more than once. The **CSV Export User Data** download lists unique users—one row per profile that received the campaign—not one row per send. For example, if *Messages Sent* is 12 and the CSV has 10 rows, those 12 sends went to 10 distinct users (some users were sent the campaign more than once).
 
 #### Users were deleted or merged since the campaign or Canvas sent
 
@@ -87,19 +135,28 @@ The CSV export gives a snapshot of existing users who received a given campaign 
 
 ## Dashboard segment export emails
 
-### "Segment is too large" or export fails when my segment looks under 500,000 users
+### Segment is too large or export fails when my segment looks under 500,000 users {#segment-is-too-large-or-export-fails-when-my-segment-looks-under-500000-users}
+
+Symptom: Dashboard segment export fails or shows a size error even though the segment estimate looks acceptable.
+
 
 Dashboard segment **size is an estimate**. CSV export uses that estimate to enforce the [500,000-user export limit]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#segment-csv-export-details); the export pipeline may also evaluate size differently than the segment builder UI. If exports fail for a segment near that threshold, use [random bucket numbers]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers) or split the audience into smaller segments, or use the [`/users/export/segment` endpoint]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) as described in [Exporting large segments]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#exporting-large-segments).
 
-### Why aren't I receiving segment export emails?
+### Why aren't I receiving segment export emails? {#not-receiving-segment-export-emails}
+
+Symptom: A segment CSV export was triggered but no email arrived.
+
 
 First, check your spam folder for an email from `no-reply@alerts.braze.com`. If the email is there, add that address to your safe sender list so future export messages aren't filtered.
 
-If the email isn't in your spam folder, check whether someone else on your team can receive the export. If they can't, consider the size of your export. Delivery time varies with export size, but if the email hasn't arrived after an hour, contact [Support]({{site.baseurl}}/braze_support).
+If the email isn't in your spam folder, check whether someone else on your team can receive the export. If they can't, consider the size of your export. Delivery time varies with export size, but if the email hasn't arrived after an hour, contact [Support]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 
 ## Segment export API downloads
 
-### Can't download an exported segment ZIP file from a Braze URL
+### Can't download an exported segment ZIP from a Braze URL {#cant-download-an-exported-segment-zip-from-a-braze-url}
+
+Symptom: A `403 Forbidden` error when downloading from the `/users/export/segment` response URL.
+
 
 If you get a `403 Forbidden` error when using the [`/users/export/segment` endpoint]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment), the file may not be ready yet. Large exports can take a while to process. Wait up to an hour before downloading again.
 
@@ -112,10 +169,17 @@ Exports take time to finish, so immediate access from a script often fails. You 
 
 ## Segment and user export API fields
 
-### Expected columns are missing from a segment export file
+### Expected columns are missing from a segment export file {#expected-columns-are-missing-from-a-segment-export-file}
+
+Symptom: An API or dashboard export is missing fields you expected.
+
 
 Dashboard **CSV Export User Data** from a segment uses a fixed column set (see [Export segment data to CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#data-included-in-export)). It does not include a `fields_to_export` column or parameter.
 
 For API segment exports, you must pass `fields_to_export` in the request body. Some fields pull related data automatically—for example, requesting `canvases_received` also requires journey summary data on the user profile. See the [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) endpoint reference for valid field names and requirements.
 
 If columns are missing from an API export ZIP, confirm the `fields_to_export` array in your request includes every field you need and that your workspace uses the required export permissions.
+
+## When to contact Support
+
+Contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) if you've completed the [standard investigation path](#standard-investigation-path) and still need help. Include the export type, segment or campaign ID, timestamp (with timezone), and the exact error message or HTTP status code.

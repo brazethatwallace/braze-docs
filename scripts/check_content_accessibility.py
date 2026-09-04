@@ -34,6 +34,7 @@ Decorative image heuristic
 Skips
   - Content inside fenced code blocks (``` / ~~~)
   - Content inside {% raw %} … {% endraw %} Liquid blocks
+  - Content inside <style> … </style> blocks (CSS is not reader-facing prose)
 
 Usage
 -----
@@ -70,6 +71,9 @@ HEADING_RE = re.compile(r'^(#{1,6})\s+')
 
 IFRAME_RE = re.compile(r'<iframe(?:\s[^>]*|)>', re.IGNORECASE)
 IFRAME_TITLE_RE = re.compile(r'\btitle\s*=\s*(?:"[^"]*"|\'[^\']*\')', re.IGNORECASE)
+
+STYLE_OPEN_RE = re.compile(r'<style\b', re.IGNORECASE)
+STYLE_CLOSE_RE = re.compile(r'</style\s*>', re.IGNORECASE)
 
 # Filename segments that indicate a decorative image
 DECORATIVE_RE = re.compile(
@@ -137,10 +141,85 @@ SPATIAL_LEFT_RIGHT_RE = re.compile(
     re.IGNORECASE,
 )
 
-# Phrases allowed on the same line as an above/below match (comparison or typography)
+# Phrases allowed on the same line as an above/below match.
+# These are contexts where "above"/"below" conveys numeric/semantic relation,
+# not page-layout direction.
 _SPATIAL_ALLOWLIST_RES: tuple = (
+    # Numeric thresholds and bounds.
     re.compile(
         r'(?:above|below)\s+the\s+(?:entered\s+)?(?:number|threshold|value|limit|input(?:\s+field)?)',
+        re.IGNORECASE,
+    ),
+    # Quantitative comparisons in docs prose.
+    re.compile(
+        r'(?:above|below)\s+(?:that|this|the|your|our)?\s*'
+        r'(?:allotment|amount|volume|quota|count|number|total|minimum|maximum|limit|cap)\b',
+        re.IGNORECASE,
+    ),
+    # Numeric threshold phrasing.
+    re.compile(
+        r'(?:above|below)\s+(?:a|the)?\s*certain\s+threshold\b',
+        re.IGNORECASE,
+    ),
+    # Quantitative phrasing with modifiers (for example, "at or below the five-variant limit").
+    re.compile(
+        r'(?:at\s+or\s+)?(?:above|below)\s+the\s+(?:[a-z0-9-]+\s+){0,3}(?:threshold|limit|cap)\b',
+        re.IGNORECASE,
+    ),
+    # Version and platform compatibility comparisons. The gap between the
+    # platform keyword and "above"/"below" must stay within one sentence, so
+    # forbid sentence terminators followed by whitespace (for example,
+    # "SDK. See the steps below" must not be swallowed). Decimal points such
+    # as "5.0" are preserved because they are not followed by whitespace.
+    re.compile(
+        r'\b(?:version|sdk|ios|android)\b(?:(?![.!?]\s).){0,40}?\b(?:above|below)\b',
+        re.IGNORECASE,
+    ),
+    re.compile(
+        r'\b(?:ios|android)\s+\d+(?:\.\d+)*\s+and\s+(?:above|below)\b',
+        re.IGNORECASE,
+    ),
+    re.compile(
+        r'\bv\d+(?:\.\d+){1,3}\s+and\s+(?:above|below)\b',
+        re.IGNORECASE,
+    ),
+    # Comparative adjective compounds (semantic, not layout).
+    re.compile(r'\b(?:above|below)-average\b', re.IGNORECASE),
+    re.compile(r'\b(?:above|below)\s+average\b', re.IGNORECASE),
+    # Idiomatic emphasis, not directional layout reference.
+    re.compile(r'\babove\s+and\s+beyond\b', re.IGNORECASE),
+    # Alignment option enums (literal UI values, not layout instructions).
+    re.compile(
+        r'(?:align(?:ment)?|orients?)'
+        r'.*?\b(?:left|center|right)\b\s*,\s*\b(?:left|center|right)\b\s*,?\s*or\s*\b(?:left|center|right)\b'
+        r'(?:\s+(?:of|within)\s+the\s+\w+)?',
+        re.IGNORECASE,
+    ),
+    # Attribution/export subgroup hierarchy (semantic containment).
+    re.compile(
+        r'sub-?group(?:ing)?\s+(?:above|below)\s+\w+',
+        re.IGNORECASE,
+    ),
+    # Numeric version/threshold comparisons where the number sits right after
+    # "above"/"below" (e.g. "API versions below 25", "score above 90").
+    # Distinct from the version/sdk/ios/android keyword-window pattern above,
+    # which requires the keyword within 40 chars; this covers cases where the
+    # keyword (or its plural, e.g. "versions") sits further away in the sentence.
+    re.compile(
+        r'\b(?:above|below)\s+\d+(?:\.\d+)*\b',
+        re.IGNORECASE,
+    ),
+    # Programming/string operations (not layout instructions).
+    re.compile(
+        r'(?:left|right)\s+side\s+of\s+(?:a|the)?\s*string\b',
+        re.IGNORECASE,
+    ),
+    re.compile(
+        r'from\s+the\s+(?:left|right)\s+side\s+of\s+(?:a|the)?\s*string\b',
+        re.IGNORECASE,
+    ),
+    re.compile(
+        r'from\s+the\s+left\s+and\s+right\s+side\s+of\s+(?:a|the)?\s*string\b',
         re.IGNORECASE,
     ),
     re.compile(r'left-to-right|right-to-left', re.IGNORECASE),
@@ -162,6 +241,7 @@ def make_violation(
     fix_hint: str,
     violation_type: str,      # image_missing_alt | nondescriptive_link | heading_skip | iframe_missing_title | spatial_directional
     wcag_criterion: str,      # e.g. "1.1.1"
+    auto_fix_eligible: bool = True,  # allow downstream tooling to gate auto-fixes
 ) -> dict:
     return {
         'file': file,
@@ -173,6 +253,7 @@ def make_violation(
         'fix_hint': fix_hint,
         'violation_type': violation_type,
         'wcag_criterion': wcag_criterion,
+        'auto_fix_eligible': auto_fix_eligible,
     }
 
 
@@ -181,39 +262,64 @@ def make_violation(
 # ---------------------------------------------------------------------------
 
 def build_skip_mask(lines: list) -> list:
-    """Return a bool list; True = skip this line (code fence or Liquid raw block)."""
+    """Return a bool list; True = skip this line (code fence, Liquid raw block, or <style> block)."""
     skip = [False] * len(lines)
     in_fence = False
     fence_marker = ''
     in_raw = False
+    in_style = False
 
     for i, line in enumerate(lines):
         stripped = line.strip()
 
-        # Liquid {% raw %} blocks
-        if not in_raw and '{% raw %}' in line:
-            if '{% endraw %}' not in line:
-                in_raw = True
-                skip[i] = True
-                continue
-        elif in_raw:
+        # Continue whichever block is already open first. A fence or raw
+        # block takes precedence over anything that merely looks like a
+        # <style> tag inside it (for example, Android XML `<style name="...">`
+        # inside a fenced ```xml example) so that a fenced sample can never
+        # hand line-skip state to the wrong block type — or leave in_style
+        # stuck True past the fence close if the sample has an unmatched
+        # `<style>` with no `</style>` in the same fence.
+        if in_fence:
+            skip[i] = True
+            if re.match(r'^' + re.escape(fence_marker) + r'`*\s*$', stripped):
+                in_fence = False
+            continue
+
+        if in_raw:
             skip[i] = True
             if '{% endraw %}' in line:
                 in_raw = False
             continue
 
-        # Fenced code blocks
-        if not in_fence:
-            m = re.match(r'^(`{3,}|~{3,})', stripped)
-            if m:
-                in_fence = True
-                fence_marker = m.group(1)[0] * len(m.group(1))
-                skip[i] = True
-                continue
-        else:
+        if in_style:
             skip[i] = True
-            if re.match(r'^' + re.escape(fence_marker) + r'`*\s*$', stripped):
-                in_fence = False
+            if STYLE_CLOSE_RE.search(line):
+                in_style = False
+            continue
+
+        # No block is currently open — check whether this line opens one.
+
+        # Fenced code blocks
+        m = re.match(r'^(`{3,}|~{3,})', stripped)
+        if m:
+            in_fence = True
+            fence_marker = m.group(1)[0] * len(m.group(1))
+            skip[i] = True
+            continue
+
+        # Liquid {% raw %} blocks
+        if '{% raw %}' in line and '{% endraw %}' not in line:
+            in_raw = True
+            skip[i] = True
+            continue
+
+        # <style> blocks — CSS positioning keywords and comments are not
+        # reader-facing prose and should never trip the content checks.
+        if STYLE_OPEN_RE.search(line):
+            in_style = True
+            skip[i] = True
+            if STYLE_CLOSE_RE.search(line):
+                in_style = False
             continue
 
     return skip
@@ -381,6 +487,59 @@ def _spatial_match_allowlisted(line: str, start: int, end: int) -> bool:
     return False
 
 
+def _inside_markdown_image_alt(line: str, start: int, end: int) -> bool:
+    """Return True if the match is inside markdown image alt text."""
+    for m in MARKDOWN_IMAGE_RE.finditer(line):
+        alt_start = m.start(1)
+        alt_end = m.end(1)
+        if start >= alt_start and end <= alt_end:
+            return True
+    return False
+
+
+def _is_css_declaration_line(line: str) -> bool:
+    """Return True for standalone CSS declaration lines in markdown prose."""
+    stripped = line.strip()
+    return bool(re.match(r'^[a-zA-Z-]+\s*:\s*[^;]+;\s*$', stripped))
+
+
+def _is_legal_sensitive_path(path: str) -> bool:
+    """Return True for legal-content files that require manual wording review."""
+    normalized = path.replace('\\', '/').lower()
+    # Explicitly legal path segments.
+    if re.search(r'/(legal|contracts?)/', normalized):
+        return True
+    # Known legal/policy pages under API docs.
+    normalized_no_lead = normalized.lstrip('/')
+    if normalized_no_lead == '_docs/_api/data_retention.md':
+        return True
+
+    filename = normalized.rsplit('/', 1)[-1]
+    stem = filename.rsplit('.', 1)[0]
+
+    # Known legal-oriented filenames anywhere under checked docs/includes paths.
+    if stem in {
+        'cla',
+        'privacy_policy',
+        'terms_of_service',
+        'legal_notice',
+        'license_agreement',
+        'contribution_license_agreement',
+    }:
+        return True
+
+    # `_docs/_docs_pages` houses site-level legal pages such as CLA.
+    # Match only on token boundaries to avoid substring false positives
+    # like "classification" matching "cla".
+    if normalized_no_lead.startswith('_docs/_docs_pages/'):
+        legal_tokens = {'cla', 'privacy', 'terms', 'legal', 'license', 'agreement'}
+        stem_tokens = [t for t in re.split(r'[^a-z0-9]+', stem) if t]
+        if any(token in legal_tokens for token in stem_tokens):
+            return True
+
+    return False
+
+
 def _left_right_spatial_matches(line: str) -> list:
     """Return left/right layout matches.
 
@@ -396,17 +555,24 @@ def _left_right_spatial_matches(line: str) -> list:
 def check_spatial_directionals(lines: list, skip: list, path: str) -> list:
     """Flag layout-referencing above/below/left/right (WCAG 1.3.3)."""
     violations: list = []
+    legal_sensitive_path = _is_legal_sensitive_path(path)
     for i, line in enumerate(lines):
         if skip[i]:
+            continue
+        if _is_css_declaration_line(line):
             continue
 
         flagged_terms: list = []
 
         for m in SPATIAL_ABOVE_BELOW_RE.finditer(line):
+            if _inside_markdown_image_alt(line, m.start(), m.end()):
+                continue
             if not _spatial_match_allowlisted(line, m.start(), m.end()):
                 flagged_terms.append(m.group(0).lower())
 
         for m in _left_right_spatial_matches(line):
+            if _inside_markdown_image_alt(line, m.start(), m.end()):
+                continue
             if not _spatial_match_allowlisted(line, m.start(), m.end()):
                 flagged_terms.append(m.group(0).lower())
 
@@ -432,6 +598,7 @@ def check_spatial_directionals(lines: list, skip: list, path: str) -> list:
             ),
             violation_type='spatial_directional',
             wcag_criterion='1.3.3',
+            auto_fix_eligible=not legal_sensitive_path,
         ))
     return violations
 

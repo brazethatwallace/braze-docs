@@ -16,13 +16,13 @@ channel:
 
 複数のWhatsAppビジネスアカウントは、複数のブランドを持つBrazeワークスペースのユーザーにWhatsAppメッセージを送信したい場合に便利です。各ビジネスアカウントはWhatsApp内で独立して運用され、独自の電話番号、メッセージテンプレート、品質評価を持っています。
 
-同じMeta Business Manager内にネストされたビジネスアカウントは、ユーザーアクセス権限管理とカタログも共有します（カタログはBrazeではまだサポートされていません）。
+同じMeta Business マネージャー内にネストされたビジネスアカウントは、ユーザーアクセス権限管理とカタログも共有します（カタログはBrazeではまだサポートされていません）。
 
 ![BrazeとWhatsAppエコシステムの図。ワークスペースとWhatsAppビジネスアカウントの接続関係を示しています。1つのサブスクリプショングループに1つの電話番号、1つのワークスペースに複数のWhatsAppビジネスアカウント、1つのワークスペースに複数のMeta Business Portfolioを接続できます。]({% image_buster /assets/img/whatsapp/whatsapp_braze_ecosystem.png %})
 
 ### WhatsAppビジネスアカウントの追加 {#adding-a-whatsapp-business-account}
 
-ワークスペースごとに最大10個のWhatsAppビジネスアカウントを追加できます。ビジネスアカウントは異なるMeta Business Managerにネストできます。アカウントを追加するには：
+ワークスペースごとに最大10個のWhatsAppビジネスアカウントを追加できます。ビジネスアカウントは異なるMeta Business マネージャーにネストできます。アカウントを追加するには：
 
 1. **テクノロジーパートナー** > **WhatsApp**に移動し、**Add WhatsApp Business Account**を選択します。
 
@@ -59,4 +59,4 @@ WhatsAppビジネスアカウントごとに最大20個のサブスクリプシ�
 ### サブスクリプショングループと電話番号の削除 {#removing-a-subscription-group-and-phone-number}
 
 1. **オーディエンス** > **サブスクリプション**に移動し、サブスクリプショングループをアーカイブします。
-2. Meta Business Managerに移動し、電話番号を削除します。
+2. Meta Business マネージャーに移動し、電話番号を削除します。

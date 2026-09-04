@@ -181,17 +181,28 @@ Context variables are declared and only accessible in the scope of a Canvas, mea
 
 ![Decision Split step example with the option to create a filter with a context variable.]({% image_buster /assets/img/context_decision_split.png %}){: style="max-width:90%;"}
 
-Similar to how Canvas context variables have pre-defined types, the comparisons between context variables and static values must have [matching data types]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#supported-data-types). The context variable filter allows comparisons across multiple data types for booleans, numbers, strings, time, and day of year, similar to the comparisons for [nested custom attributes]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
+Similar to how Canvas context variables have pre-defined types, the comparisons between context variables and static values must have [matching data types]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support). The context variable filter allows comparisons across multiple data types for booleans, numbers, strings, time, and day of year, similar to the comparisons for [nested custom attributes]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
+
+Here is an example of a context variable filter comparing the context variable `product_name` to the regex `/braze/`.
+
+![A filter setup for the context variable "product_name" to match the regex "/braze/".]({% image_buster /assets/img/context_variable_filter1.png %}){: style="max-width:90%;"}
+
+#### Day of Year and Time filters for date context variables
+
+To use **Day of Year** or **Time** comparison filters with a context variable:
+
+1. Add a [Context step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) that sets a context variable to a calendar date (for example, October 23, 2025).
+2. Add an [Audience Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) step after the Context step.
+3. In the Audience Paths step, add a filter that splits users based on that context variable.
+4. Choose a comparison from the **Day of Year** or **Time** category.
+
+If a context variable has no declared type, Braze shows all available comparison types in the dropdown, including both **Day of Year** and **Time**. If the variable is declared as a **time** type in the Context step, only **Day of Year** and **Time** comparisons are shown. For other data types with a known type (for example, a nested custom attribute with a time type), only the comparisons that apply to that type are shown.
 
 {% alert note %}
 Use the same data type for your context variable and comparison. For example, if your context variable is a time data type, use time comparisons (such as "before" or "after"). Using mismatching data types (such as string comparisons with a time context variable) may cause unexpected behavior.
 {% endalert %}
 
 {% multi_lang_include alerts/important_alerts.md alert='time filter types' %}
-
-Here is an example of a context variable filter comparing the context variable `product_name` to the regex `/braze/`.
-
-![A filter setup for the context variable "product_name" to match the regex "/braze/".]({% image_buster /assets/img/context_variable_filter1.png %}){: style="max-width:90%;"}
 
 #### Comparing to context variables or custom attributes
 

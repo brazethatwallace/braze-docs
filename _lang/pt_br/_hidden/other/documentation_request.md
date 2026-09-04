@@ -12,7 +12,7 @@ hide_toc: true
       background-color: #fff;
       font-weight: 400;
       font-size: 15px;
-      font-family: Sailec W00 Regular,Arial,sans-serif;
+      font-family: 'Aribau Grotesk Regular', 'Aribau Grotesk', Arial, sans-serif;
       font-style: normal;
       color: #212123;
   }
@@ -74,7 +74,7 @@ hide_toc: true
     }
     .h1, h1  {
       font-size: 34pt;
-      font-family: Sailec W00 Bold, Arial, sans-serif;
+      font-family: 'Aribau Grotesk Bold', 'Aribau Grotesk', 'Aribau Grotesk Regular', Arial, sans-serif;
       margin-bottom: 24px;
     }
 
@@ -83,7 +83,7 @@ hide_toc: true
     }
     .subhead {
       font-size: 14pt;
-      font-family: Sailec W00 Regular,Arial,sans-serif;
+      font-family: 'Aribau Grotesk Regular', 'Aribau Grotesk', Arial, sans-serif;
       margin-bottom: 16px;
     }
 
@@ -118,7 +118,7 @@ hide_toc: true
       padding: 0px 1.5rem;
       height: 40px;
       min-width: 200px;
-      font-family: Sailec W00 Bold, Arial, sans-serif;
+      font-family: 'Aribau Grotesk Bold', 'Aribau Grotesk', 'Aribau Grotesk Regular', Arial, sans-serif;
       font-size: 12pt;
       font-weight: 700;
       border-radius: 2px;
@@ -185,7 +185,7 @@ hide_toc: true
     }
     .form-group label {
       font-size: 13pt !important;
-      font-family: Sailec W00 Bold, Arial, sans-serif;
+      font-family: 'Aribau Grotesk Bold', 'Aribau Grotesk', 'Aribau Grotesk Regular', Arial, sans-serif;
       margin-bottom: 6px;
     }
     input[type=text] {
@@ -196,25 +196,25 @@ hide_toc: true
     }
     #doc_release_notes_label {
       font-size: 12pt !important;
-      font-family: Sailec W00 Regular,Arial,sans-serif;
+      font-family: 'Aribau Grotesk Regular', 'Aribau Grotesk', Arial, sans-serif;
     }
     #doc_verify_label {
       font-size: 12pt !important;
-      font-family: Sailec W00 Regular,Arial,sans-serif;
+      font-family: 'Aribau Grotesk Regular', 'Aribau Grotesk', Arial, sans-serif;
     }
     input[type="checkbox"] {
         display:none;
     }
     input[type="checkbox"] + label {
       font-size: 14pt !important;
-      font-family: Sailec W00 Regular,Arial,sans-serif;
+      font-family: 'Aribau Grotesk Regular', 'Aribau Grotesk', Arial, sans-serif;
     }
     .form-check {
       padding-left: 0;
     }
     .sublabel {
       font-size: 12pt !important;
-      font-family: Sailec W00 Regular,Arial,sans-serif;
+      font-family: 'Aribau Grotesk Regular', 'Aribau Grotesk', Arial, sans-serif;
       color: #5E6C75;
       line-height: 1.4;
     }
@@ -264,7 +264,7 @@ hide_toc: true
     }
     .inline_text {
       display: flex;
-      font-family: Sailec, Arial, sans-serif;
+      font-family: 'Aribau Grotesk Regular', 'Aribau Grotesk', Arial, sans-serif;
       font-size: 10pt;
     }
     #braze_internal {
@@ -273,7 +273,7 @@ hide_toc: true
       background-color: #FFEEE3;
       padding: 10px;
       height: 45px;
-      font-family: Sailec W00 Bold, Arial, sans-serif;
+      font-family: 'Aribau Grotesk Bold', 'Aribau Grotesk', 'Aribau Grotesk Regular', Arial, sans-serif;
       font-size: 12tpt;
       position: absolute;
       left: 0;
@@ -424,7 +424,7 @@ hide_toc: true
     });
   </script>
 
-<div id="braze_internal" ><i class="fa-solid fa-lock"></i> Somente interno. Não compartilhe com os clientes.</div>
+<div id="braze_internal" ><i class="fa-solid fa-lock"></i> Somente interno. Não compartilhe com clientes.</div>
 <div class="container-fluid" id="main-container">
 
       <div id="doc_div">
@@ -445,8 +445,8 @@ hide_toc: true
                 Tipo de solicitação
                 </label>
               <select id="doc_urgent" name="Request_Type" class="drop-down-sel">
-              <option value="urgent">Urgente: estou reportando um problema no Braze Docs ou tenho uma atualização de alta prioridade</option>
-              <option value="feature">Funcionalidade: tenho uma nova funcionalidade ou um novo comportamento para uma funcionalidade existente</option>
+              <option value="urgent">Urgente: estou reportando um problema na Braze Docs ou tenho uma atualização de alta prioridade</option>
+              <option value="feature">Recurso: tenho um novo recurso ou um novo comportamento para um recurso existente</option>
               <option value="suggestion" selected="selected">Sugestão: tenho uma melhoria proposta ou preciso de esclarecimento sobre um artigo</option>
               </select>
 
@@ -457,14 +457,14 @@ hide_toc: true
               <div id="disclosure-warning" class="alert alert-important" role="alert">
                 <div class="alert-msg">
                   <b>Importante: </b>
-                  O Copilot redigirá esta sugestão, e ela será revisada pela equipe de Docs. Confirme que <strong>nenhuma informação específica de cliente</strong> ou <strong>links</strong> estão incluídos.
+                  A IA auxilia na redação desta sugestão, que é revisada pela equipe de Docs e por outras partes interessadas internas antes da publicação. Confirme que <strong>nenhuma informação específica de cliente</strong> ou <strong>links de clientes</strong> estão incluídos.
                 </div>
               </div>
               </div>
 
               <div class="form-group">
                 <label for="doc_due_date" id="doc_due_date_label">Data de entrega (opcional)</label>
-                <div class="sublabel">Se esta solicitação é urgente ou está relacionada ao lançamento de uma funcionalidade, insira uma data de entrega.</div>
+                <div class="sublabel">Se esta solicitação é urgente ou está relacionada ao lançamento de um recurso, insira uma data de entrega.</div>
                 <div class="input-group">
                   <input type="date" class="form-control" id="doc_due_date" maxlength="80" name="Due_Date" value="" />
                 </div>
@@ -498,7 +498,7 @@ hide_toc: true
 
               <div class="form-group" id="resource_urls">
                 <label for="resource_urls" id="resource_urls_label">URLs de recursos</label>
-                 <div class="sublabel" style="margin-bottom:6px;">Inclua URLs do Confluence, Productboard, Google Docs, Jira ou quaisquer outros recursos sobre esta funcionalidade.</div>
+                 <div class="sublabel" style="margin-bottom:6px;">Inclua URLs do Confluence, Productboard, Google Docs, Jira ou de quaisquer outros recursos sobre este recurso.</div>
                 <textarea name="Resource_Urls" class="form-control" id="resource_urls" data-toggle="popover" data-trigger="focus" data-placement="top" data-content=""
                   rows="2" ></textarea>
 
@@ -506,7 +506,7 @@ hide_toc: true
 
               <div class="form-group">
 
-                <label for="doc_snippet" id="doc_snippet_label" style="margin-bottom:6px;line-height:1.2;">Trechos de código (opcional)</label>
+                <label for="doc_snippet" id="doc_snippet_label" style="margin-bottom:6px;line-height:1.2;">Snippets de código (opcional)</label>
                 <div class="sublabel" style="margin-bottom:6px;">Isso é útil se você é desenvolvedor(a). Inclua contexto e certifique-se de que a linguagem de código utilizada esteja clara.</div>
                 <textarea name="Snippet" class="form-control" id="doc_snippet" data-toggle="popover" data-trigger="focus" data-placement="top" data-content=""
                   rows="7"></textarea>

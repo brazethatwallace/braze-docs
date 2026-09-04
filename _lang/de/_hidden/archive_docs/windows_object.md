@@ -11,7 +11,7 @@ hidden: true
 ---
 # Windows-Objekt-Spezifikation {#windows-object-specification}
 
-Die Objekte `windows_phone8_push` und `windows_universal_push` werden verwendet, um Informationen zu Windows Phone 8 Push- und Windows Universal Push-Inhalten über unsere [Messaging-Endpunkte]({{site.baseurl}}/api/endpoints/messaging/) zu definieren oder abzufragen.
+Die Objekte `windows_phone8_push` und `windows_universal_push` werden verwendet, um Informationen zu Windows Phone 8 Push- und Windows Universal Push-Inhalten über unsere [Messaging-Endpunkte]({{site.baseurl}}/api/endpoints/messaging) zu definieren oder abzufragen.
 
 ## Windows Phone 8 Push-Objekt {#windows-phone-8-push-object}
 
@@ -26,9 +26,9 @@ Die Objekte `windows_phone8_push` und `windows_universal_push` werden verwendet,
 }
 ```
 
-## Windows Universal Push-Objekt {#windows-universal-push-object}
+## Windows-Universal-Push-Objekt {#windows-universal-push-object}
 
-Einzelheiten zu den Optionen für `push_type` finden Sie im Windows Universal [Toast-Template-Katalog](https://msdn.microsoft.com/en-us/library/windows/apps/hh761494.aspx).
+Weitere Informationen zu den Optionen für `push_type` finden Sie im [Toast-Vorlagenkatalog](https://msdn.microsoft.com/en-us/library/windows/apps/hh761494.aspx) für Windows Universal.
 
 ```json
 {
@@ -42,4 +42,4 @@ Einzelheiten zu den Optionen für `push_type` finden Sie im Windows Universal [T
 }
 ```
 
-Weitere Informationen zur Verwendung des Parameters `extra_launch_string` für [Deeplinking]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking) finden Sie unter [Deeplinking mit Windows Universal.]({{site.baseurl}}/developer_guide/platform_integration_guides/windows_universal/push_notifications/integration/#step-4-deep-linking-from-push-into-your-app)
+Weitere Informationen zur Verwendung des Parameters `extra_launch_string` für [Deeplinking]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking) finden Sie unter [Deeplinking mit Windows Universal.]({{site.baseurl}}/hidden/archive_docs/windows_universal/push_notifications#step-5-deep-linking-from-push-into-your-app)

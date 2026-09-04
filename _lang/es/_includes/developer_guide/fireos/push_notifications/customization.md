@@ -4,11 +4,11 @@
 
 Hay muchas configuraciones avanzadas disponibles para las notificaciones push de FireOS enviadas a través del panel de Braze. En este artículo se describen estas características y cómo utilizarlas con éxito.
 
-![]({% image_buster /assets/img_archive/android_advanced_settings.png %})
+![Panel de configuración avanzada del creador de push de Braze para FireOS.]({% image_buster /assets/img_archive/android_advanced_settings.png %})
 
-### Tiempo de vida (TTL) {#ttl}
+### TTL (TTL) {#ttl}
 
-El campo **Tiempo de vida** (TTL) te permite establecer un tiempo personalizado para almacenar mensajes con el servicio de mensajería push. Los valores predeterminados para el tiempo de vida son cuatro semanas para FCM y 31 días para ADM.
+El campo **TTL** (TTL) te permite establecer un tiempo personalizado para almacenar mensajes con el servicio de mensajería push. Los valores predeterminados para el TTL son cuatro semanas para FCM y 31 días para ADM.
 
 ### Texto resumido {#summary-text}
 
@@ -24,9 +24,9 @@ Para las notificaciones push que incluyan imágenes, el texto del mensaje se mos
 
 ### URI personalizadas {#custom-uri}
 
-La característica **URI personalizada** te permite especificar una URL web o un recurso Android al que navegar cuando se haga clic en la notificación. Si no se especifica una URI personalizada, al hacer clic en la notificación los usuarios acceden a tu aplicación. Puedes utilizar la URI personalizada para establecer vínculos profundos dentro de tu aplicación y dirigir a los usuarios a recursos que existen fuera de ella. Esto puede especificarse a través de la [API de mensajería]({{site.baseurl}}/api/endpoints/messaging/) o de nuestro panel en **Configuración avanzada** en el compositor push, como se muestra en la imagen:
+La característica **URI personalizada** te permite especificar una URL web o un recurso Android al que navegar cuando se haga clic en la notificación. Si no se especifica una URI personalizada, al hacer clic en la notificación los usuarios acceden a tu aplicación. Puedes utilizar la URI personalizada para establecer vínculos profundos dentro de tu aplicación y dirigir a los usuarios a recursos que existen fuera de ella. Esto puede especificarse a través de la [API de mensajería]({{site.baseurl}}/api/endpoints/messaging) o de nuestro panel en **Configuración avanzada** en el creador push, como se muestra en la imagen:
 
-![La configuración avanzada de vínculos profundos en el compositor push de Braze.]({% image_buster /assets/img_archive/deep_link.png %})
+![La configuración avanzada de vínculos profundos en el creador push de Braze.]({% image_buster /assets/img_archive/deep_link.png %})
 
 ### Prioridad de visualización de notificaciones {#notification-display-priority}
 
@@ -46,10 +46,10 @@ Los niveles de prioridad que puedes establecer en las notificaciones push de Fir
 |----------|--------------------------|-------------------------------------|
 | Máx.      | Mensajes urgentes o en los que el tiempo es un factor crítico | `2` |
 | Alta     | Comunicación importante, como un nuevo mensaje de un amigo | `1` |
-| Predeterminado  | La mayoría de las notificaciones: utilízalo si tu mensaje no entra explícitamente en ninguno de los otros tipos de prioridad | `0` |
+| Predeterminada  | La mayoría de las notificaciones: utilízalo si tu mensaje no entra explícitamente en ninguno de los otros tipos de prioridad | `0` |
 | Baja      | Información que quieres que conozcan los usuarios pero que no requiere una acción inmediata | `-1` |
 | Mín.      | Información contextual o de fondo. | `-2` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Notification display priority" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prioridad de visualización de notificaciones" }
 
 Para más información, consulta la documentación de [notificaciones de Android](http://developer.android.com/design/patterns/notifications.html) de Google.
 
@@ -57,9 +57,9 @@ Para más información, consulta la documentación de [notificaciones de Android
 
 En Android O, los sonidos de notificación pasaron a ser una propiedad de los canales de notificación. Tendrás que trabajar con tu desarrollador para definir el sonido de un canal durante su configuración y luego utilizar el panel para seleccionar el canal adecuado al enviar tus notificaciones.
 
-Para los dispositivos que ejecutan versiones de Android anteriores a O, Braze te permite configurar el sonido de un mensaje push individual a través del compositor del panel. Puedes hacerlo especificando un recurso de sonido local en el dispositivo (por ejemplo, `android.resource://com.mycompany.myapp/raw/mysound`). Si especificas "default" en este campo, se reproducirá el sonido de notificación predeterminado en el dispositivo. Esto puede especificarse a través de la [API de mensajería]({{site.baseurl}}/api/endpoints/messaging/) o del panel en **Settings** en el compositor push.
+Para los dispositivos que ejecutan versiones de Android anteriores a O, Braze te permite configurar el sonido de un mensaje push individual a través del creador del panel. Puedes hacerlo especificando un recurso de sonido local en el dispositivo (por ejemplo, `android.resource://com.mycompany.myapp/raw/mysound`). Si especificas "default" en este campo, se reproducirá el sonido de notificación predeterminado en el dispositivo. Esto puede especificarse a través de la [API de mensajería]({{site.baseurl}}/api/endpoints/messaging) o del panel en **Configuración** en el creador push.
 
-![La configuración avanzada del sonido en el compositor push de Braze.]({% image_buster /assets/img_archive/sound_android.png %})
+![La configuración avanzada del sonido en el creador push de Braze.]({% image_buster /assets/img_archive/sound_android.png %})
 
 Introduce la URI completa del recurso de sonido (por ejemplo, `android.resource://com.mycompany.myapp/raw/mysound`) en el campo del panel.
 

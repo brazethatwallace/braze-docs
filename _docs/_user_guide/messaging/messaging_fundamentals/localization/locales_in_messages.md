@@ -9,13 +9,9 @@ description: "This article provides steps on how to use locales in your messages
 
 # Multi-language messages
 
-> After adding locales to your workspace, you can target users in different languages all within a single push, email, banner, in-app message, or Content Block.
+> After adding locales to your workspace, you can target users in different languages all within a single push, email, webhook, banner, in-app message, or Content Block.
 
 ## Prerequisites
-
-Watch the following video for an optional overview of setting up and using multi-language messages.
-
-{% multi_lang_include video.html id="whfstwrel5" source="wistia" %}
 
 {% tabs %}
 {% tab Multi-language locales %}
@@ -27,7 +23,7 @@ Watch the following video for an optional overview of setting up and using multi
 
 | Feature | Required user permissions |
 | --- | --- |
-| Message&nbsp;types | You need these permissions to add locales and translations to campaigns and Canvases:<br><br> <ul><li>Edit Campaigns</li><li>Edit Canvases</li></ul>{:/} |
+| Message&nbsp;types | You need these permissions to add locales and translations to campaigns and Canvases:<br><br> {::nomarkdown} <ul><li>Edit Campaigns</li><li>Edit Canvases</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites"}
 
 {% endtab %}
@@ -35,7 +31,7 @@ Watch the following video for an optional overview of setting up and using multi
 
 | Feature | Required user permissions |
 | --- | --- |
-| Templates | You need these permissions for the template type you want to add locales and translations to:<br><br> <ul><li>Edit Email Templates</li><li>Edit IAM Templates</li><li>Edit Content Block Templates</li></ul>{:/} |
+| Templates | You need these permissions for the template type you want to add locales and translations to:<br><br> {::nomarkdown} <ul><li>Edit Email Templates</li><li>Edit IAM Templates</li><li>Edit Webhook Templates</li><li>Edit Content Block Templates</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 {% endtab %}
@@ -49,12 +45,12 @@ Before you can add translations to a message, you must first [create the locales
 
 ### Step 2: Mark content for translation
 
-Wrap text you want to translate with the Liquid translation tags {% raw %}`{% translation your_id_here %}` and `{% endtranslation %}`{% endraw %} and assign a tag ID. Translation tag IDs must be unique within a message. Consider using semantic ID names that plainly describe the text, such as {% raw %}`{% translation header %}`{% endraw %}.
+Wrap text you want to translate with the Liquid translation tags {% raw %}`{% translation your_id_here %}` and `{% endtranslation %}`{% endraw %} and assign a tag ID. Translation tag IDs must be unique within a message. Consider using semantic ID names that plainly describe the text, such as {% raw %}`{% translation header %}`{% endraw %}. If the message includes Content Blocks, see [Content Blocks containing translation](#content-blocks-containing-translation) for how uniqueness applies.
 
 Here is an example message marked for translation: {% raw %}`{% translation greeting %}Hello!{% endtranslation %}`{% endraw %}
 
 {% alert tip %}
-Highlight the text you want to translate and use the keyboard shortcut **Cmd + Alt + L** (macOS) or **Ctrl + Alt + L** (Windows) to wrap in translation tags.<br><br> This shortcut works in all channels that support multi-language messaging except for the drag-and-drop editors for email and Content Blocks. For those, use the **Add personalization** button in the left sidebar to add translation tags.
+Highlight the text you want to translate and use the keyboard shortcut **Cmd + Alt + L** (macOS) or **Ctrl + Alt + L** (Windows) to wrap in translation tags.<br><br> This shortcut works in all channels that support multi-language messaging except for the drag-and-drop editors for email and Content Blocks. For those, use the **Add personalization** button to add translation tags.
 {% endalert %}
 
 #### Localize URLs
@@ -139,7 +135,17 @@ After adding translation tags to your message, select **Manage languages** in th
 
 #### Content Blocks containing translation
 
-If your message contains Content Blocks that already have translations saved, you do not need to re-upload those translations. Saved translations are automatically applied when the Content Block is added to your message.
+Content Blocks with translation tags behave differently depending on whether the block has its own saved translations:
+
+| Content Block state | Where translations are managed |
+| --- | --- |
+| Translation tags, but no locales or saved translations | Parent message's **Manage languages** CSV |
+| Translation tags with locales and saved translations | Content Block's own CSV or translation API |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content Block translation states" }
+
+##### Content Blocks with saved translations
+
+If your message contains Content Blocks that already have translations saved, you do not need to re-upload those translations. Saved translations are automatically applied when the Content Block is added to your message. Those blocks keep their own tag IDs, which don't need to be unique against the parent message. For how to save translations on the block itself, see [Save translations in Content Blocks](#save-translations-in-content-blocks).
 
 In the **Manage languages** modal, Content Blocks with saved translations appear in the list, alongside the locales they support. This allows you to see which parts of your message are already localized before adding new translations.
 
@@ -148,6 +154,12 @@ In the **Manage languages** modal, Content Blocks with saved translations appear
 {% alert important %}
 Make sure each Content Block includes translations for every locale added to your message. If a Content Block is missing translations for one of the locales you added, it shows in its original language for users in that locale.
 {% endalert %}
+
+##### Content Blocks with translation tags only
+
+When a Content Block has translation tags but no locales or saved translations, its tags are treated as untranslated source content in the parent message. The parent's **Manage languages** export includes those tags, and the parent CSV must supply their translations. Those tags must be unique against other tags in the parent message.
+
+If you reuse an untranslated Content Block in another message, that second message must also provide translations for the block's tags. To avoid providing translations in every message that uses a Content Block, add locales and translations directly to the Content Block itself.
 
 ### Step 4: Add translations
 
@@ -158,18 +170,30 @@ After selecting locales, add translations to your message using one of the follo
 {% tabs %}
 {% tab Upload CSV template %}
 
-Select **Download template** to download a CSV containing a matrix of your selected translation IDs and locales. Enter translations for each locale. Upload the completed file and translations will be applied to your message. 
+Select **Download template** to download a CSV containing a matrix of your selected translation IDs and locales. 
 
 {% alert important %}
 To prevent display issues with non-English characters, avoid using Excel for your translation CSV.
 {% endalert %}
+
+When you fill out the template, translate only the text content for each locale. If HTML tags are present in the downloaded template, leave them unchanged and translate only the text within the tags.
+
+For example, if the template contains:
+
+```
+<p style="margin:0;margin-bottom:0">A charming bakery dedicated to crafting artisanal breads.</p>
+```
+
+Only translate the text `A charming bakery dedicated to crafting artisanal breads.` and keep the HTML tags `<p style="margin:0;margin-bottom:0">` and `</p>` as is.
+
+Then, upload the completed file and translations will be applied to your message.
 
 ![CSV with translation tags for a title, offer text, offer amount, and CTA.]({% image_buster /assets/img/multi-language_support/csv_template_example.png %}){: style="max-width:50%;"}
 
 {% endtab %}
 {% tab Use the translation API %}
 
-Use a partner translation API to manage and update translations in your campaigns and Canvases. This is useful if you use an external system for localization or want to directly connect with a translation partner.
+Use a partner translation API to manage and update translations in your campaigns, Canvases, Content Blocks, email templates, and webhook templates. This is useful if you use an external system for localization or want to directly connect with a translation partner.
 
 To use the translations endpoints with Canvases, include the following parameters:
   - `workflow_id`
@@ -258,6 +282,17 @@ When using translation tags, the following limits apply:
 - Each message can have up to 200 translation tags.
 - Each default text (the content between translation tags) can have up to 2,000 characters.
 - The translations per locale can have up to 409,600 bytes (approximately 409.6&nbsp;KB).
+
+### Why am I receiving an error when downloading multi-language email templates?
+
+If you encounter errors when downloading multi-language email templates, the translation tags may be wrapping HTML attributes or CSS styling that conflict with how Braze processes email bodies. 
+
+Braze treats the HTML body and plaintext body as separate components of the same message. When translation tags include `href` references and CSS styling, this can lead to conflicting tags that prevent the template from being downloaded correctly.
+
+To resolve this:
+- Exclude `href` references and CSS styling from translation tags.
+- Wrap only human-readable text content in translation tags, as described in [HTML attributes and structure](#html-attributes-and-structure).
+- For URLs, follow the guidance in [Localize URLs](#localize-urls).
 
 #### Can I make a change to the translated copy in one of my locales?
 

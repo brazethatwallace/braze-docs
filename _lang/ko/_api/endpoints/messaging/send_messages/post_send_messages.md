@@ -1,6 +1,6 @@
 ---
 nav_title: "POST: API만 사용하여 즉시 메시지 보내기"
-article_title: "POST: API만 사용하여 즉시 메시지 보내기"
+article_title: "API만 사용하여 즉시 메시지 보내기"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
@@ -23,12 +23,12 @@ Segment를 타겟팅하는 경우 요청에 대한 기록이 [개발자 콘솔](
 {% multi_lang_include api/payload_size_alert.md %}
 
 {% alert important %}
-API 캠페인에 이 엔드포인트를 사용할 경우, 요청이 성공하려면 수신자가 Braze에 이미 존재해야 합니다. 이는 `external_user_ids` 또는 `user_aliases` 매개변수에서 사용자를 지정할 때 적용됩니다.
+API Campaign에 이 엔드포인트를 사용할 경우, 요청이 성공하려면 수신자가 Braze에 이미 존재해야 합니다. 이는 `external_user_ids` 또는 `user_aliases` 매개변수에서 사용자를 지정할 때 적용됩니다.
 {% endalert %}
 
 ## API 호출을 통한 신규 사용자 생성 {#creating-new-users-with-api-sends}
 
-API를 사용하여 전송의 일환으로 사용자를 생성해야 하는 경우 두 가지 옵션이 있습니다:
+API를 사용하여 전송의 일환으로 사용자를 생성해야 하는 경우 두 가지 옵션이 있습니다.
 
 ### 옵션 1: `/users/track`을 사용한 후 보내기 {#option-1-use-userstrack-then-send}
 
@@ -69,7 +69,7 @@ Authorization: Bearer YOUR-REST-API-KEY
    "user_aliases": (optional, array of user alias object) see user alias,
    "segment_id": (optional, string) see segment identifier,
    "audience": (optional, connected audience object) see connected audience,
-   "campaign_id": (optional*, string) *required if you wish to track campaign stats (for example, sends, clicks, bounces, etc). see campaign identifier,
+   "campaign_id": (optional*, string) required if you wish to track campaign stats (for example, sends, clicks, bounces, etc). see campaign identifier,
    "send_id": (optional, string) see send identifier,
    "override_frequency_capping": (optional, bool) ignore frequency_capping for campaigns, defaults to false,
    "recipient_subscription_state": (optional, string) use this to send messages to only users who have opted in ('opted_in'), only users who have subscribed or are opted in ('subscribed') or to all users, including unsubscribed users ('all'), the latter being useful for transactional email messaging. Defaults to 'subscribed',
@@ -96,7 +96,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `user_aliases` | 선택 사항 | 사용자 별칭 오브젝트 배열 | [사용자 별칭 오브젝트]({{site.baseurl}}/api/objects_filters/user_alias_object)를 참조하세요. |
 | `segment_id` | 선택 사항 | 문자열 | [Segment 식별자]({{site.baseurl}}/api/identifier_types#segment-identifier)를 참조하세요. |
 | `audience` | 선택 사항 | 연결된 오디언스 오브젝트 | [연결된 오디언스]({{site.baseurl}}/api/objects_filters/connected_audience)를 참조하세요. |
-| `campaign_id` | 선택 사항* | 문자열 | 자세한 내용은 [Campaign 식별자]({{site.baseurl}}/api/identifier_types#campaign-identifier)를 참조하세요. <br><br>*Braze 대시보드에서 Campaign 측정기준(예: *발송*, *클릭 수* 또는 *반송*)을 추적하거나, 고객 프로필의 [메시지 기록 탭]({{site.baseurl}}/user_guide/engagement_tools/segments/user_profiles#messaging-history-tab)에서 이 메시지와 관련된 이벤트를 확인하려면 필수입니다. |
+| `campaign_id` | 선택 사항* | 문자열 | 자세한 내용은 [Campaign 식별자]({{site.baseurl}}/api/identifier_types#campaign-identifier)를 참조하세요. <br><br>*Braze 대시보드에서 Campaign 측정기준(예: *발송*, *클릭 수* 또는 *반송*)을 추적하거나, 고객 프로필의 [메시지 기록 탭]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles)에서 이 메시지와 관련된 이벤트를 확인하려면 필수입니다. `campaign_id`가 없으면 Braze는 대시보드 전달 가능성 통계를 증가시키지 않습니다. 전송은 여전히 [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)에 표시되지만, 대시보드의 이메일 성능 측정기준에는 표시되지 않습니다. |
 | `send_id` | 선택 사항 | 문자열 | [전송 식별자]({{site.baseurl}}/api/identifier_types#send-identifier)를 참조하세요. |
 | `override_frequency_capping` | 선택 사항 | 부울 | Campaign의 `frequency_capping`을 무시하며, 기본값은 `false`입니다. |
 | `recipient_subscription_state` | 선택 사항 | 문자열 | 이를 사용하여 수신 동의한 사용자(`opted_in`), 구독했거나 수신 동의한 사용자(`subscribed`) 또는 구독 취소한 사용자를 포함한 모든 사용자(`all`)에게만 메시지를 보낼 수 있습니다. <br><br>`all` 사용자를 사용하면 트랜잭션 이메일 메시징에 유용합니다. 기본값은 `subscribed`입니다. |

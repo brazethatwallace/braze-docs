@@ -139,6 +139,83 @@ class TestReplaceInMarkdown:
         assert n == 0
         assert "`Segment`" in out
 
+    def test_skips_heading_anchor_ids(self):
+        text = "See {#monitoring-alerts} for monitoring details.\n"
+        out, n = glp.replace_in_markdown(text, "monitoring", "監視", "ja")
+        assert n == 1
+        assert "{#monitoring-alerts}" in out
+        assert "監視 details" in out
+
+    def test_replace_outside_fences_skips_code_blocks(self):
+        text = (
+            "`````markdown\n"
+            "Create this key from **Settings** > **API Keys**.\n"
+            "`````\n"
+            "Create this key from **Settings** > **API Keys**.\n"
+        )
+        out, n = glp.replace_outside_fences(
+            text, "**Settings** > **API Keys**", "**設定** > **APIキー**"
+        )
+        assert n == 1
+        assert "**Settings** > **API Keys**." in out
+        assert "**設定** > **APIキー**." in out
+
+
+class TestPropagationReplaceValue:
+    def test_uses_primary_synonym(self):
+        assert glp.propagation_replace_value("SDK or Software-Development-Kit") == "SDK"
+        assert glp.propagation_replace_value("KPI or Leistungskennzahl or Leistungskennzahlen") == "KPI"
+
+    def test_preserves_single_value(self):
+        assert glp.propagation_replace_value("Kampagne") == "Kampagne"
+
+
+class TestBuildLocaleChanges:
+    def test_builds_added_and_updated_changes(self):
+        old = {"Campaign": "キャンペーン", "contractor": "請負業者"}
+        new = {"Campaign": "キャンペーン", "contractor": "業務委託先"}
+        changes = glp.build_locale_changes_from_glossary_diff("ja", old, new, {"global": []})
+        assert len(changes) == 2
+        searches = {change["search"] for change in changes}
+        assert searches == {"請負業者", "contractor"}
+        assert all(change["replace"] == "業務委託先" for change in changes)
+
+    def test_skips_excluded_terms(self):
+        old = {}
+        new = {"monitoring": "監視"}
+        exclusions = {"global": ["monitoring"]}
+        changes = glp.build_locale_changes_from_glossary_diff(
+            "ja", old, new, exclusions
+        )
+        assert changes == []
+
+    def test_uses_primary_synonym_for_added_terms(self):
+        old = {}
+        new = {"SMS": "Kurzmitteilungsdienst or SMS"}
+        changes = glp.build_locale_changes_from_glossary_diff("de", old, new, {"global": []})
+        assert len(changes) == 1
+        assert changes[0]["replace"] == "Kurzmitteilungsdienst"
+
+
+    def test_skips_duplicate_when_old_translation_equals_english_term(self):
+        old = {"contractor": "contractor"}
+        new = {"contractor": "業務委託先"}
+        changes = glp.build_locale_changes_from_glossary_diff("ja", old, new, {"global": []})
+        assert len(changes) == 1
+        assert changes[0]["search"] == "contractor"
+        assert changes[0]["replace"] == "業務委託先"
+
+    def test_updated_synonym_reorder_searches_full_old_value(self):
+        old = {"campaign": "campagne or Kampagne"}
+        new = {"campaign": "Kampagne or campagne"}
+        changes = glp.build_locale_changes_from_glossary_diff("de", old, new, {"global": []})
+        translation_updates = [
+            change for change in changes if change["search"] != "campaign"
+        ]
+        assert len(translation_updates) == 1
+        assert translation_updates[0]["search"] == "campagne or Kampagne"
+        assert translation_updates[0]["replace"] == "Kampagne"
+
 
 class TestPropagateGlossaryChanges:
     def test_dry_run_counts_without_writing(self, tmp_path):
@@ -180,3 +257,79 @@ class TestPropagateGlossaryChanges:
         )
         assert result["files_changed"] == 1
         assert "セグメント" in md.read_text(encoding="utf-8")
+
+    def test_skips_api_reference_files(self, tmp_path):
+        user_guide = tmp_path / "_lang" / "de" / "_user_guide" / "sample.md"
+        api_doc = tmp_path / "_lang" / "de" / "_api" / "endpoints" / "sample.md"
+        user_guide.parent.mkdir(parents=True)
+        api_doc.parent.mkdir(parents=True)
+        text = "Use the SDK for integration.\n"
+        user_guide.write_text(text, encoding="utf-8")
+        api_doc.write_text(text, encoding="utf-8")
+
+        result = glp.propagate_glossary_changes(
+            [{
+                "lang": "de",
+                "term": "SDK",
+                "kind": "added",
+                "search": "SDK",
+                "replace": "Software Development Kit",
+            }],
+            repo_root=tmp_path,
+        )
+        assert result["files_changed"] == 1
+        assert "Software Development Kit" in user_guide.read_text(encoding="utf-8")
+        assert api_doc.read_text(encoding="utf-8") == text
+
+
+class TestRepairGlossaryPropagationCorruption:
+    def test_noun_restoration_skips_oder_registrieren(self):
+        import repair_glossary_propagation_corruption as repair  # noqa: WPS433
+
+        text = "melden Sie sich an oder registrieren Sie sich.\n"
+        repaired, count = repair.apply_phrase_repairs(text)
+        assert repaired == text
+        assert count == 0
+
+    def test_noun_restoration_fixes_der_registrieren_phrase(self):
+        import repair_glossary_propagation_corruption as repair  # noqa: WPS433
+
+        text = "nach der registrieren einer App\n"
+        repaired, count = repair.apply_phrase_repairs(text)
+        assert repaired == "nach der Registrierung einer App\n"
+        assert count == 1
+
+    def test_click_corruption_repairs_javascript_literals(self):
+        import repair_glossary_propagation_corruption as repair  # noqa: WPS433
+
+        text = (
+            "$('#x').click(function() {});\n"
+            "$('#y').on('click', function() {});\n"
+            "document.getElementById('z').addEventListener('click', function () {});\n"
+        )
+        corrupted = text.replace("click", "Klick, der")
+        repaired, count = repair.apply_click_corruption_repairs(corrupted)
+        assert repaired == text
+        assert count > 0
+
+    def test_inclusive_marker_repairs_manager_doubling(self):
+        import repair_glossary_propagation_corruption as repair  # noqa: WPS433
+
+        text = 'Kontaktieren Sie Ihre:n Braze Account Manager:in:in.\n'
+        repaired, count = repair.apply_inclusive_marker_repairs(text)
+        assert repaired == 'Kontaktieren Sie Ihre:n Braze Account Manager:in.\n'
+        assert count == 1
+
+    def test_phrase_repairs_restore_support_form_literals(self):
+        import repair_glossary_propagation_corruption as repair  # noqa: WPS433
+
+        text = (
+            "'angepasste Attribute' : {}\n"
+            'document.Cookie = "x";\n'
+            '"Token": "abc"\n'
+        )
+        repaired, count = repair.apply_phrase_repairs(text)
+        assert "'Custom Attributes' :" in repaired
+        assert "document.cookie" in repaired
+        assert '"token":' in repaired
+        assert count > 0

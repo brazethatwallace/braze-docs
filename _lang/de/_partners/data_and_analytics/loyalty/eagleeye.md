@@ -156,7 +156,7 @@ Fügen Sie außerdem Nutzer:innen zu Zielgruppen hinzu und bestätigen Sie, dass
 
 Nachdem die Tests erfolgreich verlaufen sind, kann die Integration in Betrieb genommen werden, um kontinuierlich Daten an Braze zu senden. Die gleichen Konfigurationsschritte sind für Produktionsumgebungen in AIR und Braze erforderlich.
 
-Wenden Sie sich an Ihren Eagle Eye Customer-Success-Manager, damit Ihnen eine Ressource zugewiesen wird, um EE Connect einzurichten.
+Wenden Sie sich an Ihren Eagle Eye CSM, damit Ihnen eine Ressource zugewiesen wird, um EE Connect einzurichten.
 
 ## Support
 

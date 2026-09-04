@@ -1,32 +1,31 @@
 ---
 nav_title: Heap
-article_title: "ヒープ解析"
-description: "このリファレンス記事では、Braze Currents を使用して Heap でエンゲージメントイベントを自動的に分析する方法について説明します。Heap はデジタルインサイトプラットフォームであり、Braze への Heap データのインポート、ユーザー コホートの作成、セグメント作成のための Heap への Braze データのエクスポートを行うことができます。"
+article_title: "Heap Analytics"
+description: "このリファレンス記事では、Braze Currentsを使用してHeapでエンゲージメントイベントを自動的に分析する方法について説明します。Heapはデジタルインサイトプラットフォームであり、HeapデータをBrazeにインポートしたり、ユーザーコホートを作成したり、BrazeデータをHeapにエクスポートしてセグメントを作成したりできます。"
 page_type: partner
 alias: /partners/heap/
 search_tag: Partner
 
 ---
 
-# ヒープ分析
+# Heap Analytics
 
-> この記事では、解析のために Braze から Heap にエンゲージメントイベントを自動送信する方法について説明します。Heap と他の機能 (Braze との [Heap コホートの同期]({{site.baseurl}}/partners/data_and_infrastructure_agility/cohort_import/heap/#data-import-integration) など) の統合について詳しくは、メインの[Heap の記事]({{site.baseurl}}/partners/data_and_analytics/analytics/heap/heap_cohort_import/)を参照してください。
+> この記事では、分析のためにBrazeからHeapにエンゲージメントイベントを自動送信する方法について説明します。Heapとその他の機能（Brazeへの[Heapコホートの同期]({{site.baseurl}}/partners/data_and_infrastructure_agility/cohort_import/heap#data-import-integration)など）の統合について詳しくは、メインの[Heap記事]({{site.baseurl}}/partners/data_and_analytics/analytics/heap/heap_cohort_import)を参照してください。
 
-## データエクスポート統合
+## データエクスポート統合 {#data-export-integration}
 
-Braze Currentsを使用して、Brazeからヒープにエンゲージメントの事象(送信されたメール、送信されたプッシュなど)を自動的に送信し、解析する。
+Braze Currentsを使用して、Brazeからエンゲージメントイベント（メール送信、プッシュ送信など）をHeapに自動的に送信し、分析します。
 
-### ステップ1:ヒープ認証情報の取得
+### ステップ1:Heap認証情報を取得する {#step-1-get-heap-credentials}
 
-この統合を設定するには、Webhook エンドポイント URL が必要です。この URL は、Heap アカウントマネージャーから取得できます。
+この統合を設定するには、WebhookエンドポイントURLが必要です。このURLは、Heapアカウントマネージャーから取得できます。
 
-### ステップ2:Braze Currents を設定する
+### ステップ2:Braze Currentsを設定する {#step-2-configure-braze-currents}
 
-Braze で [**パートナー連携**] > [**データのエクスポート**] に移動し、[**新しい Currents を作成**] をクリックし、[**ヒープのエクスポート**] を選択します。 
+Brazeで**パートナー連携** > **データのエクスポート**に移動し、**新しいCurrentsを作成**をクリックし、**Heapエクスポート**を選択します。
 
-エクスポートに名前を付け、**Current Details** ページに進みます。この画面では、エンドポイントとオプションのベアラトークン(提供されている場合)を入力します。
+エクスポートに名前を付け、**Currentの詳細**ページに進みます。このページでは、エンドポイントとオプションのベアラートークン（提供されている場合）を入力します。
 
-統合の認証情報を設定したら、ヒープにエクスポートするすべてのメッセージエンゲージメント、顧客行動、およびユーザーのイベントを確認し、**Launch Current**をクリックします。
+統合の認証情報を設定したら、Heapにエクスポートするすべてのメッセージエンゲージメント、顧客行動、およびユーザーイベントを確認し、**Currentを起動**をクリックします。
 
-![]({% image_buster /assets/img/heap/heap4.png %}){: style="max-width:90%;"}
-
+![BrazeのHeap Currents設定ページ。エンドポイント、トークン、イベント選択フィールドが表示されています。]({% image_buster /assets/img/heap/heap4.png %}){: style="max-width:90%;"}

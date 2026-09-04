@@ -6,7 +6,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "Dieser Artikel beschreibt Details zum Braze-Endpunkt „Präferenzzentrum erstellen“."
-
 ---
 {% api %}
 # Präferenzzentrum erstellen {#create-preference-center}
@@ -14,13 +13,13 @@ description: "Dieser Artikel beschreibt Details zum Braze-Endpunkt „Präferenz
 /preference_center/v1
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um ein Präferenzzentrum zu erstellen, mit dem Nutzer:innen ihre Benachrichtigungspräferenzen für Ihre E-Mail-Campaigns verwalten können. Unter [Erstellen eines Präferenzzentrums mit API]({{site.baseurl}}/user_guide/message_building_by_channel/email/preference_center/overview#creating-a-preference-center-with-api) finden Sie die Schritte zum Erstellen eines API-generierten Präferenzzentrums.
+> Verwenden Sie diesen Endpunkt, um ein Präferenzzentrum zu erstellen, mit dem Nutzer:innen ihre Benachrichtigungspräferenzen für Ihre E-Mail-Campaigns verwalten können. Unter [Erstellen eines Präferenzzentrums mit API]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/api_preference_center) finden Sie die Schritte zum Erstellen eines API-generierten Präferenzzentrums.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#e15d7065-2cbc-4eb3-ae16-32efe43357a6 {% endapiref %}
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `preference_center.update`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `preference_center.update`.
 
 ## Rate-Limit
 
@@ -176,7 +175,7 @@ Im Folgenden finden Sie die Liquid-Tags, die Sie in Ihr HTML einfügen können, 
         background-color: #fff;
         color: #333335;
         font-family:
-          Sailec W00 Medium,
+          Aribau Grotesk Regular,
           helvetica,
           arial,
           sans-serif;

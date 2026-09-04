@@ -38,13 +38,13 @@ guide_menu_list:
 ---
 <br><br>
 
-## Cas d'utilisation des catalogues {#catalog-use-cases}
+## Cas d'usage des catalogues {#catalog-use-cases}
 
-N'importe quel type de données peut être intégré à un catalogue. Il s'agit généralement de métadonnées relatives à des offres : produits, remises, promotions, événements, etc. Consultez les cas d'utilisation ci-dessous pour découvrir comment exploiter ces données afin de cibler vos utilisateurs avec des messages hautement pertinents.
+N'importe quel type de données peut être intégré à un catalogue. Il s'agit généralement de métadonnées relatives à des offres : produits, remises, promotions, événements, etc. Consultez les cas d'usage ci-dessous pour découvrir comment exploiter ces données afin de cibler vos utilisateurs avec des messages hautement pertinents.
 
 ### Retail et e-commerce {#retail-and-ecommerce}
 
-- **Promotions saisonnières :** Importez des collections de produits saisonniers et personnalisez vos messages pour refléter les tendances du moment.
+- **Offres promotionnelles saisonnières :** Importez des collections de produits saisonniers et personnalisez vos messages pour refléter les tendances du moment.
 - **Messages localisés :** Importez les adresses, horaires et services de vos points de vente, puis personnalisez les notifications en fonction de la localisation des utilisateurs.
 - **Notifications de retour en stock :** Importez des informations produit incluant les quantités en stock, puis utilisez les [notifications de retour en stock]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications) et les événements personnalisés Braze pour déclencher une Campaign ou un Canvas qui informe les utilisateurs qu'un produit est de nouveau disponible.
 - **Notifications de baisse de prix :** Importez des informations produit incluant les prix, puis utilisez les [notifications de baisse de prix]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications) et les événements personnalisés Braze pour déclencher un Canvas qui informe les utilisateurs qu'un produit a baissé de prix.
@@ -66,14 +66,14 @@ N'importe quel type de données peut être intégré à un catalogue. Il s'agit 
 
 Les catalogues sont une fonctionnalité de stockage de données. Ils contiennent de vastes ensembles de données pouvant être référencés dans vos messages à des fins de personnalisation. Pour accéder à ces données, vous utiliserez [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) comme langage de modélisation. Autrement dit, les catalogues constituent l'espace de stockage des données, et Liquid est le langage qui extrait les données pertinentes de cet espace.
 
-Pour des exemples d'utilisation de Liquid pour extraire des informations de catalogue, consultez les cas d'utilisation supplémentaires dans [Créer un catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs/create#additional-use-cases).
+Pour des exemples d'utilisation de Liquid pour extraire des informations de catalogue, consultez les cas d'usage supplémentaires dans [Créer un catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs/create#use-cases).
 
 ## Limites de stockage des données {#data-storage-limitations}
 
 Le stockage des données pour les catalogues est limité en fonction de la taille des éléments du catalogue, qui peut différer de la taille des fichiers CSV importés.
 
-Pour la version gratuite des catalogues, l'espace de stockage autorisé est de 100&nbsp;Mo. Vous pouvez avoir un nombre illimité d'éléments tant que l'espace de stockage ne dépasse pas 100&nbsp;Mo.
+Pour la version gratuite des catalogues, l'espace de stockage autorisé est de 500&nbsp;Mo. Vous pouvez avoir un nombre illimité d'éléments tant que l'espace de stockage ne dépasse pas 500&nbsp;Mo.
 
-Pour Catalogues Pro, les options de taille de stockage sont : 5&nbsp;Go, 10&nbsp;Go, 15&nbsp;Go ou 50&nbsp;Go. Notez que l'espace de stockage de la version gratuite (100&nbsp;Mo) est inclus dans chacune de ces formules.
+Pour Catalogues Pro, les options de taille de stockage sont : 5&nbsp;Go, 10&nbsp;Go, 15&nbsp;Go ou 50&nbsp;Go. Notez que l'espace de stockage de la version gratuite (500&nbsp;Mo) est inclus dans chacune de ces formules.
 
 Si vous devez augmenter votre espace de stockage de catalogue, contactez votre gestionnaire de compte Braze. Pour plus de détails sur les formules et les droits associés, consultez [Stockage des catalogues]({{site.baseurl}}/user_guide/data/activation/catalogs/create#tiers).

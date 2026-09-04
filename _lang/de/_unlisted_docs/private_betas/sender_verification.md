@@ -57,7 +57,7 @@ Domains können nach dem Absenden nicht mehr geändert werden. Braze erstellt DN
 Nachdem Sie eine Subdomain erstellt und überprüft haben:
 
 1. Wählen Sie **Add tracking domain** aus.
-2. Geben Sie die Tracking-Subdomain ein. Wenn Ihre Tracking-Subdomain beispielsweise „click“ ist, lautet Ihre Subdomain: „click.marketing.mail.example.com“.
+2. Geben Sie die Tracking-Subdomain ein. Wenn Ihre Tracking-Subdomain beispielsweise „Click“ ist, lautet Ihre Subdomain: „Click.marketing.mail.example.com“.
 3. Wählen Sie die zugehörige Versand-Domain aus dem Dropdown aus.
 4. Wählen Sie dann **Submit** aus.
 

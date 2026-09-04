@@ -17,6 +17,17 @@ Because the Query Builder allows direct access to some customer data, you can on
 
 Query Builder uses the same Snowflake SQL tables as [SQL Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) and [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). For a complete list of available tables and their columns, refer to the [SQL table reference]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
 
+### User profile attribute views
+
+Query Builder and SQL Segment Extensions include most [user profile attribute views]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#user-profile-attribute-views), such as periodic snapshots and default-attribute history.
+
+Two views of custom attribute are available only through [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/user_attributes):
+
+- `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED`
+- `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED`
+
+Braze excludes these views from Query Builder and SQL Segment Extensions because they are slow to query at workspace scale and often time out. Use `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED` for custom attribute snapshots in Query Builder. If you need historical or near-real-time custom attribute data, query the excluded views through Snowflake Data Sharing instead.
+
 ## Running reports in the Query Builder
 
 To run a Query Builder report:
@@ -75,6 +86,14 @@ send_date_sydney;
 The **Query history** section in Query Builder displays your previously run queries to help you track and reuse your work. Query history is retained for seven days, meaning that queries older than seven days are automatically removed.
 
 If you need to audit query usage for longer periods or maintain records beyond seven days, we recommend exporting or saving important query results before they expire.
+
+### Comparing Query Builder with other reporting sources
+
+Query Builder results may differ from other reporting tools because they use different data sources and processing methods.
+
+For example, soft bounce counts in Query Builder may be higher than in SendGrid Deliverability reports. Query Builder counts all occurrences of soft bounces without deduplication. If a user soft bounces multiple times before eventual delivery (or after extended retries), each soft bounce attempt is counted. SendGrid Deliverability uses its own data and logic, which Braze doesn't have visibility into, so counts between the two reports may not match.
+
+For more information about how soft bounces are tracked across different reporting sources, refer to [Soft bounce]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#soft-bounce) in the Email analytics glossary.
 
 ## Generating SQL with the AI Query Builder
 
@@ -166,9 +185,7 @@ Use variables to use predefined variable types in SQL to reference values withou
 
 After a variable is created, it will appear in the **Variables** tab of your Query Builder report. Benefits of using SQL variables include:
 
-- Save time by creating a campaign variable to select from a list when creating your report, instead of pasting in campaign IDs.
-- Swap in values by adding variables that allow you to reuse the report for slightly different use cases in the future (such as a different custom event).
-- Reduce user error when editing your SQL by reducing the amount of editing needed for each report. Teammates that are more comfortable with SQL can create reports that less technical teammates can then use.
+{% multi_lang_include analytics/sql_variables_benefits.md %}
 
 ### Guidelines
 

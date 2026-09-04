@@ -6,7 +6,6 @@ alias: "/canvas_v2_101/"
 description: "This article provides answers to frequently asked questions about Canvas."
 tool: Canvas
 toc_headers: h2 
-
 ---
 
 # Frequently asked questions
@@ -18,6 +17,18 @@ toc_headers: h2
 ### How many steps I can include in a Canvas?
 
 You can add up to 200 steps in a Canvas.
+
+### Are there size limits for Canvas entry properties?
+
+Yes. The [Canvas context object]({{site.baseurl}}/api/objects_filters/context_object) (Canvas entry properties) has a maximum size of 50&nbsp;KB. Keep payloads as small as practical within that limit. For how entry and event properties work in Canvas, see [Context and event properties]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties).
+
+### Why do I see a "Too many Canvas branches" error?
+
+This error appears when the combination of step branching and entry audience size may create cluster performance issues that prevent messages from sending. For resolution steps—including using [Audience Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths), reducing branching or audience size, and rebuilding in Canvas Flow—see ["Too many Canvas branches" error]({{site.baseurl}}/user_guide/messaging/canvas/troubleshooting#too-many-canvas-branches-error).
+
+### Can I use Optimize with BrazeAI™ with re-eligibility in a Canvas?
+
+Yes. Canvases can use [Optimize with BrazeAI™]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#optimize-canvas-variants-with-brazeai) when re-eligibility is enabled. Braze can't guarantee the same variant on re-entry because allocation shifts over time. Campaigns require a re-eligibility window of 24 hours or longer when **Optimize with BrazeAI™** is on.
 
 ### What's the difference between a component and a step?
 
@@ -102,7 +113,7 @@ No. Variants in the same multivariate configuration or Message step share one de
 To stagger sends or use different times per path, try the following methods:
 
 - Separate Message steps with Delay steps between them so each message has its own schedule.
-- Branches or an [Experiment Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) step so users follow paths with different timing.
+- Use branches or an [Experiment Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) step so users follow paths with different timing.
 - Separate campaigns if the use case doesn't need to stay inside one Canvas.
 
 For multivariate and A/B concepts in campaigns, see [Multivariate and A/B testing]({{site.baseurl}}/user_guide/messaging/ab_testing).
@@ -144,7 +155,17 @@ If you find that your daily scheduled Canvas sends to fewer users over time, che
 
 For [delivery speed rate limits]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) and other factors that lower sends for a single occurrence, see [Why are sends lower than the estimated audience size?](#why-are-sends-lower-than-the-estimated-audience-size).
 
+### Why does a small control group segment show changes in historical membership?
+
+Historical membership charts use estimated samples, so small segments—including [global control group]({{site.baseurl}}/user_guide/audience/global_control_group) segments—can show day-to-day movement even when the underlying audience is stable. For how estimates work and why charts can fluctuate, see [Viewing historical segment membership size]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size#viewing-historical-segment-membership-size).
+
 ## Analytics and conversions
+
+### How does the Conversions dashboard attribute Canvas conversions?
+
+The [Conversions dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/conversions) attributes Canvas conversions based on the [attribution method]({{site.baseurl}}/user_guide/analytics/dashboards/conversions#attribution-methods) you select (for example, **Upon Receipt**, **Upon Send**, **Upon Open**, or **Upon Click**). For a user to appear in the report, they must enter the Canvas or campaign, log the selected attribution method, and perform the conversion event within your report settings.
+
+For step-level and variant-level conversion rules in Canvas analytics, see [How are user conversions tracked in a Canvas?](#how-are-user-conversions-tracked-in-a-canvas).
 
 ### How are user conversions tracked in a Canvas?
 
@@ -203,7 +224,7 @@ No, but you can [archive a Canvas]({{site.baseurl}}/user_guide/messaging/governa
 
 ### How do I resume an archived Canvas or campaign?
 
-Archived messages do not send until you return them to an editable state. [Unarchive]({{site.baseurl}}/user_guide/messaging/governance/archiving/#unarchiving-campaigns-and-canvases) the campaign or Canvas, set the entry schedule or send time to a future window (or duplicate the journey if you need a clean copy), then **Resume** or launch as required. See [Archive campaigns and Canvases]({{site.baseurl}}/user_guide/messaging/governance/archiving/).
+Archived messages do not send until you return them to an editable state. [Unarchive]({{site.baseurl}}/user_guide/messaging/governance/archiving#unarchiving) the campaign or Canvas, set the entry schedule or send time to a future window (or duplicate the journey if you need a clean copy), then **Resume** or launch as required. See [Archive campaigns and Canvases]({{site.baseurl}}/user_guide/messaging/governance/archiving/).
 
 ### Why doesn't my Canvas save when no error appears?
 
@@ -265,7 +286,7 @@ Note that variation assignment occurs at Canvas entry. If a user hasn't entered 
 
 ### How do I convert an existing Canvas from the original editor to the current editor?
 
-You can [clone your Canvas]({{site.baseurl}}/cloning_canvases). This creates a copy of your original Canvas in the most current Canvas workflow.
+You can [clone your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases). This creates a copy of your original Canvas in the most current Canvas workflow.
 
 ### What are the main differences between the current and original Canvas editors?
 
@@ -315,13 +336,9 @@ Exception events are created using Action Paths. Action Paths only support "afte
 
 ### What should I include when submitting a support ticket for a "Request Timed Out" error?
 
-If you encounter a "Request Timed Out" error while editing a Canvas and need to contact [Braze Support]({{site.baseurl}}/braze_support), include the following information to help speed up resolution:
+If you encounter a "Request Timed Out" error while editing a Canvas and need to contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support), include the following information to help speed up resolution:
 
-- **Screen recording:** A recording of the steps you took before seeing the error, including any page transitions.
-- **Timestamp and time zone:** The exact time the error occurred and your time zone.
-- **Browser and version:** The browser you're using (for example, Chrome 120, Safari 17) and whether you've tried reproducing the error in a different browser.
-- **Steps to reproduce:** A clear description of the actions that trigger the error, including any specific Canvas steps or configurations involved.
-- **Network logs (optional):** Open your browser developer tools (**Network** tab), reproduce the error, and export the network log as an HTTP Archive (HAR) log file. This helps the support team identify which API call is timing out.
+{% multi_lang_include messaging/support_ticket_request_timed_out_details.md context='canvas' %}
 
 ## Canvas delivery and troubleshooting
 
@@ -343,11 +360,43 @@ Braze tracks webhook **Sends** and related delivery outcomes for [Webhook]({{sit
 
 Braze does not include a built-in invisible tracking pixel for webhook steps. Rely on Braze webhook metrics and your endpoint logging rather than custom one-pixel image requests.
 
+### Why does my webhook step have no body field?
+
+Webhook steps use a request body for `POST`, `PUT`, `PATCH`, and `DELETE`. If you switch the method to `GET`, Braze removes the body field because GET requests don't support a request body. Switch back to a body-supported method if you need to send JSON or form data. For method details, see [Create a webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#http-method).
+
+### How do I use spacer.gif in a webhook step?
+
+Braze hosts a `spacer.gif` placeholder image on `cdn.braze.com` and `braze-images.com`. Some teams point a webhook URL at this image when a step must fire without calling an external endpoint. Standard webhook steps should call a real endpoint. Use [webhook reporting]({{site.baseurl}}/user_guide/channels/webhooks/reporting) and your endpoint logs to confirm delivery, as described in [How can I confirm a Canvas webhook step fired without user-visible content?](#how-can-i-confirm-a-canvas-webhook-step-fired-without-user-visible-content).
+
+### Why won't my Canvas load with an "invalid next-step-id" error?
+
+This console error means at least one step points to a missing or invalid next step—for example, after a partial delete, clone, or import. Open the Canvas in the editor, reconnect orphaned steps, or remove steps that no longer have a valid downstream path. If the Canvas still won't load, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) with the Canvas ID and a screenshot of the console error.
+
+### Why does a Canvas conversion timestamp in Currents differ from my Canvas analytics?
+
+Currents logs Canvas conversions as [`users.canvas.Conversion`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#canvas-conversion-events) events. The event `time` is when the conversion event occurred. The `conversion_behavior` field on that event describes the conversion definition (type and window). Canvas analytics can also roll up conversions relative to Canvas entry within the conversion window. When reconciling exports, compare Currents `time` to the conversion event timestamp and your Canvas conversion window settings.
+
+### Why is `canvas_step_name` null in Currents?
+
+Campaign and Canvas name fields such as `canvas_step_name` can be `null` when a Currents event is sent before Braze finishes propagating step metadata—for example, after you create or rename a step. For details, see [Why is the campaign name or Canvas step name `NULL` in my Currents data?]({{site.baseurl}}/user_guide/data/distribution/braze_currents/faq#why-is-the-campaign-name-or-canvas-step-name-null-in-my-currents-data).
+
+### Why isn't my array updating in a User Update step?
+
+Check the JSON in your [User Update]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) step. Array and nested attribute updates need valid paths and values for the attribute you're changing. Don't include fields the step provides automatically, such as the external user ID. Use the step's **Preview and test** tab to confirm the payload before launch.
+
+### Can I send Canvas messages to users without an `external_id`?
+
+Yes, if a Braze user profile already exists. Users without an `external_id` are [anonymous users]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#anonymous-user-profiles) and can be referenced with a `braze_id` or [user alias]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#user-aliases). Create or update the profile with the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track) or your SDK before Canvas entry, then use [action-based or API-triggered entry]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-12-determine-your-canvas-entry-schedule). Standard Canvas targeting still requires a Braze user profile—you can't send Canvas messages to an email address alone with no profile.
+
 ### Why did a user enter a Canvas fewer times than they performed the trigger event?
 
 For action-based and API-triggered Canvases, Braze deduplicates trigger events so a user can enter at most about **once per second** for the same Canvas. If a user performs the same trigger multiple times within one second, only one entry is processed.
 
 To allow multiple entries in the same second, space trigger events by at least 1.1 seconds (for example, when you control event timing from your server). For campaign-style behavior that allows multiple same-second triggers, compare your use case to [campaigns]({{site.baseurl}}/user_guide/messaging/campaigns) with appropriate scheduling and re-eligibility settings.
+
+### When are users de-duplicated in API-triggered Canvases?
+
+If a user re-enters an API-triggered Canvas and reaches a Delay step where they are already enqueued from a previous entry for an identical message, Braze de-duplicates the user to prevent duplicate sends. The second Canvas instance exits, so the number of entries may exceed the number of sends.
 
 ### Why does a test push go to the wrong app, but live sends look correct?
 
@@ -377,4 +426,4 @@ Action groups that use email interactivity triggers (for example, **Click alias 
 
 ### How do historical custom event timestamps affect action-based Canvases and campaigns?
 
-Braze evaluates action-based journeys when qualifying events are ingested and the user meets your audience rules. If an event lands on the profile outside the window when your Canvas or campaign was active, or before the user matched your audience, entry or downstream sends may not occur as expected. Compare event timestamps to go-live times and segment membership using the user profile activity log and the troubleshooting steps in [Troubleshooting custom events]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/#troubleshooting-custom-events). If behavior still does not match expectations, contact [Braze Support]({{site.baseurl}}/braze_support/).
+Braze evaluates action-based journeys when qualifying events are ingested and the user meets your audience rules. If an event lands on the profile outside the window when your Canvas or campaign was active, or before the user matched your audience, entry or downstream sends may not occur as expected. Compare event timestamps to go-live times and segment membership using the user profile activity log and the troubleshooting steps in [Troubleshooting custom events]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/#troubleshooting-custom-events). If behavior still does not match expectations, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support).

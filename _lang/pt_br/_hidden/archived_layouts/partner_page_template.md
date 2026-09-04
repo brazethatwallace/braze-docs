@@ -33,6 +33,7 @@ channel:
   - SMS
   - Webhooks
 
+
 noindex: true
 #ATTENTION: remove noindex and this alert from template
 
@@ -46,48 +47,48 @@ No segundo parágrafo, você deve explorar e explicar o relacionamento entre a B
 
 ## Requisitos ou pré-requisitos {#requirements-or-prerequisites}
 
-Esta seção trata do que é necessário para fazer a integração com o parceiro e começar a usar os serviços dele. A melhor maneira de fornecer essas informações é com um parágrafo instrutivo rápido que descreva todos os detalhes importantes não técnicos das informações que "precisam ser conhecidas", como se a sua integração estará ou não sujeita a verificações ou autorizações de segurança adicionais. Em seguida, você deve usar uma tabela para descrever os requisitos técnicos da integração.
+Esta seção é sobre o que você precisa para integrar com o parceiro e começar a usar os serviços dele. A melhor forma de apresentar essas informações é com um parágrafo rápido e instrutivo que descreva detalhes importantes e não técnicos do tipo "precisa saber", como se a sua integração estará sujeita a verificações de segurança ou aprovações adicionais. Em seguida, você deve usar uma tabela para descrever os requisitos técnicos da integração.
 
 {% alert important %}
-Os requisitos a seguir são requisitos típicos que você pode precisar da Braze. Recomendamos o uso de atribuição de título, origem, links e frases conforme listado na tabela a seguir. Certifique-se de ajustar a descrição para que você saiba para que serve cada um desses requisitos.
+Os requisitos a seguir são requisitos típicos que você pode precisar da Braze. Recomendamos usar os títulos atribuídos, a origem, os links e a redação conforme listados na tabela a seguir. Certifique-se de ajustar a descrição para que você saiba para que cada um desses requisitos é utilizado.
 {% endalert %}
 
-| Requisito | Origin | Acesso | Descrição |
+| Requisito | Origem | Acesso | Descrição |
 |---|---|---|---|
-| Chave da API REST do espaço de trabalho da Braze | Plataforma Braze | Página **Configurações** > **Chave de API** | Essa descrição deve dizer o que fazer com a chave da API REST do espaço de trabalho. |
-| Endpoint de API da Braze | Plataforma Braze | Confira nossos [endpoints listados]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints) ou abra um [ticket de suporte]({{site.baseurl}}/braze_support/). | Descrição pendente. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| Chave da API REST do espaço de trabalho da Braze | Plataforma Braze | Página **Configurações** > **Chave de API** | Esta descrição deve indicar o que fazer com a chave da API REST do espaço de trabalho. |
+| Endpoint da API da Braze | Plataforma Braze | Confira nossos [endpoints listados]({{site.baseurl}}/api/basics#endpoints) ou abra um [ticket de suporte]({{site.baseurl}}/braze_support). | Descrição pendente. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Requisitos ou pré-requisitos" }
 
-## Integração [Tipo de integração] {#type-of-integration-integration}
+## Integração [tipo de integração] {#type-of-integration-integration}
 
-É aqui que você divide a integração em etapas. Não escreva apenas parágrafos intermináveis — esses são documentos técnicos que serão usados por profissionais de marketing e desenvolvedores para colocar a integração em funcionamento. Seu único objetivo nesta seção é escrever uma documentação descritiva que ajude o usuário da Braze a realizar o trabalho. Por "Tipo de integração" no título da seção, queremos indicar se essa é ou não uma integração lado a lado, servidor a servidor ou padrão. Isso permite que você tenha várias seções de integração se houver mais de uma maneira de integrar com esse parceiro.
+Aqui é onde você detalha a integração em etapas. Não escreva parágrafos intermináveis — estes são documentos técnicos que serão usados tanto por profissionais de marketing quanto por desenvolvedores para colocar a integração em funcionamento. Seu único objetivo nesta seção é escrever uma documentação descritiva que ajude o usuário da Braze a realizar o trabalho. Por "tipo de integração" no título da seção, queremos indicar se é uma integração lado a lado, servidor para servidor ou padrão. Isso permite que você tenha múltiplas seções de integração caso haja mais de uma forma de integrar com esse parceiro.
 
-Se essa for uma integração do Currents, essa página deverá estar localizada na seção Currents e deverá ser criada uma página de navegação correspondente que redirecione para esse local no Currents.
+Se for uma integração com Currents, esta página deve estar localizada na seção de Currents, e uma página de navegação correspondente deve ser criada para redirecionar para essa localização em Currents.
 
 ### Etapa 1: Esta é uma breve descrição da primeira etapa {#step-1-this-is-a-short-description-of-step-one}
 
-Basta detalhar isso, incluindo qualquer código, conforme necessário. Lembre-se de que você pode oferecer vários conjuntos diferentes de códigos — não há necessidade de oferecer apenas uma forma de integração.
+Apenas detalhe o processo, incluindo qualquer código necessário. Lembre-se de que você pode oferecer vários conjuntos diferentes de código — não há necessidade de oferecer apenas uma forma de integração.
 
-### Etapa 2: Esta etapa descreverá as imagens {#step-2-this-step-will-describe-images}
+### Etapa 2: Esta etapa descreverá imagens {#step-2-this-step-will-describe-images}
 
-Você tem a opção de colocar imagens em sua documentação, por isso recomendamos que o faça e que o faça com cuidado.
+Você tem a opção de incluir imagens na sua documentação, então recomendamos que faça isso de forma consciente.
 
 ### Etapa 3: Quantas etapas {#step-3-how-many-steps}
 
-Descreva o uso da integração, especialmente se isso significar inserir o Liquid em nosso Criador de mensagens.
+Descreva o uso da integração — especialmente se isso envolver a inserção de Liquid no nosso criador de mensagem.
 
 ## Personalização {#customization}
 
-Esta é uma seção **opcional**. Aqui, você pode delinear quaisquer maneiras específicas de personalizar sua integração entre os dois parceiros.
+Esta é uma seção **opcional**. Aqui, você pode descrever quaisquer formas específicas de personalizar sua integração entre os dois parceiros.
 
-## Uso dessa integração {#using-this-integration}
+## Usando esta integração {#using-this-integration}
 
-Isso deve descrever como usar a integração — informe ao seu leitor se ele precisará pressionar alguns botões ou se não precisará fazer nada após a integração.
+Isso deve descrever como usar a integração — informe ao leitor se ele precisa apertar alguns botões ou se não precisa fazer nada após a integração.
 
-### Etapa 1: Esta é uma breve descrição da primeira etapa
+### Etapa 1: Esta é uma breve descrição da etapa um
 
-Apenas o típico passo a passo de como fazer.
+Apenas seu típico passo a passo.
 
 ## Casos de uso {#use-cases}
 
-Essa pode ser uma parte essencial de sua documentação. Embora seja opcional, este é um bom lugar para detalhar casos de uso típicos ou até mesmo novos para a integração. Isso pode ser usado como uma forma de vender ou aumentar o relacionamento — ele fornece contexto, ideias e, o mais importante, uma forma de visualizar os recursos da integração.
+Esta pode ser uma parte essencial da sua documentação. Embora seja opcional, este é um bom lugar para descrever casos de uso típicos ou até mesmo inovadores para a integração. Isso pode ser usado como uma forma de vender ou aumentar o valor do relacionamento — fornece contexto, ideias e, o mais importante, uma maneira de visualizar as capacidades da integração.

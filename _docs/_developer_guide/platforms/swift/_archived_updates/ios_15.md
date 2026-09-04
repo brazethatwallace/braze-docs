@@ -38,7 +38,7 @@ In iOS 15, push notifications can be sent with one of four interruption levels:
 * **Time-Sensitive** (new) - Allows sound, vibration, screen waking, can break through system controls if allowed.
 * **Critical** - Allows sound, vibration, screen waking, can break through system controls, and bypass ringer switch.
 
-See [iOS notification options]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options#interruption-level) to learn more about how to set this option in iOS Push.
+See [iOS notification options]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#interruption-level) to learn more about how to set this option in iOS Push.
 
 ### Notification summary {#notification-summary}
 
@@ -48,7 +48,7 @@ In iOS 15, users can (optionally) choose certain times throughout the day to rec
 
 For each notification you send, you'll soon be able to specify a "relevance score" to control which notification should appear at the top of the summary.
 
-See [iOS Notification Options]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options#relevance-score) to learn more about how to set a notification's "relevance score".
+See [iOS Notification Options]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#relevance-score) to learn more about how to set a notification's "relevance score".
 
 ## Location buttons {#location-buttons}
 

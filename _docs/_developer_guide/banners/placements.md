@@ -1,6 +1,6 @@
 ---
 nav_title: Manage placements
-article_title: Manage Banner placements for the Braze SDK
+article_title: "Manage Banner placements"
 description: "Learn how to create and manage Banner placements in the Braze SDK, including accessing their unique properties and logging impressions."
 page_order: 2
 platform:
@@ -69,6 +69,15 @@ AppDelegate.braze?.banners.requestRefresh(placementIds: ["global_banner", "navig
 
 {% endtab %}
 {% tab Android %}
+
+`requestBannersRefresh()` merges into the existing Banner cache. Only the placement IDs you pass in are added, updated, or removed:
+
+- If the server returns a Banner for a requested placement, the cached Banner for that placement is replaced.
+- If the server returns no Banner for a requested placement, that placement is dropped from the cache.
+- Cached Banners for placements you didn't request stay in the cache and expire at their original expiry time.
+
+For how many placements you can request per refresh, see [About placement requests](#requests). You can refresh different sets of placements over time (for example, placements on the current screen) and keep Banners for other placements in the cache.
+
 {% subtabs %}
 {% subtab Java %}
 
@@ -414,6 +423,9 @@ if let braze = AppDelegate.braze {
 
 {% endtab %}
 {% tab Android %}
+
+After a refresh, the SDK updates a `BannerView` only when that placement's cached content changes (added, removed, or updated). Unchanged displayed Banners stay as-is. Calling `changeUser()` still updates every registered `BannerView`.
+
 {% subtabs %}
 {% subtab Java %}
 To get the Banner in Java code, use:
@@ -510,7 +522,7 @@ For the simplest integration, add the following JavaScript XML (JSX) snippet int
 
 ```javascript
 <Braze.BrazeBannerView
-  placementID='global_banner'
+  placementId='global_banner'
 />
 ```
 
@@ -597,7 +609,7 @@ If your Banner uses the **Custom Code** editor block in the Braze dashboard, you
 </button>
 ```
 
-For the full reference, see [Custom code and JavaScript bridge for Banners]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#custom-code). The `brazeBridge` provides a communication layer between the Banner's internal HTML and the parent Braze SDK.
+For the full reference, see [Custom code and JavaScript bridge for Banners]({{site.baseurl}}/user_guide/channels/banners/custom_code). The `brazeBridge` provides a communication layer between the Banner's internal HTML and the parent Braze SDK.
 
 ### Custom UI implementations (headless)
 
@@ -999,9 +1011,7 @@ Here's what you need to know about Banner dimensions and sizing:
 
 You can use custom properties from your Banner campaign to retrieve key–value data through the SDK and modify your app’s behavior or appearance. For example, you could:
 
-- Send metadata for your third-party analytics or integrations.
-- Use metadata such as a `timestamp` or JSON object to trigger conditional logic.
-- Control the behavior of a banner based on included metadata like `ratio` or `format`.
+{% multi_lang_include banners/metadata_use_cases.md %}
 
 ### Prerequisites
 

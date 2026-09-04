@@ -32,49 +32,49 @@ tool:
 
 ## 이미지 {#images}
 
-전체화면 인앱 메시지는 기기의 전체 높이를 채우며 필요에 따라 가로(좌우)로 잘릴 수 있습니다. 이미지 및 텍스트 전체화면 메시지는 기기 높이의 50%를 채웁니다. 모든 전체화면 인앱 메시지는 "노치" 기기에서 상태 표시줄을 채웁니다.
+전체화면 인앱 메시지는 기기의 전체 높이를 채우며, 필요에 따라 가로 방향(좌우)으로 잘릴 수 있습니다. 이미지와 텍스트가 포함된 전체화면 메시지는 기기 높이의 50%를 채웁니다. 모든 전체화면 인앱 메시지는 "노치" 기기에서 상태 표시줄을 채웁니다.
 
-- 모든 이미지는 5&nbsp;MB 미만이어야 합니다.
-- PNG, JPEG 및 [GIF]({{site.baseurl}}/developer_guide/platform_integration_guides/android/in-app_messaging/customization/gifs#gifs) 파일 형식만 지원합니다.
-- 이미지 크기는 500&nbsp;KB를 권장합니다.
+{% multi_lang_include in-app_messages/image_requirements.md %}
 
-{% alert tip %} 자신 있게 자산을 만들어 보세요! 인앱 메시지 이미지 템플릿과 안전 영역 오버레이는 모든 크기의 기기에서 잘 작동하도록 설계되었습니다. [디자인 템플릿 ZIP 다운로드]({% image_buster /assets/download_file/Braze-In-App-Message-Design-Templates.zip %}) {% endalert %}
+{% alert tip %} 자신 있게 에셋을 만들어 보세요! 인앱 메시지 이미지 템플릿과 세이프 존 오버레이는 모든 크기의 기기에서 잘 작동하도록 설계되었습니다. [디자인 템플릿 ZIP 다운로드]({% image_buster /assets/download_file/Braze-In-App-Message-Design-Templates.zip %}) {% endalert %}
 
-### 세로 {#portrait}
+### 세로 모드 {#portrait}
 
-| 레이아웃 | 자산 크기 | 참고 |
+| 레이아웃 | 에셋 크기 | 참고 |
 |--- | --- | --- |
-| 이미지 및 텍스트 | 6:5 종횡비<br> 고해상도 1200 x 1000&nbsp;px<br> 최소 600 x 500&nbsp;px | 모든 면에서 잘림이 발생할 수 있지만, 이미지는 항상 뷰포트 상단 50%를 채웁니다 |
-| 이미지만 | 3:5 종횡비<br> 고해상도 1200 x 2000&nbsp;px<br> 최소 600 x 1000&nbsp;px | 더 긴 기기에서 좌우 가장자리에서 잘림이 발생할 수 있습니다 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="세로" }
+| 이미지 및 텍스트 | 6:5 비율<br> 고해상도 1200 x 1000&nbsp;px<br> 최소 600 x 500&nbsp;px | 모든 면에서 잘릴 수 있지만, 이미지는 항상 뷰포트 상단 50%를 채웁니다 |
+| 이미지만 | 3:5 비율<br> 고해상도 1200 x 2000&nbsp;px<br> 최소 600 x 1000&nbsp;px | 더 긴 기기에서 주요 면과 오른쪽 가장자리에서 잘릴 수 있습니다 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="세로 모드" }
 
-### 가로 {#landscape}
+### 가로 모드 {#landscape}
 
-| 레이아웃 | 자산 크기 | 참고 |
+| 레이아웃 | 에셋 크기 | 참고 |
 |--- | --- | --- |
-| 이미지 및 텍스트 | 10:3 종횡비<br> 고해상도 2000 x 600px<br> 최소 1000 x 300&nbsp;px | 모든 면에서 잘림이 발생할 수 있지만, 이미지는 항상 뷰포트 상단 50%를 채웁니다 |
-| 이미지만 | 5:3 종횡비<br> 고해상도 2000 x 1200px<br> 최소 1000 x 600&nbsp;px | 더 긴 기기에서 좌우 가장자리에서 잘림이 발생할 수 있습니다 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="가로" }
+| 이미지 및 텍스트 | 10:3 비율<br> 고해상도 2000 x 600px<br> 최소 1000 x 300&nbsp;px | 모든 면에서 잘릴 수 있지만, 이미지는 항상 뷰포트 상단 50%를 채웁니다 |
+| 이미지만 | 5:3 비율<br> 고해상도 2000 x 1200px<br> 최소 1000 x 600&nbsp;px | 더 긴 기기에서 주요 면과 오른쪽 가장자리에서 잘릴 수 있습니다 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="가로 모드" }
 
-### 이미지 안전 영역 {#image-safe-zone}
+### 이미지 세이프 존 {#image-safe-zone}
 
-Braze 플랫폼에서 전체화면 인앱 메시지를 미리볼 때, 다양한 기기에서 표시될 때 잘리지 않는 메시지 영역인 이미지 안전 영역을 활성화할 수 있습니다. 미리보기 창에서 이미지 안전 영역을 테스트하는 것 외에도, 항상 [메시지를 테스트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message)하는 것을 권장합니다.
+Braze 플랫폼에서 전체화면 인앱 메시지를 미리 볼 때, 이미지 세이프 존을 활성화하여 다양한 기기에서 표시될 때 잘리지 않도록 메시지 영역을 보호할 수 있습니다. 세이프 존은 이미지에만 영향을 미치며, 닫기 버튼은 미리보기에서 세이프 존 밖에 표시되더라도 사용자에게 항상 보입니다.
 
-![Braze에서 "이미지 안전 영역 표시"가 활성화된 인앱 메시지 미리보기. 이미지 안전 영역은 이미지 위에 오버레이로 표시되어 잘리지 않는 부분을 시각화합니다.]({% image_buster /assets/img/image-safe-zone-full-screen-in-app-message.png %})
+미리보기 창에서 이미지 세이프 존을 테스트하는 것 외에도, 항상 [메시지를 테스트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message)하는 것을 권장합니다.
+
+![Braze에서 "이미지 세이프 존 표시"가 활성화된 인앱 메시지 미리보기. 이미지 세이프 존은 이미지 위에 오버레이되어 잘리지 않는 안전한 영역을 시각적으로 보여줍니다.]({% image_buster /assets/img/image-safe-zone-full-screen-in-app-message.png %})
 
 ## 큰 화면 {#larger-screens}
 
-태블릿이나 데스크탑 브라우저에서 전체화면 인앱 메시지는 다음 스크린샷과 같이 앱 화면 가운데에 표시됩니다.
+태블릿이나 데스크톱 브라우저에서는 전체화면 인앱 메시지가 다음 스크린샷과 같이 앱 화면 중앙에 표시됩니다.
 
 {% tabs %}
-{% tab 세로 %}
+{% tab 세로 방향 %}
 
-![큰 화면에서 세로 방향으로 표시되는 전체화면 인앱 메시지. 메시지가 화면 가운데에 위치한 큰 모달로 나타납니다.]({% image_buster /assets/img/full-screen-large-viewport.png %}){: style="border:none;display:block;margin-left:auto;margin-right:auto"}
+![큰 화면에서 세로 방향으로 표시되는 전체화면 인앱 메시지. 메시지가 화면 중앙에 위치한 큰 Modal로 나타납니다.]({% image_buster /assets/img/full-screen-large-viewport.png %}){: style="border:none;display:block;margin-left:auto;margin-right:auto"}
 
 {% endtab %}
-{% tab 가로 %}
+{% tab 가로 방향 %}
 
-![큰 화면에서 가로 방향으로 표시되는 전체화면 인앱 메시지. 메시지가 화면 가운데에 위치한 큰 모달로 나타납니다.]({% image_buster /assets/img/full-screen-large-viewport-landscape.png %}){: style="max-width:80%;border:none;display:block;margin-left:auto;margin-right:auto"}
+![큰 화면에서 가로 방향으로 표시되는 전체화면 인앱 메시지. 메시지가 화면 중앙에 위치한 큰 Modal로 나타납니다.]({% image_buster /assets/img/full-screen-large-viewport-landscape.png %}){: style="max-width:80%;border:none;display:block;margin-left:auto;margin-right:auto"}
 
 {% endtab %}
 {% endtabs %}

@@ -18,7 +18,7 @@ Braze uses Apple's device token for iOS.
 
 #### Push token migration
 
-It is required to [migrate push tokens through API]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens). The documentation linked contains specific steps, as well as an example payload, but the overall process is as follows:
+It is required to [migrate push tokens through API]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens). The documentation linked contains specific steps, as well as an example payload, but the overall process is as follows:
 
 1. Import the tokens via the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/). For large batch imports, we have resources available to help expedite the process. Contact your COM or SA for more details!
 2. If the token already exists in Braze it will be ignored, otherwise an anonymous profile will be generated.
@@ -26,7 +26,7 @@ It is required to [migrate push tokens through API]({{site.baseurl}}/api/objects
 
 If your user profiles and push tokens happen to be stored in separate locations, we recommend importing push tokens anonymously and then a subsequent migration of your existing user profiles. It is not necessary to map them together since the Braze iOS SDK will handle the token resolution upon successful integration.
 
-- We recommend migrating users via API but if there is a need to import a static list of users, it can be done via CSV. Note that **push tokens cannot be imported via CSV** because the "push_token" object cannot be specified in the CSV. To view an import template and learn more about importing data into the dashboard, check out our [CSV documentation]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_import/#csv).
+- We recommend migrating users via API but if there is a need to import a static list of users, it can be done via CSV. Note that **push tokens cannot be imported via CSV** because the "push_token" object cannot be specified in the CSV. To view an import template and learn more about importing data into the dashboard, check out our [CSV documentation]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#braze-csv-import).
 
 {% alert note %}
 Push tokens may show up as `subscribed` in the Braze dashboard, but will change to `opted-in` after users start a session with the Braze SDK.
@@ -53,7 +53,7 @@ Braze is able to send push notifications to users who do not update their applic
 For the case of lifecycle-specific campaigns that would need to continue during your migration process to the Braze SDK, users may be eligible to receive notifications from both Braze and Airship, given that Braze has received a valid push token.
 
 #### Message center
-To replace Airship's message center campaign functionality, we recommend creating a multichannel campaign that consists of a push notification and a [Content Card]({{site.baseurl}}/user_guide/channels/content_cards/). To read more about how to use Content Cards in a message center format, check out our [iOS Content Card implementation guide]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/content_cards/implementation_guide/#content-cards-in-a-message-center).
+To replace Airship's message center campaign functionality, we recommend creating a multichannel campaign that consists of a push notification and a [Content Card]({{site.baseurl}}/user_guide/channels/content_cards/). To read more about how to use Content Cards in a message center format, check out our [iOS Content Card implementation guide]({{site.baseurl}}/developer_guide/content_cards/creating_cards/#message-inbox).
 
 ### Segmentation
 Braze offers multiple [segmentation]({{site.baseurl}}/user_guide/audience/segments/) filters to provide a rich user experience for your customers.
@@ -69,7 +69,7 @@ We recommend importing users via the [`/users/track` endpoint]({{site.baseurl}}/
 - **Filter Based on CSV User Import**<br>
 There is an option in Braze to filter specifically users who are included within a specific CSV import. This filtering option can be found during the target users step of our engagement tools under "filter users by `Updated/Imported via CSV`".
 ![CSV Import Filter]({% image_buster /assets/img/csv_filter.png %}){: style="max-width:90%;border:0;"}
-Note that for CSV imports, an external ID is required for each imported user and **segments with anonymous or alias only users will not able to be imported**. To view an import template and learn more about importing data into the dashboard, check out our [CSV documentation]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_import/#csv).
+Note that for CSV imports, an external ID is required for each imported user and **segments with anonymous or alias only users will not able to be imported**. To view an import template and learn more about importing data into the dashboard, check out our [CSV documentation]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#braze-csv-import).
 
 ## Replace SDK code snippets
 To simplify migration, we have highlighted the following Airship SDK snippets that exist in your code and have provided the corresponding Braze SDK snippets necessary to replace them. Visit the following topics to get started:

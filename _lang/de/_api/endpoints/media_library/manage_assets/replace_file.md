@@ -15,11 +15,11 @@ description: "Dieser Artikel beschreibt Details zum Endpunkt `PUT /media_library
 /media_library/replace_file
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um die Datei eines vorhandenen Assets in der [Braze-Medienbibliothek]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library) zu ersetzen und dabei die Asset-ID und URL beizubehalten. Sie können die Ersatzdatei entweder über eine extern gehostete URL (`asset_url`) oder als binäre Dateidaten im Anfragekörper (`asset_file`) bereitstellen.
+> Verwenden Sie diesen Endpunkt, um die Datei eines vorhandenen Assets in der [Braze-Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications) zu ersetzen und dabei die Asset-ID und URL beizubehalten. Sie können die Ersatzdatei entweder über eine extern gehostete URL (`asset_url`) oder als binäre Dateidaten im Anfragekörper (`asset_file`) bereitstellen.
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `media_library.replace`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `media_library.replace`.
 
 ## Rate-Limits {#rate-limit}
 

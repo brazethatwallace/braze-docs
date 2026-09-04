@@ -11,9 +11,9 @@ hidden: true
 ---
 # Spécification de l'objet Windows {#windows-object-specification}
 
-Les objets `windows_phone8_push` et `windows_universal_push` sont utilisés pour définir ou demander des informations relatives au contenu de notification push Windows Phone 8 et Windows Universal via nos [endpoints d'envoi de messages]({{site.baseurl}}/api/endpoints/messaging/).
+Les objets `windows_phone8_push` et `windows_universal_push` sont utilisés pour définir ou demander des informations relatives au contenu de notification push Windows Phone 8 et Windows Universal via nos [endpoints d'envoi de messages]({{site.baseurl}}/api/endpoints/messaging).
 
-## Objet notification push Windows Phone 8 {#windows-phone-8-push-object}
+## Objet de notification push Windows Phone 8 {#windows-phone-8-push-object}
 
 ```json
 {
@@ -26,9 +26,9 @@ Les objets `windows_phone8_push` et `windows_universal_push` sont utilisés pour
 }
 ```
 
-## Objet notification push Windows Universal {#windows-universal-push-object}
+## Objet de notification push Windows Universal {#windows-universal-push-object}
 
-Consultez le [catalogue des modèles toast](https://msdn.microsoft.com/en-us/library/windows/apps/hh761494.aspx) de Windows Universal pour plus de détails sur les options de `push_type`.
+Consultez le [catalogue de modèles toast](https://msdn.microsoft.com/en-us/library/windows/apps/hh761494.aspx) Windows Universal pour obtenir des détails sur les options de `push_type`.
 
 ```json
 {
@@ -42,4 +42,4 @@ Consultez le [catalogue des modèles toast](https://msdn.microsoft.com/en-us/lib
 }
 ```
 
-Pour plus d'informations sur l'utilisation du paramètre `extra_launch_string` pour la [création de liens profonds]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking), consultez [Création de liens profonds avec Windows Universal.]({{site.baseurl}}/developer_guide/platform_integration_guides/windows_universal/push_notifications/integration/#step-4-deep-linking-from-push-into-your-app)
+Pour plus d'informations sur l'utilisation du paramètre `extra_launch_string` pour la [création de liens profonds]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking), consultez la section [Deep Linking avec Windows Universal.]({{site.baseurl}}/hidden/archive_docs/windows_universal/push_notifications#step-5-deep-linking-from-push-into-your-app)

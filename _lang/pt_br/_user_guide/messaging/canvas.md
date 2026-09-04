@@ -1,14 +1,14 @@
 ---
-nav_title: Canva
-article_title: Canva
+nav_title: Canvas
+article_title: Canvas
 layout: dev_guide
 page_order: 3
-guide_top_header: "Canva"
-guide_top_text: "Marketing é uma ciência que precisa de um toque artístico e de ferramentas especializadas. Com o Canvas, você pode combinar rigor e criatividade para criar experiências significativas, relevantes e envolventes para cada cliente. <br> <br> O Canvas é uma interface unificada onde profissionais de marketing criam campanhas com múltiplas mensagens. É como uma ferramenta de programação visual, permitindo que você construa uma jornada de usuário coesa a partir de uma série de etapas.<br> <br> Os artigos a seguir vão guiar você na configuração de um Canvas, capacitando você a criar experiências excepcionais para seus clientes. Você também pode conferir nosso <a href='https://learning.braze.com/canvas-course'>curso do Braze Learning sobre Canvas</a>!"
+guide_top_header: "Canvas"
+guide_top_text: "Marketing é uma ciência que precisa de um toque artístico e de ferramentas especializadas. Com o Canvas, você pode combinar rigor e criatividade para criar experiências significativas, relevantes e envolventes para cada cliente. O Canvas é uma interface unificada onde profissionais de marketing criam campanhas com múltiplas mensagens — um construtor visual de jornadas que conecta etapas em um fluxo de usuário coeso. Os artigos desta seção vão guiar você na criação, construção, teste e otimização de Canvas. Você também pode conferir nosso <a href='https://learning.braze.com/canvas-course'>curso do Braze Learning sobre Canvas</a>!"
 search_rank: 3
 page_type: landing
 tool: Canvas
-description: "Esta landing page reúne artigos sobre o Canvas. Aqui, você encontrará recursos sobre como criar Canvas, usar componentes do Canvas, gerenciar e testar Canvas e aplicar diversas ideias e estratégias."
+description: "Recursos para criar Canvas, usar componentes do Canvas, gerenciar e testar Canvas e aplicar estratégias de engajamento."
 
 guide_featured_title: "Seções"
 guide_featured_list:
@@ -18,7 +18,7 @@ guide_featured_list:
   - name: Conceitos básicos do Canvas
     link: /docs/user_guide/messaging/canvas/canvas_basics
     image: /assets/img/braze_icons/list.svg
-  - name: Construir Canvas
+  - name: Componentes do Canvas
     link: /docs/user_guide/messaging/canvas/canvas_components
     image: /assets/img/braze_icons/brush-02.svg
   - name: Gerenciar Canvas

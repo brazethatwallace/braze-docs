@@ -18,7 +18,7 @@ After creating a [catalog]({{site.baseurl}}/user_guide/data/activation/catalogs)
 
 - You can create up to 30 selections per catalog.
 - You can add up to 10 filters per selection.
-- Selections are great for refining recommendations from Braze catalog data. If you're looking for inspiration, check out [About item recommendations]({{site.baseurl}}/user_guide/brazeai/recommendations) for example use cases.
+- Selections are great for refining recommendations from Braze catalog data. If you're looking for inspiration, check out [About item recommendations]({{site.baseurl}}/user_guide/brazeai/item_recommendations/) for example use cases.
 
 ## Geolocation filters
 
@@ -88,6 +88,10 @@ After creating your selection, personalize your messages with Liquid to insert t
 6. Select the **Copy** icon and paste the Liquid wherever it needs to go in your message.
 
 ![The Add Personalization modal with the following selections: "Catalog Items" for "Personalization Type", "Games" for "Catalog Name", "Selections" for "Selection Type", "game_selection" for "Selection", and "title" and "description_en" for "Information to Display".]({% image_buster /assets/img_archive/catalog_selections6.png %}){: style="max-width:70%;"}
+
+{% alert note %}
+The personalization preview in the Liquid composition panel displays up to three catalog selections regardless of the results limit you set. This is expected behavior—the actual message sent to users respects your configured results limit.
+{% endalert %}
 
 ## Use case
 

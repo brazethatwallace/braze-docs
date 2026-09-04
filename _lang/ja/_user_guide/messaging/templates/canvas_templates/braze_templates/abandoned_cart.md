@@ -3,7 +3,7 @@ nav_title: 放棄インテント
 article_title: 放棄インテント
 page_order: 1
 page_type: reference
-description: "この記事では、Braze Canvasテンプレートを使用して、ユーザーにリアルタイムでエンゲージし、購入を完了するよう促す方法について説明します。"
+description: "この記事では、Braze キャンバステンプレートを使用して、ユーザーにリアルタイムでエンゲージし、購入を完了するよう促す方法について説明します。"
 tool: Canvas
 ---
 
@@ -57,7 +57,7 @@ tool: Canvas
 
 ### ステップ 2: コンバージョンイベントを割り当てる {#step-2-assign-your-conversion-events}
 
-テンプレートでは、**Primary Conversion Event - A**が**Makes Purchase (Legacy)**に設定されており、デフォルトで**Make any purchase (Legacy)**が選択されています。「Enormous Paper Plate」製品に焦点を当てているため、コンバージョンイベントを以下のようにカスタマイズします。
+テンプレートでは、**1次コンバージョン Event - A**が**Makes Purchase (Legacy)**に設定されており、デフォルトで**Make any purchase (Legacy)**が選択されています。「Enormous Paper Plate」製品に焦点を当てているため、コンバージョンイベントを以下のようにカスタマイズします。
 
 1. **Make a specific purchase (Legacy)**を選択します。
 2. **Product name**に**Enormous Paper Plate**と入力します。
@@ -76,7 +76,7 @@ tool: Canvas
 2. キャンバス IDを確認し、[`/canvas/trigger/send`エンドポイント]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases)を使用して、アプリまたはWebサイトがカート放棄を検出した際にユーザーを追加します。
 3. オプションで、[コンテキスト変数]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables)（製品名やカートの詳細など）を渡して、下流のメッセージをパーソナライズできます。
 
-アクションベースのエントリを希望する場合は、**Action-Based**を選択し、ブランドがカート放棄を追跡する方法に合ったトリガーを選択します。たとえば、ログに記録された`abandoned_cart`イベントに対して**Perform Custom Event**を選択します。
+アクションベースのエントリを希望する場合は、**アクションベース**を選択し、ブランドがカート放棄を追跡する方法に合ったトリガーを選択します。たとえば、ログに記録された`abandoned_cart`イベントに対して**カスタムイベントを実行**を選択します。
 
 ### ステップ 4: キャンバスにエントリするユーザーを決定する {#step-4-determine-who-enters-the-canvas}
 

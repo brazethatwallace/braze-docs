@@ -18,95 +18,96 @@ Wenn Sie einen Experimentpfad-Schritt in Ihre User Journey einfügen, werden Nut
 
 ## Voraussetzungen {#prerequisites}
 
-Um Experimentpfade zu verwenden, muss Ihr Canvas Konversions-Events enthalten. Zwar können Sie nach dem Start eines Canvas keine Konversions-Events mehr hinzufügen, aber Sie können den gestarteten Canvas klonen und Konversions-Events hinzufügen, um Experimentpfade zu nutzen.
+Um Experimentpfade zu verwenden, muss Ihr Canvas Konversions-Events enthalten. Obwohl Sie nach dem Start eines Canvas keine Konversions-Events mehr hinzufügen können, können Sie den gestarteten Canvas Klon und Konversions-Events hinzufügen, um Experimentpfade zu ergänzen.
 
 ## Anwendungsfälle {#use-cases}
 
 Experimentpfade eignen sich am besten zum Testen von Zustellung, Kadenz, Nachrichtentext und Kanalkombinationen.
 
-- **Zustellung:** Vergleichen Sie die Ergebnisse zwischen Nachrichten, die mit unterschiedlichen zeitlichen [Verzögerungen]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step) gesendet werden, basierend auf Nutzeraktionen ([Aktionspfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)) und unter Verwendung von [intelligentem Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing#canvas).<br><br>
+- **Zustellung:** Vergleichen Sie die Ergebnisse von Nachrichten, die mit unterschiedlichen zeitlichen [Verzögerungen]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step) gesendet werden, basierend auf Nutzeraktionen ([Aktionspfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)) und unter Verwendung von [intelligentem Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing#step-1-add-intelligent-timing-1).<br><br>
 - **Kadenz:** Testen Sie mehrere Messaging-Abläufe über einen bestimmten Zeitraum. Sie könnten beispielsweise zwei verschiedene Onboarding-Kadenzen testen:
-    - Kadenz 1: 2 Nachrichten in den ersten 2 Wochen senden
-    - Kadenz 2: 3 Nachrichten in den ersten 2 Wochen senden
+    - Kadenz 1: 2 Nachrichten in den ersten 2 Wochen der Nutzer:innen senden
+    - Kadenz 2: 3 Nachrichten in den ersten 2 Wochen der Nutzer:innen senden
 
     Beim Targeting passiver Nutzer:innen können Sie die Wirksamkeit von zwei Rückgewinnungs-Nachrichten pro Woche im Vergleich zu nur einer testen.
-- **Nachrichtentext:** Ähnlich wie bei einem Standard-[A/B-Test]({{site.baseurl}}/user_guide/messaging/ab_testing) können Sie verschiedene Nachrichtentexte testen, um herauszufinden, welche Formulierung zu einer höheren Konversionsrate führt.<br><br>
-- **Kanalkombinationen:** Testen Sie die Wirksamkeit verschiedener Nachrichtenkanal-Kombinationen. Sie können beispielsweise die Wirkung einer reinen E-Mail mit der einer E-Mail in Kombination mit einem Push vergleichen.
+- **Nachrichtentext:** Ähnlich wie bei einem standardmäßigen [A/B-Test]({{site.baseurl}}/user_guide/messaging/ab_testing) können Sie verschiedene Nachrichtentexte testen, um herauszufinden, welche Formulierung zu einer höheren Konversionsrate führt.<br><br>
+- **Kanalkombinationen:** Testen Sie die Wirksamkeit verschiedener Nachrichtenkanal-Kombinationen. Sie können beispielsweise die Wirkung einer reinen E-Mail mit der einer E-Mail in Kombination mit einer Push-Nachricht vergleichen.
 
 ## Einen Experimentpfad erstellen {#creating-an-experiment-path}
 
-Um eine Experimentpfad-Komponente zu erstellen, fügen Sie zunächst einen Schritt zu Ihrem Canvas hinzu. Ziehen Sie die Komponente per Drag-and-Drop aus der Seitenleiste, oder klicken Sie auf den <i class="fas fa-plus-circle"></i> Plus-Button am unteren Rand eines Schritts und wählen Sie **Experiment Paths**.
+Um eine Experimentpfade-Komponente zu erstellen, fügen Sie zunächst einen Schritt zu Ihrem Canvas hinzu. Ziehen Sie die Komponente per Drag-and-drop aus der Seitenleiste, oder klicken Sie auf den <i class="fas fa-plus-circle"></i> Plus-Button am unteren Ende eines Schritts und wählen Sie **Experimentpfade**.
 
-In der Standardkonfiguration dieser Komponente gibt es zwei Standard-Pfade, **Path 1** und **Path 2**, wobei 50 % der Zielgruppe jeweils einen Pfad durchlaufen. Klicken Sie auf die Komponente, um das Panel **Experiment Settings** zu öffnen, und Sie sehen die Konfigurationsoptionen für die Komponente.
+In der Standardkonfiguration dieser Komponente gibt es zwei Standardpfade, **Pfad 1** und **Pfad 2**, wobei 50 % der Zielgruppe jeweils einem Pfad zugewiesen werden. Klicken Sie auf die Komponente, um das Panel **Experimenteinstellungen** zu öffnen. Dort sehen Sie die Konfigurationsoptionen für die Komponente.
 
-### 1. Schritt: Anzahl der Pfade und Zielgruppenverteilung wählen {#step-1-choose-the-number-of-paths-and-audience-distribution}
+### Schritt 1: Anzahl der Pfade und Zielgruppenverteilung festlegen {#step-1-choose-the-number-of-paths-and-audience-distribution}
 
-Sie können bis zu vier Pfade hinzufügen, indem Sie auf **Add Path** klicken, und eine optionale Kontrollgruppe, indem Sie **Add a Control Group** aktivieren. Über die Prozentfelder für jeden Pfad können Sie festlegen, welcher Prozentsatz der Zielgruppe jedem Pfad und der Kontrollgruppe zugewiesen werden soll. Die angegebenen Prozentsätze müssen zusammen 100 % ergeben, um fortfahren zu können. Wenn Sie alle verfügbaren Pfade (und die Kontrollgruppe) schnell auf den gleichen Prozentsatz setzen möchten, klicken Sie auf **Distribute Paths Evenly**.
+Sie können bis zu vier Pfade hinzufügen, indem Sie auf **Pfad hinzufügen** klicken, sowie eine optionale Kontrollgruppe durch Aktivieren von **Kontrollgruppe hinzufügen**. Über die Prozentfelder für jeden Pfad können Sie festlegen, welcher Prozentsatz der Zielgruppe jedem Pfad und der Kontrollgruppe zugewiesen werden soll. Die angegebenen Prozentsätze müssen in der Summe 100 % ergeben, um fortfahren zu können. Wenn Sie alle verfügbaren Pfade (und die Kontrollgruppe) schnell auf denselben Prozentsatz setzen möchten, klicken Sie auf **Pfade gleichmäßig verteilen**.
 
-Sie können auch festlegen, ob Nutzer:innen in der Kontrollgruppe den Canvas weiter durchlaufen oder nach dem Conversion-Tracking-Fenster aussteigen sollen – über das **Control Group Behavior**. Optional können Sie eine Beschreibung hinzufügen, um anderen zu erklären, was dieser Experimentpfad testen soll, oder zusätzliche Informationen festhalten, die hilfreich sein könnten.
+Sie können außerdem festlegen, ob Nutzer:innen in der Kontrollgruppe im Canvas weitergehen oder nach dem Konversions-Tracking-Fenster den Canvas verlassen sollen – über die Einstellung **Verhalten der Kontrollgruppe**. Optional können Sie eine Beschreibung hinzufügen, um anderen zu erklären, was dieser Experimentpfad testen soll, oder zusätzliche hilfreiche Informationen festzuhalten.
 
-![Experiment-Einstellungen, in denen Sie Pfade hinzufügen und den Prozentsatz der Nutzer:innen in jedem Pfad verteilen können.]({% image_buster /assets/img/experiment_step/exp_settings.png %})
+![Experimenteinstellungen, in denen Sie Pfade hinzufügen und den Prozentsatz der Nutzer:innen in jedem Pfad festlegen können.]({% image_buster /assets/img/experiment_step/exp_settings.png %})
 
 {% alert note %}
-Wenn die erneute Canvas-Berechtigung aktiviert ist, durchlaufen Nutzer:innen, die den Canvas betreten und einen zufällig gewählten Pfad nehmen, denselben Pfad erneut, wenn sie erneut berechtigt werden und den Canvas wieder betreten. Dies gewährleistet die Validität des Experiments und der zugehörigen Analytics. Wenn der Schritt die Pfadzuweisung immer zufällig vornehmen soll, wählen Sie **Randomized Paths in Experiment Paths**. Diese Option ist nicht verfügbar, wenn Winning Path oder Personalized Paths verwendet werden.
+Wenn die erneute Canvas-Berechtigung aktiviert ist, durchlaufen Nutzer:innen, die den Canvas betreten und einen zufällig ausgewählten Pfad nehmen, bei erneutem Eintritt denselben Pfad. Dies gewährleistet die Validität des Experiments und der zugehörigen Analytics. Um die Pfadzuweisung bei jedem erneuten Eintritt zu randomisieren, wählen Sie **Randomisierte Pfade in Experimentpfaden**. Diese Option ist bei Verwendung von Winning Path nicht verfügbar.
 {% endalert %}
 
-### 2. Schritt: Winning Path oder Personalized Paths aktivieren (optional) {#step-2}
+### Schritt 2: Winning Path aktivieren (optional) {#step-2}
 
-Sie können Ihr Experiment optimieren, indem Sie [Winning Path]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/winning_path) oder [Personalized Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths) aktivieren. Beide Optionen testen Ihre Pfade zunächst mit einem Teil Ihrer Zielgruppe. Nach Abschluss des Experiments werden die verbleibenden und nachfolgenden Nutzer:innen entweder über den insgesamt leistungsstärksten Pfad (Winning Path) oder den für jede:n Nutzer:in leistungsstärksten Pfad (Personalized Paths) geleitet.
+Um Ihr Experiment zu optimieren, aktivieren Sie [Winning Path]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/winning_path). Winning Path testet Ihre Pfade zunächst mit einem Teil der Zielgruppe. Nach Abschluss des Experiments leitet Braze die verbleibenden und nachfolgenden Nutzer:innen über den leistungsstärksten Pfad.
 
-### 3. Schritt: Pfade erstellen {#step-3-create-paths}
+{% alert note %}
+Personalisierte Pfade sind für neue Experimentpfad-Schritte nicht verfügbar. Bestehende Schritte, die personalisierte Pfade verwenden, laufen weiterhin.
+{% endalert %}
 
-Zuletzt müssen Sie Ihre nachgelagerten Pfade aufbauen. Wählen Sie **Done** und kehren Sie zum Canvas-Builder zurück. Klicken Sie auf den <i class="fas fa-plus-circle"></i> Plus-Button unter jedem Pfad, um Journeys mit den üblichen Canvas-Tools nach Bedarf zu erstellen, und starten Sie den Canvas, wenn Sie bereit sind.
+### Schritt 3: Pfade erstellen {#step-3-create-paths}
 
-![Schritte zu jedem Pfad hinzufügen, der von einer Experimentpfad-Komponente abzweigt.]({% image_buster /assets/img/experiment_step/experiment_downstream_paths.gif %}){: style="max-width:75%"}
+Zuletzt müssen Sie Ihre nachgelagerten Pfade erstellen. Wählen Sie **Fertig** und kehren Sie zum Canvas-Builder zurück. Klicken Sie auf den <i class="fas fa-plus-circle"></i> Plus-Button unter jedem Pfad, um mit den üblichen Canvas-Tools Journeys nach Ihren Vorstellungen zu erstellen, und starten Sie den Canvas, wenn Sie bereit sind.
 
-Beachten Sie, dass Pfade und ihre nachgelagerten Schritte nach der Erstellung nicht mehr aus einem Canvas entfernt werden können. Nach dem Start können Sie jedoch die Zielgruppenverteilung über die Pfade nach Bedarf anpassen. Wenn Sie beispielsweise einen Tag nach dem Start eines Canvas anhand der Analytics feststellen, dass ein Pfad den anderen überlegen ist, können Sie diesen Pfad auf 100 % und die anderen auf 0 % setzen. Oder Sie können je nach Bedarf weiterhin Nutzer:innen über mehrere Pfade leiten.
+![Hinzufügen von Schritten zu jedem Pfad, der von einer Experimentpfade-Komponente abzweigt.]({% image_buster /assets/img/experiment_step/experiment_downstream_paths.gif %}){: style="max-width:75%"}
+
+Beachten Sie, dass Pfade und ihre nachgelagerten Schritte nach der Erstellung nicht mehr aus einem Canvas entfernt werden können. Nach dem Start können Sie jedoch die Zielgruppenverteilung über die Pfade nach Bedarf anpassen. Wenn Sie beispielsweise einen Tag nach dem Start eines Canvas anhand der Analytics feststellen, dass ein Pfad den anderen überlegen ist, können Sie diesen Pfad auf 100 % und die anderen auf 0 % setzen. Oder Sie können je nach Bedarf weiterhin Nutzer:innen über mehrere Pfade senden.
 
 {% alert important %}
-Um eine Kontamination des Experiments zu vermeiden: Wenn Ihr Canvas ein aktives oder laufendes Winning-Path- oder Personalized-Path-Experiment hat und Sie den aktiven Canvas aktualisieren – unabhängig davon, ob Sie den Experimentpfad-Schritt selbst aktualisieren – wird das laufende Experiment beendet und der Experiment-Schritt ermittelt keinen Winning Path oder Personalized Paths. Um das Experiment neu zu starten, können Sie den bestehenden Experimentpfad trennen und einen neuen starten oder den Canvas duplizieren und einen neuen Canvas starten. Andernfalls durchlaufen Nutzer:innen den Experimentpfad, als wäre keine Optimierungsmethode ausgewählt worden. Sie können Personalized Paths oder Winning Paths auch nicht für einen bereits aktiven Canvas mit einem Experimentpfad-Schritt aktivieren.<br><br>Weitere Informationen finden Sie unter [Canvases nach dem Start bearbeiten]({{site.baseurl}}/post-launch_edits).
+Um eine Verfälschung des Experiments zu vermeiden, beendet das Aktualisieren eines aktiven Canvas mit einem laufenden Winning-Path-Experiment das Experiment. Dies gilt auch dann, wenn Sie den Experimentpfad-Schritt nicht aktualisieren. Um das Experiment neu zu starten, trennen Sie den bestehenden Experimentpfad und starten Sie einen neuen, oder duplizieren Sie den Canvas und starten Sie das Duplikat. Sie können Winning Path nicht für einen bereits aktiven Canvas mit einem Experimentpfad-Schritt aktivieren.<br><br>Weitere Informationen finden Sie unter [Canvases nach dem Start bearbeiten]({{site.baseurl}}/post-launch_edits).
 {% endalert %}
 
-## Performance verfolgen {#tracking-performance}
+## Performance-Tracking {#tracking-performance}
 
-Wählen Sie auf der Seite **Canvas Analytics** den Experimentpfad aus, um eine [detaillierte Tabelle]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch#performance-breakdown-by-variant) zu öffnen, die dem Tab **Analyze Variants** entspricht und detaillierte Performance- und Conversion-Statistiken über die Pfade hinweg vergleicht. Sie können die Tabelle auch als CSV exportieren und prozentuale Veränderungen für relevante Metriken im Vergleich zum ausgewählten Pfad oder der Kontrollgruppe vergleichen.
+Wählen Sie auf der Seite **Canvas Analytics** den Experimentpfad aus, um eine [detaillierte Tabelle]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch) zu öffnen, die mit dem Tab **Analyze Variants** identisch ist und detaillierte Performance- und Konversionsstatistiken über alle Pfade hinweg vergleicht. Sie können die Tabelle auch als CSV exportieren und prozentuale Veränderungen für relevante Metriken relativ zum ausgewählten Pfad oder zur Kontrollgruppe vergleichen.
 
-Jeder Schritt in jedem Pfad zeigt Statistiken in der [Canvas Analytics]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics)-Ansicht an, genau wie jeder andere Canvas-Schritt. Beachten Sie jedoch, dass die Analytics einzelner Schritte und die Experimentpfad-Analytics Conversions unterschiedlich messen:
+Jeder Schritt in jedem Pfad zeigt Statistiken in der [Canvas Analytics]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics)-Ansicht an, genau wie bei jedem anderen Canvas-Schritt. Beachten Sie jedoch, dass einzelne Schrittanalysen und Experimentpfad-Analysen Konversionen unterschiedlich messen:
 
-- **Experimentpfad-Analytics** verfolgen Conversions ab dem Zeitpunkt, an dem Nutzer:innen den Experimentpfad-Schritt betreten. Dies ist die empfohlene Ansicht für den Vergleich der Performance über Pfade hinweg, da alle Pfade denselben Startpunkt teilen.
-- **Analytics einzelner Schritte** (z. B. Nachrichten-Schritt-Analytics) verfolgen Conversions ab dem Zeitpunkt, an dem Nutzer:innen den jeweiligen Schritt erhalten (z. B. wenn die Nachricht gesendet wird).
+- **Experimentpfad-Analysen** erfassen Konversionen ab dem Zeitpunkt, an dem Nutzer:innen den Experimentpfad-Schritt betreten. Dies ist die empfohlene Ansicht zum Vergleich der Performance über verschiedene Pfade hinweg, da alle Pfade denselben Ausgangspunkt teilen.
+- **Einzelne Schrittanalysen** (wie z. B. Nachrichten-Schritt-Analysen) erfassen Konversionen ab dem Zeitpunkt, an dem Nutzer:innen diesen bestimmten Schritt erhalten (z. B. wenn die Nachricht gesendet wird).
 
-Da diese Conversion-Fenster unterschiedliche Startpunkte haben, können sie unterschiedliche Konversionsraten für denselben Pfad anzeigen – insbesondere wenn es Verzögerungen zwischen dem Experiment-Schritt und einer nachgelagerten Nachricht gibt. Für den zuverlässigsten Vergleich über Pfade hinweg verwenden Sie die Experimentpfad-Analytics.
+Da diese Konversionsfenster unterschiedliche Ausgangspunkte haben, können sie unterschiedliche Konversionsraten für denselben Pfad anzeigen – insbesondere wenn es Verzögerungen zwischen dem Experimentschritt und einer nachgelagerten Nachricht gibt. Für den zuverlässigsten Vergleich über verschiedene Pfade hinweg verwenden Sie die Experimentpfad-Analysen.
 
-### Winning Path und Personalized Paths – Performance {#winning-path-and-personalized-paths-performance}
+### Winning-Path-Performance {#winning-path-performance}
 
-Nutzen Sie Winning Paths, um die Performance über einen Zeitraum zu verfolgen und nachfolgende Nutzer:innen dann automatisch über den leistungsstärksten Pfad zu leiten. Weitere Informationen zu den Analytics, wenn **Winning Path** oder **Personalized Paths** für Ihr Experiment aktiviert sind, finden Sie unter:
+Verwenden Sie Winning Path, um die Performance über die Zeit zu verfolgen und nachfolgende Nutzer:innen automatisch über den leistungsstärksten Pfad zu senden. Weitere Informationen finden Sie unter [Winning-Path-Analysen]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/winning_path#analytics).
 
-- [Winning Path]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/winning_path#analytics)
-- [Personalized Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths#analytics)
+Die Gewinn-Metrik und die in Experimentpfaden angezeigten Analysen können voneinander abweichen:
 
-Die Gewinner-Metrik und die in den Experimentpfaden angezeigten Analytics können sich unterscheiden:
-
-- Das Konversions-Event, das Sie für **Winning Path** oder **Personalized Paths** konfigurieren, bestimmt, wie Braze Pfade vergleicht und während des Experiment-Fensters einen Gewinner auswählt.
-- Die Experimentpfad-Analytics folgen weiterhin dem gleichen Canvas-[Konversions-Events]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/conversion_events)-Framework wie der Rest des Canvas, einschließlich Ihres [primären Konversions-Events]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/conversion_events#primary-conversion-event). Daher stimmen die im Dashboard hervorgehobenen Metriken möglicherweise nicht mit der Gewinner-Metrik überein.
-- Bei Push unterscheiden sich *Direkte Öffnungen* und *Gesamtöffnungen*. Weitere Informationen finden Sie unter [Beeinflusste Öffnungen]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens).
+- Das Konversions-Event, das Sie für **Winning Path** konfigurieren, bestimmt, wie Braze Pfade vergleicht und während des Experimentfensters einen Gewinner auswählt.
+- Experimentpfad-Analysen folgen weiterhin dem gleichen [Konversions-Event]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)-Framework des Canvas wie der Rest des Canvas, einschließlich Ihres [primären Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events#primary-conversion-event). Dadurch stimmen die im Dashboard hervorgehobenen Metriken möglicherweise nicht mit der Gewinn-Metrik überein.
+- Für Push unterscheiden sich *Direct Opens* und *Total Opens*. Weitere Informationen finden Sie unter [Beeinflusste Öffnungen]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens).
 
 ### Zusätzliche Einstellungen {#additional-settings}
 
-Experimentpfade erfassen Nutzer:innen, die jeden Schritt betreten und während des zugewiesenen Pfads konvertieren. Dies verfolgt alle im Canvas-Setup festgelegten Konversions-Events. Geben Sie im Tab **Additional Settings** ein, wie viele Tage (zwischen 1 und 30) dieses Experiment Conversions verfolgen soll. Das hier angegebene Zeitfenster bestimmt, wie lange Konversions-Events (die im Canvas-Setup ausgewählt wurden) für das Experiment verfolgt werden. Die im Canvas-Setup festgelegten Conversion-Fenster pro Event gelten nicht für das Tracking dieses Schritts und werden durch dieses Conversion-Fenster ersetzt.
+Experimentpfade erfassen Nutzer:innen, die jeden Schritt betreten und konvertieren, während sie sich auf dem zugewiesenen Pfad befinden. Dabei werden alle in der Canvas-Einrichtung angegebenen Konversions-Events verfolgt. Geben Sie im Tab **Additional Settings** an, wie viele Tage (zwischen 1 und 30) dieses Experiment Konversionen verfolgen soll. Das hier angegebene Zeitfenster bestimmt, wie lange Konversions-Events (die in der Canvas-Einrichtung ausgewählt wurden) für das Experiment erfasst werden. Die in der Canvas-Einrichtung angegebenen Konversionsfenster pro Event gelten nicht für das Tracking dieses Schritts und werden durch dieses Konversionsfenster ersetzt.
 
-Das Conversion-Fenster beginnt, wenn Nutzer:innen den Experimentpfad-Schritt betreten, nicht wenn eine nachgelagerte Nachricht gesendet wird. Wenn ein Pfad Verzögerungen enthält – wie einen Verzögerungsschritt oder [intelligentes Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing) – verbrauchen diese Verzögerungen einen Teil des Conversion-Fensters.
+Das Konversionsfenster beginnt, wenn Nutzer:innen den Experimentpfad-Schritt betreten, nicht wenn eine nachgelagerte Nachricht gesendet wird. Wenn ein Pfad Verzögerungen enthält – wie z. B. einen Verzögerungsschritt oder [intelligentes Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing) – verbrauchen diese Verzögerungen einen Teil des Konversionsfensters.
 
 {% alert important %}
-Wenn Sie intelligentes Timing bei einem Nachrichten-Schritt innerhalb eines Experimentpfads verwenden, reduziert die Zeit zwischen dem Experiment-Eintritt und dem tatsächlichen Nachrichtenversand das effektive Conversion-Fenster für diesen Pfad. Wenn Ihr Experiment beispielsweise ein 5-Tage-Conversion-Fenster hat und intelligentes Timing die Nachricht um 2 Tage verzögert, haben Nutzer:innen auf diesem Pfad nur 3 Tage nach Erhalt der Nachricht, um innerhalb des Experiment-Fensters zu konvertieren – obwohl die Analytics des Nachrichten-Schritts selbst Conversions ab dem Zeitpunkt des Nachrichtenversands verfolgen.<br><br>Für sauberere Experiment-Analytics platzieren Sie Verzögerungen (wie Verzögerungsschritte) **vor** dem Experimentpfad-Schritt und nicht innerhalb eines Experimentpfads. So starten alle Pfade vom gleichen Punkt aus und Verzögerungen verbrauchen keinen Teil des Conversion-Fensters.
+Wenn Sie intelligentes Timing in einem Nachrichten-Schritt innerhalb eines Experimentpfads verwenden, verkürzt die Zeit zwischen dem Experimenteintritt und dem tatsächlichen Nachrichtenversand das effektive Konversionsfenster für diesen Pfad. Wenn Ihr Experiment beispielsweise ein 5-Tage-Konversionsfenster hat und intelligentes Timing die Nachricht um 2 Tage verzögert, haben Nutzer:innen auf diesem Pfad nach Erhalt der Nachricht nur noch 3 Tage, um innerhalb des Experimentfensters zu konvertieren – auch wenn die eigenen Analysen des Nachrichten-Schritts Konversionen ab dem Zeitpunkt des Nachrichtenversands erfassen.<br><br>Für aussagekräftigere Experimentanalysen platzieren Sie Verzögerungen (wie z. B. Verzögerungsschritte) **vor** dem Experimentpfad-Schritt statt innerhalb eines Experimentpfads. Auf diese Weise starten alle Pfade vom selben Punkt aus und Verzögerungen verbrauchen keinen Teil des Konversionsfensters.
 {% endalert %}
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 
-### Warum unterscheiden sich die Sendungen zwischen Pfaden, obwohl die Experiment-Aufteilung gleichmäßig aussieht? {#why-do-sends-differ-across-paths-when-the-experiment-split-looks-even}
+### Warum unterscheiden sich die Versendungen zwischen den Pfaden, obwohl die Aufteilung im Experiment gleichmäßig aussieht? {#why-do-sends-differ-across-paths-when-the-experiment-split-looks-even}
 
-Nachgelagerte *Sendungen* hängen von den Schritten, Verzögerungen, der Kanalberechtigung und dem Inhalt jedes Pfads ab – nicht nur von der prozentualen Aufteilung am Experimentpfad. Beispielsweise können unterschiedliche Verzögerungen, intelligente Sendezeiten oder der Abo-Status beeinflussen, wie viele Nutzer:innen eine Nachricht erhalten, selbst wenn die Pfadzuweisung ausgewogen war. Um die Ergebnisse der Pfade zu vergleichen, verwenden Sie die [Experimentpfad-Analytics](#tracking-performance), die Conversions ab einem gemeinsamen Einstiegspunkt messen.
+Die nachgelagerten *Versendungen* hängen von den Schritten, Verzögerungen, Kanal-Berechtigungen und Inhalten der einzelnen Pfade ab – nicht nur vom prozentualen Split am Experimentpfad. Unterschiedliche Verzögerungen, intelligentes Timing oder der Abo-Status können beispielsweise dazu führen, dass unterschiedlich viele Nutzer:innen eine Nachricht erhalten, selbst wenn die Pfadzuweisung ausgeglichen war. Um Pfadergebnisse zu vergleichen, verwenden Sie die [Experimentpfad-Analytics](#tracking-performance), die Konversionen ab einem gemeinsamen Einstiegspunkt messen.
 
-### Wie lange dauert das Experiment-Conversion-Fenster? {#how-long-does-the-experiment-conversion-window-last}
+### Wie lange dauert das Konversionsfenster des Experiments? {#how-long-does-the-experiment-conversion-window-last}
 
-Das Conversion-Fenster unter **Additional Settings** (1–30 Tage) beginnt, wenn Nutzer:innen den Experimentpfad-Schritt betreten. Die Zeit, die in nachgelagerten Verzögerungsschritten oder beim Warten auf intelligentes Timing verbracht wird, wird auf dieses Fenster angerechnet. Weitere Details finden Sie unter [Performance verfolgen](#tracking-performance).
+Das Konversionsfenster unter **Additional Settings** (1–30 Tage) beginnt, wenn Nutzer:innen den Experimentpfade-Schritt betreten. Zeit, die in nachgelagerten Verzögerungsschritten oder beim Warten auf intelligentes Timing verbracht wird, wird auf dieses Fenster angerechnet. Weitere Details finden Sie unter [Performance tracken](#tracking-performance).

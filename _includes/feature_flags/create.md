@@ -12,7 +12,7 @@ To use feature flags, ensure your SDKs are up to date with at least these minimu
 
 ### Braze permissions
 
-To manage feature flags in the dashboard, you'll either need to be an Administrator, or have the following [permissions]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/):
+To manage feature flags in the dashboard, you'll either need to be an Administrator, or have the following [permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/):
 
 | Permission                                                                    | What you can do                           |
 |-------------------------------------------------------------------------------|-------------------------------------------|
@@ -70,7 +70,7 @@ There is no limit to the number of properties you can add. However, a feature fl
 
 ### Step 4: Choose segments to target
 
-Before rolling out a feature flag, you need to choose a [segment]({{site.baseurl}}/user_guide/engagement_tools/segments/) of users to target. Select **Add Rule** on your newly created flag and then use the filter group and segment dropdown menus to filter users out of your target audience. Add multiple filters to further narrow your audience.
+Before rolling out a feature flag, you need to choose a [segment]({{site.baseurl}}/user_guide/audience/segments/) of users to target. Select **Add Rule** on your newly created flag and then use the filter group and segment dropdown menus to filter users out of your target audience. Add multiple filters to further narrow your audience.
 
 ![A textbox labeled Rollout Traffic with the ability to add segments and filters.]({% image_buster /assets/img/feature_flags/segmentation_ff.png %}){: style="max-width:75%;"}
 
@@ -79,7 +79,7 @@ Before rolling out a feature flag, you need to choose a [segment]({{site.baseurl
 By default, feature flags are always inactive, which allows you to separate your feature release's date from your total user activation. To begin your rollout, use the **Rollout Traffic** section to enter a percentage in the text box. This will choose the percentage of random users in your selected segment to receive this new feature.
 
 {% alert important %}
-Do not set your rollout traffic above 0% until you are ready for your new feature to go live. When you initially define your feature flag in the dashboard, leave this setting at 0%.
+Do not set your rollout traffic greater than 0% until you are ready for your new feature to go live. When you initially define your feature flag in the dashboard, leave this setting at 0%.
 {% endalert %}
 
 {% alert important %}
@@ -905,7 +905,7 @@ Here, you can review when a change happened, who made the change, which category
 
 ## Segmenting with feature flags {#segmentation}
 
-Braze automatically keeps track of which users are currently enabled for a feature flag. You can create a segment or target messaging using the [**Feature Flag** filter]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/#feature-flags). For more information about filtering on segments, see [Creating a segment]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/).
+Braze automatically keeps track of which users are currently enabled for a feature flag. You can create a segment or target messaging using the [**Feature Flag** filter]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/#feature-flags). For more information about filtering on segments, see [Creating a segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/).
 
 ![The "Filters" section with "Feature Flag" typed into the filter search bar.]({% image_buster /assets/img/feature_flags/feature-flags-filter-name.png %}){: style="max-width:75%;"}
 

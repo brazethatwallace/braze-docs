@@ -56,6 +56,10 @@ Wenn eine In-App-Nachricht so eingestellt ist, dass sie zu einem bestimmten Datu
 
 Dies passiert häufig, wenn ein vorhergehender Schritt, wie z. B. ein [Verzögerungsschritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step), Nutzer:innen auf einem längeren Pfad hält. Wenn Sie beispielsweise am 22. Mai einen Canvas mit einer 72-stündigen Verzögerung starten, gefolgt von einer In-App-Nachricht, die am 23. Mai um Mitternacht abläuft, erreichen Nutzer:innen den Nachrichten-Schritt nach der Ablaufzeit und sehen die In-App-Nachricht nicht.
 
+### Kontrollgruppen und A/B-Tests {#control-groups-and-ab-testing}
+
+Wenn Sie Canvas-A/B-Tests mit Varianten-Pfaden und einem Kontrollpfad verwenden, halten Sie die Ablaufdauer-Einstellungen für In-App-Nachrichten über alle Pfade hinweg konsistent. Wenn der Kontrollpfad eine kürzere Ablaufdauer als die Varianten-Pfade verwendet, können Nutzer:innen der Kontrollgruppe den Schritt nach dem Ablauf erreichen, was die Kontroll-Impressionen im Vergleich zu den Varianten-Impressionen verringern und Ihre Testergebnisse verzerren kann.
+
 ## Anwendungsfälle {#use-cases}
 
 Braze empfiehlt, dieses Feature in Ihren Werbe- und Onboarding-Canvases zu verwenden.
@@ -175,7 +179,7 @@ Diese Push-Benachrichtigungen sind um eine In-App-Nachricht herum platziert, um 
 
 Nutzer:innen können zwei In-App-Nachrichten innerhalb Ihres Canvas gleichzeitig triggern. In diesem Fall hält sich Braze an die folgende Prioritätsreihenfolge, um zu bestimmen, welche In-App-Nachricht angezeigt wird.
 
-Wählen Sie **Genaue Priorität festlegen** und ziehen Sie verschiedene Canvas-Schritte per Drag-and-Drop, um ihre Priorität für den Canvas neu zu ordnen. Standardmäßig werden Schritte, die früher in einer Canvas-Variante erscheinen, vor späteren Schritten angezeigt. Nachdem Ihre Schritte in der gewünschten Prioritätsreihenfolge sind, wählen Sie **Sortierung anwenden**.
+Wählen Sie **Set exact priority** und ziehen Sie verschiedene Canvas-Schritte per Drag-and-Drop, um ihre Priorität für den Canvas neu zu ordnen. Standardmäßig werden Schritte, die früher in einer Canvas-Variante erscheinen, vor späteren Schritten angezeigt. Nachdem Ihre Schritte in der gewünschten Prioritätsreihenfolge sind, wählen Sie **Apply sort**.
 
 ![Der Prioritäts-Sortierer mit zwei Schritten „Welcome IAM“ und „Followup IAM“.]({% image_buster /assets/img_archive/canvas_priority2.png %}){: style="max-width:85%"}
 
@@ -243,12 +247,12 @@ Die folgenden Canvas-Features sind bei In-App-Nachrichten nicht verfügbar und w
 
 ## Angepasste Event-Eigenschaften in einem Canvas {#custom-event-properties-in-a-canvas}
 
-Angepasste Event-Eigenschaften in In-App-Nachrichten für Canvas werden unterstützt. Diese Eigenschaften stammen jedoch vom angepassten Event oder Kauf, der die In-App-Nachricht triggert, die sich im Nachrichten-Schritt befindet, nicht vom vorhergehenden Aktions-Pfad.
+Angepasste Event-Eigenschaften in In-App-Nachrichten für Canvas werden unterstützt. Diese Eigenschaften stammen jedoch vom angepassten Event oder Kauf, der die In-App-Nachricht triggert, die sich im Nachrichten-Schritt befindet, nicht vom vorhergehenden Aktionspfad.
 
 ## Hinweise {#considerations}
 
 Hier sind einige Hinweise zum Senden von In-App-Nachrichten in einem Canvas.
 
 - Wenn die Nutzer:innen die App nie neu starten oder nie eine Sitzung starten, kann die App nicht feststellen, ob die Nutzer:innen für die In-App-Nachricht berechtigt sind, was bedeutet, dass keine In-App-Nachricht gesendet wird.
-- Wenn der erste Klick erfolgt und eine Canvas-Kontextvariable (Canvas-Eingangs-Eigenschaften) vorhanden ist und Nutzer:innen einen Canvas fünfmal erneut betreten, verwendet Braze den fünften Eintritt und nutzt diese Kontextvariable in der In-App-Nachricht.
+- Wenn der erste Klick erfolgt und eine Canvas-Kontextvariable (Canvas-Entry-Eigenschaften) vorhanden ist und Nutzer:innen einen Canvas fünfmal erneut betreten, verwendet Braze den fünften Eintritt und nutzt diese Kontextvariable in der In-App-Nachricht.
 - Nutzer:innen können für bis zu 10 In-App-Nachrichten innerhalb desselben Canvas-Schritts berechtigt sein. Wenn ein Canvas beispielsweise den erneuten Eintritt erlaubt und Nutzer:innen den Canvas 11 Mal betreten, werden ihnen nur 10 In-App-Nachrichten gesendet, sofern keine abgelaufen sind.

@@ -6,7 +6,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Verfügbare Content Blocks auflisten“."
-
 ---
 {% api %}
 # Verfügbare Content Blocks auflisten {#list-available-content-blocks}
@@ -19,7 +18,7 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Verf�
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#6d87048f-68fd-46c9-aa15-3a970e99540e {% endapiref %}
 
 ## Voraussetzungen {#prerequisites}
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/api_key) mit der Berechtigung `content_blocks.list`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics) mit der Berechtigung `content_blocks.list`.
 
 ## Rate-Limit
 
@@ -67,8 +66,8 @@ In der folgenden Tabelle finden Sie eine Liste möglicher zurückgegebener Fehle
 
 | Fehler | Fehlerbehebung |
 | --- | --- |
-| `Modified after time is invalid` | Das angegebene Datum ist kein gültiges oder parsbares Datum. Formatieren Sie diesen Wert als String im ISO-8601-Format (`yyyy-mm-ddThh:mm:ss.ffffff`). |
-| `Modified before time is invalid` | Das angegebene Datum ist kein gültiges oder parsbares Datum. Formatieren Sie diesen Wert als String im ISO-8601-Format (`yyyy-mm-ddThh:mm:ss.ffffff`). |
+| `Modified after time is invalid` | Das angegebene Datum ist kein gültiges oder analysierbares Datum. Formatieren Sie diesen Wert als String im ISO-8601-Format (`yyyy-mm-ddThh:mm:ss.ffffff`). |
+| `Modified before time is invalid` | Das angegebene Datum ist kein gültiges oder analysierbares Datum. Formatieren Sie diesen Wert als String im ISO-8601-Format (`yyyy-mm-ddThh:mm:ss.ffffff`). |
 | `Modified after time must be earlier than or the same as modified before time.` | Ändern Sie den Wert `modified_after` auf einen Zeitpunkt, der vor dem Wert von `modified_before` liegt. |
 | `Content Block number limit is invalid` | Der Parameter `limit` muss eine Ganzzahl (positive Zahl) größer als 0 sein. |
 | `Content Block number limit must be greater than 0` | Ändern Sie den Parameter `limit` in eine Ganzzahl größer als 0. |

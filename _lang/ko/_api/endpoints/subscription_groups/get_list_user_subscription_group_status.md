@@ -18,6 +18,8 @@ description: "이 문서에서는 사용자의 구독 그룹 상태 나열 Braze
 
 이러한 그룹은 **구독 그룹** 페이지에서 확인할 수 있습니다. 이 엔드포인트의 응답에는 API 호출에서 요청한 특정 구독 그룹에 대한 외부 ID와 가입됨(subscribed), 탈퇴(unsubscribed) 또는 알 수 없음(unknown) 상태가 포함됩니다. 이를 통해 후속 API 호출에서 구독 그룹 상태를 업데이트하거나 호스팅된 웹 페이지에 표시할 수 있습니다.
 
+커스텀 양식을 통해 이메일을 수집한 후 REST API를 통해 구독 그룹 멤버십을 설정하는 경우, 먼저 이 엔드포인트를 호출하여 프로필이 이미 존재하는지 확인하세요. 일치하는 프로필이 없으면 [사용자의 구독 그룹 상태 업데이트]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) 엔드포인트를 사용하여 사용자를 생성하거나 구독시키세요. 그렇지 않으면 중복 생성 대신 기존 프로필을 업데이트하세요. 기타 수집 패턴에 대해서는 [수집 모범 사례]({{site.baseurl}}/user_guide/data/unification/user_data/best_practices)를 참조하세요.
+
 **이메일 구독 그룹**에 대한 이 엔드포인트의 예제를 보거나 테스트하려면 다음을 참조하세요:
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#488c8923-fa44-4124-9245-036d13c615f2 {% endapiref %}
@@ -32,7 +34,7 @@ description: "이 문서에서는 사용자의 구독 그룹 상태 나열 Braze
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `subscription.status.get` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
+이 엔드포인트를 사용하려면 `subscription.status.get` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key-permissions)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 

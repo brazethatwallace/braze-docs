@@ -55,7 +55,7 @@ Para saber mais, visite nosso artigo dedicado sobre [eventos de compra]({{site.b
 
 {% details Exemplo de implementação %}
 
-Observe que a implementação real de eventos de compra exigirá algum conhecimento técnico, pois envolve a integração do SDK da Braze com o seu app. Seu gerente de sucesso do cliente orientará sua equipe nesse processo como parte da sua integração, mas as etapas gerais são as seguintes:
+Observe que a implementação real de eventos de compra exigirá algum conhecimento técnico, pois envolve a integração do SDK da Braze com o seu app. Seu CSM orientará sua equipe nesse processo como parte da sua integração, mas as etapas gerais são as seguintes:
 
 1. **Integrar o SDK da Braze:** Antes de registrar qualquer evento, você precisa integrar o SDK da Braze no seu app.
 2. **Registrar o evento de compra:** Após a integração do SDK, você pode registrar um evento de compra sempre que um usuário fizer uma compra no seu app. Isso geralmente é feito na função ou método chamado quando uma compra é concluída.
@@ -143,7 +143,7 @@ let properties: [AnyHashable: Any] = ["Product Category": "Electronics"]
 Appboy.sharedInstance()?.logCustomEvent("Purchase", withProperties: properties)
 ```
 
-In this example, "Purchase" is the name of the custom event, and the properties dictionary contains additional information about the event. In this case, the product category is "Electronics". Now you can segment your users based on the product categories they purchase from.
+In this example, "Purchase" is the name of the custom event, and the properties dictionary contains additional information about the event. In this case, the product category is "Electronics". Now you can Segment your users based on the product categories they purchase from.
 
 #### Use case 2
 
@@ -156,6 +156,6 @@ let properties: [AnyHashable: Any] = ["Workout Plan": "10 Sessions Personal Trai
 Appboy.sharedInstance()?.logCustomEvent("Purchase", withProperties: properties)
 ```
 
-In this example, "Purchase" is the name of the custom event, and the properties dictionary contains additional information about the event. In this case, the workout plan is "10 Sessions Personal Training". Now you can segment your users based on the types of workout plans they purchase.
+In this example, "Purchase" is the name of the custom event, and the properties dictionary contains additional information about the event. In this case, the workout plan is "10 Sessions Personal Training". Now you can Segment your users based on the types of workout plans they purchase.
 
 -->

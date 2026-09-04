@@ -28,7 +28,10 @@ guide_featured_list:
 - name: Nouvelles tentatives de Contenu connecté
   link: /docs/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries
   image: /assets/img/braze_icons/refresh-ccw-01.svg
-- name: Résolution des problèmes de webhooks et de Contenu connecté
+- name: Débogueur de Contenu connecté
+  link: /docs/user_guide/messaging/design_and_edit/personalize/connected_content/debugger
+  image: /assets/img/braze_icons/search-refraction.svg
+- name: Résolution des problèmes de webhooks et de contenu connecté
   link: /docs/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content
   image: /assets/img/braze_icons/check-square-broken.svg
 - name: Utiliser des API publiques
@@ -37,5 +40,3 @@ guide_featured_list:
 ---
 
 <br><br>
-
-[16]: [success@braze.com](mailto:success@braze.com)

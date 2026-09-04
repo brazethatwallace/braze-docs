@@ -21,7 +21,7 @@ BrazeとTealiumの統合により、ユーザーを追跡し、さまざまな�
 
 {% tabs %}
 {% tab EventStream %}
-Tealium EventStreamは、データの中心に位置するデータ収集およびAPIハブです。EventStreamは、セットアップとインストールから、受信ユーザーデータの識別、検証、および拡張まで、データサプライチェーン全体を処理します。EventStreamは、イベントフィードとコネクターを使用してリアルタイムアクションを実行します。以下は、[EventStream](https://docs.tealium.com/server-side/getting-started/eventstream-api-hub/introduction/)を構成する機能です。
+Tealium EventStreamは、データの中心に位置するデータ収集およびAPIハブです。EventStreamは、セットアップとインストールから、受信ユーザーデータの識別、検証、および拡充まで、データサプライチェーン全体を処理します。EventStreamは、イベントフィードとコネクターを使用してリアルタイムアクションを実行します。以下は、[EventStream](https://docs.tealium.com/server-side/getting-started/eventstream-api-hub/introduction/)を構成する機能です。
 - データソース（インストールおよびデータ収集）
 - ライブイベント（リアルタイムデータ検査）
 - イベント仕様と属性（データレイヤー要件と検証）
@@ -31,7 +31,7 @@ Tealium EventStreamは、データの中心に位置するデータ収集およ�
 {% endtab %}
 {% tab AudienceStream %}
 
-Tealium AudienceStreamは、オムニチャネルの顧客セグメンテーションおよびリアルタイムアクションエンジンです。AudienceStreamはEventStreamに流入するデータを取得し、ブランドとのカスタマーエンゲージメントの最も重要な属性を表す訪問者プロファイルを作成します。設定手順については、[AudienceStream]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium_audience_stream)の記事を参照してください。
+Tealium AudienceStreamは、オムニチャネルの顧客セグメンテーションおよびリアルタイムアクションエンジンです。AudienceStreamはEventStreamに流入するデータを取得し、ブランドとの顧客エンゲージメントの最も重要な属性を表す訪問者プロファイルを作成します。設定手順については、[AudienceStream]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium_audience_stream)の記事を参照してください。
 
 {% endtab %}
 {% tab iQ Tag Management %}
@@ -49,7 +49,7 @@ Tealiumは、バッチと非バッチの両方のコネクターアクション�
 - 最も古いリクエストからの最大経過時間：10分
 - リクエストの最大サイズ：1 MB
 
-Tealiumは、デフォルトでは同意イベント（サブスクリプション設定）またはユーザー削除イベントをバッチ処理しません。
+Tealiumは、デフォルトでは同意イベント（購読設定）またはユーザー削除イベントをバッチ処理しません。
 {% endalert %}
 
 ## 前提条件 {#prerequisites}
@@ -197,7 +197,7 @@ Tealiumでは最初に、コネクターの取得元となる有効なデータ�
 | パラメータ | 説明 |
 | ---------- | ----------- |
 | ユーザーID | このフィールドを使用して、TealiumのユーザーIDフィールドをBrazeの対応するフィールドにマッピングします。1つ以上のユーザーID属性をマッピングします。複数のIDが指定されている場合、最初の非空白値が次の優先順位に基づいて選択されます：External ID、Braze ID、エイリアス名、エイリアスラベル。<br><br>- プッシュトークンをインポートする場合は、External IDとBraze IDを指定しないでください。<br>- ユーザーエイリアスを指定する場合、エイリアス名とエイリアスラベルの両方を設定する必要があります。<br><br>詳細については、Brazeの[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)を参照してください。 |
-| ユーザー属性 | 既存のBrazeのユーザープロファイルのフィールド名を使用して、Brazeダッシュボードのユーザープロファイル値を更新するか、独自のカスタム[ユーザー属性]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens)データをユーザープロファイルに追加します。<br><br>- デフォルトでは、新規ユーザーが存在しない場合は作成されます。<br>- **Update Existing Only**を`true`に設定すると、既存のユーザーのみが更新され、新しいユーザーは作成されません。<br>- Tealium属性が空の場合、その属性はNULLに変換され、Brazeユーザープロファイルから削除されます。ユーザー属性を削除する目的でBrazeにNULL値を送信すべきでない場合は、エンリッチメントを使用してください。 |
+| ユーザー属性 | 既存のBrazeのユーザープロファイルのフィールド名を使用して、Brazeダッシュボードのユーザープロファイル値を更新するか、独自のカスタム[ユーザー属性]({{site.baseurl}}/api/objects_filters/user_attributes_object)データをユーザープロファイルに追加します。<br><br>- デフォルトでは、新規ユーザーが存在しない場合は作成されます。<br>- **Update Existing Only**を`true`に設定すると、既存のユーザーのみが更新され、新しいユーザーは作成されません。<br>- Tealium属性が空の場合、その属性はNULLに変換され、Brazeユーザープロファイルから削除されます。ユーザー属性を削除する目的でBrazeにNULL値を送信すべきでない場合は、エンリッチメントを使用してください。 |
 | ユーザー属性の変更 | このフィールドを使用して、特定のユーザー属性を増減します<br><br>- 整数属性は、正の整数または負の整数でインクリメントできます。<br>- 配列属性は、既存の配列に値を追加または削除することで変更できます。 |
 | イベント | イベントは、タイムスタンプの時点で特定のユーザーによりカスタムイベントが1回発生したことを表します。このフィールドは、Brazeの[イベントオブジェクト]({{site.baseurl}}/api/objects_filters/event_object)の属性と同様にイベント属性を追跡、マッピングする場合に使用します。<br><br>- イベント属性`Name`は、マッピングされたすべてのイベントで必要です。<br>- イベント属性`Time`は、明示的にマッピングされていない限り、自動的に現時点の時刻に設定されます。<br>- デフォルトでは、新しいイベントは存在しない場合に作成されます。`Update Existing Only`を`true`に設定すると、既存のイベントのみが更新され、新規のイベントは作成されません。<br>- 配列型属性をマッピングして、複数のイベントを追加します。配列型の属性は等しい長さでなければなりません。<br>- 単一値属性を使用でき、各イベントに適用されます。 |
 | イベントテンプレート | ボディデータで参照するイベントテンプレートを指定します。テンプレートを使用してデータを変換してから、Brazeに送信できます。詳細については、Tealiumの[テンプレートガイド](https://docs.tealium.com/server-side/connectors/webhook-connectors/trimou-templating-engine/)を参照してください。 |

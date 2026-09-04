@@ -3,6 +3,9 @@
 # Skips draft PRs; runs when a draft is marked ready for review (ready_for_review).
 #
 # Posts inline review comments with ```suggestion blocks where possible (Commit suggestion).
+# PR-level notes and non-diff findings go in one summary issue comment per run.
+# Commit-able single-line fixes should land in inline suggestions when possible.
+# Each run replaces prior automated inline comments and the summary issue comment.
 # Requires: ANTHROPIC_API_KEY repository secret.
 #
 # Includes bot PRs (support analyzer, etc.). Skips `_lang/` on auto-translate/* branches.
@@ -18,6 +21,7 @@ on:
       - "_includes/**"
       - "_lang/**"
       - "scripts/review_docs_style.py"
+      - "scripts/ci/requirements.txt"
       - ".github/workflows/review-docs-style.yml"
       - ".github/skills/braze-docs/references/writing-style.md"
 
@@ -56,12 +60,12 @@ jobs:
         run: git fetch --no-tags origin "${{ github.base_ref }}"
 
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version: "3.12"
 
       - name: Install dependencies
-        run: pip install anthropic
+        run: pip install -r scripts/ci/requirements.txt
 
       - name: Run docs style review
         env:

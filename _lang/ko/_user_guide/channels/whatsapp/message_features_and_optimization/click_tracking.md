@@ -39,9 +39,9 @@ channel:
 
 ### 템플릿 메시지 {#template-messages}
 
-템플릿 메시지의 클릭 추적은 Braze의 **WhatsApp 템플릿 빌더**를 통해 활성화하는 것을 권장합니다. 이 방법을 사용하면 URL 형식 요구 사항이 자동으로 처리되므로 WhatsApp Business Manager에서 수동으로 구성할 필요가 없습니다.
+템플릿 메시지의 클릭 추적은 Braze의 **WhatsApp 템플릿 빌더**를 통해 활성화하는 것을 권장합니다. 이 방법을 사용하면 URL 형식 요구 사항이 자동으로 처리되므로 WhatsApp Business 매니저에서 수동으로 구성할 필요가 없습니다.
 
-WhatsApp Business Manager에서 직접 템플릿을 생성하는 경우, [WhatsApp Business Manager에서 클릭 추적 구성](#configuring-click-tracking-from-whatsapp-business-manager)을 참조하세요.
+WhatsApp Business 매니저에서 직접 템플릿을 생성하는 경우, [WhatsApp Business 매니저에서 클릭 추적 구성](#configuring-click-tracking-from-whatsapp-business-manager)을 참조하세요.
 
 #### 템플릿 빌더 사용 {#use-the-template-builder}
 
@@ -70,7 +70,7 @@ WhatsApp Business Manager에서 직접 템플릿을 생성하는 경우, [WhatsA
 - **CTA 웹사이트 버튼의 경우:** **클릭 추적 URL** 필드에 대상 URL을 입력합니다. Braze는 대상 URL을 저장하고 추적 도메인과 변수 입력 안내{% raw %}(예: `https://brz.ai/{{1}}`){% endraw %}를 사용하여 버튼의 웹사이트 URL을 자동으로 형식화합니다. 이 입력 안내가 Meta에 제출되는 내용입니다. 발송 시 Braze는 각 사용자에 대해 전체 추적 URL을 생성하고 변수를 채웁니다.
 - **본문 텍스트 링크의 경우:** 본문에 직접 URL을 입력합니다.
 
-각 버튼의 추적 URL 형식은 **웹사이트 URL** 필드 바로 아래에서 미리볼 수 있습니다(예: `https://brz.ai/XXXXXXXX`).
+각 버튼의 추적 URL 형식은 **웹사이트 URL** 필드에서 직접 미리볼 수 있습니다(예: `https://brz.ai/XXXXXXXX`).
 
 ![웹사이트 URL이 추적 형식으로 미리 채워진 웹사이트 방문 버튼과 대상을 위한 클릭 추적 URL 필드를 보여주는 행동 유도 버튼 섹션.]({% image_buster /assets/img/whatsapp/click_tracking/template_builder_compose.png %}){: style="max-width:70%;"}
 
@@ -78,13 +78,13 @@ WhatsApp Business Manager에서 직접 템플릿을 생성하는 경우, [WhatsA
 
 템플릿이 Meta에 제출된 후 추적 도메인은 잠기지만, 대상 URL은 언제든지 편집할 수 있습니다. 링크가 가리키는 위치를 업데이트하려면 해당 버튼의 **클릭 추적 URL** 필드를 편집합니다. 추적 URL 형식은 동일하게 유지되며, Braze는 발송 시 사용자를 새 대상으로 리디렉션합니다.
 
-#### WhatsApp Business Manager에서 클릭 추적 구성 {#configure-click-tracking-from-whatsapp-business-manager}
+#### WhatsApp Business 매니저에서 클릭 추적 구성 {#configure-click-tracking-from-whatsapp-business-manager}
 
-템플릿 빌더 대신 WhatsApp Business Manager에서 템플릿을 생성하는 경우, Braze에서 템플릿을 사용할 때 클릭 추적이 올바르게 작동하도록 다음 단계를 따르세요.
+템플릿 빌더 대신 WhatsApp Business 매니저에서 템플릿을 생성하는 경우, Braze에서 템플릿을 사용할 때 클릭 추적이 올바르게 작동하도록 다음 단계를 따르세요.
 
-##### 1단계: WhatsApp Business Manager에서 클릭 추적을 지원하는 템플릿 구축 {#step-1-build-a-click-tracking-supported-template-in-whatsapp-business-manager}
+##### 1단계: WhatsApp Business 매니저에서 클릭 추적을 지원하는 템플릿 구축 {#step-1-build-a-click-tracking-supported-template-in-whatsapp-business-manager}
 
-1. WhatsApp Business Manager에서 커스텀 도메인 또는 `brz.ai`인 기본 URL을 생성합니다.
+1. WhatsApp Business 매니저에서 커스텀 도메인 또는 `brz.ai`인 기본 URL을 생성합니다.
 2. 템플릿에 포함된 링크가 클릭 추적과 호환되는지 확인합니다.
 3. Braze에서 Campaign으로 설정한 후에는 템플릿 변수를 변경하지 마세요. 다운스트림 변경 사항은 반영할 수 없습니다.
 4. CTA 버튼 링크의 경우 **Dynamic**을 선택한 다음 기본 URL(`brz.ai` 또는 커스텀 도메인)을 제공합니다.
@@ -92,7 +92,7 @@ WhatsApp Business Manager에서 직접 템플릿을 생성하는 경우, [WhatsA
 ![행동 유도를 생성하는 섹션.]({% image_buster /assets/img/whatsapp/click_tracking/create_cta.png %}){: style="max-width:70%;"}
 
 {: start="5"}
-5. 본문 텍스트의 링크의 경우, WhatsApp Business Manager에서 템플릿을 작성할 때 추적하려는 본문 내 링크에 삽입된 공백을 제거합니다.
+5. 본문 텍스트의 링크의 경우, WhatsApp Business 매니저에서 템플릿을 작성할 때 추적하려는 본문 내 링크에 삽입된 공백을 제거합니다.
 
 ![행동 유도의 콘텐츠 본문을 입력하는 텍스트 상자.]({% image_buster /assets/img/whatsapp/click_tracking/cta_textbox.png %}){: style="max-width:70%;"}
 

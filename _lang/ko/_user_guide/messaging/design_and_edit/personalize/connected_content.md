@@ -22,12 +22,15 @@ guide_featured_list:
 - name: 연결된 콘텐츠 중단
   link: /docs/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content
   image: /assets/img/braze_icons/stop-circle.svg
-- name: 사용자 프로필 데이터 가져오기
+- name: 고객 프로필 데이터 가져오기
   link: /docs/user_guide/messaging/design_and_edit/personalize/connected_content/user_profile_fields_connected_content
   image: /assets/img/braze_icons/users-01.svg
 - name: 연결된 콘텐츠 재시도
   link: /docs/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries
   image: /assets/img/braze_icons/refresh-ccw-01.svg
+- name: 연결된 콘텐츠 디버거
+  link: /docs/user_guide/messaging/design_and_edit/personalize/connected_content/debugger
+  image: /assets/img/braze_icons/search-refraction.svg
 - name: 웹훅 및 연결된 콘텐츠 문제 해결
   link: /docs/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content
   image: /assets/img/braze_icons/check-square-broken.svg
@@ -37,5 +40,3 @@ guide_featured_list:
 ---
 
 <br><br>
-
-[16]: [success@braze.com](mailto:success@braze.com)

@@ -6,7 +6,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "Dieser Artikel beschreibt den Braze-Endpunkt „Liste der verfügbaren E-Mail-Templates“."
-
 ---
 {% api %}
 # Liste der verfügbaren E-Mail-Templates {#list-available-email-templates}
@@ -19,7 +18,7 @@ description: "Dieser Artikel beschreibt den Braze-Endpunkt „Liste der verfügb
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#eec24bf4-a3f4-47cb-b4d8-bb8f03964cca {% endapiref %}
 
 ## Voraussetzungen {#prerequisites}
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/api_key) mit der Berechtigung `templates.email.list`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics) mit der Berechtigung `templates.email.list`.
 
 ## Rate-Limit
 

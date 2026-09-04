@@ -3,7 +3,7 @@ nav_title: ベストプラクティス
 article_title: キャンペーンのベストプラクティス
 page_order: 0
 description: "この記事では、キャンペーンの作成とカスタマイズに関するベストプラクティスを紹介します。"
-tool: Campaigns
+tool: Campaign
 
 ---
 
@@ -16,7 +16,7 @@ tool: Campaigns
 Brazeでは、Brazeプラットフォームで活用する予定の顧客データのみを送信することを推奨しています。「Brazeの4つのT」という考え方を参考に、以下の目的で使用するデータのみを送信するようにしましょう。
 
 - **ターゲット（Target）**：[オーディエンスセグメント]({{site.baseurl}}/user_guide/audience/segments)を構築してオーディエンスをターゲティングします。
-- **トリガー（Trigger）**：[アクションベース]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#action-based-delivery)または[APIトリガー]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery)配信でメッセージをトリガーします。
+- **トリガー（Trigger）**：[アクションベース]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery)または[APIトリガー]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery)配信でメッセージをトリガーします。
 - **テンプレート（Template）**：[Liquid条件ロジック]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)でメッセージをテンプレート化し、パーソナライズします。
 - **トラッキング（Track）**：[コンバージョントラッキング]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)でキャンペーンの効果を追跡します。
 
@@ -28,7 +28,7 @@ Brazeでは、Brazeプラットフォームで活用する予定の顧客デー�
 
 ### オーディエンスの特定 {#identify-your-audience}
 
-セグメントとフィルターを活用して、オーディエンスを定義しましょう。キャンペーンやメッセージが誰をターゲットにしているかを検討してください。この重要な情報をもとに、[マルチチャネルキャンペーン]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#multichannel-campaigns)を作成し、オーディエンスの通知設定に合わせてさまざまなチャネルでメッセージを構築する柔軟性を得ることができます。
+セグメントとフィルターを活用して、オーディエンスを定義しましょう。キャンペーンやメッセージが誰をターゲットにしているかを検討してください。この重要な情報をもとに、[マルチチャネルキャンペーン]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#create-a-multichannel-campaign)を作成し、オーディエンスの通知設定に合わせてさまざまなチャネルでメッセージを構築する柔軟性を得ることができます。
 
 また、[アクティブユーザー]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/active_user_campaigns)を理解し、継続的に利用してくれるユーザーへの感謝を示すことも重要です。
 
@@ -64,7 +64,7 @@ Brazeでは、Brazeプラットフォームで活用する予定の顧客デー�
 - 過去14日間にこれらのアプリを10回以上使用した
 - 50ドル以上を支出した
 
-![アプリのパワーユーザーをターゲットにしたセグメントの例。]({% image_buster /assets/img_archive/ratings_power_users.png %})
+![アプリのパワーユーザーをターゲットにしたセグメントの例]({% image_buster /assets/img_archive/ratings_power_users.png %})
 
 アプリストアへのアクセスにはユーザーの時間がかかります。追加の手間をかけてもらえる可能性を最大化するために、アプリでポジティブな体験をした直後に評価やレビューをリクエストしましょう。例えば、ゲームのレベルをクリアした後や、割引コードを使って購入した後にお願いするのが効果的です。[データオプトイン]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-states)に関する記事では、リクエストがユーザーのワークフローの期待に沿うようにする方法について詳しく説明しています。
 

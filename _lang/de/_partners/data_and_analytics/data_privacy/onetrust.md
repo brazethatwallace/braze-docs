@@ -23,7 +23,7 @@ Die Integration von Braze und OneTrust erlaubt es Ihnen, den OneTrust Workflow B
 |---|---|
 | OneTrust-Konto | Ein [OneTrust-Konto](https://www.onetrust.com/), um von dieser Partnerschaft zu profitieren. |
 | Braze-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit den erforderlichen Berechtigungen für den Endpunkt, den Ihre OneTrust-Aktion verwenden wird.<br><br>Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Braze-Instanz | Ihre Braze-Instanz erhalten Sie von Ihrem Braze-Onboarding-Manager oder auf der [API-Übersichtsseite]({{site.baseurl}}/api/basics/#endpoints). |
+| Braze-Instanz | Ihre Braze-Instanz erhalten Sie von Ihrem Braze-Onboarding-Manager:in oder auf der [API-Übersichtsseite]({{site.baseurl}}/api/basics/#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration

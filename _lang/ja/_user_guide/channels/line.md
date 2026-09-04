@@ -16,23 +16,23 @@ alias: /line/
 
 ## 前提条件 {#prerequisites}
 
-LINEの利用可否はBrazeパッケージによって異なります。開始するには、アカウントマネージャーまたはカスタマーサクセスマネージャーにお問い合わせください。
+LINEの利用可能性は、ご利用のBrazeパッケージによって異なります。開始するには、アカウントマネージャーまたはカスタマーサクセスマネージャーにお問い合わせください。
 
-開始する前に、以下をご用意ください。
+始める前に、以下の要件を満たしていることを確認してください。
 
-- プレミアムまたは認証済みステータスの[LINE公式アカウント](https://www.linebiz.com/jp-en/manual/OfficialAccountManager/tutorial-steps/?list=7171)
+- プレミアムまたは認証済みステータスの[LINEビジネスアカウント](https://www.linebiz.com/jp-en/manual/OfficialAccountManager/tutorial-steps/?list=7171)
 - [LINE Developersアカウント](https://developers.line.biz/en/docs/line-developers-console/login-account/)
 - [LINE Messaging APIチャネル](https://developers.line.biz/en/docs/line-developers-console/overview/#channel)
 
-詳細なウォークスルーについては、[LINE セットアップ]({{site.baseurl}}/user_guide/channels/line/line_setup)を参照してください。
+詳細な手順については、[LINEセットアップ]({{site.baseurl}}/user_guide/channels/line/line_setup)を参照してください。
 
 ## ユースケース {#use-cases}
 
 | ユースケース | 説明 |
 | --- | --- |
-| プロモーションとオファー | ターゲットを絞ったプロモーションメッセージ、クーポン、期間限定オファーを、顧客が好むメッセージングプラットフォームに直接送信します。 |
-| ロイヤルティプログラム | パーソナライズ済みの報酬、ポイント残高の更新、限定会員特典でロイヤルティの高い顧客をエンゲージします。 |
-| カスタマーサポート | 双方向の会話を可能にし、問い合わせへの対応、製品情報の提供、問題の解決を行います。 |
+| プロモーションとオファー | ターゲットを絞ったプロモーションメッセージ、クーポン、期間限定オファーを、顧客が好むメッセージングプラットフォームで直接送信します。 |
+| ロイヤルティプログラム | パーソナライズされた報酬、ポイント残高の更新、会員限定の特典でロイヤルティの高い顧客のエンゲージメントを高めます。 |
+| カスタマーサポート | 双方向の会話を通じて、問い合わせへの対応、製品情報の提供、問題の解決を行います。 |
 | 注文通知 | 注文確認、配送状況の更新、配達通知で顧客に最新情報を提供します。 |
 | イベントエンゲージメント | 招待状、リマインダー、フォローアップメッセージでイベントへの参加とエンゲージメントを促進します。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="ユースケース" }
@@ -41,5 +41,9 @@ LINEの利用可否はBrazeパッケージによって異なります。開始�
 
 ## 次のステップ {#next-steps}
 
-- [LINE セットアップ]({{site.baseurl}}/user_guide/channels/line/line_setup)
-- [LINE メッセージの作成]({{site.baseurl}}/user_guide/channels/line/create_a_line_message)
+{% article_tiles %}
+- name: LINE セットアップ
+  link: /docs/user_guide/channels/line/line_setup
+- name: LINE メッセージの作成
+  link: /docs/user_guide/channels/line/create_a_line_message
+{% endarticle_tiles %}

@@ -155,11 +155,29 @@ Le <i>chiffre d'affaires quotidien par utilisateur</i> est le chiffre d'affaires
 {% endif %}
 
 {% if include.metric == "Machine Opens" %}
-Les <i>ouvertures de machines</i> incluent la proportion d'« ouvertures » qui sont affectées par la protection de la confidentialité dans Mail (MPP) d'Apple pour iOS 15. Par exemple, si un utilisateur ouvre un e-mail à l'aide de l'application Mail sur un appareil Apple, cela sera enregistré comme une <i>ouverture de machine</i>.
+Les <i>ouvertures de machines</i> incluent à la fois les ouvertures non humaines et humaines qui indiquent une ouverture par un utilisateur ayant activé la protection de la confidentialité dans Mail (MPP) d'Apple. Cela signifie qu'un utilisateur peut enregistrer plusieurs <i>ouvertures de machines</i>. Les <i>ouvertures de machines</i> ne sont pas automatiquement générées si l'appareil n'est pas connecté au Wi-Fi, de sorte qu'un utilisateur peut potentiellement ouvrir un e-mail dans l'application Mail d'Apple avant qu'Apple ne pré-charge les images, ce qui entraîne tout de même une <i>ouverture de machine</i>.
+<br><br>
+Pour les utilisateurs ayant activé la MPP :
+<ul>
+  <li>1+ <i>ouverture de machine</i> : Apple a pré-chargé le message ou l'utilisateur a ouvert un e-mail de manière proactive sur un appareil iOS</li>
+  <li>2+ <i>ouvertures de machines</i> : Braze n'a pas de visibilité sur les ouvertures humaines par rapport aux ouvertures non humaines, ce chiffre peut donc être composé de plusieurs ouvertures humaines (sur un seul appareil Apple ou plusieurs) ou d'une combinaison d'ouvertures humaines et d'une ouverture associée au pré-chargement du message par Apple</li>
+</ul>
 {% endif %}
 
 {% if include.metric == "Other Opens" %}
-Les <i>autres ouvertures</i> comprennent les e-mails qui n'ont pas été identifiés comme des <i>ouvertures de machines</i>. Par exemple, lorsqu'un utilisateur ouvre un e-mail sur une autre plateforme (telle que l'application Gmail sur un téléphone, Gmail sur un navigateur de bureau), cela sera enregistré comme une <i>autre ouverture</i>.
+Les <i>autres ouvertures</i> comprennent les ouvertures humaines qui ne sont pas impactées par la MPP (par exemple, un utilisateur ouvrant un e-mail dans l'application Gmail ou sur Gmail en version bureau, ce qui déclenche un pixel de suivi et enregistre une ouverture classique). Les <i>autres ouvertures</i> sont généralement des ouvertures humaines, mais il peut aussi y avoir des scénarios où une machine ouvre l'e-mail (un robot ou un fournisseur de services de messagerie comme Gmail ou Yahoo). Il est également possible qu'un utilisateur ouvre un e-mail sur un appareil non iOS et enregistre l'<i>autre ouverture</i> avant qu'une <i>ouverture de machine</i> ne soit enregistrée.
+<br><br>
+Étant donné que les <i>ouvertures de machines</i> peuvent être déclenchées par l'utilisateur, la relation entre les <i>ouvertures de machines</i> et les <i>autres ouvertures</i> n'est pas humain contre non humain, mais plutôt impacté par la MPP contre non impacté par la MPP. Bien que les <i>autres ouvertures</i> puissent encore être utilisées pour mesurer une partie des ouvertures humaines, il n'est actuellement pas possible de déterminer le pourcentage d'<i>ouvertures de machines</i> qui sont déclenchées par des humains, de sorte qu'il n'est pas possible de déterminer un taux d'ouverture « réel » précis.
+<br><br>
+Pour les utilisateurs ayant activé la MPP :
+<ul>
+  <li>+1 <i>autre(s) ouverture(s)</i> : l'utilisateur a ouvert un e-mail de manière proactive sur un appareil non iOS</li>
+  <li>+1 <i>ouverture(s) de machine</i> et +1 <i>autres ouvertures</i> : Apple a pré-chargé le message ou l'utilisateur a ouvert un e-mail de manière proactive sur un appareil iOS et a ouvert un e-mail de manière proactive sur un appareil non iOS</li>
+</ul>
+Pour les utilisateurs n'ayant pas activé la MPP :
+<ul>
+  <li>+1 <i>autre(s) ouverture(s)</i> : l'utilisateur a ouvert un e-mail de manière proactive sur n'importe quel appareil</li>
+</ul>
 {% endif %}
 
 {% if include.metric == "Opens" %}
@@ -171,7 +189,7 @@ On parle de <i>désabonnement</i> lorsqu'un utilisateur a répondu à votre mess
 {% endif %}
 
 {% if include.metric == "Pending Retry" %}
-Le terme <i>En attente d'une nouvelle tentative</i> désigne le nombre de demandes qui ont été temporairement rejetées par le serveur destinataire, mais qui ont fait l'objet d'une nouvelle tentative de livraison par le fournisseur de services d'e-mailing (ESP). Le fournisseur de services d'e-mailing réessaiera jusqu'à ce qu'un délai soit atteint (généralement 72 heures).
+Le terme <i>En attente d'une nouvelle tentative</i> désigne le nombre de demandes qui ont été temporairement rejetées par le serveur destinataire, mais qui ont fait l'objet d'une nouvelle tentative de livraison par le fournisseur de services d'e-mail marketing (fournisseur de services d'e-mailing). Le fournisseur de services d'e-mail marketing réessaiera jusqu'à ce qu'un délai soit atteint (généralement 72 heures).
 {% endif %}
 
 {% if include.metric == "Primary Conversions (A) or Primary Conversion Event" %}
@@ -199,7 +217,7 @@ Le <i>chiffre d'affaires</i> est le chiffre d'affaires total, en dollars, réali
 {% endif %}
 
 {% if include.metric == "Messages Sent" %}
-<i>Messages envoyés</i> est le nombre total de messages envoyés dans une campagne. Après avoir lancé une campagne planifiée, cet indicateur inclura tous les messages envoyés, même s'ils n'ont pas encore été envoyés en raison de la limite de débit. Cela ne signifie pas que le message a été reçu ou remis à un appareil, mais seulement qu'il a été envoyé.
+<i>Messages envoyés</i> est le nombre total de messages envoyés dans une campagne. Après avoir lancé une campagne planifiée, cet indicateur inclura tous les messages envoyés, même s'ils n'ont pas encore été envoyés en raison de la limitation du débit. Cela ne signifie pas que le message a été reçu ou remis à un appareil, mais seulement qu'il a été envoyé.
 {% endif %}
 
 {% if include.metric == "Sent" %}
@@ -207,7 +225,7 @@ Le <i>chiffre d'affaires</i> est le chiffre d'affaires total, en dollars, réali
 {% endif %}
 
 {% if include.metric == "Sends" %}
-<i>Envois</i> est le nombre total de messages envoyés dans une campagne. Après avoir lancé une campagne planifiée, cet indicateur inclura tous les messages envoyés, même s'ils n'ont pas encore été envoyés en raison de la limite de débit. Cela ne signifie pas que le message a été reçu ou remis à un appareil, mais seulement qu'il a été envoyé.
+<i>Envois</i> est le nombre total de messages envoyés dans une campagne. Après avoir lancé une campagne planifiée, cet indicateur inclura tous les messages envoyés, même s'ils n'ont pas encore été envoyés en raison de la limitation du débit. Cela ne signifie pas que le message a été reçu ou remis à un appareil, mais seulement qu'il a été envoyé.
 {% endif %}
 
 {% if include.metric == "Sends to Carrier" %}

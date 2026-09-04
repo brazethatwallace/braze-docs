@@ -38,7 +38,7 @@ For more details on available segmentation filters to target your audience, see 
 
 ### Batch multiple API requests
 
-Make your requests in the same API call, rather than multiple calls, to confirm that the user profile is created or updated first. Refer to [Using multiple endpoints]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions#using-multiple-api-endpoints) for more examples.
+Make your requests in the same API call, rather than multiple calls, to confirm that the user profile is created or updated first. Refer to [Using multiple endpoints]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions#scenario-2-using-multiple-api-endpoints) for more examples.
 
 ### Add a delay
 
@@ -104,7 +104,7 @@ After reviewing the finer details of your Canvas, check out [Sending test Canvas
 
 ### Confirm your Canvas saves correctly and all steps are valid
 
-If your Canvas isn't loading and won't progress, this can be caused when a previous version of the Canvas wasn't saved properly and contains invalid steps. You can duplicate the Canvas from the dashboard. If the issue persists, open a [support ticket]({{site.baseurl}}/braze_support).
+If your Canvas isn't loading and won't progress, this can be caused when a previous version of the Canvas wasn't saved properly and contains invalid steps. You can duplicate the Canvas from the dashboard. If the issue persists, open a [support ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 
 ## Troubleshooting
 

@@ -41,14 +41,14 @@ Wenn Sie die erforderlichen OAuth-Einstellungen für die verbundene App konfigur
 
 Als Customer-Engagement-Plattform kann Braze neue Leads auf Basis von Nutzer:innen-Flows generieren, z. B. beim Ausfüllen eines Formulars auf einer Landing-Page. In diesem Fall können Sie einen Braze Salesforce Sales Cloud Webhook verwenden, um einen entsprechenden Lead in Salesforce zu erstellen.
 
-### 1. Schritt: `client_id` und `client_secret` erfassen {#step-1-collect-your-client_id-and-client_secret}
+### Schritt 1: `client_id` und `client_secret` erfassen {#step-1-collect-your-client_id-and-client_secret}
 
-1. Gehen Sie in Salesforce zu **Platform Tools** > **Apps** > **App Manager**.
+1. Gehen Sie in Salesforce zu **Platform Tools** > **Apps** > **App Manager:in**.
 2. Suchen Sie Ihre neu erstellte Braze-App und wählen Sie **View**.
 3. Wählen Sie unter **Consumer Key and Secret** die Option **Manage Consumer Details**.
 4. Notieren Sie sich auf der angezeigten Seite Ihren **Consumer Key** und Ihr **Consumer Secret**. Der **Consumer Key** ist Ihre `client_id` und das **Consumer Secret** ist Ihr `client_secret`.
 
-### 2. Schritt: Webhook-Template einrichten {#step-2-set-up-your-webhook-template}
+### Schritt 2: Webhook-Template einrichten {#step-2-set-up-your-webhook-template}
 
 Verwenden Sie Templates, um diesen Webhook schnell auf der gesamten Braze-Plattform wiederzuverwenden.
 
@@ -98,15 +98,15 @@ Um einen Braze Salesforce Sales Cloud Webhook einzurichten, der Leads in Salesfo
 
 Dieses Beispiel zeigt konkret, wie Sie die Lead-Stufe eines Leads auf „MQL“ (Marketing Qualified Lead) aktualisieren, nachdem ein Lead einen bestimmten Schwellenwert überschritten hat. Dies ist ein zentraler Bestandteil unseres Anwendungsfalls [B2B-Lead-Scoring-Workflow]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring).
 
-### 1. Schritt: `client_id` und `client_secret` erfassen
+### Schritt 1: `client_id` und `client_secret` erfassen
 
-1. Gehen Sie in Salesforce zu **Platform Tools** > **Apps** > **App Manager**.
+1. Gehen Sie in Salesforce zu **Platform Tools** > **Apps** > **App Manager:in**.
 2. Suchen Sie Ihre neu erstellte Braze-App und wählen Sie **View**.
 3. Wählen Sie unter **Consumer Key and Secret** die Option **Manage Consumer Details**.
 4. Notieren Sie sich auf der angezeigten Seite Ihren **Consumer Key** und Ihr **Consumer Secret**.
     - Der **Consumer Key** ist Ihre `client_id` und das **Consumer Secret** ist Ihr `client_secret`.
 
-### 2. Schritt: Webhook-Template einrichten
+### Schritt 2: Webhook-Template einrichten
 
 1. Gehen Sie in Braze zu **Templates**, wählen Sie **Webhook Templates** und dann **+ Create Webhook Template**.
 2. Geben Sie einen Namen für das Template an, z. B. „Salesforce Sales Cloud > Lead auf MQL aktualisieren“.
@@ -187,7 +187,7 @@ Jetzt aktualisiert Ihr Canvas-Flow Nutzer:innen, die Ihren MQL-Schwellenwert üb
 
 ## Fehlerbehebung {#troubleshooting}
 
-Diese Workflows bieten nur begrenzte Debugging-Möglichkeiten innerhalb von Salesforce. Wir empfehlen daher, das Braze [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log#message-activity-log) zu Rate zu ziehen, um herauszufinden, warum ein Webhook fehlgeschlagen ist und ob Fehler aufgetreten sind.
+Diese Workflows bieten nur begrenzte Debugging-Möglichkeiten innerhalb von Salesforce. Wir empfehlen daher, das Braze [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) zu Rate zu ziehen, um herauszufinden, warum ein Webhook fehlgeschlagen ist und ob Fehler aufgetreten sind.
 
 Ein Fehler, der durch eine ungültige URL für den Abruf des OAuth-Tokens verursacht wird, wird beispielsweise als `https://[insert_instance_name].my.salesforce.com/services/oauth2/token is not a valid URL` angezeigt.
 

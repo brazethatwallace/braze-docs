@@ -12,7 +12,7 @@ hide_toc: true
       background-color: #fff;
       font-weight: 400;
       font-size: 15px;
-      font-family: Sailec W00 Regular,Arial,sans-serif;
+      font-family: 'Aribau Grotesk Regular', 'Aribau Grotesk', Arial, sans-serif;
       font-style: normal;
       color: #212123;
   }
@@ -74,7 +74,7 @@ hide_toc: true
     }
     .h1, h1  {
       font-size: 34pt;
-      font-family: Sailec W00 Bold, Arial, sans-serif;
+      font-family: 'Aribau Grotesk Bold', 'Aribau Grotesk', 'Aribau Grotesk Regular', Arial, sans-serif;
       margin-bottom: 24px;
     }
 
@@ -83,7 +83,7 @@ hide_toc: true
     }
     .subhead {
       font-size: 14pt;
-      font-family: Sailec W00 Regular,Arial,sans-serif;
+      font-family: 'Aribau Grotesk Regular', 'Aribau Grotesk', Arial, sans-serif;
       margin-bottom: 16px;
     }
 
@@ -118,7 +118,7 @@ hide_toc: true
       padding: 0px 1.5rem;
       height: 40px;
       min-width: 200px;
-      font-family: Sailec W00 Bold, Arial, sans-serif;
+      font-family: 'Aribau Grotesk Bold', 'Aribau Grotesk', 'Aribau Grotesk Regular', Arial, sans-serif;
       font-size: 12pt;
       font-weight: 700;
       border-radius: 2px;
@@ -185,7 +185,7 @@ hide_toc: true
     }
     .form-group label {
       font-size: 13pt !important;
-      font-family: Sailec W00 Bold, Arial, sans-serif;
+      font-family: 'Aribau Grotesk Bold', 'Aribau Grotesk', 'Aribau Grotesk Regular', Arial, sans-serif;
       margin-bottom: 6px;
     }
     input[type=text] {
@@ -196,25 +196,25 @@ hide_toc: true
     }
     #doc_release_notes_label {
       font-size: 12pt !important;
-      font-family: Sailec W00 Regular,Arial,sans-serif;
+      font-family: 'Aribau Grotesk Regular', 'Aribau Grotesk', Arial, sans-serif;
     }
     #doc_verify_label {
       font-size: 12pt !important;
-      font-family: Sailec W00 Regular,Arial,sans-serif;
+      font-family: 'Aribau Grotesk Regular', 'Aribau Grotesk', Arial, sans-serif;
     }
     input[type="checkbox"] {
         display:none;
     }
     input[type="checkbox"] + label {
       font-size: 14pt !important;
-      font-family: Sailec W00 Regular,Arial,sans-serif;
+      font-family: 'Aribau Grotesk Regular', 'Aribau Grotesk', Arial, sans-serif;
     }
     .form-check {
       padding-left: 0;
     }
     .sublabel {
       font-size: 12pt !important;
-      font-family: Sailec W00 Regular,Arial,sans-serif;
+      font-family: 'Aribau Grotesk Regular', 'Aribau Grotesk', Arial, sans-serif;
       color: #5E6C75;
       line-height: 1.4;
     }
@@ -264,7 +264,7 @@ hide_toc: true
     }
     .inline_text {
       display: flex;
-      font-family: Sailec, Arial, sans-serif;
+      font-family: 'Aribau Grotesk Regular', 'Aribau Grotesk', Arial, sans-serif;
       font-size: 10pt;
     }
     #braze_internal {
@@ -273,7 +273,7 @@ hide_toc: true
       background-color: #FFEEE3;
       padding: 10px;
       height: 45px;
-      font-family: Sailec W00 Bold, Arial, sans-serif;
+      font-family: 'Aribau Grotesk Bold', 'Aribau Grotesk', 'Aribau Grotesk Regular', Arial, sans-serif;
       font-size: 12tpt;
       position: absolute;
       left: 0;
@@ -399,7 +399,7 @@ hide_toc: true
 
       $('#doc_form').submit(function(e) {
         $('#submit_progress').css('display','inline');
-        $('#submit_text').html('Submitting');
+        $('#submit_text').html('Envoi en cours');
         $('#ticket_submit_button').prop("disabled",true);
 
         e.preventDefault();
@@ -415,7 +415,7 @@ hide_toc: true
           $('#doc_div').hide();
           $('#doc_thankyou').show();
           $('#doc_thankyou_msg').fadeTo(800,0,function(){
-              $(this).html('<h3>Merci pour votre envoi !</h3> Un membre de notre équipe vous contactera si nous avons des questions. Pour consulter l\u2019état de votre ticket ou ajouter des commentaires, vérifiez votre e-mail pour la confirmation de votre ticket.').fadeTo(800,1);
+              $(this).html('<h3>Merci pour votre envoi !</h3> Un membre de notre \u00e9quipe vous contactera si nous avons des questions. Pour consulter l\u2019\u00e9tat de votre ticket ou ajouter des commentaires, v\u00e9rifiez votre e-mail pour la confirmation de votre ticket.').fadeTo(800,1);
           });
         });
 
@@ -457,7 +457,7 @@ hide_toc: true
               <div id="disclosure-warning" class="alert alert-important" role="alert">
                 <div class="alert-msg">
                   <b>Important : </b>
-                  Copilot rédigera cette suggestion, et elle sera examinée par l'équipe Docs. Confirmez qu'<strong>aucune information spécifique à un client</strong> ni aucun <strong>lien</strong> n'est inclus.
+                  L'IA contribue à la rédaction de cette suggestion, qui est examinée par l'équipe Docs et d'autres parties prenantes internes avant publication. Confirmez qu'<strong>aucune information spécifique à un client</strong> ni aucun <strong>lien client</strong> n'apparaît.
                 </div>
               </div>
               </div>
@@ -507,7 +507,7 @@ hide_toc: true
               <div class="form-group">
 
                 <label for="doc_snippet" id="doc_snippet_label" style="margin-bottom:6px;line-height:1.2;">Extraits de code (facultatif)</label>
-                <div class="sublabel" style="margin-bottom:6px;">Utile si vous êtes développeur. Incluez le contexte et précisez le langage de programmation utilisé.</div>
+                <div class="sublabel" style="margin-bottom:6px;">Utile si vous êtes développeur ou développeuse. Incluez le contexte et précisez le langage de programmation utilisé.</div>
                 <textarea name="Snippet" class="form-control" id="doc_snippet" data-toggle="popover" data-trigger="focus" data-placement="top" data-content=""
                   rows="7"></textarea>
               </div>

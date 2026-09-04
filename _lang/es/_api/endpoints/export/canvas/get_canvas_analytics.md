@@ -5,7 +5,7 @@ search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Exportar análisis de series de datos de Canvas de Braze."
+description: "En este artículo se describen los detalles del endpoint Exportar análisis de series de datos de Canvas de Braze."
 
 ---
 {% api %}
@@ -14,7 +14,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 /canvas/data_series
 {% endapimethod %}
 
-> Usa este punto de conexión para exportar datos de series temporales de un Canvas.
+> Usa este endpoint para exportar datos de series temporales de un Canvas.
 
 {% multi_lang_include api/export_data_series_analytics_dashboard_note.md type='canvas' %}
 
@@ -22,7 +22,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 
 ## Requisitos previos {#prerequisites}
 
-Para usar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `canvas.data_series`.
+Para usar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `canvas.data_series`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -112,7 +112,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_seri
       ... (more stats by time)
     ]
   },
-  "message": (required, string) the status of the export, returns 'success' when completed without errors
+  "message": (string) returns 'success' when the request completes without errors
 }
 ```
 

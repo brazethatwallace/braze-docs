@@ -32,7 +32,7 @@ Ao criar uma mensagem no app de arrastar e soltar, selecione **SMS sign-up** (qu
 
 Para começar a criar seu formulário de inscrição, selecione o componente de entrada de número de telefone no editor.
 
-![Área de pré-visualização ao criar um formulário de inscrição com o componente de entrada de número de telefone selecionado.]({% image_buster /assets/img_archive/dnd_iam_phone_capture_select.png %}){: style="max-width:80%"}
+![Área de prévia ao criar um formulário de inscrição com o componente de entrada de número de telefone selecionado.]({% image_buster /assets/img_archive/dnd_iam_phone_capture_select.png %}){: style="max-width:80%"}
 
 No menu lateral, especifique para qual grupo de inscrições este modelo coletará números de telefone. Para seguir as melhores práticas de conformidade, você só pode coletar consentimento para um grupo de inscrições por formulário de inscrição de número de telefone. No entanto, se desejar, você pode usar vários formulários para coletar consentimento para outros grupos de inscrições.
 
@@ -44,14 +44,14 @@ Por padrão, coletamos números globalmente. No entanto, você pode limitar os p
 
 #### Números de telefone inválidos {#invalid-phone-numbers}
 
-Se seus usuários inserirem um número de telefone que inclua caracteres especiais não aceitos, eles verão um indicador de erro genérico que não é personalizável e não poderão enviar o formulário. Você pode visualizar o comportamento de erro na guia **Preview & Test** e no seu dispositivo de teste. Consulte este artigo para saber [como a Braze formata números de telefone]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#importing-phone-numbers).
+Se seus usuários inserirem um número de telefone que inclua caracteres especiais não aceitos, eles verão um indicador de erro genérico que não é personalizável e não poderão enviar o formulário. Você pode visualizar o comportamento de erro na guia **prévia & Test** e no seu dispositivo de teste. Consulte este artigo para saber [como a Braze formata números de telefone]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#import-phone-numbers).
 
 ### Etapa 4: Adicione o texto de aviso legal (para formulários de inscrição de SMS e RCS) {#step-4-add-disclaimer-language-for-sms-and-rcs-sign-up-forms}
 
 Para formulários de inscrição de SMS e RCS, é importante comunicar claramente o tipo de SMS ou RCS que será enviado. Certifique-se de que o crescimento da sua lista esteja em conformidade incluindo as seguintes informações no seu formulário:
 
 - Descrição dos tipos de mensagens SMS e RCS que seus clientes podem esperar (lembretes de carrinho, promoções e ofertas, lembretes de compromissos, etc.). Você não precisa listar todos os casos de uso, mas deve fornecer uma descrição dos tipos de mensagens que sua marca enviará.
-- Observação de que o consentimento não é condição para nenhuma compra (se aplicável).
+- Nota de que o consentimento não é condição para nenhuma compra (se aplicável).
 - Frequência de mensagens e lembrete de que taxas de mensagens e dados podem ser aplicadas. Se você não souber a frequência exata de mensagens, pode informar que a frequência pode variar.
 - Links para seus Termos e Condições e Política de Privacidade de SMS e RCS.
 - Lembrete das palavras-chave de ajuda e descadastramento (HELP para ajuda; STOP para cancelar).

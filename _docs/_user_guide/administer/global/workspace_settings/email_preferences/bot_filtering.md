@@ -35,20 +35,17 @@ The following Braze metrics can be affected by bot clicks:
 - Heatmap
 - Certain segment filters
 
-[Braze Intelligence features]({{site.baseurl}}/user_guide/brazeai/intelligence_suite) that leverage click data on top of our detection systems may be impacted. Turning on the setting has the potential to disrupt our detection systems temporarily, which may result in a decrease in the metric or input due to this exclusion of suspected bot clicks:
+When bot filtering is turned on, suspected bot clicks are excluded from click data. The following [Braze Intelligence features]({{site.baseurl}}/user_guide/brazeai/intelligence_suite) may reflect lower click-related volumes as a result:
 
-- Intelligent Selection
 - Intelligent Channel
 - Intelligent Timing
 - Experiment Step
     - Winning Path
-    - Personalized Path
-- Campaign
-    - Winning Variant
-    - Personalized Variant
 - Estimated real open rate
 
-Unsubscribes from suspected bot clicks will not be affected. Braze will continue to process all unsubscribe requests as usual. If you would like Braze to block these unsubscribes, submit [product feedback]({{site.baseurl}}/user_guide/administer/personal/product_portal).
+[Optimize with BrazeAI™]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection) may also reflect lower click-related volumes when you optimize for a click-based goal.
+
+Unsubscribes from suspected bot clicks will not be affected. Braze will continue to process all unsubscribe requests as usual. {% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="blocking unsubscribes from suspected bot clicks" %}
 
 ## Segmentation filters affected by bot filtering
 

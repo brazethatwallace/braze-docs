@@ -39,7 +39,7 @@ Describe what you want to know. No fixed phrasing is required. Select a tab for 
 {% tab Benchmark comparisons %}
 
 * "How does our email *Open Rate* compare to industry benchmarks for the last 30 days?"
-* "Are we above or below the benchmark for SMS *Click-Through Rate* this quarter?"
+* "Are we higher or lower than the benchmark for SMS *Click-Through Rate* this quarter?"
 * "Where are we underperforming the industry across our channel mix?"
 
 {% endtab %}
@@ -163,5 +163,11 @@ Operator Analyze follows the same privacy and security model as BrazeAI Operator
 
 ## Next steps
 
-* [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator)
-* [Review actions]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions)
+{% article_tiles %}
+- name: BrazeAI Operator
+  link: /docs/user_guide/brazeai/operator
+  description: Access Operator and explore its dashboard capabilities.
+- name: Review actions
+  link: /docs/user_guide/brazeai/operator/reviewing_actions
+  description: Review and approve Operator's proposed changes.
+{% endarticle_tiles %}

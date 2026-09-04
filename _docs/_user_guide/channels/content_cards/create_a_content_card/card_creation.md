@@ -18,7 +18,9 @@ toc_headers: h2
 
 To take advantage of this feature, you must upgrade to the following minimum SDK versions:
 
-{% sdk_min_versions swift:5.2.0 android:23.0.0 web:4.2.0 %}
+{% sdk_min_versions swift:5.2.0 objc:4.5.0 android:23.0.0 web:4.2.0 %}
+
+On iOS, the Swift SDK supports this feature starting with version 5.2.0, and the legacy Objective-C SDK supports it starting with version 4.5.0. Swift SDK versions 5.0.0 through 5.1.x don't support it.
 
 After upgrading the SDK, your mobile users must upgrade their app. You can filter your campaign or Canvas audience to only [target users on these minimum app versions]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions).
 
@@ -86,7 +88,7 @@ This section describes the main differences between card creation at campaign la
 <style type="text/css">
 .tg td{word-break:normal;}
 .tg th{word-break:normal;}
-.leftHeader{font-size: 12px; font-weight: bold; background-color: #f4f4f7; text-transform: uppercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
+.leftHeader{font-size: 12px; font-weight: bold; background-color: #f4f4f7; text-transform: uppercase; color: #212123; font-family: "Aribau Grotesk Bold", "Aribau Grotesk", "Aribau Grotesk Regular", Arial, Helvetica, sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
 </style>
 <table aria-label="Differences between creating cards at launch or entry versus at first impression #differences" class="tg">

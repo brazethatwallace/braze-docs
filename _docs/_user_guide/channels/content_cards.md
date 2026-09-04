@@ -40,9 +40,6 @@ When you build Content Cards in Braze, you can update messaging and measure impa
 - Outreach through push notifications, in-app messages, and Content Cards drives **6.9X** more sessions than push alone.[^2]
 - Outreach through email, in-app messages, and Content Cards drives **3.6X** longer average user lifetime than email alone.[^2]
 
-[^1]: [8 tips for making the most of your customer retention campaigns](https://www.braze.com/resources/articles/8-tips-for-making-the-most-of-your-customer-retention-campaigns)
-[^2]: [Report: The cross-channel marketing difference](https://www.braze.com/resources/reports-and-guides/the-cross-channel-marketing-difference-report)
-
 ## Use cases
 
 Refer to this section for some common use cases for Content Cards.
@@ -90,5 +87,12 @@ For an overview on how to implement Content Card placements in your app or websi
 
 ## Next steps
 
-- [Create a Content Card]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card)
-- [Creative details]({{site.baseurl}}/user_guide/channels/content_cards/creative_details)
+{% article_tiles %}
+- name: Create a Content Card
+  link: /docs/user_guide/channels/content_cards/create_a_content_card
+- name: Creative details
+  link: /docs/user_guide/channels/content_cards/creative_details
+{% endarticle_tiles %}
+
+[^1]: [8 tips for making the most of your customer retention campaigns](https://www.braze.com/resources/articles/8-tips-for-making-the-most-of-your-customer-retention-campaigns)
+[^2]: [Report: The cross-channel marketing difference](https://www.braze.com/resources/reports-and-guides/the-cross-channel-marketing-difference-report)

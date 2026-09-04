@@ -1,12 +1,11 @@
 ---
 nav_title: "POST: Send messages immediately using the API only"
-article_title: "POST: Send Messages Immediately Using the API Only"
+article_title: "Send messages immediately using the API only"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
 description: "This article outlines details about the Send messages immediately using API only Braze endpoint."
-
 ---
 {% api %}
 # Send messages immediately using the API only
@@ -69,7 +68,7 @@ Authorization: Bearer YOUR-REST-API-KEY
    "user_aliases": (optional, array of user alias object) see user alias,
    "segment_id": (optional, string) see segment identifier,
    "audience": (optional, connected audience object) see connected audience,
-   "campaign_id": (optional*, string) *required if you wish to track campaign stats (for example, sends, clicks, bounces, etc). see campaign identifier,
+   "campaign_id": (optional*, string) required if you wish to track campaign stats (for example, sends, clicks, bounces, etc). see campaign identifier,
    "send_id": (optional, string) see send identifier,
    "override_frequency_capping": (optional, bool) ignore frequency_capping for campaigns, defaults to false,
    "recipient_subscription_state": (optional, string) use this to send messages to only users who have opted in ('opted_in'), only users who have subscribed or are opted in ('subscribed') or to all users, including unsubscribed users ('all'), the latter being useful for transactional email messaging. Defaults to 'subscribed',
@@ -96,7 +95,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 |`user_aliases`| Optional | Array of user alias objects| See [user alias object]({{site.baseurl}}/api/objects_filters/user_alias_object). |
 |`segment_id `| Optional | String | See [segment identifier]({{site.baseurl}}/api/identifier_types#segment-identifier). |
 |`audience`| Optional | Connected audience object | See [connected audience]({{site.baseurl}}/api/objects_filters/connected_audience). |
-|`campaign_id`| Optional* | String | See [campaign identifier]({{site.baseurl}}/api/identifier_types#campaign-identifier) for more information. <br><br>*Required if you wish to track campaign metrics (such as _Sends_, _Clicks_, or _Bounces_) on the Braze dashboard, or if you want to see events associated with this message in the user profile [Message History tab]({{site.baseurl}}/user_guide/engagement_tools/segments/user_profiles#messaging-history-tab). |
+|`campaign_id`| Optional* | String | See [campaign identifier]({{site.baseurl}}/api/identifier_types#campaign-identifier) for more information. <br><br>*Required to track campaign metrics (such as _Sends_, _Clicks_, or _Bounces_) on the Braze dashboard, or to see events associated with this message in the user profile [Message History tab]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles). Without a `campaign_id`, Braze doesn't increment dashboard deliverability stats. Sends still appear in the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log), but not in email performance metrics in the dashboard. |
 |`send_id`| Optional | String | See [send identifier]({{site.baseurl}}/api/identifier_types#send-identifier). |
 |`override_frequency_capping`| Optional | Boolean | Ignore `frequency_capping` for campaigns, defaults to `false`. |
 |`recipient_subscription_state`| Optional | String | Use this to send messages to only users who have opted in (`opted_in`), only users who have subscribed or are opted in (`subscribed`) or to all users, including unsubscribed users (`all`). <br><br>Using `all` users is useful for transactional email messaging. Defaults to `subscribed`. |

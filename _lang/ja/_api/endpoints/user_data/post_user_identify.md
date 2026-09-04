@@ -1,13 +1,12 @@
 ---
 nav_title: "POST:ユーザーを識別する"
-article_title: "POST:ユーザーを識別する"
+article_title: "ユーザーを識別する"
 search_tag: Endpoint
 page_order: 3
 layout: api_page
 page_type: reference
 alias: /users_identify_merge/
 description: "この記事では、「ユーザーの識別」Brazeエンドポイントの詳細について説明します。"
-
 ---
 {% api %}
 # ユーザーを識別する {#identify-users}
@@ -32,7 +31,7 @@ description: "この記事では、「ユーザーの識別」Brazeエンドポ�
 その `external_id` を持つユーザーが存在しない場合、`external_id` はエイリアスユーザーのレコードに追加され、ユーザーは識別済みとみなされます。ユーザーは特定のラベルに対して1つのエイリアスしか持つことができません。`external_id` を持つユーザーが既に存在し、かつエイリアスのみのプロファイルと同じラベルを持つ既存のエイリアスがある場合、ユーザープロファイルは結合されません。
 
 {% alert tip %}
-ユーザーを識別する際にデータの予期しない損失を防ぐために、まず[データ収集のベストプラクティス]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/best_practices#capturing-user-data-when-alias-only-user-info-is-already-present)を参照して、エイリアスのみのユーザー情報が既に存在する場合のユーザーデータのキャプチャについて学ぶことを強くお勧めします。
+ユーザーを識別する際にデータの予期しない損失を防ぐために、まず[データ収集のベストプラクティス]({{site.baseurl}}/user_guide/data/unification/user_data/best_practices)を参照して、エイリアスのみのユーザー情報が既に存在する場合のユーザーデータのキャプチャについて学ぶことを強くお勧めします。
 {% endalert %}
 
 ### マージ動作 {#merging-behavior}
@@ -65,7 +64,7 @@ description: "この記事では、「ユーザーの識別」Brazeエンドポ�
 - 初回購入日（Brazeは2つの日付のうち早い方を選択します）
 - 最終購入日（Brazeは2つの日付のうち遅い方を選択します）
 - アプリの概要
-- Last_X_at フィールド（孤立したプロファイルのフィールドがより新しい場合、Brazeはフィールドを更新します）
+- Last_X_atフィールド（孤立したプロファイルのフィールドがより新しい場合、Brazeはフィールドを更新します）
 - キャンペーンの概要（Brazeは最も新しい日付フィールドを選択します）
 - ワークフローの概要（Brazeは最も新しい日付フィールドを選択します）
 - メッセージとメッセージのエンゲージメント履歴
@@ -77,7 +76,7 @@ description: "この記事では、「ユーザーの識別」Brazeエンドポ�
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`users.identify` 権限を持つ[APIキー]({{site.baseurl}}/api/api_key)が必要です。
+このエンドポイントを使用するには、`users.identify` 権限を持つ[APIキー]({{site.baseurl}}/api/basics)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -109,7 +108,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | パラメーター | 必須 | データタイプ | 説明 |
 |-----------------------------|----------|-------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `aliases_to_identify` | 必須 | 識別するエイリアスオブジェクトの配列 | [識別するエイリアスオブジェクト]({{site.baseurl}}/api/objects_filters/aliases_to_identify)および[ユーザーエイリアスオブジェクト]({{site.baseurl}}/api/objects_filters/user_alias_object)を参照してください。 |
-| `emails_to_identify` | 必須 | 識別するエイリアスオブジェクトの配列 | 識別子として `email` が指定されている場合は必須です。ユーザーを識別するためのメールアドレス。[メールによるユーザーの識別](#identifying-users-by-email)を参照してください。 |
+| `emails_to_identify` | 必須 | 識別するエイリアスオブジェクトの配列 | 識別子として `email` が指定されている場合は必須です。ユーザーを識別するためのメールアドレス。[メールアドレスと電話番号によるユーザーの識別](#identifying-users-by-email-addresses-and-phone-numbers)を参照してください。 |
 | `phone_numbers_to_identify` | 必須 | 識別するエイリアスオブジェクトの配列 | ユーザーを識別するための電話番号。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
@@ -166,14 +165,14 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/identify' \
 `alias_name` フィールドは大文字と小文字を区別します。`201` ステータスコードを返すリクエストは、リクエストの構文が有効であることのみを確認するものであり、エイリアスが一致したことを確認するものではありません。リクエスト内の `alias_name` の大文字と小文字がユーザープロファイルに保存されているエイリアスと正確に一致しない場合、操作はサイレントに失敗し、`external_id` は割り当てられません。例えば、保存されているエイリアスが `JimJones@example.com` の場合、`jimjones@example.com` でリクエストすると成功を返しますが、結果は生成されません。
 
 {% alert tip %}
-`alias_name` および `alias_label` の詳細については、[ユーザーエイリアス]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases)のドキュメントをご覧ください。
+`alias_name` および `alias_label` の詳細については、[ユーザーエイリアス]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle)のドキュメントをご覧ください。
 {% endalert %}
 
 ### 識別リクエストが成功を返すのにプロファイルがマージされないのはなぜですか？ {#why-does-my-identify-request-return-success-but-the-profile-did-not-merge}
 
-`201 Created` と `message: success` は、リクエストが受け付けられたことを意味します。ペイロード内のすべてのエイリアスやメールが既存のプロファイルに一致したことを保証するものではありません。`alias_name` の大文字と小文字の不一致、重複プロファイル、または優先順位ルールにより、呼び出しが成功しても目に見えるマージが行われない場合があります。`alias_name` の大文字と小文字が保存されている値と正確に一致していることを確認し、[`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge)で重複プロファイルを確認し、`emails_to_identify` を使用する場合は[`prioritization`](#identifying-users-by-email)を確認してください。
+`201 Created` と `message: success` は、Brazeがリクエストを受け付けたことを意味します。ペイロード内のすべてのエイリアスやメールが既存のプロファイルに一致したことを保証するものではありません。`alias_name` の大文字と小文字の不一致、重複プロファイル、またはBrazeの優先順位ルールにより、呼び出しが成功しても目に見えるマージが行われない場合があります。`alias_name` の大文字と小文字が保存されている値と正確に一致していることを確認し、[`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge)で重複プロファイルを確認し、`emails_to_identify` を使用する場合は[`prioritization`](#identifying-users-by-email-addresses-and-phone-numbers)を確認してください。
 
-## 応答 {#response}
+## レスポンス {#response}
 
 ```json
 {

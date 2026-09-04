@@ -1,10 +1,10 @@
 ---
-nav_title: Segmento
+nav_title: Segment
 layout: dev_guide
 search_rank: 9
-guide_top_header: "Segmento"
-guide_top_text: "A Segment é uma plataforma de dados do cliente que coleta, unifica e encaminha dados primários de clientes para a Braze e outras ferramentas. Use estes artigos para configurar a integração com a Segment, sincronizar públicos com o Segment Engage e transmitir dados de engajamento da Braze para a Segment por meio do Currents, obtendo uma visão compartilhada dos seus usuários em todos os sistemas de marketing."
-description: "Esta landing page reúne tudo o que está relacionado à Segment — a plataforma de dados do cliente."
+guide_top_header: "Segment"
+guide_top_text: "A Segment é uma CDP que coleta, unifica e encaminha dados primários de clientes para a Braze e outras ferramentas. Use estes artigos para configurar a integração com a Segment, sincronizar públicos com o Segment Engage e transmitir dados de engajamento da Braze para a Segment por meio do Currents, obtendo uma visão compartilhada dos seus usuários em todos os sistemas de marketing."
+description: "Esta landing page reúne tudo o que está relacionado à Segment — a CDP."
 
 guide_featured_list:
 - name: Segmento

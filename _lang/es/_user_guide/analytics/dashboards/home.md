@@ -22,19 +22,19 @@ La página **Inicio** tiene dos secciones principales:
 
 Puedes retomar donde lo dejaste en el dashboard de Braze con acceso directo a los archivos que editaste o creaste recientemente. Esta sección aparece en la parte superior de la página **Inicio** del dashboard de Braze.
 
-Puedes volver a visitar Campaigns, Canvas y Segments editados o creados recientemente. Cada tarjeta está acompañada de etiquetas que indican el tipo de contenido (Campaign, Canvas, Segment) y el estado (activo, borrador, archivado, detenido).
+Puedes volver a visitar campañas, Canvas y segmentos editados o creados recientemente. Cada tarjeta está acompañada de etiquetas que indican el tipo de contenido (Campaign, Canvas, Segment) y el estado (activo, borrador, archivado, detenido).
 
 {% alert note %}
 La sección **Retoma donde lo dejaste** aparece después de que hayas editado o creado una Campaign, un Canvas o un Segment.
 {% endalert %}
 
-![Un borrador de Canvas, un Segment activo y un borrador de Campaign en la sección "Retoma donde lo dejaste".]({% image_buster /assets/img/pick_up_where_you_left_off.png %})
+![Un borrador de Canvas, un segmento activo y un borrador de Campaign en la sección "Retoma donde lo dejaste".]({% image_buster /assets/img/pick_up_where_you_left_off.png %})
 
 ## Resumen de rendimiento {#performance-overview}
 
 De forma predeterminada, la sección **Resumen de rendimiento** muestra los datos de los últimos 30 días para todas las aplicaciones y sitios. Todas tus métricas se calculan en función del rango de fechas seleccionado.
 
-Los porcentajes se calculan comparando el rango de fechas actual con el rango de fechas anterior, con la excepción de *Usuarios activos al mes* (MAU), que utiliza el último día del período anterior en lugar de un rango.
+Los porcentajes se calculan comparando el rango de fechas actual con el rango de fechas anterior, con la excepción de *MAU* (MAU), que utiliza el último día del período anterior en lugar de un rango.
 
 Por ejemplo, si estableces tu rango de fechas en **Últimos 7 días** y tus *Usuarios activos diarios* muestran un aumento porcentual del 1,8 %, eso significa que tuviste un 1,8 % más de usuarios activos diarios esta semana en comparación con la semana pasada.
 
@@ -54,24 +54,24 @@ Puedes graficar estadísticas para:
 - Banners
 - Content Cards
 - Usuarios activos diarios
-  - (Opcional) Desglose por Segment
+  - (Opcional) Desglose por segmento
 - Correo electrónico
 - Mensajes dentro de la aplicación
-- Fórmulas de KPI
-  - Selecciona **Manage KPI Formulas** para crear una fórmula o editar una fórmula existente.
+- Fórmulas de indicador clave de rendimiento
+  - Selecciona **Manage indicador clave de rendimiento Formulas** para crear una fórmula o editar una fórmula existente.
 - LINE
-- Usuarios activos al mes (MAU)
+- MAU (MAU)
 - Nuevos usuarios
 - Push
-  - (Opcional) Desglose por Segment
+  - (Opcional) Desglose por segmento
 - Sesiones
-  - (Opcional) Desglose por Segment o versión de la aplicación
+  - (Opcional) Desglose por segmento o versión de la aplicación
 - Sesiones por hora
 - Sesiones por MAU
 - SMS
 - Adherencia
 - Desinstalaciones
-  - (Opcional) Desglose por Segment
+  - (Opcional) Desglose por segmento
 - Usuarios
 - Webhooks
 - WhatsApp
@@ -82,18 +82,18 @@ A continuación se presentan las definiciones de las estadísticas disponibles, 
 
 ### Usuarios {#users}
 
-*Usuarios* es el número total de usuarios creados en ese espacio de trabajo. Esto incluye a todos los usuarios registrados que han utilizado tu aplicación o sitio web en cualquier momento, y aquellos que podrían no estar asociados con una aplicación o sitio web específico. Este número es el porcentaje de cuántos de tus usuarios históricos están representados como *Usuarios activos al mes* (MAU), lo cual es útil para ver la retención de usuarios durante un largo período de tiempo.
+*Usuarios* es el número total de usuarios creados en ese espacio de trabajo. Esto incluye a todos los usuarios registrados que han utilizado tu aplicación o sitio web en cualquier momento, y aquellos que podrían no estar asociados con una aplicación o sitio web específico. Este número es el porcentaje de cuántos de tus usuarios históricos están representados como *MAU* (MAU), lo cual es útil para ver la retención de usuarios durante un largo período de tiempo.
 
-Una proporción baja de MAU respecto a usuarios puede indicar que necesitas diversificar tus canales de mensajería o aumentar tus esfuerzos para contactar a los usuarios inactivos. Consulta nuestra guía rápida sobre [captar usuarios inactivos]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users#capture-lapsing-users) para más información. En general, la proporción de MAU respecto a usuarios históricos inevitablemente disminuirá con el tiempo debido a la cancelación de usuarios, pero las herramientas de Braze pueden ayudarte a minimizar este efecto manteniendo a los usuarios comprometidos durante más tiempo.
+Una proporción baja de MAU respecto a usuarios puede indicar que necesitas diversificar tus canales de mensajería o aumentar tus esfuerzos para contactar a los usuarios inactivos. Consulta nuestra guía rápida sobre [captar usuarios inactivos]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users) para más información. En general, la proporción de MAU respecto a usuarios históricos inevitablemente disminuirá con el tiempo debido a la cancelación de usuarios, pero las herramientas de Braze pueden ayudarte a minimizar este efecto manteniendo a los usuarios comprometidos durante más tiempo.
 
 ### Sesiones históricas {#lifetime-sessions}
 
 *Sesiones históricas* es el recuento total de sesiones que Braze ha registrado desde la integración. Una sesión es cada vez que un usuario utiliza la aplicación o visita tu sitio web. Para una definición más precisa de cómo se definen las sesiones por plataforma, consulta los artículos correspondientes para desarrolladores sobre seguimiento de sesiones en
 [iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=swift), [Android y FireOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=android) o [Web]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=web).
 
-### Usuarios activos al mes {#monthly-active-users}
+### MAU {#monthly-active-users}
 
-*Usuarios activos al mes* (MAU) es el número de usuarios que han registrado una sesión en tu aplicación o sitio en los últimos 30 días. Los MAU se calculan cada noche con una ventana móvil de 30 días. Los MAU te proporcionan una buena comprensión de la salud de una aplicación o sitio durante un período prolongado, ya que suavizan las inconsistencias entre días con intensidad de uso variable.
+*MAU* (MAU) es el número de usuarios que han registrado una sesión en tu aplicación o sitio en los últimos 30 días. Los MAU se calculan cada noche con una ventana móvil de 30 días. Los MAU te proporcionan una buena comprensión de la salud de una aplicación o sitio durante un período prolongado, ya que suavizan las inconsistencias entre días con intensidad de uso variable.
 
 El porcentaje junto al recuento de MAU muestra el cambio en MAU para este período en comparación con el período anterior.
 
@@ -134,7 +134,7 @@ Los recuentos de MAU en Braze dependen de dónde los consultes. El MAU total se 
 
 ### Usuarios activos diarios {#daily-active-users}
 
-*Usuarios activos diarios* (DAU) muestra el número de usuarios únicos que registran al menos una sesión en tu aplicación o sitio en un día determinado. DAU puede ser una estadística útil para examinar la variabilidad diaria del uso de tu aplicación o sitio y adaptar tus campañas de mensajería para que sean lo más efectivas posible. Por ejemplo, el uso de tu aplicación puede experimentar un aumento notable los fines de semana, lo que te indicaría que podrías llegar a más usuarios con mensajes dentro de la aplicación en esos días en lugar de entre semana.
+*Usuarios activos diarios* (usuario activo diario) muestra el número de usuarios únicos que registran al menos una sesión en tu aplicación o sitio en un día determinado. usuario activo diario puede ser una estadística útil para examinar la variabilidad diaria del uso de tu aplicación o sitio y adaptar tus campañas de mensajería para que sean lo más efectivas posible. Por ejemplo, el uso de tu aplicación puede experimentar un aumento notable los fines de semana, lo que te indicaría que podrías llegar a más usuarios con mensajes dentro de la aplicación en esos días en lugar de entre semana.
 
 ### Nuevos usuarios {#new-users}
 
@@ -150,7 +150,7 @@ Los usuarios asociados con más de una aplicación se cuentan por separado para 
 
 ### Adherencia {#stickiness}
 
-El valor de *Adherencia* es una proporción entre los DAU y los MAU de un período determinado. En esencia, la adherencia mide el porcentaje de tus MAU que regresan diariamente.
+El valor de *Adherencia* es una proporción entre los usuario activo diario y los MAU de un período determinado. En esencia, la adherencia mide el porcentaje de tus MAU que regresan diariamente.
 
 Por ejemplo, si el rango de fechas se establece en 30 días, una proporción del 50 % indica que, en promedio, un usuario activo utiliza la aplicación o el sitio web 15 de los 30 días, o que aproximadamente la mitad de tus usuarios activos regresan diariamente. La adherencia es una métrica importante para el éxito porque la mayoría de los usuarios no dejan de usar una aplicación porque la odien activamente, sino porque no se ha convertido en parte de su rutina diaria. Por lo tanto, puedes usar la adherencia como un indicador de qué tan bien estás involucrando a tus usuarios.
 
@@ -166,7 +166,7 @@ El valor de MAU se calcula cada noche y no se actualizará hasta el día siguien
 
 ### Sesiones diarias {#daily-sessions}
 
-*Sesiones diarias* es el número de sesiones registradas en un día determinado. Comparar este valor con tu recuento de DAU puede informarte de cuántas veces tus usuarios abren la aplicación o visitan tu sitio web en los días en que registran al menos una sesión.
+*Sesiones diarias* es el número de sesiones registradas en un día determinado. Comparar este valor con tu recuento de usuario activo diario puede informarte de cuántas veces tus usuarios abren la aplicación o visitan tu sitio web en los días en que registran al menos una sesión.
 
 {% alert note %}
 El *Recuento de sesiones diarias* para una fecha determinada puede cambiar cuando consultas el dashboard de inicio en días diferentes. Si un usuario inicia una sesión sin conexión, es posible que la sesión no llegue a Braze hasta que vuelva a abrir la aplicación. Cuando esa sesión se envía, Braze la atribuye a la fecha en que comenzó la sesión, lo que puede aumentar el recuento de esa fecha retroactivamente.

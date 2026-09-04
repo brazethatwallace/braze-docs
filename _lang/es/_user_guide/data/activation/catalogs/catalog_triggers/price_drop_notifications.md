@@ -12,7 +12,7 @@ description: "Este artículo de referencia describe cómo crear notificaciones d
 
 ## Cómo funciona {#how-it-works}
 
-Cuando un usuario desencadena un evento personalizado para un artículo, lo suscribiremos automáticamente para que reciba notificaciones de bajada de precio de ese artículo. Cuando el precio del artículo cumpla tu regla de inventario (como una caída superior al 50 %), todos los suscriptores serán elegibles para recibir notificaciones a través de una campaña o Canvas. Sin embargo, solo los usuarios que hayan optado por recibir notificaciones las recibirán.
+Cuando un usuario desencadena un evento personalizado para un artículo, lo suscribiremos automáticamente para que reciba notificaciones de bajada de precio de ese artículo. Cuando el precio del artículo cumpla tu regla de inventario (como una caída superior al 50 %), todos los suscriptores serán elegibles para recibir notificaciones a través de una Campaign o Canvas. Sin embargo, solo los usuarios que hayan optado por recibir notificaciones las recibirán.
 
 ## Configuración de un evento personalizado para notificaciones de bajada de precio {#setting-a-custom-event-for-price-drop-notifications}
 
@@ -23,9 +23,9 @@ Puedes crear una suscripción a bajadas de precio para un usuario y un artículo
 - Un usuario realiza un evento personalizado seleccionado
 - El evento personalizado tiene una propiedad `type` que incluye `price_drop` (`type` debe ser una matriz)
 
-Para configurar notificaciones tanto de bajada de precio como de reposición de existencias en el mismo evento, puedes utilizar la propiedad `type`, que debe ser una matriz. Cuando un artículo tenga un cambio de precio que cumpla tu regla de precios, buscaremos a todos tus usuarios suscritos a ese artículo (usuarios que realizaron el evento de suscripción) y enviaremos un evento personalizado de Braze que puedes utilizar para desencadenar una campaña o Canvas.
+Para configurar notificaciones tanto de bajada de precio como de reposición de existencias en el mismo evento, puedes utilizar la propiedad `type`, que debe ser una matriz. Cuando un artículo tenga un cambio de precio que cumpla tu regla de precios, buscaremos a todos tus usuarios suscritos a ese artículo (usuarios que realizaron el evento de suscripción) y enviaremos un evento personalizado de Braze que puedes utilizar para desencadenar una Campaign o Canvas.
 
-Las propiedades del evento se envían junto con tu usuario, por lo que puedes incluir los detalles del artículo en la plantilla de la campaña o Canvas que lo envía.
+Las propiedades del evento se envían junto con tu usuario, por lo que puedes incluir los detalles del artículo en la plantilla de la Campaign o Canvas que lo envía.
 
 ## Configurar las notificaciones de bajada de precios {#setting-up-price-drop-notifications}
 
@@ -40,7 +40,7 @@ Sigue estos pasos para configurar las notificaciones de bajada de precios en un 
 | **Catálogo alternativo** | El catálogo utilizado para la suscripción si no hay una propiedad `catalog_name` en el evento personalizado. |
 | **Evento personalizado para suscribirse** | El evento personalizado utilizado para suscribir a un usuario a las notificaciones del catálogo. Cuando se produzca este evento, se suscribirá al usuario que lo haya realizado. |
 | **Evento personalizado para cancelar suscripción** | El evento personalizado utilizado para cancelar la suscripción de un usuario a las notificaciones. Este evento es opcional. Si el usuario no realiza este evento, se le cancelará la suscripción transcurridos 90 días o cuando se desencadene el evento de bajada de precio, lo que ocurra primero. |
-| **Propiedad del evento de ID de artículo** | La propiedad en el evento personalizado anterior que se utiliza para determinar el artículo para una suscripción o cancelación de suscripción. Esta propiedad del evento personalizado debe contener un ID de artículo que exista en un catálogo. El evento personalizado debe contener una propiedad `catalog_name` para especificar en qué catálogo se encuentra este artículo. |
+| **Propiedad del evento de ID de artículo** | La propiedad en el evento personalizado mencionado anteriormente en esta sección que se utiliza para determinar el artículo para una suscripción o cancelación de suscripción. Esta propiedad del evento personalizado debe contener un ID de artículo que exista en un catálogo. El evento personalizado debe contener una propiedad `catalog_name` para especificar en qué catálogo se encuentra este artículo. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Configurar notificaciones de bajada de precios" }
 
 A continuación se muestra un ejemplo de evento personalizado:

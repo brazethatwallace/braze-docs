@@ -1,26 +1,26 @@
 ---
-nav_title: Google Tag Manager
-article_title: Google Tag Manager pour iOS
+nav_title: Google Tag gestionnaire
+article_title: Google Tag gestionnaire pour iOS
 platform: iOS
 page_order: 7
-description: "Cet article explique comment initialiser, configurer et déployer Google Tag Manager dans votre application iOS."
+description: "Cet article explique comment initialiser, configurer et déployer Google Tag gestionnaire dans votre application iOS."
 
 noindex: true
 ---
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# Google Tag Manager pour iOS {#google-tag-manager-for-ios}
+# Google Tag gestionnaire pour iOS {#google-tag-manager-for-ios}
 
 ## Initialisation du SDK {#initializing-ios-google-tag-provider}
 
-Le SDK iOS de Braze peut être initialisé et contrôlé par des balises configurées dans [Google Tag Manager](https://tagmanager.google.com/).
+Le SDK iOS de Braze peut être initialisé et contrôlé par des balises configurées dans [Google Tag gestionnaire](https://tagmanager.google.com/).
 
-Avant d'utiliser Google Tag Manager, veillez à suivre notre [configuration initiale du SDK]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview).
+Avant d'utiliser Google Tag gestionnaire, veillez à suivre notre [configuration initiale du SDK]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview).
 
-## Configuration de votre Google Tag Manager {#configuring-ios-google-tag-manager}
+## Configuration de votre Google Tag gestionnaire {#configuring-ios-google-tag-manager}
 
-Dans cet exemple, nous allons simuler une application de streaming musical qui souhaite journaliser différents événements au fur et à mesure que les utilisateurs écoutent des chansons. À l'aide de Google Tag Manager pour iOS, nous pouvons contrôler quels fournisseurs tiers reçoivent cet événement et créer des balises spécifiques à Braze.
+Dans cet exemple, nous allons simuler une application de streaming musical qui souhaite journaliser différents événements au fur et à mesure que les utilisateurs écoutent des chansons. À l'aide de Google Tag gestionnaire pour iOS, nous pouvons contrôler quels fournisseurs tiers reçoivent cet événement et créer des balises spécifiques à Braze.
 
 ### Événements personnalisés {#custom-events}
 
@@ -39,18 +39,18 @@ Dans les paramètres personnalisés de notre exemple d'étiquette (paires clé-v
 {% alert important %}
 Lorsque vous envoyez un événement personnalisé, définissez `actionType` sur `logEvent` et définissez une valeur pour `eventName` comme illustré dans l'exemple suivant.
 
-Le fournisseur d'étiquettes personnalisées dans notre exemple utilisera ces clés pour déterminer l'action à effectuer et le nom de l'événement à envoyer à Braze lorsqu'il reçoit des données de Google Tag Manager.
+Le fournisseur d'étiquettes personnalisées dans notre exemple utilisera ces clés pour déterminer l'action à effectuer et le nom de l'événement à envoyer à Braze lorsqu'il reçoit des données de Google Tag gestionnaire.
 {% endalert %}
 
 ![Une étiquette dans Google Tag Manager avec des champs de chemin de classe et de paires clé-valeur. Cette étiquette est définie pour se déclencher avec le déclencheur « played song » créé précédemment.]({% image_buster /assets/img/android_google_tag_manager/gtm_android_function_call_tag.png %})
 
-Vous pouvez également inclure des arguments de paires clé-valeur supplémentaires à l'étiquette, qui seront envoyés en tant que propriétés d'événement personnalisé à Braze. `eventName` et `actionType` ne seront pas ignorés pour les propriétés d'événement personnalisé. Dans l'exemple d'étiquette suivant, nous allons transmettre `genre`, qui a été défini à l'aide d'une variable d'étiquette dans Google Tag Manager, issue de l'événement personnalisé que nous avons enregistré dans notre application.
+Vous pouvez également inclure des arguments de paires clé-valeur supplémentaires à l'étiquette, qui seront envoyés en tant que propriétés d'événement personnalisé à Braze. `eventName` et `actionType` ne seront pas ignorés pour les propriétés d'événement personnalisé. Dans l'exemple d'étiquette suivant, nous allons transmettre `genre`, qui a été défini à l'aide d'une variable d'étiquette dans Google Tag gestionnaire, issue de l'événement personnalisé que nous avons enregistré dans notre application.
 
-La propriété d'événement `genre` est envoyée à Google Tag Manager en tant que variable « Firebase - paramètre de l'événement », étant donné que Google Tag Manager pour iOS utilise Firebase comme couche de données.
+La propriété d'événement `genre` est envoyée à Google Tag gestionnaire en tant que variable « Firebase - paramètre de l'événement », étant donné que Google Tag gestionnaire pour iOS utilise Firebase comme couche de données.
 
 ![Une variable dans Google Tag Manager où « genre » est ajouté en tant que paramètre de l'événement pour l'étiquette « Braze - Played Song Event ».]({% image_buster /assets/img/android_google_tag_manager/gtm_android_eventname_variable.png %})
 
-Enfin, lorsqu'un utilisateur joue une chanson dans notre application, nous enregistrons un événement via Firebase et Google Tag Manager en utilisant le nom d'événement d'analyse Firebase qui correspond au nom de déclencheur de notre étiquette, `played song` :
+Enfin, lorsqu'un utilisateur joue une chanson dans notre application, nous enregistrons un événement via Firebase et Google Tag gestionnaire en utilisant le nom d'événement d'analyse Firebase qui correspond au nom de déclencheur de notre étiquette, `played song` :
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -97,15 +97,15 @@ NSDictionary *parameters = @{@"externalUserId" : userId};
 
 ## Fournisseur d'étiquettes personnalisées du SDK Braze {#adding-ios-google-tag-provider}
 
-Une fois les étiquettes et les déclencheurs configurés, vous devrez également implémenter Google Tag Manager dans votre application iOS, comme décrit dans la [documentation](https://developers.google.com/tag-manager/ios/v5/) de Google.
+Une fois les étiquettes et les déclencheurs configurés, vous devrez également implémenter Google Tag gestionnaire dans votre application iOS, comme décrit dans la [documentation](https://developers.google.com/tag-manager/ios/v5/) de Google.
 
-Une fois Google Tag Manager installé dans votre application, ajoutez un fournisseur d'étiquettes personnalisées pour appeler les méthodes du SDK Braze en fonction des étiquettes que vous avez configurées dans Google Tag Manager.
+Une fois Google Tag gestionnaire installé dans votre application, ajoutez un fournisseur d'étiquettes personnalisées pour appeler les méthodes du SDK Braze en fonction des étiquettes que vous avez configurées dans Google Tag gestionnaire.
 
-Veillez à noter le « chemin de classe » du fichier : c'est ce que vous indiquerez lorsque vous configurerez une étiquette dans la console de [Google Tag Manager](https://tagmanager.google.com/).
+Veillez à noter le « chemin de classe » du fichier : c'est ce que vous indiquerez lorsque vous configurerez une étiquette dans la console de [Google Tag gestionnaire](https://tagmanager.google.com/).
 
 Cet exemple montre l'une des nombreuses façons de structurer votre fournisseur d'étiquettes personnalisées, dans laquelle nous déterminons quelle méthode du SDK Braze appeler en fonction de la paire clé-valeur `actionType` envoyée depuis l'étiquette GTM.
 
-Les `actionType` que nous avons pris en charge dans notre exemple sont `logEvent`, `customAttribute` et `changeUser`, mais vous pouvez modifier la manière dont votre fournisseur d'étiquettes gère les données de Google Tag Manager.
+Les `actionType` que nous avons pris en charge dans notre exemple sont `logEvent`, `customAttribute` et `changeUser`, mais vous pouvez modifier la manière dont votre fournisseur d'étiquettes gère les données de Google Tag gestionnaire.
 
 Ajoutez le code suivant à votre fichier `BrazeGTMTagManager.h` :
 

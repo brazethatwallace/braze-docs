@@ -15,15 +15,15 @@ Supongamos que formas parte de un equipo de marketing de una aplicación de stre
 
 - Configurar un filtro de segmento con atributos personalizados anidados, validar rutas y elegir comparadores que coincidan con el tipo de datos de cada propiedad.
 - Saber cuándo usar los operadores **Day of Year** frente a **Time** para valores de fecha anidados, y cómo la **segmentación multicriterio** coincide con usuarios cuando al menos un objeto en una matriz cumple todos los criterios listados.
-- Generar un esquema para un objeto o una matriz de objetos, explorarlo en el dashboard y completar un segmento (por ejemplo, usuarios con saldo inferior a 100) usando el selector de rutas en lugar de escribir las rutas de memoria.
+- Generar un esquema para un objeto o una matriz de objetos, explorarlo en el dashboard y completar un segmento (por ejemplo, usuarios con saldo inferior a 100) usando el SELECTOR de rutas en lugar de escribir las rutas de memoria.
 
 ## Filtrar por atributos personalizados anidados {#filter-by-nested-custom-attributes}
 
-Vamos a crear un segmento basado en un atributo personalizado anidado para dirigirnos a los usuarios que reprodujeron su canción más escuchada más de 300 veces.
+Vamos a crear un Segment basado en un atributo personalizado anidado para dirigirnos a los usuarios que reprodujeron su canción más escuchada más de 300 veces.
 
 ### Paso 1: Añadir el filtro {#step-1-add-the-filter}
 
-Selecciona el filtro **Nested Custom Attributes** para mostrar un menú desplegable desde el cual puedes seleccionar un atributo personalizado anidado específico. Seleccionaremos `most_played_song`, que contiene datos sobre la canción más reproducida de un usuario.
+Selecciona el filtro **Atributos personalizados anidados** para mostrar un menú desplegable desde el que puedes seleccionar un atributo personalizado anidado específico. Seleccionaremos `most_played_song`, que contiene datos sobre la canción más escuchada de un usuario.
 
 ### Paso 2: Seleccionar la propiedad {#step-2-select-the-property}
 
@@ -31,29 +31,33 @@ Selecciona la **propiedad** dentro del atributo personalizado anidado por la que
 
 ### Paso 3: Seleccionar una comparación y un valor de atributo personalizado anidado {#step-3-select-a-comparison-and-nested-custom-attribute-value}
 
-Al filtrar por atributos personalizados anidados, el tipo de datos de tu propiedad determina los comparadores por los que puedes filtrar. Por ejemplo, como `play_analytics.count` es un número, puedes seleccionar un comparador en la categoría **Number**.
+Al filtrar por atributos personalizados anidados, el tipo de datos de tu propiedad determina los comparadores por los que puedes filtrar. Por ejemplo, como `play_analytics.count` es un número, puedes seleccionar un comparador en la categoría **Número**.
 
-Para filtrar por usuarios que reprodujeron su canción más escuchada al menos 300 veces, selecciona la comparación **More than** y luego introduce "300" como valor.
+Para filtrar por usuarios que reprodujeron su canción más escuchada al menos 300 veces, selecciona la comparación **Más que** y luego introduce "300" como valor.
 
 ![Un usuario eligiendo un operador basado en el tipo de datos del atributo personalizado anidado]({% image_buster /assets/img_archive/nca_comparator.png %})
 
 ## Filtrar por tipos de datos de tiempo {#filter-for-time-data-types}
 
-Al filtrar un atributo personalizado anidado de tipo tiempo, puedes elegir filtrar con operadores en las categorías **Day of Year** o **Time** al comparar el valor de fecha.
+Al filtrar un atributo personalizado anidado de tipo tiempo, puedes elegir filtrar con operadores de las categorías **Día del año** o **Tiempo** al comparar el valor de fecha.
 
-Si seleccionas un operador en la categoría **Day of Year**, solo se comparan el mes y el día en lugar de la marca de tiempo completa del valor del atributo personalizado anidado. Seleccionar un operador en la categoría **Time** compara la marca de tiempo completa, incluido el año.
+Si seleccionas un operador de la categoría **Día del año**, solo se comparan el mes y el día en lugar de la marca de tiempo completa del valor del atributo personalizado anidado. Seleccionar un operador de la categoría **Tiempo** compara la marca de tiempo completa, incluido el año.
 
-## Usar segmentación multicriterio {#use-multi-criteria-segmentation}
+{% alert note %}
+Al usar operadores de **Tiempo** que admiten unidades de días y semanas (como **es más de**, **es menos de**, **exactamente** y **después de**), Braze convierte automáticamente el valor a semanas cuando guardas el Segment. Por ejemplo, 91 días se convierten en 13 semanas. Tanto las unidades de días como de semanas son compatibles con estos filtros.
+{% endalert %}
 
-Usa la **segmentación multicriterio** para crear un segmento que coincida con múltiples criterios dentro de un solo objeto. Esto califica al usuario en el segmento si tiene al menos un objeto en la matriz que cumple todos los criterios especificados. Por ejemplo, los usuarios solo coinciden con este segmento si su clave no está vacía y si su número es mayor que 0.
+## Usa la segmentación multicriterio {#use-multi-criteria-segmentation}
 
-### Copiar Liquid para segmento {#copy-liquid-for-segment}
+Usa la **segmentación multicriterio** para crear un Segment que coincida con múltiples criterios dentro de un solo objeto. Esto cualifica al usuario en el Segment si tiene al menos un objeto en la matriz que coincida con todos los criterios especificados. Por ejemplo, los usuarios solo coinciden con este Segment si su clave no está en blanco y si su número es mayor que 0.
 
-También puedes usar la función **Copy Liquid for segment** para generar código Liquid para este segmento y usarlo en un mensaje. Por ejemplo, supongamos que tienes una matriz de objetos de cuenta y un segmento que se dirige a clientes con cuentas gravables activas. Para lograr que los clientes contribuyan al objetivo de cuenta asociado con una de sus cuentas activas y gravables, querrás crear un mensaje para motivarlos.
+### Copiar Liquid para Segment {#copy-liquid-for-segment}
 
-![Un ejemplo de segmento con la casilla de verificación seleccionada para segmentación multicriterio.]({% image_buster /assets/img_archive/nca_multi_criteria.png %})
+También puedes usar la característica **Copiar Liquid para Segment** para generar código Liquid para este Segment y usarlo en un mensaje. Por ejemplo, supongamos que tienes una matriz de objetos de cuenta y un Segment que se dirige a clientes con cuentas gravables activas. Para lograr que los clientes contribuyan al objetivo de cuenta asociado con una de sus cuentas activas y gravables, querrás crear un mensaje para motivarlos.
 
-Cuando seleccionas **Copy Liquid for segment**, Braze genera automáticamente código Liquid que devuelve una matriz de objetos que solo contiene cuentas activas y gravables.
+![Un ejemplo de Segment con la casilla de verificación seleccionada para la segmentación multicriterio.]({% image_buster /assets/img_archive/nca_multi_criteria.png %})
+
+Cuando seleccionas **Copiar Liquid para Segment**, Braze genera automáticamente código Liquid que devuelve una matriz de objetos que solo contiene cuentas que están activas y son gravables.
 
 {% raw %}
 

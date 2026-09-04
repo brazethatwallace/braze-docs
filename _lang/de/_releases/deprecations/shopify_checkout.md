@@ -19,32 +19,32 @@ Allgemeine Informationen zum Upgrade auf Checkout Extensibility finden Sie in [d
 
 ## Auswirkungen auf Ihre Integration {#impact-to-your-integration}
 
-Die Braze- und Shopify-Integration verwendet [Shopify ScriptTags](https://shopify.dev/docs/apps/build/online-store/script-tag-legacy), um das Braze Web SDK für nicht-headless Websites zu laden. Wir planen, eine neue Version der Integration vor der Frist 2025 zu veröffentlichen, um alle Kund:innen zu unterstützen, bevor `checkout.liquid` vollständig abgeschafft wird.
+Die Integration von Braze und Shopify nutzt [Shopify ScriptTags](https://shopify.dev/docs/apps/build/online-store/script-tag-legacy), um das Braze Web SDK für Websites ohne Headless-Architektur zu laden. Wir planen, vor der Frist 2025 eine neue Version der Integration bereitzustellen, um alle Kund:innen zu unterstützen, bevor `checkout.liquid` vollständig eingestellt wird.
 
-Für die bevorstehenden Änderungen am 13. August 2024 prüfen Sie bitte anhand der nachstehenden Details, ob Ihr Entwickler:innen-Team davon betroffen sein wird.
+Prüfen Sie für die anstehenden Änderungen am 13. August 2024 die folgenden Details, um festzustellen, ob Ihr Entwicklungsteam betroffen ist.
 
 ### Phase eins: 13. August 2024 {#phase-one-august-13-2024}
 
-Bei der Standard-Integration von Braze und Shopify werden die Informations-, Versand- und Zahlungsseiten innerhalb der Kaufabwicklung nicht verwendet. Die Standard-Integration ist daher nicht betroffen.
+Die Standard-Integration von Braze und Shopify verwendet nicht die Informations-, Versand- und Zahlungsseiten innerhalb des Checkout-Erlebnisses. Daher ist die Standardintegration nicht betroffen.
 
 #### Shopify Plus
 
-Für Shopify-Plus-Kund:innen werden alle angepassten SDK-Code-Snippets, die `checkout.liquid` für die Informations-, Versand- oder Zahlungsseiten ändern, nach diesem Datum inaktiv. Angepasster Code, der Ereignisse von diesen Seiten protokolliert, wird zum Beispiel nicht mehr funktionieren. Wenn Sie angepassten SDK-Code haben, lesen Sie unsere [Anleitung für Entwickler:innen](#developer-guidance) zur Migration.
+Für Shopify-Plus-Kund:innen werden alle angepassten SDK-Code-Snippets, die `checkout.liquid` für die Informations-, Versand- oder Zahlungsseiten modifizieren, nach diesem Datum inaktiv. Zum Beispiel funktioniert angepasster Code, der Ereignisse von diesen Seiten protokolliert, nicht mehr. Wenn Sie angepassten SDK-Code verwenden, lesen Sie unsere [Entwickler:innen-Anleitung](#developer-guidance) zur Migration.
 
-#### Nicht-Shopify Plus {#non-shopify-plus}
+#### Ohne Shopify Plus {#non-shopify-plus}
 
-Für Kund:innen ohne Shopify Plus müssen Sie, wenn Sie die Informations-, Zahlungs- und Versandseiten anpassen möchten, [auf Shopify Plus upgraden](https://help.shopify.com/en/manual/checkout-settings/customize-checkout-configurations/checkout-extensibility#eligibility) und dann der [Anleitung für Entwickler:innen](#developer-guidance) folgen.
+Wenn Sie kein Shopify Plus nutzen und die Informations-, Zahlungs- und Versandseiten anpassen möchten, müssen Sie [ein Upgrade auf Shopify Plus durchführen](https://help.shopify.com/en/manual/checkout-settings/customize-checkout-configurations/checkout-extensibility#eligibility) und anschließend der [Entwickler:innen-Anleitung](#developer-guidance) folgen.
 
 ### Phase zwei: 28. August 2025 {#phase-two-august-28-2025}
 
-Shopify wird die Unterstützung für [ScriptTags](https://shopify.dev/docs/apps/build/online-store/script-tag-legacy) auf `checkout.liquid`-Seiten, die in der Integration verwendet werden, abschaffen. Als Reaktion darauf arbeiten wir aktiv an einer neuen Version der Shopify-Integration, die wir rechtzeitig vor dem Stichtag im August 2025 veröffentlichen wollen. Bleiben Sie dran für weitere Informationen vom Braze-Produktteam.
+Shopify wird die Unterstützung für [ScriptTags](https://shopify.dev/docs/apps/build/online-store/script-tag-legacy) auf `checkout.liquid`-Seiten einstellen, die in der Integration verwendet werden. Als Reaktion darauf arbeiten wir aktiv an einer neuen Version der Shopify-Integration, die wir rechtzeitig vor der Frist im August 2025 veröffentlichen möchten. Bleiben Sie auf dem Laufenden für weitere Informationen vom Braze-Produktteam.
 
-## Anleitung für Entwickler:innen {#developer-guidance}
+## Entwickler:innen-Hinweise {#developer-guidance}
 
-Diese Anleitung gilt für Shopify-Plus-Kund:innen, die angepasste SDK-Code-Snippets zu den Informations-, Versand- oder Zahlungsseiten in `checkout.liquid` hinzugefügt haben. Wenn Sie diese Anpassungen nicht vorgenommen haben, können Sie diese Anleitung ignorieren.
+Diese Hinweise gelten für Shopify Plus-Kund:innen, die angepasste SDK-Code-Snippets zu den Informations-, Versand- oder Zahlungsseiten in `checkout.liquid` hinzugefügt haben. Wenn Sie diese Anpassungen nicht vorgenommen haben, können Sie diese Hinweise ignorieren.
 
-Sie können keine angepassten SDK-Code-Snippets mehr zu den Informations-, Versand- oder Zahlungsseiten in `checkout.liquid` hinzufügen. Stattdessen müssen Sie angepasste SDK-Code-Snippets zu den Dankes- oder Auftragsstatus-Seiten hinzufügen. Damit können Sie Nutzer:innen, die den Checkout abgeschlossen haben, abgleichen.
-1. Laden Sie das Braze Web SDK auf den Dankes- und Auftragsstatus-Seiten.
+Sie können keine angepassten SDK-Code-Snippets mehr zu den Informations-, Versand- oder Zahlungsseiten in `checkout.liquid` hinzufügen. Stattdessen müssen Sie angepasste SDK-Code-Snippets zu den Dankes- oder Auftragsstatusseiten hinzufügen. Dadurch können Sie Nutzer:innen abgleichen, die den Checkout abgeschlossen haben.
+1. Laden Sie das Braze Web SDK auf den Dankes- und Auftragsstatusseiten.
 2. Rufen Sie die E-Mail-Adresse der Nutzer:innen ab.
 3. Rufen Sie `setEmail` auf.
 
@@ -55,6 +55,6 @@ braze.getUser().setEmail(<email address>);
 {% endraw %}
 
 {: start="4"}
-4. Führen Sie auf Braze die Nutzerprofile per E-Mail zusammen.
+4. Führen Sie in Braze die Zusammenführung der Nutzerprofile anhand der E-Mail-Adresse durch.
 
-Wenn Sie auf doppelte Nutzerprofile stoßen, können Sie unser [Tool zur Massenzusammenführung]({{site.baseurl}}/user_guide/engagement_tools/segments/user_profiles/duplicate_users/#bulk-merging) verwenden, um Ihre Daten zu bereinigen.
+Wenn Sie auf doppelte Nutzerprofile stoßen, können Sie unser [Tool zur Massenzusammenführung]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users#bulk-merging) verwenden, um Ihre Daten zu optimieren.

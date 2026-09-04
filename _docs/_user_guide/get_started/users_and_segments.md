@@ -1,10 +1,9 @@
 ---
 nav_title: Users and segments
-article_title: Getting Started&#58; Users and Segments
+article_title: "Get started: Users and segments"
 page_order: 2
 page_type: reference
 description: "This article provides an overview of users and segments, outlining their significance and how they can be used to engage your audience."
-
 ---
 
 # Get started: Users and segments
@@ -78,7 +77,7 @@ Events represent specific actions or behaviors performed by users within your ap
 
 #### Standard events
 
-[Standard events]({{site.baseurl}}/user_guide/data/activation/events#standard-events) are predefined events that Braze automatically tracks after the SDK is integrated into your app or site. Some examples of standard events include:
+[Standard events]({{site.baseurl}}/user_guide/data/activation/events) are predefined events that Braze automatically tracks after the SDK is integrated into your app or site. Some examples of standard events include:
 
 - **Session Start:** This event is triggered when a user opens the app.
 - **Session End:** This event is triggered when a user closes the app.
@@ -118,7 +117,7 @@ Visit our dedicated article to learn more about [data points]({{site.baseurl}}/u
 Tips for working with segments:
 
 - Segments in Braze are dynamic: users are always flowing in and out of segments, as they won't always fit the criteria. Users that fit the criteria of a segment at the moment of sending will be the recipients of that campaign or Canvas.
-    - If you want your segment to be static, you can use Segment Extensions. Segment Extensions (with [regeneration turned off]({{site.baseurl}}/user_guide/audience/segments/segment_extension#extension-regeneration)) represent your audience as a single snapshot in time.
+    - If you want your segment to be static, you can use Segment Extensions. Segment Extensions (with [regeneration turned off]({{site.baseurl}}/user_guide/audience/segments/segment_extension#step-4-designate-refresh-settings-optional)) represent your audience as a single snapshot in time.
 - You’re not limited to using one filter at a time. Create finely tuned, granular segments by layering multiple filters on top of each other.
 - You can use the actions or inactions of your users to understand how to reach your users where they want to engage with you. These actions might be custom events, engagement with an existing campaign or Canvas, or even a specific message within a Canvas.
 

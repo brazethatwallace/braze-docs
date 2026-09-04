@@ -26,7 +26,7 @@ Actualmente, solo se admiten las palabras clave de cancelación de suscripción 
 ## ¿Qué se considera difuso? {#what-is-deemed-as-fuzzy}
 
 Los criterios para que una respuesta de entrada se considere "difusa" son los siguientes (las comparaciones utilizan todas las palabras clave de la categoría **Opt-out**, incluidas las predeterminadas y las personalizadas):
-- Si al intercambiar una letra con la letra inmediatamente a la izquierda o a la derecha en un teclado QWERTY se obtiene una coincidencia con una palabra clave de cancelación de suscripción.
+- Si al reemplazar una letra por una tecla adyacente en un teclado QWERTY se obtiene una coincidencia con una palabra clave de cancelación de suscripción.
 - Una subcadena del mensaje coincide con una palabra clave de cancelación de suscripción.
 
 Por ejemplo, "Stpo" o "Please stopppp" se considerarán difusos y se enviará una respuesta de cancelación de suscripción difusa. Si el usuario responde después con una palabra clave de cancelación de suscripción, se desencadenará un evento de cancelación de suscripción.
@@ -35,12 +35,12 @@ Por ejemplo, "Stpo" o "Please stopppp" se considerarán difusos y se enviará un
 
 Para configurar la cancelación de suscripción difusa, ve a la página de administración de palabras clave del grupo de suscripción.
 
-1. Ve a **Audiencia** > **Administración del grupo de suscripción** y selecciona un grupo de suscripción **SMS/MMS/RCS**.
+1. Ve a **Audience** > **Subscription Group Management** y selecciona un grupo de suscripción **SMS/MMS/RCS**.
 2. En **Global Keywords**, busca la categoría **Opt-out** y selecciona el icono de lápiz.
 3. Alterna **Fuzzy Opt-Out** a **On**.
 4. Selecciona tu opción preferida de **Fuzzy Opt-Out Logic**:
-   - **Automatically unsubscribe:** Cuando un usuario envía un mensaje similar a una palabra clave de cancelación de suscripción, se cancela su suscripción de inmediato sin que se le solicite confirmación. A continuación, se envía el mensaje estándar de confirmación de cancelación de suscripción.
-   - **Send opt-out instructions:** Cuando un usuario envía un mensaje similar a una palabra clave de cancelación de suscripción, Braze envía una respuesta personalizada (el **Opt-out instruction message**) que explica cómo cancelar la suscripción.
+   - **Automatically unsubscribe:** cuando un usuario envía un mensaje similar a una palabra clave de cancelación de suscripción, se cancela su suscripción de inmediato sin que se le solicite confirmación. A continuación, se envía el mensaje estándar de confirmación de cancelación de suscripción.
+   - **Send opt-out instructions:** cuando un usuario envía un mensaje similar a una palabra clave de cancelación de suscripción, Braze envía una respuesta personalizada (el **Opt-out instruction message**) que explica cómo cancelar la suscripción.
 5. Si seleccionaste **Send opt-out instructions**, introduce tu texto personalizado en el campo **Opt-out instruction message**. Este campo es obligatorio para este ajuste.
 6. Selecciona **Save**.
 

@@ -24,13 +24,13 @@ A integração entre a Braze e a PassKit permite que você aumente e meça o eng
 | ----------- | ----------- |
 | Conta da PassKit | Você deve ter uma conta PassKit e um gerente de conta PassKit. |
 | `userDefinedID` | Para atualizar adequadamente os eventos personalizados e os atributos personalizados para seus usuários entre a PassKit e a Braze, é necessário definir o ID externo da Braze como `userDefinedID`. Esse `userDefinedID` é usado ao fazer chamadas de API para os endpoints da PassKit. |
-| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. <br><br> Isso pode ser criado no dashboard da Braze em **Settings** > **API Keys**. |
-| Endpoint REST da Braze  | Sua URL de endpoint REST. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/api/basics/#endpoints). |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| Endpoint REST da Braze  | Sua URL de endpoint REST. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/api/basics#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
-Para enriquecer ainda mais as experiências de carteira móvel dos seus clientes, a partir do dashboard da PassKit, você pode optar por transmitir dados para a Braze por meio do [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/#user-track-endpoint) da Braze.
+Para enriquecer ainda mais as experiências de carteira móvel dos seus clientes, a partir do dashboard da PassKit, você pode optar por transmitir dados para a Braze por meio do [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) da Braze.
 
 Exemplos de dados para compartilhar da PassKit incluem:
 - **Passe criado**: quando um cliente clica em um link de passe e recebe um passe pela primeira vez.
@@ -50,7 +50,7 @@ Para transmitir dados da PassKit, confirme se você definiu seu ID externo da Br
 
 ## Criar passe usando um link do SmartPass {#create-pass-using-a-smartpass-link}
 
-Na Braze, você pode configurar um link SmartPass para gerar uma URL exclusiva para que seus clientes instalem o passe no Android ou no iOS. Para fazer isso, você deve definir uma carga útil de dados SmartPass criptografada que possa ser chamada a partir de um bloco de conteúdo da Braze. Esse [bloco de conteúdo]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/content_blocks/#content-blocks) pode ser reutilizado para futuros passes e cupons. O seguinte é usado durante sua integração:
+Na Braze, você pode configurar um link SmartPass para gerar uma URL exclusiva para que seus clientes instalem o passe no Android ou no iOS. Para fazer isso, você deve definir uma carga útil de dados SmartPass criptografada que possa ser chamada a partir de um bloco de conteúdo da Braze. Esse [bloco de conteúdo]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/content_blocks#content-blocks) pode ser reutilizado para futuros passes e cupons. O seguinte é usado durante sua integração:
 
 - **URL da PassKit**: sua URL da PassKit é uma URL exclusiva para seu programa da PassKit.<br>Cada programa tem uma URL exclusiva, e você pode encontrá-la na guia **Distribution** do seu programa ou projeto da PassKit (por exemplo, https://pub1.pskt.io/c/ww0jir).<br><br>
 - **Segredo da PassKit**: juntamente com a URL, você deve ter em mãos a chave da PassKit para esse programa.<br>Isso pode ser encontrado na mesma página que a URL da PassKit.<br><br>
@@ -64,9 +64,9 @@ Primeiro, defina a carga útil do cupom ou do membro.
 
 Há muitos componentes diferentes que podem ser incluídos em sua carga útil, mas aqui estão dois importantes a observar:
 
-| Componente | Obrigatória | Tipo | Descrição |
+| Componente | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| `person.externalId` | Obrigatória | String | Definido como o ID externo da Braze, isso é crucial para que os retornos de chamada da PassKit para a Braze funcionem, permitindo que os usuários da empresa tenham cupons para várias ofertas em uma Campaign. Não é aplicado como único. |
+| `person.externalId` | Obrigatório | String | Definido como o ID externo da Braze, isso é crucial para que os retornos de chamada da PassKit para a Braze funcionem, permitindo que os usuários da empresa tenham cupons para várias ofertas em uma Campaign. Não é aplicado como único. |
 | `members.member.externalId` | Opcional | String | Definido como o ID externo da Braze, você pode usar seu ID externo para atualizar o passe de associação. A definição desse campo impõe que o usuário seja único no programa de associação. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Etapa 1: defina sua carga útil de dados de passe" }
 
@@ -257,15 +257,15 @@ Para configurar o webhook, preencha os detalhes do novo evento no corpo da solic
 
 Seu texto bruto será automaticamente destacado se for uma tag Braze aplicável.
 
-Pré-visualize a solicitação no painel **Preview** ou navegue até a guia **Test**, onde é possível selecionar um usuário aleatório, um usuário existente ou personalizar o seu próprio para testar o webhook.
+Pré-visualize a solicitação no painel **prévia** ou navegue até a guia **Test**, onde é possível selecionar um usuário aleatório, um usuário existente ou personalizar o seu próprio para testar o webhook.
 
 {% alert important %}
-Lembre-se de salvar seu modelo antes de sair da página! <br>Os modelos de webhook atualizados podem ser encontrados na lista **Modelos de webhooks salvos** ao criar uma nova [campanha de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).
+Lembre-se de salvar seu modelo antes de sair da página! <br>Os modelos de webhook atualizados podem ser encontrados na lista **Modelos de webhooks salvos** ao criar uma nova [campanha de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook).
 {% endalert %}
 
 ## Recuperar detalhes do passe pelo Conteúdo conectado {#retrieve-pass-details-via-connected-content}
 
-Além de criar e atualizar passes, também é possível recuperar os metadados dos passes dos usuários por meio do [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/) da Braze para incorporar detalhes personalizados dos passes em suas campanhas de mensagens.
+Além de criar e atualizar passes, também é possível recuperar os metadados dos passes dos usuários por meio do [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call) da Braze para incorporar detalhes personalizados dos passes em suas campanhas de mensagens.
 
 **Chamada de Conteúdo conectado da PassKit**
 

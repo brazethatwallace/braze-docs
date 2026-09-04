@@ -22,7 +22,7 @@ L'intégration permet aux marques de :
 - Exporter des audiences vers Braze directement à partir de Lytics
 - Envoyer les événements des Campaigns ou Canvas Braze à Lytics en temps réel pour des campagnes personnalisées et pour créer des profils utilisateurs riches
 
-## Cas d'utilisation {#use-cases}
+## Cas d'usage {#use-cases}
 
 Connectez Braze à Lytics pour [importer](#importing-data-from-braze-to-lytics) des e-mails, des SMS et l'activité des notifications push afin d'enrichir les profils utilisateurs Lytics. En utilisant conjointement Braze et Lytics, vous pouvez également [exporter](#integration) les audiences cross-canal et basées sur le comportement de Lytics pour créer des parcours clients Braze hautement personnalisés à l'aide de données first-party.
 
@@ -32,7 +32,7 @@ Connectez Braze à Lytics pour [importer](#importing-data-from-braze-to-lytics) 
 | ----------- | ----------- |
 | Compte Lytics | Un compte Lytics est nécessaire pour profiter de cette intégration. |
 | Numéro de compte Lytics | Un numéro de compte Lytics est nécessaire pour configurer l'URL de l'endpoint webhook. |
-| Jeton API Lytics | Un jeton REST API Lytics avec des autorisations de gestionnaire de données. <br><br> Celui-ci peut être créé dans le tableau de bord Lytics à partir de la **console Paramètres du compte** > **Access Tokens** > **Create New Token**. |
+| Jeton API Lytics | Un jeton REST API Lytics avec des autorisations de gestionnaire de données. <br><br> Celui-ci peut être créé dans le tableau de bord Lytics à partir de **Account Settings Console** > **Access Tokens** > **Create New Token**. |
 | Clé REST API de Braze | Une clé REST API Braze avec l'autorisation `users.track`. <br><br> Celle-ci peut être créée dans le tableau de bord de Braze à partir de **Paramètres** > **Clés API**. |
 | Instance de Braze | Votre [instance Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints). En cas de doute, contactez votre gestionnaire d'onboarding Braze pour obtenir ces informations. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
@@ -114,11 +114,11 @@ Vous pouvez importer des données d'audience de Braze vers Lytics à l'aide des 
 
 #### Étape 1 : Créer un jeton API Lytics {#step-1-create-a-lytics-api-token}
 
-Accédez au menu du compte Lytics dans le coin inférieur gauche en sélectionnant votre nom de compte, puis sélectionnez **Access Tokens** dans le menu déroulant. Ensuite, sélectionnez **Create API Token**.
+Accédez au menu du compte Lytics en sélectionnant votre nom de compte, puis sélectionnez **Access Tokens** dans le menu déroulant. Ensuite, sélectionnez **Create API Token**.
 
 ![Écran Access Tokens de Lytics avec Create API Token sélectionné depuis le menu du compte.]({% image_buster /assets/img/lytics/create_token.png %}){: style="max-width:80%;"}
 
-Saisissez un nom, une description facultative et une période d'expiration du jeton. Ensuite, activez le périmètre **Data Manager** pour les autorisations API et sélectionnez **Generate Token**. Copiez le jeton et conservez-le en lieu sûr.
+Saisissez un nom, une description facultative et une période d'expiration du jeton. Ensuite, activez le périmètre **Data gestionnaire** pour les autorisations API et sélectionnez **Generate Token**. Copiez le jeton et conservez-le en lieu sûr.
 
 ![Autorisations du jeton API Lytics avec le périmètre Data Manager activé avant la génération du jeton.]({% image_buster /assets/img/lytics/data_manager.png %}){: style="max-width:80%;"}
 

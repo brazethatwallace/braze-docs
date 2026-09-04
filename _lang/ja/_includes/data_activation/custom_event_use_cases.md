@@ -1,0 +1,7 @@
+- [アクションベースの配信]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery)を使用して、カスタムイベントに基づいてキャンペーンやキャンバスをトリガーする
+- カスタムイベントの実行回数、最後にイベントが発生した日時などでユーザーをセグメント化する
+- ダッシュボードの[カスタムイベント分析]({{site.baseurl}}/user_guide/data/activation/events/custom_events#analytics)を使用して、各イベントの発生頻度の集計を表示する
+- [ファネル]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports#step-2-select-events-for-funnel-steps)レポートや[リテンション]({{site.baseurl}}/user_guide/analytics/reports/retention_reports)レポートを使用して追加の分析を行う
+- [永続的なエントリプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties)を活用して、顧客イベントのメタデータをキャンバスステップでのパーソナライゼーションに使用する
+- [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)を使用してより高度な分析を生成する
+- [終了条件]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria)を設定して、ユーザーがキャンバスを終了するタイミングを定義する

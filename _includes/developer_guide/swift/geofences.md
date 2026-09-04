@@ -254,7 +254,7 @@ AppDelegate.braze?.requestGeofences(latitude: latitude, longitude: longitude)
 
 ### Why am I not receiving geofences on my device?
 
-To confirm whether or not geofences are being received on your device, first use the [SDK Debugger tool]({{site.baseurl}}/developer_guide/sdk_integration/debugging#debugging-the-braze-sdk) to check SDK's logs. You will then be able to see if geofences are successfully being received from the server and if there are any notable errors.
+To confirm whether or not geofences are being received on your device, first use the [SDK Debugger tool]({{site.baseurl}}/developer_guide/sdk_integration/debugging) to check SDK's logs. You will then be able to see if geofences are successfully being received from the server and if there are any notable errors.
 
 Other possible reasons geofences may not be received on your device include:
 

@@ -15,9 +15,12 @@ For the full reference — descriptions, when-to-use guidance, and invocation sy
 | [`braze-docs`](.github/skills/braze-docs/SKILL.md) | Drafting, editing, reviewing docs; broken links; merge conflicts |
 | [`check-accessibility`](.github/skills/check-accessibility/SKILL.md) | Pre-PR WCAG 2.2 AA gate for docs and site files |
 | [`create-pr`](.github/skills/create-pr/SKILL.md) | Opening draft pull requests with repo-aligned descriptions and pre-PR gates |
+| [`currents-glossary`](.github/skills/currents-glossary/SKILL.md) | Editing the generated Currents event glossary pages, the Currents changelog, or `currents_events.yml` |
 | [`redirect-management`](.github/skills/redirect-management/SKILL.md) | Adding, updating, and validating redirects in `broken_redirect_list.js` |
 | [`reference-repos`](.github/skills/reference-repos/SKILL.md) | Verifying product, API, or SDK behavior against source repos |
 | [`docs-discrepancies`](.github/skills/docs-discrepancies/SKILL.md) | Page-by-page doc vs platform audits and discrepancy PRs |
+| [`find-ux-debt`](.github/skills/find-ux-debt/SKILL.md) | Scanning Braze platform UI files for 8 detectable copy problem types; routes Tier 1 findings to `log-ux-debt` and offers to log Tier 2 findings as a consolidated UXW story |
+| [`log-ux-debt`](.github/skills/log-ux-debt/SKILL.md) | Filing UX Debt Jira tickets for factual copy inconsistencies found in platform source (CODEOWNERS lookup, dedup, ticket creation) |
 | [`support-analyzer`](.github/skills/support-analyzer/SKILL.md) | Manual triage of support case CSVs (after CI digest / Phase 2) |
 | [`salesforce-migration`](.github/skills/salesforce-migration/SKILL.md) | Jira SF KB migration tickets and `_data/sf_*.xml` / CSV workflows |
 | [`image-pruner`](.github/skills/image-pruner/SKILL.md) | Finding and removing unreferenced `assets/img/` files (all locales) |
@@ -26,18 +29,25 @@ For the full reference — descriptions, when-to-use guidance, and invocation sy
 | [`spell-check`](.github/skills/spell-check/SKILL.md) | Pre-PR cspell gate for changed `_docs/` and `_includes/` markdown |
 | [`snippet-pii`](scripts/check_snippet_pii.py) | Advisory fenced-code-block PII scan for `_docs/` and `_includes/` (see `check-snippet-pii.yml`) |
 | [`tam-solutions`](.github/skills/tam-solutions/SKILL.md) | Converting TAM solution assets into public User Guide example articles |
+| [`slack-to-docs`](.github/skills/slack-to-docs/SKILL.md) | Mining SME Slack channels for source-verified doc PRs with dedup and thread citations |
+| [`audit-page-seo`](.github/skills/audit-page-seo/SKILL.md) | SEO/AEO page scoring, link fix tables, and pilot recommendation packets for `_docs/` |
+| [`release-notes-community-post`](.github/skills/release-notes-community-post/SKILL.md) | Drafting a Braze Community announcement from the latest or specified release notes |
 
 ## How to invoke (Cursor)
 
 - **Routine `_docs/` edits:** Describe the task; no tag required. The repo bootstrap rule points agents at `braze-docs`.
 - **Verification:** Invoke **`/reference-repos`** from chat, or ask to “verify against source.” Open [`braze-workspace.code-workspace`](braze-workspace.code-workspace) so `platform` and SDK repos are sibling folders.
-- **Heavy workflows:** Invoke from chat once (for example `/redirect-management`, `/support-analyzer`, `/salesforce-migration`, `/docs-discrepancies`, `image-curator`, `/image-pruner`, `/screenshot-pii-audit`, `/spell-check`, `/create-pr`).
+- **Heavy workflows:** Invoke from chat once (for example `/redirect-management`, `/support-analyzer`, `/salesforce-migration`, `/docs-discrepancies`, `/slack-to-docs`, `image-curator`, `/image-pruner`, `/screenshot-pii-audit`, `/spell-check`, `/create-pr`, `/release-notes-community-post`).
 
 Inside `SKILL.md` files and agent rules, cross-reference other skills with `braze-docs:skill-name` or relative links — not `@` or `/`. See [CAPABILITIES.md](CAPABILITIES.md#cross-referencing-skills-in-instructions).
 
 ## Privacy
 
 Do not include customer names, company names, email addresses, or other PII from support tickets or Slack in public output.
+
+## Local credentials (never commit)
+
+`.jira.env` and `.phrase-tms.env` are **local-only** (listed in [`.gitignore`](.gitignore)). Copy [`.jira.env.example`](.jira.env.example) to `.jira.env` for SF KB / Jira scripts (`source scripts/jira_env.sh`). Never stage, commit, or push these files on any branch. The pre-commit hook blocks them if installed (`bash scripts/install_hooks.sh`).
 
 ## Support analyzer (CI)
 

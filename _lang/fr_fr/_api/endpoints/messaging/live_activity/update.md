@@ -7,7 +7,6 @@ page_order: 1
 layout: api_page
 page_type: reference
 description: "Cet article présente en détail l'endpoint Mettre à jour l'activité en direct."
-
 ---
 {% api %}
 # Mettre à jour l'activité en direct {#update-live-activity}
@@ -15,7 +14,7 @@ description: "Cet article présente en détail l'endpoint Mettre à jour l'activ
 /messages/live_activity/update
 {% endapimethod %}
 
-> Utilisez cet endpoint pour mettre à jour et terminer les [activités en direct]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?sdktab=swift) affichées par votre application iOS. Cet endpoint nécessite une configuration supplémentaire.
+> Utilisez cet endpoint pour mettre à jour et terminer les [activités en direct]({{site.baseurl}}/developer_guide/live_notifications?sdktab=swift) affichées par votre application iOS. Cet endpoint nécessite une configuration supplémentaire.
 
 Après avoir enregistré une activité en direct, vous pouvez transmettre un payload JSON pour mettre à jour votre service de notification push Apple (APNs). Consultez la documentation d'Apple sur [la mise à jour de votre activité en direct avec des payloads de notification push](https://developer.apple.com/documentation/activitykit/updating-and-ending-your-live-activity-with-activitykit-push-notifications) pour plus d'informations.
 
@@ -28,7 +27,7 @@ Si `content-available` n'est pas défini, la priorité par défaut du service de
 Pour utiliser cet endpoint, vous devrez effectuer les opérations suivantes :
 
 - Générer une clé API avec l'autorisation `messages.live_activity.update`.
-- Enregistrer une activité en direct [à distance]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?tab=remote&sdktab=swift) ou [localement]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?tab=local&sdktab=swift) à l'aide du SDK Braze Swift.
+- Enregistrer une activité en direct [à distance]({{site.baseurl}}/developer_guide/live_notifications?tab=remote&sdktab=swift) ou [localement]({{site.baseurl}}/developer_guide/live_notifications?tab=local&sdktab=swift) à l'aide du SDK Braze Swift.
 
 {% multi_lang_include api/payload_size_alert.md %}
 
@@ -54,7 +53,7 @@ Pour utiliser cet endpoint, vous devrez effectuer les opérations suivantes :
 
 | Parameter | Required | Data Type | Description |
 |---|---|---|---|
-| `app_id` | Required | String | App [API identifier]({{site.baseurl}}/api/identifier_types#the-app-identifier) retrieved from the [API Keys]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) page.  |
+| `app_id` | Required | String | App [API identifier]({{site.baseurl}}/api/identifier_types#app-identifier) retrieved from the [API Keys]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) page.  |
 | `activity_id` | Required | String | When you register your Live Activity using [`launchActivity`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/liveactivities-swift.class), you use the `pushTokenTag` parameter to name the Activity's push token to a custom string.<br><br>Set `activity_id` to this custom string to define which Live Activity you want to update. |
 | `content_state` | Required | Object | You define the `ContentState` parameters when you create your Live Activity. Pass the updated values for your `ContentState` using this object.<br><br>The format of this request must match the shape you initially defined. |
 | `end_activity` | Optional | Boolean | If `true`, this request ends the Live Activity. |

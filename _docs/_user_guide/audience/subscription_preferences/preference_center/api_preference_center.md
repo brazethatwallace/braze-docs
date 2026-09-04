@@ -11,6 +11,8 @@ channel:
 
 > Setting up a preference center provides a one-stop shop for your users to edit and manage their notification preferences for your [email messaging]({{site.baseurl}}/user_guide/channels/email). This article includes steps for building an API-generated preference center, but you can also build a preference center using the [drag-and-drop editor]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/dnd_preference_center).
 
+{% multi_lang_include alerts/tip_alerts.md alert="Landing pages manage subscriptions" %}
+
 In the Braze dashboard, go to **Audience** > **Email Preference Centers**.
 
 This is where you can manage and view each subscription group. Each subscription group you create is added to this preference center list. You can create multiple preference centers.
@@ -65,11 +67,9 @@ You can also use a combination of HTML that includes Liquid. For example, you ca
 ```
 {%endraw%}
 
-The preference center has a checkbox that allows your users to unsubscribe from all emails. Note that you cannot save these preferences if sent as a test message.
+The preference center has a checkbox that allows your users to unsubscribe from all emails.
 
-{% alert important %}
-The above Liquid tag only works when launching a campaign or Canvas. Sending a test email does not generate a valid link. To verify the preference center link, launch the message in a campaign targeting only your test profile.
-{% endalert %}
+{% multi_lang_include preference_center/testing.md section="api" %}
 
 #### Edit a preference center
 
@@ -115,6 +115,10 @@ This approach does not require query string value-pairs embedded in the URL as t
 ```
 
 ## Frequently asked questions
+
+### Why doesn't my preference center work in a test send?
+
+Preference center links require a live send context. Test sends do not generate valid preference center URLs, and the **Save Preferences** button is disabled if the page loads. This is expected behavior. To test end-to-end, launch a campaign or Canvas step to a test user or small internal segment, or use the [Generate preference center URL endpoint]({{site.baseurl}}/api/endpoints/preference_center/get_create_url_preference_center). For details, see [Testing preference centers](#testing-preference-centers).
 
 ### I haven't created a preference center. Why am I seeing "PreferenceCenterBrazeDefault" on my dashboard?
 

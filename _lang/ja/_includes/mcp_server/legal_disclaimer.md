@@ -1,9 +1,11 @@
-## 免責事項
+## 免責事項 {#legal-disclaimer}
 <!-- Braze Legal must approve any changes to this content. -->
 <!-- Note: Keep these comments under this H2 heading to avoid breaking how headings on certain pages are rendered. -->
 
-[モデルコンテキストプロトコル（MCP）](https://modelcontextprotocol.io/docs/getting-started/intro)は新たに導入されたオープンソースプロトコルであり、現時点ではセキュリティ上の問題や脆弱性の影響を受けやすい可能性があります。
+### 指示と応答の処理方法 {#how-instructions-and-responses-are-handled}
 
-Braze MCPサーバーの設定コードと手順は、Brazeが「現状のまま」かつ一切の保証なしに提供するものであり、顧客は自己責任で使用するものとします。Brazeは、MCPの不適切な設定、誤用、または発生する可能性のあるセキュリティ上の問題に起因するいかなる結果についても責任を負いません。Brazeは、顧客に対し、設定を慎重に確認し、提示されたガイドラインに従うことで、Braze環境の完全性とセキュリティに関連するリスクを低減することを強く推奨します。
+Braze MCPサーバーは、Claude、ChatGPT、Copilot、Gemini CLI、Codex、CursorなどのサードパーティプロバイダーのMCPクライアントから、そのプロバイダーの基盤AIモデルが生成した指示をそのまま受け取ります。自然言語でリクエストを入力すると、AIモデルがリクエストを解釈し、Brazeへの1つ以上の具体的なツール呼び出しに変換します。Brazeは送信されたツール呼び出しをそのまま受信して実行します。Brazeはお客様の元の自然言語プロンプトを参照することはできず、生成されたツール呼び出しがお客様の意図したリクエストを完全かつ正確に反映しているかどうかを検証することもできません。
 
-サポートが必要な場合や不明点がある場合は、[Brazeサポート]({{site.baseurl}}/user_guide/administrative/access_braze/support)までお問い合わせください。
+Brazeがデータや結果を返す際、その応答はサードパーティプロバイダーのMCPクライアントに送信され、クライアント側で解釈、フォーマット、表示が行われます。Brazeは、AIモデルが返された情報をどのように表示、要約、または説明するかを制御しません。
+
+Brazeは、サードパーティプロバイダーのMCPクライアントによって生成された指示、またはそれを通じて伝達された応答について責任を負いません。サードパーティプロバイダーのMCPクライアントがアクションの自動実装のための「自動モード」を提供している場合、Brazeはその使用を推奨しません。AIが生成した要約はBrazeダッシュボードのソースデータと照合して確認し、AIが提案するアクションはサードパーティプロバイダーのMCPクライアントを通じて実装する前に必ず確認してください。

@@ -16,25 +16,25 @@ After your campaign has launched, you can check how each variant is performing b
 
 Your analytics view varies depending on whether you selected an [optimization]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations) during your initial setup.
 
-### No optimization
+### Manual variant distribution
 
-If you selected **No optimization** when setting up your campaign, your analytics view will stay the same. The **Campaign Analytics** page of your campaign will show the performance of your variants against your control group, if you included one.
+If **Optimize with BrazeAI™** is off, the **Campaign Analytics** page shows the performance of your variants against the control group, if you included one.
 
 ![Performance section of the Campaign Analytics for an email campaign with multiple variants. The table lists various performance metrics for each variant, such as recipients, bounces, clicks, and conversions.]({% image_buster /assets/img_archive/ab_analytics_no_optimization.png %})
 
 For more details, refer to the [Campaign Analytics]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics) article for your messaging channel.
 
-### BrazeAI™ variant selection (push only)
+### Optimize with BrazeAI™
 
-If you use BrazeAI™ variant selection, depending on whether it is a single send or recurring campaign, once the experiment window (or first period for recurring) has passed, you see the uplift, if any, on the home page of the campaign. You also see further details similar to Winning Variant if you run a single send campaign.
+If you use **Optimize with BrazeAI™**, the campaign overview shows any uplift after the experiment window for a single-send campaign or after the first optimization period for a multi-send campaign. Single-send campaigns also show details about the initial test and the best-performing variant.
 
-For more details on how we report uplift on BrazeAI™ Variant Selection, see [Variant selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection).
+For more information, see [Optimizing A/B tests with BrazeAI]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection).
 
-![Campaign analytics showing uplift from BrazeAI™ variant selection, including comparison metrics after the experiment window.]({% image_buster /assets/img_archive/braze_ai_variant_selection_reporting.png %})
+![Campaign analytics showing uplift from Optimize with BrazeAI™, including comparison metrics after the experiment window.]({% image_buster /assets/img_archive/braze_ai_variant_selection_reporting.png %})
 
-### Winning Variant
+### Single-send optimization
 
-If you selected **Winning Variant** for your optimization when setting up your campaign, you have access to an additional tab of your campaign analytics called **A/B Test Result**. After the Winning Variant is sent to the remaining users in your test, this tab shows the results of that send.
+For a single-send campaign using **Optimize with BrazeAI™**, the **A/B Test Result** tab shows the results of the initial test and the optimized send.
 
 The **A/B Test Result** is divided into two tabs: **Initial Test** and **Winning Variant**.
 
@@ -69,9 +69,9 @@ The **Winning Variant** tab shows the results of the second send, where each rem
 
 If you want to see the performance of the Winning Variant throughout the campaign, including the A/B test sends, check the **Campaign Analytics** page.
 
-### Personalized Variant {#personalized-variant}
+### Existing Personalized Variant campaigns {#personalized-variant}
 
-If you selected **Personalized Variant** for your optimization when setting up your campaign, the **A/B Test Result** is divided into two tabs: **Initial Test** and **Personalized Variant**.
+Personalized Variant isn't available for new campaigns. For an existing campaign that uses this optimization, the **A/B Test Result** is divided into two tabs: **Initial Test** and **Personalized Variant**.
 
 {% tabs local %}
 {% tab Initial Test %}
@@ -174,6 +174,17 @@ Also, variant messages that require longer render time, such as those with large
 ### In-app message delays 
 
 For triggered in-app message campaigns that include delayed displays, control group impressions will be recorded when the end user would have originally received the in-app message. For example, if a campaign is set to delay the display by one hour, control group impressions will not be logged until the one-hour delay has passed. This helps with the accurate tracking of impressions related to the intended timing of the message delivery.
+
+## Removing message variants after launch
+
+If you remove a message variant from a campaign or Canvas by clicking the **X** in the composer (for example, when replacing a message from a template), the variant is marked as deleted. Analytics are tied to each variant's unique ID, so removing a variant affects reporting:
+
+- Pre-existing analytics for the deleted variant (such as opens, clicks, and conversions) no longer appear in the current campaign or Canvas step analytics.
+- Variant-level breakdowns exclude deleted variants. If you add a replacement variant, it receives a new variant ID and starts with no historical stats, so metrics may show as 0.
+
+This applies only when you delete and re-add variants. Editing the content of an existing variant in place does not affect historical analytics.
+
+For more details on deleted variants in reporting, see [Deleted message variants]({{site.baseurl}}/user_guide/analytics/reports/report_builder#deleted-message-variants).
 
 ## Recommended follow-ups {#recommended-follow-ups}
 

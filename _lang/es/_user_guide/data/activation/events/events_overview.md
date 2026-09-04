@@ -47,7 +47,7 @@ Los eventos de compra registran la siguiente información clave sobre una compra
 - Precio
 - Cantidad
 
-Luego puedes usar estos datos para segmentar a tus usuarios según su valor de duración del ciclo de vida, frecuencia de compra, compras específicas y más.
+Luego puedes usar estos datos para segmentar a tus usuarios según su LTV, frecuencia de compra, compras específicas y más.
 
 Braze también admite compras en múltiples monedas. Si una compra se reporta en una moneda distinta a USD, se mostrará en el dashboard en USD, basándose en el tipo de cambio de la fecha en que se reportó la compra.
 

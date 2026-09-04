@@ -14,7 +14,7 @@ Before you start, make sure you have [Banner placements]({{site.baseurl}}/develo
 
 Banners allow marketing and product teams to personalize app or website content dynamically, reflecting real-time user eligibility and behavior. They persistently display messages inline, providing non-intrusive, contextually relevant experiences that can be refreshed at the start of a session or mid-session when your app or website explicitly requests it.
 
-After Banners are integrated into an app or website, marketers can design and launch Banners using a simple drag-and-drop editor, eliminating the need for ongoing developer assistance, reducing complexity, and improving efficiency.
+After Banners are integrated into an app or website, marketers can design and launch Banners using a drag-and-drop editor or a full HTML editor, eliminating the need for ongoing developer assistance, reducing complexity, and improving efficiency.
 
 | Use case | Explanation |
 | --- | --- |
@@ -28,7 +28,7 @@ After Banners are integrated into an app or website, marketers can design and la
 
 Features for Banners include:
 
-- **Easy content building:** Create and preview your Banner using a visual, drag-and-drop editor with support for images, text, buttons, email capture forms, custom code, and more.
+- **Easy content building:** Create and preview your Banner using a visual, drag-and-drop editor with support for images, text, buttons, email capture forms, custom code, and more. Teams that prefer to manage their own markup can use the HTML editor instead for full control over the Banner's HTML and styles, or ask [BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-messages) to generate HTML from a description.
 - **Flexible placements:** Define multiple locations within your application or website where Banners can appear, enabling precise targeting to specific contexts or user experiences.
 - **Dynamic personalization:** Banners recalculate personalization (Liquid logic) and segmentation every time the banner is refreshed. If a user updates their profile or a custom attribute changes, the next Banner refresh will reflect those changes.
 - **Native prioritization:** Set the display priority for when multiple Banners target the same placement, ensuring the right message reaches users at the right time.
@@ -74,6 +74,16 @@ Here's what you need to know about Banner dimensions and sizing:
 - The HTML takes up the full width of the container it's rendered in.
 - We recommend making a fixed dimension element and testing those dimensions in composer.
 
+### Connected Content {#connected-content}
+
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Connected Content for Banners' %}
+
+You can use [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) to pull real-time data from external APIs into your Banner. Because Banners render inline during a session refresh, Connected Content has specific limitations in this channel:
+
+- **GET requests only:** Banners render only `GET` Connected Content requests. `POST` requests aren't supported.
+- **Shared rendering budget:** All placements returned in a single refresh request (up to 10) share one rendering budget of approximately two seconds. Each Connected Content call counts against this shared budget, so a placement with slow or numerous calls can use time that other placements need.
+- **No retries:** If a Connected Content call fails, times out, or the rendering budget is exceeded, the Connected Content result for that placement is treated as null. Unlike other channels, Banners don't retry the request or delay delivery.
+
 ## Limitations
 
 Each workspace can support up to 200 active Banner campaigns. If this limit is reached, you'll need to [archive or deactivate]({{site.baseurl}}/user_guide/messaging/governance/statuses/#changing-the-status) an existing campaign before creating a new one.
@@ -81,7 +91,7 @@ Each workspace can support up to 200 active Banner campaigns. If this limit is r
 Additionally, Banner messages do not support the following features:
 
 - API-triggered and action-based campaigns
-- Connected Content
+- [Connected Content](#connected-content) (in early access)
 - Promotional codes
 - `catalog_items` using the [`:rerender` tag]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs/#using-liquid)
 

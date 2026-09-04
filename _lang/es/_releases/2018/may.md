@@ -7,7 +7,7 @@ description: "Este artículo contiene notas de la versión de mayo de 2018."
 ---
 # Mayo de 2018
 
-## Actualización del inicio de sesión único (SSO) de Okta
+## Actualización del inicio de sesión único (inicio de sesión único) de Okta
 
 Si tu empresa utiliza Okta, tu administrador de Okta puede instalar la aplicación Braze desde la red de aplicaciones de Okta. A continuación, deben colocar el certificado de Okta en la página Configuración de la empresa de la aplicación Braze, en el lugar adecuado de la pestaña Configuración de seguridad.
 

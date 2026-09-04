@@ -42,7 +42,7 @@ O valor de `sf_created_at` é confiável apenas para eventos que foram persistid
 
 Os nomes de Campaigns e os nomes de Canvas não estão presentes nos próprios eventos. Em vez disso, eles são publicados em uma tabela de changelog.
 
-Você pode ver os nomes de Campaigns para eventos relacionados a uma campanha fazendo um join com a tabela de changelog da campanha usando uma consulta como:
+Você pode ver os nomes de Campaigns para eventos relacionados a uma Campaign fazendo um join com a tabela de changelog da Campaign usando uma consulta como:
 
 ```sql
 SELECT event.id, event.time, ccs.time, ccs.name, ccs.conversion_behaviors[event.conversion_behavior_index]
@@ -54,8 +54,8 @@ qualify row_number() over (partition by event.id ORDER BY ccs.time DESC) = 1;
 ```
 Algumas observações importantes:
 - As funções de [janela](https://docs.snowflake.com/en/sql-reference/functions-analytic.html) do Snowflake são usadas aqui.
-- O left join garantirá que eventos não relacionados a uma campanha também sejam incluídos.
-- Se você vir eventos com `campaign_id`s, mas sem nomes de campanha, há a possibilidade de que a campanha tenha sido criada com um nome antes de o Compartilhamento de dados existir como produto.
+- O left join garante que eventos não relacionados a uma Campaign também sejam incluídos.
+- Se você vir eventos com `campaign_id`s, mas sem nomes de Campaign, é possível que a Campaign tenha sido criada com um nome antes de o compartilhamento de dados existir como produto.
 - Você pode ver os nomes de Canvas usando uma consulta semelhante, fazendo join com a tabela `CHANGELOGS_CANVAS_SHARED`.
 
 Se você quiser ver os nomes de Campaign e de Canvas, talvez precise usar a seguinte subconsulta:
@@ -199,13 +199,66 @@ GROUP BY email_address;
 {% endtab %}
 {% tab Unique Email Opens %}
 
-Use essa consulta para aproximar **aberturas únicas** a partir dos eventos de abertura de e-mail do Snowflake — por exemplo, para reconciliar com a coluna **Unique Opens** no dashboard.
+Use essa consulta de aberturas únicas de e-mail para analisar as aberturas únicas de e-mail em um determinado período. O algoritmo para calcular isso é o seguinte:
+  1. Particione os eventos pela chave (`app_group_id`, `message_variation_id`, `dispatch_id`, `email_address`).
+  2. Em cada partição, ordene os eventos por tempo. O primeiro evento é sempre um evento único.
+  3. Para cada evento subsequente, se ele ocorreu mais de sete dias após o anterior, é considerado um evento único.
+
+Você pode usar as [funções de janela](https://docs.snowflake.com/en/sql-reference/functions-analytic.html) do Snowflake para alcançar isso. A consulta a seguir retorna todas as aberturas de e-mail nos últimos 365 dias e indica quais eventos são únicos na coluna `is_unique`:
+
+```sql
+SELECT id, app_group_id, message_variation_api_id, dispatch_id, email_address, time,
+  ROW_NUMBER()       OVER (PARTITION BY app_group_id, message_variation_api_id, dispatch_id, email_address order by time) row_number,
+  LAG(time, 1, time) OVER (PARTITION BY app_group_id, message_variation_api_id, dispatch_id, email_address order by time) previous_time,
+  time - previous_time AS diff,
+  IFF(row_number = 1, true, IFF(diff >= 7*24*3600, true, false)) AS is_unique
+FROM USERS_MESSAGES_EMAIL_OPEN_SHARED
+WHERE
+  time < DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP()))
+  AND time > DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP())) - 365*24*3600;
+```
+
+Para retornar apenas os eventos únicos, use a cláusula `QUALIFY`:
+```sql
+SELECT id, app_group_id, message_variation_api_id, dispatch_id, email_address, time,
+  ROW_NUMBER()       OVER (PARTITION BY app_group_id, message_variation_api_id, dispatch_id, email_address order by time) row_number,
+  LAG(time, 1, time) OVER (PARTITION BY app_group_id, message_variation_api_id, dispatch_id, email_address order by time) previous_time,
+  time - previous_time AS diff,
+  IFF(row_number = 1, true, IFF(diff >= 7*24*3600, true, false)) AS is_unique
+FROM USERS_MESSAGES_EMAIL_OPEN_SHARED
+WHERE
+  time < DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP()))
+  AND time > DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP())) - 365*24*3600
+QUALIFY is_unique = true;
+```
+
+Para ver contagens de eventos únicos agrupados por endereço de e-mail:
+```sql
+WITH unique_events AS(
+  SELECT id, app_group_id, message_variation_api_id, dispatch_id, email_address, time,
+  ROW_NUMBER()       OVER (PARTITION BY app_group_id, message_variation_api_id, dispatch_id, email_address order by time) row_number,
+  LAG(time, 1, time) OVER (PARTITION BY app_group_id, message_variation_api_id, dispatch_id, email_address order by time) previous_time,
+  time - previous_time AS diff,
+  IFF(row_number = 1, true, iff(diff >= 7*24*3600, true, false)) AS is_unique
+FROM USERS_MESSAGES_EMAIL_OPEN_SHARED
+WHERE
+  time < DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP()))
+  AND time > DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP())) - 365*24*3600
+QUALIFY is_unique = true)
+SELECT email_address, count(*) AS count
+FROM unique_events
+GROUP BY email_address;
+```
+
+Para uma abordagem alternativa com escopo em uma Campaign, um Canvas ou uma etapa do Canvas específica, use a consulta a seguir. Defina as variáveis de intervalo de datas e identificador e, em seguida, execute as instruções `SELECT` para retornar aberturas únicas calculadas de três formas:
+
+Os resultados da consulta podem diferir ligeiramente das métricas do dashboard em alguns espaços de trabalho. Por exemplo, a unicidade pode ser particionada por `email_address`, e alguns eventos históricos de abertura podem não incluir um endereço de e-mail após a exclusão do perfil. Nesses casos, a paridade exata pode não ser possível para o mesmo período.
 
 Este exemplo retorna três contagens:
 
-- **Unique Opens (over 7 days):** aberturas únicas em um período contínuo de sete dias.
-- **Unique Opens (during date window):** aberturas únicas dentro do período especificado, independentemente de aberturas que tenham ocorrido antes desse período.
-- **Unique Opens (for emails delivered within same timeframe):** aberturas únicas em que o evento de entrega correspondente também ocorreu dentro do mesmo período (útil quando você quer apenas aberturas vinculadas a mensagens entregues nesse período).
+- **Aberturas únicas (período contínuo de 7 dias):** aberturas únicas em um período contínuo de sete dias.
+- **Aberturas únicas (dentro do intervalo de datas):** aberturas únicas dentro do período especificado, independentemente de aberturas que tenham ocorrido antes desse período.
+- **Aberturas únicas (para e-mails entregues no mesmo período):** aberturas únicas em que o evento de entrega correspondente também ocorreu dentro do mesmo período.
 
 {% raw %}
 ```sql
@@ -213,16 +266,16 @@ Este exemplo retorna três contagens:
     Set or comment out variables if not required. These are set per session.
     You can obtain the from and to dates from the Campaign/Canvas/Canvas step URL. These are the startDate and endDate parameters.
 
-    For example, endDate=1656799199&startDate=1656194400
+    For example, endDate=1234567890&startDate=1234500000
 
     To run, select all of this code block (CMD + A) and run to first set the necessary variables and run the SELECT statements below.
 */
 
-SET fromDateTime = '1656194400';
-SET toDateTime = '1656799199';
+SET fromDateTime = '1234500000';
+SET toDateTime = '1234567890';
 -- SET campaignID = '';
 -- SET canvasID = '';
-SET canvasStepID = '61b0a249745a0c5ac67a11d3';
+SET canvasStepID = '0123456789abcdef01234567';
 
 SELECT
     'Unique Opens (over 7 days)' metric, COUNT(DISTINCT(user_id, dispatch_id)) total
@@ -272,6 +325,5 @@ WHERE
                 umed.time between $fromDateTime and $toDateTime);
 ```
 {% endraw %}
-
 {% endtab %}
 {% endtabs %}

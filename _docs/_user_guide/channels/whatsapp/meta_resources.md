@@ -116,11 +116,11 @@ For more information, see Meta's documentation on [template archival](https://de
 - New rules on utility template miscategorization—businesses can face template rejection and submission restrictions
 
 ### April 2025: Pause of marketing messages to US phone numbers
-*Last Updated August 2025*
+*Last Updated August 2026*
 
-Meta will pause the delivery of all marketing template messages to WhatsApp users who have a United States phone number (a number composed of a `+1` dialing code and a US area code). There is no current scheduled date when this pause will be lifted. 
+Meta pauses new business-initiated marketing conversations with WhatsApp users who have a United States phone number (a number composed of a `+1` dialing code and a US area code). There is no current scheduled date when this pause will be lifted.
 
-Any attempts to send a template to a WhatsApp user with a US phone number will result in the error `131049`.
+Marketing templates can still be delivered during an open user-initiated conversation window, such as a 24-hour customer service window or a 72-hour free entry point window opened by an [Ad That Clicks to WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/use_cases/ads_that_click_to_whatsapp#considerations). Outside these windows, attempts to send marketing templates to US phone numbers result in error `131049`. Utility, authentication, service, and response messages remain available.
 
 ### March 2025: Template category misuse restrictions
 *Last Updated March 2026*
@@ -140,7 +140,7 @@ The specific limit varies by user, depending on their engagement level. Learn mo
 ### January 2025: WhatsApp pausing marketing message sending to US users starting April 1
 *Last Updated January 2025*
 
-WhatsApp will pause marketing message sending to US users (people with US phone numbers) starting April 1, 2025. [Utility, service, authentication](https://developers.facebook.com/docs/whatsapp/pricing/), and [response messages]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#response-messages) will still be allowed in the US. 
+WhatsApp will pause marketing message sending to US users (people with US phone numbers) starting April 1, 2025. [Utility, service, authentication](https://developers.facebook.com/docs/whatsapp/pricing/), and [response messages]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message) will still be allowed in the US. 
 
 Marketing message sending (plus all other message types) to all other countries or regions is still allowed and will not be affected.
 
@@ -156,7 +156,7 @@ Meta recently updated their [opt-in policy](https://developers.facebook.com/docs
 1. The person has given their phone number.
 2. The person provided opt-in permission for general messaging, not just WhatsApp. 
 
-Businesses still need to comply with all local laws and follow the below requirements when obtaining opt-in:
+Businesses still need to comply with all local laws and follow the following requirements when obtaining opt-in:
 
 - Businesses must clearly state that a person is opting in to receive communication from the business
 - Businesses must clearly state the business name that a person is opting in to receive messages from

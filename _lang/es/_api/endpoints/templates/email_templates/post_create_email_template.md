@@ -5,7 +5,7 @@ search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión de Braze Crear plantillas de correo electrónico."
+description: "En este artículo se describen los detalles del endpoint de Braze Crear plantillas de correo electrónico."
 ---
 {% api %}
 # Crear plantilla de correo electrónico {#create-email-template}
@@ -13,18 +13,19 @@ description: "En este artículo se describen los detalles del punto de conexión
 /templates/email/create
 {% endapimethod %}
 
-> Utiliza este punto de conexión para crear plantillas de correo electrónico en el dashboard de Braze.
+> Utiliza este endpoint para crear plantillas de correo electrónico en el panel de Braze.
 
-Estas plantillas estarán disponibles en la página **Plantillas y medios**. La respuesta de este punto de conexión incluye un campo para `email_template_id`, que puede utilizarse para actualizar la plantilla en posteriores llamadas a la API.
+Estas plantillas estarán disponibles en la página **Plantillas y medios**. La respuesta de este endpoint incluye un campo para `email_template_id`, que puede utilizarse para actualizar la plantilla en posteriores llamadas a la API.
 
 {% alert tip %}
-También puedes llamar a este punto de conexión a través del [servidor MCP de Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server) utilizando la función [`create_email_template`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#templates). Esto permite que herramientas de IA como Claude y Cursor creen plantillas de correo electrónico mediante indicaciones en lenguaje natural.
+También puedes llamar a este endpoint a través del [servidor MCP de Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server) utilizando la función [`create_email_template`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#templates). Esto permite que herramientas de IA como Claude y Cursor creen plantillas de correo electrónico mediante indicaciones en lenguaje natural.
 {% endalert %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#5eb1fe0d-2795-474d-aaf2-c4e2977dc94b {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/api_key) con el permiso `templates.email.create`.
+
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics) con el permiso `templates.email.create`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -93,11 +94,11 @@ La siguiente tabla enumera los posibles errores devueltos y sus pasos asociados 
 | Error | Solución de problemas |
 | --- | --- |
 | El nombre de la plantilla es obligatorio. | Introduce un nombre para la plantilla. |
-| Las etiquetas deben ser una matriz | Las etiquetas deben formatearse como una matriz de cadenas, por ejemplo `["marketing", "promotional", "transactional"]`. |
-| Todas las etiquetas deben ser cadenas | Asegúrate de que tus etiquetas estén entre comillas (`""`). |
-| No se han encontrado algunas etiquetas | Para añadir una etiqueta al crear una plantilla de correo electrónico, la etiqueta debe existir ya en Braze. |
-| El correo electrónico debe tener nombres de Content Blocks válidos | El correo electrónico puede contener Content Blocks que no existen en este entorno. |
-| Valor no válido para `should_inline_css`. Se esperaba uno de `true` o `false` | Este parámetro solo acepta valores booleanos (true o false). Asegúrate de que el valor de `should_inline_css` no esté entre comillas (`""`), lo que hace que el valor se envíe como una cadena en lugar de un booleano. |
+| Las etiquetas deben ser una matriz. | Las etiquetas deben formatearse como una matriz de cadenas, por ejemplo `["marketing", "promotional", "transactional"]`. |
+| Todas las etiquetas deben ser cadenas. | Asegúrate de que tus etiquetas estén entre comillas (`""`). |
+| No se han encontrado algunas etiquetas. | Para añadir una etiqueta al crear una plantilla de correo electrónico, la etiqueta debe existir ya en Braze. |
+| El correo electrónico debe tener nombres de Content Blocks válidos. | El correo electrónico puede contener Content Blocks que no existen en este entorno. |
+| Valor no válido para `should_inline_css`. Se esperaba uno de `true` o `false`. | Este parámetro solo acepta valores booleanos (true o false). Asegúrate de que el valor de `should_inline_css` no esté entre comillas (`""`), lo que hace que el valor se envíe como una cadena en lugar de un booleano. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Solución de problemas" }
 
 {% endapi %}

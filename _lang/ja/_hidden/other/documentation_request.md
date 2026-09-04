@@ -12,7 +12,7 @@ hide_toc: true
       background-color: #fff;
       font-weight: 400;
       font-size: 15px;
-      font-family: Sailec W00 Regular,Arial,sans-serif;
+      font-family: 'Aribau Grotesk Regular', 'Aribau Grotesk', Arial, sans-serif;
       font-style: normal;
       color: #212123;
   }
@@ -74,7 +74,7 @@ hide_toc: true
     }
     .h1, h1  {
       font-size: 34pt;
-      font-family: Sailec W00 Bold, Arial, sans-serif;
+      font-family: 'Aribau Grotesk Bold', 'Aribau Grotesk', 'Aribau Grotesk Regular', Arial, sans-serif;
       margin-bottom: 24px;
     }
 
@@ -83,7 +83,7 @@ hide_toc: true
     }
     .subhead {
       font-size: 14pt;
-      font-family: Sailec W00 Regular,Arial,sans-serif;
+      font-family: 'Aribau Grotesk Regular', 'Aribau Grotesk', Arial, sans-serif;
       margin-bottom: 16px;
     }
 
@@ -118,7 +118,7 @@ hide_toc: true
       padding: 0px 1.5rem;
       height: 40px;
       min-width: 200px;
-      font-family: Sailec W00 Bold, Arial, sans-serif;
+      font-family: 'Aribau Grotesk Bold', 'Aribau Grotesk', 'Aribau Grotesk Regular', Arial, sans-serif;
       font-size: 12pt;
       font-weight: 700;
       border-radius: 2px;
@@ -185,7 +185,7 @@ hide_toc: true
     }
     .form-group label {
       font-size: 13pt !important;
-      font-family: Sailec W00 Bold, Arial, sans-serif;
+      font-family: 'Aribau Grotesk Bold', 'Aribau Grotesk', 'Aribau Grotesk Regular', Arial, sans-serif;
       margin-bottom: 6px;
     }
     input[type=text] {
@@ -196,25 +196,25 @@ hide_toc: true
     }
     #doc_release_notes_label {
       font-size: 12pt !important;
-      font-family: Sailec W00 Regular,Arial,sans-serif;
+      font-family: 'Aribau Grotesk Regular', 'Aribau Grotesk', Arial, sans-serif;
     }
     #doc_verify_label {
       font-size: 12pt !important;
-      font-family: Sailec W00 Regular,Arial,sans-serif;
+      font-family: 'Aribau Grotesk Regular', 'Aribau Grotesk', Arial, sans-serif;
     }
     input[type="checkbox"] {
         display:none;
     }
     input[type="checkbox"] + label {
       font-size: 14pt !important;
-      font-family: Sailec W00 Regular,Arial,sans-serif;
+      font-family: 'Aribau Grotesk Regular', 'Aribau Grotesk', Arial, sans-serif;
     }
     .form-check {
       padding-left: 0;
     }
     .sublabel {
       font-size: 12pt !important;
-      font-family: Sailec W00 Regular,Arial,sans-serif;
+      font-family: 'Aribau Grotesk Regular', 'Aribau Grotesk', Arial, sans-serif;
       color: #5E6C75;
       line-height: 1.4;
     }
@@ -264,7 +264,7 @@ hide_toc: true
     }
     .inline_text {
       display: flex;
-      font-family: Sailec, Arial, sans-serif;
+      font-family: 'Aribau Grotesk Regular', 'Aribau Grotesk', Arial, sans-serif;
       font-size: 10pt;
     }
     #braze_internal {
@@ -273,7 +273,7 @@ hide_toc: true
       background-color: #FFEEE3;
       padding: 10px;
       height: 45px;
-      font-family: Sailec W00 Bold, Arial, sans-serif;
+      font-family: 'Aribau Grotesk Bold', 'Aribau Grotesk', 'Aribau Grotesk Regular', Arial, sans-serif;
       font-size: 12tpt;
       position: absolute;
       left: 0;
@@ -415,7 +415,7 @@ hide_toc: true
           $('#doc_div').hide();
           $('#doc_thankyou').show();
           $('#doc_thankyou_msg').fadeTo(800,0,function(){
-              $(this).html('<h3>送信いただきありがとうございます。</h3> ご質問がある場合は、チームの担当者からご連絡いたします。チケットのステータスの確認やコメントの追加については、チケット確認メールをご確認ください。').fadeTo(800,1);
+              $(this).html('<h3>ご送信ありがとうございます。</h3> ご質問がある場合は、チームの担当者からご連絡いたします。チケットのステータスの確認やコメントの追加については、チケット確認メールをご確認ください。').fadeTo(800,1);
           });
         });
 
@@ -445,9 +445,9 @@ hide_toc: true
                 リクエストタイプ
                 </label>
               <select id="doc_urgent" name="Request_Type" class="drop-down-sel">
-              <option value="urgent">緊急: Braze Docsの問題について報告がある、または優先度の高い更新がある</option>
-              <option value="feature">機能: 新機能、または既存機能の新しい動作がある</option>
-              <option value="suggestion" selected="selected">提案: 記事の改善提案、または明確化が必要</option>
+              <option value="urgent">緊急：Braze Docsの問題について報告がある、または優先度の高い更新がある</option>
+              <option value="feature">機能：新機能、または既存機能の新しい動作がある</option>
+              <option value="suggestion" selected="selected">提案：記事の改善提案、または明確化が必要</option>
               </select>
 
               </div>
@@ -456,8 +456,8 @@ hide_toc: true
 
               <div id="disclosure-warning" class="alert alert-important" role="alert">
                 <div class="alert-msg">
-                  <b>重要: </b>
-                  この提案はCopilotが作成し、Docsチームがレビューします。<strong>顧客固有の情報</strong>や<strong>リンク</strong>が含まれていないことを確認してください。
+                  <b>重要：</b>
+                  AIがこの提案の下書き作成を支援しており、Docsチームおよびその他の内部関係者が公開前にレビューします。<strong>顧客固有の情報</strong>や<strong>顧客リンク</strong>が含まれていないことを確認してください。
                 </div>
               </div>
               </div>

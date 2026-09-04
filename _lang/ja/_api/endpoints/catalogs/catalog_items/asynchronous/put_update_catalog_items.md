@@ -23,7 +23,7 @@ description: "この記事では、「複数のカタログ項目を置き換え
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`catalogs.replace_items` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
+このエンドポイントを使用するには、`catalogs.replace_items` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -83,17 +83,17 @@ curl --location --request PUT 'https://rest.iad-03.braze.com/catalogs/restaurant
 `Location` フィールドは `geo` データタイプを使用しており、`[経度, 緯度]` の形式の配列を期待します。
 {% endalert %}
 
-## 応答 {#response}
+## レスポンス {#response}
 
-このエンドポイントには、`202`、`400`、`404` の3つのステータスコード応答があります。
+このエンドポイントには、`202`、`400`、`404` の3つのステータスコードレスポンスがあります。
 
 {% alert note %}
-カタログのストレージ上限に達した場合にも、`400` 応答が返されることがあります。カタログの無料版は100&nbsp;MBが上限です。ストレージ階層とアップグレード方法の詳細については、[データストレージの制限]({{site.baseurl}}/user_guide/data/activation/catalogs#data-storage-limitations)を参照してください。
+カタログのストレージ上限に達した場合にも、`400` レスポンスが返されることがあります。カタログの無料版は500&nbsp;MBが上限です。ストレージ階層とアップグレード方法の詳細については、[データストレージの制限]({{site.baseurl}}/user_guide/data/activation/catalogs#data-storage-limitations)を参照してください。
 {% endalert %}
 
-### 成功応答の例 {#example-success-response}
+### 成功レスポンスの例 {#example-success-response}
 
-ステータスコード `202` は、次の応答本文を返す可能性があります。
+ステータスコード `202` は、次のレスポンスボディを返す可能性があります。
 
 ```json
 {
@@ -101,9 +101,9 @@ curl --location --request PUT 'https://rest.iad-03.braze.com/catalogs/restaurant
 }
 ```
 
-### エラー応答の例 {#example-error-response}
+### エラーレスポンスの例 {#example-error-response}
 
-ステータスコード `400` は、次の応答本文を返す可能性があります。発生する可能性のあるエラーの詳細については、[トラブルシューティング](#troubleshooting)を参照してください。
+ステータスコード `400` は、次のレスポンスボディを返す可能性があります。発生する可能性のあるエラーの詳細については、[トラブルシューティング](#troubleshooting)を参照してください。
 
 ```json
 {

@@ -15,7 +15,7 @@ toc_headers: h2
 
 > Email Preferences is where you can set specific outbound email settings like custom footers, custom opt-in and opt-out pages, and more. Including these options in your outbound emails makes for a fluid and cohesive experience for your users.
 
-**Email Preferences** can be found under **Settings** in the dashboard.
+**Email Preferences** can be found under **Settings** > **Workspace Settings** in the dashboard.
 
 ## Sending configuration
 
@@ -25,12 +25,18 @@ The email settings under the **Sending Configuration** section determine which d
 
 When configuring your email settings, your outbound email settings identify which name and email addresses are used when Braze sends emails to your users.
 
+If you need to add a new domain or IP pool (sending provider) to your workspace, or remove one from the available list, contact your customer success manager for assistance.
+
 {% tabs local %}
 {% tab Display Name Address %}
 
 In this section, you can add the names and email addresses you can use when Braze sends emails to your users. The display names and email addresses are available in the **Sending Info** options as you compose your email campaign. Note that updates made to the outbound email settings do not retroactively affect existing sends.
 
 !["Outbound Email Settings" section with fields for different display names and domains.]({% image_buster /assets/img/email_settings/display_name_address.png %})
+
+{% alert note %}
+Apple Mail clients don't recognize the `@` symbol when it's used in a custom display name. Different mailbox providers control how the display name address shows for their users, so the display name may appear differently depending on the email client.
+{% endalert %}
 
 #### Personalize with Liquid
 
@@ -55,7 +61,7 @@ Default to English Display Name
 {% endtab %}
 {% tab Reply-To Address %}
 
-Adding an email address in this section allows you to select it as a reply-to address for your email campaign. You can also make an email address the default one by selecting **Make Default**. These email addresses will be available in the **Sending Info** options as you compose your email campaign.
+Adding an email address in this section allows you to select it as a reply-to address for your email campaign. You can also make an email address the default one by selecting **Make Default**. These email addresses are available in the **Sending Info** options as you compose your email campaign.
 
 !["Reply-To Address" section with fields to enter multiple reply-to addresses.]({% image_buster /assets/img/email_settings/reply_to_address.png %}){: style="max-width:75%;" }
 
@@ -78,6 +84,12 @@ You can also use [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/
 ```
 {% endraw %}
 
+{% alert tip %}
+If you use a Content Block to populate **Reply-To Address**, make sure the final rendered value is a valid email address and includes an `@`. Braze can't validate this when you save the setting because the final value isn't known until send time.
+
+- If your Content Block stores the local part (the text before `@`) and domain separately, build the field as one address (for example, {% raw %}`{{content_blocks.${reply_to_local}}}@{{content_blocks.${reply_to_domain}}}`{% endraw %}).
+{% endalert %}
+
 {% endtab %}
 {% tab BCC Address %}
 
@@ -87,9 +99,9 @@ BCC addresses are available for Amazon SES, SendGrid, and SparkPost. As an alter
 
 {% multi_lang_include alerts/important_alerts.md alert='BCC address billable emails' %}
 
-After you add an address, the address will be made available to select when composing an email in either campaigns or Canvas steps. Select **Make Default** next to an address to set this address to be selected by default when launching a new email campaign or Canvas component. To override this at the message level, you can select **No BCC** when setting up your message.
+After you add an address, the address is made available to select when composing an email in either campaigns or Canvas steps. Select **Make Default** next to an address to set this address to be selected by default when launching a new email campaign or Canvas component. To override this at the message level, you can select **No BCC** when setting up your message.
 
-If you require that all email messages sent from Braze have a BCC address included, you can select the **Require a BCC address for all your email campaigns** toggle. This will require you to select a default address, which will be automatically selected on new email campaigns or Canvas steps. The default address will also be automatically added to all messages triggered through our REST API. There is no need to change the existing API request to include the address.
+If you require that all email messages sent from Braze have a BCC address included, you can select the **Require a BCC address for all your email campaigns** toggle. This requires you to select a default address, which is automatically selected on new email campaigns or Canvas steps. The default address is also automatically added to all messages triggered through our REST API. There is no need to change the existing API request to include the address.
 
 #### Dynamic BCC
 
@@ -114,7 +126,7 @@ The default behavior in Braze is to append the tracking pixel to the bottom of y
 
 While the pixel is already styled to cause as few visual changes as possible, any unintentional visual changes would be the least visible at the bottom of an email. This is also the default for email providers such as SendGrid and SparkPost.
 
-To reduce unexpected behavior, keep Liquid inside `<html>` tags. Nested or duplicate document-level tags can change how the email is parsed and where the pixel lands, which can affect open tracking and layout. For more information, see [Using Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/using_liquid).
+To reduce unexpected behavior, keep Liquid inside `<html>` tags. Nested or duplicate document-level tags can change how the email is parsed and where the pixel lands, which can affect open tracking and layout. For more information, see [Using Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid).
 
 ### Update the placement
 
@@ -124,7 +136,7 @@ Braze currently supports overriding the ESP's default open tracking pixel locati
 
 To change the location:
 
-1. In Braze, go to **Settings** > **Email Preferences**.
+1. In Braze, go to **Settings** > **Workspace Settings** > **Email Preferences**.
 2. Select from the following options: **Move for SendGrid**, **Move for SparkPost**, or **Move for Amazon SES**
 3. Select **Save**.
 
@@ -318,7 +330,7 @@ You can create a custom opt-in page using your own HTML. Including this in your 
 {% endtabs %}
 
 {% alert tip %}
-When in the **Preview** section for a subscription page or footer, select **Copy preview link** to generate and copy a shareable preview link that shows what the email footer, unsubscribe page, or opt-in page looks like for a random user. The link lasts for seven days before it needs to be regenerated.
+When in the **Preview** section for a subscription page or footer, select **Copy preview link** to generate and copy a shareable preview link that shows what the email footer, unsubscribe page, or opt-in page looks like for a random user. For more information, see [Shareable preview]({{site.baseurl}}/user_guide/messaging/governance/shareable_preview).
 {% endalert %}
 
 ## Frequently asked questions
@@ -368,7 +380,7 @@ If a subscription group referenced in **Sending Info** for one-click is archived
 {% enddetails %}
 
 {% details Is the one-click unsubscribe setting available for email templates? %}
-No, we currently do not have plans to add this for email templates, as these templates aren't assigned to a sending domain. If you're interested in this feature for email templates, submit [product feedback]({{site.baseurl}}/user_guide/administer/personal/product_portal).
+No, we currently do not have plans to add this for email templates, as these templates aren't assigned to a sending domain. {% multi_lang_include product_feedback_cta.md context="gap" feature="per-domain sending for email templates" %}
 {% enddetails %}
 
 {% details Does this feature check that the one-click unsubscribe URL added to the custom option is valid? %}

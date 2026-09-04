@@ -12,7 +12,7 @@ description: "This reference article describes how to personalize action and med
 ## Deep link to in-app content
 
 {% alert tip %}
-**For developers:** For a guide to choosing between custom schemes, universal links, and other options—including when you need an AASA file, which app delegate methods to implement, and how to debug issues—see [iOS deep linking guide]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide) and [Deep linking troubleshooting]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting).
+**For developers:** For integration instructions, see [Android deep linking]({{site.baseurl}}/developer_guide/push_notifications/deep_linking?sdktab=android) or [Swift deep linking]({{site.baseurl}}/developer_guide/push_notifications/deep_linking?sdktab=swift). For help choosing an iOS link type, see the [iOS deep linking guide]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide). To diagnose issues, see [Deep linking troubleshooting]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting).
 {% endalert %}
 
 ### What is deep linking?
@@ -23,7 +23,7 @@ There are three parts to this:
 
 1. Identify which app to launch.
 2. Instruct the app on which action to perform.
-3. Provide the action with any additional data it will need.
+3. Provide the action with any additional data it needs.
 
 Deep links are custom URIs that link to a specific part of the app and contain all three of these parts. The key is defining a custom scheme. `http:` is the scheme with which almost everyone is familiar but schemes can begin with any word. A scheme must start with a letter, but can then contain letters, numbers, plus-signs, minus-signs or dots. Practically speaking, there is no central registry to prevent conflicts, so it is a best practice to include your domain name in the scheme. For example, `twitter://` is the iOS URI to launch the mobile app for X, formerly Twitter.
 
@@ -32,6 +32,34 @@ Everything after the colon within a deep link is free-form text. It's up to you 
 {% alert important %}
 For apps built with wrapper frameworks (for example, Flutter or Cordova), Braze does not provide wrapper-specific deep linking support. You must configure deep links at the native iOS and Android layers. For Cordova, see [Deep linking in push notifications]({{site.baseurl}}/developer_guide/push_notifications/deep_linking?sdktab=cordova).
 {% endalert %}
+
+### System URI schemes
+
+Standard URI schemes handled natively by iOS and Android (such as `tel:`, `mailto:`, and `sms:`) can be entered directly in the deep link URL field without requiring a custom deep link integration in your app.
+
+| Scheme | Example | Action |
+| ------ | ------- | ------ |
+| `tel:` | `tel:+18005555555` | Opens phone dialer |
+| `mailto:` | `mailto:support@example.com` | Opens email compose |
+| `sms:` | `sms:+18005555555` | Opens SMS compose |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="System URI schemes"}
+
+These work for push notification on-click behaviors and in-app message button actions. No additional SDK configuration or app code changes are needed.
+
+### Deep link into application
+
+When composing push notifications, in-app messages, Banners, or Content Cards, select **Deeplink into application** to open a specific screen or action in your app. In some composers, this option appears as **Deep Link Into App**.
+
+Before you use this option, work with your developers to define the URI format and configure your app to open it. Custom schemes, such as `myapp://`, open the installed app directly. Universal links (iOS) and App Links (Android) use `https://` URLs that can open the app when installed and fall back to a web page when the app is not installed.
+
+To set this on-click behavior:
+
+1. In your campaign or Canvas composer, locate **On-click behavior**:
+   - For push notifications and Content Cards, go to the **Compose** tab.
+   - For in-app messages, go to the **Compose** tab. In the drag-and-drop editor, select a button or image block and open its properties panel.
+2. Select **Deeplink into application** or **Deep Link Into App**.
+3. Enter the link in the URL field—for example, `myapp://products/12345` for a custom scheme or `https://example.com/products/12345` for a universal link or App Link.
+4. Send a test message to a physical device. A successful test opens the app and routes to the intended screen or action. For a universal link or App Link, also test a device without the app installed to confirm the expected web fallback.
 
 ### UTM tags and campaign attribution
 
@@ -100,7 +128,7 @@ https://example.com/?campaign_utm={{campaign.${api_id}}}&user_attribute={{custom
 ```
 {% endraw %}
 
-We also support the shortening of custom-defined Liquid variables. Several examples are shown below:
+We also support the shortening of custom-defined Liquid variables, such as in the following examples:
 
 ### Create a URL using Liquid variables
 

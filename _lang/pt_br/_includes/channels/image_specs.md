@@ -3,7 +3,7 @@
 
 | Disposição | Comportamento |
 | --- | --- |
-| Imagem e texto | Imagens altas ou estreitas serão reduzidas e centralizadas horizontalmente. Imagens largas serão cortadas nas bordas esquerda e direita. |
+| Imagem e texto | Imagens altas ou estreitas serão reduzidas e centralizadas horizontalmente. Imagens largas serão cortadas nas bordas horizontais. |
 | Somente imagem | A mensagem será redimensionada para se ajustar a imagens com a maioria das proporções. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Tabela" }
 
@@ -30,13 +30,17 @@ Embora não haja limites para o número de caracteres de texto que você pode in
 
 Todas as mensagens no app têm um tamanho de imagem recomendado de 500 KB, tamanho máximo de imagem de 5 MB e suportam os tipos de arquivo PNG, JPEG e GIF. Imagens WebP não são suportadas em todos os dispositivos ou navegadores; sugerimos converter imagens WebP para PNG ou JPEG antes de adicioná-las às mensagens no app.
 
+{% alert note %}
+Imagens SVG não são suportadas para mensagens no app porque não são renderizadas de forma confiável em todas as plataformas. Use PNG, JPEG ou GIF.
+{% endalert %}
+
 {% tabs %}
 {% tab Retrato %}
 
 | Tipo | Proporção | Qualidade da imagem | Notas |
 | --- | --- | --- | --- |
 | Retrato em tela inteira com texto | 6:5 | Alta resolução 1200 x 1000 px <br>Resolução mínima 600 x 500 px | O corte pode ocorrer em todos os lados, mas a imagem sempre preencherá os 50% superiores da janela de visualização. |
-| Retrato em tela inteira (somente imagem, com ou sem botões) | 3:5 | Alta resolução 1200 x 2000 px <br> Resolução mínima 600 x 1000 px | O corte pode ocorrer nas bordas esquerda e direita em dispositivos mais altos. |
+| Retrato em tela inteira (somente imagem, com ou sem botões) | 3:5 | Alta resolução 1200 x 2000 px <br> Resolução mínima 600 x 1000 px | O corte pode ocorrer nas bordas horizontais em dispositivos mais altos. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Tabela" }
 
 {% endtab %}
@@ -45,7 +49,7 @@ Todas as mensagens no app têm um tamanho de imagem recomendado de 500 KB, taman
 | Tipo | Proporção | Qualidade da imagem | Notas |
 | --- | --- | --- | --- |
 | Paisagem em tela inteira com texto | 10:3 | Alta resolução 2000 x 600 px <br>Resolução mínima 1000 x 300 px | O corte pode ocorrer em todos os lados, mas a imagem sempre preencherá os 50% superiores da janela de visualização. |
-| Paisagem em tela inteira (somente imagem, com ou sem botões) | 5:3 | Alta resolução 2000 x 600 px <br> Resolução mínima 1000 x 600 px | O corte pode ocorrer nas bordas esquerda e direita em dispositivos mais altos. |
+| Paisagem em tela inteira (somente imagem, com ou sem botões) | 5:3 | Alta resolução 2000 x 600 px <br> Resolução mínima 1000 x 600 px | O corte pode ocorrer nas bordas horizontais em dispositivos mais altos. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Tabela" }
 
 {% endtab %}
@@ -62,11 +66,15 @@ Todas as mensagens no app têm um tamanho de imagem recomendado de 500 KB, taman
 | Tipo | Proporção | Qualidade da imagem | Notas |
 | --- | --- | --- | --- |
 | Modal (somente imagem) | 1:1 | Resolução máxima recomendada: 1200 x 2000 px <br> Resolução mínima: 600 x 600 px | A mensagem será redimensionada para se ajustar a imagens com a maioria das proporções. A resolução máxima recomendada tem uma proporção de 3:5, o que pode não fornecer resultados ideais. Embora imagens maiores sejam utilizáveis, elas podem levar a tempos de carregamento mais longos. <br> A proporção ideal para imagens é 1:1. Não atender a essa proporção pode disparar um aviso durante o upload. Esse aviso é uma sugestão para melhores resultados e não impede o upload de imagens maiores. |
-| Modal com texto | 29:10 | Alta resolução 1450 x 500 px <br> Resolução mínima 600 x 205 px | Imagens altas serão reduzidas e centralizadas horizontalmente. Imagens largas serão cortadas nas bordas esquerda e direita. |
+| Modal com texto | 29:10 | Alta resolução 1450 x 500 px <br> Resolução mínima 600 x 205 px | Imagens altas serão reduzidas e centralizadas horizontalmente. Imagens largas serão cortadas nas bordas horizontais. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Tabela" }
 
 {% endtab %}
 {% endtabs %}
+
+{% alert tip %}
+A renderização de mensagens no app no Web SDK pode ser afetada por configurações personalizadas de tamanho de texto do navegador. Usuários com escalonamento personalizado de tamanho de texto podem ter pequenos problemas de renderização, como um espaço de 1 px ao longo da borda de uma imagem modal. Ao visualizar e testar mensagens no app, recomendamos usar as configurações padrão de tamanho de texto do navegador para a representação mais precisa.
+{% endalert %}
 
 {% endif %}
 
@@ -131,7 +139,7 @@ table td {
       <td>N/D</td>
       <td>N/D</td>
       <td>PNG, JPEG</td>
-      <td>Para mais detalhes, consulte <a href="{{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/inline_image_push/">push de imagem inline para Android</a>.</td>
+      <td>Para saber mais, consulte <a href="{{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/inline_image_push/">push de imagem inline para Android</a>.</td>
     </tr>
   </tbody>
 </table>
@@ -173,7 +181,21 @@ table td {
 | Banner    | Qualquer proporção | Largura mínima de 600&nbsp;px |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tabela" }
 
-Para saber mais, consulte os [detalhes de criação dos Content Cards]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details).
+Para saber mais, consulte os [detalhes de criação dos Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/creative_details).
+
+{% endif %}
+
+{% if include.variable_name == "sms and mms" %}
+
+Mensagens MMS suportam uma única imagem por mensagem. Somente grupos de inscrições habilitados para MMS podem enviar imagens.
+
+| Propriedade | Recomendação |
+| --- | --- |
+| Tamanho | 600&nbsp;KB ou menor para entrega confiável pela operadora. O criador bloqueia uploads maiores que 1&nbsp;MB. |
+| Tipos de arquivo | PNG, JPEG, GIF |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SMS e MMS" }
+
+Para saber mais sobre os limites de tamanho de arquivo e taxa de transferência das operadoras, consulte [Limites e taxa de transferência de mensagens MMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup#mms-message-limits-and-throughput).
 
 {% endif %}
 

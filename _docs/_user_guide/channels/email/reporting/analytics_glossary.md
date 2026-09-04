@@ -265,6 +265,8 @@ Count, Percentage
 
 When the [email heatmap]({{site.baseurl}}/user_guide/channels/email/reporting) shows links you do not expect, inspect the message HTML for [content blocks]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/dnd_editor_blocks) or spacing between words that create tracked URLs. Use the **Link Table by Total Clicks** on the heatmap view to identify URLs that do not match visible copy.
 
+Braze does not expand Liquid tags in the message preview, so the heatmap renderer cannot match the clicked link in the preview. This is expected behavior. The heatmap renderer attempts to match clicked URLs with those in the message. When the URL is significantly different, such as when the entire URL is passed in as an event property, the heatmap cannot identify it.
+
 {% endapi %}
 
 {% api %}
@@ -420,7 +422,7 @@ The [`Message Open Likelihood`]({{site.baseurl}}/user_guide/audience/segments/se
 
 ### Unsubscribe links and Unique Clicks
 
-When a recipient clicks an unsubscribe link, Braze counts it as a click because the action uses a URL. This applies to Braze-provided unsubscribe links and custom unsubscribe links in your message body. Those clicks contribute to *Unique Clicks* and *Total Clicks* alongside other link clicks. For metric definitions, see [Unique Clicks](#unique-clicks) above and [Why am I seeing a different number of unsubscribes than clicks on my unsubscribe link?]({{site.baseurl}}/user_guide/channels/email/faq#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link).
+When a recipient clicks an unsubscribe link, Braze counts it as a click because the action uses a URL. This applies to Braze-provided unsubscribe links and custom unsubscribe links in your message body. Those clicks contribute to *Unique Clicks* and *Total Clicks* alongside other link clicks. For metric definitions, see [Unique Clicks](#unique-clicks) and [Why am I seeing a different number of unsubscribes than clicks on my unsubscribe link?]({{site.baseurl}}/user_guide/channels/email/faq#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link).
 
 ### View in browser
 
@@ -459,3 +461,8 @@ You can see this outcome even when the campaign shows **Send immediately** if an
 - Another campaign or Canvas message step with higher priority consumed the send slot when triggers overlap.
 
 If a user should have received the message but did not, check earlier outcomes for the same trigger (for example, email bounce or not enabled for the channel). Another message in the same workflow may have prevented this send.
+
+### How does Braze calculate unique clicks for email?
+
+Braze counts *Unique Clicks* over a seven-day window per recipient per [`dispatch_id`]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id). For the full definition, formulas, unsubscribe-link behavior, and Currents alignment, see [Unique Clicks](#unique-clicks).
+

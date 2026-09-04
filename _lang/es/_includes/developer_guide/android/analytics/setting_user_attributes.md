@@ -4,7 +4,7 @@
 
 ### Métodos predefinidos {#predefined-methods}
 
-Braze proporciona métodos predefinidos para establecer los siguientes atributos de usuario dentro de la clase [`BrazeUser`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/index.html). Para obtener especificaciones sobre los métodos, consulta [nuestro KDoc](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/index.html).
+Braze proporciona métodos predefinidos para configurar los siguientes atributos de usuario dentro de la clase [`BrazeUser`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/index.html). Para las especificaciones de los métodos, consulta [nuestro KDoc](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/index.html).
 
 - Nombre
 - Apellido
@@ -13,16 +13,16 @@ Braze proporciona métodos predefinidos para establecer los siguientes atributos
 - Fecha de nacimiento
 - Correo electrónico
 - Género
-- Ciudad de origen
+- Ciudad natal
 - Número de teléfono
 
 {% alert note %}
-Todos los valores de cadena como nombre, apellidos, país y ciudad de origen están limitados a 255 caracteres.
+Todos los valores de cadena como nombre, apellidos, país y ciudad de residencia están limitados a 255 caracteres.
 {% endalert %}
 
 ### Configuración de atributos predeterminados {#setting-default-attributes}
 
-Para establecer un atributo predeterminado para un usuario, llama al método `getCurrentUser()` en tu instancia de Braze para obtener una referencia al usuario actual de tu aplicación. A continuación, puedes llamar a métodos para establecer un atributo de usuario.
+Para establecer un atributo predeterminado para un usuario, llama al método `getCurrentUser()` en tu instancia de Braze para obtener una referencia al usuario actual de tu aplicación. Luego puedes llamar a los métodos para establecer un atributo de usuario.
 
 {% tabs %}
 {% tab JAVA %}
@@ -78,7 +78,7 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 
 ## Atributos personalizados del usuario {#custom-user-attributes}
 
-Además de los atributos de usuario predeterminados, Braze también te permite definir atributos personalizados utilizando varios tipos de datos diferentes. Para obtener más información sobre la opción de segmentación de cada atributo, consulta [Recopilación de datos de usuario]({{site.baseurl}}/developer_guide/analytics/).
+Además de los atributos de usuario predeterminados, Braze también te permite definir atributos personalizados utilizando distintos tipos de datos. Para obtener más información sobre las opciones de segmentación de cada atributo, consulta [Recopilación de datos de usuario]({{site.baseurl}}/developer_guide/analytics).
 
 ### Establecer atributos personalizados {#setting-custom-attributes}
 
@@ -285,13 +285,13 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 {% endsubtabs %}
 
 {% alert warning %}
-Las fechas pasadas a Braze con este método deben estar en el formato [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) (por ejemplo, `2013-07-16T19:20:30+01:00`) o en el formato `yyyy-MM-dd'T'HH:mm:ss:SSSZ` (por ejemplo, `2016-12-14T13:32:31.601-0800`).
+Las fechas pasadas a Braze con este método deben estar en formato [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) (por ejemplo, `2013-07-16T19:20:30+01:00`) o en el formato `yyyy-MM-dd'T'HH:mm:ss:SSSZ` (por ejemplo, `2016-12-14T13:32:31.601-0800`).
 {% endalert %}
 
 {% endtab %}
 {% tab Array %}
 
-La cantidad predeterminada y máxima de elementos en una matriz es 500. Puedes actualizar la cantidad máxima de matrices en el panel de Braze, en **Data Settings** > **Custom Attributes**. Las matrices que superan la cantidad máxima de elementos se truncan para contener la cantidad máxima de elementos. Para obtener más información sobre las matrices de atributos personalizados y su comportamiento, consulta [Matrices]({{site.baseurl}}/developer_guide/analytics/#arrays).
+La cantidad predeterminada y máxima de elementos en un arreglo es 500. Puedes actualizar la cantidad máxima de arreglos en el panel de Braze, en **Configuración de datos** > **Atributos personalizados**. Los arreglos que excedan la cantidad máxima de elementos se truncan para contener la cantidad máxima de elementos. Para más información sobre los arreglos de atributos personalizados y su comportamiento, consulta [Arreglos]({{site.baseurl}}/developer_guide/analytics#arrays).
 
 {% subtabs global %}
 {% subtab JAVA %}
@@ -356,9 +356,9 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 {% endtab %}
 {% endtabs %}
 
-### Atributos personalizados anidados {#nesting-custom-attributes}
+### Anidar atributos personalizados {#nesting-custom-attributes}
 
-También puedes anidar propiedades dentro de atributos personalizados. En el siguiente ejemplo, un objeto `favorite_book` con propiedades anidadas se establece como un atributo personalizado en el perfil de usuario. Para obtener más información, consulta [Atributos personalizados anidados]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/).
+También puedes anidar propiedades dentro de atributos personalizados. En el siguiente ejemplo, se establece un objeto `favorite_book` con propiedades anidadas como atributo personalizado en el perfil de usuario. Para más detalles, consulta [Atributos personalizados anidados]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
 
 {% tabs %}
 {% tab JAVA %}
@@ -395,24 +395,24 @@ braze.getCurrentUser { user ->
 
 ### Uso de la REST API {#using-the-rest-api}
 
-También puedes utilizar nuestra REST API para establecer o eliminar atributos de usuario. Para obtener más información, consulta [Puntos finales de datos de usuario]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data).
+También puedes utilizar nuestra REST API para establecer o eliminar atributos de usuario. Para más información, consulta [Endpoints de datos de usuario]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data).
 
-## Configuración de suscripciones de usuarios {#setting-user-subscriptions}
+## Configurar suscripciones del usuario {#setting-user-subscriptions}
 
-Para configurar una suscripción para tus usuarios (por correo electrónico o push), llama a las funciones `setEmailNotificationSubscriptionType()` o `setPushNotificationSubscriptionType()`, respectivamente. Estas dos funciones toman como argumento el tipo de enumeración `NotificationSubscriptionType`. Este tipo tiene tres estados diferentes:
+Para configurar una suscripción para tus usuarios (ya sea de correo electrónico o push), llama a las funciones `setEmailNotificationSubscriptionType()` o `setPushNotificationSubscriptionType()`, respectivamente. Ambas funciones toman el tipo enumeración `NotificationSubscriptionType` como argumento. Este tipo tiene tres estados diferentes:
 
-| Estado de la suscripción | Definición |
+| Estado de suscripción | Definición |
 | ------------------- | ---------- |
 | `OPTED_IN` | Suscrito y con adhesión voluntaria explícita |
 | `SUBSCRIBED` | Suscrito, pero sin adhesión voluntaria explícita |
-| `UNSUBSCRIBED` | No suscrito y/o con cancelación de suscripción explícita |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `UNSUBSCRIBED` | Dado de baja o con exclusión explícita |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Configurar suscripciones del usuario" }
 
 {% alert important %}
-Android no requiere ninguna adhesión voluntaria explícita para enviar notificaciones push a los usuarios. Cuando un usuario se registra para push, se establece de manera predeterminada como `SUBSCRIBED` en lugar de `OPTED_IN`. Consulta [Gestionar las suscripciones de los usuarios]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#managing-user-subscriptions) para obtener más información sobre la implementación de las suscripciones y las adhesiones voluntarias explícitas.
+Android no requiere una adhesión voluntaria explícita para enviar notificaciones push a los usuarios. Cuando un usuario se registra para push, se establece como `SUBSCRIBED` en lugar de `OPTED_IN` de forma predeterminada. Consulta [gestionar suscripciones de usuarios]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions#managing-user-subscriptions) para obtener más información sobre la implementación de suscripciones y adhesiones voluntarias explícitas.
 {% endalert %}
 
-### Configuración de las suscripciones por correo electrónico {#setting-email-subscriptions}
+### Configurar suscripciones de correo electrónico {#setting-email-subscriptions}
 
 {% tabs %}
 {% tab JAVA %}
@@ -438,7 +438,7 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 {% endtab %}
 {% endtabs %}
 
-### Configuración de la suscripción a notificaciones push {#setting-push-notification-subscription}
+### Configurar suscripción de notificaciones push {#setting-push-notification-subscription}
 
 {% tabs %}
 {% tab JAVA %}

@@ -39,11 +39,11 @@ Salesforce 고객지원에서 Salesforce Sales Cloud에서 연결된 앱을 만�
 
 ## Salesforce Sales Cloud에서 리드 생성하기 {#creating-lead}
 
-고객 참여 플랫폼인 Braze는 랜딩 페이지에서 양식을 작성하는 등의 사용자 흐름을 기반으로 새로운 리드를 생성할 수 있습니다. 이 경우 Braze Salesforce Sales Cloud 웹훅을 사용하여 Salesforce에서 해당 리드를 생성할 수 있습니다.
+고객 인게이지먼트 플랫폼인 Braze는 랜딩 페이지에서 양식을 작성하는 등의 사용자 흐름을 기반으로 새로운 리드를 생성할 수 있습니다. 이 경우 Braze Salesforce Sales Cloud 웹훅을 사용하여 Salesforce에서 해당 리드를 생성할 수 있습니다.
 
 ### 1단계: `client_id` 및 `client_secret` 수집하기 {#step-1-collect-your-client_id-and-client_secret}
 
-1. Salesforce에서 **Platform Tools** > **Apps** > **App Manager**로 이동합니다.
+1. Salesforce에서 **Platform Tools** > **Apps** > **App 매니저**로 이동합니다.
 2. 새로 생성한 Braze 앱을 찾아 **View**를 선택합니다.
 3. **Consumer Key and Secret** 아래에서 **Manage Consumer Details**를 선택합니다.
 4. 결과 페이지에서 **Consumer Key**와 **Consumer Secret**을 기록합니다. **Consumer Key**는 `client_id`이고, **Consumer Secret**은 `client_secret`입니다.
@@ -65,7 +65,7 @@ Salesforce 고객지원에서 Salesforce Sales Cloud에서 연결된 앱을 만�
 | 요청 본문 | JSON 키/값 쌍 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="웹훅 작성" }
 
-#### 본문 등록정보 키 값 {#body-property-key-values}
+#### 본문 속성정보 키 값 {#body-property-key-values}
 
 Braze에서 Salesforce로 매핑하려는 각 키/값 쌍에 대해 **+ Add New Body Property**를 선택합니다. 원하는 모든 필드를 매핑할 수 있으므로 다음 표는 하나의 예시일 뿐입니다.
 
@@ -75,7 +75,7 @@ Braze에서 Salesforce로 매핑하려는 각 키/값 쌍에 대해 **+ Add New 
 | lastName | {% raw %}`{{${last_name}}}`{% endraw %} |
 | email | {% raw %}`{{${email_address}}}`{% endraw %} |
 | company | {% raw %}`{{custom_attribute.${company}}}`{% endraw %} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="본문 등록정보 키 값" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="본문 속성정보 키 값" }
 
 #### 요청 헤더 {#request-headers}
 
@@ -94,13 +94,13 @@ Braze에서 Salesforce로 매핑하려는 각 키/값 쌍에 대해 **+ Add New 
 
 ## Salesforce Sales Cloud에서 리드 업데이트하기 {#updating-lead}
 
-Salesforce에서 리드를 업데이트하는 Braze Salesforce Sales Cloud 웹훅을 설정하려면 Salesforce Sales Cloud와 Braze 간의 공통 식별자가 필요합니다. 아래 예시에서는 Salesforce `lead_id`를 Braze `external_id`로 사용하지만, `user_alias`를 사용하여 이 작업을 수행할 수도 있습니다. 자세한 내용은 [B2B 데이터]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/b2b_data_models)를 참조하세요.
+Salesforce에서 리드를 업데이트하는 Braze Salesforce Sales Cloud 웹훅을 설정하려면 Salesforce Sales Cloud와 Braze 간의 공통 식별자가 필요합니다. 다음 섹션의 예시에서는 Salesforce `lead_id`를 Braze `external_id`로 사용하지만, `user_alias`를 사용하여 이 작업을 수행할 수도 있습니다. 자세한 내용은 [B2B 데이터]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/b2b_data_models)를 참조하세요.
 
 이 예시에서는 리드가 특정 리드 임계값을 넘은 후 리드의 리드 단계를 "MQL"(마케팅 적격 리드)로 업데이트하는 방법을 구체적으로 보여줍니다. 이는 [B2B 리드 스코어링 워크플로]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring) 사용 사례의 핵심 부분입니다.
 
 ### 1단계: `client_id` 및 `client_secret` 수집하기
 
-1. Salesforce에서 **Platform Tools** > **Apps** > **App Manager**로 이동합니다.
+1. Salesforce에서 **Platform Tools** > **Apps** > **App 매니저**로 이동합니다.
 2. 새로 생성한 Braze 앱을 찾아 **View**를 선택합니다.
 3. **Consumer Key and Secret** 아래에서 **Manage Consumer Details**를 선택합니다.
 4. 결과 페이지에서 **Consumer Key**와 **Consumer Secret**을 기록합니다.
@@ -121,14 +121,14 @@ Salesforce에서 리드를 업데이트하는 Braze Salesforce Sales Cloud 웹�
 | 요청 본문 | JSON 키/값 쌍 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="웹훅 작성" }
 
-#### 본문 등록정보 키 값
+#### 본문 속성정보 키 값
 
 다음 키/값 쌍에 대해 **+ Add New Body Property**를 선택합니다. `Lead_Stage__c`는 예시 이름입니다. Salesforce에서 MQL을 추적하는 데 사용하는 커스텀 필드의 이름이 다를 수 있으므로 이름이 일치하는지 확인하세요.
 
 | 키 | 값 |
 | --- | --- |
 | `Lead_Stage__c` | `MQL` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="본문 등록정보 키 값" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="본문 속성정보 키 값" }
 
 #### 요청 헤더
 
@@ -156,7 +156,7 @@ Salesforce에서 리드를 업데이트하는 Braze Salesforce Sales Cloud 웹�
 
 사용자가 이메일 주소를 제공할 때 Salesforce에서 리드를 생성하려면 "Update Lead" 웹훅 템플릿을 사용하고 사용자가 이메일 주소를 추가할 때(예: 웹 양식 작성) 트리거되는 Campaign을 만들 수 있습니다.
 
-![액션 기반이며 트리거 동작이 "Add an Email Address"인 Campaign 생성 2단계.]({% image_buster /assets/img/b2b/salesforce_create_campaign.png %}){: style="max-width:70%;"}
+![액션 기반이며 트리거 동작이 "이메일 주소 추가"인 Campaign 생성 2단계.]({% image_buster /assets/img/b2b/salesforce_create_campaign.png %}){: style="max-width:70%;"}
 
 ### MQL(마케팅 적격 리드) 임계값 초과를 위한 리드 스코어링 Canvas {#lead-scoring}
 
@@ -166,7 +166,7 @@ Salesforce에서 리드를 업데이트하는 Braze Salesforce Sales Cloud 웹�
 
 #### MQL 임계값을 통과한 사용자를 확인하는 캔버스 단계 추가하기 {#adding-canvas-step-to-check-for-users-who-passed-the-mql-threshold}
 
-1. 두 그룹으로 **오디언스 경로** 단계를 추가합니다: "MQL Threshold"와 "다른 모든 사용자".
+1. 두 그룹으로 **오디언스 경로** 단계를 추가합니다: "MQL Threshold"와 "Everyone Else".
 2. "MQL Threshold" 그룹에서 현재 "MQL" 상태가 아니지만(예: `lead_stage`가 "Lead"와 같음) 리드 점수가 정의한 임계값을 초과하는(예: `lead_score`가 50보다 큰) 사용자를 찾습니다. 해당되면 다음 단계로 이동하고, 그렇지 않으면 종료합니다.
 
 ![`lead_stage`가 "Lead"와 같고 `lead_score`가 "50"보다 큰 필터가 있는 "MQL Threshold" 오디언스 경로 그룹.]({% image_buster /assets/img/b2b/salesforce_check_mql.png %}){: style="max-width:70%;"}
@@ -187,7 +187,7 @@ Salesforce에서 리드를 업데이트하는 Braze Salesforce Sales Cloud 웹�
 
 ## 문제 해결 {#troubleshooting}
 
-이러한 워크플로는 Salesforce 내에서 디버깅 기능이 제한되어 있으므로 Braze [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log#message-activity-log)를 참조하여 웹훅이 실패한 이유와 오류 발생 여부를 확인하는 것이 좋습니다.
+이러한 워크플로는 Salesforce 내에서 디버깅 기능이 제한되어 있으므로 Braze [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)를 참조하여 웹훅이 실패한 이유와 오류 발생 여부를 확인하는 것이 좋습니다.
 
 예를 들어, OAuth 토큰 검색에 사용된 잘못된 URL로 인한 오류는 `https://[insert_instance_name].my.salesforce.com/services/oauth2/token is not a valid URL`로 표시됩니다.
 

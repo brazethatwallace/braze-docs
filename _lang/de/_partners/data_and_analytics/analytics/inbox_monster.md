@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Inbox Monster
 
-> [Inbox Monster](https://inboxmonster.com/) ist eine Plattform für Posteingangssignale, die Unternehmensmarken dabei hilft, bei jedem Versand den Posteingang zu erreichen. Es handelt sich um eine integrierte Suite von Lösungen für Zustellbarkeit, kreatives Rendering und SMS-Überwachung, die moderne Teams im Bereich Customer Relationship Management (CRM) befähigt und die Angst vor dem Versand beendet.
+> [Inbox Monster](https://inboxmonster.com/) ist eine Plattform für Posteingangssignale, die Unternehmensmarken dabei hilft, bei jedem Versand den Posteingang zu erreichen. Es handelt sich um eine integrierte Suite von Lösungen für Zustellbarkeit, kreatives Rendering und SMS-Überwachung, die moderne Teams im Bereich CRM (CRM) befähigt und die Angst vor dem Versand beendet.
 
 Die Integration von Braze und Inbox Monster erlaubt es Ihnen, manuelle Seedlist-Tests zu eliminieren, die Erstellung leistungsstarker und umsetzbarer Signale für die Platzierung im Posteingang zu automatisieren, den Prozess der Überprüfung und Freigabe von E-Mail-Kreativmaterial zu vereinfachen und wertvolle Insights zur Zustellbarkeit zu erhalten. Sie können auch nahtlos E-Mail-Templates für kreative Diagnosen und Gerätevorschauen importieren.
 

@@ -3,7 +3,7 @@ nav_title: 유기한 의도
 article_title: 유기한 의도
 page_order: 1
 page_type: reference
-description: "이 문서에서는 Braze Canvas 템플릿을 사용하여 사용자와 실시간으로 소통하고 구매를 완료하도록 유도하는 방법을 설명합니다."
+description: "이 문서에서는 BRAZE 캔버스 템플릿을 사용하여 사용자와 실시간으로 소통하고 구매를 완료하도록 유도하는 방법을 설명합니다."
 tool: Canvas
 ---
 

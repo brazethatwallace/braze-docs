@@ -7,7 +7,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "Cet article présente en détail l'endpoint Braze Créer un nouveau compte utilisateur de tableau de bord."
-
 ---
 
 {% api %}
@@ -19,6 +18,8 @@ description: "Cet article présente en détail l'endpoint Braze Créer un nouvea
 > Utilisez cet endpoint pour créer un nouveau compte utilisateur de tableau de bord en spécifiant l'adresse e-mail, le prénom et le nom de famille, ainsi que les autorisations (pour définir les autorisations au niveau de la société, de l'espace de travail et de l'équipe).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#768a3c9d-ce1d-44fc-a0e4-d556b09f7aa3 {% endapiref %}
+
+{% multi_lang_include scim/scim_alerts.md alert='custom_endpoint' %}
 
 ## Conditions préalables {#prerequisites}
 
@@ -79,13 +80,13 @@ Authorization: Bearer YOUR-SCIM-TOKEN-KEY
 
 ## Paramètres de requête {#request-parameters}
 
-| Paramètre | Requis | Type de données | Description |
+| Paramètre | Obligatoire | Type de données | Description |
 | --------- | -------- | --------- | ----------- |
-| `schemas` | Requis | Tableau de chaînes de caractères | Nom du schéma SCIM 2.0 attendu pour l'objet utilisateur. |
-| `userName` | Requis | Chaîne de caractères | L'adresse e-mail de l'utilisateur. |
-| `name` | Requis | Objet JSON | Cet objet contient le prénom et le nom de famille de l'utilisateur. |
-| `department` | Requis | Chaîne de caractères | Chaîne de caractères valide du département, tirée de la [documentation sur les chaînes de caractères du département]({{site.baseurl}}/scim_api_appendix#department-strings). |
-| `permissions` | Facultatif | Objet JSON | Objet d'autorisations tel que décrit dans la [documentation de l'objet d'autorisations]({{site.baseurl}}/scim_api_appendix#permissions-object). |
+| `schemas` | Obligatoire | Tableau de chaînes de caractères | Nom du schéma SCIM 2.0 attendu pour l'objet utilisateur. |
+| `userName` | Obligatoire | Chaîne de caractères | L'adresse e-mail de l'utilisateur. |
+| `name` | Obligatoire | Objet JSON | Cet objet contient le prénom et le nom de famille de l'utilisateur. |
+| `department` | Obligatoire | Chaîne de caractères | Chaîne de caractères valide du département, tirée de la [documentation sur les chaînes de caractères du département]({{site.baseurl}}/api/objects_filters/scim_api_appendix). |
+| `permissions` | Facultatif | Objet JSON | Objet d'autorisations tel que décrit dans la [documentation de l'objet d'autorisations]({{site.baseurl}}/api/objects_filters/scim_api_appendix). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 ## Exemple de requête {#example-request}
@@ -212,10 +213,10 @@ curl --location --request POST 'https://rest.iad-01.braze.com/scim/v2/Users' \
 | `schemas` | Tableau de chaînes de caractères | Nom du schéma SCIM 2.0 attendu pour l'objet utilisateur. |
 | `userName` | Chaîne de caractères | L'adresse e-mail de l'utilisateur. |
 | `name` | Objet JSON | Cet objet contient le prénom et le nom de famille de l'utilisateur. |
-| `department` | Chaîne de caractères | Chaîne de caractères valide du département, tirée de la [documentation sur les chaînes de caractères du département]({{site.baseurl}}/scim_api_appendix#department-strings). |
-| `permissions` | Objet JSON | Objet d'autorisations tel que décrit dans la [documentation de l'objet d'autorisations]({{site.baseurl}}/scim_api_appendix#permissions-object). |
+| `department` | Chaîne de caractères | Chaîne de caractères valide du département, tirée de la [documentation sur les chaînes de caractères du département]({{site.baseurl}}/api/objects_filters/scim_api_appendix). |
+| `permissions` | Objet JSON | Objet d'autorisations tel que décrit dans la [documentation de l'objet d'autorisations]({{site.baseurl}}/api/objects_filters/scim_api_appendix). |
 | `id` | Chaîne de caractères | ID généré par Braze, utilisé pour rechercher et gérer les comptes utilisateurs. |
-| `lastSignInAt` | Chaîne de caractères | Date de la dernière connexion réussie en heure UTC. |
+| `lastSignInAt` | Chaîne de caractères | Date de la dernière connexion réussie au format UTC. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paramètres de réponse" }
 
 ### États d'erreur {#error-states}

@@ -19,7 +19,7 @@ alias: /push_primer/
 
 ## 1단계: AppDelegate.m 파일에 스니펫 추가 {#step-1-add-snippet-in-appdelegatem-file}
 
-표준 통합 대신 `AppDelegate.m` 파일에 다음 코드를 추가합니다:
+표준 통합 대신 `AppDelegate.m` 파일에 다음 코드 줄을 추가합니다:
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -81,7 +81,7 @@ if #available(iOS 10, *) {
 
 ## 2단계: AppDelegate.m 파일에 커스텀 이벤트 검사기 추가 {#step-2-append-custom-event-checker-to-appdelegatem-file}
 
-다음 코드 스니펫은 커스텀 이벤트를 실행해야 하는지 확인합니다. `AppDelegate.m`에 다음 코드를 추가합니다.
+다음 코드 스니펫은 커스텀 이벤트를 발생시켜야 하는지 확인합니다. `AppDelegate.m`에 다음 코드를 추가합니다.
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -130,9 +130,9 @@ let notificationSettiings = UIApplication.shared.currentUserNotificationSettings
 
 ## 3단계: 딥링크 핸들러 설정 {#step-3-set-up-a-deep-link-handler}
 
-딥링크 처리 코드 안에 다음 코드 스니펫을 배치합니다. 푸시 프라이머 인앱 메시지에 대해서만 이 딥링킹 코드를 실행해야 합니다.
+딥링크 처리 코드 안에 다음 코드 스니펫을 배치합니다. 이 딥링킹 코드는 푸시 프라이머 인앱 메시지에 대해서만 실행해야 합니다.
 
-딥링킹에 대한 자세한 내용은 [링크 처리 커스터마이징]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/advanced_use_cases/linking#linking-handling-customization)을 참조하세요.
+딥링킹에 대한 자세한 내용은 [링크 처리 커스터마이징]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/advanced_use_cases/linking#linking-handling-customization)을 참조하세요.
 
 {% tabs %}
 {% tab OBJECTIVE-C %}

@@ -5,8 +5,7 @@ search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Listar plantillas de correo electrónico disponibles de Braze."
-
+description: "En este artículo se describen los detalles del endpoint de Braze para listar las plantillas de correo electrónico disponibles."
 ---
 {% api %}
 # Listar plantillas de correo electrónico disponibles {#list-available-email-templates}
@@ -14,12 +13,12 @@ description: "En este artículo se describen los detalles del punto de conexión
 /templates/email/list
 {% endapimethod %}
 
-> Utiliza este punto de conexión para obtener una lista de las plantillas de correo electrónico disponibles en tu cuenta de Braze.
+> Usa este endpoint para obtener una lista de las plantillas de correo electrónico disponibles en tu cuenta de Braze.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#eec24bf4-a3f4-47cb-b4d8-bb8f03964cca {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/api_key) con el permiso `templates.email.list`.
+Para usar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics) con el permiso `templates.email.list`.
 
 ## Límite de velocidad {#rate-limit}
 

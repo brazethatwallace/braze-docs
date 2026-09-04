@@ -21,11 +21,11 @@ Not sure whether your message should be sent using a campaign or a Canvas? Campa
 1. Go to **Messaging** > **Campaigns** and select **Create Campaign**.
 2. Select **SMS/MMS/RCS**, or, for campaigns targeting multiple channels, select **Multichannel**.
 3. Name your campaign something clear and meaningful.
-4. Add [teams]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/teams/) and [tags]({{site.baseurl}}/user_guide/administrative/app_settings/tags/) as needed.
-   * Tags make your campaigns easier to find and build reports out of. For example, when using the [Report Builder]({{site.baseurl}}/user_guide/analytics/reporting/report_builder/), you can filter by particular tags.
+4. Add [teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams) and [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) as needed.
+   * Tags make your campaigns easier to find and build reports out of. For example, when using the [Report Builder]({{site.baseurl}}/user_guide/analytics/reports/report_builder), you can filter by particular tags.
 
 {: start="5"} 
-5. Add and name as many variants as you need for your campaign. You can choose different platforms, message types, and layouts for each of your added variants. For more on this topic, refer to [Multivariate and A/B testing]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing/).
+5. Add and name as many variants as you need for your campaign. You can choose different platforms, message types, and layouts for each of your added variants. For more on this topic, refer to [Multivariate and A/B testing]({{site.baseurl}}/user_guide/messaging/ab_testing).
 - **SMS and RCS variant testing**: Braze allows you to include both SMS and RCS variants within a single campaign, allowing you to compare the performance of each. You can add SMS and RCS variants during the first step of the message composition.
 
 {: start="6"} 
@@ -43,7 +43,7 @@ If all of the messages in your campaign are going to be similar or have the same
 
 {% endtab %}
 {% tab Canvas %}
-1. [Create your Canvas]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/create_a_canvas/) using the Canvas composer.
+1. [Create your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) using the Canvas composer.
 2. After you've set up your Canvas, add an **SMS/MMS/RCS** Message step in the Canvas builder. 
 3. Name your step something clear and meaningful.
 4. Select an RCS-enabled [subscription group]({{site.baseurl}}/sms_rcs_subscription_groups/). When selecting a subscription group, Braze will automatically add a segmenting filter, ensuring that only users subscribed will receive the campaign. Only long codes and short codes that belong to that subscription group will be used to target users.
@@ -85,7 +85,7 @@ As the name implies, RCS text messages focus on text as a medium. If you type up
 {% endtab %}
 
 {% tab Media %}
-RCS media messages allow you to use engaging media formats that aren't possible with SMS. These include image, video, and document files. These media options exist to help you engage your audience even more deeply and enable entirely new use cases. At the moment, only image uploading is supported through the [Media Library]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library/). 
+RCS media messages allow you to use engaging media formats that aren't possible with SMS. These include image, video, and document files. These media options exist to help you engage your audience even more deeply and enable entirely new use cases. At the moment, only image uploading is supported through the [Media Library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications). 
 
 #### Features
 
@@ -138,6 +138,10 @@ A Media Rich Card is a visual message containing an image or video. It must incl
     - Custom video thumbnails aren't supported in the early access. The early access only supports a vertical layout with a tall media height for both image and video files.
 - **Buttons:** At least one button is required. You can add up to four buttons with **Suggested reply** or **Open web URL** actions.
 
+{% alert note %}
+On iOS, GIFs in Rich Cards display as static images. On Android, they animate as expected. To send animated content to iOS, use an RCS **Media** message or include video in the Rich Card. A GIF may still animate in the Braze preview, so send a test to an iOS device.
+{% endalert %}
+
 {% endsubtab %}
 {% endsubtabs %}
 
@@ -154,7 +158,7 @@ A Media Rich Card is a visual message containing an image or video. It must incl
 
 ### Step 3: Compose your RCS message
 
-Write your message using languages and personalization ([Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/), [Connected Content]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/), and emojis) as needed. Be sure to adhere to our message copy limits to reduce your chances of overage charges.
+Write your message using languages and personalization ([Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid), [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), and emojis) as needed. Be sure to adhere to our message copy limits to reduce your chances of overage charges.
 
 {% alert important %}
 Before proceeding, read our [guidelines for RCS message limits](#step-2-select-your-rcs-message-type). RCS messages are [charged per message]({{site.baseurl}}/sms_rcs_billing_calculators/), so it’s a good idea to understand the nuances of what can be included in each type of RCS message.
@@ -170,7 +174,7 @@ Next, build the remainder of your campaign or Canvas. Refer to the following sec
 
 #### Step 5.1: Choose delivery schedule or trigger
 
-RCS messages can be delivered based on a scheduled time, an action, or an API trigger. For more, refer to [Scheduling your campaign]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/).
+RCS messages can be delivered based on a scheduled time, an action, or an API trigger. For more, refer to [Scheduling your campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
 
 For action-based delivery, you can also set the campaign’s duration and Quiet Hours.
 
@@ -182,7 +186,7 @@ Target users by choosing segments or filters to narrow down your audience. You s
 
 {% multi_lang_include audience/target_audiences.md %}
 
-Next, you'll select the larger audience from your segments and narrow that segment further with optional [filters]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/). You'll automatically be given a preview of what that approximate segment population looks like right now. Keep in mind that exact segment membership is always calculated just before the message is sent.
+Next, you'll select the larger audience from your segments and narrow that segment further with optional [filters]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters). You'll automatically be given a preview of what that approximate segment population looks like right now. Keep in mind that exact segment membership is always calculated just before the message is sent.
 
 {% alert tip %}
 Interested in using RCS retargeting to target users based on their SMS and RCS interactions? Refer to [Retargeting]({{site.baseurl}}/sms_mms_rcs_user_retargeting/).

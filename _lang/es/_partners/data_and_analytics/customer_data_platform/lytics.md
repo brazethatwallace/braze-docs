@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Lytics
 
-> [Lytics](https://www.lytics.com/) es la plataforma de datos de los clientes (CDP) elegida por la próxima generación de empresas centradas en el cliente. Las soluciones Lytics Decision Engine, Conductor y Cloud Connect ofrecen a los especialistas en marketing y a los equipos de datos la oportunidad de llevar a cabo la resolución de identidades, la orquestación y la optimización de campañas en tiempo real y respetando la privacidad.
+> [Lytics](https://www.lytics.com/) es la CDP (CDP) elegida por la próxima generación de empresas centradas en el cliente. Las soluciones Lytics Decision Engine, Conductor y Cloud Connect ofrecen a los especialistas en marketing y a los equipos de datos la oportunidad de llevar a cabo la resolución de identidades, la orquestación y la optimización de campañas en tiempo real y respetando la privacidad.
 
 _Esta integración está mantenida por Lytics._
 
@@ -22,7 +22,7 @@ La integración permite a las marcas:
 - Exportar audiencias a Braze directamente desde Lytics
 - Enviar eventos de Campaigns o Canvas de Braze a Lytics en tiempo real para campañas personalizadas y para construir perfiles de usuario enriquecidos
 
-## Casos de uso {#use-cases}
+## Ejemplos {#use-cases}
 
 Conecta Braze a Lytics para [importar](#importing-data-from-braze-to-lytics) correo electrónico, SMS y actividad push para enriquecer los perfiles de usuario de Lytics. Si utilizas Braze y Lytics juntos, también puedes [exportar](#integration) las audiencias de Lytics basadas en comportamientos y multicanal para crear recorridos del cliente en Braze altamente personalizados utilizando datos propios.
 
@@ -31,9 +31,9 @@ Conecta Braze a Lytics para [importar](#importing-data-from-braze-to-lytics) cor
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Cuenta Lytics | Se necesita una cuenta de Lytics para aprovechar esta integración. |
-| Número de cuenta Lytics | Es necesario un número de cuenta de Lytics para configurar la URL del punto de conexión del webhook. |
+| Número de cuenta Lytics | Es necesario un número de cuenta de Lytics para configurar la URL del endpoint del webhook. |
 | Token de la API de Lytics | Un token de REST API de Lytics con permisos de administrador de datos. <br><br> Se puede crear dentro del panel de Lytics desde **Account Settings Console** > **Access Tokens** > **Create New Token**. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con permiso `users.track`. <br><br> Puede crearse en el dashboard de Braze desde **Configuración** > **Claves de API**. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con permiso `users.track`. <br><br> Puede crearse en el panel de Braze desde **Configuración** > **Claves de API**. |
 | Instancia de Braze | Tu [instancia de Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints). Ponte en contacto con tu administrador de incorporación de Braze para obtener esta información si no estás seguro. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
@@ -61,7 +61,7 @@ A continuación, elige una autorización dentro de las opciones de **Select Auth
 
 ### Paso 3: Configurar el trabajo {#step-3-configure-the-job}
 
-Dentro del mensaje **Configure Job**, proporciona una etiqueta y una descripción opcional. A continuación, en la entrada **Braze External User ID Field**, selecciona el campo de Lytics que contiene el ID externo de usuario de Braze (`braze_id`). El siguiente paso es el más importante: en el mismo cuadro de diálogo, selecciona las audiencias que vas a exportar a Braze mediante el selector de audiencias.
+Dentro del mensaje **Configure Job**, proporciona una etiqueta y una descripción opcional. A continuación, en la entrada **Braze External User ID Field**, selecciona el campo de Lytics que contiene el ID externo de usuario de Braze (`braze_id`). El siguiente paso es el más importante: en el mismo cuadro de diálogo, selecciona las audiencias que vas a exportar a Braze mediante el SELECTOR de audiencias.
 
 Por último, elige la opción preferida para la casilla **Existing Users**. Si dejas marcada esta casilla, se añadirán los usuarios que ya existan en la audiencia de Lytics seleccionada. Si no está marcada, los usuarios solo se exportarán a Braze cuando entren o salgan de la audiencia una vez iniciado el flujo de trabajo.
 
@@ -114,11 +114,11 @@ Puedes importar datos de audiencia de Braze a Lytics utilizando los siguientes m
 
 #### Paso 1: Crear un token de API de Lytics {#step-1-create-a-lytics-api-token}
 
-Navega hasta el menú de cuenta de Lytics en la esquina inferior izquierda seleccionando tu nombre de cuenta, y selecciona **Access Tokens** en el menú desplegable. A continuación, selecciona **Create API Token**.
+Navega hasta el menú de cuenta de Lytics seleccionando tu nombre de cuenta y selecciona **Access Tokens** en el menú desplegable. A continuación, selecciona **Create API Token**.
 
 ![Pantalla de tokens de acceso de Lytics con Create API Token seleccionado desde el menú de cuenta.]({% image_buster /assets/img/lytics/create_token.png %}){: style="max-width:80%;"}
 
-Introduce un nombre, una descripción opcional y un periodo de caducidad del token. A continuación, activa el ámbito **Data Manager** para los permisos de API y selecciona **Generate Token**. Copia el token y guárdalo en un lugar seguro.
+Introduce un nombre, una descripción opcional y un periodo de caducidad del token. A continuación, activa el ámbito **Data Administrador** para los permisos de API y selecciona **Generate Token**. Copia el token y guárdalo en un lugar seguro.
 
 ![Permisos del token de API de Lytics con el ámbito Data Manager habilitado antes de generar el token.]({% image_buster /assets/img/lytics/data_manager.png %}){: style="max-width:80%;"}
 

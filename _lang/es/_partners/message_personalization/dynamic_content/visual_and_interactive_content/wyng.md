@@ -15,7 +15,7 @@ _Esta integración está mantenida por Wyng._
 
 ## Sobre la integración {#about-the-integration}
 
-La integración de Braze y Wyng te permite aprovechar los zero-party data obtenidos a través de las experiencias Wyng para personalizar las interacciones en Braze Campaigns y Braze Canvas. Wyng también puede impulsar un centro de preferencias, para que los consumidores puedan controlar los datos y preferencias (incluidas las preferencias de comunicación) que comparten con tu marca.
+La integración de Braze y Wyng te permite aprovechar los zero-party data obtenidos a través de las experiencias Wyng para personalizar las interacciones en Braze Campaigns y BRAZE CANVAS. Wyng también puede impulsar un centro de preferencias, para que los consumidores puedan controlar los datos y preferencias (incluidas las preferencias de comunicación) que comparten con tu marca.
 
 ## Requisitos previos {#prerequisites}
 

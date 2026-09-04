@@ -13,16 +13,16 @@ noindex: true
 
 <br>
 {% alert important %}
-Suchen Sie nach dem grundlegenden Leitfaden zur Integration von Push-Benachrichtigungen für Entwickler:innen? Finden Sie ihn [hier]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration).
+Suchen Sie nach dem grundlegenden Leitfaden zur Integration von Push-Benachrichtigungen für Entwickler:innen? Finden Sie ihn unter [iOS-Push-Benachrichtigungsintegration]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration).
 {% endalert %}
 
 # Implementierungsleitfaden für Push-Benachrichtigungen {#push-notification-implementation-guide}
 
-> Dieser Leitfaden für die optionale erweiterte Implementierung beschreibt, wie Sie die App-Erweiterungen für Push-Benachrichtigungsinhalte nutzen können, um den größtmöglichen Erfolg mit Ihren Push-Nachrichten zu erzielen. Er enthält drei von unserem Team erstellte angepasste Anwendungsfälle, begleitende Code-Snippets und eine Anleitung zur Protokollierung von Analytics. Besuchen Sie das [Braze Demo Repository](https://github.com/braze-inc/braze-growth-shares-ios-demo-app)! Beachten Sie, dass sich dieser Implementierungsleitfaden auf eine Swift-Implementierung konzentriert. Für Interessierte werden jedoch Objective-C-Snippets bereitgestellt.
+> Dieser optionale Leitfaden für die erweiterte Implementierung beschreibt, wie Sie die App-Erweiterungen für Push-Benachrichtigungsinhalte nutzen können, um den größtmöglichen Erfolg mit Ihren Push-Nachrichten zu erzielen. Er enthält drei von unserem Team erstellte angepasste Anwendungsfälle, begleitende Code-Snippets und eine Anleitung zur Protokollierung von Analytics. Besuchen Sie das [Braze Demo Repository](https://github.com/braze-inc/braze-growth-shares-ios-demo-app)! Beachten Sie, dass sich dieser Implementierungsleitfaden auf eine Swift-Implementierung konzentriert. Für Interessierte werden jedoch Objective-C-Snippets bereitgestellt.
 
 ## App-Erweiterungen für Benachrichtigungsinhalte {#notification-content-app-extensions}
 
-![Zwei nebeneinander angezeigte Push-Nachrichten. Die Nachricht auf der rechten Seite zeigt, wie ein Push mit der Standard-Benutzeroberfläche aussieht. Die Nachricht auf der rechten Seite zeigt einen Kaffee-Stempelkarten-Push, der durch die Implementierung einer angepassten Push-UI erstellt wurde.]({% image_buster /assets/img/push_implementation_guide/push1.png %}){: style="max-width:65%;border:0;margin-top:10px"}
+![Zwei nebeneinander angezeigte Push-Nachrichten. Die Nachricht auf der linken Seite zeigt, wie ein Push mit der Standard-Benutzeroberfläche aussieht. Die Nachricht auf der rechten Seite zeigt einen Kaffee-Stempelkarten-Push, der durch die Implementierung einer angepassten Push-UI erstellt wurde.]({% image_buster /assets/img/push_implementation_guide/push1.png %}){: style="max-width:65%;border:0;margin-top:10px"}
 
 Push-Benachrichtigungen scheinen zwar auf verschiedenen Plattformen Standard zu sein, bieten jedoch immense Anpassungsmöglichkeiten, die über das hinausgehen, was normalerweise in der Standard-Benutzeroberfläche implementiert ist. Wenn eine Push-Benachrichtigung erweitert wird, ermöglichen Inhaltsbenachrichtigungserweiterungen eine angepasste Ansicht der erweiterten Push-Benachrichtigung.
 
@@ -85,7 +85,7 @@ Im [folgenden Abschnitt](#logging-analytics) wird näher beschrieben, wie der Da
 ### Personalisierte Push-Benachrichtigungen {#personalized-push-notifications}
 ![Zwei iPhones werden nebeneinander angezeigt. Das erste iPhone zeigt die nicht erweiterte Ansicht der Push-Nachricht. Das zweite iPhone zeigt die erweiterte Version der Push-Nachricht mit einer Fortschrittsanzeige, die angibt, wie weit sie in einem Kurs fortgeschritten sind, wann die nächste Sitzung stattfindet und wann die nächste Sitzung fällig ist.]({% image_buster /assets/img/push_implementation_guide/push6.png %}){: style="float:right;max-width:40%;margin-left:15px;border:0"}
 
-Push-Benachrichtigungen können nutzerspezifische Informationen innerhalb einer Inhaltserweiterung anzeigen. Das Beispiel auf der rechten Seite zeigt eine Push-Benachrichtigung, nachdem Nutzer:innen eine bestimmte Aufgabe (Braze-Lernkurs) abgeschlossen haben und nun aufgefordert werden, diese Benachrichtigung zu erweitern, um ihren Fortschritt zu überprüfen. Die hier bereitgestellten Informationen sind nutzerspezifisch und können über einen API-Trigger ausgelöst werden, wenn eine Sitzung abgeschlossen ist oder eine bestimmte Nutzeraktion durchgeführt wird.
+Push-Benachrichtigungen können nutzerspezifische Informationen innerhalb einer Inhaltserweiterung anzeigen. Das Beispiel zeigt eine Push-Benachrichtigung, nachdem Nutzer:innen eine bestimmte Aufgabe (Braze-Lernkurs) abgeschlossen haben und nun aufgefordert werden, diese Benachrichtigung zu erweitern, um ihren Fortschritt zu überprüfen. Die hier bereitgestellten Informationen sind nutzerspezifisch und können über einen API-Trigger ausgelöst werden, wenn eine Sitzung abgeschlossen ist oder eine bestimmte Nutzeraktion durchgeführt wird.
 
 #### Dashboard-Konfiguration
 
@@ -143,7 +143,7 @@ Push-Benachrichtigungen können Nutzerinformationen innerhalb einer Inhaltserwei
 
 1. Nutzer:innen erhalten eine Push-Benachrichtigung.
 2. Der Push wird geöffnet und fordert Nutzer:innen zur Eingabe von Informationen auf.
-3. Die Informationen werden eingegeben und wenn sie gültig sind, wird der Button „Anmelden“ angezeigt.
+3. Die Informationen werden eingegeben und wenn sie gültig sind, wird der Button „Registrieren“ angezeigt.
 3. Die Bestätigungsansicht wird angezeigt und der Push wird geschlossen.
 
 
@@ -196,7 +196,7 @@ Push-Benachrichtigungen können durch Drücken eines Aktions-Buttons automatisch
 
 #### Andere Anwendungsfälle
 
-Das Anfordern von Nutzereingaben über Push-Benachrichtigungen ist eine spannende Möglichkeit, die viele Unternehmen nicht nutzen. In diesen Push-Nachrichten können Sie nicht nur grundlegende Informationen wie Name, E-Mail oder Telefonnummer abfragen, sondern Nutzer:innen auch auffordern, ein Nutzerprofil zu vervollständigen, falls es noch nicht abgeschlossen ist, oder sogar Feedback zu übermitteln.
+Das Anfordern von Nutzereingaben über Push-Benachrichtigungen ist eine spannende Möglichkeit, die viele Unternehmen nicht nutzen. In diesen Push-Nachrichten können Sie nicht nur grundlegende Informationen wie Name, E-Mail oder Telefonnummer abfragen, sondern Nutzer:innen auch auffordern, ein Kundenprofil zu vervollständigen, falls es noch nicht abgeschlossen ist, oder sogar Feedback zu übermitteln.
 
 ##### Sind Sie bereit für die Protokollierung von Analytics?
 Im [folgenden Abschnitt](#logging-analytics) wird näher beschrieben, wie der Datenfluss aussehen sollte.
@@ -205,7 +205,7 @@ Im [folgenden Abschnitt](#logging-analytics) wird näher beschrieben, wie der Da
 
 ### Protokollierung mit der Braze-API (empfohlen) {#logging-with-the-braze-api-recommended}
 
-Das Protokollieren von Analytics kann nur in Realtime erfolgen, wenn der Server der Kund:innen unseren [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) aufruft. Zum Protokollieren von Analytics übermitteln Sie den Wert `braze_id` im Feld für Schlüssel-Wert-Paare (wie im folgenden Screenshot gezeigt), um das zu aktualisierende Nutzerprofil zu identifizieren.
+Das Protokollieren von Analytics kann nur in Realtime erfolgen, wenn der Server der Kund:innen unseren [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) aufruft. Zum Protokollieren von Analytics übermitteln Sie den Wert `braze_id` im Feld für Schlüssel-Wert-Paare (wie im folgenden Screenshot gezeigt), um das zu aktualisierende Kundenprofil zu identifizieren.
 
 ![Eine Push-Nachricht mit drei Gruppen von Schlüssel-Wert-Paaren. 1. „Braze_id“ als Liquid-Aufruf zum Abrufen der Braze-ID festgelegt. 2. „cert_title“ als „Braze Marketer Certification“ festgelegt. 3. „Cert_description“ als „Certified Braze marketers drive...“ festgelegt.]({% image_buster /assets/img/push_implementation_guide/push18.png %}){: style="max-width:80%;"}
 
@@ -217,12 +217,12 @@ Ein weiterer wichtiger Punkt ist, dass Analytics erst dann an Braze gesendet wer
 
 ![Grafik, die die Verarbeitung von Analytics in Braze beschreibt. 1. Analytics-Daten werden erstellt. 2. Analytics-Daten werden gespeichert. 3. Die Push-Benachrichtigung wird ausgeblendet. 4. Unbestimmte Zeitspanne zwischen dem Ausblenden der Push-Benachrichtigung und dem Start der mobilen App. 5. Die mobile App wird gestartet. 6. Analytics-Daten werden empfangen. 7. Analytics-Daten werden an Braze übermittelt.]({% image_buster /assets/img/push_implementation_guide/push13.png %})
 
-#### 1. Schritt: App-Gruppen in Xcode konfigurieren {#step-1-configure-app-groups-within-xcode}
+#### Schritt 1: App-Gruppen in Xcode konfigurieren {#step-1-configure-app-groups-within-xcode}
 Fügen Sie die Fähigkeit `App Groups` hinzu. Wenn Sie noch keine App-Gruppe in Ihrer App hatten, navigieren Sie zur Fähigkeit des Hauptziels Ihrer App, aktivieren Sie `App Groups` und klicken Sie auf das Pluszeichen (+). Verwenden Sie die Bundle-ID Ihrer App, um die App-Gruppe zu erstellen. Wenn die Bundle-ID Ihrer App beispielsweise `com.company.appname` lautet, können Sie die App-Gruppe `group.com.company.appname.xyz` nennen. Vergewissern Sie sich, dass `App Groups` sowohl für das Hauptziel Ihrer App als auch für das Ziel der Inhaltserweiterung aktiviert ist.
 
 ![Der Dialog „Neuen Container hinzufügen“ in Xcode zur Konfiguration einer App-Gruppe mit einem Textfeld, das mit „group.“ vorausgefüllt ist.]({% image_buster /assets/img/ios/push_story/add_app_groups.png %})
 
-#### 2. Schritt: Code-Snippets integrieren {#step-2-integrate-code-snippets}
+#### Schritt 2: Code-Snippets integrieren {#step-2-integrate-code-snippets}
 Die folgenden Code-Snippets sind eine hilfreiche Referenz, wie Sie angepasste Events, angepasste Attribute und Nutzerattribute speichern und senden können. In dieser Anleitung wird von UserDefaults gesprochen. Die Code-Darstellung erfolgt jedoch in Form der Hilfsdatei `RemoteStorage`. Darüber hinaus gibt es die Hilfsdateien `UserAttributes` und `EventName Dictionary`, die beim Senden und Speichern von Nutzerattributen verwendet werden. Alle Hilfsdateien sind am Ende dieser Anleitung aufgeführt.
 
 {% tabs local %}

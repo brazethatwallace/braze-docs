@@ -4,12 +4,12 @@ article_title: Gobernanza
 layout: dev_guide
 page_order: 2
 guide_top_header: "Gobernanza"
-guide_top_text: "Administra el ciclo de vida y la organización de tus campañas, Canvas y páginas de inicio. Consulta los artículos a continuación para configurar flujos de trabajo de aprobación, archivar o duplicar elementos, copiarlos entre espacios de trabajo y usar estados y etiquetas para mantener tu espacio de trabajo organizado."
+guide_top_text: "Administra el ciclo de vida y la organización de tus campañas, Canvas y páginas de destino. Consulta los artículos de la siguiente sección para configurar flujos de trabajo de aprobación, archivar o duplicar elementos, copiarlos entre espacios de trabajo, compartir vistas previas con las partes interesadas y usar estados y etiquetas para mantener tu espacio de trabajo organizado."
 page_type: landing
 tool:
   - Campaigns
   - Canvas
-description: "Aprobaciones, archivar, duplicar, copiar entre espacios de trabajo, estados y etiquetas para campañas, Canvas y páginas de inicio."
+description: "Aprobaciones, archivar, duplicar, copiar entre espacios de trabajo, vista previa compartible, estados, Campaigns y Canvas inactivos, y etiquetas para Campaigns, Canvas y páginas de destino."
 
 guide_featured_title: "Artículos de la sección"
 guide_featured_list:
@@ -25,9 +25,15 @@ guide_featured_list:
   - name: Duplicar
     link: /docs/user_guide/messaging/governance/duplicating
     image: /assets/img/braze_icons/copy-04.svg
+  - name: Vista previa compartible
+    link: /docs/user_guide/messaging/governance/shareable_preview
+    image: /assets/img/braze_icons/share-01.svg
   - name: Estados
     link: /docs/user_guide/messaging/governance/statuses
     image: /assets/img/braze_icons/book-closed.svg
+  - name: Campaigns y Canvas inactivos
+    link: /docs/user_guide/messaging/governance/statuses/idle_messages
+    image: /assets/img/braze_icons/clock-snooze.svg
   - name: Etiquetas
     link: /docs/user_guide/messaging/governance/tags
     image: /assets/img/braze_icons/tag-01.svg

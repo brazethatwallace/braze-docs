@@ -22,7 +22,7 @@ Es gibt vier gängige Kategorien von Kund:innen-Features:
 
 | Feature-Typ | Was er erfasst | Beispiele |
 |-------------|-----------------|---------|
-| **Nutzerprofil** | Objektive Fakten über den Status der Kund:in | `age`, `loyalty_tier`, `days_enrolled`, `city`, `acquisition_channel` |
+| **Kundenprofil** | Objektive Fakten über den Status der Kund:in | `age`, `loyalty_tier`, `days_enrolled`, `city`, `acquisition_channel` |
 | **Nutzerneigung** | Modellbasierte Scores für die Wahrscheinlichkeit, dass Kund:innen etwas tun | `churn_risk_score`, `purchase_intent_score`, `upsell_affinity` |
 | **Nutzerverhalten** | Zusammenfassungen der Kund:innenaktivität über ein Zeitfenster | `clicks_past_30d`, `purchases_past_7d`, `app_logins_past_14d` |
 | **Umgebung** | Kontextuelle Signale außerhalb der Kund:in | `is_promotional_period`, `is_holiday`, `regional_economic_index` |
@@ -61,7 +61,7 @@ Eine nützliche Diagnose: Wenn ein großer Prozentsatz Ihrer Feature-Werte null 
 
 ## Features mit dem Aktionsraum abstimmen {#align-features-with-the-action-space}
 
-Decisioning Studio ist kein Propensity-Modell, sondern ein Ranking-System. Sein Ziel ist es, für jede Kund:in zu identifizieren, welche Aktion aus einer definierten Menge von Optionen am wahrscheinlichsten das beste Ergebnis erzielt. Dies schafft eine spezifische Anforderung: **Features sollten dem Modell, wo möglich, Informationen liefern, die ihm helfen, zwischen den verfügbaren Optionen für eine bestimmte Kund:in zu unterscheiden.**
+Decisioning Studio ist kein Affinität-Modell, sondern ein Ranking-System. Sein Ziel ist es, für jede Kund:in zu identifizieren, welche Aktion aus einer definierten Menge von Optionen am wahrscheinlichsten das beste Ergebnis erzielt. Dies schafft eine spezifische Anforderung: **Features sollten dem Modell, wo möglich, Informationen liefern, die ihm helfen, zwischen den verfügbaren Optionen für eine bestimmte Kund:in zu unterscheiden.**
 
 ### Warum das wichtig ist {#why-this-matters}
 

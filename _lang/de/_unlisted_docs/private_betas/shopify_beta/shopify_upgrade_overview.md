@@ -27,7 +27,7 @@ Im Rahmen von Shopifys Plänen zur Verbesserung der Checkout-Erweiterbarkeit ste
 - **Allgemeine Verbesserungen der Integration:**
     - **Einführung empfohlener Events:** Wir fügen der Integration empfohlene E-Commerce-Events hinzu, die gängige E-Commerce-Anwendungsfälle durch vorgefertigte Templates in Braze vereinfachen.
     - **Optimiertes Identitätsmanagement:** Wir verbessern unseren Ansatz zur Verwaltung von Nutzeridentitäten, was das Tracking und die Attribution anonymer Nutzerdaten verbessern wird. Weitere Informationen zur Verarbeitung des Identitätsmanagements finden Sie unter [Nutzer- und Datensynchronisierung]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview#user-and-data-syncing).
-    - **E-Mail- und SMS-Abonnent:innenlisten:** Wenn Sie derzeit E-Mail- und SMS-Abonnent:innen erfassen, werden im Rahmen des Upgrades automatisch Standard-Abo-Gruppen für jeden Kanal erstellt. Wenn Braze E-Mail- und SMS-Opt-ins synchronisiert, wird Braze den globalen Abo-Status im Nutzerprofil nicht mehr überschreiben, sondern nur noch das Opt-in der Abo-Gruppe aktualisieren.
+    - **E-Mail- und SMS-Abonnent:innenlisten:** Wenn Sie derzeit E-Mail- und SMS-Abonnent:innen erfassen, werden im Rahmen des Upgrades automatisch Standard-Abo-Gruppen für jeden Kanal erstellt. Wenn Braze E-Mail- und SMS-Opt-ins synchronisiert, wird Braze den globalen Abo-Status im Kundenprofil nicht mehr überschreiben, sondern nur noch das Opt-in der Abo-Gruppe aktualisieren.
     - Alle Details zu den Änderungen von der aktuellen zur neuen Version finden Sie im [Changelog](#full-changelog).
 
 {% alert important %}
@@ -71,7 +71,7 @@ Um Ihre bestehende Shopify-Integration über den angepassten Upgrade-Pfad zu upg
 ## Changelog {#changelog}
 
 {% alert important %}
-Diese Integration verwendet Shopify als maßgebliche Datenquelle für unterstützte Attribute und Events. Daher kann Shopify bereits vorhandene Werte, wie Standard- oder angepasste Attribute, in einem Nutzerprofil bei der Datensynchronisierung überschreiben.
+Diese Integration verwendet Shopify als maßgebliche Datenquelle für unterstützte Attribute und Events. Daher kann Shopify bereits vorhandene Werte, wie Standard- oder angepasste Attribute, in einem Kundenprofil bei der Datensynchronisierung überschreiben.
 {% endalert %}
 
 ### Standard-Integration

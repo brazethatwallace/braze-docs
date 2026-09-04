@@ -1,12 +1,11 @@
 ---
 nav_title: Permissões
-article_title: Permissões de usuários da empresa
+article_title: "Permissões da Braze"
 page_order: 1
 page_type: reference
 alias: /braze_permissions/
-description: "Este artigo de referência aborda como as permissões de usuário funcionam na Braze. Aqui, você pode aprender a editar e definir permissões de usuário, escolhendo quem pode acessar seus apps no dashboard."
+description: "Este artigo de referência aborda como as permissões de usuário funcionam na Braze. Aqui, você pode aprender a editar e definir permissões de usuário, escolhendo quem pode acessar."
 tool: Dashboard
-
 ---
 
 # Permissões da Braze {#braze-permissions}
@@ -20,7 +19,7 @@ tool: Dashboard
 Use conjuntos de permissões para agrupar permissões relacionadas a áreas de assunto ou ações específicas. Você pode aplicar conjuntos de permissões a usuários do dashboard que precisam do mesmo acesso em diferentes espaços de trabalho. Para criar um conjunto de permissões, acesse **Configurações** > **Gerenciamento de usuários** > **Conjuntos de permissões** e selecione **Criar conjunto de permissões**. Para uma descrição de cada permissão, consulte [Lista de permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions).
 
 {% tabs local %}
-{% tab exemplos de conjuntos de permissões %}
+{% tab conjuntos de permissões de exemplo %}
 | Nome | Permissões |
 |-----------|----------------|
 | Desenvolvedores | "View API Keys", "Edit API Keys", "View Internal Groups", "Edit Internal Groups", "View Message Activity Log", "View Event User Log", "View API identifiers", "View API Usage Dashboard", "View API Limits", "View API Usage Alerts", "Edit API Usage Alerts", "View SDK Debugger", "Edit SDK Debugger". |
@@ -30,54 +29,54 @@ Use conjuntos de permissões para agrupar permissões relacionadas a áreas de a
 {% endtab %}
 {% endtabs %}
 
-## Criar um papel {#creating-a-role}
+## Criando um papel {#creating-a-role}
 
-Os papéis permitem mais estrutura ao agrupar suas permissões personalizadas individuais com controles de acesso ao espaço de trabalho. Isso é especialmente útil se você tem muitas marcas ou espaços de trabalho regionais em um único dashboard. Com papéis, você pode adicionar usuários do dashboard aos espaços de trabalho corretos e conceder diretamente as permissões associadas. Para criar um papel, acesse **Configurações** > **Gerenciamento de usuários** > **Papéis** e selecione **Criar papel**. Para uma descrição de cada permissão, consulte [Lista de permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions).
+Os papéis permitem mais estrutura ao agrupar suas permissões personalizadas individuais com controles de acesso ao espaço de trabalho. Isso é especialmente útil se você tem muitas marcas ou espaços de trabalho regionais em um dashboard. Com os papéis, você pode adicionar usuários do dashboard aos espaços de trabalho apropriados e conceder diretamente as permissões associadas. Para criar um papel, acesse **Configurações** > **Gerenciamento de usuários** > **Papéis** e selecione **Criar papel**. Para uma descrição de cada permissão, consulte [Lista de permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions).
 
 {% tabs local %}
 {% tab exemplos de papéis %}
-| Nome do papel    | Espaço de trabalho | Permissões
+| Nome do papel | Espaço de trabalho | Permissões
 ----------- | ----------- | ---------
 | Profissional de marketing - Marcas de moda | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand {:/} | "View Campaigns", "Edit Campaigns", "Archive Campaigns", "View Canvases", "Edit Canvases", "Archive Canvases", "View Content Blocks", "Edit Content Blocks", "Archive Content Blocks", "Launch Content Blocks", "View Feature Flags", "Edit Feature Flags", "Archive Feature Flags", "View Segments", "Edit Segments", "View Banner Templates", "Edit Banner Templates", "View Email Templates", "Edit Email Templates", "View Media Library Assets", "Edit Media Library Assets", "Delete Media Library Assets", "View Locations", "Edit Locations", "Archive Locations", "View Promotion Codes", "Edit Promotion Codes", "Export Promotion Codes", "View Preference Centers", "Edit Preference Centers". |
-| Profissional de marketing - Marcas de skincare | {::nomarkdown}[DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | "View Campaigns", "Edit Campaigns", "Archive Campaigns", "View Canvases", "Edit Canvases", "Archive Canvases", "View Content Blocks", "Edit Content Blocks", "Archive Content Blocks", "Launch Content Blocks", "View Feature Flags", "Edit Feature Flags", "Archive Feature Flags", "View Segments", "Edit Segments", "View Banner Templates", "Edit Banner Templates", "View Email Templates", "Edit Email Templates", "View Media Library Assets", "Edit Media Library Assets", "Delete Media Library Assets", "View Locations", "Edit Locations", "Archive Locations", "View Promotion Codes", "Edit Promotion Codes", "Export Promotion Codes", "View Preference Centers", "Edit Preference Centers". |
-| Gerenciamento de usuários - Todas as marcas | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand, [DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | "Edit Dashboard Users", "View Teams", "Edit Teams", "Archive Teams" |
+| Profissional de marketing - Marcas de skincare | {::nomarkdown}[DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} |"View Campaigns", "Edit Campaigns", "Archive Campaigns", "View Canvases", "Edit Canvases", "Archive Canvases", "View Content Blocks", "Edit Content Blocks", "Archive Content Blocks", "Launch Content Blocks", "View Feature Flags", "Edit Feature Flags", "Archive Feature Flags", "View Segments", "Edit Segments", "View Banner Templates", "Edit Banner Templates", "View Email Templates", "Edit Email Templates", "View Media Library Assets", "Edit Media Library Assets", "Delete Media Library Assets", "View Locations", "Edit Locations", "Archive Locations", "View Promotion Codes", "Edit Promotion Codes", "Export Promotion Codes", "View Preference Centers", "Edit Preference Centers".|
+| Gerenciamento de usuários - Todas as marcas | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand, [DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | "Edit Dashboard Users", "View Teams", "Edit Teams", "Archive Teams"|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Exemplos de papéis" }
 {% endtab %}
 {% endtabs %}
 
-## Qual a diferença entre conjuntos de permissões, papéis e equipes? {#how-do-permission-sets-and-roles-differ-from-teams}
+## Como os conjuntos de permissões e os papéis diferem das Equipes? {#how-do-permission-sets-and-roles-differ-from-teams}
 
 {% multi_lang_include permissions/differences.md content="Differences" %}
 
-### Considerações ao adicionar permissões de usuário a equipes {#considerations-for-adding-user-permissions-to-teams}
+### Considerações ao adicionar permissões de usuário às Equipes {#considerations-for-adding-user-permissions-to-teams}
 
-Você pode encontrar dificuldades ao tentar salvar permissões no dashboard da Braze, especialmente ao adicionar ou remover usuários de um espaço de trabalho ou adicioná-los a uma equipe. O botão **Salvar/Atualizar usuários** pode ficar acinzentado se as permissões do usuário forem idênticas às que ele já possui no nível do espaço de trabalho. Essa restrição existe porque não há benefício em ter uma equipe se todos os usuários possuem as mesmas permissões de todo o espaço de trabalho.
+Você pode encontrar dificuldades ao tentar salvar permissões no dashboard da Braze, especialmente ao adicionar ou remover usuários de um espaço de trabalho ou ao adicioná-los a uma Equipe. O botão **Save/Update Users** pode ficar esmaecido se as permissões do usuário forem idênticas às que ele já possui no nível do espaço de trabalho. Essa restrição existe porque não há benefício em ter uma Equipe se todos os usuários possuem as mesmas permissões de todo o espaço de trabalho.
 
-Para adicionar um usuário a uma equipe com sucesso mantendo as mesmas permissões, não atribua nenhuma permissão no nível do espaço de trabalho. Em vez disso, atribua permissões exclusivamente no nível da equipe.
+Para adicionar um usuário a uma Equipe com sucesso e manter as mesmas permissões, não atribua nenhuma permissão no nível do espaço de trabalho. Em vez disso, atribua as permissões exclusivamente no nível da equipe.
 
 ## Usuários limitados {#limited-users}
 
-Usuários limitados têm permissões específicas que permitem gerenciar determinados aspectos do dashboard da Braze, mas com restrições em comparação com administradores da empresa e administradores do espaço de trabalho.
+Usuários limitados têm permissões específicas que permitem gerenciar determinados aspectos do dashboard da Braze, mas com restrições em comparação com administradores da empresa e administradores de espaço de trabalho.
 
 | Escopo | Descrição |
 | --- | --- |
-| Permissões | Usuários limitados podem editar as permissões de outros usuários limitados se tiverem a permissão "Edit Dashboard Users". Eles também podem criar novos usuários limitados e modificar seus conjuntos de permissões. No entanto, não podem criar ou gerenciar contas de administrador da empresa. |
-| Limitações de papéis | Se um usuário limitado tiver todas as permissões, exceto "Workspace Admin", ele ainda terá acesso a todas as outras permissões normalmente concedidas a um administrador do espaço de trabalho. |
-| Visibilidade de permissões | Se um usuário limitado tiver a permissão "Edit Dashboard Users" para um espaço de trabalho (como Dev), mas não para outro (como Prod), ele não verá as permissões do espaço de trabalho Prod na página de detalhes dos usuários do dashboard. |
+| Permissões | Usuários limitados podem editar as permissões de outros usuários limitados se tiverem a permissão "Edit Dashboard Users". Também podem criar novos usuários limitados e modificar seus conjuntos de permissões. No entanto, não podem criar ou gerenciar contas de administrador da empresa. |
+| Limitações de papel | Se um usuário limitado tiver todas as permissões, exceto "Workspace Admin", ele ainda terá acesso a todas as outras permissões normalmente concedidas a um administrador de espaço de trabalho. |
+| Visibilidade de permissões | Se um usuário limitado tiver a permissão "Edit Dashboard Users" para um espaço de trabalho (como Dev) mas não para outro (como Prod), ele não verá as permissões do espaço de trabalho Prod na página de detalhes de usuários do dashboard. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Permissões para usuários limitados" }
 
 ### Comparar usuários limitados {#compare-limited-users}
 
 | Tipo de usuário limitado | Descrição |
 | --- | --- |
-| Administrador do espaço de trabalho | Administradores do espaço de trabalho têm permissões específicas para gerenciar espaços de trabalho, mas não possuem a mesma autoridade que administradores da empresa. Usuários limitados podem herdar permissões semelhantes às de administradores do espaço de trabalho se tiverem as permissões necessárias marcadas. |
-| Administrador (administrador da empresa) | Administradores da empresa têm permissões mais amplas, incluindo a capacidade de excluir usuários do dashboard. No entanto, eles não podem excluir suas próprias contas e devem entrar em contato com outro administrador da empresa para essa ação. |
-| Acesso somente leitura | Para acessar partes do dashboard, como a página de Campaigns, os usuários devem ter permissões de visualização atribuídas a eles. |
+| Administrador de espaço de trabalho | Administradores de espaço de trabalho têm permissões específicas para gerenciar espaços de trabalho, mas não possuem a mesma autoridade que administradores da empresa. Usuários limitados podem herdar permissões semelhantes às de administradores de espaço de trabalho se tiverem as permissões necessárias marcadas. |
+| Administrador (Administrador da empresa) | Administradores da empresa têm permissões mais amplas, incluindo a capacidade de excluir usuários do dashboard. No entanto, não podem excluir suas próprias contas e precisam entrar em contato com outro administrador da empresa para essa ação. |
+| Acesso somente leitura | Para acessar partes do dashboard, como a página de Campaigns, os usuários precisam ter permissões de visualização atribuídas a eles. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Comparação de usuários limitados" }
 
 ### Erro de acesso limitado {#limited-access-error}
 
-Os usuários podem encontrar mensagens como "Você precisa da permissão 'View Landing Pages' para acessar esta página". Nesses casos, o usuário e o administrador da conta devem verificar se as permissões necessárias foram concedidas. Se já estiverem, tente resolver o problema desativando e reativando as permissões do usuário.
+Os usuários podem encontrar mensagens como "You need 'View Landing Pages' permissions to access this page". Nesses casos, o usuário e o administrador da conta devem verificar se as permissões necessárias foram concedidas. Se estiverem, tente resolver o problema desativando e reativando as permissões do usuário.
 
 {% alert note %}
 Não é possível mesclar ou importar permissões de usuário de um usuário do dashboard para outro.
@@ -87,18 +86,19 @@ Não é possível mesclar ou importar permissões de usuário de um usuário do 
 
 Tenha em mente os seguintes comportamentos ao atribuir acesso ao dashboard:
 
-- **Administrador do espaço de trabalho versus administrador da empresa:** Administradores do espaço de trabalho gerenciam permissões dentro dos espaços de trabalho atribuídos. Administradores da empresa têm autoridade em toda a empresa, incluindo a exclusão de outros usuários do dashboard.
-- **Usuários limitados:** Usuários limitados com a permissão "Edit Dashboard Users" podem gerenciar outros usuários limitados, mas não podem criar ou gerenciar contas de administrador da empresa.
-- **Escopo de gerenciamento de usuários do dashboard:** Na página de detalhes do usuário, as permissões aparecem apenas para os espaços de trabalho que o editor pode acessar. Um usuário limitado que pode editar usuários em um espaço de trabalho pode não ver as caixas de seleção de permissões de outro espaço de trabalho.
+- **Admin do espaço de trabalho versus Admin da empresa:** Os Admins do espaço de trabalho gerenciam permissões dentro dos espaços de trabalho atribuídos. Os Admins da empresa têm autoridade em toda a empresa, incluindo a exclusão de outros usuários do dashboard.
+- **Usuários limitados:** Usuários limitados com a permissão "Editar usuários do dashboard" podem gerenciar outros usuários limitados, mas não podem criar ou gerenciar contas de Admin da empresa.
+- **Escopo de gerenciar usuários do dashboard:** Na página de detalhes do usuário, as permissões aparecem apenas para os espaços de trabalho que o editor pode acessar. Um usuário limitado que pode editar usuários em um espaço de trabalho pode não ver as caixas de seleção de permissão de outro espaço de trabalho.
+- **Botão Atribuir permissões:** Ao editar um usuário que já possui permissões no nível do espaço de trabalho ou conjuntos de permissões para todos os espaços de trabalho que você pode gerenciar, o botão **Assign permissions** desaparece. Isso acontece porque não há espaços de trabalho adicionais para atribuir no nível do espaço de trabalho.
 - **Exportar dados de usuários:** A exportação de dados de usuários requer acesso no nível do espaço de trabalho, além da permissão de exportação.
 - **Permissões compostas:** Algumas áreas exigem múltiplas permissões. Por exemplo, configurar [parceiros de tecnologia]({{site.baseurl}}/partners) normalmente requer tanto o acesso ao parceiro quanto uma permissão básica de leitura para os recursos relacionados do espaço de trabalho.
-- **Importar e atualizar dados de usuários:** Essa permissão inclui a capacidade de editar perfis de usuários do app por meio de fluxos de importação, não apenas registros de usuários do dashboard.
+- **Importar e atualizar dados de usuários:** Essa permissão inclui a capacidade de editar perfis de usuários do app por meio de fluxos de importação, e não apenas registros de usuários do dashboard.
 
 ## Editar as permissões de um usuário {#edit-a-users-permissions}
 
 Para editar as permissões atuais de administrador, empresa ou espaço de trabalho de um usuário, acesse **Configurações** > **Gerenciamento de usuários** > **Usuários da empresa** e selecione o nome dele.
 
-![A página "Usuários da empresa" na Braze mostrando uma tabela de usuários do dashboard.]({% image_buster /assets/img/braze_permissions/selecting_a_user.png %})
+![A página "Usuários da empresa" na Braze exibindo uma tabela de usuários do dashboard.]({% image_buster /assets/img/braze_permissions/selecting_a_user.png %})
 
 {% tabs local %}
 {% tab Administrador %}
@@ -109,12 +109,12 @@ Administradores têm acesso a todos os recursos e a capacidade de modificar qual
 
 - Alterar [configurações de aprovação]({{site.baseurl}}/user_guide/messaging/governance/approvals#turning-on-the-approval-workflow)
 - Adicionar, editar, excluir, suspender ou reativar outros [usuários da Braze]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users#adding-company-users)
-- Exportar usuários da Braze como CSV
+- Exportar usuários da Braze como um arquivo CSV
 
-Para conceder ou remover privilégios de administrador, selecione **Este usuário é um administrador** e depois selecione **Atualizar usuário**.
+Para conceder ou remover privilégios de administrador, selecione **Este usuário é um administrador** e, em seguida, selecione **Atualizar usuário**.
 
 {% alert warning %}
-Se você remover os privilégios de administrador de um usuário, ele não poderá acessar a Braze até que você atribua pelo menos uma [permissão no nível da empresa ou do espaço de trabalho]({{site.baseurl}}/user_guide/administer/global/user_management/permissions?tab=company&sdktab=granular%20permissions#granularpermissions_editing-a-users-permissions).
+Se você remover os privilégios de administrador de um usuário, ele não poderá acessar a Braze até que você atribua pelo menos uma [permissão no nível da empresa ou no nível do espaço de trabalho]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#edit-a-users-permissions).
 {% endalert %}
 
 {% endtab %}
@@ -126,7 +126,7 @@ Para gerenciar as seguintes permissões no nível da empresa para um usuário, m
 
 | Nome da permissão | Descrição |
 |----------|-----------|
-| Gerenciar configurações da empresa | Permite que os usuários modifiquem configurações de permissão e verificação de remetente. |
+| Gerenciar configurações da empresa | Permite que os usuários modifiquem as configurações de permissão e a verificação do remetente. |
 | Criar e excluir espaços de trabalho | Permite que os usuários criem e excluam espaços de trabalho. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Permissões no nível da empresa" }
 
@@ -135,12 +135,12 @@ Para gerenciar as seguintes permissões no nível da empresa para um usuário, m
 
 ### Espaço de trabalho {#workspace}
 
-Você pode conceder a um usuário permissões diferentes para cada espaço de trabalho ao qual ele pertence na Braze. Para gerenciar as permissões no nível do espaço de trabalho, selecione **Selecionar espaços de trabalho e permissões** e escolha as permissões manualmente ou atribua um [conjunto de permissões ou papel]({{site.baseurl}}/user_guide/administer/global/user_management/permissions?sdktab=granular%20permissions#granularpermissions_creating-a-permission-set) que você criou anteriormente. Se precisar conceder a um usuário permissões diferentes para espaços de trabalho diferentes, repita esse processo quantas vezes for necessário. Para uma descrição de cada permissão, consulte [Lista de permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions?sdktab=granular%20permissions#granularpermissions_list-of-permissions).
+Você pode conceder a um usuário permissões diferentes para cada espaço de trabalho ao qual ele pertence na Braze. Para gerenciar as permissões no nível do espaço de trabalho, selecione **Selecionar espaços de trabalho e permissões** e, em seguida, escolha as permissões manualmente ou atribua um [conjunto de permissões ou papel]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#create-a-permission-set) que você criou anteriormente. Se precisar conceder permissões diferentes a um usuário para espaços de trabalho diferentes, repita esse processo quantas vezes for necessário. Para uma descrição de cada permissão, consulte [Lista de permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions).
 
 {% subtabs %}
 {% subtab Selecionar manualmente %}
 
-Em **Espaços de trabalho**, escolha um ou mais espaços de trabalho no menu suspenso. Em seguida, em **Permissões**, selecione uma ou mais permissões. Elas serão atribuídas apenas para os espaços de trabalho que você selecionou. Opcionalmente, você pode selecionar **Atribuir acesso de administrador do espaço de trabalho** se quiser conceder permissões completas para esse espaço de trabalho.
+Em **Espaços de trabalho**, escolha um ou mais espaços de trabalho no menu suspenso. Em seguida, em **Permissões**, selecione uma ou mais permissões. Elas serão atribuídas somente para os espaços de trabalho que você selecionou. Opcionalmente, você pode selecionar **Atribuir acesso de administrador do espaço de trabalho** se quiser conceder permissões completas para esse espaço de trabalho.
 
 Quando terminar, selecione **Atualizar usuário**.
 
@@ -149,7 +149,7 @@ Quando terminar, selecione **Atualizar usuário**.
 {% endsubtab %}
 {% subtab Atribuir conjunto de permissões %}
 
-Em **Espaços de trabalho**, escolha um ou mais espaços de trabalho no menu suspenso. Em seguida, em **Conjuntos de permissões**, escolha um conjunto de permissões. Elas serão atribuídas apenas para os espaços de trabalho que você selecionou.
+Em **Espaços de trabalho**, escolha um ou mais espaços de trabalho no menu suspenso. Em seguida, em **Conjuntos de permissões**, escolha um conjunto de permissões. Elas serão atribuídas somente para os espaços de trabalho que você selecionou.
 
 Quando terminar, selecione **Atualizar usuário**.
 
@@ -158,7 +158,7 @@ Quando terminar, selecione **Atualizar usuário**.
 {% endsubtab %}
 {% subtab Atribuir papel %}
 
-Em **Espaços de trabalho**, escolha um ou mais espaços de trabalho no menu suspenso. Em seguida, em **Papel**, escolha um papel. Elas serão atribuídas apenas para os espaços de trabalho que você selecionou.
+Em **Espaços de trabalho**, escolha um ou mais espaços de trabalho no menu suspenso. Em seguida, em **Papel**, escolha um papel. Elas serão atribuídas somente para os espaços de trabalho que você selecionou.
 
 Quando terminar, selecione **Atualizar usuário**.
 
@@ -169,9 +169,9 @@ Quando terminar, selecione **Atualizar usuário**.
 {% endtab %}
 {% endtabs %}
 
-## Exportar permissões de usuário {#exporting-user-permissions}
+## Exportando permissões de usuários {#exporting-user-permissions}
 
-Para baixar uma lista dos seus usuários e suas permissões, acesse **Configurações** > **Gerenciamento de usuários** > **Usuários da empresa** e selecione **Exportar usuários**. Um arquivo CSV será enviado para o seu endereço de e-mail em breve.
+Para baixar uma lista dos seus usuários e suas permissões, acesse **Configurações** > **Gerenciamento de Usuários** > **Usuários da Empresa** e selecione **Exportar Usuários**. Um arquivo CSV será enviado para o seu endereço de e-mail em breve.
 
 ## Lista de permissões {#list-of-permissions}
 
@@ -179,203 +179,203 @@ Para baixar uma lista dos seus usuários e suas permissões, acesse **Configura�
 
 | Área do produto | Permissão | Definição |
 | --- | --- | --- |
-| Campaigns | View Campaigns | Visualizar Campaigns |
-| Campaigns | Launch Campaigns | Iniciar, parar, pausar ou retomar Campaigns existentes |
-| Campaigns | Archive Campaigns | Mover Campaigns para o arquivo |
-| Campaigns | Edit Campaigns | Criar e atualizar Campaigns |
-| Campaigns | Approve and Deny Campaigns | Aprovar ou rejeitar Campaigns. O [fluxo de aprovação para Campaigns]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals) deve estar ativado para que essa permissão se aplique. Essa configuração está atualmente em acesso antecipado. Entre em contato com seu gerente de conta se tiver interesse em participar do acesso antecipado. |
-| Canvas | View Canvases | Visualizar Canvas |
-| Canvas | Archive Canvases | Mover Canvas para o arquivo |
-| Canvas | Edit Canvases | Criar e atualizar Canvas |
-| Canvas | Launch Canvases | Iniciar, parar, pausar ou retomar Canvas existentes |
-| Canvas | Approve and Deny Canvases | Aprovar ou rejeitar Canvas. O [fluxo de aprovação para Canvas]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals) deve estar ativado para que essa permissão se aplique. Essa configuração está atualmente em acesso antecipado. Entre em contato com seu gerente de conta se tiver interesse em participar do acesso antecipado. |
-| Feature Flags | View Feature Flags | Visualizar Feature Flags |
-| Feature Flags | Archive Feature Flags | Mover Feature Flags para o arquivo |
-| Feature Flags | Edit Feature Flags | Criar e atualizar Feature Flags |
-| Limites de frequência | View Frequency Capping Rules | Visualizar regras do limite de frequência |
-| Limites de frequência | Edit Frequency Capping Rules | Criar e atualizar regras do limite de frequência |
-| Landing pages | View Landing Pages | Visualizar landing pages |
-| Landing pages | Publish Landing Pages | Tornar ativa uma landing page em rascunho |
-| Landing pages | Edit Landing Page Drafts | Criar e salvar rascunhos de landing page |
-| Configurações de arquivamento de mensagem | View Message Archiving Settings | Visualizar configurações de arquivamento de mensagem sem fazer alterações |
-| Configurações de arquivamento de mensagem | Edit Message Archiving Settings | Criar e atualizar configurações de arquivamento de mensagem |
-| Priorização de mensagens | View Message Prioritization | Visualizar configurações de priorização de mensagens sem fazer alterações |
-| Priorização de mensagens | Edit Message Prioritization | Criar e atualizar configurações de priorização de mensagens |
-| WhatsApp Flows | View WhatsApp Flows | Visualizar todos os WhatsApp Flows |
+| Campaigns | Ver Campaigns | Visualizar Campaigns |
+| Campaigns | Lançar Campaigns | Iniciar, interromper, pausar ou retomar Campaigns existentes |
+| Campaigns | Arquivar Campaigns | Mover Campaigns para o arquivo |
+| Campaigns | Editar Campaigns | Criar e atualizar Campaigns |
+| Campaigns | Aprovar e negar Campaigns | Aprovar ou negar Campaigns. O [fluxo de trabalho de aprovação para Campaigns]({{site.baseurl}}/user_guide/messaging/governance/approvals) deve estar ativado para que essa permissão se aplique. Essa configuração está atualmente em acesso antecipado. Entre em contato com o seu gerente de conta se tiver interesse em participar do acesso antecipado. |
+| Canvas | Ver Canvas | Visualizar Canvas |
+| Canvas | Arquivar Canvas | Mover Canvas para o arquivo |
+| Canvas | Editar Canvas | Criar e atualizar Canvas |
+| Canvas | Lançar Canvas | Iniciar, interromper, pausar ou retomar Canvas existentes |
+| Canvas | Aprovar e negar Canvas | Aprovar ou negar Canvas. O [fluxo de trabalho de aprovação para Canvas]({{site.baseurl}}/user_guide/messaging/governance/approvals) deve estar ativado para que essa permissão se aplique. Essa configuração está atualmente em acesso antecipado. Entre em contato com o seu gerente de conta se tiver interesse em participar do acesso antecipado. |
+| Feature Flags | Ver Feature Flags | Visualizar Feature Flags |
+| Feature Flags | Arquivar Feature Flags | Mover Feature Flags para o arquivo |
+| Feature Flags | Editar Feature Flags | Criar e atualizar Feature Flags |
+| Limites de frequência | Ver regras de limite de frequência | Visualizar regras de limite de frequência |
+| Limites de frequência | Editar regras de limite de frequência | Criar e atualizar regras de limite de frequência |
+| Landing pages | Ver landing pages | Visualizar landing pages |
+| Landing pages | Publicar landing pages | Tornar ativa uma landing page em rascunho |
+| Landing pages | Editar rascunhos de landing pages | Criar e salvar rascunhos de landing pages |
+| Configurações de arquivamento de mensagens | Ver configurações de arquivamento de mensagens | Visualizar configurações de arquivamento de mensagens sem fazer alterações |
+| Configurações de arquivamento de mensagens | Editar configurações de arquivamento de mensagens | Criar e atualizar configurações de arquivamento de mensagens |
+| Priorização de mensagens | Ver priorização de mensagens | Visualizar configurações de priorização de mensagens sem fazer alterações |
+| Priorização de mensagens | Editar priorização de mensagens | Criar e atualizar configurações de priorização de mensagens |
+| WhatsApp Flows | Ver WhatsApp Flows | Visualizar todos os WhatsApp Flows |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Permissões de envio de mensagens" }
 
 ### Público {#audience}
 
 | Área do produto | Permissão | Definição |
 | --- | --- | --- |
-| Grupo de controle global | View Global Control Group | Visualizar a página de configuração do grupo de controle global |
-| Grupo de controle global | Edit Global Control Group | Criar e salvar alterações no grupo de controle global. Usuários com a permissão "Edit Global Control Group" também devem ter as permissões "Edit Campaigns" e "Edit Canvases". Usuários com a permissão "Edit Global Control Group" também recebem a permissão "View Global Control Group". |
-| Locais | Archive Locations | Mover locais para o arquivo |
-| Locais | View Locations | Visualizar locais |
-| Locais | Edit Locations | Criar e editar locais |
-| Segments | View Segments | Visualizar Segments. Os usuários devem ter a permissão "View Segments" para ter a permissão "Edit Segments" ou "Archive Segments" |
-| Segments | Archive Segments | Arquivar e desarquivar Segments. Usuários com a permissão "Archive Segments" também devem ter a permissão "View Segments" |
-| Segments | Edit Segments | Criar e atualizar Segments. Usuários com a permissão "Edit Segments" também devem ter a permissão "View Segments" |
-| Dados de usuários | View Import Users | Visualizar importações de usuários por CSV sem fazer alterações |
-| Dados de usuários | Import Users | Fazer upload de usuários para o dashboard |
-| Dados de usuários | Edit User Data | Criar e atualizar dados de usuários |
-| Dados de usuários | Export User Data | Baixar usuários do dashboard |
-| Usuários duplicados | View User Merge Records | Visualizar uma lista de registros de mesclagem de usuários |
-| Usuários | View User Profiles (PII Redacted) | Visualizar perfis de usuário de maneira compatível com IPI |
-| Usuários | View User Event Properties | Visualizar propriedades de eventos na guia **Histórico de eventos** nos perfis de usuário |
-| Usuários duplicados | Merge Duplicate Users | Combinar usuários duplicados em um único usuário. Os duplicados são removidos após a mesclagem |
-| Exclusão de usuários | View User Deletion Records | Visualizar uma lista de registros de exclusão de usuários |
-| Exclusão de usuários | Delete Users | Excluir permanentemente usuários do dashboard individualmente ou em massa |
+| Grupo de controle global | Ver grupo de controle global | Visualizar a página de configuração do grupo de controle global |
+| Grupo de controle global | Editar grupo de controle global | Criar e salvar alterações no grupo de controle global. Os usuários com a permissão "Editar grupo de controle global" também devem ter as permissões "Editar Campaigns" e "Editar Canvas". Os usuários com a permissão "Editar grupo de controle global" também recebem a permissão "Ver grupo de controle global". |
+| Locais | Arquivar locais | Mover locais para o arquivo |
+| Locais | Ver locais | Visualizar locais |
+| Locais | Editar locais | Criar e editar locais |
+| Segments | Ver Segments | Visualizar Segments. Os usuários devem ter a permissão "Ver Segments" para ter a permissão "Editar Segments" ou "Arquivar Segments" |
+| Segments | Arquivar Segments | Arquivar e desarquivar Segments. Os usuários com a permissão "Arquivar Segments" também devem ter a permissão "Ver Segments" |
+| Segments | Editar Segments | Criar e atualizar Segments. Os usuários com a permissão "Editar Segments" também devem ter a permissão "Ver Segments" |
+| Dados de usuários | Ver importação de usuários | Visualizar importações de usuários via CSV sem fazer alterações |
+| Dados de usuários | Importar usuários | Fazer upload de usuários para o dashboard |
+| Dados de usuários | Editar dados de usuários | Criar e atualizar dados de usuários |
+| Dados de usuários | Exportar dados de usuários | Baixar usuários do dashboard |
+| Usuários duplicados | Ver registros de mesclagem de usuários | Visualizar uma lista de registros de mesclagem de usuários |
+| Usuários | Ver perfis de usuários (IPI editada) | Visualizar perfis de usuários de forma compatível com IPI. Os usuários com essa permissão não podem salvar ou lançar Campaigns que façam referência a atributos personalizados marcados como IPI, a menos que também tenham a permissão "Ver atributos personalizados marcados como IPI".<br><br>A permissão "Ver perfis de usuários (IPI editada)" deve ser ativada antes do uso. Entre em contato com o seu CSM para ativá-la no seu espaço de trabalho. |
+| Usuários | Ver propriedades de eventos do usuário | Visualizar propriedades de eventos na guia **Histórico de eventos** nos perfis de usuários |
+| Usuários duplicados | Mesclar usuários duplicados | Combinar usuários duplicados em um único usuário. As duplicatas são removidas após a mesclagem |
+| Excluir usuários | Ver registros de exclusão de usuários | Visualizar uma lista de registros de exclusão de usuários |
+| Excluir usuários | Excluir usuários | Excluir permanentemente usuários do dashboard individualmente ou em massa |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Permissões de público" }
 
 ### Modelo {#template}
 
 | Área do produto | Permissão | Definição |
 | --- | --- | --- |
-| Modelos de banner | View Banner Templates | Visualizar modelos de banner |
-| Modelos de banner | Archive Banner Templates | Mover modelos de banner para o arquivo |
-| Modelos de banner | Edit Banner Templates | Criar e atualizar modelos de banner |
-| Modelos de Canvas | View Canvas Templates | Visualizar modelos de Canvas |
-| Modelos de Canvas | Archive Canvas Templates | Mover modelos de Canvas para o arquivo |
-| Modelos de Canvas | Create and Edit Canvas Templates | Criar e atualizar modelos de Canvas |
-| Content Blocks | View Content Blocks | Visualizar Content Blocks |
-| Content Blocks | Launch Content Blocks | Publicar Content Blocks em rascunho e editar, arquivar e desarquivar Content Blocks publicados |
-| Content Blocks | Archive Content Blocks | Mover Content Blocks para o arquivo |
-| Content Blocks | Edit Content Blocks | Criar Content Blocks e editar Content Blocks em rascunho |
-| Modelos de links de e-mail | View Email Link Templates | Visualizar modelos de links sem fazer alterações |
-| Modelos de links de e-mail | Edit Email Link Templates | Criar e atualizar modelos de links |
-| Modelos de e-mail | View Email Templates | Visualizar modelos de e-mail |
-| Modelos de e-mail | Archive Email Templates | Mover modelos de e-mail para o arquivo |
-| Modelos de e-mail | Edit Email Templates | Criar e atualizar modelos de e-mail |
-| Modelos de mensagens no app | View IAM Templates | Visualizar modelos de mensagens no app sem fazer alterações |
-| Modelos de mensagens no app | Archive IAM Templates | Mover modelos de mensagens no app para o arquivo |
-| Modelos de mensagens no app | Edit IAM Templates | Criar e atualizar modelos de mensagens no app |
-| Modelos de landing page | View Landing Page Templates | Visualizar modelos de landing page |
-| Modelos de landing page | Archive Landing Page Template | Mover modelos de landing page para o arquivo |
-| Modelos de landing page | Edit Landing Page Templates | Criar e atualizar modelos de landing page |
-| Modelos de webhook | View Webhook Templates | Visualizar modelos de webhook sem fazer alterações |
-| Modelos de webhook | Archive Webhook Templates | Mover modelos de webhook para o arquivo |
-| Modelos de webhook | Edit Webhook Templates | Criar e atualizar modelos de webhook |
-| Modelos de mensagens do WhatsApp | View WhatsApp Message Templates | Permite que os usuários visualizem [modelos de mensagens do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#step-2-compose-your-whatsapp-message) |
-| Modelos de mensagens do WhatsApp | Edit WhatsApp Message Templates | Permite que os usuários criem modelos de mensagens do WhatsApp no construtor de modelos. Esse recurso está atualmente em acesso antecipado. |
-| Modelos de mensagens do WhatsApp do Meta | View WhatsApp Message Templates From Meta | Visualizar todos os modelos do WhatsApp |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Permissões de modelos" }
+| Modelos de banner | Ver modelos de banner | Visualizar modelos de banner |
+| Modelos de banner | Arquivar modelos de banner | Mover modelos de banner para o arquivo |
+| Modelos de banner | Editar modelos de banner | Criar e atualizar modelos de banner |
+| Modelos de Canvas | Ver modelos de Canvas | Visualizar modelos de Canvas |
+| Modelos de Canvas | Arquivar modelos de Canvas | Mover modelos de Canvas para o arquivo |
+| Modelos de Canvas | Criar e editar modelos de Canvas | Criar e atualizar modelos de Canvas |
+| Content Blocks | Ver Content Blocks | Visualizar Content Blocks |
+| Content Blocks | Lançar Content Blocks | Publicar Content Blocks em rascunho e editar, arquivar e desarquivar Content Blocks lançados |
+| Content Blocks | Arquivar Content Blocks | Mover Content Blocks para o arquivo |
+| Content Blocks | Editar Content Blocks | Criar Content Blocks e editar Content Blocks em rascunho |
+| Modelos de link de e-mail | Ver modelos de link de e-mail | Visualizar modelos de link sem fazer alterações |
+| Modelos de link de e-mail | Editar modelos de link de e-mail | Criar e atualizar modelos de link |
+| Modelos de e-mail | Ver modelos de e-mail | Visualizar modelos de e-mail |
+| Modelos de e-mail | Arquivar modelos de e-mail | Mover modelos de e-mail para o arquivo |
+| Modelos de e-mail | Editar modelos de e-mail | Criar e atualizar modelos de e-mail |
+| Modelos de mensagem no app | Ver modelos de mensagem no app | Visualizar modelos de mensagem no app sem fazer alterações |
+| Modelos de mensagem no app | Arquivar modelos de mensagem no app | Mover modelos de mensagem no app para o arquivo |
+| Modelos de mensagem no app | Editar modelos de mensagem no app | Criar e atualizar modelos de mensagem no app |
+| Modelos de landing page | Ver modelos de landing page | Visualizar modelos de landing page |
+| Modelos de landing page | Arquivar modelos de landing page | Mover modelos de landing page para o arquivo |
+| Modelos de landing page | Editar modelos de landing page | Criar e atualizar modelos de landing page |
+| Modelos de webhook | Ver modelos de webhook | Visualizar modelos de webhook sem fazer alterações |
+| Modelos de webhook | Arquivar modelos de webhook | Mover modelos de webhook para o arquivo |
+| Modelos de webhook | Editar modelos de webhook | Criar e atualizar modelos de webhook |
+| Modelos de mensagem do WhatsApp | Ver modelos de mensagem do WhatsApp | Permite que os usuários visualizem [modelos de mensagem do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#step-2-compose-your-whatsapp-message) |
+| Modelos de mensagem do WhatsApp | Editar modelos de mensagem do WhatsApp | Permite que os usuários criem modelos de mensagem do WhatsApp no criador de modelos. Esse recurso está atualmente em acesso antecipado. |
+| Modelos de mensagem do WhatsApp da Meta | Ver modelos de mensagem do WhatsApp da Meta | Visualizar todos os modelos do WhatsApp |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Permissões de modelo" }
 
-### Integrações de parceiros {#partner-integrations}
+### Integrações com parceiros {#partner-integrations}
 
 | Área do produto | Permissão | Definição |
 | --- | --- | --- |
-| Integrações do Currents | View Currents Integration | Visualizar integrações do Currents |
-| Integrações do Currents | Edit Currents Integrations | Criar, atualizar e excluir integrações do Currents |
-| Parceiros de tecnologia | Edit Technology Partners | Criar e atualizar parceiros de tecnologia |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Permissões de integrações de parceiros" }
+| Integrações com Currents | Ver integração com Currents | Visualizar integrações com Currents |
+| Integrações com Currents | Editar integrações com Currents | Criar, atualizar e excluir integrações com Currents |
+| Parceiros de tecnologia | Editar parceiros de tecnologia | Criar e atualizar parceiros de tecnologia |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Permissões de integrações com parceiros" }
 
 ### Configurações de dados {#data-settings}
 
 | Área do produto | Permissão | Definição |
 | --- | --- | --- |
-| Catálogos | View Catalogs | Visualizar catálogos e seleções |
-| Catálogos | Delete Catalogs | Excluir permanentemente catálogos |
-| Catálogos | Export Catalogs | Baixar catálogos do dashboard |
-| Catálogos | Edit Catalogs | Criar e atualizar catálogos e seleções |
-| Ingestão de dados na nuvem | Edit Cloud Data Ingestion | Criar, atualizar e excluir fontes e sincronizações |
-| Atributos personalizados | View Custom Attributes | Visualizar atributos personalizados e relatório de uso |
-| Atributos personalizados | Export Custom Attributes | Baixar atributos personalizados do dashboard |
-| Atributos personalizados | Delete Custom Attributes | Excluir permanentemente atributos personalizados |
-| Atributos personalizados | Blocklist Custom Attributes | Adicionar atributos personalizados a uma lista de bloqueio que restringe o uso no dashboard |
-| Atributos personalizados | Edit Custom Attributes | Criar e atualizar atributos personalizados |
-| Segmentação por propriedade de evento personalizado | Edit Custom Event Property Segmentation | Ativar e desativar a segmentação por propriedades de eventos personalizados |
-| Eventos personalizados | View Custom Events | Visualizar eventos personalizados e relatório de uso, e adicionar eventos personalizados ao e-mail de relatório de análise de dados diário |
-| Eventos personalizados | Export Custom Events | Baixar eventos personalizados do dashboard |
-| IPI | View PII | Visualizar IPI |
-| Eventos personalizados | Delete Custom Events | Excluir permanentemente eventos personalizados |
-| Eventos personalizados | Blocklist Custom Events | Adicionar eventos personalizados a uma lista de bloqueio que restringe o uso no dashboard |
-| Eventos personalizados | Edit Custom Events | Criar e atualizar eventos personalizados |
-| Produtos | View Products | Visualizar produtos |
-| Produtos | Blocklist Products | Adicionar produtos a uma lista de bloqueio que restringe o uso no dashboard |
-| Produtos | Edit Products | Criar e atualizar produtos |
-| Segmentação por propriedade de compra | Edit Purchase Property Segmentation | Ativar e desativar a segmentação por propriedades de eventos de compra |
+| Catálogos | Ver catálogos | Visualizar catálogos e seleções |
+| Catálogos | Excluir catálogos | Excluir catálogos permanentemente |
+| Catálogos | Exportar catálogos | Baixar catálogos do dashboard |
+| Catálogos | Editar catálogos | Criar e atualizar catálogos e seleções |
+| Ingestão de dados na nuvem | Editar ingestão de dados na nuvem | Criar, atualizar e excluir fontes e sincronizações |
+| Atributos personalizados | Ver atributos personalizados | Visualizar atributos personalizados e relatório de uso |
+| Atributos personalizados | Exportar atributos personalizados | Baixar atributos personalizados do dashboard |
+| Atributos personalizados | Excluir atributos personalizados | Excluir atributos personalizados permanentemente |
+| Atributos personalizados | Bloquear atributos personalizados | Adicionar atributos personalizados a uma lista de bloqueio que restringe o uso no dashboard |
+| Atributos personalizados | Editar atributos personalizados | Criar e atualizar atributos personalizados |
+| Segmentação de propriedades de eventos personalizados | Editar segmentação de propriedades de eventos personalizados | Ativar e desativar a segmentação para propriedades de eventos personalizados |
+| Eventos personalizados | Ver eventos personalizados | Visualizar eventos personalizados e relatório de uso, e adicionar eventos personalizados ao e-mail de relatório diário de análise de dados |
+| Eventos personalizados | Exportar eventos personalizados | Baixar eventos personalizados do dashboard |
+| IPI | Ver IPI | Visualizar IPI |
+| Eventos personalizados | Excluir eventos personalizados | Excluir eventos personalizados permanentemente |
+| Eventos personalizados | Bloquear eventos personalizados | Adicionar eventos personalizados a uma lista de bloqueio que restringe o uso no dashboard |
+| Eventos personalizados | Editar eventos personalizados | Criar e atualizar eventos personalizados |
+| Produtos | Ver produtos | Visualizar produtos |
+| Produtos | Bloquear produtos | Adicionar produtos a uma lista de bloqueio que restringe o uso no dashboard |
+| Produtos | Editar produtos | Criar e atualizar produtos |
+| Segmentação de propriedades de compra | Editar segmentação de propriedades de compra | Ativar e desativar a segmentação para propriedades de eventos de compra |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Permissões de configurações de dados" }
 
 ### Configurações {#settings}
 
 | Área do produto | Permissão | Definição |
 | --- | --- | --- |
-| Identificadores de API | View API identifiers | Visualizar identificadores de API e outros identificadores |
-| Chaves de API | View API Keys | Visualizar chaves de API |
-| Chaves de API | Edit API Keys | Criar e atualizar chaves de API |
-| Limites de API | View API Limits | Visualizar limites de taxa de API |
-| Alertas de uso de API | View API Usage Alerts | Visualizar alertas de uso de API |
-| Alertas de uso de API | Edit API Usage Alerts | Criar e atualizar alertas de uso de API |
-| Dados de uso de API | View API Usage Dashboard | Visualizar o dashboard de uso de API |
-| Configurações do app | Edit App Settings | Criar, editar e atualizar apps nas configurações do app |
-| Configurações do app | View App Settings | Visualizar a página de configurações do app |
-| Configurações de Audience Sync | View Audience Sync Settings | Visualizar todas as configurações dos parceiros de Audience Sync conectados |
-| Usuários do dashboard | Edit Dashboard Users | Visualizar, criar e editar usuários da empresa |
-| Configurações de e-mail | View Email Settings | Visualizar preferências de e-mail |
-| Configurações de e-mail | Edit Email Settings | Ativar e atualizar preferências de e-mail |
-| Registro de usuários de eventos | View Event User Log | Visualizar registros de usuários de eventos |
-| Grupos internos | View Internal User Groups | Visualizar grupos internos |
-| Grupos internos | Delete Internal User Groups | Excluir grupos internos |
-| Grupos internos | Edit Internal User Groups | Criar e atualizar grupos internos |
-| Registro de atividades de envio de mensagem | View Message Activity Log | Visualizar registros de atividades de envio de mensagem |
-| Configurações de vários idiomas | View Localization Settings | Visualizar a página de configurações de localização de vários idiomas |
-| Configurações de vários idiomas | Delete Localization Settings | Excluir localização de vários idiomas |
-| Configurações de vários idiomas | Edit Localization Settings | Criar localizações de vários idiomas |
-| Central de Preferências | View Preference Centers | Visualizar centrais de preferências |
-| Central de Preferências | Edit Preference Centers | Criar e atualizar centrais de preferências |
-| Central de Preferências | Launch Preference Centers | Tornar ativa uma Central de Preferências em rascunho ou atualizar uma existente |
-| Configurações de push | View Push Settings | Visualizar configurações de push |
-| Configurações de push | Edit Push Settings | Criar e atualizar configurações de push |
-| Depurador do SDK | View SDK Debugger | Visualizar o depurador do SDK ou sessões de depuração |
-| Depurador do SDK | Edit SDK Debugger | Criar e baixar sessões do depurador do SDK |
-| Tags | View Tags | Visualizar tags |
-| Tags | Delete Tags | Excluir permanentemente tags |
-| Tags | Edit Tags | Criar e atualizar tags |
-| Equipes | View Teams | Visualizar equipes |
-| Equipes | Archive Teams | Mover equipes para o arquivo |
-| Equipes | Edit Teams | Criar e atualizar equipes |
-| Configurações do WhatsApp | View WhatsApp Settings | Visualizar todas as configurações do canal WhatsApp |
+| Identificadores de API | Ver identificadores de API | Visualizar identificadores de API e outros identificadores |
+| Chaves de API | Ver chaves de API | Visualizar chaves de API |
+| Chaves de API | Editar chaves de API | Criar e atualizar chaves de API |
+| Limites de API | Ver limites de API | Visualizar limites de frequência de API |
+| Alertas de uso de API | Ver alertas de uso de API | Visualizar alertas de uso de API |
+| Alertas de uso de API | Editar alertas de uso de API | Criar e atualizar alertas de uso de API |
+| Dados de uso de API | Ver dashboard de uso de API | Visualizar o dashboard de uso de API |
+| Configurações do app | Editar configurações do app | Criar, editar e atualizar apps nas configurações do app |
+| Configurações do app | Ver configurações do app | Visualizar a página de configurações do app |
+| Configurações de sincronização de público | Ver configurações de sincronização de público | Visualizar todas as configurações dos parceiros conectados de sincronização de público |
+| Usuários do dashboard | Editar usuários do dashboard | Visualizar, criar e editar usuários da empresa |
+| Configurações de e-mail | Ver configurações de e-mail | Visualizar preferências de e-mail |
+| Configurações de e-mail | Editar configurações de e-mail | Ativar e atualizar preferências de e-mail |
+| Registro de usuários de eventos | Ver registro de usuários de eventos | Visualizar registros de usuários de eventos |
+| Grupos internos | Ver grupos internos de usuários | Visualizar grupos internos |
+| Grupos internos | Excluir grupos internos de usuários | Excluir grupos internos |
+| Grupos internos | Editar grupos internos de usuários | Criar e atualizar grupos internos |
+| Registro de atividade de mensagens | Ver registro de atividade de mensagens | Visualizar registros de atividade de mensagens |
+| Configurações de vários idiomas | Ver configurações de localização | Visualizar a página de configurações de localização para vários idiomas |
+| Configurações de vários idiomas | Excluir configurações de localização | Excluir localização de vários idiomas |
+| Configurações de vários idiomas | Editar configurações de localização | Criar localizações de vários idiomas |
+| Centrais de Preferências | Ver Centrais de Preferências | Visualizar Centrais de Preferências |
+| Centrais de Preferências | Editar Centrais de Preferências | Criar e atualizar Centrais de Preferências |
+| Centrais de Preferências | Lançar Centrais de Preferências | Tornar ativa uma Central de Preferências em rascunho ou atualizar uma existente |
+| Configurações de push | Ver configurações de push | Visualizar configurações de push |
+| Configurações de push | Editar configurações de push | Criar e atualizar configurações de push |
+| Depurador do SDK | Ver depurador do SDK | Visualizar o depurador do SDK ou sessões de depuração |
+| Depurador do SDK | Editar depurador do SDK | Criar e baixar sessões do depurador do SDK |
+| Tags | Ver tags | Visualizar tags |
+| Tags | Excluir tags | Excluir tags permanentemente |
+| Tags | Editar tags | Criar e atualizar tags |
+| Equipes | Ver equipes | Visualizar equipes |
+| Equipes | Arquivar equipes | Mover equipes para o arquivo |
+| Equipes | Editar equipes | Criar e atualizar equipes |
+| Configurações do WhatsApp | Ver configurações do WhatsApp | Visualizar todas as configurações do canal do WhatsApp |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Permissões de configurações" }
 
 ### Decisioning Studio
 
 | Área do produto | Permissão | Definição |
 | --- | --- | --- |
-| Agentes do Decisioning Studio | View Decisioning Studio Agent | Visualizar a configuração dos agentes do Decisioning Studio sem fazer alterações |
-| Público do Decisioning Studio | View Decisioning Studio Audience | Ver detalhes do público nos resumos de configuração dos agentes do Decisioning Studio |
+| Agentes do Decisioning Studio | Ver agente do Decisioning Studio | Visualizar a configuração dos agentes do Decisioning Studio sem fazer alterações |
+| Público do Decisioning Studio | Ver público do Decisioning Studio | Visualizar detalhes de público nos resumos de configuração dos agentes do Decisioning Studio |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Permissões do Decisioning Studio" }
 
 ### Outros {#other}
 
 | Área do produto | Permissão | Definição |
 | --- | --- | --- |
-| Uso do app | View Usage Data | Visualizar dados de uso |
-| Faturamento | View Billing Details | Visualizar detalhes de faturamento |
-| Agentes personalizados | View Agent Console AI Agents | Permite que os usuários visualizem agentes de IA personalizados |
-| Agentes personalizados | Archive Agent Console AI Agents | Permite que os usuários arquivem agentes de IA personalizados |
-| Agentes personalizados | Edit Agent Console AI Agents | Permite que os usuários criem e atualizem agentes de IA personalizados |
-| Atributos personalizados marcados como IPI | View Custom Attributes Marked as PII | Visualizar atributos personalizados marcados como IPI |
-| Relatórios do dashboard | View Dashboard Reports | Visualizar relatórios sem fazer alterações |
-| Relatórios do dashboard | Delete Dashboard Reports | Excluir permanentemente relatórios |
-| Relatórios do dashboard | Edit Dashboard Reports | Criar e atualizar relatórios |
-| Configurações de domínio | Edit Domain Settings | Adicionar domínios delegados e domínios personalizados em domínios verificados |
-| Criptografia em nível de campo | Edit Identifier Field-Level Encryption | Ativar e atualizar configurações de criptografia em nível de campo |
-| Ativos da biblioteca de mídia | View Media Library Assets | Visualizar ativos da biblioteca de mídia |
-| Ativos da biblioteca de mídia | Delete Media Library Assets | Excluir permanentemente ativos da biblioteca de mídia |
-| Ativos da biblioteca de mídia | Edit Media Library Assets | Criar e atualizar ativos da biblioteca de mídia |
-| Ativos da biblioteca de mídia | Replace Media Library Assets | Substituir o arquivo de um ativo existente da biblioteca de mídia mantendo a URL e o ID do ativo estáveis |
-| Limites de taxa de envio de mensagens | View Messaging Rate Limits | Visualizar limites de taxa de envio de mensagens no nível do espaço de trabalho |
-| Limites de taxa de envio de mensagens | Edit Messaging Rate Limits | Configurar e editar limites de taxa de envio de mensagens no nível do espaço de trabalho |
-| Operator | Use BrazeAI Operator<sup>TM</sup> | Acessar e usar o BrazeAI Operator para responder perguntas, navegar pela configuração, solucionar problemas e gerar ideias |
-| Posicionamentos | View Placements | Visualizar posicionamentos de banner |
-| Posicionamentos | Archive Placements | Mover posicionamentos de banner para o arquivo |
-| Posicionamentos | Edit Placements | Visualizar posicionamentos de banner sem fazer alterações |
-| Códigos de promoção | View Promotion Codes | Visualizar códigos de promoção |
-| Códigos de promoção | Export Promotion Codes | Baixar uma lista de códigos de promoção do dashboard |
-| Códigos de promoção | Edit Promotion Codes | Criar e atualizar códigos de promoção |
-| Grupos de inscrições | Edit Subscriptions | Criar e atualizar grupos de inscrições |
-| Transformações | Edit Data Transformation | Criar e atualizar transformações de dados |
-| Transformações | View Data Transformation | Visualizar transformações de dados |
-| Tickets de suporte | Create Support Ticket | Criar e atualizar tickets de suporte |
+| Uso do app | Ver dados de uso | Visualizar dados de uso |
+| Cobrança | Ver detalhes de cobrança | Visualizar detalhes de cobrança |
+| Agentes personalizados | Ver agentes de IA do console de agentes | Permite que os usuários visualizem agentes de IA personalizados |
+| Agentes personalizados | Arquivar agentes de IA do console de agentes | Permite que os usuários arquivem agentes de IA personalizados |
+| Agentes personalizados | Editar agentes de IA do console de agentes | Permite que os usuários criem e atualizem agentes de IA personalizados |
+| Atributos personalizados marcados como IPI | Ver atributos personalizados marcados como IPI | Visualizar atributos personalizados marcados como IPI |
+| Relatórios do dashboard | Ver relatórios do dashboard | Visualizar relatórios sem fazer alterações |
+| Relatórios do dashboard | Excluir relatórios do dashboard | Excluir relatórios permanentemente |
+| Relatórios do dashboard | Editar relatórios do dashboard | Criar e atualizar relatórios |
+| Configurações de domínio | Editar configurações de domínio | Adicionar domínios delegados e domínios personalizados em Domínios Verificados |
+| Criptografia em nível de campo | Editar criptografia em nível de campo de identificador | Ativar e atualizar configurações de criptografia em nível de campo |
+| Ativos da biblioteca de mídia | Ver ativos da biblioteca de mídia | Visualizar ativos da biblioteca de mídia |
+| Ativos da biblioteca de mídia | Excluir ativos da biblioteca de mídia | Remover ativos da biblioteca de mídia da interface. Os ativos excluídos continuam hospedados pela Braze para evitar que mensagens que os referenciam sejam quebradas. Para excluir um ativo permanentemente, entre em contato com o suporte da Braze. |
+| Ativos da biblioteca de mídia | Editar ativos da biblioteca de mídia | Criar e atualizar ativos da biblioteca de mídia |
+| Ativos da biblioteca de mídia | Substituir ativos da biblioteca de mídia | Substituir o arquivo de um ativo existente da biblioteca de mídia, mantendo sua URL e ID de ativo estáveis |
+| Limites de frequência de envio de mensagens | Ver limites de frequência de envio de mensagens | Visualizar limites de frequência de envio de mensagens no nível do espaço de trabalho |
+| Limites de frequência de envio de mensagens | Editar limites de frequência de envio de mensagens | Configurar e editar limites de frequência de envio de mensagens no nível do espaço de trabalho |
+| Operator | Usar BrazeAI Operator<sup>TM</sup> | Acessar e usar o Braze Operator para responder perguntas, orientar configurações, solucionar problemas e gerar ideias |
+| Posicionamentos | Ver posicionamentos | Visualizar posicionamentos de banner |
+| Posicionamentos | Arquivar posicionamentos | Mover posicionamentos de banner para o arquivo |
+| Posicionamentos | Editar posicionamentos | Criar e atualizar posicionamentos de banner |
+| Códigos de promoção | Ver códigos de promoção | Visualizar códigos de promoção |
+| Códigos de promoção | Exportar códigos de promoção | Baixar uma lista de códigos de promoção do dashboard |
+| Códigos de promoção | Editar códigos de promoção | Criar e atualizar códigos de promoção |
+| Grupos de inscrições | Editar inscrições | Criar e atualizar grupos de inscrições |
+| Transformações | Editar transformação de dados | Criar e atualizar transformações de dados |
+| Transformações | Ver transformação de dados | Visualizar transformações de dados |
+| Tickets de suporte | Criar ticket de suporte | Criar e atualizar tickets de suporte |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Outras permissões" }

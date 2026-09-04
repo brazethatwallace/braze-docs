@@ -9,76 +9,76 @@ page_type: reference
 
 > Wir bei Braze wissen, dass der Wechsel zu einer völlig neuen Plattform und einem neuen SDK entmutigend sein kann. Aber mit dem folgenden Migrationsleitfaden, den einfachen Beispielen auf Code-Ebene und dem beeindruckenden Funktionsumfang der Braze-Plattform wird Ihnen das sicher nichts ausmachen. In diesem Artikel finden Sie das Braze-Äquivalent zu vielen wichtigen Features von Airship sowie Code-Snippets für das SDK, die die Verwendung von Airship ersetzen und Ihre Migration schnell, einfach und schmerzlos machen.
 
-## Jenseits des Codes {#beyond-the-code}
+## Über den Code hinaus {#beyond-the-code}
 ### Token-Verwaltung {#token-management}
-Braze verwendet das Gerätetoken von Apple für iOS.
+Braze verwendet Apples Geräte-Token für iOS.
 
-| **Braze-Perspektive:**<br>Wir stellen sicher, dass Kund:innen bei der Migration von Airship zu Braze kontinuierlich mit ihren Nutzer:innen kommunizieren können (z. B. durch Push-Benachrichtigungen). Dabei spielt es keine Rolle, ob es sich um einen harten Umstieg auf 100 % Braze oder einen granularen Übergang wie 50 % Airship / 50 % Braze usw. handelt. |
+| **Braze-Perspektive:**<br>Wir stellen sicher, dass Kund:innen während der Migration von Airship zu Braze kontinuierlich mit ihren Nutzer:innen kommunizieren können (z. B. Push-Benachrichtigungen), unabhängig davon, ob es sich um eine vollständige Umstellung auf 100 % Braze oder einen schrittweisen Übergang wie 50 % Airship und 50 % Braze handelt. |
 {: .reset-td-br-1 aria-label="Token-Verwaltung" }
 
-#### Push-Token-Migration
+#### Migration von Push-Token {#push-token-migration}
 
-Es ist erforderlich, [Push-Tokens über die API zu migrieren]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens). Die verlinkte Dokumentation enthält spezifische Schritte sowie eine Beispiel-Payload, aber der Gesamtprozess lautet wie folgt:
+Es ist erforderlich, [Push-Token über die API zu migrieren]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens). Die verlinkte Dokumentation enthält spezifische Schritte sowie ein Beispiel-Payload. Der Gesamtprozess sieht wie folgt aus:
 
-1. Importieren Sie die Token über den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track/). Für große Batch-Importe stehen Ressourcen zur Verfügung, um den Prozess zu beschleunigen. Kontaktieren Sie Ihren COM oder SA für weitere Details!
-2. Wenn das Token bereits in Braze existiert, wird es ignoriert. Andernfalls wird ein anonymes Profil erstellt.
-3. Führen Sie die Qualitätssicherung für die Push-Integration durch. Stellen Sie sicher, dass die Schritte zur [Push-Konfiguration]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift) abgeschlossen wurden.
+1. Importieren Sie die Token über den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track). Für große Batch-Importe stehen Ressourcen zur Verfügung, die den Prozess beschleunigen können. Wenden Sie sich an Ihre:n COM oder SA für weitere Details!
+2. Wenn das Token bereits in Braze vorhanden ist, wird es ignoriert. Andernfalls wird ein anonymes Profil erstellt.
+3. Führen Sie eine Qualitätssicherung der Push-Integration durch. Stellen Sie sicher, dass die Schritte zur [Konfiguration von Push]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift) abgeschlossen wurden.
 
-Wenn Ihre Nutzerprofile und Push-Tokens an verschiedenen Orten gespeichert sind, empfehlen wir, die Push-Tokens anonym zu importieren und anschließend Ihre bestehenden Nutzerprofile zu migrieren. Ein gemeinsames Mapping ist nicht notwendig, da das Braze iOS SDK die Token-Auflösung bei erfolgreicher Integration übernimmt.
+Wenn Ihre Nutzerprofile und Push-Token zufällig an verschiedenen Orten gespeichert sind, empfehlen wir, Push-Token zunächst anonym zu importieren und anschließend eine separate Migration Ihrer bestehenden Nutzerprofile durchzuführen. Es ist nicht notwendig, sie miteinander zu verknüpfen, da das Braze iOS SDK die Token-Auflösung bei erfolgreicher Integration automatisch übernimmt.
 
-- Wir empfehlen, Nutzer:innen über die API zu migrieren. Wenn Sie jedoch eine statische Nutzerliste importieren müssen, können Sie dies per CSV tun. Beachten Sie, dass **Push-Tokens nicht über CSV importiert werden können**, da das Objekt „push_token“ in der CSV nicht angegeben werden kann. Um eine Importvorlage anzusehen und mehr über den Import von Daten in das Dashboard zu erfahren, lesen Sie unsere [CSV-Dokumentation]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_import/#csv).
+- Wir empfehlen die Migration von Nutzer:innen über die API. Falls jedoch eine statische Nutzerliste importiert werden muss, kann dies per CSV erfolgen. Beachten Sie, dass **Push-Token nicht per CSV importiert werden können**, da das „push_token“-Objekt in der CSV nicht angegeben werden kann. Um ein Import-Template anzuzeigen und mehr über den Datenimport in das Dashboard zu erfahren, lesen Sie unsere [CSV-Dokumentation]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#braze-csv-import).
 
 {% alert note %}
-Push-Tokens werden im Braze-Dashboard möglicherweise als `subscribed` angezeigt, ändern sich aber in `opted-in`, sobald Nutzer:innen eine Sitzung mit dem Braze SDK starten.
+Push-Token werden im Braze-Dashboard möglicherweise als `subscribed` angezeigt, ändern sich jedoch zu `opted-in`, sobald die Nutzer:innen eine Sitzung mit dem Braze SDK starten.
 {% endalert %}
 
-#### Mehrere Push-Tokens {#multiple-push-tokens}
+#### Mehrere Push-Token {#multiple-push-tokens}
 
-Mit Braze kann eine Nutzer:in mehrere Push-Tokens haben (eines für jedes Gerät). Indem Sie alle gültigen Push-Tokens ansprechen, können Sie Benachrichtigungen an mehrere Geräte senden. Es ist auch möglich, Campaigns so zu konfigurieren, dass sie nur an das zuletzt verwendete Gerät gesendet werden.
+Bei Braze können Nutzer:innen mehrere Push-Token besitzen (eines pro Gerät). Durch das Targeting aller gültigen Push-Token können Sie Benachrichtigungen an mehrere Geräte senden. Es ist außerdem möglich, Campaigns so zu konfigurieren, dass sie nur an das zuletzt verwendete Gerät der Nutzer:innen gesendet werden.
 
 ## Campaign-Konfiguration {#campaign-configuration}
-Braze ist ein wirklich einzigartiges Customer-Engagement-Tool. Aufgrund unserer umfangreichen Anpassungsmöglichkeiten und der wachsenden Anzahl an Features profitieren Campaigns, die nach Braze migriert werden, oft von einer Neuplanung, um die Vorteile dieser Tools zu nutzen. Unser Framework für die Campaign-Planung (kontaktieren Sie Ihren COM oder SA für weitere Details) ist speziell dafür entwickelt.
+Auf einer übergeordneten Ebene ist Braze ein wirklich einzigartiges Tool im Bereich Customer-Engagement. Aufgrund unserer umfangreichen Anpassungsoptionen und des wachsenden Feature-Sets profitieren Campaigns, die zu Braze migriert werden, häufig von einer Neuplanung, um die Vorteile dieser Tools zu nutzen. Unser Framework für die Campaign-Planung (wenden Sie sich für weitere Details an Ihren COM oder SA) wurde genau dafür entwickelt.
 
-### Zusammensetzung {#composition}
+### Zusammenstellung {#composition}
 #### Push-Benachrichtigungen {#push-notifications}
-Braze benötigt separate Kanäle für Push (einen für iOS, einen für Android).
+Braze erfordert separate Kanäle für Push (einen für iOS, einen für Android).
 
-| **Braze-Perspektive:**<br>Wir ermöglichen es unseren Kund:innen, die Vorteile von beidem zu nutzen, anstatt Zugeständnisse machen zu müssen. Die Möglichkeit, den einzelnen Kanal in vollem Umfang zu nutzen, bietet dem Marketer mehr Flexibilität und den Nutzer:innen ein besseres Erlebnis. Dies ermöglicht es uns, die neuesten Funktionen des jeweiligen Betriebssystems zu übernehmen. So unterstützte Android beispielsweise Rich-Benachrichtigungen vor iOS. |
+| **Braze-Perspektive:**<br>Wir ermöglichen es unseren Kund:innen, die Vorteile beider Plattformen zu nutzen, anstatt Kompromisse eingehen zu müssen. Die Möglichkeit, den jeweiligen Kanal voll auszuschöpfen, bietet mehr Flexibilität für den Marketer und eine verbesserte Nutzererfahrung. So können wir die neuesten Features jedes Betriebssystems übernehmen – beispielsweise unterstützte Android Rich-Benachrichtigungen bereits vor iOS. |
 {: .reset-td-br-1 aria-label="Push-Benachrichtigungen" }
 
-Braze kann Push-Benachrichtigungen auch an Nutzer:innen senden, die ihre Anwendung nicht mit dem installierten Braze SDK aktualisieren. Sofern Braze über ein gültiges Push-Token verfügt, kann Braze die Push-Benachrichtigung auch ohne das Braze SDK senden, da die APNs den Rest übernehmen. Dabei ist zu beachten, dass **Analytics für Push-Nachrichten bei Builds ohne Braze SDK nicht verfügbar sind**.
+Braze kann Push-Benachrichtigungen an Nutzer:innen senden, die ihre App mit dem installierten Braze SDK nicht aktualisieren. Sofern Braze über ein gültiges Push-Token verfügt, kann Braze die Push-Benachrichtigung ohne das Braze SDK senden, da APNs den Rest übernehmen. Es ist wichtig zu beachten, dass Push-Nachrichten-**Analytics für Builds ohne das Braze SDK nicht verfügbar sind**.
 
-##### Token teilen {#sharing-tokens}
+##### Tokens teilen {#sharing-tokens}
 
-Bei Campaigns, die während der Migration zum Braze SDK fortgesetzt werden müssen, können Nutzer:innen möglicherweise Benachrichtigungen sowohl von Braze als auch von Airship erhalten, sofern Braze ein gültiges Push-Token vorliegt.
+Im Fall von Lifecycle-spezifischen Campaigns, die während Ihres Migrationsprozesses zum Braze SDK fortgesetzt werden müssen, können Nutzer:innen möglicherweise Benachrichtigungen sowohl von Braze als auch von Airship erhalten, sofern Braze ein gültiges Push-Token erhalten hat.
 
-#### Nachrichtenzentrale {#message-center}
-Um die Campaign-Funktionalität der Airship-Nachrichtenzentrale zu ersetzen, empfehlen wir eine Multichannel-Campaign mit einer Push-Benachrichtigung und einer [Content Card]({{site.baseurl}}/user_guide/channels/content_cards/). Wenn Sie mehr darüber erfahren möchten, wie Sie Content Cards in einem Nachrichtenzentrale-Format verwenden können, lesen Sie unsere [Anleitung zur Implementierung von Content Cards in iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/content_cards/implementation_guide/#content-cards-in-a-message-center).
+#### Nachrichtencenter {#message-center}
+Um die Nachrichtencenter-Campaign-Funktionalität von Airship zu ersetzen, empfehlen wir die Erstellung einer Multichannel-Campaign, die aus einer Push-Benachrichtigung und einer [Content Card]({{site.baseurl}}/user_guide/channels/content_cards) besteht. Um mehr darüber zu erfahren, wie Sie Content Cards in einem Nachrichtencenter-Format verwenden können, lesen Sie unseren [iOS Content-Card-Implementierungsleitfaden]({{site.baseurl}}/developer_guide/content_cards/creating_cards#message-inbox).
 
 ### Segmentierung {#segmentation}
-Braze bietet mehrere [Segmentierungsfilter]({{site.baseurl}}/user_guide/audience/segments/), um Ihren Kund:innen ein reichhaltiges Nutzererlebnis zu bieten.
+Braze bietet mehrere [Segmentierungs]({{site.baseurl}}/user_guide/audience/segments)-Filter, um Ihren Kund:innen ein umfangreiches Nutzererlebnis zu bieten.
 
-| **Braze-Perspektive**:<br> Segments in Braze sind komplett dynamisch, sodass Nutzer:innen das Segment betreten und verlassen, wenn sich die definierten Bedingungen ändern. |
+| **Braze-Perspektive:**<br>Segments in Braze sind vollständig dynamisch, sodass Nutzer:innen das Segment betreten und verlassen, wenn sich die definierten Bedingungen ändern. |
 {: .reset-td-br-1 aria-label="Segmentierung" }
 
-#### Migration von Nutzersegmenten {#user-segment-migration}
+#### Migration von Nutzer-Segments {#user-segment-migration}
 
-Um ein statisches Airship-Segment in Braze direkt nachzubilden, gibt es zwei Möglichkeiten:
-- **Import über API – Angepasstes Attribut zuweisen** (empfohlen)<br>
-Wir empfehlen, Nutzer:innen über den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) zu importieren und dabei diesen importierten Nutzer:innen ein angepasstes Attribut zuzuweisen. Sie können zum Beispiel ein Segment von Nutzer:innen erstellen, die jeweils ein angepasstes Attribut `Segment_Group_1` haben, das auf `true` gesetzt ist. Um diese Nutzer:innen später zu segmentieren, [erstellen Sie ein Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) aller Nutzer:innen, bei denen `Segment_Group_1` `true` ist.<br><br>
+Um ein statisches Airship-Segment direkt in Braze nachzubilden, gibt es zwei Optionen:
+- **Import über API – Angepasstes Attribut zuweisen** (Empfohlen)<br>
+Wir empfehlen, Nutzer:innen über den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) zu importieren und dabei den importierten Nutzer:innen ein angepasstes Attribut zuzuweisen. Sie könnten beispielsweise ein Segment von Nutzer:innen erstellen, die jeweils ein angepasstes Attribut `Segment_Group_1` haben, das auf `true` gesetzt ist. Um diese Nutzer:innen später zu segmentieren, würden Sie [ein Segment erstellen]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment), das alle Nutzer:innen enthält, bei denen `Segment_Group_1` den Wert `true` hat.<br><br>
 - **Filter basierend auf CSV-Nutzerimport**<br>
-In Braze können Sie gezielt nach Nutzer:innen filtern, die in einem bestimmten CSV-Import enthalten sind. Diese Filteroption finden Sie im Schritt „Zielgruppe zusammenstellen“ der Engagement-Tools unter „Nutzer:innen filtern nach `Updated/Imported via CSV`“.
+In Braze gibt es die Option, gezielt Nutzer:innen zu filtern, die in einem bestimmten CSV-Import enthalten sind. Diese Filteroption finden Sie während des Schritts „Zielgruppe zusammenstellen“ unserer Engagement-Tools unter „Nutzer:innen filtern nach `Updated/Imported via CSV`“.
 ![CSV-Import-Filter]({% image_buster /assets/img/csv_filter.png %}){: style="max-width:90%;border:0;"}
-Beachten Sie, dass bei CSV-Importen eine externe ID für jede importierte Nutzer:in erforderlich ist und **Segmente mit anonymen oder nur mit Alias versehenen Nutzer:innen nicht importiert werden können**. Um eine Importvorlage anzusehen und mehr über den Import von Daten in das Dashboard zu erfahren, lesen Sie unsere [CSV-Dokumentation]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_import/#csv).
+Beachten Sie, dass für CSV-Importe eine externe ID für alle importierten Nutzer:innen erforderlich ist und **Segments mit anonymen oder nur Alias-Nutzer:innen nicht importiert werden können**. Um ein Import-Template anzuzeigen und mehr über das Importieren von Daten in das Dashboard zu erfahren, lesen Sie unsere [CSV-Dokumentation]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#braze-csv-import).
 
 ## SDK-Code-Snippets ersetzen {#replace-sdk-code-snippets}
-Um die Migration zu vereinfachen, haben wir die folgenden Airship-SDK-Snippets hervorgehoben, die in Ihrem Code vorhanden sind, und die entsprechenden Braze-SDK-Snippets bereitgestellt, die sie ersetzen. Besuchen Sie die folgenden Themen, um loszulegen:
+Um die Migration zu vereinfachen, haben wir die folgenden Airship-SDK-Snippets hervorgehoben, die in Ihrem Code vorhanden sind, und die entsprechenden Braze-SDK-Snippets bereitgestellt, die als Ersatz notwendig sind. Besuchen Sie die folgenden Themen, um loszulegen:
 - [Installation](#installation)
 - [Nutzer-ID abrufen und setzen](#userid)
-- [Umgang mit Push-Benachrichtigungen](#pushnotifications)
+- [Push-Benachrichtigungen verarbeiten](#pushnotifications)
 - [Analytics](#analytics)
-- [Umgang mit In-App-Nachrichten](#iammessages)
-- [Content Cards und Nachrichtenzentrale](#messagecenter)
+- [In-App-Nachrichten verarbeiten](#iammessages)
+- [Content Cards und Nachrichtencenter](#messagecenter)
 
 ### Installation {#installation}
 {% tabs %}
@@ -219,7 +219,7 @@ extension AppboyManager {
 {% endtab %}
 {% endtabs %}
 
-### Umgang mit Push-Benachrichtigungen {#pushnotifications}
+### Push-Benachrichtigungen verarbeiten {#pushnotifications}
 {% tabs %}
 {% tab Swift %}
 **Airship**
@@ -371,7 +371,7 @@ extension AppboyManager {
 {% endtab %}
 {% endtabs %}
 
-### Umgang mit In-App-Nachrichten {#iammessages}
+### In-App-Nachrichten verarbeiten {#iammessages}
 {% tabs %}
 {% tab Swift %}
 **Airship**
@@ -474,7 +474,7 @@ extension AppboyManager: ABKInAppMessageUIDelegate {
 {% endtab %}
 {% endtabs %}
 
-### Content Cards und Nachrichtenzentrale {#messagecenter}
+### Content Cards und Nachrichtencenter {#messagecenter}
 {% tabs %}
 {% tab Swift %}
 **Airship**

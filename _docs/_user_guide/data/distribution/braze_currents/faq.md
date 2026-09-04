@@ -15,7 +15,7 @@ tool: Currents
 
 To pull campaign or Canvas metrics for a defined date range, use one of the following approaches:
 
-- Submit a [product request](https://portal.braze.com/) for date-aligned exports when you need dashboard-style reporting outside standard API windows.
+- {% multi_lang_include product_feedback_cta.md context="gap" feature="date-aligned campaign or Canvas exports for dashboard-style reporting outside standard API windows" %}
 - Call the [campaign analytics]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) or [Canvas analytics]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics) endpoints with `ending_at` and `length` parameters (or use [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) and [`/canvas/data_series`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics)) for time-series data.
 - Stream events to your warehouse with [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) when you need ongoing, queryable message engagement data in Amazon S3, Azure Blob Storage, or another supported destination.
 
@@ -131,9 +131,15 @@ When you need timelier session boundaries in Currents, call `requestImmediateDat
 
 If your storage bucket is unavailable at the time of data transfer, that data is lost. Braze is not able to backfill events that were not successfully delivered. To avoid data loss, ensure your storage bucket is available and properly configured at all times.
 
-## Why do I see "You do not have any remaining Customer Behavior Events entitlements" when editing my Currents integration?
+## Why do I see entitlement limit messages when creating or editing a Currents integration?
 
-This message can appear when you update an existing Currents integration, and your workspace has reached its entitlement limit for customer behavior events. Contact your Braze account manager to request an entitlement or adjust your configuration.
+Currents uses separate entitlement pools for different connector capabilities:
+
+- **Engagement Events**: Required to create or upgrade a standard Currents connector.
+- **Customer Behavior Events**: Required to enable **Track Customer Behavior and User Events**.
+- **User Profiles and Attributes**: Required to enable **Track user profiles and attributes**.
+
+If any pool is exhausted, Braze shows an entitlement warning and blocks that action. Contact your Braze account manager to request additional entitlements or help adjust your configuration.
 
 ## How often does the Currents version in the storage path change?
 

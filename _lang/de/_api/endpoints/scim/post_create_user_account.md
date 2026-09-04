@@ -7,7 +7,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "Dieser Artikel beschreibt Details zum Braze-Endpunkt „Neues Dashboard-Nutzerkonto erstellen“."
-
 ---
 
 {% api %}
@@ -16,13 +15,15 @@ description: "Dieser Artikel beschreibt Details zum Braze-Endpunkt „Neues Dash
 /scim/v2/Users
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um ein neues Dashboard-Nutzerkonto zu erstellen, indem Sie E-Mail, Vor- und Nachnamen sowie Berechtigungen (für die Festlegung von Berechtigungen auf Unternehmens-, Workspace- und Teamebene) angeben.
+> Verwenden Sie diesen Endpunkt, um ein neues Dashboard-Nutzerkonto zu erstellen, indem Sie E-Mail, Vor- und Nachnamen sowie Berechtigungen (für die Festlegung von Berechtigungen auf Unternehmens-, Workspace- und Team-Ebene) angeben.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#768a3c9d-ce1d-44fc-a0e4-d556b09f7aa3 {% endapiref %}
 
+{% multi_lang_include scim/scim_alerts.md alert='custom_endpoint' %}
+
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie ein SCIM-Token. Sie verwenden die Herkunft Ihres Dienstes als `X-Request-Origin`-Header. Weitere Informationen finden Sie unter [Automatisierte Nutzer:innen-Bereitstellung]({{site.baseurl}}/scim/automated_user_provisioning).
+Um diesen Endpunkt zu verwenden, benötigen Sie ein SCIM-Token. Verwenden Sie die Herkunft Ihres Dienstes als `X-Request-Origin`-Header. Weitere Informationen finden Sie unter [Automatisierte Nutzer:innen-Bereitstellung]({{site.baseurl}}/scim/automated_user_provisioning).
 
 ## Rate-Limit
 
@@ -84,8 +85,8 @@ Authorization: Bearer YOUR-SCIM-TOKEN-KEY
 | `schemas` | Erforderlich | String-Array | Erwarteter SCIM-2.0-Schemaname für das Nutzer:innen-Objekt. |
 | `userName` | Erforderlich | String | Die E-Mail-Adresse der Nutzer:in. |
 | `name` | Erforderlich | JSON-Objekt | Dieses Objekt enthält den Vornamen und den Nachnamen der Nutzer:in. |
-| `department` | Erforderlich | String | Gültiger Abteilungs-String aus der [Dokumentation zu Abteilungs-Strings]({{site.baseurl}}/scim_api_appendix#department-strings). |
-| `permissions` | Optional | JSON-Objekt | Berechtigungsobjekt wie in der [Dokumentation zum Berechtigungsobjekt]({{site.baseurl}}/scim_api_appendix#permissions-object) beschrieben. |
+| `department` | Erforderlich | String | Gültiger Abteilungs-String aus der [Dokumentation zu Abteilungs-Strings]({{site.baseurl}}/api/objects_filters/scim_api_appendix). |
+| `permissions` | Optional | JSON-Objekt | Berechtigungsobjekt wie in der [Dokumentation zum Berechtigungsobjekt]({{site.baseurl}}/api/objects_filters/scim_api_appendix) beschrieben. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 ## Beispielanfrage {#example-request}
@@ -212,8 +213,8 @@ curl --location --request POST 'https://rest.iad-01.braze.com/scim/v2/Users' \
 | `schemas` | String-Array | Erwarteter SCIM-2.0-Schemaname für das Nutzer:innen-Objekt. |
 | `userName` | String | Die E-Mail-Adresse der Nutzer:in. |
 | `name` | JSON-Objekt | Dieses Objekt enthält den Vornamen und den Nachnamen der Nutzer:in. |
-| `department` | String | Gültiger Abteilungs-String aus der [Dokumentation zu Abteilungs-Strings]({{site.baseurl}}/scim_api_appendix#department-strings). |
-| `permissions` | JSON-Objekt | Berechtigungsobjekt wie in der [Dokumentation zum Berechtigungsobjekt]({{site.baseurl}}/scim_api_appendix#permissions-object) beschrieben. |
+| `department` | String | Gültiger Abteilungs-String aus der [Dokumentation zu Abteilungs-Strings]({{site.baseurl}}/api/objects_filters/scim_api_appendix). |
+| `permissions` | JSON-Objekt | Berechtigungsobjekt wie in der [Dokumentation zum Berechtigungsobjekt]({{site.baseurl}}/api/objects_filters/scim_api_appendix) beschrieben. |
 | `id` | String | Von Braze generierte ID, die für die Suche und Verwaltung von Nutzer:innen-Konten verwendet wird. |
 | `lastSignInAt` | String | Datum der letzten erfolgreichen Anmeldung in UTC-Zeit. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Antwortparameter" }

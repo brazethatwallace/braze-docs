@@ -14,9 +14,9 @@ noindex: true
 
 Vous pouvez enregistrer des événements personnalisés dans Braze pour en savoir plus sur les modèles d'utilisation de votre application et segmenter vos utilisateurs en fonction de leurs actions sur le tableau de bord.
 
-Avant la mise en œuvre, n'oubliez pas de consulter les exemples d'options de segmentation offertes par les événements personnalisés, les attributs personnalisés et les événements d'achat dans nos [bonnes pratiques]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview#user-data-collection), ainsi que nos notes sur les [conventions d'appellation des événements]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions).
+Avant le déploiement, n'oubliez pas de consulter les exemples d'options de segmentation offertes par les événements personnalisés, les attributs personnalisés et les événements d'achat dans nos [bonnes pratiques]({{site.baseurl}}/developer_guide/analytics), ainsi que nos notes sur les [conventions d'appellation des événements]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions).
 
-## Ajouter un événement personnalisé {#adding-a-custom-event}
+## Ajout d'un événement personnalisé {#adding-a-custom-event}
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -35,9 +35,9 @@ Appboy.sharedInstance()?.logCustomEvent("YOUR_EVENT_NAME")
 {% endtab %}
 {% endtabs %}
 
-### Ajouter des propriétés {#adding-properties}
+### Ajout de propriétés {#adding-properties}
 
-Vous pouvez ajouter des métadonnées sur les événements personnalisés en transmettant un `NSDictionary` renseigné avec des valeurs `NSNumber`, `NSString` ou `NSDate`.
+Vous pouvez ajouter des métadonnées aux événements personnalisés en passant un `NSDictionary` contenant des valeurs `NSNumber`, `NSString` ou `NSDate`.
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -78,7 +78,7 @@ Appboy.sharedInstance()?.logCustomEvent(
 {% endtab %}
 {% endtabs %}
 
-Pour plus d'informations, reportez-vous à notre [documentation sur les classes](http://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#a4f0051d73d85cb37f63c232248124c79).
+Consultez notre [documentation de classe](http://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#a4f0051d73d85cb37f63c232248124c79) pour plus d'informations.
 
 ### Clés réservées {#event-reserved-keys}
 
@@ -87,7 +87,7 @@ Les clés suivantes sont réservées et ne peuvent pas être utilisées comme pr
 - `time`
 - `event_name`
 
-## Ressources complémentaires {#additional-resources}
+## Ressources supplémentaires {#additional-resources}
 
 - Consultez la déclaration de la méthode dans le [fichier](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/Appboy.h) `Appboy.h`.
-- Pour plus d'informations, reportez-vous à la documentation [`logCustomEvent`](http://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#ad80c39e8c96482a77562a5b1a1d387aa).
+- Reportez-vous à la documentation de [`logCustomEvent`](http://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#ad80c39e8c96482a77562a5b1a1d387aa) pour plus d'informations.

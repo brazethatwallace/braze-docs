@@ -16,7 +16,7 @@ For Liquid syntax rules, supported tags, and advanced patterns, refer to [Using 
 The **Add Personalization** tool appears near templated text fields across the dashboard, including:
 
 - **Campaign and Canvas steps** for channels that support Liquid in the body or headers (for example, email, push, SMS, in-app messages, Content Cards, and webhooks).
-- **Drag-and-drop editors**, where the control is often in the block or editor toolbar. For example, in drag-and-drop in-app messages you can select **Add Personalization**, choose a personalization type, and then place the generated snippet into your content before previewing under **Preview & Test**. For more channel-specific notes, see your channel’s drag-and-drop or composer article (such as [In-app message style settings]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings#adding-liquid) or [Create an email with drag-and-drop]({{site.baseurl}}/user_guide/channels/email/drag_and_drop)).
+- **Drag-and-drop editors**, where the control is often in the block or editor toolbar. For example, in drag-and-drop in-app messages you can select **Add Personalization**, choose a personalization type, and then place the generated snippet into your content before previewing under **Preview & Test**. For more channel-specific notes, see your channel’s drag-and-drop or composer article (such as [In-app message style settings]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings#add-liquid) or [Create an email with drag-and-drop]({{site.baseurl}}/user_guide/channels/email/drag_and_drop)).
 - **Specialized composers** that expose a personalization picker—for example, [item recommendations]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations) use **Personalization Type** options like **Item Recommendation** inside the same style of window.
 - **Landing pages**, where you can add Liquid personalization in the drag-and-drop editor or in page and block settings. For details, see [Personalize landing pages]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages).
 
@@ -105,6 +105,14 @@ You can also use predictive Liquid for custom attributes, attribute names, and m
 
 ## Next steps
 
-- [Using Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid) — syntax, `assign`, conditionals, and filters in Braze
-- [Setting default values]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values) — defaults in Liquid beyond the modal
-- [Filters]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters) — format dates, math, strings, and more
+{% article_tiles %}
+- name: Using Liquid
+  link: /docs/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid
+  description: Syntax, assign tags, conditionals, and filters in Braze.
+- name: Setting default values
+  link: /docs/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values
+  description: Set defaults in Liquid beyond the Add Personalization modal.
+- name: Filters
+  link: /docs/user_guide/messaging/design_and_edit/personalize/liquid/filters
+  description: Format dates, math, strings, and more.
+{% endarticle_tiles %}

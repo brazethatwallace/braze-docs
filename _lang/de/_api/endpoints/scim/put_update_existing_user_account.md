@@ -23,6 +23,8 @@ Aus Sicherheitsgründen kann `userName` (E-Mail-Adresse) nicht über diesen Endp
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#5f9a1642-988e-4011-8fb8-db4340ea1ac7 {% endapiref %}
 
+{% multi_lang_include scim/scim_alerts.md alert='custom_endpoint' %}
+
 ## Voraussetzungen {#prerequisites}
 
 Um diesen Endpunkt zu verwenden, benötigen Sie ein SCIM-Token. Verwenden Sie Ihre Dienstherkunft als `X-Request-Origin`-Header. Weitere Informationen finden Sie unter [Automatisierte Nutzer:innenbereitstellung]({{site.baseurl}}/scim/automated_user_provisioning).
@@ -31,12 +33,12 @@ Um diesen Endpunkt zu verwenden, benötigen Sie ein SCIM-Token. Verwenden Sie Ih
 
 {% multi_lang_include rate_limits.md endpoint='update dashboard user' %}
 
-## Pfad-Parameter {#path-parameters}
+## Pfadparameter {#path-parameters}
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
 | `id` | Erforderlich | String | Die Ressourcen-ID der Nutzer:in. Dieser Parameter wird von den Methoden `POST` `/scim/v2/Users/` oder `GET` `/scim/v2/Users?filter=userName eq "user@example.com"` zurückgegeben. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Pfad-Parameter" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Pfadparameter" }
 
 ## Anfragetext {#request-body}
 ```
@@ -92,8 +94,8 @@ Authorization: Bearer YOUR-SCIM-TOKEN-KEY
 | --------- | -------- | --------- | ----------- |
 | `schemas` | Erforderlich | String-Array | Erwarteter SCIM-2.0-Schemaname für das Nutzerobjekt. |
 | `name` | Erforderlich | JSON-Objekt | Dieses Objekt enthält den Vornamen und den Nachnamen der Nutzer:in. |
-| `department` | Erforderlich | String | Gültiger Abteilungs-String aus der [Dokumentation zu Abteilungs-Strings]({{site.baseurl}}/scim_api_appendix#department-strings). |
-| `permissions` | Erforderlich | JSON-Objekt | Berechtigungsobjekt wie in der [Dokumentation zum Berechtigungsobjekt]({{site.baseurl}}/scim_api_appendix#permissions-object) beschrieben. |
+| `department` | Erforderlich | String | Gültiger Abteilungs-String aus der [Dokumentation zu Abteilungs-Strings]({{site.baseurl}}/api/objects_filters/scim_api_appendix). |
+| `permissions` | Erforderlich | JSON-Objekt | Berechtigungsobjekt wie in der [Dokumentation zum Berechtigungsobjekt]({{site.baseurl}}/api/objects_filters/scim_api_appendix) beschrieben. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 

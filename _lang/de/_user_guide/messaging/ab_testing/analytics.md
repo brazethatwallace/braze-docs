@@ -14,84 +14,84 @@ Nachdem Ihre Campaign gestartet wurde, können Sie die Performance jeder Variant
 
 ## Analytics nach Optimierungsoption {#analytics-by-optimization-option}
 
-Ihre Analytics-Ansicht variiert je nachdem, welche [Optimierung]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations) Sie bei der Ersteinrichtung ausgewählt haben.
+Ihre Analytics-Ansicht variiert je nachdem, ob Sie während der Ersteinrichtung eine [Optimierung]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations) ausgewählt haben.
 
-### Keine Optimierung {#no-optimization}
+### Manuelle Variantenverteilung {#manual-variant-distribution}
 
-Wenn Sie bei der Einrichtung Ihrer Campaign **No optimization** ausgewählt haben, bleibt Ihre Analytics-Ansicht unverändert. Die Seite **Campaign Analytics** Ihrer Campaign zeigt die Performance Ihrer Varianten im Vergleich zu Ihrer Kontrollgruppe, sofern Sie eine eingerichtet haben.
+Wenn **Optimize with BrazeAI<sup>TM</sup>** deaktiviert ist, zeigt die Seite **Kampagnen-Analytics** die Performance Ihrer Varianten im Vergleich zur Kontrollgruppe an, sofern Sie eine einbezogen haben.
 
-![Performance-Bereich der Campaign Analytics für eine E-Mail-Campaign mit mehreren Varianten. Die Tabelle listet verschiedene Performance-Metriken für jede Variante auf, wie Empfänger:innen, Bounces, Klicks und Konversionen.]({% image_buster /assets/img_archive/ab_analytics_no_optimization.png %})
+![Performance-Bereich der Kampagnen-Analytics für eine E-Mail-Campaign mit mehreren Varianten. Die Tabelle listet verschiedene Performance-Metriken für jede Variante auf, wie Empfänger:innen, Bounces, Klicks und Konversionen.]({% image_buster /assets/img_archive/ab_analytics_no_optimization.png %})
 
 Weitere Details finden Sie im Artikel [Kampagnen-Analytics]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics) für Ihren Messaging-Kanal.
 
-### BrazeAI<sup>TM</sup>-Variantenauswahl (nur Push) {#brazeai-variant-selection-push-only}
+### Optimize with BrazeAI<sup>TM</sup> {#optimize-with-brazeai}
 
-Wenn Sie die BrazeAI<sup>TM</sup>-Variantenauswahl verwenden, sehen Sie – je nachdem, ob es sich um einen Einzelversand oder eine wiederkehrende Campaign handelt – nach Ablauf des Experimentfensters (oder der ersten Periode bei wiederkehrenden Campaigns) den Uplift, sofern vorhanden, auf der Startseite der Campaign. Außerdem sehen Sie weitere Details ähnlich wie bei der Gewinnervariante, wenn Sie eine Einzelversand-Campaign durchführen.
+Wenn Sie **Optimize with BrazeAI<sup>TM</sup>** verwenden, zeigt die Campaign-Übersicht jede Steigerung nach dem Experimentfenster für eine Einmalversand-Campaign oder nach der ersten Optimierungsperiode für eine Mehrfachversand-Campaign an. Einmalversand-Campaigns zeigen zusätzlich Details zum initialen Test und zur leistungsstärksten Variante.
 
-Weitere Details dazu, wie wir den Uplift bei der BrazeAI<sup>TM</sup>-Variantenauswahl berichten, finden Sie unter [Variantenauswahl]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection).
+Weitere Informationen finden Sie unter [A/B-Tests mit BrazeAI optimieren]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection).
 
-![Campaign Analytics mit Uplift durch BrazeAI<sup>TM</sup>-Variantenauswahl, einschließlich Vergleichsmetriken nach dem Experimentfenster.]({% image_buster /assets/img_archive/braze_ai_variant_selection_reporting.png %})
+![Kampagnen-Analytics mit Steigerung durch Optimize with BrazeAI<sup>TM</sup>, einschließlich Vergleichsmetriken nach dem Experimentfenster.]({% image_buster /assets/img_archive/braze_ai_variant_selection_reporting.png %})
 
-### Gewinnervariante {#winning-variant}
+### Einmalversand-Optimierung {#single-send-optimization}
 
-Wenn Sie bei der Einrichtung Ihrer Campaign **Winning Variant** als Optimierung ausgewählt haben, haben Sie Zugriff auf einen zusätzlichen Tab in Ihren Campaign-Analytics namens **A/B Test Result**. Nachdem die Gewinnervariante an die verbleibenden Nutzer:innen in Ihrem Test gesendet wurde, zeigt dieser Tab die Ergebnisse dieses Versands.
+Bei einer Einmalversand-Campaign mit **Optimize with BrazeAI<sup>TM</sup>** zeigt der Tab **A/B Test Result** die Ergebnisse des initialen Tests und des optimierten Versands.
 
 Das **A/B Test Result** ist in zwei Tabs unterteilt: **Initial Test** und **Winning Variant**.
 
 {% tabs local %}
 {% tab Initial Test %}
 
-Der Tab **Initial Test** zeigt die Metriken für jede Variante aus dem anfänglichen A/B-Test, der an einen Teil Ihres Zielsegments gesendet wurde. Sie können eine Zusammenfassung sehen, wie alle Varianten abgeschnitten haben und ob es während des Tests eine Gewinnervariante gab.
+Der Tab **Initial Test** zeigt die Metriken für jede Variante aus dem initialen A/B-Test, der an einen Teil Ihres Zielsegments gesendet wurde. Sie können eine Zusammenfassung sehen, wie alle Varianten abgeschnitten haben und ob es während des Tests eine Gewinnervariante gab.
 
-Wenn eine Variante alle anderen mit einer [Konfidenz]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics#understanding-confidence) von mehr als 95 % übertroffen hat, kennzeichnet Braze diese Variante mit dem Label „Winner“.
+Wenn eine Variante alle anderen mit mehr als 95 % [Konfidenz]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics#understanding-confidence) übertroffen hat, markiert Braze diese Variante mit dem Label „Winner“.
 
-Wenn keine Variante alle anderen mit 95 % Konfidenz übertrifft und Sie sich entschieden haben, die am besten performende Variante trotzdem zu senden, wird die am besten performende Variante dennoch versendet und mit dem Label „Winner“ gekennzeichnet.
+Wenn keine Variante alle anderen mit 95 % Konfidenz übertrifft und Sie sich dennoch entschieden haben, die leistungsstärkste Variante zu senden, wird die leistungsstärkste Variante trotzdem versendet und mit dem Label „Winner“ gekennzeichnet.
 
-![Ergebnisse eines anfänglichen Tests zur Bestimmung der Gewinnervariante, bei dem keine Variante besser als die anderen mit ausreichender Konfidenz abgeschnitten hat, um die 95-Prozent-Konfidenzschwelle für statistische Signifikanz zu erreichen.]({% image_buster /assets/img_archive/ab_analytics_wv_insufficient_confidence.png %})
+![Ergebnisse eines initialen Tests zur Bestimmung der Gewinnervariante, bei dem keine Variante die anderen mit ausreichender Konfidenz übertroffen hat, um die Schwelle von 95 Prozent für statistische Signifikanz zu erreichen.]({% image_buster /assets/img_archive/ab_analytics_wv_insufficient_confidence.png %})
 
 #### Wie die Gewinnervariante ausgewählt wird {#how-the-winning-variant-is-selected}
 
-Braze testet alle Varianten gegeneinander mit [Pearsons Chi-Quadrat-Tests](https://en.wikipedia.org/wiki/Pearson%27s_chi-squared_test). Dabei wird gemessen, ob eine Variante alle anderen statistisch auf einem Signifikanzniveau von p < 0,05 übertrifft, was wir als 95 % Signifikanz bezeichnen. Wenn ja, wird die Gewinnervariante mit dem Label „Winner“ gekennzeichnet.
+Braze testet alle Varianten gegeneinander mit [Pearsons Chi-Quadrat-Tests](https://en.wikipedia.org/wiki/Pearson%27s_chi-squared_test). Damit wird gemessen, ob eine Variante alle anderen statistisch auf einem Signifikanzniveau von p < 0,05 übertrifft, was wir als 95%ige Signifikanz bezeichnen. Wenn ja, wird die Gewinnervariante mit dem Label „Winner“ gekennzeichnet.
 
 Dies ist ein separater Test vom Konfidenzwert, der nur die Performance einer Variante im Vergleich zur Kontrollgruppe mit einem numerischen Wert zwischen 0 und 100 % beschreibt.
 
-Eine Variante kann besser als die Kontrollgruppe abschneiden, aber der Chi-Quadrat-Test prüft, ob eine Variante besser als alle anderen ist. [Folgetests](#recommended-follow-ups) können weitere Details liefern.
+Eine Variante kann besser abschneiden als die Kontrollgruppe, aber der Chi-Quadrat-Test prüft, ob eine Variante besser ist als alle anderen. [Folgetests](#recommended-follow-ups) können weitere Details liefern.
 
 {% endtab %}
 {% tab Winning Variant %}
 
-Der Tab **Winning Variant** zeigt die Ergebnisse des zweiten Versands, bei dem jede:r verbleibende Nutzer:in die am besten performende Variante aus dem anfänglichen Test erhalten hat. Ihr **Audience %** summiert sich auf den Prozentsatz des Zielsegments, den Sie für die Gewinnervariante-Gruppe reserviert haben.
+Der Tab **Winning Variant** zeigt die Ergebnisse des zweiten Versands, bei dem jede:r verbleibende Nutzer:in die leistungsstärkste Variante aus dem initialen Test erhalten hat. Ihr **Audience %** summiert sich zum Prozentsatz des Zielsegments, das Sie für die Winning-Variant-Gruppe reserviert haben.
 
-![Ergebnisse der Gewinnervariante, die an die Gewinnervariante-Gruppe gesendet wurde.]({% image_buster /assets/img_archive/ab_analytics_wv_1.png %})
+![Ergebnisse der Gewinnervariante, die an die Winning-Variant-Gruppe gesendet wurde.]({% image_buster /assets/img_archive/ab_analytics_wv_1.png %})
 
 {% endtab %}
 {% endtabs %}
 
-Wenn Sie die Performance der Gewinnervariante über die gesamte Campaign hinweg sehen möchten, einschließlich der A/B-Test-Versendungen, schauen Sie auf die Seite **Campaign Analytics**.
+Wenn Sie die Performance der Gewinnervariante über die gesamte Campaign hinweg sehen möchten, einschließlich der A/B-Test-Versendungen, überprüfen Sie die Seite **Kampagnen-Analytics**.
 
-### Personalisierte Variante {#personalized-variant}
+### Bestehende Personalisierte-Variante-Campaigns {#personalized-variant}
 
-Wenn Sie bei der Einrichtung Ihrer Campaign **Personalized Variant** als Optimierung ausgewählt haben, ist das **A/B Test Result** in zwei Tabs unterteilt: **Initial Test** und **Personalized Variant**.
+Personalisierte Variante ist für neue Campaigns nicht verfügbar. Bei einer bestehenden Campaign, die diese Optimierung verwendet, ist das **A/B Test Result** in zwei Tabs unterteilt: **Initial Test** und **Personalized Variant**.
 
 {% tabs local %}
 {% tab Initial Test %}
 
-Der Tab **Initial Test** zeigt die Metriken für jede Variante aus dem anfänglichen A/B-Test, der an einen Teil Ihres Zielsegments gesendet wurde.
+Der Tab **Initial Test** zeigt die Metriken für jede Variante aus dem initialen A/B-Test, der an einen Teil Ihres Zielsegments gesendet wurde.
 
-![Ergebnisse eines anfänglichen Tests zur Bestimmung der am besten performenden Variante für jede:n Nutzer:in. Eine Tabelle zeigt die Performance jeder Variante basierend auf verschiedenen Metriken für den Zielkanal.]({% image_buster /assets/img_archive/ab_analytics_pv_initial_test_1.png %})
+![Ergebnisse eines initialen Tests zur Bestimmung der leistungsstärksten Variante für jede:n Nutzer:in. Eine Tabelle zeigt die Performance jeder Variante anhand verschiedener Metriken für den Zielkanal.]({% image_buster /assets/img_archive/ab_analytics_pv_initial_test_1.png %})
 
-Standardmäßig sucht der Test nach Zusammenhängen zwischen den angepassten Events der Nutzer:innen und ihren Nachrichtenvarianten-Präferenzen. Diese Analyse erkennt, ob angepasste Events die Wahrscheinlichkeit erhöhen oder verringern, auf eine bestimmte Nachrichtenvariante zu reagieren. Diese Zusammenhänge werden dann verwendet, um zu bestimmen, welche Nutzer:innen welche Nachrichtenvariante im finalen Versand erhalten.
+Standardmäßig sucht der Test nach Zusammenhängen zwischen den angepassten Events jeder:s Nutzer:in und deren Nachrichtenvarianten-Präferenzen. Diese Analyse erkennt, ob angepasste Events die Wahrscheinlichkeit erhöhen oder verringern, auf eine bestimmte Nachrichtenvariante zu reagieren. Diese Beziehungen werden dann verwendet, um zu bestimmen, welche Nutzer:innen welche Nachrichtenvariante im endgültigen Versand erhalten.
 
-Die Zusammenhänge zwischen angepassten Events und Nachrichtenpräferenzen werden in der Tabelle auf dem Tab **Initial Send** angezeigt.
+Die Beziehungen zwischen angepassten Events und Nachrichtenpräferenzen werden in der Tabelle auf dem Tab **Initial Send** angezeigt.
 
-![Tabellen mit angepassten Event-Daten für Variante 1 und Variante 2, die Einfluss-Scores für angepasste Events zeigen und angeben, wie jedes Event die Variantenpräferenz beeinflusst.]({% image_buster /assets/img_archive/ab_analytics_pv_3.png %})
+![Tabellen mit angepassten Event-Daten für Variante 1 und Variante 2, die Impact-Scores für angepasste Events zeigen und angeben, wie jedes Event die Variantenpräferenz beeinflusst.]({% image_buster /assets/img_archive/ab_analytics_pv_3.png %})
 
-Wenn der Test keinen aussagekräftigen Zusammenhang zwischen angepassten Events und Pfadpräferenzen finden kann, greift der Test auf eine sitzungsbasierte Analysemethode zurück, und es werden keine Tabellen mit angepassten Event-Daten angezeigt.
+Wenn der Test keine aussagekräftige Beziehung zwischen angepassten Events und Pfadpräferenzen finden kann, greift der Test auf eine sitzungsbasierte Analysemethode zurück, und es werden keine Tabellen mit angepassten Event-Daten angezeigt.
 
 {% details Fallback-Analysemethode %}
 
 **Sitzungsbasierte Analysemethode**<br>
-Wenn die Fallback-Methode zur Bestimmung der personalisierten Varianten verwendet wird, zeigt der Tab **Initial Test** eine Aufschlüsselung der bevorzugten Varianten der Nutzer:innen basierend auf einer Kombination bestimmter Merkmale.
+Wenn die Fallback-Methode zur Bestimmung personalisierter Varianten verwendet wird, zeigt der Tab **Initial Test** eine Aufschlüsselung der bevorzugten Varianten der Nutzer:innen basierend auf einer Kombination bestimmter Merkmale.
 
 Diese Merkmale sind:
 
@@ -99,14 +99,14 @@ Diese Merkmale sind:
 - **Häufigkeit:** Wie oft sie Sitzungen haben
 - **Zugehörigkeitsdauer:** Wie lange sie bereits Nutzer:in sind
 
-Zum Beispiel könnte der Test feststellen, dass die meisten Nutzer:innen Variante A bevorzugen, aber Nutzer:innen, die vor etwa 3–12 Tagen eine Sitzung hatten, zwischen 1–12 Tage zwischen Sitzungen haben und in den letzten 67–577 Tagen erstellt wurden, tendenziell Variante B bevorzugen. Daher erhielten Nutzer:innen in dieser Untergruppe Variante B im zweiten Versand, während der Rest Variante A erhielt.
+Zum Beispiel könnte der Test ergeben, dass die meisten Nutzer:innen Variante A bevorzugen, aber Nutzer:innen, die vor etwa 3–12 Tagen eine Sitzung hatten, zwischen 1–12 Tage zwischen Sitzungen haben und in den letzten 67–577 Tagen erstellt wurden, bevorzugen tendenziell Variante B. Daher erhielten Nutzer:innen in dieser Untergruppe Variante B im zweiten Versand, während die übrigen Variante A erhielten.
 
-![Die Tabelle „User Characteristics“, die zeigt, welche Nutzer:innen voraussichtlich Variante A und Variante B bevorzugen, basierend auf den drei Buckets, in die sie für Aktualität, Häufigkeit und Zugehörigkeitsdauer fallen.]({% image_buster /assets/img_archive/ab_analytics_pv_initial_test_2.png %})
+![Die Tabelle „User Characteristics“, die zeigt, welche Nutzer:innen voraussichtlich Variante A und Variante B bevorzugen, basierend auf den drei Buckets, in die sie bei Aktualität, Häufigkeit und Zugehörigkeitsdauer fallen.]({% image_buster /assets/img_archive/ab_analytics_pv_initial_test_2.png %})
 
 **Wie personalisierte Varianten ausgewählt werden**<br>
-Bei dieser Methode ist die empfohlene Nachricht für eine:n einzelne:n Nutzer:in die Summe der Effekte ihrer spezifischen Aktualität, Häufigkeit und Zugehörigkeitsdauer. Aktualität, Häufigkeit und Zugehörigkeitsdauer werden in Buckets aufgeteilt, wie in der Tabelle **User Characteristics** dargestellt. Der Zeitbereich jedes Buckets wird durch die Daten der Nutzer:innen in jeder einzelnen Campaign bestimmt und variiert von Campaign zu Campaign.
+Bei dieser Methode ergibt sich die empfohlene Nachricht für eine:n einzelne:n Nutzer:in aus der Summe der Effekte ihrer spezifischen Aktualität, Häufigkeit und Zugehörigkeitsdauer. Aktualität, Häufigkeit und Zugehörigkeitsdauer werden in Buckets aufgeteilt, wie in der Tabelle **User Characteristics** dargestellt. Der Zeitbereich jedes Buckets wird durch die Daten der Nutzer:innen in jeder einzelnen Campaign bestimmt und variiert von Campaign zu Campaign.
 
-Jeder Bucket kann einen unterschiedlichen Beitrag oder „Push“ in Richtung jeder Nachrichtenvariante haben. Die Stärke des Pushs für jeden Bucket wird aus den Reaktionen der Nutzer:innen im anfänglichen Versand mittels [logistischer Regression](https://en.wikipedia.org/wiki/Logistic_regression) bestimmt. Diese Tabelle fasst die Ergebnisse nur zusammen, indem sie zeigt, mit welcher Variante Nutzer:innen in jedem Bucket tendenziell interagiert haben. Die tatsächliche personalisierte Variante einer/eines einzelnen Nutzer:in hängt von der Summe der Effekte der drei Buckets ab, in denen sie sich befinden – einer für jedes Merkmal.
+Jeder Bucket kann einen unterschiedlichen Beitrag oder „Push“ in Richtung jeder Nachrichtenvariante haben. Die Stärke des Pushs für jeden Bucket wird anhand der Nutzer:innen-Reaktionen im initialen Versand mittels [logistischer Regression](https://en.wikipedia.org/wiki/Logistic_regression) bestimmt. Diese Tabelle fasst die Ergebnisse nur zusammen, indem sie anzeigt, mit welcher Variante Nutzer:innen in jedem Bucket tendenziell interagiert haben. Die tatsächliche personalisierte Variante einer:s einzelnen Nutzer:in hängt von der Summe der Effekte der drei Buckets ab, in denen sie sich befinden – einer für jedes Merkmal.
 
 {% enddetails %}
 
@@ -115,17 +115,17 @@ Jeder Bucket kann einen unterschiedlichen Beitrag oder „Push“ in Richtung je
 
 Der Tab **Personalized Variant** zeigt die Ergebnisse des zweiten Versands, bei dem jede:r verbleibende Nutzer:in die Variante erhalten hat, mit der sie am wahrscheinlichsten interagieren würden.
 
-Die drei Karten auf dieser Seite zeigen Ihren prognostizierten Lift, die Gesamtergebnisse und die prognostizierten Ergebnisse, wenn Sie stattdessen nur die Gewinnervariante gesendet hätten. Selbst wenn es keinen Lift gibt, was manchmal vorkommen kann, ist das Ergebnis dasselbe wie beim Senden nur der Gewinnervariante (ein traditioneller A/B-Test).
+Die drei Karten auf dieser Seite zeigen Ihre prognostizierte Steigerung, die Gesamtergebnisse und die projizierten Ergebnisse, wenn Sie stattdessen nur die Gewinnervariante gesendet hätten. Auch wenn es keine Steigerung gibt, was manchmal vorkommen kann, ist das Ergebnis dasselbe wie beim Versand nur der Gewinnervariante (ein traditioneller A/B-Test).
 
-- **Prognostizierter Lift:** Die Verbesserung Ihrer ausgewählten Optimierungsmetrik für diesen Versand durch die Verwendung von personalisierten Varianten anstelle eines Standard-A/B-Tests (wenn die verbleibenden Nutzer:innen nur die Gewinnervariante erhalten hätten).
-- **Gesamtergebnisse:** Die Ergebnisse des zweiten Versands basierend auf Ihrer gewählten Optimierungsmetrik (*Unique Opens*, *Unique Clicks* oder *Primary Conversion Event*).
-- **Prognostizierte Ergebnisse:** Die prognostizierten Ergebnisse des zweiten Versands basierend auf Ihrer gewählten Optimierungsmetrik, wenn Sie stattdessen nur die Gewinnervariante gesendet hätten.
+- **Prognostizierte Steigerung:** Die Verbesserung Ihrer ausgewählten Optimierungsmetrik für diesen Versand durch die Verwendung personalisierter Varianten anstelle eines Standard-A/B-Tests (wenn die verbleibenden Nutzer:innen nur die Gewinnervariante erhalten hätten).
+- **Gesamtergebnisse:** Die Ergebnisse des zweiten Versands basierend auf Ihrer gewählten Optimierungsmetrik (*Eindeutige Öffnungen*, *Eindeutige Klicks* oder *Primäres Konversions-Event*).
+- **Projizierte Ergebnisse:** Die projizierten Ergebnisse des zweiten Versands basierend auf Ihrer gewählten Optimierungsmetrik, wenn Sie stattdessen nur die Gewinnervariante gesendet hätten.
 
-![Tab „Personalized Variant“ für eine Campaign, die für eindeutige Öffnungen optimiert wurde. Die Karten zeigen den prognostizierten Lift, die gesamten eindeutigen Öffnungen (mit personalisierter Variante) und die prognostizierten eindeutigen Öffnungen (mit Gewinnervariante).]({% image_buster /assets/img_archive/ab_analytics_pv_1.png %})
+![Tab „Personalized Variant“ für eine Campaign, die für eindeutige Öffnungen optimiert wurde. Die Karten zeigen die prognostizierte Steigerung, die gesamten eindeutigen Öffnungen (mit personalisierter Variante) und die projizierten eindeutigen Öffnungen (mit Gewinnervariante).]({% image_buster /assets/img_archive/ab_analytics_pv_1.png %})
 
-Die Tabelle auf dieser Seite zeigt die Metriken für jede Variante aus dem Personalized-Variant-Versand. Ihr **Audience %** summiert sich auf den Prozentsatz des Zielsegments, den Sie für die Personalized-Variant-Gruppe reserviert haben.
+Die Tabelle auf dieser Seite zeigt die Metriken für jede Variante aus dem Versand der personalisierten Variante. Ihr **Audience %** summiert sich zum Prozentsatz des Zielsegments, das Sie für die Personalized-Variant-Gruppe reserviert haben.
 
-![Ergebnistabelle des Personalized-Variant-Versands mit Performance-Metriken für Variante A, Variante B und alle Varianten, einschließlich Zielgruppenprozentsatz, Versendungen, Zustellungen, Öffnungen, Klicks und Konversionen.]({% image_buster /assets/img_archive/ab_analytics_pv_2.png %})
+![Ergebnistabelle des Versands der personalisierten Variante mit Performance-Metriken für Variante A, Variante B und alle Varianten, einschließlich Zielgruppenprozentsatz, Versendungen, Zustellungen, Öffnungen, Klicks und Konversionen.]({% image_buster /assets/img_archive/ab_analytics_pv_2.png %})
 
 {% endtab %}
 {% endtabs %}
@@ -174,6 +174,17 @@ Außerdem können Varianten-Nachrichten, die eine längere Renderzeit erfordern,
 ### Verzögerungen bei In-App-Nachrichten {#in-app-message-delays}
 
 Bei getriggerten In-App-Nachrichten-Campaigns mit verzögerter Anzeige werden Kontrollgruppen-Impressionen zu dem Zeitpunkt erfasst, zu dem die Nutzer:innen die In-App-Nachricht ursprünglich erhalten hätten. Wenn eine Campaign beispielsweise so eingestellt ist, dass die Anzeige um eine Stunde verzögert wird, werden Kontrollgruppen-Impressionen erst nach Ablauf der einstündigen Verzögerung protokolliert. Dies hilft beim genauen Tracking von Impressionen in Bezug auf den beabsichtigten Zeitpunkt der Nachrichtenzustellung.
+
+## Entfernen von Nachrichten-Varianten nach dem Start {#removing-message-variants-after-launch}
+
+Wenn Sie eine Nachrichten-Variante aus einer Campaign oder einem Canvas entfernen, indem Sie im Composer auf das **X** klicken (z. B. wenn Sie eine Nachricht aus einem Template ersetzen), wird die Variante als gelöscht markiert. Analytics sind an die eindeutige ID jeder Variante gebunden, sodass das Entfernen einer Variante das Reporting beeinflusst:
+
+- Bereits vorhandene Analytics für die gelöschte Variante (wie Öffnungen, Klicks und Konversionen) erscheinen nicht mehr in den aktuellen Analytics der Campaign oder des Canvas-Schritts.
+- Aufschlüsselungen auf Varianten-Ebene schließen gelöschte Varianten aus. Wenn Sie eine Ersatz-Variante hinzufügen, erhält diese eine neue Varianten-ID und beginnt ohne historische Statistiken, sodass Metriken möglicherweise als 0 angezeigt werden.
+
+Dies gilt nur, wenn Sie Varianten löschen und erneut hinzufügen. Das Bearbeiten des Inhalts einer bestehenden Variante wirkt sich nicht auf historische Analytics aus.
+
+Weitere Details zu gelöschten Varianten im Reporting finden Sie unter [Gelöschte Nachrichten-Varianten]({{site.baseurl}}/user_guide/analytics/reports/report_builder#deleted-message-variants).
 
 ## Empfohlene Folgeaktionen {#recommended-follow-ups}
 

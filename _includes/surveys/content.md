@@ -4,7 +4,7 @@
   - channel (required): "in_app_message" or "landing_page"
 {% endcomment %}
 
-{% multi_lang_include alerts/early_access_beta_alert.md feature='Braze surveys' %}
+For an overview of Surveys and the capabilities shared across channels, see [Surveys]({{site.baseurl}}/user_guide/messaging/surveys).
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ Before creating a survey, you must:
 
 ## Create a survey
 
-During early access, surveys are built inside your existing message composition flow.
+Surveys are built inside your existing message composition flow.
 
 {% if include.channel == 'in_app_message' %}
 1. Create an [in-app message]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/) in a campaign or Canvas.
@@ -60,10 +60,10 @@ For shared styling and composition controls, see:
 {% if include.channel == 'in_app_message' %}
 - [In-app message drag-and-drop editor blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages)
 {% elsif include.channel == 'landing_page' %}
-- [Landing page form blocks]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/#form-blocks)
+- [Landing page form blocks]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages)
 {% else %}
 - [In-app message drag-and-drop editor blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages)
-- [Landing page form blocks]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/#form-blocks)
+- [Landing page form blocks]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages)
 {% endif %}
 
 You can add the following form blocks to surveys:
@@ -76,33 +76,34 @@ You can add the following form blocks to surveys:
 - Dropdown
 - Single checkbox
 - Checkbox group
+- Rating scale
+- NPS
 
 ### Randomize answer choices
 
-Radio button group, checkbox group, and dropdown blocks support randomized answer choices. Turn on **Randomize choice order** to shuffle the choices each time the survey loads. Use this setting to reduce order bias when the same first option could skew responses.
-
-Randomization changes only the display order for each survey respondent. Reporting labels and values remain mapped to the choices you configured, so analytics, CSV exports, and segmentation use the same response data.
+Radio button group, checkbox group, and dropdown blocks support randomized answer choices. Turn on **Randomize choice order** to shuffle the choices each time the survey loads. For more information, see [Randomized choice order]({{site.baseurl}}/user_guide/messaging/surveys#randomized-choice-order).
 
 ### Long text capture
 
-Long text capture is useful for qualitative feedback.
+Long text capture is useful for qualitative feedback, up to 1,000 characters. For more information, see [Long-form text capture]({{site.baseurl}}/user_guide/messaging/surveys#long-form-text-capture).
 
-You can configure:
+### Rating scale
 
-- Minimum and maximum character counts (up to 1,000)
-- Whether to show character limits during composition
-- Text area height (rows)
-- Placeholder text
+Rating scale (also called a number scale question) is useful for capturing sentiment, satisfaction, or likelihood to recommend as a single number. For more information, see [Number scale questions]({{site.baseurl}}/user_guide/messaging/surveys#number-scale-questions).
 
-During early access, long text responses are available in reporting and exports, but they can't be logged as user profile custom attributes.
-
-![Long text capture block settings.]({% image_buster /assets/img/surveys/long-form-surveys.png %}){: style="max-width:40%;"}
+{% if include.channel == 'in_app_message' %}
+![Rating scale to rate your store experience from 1 to 5.]({% image_buster /assets/img/surveys/iam_rating_scale_example.png %}){: style="max-width:40%;"}
+{% elsif include.channel == 'landing_page' %}
+![Rating scale to give likelihood of recommending product to a friend from 1 to 10.]({% image_buster /assets/img/surveys/landing_page_rating_scale_example.png %}){: style="max-width:70%;"}
+{% else %}
+![Rating scale to give likelihood of recommending product to a friend from 1 to 10.]({% image_buster /assets/img/surveys/landing_page_rating_scale_example.png %}){: style="max-width:70%;"}
+{% endif %}
 
 ## Configure required fields and attributes
 
 For each form block, enter an **Identifier for Reporting** in the right-side settings panel. This identifier appears in survey reporting and CSV exports.
 
-During early access:
+Keep in mind:
 
 - You can log most survey responses to user profile custom attributes.
 - Long text responses can't be logged as custom attributes.
@@ -123,39 +124,19 @@ After launch, review results in:
 - The landing page analytics view for landing page surveys
 {% endif %}
 
-Top-level analytics include:
-
-- **All responses:** Total complete and incomplete responses
-- **Completed:** Users who completed all required questions
-- **Partially complete:** Users who submitted some data, but did not complete all required questions
-- **Unique impressions:** Total page views
+For definitions of the top-level analytics available for every survey (all responses, completed, partially complete, and unique impressions), see [Analytics]({{site.baseurl}}/user_guide/messaging/surveys#analytics).
 
 {% if include.channel == 'landing_page' %}
 {% alert note %}
-Landing page surveys do not track partially complete responses during early access.
+Landing page surveys track partially complete responses when the survey uses [multi-step forms]({{site.baseurl}}/user_guide/messaging/surveys#multi-step-landing-page-forms).
 {% endalert %}
 {% endif %}
 
-You can also review per-question response breakdowns and export data as CSV.
-
-### Choose a chart type
-
-For radio button, dropdown, and checkbox form blocks, you can choose among three chart types in the survey analytics view. This gives you more flexibility to interpret and share insights without exporting to a third-party tool.
-
-| Chart type | Best for |
-| --- | --- |
-| Bar chart | The default horizontal view of response counts and percentages. |
-| Column chart | A vertical view of response counts and percentages. Use this chart to compare responses side-by-side, especially for multi-select questions or questions with more answer options. |
-| Pie chart | A proportional breakdown of responses. Use this chart for single-select questions when you want to see how responses are distributed across options. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Survey chart types" }
-
-Each chart updates in real time as responses come in. You can switch chart types at any time without affecting the underlying data.
-
-![Survey question-level breakdown using a bar chart.]({% image_buster /assets/img/surveys/bar-charts-1.png %})
+You can also review per-question response breakdowns, choose among three chart types, and export data as CSV. For more information, see [Chart types]({{site.baseurl}}/user_guide/messaging/surveys#chart-types).
 
 ## Retarget and trigger
 
-During early access, you can:
+You can:
 
 - Segment users by survey responses that are logged as user attributes.
 - Segment users by survey completion status.
@@ -188,7 +169,7 @@ During early access, you can:
 
 ### Limitations
 
-During early access, you are restricted by the following:
+You're restricted by the following:
 
 - You can't segment users by long-form text responses.
 - Question-and-answer triggering that does not rely on logged user attributes is not available.

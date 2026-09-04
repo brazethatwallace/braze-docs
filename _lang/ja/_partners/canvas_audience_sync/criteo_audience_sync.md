@@ -6,19 +6,16 @@ page_order: 1
 alias: /audience_sync_criteo/
 
 tool:
-  - キャンバス
+  - Canvas
 ---
 
 # Audience Sync to Criteo
 
-Braze Audience Sync to Criteoを使用すると、ブランドは独自のBraze統合からのユーザーデータをCriteoの顧客リストに追加して、行動トリガーやセグメンテーションなどに基づいて広告を配信できます。通常はユーザーデータに基づいてBraze キャンバスでメッセージをトリガーするための基準（プッシュ、メール、SMS、Webhookなど）を、Criteo顧客リスト内の該当ユーザーに対する広告のトリガーに使用できるようになりました。
+Braze Audience Sync to Criteoを使用すると、ブランドは独自のBraze統合からのユーザーデータをCriteoの顧客リストに追加して、行動トリガーやセグメンテーションなどに基づいて広告を配信できます。通常はユーザーデータに基づいてBrazeキャンバスでメッセージをトリガーするための基準（プッシュ、メール、SMS、Webhookなど）を、Criteo顧客リスト内の該当ユーザーに対する広告のトリガーに使用できるようになりました。
 
 **オーディエンス同期の一般的なユースケースには次のものがあります。**
 
-- 複数のチャネルを通じて価値の高いユーザーをターゲットにして、購入やエンゲージメントを促進する
-- 他のマーケティングチャネルにあまり反応しないユーザーのリターゲティング
-- すでに自社ブランドの忠実な消費者であるユーザーが広告を受け取ることを防ぐための抑制オーディエンスの作成
-- Lookalikeオーディエンスを作成し、新規ユーザーをより効率的に獲得する
+{% multi_lang_include partners/canvas_audience_sync/common_use_cases.md lookalike=true %}
 
 この機能により、ブランドはCriteoと共有される特定のファーストパーティデータを制御できるようになります。Brazeでは、ファーストパーティデータを共有できる統合と共有できない統合を最大限に考慮しています。詳細については、[プライバシーポリシー](https://www.braze.com/privacy)を参照してください。
 
@@ -29,133 +26,136 @@ Braze Audience Sync to CriteoはAudience Sync Pro統合です。この統合の�
 
 ## 前提条件 {#prerequisites}
 
-Audience Sync to Criteoを設定する前に、以下の項目が作成または完了していることを確認する必要があります。
+Criteoへのオーディエンス同期を設定する前に、以下の項目が作成済みまたは完了済みであることを確認する必要があります。
 
-| 必要条件 | 提供元 | 説明 |
+| 要件 | 提供元 | 説明 |
 | --- | --- | --- |
-| Criteo広告アカウント | [Criteo](https://marketing.criteo.com/) | ブランドに関連付けられたアクティブなCriteo広告アカウント。<br><br>Criteo管理者から、オーディエンスにアクセスするための適切な権限が付与されていることを確認してください。 |
-| [Criteo広告ガイドライン](https://www.criteo.com/advertising-guidelines/)<br>および<br>[Criteoブランドセーフティガイドライン](https://www.criteo.com/wp-content/uploads/2017/11/Criteo-Brand-Safety-Guidelines-UK-March-2016.pdf) | Criteo | Criteoのアクティブな顧客として、Criteo キャンペーンを開始する前に、Criteoの広告ガイドラインおよびブランドセーフティガイドラインを遵守できることを確認する必要があります。 |
+| Criteo広告アカウント | [Criteo](https://marketing.criteo.com/) | ブランドに紐づけられたアクティブなCriteo広告アカウント。<br><br>Criteoの管理者から、オーディエンスにアクセスするための適切な権限が付与されていることを確認してください。 |
+| [Criteo広告ガイドライン](https://www.criteo.com/advertising-guidelines/)<br>および<br>[Criteoブランドセーフティガイドライン](https://www.criteo.com/wp-content/uploads/2017/11/Criteo-Brand-Safety-Guidelines-UK-March-2016.pdf) | Criteo | アクティブなCriteoの顧客として、Criteoキャンペーンを開始する前に、Criteoの広告ガイドラインおよびブランドセーフティガイドラインに準拠できることを確認する必要があります。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="前提条件" }
 
-## 統合 {#integration}
+## 連携 {#integration}
 
-### ステップ1:Criteoに接続する {#step-1-connect-to-criteo}
+### ステップ1：Criteoに接続する {#step-1-connect-to-criteo}
 
 {% alert important %}
-CriteoをBrazeアカウントに接続するには、[「Admin」権限]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin)が必要です。
+CriteoをBrazeアカウントに接続するには、[「管理者」権限]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions#admin)が必要です。
 {% endalert %}
 
-Brazeダッシュボードで**パートナー連携** > **テクノロジーパートナー**に移動し、**Criteo**を選択します。Criteo Audience Exportで、**Connect Criteo**を選択します。
+Brazeダッシュボードで、**パートナー連携** > **テクノロジーパートナー**に移動し、**Criteo**を選択します。Criteo Audience Exportの下で、**Connect Criteo**を選択します。
 
-![Brazeの Criteoテクノロジーページ。概要セクション、Criteoセクション、および「Connected Criteo」ボタンが表示されています。]({% image_buster /assets/img/criteo/criteo5.png %}){: style="max-width:80%;"}
+![概要セクションとConnect Criteoボタンを含むCriteoセクションが表示されたBrazeのCriteoテクノロジーページ。]({% image_buster /assets/img/criteo/criteo5.png %}){: style="max-width:80%;"}
 
-Criteo oAuthページが表示され、Audience Sync統合に関連する権限をBrazeに付与します。
+Criteo oAuthページが表示され、オーディエンス同期連携に関連する権限をBrazeに付与することを承認します。
 
 確認を選択すると、Brazeにリダイレクトされ、同期するCriteo広告アカウントを選択できます。
 
-![Criteoに接続できる広告アカウントのリスト。]({% image_buster /assets/img/criteo/criteo7.png %}){: style="max-width:80%;"}
+![Criteoに接続できる利用可能な広告アカウントのリスト。]({% image_buster /assets/img/criteo/criteo7.png %}){: style="max-width:80%;"}
 
-接続に成功すると、パートナーページに戻り、どのアカウントが接続されているかを確認したり、既存のアカウントを切断したりできます。
+接続が正常に完了すると、パートナーページに戻り、接続されているアカウントの確認や既存アカウントの切断ができます。
 
-![広告アカウントが正常に接続されたことを示す更新後のCriteoテクノロジーパートナーページ。]({% image_buster /assets/img/criteo/criteo4.png %}){: style="max-width:80%;"}
+![広告アカウントが正常に接続されたことを示すCriteoテクノロジーパートナーページの更新版。]({% image_buster /assets/img/criteo/criteo4.png %}){: style="max-width:80%;"}
 
-Criteoとの接続はBrazeワークスペースレベルで適用されます。Criteo管理者がCriteo広告アカウントからユーザーを削除した場合、Brazeは無効なトークンを検出します。その結果、Criteoを使用しているアクティブなキャンバスにはエラーが表示され、Brazeはユーザーを同期できなくなります。
+Criteo接続はBrazeワークスペースレベルで適用されます。Criteo管理者がCriteo広告アカウントからあなたを削除した場合、Brazeは無効なトークンを検出します。その結果、Criteoを使用しているアクティブなキャンバスにエラーが表示され、Brazeはユーザーを同期できなくなります。
 
-### ステップ2:キャンバスのエントリ基準を設定する {#step-2-configure-your-canvas-entry-criteria}
+### ステップ2：キャンバスのエントリ条件を設定する {#step-2-configure-your-canvas-entry-criteria}
 
-広告トラッキングのためにオーディエンスを作成する場合、ユーザーの設定に基づいて特定のユーザーを含めるか除外し、[CCPA](https://oag.ca.gov/privacy/ccpa)の「販売または共有を禁止する」権利などのプライバシー法に準拠することを希望する場合があります。マーケターは、キャンバスのエントリ基準の範囲内で、ユーザーの適格性に関する適切なフィルターを実装する必要があります。以下にいくつかの選択肢を挙げます。
+広告トラッキング用のオーディエンスを構築する際、ユーザーの設定に基づいて特定のユーザーを含めたり除外したりすることや、[CCPA](https://oag.ca.gov/privacy/ccpa)に基づく「販売または共有の拒否」権利などのプライバシー法に準拠することが必要になる場合があります。マーケターは、キャンバスのエントリ条件内にユーザーの適格性に関する適切なフィルターを実装する必要があります。以下のオプションが役立ちます。
 
-[Braze SDKでiOS IDFA]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/other_sdk_customizations/#optional-idfa-collection)を収集した場合、「広告の追跡が有効」フィルターを使用できます。ユーザーがオプトインしたAudience Syncの宛先にのみユーザーを送信するには、値をtrueに選択します。
+[Braze SDKを通じてiOS IDFAを収集]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/other_sdk_customizations#optional-idfa-collection)している場合、広告トラッキング有効フィルターを使用できます。値をtrueに設定すると、オプトインしたユーザーのみをオーディエンス同期の送信先に送信します。
 
-![]({% image_buster /assets/img/criteo/criteo11.png %})
+![広告トラッキング有効がtrueに設定されたキャンバスエントリフィルター。]({% image_buster /assets/img/criteo/criteo11.png %})
 
-`opt-ins`、`opt-outs`、`Do Not Sell Or Share`、またはその他の関連するカスタム属性を収集する場合は、キャンバスのエントリ基準にこれらをフィルターとして含める必要があります。
+`opt-ins`、`opt-outs`、`Do Not Sell Or Share`、またはその他の関連するカスタム属性を収集している場合は、キャンバスのエントリ条件にフィルターとして含める必要があります。
 
-![]({% image_buster /assets/img/criteo/criteo12.png %})
+![オーディエンスの適格性のためにカスタムオプトイン属性を使用したキャンバスエントリフィルター。]({% image_buster /assets/img/criteo/criteo12.png %})
 
-Brazeプラットフォーム内でこれらのデータ保護法を遵守する方法の詳細については、[データ保護テクニカルアシスタンス]({{site.baseurl}}/dp-technical-assistance/)を参照してください。
+Brazeプラットフォーム内でこれらのデータ保護法に準拠する方法の詳細については、[データ保護テクニカルアシスタンス]({{site.baseurl}}/dp-technical-assistance)を参照してください。
 
-### ステップ3:CriteoでAudience Syncステップを追加する {#step-3-add-an-audience-sync-step-with-criteo}
+### ステップ3：Criteoを使用したオーディエンス同期ステップを追加する {#step-3-add-an-audience-sync-step-with-criteo}
 
 キャンバスにコンポーネントを追加し、**Audience Sync**を選択します。
 
-![キャンバスにCriteoオーディエンスコンポーネントを追加する前のステップのワークフロー。]({% image_buster /assets/img/criteo/criteo9.png %}){: style="max-width:35%;"} ![キャンバスにCriteoオーディエンスコンポーネントを追加する前のステップのワークフロー。]({% image_buster /assets/img/criteo/criteo10.png %}){: style="max-width:28%;"}
+![キャンバスでCriteoオーディエンスコンポーネントを追加する前のステップのワークフロー。]({% image_buster /assets/img/criteo/criteo9.png %}){: style="max-width:35%;"} ![キャンバスでCriteoオーディエンスコンポーネントを追加する前のステップのワークフロー。]({% image_buster /assets/img/criteo/criteo10.png %}){: style="max-width:28%;"}
 
-### ステップ4:同期設定 {#step-4-sync-setup}
+### ステップ4：同期の設定 {#step-4-sync-setup}
 
-**Custom Audience**ボタンをクリックしてコンポーネントエディターを開きます。
+**Custom Audience**ボタンをクリックして、コンポーネントエディターを開きます。
 
-目的のAudience Syncパートナーとして**Criteo**を選択します。
+オーディエンス同期パートナーとして**Criteo**を選択します。
 
-![]({% image_buster /assets/img/criteo/criteo6.png %})
+![Criteoがパートナーとして選択されたオーディエンス同期ステップエディター。]({% image_buster /assets/img/criteo/criteo6.png %})
 
-次に、目的のCriteo広告アカウントを選択します。**Choose a New or Existing Audience**ドロップダウンで、新規または既存のオーディエンスの名前を入力します。
+次に、目的のCriteo広告アカウントを選択します。**Choose a New or Existing Audience**ドロップダウンで、新規または既存のオーディエンス名を入力します。
 
 {% tabs %}
-{% tab 新規オーディエンスの作成 %}
-**新規オーディエンスの作成**<br>
+{% tab 新規オーディエンスを作成 %}
+**新規オーディエンスを作成**<br>
 新しいオーディエンスの名前を入力し、**Add Users to Audience**を選択して、Criteoと同期するフィールドを選択します。次に、ステップエディターの下部にある**Create Audience**ボタンをクリックしてオーディエンスを保存します。
 
-![カスタムオーディエンスキャンバスステップの展開ビュー。ここでは、目的の広告アカウントが選択され、新しいオーディエンスが作成されます。]({% image_buster /assets/img/criteo/criteo3.png %})
+![カスタムオーディエンスキャンバスステップの展開ビュー。ここでは、目的の広告アカウントが選択され、新しいオーディエンスが作成されています。]({% image_buster /assets/img/criteo/criteo3.png %})
 
-オーディエンスが正常に作成された場合、またはエラーが発生した場合、Brazeはステップエディターの上部に通知を表示します。ユーザーは、後でキャンバスジャーニーでユーザーを削除するためにこのオーディエンスを参照できます。これは、オーディエンスが下書きモードで作成されたためです。
+オーディエンスが正常に作成された場合、またはエラーが発生した場合、Brazeはステップエディターの上部に通知を表示します。オーディエンスは下書きモードで作成されるため、ユーザーはキャンバスジャーニーの後半でユーザー削除のためにこのオーディエンスを参照できます。
 
-![新しいオーディエンスがキャンバスコンポーネントに作成された後に表示されるアラート。]({% image_buster /assets/img/criteo/criteo1.png %})
+![キャンバスコンポーネントで新しいオーディエンスが作成された後に表示されるアラート。]({% image_buster /assets/img/criteo/criteo1.png %})
 
-新しいオーディエンスを使用してキャンバスを起動すると、Audience Syncコンポーネントに入る時点で、Brazeはユーザーをほぼリアルタイムで同期します。
+新しいオーディエンスを含むキャンバスを起動すると、Brazeはユーザーがオーディエンス同期コンポーネントに入るとほぼリアルタイムで同期します。
 {% endtab %}
-{% tab 既存のオーディエンスとの同期 %}
-**既存のオーディエンスとの同期**<br>
-Brazeは、これらのオーディエンスが最新であることを確認するために、既存のCriteoオーディエンスにユーザーを追加する機能も提供しています。既存のオーディエンスと同期するには、ドロップダウンに既存のオーディエンスの名前を入力し、**Add to the Audience**を選択します。Brazeは、Audience Syncコンポーネントに入ると、ほぼリアルタイムでユーザーを追加します。
+{% tab 既存のオーディエンスと同期 %}
+**既存のオーディエンスと同期**<br>
+Brazeでは、既存のCriteoオーディエンスにユーザーを追加して、オーディエンスを最新の状態に保つこともできます。既存のオーディエンスと同期するには、ドロップダウンに既存のオーディエンス名を入力し、**Add to the Audience**を選択します。Brazeは、ユーザーがオーディエンス同期コンポーネントに入るとほぼリアルタイムでユーザーを追加します。
 
 ![カスタムオーディエンスキャンバスステップの展開ビュー。ここでは、目的の広告アカウントと既存のオーディエンスが選択されています。]({% image_buster /assets/img/criteo/criteo8.png %})
 
 {% endtab %}
 {% endtabs %}
 
-### ステップ5:キャンバスを起動する {#step-5-launch-canvas}
+### ステップ5：キャンバスを起動する {#step-5-launch-canvas}
 
-Audience Sync to Criteoを設定したら、キャンバスを起動します。新しいオーディエンスが作成され、Audience Syncステップを経由したユーザーがCriteoのこのオーディエンスに送られます。キャンバスに後続のコンポーネントが含まれている場合、ユーザーはユーザージャーニーの次のステップに進みます。
+Criteoへのオーディエンス同期を設定したら、キャンバスを起動します。新しいオーディエンスが作成され、オーディエンス同期ステップを通過するユーザーはCriteo上のこのオーディエンスに渡されます。キャンバスに後続のコンポーネントが含まれている場合、ユーザーはユーザージャーニーの次のステップに進みます。
 
-Criteoでオーディエンスを表示するには、広告マネージャーアカウントにログインし、ナビゲーションの**Audience Library**からセグメントを選択します。**セグメント**ページから、各オーディエンスが約1,000に達した後のサイズを確認できます。
+Criteoでオーディエンスを確認するには、広告マネージャーアカウントに移動し、ナビゲーションの**Audience Library**から**セグメント**を選択します。**セグメント**ページでは、各オーディエンスのサイズが約1,000に達した後に確認できます。
 
-![セグメント、ID、ソース、タイプ、サイズ、現在使用中であるかどうか、および最終更新日時を示すオーディエンスライブラリ。]({% image_buster /assets/img/criteo/criteo.png %})
+![セグメント、ID、ソース、タイプ、サイズ、現在の使用状況、最終更新を表示するオーディエンスライブラリ。]({% image_buster /assets/img/criteo/criteo.png %})
 
-## ユーザーの同期とレート制限の考慮事項 {#user-syncing-and-rate-limit-considerations}
+## ユーザー同期とレート制限に関する考慮事項 {#user-syncing-and-rate-limit-considerations}
 
-ユーザーがAudience Syncステップに到達すると、BrazeはCriteoのAPIレート制限を尊重しながら、ほぼリアルタイムでそれらを同期します。Brazeは5秒ごとにできるだけ多くのユーザーをバッチ処理してから、Criteoに送信します。
+ユーザーがオーディエンス同期ステップに到達すると、BrazeはCriteoのAPIレート制限を遵守しながら、ほぼリアルタイムでユーザーを同期します。Brazeは5秒ごとにできるだけ多くのユーザーをバッチ処理し、Criteoに送信します。
 
-CriteoのAPIレート制限では、1分あたり250件を超えるリクエストは許可されません。顧客がこの制限に達すると、Brazeは最大約13時間まで同期を再試行します。それでも同期できない場合、Brazeはこれらのユーザーを「エラーが発生したユーザー」指標に一覧表示します。
+CriteoのAPIレート制限では、1分あたり250リクエストまでしか許可されていません。顧客がこの制限に達した場合、Brazeは最大約13時間にわたって同期をリトライします。それでも同期ができない場合、Brazeはこれらのユーザーをユーザーエラー指標に記録します。
 
 ## 分析の理解 {#understanding-analytics}
 
-次の表に、Audience Syncコンポーネントからの分析をよりよく理解するのに役立つ指標と説明を示します。
+以下の表には、Audience Syncコンポーネントの分析をより深く理解するための指標と説明が含まれています。
 
 | 指標 | 説明 |
 | --- | --- |
-| 入力 | Criteoと同期するためにこのコンポーネントに入ったユーザーの数。 |
-| 次のステップに進む | 次のコンポーネントがある場合、次のコンポーネントに進んだユーザーの数。これがキャンバスブランチの最後のステップである場合、すべてのユーザーは自動的に進みます。 |
-| ユーザーの同期 | Criteoに正常に同期されたユーザー数。 |
-| 同期されていないユーザー | 一致するフィールドが不足しているため、同期されていないユーザーの数。 |
-| 保留中のユーザー | BrazeがCriteoに同期するために現在処理しているユーザー数。 |
-| エラーが発生したユーザー数 | 約13時間の再試行後、APIエラーによりCriteoに同期されなかったユーザー数。エラーの原因としては、Criteoトークンが無効である場合や、Criteoでオーディエンスが削除された場合などが考えられます。 |
-| キャンバスを終了 | キャンバスを終了したユーザーの人数。これは、キャンバスの最後のステップがAudience Syncコンポーネントである場合に発生します。 |
+| エントリ済み | Criteoに同期するためにこのコンポーネントに入ったユーザー数。 |
+| 次のステップに進んだ | 次のコンポーネントがある場合、そこに進んだユーザー数。キャンバスブランチの最後のステップである場合、すべてのユーザーが自動的に進みます。 |
+| 同期済みユーザー | Criteoへの同期に成功したユーザー数。 |
+| 未同期ユーザー | マッチに必要なフィールドが不足しているため、同期されなかったユーザー数。 |
+| 保留中のユーザー | BrazeがCriteoへの同期を処理中のユーザー数。 |
+| エラーが発生したユーザー | 約13時間のリトライ後にAPIエラーによりCriteoに同期されなかったユーザー数。エラーの原因としては、無効なCriteoトークンや、Criteo上でオーディエンスが削除された場合などが考えられます。 |
+| キャンバスを退出 | キャンバスを退出したユーザー数。これは、キャンバスの最後のステップがAudience Syncコンポーネントである場合に発生します。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="分析の理解" }
 
 {% alert important %}
-一括フラッシャーと13時間の再試行のために、同期されたユーザーとエラーが発生したユーザーの指標のレポートに遅延が発生することに注意してください。
+同期済みユーザーとエラーが発生したユーザーの指標のレポートには、それぞれ一括フラッシャーと13時間のリトライにより遅延が生じることにご注意ください。
 {% endalert %}
 
 ## よくある質問 {#frequently-asked-questions}
 
-### 無効なトークンエラーが表示された場合、次に何をすればよいですか？ {#what-should-i-do-next-if-i-receive-an-invalid-token-error}
-CriteoパートナーページでCriteoアカウントの接続を解除してから再接続できます。同期する広告アカウントに対する適切なアクセス許可があることをCriteo管理者に確認してください。
+### 無効なトークンエラーが表示された場合、次に何をすべきですか？ {#what-should-i-do-next-if-i-receive-an-invalid-token-error}
+Criteoパートナーページで、Criteoアカウントを切断してから再接続するだけで対応できます。同期したい広告アカウントに対する適切な権限があることを、Criteo管理者に確認してください。
 
-### キャンバスを起動できないのはなぜですか？ {#why-is-my-canvas-not-allowed-to-launch}
-CriteoパートナーページでCriteo広告アカウントがBrazeに正常に接続されていることを確認してください。次に、広告アカウントを選択し、新しいオーディエンスの名前を入力し、一致させるフィールドを選択していることを確認します。
+### キャンバスの起動が許可されないのはなぜですか？ {#why-is-my-canvas-not-allowed-to-launch}
 
-### Criteoにユーザーを渡した後、ユーザーが一致しているかどうかを知るにはどうすればよいですか？ {#how-do-i-know-if-users-have-matched-after-passing-users-to-criteo}
-Criteoは、自社のデータプライバシーポリシーにより、この情報を提供していません。
+CriteoパートナーページでCriteo広告アカウントがBrazeに正常に接続されていることを確認してください。次に、広告アカウントを選択し、新しいオーディエンスの名前を入力し、マッチングするフィールドを選択していることを確認してください。
 
-### Criteoは何件のオーディエンスに対応できますか？ {#how-many-audiences-can-criteo-support}
-現時点では、Criteoアカウントに含めることができるオーディエンスの数は1,000件です。この上限を超えた場合、Brazeから新しいオーディエンスを作成できないことが通知されます。Criteo広告アカウントで使用を終了したオーディエンスは削除する必要があります。
+### ユーザーをCriteoに渡した後、ユーザーがマッチしたかどうかはどうすればわかりますか？ {#how-do-i-know-if-users-have-matched-after-passing-users-to-criteo}
+
+Criteoは、独自のデータプライバシーポリシーにより、この情報を提供していません。
+
+### Criteoはいくつのオーディエンスをサポートできますか？ {#how-many-audiences-can-criteo-support}
+
+現時点では、Criteoアカウント内に保持できるオーディエンスは1,000件までです。この制限を超えた場合、Brazeは新しいオーディエンスを作成できないことを通知します。Criteo広告アカウントで使用していないオーディエンスを削除する必要があります。

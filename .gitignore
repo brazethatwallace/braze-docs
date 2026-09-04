@@ -14,6 +14,7 @@ jekyll-algolia-*
 .jekyll-cache
 .vscode
 .jekyll-metadata
+.dev/
 
 # Jetbrains IDEs
 .idea/
@@ -29,6 +30,9 @@ node_modules
 _data/kb_articles.csv
 _data/kb_articles_actioned.md
 _data/kb_articles_skipped.md
+
+# Salesforce KB Phase 2 local verification notes (never commit)
+.sf-kb-verification*.md
 
 # TAM solutions Drive export (sensitive; local triage only)
 _data/tam_solutions/*.json
@@ -47,6 +51,9 @@ lhci-urls.txt
 
 # Phrase TMS API token (local reference; never commit)
 .phrase-tms.env
+
+# Jira API credentials for local SF KB / Jira scripts (never commit)
+.jira.env
 
 # Generated Phrase glossary sync report
 phrase_sync_report.md

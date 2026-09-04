@@ -10,11 +10,12 @@ description: "Cet article présente en détail l'endpoint Braze Exporter la list
 ---
 {% api %}
 # Exporter la liste des campagnes {#export-campaigns-list}
+
 {% apimethod get %}
 /campaigns/list
 {% endapimethod %}
 
-> Utilisez cet endpoint pour exporter une liste de campagnes, chacune incluant son nom, l'identifiant API de la campagne, s'il s'agit d'une campagne API, et les étiquettes associées à la campagne.
+> Utilisez cet endpoint pour exporter une liste de campagnes, chacune incluant son nom, l'identifiant API de la campagne, s'il s'agit d'une campagne API, et les tags associés à la campagne.
 
 Les campagnes sont renvoyées par groupes de 100, triées par date de création (des plus anciennes aux plus récentes par défaut).
 
@@ -22,7 +23,7 @@ Les campagnes sont renvoyées par groupes de 100, triées par date de création 
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `campaigns.list`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `campaigns.list`.
 
 ## Limite de débit {#rate-limit}
 
@@ -33,7 +34,7 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 | Paramètre | Requis | Type de données | Description |
 | --------- | -------- | --------- | ----------- |
 | `page` | Facultatif | Entier | La page de campagnes à renvoyer, par défaut 0 (renvoie le premier ensemble pouvant contenir jusqu'à 100 éléments). |
-| `include_archived` | Facultatif | Valeur booléenne | Indique s'il faut inclure ou non les campagnes archivées, par défaut sur false. |
+| `include_archived` | Facultatif | Booléen | Indique s'il faut inclure ou non les campagnes archivées, par défaut sur false. |
 | `sort_direction` | Facultatif | Chaîne de caractères | - Trier par date de création de la plus récente à la plus ancienne : indiquer la valeur `desc`.<br> - Trier par date de création de la plus ancienne à la plus récente : indiquer la valeur `asc`. <br><br>Si `sort_direction` n'est pas inclus, l'ordre par défaut est de la plus ancienne à la plus récente. |
 | `last_edit.time[gt]` | Facultatif | Date | Filtre les résultats et renvoie uniquement les campagnes modifiées après l'heure indiquée jusqu'à maintenant. Le format est `yyyy-MM-DDTHH:mm:ss`. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
@@ -49,7 +50,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/list?p
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
+    "message": (string) returns 'success' when the request completes without errors,
     "campaigns" : [
         {
             "id" : (string) the Campaign API identifier,

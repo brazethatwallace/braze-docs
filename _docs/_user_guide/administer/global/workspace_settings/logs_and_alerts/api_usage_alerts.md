@@ -67,7 +67,7 @@ When you define your alert criteria you can adjust the following thresholds:
 
 ## Setting up alert notifications
 
-You can set up an email alert, a webhook alert or both. Webhook alerts can be very useful for use cases such as sending an alert to external platforms, such as a Slack channel. For an example, see our [documentation]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences#slack-incoming-webhook-integration) on integrating alerts with Slack for our notification preferences.
+You can set up an email alert, a webhook alert or both. Webhook alerts can be very useful for use cases such as sending an alert to external platforms, such as a Slack channel. For an example, see our [documentation]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences) on integrating alerts with Slack for our notification preferences.
 
 ![An email will be sent to the selected email when the criteria for the alert is reached.]({% image_buster /assets/img/api_usage_alerts/api_usage_alerts2.png %})
 
@@ -77,25 +77,50 @@ The following is a sample payload for the body of an API Usage Alert webhook.
 
 ```json
 {
+  "text": "Your My First API Usage Alert alert has triggered. Please note that this alert is reset every 8 hours, and only one notification will be sent per reset period. You can view your alert and usage here: <link>.",
   "data": {
     "alert_name": "My First API Usage Alert",
     "alert_type": "API Usage Alert",
+    "app_group_name": "My Workspace",
     "alert_criteria": {
-    	"response_codes": ["201", "202", "203"],
-    	"threshold_condition": "Increased by %",
-    	"threshold_volume": 50,
-    	"within": "1 day"
+      "response_codes": "201, 202 and 203",
+      "threshold_condition": "increase by",
+      "threshold_volume": "50%",
+      "within": "1 hour"
     },
-    "timeframe_start": "2025-03-20T15:35:00Z",
-    "timeframe_end": "2025-03-20T16:35:00Z",
+    "timeframe_start": "2025-03-20 15:35:00",
+    "timeframe_end": "2025-03-20 16:35:00",
     "volume": 1500,
-    "previous_timeframe_start": "2025-03-20T14:35:00Z",
-    "previous_timeframe_end": "2025-03-20T15:35:00Z",
+    "previous_timeframe_start": "2025-03-20 14:35:00",
+    "previous_timeframe_end": "2025-03-20 15:35:00",
     "previous_volume": 1000
-  },
-  "text": "Your My First API Usage Alert alert has triggered. You can view your alert and usage here: <link>. Note that this alert will reset in 1 day, as each alert will only send one notification per 8 hours."
+  }
 }
 ```
+
+{% alert note %}
+The `previous_timeframe_start`, `previous_timeframe_end`, and `previous_volume` fields are optional and only appear when the alert uses a comparative threshold condition (`increase by`, `decrease by`). These fields are omitted for `greater than or equal` or `less than or equal` alerts.
+{% endalert %}
+
+#### Payload field details
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `text` | string | Human-readable alert message. |
+| `data.alert_name` | string | Name of the alert. |
+| `data.alert_type` | string | Type of alert (always `"API Usage Alert"`). |
+| `data.app_group_name` | string | Workspace name. |
+| `data.alert_criteria.response_codes` | string | Response codes selected for the alert. Returns `"all response codes"` if none are selected, a single code like `"201"`, or multiple codes like `"201, 202 and 203"`. |
+| `data.alert_criteria.threshold_condition` | string | Condition type: `"increase by"`, `"decrease by"`, `"greater than or equal"`, or `"less than or equal"`. |
+| `data.alert_criteria.threshold_volume` | string or number | Threshold value. When the condition uses a percentage, this is a string ending in `%` (for example, `"50%"`). When the condition uses a numeric value, this is a number (for example, `50`). |
+| `data.alert_criteria.within` | string | Time window for alert evaluation (for example, `"1 day"`). |
+| `data.timeframe_start` | string | Start of the alert timeframe in UTC format `YYYY-MM-DD HH:MM:SS`. |
+| `data.timeframe_end` | string | End of the alert timeframe in UTC format `YYYY-MM-DD HH:MM:SS`. |
+| `data.volume` | number | Request volume during the alert timeframe. |
+| `data.previous_timeframe_start` | string | (Optional) Start of the previous timeframe. Only present for comparative threshold conditions. |
+| `data.previous_timeframe_end` | string | (Optional) End of the previous timeframe. Only present for comparative threshold conditions. |
+| `data.previous_volume` | number | (Optional) Request volume during the previous timeframe. Only present for comparative threshold conditions. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Payload field details" }
 
 ### Example alerts
 

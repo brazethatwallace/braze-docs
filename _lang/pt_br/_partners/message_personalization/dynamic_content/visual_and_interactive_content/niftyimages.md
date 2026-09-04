@@ -28,7 +28,7 @@ Você pode usar a NiftyImages para:
 - **Realizar enquetes ao vivo:** adicione enquetes interativas às campanhas e exiba resultados atualizados em tempo real após os clientes votarem.
 - **Criar raspadinhas:** crie experiências gamificadas de raspadinha que revelam uma recompensa, desconto, oferta, imagem ou mensagem personalizada.
 - **Visualizar dados de fidelidade:** transforme dados de clientes em barras de progresso, resumos de conta, visuais de fidelidade, gráficos e tabelas personalizados para cada destinatário.
-- **Aplicar conteúdo baseado em regras:** exiba visuais diferentes com base em horário, localização, dispositivo, dados do cliente, segmento de público ou lógica de campanha.
+- **Aplicar conteúdo baseado em regras:** exiba visuais diferentes com base em horário, localização, dispositivo, dados do cliente, Segment de público ou lógica de campanha.
 - **Reutilizar conteúdo dinâmico:** publique ativos finalizados da NiftyImages em Content Blocks da Braze para que as equipes possam reutilizá-los em e-mails de marketing, modelos, Campaigns e ativos de marca compartilhados.
 
 ## Pré-requisitos {#prerequisites}

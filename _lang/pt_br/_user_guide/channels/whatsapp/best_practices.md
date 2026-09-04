@@ -36,7 +36,7 @@ Para informações sobre requisitos de opt-in e dicas úteis, consulte [Get Opt-
 
 ### Siga as melhores práticas de envio de mensagens {#follow-messaging-best-practices}
 
-- Faça com que o nome do seu canal reflita sua marca para que os usuários reconheçam que a mensagem é sua, e não spam.
+- Faça com que o nome do seu canal reflita sua marca para que os usuários reconheçam que a mensagem é sua, e não SPAM.
 - Envie uma mensagem de confirmação aos usuários após coletar o consentimento de opt-in.
 - Envie mensagens em horários apropriados.
 
@@ -47,3 +47,11 @@ Os descadastramentos não afetam sua classificação de qualidade do telefone, e
 Uma melhor prática sugerida é fornecer instruções sobre como cancelar a inscrição no rodapé da primeira mensagem que você enviar aos usuários. Por exemplo, você pode informar que os usuários podem cancelar a inscrição do seu canal do WhatsApp respondendo com sua palavra-gatilho de descadastramento. Você também pode incluir regularmente o rodapé de descadastramento em campanhas futuras. Para saber como configurar isso, consulte [Opt-in e descadastramento]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs).
 
 ![Mensagem do WhatsApp com um rodapé informando para responder STOP para cancelar a inscrição do canal]({% image_buster /assets/img/whatsapp/whatsapp_unsubscribe.png %}){: style="max-width:35%;"}
+
+### Minimize a latência de resposta em fluxos bidirecionais {#minimize-response-latency-for-two-way-flows}
+
+Para fluxos interativos de Canvas que respondem com [mensagens de resposta]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/message_and_image_formats#response-messages):
+
+- Posicione a etapa de mensagem de resposta imediatamente após o disparador de entrada ou a avaliação do Action jornada.
+- Use [webhooks]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) em vez de etapas de atualização de usuário quando não forem necessárias alterações de inscrição antes da resposta.
+- Evite postergações longas ou esperas de vários dias entre mensagens recebidas e envios de resposta; a janela de atendimento ao cliente do WhatsApp é de 24 horas por mensagem recebida.

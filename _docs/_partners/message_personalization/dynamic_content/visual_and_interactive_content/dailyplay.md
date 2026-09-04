@@ -38,8 +38,8 @@ You can send gameplay milestones, reward redemptions, and engagement metrics to 
 | Requirement | Description |
 | --- | --- |
 | DailyPlay account | A DailyPlay account is required to use this integration. |
-| Braze REST API key | A Braze REST API key with `users.track` permissions. Create this key in Braze under **Settings** > **APIs and Identifiers** > **API Keys**. For more information, see [API keys]({{site.baseurl}}/api/api_key/). |
-| Braze REST endpoint | The REST endpoint URL for [your Braze instance]({{site.baseurl}}/api/basics/#endpoints). |
+| Braze REST API key | A Braze REST API key with `users.track` permissions. Create this key in Braze under **Settings** > **APIs and Identifiers** > **API Keys**. For more information, see [API keys]({{site.baseurl}}/api/basics). |
+| Braze REST endpoint | The REST endpoint URL for [your Braze instance]({{site.baseurl}}/api/basics#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
@@ -90,7 +90,7 @@ Follow the integration steps in this section to set up your Braze connection and
 
 Create a campaign or Canvas using an action-based trigger. Select the DailyPlay custom events or custom attributes required for your use case.
 
-You can use [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/) to reference properties DailyPlay sends in your message copy.
+You can use [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) to reference properties DailyPlay sends in your message copy.
 
 **Custom attribute example:**
 

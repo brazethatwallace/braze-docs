@@ -1,6 +1,6 @@
 ## About GIFs
 
-Braze offers the ability to use a custom image library to display animated GIFs. Although the example below uses [Glide](https://bumptech.github.io/glide/), any image library that supports GIFs is compatible.
+Braze offers the ability to use a custom image library to display animated GIFs. Although the following example uses [Glide](https://bumptech.github.io/glide/), any image library that supports GIFs is compatible.
 
 ## Integrating a custom image library
 
@@ -14,7 +14,7 @@ The Image Loader delegate must implement the following methods:
 * [`renderUrlIntoInAppMessageView()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.images/-i-braze-image-loader/render-url-into-in-app-message-view.html)
 * [`setOffline()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.images/-i-braze-image-loader/set-offline.html)
 
-The integration example below is taken from the [Glide integration sample app](https://github.com/braze-inc/braze-android-sdk/tree/master/samples/glide-image-integration) included with the Braze Android SDK.
+The following integration example is taken from the [Glide integration sample app](https://github.com/braze-inc/braze-android-sdk/tree/master/samples/glide-image-integration) included with the Braze Android SDK.
 
 {% tabs %}
 {% tab JAVA %}
@@ -237,6 +237,12 @@ class GlideIntegrationApplication : Application() {
 
 {% endtab %}
 {% endtabs %}
+
+### Troubleshooting Glide image loads
+
+If images stop loading after you set a custom [`IBrazeImageLoader`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.images/-i-braze-image-loader/index.html) (for example with Glide), check whether a global OkHttp interceptor adds authentication headers to every request.
+
+The Glide sample on this page uses the same load path for Content Cards, in-app messages, and push. Braze-hosted images are CDN URLs and do not use your REST API authentication. Scope interceptors to your own API hosts, or exclude Braze image hosts. A Content Card image that fails after a Glide integration is a common symptom of this interceptor pattern.
 
 ## Custom Image Loading with Jetpack Compose
 

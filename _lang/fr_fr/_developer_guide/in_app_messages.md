@@ -1,18 +1,17 @@
 ---
-nav_title: in-app Messages
-article_title: Messages in-app pour le SDK de Braze
-platform: 
+nav_title: Messages in-app
+article_title: Messages in-app
+platform:
   - Android
   - FireOS
   - Swift
 page_order: 2.2
-description: "Découvrez les messages in-app et comment les configurer pour le SDK de Braze."
-
+description: "Découvrez les messages in-app et comment les configurer pour le SDK Braze."
 ---
 
-# in-app Messages
+# Messages in-app {#in-app-messages}
 
-> Découvrez les messages in-app et comment les configurer pour le SDK de Braze.
+> Découvrez les messages in-app et comment les configurer pour le SDK Braze.
 
 {% sdktabs %}
 {% sdktab web %}
@@ -60,10 +59,15 @@ description: "Découvrez les messages in-app et comment les configurer pour le S
 {% endsdktab %}
 {% endsdktabs %}
 
-## Étapes suivantes
+## Étapes suivantes {#next-steps}
 
-Êtes-vous prêt à approfondir vos connaissances ? Veuillez consulter ces tutoriels étape par étape :
+Prêt à aller plus loin ? Consultez ces tutoriels pas à pas :
 
-- Ajustez le moment de la réception/distribution des messages en [différant et]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/deferring_triggered_messages) en [rétablissant les messages déclenchés]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/deferring_triggered_messages).  
-- Affinez le ciblage des messages en [définissant des règles d'affichage conditionnelles]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/conditionally_displaying_messages).  
-- Adaptez l'apparence de votre marque en [personnalisant le style des messages à l'aide de paires clé-valeur]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/customizing_message_styling).
+{% article_tiles %}
+- name: Différer et restaurer les messages déclenchés
+  link: /docs/developer_guide/in_app_messages/tutorials/deferring_triggered_messages
+- name: Définir des règles d'affichage conditionnel
+  link: /docs/developer_guide/in_app_messages/tutorials/conditionally_displaying_messages
+- name: Personnaliser le style des messages avec des paires clé-valeur
+  link: /docs/developer_guide/in_app_messages/tutorials/customizing_message_styling
+{% endarticle_tiles %}

@@ -21,13 +21,13 @@ Expo를 푸시 알림에 사용하려면 먼저 [Braze Expo 플러그인을 설�
 
 먼저 Firebase 콘솔로 이동하여 프로젝트를 연 다음, <i class="fa-solid fa-gear"></i>&nbsp;**Settings** > **Project settings**를 선택합니다.
 
-!["Settings" 메뉴가 열려 있는 Firebase 프로젝트.]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/select-project-settings.png %})
+![Settings 메뉴가 열려 있는 Firebase 프로젝트.]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/select-project-settings.png %})
 
 **Cloud Messaging**을 선택한 다음, **Firebase Cloud Messaging API (V1)**에서 **Sender ID**를 클립보드에 복사합니다.
 
-!["Sender ID"가 강조 표시된 Firebase 프로젝트의 "Cloud Messaging" 페이지.]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/copy-sender-id.png %})
+![Sender ID가 강조 표시된 Firebase 프로젝트의 Cloud Messaging 페이지.]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/copy-sender-id.png %})
 
-그런 다음 프로젝트의 `app.json` 파일을 열고 `firebaseCloudMessagingSenderId` 등록정보를 클립보드의 Sender ID로 설정합니다. 예를 들면 다음과 같습니다:
+그런 다음 프로젝트의 `app.json` 파일을 열고 `firebaseCloudMessagingSenderId` 속성을 클립보드의 Sender ID로 설정합니다. 예를 들면 다음과 같습니다:
 
 ```
 "firebaseCloudMessagingSenderId": "693679403398"
@@ -118,27 +118,27 @@ Braze.addListener(Braze.Events.PUSH_NOTIFICATION_EVENT, data => {
 
 | 필드 이름 | 유형 | 설명 |
 | ------------------ | --------- | ----------- |
-| `payload_type` | 문자열 | 알림 페이로드 유형을 지정합니다. Braze React Native SDK에서 전송되는 두 가지 값은 `push_opened`와 `push_received`입니다. |
-| `url` | 문자열 | 알림에 의해 열린 URL을 지정합니다. |
-| `use_webview` | 부울 | `true`이면 URL이 인앱 모달 웹뷰에서 열립니다. `false`이면 기기 브라우저에서 URL이 열립니다. |
-| `title` | 문자열 | 알림의 제목을 나타냅니다. |
-| `body` | 문자열 | 알림의 본문 또는 콘텐츠 텍스트를 나타냅니다. |
-| `summary_text` | 문자열 | 알림의 요약 텍스트를 나타냅니다. iOS에서는 `subtitle`에서 매핑됩니다. |
-| `badge_count` | 숫자 | 알림의 배지 수를 나타냅니다. |
-| `timestamp` | 숫자 | 애플리케이션이 페이로드를 수신한 시간을 나타냅니다. |
-| `is_silent` | 부울 | `true`이면 페이로드가 무음으로 수신됩니다. Android 무음 푸시 알림 전송에 대한 자세한 내용은 [Android 무음 푸시 알림]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android)을 참조하세요. iOS 무음 푸시 알림 전송에 대한 자세한 내용은 [iOS 무음 푸시 알림]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift)을 참조하세요. |
-| `is_braze_internal`| 부울 | 피처 플래그 동기화 또는 제거 추적과 같은 내부 SDK 기능을 위해 알림 페이로드가 전송된 경우 `true`입니다. 페이로드는 사용자에게 무음으로 수신됩니다. |
-| `image_url` | 문자열 | 알림 이미지와 연결된 URL을 지정합니다. |
-| `braze_properties` | 오브젝트 | Campaign과 관련된 Braze 등록정보(키-값 페어)를 나타냅니다. |
-| `ios` | 오브젝트 | iOS 전용 필드를 나타냅니다. |
-| `android` | 오브젝트 | Android 전용 필드를 나타냅니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Push notification event fields" }
+| `payload_type`     | 문자열    | 알림 페이로드 유형을 지정합니다. Braze React Native SDK에서 전송되는 두 가지 값은 `push_opened`와 `push_received`입니다. |
+| `url`              | 문자열    | 알림에 의해 열린 URL을 지정합니다. |
+| `use_webview`      | 부울   | `true`이면 URL이 인앱 모달 웹뷰에서 열립니다. `false`이면 기기 브라우저에서 URL이 열립니다. |
+| `title`            | 문자열    | 알림의 제목을 나타냅니다. |
+| `body`             | 문자열    | 알림의 본문 또는 콘텐츠 텍스트를 나타냅니다. |
+| `summary_text`     | 문자열    | 알림의 요약 텍스트를 나타냅니다. iOS에서는 `subtitle`에서 매핑됩니다. |
+| `badge_count`      | 숫자   | 알림의 배지 수를 나타냅니다. |
+| `timestamp`        | 숫자 | 애플리케이션이 페이로드를 수신한 시간을 나타냅니다. |
+| `is_silent`        | 부울   | `true`이면 페이로드가 무음으로 수신됩니다. Android 무음 푸시 알림 전송에 대한 자세한 내용은 [Android 무음 푸시 알림]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android)을 참조하세요. iOS 무음 푸시 알림 전송에 대한 자세한 내용은 [iOS 무음 푸시 알림]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift)을 참조하세요. |
+| `is_braze_internal`| 부울   | 피처 플래그 동기화 또는 제거 추적과 같은 내부 SDK 기능을 위해 알림 페이로드가 전송된 경우 `true`입니다. 페이로드는 사용자에게 무음으로 수신됩니다. |
+| `image_url`        | 문자열    | 알림 이미지와 연결된 URL을 지정합니다. |
+| `braze_properties` | 오브젝트    | Campaign과 관련된 Braze 속성정보(키-값 페어)를 나타냅니다. |
+| `ios`              | 오브젝트    | iOS 전용 필드를 나타냅니다. |
+| `android`          | 오브젝트    | Android 전용 필드를 나타냅니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="푸시 알림 이벤트 필드" }
 
 ### 3단계: 딥링킹 활성화(선택 사항) {#step-3-enable-deep-linking-optional}
 
-푸시 알림 클릭 시 Braze가 React 구성요소 내에서 딥링크를 처리할 수 있도록 하려면, 먼저 [React Native Linking](https://reactnative.dev/docs/linking) 라이브러리에 설명된 단계를 구현하거나 원하는 솔루션을 사용하세요. 그런 다음 아래의 추가 단계를 따르세요.
+푸시 알림 클릭 시 Braze가 React 컴포넌트 내에서 딥링크를 처리할 수 있도록 하려면, 먼저 [React Native Linking](https://reactnative.dev/docs/linking) 라이브러리에 설명된 단계를 구현하거나 원하는 솔루션을 사용하세요. 그런 다음 아래의 추가 단계를 따르세요.
 
-딥링크에 대한 자세한 내용은 [FAQ 문서]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking)를 참조하세요.
+딥링크에 대한 자세한 내용은 [FAQ 문서]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking)를 참조하세요.
 
 {% alert important %}
 기존 React Native 푸시 통합을 마이그레이션하는 경우, Braze SDK, React Native, Expo 또는 관련 라이브러리를 업그레이드한 후 딥링킹을 다시 테스트하세요. 다음 사항을 확인하세요:
@@ -151,7 +151,7 @@ Braze.addListener(Braze.Events.PUSH_NOTIFICATION_EVENT, data => {
 {% tab Android Native %}
 [Braze Expo 플러그인]({{site.baseurl}}/developer_guide/platforms/react_native/sdk_integration/?tab=expo#step-2-choose-a-setup-option)을 사용하는 경우, `app.json`에서 `androidHandlePushDeepLinksAutomatically`를 `true`로 설정하여 푸시 알림 딥링크를 자동으로 처리할 수 있습니다.
 
-딥링크를 수동으로 처리하려면 네이티브 Android 설명서를 참조하세요: [딥링크 추가]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/).
+딥링크를 수동으로 처리하려면 네이티브 Android 설명서를 참조하세요: [딥링크 추가]({{site.baseurl}}/developer_guide/push_notifications/deep_linking).
 
 #### 3.1단계: 앱 시작 시 푸시 알림 페이로드 저장 {#step-31-store-the-push-notification-payload-on-app-launch}
 
@@ -389,7 +389,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 {% endsubtab %}
 {% endsubtabs %}
 
-예제 통합은 [여기](https://github.com/braze-inc/braze-react-native-sdk/blob/master/BrazeProject/ios/BrazeProject/AppDelegate.mm)에서 샘플 앱을 참조하세요.
+예제 통합은 [이 AppDelegate 예제](https://github.com/braze-inc/braze-react-native-sdk/blob/master/BrazeProject/ios/BrazeProject/AppDelegate.mm)에서 샘플 앱을 참조하세요.
 {% endtab %}
 {% endtabs %}
 
@@ -467,11 +467,11 @@ macOS 13부터 특정 기기에서는 Xcode 14 이상에서 실행되는 iOS 16+
 
 ![자신의 사용자 ID를 테스트 수신자로 추가하여 푸시 알림을 테스트할 수 있는 Braze 푸시 Campaign.]({% image_buster /assets/img/react-native/push-notification-test.png %} "Push Campaign Test")
 
-## Expo 플러그인 사용 {#using-the-expo-plugin}
+## Expo 플러그인 사용하기 {#using-the-expo-plugin}
 
-[Expo용 푸시 알림을 설정한 후](#reactnative_setting-up-push-notifications), 네이티브 Android 또는 iOS 레이어에서 코드를 작성할 필요 없이 다음 푸시 알림 동작을 처리할 수 있습니다.
+[Expo용 푸시 알림을 설정](#reactnative_setting-up-push-notifications)한 후에는 네이티브 Android 또는 iOS 레이어에 코드를 작성하지 않고도 다음과 같은 푸시 알림 동작을 처리할 수 있습니다.
 
-### Android 푸시를 추가 FMS로 전달 {#forwarding-android-push-to-additional-fms}
+### 추가 FMS로 Android 푸시 전달하기 {#forwarding-android-push-to-additional-fms}
 
 추가 Firebase Messaging Service(FMS)를 사용하려는 경우, 애플리케이션이 Braze에서 보낸 것이 아닌 푸시를 수신할 때 호출할 대체 FMS를 지정할 수 있습니다. 예를 들면 다음과 같습니다:
 
@@ -492,42 +492,42 @@ macOS 13부터 특정 기기에서는 Xcode 14 이상에서 실행되는 iOS 16+
 }
 ```
 
-### Expo Application Services로 앱 확장 사용 {#app-extensions}
+### Expo Application Services에서 앱 확장 사용하기 {#app-extensions}
 
-Expo Application Services(EAS)를 사용하고 `enableBrazeIosRichPush` 또는 `enableBrazeIosPushStories`를 활성화한 경우, 프로젝트의 각 앱 확장에 해당하는 번들 식별자를 선언해야 합니다. EAS에서 코드 서명을 관리하는 프로젝트 구성 방식에 따라 여러 가지 방법으로 접근할 수 있습니다.
+Expo Application Services(EAS)를 사용하고 `enableBrazeIosRichPush` 또는 `enableBrazeIosPushStories`를 활성화한 경우, 프로젝트에서 각 앱 확장에 해당하는 번들 식별자를 선언해야 합니다. 프로젝트가 EAS로 코드 서명을 관리하도록 구성된 방식에 따라 이 단계를 수행하는 여러 방법이 있습니다.
 
-한 가지 방법은 Expo의 [앱 확장 설명서](https://docs.expo.dev/build-reference/app-extensions/)에 따라 `app.json` 파일에서 `appExtensions` 구성을 사용하는 것입니다. 또는 Expo의 [로컬 자격 증명 설명서](https://docs.expo.dev/app-signing/local-credentials/#multi-target-project)에 따라 `credentials.json` 파일에서 `multitarget` 설정을 구성할 수도 있습니다.
+한 가지 방법은 Expo의 [앱 확장 설명서](https://docs.expo.dev/build-reference/app-extensions/)에 따라 `app.json` 파일의 `appExtensions` 구성을 사용하는 것입니다. 또는 Expo의 [로컬 자격 증명 설명서](https://docs.expo.dev/app-signing/local-credentials/#multi-target-project)에 따라 `credentials.json` 파일에서 `multitarget` 설정을 구성할 수 있습니다.
 
 ### 문제 해결 {#troubleshooting}
 
-Braze React Native SDK 및 Expo 플러그인을 사용한 푸시 알림 통합의 일반적인 문제 해결 단계입니다.
+다음은 Braze React Native SDK 및 Expo 플러그인을 사용한 푸시 알림 통합에서 흔히 발생하는 문제 해결 단계입니다.
 
-#### 푸시 알림이 작동하지 않음 {#troubleshooting-stopped-working}
+#### 푸시 알림이 작동하지 않는 경우 {#troubleshooting-stopped-working}
 
-Expo 플러그인을 통한 푸시 알림이 작동하지 않는 경우:
+Expo 플러그인을 통한 푸시 알림이 작동을 멈춘 경우:
 
 1. Braze SDK가 여전히 세션을 추적하고 있는지 확인합니다.
-2. SDK가 `wipeData`에 대한 명시적 또는 암시적 호출로 비활성화되지 않았는지 확인합니다.
-3. Expo 또는 관련 라이브러리의 최근 업그레이드를 검토합니다. Braze 구성과 충돌이 있을 수 있습니다.
-4. 최근에 추가된 프로젝트 종속성을 검토하고, 기존 푸시 알림 델리게이트 메서드를 수동으로 재정의하고 있는지 확인합니다.
+2. 명시적 또는 암시적 `wipeData` 호출로 SDK가 비활성화되지 않았는지 확인합니다.
+3. Expo 또는 관련 라이브러리의 최근 업그레이드를 검토하여 Braze 구성과 충돌이 있는지 확인합니다.
+4. 최근 추가된 프로젝트 종속성을 검토하고, 기존 푸시 알림 델리게이트 메서드를 수동으로 오버라이드하고 있는지 확인합니다.
 
 {% alert tip %}
-iOS 통합의 경우, 프로젝트 종속성과의 잠재적 충돌을 식별하는 데 도움이 되는 [푸시 알림 설정 튜토리얼](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/b1-standard-push-notifications)을 참조할 수도 있습니다.
+iOS 통합의 경우, [푸시 알림 설정 튜토리얼](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/b1-standard-push-notifications)을 참조하여 프로젝트 종속성과의 잠재적 충돌을 식별하는 데 활용할 수 있습니다.
 {% endalert %}
 
-#### 기기 토큰이 Braze에 등록되지 않음 {#troubleshooting-token-registration}
+#### 기기 토큰이 Braze에 등록되지 않는 경우 {#troubleshooting-token-registration}
 
-기기 토큰이 Braze에 등록되지 않는 경우, 먼저 [푸시 알림이 작동하지 않음](#troubleshooting-stopped-working)을 검토하세요.
+기기 토큰이 Braze에 등록되지 않는 경우, 먼저 [푸시 알림이 작동하지 않는 경우](#troubleshooting-stopped-working)를 검토합니다.
 
-문제가 지속되면 Braze 푸시 알림 구성을 방해하는 별도의 종속성이 있을 수 있습니다. 해당 종속성을 제거하거나 `Braze.registerPushToken`을 수동으로 호출해 보세요.
+문제가 지속되면 별도의 종속성이 Braze 푸시 알림 구성을 방해하고 있을 수 있습니다. 해당 종속성을 제거하거나 수동으로 `Braze.registerPushToken`을 호출해 보세요.
 
-#### 푸시 알림의 딥링크가 열리지 않음 {#troubleshooting-deep-links}
+#### 푸시 알림의 딥링크가 열리지 않는 경우 {#troubleshooting-deep-links}
 
-마이그레이션 후 푸시 알림의 딥링크가 열리지 않는 경우, 다음 사항을 확인하세요:
+마이그레이션 후 푸시 알림의 딥링크가 열리지 않는 경우, 다음 사항을 확인합니다:
 
 1. 업그레이드된 앱에서 [React Native Linking](https://reactnative.dev/docs/linking) 설정이 여전히 유효한지 확인합니다.
-2. iOS 네이티브 통합의 경우, `populateInitialPayloadFromLaunchOptions`와 `Braze.getInitialPushPayload`를 구현하여 앱이 종료된 상태에서 시작될 때 초기 푸시 페이로드를 가져와 `url`을 딥링크 핸들러에 전달할 수 있는지 확인합니다.
+2. iOS 네이티브 통합의 경우, `populateInitialPayloadFromLaunchOptions` 및 `Braze.getInitialPushPayload`를 구현하여 앱이 종료된 상태에서 실행될 때 초기 푸시 페이로드를 검색하고 해당 `url`을 딥링크 핸들러에 전달할 수 있는지 확인합니다.
 3. Braze Expo 플러그인을 사용하는 경우, `androidHandlePushDeepLinksAutomatically`가 구현에 맞게 올바르게 설정되어 있는지 확인합니다.
-4. 최근에 추가된 종속성이 알림 처리 또는 앱 델리게이트 동작을 재정의하고 있는지 검토합니다.
+4. 최근 추가된 종속성이 알림 처리 또는 앱 델리게이트 동작을 오버라이드하고 있는지 검토합니다.
 
-이러한 확인을 완료한 후에도 문제가 지속되면, [고객지원 티켓을 열고]({{site.baseurl}}/user_guide/administrative/access_braze/support/) SDK 로그와 재현 단계를 포함해 주세요.
+이 단계를 모두 완료했는데도 문제가 지속되면, [지원 티켓을 제출]({{site.baseurl}}/user_guide/administer/personal/braze_support)하고 SDK 로그 및 재현 단계를 포함해 주세요.

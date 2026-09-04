@@ -1,12 +1,11 @@
 ---
-nav_title: "POST:ユーザーをマージする"
-article_title: "POST:ユーザーをマージする"
+nav_title: "POST: ユーザーをマージする"
+article_title: "ユーザーをマージする"
 search_tag: Endpoint
 page_order: 6
 layout: api_page
 page_type: reference
 description: "この記事では、「ユーザーのマージ」Brazeエンドポイントの詳細について説明します。"
-
 ---
 {% api %}
 # ユーザーをマージする {#merge-users}
@@ -22,7 +21,7 @@ description: "この記事では、「ユーザーのマージ」Brazeエンド�
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`users.merge` 権限を持つ[APIキー]({{site.baseurl}}/api/api_key)が必要です。
+このエンドポイントを使用するには、`users.merge` 権限を持つ[APIキー]({{site.baseurl}}/api/basics)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -117,7 +116,7 @@ Brazeは、マージ時に3つのユーザータイプを異なる方法で処�
 - `unidentified` は `external_id` を持たないユーザーを優先することを意味します
 
 {% alert important %}
-両方のプロファイルに無効な電話番号がある場合、Brazeはそれらをマージしません。無効な番号はE.164形式で保存されておらず、マージジョブはそれらのプロファイルを結合しません。エンドポイントは成功メッセージとともに `202 Accepted` を返すため、HTTP応答ではマージがスキップされたことは示されません。マージする前に、一方または両方のプロファイルの電話番号を修正してください。
+両方のプロファイルに無効な電話番号がある場合、Brazeはそれらをマージしません。無効な番号はE.164形式で保存されておらず、マージジョブはそれらのプロファイルを結合しません。エンドポイントは成功メッセージとともに `202 Accepted` を返すため、HTTPレスポンスではマージがスキップされたことは示されません。マージする前に、一方または両方のプロファイルの電話番号を修正してください。
 {% endalert %}
 
 ## リクエスト例 {#example-requests}
@@ -240,13 +239,13 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 }'
 ```
 
-## 応答 {#response}
+## レスポンス {#response}
 
-このエンドポイントには `202` と `400` の2つのステータスコード応答があります。
+このエンドポイントには `202` と `400` の2つのステータスコードレスポンスがあります。
 
-### 成功応答の例 {#example-success-response}
+### 成功レスポンスの例 {#example-success-response}
 
-ステータスコード `202` は、次の応答本文を返す可能性があります。
+ステータスコード `202` は、次のレスポンス本文を返す可能性があります。
 
 ```json
 {
@@ -254,9 +253,9 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 }
 ```
 
-### エラー応答の例 {#example-error-response}
+### エラーレスポンスの例 {#example-error-response}
 
-ステータスコード `400` は、次の応答本文を返す可能性があります。発生する可能性のあるエラーの詳細については、「[トラブルシューティング](#troubleshooting)」を参照してください。
+ステータスコード `400` は、次のレスポンス本文を返す可能性があります。発生する可能性のあるエラーの詳細については、「[トラブルシューティング](#troubleshooting)」を参照してください。
 
 ```json
 {
@@ -266,9 +265,9 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 
 ## トラブルシューティング {#troubleshooting}
 
-### 成功応答が返されたがマージされたユーザーがまだ検索可能である {#a-success-response-was-returned-but-the-merged-user-is-still-searchable}
+### 成功レスポンスが返されたがマージされたユーザーがまだ検索可能である {#a-success-response-was-returned-but-the-merged-user-is-still-searchable}
 
-成功応答はリクエストが受け付けられたことを確認するものですが、マージ操作にはプロファイルのマージとソースプロファイルの削除という2つのステップが含まれます。このため、成功応答の後しばらくの間、`identifier_to_merge` プロファイルがダッシュボードで検索可能な状態のままになることがあります。これは想定される動作です。数分待ってからマージが完了したことを確認してください。
+成功レスポンスはリクエストが受け付けられたことを確認するものですが、マージ操作にはプロファイルのマージとソースプロファイルの削除という2つのステップが含まれます。このため、成功レスポンスの後しばらくの間、`identifier_to_merge` プロファイルがダッシュボードで検索可能な状態のままになることがあります。これは想定される動作です。数分待ってからマージが完了したことを確認してください。
 
 マージされたユーザーが数分経っても存在する場合は、リクエスト内の識別子が正しく、リクエストに使用したAPIキーと同じワークスペースのユーザーに属していることを確認してください。
 

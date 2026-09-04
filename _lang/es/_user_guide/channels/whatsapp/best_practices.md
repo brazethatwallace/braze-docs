@@ -21,7 +21,7 @@ La primera vez que envías un mensaje a un usuario en WhatsApp, estas opciones s
 ![Hilo de mensajes de WhatsApp con opciones para bloquear o reportar una empresa]({% image_buster /assets/img/whatsapp/whatsapp_block_report.png %}){: style="max-width:30%;"}
 
 {% alert note %}
-Para ver métricas sobre tus bloqueos e informes, asegúrate de que la [pestaña Insights](https://www.facebook.com/business/help/683499390267496) esté activada en tu WhatsApp Manager.
+Para ver métricas sobre tus bloqueos e informes, asegúrate de que la [pestaña Insights](https://www.facebook.com/business/help/683499390267496) esté activada en tu WhatsApp Administrador.
 {% endalert %}
 
 Para evitar altas tasas de bloqueos e informes, Braze sugiere las siguientes buenas prácticas para mantener una calificación de calidad del teléfono alta y límites de mensajería estables.
@@ -47,3 +47,11 @@ Las cancelaciones de suscripción no afectan tu calificación de calidad del tel
 Una buena práctica sugerida es proporcionar instrucciones sobre cómo cancelar la suscripción en el pie del primer mensaje que envíes a los usuarios. Por ejemplo, podrías indicar que los usuarios pueden cancelar su suscripción a tu canal de WhatsApp respondiendo con tu palabra clave de cancelación. También podrías incluir regularmente el pie de cancelación de suscripción en futuras campañas. Para aprender cómo configurar esto, consulta [Adhesión voluntaria y cancelación de suscripción]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs).
 
 ![Mensaje de WhatsApp con un pie que indica responder STOP para cancelar la suscripción al canal]({% image_buster /assets/img/whatsapp/whatsapp_unsubscribe.png %}){: style="max-width:35%;"}
+
+### Minimizar la latencia de respuesta en flujos bidireccionales {#minimize-response-latency-for-two-way-flows}
+
+Para flujos interactivos de Canvas que responden con [mensajes de respuesta]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/message_and_image_formats#response-messages):
+
+- Coloca el paso de mensaje de respuesta inmediatamente después del desencadenante de entrada o la evaluación del Action Path.
+- Usa [webhooks]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) en lugar de pasos de actualización de usuario cuando no se requieran cambios de suscripción antes de la respuesta.
+- Evita retrasos prolongados o esperas de varios días entre los mensajes entrantes y los envíos de respuesta; la ventana de servicio al cliente de WhatsApp es de 24 horas por mensaje entrante.

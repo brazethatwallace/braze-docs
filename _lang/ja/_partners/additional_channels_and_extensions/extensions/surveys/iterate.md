@@ -25,7 +25,7 @@ IterateとBrazeの統合により、製品やキャンペーン内でIterateア�
 | 要件 | 提供元 |
 |---|---|
 | Iterateアカウント | このパートナーシップを活用するには、[Iterateアカウント](https://iteratehq.com)が必要です。 |
-| Braze REST APIキー | `users.track` 権限を持つBraze REST APIキー。Brazeアプリ内メッセージでアンケートを送信するには、`kpi.mau.data_series` 権限も必要です。<br><br> これは、Brazeダッシュボードの**Settings** > **API Keys**から作成できます。|
+| Braze REST APIキー | `users.track` 権限を持つBraze REST APIキー。Brazeアプリ内メッセージでアンケートを送信するには、`kpi.mau.data_series` 権限も必要です。<br><br> これは、Brazeダッシュボードの**設定** > **API キー**から作成できます。|
 | Braze RESTエンドポイント | RESTエンドポイントのURL。エンドポイントはインスタンスの[Braze URL]({{site.baseurl}}/api/basics/#endpoints)に応じて異なります。 |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 

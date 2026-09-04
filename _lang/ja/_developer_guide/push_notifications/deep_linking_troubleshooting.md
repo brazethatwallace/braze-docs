@@ -1,7 +1,7 @@
 ---
 nav_title: ディープリンクのトラブルシューティング
 article_title: ディープリンクのトラブルシューティング
-description: "iOSにおける一般的なディープリンクの問題とその診断方法について説明します。カスタムスキームリンク、ユニバーサルリンク、メールリンク、Branchなどのサードパーティプロバイダーを含みます。"
+description: "症状インデックス、標準的な調査パス、プラットフォーム固有のチェックを使用して、iOSのディープリンクの問題を診断します。"
 page_order: 1.2
 channel:
   - push notifications
@@ -10,26 +10,53 @@ channel:
   - email
 ---
 
-# ディープリンクのトラブルシューティング {#deep-linking-troubleshooting}
+# ディープリンクのトラブルシューティング {#troubleshoot-deep-linking}
 
-> このページでは、iOSにおける一般的なディープリンクの問題と、その診断方法について説明します。適切なリンクタイプの選び方については、[iOSディープリンクガイド]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide)を参照してください。実装の詳細については、[ディープリンク]({{site.baseurl}}/developer_guide/push_notifications/deep_linking?sdktab=swift)を参照してください。
+> このページでは、iOSにおける一般的なディープリンクの問題を診断する方法について説明します。適切なリンクタイプの選び方については、[iOSディープリンクガイド]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide)を参照してください。実装の詳細については、[ディープリンク]({{site.baseurl}}/developer_guide/push_notifications/deep_linking?sdktab=swift)を参照してください。
 
-## カスタムスキームのディープリンクが正しいビューを開かない {#custom-scheme-deep-link-doesnt-open-the-correct-view}
+## ここから始めましょう: 症状を確認する {#start-here-match-your-symptom}
 
-カスタムスキームのディープリンク（例：`myapp://products/123`）がアプリを開くものの、意図した画面に遷移しない場合：
+以下のテーブルで発生している動作を見つけ、該当セクションの手順に従ってください。どのセクションが該当するか分からない場合は、[標準調査パス](#standard-investigation-path)を使用してください。
 
-1. **スキームが登録されていることを確認します。** Xcodeで、`Info.plist`の`CFBundleURLTypes`にスキームがリストされていることを確認してください。
-2. **ハンドラーを確認します。** `application(_:open:options:)`にブレークポイントを設定し、呼び出されていることを確認して`url`パラメーターを検査してください。
-3. **リンクを単独でテストします。** ターミナルから以下のコマンドを実行して、Brazeの外でディープリンクをテストしてください：
+| 症状 | 参照先 |
+| --- | --- |
+| カスタムスキームリンクがアプリを開くが、間違った画面が表示される | [カスタムスキームのディープリンクが正しいビューを開かない](#custom-scheme-deep-link-does-not-open-the-correct-view) |
+| ユニバーサルリンクがアプリではなくSafariで開く | [ユニバーサルリンクがアプリではなくSafariで開く](#universal-link-opens-in-safari-instead-of-the-app) |
+| メールリンクがアプリを開かない | [メールからのディープリンクがアプリを開かない](#deep-link-from-email-does-not-open-the-app) |
+| すべてのメールリンクがアプリを開く | [すべてのメールリンクがアプリを開く](#every-email-link-opens-the-app) |
+| プッシュからは動作するがアプリ内メッセージからは動作しない（またはその逆） | [ディープリンクがプッシュからは動作するがアプリ内メッセージからは動作しない](#deep-link-works-from-push-but-not-from-in-app-message) |
+| 「Open Web URL Inside App」で空白のWebViewが表示される | [「Open Web URL Inside App」で空白または壊れたページが表示される](#open-web-url-inside-app-shows-a-blank-or-broken-page) |
+| Branchリンクがアプリを開かない、または正しくルーティングされない | [BranchとBrazeのトラブルシューティング](#branch) |
+| ディープリンクが明確な原因なく失敗する | [一般的なデバッグのヒント](#general-debugging-tips) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ディープリンクの症状" }
+
+## 標準的な調査パス {#standard-investigation-path}
+
+すべてのディープリンクの問題に対して、このワークフローを使用してください。ステップ1から開始します。
+
+1. Braze の外部でリンクをテストします。カスタムスキームの場合、ターミナルで `xcrun simctl openurl booted "<URL>"` を実行します（例: `xcrun simctl openurl booted "myapp://products/123"`）。ユニバーサルリンクの場合、物理デバイスのメモアプリにURLを貼り付けてタップします。
+2. [詳細ログを有効にし]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging)、問題を再現します。`Opening '<URL>':` エントリで `channel`、`useWebView`、`isUniversalLink` を確認します。
+3. ユニバーサルリンクの場合、AASAファイルと Associated Domains エンタイトルメントを検証します。
+4. メールリンクの場合、クリックトラッキングドメインが有効なAASAファイルをホストしていることを確認します。
+5. `BrazeDelegate.braze(_:shouldOpenURL:)` を実装している場合、すべてのチャネルでリンクが一貫して処理されていることを確認します。
+6. 問題が解決しない場合は、詳細ログとリンクURLを添えて [Braze サポート]({{site.baseurl}}/user_guide/administer/personal/braze_support)に連絡してください。
+
+## カスタムスキームのディープリンクが正しいビューを開かない {#custom-scheme-deep-link-does-not-open-the-correct-view}
+
+**症状:** カスタムスキームのディープリンク（例: `myapp://products/123`）でアプリは開きますが、意図した画面に遷移しません。
+
+1. **スキームが登録されていることを確認します。** Xcodeで、`Info.plist`の`CFBundleURLTypes`にスキームが登録されているか確認してください。
+2. **ハンドラーを確認します。** `application(_:open:options:)`にブレークポイントを設定し、呼び出されていることと`url`パラメーターの内容を確認してください。
+3. **リンクを単独でテストします。** ターミナルから以下のコマンドを実行して、Braze外でディープリンクをテストしてください:
    ```bash
    xcrun simctl openurl booted "myapp://products/123"
    ```
-   ここでリンクが機能しない場合、問題はアプリのURL処理にあり、Brazeの問題ではありません。
-4. **URLの形式を確認します。** キャンペーンに設定されたURLが、ハンドラーが期待する形式と一致しているか確認してください。よくある間違いには、パスコンポーネントの欠落や大文字小文字の誤りがあります。
+   ここでリンクが動作しない場合、問題はBrazeではなくアプリのURL処理にあります。
+4. **URLの形式を確認します。** キャンペーンのURLがハンドラーの期待する形式と一致しているか確認してください。よくある間違いとして、パスコンポーネントの欠落や大文字・小文字の不一致があります。
 
 ## ユニバーサルリンクがアプリではなくSafariで開く {#universal-link-opens-in-safari-instead-of-the-app}
 
-ユニバーサルリンク（例：`https://myapp.com/products/123`）がアプリではなくSafariで開く場合：
+**症状：** ユニバーサルリンク（例：`https://myapp.com/products/123`）がアプリではなくSafariで開きます。
 
 ### Associated Domainsエンタイトルメントを確認する {#verify-the-associated-domains-entitlement}
 
@@ -90,37 +117,51 @@ configuration.forwardUniversalLinks = true
 
 ユニバーサルリンクを長押しして**開く**を選択すると、iOSがそのドメインのユニバーサルリンクの関連付けを「解除」する場合があります。これはiOSの既知の動作です。リセットするには、リンクをもう一度長押しして**[アプリ名]で開く**を選択してください。
 
-## メールからのディープリンクでアプリが開かない {#deep-link-from-email-doesnt-open-the-app}
+## メールからのディープリンクでアプリが開かない {#deep-link-from-email-does-not-open-the-app}
 
-メール内のリンクは、メールサービスプロバイダー（ESP）のクリックトラッキングシステムを経由します。このシステムはリンクをトラッキングドメイン（例：`https://click.yourdomain.com/...`）でラップします。メールからユニバーサルリンクを機能させるには、メインドメインだけでなく、クリックトラッキングドメイン上でもAASAファイルを設定する必要があります。
+**症状:** メール内のリンクがユニバーサルリンクを通じてアプリを開きません。
+
+メールのリンクはメールサービスプロバイダー (ESP) のクリックトラッキングシステムを経由するため、リンクがトラッキングドメインでラップされます（例: `https://click.yourdomain.com/...`）。メールからユニバーサルリンクを機能させるには、プライマリドメインだけでなく、クリックトラッキングドメインにもAASAファイルを設定する必要があります。
 
 ### クリックトラッキングドメインのAASAを確認する {#verify-click-tracking-domain-aasa}
 
-1. メールサービスプロバイダー（ESP）の設定（SendGrid、SparkPost、またはAmazon SES）から、クリックトラッキングドメインを特定します。
-2. AASAファイルを`https://your-click-tracking-domain/.well-known/apple-app-site-association`にホストします。
-3. クリックトラッキングドメイン上のAASAファイルに、同じ`appID`と有効なパスパターンが含まれていることを確認してください。
+1. メールサービスプロバイダー (ESP) の設定（SendGrid、SparkPost、またはAmazon SES）からクリックトラッキングドメインを特定します。
+2. `https://your-click-tracking-domain/.well-known/apple-app-site-association` にAASAファイルをホストします。
+3. クリックトラッキングドメインのAASAファイルに、同じ`appID`と有効なパスパターンが含まれていることを確認します。
 
-ESP固有の設定手順については、[ユニバーサルリンクとアプリリンク]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links)を参照してください。
+メールサービスプロバイダー (ESP) 固有の設定手順については、[ユニバーサルリンクとApp Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links)を参照してください。
 
 ### リダイレクトチェーンを確認する {#check-the-redirect-chain}
 
-一部のESPは、クリックトラッキングURLから最終URLへのリダイレクトを行います。ユニバーサルリンクは、iOSが*最初の*ドメイン（クリックトラッキングドメイン）をアプリに関連付けられていると認識した場合にのみ機能します。リダイレクトがAASAチェックをバイパスした場合、リンクはSafariで開きます。
+一部のメールサービスプロバイダー (ESP) は、クリックトラッキングURLから最終URLへのリダイレクトを実行します。ユニバーサルリンクは、iOSが*最初の*ドメイン（クリックトラッキングドメイン）をアプリに関連付けられたものとして認識した場合にのみ機能します。リダイレクトがAASAチェックをバイパスすると、リンクはSafariで開かれます。
 
-テスト方法：
+テスト方法:
 
-1. テストメールを自分に送信します。
-2. リンクを長押ししてURLを確認します。これがクリックトラッキングURLです。
-3. このドメインに有効なAASAファイルがあることを確認してください。
+1. 自分宛てにテストメールを送信します。
+2. リンクを長押ししてURLを確認します — これがクリックトラッキングURLです。
+3. このドメインに有効なAASAファイルがあることを確認します。
 
-## ディープリンクがプッシュ通知からは機能するが、アプリ内メッセージからは機能しない（またはその逆） {#deep-link-works-from-push-but-not-from-in-app-messages-or-vice-versa}
+## すべてのメールリンクがアプリを開いてしまう {#every-email-link-opens-the-app}
+
+**症状:** メール内のすべてのリンクがアプリを開いてしまい、ブラウザで開くことを想定しているリンクも含まれます。
+
+クリックトラッキングドメインのAASAファイルで、そのドメイン上のすべてのURLに一致する`paths`（例: `*` や `/*`）が使用されています。そのため、iOSはクリックトラッキングされたすべてのメールリンクをユニバーサルリンクとして処理します。
+
+`paths`をアプリで開くべきURLのみに制限してください。SendGridの場合は、`/uni/`に一致させ、該当するリンクにのみ`universal="true"`を追加してください。
+
+AndroidのpathPrefix値を含むESP固有の設定については、[ユニバーサルリンクとApp Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#universal-links-app-links-and-click-tracking)を参照してください。
+
+## ディープリンクがプッシュでは動作するがアプリ内メッセージでは動作しない（またはその逆） {#deep-link-works-from-push-but-not-from-in-app-message}
+
+**症状:** 同じディープリンクが、あるBrazeチャネルでは動作するが、別のチャネルでは動作しません。
 
 ### BrazeDelegateを確認する {#check-the-brazedelegate}
 
-`BrazeDelegate.braze(_:shouldOpenURL:)`を実装している場合、すべてのチャネルでリンクが一貫して処理されていることを確認してください。`context`パラメーターにはソースチャネルが含まれます。特定のチャネルからのリンクを誤ってフィルタリングしている条件付きロジックがないか確認してください。
+`BrazeDelegate.braze(_:shouldOpenURL:)` を実装している場合、チャネル間でリンクが一貫して処理されているか確認してください。`context` パラメーターにはソースチャネルが含まれています。特定のチャネルからのリンクを誤ってフィルタリングしている条件分岐がないか確認してください。
 
 ### 詳細ログを有効にする {#enable-verbose-logging}
 
-[詳細ログを有効にして]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging)、問題を再現します。`Opening`ログエントリを探してください：
+[詳細ログを有効にして]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging)、問題を再現してください。`Opening` ログエントリを確認します：
 
 ```
 Opening '<URL>':
@@ -129,15 +170,15 @@ Opening '<URL>':
 - isUniversalLink: <true/false>
 ```
 
-機能しているチャネルと機能していないチャネルのログ出力を比較してください。`useWebView`や`isUniversalLink`の違いは、SDKがリンクを異なる方法で解釈していることを示しています。
+動作するチャネルと動作しないチャネルのログ出力を比較してください。`useWebView` や `isUniversalLink` の違いは、SDKがリンクをどのように異なる方法で解釈しているかを示しています。
 
 ### カスタム表示デリゲートを確認する {#check-for-custom-display-delegates}
 
-カスタムのアプリ内メッセージ表示デリゲートやContent Cardsのクリックハンドラーを使用している場合、リンクイベントがBraze SDKに正しく渡されて処理されていることを確認してください。
+カスタムのアプリ内メッセージ表示デリゲートやContent Cardsクリックハンドラーを使用している場合、リンクイベントが正しくBraze SDKに渡されて処理されているか確認してください。
 
 ## 「アプリ内でWeb URLを開く」で空白ページや壊れたページが表示される {#open-web-url-inside-app-shows-a-blank-or-broken-page}
 
-**アプリ内でWeb URLを開く**を選択した結果、WebViewが空白または壊れた状態で表示される場合：
+**症状：** **アプリ内でWeb URLを開く**を選択すると、WebViewが空白または壊れた状態で表示されます。
 
 1. **URLがHTTPSを使用していることを確認します。** SDKのWebViewはATS準拠のURLを必要とします。HTTPリンクはサイレントに失敗します。
 2. **Content Security Policyヘッダーを確認します。** 対象のWebページが`X-Frame-Options: DENY`または制限的な`Content-Security-Policy`を設定している場合、WebViewでのレンダリングがブロックされます。
@@ -201,7 +242,7 @@ Branchダッシュボードで以下を確認してください：
 
 ### 詳細ログを使用する {#use-verbose-logging}
 
-[詳細ログを有効にする]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging)と、SDKがリンクをどのように処理しているかを正確に確認できます。探すべき主要なエントリ：
+[詳細ログを有効にする]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging)ことで、SDKがリンクをどのように処理しているかを正確に確認できます。確認すべき主なエントリは以下のとおりです。
 
 | ログエントリ | 意味 |
 |---|---|
@@ -210,18 +251,18 @@ Branchダッシュボードで以下を確認してください：
 | `Opening '<URL>': - channel: contentCard` | SDKがContent Cardsからのリンクを処理しています |
 | `useWebView: true` | SDKがアプリ内WebViewでURLを開きます |
 | `isUniversalLink: true` | SDKがURLをユニバーサルリンクとして識別しました |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="詳細ログの使用" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="詳細ログを使用する" }
 
 これらのログの読み方について詳しくは、[詳細ログの読み方]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging)を参照してください。
 
 ### リンクを単独でテストする {#test-links-in-isolation}
 
-Braze経由でテストする前に、ディープリンクまたはユニバーサルリンクが単独で動作することを確認してください：
+Brazeを通じてテストする前に、ディープリンクまたはユニバーサルリンクが単独で動作するか確認してください。
 
-- **カスタムスキーム**：ターミナルで`xcrun simctl openurl booted "myapp://path"`を実行します。
-- **ユニバーサルリンク**：物理デバイスのメモアプリにURLを貼り付けてタップします。Safariのアドレスバーからはテストしないでください。iOSは入力されたURLとタップされたリンクを異なる方法で処理します。
-- **Branchリンク**：デバイスのメモアプリからBranchリンクを開きます。
+- **カスタムスキーム**: ターミナルで `xcrun simctl openurl booted "myapp://path"` を実行します。
+- **ユニバーサルリンク**: 実機のメモアプリにURLを貼り付けてタップします。Safariのアドレスバーからはテストしないでください。iOSでは入力されたURLとタップされたリンクの処理が異なります。
+- **Branchリンク**: 実機のメモアプリからBranchリンクを開きます。
 
-### 物理デバイスでテストする {#test-on-a-physical-device}
+### 実機でテストする {#test-on-a-physical-device}
 
-ユニバーサルリンクはiOSシミュレーターでは限定的なサポートしかありません。正確な結果を得るために、必ず物理デバイスでテストしてください。シミュレーターでテストする必要がある場合は、**Copy Bundle Resources** ビルドフェーズに`.entitlements`ファイルを追加してください。
+ユニバーサルリンクはiOSシミュレーターでのサポートが限定的です。正確な結果を得るには、必ず実機でテストしてください。シミュレーターでテストする必要がある場合は、`.entitlements` ファイルを **Copy Bundle Resources** ビルドフェーズに追加してください。

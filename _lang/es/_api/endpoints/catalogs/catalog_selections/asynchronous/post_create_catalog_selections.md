@@ -6,7 +6,7 @@ page_order: 2
 
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Crear selección de catálogo de Braze."
+description: "En este artículo se describen los detalles del endpoint Crear selección de catálogo de Braze."
 
 ---
 {% api %}
@@ -15,11 +15,11 @@ description: "En este artículo se describen los detalles del punto de conexión
 /catalogs/{catalog_name}/selections
 {% endapimethod %}
 
-> Utiliza este punto de conexión para crear una selección en tu catálogo.
+> Utiliza este endpoint para crear una selección en tu catálogo.
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `catalogs.create_selection`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `catalogs.create_selection`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -36,7 +36,7 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 
 | Parámetro   | Obligatorio | Tipo de datos | Descripción                                                                                                                                                        |
 | ----------- | -------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `selection` | Obligatorio | Objeto    | Un objeto que contiene criterios de selección. Consulta [el objeto de selección del catálogo]({{site.baseurl}}/api/objects_filters/catalog_selection_object) para obtener un desglose completo del objeto y sus campos. |
+| `selection` | Obligatorio | Objeto    | Un objeto que contiene criterios de selección. Consulta el [objeto de selección del catálogo]({{site.baseurl}}/api/objects_filters/catalog_selection_object) para obtener un desglose completo del objeto y sus campos. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 ### Parámetros del objeto de selección {#selection-object-parameters}
@@ -45,10 +45,10 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 | ---------------- | -------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `name`           | Obligatorio | Cadena    | El nombre de la selección del catálogo. |
 | `description`    | Opcional | Cadena    | Una descripción de la selección del catálogo. |
-| `external_id`    | Obligatorio | Cadena    | Un identificador único para la selección. |
-| `source`         | Obligatorio | Cadena    | La fuente de los datos del catálogo. Para los catálogos de Shopify, utiliza `"Shopify"`. Para los catálogos personalizados, utiliza `"custom"`. |
-| `filters`        | Opcional | Matriz    | Una matriz de objetos de filtro para aplicar a los elementos del catálogo. Puedes especificar hasta cuatro filtros por solicitud. Si no se proporcionan filtros, se incluyen todos los elementos del catálogo. |
-| `results_limit`  | Opcional | Entero   | El número máximo de resultados que se devolverán. Debe ser un número entre 1 y 50. |
+| `external_id`    | Opcional | Cadena    | Un identificador único para la selección. |
+| `source`         | Opcional | Cadena    | La fuente de los datos del catálogo. Para los catálogos de Shopify, establece este valor en `"Shopify"`. Los valores aceptados son `"Shopify"` y `"Braze"`. |
+| `filters`        | Obligatorio | Matriz    | Una matriz de objetos de filtro para aplicar a los elementos del catálogo. Puedes especificar hasta diez filtros por solicitud. Si se proporciona una matriz de filtros vacía, se incluyen todos los elementos del catálogo. |
+| `results_limit`  | Obligatorio | Entero   | El número máximo de resultados que se devolverán. Debe ser un número entre 1 y 50. |
 | `sort_field`     | Opcional | Cadena    | El campo por el que ordenar los resultados. Debe combinarse con `sort_order`. Si ni `sort_field` ni `sort_order` están presentes, los resultados se aleatorizan. |
 | `sort_order`     | Opcional | Cadena    | El orden para clasificar los resultados. Los valores aceptados son `"asc"` (ascendente) o `"desc"` (descendente). Debe combinarse con `sort_field`. Si ni `sort_field` ni `sort_order` están presentes, los resultados se aleatorizan. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
@@ -68,7 +68,7 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
     "name": "favorite-restaurants",
     "description": "Favorite restaurants in NYC",
     "external_id": "favorite-nyc-restaurants",
-    "source": "custom",
+    "source": "Braze",
     "filters": [
       {
         "field": "City",
@@ -101,7 +101,7 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert note %}
-La API admite un máximo de cuatro filtros por solicitud de selección. En el panel de Braze, puedes añadir hasta 10 filtros por selección. Los filtros se aplican en el orden en que aparecen en la matriz.
+La API admite un máximo de diez filtros por solicitud de selección. Los filtros se aplican en el orden en que aparecen en la matriz.
 {% endalert %}
 
 {% alert note %}
@@ -110,7 +110,7 @@ Cuando aplicas un filtro `geo`, el sistema ordena automáticamente los resultado
 
 ## Respuesta {#response}
 
-Existen tres respuestas de código de estado para este punto de conexión: `202`, `400` y `404`.
+Existen tres respuestas de código de estado para este endpoint: `202`, `400` y `404`.
 
 ### Ejemplo de respuesta correcta {#example-success-response}
 

@@ -1,12 +1,11 @@
 ---
 nav_title: Permissions
-article_title: Company user permissions
+article_title: "Braze permissions"
 page_order: 1
 page_type: reference
 alias: /braze_permissions/
-description: "This reference article covers how user permissions work at Braze. Here, you can learn how to edit and set user permissions, choosing who can access your apps in the dashboard."
+description: "This reference article covers how user permissions work at Braze. Here, you can learn how to edit and set user permissions, choosing who can."
 tool: Dashboard
-
 ---
 
 # Braze permissions 
@@ -62,7 +61,7 @@ Limited users have specific permissions that allow them to manage certain aspect
 | Scope | Description |
 | --- | --- |
 | Permissions | Limited users can edit the permissions of other limited users if they have the "Edit Dashboard Users" permission. They can also create new limited users and modify their permission sets. However, they can't create or manage company admin accounts. |
-| Role limitations | If a limited user has all permissions except "Workspace Admin", they will still have access to all other permissions typically granted to a workspace admin. |
+| Role limitations | If a limited user has all permissions except "Workspace Admin", they still have access to all other permissions typically granted to a workspace admin. |
 | Visibility of permissions | If a limited user has the "Edit Dashboard Users" permission for one workspace (such as Dev) but not for another (such as Prod), they won't see the Prod workspace permissions in their dashboard users detail page. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Permissions for limited users" }
 
@@ -90,6 +89,7 @@ Keep the following behaviors in mind when you assign dashboard access:
 - **Workspace Admin versus Company Admin:** Workspace Admins manage permissions within assigned workspaces. Company Admins have company-wide authority, including deleting other dashboard users.
 - **Limited users:** Limited users with the "Edit Dashboard Users" permission can manage other limited users but cannot create or manage Company Admin accounts.
 - **Manage Dashboard Users scope:** On the user detail page, permissions appear only for workspaces the editor can access. A limited user who can edit users in one workspace may not see another workspace's permission checkboxes.
+- **Assign permissions button:** When you edit a user and they already have workspace-level permissions or permission sets for every workspace you can manage, the **Assign permissions** button disappears. This happens because there are no additional workspaces left to assign at the workspace level.
 - **Export User Data:** Exporting user data requires workspace-level access in addition to the export permission.
 - **Composite permissions:** Some areas require multiple permissions. For example, configuring [Technology Partners]({{site.baseurl}}/partners) typically requires both partner access and a baseline read permission for the related workspace features.
 - **Import and Update User Data:** This permission includes the ability to edit app user profiles through import flows, not only dashboard user records.
@@ -114,7 +114,7 @@ Admins have access to all features and the ability to modify any company setting
 To grant or remove admin privileges, select **This user is an admin**, then select **Update user**.
 
 {% alert warning %}
-If you remove admin privileges from a user, they won't be able to access Braze until you assign them at least one [company-level or workspace-level permission]({{site.baseurl}}/user_guide/administer/global/user_management/permissions?tab=company&sdktab=granular%20permissions#granularpermissions_editing-a-users-permissions).
+If you remove admin privileges from a user, they won't be able to access Braze until you assign them at least one [company-level or workspace-level permission]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#edit-a-users-permissions).
 {% endalert %}
 
 {% endtab %}
@@ -135,7 +135,7 @@ To manage the following company-level permissions for a user, check or uncheck t
 
 ### Workspace
 
-You can give a user different permissions for each workspace they belong to in Braze. To manage their workspace-level permissions, select **Select workspaces and permissions**, then choose their permissions manually or assign a [permission set or role]({{site.baseurl}}/user_guide/administer/global/user_management/permissions?sdktab=granular%20permissions#granularpermissions_creating-a-permission-set) you previously created. If you need to give a user different permissions for different workspaces, repeat this process as many times as needed. For a description of each permission, see [List of permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions?sdktab=granular%20permissions#granularpermissions_list-of-permissions).
+You can give a user different permissions for each workspace they belong to in Braze. To manage their workspace-level permissions, select **Select workspaces and permissions**, then choose their permissions manually or assign a [permission set or role]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#create-a-permission-set) you previously created. If you need to give a user different permissions for different workspaces, repeat this process as many times as needed. For a description of each permission, see [List of permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions).
 
 {% subtabs %}
 {% subtab Select manually %}
@@ -183,12 +183,12 @@ To download a list of your users and their permissions, go to **Settings** > **U
 | Campaigns | Launch Campaigns | Start, stop, pause, or resume existing campaigns |
 | Campaigns | Archive Campaigns | Move campaigns to archive |
 | Campaigns | Edit Campaigns | Create and update campaigns |
-| Campaigns | Approve and Deny Campaigns | Approve or deny campaigns. The [approval workflow for campaigns]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals) must be turned on for this permission to apply. This setting is currently in early access. Contact your account manager if you’re interested in participating in the early access. |
+| Campaigns | Approve and Deny Campaigns | Approve or deny campaigns. The [approval workflow for campaigns]({{site.baseurl}}/user_guide/messaging/governance/approvals) must be turned on for this permission to apply. This setting is currently in early access. Contact your account manager if you’re interested in participating in the early access. |
 | Canvas | View Canvases | View Canvases |
 | Canvas | Archive Canvases | Move Canvases to archive |
 | Canvas | Edit Canvases | Create and update Canvases |
 | Canvas | Launch Canvases | Start, stop, pause, or resume existing Canvases |
-| Canvas | Approve and Deny Canvases | Approve or deny Canvases. The [approval workflow for Canvases]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals) must be turned on for this permission to apply. This setting is currently in early access. Contact your account manager if you’re interested in participating in the early access. |
+| Canvas | Approve and Deny Canvases | Approve or deny Canvases. The [approval workflow for Canvases]({{site.baseurl}}/user_guide/messaging/governance/approvals) must be turned on for this permission to apply. This setting is currently in early access. Contact your account manager if you’re interested in participating in the early access. |
 | Feature flags | View Feature Flags | View feature flags |
 | Feature flags | Archive Feature Flags | Move feature flags to archive |
 | Feature flags | Edit Feature Flags | Create and update feature flags |
@@ -221,7 +221,7 @@ To download a list of your users and their permissions, go to **Settings** > **U
 | User Data | Edit User Data | Create and update user data |
 | User Data | Export User Data | Download users from the dashboard |
 | Duplicate Users | View User Merge Records | View a list of user merge records |
-| Users | View User Profiles (PII Redacted) | View user profiles in a PII compliant manner. Users with this permission can't save or launch campaigns that reference custom attributes marked as PII unless they also have the "View Custom Attributes Marked as PII" permission. |
+| Users | View User Profiles (PII Redacted) | View user profiles in a PII compliant manner. Users with this permission can't save or launch campaigns that reference custom attributes marked as PII unless they also have the "View Custom Attributes Marked as PII" permission.<br><br>The "View User Profiles (PII Redacted)" permission must be enabled before use. Contact your customer success manager to enable it for your workspace. |
 | Users | View User Event Properties | View event properties in the **Event History** tab on user profiles |
 | Duplicate Users | Merge Duplicate Users | Combine duplicate users into one user. Duplicates are removed after merging |
 | Delete Users | View User Deletion Records | View a list of user deletion records |
@@ -370,10 +370,10 @@ To download a list of your users and their permissions, go to **Settings** > **U
 | Operator | Use BrazeAI Operator<sup>TM</sup> | Access and use Braze Operator to answer questions, navigate setup, troubleshoot issues, and brainstorm ideas |
 | Placements | View Placements | View Banner placement |
 | Placements | Archive Placements | Move Banner placements to archive |
-| Placements | Edit Placements | View Banner placements without making changes |
-| Promotion Codes | View Promotion Codes | View promo codes |
-| Promotion Codes | Export Promotion Codes | Download a list of promo codes from the dashboard |
-| Promotion Codes | Edit Promotion Codes | Create and update promo codes |
+| Placements | Edit Placements | Create and update Banner placements |
+| Promotion Codes | View Promotion Codes | View promotion codes |
+| Promotion Codes | Export Promotion Codes | Download a list of promotion codes from the dashboard |
+| Promotion Codes | Edit Promotion Codes | Create and update promotion codes |
 | Subscription Groups | Edit Subscriptions | Create and update subscription groups |
 | Transformations | Edit Data Transformation | Create and update data transformations |
 | Transformations | View Data Transformation | View data transformations |

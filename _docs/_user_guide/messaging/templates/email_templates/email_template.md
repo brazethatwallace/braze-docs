@@ -23,7 +23,7 @@ In the Braze dashboard, go to **Content** > **Email**.
 
 Select between **Drag-and-drop Editor** or **HTML code editor** for your editing experience. 
 
-You can also choose from predesigned Braze templates, create a new template, or edit an existing template (plain or [mobile responsive]({{site.baseurl}}/help/release_notes/2018/may#mobile-responsive-email-templates)).
+You can also choose from predesigned Braze templates, create a new template, or edit an existing template (plain or [mobile responsive]({{site.baseurl}}/releases/2018/may#mobile-responsive-email-templates)).
 
 ![An email template for a company's spring sale with options to select the drag-and-drop editor or HTML editor, or to select from Braze templates.]({% image_buster /assets/img/email_templates/template2.png %})
 
@@ -33,7 +33,7 @@ Any existing custom HTML templates must be re-created using the drag-and-drop ed
 
 ## Step 3: Customize your template 
 
-After selecting your editor experience, this is your opportunity to get creative with customizing your email template. You can use HTML to create and emulate your branding in the HTML editor, or include a variety of [creative details]({{site.baseurl}}/user_guide/channels/email/drag_and_drop#creative-details) in the drag-and-drop editor.
+After selecting your editor experience, this is your opportunity to get creative with customizing your email template. You can use HTML to create and emulate your branding in the HTML editor, or include a variety of [creative details]({{site.baseurl}}/user_guide/channels/email/drag_and_drop) in the drag-and-drop editor.
 
 ### Include an unsubscribe link
 
@@ -59,7 +59,7 @@ After you finish composing your template, you can test it before sending it out.
 
 From the bottom of the overview screen, select **Preview and Test**. Here, you can preview how your email will appear in a customer's inbox. With **Preview as User** selected, you can preview your email as a random user, select a specific user, or create a custom user. This allows you to test that your Connected Content and personalization calls are working as they should.
 
-Then, you can **Copy preview link** to generate and copy a shareable preview link that shows what the email looks like for a random user. The link lasts for seven days before it needs to be regenerated.
+Then, you can **Copy preview link** to generate and copy a shareable preview link that shows what the email looks like for a random user. For more information, see [Shareable preview]({{site.baseurl}}/user_guide/messaging/governance/shareable_preview).
 
 You can also switch between desktop, mobile, and plaintext views to get a sense of how your message appears in different contexts.
 
@@ -85,7 +85,7 @@ If you make any edits to an existing template, those changes will not be reflect
 
 You can view email templates at **Templates** > **Email Templates**, filtering by status, type, tags, the user who created it, or searching by template name. You need the relevant user permissions, such as **View Email Templates**, to view these templates. For more details, see [User permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 
-As you create more email templates, you can [duplicate]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#duplicate-templates) and [archive]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#archive-templates) email templates. Learn more about creating and managing your library of templates and creative content in [Templates and Media]({{site.baseurl}}/user_guide/messaging/templates).
+As you create more email templates, you can [duplicate]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#duplicating-templates) and [archive]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#archiving-templates) email templates. Learn more about creating and managing your library of templates and creative content in [Templates and Media]({{site.baseurl}}/user_guide/messaging/templates).
 
 ### Use your templates in API campaigns
 

@@ -48,7 +48,7 @@ The drag-and-drop editor uses two key components for composing in-app messages: 
 
 ### Close x button
 
-For Modal and Fullscreen in-app messages, you can customize the close button displayed as <i class="fa-solid fa-xmark"></i> in the top-right corner of your message. Customization options include button position, size, fill color, background color, border style, and border radius.
+For Modal and Fullscreen in-app messages, you can customize the close button displayed as <i class="fa-solid fa-xmark"></i> at the top of your message. Customization options include button position, size, fill color, background color, border style, and border radius.
 
 ![Options to customize the close x button in in-app messages including button size, fill color, background color, border style, and border radius.]({% image_buster /assets/img_archive/close_x_button.png %}){: style="max-width:40%"}
 
@@ -92,7 +92,9 @@ Before you add blocks, set up [message-level styles](#set-message-level-styles) 
 
 Every block has its settings, such as granular control on padding. The right-side panel automatically switches to a styling panel for the selected content element. For more information, see [Editor block properties]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages#inappmessages_properties).
 
-As you build your in-app message, you can select a mobile, tablet, or desktop view in the toolbar to preview how your in-app message will look for your user groups. This will ensure that your content is responsive, and you can make any necessary adjustments along the way.
+As you build your in-app message, you can select a mobile, tablet, or desktop view in the toolbar to preview how your in-app message looks for your user groups. This ensures that your content is responsive, and you can make any necessary adjustments along the way.
+
+{% multi_lang_include drag_and_drop/hide_rows_and_blocks_by_device.md channel='in_app_message' %}
 
 ## Creative details
 
@@ -102,7 +104,7 @@ On a tablet or desktop browser, a fullscreen in-app message will sit in the cent
 
 ![Full screen in-app message example.]({% image_buster /assets/img_archive/dnd_iam_fullscreen_example.png %}){: style="border:none"}
 
-### Adding a background image
+### Add a background image
 
 You can add an image to the background of your message from the **Message styles** tab. 
 
@@ -114,7 +116,32 @@ You can add an image to the background of your message from the **Message styles
 If you're having trouble selecting a certain block, you can use the up arrow in the block's inline toolbar to move focus up to each parent block.
 {% endalert %}
 
-### Adding Liquid
+#### Swap background images with Liquid
+
+To dynamically swap background images based on user data (such as custom attributes or user properties), use Liquid {% raw %}`{% capture %}`{% endraw %} blocks to assign the correct image URL to a variable before the HTML and CSS load.
+
+Place your Liquid logic at the beginning of your message, then reference the captured variable in the background image URL field. This selects the correct image based on each user's data.
+
+After capturing the image URL, use {% raw %}`{{ image_url | strip }}`{% endraw %} to output the URL with any extra whitespace removed. You can then paste this Liquid into the background image URL field to dynamically display different images for different users.
+
+##### Example
+
+{% raw %}
+```liquid
+{% capture image_url %}
+{% if {{custom_attribute.${membership_tier}}} == 'gold' %}
+https://example.com/images/gold-background.png
+{% elsif {{custom_attribute.${membership_tier}}} == 'silver' %}
+https://example.com/images/silver-background.png
+{% else %}
+https://example.com/images/default-background.png
+{% endif %}
+{% endcapture %}
+{{ image_url | strip }}
+```
+{% endraw %}
+
+### Add Liquid
 
 ![Icon to add Liquid personalization.]({% image_buster /assets/img_archive/dnd_iam_liquid.png %}){: style="float:right;max-width:25%;margin-left:15px"}
 
@@ -122,7 +149,7 @@ To add [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personaliz
 
 Next, take your generated Liquid snippet and insert it into your message. After designing and building your in-app message, go to **Preview & Test** to preview your message.
 
-### Using the AI copywriter
+### Use the AI copywriter
 
 When a text block is selected in your in-app message, select <i class="fa-solid fa-wand-magic-sparkles" title="AI copywriter"></i> **AI copywriter** in the block toolbar to launch the [AI-powered copywriting assistant]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy). The AI copywriting assistant passes a brief product name or description to OpenAI's GPT3 copy generation tool to generate human-like marketing copy for your messaging.
 
@@ -132,7 +159,7 @@ You can save a few clicks by highlighting text inside the block before clicking 
 
 ![GIF of the AI copywriter.]({% image_buster /assets/img_archive/dnd_iam_ai_copywriter.gif %})
 
-### Resetting styles to default
+### Reset styles to default
 
 Properties that you have changed from their default styling are marked with an orange dot. To reset a specific property to its default style, hover over the field and select **Reset to default**.
 
@@ -140,7 +167,7 @@ Properties that you have changed from their default styling are marked with an o
 
 You can also reset all styling for a selected element by selecting the <i class="fas fa-paintbrush" title="Copy or paste styles button"></i> next to the properties panel name and selecting **Reset to default styles**.
 
-### Copying and pasting styles
+### Copy and paste styles
 
 After making changes to the styling of an element, you can copy and paste those styles to another element. When pasting styles, only the properties relevant to that element are applied.
 

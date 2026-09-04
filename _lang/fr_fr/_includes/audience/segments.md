@@ -3,7 +3,7 @@
 La taille de la population cible affichée dans une campagne ou un Canvas peut différer de la [taille de l'audience atteignable pour un segment]({{site.baseurl}}/user_guide/engagement_tools/segments/measuring_segment_size#segment-membership-calculation), même si vous ajoutez directement ce segment dans votre campagne ou votre Canvas sans filtre supplémentaire.
 Cela peut se produire pour plusieurs raisons :
 
-- Lorsqu'un Groupe de contrôle global s'applique à une campagne ou à un Canvas, les utilisateurs de ce Groupe de contrôle global sont exclus du décompte des utilisateurs pouvant être atteints.
+- Lorsqu'un groupe de contrôle global s'applique à une campagne ou à un Canvas, les utilisateurs de ce groupe de contrôle global sont exclus du décompte des utilisateurs pouvant être atteints.
 - La taille de la population cible d'une campagne ou d'un Canvas exclut les utilisateurs qui ne sont pas joignables via les différents canaux de messages ; le comportement diffère d'un canal à l'autre. Par exemple, l'audience atteignable pour une campagne ou un Canvas exclut les utilisateurs qui sont désabonnés, marqués comme spam (pour les e-mails) ou qui ont fait l'objet d'un échec d'envoi définitif (pour les e-mails). Le segment lui-même, en revanche, n'exclut que les désinscriptions lorsqu'il affiche le nombre estimé d'utilisateurs atteignables par e-mail.
 - Braze n'envoie des messages SMS qu'aux utilisateurs faisant partie du groupe d'abonnement sélectionné. Par conséquent, la population cible SMS d'une campagne ou d'un Canvas exclura également tous les utilisateurs qui ne font pas partie du groupe d'abonnement sélectionné.
 
@@ -46,7 +46,7 @@ La possibilité de définir une planification d'actualisation horaire n'est pas 
 Étant donné que les actualisations réexécutent la requête de votre segment, chaque actualisation pour les segments SQL consommera des crédits de segment SQL, et chaque actualisation pour les extensions de segments CDI entraînera un coût au sein de votre entrepôt de données third-party.
 
 {% alert note %}
-L'actualisation des segments peut prendre jusqu'à 60 minutes en raison des temps de traitement des données. Les segments en cours d'actualisation auront un état « En cours de traitement » dans votre liste d'extensions de segments. Cela a plusieurs implications :
+L'actualisation des segments peut prendre jusqu'à 60 minutes en raison des temps de traitement des données. Les segments en cours d'actualisation auront un statut « En cours de traitement » dans votre liste d'extensions de segments. Cela a plusieurs implications :
 
 - Pour terminer le traitement de votre segment avant une heure précise, choisissez une heure d'actualisation située 60 minutes plus tôt.
 - Il ne peut y avoir qu'une seule actualisation à la fois pour une extension de segments donnée. En cas de conflit où une nouvelle actualisation est lancée alors qu'une actualisation existante a déjà commencé à être traitée, Braze annulera la nouvelle demande d'actualisation et poursuivra le traitement en cours.
@@ -58,7 +58,7 @@ Les actualisations planifiées sont automatiquement désactivées lorsqu'une ext
 
 - Non utilisée dans des campagnes ou des Canvas actifs
 - Non utilisée dans un segment faisant partie d'une campagne ou d'un Canvas actif
-- Non utilisée dans un segment où le [suivi analytique]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking#segment-analytics-tracking) est activé
+- Non utilisée dans un segment où le [suivi analytique]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) est activé
 - Non modifiée depuis plus de sept jours
 - Non ajoutée à une campagne, un Canvas (y compris les brouillons) ou un segment depuis plus de sept jours
 
@@ -66,12 +66,22 @@ Si l'actualisation planifiée est désactivée pour une extension de segments, u
 
 ![Une notification indiquant « Les actualisations planifiées ont été désactivées pour cette extension car elle n'est utilisée dans aucune campagne, aucun Canvas ni aucun segment actif. L'extension de segments a été désactivée le 23 février 2025 à 0 h 00. »]({% image_buster /assets/img/segment/segment_extension_disabled.png %})
 
-Lorsque vous êtes prêt à utiliser une extension de segments périmée, passez en revue les paramètres d'actualisation, sélectionnez la planification d'actualisation qui correspond à votre cas d'utilisation, puis enregistrez les modifications.
+Lorsque vous êtes prêt à utiliser une extension de segments périmée, passez en revue les paramètres d'actualisation, sélectionnez la planification d'actualisation qui correspond à votre cas d'usage, puis enregistrez les modifications.
 
 {% endif %}
 
 {% if include.section == "same channel identifier" %}
 
 Lorsqu'un message est reçu, ouvert ou cliqué, Braze met à jour les données de tous les profils partageant le même identifiant de canal que le profil ayant enregistré l'interaction (par exemple, la même adresse e-mail pour les e-mails, ou le même numéro de téléphone pour les SMS ou WhatsApp). Les utilisateurs qui partagent un identifiant avec une personne ayant reçu, ouvert ou cliqué le message peuvent correspondre à ce filtre même s'ils ne faisaient pas partie de la campagne à l'origine ou n'ont pas reçu le message directement.
+
+{% endif %}
+
+{% if include.section == "Canvas variant archived segment" %}
+
+### Impossible de supprimer une variante de Canvas à cause d'un segment archivé {#cant-delete-a-canvas-variant-because-of-an-archived-segment}
+
+Si Braze empêche la suppression d'une variante de Canvas parce qu'un filtre de segment fait encore référence à cette variante, ouvrez le segment qui utilise cette référence — y compris les segments archivés — et supprimez la variante de ses filtres. Après avoir enregistré le segment, retournez au Canvas et réessayez de supprimer la variante.
+
+Pour trouver quels segments font référence à un Canvas, ouvrez le Canvas et examinez ses filtres d'audience, ou consultez la section [Utilisation dans les messages]({{site.baseurl}}/user_guide/audience/segments/managing_segments#messaging-use) de chaque segment pour identifier les Canvas associés.
 
 {% endif %}

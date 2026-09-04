@@ -44,12 +44,12 @@ Não é mais possível criar ou duplicar Canvas usando o editor original. Esta s
 As propriedades de evento referem-se às propriedades que você define para eventos personalizados e compras. Esses `event_properties` podem ser usados em Campaigns com entrega baseada em ação e Canvas.
 
 {% alert important %}
-Você não pode usar `event_properties` na primeira etapa de Mensagem do seu Canvas. Em vez disso, você deve usar `context` ou adicionar uma etapa de Jornadas de ação com o evento correspondente **antes** da etapa de Mensagem que inclui `event_properties`.
+Você não pode usar `event_properties` na primeira etapa de Mensagem do seu Canvas. Em vez disso, você deve usar `context` ou adicionar uma etapa de jornadas de ação com o evento correspondente **antes** da etapa de Mensagem que inclui `event_properties`.
 {% endalert %}
 
-No Canvas, propriedades de evento personalizado e de evento de compra podem ser usadas em Liquid em qualquer etapa de Mensagem que siga uma etapa de Jornadas de ação. Certifique-se de usar {% raw %} ``{{event_properties.${property_name}}}``{% endraw %} se você estiver referenciando essas propriedades de evento. Esses eventos devem ser eventos personalizados ou eventos de compra para serem usados dessa forma no componente de Mensagem.
+No Canvas, propriedades de evento personalizado e de evento de compra podem ser usadas em Liquid em qualquer etapa de Mensagem que siga uma etapa de jornadas de ação. Certifique-se de usar {% raw %} ``{{event_properties.${property_name}}}``{% endraw %} se você estiver referenciando essas propriedades de evento. Esses eventos devem ser eventos personalizados ou eventos de compra para serem usados dessa forma no componente de Mensagem.
 
-Na primeira etapa de Mensagem que segue uma Jornada de ação, você pode usar propriedades de evento relacionadas ao evento referenciado nessa Jornada de ação. No entanto, essas propriedades de evento só podem ser usadas se o usuário realmente realizou a ação (e não foi classificado no grupo Restante do público). Você pode ter outras etapas (que não sejam outra etapa de Jornadas de ação ou de Mensagem) entre essa Jornada de ação e a etapa de Mensagem.
+Na primeira etapa de Mensagem que segue uma jornada de ação, você pode usar propriedades de evento relacionadas ao evento referenciado nessa jornada de ação. No entanto, essas propriedades de evento só podem ser usadas se o usuário realmente realizou a ação (e não foi classificado no grupo Restante do público). Você pode ter outras etapas (que não sejam outra etapa de jornadas de ação ou de Mensagem) entre essa jornada de ação e a etapa de Mensagem.
 
 {% details Expandir para o editor original do Canvas %}
 
@@ -60,4 +60,4 @@ Não é mais possível criar ou duplicar Canvas usando o editor original. Esta s
 {% endtab %}
 {% endtabs %}
 
-Consulte [Propriedades de entrada do Canvas e propriedades de evento]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/canvas_entry_properties_event_properties) para saber mais e ver exemplos.
+Consulte [Propriedades de entrada do Canvas e propriedades de evento]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) para saber mais e ver exemplos.

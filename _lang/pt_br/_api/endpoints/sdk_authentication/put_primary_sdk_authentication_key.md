@@ -18,9 +18,9 @@ description: "Este artigo descreve detalhes sobre o endpoint da Braze para defin
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `sdk_authentication.primary`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `sdk_authentication.primary`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
@@ -38,10 +38,10 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | É necessário informar | Tipo de dados | Descrição |
 | --------- | -------- | --------- | ----------- |
-| `app_id` | Obrigatória | String | O identificador de API do app. |
-| `key_id` | Obrigatória | String | O ID da chave de autenticação do SDK a ser marcada como primária. |
+| `app_id` | É necessário informar | String | O identificador de API do app. |
+| `key_id` | É necessário informar | String | O ID da chave de autenticação do SDK a ser marcada como primária. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#example-request}
@@ -83,7 +83,7 @@ curl --location --request PUT 'https://rest.iad-01.braze.com/app_group/sdk_authe
 | `keys[].id` | String | O ID da chave de autenticação do SDK. |
 | `keys[].rsa_public_key` | String | A string da chave pública RSA. |
 | `keys[].description` | String | Descrição da chave de autenticação do SDK. |
-| `keys[].is_primary` | booleano | Se esta chave é a chave primária de autenticação do SDK. |
+| `keys[].is_primary` | Boolean | Se esta chave é a chave primária de autenticação do SDK. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Parâmetros de resposta" }
 
 ### Regras de validação {#validation-rules}

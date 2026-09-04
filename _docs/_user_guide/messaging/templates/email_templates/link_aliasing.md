@@ -62,6 +62,10 @@ You can also set an alias that will be used to reference a specific link when de
 Link aliasing is only supported in `href` attributes within HTML anchor tags where it is safe to append a query parameter. It's best practice to include a question mark (?) at the end of your link so that Braze can easily append the `lid` value. Without appending the `lid` value, Braze will not recognize the URL for link aliasing.
 {% endalert %}
 
+{% alert important %}
+In the drag-and-drop editor, your link must include a question mark (`?`) before the hash symbol (`#`) in your URL for the link alias to appear in the **Link Management** tab.
+{% endalert %}
+
 ## Managing link aliases
 
 To view all of your tracked link aliases, do the following:
@@ -147,10 +151,16 @@ Braze only tracks up to the last 100 clicked link aliases at the profile level.
 {% endalert %}
 
 ### Action-based filters
- 
-You can create action-based messages targeting any link (tracked or not tracked) or retarget users based on whether they clicked an alias across any email campaign or Canvas component.
+
+When link aliasing is enabled for your workspace, you can create action-based messages targeting any link (tracked or not tracked) or retarget users based on whether they clicked an alias across any email campaign or Canvas component.
 
 ![Action-Based Options to target users who have clicked an alias in a Canvas component or interacted with a campaign.]({% image_buster /assets/img/link_aliasing_action_based_filters.png %})
+
+- If a campaign is archived, link tracking is turned off and that link alias can't be used in a different filter.
+- If a link has tracking turned on and was clicked in a campaign, you can find the campaign as an available option in the segment filter, even if link tracking has since been turned off, as long as at least one link on that message is still tracked.
+- You can only select a tracked link as a filter if it's in an active (launched) Canvas, using the **Clicked Alias in Canvas Step** filter dropdown. If the link is being tracked in a Canvas draft, you can't select the tracked link as a filter.
+
+To set links as untracked, go to **Settings** > **Email Preferences** > **Link Aliasing Settings**.
 
 ### Segmentation filters
 
@@ -174,7 +184,7 @@ To view all of the links in your email campaign and their respective total click
 
 ### Email clicks event
 
-If you export your engagement data with Currents, an email click event will be slightly different if you have link aliasing enabled. It will have two additional fields for the [email clicks event]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#email-clicks-events) when link aliasing is turned on: `link_id` and `link_alias`.
+If you export your engagement data with Currents, an email click event will be slightly different if you have link aliasing enabled. It will have two additional fields for the [email clicks event]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#email-click-events) when link aliasing is turned on: `link_id` and `link_alias`.
 
 ```json
 // Email Click: users.messages.email.Click
@@ -348,7 +358,7 @@ Without the `lid` value, Braze doesn't treat the URL as link-aliased for trackin
 
 Alternatively, you can turn off link aliasing in the dashboard while you plan a backend change. Go to **Settings** > **Email Preferences** > **Link Aliasing Settings**. 
 
-If you can't change your destination systems, contact [Braze Support]({{site.baseurl}}/braze_support) to disable link aliasing for your workspace. Note the following considerations if link aliasing is turned off for your workspace:
+If you can't change your destination systems, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) to disable link aliasing for your workspace. Note the following considerations if link aliasing is turned off for your workspace:
 
 - New email messages and Content Blocks typically won't receive new link-alias markup (such as the `lid` query parameter).
 - Existing messages that were created while link aliasing was on can still contain link-alias markup in the HTML. You may need to manually remove leftover `lid` parameters where you no longer want them.

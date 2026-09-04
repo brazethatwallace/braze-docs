@@ -21,15 +21,15 @@ Braze와 Amperity 통합은 두 플랫폼에 걸쳐 고객에 대한 통합 뷰�
 - **오디언스 생성 및 전송**: 활성 고객 목록과 관련 커스텀 속성을 반환하는 세그먼트를 구축하여 Braze로 전송합니다.
 - **데이터 업데이트 관리**: Braze로 커스텀 속성 업데이트를 전송하는 빈도를 제어합니다.
 - **데이터 통합**: Amperity가 지원하는 다양한 플랫폼과 Braze 간의 데이터를 통합합니다.
-- **Braze 데이터를 Amazon S3로 동기화**: Braze Currents를 사용하여 Braze Campaigns의 참여 데이터를 통합하고, Apache Avro 형식으로 Amazon S3에 데이터를 동기화할 수 있습니다.
+- **Braze 데이터를 Amazon S3로 동기화**: Braze Currents를 사용하여 Braze Campaigns의 인게이지먼트 데이터를 통합하고, Apache Avro 형식으로 Amazon S3에 데이터를 동기화할 수 있습니다.
 
 ## 필수 조건 {#prerequisites}
 
 | 요구 사항 | 설명 |
 | ----------- | ----------- |
 | Amperity 계정 | 이 파트너십을 활용하려면 [Amperity 계정](https://amperity.com/request-a-demo)이 필요합니다. |
-| Braze REST API 키 | `users.track` 권한이 있는 Braze REST API 키. <br> Braze 대시보드에서 **개발자 콘솔** > **Rest API Key** > **새로 만들기**로 이동하여 생성할 수 있습니다. |
-| Braze 인스턴스 | Braze 인스턴스는 Braze 온보딩 매니저에게 문의하거나 [API 개요 페이지]({{site.baseurl}}/api/basics/#endpoints)에서 확인할 수 있습니다. |
+| Braze REST API 키 | `users.track` 권한이 있는 Braze REST API 키. <br> Braze 대시보드에서 **개발자 콘솔** > **Rest API Key** > **새 API 키 생성**으로 이동하여 생성할 수 있습니다. |
+| Braze 인스턴스 | Braze 인스턴스는 Braze 온보딩 매니저에게 문의하거나 [API 개요 페이지]({{site.baseurl}}/api/basics#endpoints)에서 확인할 수 있습니다. |
 | Braze REST 엔드포인트 | Braze 엔드포인트 URL. 엔드포인트는 Braze 인스턴스에 따라 달라집니다. |
 | Currents 커넥터(선택 사항) | S3 Currents 커넥터. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
@@ -42,7 +42,7 @@ Braze와 Amperity 통합은 두 플랫폼에 걸쳐 고객에 대한 통합 뷰�
 
 ### 표준 속성 {#standard-attributes}
 
-[프로필 속성]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields)은 고객이 누구인지를 설명합니다. 이러한 속성은 주로 다음과 같은 고객의 신원 정보와 관련됩니다:
+[프로필 속성]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields)은 고객이 누구인지를 설명합니다. 이러한 속성은 주로 다음과 같은 고객의 신원 정보와 관련됩니다:
 - 이름
 - 생년월일
 - 이메일 주소
@@ -50,11 +50,11 @@ Braze와 Amperity 통합은 두 플랫폼에 걸쳐 고객에 대한 통합 뷰�
 
 ### 커스텀 속성 {#custom-attributes}
 
-Braze의 [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)은 브랜드에서 결정하는 필드입니다. Amperity에서 Braze에 이미 존재하는 커스텀 속성을 관리하려면, Amperity에서 전송되는 출력을 Braze 워크스페이스에 이미 있는 이름과 일치시키세요. 여기에는 다음이 포함될 수 있습니다:
+Braze의 [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes)은 브랜드에서 결정하는 필드입니다. Amperity에서 Braze에 이미 존재하는 커스텀 속성을 관리하려면, Amperity에서 전송되는 출력을 Braze 워크스페이스에 이미 있는 이름과 일치시키세요. 여기에는 다음이 포함될 수 있습니다:
 - 구매 이력
 - 로열티 상태
 - 가치 등급
-- 최근 참여 데이터
+- 최근 인게이지먼트 데이터
 
 Amperity에서 Braze로 전송될 커스텀 속성의 이름을 확인하세요. Amperity는 일치하는 이름이 없을 때마다 커스텀 속성을 추가합니다.
 
@@ -71,13 +71,13 @@ Amperity에서 Braze로 동기화된 오디언스는 고객 프로필에 커스�
 ### 데이터 유형 {#data-types}
 
 지원되는 데이터 유형은 다음과 같습니다:
-- 부울
+- Boolean
 - Date
 - Datetime
 - Decimal
-- 플로트
+- Float
 - Integer
-- 문자열
+- String
 - Varchar
 
 사용되는 데이터 유형은 속성의 특성에 따라 달라집니다. 예를 들어, 이메일 주소는 문자열이고, 고객의 나이는 정수일 수 있습니다.
@@ -95,8 +95,8 @@ Amperity는 Braze로의 동기화 간 변경 사항과 전체 전송 상태를 �
 ### 1단계: Braze 구성 세부 정보 수집 {#step-1-capture-configuration-details-for-braze}
 
 1. **사용자 데이터** 아래에서 `users.track` 권한이 있는 Braze 워크스페이스용 Braze REST API 키를 생성합니다. `users.track` 엔드포인트는 Amperity 오디언스를 커스텀 속성으로 Braze에 동기화합니다.
-2. Braze 인스턴스의 [REST API 엔드포인트]({{site.baseurl}}/api/basics/#endpoints)를 확인합니다. 예를 들어, Braze URL이 `https://dashboard-03.braze.com`인 경우, REST API 엔드포인트는 `https://rest.iad-03.braze.com`이고 인스턴스는 "US-03"입니다.
-3. Amperity에서 Braze로 전송할 수 있는 [고객 프로필 필드]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields) 및 [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) 목록을 확인합니다.
+2. Braze 인스턴스의 [REST API 엔드포인트]({{site.baseurl}}/api/basics#endpoints)를 확인합니다. 예를 들어, Braze URL이 `https://dashboard-03.braze.com`인 경우, REST API 엔드포인트는 `https://rest.iad-03.braze.com`이고 인스턴스는 "US-03"입니다.
+3. Amperity에서 Braze로 전송할 수 있는 [고객 프로필 필드]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields) 및 [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) 목록을 확인합니다.
 
 ### 2단계: Braze를 대상으로 설정—DataGrid Operator {#step-2-set-up-braze-as-a-destinationdatagrid-operator}
 
@@ -189,6 +189,6 @@ Braze로 전송할 수 있는 다양한 세그먼트 유형의 예시는 Amperit
 
 ### Braze Currents와 함께 Amperity 사용 {#using-amperity-with-braze-currents}
 Braze Currents 데이터를 Amperity로 전송하려면:
-1. Amazon S3 버킷으로 데이터를 전송하도록 [Braze Current를 설정]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/)합니다.
+1. Amazon S3 버킷으로 데이터를 전송하도록 [Braze Current를 설정]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents)합니다.
 2. 해당 Amazon S3 버킷에서 [Apache Avro 파일을 읽도록](https://docs.amperity.com/datagrid/source_amazon_s3.html) Amperity를 구성합니다.
 3. 표준 워크플로를 사용하여 피드를 구성하고 데이터 로드를 자동화합니다.

@@ -15,7 +15,27 @@ description: "This article outlines details about the `POST /media_library/creat
 /media_library/create
 {% endapimethod %}
 
-> Use this endpoint to add an asset to the [Braze media library]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library) using either an externally hosted URL (`asset_url`) or binary file data sent in the request body (`asset_file`). This endpoint supports images and ZIP files that contain images.
+> Use this endpoint to add an asset to the [Braze media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) using either an externally hosted URL (`asset_url`) or binary file data sent in the request body (`asset_file`). This endpoint supports images, documents, and ZIP files that contain them. For the full list, refer to [Supported file types](#supported-file-types).
+
+## Supported file types
+
+This endpoint accepts the following file types, whether you upload them through `asset_url` or `asset_file`.
+
+| Asset type | Supported file types | Maximum size |
+| --- | --- | --- |
+| Image | GIF, ICO, JPEG, JPG, PNG, WebP | 5&nbsp;MB |
+| Vector image | SVG | 5&nbsp;MB |
+| Document | DOC, DOCX, PDF, PPT, PPTX, XLS, XLSX | 5&nbsp;MB |
+| Archive | ZIP | 50&nbsp;MB total, 5&nbsp;MB per file within the ZIP |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 style="table-layout: fixed; width: 100%;" aria-label="Supported file types" }
+
+If you upload a file type that isn't listed here, the endpoint returns an `UNSUPPORTED_FILE_TYPE` error.
+
+For ZIP files, each file inside the archive must also be one of the supported file types listed here, and all files must be in the root of the ZIP file (no subdirectories). Any file that isn't supported is skipped and returned in the `errors` array of the response, and the rest of the archive is still uploaded.
+
+{% alert note %}
+Virtual Contact Files (.vcf) and video files can be uploaded to the media library, but only through the dashboard UI (**Content** > **Media Library**), not through this API endpoint.
+{% endalert %}
 
 {% alert tip %}
 You can also call this endpoint through the [Braze MCP server]({{site.baseurl}}/user_guide/brazeai/mcp_server) using the [`create_media_library_asset`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#media-library) function. This lets AI tools like Claude and Cursor upload assets to your media library through natural language prompts.
@@ -23,7 +43,7 @@ You can also call this endpoint through the [Braze MCP server]({{site.baseurl}}/
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `media_library.create` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `media_library.create` permission.
 
 ## Rate limit
 
@@ -145,13 +165,13 @@ This table lists possible processing errors.
 
 | Error Code | HTTP Status | Description |
 | --- | --- | --- |
-| `UNSUPPORTED_FILE_TYPE` | 400 | The uploaded file type is not supported. The `meta` object includes the `file_type` that was rejected. |
-| `ASSET_SIZE_EXCEEDS_LIMIT` | 400 | The file exceeds the maximum allowed size. Images have a 5 MB limit. |
+| `UNSUPPORTED_FILE_TYPE` | 400 | The uploaded file type is not supported. Refer to [Supported file types](#supported-file-types). The `meta` object includes the `file_type` that was rejected. |
+| `ASSET_SIZE_EXCEEDS_LIMIT` | 400 | The file exceeds the maximum allowed size of 5&nbsp;MB. |
 | `MEDIA_LIBRARY_LIMIT_REACHED` | 400 | The workspace has reached its maximum number of assets (200 by default for free trial companies, unlimited otherwise). The `meta` object includes the current `limit`. |
 | `ASSET_UPLOAD_FAILED` | 400 | The asset failed to upload due to processing issues. |
 | `INVALID_ASSET_URL` | 400 | The `asset_url` value is not a valid URI. The `meta` object includes `asset_url`. |
 | `ZIP_UPLOAD_ERROR` | 400 | The ZIP file is corrupted or could not be opened. The `meta` object includes the `original_error` message. |
-| `ZIP_FILE_TOO_LARGE` | 400 | The total uncompressed size of the ZIP file exceeds the 5 MB limit. The `meta` object includes the `zip_file_name` and `zip_file_size`. |
+| `ZIP_FILE_TOO_LARGE` | 400 | The total uncompressed size of the ZIP file exceeds the 50&nbsp;MB limit. The `meta` object includes the `zip_file_name` and `zip_file_size`. |
 | `ZIPPED_ENTITY_HAS_NO_NAME` | 400 | A file entry inside the ZIP has no name. Ensure the ZIP file is not corrupted and add a name for any unnamed file entries. |
 | `ZIPPED_ENTITY_CANNOT_HAVE_NESTED_DIRECTORY` | 400 | The ZIP file contains nested directories, which are not supported. All files must be at the root level of the ZIP. |
 | `GENERIC_ERROR` | 500 | An unexpected error occurred during upload. The `meta` object includes the `original_error` message for debugging. Try again or contact [Support]({{site.baseurl}}/support_contact). |

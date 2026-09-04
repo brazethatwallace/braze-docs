@@ -12,7 +12,7 @@ Puedes utilizar estos métodos pasando tu instancia `BrazeInAppMessage` para reg
 | `hideCurrentInAppMessage()`                               | Descarta el mensaje dentro de la aplicación que se está mostrando.                                     |
 | `performInAppMessageAction(inAppMessage)`                 | Realiza la acción para un mensaje dentro de la aplicación.                                            |
 | `performInAppMessageButtonAction(inAppMessage, buttonId)` | Realiza la acción de un botón de mensaje dentro de la aplicación.                                     |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Methods for logging" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Métodos de registro" }
 
 ## Tratamiento de datos de mensajes {#handling-message-data}
 
@@ -58,7 +58,7 @@ Puesto que se trata de una opción de personalización avanzada, ten en cuenta q
 {% subtab Android %}
 Implementa el `IInAppMessageManagerListener` tal y como se describe en nuestro artículo de Android sobre [la escucha personalizada del administrador]({{site.baseurl}}/developer_guide/in_app_messages/customization/?sdktab=android#android_setting-custom-manager-listeners). En tu implementación de `beforeInAppMessageDisplayed`, puedes acceder a los datos de `inAppMessage`, enviarlos a la capa JavaScript y decidir mostrar o no el mensaje nativo en función del valor devuelto.
 
-Para más información sobre estos valores, consulta nuestra [documentación de Android]({{site.baseurl}}/developer_guide/in_app_messages/).
+Para más información sobre estos valores, consulta nuestra [documentación de Android]({{site.baseurl}}/developer_guide/in_app_messages).
 
 ```java
 // In-app messaging
@@ -82,7 +82,7 @@ public InAppMessageOperation beforeInAppMessageDisplayed(IInAppMessage inAppMess
 
 De forma predeterminada, [`BrazeInAppMessageUI`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/) se crea y asigna cuando inicializas la instancia `braze`. `BrazeInAppMessageUI` es una implementación del protocolo [`BrazeInAppMessagePresenter`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/brazeinappmessagepresenter) y viene con una propiedad `delegate` que puede utilizarse para personalizar la gestión de los mensajes dentro de la aplicación que se han recibido.
 
-1. Implementa el delegado `BrazeInAppMessageUIDelegate` como se describe en [nuestro artículo sobre iOS aquí](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/c1-inappmessageui).
+1. Implementa el delegado `BrazeInAppMessageUIDelegate` como se describe en nuestro [tutorial de interfaz de mensajes dentro de la aplicación para iOS](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/c1-inappmessageui).
 
 2. En el método delegado `inAppMessage(_:displayChoiceForMessage:)`, puedes acceder a los datos de `inAppMessage`, enviarlos a la capa JavaScript y decidir mostrar o no el mensaje nativo en función del valor de retorno.
 

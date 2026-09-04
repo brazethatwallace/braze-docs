@@ -37,7 +37,7 @@ Die Limits für Anfrageobjekte des `/users/track`-Endpunkts variieren je nach Pr
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/api_key) mit der Berechtigung `users.track.bulk`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics) mit der Berechtigung `users.track.bulk`.
 
 Wenn Sie Server-zu-Server-Aufrufe hinter einer Firewall durchführen, müssen Sie möglicherweise Ihren Braze-REST-Endpunkt auf die Zulassungsliste setzen (zum Beispiel `rest.iad-01.braze.com`). Weitere Informationen finden Sie unter [API-Endpunkte]({{site.baseurl}}/api/basics#api-definitions).
 

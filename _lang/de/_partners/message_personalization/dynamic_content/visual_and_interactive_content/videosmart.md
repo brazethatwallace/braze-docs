@@ -21,7 +21,7 @@ VideoSmart integriert sich mit Braze, um zum Sendezeitpunkt dynamisch personalis
 
 In Braze wählen Sie die entsprechende VideoSmart-Campaign aus und übergeben beim Senden Kundenattribute (über Liquid-Templating) an VideoSmart. Diese Attribute werden verwendet, um für jede Empfängerin und jeden Empfänger ein einzigartiges, personalisiertes Videoerlebnis zu rendern. Anschließend können Sie Braze Connected-Content verwenden, um Video-URLs oder -Assets in Echtzeit von der VideoSmart-API anzufordern, was skalierbare Personalisierung ermöglicht.
 
-Diese Integration ist für Braze-E-Mail-Nachrichten konzipiert, die Liquid-Templating und Connected-Content unterstützen, und kann so konfiguriert werden, dass sie mit Standard-Braze-Nutzerprofil-Attributen oder angepassten Datenfeldern funktioniert.
+Diese Integration ist für Braze-E-Mail-Nachrichten konzipiert, die Liquid-Templating und Connected-Content unterstützen, und kann so konfiguriert werden, dass sie mit Standard-Braze-Kundenprofil-Attributen oder angepassten Datenfeldern funktioniert.
 
 ## Anwendungsfälle {#use-cases}
 
@@ -50,20 +50,20 @@ Bevor Sie beginnen, stellen Sie sicher, dass Sie über Folgendes verfügen:
 
 Befolgen Sie diese Schritte, um den **VideoSmart Content-Block** zu aktivieren und in einer E-Mail zu verwenden.
 
-### 1. Schritt: VideoSmart Content-Block-Template in Braze einrichten {#step-1-set-up-the-videosmart-content-block-template-in-braze}
+### Schritt 1: VideoSmart Content-Block-Template in Braze einrichten {#step-1-set-up-the-videosmart-content-block-template-in-braze}
 
 Fordern Sie das **VideoSmart Content-Block**-Template von Ihrer VideoSmart-Vertretung an und fügen Sie es Ihrem Braze-Dashboard hinzu.
 
 VideoSmart stellt Zugangsdaten für die Connected-Content-Authentifizierung bereit, die vom Content-Block verwendet wird.
 
-### 2. Schritt: Connected-Content-Authentifizierung einrichten {#step-2-set-up-connected-content-authentication}
+### Schritt 2: Connected-Content-Authentifizierung einrichten {#step-2-set-up-connected-content-authentication}
 
 Erstellen Sie in Braze Connected-Content-Basic-Authentication-Zugangsdaten mit dem Namen „basic_credentials“.
 
 - Befolgen Sie die Anweisungen unter [Basic-Authentifizierung verwenden]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call#using-basic-authentication).
 - Verwenden Sie den Benutzernamen und das Passwort, die von VideoSmart bereitgestellt wurden.
 
-### 3. Schritt: Content-Block zu Ihrer E-Mail hinzufügen {#step-3-add-the-content-block-to-your-email}
+### Schritt 3: Content-Block zu Ihrer E-Mail hinzufügen {#step-3-add-the-content-block-to-your-email}
 
 Fügen Sie den **VideoSmart Content-Block** an der Stelle in Ihre E-Mail ein, an der der Videoinhalt erscheinen soll.
 
@@ -75,7 +75,7 @@ In den meisten Braze-Konfigurationen werden Content Blocks mit dem folgenden Mus
 Der Name des Content-Blocks unterscheidet zwischen Groß- und Kleinschreibung und muss genau mit dem übereinstimmen, was Sie in Braze konfiguriert haben.
 {% endalert %}
 
-### 4. Schritt: Campaign und Datensatzdaten überschreiben (optional) {#step-4-override-campaign-and-record-data-optional}
+### Schritt 4: Campaign und Datensatzdaten überschreiben (optional) {#step-4-override-campaign-and-record-data-optional}
 
 Wenn Ihr Content-Block Standardwerte unterstützt, können Sie ihn verwenden, ohne Variablen zu setzen.
 
@@ -107,7 +107,7 @@ Dieses Beispiel verwendet Braze-Nutzerattribute für den Vornamen und den Nachna
 - `vs_record_data` muss gültiges JSON sein, kodiert als einzelner String (das Beispiel verwendet `strip_newlines`).
 {% endalert %}
 
-### 5. Schritt: Die vom VideoSmart Content-Block-Template generierten Variablen verwenden {#step-5-use-the-variables-generated-by-videosmarts-content-block-template}
+### Schritt 5: Die vom VideoSmart Content-Block-Template generierten Variablen verwenden {#step-5-use-the-variables-generated-by-videosmarts-content-block-template}
 
 Nachdem der Content-Block ausgeführt wurde, generiert er Variablen, die Sie an anderer Stelle in Ihrer E-Mail referenzieren können.
 

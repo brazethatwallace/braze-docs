@@ -1,16 +1,16 @@
 ---
 nav_title: "Segmentos RFM"
-article_title: Extensões de segmento SQL RFM
+article_title: Extensões de Segment SQL RFM
 page_order: 1
 page_type: reference
 alias: "/rfm_segments/"
-description: "Este artigo descreve como criar extensões de segmento RFM, que identificam seus melhores usuários medindo seus hábitos de compra."
+description: "Este artigo descreve como criar extensões de Segment RFM, que identificam seus melhores usuários medindo seus hábitos de compra."
 tool: Segments
 ---
 
 # Segmentos SQL RFM {#rfm-sql-segments}
 
-> Você pode criar uma extensão de segmento RFM (recência, frequência, valor monetário) para segmentar seus melhores usuários medindo seus hábitos de compra.
+> Você pode criar uma extensão de Segment RFM (recência, frequência, valor monetário) para segmentar seus melhores usuários medindo seus hábitos de compra.
 
 A análise RFM é uma técnica de marketing que identifica seus melhores usuários pontuando-os em uma escala de 0 a 3 para cada categoria (recência, frequência, valor monetário), onde 3 é a melhor pontuação e 0 é a pior. Os valores de recência, frequência e monetário são todos baseados em dados de um intervalo de tempo específico de sua escolha.
 
@@ -27,10 +27,10 @@ A análise RFM é uma técnica de marketing que identifica seus melhores usuári
 Os eventos de compra devem estar ativados para usar segmentos SQL RFM, pois o valor monetário dos seus usuários é determinado pela receita gerada por meio dos eventos de compra da Braze.
 {% endalert %}
 
-## Criando um segmento RFM {#creating-an-rfm-segment}
+## Criando um Segment RFM {#creating-an-rfm-segment}
 
 1. Acesse **Audience** > **Segment Extensions**.
-2. Selecione **New Extension** e, em seguida, selecione **Recency, frequency, and monetary value (RFM) segment**.
+2. Selecione **New Extension** e, em seguida, selecione **Recency, frequency, and monetary value (RFM) Segment**.
 
 ![Modal com a opção de criar um segmento de catálogo para eventos, compras ou segmentos RFM.]({% image_buster /assets/img/segment/select_rfm_segment.png %}){: style="max-width:80%" }
 
@@ -40,30 +40,30 @@ Os eventos de compra devem estar ativados para usar segmentos SQL RFM, pois o va
 | Campo de intervalo de tempo | Descrição | Caso de uso |
 | --- | --- | --- |
 | Relativo | Especifica a atividade nos últimos X dias | Analisar o comportamento mais recente do usuário com uma janela móvel. |
-| Data de início | Especifica um ponto de partida fixo para sua análise | Analisar a atividade do usuário a partir de uma data específica, como após o lançamento de uma Campaign. |
+| Data de início | Especifica um ponto de partida fixo para sua análise | Analisar a atividade do usuário a partir de uma data específica, como após o lançamento de uma campanha. |
 | Data de término | Especifica um ponto final fixo para sua análise | Analisar a atividade do usuário até uma data específica, como antes de uma atualização de produto. |
 | Intervalo de datas | Especifica uma data de início e término para um período personalizado | Analisar o comportamento do usuário durante um período definido, como um evento promocional. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Criando um segmento RFM" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Criando um Segment RFM" }
 
 {: start="4"}
-4. Selecione os [grupos RFM](#rfm-groups) gerados para incluir no seu segmento. Se você selecionar múltiplos grupos, seu segmento incluirá usuários que fazem parte de qualquer um dos grupos selecionados.
+4. Selecione os [grupos RFM](#rfm-groups) gerados para incluir no seu Segment. Se você selecionar múltiplos grupos, seu Segment incluirá usuários que fazem parte de qualquer um dos grupos selecionados.
 
 ![Painel de variáveis com os grupos RFM "Champions" e "Loyal Users" selecionados.]({% image_buster /assets/img/segment/rfm_groups.png %})
 
 {: start="5"}
-5. Execute uma pré-visualização e salve seu segmento.
+5. Execute uma prévia e salve seu Segment.
 
 {% alert note %}
-Você não precisa editar o código SQL no modelo para criar um segmento RFM. Você pode usar exclusivamente o painel **Variables** para personalizar seu segmento.
+Você não precisa editar o código SQL no modelo para criar um Segment RFM. Você pode usar exclusivamente o painel **Variables** para personalizar seu Segment.
 {% endalert %}
 
 ### Grupos RFM {#rfm-groups}
 
-Os segmentos RFM são avaliados em uma ordem específica. Os usuários são atribuídos ao primeiro segmento cujos critérios eles atendem, de cima para baixo na lista de priorização. Por exemplo, um usuário que se qualifica tanto para "Champions" quanto para "Loyal Users" é atribuído ao segmento "Champions" porque ele tem uma prioridade mais alta.
+Os segmentos RFM são avaliados em uma ordem específica. Os usuários são atribuídos ao primeiro Segment cujos critérios eles atendem, de cima para baixo na lista de priorização. Por exemplo, um usuário que se qualifica tanto para "Champions" quanto para "Loyal Users" é atribuído ao Segment "Champions" porque ele tem uma prioridade mais alta.
 
-| Grupo RFM          | Descrição do segmento                                                                 | Classificação de recência (R) | Classificação de frequência (F) | Classificação monetária (M) |
+| Grupo RFM          | Descrição do Segment                                                                 | Classificação de recência (R) | Classificação de frequência (F) | Classificação monetária (M) |
 |--------------------|-------------------------------------------------------------------------------------|------------------|--------------------|-------------------|
-| Champions          | O segmento de usuários mais valioso, com as melhores pontuações em todas as categorias.                   | 3                | 2-3                | 2-3               |
+| Champions          | O Segment de usuários mais valioso, com as melhores pontuações em todas as categorias.                   | 3                | 2-3                | 2-3               |
 | Loyal Users        | Usuários com alta recência e alta frequência. Podem ter valor monetário menor que os Champions. | 2-3              | 2-3                | 1-3               |
 | Potential Loyalists| Usuários que compraram recentemente com frequência e valor monetário moderados.   | 3                | 1-3                | 1-3               |
 | Promising          | Usuários que fizeram uma compra inicial recente e de alto valor, mas ainda não estabeleceram uma alta frequência de compra. | 3                | 0-3                | 1-3               |

@@ -30,8 +30,12 @@ Es gibt zwar keine Beschränkungen für die Anzahl der Textzeichen, die Sie in e
 
 Alle In-App-Nachrichten haben eine empfohlene Bildgröße von 500 KB, eine maximale Bildgröße von 5 MB und unterstützen die Dateitypen PNG, JPEG und GIF. WebP-Bilder werden nicht von allen Geräten oder Browsern unterstützt. Wir empfehlen, WebP-Bilder in das PNG- oder JPEG-Format zu konvertieren, bevor Sie sie zu In-App-Nachrichten hinzufügen.
 
+{% alert note %}
+SVG-Bilder werden für In-App-Nachrichten nicht unterstützt, da sie nicht auf allen Plattformen zuverlässig gerendert werden. Verwenden Sie stattdessen PNG, JPEG oder GIF.
+{% endalert %}
+
 {% tabs %}
-{% tab Portrait %}
+{% tab Hochformat %}
 
 | Typ | Seitenverhältnis | Bildqualität | Anmerkungen |
 | --- | --- | --- | --- |
@@ -40,7 +44,7 @@ Alle In-App-Nachrichten haben eine empfohlene Bildgröße von 500 KB, eine maxim
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Tabelle" }
 
 {% endtab %}
-{% tab Landscape %}
+{% tab Querformat %}
 
 | Typ | Seitenverhältnis | Bildqualität | Anmerkungen |
 | --- | --- | --- | --- |
@@ -67,6 +71,10 @@ Alle In-App-Nachrichten haben eine empfohlene Bildgröße von 500 KB, eine maxim
 
 {% endtab %}
 {% endtabs %}
+
+{% alert tip %}
+Das Rendering von In-App-Nachrichten im Web SDK kann durch benutzerdefinierte Textgrößeneinstellungen des Browsers beeinflusst werden. Nutzer:innen mit benutzerdefinierter Textgrößenskalierung können geringfügige Darstellungsprobleme feststellen, wie z. B. einen 1-px-Spalt am Rand eines modalen Bildes. Beim Testen und in der Vorschau von In-App-Nachrichten empfehlen wir, die Standard-Textgrößeneinstellungen des Browsers zu verwenden, um eine möglichst genaue Darstellung zu erhalten.
+{% endalert %}
 
 {% endif %}
 
@@ -173,7 +181,21 @@ table td {
 | Banner    | Beliebiges Seitenverhältnis | 600&nbsp;px Mindestbreite |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tabelle" }
 
-Weitere Informationen finden Sie unter [Kreative Details für Content Cards]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details).
+Weitere Informationen finden Sie unter [Kreative Details für Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/creative_details).
+
+{% endif %}
+
+{% if include.variable_name == "sms and mms" %}
+
+MMS-Nachrichten unterstützen ein einzelnes Bild pro Nachricht. Nur MMS-fähige Abo-Gruppen können Bilder versenden.
+
+| Eigenschaft | Empfehlung |
+| --- | --- |
+| Größe | 600&nbsp;KB oder kleiner für eine zuverlässige Zustellung durch den Mobilfunkanbieter. Der Composer blockiert Uploads, die größer als 1&nbsp;MB sind. |
+| Dateitypen | PNG, JPEG, GIF |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SMS und MMS" }
+
+Informationen zu den Dateigrößenbeschränkungen und dem Durchsatz der Mobilfunkanbieter finden Sie unter [MMS-Nachrichtenlimits und Durchsatz]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup#mms-message-limits-and-throughput).
 
 {% endif %}
 

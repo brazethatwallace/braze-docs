@@ -5,7 +5,7 @@ page_order: 3
 page_type: reference
 description: "このリファレンス記事では、セグメント分析の追跡と、収益と購入の推移、セッション数の推移、およびカスタムイベント数の推移を確認する方法について説明します。"
 tool:
-  - セグメント
+  - Segments
   - Reports
 ---
 
@@ -15,48 +15,48 @@ tool:
 
 セグメントの分析の追跡をオンにしなくても、そのセグメントの[リアルタイム統計情報]({{site.baseurl}}/user_guide/audience/segments/segment_data#segment-statistics)にアクセスして、ユーザーをキャンペーンのターゲットにすることができます。唯一の違いは、このページに記載されている特定の分析ツールにアクセスできるかどうかです。
 
-## セグメント分析を有効にする {#turning-on-segment-analytics}
+## セグメント分析の有効化 {#turning-on-segment-analytics}
 
-セグメントのページの**セグメント Details**セクションで、**Analytics Tracking**を有効にします。
+セグメントのページの「**セグメント Details**」セクションで、**Analytics Tracking**を有効にします。
 
-![セグメントの分析の追跡トグル]({% image_buster /assets/img_archive/A_Tracking_2.png %})
+![セグメントの分析トラッキングトグル]({% image_buster /assets/img_archive/A_Tracking_2.png %})
 
-アプリでは、最大25個のセグメントについて追跡をオンにすることができます。Brazeでは、キャンペーンがセッション、収益、および購入に及ぼす効果を把握するうえで、分析すべき重要なセグメントを追跡することをお勧めします。
+1つのワークスペースでトラッキングを有効にできるセグメントは最大25個です。Brazeでは、キャンペーンがセッション、収益、購入に与える影響を分析する際に重要なセグメントをトラッキングすることを推奨しています。
 
 {% alert note %}
-分析の追跡を有効にした後、セグメントデータが反映されるまでに時間がかかる場合があります。24時間以内にデータが反映されない場合は、[サポートにお問い合わせください]({{site.baseurl}}/braze_support)。
+分析トラッキングを有効にした後、セグメントデータがレポートに反映されるまでに時間がかかる場合があります。24時間以内にデータが反映されない場合は、[サポートにお問い合わせください]({{site.baseurl}}/user_guide/administer/personal/braze_support)。
 {% endalert %}
 
-## 収益と購入の推移の表示 {#viewing-revenue-and-purchases-over-time}
+## 売上と購入の経時的な表示 {#viewing-revenue-and-purchases-over-time}
 
-[このセグメントの収益と購入の推移]({{site.baseurl}}/user_guide/analytics/reports/revenue_report)に関するデータを表示するには、**Analytics** > **Revenue Report**に移動します。
+**分析** > **売上レポート**に移動して、[このセグメントの売上と購入の経時データ]({{site.baseurl}}/user_guide/analytics/reports/revenue_report)を表示します。
 
-収益と購入のグラフには、そのセグメントの分析の追跡がオンになった後に記録されたアクティビティが反映されます。追跡をオンにしても、それ以前の購入がレポートに遡って反映されることはありません。セグメントを比較する場合は、選択した各セグメントで追跡が有効になっていた期間のみを使用してください。
+売上と購入のグラフには、そのセグメントの分析トラッキングを有効にした後に記録されたアクティビティが反映されます。トラッキングを有効にしても、以前の購入がレポートにさかのぼって反映されることはありません。セグメントを比較する際は、選択した各セグメントでトラッキングが有効になっていた期間のみを使用してください。
 
-![セグメント別の収益データ]({% image_buster /assets/img_archive/Revenue.png %})
+![セグメント別の売上データ]({% image_buster /assets/img_archive/Revenue.png %})
 
-任意のカスタム期間のセグメントデータを視覚的に比較するには、セグメントをグラフに追加するか、グラフから削除します。**Breakdown**ドロップダウンで**By セグメント**を選択し、**Breakdown values**でセグメントを選択します。
+任意のカスタム期間のセグメントデータを視覚的に比較するには、グラフにセグメントを追加または削除します。**内訳**ドロップダウンで**セグメント別**を選択し、**内訳の値**でセグメントを選択します。
 
-グラフの上にある任意のセグメント名を選択して、そのセグメントの指標の表示・非表示を切り替えます。
+グラフの凡例でセグメント名を選択すると、そのセグメントの指標の表示・非表示を切り替えることができます。
 
-![複数セグメントの収益]({% image_buster /assets/img_archive/segment_revenue_multiple.png %})
+![複数セグメントの売上]({% image_buster /assets/img_archive/segment_revenue_multiple.png %})
 
-## セッション数の推移 {#sessions-over-time}
+## 時系列セッション {#sessions-over-time}
 
-同様に、[この特定セグメントのセッション数の推移]({{site.baseurl}}/user_guide/analytics/dashboards/home#exporting-app-usage-data)に関するデータは、**Home**ページで確認できます。
+同様に、[この特定のセグメントの時系列セッションデータ]({{site.baseurl}}/user_guide/analytics/dashboards/home)は**ホーム**ページで確認できます。
 
-![セグメント別のセッションデータ]({% image_buster /assets/img_archive/events_over_time2.png %})
+![セグメント別セッションデータ]({% image_buster /assets/img_archive/events_over_time2.png %})
 
 ## カスタムイベントの推移を表示する {#view-custom-events-over-time}
 
-**Analytics** > **Custom events report**に移動して、[セグメントのカスタムイベント数の推移]({{site.baseurl}}/user_guide/data/activation/events/custom_events#analytics)に関するデータを表示します。
+セグメント別の[カスタムイベントの推移データ]({{site.baseurl}}/user_guide/data/activation/events/custom_events#analytics)を表示するには、**分析** > **カスタムイベントレポート**に移動します。
 
-## クエリビルダーテンプレートの使用 {#using-query-builder-templates}
+## Query Builderテンプレートの使用 {#using-query-builder-templates}
 
-分析の追跡をオンにすると、クエリビルダーのレポートテンプレートを使用して、キャンペーン、キャンバス、バリアント、ステップのパフォーマンス指標をセグメント別に分類できます。詳細については、[セグメントデータ]({{site.baseurl}}/user_guide/audience/segments/segment_data#performance-data-by-segment)を参照してください。
+分析トラッキングがオンになっている場合、Query Builderのレポートテンプレートを使用して、キャンペーン、キャンバス、バリアント、ステップのパフォーマンス指標をセグメントごとに分析できます。詳しくは、[セグメントデータ]({{site.baseurl}}/user_guide/audience/segments/segment_data#viewing-performance-data-by-segment)をご覧ください。
 
 ## よくある質問 {#frequently-asked-questions}
 
-### 分析の追跡が正しくない、または空に見える場合は何を確認すべきですか？ {#what-should-i-check-if-analytics-tracking-looks-wrong-or-empty}
+### 分析トラッキングが正しくない、または空に見える場合、何を確認すべきですか？ {#what-should-i-check-if-analytics-tracking-looks-wrong-or-empty}
 
-**セグメント Details**で**Analytics Tracking**がまだ有効になっていることを確認し、アプリごとの上限（追跡対象のセグメントは25個まで）を超えていないことを確認してください。また、追跡を初めて有効にした後、データが反映されるまで最大24時間かかる場合があります。問題が続く場合は、セグメントの定義とレポートの日付範囲を確認してから、[サポートにお問い合わせください]({{site.baseurl}}/braze_support)。
+**セグメントの詳細**で**分析トラッキング**がまだ有効になっていることを確認し、ワークスペースごとの上限（トラッキング付きセグメント25個）を超えていないことを確認してください。また、トラッキングを最初に有効にしてからデータが反映されるまで最大24時間かかる場合があります。問題が続く場合は、セグメントの定義とレポートの日付範囲を確認し、[サポートに連絡]({{site.baseurl}}/user_guide/administer/personal/braze_support)してください。

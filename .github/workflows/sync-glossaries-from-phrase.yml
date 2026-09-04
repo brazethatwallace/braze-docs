@@ -1,8 +1,8 @@
-# Sync translation glossaries from Phrase TMS term bases.
+# Sync translation glossaries from Phrase TMS.
 #
 # Phrase term bases are the source of truth for scripts/glossaries/*.json.
-# Downloads each locale's term base, writes JSON glossaries, and opens a PR
-# when entries change.
+# Downloads the unified Braze term base once, writes per-locale JSON glossaries,
+# propagates added or updated terms into _lang/, and opens a PR when entries change.
 name: Sync glossaries from Phrase
 
 on:
@@ -27,7 +27,7 @@ jobs:
           persist-credentials: false
 
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version: '3.12'
 
@@ -61,12 +61,13 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: phrase-glossary-sync/${{ github.run_id }}
           base: develop
-          title: "Glossary sync: update from Phrase term bases"
+          title: "Glossary sync: update from Phrase unified term base"
           body-path: phrase_sync_report.md
           labels: |
             glossary-sync
             status: done
-          commit-message: "chore: sync glossaries from Phrase term bases"
+          commit-message: "chore: sync glossaries from Phrase and propagate locale updates"
           delete-branch: true
           add-paths: |
             scripts/glossaries/
+            _lang/

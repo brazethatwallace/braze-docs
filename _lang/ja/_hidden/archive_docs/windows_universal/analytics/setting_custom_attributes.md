@@ -12,7 +12,7 @@ hidden: true
 
 Brazeには、ユーザーに属性を割り当てるメソッドが用意されています。ダッシュボードでこれらの属性に基づき、ユーザーをフィルターおよびセグメント化できます。
 
-実装前に、カスタムイベント、カスタム属性、および購入イベントが提供するセグメンテーションオプションの例を[ベストプラクティス]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#user-data-collection)で確認してください。
+実装前に、カスタムイベント、カスタム属性、および購入イベントが提供するセグメンテーションオプションの例を[ベストプラクティス]({{site.baseurl}}/developer_guide/analytics#best-practices)で確認してください。
 
 ユーザー属性は、現在の`IAppboyUser`に割り当てることができます。現在の`IAppboyUser`への参照を取得するには、`Appboy.SharedInstance.AppboyUser`を呼び出します。
 
@@ -37,45 +37,45 @@ Appboy.SharedInstance.AppboyUser.FirstName = "User's First Name"
 
 ## カスタムユーザー属性の割り当て {#assigning-custom-user-attributes}
 
-デフォルトのユーザー属性だけでなく、Brazeではさまざまなデータタイプを使用してカスタム属性を定義することもできます。セグメンテーションオプションの詳細と、これらの各属性がどのように影響するかについては、[ベストプラクティス]({{site.baseurl}}/developer_guide/platform_integration_guides/windows_universal/analytics/setting_user_ids/#user-id-integration-best-practices-and-notes)を参照してください。
+デフォルトのユーザー属性だけでなく、Brazeではさまざまなデータタイプを使用してカスタム属性を定義することもできます。セグメンテーションオプションの詳細と、これらの各属性がどのように影響するかについては、[ベストプラクティス]({{site.baseurl}}/hidden/archive_docs/windows_universal/analytics/setting_user_ids#user-id-integration-best-practices-and-notes)を参照してください。
 
-### カスタム属性値を設定する {#setting-custom-attribute-values}
+### カスタム属性値の設定 {#setting-custom-attribute-values}
 
 {% tabs %}
 {% tab Boolean %}
-`````````csharp
+```csharp
 bool SetCustomAttribute(STRING_KEY, BOOL_VALUE);
 ```
 {% endtab %}
 {% tab Integer %}
-`````````csharp
+```csharp
 bool SetCustomAttribute(STRING_KEY, INT_VALUE);
 ```
 {% endtab %}
 {% tab Double or Float %}
-`````````csharp
+```csharp
 bool SetCustomAttribute(STRING_KEY, DOUBLE_VALUE);
 ```
-Brazeでは、FLOAT値とDOUBLE値がデータベースでまったく同じように処理されます。
+Brazeでは、データベース内でFLOATとDOUBLEの値をまったく同じように扱います。
 {% endtab %}
 {% tab String %}
-`````````csharp
+```csharp
 bool SetCustomAttribute(STRING_KEY, "STRING_VALUE");
 ```
 {% endtab %}
 {% tab Long %}
-`````````csharp
+```csharp
 bool SetCustomAttribute(STRING_KEY, LONG_VALUE);
 ```
 {% endtab %}
 {% tab Date %}
-`````````csharp
+```csharp
 bool SetCustomAttribute(STRING_KEY, "DATE_VALUE");
 ```
->  Brazeに渡される日付は、[ISO 8601](http://en.wikipedia.org/wiki/ISO_8601)形式（例: `2013-07-16T19:20:30+01:00`）または`yyyy-MM-dd'T'HH:mm:ss:SSSZ`形式（例: `2016-12-14T13:32:31.601-0800`）のいずれかである必要があります。
+>  Brazeに渡される日付は、[ISO 8601](http://en.wikipedia.org/wiki/ISO_8601)形式（例：`2013-07-16T19:20:30+01:00`）、または`yyyy-MM-dd'T'HH:mm:ss:SSSZ`形式（例：`2016-12-14T13:32:31.601-0800`）でなければなりません。
 {% endtab %}
 {% tab Array %}
-`````````csharp
+```csharp
 // Setting a custom attribute with an array value
 Appboy.SharedInstance.EventLogger.SetCustomAttributeArray("custom_attribute_array_test", testSetArray);
 // Adding to a custom attribute with an array value
@@ -86,11 +86,11 @@ Appboy.SharedInstance.EventLogger.RemoveFromCustomAttributeArray("custom_attribu
 {% endtab %}
 {% endtabs %}
 
-### カスタム属性のインクリメント/デクリメント {#incrementingdecrementing-custom-attributes}
+### カスタム属性の増減 {#incrementingdecrementing-custom-attributes}
 
-このコードは、インクリメントカスタム属性の例です。カスタム属性の値は、正または負の整数値でインクリメントできます。
+このコードは、カスタム属性をインクリメントする例です。カスタム属性の値は、任意の正または負の整数値でインクリメントできます。
 
-`````````csharp
+```csharp
 bool IncrementCustomAttribute(STRING_KEY, INCREMENT_INTEGER_VALUE);
 ```
 
@@ -98,32 +98,32 @@ bool IncrementCustomAttribute(STRING_KEY, INCREMENT_INTEGER_VALUE);
 
 カスタム属性は、次のメソッドを使用して設定を解除することもできます。
 
-`````````csharp
+```csharp
 bool UnsetCustomAttribute(STRING_KEY);
 ```
 
-### REST APIによるカスタム属性の設定 {#setting-a-custom-attribute-via-the-rest-api}
+### REST APIを使用したカスタム属性の設定 {#setting-a-custom-attribute-via-the-rest-api}
 
-REST APIを使用してユーザー属性を設定することもできます。詳細については、[ユーザーAPI]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data)のドキュメントを参照してください。
+REST APIを使用してユーザー属性を設定することもできます。詳細については、[ユーザーAPI]({{site.baseurl}}/api/endpoints/user_data)のドキュメントを参照してください。
 
 ### カスタム属性値の制限 {#custom-attribute-value-limits}
 
-カスタム属性値の最大長は255文字です。これより長い値は切り捨てられます。
+カスタム属性値の最大長は255文字です。それより長い値は切り捨てられます。
 
-## 通知サブスクリプションステータスの管理 {#managing-notification-subscription-statuses}
+## 通知購読ステータスの管理 {#managing-notification-subscription-statuses}
 
-ユーザーのサブスクリプション（メールまたはプッシュ）を設定するには、`IAppboyUser`のプロパティとして以下のサブスクリプションステータスを設定します。Brazeのサブスクリプションステータスには、メールとプッシュの両方で3つの異なるステータスがあります。
+ユーザーの購読（メールまたはプッシュ）を設定するには、`IAppboyUser`のプロパティとして以下の購読ステータスを設定します。Brazeの購読ステータスには、メールとプッシュの両方に対して3つの状態があります。
 
-| サブスクリプションステータス | 定義 |
+| 購読ステータス | 定義 |
 | ------------------- | ---------- |
-| `OptedIn` | 配信登録済み、かつ明示的にオプトイン済み |
-| `Subscribed` | 購読中、ただし明示的にオプトインしていない |
-| `UnSubscribed` | 配信停止済みまたは明示的にオプトアウト済み、あるいはその両方 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `OptedIn` | 購読中、かつ明示的にオプトイン済み |
+| `Subscribed` | 購読中、ただし明示的にはオプトインしていない |
+| `UnSubscribed` | 購読解除済み、および/または明示的にオプトアウト済み |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="通知購読ステータスの管理" }
 
 - `EmailNotificationSubscriptionType`
-  - ユーザーは、有効なメールアドレスを受信すると自動的に`Subscribed`に設定されます。ただし、明示的なオプトインプロセスを確立し、ユーザーから明示的な同意を得た時点でこの値を`OptedIn`に設定することをお勧めします。
+  - 有効なメールアドレスを受信すると、ユーザーは自動的に`Subscribed`に設定されます。ただし、明示的なオプトインプロセスを確立し、ユーザーから明示的な同意を得た時点でこの値を`OptedIn`に設定することをお勧めします。
 - `PushNotificationSubscriptionType`
-  - ユーザーは、有効なプッシュ登録時に自動的に`Subscribed`に設定されます。ただし、明示的なオプトインプロセスを確立し、ユーザーから明示的な同意を得た時点でこの値を`OptedIn`に設定することをお勧めします。
+  - 有効なプッシュ登録が行われると、ユーザーは自動的に`Subscribed`に設定されます。ただし、明示的なオプトインプロセスを確立し、ユーザーから明示的な同意を得た時点でこの値を`OptedIn`に設定することをお勧めします。
 
->  これらのタイプは`AppboyPlatform.PCL.Models.NotificationSubscriptionType`に属します。詳細については、[ユーザーサブスクリプションの管理]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#managing-user-subscriptions)を参照してください。
+>  これらのタイプは`AppboyPlatform.PCL.Models.NotificationSubscriptionType`に含まれます。詳細については、[ユーザー購読の管理]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-states)を参照してください。

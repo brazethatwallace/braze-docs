@@ -169,7 +169,7 @@ Nachdem die Voraussetzungen erfüllt sind und eine Action-Node-Struktur erstellt
 
 ### 1. Schritt: Daten von Nutzer:innen im Gespräch erfassen {#step-1-collect-data-from-the-user-in-conversation}
 
-Wenn Nutzer:innen eine Pypestream-Sitzung betreten, hängt die Art der erfassten Daten ganz vom jeweiligen Anwendungsfall ab. Um ein Nutzerprofil innerhalb von Braze erstellen zu können, muss die Konversation die erforderlichen Felder erfassen, die für den gewünschten Endpunkt benötigt werden.
+Wenn Nutzer:innen eine Pypestream-Sitzung betreten, hängt die Art der erfassten Daten ganz vom jeweiligen Anwendungsfall ab. Um ein Kundenprofil innerhalb von Braze erstellen zu können, muss die Konversation die erforderlichen Felder erfassen, die für den gewünschten Endpunkt benötigt werden.
 
 Wenn die Lösung beispielsweise während der Konversation für den Braze-`/user/track`-Endpunkt die folgenden Informationen von Nutzer:innen gesammelt hat:
 

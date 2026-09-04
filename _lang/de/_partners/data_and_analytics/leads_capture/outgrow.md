@@ -2,22 +2,22 @@
 nav_title: Outgrow
 article_title: Outgrow
 alias: /partners/outgrow/
-description: "Dieser Artikel enthält eine umfassende Anleitung zur Konfiguration einer nativen Integration zwischen Outgrow und Braze für eine verbesserte Synchronisierung von Nutzerdaten und personalisierte Kampagnen."
+description: "Dieser Artikel enthält eine umfassende Anleitung zur Konfiguration einer nativen Integration zwischen Outgrow und Braze für eine verbesserte Synchronisierung von Nutzerdaten und personalisierte Campaigns."
 page_type: partner
 search_tag: Partner
 ---
 
 # Outgrow
 
-> [Outgrow](https://outgrow.co/) ist eine Plattform für interaktive Inhalte, mit der Sie Quiz, Rechner, Umfragen und andere Arten von ansprechenden Inhalten erstellen können, um Nutzerdaten und Insights zu sammeln. Mit der Integration von Braze und Outgrow können Sie Nutzerdaten aus Outgrow automatisch in Braze übertragen und so hochgradig personalisierte und zielgerichtete Kampagnen ermöglichen.
+> [Outgrow](https://outgrow.co/) ist eine Plattform für interaktive Inhalte, mit der Sie Quiz, Rechner, Umfragen und andere Arten von ansprechenden Inhalten erstellen können, um Nutzerdaten und Insights zu sammeln. Mit der Integration von Braze und Outgrow können Sie Nutzerdaten aus Outgrow automatisch in Braze übertragen und so hochgradig personalisierte und zielgerichtete Campaigns ermöglichen.
 
 Wenn Sie die Integration von Braze und Outgrow für interaktive Inhalte nutzen, profitieren Sie unter anderem von folgenden Vorteilen:
 
-- **Verbesserte Personalisierung**: Erfassen Sie Daten aus Outgrow-Quizzes, Umfragen und Rechnern, die angepassten Attributen in Braze zugeordnet werden können. Diese Daten ermöglichen eine präzise Segmentierung und personalisierte Kampagnen.
+- **Verbesserte Personalisierung**: Erfassen Sie Daten aus Outgrow-Quizzes, Umfragen und Rechnern, die angepassten Attributen in Braze zugeordnet werden können. Diese Daten ermöglichen eine präzise Segmentierung und personalisierte Campaigns.
 - **Echtzeit-Datensynchronisierung**: Empfangen Sie Outgrow-Daten in Braze in Realtime, sodass Sie sofort auf Nutzer:innen-Insights reagieren können. Dies ermöglicht zeitnahe Nachfassaktionen oder personalisierte Nachrichten, die auf den letzten Interaktionen der Nutzer:innen basieren.
 - **Optimierte Datenverwaltung**: Automatisieren Sie den Datentransfer zwischen Outgrow und Braze. So vermeiden Sie manuelle Datenexporte und -importe, reduzieren Datenabweichungen und sparen Zeit.
-- **Verbesserte Nutzererfahrung**: Nutzen Sie Insights der Nutzer:innen, um relevantere Erlebnisse zu schaffen, die zu höherer Zufriedenheit, Bindung und Lifetime-Value führen.
-- **Flexibles Targeting und Segmentierung**: Verfeinern Sie die Segmentierung in Braze mithilfe von Outgrow-Daten, um Nutzer:innen auf der Grundlage bestimmter Interaktionen (z. B. Quiz-Ergebnisse oder Antworten auf Umfragen) anzusprechen und Kampagnen zu erstellen, die bei Ihren Nutzer:innen auf Resonanz stoßen.
+- **Verbesserte Nutzererfahrung**: Nutzen Sie Insights der Nutzer:innen, um relevantere Erlebnisse zu schaffen, die zu höherer Zufriedenheit, Bindung und LTV führen.
+- **Flexibles Targeting und Segmentierung**: Verfeinern Sie die Segmentierung in Braze mithilfe von Outgrow-Daten, um Nutzer:innen auf der Grundlage bestimmter Interaktionen (z. B. Quiz-Ergebnisse oder Antworten auf Umfragen) anzusprechen und Campaigns zu erstellen, die bei Ihren Nutzer:innen auf Resonanz stoßen.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -29,29 +29,29 @@ Bevor Sie die Integration von Outgrow und Braze einrichten, vergewissern Sie sic
 | **Braze-Konto** | Ein Braze-Konto mit Zugriff auf REST-API-Zugangsdaten |
 | **API-Schlüssel** | Ein API-Schlüssel von Braze mit der Berechtigung `users.track`, um die Übertragung von Nutzerdaten zu ermöglichen |
 | **Angepasste Attribute in Braze** | Angepasste Attribute, die in Braze eingerichtet wurden, um Outgrow-Antworten zu erfassen (z. B. Quiz-Ergebnisse, Segmente und andere) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
 Folgen Sie diesen Schritten, um die Integration von Braze und Outgrow zu konfigurieren:
 
-### 1. Schritt: Braze-API-Schlüssel generieren {#step-1-generate-braze-api-key}
+### Schritt 1: Braze-API-Schlüssel generieren {#step-1-generate-braze-api-key}
 
-1. Gehen Sie in Ihrem Braze-Konto zu **Developer Console** > **API Settings**.
+1. Gehen Sie in Ihrem Braze-Konto zu **Entwicklungskonsole** > **API Settings**.
 2. Wählen Sie **Create New API Key**.
 3. Benennen Sie Ihren API-Schlüssel, aktivieren Sie die Berechtigung `users.track` und speichern Sie den API-Schlüssel.
 
-### 2. Schritt: Braze-Integration in Outgrow konfigurieren {#step-2-configure-the-braze-integration-in-outgrow}
+### Schritt 2: Braze-Integration in Outgrow konfigurieren {#step-2-configure-the-braze-integration-in-outgrow}
 
 1. Melden Sie sich bei Ihrem Outgrow-Konto an.
 2. Gehen Sie im Dashboard zu **Integrations**.
 3. Wählen Sie aus der Liste der verfügbaren Integrationen **Braze** aus.
 4. Geben Sie Ihren **Braze API Key** und die **REST API Endpoint URL** ein:
-   - **API Key**: Geben Sie den API-Schlüssel ein, der in Braze generiert wurde
-   - **REST Endpoint URL**: Geben Sie den Endpunkt für Ihre Braze-Instanz ein (z. B. `https://rest.iad-01.braze.com`)
+   - **API Key**: Geben Sie den API-Schlüssel ein, der in Braze generiert wurde.
+   - **REST Endpoint URL**: Geben Sie den Endpunkt für Ihre Braze-Instanz ein (z. B. `https://rest.iad-01.braze.com`).
 5. Wählen Sie **Save**, um die Integration zu aktivieren.
 
-### 3. Schritt: Outgrow-Daten auf Braze-Attribute abbilden {#step-3-map-outgrow-data-to-braze-attributes}
+### Schritt 3: Outgrow-Daten auf Braze-Attribute abbilden {#step-3-map-outgrow-data-to-braze-attributes}
 
 In Outgrow können Sie Antworten aus interaktiven Inhalten (wie Quiz-Ergebnisse, angepasste Segmente oder Engagement-Scores) angepassten Attributen in Braze zuordnen.
 
@@ -61,12 +61,12 @@ In Outgrow können Sie Antworten aus interaktiven Inhalten (wie Quiz-Ergebnisse,
    - Angepasstes Segment wird `outgrow_custom_segment` zugeordnet.
 3. Speichern Sie Ihre Zuordnungseinstellungen.
 
-### 4. Schritt: Integration testen {#step-4-test-the-integration}
+### Schritt 4: Integration testen {#step-4-test-the-integration}
 
 Nachdem Sie die Integration konfiguriert haben, führen Sie einen Test durch, um zu überprüfen, ob die Daten ordnungsgemäß von Outgrow zu Braze übertragen werden.
 
 1. Veröffentlichen Sie ein Outgrow-Erlebnis (z. B. ein Quiz oder einen Rechner) und schließen Sie es als Testnutzer:in ab.
-2. Gehen Sie in Ihrem Braze-Konto zum Abschnitt **User Profile** und prüfen Sie, ob die Attribute aktualisiert wurden (z. B. `outgrow_quiz_score` oder `outgrow_custom_segment`).
+2. Gehen Sie in Ihrem Braze-Konto zum Abschnitt **Kundenprofil** und prüfen Sie, ob die Attribute aktualisiert wurden (z. B. `outgrow_quiz_score` oder `outgrow_custom_segment`).
 3. Überprüfen Sie, ob die Daten unter den entsprechenden angepassten Attributen korrekt ausgefüllt sind.
 
 ## Verwendung von Outgrow-Daten in Braze für Segmentierung und Targeting {#using-outgrow-data-in-braze-for-segmentation-and-targeting}
@@ -83,7 +83,7 @@ Mit der Integration können Sie Braze-Segmente erstellen, die auf angepassten At
 
 ### Campaigns mit von Outgrow definierten Segmenten starten {#launching-campaigns-with-outgrow-defined-segments}
 
-Mit den angepassten Segmenten, die aus Outgrow-Daten erstellt wurden, können Sie Ihre Braze-Campaigns personalisieren und Nutzer:innen auf der Grundlage ihrer Reaktionen auf interaktive Inhalte ansprechen. Um dies zu tun und ein personalisiertes Nutzererlebnis zu schaffen, folgen Sie diesen Schritten:
+Mit den angepassten Segmenten, die aus Outgrow-Daten erstellt wurden, können Sie Ihre Braze-Campaigns personalisieren und Nutzer:innen auf der Grundlage ihrer Reaktionen auf interaktive Inhalte ansprechen. Gehen Sie wie folgt vor, um ein personalisiertes Nutzererlebnis zu schaffen:
 
 1. Gehen Sie in Braze zu **Engagement** > **Campaigns**.
 2. Wählen Sie **Create Campaign** und wählen Sie die Art Ihrer Campaign (E-Mail, Push, In-App-Nachricht oder andere).
@@ -97,7 +97,7 @@ Mit den angepassten Segmenten, die aus Outgrow-Daten erstellt wurden, können Si
 | **Daten werden nicht an Braze übertragen** | Überprüfen Sie, ob der API-Schlüssel und die Endpunkt-URL in Ihren Outgrow-Integrationseinstellungen korrekt sind. Stellen Sie sicher, dass für den API-Schlüssel die Berechtigung `users.track` aktiviert ist. |
 | **Falsche Datenzuordnung** | Stellen Sie sicher, dass jede zugeordnete Outgrow-Antwort einem gültigen angepassten Attribut in Braze entspricht und dass die Attributnamen genau übereinstimmen. |
 | **Segment filtert nicht korrekt** | Stellen Sie sicher, dass angepasste Attribute in Braze richtig eingerichtet sind und Daten empfangen. Überprüfen Sie die Logik Ihres Segment-Filters erneut. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting common issues" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Fehlerbehebung bei häufigen Problemen" }
 
 ## Zusätzliche Hinweise {#additional-considerations}
 

@@ -8,30 +8,18 @@ hide_toc: true
 
 # Message Credits - Theta (vertraulich) {#message-credits-theta-confidential}
 
-> Message Credits ist die produktübergreifende Paketstruktur von Braze für unsere nativen Angebote Agentenkonsole, SMS, MMS, RCS, WhatsApp und LINE. Message Credits bieten ein flexibles und transparentes Erlebnis bei der Nutzung der Braze-Messaging-Kanäle und bestimmter KI-Features. Credits gewähren Ihnen Zugang zu allen Kanälen, die in der Tabelle auf dieser Seite aufgeführt sind.
+> Message Credits ist die produktübergreifende Paketstruktur von Braze für unsere nativen Angebote Agent Console, SMS, MMS, RCS, WhatsApp und LINE. Message Credits bieten ein flexibles und transparentes Erlebnis bei der Nutzung der Braze-Messaging-Kanäle und bestimmter KI-Features. Credits gewähren Ihnen Zugang zu allen Kanälen, die in der Tabelle auf dieser Seite aufgeführt sind.
 
-{% alert note %}
-Verschiedene Produkte verwenden unterschiedliche Maßeinheiten im Reporting.<br><br>
-<b>Agentenkonsole:</b> Aufrufe<br>
-<b>SMS:</b> Segmente<br>
-<b>MMS:</b> Sendungen<br>
-<b>WhatsApp:</b> Zugestellte Nachrichten<br>
-<b>RCS:</b> Zugestellte Segmente, zugestellte Sendungen<br>
-<b>LINE:</b> Sendungen<br>
-<b>KakaoTalk:</b> Sendungen<br>
-
-Darüber hinaus werden Mobilfunkanbietergebühren für SMS, MMS und RCS separat (nachträglich) abgerechnet und sind nicht Bestandteil dieser Message-Credits-SKU.
-{% endalert %}
+{% multi_lang_include pricing/message_credits_units_of_measure.md %}
 
 ## Definitionen {#definitions}
 
 Die Spaltendefinitionen lauten wie folgt:
 
 |---------|-------------------------------------------------|
-| **Ziel** | Spezifische Endregion, Land oder Art der Aktion, die über die Braze-Plattform gesendet wird |
-| **Credits pro 1 Versand** | Genaue Anzahl der Message Credits für einen Versand<br> (Credits pro Versand = Credit-Verhältnis × Zielmultiplikator) |
+| **Ziel** | Bestimmte Endregion, bestimmtes Land oder bestimmter Aktionstyp, der über die Braze-Plattform gesendet wird |
+| **Credits pro 1 Versand** | Genaue Anzahl der Nachrichten-Credits für einen Versand<br> (Credits pro Versand = Credit-Verhältnis x Zielmultiplikator) |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
-
 
 ## Credit-Verhältnistabelle für Message Credits – Theta {#credit-ratio-table-for-message-credits-theta}
 
@@ -45,17 +33,17 @@ Die Spaltendefinitionen lauten wie folgt:
     <tr>
         <th><b>Kanal</b></th>
         <th><b>Ziel</b></th>
-        <th class="credits-column"><b>Credits pro 1 Versand</b></th>
+        <th class="credits-column"><b>Credits pro Versand</b></th>
     </tr>
     </thead>
     <tbody>
 <tr>
-        <td>Agentenkonsole</td>
+        <td>Agent Console</td>
         <td>Braze Auto</td>
         <td>1.60</td>
     </tr>
     <tr>
-        <td>Agentenkonsole</td>
+        <td>Agent Console</td>
         <td>BYO LLM API Key</td>
         <td>0.16</td>
     </tr>
@@ -1296,7 +1284,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Argentina Marketing - BYO</td>
+        <td>Argentina Marketing - BYO or Meta Direct</td>
         <td>0.62</td>
     </tr>
     <tr>
@@ -1321,7 +1309,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Brazil Marketing - BYO</td>
+        <td>Brazil Marketing - BYO or Meta Direct</td>
         <td>0.63</td>
     </tr>
     <tr>
@@ -1346,7 +1334,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Chile Marketing - BYO</td>
+        <td>Chile Marketing - BYO or Meta Direct</td>
         <td>0.89</td>
     </tr>
     <tr>
@@ -1371,7 +1359,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Colombia Marketing - BYO</td>
+        <td>Colombia Marketing - BYO or Meta Direct</td>
         <td>0.13</td>
     </tr>
     <tr>
@@ -1401,7 +1389,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Egypt Marketing - BYO</td>
+        <td>Egypt Marketing - BYO or Meta Direct</td>
         <td>0.64</td>
     </tr>
     <tr>
@@ -1426,7 +1414,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>France Marketing - BYO</td>
+        <td>France Marketing - BYO or Meta Direct</td>
         <td>0.86</td>
     </tr>
     <tr>
@@ -1451,7 +1439,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Germany Marketing - BYO</td>
+        <td>Germany Marketing - BYO or Meta Direct</td>
         <td>1.37</td>
     </tr>
     <tr>
@@ -1481,7 +1469,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>India Marketing - BYO</td>
+        <td>India Marketing - BYO or Meta Direct</td>
         <td>0.12</td>
     </tr>
     <tr>
@@ -1511,7 +1499,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Indonesia Marketing - BYO</td>
+        <td>Indonesia Marketing - BYO or Meta Direct</td>
         <td>0.41</td>
     </tr>
     <tr>
@@ -1536,7 +1524,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Israel Marketing - BYO</td>
+        <td>Israel Marketing - BYO or Meta Direct</td>
         <td>0.35</td>
     </tr>
     <tr>
@@ -1561,7 +1549,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Italy Marketing - BYO</td>
+        <td>Italy Marketing - BYO or Meta Direct</td>
         <td>0.69</td>
     </tr>
     <tr>
@@ -1591,7 +1579,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Malaysia Marketing - BYO</td>
+        <td>Malaysia Marketing - BYO or Meta Direct</td>
         <td>0.86</td>
     </tr>
     <tr>
@@ -1616,7 +1604,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Mexico Marketing - BYO</td>
+        <td>Mexico Marketing - BYO or Meta Direct</td>
         <td>0.31</td>
     </tr>
     <tr>
@@ -1641,7 +1629,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Netherlands Marketing - BYO</td>
+        <td>Netherlands Marketing - BYO or Meta Direct</td>
         <td>1.60</td>
     </tr>
     <tr>
@@ -1671,7 +1659,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Nigeria Marketing - BYO</td>
+        <td>Nigeria Marketing - BYO or Meta Direct</td>
         <td>0.52</td>
     </tr>
     <tr>
@@ -1696,7 +1684,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>North America Marketing - BYO</td>
+        <td>North America Marketing - BYO or Meta Direct</td>
         <td>0.25</td>
     </tr>
     <tr>
@@ -1721,7 +1709,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Other Marketing - BYO</td>
+        <td>Other Marketing - BYO or Meta Direct</td>
         <td>0.60</td>
     </tr>
     <tr>
@@ -1751,7 +1739,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Pakistan Marketing - BYO</td>
+        <td>Pakistan Marketing - BYO or Meta Direct</td>
         <td>0.47</td>
     </tr>
     <tr>
@@ -1776,7 +1764,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Peru Marketing - BYO</td>
+        <td>Peru Marketing - BYO or Meta Direct</td>
         <td>0.70</td>
     </tr>
     <tr>
@@ -1801,7 +1789,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Africa Marketing - BYO</td>
+        <td>Rest of Africa Marketing - BYO or Meta Direct</td>
         <td>0.23</td>
     </tr>
     <tr>
@@ -1826,7 +1814,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Asia Pacific Marketing - BYO</td>
+        <td>Rest of Asia Pacific Marketing - BYO or Meta Direct</td>
         <td>0.73</td>
     </tr>
     <tr>
@@ -1851,7 +1839,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Central & Eastern Europe Marketing - BYO</td>
+        <td>Rest of Central & Eastern Europe Marketing - BYO or Meta Direct</td>
         <td>0.86</td>
     </tr>
     <tr>
@@ -1876,7 +1864,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Latin America Marketing - BYO</td>
+        <td>Rest of Latin America Marketing - BYO or Meta Direct</td>
         <td>0.74</td>
     </tr>
     <tr>
@@ -1891,7 +1879,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Message Types - BYO</td>
+        <td>Rest of Message Types - BYO or Meta Direct</td>
         <td>0.10</td>
     </tr>
     <tr>
@@ -1906,7 +1894,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Middle East Marketing - BYO</td>
+        <td>Rest of Middle East Marketing - BYO or Meta Direct</td>
         <td>0.34</td>
     </tr>
     <tr>
@@ -1931,7 +1919,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Western Europe Marketing - BYO</td>
+        <td>Rest of Western Europe Marketing - BYO or Meta Direct</td>
         <td>0.59</td>
     </tr>
     <tr>
@@ -1956,7 +1944,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Russia Marketing - BYO</td>
+        <td>Russia Marketing - BYO or Meta Direct</td>
         <td>0.80</td>
     </tr>
     <tr>
@@ -1986,7 +1974,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Saudi Arabia Marketing - BYO</td>
+        <td>Saudi Arabia Marketing - BYO or Meta Direct</td>
         <td>0.46</td>
     </tr>
     <tr>
@@ -2016,7 +2004,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>South Africa Marketing - BYO</td>
+        <td>South Africa Marketing - BYO or Meta Direct</td>
         <td>0.38</td>
     </tr>
     <tr>
@@ -2041,7 +2029,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Spain Marketing - BYO</td>
+        <td>Spain Marketing - BYO or Meta Direct</td>
         <td>0.62</td>
     </tr>
     <tr>
@@ -2066,7 +2054,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Turkey Marketing - BYO</td>
+        <td>Turkey Marketing - BYO or Meta Direct</td>
         <td>0.11</td>
     </tr>
     <tr>
@@ -2096,7 +2084,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>United Arab Emirates Marketing - BYO</td>
+        <td>United Arab Emirates Marketing - BYO or Meta Direct</td>
         <td>0.50</td>
     </tr>
     <tr>
@@ -2121,7 +2109,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>United Kingdom Marketing - BYO</td>
+        <td>United Kingdom Marketing - BYO or Meta Direct</td>
         <td>0.53</td>
     </tr>
     <tr>
@@ -2150,12 +2138,12 @@ Die Spaltendefinitionen lauten wie folgt:
         <td>0.08</td>
     </tr>
     <tr>
-        <td>BYO SMS Connector</td>
+        <td>BYO SMS Konnektor</td>
         <td>Infobip - Alle Regionen</td>
         <td>0.30</td>
     </tr>
     <tr>
-        <td>BYO SMS Connector</td>
+        <td>BYO SMS Konnektor</td>
         <td>Twilio - Alle Regionen</td>
         <td>0.30</td>
     </tr>
@@ -2284,29 +2272,23 @@ Die Spaltendefinitionen lauten wie folgt:
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 {% enddetails %}
 
-------
-## Details zur Agentenkonsole {#agent-console-details}
-Braze berechnet Message Credits für Agentenkonsolen-Aufrufe, die über die Braze-Plattform gesendet werden. Ein Aufruf wird protokolliert, wenn ein Agent einen Aufruf an ein LLM initiiert. Standardmäßig enthält Ihr Vertrag zehntausend Aufrufe pro Zeitraum Ihrer Abo-Laufzeit.
+{% multi_lang_include pricing/agent_console_details.md %}
 
-## Details zum SMS/MMS-Kanal {#smsmms-channel-details}
+## SMS/MMS-Kanaldetails {#smsmms-channel-details}
 
-### SMS-Segmente {#sms-segments}
+### SMS-Nachrichtensegmente {#sms-segments}
 
-SMS-Nachrichten-Segmente sind die Art und Weise, wie die SMS-Branche Nachrichten zählt. Ein Nachrichten-Segment ist eine Gruppierung von bis zu einer definierten Zeichenanzahl (160 für GSM-7-Kodierung; 67 für UCS-2-Kodierung), die in einem einzelnen SMS-Versand gesendet wird. Wenn Sie eine SMS mit 161 Zeichen in GSM-7-Kodierung versenden, werden Sie feststellen, dass zwei (2) Nachrichten-Segmente gesendet wurden. Das Senden mehrerer Nachrichten-Segmente führt zu zusätzlichen Kosten.
+SMS-Nachrichtensegmente sind die Art und Weise, wie die SMS-Branche Nachrichten zählt. Ein Nachrichtensegment ist eine Gruppierung von bis zu einer definierten Anzahl von Zeichen (160 für GSM-7-Kodierung; 67 für UCS-2-Kodierung), die in einem einzelnen SMS-Versand gesendet wird. Wenn Sie eine SMS mit 161 Zeichen unter Verwendung der GSM-7-Kodierung versenden, werden Sie feststellen, dass zwei (2) Nachrichtensegmente gesendet wurden. Das Senden mehrerer Nachrichtensegmente führt zu zusätzlichen Kosten.
 
 ### MMS-Segmente {#mms-segments}
 
-Für MMS beträgt das Nachrichtenlimit 5 MB (dies umfasst das Multimedia-Asset und die Größe des Nachrichtentexts). Um auf der sicheren Seite zu sein, empfiehlt Braze, 600 KB für Ihr Multimedia-Asset nicht zu überschreiten und gleichzeitig einen Nachrichtentext einzuschließen.
+Für MMS liegt das Nachrichtenlimit bei 5 MB (dies umfasst das Multimedia-Asset und die Größe des Nachrichtentexts). Um auf der sicheren Seite zu sein, empfiehlt Braze, 600 KB für Ihr Multimedia-Asset nicht zu überschreiten und gleichzeitig einen Nachrichtentext einzuschließen.
 
 ### RCS-Typen {#rcs-types}
 
-RCS ist die nächste Generation von SMS und MMS. Es bietet die Vorteile eines direkten, hochgradig engagierenden Kanals wie SMS – mit umfangreicheren Funktionen, die moderne Verbraucher:innen erwarten, wie Rich Content (Bilder, Videos, Dokumente), verifizierter und gebrandeter Versand, interaktive Features wie vorgeschlagene Antworten und Aktionen und mehr.
+RCS ist die nächste Generation von SMS und MMS. Es bietet die Vorteile eines direkten Kanals mit hohem Engagement wie SMS – mit umfangreicheren Funktionen, die moderne Verbraucher:innen erwarten, wie Rich Content (Bilder, Videos, Dokumente), verifizierter und gebrandeter Versand, interaktive Features wie vorgeschlagene Antworten und Aktionen und mehr.
 
-- Die RCS-Abrechnung basiert auf zwei verschiedenen Nachrichtentypen (mit Unterscheidungen für die USA):
-    - **Basic RCS:** Nur Text, bis zu 160 Zeichen
-    - **Single RCS:** Nachrichten mit Rich Content oder reine Textnachrichten mit mehr als 160 Zeichen
-    - **Rich RCS (nur USA):** Nur Text, kann eingeschränkte Vorschläge/Buttons enthalten (quickReply, dialPhone, openURL ohne Webview), segmentiert pro 160 UTF-8-Bytes
-    - **Rich Media RCS (nur USA):** Beliebige Medien ODER Text mit umfangreicheren Vorschlägen/Buttons (Webview, Standort, Kalender usw.), wird als eine Nachricht gezählt
+{% multi_lang_include pricing/rcs_billing_message_types.md %}
 
 ## Details zum WhatsApp-Kanal {#whatsapp-channel-details}
 
@@ -2316,15 +2298,17 @@ RCS ist die nächste Generation von SMS und MMS. Es bietet die Vorteile eines di
 
 ### Webhooks
 
-Webhooks wurden am 9. Dezember 2024 in die Nachrichten-Credits aufgenommen. Braze berechnet Nachrichten-Credits für alle Webhooks, die über die Braze-Plattform gesendet werden. Standardmäßig enthält Ihr Vertrag einhunderttausend Webhooks pro Zeitraum Ihrer Abonnementlaufzeit. Zusätzliche Webhooks werden gemäß Ihrem Bestellformular berechnet.
+Webhooks wurden am 9. Dezember 2024 in die Nachrichtenguthaben aufgenommen. Braze berechnet Nachrichtenguthaben für alle Webhooks, die von der Braze-Plattform gesendet werden. Standardmäßig enthält Ihr Vertrag hunderttausend Webhooks pro Zeitraum Ihrer Abonnementlaufzeit. Zusätzliche Webhooks werden gemäß Ihrem Bestellformular berechnet.
 
-### Eigene (BYO) SMS-Konnektoren {#bring-your-own-byo-sms-connectors}
+{% multi_lang_include pricing/webhook_failed_requests_billing.md credit_name='Message Credits' %}
 
-Braze ermöglicht es Kund:innen, sich mit Drittanbietern zu integrieren, um SMS-Nachrichten über das Modell „BYO SMS-Konnektor“ zu versenden. Braze berechnet Nachrichten-Credits für jede Nachricht, die über BYO SMS-Konnektoren von der Braze-Plattform gesendet wird.
+### Bring your own (BYO) SMS-Konnektoren {#bring-your-own-byo-sms-connectors}
+
+Braze ermöglicht es Kund:innen, sich mit Drittanbietern zu integrieren, um SMS-Nachrichten über das Modell „BYO SMS-Konnektor“ zu senden. Braze berechnet Nachrichtenguthaben für jede Nachricht, die von der Braze-Plattform über BYO SMS-Konnektoren gesendet wird.
 
 ### LINE
 
-Braze berechnet Nachrichten-Credits für alle LINE-Nachrichten, die über die Braze-Plattform gesendet werden.
+Braze berechnet Nachrichtenguthaben für alle LINE-Nachrichten, die von der Braze-Plattform gesendet werden.
 
 ## Aufschlüsselung nach Abrechnungsregion {#billing-region-breakdown}
 
@@ -2339,12 +2323,12 @@ Madagaskar, Malawi, Mali, Mauretanien, Marokko, Mosambik, Namibia, Niger, Ruanda
 
 ### Übriger asiatisch-pazifischer Raum {#rest-of-asia-pacific}
 
-Afghanistan, Australien, Bangladesch, Kambodscha, China, Hongkong, Japan, Laos, Mongolei, Nepal, Neuseeland, Papua-Neuguinea, Philippinen, Singapur, Sri Lanka, Taiwan, Tadschikistan, Thailand,
+Afghanistan, Australien, Bangladesch, Kambodscha, China, Japan, Laos, Mongolei, Nepal, Neuseeland, Papua-Neuguinea, Philippinen, Sri Lanka, Taiwan, Tadschikistan, Thailand,
 Turkmenistan, Usbekistan, Vietnam
 
 ### Übriges Mittel- und Osteuropa {#rest-of-central-eastern-europe}
 
-Albanien, Armenien, Aserbaidschan, Belarus, Bulgarien, Kroatien, Tschechische Republik, Georgien, Griechenland, Ungarn, Lettland, Litauen, Nordmazedonien, Moldawien, Polen, Rumänien, Serbien, Slowakei, Slowenien, Ukraine
+Albanien, Armenien, Aserbaidschan, Belarus, Bulgarien, Kroatien, Tschechische Republik, Georgien, Griechenland, Lettland, Litauen, Nordmazedonien, Moldawien, Serbien, Slowakei, Slowenien, Ukraine
 
 ### Übriges Lateinamerika {#rest-of-latin-america}
 
@@ -2353,7 +2337,7 @@ Guatemala, Haiti, Honduras, Jamaika, Nicaragua, Panama, Paraguay, Puerto Rico, U
 
 ### Übriger Naher Osten {#rest-of-middle-east}
 
-Bahrain, Irak, Jordanien, Kuwait, Libanon, Oman, Katar, Jemen
+Bahrain, Irak, Jordanien, Kuwait, Libanon, Oman, Jemen
 
 ### Übriges Westeuropa {#rest-of-western-europe}
 

@@ -11,7 +11,7 @@ search_tag: Partner
 
 > La plataforma de marketing agéntico [Simon AI][1] ayuda a los equipos de marketing a lograr una verdadera personalización uno a uno. Combina un CDP componible con agentes de IA que operan directamente en Snowflake AI Data Cloud para actuar como el equipo de datos y ejecución de un especialista en marketing.
 
-Usa la integración de Braze y Simon AI para crear y sincronizar audiencias avanzadas con Braze para orquestación en tiempo real y sin código. Con esta integración, puedes aprovechar la resolución de identidades, la unificación de datos de clientes y la segmentación impulsada por IA de Simon AI para potenciar Campaigns de Braze más personalizadas e impactantes.
+Usa la integración de Braze y Simon AI para crear y sincronizar audiencias avanzadas con Braze para orquestación en tiempo real y sin código. Con esta integración, puedes aprovechar la resolución de identidades, la unificación de datos de clientes y la segmentación impulsada por IA de Simon AI para potenciar campañas de Braze más personalizadas e impactantes.
 
 ## Requisitos previos {#prerequisites}
 
@@ -20,11 +20,11 @@ Para empezar, necesitas autenticar tu cuenta de Braze dentro de tu cuenta de Sim
 | Requisito | Descripción |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Simon AI | Debes tener una cuenta de Simon AI existente para aprovechar la integración de Braze desde Simon AI. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con los permisos `users.track`, `campaigns.trigger.schedule.create` y `campaigns.trigger.send`. <br><br> Se puede crear en el dashboard de Braze desde **Configuración** > **Claves de API**. |
-| URL del dashboard de Braze | [Tu URL de punto de conexión REST][3]. Tu punto de conexión dependerá de la URL de Braze para tu instancia. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con los permisos `users.track`, `campaigns.trigger.schedule.create` y `campaigns.trigger.send`. <br><br> Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
+| URL del panel de Braze | [Tu URL de endpoint REST][3]. Tu endpoint dependerá de la URL de Braze para tu instancia. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
-## Casos de uso {#use-cases}
+## Ejemplos {#use-cases}
 
 - Desencadenar un Canvas o correo electrónico de Braze
 - Pasar y mantener propiedades de Segment
@@ -40,8 +40,8 @@ Al usar la integración de Simon y Braze, Simon solo envía deltas en cada sincr
 
 Para usar la integración de Braze, primero autentica tu cuenta de Braze en Simon:
 
-1. Desde la navegación izquierda, haz clic en **Integrations** y luego desplázate hasta Braze.
-2. Introduce tu [clave de API REST][2] de Braze y tu [URL del dashboard][3].
+1. Desde el menú de navegación, haz clic en **Integrations** y luego desplázate hasta Braze.
+2. Introduce tu [clave de API REST][2] de Braze y tu [URL del panel][3].
 3. Haz clic en **Save Changes**.
 
 Una conexión exitosa muestra **Connected** en la ventana.
@@ -55,7 +55,7 @@ Después de autenticar tu cuenta de Braze en Simon AI, puedes añadir acciones d
 Hay tres acciones disponibles:
 
 - **Sync Simon segment attribute**: sincroniza los detalles de tu segmento con un atributo personalizado nuevo o existente en Braze.
-- **Trigger a Braze Canvas**: desencadena un Canvas de Braze que aproveche los datos de tu segmento de Simon.
+- **Trigger a BRAZE CANVAS**: desencadena un Canvas de Braze que aproveche los datos de tu segmento de Simon.
 - **Send a Braze campaign**: lanza una Campaign completa de Braze desde Simon.
 
 ![Menú desplegable que muestra la lista de acciones de Braze disponibles en Simon AI.][9]{: style="max-width:60%"}
@@ -82,8 +82,8 @@ Después de que tu director de cuentas active los rasgos de contacto:
 ![Selección de rasgos de sincronización en Simon AI.][10]
 
 [1]: https://www.simon.ai/
-[2]: {{site.baseurl}}/api/basics/#creating-and-managing-rest-api-keys
-[3]: {{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints
+[2]: {{site.baseurl}}/api/basics#creating-rest-api-keys
+[3]: {{site.baseurl}}/user_guide/administer/personal/sdk_endpoints
 [4]: https://docs.simondata.com/docs/campaigns-flows
 [5]: https://docs.simondata.com/docs/campaigns-journeys-two
 [6]: https://docs.simondata.com

@@ -2,7 +2,7 @@
 nav_title: Conector BYO WhatsApp
 article_title: Conector Bring Your Own WhatsApp
 page_order: 2
-description: "Este artículo de referencia proporciona un recorrido paso a paso para configurar un conector Bring Your Own WhatsApp, que otorga a Braze acceso a tu Infobip WhatsApp Business Manager."
+description: "Este artículo de referencia proporciona un recorrido paso a paso para configurar un conector Bring Your Own WhatsApp, que otorga a Braze acceso a tu Infobip WhatsApp Business Administrador."
 page_type: reference
 channel:
   - WhatsApp
@@ -10,7 +10,11 @@ channel:
 
 # Conector Bring Your Own WhatsApp {#bring-your-own-whatsapp-connector}
 
-> El conector Bring Your Own (BYO) WhatsApp ofrece una asociación entre Braze e Infobip, en la que le das a Braze acceso a tu Infobip WhatsApp Business Manager (WABA). Esto te permite gestionar y pagar los costos de mensajería directamente con Infobip mientras usas Braze para segmentación, personalización y orquestación de campañas. Braze mantiene toda la funcionalidad existente que ofrece el canal de WhatsApp, como mensajes salientes, procesamiento de mensajes entrantes, flujos de WhatsApp y análisis.
+> El conector Bring Your Own (BYO) WhatsApp ofrece una asociación entre Braze e Infobip, en la que le das a Braze acceso a tu Infobip WhatsApp Business Administrador (WABA). Esto te permite gestionar y pagar los costos de mensajería directamente con Infobip mientras usas Braze para segmentación, personalización y orquestación de campañas. Braze mantiene toda la funcionalidad existente que ofrece el canal de WhatsApp, como mensajes salientes, procesamiento de mensajes entrantes, flujos de WhatsApp y análisis.
+
+{% alert note %}
+Para migrar desde otros proveedores de soluciones de negocio (BSP) a la integración de Braze, consulta [Migrar desde otro proveedor de soluciones de negocio]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number#migrate-from-another-business-solution-provider).
+{% endalert %}
 
 ## Requisitos {#requirements}
 
@@ -28,11 +32,11 @@ Antes de configurar el conector BYO WhatsApp, confirma que los envíos anteriore
 
 ### Casos compatibles {#supported-cases}
 
-- La cuenta de WhatsApp Business y el número de teléfono nunca se han conectado a un socio antes.
+- La cuenta de WhatsApp Business y el número de teléfono nunca se han conectado a un partner antes.
 - La cuenta de WhatsApp Business está conectada directamente a Braze a través de la integración nativa.
-    - Sigue los pasos en [Migración de número de teléfono de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number) para migrar tus números de teléfono a una nueva cuenta de WhatsApp Business, un número de teléfono a la vez.
+    - Sigue los pasos en [Migrar entre cuentas de WhatsApp Business]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number#migrate-between-whatsapp-business-accounts) para migrar tus números de teléfono a una nueva cuenta de WhatsApp Business, un número de teléfono a la vez.
 - La cuenta de WhatsApp Business está conectada a un proveedor de soluciones diferente de Braze e Infobip.
-    - Sigue los pasos en [Migración de número de teléfono de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number) para migrar tus números de teléfono a una nueva cuenta de WhatsApp Business, un número de teléfono a la vez.
+    - Sigue los pasos en [Migrar entre cuentas de WhatsApp Business]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number#migrate-between-whatsapp-business-accounts) para migrar tus números de teléfono a una nueva cuenta de WhatsApp Business, un número de teléfono a la vez.
 
 ## Paso 1: Recuperar la información de la cuenta de Infobip {#step-1}
 
@@ -78,7 +82,7 @@ Antes de configurar el conector BYO WhatsApp, confirma que los envíos anteriore
 - Debes crear un nuevo WABA, no seleccionar uno existente.
 
 {% alert note %}
-Para recibir el código de verificación, ve a tu dashboard de Infobip > **Analyze** > **Logs**, y obtén el código del mensaje SMS entrante.
+Para recibir el código de verificación, ve a tu panel de Infobip > **Analyze** > **Logs** y obtén el código del mensaje SMS entrante.
 {% endalert %}
 
 ![Registros de mensajes que muestran un mensaje SMS entrante con el código de verificación.]({% image_buster /assets/img/whatsapp/byo_connector/verification_code.png %})
@@ -103,7 +107,7 @@ Confirma que tu cuenta de WhatsApp Business no esté conectada a un espacio de t
 
 ### No se pudo compartir el ID de la cuenta de WhatsApp Business con Infobip {#couldnt-share-whatsapp-business-account-id-with-infobip}
 
-1. Confirma que tu cuenta de WhatsApp Business no esté conectada a Braze o a otro socio.
+1. Confirma que tu cuenta de WhatsApp Business no esté conectada a Braze o a otro partner.
 2. Confirma que ningún número de teléfono en tu cuenta de WhatsApp Business esté conectado a una cuenta de Infobip diferente. Para números importados, puedes encontrar el número en Infobip y seleccionar **Cancel number**.
 
 ## Consideraciones {#considerations}

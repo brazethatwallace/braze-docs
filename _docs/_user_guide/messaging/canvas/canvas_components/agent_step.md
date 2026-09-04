@@ -45,7 +45,7 @@ In the agent list, each agent is labeled with its [daily invocation limit]({{sit
 
 ### Step 3: Set your agent's output {#define-the-output-variable}
 
-Agent outputs are called "output variables" and are stored in a [context variable]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#context-variable-types) for easy access. To define the output variable, give the variable a name.
+Agent outputs are called "output variables" and are stored in a [context variable]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#context-variable-filters) for easy access. To define the output variable, give the variable a name.
 
 Note that the output variable's data type is set from the [Agent Console]({{site.baseurl}}/user_guide/brazeai/agents). Agent outputs can be saved as strings, numbers, booleans, or objects. This makes them flexible for both text personalization and conditional logic in your Canvas. Here are some common uses for each type:
 
@@ -54,7 +54,7 @@ Note that the output variable's data type is set from the [Agent Console]({{site
 | String | Message personalization (subject lines, copy, responses) |
 | Number | Scoring, thresholds, routing in [Audience Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) |
 | Boolean | Yes/No branching in [Decision Splits]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split) |
-| Object | Leverage one or more of the above data types with a single LLM call in a predictable data structure |
+| Object | Leverage one or more of the earlier in this section data types with a single LLM call in a predictable data structure |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Set your agent's output #define-the-output-variable" }
 
 You can use an output variable throughout the Canvas by using the same template syntax as you would with a context variable. Either use the **Context Variable** segment filter, or template agent responses directly using Liquid: {% raw %}`{{context.${response_variable_name}}}` {% endraw %}.
@@ -63,19 +63,22 @@ To use a specific property from an object output variable, use dot notation to a
 
 ![Agent step for Body HTML Writer with an object data type output for the variable "agent_output".]({% image_buster /assets/img/ai_agent/test_agent_step.png %}){: style="max-width:80%;"}
 
-### Step 4: Add any additional context (optional)
+### Step 4: Add optional step instructions
 
-You can decide to include additional context values for the agent step to reference when it runs. You can enter any Liquid templated values that you would normally use in a Canvas.
+You can include optional step instructions for anything your agent needs to know that is specific to this step and not already covered in the agent's main instructions. You can enter any Liquid templated values that you would normally use in a Canvas.
 
-{% alert note %}
-Note that the agent is already automatically receiving the context configured in the **Instructions** section. Liquid variables that were already configured there do not need to be re-entered here.
-{% endalert %}
+### Step 5: Test the agent {#step-5-test-the-agent}
 
-![The option to add additional context to an Agent step using Liquid.]({% image_buster /assets/img/ai_agent/agent_step_context.png %}){: style="max-width:80%;"}
+You can test an Agent step in two ways:
 
-### Step 5: Test the agent
+**In-step preview (Canvas builder):** After configuring the step, use the step preview to see agent output for a random user, an existing user, or a custom user. This tests the step in isolation without walking the full Canvas path.
 
-After setting up your Agent step, you can test and preview the output of this step.
+**Test Canvas (full journey):** Select **Test Canvas** in the Canvas footer to preview the user path end-to-end. When the test reaches your Agent step, Braze asks **Do you want to run the agent "{agentName}"?**
+
+- Select **Yes** to optionally add context, then select **Simulate response** to invoke the agent for the preview user. You can describe sample inputs in plain language (for example, cart contents or message text) to supplement the test user's profile and any Canvas context already set upstream.
+- Select **No** to skip the live invocation and use the agent's configured **fallback output** from Agent Console instead.
+
+Invocations from **Simulate response** count toward the agent's daily invocation limit and appear in **Agent Console** > **Logs**. For full Test Canvas behavior, see [Preview user paths]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths#agent-steps).
 
 ![Preview the agent output as a random user.]({% image_buster /assets/img/ai_agent/agent_step_preview.png %}){: style="max-width:80%;"}
 
@@ -132,7 +135,7 @@ Let’s say you’re sending a personalized message to recommend a new ice cream
 
 ### How do Agent steps use input data?
 
-An Agent step analyzes the context data that the agent is configured to use, as well as any additional context that is [provided to the agent](#step-4-add-any-additional-context-optional).
+An Agent step analyzes the context data that the agent is configured to use, as well as any [optional step instructions](#step-4-add-optional-step-instructions) you add to the step.
 
 ## Related articles  
 

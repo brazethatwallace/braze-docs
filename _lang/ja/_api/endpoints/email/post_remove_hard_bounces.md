@@ -20,7 +20,7 @@ description: "この記事では、「ハードバウンスメールアドレス
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`email.bounce.remove` 権限を持つ [API キー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
+このエンドポイントを使用するには、`email.bounce.remove` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 

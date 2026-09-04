@@ -13,7 +13,7 @@ description: "Erfahren Sie, wie Sie den Performance-Bericht verwenden, um Behand
 
 Ihr Performance-Bericht wird in Schichten aufgebaut und ist vollständig auf Ihren Anwendungsfall zugeschnitten. In Zusammenarbeit mit Ihrem Team:
 
-1. Braze definiert, was als Aktion zählt (z. B. ein Versand, Klick, Kauf oder eine Conversion).
+1. Braze definiert, was als Aktion zählt (z. B. ein Versand, Klick, Kauf oder eine Konversion).
 2. Braze definiert, wie diese Aktion täglich gemessen wird (Volumen, Umsatz, eindeutige Personen und Ähnliches).
 3. Braze definiert die Geschäftsmetrik, die Sie sehen möchten (z. B. Konversionsrate oder Umsatz pro Nutzer:in).
 4. Zeitregeln und Segmentierung werden angewendet.
@@ -26,12 +26,12 @@ Nichts im Dashboard erzeugt neue Daten. Es visualisiert gespeicherte tägliche E
 Oben im Dashboard wählen Sie:
 
 - **Datumsbereich:** Der Zeitraum für den Bericht.
-- **Vergleichsgruppen:** Die Gruppen, die verglichen werden (z. B. Decisioning Studio versus Business as Usual).
+- **Vergleichsgruppen:** Die Gruppen, die verglichen werden (z. B. Decisioning Studio versus Kontrollgruppe).
 - **Aggregation:** Die Chart-Aggregationseinstellung (Täglich, 7-Tage-Durchschnitt oder 30-Tage-Durchschnitt).
-- **Segments:** Alle angewendeten Segments. Diese werden individuell mit Ihrem AI Expert Services-Team konfiguriert.
+- **Segments:** Alle angewendeten Segmente. Diese werden individuell mit Ihrem AI Expert Services-Team konfiguriert.
 - **Timeline-Ereignisse:** Ob konfigurierte Timeline-Ereignisse im Chart eingeblendet werden sollen, um Ihnen zu helfen, Änderungen oder Ereignisse zu verstehen, die die Performance beeinflussen könnten.
 
-![Performance-Bericht mit den Filtern für Vergleichsgruppen, Aggregation, Segments und Timeline-Ereignisse oben sowie der Datumsbereichsauswahl oben rechts.]({% image_buster /assets/img/decisioning_studio/reporting_performance_date_range.png %})
+![Performance-Bericht mit den Filtern für Vergleichsgruppen, Aggregation, Segmente und Timeline-Ereignisse oben sowie der Datumsbereichsauswahl oben rechts.]({% image_buster /assets/img/decisioning_studio/reporting_performance_date_range.png %})
 
 Diese Auswahl bestimmt, welche Tage einbezogen werden, welche Gruppen verglichen werden, wie die Trendlinie geglättet wird und welche Population Sie betrachten.
 
@@ -41,14 +41,14 @@ Das Ändern der Aggregationseinstellung (z. B. 7-Tage-Durchschnitt) wirkt sich n
 
 Wenn Sie ein aktuelles Datum in der Datumsauswahl nicht auswählen können, ist dieses Datum wahrscheinlich aufgrund konfigurierter Datenverzögerungen deaktiviert. Es gibt zwei Arten von Verzögerungen, die die Datumsverfügbarkeit einschränken können:
 
-- **Datenpipeline-Verzögerungen:** Die Zeit, die benötigt wird, um Daten aus Ihrer CDP in Decisioning Studio aufzunehmen und zu verarbeiten. Dadurch wird sichergestellt, dass Berichte nur vollständige, zuverlässige Daten anzeigen.
+- **Datenpipeline-Verzögerungen:** Die Zeit, die benötigt wird, um Daten aus Ihrer Customer Data Platform (CDP) in Decisioning Studio aufzunehmen und zu verarbeiten. Dadurch wird sichergestellt, dass Berichte nur vollständige, zuverlässige Daten anzeigen.
 - **Empfehlungsaktivierungsverzögerungen:** Die Zeit zwischen dem Zeitpunkt, an dem die Decisioning-Studio-Engine eine Empfehlung vorhersagt, und dem Zeitpunkt, an dem Sie sie in Ihren Campaigns aktivieren. Berichte enthalten keine Tage, an denen Empfehlungen noch nicht aktiviert wurden.
 
-Diese Verzögerungen werden für Ihren Anwendungsfall konfiguriert. Wenn Sie Ihr spezifisches Berichtsfenster verstehen möchten, wenden Sie sich an Ihre:n AI Success Manager:in.
+Diese Verzögerungen werden für Ihren Anwendungsfall konfiguriert. Wenn Sie Ihr spezifisches Berichtsfenster verstehen möchten, wenden Sie sich an Ihre:n KI Success Manager:in.
 
 ## KPI-Karten {#kpi-cards}
 
-Die KPI-Karten auf der linken Seite des Berichts zeigen die für Ihren Anwendungsfall konfigurierten Leistungskennzahlen, wie z. B.:
+Die KPI-Karten auf der primären Seite des Berichts zeigen die für Ihren Anwendungsfall konfigurierten KPI, wie z. B.:
 
 - Inkrementeller LTV / Kund:in
 - Conversions / Kund:in
@@ -56,7 +56,7 @@ Die KPI-Karten auf der linken Seite des Berichts zeigen die für Ihren Anwendung
 
 Jede Karte stellt die KPI dar, die über den gesamten ausgewählten Datumsbereich berechnet wird. Dies ist ein Gesamtzeitraumwert, kein Tagesdurchschnitt. Wenn Sie beispielsweise „Inkrementeller LTV / Kund:in = 3,192“ sehen, spiegelt das die Performance über das gesamte ausgewählte Fenster wider.
 
-![Performance-Bericht mit den KPI-Zusammenfassungskarten auf der linken Seite, einschließlich Metriken wie „Inkrementeller LTV / Kund:in“, „Conversions / Kund:in“ und „Abmeldungen / Kund:in“.]({% image_buster /assets/img/decisioning_studio/reporting_performance_kpi_cards.png %})
+![Performance-Bericht mit den KPI-Zusammenfassungskarten auf der primären Seite, einschließlich Metriken wie „Inkrementeller LTV / Kund:in“, „Conversions / Kund:in“ und „Abmeldungen / Kund:in“.]({% image_buster /assets/img/decisioning_studio/reporting_performance_kpi_cards.png %})
 
 ## KPI-Trendchart {#kpi-trend-chart}
 
@@ -112,9 +112,9 @@ Treiberbäume verwenden dieselben KPI-Definitionen wie der Rest des Dashboards u
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 
-### Wie funktionieren Segments? {#how-do-segments-work}
+### Wie funktionieren Segmente? {#how-do-segments-work}
 
-Segments ermöglichen es Ihnen, die Performance nach definierten Gruppen aufzuschlüsseln, z. B. nach Engagement-Level, Kundenmerkmalen, Gerätetyp oder anderen konfigurierten Features.
+Segmente ermöglichen es Ihnen, die Performance nach definierten Gruppen aufzuschlüsseln, z. B. nach Engagement-Level, Kundenmerkmalen, Gerätetyp oder anderen konfigurierten Features.
 
 Die Segmentzugehörigkeit wird individuell für Ihren Anwendungsfall konfiguriert und täglich berechnet. Das bedeutet, dass das vergangene Segment einer Kund:in widerspiegelt, wer sie an diesem Tag war. Wenn sich ihr Verhalten später ändert, bleiben historische Tage unverändert. Dies bewahrt die historische Genauigkeit und verhindert, dass sich Berichte rückwirkend verschieben.
 
@@ -126,11 +126,11 @@ Die KPIs für Go-Anwendungsfälle werden automatisch festgelegt und standardisie
 
 Die Datumsauswahl erlaubt möglicherweise nicht die Auswahl der letzten Tage. Dies ist beabsichtigt. Berichte können die folgenden Einschränkungen anwenden, um zu verhindern, dass unvollständige oder instabile Daten angezeigt werden:
 
-- **Datenpipeline-Verzögerungen:** Konfiguriert, um die Zeit zu berücksichtigen, die für die Aufnahme und Verarbeitung von Daten aus Ihrer CDP benötigt wird. Dadurch wird sichergestellt, dass alle Daten für einen bestimmten Tag vollständig sind, bevor dieser Tag in Berichten erscheint.
+- **Datenpipeline-Verzögerungen:** Konfiguriert, um die Zeit zu berücksichtigen, die für die Aufnahme und Verarbeitung von Daten aus Ihrer Customer Data Platform (CDP) benötigt wird. Dadurch wird sichergestellt, dass alle Daten für einen bestimmten Tag vollständig sind, bevor dieser Tag in Berichten erscheint.
 - **Empfehlungsaktivierungsverzögerungen:** Konfiguriert, um die Verzögerung zwischen dem Zeitpunkt, an dem Empfehlungen generiert werden, und dem Zeitpunkt, an dem sie in Ihren Campaigns aktiviert werden, zu berücksichtigen. Tage, an denen Empfehlungen noch nicht aktiviert wurden, erscheinen nicht in Berichten.
 - **Explizit ausgeschlossene Daten:** Daten, die Sie in den Berichtseinstellungen manuell ausgeschlossen haben.
 
-Wenn Sie Klarheit über Ihr spezifisches Berichtsfenster oder die Datenverfügbarkeitsregeln benötigen, wenden Sie sich an Ihre:n AI Success Manager:in.
+Wenn Sie Klarheit über Ihr spezifisches Berichtsfenster oder die Datenverfügbarkeitsregeln benötigen, wenden Sie sich an Ihre:n KI Success Manager:in.
 
 ### Was ist der Unterschied zwischen „Volumen“- und „Raten“-KPIs? {#whats-the-difference-between-volume-and-rate-kpis}
 
@@ -147,11 +147,11 @@ Wenn eine Metrik als „eindeutig“ definiert ist, werden Personen mithilfe ein
 
 „Eindeutig pro Tag“ unterscheidet sich von „eindeutig über den gesamten Datumsbereich“. Wenn Sie tägliche eindeutige Zählungen über mehrere Tage summiert sehen, kann dieselbe Person mehr als einmal erscheinen (einmal pro Tag, an dem sie aktiv war). Das ist beabsichtigt.
 
-Wenn Sie verstehen möchten, wie Eindeutigkeit in Ihrem Setup definiert wurde, wenden Sie sich an Ihre:n AI Success Manager:in.
+Wenn Sie verstehen möchten, wie Eindeutigkeit in Ihrem Setup definiert wurde, wenden Sie sich an Ihre:n KI Success Manager:in.
 
 ### Warum könnte dieser Bericht von einem anderen System abweichen? {#why-might-this-report-differ-from-another-system}
 
-Wenn Ihr Performance-Bericht nicht mit einem anderen Dashboard übereinstimmt (z. B. einem ESP, Analytics-Tool oder internen BI-Bericht), bedeutet das nicht unbedingt, dass etwas falsch ist. Verschiedene Systeme wenden oft unterschiedliche Definitionen und Regeln an. Häufige Gründe sind:
+Wenn Ihr Performance-Bericht nicht mit einem anderen Dashboard übereinstimmt (z. B. einem E-Mail-Anbieter, Analytics-Tool oder internen BI-Bericht), bedeutet das nicht unbedingt, dass etwas falsch ist. Verschiedene Systeme wenden oft unterschiedliche Definitionen und Regeln an. Häufige Gründe sind:
 
 - **Attributionsregeln:** Einige Metriken wenden Attributionslogik an, was bedeutet, dass nur Aktivitäten gezählt werden, die definierten Kriterien entsprechen. Wenn ein anderes System alle Aktivitäten ohne Attributionslogik zählt, können die Gesamtwerte abweichen.
 - **Filterung von Maschinen- und Bot-Engagement:** Bekanntes maschinen- oder bot-gesteuertes Engagement (wie automatisierte Sicherheitsscans oder nicht-menschliche Klicks) wird herausgefiltert, um sicherzustellen, dass die Performance echtes menschliches Verhalten widerspiegelt. Einige Plattformen schließen diese Interaktionen in ihre Gesamtwerte ein.
@@ -186,4 +186,4 @@ Das Chart zeigt 3 an Tag 1 und 3 an Tag 2. Über beide Tage hinweg sehen Sie 3 +
 
 Diese Konfiguration beantwortet: „Wie viele eindeutige Kund:innen-Engagements gab es über die Tage hinweg?“ Sie beantwortet nicht: „Wie viele einzelne Kund:innen haben sich mindestens einmal über den gesamten Zeitraum engagiert?“
 
-Wenn Ihr Ziel die Eindeutigkeit auf Fensterebene ist (eindeutige Personen über die gesamte Campaign oder das gesamte Quartal), ist das ein anderer Modellierungsansatz. Wenden Sie sich an Ihre:n AI Success Manager:in für Hinweise zur Gestaltung.
+Wenn Ihr Ziel die Eindeutigkeit auf Fensterebene ist (eindeutige Personen über die gesamte Campaign oder das gesamte Quartal), ist das ein anderer Modellierungsansatz. Wenden Sie sich an Ihre:n KI Success Manager:in für Hinweise zur Gestaltung.

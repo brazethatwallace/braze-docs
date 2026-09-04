@@ -14,13 +14,13 @@ hidden: true
 
 {% sdk_min_versions swift:5.4.0 android:21.0.0 web:4.0.3 %}
 
-Le schéma de deeplink `brazeActions://` peut être utilisé partout où une option de deeplink ou de redirection existe dans les messages in-app et les Content Cards.
+Le schéma de lien profond `brazeActions://` peut être utilisé partout où une option de lien profond ou de redirection existe dans les messages in-app et les Content Cards.
 
-Pour les messages in-app au format HTML, utilisez plutôt le [`pont JavaScript`]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/customize#javascript-bridge), car les deeplinks ne sont pas pris en charge dans les types de messages HTML.
+Pour les messages in-app HTML, utilisez plutôt le [`pont Javascript`]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#javascript-bridge), car les liens profonds ne sont pas pris en charge dans les types de messages HTML.
 
 ## Schéma {#schema}
 
-Vous pouvez inclure plusieurs `steps` d'actions dans un type d'action `container`. Une seule étape sans `container` est également valide.
+Vous pouvez inclure plusieurs `steps` d'action au sein d'un type d'action `container`. Un seul step sans `container` est également valide.
 
 ```json
 {
@@ -29,7 +29,7 @@ Vous pouvez inclure plusieurs `steps` d'actions dans un type d'action `container
 }
 ```
 
-Une `step` individuelle contient un `type` d'action et un tableau `args` facultatif :
+Un `step` individuel contient un `type` d'action et un tableau `args` optionnel :
 
 ```json
 {
@@ -79,29 +79,29 @@ function encode(input) {
 
 ## Actions prises en charge {#supported-actions}
 
-| Type | Args |
+|Type|Arguments|
 |--|--|
-| `container` | Un tableau d'autres actions à effectuer |
-| `logCustomEvent` | 1. `event name`<br>2. `event properties JSON object` (facultatif) |
-| `setEmailNotificationSubscriptionType` | `"opted_in" | "subscribed" | "unsubscribed"` |
-| `setPushNotificationSubscriptionType` | `"opted_in" | "subscribed" | "unsubscribed"` |
-| `setCustomUserAttribute` | 1. `attribute_name`<br>2. `attribute_value` |
-| `requestPushPermission` | S.O. |
-| `openLink` | 1. `url`<br>2. `openInNewTab` (booléen) |
-| `openLinkInWebview` | `url` |
-| `addToSubscriptionGroup` | `subscriptionGroupId` |
-| `removeFromSubscriptionGroup` | `subscriptionGroupId` |
-| `addToCustomAttributeArray` | 1. `attribute_name`<br>2. `attribute_value` |
-| `removeFromCustomAttributeArray` | 1. `attribute_name`<br>2. `attribute_value` |
+|`container`|Un tableau d'autres actions à effectuer|
+|`logCustomEvent`|1. `event name`<br>2. `event properties JSON object` (facultatif)|
+|`setEmailNotificationSubscriptionType`|`"opted_in" | "subscribed" | "unsubscribed"`|
+|`setPushNotificationSubscriptionType`|`"opted_in" | "subscribed" | "unsubscribed"`|
+|`setCustomUserAttribute`|1. `attribute_name`<br>2. `attribute_value`|
+|`requestPushPermission`| N/A |
+|`openLink`|1. `url`<br>2. `openInNewTab` (booléen)|
+|`openLinkInWebview`| `url`|
+|`addToSubscriptionGroup`| `subscriptionGroupId`|
+|`removeFromSubscriptionGroup`| `subscriptionGroupId`|
+|`addToCustomAttributeArray`|1. `attribute_name`<br>2. `attribute_value`|
+|`removeFromCustomAttributeArray`|1. `attribute_name`<br>2. `attribute_value`|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Actions prises en charge" }
 
 ## Encodeur JSON {#json-encoder}
 
-Saisissez une chaîne de caractères JSON pour voir l'URI `brazeActions://` résultant. Ou saisissez un URI `brazeActions://` pour décoder son JSON.
+Entrez une chaîne JSON pour voir l'URI `brazeActions://` résultante. Ou entrez une URI `brazeActions://` pour décoder son JSON.
 
 <div><h4>Entrée JSON</h4></div>
 <textarea id="braze-actions-input" rows="12"></textarea>
-<div><h4>Sortie deeplink</h4></div>
+<div><h4>Sortie Deeplink</h4></div>
 <textarea id="braze-actions-output" rows="6"></textarea>
 <style>
     #braze-actions-input, #braze-actions-output {

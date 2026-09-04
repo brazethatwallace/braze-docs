@@ -1,7 +1,7 @@
 ---
 nav_title: Treasure Data für Currents
 article_title: Treasure Data für Currents
-description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze-Currents und Treasure Data, einer Customer Data Platform (CDP) für Unternehmen, die es Ihnen erlaubt, Auftragsergebnisse direkt in Braze zu schreiben."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze-Currents und Treasure Data, einer Customer Data Platform (CDP) für Unternehmen, die Braze-Ereignisdaten in Treasure Data streamt, um sie dort zu analysieren und zu aktivieren."
 page_type: partner
 tool: Currents
 alias: /partners/treasure_data_for_currents/
@@ -11,80 +11,143 @@ search_tag: Partner
 
 # Treasure Data für Currents {#treasure-data-for-currents}
 
-> [Treasure Data](https://www.treasuredata.com/) ist eine Customer Data Platform (CDP), die Informationen aus verschiedenen Quellen sammelt und an eine Vielzahl anderer Standorte in Ihrem Marketing Stack weiterleitet.
+> [Treasure Data](https://www.treasuredata.com/) ist eine Customer Data Platform (CDP), die Informationen aus verschiedenen Quellen sammelt und an eine Vielzahl anderer Ziele in Ihrem Marketing Stack weiterleitet.
 
-Die Integration von Braze und Treasure Data erlaubt es Ihnen, den Informationsfluss zwischen den beiden Systemen nahtlos zu steuern. Mit Currents können Sie Daten auch mit Treasure Data verbinden, um sie über den gesamten Growth Stack hinweg nutzbar zu machen.
+Die Integration von Braze und Treasure Data erlaubt es Ihnen, den Informationsfluss zwischen den beiden Systemen zu steuern. Mit Currents können Sie Braze-Ereignisdaten in Treasure Data streamen und über den gesamten Growth Stack hinweg nutzbar machen.
+
+Die empfohlene Methode ist der **Braze Currents Streaming**-Konnektor in Treasure Data in Kombination mit einem **Custom Currents Export** in Braze. Dieser Ansatz bietet:
+
+- Realtime-Event-Streaming von Braze in Treasure Data
+- Optionales automatisches Tabellenrouting nach Ereignistyp
+- Ein flaches, SQL-abfragbares Schema, das kein JSON-Parsing erfordert
+
+{% alert note %}
+Der Braze Currents Streaming-Konnektor ist auf Anfrage verfügbar. Kontaktieren Sie den Treasure Data-Support, um ihn für Ihr Treasure Data-Konto zu aktivieren. Weitere Informationen zur partnerseitigen Einrichtung finden Sie in der Treasure Data-Dokumentation zur [Braze Currents Import Integration](https://docs.treasuredata.com/int/braze-currents-import-integration).
+{% endalert %}
 
 ## Voraussetzungen {#prerequisites}
 
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
-| Treasure Data | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein [Treasure Data-Konto](https://console.treasuredata.com/users/sign_in). |
-| Currents | Um Daten zurück in Treasure Data zu exportieren, müssen Sie [Braze-Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) für Ihr Konto einrichten lassen. |
-| Treasure Data-URL | Diese erhalten Sie, indem Sie zu Ihrem Treasure Data-Dashboard navigieren und die Datenaufnahme-URL kopieren. |
+| Treasure Data-Konto | Ein aktives [Treasure Data-Konto](https://console.treasuredata.com) ist erforderlich, um diese Partnerschaft nutzen zu können. |
+| Currents | Um Daten nach Treasure Data zu exportieren, müssen [Braze-Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents#how-to-access-currents) für Ihr Konto eingerichtet sein. |
+| Braze-Currents-Streaming-Konnektor | Wenden Sie sich an den Treasure Data-Support, um den Braze-Currents-Streaming-Konnektor für Ihr Treasure Data-Konto aktivieren zu lassen. |
+| Treasure Data Write-API-Schlüssel | Ein Treasure Data Write-API-Schlüssel authentifiziert den eingehenden Stream von Braze. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
-
-{% alert note %}
-Treasure Data protokolliert jedes Ereignis in Stapeln. Weitere Informationen darüber, wie Sie Treasure Data abfragen können, um die Anzahl der Ereignisse zu ermitteln, finden Sie unter [Daten abfragen](https://docs.treasuredata.com/articles/int/braze-currents-import-integration/a/h2__592056238).<br><br>Wenn Sie eine Integration mit dem neuen Braze-Streaming-Konnektor von Treasure Data anstreben, lesen Sie die detaillierten Einrichtungsschritte in [Braze Currents Streaming Import Integration](https://docs.treasuredata.com/articles/#!int/braze-currents-import-integration/q/braze/qid/72364/qp/4). Wenn Sie Fragen zur Integration oder Einrichtung innerhalb von Braze haben, wenden Sie sich an Ihr Braze-Kontoteam.
-{% endalert %}
 
 ## Integration
 
-Die empfohlene Methode zur Verbindung mit Treasure Data ist die Postback API. Für diese Methode ist kein Standardkonnektor erforderlich und die Daten können über einen Push-Ansatz empfangen werden. Alle in einem Datenstapel gesendeten Ereignisse befinden sich in einem Feld einer Zeile in einem JSON-Array, das geparst werden muss, um die gewünschten Daten zu erhalten.
+### Schritt 1: Konnektor in Treasure Data konfigurieren {#step-1-configure-the-connector-in-treasure-data}
 
-{% alert important %}
-Die Datenaufnahme in Treasure Data über den Event-Collector erfolgt derzeit nicht in Realtime und kann bis zu fünf Minuten dauern.
+1. Navigieren Sie in der Treasure Data-Konsole zu **Connections** > **New Connection**.
+2. Wählen Sie **Braze Currents Streaming** aus.
+3. Geben Sie unter **Authentication** Ihren Treasure Data Write-API-Schlüssel ein.
+4. Konfigurieren Sie unter **Source Settings** die folgenden Einstellungen:
+
+| Feld | Beschreibung |
+| ---- | ----------- |
+| Source Name | Ein beschreibender Name für diese Verbindung |
+| Datastore | Wählen Sie **Plazma** aus |
+| Database | Die Treasure Data-Datenbank, in der Ereignisse gespeichert werden |
+| Table | Die Standard-Zieltabelle |
+| Multiple Tables | Aktivieren Sie diese Option, um jeden Braze-Ereignistyp in eine eigene Tabelle zu leiten |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Quelleinstellungen" }
+
+5. Kopieren Sie nach dem Speichern die **Unique ID** (`task_id`). Sie benötigen diesen Wert im nächsten Schritt.
+
+### Schritt 2: Custom Currents Export in Braze erstellen {#step-2-create-a-custom-currents-export-in-braze}
+
+Die Option **Treasure Data Export** in der Braze-Currents-UI verwendet die veraltete Postback-API-Methode und wird nicht mehr empfohlen. Verwenden Sie stattdessen **Custom Currents Export**.
+
+1. Navigieren Sie in Braze zu **Partnerintegrationen** > **Data Export**.
+2. Wählen Sie **Create New Current** > **Custom Currents Export** aus.
+3. Geben Sie einen Integrationsnamen und eine Kontakt-E-Mail für Fehlerbenachrichtigungen ein.
+4. Geben Sie unter **Credentials** die Endpunkt-URL für Ihre Treasure Data-Region ein. Geben Sie Ihren Treasure Data Write-API-Schlüssel als **Bearer Token** ein.
+
+| Region | Endpunkt-URL |
+| ------ | ------------ |
+| US | `https://braze-in-streaming.treasuredata.com/v1/task/{TASK_ID}` |
+| EU | `https://braze-in-streaming.eu01.treasuredata.com/v1/task/{TASK_ID}` |
+| AP02 | `https://braze-in-streaming.ap02.treasuredata.com/v1/task/{TASK_ID}` |
+| Tokyo | `https://braze-in-streaming.treasuredata.co.jp/task/v1/{TASK_ID}` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Endpunkt-URLs nach Region" }
+
+Ersetzen Sie `{TASK_ID}` durch die Unique ID, die Sie in [Schritt 1](#step-1-configure-the-connector-in-treasure-data) kopiert haben.
+
+5. Wählen Sie die Ereignistypen aus, die Sie exportieren möchten. Custom Currents-Verbindungen können Ereignisse für identifizierte Nutzer:innen und für Nutzer:innen ohne `external_user_id` senden. Treasure Data nimmt beide auf.
+6. Wählen Sie **Launch Current** aus.
+
+{% alert warning %}
+Halten Sie Ihren Treasure Data Write-API-Schlüssel und die Endpunkt-URL auf dem neuesten Stand. Wenn der Endpunkt länger als **5&nbsp;Tage** nicht erreichbar ist, verwirft Braze die Ereignisse des Konnektors und die Daten gehen dauerhaft verloren.
 {% endalert %}
 
-### 1. Schritt: Treasure Data Postback API mit Braze einrichten {#step-1-setup-treasure-data-postback-api-with-braze}
+## Daten abfragen {#query-your-data}
 
-Eine Anleitung zur Erstellung einer Postback API finden Sie auf der [Website von Treasure Data](https://docs.treasuredata.com/display/public/PD/Postback+API). Braze sendet die aktualisierten Ereignisse direkt und in Realtime an Treasure Data, mit Ausnahme der Datenaufnahme durch den Event-Collector. Wenn Sie fertig sind, stellt Treasure Data eine Datenquellen-URL zur Verfügung, die Sie für den nächsten Schritt kopieren können.
+Sobald Ereignisse einfließen, können Sie diese mit SQL abfragen. Treasure Data flacht die Payload ab, sodass Sie kein JSON parsen müssen.
 
-### 2. Schritt: Current erstellen {#step-2-create-current}
-
-Navigieren Sie in Braze zu **Currents** > **+ Create Current** > **Treasure Data Export**. Geben Sie einen Integrationsnamen, eine Kontakt-E-Mail und Ihre Treasure Data-URL an. Wählen Sie dann aus der Liste der verfügbaren Ereignisse aus, was Sie tracken möchten, und klicken Sie auf **Launch Current**.
-
-Alle Ereignisse, die an Treasure Data gesendet werden, enthalten die `external_user_id` der Nutzer:innen. Derzeit sendet Braze keine Ereignisdaten an Treasure Data für Nutzer:innen, die ihre `external_user_id` nicht festgelegt haben.
-
-{% alert important %}
-Halten Sie Ihre Treasure Data-URL auf dem neuesten Stand. Wenn die URL Ihres Konnektors falsch ist, kann Braze keine Ereignisse senden. Wenn dieser Zustand länger als **5 Tage** anhält, werden die Ereignisse des Konnektors verworfen und die Daten gehen dauerhaft verloren.
-{% endalert %}
-
-#### Beispiel für einen Ereignisfeldwert {#example-event-field-value}
-```json
-{
-    "events": [
-        {
-            "event_type": "users.message.email.Open",
-            "id": "a1234567-89ab-cdef-0123-456789abcdef",
-            "time": 1477502783,
-            "user": {
-                "user_id": "user_id",
-                "timezone": "America/Chicago"
-        },
-            "properties": {
-                "campaign_id": "11234567-89ab-cdef-0123-456789abcdef",
-                "campaign_name": "Test Campaign",
-                "dispatch_id": "12345qwert",
-                "message_variation_id": "c1234567-89ab-cdef-0123-456789abcdef",
-                "email_address": "test@example.com",
-                "send_id": "f123456789abcdef01234567",
-                "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"
-            }
-        }
-    ]
-}
+```sql
+SELECT
+  id AS event_id,
+  event_type,
+  user_external_user_id,
+  properties_campaign_name,
+  properties_email_address,
+  time
+FROM your_database.your_table
+WHERE TD_INTERVAL(time, '-1d', 'JST')
 ```
 
-#### Beispiel für die aufgenommene Ansicht {#example-of-the-ingested-view}
+{% alert note %}
+Das Feld `time` in Treasure Data ist der Zeitstempel, zu dem Treasure Data das Ereignis empfangen und verarbeitet hat – nicht der ursprüngliche Zeitpunkt des Vorkommens in Braze.
+{% endalert %}
 
-![Beispiel für die aufgenommene Ansicht in Treasure Data][4]{: style="max-width:70%;"}
+Wenn Sie **Multiple Tables** ausgewählt haben, landet jeder Ereignistyp in einer eigenen Tabelle (zum Beispiel `users_message_email_open` oder `users_behaviors_purchase`).
 
-## Details zur Integration {#integration-details}
+Um zu bestätigen, dass Daten ankommen, führen Sie einige Minuten nach dem Start des Currents eine Zählabfrage aus:
 
-Braze unterstützt den Export aller Daten, die in den [Currents-Ereignisglossaren]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) aufgeführt sind (einschließlich aller Eigenschaften von [Nachrichten-Engagement-]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) und [Kundenverhalten-Ereignissen]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)), in Treasure Data.
+```sql
+SELECT COUNT(*)
+FROM your_table
+WHERE TD_INTERVAL(time, '-1h')
+```
 
-Die Payload-Struktur für exportierte Daten entspricht der Payload-Struktur für angepasste HTTP-Konnektoren, die Sie im [Beispiel-Repository für angepasste HTTP-Konnektoren](https://github.com/Appboy/currents-examples/tree/master/sample-data/Custom%20HTTP/users/behaviors) einsehen können.
+## Datenschema {#data-schema}
 
+Treasure Data flacht verschachteltes JSON bis zu zwei Ebenen tief ab:
 
-[4]: {% image_buster /assets/img/treasure_data/treasure_data_ingested_view.png %}
+| JSON-Typ | Treasure Data-Spaltentyp |
+| --------- | ------------------------- |
+| string | string |
+| number | long |
+| boolean | string |
+| array | JSON-String |
+| object (Ebene 1) | `field_name` |
+| object (Ebene 2) | `parent_field_name_field_name` |
+| null | ausgelassen |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Zuordnung der Datentypen" }
+
+Spaltennamen verwenden ausschließlich Kleinbuchstaben und Unterstriche.
+
+## Limits
+
+| Element | Limit |
+| ------- | ----- |
+| Maximale Payload-Größe | 1&nbsp;MB pro Anfrage |
+| Batch-Größe | 100 Ereignisse pro Batch (Standard) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Limits" }
+
+## Integrationsdetails {#integration-details}
+
+Braze unterstützt den Export aller Daten, die in den [Currents-Ereignisglossaren]({{site.baseurl}}/user_guide/data/distribution/braze_currents) aufgeführt sind, an Treasure Data. Dies umfasst alle Eigenschaften sowohl in [Nachrichteninteraktions-]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) als auch in [Kundenverhaltensereignissen]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events).
+
+Die Payload-Struktur für exportierte Daten entspricht der Payload-Struktur für angepasste HTTP-Konnektoren. Sie können Beispiel-Payloads im [Beispiel-Repository für angepasste HTTP-Konnektoren](https://github.com/Appboy/currents-examples/tree/master/sample-data/Custom%20HTTP/users/behaviors) einsehen.
+
+## Migration von der alten Postback-Methode {#migrate-from-the-legacy-postback-method}
+
+Wenn Sie zuvor **Treasure Data Export** (Postback) in Braze verwendet haben:
+
+1. Schließen Sie die Einrichtung des Custom Currents Export ab, wie in diesem Artikel beschrieben.
+2. Bestätigen Sie, dass Ereignisse in die neue Tabelle fließen.
+3. Deaktivieren Sie den alten Postback-basierten Current in Braze.
+
+Alte Daten, die als JSON-Arrays im Rohformat gespeichert sind, können weiterhin mit `JSON_PARSE` und `UNNEST` abgefragt werden. Neue Daten, die über den Streaming-Konnektor aufgenommen werden, verwenden das flache Schema, das unter [Datenschema](#data-schema) beschrieben wird.

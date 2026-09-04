@@ -12,7 +12,7 @@ page_order: 1.5
 
 ## 고객이탈 예측 분석 정보 {#about-predictive-churn-analytics}
 
-예측 학습이 완료되고 이 페이지가 채워지면 Segments 또는 Campaigns에서 [필터]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/messaging_users/#filters)를 사용하여 모델의 결과물을 활용할 수 있습니다. 하지만 타겟팅 대상을 결정하는 데 도움이 필요하고 그 이유를 알고 싶다면, 이 페이지는 모델의 과거 정확도와 비즈니스 목표에 따라 도움을 줄 수 있습니다.
+예측 학습이 완료되고 이 페이지가 채워지면 Segments 또는 Campaigns에서 [필터]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/messaging_users#filters)를 사용하여 모델의 결과물을 활용할 수 있습니다. 하지만 타겟팅 대상을 결정하는 데 도움이 필요하고 그 이유를 알고 싶다면, 이 페이지는 모델의 과거 정확도와 비즈니스 목표에 따라 도움을 줄 수 있습니다.
 
 고객이탈 예측 분석을 구성하는 요소는 다음과 같습니다:
 
@@ -25,7 +25,7 @@ page_order: 1.5
 
 슬라이더를 움직이면 하단 패널의 왼쪽 절반에 있는 막대가 전체 예측 오디언스 중 몇 명의 사용자를 타겟팅할지 알려줍니다.
 
-![]({% image_buster /assets/img/churn/churnTargeting.gif %})
+![슬라이더로 타겟 점수 범위를 선택하는 고객이탈 예측 분석 차트.]({% image_buster /assets/img/churn/churnTargeting.gif %})
 
 ## 고객이탈 점수 및 카테고리 {#churn_score}
 
@@ -43,7 +43,7 @@ page_order: 1.5
 
 차트 아래 패널의 오른쪽 절반에는 이 예측 오디언스를 타겟팅할 때 예상되는 정확도의 추정치가 표시됩니다. 이 진행률 막대는 과거 예측 오디언스에 포함된 사용자에 대한 데이터와 해당 과거 데이터에서 이탈 사용자와 비이탈 사용자를 구분하는 모델의 정확도를 기반으로, 슬라이더로 강조 표시된 오디언스를 사용하여 미래의 잠재적 메시지에 대해 다음을 추정합니다:
 
-![]({% image_buster /assets/img/churn/churnEstimatedResults.png %}){: style="float:right;max-width:40%;margin-left:15px;"}
+![선택한 오디언스 범위에 대한 예상 이탈자 및 비이탈자를 보여주는 예상 정확도 패널.]({% image_buster /assets/img/churn/churnEstimatedResults.png %}){: style="float:right;max-width:40%;margin-left:15px;"}
 
 - 선택된 사용자 중 이탈할 것으로 예상되는 수
 - **이탈하지 않을** 것으로 예상되는 선택된 사용자 수
@@ -60,7 +60,7 @@ page_order: 1.5
 
 ## 고객이탈 상관관계 표 {#correlation_table}
 
-이 분석은 과거 예측 오디언스에서 사용자 이탈과 상관관계가 있는 사용자 속성 또는 동작을 표시합니다. 표는 이탈 가능성이 높은 쪽과 낮은 쪽으로 각각 왼쪽과 오른쪽으로 나뉩니다. 각 행에서 왼쪽 열에 있는 동작 또는 속성을 가진 사용자가 이탈할 가능성이 높거나 낮은 비율이 오른쪽 열에 표시됩니다. 이 수치는 해당 동작 또는 속성을 가진 사용자의 고객이탈 가능성을 전체 예측 오디언스의 고객이탈 가능성으로 나눈 비율입니다.
+이 분석은 과거 예측 오디언스에서 사용자 이탈과 상관관계가 있는 사용자 속성 또는 동작을 표시합니다. 표는 이탈 가능성이 높은 쪽과 낮은 쪽으로 각각 왼쪽과 오른쪽으로 나뉩니다. 각 행에서 첫 번째 열에 있는 동작 또는 속성을 가진 사용자가 이탈할 가능성이 높거나 낮은 비율이 두 번째 열에 표시됩니다. 이 수치는 해당 동작 또는 속성을 가진 사용자의 고객이탈 가능성을 전체 예측 오디언스의 고객이탈 가능성으로 나눈 비율입니다.
 
 이 표는 예측이 재학습될 때만 업데이트되며 사용자 _고객이탈 위험 점수_가 업데이트될 때는 업데이트되지 않습니다.
 

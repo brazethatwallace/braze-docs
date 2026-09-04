@@ -12,7 +12,7 @@ page_order: 1.5
 
 ## Sobre a análise preditiva de churn {#about-predictive-churn-analytics}
 
-Assim que a previsão estiver concluída e esta página estiver populada, você pode começar a usar [filtros]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/messaging_users/#filters) em segmentos ou campanhas para começar a usar os resultados do modelo. Mas, se você quiser ajuda para decidir quem direcionar e por quê, esta página pode ajudar com base na precisão histórica do modelo e nos seus próprios objetivos de negócios.
+Assim que a previsão estiver concluída e esta página estiver populada, você pode começar a usar [filtros]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/messaging_users#filters) em segmentos ou campanhas para começar a usar os resultados do modelo. Mas, se você quiser ajuda para decidir quem direcionar e por quê, esta página pode ajudar com base na precisão histórica do modelo e nos seus próprios objetivos de negócios.
 
 Estes são os componentes que compõem a análise preditiva de churn:
 
@@ -21,11 +21,11 @@ Estes são os componentes que compõem a análise preditiva de churn:
 - [Precisão estimada](#estimated_results)
 - [Tabela de correlação de churn](#correlation_table)
 
-A distribuição das pontuações para todo o público de previsão é exibida no topo da página em um gráfico que você pode visualizar, por categoria ou por pontuação. Usuários em buckets mais à direita têm pontuações mais altas e são mais propensos a churn. Usuários em buckets mais à esquerda são menos propensos a churn. O controle deslizante abaixo do gráfico permitirá que você selecione um grupo de usuários e estime quais seriam os resultados do direcionamento de usuários na faixa selecionada de _pontuação de risco de churn_ ou categoria.
+A distribuição das pontuações para todo o público de previsão é exibida no topo da página em um gráfico que você pode visualizar por categoria ou por pontuação. Usuários em buckets mais à direita têm pontuações mais altas e são mais propensos a churn. Usuários em buckets mais à esquerda são menos propensos a churn. O controle deslizante abaixo do gráfico permitirá que você selecione um grupo de usuários e estime quais seriam os resultados do direcionamento de usuários na faixa selecionada de _pontuação de risco de churn_ ou categoria.
 
 À medida que você move o controle deslizante, a barra na metade esquerda do painel inferior informará quantos usuários do público total de previsão seriam direcionados.
 
-![]({% image_buster /assets/img/churn/churnTargeting.gif %})
+![Gráfico de análise preditiva de churn com controle deslizante selecionando uma faixa de pontuação alvo.]({% image_buster /assets/img/churn/churnTargeting.gif %})
 
 ## Pontuação e categoria de churn {#churn_score}
 
@@ -41,9 +41,9 @@ As pontuações e as categorias correspondentes serão atualizadas de acordo com
 
 ## Precisão estimada {#estimated_results}
 
-Na metade direita do painel abaixo do gráfico, mostramos estimativas da precisão esperada do direcionamento deste segmento do público de previsão. Com base em dados sobre usuários no público de previsão no passado e na precisão aparente do modelo para discriminar entre usuários que fazem e não fazem churn nesses dados passados, essas barras de progresso estimam, para uma mensagem potencial futura usando o público destacado com o controle deslizante:
+Na metade direita do painel abaixo do gráfico, mostramos estimativas da precisão esperada do direcionamento deste Segment do público de previsão. Com base em dados sobre usuários no público de previsão no passado e na precisão aparente do modelo para discriminar entre usuários que fazem e não fazem churn nesses dados passados, essas barras de progresso estimam, para uma mensagem potencial futura usando o público destacado com o controle deslizante:
 
-![]({% image_buster /assets/img/churn/churnEstimatedResults.png %}){: style="float:right;max-width:40%;margin-left:15px;"}
+![Painel de precisão estimada mostrando churners e não-churners esperados para a faixa de público selecionada.]({% image_buster /assets/img/churn/churnEstimatedResults.png %}){: style="float:right;max-width:40%;margin-left:15px;"}
 
 - Quantos usuários selecionados devem fazer churn
 - Quantos usuários selecionados **não** devem fazer churn
@@ -60,7 +60,7 @@ Esta é uma estimativa de quantos usuários que não teriam feito churn serão i
 
 ## Tabela de correlação de churn {#correlation_table}
 
-Esta análise exibe quaisquer atributos ou comportamentos de usuário que estão correlacionados com o churn de usuário no público de previsão histórica. As tabelas são divididas em esquerda e direita para mais e menos propensos a churn, respectivamente. Para cada linha, a razão pela qual os usuários com o comportamento ou atributo na coluna da esquerda são mais ou menos propensos a churn é exibida na coluna da direita. Esse número é a razão da probabilidade de churn de usuários com esse comportamento ou atributo dividida pela probabilidade de churn de todo o público de previsão.
+Esta análise exibe quaisquer atributos ou comportamentos de usuário que estão correlacionados com o churn de usuário no público de previsão histórica. As tabelas são divididas em esquerda e direita para mais e menos propensos a churn, respectivamente. Para cada linha, a razão pela qual os usuários com o comportamento ou atributo na primeira coluna são mais ou menos propensos a churn é exibida na segunda coluna. Esse número é a razão da probabilidade de churn de usuários com esse comportamento ou atributo dividida pela probabilidade de churn de todo o público de previsão.
 
 Esta tabela é atualizada apenas quando a previsão é re-treinada e não quando as _pontuações de risco de churn_ do usuário são atualizadas.
 

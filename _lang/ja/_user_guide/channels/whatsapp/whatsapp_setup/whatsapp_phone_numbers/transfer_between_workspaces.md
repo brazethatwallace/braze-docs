@@ -10,7 +10,7 @@ channel:
 
 # WhatsAppの電話番号と購読グループをワークスペース間で移行する {#transfer-whatsapp-phone-numbers-and-subscription-groups-between-workspaces}
 
-> このページでは、WhatsApp Business Account（WABA）の電話番号とそれに関連する購読グループを、Braze内のあるワークスペースから別のワークスペースに移動する方法について説明します。このプロセスにより、BrazeでWhatsAppを使用する際の操作が効率化され、エンジニアリングの支援が不要になります。
+> このページでは、WhatsApp Businessアカウント（WABA）の電話番号とそれに関連する購読グループを、Braze内のあるワークスペースから別のワークスペースに移動する方法について説明します。このプロセスにより、BrazeでWhatsAppを使用する際の操作が効率化され、エンジニアリングの支援が不要になります。
 
 ## 前提条件 {#prerequisites}
 
@@ -44,4 +44,4 @@ WhatsApp購読グループをアーカイブするには、以下のステップ
 ## 考慮事項 {#considerations}
 
 - WhatsApp電話番号を元のワークスペースに戻す必要がある場合は、同じステップを繰り返してください。移行先のワークスペースで購読グループをアーカイブし、元のワークスペースに統合します。
-- 移行中にMeta Business ManagerからWhatsApp電話番号を削除する必要はありません。
+- 移行中にMeta Business マネージャーからWhatsApp電話番号を削除する必要はありません。

@@ -22,7 +22,7 @@ BrazeとDynamics 365 Customer Insightsの統合により、顧客セグメント
 | 必要条件 | 説明 |
 | ----------- | ----------- |
 | Dynamics 365 Customer Insightsアカウント | このパートナーシップを活用するには、[Dynamics 365 Customer Insights](https://dynamics.microsoft.com/en-gb/ai/customer-insights/) アカウントが必要です。必要なプラグインにアクセスするためにDynamics 365 Customer Insightsアカウント内で接続を表示および編集するには、管理者としてのアクセスが必要です。 |
-| Braze REST APIキー | `users.track` と `users.export.segment` の権限を持つBraze REST APIキーが必要です。<br><br> これは、Brazeダッシュボードの**Settings** > **API Keys**で作成できます。 |
+| Braze REST APIキー | `users.track` と `users.export.segment` の権限を持つBraze REST APIキーが必要です。<br><br> これは、Brazeダッシュボードの**設定** > **API キー**で作成できます。 |
 | プロファイル識別子の一致 | エクスポートされたセグメントの統合済み顧客プロファイルには、メールアドレスを表すフィールドとBrazeの `external_id` が含まれます。 |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
@@ -65,7 +65,7 @@ Customer Insightsで**Admin** > **Connections**に移動します。次に、**A
 
 セグメントが正常にBrazeにエクスポートされたら、ユーザープロファイルでカスタム属性として確認できます。カスタム属性には、エクスポート接続の設定時に入力されたBrazeセグメントAPI識別子が名前として設定されます。例: `"セグメント_API_Identifier": "0000-0000-0000"`
 
-Brazeでこれらのユーザーのセグメントを作成するには、**セグメント**に移動して、新しいセグメントを作成し、フィルターとして**Custom Attributes**を選択します。ここから、Dynamics 365と同期したカスタム属性を選択できます。セグメントを作成した後、キャンペーンまたはキャンバスを作成する際に、オーディエンスフィルターとして選択できます。
+Brazeでこれらのユーザーのセグメントを作成するには、**セグメント**に移動して、新しいセグメントを作成し、フィルターとして**カスタム属性**を選択します。ここから、Dynamics 365と同期したカスタム属性を選択できます。セグメントを作成した後、キャンペーンまたはキャンバスを作成する際に、オーディエンスフィルターとして選択できます。
 
 {% alert note %}
 この統合の詳細については、Microsoftの[Braze統合の記事](https://docs.microsoft.com/en-us/dynamics365/customer-insights/export-braze)を参照してください。

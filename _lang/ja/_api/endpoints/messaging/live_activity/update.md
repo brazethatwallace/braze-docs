@@ -7,7 +7,6 @@ page_order: 1
 layout: api_page
 page_type: reference
 description: "この記事では、ライブアクティビティを更新するエンドポイントについて詳しく説明します。"
-
 ---
 {% api %}
 # ライブアクティビティを更新 {#update-live-activity}
@@ -15,7 +14,7 @@ description: "この記事では、ライブアクティビティを更新する
 /messages/live_activity/update
 {% endapimethod %}
 
-> このエンドポイントを使用して、iOSアプリが表示する[ライブアクティビティ]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?sdktab=swift)を更新および終了します。このエンドポイントには追加のセットアップが必要です。
+> このエンドポイントを使用して、iOSアプリが表示する[ライブアクティビティ]({{site.baseurl}}/developer_guide/live_notifications?sdktab=swift)を更新および終了します。このエンドポイントには追加の設定が必要です。
 
 ライブアクティビティを登録した後、Apple Push Notification service（APNs）を更新するためにJSONペイロードを渡すことができます。詳しくは、[プッシュ通知ペイロードを使ったライブアクティビティの更新](https://developer.apple.com/documentation/activitykit/updating-and-ending-your-live-activity-with-activitykit-push-notifications)に関するAppleのドキュメントを参照してください。
 
@@ -28,7 +27,7 @@ description: "この記事では、ライブアクティビティを更新する
 このエンドポイントを使用するには、以下を完了する必要があります。
 
 - `messages.live_activity.update`権限を持つAPIキーを生成します。
-- Braze Swift SDKを使用して、[リモート]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?tab=remote&sdktab=swift)または[ローカル]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?tab=local&sdktab=swift)でライブアクティビティを登録します。
+- Braze Swift SDKを使用して、[リモート]({{site.baseurl}}/developer_guide/live_notifications?tab=remote&sdktab=swift)または[ローカル]({{site.baseurl}}/developer_guide/live_notifications?tab=local&sdktab=swift)でライブアクティビティを登録します。
 
 {% multi_lang_include api/payload_size_alert.md %}
 
@@ -54,7 +53,7 @@ description: "この記事では、ライブアクティビティを更新する
 
 | Parameter | Required | Data Type | Description |
 |---|---|---|---|
-| `app_id` | Required | String | App [API identifier]({{site.baseurl}}/api/identifier_types#the-app-identifier) retrieved from the [API Keys]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) page.  |
+| `app_id` | Required | String | App [API identifier]({{site.baseurl}}/api/identifier_types#app-identifier) retrieved from the [API Keys]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) page.  |
 | `activity_id` | Required | String | When you register your Live Activity using [`launchActivity`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/liveactivities-swift.class), you use the `pushTokenTag` parameter to name the Activity's push token to a custom string.<br><br>Set `activity_id` to this custom string to define which Live Activity you want to update. |
 | `content_state` | Required | Object | You define the `ContentState` parameters when you create your Live Activity. Pass the updated values for your `ContentState` using this object.<br><br>The format of this request must match the shape you initially defined. |
 | `end_activity` | Optional | Boolean | If `true`, this request ends the Live Activity. |
@@ -88,13 +87,13 @@ curl --location --request POST 'https://rest.iad-01.braze.com/messages/live_acti
 }'
 ```
 
-## 応答 {#response}
+## レスポンス {#response}
 
-このエンドポイントには`201`と`4XX`の2つのステータスコード応答があります。
+このエンドポイントには`201`と`4XX`の2つのステータスコードレスポンスがあります。
 
-### 成功応答の例 {#example-success-response}
+### 成功レスポンスの例 {#example-success-response}
 
-リクエストが正しくフォーマットされ、受信された場合、`201`ステータスコードが返されます。ステータスコード`201`は、次の応答本文を返す可能性があります。
+リクエストが正しくフォーマットされ、受信された場合、`201`ステータスコードが返されます。ステータスコード`201`は、次のレスポンス本文を返す可能性があります。
 
 ```json
 {
@@ -102,11 +101,11 @@ curl --location --request POST 'https://rest.iad-01.braze.com/messages/live_acti
 }
 ```
 
-### エラー応答の例 {#example-error-response}
+### エラーレスポンスの例 {#example-error-response}
 
-`4XX`クラスのステータスコードはクライアントエラーを示します。発生する可能性のあるエラーの詳細については、[APIエラーと応答の記事]({{site.baseurl}}/api/errors)を参照してください。
+`4XX`クラスのステータスコードはクライアントエラーを示します。発生する可能性のあるエラーの詳細については、[APIエラーとレスポンスの記事]({{site.baseurl}}/api/errors)を参照してください。
 
-ステータスコード`400`は、次の応答本文を返す可能性があります。
+ステータスコード`400`は、次のレスポンス本文を返す可能性があります。
 
 ```json
 {

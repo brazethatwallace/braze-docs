@@ -232,7 +232,7 @@ Strings and arrays require straight apostrophes around them, while booleans and 
 
 ### Boolean
 
-[Booleans]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#booleans) are binary values, and can be set to either `true` or `false`, such as `registration_complete: true`. Boolean values don't have apostrophes around them.
+[Booleans]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#booleans) are binary values, and can be set to either `true` or `false`, such as `registration_complete: true`. Boolean values don't have apostrophes around them.
 
 {% raw %}
 
@@ -244,7 +244,7 @@ Strings and arrays require straight apostrophes around them, while booleans and 
 
 ### Number
 
-[Numbers]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#numbers) are numeric values, which can be integers or floats. For example, a user may have `shoe_size: 10` or `levels_completed: 287`. Number values don't have apostrophes around them.
+[Numbers]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) are numeric values, which can be integers or floats. For example, a user may have `shoe_size: 10` or `levels_completed: 287`. Number values don't have apostrophes around them.
 
 {% raw %}
 
@@ -266,7 +266,7 @@ You can also use other [basic operators](https://shopify.dev/docs/themes/liquid/
 
 ### String
 
-A [string]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#strings) is made up of alphanumeric characters and stores a piece of data about your user. For example, you may have `favorite_color: red` or `phone_number: 3025981329`. String values must have apostrophes around them.
+A [string]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) is made up of alphanumeric characters and stores a piece of data about your user. For example, you may have `favorite_color: red` or `phone_number: 3025981329`. String values must have apostrophes around them.
 
 {% raw %}
 
@@ -280,7 +280,7 @@ For strings, you can use both "==" or "contains" in your Liquid.
 
 ### Array
 
-An [array]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#arrays) is a list of information about your user. For example, a user may have `last_viewed_shows: stranger things, planet earth, westworld`. Array values must have apostrophes around them.
+An [array]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) is a list of information about your user. For example, a user may have `last_viewed_shows: stranger things, planet earth, westworld`. Array values must have apostrophes around them.
 
 {% raw %}
 
@@ -290,11 +290,47 @@ An [array]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attribu
 
 {% endraw %}
 
-For arrays, you must use "contains" and can't use "==". 
+For arrays, you must use `contains` and can't use `==`.
+
+#### How `contains` works with strings versus arrays
+
+The `contains` operator behaves differently depending on whether it's evaluating a string or an array:
+
+- **Strings:** `contains` checks for a substring anywhere inside the text.
+- **Arrays:** `contains` checks for an exact match against a complete element inside the array.
+
+{% alert important %}
+If an attribute is stored as an array (for example, `["med1", "med2", "abc"]`), searching for `contains "ab"` will evaluate to `false` because no single element in that list is exactly `"ab"`.
+{% endalert %}
+
+##### Substring matching on arrays
+
+If you need to look for a partial match (substring) within an array attribute, you must first convert the array into a single string using the `join` filter.
+
+Because Braze does not support inline filters directly within conditional {% raw %}`{% if %}`{% endraw %} blocks, you must follow a two-step process: first, assign the joined value to a variable, then run your conditional check.
+
+{% raw %}
+```liquid
+{% comment %} 1. Convert the array to a string using a comma separator {% endcomment %}
+{% assign products_string = {{custom_attribute.${product_array}}} | join: "," %}
+
+{% comment %} 2. Perform the substring check on the new variable {% endcomment %}
+{% if products_string contains "ab" %}
+  Match found!
+{% else %}
+  No match.
+{% endif %}
+```
+{% endraw %}
+
+
+{% alert tip %}
+Because `join` combines array elements into one string (default separator: a single space), substring checks can match across element boundaries (for example, `["Napa", "boulevard"]` becomes `Napa boulevard`, where `contains "a b"` is `true`). Use an explicit separator such as "," to make boundaries clearer and reduce accidental cross-element matches.
+{% endalert %}
 
 ### Time
 
-A time stamp of when an event took place. [Time]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#time) values must have a [math filter]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#math-filters) on them to be used in conditional logic.
+A time stamp of when an event took place. [Time]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) values must have a [math filter]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#math-filters) on them to be used in conditional logic.
 
 {% raw %}
 

@@ -15,7 +15,7 @@ Beim Festlegen der Rate-Limits für die Zustellgeschwindigkeit bei Push-Campaign
 - Ein übergreifendes Rate-Limit, das über alle Nachrichtenkanäle hinweg geteilt wird.
 
 {% alert important %}
-Rate-Limiting für Push-Campaigns und Multichannel-Canvases befindet sich im Early Access. Kontaktieren Sie Ihren Braze Account Manager, wenn Sie an der Teilnahme an diesem Early Access interessiert sind.
+Rate-Limiting für Push-Campaigns und Multichannel-Canvases befindet sich im Early Access. Kontaktieren Sie Ihren Braze Account Manager:in, wenn Sie an der Teilnahme an diesem Early Access interessiert sind.
 {% endalert %}
 
 Die folgenden Funktionen sind in diesem Early Access **nicht** enthalten:

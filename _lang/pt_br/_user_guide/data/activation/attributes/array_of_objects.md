@@ -15,7 +15,7 @@ description: "Este artigo de referência aborda o uso de um vetor de objetos com
 
 ## Considerações {#considerations}
 
-- Os vetores de objetos destinam-se a atributos personalizados enviados por meio da API. Não há suporte para fazer upload de CSV. Isso ocorre porque as vírgulas no arquivo CSV serão interpretadas como separadores de coluna, e as vírgulas nos valores causarão erros de análise.
+- Os vetores de objetos destinam-se a atributos personalizados enviados por meio da API. Não há suporte para upload de CSV. Isso ocorre porque as vírgulas no arquivo CSV serão interpretadas como separadores de coluna, e as vírgulas nos valores causarão erros de análise.
 - Os vetores de objetos não têm limite para o número de itens, mas têm um tamanho máximo de 100&nbsp;KB. Se uma atualização (como `$add` ou `$update`) fizer o vetor exceder esse limite, a Braze descarta a atualização e o atributo permanece inalterado. A requisição da API ainda retorna uma resposta de sucesso. Para manter o vetor dentro do limite e permitir a adição de novos itens, use `$remove` para excluir itens do vetor primeiro.
 - Nem todos os parceiros da Braze suportam vetores de objetos. Consulte a [documentação do parceiro]({{site.baseurl}}/partners/home) para confirmar se a integração suporta esse recurso.
 
@@ -26,7 +26,7 @@ Quando um atributo personalizado aninhado na sua requisição contém valores in
 {% endalert %}
 
 {% alert tip %}
-Para saber mais sobre o uso de vetores de objetos para objetos de atributos de usuário, consulte [Objeto de atributos de usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens).
+Para saber mais sobre o uso de vetores de objetos para objetos de atributos de usuário, consulte [Objeto de atributos de usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object).
 {% endalert %}
 
 ## Exemplo de API {#api-example}
@@ -545,13 +545,13 @@ I have a {{pet.type}} named {{pet.name}}! They are a {{pet.breed}}.
 ```
 {% endraw %}
 
-Nesse cenário, você pode usar Liquid para percorrer o vetor `pets` e imprimir uma frase para cada animal de estimação. [Atribua uma variável]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#assigning-variables) ao atributo personalizado `pets` e use a notação de ponto para acessar propriedades de um objeto. Especifique o nome do objeto, seguido de um ponto `.`, seguido do nome da propriedade.
+Nesse cenário, você pode usar Liquid para percorrer o vetor `pets` e imprimir uma frase para cada animal de estimação. [Atribua uma variável]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/dashboard_tools#assign-variables) ao atributo personalizado `pets` e use a notação de ponto para acessar propriedades de um objeto. Especifique o nome do objeto, seguido de um ponto `.`, seguido do nome da propriedade.
 
 ## Segmentação {#segmentation}
 
-Ao segmentar usuários com base em vetores de objetos, um usuário se qualificará para o segmento se qualquer objeto no vetor corresponder aos critérios.
+Ao segmentar usuários com base em vetores de objetos, um usuário se qualificará para o Segment se qualquer objeto no vetor corresponder aos critérios.
 
-Crie um novo segmento e selecione **Nested Custom Attribute** como seu filtro. Em seguida, pesquise e selecione o nome do seu vetor de objetos.
+Crie um novo Segment e selecione **Nested Custom Attribute** como seu filtro. Em seguida, pesquise e selecione o nome do seu vetor de objetos.
 
 ![Filtrar por vetor de objetos.]({% image_buster /assets/img_archive/array_of_objects_segmenting_1.gif %})
 
@@ -562,7 +562,7 @@ Por exemplo, se você quiser filtrar um vetor de objetos `top_3_movies` com base
 
 ### Níveis de aninhamento {#levels-of-nesting}
 
-Você pode criar um segmento com até um nível de aninhamento de vetor (vetor dentro de outro vetor). Por exemplo, considerando os atributos a seguir, você pode criar um segmento para `pets[].name` contém `Mochi`, mas não pode criar um segmento para `pets[].nicknames[]` contém `Gugu`.
+Você pode criar um Segment com até um nível de aninhamento de vetor (vetor dentro de outro vetor). Por exemplo, considerando os atributos a seguir, você pode criar um Segment para `pets[].name` contém `Mochi`, mas não pode criar um Segment para `pets[].nicknames[]` contém `Gugu`.
 
 {% raw %}
 ```json

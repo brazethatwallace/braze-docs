@@ -21,7 +21,7 @@ Estos son los componentes que conforman el análisis predictivo de eventos:
 - [Precisión estimada](#estimated_results)
 - [Tabla de correlación de eventos](#correlation_table)
 
-La distribución de las puntuaciones de probabilidad de toda la audiencia de predicción se muestra en la parte superior de la página. Los usuarios de los contenedores situados más a la derecha tienen puntuaciones más altas y es más probable que realicen el evento. Los usuarios de los contenedores situados más a la izquierda tienen menos probabilidades de realizar el evento. El control deslizante situado debajo del gráfico te permitirá seleccionar una sección de usuarios y estimar cuáles serían los resultados de dirigirte a esos usuarios.
+La distribución de las puntuaciones de probabilidad de toda la audiencia de predicción se muestra en la parte superior de la página. Los usuarios de los contenedores situados más al final tienen puntuaciones más altas y es más probable que realicen el evento. Los usuarios de los contenedores situados más al inicio tienen menos probabilidades de realizar el evento. El control deslizante situado debajo del gráfico te permitirá seleccionar una sección de usuarios y estimar cuáles serían los resultados de dirigirte a esos usuarios.
 
 A medida que muevas los controles deslizantes a diferentes posiciones, la barra de la mitad izquierda del panel te informará de cuántos usuarios de toda la audiencia de predicción serían objetivo utilizando la parte de la población que hayas seleccionado.
 
@@ -41,7 +41,7 @@ Las puntuaciones y las categorías correspondientes se actualizarán según el c
 
 ### Acceso a las puntuaciones de probabilidad a nivel de usuario {#accessing-user-level-likelihood-scores}
 
-Para ver la puntuación de probabilidad de un solo usuario, busca a ese usuario en el dashboard y ve a **Engagement** > **Predictions** para ver su puntuación. Para acceder a las puntuaciones y categorías de muchos usuarios a la vez, crea un [segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) utilizando los filtros [Puntuación de probabilidad de evento]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#event-likelihood-score) o [Categoría de probabilidad de evento]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#event-likelihood-category) y, a continuación, exporta los usuarios de ese segmento. Al exportar, puedes incluir las puntuaciones de probabilidad en los datos exportados.
+Para ver la puntuación de probabilidad de un solo usuario, busca a ese usuario en el panel y ve a **Engagement** > **Predictions** para ver su puntuación. Para acceder a las puntuaciones y categorías de muchos usuarios a la vez, crea un [segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) utilizando los filtros [Puntuación de probabilidad de evento]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#event-likelihood-score) o [Categoría de probabilidad de evento]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#event-likelihood-category) y, a continuación, exporta los usuarios de ese segmento. Al exportar, puedes incluir las puntuaciones de probabilidad en los datos exportados.
 
 {% alert note %}
 Aunque tanto Predictive Events como [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn) asignan puntuaciones a los usuarios, existen diferencias importantes:<br><br>
@@ -56,7 +56,7 @@ Al exportar las puntuaciones de riesgo de abandono de un segmento, estas puntuac
 
 En la mitad derecha del panel, debajo del gráfico, mostramos estimaciones de la precisión esperada de dirigirte a la parte de la audiencia de predicción que seleccionaste de dos formas: cuántos usuarios seleccionados se espera que realicen el evento y cuántos se espera que no lo hagan.
 
-![La audiencia seleccionada y la precisión estimada que se muestran en el dashboard de Braze.]({% image_buster /assets/img/purchasePrediction/purchaseEstimatedResults.png %})
+![La audiencia seleccionada y la precisión estimada que se muestran en el panel de Braze.]({% image_buster /assets/img/purchasePrediction/purchaseEstimatedResults.png %})
 
 ### Se espera que realicen el evento {#expected-to-perform}
 
@@ -70,7 +70,7 @@ Puedes utilizar la precisión estimada para comprobar cuántos usuarios seleccio
 
 Todos los modelos de aprendizaje automático cometen errores. Puede haber usuarios en tu selección que tengan una puntuación de probabilidad alta, pero que no acaben realizando realmente el evento. No realizarían el evento si no hicieras nada. Serán objetivo de todos modos, por lo que se trata de un error o «falso positivo». La anchura total de esta segunda barra de progreso representa el número previsto de usuarios que no realizarán el evento, y la parte rellena es la de aquellos a los que se dirigirá incorrectamente utilizando la posición actual del deslizador.
 
-Utilizando esta información, te animamos a que decidas cuántos de los verdaderos positivos quieres capturar, cuántos falsos positivos puedes aceptar que sean objetivo y cuál es el coste de los errores para tu empresa. Si estás enviando una promoción valiosa, quizá quieras dirigirte solo a los no compradores (falsos positivos) favoreciendo el lado izquierdo del gráfico. O puede que quieras animar a los compradores que compran a menudo (verdaderos positivos) a que vuelvan a hacerlo seleccionando una sección de usuarios que favorezca el lado derecho del gráfico.
+Utilizando esta información, te animamos a que decidas cuántos de los verdaderos positivos quieres capturar, cuántos falsos positivos puedes aceptar que sean objetivo y cuál es el coste de los errores para tu empresa. Si estás enviando una promoción valiosa, quizá quieras dirigirte solo a los no compradores (falsos positivos) favoreciendo el lado de menor confianza del gráfico. O puede que quieras animar a los compradores que compran a menudo (verdaderos positivos) a que vuelvan a hacerlo seleccionando una sección de usuarios que favorezca el lado de mayor confianza del gráfico.
 
 ## Calidad de la predicción {#prediction_quality}
 
@@ -78,9 +78,9 @@ Utilizando esta información, te animamos a que decidas cuántos de los verdader
 
 ## Tabla de correlación de eventos {#correlation_table}
 
-Este análisis muestra los atributos o comportamientos de los usuarios que están correlacionados con los eventos de la audiencia de predicción. Los atributos evaluados son edad, país, sexo e idioma. Los comportamientos que se analizan incluyen sesiones, compras, total de dólares gastados, eventos personalizados, y campañas y pasos en Canvas recibidos en los últimos 30 días.
+Este análisis muestra los atributos o comportamientos de los usuarios que están correlacionados con los eventos de la audiencia de predicción. Los atributos evaluados son edad, país, sexo e idioma. Los comportamientos que se analizan incluyen sesiones, compras, total de dólares gastados, eventos personalizados, y Campaigns y pasos en Canvas recibidos en los últimos 30 días.
 
-Las tablas se dividen en izquierda y derecha para los más y los menos propensos a realizar el evento, respectivamente. Para cada fila, en la columna de la derecha se muestra la proporción en la que los usuarios con el comportamiento o atributo de la columna de la izquierda tienen más o menos probabilidades de realizar el evento. Este número es el cociente de las puntuaciones de probabilidad de los usuarios con este comportamiento o atributo dividido por la probabilidad de realizar el evento de toda la audiencia de predicción.
+Las tablas se dividen en izquierda y derecha para los más y los menos propensos a realizar el evento, respectivamente. Para cada fila, en la segunda columna se muestra la proporción en la que los usuarios con el comportamiento o atributo de la primera columna tienen más o menos probabilidades de realizar el evento. Este número es el cociente de las puntuaciones de probabilidad de los usuarios con este comportamiento o atributo dividido por la probabilidad de realizar el evento de toda la audiencia de predicción.
 
 Esta tabla solo se actualiza cuando se reentrena la predicción y no cuando se actualizan las puntuaciones de probabilidad del usuario.
 

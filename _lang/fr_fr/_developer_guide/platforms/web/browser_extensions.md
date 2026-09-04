@@ -25,7 +25,7 @@ En général, comme les extensions sont composées de HTML et de JavaScript, vou
 
 ## Ce qui n'est pas pris en charge {#whats-not-supported}
 
-* L'utilisation du SDK Braze depuis un service de traitement n'est pas prise en charge. Vous pouvez toutefois utiliser le SDK Braze dans la fenêtre contextuelle ou la page de paramètres de votre extension.
+* L'utilisation du SDK Braze depuis un service de traitement n'est pas prise en charge. Vous pouvez toutefois utiliser le SDK Braze dans la fenêtre contextuelle ou la page de paramètres de votre extension. {% multi_lang_include product_feedback_cta.md context="gap" feature="service worker support in the Braze Web SDK" %}
 
 ## Types d'extensions {#extension-types}
 
@@ -42,7 +42,7 @@ Braze peut être inclus dans les parties suivantes de votre extension :
 
 Aucune autorisation supplémentaire n'est requise dans votre `manifest.json` lors de l'intégration du SDK Braze (`braze.min.js`) en tant que fichier local associé à votre extension.
 
-Toutefois, si vous utilisez [Google Tag Manager]({{ site.baseurl }}/developer_guide/platform_integration_guides/web/google_tag_manager/), si vous faites référence au SDK Braze à partir d'une URL externe, ou si vous avez défini une politique de sécurité du contenu stricte pour votre extension, vous devrez ajuster le paramètre [`content_security_policy`](https://developer.chrome.com/extensions/contentSecurityPolicy) dans votre `manifest.json` pour autoriser les sources de scripts distantes.
+Toutefois, si vous utilisez [Google Tag gestionnaire]({{ site.baseurl }}/developer_guide/platform_integration_guides/web/google_tag_manager/), si vous faites référence au SDK Braze à partir d'une URL externe, ou si vous avez défini une politique de sécurité du contenu stricte pour votre extension, vous devrez ajuster le paramètre [`content_security_policy`](https://developer.chrome.com/extensions/contentSecurityPolicy) dans votre `manifest.json` pour autoriser les sources de scripts distantes.
 
 ## Démarrage {#getting-started}
 
@@ -52,13 +52,13 @@ Avant de commencer, assurez-vous d'avoir lu le [guide de configuration initiale 
 
 Pour intégrer le SDK Braze pour le Web, vous devez d'abord télécharger une copie de la dernière bibliothèque JavaScript. Cela peut se faire en utilisant NPM ou en le téléchargeant directement depuis le [CDN de Braze](https://js.appboycdn.com/web-sdk/latest/braze.min.js).
 
-Sinon, si vous préférez utiliser [Google Tag Manager]({{ site.baseurl }}/developer_guide/platform_integration_guides/web/google_tag_manager/) ou une copie hébergée à l'extérieur du SDK Braze, gardez à l'esprit que le chargement de ressources externes nécessite d'ajuster le paramètre [`content_security_policy`](https://developer.chrome.com/extensions/contentSecurityPolicy) dans votre `manifest.json`.
+Sinon, si vous préférez utiliser [Google Tag gestionnaire]({{ site.baseurl }}/developer_guide/platform_integration_guides/web/google_tag_manager/) ou une copie hébergée à l'extérieur du SDK Braze, gardez à l'esprit que le chargement de ressources externes nécessite d'ajuster le paramètre [`content_security_policy`](https://developer.chrome.com/extensions/contentSecurityPolicy) dans votre `manifest.json`.
 
 Une fois téléchargé, assurez-vous de copier le fichier `braze.min.js` dans le répertoire de votre extension.
 
 ### Fenêtres contextuelles d'extension {#popup}
 
-Pour ajouter Braze à une fenêtre contextuelle d'extension, référencez le fichier JavaScript local dans votre `popup.html`, comme vous le feriez sur un site Web classique. Si vous utilisez Google Tag Manager, vous pouvez ajouter Braze en utilisant nos [modèles Google Tag Manager]({{ site.baseurl }}/developer_guide/platform_integration_guides/web/google_tag_manager/).
+Pour ajouter Braze à une fenêtre contextuelle d'extension, référencez le fichier JavaScript local dans votre `popup.html`, comme vous le feriez sur un site Web classique. Si vous utilisez Google Tag gestionnaire, vous pouvez ajouter Braze en utilisant nos [modèles Google Tag gestionnaire]({{ site.baseurl }}/developer_guide/platform_integration_guides/web/google_tag_manager/).
 
 ```html
 <html>

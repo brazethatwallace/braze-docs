@@ -26,7 +26,7 @@ Você pode verificar o estado de inscrição de push, o registro e a ativação 
 
 No perfil de um usuário ([**Pesquisar usuários**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles) > selecione o usuário > guia **Engagement**), **Contact Settings** lista o estado de inscrição de push, **Push Registered For** (quais apps e plataformas a Braze pode usar para enviar push em primeiro plano para aquele perfil) e o **Push Changelog** para movimentações de token, erros e atualizações de registro. Para saber como interpretar **Push Registered For** e a autorização de primeiro plano versus segundo plano, consulte [Verificando o status de registro de push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle#checking-push-registration-status).
 
-No iOS e Android, quando um dispositivo passa de autorização de push em primeiro plano para apenas segundo plano (por exemplo, depois que o usuário desativa notificações nas configurações do sistema e o SDK reporta a mudança), o changelog de push pode incluir uma entrada como "Push token was updated from foreground push enabled to foreground push disabled".
+No iOS e Android, quando um dispositivo passa de autorização de push em primeiro plano para apenas segundo plano (por exemplo, depois que o usuário desativa notificações nas configurações do sistema e o SDK reporta a mudança), o changelog de push pode incluir uma entrada como "token por push was updated from foreground push enabled to foreground push disabled".
 
 Depois de esperar novos dados do SDK (por exemplo, logo após uma sessão de teste), selecione **Refresh** no perfil do usuário se os valores parecerem desatualizados. Pode haver um pequeno atraso entre o envio dos dados pelo SDK e a atualização do perfil com o registro de push mais recente.
 
@@ -56,11 +56,11 @@ A tabela a seguir mostra como diferentes ações do usuário afetam a ativação
 
 <sup>* Se o app não usar push provisório, `Foreground Push Enabled` será `false` até que o usuário permita notificações por push. Se o app usar push provisório, `Foreground Push Enabled` será `true` no início da primeira sessão. Para saber mais, consulte [Autorização provisória e push silencioso](#provisional-push).</sup>
 
-<sup>** A partir da [versão 7.5.0 do Braze Swift SDK](https://github.com/braze-inc/braze-swift-sdk/releases/tag/7.5.0), a propriedade de configuração `optInWhenPushAuthorized` controla se o estado de inscrição de push é automaticamente definido como `Opted-In` quando a permissão de push é autorizada. Para saber mais, consulte [Atualizando estados de inscrição de push](#update-push-subscription-state).</sup>
+<sup>** A partir da [versão 7.5.0 do Braze Swift SDK](https://github.com/braze-inc/braze-swift-sdk/releases/tag/7.5.0), a propriedade de configuração `optInWhenPushAuthorized` controla se o estado de inscrição de push é automaticamente definido como `Opted-In` quando a permissão de push é autorizada. Para saber mais, consulte [Tokens de push](#push-tokens).</sup>
 
 ## Permissão de push {#push-permission}
 
-Todas as plataformas com push ativado — iOS, Web e Android — exigem opt-in explícito por meio de um prompt do sistema no nível do SO, com algumas pequenas diferenças descritas abaixo.
+Todas as plataformas com push ativado — iOS, Web e Android — exigem opt-in explícito por meio de um prompt do sistema no nível do SO, com algumas pequenas diferenças descritas na seção a seguir.
 
 Como a decisão do usuário é final e você não pode perguntar novamente após uma recusa, usar mensagens no app de [push primer]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages) é uma estratégia importante para aumentar suas taxas de opt-in.
 
@@ -91,7 +91,7 @@ O push autorizado exige permissão explícita do usuário antes de enviar qualqu
 
 Antes do iOS 12 (lançado em 2018), todos os usuários precisavam fazer opt-in explícito para receber notificações por push.
 
-No iOS 12, a Apple introduziu a [autorização provisória](https://www.braze.com/resources/articles/mastering-provisional-push), permitindo que marcas enviem notificações por push silenciosas para a central de notificações dos usuários antes que eles façam opt-in explícito, dando a você a chance de demonstrar o valor das suas mensagens antecipadamente. Consulte [autorização provisória]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#provisional-push-authentication--quiet-notifications) para saber mais.
+No iOS 12, a Apple introduziu a [autorização provisória](https://www.braze.com/resources/articles/mastering-provisional-push), permitindo que marcas enviem notificações por push silenciosas para a central de notificações dos usuários antes que eles façam opt-in explícito, dando a você a chance de demonstrar o valor das suas mensagens antecipadamente. Consulte [autorização provisória]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#provisional-push) para saber mais.
 
 ### Web {#web}
 
@@ -114,6 +114,8 @@ Quando um perfil de usuário tem um token de push de primeiro plano válido asso
 
 {% alert note %}
 O filtro `Foreground Push Enabled for App` considera apenas a presença de um token de push de primeiro plano e segundo plano válido para o app em questão. No entanto, o filtro mais genérico [`Foreground Push Enabled`](#foreground-push-enabled) segmenta usuários que ativaram explicitamente notificações por push para qualquer app no seu espaço de trabalho. Essa contagem inclui apenas push em primeiro plano e não inclui usuários que cancelaram a inscrição. Você pode saber mais sobre esses e outros filtros em [Filtros de segmentação]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters).
+
+Para uma pequena porcentagem de usuários, atrasos no processamento podem causar uma incompatibilidade temporária: um usuário pode ter um token de push de primeiro plano válido no perfil, mas ainda não corresponder ao filtro `Foreground Push Enabled`. O perfil pode mostrar brevemente que o push de primeiro plano não está ativado, mesmo que um token esteja presente. Isso geralmente se resolve quando o processamento é concluído.
 {% endalert %}
 
 ### Múltiplos usuários em um dispositivo {#multiple-users-on-one-device}
@@ -156,7 +158,7 @@ No dashboard, você pode encontrar informações sobre registro de push e change
 - **Analytics de Campaign** – Visualize estatísticas de push e feedback para uma única Campaign ou Canvas.
 - **Perfil do usuário (guia Engagement)** – Visualize **Contact Settings** e o changelog de push para um usuário específico.
 
-Ao revisar o estado de push ativado, **Push Registered for** indica para quais plataformas a Braze pode enviar push em primeiro plano para aquele usuário. No iOS e Android, se um usuário passou de push de primeiro plano ativado para push de segundo plano ativado (`remote_notification_enabled`), isso será documentado no changelog de push como "Push token was updated from foreground push enabled to foreground push disabled."
+Ao revisar o estado de push ativado, **Push Registered for** indica para quais plataformas a Braze pode enviar push em primeiro plano para aquele usuário. No iOS e Android, se um usuário passou de push de primeiro plano ativado para push de segundo plano ativado (`remote_notification_enabled`), isso será documentado no changelog de push como "token por push was updated from foreground push enabled to foreground push disabled."
 
 Se o usuário for adicionado como usuário teste, em **Console de desenvolvedor** > **Event User Log**, o perfil do usuário mostrará uma solicitação do SDK com `remote_notification_enabled` como `true` ou `false`. Pode ser necessário atualizar o perfil do usuário para visualizar as atualizações, pois há um pequeno atraso para que as atualizações do SDK cheguem ao perfil do usuário.
 
@@ -166,7 +168,7 @@ Se o usuário for adicionado como usuário teste, em **Console de desenvolvedor*
 - **Push de segundo plano ativado no iOS:** O usuário recebeu o prompt de push e disse não, ou disse sim e depois desativou notificações por push nas configurações do dispositivo (refletido após o usuário ter uma sessão).
 - **Push de primeiro plano ativado no iOS:** O usuário recebeu o prompt de push e está elegível para receber push em primeiro plano.
 
-A análise de dados de Campaign refletirá as estatísticas de push de acordo com os detalhes acima. Você também pode baixar os perfis de usuários que entraram na Campaign ou Canvas para fazer referência cruzada com os perfis de usuários.
+A análise de dados de Campaign refletirá as estatísticas de push de acordo com os detalhes anteriores desta seção. Você também pode baixar os perfis de usuários que entraram na Campaign ou Canvas para fazer referência cruzada com os perfis de usuários.
 
 ## Outros cenários específicos de plataforma {#other-platform-specific-scenarios}
 

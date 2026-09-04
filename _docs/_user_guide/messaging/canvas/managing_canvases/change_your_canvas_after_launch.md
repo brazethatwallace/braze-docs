@@ -66,14 +66,16 @@ Stopping a Canvas does not exit users who are waiting to receive a message. If y
 
 You can edit the following settings and details after launching a Canvas:
 
-* Canvas name and description
-* Teams and tags
-* Entry type, schedule, and controls
-* Subscription status
-* Rate limiting
-* Frequency capping
-* Quiet Hours
-* Target audience
+- Canvas name and description
+- Teams
+- Tags 
+  - Adding a tag after launch lets you retarget users in segments with filters such as `Received Message from Campaign or Canvas with Tag`.
+- Entry type, schedule, and controls
+- Subscription status
+- Rate limiting
+- Frequency capping
+- Quiet hours
+- Target audience
 
 After a Canvas has launched:
 
@@ -158,7 +160,9 @@ By creating or editing disconnected steps, you can make changes to these indepen
 
 ### Experiment Path step
 
-If your Canvas has an active or in-progress Winning Path or Personalized Path experiment and you update the active Canvas (regardless of whether you update the Experiment Path step itself), the in-progress experiment ends, and the Experiment Paths step does not determine a winning path or personalized paths. To restart the experiment, you can disconnect the existing Experiment Path and launch a new one, or duplicate the Canvas and launch a new Canvas. Otherwise, users flow through the experiment path as if no optimization method was selected.
+If your Canvas has an active or in-progress Winning Path experiment and you update the active Canvas, the experiment ends. This applies even if you don't update the Experiment Path step. To restart the experiment, disconnect the existing Experiment Path and launch a new one, or duplicate the Canvas and launch the duplicate. Otherwise, users flow through the experiment path without optimization.
+
+Existing Experiment Path steps that use Personalized Paths continue to run. Updating an active Canvas also ends an in-progress Personalized Paths experiment.
 
 ### Time delays
 
@@ -190,5 +194,5 @@ The following issues are avoidable. If you need to make edits to a Canvas after 
 - The edits do not overwrite Currents data, so you may notice discrepancies between Canvas steps (such as `canvas_step_ids` that don't exist in the Canvas due to deletion)
 - Users can receive the same message twice
 - Users won't receive messages due to the existing rate limit
-  - When you update the rate limit on an active Canvas, the new rate limit takes effect for all future message sends, including users already in the Canvas. However, due to internal caching (up to 30 seconds), there may be a brief delay before the new rate limit is fully applied. Note that Braze enqueues users for the Message step they're currently at so the rate limit in effect when each step's message is actually sent is the one that applies.
+  - When you update the rate limit on an active Canvas, the new rate limit applies only to users who flow through the Message step after the rate limit change. Users who are already queued for a Message step retain the original rate limit that was in effect when they were enqueued. To apply a new rate limit to all users, stop the Canvas, duplicate it with the updated rate limit, and launch the new Canvas. Use a filter to prevent users who received messages from the original Canvas from entering the duplicate.
 - When a Canvas is [automatically stopped]({{site.baseurl}}/user_guide/messaging/governance/statuses#available-statuses), the post-launch drafts of the Canvas are also deleted.

@@ -6,7 +6,6 @@ page_order: 6
 layout: api_page
 page_type: reference
 description: "이 문서에서는 사용자 병합 Braze 엔드포인트에 대한 자세한 내용을 설명합니다."
-
 ---
 {% api %}
 # 사용자 병합 {#merge-users}
@@ -22,7 +21,7 @@ description: "이 문서에서는 사용자 병합 Braze 엔드포인트에 대�
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `users.merge` 권한이 있는 [API 키]({{site.baseurl}}/api/api_key)가 필요합니다.
+이 엔드포인트를 사용하려면 `users.merge` 권한이 있는 [API 키]({{site.baseurl}}/api/basics)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -74,7 +73,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 - 마지막 세션 날짜(Braze는 두 날짜 중 더 늦은 날짜를 선택합니다)
 - 커스텀 속성(Braze는 대상 프로필의 기존 커스텀 속성을 유지하고 대상 프로필에 존재하지 않는 커스텀 속성을 포함합니다)
 - 커스텀 이벤트 및 구매 이벤트 데이터
-- "Y일 동안 X회" 세분화를 위한 커스텀 이벤트 및 구매 이벤트 등록정보(X<=50 및 Y<=30)
+- "Y일 동안 X회" 세분화를 위한 커스텀 이벤트 및 구매 이벤트 속성정보(X<=50 및 Y<=30)
 - 세분화 가능한 커스텀 이벤트 요약
   - 이벤트 수(두 프로필의 합계)
   - 이벤트가 처음 발생한 날짜(Braze는 두 날짜 중 더 이른 날짜를 선택합니다)

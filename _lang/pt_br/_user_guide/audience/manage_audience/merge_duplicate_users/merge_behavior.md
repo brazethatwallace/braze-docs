@@ -45,9 +45,9 @@ Esse comportamento funciona bem para atributos padrão e personalizados. No enta
 
 ## Usuários marcados para exclusão {#users-marked-for-deletion}
 
-Quando você usa a [ferramenta de exclusão de usuários em massa]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users) para excluir um segmento, a Braze marca esses perfis de usuário para exclusão nos próximos 7 dias. A Braze não mescla perfis marcados para exclusão, seja o perfil a ser mantido ou o perfil a ser mesclado.
+Quando você usa a [ferramenta de exclusão de usuários em massa]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users) para excluir um Segment, a Braze marca esses perfis de usuário para exclusão nos próximos 7 dias. A Braze não mescla perfis marcados para exclusão, seja o perfil a ser mantido ou o perfil a ser mesclado.
 
-Se você precisar mesclar um perfil marcado para exclusão, primeiro [cancele a exclusão do segmento]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users#cancel) ou remova o usuário da exclusão para que o perfil não esteja mais marcado.
+Se você precisar mesclar um perfil marcado para exclusão, primeiro [cancele a exclusão do Segment]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users#cancel) ou remova o usuário da exclusão para que o perfil não esteja mais marcado.
 
 ## Usuários teste {#test-users}
 

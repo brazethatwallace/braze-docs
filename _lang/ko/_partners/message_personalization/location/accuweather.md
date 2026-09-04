@@ -10,7 +10,7 @@ search_tag: Partner
 
 # AccuWeather
 
-> [AccuWeather](https://www.accuweather.com/)는 전 세계에 기상 예보 서비스를 제공하는 미디어 회사입니다. AccuWeather를 사용하면 마케팅 캠페인을 강화하고 개인화할 수 있으며, Braze [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)를 활용하여 번역을 자동화할 수도 있습니다.
+> [AccuWeather](https://www.accuweather.com/)는 전 세계에 기상 예보 서비스를 제공하는 미디어 회사입니다. AccuWeather를 사용하면 마케팅 캠페인을 강화하고 개인화할 수 있으며, Braze [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)를 활용하여 번역을 자동화할 수도 있습니다.
 
 _이 통합은 AccuWeather에서 유지 관리합니다._
 
@@ -19,7 +19,7 @@ _이 통합은 AccuWeather에서 유지 관리합니다._
 | 요구 사항 | 설명 |
 |---|---|
 | AccuWeather API 키 | 요청 URL에서 사용할 호환 API 키에 대해 AccuWeather 계정 매니저에게 문의하세요.<br><br>자세한 안내는 [AccuWeather Enterprise API](https://apidev.accuweather.com/developers/) 페이지에서 확인할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 사용 가능한 AccuWeather API {#available-accuweather-apis}
 
@@ -36,7 +36,7 @@ _이 통합은 AccuWeather에서 유지 관리합니다._
 | [Imagery](https://apidev.accuweather.com/developers/imageryAPIguide) | 레이더 및 위성 이미지를 가져옵니다. |
 | [Tropical](https://apidev.accuweather.com/developers/tropicalAPIGuide) | 전 세계 열대성 저기압의 현재 위치, 과거 위치 및 예보를 가져옵니다. |
 | [Translations](https://apidev.accuweather.com/developers/translationsApiGuide) | 사용 가능한 언어 목록을 가져옵니다. 특정 그룹의 구문에 대한 번역을 가져옵니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Available AccuWeather APIs" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="사용 가능한 AccuWeather API" }
 
 ## 연결된 콘텐츠 예시 {#connected-content-example}
 
@@ -64,7 +64,7 @@ Enjoy the weather!
 
 {% tabs %}
 {% tab Locations %}
-#### Locations API 예시 {#locations-api-example}
+### Locations API 예시 {#locations-api-example}
 
 {% raw %}
 첫 번째 `connected_content` 태그 내에서 [Locations API](https://apidev.accuweather.com/developers/locationsAPIguide)에 대한 GET 요청이 수행됩니다. 이 예시에서는 우편번호 커스텀 속성이 없는 경우 사용자의 `{{${city}}}`를 대신 활용할 수 있습니다.
@@ -157,7 +157,7 @@ Enjoy the weather!
 {% endtab %}
 {% tab Current conditions %}
 
-#### Current Conditions API 예시 {#current-conditions-api-example}
+### Current Conditions API 예시 {#current-conditions-api-example}
 
 두 번째 `connected_content` 태그의 경우, [Current Conditions API](https://apidev.accuweather.com/developers/currentConditionsAPIGuide)에 대한 GET 요청이 수행됩니다. 요청 URL에 **위치 키**를 추가해야 합니다. 다음은 예시 `connected_content` 태그입니다:
 

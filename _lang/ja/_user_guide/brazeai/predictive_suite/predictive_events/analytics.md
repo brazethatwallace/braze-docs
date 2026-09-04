@@ -41,7 +41,7 @@ page_order: 1.3
 
 ### ユーザーレベルの可能性スコアへのアクセス {#accessing-user-level-likelihood-scores}
 
-単一ユーザーの可能性スコアを確認するには、ダッシュボードでそのユーザーを検索し、**Engagement** > **Predictions**に移動してスコアを確認します。多くのユーザーのスコアとカテゴリを一度に確認するには、[イベント発生確率スコア]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#event-likelihood-category)または[イベント発生確率カテゴリ]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#event-likelihood-score)のフィルターを使って[セグメント]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)を作成し、そのセグメントからユーザーをエクスポートします。エクスポート時には、エクスポートデータに可能性スコアを含めることができます。
+単一ユーザーの可能性スコアを確認するには、ダッシュボードでそのユーザーを検索し、**エンゲージメント** > **Predictions**に移動してスコアを確認します。多くのユーザーのスコアとカテゴリを一度に確認するには、[イベント発生確率スコア]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#event-likelihood-category)または[イベント発生確率カテゴリ]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#event-likelihood-score)のフィルターを使って[セグメント]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)を作成し、そのセグメントからユーザーをエクスポートします。エクスポート時には、エクスポートデータに可能性スコアを含めることができます。
 
 {% alert note %}
 予測イベントと[解約予測]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn)はどちらもユーザーにスコアを割り当てますが、重要な違いがあります。<br><br>
@@ -70,7 +70,7 @@ page_order: 1.3
 
 すべての機械学習モデルにはエラーがあります。選択したユーザーの中に、可能性スコアが高くても、実際にはイベントを実行しないユーザーがいる場合があります。何もアクションを起こさなければ、彼らはイベントを実行しないでしょう。いずれにしてもターゲットに含まれるため、これはエラーまたは「偽陽性」です。この2番目のプログレスバーの全幅は、イベントを実行しないと予想されるユーザー数を表し、塗りつぶされた部分は、現在のスライダー位置で誤ってターゲットにされるユーザーです。
 
-この情報をもとに、どれだけの真陽性を捕捉したいのか、どれだけの偽陽性をターゲットとして許容できるのか、エラーのコストがビジネスにとってどれくらいなのかを判断することをお勧めします。価値のあるプロモーションを送信している場合、チャートの左側を優先させて非購入者（偽陽性）だけをターゲットにすることができます。あるいは、チャートの右側を優先させてユーザーを選択することで、よく購入してくれるバイヤー（真陽性）に再購入を促すこともできます。
+この情報をもとに、どれだけの真陽性を捕捉したいのか、どれだけの偽陽性をターゲットとして許容できるのか、エラーのコストがビジネスにとってどれくらいなのかを判断することをお勧めします。価値のあるプロモーションを送信している場合、チャートの信頼度が低い側を優先させて非購入者（偽陽性）だけをターゲットにすることができます。あるいは、チャートの信頼度が高い側を優先させてユーザーを選択することで、よく購入してくれるバイヤー（真陽性）に再購入を促すこともできます。
 
 ## 予測品質 {#prediction_quality}
 

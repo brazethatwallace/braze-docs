@@ -17,7 +17,7 @@ alias: /push_primer/
 
 Las campañas de push primer animan a tus usuarios a habilitar push en su dispositivo para tu aplicación. Obtener el permiso de los usuarios para enviar mensajes directamente a sus dispositivos puede ser complejo, ¡pero nuestras guías pueden ayudarte! Esta guía muestra los pasos que deben dar los desarrolladores para integrar el push priming.
 
-## Paso 1: Añade un fragmento de código en el archivo AppDelegate.m {#step-1-add-snippet-in-appdelegatem-file}
+## Paso 1: Añadir el fragmento de código en el archivo AppDelegate.m {#step-1-add-snippet-in-appdelegatem-file}
 
 Añade la siguiente línea de código a tu archivo `AppDelegate.m` en lugar de la integración estándar:
 
@@ -79,9 +79,9 @@ if #available(iOS 10, *) {
 {% endtab %}
 {% endtabs %}
 
-## Paso 2: Añade un verificador de eventos personalizados al archivo AppDelegate.m {#step-2-append-custom-event-checker-to-appdelegatem-file}
+## Paso 2: Añadir el verificador de eventos personalizados al archivo AppDelegate.m {#step-2-append-custom-event-checker-to-appdelegatem-file}
 
-El siguiente fragmento de código comprueba si es necesario lanzar un evento personalizado. Añade la siguiente línea de código a tu `AppDelegate.m`.
+El siguiente fragmento de código comprueba si es necesario disparar un evento personalizado. Añade la siguiente línea de código a tu `AppDelegate.m`.
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -128,11 +128,11 @@ let notificationSettiings = UIApplication.shared.currentUserNotificationSettings
 {% endtab %}
 {% endtabs %}
 
-## Paso 3: Configura un controlador de vínculos profundos {#step-3-set-up-a-deep-link-handler}
+## Paso 3: Configurar un controlador de vínculos profundos {#step-3-set-up-a-deep-link-handler}
 
-Coloca el siguiente fragmento de código dentro de tu código de gestión de vínculos profundos. Solo debes ejecutar este código de vinculación en profundidad para tu mensaje push primer dentro de la aplicación.
+Coloca el siguiente fragmento de código dentro de tu código de gestión de vínculos profundos. Solo debes ejecutar este código de vinculación en profundidad para tu mensaje dentro de la aplicación de push primer.
 
-Consulta la [personalización del manejo de enlaces]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/advanced_use_cases/linking#linking-handling-customization) para obtener más información sobre la vinculación en profundidad.
+Consulta [personalización de la gestión de enlaces]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/advanced_use_cases/linking#linking-handling-customization) para obtener más información sobre la vinculación en profundidad.
 
 {% tabs %}
 {% tab OBJECTIVE-C %}

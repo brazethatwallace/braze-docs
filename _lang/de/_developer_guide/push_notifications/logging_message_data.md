@@ -137,7 +137,7 @@ Weitere Informationen zu angepassten Events finden Sie unter [Angepasste Events]
 
 Sie können Analytics in Echtzeit protokollieren, indem Sie den [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)-Endpunkt aufrufen.
 
-Um das Nutzerprofil zu identifizieren, fügen Sie `braze_id` in Ihre Push-Payload-Schlüssel-Wert-Paare ein.
+Um das Kundenprofil zu identifizieren, fügen Sie `braze_id` in Ihre Push-Payload-Schlüssel-Wert-Paare ein.
 
 {% alert note %}
 Die Übergabe von `braze_id` identifiziert nur das Profil. Sie benötigen weiterhin Implementierungslogik, die Payload-Werte liest und die `/users/track`-Anfrage mit den Events oder Attributen sendet, die Sie protokollieren möchten.
@@ -318,7 +318,7 @@ func logPendingCustomEventsIfNecessary() {
 {% endsubtabs %}
 
 {% endtab %}
-{% tab Custom attributes %}
+{% tab angepasste Attribute %}
 
 #### Angepasste Attribute speichern {#saving-custom-attributes}
 

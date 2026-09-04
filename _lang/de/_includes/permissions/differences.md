@@ -1,6 +1,6 @@
 {% if include.content == "Differences" %}
 
-Sie können [Teams]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/teams), [Berechtigungssätze]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions#creating-a-permission-set) und [Nutzer:innen-Rollen]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions#creating-a-role) verwenden, um den Zugriff und die Verantwortlichkeiten der Unternehmensnutzer:innen innerhalb von Braze zu verwalten. Jedes Feature umfasst eine andere Sammlung von Berechtigungen und Zugriffskontrollen.
+Sie können [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams), [Berechtigungssätze]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions#creating-a-permission-set) und [Nutzer:innen-Rollen]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions#creating-a-role) verwenden, um den Zugriff und die Verantwortlichkeiten der Unternehmensnutzer:innen innerhalb von Braze zu verwalten. Jedes Feature umfasst eine andere Sammlung von Berechtigungen und Zugriffskontrollen.
 
 ### Wesentliche Unterschiede {#key-differences}
 

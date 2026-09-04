@@ -24,13 +24,13 @@ Um jederzeit zum Tab **Message Styles** zurückzukehren:
 - Klicken Sie auf die Schließen-X-Schaltfläche bei den einzelnen Blockeigenschaften
 - Wählen Sie den Nachrichtencontainer, die Schließen-X-Schaltfläche der Nachricht oder den Editor-Hintergrund aus
 
-### Benutzerdefinierte Schriftarten {#custom-fonts}
+### Angepasste Schriftarten {#custom-fonts}
 
 Wir akzeptieren die folgenden Dateitypen für Schriftarten: `.ttf`, `.woff`, `.otf` und `.woff2`. Weitere Informationen finden Sie unter [Asset-Dateien]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#asset-files).
 
-Sie können mehrere Varianten einer Schriftfamilie hinzufügen, da einige Stiloptionen für benutzerdefinierte Schriftarten möglicherweise nicht verfügbar sind. Derzeit unterstützen wir das Hinzufügen von Schriftarten über URL nicht.
+Sie können mehrere Varianten einer Schriftfamilie hinzufügen, da einige Stiloptionen für angepasste Schriftarten möglicherweise nicht verfügbar sind. Derzeit unterstützen wir das Hinzufügen von Schriftarten über URL nicht.
 
-So fügen Sie eine benutzerdefinierte Schriftart hinzu:
+So fügen Sie eine angepasste Schriftart hinzu:
 
 1. Gehen Sie zum Abschnitt **Content** im Tab **Message styles**.
 2. Klicken Sie auf **Add custom font**.
@@ -48,7 +48,7 @@ Der Drag-and-Drop-Editor verwendet zwei Schlüsselkomponenten zum Erstellen von 
 
 ### Schließen-X-Button {#close-x-button}
 
-Für modale und Vollbild-In-App-Nachrichten können Sie den Schließen-Button anpassen, der als <i class="fa-solid fa-xmark"></i> in der oberen rechten Ecke Ihrer Nachricht angezeigt wird. Zu den Anpassungsoptionen gehören Button-Position, Größe, Füllfarbe, Hintergrundfarbe, Rahmenstil und Rahmenradius.
+Für modale und Vollbild-In-App-Nachrichten können Sie den Schließen-Button anpassen, der als <i class="fa-solid fa-xmark"></i> oben in Ihrer Nachricht angezeigt wird. Zu den Anpassungsoptionen gehören Button-Position, Größe, Füllfarbe, Hintergrundfarbe, Rahmenstil und Rahmenradius.
 
 ![Optionen zur Anpassung des Schließen-X-Buttons in In-App-Nachrichten, einschließlich Button-Größe, Füllfarbe, Hintergrundfarbe, Rahmenstil und Rahmenradius.]({% image_buster /assets/img_archive/close_x_button.png %}){: style="max-width:40%"}
 
@@ -94,6 +94,8 @@ Jeder Block hat seine eigenen Einstellungen, wie z. B. eine granulare Steuerung 
 
 Während Sie Ihre In-App-Nachricht erstellen, können Sie in der Symbolleiste eine Mobilgeräte-, Tablet- oder Desktop-Ansicht auswählen, um eine Vorschau zu sehen, wie Ihre In-App-Nachricht für Ihre Nutzergruppen aussehen wird. So stellen Sie sicher, dass Ihr Inhalt responsiv ist, und Sie können unterwegs alle notwendigen Anpassungen vornehmen.
 
+{% multi_lang_include drag_and_drop/hide_rows_and_blocks_by_device.md channel='in_app_message' %}
+
 ## Kreative Details {#creative-details}
 
 ### Vollbild auf größeren Bildschirmen {#fullscreen}
@@ -102,7 +104,7 @@ Auf einem Tablet oder Desktop-Browser wird eine Vollbild-In-App-Nachricht in der
 
 ![Beispiel einer Vollbild-In-App-Nachricht.]({% image_buster /assets/img_archive/dnd_iam_fullscreen_example.png %}){: style="border:none"}
 
-### Hintergrundbild hinzufügen {#adding-a-background-image}
+### Hintergrundbild hinzufügen {#add-a-background-image}
 
 Sie können ein Bild zum Hintergrund Ihrer Nachricht über den Tab **Message styles** hinzufügen.
 
@@ -114,7 +116,32 @@ Sie können ein Bild zum Hintergrund Ihrer Nachricht über den Tab **Message sty
 Wenn Sie Schwierigkeiten haben, einen bestimmten Block auszuwählen, können Sie den Aufwärtspfeil in der Inline-Symbolleiste des Blocks verwenden, um den Fokus auf den jeweils übergeordneten Block zu verschieben.
 {% endalert %}
 
-### Liquid hinzufügen {#adding-liquid}
+#### Hintergrundbilder mit Liquid austauschen {#swap-background-images-with-liquid}
+
+Um Hintergrundbilder dynamisch basierend auf Nutzerdaten (wie angepassten Attributen oder Nutzereigenschaften) auszutauschen, verwenden Sie Liquid-{% raw %}`{% capture %}`{% endraw %}-Blöcke, um die richtige Bild-URL einer Variablen zuzuweisen, bevor HTML und CSS geladen werden.
+
+Platzieren Sie Ihre Liquid-Logik am Anfang Ihrer Nachricht und referenzieren Sie dann die erfasste Variable im URL-Feld des Hintergrundbilds. So wird das richtige Bild basierend auf den Daten der jeweiligen Nutzer:innen ausgewählt.
+
+Nachdem Sie die Bild-URL erfasst haben, verwenden Sie {% raw %}`{{ image_url | strip }}`{% endraw %}, um die URL ohne zusätzliche Leerzeichen auszugeben. Sie können dieses Liquid dann in das URL-Feld des Hintergrundbilds einfügen, um verschiedenen Nutzer:innen dynamisch unterschiedliche Bilder anzuzeigen.
+
+##### Beispiel {#example}
+
+{% raw %}
+```liquid
+{% capture image_url %}
+{% if {{custom_attribute.${membership_tier}}} == 'gold' %}
+https://example.com/images/gold-background.png
+{% elsif {{custom_attribute.${membership_tier}}} == 'silver' %}
+https://example.com/images/silver-background.png
+{% else %}
+https://example.com/images/default-background.png
+{% endif %}
+{% endcapture %}
+{{ image_url | strip }}
+```
+{% endraw %}
+
+### Liquid hinzufügen {#add-liquid}
 
 ![Symbol zum Hinzufügen von Liquid-Personalisierung.]({% image_buster /assets/img_archive/dnd_iam_liquid.png %}){: style="float:right;max-width:25%;margin-left:15px"}
 
@@ -122,7 +149,7 @@ Um [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/li
 
 Nehmen Sie als Nächstes Ihr generiertes Liquid-Snippet und fügen Sie es in Ihre Nachricht ein. Nachdem Sie Ihre In-App-Nachricht entworfen und erstellt haben, gehen Sie zu **Preview & Test**, um eine Vorschau Ihrer Nachricht anzuzeigen.
 
-### Den KI-Texter verwenden {#using-the-ai-copywriter}
+### Den KI-Texter verwenden {#use-the-ai-copywriter}
 
 Wenn ein Textblock in Ihrer In-App-Nachricht ausgewählt ist, wählen Sie <i class="fa-solid fa-wand-magic-sparkles" title="KI-Texter"></i> **KI-Texter** in der Block-Symbolleiste, um den [KI-gestützten Textassistenten]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy) zu starten. Der KI-Textassistent übergibt einen kurzen Produktnamen oder eine Beschreibung an das GPT3-Textgenerierungstool von OpenAI, um menschenähnliche Marketingtexte für Ihre Nachrichten zu generieren.
 
@@ -132,7 +159,7 @@ Sie können sich einige Klicks sparen, indem Sie Text innerhalb des Blocks marki
 
 ![GIF des KI-Texters.]({% image_buster /assets/img_archive/dnd_iam_ai_copywriter.gif %})
 
-### Stile auf Standard zurücksetzen {#resetting-styles-to-default}
+### Stile auf Standard zurücksetzen {#reset-styles-to-default}
 
 Eigenschaften, die Sie gegenüber dem Standardstil geändert haben, sind mit einem orangefarbenen Punkt markiert. Um eine bestimmte Eigenschaft auf ihren Standardstil zurückzusetzen, bewegen Sie den Mauszeiger über das Feld und wählen Sie **Reset to default**.
 
@@ -140,15 +167,15 @@ Eigenschaften, die Sie gegenüber dem Standardstil geändert haben, sind mit ein
 
 Sie können auch alle Stile für ein ausgewähltes Element zurücksetzen, indem Sie <i class="fas fa-paintbrush" title="Stile kopieren oder einfügen"></i> neben dem Namen des Eigenschaftenpanels auswählen und **Reset to default styles** wählen.
 
-### Stile kopieren und einfügen {#copying-and-pasting-styles}
+### Stile kopieren und einfügen {#copy-and-paste-styles}
 
 Nachdem Sie Änderungen am Stil eines Elements vorgenommen haben, können Sie diese Stile kopieren und auf ein anderes Element einfügen. Beim Einfügen von Stilen werden nur die für dieses Element relevanten Eigenschaften angewendet.
 
 ![Dropdown-Menü mit der Option zum Kopieren von Stilen.]({% image_buster /assets/img_archive/dnd_iam_copypaste_styles.png %}){: style="float:right;margin-left:15px;max-width:35%"}
 
-1. Wählen Sie bei ausgewähltem Element <i class="fas fa-paintbrush" title="Stile kopieren oder einfügen"></i> **Stile kopieren oder einfügen** neben dem Namen des Eigenschaftenpanels aus (wenn Sie beispielsweise einen Button ausgewählt haben, neben „Button properties“).
+1. Wählen Sie bei ausgewähltem Element <i class="fas fa-paintbrush" title="Stile kopieren oder einfügen"></i> **Copy or paste styles** neben dem Namen des Eigenschaftenpanels aus (wenn Sie beispielsweise einen Button ausgewählt haben, neben „Button properties“).
 2. Klicken Sie auf **Copy styles** und wählen Sie das Element aus, auf das Sie den kopierten Stil anwenden möchten.
-3. Wählen Sie erneut <i class="fas fa-paintbrush" title="Stile kopieren oder einfügen"></i> **Stile kopieren oder einfügen** und wählen Sie **Paste styles**.
+3. Wählen Sie erneut <i class="fas fa-paintbrush" title="Stile kopieren oder einfügen"></i> **Copy or paste styles** und wählen Sie **Paste styles**.
 
 #### Tastaturkürzel {#keyboard-shortcuts}
 

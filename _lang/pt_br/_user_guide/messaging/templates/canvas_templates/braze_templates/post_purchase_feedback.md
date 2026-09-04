@@ -45,7 +45,7 @@ Vamos ajustar os detalhes do Canvas para refletir nosso objetivo.
 
 ### Etapa 2: Atribuir eventos de conversão {#step-2-assign-conversion-events}
 
-Em seguida, vamos atribuir nossos eventos de conversão. Atualize o **Primary Conversion Event - A** para **Make a specific purchase** e selecione **Proxy War**.
+Em seguida, vamos atribuir nossos eventos de conversão. Atualize o **conversão primária Event - A** para **Make a specific purchase** e selecione **Proxy War**.
 
 ![Seção "Assign Conversion Events" para o tipo de evento de conversão de compra do produto do jogo Proxy War.]({% image_buster /assets/img/canvas_templates/post_purchase_feedback/select_conversion_event.png %}){: style="max-width:90%;"}
 
@@ -60,7 +60,7 @@ Vamos manter o prazo de conversão do modelo de três dias, pois queremos direci
 
 Nosso público-alvo para feedback são os usuários que compraram recentemente Proxy War 3.
 
-1. Selecione nosso segmento alvo, "Purchased Proxy War 3", que consiste em usuários que compraram o jogo.
+1. Selecione nosso Segment alvo, "Purchased Proxy War 3", que consiste em usuários que compraram o jogo.
 2. Selecione um filtro para incluir usuários que compraram "Proxy War 3" mais de "0" vezes.
 
 ![Um segmento chamado "Purchased Proxy War 3" que segmenta usuários que compraram o jogo.]({% image_buster /assets/img/canvas_templates/post_purchase_feedback/entry_window_segment.png %}){: style="max-width:90%;"}
@@ -72,7 +72,7 @@ Nosso público-alvo para feedback são os usuários que compraram recentemente P
 
 Vamos manter as configurações de inscrição padrão, para enviar apenas a usuários que se inscreveram ou optaram por receber mensagens ou notificações.
 
-Como queremos ser cuidadosos com nossos envios, vamos selecionar **Enable Quiet Hours** para evitar solicitar feedback entre 23h e 10h no fuso horário dos nossos usuários e enviar apenas no próximo horário disponível.
+Como queremos ser cuidadosos com nossos envios, vamos selecionar **Enable horário de silêncio** para evitar solicitar feedback entre 23h e 10h no fuso horário dos nossos usuários e enviar apenas no próximo horário disponível.
 
 ![Etapa "Send Settings" direcionada a usuários inscritos ou que optaram por receber. O horário de silêncio está ativado.]({% image_buster /assets/img/canvas_templates/post_purchase_feedback/send_settings_with_quiet_hours.png %}){: style="max-width:90%;"}
 
@@ -87,7 +87,7 @@ Vamos começar nossa personalização percorrendo cada componente de mensagem pa
 1. No construtor de Canvas, selecione a primeira etapa de Mensagem na jornada do usuário.
 2. Selecione a variante **Email**.
 3. Preencha as **Sending info** com um assunto que incentive o feedback do usuário.
-4. Selecione **Edit message** para substituir a mensagem de e-mail do modelo pela nossa mensagem de pesquisa de feedback. Isso inclui substituir os links de cada chamada para ação para capturar qual opção foi selecionada, que será referenciada na etapa Action Path da nossa jornada do usuário.
+4. Selecione **Edit message** para substituir a mensagem de e-mail do modelo pela nossa mensagem de pesquisa de feedback. Isso inclui substituir os links de cada chamada para ação para capturar qual opção foi selecionada, que será referenciada na etapa Action jornada da nossa jornada do usuário.
 
 {% alert tip %}
 Você pode usar [propriedades de entrada do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) para personalizar as mensagens no seu Canvas com base no produto ao qual você está se referindo.
@@ -95,7 +95,7 @@ Você pode usar [propriedades de entrada do Canvas]({{site.baseurl}}/user_guide/
 
 #### Configurar a pesquisa de feedback {#set-up-feedback-survey}
 
-Em seguida, precisamos preencher os detalhes da variante **In-App Message**. É aqui que precisamos especificar nosso atributo personalizado `Experience Feedback` que indica o sentimento do feedback do usuário. (Também vamos referenciar isso na etapa Action Path subsequente.)
+Em seguida, precisamos preencher os detalhes da variante **In-App Message**. É aqui que precisamos especificar nosso atributo personalizado `Experience Feedback` que indica o sentimento do feedback do usuário. (Também vamos referenciar isso na etapa Action jornada subsequente.)
 
 1. Na mesma primeira etapa de Mensagem, selecione a variante **In-App Messages**. Vamos manter os controles de mensagem como estão.
 2. Para o cabeçalho e o corpo, vamos usar uma linguagem que incentive os usuários a serem honestos sobre sua experiência com Proxy War 3.
@@ -105,15 +105,15 @@ Em seguida, precisamos preencher os detalhes da variante **In-App Message**. É 
 
 ![Uma pesquisa que pergunta ao usuário se ele gostou da compra recente de Proxy War 3, com três opções: "Loved it", "It was OK" e "Not for me".]({% image_buster /assets/img/canvas_templates/post_purchase_feedback/survey_example_iam.png %}){: style="max-width:90%;"}
 
-#### Construir o Action Path {#build-out-the-action-path}
+#### Construir o Action jornada {#build-out-the-action-path}
 
-Usando nosso atributo personalizado `Experience Feedback` e os valores de atributo da seção anterior, vamos atualizar o Action Path do modelo para corresponder ao nosso atributo e valores.
+Usando nosso atributo personalizado `Experience Feedback` e os valores de atributo da seção anterior, vamos atualizar o Action jornada do modelo para corresponder ao nosso atributo e valores.
 
 ![O grupo "Good feedback" para a etapa Action Path que inclui usuários que responderam "Loved it" à nossa pesquisa.]({% image_buster /assets/img/canvas_templates/post_purchase_feedback/action_path_good_example.png %}){: style="max-width:90%;"}
 
 ### Configurar o redirecionamento de anúncios {#set-up-ad-retargeting}
 
-Vamos garantir que nossa sincronização de público do Google esteja configurada na etapa **Ad Retargeting**. Isso incluirá selecionar nossa conta de anúncios, um público existente e a opção de adicionar usuários ao público.
+Vamos garantir que nossa sincronização de Google Audience esteja configurada na etapa **Ad Retargeting**. Isso incluirá selecionar nossa conta de anúncios, um público existente e a opção de adicionar usuários ao público.
 
 ### Configurar casos de suporte via webhook {#set-up-webhook-support-cases}
 

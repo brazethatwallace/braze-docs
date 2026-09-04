@@ -18,84 +18,84 @@ platform:
 
 ## Schlüssel-Wert-Paare {#key-value-pairs}
 
-Mit Braze können Sie zusätzliche Daten-Nutzlasten über Content Cards an Nutzer:innengeräte senden, indem Sie Schlüssel-Wert-Paare verwenden. Diese können Ihnen helfen, interne Metriken zu tracken, App-Inhalte zu aktualisieren und Eigenschaften anzupassen. [Fügen Sie Schlüssel-Wert-Paare über das Dashboard hinzu]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/create#step-4-configure-additional-settings-optional).
+Braze ermöglicht es Ihnen, zusätzliche Daten-Payloads über Content Cards mithilfe von Schlüssel-Wert-Paaren an die Geräte der Nutzer:innen zu senden. Diese können Ihnen helfen, interne Metriken zu verfolgen, App-Inhalte zu aktualisieren und Eigenschaften anzupassen. [Fügen Sie Schlüssel-Wert-Paare über das Dashboard hinzu]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card#step-4-configure-additional-settings-optional).
 
 {% alert note %}
-Wir raten davon ab, verschachtelte JSON-Werte als Schlüssel-Wert-Paare zu senden. Stattdessen sollten die JSON-Werte vor dem Senden durch Flatten vereinfacht werden.
+Wir empfehlen nicht, verschachtelte JSON-Werte als Schlüssel-Wert-Paare zu senden. Stattdessen sollten Sie das JSON vor dem Senden flach strukturieren.
 {% endalert %}
 
 {% tabs %}
-{% tab web %}
+{% tab Internet %}
 
-Schlüssel-Wert-Paare werden in Objekten des Typs <a href="https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.card.html" target="_blank">`card`</a> als `extras` gespeichert. Diese können verwendet werden, um Daten zusammen mit einer Karte zur weiteren Bearbeitung durch die Anwendung zu senden. Rufen Sie `card.extras` auf, um auf diese Werte zuzugreifen.
-
-{% endtab %}
-{% tab android %}
-
-Schlüssel-Wert-Paare werden in Objekten des Typs <a href="https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/#-2118252107%2FProperties%2F-1725759721" target="_blank">`card`</a> als `extras` gespeichert. Diese können verwendet werden, um Daten zusammen mit einer Karte zur weiteren Bearbeitung durch die Anwendung zu senden. Rufen Sie <a href="https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/extras.html" target="_blank">`card.extras`</a> auf, um auf diese Werte zuzugreifen.
+Schlüssel-Wert-Paare werden auf <a href="https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.card.html" target="_blank">`card`</a>-Objekten als `extras` gespeichert. Diese können verwendet werden, um Daten zusammen mit einer Card zur weiteren Verarbeitung durch die App zu senden. Rufen Sie `card.extras` auf, um auf diese Werte zuzugreifen.
 
 {% endtab %}
-{% tab swift %}
+{% tab Android %}
 
-Schlüssel-Wert-Paare werden in Objekten des Typs <a href="https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard" target="_blank">`card`</a> als `extras` gespeichert. Diese können verwendet werden, um Daten zusammen mit einer Karte zur weiteren Bearbeitung durch die Anwendung zu senden. Rufen Sie <a href="https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/data-swift.struct/extras" target="_blank">`card.extras`</a> auf, um auf diese Werte zuzugreifen.
+Schlüssel-Wert-Paare werden auf <a href="https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/#-2118252107%2FProperties%2F-1725759721" target="_blank">`card`</a>-Objekten als `extras` gespeichert. Diese können verwendet werden, um Daten zusammen mit einer Card zur weiteren Verarbeitung durch die App zu senden. Rufen Sie <a href="https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/extras.html" target="_blank">`card.extras`</a> auf, um auf diese Werte zuzugreifen.
+
+{% endtab %}
+{% tab Swift %}
+
+Schlüssel-Wert-Paare werden auf <a href="https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard" target="_blank">`card`</a>-Objekten als `extras` gespeichert. Diese können verwendet werden, um Daten zusammen mit einer Card zur weiteren Verarbeitung durch die App zu senden. Rufen Sie <a href="https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/data-swift.struct/extras" target="_blank">`card.extras`</a> auf, um auf diese Werte zuzugreifen.
 
 {% endtab %}
 {% endtabs %}
 
 {% alert tip %}
-Es ist wichtig, dass sich Ihre Marketing- und Entwicklerteams darüber abstimmen, welche Schlüssel-Wert-Paare verwendet werden sollen (z. B. `feed_type = brand_homepage`), denn alle Schlüssel-Wert-Paare, die Marketer in das Braze-Dashboard eingeben, müssen exakt mit den Schlüssel-Wert-Paaren übereinstimmen, die die Entwickler:innen in die App-Logik einbauen.
+Es ist wichtig, dass Ihre Marketing- und Entwickler:innen-Teams abstimmen, welche Schlüssel-Wert-Paare verwendet werden (zum Beispiel `feed_type = brand_homepage`), da alle Schlüssel-Wert-Paare, die Marketer im Braze-Dashboard eingeben, genau mit den Schlüssel-Wert-Paaren übereinstimmen müssen, die Entwickler:innen in die App-Logik einbauen.
 {% endalert %}
 
-## Content Cards als ergänzender Inhalt {#content-cards-as-supplemental-content}
+## Content Cards als ergänzende Inhalte {#content-cards-as-supplemental-content}
 
 ![Feed mit einer hybriden Liste, die lokale Daten und Braze Content Cards kombiniert.]({% image_buster /assets/img/cc_implementation/supplementary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0;"}
 
-Sie können Content Cards nahtlos in einen bestehenden Feed einfügen, sodass Daten aus mehreren Feeds gleichzeitig geladen werden können. Dadurch entsteht ein zusammenhängendes, harmonisches Erlebnis mit Braze Content Cards und vorhandenen Feed-Inhalten.
+Sie können Content Cards nahtlos in einen bestehenden Feed einbinden, sodass Daten aus mehreren Feeds gleichzeitig geladen werden. Dies schafft ein stimmiges, harmonisches Erlebnis mit Braze Content Cards und bestehenden Feed-Inhalten.
 
-Das Beispiel auf der rechten Seite zeigt einen Feed mit einer hybriden Liste von Artikeln, die über lokale Daten und Braze Content Cards gefüllt werden. Auf diese Weise können Content Cards ununterscheidbar neben bestehenden Inhalten stehen.
+Das nebenstehende Beispiel zeigt einen Feed mit einer hybriden Liste von Artikeln, die sowohl mit lokalen Daten als auch mit Content Cards von Braze befüllt werden. Auf diese Weise sind Content Cards von bestehenden Inhalten nicht zu unterscheiden.
 
 ### API-getriggerte Schlüssel-Wert-Paare {#api-triggered-key-value-pairs}
 
-[API-getriggerte Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery) sind eine gute Strategie, wenn die Werte einer Karte von externen Faktoren abhängen, um zu bestimmen, welche Inhalte den Nutzer:innen angezeigt werden sollen. Um zum Beispiel ergänzende Inhalte anzuzeigen, legen Sie Schlüssel-Wert-Paare mit Liquid fest. Beachten Sie, dass `class_type` zum Zeitpunkt der Einrichtung bekannt sein sollte.
+[API-getriggerte Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery) sind eine gute Strategie, wenn die Werte einer Card von externen Faktoren abhängen, die bestimmen, welche Inhalte den Nutzer:innen angezeigt werden sollen. Um beispielsweise ergänzende Inhalte anzuzeigen, legen Sie Schlüssel-Wert-Paare mit Liquid fest. Beachten Sie, dass `class_type` zum Zeitpunkt der Einrichtung bekannt sein sollte.
 
-![Die Schlüssel-Wert-Paare für den Anwendungsfall mit ergänzenden Content Cards. In diesem Beispiel werden verschiedene Aspekte der Karte, wie z. B. „tile_id“, „tile_deeplink“ und „tile_title“, mit Liquid festgelegt.]({% image_buster /assets/img/cc_implementation/supplementary_content.png %}){: style="max-width:60%;"}
+![Die Schlüssel-Wert-Paare für den Anwendungsfall „Ergänzende Content Cards“. In diesem Beispiel werden verschiedene Aspekte der Card wie „tile_id“, „tile_deeplink“ und „tile_title“ mithilfe von Liquid festgelegt.]({% image_buster /assets/img/cc_implementation/supplementary_content.png %}){: style="max-width:60%;"}
 
 ## Content Cards als interaktive Inhalte {#content-cards-as-interactive-content}
-![Unten links im Bildschirm erscheint eine interaktive Content-Card mit einer 50-Prozent-Rabattaktion. Nach dem Klick wird die Aktion auf den Warenkorb angewendet.]({% image_buster /assets/img/cc_implementation/discount2.png %}){: style="border:0;"}{: style="float:right;max-width:45%;border:0;margin-left:15px;"}
+![Eine interaktive Content Card mit einer 50-Prozent-Aktion, die in der unteren linken Ecke des Bildschirms erscheint. Nach dem Klick wird die Aktion auf den Warenkorb angewendet.]({% image_buster /assets/img/cc_implementation/discount2.png %}){: style="border:0;"}{: style="float:right;max-width:45%;border:0;margin-left:15px;"}
 
-Content Cards können genutzt werden, um dynamische und interaktive Erlebnisse für Ihre Nutzer:innen zu schaffen. Im Beispiel auf der rechten Seite erscheint an der Kasse ein Content-Card-Popup, das den Nutzer:innen Last-Minute-Aktionen bietet. Gut platzierte Karten wie diese sind eine großartige Möglichkeit, den Nutzer:innen einen „Anstoß“ zu bestimmten Aktionen zu geben.
+Content Cards können genutzt werden, um dynamische und interaktive Erlebnisse für Ihre Nutzer:innen zu schaffen. Im nebenstehenden Beispiel erscheint ein Content-Card-Pop-up an der Kasse, um Nutzer:innen Last-Minute-Aktionen anzubieten. Gut platzierte Cards wie diese sind eine großartige Möglichkeit, Nutzer:innen einen „Nudge“ in Richtung bestimmter Aktionen zu geben.
 
-Die Schlüssel-Wert-Paare für diesen Anwendungsfall umfassen einen `discount_percentage`, der als gewünschter Rabattbetrag festgelegt ist, und einen `class_type`, der als `coupon_code` festgelegt ist. Mit diesen Schlüssel-Wert-Paaren können Sie typspezifische Content Cards im Checkout-Bildschirm filtern und anzeigen. Weitere Informationen zur Verwendung von Schlüssel-Wert-Paaren zur Verwaltung mehrerer Feeds finden Sie unter [Anpassen des Standard-Content-Card-Feeds]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed#multiple-feeds).
+Die Schlüssel-Wert-Paare für diesen Anwendungsfall umfassen einen `discount_percentage`, der als gewünschter Rabattbetrag festgelegt wird, und einen `class_type`, der als `coupon_code` festgelegt wird. Diese Schlüssel-Wert-Paare ermöglichen es Ihnen, typspezifische Content Cards auf dem Checkout-Bildschirm zu filtern und anzuzeigen. Weitere Informationen zur Verwendung von Schlüssel-Wert-Paaren zur Verwaltung mehrerer Feeds finden Sie unter [Anpassen des Standard-Content-Card-Feeds]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed#implementing-multiple-feeds).
 <br>
 <br>
 
-![Interaktive Content-Card mit einer Checkout-Aktion.]({% image_buster /assets/img/cc_implementation/discount.png %}){: style="max-width:80%;"}
+![Interaktive Content Card mit einer Checkout-Aktion.]({% image_buster /assets/img/cc_implementation/discount.png %}){: style="max-width:80%;"}
 
 ## Content-Card-Badges {#content-card-badges}
 
-![Ein iPhone-Startbildschirm, auf dem eine Braze-Beispiel-App namens „Swifty“ mit einem roten Badge angezeigt wird, auf dem die Zahl 7 zu sehen ist]({% image_buster /assets/img/cc_implementation/ios-unread-badge.png %}){: style="max-width:35%;float:right;margin-left:15px;border:none;"}
+![Ein iPhone-Startbildschirm, der eine Braze-Beispiel-App namens Swifty mit einem roten Badge zeigt, das die Zahl 7 anzeigt]({% image_buster /assets/img/cc_implementation/ios-unread-badge.png %}){: style="max-width:35%;float:right;margin-left:15px;border:none;"}
 
-Badges sind kleine Symbole, die ideal dazu geeignet sind, die Aufmerksamkeit von Nutzer:innen zu gewinnen. Mithilfe von Badges, die Nutzer:innen auf neue Content-Card-Inhalte aufmerksam machen, können Sie Ihre App wieder in das Bewusstsein der Nutzer:innen rücken und die Anzahl der Sitzungen erhöhen.
+Badges sind kleine Symbole, die sich ideal eignen, um die Aufmerksamkeit von Nutzer:innen zu gewinnen. Mithilfe von Badges können Sie Nutzer:innen auf neue Content-Card-Inhalte aufmerksam machen, sie zurück in Ihre App locken und die Anzahl der Sitzungen steigern.
 
-### Anzeige der Anzahl ungelesener Content Cards als Badge {#displaying-the-number-of-unread-content-cards-as-a-badge}
+### Anzahl ungelesener Content Cards als Badge anzeigen {#displaying-the-number-of-unread-content-cards-as-a-badge}
 
-Sie können die Anzahl der ungelesenen Content Cards, die Ihre Nutzer:innen haben, als Badge auf dem Symbol Ihrer App anzeigen.
+Sie können die Anzahl ungelesener Content Cards als Badge auf dem App-Symbol anzeigen lassen.
 
 {% tabs %}
 {% tab web %}
 
-Sie können die Anzahl der ungelesenen Karten jederzeit abfragen, indem Sie Folgendes aufrufen:
+Sie können die Anzahl ungelesener Karten jederzeit abfragen, indem Sie Folgendes aufrufen:
 
 ```javascript
 braze.getCachedContentCards().getUnviewedCardCount();
 ```
 
-Anhand dieser Informationen können Sie dann ein Badge anzeigen, das die Anzahl der ungelesenen Content Cards angibt. Weitere Informationen finden Sie in der <a href="https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.contentcards.html" target="_blank">SDK-Referenzdokumentation</a>.
+Anschließend können Sie diese Information verwenden, um ein Badge mit der Anzahl ungelesener Content Cards anzuzeigen. Weitere Informationen finden Sie in den <a href="https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.contentcards.html" target="_blank">SDK-Referenzdokumenten</a>.
 
 {% endtab %}
 {% tab android %}
 
-Sie können die Anzahl der ungelesenen Karten jederzeit abfragen, indem Sie Folgendes aufrufen:
+Sie können die Anzahl ungelesener Karten jederzeit abfragen, indem Sie Folgendes aufrufen:
 
 {% subtabs %}
 {% subtab Java %}
@@ -114,22 +114,24 @@ Braze.getInstance(context).contentCardUnviewedCount
 {% endsubtab %}
 {% endsubtabs %}
 
-Anhand dieser Informationen können Sie dann ein Badge anzeigen, das die Anzahl der ungelesenen Content Cards angibt. Weitere Informationen finden Sie in der <a href="https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/get-content-card-unviewed-count.html" target="_blank">SDK-Referenzdokumentation</a>.
+Anschließend können Sie diese Information verwenden, um ein Badge mit der Anzahl ungelesener Content Cards anzuzeigen. Weitere Informationen finden Sie in den <a href="https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/get-content-card-unviewed-count.html" target="_blank">SDK-Referenzdokumenten</a>.
 
 
 {% endtab %}
 {% tab swift %}
 
-Das folgende Beispiel verwendet `braze.contentCards`, um die Anzahl der ungelesenen Content Cards abzufragen und anzuzeigen. Nachdem die App geschlossen und die Sitzung der Nutzer:innen beendet wurde, fordert dieser Code eine Kartenzählung an und filtert die Anzahl der Karten anhand der Eigenschaft `viewed`.
+Das folgende Beispiel verwendet `braze.contentCards`, um die Anzahl ungelesener Content Cards abzufragen und anzuzeigen. Nachdem die App geschlossen wurde und die Sitzung der Nutzer:innen beendet ist, fragt dieser Code die Kartenanzahl ab und filtert die Anzahl der Karten basierend auf der Eigenschaft `viewed`.
+
+Apps, die den [`UIScene`-Lebenszyklus](https://developer.apple.com/documentation/technotes/tn3187-migrating-to-the-uikit-scene-based-life-cycle) übernommen haben (erforderlich für Apps, die mit [Xcode 27 und höher](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes) erstellt wurden), sollten dies in `sceneDidEnterBackground(_:)` von `SceneDelegate.swift` implementieren anstatt in `applicationDidEnterBackground(_:)` von `AppDelegate.swift`.
 
 {% subtabs %}
 {% subtab Swift %}
 
 ```swift
-func applicationDidEnterBackground(_ application: UIApplication)
+func sceneDidEnterBackground(_ scene: UIScene)
 ```
 
-Implementieren Sie innerhalb dieser Methode den folgenden Code, der den Badge-Zähler aktiv aktualisiert, wenn Nutzer:innen in einer bestimmten Sitzung Karten ansehen:
+Implementieren Sie innerhalb dieser Methode den folgenden Code, der den Badge-Zähler aktiv aktualisiert, während Nutzer:innen während einer bestimmten Sitzung Karten ansehen:
 
 ```swift
 let unreadCards = AppDelegate.braze?.contentCards.cards.filter { $0.viewed == false }
@@ -140,10 +142,10 @@ UIApplication.shared.applicationIconBadgeNumber = unreadCards?.count ?? 0
 {% subtab Objective-C %}
 
 ```objc
-(void)applicationDidEnterBackground:(UIApplication *)application
+(void)sceneDidEnterBackground:(UIScene *)scene
 ```
 
-Implementieren Sie innerhalb dieser Methode den folgenden Code, der den Badge-Zähler aktiv aktualisiert, wenn Nutzer:innen in einer bestimmten Sitzung Karten ansehen:
+Implementieren Sie innerhalb dieser Methode den folgenden Code, der den Badge-Zähler aktiv aktualisiert, während Nutzer:innen während einer bestimmten Sitzung Karten ansehen:
 
 ```objc
 NSInteger unreadCardCount = 0;

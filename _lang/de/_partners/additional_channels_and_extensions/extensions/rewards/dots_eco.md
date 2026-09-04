@@ -15,7 +15,7 @@ _Diese Integration wird von DOTS.ECO gepflegt._
 
 ## Über diese Integration {#about-this-integration}
 
-Braze und DOTS.ECO verbinden Customer-Engagement-Journeys mit realen Impact-Rewards. Von einem Braze-Canvas- oder Campaign-Schritt aus können Sie eine Anfrage zur Erstellung eines DOTS.ECO-Zertifikats mithilfe von Connected-Content auslösen. DOTS.ECO gibt Zertifikats-Metadaten (wie `certificate_url` und `certificate_image_url`) zurück, die Sie im Nutzerprofil als angepasste Attribute speichern und über Kanäle wie In-App-Nachrichten, Content Cards und Push-Benachrichtigungen wiederverwenden können.
+Braze und DOTS.ECO verbinden Customer-Engagement-Journeys mit realen Impact-Rewards. Von einem Braze-Canvas- oder Campaign-Schritt aus können Sie eine Anfrage zur Erstellung eines DOTS.ECO-Zertifikats mithilfe von Connected-Content auslösen. DOTS.ECO gibt Zertifikats-Metadaten (wie `certificate_url` und `certificate_image_url`) zurück, die Sie im Kundenprofil als angepasste Attribute speichern und über Kanäle wie In-App-Nachrichten, Content Cards und Push-Benachrichtigungen wiederverwenden können.
 
 ## Anwendungsfälle {#use-cases}
 
@@ -34,7 +34,7 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 | Voraussetzung | Beschreibung |
 |---|---|
 | DOTS.ECO-Konto | Zugang zu einem DOTS.ECO-Konto. |
-| DOTS.ECO-Zugangsdaten | Für die Anfrage in diesem Artikel benötigen Sie ein DOTS.ECO-App-Token, einen API-Schlüssel und eine Zuordnungs-ID. Um diese abzurufen, wenden Sie sich an Ihren DOTS.ECO-Customer-Success-Manager. |
+| DOTS.ECO-Zugangsdaten | Für die Anfrage in diesem Artikel benötigen Sie ein DOTS.ECO-App-Token, einen API-Schlüssel und eine Zuordnungs-ID. Um diese abzurufen, wenden Sie sich an Ihren DOTS.ECO-CSM. |
 | Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit `users.track`-Berechtigungen. Erstellen Sie diesen Schlüssel im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel**. |
 | Braze-REST-Endpunkt | [Ihre REST-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
@@ -45,15 +45,15 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 
 Erstellen Sie im Braze-Dashboard ein neues Canvas, das triggert, wenn Nutzer:innen ein Schlüsselereignis abschließen (z. B. einen Kauf, ein Abo oder einen Meilenstein).
 
-Fügen Sie direkt nach dem Eingangsschritt einen Nutzeraktualisierungsschritt hinzu. Dieser Schritt wird verwendet, um die DOTS.ECO-API über Connected-Content aufzurufen und die zurückgegebenen Zertifikatsdaten im Nutzerprofil zu speichern.
+Fügen Sie direkt nach dem Eingangsschritt einen Nutzeraktualisierungsschritt hinzu. Dieser Schritt wird verwendet, um die DOTS.ECO-API über Connected-Content aufzurufen und die zurückgegebenen Zertifikatsdaten im Kundenprofil zu speichern.
 
-Verwenden Sie diesen Schritt, um die DOTS.ECO-API über Connected-Content aufzurufen und die zurückgegebenen Zertifikatsdaten im Nutzerprofil zu speichern.
+Verwenden Sie diesen Schritt, um die DOTS.ECO-API über Connected-Content aufzurufen und die zurückgegebenen Zertifikatsdaten im Kundenprofil zu speichern.
 
 ### 2. Schritt: Erweitertes JSON verfassen – POST-Anfrage an DOTS.ECO mit Connected-Content stellen {#step-2-compose-advanced-json-make-a-post-request-to-dotseco-using-connected-content}
 
 Wechseln Sie im Schritt **Nutzeraktualisierung** zum **Advanced JSON Editor** und verwenden Sie Connected-Content, um eine POST-Anfrage an die DOTS.ECO-Zertifikats-API zu stellen.
 
-Verwenden Sie den `capture`-Tag und eine Connected-Content-Anfrage, um den Zertifikats-Endpunkt von DOTS.ECO aufzurufen. Speichern Sie dann die Antwort als angepasste Attribute im Nutzerprofil.
+Verwenden Sie den `capture`-Tag und eine Connected-Content-Anfrage, um den Zertifikats-Endpunkt von DOTS.ECO aufzurufen. Speichern Sie dann die Antwort als angepasste Attribute im Kundenprofil.
 
 **Connected-Content- und Nutzeraktualisierungsbeispiel**
 {% raw %}
@@ -98,7 +98,7 @@ Diese Integration verwendet Connected-Content innerhalb eines Canvas-Schrittes z
 
 ### 3. Schritt: Das Zertifikat in Nachrichten anzeigen {#step-3-display-the-certificate-in-messages}
 
-Wenn die Zertifikatsattribute im Nutzerprofil gespeichert sind, können sie in nachgelagerten Canvas-Nachrichtenschritten referenziert werden.
+Wenn die Zertifikatsattribute im Kundenprofil gespeichert sind, können sie in nachgelagerten Canvas-Nachrichtenschritten referenziert werden.
 
 ![DOTS.ECO-Fluss.]({% image_buster /assets/img/dots_eco/dots.eco_flow.png %})
 
@@ -122,7 +122,7 @@ Damit können Sie In-App-Nachrichten, Content Cards oder Push-Benachrichtigungen
 - **Connected-Content gibt leere Ergebnisse zurück**: Stellen Sie sicher, dass `:save result` gesetzt ist und dass Sie auf die erwarteten Antwortfelder verweisen.
 - **Attribute werden im Nachrichtenschritt nicht angezeigt**:
   - Stellen Sie sicher, dass die Namen der angepassten Attribute in Braze genau mit den Attributen übereinstimmen, die Sie im Nutzeraktualisierungsschritt festgelegt haben.
-  - Verwenden Sie im Nutzeraktualisierungsschritt den Tab **Vorschau und Test**, um zu bestätigen, dass die Attribute befüllt werden. Senden Sie dann einen Test an eine:n Nutzer:in und bestätigen Sie, dass die Attribute in deren Nutzerprofil gespeichert sind.
+  - Verwenden Sie im Nutzeraktualisierungsschritt den Tab **Vorschau und Test**, um zu bestätigen, dass die Attribute befüllt werden. Senden Sie dann einen Test an eine:n Nutzer:in und bestätigen Sie, dass die Attribute in deren Kundenprofil gespeichert sind.
 - **`422`-Fehler (nicht verarbeitbare Entität)**: Stellen Sie sicher, dass Ihr App-Token und die Impact-Menge gültig sind.
 - **`401`-Fehler**: Stellen Sie sicher, dass das Auth-Token vorhanden und korrekt ist.
 - **Keine Bildvorschau im Nachrichtenschritt**: Wählen Sie im Nutzeraktualisierungsschritt **Test an Nutzer:in senden** und zeigen Sie dann eine Vorschau der Nachricht mit derselben/demselben Nutzer:in an.

@@ -1,36 +1,140 @@
 ---
 nav_title: トラブルシューティング
-article_title: SSLのトラブルシューティング
+article_title: SSLクリックトラッキングのトラブルシューティング
 page_order: 5
 page_type: reference
-description: "このリファレンス記事では、SSLのトラブルシューティングのヒントについて説明します。"
+description: "症状インデックスと標準的な調査パスを使用して、SSLクリックトラッキングおよびCDN設定の問題を診断します。"
 channel: email
 ---
 
-# トラブルシューティング {#troubleshooting}
+# SSLクリックトラッキングのトラブルシューティング {#troubleshoot-ssl-click-tracking}
 
-> これらのヒントを使用して、SSLクリックトラッキングに関する一般的な問題を特定してください。トラブルシューティングのガイダンスは一般的なものです。CDNはそれぞれ固有であるためです。CDNの設定、証明書、またはプロキシの問題については、CDNのサポートチームにお問い合わせください。これらの設定はBrazeエコシステムの外部で行われます。
+> このページでは、SSLクリックトラッキングに関する一般的な問題を特定します。以下のガイダンスは、CDNがそれぞれ固有であるため、一般的な内容となっています。CDNの設定、証明書、またはプロキシの問題については、CDNのサポートチームにお問い合わせください。これらの設定はBrazeの外部で行われます。
 
-## 主要な概念 {#key-concepts}
+## まずはここから：症状を確認する {#start-here-match-your-symptom}
 
-- **トラッキングURL：** 元のHTTPSリンクをトラッキングドメインでラップします。ユーザーがクリックすると、トラッキングドメインがリクエストを解決し、最終的な送信先にリダイレクトします。CDNを使用すると、セキュアな（HTTPS）URLをトラッキングできます。CDNがない場合、ユーザーに「接続が安全ではありません」というプライバシーエラーが表示される可能性があります。
+| 症状 | 参照先 |
+| --- | --- |
+| メールの開封率が急に低下した | [メールの開封率が低い](#low-email-open-rates) |
+| トラッキングリンクがHTTP 403を返す | [リダイレクトリンクでHTTP 403が発生する](#http-403-on-redirect-links) |
+| DNSまたはCNAMEがCDNではなくESPを指している | [ドメインレジストリの問題](#domain-registry-issues) |
+| 「接続がプライベートではありません」エラーまたは設定中にリンクが壊れる | [CDNの問題](#cdn-issues) |
+| SSLの設定が完了したがリンクがまだHTTPのまま | [SSLの有効化ステータス](#ssl-enablement-status) |
+| トラッキング付きURLは失敗するがトラッキングなしURLは動作する | [クリックトラッキングの問題](#click-tracking-issues) |
+| Amazon SES固有のSSL有効化エラー | [Amazon SES](#amazon-ses) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SSLの症状" }
+
+## 標準的な調査パス {#standard-investigation-path}
+
+1. クリックトラッキングサブドメインが、メールサービスプロバイダー（SendGrid、SparkPost、またはAmazon SES）ではなく、[コンテンツデリバリーネットワーク（CDN）]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#what-is-a-cdn-and-why-do-i-need-it)を指していることを確認します。ITまたはWebチームに、ドメイン設定がBraze設定と一致していることを確認してもらいます。Brazeの要件については、[SSL証明書の取得]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate)を参照してください。
+2. トラッキングドメインのSSL証明書が有効であることを確認します。ITまたはWebチームに、証明書が最新であり、クリックトラッキングサブドメインをカバーしていることを確認してもらいます。設定手順とCDN固有のガイドについては、[SSL証明書の取得]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate)と[追加リソース]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#additional-resources)を参照してください。
+3. [クリックトラッキングのトラブルシューティングテンプレート](#click-tracking-issues)を使用してテストメールを送信します。トラッキングされたURLとトラッキングされていないURLを比較します。
+4. トラッキングリンクが403エラーで失敗する場合は、CDNおよびWAFルール（ユーザーエージェント、クエリ文字列、リダイレクトパターン）を確認してください。
+5. 設定が完了してもリンクがHTTPのままの場合は、BrazeがSSLを有効にしているかどうか、Brazeのカスタマーサクセスマネージャーに確認してください。
+6. 問題が解消されない場合は、CDNまたはITチームと連携し、エラーコードおよびCDNまたはドメインプロバイダーからの詳細情報を添えて[Brazeサポート]({{site.baseurl}}/user_guide/administer/personal/braze_support)にお問い合わせください。
+
+## 主な概念 {#key-concepts}
+
+- **クリックトラッキングドメイン（CTD）：** Brazeがクリックトラッキングのためにリンクをラップする際に使用するブランド付きサブドメインです（例：`clicks.mail.yourbrand.com`）。
+- **トラッキングURL：** 元のHTTPSリンクをトラッキングドメインでラップします。ユーザーがクリックすると、トラッキングドメインがリクエストを解決し、最終的な送信先にリダイレクトします。CDNを使用することで、セキュアな（HTTPS）URLをトラッキングできます。CDNがない場合、ユーザーに「接続が安全ではありません」というプライバシーエラーが表示されることがあります。
 - **非トラッキングURL：** 元のURLをそのまま維持し、CDNをバイパスしてコントロール環境として機能します。
+- **フェーズ1とフェーズ2のルーティング：** フェーズ1では、クリックトラッキングドメインのCNAMEをメールサービスプロバイダー（ESP）に直接向けて、初期HTTP検証を行います。フェーズ2では、CNAMEをCDNまたはWebアプリケーションファイアウォール（WAF）に向け、SSLを終端してESPに必要なヘッダーを付与してリクエストをプロキシします。ESP固有のCNAME送信先については、[ESPフェーズ1とフェーズ2のルーティング](#esp-phase-1-and-phase-2-routing)を参照してください。
+
+## クリックトラッキングドメインとDNSフェーズ {#click-tracking-domains-and-dns-phases}
+
+SSLクリックトラッキングには、Brazeが外部のセキュリティ証明書のプロビジョニングや更新を代行しないため、2段階のDNS設定が必要です。
+
+1. **フェーズ1（初期設定）：**クリックトラッキングドメインのCNAMEが、暗号化されていないHTTP検証のためにメールサービスプロバイダー (ESP)のエンドポイントを直接指します。
+2. **フェーズ2（SSLデプロイ）：**CNAMEをCDNまたはWAFエッジに更新します。このエッジにはカスタムSSL証明書が保持されており、必要なヘッダーを付けてリクエストをメールサービスプロバイダー (ESP)にプロキシします。メールサービスプロバイダー (ESP)がクリックを記録し、受信者を最終的なリンク先にリダイレクトします。
+
+{% alert important %}
+Brazeは、フェーズ1の検証が完了した後にのみSSLクリックトラッキングを有効にします。SSLが有効になっていてもDNSがまだメールサービスプロバイダー (ESP)（フェーズ1）を指している場合、受信者に[SSL名前不一致エラー](#ssl-name-mismatch-errors)が表示されることがあります。
+{% endalert %}
+
+## ESPフェーズ1およびフェーズ2ルーティング {#esp-phase-1-and-phase-2-routing}
+
+リンクトラッキングエラーのトラブルシューティングを行う際は、DNSレコードが暗号化されていないESPネットワーク（フェーズ1）を指しているか、CDN（フェーズ2）を指しているかを確認してください。
+
+| メールサービスプロバイダー (ESP) | フェーズ1 CNAME送信先（ESPへの直接接続） | フェーズ2 CNAME送信先 | 必要なCDN設定 |
+| --- | --- | --- | --- |
+| Amazon SES | `r.us-east-1.awstrack.me`（US）<br>`r.eu-central-1.awstrack.me`（EU） | CDNエンドポイント（例：`d123.cloudfront.net`、`ssl.fastly.net`、またはCloudflare） | クリックトラッキングドメイン名を含む`X-Forwarded-Host`ヘッダーを有効にします |
+| SendGrid | `sendgrid.net` | CDNエンドポイント | 元の`Host`ヘッダー（またはカスタムブランドトラッキングID）をパラメーターを削除せずにオリジンに転送します |
+| SparkPost | `spgo.io` | CDNエンドポイント | `X-Forwarded-Host`を有効にし、元の`User-Agent`ヘッダーをそのまま転送します |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="ESPフェーズ1およびフェーズ2ルーティング" }
+
+CDNの設定手順とパートナードキュメントについては、[BrazeでのSSL]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl)を参照してください。
+
+## SSL名前不一致エラー {#ssl-name-mismatch-errors}
+
+SSL名前不一致は、TLSハンドシェイク中に発生するID認証の失敗です。ブラウザーが暗号化された接続を確立する際に、アドレスバーのドメインが証明書のコモンネーム（CN）またはサブジェクト代替名（SAN）フィールドのいずれのエントリとも一致しない場合に発生します。
+
+### DNSがまだメールサービスプロバイダー（ESP）を指している（フェーズ1） {#dns-still-points-to-the-esp-phase-1}
+
+BrazeにSSLクリックトラッキングを有効にするよう指示したにもかかわらず、DNSのCNAMEがメールサービスプロバイダー（ESP）（例：SendGridの`sendgrid.net`）を直接指したままの場合、受信者のブラウザーはクリックトラッキングドメインを開き、メールサービスプロバイダー（ESP）のインフラに到達します。メールサービスプロバイダー（ESP）にはカスタム証明書の記録がないため、独自のフォールバック証明書（例：`*.sendgrid.net`）を提供します。名前の不一致により接続が失敗し、プライベート接続の警告が返されます。
+
+### 証明書がトラッキングサブドメインをカバーしていない（フェーズ2） {#certificate-does-not-cover-the-tracking-subdomain-phase-2}
+
+DNSがCDN（Cloudflare、CloudFrontなど）を指しているにもかかわらず、セキュリティチームがプライマリWebアセット（例：`yourbrand.com`と`www.yourbrand.com`）のみをカバーする証明書を適用した場合、特定のクリックトラッキングサブドメイン（例：`clicks.mail.yourbrand.com`）が含まれていません。CDNはトラッキングドメインと一致しない証明書を提供し、ブラウザーにプライバシーエラーが表示されます。
+
+## トリアージワークフロー {#triage-workflow}
+
+### ステップ1：正式なCNAMEルックアップを実行する {#step-1-run-an-authoritative-cname-lookup}
+
+ターミナルを開き、クリックトラッキングドメインの生のDNSルーティングを確認します。
+
+```bash
+dig CNAME clicks.mail.yourbrand.com
+```
+
+`ANSWER SECTION`で、CNAMEの解決先を確認します。
+
+| 結果 | 意味 | 次のステップ |
+| --- | --- | --- |
+| メールサービスプロバイダー (ESP)のエンドポイントに解決される（`sendgrid.net`、`spgo.io`、または`awstrack.me`） | DNSはまだフェーズ1の状態です | ドメインレジストリを更新して、トラフィックをCDN経由でルーティングしてください。[ESPフェーズ1とフェーズ2のルーティング](#esp-phase-1-and-phase-2-routing)を参照してください。 |
+| CDNディストリビューションエンドポイントに解決される | フェーズ2のDNSルーティングは正しい状態です | ステップ2に進んでください |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="CNAMEルックアップ結果" }
+
+### ステップ2：TLS証明書を検証する {#step-2-validate-the-tls-certificate}
+
+クリックトラッキングドメインに対してライブTLS検証を強制的に実行し、ブラウザーが受信する証明書を正確に確認します。クリックトラッキングドメインを外部のSSLチェッカーに入力してください。例えば、[SSL ShopperのSSL Checker](https://www.sslshopper.com/ssl-checker.html#hostname=clicks.mail.yourbrand.com)（`clicks.mail.yourbrand.com`をご自身のドメインに置き換えてください）が利用できます。
+
+以下を確認してください。
+
+- 証明書が有効で、期限切れでないこと
+- クリックトラッキングドメインがCommon NameまたはSubject Alternative Namesに表示されていること
+- 証明書チェーンが完全で、信頼されていない中間証明書の警告がないこと
+
+{% alert tip %}
+より詳細なTLSレポートについては、[Qualys SSL Labs SSL Server Test](https://www.ssllabs.com/ssltest/)も利用できます。
+{% endalert %}
+
+### ステップ3：CDN設定の問題を確認する {#step-3-review-cdn-configuration-issues}
+
+設定中にライブメールのリンクが壊れる場合は、設定が完了する前にDNSがCDNに向けられていなかったか確認してください。これは、誤ったリンクや接続エラーとして表示されることがあります。CDNプロバイダーに連絡し、プロキシとオリジンの設定をトラブルシューティングするためにプロバイダーのドキュメントを確認してください。さらにサポートが必要な場合は、SSLとCDNの設定を管理しているチームと連携してください。
 
 ## メール開封率が低い {#low-email-open-rates}
 
-メール開封率が突然低下した場合は、SSL証明書が最新であることを確認してください。有効期限が切れている場合は、CDNまたは証明書プロバイダーでSSL証明書を更新する必要があります。
+**症状：** SSLまたはCDNの変更後にメール開封率が突然低下した。
+
+メール開封率が突然低下している場合は、SSL証明書が最新であることを確認してください。有効期限が切れている場合は、CDNまたは証明書プロバイダーでSSL証明書を更新する必要があります。
 
 ## リダイレクトリンクでHTTP 403が発生する {#http-403-on-redirect-links}
 
-トラッキングされたリダイレクトリンクが**403 Forbidden**を返す場合、障害はコンテンツデリバリーネットワーク（CDN）またはWebアプリケーションファイアウォール（WAF）で発生していることが多いです。たとえば、AWS WAFやAmazon CloudFrontのルールが特定のユーザーエージェント、クエリ文字列、またはリダイレクトパターンをブロックしている場合があります。CDNまたはクラウドプロバイダーでブロックされたリクエストのログと指標を確認してください。AWSについては、[CloudFrontの問題のトラブルシューティング](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/troubleshooting.html)を参照してください。
+**症状：** トラッキングされたメールリンクが「403 Forbidden」を返す。
 
-問題がクリックトラッキングに固有のものかどうかを確認するには、1つのテストリンクでクリックトラッキングをオフにしてください（[リンクごとにクリックトラッキングをオフにする]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#turning-off-click-tracking-on-a-link-to-link-basis)を参照）。クリックトラッキングがオフの場合に送信先URLが読み込まれ、トラッキングがオンの場合に403が返される場合は、クリックトラッキングドメイン、CDN、およびWAFの設定に焦点を当ててください。
+トラッキングされたリダイレクトリンクが`403 Forbidden`を返す場合、障害はコンテンツデリバリーネットワーク（CDN）またはWebアプリケーションファイアウォール（WAF）で発生していることが多いです。たとえば、AWS WAFやAmazon CloudFrontのルールが特定のユーザーエージェント、クエリ文字列、またはリダイレクトパターンをブロックしている場合があります。CDNまたはクラウドプロバイダーでブロックされたリクエストのログとメトリクスを確認してください。AWSについては、[CloudFrontの問題のトラブルシューティング](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/troubleshooting.html)を参照してください。
+
+問題がクリックトラッキングに固有のものかどうかを確認するには、1つのテストリンクでクリックトラッキングをオフにしてください（[リンクごとにクリックトラッキングをオフにする]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#turning-off-click-tracking-on-a-link-to-link-basis)を参照）。クリックトラッキングがオフの場合に送信先URLが読み込まれ、トラッキングがオンの場合に`403`が返される場合は、クリックトラッキングドメイン、CDN、およびWAFの設定に焦点を当ててください。CNAMEがまだメールサービスプロバイダー（ESP）を指しておりSSLが有効になっている場合は、代わりに[SSL名前不一致エラー](#ssl-name-mismatch-errors)が表示されることがあります。まず[トリアージワークフロー](#triage-workflow)から始めてください。
 
 ## ドメインレジストリの問題 {#domain-registry-issues}
+
+**症状：** トラッキングサブドメインのDNSまたはCNAMEが、CDNではなくESPを指している。
 
 digコマンドを実行して、リンクトラッキングがCDNを指していることを確認してください。ターミナルで`dig CNAME link_tracking_subdomain`を実行します。`ANSWER SECTION`に、CNAMEの指す先が表示されます。CDNではなくメールサービスプロバイダー（ESP）（SendGrid、SparkPost、またはAmazon SES）を指している場合は、ドメインレジストリをCDNを指すように再設定してください。
 
 ## CDNの問題 {#cdn-issues}
+
+**症状：** ユーザーに「接続がプライベートではありません」というエラーが表示される、またはCDNセットアップ中にリンクが壊れる。
 
 セットアップ中にライブメールリンクが壊れた場合、適切な設定が完了する前にDNSをCDNに向けた可能性があります。これは「間違ったリンク」エラーとして表示されることがあります。CDNプロバイダーに連絡し、ドキュメントを確認して設定のトラブルシューティングを行ってください。
 
@@ -38,23 +142,69 @@ digコマンドを実行して、リンクトラッキングがCDNを指して�
 
 ## SSLの有効化ステータス {#ssl-enablement-status}
 
-SSLのセットアップを完了してもリンクがHTTPのまま表示される場合は、Brazeカスタマーサクセスマネージャーに連絡して、BrazeがSSLを有効にしたことを確認してください。Brazeは、すべてのセットアップステップが完了した後にのみSSLを有効にします。
+**症状：** SSLの設定が完了しているのに、トラッキングリンクがHTTPのまま表示される。
+
+SSLの設定を完了してもリンクがHTTPのまま表示される場合は、Brazeのカスタマーサクセスマネージャーに連絡して、BrazeがSSLを有効にしたことを確認してください。Brazeは、すべての設定ステップが完了した後にのみSSLを有効にします。
 
 ### Amazon SES {#amazon-ses}
 
-メールサービスプロバイダー（ESP）としてAmazon SESを使用している場合、以下の設定の問題がBrazeのSSL有効化を妨げたり、セットアップ中にエラーを引き起こしたりする可能性があります。
+メールサービスプロバイダー（ESP）としてAmazon SESを使用している場合、以下の設定の問題がBrazeのSSL有効化を妨げたり、設定中にエラーを引き起こしたりする可能性があります。
 
 - **リージョンの不一致：** CDNのオリジンがBrazeクラスターのAWSトラッキングドメインを指していることを確認してください。USクラスターは`r.us-east-1.awstrack.me`を使用します。EUクラスターは`r.eu-central-1.awstrack.me`を使用します。間違ったリージョンを使用すると、SSLの有効化がブロックされる可能性があります。
-- **ホストヘッダー：** Amazon SESでは、CDNが正しいホストヘッダーを転送する必要があります。クリックトラッキングドメインで`X-Forwarded-Host`ヘッダーを有効にしてください。詳細については、[Amazon SES](#amazon-ses)セクションを参照してください。
-- **プロキシ設定：** ホストヘッダーを上書きまたは競合するプロキシまたはCDNの設定は、SSLの有効化を失敗させる可能性があります。CDNプロバイダーとプロキシ設定を確認し、ホストヘッダーの転送を妨げていないことを確認してください。
+- **ホストヘッダー：** Amazon SESでは、CDNが正しいホストヘッダーを転送する必要があります。クリックトラッキングドメインで`X-Forwarded-Host`ヘッダーを有効にしてください。フェーズ1およびフェーズ2のルーティング要件については、[ESPフェーズ1およびフェーズ2のルーティング](#esp-phase-1-and-phase-2-routing)を参照してください。
+- **プロキシ設定：** ホストヘッダーを上書きまたは競合するプロキシやCDNの設定は、SSLの有効化を失敗させる可能性があります。CDNプロバイダーとプロキシ設定を確認し、ホストヘッダーの転送を妨げていないことを確認してください。
 - **Route 53エイリアスレコード：** Route 53を使用してドメインのDNSを管理している場合は、CDNディストリビューション（例：`d111111abcdef8.cloudfront.net`）を指す[Route 53のエイリアスレコード](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-creating.html)を作成してください。エイリアスレコードの代わりに標準のCNAMEを使用すると、HTTP 400エラーが返される可能性があります。
-- **ヘッダー転送の無効化：** `X-Forwarded-Host`を設定した後もSSLの有効化が失敗する場合は、CDNまたはプロキシでヘッダー転送を無効にしてみてください。一部のセットアップでは、転送を完全にオフにすることで問題が解決します。ITチームまたはCDNプロバイダーと協力して、この設定をテストしてください。
+- **ヘッダー転送の無効化：** `X-Forwarded-Host`を設定した後もSSLの有効化が失敗する場合は、CDNまたはプロキシでヘッダー転送を無効にしてみてください。一部の設定では、転送を完全にオフにすることで問題が解決します。ITチームまたはCDNプロバイダーと協力して、この設定をテストしてください。
 
 ## クリックトラッキングの問題 {#click-tracking-issues}
 
+**症状：** トラッキングされたメールリンクが失敗するが、トラッキングされていないリンクは機能する。またはユーザーがクリック後に証明書エラーやDNSエラーが表示される。
+
 一般的なリダイレクトの問題は、トラッキングドメインをホストするCDNと、関連するSSL証明書またはDNS CNAMEレコードとの間の不適切な設定に起因することが多いです。これらの設定ミスにより、ユーザーがトラッキングされたメールリンクをクリックした後に「接続が安全ではありません」というプライバシーエラーや`404`エラーが発生することがよくあります。
 
-以下のテンプレートを使用して、トラッキングドメインのCDN設定をテストしてください。これは、メール内のリンクの分析をサポートするメカニズムです。
+### HTMLリンクのフォーマット要件 {#html-link-formatting-requirements}
+
+クリックトラッキングを機能させるには、メールサービスプロバイダー（ESP）（SendGrid、SparkPost、またはAmazon SES）がHTML内のリンクを検出して置換する必要があります。これらのプロバイダー全体で、リンクは以下のフォーマット要件を満たす必要があります。
+
+- リンクは`href`属性を持つHTML `<a>`タグ内にある必要があります。
+- URLは`http://`または`https://`で始まる必要があります。
+
+プロバイダー固有の追加ルール：
+
+- **SendGrid：** URLをシングルクォートまたはダブルクォートで囲み、`href`属性の`=`の前後にスペースを入れないでください。
+- **Amazon SES：** URLは[RFC 3986](https://datatracker.ietf.org/doc/html/rfc3986)に準拠する必要があります。URL内のエンコードされていないスペースがあると、Amazon SESはリンクをトラッキングできません。
+
+BrazeのクリックトラッキングがサポートするURLスキームの詳細については、[クリックトラッキングリンクの要件]({{site.baseurl}}/user_guide/channels/email/email_setup/open_pixel_and_click_tracking#click-tracking-link-requirements)を参照してください。プロバイダーのHTML詳細については、[SendGridクリックトラッキングHTMLベストプラクティス](https://www.twilio.com/docs/sendgrid/ui/analytics-and-reporting/click-tracking-html-best-practices)、[SparkPostテンプレート言語](https://developers.sparkpost.com/api/template-language/)、および[Amazon SESメール送信メトリクスFAQ](https://docs.aws.amazon.com/ses/latest/dg/faqs-metrics.html)を参照してください。
+
+有効な例は以下のとおりです。
+
+```html
+<a href="http://www.example.com">Link</a>
+<a href='https://example.com'>Link</a>
+<a target="_blank" href="https://example.com">Link</a>
+```
+
+以下の例は`http://`または`https://`が省略されているため、トラッキングされません。
+
+```html
+<a href="example.com">Link</a>
+<a href="www.example.com">Link</a>
+```
+
+SendGridを使用している場合、以下の例もトラッキングされません。
+
+```html
+<a href= http://www.example.com>Link</a>
+<a href = "https://example.com">Link</a>
+```
+
+{% alert note %}
+`www`サブドメインはオプションですが、クリックトラッキングを正しく機能させるには`http://`または`https://`が必要です。
+{% endalert %}
+
+### クリックトラッキングのテスト {#testing-click-tracking}
+
+[トリアージワークフロー](#triage-workflow)を完了した後、以下のテンプレートを使用してトラッキングドメインのCDN設定をテストしてください。これは、メール内のリンクの分析をサポートするメカニズムです。
 
 1. 以下のテンプレートをコピーして、BrazeのHTMLメールキャンペーンに貼り付けてください。
 
@@ -254,16 +404,17 @@ SSLのセットアップを完了してもリンクがHTTPのまま表示され�
 {: start="2"}
 2. URLを設定します。テンプレート本文の上部付近にある`capture`タグ内のURL（`https://example.com`が設定されている箇所）を置き換えてください。たとえば、`https://example.com`を`https://braze.com/docs`に置き換えます。
 3. 自分宛にテストメールを送信し、両方のボタンを選択してください。
-4. 期待される動作と成功基準がテンプレートに記載されている通りであることを確認してください。
+4. 期待される動作と成功基準がテンプレートに記載されているとおりであることを確認してください。
 
-非トラッキングURLは機能するがトラッキングURLが失敗する場合、設定にギャップがある可能性があります。トラブルシューティングするには、お使いのESPとCDNプロバイダーのドキュメントを参照してください。証明書のプロビジョニングに関する詳細な要件については、[BrazeのSSL]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl)も確認できます。
+トラッキングされていないURLは機能するがトラッキングされたURLが失敗する場合、設定にギャップがある可能性があります。お使いのメールサービスプロバイダー（ESP）とCDNプロバイダーのドキュメントを参照してください。証明書のプロビジョニングに関する詳細な要件については、[BrazeのSSL]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl)を参照してください。
 
 以下の表を使用して、クリックトラッキングのテスト時に発生する一般的なエラーを診断してください。
 
 | エラーコード | トラブルシューティング |
 | --- | --- |
-| `"Your connection is not private" (NET::ERR_CERT_COMMON_NAME_INVALID)` | トラッキングドメインに有効なSSL証明書があることを確認してください。 |
-| `"This site can't be reached" (DNS_PROBE_FINISHED_NXDOMAIN)` | DNS設定を確認してください。トラッキングサブドメインがCDNとESPの推奨設定に従って構成されていることを確認してください。 |
+| `"Your connection is not private" (NET::ERR_CERT_COMMON_NAME_INVALID)` | [トリアージワークフロー](#triage-workflow)を完了し、[SSL名前不一致エラー](#ssl-name-mismatch-errors)を参照してください。クリックトラッキングドメインが証明書のCommon NameまたはSubject Alternative Namesに記載されていることを確認してください。 |
+| `"This site can't be reached" (DNS_PROBE_FINISHED_NXDOMAIN)` | DNS設定を確認してください。トラッキングサブドメインがCDNとメールサービスプロバイダー（ESP）の推奨設定に従って構成されていることを確認してください。 |
 | `525 / 526 SSL Error` | CDN（Cloudflareなど）のSSL設定がOriginの機能と一致していることを確認してください。 |
-| `404 Not Found` | CDNが空のルートディレクトリを指すのではなく、URLパス全体をESPに転送するように設定されていることを確認してください。 |
+| `404 Not Found` | CDNが空のルートディレクトリを指すのではなく、URLパス全体をメールサービスプロバイダー（ESP）に転送するように設定されていることを確認してください。 |
+| `400 Bad Request: Request Header or Cookie Too Large` | このエラーは通常、クリックトラッキングドメインがWebサイトのドメインから大量のCookieを継承している場合に発生します。BrazeはトラッキングドメインにおいてCookieの設定やブロックを行いません。CDNがクリックトラッキングリクエストをリバースプロキシする際に、それらのCookieをメールサービスプロバイダー（ESP）に送信しないように設定してください。nginx設定の`large_client_header_buffers`設定を増やす必要がある場合もあります（例：`large_client_header_buffers 4 32k;`で最大32&nbsp;KBのヘッダーを許可）。詳細については、CDNプロバイダーまたはWebサイト開発チームにお問い合わせください。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="エラーコードとトラブルシューティング" }

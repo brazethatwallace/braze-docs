@@ -12,9 +12,9 @@ Estos tipos de cancelación pueden ocurrir en cualquier canal de mensajería.
 
 | Valor de `abort_type` | Descripción |
 | --- | --- |
-| `liquid_abort_message` | Se llamó a la etiqueta de Liquid [abort_message]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/aborting_messages), por lo que se canceló el envío. |
+| `liquid_abort_message` | Se llamó a la etiqueta de Liquid [abort_message]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages), por lo que se canceló el envío. |
 | `template_parse_error` | La plantilla del mensaje no se pudo analizar debido a un error de sintaxis o de renderizado, por lo que se canceló el envío. |
-| `rate_limit` | El mensaje se canceló porque superó el [límite de velocidad]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting) configurado. |
+| `rate_limit` | El mensaje se canceló porque superó el [límite de velocidad]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping) configurado. |
 | `campaign_disabled` | La Campaign se desactivó antes de que se pudiera enviar el mensaje. |
 | `campaign_does_not_exist` | La Campaign asociada a este mensaje ya no existe. |
 | `campaign_action_does_not_exist` | La acción de Campaign asociada a este mensaje ya no existe. |
@@ -34,9 +34,9 @@ Estos tipos de cancelación pueden ocurrir en cualquier canal de mensajería.
 | Valor de `abort_type` | Descripción |
 | --- | --- |
 | `exhausted_cc_retries` | El contenido conectado falló después del número máximo de reintentos, por lo que se canceló el mensaje. |
-| `connected_content_not_supported` | El [Contenido conectado]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content) no es compatible en este contexto, por lo que se canceló el mensaje. |
+| `connected_content_not_supported` | El [contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) no es compatible en este contexto, por lo que se canceló el mensaje. |
 | `promo_codes_not_supported` | Los códigos promocionales no son compatibles en este contexto, por lo que se canceló el mensaje. |
-| `catalog_items_rerender_not_supported` | La re-renderización de elementos del Catálogo no es compatible en este contexto, por lo que se canceló el mensaje. |
+| `catalog_items_rerender_not_supported` | La re-renderización de elementos del catálogo no es compatible en este contexto, por lo que se canceló el mensaje. |
 | `blacklisted_media_url` | La URL del medio está en la lista de bloqueo y no se puede usar en mensajes. |
 | `blocked_media_url` | La URL del medio fue bloqueada por políticas de seguridad. |
 | `invalid_media_url` | La URL del medio no es válida o no se pudo resolver. |
@@ -51,9 +51,9 @@ Estos tipos de cancelación pueden ocurrir en cualquier canal de mensajería.
 | Valor de `abort_type` | Descripción |
 | --- | --- |
 | `exhausted_cc_retries` | El contenido conectado falló después del número máximo de reintentos, por lo que se canceló el mensaje. |
-| `connected_content_not_supported` | El [Contenido conectado]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content) no es compatible en este contexto, por lo que se canceló el mensaje. |
+| `connected_content_not_supported` | El [contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) no es compatible en este contexto, por lo que se canceló el mensaje. |
 | `promo_codes_not_supported` | Los códigos promocionales no son compatibles en este contexto, por lo que se canceló el mensaje. |
-| `catalog_items_rerender_not_supported` | La re-renderización de elementos del Catálogo no es compatible en este contexto, por lo que se canceló el mensaje. |
+| `catalog_items_rerender_not_supported` | La re-renderización de elementos del catálogo no es compatible en este contexto, por lo que se canceló el mensaje. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Contenido y renderizado" }
 
 {% endif %}
@@ -64,9 +64,9 @@ Estos tipos de cancelación pueden ocurrir en cualquier canal de mensajería.
 | Valor de `abort_type` | Descripción |
 | --- | --- |
 | `exhausted_cc_retries` | El contenido conectado falló después del número máximo de reintentos, por lo que se canceló el mensaje. |
-| `connected_content_not_supported` | El [Contenido conectado]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content) no es compatible en este contexto, por lo que se canceló el mensaje. |
+| `connected_content_not_supported` | El [contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) no es compatible en este contexto, por lo que se canceló el mensaje. |
 | `promo_codes_not_supported` | Los códigos promocionales no son compatibles en este contexto, por lo que se canceló el mensaje. |
-| `catalog_items_rerender_not_supported` | La re-renderización de elementos del Catálogo no es compatible en este contexto, por lo que se canceló el mensaje. |
+| `catalog_items_rerender_not_supported` | La re-renderización de elementos del catálogo no es compatible en este contexto, por lo que se canceló el mensaje. |
 | `blacklisted_media_url` | La URL del medio está en la lista de bloqueo y no se puede usar en mensajes. |
 | `blocked_media_url` | La URL del medio fue bloqueada por políticas de seguridad. |
 | `invalid_media_url` | La URL del medio no es válida o no se pudo resolver. |
@@ -81,9 +81,9 @@ Estos tipos de cancelación pueden ocurrir en cualquier canal de mensajería.
 | Valor de `abort_type` | Descripción |
 | --- | --- |
 | `exhausted_cc_retries` | El contenido conectado falló después del número máximo de reintentos, por lo que se canceló el mensaje. |
-| `connected_content_not_supported` | El [Contenido conectado]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content) no es compatible en este contexto, por lo que se canceló el mensaje. |
+| `connected_content_not_supported` | El [contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) no es compatible en este contexto, por lo que se canceló el mensaje. |
 | `promo_codes_not_supported` | Los códigos promocionales no son compatibles en este contexto, por lo que se canceló el mensaje. |
-| `catalog_items_rerender_not_supported` | La re-renderización de elementos del Catálogo no es compatible en este contexto, por lo que se canceló el mensaje. |
+| `catalog_items_rerender_not_supported` | La re-renderización de elementos del catálogo no es compatible en este contexto, por lo que se canceló el mensaje. |
 | `ssl_error` | Ocurrió un error SSL al realizar una solicitud. |
 | `invalid_http_status` | Una solicitud HTTP devolvió un código de estado no exitoso. |
 | `http_timeout` | Una solicitud HTTP agotó el tiempo de espera antes de recibir una respuesta. |

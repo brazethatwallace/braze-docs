@@ -41,7 +41,7 @@ Al configurar un agente de toma de decisiones, necesitarás pensar en cuatro ele
 
 *¿Qué resultado quieres que el agente maximice?*
 
-Tu métrica de éxito es el resultado de negocio para el que el agente optimizará. Esto debe alinearse directamente con tus objetivos de negocio, no métricas intermedias como clics o aperturas, sino resultados de negocio reales como ingresos, conversiones, ARPU o valor de duración del ciclo de vida del cliente.
+Tu métrica de éxito es el resultado de negocio para el que el agente optimizará. Esto debe alinearse directamente con tus objetivos de negocio, no métricas intermedias como clics o aperturas, sino resultados de negocio reales como ingresos, conversiones, ARPU o LTV del cliente.
 
 ### El "quién": selecciona tu audiencia {#the-who-select-your-audience}
 

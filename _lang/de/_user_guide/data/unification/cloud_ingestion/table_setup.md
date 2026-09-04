@@ -56,7 +56,7 @@ Der `PAYLOAD`-Wert folgt denselben Objektformaten, die vom Braze-Endpunkt `/user
 
 | Datentyp | Formatierungsreferenz |
 | --- | --- |
-| `attributes` | [Nutzerattribut-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens) |
+| `attributes` | [Nutzerattribut-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object) |
 | `events` | [Ereignis-Objekt]({{site.baseurl}}/api/objects_filters/event_object) |
 | `purchases` | [Kauf-Objekt]({{site.baseurl}}/api/objects_filters/purchase_object) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="PAYLOAD-Spalte einrichten" }
@@ -125,7 +125,7 @@ Sie können ein Kauf-Event pro Zeile synchronisieren.
 
 {% endtab %}
 {% tab Abo-Gruppen %}
-Um Abo-Gruppenstatus zu synchronisieren, fügen Sie in jeder Zeile ein oder mehrere Paare aus `subscription_group_id` und `subscription_state` ein.
+Um den Abo-Gruppenstatus zu synchronisieren, fügen Sie in jeder Zeile ein oder mehrere Paare aus `subscription_group_id` und `subscription_state` ein.
 ```json
 {
     "subscription_groups" : [

@@ -19,7 +19,7 @@ description: "Cet article présente les détails de l'endpoint Braze Créer des 
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `catalogs.create_fields`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `catalogs.create_fields`.
 
 ## Limite de débit {#rate-limit}
 

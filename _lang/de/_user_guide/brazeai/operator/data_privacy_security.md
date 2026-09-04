@@ -30,7 +30,7 @@ Jede an OpenAI gesendete Anfragenutzlast kann Folgendes enthalten:
 
 ### Modellanbieter als Unterauftragsverarbeiter oder Drittanbieter {#model-providers-as-sub-processors-or-third-party-providers}
 
-Wenn Sie eine Integration mit einem LLM-Anbieter nutzen, der von Braze über die Braze-Dienste bereitgestellt wird („von Braze bereitgestelltes LLM“), agieren die Anbieter eines solchen von Braze bereitgestellten LLM als Braze-Unterauftragsverarbeiter, vorbehaltlich der Bedingungen des Datenverarbeitungszusatzes (DPA) zwischen Ihnen und Braze. BrazeAI Operator<sup>TM</sup> ist mit OpenAI integriert.
+Wenn Sie eine Integration mit einem LLM-Anbieter nutzen, der von Braze über die Braze-Dienste bereitgestellt wird („von Braze bereitgestelltes LLM“), agieren die Anbieter eines solchen von Braze bereitgestellten LLM als Braze-Unterauftragsverarbeiter, vorbehaltlich der Bedingungen des Datenverarbeitungszusatzes (Datenschutzbeauftragte:r) zwischen Ihnen und Braze. BrazeAI Operator<sup>TM</sup> ist mit OpenAI integriert.
 
 ### Wie Daten mit OpenAI verwendet werden {#how-data-is-used-with-openai}
 
@@ -58,7 +58,7 @@ Wie lange OpenAI die über Operator gesendeten Daten aufbewahrt, hängt von Ihre
 
 ### Modelltraining {#model-training}
 
-Daten, die über Braze an die API von OpenAI gesendet werden, werden nicht zum Trainieren oder Verbessern von OpenAI-Modellen verwendet. Dies wird durch vertragliche Vereinbarungen zwischen Braze und OpenAI sowie die API-Plattform-Verpflichtungen von OpenAI geregelt. OpenAI agiert als Braze-Unterauftragsverarbeiter, und alle personenbezogenen Daten unterliegen dem DPA zwischen Braze und seinen Kund:innen.
+Daten, die über Braze an die API von OpenAI gesendet werden, werden nicht zum Trainieren oder Verbessern von OpenAI-Modellen verwendet. Dies wird durch vertragliche Vereinbarungen zwischen Braze und OpenAI sowie die API-Plattform-Verpflichtungen von OpenAI geregelt. OpenAI agiert als Braze-Unterauftragsverarbeiter, und alle personenbezogenen Daten unterliegen dem Datenschutzbeauftragte:r zwischen Braze und seinen Kund:innen.
 
 ### EU-Datenrouting {#eu-data-routing}
 
@@ -70,7 +70,7 @@ Es gibt mehrere Schritte, die Sie unternehmen können, um die PII-Exposition bei
 
 - **Deaktivieren Sie die Einstellung „PII anzeigen“** für alle Nutzer:innen, die Operator verwenden. Wenn Nutzer:innen PII nicht einsehen können, kann Operator ebenfalls nicht darauf zugreifen.
 - **Öffnen Sie Operator nicht auf einer Nutzerprofilseite.** Seiteninhalte werden gescrapt und in jede an OpenAI gesendete Anfrage einbezogen.
-- **Verwenden Sie beim Testen ein angepasstes Nutzerprofil**, anstatt ein bestehendes auszuwählen. Dies ist das Standardverhalten von Operator.
+- **Verwenden Sie beim Testen ein angepasstes Kundenprofil**, anstatt ein bestehendes auszuwählen. Dies ist das Standardverhalten von Operator.
 - **Geben Sie keine PII direkt in den Operator-Prompt ein** und fügen Sie dort auch keine PII ein. Operator blockiert keine PII, die in Nutzer-Prompts enthalten sind. Wenn Nutzer:innen PII manuell in eine Anfrage eingeben, werden diese Inhalte an das zugrunde liegende Sprachmodell gesendet.
 - **Deaktivieren Sie die automatische Genehmigung für Aktionen**, um die Kontrolle darüber zu behalten, worauf Operator zugreifen und was Operator ausführen kann.
 - **Bitten Sie Operator nicht, Vorschauwerte für Attribute anzuzeigen**, wenn Sie ein Segment erstellen oder Liquid schreiben.

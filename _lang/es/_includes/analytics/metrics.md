@@ -1,9 +1,9 @@
-{% if include.metric == "AMP Clicks" %}
-<i>Clics AMP</i> es el número total de clics en tu correo electrónico AMP HTML, acumulado de las versiones HTML, texto sin formato y AMP HTML del correo electrónico.
+{% if include.metric == "páginas móviles aceleradas Clicks" %}
+<i>Clics páginas móviles aceleradas</i> es el número total de clics en tu correo electrónico páginas móviles aceleradas HTML, acumulado de las versiones HTML, texto sin formato y páginas móviles aceleradas HTML del correo electrónico.
 {% endif %}
 
-{% if include.metric == "AMP Opens" %}
-<i>Aperturas AMP</i> es el recuento total de aperturas en tu correo electrónico AMP HTML y en las versiones AMP HTML del correo electrónico.
+{% if include.metric == "páginas móviles aceleradas Opens" %}
+<i>Aperturas páginas móviles aceleradas</i> es el recuento total de aperturas en tu correo electrónico páginas móviles aceleradas HTML y en las versiones páginas móviles aceleradas HTML del correo electrónico.
 {% endif %}
 
 {% if include.metric == "Audience" %}
@@ -127,7 +127,7 @@ La <i>tasa de entregas fallidas</i> es el porcentaje de envíos que fallaron por
 {% endif %}
 
 {% if include.metric == "Failures" %}
-Los <i>fallos</i> se producen cuando el mensaje de WhatsApp no se ha podido enviar porque el proveedor de servicios de Internet ha devuelto un rebote duro. Un rebote duro significa un fallo permanente en la capacidad de entrega.
+Los <i>fallos</i> se producen cuando el mensaje de WhatsApp no se ha podido enviar porque el ISP ha devuelto un rebote duro. Un rebote duro significa un fallo permanente en la capacidad de entrega.
 {% endif %}
 
 {% if include.metric == "Influenced Opens" %}
@@ -138,8 +138,8 @@ Los <i>fallos</i> se producen cuando el mensaje de WhatsApp no se ha podido envi
 Los <i>ingresos de toda la vida</i> son el valor total del precio de <code>PurchaseEvents</code> (en USD) recibido desde el inicio.
 {% endif %}
 
-{% if include.metric == "Lifetime Value Per User" %}
-El <i>valor de duración del ciclo de vida por usuario</i> son los <i>ingresos de toda la vida</i> divididos por el total de tus <i>usuarios</i> (ubicados en tu página de inicio).
+{% if include.metric == "LTV Per User" %}
+El <i>LTV por usuario</i> son los <i>ingresos de toda la vida</i> divididos por el total de tus <i>usuarios</i> (ubicados en tu página de inicio).
 {% endif %}
 
 {% if include.metric == "Average Daily Revenue" %}
@@ -155,11 +155,29 @@ Los <i>ingresos diarios por usuario</i> son los ingresos medios diarios por usua
 {% endif %}
 
 {% if include.metric == "Machine Opens" %}
-<i>Aperturas de máquina</i> incluye la proporción de «aperturas» que se ven afectadas por la protección de la privacidad en los correos electrónicos (MPP) de Apple para iOS 15. Por ejemplo, si un usuario abre un correo electrónico utilizando la aplicación Mail en un dispositivo Apple, esto se registrará como una <i>apertura de máquina</i>.
+<i>Aperturas de máquina</i> incluye tanto las aperturas no humanas como las humanas que indican una apertura por parte de un usuario con la MPP (MPP) de Apple habilitada. Esto significa que un usuario puede registrar múltiples <i>aperturas de máquina</i>. Las <i>aperturas de máquina</i> no se generan automáticamente si el dispositivo no está conectado a Wi-Fi, por lo que un usuario puede abrir un correo electrónico en la aplicación Apple Mail antes de que Apple precargue las imágenes, lo que aún resulta en una <i>apertura de máquina</i>.
+<br><br>
+Para usuarios con MPP habilitado:
+<ul>
+  <li>1+ <i>apertura de máquina</i>: Apple precargó el mensaje o el usuario abrió proactivamente un correo electrónico en un dispositivo iOS</li>
+  <li>2+ <i>aperturas de máquina</i>: Braze no tiene visibilidad sobre las aperturas humanas frente a las no humanas, por lo que esto puede estar compuesto por múltiples aperturas humanas (en un dispositivo Apple o en varios) o una combinación de aperturas humanas y 1 apertura asociada a la precarga del mensaje por parte de Apple</li>
+</ul>
 {% endif %}
 
 {% if include.metric == "Other Opens" %}
-<i>Otras aperturas</i> incluye correos electrónicos que no han sido identificados como <i>aperturas de máquina</i>. Por ejemplo, cuando un usuario abre un correo electrónico en otra plataforma (como la aplicación de Gmail en un teléfono, Gmail en un navegador de escritorio), esto se registrará como <i>otras aperturas</i>.
+<i>Otras aperturas</i> incluye aperturas humanas que no se ven afectadas por MPP (como cuando un usuario abre un correo electrónico en la aplicación de Gmail o en Gmail de escritorio, lo que activa un píxel de seguimiento y registra una apertura regular). Las <i>otras aperturas</i> son generalmente aperturas humanas, pero también puede haber escenarios en los que una máquina abre el correo (un bot o un proveedor de servicios de buzón de entrada como Gmail o Yahoo). También es posible que un usuario abra un correo electrónico en un dispositivo que no sea iOS y registre la <i>otra apertura</i> antes de que se registre una <i>apertura de máquina</i>.
+<br><br>
+Dado que las <i>aperturas de máquina</i> pueden ser impulsadas por el usuario, la relación entre las <i>aperturas de máquina</i> y las <i>otras aperturas</i> no es humano frente a no humano, sino más bien afectado por MPP frente a no afectado por MPP. Aunque las <i>otras aperturas</i> aún pueden utilizarse para medir una parte de las aperturas humanas, actualmente no es posible determinar el porcentaje de <i>aperturas de máquina</i> que son impulsadas por humanos, por lo que determinar una tasa de apertura «verdadera» precisa no es posible actualmente.
+<br><br>
+Para usuarios con MPP habilitado:
+<ul>
+  <li>+1 <i>otra(s) apertura(s)</i>: El usuario abrió proactivamente un correo electrónico en un dispositivo que no es iOS</li>
+  <li>+1 <i>apertura(s) de máquina</i> y +1 <i>otras aperturas</i>: Apple precargó el mensaje o el usuario abrió proactivamente un correo electrónico en un dispositivo iOS y abrió proactivamente un correo electrónico en un dispositivo que no es iOS</li>
+</ul>
+Para usuarios sin MPP habilitado:
+<ul>
+  <li>+1 <i>otra(s) apertura(s)</i>: El usuario abrió proactivamente un correo electrónico en cualquier dispositivo</li>
+</ul>
 {% endif %}
 
 {% if include.metric == "Opens" %}
@@ -167,14 +185,14 @@ Las <i>aperturas</i> son instancias que incluyen tanto <i>Direct Opens</i> como 
 {% endif %}
 
 {% if include.metric == "Opt-Out" %}
-La <i>exclusión voluntaria</i> se produce cuando un usuario responde a tu mensaje con una <a href="{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">palabra clave de exclusión voluntaria</a> y cancela la suscripción a tu programa SMS o RCS.
+La <i>exclusión voluntaria</i> se produce cuando un usuario respondió a tu mensaje con una <a href="{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">palabra clave de exclusión voluntaria</a> y canceló la suscripción a tu programa SMS o RCS.
 {% endif %}
 
 {% if include.metric == "Pending Retry" %}
 El <i>reintento pendiente</i> es el número de solicitudes que fueron rechazadas temporalmente por el servidor receptor, pero que el proveedor de servicios de correo electrónico (ESP) intentó volver a entregar. El ESP reintentará la entrega hasta que se alcance un tiempo de espera (normalmente después de 72 horas).
 {% endif %}
 
-{% if include.metric == "Primary Conversions (A) or Primary Conversion Event" %}
+{% if include.metric == "Primary Conversions (A) or conversión primaria Event" %}
 <i>Conversiones primarias (A)</i> o <i>evento de conversión primaria</i> es el número de veces que se ha producido un evento definido tras interactuar con o ver un mensaje recibido de una Campaign de Braze. Este evento definido lo determinas tú al crear la Campaign.
 {% endif %}
 
@@ -199,7 +217,7 @@ Los <i>ingresos</i> son los ingresos totales en dólares de los destinatarios de
 {% endif %}
 
 {% if include.metric == "Messages Sent" %}
-<i>Mensajes enviados</i> es el número total de mensajes enviados en una Campaign. Tras lanzar una Campaign programada, esta métrica incluirá todos los mensajes enviados, independientemente de si se han enviado ya debido a la limitación de tasa. Esto no significa que el mensaje se haya recibido o entregado a un dispositivo, solo que el mensaje se ha enviado.
+<i>Mensajes enviados</i> es el número total de mensajes enviados en una Campaign. Tras lanzar una Campaign programada, esta métrica incluirá todos los mensajes enviados, independientemente de si se han enviado ya debido al límite de velocidad. Esto no significa que el mensaje se haya recibido o entregado a un dispositivo, solo que el mensaje se ha enviado.
 {% endif %}
 
 {% if include.metric == "Sent" %}
@@ -207,7 +225,7 @@ Se <i>envía</i> cada vez que se inicia o se desencadena una Campaign o un paso 
 {% endif %}
 
 {% if include.metric == "Sends" %}
-<i>Envíos</i> es el número total de mensajes enviados en una Campaign. Tras lanzar una Campaign programada, esta métrica incluirá todos los mensajes enviados, independientemente de si se han enviado ya debido a la limitación de tasa. Esto no significa que el mensaje se haya recibido o entregado a un dispositivo, solo que el mensaje se ha enviado.
+<i>Envíos</i> es el número total de mensajes enviados en una Campaign. Tras lanzar una Campaign programada, esta métrica incluirá todos los mensajes enviados, independientemente de si se han enviado ya debido al límite de velocidad. Esto no significa que el mensaje se haya recibido o entregado a un dispositivo, solo que el mensaje se ha enviado.
 {% endif %}
 
 {% if include.metric == "Sends to Carrier" %}
@@ -219,7 +237,7 @@ La <i>tasa de envíos al operador</i> es el porcentaje del total de mensajes env
 {% endif %}
 
 {% if include.metric == "Spam" %}
-El <i>correo no deseado</i> es el número total de correos electrónicos entregados que han sido marcados como «correo no deseado» por el destinatario. Aunque Braze no cambia el estado de suscripción de estos usuarios, estos quedarán automáticamente excluidos de futuros correos electrónicos, a menos que envíes un correo electrónico transaccional, que está configurado para «enviar a todos los usuarios, incluidos los que han cancelado la suscripción».
+El <i>correo no deseado</i> es el número total de correos electrónicos entregados que han sido marcados como «correo no deseado» por el destinatario. Aunque Braze no cambia el estado de suscripción de estos usuarios, estos quedarán automáticamente excluidos de futuros correos electrónicos, a menos que envíes un correo transaccional, que está configurado para «enviar a todos los usuarios, incluidos los que han cancelado la suscripción».
 {% endif %}
 
 {% if include.metric == "Survey Page Dismissals" %}
@@ -273,7 +291,7 @@ Los <i>destinatarios únicos</i> son el número de destinatarios únicos diarios
 {% endif %}
 
 {% if include.metric == "Unique Opens" %}
-<i>Aperturas únicas</i> es el número total (o porcentaje) de mensajes entregados que han sido abiertos por un único usuario al menos una vez y que son objeto de seguimiento durante un periodo de siete días.
+<i>Unique Opens</i> es el número total (o porcentaje) de mensajes entregados que han sido abiertos por un único usuario al menos una vez y que son objeto de seguimiento durante un periodo de siete días.
 {% endif %}
 
 {% if include.metric == "Unsubscribers or Unsub" %}
@@ -285,5 +303,5 @@ Los <i>destinatarios únicos</i> son el número de destinatarios únicos diarios
 {% endif %}
 
 {% if include.metric == "Variation" %}
-<i>Variación</i> es el número de variaciones de una Campaign, diferentes según las defina el creador.
+<i>Variante</i> es el número de variantes de una Campaign, diferentes según las defina el creador.
 {% endif %}

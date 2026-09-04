@@ -2,7 +2,7 @@
 
 ランディングページのエディターブロックは、**ドラッグ＆ドロップエディター**の**ビルド**セクションにあり、**行**とブロックカテゴリの下に配置されています。ブロックを行の列にドラッグすると、列幅に自動調整されます。ブロックを選択すると、右側のプロパティパネルで設定を編集できます。
 
-ランディングページの作成と公開の詳細については、[ランディングページの作成]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/)を参照してください。
+ランディングページの作成と公開の詳細については、[ランディングページの作成]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages)を参照してください。
 
 ### タイトルと段落 {#title-and-paragraph}
 
@@ -21,12 +21,12 @@
 {% multi_lang_include drag_and_drop/editor_block_properties/button_actions.md %}
 
 {% alert important %}
-**ボタンクリック時にフォームを送信**を設定し、新しいタブでWeb URLを開く場合、iOS Safariではナビゲーションがブロックされることがあります。フォーム送信時には、送信後のURLを同じタブで開いてください。詳細については、[ランディングページの作成]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/)を参照してください。
+**ボタンクリック時にフォームを送信**を設定し、新しいタブでWeb URLを開く場合、iOS Safariではナビゲーションがブロックされることがあります。フォーム送信時には、送信後のURLを同じタブで開いてください。詳細については、[ランディングページの作成]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages)を参照してください。
 {% endalert %}
 
 ### ラジオボタン {#radio-button}
 
-ユーザーが1つを選択できるオプションのリストを追加します。プロパティパネルを使用して、利用可能なオプションと選択された値を受け取るカスタム属性を設定します。フォームが送信されると、ユーザープロファイルに選択された値が[文字列カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)として記録されます。他のデータタイプのカスタム属性はユーザープロファイルに保存されません。
+ユーザーが1つを選択できるオプションのリストを追加します。プロパティパネルを使用して、利用可能なオプションと選択された値を受け取るカスタム属性を設定します。フォームが送信されると、ユーザープロファイルに選択された値が[文字列カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes)として記録されます。他のデータタイプのカスタム属性はユーザープロファイルに保存されません。
 
 {% multi_lang_include drag_and_drop/editor_block_properties/radio_button_properties.md %}
 
@@ -60,17 +60,17 @@
 
 ### カスタムコード {#custom-code}
 
-[Google Tag Manager]({{site.baseurl}}/user_guide/messaging/landing_pages/#google-tag-manager)などの高度なカスタマイズのために、カスタムHTML、CSS、またはJavaScriptを挿入します。
+[Google Tag マネージャー]({{site.baseurl}}/user_guide/messaging/landing_pages#adding-google-tag-manager-to-a-landing-page)などの高度なカスタマイズのために、カスタムHTML、CSS、またはJavaScriptを挿入します。
 
 | プロパティ | 説明 |
 | --- | --- |
 | カスタムコード | HTML、CSS、JavaScriptの追加、編集、削除ができます。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom code" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="カスタムコード" }
 
 <!-- Countdown timer is not yet released. Uncomment when available.
 ### Countdown timer
 
-Displays a countdown to a date and time you set. If you don't see this block, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) or your Braze customer success manager.
+Displays a countdown to a date and time you set. If you don't see this block, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze customer success マネージャー.
 
 After you add a **Countdown timer** block, use the properties panel to set the target date and time, labels, and styling.
 -->
@@ -83,7 +83,7 @@ After you add a **Countdown timer** block, use the properties panel to set the t
 
 ### 電話番号キャプチャ {#phone-capture}
 
-電話番号用のフォームフィールドを追加します。送信時に、選択した[SMS]({{site.baseurl}}/sms_rcs_subscription_groups/)または[WhatsApp]({{site.baseurl}}/whatsapp_subscription_groups/)サブスクリプショングループにユーザーを登録します。
+電話番号用のフォームフィールドを追加します。送信時に、選択した[SMS]({{site.baseurl}}/sms_rcs_subscription_groups)または[WhatsApp]({{site.baseurl}}/whatsapp_subscription_groups)購読グループにユーザーを登録します。
 
 {% multi_lang_include drag_and_drop/editor_block_properties/phone_capture.md %}
 
@@ -101,28 +101,28 @@ After you add a **Countdown timer** block, use the properties panel to set the t
 
 ### チェックボックス {#checkbox}
 
-チェックされると、ブロックの[ブール値カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#custom-attribute-data-types)が`true`に設定され、チェックが外されると`false`に設定されます。
+チェックされると、ブロックの[ブール値カスタム属性]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)が`true`に設定され、チェックが外されると`false`に設定されます。
 
 {% multi_lang_include drag_and_drop/editor_block_properties/checkbox_properties.md %}
 
 ### チェックボックスグループ {#checkbox-group}
 
-ユーザーが複数のオプションを選択でき、値は定義された[配列カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#custom-attribute-data-types)に設定または追加されます。
+ユーザーが複数のオプションを選択でき、値は定義された[配列カスタム属性]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)に設定または追加されます。
 
 {% multi_lang_include drag_and_drop/editor_block_properties/checkbox_group_properties.md %}
 
 ### 長文テキスト {#long-text}
 
-調査スタイルのフロー用の複数行テキストフィールドです。このブロックが表示されない場合は、[Brazeサポート]({{site.baseurl}}/user_guide/administer/personal/braze_support/)またはBrazeカスタマーサクセスマネージャーにお問い合わせください。このブロックは標準のランディングページでは使用できません。
+調査スタイルのフロー用の複数行テキストフィールドです。このブロックが表示されない場合は、[Brazeサポート]({{site.baseurl}}/user_guide/administer/personal/braze_support)またはBrazeカスタマーサクセスマネージャーにお問い合わせください。このブロックは標準のランディングページでは使用できません。
 
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 
 <!-- Saved row is not yet released. Uncomment when available.
 ### Saved row
 
-Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved rows are **not linked** to the original Content Block — if the original is updated, you'll need to drag it into the editor again to get the latest version. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) or your Braze customer success manager.
+Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved rows are **not linked** to the original Content Block — if the original is updated, you'll need to drag it into the editor again to get the latest version. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze customer success マネージャー.
 -->
 
 ## 注意事項 {#things-to-know}
 
-- **動画:** 標準のコンポーザーには専用の動画ブロックは含まれていません。必要に応じて**カスタムコード**を使用してプレーヤーを埋め込んでください。詳細については、[ランディングページ]({{site.baseurl}}/user_guide/messaging/landing_pages/)を参照してください。
+- **動画:** 標準のコンポーザーには専用の動画ブロックは含まれていません。必要に応じて**カスタムコード**を使用してプレーヤーを埋め込んでください。詳細については、[ランディングページ]({{site.baseurl}}/user_guide/messaging/landing_pages)を参照してください。

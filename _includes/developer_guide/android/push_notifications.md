@@ -6,8 +6,8 @@ The following features are built into the Braze Android SDK. To use any other pu
 
 |Feature|Description|
 |-------|-----------|
-|Push Stories|Android Push Stories are built into the Braze Android SDK by default. To learn more, see [Push Stories]({{site.baseurl}}/user_guide/message_building_by_channel/push/advanced_push_options/push_stories/).|
-|Push Primers|Push primer campaigns encourage your users to enable push notifications on their device for your app. This can be done without SDK customization using our [no code push primer]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages/).|
+|Push Stories|Android Push Stories are built into the Braze Android SDK by default. To learn more, see [Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories/).|
+|Push Primers|Push primer campaigns encourage your users to enable push notifications on their device for your app. This can be done without SDK customization using our [no code push primer]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/).|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Built-in features" }
 
 ## About the push notification lifecycle {#push-notification-lifecycle}
@@ -370,13 +370,29 @@ Braze.getInstance(context).setRegisteredPushToken("FCM_TOKEN");
 ```
 {% endalert %}
 
+#### Using multiple Firebase projects {#multiple-firebase-projects}
+
+If your app uses multiple Firebase projects, use these steps:
+
+1. Keep Braze push on the default Firebase project initialized from your app's `google-services.json`.
+2. If you use a custom Firebase messaging service, complete [Register Installation IDs in custom Firebase messaging services](#android_register-installation-id-custom-firebase-service).
+3. If your app obtains a push token another way, manually set `registeredPushToken` as shown in the previous tip.
+
+{% alert important %}
+Firebase Cloud Messaging has no supported API for retrieving a token from a `FirebaseApp` that you initialize manually. `FirebaseMessagingService` callbacks such as `onNewToken` and `onRegistered` only fire for the default project. For more information, see [Configure multiple projects](https://firebase.google.com/docs/projects/multiprojects) in the Firebase documentation.
+{% endalert %}
+
+For version details, see [SDK changelogs]({{site.baseurl}}/developer_guide/changelogs?sdktab=android).
+
 ### Step 8: Remove automatic requests in your application class
 
 To prevent Braze from triggering unnecessary network requests every time you send silent push notifications, remove any automatic network requests configured in your `Application` class's `onCreate()` method. For more information see, [Android Developer Reference: Application](https://developer.android.com/reference/android/app/Application).
 
 ## Displaying notifications
 
-### Step 1: Register Braze Firebase Messaging Service
+<a id="android_step-1-register-braze-firebase-messaging-service"></a>
+
+### Step 1: Register Braze Firebase Messaging Service {#register-braze-firebase-messaging-service}
 
 You can either create a new, existing, or non-Braze Firebase Messaging Service. Choose whichever best meets your specific needs.
 
@@ -403,11 +419,23 @@ Before Braze SDK 3.1.1, `AppboyFcmReceiver` was used to handle FCM push. The `Ap
 {% tab Existing %}
 If you already have a Firebase Messaging Service registered, you can pass [`RemoteMessage`](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/RemoteMessage) objects to Braze via [`BrazeFirebaseMessagingService.handleBrazeRemoteMessage()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.push/-braze-firebase-messaging-service/-companion/handle-braze-remote-message.html). This method will only display a notification if the [`RemoteMessage`](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/RemoteMessage) object originated from Braze and will safely ignore if not.
 
+<a id="android_register-installation-id-custom-firebase-service"></a>
+
+#### Register Installation IDs in custom Firebase messaging services {#register-installation-id-custom-firebase-service}
+
+If you're using `firebase-messaging` v25.1.0 or later, Firebase registration uses the Firebase Installation ID. In your custom Firebase messaging service, override `onRegistered` and set `registeredPushToken`.
+
 {% subtabs %}
 {% subtab JAVA %}
 
 ```java
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
+  @Override
+  public void onRegistered(String installationId) {
+    super.onRegistered(installationId);
+    Braze.getInstance(this).setRegisteredPushToken(installationId);
+  }
+
   @Override
   public void onMessageReceived(RemoteMessage remoteMessage) {
     super.onMessageReceived(remoteMessage);
@@ -427,6 +455,11 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
 ```kotlin
 class MyFirebaseMessagingService : FirebaseMessagingService() {
+  override fun onRegistered(installationId: String) {
+    super.onRegistered(installationId)
+    Braze.getInstance(this).registeredPushToken = installationId
+  }
+
   override fun onMessageReceived(remoteMessage: RemoteMessage?) {
     super.onMessageReceived(remoteMessage)
     if (BrazeFirebaseMessagingService.handleBrazeRemoteMessage(this, remoteMessage)) {
@@ -454,7 +487,7 @@ In your `braze.xml`, specify:
 <string name="com_braze_fallback_firebase_cloud_messaging_service_classpath">com.company.OurFirebaseMessagingService</string>
 ```
 
-or set via [runtime configuration:]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android)
+or set via [runtime configuration:]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#runtime-configuration)
 
 {% subtabs %}
 {% subtab JAVA %}
@@ -540,7 +573,7 @@ To enable Braze to automatically open your app and any deep links when a push no
 <bool name="com_braze_handle_push_deep_links_automatically">true</bool>
 ```
 
-This flag can also be set via [runtime configuration]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android):
+This flag can also be set via [runtime configuration]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#runtime-configuration):
 
 {% tabs %}
 {% tab JAVA %}
@@ -649,7 +682,7 @@ The Braze dashboard supports setting deep links or web URLs in push notification
 
 The Android SDK, by default, will place your host app's main launcher activity in the back stack when following push deep links. Braze allows you to set a custom activity to open in the back stack in place of your main launcher activity or to disable the back stack altogether.
 
-For example, to set an activity called `YourMainActivity` as the back stack activity using [runtime configuration]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android):
+For example, to set an activity called `YourMainActivity` as the back stack activity using [runtime configuration]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#runtime-configuration):
 
 {% tabs %}
 {% tab JAVA %}
@@ -685,7 +718,7 @@ See the equivalent configuration for your `braze.xml`. Note that the class name 
 
 ### Step 5: Define notification channels
 
-The Braze Android SDK supports [Android notification channels](https://developer.android.com/preview/features/notification-channels.html). If a Braze notification does not contain the ID for a notification channel or that a Braze notification contains an invalid channel ID, Braze will display the notification with the default notification channel defined in the SDK. Company users use [Android Notification Channels]({{site.baseurl}}/user_guide/message_building_by_channel/push/android/notification_channels/) within the platform to group notifications.
+The Braze Android SDK supports [Android notification channels](https://developer.android.com/preview/features/notification-channels.html). If a Braze notification does not contain the ID for a notification channel or that a Braze notification contains an invalid channel ID, Braze will display the notification with the default notification channel defined in the SDK. Company users use [Android Notification Channels]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/notification_channels/) within the platform to group notifications.
 
 To set the user facing name of the default Braze notification channel, use [`BrazeConfig.setDefaultNotificationChannelName()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-default-notification-channel-name.html).
 
@@ -714,7 +747,7 @@ For issues related to push display, see our [troubleshooting guide]({{site.baseu
 
 #### Testing analytics
 
-At this point, you should also have analytics logging for push notification opens. Clicking on the notification when it arrives should result in the **Direct Opens** on your campaign results page to increase by 1. Check out our [push reporting]({{site.baseurl}}/user_guide/message_building_by_channel/push/push_reporting/) article for a break down on push analytics.
+At this point, you should also have analytics logging for push notification opens. Clicking on the notification when it arrives should result in the **Direct Opens** on your campaign results page to increase by 1. Check out our [push reporting]({{site.baseurl}}/user_guide/channels/push/reporting/) article for a break down on push analytics.
 
 For issues related to push analytics, see our [troubleshooting guide]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting/?sdktab=android).
 
@@ -778,4 +811,4 @@ To request a rate limit increase from FCM, you can contact [Firebase Support](ht
 
 #### Apply a workspace rate limit
 
-You can apply a workspace rate limit for Android push notifications. This can help regulate the delivery rate of your outgoing messages. For more details, see [Workspace messaging rate limits]({{site.baseurl}}/user_guide/administrative/app_settings/messaging_rate_limits).
+You can apply a workspace rate limit for Android push notifications. This can help regulate the delivery rate of your outgoing messages. For more details, see [Workspace messaging rate limits]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits/).

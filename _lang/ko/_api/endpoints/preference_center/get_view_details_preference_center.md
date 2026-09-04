@@ -20,7 +20,7 @@ description: "이 문서에서는 환경설정 센터 세부 정보 보기 Braze
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `preference_center.get` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
+이 엔드포인트를 사용하려면 `preference_center.get` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key-permissions)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 

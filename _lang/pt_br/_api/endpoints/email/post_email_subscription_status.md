@@ -14,9 +14,13 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Alterar
 /email/status
 {% endapimethod %}
 
-> Use esse endpoint para definir o estado da inscrição de e-mail para seus usuários.
+> Use esse endpoint para definir o estado global da inscrição de e-mail para seus usuários.
 
 Os usuários podem ser `opted_in`, `unsubscribed` ou `subscribed` (sem aceitação ou exclusão específica).
+
+{% alert note %}
+Esse endpoint atualiza o estado global da inscrição de e-mail do usuário, que é diferente do status do grupo de inscrições. O estado global da inscrição se aplica a todos os e-mails, enquanto os [grupos de inscrições]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups) permitem um controle mais granular sobre tipos específicos de e-mails. Quando um usuário tem a inscrição cancelada globalmente, ele não receberá e-mails independentemente do status do grupo de inscrições. Para consultar o status do grupo de inscrições, use o [endpoint Listar status do grupo de inscrições do usuário]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status).
+{% endalert %}
 
 É possível definir o estado da inscrição de e-mail para um endereço de e-mail que ainda não esteja associado a nenhum de seus usuários na Braze. Quando esse endereço de e-mail for posteriormente associado a um usuário, o estado de inscrição de e-mail que você enviou será automaticamente definido.
 
@@ -24,9 +28,9 @@ Os usuários podem ser `opted_in`, `unsubscribed` ou `subscribed` (sem aceitaç�
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `email.status`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `email.status`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
@@ -46,10 +50,10 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
-| `email` | Obrigatória | String ou matriz | Endereço de e-mail em string para modificar ou uma matriz de até 50 endereços de e-mail para modificar. |
-| `subscription_state` | Obrigatória | String | "subscribed", "unsubscribed" ou "opted_in". |
+| `email` | Obrigatório | String ou matriz | Endereço de e-mail em string para modificar ou uma matriz de até 50 endereços de e-mail para modificar. |
+| `subscription_state` | Obrigatório | String | "subscribed", "unsubscribed" ou "opted_in". |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Solução de problemas com bloqueios de e-mail do SendGrid {#troubleshooting-sendgrid-email-blocks}

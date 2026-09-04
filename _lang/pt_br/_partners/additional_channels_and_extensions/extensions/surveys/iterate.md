@@ -18,7 +18,7 @@ _Essa integração é mantida pela Iterate._
 
 A integração da Iterate com a Braze permite que você entregue pesquisas da Iterate de forma nativa e prática em seu produto ou campanhas. As respostas da pesquisa podem ser registradas como atributos personalizados do usuário na Braze, permitindo que você construa uma imagem completa dos seus usuários ou crie novos e poderosos públicos e segmentos.
 
-Com o SDK da Braze instalado em seu aplicativo ou site, você pode usar as ferramentas de segmentação e direcionamento disponíveis na Braze para entregar pesquisas por meio de mensagens no app a uma parte específica do seu público com base em qualquer gatilho ou segmento personalizado. As pesquisas da Iterate também podem ser incorporadas diretamente em suas campanhas de e-mail ou incluídas como links em seu push ou em outros tipos de campanha.
+Com o SDK da Braze instalado em seu aplicativo ou site, você pode usar as ferramentas de segmentação e direcionamento disponíveis na Braze para entregar pesquisas por meio de mensagens no app a uma parte específica do seu público com base em qualquer gatilho ou Segment personalizado. As pesquisas da Iterate também podem ser incorporadas diretamente em suas campanhas de e-mail ou incluídas como links em seu push ou em outros tipos de campanha.
 
 ## Pré-requisitos {#prerequisites}
 
@@ -31,7 +31,7 @@ Com o SDK da Braze instalado em seu aplicativo ou site, você pode usar as ferra
 
 ## Casos de uso {#use-cases}
 
-Com a Iterate, você pode coletar praticamente qualquer tipo de dados. Desde informações pessoais (nome, idade, e-mail), dados de desempenho (NPS, satisfação do cliente, classificação por estrelas), preferências (dispositivo preferido, frequência preferida de comunicação) ou personalidade (livro favorito, cachorro ou gato). O que você pergunta depende inteiramente de você e do tipo de dados que deseja coletar ou do público que deseja construir.
+Com a Iterate, você pode coletar praticamente qualquer tipo de dados. Desde informações pessoais (nome, idade, e-mail), dados de desempenho (Net Promoter Score (NPS), satisfação do cliente, classificação por estrelas), preferências (dispositivo preferido, frequência preferida de comunicação) ou personalidade (livro favorito, cachorro ou gato). O que você pergunta depende inteiramente de você e do tipo de dados que deseja coletar ou do público que deseja construir.
 
 ## Integração {#integration}
 

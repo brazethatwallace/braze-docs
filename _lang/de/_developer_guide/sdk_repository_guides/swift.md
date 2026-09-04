@@ -10,16 +10,16 @@ description: "Braze Swift SDK README-Referenz, gespiegelt von GitHub."
 
 ## Über das Braze Swift SDK {#about-the-braze-swift-sdk}
 
-Das Braze Swift SDK hilft Ihnen, Braze-Messaging, Analytics und Funktionen zum Nutzer:innen-Engagement in Ihre Anwendung zu integrieren.
+Das Braze Swift SDK hilft Ihnen, Braze-Messaging-, Analytics- und Nutzer:innen-Engagement-Funktionen in Ihre Anwendung zu integrieren.
 
 Für den Einstieg stehen Ihnen die folgenden Ressourcen zur Verfügung:
 
 - [Braze-Benutzerhandbuch](https://www.braze.com/docs/user_guide/introduction/)
-- [Braze-Entwicklerleitfaden](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=swift)
+- [Braze-Entwicklerhandbuch](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=swift)
 
 ## Schnellstart {#quickstart}
 
-Die folgenden Snippets zeigen die Mindestkonfiguration, die erforderlich ist, um das Braze Swift SDK zu Ihrer App hinzuzufügen.
+Die folgenden Snippets zeigen die minimale Konfiguration, die erforderlich ist, um das Braze Swift SDK zu Ihrer App hinzuzufügen.
 
 ``` swift
 // AppDelegate.swift
@@ -55,9 +55,9 @@ Weitere Informationen zu erweiterten Integrationsoptionen finden Sie im [Braze-E
 
 ## Versionsunterstützung {#version-support}
 
-Die folgende Tabelle listet die mindestens unterstützten Versionen für Tools auf, die vom Braze Swift SDK verwendet werden.
+Die folgende Tabelle listet die minimal unterstützten Versionen für Tools auf, die vom Braze Swift SDK verwendet werden.
 
-Tool | Mindestens unterstützte Version
+Tool | Minimal unterstützte Version
 :----|:----
 iOS|12.0+
 Mac Catalyst|16.0+
@@ -75,13 +75,13 @@ Die folgende Tabelle beschreibt jede Bibliothek im Braze Swift SDK.
 
 <!-- Table generated with https://www.tablesgenerator.com/markdown_tables -->
 
-|                                                                                                                                                    | iOS |     tvOS      | macCatalyst |   visionOS    |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------|:---:|:-------------:|:-----------:|:-------------:|
-| **BrazeKit**<br/> _Haupt-SDK-Bibliothek mit Unterstützung für [Analytics] und [Push-Benachrichtigungen]._                                          |  ✅  | ✅<sup>1</sup> |      ✅      |       ✅       |
-| **BrazeUI**<br/> _Von Braze bereitgestellte UI-Bibliothek für [In-App Messages] und [Content Cards]._                                              |  ✅  |      n/a      |      ✅      |       ✅       |
-| **BrazeLocation**<br/> _Standort-Bibliothek mit Unterstützung für [Standort-Analytics und Geofence-Überwachung]._                                  |  ✅  | ✅<sup>2</sup> |      ✅      | ✅<sup>2</sup> |
-| **BrazeNotificationService**<br/> _Notification-Service-Extension-Bibliothek mit Unterstützung für [Rich-Push-Benachrichtigungen]._                |  ✅  |      n/a      |      ✅      |       ✅       |
-| **BrazePushStory**<br/> _Notification-Content-Extension-Bibliothek mit Unterstützung für [Push Stories]._                                          |  ✅  |      n/a      |      ✅      |       ✅       |
+|                                                                                                                                          | iOS |     tvOS      | macCatalyst |   visionOS    |
+|------------------------------------------------------------------------------------------------------------------------------------------|:---:|:-------------:|:-----------:|:-------------:|
+| **BrazeKit**<br/> _Haupt-SDK-Bibliothek mit Unterstützung für [Analytics] und [Push-Benachrichtigungen]._                                |  ✅  | ✅<sup>1</sup> |      ✅      |       ✅       |
+| **BrazeUI**<br/> _Von Braze bereitgestellte UI-Bibliothek für [In-App Messages] und [Content Cards]._                                    |  ✅  |      n/a      |      ✅      |       ✅       |
+| **BrazeLocation**<br/> _Standort-Bibliothek mit Unterstützung für [Standort-Analytics und Geofence-Überwachung]._                        |  ✅  | ✅<sup>2</sup> |      ✅      | ✅<sup>2</sup> |
+| **BrazeNotificationService**<br/> _Notification-Service-Extension-Bibliothek mit Unterstützung für [Rich-Push-Benachrichtigungen]._      |  ✅  |      n/a      |      ✅      |       ✅       |
+| **BrazePushStory**<br/> _Notification-Content-Extension-Bibliothek mit Unterstützung für [Push Stories]._                                |  ✅  |      n/a      |      ✅      |       ✅       |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Bibliotheken" }
 
 <sup>1</sup> _Push-Benachrichtigungen werden auf tvOS nicht unterstützt_<br/>
@@ -97,7 +97,7 @@ Die folgende Tabelle beschreibt jede Bibliothek im Braze Swift SDK.
 
 ## Beispiele {#examples}
 
-Erkunden Sie unser [Beispielprojekt](https://github.com/braze-inc/braze-swift-sdk/blob/main/Examples), das die Integration mehrerer Features veranschaulicht.
+Entdecken Sie unser [Beispielprojekt](https://github.com/braze-inc/braze-swift-sdk/blob/main/Examples), das Beispielintegrationen für verschiedene Features zeigt.
 
 ## Alternative Repositories {#alternative-repositories}
 
@@ -106,12 +106,12 @@ Erkunden Sie unser [Beispielprojekt](https://github.com/braze-inc/braze-swift-sd
 | → **Sources und statische XCFrameworks** |                    [braze-inc/braze-swift-sdk] |                   ✓ |
 | Statische XCFrameworks                |    [braze-inc/braze-swift-sdk-prebuilt-static] |                   ✗ |
 | Dynamische XCFrameworks               |   [braze-inc/braze-swift-sdk-prebuilt-dynamic] |                   ✗ |
-| Mergeable XCFrameworks (Early Access) | [braze-inc/braze-swift-sdk-prebuilt-mergeable] |                   ✗ |
+| Zusammenführbare XCFrameworks         | [braze-inc/braze-swift-sdk-prebuilt-mergeable] |                   ✗ |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Alternative Repositories" }
 
 ## Kontakt {#contact}
 
-Bei Fragen wenden Sie sich bitte an den technischen Support von Braze.
+Bei Fragen wenden Sie sich an den technischen Support von Braze.
 
 [braze-inc/braze-swift-sdk]: https://github.com/braze-inc/braze-swift-sdk
 [braze-inc/braze-swift-sdk-prebuilt-static]: https://github.com/braze-inc/braze-swift-sdk-prebuilt-static
@@ -119,4 +119,4 @@ Bei Fragen wenden Sie sich bitte an den technischen Support von Braze.
 [braze-inc/braze-swift-sdk-prebuilt-mergeable]: https://github.com/braze-inc/braze-swift-sdk-prebuilt-mergeable
 <!-- END GENERATED README CONTENT -->
 
-Details zum Repository und Beispielprojekte finden Sie unter [https://github.com/braze-inc/braze-swift-sdk](https://github.com/braze-inc/braze-swift-sdk).
+Für Repository-Details und Beispielprojekte siehe [https://github.com/braze-inc/braze-swift-sdk](https://github.com/braze-inc/braze-swift-sdk).

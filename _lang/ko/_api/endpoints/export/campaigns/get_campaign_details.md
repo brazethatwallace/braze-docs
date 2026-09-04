@@ -6,7 +6,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "이 문서에서는 캠페인 세부 정보 내보내기 Braze 엔드포인트에 대한 자세한 내용을 설명합니다."
-
 ---
 {% api %}
 # 캠페인 세부 정보 내보내기 {#export-campaign-details}
@@ -22,7 +21,7 @@ Canvas 데이터를 검색하려면 [Canvas 세부 정보 내보내기]({{site.b
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `campaigns.details` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
+이 엔드포인트를 사용하려면 `campaigns.details` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key-permissions)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -49,7 +48,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
+    "message": (string) returns 'success' when the request completes without errors,
     "created_at" : (string) the date created as ISO 8601 date,
     "updated_at" : (string) the date last updated as ISO 8601 date,
     "archived": (boolean) whether this campaign is archived,
@@ -116,7 +115,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 {% endtab %}
 {% tab 인앱 메시지 %}
 
-응답 형식은 인앱 메시지 유형에 따라 다릅니다. 설문조사 인앱 메시지는 `type` 및 `data` 필드를 반환합니다. 다른 인앱 메시지 유형(슬라이드업, 모달, 전체화면)은 `name`, `message`, `extras` 필드를 반환합니다.
+응답 형식은 인앱 메시지 유형에 따라 다릅니다. 설문조사 인앱 메시지는 `type` 및 `data` 필드를 반환합니다. 다른 인앱 메시지 유형(슬라이드업, Modal, 전체화면)은 `name`, `message`, `extras` 필드를 반환합니다.
 
 #### 설문조사 {#surveys}
 
@@ -146,7 +145,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 }
 ```
 
-#### 슬라이드업, 모달, 전체화면 인앱 메시지 {#slideup-modal-fullscreen-in-app-messages}
+#### 슬라이드업, Modal, 전체화면 인앱 메시지 {#slideup-modal-fullscreen-in-app-messages}
 
 ```json
 {
@@ -233,7 +232,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 ```
 
 {% endtab %}
-{% tab 제어 메시지 %}
+{% tab 컨트롤 메시지 %}
 
 ```json
 {
@@ -262,7 +261,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 ```
 
 {% endtab %}
-{% tab 이메일 열기 %}
+{% tab 이메일 열람 %}
 
 ```json
 {

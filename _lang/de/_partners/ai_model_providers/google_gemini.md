@@ -18,25 +18,30 @@ _Diese Integration wird von Google gepflegt._
 
 ## Über die Integration {#about-the-integration}
 
-Mit der Integration von Braze und Google Gemini können Sie Ihren Google Gemini API-Schlüssel oder Vertex AI-Schlüssel mit Braze verbinden, um Gemini-Modelle beim Erstellen angepasster KI-Agenten zu verwenden. Mit dieser Integration können Ihre Agenten personalisierte Texte generieren, Entscheidungen in Realtime treffen oder Katalog-Felder mithilfe der Gemini-Modelle von Google aktualisieren.
+Mit der Integration von Braze und Google Gemini können Sie Gemini über einen API-Schlüssel oder durch Anmeldung mit Ihrem Google-Konto mit Braze verbinden, um Gemini-Modelle beim Erstellen angepasster KI-Agenten zu verwenden. Mit dieser Integration können Ihre Agenten personalisierte Texte generieren, Entscheidungen in Realtime treffen oder Katalogfelder mithilfe der Gemini-Modelle von Google aktualisieren.
 
 ## Voraussetzungen {#prerequisites}
 
 | Anforderungen | Beschreibung |
 |---|---|
-| Google Cloud-Konto mit Gemini API-Schlüssel oder Vertex AI-Schlüssel | Ein Google Cloud-Konto mit einem Gemini API-Schlüssel oder Vertex AI-Schlüssel. Wenn Sie Hilfe benötigen, wenden Sie sich an Ihren Administrator oder den [Google Cloud-Support](https://cloud.google.com/support). |
-| Braze-Instanz | Sie finden Ihre Braze-Instanz auf der [API-Übersichtsseite]({{site.baseurl}}/api/basics/#endpoints) oder über Ihre:n Braze Onboarding-Manager:in. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Google Cloud-Konto | Ein Google Cloud-Konto mit Zugriff auf die Gemini API. Sie können sich mit einem API-Schlüssel authentifizieren oder Ihr Google-Konto verbinden und ein GCP-Projekt im Braze-Dashboard auswählen. Wenn Sie Hilfe benötigen, wenden Sie sich an Ihren Administrator oder den [Google Cloud-Support](https://cloud.google.com/support). |
+| Braze-Instanz | Sie finden Ihre Braze-Instanz auf der [API-Übersichtsseite]({{site.baseurl}}/api/basics#endpoints) oder über Ihre:n Braze Onboarding-Manager:in. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
-So verbinden Sie Ihren Google Gemini API-Schlüssel mit Braze:
+So verbinden Sie Google Gemini mit Braze:
 
-1. Gehen Sie im Braze-Dashboard zu **Partner Integrations** > **Technology Partners** und suchen Sie Google Gemini.
-2. Wählen Sie unter **API Type** entweder **Gemini API** oder **Vertex AI** aus.
-3. Geben Sie Ihren API-Schlüssel von Google ein. Für Vertex AI geben Sie die Projekt-ID ein.
-4. Wählen Sie **Save**.
+1. Gehen Sie im Braze-Dashboard zu **Partnerintegrationen** > **Technologie-Partner** und suchen Sie Google Gemini.
+2. Wählen Sie unter **Authentication Method** entweder **API Key** oder **Connect Google Account** aus.
+3. Schließen Sie die Einrichtung für die gewählte Methode ab:
+   - **API Key:** Wählen Sie unter **API Type** entweder **Gemini API** oder **Gemini Enterprise Agent Platform (formerly Vertex KI)** aus. Geben Sie Ihren API-Schlüssel ein. Wenn Sie Gemini Enterprise Agent Platform ausgewählt haben, geben Sie zusätzlich Ihre **Project ID** ein. Wählen Sie **Save**.
+   - **Connect Google Account:** Wählen Sie **Connect Google Account**, dann **Connect Google** und melden Sie sich mit Ihrem Google-Konto an. Wählen Sie Ihr **GCP Project** aus dem Dropdown-Menü aus. Wenn sowohl Gemini API als auch Gemini Enterprise Agent Platform in diesem Projekt aktiviert sind, wählen Sie den **API Type**, den Braze verwenden soll. Wählen Sie **Save**.
 
-Nach dem Speichern können Sie Gemini-Modelle auswählen, wenn Sie [einen angepassten Agenten erstellen]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/) – direkt in der Agentenkonsole.
+{% alert note %}
+**Connect Google Account** wird nur für Workspaces angezeigt, in denen diese Authentifizierungsoption aktiviert ist.
+{% endalert %}
+
+Nach dem Speichern können Sie Gemini-Modelle auswählen, wenn Sie [einen angepassten Agenten erstellen]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents) – direkt in der Agentenkonsole.
 
 Wenden Sie sich an den [Google Cloud-Support](https://cloud.google.com/support), wenn Sie Probleme oder Fragen zu Ihrer Integration haben.

@@ -12,9 +12,9 @@ channel:
 
 > Dieser Artikel behandelt die Unternehmens- und SMS-Campaign-Informationen, die Braze benötigt, wenn Sie mit Braze zusammenarbeiten, um Ihre 10DLC zu registrieren.
 
-Wenn Sie Unterstützung von Braze für die Registrierung Ihrer 10DLC erworben haben, müssen Sie uns alle erforderlichen Informationen, die unten aufgeführt sind, an die angegebene E-Mail-Adresse senden, wie in Ihrem Vertrag mit uns vereinbart.
+Wenn Sie Unterstützung von Braze für die Registrierung Ihrer 10DLC erworben haben, müssen Sie uns alle erforderlichen Informationen, die unten aufgeführt sind, an die im folgenden Abschnitt angegebene E-Mail-Adresse senden, wie in Ihrem Vertrag mit uns vereinbart.
 
-Bitte fügen Sie alle relevanten Screenshots und Anhänge bei und senden Sie alles an [smsapplications@braze.com](mailto:smsapplications@braze.com). Wenn Sie Fragen zu 10DLC haben, lesen Sie den [Braze SMS 10DLC-Leitfaden]({{site.baseurl}}/assets/pdf/SMS_10DLC_Guide.pdf) oder wenden Sie sich an Ihren Braze Customer-Success-Manager.
+Bitte fügen Sie alle relevanten Screenshots und Anhänge bei und senden Sie alles an [smsapplications@braze.com](mailto:smsapplications@braze.com). Wenn Sie Fragen zu 10DLC haben, lesen Sie den [Braze SMS 10DLC-Leitfaden]({{site.baseurl}}/assets/pdf/SMS_10DLC_Guide.pdf) oder wenden Sie sich an Ihren Braze CSM.
 
 
 ## Unternehmensinformationen (10DLC) {#company-information-10dlc}
@@ -48,7 +48,7 @@ Alle US-Mobilfunkanbieter benötigen die folgenden Unternehmensinformationen fü
 | Vollständige offizielle Geschäftsadresse (Straße, Ort, Bundesstaat, PLZ) | | |
 | Unternehmensform (privat, gemeinnützig, staatlich, börsennotiert (bitte Tickersymbol angeben)) | | |
 | Falls börsennotiert, geben Sie Ihr Tickersymbol an | | |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Company Information (10DLC)" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Unternehmensinformationen (10DLC)" }
 
 ## SMS-Campaign-Informationen {#sms-campaign-information}
 
@@ -56,7 +56,7 @@ Wir müssen jede SMS-Abo-Gruppe, die einen US-Langcode enthält, mit einer eigen
 
 | Feld | Optionen (falls zutreffend) | Beschreibung |
 | ------ | ------------------------ | --------------- |
-| Campaign-Anwendungsfall (wählen Sie den am besten passenden) | {::nomarkdown} <ul><li>Marketing</li><li>Account Notifications</li><li>Delivery Notifications</li><li>Customer Care</li><li>Security Alert</li><li>Fraud Alert Messaging</li><li>Higher Education</li><li>Mixed</li><li>Polling and Voting</li><li>Public Service Announcement</li></ul>{:/} | Hinweis: Wenn Sie einen „Mixed“-Anwendungsfall für eine Abo-Gruppe verwenden möchten, wenden Sie sich vorab an Ihren Customer-Success-Manager oder Customer-Onboarding-Manager für wichtige Details. |
+| Campaign-Anwendungsfall (wählen Sie den am besten passenden) | {::nomarkdown} <ul><li>Marketing</li><li>Account Notifications</li><li>Delivery Notifications</li><li>Customer Care</li><li>Security Alert</li><li>Fraud Alert Messaging</li><li>Higher Education</li><li>Mixed</li><li>Polling and Voting</li><li>Public Service Announcement</li></ul>{:/} | Hinweis: Wenn Sie einen „Mixed“-Anwendungsfall für eine Abo-Gruppe verwenden möchten, wenden Sie sich vorab an Ihren CSM oder Customer-Onboarding-Manager:in für wichtige Details. |
 | Campaign-Name | | {::nomarkdown}<p>Der SMS-Campaign-Name muss einheitlich in Ihren Nachrichten, Nutzungsbedingungen und überall dort angezeigt werden, wo sich Ihre Nutzer:innen für Ihr Programm anmelden.</p><p>Beispiele:</p><ul><li>Braze Marketing Alerts</li><li>Braze Account Notifications</li><li>Braze Cart Reminders</li></ul>{:/} |
 | Beschreibung der Campaign | | Diese Campaign sendet Marketing- und Werbenachrichten an Nutzer:innen, die sich für den Empfang von SMS entschieden haben, einschließlich Sonderangeboten/Gutscheinen und Warenkorb-Erinnerungen. |
 | E-Mail-Adresse des Kundensupports | | Wo können Endnutzer:innen per E-Mail Hilfe und Support erhalten? |
@@ -74,4 +74,4 @@ Wir müssen jede SMS-Abo-Gruppe, die einen US-Langcode enthält, mit einer eigen
 | Geschätztes tägliches Volumen | | Bitte geben Sie die geschätzte durchschnittliche Anzahl der pro Tag gesendeten Nachrichten für diesen bestimmten Anwendungsfall bzw. diese Abo-Gruppe an, z. B. 10.000. |
 | Checkliste für den Call-to-Action | | {::nomarkdown} <p>Der Call-to-Action sollte Folgendes enthalten:</p><ol><li>Produktbeschreibung</li><li>Offenlegung der Nachrichtenhäufigkeit</li><li>Link zu den vollständigen Nutzungsbedingungen</li><li>Link zur vollständigen Datenschutzrichtlinie</li><li>STOP-Schlüsselwort-Anweisungen</li><li>HELP-Schlüsselwort-Anweisungen</li><li>Hinweis „Message and Data Rates may apply“</li></ol> {:/} |
 | Call-to-Action-Beispiel | | ![Beispiel eines Call-to-Action mit allen erforderlichen Details.]({{site.baseurl}}/assets/img_archive/10dlc_cta_example.png) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="SMS campaign information" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="SMS-Campaign-Informationen" }

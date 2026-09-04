@@ -1,129 +1,81 @@
 ---
-nav_title: Selección de variante
-article_title: Selección de variante
+nav_title: Optimizar con BrazeAI<sup>TM</sup>
+article_title: Optimización de pruebas A/B con BrazeAI<sup>TM</sup>
 page_order: 1.6
-description: "Este artículo cubre la selección de variante de BrazeAI<sup>TM</sup>, una característica que permite a tus campañas A/B optimizar automáticamente para obtener la mejor interacción."
+description: "Descubre cómo Optimizar con BrazeAI selecciona y distribuye automáticamente las variantes con mejor rendimiento en Campaigns de envío único y de envío múltiple."
 search_rank: 10
 toc_headers: h2
 ---
 
-# Selección de variante de BrazeAI<sup>TM</sup> {#variant-selection}
+# Optimización de pruebas A/B con BrazeAI<sup>TM</sup> {#optimizing-ab-tests-with-brazeai}
 
-> La selección de variante de BrazeAI<sup>TM</sup> es una característica que permite que tus pruebas A/B de envío único o recurrentes ejecuten automáticamente un experimento y optimicen para obtener los mejores resultados de interacción.
-
-{% alert note %}
-La selección de variante de BrazeAI<sup>TM</sup> actualmente solo está disponible para push.
-{% endalert %}
+> Activa **Optimizar con BrazeAI<sup>TM</sup>** para optimizar automáticamente una Campaign con múltiples variantes. El método de optimización depende de si la Campaign se envía una vez o se envía varias veces.
 
 ## Requisitos previos {#prerequisites}
 
-Para usar la selección de variante de BrazeAI<sup>TM</sup>, necesitas lo siguiente en tu campaña o Canvas:
+Para usar **Optimize with BrazeAI<sup>TM</sup>**, tu Campaign debe incluir al menos dos variantes de mensaje.
 
-{% tabs %}
-{% tab Campaign %}
-- Añade al menos dos variantes de mensaje.
-- Si no estás usando envío único, define al menos un evento de conversión y establece tu ventana de reelegibilidad en 24 horas o más. Las ventanas más cortas no son compatibles, ya que afectarían la integridad de la variante de control.
-{% endtab %}
+Para una Campaign de envío múltiple, también debes:
 
-{% tab Canvas %}
-- Incluye al menos dos variantes de mensaje en un paso de mensaje.
-- Si no estás usando envío único, ten al menos un evento de conversión.
-{% endtab %}
-{% endtabs %}
+- Definir al menos un evento de conversión.
+- Establecer la ventana de reelegibilidad en 24 horas o más.
 
-## Envío único {#single-send}
+## Activar la optimización {#turn-on-optimization}
 
-Después de añadir tu segunda variante, la selección de variante de BrazeAI<sup>TM</sup> se activa automáticamente, estableciendo los parámetros óptimos para el experimento (hemos observado un incremento de ~25 % al seguir los parámetros óptimos), ejecuta tu experimento y luego envía la variante ganadora. No necesitas hacer nada más.
+En el paso **Target Audiences**, ve a **Pruebas A/B** y activa **Optimize with BrazeAI<sup>TM</sup>**.
 
-Para personalizar tu experimento, ofrecemos las siguientes opciones de personalización:
+## Campaigns de envío único {#single-send-campaigns}
 
-### Objetivo de optimización {#optimization-goal}
+Para una Campaign de envío único, Braze envía una porción inicial de la audiencia a cada variante. Una vez que finaliza la duración del experimento, BrazeAI<sup>TM</sup> selecciona la variante con mejor rendimiento y la envía a la audiencia restante.
 
-Recomendamos usar aperturas a menos que tengas una configuración sólida de eventos de conversión con una cantidad significativa de conversiones, para que el algoritmo tenga los datos que necesita para proporcionar los mejores resultados.
-- Aperturas
-- Eventos de conversión
+Braze aplica la configuración recomendada cuando activas la optimización. Para cambiar esta configuración, abre **Controles avanzados**:
 
-### Duración del experimento {#experiment-duration}
+- **Objetivo de optimización:** Selecciona la métrica que BrazeAI<sup>TM</sup> utiliza para comparar variantes. Los objetivos disponibles dependen del canal.
+- **Duración del experimento:** Selecciona 4 horas, 24 horas, 72 horas, o introduce una duración personalizada.
+- **Distribución de variantes:** Cambia el porcentaje asignado a cada variante o grupo de control.
 
-Recomendamos usar la duración predeterminada; sin embargo, proporcionamos otras dos opciones, incluyendo la posibilidad de usar tu propia duración personalizada:
-- 4 horas
-- 24 horas
-- 72 horas
-- Personalizada
+La duración predeterminada del experimento es de 4 horas. Si optimizas para un evento de conversión primaria, el valor predeterminado es 24 horas.
 
-### Grupo de control y distribuciones de variantes {#control-group-and-variant-distributions}
+### Objetivos de optimización predeterminados por canal {#default-optimization-goals-by-channel}
 
-Puedes quitar un grupo de control o editar las distribuciones de variantes, pero recomendamos usar los parámetros óptimos que establecemos.
+| Canal | Objetivo predeterminado |
+|---|---|
+| Notificaciones push | *Aperturas* |
+| Correo electrónico | *Clics únicos* |
+| SMS, MMS, RCS y WhatsApp | *Clics* |
+| Otros canales compatibles | *Evento de conversión primaria - A* |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Objetivos de optimización predeterminados por canal" }
 
-![Opciones de optimización de variantes para envío único]({% image_buster /assets/img_archive/braze_ai_variant_selection_single_send_options.png %})
+## Campaigns de envío múltiple {#multi-send-campaigns}
 
-## Recurrente {#recurring}
+Para Campaigns recurrentes, basadas en acciones y activadas por API que se envían varias veces, BrazeAI<sup>TM</sup> optimiza continuamente la distribución de tu audiencia. Después de la fecha límite de conversión inicial, Braze revisa el rendimiento cada 12 horas y envía más usuarios a las variantes con mejor rendimiento.
 
-Después de añadir tu segunda variante, la selección de variante de BrazeAI<sup>TM</sup> se activa automáticamente y optimiza continuamente utilizando una prueba estadística de bandido multibrazo. Envía más mensajes a las variantes que tienen mejor rendimiento y menos a las que tienen peor rendimiento.
+La distribución inicial puede ser uniforme mientras BrazeAI<sup>TM</sup> recopila datos de rendimiento. La distribución cambia a medida que la optimización identifica tendencias de rendimiento.
 
-Comienza con una distribución uniforme para entrenar y optimizar, luego dos veces al día inclina la distribución hacia las variantes de alto rendimiento y la aleja de las de bajo rendimiento hasta que reúne suficiente evidencia para sentir confianza (95 %+) de que ha elegido la distribución óptima.
+Abre **Controles avanzados** para agregar o eliminar un grupo de control. Un grupo de control proporciona una línea de base para medir el rendimiento de la Campaign y no recibe un mensaje.
 
 ## Informes {#reporting}
 
-![Informes de incremento]({% image_buster /assets/img_archive/braze_ai_variant_selection_reporting.png %}){: style="float:right;max-width:40%;margin-left:15px;border:0"}
+Una vez que se completa un experimento de envío único, o después de que una campaña de envíos múltiples haya recopilado suficientes datos, la página **Campaign Analytics** muestra el incremento producido por la optimización.
 
-Después de que la prueba se completa para envío único, y después de un breve retraso para envío recurrente, tenemos datos confiables para informar. Reportamos cualquier incremento que la selección de variante de BrazeAI<sup>TM</sup> pueda lograr en el dashboard.
+![Análisis de Campaign mostrando el incremento de Optimizar con BrazeAI<sup>TM</sup>, incluyendo métricas de comparación después de la ventana del experimento.]({% image_buster /assets/img_archive/braze_ai_variant_selection_reporting.png %})
 
-{% tabs %}
-{% tab Envío único %}
-Después de que la cohorte de entrenamiento envía, Braze espera el periodo de tiempo en la configuración de duración y revisa los datos. Basándose en la distribución de las variantes competidoras, calculamos un promedio de cómo sería el rendimiento si no se hubiera realizado ninguna optimización, y luego calculamos el incremento basándonos en la variante ganadora.
+Para más información, consulta [Análisis de pruebas A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics).
 
-Por ejemplo (asumiendo una distribución uniforme):
-- Variante 1: 3,5 %
-- Variante 2: 3 %
-- Variante 3: 2,5 %
-- Variante 4: 2 %
+## Preguntas frecuentes {#frequently-asked-questions}
 
-La tasa de apertura sin optimización es 2,75 % (.035*.25 + .03*.25 + 0.025*.25 + 0.02*.25), la selección de variante elige la variante 1, 3,5 %, por lo que el incremento es 27,3 %
-{% endtab %}
+### ¿Por qué no puedo activar Optimizar con BrazeAI<sup>TM</sup>? {#why-cant-i-turn-on-optimize-with-brazeai}
 
-{% tab Recurrente %}
-Braze analiza rutinariamente los resultados cuando hacemos ajustes y muestra el incremento basándose en el promedio del incremento de cada periodo.
+La optimización no está disponible cuando:
 
-Calculamos el incremento de los periodos basándonos en cuánto ajustamos, de manera similar al envío único.
+- La Campaign tiene menos de dos variantes activas.
+- Una Campaign de envío múltiple no tiene eventos de conversión.
+- Una Campaign de envío múltiple tiene una ventana de reelegibilidad inferior a 24 horas.
 
-Por ejemplo:
-- Variante 1: 3,5 %, 25 % de la cohorte
-- Variante 2: 3 %, 25 % de la cohorte
-- Variante 3: 2,5 %, 25 % de la cohorte
-- Variante 4: 2 %, 25 % de la cohorte
+### ¿Por qué mis variantes tienen recuentos de envío similares al principio? {#why-do-my-variants-have-similar-send-counts-at-first}
 
-La tasa de apertura sin optimización es 2,75 % (.035*.25 + .03*.25 + 0.025*.25 + 0.02*.25). La selección de variante pondera más fuertemente a las de mayor rendimiento.
+BrazeAI<sup>TM</sup> comienza con una distribución inicial para recopilar datos de rendimiento. Ajusta la distribución con el tiempo a medida que identifica tendencias de rendimiento.
 
-Digamos que hace lo siguiente:
-- Variante 1: 65 %
-- Variante 2: 15 %
-- Variante 3: 10 %
-- Variante 4: 5 %
+### ¿Puede una Campaign de envío múltiple dejar de optimizar sin seleccionar una variante? {#can-a-multi-send-campaign-stop-optimizing-without-selecting-one-variant}
 
-Esto equivale a una tasa de apertura elegida de 3,075 % (.035*.65 + .03*.15 + 0.025*.1 + 0.02*.05), lo que representa un incremento de 11,8 %. Calculamos eso en cada periodo y luego lo promediamos a lo largo del periodo de optimización.
-{% endtab %}
-{% endtabs %}
-
-## Preguntas frecuentes {#faq}
-
-### ¿Por qué la reelegibilidad en menos de 24 horas no está disponible cuando se combina con la selección de variante para campañas o Canvas recurrentes? {#why-is-re-eligibility-in-less-than-24-hours-not-available-when-combined-with-variant-selection-for-recurring-campaigns-or-canvases}
-
-No permitimos que las campañas con selección de variante tengan reelegibilidad en una ventana demasiado corta porque nuestras pruebas muestran que afecta la integridad de la variante de control y posiblemente conduce a distribuciones no deseadas.
-
-### ¿Por qué mis variantes muestran envíos iguales durante las primeras etapas de mi campaña recurrente? {#why-are-my-variants-showing-equal-sends-during-the-early-stages-of-my-recurring-campaign}
-
-La selección de variante solo determina las asignaciones finales de variantes después de un periodo de entrenamiento, donde los envíos se distribuyen uniformemente entre las variantes. Se ajusta con el tiempo a medida que nota tendencias de rendimiento. Si no quieres enviar de manera uniforme durante las primeras etapas de tu campaña, usa variantes fijas para una prueba A/B tradicional.
-
-### ¿La selección de variante recurrente deja de optimizar sin elegir un ganador claro? {#does-recurring-variant-selection-stop-optimizing-without-picking-a-clear-winner}
-
-Sí, deja de optimizar cuando tiene un 95 % de confianza en que continuar el experimento no mejorará la tasa de conversión en más de un 1 % de su tasa actual.
-
-### ¿Por qué no puedo habilitar la selección de variante en mi Canvas o campaña? {#why-cant-i-enable-variant-selection-in-my-canvas-or-campaign}
-
-Para envío único, no puedes habilitar la selección de variante si tu Canvas o campaña está compuesto por una sola variante.
-
-Para recurrente, no puedes habilitar la selección de variante si:
-- No has añadido eventos de conversión a tu campaña o Canvas.
-- Tienes la reelegibilidad habilitada con una ventana de menos de 24 horas.
-- Tu Canvas o campaña está compuesto por una sola variante.
+Sí. La optimización se detiene cuando BrazeAI<sup>TM</sup> tiene un 95 % de confianza en que continuar el experimento no mejorará la tasa de conversión en más de un 1 % de su tasa actual.

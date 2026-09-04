@@ -12,7 +12,11 @@ page_order: 2.0
 Para conteúdo espelhado do README do SDK na documentação, veja [Guias de repositório]({{site.baseurl}}/developer_guide/sdk_repository_guides).
 
 {% alert tip %}
-Após integrar o SDK, você pode ativar a [Autenticação do SDK]({{site.baseurl}}/developer_guide/sdk_integration/authentication) para adicionar uma camada adicional de segurança, impedindo solicitações não autorizadas ao SDK. A autenticação do SDK está disponível para Web, Android, Swift, React Native, Flutter, Unity, Cordova, .NET MAUI (Xamarin) e Expo.
+Após integrar o SDK, você pode ativar a [autenticação do SDK]({{site.baseurl}}/developer_guide/sdk_integration/authentication) para adicionar uma camada adicional de segurança, impedindo solicitações não autorizadas ao SDK. A autenticação do SDK está disponível para Web, Android, Swift, React Native, Flutter, Unity, Cordova, .NET MAUI (Xamarin) e Expo.
+{% endalert %}
+
+{% alert note %}
+Se a inicialização do SDK falhar com erros de confiança de certificado HTTPS (por exemplo, `SSLHandshakeException` com `Trust anchor for certification path not found`), consulte [Solução de problemas de erros de confiança de certificado do SDK]({{site.baseurl}}/developer_guide/sdk_integration/troubleshooting_certificate_errors).
 {% endalert %}
 
 {% sdktabs %}
@@ -36,12 +40,60 @@ Após integrar o SDK, você pode ativar a [Autenticação do SDK]({{site.baseurl
 {% multi_lang_include developer_guide/flutter/sdk_integration.md %}
 {% endsdktab %}
 
-{% sdktab react native %}
+{% sdktab React Native %}
 {% multi_lang_include developer_guide/react_native/sdk_integration.md %}
 {% endsdktab %}
 
 {% sdktab roku %}
-{% multi_lang_include developer_guide/roku/sdk_integration.md %}
+## Integrando o Roku SDK {#integrating-the-roku-sdk}
+
+### Etapa 1: Adicionar arquivos {#step-1-add-files}
+
+Os arquivos do SDK da Braze podem ser encontrados no diretório `sdk_files` no [repositório do Braze Roku SDK](https://github.com/braze-inc/braze-roku-sdk).
+
+1. Adicione `BrazeSDK.brs` ao seu app no diretório `source`.
+2. Adicione `BrazeTask.brs` e `BrazeTask.xml` ao seu app no diretório `components`.
+
+### Etapa 2: Adicionar referências {#step-2-add-references}
+
+Adicione uma referência ao `BrazeSDK.brs` na sua cena principal usando o seguinte elemento `script`:
+
+```
+<script type="text/brightscript" uri="pkg:/source/BrazeSDK.brs"/>
+```
+
+### Etapa 3: Configurar {#step-3-configure}
+
+Em `main.brs`, defina a configuração da Braze no nó global:
+
+```brightscript
+globalNode = screen.getGlobalNode()
+config = {}
+config_fields = BrazeConstants().BRAZE_CONFIG_FIELDS
+config[config_fields.API_KEY] = {YOUR_API_KEY}
+' example endpoint: "https://sdk.iad-01.braze.com/"
+config[config_fields.ENDPOINT] = {YOUR_ENDPOINT}
+config[config_fields.HEARTBEAT_FREQ_IN_SECONDS] = 5
+globalNode.addFields({brazeConfig: config})
+```
+
+Você pode encontrar seu [endpoint de SDK]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) e chave de API no dashboard da Braze.
+
+### Etapa 4: Inicializar a Braze {#step-4-initialize-braze}
+
+Inicialize a instância da Braze:
+
+```brightscript
+m.BrazeTask = createObject("roSGNode", "BrazeTask")
+m.Braze = getBrazeInstance(m.BrazeTask)
+```
+
+## Configurações opcionais {#optional-configurations}
+
+### Registro de logs {#logging}
+
+Para depurar sua integração com a Braze, você pode visualizar o console de depuração do Roku para os logs da Braze. Consulte [Depuração de código](https://developer.roku.com/docs/developer-program/debugging/debugging-channels.md) da Roku Developers para saber mais.
+
 {% endsdktab %}
 
 {% sdktab unity %}

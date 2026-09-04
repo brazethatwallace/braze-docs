@@ -22,7 +22,7 @@ tvOS는 현재 스위프트 패키지 매니저를 통해 사용할 수 없습�
 
 ### SDK 버전 가져오기 {#import-sdk-version}
 
-프로젝트를 열고 프로젝트 설정으로 이동합니다. **Swift Packages** 탭을 선택하고 패키지 목록 아래에 있는 <i class="fas fa-plus" aria-label="추가"></i> 추가 버튼을 클릭합니다.
+프로젝트를 열고 프로젝트 설정으로 이동합니다. **Swift Packages** 탭을 선택하고 패키지 목록 아래에 있는 <i class="fas fa-plus"></i> 추가 버튼을 클릭합니다.
 
 ![Swift Packages 탭이 선택된 Xcode 프로젝트 설정.]({% image_buster /assets/img/ios/spm/swiftpackages.png %})
 
@@ -58,7 +58,7 @@ SDK 버전 `3.33.1` 이상을 가져올 때 텍스트 필드에 iOS SDK 리포�
 ![Other Linker Flags 필드가 표시된 Xcode 빌드 설정.]({% image_buster /assets/img/ios/spm/buildsettings.png %})
 
 {% alert note %}
-`-ObjC` 플래그를 추가하지 않으면 API의 일부가 누락되고 동작이 정의되지 않을 수 있습니다. "unrecognized selector sent to class", 애플리케이션 충돌 및 기타 문제와 같은 예기치 않은 오류가 발생할 수 있습니다.
+`-ObjC` 플래그를 추가하지 않으면 API의 일부가 누락되고 동작이 정의되지 않을 수 있습니다. "unrecognized SELECTOR sent to class", 애플리케이션 충돌 및 기타 문제와 같은 예기치 않은 오류가 발생할 수 있습니다.
 {% endalert %}
 
 ## 3단계: 타겟의 스키마 편집 {#step-3-editing-the-targets-scheme}

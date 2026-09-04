@@ -1,42 +1,42 @@
 {% multi_lang_include developer_guide/prerequisites/web.md %} No entanto, não é necessária nenhuma configuração adicional.
 
-## Tipos de mensagens
+## Tipos de mensagem {#message-types}
 
-Todas as mensagens no app herdam seu protótipo de [`InAppMessage`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.inappmessage.html), que define o comportamento básico e as características de todas as mensagens no app. As subclasses prototípicas são [`SlideUpMessage`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.slideupmessage.html), [`ModalMessage`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.modalmessage.html), [`FullScreenMessage`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.fullscreenmessage.html), e [`HtmlMessage`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.htmlmessage.html).
+Todas as mensagens no app herdam seu protótipo de [`InAppMessage`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.inappmessage.html), que define o comportamento básico e as características de todas as mensagens no app. As subclasses prototípicas são [`SlideUpMessage`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.slideupmessage.html), [`ModalMessage`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.modalmessage.html), [`FullScreenMessage`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.fullscreenmessage.html) e [`HtmlMessage`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.htmlmessage.html).
 
-Cada tipo de mensagem no app é personalizável em termos de conteúdo, imagens, ícones, ações de clique, análise de dados, exibição e entrega.
+Cada tipo de mensagem no app é personalizável em relação a conteúdo, imagens, ícones, ações de clique, análise de dados, exibição e entrega.
 
 {% tabs %}
 {% tab Slideup %}
 
-As mensagens no app [`SlideUp`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.slideupmessage.html) têm esse nome porque, nas plataformas móveis, elas  tradicionalmente "deslizam para cima" ou "deslizam para baixo" do topo ou da parte inferior da tela. No Braze Web SDK, essas mensagens são exibidas mais como uma notificação no estilo Growl ou Toast para alinhar com o paradigma dominante da web. Eles cobrem uma pequena parte da tela e fornecem um recurso de envio de mensagens eficaz e não intrusivo.
+As mensagens no app [`SlideUp`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.slideupmessage.html) recebem esse nome porque, tradicionalmente em plataformas móveis, elas "deslizam para cima" ou "deslizam para baixo" a partir do topo ou da parte inferior da tela. No SDK da Braze para web, essas mensagens são exibidas mais como uma notificação no estilo Growl ou Toast, para se alinhar ao paradigma dominante da web. Elas cobrem uma pequena parte da tela e oferecem uma capacidade de envio de mensagens eficaz e não intrusiva.
 
-![Uma mensagem no app que desliza da parte inferior da tela do telefone exibindo "Os seres humanos são complicados. O engajamento personalizado não deveria ser." Em segundo plano, está a mesma mensagem no app exibida no canto inferior de uma página da Web.]({% image_buster /assets/img/slideup-behavior.gif %}){: style="border:0px;"}
+![Uma mensagem no app deslizando a partir da parte inferior da tela de um celular exibindo "Humans are complicated. Custom engagement shouldn't be." No fundo, a mesma mensagem no app é exibida no canto inferior de uma página web.]({% image_buster /assets/img/slideup-behavior.gif %}){: style="border:0px;"}
 
 {% endtab %}
 {% tab Modal %}
 
-[`Modal`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.modalmessage.html) As mensagens no app aparecem no centro da tela e são emolduradas por um painel translúcido. Úteis para o envio de mensagens mais críticas, eles podem ser capacitados com até dois botões de ação por clique e de análise de dados.
+As mensagens no app [`Modal`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.modalmessage.html) aparecem no centro da tela e são emolduradas por um painel translúcido. Úteis para mensagens mais críticas, elas podem ser equipadas com até dois botões com ação de clique e análise de dados habilitada.
 
-![Uma mensagem modal no app no centro da tela do telefone exibindo "Os seres humanos são complicados. O engajamento personalizado não deveria ser." No plano de fundo está a mesma mensagem no app exibida no centro de uma página da Internet.]({% image_buster /assets/img/modal-behavior.gif %}){: style="border:0px;"}
-
-{% endtab %}
-{% tab Full Screen %}
-
-[`Full`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.fullscreenmessage.html) As mensagens no app são úteis para maximizar o conteúdo e o impacto da sua comunicação com o usuário. Em janelas de navegador estreitas (por exemplo, na web móvel), mensagem no app `full` ocupam toda a janela do navegador. Em janelas de navegador maiores, mensagens no app `full` aparecem de forma semelhante a mensagens no app `modal`. A metade superior de uma mensagem no app `full` contém uma imagem, e a metade inferior permite até oito linhas de texto, bem como até dois botões com ação de clique e habilitados para análise de dados.
-
-![Uma mensagem no app de tela cheia exibida em toda a tela do telefone mostrando: "Os humanos são complicados." O engajamento personalizado não deveria ser." Em segundo plano está a mesma mensagem no app exibida em grande parte no centro de uma página da Web.]({% image_buster /assets/img/full-screen-behavior.gif %}){: style="border:0px;"}
+![Uma mensagem no app modal no centro da tela de um celular exibindo "Humans are complicated. Custom engagement shouldn't be." No fundo, a mesma mensagem no app é exibida no centro de uma página web.]({% image_buster /assets/img/modal-behavior.gif %}){: style="border:0px;"}
 
 {% endtab %}
-{% tab Custom HTML %}
+{% tab Tela inteira %}
 
-[`HTML`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.htmlmessage.html) As mensagens no app são úteis para criar conteúdo totalmente personalizado para o usuário. O conteúdo HTML definido pelo usuário é exibido em um iFrame e pode conter conteúdos avançados, como imagens, fontes, vídeos e elementos interativos, permitindo controle total sobre a aparência e a funcionalidade da mensagem. Esses suportam uma interface JavaScript `brazeBridge` para chamar métodos no Braze Web SDK de dentro do HTML. Para saber mais, consulte nossas [práticas recomendadas]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/best_practices/).
+As mensagens no app [`Full`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.fullscreenmessage.html) são úteis para maximizar o conteúdo e o impacto da sua comunicação com o usuário. Em janelas de navegador estreitas (por exemplo, na web mobile), as mensagens no app `full` ocupam toda a janela do navegador. Em janelas de navegador maiores, as mensagens no app `full` aparecem de forma semelhante às mensagens no app `modal`. A metade superior de uma mensagem no app `full` contém uma imagem, e a metade inferior permite até oito linhas de texto, além de até dois botões com ação de clique e análise de dados habilitada.
+
+![Uma mensagem no app em tela inteira exibida em toda a tela de um celular mostrando "Humans are complicated. Custom engagement shouldn't be." No fundo, a mesma mensagem no app é exibida de forma grande no centro de uma página web.]({% image_buster /assets/img/full-screen-behavior.gif %}){: style="border:0px;"}
+
+{% endtab %}
+{% tab HTML personalizado %}
+
+As mensagens no app [`HTML`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.htmlmessage.html) são úteis para criar conteúdo de usuário totalmente personalizado. O HTML definido pelo usuário é exibido em um iFrame e pode conter conteúdo rico, como imagens, fontes, vídeos e elementos interativos, permitindo controle total sobre a aparência e a funcionalidade da mensagem. Elas suportam uma interface JavaScript `brazeBridge` para chamar métodos no SDK da Braze para web a partir do seu HTML. Consulte nossas [melhores práticas]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices) para mais detalhes.
 
 {% alert important %}
-Para ativar mensagens no app HTML através do Web SDK, você **deve** fornecer a opção de inicialização `allowUserSuppliedJavascript` para a Braze, por exemplo, `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. Isto é por razões de segurança. Mensagens HTML no app podem executar JavaScript, então exigimos que um mantenedor do site as ative.
+Para ativar mensagens no app em HTML por meio do SDK para web, você **deve** fornecer a opção de inicialização `allowUserSuppliedJavascript` à Braze, por exemplo, `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. Isso é por motivos de segurança. Mensagens no app em HTML podem executar JavaScript, então exigimos que um mantenedor do site as ative.
 {% endalert %}
 
-O exemplo a seguir mostra uma mensagem no app HTML paginada:
+O exemplo a seguir mostra uma mensagem no app em HTML paginada:
 
 ![Uma mensagem no app em HTML com um carrossel de conteúdo e botões interativos.]({% image_buster /assets/img_archive/ios-html-full-iam.gif %})
 

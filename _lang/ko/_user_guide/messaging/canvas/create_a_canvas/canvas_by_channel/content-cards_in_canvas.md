@@ -63,26 +63,26 @@ Content Cards는 사용자가 구매를 완료하거나 커스텀 이벤트를 �
 
 !["사용자가 구매를 완료하거나 커스텀 이벤트를 수행할 때 카드 제거"가 선택되어 있으며, 특정 주문을 한 사용자의 카드를 제거하는 트리거가 설정된 모습.]({% image_buster /assets/img_archive/content-cards-in-canvas-removal-event.png %})
 
-## 보고서 및 분석 {#reporting-and-analytics}
+## 리포팅 및 분석 {#reporting-and-analytics}
 
-Canvas에서 Content Cards 단계를 시작한 후 이 단계에 대한 여러 측정기준을 분석할 수 있습니다. 이러한 측정기준에는 전송된 메시지 수, 일일 고유 노출 횟수, 전환율, 총 매출 등이 포함됩니다.
+Canvas에서 Content Cards 단계를 시작한 후 해당 단계에 대한 다양한 측정기준을 분석할 수 있습니다. 이러한 측정기준에는 발송된 메시지 수, 고유 일별 노출 횟수, 전환율, 총 매출 등이 포함됩니다.
 
-![Content Cards 메시지 성과가 표시된 메시지 단계의 분석.]({% image_buster /assets/img_archive/content-cards-in-canvas-analytics.png %})
+![콘텐츠 카드 메시지 성능이 표시된 메시지 단계의 분석 화면]({% image_buster /assets/img_archive/content-cards-in-canvas-analytics.png %})
 
-사용 가능한 측정기준과 정의에 대한 자세한 내용은 [보고서 측정기준 용어집]({{site.baseurl}}/user_guide/analytics/metrics_glossary)을 참조하세요.
+사용 가능한 측정기준과 그 정의에 대한 자세한 내용은 [보고서 측정기준 용어집]({{site.baseurl}}/user_guide/analytics/metrics_glossary)을 참조하세요.
 
-## 활용 사례 {#use-cases}
+## 사용 사례 {#use-cases}
 
 ### 프로모션 오퍼 {#promotional-offers}
 
-사용자가 특정 프로모션 및 광고 대상이 될 때 카드를 사용자의 피드에 추가합니다. 예를 들어, 사용자가 특정 동작을 수행하거나 구매를 한 후 새로운 오퍼 대상이 되면, Canvas를 사용하여 다른 메시징 채널과 함께 Content Cards를 전송할 수 있으므로 다음에 앱을 열 때 해당 오퍼를 확인할 수 있습니다.
+사용자가 특정 프로모션 및 광고 자격을 갖추면 사용자의 피드에 카드를 추가하세요. 예를 들어, 사용자가 특정 행동을 수행하거나 구매를 한 후 새로운 오퍼 자격을 얻은 경우, Canvas를 사용하여 다른 메시징 채널과 함께 Content Cards를 전송할 수 있습니다. 이렇게 하면 사용자가 다음에 앱을 열 때 해당 오퍼를 확인할 수 있습니다.
 
 ### 푸시 알림 받은편지함 {#push-notification-inbox}
 
-사용자가 푸시 알림을 무시하거나 이메일을 삭제하는 경우가 있지만, 마음이 바뀔 경우를 대비하여 알림을 보내거나 오퍼를 홍보하고 싶을 수 있습니다.
+사용자가 푸시 알림을 무시하거나 이메일을 삭제했지만, 마음이 바뀔 경우를 대비하여 리마인더를 보내거나 오퍼를 다시 홍보하고 싶을 때가 있습니다.
 
-Canvas를 사용하면 Content Cards와 푸시 알림을 모두 전송하는 구성요소를 추가하여 푸시를 통해 전송된 프로모션 메시지와 연동되는 지속적인 카드 "받은편지함"을 사용자에게 제공할 수 있습니다.
+Canvas를 사용하여 Content Cards와 푸시 알림을 함께 전송하는 컴포넌트를 추가하면, 푸시를 통해 전송된 프로모션 메시지와 연동되는 카드로 구성된 영구적인 "받은편지함"을 사용자에게 제공할 수 있습니다.
 
 ### 카테고리 기반 다중 피드 {#multiple-feeds-based-on-categories}
 
-사용자가 탐색할 수 있는 다양한 주제, 또는 트랜잭션 및 마케팅 피드와 같은 카테고리를 기반으로 Content Cards를 여러 피드로 분리할 수 있습니다. 키-값 페어를 사용하여 다중 피드를 만드는 방법에 대한 자세한 내용은 [Content Cards 피드 커스터마이징]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed#multiple-feeds) 가이드를 참조하세요.
+Content Cards를 사용자가 탐색할 수 있는 다양한 주제, 또는 트랜잭션 피드와 마케팅 피드와 같은 카테고리를 기반으로 여러 피드로 분리할 수 있습니다. 키-값 페어를 사용하여 다중 피드를 만드는 방법에 대한 자세한 내용은 [Content Cards 피드 커스터마이징]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed#implementing-multiple-feeds) 가이드를 참조하세요.

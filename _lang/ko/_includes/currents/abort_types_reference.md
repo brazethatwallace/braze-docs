@@ -6,24 +6,24 @@
 {% assign ch = "all" %}
 {% endif %}
 
-### 기본설정 {#general}
+### 일반 {#general}
 
 이러한 중단 유형은 모든 메시징 채널에서 발생할 수 있습니다.
 
 | `abort_type` 값 | 설명 |
 | --- | --- |
-| `liquid_abort_message` | [abort_message]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/aborting_messages) Liquid 태그가 호출되어 발송이 취소되었습니다. |
+| `liquid_abort_message` | [abort_message]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) Liquid 태그가 호출되어 발송이 취소되었습니다. |
 | `template_parse_error` | 구문 또는 렌더링 오류로 인해 메시지 템플릿을 구문 분석할 수 없어 발송이 취소되었습니다. |
-| `rate_limit` | 설정된 [사용량 제한]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting)을 초과하여 메시지가 중단되었습니다. |
+| `rate_limit` | 설정된 [사용량 제한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping)을 초과하여 메시지가 중단되었습니다. |
 | `campaign_disabled` | 메시지가 발송되기 전에 Campaign이 비활성화되었습니다. |
 | `campaign_does_not_exist` | 이 메시지와 연결된 Campaign이 더 이상 존재하지 않습니다. |
 | `campaign_action_does_not_exist` | 이 메시지와 연결된 Campaign 동작이 더 이상 존재하지 않습니다. |
-| `message_variation_does_not_exist` | 이 사용자에게 할당된 메시지 변형이 더 이상 존재하지 않습니다. |
+| `message_variation_does_not_exist` | 이 사용자에게 할당된 메시지 배리언트가 더 이상 존재하지 않습니다. |
 | `user_not_in_segment` | 사용자가 타겟 Segment에 포함되지 않아 메시지가 발송되지 않았습니다. |
 | `trigger_event_blacklisted` | 트리거 이벤트가 차단 목록에 있어 메시지가 발송되지 않았습니다. |
 | `exhausted_retries` | 최대 재시도 횟수를 초과한 후에도 메시지를 발송할 수 없었습니다. |
 | `frequency_capped` | 워크스페이스의 [최대 게재빈도 설정]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting#about-frequency-capping) 규칙에서 허용하는 최대 메시지 수를 사용자가 이미 수신했습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="기본설정" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="일반" }
 
 {% unless ch == "newsfeedcard" or ch == "rcs" %}
 
@@ -34,7 +34,7 @@
 | `abort_type` 값 | 설명 |
 | --- | --- |
 | `exhausted_cc_retries` | 최대 재시도 횟수를 초과한 후에도 연결된 콘텐츠가 실패하여 메시지가 중단되었습니다. |
-| `connected_content_not_supported` | 이 컨텍스트에서는 [연결된 콘텐츠]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content)가 지원되지 않아 메시지가 중단되었습니다. |
+| `connected_content_not_supported` | 이 컨텍스트에서는 [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)가 지원되지 않아 메시지가 중단되었습니다. |
 | `promo_codes_not_supported` | 이 컨텍스트에서는 프로모션 코드가 지원되지 않아 메시지가 중단되었습니다. |
 | `catalog_items_rerender_not_supported` | 이 컨텍스트에서는 카탈로그 항목 재렌더링이 지원되지 않아 메시지가 중단되었습니다. |
 | `blacklisted_media_url` | 미디어 URL이 차단 목록에 있어 메시지에 사용할 수 없습니다. |
@@ -51,7 +51,7 @@
 | `abort_type` 값 | 설명 |
 | --- | --- |
 | `exhausted_cc_retries` | 최대 재시도 횟수를 초과한 후에도 연결된 콘텐츠가 실패하여 메시지가 중단되었습니다. |
-| `connected_content_not_supported` | 이 컨텍스트에서는 [연결된 콘텐츠]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content)가 지원되지 않아 메시지가 중단되었습니다. |
+| `connected_content_not_supported` | 이 컨텍스트에서는 [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)가 지원되지 않아 메시지가 중단되었습니다. |
 | `promo_codes_not_supported` | 이 컨텍스트에서는 프로모션 코드가 지원되지 않아 메시지가 중단되었습니다. |
 | `catalog_items_rerender_not_supported` | 이 컨텍스트에서는 카탈로그 항목 재렌더링이 지원되지 않아 메시지가 중단되었습니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="콘텐츠 및 렌더링" }
@@ -64,7 +64,7 @@
 | `abort_type` 값 | 설명 |
 | --- | --- |
 | `exhausted_cc_retries` | 최대 재시도 횟수를 초과한 후에도 연결된 콘텐츠가 실패하여 메시지가 중단되었습니다. |
-| `connected_content_not_supported` | 이 컨텍스트에서는 [연결된 콘텐츠]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content)가 지원되지 않아 메시지가 중단되었습니다. |
+| `connected_content_not_supported` | 이 컨텍스트에서는 [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)가 지원되지 않아 메시지가 중단되었습니다. |
 | `promo_codes_not_supported` | 이 컨텍스트에서는 프로모션 코드가 지원되지 않아 메시지가 중단되었습니다. |
 | `catalog_items_rerender_not_supported` | 이 컨텍스트에서는 카탈로그 항목 재렌더링이 지원되지 않아 메시지가 중단되었습니다. |
 | `blacklisted_media_url` | 미디어 URL이 차단 목록에 있어 메시지에 사용할 수 없습니다. |
@@ -81,7 +81,7 @@
 | `abort_type` 값 | 설명 |
 | --- | --- |
 | `exhausted_cc_retries` | 최대 재시도 횟수를 초과한 후에도 연결된 콘텐츠가 실패하여 메시지가 중단되었습니다. |
-| `connected_content_not_supported` | 이 컨텍스트에서는 [연결된 콘텐츠]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content)가 지원되지 않아 메시지가 중단되었습니다. |
+| `connected_content_not_supported` | 이 컨텍스트에서는 [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)가 지원되지 않아 메시지가 중단되었습니다. |
 | `promo_codes_not_supported` | 이 컨텍스트에서는 프로모션 코드가 지원되지 않아 메시지가 중단되었습니다. |
 | `catalog_items_rerender_not_supported` | 이 컨텍스트에서는 카탈로그 항목 재렌더링이 지원되지 않아 메시지가 중단되었습니다. |
 | `ssl_error` | 요청 중 SSL 오류가 발생했습니다. |
@@ -180,10 +180,10 @@
 
 | `abort_type` 값 | 설명 |
 | --- | --- |
-| `content_card_size_exceeded` | 콘텐츠 카드 페이로드가 최대 크기 제한(2 KB)을 초과했습니다. |
-| `content_card_content_invalid` | 콘텐츠 카드 콘텐츠가 유효하지 않거나 지원되지 않는 문자를 포함하고 있습니다. |
-| `content_card_expiration_invalid` | 콘텐츠 카드 만료 날짜가 유효하지 않습니다. |
-| `content_card_general` | 일반 오류로 인해 콘텐츠 카드를 생성할 수 없습니다. |
+| `content_card_size_exceeded` | Content Card 페이로드가 최대 크기 제한(2 KB)을 초과했습니다. |
+| `content_card_content_invalid` | Content Card 콘텐츠가 유효하지 않거나 지원되지 않는 문자를 포함하고 있습니다. |
+| `content_card_expiration_invalid` | Content Card 만료 날짜가 유효하지 않습니다. |
+| `content_card_general` | 일반 오류로 인해 Content Card를 생성할 수 없습니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Content Cards" }
 
 {% endif %}

@@ -11,7 +11,20 @@ description: "This reference article covers using nested custom attributes as a 
 
 > This page covers nested custom attributes, which allow you to define a set of attributes as a property of another attribute. In other words, when you define a custom attribute object, you can define a set of additional attributes for that object.
 
-{% multi_lang_include nested_attribute_objects/about_nested_attributes.md %}
+## About nested attributes
+
+Nested attributes let you build richer segments and personalize messages with data from a single custom attribute object.
+
+In the following example, the custom attribute `favorite_book` contains the nested attributes `title`, `author`, and `publishing_date`. This object can be used to target users by author, filter by publishing date, or insert the book title directly into a message:
+
+```json
+"favorite_book": {
+  "title": "The Hobbit",
+  "author": "J.R.R. Tolkien",
+  "publishing_date": "1937"
+}
+```
+
 
 {% multi_lang_include nested_attribute_objects/supported_data_types.md %}
 
@@ -24,7 +37,7 @@ description: "This reference article covers using nested custom attributes as a 
 - Periods (`.`) and dollar signs (`$`) aren't supported characters in an API payload if you're attempting to send a nested custom attribute to a user profile.
 - Not all Braze Partners support nested custom attributes. Refer to the [Partner documentation]({{site.baseurl}}/partners/home) to confirm if specific partner integrations support this feature.
 - Nested custom attributes cannot be used as a filter when making a Connected Audience API call.
-- By default, the **Nested Custom Attributes** segment filter includes object-type custom attributes, array-of-object attributes, and array-type custom attributes. When you select an attribute, the property schema selector includes array paths (using `[]` notation) for nested array fields. To hide top-level array custom attributes from that filter, contact [Braze Support]({{site.baseurl}}/braze_support).
+- By default, the **Nested Custom Attributes** segment filter includes object-type custom attributes, array-of-object attributes, and array-type custom attributes. When you select an attribute, the property schema selector includes array paths (using `[]` notation) for nested array fields. To hide top-level array custom attributes from that filter, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 - When previewing messages in the dashboard using **Preview as a Custom User**, you can enter mock data only as a string or array of strings — nested objects are not supported. To preview a message that references nested custom attributes, select an existing user who already has the nested attribute on their profile. For nested custom event properties, you must launch a live campaign targeted to a test user to verify rendering.
 
 ## API example
@@ -115,7 +128,9 @@ This approach can't be used to delete a nested key inside an [array of objects](
 
 ## SDK example
 
-{% sdk_min_versions android:25.0.0 ios:6.1.0 web:4.7.0 %}
+{% sdk_min_versions android:25.0.0 ios:6.1.0 web:4.7.0 unity:5.1.0 %}
+
+The following samples show how to create, merge-update, and delete the same nested custom attribute object (`most_played_song`) across each SDK.
 
 {% tabs local %}
 {% tab Android SDK %}
@@ -225,6 +240,38 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 ```
 
 {% endtab %}
+{% tab Unity SDK %}
+
+**Create**
+```csharp
+Dictionary<string, object> attributes = new Dictionary<string, object>();
+attributes.Add("song_name", "Solea");
+attributes.Add("artist_name", "Miles Davis");
+attributes.Add("album_name", "Sketches of Spain");
+attributes.Add("genre", "Jazz");
+
+Dictionary<string, object> playAnalytics = new Dictionary<string, object>();
+playAnalytics.Add("count", 1000);
+playAnalytics.Add("top_10_listeners", true);
+attributes.Add("play_analytics", playAnalytics);
+
+AppboyBinding.SetCustomUserAttribute("most_played_song", attributes);
+```
+
+**Update**
+```csharp
+Dictionary<string, object> attributes = new Dictionary<string, object>();
+attributes.Add("year_released", 1960);
+
+AppboyBinding.SetCustomUserAttribute("most_played_song", attributes, true);
+```
+
+**Delete**
+```csharp
+AppboyBinding.UnsetCustomUserAttribute("most_played_song");
+```
+
+{% endtab %}
 {% endtabs %}
 
 ## Capturing dates as object properties
@@ -295,9 +342,21 @@ For this example, Braze inserts the nested value for `preferences.neighborhood_o
 Check that a schema has been generated if you don't see the option to insert nested custom attributes.
 {% endalert %}
 
-## Regenerate schemas {#regenerate-schema}
+## Generate and regenerate schemas {#regenerate-schema}
 
-After a schema has been generated, you can regenerate it **once per calendar day** (based on your company's time zone). This section describes how to regenerate your schema. For more detailed information on schemas, see [Generate a schema using the nested object explorer]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes#generate-schema).
+To use nested custom attributes in segmentation and personalization, you must generate a schema for the attribute. After a schema has been generated, you can regenerate it as needed. For more detailed information on schemas, see [Generate a schema using the nested object explorer]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes#generate-schema).
+
+### Generate a schema
+
+After you create a nested custom attribute and send data to Braze, you can generate the schema:
+
+1. Go to **Data Settings** > **Custom Attributes**.
+2. Search for your nested custom attribute.
+3. In the **Attribute Name** column for your attribute, select <i class="fas fa-arrows-rotate"></i> **Generate Schema**.
+
+After the schema is generated, the <i class="fas fa-arrows-rotate"></i> icon changes to a <i class="fas fa-plus"></i> plus icon that you can select to view and manage the schema.
+
+### Regenerate a schema
 
 To regenerate the schema for your nested custom attribute:
 
@@ -306,7 +365,7 @@ To regenerate the schema for your nested custom attribute:
 3. In the **Attribute Name** column for your attribute, select <i class="fas fa-plus"></i> **Manage schema** to manage the schema.
 4. A modal will appear. Select **Regenerate Schema**.
 
-The **Regenerate Schema** action is limited to **once per calendar day** in your company's time zone. You can't start another regeneration while a schema job is already **in progress** (the option is unavailable while status is **Generating**). Regenerating the schema only detects new objects and does not delete objects that currently exist in the schema.
+You can't start another regeneration while a schema job is already **in progress** (the option is unavailable while status is **Generating**). Only one schema generation job can run at a time per company. Regenerating the schema only detects new objects and does not delete objects that currently exist in the schema.
 
 {% alert important %}
 To reset the schema for an object array with an existing object, you need to create a new custom attribute. Schema regeneration doesn't delete existing objects.
@@ -328,6 +387,28 @@ To configure this trigger in an action-based campaign:
    For example, select `preferences.neighborhood_office`.
 4. Select the trigger condition you want, such as **any new value**.
 5. Finish configuring your campaign message and audience, then launch the campaign.
+
+## Troubleshooting
+
+### Nested custom attribute values not applied consistently
+
+If you notice that nested custom attribute values are not being added to user profiles consistently, the issue is often related to data type mismatches.
+
+To diagnose and resolve this issue:
+
+1. **Compare user examples:** Get one successful and one unsuccessful user example where the nested custom attribute should have been set.
+2. **Review the data structure:** View and compare the custom attribute values on both profiles:
+   - Are the properties stored under an object?
+   - Are the properties stored as an array of properties?
+3. **Check the segmentation filter:** Compare the stored data structure against how the nested custom attribute is referenced in your segmentation filters.
+4. **Verify the data type:** To identify the data type of a custom attribute:
+   - Go to **Data Settings** > **Custom Attributes**.
+   - Search for the top-level custom attribute that contains the nested attribute you want to verify.
+   - If the row shows **Generate Schema**, select it to generate the schema first.
+   - After the schema is generated, select the plus icon in the **Attribute Name** column for that attribute.
+   - In the **Edit schema** modal, review the nested attributes and their corresponding values in the **Data type** column.
+
+If you find that the data type does not match the intended format across user profiles, remove the incorrectly formatted value from the affected user profiles and resend the attribute in the correct format using the appropriate API request or SDK method.
 
 ## Segmentation behavior with arrays of objects
 

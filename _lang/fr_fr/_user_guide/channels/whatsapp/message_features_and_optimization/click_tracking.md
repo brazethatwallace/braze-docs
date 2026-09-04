@@ -20,7 +20,7 @@ Le suivi des clics vous permet de mesurer quand quelqu'un appuie sur un lien dan
 Vous pouvez activer le suivi des clics dans les messages de réponse et les messages de modèle. Il fonctionne avec les liens dans les boutons et le corps du texte, et prend en charge les URL personnalisées et les domaines personnalisés. Une fois activé, vous verrez les données de clics dans vos rapports de performance WhatsApp et pourrez segmenter les utilisateurs en fonction de qui a cliqué sur quoi.
 
 {% alert note %}
-Le suivi des clics ne fonctionne pas avec les liens profonds. Vous pouvez raccourcir les liens universels de fournisseurs tels que Branch ou Appsflyer, mais Braze n'est pas en mesure de résoudre les problèmes qui pourraient survenir (comme la rupture de l'attribution ou la création d'une redirection).
+Le suivi des clics ne fonctionne pas avec les deep links. Vous pouvez raccourcir les liens universels de fournisseurs tels que Branch ou Appsflyer, mais Braze n'est pas en mesure de résoudre les problèmes qui pourraient survenir (comme la rupture de l'attribution ou la création d'une redirection).
 {% endalert %}
 
 ## Fonctionnement {#how-it-works}
@@ -39,9 +39,9 @@ Toutes les URL statiques commençant par `http://` ou `https://` seront raccourc
 
 ### Messages de modèle {#template-messages}
 
-Nous recommandons d'activer le suivi des clics pour les messages de modèle via le **générateur de modèles WhatsApp** dans Braze. Cette méthode d'activation gère automatiquement les exigences de formatage des URL, vous n'avez donc rien à configurer manuellement dans WhatsApp Business Manager.
+Nous recommandons d'activer le suivi des clics pour les messages de modèle via le **générateur de modèles WhatsApp** dans Braze. Cette méthode d'activation gère automatiquement les exigences de formatage des URL, vous n'avez donc rien à configurer manuellement dans WhatsApp Business gestionnaire.
 
-Si vous créez des modèles directement dans WhatsApp Business Manager, consultez [Configurer le suivi des clics depuis WhatsApp Business Manager](#configuring-click-tracking-from-whatsapp-business-manager).
+Si vous créez des modèles directement dans WhatsApp Business gestionnaire, consultez [Configurer le suivi des clics depuis WhatsApp Business gestionnaire](#configuring-click-tracking-from-whatsapp-business-manager).
 
 #### Utiliser le générateur de modèles {#use-the-template-builder}
 
@@ -49,13 +49,13 @@ Lors de la création d'un modèle dans le générateur de modèles, le suivi des
 
 ##### Étape 1 : Activer le suivi des clics {#step-1-enable-click-tracking}
 
-Dans le générateur de modèles, accédez à l'onglet **Paramètres**. Dans **Link options**, cochez la case **Click tracking**. Lorsque cette option est activée, tous les liens de votre modèle (dans le corps du message et les boutons CTA de site web) sont raccourcis et suivis.
+Dans le générateur de modèles, accédez à l'onglet **Paramètres**. Dans **Options de lien**, cochez la case **Suivi des clics**. Lorsque cette option est activée, tous les liens de votre modèle (dans le corps du message et les boutons CTA de site web) sont raccourcis et suivis.
 
-![Onglet Paramètres du générateur de modèles montrant la section Link options avec la case Click tracking cochée et un menu déroulant Custom domain.]({% image_buster /assets/img/whatsapp/click_tracking/template_builder_settings.png %})
+![Onglet Paramètres du générateur de modèles montrant la section Options de lien avec la case Suivi des clics cochée et un menu déroulant Domaine personnalisé.]({% image_buster /assets/img/whatsapp/click_tracking/template_builder_settings.png %})
 
 ##### Étape 2 : Sélectionner un domaine personnalisé (facultatif) {#step-2-select-a-custom-domain-optional}
 
-Sous **Custom domain**, sélectionnez le domaine que vous souhaitez utiliser pour les liens raccourcis. Le menu déroulant affiche tous les domaines de suivi personnalisés configurés pour votre espace de travail. Si vous n'en sélectionnez pas, Braze utilise le domaine par défaut `brz.ai`.
+Sous **Domaine personnalisé**, sélectionnez le domaine que vous souhaitez utiliser pour les liens raccourcis. Le menu déroulant affiche tous les domaines de suivi personnalisés configurés pour votre espace de travail. Si vous n'en sélectionnez pas, Braze utilise le domaine par défaut `brz.ai`.
 
 Pour ajouter ou modifier des domaines, sélectionnez **Gestion des groupes d'abonnement**.
 
@@ -67,32 +67,32 @@ Une fois qu'un modèle est soumis à Meta pour approbation, le domaine de suivi 
 
 Revenez à l'onglet **Rédiger** et ajoutez le contenu de votre message.
 
-- **Pour les boutons CTA de site web :** saisissez l'URL de destination dans le champ **Click tracking URL**. Braze stocke votre URL de destination et formate automatiquement l'URL du site web du bouton avec le domaine de suivi et une marque substitutive de variable {% raw %}(par exemple, `https://brz.ai/{{1}}`){% endraw %}. Cette marque substitutive est ce qui est soumis à Meta. Au moment de l'envoi, Braze génère l'URL de suivi complète pour chaque utilisateur et renseigne la variable.
+- **Pour les boutons CTA de site web :** saisissez l'URL de destination dans le champ **URL de suivi des clics**. Braze stocke votre URL de destination et formate automatiquement l'URL du site web du bouton avec le domaine de suivi et une marque substitutive de variable {% raw %}(par exemple, `https://brz.ai/{{1}}`){% endraw %}. Cette marque substitutive est ce qui est soumis à Meta. Au moment de l'envoi, Braze génère l'URL de suivi complète pour chaque utilisateur et renseigne la variable.
 - **Pour les liens dans le corps du texte :** saisissez les URL directement dans le corps.
 
-Vous pouvez prévisualiser le format de l'URL suivie pour chaque bouton directement sous le champ **Website URL** (par exemple, `https://brz.ai/XXXXXXXX`).
+Vous pouvez prévisualiser le format de l'URL suivie pour chaque bouton directement dans le champ **URL du site web** (par exemple, `https://brz.ai/XXXXXXXX`).
 
-![Section des boutons d'appel à l'action montrant un bouton Visit website avec l'URL du site web pré-remplie au format de suivi et un champ Click tracking URL pour la destination.]({% image_buster /assets/img/whatsapp/click_tracking/template_builder_compose.png %}){: style="max-width:70%;"}
+![Section des boutons d'appel à l'action montrant un bouton Visiter le site web avec l'URL du site web pré-remplie au format de suivi et un champ URL de suivi des clics pour la destination.]({% image_buster /assets/img/whatsapp/click_tracking/template_builder_compose.png %}){: style="max-width:70%;"}
 
 ##### Mettre à jour les URL de destination après la soumission {#update-destination-urls-after-submission}
 
-Une fois qu'un modèle est soumis à Meta, le domaine de suivi est verrouillé, mais l'URL de destination reste modifiable à tout moment. Pour mettre à jour la destination d'un lien, modifiez le champ **Click tracking URL** pour ce bouton. Le format de l'URL suivie reste le même ; Braze redirige les utilisateurs vers la nouvelle destination au moment de l'envoi.
+Une fois qu'un modèle est soumis à Meta, le domaine de suivi est verrouillé, mais l'URL de destination reste modifiable à tout moment. Pour mettre à jour la destination d'un lien, modifiez le champ **URL de suivi des clics** pour ce bouton. Le format de l'URL suivie reste le même ; Braze redirige les utilisateurs vers la nouvelle destination au moment de l'envoi.
 
-#### Configurer le suivi des clics depuis WhatsApp Business Manager {#configuring-click-tracking-from-whatsapp-business-manager}
+#### Configurer le suivi des clics depuis WhatsApp Business gestionnaire {#configuring-click-tracking-from-whatsapp-business-manager}
 
-Si vous créez des modèles dans WhatsApp Business Manager plutôt que dans le générateur de modèles, suivez ces étapes pour que le suivi des clics fonctionne correctement lorsque le modèle est utilisé dans Braze.
+Si vous créez des modèles dans WhatsApp Business gestionnaire plutôt que dans le générateur de modèles, suivez ces étapes pour que le suivi des clics fonctionne correctement lorsque le modèle est utilisé dans Braze.
 
-##### Étape 1 : Créer un modèle compatible avec le suivi des clics dans WhatsApp Business Manager {#step-1-build-a-click-tracking-supported-template-in-whatsapp-business-manager}
+##### Étape 1 : Créer un modèle compatible avec le suivi des clics dans WhatsApp Business gestionnaire {#step-1-build-a-click-tracking-supported-template-in-whatsapp-business-manager}
 
-1. Dans votre WhatsApp Business Manager, créez une URL de base qui est soit votre domaine personnalisé, soit `brz.ai`.
+1. Dans votre WhatsApp Business gestionnaire, créez une URL de base qui est soit votre domaine personnalisé, soit `brz.ai`.
 2. Assurez-vous que les liens inclus dans le modèle sont compatibles avec le suivi des clics.
-3. Ne modifiez pas les variables du modèle après sa configuration en tant que campagne dans Braze ; les modifications en aval ne peuvent pas être intégrées.
+3. Ne modifiez pas les variables du modèle après sa configuration en tant que Campaign dans Braze ; les modifications en aval ne peuvent pas être intégrées.
 4. Pour les liens de bouton CTA, sélectionnez **Dynamic**, puis fournissez l'URL de base (`brz.ai` ou votre domaine personnalisé).
 
 ![Section pour créer un appel à l'action.]({% image_buster /assets/img/whatsapp/click_tracking/create_cta.png %}){: style="max-width:70%;"}
 
 {: start="5"}
-5. Pour les liens dans le corps du texte, lors de la rédaction du modèle dans votre WhatsApp Business Manager, supprimez les espaces insérés pour les liens contenus dans le corps que vous souhaitez suivre.
+5. Pour les liens dans le corps du texte, lors de la rédaction du modèle dans votre WhatsApp Business gestionnaire, supprimez les espaces insérés pour les liens contenus dans le corps que vous souhaitez suivre.
 
 ![Zone de texte pour saisir le corps du contenu de l'appel à l'action.]({% image_buster /assets/img/whatsapp/click_tracking/cta_textbox.png %}){: style="max-width:70%;"}
 
@@ -111,9 +111,9 @@ L'URL de destination doit être fournie pour tout lien dont l'URL de base corres
 ![Section Boutons avec des champs pour un nom de bouton, une URL de site web et une URL de suivi des clics.]({% image_buster /assets/img/whatsapp/click_tracking/buttons.png %}){: style="max-width:70%;"}
 
 {% alert important %}
-**Envoi de messages de modèle via l'API** : le suivi des clics WhatsApp (utilisant `brz.ai` ou un domaine de suivi personnalisé et le champ **Click tracking URL** dans le compositeur de messages) n'est pas pris en charge lors de l'envoi de messages de modèle WhatsApp via l'[endpoint `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages).
+**Envoi de messages de modèle via l'API** : le suivi des clics WhatsApp (utilisant `brz.ai` ou un domaine de suivi personnalisé et le champ **URL de suivi des clics** dans le compositeur de messages) n'est pas pris en charge lors de l'envoi de messages de modèle WhatsApp via l'[endpoint `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages).
 
-Si vous envoyez un message de modèle via l'API, vous pouvez renseigner les variables d'URL CTA (en utilisant `button_variables`), mais Braze ne génère pas d'URL de suivi des clics ni de lien de redirection dans le flux de requête API. Pour utiliser le suivi des clics, envoyez le modèle depuis le tableau de bord de Braze ou via un déclencheur de campagne Braze.
+Si vous envoyez un message de modèle via l'API, vous pouvez renseigner les variables d'URL CTA (en utilisant `button_variables`), mais Braze ne génère pas d'URL de suivi des clics ni de lien de redirection dans le flux de requête API. Pour utiliser le suivi des clics, envoyez le modèle depuis le tableau de bord de Braze ou via un déclencheur de Campaign Braze.
 {% endalert %}
 
 {% multi_lang_include analytics/click_tracking.md section='Custom Domains' %}
@@ -144,7 +144,7 @@ Braze raccourcit les URL rendues par Liquid, y compris celles incluses dans les 
 
 ## Tests {#testing}
 
-Avant de lancer votre campagne ou Canvas, il est recommandé de prévisualiser et de tester votre message au préalable. Pour ce faire, accédez à l'onglet **Test** pour prévisualiser et envoyer un WhatsApp à des groupes de test de contenu ou à un utilisateur individuel.
+Avant de lancer votre Campaign ou Canvas, il est recommandé de prévisualiser et de tester votre message au préalable. Pour ce faire, accédez à l'onglet **Test** pour prévisualiser et envoyer un WhatsApp à des groupes de test de contenu ou à un utilisateur individuel.
 
 Cette prévisualisation sera mise à jour avec la personnalisation pertinente et l'URL raccourcie.
 

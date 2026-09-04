@@ -111,7 +111,7 @@ oder die [Dokumentation von Branch](https://help.branch.io/developers-hub/docs/i
 
 Das Verknüpfen mit Telefonnummern (Anhängen von `tel` an `href`) wird in der Gmail-App für iOS nicht unterstützt, es sei denn, Nutzer:innen gewähren der App Anrufberechtigungen.
 
-Abhängig von Ihrem ESP sind möglicherweise zusätzliche Anpassungen erforderlich, um Universal Links mit Klick-Tracking zu unterstützen. Diese Informationen finden Sie in unserem entsprechenden Artikel. Sie können auch die folgenden Referenzen heranziehen, um mehr zu erfahren:
+Abhängig von Ihrem E-Mail-Anbieter sind möglicherweise zusätzliche Anpassungen erforderlich, um Universal Links mit Klick-Tracking zu unterstützen. Diese Informationen finden Sie in unserem entsprechenden Artikel. Sie können auch die folgenden Referenzen heranziehen, um mehr zu erfahren:
 
 - [SendGrid](https://help.branch.io/using-branch/page/braze-sendgrid)
 - [SparkPost](https://help.branch.io/using-branch/page/braze-sparkpost)
@@ -140,7 +140,7 @@ Wenn Branch-Links aus Braze-Campaigns nicht wie erwartet funktionieren, folgen S
 |---|---|---|
 | Branch-Link öffnet sich in Safari | AASA ungültig oder auf der Branch-Domain nicht vorhanden | Associated Domains und AASA-Datei überprüfen |
 | Branch-Link öffnet sich, landet aber auf dem falschen Bildschirm | Branch-Link-Daten falsch konfiguriert | Routing-Regeln im Branch-Dashboard prüfen |
-| Link funktioniert über Push, aber nicht per E-Mail | Klick-Tracking-Domain fehlt AASA | AASA auf der Klick-Tracking-Domain Ihres ESP hosten; siehe [E-Mail-Einrichtung](#deep-linking-in-email) |
+| Link funktioniert über Push, aber nicht per E-Mail | Klick-Tracking-Domain fehlt AASA | AASA auf der Klick-Tracking-Domain Ihres E-Mail-Anbieter hosten; siehe [E-Mail-Einrichtung](#deep-linking-in-email) |
 | `shouldOpenURL` wird für Branch-Links nie ausgelöst | `forwardUniversalLinks` nicht aktiviert | `configuration.forwardUniversalLinks = true` setzen |
 | Branch-Link funktioniert aus Notizen, aber nicht aus Braze | `BrazeDelegate` gibt `true` für Branch-URLs zurück | Domain-Prüfung in `shouldOpenURL` überprüfen, ob sie Ihre Branch-Domain enthält |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Häufige Probleme" }

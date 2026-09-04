@@ -1,0 +1,7 @@
+- Triggern einer Campaign oder eines Canvas basierend auf einem angepassten Event mithilfe der [aktionsbasierten Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery)
+- Segmentierung von Nutzer:innen danach, wie oft sie ein angepasstes Event ausgeführt haben, wann das Event zuletzt aufgetreten ist und Ähnliches
+- Verwendung der [Analytics für angepasste Events]({{site.baseurl}}/user_guide/data/activation/events/custom_events#analytics) im Dashboard, um eine Übersicht darüber zu erhalten, wie oft jedes Event aufgetreten ist
+- Ermittlung zusätzlicher Analytics mithilfe von [Funnel]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports#step-2-select-events-for-funnel-steps)- und [Bindungsberichten]({{site.baseurl}}/user_guide/analytics/reports/retention_reports)
+- Nutzung [persistenter Entry-Eigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties), um Metadaten aus Ihrem Kund:innen-Event für die Personalisierung in Ihren Canvas-Schritten zu verwenden
+- Generierung anspruchsvollerer Analytics mit [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)
+- Einrichten von [Exit-Kriterien]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria), um festzulegen, wann Nutzer:innen Ihren Canvas verlassen sollen

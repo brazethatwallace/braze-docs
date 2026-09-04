@@ -6,7 +6,6 @@ page_order: 2
 layout: api_page
 page_type: reference
 description: "Dieser Artikel beschreibt die Details des Endpunkts „Externe IDs entfernen“."
-
 ---
 {% api %}
 # Externe ID entfernen {#remove-external-id}
@@ -26,7 +25,7 @@ Dieser Endpunkt löscht die veraltete ID vollständig und kann nicht rückgängi
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/api_key) mit der Berechtigung `users.external_ids.remove`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics) mit der Berechtigung `users.external_ids.remove`.
 
 ## Rate-Limit
 

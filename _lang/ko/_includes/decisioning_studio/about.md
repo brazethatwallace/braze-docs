@@ -1,6 +1,6 @@
 # BrazeAI Decisioning Studio™
 
-> BrazeAI Decisioning Studio™(이전 OfferFit by Braze)를 시작하여 비즈니스 측정기준을 극대화하는 1:1 AI 의사 결정을 내리세요.
+> BrazeAI Decisioning Studio™(이전 OfferFit by Braze)를 시작하여 비즈니스 측정기준을 극대화하는 1:1 AI 의사결정을 내리세요.
 
 ## BrazeAI Decisioning Studio™란 무엇인가요? {#what-is-brazeai-decisioning-studio}
 
@@ -15,14 +15,14 @@ BrazeAI<sup>TM</sup> 의사결정 에이전트는 모든 고객에게 최적의 
 
 ## 주요 기능 {#key-features}
 
-- **기술 스택을 유지하면서 두뇌를 추가하세요:** BrazeAI<sup>TM</sup>는 데이터 시스템과 고객 참여 플랫폼 사이에 의사결정 레이어로 연결됩니다. Decisioning Studio는 Braze와 함께 가장 잘 작동하지만, 다양한 다른 플랫폼도 지원됩니다.
-- **Segment가 아닌 개인에게 최적의 항목을 선택하세요:** 모든 퍼스트파티 데이터를 사용하여 각 개인에 대한 최적의 1:1 의사 결정을 내립니다.
+- **기술 스택을 유지하면서 두뇌를 추가하세요:** BrazeAI<sup>TM</sup>는 데이터 시스템과 고객 인게이지먼트 플랫폼 사이에 의사결정 레이어로 연결됩니다. Decisioning Studio는 Braze와 함께 가장 잘 작동하지만, 다양한 다른 플랫폼도 지원됩니다.
+- **Segment가 아닌 개인에게 최적의 항목을 선택하세요:** 모든 퍼스트파티 데이터를 사용하여 각 개인에 대한 최적의 1:1 의사결정을 내립니다.
 - **모든 것을 개인화하세요:** AI 의사결정 에이전트가 각 개별 고객에게 가장 적합한 메시지, 제품, 인센티브, 채널, 타이밍, 빈도를 찾아냅니다.
-- **모든 측정기준을 극대화하세요:** 클릭 수가 곧 매출을 의미하지는 않습니다. BrazeAI<sup>TM</sup>를 사용하여 매출, 이익, CLV 또는 기타 비즈니스 KPI를 극대화하는 오퍼나 인센티브를 선택하세요.
+- **모든 측정기준을 극대화하세요:** 클릭 수가 곧 매출을 의미하지는 않습니다. BrazeAI<sup>TM</sup>를 사용하여 매출, 이익, 고객 생애주기 가치 또는 기타 비즈니스 KPI를 극대화하는 오퍼나 인센티브를 선택하세요.
 - **블랙박스를 열어보세요:** AI 의사결정 에이전트가 고객 행동의 원인에 대한 깊이 있는 인사이트를 위해 어떻게 개인화하는지 확인하세요.
 - **전 과정에 걸친 전문가 지원:** Decisioning Studio Pro는 AI 의사결정 서비스 팀의 지원을 포함하며, 비즈니스의 특정 요구에 맞게 의사결정 에이전트를 조정합니다.
 
-## Decisioning Studio에 대한 정보 {#about-decisioning-studio}
+## Decisioning Studio에 대하여 {#about-decisioning-studio}
 
 ### 작동 방식 {#how-it-works}
 
@@ -31,12 +31,12 @@ BrazeAI Decisioning Studio™를 사용하면 비즈니스 측정기준을 최�
 Decisioning Studio를 설정하려면 다음을 수행합니다:
 - 고객이 의사결정에 어떻게 반응하는지를 에이전트에 알려주는 데이터 소스를 연결합니다.
 - 의사결정 에이전트의 동작을 수행하기 위해 오케스트레이션을 구성합니다.
-- 극대화하고자 하는 결과를 정의하고, 에이전트가 이를 달성하기 위해 취할 수 있는 동작을 설계합니다.
-- 의사결정 에이전트를 시작하고 비즈니스 결과를 위해 지속적으로 학습하고 최적화하도록 합니다.
+- 극대화하고자 하는 성과를 정의하고, 에이전트가 이를 달성하기 위해 취할 수 있는 동작을 설계합니다.
+- 의사결정 에이전트를 시작하고 비즈니스 성과를 위해 지속적으로 학습하고 최적화하도록 합니다.
 
-Decisioning Studio Go는 셀프 서비스 플랫폼이지만, Decisioning Studio Pro는 Braze의 전방 배치 데이터 과학 팀의 AI 의사결정 서비스 지원을 포함하여, 비즈니스 결과를 극대화하기 위해 에이전트를 설계하고 구성하는 데 도움을 줍니다. 자세한 내용은 [Decisioning Studio Go vs. Decisioning Studio Pro]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/#decisioning-studio-go-vs-decisioning-studio-pro)를 참조하세요.
+Decisioning Studio Go는 셀프 서비스 플랫폼이지만, Decisioning Studio Pro는 Braze의 전방 배치 데이터 과학 팀의 AI 의사결정 서비스 지원을 포함하여, 비즈니스 성과를 극대화하기 위해 에이전트를 설계하고 구성하는 데 도움을 줍니다. 자세한 내용은 [Decisioning Studio Go vs. Decisioning Studio Pro]({{site.baseurl}}/user_guide/brazeai/decisioning_studio#decisioning-studio-go-vs-decisioning-studio-pro)를 참조하세요.
 
-자세한 내용은 [Decisioning Studio 시작하기]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/get_started/)를 참조하세요.
+자세한 내용은 [Decisioning Studio 시작하기]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/get_started)를 참조하세요.
 
 ### 의사결정 에이전트 vs. Braze 에이전트 {#decisioning-agents-vs-brazeai-agents}
 
@@ -54,11 +54,11 @@ Decisioning Studio Go는 셀프 서비스 플랫폼이지만, Decisioning Studio
 
 ### 이 가이드에 대하여 {#about-this-guide}
 
-이 가이드에서는 먼저 의사결정 에이전트가 무엇인지, 그리고 어떻게 작동하는지 배웁니다. 다음으로, 셀프 서비스 Decisioning Studio Go를 설정한 후, 풀 서비스 Decisioning Studio Pro를 설정합니다. 마지막으로, 의사결정 에이전트의 성과를 이해하기 위해 보고서와 인사이트를 검토합니다.
+이 가이드에서는 먼저 의사결정 에이전트가 무엇인지, 그리고 어떻게 작동하는지 배웁니다. 다음으로, 셀프 서비스 Decisioning Studio Go를 설정한 후, 풀 서비스 Decisioning Studio Pro를 설정합니다. 마지막으로, 의사결정 에이전트의 성능을 이해하기 위해 보고서와 인사이트를 검토합니다.
 
 ## 다음 단계 {#next-steps}
 
-1. [Decisioning Studio 시작하기]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/get_started/)
-2. [Decisioning Studio Go 설정하기]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/)
-3. [Decisioning Studio 시작하기]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/get_started/)
-4. [보고서 및 인사이트 보기]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/)
+1. [Decisioning Studio 시작하기]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/get_started)
+2. [Decisioning Studio Go 설정하기]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go)
+3. [Decisioning Studio 시작하기]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/get_started)
+4. [보고서 및 인사이트 보기]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting)

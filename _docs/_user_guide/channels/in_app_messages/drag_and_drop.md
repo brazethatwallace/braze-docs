@@ -33,7 +33,7 @@ Not sure whether your in-app message should be sent using a campaign or a [Canva
 
 {% details More information on minimum SDKs %}
 
-Messages created using the drag-and-drop editor can only be sent to users on the minimum SDK versions (see table above). If a user hasn't updated their application (that is, they're on an older SDK version), they will not receive the in-app message.
+Messages created using the drag-and-drop editor can only be sent to users on the minimum SDK versions (see the table in the previous section). If a user hasn't updated their application (that is, they're on an older SDK version), they will not receive the in-app message.
 
 To take advantage of all features available in the drag-and-drop editor, update your SDKs to the recommended SDK versions. This allows you to take advantage of the following additional features:
 
@@ -170,7 +170,7 @@ Consider the following questions as you test your in-app message:
 
 ### Why are body clicks not appearing on my analytics page?
 
-Body clicks are not automatically collected for in-app messages created with the drag-and-drop editor. For more details, refer to the SDK changelogs for [iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/changelog/objc_changelog#3310) and [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/changelog#1100).
+Body clicks are not automatically collected for in-app messages created with the drag-and-drop editor. For more details, refer to the SDK changelogs for [iOS]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/changelog/objc_changelog) and [Android]({{site.baseurl}}/developer_guide/changelogs?sdktab=android).
 
 ### Can I segment based on button clicks?
 
@@ -180,7 +180,19 @@ Yes, you can segment based on button clicks for up to two buttons in your messag
 
 ### Can I customize my in-app message using custom HTML or JavaScript or transfer existing HTML messages into the editor?
 
-You can't directly transfer existing HTML messages into the editor, but you can insert raw HTML, CSS, and JavaScript into a Custom Code block. You can use Custom Code blocks to embed third-party videos and advanced Liquid, such as Connected Content or conditional statements.
+You can't directly transfer existing HTML messages into the editor, but you can insert raw HTML, CSS, and JavaScript into a **Custom code** block. You can use **Custom code** blocks to embed third-party videos and advanced Liquid, such as Connected Content or conditional statements. For `brazeBridge` JavaScript methods and click tracking examples, see [Custom HTML in-app messages]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/).
+
+### Why might the drag-and-drop editor's composer view look different from the final message?
+
+The drag-and-drop editor renders your message inside a composer and applies preview-only styles and defaults so you can build and review the layout. Those treatments help you see structure and placeholder content while you edit; they aren't included in the message your users receive.
+
+Common examples of editor-only behavior include:
+
+- The editor wraps **Custom code** blocks in a `bz-html-code-block` container with a default `min-height` of `40px`, so empty or short blocks stay visible while you edit
+- Images that are blank or contain Liquid displaying a placeholder in the editor
+- Checkbox groups and radio buttons that preselect the first option so you can preview the active state
+
+If something looks different only in the editor, it is usually preview behavior. When troubleshooting the delivered message, review the styles and markup in your message blocks—not the editor-only frame or preview defaults.
 
 ### How can I create a slideup in-app message?
 
@@ -193,3 +205,12 @@ Yes. For any in-app message you want to reuse in a future campaign or Canvas ste
 ![A preview of an in-app message for a product tour.]({% image_buster /assets/img_archive/dnd_iam_save_as_template.png %})
 
 You can also create and save in-app message templates by navigating to **Content** > **In-App Message**.
+
+### Why is my Liquid syntax appearing as plain text in my paginated in-app message?
+
+If you're seeing Liquid syntax appear as plain text when testing a paginated in-app message (instead of the personalized content), there may be a Liquid syntax error on one of the pages. If there's a syntax error on one page, it affects the rendering of Liquid on all pages in the message—the pages are not independent.
+
+To troubleshoot:
+
+1. Check every page in your message for Liquid syntax errors. A broken preview on one page doesn't mean the error is on that page—because pages aren't independent, the syntax error can be anywhere in the message.
+2. Verify that all Liquid tags are properly closed and formatted correctly.

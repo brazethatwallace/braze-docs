@@ -1,16 +1,15 @@
 ---
-nav_title: "POST: Envie e-mails de transação usando a entrega disparada por API"
-article_title: "POST: Envie e-mails de transação usando a entrega disparada por API"
+nav_title: "POST: Enviar e-mails de transação usando entrega disparada por API"
+article_title: "Enviar e-mails de transação usando entrega disparada por API"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Este artigo descreve detalhes sobre o endpoint da Braze para envio de e-mails de transação usando a entrega disparada por API."
-
+description: "Este artigo descreve detalhes sobre o endpoint da Braze para envio de e-mails de transação usando entrega disparada por API."
 ---
 
 {% api %}
-# Envie e-mails de transação usando a entrega disparada por API {#send-transactional-emails-using-api-triggered-delivery}
+# Enviar e-mails de transação usando entrega disparada por API {#send-transactional-emails-using-api-triggered-delivery}
 {% apimethod post %}
 /transactional/v1/campaigns/{campaign_id}/send
 {% endapimethod %}
@@ -31,16 +30,16 @@ Semelhante ao [endpoint de envio de Campaign disparada]({{site.baseurl}}/api/end
 
 Para usar esse endpoint, você precisará gerar uma chave de API com a permissão `transactional.send`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='transactional email' %}
 
-## Parâmetros de jornada {#path-parameters}
+## Parâmetros de caminho {#path-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 |---|---|---|---|
-| `campaign_id` | Obrigatória | String | ID da Campaign |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parâmetros de jornada" }
+| `campaign_id` | Obrigatório | String | ID da Campaign |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parâmetros de caminho" }
 
 ## Corpo da solicitação {#request-body}
 
@@ -65,11 +64,11 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
 | `external_send_id` | Opcional | String | Uma string compatível com Base64. Validada com o seguinte regex:<br><br> `/^[a-zA-Z0-9-_+\/=]+$/` <br><br>Esse campo opcional permite que você passe um identificador interno para esse envio específico, que é incluído em eventos enviados do postback de evento HTTP transacional. Quando passado, esse identificador também é usado como chave de deduplicação, que a Braze armazena por 24 horas. <br><br>Passar o mesmo identificador em outra solicitação não resulta em uma nova instância de envio pela Braze por 24 horas. |
 | `trigger_properties` | Opcional | Objeto | Consulte [propriedades do gatilho]({{site.baseurl}}/api/objects_filters/trigger_properties_object). Pares de chave-valor de personalização que se aplicam ao usuário nesta solicitação. |
-| `recipient` | Obrigatória | Objeto | O usuário para o qual você está direcionando esta mensagem. Pode conter `attributes` e um único `external_user_id` ou `user_alias`.<br><br>Observe que, se você fornecer um ID de usuário externo que não existe na Braze, passar quaisquer campos para o objeto `attributes` cria esse perfil de usuário na Braze e envia a mensagem para o usuário recém-criado. <br><br>Se você enviar várias solicitações para o mesmo usuário com dados diferentes no objeto `attributes`, os atributos `first_name`, `last_name` e `email` são atualizados de forma síncrona e aplicados como template na sua mensagem. Os atributos personalizados não têm essa mesma proteção, portanto, tenha cuidado ao atualizar um usuário por meio dessa API e ao passar diferentes valores de atributos personalizados em rápida sucessão. |
+| `recipient` | Obrigatório | Objeto | O usuário para o qual você está direcionando esta mensagem. Pode conter `attributes` e um único `external_user_id` ou `user_alias`.<br><br>Observe que, se você fornecer um ID externo de usuário que não existe na Braze, passar quaisquer campos para o objeto `attributes` cria esse perfil de usuário na Braze e envia a mensagem para o usuário recém-criado. <br><br>Se você enviar várias solicitações para o mesmo usuário com dados diferentes no objeto `attributes`, os atributos `first_name`, `last_name` e `email` são atualizados de forma síncrona e aplicados como template na sua mensagem. Os atributos personalizados não têm essa mesma proteção, portanto, tenha cuidado ao atualizar um usuário por meio dessa API e ao passar diferentes valores de atributos personalizados em rápida sucessão. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#example-request}
@@ -122,7 +121,7 @@ O endpoint também pode retornar um código de erro e uma mensagem legível em a
 | `You do not have permission to access this resource` | A chave de API usada não tem permissão para realizar essa ação. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Solução de problemas" }
 
-A maioria dos endpoints na Braze tem uma implementação de limite de taxa que retorna um código de resposta 429 se você fizer muitas solicitações. O endpoint de envio transacional tem uma alocação horária paga medida em unidades (por exemplo, 50.000 unidades por hora, dependendo do seu pacote). Não há um limite de taxa separado por endpoint para esse endpoint: você pode enviar além do seu volume alocado, mas apenas o volume alocado é coberto pelo SLA; solicitações acima dessa alocação ainda são enviadas, mas não são cobertas pelo SLA. As solicitações para esse endpoint contam para o seu [limite geral de taxa de API externa]({{site.baseurl}}/api/api_limits). Se você exceder esse limite (por exemplo, 250.000 solicitações por hora em todos os endpoints), a Braze retorna 429 e limita as solicitações até que o limite seja redefinido. A contagem de volume transacional é redefinida a cada hora. Entre em contato com o suporte da Braze se precisar de mais informações sobre essa funcionalidade.
+A maioria dos endpoints na Braze tem uma implementação de limite de frequência que retorna um código de resposta 429 se você fizer muitas solicitações. O endpoint de envio transacional tem uma alocação horária paga medida em unidades (por exemplo, 50.000 unidades por hora, dependendo do seu pacote). Não há um limite de frequência separado por endpoint para esse endpoint: você pode enviar além do seu volume alocado, mas apenas o volume alocado é coberto pelo SLA; solicitações acima dessa alocação ainda são enviadas, mas não são cobertas pelo SLA. As solicitações para esse endpoint contam para o seu [limite geral de taxa de API externa]({{site.baseurl}}/api/api_limits). Se você exceder esse limite (por exemplo, 250.000 solicitações por hora em todos os endpoints), a Braze retorna 429 e limita as solicitações até que o limite seja redefinido. A contagem de volume transacional é redefinida a cada hora. Entre em contato com o suporte da Braze se precisar de mais informações sobre essa funcionalidade.
 
 ## Postback de evento HTTP transacional {#transactional-http-event-postback}
 

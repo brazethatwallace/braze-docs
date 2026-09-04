@@ -13,12 +13,12 @@ noindex: true
 
 <br>
 {% alert important %}
-¿Buscas la guía básica de integración del desarrollador de mensajes dentro de la aplicación? Encuéntrala [aquí]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/overview).
+¿Buscas la guía básica de integración del desarrollador de mensajes dentro de la aplicación? Encuéntrala en la [guía básica de integración del desarrollador de mensajes dentro de la aplicación]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/overview).
 {% endalert %}
 
 # Guía de implementación de mensajería dentro de la aplicación {#in-app-messaging-implementation-guide}
 
-> Esta guía de implementación opcional y avanzada abarca consideraciones sobre códigos de mensajes dentro de la aplicación, tres casos de uso personalizados creados por nuestro equipo y fragmentos de código que los acompañan. ¡Visita nuestro repositorio de demostraciones Braze [en GitHub](https://github.com/braze-inc/braze-growth-shares-ios-demo-app)! Esta guía de implementación se centra en una implementación Swift, pero se proporcionan fragmentos de código Objective-C para los interesados. ¿Buscas implementaciones HTML? ¡Echa un vistazo a nuestro [repositorio de plantillas HTML](https://github.com/braze-inc/in-app-message-templates)!
+> Esta guía de implementación opcional y avanzada abarca consideraciones sobre códigos de mensajes dentro de la aplicación, tres casos de uso personalizados creados por nuestro equipo y fragmentos de código que los acompañan. ¡Visita nuestro [repositorio de demostraciones Braze en GitHub](https://github.com/braze-inc/braze-growth-shares-ios-demo-app)! Esta guía de implementación se centra en una implementación Swift, pero se proporcionan fragmentos de código Objective-C para los interesados. ¿Buscas implementaciones HTML? ¡Echa un vistazo a nuestro [repositorio de plantillas HTML](https://github.com/braze-inc/in-app-message-templates)!
 
 ## Consideraciones sobre códigos {#code-considerations}
 
@@ -83,7 +83,7 @@ A continuación te presentamos tres casos de uso. Cada caso de uso ofrece una ex
 
 ![Dos iPhone uno al lado del otro. El primer iPhone tiene el mensaje deslizable tocando la parte inferior de la pantalla del teléfono. El segundo iPhone tiene el mensaje deslizable más arriba en la pantalla, lo que te permite ver el botón de navegación de la aplicación.]({% image_buster /assets/img/iam_implementation/slideup.png %}){: style="float:right;max-width:45%;margin-left:15px;border:0;"}
 
-Mientras creas tu mensaje deslizable dentro de la aplicación, puede que notes que no puedes modificar la ubicación del mensaje utilizando los métodos predeterminados. Una modificación como esta es posible subclasificando `ABKInAppMessageSlideupViewController` y sustituyendo la variable `offset` por tu propia variable personalizada. La imagen de la derecha muestra un ejemplo de cómo se puede utilizar esto para ajustar tus mensajes deslizables dentro de la aplicación.
+Mientras creas tu mensaje deslizable dentro de la aplicación, puede que notes que no puedes modificar la ubicación del mensaje utilizando los métodos predeterminados. Una modificación como esta es posible subclasificando `ABKInAppMessageSlideupViewController` y sustituyendo la variable `offset` por tu propia variable personalizada. La imagen de la derecha muestra cómo se puede utilizar esto para ajustar tus mensajes deslizables dentro de la aplicación.
 
 Visita [`SlideFromBottomViewController`](https://github.com/braze-inc/braze-growth-shares-ios-demo-app/blob/master/Braze-Demo/ViewController/In-App-Messages/SlideFromBottomViewController.swift) para empezar.
 
@@ -220,9 +220,9 @@ Puedes interponer tus propias vistas en mensajes dentro de la aplicación subcla
 
 Visita el [ModalPickerViewController](https://github.com/braze-inc/braze-growth-shares-ios-demo-app/blob/master/Braze-Demo/ViewController/In-App-Messages/ModalPickerViewController/ModalPickerViewController.swift) para empezar.
 
-#### Configuración del dashboard {#dashboard-configuration}
+#### Configuración del panel {#dashboard-configuration}
 
-Para configurar un mensaje modal dentro de la aplicación en el dashboard, debes proporcionar una lista de elementos formateada como una cadena separada por comas. En nuestro ejemplo, utilizamos contenido conectado para extraer una lista JSON de nombres de equipos y darles el formato correspondiente.
+Para configurar un mensaje modal dentro de la aplicación en el panel, debes proporcionar una lista de elementos formateada como una cadena separada por comas. En nuestro ejemplo, utilizamos contenido conectado para extraer una lista JSON de nombres de equipos y darles el formato correspondiente.
 
 ![El creador de mensajes dentro de la aplicación muestra una vista previa del aspecto que tendrá el mensaje dentro de la aplicación, pero en su lugar muestra la lista de elementos que proporcionaste a Braze. Como la interfaz de usuario de Braze no muestra tu interfaz personalizada de mensajes dentro de la aplicación a menos que se envíe a un teléfono, la vista previa no es indicativa del aspecto que tendrá tu mensaje, por lo que te recomendamos que hagas una prueba antes de enviarlo.]({% image_buster /assets/img/iam_implementation/dashboard1.png %})
 
@@ -361,9 +361,9 @@ Utiliza mensajes completos personalizados dentro de la aplicación para crear av
 
 Visita [`FullListViewController`](https://github.com/braze-inc/braze-growth-shares-ios-demo-app/blob/master/Braze-Demo/ViewController/In-App-Messages/FullListViewController/FullListViewController.swift) para empezar.
 
-#### Configuración del dashboard
+#### Configuración del panel
 
-Para configurar un mensaje completo personalizado dentro de la aplicación en el dashboard, debes proporcionar una lista de tus etiquetas formateadas como una cadena separada por comas.
+Para configurar un mensaje completo personalizado dentro de la aplicación en el panel, debes proporcionar una lista de tus etiquetas formateadas como una cadena separada por comas.
 
 En los pares clave-valor, proporciona un `attribute_key`; esta clave, junto con los valores seleccionados por el usuario, se guardará en su perfil de usuario como un atributo personalizado. Tu lógica de vista personalizada debe gestionar los atributos de usuario enviados a Braze.
 

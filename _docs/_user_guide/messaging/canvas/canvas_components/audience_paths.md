@@ -42,6 +42,10 @@ Users are evaluated against filters and segment membership **at the moment they 
 Audience Paths evaluate based on a user's current attributes, filters, and segment membership at the time of evaluation. They do not evaluate based on the specific event that triggered Canvas entry. To route users based on an action they perform (such as a custom event), use [Action Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) instead.
 {% endalert %}
 
+Users aren't re-evaluated against their audience group after they move down a path. If the message that follows is delayed by a Delay step, Quiet Hours, Intelligent Timing, rate limiting, or local time zone delivery, a user's profile can change before that message sends.
+
+To confirm that users still meet segment and filter criteria before the Message step sends, turn on **Validate audience at message send** in the Message step's [delivery validations]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#delivery-validations). Delivery validations check only the segments and filters you add to that Message step, so they don't reuse the criteria from your Audience Path. For in-app messages, delivery validations are checked when a user enters the Message step, not when the message displays.
+
 ### Allowing time for user evaluations
 
 Because evaluation is immediate, it's important to add a delay before the Audience Path if the path criteria depend on a user interaction with a previous step.
@@ -61,15 +65,17 @@ The default Audience Paths component contains two default audience groups, **Gro
 
 ### Defining audience groups
 
-The following screenshot shows the layout of an expanded Audience Paths step. Here, you can define up to eight audience groups (one preset and seven customizable). To define an audience group, select the group name from the Audience Paths editor. You can rename your audience group, choose the filters and segments that apply to your group, and add or delete groups.
-
-For example, if you wanted to target onboarding messaging to a group of users, you might select retargeting filters, such as "Has clicked email" and "Has clicked in-app message".
+The following screenshot shows the layout of an expanded Audience Paths step. Here, you can define up to eight audience groups (one preset and seven customizable). To define an audience group, select the group name from the Audience Paths editor. You can rename your audience group, choose the filters and segments that apply to your group, and add or delete groups. For example, if you wanted to target onboarding messaging to a group of users, you might select retargeting filters, such as "Has clicked email" and "Has clicked in-app message".
 
 ![An expanded Audience Path with groups for "Loves Asian Cuisine”, “Loves Latin Cuisine”, “Loves European Cuisine”, and "Everyone Else".]({% image_buster /assets/img/audience_path/audience_path3.png %})
 
 After the Audience Paths step is complete, each audience group will have a separate branch. You can continue using Audience Paths to further filter your audience, or continue your Canvas journey with the standard Canvas steps. 
 
 ![Two Audience Paths with different groups based on engagement.]({% image_buster /assets/img/audience_path/audience_path4.png %}){: style="max-width:50%"}
+
+#### Using comparison filters with context variables
+
+When splitting on a context variable that holds a date, see [Day of Year and Time filters for date context variables]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/#day-of-year-and-time-filters-for-date-context-variables) to choose the correct comparison type.
 
 ### Testing audience groups
 

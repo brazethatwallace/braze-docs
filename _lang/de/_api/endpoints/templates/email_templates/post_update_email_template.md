@@ -6,7 +6,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „E-Mail-Template aktualisieren“."
-
 ---
 {% api %}
 # Vorhandene E-Mail-Templates aktualisieren {#update-existing-email-templates}
@@ -28,7 +27,7 @@ Sie können diesen Endpunkt auch über den [Braze MCP-Server]({{site.baseurl}}/u
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/api_key) mit der Berechtigung `templates.email.update`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics) mit der Berechtigung `templates.email.update`.
 
 ## Rate-Limit
 

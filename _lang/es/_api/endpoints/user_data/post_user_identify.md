@@ -6,8 +6,7 @@ page_order: 3
 layout: api_page
 page_type: reference
 alias: /users_identify_merge/
-description: "En este artículo se describen los detalles del punto de conexión Identificar usuarios de Braze."
-
+description: "En este artículo se describen los detalles del endpoint Identificar usuarios de Braze."
 ---
 {% api %}
 # Identificar usuarios {#identify-users}
@@ -15,7 +14,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 /users/identify
 {% endapimethod %}
 
-> Utiliza este punto de conexión para identificar a un usuario no identificado (solo alias, solo correo electrónico o solo número de teléfono) utilizando el ID externo proporcionado.
+> Utiliza este endpoint para identificar a un usuario no identificado (solo alias, solo correo electrónico o solo número de teléfono) utilizando el ID externo proporcionado.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#5f74e0f7-0620-4c7b-b0a2-f5f38fdbff58 {% endapiref %}
 
@@ -32,12 +31,12 @@ Para identificar a un usuario es necesario incluir un `external_id` en los sigui
 Si no hay ningún usuario con ese `external_id`, el `external_id` se añade al registro del usuario con asignación de alias y se considera que el usuario está identificado. Los usuarios solo pueden tener un alias para una etiqueta específica. Si ya existe un usuario con el `external_id` y tiene un alias existente con la misma etiqueta que el perfil solo con alias, entonces los perfiles de usuario no se combinan.
 
 {% alert tip %}
-Para evitar la pérdida inesperada de datos al identificar a los usuarios, te recomendamos encarecidamente que primero consultes las [mejores prácticas de recopilación de datos]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/best_practices#capturing-user-data-when-alias-only-user-info-is-already-present) para saber cómo capturar datos de usuario cuando ya existe información de usuario solo con alias.
+Para evitar la pérdida inesperada de datos al identificar a los usuarios, te recomendamos encarecidamente que primero consultes las [mejores prácticas de recopilación de datos]({{site.baseurl}}/user_guide/data/unification/user_data/best_practices) para saber cómo capturar datos de usuario cuando ya existe información de usuario solo con alias.
 {% endalert %}
 
 ### Comportamiento de fusión {#merging-behavior}
 
-De forma predeterminada, este punto de conexión fusiona la siguiente lista de campos que se encuentran **exclusivamente** en el usuario anónimo con el usuario identificado.
+De forma predeterminada, este endpoint fusiona la siguiente lista de campos que se encuentran **exclusivamente** en el usuario anónimo con el usuario identificado.
 
 {% details Lista de campos que se fusionan %}
 - Nombre
@@ -77,7 +76,7 @@ De forma predeterminada, este punto de conexión fusiona la siguiente lista de c
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/api_key) con el permiso `users.identify`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics) con el permiso `users.identify`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -103,13 +102,13 @@ Authorization: Bearer YOUR_REST_API_KEY
 Puedes añadir hasta 50 alias de usuario por solicitud. Puedes asociar varios alias de usuario adicionales a un único `external_id`.
 
 {% alert important %}
-Se requiere uno de los siguientes por solicitud: `aliases_to_identify`, `emails_to_identify` o `phone_numbers_to_identify`. Por ejemplo, puedes utilizar este punto de conexión para identificar a los usuarios por correo electrónico utilizando `emails_to_identify` en tu solicitud.
+Se requiere uno de los siguientes por solicitud: `aliases_to_identify`, `emails_to_identify` o `phone_numbers_to_identify`. Por ejemplo, puedes utilizar este endpoint para identificar a los usuarios por correo electrónico utilizando `emails_to_identify` en tu solicitud.
 {% endalert %}
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 |-----------------------------|----------|-------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `aliases_to_identify` | Obligatorio | Conjunto de objetos de alias para identificar | Ver [objeto de alias para identificar]({{site.baseurl}}/api/objects_filters/aliases_to_identify) y [objeto de alias de usuario]({{site.baseurl}}/api/objects_filters/user_alias_object). |
-| `emails_to_identify` | Obligatorio | Conjunto de objetos de alias para identificar | Obligatorio si se especifica `email` como identificador. Direcciones de correo electrónico para identificar usuarios. Ver [Identificación de usuarios por correo electrónico](#identifying-users-by-email). |
+| `emails_to_identify` | Obligatorio | Conjunto de objetos de alias para identificar | Obligatorio si se especifica `email` como identificador. Direcciones de correo electrónico para identificar usuarios. Ver [Identificación de usuarios por correo electrónico](#identifying-users-by-email-addresses-and-phone-numbers). |
 | `phone_numbers_to_identify` | Obligatorio | Conjunto de objetos de alias para identificar | Números de teléfono para identificar usuarios. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
@@ -132,7 +131,7 @@ En la matriz de priorización solo puede existir una de las siguientes opciones 
 - `unidentified` se refiere a dar prioridad a un usuario sin un `external_id`
 
 {% alert note %}
-No se produce una fusión si la dirección de correo electrónico o el número de teléfono coincide con varios usuarios. Esto incluye los casos en los que uno de esos usuarios tiene el mismo `external_id` que el especificado en la solicitud. En estos casos, el punto de conexión devuelve `"message": "success"`, pero los perfiles de usuario no se combinan. Para evitar esto, verifica que la dirección de correo electrónico o el número de teléfono esté asociado únicamente a usuarios no identificados antes de llamar a este punto de conexión.
+No se produce una fusión si la dirección de correo electrónico o el número de teléfono coincide con varios usuarios. Esto incluye los casos en los que uno de esos usuarios tiene el mismo `external_id` que el especificado en la solicitud. En estos casos, el endpoint devuelve `"message": "success"`, pero los perfiles de usuario no se combinan. Para evitar esto, verifica que la dirección de correo electrónico o el número de teléfono esté asociado únicamente a usuarios no identificados antes de llamar a este endpoint.
 {% endalert %}
 
 ## Ejemplo de solicitud {#request-example}
@@ -166,12 +165,12 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/identify' \
 El campo `alias_name` distingue entre mayúsculas y minúsculas. Una solicitud que devuelve un código de estado `201` solo confirma que la sintaxis de la solicitud era válida; no confirma que el alias haya coincidido. Si las mayúsculas y minúsculas de `alias_name` en tu solicitud no coinciden exactamente con el alias almacenado en el perfil de usuario, la operación fallará silenciosamente y el `external_id` no se asignará. Por ejemplo, si el alias almacenado es `JimJones@example.com`, una solicitud con `jimjones@example.com` devolverá éxito pero no producirá ningún resultado.
 
 {% alert tip %}
-Para más información sobre `alias_name` y `alias_label`, consulta nuestra documentación sobre [alias de usuario]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases).
+Para más información sobre `alias_name` y `alias_label`, consulta nuestra documentación sobre [alias de usuario]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle).
 {% endalert %}
 
 ### ¿Por qué mi solicitud de identificación devuelve éxito pero el perfil no se fusionó? {#why-does-my-identify-request-return-success-but-the-profile-did-not-merge}
 
-`201 Created` con `message: success` significa que aceptamos la solicitud. No garantiza que cada alias o correo electrónico en la carga útil haya coincidido con un perfil existente; las diferencias de mayúsculas y minúsculas en `alias_name`, los perfiles duplicados o nuestras reglas de priorización pueden dar como resultado que no se produzca ninguna fusión visible aunque la llamada haya tenido éxito. Verifica que las mayúsculas y minúsculas de `alias_name` coincidan exactamente con nuestros valores almacenados, comprueba si hay perfiles duplicados con [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) y revisa [`prioritization`](#identifying-users-by-email) cuando utilices `emails_to_identify`.
+`201 Created` con `message: success` significa que Braze aceptó la solicitud. No garantiza que cada alias o correo electrónico en la carga útil haya coincidido con un perfil existente; las diferencias de mayúsculas y minúsculas en `alias_name`, los perfiles duplicados o las reglas de priorización de Braze pueden dar como resultado que no se produzca ninguna fusión visible aunque la llamada haya tenido éxito. Verifica que las mayúsculas y minúsculas de `alias_name` coincidan exactamente con los valores almacenados, comprueba si hay perfiles duplicados con [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) y revisa [`prioritization`](#identifying-users-by-email-addresses-and-phone-numbers) cuando utilices `emails_to_identify`.
 
 ## Respuesta {#response}
 

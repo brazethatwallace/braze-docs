@@ -20,7 +20,7 @@ description: "이 페이지에서는 인앱 메시지 드래그 앤 드롭 에�
 
 드래그 앤 드롭 인앱 메시지를 만들 때 템플릿으로 **SMS sign-up**(RCS 가입도 지원) 또는 **WhatsApp sign-up**을 선택한 다음 **Build message**를 선택합니다. 이 템플릿은 모바일 앱과 웹 브라우저 모두에서 지원됩니다.
 
-![인앱 메시지를 만들 때 SMS sign-up 또는 WhatsApp sign-up을 템플릿으로 선택하는 모달.]({% image_buster /assets/img_archive/dnd_iam_phone_capture_template.png %}){: style="max-width:80%"}
+![인앱 메시지를 만들 때 SMS sign-up 또는 WhatsApp sign-up을 템플릿으로 선택하는 Modal.]({% image_buster /assets/img_archive/dnd_iam_phone_capture_template.png %}){: style="max-width:80%"}
 
 ### 2단계: 메시지 스타일 설정 {#step-2-set-up-your-message-styles}
 
@@ -44,7 +44,7 @@ description: "이 페이지에서는 인앱 메시지 드래그 앤 드롭 에�
 
 #### 유효하지 않은 전화번호 {#invalid-phone-numbers}
 
-사용자가 허용되지 않는 특수 문자가 포함된 전화번호를 입력하면 커스터마이즈할 수 없는 일반 오류 표시가 나타나며 양식을 제출할 수 없습니다. **Preview & Test** 탭과 테스트 기기에서 오류 동작을 확인할 수 있습니다. [Braze가 전화번호를 포맷하는 방법]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#importing-phone-numbers)에 대해 알아보려면 이 문서를 참조하세요.
+사용자가 허용되지 않는 특수 문자가 포함된 전화번호를 입력하면 커스터마이즈할 수 없는 일반 오류 표시가 나타나며 양식을 제출할 수 없습니다. **Preview & Test** 탭과 테스트 기기에서 오류 동작을 확인할 수 있습니다. [Braze가 전화번호를 포맷하는 방법]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#import-phone-numbers)에 대해 알아보려면 이 문서를 참조하세요.
 
 ### 4단계: 면책 조항 문구 추가(SMS 및 RCS 가입 양식용) {#step-4-add-disclaimer-language-for-sms-and-rcs-sign-up-forms}
 
@@ -56,7 +56,7 @@ SMS 및 RCS 가입 양식의 경우, 발송할 SMS 또는 RCS의 유형을 명�
 - 이용약관 및 SMS, RCS 개인정보 보호정책 링크.
 - 도움말 및 수신 거부 키워드 안내(도움말은 HELP, 취소는 STOP).
 
-템플릿에 예시용으로만 입력 안내 면책 조항을 제공했으며, 이는 법적 조언을 구성하지 않으며 컴플라이언스 목적으로 의존해서는 안 됩니다. 법무팀과 협력하여 특정 브랜드에 맞는 문구를 개발하는 것이 중요합니다.
+템플릿에 예시용으로만 플레이스홀더 면책 조항을 제공했으며, 이는 법적 조언을 구성하지 않으며 컴플라이언스 목적으로 의존해서는 안 됩니다. 법무팀과 협력하여 특정 브랜드에 맞는 문구를 개발하는 것이 중요합니다.
 
 {% alert note %}
 이 설명서는 법적 조언을 제공하기 위한 것이 아니며, 법적 조언으로 전적으로 의존해서는 안 됩니다.
@@ -72,4 +72,4 @@ SMS 및 RCS 컴플라이언스에 대한 자세한 내용은 [SMS, MMS, RCS에 �
 
 {% multi_lang_include drag_and_drop/templates.md section='reporting' %}
 
-![인앱 메시지의 각 링크에 대한 클릭 수를 보여주는 인앱 메시지 성과 패널.]({% image_buster /assets/img_archive/dnd_iam_phone_capture_analytics.png %})
+![인앱 메시지의 각 링크에 대한 클릭 수를 보여주는 인앱 메시지 성능 패널.]({% image_buster /assets/img_archive/dnd_iam_phone_capture_analytics.png %})

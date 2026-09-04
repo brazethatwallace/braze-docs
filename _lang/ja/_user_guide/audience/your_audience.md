@@ -15,44 +15,60 @@ Brazeでは、ユーザー（およびそのユーザープロファイル）は
 
 ## ユーザープロファイル {#user-profiles}
 
-[ユーザープロファイル]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles)は、Brazeがその人物について把握しているすべての情報の唯一の信頼できるソースとして機能します。これには以下が含まれます。
+[ユーザープロファイル]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles)は、Brazeがその人物について把握しているすべての情報の唯一の信頼できる情報源として機能します。これには以下が含まれます。
 
 - 識別子（ユーザーIDやexternal IDなど）
 - デバイスとメッセージングチャネル
 - 行動データとイベント
-- 属性とプリファレンス
+- 属性と設定
 - メッセージエンゲージメント履歴
 
-1つのユーザープロファイルは複数のデバイスやチャネルに関連付けることができるため、プラットフォーム全体にわたってユーザーを包括的に理解し、メッセージを送信できます。
+1つのユーザープロファイルは複数のデバイスやチャネルに関連付けることができるため、プラットフォーム全体を通じてユーザーを包括的に理解し、メッセージを送信できます。
 
 ## 匿名ユーザーと識別済みユーザー {#anonymous-users-and-identified-users}
 
-Brazeのユーザーは、一般的に2つの状態のいずれかに分類されます。
+Brazeのユーザーは、一般的に2つのステータスのいずれかに分類されます。
 
 ### 匿名ユーザー {#anonymous-users}
 
-[匿名ユーザー]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users)とは、アプリやWebサイトとインタラクションしたものの、システムからの識別子（`external_id`など）がまだ割り当てられていないユーザーです。
+[匿名ユーザー]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users)とは、アプリやWebサイトを操作したものの、まだシステムから識別子（`external_id`など）が割り当てられていないユーザーです。
 
 - 匿名ユーザーは、Braze SDKの初期化時に自動的に作成されます
 - イベント、属性、メッセージエンゲージメントを引き続き追跡できます
-- チャネルやオプトインステータスに応じて、これらのユーザーにメッセージを送信できます
+- チャネルやオプトインステータスに応じて、メッセージを受信できます
+
+#### 匿名ユーザーと同意 {#anonymous-users-and-consent}
+
+同意ポリシーに準拠するためにBraze SDKを同意ラッパーで囲む必要がある場合、ユーザーが同意を付与する前に匿名データを収集できます。SDKが初期化されると匿名ユーザープロファイルが作成され、同意要件を尊重しながら行動を追跡できます。
+
+**匿名ユーザーへのメッセージ送信:**
+匿名ユーザーは、Braze SDKが初期化されている限り、メッセージをトリガーおよび受信できます。これには以下が含まれます。
+
+- [アプリ内メッセージ]({{site.baseurl}}/user_guide/channels/in_app_messages)
+- [プッシュ通知]({{site.baseurl}}/user_guide/channels/push)（プッシュトークンが登録されている場合）
+- [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards)
+
+ただし、ユーザーが同意しなかった場合や同意を撤回した場合にSDKの初期化を無効化または阻止すると、SDKトリガーのチャネルはそのユーザーに対して機能しません。
+
+**同意ステータスに基づくユーザーのターゲティング:**
+同意ステータスに基づいてユーザーにメッセージを送信するには、ユーザープロファイルにカスタムユーザー属性（`has_marketing_consent`など）を設定します。その後、この属性に基づいてセグメントを作成し、ユーザーがBraze外で同意設定を変更した場合にもこの値を同期した状態に保つことができます。匿名ユーザーのターゲティングの詳細については、[ユースケース]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users#use-cases)を参照してください。
 
 ### 識別済みユーザー {#identified-users}
 
-[識別済みユーザー]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#identified-user-profiles)とは、提供された`external_id`（顧客IDやアカウントIDなど）に関連付けられたユーザーです。
+[識別済みユーザー]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#identified-user-profiles)とは、お客様が提供する`external_id`（顧客IDやアカウントIDなど）に関連付けられたユーザーです。
 
 ユーザーを識別することで、以下が可能になります。
 
-- デバイスやセッションをまたいだアクティビティの統合
-- チャネル全体で一貫したメッセージの送信
+- デバイスやセッション間のアクティビティの統合
+- チャネル間で一貫したメッセージの送信
 - 長期的なユーザーデータを使用したセグメンテーションとパーソナライゼーション
-- APIや統合を通じたプロファイルの管理
+- APIやインテグレーションを通じたプロファイルの管理
 
-匿名ユーザーが後から識別されると、Brazeは[このマージ動作]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior)に従って、対象となるデータを識別済みプロファイルにマージします。たとえば、プッシュトークンやメッセージング履歴は引き継がれ、匿名プロファイルの多くのフィールドは識別済みプロファイルにまだ設定されていない場合にのみマージされます。値が競合する場合は、識別済みプロファイルが保持されます。
+匿名ユーザーが後に識別されると、Brazeは[このマージ動作]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior)に従って、対象のデータを識別済みプロファイルにマージします。たとえば、プッシュトークンやメッセージング履歴は引き継がれ、匿名プロファイルの多くのフィールドは識別済みプロファイルにまだ設定されていない場合にのみマージされます。値が競合する場合は、識別済みプロファイルの値が保持されます。
 
-## チャネルを通じたユーザーへのメッセージ送信 {#message-users-through-channels}
+## チャネルを通じてユーザーにメッセージを送信する {#message-users-through-channels}
 
-[チャネル]({{site.baseurl}}/user_guide/channels)とは、Brazeがユーザーにメッセージを配信するための特定の方法です。一般的なチャネルには以下があります。
+[チャネル]({{site.baseurl}}/user_guide/channels)は、Brazeがユーザーにメッセージを届けるための特定の方法です。一般的なチャネルには次のものがあります。
 
 - [プッシュ（Webまたはモバイル）]({{site.baseurl}}/user_guide/channels/push)
 - [メール]({{site.baseurl}}/user_guide/channels/email)
@@ -62,15 +78,15 @@ Brazeのユーザーは、一般的に2つの状態のいずれかに分類さ�
 - [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards)
 - [バナー]({{site.baseurl}}/user_guide/channels/banners)
 - [LINE]({{site.baseurl}}/user_guide/channels/line)
-- [Webhook]({{site.baseurl}}/user_guide/channels/webhooks)
+- [webhook]({{site.baseurl}}/user_guide/channels/webhooks)
 
-1つのユーザープロファイルには、メールアドレスとモバイルデバイスの両方など、複数のチャネルを関連付けることができます。Brazeはこのモデルを使用して、ユーザーの統一されたビューを維持しながら、チャネル全体でメッセージングを調整します。
+1つのユーザープロファイルには、メールアドレスとモバイルデバイスの両方など、複数のチャネルを関連付けることができます。Brazeはこのモデルを使用して、ユーザーの統一されたビューを維持しながら、チャネル間のメッセージングを調整します。
 
-各チャネルには独自の配信ルール、オプトイン要件、メタデータがありますが、すべて同じユーザープロファイルに関連付けられています。
+各チャネルにはそれぞれ独自の配信ルール、オプトイン要件、メタデータがありますが、すべて同じユーザープロファイルに関連付けられています。
 
-## ユーザーがBrazeに登録される方法 {#ways-users-enter-braze}
+## ユーザーが Braze に入る方法 {#ways-users-enter-braze}
 
-ユーザーは、サポートされている統合やチャネルを通じてブランドとインタラクションするたびにBrazeで作成されます。追加方法は、Brazeの実装方法によって異なります。
+ユーザーは、サポートされている連携やチャネルを通じてブランドとやり取りするたびに Braze で作成されます。ユーザーの追加方法は、Braze の実装方法によって異なります。
 
 {% tabs %}
 {% tab モバイルアプリ %}
@@ -80,65 +96,65 @@ Brazeのユーザーは、一般的に2つの状態のいずれかに分類さ�
 {% endtab %}
 
 {% tab Web %}
-- Web SDKの初期化時にユーザーが作成されます。
-- Webプッシュサブスクリプションにより、ブラウザがメッセージングチャネルとして登録されます。
+- Web SDKが初期化されるとユーザーが作成されます。
+- Web プッシュの購読により、ブラウザーがメッセージングチャネルとして登録されます。
 {% endtab %}
 
-{% tab メールとSMS %}
-- データのアップロード、APIの呼び出し、またはオプトインの収集時にユーザーを作成できます。
+{% tab メールと SMS %}
+- データのアップロード、API の呼び出し、またはオプトインの収集時にユーザーを作成できます。
 - メールアドレスと電話番号はチャネル識別子として保存されます。
 - オプトインステータスはチャネルごと、地域ごとに追跡されます。
 {% endtab %}
 
-{% tab APIと統合 %}
-- [REST API]({{site.baseurl}}/api/endpoints/user_data)や[CSVインポート]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import)を通じて、ユーザーを直接作成または更新できます。
-- 外部ツール（CDP、CRM、データウェアハウスなど）は、ユーザーをBrazeに自動的に同期できます。
+{% tab API と連携 %}
+- [REST API]({{site.baseurl}}/api/endpoints/user_data) または [CSV のインポート]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import)を通じて、ユーザーを直接作成または更新できます。
+- 外部ツール（顧客データプラットフォーム、CRM、データウェアハウスなど）を使って、ユーザーを自動的に Braze に同期できます。
 {% endtab %}
 {% endtabs %}
 
 ## オーディエンスデータソース {#audience-data-sources}
 
-Brazeのユーザーデータは、通常、複数のソースの組み合わせから取得されます。
+Brazeのユーザーデータは通常、複数のソースの組み合わせから取得されます。
 
 {% tabs %}
 {% tab 自動収集 %}
-Braze SDKは、以下のようなコンテキストデータを自動的に収集します。
+Braze SDKは以下のようなコンテキストデータを自動的に収集します。
 
 - デバイスタイプとOS
 - 言語とタイムゾーン
-- アプリバージョンとセッションアクティビティ
+- アプリのバージョンとセッションアクティビティ
 {% endtab %}
 
 {% tab ユーザー行動 %}
-ユーザーがアプリやメッセージとインタラクションすると、Brazeは以下を記録します。
+ユーザーがアプリやメッセージを操作すると、Brazeは以下を記録します。
 
-- [カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events)（購入や機能の使用など）
+- [カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events)（例：購入や機能の利用）
 - メッセージの開封、クリック、コンバージョン
-- セッションアクティビティとエンゲージメントの傾向
+- セッションアクティビティとエンゲージメントのトレンド
 {% endtab %}
 
 {% tab お客様のシステム %}
-以下を使用して、独自のツールからBrazeにデータを送信できます。
+以下の方法を使用して、お客様のツールからBrazeにデータを送信できます。
 
 - [REST API]({{site.baseurl}}/api/endpoints/user_data)
 - [CSVアップロード]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import)
 - スケジュールされたデータ同期
 
-これには通常、識別子、アカウントデータ、または履歴コンテキストが含まれます。
+これには、識別子、アカウントデータ、または履歴コンテキストが含まれることが多いです。
 {% endtab %}
 {% endtabs %}
 
 ### ユーザー提供の入力 {#user-provided-input}
 
-ユーザーは以下を通じて直接データを提供する場合があります。
+ユーザーは以下を通じて直接データを提供することがあります。
 
 - [ユーザー設定センター]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center)
-- フォームやアンケート（SDKまたは統合）
+- フォームやアンケート（SDKまたはインテグレーション）
 - アプリ内エクスペリエンス
 
-### 統合 {#integrations}
+### インテグレーション {#integrations}
 
-Brazeは、統合を通じて[セグメント]({{site.baseurl}}/partners/segment)、データウェアハウス、分析テックパートナーなどのプラットフォームと連携し、ユーザーデータがユーザープロファイルに自動的に流れるようにします。
+Brazeは[セグメント]({{site.baseurl}}/partners/segment)、データウェアハウス、分析テックパートナーなどのプラットフォームとインテグレーションを通じて連携し、ユーザーデータがユーザープロファイルに自動的に流れるようにします。
 
 ## ユーザーデータの管理 {#manage-user-data}
 
@@ -146,25 +162,25 @@ Brazeは、統合を通じて[セグメント]({{site.baseurl}}/partners/segment
 
 - **ダッシュボードツール**：手動編集やCSVアップロード
 - **API**：リアルタイムまたはプログラムによる更新
-- **SDK**：アプリやサイトでの行動の直接キャプチャ
-- **統合**：継続的な同期
+- **SDK**：アプリやサイトでの行動を直接キャプチャ
+- **インテグレーション**：継続的な同期
 
 データの削除は以下の方法で行えます。
 
 - 属性値のクリア
 - タグの削除
-- サブスクリプションステータスの更新
+- 購読ステータスの更新
 - ログアウト時のユーザーリセット（匿名ユースケースの場合）
 
-## オーディエンスデータ機能 {#audience-data-features}
+## オーディエンスデータの機能 {#audience-data-features}
 
-ユーザーデータがBrazeに取り込まれると、ほぼすべてのエンゲージメント機能を支えます。ユーザーデータが完全で正確であるほど、以下の機能をより効果的に活用できます。
+ユーザーデータがBrazeに取り込まれると、ほぼすべてのエンゲージメント機能を活用できるようになります。ユーザーデータが完全で正確であるほど、以下の機能をより効果的に活用できます。
 
 | 機能 | 説明 |
 | ---- | ---- |
-| [セグメンテーション]({{site.baseurl}}/user_guide/audience/segments) | 以下に基づいてオーディエンスを作成します。{::nomarkdown}<ul><li>属性とカスタムフィールド</li> <li>イベントと行動</li> <li>メッセージエンゲージメント</li> <li>デバイスとチャネルのプロパティ</li></ul>{:/} <br>セグメントはキャンペーンやキャンバスで再利用できます。 |
-| [パーソナライゼーション]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize) | ユーザーデータを使用して、以下のようなコンテンツをカスタマイズします。{::nomarkdown}<ul><li>メッセージコピー内の名前やプリファレンス</li> <li>ダイナミックなおすすめ</li> <li>ロケーションや言語に固有のコンテンツ</li></ul>{:/} |
+| [セグメンテーション]({{site.baseurl}}/user_guide/audience/segments) | 以下の条件に基づいてオーディエンスを作成します。{::nomarkdown}<ul><li>属性とカスタムフィールド</li> <li>イベントと行動</li> <li>メッセージエンゲージメント</li> <li>デバイスおよびチャネルのプロパティ</li></ul>{:/} <br>セグメントはキャンペーンやキャンバスで再利用できます。 |
+| [パーソナライゼーション]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize) | ユーザーデータを使用して、以下のようなコンテンツをカスタマイズします。{::nomarkdown}<ul><li>メッセージ本文中の名前や設定</li> <li>ダイナミックなレコメンデーション</li> <li>場所や言語に応じたコンテンツ</li></ul>{:/} |
 | オートメーションとオーケストレーション | 以下に基づいてメッセージやジャーニーをトリガーします。{::nomarkdown}<ul><li>ユーザーアクション</li> <li>属性の変更</li> <li>時間ベースの条件</li></ul>{:/} |
-| クロスチャネルコーディネーション | 以下を尊重しながら、最も適切なチャネルでユーザーにリーチします。{::nomarkdown}<ul><li>オプトインステータス</li> <li>フリークエンシーキャップ</li> <li>チャネルプリファレンス</li></ul>{:/} |
-| [分析とインサイト]({{site.baseurl}}/user_guide/analytics) | 以下を分析して、さまざまなオーディエンスの行動を理解します。{::nomarkdown}<ul><li>エンゲージメント率</li> <li>コンバージョンパス</li> <li>セグメントの経時的なパフォーマンス</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="オーディエンスデータ機能" }
+| クロスチャネルの連携 | 以下を考慮しながら、最適なチャネルでユーザーにリーチします。{::nomarkdown}<ul><li>オプトインステータス</li> <li>フリークエンシーキャップ</li> <li>チャネルの設定</li></ul>{:/} |
+| [分析とインサイト]({{site.baseurl}}/user_guide/analytics) | 以下を分析して、さまざまなオーディエンスの行動を理解します。{::nomarkdown}<ul><li>エンゲージメント率</li> <li>コンバージョンパス</li> <li>セグメントパフォーマンスの時間推移</li></ul>{:/} |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="オーディエンスデータの機能" }

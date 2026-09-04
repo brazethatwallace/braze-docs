@@ -2,7 +2,7 @@
 nav_title: 컨텍스트 변수
 article_title: 컨텍스트 변수
 page_type: reference
-description: "이 참조 문서에서는 Braze Canvas의 컨텍스트 변수에 대해 유형, 사용법, 모범 사례를 포함하여 설명합니다."
+description: "이 참조 문서에서는 BRAZE 캔버스의 컨텍스트 변수에 대해 유형, 사용법, 모범 사례를 포함하여 설명합니다."
 ---
 
 # 컨텍스트 변수 {#context-variables}
@@ -49,7 +49,7 @@ description: "이 참조 문서에서는 Braze Canvas의 컨텍스트 변수에 
 단계에서 생성되거나 업데이트되는 컨텍스트 변수에는 다음 데이터 유형을 할당할 수 있습니다.
 
 {% alert note %}
-컨텍스트 변수는 [이벤트 등록정보]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#expected-format)와 동일한 데이터 유형 예상 형식을 갖습니다. <br><br>배열 유형을 사용할 때 Braze는 값을 JSON으로 구문 분석하려고 시도하며, 이를 통해 오브젝트 배열을 성공적으로 생성할 수 있습니다. 배열 내의 오브젝트가 유효한 JSON이 아닌 경우 결과는 단순 문자열 배열이 됩니다. <br><br>중첩 오브젝트 및 오브젝트 배열의 경우 [`as_json_string` Liquid 필터](#converting-connected-content-strings-to-json)를 사용하세요. 컨텍스트 단계에서 동일한 오브젝트를 생성하는 경우 `as_json_string`을 사용하여 오브젝트를 렌더링해야 합니다. 예: {%raw%}`{{context.${object_array} | as_json_string }}`{%endraw%}
+컨텍스트 변수는 [이벤트 속성정보]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#expected-format)와 동일한 데이터 유형 예상 형식을 갖습니다. <br><br>배열 유형을 사용할 때 Braze는 값을 JSON으로 구문 분석하려고 시도하며, 이를 통해 오브젝트 배열을 성공적으로 생성할 수 있습니다. 배열 내의 오브젝트가 유효한 JSON이 아닌 경우 결과는 단순 문자열 배열이 됩니다. <br><br>중첩 오브젝트 및 오브젝트 배열의 경우 [`as_json_string` Liquid 필터](#converting-connected-content-strings-to-json)를 사용하세요. 컨텍스트 단계에서 동일한 오브젝트를 생성하는 경우 `as_json_string`을 사용하여 오브젝트를 렌더링해야 합니다. 예: {%raw%}`{{context.${object_array} | as_json_string }}`{%endraw%}
 {% endalert %}
 
 | 데이터 유형 | 예시 변수 이름 | 예시 값 |
@@ -104,32 +104,32 @@ Canvas에서 Liquid를 사용하는 모든 곳에서 컨텍스트 변수를 사�
 컨텍스트 단계의 정보를 사용하여 [개인화된 지연 옵션]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step#personalized-delays)을 추가할 수 있습니다. 즉, 사용자를 지연시키는 변수를 선택할 수 있습니다.
 {% endalert %}
 
-### 행동 경로 및 종료 기준 {#for-action-paths-and-exit-criteria}
+### 작업 경로 및 종료 기준 {#for-action-paths-and-exit-criteria}
 
-다음 트리거 동작에서 등록정보 필터를 컨텍스트 변수 또는 커스텀 속성과 비교할 수 있습니다: **커스텀 이벤트 수행** 및 **구매하기**. 이러한 동작 트리거는 기본 및 중첩 등록정보 모두에 대한 등록정보 필터도 지원합니다.
+다음 트리거 동작에서 속성정보 필터를 컨텍스트 변수 또는 커스텀 속성과 비교할 수 있습니다: **커스텀 이벤트 수행** 및 **구매하기**. 이러한 동작 트리거는 기본 및 중첩 속성정보 모두에 대한 속성정보 필터도 지원합니다.
 
-- 기본 등록정보와 비교할 때 사용 가능한 비교는 커스텀 이벤트에서 정의한 등록정보 유형과 일치합니다. 예를 들어, 문자열 등록정보는 정확히 일치, 정규식 일치가 있습니다. 부울 등록정보는 참 또는 거짓입니다.
-- 중첩 등록정보와 비교할 때 유형은 사전 정의되지 않으므로 중첩 커스텀 속성의 비교와 유사하게 부울, 숫자, 문자열, 시간 및 연중 일자에 대해 여러 데이터 유형에 걸쳐 비교를 선택할 수 있습니다. 비교 시점에 중첩 등록정보의 실제 데이터 유형과 일치하지 않는 데이터 유형을 선택하면 사용자가 행동 경로 또는 종료 기준과 일치하지 않습니다.
+- 기본 속성정보와 비교할 때 사용 가능한 비교는 커스텀 이벤트에서 정의한 속성정보 유형과 일치합니다. 예를 들어, 문자열 속성정보는 정확히 일치, 정규식 일치가 있습니다. 부울 속성정보는 참 또는 거짓입니다.
+- 중첩 속성정보와 비교할 때 유형은 사전 정의되지 않으므로 중첩 커스텀 속성의 비교와 유사하게 부울, 숫자, 문자열, 시간 및 연중 일자에 대해 여러 데이터 유형에 걸쳐 비교를 선택할 수 있습니다. 비교 시점에 중첩 속성정보의 실제 데이터 유형과 일치하지 않는 데이터 유형을 선택하면 사용자가 작업 경로 또는 종료 기준과 일치하지 않습니다.
 
-#### 행동 경로 예시 {#action-path-examples}
+#### 작업 경로 예시 {#action-path-examples}
 
 {% alert important %}
-커스텀 속성 비교의 경우 동작이 수행되는 시점의 커스텀 속성 값을 사용합니다. 즉, 비교 시점에 사용자에게 이 커스텀 속성이 채워져 있지 않거나 커스텀 속성 값이 정의된 등록정보 비교와 일치하지 않으면 사용자는 행동 경로 그룹과 일치하지 않습니다. 사용자가 행동 경로 단계에 진입했을 때 일치했더라도 마찬가지입니다.
+커스텀 속성 비교의 경우 동작이 수행되는 시점의 커스텀 속성 값을 사용합니다. 즉, 비교 시점에 사용자에게 이 커스텀 속성이 채워져 있지 않거나 커스텀 속성 값이 정의된 속성정보 비교와 일치하지 않으면 사용자는 작업 경로 그룹과 일치하지 않습니다. 사용자가 작업 경로 단계에 진입했을 때 일치했더라도 마찬가지입니다.
 {% endalert %}
 
 {% tabs %}
 {% tab 커스텀 이벤트 수행 %}
 
-다음 행동 경로는 기본 등록정보 `source`가 컨텍스트 변수 `app_source_variable`과 일치하는 커스텀 이벤트 `Account_Created`를 수행한 사용자를 분류하도록 설정되어 있습니다.
+다음 작업 경로는 기본 속성정보 `source`가 컨텍스트 변수 `app_source_variable`과 일치하는 커스텀 이벤트 `Account_Created`를 수행한 사용자를 분류하도록 설정되어 있습니다.
 
-![커스텀 이벤트 수행 시 컨텍스트 변수를 참조하는 행동 경로 예시.]({% image_buster /assets/img/context_action_path1.png %})
+![커스텀 이벤트 수행 시 컨텍스트 변수를 참조하는 작업 경로 예시.]({% image_buster /assets/img/context_action_path1.png %})
 
 {% endtab %}
 {% tab 구매하기 %}
 
-다음 행동 경로는 특정 제품 이름 `shoes`에 대한 기본 등록정보 `brand`를 컨텍스트 변수 `promoted_shoe_brand`와 일치시키도록 설정되어 있습니다.
+다음 작업 경로는 특정 제품 이름 `shoes`에 대한 기본 속성정보 `brand`를 컨텍스트 변수 `promoted_shoe_brand`와 일치시키도록 설정되어 있습니다.
 
-![구매 시 컨텍스트 변수를 참조하는 행동 경로 예시.]({% image_buster /assets/img/context_action_path2.png %})
+![구매 시 컨텍스트 변수를 참조하는 작업 경로 예시.]({% image_buster /assets/img/context_action_path2.png %})
 
 {% endtab %}
 {% endtabs %}
@@ -142,7 +142,7 @@ Canvas에서 Liquid를 사용하는 모든 곳에서 컨텍스트 변수를 사�
 종료 기준은 Canvas에서 사용자 여정의 어느 시점에서든 다음 조건을 충족하면 Canvas를 종료한다고 명시합니다:
 
 - 커스텀 이벤트 **장바구니 포기**를 수행하고,
-- 기본 등록정보 **장바구니 내 항목**이 컨텍스트 변수 `cart_item_threshold`의 문자열 값과 일치하는 경우.
+- 기본 속성정보 **장바구니 내 항목**이 컨텍스트 변수 `cart_item_threshold`의 문자열 값과 일치하는 경우.
 
 ![컨텍스트 변수를 기반으로 커스텀 이벤트를 수행하면 사용자를 종료시키도록 설정된 종료 기준.]({% image_buster /assets/img/context_exit_criteria1.png %})
 
@@ -152,7 +152,7 @@ Canvas에서 Liquid를 사용하는 모든 곳에서 컨텍스트 변수를 사�
 종료 기준은 Canvas에서 사용자 여정의 어느 시점에서든 다음 조건을 충족하면 Canvas를 종료한다고 명시합니다:
 
 - "book" 제품 이름에 대한 특정 구매를 하고,
-- 해당 구매의 중첩 등록정보 "loyalty_program"이 사용자의 커스텀 속성 "VIP"와 같은 경우.
+- 해당 구매의 중첩 속성정보 "loyalty_program"이 사용자의 커스텀 속성 "VIP"와 같은 경우.
 
 ![구매 시 사용자를 종료시키도록 설정된 종료 기준.]({% image_buster /assets/img/context_exit_criteria2.png %})
 
@@ -165,9 +165,9 @@ Canvas [메시지]({{site.baseurl}}/user_guide/messaging/canvas/canvas_component
 
 **기간 개인화**는 해당 기간 기반 만료 옵션에 적용됩니다. 대신 **특정 날짜 및 시간에**를 선택하는 경우 날짜 및 시간 컨트롤을 사용하여 만료를 설정합니다.
 
-### 행동 경로 지연 {#action-path-delays}
+### 작업 경로 지연 {#action-path-delays}
 
-[행동 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) 단계에서 **평가 기간** 아래의 **지연 개인화**를 켜서 컨텍스트 변수에서 사용자가 단계에 머무는 시간을 설정합니다. 등급이나 지역과 같은 세부 정보에 따라 사용자별로 대기 기간이 달라야 할 때 사용합니다.
+[작업 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) 단계에서 **평가 기간** 아래의 **지연 개인화**를 켜서 컨텍스트 변수에서 사용자가 단계에 머무는 시간을 설정합니다. 등급이나 지역과 같은 세부 정보에 따라 사용자별로 대기 기간이 달라야 할 때 사용합니다.
 
 ### 컨텍스트 변수 필터 {#context-variable-filters}
 
@@ -181,17 +181,28 @@ Canvas [메시지]({{site.baseurl}}/user_guide/messaging/canvas/canvas_component
 
 ![컨텍스트 변수로 필터를 생성하는 옵션이 있는 결정 분할 단계 예시.]({% image_buster /assets/img/context_decision_split.png %}){: style="max-width:90%;"}
 
-Canvas 컨텍스트 변수에 사전 정의된 유형이 있는 것과 마찬가지로, 컨텍스트 변수와 정적 값 간의 비교는 [일치하는 데이터 유형]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#supported-data-types)이어야 합니다. 컨텍스트 변수 필터는 [중첩 커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support)의 비교와 유사하게 부울, 숫자, 문자열, 시간 및 연중 일자에 대해 여러 데이터 유형에 걸쳐 비교를 허용합니다.
+Canvas 컨텍스트 변수에 사전 정의된 유형이 있는 것과 마찬가지로, 컨텍스트 변수와 정적 값 간의 비교는 [일치하는 데이터 유형]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support)이어야 합니다. 컨텍스트 변수 필터는 [중첩 커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support)의 비교와 유사하게 부울, 숫자, 문자열, 시간 및 연중 일자에 대해 여러 데이터 유형에 걸쳐 비교를 허용합니다.
+
+다음은 컨텍스트 변수 `product_name`을 정규식 `/braze/`와 비교하는 컨텍스트 변수 필터의 예시입니다.
+
+![컨텍스트 변수 "product_name"이 정규식 "/braze/"와 일치하도록 설정된 필터.]({% image_buster /assets/img/context_variable_filter1.png %}){: style="max-width:90%;"}
+
+#### 날짜 컨텍스트 변수에 대한 연중 일자 및 시간 필터 {#day-of-year-and-time-filters-for-date-context-variables}
+
+컨텍스트 변수에 **연중 일자** 또는 **시간** 비교 필터를 사용하려면:
+
+1. 컨텍스트 변수를 캘린더 날짜(예: 2025년 10월 23일)로 설정하는 [컨텍스트 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)를 추가합니다.
+2. 컨텍스트 단계 뒤에 [오디언스 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) 단계를 추가합니다.
+3. 오디언스 경로 단계에서 해당 컨텍스트 변수를 기반으로 사용자를 분할하는 필터를 추가합니다.
+4. **연중 일자** 또는 **시간** 카테고리에서 비교를 선택합니다.
+
+컨텍스트 변수에 선언된 유형이 없는 경우 Braze는 **연중 일자** 및 **시간**을 포함한 사용 가능한 모든 비교 유형을 드롭다운에 표시합니다. 변수가 컨텍스트 단계에서 **시간** 유형으로 선언된 경우 **연중 일자** 및 **시간** 비교만 표시됩니다. 알려진 유형이 있는 다른 데이터 유형(예: 시간 유형의 중첩 커스텀 속성)의 경우 해당 유형에 적용되는 비교만 표시됩니다.
 
 {% alert note %}
 컨텍스트 변수와 비교에 동일한 데이터 유형을 사용하세요. 예를 들어, 컨텍스트 변수가 시간 데이터 유형인 경우 시간 비교("이전" 또는 "이후" 등)를 사용하세요. 일치하지 않는 데이터 유형(예: 시간 컨텍스트 변수에 문자열 비교)을 사용하면 예기치 않은 동작이 발생할 수 있습니다.
 {% endalert %}
 
 {% multi_lang_include alerts/important_alerts.md alert='time filter types' %}
-
-다음은 컨텍스트 변수 `product_name`을 정규식 `/braze/`와 비교하는 컨텍스트 변수 필터의 예시입니다.
-
-![컨텍스트 변수 "product_name"이 정규식 "/braze/"와 일치하도록 설정된 필터.]({% image_buster /assets/img/context_variable_filter1.png %}){: style="max-width:90%;"}
 
 #### 컨텍스트 변수 또는 커스텀 속성과 비교 {#comparing-to-context-variables-or-custom-attributes}
 
@@ -218,7 +229,7 @@ Canvas 컨텍스트 변수에 사전 정의된 유형이 있는 것과 마찬가
 
 ## 시간대 일관성 표준화 {#time-zone-consistency-standardization}
 
-타임스탬프 유형을 사용하는 대부분의 이벤트 등록정보는 Canvas에서 이미 UTC로 되어 있지만 일부 예외가 있습니다. Canvas 컨텍스트의 추가로 인해 동작 기반 Canvases의 모든 기본 타임스탬프 이벤트 등록정보가 일관되게 UTC로 표시됩니다. 이 변경은 캔버스 단계와 메시지를 편집할 때 보다 예측 가능하고 일관된 경험을 보장하기 위한 광범위한 노력의 일환입니다. 이 변경은 특정 Canvas가 컨텍스트 단계를 사용하는지 여부에 관계없이 모든 동작 기반 Canvases에 영향을 미칩니다.
+타임스탬프 유형을 사용하는 대부분의 이벤트 속성정보는 Canvas에서 이미 UTC로 되어 있지만 일부 예외가 있습니다. Canvas 컨텍스트의 추가로 인해 동작 기반 Canvases의 모든 기본 타임스탬프 이벤트 속성정보가 일관되게 UTC로 표시됩니다. 이 변경은 캔버스 단계와 메시지를 편집할 때 보다 예측 가능하고 일관된 경험을 보장하기 위한 광범위한 노력의 일환입니다. 이 변경은 특정 Canvas가 컨텍스트 단계를 사용하는지 여부에 관계없이 모든 동작 기반 Canvases에 영향을 미칩니다.
 
 {% alert important %}
 모든 상황에서 타임스탬프가 원하는 시간대로 표시되도록 [Liquid time_zone 필터]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties#things-to-know)를 사용하는 것을 강력히 권장합니다. 예시는 [컨텍스트 단계 문서의 자주 묻는 질문]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#faq-example)을 참조하세요.

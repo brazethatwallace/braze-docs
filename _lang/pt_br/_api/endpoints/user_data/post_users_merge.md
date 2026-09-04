@@ -1,12 +1,11 @@
 ---
 nav_title: "POST: Mesclar usuários"
-article_title: "POST: Mesclar usuários"
+article_title: "Mesclar usuários"
 search_tag: Endpoint
 page_order: 6
 layout: api_page
 page_type: reference
 description: "Este artigo traz informações sobre o endpoint da Braze \"Mesclar usuários\"."
-
 ---
 {% api %}
 # Mesclar usuários {#merge-users}
@@ -22,7 +21,7 @@ Até 50 mesclagens podem ser especificadas por solicitação. Este endpoint é a
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/api_key) com a permissão `users.merge`.
+Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics) com a permissão `users.merge`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -43,14 +42,14 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 |---|---|---|---|
-| `merge_updates` | Obrigatória | Vetor | Um vetor de objetos. Cada objeto deve conter um objeto `identifier_to_merge` e um objeto `identifier_to_keep`, cada um dos quais deve fazer referência a um usuário por `external_id`, `user_alias`, `phone` ou `email`. |
+| `merge_updates` | Obrigatório | Vetor | Um vetor de objetos. Cada objeto deve conter um objeto `identifier_to_merge` e um objeto `identifier_to_keep`, cada um dos quais deve fazer referência a um usuário por `external_id`, `user_alias`, `phone` ou `email`. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ### Comportamento de mesclagem {#merge-behavior}
 
-O comportamento documentado abaixo é verdadeiro para todos os recursos da Braze que **não são** alimentados pelo Snowflake. As mesclagens de usuários não serão refletidas na guia **Histórico de mensagens**, Extensões de segmento, Criador de consultas e Currents.
+O comportamento documentado abaixo é verdadeiro para todos os recursos da Braze que **não são** alimentados pelo Snowflake. As mesclagens de usuários não serão refletidas na guia **Histórico de mensagens**, extensões de segmento, Criador de consultas e Currents.
 
 {% alert important %}
 O endpoint não garante a sequência de atualização dos objetos `merge_updates`.
@@ -94,7 +93,7 @@ Este endpoint mescla os seguintes campos se eles não forem encontrados no usuá
 Ao mesclar usuários, o uso do endpoint `/users/merge` funciona da mesma forma que o [método `changeUser()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser).
 {% endalert %}
 
-A Braze lida com três tipos de usuários de forma diferente ao mesclar: usuários marcados para exclusão, usuários teste e usuários do Grupo de controle global. Para saber mais, consulte [Comportamento de mesclagem de usuários]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior).
+A Braze lida com três tipos de usuários de forma diferente ao mesclar: usuários marcados para exclusão, usuários teste e usuários do grupo de controle global. Para saber mais, consulte [Comportamento de mesclagem de usuários]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior).
 
 #### Comportamento da data do evento personalizado e da data do evento de compra {#custom-event-date-and-purchase-event-date-behavior}
 

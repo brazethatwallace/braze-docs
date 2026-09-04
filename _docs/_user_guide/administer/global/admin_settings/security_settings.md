@@ -5,14 +5,13 @@ page_order: 2
 toc_headers: h2
 page_type: reference
 description: "This reference article covers generic cross-company security settings, including authentication rules, IP allowlisting, PII, and two-factor authentication (2FA)."
-
 ---
 
 # Security settings
 
 > As an administrator, security is a high priority on your list of concerns. The **Security Settings** page can help you manage the generic, cross-company security settings, including authentication rules, IP allowlisting, and two-factor authentication.
 
-To access this page, go to **Settings** > **Admin Settings** > **Security Settings**.
+To access this page, go to **Settings** > **Company Settings** > **Admin Settings** > **Security Settings**.
 
 ## Authentication rules
 
@@ -26,7 +25,7 @@ Select **Enforce complex passwords** to require passwords to include at least on
 - Uppercase letter
 - Lowercase letter
 - Number
-- Special character
+- Special character (any character that is not a letter or number, such as `!`, `@`, `#`, or `(`)
 
 ### Password re-usability
 
@@ -46,7 +45,7 @@ You can restrict your users from logging in using a password or SSO.
 
 For [SAML SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on), customers need to set up their SAML settings before enforcing. If customers use Google SSO, they only need to enforce the security settings page with no additional lift.
 
-## Dashboard IP allowlisting
+## Dashboard IP allowlisting {#dashboard-ip-allowlisting}
 
 Use the field shown to allowlist specific IP addresses and subnets from which users can log in to your account (for example, from a company network or VPN). Specify IP addresses and subnets as CIDR ranges in a comma-separated list. If not specified, users can log in from any IP address.
 
@@ -77,7 +76,7 @@ Customers with multiple accounts under a dashboard company may experience issues
 
 If you're having issues logging in with two-factor authentication, contact your company administrators to reset your two-factor authentication. Administrators can perform the following steps:
 
-1. Go to **Settings** > **Company Users**.
+1. Go to **Settings** > **Company Settings** > **User Management** > **Company Users**.
 2. Select the user from the provided list.
 3. Select **Reset** under **Two Factor Authentication**.
 
@@ -85,11 +84,11 @@ A reset can solve common authentication issues such as trouble with authenticato
 
 ### Requirements for 2FA at the company level
 
-First, verify whether 2FA is enabled for your dashboard by going to **Company Settings** > **Security Settings** > **Two Factor Authentication**. If the toggle is gray, 2FA hasn't been turned on for your company and isn't mandatory for all company users.
+First, verify whether 2FA is enabled for your dashboard by going to **Settings** > **Company Settings** > **Admin Settings** > **Security Settings** > **Two-Factor Authentication**. If the toggle is gray, 2FA hasn't been turned on for your company and isn't mandatory for all company users.
 
 #### User options when 2FA isn't mandatory
 
-If 2FA isn't enforced at the company level, individual users can set up 2FA for themselves on their Account Settings page. In this case, users won't be locked out of their accounts if they don't set it up. You can identify which users have opted to enable 2FA by checking the Manage Users page.
+If 2FA isn't enforced at the company level, individual users can set up 2FA for themselves on their Account Settings page. In this case, users won't be locked out of their accounts if they don't set it up. You can identify which users have opted to enable 2FA by checking the **Company Users** list.
 
 #### Requirements when 2FA is mandatory
 
@@ -111,7 +110,7 @@ To manually activate two-factor authentication (2FA) on your Braze account, foll
 
 ## Elevated Access
 
-Elevated Access adds an extra layer of security for sensitive actions in your Braze dashboard. When active, users need to re-verify their account before exporting a segment or viewing an API key. To use Elevated Access, go to **Settings** > **Admin Settings** > **Security Settings** and toggle it on. 
+Elevated Access adds an extra layer of security for sensitive actions in your Braze dashboard. When active, users need to re-verify their account before exporting a segment or viewing an API key. To use Elevated Access, go to **Settings** > **Company Settings** > **Admin Settings** > **Security Settings** and toggle it on. 
 
 If a user can’t re-verify, they’ll be redirected to where they left off and won’t be able to continue with the sensitive action. After they successfully re-verify, they won’t need to do so again for the next hour—unless they log out first.
 
@@ -121,11 +120,11 @@ The Security Event report is a CSV report of security events such as account inv
 
 To download this report, do the following:
 
-1. Go to **Settings** > **Admin Settings**.
-2. Select the **Security Settings** tab and go to the **Security Event Download** section.
+1. Go to **Settings** > **Company Settings** > **Admin Settings** > **Security Settings**.
+2. Go to the **Security Event Download** section.
 3. Select **Download report**. 
 
-This manual report download contains only the most recent 10,000 security events for your account.
+This manual report download contains only the most recent 10,000 security events for your account. If your exported CSV contains exactly 10,001 rows (including the header row), you reached the 10,000-event report cap and older events may not be included.
 
 To export security events to Amazon S3 without this row limit, see [Security events export with Amazon S3]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3).
 
@@ -138,7 +137,7 @@ The Security Event report CSV contains the following columns:
 | CreatedAt | Timestamp when the event was recorded, in UTC. |
 | EmailAtTimeOfEvent | Email address of the dashboard user who triggered the event, as recorded when the event occurred. |
 | CurrentEmail | Current email address of the dashboard user who triggered the event. If the user no longer exists, their developer ID is used instead. |
-| EventName | Type of security event. See the list of reported security events below. |
+| EventName | Type of security event. See the **Reported security events** dropdown after this table. |
 | OtherAccount | Email address of another dashboard user affected by the event, when applicable (for example, when an account is added or removed). |
 | JsonProperties | Event-specific properties in JSON format. The fields included vary by event type. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="CSV column definitions" }
@@ -266,7 +265,7 @@ The **View PII** permission is only accessible to a few select company users. By
 You need the **View PII** permission to use [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/building_queries), because it allows direct access to some customer data.
 {% endalert %}
 
-For the existing team permission capabilities, refer to [Setting user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#available-limited-and-team-role-permissions).
+For the existing team permission capabilities, refer to [Setting user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 
 ### Defining PII
 
@@ -274,7 +273,7 @@ For the existing team permission capabilities, refer to [Setting user permission
 Selecting and defining certain fields as PII fields only affects what users can view on the Braze dashboard and does not impact how the End User data in such PII fields is handled.<br><br>Consult your legal team to align your dashboard's settings with any privacy regulations and policies applicable to your company, including those related to [data retention]({{site.baseurl}}/data_retention).
 {% endalert %}
 
-You can select the fields your company designates as PII in the dashboard. To do this, go to **Company Settings** > **Admin Settings** > **Security Settings**.
+You can select the fields your company designates as PII in the dashboard. To do this, go to **Settings** > **Company Settings** > **Admin Settings** > **Security Settings**.
 
 The following attributes can be designated as PII and hidden from company users who don't have **View PII** permissions.
 
@@ -342,7 +341,7 @@ If you find yourself caught in a loop after successfully entering your phone num
 3. Restart your PC or laptop.
 4. Attempt to set up 2FA again.
 
-If the problem persists after these steps, contact [Support]({{site.baseurl}}/braze_support) for assistance.
+If the problem persists after these steps, contact [Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) for assistance.
 
 ### Can't enable two-factor authentication (2FA)
 
@@ -366,5 +365,9 @@ If issues persist, delete the old profile in the Authy app and scan the QR code 
 
 For more information about authentication and access, see:
 
-- [SAML & single sign-on]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on) to set up SSO with your identity provider.
-- [Permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) to control what actions users can perform in the dashboard.
+{% article_tiles %}
+- name: SAML & single sign-on
+  link: /docs/user_guide/administer/global/saml_single_sign_on
+- name: Permissions
+  link: /docs/user_guide/administer/global/user_management/permissions
+{% endarticle_tiles %}

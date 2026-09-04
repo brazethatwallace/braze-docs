@@ -125,7 +125,7 @@ Ein gültiges Rollenobjekt ist ein JSON-Objekt mit den folgenden Schlüssel-Wert
 | Cards veröffentlichen | `publish_cards` |
 | Segmente bearbeiten | `edit_segments` |
 | Nutzerdaten exportieren | `export_user_data` |
-| Nutzerprofil anzeigen | `view_user_profile` |
+| Kundenprofil anzeigen | `view_user_profile` |
 | Dashboard-Nutzer:innen verwalten | `manage_dashboard_users` |
 | Medienbibliothek-Assets verwalten | `manage_media_library` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Team-Berechtigungsstrings #team" }

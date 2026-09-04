@@ -65,7 +65,7 @@ Beachten Sie, dass durch das Speichern eines Exports der Export nicht sofort aus
 
 Nachdem Ihre Segmente erfolgreich nach Braze exportiert wurden, finden Sie sie als angepasste Attribute in den Nutzerprofilen. Das angepasste Attribut wird mit dem Braze Segment-API-Bezeichner benannt, der bei der Konfiguration der Exportverbindung eingegeben wurde. Zum Beispiel: `"Segment_API_Identifier": "0000-0000-0000"`
 
-Um ein Segment dieser Nutzer:innen in Braze zu erstellen, navigieren Sie zu **Segments**, erstellen Sie ein neues Segment und wählen Sie **Custom Attributes** als Filter. Von hier aus können Sie das mit Dynamics 365 synchronisierte angepasste Attribut auswählen. Nachdem das Segment erstellt wurde, können Sie es als Zielgruppen-Filter auswählen, wenn Sie eine Campaign oder ein Canvas erstellen.
+Um ein Segment dieser Nutzer:innen in Braze zu erstellen, navigieren Sie zu **Segments**, erstellen Sie ein neues Segment und wählen Sie **angepasste Attribute** als Filter. Von hier aus können Sie das mit Dynamics 365 synchronisierte angepasste Attribut auswählen. Nachdem das Segment erstellt wurde, können Sie es als Zielgruppen-Filter auswählen, wenn Sie eine Campaign oder ein Canvas erstellen.
 
 {% alert note %}
 Weitere Informationen zu dieser Integration finden Sie im [Integrationsartikel](https://docs.microsoft.com/en-us/dynamics365/customer-insights/export-braze) zu Braze von Microsoft.

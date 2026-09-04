@@ -15,39 +15,50 @@ Da der Abfrage-Builder direkten Zugriff auf bestimmte Kundendaten ermöglicht, k
 
 ## Verfügbare Datentabellen {#available-data-tables}
 
-Der Abfrage-Builder verwendet dieselben Snowflake-SQL-Tabellen wie [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) und die [Snowflake-Datenfreigabe]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Eine vollständige Liste der verfügbaren Tabellen und ihrer Spalten finden Sie in der [SQL-Tabellenreferenz]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
+Der Abfrage-Builder verwendet dieselben Snowflake-SQL-Tabellen wie [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) und [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Eine vollständige Liste der verfügbaren Tabellen und ihrer Spalten finden Sie in der [SQL-Tabellenreferenz]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
+
+### Kundenprofil-Attribut-Views {#user-profile-attribute-views}
+
+Der Abfrage-Builder und SQL-Segmenterweiterungen enthalten die meisten [Kundenprofil-Attribut-Views]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#user-profile-attribute-views), wie z. B. periodische Snapshots und den Verlauf der Standardattribute.
+
+Zwei Views für angepasste Attribute sind nur über [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/user_attributes) verfügbar:
+
+- `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED`
+- `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED`
+
+Braze schließt diese Views aus dem Abfrage-Builder und den SQL-Segmenterweiterungen aus, da sie auf Workspace-Ebene langsam abgefragt werden und häufig zu Zeitüberschreitungen führen. Verwenden Sie `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED` für Snapshots angepasster Attribute im Abfrage-Builder. Wenn Sie historische oder nahezu in Echtzeit verfügbare Daten zu angepassten Attributen benötigen, fragen Sie die ausgeschlossenen Views stattdessen über Snowflake Data Sharing ab.
 
 ## Berichte im Abfrage-Builder ausführen {#running-reports-in-the-query-builder}
 
 So führen Sie einen Bericht im Abfrage-Builder aus:
 
-1. Gehen Sie zu **Analytics** > **Query Builder**.
-2. Wählen Sie **Create SQL Query**. Wenn Sie Inspiration oder Hilfe beim Erstellen Ihrer Abfrage benötigen, wählen Sie **Query Template** und wählen Sie eine Vorlage aus der Liste. Andernfalls wählen Sie **SQL Editor**, um direkt zum Editor zu gelangen.
+1. Gehen Sie zu **Analytics** > **Abfrage-Builder**.
+2. Wählen Sie **SQL-Abfrage erstellen** aus. Wenn Sie Inspiration oder Hilfe beim Erstellen Ihrer Abfrage benötigen, wählen Sie **Query Template** und dann ein Template aus der Liste aus. Andernfalls wählen Sie **SQL Editor**, um direkt zum Editor zu gelangen.
 3. Ihr Bericht erhält automatisch einen Namen mit dem aktuellen Datum und der Uhrzeit. Bewegen Sie den Mauszeiger über den Namen und wählen Sie <i class="fas fa-pencil" alt="Bearbeiten"></i>, um Ihrer SQL-Abfrage einen aussagekräftigen Namen zu geben.
-4. Schreiben Sie Ihre SQL-Abfrage im Editor oder [lassen Sie sich von KI helfen](#ai-query-builder) über den Tab **AI Query Builder**. Wenn Sie eigenes SQL schreiben, lesen Sie [Eigene SQL-Anfragen schreiben](#custom-sql) für Anforderungen und Ressourcen.
-5. Wählen Sie **Run Query**.
+4. Schreiben Sie Ihre SQL-Abfrage im Editor oder [lassen Sie sich von KI unterstützen](#ai-query-builder) über den Tab **KI-Abfrage-Builder**. Wenn Sie Ihre eigene SQL-Abfrage schreiben, finden Sie unter [Angepasste SQL-Abfragen schreiben](#custom-sql) Anforderungen und Ressourcen.
+5. Wählen Sie **Abfrage ausführen** aus.
 6. Speichern Sie Ihre Abfrage.
-7. Um eine CSV-Datei Ihres Berichts herunterzuladen, wählen Sie **Export**.
+7. Um eine CSV-Datei Ihres Berichts herunterzuladen, wählen Sie **Exportieren** aus.
 
-![Abfrage-Builder mit den Ergebnissen der Vorlagenabfrage „Kanal-Engagement und Umsatz der letzten 30 Tage“.]({% image_buster /assets/img_archive/query_builder.png %})
+![Abfrage-Builder mit den Ergebnissen für die Template-Abfrage „Kanal-Engagement und Umsatz der letzten 30 Tage“.]({% image_buster /assets/img_archive/query_builder.png %})
 
-Ergebnisse jedes Berichts können einmal pro Tag generiert werden. Wenn Sie denselben Bericht mehr als einmal an einem Kalendertag ausführen, sehen Sie in beiden Berichten dieselben Ergebnisse.
+Ergebnisse für jeden Bericht können einmal pro Tag generiert werden. Wenn Sie denselben Bericht mehr als einmal an einem Kalendertag ausführen, sehen Sie in beiden Berichten dieselben Ergebnisse.
 
 ### Abfrage-Templates {#query-templates}
 
-Greifen Sie auf Abfrage-Templates zu, indem Sie beim Erstellen eines Berichts **Create SQL Query** > **Query Template** wählen.
+Greifen Sie auf Abfrage-Templates zu, indem Sie beim Erstellen eines Berichts **SQL-Abfrage erstellen** > **Query Template** auswählen.
 
-Eine Liste der verfügbaren Templates finden Sie unter [Abfrage-Templates]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates).
+Eine Liste der verfügbaren Templates finden Sie unter [Abfrage-Builder-Templates]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates).
 
 ### Datenzeitraum {#data-timeframe}
 
-Abfragen liefern Daten der letzten 60 Tage. Wenn Sie Currents oder die [Snowflake-Datenfreigabe]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake) nutzen, können Sie möglicherweise Daten von bis zu zwei Jahren abfragen – so lange werden Ihre Daten in Snowflake aufbewahrt. Für weitere Details zur erweiterten Datenaufbewahrung wenden Sie sich an Ihren Customer-Success-Manager.
+Abfragen liefern Daten aus den letzten 60 Tagen. Wenn Sie Currents oder [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake) verwenden, können Sie möglicherweise Daten aus bis zu zwei Jahren abfragen – so lange werden Ihre Daten in Snowflake aufbewahrt. Für weitere Details zur erweiterten Datenaufbewahrung wenden Sie sich an Ihren CSM.
 
-### Zeitzone des Abfrage-Builders {#query-builder-time-zone}
+### Zeitzone im Abfrage-Builder {#query-builder-time-zone}
 
-Die Standardzeitzone für Abfragen an unsere Snowflake-Datenbank ist UTC. Daher kann es zu Datenabweichungen zwischen Ihrer Seite **Email Channel Engagement** (die der Zeitzone Ihres Unternehmens folgt) und Ihren Ergebnissen im Abfrage-Builder kommen.
+Die Standardzeitzone für Abfragen in unserer Snowflake-Datenbank ist UTC. Daher kann es zu Datenabweichungen zwischen Ihrer Seite **E-Mail-Kanal-Engagement** (die der Zeitzone Ihres Unternehmens folgt) und Ihren Abfrage-Builder-Ergebnissen kommen.
 
-Um die Zeitzone in Ihren Abfrageergebnissen umzurechnen, fügen Sie das folgende SQL zu Ihrer Abfrage hinzu und passen Sie es an die Zeitzone Ihres Unternehmens an:
+Um die Zeitzone in Ihren Abfrageergebnissen umzurechnen, fügen Sie Ihrer Abfrage das folgende SQL hinzu und passen Sie es an die Zeitzone Ihres Unternehmens an:
 
 {% raw %}
 ```sql
@@ -72,25 +83,33 @@ send_date_sydney;
 
 ### Abfrageverlauf {#query-history}
 
-Der Abschnitt **Query history** im Abfrage-Builder zeigt Ihre zuvor ausgeführten Abfragen an, damit Sie Ihre Arbeit nachverfolgen und wiederverwenden können. Der Abfrageverlauf wird sieben Tage lang aufbewahrt, d. h. Abfragen, die älter als sieben Tage sind, werden automatisch entfernt.
+Der Bereich **Abfrageverlauf** im Abfrage-Builder zeigt Ihre zuvor ausgeführten Abfragen an, damit Sie Ihre Arbeit nachverfolgen und wiederverwenden können. Der Abfrageverlauf wird sieben Tage lang aufbewahrt, d. h. Abfragen, die älter als sieben Tage sind, werden automatisch entfernt.
 
 Wenn Sie die Abfragenutzung über längere Zeiträume prüfen oder Aufzeichnungen über sieben Tage hinaus aufbewahren müssen, empfehlen wir, wichtige Abfrageergebnisse zu exportieren oder zu speichern, bevor sie ablaufen.
 
-## SQL mit dem KI-Abfrage-Builder generieren {#ai-query-builder}
+### Vergleich des Abfrage-Builders mit anderen Berichtsquellen {#comparing-query-builder-with-other-reporting-sources}
 
-Der KI-Abfrage-Builder nutzt [GPT](https://openai.com/gpt-4), betrieben von OpenAI, um SQL für Ihre Abfrage vorzuschlagen.
+Die Ergebnisse des Abfrage-Builders können von anderen Berichtstools abweichen, da sie unterschiedliche Datenquellen und Verarbeitungsmethoden verwenden.
 
-![Der SQL-KI-Abfrage-Builder.]({% image_buster /assets/img_archive/query_builder_ai_tab.png %}){: style="max-width:60%;" }
+Beispielsweise können die Soft-Bounce-Zahlen im Abfrage-Builder höher sein als in SendGrid-Zustellbarkeitsberichten. Der Abfrage-Builder zählt alle Vorkommen von Soft-Bounces ohne Deduplizierung. Wenn bei einer Nutzerin oder einem Nutzer mehrere Soft-Bounces auftreten, bevor die Zustellung schließlich erfolgt (oder nach längeren Wiederholungsversuchen), wird jeder Soft-Bounce-Versuch einzeln gezählt. SendGrid Deliverability verwendet eigene Daten und Logik, in die Braze keinen Einblick hat, sodass die Zahlen zwischen den beiden Berichten möglicherweise nicht übereinstimmen.
+
+Weitere Informationen darüber, wie Soft-Bounces in verschiedenen Berichtsquellen erfasst werden, finden Sie unter [Soft-Bounce]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#soft-bounce) im E-Mail-Analytics-Glossar.
+
+## SQL mit dem KI-Abfrage-Builder generieren {#generating-sql-with-the-ai-query-builder}
+
+Der KI-Abfrage-Builder nutzt [GPT](https://openai.com/gpt-4), unterstützt von OpenAI, um SQL für Ihre Abfrage vorzuschlagen.
+
+![Der KI-Abfrage-Builder für SQL.]({% image_buster /assets/img_archive/query_builder_ai_tab.png %}){: style="max-width:60%;" }
 
 So generieren Sie SQL mit dem KI-Abfrage-Builder:
 
-1. Nachdem Sie einen Bericht im Abfrage-Builder erstellt haben, wählen Sie den Tab **AI Query Builder**.
-2. Geben Sie Ihren Prompt ein oder wählen Sie einen Beispiel-Prompt und wählen Sie **Generate**, um Ihren Prompt in SQL zu übersetzen.
+1. Nachdem Sie einen Bericht im Abfrage-Builder erstellt haben, wählen Sie den Tab **KI Query Builder** aus.
+2. Geben Sie Ihren Prompt ein oder wählen Sie einen Beispiel-Prompt aus und wählen Sie **Generate**, um Ihren Prompt in SQL zu übersetzen.
 3. Überprüfen Sie das generierte SQL, um sicherzustellen, dass es korrekt aussieht, und wählen Sie dann **Insert into Editor**.
 
 ### Tipps {#tips}
 
-- Machen Sie sich mit den verfügbaren Tabellen und Spalten in der [SQL-Tabellenreferenz]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables) vertraut. Wenn Sie nach Daten fragen, die in diesen Tabellen nicht existieren, kann ChatGPT eine fiktive Tabelle erfinden.
+- Machen Sie sich mit den verfügbaren Tabellen und Spalten in der [SQL-Tabellenreferenz]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables) vertraut. Wenn Sie nach Daten fragen, die in diesen Tabellen nicht vorhanden sind, kann es vorkommen, dass ChatGPT eine fiktive Tabelle erfindet.
 - Machen Sie sich mit den [SQL-Schreibregeln]({{site.baseurl}}/user_guide/analytics/reports/query_builder#custom-sql) für dieses Feature vertraut. Die Nichteinhaltung dieser Regeln führt zu einem Fehler.
 - Sie können mit dem KI-Abfrage-Builder bis zu 20 Prompts pro Minute senden.
 
@@ -129,7 +148,7 @@ Wenn Sie nach `CANVAS_ID`, `CANVAS_VARIATION_API_ID` oder `CAMPAIGN_ID` abfragen
 | ID-Name | Zugehörige Namensspalte |
 | --- | --- |
 | `CANVAS_ID` | Canvas Name |
-| `CANVAS_VARIATION_API_ID` | Canvas Variant Name |
+| `CANVAS_VARIATION_API_ID` | Canvas-Variante Name |
 | `CAMPAIGN_ID` | Campaign Name |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Eigene SQL-Anfragen schreiben" }
 
@@ -162,17 +181,15 @@ Ihre Abfrage kann aus folgenden Gründen fehlschlagen:
 
 ## Variablen verwenden {#using-variables}
 
-Verwenden Sie Variablen, um vordefinierte Variablentypen in SQL zu nutzen und Werte zu referenzieren, ohne den Wert manuell kopieren zu müssen. Anstatt beispielsweise die ID einer Campaign manuell in den SQL-Editor zu kopieren, können Sie {% raw %}`{{campaign.${My campaign}}}`{% endraw %} verwenden, um eine Campaign direkt aus einem Dropdown im Tab **Variables** auszuwählen.
+Verwenden Sie Variablen, um vordefinierte Variablentypen in SQL zu nutzen und Werte zu referenzieren, ohne sie manuell kopieren zu müssen. Anstatt beispielsweise die ID einer Campaign manuell in den SQL-Editor zu kopieren, können Sie {% raw %}`{{campaign.${My campaign}}}`{% endraw %} verwenden, um eine Campaign direkt aus einem Dropdown im Tab **Variablen** auszuwählen.
 
-Nachdem eine Variable erstellt wurde, erscheint sie im Tab **Variables** Ihres Abfrage-Builder-Berichts. Vorteile der Verwendung von SQL-Variablen:
+Nachdem eine Variable erstellt wurde, erscheint sie im Tab **Variablen** Ihres Abfrage-Builder-Berichts. Die Vorteile der Verwendung von SQL-Variablen umfassen:
 
-- Sparen Sie Zeit, indem Sie eine Campaign-Variable erstellen, aus der Sie beim Erstellen Ihres Berichts auswählen können, anstatt Campaign-IDs einzufügen.
-- Tauschen Sie Werte aus, indem Sie Variablen hinzufügen, mit denen Sie den Bericht für leicht unterschiedliche Anwendungsfälle in der Zukunft wiederverwenden können (z. B. ein anderes angepasstes Event).
-- Reduzieren Sie Nutzer:innenfehler beim Bearbeiten Ihres SQL, indem Sie den Bearbeitungsaufwand für jeden Bericht verringern. Teammitglieder, die sich mit SQL besser auskennen, können Berichte erstellen, die weniger technisch versierte Teammitglieder dann nutzen können.
+{% multi_lang_include analytics/sql_variables_benefits.md %}
 
 ### Richtlinien {#guidelines}
 
-Variablen müssen der folgenden Liquid-Syntax entsprechen: {% raw %}`{{ type.${name}}}`{% endraw %}, wobei `type` einer der akzeptierten Typen sein muss und `name` frei wählbar ist. Die Bezeichnungen dieser Variablen entsprechen standardmäßig dem Variablennamen.
+Variablen müssen der folgenden Liquid-Syntax entsprechen: {% raw %}`{{ type.${name}}}`{% endraw %}, wobei `type` einer der akzeptierten Typen sein muss und `name` frei wählbar ist. Die Labels für diese Variablen entsprechen standardmäßig dem Variablennamen.
 
 Standardmäßig sind alle Variablen Pflichtfelder (und Ihr Bericht wird nicht ausgeführt, wenn keine Variablenwerte ausgewählt sind), mit Ausnahme des Datumsbereichs, der standardmäßig die letzten 30 Tage umfasst, wenn kein Wert angegeben wird.
 
@@ -201,7 +218,7 @@ Die folgenden Variablentypen werden akzeptiert:
 
 #### Datumsbereich {#date-range}
 
-Wenn Sie sowohl `start_date` als auch `end_date` verwenden, müssen sie denselben Namen haben, damit Sie sie als Datumsbereich nutzen können.
+Wenn sowohl `start_date` als auch `end_date` verwendet werden, müssen sie denselben Namen haben, damit sie als Datumsbereich verwendet werden können.
 
 ##### Beispielwerte {#example-values}
 
@@ -218,66 +235,66 @@ Alle vier Typen werden angezeigt, wenn sowohl `start_date` als auch `end_date` m
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Beispielwerte" }
 
 - **Ersetzungswert:** Ersetzt `start_date` und `end_date` durch einen Unix-Zeitstempel in Sekunden für ein angegebenes Datum in UTC, z. B. `1696517353`.
-- **Verwendungsbeispiel:** Für alle Variablen – relativ, Startdatum, Enddatum und Datumsbereich:
+- **Verwendungsbeispiel:** Für alle Variablentypen – relativ, Startdatum, Enddatum und Datumsbereich:
     - {% raw %}`time > {{start_date.${some name}}} AND time < {{end_date.${some name}}}` {% endraw %}
         - Sie können entweder `start_date` oder `end_date` verwenden, wenn Sie keinen Datumsbereich benötigen.
 
 #### Messaging {#messaging}
 
-Alle Messaging-Variablen müssen denselben Bezeichner teilen, wenn Sie ihren Zustand in einer Gruppe verknüpfen möchten.
+Alle Messaging-Variablen müssen denselben Bezeichner verwenden, wenn Sie ihren Zustand in einer Gruppe zusammenfassen möchten.
 
-##### Canvas
+##### Canvas {#canvas}
 
-Zur Auswahl eines Canvas. Wenn derselbe Name wie bei einer Campaign verwendet wird, erscheint im Tab **Variables** ein Optionsfeld zur Auswahl von entweder Canvas oder Campaign.
+Zur Auswahl eines Canvas. Wenn derselbe Name wie bei einer Campaign verwendet wird, erscheint im Tab **Variablen** ein Optionsfeld zur Auswahl von entweder Canvas oder Campaign.
 
 - **Ersetzungswert:** Canvas-BSON-ID
 - **Verwendungsbeispiel:** {% raw %}`canvas_id = '{{canvas.${some name}}}'`{% endraw %}
 
-##### Canvases
+##### Canvases {#canvases}
 
-Zur Auswahl mehrerer Canvases. Wenn derselbe Name wie bei einer Campaign verwendet wird, erscheint im Tab **Variables** ein Optionsfeld zur Auswahl von entweder Canvas oder Campaign.
+Zur Auswahl mehrerer Canvases. Wenn derselbe Name wie bei einer Campaign verwendet wird, erscheint im Tab **Variablen** ein Optionsfeld zur Auswahl von entweder Canvas oder Campaign.
 
 - **Ersetzungswert:** Canvases-BSON-IDs
 - **Verwendungsbeispiel:** {% raw %}`canvas_id IN ({{canvases.${some name}}})`{% endraw %}
 
-##### Campaign
+##### Campaign {#campaign}
 
-Zur Auswahl einer Campaign. Wenn derselbe Name wie bei einem Canvas verwendet wird, erscheint im Tab **Variables** ein Optionsfeld zur Auswahl von entweder Canvas oder Campaign.
+Zur Auswahl einer Campaign. Wenn derselbe Name wie bei einem Canvas verwendet wird, erscheint im Tab **Variablen** ein Optionsfeld zur Auswahl von entweder Canvas oder Campaign.
 
 - **Ersetzungswert:** Campaign-BSON-ID
 - **Verwendungsbeispiel:** {% raw %}`campaign_id = '{{campaign.${some name}}}'`{% endraw %}
 
-##### Campaigns
+##### Campaigns {#campaigns}
 
-Zur Mehrfachauswahl von Campaigns. Wenn derselbe Name wie bei einem Canvas verwendet wird, erscheint im Tab **Variables** ein Optionsfeld zur Auswahl von entweder Canvas oder Campaign.
+Zur Mehrfachauswahl von Campaigns. Wenn derselbe Name wie bei einem Canvas verwendet wird, erscheint im Tab **Variablen** ein Optionsfeld zur Auswahl von entweder Canvas oder Campaign.
 
 - **Ersetzungswert:** Campaigns-BSON-IDs
 - **Verwendungsbeispiel:** {% raw %}`campaign_id IN ({{campaigns.${some name}}})`{% endraw %}
 
 ##### Kampagnenvarianten {#campaign-variants}
 
-Zur Auswahl von Kampagnenvarianten, die zur ausgewählten Campaign gehören. Muss in Verbindung mit einer Campaign- oder Campaigns-Variable verwendet werden.
+Zur Auswahl von Kampagnenvarianten, die zur ausgewählten Campaign gehören. Diese Variable muss in Verbindung mit einer Campaign- oder Campaigns-Variable verwendet werden.
 
 - **Ersetzungswert:** API-IDs der Kampagnenvarianten, durch Kommas getrennte Strings wie `api-id1, api-id2`.
 - **Verwendungsbeispiel:** {% raw %}`message_variation_api_id IN ({{campaign_variants.${some name}}})`{% endraw %}
 
 ##### Canvas-Varianten {#canvas-variants}
 
-Zur Auswahl von Canvas-Varianten, die zu einem gewählten Canvas gehören. Muss mit einer Canvas- oder Canvases-Variable verwendet werden.
+Zur Auswahl von Canvas-Varianten, die zu einem ausgewählten Canvas gehören. Diese Variable muss mit einer Canvas- oder Canvases-Variable verwendet werden.
 
 - **Ersetzungswert:** API-IDs der Canvas-Varianten, durch Kommas getrennte Strings wie `api-id1, api-id2`.
 - **Verwendungsbeispiel:** {% raw %}`canvas_variation_api_id IN ({{canvas_variants.${some name}}})`{% endraw %}
 
 ##### Canvas-Schritt {#canvas-step}
 
-Zur Auswahl eines Canvas-Schritts, der zu einem gewählten Canvas gehört. Muss mit einer Canvas-Variable verwendet werden.
+Zur Auswahl eines Canvas-Schritts, der zu einem ausgewählten Canvas gehört. Diese Variable muss mit einer Canvas-Variable verwendet werden.
 
 - **Ersetzungswert:** API-ID des Canvas-Schritts
 - **Verwendungsbeispiel:** {% raw %}`canvas_step_api_id = '{{canvas_step.${some name}}}'`{% endraw %}
 
 ##### Canvas-Schritte {#canvas-steps}
 
-Zur Auswahl von Canvas-Schritten, die zu gewählten Canvases gehören. Muss mit einer Canvas- oder Canvases-Variable verwendet werden.
+Zur Auswahl von Canvas-Schritten, die zu ausgewählten Canvases gehören. Diese Variable muss mit einer Canvas- oder Canvases-Variable verwendet werden.
 
 - **Ersetzungswert:** API-IDs der Canvas-Schritte
 - **Verwendungsbeispiel:** {% raw %}`canvas_step_api_id IN ({{canvas_steps.${some name}}})`{% endraw %}

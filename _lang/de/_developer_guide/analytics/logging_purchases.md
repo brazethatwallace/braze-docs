@@ -8,32 +8,32 @@ description: "Erfahren Sie, wie Sie Einkäufe über das Braze SDK protokollieren
 
 # Einkäufe protokollieren {#log-purchases}
 
-> Erfahren Sie, wie Sie In-App-Käufe über das Braze SDK protokollieren können, damit Sie Ihren Umsatz im Zeitverlauf und über verschiedene Quellen hinweg bestimmen können. So können Sie Nutzer:innen [anhand ihres Lifetime-Value]({{site.baseurl}}/developer_guide/analytics#purchase-events--revenue-tracking) mit angepassten Events, angepassten Attributen und Kauf-Events segmentieren.
+> Erfahren Sie, wie Sie In-App-Käufe über das Braze SDK protokollieren können, damit Sie Ihren Umsatz im Zeitverlauf und über verschiedene Quellen hinweg bestimmen können. So können Sie Nutzer:innen [anhand ihres LTV]({{site.baseurl}}/developer_guide/analytics#purchase-events-revenue-tracking) mit angepassten Events, angepassten Attributen und Kauf-Events segmentieren.
 
 {% alert note %}
 Für Wrapper-SDKs, die nicht aufgeführt sind, verwenden Sie stattdessen die entsprechende native Android- oder Swift-Methode.
 {% endalert %}
 
-Alle gemeldeten Nicht-USD-Währungen werden in Braze auf Basis des Wechselkurses am Tag der Meldung in USD angezeigt. Um eine Währungsumrechnung zu vermeiden, legen Sie die Währung auf USD fest.
+Alle gemeldeten Nicht-USD-Währungen werden in Braze auf Basis des Wechselkurses am Tag der Meldung in USD angezeigt. Informationen zur Dashboard-Konversion, zum Caching und zur Aktualisierung der Wechselkurse finden Sie unter [Währungsumrechnung]({{site.baseurl}}/user_guide/data/activation/events/purchase_events#currency-conversion). Um eine Konversion zu vermeiden, protokollieren Sie Einkäufe mit `USD` als Währungscode.
 
 ## Käufe und Umsätze protokollieren {#logging-purchases-and-revenue}
 
-Um Käufe und Umsätze zu protokollieren, rufen Sie `logPurchase()` nach einem erfolgreichen Kauf in Ihrer App auf. Wenn der Bezeichner des Produkts leer ist, wird der Kauf nicht in Braze protokolliert.
+Um Käufe und Umsätze zu protokollieren, rufen Sie `logPurchase()` nach einem erfolgreichen Kauf in Ihrer App auf. Wenn der Produkt-Bezeichner leer ist, wird der Kauf nicht in Braze protokolliert.
 
 {% tabs %}
 {% tab web %}
-Für eine Standard-Internet-SDK-Implementierung können Sie die folgende Methode verwenden:
+Für eine Standard-Web-SDK-Implementierung können Sie die folgende Methode verwenden:
 
 ```javascript
 braze.logPurchase(product_id, price, "USD", quantity);
 ```
 
-Wenn Sie stattdessen Google Tag Manager verwenden möchten, können Sie den Tag-Typ **Purchase** verwenden, um die [`logPurchase`-Methode](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logpurchase) aufzurufen. Verwenden Sie dieses Tag, um Käufe in Braze zu tracken, und schließen Sie optional Kauf-Details ein. Gehen Sie dazu wie folgt vor:
+Wenn Sie stattdessen Google Tag Manager verwenden möchten, können Sie den Tag-Typ **Purchase** nutzen, um die [`logPurchase`-Methode](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logpurchase) aufzurufen. Verwenden Sie diesen Tag, um Käufe in Braze zu tracken, optional einschließlich Kauf-Details. Gehen Sie dazu wie folgt vor:
 
 1. Die Felder **Product ID** und **Price** sind erforderlich.
 2. Verwenden Sie den Button **Add Row**, um Kauf-Details hinzuzufügen.
 
-![Ein Dialogfeld mit den Konfigurationseinstellungen für Braze Action Tags. Die enthaltenen Einstellungen umfassen „Tag-Typ“, „externe ID“, „Preis“, „Währungscode“, „Menge“ und „Kauf-Details“.]({% image_buster /assets/img/web-gtm/gtm-purchase.png %})
+![Ein Dialogfenster mit den Konfigurationseinstellungen für den Braze-Action-Tag. Zu den Einstellungen gehören „Tag-Typ“, „Externe ID“, „Preis“, „Währungscode“, „Menge“ und „Kauf-Details“.]({% image_buster /assets/img/web-gtm/gtm-purchase.png %})
 {% endtab %}
 
 {% tab android %}
@@ -130,26 +130,26 @@ AppboyBinding.LogPurchase("product_id", "currencyCode", price(decimal));
 {% endtabs %}
 
 {% alert warning %}
-`productID` kann maximal 255 Zeichen lang sein. Wenn der Bezeichner des Produkts leer ist, wird der Kauf außerdem nicht in Braze protokolliert.
+`productID` darf maximal 255 Zeichen lang sein. Wenn der Produkt-Bezeichner leer ist, wird der Kauf nicht in Braze protokolliert.
 {% endalert %}
 
 ### Eigenschaften hinzufügen {#adding-properties}
 
-Sie können Metadaten über Käufe hinzufügen, indem Sie ein Wörterbuch mit den Werten `Int`, `Double`, `String`, `Bool` oder `Date` übergeben.
+Sie können Metadaten zu Käufen hinzufügen, indem Sie ein Dictionary übergeben, das mit `Int`-, `Double`-, `String`-, `Bool`- oder `Date`-Werten befüllt ist.
 
 {% tabs %}
 {% tab web %}
-Für eine Standard-Internet-SDK-Implementierung können Sie die folgende Methode verwenden:
+Für eine Standard-Web-SDK-Implementierung können Sie die folgende Methode verwenden:
 
 ```javascript
 braze.logPurchase(product_id, price, "USD", quantity, {key: "value"});
 ```
 
-Wenn Ihre Website Einkäufe unter Verwendung des Standard-[E-Commerce-Event](https://developers.google.com/analytics/devguides/collection/ga4/ecommerce?client_type=gtm)-Daten-Layer-Artikels in Google Tag Manager protokolliert, können Sie den Tag-Typ **E-commerce Purchase** verwenden. Dieser Aktionstyp protokolliert in Braze einen separaten „Kauf“ für jeden Artikel in der Liste `items`.
+Wenn Ihre Website Käufe mithilfe des Standard-[eCommerce-Events](https://developers.google.com/analytics/devguides/collection/ga4/ecommerce?client_type=gtm) als Data-Layer-Element im Google Tag Manager protokolliert, können Sie den Tag-Typ **E-commerce Purchase** verwenden. Dieser Action-Typ protokolliert einen separaten „Kauf“ in Braze für jeden Artikel, der in der Liste der `items` übermittelt wird.
 
-Sie können auch weitere Eigenschaftsnamen angeben, die Sie als Kauf-Details einbeziehen möchten, indem Sie deren Schlüssel in der Liste der Kauf-Details angeben. Beachten Sie, dass Braze in dem individuellen `item`, das protokolliert wird, nach Kauf-Details sucht, die Sie der Liste hinzugefügt haben.
+Sie können auch zusätzliche Eigenschaftsnamen angeben, die als Kauf-Details einbezogen werden sollen, indem Sie deren Schlüssel in der Liste der Kauf-Details angeben. Beachten Sie, dass Braze innerhalb des einzelnen `item`, das protokolliert wird, nach allen Kauf-Details sucht, die Sie der Liste hinzugefügt haben.
 
-Nehmen wir zum Beispiel die folgende E-Commerce-Nutzlast:
+Betrachten Sie zum Beispiel folgenden eCommerce-Payload:
 
 ```
 items: [{
@@ -161,7 +161,7 @@ items: [{
 }]
 ```
 
-Wenn Sie nur `item_brand` und `item_name` als Kauf-Details übergeben möchten, fügen Sie einfach diese beiden Felder zur Tabelle der Kauf-Details hinzu. Wenn Sie keine Eigenschaften angeben, werden auch keine Kauf-Details im [`logPurchase`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logpurchase)-Aufruf an Braze gesendet.
+Wenn Sie nur `item_brand` und `item_name` als Kauf-Details übergeben möchten, fügen Sie einfach diese beiden Felder der Tabelle für Kauf-Details hinzu. Wenn Sie keine Eigenschaften angeben, werden keine Kauf-Details im [`logPurchase`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logpurchase)-Aufruf an Braze übermittelt.
 {% endtab %}
 
 {% tab android %}
@@ -260,15 +260,15 @@ AppboyBinding.LogPurchase("product_id", "currencyCode", price(decimal), purchase
 
 ### Menge hinzufügen {#adding-quantity}
 
-Standardmäßig ist `quantity` auf `1` eingestellt. Sie können jedoch eine Menge zu Ihren Einkäufen hinzufügen, wenn Kund:innen denselben Einkauf mehrmals in einem einzigen Bezahlvorgang tätigen. Um eine Menge hinzuzufügen, übergeben Sie einen `Int`-Wert an `quantity`.
+Standardmäßig ist `quantity` auf `1` gesetzt. Sie können jedoch eine Menge zu Ihren Käufen hinzufügen, wenn Kund:innen denselben Kauf mehrfach in einem einzelnen Bezahlvorgang tätigen. Um eine Menge hinzuzufügen, übergeben Sie einen `Int`-Wert an `quantity`.
 
-### Verwendung der REST API {#using-the-rest-api}
+### REST API verwenden {#using-the-rest-api}
 
-Sie können auch unsere REST API verwenden, um Einkäufe zu erfassen. Weitere Informationen finden Sie unter [Endpunkte für Nutzerdaten]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data).
+Sie können auch unsere REST API verwenden, um Käufe zu erfassen. Weitere Informationen finden Sie unter [Nutzerdaten-Endpunkte]({{site.baseurl}}/api/endpoints/user_data).
 
-## Bestellungen protokollieren {#logging-orders}
+## Einkäufe auf Bestellebene protokollieren {#logging-orders}
 
-Wenn Sie Einkäufe auf der Bestellebene statt auf der Produktebene protokollieren möchten, können Sie den Bestellnamen oder die Bestellkategorie als `product_id` verwenden. Weitere Informationen finden Sie in unserer [Spezifikation für Kauf-Objekte]({{site.baseurl}}/api/objects_filters/purchase_object#product-id-naming-conventions).
+Wenn Sie Einkäufe auf Bestellebene statt auf Produktebene protokollieren möchten, können Sie den Bestellnamen oder die Bestellkategorie als `product_id` verwenden. Weitere Informationen finden Sie in unserer [Kauf-Objekt-Spezifikation]({{site.baseurl}}/api/objects_filters/purchase_object#naming-conventions).
 
 ## Reservierte Schlüssel {#reserved-keys}
 
@@ -283,7 +283,7 @@ Die folgenden Schlüssel sind reserviert und können nicht als Kauf-Details verw
 
 ## Unterstützte Währungen {#supported-currencies}
 
-Braze unterstützt die folgenden Währungssymbole. Bei Verwendung eines anderen Währungssymbols wird eine Warnung protokolliert, und der Kauf wird nicht in Braze erfasst.
+Braze unterstützt die folgenden Währungssymbole. Jedes andere Währungssymbol, das Sie angeben, protokolliert eine Warnung und der Kauf wird nicht in Braze erfasst.
 
 - `AED`, `AFN`, `ALL`, `AMD`, `ANG`, `AOA`, `ARS`, `AUD`, `AWG`, `AZN`
 - `BAM`, `BBD`, `BDT`, `BGN`, `BHD`, `BIF`, `BMD`, `BND`, `BOB`, `BRL`

@@ -5,7 +5,6 @@ page_order: 2
 channel:
   - webhooks
 description: "This reference article covers when to use User Update versus Braze-to-Braze webhooks and how to create a Braze-to-Braze webhook."
-
 ---
 
 # Create a Braze-to-Braze webhook
@@ -28,7 +27,7 @@ Add [Send to Destination]({{site.baseurl}}/user_guide/messaging/canvas/canvas_co
 
 To update user profiles from within a Canvas, including modifying [Custom attributes]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), recording [Custom events]({{site.baseurl}}/user_guide/data/activation/events/custom_events), or recording [Purchases]({{site.baseurl}}/user_guide/data/activation/events/purchase_events), use [User Update]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) instead of a Braze-to-Braze webhook. 
 
-User Update groups multiple changes together and sends them in batches, making it faster than webhooks. It's easier to set up than a webhook and supports complex updates through its [Advanced JSON composer]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-composer). For example, to count how many times a user has seen a message, use User Update's [Increment and decrement feature]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#increasing-and-decreasing-values) rather than a Braze-to-Braze webhook.
+User Update groups multiple changes together and sends them in batches, making it faster than webhooks. It's easier to set up than a webhook and supports complex updates through its [Advanced JSON composer]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-editor). For example, to count how many times a user has seen a message, use User Update's [Increment and decrement feature]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#increasing-and-decreasing-values) rather than a Braze-to-Braze webhook.
 
 {% alert tip %}
 Add [User Update]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) to your Canvas to update a user's attributes, events, and purchases using a JSON composer.
@@ -36,7 +35,7 @@ Add [User Update]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components
 
 ## When to use a Braze-to-Braze webhook
 
-User Update can handle nearly all the same tasks as a Braze-to-Braze webhook for updating user profiles. For complex updates beyond simple custom attributes, you can use the [Advanced JSON composer]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-composer).
+User Update can handle nearly all the same tasks as a Braze-to-Braze webhook for updating user profiles. For complex updates beyond simple custom attributes, you can use the [Advanced JSON composer]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-editor).
 
 Send to Destination provides a simpler way to trigger a second Canvas from within Canvas without needing webhook configuration.
 
@@ -49,7 +48,7 @@ For user updates inside Canvas, use [User Update]({{site.baseurl}}/user_guide/me
 
 ## Prerequisites
 
-To create a Braze-to-Braze webhook, you need an [API key]({{site.baseurl}}/api/api_key) with permissions for the endpoint you want to reach. For example, to trigger an API-triggered Canvas, you need an API key with the `canvas.trigger.send` permission.
+To create a Braze-to-Braze webhook, you need an [API key]({{site.baseurl}}/api/basics) with permissions for the endpoint you want to reach. For example, to trigger an API-triggered Canvas, you need an API key with the `canvas.trigger.send` permission.
 
 ## Setting up your Braze-to-Braze webhook
 
@@ -64,6 +63,10 @@ The general workflow for creating a Braze-to-Braze webhook follows these steps:
 ## Trigger a second Canvas from an initial Canvas
 
 In this use case, you create two Canvases and use a Braze-to-Braze webhook to trigger the second Canvas from the first. This acts like an entry trigger for when a user reaches a certain point in another Canvas.
+
+{% alert note %}
+The **Interact with Canvas Step** trigger is only available for campaigns, not for action-based Canvas entry. If you need to trigger a Canvas based on a user reaching a specific step in another Canvas, use this Braze-to-Braze webhook approach or the [Send to Destination]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination) Canvas component.
+{% endalert %}
 
 1. Start by creating your second Canvas—the Canvas that should be triggered by your initial Canvas.
 2. For the Canvas **Entry Schedule**, select **API-Triggered**.

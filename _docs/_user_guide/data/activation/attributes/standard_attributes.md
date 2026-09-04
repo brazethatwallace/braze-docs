@@ -65,12 +65,12 @@ These fields manage how a user receives messages across channels. Updating them 
 | `email_subscribe` | String | One of `opted_in` (explicitly registered to receive email), `unsubscribed` (explicitly opted out of email), or `subscribed` (neither opted in nor out). |
 | `push_subscribe` | String | One of `opted_in`, `unsubscribed`, or `subscribed`. Same definitions as `email_subscribe`. |
 | `subscription_groups` | Array of objects | An array where each object has a `subscription_group_id` (string) and a `subscription_state` (`subscribed` or `unsubscribed`). For example: `[{"subscription_group_id": "abc-123", "subscription_state": "subscribed"}]`. |
-| `email_open_tracking_disabled` | Boolean | `true` or `false`. Set to `true` to disable the email open tracking pixel for this user. Available for SparkPost and SendGrid only. |
-| `email_click_tracking_disabled` | Boolean | `true` or `false`. Set to `true` to disable email click tracking for this user. Available for SparkPost and SendGrid only. |
+| `email_open_tracking_disabled` | Boolean | `true` or `false`. Set to `true` to disable the email open tracking pixel for this user. |
+| `email_click_tracking_disabled` | Boolean | `true` or `false`. Set to `true` to disable email click tracking for this user. |
 | `marked_email_as_spam_at` | String | Timestamp at which the user's email was marked as spam. Use [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
-For details on subscription group setup, see [Subscription groups]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-groups).
+For details on subscription group setup, see [Subscription groups]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups).
 
 ## Sessions and engagement
 
@@ -84,7 +84,7 @@ These fields capture when the user first or last engaged with your app. The SDK 
 
 ## Push tokens
 
-Use these fields when migrating push tokens from another platform. After you integrate the Braze SDK, push tokens are captured automatically. For migration guidance, see [Migrating push tokens]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens).
+Use these fields when migrating push tokens from another platform. After you integrate the Braze SDK, push tokens are captured automatically. For migration guidance, see [Migrating push tokens]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens).
 
 | Field | Data type | Format and notes |
 |---|---|---|

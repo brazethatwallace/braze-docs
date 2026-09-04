@@ -7,6 +7,7 @@ page_type: reference
 tool:
   - Testing Tools
 
+
 ---
 
 # [![Curso do Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/regular-expression-basics-for-braze){: style="float:right;width:120px;border:0;" class="noimgborder"} Expressões regulares {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomregular-expression-basics-for-braze-stylefloatrightwidth120pxborder0-classnoimgborder-regular-expressions}
@@ -19,22 +20,22 @@ No curso do Braze Learning vinculado, mostramos como expressões regulares podem
 
 ## Recursos {#resources}
 
-- Curso do Braze Learning sobre [noções básicas de expressões regulares](https://learning.braze.com/regular-expression-basics-for-braze)
-- [Folha de referência de regex]({{site.baseurl}}/regex_cheat_sheet)
+- Curso do Braze Learning [Noções básicas de expressão regular](https://learning.braze.com/regular-expression-basics-for-braze)
+- [Cheat Sheet de Regex]({{site.baseurl}}/regex_cheat_sheet)
 - [Dados de exemplo RTF]({% image_buster /assets/download_file/regex-dummy-data.rtf %})
 
 ## Depurador de regex {#regex-debugger}
 
 {% alert important %}
-Esta ferramenta serve apenas como referência e não garante que a regex corresponda 100% com a plataforma da Braze. Expressões regulares na Braze para segmentação e filtros adicionam automaticamente o modificador `/gi`. O [modificador gi](https://w3schools.sinsixx.com/jsref/jsref_regexp_modifier_gi.asp.htm) é usado para fazer uma busca sem distinção entre maiúsculas e minúsculas de todas as ocorrências de uma expressão regular em uma string.
+Esta ferramenta serve apenas como referência e não garante que a regex corresponda 100% com a plataforma da Braze. As expressões regulares na Braze para segmentação e filtros adicionam automaticamente o modificador `/gi`. O [modificador gi](https://w3schools.sinsixx.com/jsref/jsref_regexp_modifier_gi.asp.htm) é usado para fazer uma busca que não diferencia maiúsculas de minúsculas em todas as ocorrências de uma expressão regular em uma string.
 <br>
-Expressões regulares para propriedades de gatilho de eventos personalizados e filtros de gatilho usam o modificador `/g` (com distinção entre maiúsculas e minúsculas, veja [modificador g](https://www.w3schools.com/jsref/jsref_regexp_g.asp)) e não usam o modificador `/i`. Para busca sem distinção entre maiúsculas e minúsculas em propriedades de gatilho de eventos personalizados e filtros de gatilho, use `(?i)`. Por exemplo, `Matches regex (?i)STOP(?-i)` captura qualquer uso de "STOP" em qualquer combinação de maiúsculas e minúsculas (como "stop", "please stop" e "never stop sending me messages").
+Expressões regulares para propriedades de disparo de eventos personalizados e filtros de disparo usam o modificador `/g` (diferencia maiúsculas de minúsculas, consulte o [modificador g](https://www.w3schools.com/jsref/jsref_regexp_g.asp)) e não usam o modificador `/i`. Para que não haja diferenciação entre maiúsculas e minúsculas em propriedades de disparo de eventos personalizados e filtros de disparo, use `(?i)`. Por exemplo, `Matches regex (?i)STOP(?-i)` captura qualquer uso de "STOP" em qualquer formato de caixa (como "stop", "please stop" e "never stop sending me messages").
 {% endalert %}
 
 {% tabs %}
-{% tab Regex Debugger %}
+{% tab Depurador de regex %}
 <div>
-Este formulário permite validação e teste básicos de expressões regulares.
+Este formulário permite a validação e o teste básico de expressões regulares.
 ​
 Regex:
 ​
@@ -46,7 +47,7 @@ Regex:
  </div>
 </div>
 <br />
-Verificar valor(es): <textarea style="" placeholder="match string" id="regex_text"></textarea><br /><br />
+Verificar valor(es): <textarea style="" placeholder="string de correspondência" id="regex_text"></textarea><br /><br />
 ​
 Resultados correspondentes<span id="reg_count"></span>: <div id="regex_results"></div>
 </div>
@@ -142,7 +143,7 @@ $( document ).ready(function() {
 
 Não. Se o valor estiver em branco, o usuário não será incluído no filtro `does not match regex`.
 
-### Como fazer a correspondência de vários valores exatos (lógica OR) para um atributo personalizado de string? {#how-do-i-match-any-of-several-exact-values-or-logic-for-a-string-custom-attribute}
+### Como faço para corresponder a qualquer um de vários valores exatos (lógica OR) para um atributo personalizado do tipo string? {#how-do-i-match-any-of-several-exact-values-or-logic-for-a-string-custom-attribute}
 
 Use alternância com âncoras de início e fim para que cada valor corresponda exatamente e você não capture correspondências parciais. Por exemplo, para corresponder exatamente a `gold`, `silver` ou `bronze`:
 
@@ -150,16 +151,16 @@ Use alternância com âncoras de início e fim para que cada valor corresponda e
 (^gold$)|(^silver$)|(^bronze$)
 ```
 
-### Como filtrar endereços de e-mail específicos de uma caixa de entrada ao segmentar? {#how-do-i-filter-for-inbox-specific-email-addresses-when-segmenting}
+### Como faço para filtrar endereços de e-mail específicos de uma caixa de entrada ao segmentar? {#how-do-i-filter-for-inbox-specific-email-addresses-when-segmenting}
 
 {% raw %}
-Use o filtro de endereço de e-mail, defina-o como `matches regex`. Em seguida, referencie a regex para endereços de e-mail:
+Use o filtro de endereço de e-mail e defina-o como `matches regex`. Em seguida, referencie o regex para endereços de e-mail:
 
 ```
 [a-zA-Z0-9.+_-]+@[a-zA-Z0-9.-]+\.[a-zA-Z.-]+
 ```
 
-Podemos dividir essa regex nas três partes a seguir:
+Podemos dividir esse regex nas três partes a seguir:
 
 - `[a-zA-Z0-9.+_-]+` é o início do endereço de e-mail antes do caractere arroba `@`. Ou seja, o "name" em "name@example.com".
 - `[a-zA-Z0-9.-]+` é a primeira parte do domínio. Ou seja, o "example" em "name@example.com".
@@ -167,56 +168,64 @@ Podemos dividir essa regex nas três partes a seguir:
 
 {% endraw %}
 
-### Como filtrar endereços de e-mail associados a um domínio específico? {#how-do-i-filter-for-email-addresses-associated-to-a-specific-domain}
+### Como faço para filtrar endereços de e-mail associados a um domínio específico? {#how-do-i-filter-for-email-addresses-associated-to-a-specific-domain}
 
-Digamos que você queira filtrar e-mails que terminam com "@braze.com". Você usaria o filtro de endereço de e-mail, definiria como `matches regex` e inseriria "@braze.com" no campo de regex. O mesmo se aplica a qualquer outro domínio de e-mail.
+Digamos que você queira filtrar e-mails que terminam com "@braze.com". Use o filtro de endereço de e-mail, defina-o como `matches regex` e insira "@braze.com" no campo de regex. O mesmo se aplica a qualquer outro domínio de e-mail.
 
-![Filtro para um endereço de e-mail que corresponde à regex "@braze.com".]({% image_buster /assets/img/regex/regeximg1.png %})
+![Filtro para um endereço de e-mail que corresponde ao regex "@braze.com".]({% image_buster /assets/img/regex/regeximg1.png %})
 
-### Como posso usar strings de filtro numérico para valores ≥ x ou ≤ x? {#how-can-i-use-filter-number-strings-for-values-x-or-x}
+### Como posso usar filtros de strings numéricas para valores ≥ x ou ≤ x? {#how-can-i-use-filter-number-strings-for-values-x-or-x}
 
-Se você está buscando valores maiores ou iguais a (≥) x, use a seguinte regex:
+Se você está buscando valores maiores ou iguais a (≥) x, use o seguinte regex:
 
 ```
 ^([x-y]|\d{z,})$
 ```
 
-Onde `x-y` é o intervalo de números (0-9) do primeiro dígito, e `z` é um a mais que o número de dígitos de x. Por exemplo, para valores maiores ou iguais a 50, a regex seria `^([5-9][0-9]|\d{3,})$`.
+Onde `x-y` é o intervalo de números (0-9) do primeiro dígito, e `z` é um a mais que o número de dígitos de x. Por exemplo, para valores maiores ou iguais a 50, o regex seria `^([5-9][0-9]|\d{3,})$`.
 
-Se você está buscando valores menores ou iguais a (≤) x, use a seguinte regex:
+Se você está buscando valores menores ou iguais a (≤) x, use o seguinte regex:
 
 ```
 ^([x-y]|[a-b])$
 ```
 
-Onde `x-y` é o intervalo de números (0-9) do primeiro dígito, e `a-b` é o intervalo do limite inferior de x. Por exemplo, para valores menores ou iguais a 50, a regex seria `^([5-9][0-9]|[0-4][0-9])$`.
+Onde `x-y` é o intervalo de números (0-9) do primeiro dígito, e `a-b` é o intervalo inferior de x. Por exemplo, para valores menores ou iguais a 50, o regex seria `^([5-9][0-9]|[0-4][0-9])$`.
 
-### Como filtrar atributos personalizados que começam com uma string específica? {#how-do-i-filter-custom-attributes-that-start-with-a-specific-string}
+### Como faço para filtrar atributos personalizados que começam com uma string específica? {#how-do-i-filter-custom-attributes-that-start-with-a-specific-string}
 
-Use o símbolo de circunflexo (`^`) para indicar com o que a string começa e, em seguida, insira o nome do atributo personalizado que deseja especificar.
+Use o símbolo circunflexo (`^`) para indicar o início da string e insira o nome do atributo personalizado que deseja especificar.
 
-Por exemplo, se você está tentando segmentar usuários que moram em cidades que começam com "San", sua regex seria `^San \w`. Com essa regex, você segmentaria com sucesso usuários de cidades como San Francisco, San Diego, San Jose e assim por diante.
+Por exemplo, se você está tentando segmentar usuários que moram em cidades que começam com "San", seu regex seria `^San \w`. Com esse regex, você segmentaria com sucesso usuários de cidades como San Francisco, San Diego, San Jose, e assim por diante.
 
-![Filtro para uma cidade que corresponde à regex "^San \w".]({% image_buster /assets/img/regex/regeximg2.png %})
+![Filtro para uma cidade que corresponde ao regex "^San \w".]({% image_buster /assets/img/regex/regeximg2.png %})
 
-### Como filtrar números de telefone específicos? {#how-do-i-filter-for-specific-phone-numbers}
+### Como faço para filtrar números de telefone específicos? {#how-do-i-filter-for-specific-phone-numbers}
 
-Antes de usar regex para filtrar números de telefone, lembre-se de que os números registrados nos perfis de usuário devem estar no formato [E.164](https://en.wikipedia.org/wiki/E.164), conforme especificado em [Números de telefone de usuários]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers).
+Antes de usar regex para filtrar números de telefone, lembre-se de que os números registrados nos perfis de usuário devem estar no formato [E.164](https://en.wikipedia.org/wiki/E.164), conforme especificado em [Números de telefone do usuário]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers).
 
 Supondo que você esteja buscando números de telefone dos EUA, use o formato de regex `1?\d\d\d\d\d\d\d\d\d\d`, onde cada repetição de `\d` é um dígito que você deseja especificar. Os três primeiros dígitos são o código de área.
 
-Da mesma forma, o formato para números de telefone do Reino Unido é `^\+4\d\d\d\d\d\d\d\d\d\d\d`. Qualquer outro país seria o respectivo código do país, seguido pelo número necessário de repetições de `\d` para cada dígito restante. Então, no caso da Lituânia, com código de país "3", a regex seria `^\+3\d\d\d\d\d\d\d\d\d\d`.
+Da mesma forma, o formato para números de telefone do Reino Unido é `^\+4\d\d\d\d\d\d\d\d\d\d\d`. Qualquer outro país seria o respectivo código do país, seguido pelo número necessário de repetições de `\d` para cada dígito restante. Então, no caso da Lituânia, com código de país "3", o regex seria `^\+3\d\d\d\d\d\d\d\d\d\d`.
 
-Se os seus números de celular do Reino Unido estiverem armazenados sem o `+` inicial, no formato comum começando com `447` (por exemplo, `447123456789`), você pode fazer a correspondência com:
+Se seus números de celular do Reino Unido estiverem armazenados sem o `+` inicial, no formato comum começando com `447` (por exemplo, `447123456789`), você pode correspondê-los com:
 
 ```
 ^447\d{9}$
 ```
 
-Por exemplo, digamos que você queira filtrar usuários por número de telefone para um código de área específico, "718". Use o filtro de número de telefone, defina-o como `matches regex` e insira a seguinte regex:
+Por exemplo, digamos que você queira filtrar usuários por número de telefone para um código de área específico, "718". Use o filtro de número de telefone, defina-o como `matches regex` e insira o seguinte regex:
 
 ```
 ^1?718\d\d\d\d\d\d\d
 ```
 
-![Filtro para um número de telefone que corresponde à regex "^1?718\d\d\d\d\d\d\d".]({% image_buster /assets/img/regex/regeximg3.png %})
+![Filtro para um número de telefone que corresponde ao regex "^1?718\d\d\d\d\d\d\d".]({% image_buster /assets/img/regex/regeximg3.png %})
+
+### Qual é a diferença da correspondência regex entre Segments e propriedades de disparo de eventos personalizados? {#how-does-regex-matching-differ-between-segments-and-custom-event-trigger-properties}
+
+Os filtros de Segment aplicam automaticamente correspondência sem distinção entre maiúsculas e minúsculas (equivalente ao modificador `/gi`). As propriedades de disparo de eventos personalizados e os filtros de disparo usam correspondência com distinção entre maiúsculas e minúsculas (equivalente apenas ao `/g`).
+
+Se você precisar de correspondência sem distinção entre maiúsculas e minúsculas em uma propriedade de disparo, use flags inline no seu padrão — por exemplo, `(?i)STOP(?-i)` para corresponder a `stop`, `STOP` ou `Stop`.
+
+Para mais exemplos, consulte a nota na seção [Depurador de regex](#regex-debugger).

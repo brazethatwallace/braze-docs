@@ -8,36 +8,36 @@ description: "このリファレンス記事では、ShopifyからBrazeカタロ
 
 # Shopify商品同期 {#shopify-product-sync}
 
-> Shopifyストアのすべての商品をBrazeの[カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs/)に同期し、より深いメッセージングパーソナライゼーションを実現できます。
+> Shopifyストアのすべての商品をBrazeの[カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs)に同期し、より深いメッセージングパーソナライゼーションを実現できます。
 
 Shopifyカタログは、Shopifyストア内の商品に編集や変更を加えると、ほぼリアルタイムで更新されます。カート放棄や注文確認などを、最新の商品詳細や情報で強化できます。
 
-[コアのShopify商品データ](#supported-shopify-catalog-data)のサポートに加えて、Shopifyコレクション、商品タグ、商品メタフィールドをBrazeカタログに同期できます。これらの追加フィールドにより、よりリッチなパーソナライゼーション、より正確なカタログセレクション、[セグメントエクステンション]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension/)を通じたより強力なセグメンテーションが可能になります。
+[コアのShopify商品データ](#supported-shopify-catalog-data)のサポートに加えて、Shopifyコレクション、商品タグ、商品メタフィールドをBrazeカタログに同期できます。これらの追加フィールドにより、よりリッチなパーソナライゼーション、より正確なカタログセレクション、[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension)を通じたより強力なセグメンテーションが可能になります。
 
 ## Shopify商品同期を設定する {#set-up}
 
-Shopifyストアがすでにインストールされている場合でも、以下の手順に従って商品を同期できます。
+Shopifyストアがすでにインストールされている場合でも、このセクションの手順に従って商品を同期できます。
 
 ### ステップ1: 同期をオンにする {#step-1-turn-on-the-sync}
 
-Shopifyのインストールフローまたはshopifyパートナーページで、商品をBrazeカタログに同期できます。
+ShopifyのインストールフローまたはShopifyパートナーページで、商品をBrazeカタログに同期できます。
 
 ![設定プロセスのステップ3。「カタログの商品識別子」に「Shopify Variant ID」が設定されている。]({% image_buster /assets/img/shopify/sync_products_step1.png %})
 
 ### ステップ2: 商品識別子を選択する {#step-2-select-your-product-identifier}
 
-カタログIDとして使用する商品識別子を選択します。
-- ShopifyバリアントID
-- SKU
+BrazeカタログIDとして使用するプライマリ商品識別子を選択します。
 
-選択する商品識別子のIDとヘッダーの値には、文字、数字、ハイフン、アンダースコアのみを使用できます。商品識別子がこの形式に従っていない場合、Brazeはカタログの同期からその識別子を除外します。
+- **Shopify Variant ID**は、SKUが欠落している場合、バリアント間で重複している場合、またはスラッシュ、ピリオド、スペース、アンパサンドなどの文字を含む可能性がある場合に適したデフォルトです。バリアントIDは数値であり、常にこれらの要件を満たします。
+- **SKU**は、すべてのバリアントにShopify Variant IDと同じ文字ルールに従う一意のSKUがあり、メッセージングや分析で小売SKUをカタログキーとして使用したい場合に適しています。
+  - 許可されていない文字を含むフリーテキストSKUは、SKUの代わりにShopify Variant IDを使用することで対応できます。
 
-これは、Brazeカタログ情報を参照するときに使用する主要な識別子です。
+選択した値はカタログの`item_id`となり、文字、数字、ハイフン、アンダースコアのみを含めることができます。
 
 {% alert note %}
-カタログIDとしてSKUを選択する場合は、ストア内のすべての商品とバリアントにSKUが設定されており、それらが一意であることを確認してください。<br><br>
+カタログIDとしてSKUを使用する場合は、ストア内のすべての商品とバリアントにSKUが設定されており、それらが一意であることを確認してください。<br><br>
 - アイテムにSKUが設定されていない場合、Brazeはその商品をカタログに同期できません。
-- 同じSKUを持つ複数の商品がある場合、予期しない動作が発生したり、重複したSKUによって意図せず商品情報が上書きされる可能性があります。
+- 同じSKUを持つ複数の商品がある場合、予期しない動作が発生したり、意図せず商品情報が上書きされる可能性があります。
 {% endalert %}
 
 ### ステップ3: 追加の商品データを設定する（オプション） {#step-3}
@@ -95,7 +95,7 @@ Brazeは以下のメタフィールドオブジェクトとそれぞれのタイ
 | `url`, `list.url`                                | 文字列（URL）、文字列の配列（URL）                      |
 | `metaobject_reference`, `list.metaobject_reference` | 文字列、文字列の配列                                |
 | `mixed_reference`, `list.mixed_reference`        | 文字列、文字列の配列                                    |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ3: 追加の商品データを設定する（オプション） #step-3" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ3: 追加の商品データを設定する（オプション）" }
 
 {% endsubtab %}
 {% subtab サポートされていないメタフィールド %}
@@ -166,75 +166,75 @@ Shopifyパートナーページから、商品タグ、コレクション、商�
 
 ## サポートされているShopifyカタログデータ {#supported-shopify-catalog-data}
 
-| フィールド | データタイプ | 例 |
+| フィールド | データ型 | 例 |
 |----------------------|----------------|-----------------------------------------------------------------------------------|
-| `id`                 | 文字列         | カタログの商品識別子が**ShopifyバリアントID**の場合は`45264808411274`<br><br>カタログの商品識別子が**SKU**の場合は`12345`（[ステップ2](#step-2-select-your-product-identifier)で選択した値と一致します） |
-| `store_name`         | 文字列         | "your-store"（Shopifyストアのサブドメイン、`.myshopify.com`なし）                |
-| `shopify_product_id` | 数値           | `7939032613002`（Brazeカタログでは数値として保存されます。Shopify APIはこのIDを文字列として返す場合があります） |
-| `shopify_variant_id` | 数値           | `45264808411274`（Brazeカタログでは数値として保存されます。Shopify APIはこのIDを文字列として返す場合があります） |
-| `product_title`      | 文字列         | "Classic leather jacket"                                                      |
-| `variant_title`      | 文字列         | "Large / Red"、"Medium"、または単一バリアント商品の場合は"Default Title"     |
-| `status`             | 文字列         | "active"、"draft"、"archived"                                                     |
-| `product_image_url`  | 文字列         | "https://cdn.shopify.com/s/files/1/0641/0970/7402/files/t_shir.jpg?v=1736538760" |
-| `variant_image_url`  | 文字列         | バリアント画像が存在しない場合は商品画像と同じCDNスタイルのURL。それ以外の場合はバリアント固有の画像URL |
-| `vendor`             | 文字列         | "Flash and Thread"、"PantsLabyrinth"                                            |
-| `product_type`       | 文字列         | "Outerwear"、"T-Shirts"（Shopifyの商品の**Product type**から取得）      |
-| `product_url`        | 文字列         | "https://your-store.myshopify.com/products/classic-leather-jacket"            |
-| `product_handle`     | 文字列         | "classic-leather-jacket"                                                          |
-| `published_scope`    | 文字列         | "web"、"global"                                                                   |
-| `price`              | 数値           | `10.00`、`24.99`<br><br>Shopifyは価格を文字列として返すことが多いです（例: REST Admin APIでの`"199.00"`）。Brazeはこのカタログフィールドでは数値に変換します。 |
-| `compare_at_price`   | 数値           | Shopifyで**Compare at price**が設定されている場合は`15.00`<br><br>Shopifyに比較価格が設定されていない場合は`0`。Shopify APIは未設定の比較価格に対して通常`null`を返しますが、Brazeはフィールドが常に数値になるようにカタログに`0`を保存します（これはBrazeのデフォルトであり、Shopifyが`0`として送信する値ではありません）。 |
-| `inventory_quantity` | 数値           | `20`、`0`、または過剰販売が許可されている場合は負の値（例: `-18`）   |
-| `options`            | 文字列         | "Size,Color"<br><br>Shopifyでは商品ごとに最大3つのオプションタイプを設定できます（例: Size、Color、Material）。`options`の値はそれらの名前のカンマ区切りリストです。 |
-| `option_values`      | 文字列         | "Medium,Red"、"Large,Red"<br><br>各値は`options`と同じ順序に対応します（最大3つの値）。 |
-| `sku`                | 文字列         | "12345"、"SKU-001-RED-L"                                                    |
-| `product_tags`       | 配列           | `["Summer", "Sale", "New"]`<br><br>商品タグの同期が必要です。                 |
-| `collection_ids`     | 配列           | `[123456789012, 987654321098]`（ShopifyコレクションID）<br><br>Shopifyコレクションの同期が必要です。 |
-| メタフィールド列     | タイプにより異なる | 同期された各メタフィールドは、そのキーで名前が付けられた個別の列として表示されます。詳細については、ステップ3の「商品メタフィールド」タブの[サポートされているメタフィールド](#step-3)を参照してください。 |
+| `id` | string | カタログ商品識別子が**Shopifyバリアント ID**の場合は`45264808411274`<br><br>カタログ商品識別子が**SKU**の場合は`12345`（[ステップ2](#step-2-select-your-product-identifier)で選択した値と一致します） |
+| `store_name` | string | "your-store"（`.myshopify.com`を除いたShopifyストアのサブドメイン） |
+| `shopify_product_id` | number | `7939032613002`（Brazeカタログでは数値として保存されます。Shopify APIではこのIDを文字列として返す場合があります） |
+| `shopify_variant_id` | number | `45264808411274`（Brazeカタログでは数値として保存されます。Shopify APIではこのIDを文字列として返す場合があります） |
+| `product_title` | string | "Classic leather jacket" |
+| `variant_title` | string | "Large / Red"、"Medium"、または単一バリアント商品の場合は"Default Title" |
+| `status` | string | "active"、"draft"、"archived" |
+| `product_image_url` | string | "https://cdn.shopify.com/s/files/1/0641/0970/7402/files/t_shir.jpg?v=1736538760" |
+| `variant_image_url` | string | バリアント画像が存在しない場合は商品画像と同じCDNスタイルのURL、それ以外の場合はバリアント固有の画像URL |
+| `vendor` | string | "Flash and Thread"、"PantsLabyrinth" |
+| `product_type` | string | "Outerwear"、"T-Shirts"（Shopifyの商品の**Product type**から取得） |
+| `product_url` | string | "https://your-store.myshopify.com/products/classic-leather-jacket" |
+| `product_handle` | string | "classic-leather-jacket" |
+| `published_scope` | string | "web"、"global" |
+| `price` | number | `10.00`、`24.99`<br><br>Shopifyは価格を文字列として返すことが多いです（例：REST Admin APIでは`"199.00"`）。Brazeはこのカタログフィールド用に数値に変換します。 |
+| `compare_at_price` | number | Shopifyで**Compare at price**が設定されている場合は`15.00`<br><br>Shopifyに比較価格が設定されていない場合は`0`。Shopify APIは通常、未設定の比較価格に対して`null`を返しますが、Brazeはフィールドが常に数値になるようカタログに`0`を保存します（これはBrazeのデフォルトであり、Shopifyが`0`として送信する値ではありません）。 |
+| `inventory_quantity` | number | `20`、`0`、または過剰販売が許可されている場合は負の値（例：`-18`） |
+| `options` | string | "Size,Color"<br><br>Shopifyでは商品ごとに最大3つのオプションタイプを設定できます（例：Size、Color、Material）。`options`の値はそれらの名前のカンマ区切りリストです。 |
+| `option_values` | string | "Medium,Red"、"Large,Red"<br><br>各値は`options`と同じ順序に対応します（最大3つの値）。 |
+| `sku` | string | "12345"、"SKU-001-RED-L" |
+| `product_tags` | array | `["Summer", "Sale", "New"]`<br><br>商品タグの同期が必要です。 |
+| `collection_ids` | array | `[123456789012, 987654321098]`（ShopifyコレクションID）<br><br>Shopifyコレクションの同期が必要です。 |
+| `Metafield columns` | タイプにより異なる | 同期された各メタフィールドは、そのキーで名前が付けられた個別の列として表示されます。詳細については、ステップ3の「商品メタフィールド」タブの[サポートされているメタフィールド](#step-3)を参照してください。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="サポートされているShopifyカタログデータ" }
 
 {% alert warning %}
-Shopifyカタログは、Shopifyによって管理されています。カタログを更新するには、Shopifyストアで直接変更を行ってください。変更は自動的にBrazeに同期されます。Shopifyカタログを削除するには、BrazeのShopifyパートナーページに移動し、[同期を非アクティブにしてください](#deactivate)。
+Shopifyカタログは、Shopifyによって管理されています。カタログを更新するには、Shopifyストアで直接変更を行ってください。変更は自動的にBrazeに同期されます。Shopifyカタログを削除するには、BrazeのShopifyパートナーページに移動し、[同期を無効にしてください](#deactivate)。
 {% endalert %}
 
 ## Shopifyカタログのユースケース {#shopify-catalog-use-cases}
 
-これらのユースケースでは、同期されたShopifyカタログデータを使用してメッセージをパーソナライズする方法を示します。
+以下のユースケースでは、同期したShopifyカタログデータを使用してメッセージをパーソナライズする方法を紹介します。
 
 {% alert warning %}
-Brazeは各Shopify商品につき最大250のバリアントをカタログに同期します。この制限を超えるバリアントは同期されません。1商品あたり250を超えるバリアントが必要な場合は、Brazeカスタマーサクセスマネージャーにお問い合わせください。
+Brazeは各Shopify商品のバリアントを最大250件までカタログに同期します。それを超えるバリアントは同期されません。1商品あたり250件以上のバリアントが必要な場合は、カスタマーサクセスマネージャーにお問い合わせください。
 {% endalert %}
 
 {% tabs %}
 {% tab 商品タグ %}
 
-商品タグを使用して、Shopifyでの商品のカテゴリ分けに基づいてメッセージをパーソナライズできます。例えば、[カタログセレクション]({{site.baseurl}}/catalog_selections/)を通じて「Summer Sale」タグが付いたすべての商品を紹介するプロモーションを送信したり、「Premium」タグが付いた商品を購入したユーザーのセグメントを構築したりできます。
+商品タグを使用して、Shopifyでの商品カテゴリーに基づいてメッセージをパーソナライズできます。たとえば、[カタログセレクション]({{site.baseurl}}/catalog_selections)を使用して「Summer Sale」とタグ付けされたすべての商品を特集するプロモーションを送信したり、「Premium」とタグ付けされた商品を購入したユーザーのセグメントを作成したりできます。
 
-商品タグは、各カタログアイテムの配列フィールドとして保存されます。商品タグの同期を設定するには、[Shopify商品タグ](#shopify-product-tags)を参照してください。
+商品タグは各カタログアイテムの配列フィールドとして保存されます。商品タグの同期を設定するには、[Shopify商品タグ](#shopify-product-tags)を参照してください。
 
 ### カタログセレクション {#catalog-selection}
 
 1. Shopifyで、関連する商品に「Women's」の商品タグを付けます。
 
-![商品タイプが「Women's - Sweaters」で、タグが「Women's」、「Sweaters」、「Men」の商品。]({% image_buster /assets/img/shopify/product_tag_womens.png %}){: style="max-width:40%;"}
+![商品タイプが「Women's - Sweaters」で、タグが「Women's」、「Sweaters」、「Men」の商品]({% image_buster /assets/img/shopify/product_tag_womens.png %}){: style="max-width:40%;"}
 
 {: start="2"}
-2. Brazeで、タグの同期を有効にし、「Women's」の商品タグを選択します。
+2. Brazeで、タグ同期を有効にし、「Women's」商品タグを選択します。
 
-![「Women's」を含む15個の衣料品関連タグが選択されたShopify商品タグ選択モーダル。]({% image_buster /assets/img/shopify/select_product_tags_womens.png %}){: style="max-width:80%;"}
+![Shopify商品タグを選択するモーダル。「Women's」を含む衣料関連のタグ15件が選択されている]({% image_buster /assets/img/shopify/select_product_tags_womens.png %}){: style="max-width:80%;"}
 
 ### パーソナライゼーション {#personalization}
 
 {% alert note %}
-カタログセレクションで商品タグやコレクションを参照する場合は、カタログデータに表示される配列の角括弧`[]`や引用符`""`を含めず、値そのものだけを使用してください。例えば、商品タグがカタログで`["Women's"]`と表示されている場合、セレクションフィルターには`Women's`と入力します。
+カタログセレクションで商品タグやコレクションを参照する場合は、カタログデータに表示される配列括弧 `[]` やクォート `""` を含めず、値のみを使用してください。たとえば、商品タグがカタログで `["Women's"]` と表示されている場合、セレクションフィルターには `Women's` と入力します。
 {% endalert %}
 
-1. 「Women's」などの該当する商品タグを持つ商品をフィルタリングするカタログセレクションを作成します。単一のカタログセレクション内で使用できるユニークな配列フィールドは1つのみで、カタログセレクション内の商品は最大50個です。
+1. 「Women's」など、対象の商品タグを持つ商品をフィルタリングするカタログセレクションを作成します。1つのカタログセレクション内では1つの一意の配列フィールドのみ使用でき、カタログセレクションには最大50商品まで含められます。
 
-![属性「Women's」を持つ商品タグでフィルタリングするカタログセレクション。]({% image_buster /assets/img/shopify/edit_product_tags_selection.png %})
+![商品タグに属性「Women's」を持つものをフィルタリングするカタログセレクション]({% image_buster /assets/img/shopify/edit_product_tags_selection.png %})
 
 {: start="2"}
-2. メッセージ作成画面で、「Women's」タグが付いたカタログセレクションの商品をテンプレートに挿入したい場所にセレクションを追加します。例えば、次のようなHTML商品ブロックを使用できます。
+2. メッセージ作成画面で、「Women's」とタグ付けされたカタログセレクションの商品をテンプレートに追加したい場所にセレクションを挿入します。たとえば、以下のようなHTML商品ブロックを使用できます:
 
 {% raw %}
 ```liquid
@@ -281,7 +281,7 @@ Brazeは各Shopify商品につき最大250のバリアントをカタログに�
 ```
 {% endraw %}
 
-または、「Women's」タグが付いた特定の商品をプッシュ通知で紹介したい場合は、**パーソナライゼーションを追加**ツールを使用してカタログアイテムを指定できます。
+または、「Women's」とタグ付けされた特定の商品をプッシュ通知で紹介したい場合は、**パーソナライゼーションを追加**ツールを使用してカタログアイテムを指定できます。
 
 {% raw %}
 ```liquid
@@ -293,11 +293,11 @@ Checkout the latest women's clothing:
 ```
 {% endraw %}
 
-![商品タグを使用してカタログセレクションから3つのアイテムを取得しているプッシュ通知作成画面。]({% image_buster /assets/img/shopify/add_personalization_product_tags.png %})
+![商品タグを使用したカタログセレクションで3つのアイテムを取得しているプッシュ通知コンポーザー]({% image_buster /assets/img/shopify/add_personalization_product_tags.png %})
 
 ### カタログセグメンテーション（SQL） {#catalog-segmentation-sql}
 
-[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)を使用して、商品タグとインタラクションしたユーザーに基づいてセグメントを構築します。例えば、特定の商品タグを含むカタログアイテムとエンゲージしたユーザーを見つけるには、次のクエリを使用します。
+[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension)を使用して、特定の商品タグに関連するユーザーのセグメントを作成します。たとえば、特定の商品タグを含むカタログアイテムに関与したユーザーを見つけるには、次のクエリを使用します:
 
 {% raw %}
 ```liquid
@@ -330,29 +330,29 @@ WHERE
 {% endtab %}
 {% tab 商品メタフィールド %}
 
-商品メタフィールドを使用して、Shopifyの標準フィールドを超えたカスタム商品詳細でメッセージをパーソナライズできます。例えば、注文確認にケア方法を含めたり、おすすめメールに原産国を表示したり、特定の素材の商品を購入したユーザーをセグメント化したりできます。
+商品メタフィールドを使用して、Shopifyの標準フィールドを超えたカスタム商品情報でメッセージをパーソナライズできます。たとえば、注文確認にケア方法を含めたり、おすすめメールに原産国を表示したり、特定の素材を購入したユーザーをセグメント化したりできます。
 
-同期された各メタフィールドは、カタログ内の個別の列となり、データタイプはメタフィールドタイプによって決まります。メタフィールドの同期を設定するには、[Shopify商品メタフィールド](#shopify-product-metafields)を参照してください。
+同期された各メタフィールドはカタログ内の個別の列になり、データ型はメタフィールドのタイプによって決まります。メタフィールドの同期を設定するには、[Shopify商品メタフィールド](#shopify-product-metafields)を参照してください。
 
 ### カタログセレクション
 
-1. Shopifyで、関連する商品の`seasonal`商品メタフィールドを`summer`に設定します（これはメタフィールドの値であり、商品タグではありません）。
+1. Shopifyで、関連する商品の `seasonal` 商品メタフィールドを `summer` に設定します（これはメタフィールドの値であり、商品タグではありません）。
 
-![seasonalメタフィールドの値がsummerに設定された商品メタフィールド追加モーダル。]({% image_buster /assets/img/shopify/summer_product_metafield.png %}){: style="max-width:80%;"}
+![seasonalメタフィールドに値summerを含む商品メタフィールド追加モーダル]({% image_buster /assets/img/shopify/summer_product_metafield.png %}){: style="max-width:80%;"}
 
 {: start="2"}
-2. Brazeで、メタフィールドの同期を有効にし、`custom.seasonal`（またはShopifyメタフィールドに一致するネームスペースとキー）を選択します。
+2. Brazeで、メタフィールドの同期を有効にし、`custom.seasonal`（またはShopifyメタフィールドに一致する名前空間とキー）を選択します。
 
-![custom.seasonalを含む4つのアイテムが選択された展開ドロップダウンがある商品メタフィールド選択モーダル。]({% image_buster /assets/img/shopify/select_metafields.png %}){: style="max-width:80%;"}
+![商品メタフィールドを選択するモーダル。展開されたドロップダウンでcustom.seasonalを含む4つのアイテムが選択されている]({% image_buster /assets/img/shopify/select_metafields.png %}){: style="max-width:80%;"}
 
 ### パーソナライゼーション
 
-1. 該当する値を含むメタフィールドでフィルタリングする[カタログセレクション]({{site.baseurl}}/catalog_selections/)を作成します。
+1. 対象の値を含むメタフィールドでフィルタリングする[カタログセレクション]({{site.baseurl}}/catalog_selections)を作成します。
 
-![属性summerを持つメタフィールドでフィルタリングするカタログセレクション。]({% image_buster /assets/img/shopify/metafields_selection.png %})
+![メタフィールドに属性summerを持つものをフィルタリングするカタログセレクション]({% image_buster /assets/img/shopify/metafields_selection.png %})
 
 {: start="2"}
-2. メッセージ作成画面で、商品メタフィールドをテンプレートに挿入したい場所にセレクションを追加します。例えば、次のようなHTML商品ブロックを使用できます。
+2. メッセージ作成画面で、商品メタフィールドをテンプレートに追加したい場所にセレクションを挿入します。たとえば、以下のようなHTML商品ブロックを使用できます:
 
 {% raw %}
 ```liquid
@@ -411,11 +411,11 @@ Check out the latest summer products:
 ```
 {% endraw %}
 
-![メタフィールドベースのセレクションを使用してカタログセレクションから3つのアイテムを取得しているプッシュ通知作成画面。]({% image_buster /assets/img/shopify/add_personalization_metafields.png %})
+![メタフィールドベースのセレクションを使用してカタログセレクションで3つのアイテムを取得しているプッシュ通知コンポーザー]({% image_buster /assets/img/shopify/add_personalization_metafields.png %})
 
 ### カタログセグメンテーション（SQL）
 
-[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)を使用して、商品メタフィールドとインタラクションしたユーザーに基づいてセグメントを構築します。例えば、メタフィールド配列に特定の値を含む商品でeコマースイベントをトリガーしたユーザーを見つけるには、次のクエリを使用します。
+[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension)を使用して、商品メタフィールドに関連するユーザーのセグメントを作成します。たとえば、メタフィールド配列に特定の値を含む商品でeコマースイベントをトリガーしたユーザーを見つけるには、次のクエリを使用します:
 
 {% raw %}
 ```sql
@@ -454,7 +454,7 @@ WHERE
 ```
 {% endraw %}
 
-特定の商品メタフィールドを持つ注文を行った顧客をセグメント化したい場合は、以下のSQLセグメントエクステンションテンプレート（全期間、特定の期間、最初または最後にイベントをトリガー）のいずれかを使用してください。
+特定の商品メタフィールドを持つ商品を注文した顧客をセグメント化したい場合は、以下のSQLセグメントエクステンションテンプレートのいずれかを使用します（全期間、特定の期間、最初または最後にイベントをトリガーした場合）。
 
 {% raw %}
 ```sql
@@ -585,36 +585,36 @@ WHERE
 {% endtab %}
 {% tab コレクション %}
 
-Shopifyコレクションを使用して、Shopifyサイトやアプリ体験でも使用されているキュレートされた商品グループをメッセージに取り込みます。例えば、プロモーションメールで「New Arrivals」を紹介したり、カート放棄キャンバスで「Best Sellers」をクロスセルしたり、季節限定コレクションを閲覧したユーザーをターゲットにしたりできます。
+Shopifyコレクションを使用して、Shopifyサイトやアプリで使用されているキュレートされた商品グループをメッセージに取り込めます。たとえば、プロモーションメールで「New Arrivals」を特集したり、放棄カートキャンバスで「Best Sellers」をクロスセルしたり、季節限定のコレクションを閲覧したユーザーをターゲットにしたりできます。
 
 ### カタログセレクション
 
-1. Shopifyで、トップパフォーマンスの商品を含む「New Women's Products - In Stock」コレクションを作成します。
+1. Shopifyで、パフォーマンスの高い商品を含む「New Women's Products - In Stock」コレクションを作成します。
 
-![「New Women's Products - In Stock」を含むShopifyコレクションのリスト。]({% image_buster /assets/img/shopify/shopify_collections.png %})
+![「New Women's Products - In Stock」を含むShopifyコレクションの一覧]({% image_buster /assets/img/shopify/shopify_collections.png %})
 
 {: start="2"}
-2. Brazeで、コレクションの同期を有効にし、「Women's Products - In Stock」を選択します。
+2. Brazeで、コレクション同期を有効にし、「Women's Products - In Stock」を選択します。
 
-![4つのコレクションが選択された展開ドロップダウンがあるコレクション選択モーダル。]({% image_buster /assets/img/shopify/select_collections_id.png %})
+![コレクションを選択するモーダル。展開されたドロップダウンで4つのコレクションが選択されている]({% image_buster /assets/img/shopify/select_collections_id.png %})
 
 {% alert note %}
-Shopifyコレクションの場合、コレクションを表示したときのURLに含まれる**コレクションID**を使用する必要があります。例えば、URLが`https://admin.shopify.com/store/se-team-ecommerce/collections/470645342446`の場合、コレクションIDは`470645342446`です。
+Shopifyコレクションの場合、コレクションを表示したときにURLで確認できる**コレクションID**を使用する必要があります。たとえば、URLが `https://admin.shopify.com/store/se-team-ecommerce/collections/470645342446` の場合、コレクションIDは `470645342446` です。
 {% endalert %}
 
 ### パーソナライゼーション
 
 {% alert note %}
-カタログセレクションでコレクションIDを参照する場合は、カタログデータに表示される配列の角括弧`[]`を含めず、数値IDの値のみを使用してください。例えば、コレクションIDがカタログで`[123456789012, 987654321098]`と表示されている場合、セレクションフィルターには数値ID（例: `470645342446`）のみを入力します。
+カタログセレクションでコレクションIDを参照する場合は、カタログデータに表示される配列括弧 `[]` を含めず、数値IDの値のみを使用してください。たとえば、コレクションIDがカタログで `[123456789012, 987654321098]` と表示されている場合、セレクションフィルターには数値ID（例: `470645342446`）のみを入力します。
 {% endalert %}
 
-1. そのコレクションのIDを持つ商品でフィルタリングされた「New Women's Products - In Stock」というカタログセレクションを作成します。単一のカタログセレクション内で使用できるユニークな配列フィールドは1つのみで、コレクション内の商品は最大50個です。
+1. 対象コレクションのIDを持つ商品でフィルタリングされた「New Women's Products - In Stock」というカタログセレクションを作成します。1つのカタログセレクション内では1つの一意の配列フィールドのみ使用でき、コレクションには最大50商品まで含められます。
  - **Collections**フィールドでフィルタリングして、独自のカスタムセレクションを作成することもできます。
 
-![コレクションID属性「470645342446」を持つコレクションでフィルタリングするカタログセレクション。]({% image_buster /assets/img/shopify/collections_selection.png %})
+![コレクションIDの属性「470645342446」を持つコレクションをフィルタリングするカタログセレクション]({% image_buster /assets/img/shopify/collections_selection.png %})
 
 {: start="2"}
-2. メッセージで、作成したセレクションを使用するか、コレクションを直接参照してテンプレートに挿入します。例えば、次のようなHTML商品ブロックを使用できます。
+2. メッセージで、作成したセレクションを使用するか、コレクションを直接参照してテンプレートに追加します。たとえば、以下のようなHTML商品ブロックを使用できます:
 
 {% raw %}
 ```liquid
@@ -673,11 +673,11 @@ Checkout the latest women's clothing:
 ```
 {% endraw %}
 
-![商品タグを使用してカタログセレクションから3つのアイテムを取得しているプッシュ通知作成画面。]({% image_buster /assets/img/shopify/add_personalization_collections.png %})
+![商品タグを使用したカタログセレクションで3つのアイテムを取得しているプッシュ通知コンポーザー]({% image_buster /assets/img/shopify/add_personalization_collections.png %})
 
 ### カタログセグメンテーション（SQL）
 
-コレクションとインタラクションしたユーザーのセグメントを作成します。[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)を使用して、コレクションメンバーシップに基づいてセグメントを構築します。例えば、過去1年間に特定のコレクションの商品を購入したユーザーを見つけるには、次のクエリを使用します。
+コレクションに関連するユーザーのセグメントを作成します。[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension)を使用して、コレクションのメンバーシップに基づくセグメントを作成します。たとえば、過去1年間に特定のコレクションの商品を購入したユーザーを見つけるには、次のクエリを使用します:
 
 {% raw %}
 ```json
@@ -711,7 +711,7 @@ WHERE
 {% endtabs %}
 
 {% alert tip %}
-[値下げ通知]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications/)や[再入荷通知]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/)も設定できます！<br><br>各ユースケースでは、ユーザーのサブスクリプションステータスをカタログにキャプチャするカスタムイベントを作成する必要があります。カスタムイベントには、Shopify商品同期の一部として選択した[SKUまたはShopifyバリアントID]({{site.baseurl}}/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_features/shopify_catalogs/#step-2-select-your-product-identifier)のいずれかにマップされるイベントプロパティが必要です。
+[値下げ通知]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications)や[再入荷通知]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications)も設定できます！<br><br> 各ユースケースでは、カタログ内のユーザーの購読ステータスをキャプチャするカスタムイベントを作成する必要があります。カスタムイベントには、Shopify商品同期の一部として選択した <a href="/docs/partners/ecommerce/shopify/shopify_catalogs#step-2-select-your-product-identifier">SKUまたはShopifyバリアントID</a> にマッピングされるイベントプロパティが必要です。
 {% endalert %}
 
 ## 商品同期を非アクティブにする {#deactivate}
@@ -720,11 +720,13 @@ Shopify商品同期機能を非アクティブにすると、カタログと商�
 
 ## トラブルシューティング {#troubleshooting}
 
-Shopify商品同期でエラーが発生した場合は、次のいずれかのエラーが原因である可能性があります。問題を修正し、同期を解決する方法については、以下の手順に従ってください。
+Shopify商品同期でエラーが発生した場合、以下のエラーが原因である可能性があります。問題を修正して同期を解決するための手順に従ってください。
 
-| エラー | 理由 | ソリューション |
+| エラー | 原因 | ソリューション |
 | --- | --- | --- |
-| サーバーエラー | 商品を同期しようとしたときに、Shopify側でサーバーエラーが発生した場合に起こります。 | [同期を非アクティブにし](#deactivate)、商品の在庫全体を再同期します。 |
-| 重複するSKU | カタログアイテムIDとしてSKUを使用している場合に、複数の商品に同じSKUが設定されていると発生します。カタログアイテムIDは一意である必要があるため、すべての商品に一意のSKUが必要です。 | Shopifyで商品とバリアントの一覧をすべて監査して、重複するSKUがないことを確認します。SKUが重複している場合は、Shopifyストアアカウントで一意のSKUに更新します。修正後、[同期を非アクティブにし](#deactivate)、商品の在庫全体を再同期します。 |
-| カタログ制限の超過 | カタログ制限を超えた場合に発生します。Brazeは、利用可能なストレージがないため、同期を完了することや、同期をアクティブな状態で維持することができなくなります。 | この問題には2つのソリューションがあります。<br><br>1. アカウントマネージャーに連絡してティアをアップグレードし、カタログ制限を増やします。<br><br>2. 次のいずれかを削除して、ストレージ領域を解放します。<br>- 他のカタログからのカタログアイテム<br>- 他のカタログ<br>- 作成されたセレクション<br><br> いずれのソリューションを取った場合でも、同期を非アクティブにしてから再同期を実行する必要があります。 |
+| サーバーエラー | 商品の同期を試みた際に、Shopify側でサーバーエラーが発生した場合に起こります。 | [同期を無効にして](#deactivate)、商品の全インベントリを再同期してください。 |
+| 重複SKU | SKUをカタログアイテムIDとして使用しており、複数のバリアントが同じSKUを共有している場合に発生します。各カタログの `item_id` は一意である必要があるため、影響を受けるアイテムの同期が失敗したり、エラーレコードが蓄積されたり、商品情報が意図せず上書きされたりする可能性があります。 | Shopifyの商品とバリアントの全リストを確認し、重複するSKUがないことを確認してください。重複するSKUがある場合は、Shopifyストアアカウントで一意のSKUに更新してください。修正後、[同期を無効にして](#deactivate)、商品の全インベントリを再同期してください。 |
+| カタログ制限超過 | カタログの制限を超えた場合に発生します。ストレージの空きがないため、Brazeは同期を完了したり、同期をアクティブに保つことができません。 | この問題には2つのソリューションがあります。<br><br>1. アカウントマネージャーに連絡して、カタログ制限を増やすためにティアをアップグレードしてください。<br><br>2. 以下のいずれかを削除してストレージ容量を解放してください。<br>- 他のカタログのカタログアイテム<br>- 他のカタログ<br>- 作成されたセレクション<br><br> いずれかのソリューションを使用した後、同期を無効にしてから再同期する必要があります。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="トラブルシューティング" }
+
+カタログアイテムのバリデーションの詳細については、カタログAPIドキュメントの[トラブルシューティング]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/asynchronous/post_create_catalog_items_bulk#troubleshooting)を参照してください。

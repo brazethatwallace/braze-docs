@@ -14,7 +14,7 @@ tool:
 
 > Utilisez les modèles de rapports du [Générateur de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder) pour ventiler les indicateurs de performance des campagnes, Canvas, variantes et étapes par segments.
 
-Le [suivi analytique]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking#segment-analytics-tracking) doit être activé pour les segments dont vous souhaitez consulter les indicateurs.
+Le [suivi analytique]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) doit être activé pour les segments dont vous souhaitez consulter les indicateurs.
 
 Pour exécuter ces rapports, procédez comme suit :
 1. Dans le **Générateur de requêtes**, choisissez de créer un nouveau rapport SQL à partir d'un modèle.
@@ -139,7 +139,7 @@ Vos résultats afficheront les indicateurs d'achats par segment pour les variant
 
 Ce rapport dans l'onglet [Variables](#variables) affiche les campagnes, Canvas ou étapes du Canvas ayant obtenu les meilleurs ou les moins bons résultats pour un indicateur d'engagement des e-mails spécifié.
 
-Les cas d'utilisation incluent :
+Les cas d'usage incluent :
 - 10 campagnes avec les taux d'ouverture unique d'e-mails les plus élevés
 - 25 Canvas avec le plus de désabonnements par e-mail
 - 50 étapes du Canvas avec le plus de clics uniques
@@ -173,7 +173,7 @@ Vos résultats afficheront les meilleures (ou moins bonnes) campagnes, Canvas ou
 
 Ce rapport dans l'onglet [Variables](#variables) affiche les campagnes, Canvas ou étapes du Canvas ayant obtenu les meilleurs ou les moins bons résultats pour un indicateur d'achats ou de chiffre d'affaires spécifié.
 
-Les cas d'utilisation incluent :
+Les cas d'usage incluent :
 - 20 campagnes avec les taux d'achat les plus élevés pour un produit spécifique
 - 25 Canvas ayant généré le plus de chiffre d'affaires
 - 10 étapes du Canvas avec le taux d'achat de produit le plus bas

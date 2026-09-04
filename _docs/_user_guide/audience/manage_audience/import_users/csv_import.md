@@ -168,8 +168,8 @@ The following default attributes are available for user import.
 | `home_city` | String | The home city of your users as they have indicated (for example, `London`). | No |
 | `language` | String | Language must be passed to Braze in the ISO-639-1 standard (for example, `en`). Refer to our [list of accepted languages]({{site.baseurl}}/user_guide/data/unification/user_data/language_codes). | No |
 | `phone` | String | A telephone number as indicated by your users, in `E.164` format (for example, `+442071838750`). Refer to [User Phone Numbers]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers) for formatting guidance. | No |
-| `email_open_tracking_disabled` | Boolean | true or false accepted. Set to true to disable the open tracking pixel from being added to all future emails sent to this user. Available for SparkPost and SendGrid only. | No |
-| `email_click_tracking_disabled` | Boolean | true or false accepted. Set to true to disable the click tracking for all links within a future email, sent to this user. Available for SparkPost and SendGrid only. | No |
+| `email_open_tracking_disabled` | Boolean | true or false accepted. Set to true to disable the open tracking pixel from being added to all future emails sent to this user. | No |
+| `email_click_tracking_disabled` | Boolean | true or false accepted. Set to true to disable the click tracking for all links within a future email, sent to this user. | No |
 | `email_subscribe` | String | Available values are `opted_in` (explicitly registered to receive email messages), `unsubscribed` (explicitly opted out of email messages), and `subscribed` (neither opted in nor out). | No |
 | `push_subscribe` | String | Available values are `opted_in` (explicitly registered to receive push messages), `unsubscribed` (explicitly opted out of push messages), and `subscribed` (neither opted in nor out). | No |
 | `time_zone` | String | Time zone must be passed to Braze in the same format as the IANA Time Zone Database (for example, `America/New_York` or `Eastern Time (US & Canada)`). | No |
@@ -184,7 +184,7 @@ Additionally, you can add users to email or SMS subscription groups through user
 
 If you are updating subscription group statuses, you must have the following two columns in your CSV:
 
-- `subscription_group_id`: The `id` of the [subscription group]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-groups).  
+- `subscription_group_id`: The `id` of the [subscription group]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups).  
 - `subscription_state`: Available values are `unsubscribed` (not in the subscription group) or `subscribed` (in the subscription group).
 
 | external_id | first_name | subscription_group_id | subscription_state |
@@ -236,7 +236,7 @@ When importing custom events using CSV, you must format your file according to t
 
 ##### Understanding custom event formatting
 
-Correctly format your custom events CSV using dot notation, or with a non-null value in the corresponding cell, so Braze maps each property to the right event. If the format is incorrect, properties may be dropped or the import may fail, especially when multiple event types are included in one file.
+Correctly format your custom events CSV using dot notation, or with a non-null value in the corresponding cell, so Braze maps each property to the end event. If the format is incorrect, properties may be dropped or the import may fail, especially when multiple event types are included in one file.
 
 ##### Use dot notation for event properties
 
@@ -292,12 +292,16 @@ In this example:
 
 To upload your file, select **Attributes** or **Events**, click **Browse Files**, and upload your CSV. Braze displays a preview of the first few rows and a summary of the detected fields.
 
-For large files (up to 500 MB for default attributes and custom attributes, or 50 MB for custom events), the dashboard may appear temporarily unresponsive while the file uploads and Braze calculates the import. These uploads and calculations can take longer to complete than they do for smaller files. Let this step complete. For more context on file limits and timing, see [Constructing your CSV]({{site.baseurl}}/user_guide/data/user_data_collection/user_import#constructing-your-csv).
+For large files (up to 500 MB for default attributes and custom attributes, or 50 MB for custom events), the dashboard may appear temporarily unresponsive while the file uploads and Braze calculates the import. These uploads and calculations can take longer to complete than they do for smaller files. Let this step complete. For more context on file limits and timing, see [Constructing your CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users).
 
 Before you upload your CSV file, rename it to the import name you want to see in Braze. You can't edit the import name after upload.
 
 {% alert note %}
 The file preview shows only the first few rows of your file. To check every row before importing, use [file validation](#file-validation).
+{% endalert %}
+
+{% alert important %}
+CSV user imports are available to download from the dashboard for 14 days after upload. After this period, the file is deleted from storage and is no longer accessible.
 {% endalert %}
 
 ### Step 5: Map your fields {#csv-data-mapping}
@@ -428,6 +432,17 @@ Setting `language` or `country` on a user through CSV import or API prevents Bra
 If you used [file validation](#file-validation), start with the error report, as it includes the specific issue for each flagged row and a description of how to fix it. For rows that failed during import rather than validation, download the error report by hovering over the row and selecting the <i class="fas fa-download" title="Download"></i> button on the **Import Users** page.
 
 For troubleshooting CSV import, review these common issues in the following sections.
+
+### CSV import stuck on Calculating
+
+In **Import Users**, `Calculating` means Braze is still preparing the file for processing. During this step, the row count can display as `0 / Calculating` until preparation finishes.
+
+If your import appears stuck on Calculating:
+
+- Let the import continue. Don't cancel and re-upload unless Braze Support advises it.
+- Confirm your file is within supported limits in [Constructing your CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#import-options).
+- Review [Step 4: Upload your file](#step-4-upload-your-file) and [Step 8: Start your CSV import](#step-8-start-your-csv-import) for expected dashboard behavior and processing times.
+- Contact Braze Support if `Calculating` lasts far longer than expected for your file size after you've confirmed those checks.
 
 ### Use email as `external_id`
 

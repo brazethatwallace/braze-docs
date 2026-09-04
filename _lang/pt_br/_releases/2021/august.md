@@ -8,9 +8,9 @@ description: "Este artigo contém notas de versão para agosto de 2021."
 
 # Agosto de 2021 {#august-2021}
 
-## Sincronização do público do Google {#google-audience-sync}
+## Sincronização do Google Audience {#google-audience-sync}
 
-A integração da Braze [Audience Sync com o Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync/) permite que as marcas estendam o alcance de suas jornadas de clientes entre canais para a Pesquisa do Google, o Google Shopping, o Gmail, o YouTube e o Google Display. Usando seus dados primários de clientes, é possível fornecer anúncios com segurança com base em gatilhos comportamentais dinâmicos, segmentação e muito mais. Qualquer critério que você normalmente usaria para disparar uma mensagem (por exemplo, push, e-mail, SMS etc.) como parte de um Braze Canvas pode ser usado para disparar um anúncio para esse usuário por meio do Customer Match do Google.
+A integração da Braze [Audience Sync com o Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync/) permite que as marcas estendam o alcance de suas jornadas de clientes entre canais para a Pesquisa do Google, o Google Shopping, o Gmail, o YouTube e o Google Display. Usando seus dados primários de clientes, é possível fornecer anúncios com segurança com base em gatilhos comportamentais dinâmicos, segmentação e muito mais. Qualquer critério que você normalmente usaria para disparar uma mensagem (por exemplo, push, e-mail, SMS etc.) como parte de um BRAZE CANVAS pode ser usado para disparar um anúncio para esse usuário por meio do Customer Match do Google.
 
 ## Guia de práticas recomendadas para integração do SDK do iOS {#best-practice-ios-sdk-integration-guide}
 

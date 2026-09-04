@@ -1,65 +1,42 @@
 ---
-nav_title: e コマース
-article_title: e コマースパートナー
+nav_title: eコマース
+article_title: eコマースパートナー
 page_order: 10
-
 page_type: landing
-description: "このランディングページには、e コマースプラットフォームとの統合を可能にする Braze パートナー (Alloys) が一覧表示されています。"
-
-layout: partner_page
+description: "コマースプラットフォーム、カタログ、ロイヤルティ、決済、および関連する小売ワークフローをBrazeに接続するBrazeテクノロジーパートナーをご覧ください。"
+layout: dev_guide
 search_tag: Partner
 
-partner_top_header: "eCommerce"
+guide_top_header: "eコマース"
+guide_top_text: "これらのパートナーは、コマースプラットフォームや小売ワークフローをBrazeに接続するのに役立ちます。カテゴリを参照して統合ガイドをお探しください。Brazeテクノロジーパートナーの完全な検索・フィルター可能なリストについては、<a href='https://marketplace.braze.com/t/type/technology-partner'>Braze Marketplace</a> をご覧ください。"
 
-valid_partner_list:
-- name: Lexer
-  url: /docs/partners/lexer/
-- name: Peak
-  url: /docs/partners/peak/
-- name: Personalize
-  url: /docs/partners/personalize/
-- name: Tangerine
-  url: /docs/partners/tangerine/
-- name: Wunderkind
-  url: /docs/partners/wunderkind/
-- name: Talon.One
-  url: /docs/partners/talonone/
-- name: ViralSweep
-  url: /docs/partners/viralsweep/
-- name: Voucherify
-  url: /docs/partners/voucherify/
-- name: Antavo
-  url: /docs/partners/antavo/
-- name: Kognitiv Inspire
-  url: /docs/partners/kognitiv/
-- name: Yotpo
-  url: /docs/partners/yotpo/
-- name: Narvar
-  url: /docs/partners/narvar/
-- name: Olo
-  url: /docs/partners/olo/
-- name: Recurly
-  url: /docs/partners/recurly/
-- name: RevenueCat
-  url: /docs/partners/revenuecat
-- name: Transcend
-  url: /docs/partners/transcend/
-- name: Constructor
-  url: /docs/partners/constructor/
-- name: Stylitics
-  url: /docs/partners/stylitics/
-- name: Shopify
-  url: /docs/partners/shopify/
-- name: Stripe
-  url: /docs/partners/stripe/
-- name: Okendo
-  url: /docs/partners/okendo/
-- name: Swym
-  url: /docs/partners/swym/
-- name: Algolia
-  url: /docs/partners/algolia/
-- name: Tapcart
-  url: /docs/partners/tapcart/
-- name: Poq
-  url: /docs/partners/poq/
+guide_featured_title: "カテゴリ"
+guide_featured_list:
+  - name: "eコマース分析およびワークフロー"
+    link: /docs/partners/ecommerce/analytics_workflow
+    image: /assets/img/braze_icons/zap.svg
+  - name: "ダイナミックな価格設定とプロモーション"
+    link: /docs/partners/ecommerce/dynamic_pricing_promotions
+    image: /assets/img/braze_icons/layers-three-01.svg
+  - name: "ロイヤルティ"
+    link: /docs/partners/ecommerce/loyalty
+    image: /assets/img/braze_icons/bar-chart-01.svg
+  - name: "モバイルアプリプラットフォーム"
+    link: /docs/partners/ecommerce/mobile_app_platform
+    image: /assets/img/braze_icons/dataflow-01.svg
+  - name: "注文、支払い、サブスクリプション管理"
+    link: /docs/partners/ecommerce/ordering_payments_subscription
+    image: /assets/img/braze_icons/users-01.svg
+  - name: "決済"
+    link: /docs/partners/ecommerce/payments
+    image: /assets/img/braze_icons/target-05.svg
+  - name: "商品検索とレコメンデーション"
+    link: /docs/partners/ecommerce/product_search_recommendations
+    image: /assets/img/braze_icons/globe-02.svg
+  - name: "Shopify"
+    link: /docs/partners/ecommerce/shopify
+    image: /assets/img/braze_icons/puzzle-piece-01.svg
+  - name: "Tapcart"
+    link: /docs/partners/ecommerce/tapcart
+    image: /assets/img/braze_icons/shopping-cart-03.svg
 ---

@@ -17,7 +17,7 @@ The number of custom domains you can connect to your Braze account depends on yo
 
 ## Connect your domain to Braze
 
-To connect a domain to your Braze account, have an administrator follow the steps below.
+To connect a domain to your Braze account, have an administrator follow these steps.
 
 1. Go to **Settings** > **Landing Page Settings**.
 2. Enter the domain you want to connect to and select **Submit**. For example, `forms.example.com`.

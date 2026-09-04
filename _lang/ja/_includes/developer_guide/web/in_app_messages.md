@@ -1,44 +1,44 @@
 {% multi_lang_include developer_guide/prerequisites/web.md %} しかし、追加の設定は必要ない。
 
-## メッセージの種類
+## メッセージタイプ {#message-types}
 
-すべてのアプリ内メッセージは、そのプロトタイプを [[`InAppMessage`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.inappmessage.html)] から継承します。このプロトタイプは、すべてのアプリ内メッセージの基本動作と特徴を定義しています。プロトタイプのサブクラスは以下の通りである。 [`SlideUpMessage`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.slideupmessage.html), [`ModalMessage`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.modalmessage.html), [`FullScreenMessage`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.fullscreenmessage.html)および [`HtmlMessage`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.htmlmessage.html).
+すべてのアプリ内メッセージは、[`InAppMessage`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.inappmessage.html)からプロトタイプを継承しており、すべてのアプリ内メッセージの基本的な動作と特性を定義しています。プロトタイプのサブクラスには、[`SlideUpMessage`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.slideupmessage.html)、[`ModalMessage`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.modalmessage.html)、[`FullScreenMessage`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.fullscreenmessage.html)、および[`HtmlMessage`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.htmlmessage.html)があります。
 
-各アプリ内メッセージタイプは、コンテンツ、画像、アイコン、クリックアクション、分析、表示、配信にわたってカスタマイズできます。
+各アプリ内メッセージタイプは、コンテンツ、画像、アイコン、クリックアクション、分析、表示、配信をカスタマイズできます。
 
 {% tabs %}
-{% tab Slideup %}
+{% tab スライドアップ %}
 
-[`SlideUp`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.slideupmessage.html) アプリ内メッセージは、伝統的にモバイルプラットフォームでは、画面の上部または下部から「スライドアップ」または「スライドダウン」するため、このような名前が付けられている。Braze Web SDK では、これらのメッセージは、Web の主流のパラダイムに合わせて Growl または Toast スタイルの通知として表示されます。画面の一部分だけを覆い、効果的で邪魔にならないメッセージング機能を提供します。
+[`SlideUp`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.slideupmessage.html)アプリ内メッセージは、従来モバイルプラットフォームで画面の上部または下部から「スライドアップ」または「スライドダウン」することからこの名前が付けられています。Braze Web SDKでは、これらのメッセージはWebの主要なパラダイムに合わせて、GrowlまたはToastスタイルの通知として表示されます。画面のごく一部を覆い、効果的で邪魔にならないメッセージング機能を提供します。
 
-![携帯電話の画面の下部からスライドして表示されるアプリ内メッセージに「人間は複雑だ」と表示されています。カスタム・エンゲージメントはそうあるべきでない。バックグラウンドには、Webページの下隅に表示されるのと同じアプリ内メッセージがある。]({% image_buster /assets/img/slideup-behavior.gif %}){: style="border:0px;"}
-
-{% endtab %}
-{% tab Modal %}
-
-[`Modal`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.modalmessage.html) アプリ内のメッセージは画面中央に表示され、半透明のパネルに囲まれます。より重要なメッセージングに有用で、最大2つのクリックアクションと分析対応ボタンを装備できます。
-
-![携帯電話の画面中央のモーダルアプリ内メッセージに「人間は複雑だ」と表示されています。カスタム・エンゲージメントはそうあるべきでない。バックグラウンドには、Webページの中央に表示されているのと同じアプリ内メッセージがある。]({% image_buster /assets/img/modal-behavior.gif %}){: style="border:0px;"}
+![スマートフォン画面の下部からスライドするアプリ内メッセージ。「Humans are complicated. Custom engagement shouldn't be.」と表示されています。背景にはWebページの隅に表示された同じアプリ内メッセージが見えます。]({% image_buster /assets/img/slideup-behavior.gif %}){: style="border:0px;"}
 
 {% endtab %}
-{% tab Full Screen %}
+{% tab モーダル %}
 
-[`Full`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.fullscreenmessage.html) アプリ内メッセージは、ユーザーコミュニケーションの内容とインパクトを最大化するのに有効です。狭いブラウザウィンドウ (例えばモバイル Web) では、`full` アプリ内メッセージがブラウザウィンドウ全体を占めます。大きなブラウザウィンドウでは、`full` アプリ内メッセージは、`modal` アプリ内メッセージと同様に表示されます。`full` アプリ内メッセージの上半分には画像が含まれ、下半分には最大8行のテキストと最大2つのクリックアクション、アナリティクス対応ボタンが表示される。
+[`Modal`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.modalmessage.html)アプリ内メッセージは画面の中央に表示され、半透明のパネルで囲まれています。より重要なメッセージングに適しており、クリックアクションと分析が有効な最大2つのボタンを配置できます。
 
-![携帯電話の画面全体に表示されるアプリ内メッセージには、「人間は複雑だ。カスタム・エンゲージメントはそうあるべきでない。バックグラウンドには、同じアプリ内メッセージがWebページの中央に大きく表示されている。]({% image_buster /assets/img/full-screen-behavior.gif %}){: style="border:0px;"}
+![スマートフォン画面の中央に表示されるモーダルアプリ内メッセージ。「Humans are complicated. Custom engagement shouldn't be.」と表示されています。背景にはWebページの中央に表示された同じアプリ内メッセージが見えます。]({% image_buster /assets/img/modal-behavior.gif %}){: style="border:0px;"}
 
 {% endtab %}
-{% tab Custom HTML %}
+{% tab フルスクリーン %}
 
-[`HTML`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.htmlmessage.html) アプリ内メッセージは、完全にカスタマイズされたユーザーコンテンツを作成するのに便利です。ユーザー定義の HTML は、iFrame に表示され、画像やフォント、動画、インタラクティブ要素などのリッチコンテンツを含めることができます。これにより、メッセージの外観と機能を完全にコントロールできます。これらは、HTML 内から Braze Web SDK のメソッドを呼び出すためのJavaScript `brazeBridge` インターフェイスをサポートしています。詳しくは、[ベストプラクティス]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/best_practices/)を参照してください。
+[`Full`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.fullscreenmessage.html)アプリ内メッセージは、ユーザーコミュニケーションのコンテンツとインパクトを最大化するのに適しています。狭いブラウザウィンドウ（モバイルWebなど）では、`full`アプリ内メッセージはブラウザウィンドウ全体を占めます。大きなブラウザウィンドウでは、`full`アプリ内メッセージは`modal`アプリ内メッセージと同様に表示されます。`full`アプリ内メッセージの上半分には画像が含まれ、下半分には最大8行のテキストと、クリックアクションおよび分析が有効な最大2つのボタンを配置できます。
+
+![スマートフォンの画面全体に表示されるフルスクリーンアプリ内メッセージ。「Humans are complicated. Custom engagement shouldn't be.」と表示されています。背景にはWebページの中央に大きく表示された同じアプリ内メッセージが見えます。]({% image_buster /assets/img/full-screen-behavior.gif %}){: style="border:0px;"}
+
+{% endtab %}
+{% tab カスタムHTML %}
+
+[`HTML`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.htmlmessage.html)アプリ内メッセージは、完全にカスタマイズされたユーザーコンテンツを作成するのに適しています。ユーザー定義のHTMLはiFrame内に表示され、画像、フォント、動画、インタラクティブ要素などのリッチコンテンツを含めることができ、メッセージの外観と機能を完全にコントロールできます。HTML内からBraze Web SDKのメソッドを呼び出すためのJavaScript `brazeBridge`インターフェイスをサポートしています。詳細については[ベストプラクティス]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices)を参照してください。
 
 {% alert important %}
-Web SDK を介して HTML アプリ内メッセージを有効にするには、`allowUserSuppliedJavascript` 初期化オプションを Braze に指定する**必要があります**。例: `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`。これはセキュリティ上の理由からだ。HTML のアプリ内メッセージは JavaScript を実行できるため、サイト管理者が有効にする必要があります。
+Web SDKを通じてHTMLアプリ内メッセージを有効にするには、Brazeに`allowUserSuppliedJavascript`初期化オプションを指定する**必要があります**。例：`braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`。これはセキュリティ上の理由によるものです。HTMLアプリ内メッセージはJavaScriptを実行できるため、サイト管理者が有効にする必要があります。
 {% endalert %}
 
-次の例は、ページ分割されたHTMLアプリ内メッセージを示している：
+以下の例は、ページ分割されたHTMLアプリ内メッセージを示しています。
 
-![コンテンツのカルーセルとインタラクティブなボタンを備えたHTMLアプリ内メッセージ。]({% image_buster /assets/img_archive/ios-html-full-iam.gif %})
+![コンテンツのカルーセルとインタラクティブなボタンを含むHTMLアプリ内メッセージ。]({% image_buster /assets/img_archive/ios-html-full-iam.gif %})
 
 {% endtab %}
 {% endtabs %}

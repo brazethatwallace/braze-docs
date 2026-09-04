@@ -12,7 +12,7 @@ tool: Currents
 
 > Braze utiliza Currents internamente con [socios]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) seleccionados.
 
-Filtramos nuestros datos de campañas de correo electrónico y push en una herramienta de inteligencia empresarial, Looker, pero para llegar a ella hay que seguir un camino ligeramente distinto. Utilizamos una versión invertida de la metodología extraer, transformar, cargar (ETL), cambiando el orden a extraer, cargar, transformar (ELT).
+Filtramos nuestros datos de campañas de correo electrónico y push en una herramienta de inteligencia empresarial, Looker, pero para llegar a ella hay que seguir un camino ligeramente distinto. Utilizamos una versión invertida de la metodología ETL (ETL), cambiando el orden a extraer, cargar, transformar (ELT).
 
 ## Paso 1: Recibir y agregar datos de eventos {#step-1-intake-and-aggregate-event-data}
 

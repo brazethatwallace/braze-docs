@@ -11,12 +11,12 @@ description: "Dieser Referenzartikel behandelt die Grundlagen des Braze SDK."
 > Das Braze SDK erfasst Sitzungsdaten, identifiziert Nutzer:innen und zeichnet Käufe und angepasste Events über Ihre Website oder App auf. Sie können das SDK auch nutzen, um das Engagement mit Nutzer:innen zu fördern, indem Sie In-App Messages und Push-Benachrichtigungen direkt über das Braze-Dashboard versenden.
 
 Kurz gesagt, das Braze SDK:
-* Sammelt und synchronisiert Nutzerdaten in einem konsolidierten Nutzerprofil
+* Sammelt und synchronisiert Nutzerdaten in einem konsolidierten Kundenprofil
 * Erfasst Marketingdaten und angepasste Daten speziell für Ihr Unternehmen
 * Unterstützt Push-Benachrichtigungen, In-App Messages und Content-Card-Nachrichtenkanäle
 
 ## Was ist ein SDK? {#what-is-an-sdk}
-Ein Software-Development-Kit (SDK) ist ein Satz vorgefertigter Tools&mdash;nur kleine Code-Blöcke&mdash;, die digitalen Anwendungen hinzugefügt werden können, um neue Funktionen zu unterstützen. Das Braze SDK wird zum Senden und Abrufen von Informationen zu und von Ihrer App oder Website verwendet. Es ist so konzipiert, dass es von Anfang an wichtige Funktionen bietet: Erstellen von Nutzerprofilen, Protokollieren von angepassten Events, Auslösen von Push-Benachrichtigungen usw.
+Ein SDK (SDK) ist ein Satz vorgefertigter Tools&mdash;nur kleine Code-Blöcke&mdash;, die digitalen Anwendungen hinzugefügt werden können, um neue Funktionen zu unterstützen. Das Braze SDK wird zum Senden und Abrufen von Informationen zu und von Ihrer App oder Website verwendet. Es ist so konzipiert, dass es von Anfang an wichtige Funktionen bietet: Erstellen von Nutzerprofilen, Protokollieren von angepassten Events, Auslösen von Push-Benachrichtigungen usw.
 
 Da diese Funktionen standardmäßig von Braze bereitgestellt werden, können sich Ihre Entwickler:innen auf Ihr Kerngeschäft konzentrieren. Ohne ein SDK müsste jeder Braze-Kunde die gesamte Infrastruktur und die Tools für die Datenverarbeitung, die Segmentierungslogik, die Zustelloptionen, die Behandlung anonymer Nutzer:innen, die Campaign-Analytics und vieles mehr von Grund auf neu erstellen. Das würde viel länger dauern und wäre viel mühsamer als die Stunde, die es dauert, unser SDK einzubinden.
 

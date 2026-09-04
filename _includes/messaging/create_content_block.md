@@ -1,7 +1,7 @@
 {% if include.location == "dnd" %}
 
 1. Go to **Content** > **Content Block**. Select <i class="fas fa-plus"></i> **Create Content Block** and select **Drag-and-drop Content Block**.
-2. Drag and drop the [editor blocks]({{site.baseurl}}/user_guide/message_building_by_channel/email/drag_and_drop/dnd_editor_blocks/) to build a drag-and-drop Content Block. 
+2. Drag and drop the [editor blocks]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/dnd_editor_blocks/) to build a drag-and-drop Content Block. 
 3. Drag and drop a format block from the **Rows** tab into the editor to create the layout of your Content Block. <br><br> ![Drag-and-drop Content Block composer.]({% image_buster /assets/img_archive/dnd_content_block_composer.png %})<br><br>
 4. Add drag-and-drop Content Blocks as needed to build out your email campaigns.
 5. After creating your Content Block, select **Done**.

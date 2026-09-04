@@ -175,5 +175,5 @@ Essas restrições existem independentemente do uso de Liquid. Elas se aplicam �
 
 - Use condicionais livremente dentro de expressões de slot de variável para controlar qual valor é renderizado.
 - Não use condicionais para adicionar, remover ou trocar texto estático (as partes da mensagem que não são slots de variável).
-- Certifique-se de que cada ramificação condicional dentro de uma variável produza uma string não vazia (veja [Message Extras](#message-extras) para entender por que strings vazias causam falhas).
+- Certifique-se de que cada Branch condicional dentro de uma variável produza uma string não vazia (veja [Message Extras](#message-extras) para entender por que strings vazias causam falhas).
 - O modelo deve começar e terminar com texto estático conforme enviado à Meta.

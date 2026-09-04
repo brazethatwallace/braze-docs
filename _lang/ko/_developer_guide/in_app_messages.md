@@ -1,18 +1,17 @@
 ---
 nav_title: 인앱 메시지
-article_title: Braze SDK용 인앱 메시지
-platform: 
+article_title: 인앱 메시지
+platform:
   - Android
   - FireOS
   - Swift
 page_order: 2.2
-description: "인앱 메시지와 Braze SDK에 대한 설정 방법에 대해 알아보세요."
-
+description: "인앱 메시지와 Braze SDK에서의 설정 방법에 대해 알아보세요."
 ---
 
-# 인앱 메시지
+# 인앱 메시지 {#in-app-messages}
 
-> 인앱 메시지와 Braze SDK에 대한 설정 방법에 대해 알아보세요.
+> 인앱 메시지와 Braze SDK에서의 설정 방법에 대해 알아보세요.
 
 {% sdktabs %}
 {% sdktab web %}
@@ -60,10 +59,15 @@ description: "인앱 메시지와 Braze SDK에 대한 설정 방법에 대해 �
 {% endsdktab %}
 {% endsdktabs %}
 
-## 다음 단계
+## 다음 단계 {#next-steps}
 
-더 깊이 들어갈 준비가 되셨나요? 이 단계별 튜토리얼을 확인하세요:
+더 깊이 알아볼 준비가 되셨나요? 다음 단계별 튜토리얼을 확인하세요:
 
-- 메시지 전달 타이밍을 [지연 및 복원된 트리거 메시지]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/deferring_triggered_messages)로 미세 조정하세요.  
-- 메시지 타겟팅을 [조건부 표시 규칙 설정]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/conditionally_displaying_messages)으로 개선하세요.  
-- 키-값 쌍으로 [메시지 스타일링을 사용자 정의하여]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/customizing_message_styling) 브랜드의 외관을 일치시키세요.
+{% article_tiles %}
+- name: 트리거된 메시지 지연 및 복원
+  link: /docs/developer_guide/in_app_messages/tutorials/deferring_triggered_messages
+- name: 조건부 표시 규칙 설정
+  link: /docs/developer_guide/in_app_messages/tutorials/conditionally_displaying_messages
+- name: 키-값 페어로 메시지 스타일 사용자 지정
+  link: /docs/developer_guide/in_app_messages/tutorials/customizing_message_styling
+{% endarticle_tiles %}

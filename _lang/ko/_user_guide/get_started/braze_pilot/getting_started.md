@@ -12,7 +12,7 @@ description: "이 참조 문서에서는 엔지니어 또는 개발자에게 필
 
 ## 1단계: Braze Pilot 다운로드 {#step-1-download-braze-pilot}
 
-Braze Pilot을 사용하려면 먼저 Apple App Store 또는 Google Play Store에서 앱을 다운로드해야 합니다. 앱 스토어에서 앱을 검색하거나 아래 QR 코드를 스캔하여 기기에 맞는 앱 페이지로 이동할 수 있습니다.
+Braze Pilot을 사용하려면 먼저 Apple 앱 스토어 또는 Google Play Store에서 앱을 다운로드해야 합니다. 앱 스토어에서 앱을 검색하거나 아래 섹션의 QR 코드를 스캔하여 기기에 맞는 앱 페이지로 이동할 수 있습니다.
 
 ## 2단계: 이용 약관 동의 {#step-2-accept-the-terms-and-conditions}
 
@@ -22,7 +22,7 @@ Braze Pilot을 사용하려면 먼저 Apple App Store 또는 Google Play Store�
 
 ## 3단계: Braze SDK와의 연결 초기화 {#step-3-initialize-the-connection-with-the-braze-sdk}
 
-Braze Pilot을 사용하면 모든 Braze 대시보드에 대해 Braze SDK를 초기화할 수 있습니다. SDK가 초기화되면 Pilot은 참여 데이터를 Braze로 전송하기 시작하며, 해당 Braze 대시보드에서 실행된 모든 메시징을 트리거할 수 있습니다.
+Braze Pilot을 사용하면 모든 Braze 대시보드에 대해 Braze SDK를 초기화할 수 있습니다. SDK가 초기화되면 Pilot은 인게이지먼트 데이터를 Braze로 전송하기 시작하며, 해당 Braze 대시보드에서 실행된 모든 메시징을 트리거할 수 있습니다.
 
 Pilot에서 SDK 연결을 구성하는 방법은 두 가지입니다: 데모 QR 코드와 설정 마법사입니다.
 
@@ -31,7 +31,7 @@ Pilot에서 SDK 연결을 구성하는 방법은 두 가지입니다: 데모 QR 
 
 ### 방법 1: 데모 QR 코드 {#method-1-demo-qr-codes}
 
-SDK 초기화에 필요한 모든 세부 정보가 포함된 QR 코드를 스캔하면 고객 프로필이 생성되고, Braze Pilot 내 특정 앱 시뮬레이션으로 딥링크됩니다. 데모 QR 코드는 무료 체험판의 특정 데모 Campaign에 대한 컴패니언 드로어에 표시됩니다.
+SDK 초기화에 필요한 모든 세부 정보가 포함된 QR 코드를 스캔하면 고객 프로필이 생성되고, Braze Pilot 내 특정 앱 시뮬레이션으로 딥링크됩니다. 데모 QR 코드는 무료 평가판의 특정 데모 Campaign에 대한 컴패니언 드로어에 표시됩니다.
 
 | Android용 Pilot | iOS용 Pilot |
 | --- | --- |
@@ -47,7 +47,7 @@ Braze 대시보드의 **앱 설정** 페이지에서 대시보드 워크스페�
 
 ![Braze Pilot 설정 마법사의 1단계.]({% image_buster /assets/img/braze_pilot/setup_wizard.png %}){:style="max-width:40%"}
 
-이 연결은 워크스페이스별로 적용됩니다. 즉, 데모 워크스페이스에서 연결을 초기화한 후 무료 체험판 대시보드의 라이브 워크스페이스로 전환하면, 해당 워크스페이스에서 실행된 Campaign을 수신하려면 SDK를 다시 초기화해야 합니다.
+이 연결은 워크스페이스별로 적용됩니다. 즉, 데모 워크스페이스에서 연결을 초기화한 후 무료 평가판 대시보드의 라이브 워크스페이스로 전환하면, 해당 워크스페이스에서 실행된 Campaign을 수신하려면 SDK를 다시 초기화해야 합니다.
 
 ![Braze 대시보드의 워크스페이스 드롭다운에서 "Demo - Braze"가 활성 워크스페이스로 선택된 모습.]({% image_buster /assets/img/braze_pilot/dashboard_workspace.png %}){:style="max-width:60%"}
 
@@ -77,7 +77,7 @@ Braze 대시보드의 **앱 설정** 페이지에서 대시보드 워크스페�
 {% endtab %}
 {% tab 푸시 프라이머 메시지 실행 %}
 
-일반 소비자에게 하는 것처럼 Braze 인앱 메시지를 사용하여 앱에 대한 푸시 권한을 요청할 수 있습니다. Braze에서 이러한 유형의 메시지를 구축하는 방법은 [푸시 프라이머 인앱 메시지]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages#push-primer-in-app-messages)를 참조하세요.
+일반 소비자에게 하는 것처럼 Braze 인앱 메시지를 사용하여 앱에 대한 푸시 권한을 요청할 수 있습니다. Braze에서 이러한 유형의 메시지를 구축하는 방법은 [푸시 프라이머 인앱 메시지]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages)를 참조하세요.
 
 <div class="imgDiv">
 <img src="{% image_buster /assets/img/braze_pilot/push_primer1.png %}" style="max-width:40%">
@@ -89,6 +89,6 @@ Braze 대시보드의 **앱 설정** 페이지에서 대시보드 워크스페�
 
 ## 5단계: Pilot에서 Braze 메시징 체험하기 {#step-5-experience-braze-messaging-in-pilot}
 
-이제 Braze Pilot 사용자로서 Braze 대시보드에서 Campaigns와 Canvases를 수신할 준비가 되었습니다! 데모 워크스페이스에서 실행된 Campaign을 방문하여 Braze 활용 사례에 대한 간단한 데모를 확인한 후, 라이브 워크스페이스로 이동하여 직접 메시지를 보내기 시작하세요.
+이제 Braze Pilot 사용자로서 Braze 대시보드에서 Campaigns와 Canvases를 수신할 준비가 되었습니다! 데모 워크스페이스에서 실행된 Campaign을 방문하여 Braze 사용 사례에 대한 간단한 데모를 확인한 후, 라이브 워크스페이스로 이동하여 직접 메시지를 보내기 시작하세요.
 
-Braze에서 캠페인 설정과 Canvases 구성 방법에 대한 자세한 내용은 [시작하기: Campaigns 및 Canvases]({{site.baseurl}}/user_guide/get_started/campaigns_and_canvases)를 참조하세요.
+Braze에서 캠페인 설정과 Canvases 구성 방법에 대한 자세한 내용은 [시작하기: Campaigns와 Canvases]({{site.baseurl}}/user_guide/get_started/campaigns_and_canvases)를 참조하세요.

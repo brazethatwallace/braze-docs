@@ -25,7 +25,8 @@ Avant de déboguer, ajoutez-vous en tant qu'[utilisateur test]({{site.baseurl}}/
 | Les impressions ou les clics semblent incorrects | [Impressions et analyses](#impressions-and-analytics) |
 | `triggers` manquant ou vide dans les journaux des événements utilisateurs | [Résolution des problèmes de distribution](#delivery-troubleshooting) |
 | Les déclencheurs sont retournés mais rien ne s'affiche sur l'appareil | [Résolution des problèmes d'affichage par plateforme](#platform-specific-display-troubleshooting) |
-| Le chargement des ressources du message in-app échoue (iOS, `NSURLError` -1008) | [Chargement des ressources (onglet Swift)]({{site.baseurl}}/developer_guide/in_app_messages/troubleshooting?sdktab=swift#asset-loading) |
+| Le chargement des ressources du message in-app échoue (iOS, `NSURLError` -1008) | [Chargement des ressources (onglet Swift)](?sdktab=swift#swift_asset-loading) |
+| Les liens ne s'affichent pas ou les journaux de l'appareil indiquent une erreur d'analyse de l'action au clic | [Configuration de lien invalide](#invalid-link-setup) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Symptôme de message in-app" }
 
 ## Parcours d'investigation standard {#standard-investigation-path}
@@ -67,7 +68,7 @@ Les messages in-app dans Canvas ne peuvent être déclenchés que par des évén
 Vérifiez les points suivants :
 
 - L'utilisateur était-il dans le segment au **démarrage de la session**, lorsque le SDK demande les nouveaux messages in-app ?
-- L'utilisateur était-il éligible ou rééligible selon les règles de ciblage de la campagne ou du Canvas ? Voir [Rééligibilité pour les Campaigns et Canvas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility).
+- L'utilisateur était-il éligible ou rééligible selon les règles de ciblage de la campagne ou du Canvas ? Voir [Rééligibilité pour les campagnes et Canvas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility).
 - Un [plafond de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping) s'est-il appliqué ?
 - L'utilisateur faisait-il partie d'un groupe de contrôle de la campagne ? Vérifiez si la campagne est configurée pour un test A/B.
 - Un message in-app de priorité supérieure s'est-il affiché à la place ? Voir [Plusieurs messages in-app peuvent-ils s'afficher dans la même session ?]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#can-multiple-in-app-messages-display-in-the-same-session) dans la FAQ sur les messages in-app.
@@ -82,8 +83,8 @@ Suivez ensuite le [parcours d'investigation standard](#standard-investigation-pa
 
 | Cause probable | Ce qu'il faut vérifier |
 | --- | --- |
-| Mauvaise cible **Envoyer à** | Confirmez que la campagne ou l'étape Canvas cible **Applications mobiles** ou **Navigateurs web** selon le cas. Une campagne Web uniquement ne sera pas envoyée aux appareils Android. |
-| Une interface personnalisée ou un gestionnaire supprime l'affichage | Vérifiez les délégués (mobile) ou [`braze.subscribeToInAppMessage`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetoinappmessage) (Web). Voir [Personnalisation]({{site.baseurl}}/developer_guide/in_app_messages/customization) et votre onglet SDK ci-dessous. |
+| Mauvaise cible **Send To** | Confirmez que la campagne ou l'étape Canvas cible **Mobile Apps** ou **Web Browsers** selon le cas. Une campagne Web uniquement ne sera pas envoyée aux appareils Android. |
+| Une interface personnalisée ou un gestionnaire supprime l'affichage | Vérifiez les délégués (mobile) ou [`braze.subscribeToInAppMessage`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetoinappmessage) (Web). Voir [Personnalisation]({{site.baseurl}}/developer_guide/in_app_messages/customization) et votre onglet SDK pour votre plateforme. |
 | L'intégration n'a jamais fonctionné sur cette plateforme | Confirmez que cette plateforme et cette version de l'application ont déjà affiché des messages in-app. |
 | Le déclencheur ne s'est pas activé sur l'appareil | Le déclencheur doit se produire localement via le SDK. Un appel REST API ne peut pas déclencher un message in-app dans le SDK. Voir [Déclencher des messages]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages). |
 | `triggers` vide dans les journaux des événements utilisateurs | Segment, rééligibilité, plafond de fréquence ou groupe de contrôle. Voir [Résoudre les problèmes de messages non retournés](#troubleshoot-messages-not-being-returned). |
@@ -109,12 +110,12 @@ Suivez ensuite le [parcours d'investigation standard](#standard-investigation-pa
 
 Causes courantes :
 
-- **Préchargement au démarrage de session :** Les messages in-app sont mis en cache au démarrage de la session et s'affichent lorsque le déclencheur se produit. Un déclencheur qui se produit avant le prochain démarrage de session ne s'affichera pas avant cette session. Voir [Déclencher des messages]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages).
+- **Préchargement au démarrage de session de la campagne :** Les messages in-app sont mis en cache au démarrage de la session et s'affichent lorsque le déclencheur se produit. Un déclencheur qui se produit avant le prochain démarrage de session ne s'affichera pas avant cette session. Voir [Déclencher des messages]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages).
 - **Comportement de session suivante dans Canvas :** Voir [Messages in-app Canvas](#canvas-in-app-messages).
 - **Délai planifié dans le tableau de bord :** Vérifiez si un délai est configuré sur la campagne ou l'étape.
 - **Condition de concurrence des déclencheurs :** Si les utilisateurs enregistrent un événement immédiatement après le démarrage de la session, les déclencheurs peuvent ne pas encore être synchronisés. Envisagez de déclencher sur le démarrage de session et de segmenter sur l'événement visé afin que la distribution se fasse à la session suivante après l'événement.
 - **Messages in-app séquentiels :** Si vous différez ou restaurez des messages dans un parcours, voir [Différer les messages in-app déclenchés]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/deferring_triggered_messages).
-- **Ressources volumineuses ou CDN lent :** Optimisez les images et les vidéos pour les messages in-app HTML. Sur mobile, les images peuvent être téléchargées avant l'affichage sur les réseaux lents — sélectionnez votre onglet SDK ci-dessous pour les notes spécifiques à la plateforme.
+- **Ressources volumineuses ou CDN lent :** Optimisez les images et les vidéos pour les messages in-app HTML. Sur mobile, les images peuvent être téléchargées avant l'affichage sur les réseaux lents — sélectionnez votre onglet SDK pour les notes spécifiques à la plateforme.
 
 {% alert note %}
 Si votre message in-app est déclenché par le démarrage de session et que vous avez défini un délai d'expiration de session prolongé, fermer et rouvrir l'application dans cette fenêtre ne rafraîchira pas la session. Par exemple, avec un délai d'expiration de 300 secondes, un message in-app déclenché au démarrage de session ne s'affichera pas tant que la session ne sera pas réellement rafraîchie. Ajustez le délai d'expiration de session ou le type de déclencheur si cela affecte votre test.
@@ -173,13 +174,27 @@ Pour les campagnes archivées, la configuration des déclencheurs et les heures 
 
 **Symptôme :** Le nombre d'impressions ou de clics ne correspond pas aux attentes.
 
-- **_Impressions_ supérieures aux _Impressions uniques_ :** Cela est attendu lorsque les utilisateurs possèdent plusieurs appareils ou lorsqu'un délai planifié fait qu'un même utilisateur se qualifie plus d'une fois. Voir [Rééligibilité pour les Campaigns et Canvas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility).
+- **_Impressions_ supérieures aux _Impressions uniques_ :** Cela est attendu lorsque les utilisateurs possèdent plusieurs appareils ou lorsqu'un délai planifié fait qu'un même utilisateur se qualifie plus d'une fois. Voir [Rééligibilité pour les campagnes et Canvas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility).
 - **Impressions inférieures aux attentes :** Les utilisateurs peuvent ne pas avoir vu le message (les impressions sont enregistrées à l'affichage), plusieurs messages de haute priorité peuvent s'intercepter mutuellement, ou des conditions de concurrence des déclencheurs peuvent s'appliquer. Pour les messages in-app Canvas, voir [Messages in-app Canvas](#canvas-in-app-messages). Pour les définitions complètes des indicateurs, voir [Rapports sur les messages in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting) et la [FAQ sur les messages in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/faq).
 - **Impressions inférieures à avant :** Consultez les journaux de modifications du segment et de la campagne. Confirmez que vous n'avez pas réutilisé le même événement déclencheur dans une campagne de priorité supérieure.
 
 ![Lien pour consulter le journal des modifications sur la page Détails de la campagne avec sept modifications depuis la dernière consultation par l'utilisateur.]({% image_buster /assets/img_archive/trouble4.png %})
 
 Si vous utilisez un délégué ou un gestionnaire personnalisé pour afficher les messages in-app manuellement, vous devez enregistrer les impressions et les clics vous-même. Consultez votre onglet SDK sous [Résolution des problèmes d'affichage par plateforme](#platform-specific-display-troubleshooting) pour les détails Swift et Android, ou [Enregistrer les données des messages in-app]({{site.baseurl}}/developer_guide/in_app_messages/logging_message_data) pour le Web.
+
+## Configuration de lien invalide {#invalid-link-setup}
+
+**Symptôme :** Les liens ne s'affichent pas dans un message in-app, ou les journaux de l'appareil font référence à une erreur d'analyse de l'action au clic (par exemple, une erreur mentionnant une action de clic de message de plateforme invalide).
+
+Cela indique généralement un lien invalide ou mal formé dans la configuration du message in-app.
+
+Vérifiez les points suivants :
+
+- Changez temporairement le comportement au clic en **Fermer le message**. Si le message s'affiche correctement, l'URL du lien est probablement à l'origine du problème.
+- Vérifiez la configuration des liens pour votre éditeur et votre type de message :
+  - **HTML personnalisé :** [Résoudre les problèmes de liens HTML personnalisés et de comportement de fermeture]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#troubleshoot-custom-html-links-and-close-behavior)
+  - **Glisser-déposer :** [Liens et deep links]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#what-should-i-know-when-customizing-drag-and-drop-in-app-messages) dans la FAQ sur les messages in-app et [exigences minimales du SDK pour les liens texte]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop#more-information-on-minimum-sdks)
+  - **Messages avec boutons :** [Personnaliser les messages in-app]({{site.baseurl}}/developer_guide/in_app_messages/customization) pour votre plateforme
 
 ## Résolution des problèmes d'affichage par plateforme {#platform-specific-display-troubleshooting}
 

@@ -19,13 +19,13 @@ description: "この記事では、ブラックリストのメールBrazeエン�
 Brazeは`/email/blacklist`エンドポイントと同じ機能を持つ[`/email/blocklist`エンドポイント]({{site.baseurl}}/api/endpoints/email/post_blocklist)をリリースしました。代わりに`/email/blocklist`エンドポイントを使用することをお勧めします。
 {% endalert %}
 
-> このエンドポイントを使用して、ユーザーのメール配信を停止し、ハードバウンスとしてマークします。
+> このエンドポイントを使用して、ユーザーのメール配信を購読解除し、ハードバウンスとしてマークします。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#d51155a1-a6e8-4dcc-9f2b-88c54ab9e8c6 {% endapiref %}
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`email.blacklist`の権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
+このエンドポイントを使用するには、`email.blacklist`の権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 

@@ -17,7 +17,7 @@ description: "Este artículo de referencia cubre el uso de un conjunto de objeto
 
 - Los conjuntos de objetos están pensados para atributos personalizados enviados a través de la API. No es posible cargar archivos CSV. Esto se debe a que las comas en el archivo CSV se interpretarán como un separador de columna, y las comas en los valores causarán errores de análisis.
 - Los conjuntos de objetos no tienen límite en el número de elementos, pero sí un tamaño máximo de 100&nbsp;KB. Si una actualización (como `$add` o `$update`) hace que el conjunto supere este límite, Braze descarta la actualización y el atributo permanece sin cambios. La solicitud de API aún devuelve una respuesta de éxito. Para mantener el conjunto por debajo del límite y poder agregar nuevos elementos, usa `$remove` para eliminar elementos del conjunto primero.
-- No todos los socios de Braze admiten conjuntos de objetos. Consulta la [documentación del socio]({{site.baseurl}}/partners/home) para confirmar si la integración admite esta característica.
+- No todos los partners de Braze admiten conjuntos de objetos. Consulta la [documentación del partner]({{site.baseurl}}/partners/home) para confirmar si la integración admite esta característica.
 
 Actualizar o eliminar elementos de un conjunto requiere identificar el elemento por clave y valor, así que considera incluir un identificador único para cada elemento del conjunto. La unicidad se aplica solo al conjunto y es útil si deseas actualizar y eliminar objetos específicos de tu conjunto. Esto no es aplicado por Braze.
 
@@ -26,7 +26,7 @@ Cuando un atributo personalizado anidado en tu solicitud contiene valores no vá
 {% endalert %}
 
 {% alert tip %}
-Para más información sobre el uso de conjuntos de objetos para objetos de atributos de usuario, consulta [Objeto de atributos de usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens).
+Para más información sobre el uso de conjuntos de objetos para objetos de atributos de usuario, consulta [Objeto de atributos de usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object).
 {% endalert %}
 
 ## Ejemplo de API {#api-example}
@@ -198,7 +198,7 @@ Dado que `$add` se ejecuta antes que `$remove`, no puedes usar un `$remove` segu
 
 ### Marcas de tiempo {#timestamps}
 
-Al incluir campos como marcas de tiempo en un conjunto de objetos, usa el formato `$time` en lugar de cadenas simples o enteros de época Unix.
+Al incluir campos como marcas de tiempo en un conjunto de objetos, usa el formato `$time` en lugar de cadenas simples o enteros de época unix.
 
 ```json
 {
@@ -545,7 +545,7 @@ I have a {{pet.type}} named {{pet.name}}! They are a {{pet.breed}}.
 ```
 {% endraw %}
 
-En este escenario, puedes usar Liquid para recorrer el conjunto `pets` e imprimir una declaración para cada mascota. [Asigna una variable]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#assigning-variables) al atributo personalizado `pets` y usa la notación de punto para acceder a las propiedades de un objeto. Especifica el nombre del objeto, seguido de un punto `.`, seguido del nombre de la propiedad.
+En este escenario, puedes usar Liquid para recorrer el conjunto `pets` e imprimir una declaración para cada mascota. [Asigna una variable]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/dashboard_tools#assign-variables) al atributo personalizado `pets` y usa la notación de punto para acceder a las propiedades de un objeto. Especifica el nombre del objeto, seguido de un punto `.`, seguido del nombre de la propiedad.
 
 ## Segmentación {#segmentation}
 

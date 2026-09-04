@@ -7,7 +7,7 @@ Before you start, verify your environment is supported by the [latest Braze Cord
 ### Step 1: Add the SDK to your project
 
 {% alert warning %}
-Only add the Braze Cordova SDK using the methods below. Do not attempt to install using other methods as it could lead to a security breach.
+Only add the Braze Cordova SDK using the following methods. Do not attempt to install using other methods as it could lead to a security breach.
 {% endalert %}
 
 If you're on Cordova 6 or later, you can add the SDK directly from GitHub. Alternatively, you can download a ZIP of the [GitHub repository](https://github.com/braze-inc/braze-cordova-sdk) and add the SDK manually.
@@ -281,3 +281,73 @@ By default, the Android Cordova plugin automatically tracks sessions. To disable
 ```
 
 To start tracking sessions again, call `BrazePlugin.startSessionTracking()`. Keep in mind, only sessions started after the next `Activity.onStart()` will be tracked.
+
+## Configuring notification channels for heads-up notifications (Android only)
+
+On Android 8.0 (API level 26) and later, notification behavior is controlled through notification channels. To display heads-up notifications—alerts that appear briefly at the top of the screen while the user is using their device—you must create a notification channel with `NotificationManager.IMPORTANCE_HIGH` in your Android application code.
+
+While the Cordova SDK allows you to set the default notification channel name and description through `config.xml` preferences (`default_notification_channel_name` and `default_notification_channel_description`), the importance level must be configured programmatically in your native Android code.
+
+### Example: Creating a high-importance notification channel
+
+Add the following code to your Android application's `Application` class `onCreate()` method:
+
+{% subtabs local %}
+{% subtab Kotlin %}
+```kotlin
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
+import android.os.Build
+
+override fun onCreate() {
+    super.onCreate()
+    
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        val channelId = "high_priority_channel"
+        val channelName = "High Priority Notifications"
+        val importance = NotificationManager.IMPORTANCE_HIGH
+        
+        val channel = NotificationChannel(channelId, channelName, importance).apply {
+            description = "Notifications that require immediate attention"
+        }
+        
+        val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.createNotificationChannel(channel)
+    }
+}
+```
+{% endsubtab %}
+
+{% subtab Java %}
+```java
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
+import android.os.Build;
+
+@Override
+public void onCreate() {
+    super.onCreate();
+    
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        String channelId = "high_priority_channel";
+        String channelName = "High Priority Notifications";
+        int importance = NotificationManager.IMPORTANCE_HIGH;
+        
+        NotificationChannel channel = new NotificationChannel(channelId, channelName, importance);
+        channel.setDescription("Notifications that require immediate attention");
+        
+        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.createNotificationChannel(channel);
+    }
+}
+```
+{% endsubtab %}
+{% endsubtabs %}
+
+After creating the channel in your Android code, use the channel ID when sending push notifications from the Braze dashboard. For more information on notification channels, see [Android notification channels]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/notification_channels/).
+
+## Troubleshooting iOS builds after upgrading the plugin
+
+Cordova Braze SDK 9.0.0 and later use Swift SDK 9.0.0 or later. Starting with Swift SDK 8.0.0, that native SDK is compiled with **Xcode 15.2**. If your iOS build fails after you upgrade the Cordova plugin to 9.0.0 or later, update Xcode to 15.2 or newer and confirm it matches the [Swift SDK changelog]({{site.baseurl}}/developer_guide/changelogs/?sdktab=swift) for the native iOS version your plugin uses.

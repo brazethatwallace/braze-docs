@@ -23,7 +23,7 @@ Credits usage overview data is limited to the contract period, which is displaye
 
 ### Credits usage over contract
 
-The **Message credits usage over contract** graph shows your usage over the selected period of time. The granularity of this chart depends on your selected time frame. View export options by selecting the menu in the top right corner of the chart.
+The **Message credits usage over contract** graph shows your usage over the selected period of time. The granularity of this chart depends on your selected time frame. View export options by selecting the menu in the chart menu.
 
 ![Credit usage over contract graph.]({% image_buster /assets/img/app_settings/credit_usage_over_contract1.png %})
 
@@ -206,6 +206,8 @@ Use **Export** to download the table data.
 
 **Agent Console Credits Usage** shows Agent Console credit usage across all accounts. Tiles show total credits consumed and total invocations. The **Usage by account** table includes **Braze workspace**, **Agent name**, **Model owner**, **Total invocations**, **Credit ratio**, and **Credits**. When data is available, **Last updated** shows when the table was refreshed.
 
+To plan daily spend before launch, compare these ratios with each agent's **Daily action credit cost limit** in Agent Console (daily invocation limit × credit ratio). See [Daily invocation and credit limits]({{site.baseurl}}/user_guide/brazeai/agents/reference#daily-invocation-and-credit-limits).
+
 #### Filters
 
 You can filter your data by:
@@ -264,6 +266,7 @@ The data shown in the **Credits Usage** dashboard is at the contract level and i
 {% endalert %}
 
 - The underlying data is provided in a daily cadence, with the data tables refreshed at 3 am, 9 am, 12 pm, and 6 pm EST. The **Credits Usage** dashboard may take longer than 24 hours to update.
+- When a new contract period starts, updated contract and message credit information can take up to 24 hours to appear. Until that data loads, the dashboard may show only the **Credit Ratios** tab instead of the full overview and channel usage details.
 - Braze follows standard rounding methodology: numbers are rounded up to the nearest tenth.
 
 ### Date range selection
@@ -274,7 +277,7 @@ The **Credits Usage** dashboard excludes the end date of the selected range from
 
 When comparing Braze credits usage data with third-party providers (such as Infobip), keep in mind:
 
-- **Message segments versus messages**: Braze counts SMS messages by segments. A single SMS message that is split into multiple segments (for example, due to length) is counted as multiple segments in Braze. For more information, see [SMS and RCS billing calculators]({{site.baseurl}}/user_guide/message_building_by_channel/sms_mms_rcs/segments/).
+- **Message segments versus messages**: Braze counts SMS messages by segments. A single SMS message that is split into multiple segments (for example, due to length) is counted as multiple segments in Braze. For more information, see [SMS and RCS billing calculators]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/).
 - **Credit versus non-credit based messages**: The dashboard includes both credit-based and non-credit-based messages. Third-party providers may count only credit-based messages, which can cause discrepancies in totals.
 - **Inbound versus outbound**: Ensure you're comparing the same message types. Some third-party dashboards include both inbound and outbound messages in their totals, while Braze allows you to filter by direction.
 - **Date range alignment**: Because the dashboard excludes the end date, day-by-day comparisons may align more closely than longer date ranges. If you're comparing data for a specific period, extend your Braze date range by one day to include the final day of your comparison period.

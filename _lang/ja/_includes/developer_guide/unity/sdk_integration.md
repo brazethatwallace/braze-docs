@@ -126,7 +126,7 @@ Braze SDKが機能するように[`AndroidManifest.xml`](https://docs.unity3d.co
 
 パッケージ名を確認するには、**File > Build Settings > Player Settings > Android Tab**を選択します。
 
-![]({% image_buster /assets/img_archive/UnityPackageName.png %})
+![Unity Player SettingsのAndroidタブ。アプリケーションのパッケージ名が表示されています。]({% image_buster /assets/img_archive/UnityPackageName.png %})
 
 `AndroidManifest.xml`では、`REPLACE_WITH_YOUR_PACKAGE_NAME`のすべてのインスタンスを前のステップの`Package Name`に置き換える必要があります。
 
@@ -145,7 +145,7 @@ implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1"
 implementation 'androidx.core:core:1.6.0'
 ```
 
-これらの依存関係は、[External Dependency Manager](https://github.com/googlesamples/unity-jar-resolver)を使用して設定することもできます。
+これらの依存関係は、[External Dependency マネージャー](https://github.com/googlesamples/unity-jar-resolver)を使用して設定することもできます。
 
 #### ステップ3.4:Unity Android統合を自動化する {#step-34-automate-the-unity-android-integration}
 
@@ -169,7 +169,7 @@ Brazeは、Unity iOS統合を自動化するためのネイティブUnityソリ�
 2. **Automate Unity iOS Integration**ボックスにチェックマークを入れます。
 3. **Braze API Key**フィールドに、**設定の管理**にあるアプリケーションのAPIキーを入力します。
 
-![]({% image_buster /assets/img_archive/unity-ios-appboyconfig.png %})
+![Unity Braze設定ウィンドウ。Automate Unity iOS IntegrationとBraze API Keyフィールドが表示されています。]({% image_buster /assets/img_archive/unity-ios-appboyconfig.png %})
 
 アプリですでに別の`UnityAppController`サブクラスを使用している場合は、サブクラスの実装を`AppboyAppDelegate.mm`とマージする必要があります。
 {% endtab %}

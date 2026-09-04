@@ -20,21 +20,21 @@ Die Integration von Braze und Census erlaubt es Ihnen, Zielgruppen oder Produktd
 | --- | --- |
 | Census-Konto | Um diese Partnerschaft zu nutzen, benötigen Sie ein [Census-Konto](https://www.getcensus.com/). |
 | Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit allen Nutzerdaten-Berechtigungen (außer `users.delete`) und `segments.list`-Berechtigungen. Die Berechtigungen können sich ändern, wenn Census die Unterstützung für weitere Braze-Objekte hinzufügt. Daher sollten Sie entweder jetzt mehr Berechtigungen erteilen oder ein Update dieser Berechtigungen für die Zukunft planen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Braze REST-Endpunkt  | Ihre URL für den REST-Endpunkt. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints) ab. |
+| Braze REST-Endpunkt  | Ihre URL für den REST-Endpunkt. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints) ab. |
 | Data Warehouse und Datenmodell | Bevor Sie mit der Integration beginnen, müssen Sie ein Data Warehouse in Census einrichten und ein Modell der Teilmenge von Daten definieren, die Sie mit Braze synchronisieren möchten. Besuchen Sie die [Census-Dokumentation](https://docs.getcensus.com/destinations/braze), um eine Liste der verfügbaren Datenquellen und eine Anleitung zur Modellerstellung zu erhalten. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
-### 1. Schritt: Braze Serviceverbindung erstellen {#step-1-create-braze-service-connection}
+### Schritt 1: Braze Serviceverbindung erstellen {#step-1-create-braze-service-connection}
 
 Um Census in die Census-Plattform zu integrieren, navigieren Sie zum Tab **Verbindungen** und wählen Sie **Neues Ziel**, um eine neue Braze Serviceverbindung zu erstellen.
 
 In der daraufhin angezeigten Eingabeaufforderung benennen Sie diese Verbindung und geben die URL des Braze-Endpunkts und den REST-API-Schlüssel von Braze an (sowie optional Ihren Datenimport-Schlüssel für die Synchronisierung von Kohorten).
 
-![]({% image_buster /assets/img/census/add_service.png %}){: style="max-width:60%;"}
+![Census-Dialog „Neues Ziel“, konfiguriert für Braze-Verbindungszugangsdaten.]({% image_buster /assets/img/census/add_service.png %}){: style="max-width:60%;"}
 
-### 2. Schritt: Eine Census-Synchronisation erstellen {#step-2-create-a-census-sync}
+### Schritt 2: Eine Census-Synchronisation erstellen {#step-2-create-a-census-sync}
 
 Um Kund:innen mit Braze zu synchronisieren, müssen Sie eine Synchronisierung erstellen. Hier legen Sie fest, wo die Daten synchronisiert werden sollen und wie die Felder auf den beiden Plattformen abgebildet werden sollen.
 
@@ -63,8 +63,8 @@ Census unterstützt derzeit die Synchronisierung der folgenden Braze-Objekte:
 | Katalog | Aktualisieren, Erstellen, Spiegeln |
 | Abo-Gruppen-Mitgliedschaft | Spiegeln |
 | Ereignis | Anhängen |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Unterstützte Objekte" }
 
 Außerdem unterstützt Census das Senden [strukturierter Daten](https://docs.getcensus.com/destinations/braze#supported-objects) an Braze:
 - Push-Token für Nutzer:innen: Um Push-Token zu senden, sollten Ihre Daten als Array von Objekten mit 2–3 Werten strukturiert sein: `app_id`, `token` und einem optionalen `device_id`.
-- Verschachtelte angepasste Attribute: Es werden sowohl Objekte als auch Arrays unterstützt. Stand April 2022 befindet sich dieses Feature noch im Early Access. Möglicherweise müssen Sie Ihren Braze Account Manager kontaktieren, um Zugang zu erhalten.
+- Verschachtelte angepasste Attribute: Es werden sowohl Objekte als auch Arrays unterstützt. Stand April 2022 befindet sich dieses Feature noch im Early Access. Möglicherweise müssen Sie Ihren Braze Account Manager:in kontaktieren, um Zugang zu erhalten.

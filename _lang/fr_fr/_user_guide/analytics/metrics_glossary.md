@@ -146,7 +146,7 @@ In-App Message
 Feature Flags
 {% endapitags %}
 
-La performance du message à travers les différents canaux. Les indicateurs affichés dépendent du canal de communication sélectionné et du fait que l'[expérience d'indicateur de fonctionnalité]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/experiments#campaign-analytics) est un test multivarié ou non.
+La performance du message à travers les différents canaux. Les indicateurs affichés dépendent du canal de communication sélectionné et du fait que l'[expérience d'indicateur de fonctionnalité]({{site.baseurl}}/developer_guide/feature_flags/experiments#campaign-analytics) est un test multivarié ou non.
 
 {% endapi %}
 
@@ -701,7 +701,7 @@ Email, Content Cards, In-App Message, Web Push, iOS Push, Android Push, SMS/MMS,
 |-------|-------|
 | Content Cards | Reçu lorsque les utilisateurs consultent la carte dans l'application. |
 | Push | Reçu lorsque les messages sont envoyés du serveur Braze au fournisseur de notifications push. |
-| E-mail | Reçu lorsque les messages sont envoyés du serveur Braze au fournisseur de services d'e-mailing. |
+| E-mail | Reçu lorsque les messages sont envoyés du serveur Braze au fournisseur de services d'e-mail marketing. |
 | SMS/MMS | « Livré » après que le fournisseur SMS reçoit la confirmation de l'opérateur en amont et de l'appareil de destination. |
 | Message in-app | Reçu au moment de l'affichage en fonction de l'action de déclenchement définie. |
 | WhatsApp | Reçu au moment de l'affichage en fonction de l'action de déclenchement définie. |
@@ -848,7 +848,7 @@ Email
 {% multi_lang_include analytics/metrics.md metric='Spam' %}
 
 {% alert note %}
-Les plaintes pour spam sont traitées directement par les fournisseurs de services d'e-mailing, puis relayées à Braze via une boucle de rétroaction. La plupart des boucles de rétroaction ne signalent qu'une partie des plaintes réelles, de sorte que l'indicateur _Spam_ représente souvent une fraction du total réel. Seuls les fournisseurs de services d'e-mailing peuvent voir le volume réel des plaintes pour spam, ce qui signifie que _Spam_ doit être considéré comme un indicateur indicatif et non exhaustif.
+Les plaintes pour spam sont traitées directement par les fournisseurs de services d'e-mail marketing, puis relayées à Braze via une boucle de rétroaction. La plupart des boucles de rétroaction ne signalent qu'une partie des plaintes réelles, de sorte que l'indicateur _Spam_ représente souvent une fraction du total réel. Seuls les fournisseurs de services d'e-mail marketing peuvent voir le volume réel des plaintes pour spam, ce qui signifie que _Spam_ doit être considéré comme un indicateur indicatif et non exhaustif.
 {% endalert %}
 
 {::nomarkdown}
@@ -1122,6 +1122,8 @@ Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, RCS, 
 {% multi_lang_include analytics/metrics.md metric='Unique Recipients' %}
 
 Étant donné qu'un lecteur peut être un destinataire unique chaque jour, vous devez vous attendre à ce que ce nombre soit supérieur aux <i>impressions uniques</i>. Ce nombre est reçu de Braze et est basé sur le `user_id`. Les destinataires uniques sont comptabilisés au niveau de la campagne ou de l'étape du Canvas, et non au niveau de l'<a href='{{ site.homeurl }}{{ site.baseurl }}/api/identifier_types/#send-identifier'>identifiant d'envoi</a>.
+
+Les utilisateurs qui rebondissent sont toujours comptabilisés dans les <i>destinataires uniques</i> lorsque Braze les considère comme destinataires pour ce jour d'envoi. Les <i>destinataires uniques</i> sont basés sur les utilisateurs que Braze a ciblés pour le message ce jour-là, et non uniquement sur les livraisons réussies.
 
 <span class="calculation-line">Calcul : Nombre</span>
 

@@ -41,5 +41,9 @@ For a full walkthrough, refer to [LINE setup]({{site.baseurl}}/user_guide/channe
 
 ## Next steps
 
-- [LINE setup]({{site.baseurl}}/user_guide/channels/line/line_setup)
-- [Create a LINE message]({{site.baseurl}}/user_guide/channels/line/create_a_line_message)
+{% article_tiles %}
+- name: LINE setup
+  link: /docs/user_guide/channels/line/line_setup
+- name: Create a LINE message
+  link: /docs/user_guide/channels/line/create_a_line_message
+{% endarticle_tiles %}

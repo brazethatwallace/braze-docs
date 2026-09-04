@@ -16,7 +16,7 @@ tool:
 
 ## Segments 및 멤버십 데이터에 접근하기 {#accessing-data-about-your-segments-and-membership}
 
-Braze 대시보드의 **Segments** 페이지에는 모든 Segments의 요약이 포함되어 있으며, 각 Segment에 대한 상세 데이터를 확인할 수 있습니다. 이 페이지에서 Segment 이름을 검색하고 선택하여 데이터를 편집하고 확인할 수 있습니다. Segment를 생성하는 방법을 알아보려면 [Segment 생성]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#creating-a-segment)을 확인하세요.
+Braze 대시보드의 **Segments** 페이지에는 모든 Segments의 요약이 포함되어 있으며, 각 Segment에 대한 상세 데이터를 확인할 수 있습니다. 이 페이지에서 Segment 이름을 검색하고 선택하여 데이터를 편집하고 확인할 수 있습니다. Segment를 생성하는 방법을 알아보려면 [Segment 생성]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)을 확인하세요.
 
 ![Segments 페이지]({% image_buster /assets/img_archive/segments.png %})
 
@@ -55,7 +55,7 @@ Segment에 대해 [분석 추적]({{site.baseurl}}/user_guide/analytics/tracking
         </tr>
         <tr>
             <td class="no-split">LTV (유료 사용자)</td>
-            <td class="no-split">이 Segment의 사용자당 생애주기 가치(LTV)와 유료 사용자당 생애주기 가치입니다. LTV는 생애주기 매출을 생애주기 사용자 수로 나누어 계산합니다.</td>
+            <td class="no-split">이 Segment의 사용자당 LTV(LTV)와 유료 사용자당 LTV입니다. LTV는 생애주기 매출을 생애주기 사용자 수로 나누어 계산합니다.</td>
         </tr>
         <tr>
             <td class="no-split">이메일 수신 가능 (옵트인)</td>
@@ -83,7 +83,7 @@ Segment의 멤버십과 크기를 모니터링하는 방법에 대해 자세히 
 
 ### 사용자 미리보기 {#user-preview}
 
-Segments에 대한 상세한 사용자별 정보를 확인하려면 **User Data**를 클릭하고 **User Preview**를 선택하세요.
+Segments에 대한 상세한 사용자별 정보를 확인하려면 **사용자 데이터**를 클릭하고 **사용자 미리보기**를 선택하세요.
 
 이 페이지에서는 성별, 나이, 세션 수, 푸시 및 이메일 옵트인 여부 등 다양한 사용자별 속성을 확인할 수 있습니다.
 
@@ -99,12 +99,12 @@ Segments에 대한 상세한 사용자별 정보를 확인하려면 **User Data*
 
 [쿼리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder) 템플릿에서 보고서를 생성하려면 **쿼리 빌더**로 이동하여 다음을 수행하세요:
 
-1. **Create SQL Query** > **Query Template**을 선택합니다.
+1. **SQL 쿼리 생성** > **쿼리 템플릿**을 선택합니다.
 2. "segment breakdowns"를 포함하는 측정기준이 있는 템플릿을 필터링합니다.
 3. 사용할 템플릿을 선택합니다.
 4. [변수](#variables) 탭에서 SQL 템플릿의 변수를 입력합니다.
 5. (선택 사항) 템플릿의 SQL을 직접 편집합니다.
-6. **Run Query**를 선택합니다. 결과가 테이블에 표시됩니다.
+6. **쿼리 실행**을 선택합니다. 결과가 테이블에 표시됩니다.
 
 ## 변수 {#variables}
 

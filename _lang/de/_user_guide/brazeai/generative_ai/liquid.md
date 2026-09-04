@@ -14,6 +14,7 @@ page_order: 5
 
 ## Zugriff {#how-to-access}
 
-{% multi_lang_include brazeai/generative_ai/access_liquid.md %}
+Öffnen Sie in einem beliebigen Nachrichten-Editor den Operator, um Liquid für die Personalisierung zu generieren und zu verfeinern. Der Operator versteht die [Liquid-Syntax]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid), Ihre Standard- und [angepassten Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) sowie [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) und kann erklären, was der Code bewirkt.
+
 
 Weitere Informationen, einschließlich unterstützter Kanäle, Liquid-Attribute, Best Practices und Beispiel-Prompts, finden Sie unter [Liquid generieren in den Operator-Funktionen]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-liquid).

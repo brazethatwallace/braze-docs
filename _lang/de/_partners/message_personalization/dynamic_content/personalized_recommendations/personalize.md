@@ -1,23 +1,23 @@
 ---
-nav_title: Personalize.AI
-article_title: Personalize.AI
-description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Personalize.AI, einer KI-basierten SaaS-Geschäftsplattform, die das Umsatzwachstum durch personalisierte Empfehlungen fördert."
+nav_title: Personalize.KI
+article_title: Personalize.KI
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Personalize.KI, einer KI-basierten SaaS-Geschäftsplattform, die das Umsatzwachstum durch personalisierte Empfehlungen fördert."
 alias: /partners/personalize_ai/
 page_type: partner
 search_tag: Partner
 ---
 
-# Personalize.AI
+# Personalize.KI
 
-> [Personalize.AI](https://www.zs.com/solutions/artificial-intelligence-and-analytics/personalize-ai/) ist Partner von Braze und generiert zusätzliche Umsätze durch die Zustellung personalisierter Nachrichten und Angebote über Braze.
+> [Personalize.KI](https://www.zs.com/solutions/artificial-intelligence-and-analytics/personalize-ai/) ist Partner von Braze und generiert zusätzliche Umsätze durch die Zustellung personalisierter Nachrichten und Angebote über Braze.
 
-Die Integration von Braze und Personalize.AI ermöglicht es Ihnen, Daten von Personalize.AI in die Braze-Plattform zu exportieren, um Nachrichten zu personalisieren und gezieltes Targeting durchzuführen.
+Die Integration von Braze und Personalize.KI ermöglicht es Ihnen, Daten von Personalize.KI in die Braze-Plattform zu exportieren, um Nachrichten zu personalisieren und gezieltes Targeting durchzuführen.
 
 ## Voraussetzungen {#prerequisites}
 
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
-| Personalize.AI-Instanz | Um die Vorteile dieser Partnerschaft zu nutzen, ist eine Personalize.AI-Instanz erforderlich. |
+| Personalize.KI-Instanz | Um die Vorteile dieser Partnerschaft zu nutzen, ist eine Personalize.KI-Instanz erforderlich. |
 | Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit allen Berechtigungen. <br><br>Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
 | Braze-REST-Endpunkt | Ihre REST-Endpunkt-URL. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints) ab. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
@@ -31,33 +31,33 @@ Die Integration von Braze und Personalize.AI ermöglicht es Ihnen, Daten von Per
 * Nutzen Sie Geolocation-Daten, um die richtige Zielgruppe für neu eröffnete Standorte zu finden
 * Nutzen Sie Lookalike-Modellierung, um auf begrenzten Daten für neuere Nutzer:innen aufzubauen und sie mit den relevantesten Empfehlungen abzugleichen
 * Identifizieren Sie die richtigen Wege, um Kund:innen über ihren gesamten Lebenszyklus hinweg anzusprechen
-* Bewerten Sie proaktiv die Churn-Wahrscheinlichkeit von Kund:innen und weisen Sie einen Risikoscore zu, um Frühindikatoren für Churn zu erkennen
+* Bewerten Sie proaktiv die Abwanderung-Wahrscheinlichkeit von Kund:innen und weisen Sie einen Risikoscore zu, um Frühindikatoren für Abwanderung zu erkennen
 * Sprechen Sie Kund:innen mit personalisierten Interventionen an, um zu verhindern, dass sie inaktiv werden
 
 ## Integration
 
-### Verbindung mit Braze in Personalize.AI konfigurieren {#configure-a-connection-with-braze-in-personalizeai}
+### Verbindung mit Braze in Personalize.KI konfigurieren {#configure-a-connection-with-braze-in-personalizeai}
 
-1. Navigieren Sie in Personalize.AI zum Tab **Integrations**, der sich unter **Operationalization** in Ihrer Personalize.AI-Instanz befindet.
+1. Navigieren Sie in Personalize.KI zum Tab **Integrations**, der sich unter **Operationalization** in Ihrer Personalize.KI-Instanz befindet.
 2. Klicken Sie auf **Braze**.
 3. Konfigurieren Sie Ihre Integration mit Braze.
-    * **Connection Name:** Benennen Sie Ihre Verbindung. So wird Ihre Integration in Personalize.AI referenziert.
-    * **Sync Frequency:** Die Synchronisierungsfrequenz steuert, wie oft Personalize.AI Daten nach Braze exportiert. Wählen Sie **Daily**, **Weekly** oder **Monthly**.
+    * **Connection Name:** Benennen Sie Ihre Verbindung. So wird Ihre Integration in Personalize.KI referenziert.
+    * **Sync Frequency:** Die Synchronisierungsfrequenz steuert, wie oft Personalize.KI Daten nach Braze exportiert. Wählen Sie **Daily**, **Weekly** oder **Monthly**.
     * **API Key:** Fügen Sie Ihren Braze-API-Schlüssel hinzu.
     * **API URL:** Fügen Sie die URL Ihres Braze-REST-Endpunkts hinzu.
 4. Klicken Sie auf **EXPORT**, um Daten nach Braze zu exportieren.
 
-Sobald Ihre Daten exportiert wurden, überträgt Personalize.AI weiterhin Daten an Braze in den Intervallen, die durch die von Ihnen während der Integration festgelegte Synchronisierungsfrequenz bestimmt werden.
+Sobald Ihre Daten exportiert wurden, überträgt Personalize.KI weiterhin Daten an Braze in den Intervallen, die durch die von Ihnen während der Integration festgelegte Synchronisierungsfrequenz bestimmt werden.
 
 ## Verwendung dieser Integration {#using-this-integration}
 
-Personalize.AI exportiert Bezeichner für personalisiertes Targeting nach Braze. Diese angepassten Attribute geben Zeitpunkt, Inhalt, Behandlung und Angebote für jede:n Kund:in an. Je nach Integration können Felder als Ereignis übergeben oder über die [Connected-Content-APIs]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/public_apis/) abgerufen werden, anstatt im Profil der/des Kund:in gespeichert zu werden. Personalize.AI unterstützt die Verwendung von `external_id` als Bezeichner.
+Personalize.KI exportiert Bezeichner für personalisiertes Targeting nach Braze. Diese angepassten Attribute geben Zeitpunkt, Inhalt, Behandlung und Angebote für jede:n Kund:in an. Je nach Integration können Felder als Ereignis übergeben oder über die [Connected-Content-APIs]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/public_apis/) abgerufen werden, anstatt im Profil der/des Kund:in gespeichert zu werden. Personalize.KI unterstützt die Verwendung von `external_id` als Bezeichner.
 
-Die in Braze importierten Datenattribute sind für die Verwendung in Canvases intuitiv benannt und folgen einer einheitlichen Terminologie. Zum Beispiel würde das Attribut `C402_Target_Variant` in Personalize.AI als `"P.AI_Model_Treatment"` nach Braze exportiert werden. Die von Personalize.AI exportierten Attribute sind so konzipiert, dass sie nicht mit bestehenden Attributen oder dem von Ihnen verwendeten Tracking kollidieren. Diese Attribute werden kontinuierlich überprüft, damit Sie sie sicher referenzieren können.
+Die in Braze importierten Datenattribute sind für die Verwendung in Canvases intuitiv benannt und folgen einer einheitlichen Terminologie. Zum Beispiel würde das Attribut `C402_Target_Variant` in Personalize.KI als `"P.AI_Model_Treatment"` nach Braze exportiert werden. Die von Personalize.KI exportierten Attribute sind so konzipiert, dass sie nicht mit bestehenden Attributen oder dem von Ihnen verwendeten Tracking kollidieren. Diese Attribute werden kontinuierlich überprüft, damit Sie sie sicher referenzieren können.
 
-Hier sehen Sie zum Beispiel eine Reihe von Kundenattributen, die sich auf ein beispielhaftes, auf Churn ausgerichtetes Canvas beziehen.
+Hier sehen Sie zum Beispiel eine Reihe von Kundenattributen, die sich auf ein beispielhaftes, auf Abwanderung ausgerichtetes Canvas beziehen.
 
-| Personalize.AI-Attribut | Wert |
+| Personalize.KI-Attribut | Wert |
 | ----------- | ------------- |
 | `Customer_ID` | 12345 |
 | `Target_Canvas` | C4 |

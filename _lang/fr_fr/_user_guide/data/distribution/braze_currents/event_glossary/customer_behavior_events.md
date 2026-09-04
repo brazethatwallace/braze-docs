@@ -1,11 +1,14 @@
 ---
+# This file is a template consumed by the external `braze-currents-generate-docs` tool
+# (braze-agent-plugins / braze-currents plugin) to generate the Currents event glossary
+# docs. It is not referenced from within braze-docs, so do not delete it as "unused".
 nav_title: Comportement des clients et événements utilisateurs
 article_title: Comportement des clients et événements utilisateurs
 layout: customer_behavior_events_glossary
 page_order: 4
 excerpt_separator: ""
 page_type: glossary
-description: "Ce glossaire répertorie les différents comportements des clients et événements utilisateur que Braze peut suivre et envoyer via Currents à des entrepôts de données désignés."
+description: "Ce glossaire répertorie les différents comportements des clients et événements utilisateurs que Braze peut suivre et envoyer via Currents à des entrepôts de données désignés."
 tool: Currents
 search_rank: 7
 ---
@@ -20,19 +23,19 @@ Les schémas de stockage s'appliquent aux données d'événements sous forme de 
 Ces événements sont également disponibles sous forme de tables SQL dans le [Générateur de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder), les [extensions de segments SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) et le [Partage de données Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Pour les schémas de tables SQL et les détails des colonnes, consultez la [référence des tables SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
 {% endalert %}
 
-Contactez votre conseiller Braze ou ouvrez un [ticket d'assistance]({{site.baseurl}}/braze_support) si vous avez besoin d'accéder à des droits d'événements supplémentaires. Si vous ne trouvez pas ce dont vous avez besoin sur cette page, consultez notre [bibliothèque des événements d'engagement lié aux messages]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) ou nos [exemples d'échantillons de données Currents](https://github.com/Appboy/currents-examples/tree/master/sample-data).
+Contactez votre conseiller Braze ou ouvrez un [ticket d'assistance]({{site.baseurl}}/user_guide/administer/personal/braze_support) si vous avez besoin d'accéder à des droits d'événements supplémentaires. Si vous ne trouvez pas ce dont vous avez besoin sur cette page, consultez notre [bibliothèque des événements d'engagement lié aux messages]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) ou nos [exemples d'échantillons de données Currents](https://github.com/Appboy/currents-examples/tree/master/sample-data).
 
 {% enddetails %}
 
-{% details Explication de la structure des comportements des clients et des événements utilisateur, et des valeurs de plateforme %}
+{% details Explication de la structure des comportements des clients et des événements utilisateurs, et des valeurs de plateforme %}
 
 ## Structure d'événement {#event-structure}
 
-Cette ventilation des comportements des clients et des événements utilisateur montre le type d'informations généralement incluses dans un comportement client ou un événement utilisateur. Avec une bonne compréhension de ses composants, vos développeurs et votre équipe d'aide à la décision peuvent utiliser les données d'événements Currents entrants pour créer des rapports et des graphiques axés sur les données, et tirer parti des précieux indicateurs fournis.
+Cette ventilation des comportements des clients et des événements utilisateurs montre le type d'informations généralement incluses dans un comportement client ou un événement utilisateur. Avec une bonne compréhension de ses composants, vos développeurs et votre équipe d'aide à la décision peuvent utiliser les données d'événements Currents entrants pour créer des rapports et des graphiques axés sur les données, et tirer parti des précieux indicateurs fournis.
 
 ![Décomposition d'un événement utilisateur montrant un événement d'achat avec les propriétés répertoriées regroupées par propriétés spécifiques à l'utilisateur, propriétés spécifiques au comportement et propriétés spécifiques à l'appareil]({% image_buster /assets/img/customer_engagement_event.png %})
 
-Les comportements des clients et les événements utilisateur se composent de propriétés **propres à l'utilisateur**, de propriétés **propres au comportement** et de propriétés **propres à l'appareil**.
+Les comportements des clients et les événements utilisateurs se composent de propriétés **propres à l'utilisateur**, de propriétés **propres au comportement** et de propriétés **propres à l'appareil**.
 
 ### Valeurs de la plateforme {#platform-values}
 
@@ -52,7 +55,7 @@ Certains événements renvoient une valeur `platform` qui spécifie la plateform
 
 {% enddetails %}
 
-{% details Considérations relatives aux comportements des clients et aux événements utilisateur %}
+{% details Considérations relatives aux comportements des clients et aux événements utilisateurs %}
 
 - Currents abandonne les événements dont le payload est excessivement volumineux (plus de 900&nbsp;Ko).
 - De nombreux événements de ce glossaire sont initiés par le SDK. Certains événements, tels que `token_state_change`, peuvent être initiés par le SDK ou par le backend (par exemple, en réponse à un rebond de notification push). Les champs `sdk_version`, `gender`, `language` et `country` ne sont définis que pour les événements initiés par le SDK ; pour les événements initiés par le backend, ou lorsque ces informations ne sont pas disponibles ou non définies pour l'utilisateur, ces champs peuvent être `null`.
@@ -63,6 +66,7 @@ Certains événements renvoient une valeur `platform` qui spécifie la plateform
 
 <!--overview-end-->
 
+
 {% api %}
 ## Événements de mise à jour du numéro de compartiment aléatoire {#random-bucket-number-update-events}
 
@@ -70,7 +74,7 @@ Certains événements renvoient une valeur `platform` qui spécifie la plateform
 Random Bucket Number
 {% endapitags %}
 
-Cet événement utilisateur se produit chaque fois qu'un nouvel utilisateur est créé dans son espace de travail. Au cours de cet événement, chaque nouvel utilisateur se voit attribuer un numéro de compartiment aléatoire que vous pouvez ensuite utiliser pour créer des segments d'utilisateurs aléatoires uniformément répartis. Utilisez cette fonctionnalité pour regrouper une série de numéros de compartiment aléatoires et comparer les performances de vos campagnes et de leurs variantes.
+Cet événement utilisateur se produit chaque fois qu'un nouvel utilisateur est créé dans son espace de travail. Au cours de cet événement, chaque nouvel utilisateur se voit attribuer un numéro de compartiment aléatoire que vous pouvez ensuite utiliser pour créer des segments d'utilisateurs aléatoires uniformément répartis. Utilisez cette fonctionnalité pour regrouper une série de numéros de compartiment aléatoires et comparer les performances de vos Campaigns et de leurs variantes.
 
 {% alert important %}
 Cet événement Currents n'est disponible que pour les clients qui ont acheté un « connecteur tous événements » et n'est disponible que pour les connecteurs d'événements de stockage (tels que Amazon S3, Microsoft Azure et Google Cloud Storage).
@@ -1131,7 +1135,7 @@ Lorsqu'un utilisateur démarre sa première session, un événement `FirstSessio
 {% endapi %}
 
 {% api %}
-## Événements de changement de jeton Push To Start pour les Live Activity {#live-activity-push-to-start-token-change-events}
+## Événements de changement de jeton Push To Start de Live Activity {#live-activity-push-to-start-token-change-events}
 
 {% apitags %}
 Live Activity, Push To Start Token
@@ -1262,10 +1266,14 @@ Cet événement se produit lorsque Braze synchronise le jeton Push To Start de l
 {% endtab %}
 {% endtabs %}
 
+### Détails des propriétés
+
+- Braze émet un événement « update » avec `push_token_state_change_type` défini sur `"update"` lorsqu'un utilisateur anonyme est identifié sur le même profil et que les jetons Push To Start de Live Activity iOS existants restent sur ce profil. Dans ce cas, `user_id` ne change pas et `external_user_id` est défini sur l'ID externe de l'utilisateur identifié. Cela inclut l'identification via l'endpoint [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) et le `changeUser` du SDK lorsqu'il attribue un ID externe au profil anonyme sur l'appareil.
+
 {% endapi %}
 
 {% api %}
-## Événements de changement de jeton de mise à jour des Live Activity {#live-activity-update-token-change-events}
+## Événements de changement de jeton de mise à jour de Live Activity {#live-activity-update-token-change-events}
 
 {% apitags %}
 Live Activity, Update Token
@@ -1575,7 +1583,7 @@ Cet événement se produit lorsqu'un jeton de notification push est inséré, mi
   - Si l'utilisateur a explicitement autorisé les notifications push sur son appareil, la valeur est `false`, et le jeton peut recevoir des notifications push en avant-plan.
   - Si l'utilisateur a explicitement refusé l'autorisation de notification push sur son appareil, la valeur est `true`, et le jeton ne peut recevoir que des notifications push en arrière-plan.
   - Si l'autorisation push n'a pas encore été déterminée (par exemple, l'utilisateur n'a pas encore répondu à l'invite du système d'exploitation), la valeur est `true`, et le jeton ne peut recevoir que des notifications push en arrière-plan.
-  - Ce champ peut être `null` (ou vide, selon le format de votre destination) pour les enregistrements de jetons SDK plus anciens qui n'ont pas encore signalé l'état de l'autorisation, ainsi que pour les jetons de notification push web. Traitez `null` de la même manière que `false` (compatible avec les notifications push en avant-plan), car Braze tente toujours d'envoyer des notifications push en avant-plan à ces jetons.
+  - Ce champ peut être `null` (ou vide, selon le format de votre destination) pour les enregistrements de jetons SDK plus anciens qui n'ont pas encore signalé l'état de l'autorisation, ainsi que pour les jetons de notification push Web. Traitez `null` de la même manière que `false` (compatible avec les notifications push en avant-plan), car Braze tente toujours d'envoyer des notifications push en avant-plan à ces jetons.
   - Une tentative d'envoi de notification push ne met pas à jour ce champ. Si un envoi réussit, aucun événement `TokenStateChange` n'est émis. Si un envoi rebondit parce que le jeton est invalide, Braze émet un événement « remove » et supprime le jeton.
   - Ce champ ne change que lorsque Braze ingère une mise à jour de l'état du jeton depuis le SDK (par exemple, une synchronisation de session ultérieure qui signale l'état de l'autorisation push).
 - Le champ `push_token_provisionally_opted_in` s'applique uniquement aux jetons de notification push iOS.
@@ -1589,17 +1597,19 @@ Cet événement se produit lorsqu'un jeton de notification push est inséré, mi
 
 ##### Add {#add}
 
-Un événement « add » est ingéré lorsqu'un nouveau jeton est enregistré. Cela se produit lorsqu'un utilisateur ouvre l'application pour la première fois sur un nouvel appareil, ou lorsqu'un jeton est défini via l'endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) avec `push_tokens` pour un utilisateur qui n'en avait pas auparavant.
+Un événement « add » est ingéré lorsqu'un nouveau jeton est enregistré. Cela se produit lorsqu'un utilisateur ouvre l'application pour la première fois sur un nouvel appareil, ou lorsqu'un jeton est défini via l'endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) avec `push_tokens` pour un utilisateur qui n'en avait pas auparavant. Le champ `time_ms` indique le moment où l'événement « add » s'est produit.
 
 {% alert note %}
 Pour le SDK Swift iOS 13.3.0 et versions ultérieures, et le SDK Android 40.0.0 et versions ultérieures, l'état de l'autorisation push et le jeton de notification push sont envoyés ensemble. Pour les nouveaux enregistrements provenant de ces SDK, `push_token_foreground_push_disabled` est renseigné dans l'événement « add » (généralement `false` lorsque les notifications sont activées).<br><br>
 
-Les enregistrements de jetons plus anciens peuvent encore avoir ce champ à `null` jusqu'à ce que le SDK signale ultérieurement l'état de l'autorisation push. Les jetons de notification push web peuvent également avoir ce champ à `null` par conception.
+Les enregistrements de jetons plus anciens peuvent encore avoir ce champ à `null` jusqu'à ce que le SDK signale ultérieurement l'état de l'autorisation push. Les jetons de notification push Web peuvent également avoir ce champ à `null` par conception.
 {% endalert %}
 
 ##### Update {#update}
 
-Un événement « update » est ingéré lorsqu'une propriété d'un jeton existant est modifiée sans que la chaîne de caractères du jeton elle-même ne change. Le jeton conserve la même chaîne de caractères, le même utilisateur et la même application, mais un ou plusieurs des champs suivants ont été modifiés : `foreground_push_disabled`, passerelle APNs, clés de notification push web, `provisionally_opted_in` ou `device_id`. Ces mises à jour proviennent d'événements de synchronisation de l'état du jeton (par exemple, lorsque le SDK signale un nouvel état d'autorisation), et non des résultats d'envoi de notifications push.
+Un événement « update » est ingéré lorsqu'une propriété d'un jeton existant est modifiée sans que la chaîne de caractères du jeton elle-même ne change. Le jeton conserve la même chaîne de caractères, le même utilisateur et la même application, mais un ou plusieurs des champs suivants ont été modifiés : `foreground_push_disabled`, passerelle APNs, clés de notification push Web, `provisionally_opted_in` ou `device_id`. Ces mises à jour proviennent d'événements de synchronisation de l'état du jeton (par exemple, lorsque le SDK signale un nouvel état d'autorisation), et non des résultats d'envoi de notifications push. Le champ `time_ms` indique le moment où l'événement « update » s'est produit.
+
+Braze émet également un événement « update » avec `push_token_state_change_type` défini sur `"update"` lorsqu'un utilisateur anonyme est identifié sur le même profil et que les jetons de notification push existants restent sur ce profil. Dans ce cas, `user_id` ne change pas et `external_user_id` est défini sur l'ID externe de l'utilisateur identifié. Cela inclut l'identification via l'endpoint [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) et le `changeUser` du SDK lorsqu'il attribue un ID externe au profil anonyme sur l'appareil.
 
 {% alert note %}
 Dans la plupart des cas, la réinstallation d'une application ou la restauration d'une sauvegarde entraîne un nouvel événement « add » avec un nouveau `push_token` et un nouveau `device_id` (car le SDK génère un nouveau `device_id` et le système d'exploitation fournit une nouvelle chaîne de caractères de jeton de notification push). Cela crée deux entrées distinctes pour le jeton et l'appareil dans le profil utilisateur, et l'entrée la plus ancienne est supprimée ultérieurement via le suivi des désinstallations ou l'envoi de campagnes.<br><br>
@@ -1617,8 +1627,15 @@ Un événement « remove » autonome est ingéré lorsque Braze supprime un jeto
 
 Lorsqu'un rebond de notification push déclenche la suppression d'un jeton, Braze émet `push_token_state_change_type = "remove"` pour ce jeton. Il n'émet pas d'événement « update » modifiant `push_token_foreground_push_disabled`.
 
+Le champ `time_ms` indique le moment où l'événement « remove » s'est produit.
+
+{% alert note %}
+Pour les événements « remove », les champs de propriétés de jeton suivants ne sont pas renseignés : `push_token_created_at`, `push_token_updated_at`, `push_token_foreground_push_disabled`, `push_token_provisionally_opted_in`, `ios_push_token_apns_gateway`, `web_push_token_public_key`, `web_push_token_user_auth` et `web_push_token_vapid_public_key`.
+{% endalert %}
+
 ##### Paires add et remove {#add-and-remove-pairs}
 
+Les paires d'événements add et remove sont deux événements d'état de jeton liés pour la même transition : un événement « add » et un événement « remove ».
 Les paires add et remove se répartissent en deux catégories :
 
 **Actualisation de la chaîne de caractères du jeton (même utilisateur) :** le système d'exploitation procède à la rotation de la chaîne de caractères du jeton sur le même appareil (par exemple, rotation des jetons APNs ou FCM). Les événements « add » (nouveau jeton) et « remove » (ancien jeton) ont les mêmes `user_id` et `device_id`, des `push_token` différents et des `time_ms` identiques.
@@ -1630,7 +1647,10 @@ Les paires add et remove se répartissent en deux catégories :
 - L'endpoint [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) ou le nettoyage des utilisateurs en double transfère les jetons de l'utilisateur orphelin vers l'utilisateur conservé.
 
 {% alert note %}
-Si un profil anonyme est identifié via l'endpoint [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify), le `user_id` ne change pas et aucun événement de modification de l'état du jeton n'est émis.
+L'identification sur le même profil via l'endpoint REST [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) ou le [`changeUser`]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#identified-user-profiles) du SDK peut attribuer un ID externe à un profil anonyme sans modifier le `user_id`.
+Dans ce cas, Braze n'émet pas de [paires d'événements add et remove](#add-and-remove-pairs).
+À la place, Braze émet un événement « update » pour chaque jeton de notification push existant et définit `external_user_id` sur l'ID externe de l'utilisateur identifié.
+Lorsque `changeUser` transfère des jetons d'un profil utilisateur à un autre, Braze émet toujours les [paires d'événements add et remove](#add-and-remove-pairs) décrites dans la section [Paires add et remove](#add-and-remove-pairs).
 {% endalert %}
 
 #### Requête sur l'état actuel du jeton actif {#querying-for-the-latest-active-token-state}

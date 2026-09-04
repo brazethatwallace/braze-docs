@@ -9,7 +9,7 @@ description: "Dieser Artikel enthält Versionshinweise für Mai 2020."
 
 ## Google Tag Manager
 
-Dokumentation und Beispiele für die Bereitstellung und Verwaltung des Android SDK von Braze mit [Google Tag Manager]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android) hinzugefügt.
+Dokumentation und Beispiele für die Bereitstellung und Verwaltung des Android SDK von Braze mit [Google Tag Manager]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android) hinzugefügt.
 
 ## Neuer API-Endpunkt zum Sperren von E-Mail-Adressen {#new-blacklist-email-api-endpoint}
 

@@ -49,12 +49,12 @@ platform:
 ### Campaign 계획 {#campaign-planning}
 
 CRM 팀은 가까운 시일 내에 출시할 메시징 사용 사례를 계획합니다. 여기에는 다음이 포함됩니다:
-* [채널]({{site.baseurl}}/user_guide/channels) (예: 푸시 알림 또는 인앱 메시지)
-* [전달 방법]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign) (예: 예약 전달 또는 실행 기반 전달)
+* [채널]({{site.baseurl}}/user_guide/channels)(예: 푸시 알림 또는 인앱 메시지)
+* [전달 방법]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign)(예: 예약 전달 또는 실행 기반 전달)
 * [타겟 오디언스]({{site.baseurl}}/user_guide/audience/segments)
 * [성공 측정기준]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)
 
-예를 들어, 어제 첫 세션을 기록한 고객 세그먼트에 매일 오전 10시에 이메일을 보내는 신규 고객 Campaign이 있을 수 있습니다. 전환 이벤트(성공 측정기준)는 세션을 기록하는 것입니다.
+예를 들어, 어제 첫 세션을 기록한 고객 Segment에 매일 오전 10시에 이메일을 보내는 신규 고객 Campaign이 있을 수 있습니다. 전환 이벤트(성공 측정기준)는 세션을 기록하는 것입니다.
 
 <br>
 {% alert important %}
@@ -89,7 +89,9 @@ Braze 대시보드는 웹 UI 인터페이스입니다. 마케터는 대시보드
 
 팀 관리자는 다른 [워크스페이스]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces)도 만들 수 있습니다. 워크스페이스는 사용자, Segments, API 키와 같은 데이터를 한 곳에 그룹화합니다. 모범 사례로 동일한 앱의 서로 다른 버전 또는 매우 유사한 앱만 하나의 워크스페이스에 모으는 것을 권장합니다.
 
-중요한 점은 워크스페이스가 여러 플랫폼(예: iOS 및 Android)에 대한 API 키를 제공한다는 것입니다. 연관된 API 키를 사용하여 SDK 데이터를 특정 워크스페이스에 연결할 수 있습니다. 워크스페이스로 이동하여 각 앱의 API 키에 액세스합니다. 각 API 키에 범위를 지정한 작업을 수행할 수 있는 올바른 권한이 있는지 확인합니다. 자세한 내용은 [API 프로비저닝 문서]({{site.baseurl}}/api/basics#rest-api-key)를 참조하세요.
+중요한 점은 워크스페이스가 여러 플랫폼(예: iOS 및 Android)에 대한 API 키를 제공한다는 것입니다. 연관된 API 키를 사용하여 SDK 데이터를 특정 워크스페이스에 연결할 수 있습니다. 워크스페이스로 이동하여 각 앱의 API 키에 액세스합니다. 각 API 키에 범위를 지정한 작업을 수행할 수 있는 올바른 권한이 있는지 확인합니다. 자세한 내용은 [API 프로비저닝 문서]({{site.baseurl}}/api/basics#rest-api-key-permissions)를 참조하세요.
+
+웹 구현이 여러 루트 도메인에 걸쳐 있는 경우, 하나의 앱을 사용할지 또는 별도의 앱과 API 키를 사용할지 결정할 때 [Braze 웹 SDK의 멀티 도메인 통합]({{site.baseurl}}/developer_guide/platforms/web/multi_domain_integration)을 참조하세요.
 
 {% alert important %}
 개발과 프로덕션을 위해 서로 다른 환경을 설정하는 것이 중요합니다. 테스트 환경을 설정하면 온보딩 및 QA 과정에서 실제 비용의 지출을 방지할 수 있습니다. 테스트 환경을 구축하려면 테스트 워크스페이스를 설정하고 프로덕션 워크스페이스에 테스트 데이터를 채우지 않도록 해당 API 키를 사용해야 합니다.
@@ -109,16 +111,16 @@ Braze는 iOS 앱, Android 앱, 웹 앱 등을 지원합니다. React Native 또�
 * 일반적인 데이터 관리 기술
 * DNS 레코드 설정
 
-### CDP 통합 파트너 {#cdp-integration-partners}
+### 고객 데이터 플랫폼 통합 파트너 {#cdp-integration-partners}
 
-많은 고객이 Braze 온보딩을 통합 파트너로서 고객 데이터 플랫폼(CDP)과도 통합할 수 있는 기회로 활용합니다. Braze는 데이터 추적 및 분석을 제공하며, CDP는 추가적인 데이터 라우팅 및 오케스트레이션을 제공할 수 있습니다. Braze는 [mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle), [Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment) 등 다양한 CDP와 원활하게 통합할 수 있습니다.
+많은 고객이 Braze 온보딩을 통합 파트너로서 고객 데이터 플랫폼(고객 데이터 플랫폼)과도 통합할 수 있는 기회로 활용합니다. Braze는 데이터 추적 및 분석을 제공하며, 고객 데이터 플랫폼는 추가적인 데이터 라우팅 및 오케스트레이션을 제공할 수 있습니다. Braze는 [mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle), [Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment) 등 다양한 고객 데이터 플랫폼와 원활하게 통합할 수 있습니다.
 
-CDP와 병렬 통합을 수행하는 경우, CDP의 SDK에서 Braze SDK로 호출을 매핑합니다. 기본적으로 다음을 수행합니다:
+고객 데이터 플랫폼와 병렬 통합을 수행하는 경우, 고객 데이터 플랫폼의 SDK에서 Braze SDK로 호출을 매핑합니다. 기본적으로 다음을 수행합니다:
 * `changeUser`([Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/change-user.html), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/changeuser(userid:sdkauthsignature:fileid:line:)/), [웹](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser))에 식별 호출을 매핑하고 속성을 설정합니다.
 * `requestImmediateDataFlush`([Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/request-immediate-data-flush.html?query=abstract%20fun%20requestImmediateDataFlush()), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/requestimmediatedataflush()), [웹](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestimmediatedataflush))에 데이터 플러시 호출을 매핑합니다.
 * 커스텀 이벤트 또는 구매를 기록합니다.
 
-선택한 플랫폼에 따라 Braze SDK와 선택한 CDP 간의 통합 예제를 사용할 수 있습니다. 자세한 내용은 [CDP 기술 파트너 목록]({{site.baseurl}}/partners/data_and_analytics)을 참조하세요.
+선택한 플랫폼에 따라 Braze SDK와 선택한 고객 데이터 플랫폼 간의 통합 예제를 사용할 수 있습니다. 자세한 내용은 [고객 데이터 플랫폼 기술 파트너 목록]({{site.baseurl}}/partners/data_and_analytics)을 참조하세요.
 
 ### Braze SDK 통합 {#braze-sdk-integration}
 
@@ -143,25 +145,25 @@ SDK를 구현하는 동안 다음을 수행합니다:
 Braze를 사용하는 동안 여러 시점에 다양한 작업을 위해 REST API를 사용합니다. Braze API는 다음과 같은 경우에 유용합니다:
 
 1. 기록 데이터 가져오기
-2. Braze에서 트리거되지 않는 지속적인 업데이트. 예를 들어, 사용자가 앱에 로그인하지 않고도 사용자 프로필이 VIP로 업그레이드되는 경우 API는 이 정보를 Braze에 전달해야 합니다.
+2. Braze에서 트리거되지 않는 지속적인 업데이트. 예를 들어, 사용자가 앱에 로그인하지 않고도 고객 프로필이 VIP로 업그레이드되는 경우 API가 이 정보를 Braze에 전달해야 합니다.
 
 [Braze API]({{site.baseurl}}/api/basics)로 시작하세요.
 
 {% alert important %}
-API를 사용하는 동안 요청을 배치로 처리하고 델타 값만 전송해야 합니다. Braze는 전송되는 모든 속성을 다시 작성합니다. 값이 변경되지 않은 커스텀 속성은 업데이트하지 마세요.
+API를 사용할 때는 요청을 배치로 처리하고 델타 값만 전송해야 합니다. Braze는 전송되는 모든 속성을 다시 작성합니다. 값이 변경되지 않은 커스텀 속성은 업데이트하지 마세요.
 {% endalert %}
 
 ### 제품 분석 설정 {#setting-up-product-analytics}
 
-Braze는 기본적으로 데이터를 다룹니다. Braze의 데이터는 사용자 프로필에 저장됩니다.
+Braze는 기본적으로 데이터를 다룹니다. Braze의 데이터는 고객 프로필에 저장됩니다.
 
-데이터 포인트는 마케터가 단순히 모을 수 있는 "모든" 데이터가 아니라 올바른 데이터를 수집할 수 있도록 지원하는 구조입니다. [데이터 포인트]({{site.baseurl}}/user_guide/data/infrastructure/data_points)에 익숙해지세요.
+데이터 포인트는 마케터가 단순히 모을 수 있는 "모든" 데이터가 아니라 올바른 데이터를 수집할 수 있도록 지원하는 구조입니다. [데이터 포인트]({{site.baseurl}}/user_guide/data/infrastructure/data_points)에 대해 익숙해지세요.
 
 ### 레거시 사용자 데이터 마이그레이션 {#migrating-legacy-user-data}
 
 Braze [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track)를 사용하여 Braze 외부에 기록된 과거 데이터를 마이그레이션할 수 있습니다. 일반적으로 가져오는 데이터의 예로 푸시 토큰과 과거 구매 내역이 있습니다. 이 엔드포인트는 일회성 가져오기 또는 정기적인 배치 업데이트에 사용할 수 있습니다.
 
-대시보드에 한 번의 [CSV 업로드]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_import#importing-a-csv)를 통해 사용자를 가져오고 고객 속성 값을 업데이트할 수도 있습니다. CSV 업로드는 마케터에게 유용한 반면, REST API를 사용하면 더 큰 유연성을 확보할 수 있습니다.
+대시보드에 한 번의 [CSV 업로드]({{site.baseurl}}/user_guide/audience/manage_audience/import_users)를 통해 사용자를 가져오고 고객 속성 값을 업데이트할 수도 있습니다. CSV 업로드는 마케터에게 유용한 반면, REST API를 사용하면 더 큰 유연성을 확보할 수 있습니다.
 
 ### 세션 추적 설정 {#setting-up-session-tracking}
 
@@ -177,29 +179,29 @@ Braze에서 `external_id`라고 하는 사용자 ID는 알려진 모든 사용�
 
 ### 기타 도구 {#other-tools}
 
-사용 사례에 따라 설정해야 하는 다른 도구가 있을 수 있습니다. 예를 들어 사용자 스토리를 구현하기 위해 [지오펜스]({{site.baseurl}}/user_guide/engagement_tools/locations_and_geofences#about-locations-and-geofences)와 같은 도구를 구성해야 할 수 있습니다. 필수 통합 단계를 완료한 후 이러한 추가 도구를 설정할 수 있는 고객이 가장 성공적인 것으로 나타났습니다.
+사용 사례에 따라 설정해야 하는 다른 도구가 있을 수 있습니다. 예를 들어 사용자 스토리를 구현하기 위해 [지오펜스]({{site.baseurl}}/user_guide/audience/locations_and_geofences)와 같은 도구를 구성해야 할 수 있습니다. 필수 통합 단계를 완료한 후 이러한 추가 도구를 설정할 수 있는 고객이 가장 성공적인 것으로 나타났습니다.
 
 ## 품질 보증 {#qa}
-통합을 실행할 때 설정한 모든 기능이 예상대로 작동하는지 확인하기 위해 품질 보증을 수행합니다. 이 QA는 데이터 수집과 메시지 채널이라는 두 가지 일반적인 범주로 분류됩니다.
+통합을 실행하면서 설정한 모든 기능이 예상대로 작동하는지 품질 보증을 수행합니다. 이 QA는 데이터 수집과 메시지 채널이라는 두 가지 일반적인 범주로 분류됩니다.
 
 {% alert important %}
 QA를 시작하기 전에 프로덕션 및 테스트 환경이 설정되어 있는지 확인하세요.
 {% endalert %}
 
-| **QA 데이터 수집**  | **QA 메시징**                                              |
+| **QA 데이터 수집** | **QA 메시징** |
 |---------------------------|---------------------------------------------------------------|
-| 데이터 수집, 저장, 내보내기 방식에 대한 품질 보증을 수행합니다. | 사용자에게 메시지가 올바르게 전송되고 있는지, 모두 잘 보이는지 확인합니다. |
-| 테스트를 실행하여 데이터가 제대로 저장되었는지 확인합니다. | 사용자 Segments를 만듭니다. |
+| 데이터 수집, 저장, 내보내기 방식에 대한 품질 보증을 수행합니다. | 사용자에게 메시지가 올바르게 전송되고 있는지, 모든 것이 정상적으로 보이는지 확인합니다. |
+| 테스트를 실행하여 데이터가 올바르게 저장되었는지 확인합니다. | 사용자 Segments를 만듭니다. |
 | 세션 데이터가 Braze 내에서 의도한 워크스페이스에 올바르게 귀속되는지 확인합니다. | Campaigns와 Canvases를 성공적으로 시작합니다. |
 | 세션 시작과 종료가 기록되고 있는지 확인합니다. | 올바른 Campaigns가 올바른 사용자 Segments에 표시되고 있는지 확인합니다. |
-| 사용자 속성 정보가 사용자 프로필에 대해 올바르게 기록되었는지 확인합니다. | 푸시 토큰이 올바르게 등록되었는지 확인합니다. |
-| 사용자 프로필에 대해 커스텀 데이터가 올바르게 기록되고 있는지 테스트합니다. | 푸시 토큰이 올바르게 제거되었는지 확인합니다. |
-| 익명 사용자 프로필을 만듭니다. | 푸시 Campaigns가 기기에 올바르게 전송되고 참여가 기록되는지 테스트합니다. |
+| 사용자 속성 정보가 고객 프로필에 올바르게 기록되었는지 확인합니다. | 푸시 토큰이 올바르게 등록되었는지 확인합니다. |
+| 고객 프로필에 대해 커스텀 데이터가 올바르게 기록되고 있는지 테스트합니다. | 푸시 토큰이 올바르게 제거되었는지 확인합니다. |
+| 익명 사용자 프로필을 만듭니다. | 푸시 Campaigns가 기기에 올바르게 전송되고 인게이지먼트가 기록되는지 테스트합니다. |
 | `changeUser()` 메서드가 호출될 때 익명 사용자 프로필이 알려진 사용자 프로필이 되는지 확인합니다. | In-App Messages가 전달되고 측정기준이 기록되는지 테스트합니다. |
 |                           | Content Cards가 전달되고 측정기준이 기록되는지 테스트합니다. |
 |                           | 연결된 콘텐츠를 활성화합니다(예: AccuWeather). |
 |                           | 모든 메시지 채널 통합이 제대로 작동하는지 확인합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="품질 보증" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="품질 보증 #qa" }
 
 {% alert note %}
 SDK 통합에 대한 QA를 수행하는 동안 [SDK 디버거]({{site.baseurl}}/developer_guide/sdk_integration/debugging)를 사용하면 앱에 대한 상세 로깅을 켜지 않고도 문제를 해결할 수 있습니다.
@@ -209,56 +211,56 @@ SDK 통합에 대한 QA를 수행하는 동안 [SDK 디버거]({{site.baseurl}}/
 
 플랫폼이나 사이트를 통합한 후에는 마케팅 팀을 참여시켜 플랫폼의 소유권을 넘겨주는 것이 좋습니다. 이 프로세스는 회사마다 다르지만 다음과 같은 사항이 포함될 수 있습니다:
 
-* 복잡한 [Liquid 로직]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid#about-liquid) 구성
+* 복잡한 [Liquid 로직]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) 구성
 * [이메일 IP 워밍]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming) 지원
 * 다른 이해관계자가 추적되는 데이터의 종류를 이해하는지 확인
 
 ### 미래를 위한 개발 {#develop-for-the-future}
 
-코드베이스를 상속받았는데 초기 개발자의 생각을 전혀 짐작할 수 없었던 적이 있나요? 더 나쁜 경우, 코드를 작성하고 완전히 이해했다가 1년 후에 다시 돌아왔을 때 완전히 당황한 적이 있나요?
+코드베이스를 상속받았는데 처음 작성한 개발자의 의도를 전혀 파악할 수 없었던 적이 있나요? 더 안 좋은 경우, 코드를 작성하고 완전히 이해했다가 1년 후에 다시 돌아왔을 때 완전히 당황한 적이 있나요?
 
-Braze를 온보딩할 때 데이터, 사용자 프로필, 범위 내 통합과 범위 외 통합, 커스터마이징 작동 방식 등에 관해 내린 종합적인 결정은 그 당시에는 생생하고 명확하게 느껴질 것입니다. 팀이 Braze를 확장하려고 하거나 다른 기술 리소스가 Braze 프로젝트에 할당되면 이러한 정보가 모호해집니다.
+Braze를 온보딩할 때 데이터, 고객 프로필, 범위 내 통합과 범위 외 통합, 커스터마이징 작동 방식 등에 관해 내린 종합적인 결정은 그 당시에는 생생하고 명확하게 느껴질 것입니다. 팀이 Braze를 확장하려 하거나 다른 기술 리소스가 Braze 프로젝트에 할당되면 이러한 정보가 모호해집니다.
 
-기술 개요 세션에서 학습한 정보를 확고히 할 수 있는 리소스를 만드세요. 이 리소스는 팀에 새로 합류하는 개발자의 온보딩 시간을 줄이는 데 도움이 됩니다(또는 현재 Braze 구현을 확장해야 할 때 스스로에게 상기시키는 역할을 합니다).
+기술 개요 세션에서 습득한 정보를 확고히 할 수 있는 리소스를 만드세요. 이 리소스는 팀에 새로 합류하는 개발자의 온보딩 시간을 줄이는 데 도움이 됩니다(또는 현재 Braze 구현을 확장해야 할 때 스스로에게 상기시키는 역할을 합니다).
 
 ## 유지 관리 {#maintenance}
 
-마케터에게 인계한 후에도 유지 관리를 위한 리소스 역할을 계속 수행합니다. Braze SDK에 영향을 줄 수 있는 iOS 및 Android 업데이트에 주의를 기울이고 서드파티 공급자가 최신 상태인지 확인해야 합니다.
+마케터에게 인계한 후에도 유지 관리를 위한 리소스 역할을 계속 수행합니다. Braze SDK에 영향을 줄 수 있는 iOS 및 Android 업데이트에 주의를 기울이고 서드파티 업체가 최신 상태인지 확인해야 합니다.
 
 Braze [GitHub](https://github.com/braze-inc/)를 통해 Braze 플랫폼의 업데이트를 추적합니다. 때때로 관리자가 긴급 업데이트 및 버그 수정에 대한 이메일을 Braze에서 직접 받기도 합니다.
 
 ## SDK 사용량 제한 {#sdk-rate-limits}
 
-### 2024-2025년 월간 활성 사용자, 전체 MAU, 웹 MAU 및 모바일 MAU {#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau}
+### 월간 활성 사용자 CY 24-25, Universal MAU, Web MAU, 및 Mobile MAU {#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau}
 
-2024-2025년 월간 활성 사용자, 전체 MAU, 웹 MAU 및 모바일 MAU를 구매한 고객의 경우, Braze는 세션, 사용자 속성, 이벤트 및 기타 사용자 프로필 데이터를 업데이트하는 데 SDK가 사용하는 API 요청에 대해 서버 측 사용량 제한을 적용합니다. 이는 플랫폼의 안정성을 보장하고 빠르고 안정적인 서비스를 유지하기 위한 것입니다.
+월간 활성 사용자 CY 24-25, Universal MAU, Web MAU, 및 Mobile MAU를 구매한 고객의 경우, Braze는 SDK가 세션, 사용자 속성, 이벤트 및 기타 고객 프로필 데이터를 업데이트하는 데 사용하는 API 요청에 서버 측 사용량 제한을 적용합니다. 이는 플랫폼 안정성을 보장하고 빠르고 안정적인 서비스를 유지하기 위한 것입니다.
 
-* 시간당 사용량 제한은 계정의 예상 SDK 트래픽에 따라 설정되며, 이는 구매한 월간 활성 사용자 수(MAU), 업종, 계절성 또는 기타 요인에 따라 달라질 수 있습니다. 시간당 사용량 제한에 도달하면 Braze는 다음 시간까지 요청을 스로틀링합니다.
-* 모든 사용량 제한 요청은 SDK에 의해 자동으로 재시도됩니다.
-* SDK 요청은 구현에서 수집된 커스텀 데이터의 양과 상관관계가 있습니다. 시간당 사용량 제한에 지속적으로 근접하거나 한도에 도달했다면 다음을 고려해 보세요:
-    * 과도한 데이터 수집을 줄이기 위해 SDK 통합을 검토합니다.
-    * 마케팅 사용 사례에 필수적이지 않은 커스텀 데이터를 차단합니다.
-* 버스트 사용량 제한은 매우 짧은 시간(즉, 몇 초 이내)에 많은 양의 요청이 도착할 때 적용되는 단기간의 사용량 제한입니다. 버스트 제한이 발생하면 조치를 취할 필요가 없으며, SDK가 곧 다시 시도합니다.
-* 지속적인 사용량 제한은 버스트 기간보다 긴 롤링 기간(예: 몇 분) 동안 지속적인 요청량을 제어하며, 버스트 제한과 시간당 사용량 제한 사이의 지속적인 트래픽을 부드럽게 하는 데 도움이 됩니다.
+* 시간당 사용량 제한은 계정의 예상 SDK 트래픽에 따라 설정되며, 이는 구매한 월간 활성 사용자(MAU) 수, 업종, 계절성 또는 기타 요소에 따라 달라질 수 있습니다. 시간당 사용량 제한에 도달하면 Braze는 다음 시간까지 요청을 스로틀링합니다.
+* 사용량 제한이 적용된 모든 요청은 SDK에 의해 자동으로 재시도됩니다.
+* SDK 요청은 구현에서 수집되는 커스텀 데이터의 양과 관련이 있습니다. 시간당 사용량 제한에 지속적으로 근접하거나 도달하는 경우 다음을 고려하세요:
+    * SDK 통합을 검토하여 과도한 데이터 수집을 줄이세요.
+    * 마케팅 사용 사례에 필수적이지 않은 커스텀 데이터를 차단 목록에 추가하세요.
+* 버스트 사용량 제한은 매우 짧은 기간(즉, 수 초 이내)에 대량의 요청이 도착할 때 적용되는 단기 사용량 제한입니다. 버스트 제한이 발생하더라도 별도의 조치를 취할 필요는 없으며, SDK가 곧바로 재시도합니다.
+* 정상 사용량 제한은 버스트 윈도우보다 긴 롤링 윈도우(예: 수 분)에 걸쳐 지속적인 요청량을 제어하며, 버스트 제한과 시간당 사용량 제한 사이에서 지속적인 트래픽을 원활하게 관리합니다.
 
 ### 사용량 제한 확인하기 {#finding-your-rate-limits}
 
-예상 SDK 처리량을 기준으로 현재 제한을 확인하려면 **설정** > **API 키** > **API 및 SDK 제한**으로 이동하세요.
+예상 SDK 처리량에 따른 현재 제한을 확인하려면 **설정** > **API 및 식별자** > **API 및 SDK 제한**으로 이동하세요.
 
-사용 내역을 보려면 **설정** > **API 키** > **API 및 SDK 대시보드**로 이동하세요.
+과거 사용량을 확인하려면 **설정** > **API 및 식별자** > **API 및 SDK 대시보드**로 이동하세요.
 
 ### 더 높은 사용량 제한 요청하기 {#requesting-higher-rate-limits}
 
-더 높은 Braze 사용량 제한이 필요한 경우, Braze 고객지원 또는 고객 성공 매니저에게 연락하고 다음 세부정보를 포함하세요:
+더 높은 Braze 사용량 제한이 필요한 경우, Braze 지원팀 또는 고객 성공 매니저에게 연락하여 다음 세부 정보를 포함해 주세요:
 
-* 임시 또는 영구적인 증가가 필요한지 여부.
+* 일시적인 증가가 필요한지 영구적인 증가가 필요한지 여부.
 * 증가가 필요한 이유.
 * 영향을 받는 엔드포인트 및 환경.
-* 대략적인 트래픽 양과 일정(시작 날짜, 기간 및 피크 시간 포함).
-* 호출을 배치하거나 시간에 따라 트래픽을 분산할 수 있는지 여부.
+* 시작 날짜, 기간 및 피크 시간을 포함한 대략적인 트래픽 볼륨 및 일정.
+* 호출을 일괄 처리하거나 트래픽을 시간에 걸쳐 분산할 수 있는지 여부.
 
-요청을 제출한 후, Braze는 이를 검토하고 결과를 업데이트합니다.
+요청을 제출하면 Braze가 이를 검토하고 결과를 안내합니다.
 
-### 변경 사항 및 지원 {#changes-and-support}
+### 변경 및 지원 {#changes-and-support}
 
-Braze는 시스템 안정성을 보호하거나 계정의 데이터 처리량을 늘리기 위해 사용량 제한을 변경할 수 있습니다. 사용량 제한 및 사용량 제한이 비즈니스에 미치는 영향에 대한 질문이나 우려 사항은 Braze 고객지원 또는 고객 성공 매니저에게 문의하세요.
+Braze는 시스템 안정성을 보호하거나 계정의 데이터 처리량 증가를 허용하기 위해 사용량 제한을 수정할 수 있습니다. 사용량 제한 및 비즈니스에 미치는 영향에 대한 질문이나 우려 사항은 Braze 지원팀 또는 고객 성공 매니저에게 문의하세요.

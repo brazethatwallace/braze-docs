@@ -1,12 +1,11 @@
 ---
-nav_title: "POST:APIトリガーによる配信でキャンペーンを送信する"
-article_title: "POST:APIトリガー配信でキャンペーンを送信する"
+nav_title: "POST: APIトリガー配信でキャンペーンを送信する"
+article_title: "APIトリガー配信を使用したキャンペーンメッセージの送信"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
 description: "この記事では、APIトリガー配信を使用したキャンペーンの送信Brazeエンドポイントの詳細について説明します。"
-
 ---
 {% api %}
 # APIトリガー配信を使用したキャンペーンメッセージの送信 {#send-campaign-messages-using-api-triggered-delivery}
@@ -24,7 +23,7 @@ APIトリガー配信を使用すると、メッセージのコンテンツをBr
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`campaigns.trigger.send` 権限を持つAPIキーを生成する必要があります。
+このエンドポイントを使用するには、`campaigns.trigger.send`権限を持つAPIキーを生成する必要があります。
 
 ## レート制限 {#rate-limit}
 
@@ -58,11 +57,12 @@ Authorization: Bearer YOUR-REST-API-KEY
       "attributes": (optional, object) fields in the attributes object create or update an attribute of that name with the given value on the specified user profile before the message is sent and existing values are overwritten
     }
   ],
-  "attachments": (optional, array) array of JSON objects that define the files you need attached, defined by "file_name" and "url",
+  "attachments": (optional, array) array of JSON objects that define the files you need attached, defined by "file_name", "url", and optionally "basic_auth_credential",
     [
       {
        "file_name": (required, string) the name of the file you want to attach to your email, excluding the extension (for example, ".pdf"). Attach files up to 2 MB. This is required if you use "attachments",
        "url": (required, string) the corresponding URL of the file you want to attach to your email. The file name's extension is detected automatically from the URL defined, which should return the appropriate "Content-Type" as a response header. This is required if you use "attachments",
+       "basic_auth_credential": (optional, string) the name of the stored basic authentication credential to use when the attachment URL requires a login,
       }
     ]
 }
@@ -76,16 +76,16 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `send_id` | オプション | 文字列 | [送信識別子]({{site.baseurl}}/api/identifier_types)を参照してください。 |
 | `trigger_properties` | オプション | オブジェクト | [トリガープロパティ]({{site.baseurl}}/api/objects_filters/trigger_properties_object)を参照してください。パーソナライゼーションのキーと値のペアは、このリクエストの全ユーザーに適用されます。 |
 | `broadcast` | オプション | ブール値 | Brazeダッシュボードでキャンペーンのターゲットオーディエンスとして設定されたセグメント全体にメッセージを送信する場合は、`broadcast`をtrueに設定する必要があります。このパラメーターのデフォルトはfalseです（2017年8月31日現在）。<br><br>`broadcast`がtrueに設定されている場合、`recipients`リストを含めることはできません。ただし、`broadcast: true`を設定する際は注意が必要です。意図せずにこのフラグを設定すると、想定よりも大きなオーディエンスにメッセージが送信される可能性があります。 |
-| `audience` | オプション | 接続オーディエンスオブジェクト | [接続オーディエンス]({{site.baseurl}}/api/objects_filters/connected_audience)を参照してください。`audience`を含めると、メッセージはカスタム属性やサブスクリプションステータスなど、定義されたフィルターに一致するユーザーにのみ送信されます。 |
-| `recipients` | オプション | 配列 | [受信者オブジェクト]({{site.baseurl}}/api/objects_filters/recipient_object)を参照してください。<br><br>`send_to_existing_only`が`false`の場合、`attributes`オブジェクトを含める必要があります。<br><br>ネストされた`attributes`オブジェクト内に`subscription_groups`を含めることで、ユーザーのサブスクリプショングループのステータスを更新できます。詳細については、[ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object)を参照してください。<br><br>`recipients`が指定されず、`broadcast`がtrueに設定されている場合、メッセージはBrazeダッシュボードでキャンペーンのターゲットオーディエンスとして設定されたセグメント全体に送信されます。<br><br>`email`が識別子の場合、受信者オブジェクトに[`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email)を含める必要があります。 |
-| `attachments` | オプション | 配列 | `broadcast`がtrueに設定されている場合、`attachments`リストを含めることはできません。 |
+| `audience` | オプション | 接続オーディエンスオブジェクト | [接続オーディエンス]({{site.baseurl}}/api/objects_filters/connected_audience)を参照してください。`audience`を含めると、メッセージはカスタム属性や購読ステータスなど、定義されたフィルターに一致するユーザーにのみ送信されます。 |
+| `recipients` | オプション | 配列 | [受信者オブジェクト]({{site.baseurl}}/api/objects_filters/recipient_object)を参照してください。<br><br>`send_to_existing_only`が`false`の場合、`attributes`オブジェクトを含める必要があります。<br><br>ネストされた`attributes`オブジェクト内に`subscription_groups`を含めることで、ユーザーの購読グループのステータスを更新できます。詳細については、[ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object)を参照してください。<br><br>`recipients`が指定されず、`broadcast`がtrueに設定されている場合、メッセージはBrazeダッシュボードでキャンペーンのターゲットオーディエンスとして設定されたセグメント全体に送信されます。<br><br>`email`が識別子の場合、受信者オブジェクトに[`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email-addresses-and-phone-numbers)を含める必要があります。 |
+| `attachments` | オプション | 配列 | `broadcast`がtrueに設定されている場合、`attachments`リストを含めることはできません。<br><br>添付ファイルのURLにログインが必要な場合、その添付ファイルに`basic_auth_credential`を含め、保存済みのベーシック認証情報の名前を設定してください。認証情報を設定するには、[メールファイル添付の認証]({{site.baseurl}}/api/objects_filters/messaging/email_object#authentication-for-email-file-attachments)を参照してください。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ### 受信者の解決動作 {#recipient-resolution-behavior}
 
 このセクションでは、Brazeが送信先のユーザープロファイルをどのように選択するか、および1つのプロファイルが選択されなかった場合に何が起こるかについて説明します。
 
-ユーザーのサブスクリプショングループのステータスは、`attributes`オブジェクト内に`subscription_groups`パラメーターを含めることで更新できます。詳細については、[ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens)を参照してください。
+ユーザーの購読グループのステータスは、`attributes`オブジェクト内に`subscription_groups`パラメーターを含めることで更新できます。詳細については、[ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object)を参照してください。
 
 #### 受信者の制限とプロファイル作成 {#recipient-limits-and-profile-creation}
 
@@ -95,7 +95,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 - `send_to_existing_only`が`true`（デフォルト）の場合、Brazeは既存ユーザーにのみメッセージを送信します。
 - `send_to_existing_only`が`false`で`attributes`オブジェクトが提供されている場合、Brazeはユーザーが存在しない場合に新規ユーザーを作成します。
 - **新規プロファイルには`send_to_existing_only: false`と`attributes`が必要です。** Brazeは同じ受信者内の`attributes`オブジェクトから送信前の作成または更新を実行します。`send_to_existing_only`を`false`に設定しても`attributes`を省略した場合（または空のオブジェクトを送信した場合）、Brazeは同じ方法でプロファイルデータをハイドレートしないため、このパターンが意図する「ユーザーの作成または更新後に送信」という動作は得られません。
-- **メールおよびSMSのアドレス指定。** まだBrazeに存在しないユーザーへのメールまたはSMSのAPIトリガー送信のほとんどの場合、`attributes`内に必要な配信フィールド（例：`email`、またはワークスペースがSMSに使用する電話属性）を含めてください。同じ呼び出しでオプトイン状態を変更する必要がある場合は、サブスクリプショングループのメンバーシップやサブスクリプションステータスもそこで設定できます。
+- **メールおよびSMSのアドレス指定。** まだBrazeに存在しないユーザーへのメールまたはSMSのAPIトリガー送信のほとんどの場合、`attributes`内に必要な配信フィールド（例：`email`、またはワークスペースがSMSに使用する電話属性）を含めてください。同じ呼び出しでオプトイン状態を変更する必要がある場合は、購読グループのメンバーシップや購読ステータスもそこで設定できます。
 - **キャンペーンの適格性。** プロファイルが存在または更新された後も、そのユーザーはキャンペーンのダッシュボードターゲットオーディエンスとチャネル送信ルール（例：メールのオプトイン済み）に一致する必要があります。一致しない場合、Brazeはメッセージを送信しません。
 - `send_to_existing_only`を`false`に設定することはユーザーエイリアスではサポートされていません。このエンドポイントを通じてエイリアスのみの新規ユーザーを作成することはできません。エイリアスのみのユーザーに送信するには、そのユーザーが既にBrazeに存在している必要があります。
 
@@ -195,7 +195,8 @@ curl --location --request POST 'https://rest.iad-01.braze.com/campaigns/trigger/
   "attachments": [
     {
       "file_name" : "YourFileName",
-      "url" : "https://exampleurl.com/YourFileName.pdf"
+      "url" : "https://exampleurl.com/YourFileName.pdf",
+      "basic_auth_credential": "company_basic_auth_credential_name"
     }
   ]
 }'
@@ -212,11 +213,11 @@ curl --location --request POST 'https://rest.iad-01.braze.com/campaigns/trigger/
 Brazeには`attributes`というメッセージングオブジェクトがあり、APIトリガーキャンペーンを送信する前に、ユーザーの属性や値を追加・作成・更新できます。このAPI呼び出しとして`campaign/trigger/send`エンドポイントを使用すると、キャンペーンを処理して送信する前にユーザー属性オブジェクトが処理されます。これにより、[競合]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions)による問題が発生するリスクを最小限に抑えることができます。
 
 {% alert tip %}
-このエンドポイントのキャンバスバージョンをお探しですか？[APIトリガー配信を使用したキャンバスメッセージの送信]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases#create-send-endpoint)をご確認ください。
+このエンドポイントのキャンバスバージョンをお探しですか？[APIトリガー配信を使用したキャンバスメッセージの送信]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases)をご確認ください。
 {% endalert %}
 
 ### JSONボディにLiquidを直接記述してもレンダリングされないのはなぜですか？ {#why-doesnt-liquid-render-when-i-put-it-directly-in-my-json-body}
 
-リクエストボディが有効なJSONの場合、Brazeはペイロード内のLiquidをサーバー上で評価します。Liquidを生の文字列として埋め込む場合は、ボディが有効なJSONのままになるよう、文字列を引用符で囲みエスケープしてください。たとえば、文字列内のダブルクォートをエスケープします。ボディがJSONの解析に失敗した場合、BrazeはLiquidを評価する前に`400`を返します。サポートされている場合は、ペイロードにLiquidを直接埋め込む代わりに、[`trigger_properties`]({{site.baseurl}}/api/objects_filters/trigger_properties_object)を通じて動的な値を渡してください。
+リクエストボディが有効なJSONの場合、Brazeはペイロード内のLiquidをサーバー上で評価します。Liquidを生の文字列として埋め込む場合は、ボディが有効なJSONのままになるよう、文字列を引用符で囲みエスケープしてください。たとえば、文字列内のダブルクォートをエスケープします。ボディがJSONの解析に失敗した場合、BrazeはLiquidを評価する前に`400`を返します。サポートされている場合は、ペイロードにLiquidを直接埋め込む代わりに、[`trigger_properties`]({{site.baseurl}}/api/objects_filters/trigger_properties_object)を通じてダイナミックな値を渡してください。
 
 {% endapi %}

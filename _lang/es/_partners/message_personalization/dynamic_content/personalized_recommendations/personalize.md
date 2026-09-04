@@ -1,7 +1,7 @@
 ---
 nav_title: Personalize.AI
 article_title: Personalize.AI
-description: "Este artículo de referencia describe la asociación entre Braze y Personalize.AI, una plataforma empresarial SaaS basada en IA que impulsa el crecimiento de los ingresos a partir de recomendaciones personalizadas."
+description: "Este artículo de referencia describe la asociación entre Braze y Personalize.AI, una plataforma empresarial software como servicio (SaaS) basada en IA que impulsa el crecimiento de los ingresos a partir de recomendaciones personalizadas."
 alias: /partners/personalize_ai/
 page_type: partner
 search_tag: Partner

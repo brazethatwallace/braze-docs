@@ -10,6 +10,8 @@ page_order: 2
 
 > Using the drag-and-drop editor, you can create and customize a preference center to help manage which users receive certain types of communication. You can have up to 100 preference centers per workspace.
 
+{% multi_lang_include alerts/tip_alerts.md alert="Landing pages manage subscriptions" %}
+
 You can manage existing drag-and-drop preference centers from **Audience** > **Email Preference Centers**:
 
 - To change a preference center's name or content, open the preference center from the dashboard.
@@ -85,6 +87,10 @@ Every block has its own settings, such as granular control on padding. The right
 
 If you're using the Custom Code block in your preference center, inline frames may not generate in the custom code when delivered to your users.
 
+{% alert note %}
+Content Blocks with links cannot be used in the drag-and-drop preference center. Links within Content Blocks are not clickable.
+{% endalert %}
+
 {% endtab %}
 {% endtabs %}
 
@@ -96,9 +102,11 @@ Next, customize the confirmation page by selecting **Confirmation Page**. This p
 
 ## Step 6: Preview and launch your preference center
 
-You can preview your preference center by selecting the **Preview** tab within the editor. However, testing functionality is disabled. Additionally, test sends of campaigns or Canvas steps that include the preference center Liquid tag do not generate a valid link. To test the full functionality of your preference center, send a live campaign or Canvas. After editing your preference center, you can close the editor by selecting **Done**.
+You can preview your preference center by selecting the **Preview** tab within the editor. The preview shows both the preference center and the confirmation page.
 
-The preview shows both the preference center and the confirmation page. Select **Save as Draft** to return to this preference center later, or if you are satisfied, select **Launch Preference Center**.
+However, testing functionality is disabled. Additionally, test sends of campaigns or Canvas steps that include the preference center Liquid tag do not generate a valid link. This preview does not let you save subscription changes—it only shows how the page looks. To test saving preferences, see [Testing preference centers](#testing-preference-centers). After editing your preference center, you can close the editor by selecting the **Done** button.
+
+Select **Save as Draft** to return to this preference center later, or if you are satisfied, select **Launch Preference Center**.
 
 When launching the preference center, you're prompted to confirm the name, as it cannot be edited after launching. After you confirm the name, the preference center launches and is ready for use.
 
@@ -111,6 +119,14 @@ To place a link to the preference center in your emails, copy the Liquid tag of 
 ![The Copy Liquid option in the row of a preference center.]({% image_buster /assets/img/preference_center/preference_center10.png %}){: style="max-width:75%;"}
 
 Add the Liquid tag to the desired place in your email, similar to how [unsubscribe URLs]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer#adding-a-custom-unsubscribe-link) are inserted.
+
+{% multi_lang_include preference_center/testing.md %}
+
+## Frequently asked questions
+
+### Why doesn't my preference center work in a test send?
+
+Preference center links require a live send context. Test sends do not generate valid preference center URLs, and the **Save Preferences** button is disabled if the page loads. This is expected behavior. To test end-to-end, launch a campaign or Canvas step to a test user or small internal segment. For details, see [Testing preference centers](#testing-preference-centers).
 
 ## Handle errors
 

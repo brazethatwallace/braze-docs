@@ -14,7 +14,7 @@ description: "Dieser Referenzartikel erläutert den Unterschied zwischen Snapsho
 
 Ein Snapshot repräsentiert den Zustand einer Kund:in zu einem bestimmten Zeitpunkt. Er beantwortet die Frage: „Wie sieht diese Kund:in gerade aus?“
 
-Ein Snapshot ist statisch und aggregiert. Er spiegelt das kumulative Ergebnis aller Änderungen bis zu diesem Zeitpunkt wider. Dies eignet sich am besten für Kundenprofile, berechnete Features (zum Beispiel „Tage seit dem letzten Kauf“, „Treuestufe“, „Churn-Score“).
+Ein Snapshot ist statisch und aggregiert. Er spiegelt das kumulative Ergebnis aller Änderungen bis zu diesem Zeitpunkt wider. Dies eignet sich am besten für Kundenprofile, berechnete Features (zum Beispiel „Tage seit dem letzten Kauf“, „Treuestufe“, „Abwanderung-Score“).
 
 ### Erforderliche Felder {#required-fields}
 
@@ -51,7 +51,7 @@ Ein Event-Stream zeichnet diskrete Aktionen auf, sobald sie stattfinden. Er bean
 | Kundenbezeichner | Auf wen sich dieses Event bezieht |
 | Event-Typ | Was passiert ist (zum Beispiel Aktivierung, Conversion, Klick) |
 | Event-Zeitstempel | Wann das Ereignis tatsächlich stattgefunden hat |
-| Erstellungs-Zeitstempel | Wann dieser Datensatz in Ihrem System erstellt wurde (siehe Hinweis unten) |
+| Erstellungs-Zeitstempel | Wann dieser Datensatz in Ihrem System erstellt wurde (siehe Hinweis im folgenden Abschnitt) |
 | Event-Eigenschaften | Zusätzliche Metadaten über das Event; je reichhaltiger diese sind, desto besser kann Decisioning Studio Events über die Customer Journey hinweg verknüpfen |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Erforderliche Felder" }
 

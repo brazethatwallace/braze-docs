@@ -1291,7 +1291,7 @@ var ticket_lookuptable = {
         'SDK Integrations' : {
           'Label': 'My question is about... *',
           'SelectDefault': 'Select a type...',
-          'LinksTitle': ['Self-Service SDK Debugging Tool','iOS: Initial SDK Setup','Android: Initial SDK Setup','Web: Initial SDK Setup','Sending Test Messages','Braze Learning Course: Technical Integration Checklist and Toolkits'],
+          'LinksTitle': ['Self-Service SDK Debugging Tool','iOS: Initial SDK Setup','Android: Initial SDK Setup','Web: Initial SDK Setup','Sending Test Messages','Braze cours d'apprentissage: Technical Integration Checklist and Toolkits'],
           'Links': ['{{site.baseurl}}/developer_guide/sdk_integration/debugging','{{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/overview','{{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/android_sdk_integration/','{{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup/','{{site.baseurl}}/developer_guide/platform_wide/sending_test_messages/','https://learning.braze.com/technical-integration-checklists-and-toolkits'],
           'SelectOption' : {
             'Push' : {
@@ -1317,7 +1317,7 @@ var ticket_lookuptable = {
                 },
                 'Other' : {
                   'ShowSubmit': true,
-                  'LinksTitle': ['Braze Developer Guide','SDK Changelog','Sending Test Messages','Braze Learning Course: Technical Integration Checklist and Toolkits'],
+                  'LinksTitle': ['Braze Developer Guide','SDK Changelog','Sending Test Messages','Braze cours d'apprentissage: Technical Integration Checklist and Toolkits'],
                   'Links' : ['{{site.baseurl}}/developer_guide/home','{{site.baseurl}}/developer_guide/platform_integration_guides/sdk_changelogs','{{site.baseurl}}/developer_guide/platform_wide/sending_test_messages/','https://learning.braze.com/technical-integration-checklists-and-toolkits']
                 }
               }
@@ -1345,7 +1345,7 @@ var ticket_lookuptable = {
                 },
                 'Other' : {
                   'ShowSubmit': true,
-                  'LinksTitle': ['Braze Developer Guide','SDK Changelog','Sending Test Messages','Braze Learning Course: Technical Integration Checklist and Toolkits'],
+                  'LinksTitle': ['Braze Developer Guide','SDK Changelog','Sending Test Messages','Braze cours d'apprentissage: Technical Integration Checklist and Toolkits'],
                   'Links' : ['{{site.baseurl}}/developer_guide/home','{{site.baseurl}}/developer_guide/platform_integration_guides/sdk_changelogs','{{site.baseurl}}/developer_guide/platform_wide/sending_test_messages/','https://learning.braze.com/technical-integration-checklists-and-toolkits']
                 }
               }
@@ -1372,7 +1372,7 @@ var ticket_lookuptable = {
                 },
                 'Other' : {
                   'ShowSubmit': true,
-                  'LinksTitle': ['Braze Developer Guide','SDK Changelog','Sending Test Messages','Braze Learning Course: Technical Integration Checklist and Toolkits'],
+                  'LinksTitle': ['Braze Developer Guide','SDK Changelog','Sending Test Messages','Braze cours d'apprentissage: Technical Integration Checklist and Toolkits'],
                   'Links' : ['{{site.baseurl}}/developer_guide/home','{{site.baseurl}}/developer_guide/platform_integration_guides/sdk_changelogs','{{site.baseurl}}/developer_guide/platform_wide/sending_test_messages/','https://learning.braze.com/technical-integration-checklists-and-toolkits']
                 }
               }
@@ -1463,7 +1463,7 @@ var ticket_lookuptable = {
             },
             'Deliverability' :{
               'ShowSubmit': true,
-              'LinksTitle': ['Deliverability Pitfalls and Spam Traps','IP Warming','Braze Learning Course: Achieving High Email Deliverability'],
+              'LinksTitle': ['Deliverability Pitfalls and Spam Traps','IP Warming','Braze cours d'apprentissage: Achieving High Email Deliverability'],
                'Links' : ['{{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps#deliverability-pitfalls-and-spam-traps','{{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/#ip-warming','https://learning.braze.com/email-onboarding-for-pro-and-enterprise-achieving-high-deliverability']
             },
             'User Subscriptions' :{
@@ -1478,7 +1478,7 @@ var ticket_lookuptable = {
             },
             'Liquid' : {
               'ShowSubmit': true,
-              'LinksTitle': ['Liquid Templating in Messages','Liquid Frequently Asked Questions','Braze Learning Course: Dynamic Personalization with Liquid'],
+              'LinksTitle': ['Liquid Templating in Messages','Liquid Frequently Asked Questions','Braze cours d'apprentissage: Dynamic Personalization with Liquid'],
               'Links' : ['{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid#about-liquid','{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/faq/','https://learning.braze.com/dynamic-personalization-with-liquid']
             }
           }
@@ -1486,7 +1486,7 @@ var ticket_lookuptable = {
         'SMS and MMS' :{
           'SelectDefault': 'Select a type...',
           'Label': 'My question is about... *',
-          'LinksTitle': ['SMS Best Practices','SMS Frequently Asked Questions', 'MMS Frequently Asked Questions', 'Braze Learning Course: SMS Fundamentals'],
+          'LinksTitle': ['SMS Best Practices','SMS Frequently Asked Questions', 'MMS Frequently Asked Questions', 'Braze cours d'apprentissage: SMS Fundamentals'],
           'Links' : ['{{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/best_practices','{{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs/','{{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/mms/faqs/','https://learning.braze.com/sms-fundamentals'],
           'SelectOption': {
             'Setup' : {
@@ -1547,7 +1547,7 @@ var ticket_lookuptable = {
             },
             'Targeting and Segmentation' : {
               'ShowSubmit': true,
-              'LinksTitle': ['Segmentation','Segment Insights','Braze Learning Course: Segmentation',''],
+              'LinksTitle': ['Segmentation','Segment Insights','Braze cours d'apprentissage: Segmentation',''],
               'Links' : ['{{site.baseurl}}/user_guide/audience/segments','{{site.baseurl}}/user_guide/audience/segments/segment_insights/','https://learning.braze.com/segmentation-course']
             },
             'Message Composition by Channel' : {
@@ -1563,17 +1563,17 @@ var ticket_lookuptable = {
                 },
                 'Push' : {
                   'ShowSubmit': true,
-                  'LinksTitle': ['Create a Push Campaign','Braze Learning Course: Push'],
+                  'LinksTitle': ['Create a Push Campaign','Braze cours d'apprentissage: Push'],
                   'Links' : ['{{site.baseurl}}/user_guide/channels/push/creating_a_push_message#creating-a-push-message','https://learning.braze.com/messaging-channels-push']
                 },
                 'In-App Messages' : {
                   'ShowSubmit': true,
-                  'LinksTitle': ['In-App Message Drag-And-Drop Editor Campaign','In-App Message Traditional Editor Campaign','Braze Learning Course: In-App and In-Browser Messages'],
+                  'LinksTitle': ['In-App Message Drag-And-Drop Editor Campaign','In-App Message Traditional Editor Campaign','Braze cours d'apprentissage: In-App and In-Browser Messages'],
                   'Links' : ['{{site.baseurl}}/user_guide/channels/in-app_messages/drag_and_drop/create/','{{site.baseurl}}/user_guide/channels/in-app_messages/traditional/create/','https://learning.braze.com/messaging-channels-in-app-in-browser']
                 },
                 'Content Cards' : {
                   'ShowSubmit': true,
-                  'LinksTitle': ['Create a Content Card Campaign','Braze Learning Course: Content Cards'],
+                  'LinksTitle': ['Create a Content Card Campaign','Braze cours d'apprentissage: Content Cards'],
                   'Links' : ['{{site.baseurl}}/user_guide/channels/content_cards/create/','https://learning.braze.com/messaging-channels-content-cards']
                 },
                 'Webhooks' : {
@@ -1670,12 +1670,12 @@ var ticket_lookuptable = {
     'Strategy Assistance' : {
       'Label': '* Category',
       'SelectDefault': 'Select a category...',
-      'LinksTitle': ['Campaign Ideas and Strategies','Canvas Ideas and Strategies','Building Accessible Messages in Braze','Braze Learning Course: Create Customer Journeys with Canvas Flow'],
+      'LinksTitle': ['Campaign Ideas and Strategies','Canvas Ideas and Strategies','Building Accessible Messages in Braze','Braze cours d'apprentissage: Create Customer Journeys with Canvas Flow'],
       'Links': ['{{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/','{{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies','{{site.baseurl}}/developer_guide/platforms/web/accessibility','https://learning.braze.com/create-customer-journeys-with-canvas-flow'],
       'SelectOption' : {
         'Tools and Use Cases' : {
           'ShowSubmit': true,
-          'LinksTitle': ['Campaign Ideas and Strategies', 'Canvas Ideas and Strategies','Braze Learning Course: Customer Engagement Tools and Use Cases'],
+          'LinksTitle': ['Campaign Ideas and Strategies', 'Canvas Ideas and Strategies','Braze cours d'apprentissage: Customer Engagement Tools and Use Cases'],
           'Links':  ['{{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/','{{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies','https://learning.braze.com/braze-customer-engagement-tools-use-cases']
         },
         'Best Practices and Frequently Asked Questions' :{
@@ -1695,7 +1695,7 @@ var ticket_lookuptable = {
       'Label': '* Category',
       'SelectDefault': 'Select a category...',
       'Links': [],
-      'ReferenceText': 'Your account manager is a great resource for billing and contract related questions. ',
+      'ReferenceText': 'Your account gestionnaire is a great resource for billing and contract related questions. ',
       'SelectOption' : {
         'Data Points' : {
           'ShowSubmit': true,
@@ -1709,7 +1709,7 @@ var ticket_lookuptable = {
         },
         'Other' :{
           'ShowSubmit': true,
-          'ReferenceText': 'Your account manager is a great resource for billing and contract related questions. ',
+          'ReferenceText': 'Your account gestionnaire is a great resource for billing and contract related questions. ',
           'LinksTitle': [''],
           'Links':  ['']
         }
@@ -2233,7 +2233,7 @@ async function getSearchResultByPost(subject, sid , language) {
             method: "POST",
             headers: {
                 "accept": "*/*",
-                "content-type": "application/json",
+                "Content-Type": "application/json",
                 "origin": "https://bz072508p.searchunify.com",
                 "referer": "https://bz072508p.searchunify.com"
             },
@@ -2316,7 +2316,7 @@ document.getElementById('toStep2').addEventListener('click', async function () {
             method: "POST",
             headers: {
                 "accept": "*/*",
-                "content-type": "application/json",
+                "Content-Type": "application/json",
                 "origin": "https://d1qc2gcokjmuap.cloudfront.net",
                 "referer": "https://d1qc2gcokjmuap.cloudfront.net/",
                 "search-client-type": "6",
@@ -2678,7 +2678,7 @@ function initCaseForm() {
             fetch('https://bz072508p.searchunify.com/analytics/suanlytics.png', {
                 method: 'POST',
                 headers: {
-                    'content-type': 'application/json; charset=UTF-8',
+                    'Content-Type': 'application/json; charset=UTF-8',
                 },
                 body: JSON.stringify({
                     "subject": subject,

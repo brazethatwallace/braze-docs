@@ -17,7 +17,7 @@ _Diese Integration wird von Branch gepflegt._
 
 ## Über die Integration {#about-the-integration}
 
-Die Integration von Braze und Branch hilft Ihnen dabei, genau zu verstehen, wann und wo Nutzer:innen akquiriert wurden und wie Sie ihre Journeys durch robuste Attribution und [Deeplinking]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking/) personalisieren können.
+Die Integration von Braze und Branch hilft Ihnen dabei, genau zu verstehen, wann und wo Nutzer:innen akquiriert wurden und wie Sie ihre Journeys durch robuste Attribution und [Deeplinking]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking) personalisieren können.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -26,7 +26,7 @@ Die Integration von Braze und Branch hilft Ihnen dabei, genau zu verstehen, wann
 | Branch-Konto | Um diese Partnerschaft nutzen zu können, benötigen Sie ein Branch-Konto. |
 | iOS- oder Android-App | Diese Integration unterstützt iOS- und Android-Apps. Je nach Plattform können Code-Snippets in Ihrer Anwendung erforderlich sein. Einzelheiten zu diesen Anforderungen finden Sie in Schritt 1 des Integrationsprozesses. |
 | Branch SDK | Neben dem erforderlichen Braze SDK müssen Sie auch das [Branch SDK](https://help.branch.io/developers-hub/docs/native-sdks-overview) installieren. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
@@ -89,7 +89,7 @@ Hier finden Sie den REST-Endpunkt und können Ihren Braze-Datenimport-Schlüssel
 ### 3. Schritt: Daten-Feeds einrichten {#step-3-set-up-data-feeds}
 
 1. Wählen Sie in Branch unter dem Abschnitt **Exports** die Option **Data Feeds**.
-2. Wählen Sie auf der Seite **Data Feeds Manager** den Tab **Data Integrations** am oberen Rand der Seite aus.
+2. Wählen Sie auf der Seite **Data Feeds Manager:in** den Tab **Data Integrations** am oberen Rand der Seite aus.
 3. Wählen Sie Braze aus der Liste der verfügbaren Datenpartner aus.
 4. Geben Sie auf der Braze-Exportseite den Datenimport-Schlüssel und den REST-Endpunkt ein, die Sie im Braze-Dashboard gefunden haben, und wählen Sie **Enable**.
 
@@ -99,19 +99,31 @@ Nachdem Braze Attribution-Daten von Branch erhalten hat, ändert sich die Status
 
 Dieser Status ändert sich erst, wenn Braze Daten über eine attributierte Installation erhält. Braze ignoriert organische Installationen (schließt sie aus dem Branch-Postback aus) und zählt sie nicht bei der Bestimmung, ob die Verbindung erfolgreich war.
 
+## Feldzuordnung {#field-mapping}
+
+Branch-Attribution-Felder werden wie folgt auf Braze abgebildet:
+
+| Branch-Feld | Braze-Feld |
+| --- | --- |
+| Campaign | `campaign` |
+| Channel | `source` |
+| Ad Set Name | `adgroup` |
+| Ad Name | `ad` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Branch-Feldzuordnung" }
+
 ## Attribution-Daten von Facebook und X (ehemals Twitter) {#facebook-and-x-formerly-twitter-attribution-data}
 
 Attribution-Daten für Kampagnen auf Facebook und X (ehemals Twitter) sind nicht über unsere Partner verfügbar. Diese Medienquellen erlauben ihren Partnern nicht, Attribution-Daten an Dritte weiterzugeben, und daher können unsere Partner diese Daten nicht an Braze senden.
 
 ## Branch-Klick-Tracking-URLs in Braze (optional) {#branch-click-tracking-urls-in-braze-optional}
 
-Wenn Sie Klick-Tracking-Links in Ihren Braze-Campaigns verwenden, können Sie leicht erkennen, welche Campaigns zu App-Installationen und erneuter Interaktion führen. So können Sie Ihre Marketing-Bemühungen effektiver messen und datengestützte Entscheidungen darüber treffen, wo Sie mehr Ressourcen für einen maximalen ROI investieren sollten.
+Wenn Sie Klick-Tracking-Links in Ihren Braze-Campaigns verwenden, können Sie leicht erkennen, welche Campaigns zu App-Installationen und erneuter Interaktion führen. So können Sie Ihre Marketing-Bemühungen effektiver messen und datengestützte Entscheidungen darüber treffen, wo Sie mehr Ressourcen für einen maximalen Kapitalrendite investieren sollten.
 
 Um mit Branch-Klick-Tracking-Links zu beginnen, besuchen Sie die [Dokumentation](https://help.branch.io/using-branch/docs/ad-links). Sie können die Branch-Klick-Tracking-Links direkt in Ihre Braze-Campaigns einfügen. Branch verwendet dann seine [probabilistischen Attribution-Methoden](https://help.branch.io/using-branch/docs/branch-attribution-logic-settings), um die Nutzer:innen zu attributieren, die auf den Link geklickt haben. Wir empfehlen, Ihre Branch-Tracking-Links mit einem Gerätebezeichner zu versehen, um die Genauigkeit der Attributionen Ihrer Braze-Campaigns zu verbessern. Dadurch werden die Nutzer:innen, die auf den Link geklickt haben, deterministisch attributiert.
 
 {% tabs local %}
 {% tab Android %}
-Für Android erlaubt Braze Kund:innen, sich für die [Erfassung der Google Advertising ID (GAID)]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/optional_gaid_collection/#optional-google-advertising-id) zu entscheiden. Die GAID wird auch nativ über die Branch-SDK-Integration erfasst. Sie können die GAID in Ihre Branch-Klick-Tracking-Links aufnehmen, indem Sie die folgende Liquid-Logik verwenden:
+Für Android erlaubt Braze Kund:innen, sich für die [Erfassung der Google Advertising ID (GAID)]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/optional_gaid_collection#optional-google-advertising-id) zu entscheiden. Die GAID wird auch nativ über die Branch-SDK-Integration erfasst. Sie können die GAID in Ihre Branch-Klick-Tracking-Links aufnehmen, indem Sie die folgende Liquid-Logik verwenden:
 {% raw %}
 ```
 {% if most_recently_used_device.${platform} == 'android' %}

@@ -57,10 +57,10 @@ As variáveis de contexto têm os mesmos formatos esperados para tipos de dados 
 | Booleano | loyalty_program |{% raw %}<code>true</code>{% endraw %}|
 | Número | credit_score |{% raw %}<code>740</code>{% endraw %}|
 | String | product_name |{% raw %}<code>green_tea</code>{% endraw %} |
-| Array | favorite_products|{% raw %}<code>["wireless_headphones", "smart_homehub", "fitness_tracker_swatch"]</code>{% endraw %}|
+| Array | favorite_products |{% raw %}<code>["wireless_headphones", "smart_homehub", "fitness_tracker_swatch"]</code>{% endraw %}|
 | Array (de objetos) | pet_details |{% raw %}<code>[<br>&emsp;{ "id": 1, "type": "dog", "breed": "beagle", "name": "Gus" }<br>&emsp;,<br>&emsp;{ "id": 2, "type": "cat", "breed": "calico", "name": "Gerald" }<br>]</code>{% endraw %}|
-| Horário (em UTC) | last_purchase_date|{% raw %}<code>2025-12-25T08:15:30:250-0800</code>{% endraw %}|
-| Objeto (achatado) | user_profile|{% raw %}<code>{<br>&emsp;"first_name": "{{user.first_name}}",<br>&emsp;"last_name": "{{user.last_name}}",<br>&emsp;"email": "{{user.email}}",<br>&emsp;"loyalty_points": {{user.loyalty_points}},<br>&emsp;"preferred_categories": {{user.preferred_categories}}<br>}</code>{% endraw %} |
+| Horário (em UTC) | last_purchase_date |{% raw %}<code>2025-12-25T08:15:30:250-0800</code>{% endraw %}|
+| Objeto (achatado) | user_profile |{% raw %}<code>{<br>&emsp;"first_name": "{{user.first_name}}",<br>&emsp;"last_name": "{{user.last_name}}",<br>&emsp;"email": "{{user.email}}",<br>&emsp;"loyalty_points": {{user.loyalty_points}},<br>&emsp;"preferred_categories": {{user.preferred_categories}}<br>}</code>{% endraw %} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Tipos de dados" }
 
 Por padrão, o tipo de dado de horário está em UTC. Se você usar um tipo de dado string para armazenar um valor de horário, poderá definir o horário em um fuso horário diferente, como PST.
@@ -77,7 +77,7 @@ Para tipos de dados de objeto, você pode usar notação de ponto para especific
 }
 ```
 
-Em um filtro de [Jornadas do público]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) ou [Divisão de decisão]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split), insira o caminho como o nome da variável de contexto usando notação de ponto (por exemplo, `order_summary.shipping.carrier`). Quando o filtro for avaliado, a Braze resolverá esse caminho para o valor `overnight`.
+Em um filtro de [jornadas do público]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) ou [divisão de decisão]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split), insira o caminho como o nome da variável de contexto usando notação de ponto (por exemplo, `order_summary.shipping.carrier`). Quando o filtro for avaliado, a Braze resolverá esse caminho para o valor `overnight`.
 
 Em Liquid (como em uma etapa de [Mensagem]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)), use {% raw %}`{{context.${order_summary}.shipping.carrier}}`{% endraw %} em vez disso.
 
@@ -104,32 +104,32 @@ Em seguida, criaremos uma etapa de Mensagem para direcionar usuários onde {% ra
 Você pode adicionar [opções de postergação personalizadas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step#personalized-delays) com as informações da etapa de Contexto, o que significa que você pode selecionar a variável que posterga os usuários.
 {% endalert %}
 
-### Para Jornadas de ação e critérios de saída {#for-action-paths-and-exit-criteria}
+### Para jornadas de ação e critérios de saída {#for-action-paths-and-exit-criteria}
 
-Você pode aproveitar filtros de comparação de propriedades com variáveis de contexto ou atributos personalizados nestas ações-gatilho: **Perform Custom Event** e **Make Purchase**. Esses gatilhos de ação também suportam filtros de propriedade para propriedades básicas e aninhadas.
+Você pode alavancar filtros de comparação de propriedades com variáveis de contexto ou atributos personalizados nestas ações-gatilho: **Perform Custom Event** e **Make Purchase**. Esses gatilhos de ação também suportam filtros de propriedade para propriedades básicas e aninhadas.
 
 - Ao comparar com propriedades básicas, as comparações disponíveis corresponderão ao tipo da propriedade definida pelo evento personalizado. Por exemplo, propriedades de string terão correspondência exata e correspondência regex. Propriedades booleanas serão verdadeiro ou falso.
-- Ao comparar com propriedades aninhadas, os tipos não são pré-definidos, então você pode selecionar comparações entre múltiplos tipos de dados para booleanos, números, strings, horário e dia do ano, semelhante às comparações para atributos personalizados aninhados. Se você selecionar um tipo de dado que não corresponda ao tipo de dado real da propriedade aninhada no momento da comparação, o usuário não corresponderá à Jornada de ação ou aos critérios de saída.
+- Ao comparar com propriedades aninhadas, os tipos não são pré-definidos, então você pode selecionar comparações entre múltiplos tipos de dados para booleanos, números, strings, horário e dia do ano, semelhante às comparações para atributos personalizados aninhados. Se você selecionar um tipo de dado que não corresponda ao tipo de dado real da propriedade aninhada no momento da comparação, o usuário não corresponderá à jornada de ação ou aos critérios de saída.
 
-#### Exemplos de Jornada de ação {#action-path-examples}
+#### Exemplos de jornada de ação {#action-path-examples}
 
 {% alert important %}
-Para comparações de atributos personalizados, usaremos o valor do atributo personalizado no momento em que a ação é realizada. Isso significa que um usuário não corresponderá ao grupo da Jornada de ação se não tiver esse atributo personalizado preenchido no momento da comparação, ou se o valor do atributo personalizado não corresponder às comparações de propriedade definidas. Isso vale mesmo que o usuário tivesse correspondido quando entrou na etapa de Jornada de ação.
+Para comparações de atributos personalizados, usaremos o valor do atributo personalizado no momento em que a ação é realizada. Isso significa que um usuário não corresponderá ao grupo da jornada de ação se não tiver esse atributo personalizado preenchido no momento da comparação, ou se o valor do atributo personalizado não corresponder às comparações de propriedade definidas. Isso vale mesmo que o usuário tivesse correspondido quando entrou na etapa de jornada de ação.
 {% endalert %}
 
 {% tabs %}
 {% tab Realizar evento personalizado %}
 
-A seguinte Jornada de ação está configurada para classificar usuários que realizaram o evento personalizado `Account_Created` com a propriedade básica `source` para a variável de contexto `app_source_variable`.
+A seguinte jornada de ação está configurada para classificar usuários que realizaram o evento personalizado `Account_Created` com a propriedade básica `source` para a variável de contexto `app_source_variable`.
 
-![Um exemplo de Jornada de ação que referencia uma variável de contexto ao realizar um evento personalizado.]({% image_buster /assets/img/context_action_path1.png %})
+![Um exemplo de jornada de ação que referencia uma variável de contexto ao realizar um evento personalizado.]({% image_buster /assets/img/context_action_path1.png %})
 
 {% endtab %}
 {% tab Fazer compra %}
 
-A seguinte Jornada de ação está configurada para corresponder a propriedade básica `brand` para o nome de produto específico `shoes` a uma variável de contexto `promoted_shoe_brand`.
+A seguinte jornada de ação está configurada para corresponder a propriedade básica `brand` para o nome de produto específico `shoes` a uma variável de contexto `promoted_shoe_brand`.
 
-![Um exemplo de Jornada de ação que referencia uma variável de contexto ao fazer uma compra.]({% image_buster /assets/img/context_action_path2.png %})
+![Um exemplo de jornada de ação que referencia uma variável de contexto ao fazer uma compra.]({% image_buster /assets/img/context_action_path2.png %})
 
 {% endtab %}
 {% endtabs %}
@@ -165,33 +165,44 @@ Para [Banners]({{site.baseurl}}/user_guide/channels/banners) e [mensagens no app
 
 **Personalize duration** se aplica a essa opção de expiração baseada em duração. Se você escolher **On a specific date and time**, defina a expiração usando os controles de data e hora.
 
-### Postergações de Jornada de ação {#action-path-delays}
+### Postergações de jornada de ação {#action-path-delays}
 
-Em uma etapa de [Jornadas de ação]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths), em **Evaluation Window**, ative **Personalize delay** para definir por quanto tempo os usuários ficam retidos na etapa a partir de uma variável de contexto. Use isso quando o período de espera deve variar por usuário com base em detalhes como nível ou região.
+Em uma etapa de [jornadas de ação]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths), em **Evaluation Window**, ative **Personalize delay** para definir por quanto tempo os usuários ficam retidos na etapa a partir de uma variável de contexto. Use isso quando o período de espera deve variar por usuário com base em detalhes como nível ou região.
 
 ### Filtros de variáveis de contexto {#context-variable-filters}
 
-Você pode criar filtros que usam variáveis de contexto declaradas anteriormente nas etapas de [Jornadas do público]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) e [Divisão de decisão]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split).
+Você pode criar filtros que usam variáveis de contexto declaradas anteriormente nas etapas de [jornadas do público]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) e [divisão de decisão]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split).
 
 {% alert note %}
-Os filtros de variáveis de contexto estão disponíveis apenas para as etapas de Jornadas do público e Divisão de decisão.
+Os filtros de variáveis de contexto estão disponíveis apenas para as etapas de jornadas do público e divisão de decisão.
 {% endalert %}
 
-As variáveis de contexto são declaradas e acessíveis apenas no escopo de um Canvas, o que significa que não podem ser referenciadas em segmentos. Os filtros de variáveis de contexto funcionam de forma semelhante nas etapas de Jornadas do público e Divisão de decisão — as etapas de Jornadas do público representam múltiplos grupos, enquanto as etapas de Divisão de decisão representam decisões binárias.
+As variáveis de contexto são declaradas e acessíveis apenas no escopo de um Canvas, o que significa que não podem ser referenciadas em Segments. Os filtros de variáveis de contexto funcionam de forma semelhante nas etapas de jornadas do público e divisão de decisão — as etapas de jornadas do público representam múltiplos grupos, enquanto as etapas de divisão de decisão representam decisões binárias.
 
-![Exemplo de etapa de Divisão de decisão com a opção de criar um filtro com uma variável de contexto.]({% image_buster /assets/img/context_decision_split.png %}){: style="max-width:90%;"}
+![Exemplo de etapa de divisão de decisão com a opção de criar um filtro com uma variável de contexto.]({% image_buster /assets/img/context_decision_split.png %}){: style="max-width:90%;"}
 
-Assim como as variáveis de contexto do Canvas têm tipos pré-definidos, as comparações entre variáveis de contexto e valores estáticos devem ter [tipos de dados correspondentes]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#supported-data-types). O filtro de variável de contexto permite comparações entre múltiplos tipos de dados para booleanos, números, strings, horário e dia do ano, semelhante às comparações para [atributos personalizados aninhados]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
+Assim como as variáveis de contexto do Canvas têm tipos pré-definidos, as comparações entre variáveis de contexto e valores estáticos devem ter [tipos de dados correspondentes]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support). O filtro de variável de contexto permite comparações entre múltiplos tipos de dados para booleanos, números, strings, horário e dia do ano, semelhante às comparações para [atributos personalizados aninhados]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
+
+Aqui está um exemplo de um filtro de variável de contexto comparando a variável de contexto `product_name` com o regex `/braze/`.
+
+![Uma configuração de filtro para a variável de contexto "product_name" para corresponder ao regex "/braze/".]({% image_buster /assets/img/context_variable_filter1.png %}){: style="max-width:90%;"}
+
+#### Filtros de dia do ano e horário para variáveis de contexto de data {#day-of-year-and-time-filters-for-date-context-variables}
+
+Para usar filtros de comparação de **Dia do ano** ou **Horário** com uma variável de contexto:
+
+1. Adicione uma [etapa de Contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) que defina uma variável de contexto como uma data do calendário (por exemplo, 23 de outubro de 2025).
+2. Adicione uma etapa de [jornadas do público]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) após a etapa de Contexto.
+3. Na etapa de jornadas do público, adicione um filtro que divida os usuários com base nessa variável de contexto.
+4. Escolha uma comparação da categoria **Dia do ano** ou **Horário**.
+
+Se uma variável de contexto não tiver tipo declarado, a Braze mostrará todos os tipos de comparação disponíveis no menu suspenso, incluindo **Dia do ano** e **Horário**. Se a variável for declarada como tipo **horário** na etapa de Contexto, apenas as comparações de **Dia do ano** e **Horário** serão exibidas. Para outros tipos de dados com tipo conhecido (por exemplo, um atributo personalizado aninhado com tipo de horário), apenas as comparações aplicáveis a esse tipo serão exibidas.
 
 {% alert note %}
 Use o mesmo tipo de dado para sua variável de contexto e comparação. Por exemplo, se sua variável de contexto for do tipo de dado de horário, use comparações de horário (como "antes" ou "depois"). Usar tipos de dados incompatíveis (como comparações de string com uma variável de contexto de horário) pode causar comportamento inesperado.
 {% endalert %}
 
 {% multi_lang_include alerts/important_alerts.md alert='time filter types' %}
-
-Aqui está um exemplo de um filtro de variável de contexto comparando a variável de contexto `product_name` com o regex `/braze/`.
-
-![Uma configuração de filtro para a variável de contexto "product_name" para corresponder ao regex "/braze/".]({% image_buster /assets/img/context_variable_filter1.png %}){: style="max-width:90%;"}
 
 #### Comparando com variáveis de contexto ou atributos personalizados {#comparing-to-context-variables-or-custom-attributes}
 
@@ -209,7 +220,7 @@ Você tem uma variável de contexto `re_engagement_date` definida como {% raw %}
 {% endtab %}
 {% tab Exemplo 2 %}
 
-O filtro a seguir compara a variável de contexto `reminder_date` para ser anterior à variável de contexto `appointment_deadline`. Isso pode ajudar a agrupar usuários em uma etapa de Jornadas do público para determinar se eles devem receber lembretes adicionais antes do prazo do compromisso.
+O filtro a seguir compara a variável de contexto `reminder_date` para ser anterior à variável de contexto `appointment_deadline`. Isso pode ajudar a agrupar usuários em uma etapa de jornadas do público para determinar se eles devem receber lembretes adicionais antes do prazo do compromisso.
 
 ![Uma configuração de filtro com variáveis de contexto como tipo de personalização para a variável de contexto "reminder_date" na variável de contexto "appointment_deadline".]({% image_buster /assets/img/context_variable_filter3.png %})
 

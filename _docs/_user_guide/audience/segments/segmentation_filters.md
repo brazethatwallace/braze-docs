@@ -4,7 +4,7 @@ nav_title: Segmentation filters
 article_title: Segmentation Filters
 layout: glossary_page
 glossary_top_header: "Segmentation Filters"
-glossary_top_text: The Braze SDK provides you with a powerful arsenal of filters to segment and target your users based off of specific features and attributes. You can search or narrow these filters by filter category.<br><br>To learn about the different custom attribute data types you can use to segment users, view <a href="/docs/user_guide/data/activation/attributes/custom_attributes#custom-attribute-data-types">Custom attribute data types</a>. Note that interval filters are limited to 100 years.
+glossary_top_text: The Braze SDK provides you with a powerful arsenal of filters to segment and target your users based off of specific features and attributes. You can search or narrow these filters by filter category.<br><br>To learn about the different custom attribute data types you can use to segment users, view <a href="/docs/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types">Custom attribute data types</a>.
 
 page_type: glossary
 tool: Segments
@@ -47,15 +47,15 @@ glossaries:
     tags:
       - Segment or CSV membership
   - name: Updated/Imported from CSV
-    description: Segments your users based on whether they were a part of a CSV upload or not.
+    description: Segments your users based on whether they were a part of a CSV upload or not. Braze retains only the most recent 100 CSV imports per user profile for segmentation purposes. If a user appears in more than 100 CSV imports that were selected for retargeting, only the 100 most recent are available for this filter. Older imports no longer match that user.
     tags:
       - Segment or CSV membership
   - name: Custom Attributes
-    description: Determines whether or not a user matches a custom recorded attribute value. <br><br>Time zone:<br>Company's Time Zone
+    description: Determines whether or not a user matches a custom recorded attribute value. Maximum lookback period is 100 years for date and time interval comparisons.<br><br>Time zone:<br>Company's Time Zone
     tags:
       - Custom attribute
   - name: Created At
-    description: Segments users by when their user profile was created. If a user was added by CSV or API, then this filter reflects the date they were added. If the user isn't added by CSV or API and has their first session tracked by the SDK, then this filter reflects the date of that first session.
+    description: Segments users by when their user profile was created. If a user was added by CSV or API, then this filter reflects the date they were added. If the user isn't added by CSV or API and has their first session tracked by the SDK, then this filter reflects the date of that first session. Maximum lookback period is 100 years.
     tags:
       - Other Filters
   - name: Created From
@@ -63,7 +63,7 @@ glossaries:
     tags:
       - Other Filters
   - name: Nested Custom Attributes
-    description: Attributes that are the properties of custom attributes.<br><br>When filtering a nested time custom attribute, you can choose to filter based on "Day of Year" or "Time". "Day of Year" checks only the month and day for comparison. "Time" compares the full timestamp, including the year.
+    description: Attributes that are the properties of custom attributes.<br><br>When filtering a nested time custom attribute, you can choose to filter based on "Day of Year" or "Time". "Day of Year" checks only the month and day for comparison. "Time" compares the full timestamp, including the year. Maximum lookback period is 100 years for time interval comparisons. The same logic applies when filtering on context variables in Canvas Audience Paths; see <a href="/docs/user_guide/messaging/design_and_edit/personalize/sources/context_variables/#day-of-year-and-time-filters-for-date-context-variables">Day of Year and Time filters for date context variables</a> for details.
     tags:
       - Custom attribute
   - name: Day of Recurring Event
@@ -75,11 +75,11 @@ glossaries:
     tags:
       - Custom events
   - name: First Did Custom Event
-    description: Determines the earliest time that a user has performed a specially recorded event. (24-hour period) <br><br>Example:<br> First Abandoned Cart Less than 1 day ago<br><br>Time zone:<br>Company's Time Zone
+    description: Determines the earliest time that a user has performed a specially recorded event. Maximum lookback period is 100 years. (24-hour period) <br><br>Example:<br> First Abandoned Cart Less than 1 day ago<br><br>Time zone:<br>Company's Time Zone
     tags:
       - Custom events
   - name: Last Did Custom Event
-    description: Determines the latest time that a user has performed a specially recorded event. This filter supports decimals, such as 0.25 hours. (24-hour period) <br><br>Example:<br> Last Abandoned Cart Less than 1 day ago<br><br>Time zone:<br>Company's Time Zone
+    description: Determines the latest time that a user has performed a specially recorded event. This filter supports decimals, such as 0.25 hours. Maximum lookback period is 100 years. (24-hour period) <br><br>Example:<br> Last Abandoned Cart Less than 1 day ago<br><br>Time zone:<br>Company's Time Zone
     tags:
       - Custom events
   - name: X Custom Event In Y Days
@@ -115,19 +115,19 @@ glossaries:
     tags:
       - Sessions
   - name: First Used App
-    description: Segments your users by the earliest recorded time that they opened your app. <em>This captures the first session they have using a version of your app with the Braze SDK integrated.</em> (24-hour period)<br><br>Time zone:<br>Company's Time Zone
+    description: Segments your users by the earliest recorded time that they opened your app. <em>This captures the first session they have using a version of your app with the Braze SDK integrated.</em> Maximum lookback period is 100 years. (24-hour period)<br><br>Time zone:<br>Company's Time Zone
     tags:
       - Sessions
   - name: First Used Specific App
-    description: Segments your users by the earliest recorded time that they opened any of your apps within your workspace. (24-hour period)<br><br>Time zone:<br>Company's Time Zone
+    description: Segments your users by the earliest recorded time that they opened any of your apps within your workspace. Maximum lookback period is 100 years. (24-hour period)<br><br>Time zone:<br>Company's Time Zone
     tags:
       - Sessions
   - name: Last Used App
-    description: Segments your users by the most recent time that they have opened your app. (24-hour period)<br><br>Time zone:<br>Company's Time Zone
+    description: Segments your users by the most recent time that they have opened your app. Maximum lookback period is 100 years. (24-hour period)<br><br>Time zone:<br>Company's Time Zone
     tags:
       - Sessions
   - name: Last Used Specific App
-    description: Segments your users by the most recent time that they have opened a specific, designated app. (24-hour period)<br><br>Time zone:<br>Company's Time Zone
+    description: Segments your users by the most recent time that they have opened a specific, designated app. Maximum lookback period is 100 years. (24-hour period)<br><br>Time zone:<br>Company's Time Zone
     tags:
       - Sessions
   - name: Median Session Duration
@@ -147,11 +147,11 @@ glossaries:
     tags:
       - Retargeting
   - name: Last Received Message from Specific Canvas Step
-    description: Segments your users by when they received a specific Canvas component.<br><br> Because data is updated for all profiles that share the same channel identifier (for example, email or phone) when a delivery, open, or click occurs, a user who shares an identifier with someone who received a message may not match this filter even if they were never explicitly sent the message. Use "Entered Canvas Variation" to isolate user profiles from duplicates.<br><br> This filter doesn't consider when users received other Canvas components.
+    description: Segments your users by when they received a specific Canvas component. Maximum lookback period is 100 years.<br><br> Because data is updated for all profiles that share the same channel identifier (for example, email or phone) when a delivery, open, or click occurs, a user who shares an identifier with someone who received a message may not match this filter even if they were never explicitly sent the message. Use "Entered Canvas Variation" to isolate user profiles from duplicates.<br><br> This filter doesn't consider when users received other Canvas components.
     tags:
       - Retargeting
   - name: Last Received Message from Specific Campaign
-    description: Segments your users by whether they have received a specific campaign.<br><br> Because data is updated for all profiles that share the same channel identifier (for example, email or phone) when a delivery, open, or click occurs, a user who shares an identifier with someone who received a message may not match this filter even if they were never explicitly sent the message.<br><br> This filter doesn't consider when users received other campaigns.
+    description: Segments your users by whether they have received a specific campaign. Maximum lookback period is 100 years.<br><br> Because data is updated for all profiles that share the same channel identifier (for example, email or phone) when a delivery, open, or click occurs, a user who shares an identifier with someone who received a message may not match this filter even if they were never explicitly sent the message.<br><br> This filter doesn't consider when users received other campaigns.
     tags:
       - Retargeting
   - name: Received Message from Campaign or Canvas with Tag
@@ -159,7 +159,7 @@ glossaries:
     tags:
       - Retargeting
   - name: Last Received Message from Campaign or Canvas With Tag
-    description: Segments your users by when they received a specific campaign or Canvas with a specific tag. This filter doesn't consider when users received other campaigns or Canvases. (24-hour period)
+    description: Segments your users by when they received a specific campaign or Canvas with a specific tag. This filter doesn't consider when users received other campaigns or Canvases. Maximum lookback period is 100 years. (24-hour period)
     tags:
       - Retargeting
   - name: Has Never Received a Message from Campaign or Canvas Step
@@ -167,27 +167,27 @@ glossaries:
     tags:
       - Retargeting
   - name: Last Received Email
-    description: Segments your users by the last time that they have received one of your email messages. (24-hour period)<br><br>Time zone:<br>Company's Time Zone
+    description: Segments your users by the last time that they have received one of your email messages. Maximum lookback period is 100 years. (24-hour period)<br><br>Time zone:<br>Company's Time Zone
     tags:
       - Retargeting
   - name: Last Received Push
-    description: Segments your users by the last time that they received one of your push notifications. (24-hour period)<br><br>Time zone:<br>Company's Time Zone
+    description: Segments your users by the last time that they received one of your push notifications. Maximum lookback period is 100 years. (24-hour period)<br><br>Time zone:<br>Company's Time Zone
     tags:
       - Retargeting
   - name: Last In App Message Impression
-    description: Segments your users by the last time they viewed an in-app message.
+    description: Segments your users by the last time they viewed an in-app message. Maximum lookback period is 100 years.
     tags:
       - Retargeting
   - name: Last Received SMS
-    description: Segments your users by the time that the last SMS, MMS, or RCS message was delivered to the SMS or RCS provider. This doesn't guarantee that the message was delivered to the user's device. (24-hour period)<br><br>Time zone:<br>Company's Time Zone
+    description: Segments your users by the time that the last SMS, MMS, or RCS message was delivered to the SMS or RCS provider. This doesn't guarantee that the message was delivered to the user's device. Maximum lookback period is 100 years. (24-hour period)<br><br>Time zone:<br>Company's Time Zone
     tags:
       - Retargeting
   - name: Last Received Webhook
-    description: Segments your users by the last time that Braze sent a webhook for that user. (24-hour period)<br><br>Time zone:<br>Company's Time Zone
+    description: Segments your users by the last time that Braze sent a webhook for that user. Maximum lookback period is 100 years. (24-hour period)<br><br>Time zone:<br>Company's Time Zone
     tags:
       - Retargeting
   - name: Last Received WhatsApp
-    description: Segments your users by the last time that they received a WhatsApp message. This is when the last message API request is sent to WhatsApp, not when the message is delivered to the user's device. (24-hour period)<br><br>Time zone:<br>Company's Time Zone
+    description: Segments your users by the last time that they received a WhatsApp message. This is when the last message API request is sent to WhatsApp, not when the message is delivered to the user's device. Maximum lookback period is 100 years. (24-hour period)<br><br>Time zone:<br>Company's Time Zone
     tags:
       - Retargeting
   - name: Live Activities Push to Start Registered for App
@@ -235,7 +235,7 @@ glossaries:
     tags:
       - Retargeting
   - name: Last Sent Specific SMS Inbound Keyword Category
-    description: Segments your users by when they last sent an SMS, MMS, or RCS to a specific subscription group within a specific keyword category.
+    description: Segments your users by when they last sent an SMS, MMS, or RCS to a specific subscription group within a specific keyword category. Maximum lookback period is 100 years.
     tags:
       - Retargeting
   - name: Converted From Campaign
@@ -255,7 +255,7 @@ glossaries:
     tags:
       - Retargeting
   - name: Last Enrolled in Any Control Group
-    description: Segments your users by the last time that they fell into the control group in a campaign. <br><br>Time zone:<br>Company's Time Zone
+    description: Segments your users by the last time that they fell into the control group in a campaign. Maximum lookback period is 100 years. <br><br>Time zone:<br>Company's Time Zone
     tags:
       - Retargeting
   - name: Entered Canvas Variation
@@ -263,11 +263,11 @@ glossaries:
     tags:
       - Retargeting
   - name: Last Received Any Message
-    description: Segments your users by determining the last message that was received. (24-hour period)<br><br>For Content Cards, Banners, and in-app messages, this is when a user last logged an impression, not when the card or in-app message was last sent.<br><br>For push and webhooks, this is when any message was sent to the user.<br><br> For WhatsApp, this is when the last message API request was sent to WhatsApp, not when the message was delivered to the user's device.<br><br> For emails, the targeted user profile matches this filter when an email request is sent to the email service provider (regardless if it actually gets delivered).<br><br> For SMS and RCS, users are considered to have "received" a message at send time. Even if the message fails to reach the user's device, the user still matches this filter.<br><br> When a message is delivered, opened, or clicked, Braze updates data for all profiles that share the same channel identifier (for example, email or phone number), so users who share an identifier with someone who received the message can match this filter even if their profile was not directly sent the campaign.<br><br>Example:<br>Last Received Message Less than 1 Day ago = less than 24 hours ago<br><br>Time zone:<br>Company's Time Zone
+    description: Segments your users by determining the last message that was received. Maximum lookback period is 100 years. (24-hour period)<br><br>For Content Cards, Banners, and in-app messages, this is when a user last logged an impression, not when the card or in-app message was last sent.<br><br>For push and webhooks, this is when any message was sent to the user.<br><br> For WhatsApp, this is when the last message API request was sent to WhatsApp, not when the message was delivered to the user's device.<br><br> For emails, the targeted user profile matches this filter when an email request is sent to the email service provider (regardless if it actually gets delivered).<br><br> For SMS and RCS, users are considered to have "received" a message at send time. Even if the message fails to reach the user's device, the user still matches this filter.<br><br> When a message is delivered, opened, or clicked, Braze updates data for all profiles that share the same channel identifier (for example, email or phone number), so users who share an identifier with someone who received the message can match this filter even if their profile was not directly sent the campaign.<br><br>Example:<br>Last Received Message Less than 1 Day ago = less than 24 hours ago<br><br>Time zone:<br>Company's Time Zone
     tags:
       - Retargeting
   - name: Last Engaged With Message
-    description: Segments your users by the last time they have clicked or opened one of your messaging channels (Banners, Content Card, email, in-app, SMS, RCS, push, WhatsApp).<br><br>For Content Cards, Banners, and in-app messages, this is when a user logs an impression, not when the card or in-app message is sent.<br><br> For push and webhooks, this is when the message is sent to the user.<br><br> For WhatsApp, this is when the last message API request is sent to WhatsApp, not when the message is delivered to the user's device.<br><br> For email messaging, the open event includes both machine opens and non-machine opens. (24-hour period)<br><br>For emails, the targeted user profile matches this filter when an email request is sent to the email service provider (regardless if it actually gets delivered). This also includes the option to filter by "opened any email (machine opens)" and "opened any email (other opens)".<br><br> For SMS and RCS, this is when the user last selected any shortened link in a message that has user click tracking turned on.<br><br> When a message is delivered, opened, or clicked, Braze updates data for all profiles that share the same channel identifier (for example, email or phone number), so users who share an identifier with someone who received the message can match this filter even if their profile was not directly sent the campaign.<br><br>Time zone:<br>Company's Time Zone
+    description: Segments your users by the last time they have clicked or opened one of your messaging channels (Banners, Content Card, email, in-app, SMS, RCS, push, WhatsApp).<br><br>For Content Cards, Banners, and in-app messages, this is when a user logs an impression, not when the card or in-app message is sent.<br><br> For push and webhooks, this is when the message is sent to the user.<br><br> For WhatsApp, this is when the last message API request is sent to WhatsApp, not when the message is delivered to the user's device.<br><br> For email messaging, the open event includes both machine opens and non-machine opens. Maximum lookback period is 100 years. (24-hour period)<br><br>For emails, the targeted user profile matches this filter when an email request is sent to the email service provider (regardless if it actually gets delivered). This also includes the option to filter by "opened any email (machine opens)" and "opened any email (other opens)".<br><br> For SMS and RCS, this is when the user last selected any shortened link in a message that has user click tracking turned on.<br><br> When a message is delivered, opened, or clicked, Braze updates data for all profiles that share the same channel identifier (for example, email or phone number), so users who share an identifier with someone who received the message can match this filter even if their profile was not directly sent the campaign.<br><br>Time zone:<br>Company's Time Zone
     tags:
       - Retargeting
   - name: Clicked card
@@ -287,7 +287,7 @@ glossaries:
     tags:
       - Channel subscription behavior
   - name: Email Opt In Date
-    description: Segments your users by the date on which they opted into email.
+    description: Segments your users by the date on which they opted into email. Maximum lookback period is 100 years.
     tags:
       - Channel subscription behavior
   - name: Email Subscription Status
@@ -295,7 +295,7 @@ glossaries:
     tags:
       - Channel subscription behavior
   - name: Email Unsubscribed Date
-    description: Segments your users by the date on which they unsubscribed from future emails.
+    description: Segments your users by the date on which they unsubscribed from future emails. Maximum lookback period is 100 years.
     tags:
       - Channel subscription behavior
   - name: Foreground Push Enabled
@@ -311,15 +311,15 @@ glossaries:
     tags:
       - Channel subscription behavior
   - name: Push Opt In Date
-    description: Segments your users by the date on which they opted into push.
+    description: Segments your users by the date on which they opted into push. Maximum lookback period is 100 years.
     tags:
       - Channel subscription behavior
   - name: Push Subscription Status
-    description: Segments your users by their <a href="/docs/user_guide/channels/push/push_setup/push_subscription_states#push-subscription-state">subscription status</a> for push.
+    description: Segments your users by their <a href="/docs/user_guide/channels/push/push_setup/push_subscription_states">subscription status</a> for push.
     tags:
       - Channel subscription behavior
   - name: Push Unsubscribed Date
-    description: Segments your users by the date on which they unsubscribed from future push notifications.
+    description: Segments your users by the date on which they unsubscribed from future push notifications. Maximum lookback period is 100 years.
     tags:
       - Channel subscription behavior
   - name: Purchased Product
@@ -343,19 +343,19 @@ glossaries:
     tags:
       - Purchase behavior
   - name: First Made Purchase
-    description: Segments your users by the earliest time that a user made a purchase in your app.
+    description: Segments your users by the earliest time that a user made a purchase in your app. Maximum lookback period is 100 years.
     tags:
       - Purchase behavior
   - name: First Purchase For App
-    description: Segments your users by the earliest time that a user made a purchase from your app.
+    description: Segments your users by the earliest time that a user made a purchase from your app. Maximum lookback period is 100 years.
     tags:
       - Purchase behavior
   - name: Last Made Purchase
-    description: Filter users by the last time they made a purchase.
+    description: Filter users by the last time they made a purchase. Maximum lookback period is 100 years.
     tags:
       - Purchase behavior
   - name: Last Purchased Product
-    description: Filter users by when they last purchased a specific product.
+    description: Filter users by when they last purchased a specific product. Maximum lookback period is 100 years.
     tags:
       - Purchase behavior
   - name: Money Spent
@@ -455,7 +455,7 @@ glossaries:
     tags:
       - App
   - name: Uninstalled
-    description: Segments your users by whether they are currently marked as uninstalled on the backend. Users who uninstalled and later reinstalled the app are not included. This filter reflects the current uninstall state, not a historical log of every uninstall event.
+    description: Segments your users by whether they are currently marked as uninstalled on the backend. Users who uninstalled and later reinstalled the app are not included. This filter reflects the current uninstall state, not a historical log of every uninstall event. Maximum lookback period is 100 years.
     tags:
       - Uninstall
   - name: Device Carrier
@@ -615,7 +615,7 @@ glossaries:
     tags:
       - Social activity
   - name: Phone Number
-    description: Segments your users by the E.164 formatted phone number field.<br><br> When a phone number is sent to Braze, Braze tries to coerce it into the <a href="/docs/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#importing-phone-numbers">e.164 format</a> that is used to send across SMS, RCS, and WhatsApp channels. The coercion process can fail if the number isn't formatted properly, which results in the user profile having an unformatted phone number but not a sending phone number. This segment filter returns users by their e.164 formatted phone number (when available).<br><br>Use cases:<br> - Use this filter to understand the most accurate target audience size when sending SMS, RCS, or WhatsApp messages.  <br>- Use regular expressions (regex) with this filter to segment by phone numbers with a specific country code. <br>- Use this filter to segment users by phone numbers that failed the e.164 coercion process.
+    description: Segments your users by the E.164 formatted phone number field.<br><br> When a phone number is sent to Braze, Braze tries to coerce it into the <a href="/docs/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#import-phone-numbers">e.164 format</a> that is used to send across SMS, RCS, and WhatsApp channels. The coercion process can fail if the number isn't formatted properly, which results in the user profile having an unformatted phone number but not a sending phone number. This segment filter returns users by their e.164 formatted phone number (when available).<br><br>Use cases:<br> - Use this filter to understand the most accurate target audience size when sending SMS, RCS, or WhatsApp messages.  <br>- Use regular expressions (regex) with this filter to segment by phone numbers with a specific country code. <br>- Use this filter to segment users by phone numbers that failed the e.164 coercion process.
     tags:
       - Other Filters
 ---

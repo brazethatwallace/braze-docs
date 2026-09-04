@@ -6,13 +6,13 @@ description: "Este artículo de referencia explica cómo establecer valores alte
 
 ---
 
-# Establecer valores predeterminados
-
-{% raw %}
+# Establecer valores predeterminados {#set-default-values}
 
 > Se pueden establecer valores alternativos predeterminados para cualquier atributo de personalización que uses en tus mensajes. Este artículo explica cómo funcionan los valores predeterminados, cómo configurarlos y cómo usarlos en tus mensajes.
 
-## Cómo funcionan
+{% raw %}
+
+## Cómo funcionan {#how-they-work}
 
 Los valores predeterminados se pueden añadir especificando un [filtro Liquid](http://docs.shopify.com/themes/liquid-documentation/filters) (usa `|` para distinguir el filtro en línea, como se muestra) con el nombre "default."
 
@@ -45,11 +45,11 @@ Hi Valued User, thanks for using the App!
 El valor predeterminado se mostrará para valores vacíos (empty), pero no para valores en blanco (blank). Un valor vacío no contiene nada, mientras que un valor en blanco contiene caracteres de espacio en blanco (como espacios) y ningún otro carácter. Por ejemplo, una cadena vacía podría verse como `""` y una cadena en blanco podría verse como `" "`.
 {% endalert %}
 
-## Establecer valores predeterminados para diferentes tipos de datos
+## Establecer valores predeterminados para diferentes tipos de datos {#setting-default-values-for-different-data-types}
 
-El ejemplo anterior muestra cómo establecer un valor predeterminado para una cadena. Puedes establecer valores predeterminados para cualquier tipo de datos Liquid que tenga el valor `empty`, `nil` (indefinido) o `false`, lo que incluye cadenas, booleanos, arrays, objetos y números.
+El ejemplo anterior de esta sección muestra cómo establecer un valor predeterminado para una cadena. Puedes establecer valores predeterminados para cualquier tipo de datos Liquid que tenga el valor `empty`, `nil` (indefinido) o `false`, lo que incluye cadenas, booleanos, arrays, objetos y números.
 
-### Caso de uso: booleanos
+### Caso de uso: booleanos {#use-case-booleans}
 
 Supongamos que tienes un atributo personalizado booleano llamado `premium_user` y quieres enviar un mensaje personalizado basado en el estado premium del usuario. Algunos usuarios no tienen un estado premium configurado, por lo que necesitarás establecer un valor predeterminado para contemplar a esos usuarios.
 
@@ -91,7 +91,7 @@ Hi {{${first_name} | default: 'valued user'}}, consider upgrading to premium for
 {% endraw %}
 {% enddetails %}
 
-### Caso de uso: números
+### Caso de uso: números {#use-case-numbers}
 
 Supongamos que tienes un atributo personalizado numérico llamado `reward_points` y quieres enviar un mensaje con los puntos de recompensa del usuario. Algunos usuarios no tienen puntos de recompensa configurados, por lo que necesitarás establecer un valor predeterminado para contemplar a esos usuarios.
 
@@ -112,7 +112,7 @@ Hi {{${first_name} | default: 'valued user'}}, you have {{custom_attribute.${rew
 ```
 {% endraw %}
 
-### Caso de uso: objetos
+### Caso de uso: objetos {#use-case-objects}
 
 Supongamos que tienes un objeto de atributo personalizado anidado llamado `location` que contiene las propiedades `city` y `state`. Si alguna de estas propiedades no está configurada, quieres animar al usuario a proporcionarlas.
 
@@ -158,7 +158,7 @@ State: {{custom_attribute.${address.state} | default: 'Unknown'}}
 {% endraw %}
 {% enddetails %}
 
-### Caso de uso: arrays
+### Caso de uso: arrays {#use-case-arrays}
 
 Supongamos que tienes un atributo personalizado de tipo array llamado `upcoming_trips` que contiene viajes con las propiedades `destination` y `departure_date`. Quieres enviar a los usuarios mensajes personalizados según si tienen viajes programados.
 

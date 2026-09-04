@@ -5,7 +5,6 @@ page_order: 6
 tool: Campaigns
 page_type: reference
 description: "This reference article discusses the concept of rate limiting and frequency capping in campaigns, and how you can manage marketing pressure to improve user experience."
-
 ---
 
 # Rate limiting and frequency capping
@@ -57,13 +56,23 @@ By selecting the maximum user limit, you can limit the volume of messages sent o
 The maximum user cap limits the number of users dispatched, not the number of messages successfully sent. Because aborted messages count toward this cap, the actual number of messages sent may be lower than the configured limit. For example, if you set a cap of 10,000 and 2,000 messages are aborted due to Liquid logic or other conditions, only 8,000 messages are sent.
 {% endalert %}
 
+##### Maximum user cap for multichannel campaigns
+
+For multichannel campaigns, Braze first selects one audience up to your configured maximum user cap. Braze then evaluates each user in that capped audience for each channel in the campaign.
+
+As a result, the capped audience size stays the same, but sends per channel can differ based on channel eligibility. For example, if you set a maximum user cap of 500,000 and a user is only eligible for push and Content Cards, that user receives those channels but not email.
+
+If you split those channels into separate campaigns that each target the same segment and each has its own maximum user cap, each campaign evaluates and caps users independently. Braze does not guarantee that each campaign selects the exact same subset of users.
+
+If you need follow-up campaigns to target users who were sent an earlier campaign, create a segment using the **Received Campaign** filter, then use that segment for the follow-up campaigns.
+
 ##### Maximum user cap with optimizations
 
-If you're using an optimization like Winning Variant or Personalized Variant, the campaign will consist of two sends: the initial experiment and the final send. 
+For a single-send campaign using **Optimize with BrazeAI™**, the campaign consists of two sends: the initial experiment and the optimized send.
 
-To set up a maximum user cap in this scenario, select **Limit the number of people who will receive this campaign**, then select **In total this campaign should**, and enter an audience limit. Your audience limit will be split up by the percentages shown in the **A/B Testing** panel. 
+To set up a maximum user cap in this scenario, select **Limit send volume**, then select **Lifetime of the campaign**, and enter a value for **Maximum sends**. Your audience limit is split by the percentages shown in the **A/B Testing** panel.
 
-If you select **Every time the campaign is scheduled**, those two phases will be separately limited to the number set. This is typically not desirable.
+If you select **Every time campaign is scheduled**, those two phases will be separately limited to the number set. This is typically not desirable.
 
 #### Setting a maximum impression cap on campaigns
 
@@ -231,7 +240,7 @@ If you want a particular campaign to override frequency capping rules, you can s
 
 After this, you will be asked if you still want this campaign to count toward your frequency cap. Messages that count toward frequency capping are included in calculations for the Intelligent Channel filter. 
 
-When sending [API campaigns]({{site.baseurl}}/developer_guide/rest_api/messaging#messaging), which are often transactional, you'll have the ability to specify that a campaign should ignore frequency capping rules by setting `override_frequency_capping` to `true` in the API request.
+When sending [API campaigns]({{site.baseurl}}/api/endpoints/messaging), which are often transactional, you'll have the ability to specify that a campaign should ignore frequency capping rules by setting `override_frequency_capping` to `true` in the API request.
 
 By default, new campaigns and Canvases that do not obey frequency caps will also not count toward them. This is configurable for each campaign and Canvas.
 
@@ -250,6 +259,10 @@ Frequency capping applies per dispatch: each time Braze sends a campaign or Canv
 When a single dispatch uses multiple channels, that dispatch counts at most once per frequency capping rule that applies. For example, if you create a multichannel campaign that sends email, iOS push, and Android push in one delivery and your workspace has rules for push and email, and a rule that applies to all channels, that delivery counts once toward the push rule, once toward the email rule, and once toward the all-channel rule—it does not count once per push platform or per message inside the send. If users are capped to one push and one email campaign per day and they receive this multichannel campaign, they aren't eligible for additional push or email campaigns for the rest of the day unless a campaign ignores frequency capping rules.
 
 In-app messages and Content Cards are not counted as or toward caps on campaigns or Canvas components of any type.
+
+##### Push notifications with multiple devices
+
+For push campaigns, frequency capping counts at the campaign or Canvas component level, not per individual device. If a user profile has multiple devices registered for push (for example, an iPhone and an iPad), a campaign-level frequency cap counts that as one send, regardless of how many devices receive the notification. This is similar to how a recurring campaign with a daily cadence counts as one send per day, even if it recurs multiple times throughout the week.
 
 {% alert important %}
 Global frequency capping is scheduled based on the user's time zone, and is calculated by calendar days, not 24-hour periods. For example, if you set up a frequency capping rule of sending no more than one campaign a day, a user may receive a message at 11 pm in their local time zone, and they would be eligible to receive another message an hour later.
@@ -374,6 +387,8 @@ Users who are frequency capped don't generate a send event for that step. To ide
 This usually means the campaign's [delivery speed rate limit](#delivery-speed-rate-limiting) is set too low for the audience size, so completing the send would take longer than the allowed window and Braze surfaces a warning. Increase the delivery speed rate limit, reduce the audience, or use **Limit send volume** so each scheduled occurrence finishes within the allowed send window. You can also set a [workspace messaging rate limit]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits) to enforce a cap across campaigns.
 
 **Limit send volume** controls how many users are eligible for a send, not how many messages Braze sends per minute. Only a delivery speed rate limit sets per-minute throughput.
+
+If you're already at the maximum delivery speed rate limit available for your company, contact your customer success manager to request an increase.
 
 ### What does "Sent" mean for frequency capping?
 

@@ -27,7 +27,7 @@ A integração entre a Braze e a StackAdapt permite que você sincronize dados d
 | Requisito | Descrição |
 | ----------- | ------------------- |
 | **Conta StackAdapt** | Você precisa de uma conta StackAdapt ativa com permissões para gerenciar integrações do Data Hub. |
-| **Chave da API REST da Braze** | Uma chave da API REST da Braze com as seguintes permissões: <br>- users.export.ids<br>- users.export.segment<br>- email.unsubscribe<br>- email.hard_bounces<br>- messages.schedule_broadcasts<br>- campaigns.list<br>- campaigns.details<br>- canvas.list<br>- canvas.details<br>- segments.list<br>- segments.details<br>- purchases.product_list<br>- events.list<br>- feed.list<br>- feed.details<br>- templates.email.info<br>- templates.email.list<br>- subscription.status.get<br>- subscription.groups.get<br><br>Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| **Chave da API REST da Braze** | Uma chave da API REST da Braze com as seguintes permissões: <br>- users.export.ids<br>- users.export.Segment<br>- email.unsubscribe<br>- email.hard_bounces<br>- messages.schedule_broadcasts<br>- campaigns.list<br>- campaigns.details<br>- canvas.list<br>- canvas.details<br>- segments.list<br>- segments.details<br>- purchases.product_list<br>- events.list<br>- feed.list<br>- feed.details<br>- templates.email.info<br>- templates.email.list<br>- subscription.status.get<br>- subscription.groups.get<br><br>Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
 | **Endpoint REST da Braze** | [Sua URL de endpoint REST]({{site.baseurl}}/api/basics/#endpoints). Seu endpoint depende da URL da Braze para sua instância. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 

@@ -47,7 +47,7 @@ The default value will show for empty values, but not for blank values. An empty
 
 ## Setting default values for different data types
 
-The example above shows how to set a default for a string. You can set default values for any Liquid data type that has the value of `empty`, `nil` (undefined), or `false`, which includes strings, booleans, arrays, objects, and numbers.
+The example earlier in this section shows how to set a default for a string. You can set default values for any Liquid data type that has the value of `empty`, `nil` (undefined), or `false`, which includes strings, booleans, arrays, objects, and numbers.
 
 ### Use case: Booleans
 

@@ -37,6 +37,37 @@ For in-app messages, this page defines unique impressions using a calendar-day b
 *Total Impressions* can exceed *Unique Impressions* when a user views the message more than once on the same calendar day (see the metric definitions in the preceding table). To investigate users with inflated impression counts, create a segment with the **Device Count** filter set to **more than** `1`, and the **Received Message from Campaign** filter for the specific campaign.
 {% endalert %}
 
+### Click tracking
+
+Braze logs an impression when an in-app message becomes visible on screen. For in-app messages created with the [traditional editor]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional), the following table describes what counts as a click.
+
+| User action | Click logged |
+|-------------|--------------|
+| User clicks the message body when the message has no buttons | Yes (body click) |
+| User clicks a button | Yes (button click) |
+| User clicks the close button (X) | No |
+| User taps or clicks outside the message to dismiss it (when enabled) | No |
+| User closes the app while the message is displayed | No |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Click tracking" }
+
+#### Fullscreen message metrics by user action {#fullscreen-metrics-by-user-action}
+
+For [fullscreen]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/fullscreen) in-app messages created with the traditional editor, the following table shows what Braze logs for common user actions. An impression is logged when the message becomes visible on screen.
+
+| User action | Fullscreen with buttons | Fullscreen with no buttons |
+| --- | --- | --- |
+| User sees an in-app message, clicks nothing, and closes the app | 1 impression | 1 impression |
+| User sees an in-app message and clicks the close button | 1 impression | 1 impression |
+| User sees an in-app message and clicks a CTA button | 1 button click and 1 impression | N/A |
+| User sees an in-app message and taps the screen but not on a button | 1 impression<br><br>Tapping the in-app message does not close the message | 1 body click and 1 impression<br><br>Tapping the in-app message closes the message or triggers the on-click behavior |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fullscreen in-app message metrics by user behavior" }
+
+{% alert note %}
+Body clicks aren't automatically collected for in-app messages created with the [drag-and-drop editor]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop). To log body clicks, add a **Custom code** block and call `brazeBridge.logClick()`. For details, see [Button tracking]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#button-tracking-improvements) and [JavaScript bridge]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#javascript-bridge).
+{% endalert %}
+
+For definitions of body clicks and button clicks, see the [Report Metrics Glossary]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
+
 For control group versus variant impression imbalances in A/B tests, see [Discrepancies between the control group and variant]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics#discrepancies-between-the-control-group-and-variant).
 
 ## How do conversions increment with re-eligibility?

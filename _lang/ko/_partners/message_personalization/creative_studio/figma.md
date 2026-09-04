@@ -15,7 +15,7 @@ search_tag: Partner
 
 Braze와 Figma 통합을 사용하면 Figma에서 이미지 및 시각적 자산을 Braze 미디어 라이브러리로 직접 전송할 수 있습니다.
 
-이 통합이 어떻게 작동하는지 개요를 보려면 다음 동영상을 시청하세요.
+통합이 어떻게 작동하는지 개요를 보려면 다음 비디오를 시청하세요.
 
 {% multi_lang_include video.html id="ab5ywsi72n" source="wistia" %}
 
@@ -34,7 +34,7 @@ Braze와 Figma 통합을 사용하면 Figma에서 이미지 및 시각적 자산
 
 Figma 커뮤니티에서 [Braze Export 플러그인](https://www.figma.com/community/plugin/1606726267245196698/figma-to-braze-export)에 접근합니다. **Open In**을 선택하여 Figma 파일에 플러그인을 로드합니다.
 
-Figma에서 **Plugins** 섹션에서도 Figma to Braze Export 플러그인을 찾을 수 있습니다.
+Figma에서는 **Plugins** 섹션에서도 Figma to Braze Export 플러그인을 찾을 수 있습니다.
 
 ### 2단계: Braze에 연결 {#step-2-connect-to-braze}
 

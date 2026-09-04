@@ -30,7 +30,7 @@ Sort through the segments in the list by adjusting the following filters:
 - **Estimated Size:** Approximate range of how many users are in the segments
 - **Tags:** Tags associated with the segments
 - **Teams:** Teams associated with the segments
-- **Advanced Tracking Segments Only:** View only the segments that have [Analytics Tracking]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking#segment-analytics-tracking) enabled.
+- **Advanced Tracking Segments Only:** View only the segments that have [Analytics Tracking]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) enabled.
 
 ### Columns
 
@@ -91,3 +91,7 @@ All terms and strings entered in this field will be searched for. For example, s
 To search for all segment references, including those in other segments, campaigns, or Canvases, go to a segment's [Messaging Use](#messaging-use) section. The **Target segment** filter on the **Canvas** page searches only Canvas Audience segments. 
 
 ![Target segment filter on the Canvas page.]({% image_buster /assets/img/segment/target_segment.png %}){: style="max-width:45%;"}
+
+## Troubleshooting
+
+{% multi_lang_include audience/segments.md section='Canvas variant archived segment' %}

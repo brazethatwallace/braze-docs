@@ -1,6 +1,6 @@
 ---
 nav_title: "POST: Create and update users"
-article_title: "POST: Create and update users"
+article_title: "Create and update users"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
@@ -28,7 +28,7 @@ Use the [`/users/track/bulk` endpoint]({{site.baseurl}}/api/endpoints/user_data/
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/api_key) with the `users.track` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics) with the `users.track` permission.
 
 Customers using the API for server-to-server calls may need to allowlist `rest.iad-01.braze.com` if they're behind a firewall.
 
@@ -59,7 +59,7 @@ For each request component listed in the following table, you must include one o
 
 | Parameter | Required | Data Type | Description |
 | --------- | ---------| --------- | ----------- |
-| `attributes` | Optional | Array of attributes objects | See [user attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens) |
+| `attributes` | Optional | Array of attributes objects | See [user attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object) |
 | `events` | Optional | Array of event objects | See [events object]({{site.baseurl}}/api/objects_filters/event_object) |
 | `purchases` | Optional | Array of purchase objects | See [purchases object]({{site.baseurl}}/api/objects_filters/purchase_object) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }

@@ -15,9 +15,9 @@
 2. [예약 알림 메시지 설정 및 시작하기](#step-2)
 3. [업데이트된 예약 및 취소 처리하기](#step-3)
 
-## 1단계: Braze 고객 프로필에 다가오는 예약 데이터 기록하기 {#step-1}
+## 1단계: Braze 사용자 프로필에 다가오는 예약 데이터 기록하기 {#step-1}
 
-예약이 발생할 때마다 Braze [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) 엔드포인트를 사용하여 고객 프로필에 [중첩 고객 속성]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support)을 기록합니다. 중첩 고객 속성에 알림 메시지를 전송하고 개인화하는 데 필요한 모든 정보가 포함되어 있는지 확인하세요. 이 활용 사례에서는 중첩 고객 속성의 이름을 "trips"로 지정합니다.
+예약이 발생할 때마다 Braze [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) 엔드포인트를 사용하여 사용자 프로필에 [중첩 커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support)을 기록합니다. 중첩 커스텀 속성에 알림 메시지를 전송하고 개인화하는 데 필요한 모든 정보가 포함되어 있는지 확인하세요. 이 사용 사례에서는 중첩 커스텀 속성의 이름을 "trips"로 지정합니다.
 
 ### 예약 추가 {#add-booking}
 
@@ -40,9 +40,9 @@
 ```
 {% endraw %}
 
-중첩 고객 속성 "trips"는 고객 프로필에 다음과 같이 표시됩니다.
+중첩 커스텀 속성 "trips"는 사용자 프로필에 다음과 같이 표시됩니다.
 
-![런던 여행과 시드니 여행에 대한 두 개의 중첩 고객 속성.]({% image_buster /assets/img/use_cases/2_nested_attributes.png %}){: style="max-width:70%;"}
+![런던 여행과 시드니 여행에 대한 두 개의 중첩 커스텀 속성.]({% image_buster /assets/img/use_cases/2_nested_attributes.png %}){: style="max-width:70%;"}
 
 ### 예약 업데이트 {#update-booking}
 사용자가 예약을 업데이트하면, `/users/track` 엔드포인트를 통해 Braze에 데이터를 전송하기 위해 다음과 같은 오브젝트 배열 구조를 사용합니다.
@@ -99,9 +99,9 @@
 {% endraw %}
 {% endtab %}
 {% tab SDK %}
-#### SDK를 통해 고객 프로필에 중첩 속성 기록하기 {#write-nested-attributes-to-user-profiles-through-the-sdk}
+#### SDK를 통해 사용자 프로필에 중첩 속성 기록하기 {#write-nested-attributes-to-user-profiles-through-the-sdk}
 
-앱, 웹사이트 또는 둘 다를 통해 예약을 수집하고 해당 데이터를 고객 프로필에 직접 기록하려면 Braze SDK를 사용하여 이 데이터를 전송할 수 있습니다. 다음은 웹 SDK를 활용한 예시입니다:
+앱, 웹사이트 또는 둘 다를 통해 예약을 수집하고 해당 데이터를 사용자 프로필에 직접 기록하려면 Braze SDK를 사용하여 이 데이터를 전송할 수 있습니다. 다음은 웹 SDK를 활용한 예시입니다:
 
 {% raw %}
 ```json
@@ -120,23 +120,24 @@ braze.getUser().setCustomUserAttribute("trips", json);
 {% endtab %}
 {% endtabs %}
 
-Braze는 고객 프로필의 중첩 고객 속성에서 지정된 예약을 제거하고 남아 있는 예약을 표시합니다.
+Braze는 사용자 프로필의 중첩 커스텀 속성에서 지정된 예약을 제거하고 남아 있는 예약을 표시합니다.
 
-![런던 여행에 대한 중첩 고객 속성.]({% image_buster /assets/img/use_cases/1_nested_attribute.png %}){: style="max-width:70%;"}
+![런던 여행에 대한 중첩 커스텀 속성.]({% image_buster /assets/img/use_cases/1_nested_attribute.png %}){: style="max-width:70%;"}
 
 ## 2단계: 예약 알림 메시지 설정 및 시작하기 {#step-2}
 
 ### 2a단계: 타겟 오디언스 생성 {#step-2a-create-a-target-audience}
+
 다중 기준 세분화를 사용하여 알림을 받을 타겟 오디언스를 생성합니다. 예를 들어, 예약 날짜 이틀 전에 알림을 보내려면 다음을 선택합니다:
 
 - 시작 날짜가 **1일 이상** 그리고
 - 시작 날짜가 **2일 미만**
 
-![시작 날짜가 1일 이상이고 2일 미만인 기준을 가진 중첩 고객 속성 "trips".]({% image_buster /assets/img/use_cases/custom_nested_attribute.png %})
+![시작 날짜가 1일 이상이고 2일 미만인 기준을 가진 중첩 커스텀 속성 "trips".]({% image_buster /assets/img/use_cases/custom_nested_attribute.png %})
 
 ### 2b단계: 메시지 작성하기 {#step-2b-create-your-message}
 
-[커스텀 HTML로 이메일 만들기]({{site.baseurl}}/user_guide/message_building_by_channel/email/html_editor)의 단계를 따라 알림 이메일 메시지를 작성합니다. Liquid를 사용하여 생성한 커스텀 고객 속성("trips")의 데이터로 메시지를 개인화합니다. 다음 예시를 참고하세요.
+[커스텀 HTML로 이메일 만들기]({{site.baseurl}}/user_guide/channels/email/html_editor)의 단계를 따라 알림 이메일 메시지를 작성합니다. Liquid를 사용하여 생성한 커스텀 고객 속성("trips")의 데이터로 메시지를 개인화합니다. 다음 예시를 참고하세요.
 
 {% raw %}
 ```liquid
@@ -167,9 +168,9 @@ You have the following booked in 2 days! Check the information below:
 {% tab /users/track %}
 
 #### `/users/track` 엔드포인트를 통해 데이터 전송
-사용자가 예약을 업데이트하거나 취소할 때 커스텀 이벤트를 전송하기 위해 Braze [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) 엔드포인트를 사용합니다. 해당 이벤트에서 변경 사항을 확인하는 데 필요한 데이터를 이벤트 등록정보에 포함합니다.
+사용자가 예약을 업데이트하거나 취소할 때 커스텀 이벤트를 전송하기 위해 Braze [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) 엔드포인트를 사용합니다. 해당 이벤트에서 변경 사항을 확인하는 데 필요한 데이터를 이벤트 속성정보에 포함합니다.
 
-이 활용 사례에서 사용자가 시드니 여행 날짜를 업데이트했다고 가정해 보겠습니다. 이벤트는 다음과 같습니다:
+이 사용 사례에서 사용자가 시드니 여행 날짜를 업데이트했다고 가정해 보겠습니다. 이벤트는 다음과 같습니다:
 
 {% raw %}
 ```json
@@ -193,7 +194,7 @@ You have the following booked in 2 days! Check the information below:
 {% endtab %}
 {% tab SDK %}
 
-#### SDK를 통해 고객 프로필에 커스텀 이벤트 전송하기
+#### SDK를 통해 고객 프로필에 중첩 속성 작성하기
 
 SDK를 통해 고객 프로필에 커스텀 이벤트를 전송합니다. 예를 들어, 웹 SDK를 사용하고 있다면 다음과 같이 전송할 수 있습니다:
 
@@ -212,7 +213,7 @@ braze.logCustomEvent("trip_updated", {
 
 ### 3b단계: 업데이트 확인 메시지 작성하기 {#step-3b-create-a-message-to-confirm-the-update}
 
-사용자에게 업데이트된 예약 확인을 보내기 위해 [행동 기반 Campaign]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery)을 생성합니다. [Liquid를 사용하여 이벤트 등록정보를 템플릿화]({{site.baseurl}}/user_guide/data/custom_data/custom_events)하면 예약의 이름, 이전 시간, 새로운 시간(취소인 경우 이름만)을 메시지에 반영할 수 있습니다.
+사용자에게 업데이트된 예약 확인을 보내기 위해 [행동 기반 Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery)을 생성합니다. [Liquid를 사용하여 이벤트 속성정보를 템플릿화]({{site.baseurl}}/user_guide/data/activation/events/custom_events)하면 예약의 이름, 이전 시간, 새로운 시간(취소인 경우 이름만)을 메시지에 반영할 수 있습니다.
 
 예를 들어, 다음과 같은 메시지를 작성할 수 있습니다:
 
@@ -224,11 +225,11 @@ Hi {{${first_name}}}, you have successfully updated the date of your trip, {{eve
 
 ### 3c단계: 업데이트를 반영하도록 고객 프로필 수정하기 {#step-3c-modify-the-user-profile-to-reflect-the-update}
 
-마지막으로, 1단계와 2단계의 예약 알림을 최신 데이터에 기반하여 전송하려면 중첩 고객 속성을 업데이트하여 예약의 변경 또는 취소를 반영해야 합니다.
+마지막으로, 1단계와 2단계의 예약 알림을 최신 데이터에 기반하여 전송하려면 중첩 커스텀 속성을 업데이트하여 예약의 변경 또는 취소를 반영해야 합니다.
 
 #### 업데이트된 예약 {#updated-booking}
 
-이 활용 사례에서 사용자가 시드니 여행을 업데이트한 경우, `/users/track` 엔드포인트를 사용하여 다음과 같은 호출로 날짜를 변경합니다:
+이 사용 사례에서 사용자가 시드니 여행을 업데이트한 경우, `/users/track` 엔드포인트를 사용하여 다음과 같은 호출로 날짜를 변경합니다:
 
 {% raw %}
 ```json
@@ -256,7 +257,7 @@ Hi {{${first_name}}}, you have successfully updated the date of your trip, {{eve
 
 #### 취소된 예약 {#cancelled-booking}
 
-이 활용 사례에서 사용자가 시드니 여행을 취소한 경우, `/users/track` 엔드포인트에 다음 호출을 전송합니다:
+이 사용 사례에서 사용자가 시드니 여행을 취소한 경우, `/users/track` 엔드포인트에 다음 호출을 전송합니다:
 
 {% raw %}
 ```json

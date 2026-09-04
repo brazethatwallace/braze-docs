@@ -89,6 +89,10 @@ tool:
 
 확인 페이지는 사용자에게 시간을 내주셔서 감사하다는 메시지를 전하거나 추가 정보를 제공하기에 좋은 곳입니다. 이 페이지의 행동 유도 문구를 커스터마이즈하여 사용자를 앱이나 웹사이트의 다른 페이지로 안내할 수 있습니다.
 
+{% alert note %}
+확인 페이지를 사용할 때 **헤더** 필드는 필수입니다. Campaign을 저장하려고 할 때 "작성기에 유효성 검사 오류가 있습니다" 메시지가 표시되면 확인 페이지에 헤더를 추가하세요.
+{% endalert %}
+
 **설문조사** 탭 하단의 **제출 버튼** 섹션에서 버튼 텍스트와 클릭 시 동작을 편집합니다:
 
 ![클릭 시 동작이 '응답 제출 및 확인 페이지 표시'로 설정됨.]({% image_buster /assets/img/iam/confirmation-option.png %}){: style="max-width:60%"}
@@ -125,7 +129,7 @@ Campaign 측정기준의 분석은 [인앱 메시지 보고]({{site.baseurl}}/us
 
 ### Currents {#currents}
 
-선택한 선택지는 [**인앱 메시지 클릭 이벤트**]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#api_fzzdoylmrtwe) `button_id` 필드 아래에서 Currents로 자동 전달됩니다. 각 선택지는 고유 식별자(UUID)와 함께 전송됩니다.
+선택한 선택지는 [**인앱 메시지 클릭 이벤트**]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#in-app-message-click-events) `button_id` 필드 아래에서 Currents로 자동 전달됩니다. 각 선택지는 고유 식별자(UUID)와 함께 전송됩니다.
 
 ## 사용 사례 {#use-cases}
 
@@ -134,38 +138,38 @@ Campaign 측정기준의 분석은 [인앱 메시지 보고]({{site.baseurl}}/us
 
 ### 사용자 만족도 {#user-satisfaction}
 
-**목표:** 고객 만족도를 측정하고 낮은 점수를 남긴 사용자에게 윈백 Campaign을 보냅니다.
+**목표:** 고객 만족도를 측정하고 낮은 점수를 남긴 사용자에게 윈백 캠페인을 발송합니다.
 
-이를 설정하려면 "😡 매우 불만족"부터 "😍 매우 만족"까지 5개의 옵션이 있는 단일 선택 설문조사를 사용합니다. 각 선택지는 커스텀 속성 `customer_satisfaction`에 매핑되며, 1부터 5까지의 숫자 값을 가집니다. 여기서 1은 가장 불만족, 5는 가장 만족을 나타냅니다. 단일 선택에는 문자열 커스텀 속성이 필요하므로 이러한 숫자 값은 문자열로 저장됩니다.
+이를 설정하려면 "😡 매우 불만족"부터 "😍 매우 만족"까지 다섯 가지 옵션이 있는 단일 선택 설문조사를 사용합니다. 각 선택지는 커스텀 속성 `customer_satisfaction`에 매핑되며, 1부터 5까지의 숫자 값을 가집니다. 1은 가장 불만족, 5는 가장 만족을 나타냅니다. 단일 선택에는 문자열 커스텀 속성이 필요하므로, 이 숫자 값은 문자열로 저장됩니다.
 
-| 선택지 | 속성 | 값 |
+| 선택지                                | 속성                   | 값    |
 |---------------------------------------|------------------------|-------|
-| 😡 매우 불만족 | `customer_satisfaction` | 1     |
-| 😟 불만족 | `customer_satisfaction` | 2     |
-| 🙂 보통 | `customer_satisfaction` | 3     |
-| 😊 만족 | `customer_satisfaction` | 4     |
-| 😍 매우 만족 | `customer_satisfaction` | 5     |
+| 😡 매우 불만족                        | `customer_satisfaction` | 1     |
+| 😟 불만족                             | `customer_satisfaction` | 2     |
+| 🙂 보통                               | `customer_satisfaction` | 3     |
+| 😊 만족                               | `customer_satisfaction` | 4     |
+| 😍 매우 만족                          | `customer_satisfaction` | 5     |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="사용자 만족도" }
 
-사용자가 설문조사를 제출하면 선택한 값이 커스텀 속성으로 기록됩니다. 그런 다음 오디언스 필터를 사용하여 후속 Campaign을 구축할 수 있습니다. 예를 들어, `customer_satisfaction` 속성이 "1" 또는 "2"인 사용자에게 윈백 메시지를 타겟팅할 수 있습니다.
+사용자가 설문조사를 제출하면 선택한 값이 커스텀 속성으로 기록됩니다. 이후 오디언스 필터를 사용하여 후속 캠페인을 구성할 수 있습니다. 예를 들어, `customer_satisfaction` 속성이 "1" 또는 "2"인 사용자에게 윈백 메시지를 타겟팅할 수 있습니다.
 
 {% endtab %}
-{% tab 알림 환경설정 %}
+{% tab 알림 설정 %}
 
-### 알림 환경설정 {#notification-preferences}
+### 알림 설정 {#notification-preferences}
 
 **목표:** 사용자가 특정 유형의 알림을 수신하도록 선택할 수 있게 합니다.
 
-이를 설정하려면 각 선택지가 알림 주제를 나타내는 다중 선택 설문조사를 사용합니다. 동일한 속성에 다른 값을 할당하는 대신, 각 선택지는 해당 주제에 대한 사용자의 관심을 반영하는 고유한 부울 속성에 매핑됩니다. 사용자가 선택지를 선택하면 해당 속성이 `true`로 설정됩니다. 선택하지 않으면 속성은 변경되지 않습니다.
+이를 설정하려면 각 선택지가 알림 주제를 나타내는 다중 선택 설문조사를 사용합니다. 동일한 속성에 서로 다른 값을 할당하는 대신, 각 선택지는 해당 주제에 대한 사용자의 관심을 반영하는 고유한 불리언 속성에 매핑됩니다. 사용자가 선택지를 선택하면 해당 속성이 `true`로 설정됩니다. 선택하지 않으면 속성은 변경되지 않습니다.
 
-| 선택지 | 속성 | 값 |
+| 선택지             | 속성                   | 값     |
 |--------------------|------------------------|--------|
-| 제품 업데이트 | `wants_product_updates`| `true` |
-| 프로모션 | `wants_promotions`     | `true` |
-| 이벤트 초대 | `wants_event_invites`  | `true` |
+| 제품 업데이트      | `wants_product_updates`| `true` |
+| 프로모션           | `wants_promotions`     | `true` |
+| 이벤트 초대        | `wants_event_invites`  | `true` |
 | 설문조사 및 피드백 | `wants_surveys`        | `true` |
-| 팁 및 튜토리얼 | `wants_tips`           | `true` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="알림 환경설정" }
+| 팁 및 튜토리얼     | `wants_tips`           | `true` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="알림 설정" }
 
 {% endtab %}
 {% tab 고객 목표 파악 %}
@@ -174,18 +178,18 @@ Campaign 측정기준의 분석은 [인앱 메시지 보고]({{site.baseurl}}/us
 
 **목표:** 사용자가 앱을 방문하는 주요 이유를 파악합니다.
 
-이를 설정하려면 각 옵션이 일반적인 목표 또는 의도를 나타내는 단일 선택 설문조사를 사용합니다. 각 선택지는 선택한 사용자 의도에 해당하는 값으로 커스텀 속성 `product_goal`에 매핑됩니다.
+이를 설정하려면 각 옵션이 일반적인 목표 또는 의도를 나타내는 단일 선택 설문조사를 사용합니다. 각 선택지는 커스텀 속성 `product_goal`에 매핑되며, 선택한 사용자 의도에 해당하는 값이 할당됩니다.
 
-| 선택지 | 속성 | 값 |
+| 선택지                     | 속성             | 값        |
 |----------------------------|------------------|-----------|
-| 상태 확인 | `product_goal`   | `status`  |
-| 계정 업그레이드 | `product_goal`   | `upgrade` |
-| 예약 잡기 | `product_goal`   | `schedule`|
-| 고객지원 | `product_goal`   | `support` |
-| 둘러보기 | `product_goal`   | `browse`  |
+| 상태 확인                  | `product_goal`   | `status`  |
+| 계정 업그레이드            | `product_goal`   | `upgrade` |
+| 예약 스케줄                | `product_goal`   | `schedule`|
+| 고객 지원                  | `product_goal`   | `support` |
+| 둘러보기                   | `product_goal`   | `browse`  |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="고객 목표 파악" }
 
-사용자가 설문조사를 제출하면 선택한 값이 프로필에 커스텀 속성으로 기록됩니다. 그런 다음 이 데이터를 사용하여 향후 경험을 개인화하거나 주요 목표에 따라 사용자를 세분화할 수 있습니다.
+사용자가 설문조사를 제출하면 선택한 값이 프로필에 커스텀 속성으로 기록됩니다. 이 데이터를 활용하여 향후 경험을 개인화하거나 주요 목표에 따라 사용자를 세분화할 수 있습니다.
 
 {% endtab %}
 {% tab 전환율 개선 %}
@@ -194,18 +198,18 @@ Campaign 측정기준의 분석은 [인앱 메시지 보고]({{site.baseurl}}/us
 
 **목표:** 고객이 업그레이드하거나 구매하지 않는 이유를 파악합니다.
 
-이를 설정하려면 각 옵션이 업그레이드의 일반적인 장벽을 나타내는 단일 선택 설문조사를 사용합니다. 각 선택지는 사용자의 선택을 반영하는 해당 값으로 커스텀 속성 `upgrade_reason`에 매핑됩니다.
+이를 설정하려면 각 옵션이 업그레이드의 일반적인 장벽을 나타내는 단일 선택 설문조사를 사용합니다. 각 선택지는 커스텀 속성 `upgrade_reason`에 매핑되며, 사용자의 선택을 반영하는 해당 값이 할당됩니다.
 
-| 선택지 | 속성 | 값 |
+| 선택지              | 속성             | 값          |
 |---------------------|------------------|-------------|
-| 너무 비쌈 | `upgrade_reason` | `expensive` |
-| 가치가 없음 | `upgrade_reason` | `value`     |
-| 사용하기 어려움 | `upgrade_reason` | `difficult` |
-| 경쟁사 사용 중 | `upgrade_reason` | `competitor`|
-| 기타 이유 | `upgrade_reason` | `other`     |
+| 너무 비쌈           | `upgrade_reason` | `expensive` |
+| 가치 부족           | `upgrade_reason` | `value`     |
+| 사용하기 어려움     | `upgrade_reason` | `difficult` |
+| 경쟁사 사용 중      | `upgrade_reason` | `competitor`|
+| 기타 이유           | `upgrade_reason` | `other`     |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="전환율 개선" }
 
-사용자가 설문조사를 제출하면 선택한 값이 프로필에 저장됩니다. 그런 다음 할인 혜택이나 사용성 개선 등 특정 이의에 맞춘 Campaign으로 이러한 사용자를 타겟팅할 수 있습니다.
+사용자가 설문조사를 제출하면 선택한 값이 프로필에 저장됩니다. 이후 할인 혜택이나 사용성 개선 등 특정 이의에 맞춘 캠페인으로 해당 사용자를 타겟팅할 수 있습니다.
 
 {% endtab %}
 {% tab 선호 기능 %}
@@ -214,20 +218,20 @@ Campaign 측정기준의 분석은 [인앱 메시지 보고]({{site.baseurl}}/us
 
 **목표:** 고객이 즐겨 사용하는 기능을 파악합니다.
 
-이를 설정하려면 각 옵션이 앱의 기능을 나타내는 다중 선택 설문조사를 사용합니다. 각 선택지는 커스텀 속성 `favorite_features`에 매핑되며, 사용자가 설문조사를 제출하면 속성이 선택한 값의 배열로 설정됩니다.
+이를 설정하려면 각 옵션이 앱의 기능을 나타내는 다중 선택 설문조사를 사용합니다. 각 선택지는 커스텀 속성 `favorite_features`에 매핑되며, 사용자가 설문조사를 제출하면 해당 속성이 선택한 값의 배열로 설정됩니다.
 
-| 선택지 | 속성 | 값 |
+| 선택지            | 속성               | 값           |
 |-------------------|--------------------|--------------|
-| 북마크 | `favorite_features`| `bookmarks`  |
-| 모바일 앱 | `favorite_features`| `mobile`     |
-| 게시물 공유 | `favorite_features`| `sharing`    |
-| 고객지원 | `favorite_features`| `support`    |
-| 커스터마이즈 | `favorite_features`| `custom`     |
-| 가격/가치 | `favorite_features`| `value`      |
-| 커뮤니티 | `favorite_features`| `community`  |
+| 북마크            | `favorite_features`| `bookmarks`  |
+| 모바일 앱         | `favorite_features`| `mobile`     |
+| 게시물 공유       | `favorite_features`| `sharing`    |
+| 고객 지원         | `favorite_features`| `support`    |
+| 커스터마이징      | `favorite_features`| `custom`     |
+| 가격 / 가치       | `favorite_features`| `value`      |
+| 커뮤니티          | `favorite_features`| `community`  |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="선호 기능" }
 
-이 설문조사는 다중 선택을 사용하므로 사용자의 프로필은 선택한 모든 기능 값의 목록으로 업데이트됩니다.
+이 설문조사는 다중 선택 방식이므로, 사용자의 프로필은 선택한 모든 기능 값의 목록으로 업데이트됩니다.
 
 {% endtab %}
 {% endtabs %}

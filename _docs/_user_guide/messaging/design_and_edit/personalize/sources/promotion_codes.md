@@ -50,9 +50,14 @@ Promotion codes are available in in-app message campaigns as an early access fea
 
 Looking for next steps? Start here:
 
-- [Creating a promotion code list]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create)
-- [Using promotion codes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#using-promotion-codes)
-- [Viewing promotion code usage]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#viewing-promotion-code-usage)
+{% article_tiles %}
+- name: Creating a promotion code list
+  link: /docs/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create
+- name: Using promotion codes
+  link: /docs/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#using-promotion-codes
+- name: Viewing promotion code usage
+  link: /docs/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#viewing-promotion-code-usage
+{% endarticle_tiles %}
 
 ## Frequently asked questions
 

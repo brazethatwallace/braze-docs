@@ -4,7 +4,6 @@ article_title: Onboarding Integration Overview
 page_order: 8
 page_type: reference
 description: "This reference article briefly covers the integration steps required from your engineers or developers."
-
 ---
 
 # Integration
@@ -25,7 +24,7 @@ So, what are they doing when they integrate Braze with your app or site? Glad yo
 
 The Braze SDK (Software Development Kit) is how we send and get information to and from your app or site. Your engineers are, essentially, tying our apps together. To do this, they need a few pieces of key information:
 
-* Your [API keys]({{site.baseurl}}/api/api_key)
+* Your [API keys]({{site.baseurl}}/api/basics)
 * Your [SDK endpoint]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints)
   * Braze no longer gives out custom endpoints so use the predefined SDK endpoints. If you have been given a pre-existing custom endpoint, Here, you can find the setup steps involved for [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/android_sdk_integration#step-5-optional-custom-endpoint-setup), [iOS]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=swift), and [Web]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup#initializing-the-sdk) integration.
 
@@ -76,11 +75,11 @@ If you want things like API-triggered launching and Connected Content, discuss t
 
 Work together with your engineer to make sure everything is working. Send [test messages]({{site.baseurl}}/developer_guide/in_app_messages/sending_test_messages), use our [test apps for Android]({{site.baseurl}}/developer_guide/references?tab=android) and [test apps for iOS]({{site.baseurl}}/developer_guide/references?tab=swift), check every box before you start sending!
 
-We even have specific instructions for [testing your Android or FireOS integration]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/test_your_basic_integration#test-your-basic-integration) and testing [push for iOS]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/testing).
+We even have specific instructions for [testing your Android or FireOS integration]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android) and testing [push for iOS]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/testing).
 
 ## After implementation
 
-Keep in mind that the implementation finish line isn't also the green light to send a million messages at once. Sending a million push might break your app if every customer clicks the same link simultaneously. We recommend discussing what your capacity of your internal setup is for handling requests from Braze before clicking that **Send** button. Then, you can set your [rate limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#rate-limiting) based on that.
+Keep in mind that the implementation finish line isn't also the green light to send a million messages at once. Sending a million push might break your app if every customer clicks the same link simultaneously. We recommend discussing what your capacity of your internal setup is for handling requests from Braze before clicking that **Send** button. Then, you can set your [rate limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-rate-limiting) based on that.
 
 ![Braze Firebrands community logo]({% image_buster /assets/img/torchie/firebrands.png %}){: style="max-width:15%;float:right;margin-left:15px;border:none;"}
 

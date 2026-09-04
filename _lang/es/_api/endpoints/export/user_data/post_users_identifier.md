@@ -5,8 +5,7 @@ search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Exportar usuarios por identificador de Braze."
-
+description: "En este artículo se describen los detalles del endpoint Exportar usuarios por identificador de Braze."
 ---
 {% api %}
 # Exportar perfil de usuario por identificador {#export-user-profile-by-identifier}
@@ -14,7 +13,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 /users/export/ids
 {% endapimethod %}
 
-> Utiliza este punto de conexión para exportar datos de cualquier perfil de usuario especificando un identificador de usuario.
+> Utiliza este endpoint para exportar datos de cualquier perfil de usuario especificando un identificador de usuario.
 
 Se pueden incluir hasta 50 `external_ids` o `user_aliases` en una sola solicitud. Si quieres especificar `device_id`, `email_address` o `phone`, solo se puede incluir uno de estos identificadores por solicitud.
 
@@ -22,7 +21,7 @@ Se pueden incluir hasta 50 `external_ids` o `user_aliases` en una sola solicitud
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `users.export.ids`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `users.export.ids`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -89,7 +88,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/ids' 
 
 ## Campos a exportar {#fields-to-export}
 
-La siguiente es una lista de valores `fields_to_export` válidos. Utilizar `fields_to_export` para minimizar los datos devueltos puede mejorar el tiempo de respuesta de este punto de conexión de la API:
+La siguiente es una lista de valores `fields_to_export` válidos. Utilizar `fields_to_export` para minimizar los datos devueltos puede mejorar el tiempo de respuesta de este endpoint de la API:
 
 | Campo a exportar | Tipo de datos | Descripción |
 | --------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -105,7 +104,7 @@ La siguiente es una lista de valores `fields_to_export` válidos. Utilizar `fiel
 | `created_at` | Cadena | Fecha y hora de creación del perfil de usuario, en formato ISO 8601. |
 | `custom_attributes` | Objeto | Pares clave-valor de atributos personalizados para este usuario. |
 | `custom_events` | Matriz | Eventos personalizados atribuidos a este usuario en los últimos 90 días. |
-| `devices` | Matriz | Información sobre el dispositivo del usuario, que podría incluir lo siguiente dependiendo de la plataforma:<br><br>- `model`: nombre del modelo del dispositivo<br>- `os`: sistema operativo del dispositivo<br>- `carrier`: operador de servicio del dispositivo, si está disponible<br>- `idfv`: (iOS) identificador del dispositivo Braze, el identificador de Apple para el proveedor, si existe<br>- `idfa`: (iOS) identificador de publicidad, si existe<br>- `device_id`: (Android) identificador de dispositivo Braze<br>- `google_ad_id`: (Android) identificador de publicidad de Google Play, si existe<br>- `roku_ad_id`: (Roku) identificador de publicidad de Roku<br>- `ad_tracking_enabled`: si el seguimiento de anuncios está habilitado en el dispositivo, puede ser verdadero o falso |
+| `devices` | Matriz | Información sobre el dispositivo del usuario, que podría incluir lo siguiente dependiendo de la plataforma:<br><br>- `model`: nombre del modelo del dispositivo<br>- `os`: sistema operativo del dispositivo<br>- `carrier`: operador de servicio del dispositivo, si está disponible<br>- `idfv`: (iOS) identificador de dispositivo Braze, el identificador de Apple para el proveedor, si existe<br>- `idfa`: (iOS) identificador de publicidad, si existe<br>- `device_id`: (Android) identificador de dispositivo Braze<br>- `google_ad_id`: (Android) identificador de publicidad de Google Play, si existe<br>- `roku_ad_id`: (Roku) identificador de publicidad de Roku<br>- `ad_tracking_enabled`: si el seguimiento de anuncios está habilitado en el dispositivo, puede ser verdadero o falso |
 | `dob` | Cadena | Fecha de nacimiento del usuario en el formato `YYYY-MM-DD`. |
 | `email` | Cadena | Dirección de correo electrónico del usuario. |
 | `external_id` | Cadena | Identificador único de usuario para usuarios identificados. |
@@ -118,28 +117,28 @@ La siguiente es una lista de valores `fields_to_export` válidos. Utilizar `fiel
 | `phone` | Cadena | Número de teléfono del usuario en formato E.164. |
 | `purchases` | Matriz | Compras que este usuario ha realizado en los últimos 90 días. |
 | `push_tokens` | Matriz | Identificador anónimo único que especifica dónde enviar las notificaciones de una aplicación. |
-| `random_bucket` | Entero | [Número de contenedor aleatorio]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events#random-bucket-number-event) del usuario, utilizado para crear segmentos uniformemente distribuidos de usuarios aleatorios. |
+| `random_bucket` | Entero | [Número de contenedor aleatorio]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) del usuario, utilizado para crear segmentos uniformemente distribuidos de usuarios aleatorios. |
 | `time_zone` | Cadena | Zona horaria del usuario en el mismo formato que la base de datos de zonas horarias de IANA. |
 | `total_revenue` | Flotante | Total de ingresos atribuidos a este usuario. Los ingresos totales se calculan en función de las compras que el usuario realizó durante las ventanas de conversión de las Campaigns y los Canvas que recibió. |
 | `uninstalled_at` | Marca de tiempo | Fecha y hora en que el usuario desinstala la aplicación. Se omite si no se ha desinstalado la aplicación. |
-| `user_aliases` | Objeto | [Objeto de alias de usuario]({{site.baseurl}}/api/objects_filters/user_alias_object#user-alias-object-specification) que contiene `alias_name` y `alias_label`, si existe. |
+| `user_aliases` | Objeto | [Objeto de alias de usuario]({{site.baseurl}}/api/objects_filters/user_alias_object) que contiene `alias_name` y `alias_label`, si existe. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Campos a exportar" }
 
-Ten en cuenta que el punto de conexión `/users/export/ids` reunirá todo el perfil de usuario de este usuario, incluyendo datos como todas las Campaigns y los Canvas recibidos, todos los eventos personalizados realizados, todas las compras realizadas y todos los atributos personalizados. Como resultado, este punto de conexión es más lento que otros puntos de conexión de la REST API.
+Ten en cuenta que el endpoint `/users/export/ids` reunirá todo el perfil de usuario de este usuario, incluyendo datos como todas las Campaigns y los Canvas recibidos, todos los eventos personalizados realizados, todas las compras realizadas y todos los atributos personalizados. Como resultado, este endpoint es más lento que otros endpoints de la REST API.
 
-Dependiendo de los datos solicitados, este punto de conexión de la API puede no ser suficiente para satisfacer tus necesidades debido al límite de velocidad de 250 solicitudes por minuto. Si prevés utilizar este punto de conexión regularmente para exportar usuarios, considera en su lugar la exportación de usuarios por segmento, que es asíncrona y está más optimizada para grandes extracciones de datos.
+Dependiendo de los datos solicitados, este endpoint de la API puede no ser suficiente para satisfacer tus necesidades debido al límite de velocidad de 250 solicitudes por minuto. Si prevés utilizar este endpoint regularmente para exportar usuarios, considera en su lugar la exportación de usuarios por segmento, que es asíncrona y está más optimizada para grandes extracciones de datos.
 
 ## Respuesta {#response}
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
+    "message": (string) returns 'success' when the request completes without errors,
     "users" : (array of object) the data for each of the exported users, may be empty if no users are found,
     "invalid_user_ids" : (optional, array of string) each of the identifiers provided in the request that did not correspond to a known user
 }
 ```
 
-Para ver un ejemplo de los datos accesibles a través de este punto de conexión, consulta el siguiente ejemplo.
+Para ver un ejemplo de los datos accesibles a través de este endpoint, consulta el siguiente ejemplo.
 
 ### Ejemplo de archivo de exportación de usuario {#example-user-export-file-output}
 

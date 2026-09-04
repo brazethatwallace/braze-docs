@@ -50,7 +50,7 @@ Das vertikale Menü auf der linken Seite organisiert Braze-Tools nach Funktion u
 
 Der Workspace-Umschalter befindet sich oben in der Seitennavigation und ermöglicht es Ihnen, zwischen verschiedenen Workspaces in Ihrer Braze-Instanz zu wechseln. Der aktive Workspace ist hervorgehoben.
 
-[Workspaces]({{site.baseurl}}/user_guide/get_started/workspaces) helfen dabei, Inhalte nach Marke, Region, Produktlinie oder Team zu organisieren. Jeder Workspace umfasst eigene Daten, Campaigns und Einstellungen. Ihr Zugriff kann zwischen Workspaces variieren. Beispielsweise könnten Sie in einem Workspace Bearbeitungszugriff und in einem anderen nur Lesezugriff haben.
+[Workspaces]({{site.baseurl}}/user_guide/get_started/workspaces) helfen dabei, Inhalte nach Marke, Region, Produktlinie oder Team zu organisieren. Jeder Workspace umfasst eigene Daten, Campaigns und Einstellungen. Ihr Zugriff kann zwischen Workspaces variieren. Beispielsweise könnten Sie in einem Workspace Bearbeitungszugriff und in einem anderen nur schreibgeschützten Zugriff haben.
 
 Um den Workspace zu wechseln, wählen Sie das Workspace-Dropdown oben in der Seitennavigation und wählen Sie den gewünschten Workspace aus. Sie können auch [bevorzugte Workspaces hinzufügen](#favorite-workspaces), um schneller auf die am häufigsten genutzten zuzugreifen.
 
@@ -156,7 +156,7 @@ So fügen Sie bevorzugte Workspaces hinzu:
 
 ### Auf Ihre Profileinstellungen zugreifen {#access-your-profile-settings}
 
-So verwalten Sie Ihre Kontoeinstellungen, Präferenzen für Benachrichtigungen und persönliche Informationen:
+So verwalten Sie Ihre Kontoeinstellungen, Benachrichtigungspräferenzen und persönlichen Informationen:
 
 1. Wählen Sie Ihr Profilsymbol im globalen Header aus.
 2. Wählen Sie **Konto verwalten**, um auf Ihre Profilseite zuzugreifen.
@@ -186,4 +186,4 @@ Möchten Sie uns Ihre Meinung mitteilen? Sie können Feedback zu Navigation, Bar
 - **Journeys erstellen**: [Einen Canvas erstellen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas)
 - **Zielgruppen definieren**: [Ein Segment erstellen]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)
 - **Performance überprüfen**: [Analytics-Übersicht]({{site.baseurl}}/user_guide/analytics/dashboards/home)
-- **Einstellungen konfigurieren**: [App Settings]({{site.baseurl}}/user_guide/administer/global/workspace_settings)
+- **Einstellungen konfigurieren**: [App-Einstellungen]({{site.baseurl}}/user_guide/administer/global/workspace_settings)

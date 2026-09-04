@@ -10,11 +10,11 @@ channel:
 
 # Protección de la privacidad del correo de Apple {#apples-mail-privacy-protection}
 
-> Este artículo cubre la protección de la privacidad en los correos electrónicos (MPP) de Apple, a quién afecta y cómo prepararse para su impacto en las métricas de capacidad de entrega de correo electrónico.
+> Este artículo cubre la MPP (MPP) de Apple, a quién afecta y cómo prepararse para su impacto en las métricas de capacidad de entrega de correo electrónico.
 
-## ¿Qué es la actualización de la protección de la privacidad en los correos electrónicos de Apple? {#what-is-apples-mail-privacy-protection-update}
+## ¿Qué es la actualización de la MPP de Apple? {#what-is-apples-mail-privacy-protection-update}
 
-La protección de la privacidad en los correos electrónicos (MPP) de Apple es una actualización de privacidad disponible para los usuarios de la aplicación Apple Mail en iOS 15, iPadOS 15, macOS Monterey y watchOS 8, lanzada a mediados de septiembre de 2021. Para los usuarios que opten por la adhesión voluntaria a MPP (lo cual predecimos que la mayoría de los usuarios hará), los correos electrónicos se precargarán utilizando servidores proxy, almacenando imágenes en caché y dificultando la capacidad de aprovechar los píxeles de seguimiento para métricas como el [seguimiento de aperturas]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#changing-location-of-tracking-pixel).
+La MPP (MPP) de Apple es una actualización de privacidad disponible para los usuarios de la aplicación Apple Mail en iOS 15, iPadOS 15, macOS Monterey y watchOS 8, lanzada a mediados de septiembre de 2021. Para los usuarios que opten por la adhesión voluntaria a MPP (lo cual predecimos que la mayoría de los usuarios hará), los correos electrónicos se precargarán utilizando servidores proxy, almacenando imágenes en caché y dificultando la capacidad de aprovechar los píxeles de seguimiento para métricas como el [seguimiento de aperturas]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#update-the-placement).
 
 Las marcas deben esperar que MPP genere problemas en las métricas de capacidad de entrega de correo electrónico y problemas con las Campaigns y los Canvas preexistentes que se desencadenan en función de estas métricas. Para comprender el impacto en la capacidad de entrega de correo electrónico, consulta [Informes de correo electrónico]({{site.baseurl}}/user_guide/channels/email/reporting).
 

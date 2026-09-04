@@ -21,26 +21,26 @@ description: "Este artigo descreve detalhes sobre o endpoint Criar catálogo da 
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `catalogs.create`.
+Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `catalogs.create`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='synchronous catalog' %}
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 |---|---|---|---|
-| `catalogs` | Obrigatória | Array | Um array que contém objetos de catálogo. Somente um objeto de catálogo é permitido para esta solicitação. |
+| `catalogs` | Obrigatório | Array | Um array que contém objetos de catálogo. Somente um objeto de catálogo é permitido para esta solicitação. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ### Parâmetros do objeto de catálogo {#catalog-object-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 |---|---|---|---|
-| `name` | Obrigatória | String | O nome do catálogo que você deseja criar. |
-| `description` | Obrigatória | String | A descrição do catálogo que você deseja criar. |
-| `fields` | Obrigatória | Array | Um array de objetos em que o objeto contém as chaves `name` e `type`. |
+| `name` | Obrigatório | String | O nome do catálogo que você deseja criar. |
+| `description` | Obrigatório | String | A descrição do catálogo que você deseja criar. |
+| `fields` | Obrigatório | Array | Um array de objetos em que o objeto contém as chaves `name` e `type`. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parâmetros do objeto de catálogo" }
 
 ## Exemplo de solicitação {#example-request}

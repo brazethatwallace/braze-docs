@@ -12,7 +12,7 @@ search_rank: 5
 
 # In-app messages
 
-> In-app messages help you get content to your users without interrupting their day with a push notification. Customized and tailored in-app messages enhance the user experience and help your audience get the most value out of your app. With a variety of layouts and customization tools to choose from, in-app messages engage your users more than ever before.
+> In-app messages deliver content inside your app or website without interrupting users with a push notification. Customized in-app messages enhance the user experience and help your audience get more value from your product through layouts, personalization, and targeting tools. This hub covers message types, the drag-and-drop editor, prerequisites, and common use cases such as onboarding and promotions. Integrate the [Braze SDK]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web) before you create your first in-app message, then choose a standard or custom layout for your campaign.
 
 ## Prerequisites
 
@@ -76,7 +76,11 @@ For how templated delivery at display time affects **abort** logging, see [In-Ap
 
 ## Next steps
 
-- [Create an in-app message with the drag-and-drop editor]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)
-- [Create an in-app message with the traditional editor]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional)
+{% article_tiles %}
+- name: Create an in-app message with the drag-and-drop editor
+  link: /docs/user_guide/channels/in_app_messages/drag_and_drop
+- name: Create an in-app message with the traditional editor
+  link: /docs/user_guide/channels/in_app_messages/traditional
+{% endarticle_tiles %}
 
 {% multi_lang_include alerts/important_alerts.md alert='network dependency' %}

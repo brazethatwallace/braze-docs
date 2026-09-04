@@ -88,7 +88,7 @@ El campo `variation` es opcional y puede definir qué diseño dentro de la autom
 
 ### Paso 2: Previsualiza tu solicitud {#step-2-preview-your-request}
 
-A continuación, previsualiza tu solicitud en el panel **Preview** o navega a la pestaña **Test**, donde puedes seleccionar un usuario al azar, un usuario existente o personalizar el tuyo propio para probar tu webhook. Recuerda guardar tu plantilla antes de salir de la página.
+A continuación, previsualiza tu solicitud en el panel **vista previa** o navega a la pestaña **Test**, donde puedes seleccionar un usuario al azar, un usuario existente o personalizar el tuyo propio para probar tu webhook. Recuerda guardar tu plantilla antes de salir de la página.
 
 ![Diferentes campos de prueba disponibles en la pestaña de prueba del constructor de webhooks de Braze.]({% image_buster /assets/img/optilyz/optilyz_testing.png %})
 

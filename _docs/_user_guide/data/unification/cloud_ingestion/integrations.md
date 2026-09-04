@@ -1,11 +1,10 @@
 ---
 nav_title: Data warehouse integrations
-article_title: Data Warehouse Integrations
+article_title: "Data warehouse storage integrations"
 alias: /partners/databricks/
 description: "This page covers how to use Braze Cloud Data Ingestion to sync relevant data with your Snowflake, Redshift, BigQuery, and Databricks integration."
 page_order: 3
 page_type: reference
-
 ---
 
 # Data warehouse storage integrations
@@ -68,7 +67,7 @@ There may be two to five minutes of warm-up time when Braze connects to Classic 
 Before you start, review [Table setup for Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup) to understand source table requirements compared to `PAYLOAD` formatting requirements.
 
 {% alert note %}
-Your source table or view can include columns that aren't listed for your warehouse in the tabs below (for example, auditing or hashing). Braze reads only the columns described in those tabs; other columns are not used during Cloud Data Ingestion syncs.
+Your source table or view can include columns that aren't listed for your warehouse in the tabs in the following section (for example, auditing or hashing). Braze reads only the columns described in those tabs; other columns are not used during Cloud Data Ingestion syncs.
 {% endalert %}
 
 {% tabs %}
@@ -376,16 +375,9 @@ If you have network policies in place, you must give Braze network access to you
 #### Step 1.1: Set up the service principal and grant access
 Braze connects to your Fabric warehouse using a service principal with Entra ID authentication. Create a new service principal for Braze to use, and grant access to Fabric resources as needed. Braze needs the following details to connect:    
 
-* Tenant ID (also called directory) for your Azure account 
-* Principal ID (also called application ID) for the service principal 
-* Client secret for Braze to authenticate
+{% multi_lang_include data_unification/azure_service_principal_credentials.md %}
 
-1. In the Azure portal, navigate to Microsoft Entra admin center, and then App Registrations 
-2. Select **+ New registration** under **Identity** > **Applications** > **App registrations**.
-3. Enter a name, and then select `Accounts in this organizational directory only` as the supported account type. Then, select **Register**. 
-4. Select the application (service principal) you just created, then navigate to **Certificates & secrets** > **+ New client secret**.
-5. Enter a description for the secret, and set an expiry period for the secret. Then, select **Add**. 
-6. Note the client secret created to use in the Braze setup. 
+{% multi_lang_include data_unification/azure_app_registration_steps.md %} 
 
 {% alert note %}
 Azure doesn't allow unlimited expiry on service principal secrets. Remember to refresh the credentials before they expire to maintain the flow of data to Braze.

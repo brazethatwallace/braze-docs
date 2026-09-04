@@ -5,7 +5,6 @@ description: "This reference article outlines the integration between Braze and 
 alias: /partners/facebook_via_zapier/
 page_type: partner
 search_tag: Partner
-
 ---
 
 # Facebook Lead Ads via Zapier integration
@@ -128,7 +127,7 @@ To test this end-to-end, use Facebook’s Leads Ads Testing Tool in your Faceboo
 
 ## User identity management
 
-This integration allows you to attribute your Facebook leads by email through the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#example-request-for-updating-a-user-profile-by-phone-number).
+This integration allows you to attribute your Facebook leads by email through the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track#update-a-user-profile-by-phone-number).
 
 * If the email matches an existing user profile, Braze will update the profile with Facebook leads data.
 * If there are multiple user profiles with the same email, Braze will prioritize the most recently updated profile with an external ID for updates.
@@ -152,7 +151,7 @@ To use this integration, you must have a <a href="https://zapier.com/app/pricing
 {% enddetails %}
 
 {% details Why am I seeing duplicate user profiles with the same email? %}
-There are unique ways of creating and managing user profiles in Braze based on their [user profile lifecycle]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-profile-lifecycle).
+There are unique ways of creating and managing user profiles in Braze based on their [user profile lifecycle]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle).
 
 Depending on your internal processes and when you are triggering customers to be created within Braze, you may encounter duplicate user profiles due to a race condition of the user profile being created by the integration and when the user is created from your system. You can [merge user profiles]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/) in Braze.
 {% enddetails %}
@@ -162,7 +161,7 @@ If you don’t use Zapier and don’t plan on using Zapier, you can build the in
 
 For retrieving leads from Facebook, use <a href="https://developers.facebook.com/docs/marketing-api/guides/lead-ads/retrieving#webhooks" target="_blank">webhooks</a>. Refer to <a href="https://developers.facebook.com/docs/graph-api/webhooks/getting-started" target="_blank">Webhooks documentation</a> to get started with webhooks in Facebook.
 
-After establishing the webhooks URL in Facebook, work with your team to determine the best path to forward the data to the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/). Similar to the Zapier approach, we’d recommend making a [request by email]({{site.baseurl}}/api/endpoints/user_data/post_user_track#example-request-for-updating-a-user-profile-by-phone-number) through the `users/track` endpoint.
+After establishing the webhooks URL in Facebook, work with your team to determine the best path to forward the data to the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/). Similar to the Zapier approach, we’d recommend making a [request by email]({{site.baseurl}}/api/endpoints/user_data/post_user_track#update-a-user-profile-by-phone-number) through the `users/track` endpoint.
 {% enddetails %}
 
 {% alert tip %}

@@ -14,7 +14,7 @@ search_tag: Partner
 
 O webhook de entrada do Front conterá uma carga útil que inclui a mensagem enviada pelo agente ao vivo. A solicitação precisará ser reformatada antes de ser aceita pelos endpoints da Braze. O modelo de Transformação de dados do Front reformatará a carga útil e gravará um evento personalizado no perfil do usuário intitulado **Outbound SMS Sent**, com o corpo da mensagem sendo passado como uma propriedade do evento.
 
-Antes de configurar uma nova transformação na Braze, recomendamos revisar a matriz de suporte para cada nível em nossa documentação de [Transformação de dados]({{site.baseurl}}/user_guide/data/unification/data_transformation/). Nossos níveis Free e Pro oferecem um número diferente de transformações ativas e solicitações de entrada por mês. Confirme se o plano atual em que você está pode suportar seu caso de uso.
+Antes de configurar uma nova transformação na Braze, recomendamos revisar a matriz de suporte para cada nível em nossa documentação de [Transformação de dados]({{site.baseurl}}/user_guide/data/unification/data_transformation). Nossos níveis Free e Pro oferecem um número diferente de transformações ativas e solicitações de entrada por mês. Confirme se o plano atual em que você está pode suportar seu caso de uso.
 
 ## Pré-requisitos {#prerequisites}
 
@@ -23,7 +23,7 @@ Antes de começar, você precisará do seguinte:
 | Pré-requisito | Descrição |
 |---------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | Uma conta Front | É necessário ter uma conta Front para aproveitar essa parceria. |
-| URL do webhook de Transformação de dados da Braze | A [Transformação de dados da Braze]({{site.baseurl}}/user_guide/data/unification/data_transformation/) será usada para reformatar o webhook de entrada do Front para que ele possa ser aceito pelo endpoint /users/track da Braze. |
+| URL do webhook de Transformação de dados da Braze | A [Transformação de dados da Braze]({{site.baseurl}}/user_guide/data/unification/data_transformation) será usada para reformatar o webhook de entrada do Front para que ele possa ser aceito pelo endpoint /users/track da Braze. |
 | Uma chave da API REST do Front | Uma chave da API REST do Front será usada para fazer uma solicitação de webhook de saída da Braze para o Front. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
@@ -36,7 +36,7 @@ Antes de começar, você precisará do seguinte:
 
 ### Etapa 1: Criar uma transformação de dados {#step-1-create-a-data-transformation}
 
-Primeiro, você criará uma nova transformação de dados na Braze. As etapas a seguir são simplificadas; para um passo a passo completo, consulte [Criando uma transformação]({{site.baseurl}}/user_guide/data/unification/data_transformation/creating_a_transformation/).
+Primeiro, você criará uma nova transformação de dados na Braze. As etapas a seguir são simplificadas; para um passo a passo completo, consulte [Criando uma transformação]({{site.baseurl}}/user_guide/data/unification/data_transformation/creating_a_transformation).
 
 1. Na Braze, acesse **Configurações de dados** > **Transformações de dados** e selecione **Criar transformação**.
 2. Em **Editing Experience**, selecione **Start from scratch**.
@@ -73,10 +73,10 @@ Primeiro, você criará uma nova transformação de dados na Braze. As etapas a 
     ```
     {% endraw %}
 
-    Sua transformação deve espelhar o exemplo JavaScript acima, ajustando nomes de propriedades e caminhos para corresponder à carga útil do webhook do Front.
+    Sua transformação deve espelhar o exemplo JavaScript nesta seção, ajustando nomes de propriedades e caminhos para corresponder à carga útil do webhook do Front.
 
 {% alert tip %}
-Você pode modificar esse modelo para atender às suas necessidades específicas. Por exemplo, você pode personalizar o nome do evento personalizado predefinido. Para saber mais, consulte [Visão geral da Transformação de dados]({{site.baseurl}}/user_guide/data/unification/data_transformation/).
+Você pode modificar esse modelo para atender às suas necessidades específicas. Por exemplo, você pode personalizar o nome do evento personalizado predefinido. Para saber mais, consulte [Visão geral da Transformação de dados]({{site.baseurl}}/user_guide/data/unification/data_transformation).
 {% endalert %}
 
 ### Etapa 2: Criar uma campanha de SMS de saída {#step-2-create-an-outbound-sms-campaign}
@@ -191,7 +191,7 @@ Em **Controles de entrega**, ative a reelegibilidade.
 
 #### Etapa 5.4: Crie sua segunda campanha de webhook {#step-54-create-your-second-webhook-campaign}
 
-Como sua segunda campanha de webhook é igual à primeira, você pode [duplicar a primeira e renomeá-la]({{site.baseurl}}/user_guide/engagement_tools/campaigns/managing_campaigns/duplicating_segments_and_campaigns/#duplicating-segments-or-campaigns).
+Como sua segunda campanha de webhook é igual à primeira, você pode [duplicar a primeira e renomeá-la]({{site.baseurl}}/user_guide/engagement_tools/campaigns/managing_campaigns/duplicating_segments_and_campaigns#duplicating-segments-or-campaigns).
 
 #### Etapa 5.5: Agendar a segunda entrega {#step-55-schedule-the-second-delivery}
 
@@ -217,7 +217,7 @@ Em seguida, configure seu filtro:
 
 ### Segmentos faturáveis {#billable-segments}
 
-- As mensagens SMS na Braze são cobradas por segmento de mensagem. Entender o que define um segmento e como essas mensagens serão divididas é fundamental para entender como você será cobrado pelas mensagens. Para saber mais, consulte nossa [documentação]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/).
+- As mensagens SMS na Braze são cobradas por Segment de mensagem. Entender o que define um Segment e como essas mensagens serão divididas é fundamental para entender como você será cobrado pelas mensagens. Para saber mais, consulte nossa [documentação]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator).
 - Respostas longas dos agentes consumirão mais segmentos faturáveis.
 
 ### Registro de pontos de dados {#logging-data-points}

@@ -5,6 +5,8 @@ page_order: 4.2
 page_type: reference
 description: "This reference article describes the differences between context and event properties, and when to use each property."
 tool: Canvas
+local_redirect:
+  timestamps-for-triggers: '/docs/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties#timestamps'
 ---
 
 # Context and event properties
@@ -54,11 +56,9 @@ Audience eligibility is evaluated once at Canvas entry. If a user is merged duri
 
 {% multi_lang_include alerts/tip_alerts.md alert='Reference properties from triggering event' %}
 
-### Timestamps for triggers
+### Timestamps
 
-If you're using timestamps with a [datetime type]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties) from events that trigger action-based Canvases, which are referenced using [context]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties), timestamps are normalized to UTC.
-
-Given this behavior, Braze strongly recommends you use a Liquid timezone filter like the following example to guarantee that your messages are sent with your [preferred timezone]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#time-zone-filter).
+All timestamps in Canvas are normalized to UTC. Given this behavior, Braze strongly recommends that you use a Liquid timezone filter, like the following example, so your messages are sent in your [preferred timezone]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters).
 
 {% raw %}
 ```liquid

@@ -18,18 +18,18 @@ _Diese Integration wird von B.Layer gepflegt._
 
 Die Integration von Braze und B.Layer erlaubt es Ihnen, den B.Layer In-App-Nachrichten-Builder zu verwenden, um markengerechte In-App-Nachrichten zu erstellen, die als ZIP-Datei oder Inline-HTML nach Braze exportiert werden können. Diese Integration erfordert keine zusätzlichen Entwickler:innen-Ressourcen, wodurch Sie Zeit und Budget sparen.
 
-![]({% image_buster /assets/img/blayer/blayer2.png %})
+![B.Layer-Builder-Oberfläche mit Vorschau einer markengerechten In-App-Nachricht.]({% image_buster /assets/img/blayer/blayer2.png %})
 
 ## Voraussetzungen {#prerequisites}
 
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
 | B.Layer-Konto | Ein [B.Layer](https://blayer.phiture.com)-Konto ist erforderlich, um die Vorteile dieser Partnerschaft zu nutzen. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Anwendungsfälle {#use-cases}
 
-Mit B.Layer gibt es unendlich viele Möglichkeiten zum Erstellen und Experimentieren, darunter Schieberegler für Produktempfehlungen, mehrstufiges Onboarding oder Umfragen, NPS, E-Mail-Erfassung, Sonderangebote und vieles mehr.
+Mit B.Layer gibt es unendlich viele Möglichkeiten zum Erstellen und Experimentieren, darunter Schieberegler für Produktempfehlungen, mehrstufiges Onboarding oder Umfragen, Net Promoter Score, E-Mail-Erfassung, Sonderangebote und vieles mehr.
 
 Sie arbeiten mit Marken wie Lifesum, Blinkist, OnX Hunt und vielen anderen zusammen, um deren Nutzererlebnis ohne zusätzliche Ressourcen zu verbessern. Wir gehören außerdem zu den Finalisten der APS Awards 2022 in der Kategorie App-Innovation.
 
@@ -42,13 +42,13 @@ Sie arbeiten mit Marken wie Lifesum, Blinkist, OnX Hunt und vielen anderen zusam
 Klicken Sie in B.Layer im Hamburger-Menü oben auf der Seite auf **Brand assets > add your brand assets**. Hier können Sie Ihre Markenfarben und Schriftarten zuweisen.
 Damit sind Sie startklar. Jetzt können Sie mit der Gestaltung Ihrer In-App-Nachricht beginnen.
 
-![]({% image_buster /assets/img/blayer/blayer4.png %})
+![B.Layer-Bildschirm für Marken-Assets zur Konfiguration von Farben und Schriftarten.]({% image_buster /assets/img/blayer/blayer4.png %})
 
 #### Gestalten Sie Ihre In-App-Nachricht {#design-your-in-app-message}
 
 Um Ihre In-App-Nachricht zu gestalten, wählen Sie eine einzelne In-App-Nachricht aus. Anschließend gestalten Sie Ihre Nachricht und fügen die benötigten Komponenten hinzu. Jede Komponente kann angepasst werden.
 
-![]({% image_buster /assets/img/blayer/blayer5.png %})
+![B.Layer-Nachrichten-Editor mit Komponenten und Stil-Steuerungen.]({% image_buster /assets/img/blayer/blayer5.png %})
 
 ### In-App-Nachricht herunterladen {#download-your-in-app-message}
 
@@ -56,12 +56,12 @@ Sobald Sie fertig sind, laden Sie Ihre Nachricht herunter. Ihre Nachricht kann a
 
 ### 2. Schritt: Angepassten B.Layer-Code hinzufügen {#step-2-add-blayer-custom-code}
 
-Erstellen Sie in Braze eine In-App-Nachricht mit angepasstem Code. Wenn Sie eine ZIP-Datei haben, ziehen Sie sie per Drag-and-Drop in das Feld über dem Code-Bereich. Wenn Sie eine Inline-HTML-Datei haben, fügen Sie das Inline-HTML in den HTML-Bereich ein.
+Erstellen Sie in Braze eine In-App-Nachricht mit angepasstem Code. Wenn Sie eine ZIP-Datei haben, ziehen Sie sie per Drag-and-Drop in das Upload-Feld in diesem Bereich. Wenn Sie eine Inline-HTML-Datei haben, fügen Sie das Inline-HTML in den HTML-Bereich ein.
 
-![]({% image_buster /assets/img/blayer/blayer6.png %})
+![Braze-Editor für In-App-Nachrichten mit angepasstem Code und B.Layer-Exportinhalt.]({% image_buster /assets/img/blayer/blayer6.png %})
 
 ## Button-Tracking
 
-Mit B.Layer können Sie Button-Interaktionen oder Texteingaben als Braze-Attribut protokollieren. Das können Sie direkt im Editor erledigen. Ein beliebtes Beispiel ist eine NPS-Umfrage.
+Mit B.Layer können Sie Button-Interaktionen oder Texteingaben als Braze-Attribut protokollieren. Das können Sie direkt im Editor erledigen. Ein beliebtes Beispiel ist eine Net Promoter Score-Umfrage.
 
 B.Layer verwendet das Braze-Button-Tracking, das zu den von Ihnen eingegebenen Links hinzugefügt wird (z. B. `?button=0`). Auf diese Weise können Sie die Button-Klicks im Analytics-Bereich Ihrer Campaign sehen.

@@ -37,7 +37,7 @@ After a Report Builder report is added to a Dashboard Builder tile, the tile is 
 
 {: start="5"}
 5. Select the pencil icon to change how the title and chart type display in the tile.
-    - You can toggle between different chart types below the default visualization. The current options include bar charts (horizontal or vertical), and line charts (only available if you selected **Date** as a drilldown option in the Report Builder setup).<br><br>![Toggles for different chart types.]({% image_buster /assets/img/report_builder_types.png %})<br><br>
+    - You can toggle between different chart types in the chart type controls. The current options include bar charts (horizontal or vertical), and line charts (only available if you selected **Date** as a drilldown option in the Report Builder setup).<br><br>![Toggles for different chart types.]({% image_buster /assets/img/report_builder_types.png %})<br><br>
     - Use the metrics dropdown to select which metrics to include in your visualization. By default, the first column in the report will be the default displayed metric.
 6. Select **Save** after you've changed the visualization to your liking.
 7. Add a name, description, and tag to make your dashboard easier to find later.
@@ -46,7 +46,7 @@ After a Report Builder report is added to a Dashboard Builder tile, the tile is 
 {: start="4"}
 4. Select **+ Add Tile** and then choose a query you’ve run in Query Builder.
 5. To edit how the query results display in the tile, select the pencil icon to change the title and chart type.
-    - You can toggle between different chart types below the default visualization. Current options include tables, bar charts (horizontal or vertical), and line charts.<br><br>![Toggles for different chart types.]({% image_buster /assets/img/query_builder_types.png %})<br><br>
+    - You can toggle between different chart types in the chart type controls. Current options include tables, bar charts (horizontal or vertical), and line charts.<br><br>![Toggles for different chart types.]({% image_buster /assets/img/query_builder_types.png %})<br><br>
         - If you choose one of the chart options, use the **X-axis** dropdown to select a single column from your query results to use as your x-axis.
         - Use the **Y-axis** dropdown to select which metrics to include in your visualization. By default, all columns from your query results will display, so de-select the columns you’re not interested in viewing.<br><br>![Toggles for different chart types.]({% image_buster /assets/img/query_builder_axis.png %})<br><br>
         - (Optional) You can use the **Grouping** dropdown to group together your query results. For example, if you have campaign ID as a column result and you want to add together all the rows with that value, use the **Grouping** dropdown.  
@@ -78,7 +78,7 @@ Make a copy of your tile by selecting **Duplicate Tile** at the bottom of the ti
 
 ### Adjust tile size and position
 
-Adjust the tile size by dragging the bottom-right corner of the tile, and adjust the tile position on the dashboard by dragging the handle at the top right corner of the tile.
+Adjust the tile size by dragging the resize handle, and adjust the tile position on the dashboard by dragging the tile handle.
 
 ## Running a dashboard
 
@@ -88,7 +88,25 @@ Adjust the tile size by dragging the bottom-right corner of the tile, and adjust
 
 ### Available dashboards
 
-Braze provides pre-built dashboards for frequent use cases such as analysis of revenue using last-touch attribution. Note that the ability to edit a dashboard is not yet available. Contact your customer success manager if you'd like to see certain dashboard in the future.
+Braze provides pre-built dashboards for frequent use cases. Use the following table as the single reference for currently documented dashboards and where to access each one.
+
+| dashboard | Access path | Documentation |
+| --- | --- | --- |
+| Revenue - Last Touch Attribution | **Analytics** > **Dashboard Builder** | [Revenue - Last Touch Attribution](#revenue---last-touch-attribution) |
+| Devices and carriers | **Analytics** > **Dashboard Builder** | [Devices and carriers](#devices-and-carriers) |
+| Segment Insights - Email | **Analytics** > **Dashboard Builder** | [Segment Insights - Email](#segment-insights---email) |
+| Session Analytics | **Analytics** > **Dashboard Builder** | [Session Analytics](#session-analytics) |
+| eCommerce Revenue - Last Touch Attribution | **Analytics** > **Dashboard Builder** | [eCommerce revenue dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/ecommerce_revenue_dashboard) |
+| Messaging Diagnostics | **Analytics** > **Dashboard Builder** | [Messaging diagnostics dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard) |
+| Industry Benchmarks | **Analytics** > **Dashboard Builder** | [Industry Benchmarks dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/industry_benchmarks_dashboard) |
+| Email performance | **Analytics** > **Email Performance** | [Channel performance dashboards]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#email-performance-dashboard) |
+| SMS performance | **Analytics** > **SMS Performance** | [Channel performance dashboards]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#sms-performance-dashboard) |
+| Push performance | **Analytics** > **Dashboard Builder** > **Push Channel Dashboard** | [Channel performance dashboards]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#push-performance-dashboard) |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Available dashboards" }
+
+{% alert note %}
+The ability to edit Braze-created dashboards isn't yet available. Contact your customer success manager if you'd like to request additional dashboards.
+{% endalert %}
 
 #### Revenue - Last Touch Attribution
 
@@ -156,5 +174,5 @@ Touches include _Email Click_ (link click), _Content Card Click_, _In-App Messag
 
 ## Share your feedback with us
 
-Select the **Send feedback** button or contact your customer success manager to share your feedback with us.
+{% multi_lang_include product_feedback_cta.md context="pain_point" channel="ux" feature="Dashboard Builder" %}
 

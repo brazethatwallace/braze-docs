@@ -1,33 +1,34 @@
 ---
 nav_title: Android용 라이브 업데이트
 article_title: Android Braze SDK용 라이브 업데이트
-layout: redirect
-redirect_to: /docs/developer_guide/live_notifications/
-noindex: true
+page_order: 0.3
+description: "Braze SDK에서 Android 라이브 업데이트를 사용하는 방법을 알아보세요."
+platform:
+  - Android
+hidden: true
 ---
 
-<!--
 # Android용 라이브 업데이트 {#live-updates-for-android}
 
 > Braze SDK에서 Android 라이브 업데이트를 사용하는 방법을 알아보세요. [진행률 중심 알림](https://developer.android.com/about/versions/16/features/progress-centric-notifications)이라고도 합니다. 이러한 알림은 인터랙티브 잠금 화면 알림을 표시할 수 있는 [Swift Braze SDK의 라이브 활동]({{site.baseurl}}/developer_guide/live_notifications/live_activities)과 유사합니다. Android 16은 사용자가 시작한 처음부터 끝까지의 여정을 원활하게 추적할 수 있도록 진행률 중심 알림을 도입했습니다.
 
 ## 작동 방식 {#how-it-works}
 
-[`IBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html) 인터페이스를 사용하여 Braze 푸시 알림이 표시되는 방식을 커스텀할 수 있습니다. `BrazeNotificationFactory`를 확장하면 사용자에게 알림이 표시되기 전에 Braze가 팩토리의 `createNotification()` 메서드를 호출합니다. 그런 다음 Braze 대시보드 또는 REST API를 통해 전송된 커스텀 키-값 페어가 포함된 페이로드를 전달합니다.
+[`IBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html) 인터페이스를 사용하여 Braze 푸시 알림이 표시되는 방식을 커스텀할 수 있습니다. `BrazeNotificationFactory`를 확장하면 Braze가 사용자에게 알림을 표시하기 전에 팩토리의 `createNotification()` 메서드를 호출합니다. 그런 다음 Braze 대시보드 또는 REST API를 통해 전송된 커스텀 키-값 페어가 포함된 페이로드를 전달합니다.
 
-## 라이브 업데이트 표시 {#displaying-a-live-update}
+## Live Update 표시하기 {#displaying-a-live-update}
 
-이 섹션에서는 야생동물 구조팀이 누가 가장 많은 올빼미를 구할 수 있는지 경쟁하는 새로운 게임 쇼의 호스트인 Superb Owl과 파트너가 됩니다. Android 앱에서 라이브 업데이트를 활용하여 진행 중인 경기의 상태를 표시하고 실시간으로 알림을 동적으로 업데이트하려고 합니다.
+이 섹션에서는 야생동물 구조 팀들이 누가 가장 많은 올빼미를 구할 수 있는지 경쟁하는 새로운 게임 쇼의 진행자인 Superb Owl과 함께 작업합니다. Superb Owl은 Android 앱에서 Live Updates를 활용하여 진행 중인 경기 상태를 표시하고, 알림을 실시간으로 동적 업데이트하고자 합니다.
 
-![Android의 라이브 업데이트 예시]({% image_buster /assets/img/android/android-live-update.png %}){: style="max-width:40%;"}
+![Android의 Live Update 예시]({% image_buster /assets/img/android/android-live-update.png %}){: style="max-width:40%;"}
 
-#{% multi_lang_include developer_guide/prerequisites/android.md %}
+{% multi_lang_include developer_guide/prerequisites/android.md %}
 
-### 1단계: 커스텀 알림 팩토리 만들기 {#step-1-create-a-custom-notification-factory}
+### 1단계: 커스텀 알림 팩토리 생성 {#step-1-create-a-custom-notification-factory}
 
-애플리케이션에서 [`BrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html)를 확장하는 `MyCustomNotificationFactory.kt`라는 새 파일을 생성하여 Braze 라이브 업데이트가 표시되는 방식을 처리합니다.
+애플리케이션에서 [`BrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html)를 확장하는 `MyCustomNotificationFactory.kt`라는 새 파일을 생성하여 Braze Live Updates가 표시되는 방식을 처리합니다.
 
-다음 예시에서 Superb Owl은 진행 중인 경기에 대한 라이브 업데이트를 표시하는 커스텀 알림 팩토리를 만들었습니다. 다음 단계에서는 `getTeamInfo`라는 새 메서드를 만들어 팀의 데이터를 활동에 매핑합니다.
+다음 예시에서 Superb Owl은 진행 중인 경기에 대한 Live Update를 표시하기 위해 커스텀 알림 팩토리를 생성했습니다. 다음 단계에서는 팀 데이터를 액티비티에 매핑하기 위해 `getTeamInfo`라는 새 메서드를 생성합니다.
 
 ```kotlin
 class MyCustomNotificationFactory : IBrazeNotificationFactory {
@@ -69,9 +70,9 @@ class MyCustomNotificationFactory : IBrazeNotificationFactory {
 
 ### 2단계: 커스텀 데이터 매핑 {#step-2-map-custom-data}
 
-`MyCustomNotificationFactory.kt`에서 라이브 업데이트가 표시될 때 데이터를 처리하는 새로운 메서드를 만듭니다.
+`MyCustomNotificationFactory.kt`에서 Live Updates가 표시될 때 데이터를 처리할 새 메서드를 생성합니다.
 
-Superb Owl은 각 팀의 이름과 로고를 확장된 라이브 업데이트에 매핑하기 위해 다음과 같은 메서드를 만들었습니다.
+Superb Owl은 각 팀의 이름과 로고를 확장된 Live Updates에 매핑하기 위해 다음 메서드를 생성했습니다:
 
 ```kotlin
 class CustomNotificationFactory : BrazeNotificationFactory() {
@@ -106,13 +107,13 @@ class MyApplication : Application() {
 }
 ```
 
-### 4단계: 활동 보내기 {#step-4-send-the-activity}
+### 4단계: 액티비티 전송 {#step-4-send-the-activity}
 
-[`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) REST API 엔드포인트를 사용하여 사용자의 Android 기기로 푸시 알림을 보낼 수 있습니다.
+[`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) REST API 엔드포인트를 사용하여 사용자의 Android 기기에 푸시 알림을 전송할 수 있습니다.
 
 #### curl 명령 예시 {#example-curl-command}
 
-Superb Owl은 다음 curl 명령을 사용하여 요청을 보냈습니다.
+Superb Owl은 다음 curl 명령을 사용하여 요청을 전송했습니다:
 
 ```
 curl -X POST "https://BRAZE_REST_ENDPOINT/messages/send" \
@@ -140,23 +141,22 @@ curl -X POST "https://BRAZE_REST_ENDPOINT/messages/send" \
 ```
 
 {% alert tip %}
-curl 명령은 테스트에 유용하지만, 이미 [iOS 라이브 활동]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?sdktab=swift)을 처리하고 있는 백엔드에서 이 호출을 처리하는 것이 좋습니다.
+curl 명령은 테스트에 유용하지만, [iOS Live Activities]({{site.baseurl}}/developer_guide/live_notifications?sdktab=swift)를 이미 처리하고 있는 백엔드에서 이 호출을 처리하는 것을 권장합니다.
 {% endalert %}
 
-#### 요청 매개변수 {#request-parameters}
+#### 요청 파라미터 {#request-parameters}
 
-| 키                          | 설명 |
+| 키 | 설명 |
 |------------------------------|------------|
-| `REST_API_KEY`               | `messages.send` 권한이 있는 Braze REST API 키입니다. <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
-| `BRAZE_REST_ENDPOINT`         | REST 엔드포인트 URL입니다. 엔드포인트는 [인스턴스의 Braze URL]({{site.baseurl}}/api/basics#endpoints)에 따라 달라집니다. |
-| `USER_ID`                    | 알림을 보낼 사용자의 ID입니다. |
-| `messages.android_push.title` | 메시지 제목입니다. 기본적으로 커스텀 알림 팩토리의 라이브 알림에는 사용되지 않지만, 대체 용도로 사용할 수 있습니다. |
-| `messages.android_push.alert` | 메시지 본문입니다. 기본적으로 커스텀 알림 팩토리의 라이브 알림에는 사용되지 않지만, 대체 용도로 사용할 수 있습니다. |
-| `messages.extra`             | 커스텀 알림 팩토리에서 라이브 알림에 사용하는 키-값 페어입니다. 이 값에는 어떤 문자열이든 할당할 수 있지만, [curl 명령 예시](#example-curl-command)에서는 `live_updates`를 사용하여 기본 푸시 알림인지 라이브 푸시 알림인지를 결정합니다. |
-| `ASSIGNED_NOTIFICATION_ID`   | 선택한 사용자의 라이브 알림에 할당할 알림 ID입니다. 이 ID는 해당 게임에 고유해야 하며, 나중에 [기존 알림을 업데이트](#android_step-4-update-data-with-the-braze-rest-api)할 때 사용해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="요청 매개변수" }
+| `REST_API_KEY` | `messages.send` 권한이 있는 Braze REST API 키입니다. <br><br> Braze 대시보드에서 **설정** > **API 키**로 이동하여 생성할 수 있습니다. |
+| `BRAZE_REST_ENDPOINT` | REST 엔드포인트 URL입니다. 엔드포인트는 [인스턴스에 대한 Braze URL]({{site.baseurl}}/api/basics#endpoints)에 따라 달라집니다. |
+| `USER_ID` | 알림을 보낼 사용자의 ID입니다. |
+| `messages.android_push.title` | 메시지 제목입니다. 기본적으로 커스텀 알림 팩토리의 라이브 알림에는 사용되지 않지만, 대체 값으로 사용될 수 있습니다. |
+| `messages.android_push.alert` | 메시지 본문입니다. 기본적으로 커스텀 알림 팩토리의 라이브 알림에는 사용되지 않지만, 대체 값으로 사용될 수 있습니다. |
+| `messages.extra` | 커스텀 알림 팩토리가 라이브 알림에 사용하는 키-값 페어입니다. 이 값에 임의의 문자열을 할당할 수 있지만, [curl 명령 예시](#example-curl-command)에서는 `live_updates`를 사용하여 기본 푸시 알림인지 라이브 푸시 알림인지 판별합니다. |
+| `ASSIGNED_NOTIFICATION_ID` | 선택한 사용자의 라이브 알림에 할당할 알림 ID입니다. 이 ID는 해당 게임에 고유해야 하며, 나중에 [기존 알림을 업데이트](#android_step-4-update-data-with-the-braze-rest-api)하기 위해 사용해야 합니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="요청 파라미터" }
 
-### 5단계: 활동 업데이트 {#step-5-update-the-activity}
+### 5단계: 액티비티 업데이트 {#step-5-update-the-activity}
 
-기존 라이브 업데이트를 새 데이터로 업데이트하려면 `messages.extra`에 할당된 관련 키-값 페어를 수정한 다음 동일한 `notification_id`를 사용하여 `/messages/send` 엔드포인트를 다시 호출합니다.
--->
+기존 Live Update를 새 데이터로 업데이트하려면 `messages.extra`에 할당된 관련 키-값 페어를 수정한 다음, 동일한 `notification_id`를 사용하여 `/messages/send` 엔드포인트를 다시 호출합니다.

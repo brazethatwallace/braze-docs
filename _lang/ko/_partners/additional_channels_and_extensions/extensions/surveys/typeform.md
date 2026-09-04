@@ -13,58 +13,52 @@ search_tag: Partner
 
 Braze와 Typeform을 통합하면 다음을 수행할 수 있습니다.
 
-- Typeform 응답에서 수집한 데이터로 Braze의 고객 프로필을 업데이트합니다
+- Typeform 응답에서 수집한 데이터로 Braze의 사용자 프로필을 업데이트합니다
 - 사용자의 Typeform 참여를 기반으로 Braze에서 메시징을 트리거합니다
 - 사용자의 Typeform 응답을 기반으로 Braze 메시징을 개인화합니다
 
-## 필수 조건 {#prerequisites}
+## 사전 요구 사항 {#prerequisites}
 
 | 요구 사항 | 설명 |
 | ----------- | ----------- |
-| Typeform 계정 | 이 파트너십을 이용하려면 웹훅에 액세스할 수 있는 Typeform 계정이 필요합니다. |
-| Braze 데이터 변환 | Typeform에서 데이터를 수신하려면 [데이터 변환 URL]({{site.baseurl}}/data_transformation)이 필요합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
+| Typeform 계정 | 이 파트너십을 활용하려면 웹훅에 액세스할 수 있는 Typeform 계정이 필요합니다. |
+| Braze 데이터 변환 | Typeform에서 데이터를 수신하려면 [데이터 변환 URL]({{site.baseurl}}/user_guide/data/unification/data_transformation)이 필요합니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="사전 요구 사항" }
 
 ## 통합 {#integration}
 
-### 1단계: Typeform 웹훅을 수신하도록 Braze 데이터 변환 설정하기 {#step-1}
+### 1단계: Typeform 웹훅을 수신할 Braze 데이터 변환 설정 {#step-1}
 
 {% multi_lang_include data_activation/create_transformation.md location="typeform" %}
 
-### 2단계: Typeform 웹훅 설정하기 {#step-2-set-up-typeform-webhooks}
+### 2단계: Typeform 웹훅 설정 {#step-2-set-up-typeform-webhooks}
 
 [Typeform 웹훅 설명서](https://www.typeform.com/help/a/webhooks-360029573471/)의 단계를 따라 웹훅을 설정합니다.
 
-4단계에서 데이터 변환 웹훅 URL을 **Destination URL**로 추가합니다.
+4단계에서는 데이터 변환 웹훅 URL을 **Destination URL**로 추가합니다.
 
-![Destination URL 필드가 표시된 Typeform 웹훅 설정 화면.]({% image_buster /assets/img/typeform/typeform_add_webhook.png %}){: style="max-width:50%" }
+![Destination URL 필드가 있는 Typeform 웹훅 설정 화면.]({% image_buster /assets/img/typeform/typeform_add_webhook.png %}){: style="max-width:50%" }
 
-**View deliveries**를 클릭한 다음 **Send test request**를 클릭하여 데이터 변환에 테스트 이벤트를 전송합니다.
+**View deliveries**를 클릭한 후 **Send test request**를 선택하여 데이터 변환으로 테스트 이벤트를 전송합니다.
 
 ![Send test request가 선택된 Typeform View deliveries 페이지.]({% image_buster /assets/img/typeform/typeform_test_request.png %})
 
-### 3단계: 선택한 Typeform 이벤트를 수신하는 변환 코드 작성하기 {#step-3-write-transformation-code-to-accept-your-chosen-typeform-events}
+### 3단계: 선택한 Typeform 이벤트를 수신하기 위한 변환 코드 작성 {#step-3-write-transformation-code-to-accept-your-chosen-typeform-events}
 
-이 단계에서는 Typeform에서 전송된 웹훅 페이로드를 JavaScript 오브젝트 반환 값으로 변환합니다.
+이 단계에서는 Typeform에서 전송된 웹훅 페이로드를 JavaScript 객체 반환값으로 변환합니다.
 
-1. 데이터 변환을 새로고침하고 **Webhook Details**에서 Typeform 테스트 페이로드를 확인할 수 있는지 확인합니다.
+1. 데이터 변환을 새로고침하고 **Webhook Details**에서 Typeform 테스트 페이로드가 표시되는지 확인합니다.
 2. 선택한 Typeform 이벤트를 지원하도록 데이터 변환 코드를 업데이트합니다.
-3. **Validate**를 클릭하여 코드 출력의 미리보기를 반환하고 유효한 `/users/track` 요청인지 확인합니다.
+3. **Validate**를 클릭하여 코드 출력의 미리 보기를 확인하고, 해당 출력이 유효한 `/users/track` 요청인지 검사합니다.
 4. 데이터 변환을 저장하고 활성화합니다.
 
-![Typeform 테스트 페이로드 유효성 검사가 성공한 데이터 변환 미리보기.]({% image_buster /assets/img/typeform/typeform_test_result.png %})
+![성공적인 Typeform 테스트 페이로드 유효성 검사를 보여주는 데이터 변환 미리 보기.]({% image_buster /assets/img/typeform/typeform_test_result.png %})
 
 #### 요청 본문 형식 {#request-body-format}
 
-이 반환 값은 Braze의 `/users/track` 요청 본문 형식을 준수해야 합니다.
+이 반환값은 Braze의 `/users/track` 요청 본문 형식을 준수해야 합니다.
 
-- 변환 코드는 JavaScript 프로그래밍 언어로 작성됩니다. if/else 로직과 같은 모든 표준 JavaScript 제어 흐름이 지원됩니다.
-- 변환 코드는 payload 변수를 통해 웹훅 요청 본문에 액세스합니다. 이 변수는 요청 본문 JSON을 파싱하여 채워진 오브젝트입니다.
-- `/users/track` 엔드포인트에서 지원하는 모든 기능이 지원되며, 여기에는 다음이 포함됩니다.
-    - 사용자 속성 오브젝트, 이벤트 오브젝트 및 구매 오브젝트
-    - 중첩 속성 및 중첩 커스텀 이벤트 등록정보
-    - 구독 그룹 업데이트
-    - 식별자로서의 이메일 주소
+{% multi_lang_include data_transformation/transformation_code_requirements.md %}
 
 ## Typeform 웹훅 페이로드 예시 {#example-typeform-webhook-payload}
 
@@ -322,18 +316,18 @@ Content-Type: application/json
 }
 ```
 
-## 데이터 변환 활용 사례 {#data-transformation-use-cases}
+## 데이터 변환 사용 사례 {#data-transformation-use-cases}
 
-다음은 [Typeform 웹훅 페이로드 예시](#example-typeform-webhook-payload)를 사용하여 구축한 예시 템플릿입니다. 이 템플릿은 시작점으로 사용할 수 있습니다. 처음부터 시작하거나 필요에 따라 특정 구성요소를 삭제할 수 있습니다.
+다음은 [예제 Typeform 웹훅 페이로드](#example-typeform-webhook-payload)를 사용하여 구축된 예제 템플릿입니다. 이 템플릿은 시작점으로 사용할 수 있습니다. 처음부터 시작하거나 필요에 따라 특정 구성 요소를 삭제할 수 있습니다.
 
-이 예시 템플릿에서는 Braze 프로필에 커스텀 이벤트를 기록합니다. Typeform의 제목이 커스텀 이벤트 이름으로 전달되고, Typeform 결과가 이벤트 등록정보로 전달됩니다. 이 예시 템플릿은 Typeform의 Calendly, 파일 업로드 또는 결제 질문 유형을 지원하지 않습니다.
+이 예제 템플릿에서는 Braze 프로필에 커스텀 이벤트를 기록합니다. Typeform의 제목이 커스텀 이벤트 이름으로 전달되고, Typeform 결과가 이벤트 속성정보로 전달됩니다. 이 예제 템플릿은 Typeform의 Calendly, 파일 업로드 또는 결제 질문 유형을 고려하지 않습니다.
 
-### 활용 사례: 이메일을 식별자로 사용 {#use-case-email-as-identifier}
+### 사용 사례: 이메일을 식별자로 사용 {#use-case-email-as-identifier}
 
-이 예시 템플릿에서는 Typeform 내 이메일 주소 질문에서 캡처한 이메일 주소를 식별자로 사용합니다.
+이 예제 템플릿에서는 Typeform 내 이메일 주소 질문에서 캡처된 이메일 주소를 식별자로 사용합니다.
 
 {% alert note %}
-이메일 주소를 식별자로 사용하려는 경우, 예상 동작에 대한 자세한 내용은 `/users/track` 엔드포인트의 [자주 묻는 질문]({{site.baseurl}}/api/endpoints/user_data/post_user_track#frequently-asked-questions)을 참조하세요.
+이메일 주소를 식별자로 사용하려는 경우, 예상되는 동작에 대한 자세한 내용은 `/users/track` 엔드포인트의 [자주 묻는 질문]({{site.baseurl}}/api/endpoints/user_data/post_user_track#frequently-asked-questions)을 참조하세요.
 {% endalert %}
 
 {% tabs local %}
@@ -470,11 +464,11 @@ return brazecall;
 {% endtab %}
 {% endtabs %}
 
-### 활용 사례: 숨겨진 필드에 전달된 식별자 사용 {#use-case-using-identifier-passed-in-hidden-fields}
+### 사용 사례: Hidden Fields에 전달된 식별자 사용 {#use-case-using-identifier-passed-in-hidden-fields}
 
-Typeform 숨겨진 필드를 사용하면 사용자의 ID와 같은 데이터를 Typeform 응답에 포함하지 않고도 Typeform 웹훅 페이로드에 전달할 수 있습니다.
+Typeform Hidden Fields를 사용하여 사용자의 ID와 같은 데이터를 Typeform 응답에 포함하지 않고도 Typeform 웹훅 페이로드에 전달할 수 있습니다.
 
-이 예시 템플릿에서는 "user_id" 숨겨진 필드를 사용하고 이를 `/users/track` 요청 페이로드에 `external_id`로 전달합니다. "user_id"를 사용하고 있지만 필요에 따라 필드를 수정할 수 있습니다.
+이 예제 템플릿에서는 "user_id" Hidden Field를 사용하고 이를 `/users/track` 요청 페이로드에 `external_id`로 전달합니다. 여기서는 "user_id"를 사용하고 있지만, 필요에 맞게 필드를 수정할 수 있습니다.
 
 {% tabs local %}
 {% tab 입력 %}
@@ -610,13 +604,13 @@ return brazecall;
 {% endtab %}
 {% endtabs %}
 
-### 4단계: Typeform 웹훅 게시하기 {#step-4-publish-your-typeform-webhook}
+### 4단계: Typeform 웹훅 게시 {#step-4-publish-your-typeform-webhook}
 
-데이터 변환 작성을 완료한 후 **Validate**를 클릭하여 데이터 변환 코드가 올바르게 포맷되었는지, 예상대로 작동하는지 확인합니다. 그런 다음 데이터 변환을 저장하고 활성화합니다.
+데이터 변환 작성이 완료되면 **유효성 검사**를 클릭하여 데이터 변환 코드의 형식이 올바르고 예상대로 작동하는지 확인합니다. 그런 다음 데이터 변환을 저장하고 활성화합니다.
 
-활성화하면 사용자가 양식을 작성할 때 커스텀 이벤트 데이터가 사용자 프로필에 기록됩니다.
+활성화되면 사용자가 양식을 완료할 때 커스텀 이벤트 데이터가 사용자 프로필에 기록됩니다.
 
-![Typeform 제출 후 기록된 커스텀 이벤트가 표시된 고객 프로필.]({% image_buster /assets/img/typeform/typeform_custom_event.png %})
+![Typeform 제출 후 커스텀 이벤트가 기록된 사용자 프로필.]({% image_buster /assets/img/typeform/typeform_custom_event.png %})
 
 ## 모니터링 및 문제 해결 {#monitoring-and-troubleshooting}
 

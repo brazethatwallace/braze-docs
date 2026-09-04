@@ -4,7 +4,6 @@ article_title: APIs and Identifiers
 page_order: 0
 page_type: reference
 description: "This article covers the APIs and Identifiers page, which displays API identifications for your workspace."
-
 ---
 
 # API keys
@@ -15,7 +14,7 @@ You can find the **APIs and Identifiers** page under **Settings**.
 
 ## API keys
 
-This section provides your workspace REST API keys, the unique identifiers that allow you access to your data for a workspace. A REST API key is required with every request to the Braze API. For more information on creating and using API keys, refer to our [REST API key overview]({{site.baseurl}}/api/api_key).
+This section provides your workspace REST API keys, the unique identifiers that allow you access to your data for a workspace. A REST API key is required with every request to the Braze API. For more information on creating and using API keys, refer to our [REST API key overview]({{site.baseurl}}/api/basics).
 
 ### API IP allowlisting
 
@@ -26,7 +25,7 @@ For additional security, you can specify a list of IP addresses and subnets allo
 If you don't specify any, requests can be sent from any IP address.
 
 {% alert tip %}
-Making a Braze-to-Braze webhook and using allowlisting? Check out our list of [IPs to whitelist]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#ip-whitelisting).
+Making a Braze-to-Braze webhook and using allowlisting? Check out our list of [IPs to whitelist]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#ip-allowlisting).
 {% endalert %}
 
 ### API usage alerts

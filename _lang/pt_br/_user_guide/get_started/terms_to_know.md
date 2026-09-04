@@ -4,7 +4,7 @@ nav_title: Termos a conhecer
 article_title: Termos da Braze para conhecer
 
 layout: glossary_page
-glossary_top_header: "Termos a serem conhecidos"
+glossary_top_header: "Termos a conhecer"
 glossary_top_text: "Esses termos devem ajudar você a começar sua jornada para criar melhores vínculos com clientes e usuários com a Braze. Leia este conteúdo antes de começar sua integração."
 page_type: glossary
 description: "Este glossário abrange termos importantes que você deve conhecer durante o processo de integração na Braze."
@@ -19,7 +19,7 @@ glossaries:
   - name: API campaigns
     description: "<a href=\"/docs/api/api_campaigns\">Campaigns da API</a> usam o dashboard da Braze para gerar um <code>campaign_id</code> (e IDs de variação) enquanto você fornece o texto, o público, o agendamento e os ativos por meio das <a href=\"/docs/api/endpoints/messaging\">APIs de envio de mensagens</a>. Elas diferem das <a href=\"/docs/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery\">Campaigns disparadas por API</a>, em que você dispara uma Campaign totalmente configurada no dashboard por meio da API."
   - name: Application program interface (API)
-    description: "A <a href=\"/docs/api/basics#api-overview\">API da Braze</a> fornece um serviço da Web em que é possível registrar as ações realizadas pelos usuários diretamente via HTTP, em vez de usar os SDKs móveis. Isso permite, por exemplo, passar dados de usuários para a Braze que não são rastreados em seu app ou site."
+    description: "A <a href=\"/docs/api/basics\">API da Braze</a> fornece um serviço da Web em que é possível registrar as ações realizadas pelos usuários diretamente via HTTP, em vez de usar os SDKs móveis. Isso permite, por exemplo, passar dados de usuários para a Braze que não são rastreados em seu app ou site."
   - name: App instance
     description: As instâncias do app referem-se aos diferentes sites e aplicativos que são coletados em um espaço de trabalho.
   - name: Braze (the product)
@@ -95,7 +95,7 @@ glossaries:
   - name: Software development kit (SDK)
     description: "<a href=\"/docs/developer_guide/getting_started/sdk_overview\">SDKs</a> são integrados aos seus apps móveis, sites e experiências conectadas e fornecem ferramentas de marketing, envio de mensagens e análise de dados. A Braze publica guias de integração de SDK para plataformas como <a href=\"/docs/developer_guide/sdk_integration?sdktab=swift\">Swift</a> e <a href=\"/docs/developer_guide/sdk_integration?sdktab=android\">Android</a>; para Web e outras plataformas, siga os caminhos de integração vinculados na visão geral do SDK."
   - name: Subscription groups
-    description: "<a href=\"/docs/user_guide/channels/email/subscriptions#subscription-groups\">Grupos de inscrições</a> se sobrepõem aos estados de inscrição globais para que você possa oferecer opções granulares de aceitação (por exemplo, newsletters versus promoções). Padrões semelhantes existem para canais como SMS e WhatsApp; sempre direcione um grupo de inscrições quando seu canal exigir."
+    description: "<a href=\"/docs/user_guide/audience/subscription_preferences/subscription_groups\">Grupos de inscrições</a> se sobrepõem aos estados de inscrição globais para que você possa oferecer opções granulares de aceitação (por exemplo, newsletters versus promoções). Padrões semelhantes existem para canais como SMS e WhatsApp; sempre direcione um grupo de inscrições quando seu canal exigir."
   - name: Sunsetting
     description: "O sunsetting refere-se ao processo de identificação de usuários não engajados e de cessação do envio ativo de mensagens a esses usuários sem que eles tenham que tomar qualquer atitude. A criação de políticas de sunsetting para suas mensagens de <a href=\"/docs/user_guide/channels/email/best_practices/sunset_policies\">e-mail</a> e <a href=\"/docs/user_guide/channels/push/best_practices#implement-a-sunset-policy-for-unresponsive-users\">push</a> pode ajudar a reduzir os impactos nas taxas de abertura."
   - name: Tag

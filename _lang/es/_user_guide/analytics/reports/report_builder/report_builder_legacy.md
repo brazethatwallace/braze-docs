@@ -25,7 +25,7 @@ Usa este informe para responder preguntas clave sobre interacción, por ejemplo:
 - ¿Qué pasos en este grupo de Canvas tuvieron más conversiones?
 - ¿La versión 1 de un correo electrónico de bienvenida o la versión 2 generaron mayor interacción y conversión? ¿Funcionaron los cambios?
 - ¿Cómo impactan los diferentes métodos de entrega (por ejemplo, 3 push planificados, 3 push basados en acciones y 3 push activados por API) en tus tasas de apertura, tasas de conversión o tasas de compra?
-- ¿Las mejoras continuas en los mensajes para usuarios inactivos han impactado positivamente tus KPI a lo largo del tiempo?
+- ¿Las mejoras continuas en los mensajes para usuarios inactivos han impactado positivamente tus indicador clave de rendimiento a lo largo del tiempo?
 
 {% alert tip %}
 Intenta usar los mismos eventos de conversión para la conversión A, B, etc., en las Campaigns y Canvas que desees comparar, para que puedas alinear estas conversiones en tus informes del Generador de informes.

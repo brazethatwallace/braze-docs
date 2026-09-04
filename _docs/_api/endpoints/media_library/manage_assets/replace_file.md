@@ -15,11 +15,11 @@ description: "This article outlines details about the `PUT /media_library/replac
 /media_library/replace_file
 {% endapimethod %}
 
-> Use this endpoint to replace the file of an existing asset in the [Braze media library]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library) while preserving its asset ID and URL. You can provide the replacement file using either an externally hosted URL (`asset_url`) or binary file data sent in the request body (`asset_file`).
+> Use this endpoint to replace the file of an existing asset in the [Braze media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications) while preserving its asset ID and URL. You can provide the replacement file using either an externally hosted URL (`asset_url`) or binary file data sent in the request body (`asset_file`).
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `media_library.replace` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `media_library.replace` permission.
 
 ## Rate limit
 

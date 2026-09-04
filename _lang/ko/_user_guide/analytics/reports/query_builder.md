@@ -17,11 +17,22 @@ alias: /query_builder/
 
 쿼리 빌더는 [SQL 세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) 및 [Snowflake 데이터 공유]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake)와 동일한 Snowflake SQL 테이블을 사용합니다. 사용 가능한 테이블과 해당 열의 전체 목록은 [SQL 테이블 참조]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables)를 참조하세요.
 
+### 사용자 프로필 속성 뷰 {#user-profile-attribute-views}
+
+쿼리 빌더와 SQL 세그먼트 확장에는 주기적 스냅샷 및 기본 속성 기록 등 대부분의 [사용자 프로필 속성 뷰]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#user-profile-attribute-views)가 포함되어 있습니다.
+
+두 가지 커스텀 속성 뷰는 [Snowflake 데이터 공유]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/user_attributes)를 통해서만 사용할 수 있습니다:
+
+- `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED`
+- `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED`
+
+Braze는 이러한 뷰가 워크스페이스 규모에서 쿼리 속도가 느리고 시간 초과가 자주 발생하기 때문에 쿼리 빌더 및 SQL 세그먼트 확장에서 제외합니다. 쿼리 빌더에서 커스텀 속성 스냅샷을 조회하려면 `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED`를 사용하세요. 과거 또는 거의 실시간에 가까운 커스텀 속성 데이터가 필요한 경우, Snowflake 데이터 공유를 통해 제외된 뷰를 쿼리하세요.
+
 ## 쿼리 빌더에서 보고서 실행하기 {#running-reports-in-the-query-builder}
 
-쿼리 빌더 보고서를 실행하려면:
+쿼리 빌더 보고서를 실행하려면 다음을 수행합니다:
 
-1. **Analytics** > **쿼리 빌더**로 이동합니다.
+1. **분석** > **쿼리 빌더**로 이동합니다.
 2. **SQL 쿼리 생성**을 선택합니다. 쿼리 작성에 영감이나 도움이 필요하면 **쿼리 템플릿**을 선택하고 목록에서 템플릿을 선택합니다. 그렇지 않으면 **SQL 편집기**를 선택하여 편집기로 바로 이동합니다.
 3. 보고서에는 현재 날짜와 시간이 자동으로 이름으로 지정됩니다. 이름 위에 마우스를 올리고 <i class="fas fa-pencil" alt="편집"></i>을 선택하여 SQL 쿼리에 의미 있는 이름을 지정합니다.
 4. 편집기에서 SQL 쿼리를 작성하거나 **AI 쿼리 빌더** 탭에서 [AI의 도움을 받습니다](#ai-query-builder). 직접 SQL을 작성하는 경우 요구 사항과 리소스에 대해 [커스텀 SQL 쿼리 작성하기](#custom-sql)를 참조하세요.
@@ -29,9 +40,9 @@ alias: /query_builder/
 6. 쿼리를 저장합니다.
 7. 보고서의 CSV를 다운로드하려면 **내보내기**를 선택합니다.
 
-![템플릿 쿼리 '최근 30일간 채널 참여 및 매출'의 결과를 보여주는 쿼리 빌더.]({% image_buster /assets/img_archive/query_builder.png %})
+![최근 30일간의 채널 참여 및 매출 템플릿 쿼리 결과를 보여주는 쿼리 빌더.]({% image_buster /assets/img_archive/query_builder.png %})
 
-각 보고서의 결과는 하루에 한 번 생성할 수 있습니다. 같은 보고서를 하루에 두 번 이상 실행하면 두 보고서 모두에서 동일한 결과가 표시됩니다.
+각 보고서의 결과는 하루에 한 번 생성할 수 있습니다. 같은 보고서를 하루에 두 번 이상 실행하면 두 보고서 모두 동일한 결과가 표시됩니다.
 
 ### 쿼리 템플릿 {#query-templates}
 
@@ -45,7 +56,7 @@ alias: /query_builder/
 
 ### 쿼리 빌더 시간대 {#query-builder-time-zone}
 
-Snowflake 데이터베이스를 쿼리하는 기본 시간대는 UTC입니다. 따라서 **이메일 채널 참여** 페이지(회사의 시간대를 따름)와 쿼리 빌더 결과 사이에 일부 데이터 불일치가 있을 수 있습니다.
+Snowflake 데이터베이스를 쿼리할 때 기본 시간대는 UTC입니다. 따라서 **이메일 채널 참여** 페이지(회사의 시간대를 따름)와 쿼리 빌더 결과 사이에 일부 데이터 불일치가 있을 수 있습니다.
 
 쿼리 결과에서 시간대를 변환하려면 다음 SQL을 쿼리에 추가하고 회사의 시간대에 맞게 커스터마이즈합니다:
 
@@ -72,27 +83,35 @@ send_date_sydney;
 
 ### 쿼리 기록 {#query-history}
 
-쿼리 빌더의 **쿼리 기록** 섹션에는 이전에 실행한 쿼리가 표시되어 작업을 추적하고 재사용하는 데 도움이 됩니다. 쿼리 기록은 7일간 보존되며, 7일이 지난 쿼리는 자동으로 제거됩니다.
+쿼리 빌더의 **쿼리 기록** 섹션에는 이전에 실행한 쿼리가 표시되어 작업을 추적하고 재사용하는 데 도움이 됩니다. 쿼리 기록은 7일간 보존되며, 7일이 지난 쿼리는 자동으로 삭제됩니다.
 
-더 긴 기간 동안 쿼리 사용을 감사하거나 7일 이후의 기록을 유지해야 하는 경우, 만료되기 전에 중요한 쿼리 결과를 내보내거나 저장하는 것을 권장합니다.
+더 긴 기간 동안 쿼리 사용을 감사하거나 7일 이후에도 기록을 유지해야 하는 경우, 만료되기 전에 중요한 쿼리 결과를 내보내거나 저장하는 것을 권장합니다.
+
+### 쿼리 빌더와 다른 보고 소스 비교 {#comparing-query-builder-with-other-reporting-sources}
+
+쿼리 빌더 결과는 서로 다른 데이터 소스와 처리 방법을 사용하기 때문에 다른 보고 도구와 다를 수 있습니다.
+
+예를 들어, 쿼리 빌더의 소프트바운스 수는 SendGrid 전달 가능성 보고서보다 높을 수 있습니다. 쿼리 빌더는 중복 제거 없이 소프트바운스의 모든 발생을 카운트합니다. 사용자가 최종 전달 전(또는 연장된 재시도 후)에 여러 번 소프트바운스되면 각 소프트바운스 시도가 카운트됩니다. SendGrid 전달 가능성은 자체 데이터와 로직을 사용하며, Braze는 이에 대한 가시성이 없으므로 두 보고서 간의 수치가 일치하지 않을 수 있습니다.
+
+다양한 보고 소스에서 소프트바운스가 추적되는 방법에 대한 자세한 내용은 이메일 분석 용어집의 [소프트바운스]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#soft-bounce)를 참조하세요.
 
 ## AI 쿼리 빌더로 SQL 생성하기 {#generating-sql-with-the-ai-query-builder}
 
-AI 쿼리 빌더는 OpenAI가 제공하는 [GPT](https://openai.com/gpt-4)를 활용하여 쿼리에 대한 SQL을 추천합니다.
+AI 쿼리 빌더는 OpenAI가 제공하는 [GPT](https://openai.com/gpt-4)를 활용하여 쿼리에 적합한 SQL을 추천합니다.
 
 ![SQL AI 쿼리 빌더.]({% image_buster /assets/img_archive/query_builder_ai_tab.png %}){: style="max-width:60%;" }
 
-AI 쿼리 빌더로 SQL을 생성하려면:
+AI 쿼리 빌더로 SQL을 생성하려면 다음을 수행합니다:
 
 1. 쿼리 빌더에서 보고서를 생성한 후 **AI 쿼리 빌더** 탭을 선택합니다.
-2. 프롬프트를 입력하거나 샘플 프롬프트를 선택하고 **생성**을 선택하여 프롬프트를 SQL로 변환합니다.
-3. 생성된 SQL이 올바른지 검토한 다음 **편집기에 삽입**을 선택합니다.
+2. 프롬프트를 입력하거나 샘플 프롬프트를 선택한 다음 **생성**을 선택하여 프롬프트를 SQL로 변환합니다.
+3. 생성된 SQL이 올바른지 검토한 후 **편집기에 삽입**을 선택합니다.
 
 ### 팁 {#tips}
 
-- [SQL 테이블 참조]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables)에서 사용 가능한 테이블과 열을 숙지하세요. 이러한 테이블에 존재하지 않는 데이터를 요청하면 ChatGPT가 가짜 테이블을 만들어낼 수 있습니다.
-- 이 기능의 [SQL 작성 규칙]({{site.baseurl}}/user_guide/analytics/reports/query_builder#custom-sql)을 숙지하세요. 이러한 규칙을 따르지 않으면 오류가 발생합니다.
-- AI 쿼리 빌더로 분당 최대 20개의 프롬프트를 보낼 수 있습니다.
+- [SQL 테이블 참조]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables)에서 사용 가능한 테이블과 열을 숙지하세요. 이 테이블에 존재하지 않는 데이터를 요청하면 ChatGPT가 가짜 테이블을 만들어낼 수 있습니다.
+- 이 기능의 [SQL 작성 규칙]({{site.baseurl}}/user_guide/analytics/reports/query_builder#custom-sql)을 숙지하세요. 이 규칙을 따르지 않으면 오류가 발생합니다.
+- AI 쿼리 빌더에서 분당 최대 20개의 프롬프트를 전송할 수 있습니다.
 
 #{% multi_lang_include brazeai/generative_ai/policy.md %}
 
@@ -162,19 +181,17 @@ LIMIT 100
 
 ## 변수 사용하기 {#using-variables}
 
-변수를 사용하면 SQL에서 사전 정의된 변수 유형을 사용하여 값을 수동으로 복사할 필요 없이 값을 참조할 수 있습니다. 예를 들어, Campaign의 ID를 SQL 편집기에 수동으로 복사하는 대신 {% raw %}`{{campaign.${My campaign}}}`{% endraw %}을 사용하여 **변수** 탭의 드롭다운에서 직접 Campaign을 선택할 수 있습니다.
+SQL에서 사전 정의된 변수 유형을 사용하면 값을 수동으로 복사하지 않고도 참조할 수 있습니다. 예를 들어, Campaign의 ID를 SQL 편집기에 수동으로 복사하는 대신 {% raw %}`{{campaign.${My campaign}}}`{% endraw %}를 사용하여 **변수** 탭의 드롭다운에서 직접 Campaign을 선택할 수 있습니다.
 
 변수가 생성되면 쿼리 빌더 보고서의 **변수** 탭에 표시됩니다. SQL 변수를 사용하면 다음과 같은 이점이 있습니다:
 
-- Campaign ID를 붙여넣는 대신 보고서를 생성할 때 목록에서 선택할 수 있는 Campaign 변수를 만들어 시간을 절약합니다.
-- 향후 약간 다른 사용 사례(예: 다른 커스텀 이벤트)에 대해 보고서를 재사용할 수 있도록 변수를 추가하여 값을 교체합니다.
-- 각 보고서에 필요한 편집량을 줄여 SQL 편집 시 사용자 오류를 줄입니다. SQL에 더 익숙한 팀원이 보고서를 만들면 기술적 지식이 적은 팀원이 사용할 수 있습니다.
+{% multi_lang_include analytics/sql_variables_benefits.md %}
 
 ### 가이드라인 {#guidelines}
 
 변수는 다음 Liquid 구문을 따라야 합니다: {% raw %}`{{ type.${name}}}`{% endraw %}, 여기서 `type`은 허용되는 유형 중 하나여야 하며 `name`은 원하는 이름을 지정할 수 있습니다. 이러한 변수의 레이블은 기본적으로 변수 이름으로 설정됩니다.
 
-기본적으로 모든 변수는 필수입니다(변수 값이 선택되지 않으면 보고서가 실행되지 않음). 단, 날짜 범위는 값이 제공되지 않으면 기본적으로 최근 30일로 설정됩니다.
+기본적으로 모든 변수는 필수입니다(변수 값을 선택하지 않으면 보고서가 실행되지 않습니다). 단, 날짜 범위는 값이 제공되지 않으면 기본적으로 최근 30일로 설정됩니다.
 
 ### 변수 유형 {#variable-types}
 
@@ -201,13 +218,13 @@ LIMIT 100
 
 #### 날짜 범위 {#date-range}
 
-`start_date`와 `end_date`를 모두 사용하는 경우 날짜 범위로 사용할 수 있도록 동일한 이름을 가져야 합니다.
+`start_date`와 `end_date`를 모두 사용하는 경우, 날짜 범위로 사용하려면 동일한 이름을 지정해야 합니다.
 
 ##### 예시 값 {#example-values}
 
 날짜 범위 유형은 상대적, 시작 날짜, 종료 날짜 또는 날짜 범위일 수 있습니다.
 
-`start_date`와 `end_date`가 동일한 이름으로 모두 사용되면 네 가지 유형이 모두 표시됩니다. 하나만 사용되면 관련 유형만 표시됩니다.
+`start_date`와 `end_date`를 동일한 이름으로 모두 사용하면 네 가지 유형이 모두 표시됩니다. 하나만 사용하면 관련 유형만 표시됩니다.
 
 | 날짜 범위 유형 | 설명 | 필수 값 |
 | --- | --- | --- |
@@ -220,64 +237,64 @@ LIMIT 100
 - **대체 값:** `start_date`와 `end_date`를 UTC 기준 지정된 날짜의 Unix 타임스탬프(초 단위)로 대체합니다(예: `1696517353`).
 - **사용 예시:** 상대적, 시작 날짜, 종료 날짜 및 날짜 범위 변수 모두에 대해:
     - {% raw %}`time > {{start_date.${some name}}} AND time < {{end_date.${some name}}}` {% endraw %}
-        - 날짜 범위가 필요하지 않은 경우 `start_date` 또는 `end_date`만 사용할 수 있습니다.
+        - 날짜 범위가 필요하지 않은 경우 `start_date` 또는 `end_date` 중 하나만 사용할 수 있습니다.
 
 #### 메시징 {#messaging}
 
 모든 메시징 변수는 하나의 그룹에서 상태를 연결하려면 동일한 식별자를 공유해야 합니다.
 
-##### Canvas
+##### Canvas {#canvas}
 
-하나의 Canvas를 선택하기 위한 변수입니다. Campaign과 동일한 이름을 공유하면 **변수** 탭에 Canvas 또는 Campaign 중 하나를 선택하는 라디오 버튼이 표시됩니다.
+하나의 Canvas를 선택하는 데 사용합니다. Campaign과 동일한 이름을 공유하면 **변수** 탭에 Canvas 또는 Campaign 중 하나를 선택할 수 있는 라디오 버튼이 표시됩니다.
 
 - **대체 값:** Canvas BSON ID
 - **사용 예시:** {% raw %}`canvas_id = '{{canvas.${some name}}}'`{% endraw %}
 
-##### Canvases
+##### Canvases {#canvases}
 
-여러 Canvases를 선택하기 위한 변수입니다. Campaign과 동일한 이름을 공유하면 **변수** 탭에 Canvas 또는 Campaign 중 하나를 선택하는 라디오 버튼이 표시됩니다.
+여러 Canvases를 선택하는 데 사용합니다. Campaign과 동일한 이름을 공유하면 **변수** 탭에 Canvas 또는 Campaign 중 하나를 선택할 수 있는 라디오 버튼이 표시됩니다.
 
 - **대체 값:** Canvases BSON ID
 - **사용 예시:** {% raw %}`canvas_id IN ({{canvases.${some name}}})`{% endraw %}
 
-##### Campaign
+##### Campaign {#campaign}
 
-하나의 Campaign을 선택하기 위한 변수입니다. Canvas와 동일한 이름을 공유하면 **변수** 탭에 Canvas 또는 Campaign 중 하나를 선택하는 라디오 버튼이 표시됩니다.
+하나의 Campaign을 선택하는 데 사용합니다. Canvas와 동일한 이름을 공유하면 **변수** 탭에 Canvas 또는 Campaign 중 하나를 선택할 수 있는 라디오 버튼이 표시됩니다.
 
 - **대체 값:** Campaign BSON ID
 - **사용 예시:** {% raw %}`campaign_id = '{{campaign.${some name}}}'`{% endraw %}
 
-##### Campaigns
+##### Campaigns {#campaigns}
 
-여러 Campaigns를 다중 선택하기 위한 변수입니다. Canvas와 동일한 이름을 공유하면 **변수** 탭에 Canvas 또는 Campaign 중 하나를 선택하는 라디오 버튼이 표시됩니다.
+여러 Campaigns를 다중 선택하는 데 사용합니다. Canvas와 동일한 이름을 공유하면 **변수** 탭에 Canvas 또는 Campaign 중 하나를 선택할 수 있는 라디오 버튼이 표시됩니다.
 
 - **대체 값:** Campaigns BSON ID
 - **사용 예시:** {% raw %}`campaign_id IN ({{campaigns.${some name}}})`{% endraw %}
 
 ##### 캠페인 배리언트 {#campaign-variants}
 
-선택한 Campaign에 속하는 캠페인 배리언트를 선택하기 위한 변수입니다. Campaign 또는 Campaigns 변수와 함께 사용해야 합니다.
+선택한 Campaign에 속하는 캠페인 배리언트를 선택하는 데 사용합니다. Campaign 또는 Campaigns 변수와 함께 사용해야 합니다.
 
 - **대체 값:** 캠페인 배리언트 API ID, 쉼표로 구분된 문자열(예: `api-id1, api-id2`)
 - **사용 예시:** {% raw %}`message_variation_api_id IN ({{campaign_variants.${some name}}})`{% endraw %}
 
 ##### 캔버스 배리언트 {#canvas-variants}
 
-선택한 Canvas에 속하는 캔버스 배리언트를 선택하기 위한 변수입니다. Canvas 또는 Canvases 변수와 함께 사용해야 합니다.
+선택한 Canvas에 속하는 캔버스 배리언트를 선택하는 데 사용합니다. Canvas 또는 Canvases 변수와 함께 사용해야 합니다.
 
 - **대체 값:** 캔버스 배리언트 API ID, 쉼표로 구분된 문자열(예: `api-id1, api-id2`)
 - **사용 예시:** {% raw %}`canvas_variation_api_id IN ({{canvas_variants.${some name}}})`{% endraw %}
 
 ##### 캔버스 단계 {#canvas-step}
 
-선택한 Canvas에 속하는 캔버스 단계를 선택하기 위한 변수입니다. Canvas 변수와 함께 사용해야 합니다.
+선택한 Canvas에 속하는 캔버스 단계를 선택하는 데 사용합니다. Canvas 변수와 함께 사용해야 합니다.
 
 - **대체 값:** 캔버스 단계 API ID
 - **사용 예시:** {% raw %}`canvas_step_api_id = '{{canvas_step.${some name}}}'`{% endraw %}
 
 ##### 캔버스 단계(복수) {#canvas-steps}
 
-선택한 Canvases에 속하는 캔버스 단계를 선택하기 위한 변수입니다. Canvas 또는 Canvases 변수와 함께 사용해야 합니다.
+선택한 Canvases에 속하는 캔버스 단계를 선택하는 데 사용합니다. Canvas 또는 Canvases 변수와 함께 사용해야 합니다.
 
 - **대체 값:** 캔버스 단계 API ID
 - **사용 예시:** {% raw %}`canvas_step_api_id IN ({{canvas_steps.${some name}}})`{% endraw %}

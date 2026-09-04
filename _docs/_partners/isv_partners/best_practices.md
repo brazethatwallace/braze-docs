@@ -142,7 +142,7 @@ Braze offers a number of endpoints that allow customers and Partners to create/u
 - Email Templates
     - [Create template endpoint]({{site.baseurl}}/api/endpoints/templates/email_templates/post_create_email_template/)
     - [Update template endpoint]({{site.baseurl}}/api/endpoints/templates/email_templates/post_update_email_template/#rate-limit)
-- [Content Blocks]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/content_blocks#content-blocks) 
+- [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) 
     - [Create Content Block endpoint]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block/)
     - [Update Content Block endpoint]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block/)
 

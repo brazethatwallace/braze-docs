@@ -1,11 +1,11 @@
 ---
 nav_title: "Casos de uso"
-article_title: Casos de uso de extensões de segmento SQL
+article_title: Casos de uso de extensões de Segment SQL
 page_order: 2
 page_type: glossary
 layout: sql_segment_extensions_glossary
 alias: "/sql_segments_use_cases/"
-description: "Este artigo contém consultas testadas e comprovadas para extensões de segmento SQL."
+description: "Este artigo contém consultas testadas e comprovadas para extensões de Segment SQL."
 tool: Segments
 ---
 
@@ -17,7 +17,7 @@ Event
 
 Selecione usuários que abriram uma determinada Campaign de e-mail mais de uma vez no passado.
 
-Isso também funciona para limitar mensagens no app pelo número de impressões, como selecionar usuários com mais de três impressões como exclusão de segmento na mesma Campaign.
+Isso também funciona para limitar mensagens no app pelo número de impressões, como selecionar usuários com mais de três impressões como exclusão de Segment na mesma Campaign.
 
 ```sql
 SELECT user_id FROM "USERS_MESSAGES_EMAIL_OPEN_SHARED"
@@ -67,7 +67,7 @@ HAVING COUNT(DISTINCT id) > 3
 Event, Time range
 {% endapitags %}
 
-Selecione usuários que fizeram uma compra em cada um dos últimos quatro trimestres. Esse segmento de usuários pode ser usado com [audience sync]({{site.baseurl}}/partners/canvas_audience_sync) para identificar clientes semelhantes de alto valor para aquisição.
+Selecione usuários que fizeram uma compra em cada um dos últimos quatro trimestres. Esse Segment de usuários pode ser usado com [audience sync]({{site.baseurl}}/partners/canvas_audience_sync) para identificar clientes semelhantes de alto valor para aquisição.
 
 ```sql
 ELECT DISTINCT user_id
@@ -291,7 +291,7 @@ Event, Property
 
 Enviar uma mensagem para usuários que assistiram a uma série nos últimos seis meses e estão prestes a deixar a plataforma.
 
-A propriedade é o ID do título; caso contrário, você precisaria incluir mais de 100 IDs de título em um filtro. A extensão de segmento incremental pode ser otimizada em termos de custo, e você pode especificar o intervalo de datas no cabeçalho.
+A propriedade é o ID do título; caso contrário, você precisaria incluir mais de 100 IDs de título em um filtro. A extensão de Segment incremental pode ser otimizada em termos de custo, e você pode especificar o intervalo de datas no cabeçalho.
 
 ```sql
 SELECT

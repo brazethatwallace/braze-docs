@@ -25,7 +25,7 @@ Si vous recherchez une liste complète des langues prises en charge que vous pou
 - Danois
 - Néerlandais
 - Anglais
-- Espéranto
+- fournisseur de services d'e-mailingéranto
 - Estonien
 - Éwé
 - Philippin

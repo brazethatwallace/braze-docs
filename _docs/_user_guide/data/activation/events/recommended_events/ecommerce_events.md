@@ -1,9 +1,9 @@
 ---
 nav_title: Use eCommerce recommended events
-article_title: How to use eCommerce recommended events
+article_title: "How to use eCommerce Events"
 page_type: reference
 alias: /ecommerce_events/
-description: "Learn how to use eCommerce recommended events in Braze, including supported features, key metrics, and best practices for segmentation, messaging, and reporting."
+description: "Learn how to use eCommerce recommended events in Braze, including supported features, key metrics, and best practices for segmentation, messaging,."
 ---
 
 # How to use eCommerce Events
@@ -111,7 +111,7 @@ Use this template when you want to remind users about items in their cart and dr
 {: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce Canvas templates" }
 
 {% alert tip %}
-The `ecommerce.cart_updated` event supports full cart replacement (each event can describe the entire cart) or incremental updates using the `add` and `remove` values for the optional `action` property. Pick one approach per cart and avoid mixing replacement and incremental cart updates for the same `cart_id`. Use the {% raw %}`{% shopping_cart %}`{% endraw %} Liquid tag in your message to dynamically display the current cart contents at send time.
+The `ecommerce.cart_updated` event supports full cart replacement (each event can describe the entire cart) or incremental updates using the `add` and `remove` values for the optional `action` property. Pick one approach per cart and avoid mixing replacement and incremental cart updates for the same `cart_id`. The stored cart keeps the `currency` from the most recent cart event; a cart update in a different currency replaces the stored cart instead of mixing values from two currencies. Use the {% raw %}`{% shopping_cart %}`{% endraw %} Liquid tag in your message to dynamically display the current cart contents at send time.
 {% endalert %}
 
 {% endtab %}
@@ -173,8 +173,8 @@ eCommerce recommended events power the same revenue surfaces customers already u
 For non-user calculated fields (for example, campaign or Canvas revenue), revenue is calculated the same way across all reports: `price` multiplied by `quantity` per product in the order, summed across the products in each `order_placed` event.
 
 {% alert note %}
-To avoid double-counting revenue, do not send both legacy purchases and eCommerce recommended events for the same orders. If you are planning to transition from legacy purchases to recommended events, coordinate the change with your Braze account team before making any integration changes.<br><br>
-Revenue calculations cap individual product quantities at `1,000` units per order. If a `quantity` field is missing for a product, it defaults to `1`. The original `order_placed` event retains the full quantity you sent—only the revenue calculation applies the cap.
+Revenue calculations cap individual product quantities at 1,000 units per order. If a quantity field is missing for a product, it defaults to one unit. The original `ecommerce.order_placed` event retains the full quantity you sent—only the revenue calculation applies the cap.<br><br>
+If you're migrating from legacy purchase events to `ecommerce.order_placed`, coordinate with your Braze account team before making any integration changes. During the transition period, send both legacy purchase and `ecommerce.order_placed` events to confirm they're triggering correctly and to prepare your active campaigns, Canvases, and segments to migrate to the new event. Your account team can then help you plan the cutover to switch revenue reporting from legacy purchase events to `ecommerce.order_placed`.
 {% endalert %}
 
 ### BrazeAI<sup>TM</sup>

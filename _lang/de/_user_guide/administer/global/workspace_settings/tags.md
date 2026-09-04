@@ -52,7 +52,7 @@ table td {
 </thead>
 <tbody>
   <tr>
-    <td>On-boarding<br>Re-engagement<br>Loyal<br>PowerUser<br>Churn<br>Lost</td>
+    <td>On-boarding<br>Re-engagement<br>Loyal<br>PowerUser<br>Abwanderung<br>Lost</td>
     <td>HighSpender<br>ActiveUser<br>NewUsers<br>FacebookAttribution<br>FirstAction</td>
     <td>UnitedStates<br>Northeast<br>Midwest<br>South<br>West<br>LATAM<br>AP<br>WesternEurope<br>MiddleEast</td>
     <td>Sales<br>Coupons<br>Events</td>

@@ -83,7 +83,7 @@ Les attributs personnalisés de Kickbox ont un schéma cohérent, correspondant 
 ```
 {% endraw %}
 
-Cela signifie que vous pouvez créer des segments d'audience regroupant les utilisateurs dont les adresses e-mail ont été vérifiées, afin que vos Campaigns et Canvas bénéficient d'un taux de réussite de distribution plus élevé, protégeant ainsi votre réputation auprès des ESP.
+Cela signifie que vous pouvez créer des segments d'audience regroupant les utilisateurs dont les adresses e-mail ont été vérifiées, afin que vos Campaigns et Canvas bénéficient d'un taux de réussite de distribution plus élevé, protégeant ainsi votre réputation auprès des fournisseur de services d'e-mailing.
 
 Pour ce faire, suivez les étapes suivantes :
 

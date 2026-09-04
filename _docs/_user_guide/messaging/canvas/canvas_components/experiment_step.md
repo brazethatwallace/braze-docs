@@ -24,7 +24,7 @@ To use Experiment Paths, your Canvas must include conversion events. While you c
 
 Experiment Paths are best suited for testing delivery, cadence, message copy, and channel combinations.
 
-- **Delivery:** Compare the results between messages sent with different time [delays]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step), based on user actions ([Action Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)), and using [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing#canvas).<br><br>
+- **Delivery:** Compare the results between messages sent with different time [delays]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step), based on user actions ([Action Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)), and using [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing#step-1-add-intelligent-timing-1).<br><br>
 - **Cadence:** Test multiple messaging flows over a specific period. For example, you could test two different onboarding cadences:
     - Cadence 1: Send 2 messages in the user's first 2 weeks
     - Cadence 2: Send 3 messages in the user's first 2 weeks
@@ -48,12 +48,16 @@ You can also choose whether users in the control group should continue down the 
 ![Experiment Settings where you can add paths and distribute the percentage of users in each path.]({% image_buster /assets/img/experiment_step/exp_settings.png %})
 
 {% alert note %}
-If Canvas re-eligibility is enabled, users who enter the Canvas and go down a randomly chosen path will go down the same path again if they become re-eligible and re-enter the Canvas. This maintains the validity of the experiment and associated analytics. If you want the step to always randomize path assignment, select **Randomized Paths in Experiment Paths**. This option is not available when using either Winning or Personalized Paths.
+If Canvas re-eligibility is enabled, users who enter the Canvas and go down a randomly chosen path go down the same path again if they become re-eligible and re-enter the Canvas. This maintains the validity of the experiment and associated analytics. To randomize path assignment each time users re-enter, select **Randomized Paths in Experiment Paths**. This option isn't available when using Winning Path.
 {% endalert %}
 
-### Step 2: Turn on Winning Path or Personalized Paths (optional) {#step-2}
+### Step 2: Turn on Winning Path (optional) {#step-2}
 
-You can choose to optimize your experiment by turning on [Winning Path]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/winning_path) or [Personalized Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths). Both options work by initially testing your paths with a portion of your audience. After the experiment ends, the remaining and subsequent users are sent down either the best-performing path overall (Winning Path) or the best-performing path for each user (Personalized Paths).
+To optimize your experiment, turn on [Winning Path]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/winning_path). Winning Path initially tests your paths with part of the audience. After the experiment ends, Braze sends the remaining and subsequent users down the best-performing path.
+
+{% alert note %}
+Personalized Paths isn't available for new Experiment Path steps. Existing steps that use Personalized Paths continue to run.
+{% endalert %}
 
 ### Step 3: Create paths
 
@@ -64,12 +68,12 @@ Lastly, you must build your downstream paths. Select **Done** and return to the 
 Keep in mind that paths and their downstream steps cannot be removed from a Canvas after they're created. However, when launched, you can modify the audience distribution across paths as you see fit. For example, if a day after launching a Canvas, you conclude that one path is superior to the rest based on the analytics, you can set that path to 100% and the others to 0%. Or, depending on your needs, you can continue sending users down multiple paths.
 
 {% alert important %}
-To prevent experiment contamination, if your Canvas has an active or in-progress Winning Path or Personalized Path experiment and you update the active Canvas, regardless if you update the Experiment Path step itself, the in-progress experiment will end and the experiment step will not determine a winning path or personalized paths. To restart the experiment, you can disconnect the existing Experiment Path and launch a new one, or duplicate the Canvas and launch a new Canvas. Otherwise, users will flow through the experiment path as if no optimization method was selected. You also can't turn on Personalized Paths or Winning Paths for an already active Canvas with an Experiment Path step.<br><br>For more information, refer to [Editing Canvases after launch]({{site.baseurl}}/post-launch_edits).
+To prevent experiment contamination, updating an active Canvas with an in-progress Winning Path experiment ends the experiment. This applies even if you don't update the Experiment Path step. To restart the experiment, disconnect the existing Experiment Path and launch a new one, or duplicate the Canvas and launch the duplicate. You can't turn on Winning Path for an already active Canvas with an Experiment Path step.<br><br>For more information, see [Editing Canvases after launch]({{site.baseurl}}/post-launch_edits).
 {% endalert %}
 
 ## Tracking performance
 
-From the **Canvas Analytics** page, select the Experiment Path to open a [detailed table]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch#performance-breakdown-by-variant) identical to the **Analyze Variants** tab to compare detailed performance and conversion statistics across paths. You can also export the table via CSV and compare percent changes for metrics of interest relative to the path or control you select.
+From the **Canvas Analytics** page, select the Experiment Path to open a [detailed table]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch) identical to the **Analyze Variants** tab to compare detailed performance and conversion statistics across paths. You can also export the table via CSV and compare percent changes for metrics of interest relative to the path or control you select.
 
 Each step in each path displays statistics in the [Canvas Analytics]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics) view, just like any Canvas step. However, keep in mind that individual step analytics and Experiment Path analytics measure conversions differently:
 
@@ -78,17 +82,14 @@ Each step in each path displays statistics in the [Canvas Analytics]({{site.base
 
 Because these conversion windows have different starting points, they can show different conversion rates for the same path—especially when there are delays between the experiment step and a downstream message. For the most reliable comparison across paths, use the Experiment Path analytics.
 
-### Winning Path and Personalized Paths performance
+### Winning Path performance
 
-Take advantage of Winning Paths to track performance over a period of time and then automatically send subsequent users down the path with the best performance. For more information on analytics when **Winning Path** or **Personalized Paths** are turned on for your experiment, refer to:
-
-- [Winning Path]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/winning_path#analytics)
-- [Personalized Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths#analytics)
+Use Winning Path to track performance over time and automatically send subsequent users down the best-performing path. For more information, see [Winning Path analytics]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/winning_path#analytics).
 
 The winning metric and the analytics shown in Experiment Paths can differ:
 
-- The conversion event you configure for **Winning Path** or **Personalized Paths** determines how Braze compares paths and selects a winner during the experiment window.
-- Experiment Path analytics still follows the same Canvas [conversion events]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/conversion_events) framework as the rest of the Canvas, including your [primary conversion event]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/conversion_events#primary-conversion-event). As a result, the metrics emphasized in the dashboard might not match the winning metric.
+- The conversion event you configure for **Winning Path** determines how Braze compares paths and selects a winner during the experiment window.
+- Experiment Path analytics still follows the same Canvas [conversion events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) framework as the rest of the Canvas, including your [primary conversion event]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events#primary-conversion-event). As a result, the metrics emphasized in the dashboard might not match the winning metric.
 - For push, *Direct Opens* and *Total Opens* differ. For more information, see [Influenced opens]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens).
 
 ### Additional settings

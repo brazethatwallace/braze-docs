@@ -22,6 +22,8 @@ El objeto `trigger_properties` y la sintaxis {% raw %}`api_trigger_properties.${
 
 ## Cuerpo del objeto {#object-body}
 
+El objeto `trigger_properties` admite cadenas, números, booleanos, fechas, objetos y arrays como tipos de datos.
+
 ```json
 {
   "trigger_properties" : {
@@ -39,4 +41,11 @@ El objeto `trigger_properties` y la sintaxis {% raw %}`api_trigger_properties.${
 }
 ```
 
+## Ejemplos de plantillas Liquid {#liquid-templating-examples}
 
+Haz referencia a las propiedades de desencadenamiento en tus plantillas de mensaje usando el espacio de nombres `api_trigger_properties`:
+
+- Cadenas: {% raw %}`{{api_trigger_properties.${product_name}}}`{% endraw %} devuelve `"shoes"`
+- Números: {% raw %}`{{api_trigger_properties.${product_price}}}`{% endraw %} devuelve `79.99`
+- Objetos anidados: {% raw %}`{{api_trigger_properties.${details}.${color}}}`{% endraw %} devuelve `"red"`
+- Elementos de array: {% raw %}`{{api_trigger_properties.${related_skus}[0]}}`{% endraw %} devuelve `"123"`

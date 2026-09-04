@@ -7,7 +7,6 @@ page_order: 1
 layout: api_page
 page_type: reference
 description: "이 문서에서는 실시간 활동 업데이트 엔드포인트에 대한 자세한 내용을 설명합니다."
-
 ---
 {% api %}
 # 실시간 활동 업데이트 {#update-live-activity}
@@ -15,7 +14,7 @@ description: "이 문서에서는 실시간 활동 업데이트 엔드포인트�
 /messages/live_activity/update
 {% endapimethod %}
 
-> 이 엔드포인트를 사용하여 iOS 앱에 표시되는 [실시간 활동]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?sdktab=swift)을 업데이트하고 종료할 수 있습니다. 이 엔드포인트에는 추가 설정이 필요합니다.
+> 이 엔드포인트를 사용하여 iOS 앱에 표시되는 [실시간 활동]({{site.baseurl}}/developer_guide/live_notifications?sdktab=swift)을 업데이트하고 종료할 수 있습니다. 이 엔드포인트에는 추가 설정이 필요합니다.
 
 실시간 활동을 등록한 후 JSON 페이로드를 전달하여 Apple 푸시 알림 서비스(APNs)를 업데이트할 수 있습니다. 자세한 내용은 [푸시 알림 페이로드로 실시간 활동 업데이트하기](https://developer.apple.com/documentation/activitykit/updating-and-ending-your-live-activity-with-activitykit-push-notifications)에 대한 Apple 설명서를 참조하세요.
 
@@ -28,7 +27,7 @@ description: "이 문서에서는 실시간 활동 업데이트 엔드포인트�
 이 엔드포인트를 사용하려면 다음을 완료해야 합니다:
 
 - `messages.live_activity.update` 권한으로 API 키를 생성합니다.
-- Braze Swift SDK를 사용하여 실시간 활동을 [원격]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?tab=remote&sdktab=swift) 또는 [로컬]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?tab=local&sdktab=swift)로 등록합니다.
+- Braze Swift SDK를 사용하여 실시간 활동을 [원격]({{site.baseurl}}/developer_guide/live_notifications?tab=remote&sdktab=swift) 또는 [로컬]({{site.baseurl}}/developer_guide/live_notifications?tab=local&sdktab=swift)로 등록합니다.
 
 {% multi_lang_include api/payload_size_alert.md %}
 
@@ -54,7 +53,7 @@ description: "이 문서에서는 실시간 활동 업데이트 엔드포인트�
 
 | Parameter | Required | Data Type | Description |
 |---|---|---|---|
-| `app_id` | Required | String | App [API identifier]({{site.baseurl}}/api/identifier_types#the-app-identifier) retrieved from the [API Keys]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) page.  |
+| `app_id` | Required | String | App [API identifier]({{site.baseurl}}/api/identifier_types#app-identifier) retrieved from the [API Keys]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) page.  |
 | `activity_id` | Required | String | When you register your Live Activity using [`launchActivity`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/liveactivities-swift.class), you use the `pushTokenTag` parameter to name the Activity's push token to a custom string.<br><br>Set `activity_id` to this custom string to define which Live Activity you want to update. |
 | `content_state` | Required | Object | You define the `ContentState` parameters when you create your Live Activity. Pass the updated values for your `ContentState` using this object.<br><br>The format of this request must match the shape you initially defined. |
 | `end_activity` | Optional | Boolean | If `true`, this request ends the Live Activity. |

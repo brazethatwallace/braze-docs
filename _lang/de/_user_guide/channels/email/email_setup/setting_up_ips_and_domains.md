@@ -4,8 +4,7 @@ article_title: IPs und Domains einrichten
 page_order: 0
 page_type: tutorial
 channel: email
-description: "Dieser Artikel erklärt Ihnen, wie Sie Ihre IPs und Domains für den E-Mail-Versand über Braze einrichten."
-
+description: "Dieser Artikel erklärt Ihnen, wie Sie IP-Adressen, IP-Pools, Domains und Subdomains für den E-Mail-Versand über Braze einrichten."
 ---
 
 # IPs und Domains einrichten {#set-up-ips-and-domains}
@@ -17,87 +16,101 @@ description: "Dieser Artikel erklärt Ihnen, wie Sie Ihre IPs und Domains für d
 <br>
 
 {% alert important %}
-Sie können SendGrid, SparkPost oder Amazon Simple Email Service (SES) als E-Mail-Anbieter (ESP) verwenden. Ab 2026 nutzt Braze Amazon SES als Standard-ESP für neue E-Mail-Einrichtungen. Weitere Details finden Sie unter [Amazon SES einrichten]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/amazon_ses).
+Ab 2026 nutzt Braze Amazon Simple Email Service (SES) als Standard-E-Mail-Anbieter (E-Mail-Anbieter) für neue E-Mail-Einrichtungen. Weitere Details finden Sie unter [Amazon SES einrichten]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/amazon_ses).
 {% endalert %}
 
-## Methode 1: Koordinieren Sie mit Braze (empfohlen) {#method-1-coordinate-with-braze-recommended}
+## Methode 1: E-Mail-Self-Service-Einrichtung {#method-1-self-service-email-setup}
 
-### 1. Schritt: Informationen zusammenstellen {#step-1-outline-information}
+Diese Methode richtet Ihre Versand- und Tracking-Domains für ein Unternehmen ein. Sie müssen sich zunächst an das Braze-Onboarding-Team wenden und die folgenden Informationen an Ihre Braze-Vertretung senden, damit Ihre IP-Pools und IP-Adressen hinzugefügt werden:
 
-Senden Sie die folgenden Informationen an Ihre Braze-Vertretung:
-
-* Ihre ausgewählten Domains und Subdomains
-* Die ungefähre Anzahl der E-Mails, die Sie monatlich versenden werden – dies hilft bei der Bestimmung, wie viele IPs Sie benötigen
-* Wie Sie Ihre Versand-Domains Ihren zugewiesenen IPs zuordnen möchten
-
-### 2. Schritt: Braze konfiguriert Informationen {#step-2-braze-configures-information}
-
-Nachdem wir Ihre E-Mail erhalten haben, machen wir uns an die Arbeit und konfigurieren Ihre IPs, Domains und Subdomains sowie IP-Pools.
-
-### 3. Schritt: DNS-Einträge hinzufügen {#step-3-add-dns-records}
-
-Nachdem Ihre IPs, Domains, Subdomains und IP-Pools konfiguriert sind, senden wir Ihnen eine Liste mit DNS-Einträgen. Bitten Sie Ihre Techniker:innen und Entwickler:innen, diese DNS-Einträge bei Bedarf hinzuzufügen, und informieren Sie anschließend das Braze-Onboarding-Team, nachdem sie hinzugefügt wurden.
-
-{% multi_lang_include channels/email/dns_records.md %}
-
-Nachdem Braze Ihnen Ihre DNS-Einträge bereitgestellt hat, fügen Sie diese so bald wie möglich hinzu, sobald Ihr DNS- oder IT-Team verfügbar ist. Die Domain-Verifizierung ist zeitlich begrenzt, und wenn Einträge zu spät hinzugefügt werden, kann die Verifizierung fehlschlagen, selbst wenn die DNS-Einträge später korrekt aufgelöst werden. Falls Ihre DNS-Einträge korrekt erscheinen, die Verifizierung aber dennoch fehlschlägt, kontaktieren Sie das Braze-Onboarding- oder Support-Team, um die Verifizierung erneut zu starten.
-
-### Nächste Schritte {#next-steps}
-
-Wir überprüfen Ihre Einrichtung und validieren alle Informationen in unseren internen Systemen. Das Braze-Onboarding-Team informiert Sie, wenn alles bereit ist, oder ob es Probleme mit Ihren DNS-Einträgen gibt, die Sie mit Ihrem Entwicklerteam klären müssen.
-
-## Methode 2: Self-Service-E-Mail-Einrichtung {#method-2-self-service-email-setup}
-
-Diese Methode richtet insgesamt eine Versand-Domain, eine Tracking-Domain und eine IP für ein Unternehmen ein. Wenn Sie mehr einrichten möchten, wenden Sie sich bitte an das Braze-Onboarding-Team (Methode 1).
-
-{% multi_lang_include alerts/early_access_beta_alert.md feature='This self-service email setup feature' type='beta' %}
-<br>Wenn Sie die Self-Service-E-Mail-Einrichtung nutzen, sollten Sie sich zusätzlich mit dem Braze-Onboarding-Team abstimmen.
+- Ihre gewählten Domains und Subdomains
+- Die ungefähre Anzahl der E-Mails, die Sie pro Monat versenden, um die benötigte Anzahl an IPs zu bestimmen
+- Wie Sie Ihre Versand-Domains Ihren zugewiesenen IP-Pools zuordnen möchten
 
 ### Voraussetzungen {#prerequisites}
 
-Um die Self-Service-E-Mail-Einrichtung zu nutzen, müssen Sie die folgenden Voraussetzungen erfüllen:
+Um die Self-Service-E-Mail-Einrichtung zu nutzen, stellen Sie sicher, dass Sie die folgenden Voraussetzungen erfüllen:
 
-1. Sie sind ein:e neue:r Kund:in im Onboarding.
-2. Sie verfügen über die Unternehmensberechtigung „Manage Company Settings“.
+- Sie sind ein:e neue:r Kund:in im Onboarding.
+- Sie verfügen über die Berechtigung „Edit Domain Settings“ auf Unternehmensebene.
 
-### 1. Schritt: Einrichtung starten {#step-1-begin-setup}
+### Schritt 1: Einrichtung starten {#step-1-begin-setup}
 
-1. Gehen Sie zu **Einstellungen** > **Admin-Einstellungen** unter **Unternehmenseinstellungen**.
-2. Wählen Sie dann den Tab **Senderüberprüfung** aus. Um diesen Tab anzuzeigen, benötigen Sie die Unternehmensberechtigung „Manage Company Settings“.
-3. Wählen Sie **Start setup** aus.
+1. Gehen Sie zu **Einstellungen** > **E-Mail-Self-Service** unter **Unternehmenseinstellungen**.
+2. Wählen Sie **Einrichtung starten** aus.
 
-### 2. Schritt: Versand-Domain hinzufügen und überprüfen {#step-2-add-and-verify-a-sending-domain}
+### Schritt 2: Versand-Domain hinzufügen und verifizieren {#step-2-add-and-verify-a-sending-domain}
 
-Eine Versand-Domain wird in der „Von“-Adresse beim E-Mail-Versand verwendet. Geben Sie eine Versand-Domain ein und klicken Sie auf **Senden**.
+Eine Versand-Domain wird in der „Von“-Adresse beim Versenden einer E-Mail verwendet.
 
-Fügen Sie anschließend die TXT- und CNAME-Einträge vom unteren Bereich der Seite bei Ihrem DNS-Anbieter hinzu. Kehren Sie dann zum Braze-Dashboard zurück und klicken Sie auf **Verify**.
+1. Geben Sie eine Versand-Domain ein und wählen Sie **Absenden** aus.
+2. Fügen Sie die TXT- und CNAME-Einträge am unteren Seitenrand bei Ihrem DNS-Anbieter hinzu.
 
-![E-Mail-Einrichtungsseite mit TXT- und CNAME-DNS-Einträgen zur Verifizierung einer Versand-Domain.]({% image_buster /assets/img_archive/email_setup_rdns_records.png %})
+![DNS-Einträge-Bereich mit TXT- und CNAME-Einträgen, die in Ihr Domain-Verwaltungssystem kopiert werden müssen.]({% image_buster /assets/img/email_setup/dns_records.png %})
 
-Falls die Verifizierung fehlschlägt und Sie der Meinung sind, dass Ihre DNS-Einträge korrekt sind, kontaktieren Sie den Braze-Support für Unterstützung.
+{: start="3"}
+3. Kehren Sie zum Braze-Dashboard zurück und wählen Sie **Verifizieren** aus.
+
+Bitten Sie Ihre Entwickler:innen, diese DNS-Einträge dort hinzuzufügen, wo sie benötigt werden. Ausführliche Erklärungen dazu, wie DNS-Einträge über die E-Mail-Anbieter von Braze funktionieren, einschließlich SPF, DKIM, DMARC und ESP-spezifischer Eintragsstrukturen, finden Sie unter [DNS-Einträge verstehen]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/understanding_dns_records).
+
+{% multi_lang_include channels/email/dns_records.md %}
+
+Wenn die Verifizierung fehlschlägt und Sie glauben, dass Ihre DNS-Einträge korrekt sind, wenden Sie sich an den Braze-Support.
 
 {% alert important %}
-Die Versand-Domain muss eine Subdomain einer Domain sein, die Ihnen gehört. Wenn Sie beispielsweise „example.com“ besitzen, könnte eine Subdomain „mail.example.com“ sein, sodass Sie die Absenderadresse „@mail.example.com“ verwenden können.
+Die Versand-Domain muss einer Domain untergeordnet sein, die Ihnen gehört. Wenn Sie beispielsweise „example.com“ besitzen, könnte eine Subdomain „mail.example.com“ sein, sodass Sie die Absenderadresse „@mail.example.com“ verwenden können.
 {% endalert %}
 
-### 3. Schritt: Tracking-Domain hinzufügen und überprüfen {#step-3-add-and-verify-a-tracking-domain}
+### Schritt 3: Tracking-Domain hinzufügen und verifizieren {#step-3-add-and-verify-a-tracking-domain}
 
-Eine Tracking-Domain wird verwendet, um Links in Ihren E-Mails für Klick-Tracking und Branding-Zwecke zu umschließen. Diese ist für Nutzer:innen sichtbar, wenn sie mit der Maus über Ihre E-Mail-Links fahren oder darauf klicken. Wir empfehlen, diese an Ihre Versand-Domain anzupassen.
+Eine Tracking-Domain wird verwendet, um Links in Ihren E-Mails für Klick-Tracking und Branding-Zwecke zu umschließen. Diese ist für Ihre Empfänger:innen sichtbar, wenn sie mit der Maus über Ihre E-Mail-Links fahren oder darauf klicken. Braze empfiehlt, diese mit Ihrer Versand-Domain abzugleichen.
 
-1. Geben Sie eine Tracking-Domain ein und wählen Sie **Senden** aus.
-2. Fügen Sie anschließend die CNAME-Einträge vom unteren Bereich der Seite bei Ihrem DNS-Anbieter hinzu.
-3. Kehren Sie dann zum Braze-Dashboard zurück und wählen Sie **Verify** aus.
+1. Geben Sie eine Tracking-Domain ein und wählen Sie **Absenden** aus.
+2. Fügen Sie die CNAME-Einträge am unteren Seitenrand bei Ihrem DNS-Anbieter hinzu.
+3. Kehren Sie zum Braze-Dashboard zurück und wählen Sie **Verifizieren** aus.
 
-### 4. Schritt: IP-Adresse hinzufügen {#step-4-add-an-ip-address}
+### Schritt 4: IP-Adresse hinzufügen {#step-4-add-an-ip-address}
 
-Braze generiert einen A-Eintrag, um Ihre IP-Adresse mit Ihrer Versand-Subdomain in einer Konfiguration namens Reverse DNS (rDNS) zu verknüpfen. Fügen Sie den A-Eintrag bei Ihrem DNS-Anbieter hinzu und klicken Sie dann auf **Set up rDNS**, um die Zustellbarkeit zu unterstützen.
+Braze generiert einen A-Eintrag, um Ihre IP-Adresse mit Ihrer Versand-Subdomain in einer Konfiguration namens Reverse DNS (rDNS) zu verknüpfen. Fügen Sie den A-Eintrag bei Ihrem DNS-Anbieter hinzu und wählen Sie dann **rDNS einrichten** aus, um die Zustellbarkeit zu unterstützen.
 
-Beachten Sie, dass zusätzliche Domains, die hinzugefügt wurden, nicht im Abschnitt **Senderüberprüfung** angezeigt werden. Um weitere Domains hinzuzufügen, kontaktieren Sie das Braze-Support-Team.
+Um Ihre IP-Adressen für einen IP-Pool hinzuzufügen oder zu bearbeiten, wenden Sie sich an den Braze-Support.
 
-### IP-Pools mit mehr als einer dedizierten IP {#ip-pools-with-more-than-one-dedicated-ip}
+#### IP-Pools mit mehr als einer dedizierten IP {#ip-pools-with-more-than-one-dedicated-ip}
 
-Wenn ein IP-Pool mehrere dedizierte IP-Adressen enthält, verteilen Braze und Ihr E-Mail-Anbieter große Sendungen auf diese IPs, um Kapazität und Zustellbarkeit zu optimieren. Die Verteilung ist ungefähr – nicht jede Nachricht in einer Campaign nutzt jede IP, und kleinere Sendungen können ungleichmäßig über die Adressen verteilt erscheinen. SendGrid verarbeitet E-Mails häufig in Blöcken (in der Größenordnung von etwa 1.500 Nachrichten pro Block), sodass das Volumen nicht immer in einem strikten Eins-zu-eins-Verhältnis auf die IPs aufgeteilt wird. Wenn Sie regelmäßig sehr hohe tägliche Volumina versenden, besprechen Sie die Pool-Dimensionierung mit Ihrem Braze-Onboarding- oder Kundenerfolgs-Kontakt.
+Wenn ein IP-Pool mehrere dedizierte IP-Adressen enthält, verteilen Braze und Ihr E-Mail-Anbieter große Sendungen auf diese IPs, um Kapazität und Zustellbarkeit zu optimieren. Die Verteilung ist näherungsweise – nicht jede Nachricht in einer Campaign nutzt jede IP, und kleinere Sendungen können ungleichmäßig auf die Adressen verteilt wirken. SendGrid verarbeitet E-Mails häufig in Blöcken (in der Größenordnung von etwa 1.500 Nachrichten pro Block), sodass sich das Volumen nicht immer in einem strikten Eins-zu-eins-Verhältnis auf die IPs aufteilt. Wenn Sie routinemäßig ein sehr hohes tägliches Volumen versenden, besprechen Sie die Pool-Dimensionierung mit Ihrem Braze-Onboarding- oder Customer-Success-Kontakt.
 
-### Nächste Schritte
+### Nächste Schritte {#next-steps}
 
-Nach Abschluss Ihrer Senderüberprüfung empfehlen wir IP-Warming, damit Ihre Nachrichten mit einer konstant hohen Rate in den Posteingängen ankommen. Nachdem Sie diese Einrichtung abgeschlossen haben, stimmen Sie sich auch mit dem Braze-Onboarding-Team ab, um zu bestätigen, dass Ihre Domains und Ihre [IP-Adresse]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming) funktionieren.
+Nachdem die Absenderverifizierung abgeschlossen ist, empfiehlt Braze IP-Warming, damit Ihre Nachrichten Ihre Zielpostfächer mit einer konstant hohen Rate erreichen.
+
+{% article_tiles %}
+- name: Automatisiertes IP-Warming
+  link: /docs/user_guide/channels/email/email_setup/ip_warming/automated_ip_warming
+- name: IP-Warming
+  link: /docs/user_guide/channels/email/email_setup/ip_warming
+{% endarticle_tiles %}
+
+Wenden Sie sich nach Abschluss dieser Einrichtung an das Braze-Onboarding-Team, um zu bestätigen, dass Ihre Domains und das IP-Warming ordnungsgemäß funktionieren.
+
+## Methode 2: Verifizierte Domains {#method-2-verified-domains}
+
+Mit verifizierten Domains können Sie Braze die Kontrolle über eine bestimmte Subdomain übertragen, um die E-Mail-Einrichtung und das HTTPS-Klick-Tracking zu automatisieren. Durch DNS-Domain-Delegation verwaltet Braze die DNS-Einträge, die für den E-Mail-Versand und das Klick-Tracking erforderlich sind. Wenn Ihre Subdomain beispielsweise „mail.example.com“ lautet, können Sie sie an Braze delegieren, um Ihre Versand- und Tracking-Domains einzurichten.
+
+{% alert important %}
+Verifizierte Domains unterstützen derzeit nur Amazon SES. Wenn Sie SendGrid oder SparkPost verwenden, ist dieses Feature nicht verfügbar.<br><br>Verifizierte Domains werden nur für E-Mail unterstützt. {% multi_lang_include product_feedback_cta.md context="gap" feature="verified domains for channels other than email" %}
+{% endalert %}
+
+### Einrichtung {#setup}
+
+#### Schritt 1: Abstimmung mit Braze {#step-1-coordinate-with-braze}
+
+Senden Sie die folgenden Informationen an Ihre Braze-Vertretung:
+
+- Ihre gewählten Domains und Subdomains
+- Wie Sie Ihre Domains Ihren IP-Pools zuordnen möchten
+- Die ungefähre Anzahl der E-Mails, die Sie pro Monat auf jeder Subdomain versenden möchten, um die benötigte Anzahl an IPs für Ihre IP-Pools zu bestimmen
+- Etwaige frühere Probleme mit der Zustellbarkeit, die berücksichtigt werden sollten
+
+#### Schritt 2: Braze konfiguriert die Informationen {#step-2-braze-configures-information}
+
+Nach Erhalt Ihrer E-Mail fügt Braze die erwartete Anzahl an IPs und IP-Pools hinzu. Nachdem die IP-Pools und IP-Adressen hinzugefügt wurden, folgen Sie den Schritten unter [Verifizierte Domains]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/verified_domains).

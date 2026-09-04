@@ -115,7 +115,7 @@ In addition to the ```aps``` library payload values, you may send custom key-val
 
 ![Screenshot related to custom key-value pairs.]({% image_buster /assets/img_archive/keyvalue_enterpairs.png %})
 
-Use cases for custom key-value pairs include but are not limited to internal metrics keeping and setting the context for the user interface. Braze allows you to send additional key-value pairs along with a push notification to be used through your application within the [extras key]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/customization/advanced_settings#extracting-data-from-push-key-value-pairs). If you prefer to use another key, confirm that your app can handle this custom key.
+Use cases for custom key-value pairs include but are not limited to internal metrics keeping and setting the context for the user interface. Braze allows you to send additional key-value pairs along with a push notification to be used through your application within the [extras key]({{site.baseurl}}/developer_guide/push_notifications/customization?sdktab=swift#swift_settings). If you prefer to use another key, confirm that your app can handle this custom key.
 
 {% alert warning %}
 You should avoid handling a top-level key or dictionary called ab in your application.
@@ -151,7 +151,7 @@ Braze allows you to send custom-defined string key-value pairs, known as `extras
 
 ##### FCM messaging options
 
-Android push notifications can be further customized with FCM message options. These include [notification priority]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/customization/advanced_settings#notification-priority), [sound]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/customization/advanced_settings#sounds), delay, lifespan, and collapsibility. These values can be specified in the **Settings** tab when creating a push message. Refer to [Advanced push notification settings]({{site.baseurl}}/developer_guide/push_notifications/customization?sdktab=android#android_settings) for further instructions on how to set these options in the Braze message composer.
+Android push notifications can be further customized with FCM message options. These include [notification priority]({{site.baseurl}}/developer_guide/push_notifications/customization?sdktab=android#android_settings), [sound]({{site.baseurl}}/developer_guide/push_notifications/customization?sdktab=android#android_settings), delay, lifespan, and collapsibility. These values can be specified in the **Settings** tab when creating a push message. Refer to [Advanced push notification settings]({{site.baseurl}}/developer_guide/push_notifications/customization?sdktab=android#android_settings) for further instructions on how to set these options in the Braze message composer.
 
 ![Screenshot related to fcm messaging options.]({% image_buster /assets/img_archive/keyvalue_androidkeys.png %})
 
@@ -159,7 +159,7 @@ Android push notifications can be further customized with FCM message options. T
 
 A silent push notification is a push notification containing no alert message or sound, used to update your app's interface or content in the background. These notifications make use of key-value pairs to trigger these background app actions. Silent push notifications also power our [uninstall tracking]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking).
 
-Marketers should test that silent push notifications trigger expected behavior before sending them to their app's users. After you compose your [iOS]({{site.baseurl}}/developer_guide/push_notifications/silent?sdktab=swift) or [Android]({{site.baseurl}}/developer_guide/push_notifications/silent?sdktab=android) silent push notification, ensure that you only target a test user by filtering on [external user ID]({{site.baseurl}}/developer_guide/rest_api/messaging#external-user-id) or [email address]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment).
+Marketers should test that silent push notifications trigger expected behavior before sending them to their app's users. After you compose your [iOS]({{site.baseurl}}/developer_guide/push_notifications/silent?sdktab=swift) or [Android]({{site.baseurl}}/developer_guide/push_notifications/silent?sdktab=android) silent push notification, ensure that you only target a test user by filtering on [external user ID]({{site.baseurl}}/api/endpoints/messaging#external-user-id) or [email address]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment).
 
 Upon campaign launch, you should check that you have not received any visible push notification on your test device.
 
@@ -176,12 +176,16 @@ This is an Apple platform limitation rather than a Braze issue. iOS may delay or
 
 ## In-app messages
 
-You can add a key-value pair to an in-app message in the [traditional editor]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional) by selecting the **Settings** tab, selecting **Add New Pair**, and then specifying your key-value pairs.
+Add key-value pairs to in-app messages you build with the [traditional editor]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional).
+
+1. In your campaign or Canvas, create or edit an in-app message and select the traditional editor (not drag-and-drop).
+2. In the message composer, select the **Settings** tab.
+3. In **Key value pairs**, select **Add new pair**.
+4. Enter a key and value for each pair. To add another pair, select **Add new pair** again.
 
 {% alert note %}
-Key-value pairs cannot be set through the drag-and-drop editor for in-app messages.
+Key-value pairs aren't available in the drag-and-drop editor for in-app messages. Use the traditional editor to add them.
 {% endalert %}
-![Screenshot related to in-app messages.]({% image_buster /assets/img_archive/keyvalue_iam.png %})
 
 ### API-triggered campaigns
 
@@ -202,5 +206,9 @@ Bounced emails will not deliver key-value pairs to SparkPost or SendGrid.
 To add a key-value pair to a Content Card, go to the **Settings** tab in the Braze message composer and select **Add New Pair**.
 
 ![Add key-value pair to Content Card]({% image_buster /assets/img_archive/kvp_content_cards.png %}){: style="max-width:70%;"}
+
+{% alert note %}
+Control variants do not support key-value pairs. If you need to capture analytics for control groups in A/B tests, create a message variant with a key-value pair such as `control=true` and hide it in your app code while logging impressions.
+{% endalert %}
 
 

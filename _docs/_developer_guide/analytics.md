@@ -144,6 +144,10 @@ abUser.addToCustomAttributeArray('favorite_foods', 'ice cream'); // => ['pasta',
 
 The default and maximum number of elements in an array is 500. You can update the maximum number of arrays in the Braze dashboard, under **Data Settings** > **Custom Attributes**. Arrays exceeding the maximum number of elements are truncated to contain the maximum number of elements.
 
+{% alert note %}
+If an array custom attribute appears on a user profile but shows no values, check the attribute's **Max Length** in **Data Settings** > **Custom Attributes**. A **Max Length** of `0` prevents values from displaying on the profile. For troubleshooting steps, see [Custom attribute data types]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#arrays).
+{% endalert %}
+
 The following table describes available segmentation options for array attributes.
 
 | Segmentation Options | Dropdown Filter | Input Options |
@@ -188,7 +192,7 @@ The following table describes available segmentation options for time attributes
 Numeric attributes have a wide variety of use cases. Incrementing number custom attributes are useful for storing the number of times a given action or event has occurred. Standard numbers have all sorts of usages, such as recording shoe size, waist size, or the number of times a user has viewed a certain product feature or category.
 
 {% alert note %}
-Money spent should not be recorded by this method. Rather it should be recorded via our [purchase methods]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview#purchase-events--revenue-tracking).
+Money spent should not be recorded by this method. Rather it should be recorded via our [purchase methods]({{site.baseurl}}/developer_guide/analytics#purchase-events--revenue-tracking).
 {% endalert %}
 
 The following table describes available segmentation options for numeric attributes.

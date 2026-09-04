@@ -32,20 +32,18 @@ Ce type de message est disponible dans l'[éditeur par glisser-déposer]({{site.
 
 ## Images {#images}
 
-Les messages in-app plein écran remplissent toute la hauteur de l'appareil et sont recadrés horizontalement (côtés gauche et droit) si nécessaire. Les messages plein écran avec image et texte remplissent 50 % de la hauteur de l'appareil. Tous les messages in-app plein écran remplissent la barre d'état sur les appareils à encoche.
+Les messages in-app en plein écran remplissent toute la hauteur de l'appareil et sont recadrés horizontalement (côtés gauche et droit) si nécessaire. Les messages plein écran avec image et texte remplissent 50 % de la hauteur de l'appareil. Tous les messages in-app en plein écran remplissent la barre d'état sur les appareils à encoche.
 
-- Toutes les images doivent peser moins de 5&nbsp;Mo.
-- Nous acceptons uniquement les formats PNG, JPEG et [GIF]({{site.baseurl}}/developer_guide/platform_integration_guides/android/in-app_messaging/customization/gifs#gifs).
-- Nous recommandons que vos images pèsent 500&nbsp;Ko.
+{% multi_lang_include in-app_messages/image_requirements.md %}
 
-{% alert tip %} Créez vos ressources en toute confiance ! Nos modèles d'images pour messages in-app et nos superpositions de zones sûres sont conçus pour s'adapter parfaitement aux appareils de toutes tailles. [Télécharger le ZIP des modèles de conception]({% image_buster /assets/download_file/Braze-In-App-Message-Design-Templates.zip %}) {% endalert %}
+{% alert tip %} Créez vos ressources en toute confiance ! Nos modèles d'images pour messages in-app et nos superpositions de zones sûres sont conçus pour s'adapter parfaitement aux appareils de toutes tailles. [Télécharger les modèles de design (ZIP)]({% image_buster /assets/download_file/Braze-In-App-Message-Design-Templates.zip %}) {% endalert %}
 
 ### Portrait {#portrait}
 
 | Disposition | Taille de la ressource | Notes |
 |--- | --- | --- |
 | Image et texte | Rapport hauteur/largeur 6:5<br> Haute résolution 1200 x 1000&nbsp;px<br> Minimum 600 x 500&nbsp;px | Un recadrage peut se produire sur tous les côtés, mais l'image remplira toujours les 50 % supérieurs de la zone d'affichage |
-| Image uniquement | Rapport hauteur/largeur 3:5<br> Haute résolution 1200 x 2000&nbsp;px<br> Minimum 600 x 1000&nbsp;px | Un recadrage peut se produire sur les bords gauche et droit sur les appareils plus grands |
+| Image uniquement | Rapport hauteur/largeur 3:5<br> Haute résolution 1200 x 2000&nbsp;px<br> Minimum 600 x 1000&nbsp;px | Un recadrage peut se produire sur le côté principal et les bords droits sur les appareils plus grands |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Portrait" }
 
 ### Paysage {#landscape}
@@ -53,28 +51,30 @@ Les messages in-app plein écran remplissent toute la hauteur de l'appareil et s
 | Disposition | Taille de la ressource | Notes |
 |--- | --- | --- |
 | Image et texte | Rapport hauteur/largeur 10:3<br> Haute résolution 2000 x 600px<br> Minimum 1000 x 300&nbsp;px | Un recadrage peut se produire sur tous les côtés, mais l'image remplira toujours les 50 % supérieurs de la zone d'affichage |
-| Image uniquement | Rapport hauteur/largeur 5:3<br> Haute résolution 2000 x 1200px<br> Minimum 1000 x 600&nbsp;px | Un recadrage peut se produire sur les bords gauche et droit sur les appareils plus grands |
+| Image uniquement | Rapport hauteur/largeur 5:3<br> Haute résolution 2000 x 1200px<br> Minimum 1000 x 600&nbsp;px | Un recadrage peut se produire sur le côté principal et les bords droits sur les appareils plus grands |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paysage" }
 
 ### Zone sûre de l'image {#image-safe-zone}
 
-Lors de la prévisualisation d'un message in-app plein écran dans la plateforme Braze, vous pouvez activer la zone sûre de l'image pour visualiser la partie du message qui ne sera pas recadrée lors de l'affichage sur différents appareils. En plus de tester la zone sûre de l'image dans le volet de prévisualisation, nous vous recommandons de toujours [tester votre message]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message).
+Lors de la prévisualisation d'un message in-app en plein écran dans la plateforme Braze, vous pouvez activer la zone sûre de l'image pour protéger une zone du message contre le recadrage lors de l'affichage sur différents appareils. La zone sûre n'affecte que l'image ; le bouton de fermeture est toujours visible pour les utilisateurs, même s'il apparaît en dehors de la zone sûre dans la prévisualisation.
 
-![Prévisualisation d'un message in-app dans Braze avec l'option « Afficher la zone sûre de l'image » activée. La zone sûre de l'image est une superposition sur l'image qui indique quelles parties de l'image ne seront pas recadrées.]({% image_buster /assets/img/image-safe-zone-full-screen-in-app-message.png %})
+En plus de tester la zone sûre de l'image dans le volet de prévisualisation, nous vous recommandons toujours de [tester votre message]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message).
+
+![Prévisualisation d'un message in-app dans Braze avec l'option « Afficher la zone sûre de l'image » activée. La zone sûre de l'image est une superposition sur l'image qui indique quelles parties de l'image sont protégées contre le recadrage.]({% image_buster /assets/img/image-safe-zone-full-screen-in-app-message.png %})
 
 ## Écrans plus grands {#larger-screens}
 
-Sur une tablette ou un navigateur de bureau, un message in-app plein écran s'affiche au centre de l'écran de l'application, comme illustré dans la capture d'écran suivante.
+Sur une tablette ou un navigateur de bureau, un message in-app plein écran se positionne au centre de l'écran de l'application, comme illustré dans la capture d'écran suivante.
 
 {% tabs %}
 {% tab Portrait %}
 
-![Message in-app plein écran tel qu'il apparaîtrait sur un grand écran en orientation portrait. Le message s'affiche sous forme de grande fenêtre modale centrée à l'écran.]({% image_buster /assets/img/full-screen-large-viewport.png %}){: style="border:none;display:block;margin-left:auto;margin-right:auto"}
+![Message in-app plein écran tel qu'il apparaîtrait sur un grand écran en orientation portrait. Le message s'affiche sous forme d'une grande fenêtre modale positionnée au centre de l'écran.]({% image_buster /assets/img/full-screen-large-viewport.png %}){: style="border:none;display:block;margin-left:auto;margin-right:auto"}
 
 {% endtab %}
 {% tab Paysage %}
 
-![Message in-app plein écran tel qu'il apparaîtrait sur un grand écran en orientation paysage. Le message s'affiche sous forme de grande fenêtre modale centrée à l'écran.]({% image_buster /assets/img/full-screen-large-viewport-landscape.png %}){: style="max-width:80%;border:none;display:block;margin-left:auto;margin-right:auto"}
+![Message in-app plein écran tel qu'il apparaîtrait sur un grand écran en orientation paysage. Le message s'affiche sous forme d'une grande fenêtre modale positionnée au centre de l'écran.]({% image_buster /assets/img/full-screen-large-viewport-landscape.png %}){: style="max-width:80%;border:none;display:block;margin-left:auto;margin-right:auto"}
 
 {% endtab %}
 {% endtabs %}

@@ -147,7 +147,7 @@ BrazeDeeplinkHandler.setBrazeDeeplinkHandler(object : IBrazeDeeplinkHandler {
 Quando a Braze abre deep links de sites dentro do app, eles são tratados pela [`BrazeWebViewActivity`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui/-braze-web-view-activity/index.html).
 
 {% alert note %}
-Para mensagens no app personalizadas em HTML, links configurados com `target="_blank"` abrem no navegador web padrão do dispositivo e não são tratados pela `BrazeWebViewActivity`.
+Para mensagens no app personalizadas em HTML, links configurados com `target="_blank"` abrem no navegador de internet padrão do dispositivo e não são tratados pela `BrazeWebViewActivity`.
 {% endalert %}
 
 Para mudar isso:
@@ -190,7 +190,7 @@ Braze.configure(this, brazeConfig)
 Se os deep links de notificações por push não estiverem funcionando no Android, tente os seguintes passos:
 
 1. **Teste o deep link fora da Braze.** Abra a URL do deep link a partir de outro app, como e-mail ou navegador. Se ele não abrir seu app, o deep link pode não estar configurado corretamente no seu `AndroidManifest.xml`. Para saber mais, consulte a documentação do Android sobre [Criar deep links](https://developer.android.com/training/app-links/deep-linking).
-2. **Verifique se o tratamento automático de deep links está ativado.** Confirme que `com_braze_handle_push_deep_links_automatically` está definido como `true` no `braze.xml`, ou defina essa opção por meio da [configuração em tempo de execução]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android). Sem essa configuração, a Braze não abre automaticamente seu app e o destino do deep link quando alguém toca em uma notificação por push.
+2. **Verifique se o tratamento automático de deep links está ativado.** Confirme que `com_braze_handle_push_deep_links_automatically` está definido como `true` no `braze.xml`, ou defina essa opção por meio da [configuração em tempo de execução]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#runtime-configuration). Sem essa configuração, a Braze não abre automaticamente seu app e o destino do deep link quando alguém toca em uma notificação por push.
 3. **Verifique o delegado do seu deep link handler.** Se você definiu um `IBrazeDeeplinkHandler` personalizado, confirme que sua implementação de `gotoUri` trata a URI e não a descarta.
 4. **Teste em diferentes canais.** Se o mesmo deep link funciona em uma mensagem no app, mas não a partir de push, o problema provavelmente está no tratamento do deep link de push, e não no deep link em si.
 

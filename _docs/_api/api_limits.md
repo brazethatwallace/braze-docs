@@ -1,10 +1,9 @@
 ---
 nav_title: Rate limits
-article_title: API Rate Limits
+article_title: "Rate limits"
 page_order: 4.5
 description: "This reference article covers API rate limits for the Braze API infrastructure."
 page_type: reference
-
 ---
 
 # Rate limits
@@ -25,7 +24,7 @@ Refer to the following for the default API rate limits of different request type
 
 | Request Type                                                                                                                                                                                                                                           | Default API Rate Limit                                                                                                                                                                                                                                                                                                                                                                    |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)                                                                                                                                                                                                                                   | **Requests:** 3,000 requests per three seconds.<br><br>**Batching:** Up to 75 total objects combined across `attributes`, `events`, and `purchases` per API request. Customers on legacy rate limits can include up to 75 objects per array independently. For more information, reference [Batching User Track requests](#batch-user-track).<br><br>**Limits for Monthly Active Users CY 24-25, Universal MAU, Web MAU, and Mobile MAU:** see [guidance on limits here]({{site.baseurl}}/api/endpoints/user_data/post_user_track#monthly-active-users-cy-24-25). |
+| [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)                                                                                                                                                                                                                                   | **Requests:** Rate limits vary depending on your contract. For customers with data points in their pricing, Braze applies a burst limit of 3,000 requests per three seconds. For all other customers, limits are configured according to your contract terms. Contact Braze Support or your customer success manager for questions about your limits.<br><br>**Batching:** Up to 75 total objects combined across `attributes`, `events`, and `purchases` per API request. Customers on legacy rate limits can include up to 75 objects per array independently. For more information, see [Batching User Track requests](#batch-user-track).<br><br>**Limits for Monthly Active Users CY 24-25, Universal MAU, Web MAU, and Mobile MAU:** See [Monthly Active Users CY 24-25 limits]({{site.baseurl}}/api/endpoints/user_data/post_user_track#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau). |
 | [`/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier)                                                                                                                                                                                                                              | **If you onboarded on or after August 22, 2024:** 250 requests per minute. <br><br> **If you onboarded before August 22, 2024:** 2,500 requests per minute.                                                                                                                                                                                                                               |
 | [`/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete)<br>[`/users/alias/new`]({{site.baseurl}}/api/endpoints/user_data/post_user_alias)<br>[`/users/alias/update`]({{site.baseurl}}/api/endpoints/user_data/post_users_alias_update)<br>[`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)<br>[`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge)                                                                                                                    | 20,000 requests per minute, shared between the endpoints.                                                                                                                                                                                                                                                                                                                                 |
 | [`/users/external_id/rename`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_rename)                                                                                                                                                                                                                      | 1,000 requests per minute.                                                                                                                                                                                                                                                                                                                                                                |
@@ -131,7 +130,7 @@ Braze APIs are built to support batching. With batching, Braze can take in as mu
 REST API rate limit increases are considered based on need for customers who are making use of the API batching capabilities.
 {% endalert %}
 
-### Batching requests for Track users endpoint {#batch-user-track}
+### Batching requests for the Create and update users endpoint {#batch-user-track}
 
 Each `/users/track` request can contain up to 75 total objects combined across `attributes`, `events`, and `purchases`. Each object can update one user. A single user profile can be updated by multiple objects.
 
@@ -141,7 +140,7 @@ For customers on legacy rate limits, each array (`attributes`, `events`, and `pu
 
 For more information about `/users/track` rate limits, see [POST: Create and update users]({{site.baseurl}}/api/endpoints/user_data/post_user_track).
 
-Requests made to this endpoint will generally begin processing in this order:
+Requests made to this endpoint generally begin processing in this order:
 
 1. Attributes
 2. Events
@@ -196,7 +195,7 @@ This information is intentionally included in the header of the response to the 
 HTTP headers will be returned in all lowercase characters. This behavior aligns with the HTTP/2 protocol that mandates all header field names must be lowercase. This differs from HTTP/1.X where header names were case-insensitive but were commonly written in various capitalizations.
 {% endalert %}
 
-If you have questions about API limits, contact your customer success manager or open a [support ticket]({{site.baseurl}}/braze_support).
+If you have questions about API limits, contact your customer success manager or open a [support ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 
 {% alert tip %}
 You can use the [API usage dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/api_usage) to view and compare incoming traffic against your rate limits.

@@ -6,7 +6,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "この記事では、利用可能なContent Blocksの一覧を取得するBrazeエンドポイントの詳細について説明します。"
-
 ---
 {% api %}
 # 利用可能なContent Blocksの一覧 {#list-available-content-blocks}
@@ -19,7 +18,7 @@ description: "この記事では、利用可能なContent Blocksの一覧を取�
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#6d87048f-68fd-46c9-aa15-3a970e99540e {% endapiref %}
 
 ## 前提条件 {#prerequisites}
-このエンドポイントを使用するには、`content_blocks.list` 権限を持つ[APIキー]({{site.baseurl}}/api/api_key)が必要です。
+このエンドポイントを使用するには、`content_blocks.list` 権限を持つ[APIキー]({{site.baseurl}}/api/basics)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -41,7 +40,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/content_blocks/list
 --header 'Authorization: Bearer YOUR-API-KEY-HERE'
 ```
 
-## 応答 {#response}
+## レスポンス {#response}
 
 ```json
 {
@@ -63,18 +62,18 @@ curl --location --request GET 'https://rest.iad-01.braze.com/content_blocks/list
 
 ## トラブルシューティング {#troubleshooting}
 
-次の表に、返される可能性のあるエラーと、関連するトラブルシューティング手順を示します。
+次の表に、返される可能性のあるエラーと、関連するトラブルシューティングステップを示します。
 
 | エラー | トラブルシューティング |
 | --- | --- |
 | `Modified after time is invalid` | 指定された日付は有効または解析可能な日付ではありません。この値をISO 8601形式（`yyyy-mm-ddThh:mm:ss.ffffff`）の文字列に再フォーマットしてください。 |
 | `Modified before time is invalid` | 指定された日付は有効または解析可能な日付ではありません。この値をISO 8601形式（`yyyy-mm-ddThh:mm:ss.ffffff`）の文字列に再フォーマットしてください。 |
-| `Modified after time must be earlier than or the same as modified before time.` | `modified_after` の値を `modified_before` の時刻より前の時刻に変更してください。 |
-| `Content Block number limit is invalid` | `limit` パラメーターは0より大きい整数（正の数値）でなければなりません。 |
-| `Content Block number limit must be greater than 0` | `limit` パラメーターを0より大きい整数に変更してください。 |
-| `Content Block number limit exceeds maximum of 1000` | `limit` パラメーターを1000未満の整数に変更してください。 |
-| `Offset is invalid` | `offset` パラメーターは0より大きい整数でなければなりません。 |
-| `Offset must be greater than 0` | `offset` パラメーターを0より大きい整数に変更してください。 |
+| `Modified after time must be earlier than or the same as modified before time.` | `modified_after`の値を`modified_before`の時刻より前の時刻に変更してください。 |
+| `Content Block number limit is invalid` | `limit`パラメーターは0より大きい整数（正の数値）でなければなりません。 |
+| `Content Block number limit must be greater than 0` | `limit`パラメーターを0より大きい整数に変更してください。 |
+| `Content Block number limit exceeds maximum of 1000` | `limit`パラメーターを1000未満の整数に変更してください。 |
+| `Offset is invalid` | `offset`パラメーターは0より大きい整数でなければなりません。 |
+| `Offset must be greater than 0` | `offset`パラメーターを0より大きい整数に変更してください。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="トラブルシューティング" }
 
 {% endapi %}

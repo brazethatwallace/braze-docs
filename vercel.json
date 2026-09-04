@@ -1,5 +1,6 @@
 {
 	"trailingSlash": false,
+	"bulkRedirectsPath": "assets/redirects/bulk-redirects.json",
 	"redirects": [
 		{
 			"source": "/unlisted_docs/assets/:path*",

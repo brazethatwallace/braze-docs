@@ -44,12 +44,12 @@ Ya no puedes crear ni duplicar Canvas con el editor original. Esta sección est�
 Las propiedades del evento se refieren a las propiedades que estableces para los eventos personalizados y las compras. Estas `event_properties` se pueden utilizar en Campaigns con entrega basada en acciones y en Canvas.
 
 {% alert important %}
-No puedes utilizar `event_properties` en el primer paso de mensaje de tu Canvas. En su lugar, debes utilizar `context` o añadir un paso de Rutas de acción con el evento correspondiente **antes** del paso de mensaje que incluye `event_properties`.
+No puedes utilizar `event_properties` en el primer paso de mensaje de tu Canvas. En su lugar, debes utilizar `context` o añadir un paso de Rutas de Acción con el evento correspondiente **antes** del paso de mensaje que incluye `event_properties`.
 {% endalert %}
 
-En Canvas, las propiedades de eventos personalizados y de eventos de compra se pueden utilizar en Liquid en cualquier paso de mensaje que siga a un paso de Rutas de acción. Asegúrate de utilizar {% raw %} ``{{event_properties.${property_name}}}``{% endraw %} si haces referencia a estas propiedades del evento. Estos eventos deben ser eventos personalizados o eventos de compra para poder utilizarse de esta forma en el componente de mensaje.
+En Canvas, las propiedades de eventos personalizados y de eventos de compra se pueden utilizar en Liquid en cualquier paso de mensaje que siga a un paso de Rutas de Acción. Asegúrate de utilizar {% raw %} ``{{event_properties.${property_name}}}``{% endraw %} si haces referencia a estas propiedades del evento. Estos eventos deben ser eventos personalizados o eventos de compra para poder utilizarse de esta forma en el componente de mensaje.
 
-En el primer paso de mensaje que sigue a una ruta de acción, puedes utilizar las propiedades del evento relacionadas con el evento al que se hace referencia en esa ruta de acción. Sin embargo, estas propiedades del evento solo se pueden utilizar si el usuario realmente realizó la acción (y no fue clasificado en el grupo El resto). Puedes tener otros pasos (que no sean otro paso de Rutas de acción o de mensaje) entre esta ruta de acción y el paso de mensaje.
+En el primer paso de mensaje que sigue a una Ruta de Acción, puedes utilizar las propiedades del evento relacionadas con el evento al que se hace referencia en esa Ruta de Acción. Sin embargo, estas propiedades del evento solo se pueden utilizar si el usuario realmente realizó la acción (y no fue clasificado en el grupo El resto). Puedes tener otros pasos (que no sean otro paso de Rutas de Acción o de mensaje) entre esta Ruta de Acción y el paso de mensaje.
 
 {% details Ampliar para el editor de Canvas original %}
 
@@ -60,4 +60,4 @@ Ya no puedes crear ni duplicar Canvas con el editor original. Esta sección est�
 {% endtab %}
 {% endtabs %}
 
-Consulta [Propiedades de entrada de Canvas y propiedades del evento]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/canvas_entry_properties_event_properties) para obtener más información y ejemplos.
+Consulta [Propiedades de entrada de Canvas y propiedades del evento]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) para obtener más información y ejemplos.

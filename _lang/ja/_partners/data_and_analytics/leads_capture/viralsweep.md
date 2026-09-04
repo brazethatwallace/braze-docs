@@ -23,8 +23,8 @@ BrazeとViralSweepの統合により、ViralSweepプラットフォームで懸�
 | 必要条件 | 説明 |
 | ----------- | ----------- |
 | ViralSweepアカウント | このパートナーシップを活用するには、ビジネスプランを利用しているViralSweepアカウントが必要です。 |
-| Braze REST APIキー | すべてのユーザーデータおよびメール権限を持つBraze REST APIキー。<br><br>これは、Brazeダッシュボードの**Settings** > **API Keys**から作成できます。 |
-| Braze RESTエンドポイント | RESTエンドポイントのURL。エンドポイントは、[インスタンス]({{site.baseurl}}/api/basics/#endpoints)のBraze URLによって異なります。 |
+| Braze REST APIキー | すべてのユーザーデータおよびメール権限を持つBraze REST APIキー。<br><br>これは、Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
+| Braze RESTエンドポイント | RESTエンドポイントのURL。エンドポイントは、[インスタンス]({{site.baseurl}}/api/basics#endpoints)のBraze URLによって異なります。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 統合 {#integration}
@@ -33,9 +33,9 @@ BrazeとViralSweepの統合により、ViralSweepプラットフォームで懸�
 
 ViralSweepで、**Integrations > Email & SMS > Add Service**に移動し、**Braze**を選択します。
 
-![ViralSweepでBrazeサービスを接続する手順を示すアニメーション]({% image_buster /assets/img/viralsweep/connect.gif %})
+![ViralSweepの統合ページで、メール・SMSサービスの一覧からBrazeが選択されている画面。]({% image_buster /assets/img/viralsweep/connect.gif %})
 
-### ステップ2：Braze認証情報を追加する {#step-2-add-braze-credentials}
+### ステップ2：Brazeの認証情報を追加する {#step-2-add-braze-credentials}
 
 統合設定ウィンドウで、Braze REST APIキーとRESTエンドポイントを入力します。指定するエンドポイントに`https://`が含まれていないことを確認してください（例：`dashboard-03.braze.com`）。
 
@@ -43,7 +43,7 @@ ViralSweepで、**Integrations > Email & SMS > Add Service**に移動し、**Bra
 
 **Connect**をクリックします。
 
-### ステップ3：Braze認証情報を追加する {#step-3-add-braze-credentials}
+### ステップ3：接続を確認する {#step-3-add-braze-credentials}
 接続が完了しました。プロモーションがBrazeに接続され、ViralSweepによって収集されたすべてのエントリが自動的にBrazeに送信されます。
 
 ## よくある質問 {#frequently-asked-questions}

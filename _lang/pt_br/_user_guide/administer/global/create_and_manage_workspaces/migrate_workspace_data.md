@@ -10,7 +10,7 @@ description: "Saiba como os dados do espaço de trabalho são isolados, o que a 
 
 > Os espaços de trabalho mantêm seus dados da Braze separados. Esta página explica como esse isolamento afeta a migração, o que você pode mover com recursos do produto e APIs, e o que precisa ser recriado ou tratado fora da Braze. A migração geralmente é um esforço multifuncional — não apenas uma tarefa de administrador da empresa. Os administradores costumam ser responsáveis pela configuração do espaço de trabalho e dos canais; os desenvolvedores cuidam das alterações no SDK e na API; os profissionais de marketing recriam segmentos e copiam o conteúdo das mensagens. Cada etapa exige as [permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) relevantes nos espaços de trabalho de origem e destino.
 
-Tudo o que você armazena na Braze — perfis de usuários, segmentos, conteúdo de mensagens e histórico de engajamento — fica dentro de um espaço de trabalho. Um segmento, uma Campaign ou um Canvas não consegue ler ou direcionar dados de outro espaço de trabalho. Os usuários do dashboard frequentemente usam vários espaços de trabalho no mesmo dashboard da empresa para staging e produção, para marcas diferentes ou para divisões regionais. Essa configuração oferece isolamento, mas também significa que não existe uma ação única no dashboard que mova todos os dados de um espaço de trabalho para outro espaço de trabalho ou outra instância da Braze.
+Tudo o que você armazena na Braze — perfis de usuários, segmentos, conteúdo de mensagens e histórico de engajamento — fica dentro de um espaço de trabalho. Um Segment, uma Campaign ou um Canvas não consegue ler ou direcionar dados de outro espaço de trabalho. Os usuários do dashboard frequentemente usam vários espaços de trabalho no mesmo dashboard da empresa para staging e produção, para marcas diferentes ou para divisões regionais. Essa configuração oferece isolamento, mas também significa que não existe uma ação única no dashboard que mova todos os dados de um espaço de trabalho para outro espaço de trabalho ou outra instância da Braze.
 
 Para contexto de planejamento, consulte [Primeiros passos: Espaços de trabalho]({{site.baseurl}}/user_guide/get_started/workspaces) e [Criar e gerenciar espaços de trabalho]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces).
 
@@ -22,7 +22,7 @@ Os itens a seguir não são migrados em massa quando você aponta SDKs ou APIs p
 | --- | --- |
 | **Perfis de usuários** | Os perfis não são transferidos como um pacote. Recrie ou importe os usuários no espaço de trabalho de destino (consulte [Dados do perfil de usuário](#user-profile-data)). |
 | **Segmentos e filtros** | As definições de segmentos permanecem no espaço de trabalho de origem. Recrie os segmentos no espaço de trabalho de destino usando a mesma lógica sempre que possível. |
-| **Histórico de mensagens** | O histórico de recebimento de Campaigns e Canvas em um perfil está vinculado ao espaço de trabalho de origem. Ele não aparece em um novo perfil em outro espaço de trabalho, a menos que você modele isso por conta própria (por exemplo, via atributos personalizados), conforme observado nas [Perguntas frequentes sobre integração da Braze]({{site.baseurl}}/user_guide/onboarding_faq). |
+| **Histórico de mensagens** | O histórico de recebimento de Campaigns e Canvas em um perfil está vinculado ao espaço de trabalho de origem. Ele não aparece em um novo perfil em outro espaço de trabalho, a menos que você modele isso por conta própria (por exemplo, via atributos personalizados), conforme observado nas [Perguntas frequentes sobre integração da Braze]({{site.baseurl}}/onboarding_faq). |
 | **Configuração específica do canal** | Domínios de envio, inscrições de SMS, números de WhatsApp e configurações semelhantes são limitados ao espaço de trabalho. Reconfigure-os no espaço de trabalho de destino quando aplicável. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="O que a Braze não migra automaticamente entre espaços de trabalho" }
 
@@ -81,7 +81,7 @@ Os campos de atribuição de integrações com parceiros (os campos `attributed_
 
 ### Tokens por push {#push-tokens}
 
-Quando os usuários já possuem tokens por push de um provedor anterior ou versão do app, você pode importar tokens para apps móveis por meio da API ou contar com o SDK após a integração. Tokens por push para web têm limitações na API. Para detalhes completos e exemplos, consulte [Migrar tokens por push]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens).
+Quando os usuários já possuem tokens por push de um provedor anterior ou versão do app, você pode importar tokens para apps móveis por meio da API ou contar com o SDK após a integração. Tokens por push para web têm limitações na API. Para detalhes completos e exemplos, consulte [Migrar tokens por push]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens).
 
 ### WhatsApp
 

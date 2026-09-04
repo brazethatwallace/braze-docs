@@ -20,7 +20,7 @@ description: "Dieser Artikel beschreibt den Braze-Endpunkt zum Exportieren der C
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `canvas.data_summary`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `canvas.data_summary`.
 
 ## Rate-Limit
 
@@ -40,7 +40,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 {% alert important %}
-Canvas-Analytics werden täglich in der für Ihr Unternehmen in Braze konfigurierten Zeitzone aggregiert (dieselbe Zeitzone, die das Dashboard verwendet). Die API normalisiert `starting_at` und `ending_at` auf Mitternacht in dieser Zeitzone.
+Canvas-Analytics werden täglich in der für Ihr Unternehmen in Braze konfigurierten Zeitzone aggregiert (dieselbe Zeitzone, die das Dashboard verwendet). Die API normalisiert `starting_at` und `ending_at` auf Mitternacht in dieser Zeitzone. Stellen Sie sicher, dass Ihre Zeitstempel mit der Zeitzone Ihres Unternehmens übereinstimmen, damit Ihre Statistiken mit dem Dashboard übereinstimmen. Wenn die Zeitzone Ihres Unternehmens beispielsweise UTC+2 ist, sollte der Zeitstempel 0:00 Uhr UTC+2 sein.
 {% endalert %}
 
 ## Beispielanfrage {#example-request}
@@ -54,8 +54,22 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_summ
 
 ## Antwort {#response}
 
+### Konversions-Event-Felder {#conversion-event-fields}
+
+Die Antwort enthält ein Paar von Konversionsfeldern für jedes im Canvas konfigurierte Konversions-Event. Das primäre Konversions-Event verwendet `conversions` und `conversions_by_entry_time`. Jedes weitere Event verwendet denselben Basisnamen mit einem numerischen Suffix, das bei `1` für das zweite Event beginnt und für jedes weitere Event um eins erhöht wird.
+
+| Reihenfolge der Konversions-Events im Canvas | Konversionsfeld | Feld nach Eintrittszeit |
+| --- | --- | --- |
+| Primär | `conversions` | `conversions_by_entry_time` |
+| Zweites | `conversions1` | `conversions1_by_entry_time` |
+| Drittes | `conversions2` | `conversions2_by_entry_time` |
+| Viertes | `conversions3` | `conversions3_by_entry_time` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Konversionsreihenfolge" }
+
+Fünfte und spätere Events folgen demselben Muster (zum Beispiel `conversions4` und `conversions4_by_entry_time`). Diese Felder erscheinen in `total_stats` und, wenn Sie Aufschlüsselungen anfordern, in `variant_stats` und `step_stats` unter denselben Namen.
+
 {% alert note %}
-In `total_stats`, `variant_stats` und `step_stats` gibt `conversions` die Anzahl für das [primäre Konversions-Event]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) des Canvas an. Wenn Sie zusätzliche Konversions-Events konfigurieren, kann die Payload auch `conversions1`, `conversions2` und höher indizierte Felder für das zweite, dritte und weitere Events enthalten. Dies ähnelt der [multivariaten Antwort]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics#multivariate-response) für den Endpunkt `/campaigns/data_series`. Sofern vorhanden, ordnen Felder, die auf `_by_entry_time` enden, diese Conversions der Canvas-Eintrittszeit zu.
+In `total_stats`, `variant_stats` und `step_stats` gibt `conversions` die Anzahl für das [primäre Konversions-Event]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) des Canvas an. Wenn Sie zusätzliche Konversions-Events konfigurieren, kann die Payload auch `conversions1`, `conversions2` und höher indizierte Felder für das zweite, dritte und weitere Events enthalten. Dies ähnelt der [Multivariate-Antwort]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics#multivariate-response) für den Endpunkt `/campaigns/data_series`. Sofern vorhanden, ordnen Felder, die auf `_by_entry_time` enden, diese Conversions der Canvas-Eintrittszeit zu.
 {% endalert %}
 
 ```json
@@ -64,15 +78,28 @@ In `total_stats`, `variant_stats` und `step_stats` gibt `conversions` die Anzahl
     "name": (string) the Canvas name,
     "total_stats": {
       "revenue": (float) the number of dollars of revenue (USD),
-      "conversions": (int) the number of conversions,
-      "conversions_by_entry_time": (int) the number of conversions for the conversion event by entry time,
-      "entries": (int) the number of entries
+      "entries": (int) the number of entries,
+      "conversions": (int) the number of conversions for the primary conversion event,
+      "conversions_by_entry_time": (int) the number of conversions for the primary conversion event by entry time,
+      "conversions1": (optional, int) the number of conversions for the second conversion event,
+      "conversions1_by_entry_time": (optional, int) the number of conversions for the second conversion event by entry time,
+      "conversions2": (optional, int) the number of conversions for the third conversion event,
+      "conversions2_by_entry_time": (optional, int) the number of conversions for the third conversion event by entry time,
+      "conversions3": (optional, int) the number of conversions for the fourth conversion event,
+      "conversions3_by_entry_time": (optional, int) the number of conversions for the fourth conversion event by entry time
     },
     "variant_stats": (optional) {
       "00000000-0000-0000-0000-0000000000000": (string) the API identifier for the variant {
         "name": (string) the name of the variant,
         "revenue": (float) the number of dollars of revenue (USD),
-        "conversions": (int) the number of conversions,
+        "conversions": (int) the number of conversions for the primary conversion event,
+        "conversions_by_entry_time": (optional, int) the number of conversions for the primary conversion event by entry time,
+        "conversions1": (optional, int) the number of conversions for the second conversion event,
+        "conversions1_by_entry_time": (optional, int) the number of conversions for the second conversion event by entry time,
+        "conversions2": (optional, int) the number of conversions for the third conversion event,
+        "conversions2_by_entry_time": (optional, int) the number of conversions for the third conversion event by entry time,
+        "conversions3": (optional, int) the number of conversions for the fourth conversion event,
+        "conversions3_by_entry_time": (optional, int) the number of conversions for the fourth conversion event by entry time,
         "entries": (int) the number of entries
       },
       ... (more variants)
@@ -81,8 +108,14 @@ In `total_stats`, `variant_stats` und `step_stats` gibt `conversions` die Anzahl
       "00000000-0000-0000-0000-0000000000000": (string) the API identifier for the step {
         "name": (string) the name of the step,
         "revenue": (float) the number of dollars of revenue (USD),
-        "conversions": (int) the number of conversions,
-        "conversions_by_entry_time": (int) the number of conversions for the conversion event by entry time,
+        "conversions": (int) the number of conversions for the primary conversion event,
+        "conversions_by_entry_time": (int) the number of conversions for the primary conversion event by entry time,
+        "conversions1": (optional, int) the number of conversions for the second conversion event,
+        "conversions1_by_entry_time": (optional, int) the number of conversions for the second conversion event by entry time,
+        "conversions2": (optional, int) the number of conversions for the third conversion event,
+        "conversions2_by_entry_time": (optional, int) the number of conversions for the third conversion event by entry time,
+        "conversions3": (optional, int) the number of conversions for the fourth conversion event,
+        "conversions3_by_entry_time": (optional, int) the number of conversions for the fourth conversion event by entry time,
         "messages": {
           "android_push": (name of channel) [
             {
@@ -99,7 +132,7 @@ In `total_stats`, `variant_stats` und `step_stats` gibt `conversions` die Anzahl
       ... (more steps)
     }
   },
-  "message": (required, string) the status of the export, returns 'success' on successful completion
+  "message": (string) returns 'success' when the request completes without errors
 }
 ```
 

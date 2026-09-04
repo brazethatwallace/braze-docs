@@ -331,7 +331,7 @@ $(document).ready(function() {
             <i class="{{menu_list.fa_icon}}"></i>
             {%- else -%}
               {%- if menu_list.image -%}
-              <img src="{{site.baseurl}}{{ menu_list.image}} " alt="{{ menu_list.name }} image" />
+              <span class="guide_item_icon"><img src="{{site.baseurl}}{{ menu_list.image}} " alt="{{ menu_list.name }} image" width="40" height="40" /></span>
               {%- endif -%}
             {%- endif -%}
             <div class="menu_description">
@@ -362,8 +362,8 @@ $(document).ready(function() {
 
     <div id="glossary_list" class="flex mx-auto">
       <div class="d-flex" style="width: 100%;">
-        <div class="col-6" style="background-color: #CDCDCD;color: #333333;font-weight:bold;font-family: 'Sailec W00 Bold', 'Sailec', 'Sailic W00 Regular', Arial, Helvetica, sans-serif">Endpoint</div>
-        <div class="col-6" style="background-color: #CDCDCD;color: #333333;font-family: 'Sailec W00 Bold', 'Sailec', 'Sailic W00 Regular', Arial, Helvetica, sans-serif">Description</div>
+        <div class="col-6" style="background-color: #CDCDCD;color: #333333;font-weight:bold;font-family: 'Aribau Grotesk Bold', 'Aribau Grotesk', 'Aribau Grotesk Regular', Arial, Helvetica, sans-serif">Endpoint</div>
+        <div class="col-6" style="background-color: #CDCDCD;color: #333333;font-weight:bold;font-family: 'Aribau Grotesk Bold', 'Aribau Grotesk', 'Aribau Grotesk Regular', Arial, Helvetica, sans-serif">Description</div>
       </div>
       {%- assign glossary_sorted = page.glossaries | sort: 'name' -%}
       {%- for glossary in glossary_sorted -%}

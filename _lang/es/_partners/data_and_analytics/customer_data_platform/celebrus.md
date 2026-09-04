@@ -15,14 +15,14 @@ _Esta integración está mantenida por Celebrus._
 | Requisito | Descripción |
 |---|---|
 | Cuenta Celebrus | Se necesita una cuenta Celebrus para beneficiarse de esta asociación. |
-| Almacén de datos (opcional) | Al utilizar el conector Celebrus para atributos personalizados de Braze, debes disponer de un almacén de datos compatible con la integración de Ingesta de datos de Cloud (CDI) de Braze y configurar CDI en el dashboard de Braze. |
+| Almacén de datos (opcional) | Al utilizar el conector Celebrus para atributos personalizados de Braze, debes disponer de un almacén de datos compatible con la integración de ingesta de datos en la nube (CDI) de Braze y configurar CDI en el panel de Braze. |
 | Configuración del SDK de Braze (opcional) | Cuando utilices el conector Celebrus para el SDK de Braze, debes pasar el punto final de SDK y la clave de API de SDK. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Implementación {#implementation}
-Después de instalar tu implementación de Celebrus, utiliza los conectores de Celebrus para Braze para integrar los datos de Celebrus en Braze. Hay dos elementos en la integración de Celebrus para Braze: el SDK de Braze y los atributos personalizados de Braze. Puedes desplegar cualquiera de los dos, o ambos, en función de cómo utilices Braze y de los casos de uso que necesites.
+Después de instalar tu implementación de Celebrus, utiliza los conectores de Celebrus para Braze para integrar los datos de Celebrus en Braze. Hay dos elementos en la integración de Celebrus para Braze: el SDK de Braze y los atributos personalizados de Braze. Puedes desplegar cualquiera de los dos, o ambos, en función de cómo utilices Braze y de los ejemplos que necesites.
 
-Si aún no tienes implementado el SDK de Braze en tu canal web, puedes utilizar Celebrus para desplegar el SDK de Braze. Celebrus añadirá el SDK de Braze a las páginas web y configurará la identidad de Braze para el visitante web utilizando el gráfico de identidad de Celebrus. Los atributos de los clientes pueden sincronizarse con Braze mediante Ingesta de datos de Cloud (CDI). Esto requiere un almacén de datos compatible con Braze CDI, así como la configuración del CDI en Braze.
+Si aún no tienes implementado el SDK de Braze en tu canal web, puedes utilizar Celebrus para desplegar el SDK de Braze. Celebrus añadirá el SDK de Braze a las páginas web y configurará la identidad de Braze para el visitante web utilizando el gráfico de identidad de Celebrus. Los atributos de los clientes pueden sincronizarse con Braze mediante ingesta de datos en la nube (CDI). Esto requiere un almacén de datos compatible con Braze CDI, así como la configuración del CDI en Braze.
 
 ### Conector Celebrus para el SDK de Braze {#celebrus-connector-for-braze-sdk}
 
@@ -37,7 +37,7 @@ El conector despliega y configura el SDK de Braze en tu canal, por lo que tendr�
 ```
 
 {% alert important %}
-El conector Celebrus para el SDK de Braze insertará e inicializará el SDK de Braze para identificar al usuario y añadir el identificador al gráfico de identidad de Celebrus. Este conector no registrará datos en el perfil de usuario ni activará otros métodos del SDK de Braze. <br><br>Puedes llamar a los métodos que desees directamente dentro de tu base de código para registrar datos a través del [SDK de Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) o aprovechar otras características compatibles con el SDK de Braze.
+El conector Celebrus para el SDK de Braze insertará e inicializará el SDK de Braze para identificar al usuario y añadir el identificador al gráfico de identidad de Celebrus. Este conector no registrará datos en el perfil de usuario ni desencadenará otros métodos del SDK de Braze. <br><br>Puedes llamar a los métodos que desees directamente dentro de tu base de código para registrar datos a través del [SDK de Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) o aprovechar otras características compatibles con el SDK de Braze.
 {% endalert%}
 
 ### Conector Celebrus para atributos personalizados de Braze {#celebrus-connector-for-braze-custom-attributes}
@@ -46,15 +46,15 @@ El conector Celebrus para el SDK de Braze insertará e inicializará el SDK de B
 
 El conector Celebrus para atributos personalizados de Braze envía atributos personalizados a una base de datos intermedia, preformateados de la forma en que Braze espera recibirlos. En Celebrus configuras los detalles de conexión para la base de datos, que dependerán del tipo de base de datos que estés utilizando (como Snowflake o Redshift).
 
-#### Paso 2: Configurar la Ingesta de datos de Cloud en tu dashboard de Braze {#step-2-configure-cloud-data-ingestion-in-your-braze-dashboard}
+#### Paso 2: Configurar la ingesta de datos en la nube en tu panel de Braze {#step-2-configure-cloud-data-ingestion-in-your-braze-dashboard}
 
-Esta integración utiliza la Ingesta de datos de Cloud de Braze. Sigue las instrucciones en [Integraciones de almacenes de datos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/) para establecer y configurar los [ajustes de Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/) según el tipo de almacén que estés utilizando.
+Esta integración utiliza la ingesta de datos en la nube de Braze. Sigue las instrucciones en [Integraciones de almacenes de datos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations) para establecer y configurar los [ajustes de ingesta de datos en la nube]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion) según el tipo de almacén que estés utilizando.
 
 #### Paso 3: Sincronizar datos de Celebrus a Braze {#step-3-sync-data-from-celebrus-to-braze}
 
 Celebrus captura y asigna identificadores únicos a un individuo, como correo electrónico, teléfono, `external_id` o alias de usuario, y los envía a Braze a través de CDI. Esto permite sincronizar con Braze los datos de un mismo individuo.
 
-Celebrus utilizará los identificadores definidos para enviar los atributos del cliente definidos en el generador de perfiles de Celebrus, pero solo cuando cambien los valores de los atributos. Ten en cuenta que los nombres de atributos definidos en el generador de perfiles de Celebrus se utilizarán en Braze de forma predeterminada. Así que asegúrate de actualizar estos nombres para que se adhieran a las [convenciones de nomenclatura de Braze]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens).
+Celebrus utiliza los identificadores definidos para enviar los atributos del cliente definidos en el generador de perfiles de Celebrus, pero solo cuando cambian los valores de los atributos. Ten en cuenta que los nombres de atributos definidos en el generador de perfiles de Celebrus se utilizan en Braze de forma predeterminada. Así que asegúrate de actualizar estos nombres para que se adhieran a las [convenciones de nomenclatura de Braze]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes).
 
 {% alert important %}
 Por ahora, esta versión no admite eventos ni compras.<br><br> Esta integración envía atributos como valores de cadena, por lo que algunos atributos son listas (como las señales). Por ahora, las listas no pueden convertirse en arrays. No hay atributos anidados.

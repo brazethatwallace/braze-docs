@@ -1,6 +1,6 @@
 ---
 nav_title: "POST : Créer et mettre à jour des utilisateurs"
-article_title: "POST : Créer et mettre à jour des utilisateurs"
+article_title: "Créer et mettre à jour des utilisateurs"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
@@ -22,13 +22,13 @@ Braze traite les données transmises par l'API telles quelles. Vous ne devez tra
 
 ## Besoin de mettre à jour des utilisateurs en masse ? {#need-to-update-users-in-bulk}
 
-Utilisez l'[endpoint `/users/track/bulk`]({{site.baseurl}}/api/endpoints/user_data/post_user_track_bulk) pour envoyer des lots plus importants et réduire le volume de demandes.
+Utilisez l'[endpoint `/users/track/bulk`]({{site.baseurl}}/api/endpoints/user_data/post_user_track_bulk) pour envoyer des lots plus importants et réduire le volume de requêtes.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#4cf57ea9-9b37-4e99-a02e-4373c9a4ee59 {% endapiref %}
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/api_key) avec l'autorisation `users.track`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics) avec l'autorisation `users.track`.
 
 Les clients qui utilisent l'API pour des appels de serveur à serveur devront peut-être ajouter `rest.iad-01.braze.com` à leur liste d'autorisations s'ils sont derrière un pare-feu.
 
@@ -36,7 +36,7 @@ Les clients qui utilisent l'API pour des appels de serveur à serveur devront pe
 
 {% multi_lang_include rate_limits.md endpoint='users track' %}
 
-## Corps de la demande {#request-body}
+## Corps de la requête {#request-body}
 
 ```
 Content-Type: application/json
@@ -51,36 +51,36 @@ Authorization: Bearer YOUR_REST_API_KEY
 }
 ```
 
-### Paramètres de demande {#request-parameters}
+### Paramètres de la requête {#request-parameters}
 
 {% alert important %}
-Pour chaque composant de la demande listé dans le tableau suivant, vous devez inclure l'un des éléments suivants : `external_id`, `user_alias`, `braze_id`, `email` ou `phone`.
+Pour chaque composant de la requête listé dans le tableau suivant, vous devez inclure l'un des éléments suivants : `external_id`, `user_alias`, `braze_id`, `email` ou `phone`.
 {% endalert %}
 
-| Paramètre | Requis | Type de données | Description |
+| Paramètre | Obligatoire | Type de données | Description |
 | --------- | ---------| --------- | ----------- |
-| `attributes` | Facultatif | Tableau d'objets Attributs | Voir [objet attributs de l'utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens) |
+| `attributes` | Facultatif | Tableau d'objets Attributs | Voir [objet attributs de l'utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object) |
 | `events` | Facultatif | Tableau d'objets Événement | Voir l'[objet événements]({{site.baseurl}}/api/objects_filters/event_object) |
 | `purchases` | Facultatif | Tableau d'objets Achat | Voir l'[objet achats]({{site.baseurl}}/api/objects_filters/purchase_object) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de la requête" }
 
 ### Résolution des identifiants {#identifier-resolution}
 
-Chaque objet de la demande doit contenir au moins un identifiant. Le tableau suivant décrit comment Braze détermine quel identifiant utiliser pour la recherche du profil utilisateur.
+Chaque objet de la requête doit contenir au moins un identifiant. Le tableau suivant décrit comment Braze détermine quel identifiant utiliser pour la recherche du profil utilisateur.
 
 | Type d'identifiant | Identifiants | Comportement |
 | --------------- | ----------- | -------- |
-| Primaire | `external_id`, `user_alias`, `braze_id` | Utilisé pour la recherche du profil utilisateur. Un seul identifiant primaire est autorisé par objet de demande — en inclure plusieurs entraîne le rejet de cet objet. |
+| Primaire | `external_id`, `user_alias`, `braze_id` | Utilisé pour la recherche du profil utilisateur. Un seul identifiant primaire est autorisé par objet de requête — en inclure plusieurs entraîne le rejet de cet objet. |
 | Secondaire | `email`, `phone` | Utilisé pour la recherche du profil utilisateur **uniquement** lorsqu'aucun identifiant primaire n'est présent. Si `email` et `phone` sont tous deux inclus sans identifiant primaire, `email` est prioritaire. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Identifier resolution" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Résolution des identifiants" }
 
-Lorsqu'un identifiant primaire est présent, les valeurs `email` ou `phone` dans le même objet de demande sont traitées comme des attributs de profil, et non comme des identifiants pour la recherche d'utilisateur. Par exemple, si une demande inclut à la fois un `external_id` et un `email` :
+Lorsqu'un identifiant primaire est présent, les valeurs `email` ou `phone` dans le même objet de requête sont traitées comme des attributs de profil, et non comme des identifiants pour la recherche d'utilisateur. Par exemple, si une requête inclut à la fois un `external_id` et un `email` :
 
 - Braze recherche le profil utilisateur par `external_id`.
 - La valeur `email` est définie (ou mise à jour) en tant qu'attribut sur le profil résolu.
 
 {% alert important %}
-L'inclusion d'un identifiant primaire qui ne correspond à aucun profil existant peut créer un profil en double, même si les valeurs `email` ou `phone` de la même demande correspondent à un profil existant. Pour plus d'informations, consultez [Comment éviter la création de profils utilisateurs en double ?](#how-do-i-avoid-creating-duplicate-user-profiles).
+L'inclusion d'un identifiant primaire qui ne correspond à aucun profil existant peut créer un profil en double, même si les valeurs `email` ou `phone` de la même requête correspondent à un profil existant. Pour plus d'informations, consultez [Comment éviter la création de profils utilisateurs en double ?](#how-do-i-avoid-creating-duplicate-user-profiles).
 {% endalert %}
 
 ## Exemples de requêtes {#example-requests}
@@ -163,7 +163,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 Vous pouvez mettre à jour un profil utilisateur par numéro de téléphone en utilisant l'endpoint `/users/track`. Cet endpoint ne fonctionne que si vous indiquez un numéro de téléphone valide.
 
 {% alert important %}
-Si vous incluez à la fois `email` et `phone` dans une demande, Braze utilise l'e-mail comme identifiant.
+Si vous incluez à la fois `email` et `phone` dans une requête, Braze utilise l'e-mail comme identifiant.
 {% endalert %}
 
 ```
@@ -298,13 +298,13 @@ Si votre message comporte une erreur fatale, vous recevez la réponse suivante :
 
 ### Codes de réponse des erreurs fatales {#fatal-error-response-codes}
 
-Pour connaître les codes d'état et les messages d'erreur associés que Braze renvoie si votre demande rencontre une erreur fatale, reportez-vous à la section [Erreurs fatales et réponses]({{site.baseurl}}/api/errors#fatal-errors).
+Pour connaître les codes d'état et les messages d'erreur associés que Braze renvoie si votre requête rencontre une erreur fatale, reportez-vous à la section [Erreurs fatales et réponses]({{site.baseurl}}/api/errors#fatal-errors).
 
-Si vous recevez l'erreur « provided external_id is blacklisted and disallowed », il se peut que votre demande ait inclus un « utilisateur fictif ». Pour plus d'informations, consultez la section [Filtrage du spam]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival#spam-blocking).
+Si vous recevez l'erreur « provided external_id is blacklisted and disallowed », il se peut que votre requête ait inclus un « utilisateur fictif ». Pour plus d'informations, consultez la section [Filtrage du spam]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival#spam-blocking).
 
 ### Erreurs spécifiques à l'endpoint {#endpoint-specific-errors}
 
-Les erreurs suivantes sont spécifiques à l'endpoint `/users/track` et sont renvoyées dans le tableau `errors` de la réponse. Utilisez-les pour résoudre les problèmes liés aux objets individuels d'une demande.
+Les erreurs suivantes sont spécifiques à l'endpoint `/users/track` et sont renvoyées dans le tableau `errors` de la réponse. Utilisez-les pour résoudre les problèmes liés aux objets individuels d'une requête.
 
 | Erreur | Description |
 |---|---|
@@ -324,7 +324,7 @@ Les erreurs suivantes sont spécifiques à l'endpoint `/users/track` et sont ren
 | `EMAIL_BAD_FORMAT` | La valeur fournie pour `email` n'est pas une adresse e-mail valide. |
 | `EXTERNAL_USER_ID_TOO_LARGE` | Le `external_id` dépasse la longueur maximale autorisée de 987 octets. |
 | `INVALID_ATTRIBUTE_EMAIL_SUBSCRIPTION_INFO` | `email_subscription_info` n'est pas un attribut valide. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Endpoint-specific errors" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Erreurs spécifiques à l'endpoint" }
 
 ## Foire aux questions {#frequently-asked-questions}
 
@@ -334,7 +334,7 @@ Les erreurs suivantes sont spécifiques à l'endpoint `/users/track` et sont ren
 Si le `external_id` existe, Braze donne la priorité au profil le plus récemment mis à jour possédant un ID externe. Si le `external_id` n'existe pas, Braze donne la priorité au profil le plus récemment mis à jour.
 
 ### Que se passe-t-il si aucun profil n'existe avec l'adresse e-mail ? {#what-happens-if-no-profile-with-the-email-address-exists}
-Braze crée un profil et un utilisateur e-mail uniquement, et définit le champ e-mail à test@example.com, comme indiqué dans l'exemple de demande de mise à jour d'un profil utilisateur par adresse e-mail. Braze ne crée pas d'alias.
+Braze crée un profil et un utilisateur e-mail uniquement, et définit le champ e-mail à test@example.com, comme indiqué dans l'exemple de requête de mise à jour d'un profil utilisateur par adresse e-mail. Braze ne crée pas d'alias.
 
 ### Comment utiliser `/users/track` pour importer des données utilisateur héritées ? {#how-do-you-use-userstrack-to-import-legacy-user-data}
 Vous pouvez soumettre des données via l'API de Braze pour un utilisateur qui n'a pas encore utilisé votre application mobile afin de générer un profil utilisateur. Si l'utilisateur utilise ensuite l'application, toutes les informations suivant son identification via le SDK sont fusionnées avec le profil utilisateur existant créé via l'appel API. Tout comportement utilisateur enregistré de manière anonyme par le SDK avant l'identification est perdu lors de la fusion avec le profil utilisateur existant généré par l'API.
@@ -343,7 +343,7 @@ L'outil de segmentation inclut ces utilisateurs, qu'ils aient interagi ou non av
 
 ### Comment éviter la création de profils utilisateurs en double ? {#how-do-i-avoid-creating-duplicate-user-profiles}
 
-Des profils en double peuvent apparaître lorsqu'une demande inclut un identifiant primaire (tel que `external_id`) qui ne correspond à aucun profil existant, accompagné d'une valeur `email` ou `phone` qui correspond à un profil existant. Étant donné que les identifiants primaires sont utilisés pour la recherche d'utilisateur, Braze crée un nouveau profil pour le `external_id` non reconnu au lieu de mettre à jour le profil existant basé uniquement sur l'e-mail ou le téléphone.
+Des profils en double peuvent apparaître lorsqu'une requête inclut un identifiant primaire (tel que `external_id`) qui ne correspond à aucun profil existant, accompagné d'une valeur `email` ou `phone` qui correspond à un profil existant. Étant donné que les identifiants primaires sont utilisés pour la recherche d'utilisateur, Braze crée un nouveau profil pour le `external_id` non reconnu au lieu de mettre à jour le profil existant basé uniquement sur l'e-mail ou le téléphone.
 
 Pour éviter les doublons :
 
@@ -356,19 +356,19 @@ Chaque objet d'événement du tableau d'événements représente une occurrence 
 
 ### Comment `/users/track` gère-t-il les attributs personnalisés imbriqués non valides ? {#how-does-userstrack-handle-invalid-nested-custom-attributes}
 
-Lorsqu'un attribut personnalisé imbriqué contient des valeurs non valides (telles que des formats d'heure incorrects ou des valeurs nulles), Braze abandonne le traitement de toutes les mises à jour d'attributs personnalisés imbriqués de la demande. Cela s'applique à toutes les structures imbriquées au sein de cet attribut spécifique. Pour garantir un traitement réussi, vérifiez que toutes les valeurs des attributs personnalisés imbriqués sont valides avant l'envoi.
+Lorsqu'un attribut personnalisé imbriqué contient des valeurs non valides (telles que des formats d'heure incorrects ou des valeurs nulles), Braze abandonne le traitement de toutes les mises à jour d'attributs personnalisés imbriqués de la requête. Cela s'applique à toutes les structures imbriquées au sein de cet attribut spécifique. Pour garantir un traitement réussi, vérifiez que toutes les valeurs des attributs personnalisés imbriqués sont valides avant l'envoi.
 
-### Les demandes envoyées à `/users/track` sont-elles garanties d'être traitées dans l'ordre ? {#are-requests-to-userstrack-guaranteed-to-be-processed-in-order}
+### Les requêtes envoyées à `/users/track` sont-elles garanties d'être traitées dans l'ordre ? {#are-requests-to-userstrack-guaranteed-to-be-processed-in-order}
 
-Lorsque vous effectuez plusieurs appels API distincts à `/users/track` en succession rapide, Braze ne peut pas garantir que les demandes sont traitées dans l'ordre exact où elles ont été envoyées ou reçues. En effet, Braze utilise un traitement asynchrone pour maximiser la vitesse et la flexibilité.
+Lorsque vous effectuez plusieurs appels API distincts à `/users/track` en succession rapide, Braze ne peut pas garantir que les requêtes sont traitées dans l'ordre exact où elles ont été envoyées ou reçues. En effet, Braze utilise un traitement asynchrone pour maximiser la vitesse et la flexibilité.
 
-Par exemple, si vous envoyez plusieurs demandes de mise à jour pour le même utilisateur en l'espace de quelques secondes — certaines avec des valeurs d'attribut nulles et d'autres avec des valeurs valides — les demandes contenant des valeurs nulles peuvent être traitées après les demandes contenant des valeurs valides, même si elles ont été envoyées plus tôt. Cela peut entraîner des valeurs d'attribut qui semblent revenir en arrière ou ne pas refléter la mise à jour la plus récemment envoyée.
+Par exemple, si vous envoyez plusieurs requêtes de mise à jour pour le même utilisateur en l'espace de quelques secondes — certaines avec des valeurs d'attribut nulles et d'autres avec des valeurs valides — les requêtes contenant des valeurs nulles peuvent être traitées après les requêtes contenant des valeurs valides, même si elles ont été envoyées plus tôt. Cela peut entraîner des valeurs d'attribut qui semblent revenir en arrière ou ne pas refléter la mise à jour la plus récemment envoyée.
 
 Pour éviter les conditions de concurrence lors de la mise à jour des données utilisateur :
 
-- **Regroupez les mises à jour dans une seule demande :** incluez toutes les mises à jour d'attributs pour un utilisateur dans un seul appel API plutôt que d'effectuer des appels consécutifs séparés.
-- **Ajoutez des délais entre les demandes :** si vous devez effectuer des appels séparés pour le même utilisateur, ajoutez un délai (quelques secondes) entre les demandes pour permettre à la première demande de terminer son traitement avant l'envoi de la suivante.
-- **Évitez les mises à jour simultanées du même champ :** si deux demandes mettent à jour le même attribut avec des valeurs différentes, envoyez ces mises à jour dans une seule demande ou séparez-les par un délai pour réduire le risque de résultats dans le désordre.
+- **Regroupez les mises à jour dans une seule requête :** incluez toutes les mises à jour d'attributs pour un utilisateur dans un seul appel API plutôt que d'effectuer des appels consécutifs séparés.
+- **Ajoutez des délais entre les requêtes :** si vous devez effectuer des appels séparés pour le même utilisateur, ajoutez un délai (quelques secondes) entre les requêtes pour permettre à la première requête de terminer son traitement avant l'envoi de la suivante.
+- **Évitez les mises à jour simultanées du même champ :** si deux requêtes mettent à jour le même attribut avec des valeurs différentes, envoyez ces mises à jour dans une seule requête ou séparez-les par un délai pour réduire le risque de résultats dans le désordre.
 
 Pour plus d'informations sur les conditions de concurrence et les bonnes pratiques, consultez [Conditions de concurrence]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions).
 
@@ -382,7 +382,7 @@ Lorsque vous approchez de votre [limite de débit](#rate-limit), vous recevez de
 
 ### Pourquoi est-ce que je reçois une erreur `400 Bad Request` avec une erreur de syntaxe ou d'analyse ? {#why-do-i-get-400-bad-request-with-a-bad-syntax-or-parse-error}
 
-Une erreur HTTP `400` avec une erreur de syntaxe ou d'analyse signifie généralement que le corps de la demande n'est pas un JSON valide. Les causes courantes incluent les virgules en fin de ligne, les commentaires dans le JSON, les chaînes entre guillemets simples, une accolade ouvrante `{` supplémentaire avant le payload, ou l'envoi d'un corps non JSON alors que l'en-tête `Content-Type` est `application/json`. Validez vos payloads avec un linter JSON avant l'envoi, confirmez que votre client HTTP encode les objets en JSON (plutôt que de concaténer des chaînes brutes) et vérifiez que le corps est encodé en UTF-8. Pour les autres réponses `400` (par exemple, les limites de taille du payload et les limites d'objets par demande), reportez-vous à [Erreurs fatales et réponses]({{site.baseurl}}/api/errors#fatal-errors) et au tableau [Erreurs spécifiques à l'endpoint](#endpoint-specific-errors) sur cette page.
+Une erreur HTTP `400` avec une erreur de syntaxe ou d'analyse signifie généralement que le corps de la requête n'est pas un JSON valide. Les causes courantes incluent les virgules en fin de ligne, les commentaires dans le JSON, les chaînes entre guillemets simples, une accolade ouvrante `{` supplémentaire avant le payload, ou l'envoi d'un corps non JSON alors que l'en-tête `Content-Type` est `application/json`. Validez vos payloads avec un linter JSON avant l'envoi, confirmez que votre client HTTP encode les objets en JSON (plutôt que de concaténer des chaînes brutes) et vérifiez que le corps est encodé en UTF-8. Pour les autres réponses `400` (par exemple, les limites de taille du payload et les limites d'objets par requête), reportez-vous à [Erreurs fatales et réponses]({{site.baseurl}}/api/errors#fatal-errors) et au tableau [Erreurs spécifiques à l'endpoint](#endpoint-specific-errors) sur cette page.
 
 ## Utilisateurs actifs mensuels CY 24-25, MAU universel, MAU web et MAU mobile {#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau}
 
@@ -390,22 +390,22 @@ Pour les clients bénéficiant d'une nouvelle tarification, les limites de débi
 
 Pour les clients qui ont acheté des utilisateurs actifs mensuels CY 24-25, Universal MAU, Web MAU ou Mobile MAU, Braze applique des limites de débit différentes sur son endpoint `/users/track` :
 - Les limites de débit horaires sont fixées en fonction de l'activité d'ingestion de données prévue sur votre compte, qui peut correspondre au nombre d'utilisateurs actifs par mois que vous avez achetés, au secteur d'activité, à la saisonnalité ou à d'autres facteurs.
-- En plus de la limite horaire, Braze applique une limite de rafale sur le nombre de demandes pouvant être envoyées toutes les trois secondes.
-- Chaque demande peut regrouper jusqu'à 75 mises à jour combinées portant sur des attributs, des événements ou des objets d'achat.
+- En plus de la limite horaire, Braze applique une limite de rafale sur le nombre de requêtes pouvant être envoyées toutes les trois secondes.
+- Chaque requête peut regrouper jusqu'à 75 mises à jour combinées portant sur des attributs, des événements ou des objets d'achat.
 
-Les limites actuelles basées sur l'ingestion prévue sont disponibles dans le tableau de bord sous **Paramètres** > **Clés API** > **Tableau de bord de l'utilisation de l'API**. Nous pouvons modifier les limites de débit pour protéger la stabilité du système ou permettre une augmentation du débit de données sur votre compte. N'hésitez pas à contacter l'assistance Braze ou votre gestionnaire de la satisfaction client pour toute question concernant la limite de demandes horaire ou par seconde et les besoins de votre entreprise.
+Les limites actuelles basées sur l'ingestion prévue sont disponibles dans le tableau de bord sous **Paramètres** > **API et identifiants** > **Tableau de bord de l'utilisation de l'API**. Nous pouvons modifier les limites de débit pour protéger la stabilité du système ou permettre une augmentation du débit de données sur votre compte. N'hésitez pas à contacter l'assistance Braze ou votre gestionnaire du succès des clients pour toute question concernant la limite de requêtes horaire ou par seconde et les besoins de votre entreprise.
 
 ### En-têtes de limite de débit pour les utilisateurs actifs mensuels CY 24-25, Universal MAU, Web MAU et Mobile MAU {#rate-limit-headers-for-monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau}
 
-Toutes les réponses non limitées par le débit (c'est-à-dire non `429`) contiennent les en-têtes de réponse HTTP suivants, qui indiquent au client l'état de la fenêtre de limite de débit horaire. Utilisez ces en-têtes pour gérer votre fréquence de demandes :
+Toutes les réponses non limitées par le débit (c'est-à-dire non `429`) contiennent les en-têtes de réponse HTTP suivants, qui indiquent au client l'état de la fenêtre de limite de débit horaire. Utilisez ces en-têtes pour gérer votre fréquence de requêtes :
 
 | Nom de l'en-tête | Description |
 | ----------------------- | ------------------------------------------------------------------------------------------- |
-| `X-RateLimit-Limit`     | Le nombre de demandes autorisées par période de temps |
-| `X-RateLimit-Remaining` | Le nombre approximatif de demandes restantes dans la fenêtre en cours |
+| `X-RateLimit-Limit`     | Le nombre de requêtes autorisées par période de temps |
+| `X-RateLimit-Remaining` | Le nombre approximatif de requêtes restantes dans la fenêtre en cours |
 | `X-RateLimit-Reset`     | Le nombre de secondes restantes avant la réinitialisation de la fenêtre actuelle |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Rate limit headers for Monthly Active Users CY 24-25, Universal MAU, Web MAU, and Mobile MAU" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="En-têtes de limite de débit pour les utilisateurs actifs mensuels CY 24-25, Universal MAU, Web MAU et Mobile MAU" }
 
-Notez que les en-têtes `RateLimit-Limit`, `RateLimit-Remaining` et `RateLimit-Reset` ne sont pas renvoyés lorsque vous rencontrez une erreur HTTP `429`. Dans ce cas, ces en-têtes sont remplacés par un en-tête `X-Ratelimit-Retry-After` qui renvoie un nombre entier indiquant le nombre de secondes à attendre avant de pouvoir recommencer à envoyer des demandes.
+Notez que les en-têtes `RateLimit-Limit`, `RateLimit-Remaining` et `RateLimit-Reset` ne sont pas renvoyés lorsque vous rencontrez une erreur HTTP `429`. Dans ce cas, ces en-têtes sont remplacés par un en-tête `X-Ratelimit-Retry-After` qui renvoie un nombre entier indiquant le nombre de secondes à attendre avant de pouvoir recommencer à envoyer des requêtes.
 
 {% endapi %}

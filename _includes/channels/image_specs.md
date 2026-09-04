@@ -3,7 +3,7 @@
 
 | Layout | Behavior |
 | --- | --- |
-| Image and text | Tall or narrow images will scale down and be horizontally centered. Wide images will be clipped on the left and right edges. |
+| Image and text | Tall or narrow images will scale down and be horizontally centered. Wide images will be clipped on the horizontal edges. |
 | Image only | The message will resize to fit images of most aspect ratios. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }
 
@@ -30,13 +30,17 @@ While there are no limits to how many text characters you can include in an in-a
 
 All in-app messages have a recommended image size of 500 KB, maximum image size of 5 MB, and support PNG, JPEG, and GIF file types. WebP images aren't supported across all devices or browsers; we suggest converting WebP images to PNG or JPEG before adding them to in-app messages.
 
+{% alert note %}
+SVG images are not supported for in-app messages because they do not render reliably across all platforms. Use PNG, JPEG, or GIF instead.
+{% endalert %}
+
 {% tabs %}
 {% tab Portrait %}
 
 | Type | Aspect ratio | Image quality | Notes |
 | --- | --- | --- | --- |
 | Portrait full screen with text | 6:5 | High resolution 1200 x 1000 px <br>Minimum resolution 600 x 500 px | Cropping can occur on all sides, but the image will always fill the top 50% of the viewport. |
-| Portrait full screen (image only, with or without buttons) | 3:5 | High resolution 1200 x 2000 px <br> Minimum resolution 600 x 1000 px | Cropping can occur on the left and right edges on taller devices. |
+| Portrait full screen (image only, with or without buttons) | 3:5 | High resolution 1200 x 2000 px <br> Minimum resolution 600 x 1000 px | Cropping can occur on the horizontal edges on taller devices. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Table" }
 
 {% endtab %}
@@ -45,7 +49,7 @@ All in-app messages have a recommended image size of 500 KB, maximum image size 
 | Type | Aspect ratio | Image quality | Notes |
 | --- | --- | --- | --- |
 | Landscape full screen with text | 10:3 | High resolution 2000 x 600 px <br>Minimum resolution 1000 x 300 px | Cropping can occur on all sides, but the image will always fill the top 50% of the viewport. |
-| Landscape full screen (image only, with or without buttons) | 5:3 | High resolution 2000 x 600 px <br> Minimum resolution 1000 x 600 px | Cropping can occur on the left and right edges on taller devices. |
+| Landscape full screen (image only, with or without buttons) | 5:3 | High resolution 2000 x 600 px <br> Minimum resolution 1000 x 600 px | Cropping can occur on the horizontal edges on taller devices. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Table" }
 
 {% endtab %}
@@ -62,11 +66,15 @@ All in-app messages have a recommended image size of 500 KB, maximum image size 
 | Type | Aspect ratio | Image quality | Notes |
 | --- | --- | --- | --- |
 | Modal (image only) | 1:1 | Maximum recommended resolution: 1200 x 2000 px <br> Minimum resolution: 600 x 600 px | The message will resize to fit images of most aspect ratios. The recommended maximum resolution has a 3:5 aspect ratio, which may not provide optimal results. While larger images are usable, they may lead to longer load times. <br> The ideal aspect ratio for images is 1:1, and not meeting this ratio may trigger a warning during upload. This warning is a suggestion for best results and does not prevent the upload of larger images. |
-| Modal with text | 29:10 | High resolution 1450 x 500 px <br> Minimum resolution 600 x 205 px | Tall images will scale down and be horizontally centered. Wide images will be clipped on the left and right edges. |
+| Modal with text | 29:10 | High resolution 1450 x 500 px <br> Minimum resolution 600 x 205 px | Tall images will scale down and be horizontally centered. Wide images will be clipped on the horizontal edges. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Table" }
 
 {% endtab %}
 {% endtabs %}
+
+{% alert tip %}
+In-app message rendering on Web SDK may be affected by custom browser text-size settings. Users with custom text-size scaling may experience minor rendering issues, such as a 1px gap along the edge of a modal image. When previewing and testing in-app messages, we recommend using default browser text-size settings for the most accurate representation.
+{% endalert %}
 
 {% endif %}
 
@@ -173,7 +181,21 @@ table td {
 | Banner    | Any aspect ratio | 600&nbsp;px minimum width |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Table" }
 
-For more information, refer to [Content Card creative details]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details/).
+For more information, refer to [Content Card creative details]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/).
+
+{% endif %}
+
+{% if include.variable_name == "sms and mms" %}
+
+MMS messages support a single image per message. Only MMS-enabled subscription groups can send images.
+
+| Property | Recommendation |
+| --- | --- |
+| Size | 600&nbsp;KB or smaller for reliable carrier delivery. The composer blocks uploads larger than 1&nbsp;MB. |
+| File types | PNG, JPEG, GIF |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SMS and MMS" }
+
+For carrier file size limits and throughput, refer to [MMS message limits and throughput]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup#mms-message-limits-and-throughput).
 
 {% endif %}
 

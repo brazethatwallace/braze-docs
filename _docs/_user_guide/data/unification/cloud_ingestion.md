@@ -15,6 +15,8 @@ toc_headers: h2
 
 With Braze Cloud Data Ingestion (CDI), you set up an integration between your data warehouse instance and Braze workspace to sync data on a recurring basis. This sync runs on a schedule you set, and each integration can have a different schedule. Syncs can run as frequently as every 15 minutes or as infrequently as once per month. If you need syncs to occur more frequently than 15 minutes, contact your customer success manager or consider using REST API calls for real-time data ingestion.
 
+Amazon S3 file storage integrations are event-driven. Braze ingests new files when S3/SQS notifications arrive. For setup details, see [File storage integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations).
+
 {% alert note %}
 Sync frequency in the dashboard controls how often Braze runs a sync (for example, options such as hourly or more frequent runs within an hour). It does not set a custom interval longer than one hour between runs. To run a sync outside the scheduled cadence—such as on demand after your warehouse load completes—use the [Trigger a sync]({{site.baseurl}}/api/endpoints/cdi/post_job_sync) endpoint with your integration ID.
 {% endalert %}
@@ -84,7 +86,7 @@ For source-specific setup instructions and SQL examples, see [Data Warehouse int
 
 ## Data point usage
 
-For customers on data points-based billing, data point billing for Cloud Data Ingestion is equivalent to billing for updates through the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track#user-track). Refer to [Data points]({{site.baseurl}}/user_guide/data/infrastructure/data_points) for more information. 
+For customers on data points-based billing, data point billing for Cloud Data Ingestion is equivalent to billing for updates through the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track). Refer to [Data points]({{site.baseurl}}/user_guide/data/infrastructure/data_points) for more information. 
 
 {% alert important %}
 Braze Cloud Data Ingestion counts toward the available rate limit, so if you're sending data using another method, the rate limit is combined between the Braze API and Cloud Data Ingestion.
@@ -98,7 +100,7 @@ Braze Cloud Data Ingestion counts toward the available rate limit, so if you're 
 | Number of rows         | By default, each run can sync up to 500 million rows. Any syncs with more than 500 million new rows are stopped. If you need a higher limit than this, contact your Braze customer success manager or Braze Support. |
 | Attributes per row     | Each row should contain a single user ID and a JSON object with up to 250 attributes. Each key in the JSON object counts as one attribute (that is, an array counts as one attribute). |
 | Payload size           | Each row can contain a payload of up to 1 MB. Payloads greater than 1 MB are rejected, and the error "Payload was greater than 1MB" is logged to the sync log along with the associated external ID and truncated payload. |
-| Data type              | You can sync user attributes, events, and purchases through Cloud Data Ingestion.                                                                                                  |
+| Data type              | You can sync user attributes, custom events, purchase events, catalog items, user deletion requests, and Canvas triggers through Cloud Data Ingestion.                                                                                                  |
 | Braze region           | This product is available in all Braze regions. Any Braze region can connect to any source data region.                                                                              |
 | Source region       | Braze connects to your data warehouse or cloud environment in any region or cloud provider.                                                                                        |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Product limitations" }

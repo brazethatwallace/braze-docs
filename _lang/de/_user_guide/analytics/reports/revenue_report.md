@@ -64,8 +64,8 @@ Wenn Sie Umsatz für eine Währung ohne Wechselkurs erfassen, zeichnet Braze die
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Lifetime Revenue' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#lifetime-value-per-user">Lifetime-Value pro Nutzer:in</a></td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Lifetime Value Per User' %}</td>
+            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#LTV-per-user">LTV pro Nutzer:in</a></td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='LTV Per User' %}</td>
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#average-daily-revenue">Durchschnittlicher Tagesumsatz</a></td>

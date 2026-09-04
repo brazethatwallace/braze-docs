@@ -13,7 +13,7 @@ noindex: true
 
 <br>
 {% alert important %}
-Suchen Sie den grundlegenden Entwicklerleitfaden zur Integration von In-App-Nachrichten? Finden Sie ihn [hier]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/overview).
+Suchen Sie den grundlegenden Entwicklerleitfaden zur Integration von In-App-Nachrichten? Finden Sie ihn im [grundlegenden Entwicklerleitfaden zur Integration von In-App-Nachrichten]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/overview).
 {% endalert %}
 
 # Implementierungsleitfaden für In-App-Nachrichten {#in-app-messaging-implementation-guide}
@@ -83,7 +83,7 @@ Im Folgenden finden Sie drei Anwendungsfälle. Jeder Anwendungsfall enthält ein
 
 ![Zwei iPhones nebeneinander. Beim ersten iPhone berührt die Slide-up-Nachricht den unteren Rand des Displays. Beim zweiten iPhone wird die Slide-up-Nachricht weiter oben auf dem Bildschirm angezeigt, sodass der App-Navigations-Button sichtbar ist.]({% image_buster /assets/img/iam_implementation/slideup.png %}){: style="float:right;max-width:45%;margin-left:15px;border:0;"}
 
-Bei der Erstellung Ihrer Slide-up-In-App-Nachricht werden Sie feststellen, dass Sie die Platzierung der Nachricht mit den Standardmethoden nicht ändern können. Eine solche Änderung wird durch die Erstellung einer Unterklasse von `ABKInAppMessageSlideupViewController` und das Überschreiben der Variable `offset` mit Ihrer eigenen angepassten Variablen ermöglicht. Das Bild auf der rechten Seite zeigt ein Beispiel dafür, wie Sie damit Ihre Slide-up-In-App-Nachrichten anpassen können.
+Bei der Erstellung Ihrer Slide-up-In-App-Nachricht werden Sie feststellen, dass Sie die Platzierung der Nachricht mit den Standardmethoden nicht ändern können. Eine solche Änderung wird durch die Erstellung einer Unterklasse von `ABKInAppMessageSlideupViewController` und das Überschreiben der Variable `offset` mit Ihrer eigenen angepassten Variablen ermöglicht. Das nebenstehende Bild zeigt, wie Sie damit Ihre Slide-up-In-App-Nachrichten anpassen können.
 
 Besuchen Sie den [`SlideFromBottomViewController`](https://github.com/braze-inc/braze-growth-shares-ios-demo-app/blob/master/Braze-Demo/ViewController/In-App-Messages/SlideFromBottomViewController.swift), um loszulegen.
 
@@ -226,7 +226,7 @@ Um eine modale In-App-Nachricht im Dashboard einzurichten, müssen Sie eine Arti
 
 ![Der In-App-Nachrichten-Editor zeigt eine Vorschau, wie die In-App-Nachricht aussehen wird. Stattdessen wird die Artikelliste angezeigt, die Sie an Braze übermittelt haben. Da die Braze-Benutzeroberfläche Ihre angepasste In-App-Nachrichten-UI nur anzeigt, wenn sie an ein Telefon gesendet wird, gibt die Vorschau keinen Aufschluss darüber, wie Ihre Nachricht tatsächlich aussehen wird. Wir empfehlen daher, vor dem Senden einen Test durchzuführen.]({% image_buster /assets/img/iam_implementation/dashboard1.png %})
 
-Geben Sie in den Schlüssel-Wert-Paaren einen `attribute_key` an. Dieser Schlüssel wird zusammen mit dem von Nutzer:innen ausgewählten Wert als angepasstes Attribut in ihrem Nutzerprofil gespeichert. Ihre angepasste Ansichtslogik muss die an Braze gesendeten Nutzerattribute verarbeiten.
+Geben Sie in den Schlüssel-Wert-Paaren einen `attribute_key` an. Dieser Schlüssel wird zusammen mit dem von Nutzer:innen ausgewählten Wert als angepasstes Attribut in ihrem Kundenprofil gespeichert. Ihre angepasste Ansichtslogik muss die an Braze gesendeten Nutzerattribute verarbeiten.
 
 Das Wörterbuch `extras` im Objekt `ABKInAppMessage` ermöglicht Ihnen die Abfrage eines Schlüssels des Typs `view_type` (falls vorhanden), der die korrekte Ansicht für die Anzeige angibt. Es ist wichtig zu wissen, dass In-App-Nachrichten pro Nachricht konfiguriert werden, sodass angepasste und standardmäßige modale Ansichten harmonisch zusammenarbeiten können.
 
@@ -357,7 +357,7 @@ Möchten Sie unsere angepassten modalen In-App-Nachrichten nutzen, um Videos üb
 
 ![Eine In-App-Nachricht, die eine Liste von Konfigurationsoptionen mit Kippschaltern neben jeder Option anzeigt. Am Ende der Nachricht befindet sich ein großer blauer Button zum Absenden.]({% image_buster /assets/img/iam_implementation/fullscreen.png %}){: style="float:right;max-width:23%;margin-left:15px;border:0;"}
 
-Verwenden Sie angepasste Full-In-App-Nachrichten, um interaktive, nutzerfreundliche Aufforderungen zur Erfassung wertvoller Kundendaten zu erstellen. Das Beispiel auf der rechten Seite zeigt die Implementierung einer angepassten Full-In-App-Nachricht, die als interaktiver Push-Primer mit Präferenzen für Benachrichtigungen umgesetzt wurde.
+Verwenden Sie angepasste Full-In-App-Nachrichten, um interaktive, nutzerfreundliche Aufforderungen zur Erfassung wertvoller Kundendaten zu erstellen. Das nebenstehende Beispiel zeigt die Implementierung einer angepassten Full-In-App-Nachricht, die als interaktiver Push-Primer mit Präferenzen für Benachrichtigungen umgesetzt wurde.
 
 Besuchen Sie den [`FullListViewController`](https://github.com/braze-inc/braze-growth-shares-ios-demo-app/blob/master/Braze-Demo/ViewController/In-App-Messages/FullListViewController/FullListViewController.swift), um loszulegen.
 
@@ -365,7 +365,7 @@ Besuchen Sie den [`FullListViewController`](https://github.com/braze-inc/braze-g
 
 Um eine angepasste Full-In-App-Nachricht im Dashboard einzurichten, müssen Sie eine Liste Ihrer Tags angeben, die als kommagetrennte Zeichenkette formatiert ist.
 
-Geben Sie in den Schlüssel-Wert-Paaren einen `attribute_key` an. Dieser Schlüssel wird zusammen mit den von Nutzer:innen ausgewählten Werten als angepasstes Attribut in ihrem Nutzerprofil gespeichert. Ihre angepasste Ansichtslogik muss die an Braze gesendeten Nutzerattribute verarbeiten.
+Geben Sie in den Schlüssel-Wert-Paaren einen `attribute_key` an. Dieser Schlüssel wird zusammen mit den von Nutzer:innen ausgewählten Werten als angepasstes Attribut in ihrem Kundenprofil gespeichert. Ihre angepasste Ansichtslogik muss die an Braze gesendeten Nutzerattribute verarbeiten.
 
 ![Drei Schlüssel-Wert-Paare im Nachrichten-Editor. Das erste „attribute_key“ ist als „Push Tags“ festgelegt, das zweite „subtitle_text“ als „Durch das Aktivieren von Benachrichtigungen wird auch …“ und das dritte „view_type“ als „table_list“.]({% image_buster /assets/img/iam_implementation/dashboard3.png %}){: style="max-width:65%;"}
 

@@ -22,9 +22,7 @@ Dieser Nachrichtentyp ist im [traditionellen Editor]({{site.baseurl}}/user_guide
 
 Slideup-Nachrichten können bis zu drei Textzeilen enthalten, bevor sie mit Auslassungspunkten abgeschnitten werden. Bilder in Slideups werden niemals beschnitten oder abgeschnitten – sie werden immer so herunterskaliert, dass sie in den 50 x 50 Pixel großen Bildcontainer passen.
 
-- Alle Bilder müssen kleiner als 5&nbsp;MB sein.
-- Wir akzeptieren nur die Dateitypen PNG, JPEG und GIF.
-- Wir empfehlen, dass Ihre Bilder 500&nbsp;KB groß sind.
+{% multi_lang_include in-app_messages/image_requirements.md %}
 
 {% alert tip %} Erstellen Sie Assets mit Zuversicht! Unsere Bildvorlagen und Safe-Zone-Overlays für In-App-Nachrichten sind so konzipiert, dass sie auf Geräten aller Größen gut funktionieren. [Design-Vorlagen-ZIP herunterladen]({% image_buster /assets/download_file/Braze-In-App-Message-Design-Templates.zip %}) {% endalert %}
 
@@ -37,7 +35,7 @@ Sie sollten Ihre Nachrichten immer auf verschiedenen Geräten [in der Vorschau a
 
 ## Hyperlinks und Ankertext {#hyperlinks-and-anchor-text}
 
-Um einen Link in einem Slideup hinzuzufügen, geben Sie den Nachrichtentext im Feld **Body** ein und legen Sie das Ziel unter **On-click behavior** fest (zum Beispiel **Redirect to URL**). Wenn **On-click behavior** konfiguriert ist, löst ein Tippen auf eine beliebige Stelle der Nachricht – außer auf das Schließen-Steuerelement – diese Aktion aus.
+Um einen Link in einem Slideup hinzuzufügen, geben Sie den Nachrichtentext im Feld **Body** ein und legen Sie das Ziel unter **On-Click behavior** fest (zum Beispiel **Redirect to URL**). Wenn **On-Click behavior** konfiguriert ist, löst ein Tippen auf eine beliebige Stelle der Nachricht – außer auf das Schließen-Steuerelement – diese Aktion aus.
 
 Für angepasste HTML-In-App-Nachrichten können Sie HTML-Links direkt verwenden. Siehe [Angepasste HTML-In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html).
 

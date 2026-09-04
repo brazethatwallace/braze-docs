@@ -32,13 +32,12 @@ Vous pouvez utiliser ces méthodes supplémentaires pour créer un flux de Conte
 | ---------------------------------------- | ------------------------------------------------------------------------------------------------------ |
 | `launchContentCards()`                   | Lance l'élément d'interface utilisateur Content Cards.                                                                 |
 | `requestContentCardsRefresh()`           | Demande les dernières Content Cards au serveur du SDK Braze. La liste de cartes qui en résulte est transmise à chacun des [récepteurs d'événements de carte de contenu](#reactnative_cards-methods) précédemment enregistrés. |
-| `getContentCards()`                      | Récupère les Content Cards du SDK Braze. Ceci renvoie une promesse qui se résout avec la dernière liste de cartes du serveur. |
 | `getCachedContentCards()`                | Renvoie le tableau de Content Cards le plus récent du cache.                                            |
-| `logContentCardClicked(cardId)`          | Enregistre un clic pour l'ID de carte de contenu donné. Cette méthode est uniquement utilisée pour les analyses. Pour exécuter l'action de clic, appelez `processContentCardClickAction(cardId)` en plus.                                                        |
-| `logContentCardImpression(cardId)`       | Enregistre une impression pour l'ID de carte de contenu donné.                                                      |
-| `logContentCardDismissed(cardId)`        | Enregistre un rejet pour l'ID de carte de contenu donné.                                                        |
+| `logContentCardClicked(cardId)`          | Enregistre un clic pour l'ID de Content Card donné. Cette méthode est uniquement utilisée pour les analyses. Pour exécuter l'action de clic, appelez `processContentCardClickAction(cardId)` en plus.                                                        |
+| `logContentCardImpression(cardId)`       | Enregistre une impression pour l'ID de Content Card donné.                                                      |
+| `logContentCardDismissed(cardId)`        | Enregistre un rejet pour l'ID de Content Card donné.                                                        |
 | `processContentCardClickAction(cardId)`  | Effectue l'action d'une carte particulière.                                                               |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Cards methods" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Méthodes pour les cartes" }
 
 ## Types de cartes et propriétés {#card-types-and-properties}
 
@@ -66,7 +65,7 @@ Le modèle de carte de base fournit un comportement fondamental pour toutes les 
 | `openURLInWebView` | Indique si les URL de cette carte doivent être ouvertes dans le WebView de Braze ou non.                                            |
 | `isControl`   | Indique si cette carte est une carte de contrôle. Les cartes de contrôle ne doivent pas être affichées à l'utilisateur.                                |
 | `extras`      | Le mappage des suppléments clé-valeur pour cette carte.                                                                             |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Base card model" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Modèle de carte de base" }
 
 Pour une référence complète de la carte de base, consultez la documentation [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/index.html) et [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/data-swift.struct).
 
@@ -79,7 +78,7 @@ Les cartes image seule sont des images cliquables en taille réelle.
 | `type`             | Le type de Content Card, `IMAGE_ONLY`.                                                                              |
 | `image`            | L'URL de l'image de la carte.                                                                                      |
 | `imageAspectRatio` | Le rapport hauteur/largeur de l'image de la carte. Il sert d'indication avant que le chargement de l'image ne soit terminé. Veuillez noter que la propriété peut ne pas être fournie dans certaines circonstances. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Image only" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Image seule" }
 
 Pour une référence complète de la carte image seule, consultez la documentation [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-image-only-card/index.html) et [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/imageonly-swift.struct).
 
@@ -95,13 +94,13 @@ Les cartes d'images légendées sont des images cliquables en taille réelle acc
 | `title`            | Le texte du titre de la carte.                                                                                      |
 | `cardDescription`  | Le texte de description de la carte.                                                                                |
 | `domain`           | (Facultatif) Le texte du lien pour l'URL de propriété, par exemple, `"braze.com/resources/"`. Il peut être affiché sur l'interface utilisateur de la carte pour indiquer l'action ou la direction du clic sur la carte. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Captioned image" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Image légendée" }
 
 Pour une référence complète de la carte d'image légendée, consultez la documentation [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-captioned-image-card/index.html) et [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/captionedimage-swift.struct).
 
 ### Classique {#classic}
 
-Les cartes classiques comportent un titre, une description et une image facultative à gauche du texte.
+Les cartes classiques comportent un titre, une description et une image facultative avant le texte.
 
 | Propriété           | Description                                                                                                       |
 |-------------------|-------------------------------------------------------------------------------------------------------------------|
@@ -110,7 +109,7 @@ Les cartes classiques comportent un titre, une description et une image facultat
 | `title`            | Le texte du titre de la carte.                                                                                      |
 | `cardDescription`  | Le texte de description de la carte.                                                                                |
 | `domain`           | (Facultatif) Le texte du lien pour l'URL de propriété, par exemple, `"braze.com/resources/"`. Il peut être affiché sur l'interface utilisateur de la carte pour indiquer l'action ou la direction du clic sur la carte. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Classic" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Classique" }
 
 Pour une référence complète de la Content Card classique (annonce textuelle), consultez la documentation [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-text-announcement-card/index.html) et [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/classic-swift.struct). Pour la carte image classique (nouvelles brèves), consultez la documentation [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-short-news-card/index.html) et [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/classicimage-swift.struct).
 

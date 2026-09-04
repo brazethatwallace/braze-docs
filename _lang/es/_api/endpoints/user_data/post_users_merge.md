@@ -5,8 +5,7 @@ search_tag: Endpoint
 page_order: 6
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Fusionar usuarios de Braze."
-
+description: "En este artículo se describen los detalles del endpoint Fusionar usuarios de Braze."
 ---
 {% api %}
 # Fusionar usuarios {#merge-users}
@@ -14,15 +13,15 @@ description: "En este artículo se describen los detalles del punto de conexión
 /users/merge
 {% endapimethod %}
 
-> Utiliza este punto de conexión para fusionar un usuario con otro usuario.
+> Utiliza este endpoint para fusionar un usuario con otro usuario.
 
-Se pueden especificar hasta 50 fusiones por solicitud. Este punto de conexión es asíncrono.
+Se pueden especificar hasta 50 fusiones por solicitud. Este endpoint es asíncrono.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#d262b86d-cf84-46e2-b9d0-f882bb7078de {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/api_key) con el permiso `users.merge`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics) con el permiso `users.merge`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -50,13 +49,13 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 ### Comportamiento de la fusión {#merge-behavior}
 
-El comportamiento que se documenta a continuación es válido para todas las características de Braze que **no** funcionan con Snowflake. Las fusiones de usuarios no se reflejarán en la pestaña **Messaging History**, Extensiones de segmento, Generador de consultas ni Currents.
+El comportamiento que se documenta a continuación es válido para todas las características de Braze que **no** funcionan con Snowflake. Las fusiones de usuarios no se reflejarán en la pestaña **historial de mensajes**, extensiones de segmento, generador de consultas ni Currents.
 
 {% alert important %}
-El punto de conexión no garantiza la secuencia de actualización de los objetos de `merge_updates`.
+El endpoint no garantiza la secuencia de actualización de los objetos de `merge_updates`.
 {% endalert %}
 
-Este punto de conexión fusiona los siguientes campos si no se encuentran en el usuario de destino.
+Este endpoint fusiona los siguientes campos si no se encuentran en el usuario de destino.
 
 - Nombre
 - Apellido
@@ -91,10 +90,10 @@ Este punto de conexión fusiona los siguientes campos si no se encuentran en el 
 - Braze fusiona los datos de sesión solo si la aplicación existe en ambos perfiles de usuario.
 
 {% alert note %}
-Al fusionar usuarios, el uso del punto de conexión `/users/merge` funciona del mismo modo que el [método `changeUser()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser).
+Al fusionar usuarios, el uso del endpoint `/users/merge` funciona del mismo modo que el [método `changeUser()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser).
 {% endalert %}
 
-Braze gestiona de forma diferente tres tipos de usuarios durante la fusión: usuarios marcados para eliminación, usuarios de prueba y usuarios del Grupo de control global. Para más detalles, consulta [Comportamiento de la fusión de usuarios]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior).
+Braze gestiona de forma diferente tres tipos de usuarios durante la fusión: usuarios marcados para eliminación, usuarios de prueba y usuarios del grupo de control global. Para más detalles, consulta [Comportamiento de la fusión de usuarios]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior).
 
 #### Comportamiento de la fecha de eventos personalizados y la fecha de eventos de compra {#custom-event-date-and-purchase-event-date-behavior}
 
@@ -117,7 +116,7 @@ En la matriz de priorización solo puede existir una de las siguientes opciones 
 - `unidentified` se refiere a dar prioridad a un usuario sin un `external_id`
 
 {% alert important %}
-Si ambos perfiles tienen números de teléfono no válidos, Braze no los fusiona. Los números no válidos no se almacenan en formato E.164 y el proceso de fusión no combina esos perfiles. El punto de conexión sigue devolviendo `202 Accepted` con un mensaje de éxito, por lo que la respuesta HTTP no indica que la fusión se omitió. Corrige los números de teléfono en uno o ambos perfiles antes de fusionar.
+Si ambos perfiles tienen números de teléfono no válidos, Braze no los fusiona. Los números no válidos no se almacenan en formato E.164 y el proceso de fusión no combina esos perfiles. El endpoint sigue devolviendo `202 Accepted` con un mensaje de éxito, por lo que la respuesta HTTP no indica que la fusión se omitió. Corrige los números de teléfono en uno o ambos perfiles antes de fusionar.
 {% endalert %}
 
 ## Ejemplos de solicitudes {#example-requests}
@@ -242,7 +241,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 
 ## Respuesta {#response}
 
-Hay dos respuestas de código de estado para este punto de conexión: `202` y `400`.
+Hay dos respuestas de código de estado para este endpoint: `202` y `400`.
 
 ### Ejemplo de respuesta satisfactoria {#example-success-response}
 
@@ -268,7 +267,7 @@ El código de estado `400` podría devolver el siguiente cuerpo de respuesta. Co
 
 ### Se devolvió una respuesta satisfactoria, pero el usuario fusionado sigue siendo localizable {#a-success-response-was-returned-but-the-merged-user-is-still-searchable}
 
-Una respuesta satisfactoria confirma que la solicitud fue aceptada, pero la operación de fusión implica dos pasos: fusionar los perfiles y luego eliminar el perfil de origen. Debido a esto, el perfil `identifier_to_merge` puede seguir siendo localizable en el dashboard durante un breve periodo después de una respuesta satisfactoria. Este es el comportamiento esperado: espera unos minutos y luego verifica que la fusión se haya completado.
+Una respuesta satisfactoria confirma que la solicitud fue aceptada, pero la operación de fusión implica dos pasos: fusionar los perfiles y luego eliminar el perfil de origen. Debido a esto, el perfil `identifier_to_merge` puede seguir siendo localizable en el panel durante un breve periodo después de una respuesta satisfactoria. Este es el comportamiento esperado: espera unos minutos y luego verifica que la fusión se haya completado.
 
 Si el usuario fusionado sigue existiendo después de varios minutos, verifica que los identificadores de tu solicitud sean correctos y pertenezcan a usuarios del mismo espacio de trabajo que la clave de API utilizada para la solicitud.
 

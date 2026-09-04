@@ -1,13 +1,13 @@
 ---
 nav_title: Braze 템플릿 사용
-article_title: Braze Canvas 템플릿 사용
+article_title: BRAZE 캔버스 템플릿 사용
 alias: "/canvas_templates/templates/"
 page_order: 2
 description: "이 참조 문서에서는 사용 가능한 Canvas 템플릿을 만드는 방법을 다룹니다."
 page_type: reference
 ---
 
-# Braze Canvas 템플릿 사용 {#use-braze-canvas-templates}
+# BRAZE 캔버스 템플릿 사용 {#use-braze-canvas-templates}
 
 > Braze에는 일반적인 사용 사례에 대한 모범 사례로 참조하고 사용할 수 있는 Canvas 템플릿이 준비되어 있습니다. 이러한 템플릿은 편집할 수 없지만, **콘텐츠** > **Canvas** > **Braze 템플릿**에서 확인하거나 Canvases에서 사용할 수 있습니다.
 

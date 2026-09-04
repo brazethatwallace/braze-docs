@@ -1,8 +1,8 @@
 ---
 page_order: 1.2
 nav_title: 認証
-article_title: Braze SDKの認証を設定する
-description: "この参考記事では、SDK認証と、Braze SDKでこの機能を有効にする方法について説明します。"
+article_title: SDK認証の設定
+description: "このリファレンス記事では、SDK認証と、Braze SDKでこの機能を有効にする方法について説明します。"
 platform:
   - iOS
   - Android
@@ -10,88 +10,84 @@ platform:
 
 ---
 
-# SDK認証を設定する {#set-up-sdk-authentication}
+# SDK認証の設定 {#set-up-sdk-authentication}
 
 > SDK認証を使用すると、ログインしているユーザーの代わりに行われたSDKリクエストに対して（サーバー側で生成された）暗号証明を提供できます。
 
 ## 仕組み {#how-it-works}
 
-アプリでこの機能を有効にした後、無効または欠落しているJSON Web Token（JWT）を含むリクエストを拒否するようにBrazeダッシュボードを設定できます。これには次のものが含まれます。
+アプリでこの機能を有効にすると、無効なまたは欠落しているJSON Web Token（JWT）を含むリクエストを拒否するようBrazeダッシュボードを設定できます。これには以下が含まれます：
 
 - カスタムイベント、属性、購入、セッションデータの送信
 - Brazeワークスペースでの新規ユーザーの作成
 - 標準ユーザープロファイル属性の更新
 - メッセージの受信またはトリガー
 
-認証されていないログインユーザーが、アプリのSDK APIキーを使って悪意のあるアクション（他のユーザーになりすますなど）を行うのを防げるようになります。
+これにより、認証されていないログイン済みユーザーがアプリのSDK APIキーを使用して、他のユーザーになりすますなどの悪意あるアクションを実行することを防止できます。
 
-## 認証のセットアップ {#setting-up-authentication}
+## 認証の設定 {#setting-up-authentication}
 
-### ステップ1:サーバーのセットアップ {#server-side-integration}
+### ステップ1：サーバーの設定 {#server-side-integration}
 
-#### ステップ1.1:公開鍵と秘密鍵のペアを生成する {#generate-keys}
+#### ステップ1.1：公開キー/秘密キーのペアを生成する {#generate-keys}
 
-RSA256公開鍵/秘密鍵ペアを生成します。公開キーは最終的にBrazeのダッシュボードに追加されますが、秘密キーはサーバーに安全に保管する必要があります。
+RSA256の公開キー/秘密キーのペアを生成します。公開キーは最終的にBrazeダッシュボードに追加し、秘密キーはサーバーに安全に保存する必要があります。
 
-RS256 JWTアルゴリズムで使用する2048ビットのRSA鍵を推奨します。
+RS256 JWTアルゴリズムで使用するには、2048ビットのRSAキーを推奨します。
 
 {% alert warning %}
-秘密キーは必ず_非公開_にしてください。アプリやWebサイトに秘密鍵を公開したり、ハードコードしたりしてはなりません。あなたの秘密キーを知っている人なら誰でも、あなたのアプリケーションに代わってユーザーになりすましたり、ユーザーを作成したりすることができます。
+秘密キーは必ず*秘密*にしてください。秘密キーをアプリやWebサイトに公開したりハードコーディングしたりしないでください。秘密キーを知っている人は、あなたのアプリケーションに代わってユーザーになりすましたり、ユーザーを作成したりできます。
 {% endalert %}
 
-#### ステップ1.2:現在のユーザーのJSON Web Tokenを作成する {#create-jwt}
+#### ステップ1.2：現在のユーザーのJSON Webトークンを作成する {#create-jwt}
 
-秘密キーが手に入ったら、サーバー側のアプリケーションはそれを使って、現在ログインしているユーザーのアプリまたはWebサイトにJWTを返す必要があります。
+秘密キーを取得したら、サーバーサイドのアプリケーションはそれを使用して、現在ログインしているユーザーのJWTをアプリまたはWebサイトに返す必要があります。
 
-通常、このロジックは、アプリが通常現在のユーザーのプロファイルをリクエストする任意の場所に配置できます。たとえば、ログインエンドポイントや、アプリが現在のユーザープロファイルを更新する場所などです。
+通常、このロジックは、アプリが現在のユーザープロファイルをリクエストする場所（ログインエンドポイントや、現在のユーザープロファイルを更新する場所など）に配置できます。
 
 JWTを生成する際には、以下のフィールドが必要です：
 
 **JWTヘッダー**
 
-| フィールド | 必須 | 説明                         |
+| フィールド | 必須 | 説明 |
 | ----- | -------- | ----------------------------------- |
-| `alg` | はい  | サポートされているアルゴリズムは`RS256`です。 |
-| `typ` | はい  | タイプは`JWT`と同じでなければなりません。        |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ1.2:現在のユーザーのJSON Web Tokenを作成する" }
-
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ1.2:現在のユーザーのJSON Web Tokenを作成する #create-jwt" }
+| `alg` | はい | サポートされているアルゴリズムは`RS256`です。 |
+| `typ` | はい | タイプは`JWT`と等しくなければなりません。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="現在のユーザーのJSON Webトークンを作成する" }
 
 **JWTペイロード**
 
-| フィールド | 必須 | 説明                                                                            |
+| フィールド | 必須 | 説明 |
 | ----- | -------- | -------------------------------------------------------------------------------------- |
-| `sub` | はい  | 「subject」は、`changeUser`の呼び出し時にBraze SDKに指定したユーザーIDと同じである必要があります。  |
-| `exp` | はい | このトークンをいつ期限切れにするかの「有効期限」（Unixタイムスタンプ（秒単位）で指定します。例：2030年1月1日の場合は`1893456000`）。                                |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ1.2:現在のユーザーのJSON Web Tokenを作成する" }
-
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ1.2:現在のユーザーのJSON Web Tokenを作成する #create-jwt" }
+| `sub` | はい | 「subject」は、`changeUser`を呼び出す際にBraze SDKに提供するユーザーIDと一致する必要があります |
+| `exp` | はい | 「expiration」は、このトークンの有効期限をUnixタイムスタンプ（秒単位）で指定します（例：2030年1月1日の場合は`1893456000`）。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="現在のユーザーのJSON Webトークンを作成する" }
 
 {% alert tip %}
-JSON Web Tokenについての詳細や、この署名プロセスを簡素化する多くのオープンソースライブラリを参照するには、[https://jwt.io](https://jwt.io)をチェックしてください。
+JSON Webトークンの詳細や、この署名プロセスを簡素化する多くのオープンソースライブラリについては、[https://jwt.io](https://jwt.io)をご覧ください。
 {% endalert %}
 
-### ステップ2:SDKの設定 {#sdk-integration}
+### ステップ2：SDKの設定 {#sdk-integration}
 
-この機能は以下の[SDKバージョン]({{ site.baseurl }}/user_guide/engagement_tools/campaigns/ideas_and_strategies/new_features/#filtering-by-most-recent-app-versions)から利用可能です：
+この機能は、以下の[SDKバージョン]({{ site.baseurl }}/user_guide/engagement_tools/campaigns/ideas_and_strategies/new_features/#filtering-by-most-recent-app-versions)以降で利用可能です：
 
 {% sdk_min_versions swift:5.0.0 android:14.0.0 web:3.3.0 %}
 
 {% alert note %}
-iOS統合については、このページでBraze Swift SDKのステップを詳しく説明します。レガシーAppboyKit iOS SDKでの使用例については、[このファイル](https://github.com/Appboy/appboy-ios-sdk/blob/master/Example/Stopwatch/Sources/AppDelegate.m)と[このファイル](https://github.com/Appboy/appboy-ios-sdk/blob/master/Example/Stopwatch/Sources/Utils/SdkAuthDelegate.m)を参照してください。
+iOSの連携については、このページではBraze Swift SDKの手順を説明しています。レガシーのAppboyKit iOS SDKでの使用例については、[このファイル](https://github.com/Appboy/appboy-ios-sdk/blob/master/Example/Stopwatch/Sources/AppDelegate.m)と[このファイル](https://github.com/Appboy/appboy-ios-sdk/blob/master/Example/Stopwatch/Sources/Utils/SdkAuthDelegate.m)を参照してください。
 {% endalert %}
 
-#### ステップ2.1:Braze SDKで認証を有効にする {#step-21-enable-authentication-in-the-braze-sdk}
+#### ステップ2.1：Braze SDKで認証を有効にする {#step-21-enable-authentication-in-the-braze-sdk}
 
-この機能が有効な場合、Braze SDKは、Brazeサーバーに対して行われたネットワークリクエストに、現在のユーザーの最新の既知のJWTを追加します。
+この機能を有効にすると、Braze SDKはBrazeサーバーへのネットワークリクエストに、現在のユーザーの最新のJWTを付加します。
 
 {% alert note %}
-このオプションだけで初期化しても、Brazeダッシュボード内で[認証の適用を](#braze-dashboard)開始するまでは、データ収集には何の影響もないのでご心配なく。
+このオプションだけで初期化しても、Brazeダッシュボードで[認証の適用](#braze-dashboard)を開始するまで、データ収集に影響はありません。
 {% endalert %}
 
 {% tabs %}
 {% tab Web %}
-`initialize`を呼び出す際には、オプションの`enableSdkAuthentication`プロパティを`true`に設定します。
+`initialize`を呼び出す際に、オプションの`enableSdkAuthentication`プロパティを`true`に設定します。
 ```javascript
 import * as braze from "@braze/web-sdk";
 braze.initialize("YOUR-API-KEY-HERE", {
@@ -101,9 +97,9 @@ braze.initialize("YOUR-API-KEY-HERE", {
 ```
 {% endtab %}
 {% tab React Native %}
-ネイティブSDKの初期化時に、SDK認証を有効にする必要があります。ネイティブのiOSおよびAndroidコードに以下の設定を追加してください：
+SDK認証は、ネイティブSDKの初期化時に有効にする必要があります。ネイティブのiOSおよびAndroidコードに以下の設定を追加してください：
 
-**iOS (AppDelegate.swift)**
+**iOS（AppDelegate.swift）**
 
 ```swift
 import BrazeKit
@@ -120,33 +116,33 @@ let braze = BrazeReactBridge.perform(
 ).takeUnretainedValue() as! Braze
 ```
 
-**Android (braze.xml)**
+**Android（braze.xml）**
 
 ```xml
 <bool name="com_braze_sdk_authentication_enabled">true</bool>
 ```
 
-ネイティブレイヤーでSDK認証を有効にした後、以下のステップに示すReact Native JavaScriptメソッドを使用できます。
+ネイティブレイヤーでSDK認証を有効にした後、以降のステップで示すReact Native JavaScriptメソッドを使用できます。
 {% endtab %}
 {% tab Java %}
-Brazeインスタンスを設定するときは、`setIsSdkAuthenticationEnabled`を`true`に設定します。
+Brazeインスタンスを設定する際に、`setIsSdkAuthenticationEnabled`を`true`に設定します。
 ```java
 BrazeConfig.Builder brazeConfigBuilder = new BrazeConfig.Builder()
     .setIsSdkAuthenticationEnabled(true);
 Braze.configure(this, brazeConfigBuilder.build());
 ```
 
-あるいは、braze.xmlに`<bool name="com_braze_sdk_authentication_enabled">true</bool>`を追加することもできます。
+または、braze.xmlに`<bool name="com_braze_sdk_authentication_enabled">true</bool>`を追加することもできます。
 {% endtab %}
 {% tab KOTLIN %}
-Brazeインスタンスを設定するときは、`setIsSdkAuthenticationEnabled`を`true`に設定します。
+Brazeインスタンスを設定する際に、`setIsSdkAuthenticationEnabled`を`true`に設定します。
 ```kotlin
 BrazeConfig.Builder brazeConfigBuilder = BrazeConfig.Builder()
     .setIsSdkAuthenticationEnabled(true)
 Braze.configure(this, brazeConfigBuilder.build())
 ```
 
-あるいは、braze.xmlに`<bool name="com_braze_sdk_authentication_enabled">true</bool>`を追加することもできます。
+または、braze.xmlに`<bool name="com_braze_sdk_authentication_enabled">true</bool>`を追加することもできます。
 {% endtab %}
 {% tab Objective-C %}
 SDK認証を有効にするには、Brazeインスタンスを初期化する前に、`BRZConfiguration`オブジェクトの`configuration.api.sdkAuthentication`プロパティを`YES`に設定します：
@@ -161,7 +157,7 @@ AppDelegate.braze = braze;
 ```
 {% endtab %}
 {% tab Swift %}
-SDK認証を有効にするには、SDKを初期化する際に、`Braze.Configuration`オブジェクトの`configuration.api.sdkAuthentication`プロパティを`true`に設定します：
+SDK認証を有効にするには、SDKを初期化する際に`Braze.Configuration`オブジェクトの`configuration.api.sdkAuthentication`プロパティを`true`に設定します：
 
 ```swift
 let configuration = Braze.Configuration(apiKey: "{YOUR-BRAZE-API-KEY}",
@@ -172,10 +168,10 @@ AppDelegate.braze = braze
 ```
 {% endtab %}
 {% tab Dart %}
-現在、SDK認証は、iOSとAndroidのネイティブコードでSDKを初期化する際に有効にする必要があります。Flutter SDKでSDK認証を有効にするには、他のタブのiOSとAndroidの統合に従ってください。SDK認証を有効にした後、残りの機能をDartに統合することができます。
+現在、SDK認証はネイティブのiOSおよびAndroidコードでSDKの初期化時に有効にする必要があります。Flutter SDKでSDK認証を有効にするには、他のタブのiOSおよびAndroidの連携手順に従ってください。SDK認証を有効にした後、残りの機能はDartで統合できます。
 {% endtab %}
 {% tab Flutter %}
-ネイティブのiOSおよびAndroidコードにおいて、SDKの初期化の一環としてSDK認証を有効にする必要があります。ネイティブレイヤーで有効にすると、Flutter SDKのメソッドを使ってJWT署名を渡すことができます。
+SDK認証は、ネイティブのiOSおよびAndroidコードでSDKの初期化時に有効にする必要があります。ネイティブレイヤーで有効にすると、Flutter SDKメソッドを使用してJWT署名を渡すことができます。
 
 **iOS**
 
@@ -187,16 +183,16 @@ configuration.api.sdkAuthentication = true
 let braze = Braze(configuration: configuration)
 ```
 
-**Android (braze.xml)**
+**Android（braze.xml）**
 
 ```xml
 <bool name="com_braze_sdk_authentication_enabled">true</bool>
 ```
 
-ネイティブレイヤーでSDK認証を有効にした後、以下のステップで示すFlutter SDKメソッドを使用できます。
+ネイティブレイヤーでSDK認証を有効にした後、以降のステップで示すFlutter SDKメソッドを使用できます。
 {% endtab %}
 {% tab Unity %}
-ネイティブSDKの初期化時に、SDK認証を有効にする必要があります。ネイティブのiOSおよびAndroidコードに以下の設定を追加してください：
+SDK認証は、ネイティブSDKの初期化時に有効にする必要があります。ネイティブのiOSおよびAndroidコードに以下の設定を追加してください：
 
 **iOS**
 
@@ -207,16 +203,16 @@ let braze = Braze(configuration: configuration)
 <true/>
 ```
 
-**Android (braze.xml)**
+**Android（braze.xml）**
 
 ```xml
 <bool name="com_braze_sdk_authentication_enabled">true</bool>
 ```
 
-ネイティブレイヤーでSDK認証を有効にした後、以下のステップで示すUnity C#メソッドを使用できます。
+ネイティブレイヤーでSDK認証を有効にした後、以降のステップで示すUnity C#メソッドを使用できます。
 {% endtab %}
 {% tab Cordova %}
-ネイティブSDKの初期化時に、SDK認証を有効にする必要があります。ネイティブのiOSおよびAndroidコードに以下の設定を追加してください：
+SDK認証は、ネイティブSDKの初期化時に有効にする必要があります。ネイティブのiOSおよびAndroidコードに以下の設定を追加してください：
 
 **iOS**
 
@@ -226,16 +222,16 @@ SDK認証を有効にするには、`config.xml`で`enableSDKAuthentication`プ�
 <preference name="com.braze.ios_enable_sdk_authentication" value="true" />
 ```
 
-**Android (braze.xml)**
+**Android（braze.xml）**
 
 ```xml
 <bool name="com_braze_sdk_authentication_enabled">true</bool>
 ```
 
-ネイティブレイヤーでSDK認証を有効にした後、以下のステップで示すCordova JavaScriptメソッドを使用できます。
+ネイティブレイヤーでSDK認証を有効にした後、以降のステップで示すCordova JavaScriptメソッドを使用できます。
 {% endtab %}
 {% tab .NET MAUI (Xamarin) %}
-ネイティブSDKの初期化時に、SDK認証を有効にする必要があります。iOSとAndroidではSDK認証を別々に設定します：
+SDK認証は、ネイティブSDKの初期化時に有効にする必要があります。iOSおよびAndroidのSDK認証をそれぞれ設定してください：
 
 **iOS**
 
@@ -247,18 +243,18 @@ configuration.Api.SdkAuthentication = true;
 var braze = new Braze(configuration);
 ```
 
-**Android (braze.xml)**
+**Android（braze.xml）**
 
 ```xml
 <bool name="com_braze_sdk_authentication_enabled">true</bool>
 ```
 
-SDK認証を有効にした後、以下のステップで示す.NET MAUIメソッドを使用できます。
+SDK認証を有効にした後、以降のステップで示す.NET MAUIメソッドを使用できます。
 {% endtab %}
 {% tab Expo %}
-Braze Expoプラグインを使用する際は、アプリ設定で`enableSdkAuthentication`プロパティを`true`に設定します。これにより、手動でのネイティブコードの変更を必要とせずに、ネイティブのiOSおよびAndroidレイヤーでSDK認証が自動的に設定されます。
+Braze Expoプラグインを使用する場合、アプリ設定で`enableSdkAuthentication`プロパティを`true`に設定します。これにより、手動のネイティブコード変更を必要とせず、ネイティブのiOSおよびAndroidレイヤーでSDK認証が自動的に設定されます。
 
-**app.jsonあるいはapp.config.js**
+**app.jsonまたはapp.config.js**
 
 ```json
 {
@@ -275,34 +271,34 @@ Braze Expoプラグインを使用する際は、アプリ設定で`enableSdkAut
 }
 ```
 
-アプリ設定でSDK認証を有効にした後、React Nativeタブに表示されているReact Native JavaScriptメソッドを使用して、以下のステップを実行できます。
+アプリ設定でSDK認証を有効にした後、以降のステップではReact Nativeタブに示すReact Native JavaScriptメソッドを使用できます。
 
 {% alert note %}
-完全な実装例については、GitHub上の[Braze Expoプラグインサンプルアプリ](https://github.com/braze-inc/braze-expo-plugin/blob/main/example/components/Braze.tsx)を参照してください。
+完全な実装例については、GitHubの[Braze Expoプラグインサンプルアプリ](https://github.com/braze-inc/braze-expo-plugin/blob/main/example/components/Braze.tsx)を参照してください。
 {% endalert %}
 {% endtab %}
 {% endtabs %}
 
-#### ステップ2.2:現在のユーザーのJWTを設定する {#step-22-set-the-current-users-jwt}
+#### ステップ2.2：現在のユーザーのJWTを設定する {#step-22-set-the-current-users-jwt}
 
-アプリがBrazeの`changeUser`メソッドを呼び出すたびに、[サーバー側で生成された](#braze-dashboard)JWTも指定します。
+アプリがBrazeの`changeUser`メソッドを呼び出すたびに、[サーバーサイドで生成された](#braze-dashboard)JWTも提供してください。
 
-また、トークンが現在のユーザーのセッションの途中でリフレッシュされるように設定することもできます。
+また、セッション中に現在のユーザーのトークンを更新するように設定することもできます。
 
 {% alert note %}
-`changeUser`は、ユーザーIDが_実際に変更された_場合にのみ呼び出す必要があることに注意してください。ユーザーIDが変更されていない場合は、このメソッドを認証トークン（JWT）の更新手段として使用しないでください。
+`changeUser`はユーザーIDが*実際に変更された*場合にのみ呼び出す必要があります。ユーザーIDが変更されていない場合に、認証トークン（JWT）を更新する手段としてこのメソッドを使用しないでください。
 {% endalert %}
 
 {% tabs %}
 {% tab Web %}
-[`changeUser`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser)の呼び出し時にJWTを指定します：
+[`changeUser`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser)を呼び出す際にJWTを提供します：
 
 ```javascript
 import * as braze from "@braze/web-sdk";
 braze.changeUser("NEW-USER-ID", "JWT-FROM-SERVER");
 ```
 
-あるいは、セッションの途中でユーザーのトークンをリフレッシュした場合：
+または、セッション中にユーザーのトークンを更新した場合：
 
 ```javascript
 import * as braze from "@braze/web-sdk";
@@ -311,7 +307,7 @@ braze.setSdkAuthenticationSignature("NEW-JWT-FROM-SERVER");
 {% endtab %}
 {% tab React Native %}
 
-[`changeUser`](https://braze-inc.github.io/braze-react-native-sdk/classes/Braze.Braze-1.html#changeUser)の呼び出し時にJWTを指定します：
+[`changeUser`](https://braze-inc.github.io/braze-react-native-sdk/classes/Braze.Braze-1.html#changeUser)を呼び出す際にJWTを提供します：
 
 ```typescript
 import Braze from '@braze/react-native-sdk';
@@ -319,7 +315,7 @@ import Braze from '@braze/react-native-sdk';
 Braze.changeUser("NEW-USER-ID", "JWT-FROM-SERVER");
 ```
 
-あるいは、セッションの途中でユーザーのトークンをリフレッシュした場合：
+または、セッション中にユーザーのトークンを更新した場合：
 
 ```typescript
 import Braze from '@braze/react-native-sdk';
@@ -329,13 +325,13 @@ Braze.setSdkAuthenticationSignature("NEW-JWT-FROM-SERVER");
 {% endtab %}
 {% tab Java %}
 
-[`changeUser`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/change-user.html)の呼び出し時にJWTを指定します：
+[`changeUser`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/change-user.html)を呼び出す際にJWTを提供します：
 
 ```java
 Braze.getInstance(this).changeUser("NEW-USER-ID", "JWT-FROM-SERVER");
 ```
 
-あるいは、セッションの途中でユーザーのトークンをリフレッシュした場合：
+または、セッション中にユーザーのトークンを更新した場合：
 
 ```java
 Braze.getInstance(this).setSdkAuthenticationSignature("NEW-JWT-FROM-SERVER");
@@ -343,13 +339,13 @@ Braze.getInstance(this).setSdkAuthenticationSignature("NEW-JWT-FROM-SERVER");
 {% endtab %}
 {% tab KOTLIN %}
 
-[`changeUser`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/change-user.html)の呼び出し時にJWTを指定します：
+[`changeUser`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/change-user.html)を呼び出す際にJWTを提供します：
 
 ```kotlin
 Braze.getInstance(this).changeUser("NEW-USER-ID", "JWT-FROM-SERVER")
 ```
 
-あるいは、セッションの途中でユーザーのトークンをリフレッシュした場合：
+または、セッション中にユーザーのトークンを更新した場合：
 
 ```kotlin
 Braze.getInstance(this).setSdkAuthenticationSignature("NEW-JWT-FROM-SERVER")
@@ -357,13 +353,13 @@ Braze.getInstance(this).setSdkAuthenticationSignature("NEW-JWT-FROM-SERVER")
 {% endtab %}
 {% tab Objective-C %}
 
-[`changeUser`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/changeuser(userid:sdkauthsignature:fileid:line:))の呼び出し時にJWTを指定します：
+[`changeUser`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/changeuser(userid:sdkauthsignature:fileid:line:))を呼び出す際にJWTを提供します：
 
 ```objc
 [AppDelegate.braze changeUser:@"userId" sdkAuthSignature:@"JWT-FROM-SERVER"];
 ```
 
-あるいは、セッションの途中でユーザーのトークンをリフレッシュした場合：
+または、セッション中にユーザーのトークンを更新した場合：
 
 ```objc
 [AppDelegate.braze setSDKAuthenticationSignature:@"NEW-JWT-FROM-SERVER"];
@@ -371,12 +367,17 @@ Braze.getInstance(this).setSdkAuthenticationSignature("NEW-JWT-FROM-SERVER")
 {% endtab %}
 {% tab Swift %}
 
-[`changeUser`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/changeuser(userid:sdkauthsignature:fileid:line:))の呼び出し時にJWTを指定します：
+[`changeUser`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/changeuser(userid:sdkauthsignature:fileid:line:))を呼び出す際にJWTを提供します：
 
 ```swift
 AppDelegate.braze?.changeUser(userId: "userId", sdkAuthSignature: "JWT-FROM-SERVER")
 ```
-あるいは、セッションの途中でユーザーのトークンをリフレッシュした場合：
+
+{% alert note %}
+`changeUser`は呼び出しスレッドで即座に返されます。ここで提供されたSDK認証署名は、ユーザー切り替え処理が完了した後に付加されます。
+{% endalert %}
+
+または、セッション中にユーザーのトークンを更新した場合：
 
 ```swift
 AppDelegate.braze?.set(sdkAuthenticationSignature: "NEW-JWT-FROM-SERVER")
@@ -384,12 +385,12 @@ AppDelegate.braze?.set(sdkAuthenticationSignature: "NEW-JWT-FROM-SERVER")
 {% endtab %}
 {% tab Dart %}
 
-[`changeUser`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser)の呼び出し時にJWTを指定します：
+[`changeUser`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser)を呼び出す際にJWTを提供します：
 
 ```dart
 braze.changeUser("userId", sdkAuthSignature: "JWT-FROM-SERVER")
 ```
-あるいは、セッションの途中でユーザーのトークンをリフレッシュした場合：
+または、セッション中にユーザーのトークンを更新した場合：
 
 ```dart
 braze.setSdkAuthenticationSignature("NEW-JWT-FROM-SERVER")
@@ -398,7 +399,7 @@ braze.setSdkAuthenticationSignature("NEW-JWT-FROM-SERVER")
 {% endtab %}
 {% tab Flutter %}
 
-`changeUser`の呼び出し時にJWTを指定します：
+`changeUser`を呼び出す際にJWTを提供します：
 
 ```dart
 import 'package:braze_plugin/braze_plugin.dart';
@@ -407,7 +408,7 @@ BrazePlugin braze = BrazePlugin();
 braze.changeUser("NEW-USER-ID", sdkAuthSignature: "JWT-FROM-SERVER");
 ```
 
-あるいは、セッションの途中でユーザーのトークンをリフレッシュした場合：
+または、セッション中にユーザーのトークンを更新した場合：
 
 ```dart
 import 'package:braze_plugin/braze_plugin.dart';
@@ -418,13 +419,13 @@ braze.setSdkAuthenticationSignature("NEW-JWT-FROM-SERVER");
 {% endtab %}
 {% tab Unity %}
 
-`ChangeUser`の呼び出し時にJWTを指定します：
+`ChangeUser`を呼び出す際にJWTを提供します：
 
 ```csharp
 BrazeBinding.ChangeUser("NEW-USER-ID", "JWT-FROM-SERVER");
 ```
 
-あるいは、セッションの途中でユーザーのトークンをリフレッシュした場合：
+または、セッション中にユーザーのトークンを更新した場合：
 
 ```csharp
 BrazeBinding.SetSdkAuthenticationSignature("NEW-JWT-FROM-SERVER");
@@ -432,13 +433,13 @@ BrazeBinding.SetSdkAuthenticationSignature("NEW-JWT-FROM-SERVER");
 {% endtab %}
 {% tab Cordova %}
 
-`changeUser`の呼び出し時にJWTを指定します：
+`changeUser`を呼び出す際にJWTを提供します：
 
 ```javascript
 BrazePlugin.changeUser("NEW-USER-ID", "JWT-FROM-SERVER");
 ```
 
-あるいは、セッションの途中でユーザーのトークンをリフレッシュした場合：
+または、セッション中にユーザーのトークンを更新した場合：
 
 ```javascript
 BrazePlugin.setSdkAuthenticationSignature("NEW-JWT-FROM-SERVER");
@@ -446,7 +447,7 @@ BrazePlugin.setSdkAuthenticationSignature("NEW-JWT-FROM-SERVER");
 {% endtab %}
 {% tab .NET MAUI (Xamarin) %}
 
-`ChangeUser`の呼び出し時にJWTを指定します：
+`ChangeUser`を呼び出す際にJWTを提供します：
 
 **iOS**
 
@@ -454,7 +455,7 @@ BrazePlugin.setSdkAuthenticationSignature("NEW-JWT-FROM-SERVER");
 Braze.SharedInstance?.ChangeUser("NEW-USER-ID", "JWT-FROM-SERVER");
 ```
 
-あるいは、セッションの途中でユーザーのトークンをリフレッシュした場合：
+または、セッション中にユーザーのトークンを更新した場合：
 
 ```csharp
 Braze.SharedInstance?.SetSDKAuthenticationSignature("NEW-JWT-FROM-SERVER");
@@ -466,7 +467,7 @@ Braze.SharedInstance?.SetSDKAuthenticationSignature("NEW-JWT-FROM-SERVER");
 Braze.GetInstance(this).ChangeUser("NEW-USER-ID", "JWT-FROM-SERVER");
 ```
 
-あるいは、セッションの途中でユーザーのトークンをリフレッシュした場合：
+または、セッション中にユーザーのトークンを更新した場合：
 
 ```csharp
 Braze.GetInstance(this).SetSdkAuthenticationSignature("NEW-JWT-FROM-SERVER");
@@ -474,7 +475,7 @@ Braze.GetInstance(this).SetSdkAuthenticationSignature("NEW-JWT-FROM-SERVER");
 {% endtab %}
 {% tab Expo %}
 
-Braze Expoプラグインを使用する際は、同じReact Native SDKメソッドを使います。`changeUser`の呼び出し時にJWTを指定します：
+Braze Expoプラグインを使用する場合、同じReact Native SDKメソッドを使用します。`changeUser`を呼び出す際にJWTを提供します：
 
 ```typescript
 import Braze from '@braze/react-native-sdk';
@@ -482,7 +483,7 @@ import Braze from '@braze/react-native-sdk';
 Braze.changeUser("NEW-USER-ID", "JWT-FROM-SERVER");
 ```
 
-あるいは、セッションの途中でユーザーのトークンをリフレッシュした場合：
+または、セッション中にユーザーのトークンを更新した場合：
 
 ```typescript
 import Braze from '@braze/react-native-sdk';
@@ -492,21 +493,21 @@ Braze.setSdkAuthenticationSignature("NEW-JWT-FROM-SERVER");
 {% endtab %}
 {% endtabs %}
 
-#### ステップ2.3:無効なトークンのコールバック関数を登録する {#sdk-callback}
+#### ステップ2.3：無効なトークンのコールバック関数を登録する {#sdk-callback}
 
-この機能が[必須](#enforcement-options)に設定されている場合、以下のシナリオでSDKリクエストがBrazeによって拒否されます：
-- Braze APIが受信した時点でJWTの有効期限が切れていた
-- JWTが空または欠落していた
-- Brazeダッシュボードにアップロードした公開鍵でJWTの検証に失敗した
+この機能が[必須](#enforcement-options)に設定されている場合、以下のシナリオではSDKリクエストがBrazeによって拒否されます：
+- Braze APIが受信した時点でJWTの有効期限が切れていた場合
+- JWTが空または欠落していた場合
+- Brazeダッシュボードにアップロードした公開キーでJWTの検証に失敗した場合
 
-`subscribeToSdkAuthenticationFailures`を使用して、これらのいずれかの理由でSDKリクエストが失敗したときに通知を受け取るようにサブスクライブできます。コールバック関数には、関連する[`errorCode`](#error-codes)、エラーの`reason`、リクエストの`userId`（ユーザーは匿名にはなれません）、およびエラーを引き起こした認証トークン（JWT）を含むオブジェクトが渡されます。
+`subscribeToSdkAuthenticationFailures`を使用して、SDKリクエストがこれらの理由で失敗した場合に通知を受け取るよう登録できます。コールバック関数には、関連する[`errorCode`](#error-codes)、エラーの`reason`、リクエストの`userId`（ユーザーは匿名にはなりません）、およびエラーの原因となった認証トークン（JWT）を含むオブジェクトが渡されます。
 
-失敗したリクエストは、アプリが新しい有効なJWTを提供するまで、定期的に再試行されます。そのユーザーがまだログインしている場合、このコールバックをサーバーに新しいJWTを要求する機会として使用し、この新しい有効なトークンをBraze SDKに提供することができます。
+失敗したリクエストは、アプリが新しい有効なJWTを提供するまで定期的に再試行されます。そのユーザーがまだログインしている場合、このコールバックを使用してサーバーに新しいJWTをリクエストし、Braze SDKに新しい有効なトークンを提供できます。
 
-認証エラーが発生した場合は、エラー内の`userId`が現在ログイン中のユーザーと一致するか確認し、サーバーから新しい署名を取得してBraze SDKに提供してください。これらのエラーを監視サービスやエラーレポートサービスに記録することもできます。
+認証エラーを受信したら、エラー内の`userId`が現在ログインしているユーザーと一致することを確認し、サーバーから新しい署名を取得してBraze SDKに提供してください。これらのエラーを監視サービスやエラー報告サービスに記録することもできます。
 
 {% alert tip %}
-これらのコールバックメソッドは、独自の監視サービスやエラーログサービスを追加して、Brazeリクエストが拒否される頻度を追跡するのに最適な場所です。
+これらのコールバックメソッドは、独自の監視やエラーログサービスを追加して、Brazeリクエストが拒否される頻度を追跡するのに最適な場所です。
 {% endalert %}
 
 {% tabs %}
@@ -618,7 +619,7 @@ braze.setBrazeSdkAuthenticationErrorCallback((BrazeSdkAuthenticationError error)
 {% tab Unity %}
 **iOS**
 
-ネイティブのiOS実装でSDK認証デリゲートを設定します：
+ネイティブiOS実装でSDK認証デリゲートを設定します：
 
 ```csharp
 public class SdkAuthDelegate : BRZSdkAuthDelegate
@@ -684,7 +685,7 @@ Braze.GetInstance(this).SubscribeToSdkAuthenticationFailures((error) => {
 ```
 {% endtab %}
 {% tab Expo %}
-Braze Expoプラグインを使用する際は、同じReact Native SDKメソッドを使います：
+Braze Expoプラグインを使用する場合、同じReact Native SDKメソッドを使用します：
 
 ```typescript
 import Braze from '@braze/react-native-sdk';
@@ -705,30 +706,30 @@ const sdkAuthErrorSubscription = Braze.addListener(
 {% endtab %}
 {% endtabs %}
 
-### ステップ3:ダッシュボードで認証を有効にする {#braze-dashboard}
+### ステップ3：ダッシュボードで認証を有効にする {#braze-dashboard}
 
-次に、前に設定したアプリのBrazeダッシュボードで認証を有効にできます。
+次に、事前に設定したアプリに対して、Brazeダッシュボードで認証を有効にします。
 
-BrazeダッシュボードでアプリのSDK認証設定が**必須**に設定されていない限り、SDKリクエストは認証なしで通常どおり処理され続けることに注意してください。
+SDK認証設定がBrazeダッシュボードで**必須**に設定されない限り、SDKリクエストは認証なしで通常どおり流れ続けます。
 
-統合に何か問題が発生した場合（例えば、アプリがSDKにトークンを不正に渡している、またはサーバーが無効なトークンを生成している）、Brazeダッシュボードでこの機能を無効にすると、データは検証なしで通常通り流れるようになります。
+連携に問題が発生した場合（例：アプリがSDKにトークンを正しく渡していない、サーバーが無効なトークンを生成しているなど）、Brazeダッシュボードでこの機能を無効にすると、検証なしでデータが通常どおり流れるようになります。
 
 #### 適用オプション {#enforcement-options}
 
-ダッシュボードの**設定の管理**ページでは、各アプリに3つのSDK認証ステートがあり、Brazeがどのようにリクエストを検証するかを制御します。
+ダッシュボードの**設定の管理**ページでは、各アプリに3つのSDK認証状態があり、Brazeがリクエストを検証する方法を制御します。
 
 | 設定 | 説明 |
 | ------ | ---------- |
-| **無効** | Brazeは、ユーザーに提供されたJWTを検証しません。（デフォルト設定）|
-| **オプション** | Brazeは、ログインしているユーザーのリクエストを検証しますが、無効なリクエストは拒否しません。 |
-| **必須** | Brazeは、ログインしているユーザーのリクエストを検証し、無効なJWTは拒否します。|
+| **無効** | BrazeはユーザーのJWTを検証しません。（デフォルト設定） |
+| **オプション** | Brazeはログインユーザーのリクエストを検証しますが、無効なリクエストを拒否しません。 |
+| **必須** | Brazeはログインユーザーのリクエストを検証し、無効なJWTを拒否します。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="適用オプション" }
 
-![]({% image_buster /assets/img/sdk-auth-settings.png %})
+![無効、オプション、必須の適用オプションが表示されたBraze SDK認証設定。]({% image_buster /assets/img/sdk-auth-settings.png %})
 
 **オプション**設定は、この機能がアプリのSDKトラフィックに与える潜在的な影響を監視するのに便利な方法です。
 
-無効なJWTは**オプション**と**必須**の両方の状態で報告されますが、**必須**状態でのみSDKリクエストが拒否され、アプリは再試行して新しいJWTをリクエストします。
+無効なJWTは**オプション**と**必須**の両方の状態で報告されますが、**必須**状態のみがSDKリクエストを拒否し、アプリにリトライと新しいJWTのリクエストを促します。
 
 ## 公開鍵の管理 {#key-management}
 
@@ -783,43 +784,43 @@ BrazeダッシュボードでアプリのSDK認証設定が**必須**に設定�
 
 ## よくある質問（FAQ） {#faq}
 
-#### この機能はすべてのアプリで同時に有効にする必要がありますか？ {#faq-app-by-app}
+### この機能はすべてのアプリで同時に有効にする必要がありますか？ {#faq-app-by-app}
 
 いいえ、この機能は特定のアプリに対して有効にすることができ、すべてのアプリで一度に使用する必要はありません。
 
-#### アプリの古いバージョンを使っているユーザーはどうなりますか？ {#faq-sdk-backward-compatibility}
+### アプリの古いバージョンを使っているユーザーはどうなりますか？ {#faq-sdk-backward-compatibility}
 
 この機能を適用し始めると、古いバージョンのアプリによるリクエストはBrazeによって拒否され、SDKによって再試行されます。ユーザーがアプリをサポートされたバージョンにアップグレードすると、キューに入れられたリクエストは再び受け入れられるようになります。
 
 可能であれば、他の必須アップグレードと同様に、ユーザーにアップグレードを勧めてください。あるいは、許容できる割合のユーザーがアップグレードしたことを確認するまで、この機能を[オプション](#enforcement-options)にしておくこともできます。
 
-#### JWTを生成するときには、どのような有効期限を使用する必要がありますか？ {#faq-expiration}
+### JWTを生成するときには、どのような有効期限を使用する必要がありますか？ {#faq-expiration}
 
 平均セッション期間、セッションCookie/トークンの有効期限、またはアプリケーションが現在のユーザープロファイルを更新する頻度のうち、高い方の値を使用することをお勧めします。
 
-#### ユーザーのセッションの途中でJWTの有効期限が切れた場合はどうなりますか？ {#faq-jwt-expiration}
+### ユーザーのセッションの途中でJWTの有効期限が切れた場合はどうなりますか？ {#faq-jwt-expiration}
 
 ユーザーのトークンがセッション中に期限切れになると、SDKは[コールバック関数](#sdk-callback)を呼び出して、Brazeにデータを送信し続けるために新しいJWTが必要であることをアプリに知らせます。
 
-#### サーバー側の統合が壊れ、JWTを作成できなくなった場合はどうなりますか？ {#faq-server-downtime}
+### サーバー側の統合が壊れ、JWTを作成できなくなった場合はどうなりますか？ {#faq-server-downtime}
 
 サーバーがJWTを提供できない場合、または統合に問題がある場合は、Brazeダッシュボードでいつでも機能を無効にできます。
 
 一度無効にすると、保留中の失敗したSDKリクエストは最終的にSDKによって再試行され、Brazeによって受け入れられます。
 
-#### なぜこの機能では、共有シークレットではなく公開キー/秘密キーを使うのでしょうか？ {#faq-shared-secrets}
+### なぜこの機能では、共有シークレットではなく公開キー/秘密キーを使うのでしょうか？ {#faq-shared-secrets}
 
 共有シークレットを使う場合、Brazeのダッシュボードページなど、その共有シークレットにアクセスできる人なら誰でも、トークンを生成してエンドユーザーになりすますことができます。
 
 代わりに、公開キーと秘密キーを使用します。これにより、Brazeの従業員でさえ（ましてや御社のユーザーは言うまでもなく）あなたの秘密キーにアクセスできません。
 
-#### 拒否されたリクエストはどのように再試行されますか？ {#faq-retry-logic}
+### 拒否されたリクエストはどのように再試行されますか？ {#faq-retry-logic}
 
 認証エラーが原因でリクエストが拒否されると、SDKはユーザーのJWTを更新するために使用されるコールバックを呼び出します。
 
 リクエストはエクスポネンシャルバックオフアプローチを使用して定期的に再試行されます。50回連続で失敗すると、次のセッション開始まで再試行は一時停止されます。各SDKには、手動でデータフラッシュをリクエストするメソッドもあります。
 
-#### 匿名ユーザーに対してSDK認証は使えますか？ {#faq-anonymous-users}
+### 匿名ユーザーに対してSDK認証は使えますか？ {#faq-anonymous-users}
 
 いいえ。SDK認証はWebサイトが誰かのIDを主張することで機能するため、識別済みのユーザーにのみ適用されます。匿名ユーザーの場合、主張するIDがありません。
 
@@ -831,10 +832,10 @@ BrazeダッシュボードでアプリのSDK認証設定が**必須**に設定�
 2. ユーザーがサインアップまたはログインし、アプリが`external_id`を指定して`changeUser`を呼び出します。
 3. Brazeはそのユーザーのアクティビティの収集を続け、その識別済みプロファイルに対するリクエストにはSDK認証が適用されます。
 
-#### SDK認証はユーザーエイリアスで機能しますか？ {#faq-aliases}
+### SDK認証はユーザーエイリアスで機能しますか？ {#faq-aliases}
 
 いいえ。SDK認証には`external_id`が必要です。`braze_id`または`alias_id`のみが利用可能な場合は設定できないため、エイリアスのみのプロファイルではSDK認証を使用できません。
 
-#### SDK認証を有効にすると、未認証のアクティビティ収集がブロックされますか？ {#faq-unauthenticated-collection}
+### SDK認証を有効にすると、未認証のアクティビティ収集がブロックされますか？ {#faq-unauthenticated-collection}
 
 いいえ。SDK認証は正当な匿名アクティビティの収集をブロックしません。`changeUser`でプロファイルが識別された後にのみ適用されます。

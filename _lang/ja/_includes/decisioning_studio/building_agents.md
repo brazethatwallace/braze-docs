@@ -1,66 +1,66 @@
-# AI意思決定エージェントの構築
+# AI意思決定エージェントの構築 {#building-ai-decisioning-agents}
 
 > BrazeAI Decisioning Studio™ のエージェントを構築する方法を学習することで、パーソナライズされた実験を自動化し、手動で AB テストを行うことなく、コンバージョン、リテンション、収益などの成果を最適化することができます。
 
 {% multi_lang_include decisioning_studio/alert_multi_platform_support.md %}
 
-## エージェントについて
+## エージェントについて {#about-agents}
 
-AI 意思決定エージェントは、BrazeAI™ 意思決定エンジンのカスタム設定であり、特定のビジネス目標を達成するためにカスタマイズされます。
+AI意思決定エージェントとは、特定のビジネス目標を達成するためにカスタマイズされた、BrazeAI<sup>TM</sup>意思決定エンジンのカスタム構成です。
 
-例えば、初回販売後のフォローアップコンバージョンを増やすために、リピート購入エージェントを構築することができます。Braze でオーディエンスやメッセージを定義すると、意思決定エージェントが毎日実験を行い、顧客ごとに商品のオファー、メッセージのタイミング、頻度などのさまざまな組み合わせを自動的にテストします。時間の経過とともに、BrazeAI™ は何が最も効果的かを学習し、再購入率を最大化するために Braze を通じてパーソナライズされた送信を調整します。
+たとえば、初回購入後のフォローアップコンバージョンを増加させるためのリピート購入エージェントを構築できます。Brazeでオーディエンスとメッセージを定義すると、意思決定エージェントが毎日実験を実行し、各顧客に対して商品オファー、メッセージのタイミング、頻度のさまざまな組み合わせを自動的にテストします。時間の経過とともに、BrazeAI<sup>TM</sup>は最も効果的な方法を学習し、リピート購入率を最大化するためにBrazeを通じてパーソナライズされた送信をオーケストレーションします。
 
-優れたエージェントを構築するには、次を行います。
+優れたエージェントを構築するには、以下を行います:
 
-- 収益、コンバージョン、ARPU など、最適化する BrazeAI™ の成功指標を選択する。
-- オファー、件名、クリエイティブ、チャネル、送信時間など、テストするディメンションを定義する。
-- メールと SMS、1 日および 1 週あたりの頻度など、ディメンションごとにオプションを選択する。
+- BrazeAI<sup>TM</sup>が最適化する成功指標（収益、コンバージョン、ARPUなど）を選択します。
+- テストするディメンション（オファー、件名、クリエイティブ、チャネル、送信時間など）を定義します。
+- 各ディメンションのオプション（メールとSMSの比較、毎日と毎週の頻度の比較など）を選択します。
 
-![紹介メール用のDecisioning Studioエージェントの例図。]({% image_buster /assets/img/offerfit/example_use_cases_referral_email.png %})
+![紹介メール用のDecisioning Studioエージェントの例を示すダイアグラム。]({% image_buster /assets/img/offerfit/example_use_cases_referral_email.png %})
 
-## サンプルエージェント
+## サンプルエージェント {#sample-agents}
 
-BrazeAI Decisioning Studio™ で構築できるエージェントの例をいくつかご紹介します。AI の意思決定エージェントは、顧客とのやり取りから学習し、そのインサイトを翌日のアクションに活かします。
+ここでは、BrazeAI Decisioning Studio™で構築できるエージェントの例をいくつか紹介します。AI意思決定エージェントは、顧客とのインタラクションから学習し、そのインサイトを翌日のアクションに反映します。
 
 {% multi_lang_include decisioning_studio/sample_agents.md %}
 
-## エージェントの構築
+## エージェントの構築 {#building-an-agent}
 
-### 前提条件
+### 前提条件 {#prerequisites}
 
-エージェントを構築する前に、[ BrazeAI Decisioning Studio™]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/integration) を統合する必要があります。
+エージェントを構築する前に、[BrazeAI Decisioning Studio™を統合する]({{site.baseurl}}/developer_guide/decisioning_studio/integration)必要があります。
 
-### ステップ 1: AI エキスパートサービスへの連絡
+### ステップ1:AI Expert Services に問い合わせる {#step-1-contact-ai-expert-services}
 
-AI エキスパートサービスチームが協力して、意思決定エージェントの調査、設計、構築を行います。まだ連絡していないなら、[今すぐ連絡して](https://www.braze.com/get-started/)始めよう。
+AI Expert Services チームがお客様と緊密に連携し、意思決定エージェントのスコープ設定、設計、構築を行います。まだお問い合わせいただいていない場合は、[こちらからお問い合わせ](https://www.braze.com/get-started/)ください。
 
-以下のステップを一緒に実行して、適切なカスタムエージェントを構築します。
+以下のステップをチームと一緒に進めることで、お客様に最適なカスタムエージェントを構築します。
 
-### ステップ 2: エージェントの設計
+### ステップ2:エージェントを設計する {#step-2-design-your-agent}
 
-AI エキスパートサービスチームと一緒に以下を定義します。
+AI Expert Services チームと共に、以下を定義します。
 
-- ターゲットオーディエンス 
-- 最適化するビジネス指標 
-- BrazeAI™ 意思決定エージェントのアクション 
-- エージェントがビジネス成果を牽引するために活用するファーストパティ顧客データ 
+- ターゲットオーディエンス
+- 最適化するビジネス指標
+- BrazeAI<sup>TM</sup>意思決定エージェントのアクション
+- ビジネス成果を向上させるためにエージェントが活用すべきファーストパーティの顧客データ
 
-設計を準備することで、チームはあなたと協力し、追加の統合要件を特定し、完成させることができます。
+設計が完了したら、チームがお客様と協力して、追加の統合要件を特定し、完了させます。
 
-### ステップ 3: 配信プラットフォームの設定
+### ステップ3:配信プラットフォームを設定する {#step-3-set-up-your-delivery-platform}
 
-次に、AIエキスパートサービスチームがカスタマーエンゲージメントプラットフォームの設定を支援する。Decisioning StudioはBrazeとの連携が最適だが、他の様々なプラットフォームもサポートされている。追加リソースについてはAIエキスパートサービスチームに問い合わせること。
+次に、AI Expert Services チームがカスタマーエンゲージメントプラットフォームの設定をサポートします。Decisioning Studioは Braze との併用が最も効果的ですが、その他のさまざまなプラットフォームにも対応しています。追加リソースについては、AI Expert Services チームにお問い合わせください。
 
 {% tabs local %}
 {% tab Braze %}
-Braze の設定方法:
+Braze を設定するには、以下を行います。
 
-1. [キャンペーン]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/api_triggered_delivery/)または[キャンバス]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/create_a_canvas/?tab=api-triggered%20delivery#step-2b-determine-your-canvas-entry-schedule)を作成します。BrazeAI Decisioning Studio™ では、この配信方式を使用して、1:1 でパーソナライズされたアクティベーションイベントを、定義したオーディエンスのユーザーに送信します。
-2. BrazeAI™ を専用のコントロールグループにするために、Braze[ コントロールグループ]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing/create_multivariate_campaign#including-a-control-group)は含めないでください。
-3. お使いのディメンションに応じて、クリエイティブコンテンツで Liquid タグを設定し、メッセージングに BrazeAI™ のレコメンデーションをダイナミックに入力できます。BrazeAI™ は、Braze API を使用して、テンプレートで Liquid タグに顧客固有のコンテンツを渡します。
+1. [キャンペーン]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery)または[キャンバス]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/?tab=api-triggered%20delivery#step-12-determine-your-canvas-entry-schedule)を作成します。BrazeAI Decisioning Studio™はこの配信方法を使用して、定義されたオーディエンス内のユーザーに1:1のパーソナライズされたアクティベーションイベントを送信します。
+2. BrazeAI<sup>TM</sup>が専用のコントロールグループとして機能できるよう、Brazeの[コントロールグループ]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing/create_multivariate_campaign#including-a-control-group)は含めないでください。
+3. ディメンションに応じて、クリエイティブコンテンツにLiquidタグを設定し、BrazeAI<sup>TM</sup>のレコメンデーションに基づいてメッセージングをダイナミックに表示できます。BrazeAI<sup>TM</sup>は Braze APIを使用して、テンプレート内のLiquidタグに顧客固有のコンテンツを渡します。
 {% endtab %}
 {% endtabs %}
 
-### ステップ 4: 起動と監視
+### ステップ4:ローンチとモニタリング {#step-4-launch-and-monitor}
 
-エージェントを起動した後、AI エキスパートサービスチームは、合意された設計に合わせて監視および調整を続けます。また、必要に応じて、エージェントの調整、拡張、修正を行うこともできます。
+エージェントをローンチした後も、AI Expert Services チームが引き続きモニタリングを行い、合意した設計に合わせてチューニングします。必要に応じて、エージェントの調整、拡張、変更もサポートします。

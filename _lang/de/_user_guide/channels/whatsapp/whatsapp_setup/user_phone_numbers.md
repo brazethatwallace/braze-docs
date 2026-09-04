@@ -13,11 +13,11 @@ channel:
 
 > In diesem Artikel werden verschiedene Themen rund um die Telefonnummern Ihrer Nutzer:innen bzw. Kund:innen behandelt.
 
-Telefonnummern werden im Nutzerprofil in lokalen Formaten angezeigt, entsprechen aber nicht dem Format, das Sie zum Importieren der Nummer verwenden (`(724) 123 4567`).
+Telefonnummern werden im Kundenprofil in lokalen Formaten angezeigt, entsprechen aber nicht dem Format, das Sie zum Importieren der Nummer verwenden (`(724) 123 4567`).
 
 ## Telefonnummern importieren {#importing-phone-numbers}
 
-Sie können Telefonnummern importieren, indem Sie [eine CSV-Datei hochladen]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv) oder [über die API]({{site.baseurl}}/api/endpoints/user_data#user-track-endpoint) Nutzer:innen erstellen.
+Sie können Telefonnummern importieren, indem Sie [eine CSV-Datei hochladen]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) oder [über die API]({{site.baseurl}}/api/endpoints/user_data/post_user_track) Nutzer:innen erstellen.
 
 ### Formatierung {#formatting}
 

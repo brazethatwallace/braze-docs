@@ -21,7 +21,7 @@ By integrating Olo and Braze, you can:
 | Requirement | Description |
 | ----------- | ----------- |
 | Olo account | An Olo account with access to webhooks is required to take advantage of this partnership. Set up webhook subscriptions via the [self-service webhooks tool](https://olosupport.zendesk.com/hc/en-us/articles/360061153692-Self-Service-Webhooks) within the Olo Dashboard. |
-| Braze Data Transformation | A [Data Transformation URL]({{site.baseurl}}/data_transformation/) is necessary to receive data from Olo. |
+| Braze Data Transformation | A [Data Transformation URL]({{site.baseurl}}/user_guide/data/unification/data_transformation) is necessary to receive data from Olo. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 A webhook is a way for Olo to send event-driven information to Braze about users and their actions, including events like Order Placed, Guest Opt In, Order Picked Up and more. The Olo Webhook delivers the event to Braze generally within seconds of the action being performed.
@@ -68,13 +68,7 @@ In this step, you will transform the webhook payload that will be sent from the 
 
 This return value must adhere to Braze’s `/users/track` request body format:
 
-- Transformation code is accepted in the JavaScript programming language. Any standard JavaScript control flow, such as if/else logic, is supported.
-- Transformation code accesses the webhook request body via the payload variable. This variable is an object populated by parsing the request body JSON.
-- Any feature supported in our `/users/track` endpoint is supported, including:
-    - User attributes objects, event objects, and purchase objects
-    - Nested attributes and nested custom event properties
-    - Subscription group updates
-    - Email address as an identifier
+{% multi_lang_include data_transformation/transformation_code_requirements.md %}
 
 ## Example Data Transformations for Olo webhooks
 

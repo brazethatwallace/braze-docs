@@ -24,7 +24,7 @@ glossaries:
   - name: API campaigns
     description: <a href="/docs/api/api_campaigns">API campaigns</a> use the Braze dashboard to generate a <code>campaign_id</code> (and variation IDs) while you supply copy, audience, schedule, and assets through the <a href="/docs/api/endpoints/messaging">messaging APIs</a>. They differ from <a href="/docs/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery">API-triggered campaigns</a>, where you trigger a fully configured campaign from the dashboard via API.
   - name: Application program interface (API)
-    description: The <a href="/docs/api/basics#api-overview">Braze API</a> provides a web service where you can record actions taken by your users directly via HTTP, rather than through the mobile SDKs. This allows you to, for example, pass user data to Braze that is not tracked within your app or website.
+    description: The <a href="/docs/api/basics">Braze API</a> provides a web service where you can record actions taken by your users directly via HTTP, rather than through the mobile SDKs. This allows you to, for example, pass user data to Braze that is not tracked within your app or website.
   - name: App instance
     description: App instances refer to the different sites and apps that are collected in a workspace.
   - name: Braze (the product)
@@ -100,7 +100,7 @@ glossaries:
   - name: Software development kit (SDK)
     description: <a href="/docs/developer_guide/getting_started/sdk_overview">SDKs</a> are integrated into your mobile apps, websites, and connected experiences and provide marketing, messaging, and analytics tools. Braze publishes SDK integration guides for platforms such as <a href="/docs/developer_guide/sdk_integration?sdktab=swift">Swift</a> and <a href="/docs/developer_guide/sdk_integration?sdktab=android">Android</a>; for Web and other platforms, follow the integration paths linked from the SDK overview.
   - name: Subscription groups
-    description: <a href="/docs/user_guide/channels/email/subscriptions#subscription-groups">Subscription groups</a> layer on top of global subscription states so you can offer granular opt-in choices (for example, newsletters versus promotions). Similar patterns exist for channels such as SMS and WhatsApp; always target a subscription group where your channel requires it.
+    description: <a href="/docs/user_guide/audience/subscription_preferences/subscription_groups">Subscription groups</a> layer on top of global subscription states so you can offer granular opt-in choices (for example, newsletters versus promotions). Similar patterns exist for channels such as SMS and WhatsApp; always target a subscription group where your channel requires it.
   - name: Sunsetting
     description: Sunsetting refers to the process of identifying disengaged users and ceasing active messaging to these users without them having to take any action. Creating sunset policies for your <a href="/docs/user_guide/channels/email/best_practices/sunset_policies">email</a> and <a href="/docs/user_guide/channels/push/best_practices#implement-a-sunset-policy-for-unresponsive-users">push</a> messages can help curb impacts to your open rates.
   - name: Tag

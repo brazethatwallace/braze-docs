@@ -5,7 +5,7 @@ search_tag: Endpoint
 page_order: 2
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Eliminar números de teléfono no válidos de Braze."
+description: "En este artículo se describen los detalles del endpoint Eliminar números de teléfono no válidos de Braze."
 
 ---
 {% api %}
@@ -15,7 +15,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 /sms/invalid_phone_numbers/remove
 {% endapimethod %}
 
-> Usa este punto de conexión para eliminar números de teléfono "no válidos" de nuestra lista de no válidos.
+> Usa este endpoint para eliminar números de teléfono "no válidos" de nuestra lista de no válidos.
 
 Se puede utilizar para volver a validar números de teléfono después de haberlos marcado como no válidos.
 
@@ -23,7 +23,7 @@ Se puede utilizar para volver a validar números de teléfono después de haberl
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `sms.invalid_phone_numbers.remove`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `sms.invalid_phone_numbers.remove`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -46,7 +46,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 | ----------|-----------| ---------|------ |
-| `phone_number` | Obligatorio | Matriz de cadenas en formato e.164 | Una matriz de hasta 50 números de teléfono para modificar. |
+| `phone_numbers` | Obligatorio | Matriz de cadenas en formato e.164 | Una matriz de hasta 50 números de teléfono para modificar. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ## Ejemplo de solicitud {#example-request}

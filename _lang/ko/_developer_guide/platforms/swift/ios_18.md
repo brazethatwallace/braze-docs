@@ -15,24 +15,24 @@ Apple의 [WWDC](https://developer.apple.com/wwdc24/)는 2024년 6월 9일부터 
 
 ## iOS 18의 변경 사항 {#changes-in-ios-18}
 
-### Apple Watch의 라이브 활동 {#live-activities-on-apple-watch}
+### Apple Watch에서의 라이브 활동 {#live-activities-on-apple-watch}
 
-[라이브 활동]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?sdktab=swift)은 watchOS 11에서 지원됩니다. 추가 설정은 필요하지 않습니다. 다만 Apple은 시계 인터페이스를 커스텀할 수 있는 옵션을 제공합니다.
+[라이브 활동]({{site.baseurl}}/developer_guide/live_notifications?sdktab=swift)이 watchOS 11에서 지원됩니다. 추가 설정은 필요하지 않습니다. 다만, Apple은 워치 인터페이스를 커스텀할 수 있는 옵션을 제공합니다.
 
 ### Apple Vision Pro
 
-현재 중국, 일본, 싱가포르, 호주, 캐나다, 프랑스, 독일, 영국에서 Vision Pro를 사용할 수 있습니다. [Braze가 visionOS를 지원하는 방법](https://www.braze.com/resources/articles/building-braze-a-new-era-of-customer-engagement-braze-announces-visionos-support)은 블로그에서 확인하세요.
+Vision Pro는 현재 중국, 일본, 싱가포르, 호주, 캐나다, 프랑스, 독일, 영국에서 사용할 수 있습니다. [Braze의 visionOS 지원](https://www.braze.com/resources/articles/building-braze-a-new-era-of-customer-engagement-braze-announces-visionos-support)에 대해 블로그에서 확인해 보세요.
 
-### macOS의 iPhone 알림 {#iphone-notifications-on-macos}
+### MacOS에서의 iPhone 알림 {#iphone-notifications-on-macos}
 
-Apple의 새로운 [iPhone 미러링](https://www.apple.com/newsroom/2024/06/macos-sequoia-takes-productivity-and-intelligence-on-mac-to-new-heights/) 기능을 사용하면 macOS 기기에서 iPhone 알림을 받을 수 있습니다. Push Story 이미지 및 GIF와 같은 일부 미디어 유형은 macOS 알림으로 렌더링할 수 없으므로 지원되지 않는다는 점에 유의하세요.
+Apple의 새로운 [iPhone 미러링](https://www.apple.com/newsroom/2024/06/macos-sequoia-takes-productivity-and-intelligence-on-mac-to-new-heights/) 기능을 통해 사용자는 MacOS 기기에서 iPhone 알림을 받을 수 있습니다. Push Stories 이미지 및 GIF와 같은 일부 미디어 유형은 MacOS 알림으로 렌더링할 수 없으므로 지원되지 않는다는 점에 유의하세요.
 
 ### Apple Intelligence
 
 [Apple Intelligence](https://developer.apple.com/documentation/Updates/Apple-Intelligence)는 이제 iOS 18.1 이상을 실행하는 기기에서 사용할 수 있습니다.
 
-Braze 사용자로서 가장 중요하게 알아야 할 새로운 기능은 [알림 요약](https://support.apple.com/en-us/108781)입니다. 이 기능은 온디바이스 처리를 사용하여 단일 앱에서 전송된 관련 푸시 알림을 자동으로 그룹화하고 텍스트 요약을 생성합니다. 최종 사용자는 요약을 탭하여 확장하고 원래 전송된 각 푸시 알림을 볼 수 있습니다.
+Braze 사용자로서 가장 중요하게 알아야 할 새로운 기능은 [알림 요약](https://support.apple.com/en-us/108781)입니다. 이 기능은 온디바이스 처리를 사용하여 단일 앱에서 보낸 관련 푸시 알림을 자동으로 그룹화하고 텍스트 요약을 생성합니다. 최종 사용자는 요약을 탭하여 확장하면 원래 전송된 각 푸시 알림을 볼 수 있습니다.
 
-이러한 요약이 생성되는 방식 때문에 특정 동작이나 생성된 텍스트를 제어할 수는 없습니다. 그러나 이는 푸시 클릭 추적과 같은 분석 또는 보고 기능에 영향을 미치지 않습니다.
+이러한 요약이 생성되는 방식 때문에, 특정 동작이나 생성된 텍스트를 직접 제어할 수는 없습니다. 그러나 이 기능은 푸시 클릭 추적 기술 등 분석이나 리포팅 기능에는 영향을 미치지 않습니다.
 
-![푸시 알림 미리보기 요약의 샘플 스크린샷]({% image_buster /assets/img/apple/apple_intelligence/notification_preview_summary.png %})
+![푸시 알림 미리보기 요약의 샘플 스크린샷.]({% image_buster /assets/img/apple/apple_intelligence/notification_preview_summary.png %})

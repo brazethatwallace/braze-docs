@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Lokalise
 
-> [Lokalise](https://lokalise.com) es un servicio de administración de traducciones para equipos ágiles.
+> [Lokalise](https://lokalise.com) es un servicio de gestión de traducciones para equipos ágiles.
 
 _Esta integración está mantenida por Lokalise._
 
@@ -18,7 +18,7 @@ _Esta integración está mantenida por Lokalise._
 
 Lokalise ofrece dos opciones de integración para Braze:
 
-- **Integración multilingüe (recomendada)**: Utiliza la [API de composición multilingüe]({{site.baseurl}}/api/endpoints/translations/) de Braze para proporcionar una sincronización bidireccional directa entre Lokalise y Braze. Esta integración funciona con variantes de mensajes localizados para Campaigns, Canvas y plantillas de correo electrónico, y es compatible con flujos de trabajo previos y posteriores al lanzamiento para push, correo electrónico e In-App Messages.
+- **Integración multilingüe (recomendada)**: Utiliza la [API de composición multilingüe]({{site.baseurl}}/api/endpoints/translations) de Braze para proporcionar una sincronización bidireccional directa entre Lokalise y Braze. Esta integración funciona con variantes de mensajes localizados para Campaigns, Canvas y plantillas de correo electrónico, y es compatible con flujos de trabajo previos y posteriores al lanzamiento para push, correo electrónico e In-App Messages.
 - **Integración de contenido conectado (heredada)**: Utiliza el contenido conectado de Braze para insertar contenido traducido en función de la configuración de idioma del usuario.
 
 Este artículo cubre la configuración de ambas integraciones.
@@ -33,11 +33,11 @@ La integración multilingüe utiliza la API de composición multilingüe de Braz
 | ----------- | ----------- |
 | Cuenta Lokalise | Se necesita una cuenta Lokalise para beneficiarse de esta asociación. |
 | Proyecto de traducción de Lokalise | Crea un proyecto de Lokalise con el tipo **Marketing and support** y elige **Braze** como **Content integration**. |
-| Configuración multilingüe de Braze | La [asistencia en varios idiomas]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings/) debe estar habilitada en tu espacio de trabajo de Braze. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con permisos para leer y actualizar Campaigns, Canvas y plantillas de correo electrónico. Puedes crear una en el dashboard de Braze desde **Settings** > **API Keys**. |
-| Región del servidor de Braze | Tu [región del servidor de Braze]({{site.baseurl}}/api/basics/#endpoints) (por ejemplo, US-01, EU-01). Puedes encontrarla en el dashboard de Braze. |
-| Etiquetas de traducción en el contenido de Braze | Los mensajes deben usar [etiquetas de traducción]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) para identificar el contenido traducible. Envuelve cada bloque traducible en etiquetas {% raw %}`{% translation ID %}...{% endtranslation %}`{% endraw %} con un ID único. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+| Configuración multilingüe de Braze | La [compatibilidad con varios idiomas]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings) debe estar habilitada en tu espacio de trabajo de Braze. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con permisos para leer y actualizar Campaigns, Canvas y plantillas de correo electrónico. Puedes crear una en el panel de Braze desde **Settings** > **API Keys**. |
+| Región del servidor de Braze | Tu [región del servidor de Braze]({{site.baseurl}}/api/basics#endpoints) (por ejemplo, US-01, EU-01). Puedes encontrarla en el panel de Braze. |
+| Etiquetas de traducción en el contenido de Braze | Los mensajes deben usar [etiquetas de traducción]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) para identificar el contenido traducible. Envuelve cada bloque traducible en etiquetas {% raw %}`{% translation ID %}...{% endtranslation %}`{% endraw %} con un ID único. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ### Configuración y uso {#setup-and-usage}
 
@@ -62,7 +62,7 @@ La integración heredada utiliza el contenido conectado de Braze para insertar c
 | ----------- | ----------- |
 | Cuenta Lokalise | Se necesita una cuenta Lokalise para beneficiarse de esta asociación. |
 | Proyecto de traducción de Lokalise | Crea un proyecto de Lokalise con el tipo de proyecto **Software Localization**. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ### Crear un nuevo proyecto Lokalise {#create-a-new-lokalise-project}
 
@@ -74,7 +74,7 @@ En Lokalise, crearás una clave de traducción para cada una de las variables de
 
 #### Paso 1: Configurar los idiomas de usuario {#step-1-configure-user-languages}
 
-Si aún no lo has hecho, abre el dashboard de Braze y ve a **Users > User Import**. Aquí puedes importar tus usuarios. Cuando prepares un archivo CSV para importarlo, asegúrate de incluir una columna de idioma con los idiomas de los usuarios. Este campo de idioma se utilizará más adelante cuando se muestren las traducciones.
+Si aún no lo has hecho, abre el panel de Braze y ve a **Users > User Import**. Aquí puedes importar tus usuarios. Cuando prepares un archivo CSV para importarlo, asegúrate de incluir una columna de idioma con los idiomas de los usuarios. Este campo de idioma se utilizará más adelante cuando se muestren las traducciones.
 
 {% alert important %}
 Los códigos de idioma utilizados deben coincidir tanto en Braze como en Lokalise.
@@ -90,11 +90,11 @@ Por ejemplo, vamos a crear una clave de traducción sencilla, `description`:
 3. Añade "Web" en el desplegable **Platforms**.
 4. Cuando estés listo, haz clic en **Save**.
 
-![]({% image_buster /assets/img/lokalise/1_add_key.png %}){: style="max-width:60%"}
+![Modal de añadir clave en Lokalise creando la clave de traducción `description`.]({% image_buster /assets/img/lokalise/1_add_key.png %}){: style="max-width:60%"}
 
 Tu clave de traducción debería aparecer en el editor de proyectos:
 
-![]({% image_buster /assets/img/lokalise/2_translation_key_added.png %}){: style="max-width:90%"}
+![Editor de proyectos de Lokalise mostrando la clave de traducción recién añadida.]({% image_buster /assets/img/lokalise/2_translation_key_added.png %}){: style="max-width:90%"}
 
 ##### Problemas conocidos {#known-issues}
 
@@ -118,7 +118,7 @@ La URL del archivo de traducción es la URL que necesitarás al configurar una C
 
 Para probar esta URL, cópiala y sustituye {% raw %}`{{${language}}}`{% endraw %} por un código de idioma (por ejemplo, `en`) y abre esta URL en tu navegador. Verás un archivo JSON con tus claves y traducciones:
 
-![]({% image_buster /assets/img/lokalise/4_testing_json_lokalise.png %})
+![Vista del navegador del archivo JSON de traducción exportado desde Lokalise.]({% image_buster /assets/img/lokalise/4_testing_json_lokalise.png %})
 
 #### Paso 4: Uso de traducciones en la Campaign de Braze {#step-4-use-translations-in-braze-campaign}
 
@@ -147,11 +147,11 @@ Ahora utiliza la variable translations para mostrar las traducciones deseadas po
 Por ejemplo, para mostrar la clave `description`, utiliza `{{ translations.description }}`.
 
 {% endraw %}
-![]({% image_buster /assets/img/lokalise/6_integration_usage_sample.png %})
+![Ejemplo del editor de correo electrónico de Braze mostrando traducciones de contenido conectado desde Lokalise.]({% image_buster /assets/img/lokalise/6_integration_usage_sample.png %})
 
-Por último, guarda la plantilla de correo electrónico y visualízala. Deberías ver que se muestra tu traducción.
+Por último, guarda la plantilla de correo electrónico y previsualízala. Deberías ver que se muestra tu traducción.
 
-## Preguntas más frecuentes {#frequently-asked-questions}
+## Preguntas frecuentes {#frequently-asked-questions}
 
 ### ¿Qué ocurre si borro accidentalmente una clave de Lokalise? {#what-happens-if-i-accidentally-delete-a-key-from-lokalise}
 

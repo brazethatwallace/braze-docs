@@ -20,15 +20,15 @@ Cette fonctionnalité n'est prise en charge que pour le canal e-mail dans l'édi
 
 ## Comment y accéder {#how-to-access}
 
-{% multi_lang_include brazeai/generative_ai/access_html_template.md %}
+Dans l'éditeur de modèles d'e-mail HTML, le groupe latéral **Générer** contient l'option **Modèle**. Sélectionnez-la pour générer ou itérer sur un modèle d'e-mail HTML conforme à votre marque. Operator applique vos [directives de marque]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) afin que le résultat corresponde à votre ton et à votre style.
 
-## Comment ça fonctionne {#how-it-works}
+## Fonctionnement {#how-it-works}
 
-Operator utilise vos [directives de marque]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/) et vos [paramètres de style globaux]({{site.baseurl}}/user_guide/message_building_by_channel/email/drag_and_drop/dnd_email_style_settings/) pour adapter le contenu et le style du message à votre marque.
+Operator utilise vos [directives de marque]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) et vos [paramètres de style globaux]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings) pour adapter le contenu et le style du message à votre marque.
 
-Par exemple, si vous avez configuré des paramètres de style globaux, Operator intègre les couleurs et les styles de votre marque. Si vous avez défini des directives de marque dans Braze, Operator s'y réfère également pour créer du contenu dans le ton et la personnalité de votre marque.
+Par exemple, si vous avez configuré des paramètres de style globaux, Operator intègre les couleurs et les styles de votre marque. Si vous avez défini des directives de marque dans Braze, Operator s'en sert également pour créer des textes qui reflètent le ton et la personnalité de votre marque.
 
-Operator adapte également votre modèle pour qu'il soit responsive sur mobile.
+Operator optimise aussi votre modèle pour le rendre adapté aux appareils mobiles (responsive).
 
 ## Exemples de prompts {#example-prompts}
 

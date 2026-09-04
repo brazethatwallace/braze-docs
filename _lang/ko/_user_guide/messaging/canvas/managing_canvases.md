@@ -24,10 +24,13 @@ guide_featured_list:
   - name: 캔버스 복제
     link: /docs/user_guide/messaging/canvas/managing_canvases/cloning_canvases
     image: /assets/img/braze_icons/copy-04.svg
+  - name: 캔버스 임계값 알림
+    link: /docs/user_guide/messaging/canvas/managing_canvases/canvas_threshold_alerts
+    image: /assets/img/braze_icons/bell-03.svg
 
 guide_menu_title: "추가 리소스"
 guide_menu_list:
-  - name: 승인 워크플로우
+  - name: 승인 워크플로
     link: /docs/user_guide/messaging/governance/approvals
     image: /assets/img/braze_icons/brush-02.svg
   - name: 승인을 위한 메시징 규칙

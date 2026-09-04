@@ -1,6 +1,6 @@
 ---
 nav_title: Zeotap
-description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Zeotap, einer Customer Data Platform (CDP) der nächsten Generation, die Identitätsauflösung, Insights und Datenanreicherung bietet."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Zeotap, einer Customer Data Platform der nächsten Generation, die Identitätsauflösung, Insights und Datenanreicherung bietet."
 page_type: partner
 search_tag: Partner
 page_order: 1
@@ -8,7 +8,7 @@ page_order: 1
 
 # Zeotap
 
-> [Zeotap](https://zeotap.com/) ist eine Customer Data Platform (CDP) der nächsten Generation, die Ihnen hilft, Ihre mobile Zielgruppe zu entdecken und zu verstehen, indem sie Identitätsauflösung, Insights und Datenanreicherung bietet.
+> [Zeotap](https://zeotap.com/) ist eine Customer Data Platform der nächsten Generation, die Ihnen hilft, Ihre mobile Zielgruppe zu entdecken und zu verstehen, indem sie Identitätsauflösung, Insights und Datenanreicherung bietet.
 
 Mit der Integration von Zeotap und Braze können Sie den Umfang und die Reichweite Ihrer Campaigns erweitern, indem Sie Zeotap-Kundensegmente synchronisieren, um Nutzerdaten Braze-Nutzerkonten zuzuordnen. Sie können dann auf diese Daten reagieren und Ihren Nutzer:innen personalisierte Targeting-Erlebnisse zustellen.
 
@@ -28,16 +28,16 @@ Mit der Integration von Zeotap und Braze können Sie den Umfang und die Reichwei
 1. Navigieren Sie auf der Zeotap Unity Plattform zur Anwendung **DESTINATIONS**.
 2. Wählen Sie unter **All Channels** die Option **Braze** aus.
 3. Geben Sie in der daraufhin angezeigten Eingabeaufforderung den Namen Ihres Ziels sowie Ihren Client-Namen und den Braze REST-API-Schlüssel an, der mit Ihrem Braze-Konto verknüpft ist.
-4. Wählen Sie abschließend Ihre Braze REST-Endpunkt-Instanz aus der Dropdown-Liste aus und speichern Sie das Ziel. <br><br>![]({% image_buster /assets/img/zeotap/zeotap1.png %})
+4. Wählen Sie abschließend Ihre Braze REST-Endpunkt-Instanz aus der Dropdown-Liste aus und speichern Sie das Ziel. <br><br>![Zeotap-Braze-Zielkonfiguration mit Dropdown für die Endpunkt-Instanz.]({% image_buster /assets/img/zeotap/zeotap1.png %})
 
 ### 2. Schritt: Erstellen und verknüpfen Sie ein Zeotap-Segment mit Ihrem Ziel {#step-2-create-and-link-a-zeotap-segment-to-your-destination}
 
 1. Navigieren Sie auf der Zeotap Unity Plattform zur Anwendung **CONNECT**.
-2. Erstellen Sie ein Segment und wählen Sie das in [Schritt 1](#1-schritt-erstellen-sie-ein-zeotap-ziel) erstellte Braze-Ziel aus.
+2. Erstellen Sie ein Segment und wählen Sie das in [Schritt 1](#step-1-create-a-zeotap-destination) erstellte Braze-Ziel aus.
 3. Wählen Sie einen unterstützten Ausgabe-Bezeichner aus: MAIDs, mit SHA256 gehashte E-Mail-Adressen oder einen beliebigen 1P-Kundenbezeichner, der von Braze erkannt wird (wenn Sie einen angepassten Bezeichner für Ihr Braze-Konto verwenden möchten, setzen Sie sich mit Zeotap in Verbindung, damit dieser für Ihr Konto aktiviert werden kann). Für die Braze-Integration kann nur ein Ausgabe-Bezeichner verwendet werden. Diese Bezeichner müssen mit der externen ID übereinstimmen, die bei der Erfassung von Braze SDK-Daten festgelegt wird.
 4. Speichern Sie das Segment.
 
-![]({% image_buster /assets/img/zeotap/zeotap2.png %})
+![Zeotap-CONNECT-Segment-Einrichtung, verknüpft mit dem Braze-Ziel.]({% image_buster /assets/img/zeotap/zeotap2.png %})
 
 {% alert note %}
 Die angezeigten Bezeichner sind sowohl im Segment verfügbar als auch von Braze unterstützt.
@@ -49,7 +49,7 @@ Nachdem Sie ein Segment in Zeotap erfolgreich erstellt, gepusht und verarbeitet 
 
 ![Ein Braze-Nutzerprofil, in dem unter „Angepasste Attribute“ die Segmente eins bis vier als „true“ aufgeführt sind.]({% image_buster /assets/img/zeotap/zeotap4.png %})
 
-Wenn ein:e Nutzer:in Teil des Zeotap-Segments ist, erscheint der Segmentname als angepasstes Attribut im Nutzerprofil mit dem booleschen Wert `true`. Notieren Sie sich den Namen des angepassten Attributs, da Sie ihn bei der Erstellung eines Braze-Segments benötigen.
+Wenn ein:e Nutzer:in Teil des Zeotap-Segments ist, erscheint der Segmentname als angepasstes Attribut im Kundenprofil mit dem booleschen Wert `true`. Notieren Sie sich den Namen des angepassten Attributs, da Sie ihn bei der Erstellung eines Braze-Segments benötigen.
 
 Als Nächstes müssen Sie dieses Segment in Braze erstellen und definieren:
 1. Wählen Sie im Braze-Dashboard **Segments** und dann **Create Segment**.

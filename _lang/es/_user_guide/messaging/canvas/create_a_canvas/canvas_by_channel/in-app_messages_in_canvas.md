@@ -56,6 +56,10 @@ Si un mensaje dentro de la aplicación está configurado para caducar en una fec
 
 Esto sucede a menudo cuando un paso anterior, como un paso de [Retraso]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step), mantiene a los usuarios en un camino más largo. Por ejemplo, si lanzas un Canvas el 22 de mayo con un retraso de 72 horas seguido de un mensaje dentro de la aplicación que caduca el 23 de mayo a medianoche, los usuarios llegan al paso de Mensaje después del tiempo de caducidad y no ven el mensaje dentro de la aplicación.
 
+### Grupos de control y pruebas A/B {#control-groups-and-ab-testing}
+
+Cuando usas pruebas A/B de Canvas con rutas de variantes y una ruta de control, mantén la configuración de duración de caducidad de los mensajes dentro de la aplicación alineada entre las rutas. Si la ruta de control usa una duración de caducidad más corta que las rutas de variantes, los usuarios de control pueden llegar al paso después de la caducidad, lo que puede reducir las impresiones de control en comparación con las impresiones de variantes y sesgar los resultados de tu prueba.
+
 ## Casos de uso {#use-cases}
 
 Braze recomienda que consideres usar esta característica en tus Canvas promocionales y de incorporación.
@@ -175,7 +179,7 @@ Estas notificaciones push están espaciadas alrededor de un mensaje dentro de la
 
 Un usuario puede desencadenar dos mensajes dentro de la aplicación en tu Canvas al mismo tiempo. Cuando esto sucede, Braze seguirá el siguiente orden de prioridad para determinar qué mensaje dentro de la aplicación se muestra.
 
-Selecciona **Establece la prioridad exacta** y arrastra los diferentes pasos en Canvas para reordenar su prioridad para el Canvas. Por defecto, los pasos anteriores en una variante en Canvas se mostrarán antes que los pasos posteriores. Después de que tus pasos estén en el orden de priorización que prefieras, selecciona **Aplicar orden**.
+Selecciona **Set exact priority** y arrastra los diferentes pasos en Canvas para reordenar su prioridad para el Canvas. Por defecto, los pasos anteriores en una variante en Canvas se mostrarán antes que los pasos posteriores. Después de que tus pasos estén en el orden de priorización que prefieras, selecciona **Apply sort**.
 
 ![El clasificador de prioridad con dos pasos "Welcome IAM" y "Followup IAM".]({% image_buster /assets/img_archive/canvas_priority2.png %}){: style="max-width:85%"}
 
@@ -235,7 +239,7 @@ Un usuario tiene que entrar en el paso en Canvas, iniciar una sesión y luego re
 
 Las siguientes características de Canvas no están disponibles con mensajes dentro de la aplicación, por lo que no se aplicarán a tus mensajes dentro de la aplicación aunque estén activadas.
 
-- Intelligent Timing
+- Sincronización inteligente
 - Límite de velocidad
 - Limitación de frecuencia
 - Criterios de salida

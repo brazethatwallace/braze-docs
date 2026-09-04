@@ -18,9 +18,9 @@ Esse recurso também é chamado de Custom HTTP Connector na documentação técn
 
 ## Pré-requisitos {#prerequisites}
 
-Para integrar um conector Currents personalizado na Braze, você precisará fornecer uma URL de endpoint e um [token de autenticação opcional](#authentication).
+Para integrar um conector personalizado do Currents na Braze, você precisará fornecer uma URL de endpoint e um [token de autenticação opcional](#authentication).
 
-Além disso, se você tiver mais de um grupo de app na Braze, precisará configurar um conector Currents personalizado para cada grupo. No entanto, você pode direcionar todos os grupos de app para o mesmo endpoint, ou para um endpoint com um parâmetro `GET` adicional, como `your_app_group_key="Brand A"`.
+Além disso, se você tiver mais de um grupo de apps na Braze, precisará configurar um conector personalizado do Currents para cada grupo. No entanto, você pode apontar todos os grupos de apps para o mesmo endpoint, ou para um endpoint com um parâmetro `GET` adicional, como `your_app_group_key="Brand A"`.
 
 ## Integração {#integration}
 
@@ -30,44 +30,44 @@ Você precisará de uma URL de endpoint para configurar essa integração. Seu e
 
 ### Etapa 2: Configure o Braze Currents {#step-2-configure-braze-currents}
 
-Na Braze, navegue até **Integrações de parceiros** > **Exportação de dados**, clique em **Criar nova corrente** e selecione **Exportação de Currents personalizada**.
+Na Braze, navegue até **Partner Integrations** > **Data Export**, clique em **Create New Current** e selecione **Custom Currents Export**.
 
-Dê um nome à sua exportação e um e-mail de contato, depois prossiga para a página **Informações da corrente**. Nessa página, insira a URL do seu endpoint e o token bearer opcional.
+Dê um nome à sua exportação e insira um e-mail de contato, depois prossiga para a página **Current Details**. Nessa página, insira a URL do seu endpoint e o token bearer opcional.
 
-Após configurar suas credenciais, marque todos os eventos de engajamento com mensagem, comportamento do cliente e eventos de usuário que deseja exportar, e clique em **Lançar corrente**.
+Após configurar suas credenciais, marque todos os eventos de engajamento com mensagem, comportamento do cliente e eventos de usuário que você deseja exportar, e clique em **Launch Current**.
 
 ## Eventos do Currents compatíveis {#supported-currents-events}
 
-A Braze oferece suporte à exportação dos seguintes dados para o seu conector HTTP personalizado:
+A Braze oferece suporte à exportação dos seguintes dados para o seu Custom HTTP Connector:
 
 - [Eventos de engajamento com mensagem]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events?tab=custom%20http%20connector)
 - [Eventos de comportamento do cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events?tab=custom%20http%20connector)
 
-Para ver a estrutura da carga útil de cada evento, selecione a guia **Custom HTTP Connector** no glossário de eventos.
+Para a estrutura da carga útil de cada evento, selecione a guia **Custom HTTP Connector** no glossário de eventos.
 
-## Prevenção de perda de dados {#preventing-data-loss}
+## Prevenção contra perda de dados {#preventing-data-loss}
 
 ### Monitoramento de erros {#error-monitoring}
 
-Para evitar perda de dados e interrupção do serviço, é essencial que você monitore seus endpoints o tempo todo e resolva prontamente quaisquer erros ou períodos de inatividade.
+Para evitar perda de dados e interrupção do serviço, é essencial que você monitore seus endpoints o tempo todo e resolva prontamente quaisquer erros ou tempo de inatividade.
 
-Para a maioria dos tipos de erro (como erros de servidor e erros de conexão de rede), a Braze tentará reenviar ativamente as transmissões de eventos. Se o problema persistir por mais de 5 dias, a integração será desativada automaticamente. Novos eventos recebidos serão descartados e perdidos permanentemente.
+Para a maioria dos tipos de erro (como erros de servidor e erros de conexão de rede), a Braze tentará reenviar as transmissões de eventos ativamente. Se o problema persistir por mais de 5 dias, a integração será desativada automaticamente. Novos eventos recebidos serão descartados e perdidos permanentemente.
 
 ### Resiliência a mudanças {#change-resilience}
 
-Ocasionalmente, faremos alterações não disruptivas nos esquemas do Braze Currents. Alterações não disruptivas são novas colunas anuláveis ou novos tipos de evento.
+Ocasionalmente, faremos alterações não disruptivas nos esquemas do Braze Currents. Alterações não disruptivas são novas colunas anuláveis ou tipos de evento.
 
-Normalmente, avisamos com duas semanas de antecedência sobre essas mudanças, mas às vezes isso não é possível. É essencial que você projete sua integração para lidar com campos ou tipos de evento não reconhecidos, caso contrário, isso provavelmente levará à perda de dados.
+Normalmente, enviamos um aviso com duas semanas de antecedência para essas mudanças, mas às vezes isso não é possível. É essencial que você projete sua integração para lidar com campos ou tipos de evento não reconhecidos, caso contrário, isso provavelmente levará à perda de dados.
 
 {% alert tip %}
 Para a lista completa dos esquemas de eventos do Currents, consulte [Eventos de engajamento com mensagem]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) e [Eventos de comportamento do cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events).
 {% endalert %}
 
-## Agrupamento em lotes e serialização {#batching-and-serialization}
+## Agrupamento e serialização {#batching-and-serialization}
 
-O formato de dados de destino é JSON sobre HTTPS. Por padrão, os eventos são enviados ao seu endpoint em lotes de até 100 eventos cada.
+O formato de dados de destino é JSON via HTTPS. Por padrão, os eventos são enviados ao seu endpoint em lotes de até 100 eventos cada.
 
-Os eventos são enviados ao endpoint como um array JSON de todos os eventos no seguinte formato:
+Os eventos são enviados ao endpoint como um array JSON contendo todos os eventos no seguinte formato:
 
 ```json
 {"events": [event1, event2, event3, etc...]}
@@ -75,17 +75,17 @@ Os eventos são enviados ao endpoint como um array JSON de todos os eventos no s
 
 Haverá um objeto JSON de nível superior com a chave `"events"` que mapeia para um array de outros objetos JSON, cada um representando um único evento. Cada evento contém dois subobjetos:
 
-| Nome | Descrição |
+|Nome|Descrição|
 |----|-----------|
 | `"user"` | Contém propriedades do usuário, como `user_id`, `external_user_id`, `device_id` e `timezone`. |
-| `"properties"` | Contém atributos de um evento, como o `app/campaign/canvas/platform` ao qual se aplica. |
+| `"properties"` | Contém atributos de um evento, como o `app/campaign/canvas/platform` ao qual ele se aplica. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-Se um endpoint downstream receber uma carga útil com zero eventos ou um corpo de solicitação vazio, o resultado deve ser considerado um no-op, ou seja, nenhum efeito downstream deve ocorrer a partir dessa chamada. No entanto, você ainda deve verificar o cabeçalho `Authorization` (como faria em uma chamada de API normal) e retornar uma resposta HTTP apropriada para [credenciais inválidas](#authentication), como `401` ou `403`. Isso permite que a Braze saiba que as credenciais do conector são válidas.
+Se um endpoint downstream receber uma carga útil com zero eventos ou um corpo de requisição vazio, o resultado deve ser considerado um no-op, ou seja, nenhum efeito downstream deve ocorrer a partir dessa chamada. No entanto, você ainda deve verificar o cabeçalho `Authorization` (assim como faria em uma chamada de API normal) e retornar uma resposta HTTP apropriada para [credenciais inválidas](#authentication), como `401` ou `403`. Isso permite que a Braze saiba que as credenciais do conector são válidas.
 
 ## Autenticação {#authentication}
 
-Tokens de autenticação na sua carga útil são opcionais. Eles podem ser passados por meio de um cabeçalho HTTP `Authorization` usando o esquema de autorização `Bearer`, conforme especificado na [RFC 6750](https://tools.ietf.org/html/rfc6750#section-2.1). Embora opcional, se um token de autenticação for passado, a Braze sempre o validará primeiro&#8212;mesmo que não haja eventos na carga útil.
+Os tokens de autenticação na sua carga útil são opcionais. Eles podem ser passados por meio de um cabeçalho HTTP `Authorization` usando o esquema de autorização `Bearer`, conforme especificado na [RFC 6750](https://tools.ietf.org/html/rfc6750#section-2.1). Embora sejam opcionais, se um token de autenticação for passado, a Braze sempre o validará primeiro&#8212;mesmo que não haja eventos na carga útil.
 
 De acordo com a RFC 6750, os tokens devem ser valores codificados em Base64 com pelo menos um caractere. Tenha em mente que a RFC 6750 permite que os tokens contenham os seguintes caracteres além dos caracteres Base64 normais: `-`, `.`, `_` e `~`. Você pode escolher se deseja incluir esses caracteres no seu token ou não&#8212;no entanto, ele deve estar no formato Base64.
 
@@ -95,7 +95,7 @@ Além disso, se o cabeçalho `Authorization` estiver presente, ele será constru
 "Authorization: Bearer " + <token>
 ```
 
-Por exemplo, se o seu token de autenticação for `0p3n5354m3==`, seu cabeçalho `Authorization` deve ser semelhante ao seguinte:
+Por exemplo, se o seu token de autenticação for `0p3n5354m3==`, o seu cabeçalho `Authorization` deve ser semelhante ao seguinte:
 
 ```plaintext
 Authorization: Bearer 0p3n5354m3==
@@ -107,30 +107,30 @@ No futuro, poderemos usar cabeçalhos `Authorization` para implementar um esquem
 
 ## Versionamento {#versioning}
 
-Todas as solicitações da nossa integração de conector HTTP serão enviadas com um cabeçalho personalizado que designa a versão da solicitação do Currents sendo feita:
+Todas as requisições da nossa integração com o conector HTTP serão enviadas com um cabeçalho personalizado que designa a versão da requisição do Currents sendo feita:
 
 ```plaintext
 Braze-Currents-Version: 1
 ```
 
-A versão será sempre `1`, pois não esperamos incrementar esse número com frequência, se é que algum dia.
+A versão será sempre `1`, pois não esperamos incrementar esse número com muita frequência, se é que algum dia será incrementado.
 
-Assim como nossos [esquemas de armazenamento em data warehouse]({{site.baseurl}}/user_guide/data/braze_currents/event_delivery_semantics?redirected=1), cada campo de evento em um evento individual tem garantia de compatibilidade retroativa com versões anteriores da carga útil de eventos, de acordo com a definição de compatibilidade retroativa do [Apache Avro](https://avro.apache.org/):
+Assim como nossos [esquemas de armazenamento de data warehouse]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/event_delivery_semantics?redirected=1), cada campo de evento em um evento individual tem a garantia de ser retrocompatível com versões anteriores da carga útil do evento, de acordo com a definição de retrocompatibilidade do [Apache Avro](https://avro.apache.org/):
 
-1. Campos de evento específicos têm garantia de sempre manter o mesmo tipo de dados ao longo do tempo.
+1. Campos de evento específicos têm a garantia de sempre manter o mesmo tipo de dado ao longo do tempo.
 2. Quaisquer novos campos adicionados à carga útil ao longo do tempo devem ser considerados opcionais por todas as partes.
 3. Campos obrigatórios nunca serão removidos.
 
 ## Tratamento de erros e mecanismo de nova tentativa {#error-handling-and-retry-mechanism}
 
-Se ocorrer um erro, a Braze enfileirará e tentará reenviar a solicitação com base no código de retorno HTTP recebido. Se o problema persistir por mais de 5 dias, a integração será desativada automaticamente: novos eventos recebidos serão descartados e perdidos permanentemente, e eventos já enfileirados serão descartados permanentemente após serem retidos por 7 dias. Se os dados ficarem presos por mais de 24 horas, nossos engenheiros de plantão serão alertados automaticamente. Para uma análise completa de como cada código de status é tratado, consulte a tabela abaixo.
+Se ocorrer um erro, a Braze colocará a solicitação na fila e fará uma nova tentativa com base no código de retorno HTTP recebido. Se o problema persistir por mais de 5 dias, a integração será desativada automaticamente: novos eventos recebidos serão descartados e permanentemente perdidos, e eventos já na fila serão permanentemente descartados após serem retidos por 7 dias. Se os dados ficarem parados por mais de 24 horas, nossos engenheiros de plantão serão alertados automaticamente. Para uma análise completa de como cada código de status é tratado, consulte a tabela na seção a seguir.
 
-Se a sua integração do Currents estiver retornando erros de autenticação, a Braze enviará automaticamente um e-mail de notificação para você.
+Se a sua integração com o Currents estiver retornando erros de autenticação, a Braze enviará automaticamente um e-mail de notificação.
 
-Qualquer código de erro HTTP não listado abaixo será tratado como um erro HTTP `5XX`.
+Qualquer código de erro HTTP não listado na seção a seguir será tratado como um erro HTTP `5XX`.
 
 {% alert warning %}
-Se o problema persistir por mais de 5 dias, a integração será desativada. Novos eventos recebidos serão descartados e perdidos permanentemente, e eventos já enfileirados serão descartados permanentemente após serem retidos por 7 dias.
+Se o problema persistir por mais de 5 dias, a integração será desativada. Novos eventos recebidos serão descartados e permanentemente perdidos, e eventos já na fila serão permanentemente descartados após serem retidos por 7 dias.
 {% endalert %}
 
 Os seguintes códigos de status HTTP serão reconhecidos pelo nosso cliente conector:
@@ -146,33 +146,33 @@ Os seguintes códigos de status HTTP serão reconhecidos pelo nosso cliente cone
   <tbody>
     <tr>
       <td><code>2XX</code></td>
-      <td>Deu certo</td>
+      <td>Sucesso</td>
       <td>Os dados do evento não serão reenviados.</td>
     </tr>
     <tr>
       <td><code>5XX</code></td>
       <td>Erro do lado do servidor</td>
-      <td>Os dados do evento serão reenviados em um padrão de backoff exponencial com jitter. Se o problema persistir por mais de 5 dias, a integração será desativada, e os eventos já enfileirados serão retidos por 7 dias.</td>
+      <td>Os dados do evento serão reenviados em um padrão de recuo exponencial com jitter. Se o problema persistir por mais de 5 dias, a integração será desativada, e os eventos já na fila serão retidos por 7 dias.</td>
     </tr>
     <tr>
       <td><code>400</code></td>
       <td>Erro do lado do cliente</td>
-      <td>O conector enviou pelo menos um evento malformado. Os dados do evento serão divididos em lotes de tamanho 1 e reenviados. Quaisquer eventos nesses lotes de tamanho 1 que receberem outra resposta <code>400</code> serão descartados permanentemente.</td>
+      <td>O conector enviou pelo menos um evento malformado. Os dados do evento serão divididos em lotes de tamanho 1 e reenviados. Qualquer evento nesses lotes de tamanho 1 que receber outra resposta <code>400</code> será descartado permanentemente.</td>
     </tr>
     <tr>
       <td><code>401</code></td>
       <td>Não autorizado</td>
-      <td>O conector foi configurado com credenciais inválidas. Os eventos com falha não serão reenviados. Corrija suas credenciais e reative a integração para retomar. Se o problema persistir por mais de 5 dias, a integração será desativada, e os eventos já enfileirados serão retidos por 7 dias.</td>
+      <td>O conector foi configurado com credenciais inválidas. Eventos com falha não serão reenviados. Corrija suas credenciais e reative a integração para retomar. Se o problema persistir por mais de 5 dias, a integração será desativada, e os eventos já na fila serão retidos por 7 dias.</td>
     </tr>
     <tr>
       <td><code>403</code></td>
       <td>Proibido</td>
-      <td>O conector foi configurado com credenciais inválidas. Os eventos com falha não serão reenviados. Corrija suas credenciais e reative a integração para retomar. Se o problema persistir por mais de 5 dias, a integração será desativada, e os eventos já enfileirados serão retidos por 7 dias.</td>
+      <td>O conector foi configurado com credenciais inválidas. Eventos com falha não serão reenviados. Corrija suas credenciais e reative a integração para retomar. Se o problema persistir por mais de 5 dias, a integração será desativada, e os eventos já na fila serão retidos por 7 dias.</td>
     </tr>
     <tr>
       <td><code>404</code></td>
       <td>Não encontrado</td>
-      <td>O conector foi configurado com uma URL de endpoint incorreta ou credenciais inválidas. Verifique se a URL do seu endpoint está correta e acessível. Corrija sua configuração e reative a integração para retomar. Se o problema persistir por mais de 5 dias, a integração será desativada, e os eventos já enfileirados serão retidos por 7 dias.</td>
+      <td>O conector foi configurado com uma URL de endpoint incorreta ou credenciais inválidas. Verifique se a URL do endpoint está correta e acessível. Corrija sua configuração e reative a integração para retomar. Se o problema persistir por mais de 5 dias, a integração será desativada, e os eventos já na fila serão retidos por 7 dias.</td>
     </tr>
     <tr>
       <td><code>413</code></td>
@@ -182,7 +182,7 @@ Os seguintes códigos de status HTTP serão reconhecidos pelo nosso cliente cone
     <tr>
       <td><code>429</code></td>
       <td>Muitas solicitações</td>
-      <td>Indica limitação de taxa. Os dados do evento serão reenviados em um padrão de backoff exponencial com jitter. Se o problema persistir por mais de 5 dias, a integração será desativada, e os eventos já enfileirados serão retidos por 7 dias.</td>
+      <td>Indica limite de frequência. Os dados do evento serão reenviados em um padrão de recuo exponencial com jitter. Se o problema persistir por mais de 5 dias, a integração será desativada, e os eventos já na fila serão retidos por 7 dias.</td>
     </tr>
   </tbody>
 </table>

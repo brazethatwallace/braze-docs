@@ -1,4 +1,7 @@
 ---
+# This file is a template consumed by the external `braze-currents-generate-docs` tool
+# (braze-agent-plugins / braze-currents plugin) to generate the Currents event glossary
+# docs. It is not referenced from within braze-docs, so do not delete it as "unused".
 nav_title: Comportamiento del cliente y eventos de los usuarios
 article_title: Comportamiento del cliente y eventos de los usuarios
 layout: customer_behavior_events_glossary
@@ -14,13 +17,13 @@ search_rank: 7
 
 {% details Alcance del esquema y recursos relacionados %}
 
-Los esquemas de almacenamiento se aplican a los datos de eventos de archivos planos que enviamos a los socios de almacenamiento en almacenes de datos (Google Cloud Storage, Amazon S3 y Microsoft Azure Blob Storage). Algunas combinaciones de eventos y destinos que figuran aquí aún no están disponibles de forma general. Para saber qué eventos cuentan con el soporte de distintos socios, consulta nuestra lista de [socios disponibles]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) y consulta sus respectivas páginas.
+Los esquemas de almacenamiento se aplican a los datos de eventos de archivos planos que enviamos a los partners de almacenamiento en almacenes de datos (Google Cloud Storage, Amazon S3 y Microsoft Azure Blob Storage). Algunas combinaciones de eventos y destinos que figuran aquí aún no están disponibles de forma general. Para saber qué eventos cuentan con el soporte de distintos partners, consulta nuestra lista de [partners disponibles]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) y consulta sus respectivas páginas.
 
 {% alert tip %}
-Estos eventos también están disponibles como tablas SQL en el [Generador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder), las [Extensiones de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) y [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Para consultar los esquemas de tablas SQL y los detalles de las columnas, consulta la [referencia de tablas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
+Estos eventos también están disponibles como tablas SQL en el [Generador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder), las [extensiones de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) y [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Para consultar los esquemas de tablas SQL y los detalles de las columnas, consulta la [referencia de tablas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
 {% endalert %}
 
-Ponte en contacto con tu representante de Braze o abre un [ticket de soporte]({{site.baseurl}}/braze_support) si necesitas acceder a derechos de eventos adicionales. Si no encuentras lo que necesitas en esta página, consulta nuestra [biblioteca de eventos de interacción con mensajes]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) o nuestros [ejemplos de datos de muestra de Currents](https://github.com/Appboy/currents-examples/tree/master/sample-data).
+Ponte en contacto con tu representante de Braze o abre un [ticket de soporte]({{site.baseurl}}/user_guide/administer/personal/braze_support) si necesitas acceder a derechos de eventos adicionales. Si no encuentras lo que necesitas en esta página, consulta nuestra [biblioteca de eventos de interacción con mensajes]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) o nuestros [ejemplos de datos de muestra de Currents](https://github.com/Appboy/currents-examples/tree/master/sample-data).
 
 {% enddetails %}
 
@@ -63,6 +66,7 @@ Algunos eventos devuelven un valor `platform` que especifica la plataforma del d
 
 <!--overview-end-->
 
+
 {% api %}
 ## Eventos de actualización del número de contenedor aleatorio {#random-bucket-number-update-events}
 
@@ -73,7 +77,7 @@ Random Bucket Number
 Este evento de usuario se produce cada vez que se crea un nuevo usuario dentro de su espacio de trabajo. Durante este evento, a cada nuevo usuario se le asigna un número de contenedor aleatorio que luego puedes utilizar para crear segmentos distribuidos uniformemente de usuarios aleatorios. Utiliza esta función para agrupar una serie de valores de números de contenedor aleatorios y comparar el rendimiento de tus campañas y variantes de campaña.
 
 {% alert important %}
-Este evento de Currents solo está disponible para los clientes que hayan adquirido un «conector para todos los eventos» y solo está disponible para conectores de eventos de almacenamiento (como Amazon S3, Microsoft Azure y Google Cloud Storage).
+Este evento de Currents solo está disponible para los clientes que hayan adquirido un "conector para todos los eventos" y solo está disponible para conectores de eventos de almacenamiento (como Amazon S3, Microsoft Azure y Google Cloud Storage).
 <br><br>Para habilitar este evento y programar el relleno de los números de contenedor aleatorios de los usuarios existentes en tu espacio de trabajo, ponte en contacto con tu administrador de éxito de cliente.
 {% endalert %}
 
@@ -1262,6 +1266,10 @@ Este evento se produce cuando Braze sincroniza el token Push To Start de Live Ac
 {% endtab %}
 {% endtabs %}
 
+### Detalles de la propiedad
+
+- Braze emite un evento "update" con `push_token_state_change_type` establecido en `"update"` cuando un usuario anónimo es identificado en el mismo perfil y los tokens Push To Start de Live Activity de iOS existentes permanecen en ese perfil. En este caso, `user_id` no cambia, y `external_user_id` se establece con el ID externo del usuario identificado. Esto incluye la identificación a través del endpoint [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) y `changeUser` del SDK cuando asigna un ID externo al perfil anónimo en el dispositivo.
+
 {% endapi %}
 
 {% api %}
@@ -1589,7 +1597,7 @@ Este evento se produce cuando se inserta, actualiza o elimina un token de notifi
 
 ##### Añadir {#add}
 
-Se ingesta un evento "add" cuando se registra un nuevo token. Esto ocurre cuando un usuario abre la aplicación en un nuevo dispositivo por primera vez, o cuando se establece un token a través del endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) con `push_tokens` para un usuario que no tenía uno anteriormente.
+Se ingesta un evento "add" cuando se registra un nuevo token. Esto ocurre cuando un usuario abre la aplicación en un nuevo dispositivo por primera vez, o cuando se establece un token a través del endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) con `push_tokens` para un usuario que no tenía uno anteriormente. El campo `time_ms` indica cuándo ocurrió el evento de añadir.
 
 {% alert note %}
 Para iOS Swift SDK 13.3.0 y versiones posteriores, y Android SDK 40.0.0 y versiones posteriores, el estado del permiso push y el token de notificaciones push se envían juntos. Para los nuevos registros de estos SDK, `push_token_foreground_push_disabled` se rellena en el evento "add" (normalmente `false` cuando las notificaciones están habilitadas).<br><br>
@@ -1599,7 +1607,9 @@ Los registros de tokens más antiguos pueden seguir teniendo este campo como `nu
 
 ##### Actualizar {#update}
 
-Se ingesta un evento "update" cuando cambia una propiedad de un token existente sin que cambie la cadena del token en sí. El token tiene la misma cadena, el mismo usuario y la misma aplicación, pero uno o varios de los siguientes campos han cambiado: `foreground_push_disabled`, puerta de enlace APNs, claves de notificaciones push web, `provisionally_opted_in` o `device_id`. Estas actualizaciones provienen de eventos de sincronización del estado del token (por ejemplo, cuando el SDK informa de un nuevo estado de permiso), no de los resultados de envío push.
+Se ingesta un evento "update" cuando cambia una propiedad de un token existente sin que cambie la cadena del token en sí. El token tiene la misma cadena, el mismo usuario y la misma aplicación, pero uno o varios de los siguientes campos han cambiado: `foreground_push_disabled`, puerta de enlace APNs, claves de notificaciones push web, `provisionally_opted_in` o `device_id`. Estas actualizaciones provienen de eventos de sincronización del estado del token (por ejemplo, cuando el SDK informa de un nuevo estado de permiso), no de los resultados de envío push. El campo `time_ms` indica cuándo ocurrió el evento de actualización.
+
+Braze también emite un evento "update" con `push_token_state_change_type` establecido en `"update"` cuando un usuario anónimo es identificado en el mismo perfil y los tokens de notificaciones push existentes permanecen en ese perfil. En este caso, `user_id` no cambia, y `external_user_id` se establece con el ID externo del usuario identificado. Esto incluye la identificación a través del endpoint [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) y `changeUser` del SDK cuando asigna un ID externo al perfil anónimo en el dispositivo.
 
 {% alert note %}
 En la mayoría de los casos, la reinstalación de la aplicación o la restauración de una copia de seguridad da como resultado un nuevo evento "add" con un nuevo `push_token` y un nuevo `device_id` (porque el SDK genera un nuevo `device_id` y el sistema operativo proporciona una nueva cadena de token de notificaciones push). Esto crea dos entradas separadas para el token y el dispositivo en el perfil de usuario, y la entrada más antigua se elimina posteriormente mediante Uninstall Tracking o el envío de una campaña.<br><br>
@@ -1617,8 +1627,15 @@ Se ingesta un evento independiente "remove" cuando Braze elimina un token. Esto 
 
 Cuando un rebote de push desencadena la eliminación del token, Braze emite `push_token_state_change_type = "remove"` para ese token. No emite un evento "update" que cambie `push_token_foreground_push_disabled`.
 
+El campo `time_ms` indica cuándo ocurrió el evento de eliminación.
+
+{% alert note %}
+Para los eventos "remove", los siguientes campos de propiedades del token no se rellenan: `push_token_created_at`, `push_token_updated_at`, `push_token_foreground_push_disabled`, `push_token_provisionally_opted_in`, `ios_push_token_apns_gateway`, `web_push_token_public_key`, `web_push_token_user_auth` y `web_push_token_vapid_public_key`.
+{% endalert %}
+
 ##### Pares de añadir y eliminar {#add-and-remove-pairs}
 
+Los eventos emparejados de añadir y eliminar son dos eventos de estado del token vinculados para la misma transición: un evento "add" y un evento "remove".
 Los pares de añadir y eliminar se dividen en dos categorías:
 
 **Actualización de la cadena de token (mismo usuario):** El sistema operativo rota la cadena de token en el mismo dispositivo (por ejemplo, rotación de tokens APNs o FCM). El evento "add" (nuevo token) y el evento "remove" (token antiguo) tienen el mismo `user_id`, el mismo `device_id`, diferente `push_token` e idéntico `time_ms`.
@@ -1630,7 +1647,10 @@ Los pares de añadir y eliminar se dividen en dos categorías:
 - El endpoint [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) o la limpieza de usuarios duplicados traslada los tokens del usuario huérfano al usuario superviviente.
 
 {% alert note %}
-Si se identifica un perfil anónimo a través del endpoint [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify), el `user_id` no cambia y no se emite ningún evento de cambio de estado del token.
+La identificación en el mismo perfil a través del endpoint REST [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) o [`changeUser`]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#identified-user-profiles) del SDK puede asignar un ID externo a un perfil anónimo sin cambiar el `user_id`.
+En este caso, Braze no emite [pares de eventos de añadir y eliminar](#add-and-remove-pairs).
+En su lugar, Braze emite un evento "update" para cada token de notificaciones push existente y establece `external_user_id` con el ID externo del usuario identificado.
+Cuando `changeUser` traslada tokens de un perfil de usuario a otro, Braze sigue emitiendo los [pares de eventos de añadir y eliminar](#add-and-remove-pairs) descritos en la sección [Pares de añadir y eliminar](#add-and-remove-pairs).
 {% endalert %}
 
 #### Consultar el último estado activo del token {#querying-for-the-latest-active-token-state}

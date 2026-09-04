@@ -45,17 +45,13 @@ For most events, we recommend including the new required Shopify events and attr
 {% tab Abandoned Cart %}
 For Abandoned Cart messaging, you will need to use the new Abandoned Cart Canvas Templates which includes:
 
-- A new trigger based on the “Performed cart updated” action 
-- Pre-defined exit criteria to remove customers who have moved on in their purchasing journey 
-- A new shopping cart Liquid tag to support product personalization 
+{% multi_lang_include partners/shopify/abandoned_cart_template_features.md %}
 {% endtab %}
 
 {% tab Abandoned Checkout %}
 For Abandoned Checkout messaging, you will need to use the new Abandoned Checkout Canvas Template which includes:
 
-- The ecommerce.checkout_started event pre-defined in your entry criteria 
-- Pre-defined exit criteria to remove customers who have moved on in their purchasing journey 
-- A new shopping cart liquid tag to support product personalization 
+{% multi_lang_include partners/shopify/abandoned_checkout_template_features.md %}
 
 For a complete list of new eCommerce Canvas templates and pre-defined HTML blocks for product personalization available through the integration, refer to [Create your Canvas user journeys]({{site.baseurl}}using_shopify_with_braze#create-your-canvas-user-journeys).
 
@@ -140,10 +136,7 @@ If you selected a custom external ID type, proceed to steps 4.1—4.3. Otherwise
 
 #### Step 4.1: Create the `braze.external_id` metafield
 
-1. In your Shopify admin panel, go to **Settings** > **Metafields**.
-2. Select **Customers** > **Add definition**.
-3. For **Namespace and key**, enter `braze.external_id`.
-4. For **Type**, select **ID Type**.
+{% multi_lang_include partners/shopify/customer_metafield_definition_steps.md %}
 
 After the metafield is created, populate it for your customers. We recommend the following approaches:
 
@@ -192,9 +185,7 @@ Repeat [Step 4](#step-4-choose-an-external-id-type), and enter your endpoint URL
 
 ##### Considerations
 
-- If your external ID isn't generated when Braze sends a request to your endpoint, the integration will default to using the Shopify customer ID when the `changeUser` function is called. This step is crucial for merging the anonymous user profile with the identified user profile. As a result, there may be a temporary period during which different types of external IDs exist within your workspace.
-- When the external ID is available in the `braze.external_id` metafield, the integration will prioritize and assign this external ID. 
-    - If the Shopify customer ID was previously set as the Braze external ID, it will be replaced with the `braze.external_id` metafield value. 
+{% multi_lang_include partners/shopify/external_id_generation_notes.md %} 
 
 ### Step 5: Enable the Braze app embed
 
@@ -214,9 +205,6 @@ Back in Braze, you'll be alerted when your Shopify integration is finished insta
 
 To verify that your new Shopify connector is live, test the following:
 
-- **Active Canvases, campaigns, and segments:** Confirm that they are functioning properly.
-- **Identity management processes:** Confirm that these processes are working as expected.
-- **SDK customizations (optional):** If you made any customizations to your Braze and Shopify integration (such as logging custom events or attributes), verify that they are working correctly after the upgrade.
-- **Email or SMS subscriber collection (optional):** If you previously enabled email or SMS subscriber collection, new default subscription groups will be created to reflect the latest status of your subscribers during the upgrade. The default subscription groups will be the name of your Shopify storefront. These new default subscription groups will be available approximately 5 hours after the upgrade, and you'll need to add them to your active messages.
+{% multi_lang_include partners/shopify/upgrade_validation_checklist.md %}
 
-If you have any questions, [contact Support]({{site.baseurl}}/user_guide/administrative/access_braze/support/).
+If you have any questions, [contact Support]({{site.baseurl}}/user_guide/administer/personal/braze_support).

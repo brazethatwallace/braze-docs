@@ -17,44 +17,44 @@ Apple의 비공개 이메일 릴레이로 이메일을 보내려면 Apple에 발
 
 사용자가 앱의 릴레이 이메일로의 이메일 전달을 비활성화하면 Braze는 평소와 같이 이메일 반송 정보를 수신합니다. 사용자는 Apple ID 설정 페이지에서 Apple로 로그인을 사용하는 앱을 관리할 수 있습니다([Apple 설명서](https://support.apple.com/en-us/HT210426) 참조).
 
-## 이메일 공급업체 구성 {#configure-your-email-provider}
+## 이메일 제공업체 구성하기 {#configure-your-email-provider}
 
 {% tabs %}
 {% tab SendGrid %}
 
-SendGrid를 이메일 공급업체로 사용하는 경우 DNS를 변경하지 않고도 Apple에 이메일을 보낼 수 있습니다.
+SendGrid를 이메일 제공업체로 사용하는 경우, DNS 변경 없이 Apple에 이메일을 보낼 수 있습니다.
 
-1. [Apple 개발자 포털](https://developer.apple.com/)에 로그인합니다.
+1. [Apple Developer Portal](https://developer.apple.com/)에 로그인합니다.
 2. **Certificates, Identifiers & Profiles** 페이지로 이동합니다.
-3. **Services** > **Sign in with Apple for Email Communication**을 선택합니다.
+3. **서비스** > **Sign in with Apple for Email Communication**을 선택합니다.
 4. **Email Sources** 섹션에서 도메인과 하위 도메인을 추가합니다.
 - 주소는 다음과 같은 형식이어야 합니다: `bounces+<YOUR_UID>@<YOUR_WHITELABELED_SUBDOMAIN_AND_DOMAIN>` (예: `bounces+1234567@braze.online.docs.com`).
 
-원하는 "보낸 사람" 주소가 `abmail` 주소인 경우 하위 도메인에 해당 주소를 포함하세요. 예를 들어 `docs.braze.com` 대신 `abmail.docs.braze.com`을 사용합니다.
+원하는 "시작" 주소가 `abmail` 주소인 경우, 하위 도메인에 해당 주소를 포함하세요. 예를 들어 `docs.braze.com` 대신 `abmail.docs.braze.com`을 사용하세요.
 
 {% endtab %}
 {% tab SparkPost %}
 
-SparkPost용 Apple Private Relay를 설정하려면 다음 단계를 따르세요:
+SparkPost에서 Apple Private Relay를 설정하려면 다음 단계를 따르세요:
 
 1. Apple로 로그인합니다.
 2. [Apple 설명서](https://developer.apple.com/help/account/configure-app-capabilities/configure-private-email-relay-service)를 참고하여 이메일 도메인을 등록합니다.
 3. Apple이 자동으로 도메인을 확인하고, 인증된 도메인을 표시하며, 재인증 또는 삭제 옵션을 제공합니다.
 
-### 발송 도메인이 반송 도메인이기도 한 경우 {#when-the-sending-domain-is-also-the-bounce-domain}
+### 발신 도메인이 반송 도메인이기도 한 경우 {#when-the-sending-domain-is-also-the-bounce-domain}
 
-발송 도메인이 반송 도메인으로도 사용되는 경우 레코드를 저장할 수 없으므로 다음 추가 단계를 따라야 합니다:
+발신 도메인이 반송 도메인으로도 사용되는 경우 레코드를 저장할 수 없으므로 다음 추가 단계를 따라야 합니다:
 
-1. 도메인이 이미 SparkPost에서 인증된 경우 MX 및 TXT 레코드를 **반드시** 생성해야 합니다:
+1. 도메인이 이미 SparkPost에서 인증된 경우, MX 및 TXT 레코드를 **반드시** 생성해야 합니다:
 
 | 인스턴스 | MX 레코드                   | TXT 레코드                                    |
 |----------|-----------------------------|-----------------------------------------------|
 | US       | `smtp.sparkpostmail.com`    | `"v=spf1 redirect=_spf.sparkpostmail.com"`    |
 | EU       | `smtp.eu.sparkpostmail.com` | `"v=spf1 redirect=_spf.eu.sparkpostmail.com"` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="발송 도메인이 반송 도메인이기도 한 경우" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="발신 도메인이 반송 도메인이기도 한 경우" }
 
 {% alert important %}
-SPF 실패를 방지하려면 CNAME 레코드를 삭제하기 **전에** MX 및 TXT 레코드를 생성하고 DNS에 전파되도록 해야 합니다.
+SPF 실패를 방지하려면, CNAME 레코드를 삭제하기 **전에** MX 및 TXT 레코드를 생성하고 DNS에 전파되어 있어야 합니다.
 {% endalert %}
 
 {:start="2"}
@@ -65,13 +65,13 @@ SPF 실패를 방지하려면 CNAME 레코드를 삭제하기 **전에** MX 및 
 {% endtab %}
 {% tab Amazon SES %}
 
-Apple Private Relay를 설정하려면 커스텀 MAIL FROM 도메인을 설정하는 것이 좋습니다.
+Apple Private Relay를 설정하려면 커스텀 MAIL FROM 도메인이 설정되어 있는 것이 이상적입니다.
 
 1. Apple로 로그인합니다.
 2. [Apple 설명서](https://developer.apple.com/help/account/capabilities/configure-private-email-relay-service)를 참고하여 이메일 도메인을 등록합니다.
 
 {% alert important %}
-링크된 지침에 따라 등록한 내용과 DKIM/SPF가 일치하는지 확인하세요.
+링크된 안내에 따라 등록한 내용과 DKIM/SPF가 일치하는지 확인하세요.
 {% endalert %}
 
 {:start="3"}
@@ -80,4 +80,4 @@ Apple Private Relay를 설정하려면 커스텀 MAIL FROM 도메인을 설정�
 {% endtab %}
 {% endtabs %}
 
-추가 질문이 있으면 [고객지원 티켓]({{site.baseurl}}/braze_support)을 열어주세요.
+추가 질문이 있는 경우 [지원 티켓]({{site.baseurl}}/user_guide/administer/personal/braze_support)을 열어 주세요.

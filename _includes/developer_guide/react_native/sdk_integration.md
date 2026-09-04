@@ -137,7 +137,7 @@ When using `androidNotificationLargeIcon` and `androidNotificationSmallIcon`, fo
 
 To use custom push notification icons with the Braze Expo plugin:
 
-1. Create your icon files following the Icon requirements listed below.
+1. Create your icon files following the Icon requirements listed in the Icon requirements.
 2. Place them in your project's Android native directories at `android/app/src/main/res/drawable-<density>/`.
    For example, use `android/app/src/main/res/drawable-mdpi/` and `android/app/src/main/res/drawable-hdpi/`.
 3. Alternatively, if you're managing assets in your React Native directory, you can use Expo's [app.json icon configuration](https://docs.expo.dev/versions/latest/config/app/#icon) or create an [Expo config plugin](https://docs.expo.dev/config-plugins/introduction/) to copy the icons to the Android drawable folders during prebuild.
@@ -300,7 +300,7 @@ override fun onNewIntent(intent: Intent) {
 
 To import certain Braze libraries, such as BrazeUI, into an Objective-C++ file, you must use the `#import` syntax. Starting in version `7.4.0` of the Braze Swift SDK, binaries have an [optional distribution channel as dynamic XCFrameworks](https://github.com/braze-inc/braze-swift-sdk-prebuilt-dynamic), which are compatible with this syntax.
 
-If you'd like to use this distribution channel, manually override the CocoaPods source locations in your Podfile. Reference the sample below and replace `{your-version}` with the relevant version you wish to import:
+If you'd like to use this distribution channel, manually override the CocoaPods source locations in your Podfile. Reference this sample and replace `{your-version}` with the relevant version you wish to import:
 
 ```ruby
 pod 'BrazeKit', :podspec => 'https://raw.githubusercontent.com/braze-inc/braze-swift-sdk-prebuilt-dynamic/{your-version}/BrazeKit.podspec'
@@ -499,7 +499,7 @@ When using `androidNotificationLargeIcon` and `androidNotificationSmallIcon`, fo
 
 To use custom push notification icons with the Braze Expo plugin:
 
-1. Create your icon files following the Icon requirements listed below.
+1. Create your icon files following the Icon requirements listed in the Icon requirements.
 2. Place them in your project's Android native directories at `android/app/src/main/res/drawable-<density>/` (for example, `android/app/src/main/res/drawable-mdpi/`, `drawable-hdpi/`, or similar.)
 3. Alternatively, if you're managing assets in your React Native directory, you can use Expo's [app.json icon configuration](https://docs.expo.dev/versions/latest/config/app/#icon) or create an [Expo config plugin](https://docs.expo.dev/config-plugins/introduction/) to copy the icons to the Android drawable folders during prebuild.
 
@@ -790,7 +790,11 @@ The following code snippet shows how to import the library in your React Native 
 import Braze from "@braze/react-native-sdk";
 ```
 
-Then call `Braze.initialize()` with your app identifier API key and SDK endpoint to create the Braze instance. See the options below for where to call this method in your app.
+{% alert note %}
+React Native SDK 19.2.0+ supports initializing Braze from the React Native layer or from the native iOS and Android layers. Initialize from the React Native layer to use [delayed initialization](#delayed-initialization), which starts the SDK after an event such as consent or login. If your app initializes Braze in the native layers today, you can keep that setup when you upgrade. To confirm how notifications behave in each setup, see [Push notifications on cold start](#push-notifications-on-cold-start).
+{% endalert %}
+
+Then call `Braze.initialize()` with your app identifier API key and SDK endpoint to create the Braze instance. See the following options for where to call this method in your app flow.
 
 #### Standard initialization
 
@@ -822,7 +826,7 @@ function onUserConsent() {
 ```
 
 {% alert warning %}
-On iOS, push notifications received before `Braze.initialize()` are queued and processed after initialization. On Android, deep links from push notifications do not resolve while the SDK is waiting to be initialized. If your app relies on immediate deep link handling at launch, use [standard initialization](#standard-initialization) instead.
+On iOS, push notifications received before `Braze.initialize()` are queued and processed after initialization. On Android, Braze doesn't resolve deep links from push notifications while the SDK waits to be initialized. To keep notifications working when one of them launches your app, see [Push notifications on cold start](#push-notifications-on-cold-start).
 {% endalert %}
 
 #### Platform-specific API keys
@@ -848,6 +852,50 @@ You can call `Braze.initialize()` multiple times to re-initialize the SDK with a
 {% alert important %}
 All SDK method calls made before `Braze.initialize()` are ignored on iOS, so call `Braze.initialize()` before using any other Braze methods.
 {% endalert %}
+
+#### Push notifications on cold start
+
+When a notification launches your app from a terminated state, Braze stores the notification payload in the native layer before React Native loads. Because of this, initializing from the React Native layer doesn't change whether the payload reaches your app. To handle these notifications, add the native hooks, then read the payload in your React Native code.
+
+On Android, call `BrazeReactUtils.populateInitialPushPayloadFromIntent(intent)` in the `onCreate()` method of your `MainActivity` class:
+
+```kotlin
+import com.braze.reactbridge.BrazeReactUtils
+
+override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    BrazeReactUtils.populateInitialPushPayloadFromIntent(intent)
+}
+```
+
+On iOS, call `populateInitialPayload(fromLaunchOptions:)` in the `application(_:didFinishLaunchingWithOptions:)` method of your `AppDelegate`:
+
+```swift
+if let launchOptions {
+  BrazeReactUtils.sharedInstance().populateInitialPayload(fromLaunchOptions: launchOptions)
+}
+```
+
+Then, read the payload in your React Native code:
+
+```javascript
+Braze.getInitialPushPayload((pushPayload) => {
+  if (pushPayload) {
+    // Handle the notification, such as navigating to the pushPayload.url value
+  }
+});
+```
+
+{% alert important %}
+When delayed initialization is enabled on Android, Braze opens your main activity instead of resolving the deep link in the notification, then passes the notification data to that activity. Handle navigation in your React Native code using the `url` value from `Braze.getInitialPushPayload()`.
+{% endalert %}
+
+Your push registration settings stay in your native configuration for both initialization locations, and Braze applies them when `Braze.initialize()` runs:
+
+- On Android, set `com_braze_firebase_cloud_messaging_registration_enabled` and `com_braze_firebase_cloud_messaging_sender_id` in `braze.xml`.
+- On iOS, set the `push` properties on the configuration object in the `configure` closure you pass to `BrazeReactInitializer.configure`.
+
+If your app depends on deep links from notifications that launch it from a terminated state, use React Native SDK 21.1.0 or later. These versions include fixes for capturing the initial push payload and resolving push deep links on Android. For the full list of changes, see the [React Native SDK changelog](https://github.com/braze-inc/braze-react-native-sdk/blob/master/CHANGELOG.md).
 
 {% endtab %}
 {% tab React Native SDK 19.1.0 and earlier %}
@@ -910,6 +958,10 @@ In the Braze dashboard, go to [User Search]({{site.baseurl}}/user_guide/engageme
 
 {% endtab %}
 {% endtabs %}
+
+## Testing with Jest
+
+React Native unit tests that import the Braze SDK need mocks for native modules and the Braze Turbo Module. The [Braze React Native SDK repository](https://github.com/braze-inc/braze-react-native-sdk) ships a reference Jest setup in [`__tests__/jest.setup.js`](https://github.com/braze-inc/braze-react-native-sdk/blob/master/__tests__/jest.setup.js). Add that file (or an adapted copy) to `setupFiles` in your Jest configuration so `NativeEventEmitter`, `TurboModuleRegistry`, and `BrazeReactBridge` are mocked when you test components that call Braze APIs.
 
 ## Next steps
 

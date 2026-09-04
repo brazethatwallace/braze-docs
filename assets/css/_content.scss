@@ -124,6 +124,17 @@
 			}
 		}
 
+		// Reserve aspect ratio when markdown supplies width/height (CLS).
+		img[width][height] {
+			height: auto;
+			max-width: 100%;
+		}
+
+		video[width][height] {
+			height: auto;
+			max-width: 100%;
+		}
+
     span.inline-link {
       display: inline-block;
     }
@@ -1265,6 +1276,44 @@ svg[id^="mermaid"] {
   padding-top: 16px !important;
 }
 
+// Partners home A–Z directory: multi-column layout
+.partners-az-list {
+  column-count: 1;
+
+  @media (min-width: $window-medium-px) {
+    column-count: 2 !important;
+    column-gap: 2rem !important;
+  }
+
+  @media (min-width: $window-large-px) {
+    column-count: 3 !important;
+  }
+}
+
+.partners-az-group {
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  margin-bottom: 1.25rem !important;
+
+  h2 {
+    margin-top: 0 !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  ul {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    margin-left: 0 !important;
+    list-style: none !important;
+    padding-left: 0 !important;
+  }
+
+  li {
+    margin-bottom: 0.2rem !important;
+  }
+}
+
 .copy-block {
   position: relative;
   padding: 16px 52px 6px 16px;
@@ -1311,4 +1360,11 @@ svg[id^="mermaid"] {
     opacity: 0;
     font-size: 12px;
   }
+}
+
+// Scopes tall code samples (e.g. the landing page custom form block examples)
+// to a fixed, scrollable height so they don't dominate page scroll length.
+.scrollable-code-examples div.highlight {
+  max-height: 480px !important;
+  overflow-y: auto !important;
 }

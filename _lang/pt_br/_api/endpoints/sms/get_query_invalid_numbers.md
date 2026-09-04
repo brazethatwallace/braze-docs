@@ -13,21 +13,21 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Consult
 /sms/invalid_phone_numbers
 {% endapimethod %}
 
-> Use esse endpoint para obter uma lista de números de telefone que foram marcados como "inválidos" em um determinado período de tempo. Para saber mais, consulte a documentação sobre [tratamento de números de telefone inválidos]({{site.baseurl}}/user_guide/message_building_by_channel/sms/phone_numbers/user_phone_numbers#handling-invalid-phone-numbers).
+> Use esse endpoint para obter uma lista de números de telefone que foram marcados como "inválidos" em um determinado período. Para saber mais, consulte a documentação sobre [tratamento de números de telefone inválidos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#handling-invalid-phone-numbers).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#81ceae19-15d1-4ac1-ad22-a6b86a92456d {% endapiref %}
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `sms.invalid_phone_numbers`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `sms.invalid_phone_numbers`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | ----------|-----------| ----------|----- |
 | `start_date` | Opcional <br>(ver nota) | String no formato YYYY-MM-DD | Data de início do intervalo para recuperar números de telefone inválidos. Deve ser anterior a `end_date`. Isso é tratado como meia-noite no horário UTC pela API. |
 | `end_date` | Opcional <br>(ver nota) | String no formato YYYY-MM-DD | Data final do intervalo para recuperar números de telefone inválidos. Isso é tratado como meia-noite no horário UTC pela API. |

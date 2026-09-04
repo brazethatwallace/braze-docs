@@ -6,7 +6,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Kampagnendetails exportieren“."
-
 ---
 {% api %}
 # Details zur Kampagne exportieren {#export-campaign-details}
@@ -22,7 +21,7 @@ Wenn Sie Canvas-Daten abrufen möchten, lesen Sie den Endpunkt [Canvas-Details e
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `campaigns.details`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `campaigns.details`.
 
 ## Rate-Limit
 
@@ -49,7 +48,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
+    "message": (string) returns 'success' when the request completes without errors,
     "created_at" : (string) the date created as ISO 8601 date,
     "updated_at" : (string) the date last updated as ISO 8601 date,
     "archived": (boolean) whether this campaign is archived,
@@ -305,7 +304,7 @@ Das Array `conversion_behaviors` enthält Informationen zu jedem für die Kampag
 
 
 {% endtab %}
-{% tab App upgraden %}
+{% tab App-Upgrade %}
 
 ```json
 {

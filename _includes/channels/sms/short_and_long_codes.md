@@ -11,6 +11,10 @@
 
 RCS is a modern messaging system that offers more features than traditional SMS, introducing capabilities like branded sender IDs, rich media, and interactive content, such as scrollable carousels, quick replies, CTA buttons, and more. It’s designed to provide a sleeker and more engaging user experience.  
 
+{% alert important %}
+RCS messages can't send through Twilio messaging services. Subscription groups that use Twilio for SMS must use an Infobip-compatible RCS sender (or another supported RCS provider) for RCS traffic. Otherwise, RCS sends abort at send time.
+{% endalert %}
+
 #### Details
 
 | Visual components | Access | Throughput | MMS enabled | 1-way vs. 2-way |
@@ -111,7 +115,7 @@ They can have up to 11 characters and contain upper (A-Z) and lower (a-z) case l
 
 | Pros | Cons |
 | ---- | ---- | 
-| {::nomarkdown} <ul><li> Improved brand recognition </li><li> In many international markets, local carriers pre-register and vet alphanumeric senders so your messages are less likely to be caught in aggressive carrier spam filters that might otherwise block random long codes </li><li> Available within 1 week if pre-registration is not required </li></ul> {:/} | {::nomarkdown} <ul><li> <a href='/docs/user_guide/message_building_by_channel/sms/keywords/#two-way-messaging-custom-keyword-responses/'>Two-way messaging</a> is not supported </li><li> Not all countries support this feature. For example, it is supported in the UK but is blocked in the US. </li><li> Some countries have an extensive pre-registration process that requires legal documentation to be submitted and longer lead times. </li></ul> {:/} |
+| {::nomarkdown} <ul><li> Improved brand recognition </li><li> In many international markets, local carriers pre-register and vet alphanumeric senders so your messages are less likely to be caught in aggressive carrier spam filters that might otherwise block random long codes </li><li> Available within 1 week if pre-registration is not required </li></ul> {:/} | {::nomarkdown} <ul><li> <a href='/docs/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling#two-way-messaging-custom-keyword-responses'>Two-way messaging</a> is not supported </li><li> Not all countries support this feature. For example, it is supported in the UK but is blocked in the US. </li><li> Some countries have an extensive pre-registration process that requires legal documentation to be submitted and longer lead times. </li></ul> {:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pros and cons" }
 
 For more information on alphanumeric sender IDs, contact your customer success manager. 
@@ -232,7 +236,7 @@ Braze will work with you to collect all the necessary details to provision your 
 The setup timeline depends on the provisioning country. Typically, long codes and toll-free numbers take between 1-4 weeks to be approved.
 
 {% alert important %}
-All customers who currently have and/or use US long codes to send to US customers are required to register their long codes. To read more about the specifics of US A2P 10DLC registration and why it’s required, visit our dedicated [10DLC article]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup/10dlc/).
+All customers who currently have and/or use US long codes to send to US customers are required to register their long codes. To read more about the specifics of US A2P 10DLC registration and why it’s required, visit our dedicated [10DLC article]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup/10dlc).
 {% endalert %}
 
 {% endtab %}
@@ -256,4 +260,4 @@ The timeline to set up an alphanumeric sender ID depends heavily on whether the 
 
 ## Frequently asked questions
 
-For answers to frequently asked questions about SMS and RCS senders, refer to our [SMS frequently asked questions]({{site.baseurl}}/user_guide/message_building_by_channel/sms_mms_rcs/sms/faqs#frequently-asked-questions) page.
+For answers to frequently asked questions about SMS and RCS senders, refer to our [SMS frequently asked questions]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs) page.

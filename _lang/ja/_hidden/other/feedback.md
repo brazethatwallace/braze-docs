@@ -6,7 +6,7 @@ hide_toc: true
 
 <fieldset style="margin-top: 60px;">
 <legend style="font-size: 2.5rem;color: #212123;font-weight:bold;">ドキュメントのフィードバック</legend>
-<div id="feedback">
+<div id="フィードバック">
     <div id="feedback_section">
     ドキュメントを改善するアイデアや、お気づきの問題はありますか？ぜひお聞かせください。すべてのフィードバックをチームで確認し、改善に役立てています。<br /><br />
 
@@ -14,31 +14,31 @@ hide_toc: true
 
     <div id="feedback_answer_star">
       <div class="rating-list">
-        <div class="feedback-star">
+        <div class="フィードバック-star">
           <input type="radio" id="rating_1" name="feedback_rating" value="Very Unhelpful" tabindex="-1">
           <label for="rating_1" class="star-label" tabindex="0" aria-label="Very Unhelpful">
             <i class="fas fa-star" data-value="Very Unhelpful" title="Very Unhelpful"></i><br />1<br />役に立たない</label>
         </div>
-        <div class="feedback-star">
+        <div class="フィードバック-star">
           <input type="radio" id="rating_2" name="feedback_rating" value="Unhelpful" tabindex="-1">
           <label for="rating_2" class="star-label" tabindex="0" aria-label="Unhelpful">
             <i class="fas fa-star" data-value="Unhelpful" title="Unhelpful"></i><br />2<br />
           </label>
         </div>
-        <div class="feedback-star">
+        <div class="フィードバック-star">
           <input type="radio" id="rating_3" name="feedback_rating" value="Somewhat Helpful" tabindex="-1">
           <label for="rating_3" class="star-label" tabindex="0" aria-label="Somewhat helpful">
             <i class="fas fa-star" data-value="Somewhat Helpful" title="Somewhat Helpful"></i><br />3<br />やや役に立つ</label>
         </div>
 
-        <div class="feedback-star">
+        <div class="フィードバック-star">
           <input type="radio" id="rating_4" name="feedback_rating" value="Helpful" tabindex="-1">
           <label for="rating_4" class="star-label" tabindex="0" aria-label="Helpful">
             <i class="fas fa-star" data-value="Helpful" title="Helpful"></i><br />4<br />
           </label>
         </div>
 
-        <div class="feedback-star">
+        <div class="フィードバック-star">
           <input type="radio" id="rating_5" name="feedback_rating" value="Very Helpful" tabindex="-1">
           <label for="rating_5" class="star-label" tabindex="0" aria-label="Very Helpful">
             <i class="fas fa-star" data-value="Very Helpful" title="Very Helpful"></i><br />5<br />とても役に立つ
@@ -52,7 +52,7 @@ hide_toc: true
       <textarea id="feedback_comment" placeholder="&quot;このエラーメッセージに関する情報が見つかりませんでした&quot;"></textarea><br />
         ご質問がありますか？サポートチームまでお問い合わせください。
     </div>
-    <button type="submit" name="submit_feedback" value="Submit feedback" class="btn btn-black" id="feedback_submit" role="button" style="margin-top:15px;"> フィードバックを送信 </button>
+    <button type="submit" name="submit_feedback" value="Submit フィードバック" class="btn btn-black" id="feedback_submit" role="button" style="margin-top:15px;"> フィードバックを送信 </button>
   </div>
   <div id="feedback_msg">
   </div>
@@ -61,7 +61,7 @@ hide_toc: true
 </fieldset>
 
 <style type="text/css">
-#feedback {
+#フィードバック {
   font-size: 16px;
 }
 #feedback_answer_star {
@@ -74,12 +74,12 @@ hide_toc: true
   line-height: 1;
   flex-direction: row;
 }
-#feedback_answer_star .feedback-star {
+#feedback_answer_star .フィードバック-star {
   position: relative;
   padding: 10px 5px;
   width: 65px;
 }
-#feedback_answer_star .feedback-star input[type="radio"] {
+#feedback_answer_star .フィードバック-star input[type="radio"] {
   position: absolute;
   opacity: 0;
   width: 100%;
@@ -87,7 +87,7 @@ hide_toc: true
   margin: 0;
   cursor: pointer;
 }
-#feedback_answer_star .feedback-star .star-label {
+#feedback_answer_star .フィードバック-star .star-label {
   display: block;
   color: #999999 !important;
   font-size: 14px;
@@ -97,14 +97,14 @@ hide_toc: true
   cursor: pointer;
   margin: 0;
 }
-#feedback_answer_star .feedback-star.hover-active .star-label {
+#feedback_answer_star .フィードバック-star.hover-active .star-label {
   color: #000000 !important;
 }
-#feedback_answer_star .feedback-star input[type="radio"]:checked ~ .star-label,
-#feedback_answer_star .feedback-star.active .star-label {
+#feedback_answer_star .フィードバック-star input[type="radio"]:checked ~ .star-label,
+#feedback_answer_star .フィードバック-star.active .star-label {
   color: #000000 !important;
 }
-#feedback_answer_star .feedback-star .star-label > i {
+#feedback_answer_star .フィードバック-star .star-label > i {
   font-size: 35px;
   margin-bottom: 15px;
 }
@@ -125,14 +125,14 @@ hide_toc: true
   color: red;
   font-weight: bold;
 }
-#feedback button[type=submit] {
+#フィードバック button[type=submit] {
   font-family: "Aribau Grotesk Bold", "Aribau Grotesk", "Aribau Grotesk Regular", Arial, Helvetica, sans-serif;
   text-transform: capitalize;
   border-radius: 3px;
   padding: 1rem 2rem;
   border: 1px solid black !important;
 }
-#feedback button.btn-white {
+#フィードバック button.btn-white {
   font-family: "Aribau Grotesk Bold", "Aribau Grotesk", "Aribau Grotesk Regular", Arial, Helvetica, sans-serif;
   text-transform: capitalize;
   border-radius: 3px;
@@ -141,11 +141,11 @@ hide_toc: true
   background-color: #ffffff;
   color: #202024;
 }
-#feedback button.btn-white:hover {
+#フィードバック button.btn-white:hover {
   background-color: #202024 !important;
   color: #ffffff !important;
 }
-#feedback button[type=submit]:focus, #feedback button[type=submit]:hover {
+#フィードバック button[type=submit]:focus, #フィードバック button[type=submit]:hover {
   color: #000000;
   background-color: #FFFFFF;
 }
@@ -163,12 +163,12 @@ hide_toc: true
       feedback_helpful = $(this).val();
 
       // Update visual state for all stars
-      $('.feedback-star').removeClass('active');
-      var selectedStar = $(this).closest('.feedback-star');
+      $('.フィードバック-star').removeClass('active');
+      var selectedStar = $(this).closest('.フィードバック-star');
       var selectedValue = $(this).val();
 
       // Mark selected star and all previous stars as active
-      $('.feedback-star').each(function() {
+      $('.フィードバック-star').each(function() {
         var starValue = $(this).find('input').val();
         if (starValue === selectedValue || shouldHighlightStar(starValue, selectedValue)) {
           $(this).addClass('active');
@@ -177,10 +177,10 @@ hide_toc: true
   });
 
   // Handle hover effect from left to right
-  $('.feedback-star').on('mouseenter', function() {
+  $('.フィードバック-star').on('mouseenter', function() {
     var hoveredIndex = $(this).index();
-    $('.feedback-star').removeClass('hover-active');
-    $('.feedback-star').each(function(index) {
+    $('.フィードバック-star').removeClass('hover-active');
+    $('.フィードバック-star').each(function(index) {
       if (index <= hoveredIndex) {
         $(this).addClass('hover-active');
       }
@@ -188,7 +188,7 @@ hide_toc: true
   });
 
   $('.rating-list').on('mouseleave', function() {
-    $('.feedback-star').removeClass('hover-active');
+    $('.フィードバック-star').removeClass('hover-active');
   });
 
   // Handle keyboard interaction for accessibility
@@ -209,7 +209,7 @@ hide_toc: true
 
   $('#feedback_submit').on('click',function(e){
     var external_id = window.braze ? window.braze.getUser().getUserId() : '';
-    var title = 'Documentations Feedback';
+    var title = 'Documentations フィードバック';
     var comment = $('#feedback_comment').val().trim();
     var feedback_div = $('#feedback_msg');
     var submit_data = {
@@ -219,13 +219,13 @@ hide_toc: true
       'Nav Title': title,
       'Params': window.location.search,
       "Language": page_language,
-      'Feedback': comment,
+      'フィードバック': comment,
       'ExternalId': external_id,
     };
     if (!feedback_helpful || !comment){
       feedback_div.fadeIn();
       feedback_div.addClass('error');
-      feedback_div.html('Please provide a rating and feedback');
+      feedback_div.html('Please provide a rating and フィードバック');
       feedback_div.fadeOut(2000).removeClass('error');
       return;
     }
@@ -233,8 +233,8 @@ hide_toc: true
 
     if (window.braze) {
       window.braze.logCustomEvent(
-        "Documentations Feedback Comment", {
-          "Feedback": feedback_helpful,
+        "Documentations フィードバック Comment", {
+          "フィードバック": feedback_helpful,
           "Article Title": title,
           "Nav Title": title,
           "URL": feedback_site,
@@ -253,7 +253,7 @@ hide_toc: true
         feedback_div.html('');
         if (dt['result'] == 'success'){
           $('#feedback_section').hide();
-          feedback_div.html('We truly value every piece of feedback. Thank you for your response.');
+          feedback_div.html('We truly value every piece of フィードバック. Thank you for your response.');
           feedback_div.fadeIn("slow");
         }
         else {

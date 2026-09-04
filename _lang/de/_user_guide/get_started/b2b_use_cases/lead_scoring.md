@@ -25,7 +25,7 @@ Die Erstellung eines Lead-Scoring-Workflows in Braze umfasst zwei wesentliche Sc
 
 1. Gehen Sie zu **Messaging** > **Canvas** und wählen Sie **Canvas erstellen**. Füllen Sie dann die Canvas-Grundlagen aus.
 
-2. Geben Sie Ihrem Canvas einen aussagekräftigen Namen, z. B. „Lead Scoring Canvas“, und versehen Sie es zur besseren Auffindbarkeit mit einem Tag wie „Lead Management“.<br><br>![1. Schritt der Erstellung eines Canvas mit dem Namen „Lead Scoring Canvas“ und dem Tag „Lead Management“.]({% image_buster /assets/img/b2b/step_1_simple.png %}){: style="max-width:80%;"}
+2. Geben Sie Ihrem Canvas einen aussagekräftigen Namen, z. B. „Lead Scoring Canvas“, und versehen Sie es zur besseren Auffindbarkeit mit einem Tag wie „Lead Management“.<br><br>![Schritt 1 der Erstellung eines Canvas mit dem Namen „Lead Scoring Canvas“ und dem Tag „Lead Management“.]({% image_buster /assets/img/b2b/step_1_simple.png %}){: style="max-width:80%;"}
 
 ### 2. Schritt: Entry-Kriterien festlegen {#step-2-set-up-your-entry-criteria}
 
@@ -35,7 +35,7 @@ Die Erstellung eines Lead-Scoring-Workflows in Braze umfasst zwei wesentliche Sc
     - **Wert des angepassten Attributs ändern** mit dem Namen Ihres Lead-Scoring-Attributs (z. B. `lead score`). Wenn Sie noch kein Lead-Scoring-Attribut erstellt haben, folgen Sie den Schritten unter [Angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes). Dadurch werden Nutzer:innen in das Canvas aufgenommen, sobald sich ihr Lead Score ändert.
     - **E-Mail-Adresse hinzufügen**
 
-![2. Schritt der Erstellung eines Canvas mit dem Entry-Zeitplan „Aktionsbasiert“ und aktionsbasierten Optionen zum Ändern eines angepassten Attributs „lead score“ und zum Hinzufügen einer E-Mail-Adresse.]({% image_buster /assets/img/b2b/step_2_simple.png %}){: style="max-width:80%;"}
+![Schritt 2 der Erstellung eines Canvas mit dem Entry-Zeitplan „Aktionsbasiert“ und aktionsbasierten Optionen zum Ändern eines angepassten Attributs „lead score“ und zum Hinzufügen einer E-Mail-Adresse.]({% image_buster /assets/img/b2b/step_2_simple.png %}){: style="max-width:80%;"}
 
 ### 3. Schritt: Zielgruppe identifizieren {#step-3-identify-your-target-audience}
 
@@ -43,7 +43,7 @@ Die Erstellung eines Lead-Scoring-Workflows in Braze umfasst zwei wesentliche Sc
 
 Alle Nutzer:innen kommen für die Lead-Bewertung in Frage. Sie können also unternehmensspezifische Regeln hinzufügen, indem Sie auswählen, welche [Segmente]({{site.baseurl}}/user_guide/audience/segments) Sie ansprechen möchten, und zusätzliche [Filter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) anwenden. Sie können zum Beispiel Mitarbeitende, Nutzer:innen, die bereits Kund:innen sind, und ähnliche ausschließen.
 
-![3. Schritt der Erstellung eines Canvas mit Optionen zur Auswahl von Segmenten und Filtern, um die Entry-Zielgruppe einzugrenzen.]({% image_buster /assets/img/b2b/step_3_simple.png %}){: style="max-width:80%;"}
+![Schritt 3 der Erstellung eines Canvas mit Optionen zur Auswahl von Segmenten und Filtern, um die Entry-Zielgruppe einzugrenzen.]({% image_buster /assets/img/b2b/step_3_simple.png %}){: style="max-width:80%;"}
 
 #### Schritt 3b: Canvas-Wiederzulassung festlegen {#step-3b-set-canvas-re-eligibility}
 
@@ -62,11 +62,11 @@ Angesichts der operativen Natur dieses Canvas und der Tatsache, dass keine Nachr
 
 Wählen Sie unter **Subscription Settings** bei **Send to these users:** die Option **all users including unsubscribed users**.
 
-![4. Schritt der Erstellung eines Canvas zum Einstellen der Optionen für den Nachrichtenversand.]({% image_buster /assets/img/b2b/step_4_simple.png %}){: style="max-width:80%;"}
+![Schritt 4 der Erstellung eines Canvas zum Einstellen der Optionen für den Nachrichtenversand.]({% image_buster /assets/img/b2b/step_4_simple.png %}){: style="max-width:80%;"}
 
 ### 4. Schritt: Canvas erstellen {#step-4-build-your-canvas}
 
-#### Schritt 4a: Einen Aktions-Pfad hinzufügen {#step-4a-add-an-action-path}
+#### Schritt 4a: Einen Aktionspfad hinzufügen {#step-4a-add-an-action-path}
 
 Wählen Sie unter Ihrer Variante <i class="fas fa-plus" aria-label="Hinzufügen"></i> **Hinzufügen** und dann **Aktionspfade**.
 
@@ -76,14 +76,14 @@ Wählen Sie unter Ihrer Variante <i class="fas fa-plus" aria-label="Hinzufügen"
 
 Jede Aktionsgruppe repräsentiert alle Aktionen, die zur selben Punkte-Erhöhung oder -Verringerung führen. Sie können bis zu acht Aktionsgruppen einrichten. In diesem Szenario richten wir vier Gruppen ein.
 
-Fügen Sie die folgenden Gruppen zu Ihrem Aktions-Pfad hinzu:
+Fügen Sie die folgenden Gruppen zu Ihrem Aktionspfad hinzu:
 
 - **Gruppe 1:** Alle Ereignisse, die für eine Erhöhung um 1 Punkt zählen.
 - **Gruppe 2:** Alle Ereignisse, die für eine Erhöhung um 5 Punkte zählen.
 - **Gruppe 3:** Alle Ereignisse, die für eine Verringerung um 1 Punkt zählen.
 - **Alle anderen:** Aktionspfade ermöglichen es Ihnen, ein Zeitfenster zu definieren, in dem abgewartet wird, ob Nutzer:innen eine Aktion ausführen, bevor sie in eine Gruppe „Alle anderen“ eingeordnet werden. Für das Lead Scoring ist dies eine Gelegenheit, die Punktzahl für „Inaktivität“ zu verringern.
 
-![Aktions-Pfad mit Aktionsgruppen zum Hinzufügen von einem Punkt, fünf Punkten und zehn Punkten; zum Subtrahieren von einem Punkt und zehn Punkten; sowie „Alle anderen“.]({% image_buster /assets/img/b2b/action_paths_selected_simple.png %}){: style="max-width:20%;"}
+![Aktionspfad mit Aktionsgruppen zum Hinzufügen von einem Punkt, fünf Punkten und zehn Punkten; zum Subtrahieren von einem Punkt und zehn Punkten; sowie „Alle anderen“.]({% image_buster /assets/img/b2b/action_paths_selected_simple.png %}){: style="max-width:20%;"}
 
 #### Schritt 4c: Jede Gruppe mit den relevanten Ereignissen konfigurieren {#step-4c-configure-each-group-to-include-the-relevant-events}
 
@@ -93,9 +93,9 @@ Wählen Sie in jeder Aktionsgruppe **Trigger auswählen** und wählen Sie das Er
 
 #### Schritt 4d: Schritte zur Nutzeraktualisierung hinzufügen {#step-4d-add-user-update-steps}
 
-Fügen Sie jedem Canvas-Pfad, der unterhalb Ihres Aktions-Pfads erstellt wurde, einen Schritt zur Nutzeraktualisierung hinzu.
+Fügen Sie jedem Canvas-Pfad, der unterhalb Ihres Aktionspfads erstellt wurde, einen Schritt zur Nutzeraktualisierung hinzu.
 
-![Canvas, das den Aktions-Pfad mit verzweigten Nutzeraktualisierungspfaden für jede Aktionsgruppe anzeigt.]({% image_buster /assets/img/b2b/user_update_paths_simple.png %}){: style="max-width:80%;"}
+![Canvas, das den Aktionspfad mit verzweigten Nutzeraktualisierungspfaden für jede Aktionsgruppe anzeigt.]({% image_buster /assets/img/b2b/user_update_paths_simple.png %}){: style="max-width:80%;"}
 
 {: start="2"}
 Führen Sie auf dem Tab **Verfassen** jedes Nutzeraktualisierungsschritts die folgenden Aktionen für die jeweiligen Felder aus:
@@ -117,7 +117,7 @@ Ob Sie einen unserer [Technologie-Partner]({{site.baseurl}}/partners/home), Ihr 
 
 ### Externe Partner {#external-partners}
 
-Unter [Technologie-Partner]({{site.baseurl}}/partners/home) erfahren Sie mehr über unsere B2B-Partner, die Lead-Scoring-Funktionen anbieten. Ihr Tool ist dort nicht aufgeführt? Sie können die Integration über unseren [`users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#track-users)-API-Endpunkt durchführen.
+Unter [Technologie-Partner]({{site.baseurl}}/partners/home) erfahren Sie mehr über unsere B2B-Partner, die Lead-Scoring-Funktionen anbieten. Ihr Tool ist dort nicht aufgeführt? Sie können die Integration über unseren [`users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)-API-Endpunkt durchführen.
 
 ### Interne Lead-Scoring-Datenmodelle {#internal-lead-scoring-data-models}
 
@@ -182,7 +182,7 @@ Um den Lead-Datensatz in Salesforce mit dem Lead-Status aus Braze zu aktualisier
 
 | Header | Inhalt |
 | --- | --- |
-| Authorization | {% raw %}`Bearer {{result.access_token}}`{% endraw %}<br><br>Um ein Token abzurufen, [konfigurieren Sie eine Connected App](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5) für den OAuth 2.0 Client-Credentials-Flow und verwenden Sie dann Connected-Content, um den Bearer von Salesforce abzurufen: <br><br>{% raw %}<code>{% connected_content https://[instance].my.salesforce.com/services/oauth2/token <br>:method post <br> :body client_id=[client_id]&client_secret=[client_secret]&grant_type=client_credentials <br>:save result %}{% endraw %} <br> Bearer {% raw %}{{result.access_token}}</code>{% endraw %} |
+| Authorization | {% raw %}`Bearer {{result.access_token}}`{% endraw %}<br><br>Um ein Token abzurufen, [konfigurieren Sie eine Connected App](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5) für den OAuth 2.0 Client-Credentials-Flow und verwenden Sie dann Connected-Content, um den Bearer von Salesforce abzurufen: <br><br>{% raw %}<code>{% connected_content https://[instance].my.salesforce.com/services/oauth2/Token <br>:method post <br> :body client_id=[client_id]&client_secret=[client_secret]&grant_type=client_credentials <br>:save result %}{% endraw %} <br> Bearer {% raw %}{{result.access_token}}</code>{% endraw %} |
 | Content-Type | application/json |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 2a: Webhook verfassen" }
 

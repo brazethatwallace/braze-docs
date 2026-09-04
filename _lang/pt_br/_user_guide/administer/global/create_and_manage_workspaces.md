@@ -31,6 +31,11 @@ Tudo o que você faz na Braze acontece dentro de um espaço de trabalho. Espaço
 
 Antes de começar, certifique-se de que você trabalhou com sua equipe e com o gerente de integração da Braze para determinar a melhor configuração de espaço de trabalho para o seu caso de uso. Para saber mais sobre o planejamento dos seus espaços de trabalho na Braze, confira nosso guia [Primeiros passos: Espaços de trabalho]({{site.baseurl}}/user_guide/get_started/workspaces).
 
+{% alert warning %}
+**Prática recomendada: use projetos Firebase dedicados por espaço de trabalho**<br>
+Embora a Braze permita o upload do mesmo JSON de conta de serviço do Firebase para vários espaços de trabalho, todos os espaços de trabalho que usam o mesmo ID de projeto do Google compartilham o limite de frequência padrão do Firebase Cloud Messaging de 600.000 mensagens por minuto. Remetentes de alto volume podem encontrar erros de "Quota Exceeded" durante lançamentos simultâneos de Campaigns em vários espaços de trabalho.<br><br>Para isolamento de entregabilidade e gerenciamento de cota, use projetos Firebase separados e dedicados para cada espaço de trabalho da Braze.
+{% endalert %}
+
 ### Etapa 2: Adicione seu espaço de trabalho {#step-2-add-your-workspace}
 
 Você pode criar novos espaços de trabalho ou alternar entre espaços de trabalho existentes a partir do menu suspenso de espaço de trabalho no cabeçalho global.
@@ -153,29 +158,29 @@ Se você está lançando um app totalmente novo na loja de aplicativos, deve cri
 
 ### Tenho múltiplas instâncias do app em um espaço de trabalho — como posso garantir que minha mensagem seja direcionada apenas para um único app? {#singular-app}
 
-Para garantir que sua mensagem seja direcionada apenas para um app específico, adicione um segmento que inclua apenas usuários das instâncias do app escolhidas. Isso é especialmente importante se um usuário puder ter dois tokens por push para diferentes instâncias do app no mesmo espaço de trabalho. Nesse cenário, os usuários podem receber uma notificação de um app diferente daquele em que estão. Não é uma experiência ideal!
+Para garantir que sua mensagem seja direcionada apenas para um app específico, adicione um Segment que inclua apenas usuários das instâncias do app escolhidas. Isso é especialmente importante se um usuário puder ter dois tokens por push para diferentes instâncias do app no mesmo espaço de trabalho. Nesse cenário, os usuários podem receber uma notificação de um app diferente daquele em que estão. Não é uma experiência ideal!
 
-Por padrão, um segmento inclui todos os apps e sites no espaço de trabalho. Para configurar um segmento que inclua apenas um app ou site:
+Por padrão, um Segment inclui todos os apps e sites no espaço de trabalho. Para configurar um Segment que inclua apenas um app ou site:
 
-1. Crie um segmento com um nome significativo. Na Braze, usamos o formato "All Users ({Name} {Platform})". Por exemplo, "All Users (Upon Voyage iOS)".
+1. Crie um Segment com um nome significativo. Na Braze, usamos o formato "All Users ({Name} {Platform})". Por exemplo, "All Users (Upon Voyage iOS)".
 2. Em **Apps and websites targeted**, selecione **Users from specific apps**.
 3. No menu suspenso **Specific apps**, selecione seu app ou site.
 
 ![Segmento que está direcionando usuários de apps específicos.]({% image_buster /assets/img/workspaces/users_from_specific_apps_filter.png %})
 
-Você pode então adicionar esse segmento à sua mensagem e começar a refinar ainda mais seu público com segmentos e filtros adicionais, se necessário.
+Você pode então adicionar esse Segment à sua mensagem e começar a refinar ainda mais seu público com segmentos e filtros adicionais, se necessário.
 
-#### Campaigns
+#### Campaigns {#campaigns}
 
-Para Campaigns, adicione seu segmento à etapa **Público-alvo** do criador.
+Para Campaigns, adicione seu Segment à etapa **Público-alvo** do criador.
 
-#### Canvas
+#### Canvas {#canvas}
 
-No Canvas, adicione seu segmento às etapas de Mensagem, na seção **Delivery Validations**. As validações de entrega verificam novamente se seu público atende aos critérios de entrega no momento do envio da mensagem. Lembre-se de especificar validações de entrega para cada etapa de Mensagem para garantir que ela seja entregue ao app correto. Não é necessário segmentar no nível de entrada.
+No Canvas, adicione seu Segment às etapas de Mensagem, na seção **Delivery Validations**. As validações de entrega verificam novamente se seu público atende aos critérios de entrega no momento do envio da mensagem. Lembre-se de especificar validações de entrega para cada etapa de Mensagem para garantir que ela seja entregue ao app correto. Não é necessário segmentar no nível de entrada.
 
 {% details Expandir para ver as etapas no fluxo de trabalho original do Canvas %}
 
-No fluxo de trabalho original do Canvas, adicione seu segmento no nível do componente do Canvas, na seção **Audience**. Não é necessário segmentar no nível de entrada.
+No fluxo de trabalho original do Canvas, adicione seu Segment no nível do componente do Canvas, na seção **Audience**. Não é necessário segmentar no nível de entrada.
 
 {% enddetails %}
 

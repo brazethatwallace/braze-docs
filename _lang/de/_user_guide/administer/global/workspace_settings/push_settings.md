@@ -10,11 +10,11 @@ channel: push
 
 # Push-Einstellungen {#push-settings}
 
-> Auf der Seite **Push-Einstellungen** können Sie die wichtigsten Einstellungen für Ihre Push-Benachrichtigungen konfigurieren, darunter die Push-Time-to-Live (TTL) und die Standard-FCM-Priorität für Android-Campaigns. Mit diesen Einstellungen können Sie die Zustellung und Effektivität Ihrer Push-Benachrichtigungen optimieren und so ein besseres Erlebnis für Ihre Nutzer:innen gewährleisten.
+> Auf der Seite **Push-Einstellungen** können Sie die wichtigsten Einstellungen für Ihre Push-Benachrichtigungen konfigurieren, darunter die Push TTL (TTL) und die Standard-FCM-Priorität für Android-Campaigns. Mit diesen Einstellungen können Sie die Zustellung und Effektivität Ihrer Push-Benachrichtigungen optimieren und so ein besseres Erlebnis für Ihre Nutzer:innen gewährleisten.
 
 ## Was ist Push TTL? {#what-is-push-ttl}
 
-Die Push-Time-to-Live (TTL) steuert, wie lange Braze versucht, eine Push-Benachrichtigung an Geräte zuzustellen, die zum Zeitpunkt der Versendung der Campaign offline sind. Wenn ein Gerät die Verbindung nach Ablauf der TTL wieder aufnimmt, wird die Nachricht nicht zugestellt. Mit dieser Einstellung wird eine Benachrichtigung nicht entfernt, wenn sie bereits auf dem Gerät der Nutzer:innen eingegangen ist – sie steuert nur, wie lange der Push-Anbieter versucht, eine Benachrichtigung zuzustellen.
+Die Push TTL (TTL) steuert, wie lange Braze versucht, eine Push-Benachrichtigung an Geräte zuzustellen, die zum Zeitpunkt der Versendung der Campaign offline sind. Wenn ein Gerät die Verbindung nach Ablauf der TTL wieder aufnimmt, wird die Nachricht nicht zugestellt. Mit dieser Einstellung wird eine Benachrichtigung nicht entfernt, wenn sie bereits auf dem Gerät der Nutzer:innen eingegangen ist – sie steuert nur, wie lange der Push-Anbieter versucht, eine Benachrichtigung zuzustellen.
 
 ## Einstellung der Standard-Push-TTL-Werte {#setting-default-push-ttl-values}
 

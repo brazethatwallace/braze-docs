@@ -30,7 +30,7 @@ Este endpoint es compatible con las siguientes plataformas push:
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `apps.push_credential`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `apps.push_credential`.
 
 ## Cuerpo de la solicitud {#request-body}
 

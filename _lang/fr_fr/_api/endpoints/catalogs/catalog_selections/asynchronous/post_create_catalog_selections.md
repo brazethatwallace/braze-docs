@@ -19,7 +19,7 @@ description: "Cet article présente les détails de l'endpoint Braze Créer une 
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `catalogs.create_selection`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `catalogs.create_selection`.
 
 ## Limite de débit {#rate-limit}
 
@@ -45,10 +45,10 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 | ---------------- | -------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `name`           | Requis | Chaîne de caractères    | Le nom de la sélection du catalogue. |
 | `description`    | Facultatif | Chaîne de caractères    | Une description de la sélection du catalogue. |
-| `external_id`    | Requis | Chaîne de caractères    | Un identifiant unique pour la sélection. |
-| `source`         | Requis | Chaîne de caractères    | La source des données du catalogue. Pour les catalogues Shopify, utilisez `"Shopify"`. Pour les catalogues personnalisés, utilisez `"custom"`. |
-| `filters`        | Facultatif | Tableau    | Un tableau d'objets filtres à appliquer aux éléments du catalogue. Vous pouvez spécifier jusqu'à quatre filtres par requête. Si aucun filtre n'est fourni, tous les éléments du catalogue sont inclus. |
-| `results_limit`  | Facultatif | Nombre entier   | Le nombre maximal de résultats à renvoyer. Ce nombre doit être compris entre 1 et 50. |
+| `external_id`    | Facultatif | Chaîne de caractères    | Un identifiant unique pour la sélection. |
+| `source`         | Facultatif | Chaîne de caractères    | La source des données du catalogue. Pour les catalogues Shopify, définissez cette valeur sur `"Shopify"`. Les valeurs acceptées sont `"Shopify"` et `"Braze"`. |
+| `filters`        | Requis | Tableau    | Un tableau d'objets filtres à appliquer aux éléments du catalogue. Vous pouvez spécifier jusqu'à dix filtres par requête. Si un tableau de filtres vide est fourni, tous les éléments du catalogue sont inclus. |
+| `results_limit`  | Requis | Nombre entier   | Le nombre maximal de résultats à renvoyer. Ce nombre doit être compris entre 1 et 50. |
 | `sort_field`     | Facultatif | Chaîne de caractères    | Le champ selon lequel trier les résultats. Ce paramètre doit être associé à `sort_order`. Si `sort_field` et `sort_order` ne sont pas présents, les résultats sont renvoyés dans un ordre aléatoire. |
 | `sort_order`     | Facultatif | Chaîne de caractères    | L'ordre de tri des résultats. Les valeurs acceptées sont `"asc"` (ascendant) ou `"desc"` (descendant). Ce paramètre doit être associé à `sort_field`. Si `sort_field` et `sort_order` ne sont pas présents, les résultats sont renvoyés dans un ordre aléatoire. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
@@ -68,7 +68,7 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
     "name": "favorite-restaurants",
     "description": "Favorite restaurants in NYC",
     "external_id": "favorite-nyc-restaurants",
-    "source": "custom",
+    "source": "Braze",
     "filters": [
       {
         "field": "City",
@@ -101,7 +101,7 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert note %}
-L'API prend en charge un maximum de quatre filtres par requête de sélection. Dans le tableau de bord de Braze, vous pouvez ajouter jusqu'à 10 filtres par sélection. Les filtres sont appliqués dans l'ordre dans lequel ils apparaissent dans le tableau.
+L'API prend en charge un maximum de dix filtres par requête de sélection. Les filtres sont appliqués dans l'ordre dans lequel ils apparaissent dans le tableau.
 {% endalert %}
 
 {% alert note %}

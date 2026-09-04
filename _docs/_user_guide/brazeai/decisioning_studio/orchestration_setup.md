@@ -17,8 +17,8 @@ Orchestration is the connection between Decisioning Studio and your customer eng
 
 Think of it this way:
 
-- **Decisioning Studio** decides *what* to send and *when* to send it
-- **Your CEP** handles *how* to send it
+- **Decisioning Studio** decides what to send and when to send it
+- **Your CEP** handles how to send it
 
 ## Choose your CEP
 
@@ -50,7 +50,7 @@ Before setting up orchestration, gather the following items based on your chosen
 | **Braze dashboard URL** | Your Braze instance URL (for example, `https://dashboard-01.braze.com`). |
 | **App ID** | The API key associated with the app you want to track (found in **Settings** > **App Settings**). |
 | **Email display name and address** | The sender information to use for your campaigns (found in **Settings** > **Email Preferences**). |
-| **Base templates** | The message templates your agent will use for orchestration. You'll create API-triggered campaigns for each template. |
+| **Base templates** | The message templates your agent uses for orchestration. You create API-triggered campaigns for each template. |
 | **Test user ID** | A user ID for testing the integration before launch. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
@@ -61,7 +61,7 @@ Before setting up orchestration, gather the following items based on your chosen
 |------|-------------|
 | **App package credentials** | Client ID, Client Secret, Authentication Base URI, REST Base URI, and SOAP Base URI from an installed package with server-to-server API integration. |
 | **API permissions** | Scopes for channels, assets, automations, journeys, contacts, data extensions, and tracking events. |
-| **Data extensions** | You'll need data extensions for subscriber data, engagement data, and recommendations. |
+| **Data extensions** | You need data extensions for subscriber data, engagement data, and recommendations. |
 | **Email templates** | The templates you want Decisioning Studio to use, with template IDs for each. |
 | **Journey Builder access** | Access to create and activate multi-step journeys with API event entry sources. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
@@ -75,7 +75,7 @@ If you're using a CEP other than Braze or Salesforce Marketing Cloud, Decisionin
 |------|-------------|
 | **Data ingestion capability** | Your CEP must be able to ingest recommendation files (typically CSV or JSON) containing personalized decisions for each customer. |
 | **Dynamic content support** | Your campaigns must support populating fields dynamically based on recommendation data. |
-| **Custom engineering resources** | Your team will need to build the integration to read recommendation files and trigger communications. |
+| **Custom engineering resources** | Your team needs to build the integration to read recommendation files and trigger communications. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 {% endtab %}
@@ -91,22 +91,22 @@ A base template is any message template that your decisioning agent might use. C
 
 - **How many templates?** Your agent can work with one template or multiple. If multiple, the agent can personalize which template each customer receives.
 - **What channels?** Email, push, SMS, or a combination. Each channel may require separate templates and campaigns.
-- **What dynamic elements?** Identify which parts of your message the agent will personalize (subject lines, CTAs, offers, timing, etc.). These will become API trigger properties or dynamic placeholders.
+- **What dynamic elements?** Identify which parts of your message the agent personalizes (such as subject lines, CTAs, offers, timing). These become API trigger properties or dynamic placeholders.
 
 ### Re-eligibility settings
 
 Your campaigns should allow users to receive messages multiple times:
 
-- For testing, you'll want to send the same campaign to the same user repeatedly
+- For testing, you send the same campaign to the same user repeatedly
 - In production, the agent may determine the same campaign is optimal for a user on consecutive days
 
 {% alert note %}
-While setting up re-eligibility for testing, Decisioning Studio agents are designed to respect frequency caps and will not send the same campaign to a user more than once per day in production.
+While setting up re-eligibility for testing, Decisioning Studio agents are designed to respect frequency caps and do not send the same campaign to a user more than once per day in production.
 {% endalert %}
 
 ### API trigger properties
 
-For Braze integrations, plan which dimensions your agent will optimize. These become API trigger properties that pass dynamic values into your campaigns:
+For Braze integrations, plan which dimensions your agent optimizes. These become API trigger properties that pass dynamic values into your campaigns:
 
 | Example dimension | API trigger property |
 |-------------------|---------------------|
@@ -118,14 +118,14 @@ For Braze integrations, plan which dimensions your agent will optimize. These be
 
 ## Integration setup
 
-Select your CEP below to get started with the integration setup.
+Select your CEP from this list to get started with the integration setup.
 
 {% tabs %}
 {% tab Braze %}
 
 ## Set up Braze integration
 
-Follow these steps to integrate a Decisioning Studio agent with Braze's orchestration capabilities (Braze's services team will be available to help):
+Follow these steps to integrate a Decisioning Studio agent with Braze's orchestration capabilities (Braze's services team is available to help):
 
 ### Step 1: Create an API key
 
@@ -137,7 +137,7 @@ Go to **Settings** > **API Keys**, then create a new key with the following perm
 
 Set up an API-triggered campaign for each base template with API trigger properties for all optimized dimensions.
 
-A base template is any template that the Decisioning Agent might use for orchestrating messages. A Decisioning Agent might have 1 base template or multiple, in which case choosing the right base template for each customer will be one of the decisions the agent personalizes.
+A base template is any template that the Decisioning Agent might use for orchestrating messages. A Decisioning Agent might have 1 base template or multiple, in which case choosing the right base template for each customer is one of the decisions the agent personalizes.
 
 ### Step 3: Configure re-eligibility
 
@@ -146,7 +146,7 @@ Ensure all API-triggered campaigns allow users to become re-eligible within 15 m
 ![Decisioning Pro Diagram]({% image_buster /assets/img/decisioning_studio/decisioning_studio_frequency_cap.png %})
 
 {% alert note %}
-While the Decisioning Studio agent will never send the same campaign more than once a day, you will want to have the ability to send the same campaigns multiple times in a day for testing purposes.
+While the Decisioning Studio agent never sends the same campaign more than once a day, you want the ability to send the same campaigns multiple times in a day for testing purposes.
 {% endalert %}
 
 ### Step 4: Add dynamic placeholders
@@ -194,7 +194,9 @@ Resulting in the following message:
 
 Decisioning Studio supports native integration with Salesforce Marketing Cloud. Decisioning Studio triggers API events into a journey with data required to populate dynamic elements.
 
-For detailed steps to configure the SFMC integration, follow the [SFMC instructions]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration) in the Decisioning Studio Go documentation.
+{% alert important %}
+For your configuration, API IDs must be entered in uppercase. This includes journey IDs, campaign IDs, and any other identifiers. If API IDs are entered in lowercase but your SFMC data contains uppercase UUIDs, the event filters do not match and reporting metrics do not populate correctly.
+{% endalert %}
 
 {% endtab %}
 {% tab Other CEPs %}
@@ -203,7 +205,7 @@ For detailed steps to configure the SFMC integration, follow the [SFMC instructi
 
 Decisioning Studio can integrate with any customer engagement platform. However, this may require some custom engineering work from your team, since Decisioning Studio cannot trigger communications directly.
 
-In this scenario, the agent will deliver a "recommendation file." This file contains rows for each customer, with columns that indicate all of the personalized decisions for that customer.
+In this scenario, the agent delivers a "recommendation file." This file contains rows for each customer, with columns that indicate all of the personalized decisions for that customer.
 
 For example, the following recommendation file:
 
@@ -220,11 +222,11 @@ Might be used to optimize an email campaign that looks like the following:
 
 Keep these best practices in mind as you prepare for orchestration:
 
-1. **Begin with a narrow scope.** Use one channel and one or two templates at first. You can expand later as you learn what works.
-2. **Test thoroughly.** Before launching, test your integration with a small set of users to verify that dynamic content populates correctly.
-3. **Document your setup.** Keep track of campaign IDs, template IDs, API keys, and other identifiers. You'll need to reference these in the Decisioning Studio portal.
-4. **Coordinate with your team.** Orchestration setup may involve marketing, engineering, and data teams. Ensure everyone understands their role in the process.
-5. **Plan for feedback data.** Orchestration includes sending messages and collecting the engagement and conversion data that helps your agent learn. See [Prepare your data]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data) for more details.
+1. **Begin with a narrow scope:** Use one channel and one or two templates at first. You can expand later as you learn what works.
+2. **Test thoroughly:** Before launching, test your integration with a small set of users to verify that dynamic content populates correctly.
+3. **Document your setup:** Keep track of campaign IDs, template IDs, API keys, and other identifiers. You need these to reference in the Decisioning Studio portal.
+4. **Coordinate with your team:** Orchestration setup can involve marketing, engineering, and data teams. Ensure everyone understands their role in the process.
+5. **Plan for feedback data:** Orchestration sends messages and collects the engagement and conversion data that helps your agent learn. See [Prepare your data]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data) for more details.
 
 ## Next steps
 

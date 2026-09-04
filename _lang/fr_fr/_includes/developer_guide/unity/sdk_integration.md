@@ -126,7 +126,7 @@ Toutes les classes Activity enregistrées dans votre fichier `AndroidManifest.xm
 
 Pour trouver le nom de votre package, cliquez sur **File > Build Settings > Player Settings > Android Tab**.
 
-![]({% image_buster /assets/img_archive/UnityPackageName.png %})
+![Onglet Android des paramètres du lecteur Unity affichant le nom du package de l'application.]({% image_buster /assets/img_archive/UnityPackageName.png %})
 
 Dans votre `AndroidManifest.xml`, toutes les instances de `REPLACE_WITH_YOUR_PACKAGE_NAME` doivent être remplacées par votre `Package Name` de l'étape précédente.
 
@@ -145,7 +145,7 @@ implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1"
 implementation 'androidx.core:core:1.6.0'
 ```
 
-Vous pouvez également définir ces dépendances à l'aide de l'[External Dependency Manager](https://github.com/googlesamples/unity-jar-resolver).
+Vous pouvez également définir ces dépendances à l'aide de l'[External Dependency gestionnaire](https://github.com/googlesamples/unity-jar-resolver).
 
 #### Étape 3.4 : Automatiser l'intégration Unity Android {#step-34-automate-the-unity-android-integration}
 
@@ -169,7 +169,7 @@ Braze fournit une solution Unity native pour automatiser l'intégration Unity iO
 2. Cochez la case **Automate Unity iOS Integration**.
 3. Dans le champ **Braze API Key**, saisissez la clé API de votre application disponible dans **Gérer les paramètres**.
 
-![]({% image_buster /assets/img_archive/unity-ios-appboyconfig.png %})
+![Fenêtre de configuration Braze dans Unity avec les champs Automate Unity iOS Integration et Braze API Key.]({% image_buster /assets/img_archive/unity-ios-appboyconfig.png %})
 
 Si votre application utilise déjà une autre sous-classe de `UnityAppController`, vous devrez fusionner votre implémentation de sous-classe avec `AppboyAppDelegate.mm`.
 {% endtab %}

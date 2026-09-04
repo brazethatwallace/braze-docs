@@ -60,9 +60,8 @@ Braze uses different data storage systems for various features. Understanding wh
 #### Snowflake-powered features
 - [SQL Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments)
 - [Prediction Suite]({{site.baseurl}}/user_guide/brazeai)
-- [Personalized Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths) and [Personalized Variant]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing/optimizations#personalized-variant)
 - [AI Personalized Item Recommendations]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai)
-- [Estimated Real Open Rate]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/email_reporting#estimated-real-open-rate) (does not use custom events)
+- [Estimated Real Open Rate]({{site.baseurl}}/user_guide/channels/email/reporting#estimated-real-open-rate) (does not use custom events)
 
 {% alert important %}
 **Data removal considerations:** Custom events are stored in MongoDB and are separate from Snowflake data. If you need to remove erroneous custom event data, you must address it in MongoDB. Snowflake-powered features (like SQL Segment Extensions and other Snowflake-powered features) use data from Snowflake, which is handled separately. Removing data from one system does not automatically remove it from the other.
@@ -94,7 +93,7 @@ Many common types of user attributes, such as name, email, date of birth, countr
 Learn more about [automatically collected data and custom data]({{site.baseurl}}/developer_guide/analytics).
 
 ## Orchestration {#orchestration}
-The orchestration layer allows your marketing team to design user journeys based on your user data and prior engagement. This work is mostly done through our dashboard interface, but you also have the option to launch [campaigns through the API]({{site.baseurl}}/api/api_campaigns#api-campaigns). For example, you can have your backend tell Braze when to send the messages and campaigns your marketers designed in the dashboard, and trigger them according to your backend logic. An example of an API-triggered message might be password resets or shipping confirmations. 
+The orchestration layer allows your marketing team to design user journeys based on your user data and prior engagement. This work is mostly done through our dashboard interface, but you also have the option to launch [campaigns through the API]({{site.baseurl}}/api/api_campaigns). For example, you can have your backend tell Braze when to send the messages and campaigns your marketers designed in the dashboard, and trigger them according to your backend logic. An example of an API-triggered message might be password resets or shipping confirmations. 
 
 {% alert note %}
 API-triggered campaigns are ideal for more advanced transactional use-cases. They allow marketers to manage campaign copy, multivariate testing, and re-eligibility rules within the Braze dashboard while triggering the delivery of that content from your servers and systems. The API request to trigger the message can also include additional data to be templated into the message in real-time. 

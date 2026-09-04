@@ -65,9 +65,9 @@ Os Content Cards podem ser removidos quando os usuários concluem uma compra ou 
 
 ## Relatórios e análise de dados {#reporting-and-analytics}
 
-Após lançar uma etapa de Content Cards no Canvas, você pode começar a analisar diversas métricas para essa etapa. Essas métricas incluem o número de mensagens enviadas, impressões diárias únicas, taxas de conversão, receita total e muito mais.
+Após lançar uma etapa de Content Cards no Canvas, você pode começar a analisar várias métricas diferentes para essa etapa. Essas métricas incluem o número de mensagens enviadas, impressões diárias únicas, taxas de conversão, receita total e muito mais.
 
-![Análise de dados de uma etapa de Mensagem com o desempenho de mensagens do cartão de conteúdo.]({% image_buster /assets/img_archive/content-cards-in-canvas-analytics.png %})
+![Análise de dados de uma etapa de mensagem com o desempenho da mensagem de Content Card.]({% image_buster /assets/img_archive/content-cards-in-canvas-analytics.png %})
 
 Para saber mais sobre as métricas disponíveis e suas definições, consulte nosso [Glossário de métricas de relatório]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
 
@@ -75,14 +75,14 @@ Para saber mais sobre as métricas disponíveis e suas definições, consulte no
 
 ### Ofertas promocionais {#promotional-offers}
 
-Adicione cartões ao feed de um usuário quando ele se qualificar para promoções e anúncios específicos. Por exemplo, se um usuário se tornar elegível para uma nova oferta após realizar uma ação ou fazer uma compra, usando o Canvas você pode enviar um Content Card, além de outros canais de envio de mensagens, para que na próxima vez que ele abrir o app a oferta esteja disponível.
+Adicione cartões ao feed de um usuário à medida que ele se qualifica para promoções e anúncios específicos. Por exemplo, se um usuário se torna elegível para uma nova oferta após realizar uma ação ou fazer uma compra, usando o Canvas você pode enviar a ele um Content Card, além de outros canais de envio de mensagens, para que na próxima vez que ele abrir o app a oferta esteja disponível.
 
 ### Caixa de entrada de notificações por push {#push-notification-inbox}
 
-Há momentos em que um usuário pode dispensar uma notificação por push ou excluir um e-mail, mas você deseja lembrá-lo ou promover a oferta caso ele mude de ideia.
+Há momentos em que um usuário pode ignorar uma notificação por push ou excluir um e-mail, mas você quer lembrá-lo ou promover a oferta caso ele mude de ideia.
 
-Usando o Canvas, você pode adicionar um componente que envia tanto um Content Card quanto uma notificação por push, oferecendo aos usuários uma "caixa de entrada" persistente de cartões alinhados com as mensagens promocionais enviadas via push.
+Usando o Canvas, você pode adicionar um componente que envia tanto um Content Card quanto uma notificação por push para dar aos usuários uma "caixa de entrada" persistente de cartões que acompanham as mensagens promocionais enviadas via push.
 
 ### Múltiplos feeds baseados em categorias {#multiple-feeds-based-on-categories}
 
-Você pode separar seus Content Cards em múltiplos feeds com base em categorias, como diferentes tópicos que os usuários podem explorar, ou feeds transacionais e de marketing. Para saber mais sobre como criar múltiplos feeds usando pares chave-valor, confira nosso guia para [Personalizar feeds de Content Cards]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed#multiple-feeds).
+Você pode separar seus Content Cards em múltiplos feeds baseados em categorias, como diferentes tópicos que os usuários podem explorar, ou feeds transacionais e de marketing. Para saber mais sobre como criar múltiplos feeds usando pares de chave-valor, confira nosso guia para [Personalização de feeds de Content Cards]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed#implementing-multiple-feeds).

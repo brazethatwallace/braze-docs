@@ -1,40 +1,40 @@
 {% multi_lang_include developer_guide/prerequisites/react_native.md %}
 
-## 데이터 추적 비활성화
+## 데이터 추적 비활성화하기 {#disabling-data-tracking}
 
-데이터 수집을 비활성화하려면  `disableSDK`메서드를 사용하십시오. 이 메서드를 호출한 후, Braze 소프트웨어 개발 키트는 Braze 서버로 데이터 전송을 중지합니다.
+데이터 수집을 비활성화하려면 `disableSDK` 메서드를 사용하세요. 이 메서드를 호출하면 Braze SDK가 Braze 서버로 데이터를 전송하는 것을 중지합니다.
 
 ```javascript
 Braze.disableSDK();
 ```
 
-## 데이터 추적 재개
+## 데이터 추적 재개하기 {#resuming-data-tracking}
 
-데이터 수집을 중지한 후 다시 시작하려면  `enableSDK`메서드를 사용하십시오.
+데이터 수집을 비활성화한 후 다시 재개하려면 `enableSDK` 메서드를 사용하세요.
 
 ```javascript
 Braze.enableSDK();
 ```
 
-## 데이터 삭제
+## 로컬에 저장된 데이터 삭제 {#wiping-data}
 
-기기에 로컬로 저장된 모든 Braze 소프트웨어 개발 키트 데이터를 삭제하려면  `wipeData`메서드를 사용하십시오. 이 메서드를 호출한 후에는 소프트웨어 개발 키트가 비활성화되며, 다시 인에이블먼트를 수행하려면 .`enableSDK`을 사용해야 합니다.
+기기에 로컬로 저장된 모든 Braze SDK 데이터를 삭제하려면 `wipeData` 메서드를 사용하세요. 이 메서드를 호출하면 SDK가 비활성화되며, `enableSDK`를 사용하여 다시 활성화해야 합니다.
 
 ```javascript
 Braze.wipeData();
 ```
 
-## 플러싱 데이터
+## 데이터 플러시 {#flushing-data}
 
-Braze 서버로 보류 중인 데이터를 즉시 전송하려면 를 사용하십시오`requestImmediateDataFlush`.
+Braze 서버로 대기 중인 데이터를 즉시 플러시하려면 `requestImmediateDataFlush`를 사용합니다.
 
 ```javascript
 Braze.requestImmediateDataFlush();
 ```
 
-## 광고 추적 인에이블먼트
+## 광고 추적 활성화 설정 {#setting-ad-tracking-enabled}
 
-이 기기에서 광고 추적이 인에이블먼트되었는지 Braze에 알리려면  `setAdTrackingEnabled`메서드를 사용하십시오. 소프트웨어 개발 키트는 이 데이터를 자동으로 수집하지 않습니다.
+Braze에 이 기기에서 광고 추적이 활성화되어 있는지 알리려면 `setAdTrackingEnabled` 메서드를 사용하세요. SDK는 이 데이터를 자동으로 수집하지 않습니다.
 
 ```javascript
 Braze.setAdTrackingEnabled(true, "GOOGLE_ADVERTISING_ID");
@@ -42,9 +42,9 @@ Braze.setAdTrackingEnabled(true, "GOOGLE_ADVERTISING_ID");
 
 두 번째 매개변수는 Google 광고 ID이며, Android에서만 사용됩니다.
 
-## 추적 허용 목록 업데이트 (iOS 전용)
+## 추적 속성정보 허용 목록 업데이트하기(iOS 전용) {#updating-the-tracking-property-allow-list-ios-only}
 
-추적을 위해 선언된 데이터 유형 목록을 업데이트하려면 를 사용하십시오`updateTrackingPropertyAllowList`. 이것은 Android에서 아무 작업도 수행하지 않습니다.
+추적 대상으로 선언된 데이터 유형 목록을 업데이트하려면 `updateTrackingPropertyAllowList`를 사용하세요. 이 메서드는 Android에서는 아무 작업도 수행하지 않습니다.
 
 ```javascript
 Braze.updateTrackingPropertyAllowList({
@@ -57,4 +57,8 @@ Braze.updateTrackingPropertyAllowList({
 });
 ```
 
-자세한 내용은 [개인정보 처리방침을]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/privacy_manifest/) 참조하십시오.
+자세한 내용은 [개인정보 보호 매니페스트]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift#swift_privacy-manifest)를 참조하세요.
+
+## 로그아웃 및 푸시 등록 해제 {#logout-and-unregister-push}
+
+이 기능은 아직 React Native SDK에서 지원되지 않습니다.

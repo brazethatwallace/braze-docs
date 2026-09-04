@@ -1,47 +1,47 @@
 {% multi_lang_include developer_guide/prerequisites/swift.md %} También tendrás que [configurar las notificaciones push]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift).
 
-## Configuración de notificaciones push enriquecidas
+## Configuración de notificaciones push enriquecidas {#setting-up-rich-push-notifications}
 
-### Paso 1: Crear una extensión de servicio
+### Paso 1: Crear una extensión del servicio {#step-1-creating-a-service-extension}
 
-Para crear una [extensión del servicio de notificación](https://developer.apple.com/reference/usernotifications/unnotificationserviceextension), ve a **Archivo > Nuevo > Destino** en Xcode y selecciona **Extensión del servicio de notificación**.
+Para crear una [extensión del servicio de notificación](https://developer.apple.com/reference/usernotifications/unnotificationserviceextension), en Xcode ve a **File > New > Target** y selecciona **Notification Service Extension**.
 
-![]({% image_buster /assets/img_archive/ios10_se_at.png %}){: style="max-width:90%"}
+![SELECTOR de destino de Xcode creando una extensión del servicio de notificación para push enriquecido.]({% image_buster /assets/img_archive/ios10_se_at.png %}){: width="1442" height="1030" style="max-width:90%"}
 
-Asegúrate de que la opción **Incrustar en la aplicación** está activada para incrustar la extensión en tu aplicación.
+Asegúrate de que **Embed In Application** esté configurado para incrustar la extensión en tu aplicación.
 
-### Paso 2: Configuración de la extensión del servicio de notificación
+### Paso 2: Configurar la extensión del servicio de notificación {#step-2-setting-up-the-notification-service-extension}
 
-Una extensión del servicio de notificación es un binario propio que se incluye con tu aplicación. Debe configurarse en el [Portal del Desarrollador de Apple](https://developer.apple.com) con su propio ID de aplicación y perfil de aprovisionamiento.
+Una extensión del servicio de notificación es su propio binario que se empaqueta con tu aplicación. Debe configurarse en el [Apple Developer Portal](https://developer.apple.com) con su propio ID de aplicación y perfil de aprovisionamiento.
 
-El ID del paquete de la extensión del servicio de notificación debe ser distinto del ID del paquete de tu aplicación principal. Por ejemplo, si el ID del paquete de tu aplicación es `com.company.appname`, puedes utilizar `com.company.appname.AppNameServiceExtension` para la extensión de tu servicio.
+El ID de paquete de la extensión del servicio de notificación debe ser distinto al ID de paquete del destino principal de tu aplicación. Por ejemplo, si el ID de paquete de tu aplicación es `com.company.appname`, puedes usar `com.company.appname.AppNameServiceExtension` para tu extensión del servicio.
 
-### Paso 3: Añadir un grupo de aplicaciones
+### Paso 3: Añadir un grupo de aplicaciones {#step-3-adding-an-app-group}
 
-En Xcode, añade la función Grupos de aplicaciones desde el panel **Funciones& de firma** a tu objetivo de aplicación principal, así como al objetivo Extensión del servicio de notificaciones. Después, haz clic en el botón **+**. Utiliza el ID del paquete de tu aplicación para crear el grupo de aplicaciones. Por ejemplo, si el ID del paquete de tu aplicación es `com.company.appname`, puedes llamar a tu grupo de aplicaciones `group.com.company.appname.xyz`.
+En Xcode, añade la capacidad App Groups desde el panel **Signing & Capabilities** tanto a tu destino principal de la aplicación como al destino de la extensión del servicio de notificación. Luego, haz clic en el botón **+**. Usa el ID de paquete de tu aplicación para crear el grupo de aplicaciones. Por ejemplo, si el ID de paquete de tu aplicación es `com.company.appname`, puedes nombrar tu grupo de aplicaciones `group.com.company.appname.xyz`.
 
 {% alert important %}
-En este contexto, Grupos de aplicaciones se refiere al [derecho de Grupos de aplicaciones](https://developer.apple.com/documentation/bundleresources/entitlements/com_apple_security_application-groups) de Apple y no a tu ID de espacio de trabajo Braze (antes "grupo de aplicaciones").
+Los grupos de aplicaciones en este contexto se refieren a los [App Groups Entitlement](https://developer.apple.com/documentation/bundleresources/entitlements/com_apple_security_application-groups) de Apple y no al ID de tu espacio de trabajo de Braze (anteriormente grupo de aplicaciones).
 {% endalert %}
 
-Necesitas un grupo de aplicaciones compartido para que tu aplicación principal y la extensión del servicio de notificaciones puedan acceder a los datos compartidos. Si no añades tu aplicación a un grupo de aplicaciones, es posible que tu aplicación no pueda rellenar determinados campos de la carga útil de la notificación push y no funcione correctamente como se espera.
+Necesitas un grupo de aplicaciones compartido para que tu aplicación principal y la extensión del servicio de notificación puedan acceder a datos compartidos. Si no añades tu aplicación a un grupo de aplicaciones, tu aplicación podría no poder rellenar ciertos campos de la carga útil del push y no funcionará completamente como se espera.
 
-### Paso 4: Integración de notificaciones push enriquecidas
+### Paso 4: Integrar notificaciones push enriquecidas {#step-4-integrating-rich-push-notifications}
 
-Para una guía paso a paso sobre la integración de notificaciones push enriquecidas con `BrazeNotificationService`, consulta nuestro [tutorial](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/b2-rich-push-notifications).
+Para obtener una guía paso a paso sobre la integración de notificaciones push enriquecidas con `BrazeNotificationService`, consulta nuestro [tutorial](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/b2-rich-push-notifications).
 
-Para ver un ejemplo, consulta el uso en [`NotificationService`](https://github.com/braze-inc/braze-swift-sdk/blob/main/Examples/Swift/Sources/PushNotificationsServiceExtension/NotificationService.swift) de nuestra aplicación Ejemplos.
+Para ver un ejemplo, consulta el uso en [`NotificationService`](https://github.com/braze-inc/braze-swift-sdk/blob/main/Examples/Swift/Sources/PushNotificationsServiceExtension/NotificationService.swift) de nuestra aplicación de ejemplos.
 
-#### Añadir el framework de notificaciones push enriquecidas a tu aplicación
+#### Añadir el framework de push enriquecido a tu aplicación {#adding-the-rich-push-framework-to-your-app}
 
 {% tabs local %}
-{% tab Swift Package Manager %}
+{% tab Swift Package Administrador %}
 
-Después de seguir la [guía de integración de Swift Package Manager]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/sdk_integration/?tab=swift%20package%20manager/), añade `BrazeNotificationService` a tu `Notification Service Extension` haciendo lo siguiente:
+Después de seguir la [guía de integración de Swift Package Administrador]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/sdk_integration/?tab=swift%20package%20manager/), añade `BrazeNotificationService` a tu `Notification Service Extension` haciendo lo siguiente:
 
-1. En Xcode, en marcos y bibliotecas, selecciona el ícono <i class="fas fa-plus"></i> añadir para añadir un framework. <br><br>![La ubicación del icono más es debajo de marcos y bibliotecas en Xcode.]({% image_buster /assets/img_archive/rich_notification.png %})<br><br>
+1. En Xcode, en frameworks y bibliotecas, selecciona el icono <i class="fas fa-plus" aria-label="Añadir"></i> para añadir un framework. <br><br>![El icono de más se encuentra en frameworks y bibliotecas en Xcode.]({% image_buster /assets/img_archive/rich_notification.png %}){: width="1930" height="446"}<br><br>
 
-2. Selecciona el marco "BrazeNotificationService". <br><br>![El marco «BrazeNotificationService» se puede seleccionar en la ventana modal que se abre.]({% image_buster /assets/img_archive/rich_notification2.png %})
+2. Selecciona el framework "BrazeNotificationService". <br><br>![El framework BrazeNotificationService se puede seleccionar en el modal que se abre.]({% image_buster /assets/img_archive/rich_notification2.png %}){: width="2248" height="1102"}
 
 {% endtab %}
 {% tab CocoaPods %}
@@ -66,10 +66,10 @@ end
 ```
 
 {% alert note %}
-Para obtener instrucciones sobre cómo poner en práctica las historias push, consulta la [documentación]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/push_story/?tab=swift%20package%20manager).
+Para obtener instrucciones sobre cómo implementar Push Stories, consulta la [documentación]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/push_story/?tab=swift%20package%20manager).
 {% endalert %}
 
-Tras actualizar el archivo de bibliotecas, ve al directorio de tu proyecto de aplicación Xcode dentro de tu terminal y ejecuta `pod install`.
+Después de actualizar el archivo de bibliotecas, ve al directorio de tu proyecto de Xcode dentro de tu terminal y ejecuta `pod install`.
 
 {% endtab %}
 
@@ -77,14 +77,14 @@ Tras actualizar el archivo de bibliotecas, ve al directorio de tu proyecto de ap
 
 Para añadir `BrazeNotificationService.xcframework` a tu `Notification Service Extension`, consulta [Integración manual]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/sdk_integration?tab=manual/).
 
-![]({% image_buster /assets/img/swift/rich_push/manual1.png %})
+![Proyecto de Xcode con BrazeNotificationService.xcframework añadido a la extensión del servicio de notificación.]({% image_buster /assets/img/swift/rich_push/manual1.png %}){: width="1069" height="170"}
 
 {% endtab %}
 {% endtabs %}
 
-#### Utilizar tu propia UNNotificationServiceExtension
+#### Usar tu propio UNNotificationServiceExtension {#using-your-own-unnotificationserviceextension}
 
-Si necesitas utilizar tu propia UNNotificationServiceExtension, puedes llamar en su lugar a [`brazeHandle`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazenotificationservice/brazehandle(request:contenthandler:)) en tu método `didReceive`.
+Si necesitas usar tu propio UNNotificationServiceExtension, puedes en su lugar llamar a [`brazeHandle`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazenotificationservice/brazehandle(request:contenthandler:)) en tu método `didReceive`.
 
 ```swift
 import BrazeNotificationService
@@ -107,9 +107,9 @@ class NotificationService: UNNotificationServiceExtension {
 }
 ```
 
-### Paso 5: Configuración del grupo de aplicaciones en Braze
+### Paso 5: Configurar el grupo de aplicaciones en Braze {#step-5-configuring-the-app-group-in-braze}
 
-Antes de inicializar Braze, asigna el nombre de tu grupo de aplicaciones a la propiedad [`push.appGroup`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/push-swift.class/appgroup) de tu configuración Braze.
+Antes de inicializar Braze, asigna el nombre de tu grupo de aplicaciones a la propiedad [`push.appGroup`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/push-swift.class/appgroup) de la configuración de Braze.
 
 ```swift
 let configuration = Braze.Configuration(apiKey: "<YOUR-BRAZE-API-KEY>",
@@ -118,6 +118,6 @@ configuration.push.appGroup = "REPLACE_WITH_APPGROUP"
 let braze = Braze(configuration: configuration)
 ```
 
-### Paso 6: Crear una notificación enriquecida en tu panel de control
+### Paso 6: Crear una notificación enriquecida en tu panel {#step-6-creating-a-rich-notification-in-your-dashboard}
 
-Tu equipo de marketing también puede crear notificaciones enriquecidas desde el panel. Crea una notificación push a través del compositor push y adjunta una imagen o un GIF, o proporciona una URL que aloje una imagen, un GIF o un video. Ten en cuenta que los activos se descargan al recibir las notificaciones push, por lo que debes prever grandes picos sincrónicos de solicitudes si alojas tus contenidos.
+Tu equipo de marketing también puede crear notificaciones enriquecidas desde el panel. Crea una notificación push a través del creador de push y adjunta una imagen o GIF, o proporciona una URL que aloje una imagen, GIF o video. Ten en cuenta que los activos se descargan al recibir las notificaciones push, por lo que debes planificar grandes picos síncronos en las solicitudes si alojas tu propio contenido.

@@ -1,9 +1,9 @@
 ---
 nav_title: Workspaces
-article_title: Getting Started&#58; Workspaces
+article_title: "Get started: Workspaces"
 page_order: 3
 page_type: reference
-description: "Everything you do in the Braze platform happens within a workspace. This article describes how they work and what important considerations to keep in mind when planning your workspaces in Braze."
+description: "Everything you do in the Braze platform happens within a workspace. This article describes how they work and what important considerations to keep."
 ---
 
 # Get started: Workspaces
@@ -122,7 +122,7 @@ The following table describes the benefits and drawbacks of these two approaches
     font-weight: bold;
     text-transform: uppercase;
     color: #212123;
-    font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;
+    font-family: "Aribau Grotesk Bold", "Aribau Grotesk", "Aribau Grotesk Regular", Arial, Helvetica, sans-serif;
   }
   th[colspan="2"] {
     background-color: #fffae6;
@@ -149,7 +149,7 @@ The following table describes the benefits and drawbacks of these two approaches
     font-weight: bold;
     text-transform: uppercase;
     color: #212123;
-    font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;
+    font-family: "Aribau Grotesk Bold", "Aribau Grotesk", "Aribau Grotesk Regular", Arial, Helvetica, sans-serif;
   }
 </style>
 

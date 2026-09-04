@@ -21,7 +21,7 @@ Seen unterstützt die automatisierte, personalisierte Zustellung von Videos übe
 - **Onboarding**: Begrüßen Sie neue Nutzer:innen mit Videos, die auf ihr Profil oder ihren Anmeldekontext personalisiert sind
 - **Conversion und Aktivierung**: Verstärken Sie wichtige Aktionen mit kontextuellem Video-Messaging
 - **Loyalität und Upselling**: Heben Sie personalisierte Angebote oder Nutzungs-Meilensteine hervor
-- **Rückgewinnung und Churn-Prävention**: Reaktivieren Sie inaktive Nutzer:innen mit maßgeschneiderten Video-Inhalten
+- **Rückgewinnung und Abwanderung-Prävention**: Reaktivieren Sie inaktive Nutzer:innen mit maßgeschneiderten Video-Inhalten
 
 
 ## Voraussetzungen {#prerequisites}
@@ -100,7 +100,7 @@ Konfigurieren Sie den Webhook wie folgt:
   - `Authorization`: Bearer `{Seen_API_TOKEN}`
   - `Content-Type`: `application/json`
 
-  Generieren Sie ein [API-Token](https://docs.seen.io/authorization) auf dem Run-Tab Ihres Seen-Plattform-Projekts. Kontaktieren Sie Ihren Seen Customer-Success-Manager, wenn Sie Unterstützung benötigen.
+  Generieren Sie ein [API-Token](https://docs.seen.io/authorization) auf dem Run-Tab Ihres Seen-Plattform-Projekts. Kontaktieren Sie Ihren Seen CSM, wenn Sie Unterstützung benötigen.
 
 - Testen Sie den Webhook mit einer/einem Nutzer:in auf dem **Test**-Tab.
 - Schließen Sie nach einem erfolgreichen Test die Webhook-Einrichtung ab.
@@ -129,7 +129,7 @@ Wenn Sie zusätzliche Attribute benötigen, fügen Sie diese zur Antwort hinzu u
 
 ### 3. Schritt: Erstellen Sie eine Datentransformation, um Daten von Seen zu empfangen {#step-3-create-a-data-transformation-to-receive-data-from-seen}
 
-Verwenden Sie Braze-Datentransformationen, um die Seen-Antwort zu verarbeiten und Video-Assets im Nutzerprofil zu speichern.
+Verwenden Sie Braze-Datentransformationen, um die Seen-Antwort zu verarbeiten und Video-Assets im Kundenprofil zu speichern.
 
 1. Erstellen Sie die folgenden [angepassten Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) in Braze:
    - `player_url`

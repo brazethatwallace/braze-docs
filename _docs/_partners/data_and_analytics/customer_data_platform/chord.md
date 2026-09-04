@@ -27,7 +27,7 @@ Before you connect Chord and Braze, confirm you have the following:
 | ----------- | ----------- |
 | Chord account | A Chord account is required to use this integration. |
 | Braze API credentials | The credentials you need depends on your [connection mode](#connection-modes). Cloud mode uses a Braze REST API key. Device mode uses the Web channel API key for the Braze SDK, which is separate from your REST API key. |
-| Braze REST endpoint | Chord sends server-side data to the [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) and [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/) endpoints. Your base URL follows your Braze instance, for example, `https://rest.iad-01.braze.com`. For more information, see [Braze REST API endpoints]({{site.baseurl}}/api/basics/#endpoints). |
+| Braze REST endpoint | Chord sends server-side data to the [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) and [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/) endpoints. Your base URL follows your Braze instance, for example, `https://rest.iad-01.braze.com`. For more information, see [Braze REST API endpoints]({{site.baseurl}}/api/basics#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
 
 ## Connection modes
@@ -40,7 +40,7 @@ Chord supports cloud mode (server-to-server calls through the Braze REST APIs) a
 2. Select **Add** next to destinations, choose **Braze** from the catalog, then enter a destination name and your Braze REST API key.
 3. Create the destination to finish connecting.
 
-Create the REST API key in the Braze dashboard from **Settings** > **API Keys**. If you use the older navigation, go to **Developer Console** > **API Settings**. Unless Chord documents different requirements for your workspace, the key needs the `users.track` and `users.identify` permissions. For more information, see [API keys]({{site.baseurl}}/api/api_key/).
+Create the REST API key in the Braze dashboard from **Settings** > **API Keys**. If you use the older navigation, go to **Developer Console** > **API Settings**. Unless Chord documents different requirements for your workspace, the key needs the `users.track` and `users.identify` permissions. For more information, see [API keys]({{site.baseurl}}/api/basics).
 
 ### Device mode
 
@@ -79,7 +79,7 @@ After data flows, open user profiles or your event tooling in Braze to confirm e
 
 ### Step 2: Build audiences and journeys
 
-Use synced events and attributes in [segments]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/), [Canvases]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/create_a_canvas/), and campaigns to target consumers based on store behavior.
+Use synced events and attributes in [segments]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/), [Canvases]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas), and campaigns to target consumers based on store behavior.
 
 ## Use cases
 

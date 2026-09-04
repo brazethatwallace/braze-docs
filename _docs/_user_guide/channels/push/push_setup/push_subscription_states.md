@@ -57,11 +57,11 @@ The following table shows how different user actions affect iOS push enablement,
 
 <sup>* If the app does not use provisional push, `Foreground Push Enabled` is `false` until the user allows push notifications. If the app uses provisional push, `Foreground Push Enabled` is `true` at the start of the first session. For more information, see [Provisional authorization and quiet push](#provisional-push).</sup>
 
-<sup>** Starting with [Braze Swift SDK version 7.5.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/7.5.0), the `optInWhenPushAuthorized` configuration property controls whether push subscription state is automatically set to `Opted-In` when push permission becomes authorized. For more information, see [Updating push subscription states](#update-push-subscription-state).</sup>
+<sup>** Starting with [Braze Swift SDK version 7.5.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/7.5.0), the `optInWhenPushAuthorized` configuration property controls whether push subscription state is automatically set to `Opted-In` when push permission becomes authorized. For more information, see [Push tokens](#push-tokens).</sup>
 
 ## Push permission
 
-All push-enabled platforms - iOS, Web, and Android - require explicit opt-in through an OS-level system prompt, with some slight differences described below.
+All push-enabled platforms - iOS, Web, and Android - require explicit opt-in through an OS-level system prompt, with some slight differences described in the following section.
 
 Because a user's decision is final and you can't ask again after they decline, using [push primer]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages) in-app messages is an important strategy for increasing your opt-in rates.
 
@@ -76,7 +76,7 @@ Because a user's decision is final and you can't ask again after they decline, u
 
 ### Android
 
-Before Android 13, permission was not needed to send push notifications. On Android 12 and below, all users are considered `Subscribed` upon their first session when Braze automatically requests a push token. At this point, the user is **push enabled** with a valid push token for that device and a default subscription state of `Subscribed`.
+Before Android 13, permission was not needed to send push notifications. On Android 12 and under, all users are considered `Subscribed` upon their first session when Braze automatically requests a push token. At this point, the user is **push enabled** with a valid push token for that device and a default subscription state of `Subscribed`.
 
 Starting with [Android 13]({{site.baseurl}}/developer_guide/platforms/android/android_13), push permission must be asked of and granted by the user. Your app can manually request permission from the user at opportune times, but if not, users will be prompted automatically when your app creates a [notification channel](https://developer.android.com/reference/android/app/NotificationChannel).
 
@@ -92,7 +92,7 @@ Authorized push requires explicit permission from a user before sending any noti
 
 Before iOS 12 (released in 2018), all users must explicitly opt-in to receive push notifications.
 
-In iOS 12, Apple introduced [provisional authorization](https://www.braze.com/resources/articles/mastering-provisional-push), allowing brands to send quiet push notifications to their users' notification center before they explicitly opt-in, giving you a chance to demonstrate the value of your messages early. Refer to [provisional authorization]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#provisional-push-authentication--quiet-notifications) to learn more.
+In iOS 12, Apple introduced [provisional authorization](https://www.braze.com/resources/articles/mastering-provisional-push), allowing brands to send quiet push notifications to their users' notification center before they explicitly opt-in, giving you a chance to demonstrate the value of your messages early. Refer to [provisional authorization]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#provisional-push) to learn more.
 
 ### Web
 
@@ -115,6 +115,8 @@ When a user profile has a valid foreground push token associated with an app, Br
 
 {% alert note %}
 The `Foreground Push Enabled for App` filter only considers the presence of a valid foreground and background push token for the given app. However, the more generic [`Foreground Push Enabled`](#foreground-push-enabled) filter segments users who have explicitly activated push notifications for any apps in your workspace. This count includes only foreground push and doesn't include users who have unsubscribed. You can learn more about these and other filters in [Segmentation filters]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters).
+
+For a small percentage of users, processing delays can cause a short-lived mismatch: a user may have a valid foreground push token on their profile but still not match the `Foreground Push Enabled` filter. Their profile may briefly show that foreground push isn't enabled even though a token is present. This usually clears once processing catches up.
 {% endalert %}
 
 ### Multiple users on one device
@@ -167,7 +169,7 @@ If the user is added as a test user, in **Developer Console** > **User Event Log
 - **iOS background enabled:** The user has been served the push prompt and said no, or said yes and later turned off push notifications in their device settings (reflected after the user has a session).
 - **iOS foreground enabled:** The user has been served the push prompt and is eligible to receive foreground push.
 
-Campaign analytics will reflect the push statistics inline with the above details. You can also download the user profiles who entered the campaign or Canvas to cross-reference user profiles.
+Campaign analytics will reflect the push statistics inline with the earlier in this section details. You can also download the user profiles who entered the campaign or Canvas to cross-reference user profiles.
 
 ## Other platform-specific scenarios
 

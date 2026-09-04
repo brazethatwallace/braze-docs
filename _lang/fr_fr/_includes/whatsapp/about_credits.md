@@ -1,4 +1,4 @@
-À compter du 1er juillet 2025, WhatsApp facture désormais par message. Les tarifs des messages sont basés à la fois sur l'indicatif pays du numéro de téléphone du destinataire et sur le type de message que vous envoyez. Le type de message est déterminé à partir du [modèle de message](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines/) que vous soumettez pour approbation dans WhatsApp Manager.
+À compter du 1er juillet 2025, WhatsApp facture désormais par message. Les tarifs des messages sont basés à la fois sur l'indicatif pays du numéro de téléphone du destinataire et sur le type de message que vous envoyez. Le type de message est déterminé à partir du [modèle de message](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines/) que vous soumettez pour approbation dans WhatsApp gestionnaire.
 
 {% alert note %}
 Toutes les conversations initiées par l'entreprise sur la plateforme doivent commencer par un modèle de message approuvé.
@@ -6,7 +6,7 @@ Toutes les conversations initiées par l'entreprise sur la plateforme doivent co
 
 {% if include.content == "h2" %}##{% else include.content == "h3" %}###{% endif %} Définitions des modèles de message
 
-Voici les modèles de message que vous pouvez soumettre pour approbation dans WhatsApp Manager :
+Voici les modèles de message que vous pouvez soumettre pour approbation dans WhatsApp gestionnaire :
 
 | Modèle | Définition |
 |----------|------------|

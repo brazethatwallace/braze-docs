@@ -5,8 +5,8 @@ page_order: 4
 layout: dev_guide
 search_rank: 3
 guide_top_header: "Conteúdo conectado"
-guide_top_text: "O Conteúdo conectado da Braze expande a personalização de marketing para impulsionar o engajamento e as conversões dos clientes. Esse recurso permite inserir qualquer informação acessível via API diretamente nas mensagens enviadas aos usuários. O Conteúdo conectado permite buscar conteúdo diretamente do seu servidor web ou de APIs acessíveis publicamente. Você também pode usar os recursos de Conteúdo conectado com nossos Parceiros de tecnologia, como <b><a href='/docs/partners/data_augmentation/contextual_location/accuweather'>AccuWeather</a></b> e <b><a href='/docs/partners/channel_extensions/localization/transifex'>Transifex</a></b>.<br><br>Além dos artigos listados a seguir, recomendamos conferir nosso curso do Braze Learning sobre <b><a href='https://learning.braze.com/connected-content'>Conteúdo conectado</a></b>."
-description: "Esta landing page reúne tudo sobre Conteúdo conectado. Aqui, você encontra artigos sobre como fazer chamadas de API, variáveis locais de Conteúdo conectado, cancelamento de conteúdo e muito mais."
+guide_top_text: "O Conteúdo conectado da Braze expande a personalização de marketing para impulsionar o engajamento e as conversões dos clientes. Esse recurso permite inserir qualquer informação acessível via API diretamente nas mensagens enviadas aos usuários. O Conteúdo conectado permite buscar conteúdo diretamente do seu servidor web ou de APIs acessíveis publicamente. Você também pode usar os recursos de Conteúdo conectado com nossos parceiros de tecnologia, como <b><a href='/docs/partners/data_augmentation/contextual_location/accuweather'>AccuWeather</a></b> e <b><a href='/docs/partners/channel_extensions/localization/transifex'>Transifex</a></b>.<br><br>Além dos artigos listados a seguir, recomendamos conferir nosso <b><a href='https://learning.braze.com/connected-content'>curso do Braze Learning</a></b> sobre Conteúdo conectado."
+description: "Esta landing page reúne tudo sobre Conteúdo conectado. Aqui, você encontra artigos sobre como fazer chamadas de API, variáveis locais de Conteúdo conectado, interrupção de conteúdo e muito mais."
 
 guide_featured_title: "Artigos da seção"
 guide_featured_list:
@@ -28,6 +28,9 @@ guide_featured_list:
 - name: Novas tentativas de Conteúdo conectado
   link: /docs/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries
   image: /assets/img/braze_icons/refresh-ccw-01.svg
+- name: Depurador de Conteúdo conectado
+  link: /docs/user_guide/messaging/design_and_edit/personalize/connected_content/debugger
+  image: /assets/img/braze_icons/search-refraction.svg
 - name: Solucionar problemas de webhooks e Conteúdo conectado
   link: /docs/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content
   image: /assets/img/braze_icons/check-square-broken.svg
@@ -37,5 +40,3 @@ guide_featured_list:
 ---
 
 <br><br>
-
-[16]: [success@braze.com](mailto:success@braze.com)

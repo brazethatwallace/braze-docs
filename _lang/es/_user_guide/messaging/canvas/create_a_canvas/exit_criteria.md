@@ -17,15 +17,15 @@ tool: Canvas
 
 ## Cómo salen los usuarios {#how-users-exit}
 
-Cuando un usuario realiza el evento de salida, Braze lo marca inmediatamente para salir del Canvas. Después de eso, no avanza a ningún paso posterior.
+Cuando un usuario realiza el evento de salida, Braze lo marca de inmediato para salir del Canvas. Después de eso, no avanza a ningún paso posterior.
 
-Si se encuentra en un paso de demora, permanece en ese paso hasta que finalice el período de demora. No continúa a ningún paso siguiente cuando la demora termina; en su lugar, abandona completamente el Canvas. Dependiendo de dónde revises los datos del Canvas, es posible que veas actividad relacionada con la salida cuando ocurre el evento de salida y nuevamente cuando el paso de demora se completa y el usuario abandona completamente el Canvas.
+Si está en un paso de demora, permanece en ese paso hasta que finalice el período de demora. No continúa a los pasos siguientes cuando la demora termina; en su lugar, abandona completamente el Canvas. Dependiendo de dónde revises los datos del Canvas, es posible que veas actividad relacionada con la salida tanto cuando ocurre el evento de salida como cuando el paso de demora se completa y el usuario sale completamente del Canvas.
 
-Por ejemplo, si un usuario está en un paso de demora de 30 días y realiza el evento de salida en el primer día del paso de demora, se le marca para salir de inmediato, pero no abandona completamente el Canvas hasta que finaliza el paso de demora (29 días después).
+Por ejemplo, si un usuario está en un paso de demora de 30 días y realiza el evento de salida el primer día del paso de demora, se le marca para salir de inmediato, pero no abandona completamente el Canvas hasta que el paso de demora finaliza (29 días después).
 
-Consideremos otro ejemplo con criterios de salida basados en el tiempo. Un usuario entra en un paso de demora configurado a 24 horas el 1 de julio a las 12 am. Durante este período de demora, realiza el evento de salida "Última compra realizada hace menos de 1 hora" a las 3 am. Este usuario será evaluado para los criterios de salida el 2 de julio a las 12 am, que es la conclusión de la duración del paso de demora. Dado que han pasado 21 horas desde su compra del 1 de julio a las 3 am, no saldrá del Canvas porque no realizó una compra dentro de la hora previa a la salida del paso de demora el 2 de julio. Esto afecta al "Total de salidas por criterios de salida" en los análisis de tu Canvas, que solo se actualizan después de que un usuario haya abandonado completamente el Canvas.
+Consideremos otro ejemplo con criterios de salida basados en el tiempo. Un usuario entra en un paso de demora configurado en 24 horas el 1 de julio a las 12 am. Durante este período de demora, realiza el evento de salida "Realizó un pedido por última vez hace menos de 1 hora" a las 3 am. Este usuario será evaluado con los criterios de salida el 2 de julio a las 12 am, que es la conclusión de la duración del paso de demora. Dado que han pasado 21 horas desde que realizó su pedido el 1 de julio a las 3 am, no saldrá del Canvas porque no realizó un pedido dentro de la hora previa a la salida del paso de demora el 2 de julio. Esto afecta a "Total Exits by Exit Criteria" en los análisis de tu Canvas, que solo se actualizan después de que un usuario haya salido completamente del Canvas.
 
-## Configurar criterios de salida {#setting-up-exit-criteria}
+## Configuración de criterios de salida {#setting-up-exit-criteria}
 
 En el paso **Público objetivo** del creador de Canvas, puedes configurar criterios de salida para identificar qué usuarios deseas que salgan de tu Canvas.
 
@@ -35,13 +35,13 @@ Los criterios de salida incluyen un evento de excepción, que es la acción espe
 
 ### Seleccionar eventos de excepción {#exception-events}
 
-Cuando un usuario realiza el evento de excepción, Braze lo marca para salir según [Cómo salen los usuarios](#how-users-exit). Los eventos de excepción se aplican mientras un usuario está en el Canvas, incluso cuando está esperando en un paso como un paso de demora.
+Cuando un usuario realiza el evento de excepción, Braze lo marca para salir según [Cómo salen los usuarios](#how-users-exit). Los eventos de excepción se aplican mientras un usuario está en el Canvas, incluso cuando está esperando en un paso como un paso de retraso.
 
-Supongamos que tienes un Canvas configurado para promocionar un nuevo producto. En este caso, la compra del producto sería el evento de excepción. De esta manera, después de que un usuario realice la compra, no recibirá más mensajes sobre un producto que ya compró. Los eventos de excepción mantienen tu mensajería relevante y personalizada.
+Supongamos que tienes un Canvas configurado para promocionar un nuevo producto. En este caso, el pedido del producto sería el evento de excepción. De esta forma, después de que un usuario realice el pedido, no recibirá más mensajes sobre un producto que ya compró. Los eventos de excepción mantienen tu mensajería relevante y personalizada.
 
 Los eventos de excepción adicionales incluyen:
 
-- Realizar una compra
+- Realizar un pedido
 - Iniciar una sesión
 - Realizar un evento personalizado
 - Realizar un evento de conversión
@@ -52,58 +52,56 @@ Los eventos de excepción adicionales incluyen:
 - Interactuar con una Campaign
 - Entrar en una ubicación
 - Desencadenar una geovalla
-- Enviar un mensaje SMS de entrada
-- Enviar un mensaje WhatsApp de entrada
-- Enviar un mensaje LINE de entrada
+- Enviar un mensaje SMS entrante
+- Enviar un mensaje WhatsApp entrante
+- Enviar un mensaje LINE entrante
 - Realizar un evento de carrito actualizado
-- Realizar un evento de pago completado
-- Realizar un evento de pago iniciado
 
-#### Pasos planificados {#scheduled-steps}
+#### Pasos programados {#scheduled-steps}
 
-Para los pasos en Canvas que no mantienen al usuario en un paso de demora hasta un momento futuro, el usuario normalmente abandona el Canvas tan pronto como se completa el paso actual. Esa finalización suele ocurrir inmediatamente después del evento de excepción, porque no queda un temporizador de demora en ese paso. Esto difiere de un paso de demora, donde el usuario permanece hasta que la demora termina incluso después de haber sido marcado para salir (consulta [Cómo salen los usuarios](#how-users-exit)).
+Para los pasos en Canvas que no mantienen al usuario en un paso de retraso hasta un momento futuro, el usuario normalmente sale del Canvas tan pronto como se completa el paso actual. Esa finalización suele ocurrir inmediatamente después del evento de excepción, porque no hay un temporizador de retraso restante en ese paso. Esto difiere de un paso de retraso, donde el usuario permanece hasta que el retraso termina, incluso después de haber sido marcado para salir (consulta [Cómo salen los usuarios](#how-users-exit)).
 
 #### Pasos desencadenados {#triggered-steps}
 
-Si un paso en Canvas es desencadenado por un evento, el último envío planificado en cola desde ese desencadenador será cancelado, pero el usuario permanecerá dentro del Canvas durante la duración de la ventana. Esto significa que el usuario aún puede recibir el paso si realiza el evento desencadenador nuevamente dentro de la ventana. Una vez que la ventana pasa, el usuario saldrá del Canvas.
+Si un paso en Canvas se desencadena por un evento, el último envío programado en cola a partir de ese desencadenante se cancelará, pero el usuario permanecerá dentro del Canvas durante la duración de la ventana. Esto significa que el usuario aún puede recibir el paso si realiza el evento desencadenante nuevamente dentro de la ventana. Después de que la ventana finalice, el usuario saldrá del Canvas.
 
-### Usar Segments y filtros {#using-segments-and-filters}
+### Uso de segmentos y filtros {#using-segments-and-filters}
 
-También puedes añadir Segments y filtros en los criterios de salida. Esto significa que los usuarios que coincidan con el Segment y el filtro saldrán del Canvas y no recibirán más mensajes.
+También puedes añadir segmentos y filtros en los criterios de salida. Esto significa que los usuarios que coincidan con el segmento y el filtro saldrán del Canvas y no recibirán más mensajes.
 
-Por ejemplo, si el primer paso en un Canvas es un paso de demora con una demora de cinco días, los criterios de salida se evalúan cuando ese paso se completa. Si un usuario cumple los criterios de salida mientras está en el paso de demora, se le marca para salir inmediatamente, pero abandona completamente el Canvas al final de los cinco días (y no avanza a ningún paso posterior a la demora).
+Por ejemplo, si el primer paso en un Canvas es un paso de retraso con un retraso de cinco días, los criterios de salida se evalúan cuando ese paso se completa. Si un usuario cumple los criterios de salida mientras está en el paso de retraso, se le marca para salir inmediatamente, pero sale completamente del Canvas al final de los cinco días (y no avanza a ningún paso posterior al retraso).
 
 {% alert note %}
-Los atributos de tipo array no son compatibles actualmente como criterios de salida en eventos de excepción.
+Los atributos de tipo array no están actualmente soportados como criterios de salida en eventos de excepción.
 {% endalert %}
 
 ### Tener el mismo evento de salida y evento de conversión {#having-the-same-exit-event-and-conversion-event}
 
-Cuando el evento de salida y el evento de conversión son el mismo, tanto la conversión como los eventos de salida se contabilizarán. Por ejemplo, si un Canvas tiene un paso de demora y un usuario cumple los criterios de salida mientras está en ese paso de demora, el evento de salida se incrementará tan pronto como el usuario salga del paso de demora. La conversión también se incrementará tan pronto como el evento se registre en el perfil de usuario.
+Cuando el evento de salida y el evento de conversión son los mismos, tanto la conversión como los eventos de salida se contabilizarán. Por ejemplo, si un Canvas tiene un paso de retraso y un usuario cumple los criterios de salida mientras está en ese paso de retraso, el evento de salida se incrementará tan pronto como el usuario salga del paso de retraso. La conversión también se incrementará tan pronto como el evento se registre en el perfil de usuario.
 
-Las conversiones se rastrean incluso después de que el Canvas termine, pero las salidas no se rastrean una vez que el usuario sale del Canvas. La ventana de conversión se extiende hasta tres días más allá de la duración máxima del Canvas. Esto significa que las conversiones seguirán rastreándose después de que las salidas dejen de rastrearse.
+Las conversiones se rastrean incluso después de que el Canvas finalice, pero las salidas no se rastrean una vez que el usuario sale del Canvas. La ventana de conversión se extiende tres días más allá de la duración máxima del Canvas. Esto significa que las conversiones seguirán rastreándose después de que las salidas dejen de rastrearse.
 
-El tiempo mínimo para una ventana de conversión es de cinco minutos. Configura las ventanas de conversión a cinco minutos para tus eventos de conversión para acercarte lo más posible a la paridad con los eventos de salida. También recomendamos configurar la ventana de conversión para que al menos coincida con la ruta más larga del Canvas.
+El tiempo mínimo para una ventana de conversión es de cinco minutos. Configura las ventanas de conversión en cinco minutos para tus eventos de conversión para acercarte lo más posible a la paridad con los eventos de salida. También recomendamos configurar la ventana de conversión para que al menos coincida con la ruta más larga del Canvas.
 
 Considera el siguiente ejemplo sobre cómo se calculan los análisis:
 
 1. Diez usuarios pasan por el Canvas.
 2. Tres usuarios realizan el evento de conversión en cinco minutos (el número de eventos de salida es tres y el número de eventos de conversión es tres).
-3. Otros cinco usuarios salen del Canvas después de cinco minutos pero realizan el evento de conversión después de dos días (el número de eventos de salida permanece igual, pero el evento de conversión aumenta a ocho).
-4. Los últimos dos usuarios salen del Canvas después de cinco minutos pero no realizan el evento de conversión, o lo realizan después de tres días y cinco minutos (no se cuentan ni en las métricas de eventos de salida ni en las de eventos de conversión).
+3. Otros cinco usuarios salen del Canvas después de cinco minutos, pero realizan el evento de conversión después de dos días (el número de eventos de salida se mantiene igual, pero el evento de conversión aumenta a ocho).
+4. Los últimos dos usuarios salen del Canvas después de cinco minutos, pero no realizan el evento de conversión, o lo realizan después de tres días y cinco minutos (no se cuentan ni en las métricas de eventos de salida ni en las de eventos de conversión).
 
 ## Ejemplo {#example}
 
-Supongamos que queremos dirigirnos a usuarios que aún no han realizado ninguna compra en nuestra empresa de suministros de mochilas. Para configurar los criterios de salida, haríamos lo siguiente:
+Supongamos que queremos dirigirnos a usuarios que aún no han realizado un pedido en nuestra empresa de mochilas. Para configurar los criterios de salida, haríamos lo siguiente:
 
-1. Seleccionar **Place an Order** como el evento de excepción.
-2. Seleccionar **Add Trigger**.
-3. Para **Segments**, seleccionar **Used in last day** para que cuando se lance nuestro Canvas, la audiencia excluya a los usuarios que hayan realizado alguna compra.
-4. Para **Filters**, seleccionar **Purchase behavior** > **Number of purchases** > **Purchased product**.
-5. Configurar el grupo de filtros a `backpack-example exactly 1`. Esto significa que los usuarios que hayan comprado nuestro producto de mochila saldrán del Canvas.
+1. Selecciona **Place an Order** como el evento de excepción.
+2. Selecciona **Add Trigger**.
+3. Para **Segments**, selecciona **Used in last day** para que, cuando se lance nuestro Canvas, la audiencia excluya a los usuarios que hayan realizado alguna compra.
+4. Para **Filters**, selecciona **Purchase behavior** > **Number of purchases** > **Purchased product**.
+5. Establece el grupo de filtros en `backpack-example exactly 1`. Esto significa que los usuarios que hayan comprado nuestro producto de mochila saldrían del Canvas.
 
-![Configuración de criterios de salida con "Makes Any Purchase" como evento de excepción, de modo que si un usuario realiza cualquier compra, saldrá de este Canvas.]({% image_buster /assets/img_archive/exit_criteria_example.png %}){: style="max-width:80%;"}
+![Configuración de los criterios de salida con "Makes Any Purchase" como evento de excepción, de modo que si un usuario realiza cualquier compra, saldrá de este Canvas.]({% image_buster /assets/img_archive/exit_criteria_example.png %}){: style="max-width:80%;"}
 
 {% alert tip %}
-Para configurar criterios de salida que comparen propiedades del evento con propiedades de entrada del Canvas (por ejemplo, salir solo cuando un usuario compra el artículo específico que abandonó), consulta [Hacer coincidir criterios de salida con eventos de entrada]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/matching_entry_and_exit_criteria).
+Para configurar criterios de salida que comparen propiedades del evento con las propiedades de entrada de Canvas (por ejemplo, salir solo cuando un usuario compra el artículo específico que abandonó), consulta [Hacer coincidir los criterios de salida con los eventos de entrada]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/matching_entry_and_exit_criteria).
 {% endalert %}

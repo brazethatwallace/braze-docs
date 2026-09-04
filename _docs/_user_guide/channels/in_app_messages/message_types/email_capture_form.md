@@ -14,6 +14,8 @@ channel:
 
 This message type is available in the [traditional editor]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional).
 
+If you collect email through a custom form instead of this in-app message type, and then set subscription group membership through the REST API, check whether a profile already exists before creating a user. See [Collection best practices]({{site.baseurl}}/user_guide/data/unification/user_data/best_practices#step-1-check-if-the-user-exists).
+
 ## How it works
 
 When an end user enters their email address in this form, Braze adds the email address to their user profile.
@@ -38,7 +40,7 @@ The email capture form sets the email address on the currently active user profi
 
 If an anonymous user enters their email in the form and submits it, Braze adds the email address to their profile. If `changeUser` is called later on in their web journey and a new `external_id` is assigned (such as when a new user registers with the service), all anonymous user profile data is merged including the email address.
 
-If `changeUser` is called with an existing `external_id`, the anonymous user profile is orphaned and [specific user profile data fields]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge_updates-behavior) that do not already exist on the identified user are merged, but any fields that do already exist are lost, including the email address.
+If `changeUser` is called with an existing `external_id`, the anonymous user profile is orphaned and [specific user profile data fields]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior) that do not already exist on the identified user are merged, but any fields that do already exist are lost, including the email address.
 
 For more information, refer to the [User profile lifecycle]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle).
 

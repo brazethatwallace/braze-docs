@@ -43,13 +43,13 @@ As etapas de Contexto processam usuários em lotes para otimizar o desempenho. Q
 
 Isso significa:
 
-**Exemplo**: Se 3.500 usuários entram em uma etapa de Contexto com Conteúdo conectado que leva 650ms por usuário:
+**Exemplo**: Se 3.500 usuários entram em uma etapa de Contexto com Connected Content que leva 650ms por usuário:
 - A Braze cria 4 lotes de usuários (1.000, 1.000, 1.000 e 500 usuários neste exemplo).
 - Cada lote processa os usuários sequencialmente, então um lote de 1.000 usuários leva aproximadamente 10,8 minutos (650 segundos; 1.000 × 650ms).
 - Os lotes são concluídos em momentos diferentes, então os usuários vão chegando à próxima etapa conforme seu lote é finalizado.
-- Os primeiros usuários podem alcançar a próxima etapa vários minutos antes dos últimos usuários, dependendo do tamanho do lote e dos tempos de resposta do Conteúdo conectado.
+- Os primeiros usuários podem alcançar a próxima etapa vários minutos antes dos últimos usuários, dependendo do tamanho do lote e dos tempos de resposta do Connected Content.
 
-Sem Conteúdo conectado, as etapas de Contexto processam muito mais rápido porque não há chamadas de API externas para aguardar.
+Sem Connected Content, as etapas de Contexto processam muito mais rápido porque não há chamadas de API externas para aguardar.
 
 ## Considerações {#considerations}
 
@@ -79,7 +79,7 @@ Para definir uma variável de contexto:
 1. Dê um **nome** à sua variável de contexto.
 2. Selecione um [tipo de dado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables#data-types).
 3. Escreva uma expressão Liquid manualmente ou use **Add Personalization** para criar um snippet Liquid a partir de atributos pré-existentes.
-4. Selecione **Preview** para verificar o valor da sua variável de contexto.
+4. Selecione **prévia** para verificar o valor da sua variável de contexto.
 5. (Opcional) Para adicionar variáveis adicionais, selecione **Add Context variable** e repita as etapas 1-4.
 6. Quando terminar, selecione **Done**.
 
@@ -93,7 +93,7 @@ Ao referenciar variáveis de contexto, sempre use o formato {% raw %}`{{context.
 
 Você pode criar filtros usando variáveis de contexto em etapas de [Jornadas do público]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) e [Divisão de decisão]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split).
 
-Para direcionar usuários com base na resposta de uma [etapa de Agente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step), adicione a etapa de Agente antes da sua etapa de Jornadas do público ou Divisão de decisão. A etapa de Agente armazena sua saída no contexto do Canvas, que você pode avaliar com filtros de variáveis de contexto nessas etapas de ramificação.
+Para direcionar usuários com base na resposta de uma [etapa de Agente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step), adicione a etapa de Agente antes da sua etapa de Jornadas do público ou Divisão de decisão. A etapa de Agente armazena sua saída no contexto do Canvas, que você pode avaliar com filtros de variáveis de contexto nessas etapas de Branch.
 
 Se o agente retornar um objeto e você quiser filtrar por uma propriedade aninhada, insira o caminho no campo **Context variable name** usando notação de ponto em vez de apenas o nome da variável de nível superior (por exemplo, `intent_agent.persona` quando `persona` está aninhado sob `intent_agent`).
 
@@ -106,16 +106,16 @@ Para configuração de filtros, lógica de comparação e exemplos avançados, c
 Recomendamos testar e [pré-visualizar suas jornadas de usuários]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths) para garantir que suas mensagens sejam enviadas ao público certo e que as variáveis de contexto sejam avaliadas com os resultados esperados.
 
 {% alert note %}
-Se você estiver pré-visualizando seu Canvas na seção **Preview & Test Send** do editor, o timestamp na pré-visualização da mensagem de teste **não** é padronizado para UTC porque esse painel gera pré-visualizações como strings. Isso significa que, se um Canvas estiver configurado para aceitar um objeto `time`, a pré-visualização da mensagem não reflete com precisão o que ocorre quando o Canvas está ativo. Para testar seu Canvas com mais precisão, recomendamos pré-visualizar as jornadas de usuários.
+Se você estiver pré-visualizando seu Canvas na seção **prévia & Test Send** do editor, o timestamp na pré-visualização da mensagem de teste **não** é padronizado para UTC porque esse painel gera pré-visualizações como strings. Isso significa que, se um Canvas estiver configurado para aceitar um objeto `time`, a pré-visualização da mensagem não reflete com precisão o que ocorre quando o Canvas está ativo. Para testar seu Canvas com mais precisão, recomendamos pré-visualizar as jornadas de usuários.
 {% endalert %}
 
 Observe quaisquer cenários comuns que criam variáveis de contexto inválidas. Ao pré-visualizar a jornada do usuário, você pode ver os resultados de etapas de postergação personalizadas usando variáveis de contexto, e quaisquer comparações de etapas de público ou decisão que correspondam usuários a variáveis de contexto.
 
 Se a variável de contexto for válida, você pode referenciá-la em todo o seu Canvas. No entanto, se a variável de contexto não foi criada corretamente, as etapas futuras do seu Canvas também não funcionarão corretamente. Por exemplo, se você criar uma etapa de Contexto para atribuir aos usuários um horário de consulta e definir o valor do horário da consulta como uma data passada, o e-mail de lembrete na sua etapa de Mensagem não será enviado.
 
-## Convertendo strings de Conteúdo conectado para JSON {#converting-connected-content-strings-to-json}
+## Convertendo strings de Connected Content para JSON {#converting-connected-content-strings-to-json}
 
-Ao fazer uma [chamada de Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call) em uma etapa de Contexto, o JSON retornado da chamada é avaliado como um tipo de dado string para consistência e prevenção de erros. Se você quiser converter essa string em JSON, use `as_json_string`. Por exemplo:
+Ao fazer uma [chamada de Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call) em uma etapa de Contexto, o JSON retornado da chamada é avaliado como um tipo de dado string para consistência e prevenção de erros. Se você quiser converter essa string em JSON, use `as_json_string`. Por exemplo:
 
 {%raw%}
 ```liquid
@@ -130,7 +130,7 @@ Ao fazer uma [chamada de Conteúdo conectado]({{site.baseurl}}/user_guide/messag
 
 Uma variável de contexto é considerada inválida quando:
 
-- Uma chamada a um Conteúdo conectado incorporado falha.
+- Uma chamada a um Connected Content incorporado falha.
 - A expressão Liquid em tempo de execução retorna um valor que não corresponde ao tipo de dado ou está vazio (nulo).
 
 Por exemplo, se o tipo de dado da variável de contexto for **Number**, mas a expressão Liquid retornar uma string, ela será inválida.
@@ -143,28 +143,28 @@ Ao solucionar problemas, monitore a métrica _Not Updated_ para verificar se sua
 
 Consulte [Tipos de dados]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables#data-types) para ver exemplos de configuração para cada tipo de dado.
 
-### Atrasos no envio com Conteúdo conectado {#delays-in-sending-with-connected-content}
+### Atrasos no envio com Connected Content {#delays-in-sending-with-connected-content}
 
 Todos os usuários em um lote são processados antes que qualquer usuário avance. Após a conclusão do processamento do lote, os usuários bem-sucedidos passam para a próxima etapa, enquanto os usuários com falha são reprocessados separadamente — os usuários bem-sucedidos não esperam que as tentativas de reprocessamento sejam concluídas antes de avançar.
 
 #### Comportamento de reprocessamento {#retry-behavior}
 
-Em etapas do Canvas (incluindo etapas de Contexto), a Braze usa mecanismos de reprocessamento específicos do Canvas em vez do comportamento padrão de reprocessamento do Conteúdo conectado. Se uma chamada de Conteúdo conectado falhar:
+Em etapas do Canvas (incluindo etapas de Contexto), a Braze usa mecanismos de reprocessamento específicos do Canvas em vez do comportamento padrão de reprocessamento do Connected Content. Se uma chamada de Connected Content falhar:
 
- - Para etapas de Mensagem, as chamadas de Conteúdo conectado podem ser reprocessadas até cinco vezes.
+ - Para etapas de Mensagem, as chamadas de Connected Content podem ser reprocessadas até cinco vezes.
  - Para todas as outras etapas, a Braze reprocessa a etapa aproximadamente 13 vezes com backoff exponencial.
 
 Se todas as tentativas falharem, o usuário sai do Canvas.
 
-A tag `:retry` usada no Conteúdo conectado padrão não se aplica a chamadas de Conteúdo conectado feitas dentro de etapas do Canvas. As etapas do Canvas têm sua própria lógica de reprocessamento otimizada para fluxos de trabalho do Canvas.
+A tag `:retry` usada no Connected Content padrão não se aplica a chamadas de Connected Content feitas dentro de etapas do Canvas. As etapas do Canvas têm sua própria lógica de reprocessamento otimizada para fluxos de trabalho do Canvas.
 
 O tempo necessário para processar todos os usuários em uma etapa de Contexto depende de:
 
 - O número de usuários entrando na etapa
-- Se o Conteúdo conectado é usado (e seu tempo de resposta)
+- Se o Connected Content é usado (e seu tempo de resposta)
 - O tamanho do lote (padrão de 1.000 usuários por lote)
 
-Se o seu endpoint de Conteúdo conectado tem limites de taxa, considere que as etapas de Contexto processam usuários sequencialmente dentro de cada lote, o que ajuda a respeitar os limites de taxa naturalmente. No entanto, múltiplos lotes são processados em paralelo, então garanta que seu endpoint possa lidar com solicitações simultâneas de múltiplos lotes.
+Se o seu endpoint de Connected Content tem limites de frequência, considere que as etapas de Contexto processam usuários sequencialmente dentro de cada lote, o que ajuda a respeitar os limites de frequência naturalmente. No entanto, múltiplos lotes são processados em paralelo, então garanta que seu endpoint possa lidar com solicitações simultâneas de múltiplos lotes.
 
 ## Padronização de consistência de fuso horário {#time-zone-consistency-standardization}
 
@@ -259,7 +259,7 @@ Sim. Todas as variáveis em uma etapa de Contexto são avaliadas em sequência, 
 |---|---|---|
 | `favorite_cuisine` | {% raw %}`{{custom_attribute.${Favorite Cuisine}}}`{% endraw %} | O tipo de culinária favorita do usuário. |
 | `promo_code` | {% raw %}`EATFRESH`{% endraw %} | O código de desconto disponível para o usuário. |
-| `personalized_message` | {% raw %}`"Enjoy a discount of" {{context.${promo_code}}} "on delivery from your favorite" {{context.${favorite_cuisine}}} restaurants!"`{% endraw %} | Uma mensagem personalizada que combina as variáveis anteriores. Em uma etapa de Mensagem, você poderia usar o snippet Liquid {% raw %}`{{context.${personalized_message}}}`{% endraw %} para referenciar a variável de contexto e entregar uma mensagem personalizada a cada usuário. Você também poderia usar uma etapa de Contexto para salvar o valor do [código promocional]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes#creating-a-promotion-code-list) e usá-lo como modelo em outras etapas ao longo do Canvas. |
+| `personalized_message` | {% raw %}`"Enjoy a discount of" {{context.${promo_code}}} "on delivery from your favorite" {{context.${favorite_cuisine}}} restaurants!"`{% endraw %} | Uma mensagem personalizada que combina as variáveis anteriores. Em uma etapa de Mensagem, você poderia usar o snippet Liquid {% raw %}`{{context.${personalized_message}}}`{% endraw %} para referenciar a variável de contexto e entregar uma mensagem personalizada a cada usuário. Você também poderia usar uma etapa de Contexto para salvar o valor do [código promocional]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create#create) e usá-lo como modelo em outras etapas ao longo do Canvas. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="As variáveis podem referenciar umas às outras em uma única etapa de Contexto?" }
 
 Isso também se aplica entre múltiplas etapas de Contexto. Por exemplo, imagine esta sequência:

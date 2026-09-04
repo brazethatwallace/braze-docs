@@ -12,7 +12,7 @@
 | `hideCurrentInAppMessage()`                               | 현재 표시된 인앱 메시지를 해제합니다.                                     |
 | `performInAppMessageAction(inAppMessage)`                 | 인앱 메시지에 대한 동작을 수행합니다.                                            |
 | `performInAppMessageButtonAction(inAppMessage, buttonId)` | 인앱 메시지 버튼에 대한 동작을 수행합니다.                                     |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Methods for logging" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="로깅 메서드" }
 
 ## 메시지 데이터 처리하기 {#handling-message-data}
 
@@ -58,7 +58,7 @@ Braze.subscribeToInAppMessage(false, (event) => {
 {% subtab Android %}
 [커스텀 매니저 리스너]({{site.baseurl}}/developer_guide/in_app_messages/customization/?sdktab=android#android_setting-custom-manager-listeners)에 대한 Android 문서에서 설명한 대로 `IInAppMessageManagerListener`를 구현합니다. `beforeInAppMessageDisplayed` 구현에서 `inAppMessage` 데이터에 접근하여 JavaScript 레이어로 전송하고, 반환 값에 따라 네이티브 메시지의 표시 여부를 결정할 수 있습니다.
 
-이러한 값에 대한 자세한 내용은 [Android 설명서]({{site.baseurl}}/developer_guide/in_app_messages/)를 참조하세요.
+이러한 값에 대한 자세한 내용은 [Android 설명서]({{site.baseurl}}/developer_guide/in_app_messages)를 참조하세요.
 
 ```java
 // In-app messaging
@@ -82,7 +82,7 @@ public InAppMessageOperation beforeInAppMessageDisplayed(IInAppMessage inAppMess
 
 기본적으로 [`BrazeInAppMessageUI`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/)는 `braze` 인스턴스를 초기화할 때 생성 및 할당됩니다. `BrazeInAppMessageUI`는 [`BrazeInAppMessagePresenter`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/brazeinappmessagepresenter) 프로토콜의 구현이며, 수신된 인앱 메시지 처리를 커스텀하는 데 사용할 수 있는 `delegate` 속성이 함께 제공됩니다.
 
-1. [여기 iOS 문서](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/c1-inappmessageui)에서 설명한 대로 `BrazeInAppMessageUIDelegate` 델리게이트를 구현합니다.
+1. [iOS 인앱 메시지 UI 튜토리얼](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/c1-inappmessageui)에서 설명한 대로 `BrazeInAppMessageUIDelegate` 델리게이트를 구현합니다.
 
 2. `inAppMessage(_:displayChoiceForMessage:)` 델리게이트 메서드에서 `inAppMessage` 데이터에 접근하여 JavaScript 레이어로 전송하고, 반환 값에 따라 네이티브 메시지를 표시할지 여부를 결정할 수 있습니다.
 

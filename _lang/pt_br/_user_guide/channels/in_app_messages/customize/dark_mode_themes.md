@@ -26,7 +26,7 @@ O modo escuro, localizado na guia **Design** ao [criar uma mensagem no app]({{si
 
 ![Usuário alternando entre os estilos de modo claro e modo escuro na guia Estilo ao criar uma mensagem no app.]({% image_buster /assets/img_archive/iam-dark-mode.gif %})
 
-Quando essa opção está ativada, você pode escolher cores de tema escuro para sua mensagem no app usando o seletor de cores ou selecionando [perfis de cores]({{site.baseurl}}/user_guide/channels/in_app_messages/customize#color-profile) existentes para reutilizar temas escuros ou claros já criados.
+Quando essa opção está ativada, você pode escolher cores de tema escuro para sua mensagem no app usando o seletor de cores ou selecionando [perfis de cores]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template#color-profile) existentes para reutilizar temas escuros ou claros já criados.
 
 {% alert note %}
 Você ainda pode usar esse recurso mesmo que seu app não ofereça seu próprio tema escuro. No entanto, dispositivos que não suportam o modo escuro exibirão o tema claro por padrão. Alterar o tema do dispositivo no Android enquanto uma mensagem no app está sendo exibida não mudará qual tema é usado para essa mensagem no app.
@@ -37,7 +37,7 @@ Você ainda pode usar esse recurso mesmo que seu app não ofereça seu próprio 
 Para usar o modo escuro em todas as mensagens no app, primeiro crie um perfil de cores alinhado com o seu tema de modo escuro.
 
 1. Acesse **Conteúdo** > **Mensagem no app**.
-2. Selecione **Criar modelos** e escolha [Perfil de cores]({{site.baseurl}}/user_guide/channels/in_app_messages/customize#color-profile) no menu suspenso.
+2. Selecione **Criar modelos** e escolha [Perfil de cores]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template#color-profile) no menu suspenso.
 3. Crie e salve seu perfil de cores.
 
 Ao criar uma versão em modo escuro de uma mensagem no app, você pode selecionar esse perfil de cores para manter a aparência das suas mensagens no app consistente.

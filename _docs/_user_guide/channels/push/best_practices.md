@@ -77,7 +77,7 @@ You can create a settings page in your app that lets users tell you which notifi
 
 When the news app wants to create a campaign targeting only users interested in Politics, they add the `Subscribes to Politics` attribute filter to the segment. When set to true, only users who subscribe to notifications will receive them.
 
-For more information on setting custom attributes, refer to the following articles for [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/analytics/setting_custom_attributes#setting-custom-attributes), or [REST API]({{site.baseurl}}/developer_guide/rest_api/user_data#user-attributes-object-specification).
+For more information on setting custom attributes, refer to the following articles for [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=android), or [REST API]({{site.baseurl}}/api/objects_filters/user_attributes_object).
 
 ## Increase opt-ins and relevance
 
@@ -93,7 +93,7 @@ You only get one chance to ask a user for push permission, and after they declin
 
 ### Add push subscription controls
 
-To avoid users turning off notifications at the device level, which completely removes their foreground push token, let users control their push subscription directly within your app. See [Updating push subscription states]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states#update-push-subscription-state) for more details.
+To avoid users turning off notifications at the device level, which completely removes their foreground push token, let users control their push subscription directly within your app. See [Updating push subscription states]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states) for more details.
 
 ### Use advanced scheduling or add delays
 

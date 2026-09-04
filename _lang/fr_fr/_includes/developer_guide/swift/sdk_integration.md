@@ -11,12 +11,12 @@ Avant de commencer, vérifiez que votre environnement est pris en charge par la 
 Nous vous recommandons d'utiliser le [gestionnaire de paquets Swift (SwiftPM)](https://swift.org/package-manager/) ou [CocoaPods](http://cocoapods.org/) pour installer le SDK Braze Swift. Vous pouvez également installer le SDK manuellement.
 
 {% tabs local %}
-{% tab Swift Package Manager %}
+{% tab gestionnaire de paquets swift %}
 #### Étape 1.1 : Importer la version du SDK {#step-11-import-sdk-version}
 
 Ouvrez votre projet et accédez aux paramètres de votre projet. Sélectionnez l'onglet **Swift Packages** et cliquez sur le bouton d'ajout <i class="fas fa-plus"></i> sous la liste des paquets.
 
-![]({% image_buster /assets/img/swiftpackages.png %})
+![Paramètres du projet Xcode avec l'onglet Swift Packages et le bouton d'ajout de paquet.]({% image_buster /assets/img/swiftpackages.png %})
 
 {% alert note %}
 À partir de la version 7.4.0, le SDK Braze Swift dispose de canaux de distribution supplémentaires sous la forme de [XCFrameworks statiques](https://github.com/braze-inc/braze-swift-sdk-prebuilt-static) et de [XCFrameworks dynamiques](https://github.com/braze-inc/braze-swift-sdk-prebuilt-dynamic). Si vous souhaitez utiliser l'un de ces formats à la place, suivez les instructions d'installation du dépôt correspondant.
@@ -24,7 +24,7 @@ Ouvrez votre projet et accédez aux paramètres de votre projet. Sélectionnez l
 
 Saisissez l'URL de notre dépôt SDK Swift iOS `https://github.com/braze-inc/braze-swift-sdk` dans le champ de texte. Dans la section **Dependency Rule**, sélectionnez la version du SDK. Enfin, cliquez sur **Add Package**.
 
-![]({% image_buster /assets/img/importsdk_example.png %})
+![Boîte de dialogue Xcode d'ajout de paquet avec l'URL du dépôt du SDK Braze Swift saisie.]({% image_buster /assets/img/importsdk_example.png %})
 
 #### Étape 1.2 : Sélectionner vos paquets {#step-12-select-your-packages}
 
@@ -55,7 +55,7 @@ Le SDK Swift de Braze sépare les fonctionnalités en bibliothèques autonomes p
 
 Sélectionnez le paquet qui correspond le mieux à vos besoins et cliquez sur **Add Package**. Veillez à sélectionner au minimum `BrazeKit`.
 
-![]({% image_buster /assets/img/add_package.png %})
+![Liste des produits de paquets Xcode avec BrazeKit sélectionné avant l'ajout du paquet.]({% image_buster /assets/img/add_package.png %})
 {% endtab %}
 
 {% tab CocoaPods %}
@@ -390,7 +390,7 @@ func initializeBraze() {
 {% endtabs %}
 
 {% alert note %}
-Lorsque le SDK est initialisé, toutes les notifications push, tous les jetons push et tous les liens profonds en file d'attente sont automatiquement traités.
+Lorsque le SDK est initialisé, toutes les notifications push, tous les jetons push et tous les deep links en file d'attente sont automatiquement traités.
 {% endalert %}
 
 ### Étape 3 : Mettre à jour le délégué de votre application {#step-3-update-your-app-delegate}
@@ -428,7 +428,7 @@ let braze = Braze(configuration: configuration)
 AppDelegate.braze = braze
 ```
 
-Mettez à jour `YOUR-APP-IDENTIFIER-API-KEY` et `YOUR-BRAZE-ENDPOINT` avec la valeur correcte depuis votre page **Paramètres des applications**. Consultez nos [types d'identifiants API]({{site.baseurl}}/api/identifier_types/?tab=app%20ids) pour plus d'informations sur l'endroit où trouver la clé API de votre identifiant d'application.
+Mettez à jour `YOUR-APP-IDENTIFIER-API-KEY` et `YOUR-BRAZE-ENDPOINT` avec la valeur correcte depuis votre page **App Settings**. Consultez nos [types d'identifiants API]({{site.baseurl}}/api/identifier_types/?tab=app%20ids) pour plus d'informations sur l'endroit où trouver la clé API de votre identifiant d'application.
 
 {% endsubtab %}
 {% subtab OBJECTIVE-C %}
@@ -466,16 +466,20 @@ Braze *braze = [[Braze alloc] initWithConfiguration:configuration];
 AppDelegate.braze = braze;
 ```
 
-Mettez à jour `YOUR-APP-IDENTIFIER-API-KEY` et `YOUR-BRAZE-ENDPOINT` avec la valeur correcte depuis votre page **Gérer les paramètres**. Consultez notre [documentation API]({{site.baseurl}}/api/api_key/#the-app-identifier-api-key) pour plus d'informations sur l'endroit où trouver la clé API de votre identifiant d'application.
+Mettez à jour `YOUR-APP-IDENTIFIER-API-KEY` et `YOUR-BRAZE-ENDPOINT` avec la valeur correcte depuis votre page **Manage Settings**. Consultez notre [documentation API]({{site.baseurl}}/api/api_key#the-app-identifier-api-key) pour plus d'informations sur l'endroit où trouver la clé API de votre identifiant d'application.
 
 {% endsubtab %}
 {% endsubtabs local %}
+
+{% alert note %}
+`Braze.init` retourne immédiatement sur le thread appelant. Le SDK traite le travail de démarrage sur une file d'attente interne. La lecture de propriétés synchrones telles que `braze.deviceId` directement après `init` sur le thread principal bloquera le thread appelant jusqu'à ce que le SDK ait terminé ses opérations post-initialisation. Pour les contextes sensibles au thread principal ou à la latence, utilisez `braze.getDeviceId(_:)` (Swift) ou `[braze getDeviceIdWithCompletion:^(NSString *deviceId) { ... }]` (Objective-C) pour lire la valeur sans blocage.
+{% endalert %}
 
 ## Configurations optionnelles {#optional-configurations}
 
 ### Journalisation {#logging}
 
-Pour obtenir un aperçu centralisé sur toutes les plateformes, consultez la section [Journalisation détaillée]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/). Pour apprendre à interpréter les résultats des journaux, consultez la section [Lecture des journaux détaillés]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs/).
+Pour obtenir un aperçu centralisé sur toutes les plateformes, consultez la section [Journalisation détaillée]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging). Pour apprendre à interpréter les résultats des journaux, consultez la section [Lecture des journaux détaillés]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs).
 
 #### Niveaux de journalisation {#log-levels}
 

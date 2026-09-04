@@ -1,50 +1,50 @@
 {% multi_lang_include developer_guide/prerequisites/react_native.md %}
 
-## Deaktivieren des Trackings von Daten
+## Deaktivieren des Daten-Trackings {#disabling-data-tracking}
 
-Um die Datenerfassung zu deaktivieren, verwenden Sie bitte die`disableSDK`Methode. Nach dem Aufruf dieser Methode stellt das Braze SDK die Übermittlung von Daten an die Braze-Server ein.
+Um die Datenerfassung zu deaktivieren, verwenden Sie die Methode `disableSDK`. Nach dem Aufruf dieser Methode sendet das Braze SDK keine Daten mehr an die Braze-Server.
 
 ```javascript
 Braze.disableSDK();
 ```
 
-## Wiederaufnahme des Trackings von Daten
+## Daten-Tracking wieder aufnehmen {#resuming-data-tracking}
 
-Um die Datenerfassung nach der Deaktivierung wieder aufzunehmen, verwenden Sie bitte die`enableSDK`Methode.
+Um die Datenerfassung nach dem Deaktivieren wieder aufzunehmen, verwenden Sie die Methode `enableSDK`.
 
 ```javascript
 Braze.enableSDK();
 ```
 
-## Daten löschen
+## Daten löschen {#wiping-data}
 
-Um alle lokal auf dem Gerät gespeicherten Braze SDK-Daten zu löschen, verwenden Sie bitte die`wipeData`Methode. Nach dem Aufruf dieser Methode wird das SDK deaktiviert und muss wieder `enableSDK`aktiviert werden.
+Um alle lokal gespeicherten Braze-SDK-Daten auf dem Gerät zu löschen, verwenden Sie die Methode `wipeData`. Nach dem Aufruf dieser Methode ist das SDK deaktiviert und muss mit `enableSDK` wieder aktiviert werden.
 
 ```javascript
 Braze.wipeData();
 ```
 
-## Daten löschen
+## Daten sofort senden {#flushing-data}
 
-Um eine sofortige Übertragung aller ausstehenden Daten an die Braze-Server zu veranlassen, verwenden Sie `requestImmediateDataFlush`bitte .
+Um ein sofortiges Senden aller ausstehenden Daten an die Braze-Server anzufordern, verwenden Sie `requestImmediateDataFlush`.
 
 ```javascript
 Braze.requestImmediateDataFlush();
 ```
 
-## Einstellung für das Enablement der Werbe-Tracking-Funktionen
+## Aktivierung des Ad-Trackings festlegen {#setting-ad-tracking-enabled}
 
-Um Braze mitzuteilen, ob das Tracking für dieses Gerät aktiviert ist, verwenden Sie bitte die`setAdTrackingEnabled`Methode. Das SDK erfasst diese Daten nicht automatisch.
+Um Braze darüber zu informieren, ob Ad-Tracking für dieses Gerät aktiviert ist, verwenden Sie die Methode `setAdTrackingEnabled`. Das SDK erfasst diese Daten nicht automatisch.
 
 ```javascript
 Braze.setAdTrackingEnabled(true, "GOOGLE_ADVERTISING_ID");
 ```
 
-Der zweite Parameter ist die Google-Werbe-ID und wird ausschließlich auf Android-Geräten verwendet.
+Der zweite Parameter ist die Google Advertising ID und wird nur auf Android verwendet.
 
-## Update der Zulassungsliste für Tracking-Eigenschaften (nur iOS)
+## Aktualisieren der Tracking-Eigenschaft-Zulassungsliste (nur iOS) {#updating-the-tracking-property-allow-list-ios-only}
 
-Um die Liste der für das Tracking deklarierten Datentypen zu aktualisieren, verwenden Sie bitte `updateTrackingPropertyAllowList`. Dies ist auf Android nicht möglich.
+Um die Liste der für das Tracking deklarierten Datentypen zu aktualisieren, verwenden Sie `updateTrackingPropertyAllowList`. Auf Android hat dies keine Auswirkung.
 
 ```javascript
 Braze.updateTrackingPropertyAllowList({
@@ -57,4 +57,8 @@ Braze.updateTrackingPropertyAllowList({
 });
 ```
 
-Weitere Informationen referenzieren Sie im [Datenschutzmanifest]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/privacy_manifest/).
+Weitere Informationen finden Sie unter [Datenschutzmanifest]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift#swift_privacy-manifest).
+
+## Abmeldung und Push-Deregistrierung {#logout-and-unregister-push}
+
+Dieses Feature wird im React Native SDK noch nicht unterstützt.

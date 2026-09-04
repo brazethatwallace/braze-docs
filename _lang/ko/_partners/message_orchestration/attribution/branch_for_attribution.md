@@ -17,7 +17,7 @@ _이 통합은 Branch에서 유지 관리합니다._
 
 ## 통합 소개 {#about-the-integration}
 
-Braze와 Branch 통합을 통해 사용자가 언제 어디서 확보되었는지 정확히 파악하고, 강력한 기여도 분석 및 [딥링킹]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking/)을 통해 사용자 여정을 개인화하는 방법을 이해할 수 있습니다.
+Braze와 Branch 통합을 통해 사용자가 언제 어디서 확보되었는지 정확히 파악하고, 강력한 기여도 분석 및 [딥링킹]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking)을 통해 사용자 여정을 개인화하는 방법을 이해할 수 있습니다.
 
 ## 필수 조건 {#prerequisites}
 
@@ -26,7 +26,7 @@ Braze와 Branch 통합을 통해 사용자가 언제 어디서 확보되었는�
 | Branch 계정 | 이 파트너십을 활용하려면 Branch 계정이 필요합니다. |
 | iOS 또는 Android 앱 | 이 통합은 iOS 및 Android 앱을 지원합니다. 플랫폼에 따라 애플리케이션에 코드 스니펫이 필요할 수 있습니다. 이러한 요구 사항에 대한 세부 정보는 통합 프로세스의 1단계에서 확인할 수 있습니다. |
 | Branch SDK | 필수 Braze SDK 외에도 [Branch SDK](https://help.branch.io/developers-hub/docs/native-sdks-overview)를 설치해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합 {#integration}
 
@@ -84,12 +84,12 @@ braze.deviceId { deviceId in
 
 Braze에서 **파트너 통합** > **기술 파트너**로 이동하여 **Branch**를 선택합니다.
 
-여기에서 REST 엔드포인트를 확인하고 Braze 데이터 가져오기 키를 생성할 수 있습니다. 키가 생성되면 새 키를 만들거나 기존 키를 무효화할 수 있습니다. 데이터 가져오기 키와 REST 엔드포인트는 Branch 대시보드에서 포스트백을 설정할 때 다음 단계에서 사용됩니다.<br><br>![이 이미지는 Branch 기술 페이지에 있는 '설치 경로에 대한 데이터 가져오기' 상자를 보여줍니다. 이 상자에 데이터 가져오기 키와 REST 엔드포인트가 표시됩니다.]({% image_buster /assets/img/attribution/branch.png %}){: style="max-width:90%;"}
+여기에서 REST 엔드포인트를 확인하고 Braze 데이터 가져오기 키를 생성할 수 있습니다. 키가 생성되면 새 키를 만들거나 기존 키를 무효화할 수 있습니다. 데이터 가져오기 키와 REST 엔드포인트는 Branch 대시보드에서 포스트백을 설정할 때 다음 단계에서 사용됩니다.<br><br>![Branch 기술 페이지에 있는 '설치 경로에 대한 데이터 가져오기' 상자를 보여주는 이미지입니다. 이 상자에 데이터 가져오기 키와 REST 엔드포인트가 표시됩니다.]({% image_buster /assets/img/attribution/branch.png %}){: style="max-width:90%;"}
 
-### 3단계: 데이터 피드 설정 {#step-3-set-up-data-feeds}
+### 3단계: Data Feeds 설정 {#step-3-set-up-data-feeds}
 
 1. Branch에서 **Exports** 섹션 아래의 **Data Feeds**를 선택합니다.
-2. **Data Feeds Manager** 페이지에서 페이지 상단의 **Data Integrations** 탭을 선택합니다.
+2. **Data Feeds 매니저** 페이지에서 페이지 상단의 **Data Integrations** 탭을 선택합니다.
 3. 사용 가능한 데이터 파트너 목록에서 Braze를 선택합니다.
 4. Braze 내보내기 페이지에서 Braze 대시보드에서 확인한 데이터 가져오기 키와 REST 엔드포인트를 입력하고 **Enable**을 선택합니다.
 
@@ -97,7 +97,19 @@ Braze에서 **파트너 통합** > **기술 파트너**로 이동하여 **Branch
 
 Braze가 Branch로부터 기여도 데이터를 수신하면, Braze의 Branch 기술 파트너 페이지에서 연결 상태 표시기가 "Not Connected"에서 "Connected"로 변경되고 마지막으로 성공한 요청의 타임스탬프가 포함됩니다.
 
-이 상태는 Braze가 기여도 설치에 대한 데이터를 수신한 후에만 변경됩니다. Braze는 오가닉 설치를 무시하고(Branch 포스트백에서 제외) 연결 성공 여부를 판단할 때 이를 계산하지 않습니다.
+이 상태는 Braze가 기여도가 확인된 설치에 대한 데이터를 수신한 후에만 변경됩니다. Braze는 오가닉 설치를 무시하고(Branch 포스트백에서 제외) 연결 성공 여부를 판단할 때 이를 계산하지 않습니다.
+
+## 필드 매핑 {#field-mapping}
+
+Branch 기여도 필드는 다음과 같이 Braze에 매핑됩니다:
+
+| Branch 필드 | Braze 필드 |
+| --- | --- |
+| Campaign | `campaign` |
+| Channel | `source` |
+| Ad Set Name | `adgroup` |
+| Ad Name | `ad` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Branch 필드 매핑" }
 
 ## Facebook 및 X(구 Twitter) 기여도 데이터 {#facebook-and-x-formerly-twitter-attribution-data}
 
@@ -105,13 +117,13 @@ Facebook 및 X(구 Twitter) Campaign의 기여도 데이터는 파트너를 통�
 
 ## Braze에서 Branch 클릭 추적 URL 사용(선택 사항) {#branch-click-tracking-urls-in-braze-optional}
 
-Braze Campaign에서 클릭 추적 링크를 사용하면 어떤 Campaign이 앱 설치 및 재참여를 유도하는지 쉽게 확인할 수 있습니다. 그 결과 마케팅 활동을 더 효과적으로 측정하고, 최대 ROI를 위해 어디에 더 많은 리소스를 투자할지 데이터 중심의 의사결정을 내릴 수 있습니다.
+Braze Campaigns에서 클릭 추적 링크를 사용하면 어떤 Campaigns가 앱 설치 및 재참여를 유도하는지 쉽게 확인할 수 있습니다. 그 결과 마케팅 활동을 더 효과적으로 측정하고, 최대 ROI를 위해 어디에 더 많은 리소스를 투자할지 데이터 중심의 의사결정을 내릴 수 있습니다.
 
-Branch 클릭 추적 링크를 시작하려면 해당 [설명서](https://help.branch.io/using-branch/docs/ad-links)를 방문하세요. Branch 클릭 추적 링크를 Braze Campaign에 직접 삽입할 수 있습니다. 그러면 Branch는 [확률적 기여도 분석 방법론](https://help.branch.io/using-branch/docs/branch-attribution-logic-settings)을 사용하여 링크를 클릭한 사용자를 기여도 분석합니다. Braze Campaign에서 기여도 분석의 정확도를 높이기 위해 Branch 추적 링크에 기기 식별자를 추가하는 것을 권장합니다. 이렇게 하면 링크를 클릭한 사용자를 결정론적으로 기여도 분석할 수 있습니다.
+Branch 클릭 추적 링크를 시작하려면 해당 [설명서](https://help.branch.io/using-branch/docs/ad-links)를 방문하세요. Branch 클릭 추적 링크를 Braze Campaigns에 직접 삽입할 수 있습니다. 그러면 Branch는 [확률적 기여도 분석 방법론](https://help.branch.io/using-branch/docs/branch-attribution-logic-settings)을 사용하여 링크를 클릭한 사용자를 기여도 분석합니다. Braze Campaigns에서 기여도 분석의 정확도를 높이기 위해 Branch 추적 링크에 기기 식별자를 추가하는 것을 권장합니다. 이렇게 하면 링크를 클릭한 사용자를 결정론적으로 기여도 분석할 수 있습니다.
 
 {% tabs local %}
 {% tab Android %}
-Android의 경우 Braze는 고객이 [Google 광고 ID 수집(GAID)]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/optional_gaid_collection/#optional-google-advertising-id)에 옵트인할 수 있도록 합니다. GAID는 Branch SDK 통합을 통해서도 네이티브로 수집됩니다. 다음 Liquid 로직을 활용하여 Branch 클릭 추적 링크에 GAID를 포함할 수 있습니다:
+Android의 경우 Braze는 고객이 [Google 광고 ID 수집(GAID)]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/optional_gaid_collection#optional-google-advertising-id)에 옵트인할 수 있도록 합니다. GAID는 Branch SDK 통합을 통해서도 네이티브로 수집됩니다. 다음 Liquid 로직을 활용하여 Branch 클릭 추적 링크에 GAID를 포함할 수 있습니다:
 {% raw %}
 ```
 {% if most_recently_used_device.${platform} == 'android' %}

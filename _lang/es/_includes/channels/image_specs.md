@@ -3,7 +3,7 @@
 
 | Diseño | Comportamiento |
 | --- | --- |
-| Imagen y texto | Las imágenes altas o estrechas se reducirán y se centrarán horizontalmente. Las imágenes anchas se recortarán por los bordes izquierdo y derecho. |
+| Imagen y texto | Las imágenes altas o estrechas se reducirán y se centrarán horizontalmente. Las imágenes anchas se recortarán por los bordes horizontales. |
 | Solo imagen | El mensaje cambiará de tamaño para adaptarse a imágenes de la mayoría de las relaciones de aspecto. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Tabla" }
 
@@ -30,26 +30,30 @@ Aunque no hay límites en cuanto al número de caracteres de texto que puedes in
 
 Todos los mensajes dentro de la aplicación tienen un tamaño de imagen recomendado de 500 KB, un tamaño máximo de 5 MB y admiten los tipos de archivo PNG, JPEG y GIF. Las imágenes WebP no son compatibles con todos los dispositivos o navegadores; recomendamos convertir las imágenes WebP a PNG o JPEG antes de añadirlas a los mensajes dentro de la aplicación.
 
+{% alert note %}
+Las imágenes SVG no son compatibles con los mensajes dentro de la aplicación porque no se renderizan de forma fiable en todas las plataformas. Usa PNG, JPEG o GIF en su lugar.
+{% endalert %}
+
 {% tabs %}
-{% tab Portrait %}
+{% tab Retrato %}
 
 | Tipo | Relación de aspecto | Calidad de imagen | Notas |
 | --- | --- | --- | --- |
-| Retrato a pantalla completa con texto | 6:5 | Alta resolución 1200 x 1000 px <br>Resolución mínima 600 x 500 px | Se puede recortar por todos los lados, pero la imagen siempre ocupará el 50% superior de la ventana. |
-| Retrato a pantalla completa (solo imagen, con o sin botones) | 3:5 | Alta resolución 1200 x 2000 px <br> Resolución mínima 600 x 1000 px | El recorte puede producirse en los bordes izquierdo y derecho en los dispositivos más altos. |
+| Retrato a pantalla completa con texto | 6:5 | Alta resolución 1200 x 1000 px <br>Resolución mínima 600 x 500 px | Se puede recortar por todos los lados, pero la imagen siempre ocupará el 50 % superior de la ventana. |
+| Retrato a pantalla completa (solo imagen, con o sin botones) | 3:5 | Alta resolución 1200 x 2000 px <br> Resolución mínima 600 x 1000 px | El recorte puede producirse en los bordes horizontales en los dispositivos más altos. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Tabla" }
 
 {% endtab %}
-{% tab Landscape %}
+{% tab Paisaje %}
 
 | Tipo | Relación de aspecto | Calidad de imagen | Notas |
 | --- | --- | --- | --- |
-| Pantalla completa apaisada con texto | 10:3 | Alta resolución 2000 x 600 px <br>Resolución mínima 1000 x 300 px | Se puede recortar por todos los lados, pero la imagen siempre ocupará el 50% superior de la ventana. |
-| Pantalla completa apaisada (solo imagen, con o sin botones) | 5:3 | Alta resolución 2000 x 600 px <br> Resolución mínima 1000 x 600 px | El recorte puede producirse en los bordes izquierdo y derecho en los dispositivos más altos. |
+| Pantalla completa apaisada con texto | 10:3 | Alta resolución 2000 x 600 px <br>Resolución mínima 1000 x 300 px | Se puede recortar por todos los lados, pero la imagen siempre ocupará el 50 % superior de la ventana. |
+| Pantalla completa apaisada (solo imagen, con o sin botones) | 5:3 | Alta resolución 2000 x 600 px <br> Resolución mínima 1000 x 600 px | El recorte puede producirse en los bordes horizontales en los dispositivos más altos. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Tabla" }
 
 {% endtab %}
-{% tab Slideup %}
+{% tab Deslizamiento hacia arriba %}
 
 | Tipo | Relación de aspecto | Calidad de imagen | Notas |
 | --- | --- | --- | --- |
@@ -61,12 +65,16 @@ Todos los mensajes dentro de la aplicación tienen un tamaño de imagen recomend
 
 | Tipo | Relación de aspecto | Calidad de imagen | Notas |
 | --- | --- | --- | --- |
-| Modal (solo imagen) | 1:1 | Resolución máxima recomendada: 1200 x 2000 px <br> Resolución mínima: 600 x 600 px | El mensaje cambiará de tamaño para adaptarse a imágenes de la mayoría de las relaciones de aspecto. La resolución máxima recomendada tiene una relación de aspecto de 3:5, lo que puede no proporcionar resultados óptimos. Aunque las imágenes más grandes son utilizables, pueden provocar tiempos de carga más largos. <br> La relación de aspecto ideal para las imágenes es 1:1, y si no se cumple esta relación, puede aparecer una advertencia durante la carga. Esta advertencia es una sugerencia para obtener mejores resultados y no impide la carga de imágenes más grandes. |
-| Modal con texto | 29:10 | Alta resolución 1450 x 500 px <br> Resolución mínima 600 x 205 px | Las imágenes altas se reducirán y se centrarán horizontalmente. Las imágenes anchas se recortarán por los bordes izquierdo y derecho. |
+| Modal (solo imagen) | 1:1 | Resolución máxima recomendada: 1200 x 2000 px <br> Resolución mínima: 600 x 600 px | El mensaje cambiará de tamaño para adaptarse a imágenes de la mayoría de las relaciones de aspecto. La resolución máxima recomendada tiene una relación de aspecto de 3:5, lo que puede no proporcionar resultados óptimos. Aunque las imágenes más grandes son utilizables, pueden provocar tiempos de carga más largos. <br> La relación de aspecto ideal para las imágenes es 1:1, y si no se cumple esta relación, puede aparecer una advertencia durante la subida. Esta advertencia es una sugerencia para obtener mejores resultados y no impide la subida de imágenes más grandes. |
+| Modal con texto | 29:10 | Alta resolución 1450 x 500 px <br> Resolución mínima 600 x 205 px | Las imágenes altas se reducirán y se centrarán horizontalmente. Las imágenes anchas se recortarán por los bordes horizontales. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Tabla" }
 
 {% endtab %}
 {% endtabs %}
+
+{% alert tip %}
+El renderizado de los mensajes dentro de la aplicación en el SDK Web puede verse afectado por la configuración personalizada del tamaño de texto del navegador. Los usuarios con escalado personalizado del tamaño de texto pueden experimentar problemas menores de renderizado, como un espacio de 1 px a lo largo del borde de una imagen modal. Al previsualizar y probar los mensajes dentro de la aplicación, recomendamos usar la configuración predeterminada del tamaño de texto del navegador para obtener la representación más precisa.
+{% endalert %}
 
 {% endif %}
 
@@ -173,7 +181,21 @@ table td {
 | Banner    | Cualquier relación de aspecto | 600&nbsp;px de anchura mínima |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tabla" }
 
-Para más información, consulta [Detalles creativos de Content Cards]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details).
+Para más información, consulta [Detalles creativos de Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/creative_details).
+
+{% endif %}
+
+{% if include.variable_name == "sms and mms" %}
+
+Los mensajes MMS admiten una sola imagen por mensaje. Solo los grupos de suscripción habilitados para MMS pueden enviar imágenes.
+
+| Propiedad | Recomendación |
+| --- | --- |
+| Tamaño | 600&nbsp;KB o menos para una entrega fiable por parte del operador. El creador bloquea las subidas superiores a 1&nbsp;MB. |
+| Tipos de archivo | PNG, JPEG, GIF |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SMS y MMS" }
+
+Para conocer los límites de tamaño de archivo y rendimiento del operador, consulta [Límites y rendimiento de los mensajes MMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup#mms-message-limits-and-throughput).
 
 {% endif %}
 

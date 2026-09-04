@@ -222,14 +222,6 @@ To read the current cached state without blocking the calling thread, use the fo
 
 {% tab react native %}
 
-To get the Content Card data, use the `getContentCards` method:
-
-```javascript
-import Braze from "@braze/react-native-sdk";
-
-const cards = await Braze.getContentCards();
-```
-
 To listen for updates, subscribe to Content Card update events:
 
 ```javascript
@@ -245,16 +237,18 @@ const subscription = Braze.addListener(Braze.Events.CONTENT_CARDS_UPDATED, (upda
 });
 ```
 
+To get the most recently cached Content Card data:
+
+```javascript
+import Braze from "@braze/react-native-sdk";
+
+const cachedCards = await Braze.getCachedContentCards();
+```
+
 To request a manual refresh of Content Cards from Braze servers:
 
 ```javascript
 Braze.requestContentCardsRefresh();
-```
-
-To get cached Content Cards without a network request:
-
-```javascript
-const cachedCards = await Braze.getCachedContentCards();
 ```
 
 {% endtab %}
@@ -441,12 +435,33 @@ If you don't call `handleBrazeAction()`, on-click behaviors configured in the Br
 {% endtab %}
 {% tab android %}
 
-On-click behavior is handled automatically by the default Content Cards UI. For custom implementations, use the [`IContentCardsActionListener`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.listeners/-i-content-cards-action-listener/index.html) interface described in the [Logging analytics](#logging-analytics) section.
+On-click behavior is handled automatically by the default Content Cards UI. For custom implementations, use the [`IContentCardsActionListener`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.listeners/-i-content-cards-action-listener/index.html) interface described in **Logging analytics**.
 
 {% endtab %}
 {% tab swift %}
 
-On-click behavior is handled automatically by the default Content Cards UI. For custom implementations, use the [`BrazeContentCardUIViewControllerDelegate`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazecontentcarduiviewcontrollerdelegate) protocol described in the [Logging analytics](#logging-analytics) section.
+On-click behavior is handled automatically by the default Content Cards UI. For custom implementations, use the [`BrazeContentCardUIViewControllerDelegate`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazecontentcarduiviewcontrollerdelegate) protocol described in **Logging analytics**.
+
+{% endtab %}
+{% tab React Native %}
+
+When a user clicks a Content Card in a custom feed, the on-click behavior is not handled automatically. After logging the click with `Braze.logContentCardClicked(cardId)`, call `Braze.processContentCardClickAction(cardId)` to process deep links, URLs, and `brazeActions://` actions. For method reference, see [React Native Content Cards]({{site.baseurl}}/developer_guide/content_cards/?sdktab=react%20native).
+
+```javascript
+import Braze from "@braze/react-native-sdk";
+
+function onCardPress(card) {
+  Braze.logContentCardClicked(card.id);
+
+  if (card.url) {
+    Braze.processContentCardClickAction(card.id);
+  }
+}
+```
+
+{% alert important %}
+If you don't call `processContentCardClickAction()`, on-click behaviors configured in the Braze dashboard won't execute for cards in a custom feed.
+{% endalert %}
 
 {% endtab %}
 {% endtabs %}

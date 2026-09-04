@@ -36,17 +36,17 @@ Na Braze, uma das condições de corrida mais comuns ocorre com mensagens direci
 
 No entanto, em alguns casos, o segundo evento é disparado primeiro. Isso significa que uma mensagem tenta ser enviada a um usuário que ainda não existe. Como resultado, o usuário nunca a recebe. Isso também se aplica a eventos ou atributos, em que o evento ou atributo tenta ser registrado em um perfil de usuário que ainda não foi criado.
 
-No caso de mensagens no app, a mensagem no app precisa ser carregada no dispositivo do usuário antes de ser disparada. Se o evento de gatilho faz parte do processo de integração, ou se o usuário sai do segmento para o evento personalizado como parte de sua primeira sessão, é provável que o usuário não veja a mensagem no app.
+No caso de mensagens no app, a mensagem no app precisa ser carregada no dispositivo do usuário antes de ser disparada. Se o evento de gatilho faz parte do processo de integração, ou se o usuário sai do Segment para o evento personalizado como parte de sua primeira sessão, é provável que o usuário não veja a mensagem no app.
 
 ### Mensagens no app {#in-app-messages}
 
-Com mensagens no app, a situação pode ser mais complexa. Uma mensagem no app precisa ser entregue e armazenada em cache no SDK — normalmente no início de uma sessão — antes de poder ser disparada. Se o evento de gatilho faz parte do processo de criação do usuário, ou se a Campaign de mensagem no app é entregue antes de o usuário atender (ou depois de não mais atender) aos critérios de público durante sua primeira sessão, ele pode não ver a mensagem no app.
+Com mensagens no app, a situação pode ser mais complexa. Uma mensagem no app precisa ser entregue e armazenada em cache no SDK — normalmente no início de uma sessão — antes de poder ser disparada. Se o evento de gatilho faz parte do processo de criação do usuário, ou se a campanha de mensagem no app é entregue antes de o usuário atender (ou depois de não mais atender) aos critérios de público durante sua primeira sessão, ele pode não ver a mensagem no app.
 
 ### Práticas recomendadas {#best-practices}
 
 #### Introduza postergações {#introduce-delays}
 
-Depois que um novo usuário é criado, você pode adicionar uma postergação antes de enviar qualquer Campaign ou Canvas direcionado. Essa postergação permite que o perfil do usuário seja criado e que quaisquer atributos relevantes sejam atualizados, o que pode determinar sua elegibilidade para receber a mensagem.
+Depois que um novo usuário é criado, você pode adicionar uma postergação antes de enviar qualquer campanha ou Canvas direcionado. Essa postergação permite que o perfil do usuário seja criado e que quaisquer atributos relevantes sejam atualizados, o que pode determinar sua elegibilidade para receber a mensagem.
 
 Por exemplo, depois que um usuário se registra no seu app, você pode enviar uma oferta promocional após 24 horas. Ou, se você está criando um usuário ou registrando um atributo personalizado, pode adicionar uma postergação de um minuto antes de prosseguir no seu processo para evitar essa condição de corrida.
 
@@ -60,7 +60,7 @@ Usamos processamento assíncrono para maximizar a velocidade e a flexibilidade. 
 
 Existem alguns cenários em que múltiplos endpoints de API também podem resultar nessa condição de corrida, como quando:
 
-- Endpoints de API separados são usados para criar usuários e disparar Canvas ou Campaigns
+- Endpoints de API separados são usados para criar usuários e disparar Canvas ou campanhas
 - Múltiplas chamadas separadas são feitas ao endpoint `/users/track` para atualizar atributos personalizados, eventos ou compras
 
 Quando informações de usuários são enviadas à Braze usando o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), pode levar alguns segundos para o processamento. Isso significa que, quando solicitações são feitas simultaneamente aos endpoints `/users/track` e de envio de mensagens como `/campaign/trigger/send`, não há garantia de que as informações do usuário sejam atualizadas antes de uma mensagem ser enviada.
@@ -91,21 +91,21 @@ Use o [endpoint `/users/track/sync/`]({{site.baseurl}}/api/endpoints/user_data/p
 
 ## Cenário 3: Correspondência entre gatilhos baseados em ação e filtros de público {#scenario-3-matching-action-based-triggers-and-audience-filters}
 
-Outra condição de corrida comum pode ocorrer se você configurar uma Campaign ou Canvas baseado em ação com o mesmo gatilho do filtro de público (como um atributo alterado ou um evento personalizado realizado). O usuário pode não estar no público no momento em que realiza o evento de gatilho, o que significa que ele não receberá a Campaign nem entrará no Canvas.
+Outra condição de corrida comum pode ocorrer se você configurar uma campanha ou Canvas baseado em ação com o mesmo gatilho do filtro de público (como um atributo alterado ou um evento personalizado realizado). O usuário pode não estar no público no momento em que realiza o evento de gatilho, o que significa que ele não receberá a campanha nem entrará no Canvas.
 
 ### Práticas recomendadas
 
 #### Verifique seu público após uma postergação {#check-your-audience-after-a-delay}
 
-Para evitar o uso de filtros de público que contenham os critérios de gatilho, recomendamos verificar seu público antes da entrega. Por exemplo, você pode [usar validações de entrega]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#edit-delivery-settings) nas etapas de Mensagem do Canvas como uma verificação adicional para confirmar que seu público atende aos critérios de entrega no momento do envio da mensagem. Você também pode aproveitar os critérios de saída do Canvas para remover qualquer usuário em qualquer ponto da jornada se ele atender aos seus critérios.
+Para evitar o uso de filtros de público que contenham os critérios de gatilho, recomendamos verificar seu público antes da entrega. Por exemplo, você pode [usar validações de entrega]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#step-2-edit-delivery-settings) nas etapas de Mensagem do Canvas como uma verificação adicional para confirmar que seu público atende aos critérios de entrega no momento do envio da mensagem. Você também pode aproveitar os critérios de saída do Canvas para remover qualquer usuário em qualquer ponto da jornada se ele atender aos seus critérios.
 
-Para Campaigns, você pode usar eventos de saída para permitir que Campaigns com um evento de gatilho cancelem mensagens para usuários que realizem o evento de saída enquanto estiverem na postergação.
+Para campanhas, você pode usar eventos de saída para permitir que campanhas com um evento de gatilho cancelem mensagens para usuários que realizem o evento de saída enquanto estiverem na postergação.
 
 #### Use filtros exclusivos com o evento de gatilho {#use-unique-filters-with-the-trigger-event}
 
 Ao configurar seus filtros, você pode querer adicionar um filtro redundante "por precaução". No entanto, essa redundância pode causar mais problemas. Em vez disso, evite usar qualquer filtro que contenha o gatilho quando possível. Essa é a rota mais segura para evitar uma condição de corrida.
 
-Por exemplo, se o gatilho da sua Campaign é "Fez uma compra" e seu filtro de público é "Fez qualquer compra", essa redundância pode causar uma condição de corrida.
+Por exemplo, se o gatilho da sua campanha é "Fez uma compra" e seu filtro de público é "Fez qualquer compra", essa redundância pode causar uma condição de corrida.
 
 #### Evite filtros de público que assumam que o evento de gatilho foi atualizado {#avoid-audience-filters-that-assume-the-trigger-event-has-been-updated}
 
@@ -113,9 +113,9 @@ Essa prática recomendada é semelhante a evitar filtros redundantes com o event
 
 #### Use aborts de Liquid (somente atributos) {#use-liquid-aborts-attributes-only}
 
-Em Campaigns e etapas do Canvas, use aborts de Liquid para evitar o uso de filtros de público que contenham os atributos de gatilho no cronograma de entrada. Por exemplo, digamos que você tenha um atributo de array "cores favoritas" e queira direcionar qualquer usuário que atualize o array de atributos com qualquer valor e que também tenha a cor "azul" no array após a conclusão da atualização. Se você usar os filtros de público neste exemplo, encontrará uma condição de corrida e perderá usuários que estão adicionando "azul" no array pela primeira vez.
+Em campanhas e etapas do Canvas, use aborts de Liquid para evitar o uso de filtros de público que contenham os atributos de gatilho no cronograma de entrada. Por exemplo, digamos que você tenha um atributo de array "cores favoritas" e queira direcionar qualquer usuário que atualize o array de atributos com qualquer valor e que também tenha a cor "azul" no array após a conclusão da atualização. Se você usar os filtros de público neste exemplo, encontrará uma condição de corrida e perderá usuários que estão adicionando "azul" no array pela primeira vez.
 
-Nesse caso, você pode implementar uma postergação de gatilho em uma Campaign ou usar uma etapa de postergação no Canvas para permitir que o perfil do usuário seja atualizado por um período de tempo, e então usar a seguinte lógica de abort de Liquid:
+Nesse caso, você pode implementar uma postergação de gatilho em uma campanha ou usar uma etapa de postergação no Canvas para permitir que o perfil do usuário seja atualizado por um período de tempo, e então usar a seguinte lógica de abort de Liquid:
 
 {% raw %}
 ```liquid
@@ -132,7 +132,7 @@ Se houver uma condição de corrida durante a avaliação de entrada do Canvas, 
 
 Se um usuário dispara o evento de entrada do Canvas várias vezes dentro do mesmo segundo, a Braze permite apenas uma entrada para aquele segundo (mesmo que a reentrada esteja ativada). Isso evita entradas duplicadas, então o número total de entradas no Canvas pode ser menor do que o total de eventos de gatilho.
 
-Recomendamos confirmar como os dados de usuários são gerenciados e atualizados, especificamente quando e como atributos específicos são atualizados, como por SDK, API, API em lote e outros métodos. Isso pode ajudar a identificar e esclarecer por que um usuário entrou em uma Campaign ou Canvas em comparação com quando o perfil do usuário foi atualizado.
+Recomendamos confirmar como os dados de usuários são gerenciados e atualizados, especificamente quando e como atributos específicos são atualizados, como por SDK, API, API em lote e outros métodos. Isso pode ajudar a identificar e esclarecer por que um usuário entrou em uma campanha ou Canvas em comparação com quando o perfil do usuário foi atualizado.
 
 ## Cenário 4: Usando o gatilho "Interagir com etapa" {#scenario-4-using-the-interact-with-step-trigger}
 
@@ -150,4 +150,4 @@ Evite depender de "Interagir com etapa" imediatamente após uma etapa de Mensage
 
 #### Evite ramificações que dependam da interação {#avoid-branches-that-are-dependent-on-interaction}
 
-Projete seu Canvas de modo que a perda de uma interação imediata não prejudique a experiência do usuário. Por exemplo, evite decisões críticas de ramificação que dependam exclusivamente de a interação ser capturada na próxima etapa, ou adicione lógica de acompanhamento que possa corrigir as rotas dos usuários.
+Projete seu Canvas de modo que a perda de uma interação imediata não prejudique a experiência do usuário. Por exemplo, evite decisões críticas de Branch que dependam exclusivamente de a interação ser capturada na próxima etapa, ou adicione lógica de acompanhamento que possa corrigir as rotas dos usuários.

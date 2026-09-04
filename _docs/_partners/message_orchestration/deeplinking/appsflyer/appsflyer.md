@@ -5,7 +5,6 @@ alias: /partners/appsflyer/
 description: "This reference article outlines the partnership between Braze and AppsFlyer, a mobile marketing analytics and attribution platform that helps you analyze and optimize your apps."
 page_type: partner
 search_tag: Partner
-
 ---
 
 # AppsFlyer
@@ -26,7 +25,7 @@ You can also pass your AppsFlyer audiences (cohorts) directly to Braze with the 
 | iOS or Android app | This integration supports iOS and Android apps. Depending on your platform, code snippets may be required in your application. Details on these requirements can be found in step 1 of the integration process. |
 | AppsFlyer SDK | In addition to the required Braze SDK, you must install the [AppsFlyer SDK](https://dev.appsflyer.com/hc/docs/getting-started).
 | Email domain setup complete | You must have completed the [IP and domain setup step]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/) of setting up your email during Braze onboarding. |
-| SSL certificate | Your [SSL certificate]({{site.baseurl}}/user_guide/message_building_by_channel/email/email_setup/ssl#acquiring-an-ssl-certificate) must be configured. |
+| SSL certificate | Your [SSL certificate]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate) must be configured. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
@@ -154,7 +153,7 @@ AppsFlyer provides a [service](https://support.appsflyer.com/hc/en-us/articles/2
 
 ## Step 1 - Create a Click Tracking Domain 
 
-Following the initial elements of [Braze’s Email set-up guidance]({{site.baseurl}}/user_guide/message_building_by_channel/email/email_setup/ssl/#acquiring-an-ssl-certificate), create an email sending domain and a click tracking domain. For support, you can raise a ticket via the Braze Dashboard to initiate setup for the new CTD with the Braze Email team.
+Following the initial elements of [Braze’s Email set-up guidance]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate), create an email sending domain and a click tracking domain. For support, you can raise a ticket via the Braze Dashboard to initiate setup for the new CTD with the Braze Email team.
 
 ![Braze UI showing the “Get Help” button under the “Support” button in the top navigation bar.]({% image_buster /assets/img/attribution/appsflyer/1.png %})
 
@@ -219,7 +218,7 @@ Appsflyer [offers guidance](https://support.appsflyer.com/hc/en-us/articles/2696
 
 ## Step 5: Confirm SSL Click-tracking is enabled with Braze
 
-At this stage, after you share and validate the CTD details in Appsflyer, we recommend performing a test send to confirm if your Onelink sending domain has an SSL certificate. This is in line with our [Email Setup]({{site.baseurl}}/user_guide/message_building_by_channel/email/email_setup/ssl/#acquiring-an-ssl-certificate) guide.
+At this stage, after you share and validate the CTD details in Appsflyer, we recommend performing a test send to confirm if your Onelink sending domain has an SSL certificate. This is in line with our [Email Setup]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate) guide.
 
 You can perform quality assurance and troubleshooting by sending a deep link using OneLink. See the [AppsFlyer documentation](https://support.appsflyer.com/hc/en-us/articles/360001437497-Integrating-AppsFlyer-and-Braze#step-3-sending-your-first-email::2ffdb79a) for details on using OneLink.
 

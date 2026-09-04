@@ -7,7 +7,7 @@ description: "Cet article contient les notes de version de mai 2018."
 ---
 # Mai 2018
 
-## Mise à jour Authentification unique Okta (SSO)
+## Mise à jour Authentification unique Okta (authentification unique)
 
 Si votre entreprise utilise Okta, votre administrateur Okta peut installer l’application Braze depuis le réseau d’applications Okta. Il doit ensuite mettre le certificat Okta sur la page Paramètres de l'entreprise de l’application Braze, à l’endroit approprié sur l’onglet Paramètres de sécurité.
 

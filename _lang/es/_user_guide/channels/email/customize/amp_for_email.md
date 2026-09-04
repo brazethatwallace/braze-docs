@@ -1,33 +1,33 @@
 ---
-nav_title: "AMP para correo electrónico"
-article_title: "AMP para correo electrónico"
+nav_title: "páginas móviles aceleradas para correo electrónico"
+article_title: "páginas móviles aceleradas para correo electrónico"
 alias: /amphtml/
 page_order: 11
-description: "Este artículo de referencia ofrece un resumen de AMP para correo electrónico y casos de uso comunes."
+description: "Este artículo de referencia ofrece un resumen de páginas móviles aceleradas para correo electrónico y casos de uso comunes."
 channel:
   - email
 
 ---
 
-# AMP para correo electrónico {#amp-for-email}
+# páginas móviles aceleradas para correo electrónico {#amp-for-email}
 
-> Con [AMP para correo electrónico](https://amp.dev/about/email), puedes añadir elementos interactivos a tus correos electrónicos y mejorar las comunicaciones con tus clientes, ofreciendo una experiencia completa directamente en el buzón de entrada de tu usuario. AMP lo hace posible mediante el uso de varios componentes que pueden utilizarse para crear ofertas de correo electrónico atractivas, como cuestionarios, formularios de opinión, campañas de votación, reseñas, centros de suscripción y mucho más. Herramientas como estas pueden ofrecer oportunidades para aumentar la interacción y la retención.
+> Con [páginas móviles aceleradas para correo electrónico](https://amp.dev/about/email), puedes añadir elementos interactivos a tus correos electrónicos y mejorar las comunicaciones con tus clientes, ofreciendo una experiencia completa directamente en el buzón de entrada de tu usuario. páginas móviles aceleradas lo hace posible mediante el uso de varios componentes que pueden utilizarse para crear ofertas de correo electrónico atractivas, como cuestionarios, formularios de opinión, campañas de votación, reseñas, centros de suscripción y mucho más. Herramientas como estas pueden ofrecer oportunidades para aumentar la participación y la retención.
 
 ## Requisitos {#requirements}
 
-Braze no es responsable de que los usuarios se registren en Google ni de que cumplan los requisitos de seguridad necesarios. AMP para correo electrónico solo está disponible para SparkPost y SendGrid.
+Braze no es responsable de que los usuarios se registren en Google ni de que cumplan los requisitos de seguridad necesarios. páginas móviles aceleradas para correo electrónico solo está disponible para SparkPost y SendGrid.
 
 | Requisito   | Descripción |
 | --------------| ----------- |
-| AMP para correo electrónico activado | AMP está disponible para todos los usuarios. |
+| páginas móviles aceleradas para correo electrónico activado | páginas móviles aceleradas está disponible para todos los usuarios. |
 | Habilitación de cuenta de Gmail | Consulta [Habilitar cuenta de Gmail](#enabling-gmail-account). |
-| Autenticación de remitente de Google | Gmail [autentica al remitente](https://developers.google.com/gmail/ampemail/security-requirements#sender_authentication) de los correos electrónicos AMP con DKIM, SPF y DMARC. Estos deben estar configurados para tu cuenta. <br><br>- [Domain Keys Identified Mail](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) (DKIM) <br>- [Sender Policy Framework](https://en.wikipedia.org/wiki/Sender_Policy_Framework)(SPF)<br>- [Domain-based Message Authentication, Reporting, and Conformance](https://en.wikipedia.org/wiki/DMARC)(DMARC)
-| Elementos de correo electrónico AMP | Un correo electrónico AMP atractivo incluye el uso estratégico de varios componentes. Consulta la pestaña Esenciales en la sección [Componentes](#components) a continuación. |
+| Autenticación de remitente de Google | Gmail [autentica al remitente](https://developers.google.com/gmail/ampemail/security-requirements#sender_authentication) de los correos electrónicos páginas móviles aceleradas con DKIM, SPF y DMARC. Estos deben estar configurados para tu cuenta. <br><br>- [Domain Keys Identified Mail](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) (DKIM) <br>- [Sender Policy Framework](https://en.wikipedia.org/wiki/Sender_Policy_Framework)(SPF)<br>- [Domain-based Message Authentication, Reporting, and Conformance](https://en.wikipedia.org/wiki/DMARC)(DMARC)
+| Elementos de correo electrónico páginas móviles aceleradas | Un correo electrónico páginas móviles aceleradas atractivo incluye el uso estratégico de varios componentes. Consulta la pestaña Esenciales en la sección [Componentes](#components). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos" }
 
 ### Clientes de correo electrónico compatibles {#supported-email-clients}
 
-Antes de poder enviar correos electrónicos AMP a los usuarios, debes registrarte con nuestros clientes de correo electrónico. El proceso de registro implica enviar un correo electrónico de prueba en AMP HTML para obtener la aprobación. Los tiempos de aprobación varían según el cliente. Sigue los enlaces de registro para obtener más información.
+Antes de poder enviar correos electrónicos páginas móviles aceleradas a los usuarios, debes registrarte con nuestros clientes de correo electrónico. El proceso de registro implica enviar un correo electrónico de prueba en páginas móviles aceleradas HTML para obtener la aprobación. Los tiempos de aprobación varían según el cliente. Sigue los enlaces de registro para obtener más información.
 
 | Cliente | Enlace de registro |
 | ------ | -------- |
@@ -37,11 +37,11 @@ Antes de poder enviar correos electrónicos AMP a los usuarios, debes registrart
 | Mail.ru | [Mail.ru](https://postmaster.mail.ru/amp/) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Clientes de correo electrónico compatibles" }
 
-Para obtener una lista completa de clientes de correo electrónico compatibles, consulta la [documentación de AMP](https://amp.dev/support/faq/email-support).
+Para obtener una lista completa de clientes de correo electrónico compatibles, consulta la [documentación de páginas móviles aceleradas](https://amp.dev/support/faq/email-support).
 
 #### Envío a proveedores no registrados {#send-to-unregistered-providers}
 
-Si envías un correo electrónico AMP a proveedores como Yahoo o Mail.ru antes de completar su proceso de registro, esos proveedores ignoran la parte AMP del correo electrónico y muestran la versión alternativa en HTML o texto plano. La parte AMP en sí no causa problemas de capacidad de entrega para remitentes no registrados.
+Si envías un correo electrónico páginas móviles aceleradas a proveedores como Yahoo o Mail.ru antes de completar su proceso de registro, esos proveedores ignoran la parte páginas móviles aceleradas del correo electrónico y muestran la versión alternativa en HTML o texto plano. La parte páginas móviles aceleradas en sí no causa problemas de capacidad de entrega para remitentes no registrados.
 
 ### Habilitar cuenta de Gmail {#enabling-gmail-account}
 
@@ -51,7 +51,7 @@ Ve a la configuración de Gmail y selecciona **Enable dynamic email** en la pest
 
 ## Uso de la API {#api-usage}
 
-También puedes usar AMP para correo electrónico con nuestra API. Si utilizas cualquiera de los [puntos de conexión de mensajería]({{site.baseurl}}/api/endpoints/messaging) de Braze para enviar un correo electrónico, añade `amp_body` como especificación de objeto como se muestra a continuación.
+También puedes usar páginas móviles aceleradas para correo electrónico con nuestra API. Si utilizas cualquiera de los [endpoints de mensajería]({{site.baseurl}}/api/endpoints/messaging) de Braze para enviar un correo electrónico, añade `amp_body` como especificación de objeto como se muestra en la siguiente sección.
 
 ### Especificación del objeto de correo electrónico {#email-object-specification}
 
@@ -74,36 +74,36 @@ También puedes usar AMP para correo electrónico con nuestra API. Si utilizas c
 }
 ```
 
-## Crear tu correo electrónico AMP {#create-your-amp-email}
+## Crear tu correo electrónico páginas móviles aceleradas {#create-your-amp-email}
 
-Primero, crea tu correo electrónico AMP usando [componentes](#components). A continuación, usa la [API de Braze](#api-usage) para enviar tu mensaje, asegurándote de incluir `amp_body` para tu AMP HTML.
+Primero, crea tu correo electrónico páginas móviles aceleradas usando [componentes](#components). A continuación, usa la [API de Braze](#api-usage) para enviar tu mensaje, asegurándote de incluir `amp_body` para tu páginas móviles aceleradas HTML.
 
-Además del AMP HTML, requerimos una versión HTML regular del `body` y sugerimos una versión `plaintext_body` de tu correo electrónico AMP. Todos los correos electrónicos AMP se envían en formato multipart, lo que significa que Braze envía un correo electrónico que admite HTML, texto plano y AMP HTML. Esto resulta útil en caso de que tu correo electrónico se envíe a través de un proveedor que aún no admita AMP para correo electrónico, ya que el correo electrónico se ajustará automáticamente a la versión apropiada según el usuario y su dispositivo.
+Además del páginas móviles aceleradas HTML, requerimos una versión HTML regular del `body` y sugerimos una versión `plaintext_body` de tu correo electrónico páginas móviles aceleradas. Todos los correos electrónicos páginas móviles aceleradas se envían en formato multipart, lo que significa que Braze envía un correo electrónico que admite HTML, texto plano y páginas móviles aceleradas HTML. Esto resulta útil en caso de que tu correo electrónico se envíe a través de un proveedor que aún no admita páginas móviles aceleradas para correo electrónico, ya que el correo electrónico se ajustará automáticamente a la versión apropiada según el usuario y su dispositivo.
 
 {% alert note %}
-Cuando estés creando un correo electrónico AMP, comprueba que estás en el editor AMP, ya que el código AMP no debe añadirse al editor HTML.
+Cuando estés creando un correo electrónico páginas móviles aceleradas, comprueba que estás en el editor páginas móviles aceleradas, ya que el código páginas móviles aceleradas no debe añadirse al editor HTML.
 {% endalert %}
 
 Consulta estos recursos adicionales:
 
-- [Tutorial de AMP](https://amp.dev/documentation/guides-and-tutorials/start/create_email?format=email)
+- [Tutorial de páginas móviles aceleradas](https://amp.dev/documentation/guides-and-tutorials/start/create_email?format=email)
 - [Código de ejemplo](https://gist.github.com/CrystalOnScript/988c3f0a2eb406da27e9d9bf13a8bf73) para ver cómo debería lucir el producto final.
-- [Biblioteca de componentes de correo electrónico AMP](https://amp.dev/documentation/components/?format=email/)
+- [Biblioteca de componentes de correo electrónico páginas móviles aceleradas](https://amp.dev/documentation/components/?format=email/)
 
 ### Componentes {#components}
 
-Al crear los elementos AMP, te recomendamos consultar con tu equipo de ingeniería e incluir recursos y elementos de diseño para un nivel adicional de acabado.
+Al crear los elementos páginas móviles aceleradas, te recomendamos consultar con tu equipo de ingeniería e incluir recursos y elementos de diseño para un nivel adicional de acabado.
 
 {% tabs %}
   {% tab Esenciales %}
 
-Cada uno de estos elementos es obligatorio en el cuerpo de tu correo electrónico AMP.
+Cada uno de estos elementos es obligatorio en el cuerpo de tu correo electrónico páginas móviles aceleradas.
 
 | Componente | Descripción | Ejemplo |
 |---------|--------------|---------|
-| Identificación <br><br> `⚡4email` o `amp4email`| Identifica tu correo electrónico como un correo electrónico AMP HTML. | `<!doctype html>` <br> `<html ⚡4email>` <br> `<head>` |
-| Cargar el runtime de AMP <br><br> `<script>` | Permite que AMP se ejecute en tu correo electrónico usando JavaScript. | `<script async src="https://cdn.ampproject.org/v0.js"></script>`|
-| Plantilla CSS | Oculta el contenido hasta que AMP se haya cargado. <br> Los proveedores de correo electrónico que admiten correos electrónicos AMP aplican comprobaciones de seguridad que solo permiten la ejecución de scripts AMP verificados en sus clientes. | `<style amp4email-boilerplate>body{visibility:hidden}</style>` |
+| Identificación <br><br> `⚡4email` o `amp4email`| Identifica tu correo electrónico como un correo electrónico páginas móviles aceleradas HTML. | `<!doctype html>` <br> `<html ⚡4email>` <br> `<head>` |
+| Cargar el runtime de páginas móviles aceleradas <br><br> `<script>` | Permite que páginas móviles aceleradas se ejecute en tu correo electrónico usando JavaScript. | `<script async src="https://cdn.ampproject.org/v0.js"></script>`|
+| Plantilla CSS | Oculta el contenido hasta que páginas móviles aceleradas se haya cargado. <br> Los proveedores de correo electrónico que admiten correos electrónicos páginas móviles aceleradas aplican comprobaciones de seguridad que solo permiten la ejecución de scripts páginas móviles aceleradas verificados en sus clientes. | `<style amp4email-boilerplate>body{visibility:hidden}</style>` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Componentes" }
 
   {% endtab %}
@@ -114,7 +114,7 @@ Usa estos componentes para crear diseños y comportamientos dinámicos en tus co
 | Componente | Descripción | Script requerido |
 |---------|--------------|---------|
 | [Acordeón](https://amp.dev/documentation/components/amp-accordion?format=email) <br><br> `amp-accordion`| Permite a los usuarios ver el esquema del contenido y saltar a cualquier sección. | `<script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>` |
-| [Formularios](https://amp.dev/documentation/components/amp-form?format=email) <br><br> `amp-form`| Crea formularios para enviar campos de entrada en un documento AMP. | `<script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>` |
+| [Formularios](https://amp.dev/documentation/components/amp-form?format=email) <br><br> `amp-form`| Crea formularios para enviar campos de entrada en un documento páginas móviles aceleradas. | `<script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Componentes" }
 
 {% alert note %}
@@ -123,7 +123,7 @@ Cualquier componente que requiera autenticar al usuario debe usar [tokens de acc
   {% endtab %}
   {% tab Creativos %}
 
-  Dale un toque especial con los componentes de AMP que pueden ayudarte a adaptar tu correo electrónico a tu audiencia.
+  Dale un toque especial con los componentes de páginas móviles aceleradas que pueden ayudarte a adaptar tu correo electrónico a tu audiencia.
 
 | Componente | Descripción | Script requerido |
 |---------|--------------|---------|
@@ -141,7 +141,7 @@ Cualquier componente que requiera autenticar al usuario debe usar [tokens de acc
 
 | Componente | Descripción |
 |---------|--------------|
-| [Enlace de datos y expresiones](https://amp.dev/documentation/components/amp-anim?format=email) <br><br> `amp-bind`| Añade interactividad personalizada con estado a tus páginas AMP mediante enlace de datos y expresiones similares a JavaScript. |
+| [Enlace de datos y expresiones](https://amp.dev/documentation/components/amp-anim?format=email) <br><br> `amp-bind`| Añade interactividad personalizada con estado a tus páginas páginas móviles aceleradas mediante enlace de datos y expresiones similares a JavaScript. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Componentes" }
 
 {% alert note %}
@@ -151,9 +151,9 @@ Cualquier componente que requiera autenticar al usuario debe usar [tokens de acc
 {% endtab %}
 {% endtabs %}
 
-Para obtener una lista completa de componentes AMP, consulta la [documentación de AMP](https://amp.dev/documentation/components/?format=email).
+Para obtener una lista completa de componentes páginas móviles aceleradas, consulta la [documentación de páginas móviles aceleradas](https://amp.dev/documentation/components/?format=email).
 
-### Casos de uso {#use-cases}
+### Ejemplos {#use-cases}
 
 {% tabs local %}
 {% tab Cuestionarios interactivos %}
@@ -194,9 +194,9 @@ Los ejemplos incluyen:
 {% endtab %}
 {% endtabs %}
 
-### Uso de amp-mustache {#use-amp-mustache}
+### Uso de páginas móviles aceleradas-mustache {#use-amp-mustache}
 
-De forma similar a Liquid, AMP admite un lenguaje de scripting para casos de uso más avanzados. Este componente se llama [`amp-mustache`](https://amp.dev/documentation/components/amp-mustache/?format=email). Al incluir cualquier lenguaje de marcado Mustache, necesitarás envolverlo con la etiqueta [`raw`](https://shopify.github.io/liquid/tags/raw/) de Liquid. Ten en cuenta que Liquid y Mustache comparten estilos de sintaxis.
+De forma similar a Liquid, páginas móviles aceleradas admite un lenguaje de scripting para casos de uso más avanzados. Este componente se llama [`amp-mustache`](https://amp.dev/documentation/components/amp-mustache/?format=email). Al incluir cualquier lenguaje de marcado Mustache, necesitarás envolverlo con la etiqueta [`raw`](https://shopify.github.io/liquid/tags/raw/) de Liquid. Ten en cuenta que Liquid y Mustache comparten estilos de sintaxis.
 
 Al envolver tu contenido con la etiqueta `raw`, el motor de procesamiento de Braze ignorará cualquier contenido entre las etiquetas `raw` y enviará la variable Mustache que tu equipo necesita.
 
@@ -219,19 +219,19 @@ Al envolver tu contenido con la etiqueta `raw`, el motor de procesamiento de Bra
     <tbody>
         <tr>
             <td class="no-split">Total Opens</td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Total Opens' %} Para correos electrónicos AMP, este es el total de aperturas de las versiones HTML y texto plano.</td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Total Opens' %} Para correos electrónicos páginas móviles aceleradas, este es el total de aperturas de las versiones HTML y texto plano.</td>
         </tr>
         <tr>
             <td class="no-split">Total Clicks</td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Total Clicks' %} Para correos electrónicos AMP, este es el total de clics en las versiones HTML y texto plano.</td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Total Clicks' %} Para correos electrónicos páginas móviles aceleradas, este es el total de clics en las versiones HTML y texto plano.</td>
         </tr>
         <tr>
-            <td class="no-split">AMP Opens</td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='AMP Opens' %}</td>
+            <td class="no-split">páginas móviles aceleradas Opens</td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='páginas móviles aceleradas Opens' %}</td>
         </tr>
         <tr>
-            <td class="no-split">AMP Clicks</td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='AMP Clicks' %}</td>
+            <td class="no-split">páginas móviles aceleradas Clicks</td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='páginas móviles aceleradas Clicks' %}</td>
         </tr>
     </tbody>
 </table>
@@ -239,38 +239,38 @@ Al envolver tu contenido con la etiqueta `raw`, el motor de procesamiento de Bra
 ## Pruebas y solución de problemas {#test-and-troubleshoot}
 
 
-Antes de enviar tu correo electrónico AMP, te recomendamos:
+Antes de enviar tu correo electrónico páginas móviles aceleradas, te recomendamos:
 
 - Realizar pruebas según estas [directrices de Gmail](https://developers.google.com/gmail/ampemail/testing-dynamic-email).
-- Usar el [Gmail AMP for Email Playground](https://amp.gmail.dev/playground/) para validar el marcado AMP.
-  - Si tu correo electrónico AMP usa etiquetas de Liquid, reemplázalas con valores estáticos de marcador de posición antes de pegarlas en el Gmail AMP for Email Playground. Las etiquetas de Liquid sin renderizar provocan errores de validación.
+- Usar el [Gmail páginas móviles aceleradas for Email Playground](https://amp.gmail.dev/playground/) para validar el marcado páginas móviles aceleradas.
+  - Si tu correo electrónico páginas móviles aceleradas usa etiquetas de Liquid, reemplázalas con valores estáticos de marcador de posición antes de pegarlas en el Gmail páginas móviles aceleradas for Email Playground. Las etiquetas de Liquid sin renderizar provocan errores de validación.
 
-Para que tu correo electrónico AMP se entregue a cualquier cuenta de Gmail, el correo electrónico debe cumplir las siguientes condiciones:
+Para que tu correo electrónico páginas móviles aceleradas se entregue a cualquier cuenta de Gmail, el correo electrónico debe cumplir las siguientes condiciones:
 
-- Se deben cumplir los requisitos de seguridad de AMP para correo electrónico.
-- La parte MIME de AMP debe contener un documento AMP válido.
-- El correo electrónico debe incluir la parte MIME de AMP antes de la parte MIME de HTML.
-- La parte MIME de AMP debe ser menor de 100&nbsp;KB.
+- Se deben cumplir los requisitos de seguridad de páginas móviles aceleradas para correo electrónico.
+- La parte MIME de páginas móviles aceleradas debe contener un documento páginas móviles aceleradas válido.
+- El correo electrónico debe incluir la parte MIME de páginas móviles aceleradas antes de la parte MIME de HTML.
+- La parte MIME de páginas móviles aceleradas debe ser menor de 100&nbsp;KB.
 
-Ten en cuenta que los clics totales y los clics únicos no tienen en cuenta los clics que ocurren desde un mensaje AMP (solo HTML y texto plano). Los clics específicos de AMP se atribuyen a la métrica *amp_click*.
+Ten en cuenta que los clics totales y los clics únicos no tienen en cuenta los clics que ocurren desde un mensaje páginas móviles aceleradas (solo HTML y texto plano). Los clics específicos de páginas móviles aceleradas se atribuyen a la métrica *amp_click*.
 
 Si ninguna de estas condiciones está causando el error, ponte en contacto con [Soporte]({{site.baseurl}}/support_contact).
 
-### Configurar el buzón de entrada de Gmail para renderizar correos electrónicos AMP {#configure-gmail-inbox-to-render-amp-emails}
+### Configurar el buzón de entrada de Gmail para renderizar correos electrónicos páginas móviles aceleradas {#configure-gmail-inbox-to-render-amp-emails}
 
-Puedes configurar tu buzón de entrada de Gmail para renderizar correos electrónicos AMP con fines de prueba haciendo lo siguiente:
+Puedes configurar tu buzón de entrada de Gmail para renderizar correos electrónicos páginas móviles aceleradas con fines de prueba haciendo lo siguiente:
 
-1. En Gmail, selecciona **Settings** en la esquina superior derecha de tu buzón de entrada.
+1. En Gmail, selecciona **Settings** en la barra de herramientas de tu buzón de entrada.
 2. Selecciona **See all settings**.
 3. En la pestaña **General**, ve a la sección **Dynamic email** y confirma que la casilla **Enable dynamic email** está seleccionada.
 4. A continuación, selecciona **Developer Settings** y marca la casilla **Always allow dynamic emails from this sender:**.
 5. Introduce el mismo dominio que aparece en la dirección De de tu mensaje de prueba.
 6. Guarda los cambios.
 
-Ahora puedes enviar el correo electrónico de prueba a tu cuenta de Gmail, y los correos electrónicos AMP deberían renderizarse en Gmail.
+Ahora puedes enviar el correo electrónico de prueba a tu cuenta de Gmail, y los correos electrónicos páginas móviles aceleradas deberían renderizarse en Gmail.
 
 ### Preguntas frecuentes {#frequently-asked-questions}
 
-#### ¿Debería segmentar con correos electrónicos AMP? {#should-i-segment-with-amp-emails}
+#### ¿Debería segmentar con correos electrónicos páginas móviles aceleradas? {#should-i-segment-with-amp-emails}
 
-Recomendamos no segmentar para enviar a todos los diferentes tipos de usuarios. Esto se debe a que enviamos los mensajes AMP en formato multipart, incluyendo diferentes versiones en el correo electrónico original. Si un usuario no puede ver la versión AMP, se mostrará por defecto la versión HTML.
+Recomendamos no segmentar para enviar a todos los diferentes tipos de usuarios. Esto se debe a que enviamos los mensajes páginas móviles aceleradas en formato multipart, incluyendo diferentes versiones en el correo electrónico original. Si un usuario no puede ver la versión páginas móviles aceleradas, se mostrará por defecto la versión HTML.

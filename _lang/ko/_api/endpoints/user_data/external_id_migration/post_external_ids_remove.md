@@ -6,7 +6,6 @@ page_order: 2
 layout: api_page
 page_type: reference
 description: "이 문서에서는 외부 ID 제거 엔드포인트에 대한 자세한 내용을 설명합니다."
-
 ---
 {% api %}
 # 외부 ID 제거 {#remove-external-id}
@@ -26,7 +25,7 @@ description: "이 문서에서는 외부 ID 제거 엔드포인트에 대한 자
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `users.external_ids.remove` 권한이 있는 [API 키]({{site.baseurl}}/api/api_key)가 필요합니다.
+이 엔드포인트를 사용하려면 `users.external_ids.remove` 권한이 있는 [API 키]({{site.baseurl}}/api/basics)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 

@@ -1,4 +1,106 @@
 module Api
+  # Builds data-search-keywords for {% api %} blocks from _data/api_metadata.yml.
+  class Metadata
+    def self.for_site(site)
+      data = site.respond_to?(:data) ? site.data : nil
+      config = data && data['api_metadata']
+      @instances ||= {}
+      cache_key = config.object_id
+      @instances[cache_key] ||= new(config)
+    end
+
+    def self.reset_cache!
+      @instances = {}
+    end
+
+    def initialize(config)
+      if config.nil? || config.empty?
+        raise ArgumentError, 'API metadata config is missing. Add extraction patterns to _data/api_metadata.yml.'
+      end
+
+      @keyword_fields = Array(config.fetch('keyword_fields'))
+      @pattern_specs = stringify_keys(config.fetch('patterns'))
+      @transform_specs = stringify_keys(config.fetch('transforms', {}))
+      @escapes = config.fetch('keyword_escaping')
+      @compiled_patterns = compile_all(@pattern_specs)
+      @compiled_transforms = compile_all(@transform_specs)
+    end
+
+    def wrap(apiid, content)
+      "<div id='#{apiid}' class='api_div' data-search-keywords='#{keywords_for(content)}'>#{content}</div>"
+    end
+
+    def keywords_for(content)
+      parts = @keyword_fields.map { |field| extract_field(content, field.to_s) }
+      escape_keywords(parts.reject(&:empty?).join(' ').downcase)
+    end
+
+    private
+
+    def extract_field(content, field)
+      spec = @pattern_specs[field]
+      raise ArgumentError, "api_metadata.yml keyword_fields includes unknown pattern '#{field}'." unless spec
+
+      regex = @compiled_patterns.fetch(field)
+      mode = spec.fetch('mode', 'match').to_s
+
+      if mode == 'scan'
+        values = content.scan(regex).flatten
+        values = values.map { |value| apply_transforms(value.to_s, spec) }.reject(&:empty?)
+        values = values.uniq if spec['unique']
+        return values.join(spec.fetch('join', ' '))
+      end
+
+      match = content.match(regex)
+      return '' unless match
+
+      apply_transforms(match[Integer(spec.fetch('capture', 1))].to_s, spec)
+    end
+
+    def apply_transforms(value, spec)
+      Array(spec['transforms']).reduce(value) do |result, name|
+        apply_transform(result, name.to_s)
+      end
+    end
+
+    def apply_transform(value, name)
+      return value.strip if name == 'strip'
+
+      spec = @transform_specs[name]
+      raise ArgumentError, "api_metadata.yml references unknown transform '#{name}'." unless spec
+
+      regex = @compiled_transforms.fetch(name)
+      value.gsub(regex, spec.fetch('replacement', '').to_s)
+    end
+
+    def escape_keywords(keywords)
+      escaped = keywords.dup
+      @escapes.each { |from, to| escaped = escaped.gsub(from.to_s, to.to_s) }
+      escaped
+    end
+
+    def compile_all(specs)
+      specs.each_with_object({}) do |(name, spec), compiled|
+        next unless spec.is_a?(Hash) && spec['regex']
+
+        compiled[name.to_s] = compile_regex(spec)
+      end
+    end
+
+    def compile_regex(spec)
+      flags = 0
+      options = spec.fetch('options', '').to_s
+      flags |= Regexp::IGNORECASE if options.include?('i')
+      flags |= Regexp::MULTILINE if options.include?('m')
+      flags |= Regexp::EXTENDED if options.include?('x')
+      Regexp.new(spec.fetch('regex').to_s, flags)
+    end
+
+    def stringify_keys(hash)
+      hash.each_with_object({}) { |(key, value), out| out[key.to_s] = value }
+    end
+  end
+
   class ApiInfoBlock < Liquid::Block
     def initialize(tag_name, tabonly = 'false', tokens)
         super
@@ -12,24 +114,8 @@ module Api
 
       # Build a search index so JS can search without touching lazy tab content.
       # At this point `content` still has the full rendered tab HTML (before the
-      # lazy-loading plugin offloads panes). Extract JSON field names from the
-      # syntax-highlighted spans that Kramdown emits for JSON keys.
-      h2_match    = content.match(/<h2[^>]*>(.*?)<\/h2>/i)
-      tags_match  = content.match(/data-tags=['"]([^'"]*)['"]/i)
-      desc_match  = content.match(/class=['"]api_tags['"][^>]*><\/div>\s*<p>(.*?)<\/p>/m)
-      # JSON object keys are wrapped in <span class="nl">"field_name"</span>.
-      # Extract the names (lowercase snake_case identifiers) and deduplicate.
-      field_names = content.scan(/<span class="nl">"([a-z][a-z0-9_]+)"<\/span>/).flatten.uniq.join(' ')
-
-      keywords = [
-        h2_match   ? h2_match[1].gsub(/<[^>]+>/, '').strip   : '',
-        tags_match ? tags_match[1].strip                      : '',
-        desc_match ? desc_match[1].gsub(/<span class=['"]sr-only['"][^>]*>.*?<\/span>/m, '').gsub(/<[^>]+>/, '').strip  : '',
-        field_names
-      ].reject(&:empty?).join(' ').downcase
-      keywords_escaped = keywords.gsub('"', '&quot;').gsub("'", '&#39;')
-
-      return "<div id='#{@apiid}' class='api_div' data-search-keywords='#{keywords_escaped}'>#{content}</div>"
+      # lazy-loading plugin offloads panes).
+      Metadata.for_site(site).wrap(@apiid, content)
     end
   end
 

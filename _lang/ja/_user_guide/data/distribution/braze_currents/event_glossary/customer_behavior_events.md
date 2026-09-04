@@ -20,7 +20,7 @@ search_rank: 7
 これらのイベントは、[クエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder)、[SQLセグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments)、および[Snowflakeデータ共有]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake)のSQLテーブルとしても利用できます。SQLテーブルスキーマとカラムの詳細については、[SQLテーブルリファレンス]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables)を参照してください。
 {% endalert %}
 
-追加のイベントエンタイトルメントへのアクセスが必要な場合は、Brazeの担当者に連絡するか、[サポートチケット]({{site.baseurl}}/braze_support)を開いてください。このページで必要なものが見つからない場合は、[メッセージエンゲージメントイベントライブラリー]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)や[Currentsのサンプルデータ例](https://github.com/Appboy/currents-examples/tree/master/sample-data)をご覧ください。
+追加のイベントエンタイトルメントへのアクセスが必要な場合は、Brazeの担当者に連絡するか、[サポートチケット]({{site.baseurl}}/user_guide/administer/personal/braze_support)を開いてください。このページで必要なものが見つからない場合は、[メッセージエンゲージメントイベントライブラリー]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)や[Currentsのサンプルデータ例](https://github.com/Appboy/currents-examples/tree/master/sample-data)をご覧ください。
 
 {% enddetails %}
 
@@ -62,6 +62,7 @@ search_rank: 7
 </div>
 
 <!--overview-end-->
+
 
 {% api %}
 ## ランダムバケット番号更新イベント {#random-bucket-number-update-events}
@@ -1262,6 +1263,10 @@ Live Activity, Push To Start Token
 {% endtab %}
 {% endtabs %}
 
+### プロパティの詳細
+
+- Brazeは、匿名ユーザーが同じプロファイル上で識別され、既存のiOSライブアクティビティPush To Startトークンがそのプロファイルに残る場合、`push_token_state_change_type` を `"update"` に設定した「update」イベントを発行します。この場合、`user_id` は変更されず、`external_user_id` は識別されたユーザーのexternal IDに設定されます。これには、[`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)エンドポイントを通じた識別や、SDKの `changeUser` がデバイス上の匿名プロファイルにexternal IDを割り当てる場合が含まれます。
+
 {% endapi %}
 
 {% api %}
@@ -1589,7 +1594,7 @@ Push, Token State Change
 
 ##### 追加 {#add}
 
-新しいトークンが登録されると、「add」イベントが取り込まれます。これは、ユーザーが新しいデバイスで初めてアプリを開いたとき、または以前にトークンを持たなかったユーザーに対して[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)エンドポイントを通じて `push_tokens` でトークンが設定されたときに発生します。
+新しいトークンが登録されると、「add」イベントが取り込まれます。これは、ユーザーが新しいデバイスで初めてアプリを開いたとき、または以前にトークンを持たなかったユーザーに対して[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)エンドポイントを通じて `push_tokens` でトークンが設定されたときに発生します。`time_ms` フィールドは追加イベントが発生した時刻を示します。
 
 {% alert note %}
 iOS Swift SDK 13.3.0以降、およびAndroid SDK 40.0.0以降では、プッシュ権限ステータスとプッシュトークンが一緒に送信されます。これらのSDKからの新規登録では、「add」イベントに `push_token_foreground_push_disabled` が設定されます（通知が有効な場合は通常 `false`）。<br><br>
@@ -1599,7 +1604,9 @@ iOS Swift SDK 13.3.0以降、およびAndroid SDK 40.0.0以降では、プッシ
 
 ##### 更新 {#update}
 
-既存のトークンのプロパティが変更された場合、トークン文字列自体が変更されなくても「update」イベントが取り込まれます。トークンは同じ文字列、同じユーザー、同じアプリを持ちますが、以下のフィールドの1つ以上が変更されています：`foreground_push_disabled`、APNsゲートウェイ、Webプッシュキー、`provisionally_opted_in`、または `device_id`。これらの更新はトークン状態の同期イベント（例えば、SDKが新しい権限状態を報告するとき）から発生し、プッシュ送信の結果からは発生しません。
+既存のトークンのプロパティが変更された場合、トークン文字列自体が変更されなくても「update」イベントが取り込まれます。トークンは同じ文字列、同じユーザー、同じアプリを持ちますが、以下のフィールドの1つ以上が変更されています：`foreground_push_disabled`、APNsゲートウェイ、Webプッシュキー、`provisionally_opted_in`、または `device_id`。これらの更新はトークン状態の同期イベント（例えば、SDKが新しい権限状態を報告するとき）から発生し、プッシュ送信の結果からは発生しません。`time_ms` フィールドは更新イベントが発生した時刻を示します。
+
+Brazeは、匿名ユーザーが同じプロファイル上で識別され、既存のプッシュトークンがそのプロファイルに残る場合にも、`push_token_state_change_type` を `"update"` に設定した「update」イベントを発行します。この場合、`user_id` は変更されず、`external_user_id` は識別されたユーザーのexternal IDに設定されます。これには、[`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)エンドポイントを通じた識別や、SDKの `changeUser` がデバイス上の匿名プロファイルにexternal IDを割り当てる場合が含まれます。
 
 {% alert note %}
 ほとんどの場合、アプリの再インストールやバックアップからの復元は、新しい `push_token` と新しい `device_id` を持つ新たな「add」イベントを引き起こします（SDKが新しい `device_id` を生成し、OSが新しいプッシュトークン文字列を提供するためです）。これにより、ユーザープロファイル上に2つの別々のトークンとデバイスのエントリが作成され、古いエントリは後ほど、アンインストール追跡やキャンペーン送信を通じてクリーンアップされます。<br><br>
@@ -1617,11 +1624,18 @@ Brazeがトークンを削除すると、独立した「remove」イベントが
 
 プッシュバウンスによるトークン削除がトリガーされた場合、Brazeはそのトークンに対して `push_token_state_change_type = "remove"` を発行します。`push_token_foreground_push_disabled` を変更する「update」イベントは発行されません。
 
+`time_ms` フィールドは削除イベントが発生した時刻を示します。
+
+{% alert note %}
+「remove」イベントでは、以下のトークンプロパティフィールドは設定されません：`push_token_created_at`、`push_token_updated_at`、`push_token_foreground_push_disabled`、`push_token_provisionally_opted_in`、`ios_push_token_apns_gateway`、`web_push_token_public_key`、`web_push_token_user_auth`、および `web_push_token_vapid_public_key`。
+{% endalert %}
+
 ##### 追加と削除のペア {#add-and-remove-pairs}
 
+追加と削除のペアは、同じ遷移に対する2つのリンクされたトークン状態イベント（1つの「add」イベントと1つの「remove」イベント）です。
 追加と削除のペアは2つのカテゴリーに分類されます：
 
-**トークン文字列の更新（同一ユーザー）：** OSは同じデバイス上でトークン文字列をローテーションします（例：APNsやFCMのトークンローテーション）。「add」イベント（新しいトークン）と「remove」イベント（古いトークン）は、同じ `user_id`、同じ `device_id`、異なる `push_token`、そして同一の `time_ms` を持ちます。
+**トークン文字列の更新（同一ユーザー）：** OSが同じデバイス上でトークン文字列をローテーションします（例：APNsやFCMのトークンローテーション）。「add」イベント（新しいトークン）と「remove」イベント（古いトークン）は、同じ `user_id`、同じ `device_id`、異なる `push_token`、そして同一の `time_ms` を持ちます。
 
 **トークンがユーザー間で移動する：** トークンがあるユーザーから別のユーザーへ移動します。「add」イベント（新規ユーザー）と「remove」イベント（既存ユーザー）は、異なる `user_id`、同じ `device_id`、同じ `push_token`、異なる `time_ms`（通常は100ミリ秒未満の間隔）を持ちます。以下のいずれかによってトリガーされます：
 
@@ -1630,7 +1644,10 @@ Brazeがトークンを削除すると、独立した「remove」イベントが
 - [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge)エンドポイントまたは重複ユーザーのクリーンアップが、孤立したユーザーのトークンを存続するユーザーに移行する。
 
 {% alert note %}
-[`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)エンドポイントを通じて匿名プロファイルが識別された場合、`user_id` は変化せず、トークン状態変更イベントも発行されません。
+REST [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)またはSDKの[`changeUser`]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#identified-user-profiles)による同一プロファイルの識別では、`user_id` を変更せずに匿名プロファイルにexternal IDを割り当てることができます。
+この場合、Brazeは[追加と削除のペアイベント](#add-and-remove-pairs)を発行しません。
+代わりに、Brazeは既存の各プッシュトークンに対して「update」イベントを発行し、`external_user_id` を識別されたユーザーのexternal IDに設定します。
+`changeUser` がトークンをあるユーザープロファイルから別のユーザープロファイルに移動する場合は、[追加と削除のペア](#add-and-remove-pairs)セクションで説明されている[追加と削除のペアイベント](#add-and-remove-pairs)が引き続き発行されます。
 {% endalert %}
 
 #### 最新のアクティブなトークン状態のクエリ {#querying-for-the-latest-active-token-state}

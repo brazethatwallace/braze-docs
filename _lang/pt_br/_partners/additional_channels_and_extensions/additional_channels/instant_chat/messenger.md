@@ -31,7 +31,7 @@ Confirme o seguinte antes de prosseguir com a integração:
 | Revisão e aprovação do bot do app | Facebook | [https://developers.facebook.com/docs/messenger-platform/app-review](https://developers.facebook.com/docs/messenger-platform/app-review) | Quando estiver pronto para liberar seu bot para o público, você deverá enviá-lo ao Facebook para análise e aprovação. Esse processo de revisão permite garantir que seu bot do Messenger cumpra as políticas e funcione conforme o esperado antes de torná-lo disponível para todos no Messenger. |
 | IDs de escopo de página (PSIDs) | Facebook | [https://developers.facebook.com/docs/messenger-platform/reference/webhook-events/messages](https://developers.facebook.com/docs/messenger-platform/reference/webhook-events/messages) | É necessário ter os PSIDs dos usuários para enviar mensagens no Facebook Messenger. Quando um usuário interage com o seu app via Messenger, o Facebook cria um PSID. Esse PSID pode ser enviado para a Braze como um atributo personalizado em forma de string. |
 | Token de acesso à página | Facebook | [https://developers.facebook.com/docs/messenger-platform/getting-started/app-setup#page_access_token](https://developers.facebook.com/docs/messenger-platform/getting-started/app-setup#page_access_token) | Esses tokens de acesso são semelhantes aos tokens de acesso do usuário, exceto pelo fato de fornecerem permissão às APIs que leem, gravam ou modificam os dados pertencentes a uma página do Facebook. Para obter um token de acesso à página, é necessário obter um token de acesso de usuário e solicitar a permissão `manage_pagespermission`. Depois de ter o token de acesso do usuário, você obtém o token de acesso à página pela API Graph. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
@@ -67,7 +67,7 @@ Sempre que você enviar uma mensagem, o PSID será incluído na propriedade `rec
 
 ### Etapa 2: Enviar para a Braze como um atributo personalizado {#step-2-send-to-braze-as-a-custom-attribute}
 
-Quando tiver certeza de que está recebendo PSIDs, coordene e compartilhe isso com seus desenvolvedores para enviar os PSIDs para a Braze como um [atributo personalizado]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/#custom-attributes). PSIDs são strings que podem ser acessadas por meio de uma [chamada de API](https://developers.facebook.com/docs/messenger-platform/reference/send-api).
+Quando tiver certeza de que está recebendo PSIDs, coordene e compartilhe isso com seus desenvolvedores para enviar os PSIDs para a Braze como um [atributo personalizado]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes#custom-attributes). PSIDs são strings que podem ser acessadas por meio de uma [chamada de API](https://developers.facebook.com/documentation/business-messaging/messenger-platform/send-messages).
 
 ### Etapa 3: Configure seu modelo de webhook {#step-3-set-up-your-webhook-template}
 
@@ -93,10 +93,10 @@ Se a mensagem for recebida com êxito, você poderá definir as configurações 
 
 ## Usando esta integração {#using-this-integration}
 
-Depois de configurada, use essa integração para direcionar os usuários do Facebook Messenger. Se você não estiver enviando mensagens usando os números de telefone dos usuários e planeja enviar mensagens do Messenger repetidamente, [crie um segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/#creating-a-segment) para todos os usuários para os quais o Messenger ID existe como um atributo personalizado e ative o [rastreamento de análise de dados]({{site.baseurl}}/user_guide/audience/segments/segment_data/) para acompanhar as taxas de inscrição no Messenger ao longo do tempo.
+Depois de configurada, use essa integração para direcionar os usuários do Facebook Messenger. Se você não estiver enviando mensagens usando os números de telefone dos usuários e planeja enviar mensagens do Messenger repetidamente, [crie um Segment]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment#creating-a-segment) para todos os usuários para os quais o Messenger ID existe como um atributo personalizado e ative o [rastreamento de análise de dados]({{site.baseurl}}/user_guide/audience/segments/segment_data) para acompanhar as taxas de inscrição no Messenger ao longo do tempo.
 
-![Filtro de segmento "messenger_id" definido como "não está em branco".]({% image_buster /assets/img_archive/fbm-segmentation.png %})
+![Filtro de Segment "messenger_id" definido como "não está em branco".]({% image_buster /assets/img_archive/fbm-segmentation.png %})
 
-Se você optar por não criar um segmento específico para assinantes do Messenger, certifique-se de incluir um filtro para o Messenger ID existente para evitar erros.
+Se você optar por não criar um Segment específico para assinantes do Messenger, certifique-se de incluir um filtro para o Messenger ID existente para evitar erros.
 
-Você também pode usar outras segmentações para direcionar suas campanhas do Messenger e o restante do processo de criação de campanhas, como acontece com qualquer outra campanha.
+Você também pode usar outras segmentações para direcionar suas Campaigns do Messenger e o restante do processo de criação de Campaigns, como acontece com qualquer outra Campaign.

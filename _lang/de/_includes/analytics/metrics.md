@@ -83,15 +83,15 @@ Die <i>Konversionsrate</i> ist der Prozentsatz der Häufigkeit, mit der ein defi
 {% endif %}
 
 {% if include.metric == "Conversion Window" %}
-Das <i>Konversionsfenster</i> ist die Anzahl der Tage nach Erhalt der Nachricht, in denen die Aktionen der Nutzer:innen verfolgt und einem Konversions-Event zugeordnet werden. Conversions, die nach diesem Fenster stattfinden, werden nicht dem Konversions-Event zugeschrieben.
+Das <i>Konversionsfenster</i> ist die Anzahl der Tage nach Erhalt der Nachricht, in denen die Aktionen der Nutzer:innen verfolgt und einem Konversions-Event zugeordnet werden. Konversionen, die nach diesem Fenster stattfinden, werden nicht dem Konversions-Event zugeschrieben.
 {% endif %}
 
 {% if include.metric == "Conversions (B, C, D)" %}
-<i>Conversions (B, C, D)</i> sind zusätzliche Konversions-Events, die nach dem primären Konversions-Event hinzugefügt werden. Dies ist die Anzahl der Male, die ein definiertes Ereignis nach der Interaktion mit oder dem Betrachten einer empfangenen Nachricht aus einer Braze-Campaign eingetreten ist.
+<i>Konversionen (B, C, D)</i> sind zusätzliche Konversions-Events, die nach dem primären Konversions-Event hinzugefügt werden. Dies ist die Anzahl der Male, die ein definiertes Ereignis nach der Interaktion mit oder dem Betrachten einer empfangenen Nachricht aus einer Braze-Campaign eingetreten ist.
 {% endif %}
 
 {% if include.metric == "Total Conversions" %}
-Die <i>Gesamtzahl der Conversions</i> ist die Gesamtzahl der Fälle, in denen ein:e Nutzer:in ein bestimmtes Konversions-Event abschließt, nachdem er/sie eine In-App-Nachrichten-Campaign gesehen hat.
+Die <i>Gesamtzahl der Konversionen</i> ist die Gesamtzahl der Fälle, in denen ein:e Nutzer:in ein bestimmtes Konversions-Event abschließt, nachdem er/sie eine In-App-Nachrichten-Campaign gesehen hat.
 {% endif %}
 
 {% if include.metric == "Deliveries" %}
@@ -138,8 +138,8 @@ Die <i>Rate der fehlgeschlagenen Zustellungen</i> ist der Prozentsatz der Sendun
 <i>Lifetime-Umsatz</i> ist der gesamte <code>PurchaseEvents</code>-Preiswert (in USD), der seit der Einführung eingenommen wurde.
 {% endif %}
 
-{% if include.metric == "Lifetime Value Per User" %}
-Der <i>Lifetime-Value pro Nutzer:in</i> ist der <i>Lifetime-Umsatz</i> geteilt durch Ihre gesamten <i>Nutzer:innen</i> (auf Ihrer Startseite).
+{% if include.metric == "LTV Per User" %}
+Der <i>LTV pro Nutzer:in</i> ist der <i>Lifetime-Umsatz</i> geteilt durch Ihre gesamten <i>Nutzer:innen</i> (auf Ihrer Startseite).
 {% endif %}
 
 {% if include.metric == "Average Daily Revenue" %}
@@ -155,11 +155,29 @@ Der <i>Tagesumsatz pro Nutzer:in</i> ist der durchschnittliche Tagesumsatz pro t
 {% endif %}
 
 {% if include.metric == "Machine Opens" %}
-<i>Automatische Öffnungen</i> beinhaltet den Anteil der „Öffnungen“, die von Apples Mail Privacy Protection (MPP) für iOS 15 betroffen sind. Wenn ein:e Nutzer:in beispielsweise eine E-Mail mit der Mail-App auf einem Apple-Gerät öffnet, wird dies als <i>Automatische Öffnungen</i> protokolliert.
+<i>Automatische Öffnungen</i> umfasst sowohl nicht-menschliche als auch menschliche Öffnungen, die auf eine Öffnung durch eine:n Nutzer:in mit aktiviertem Apple E-Mail-Datenschutz (E-Mail-Datenschutz) hinweisen. Das bedeutet, dass ein:e Nutzer:in mehrere <i>automatische Öffnungen</i> protokollieren kann. <i>Automatische Öffnungen</i> werden nicht automatisch generiert, wenn das Gerät nicht mit WLAN verbunden ist, sodass ein:e Nutzer:in eine E-Mail in der Apple-Mail-App möglicherweise öffnet, bevor Apple die Bilder vorab abruft, was dennoch als <i>automatische Öffnung</i> protokolliert wird.
+<br><br>
+Für Nutzer:innen mit aktiviertem E-Mail-Datenschutz:
+<ul>
+  <li>1+ <i>automatische Öffnung</i>: Apple hat die Nachricht vorab abgerufen oder die Nutzer:in hat eine E-Mail auf einem iOS-Gerät proaktiv geöffnet</li>
+  <li>2+ <i>automatische Öffnungen</i>: Braze hat keinen Einblick in menschliche gegenüber nicht-menschlichen Öffnungen, sodass dies aus mehreren menschlichen Öffnungen (auf einem Apple-Gerät oder mehreren) oder einer Kombination aus menschlichen Öffnungen und einer Öffnung durch Apples Vorabruf der Nachricht bestehen kann</li>
+</ul>
 {% endif %}
 
 {% if include.metric == "Other Opens" %}
-<i>Andere Öffnungen</i> umfasst E-Mails, die nicht als <i>Automatische Öffnungen</i> identifiziert wurden. Wenn ein:e Nutzer:in beispielsweise eine E-Mail auf einer anderen Plattform öffnet (z. B. Gmail-App auf einem Telefon, Gmail auf einem Desktop-Browser), wird dies als <i>Andere Öffnungen</i> protokolliert.
+<i>Andere Öffnungen</i> umfasst menschliche Öffnungen, die nicht von E-Mail-Datenschutz betroffen sind (z. B. wenn ein:e Nutzer:in eine E-Mail in der Gmail-App oder auf Gmail Desktop öffnet, wodurch ein Tracking-Pixel ausgelöst und eine reguläre Öffnung protokolliert wird). <i>Andere Öffnungen</i> sind in der Regel menschliche Öffnungen, es kann jedoch auch Szenarien geben, in denen ein Gerät die E-Mail öffnet (ein Bot oder ein Posteingangs-Dienstleister wie Gmail oder Yahoo). Es ist auch möglich, dass ein:e Nutzer:in eine E-Mail auf einem Nicht-iOS-Gerät öffnet und die <i>andere Öffnung</i> protokolliert wird, bevor eine <i>automatische Öffnung</i> protokolliert wird.
+<br><br>
+Da <i>automatische Öffnungen</i> nutzergesteuert sein können, ist das Verhältnis zwischen <i>automatischen Öffnungen</i> und <i>anderen Öffnungen</i> nicht menschlich gegenüber nicht-menschlich, sondern vielmehr E-Mail-Datenschutz-betroffen gegenüber nicht E-Mail-Datenschutz-betroffen. Während <i>andere Öffnungen</i> weiterhin herangezogen werden können, um einen Teil der menschlichen Öffnungen zu messen, ist es derzeit nicht möglich, den Prozentsatz der <i>automatischen Öffnungen</i> zu bestimmen, die menschlich gesteuert sind, sodass eine genaue „echte“ Öffnungsrate derzeit nicht ermittelt werden kann.
+<br><br>
+Für Nutzer:innen mit aktiviertem E-Mail-Datenschutz:
+<ul>
+  <li>+1 <i>andere Öffnung(en)</i>: Die Nutzer:in hat eine E-Mail auf einem Nicht-iOS-Gerät proaktiv geöffnet</li>
+  <li>+1 <i>automatische Öffnung(en)</i> und +1 <i>andere Öffnungen</i>: Apple hat die Nachricht vorab abgerufen oder die Nutzer:in hat eine E-Mail auf einem iOS-Gerät proaktiv geöffnet und eine E-Mail auf einem Nicht-iOS-Gerät proaktiv geöffnet</li>
+</ul>
+Für Nutzer:innen ohne aktiviertes E-Mail-Datenschutz:
+<ul>
+  <li>+1 <i>andere Öffnung(en)</i>: Die Nutzer:in hat eine E-Mail auf einem beliebigen Gerät proaktiv geöffnet</li>
+</ul>
 {% endif %}
 
 {% if include.metric == "Opens" %}
@@ -171,11 +189,11 @@ Der <i>Tagesumsatz pro Nutzer:in</i> ist der durchschnittliche Tagesumsatz pro t
 {% endif %}
 
 {% if include.metric == "Pending Retry" %}
-<i>Ausstehende Wiederholung</i> ist die Anzahl der Anfragen, die vom empfangenden Server vorübergehend abgelehnt wurden, bei denen der E-Mail-Anbieter (ESP) aber dennoch versucht hat, sie erneut zuzustellen. Der ESP versucht die Zustellung so lange zu wiederholen, bis eine Timeout-Periode erreicht ist (normalerweise nach 72 Stunden).
+<i>Ausstehende Wiederholung</i> ist die Anzahl der Anfragen, die vom empfangenden Server vorübergehend abgelehnt wurden, bei denen der E-Mail-Anbieter (E-Mail-Anbieter) aber dennoch versucht hat, sie erneut zuzustellen. Der E-Mail-Anbieter versucht die Zustellung so lange zu wiederholen, bis eine Timeout-Periode erreicht ist (normalerweise nach 72 Stunden).
 {% endif %}
 
 {% if include.metric == "Primary Conversions (A) or Primary Conversion Event" %}
-<i>Primäre Conversions (A)</i> oder <i>primäres Konversions-Event</i> ist die Anzahl der Male, die ein definiertes Ereignis nach der Interaktion mit oder dem Betrachten einer empfangenen Nachricht aus einer Braze-Campaign eingetreten ist. Dieses definierte Ereignis wird von Ihnen bei der Erstellung der Campaign festgelegt.
+<i>Primäre Konversionen (A)</i> oder <i>primäres Konversions-Event</i> ist die Anzahl der Male, die ein definiertes Ereignis nach der Interaktion mit oder dem Betrachten einer empfangenen Nachricht aus einer Braze-Campaign eingetreten ist. Dieses definierte Ereignis wird von Ihnen bei der Erstellung der Campaign festgelegt.
 {% endif %}
 
 {% if include.metric == "Reads" %}
@@ -235,7 +253,7 @@ Die <i>Rate der Sendungen an Netzbetreiber</i> ist der Prozentsatz der insgesamt
 {% endif %}
 
 {% if include.metric == "Total Dismissals" %}
-<i>Ausblendungen insgesamt</i> ist die Anzahl der Fälle, in denen Nutzer:innen eine Nachricht aus einer Campaign ausgeblendet haben. Bei Content Cards wird jede Karten-Ausblendung gezählt. Bei Bannern wird jedes Mal gezählt, wenn ein:e Nutzer:in das Banner ausgeblendet hat, sofern das Ausblendungsverhalten aktiviert ist.
+<i>Ausblendungen insgesamt</i> ist die Anzahl der Fälle, in denen Nutzer:innen eine Nachricht aus einer Campaign ausgeblendet haben. Bei Content Cards wird jede Kartenausblendung gezählt. Bei Bannern wird jedes Mal gezählt, wenn ein:e Nutzer:in das Banner ausgeblendet hat, sofern das Ausblendungsverhalten aktiviert ist.
 {% endif %}
 
 {% if include.metric == "Total Impressions" %}

@@ -6,7 +6,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "Cet article présente en détail l'endpoint Braze Exporter les détails de la campagne."
-
 ---
 {% api %}
 # Exporter les détails de la campagne {#export-campaign-details}
@@ -22,7 +21,7 @@ Si vous souhaitez récupérer les données d'un Canvas, reportez-vous à l'endpo
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `campaigns.details`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `campaigns.details`.
 
 ## Limite de débit {#rate-limit}
 
@@ -33,8 +32,8 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 | Paramètre | Requis | Type de données | Description |
 | --------- | -------- | --------- | ----------- |
 | `campaign_id` | Requis | Chaîne de caractères | Voir [Identifiant API de la campagne]({{site.baseurl}}/api/identifier_types).<br><br> Le `campaign_id` des campagnes API est disponible sur la page [Clés API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) et sur la page **Campaign Details** de votre tableau de bord. Vous pouvez également utiliser l'[endpoint Exporter la liste des campagnes](#campaign-list-endpoint). |
-| `post_launch_draft_version` | Facultatif | Valeur booléenne | Pour les messages disposant d'un brouillon post-lancement, définissez cette valeur sur `true` pour afficher les modifications disponibles dans le brouillon. La valeur par défaut est `false`. |
-| `include_has_translatable_content` | Facultatif | Valeur booléenne | Lorsque la valeur est `true`, la réponse de l'API inclut un champ `has_translatable_content` pour chaque message. La valeur par défaut est `false`. |
+| `post_launch_draft_version` | Facultatif | Booléen | Pour les messages disposant d'un brouillon post-lancement, définissez cette valeur sur `true` pour afficher les modifications disponibles dans le brouillon. La valeur par défaut est `false`. |
+| `include_has_translatable_content` | Facultatif | Booléen | Lorsque la valeur est `true`, la réponse de l'API inclut un champ `has_translatable_content` pour chaque message. La valeur par défaut est `false`. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 ## Exemple de requête {#example-request}
@@ -49,7 +48,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
+    "message": (string) returns 'success' when the request completes without errors,
     "created_at" : (string) the date created as ISO 8601 date,
     "updated_at" : (string) the date last updated as ISO 8601 date,
     "archived": (boolean) whether this campaign is archived,

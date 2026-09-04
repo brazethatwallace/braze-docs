@@ -15,21 +15,32 @@ Dado que el Generador de consultas permite el acceso directo a algunos datos de 
 
 ## Tablas de datos disponibles {#available-data-tables}
 
-El Generador de consultas utiliza las mismas tablas SQL de Snowflake que las [Extensiones de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) y el [Uso compartido de datos de Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Para obtener una lista completa de las tablas disponibles y sus columnas, consulta la [referencia de tablas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
+El Generador de consultas utiliza las mismas tablas SQL de Snowflake que las [extensiones de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) y [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Para obtener una lista completa de las tablas disponibles y sus columnas, consulta la [referencia de tablas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
 
-## Ejecución de informes en el Generador de consultas {#running-reports-in-the-query-builder}
+### Vistas de atributos de perfil de usuario {#user-profile-attribute-views}
+
+El Generador de consultas y las extensiones de segmento SQL incluyen la mayoría de las [vistas de atributos de perfil de usuario]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#user-profile-attribute-views), como instantáneas periódicas e historial de atributos predeterminados.
+
+Dos vistas de atributos personalizados solo están disponibles a través de [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/user_attributes):
+
+- `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED`
+- `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED`
+
+Braze excluye estas vistas del Generador de consultas y de las extensiones de segmento SQL porque son lentas de consultar a escala de espacio de trabajo y a menudo agotan el tiempo de espera. Usa `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED` para instantáneas de atributos personalizados en el Generador de consultas. Si necesitas datos históricos o casi en tiempo real de atributos personalizados, consulta las vistas excluidas a través de Snowflake Data Sharing.
+
+## Ejecutar informes en el Generador de consultas {#running-reports-in-the-query-builder}
 
 Para ejecutar un informe del Generador de consultas:
 
 1. Ve a **Analytics** > **Query Builder**.
 2. Selecciona **Create SQL Query**. Si necesitas inspiración o ayuda para elaborar tu consulta, selecciona **Query Template** y elige una plantilla de la lista. De lo contrario, selecciona **SQL Editor** para ir directamente al editor.
 3. Tu informe recibe automáticamente un nombre con la fecha y hora actuales. Pasa el cursor sobre el nombre y selecciona <i class="fas fa-pencil" alt="Editar"></i> para darle a tu consulta SQL un nombre significativo.
-4. Escribe tu consulta SQL en el editor u [obtén ayuda de la IA](#ai-query-builder) desde la pestaña **AI Query Builder**. Si escribes tu propio SQL, consulta [Escritura de consultas SQL personalizadas](#custom-sql) para conocer los requisitos y recursos.
+4. Escribe tu consulta SQL en el editor u [obtén ayuda de la IA](#ai-query-builder) desde la pestaña **AI Query Builder**. Si escribes tu propio SQL, consulta [Escribir consultas SQL personalizadas](#custom-sql) para conocer los requisitos y recursos.
 5. Selecciona **Run Query**.
 6. Guarda tu consulta.
 7. Para descargar un CSV de tu informe, selecciona **Export**.
 
-![Generador de consultas mostrando los resultados de la consulta con plantilla "Interacción del canal e ingresos de los últimos 30 días".]({% image_buster /assets/img_archive/query_builder.png %})
+![Generador de consultas mostrando los resultados de la consulta con plantilla "Participación del canal e ingresos de los últimos 30 días".]({% image_buster /assets/img_archive/query_builder.png %})
 
 Los resultados de cada informe se pueden generar una vez al día. Si ejecutas el mismo informe más de una vez en un mismo día calendario, verás los mismos resultados en ambos informes.
 
@@ -41,7 +52,7 @@ Consulta [Plantillas de consultas]({{site.baseurl}}/user_guide/analytics/reports
 
 ### Periodo de tiempo de los datos {#data-timeframe}
 
-Las consultas devuelven datos de los últimos 60 días. Si utilizas Currents o el [Uso compartido de datos de Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake), es posible que puedas consultar hasta dos años de datos, que es el tiempo que se retienen tus datos en Snowflake. Para más detalles sobre la retención extendida de datos, ponte en contacto con tu administrador del éxito del cliente.
+Las consultas devuelven datos de los últimos 60 días. Si usas Currents o [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake), es posible que puedas consultar hasta dos años de datos, que es el tiempo que se retienen tus datos en Snowflake. Para más detalles sobre la retención extendida de datos, contacta a tu CSM.
 
 ### Zona horaria del Generador de consultas {#query-builder-time-zone}
 
@@ -72,27 +83,35 @@ send_date_sydney;
 
 ### Historial de consultas {#query-history}
 
-La sección **Query history** en el Generador de consultas muestra tus consultas ejecutadas anteriormente para ayudarte a rastrear y reutilizar tu trabajo. El historial de consultas se conserva durante siete días, lo que significa que las consultas con más de siete días de antigüedad se eliminan automáticamente.
+La sección **Query history** en el Generador de consultas muestra tus consultas ejecutadas anteriormente para ayudarte a rastrear y reutilizar tu trabajo. El historial de consultas se retiene durante siete días, lo que significa que las consultas con más de siete días de antigüedad se eliminan automáticamente.
 
-Si necesitas auditar el uso de consultas durante periodos más largos o mantener registros más allá de siete días, te recomendamos exportar o guardar los resultados de consultas importantes antes de que caduquen.
+Si necesitas auditar el uso de consultas durante periodos más largos o mantener registros más allá de siete días, te recomendamos exportar o guardar los resultados de consultas importantes antes de que expiren.
 
-## Generación de SQL con el AI Query Builder {#generating-sql-with-the-ai-query-builder}
+### Comparar el Generador de consultas con otras fuentes de informes {#comparing-query-builder-with-other-reporting-sources}
 
-El AI Query Builder aprovecha [GPT](https://openai.com/gpt-4), impulsado por OpenAI, para recomendar SQL para tu consulta.
+Los resultados del Generador de consultas pueden diferir de otras herramientas de informes porque utilizan diferentes orígenes de datos y métodos de procesamiento.
+
+Por ejemplo, los recuentos de rebotes blandos en el Generador de consultas pueden ser más altos que en los informes de capacidad de entrega de SendGrid. El Generador de consultas cuenta todas las ocurrencias de rebotes blandos sin deduplicación. Si un usuario rebota de forma blanda varias veces antes de la entrega final (o después de reintentos prolongados), cada intento de rebote blando se cuenta. SendGrid Deliverability utiliza sus propios datos y lógica, sobre los cuales Braze no tiene visibilidad, por lo que los recuentos entre los dos informes pueden no coincidir.
+
+Para más información sobre cómo se rastrean los rebotes blandos en diferentes fuentes de informes, consulta [Rebote blando]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#soft-bounce) en el glosario de análisis de correo electrónico.
+
+## Generar SQL con el generador de consultas con IA {#generating-sql-with-the-ai-query-builder}
+
+El generador de consultas con IA aprovecha [GPT](https://openai.com/gpt-4), con tecnología de OpenAI, para recomendar SQL para tu consulta.
 
 ![El generador de consultas SQL con IA.]({% image_buster /assets/img_archive/query_builder_ai_tab.png %}){: style="max-width:60%;" }
 
-Para generar SQL con el AI Query Builder:
+Para generar SQL con el generador de consultas con IA:
 
 1. Después de crear un informe en el Generador de consultas, selecciona la pestaña **AI Query Builder**.
-2. Escribe tu prompt o selecciona un prompt de ejemplo y selecciona **Generate** para traducir tu prompt a SQL.
-3. Revisa el SQL generado para asegurarte de que sea correcto y luego selecciona **Insert into Editor**.
+2. Escribe tu indicación o selecciona una indicación de ejemplo y selecciona **Generate** para traducir tu indicación a SQL.
+3. Revisa el SQL generado para asegurarte de que es correcto y, a continuación, selecciona **Insert into Editor**.
 
 ### Consejos {#tips}
 
 - Familiarízate con las tablas y columnas disponibles en la [referencia de tablas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables). Solicitar datos que no existen en estas tablas puede hacer que ChatGPT invente una tabla ficticia.
-- Familiarízate con las [reglas de escritura SQL]({{site.baseurl}}/user_guide/analytics/reports/query_builder#custom-sql) para esta característica. No seguir estas reglas provocará un error.
-- Puedes enviar hasta 20 prompts por minuto con el AI Query Builder.
+- Familiarízate con las [reglas de escritura SQL]({{site.baseurl}}/user_guide/analytics/reports/query_builder#custom-sql) de esta característica. No seguir estas reglas provocará un error.
+- Puedes enviar hasta 20 indicaciones por minuto con el generador de consultas con IA.
 
 #{% multi_lang_include brazeai/generative_ai/policy.md %}
 
@@ -162,19 +181,17 @@ Tu consulta puede fallar por cualquiera de las siguientes razones:
 
 ## Uso de variables {#using-variables}
 
-Utiliza variables para usar tipos de variables predefinidos en SQL para hacer referencia a valores sin necesidad de copiar manualmente el valor. Por ejemplo, en lugar de copiar manualmente el ID de una Campaign al editor SQL, puedes usar {% raw %}`{{campaign.${My campaign}}}`{% endraw %} para seleccionar directamente una Campaign desde un menú desplegable en la pestaña **Variables**.
+Usa variables para utilizar tipos de variables predefinidos en SQL y hacer referencia a valores sin necesidad de copiar manualmente el valor. Por ejemplo, en lugar de copiar manualmente el ID de una campaña en el editor SQL, puedes usar {% raw %}`{{campaign.${My campaign}}}`{% endraw %} para seleccionar directamente una campaña desde un desplegable en la pestaña **Variables**.
 
 Después de crear una variable, aparecerá en la pestaña **Variables** de tu informe del Generador de consultas. Los beneficios de usar variables SQL incluyen:
 
-- Ahorrar tiempo creando una variable de Campaign para seleccionar de una lista al crear tu informe, en lugar de pegar los ID de Campaign.
-- Intercambiar valores añadiendo variables que te permitan reutilizar el informe para casos de uso ligeramente diferentes en el futuro (como un evento personalizado diferente).
-- Reducir errores del usuario al editar tu SQL, disminuyendo la cantidad de edición necesaria para cada informe. Los compañeros de equipo que se sientan más cómodos con SQL pueden crear informes que luego pueden usar compañeros menos técnicos.
+{% multi_lang_include analytics/sql_variables_benefits.md %}
 
 ### Directrices {#guidelines}
 
-Las variables deben seguir la siguiente sintaxis de Liquid: {% raw %}`{{ type.${name}}}`{% endraw %}, donde `type` debe ser uno de los tipos aceptados y `name` puede ser cualquier cosa que elijas. Las etiquetas de estas variables se establecen de forma predeterminada con el nombre de la variable.
+Las variables deben seguir la siguiente sintaxis de Liquid: {% raw %}`{{ type.${name}}}`{% endraw %}, donde `type` debe ser uno de los tipos aceptados y `name` puede ser cualquier nombre que elijas. Las etiquetas de estas variables se establecen de forma predeterminada con el nombre de la variable.
 
-De forma predeterminada, todas las variables son obligatorias (y tu informe no se ejecutará a menos que se seleccionen valores de variables), excepto el rango de fechas, que se establece de forma predeterminada en los últimos 30 días cuando no se proporciona el valor.
+De forma predeterminada, todas las variables son obligatorias (y tu informe no se ejecutará a menos que se seleccionen valores de variables), excepto el rango de fechas, que se establece de forma predeterminada en los últimos 30 días cuando no se proporciona un valor.
 
 ### Tipos de variables {#variable-types}
 
@@ -207,9 +224,9 @@ Si usas tanto `start_date` como `end_date`, deben tener el mismo nombre para que
 
 El tipo de rango de fechas puede ser relativo, fecha de inicio, fecha de fin o rango de fechas.
 
-Los cuatro tipos se muestran si se usan tanto `start_date` como `end_date` con el mismo nombre. Si solo se usa uno, solo se mostrarán los tipos relevantes.
+Los cuatro tipos se muestran si se usan tanto `start_date` como `end_date` con el mismo nombre. Si solo se usa uno, entonces solo se mostrarán los tipos relevantes.
 
-| Tipo de rango de fechas | Descripción | Valores obligatorios |
+| Tipo de rango de fechas | Descripción | Valores requeridos |
 | --- | --- | --- |
 | Relativo | Especifica los últimos X días | Requiere `start_date` |
 | Fecha de inicio | Especifica una fecha de inicio | Requiere `start_date` |
@@ -218,66 +235,66 @@ Los cuatro tipos se muestran si se usan tanto `start_date` como `end_date` con e
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Valores de ejemplo" }
 
 - **Valor de reemplazo:** Reemplaza `start_date` y `end_date` con una marca de tiempo Unix en segundos para una fecha especificada en UTC, como `1696517353`.
-- **Ejemplo de uso:** Para todas las variables de relativo, fecha de inicio, fecha de fin y rango de fechas:
+- **Ejemplo de uso:** Para todas las variables de tipo relativo, fecha de inicio, fecha de fin y rango de fechas:
     - {% raw %}`time > {{start_date.${some name}}} AND time < {{end_date.${some name}}}` {% endraw %}
-        - Puedes usar `start_date` o `end_date` si no deseas un rango de fechas.
+        - Puedes usar `start_date` o `end_date` si no necesitas un rango de fechas.
 
 #### Mensajería {#messaging}
 
-Todas las variables de mensajería deben compartir el mismo identificador cuando desees vincular su estado en un grupo.
+Todas las variables de mensajería deben compartir el mismo identificador cuando quieras vincular su estado en un grupo.
 
-##### Canvas
+##### Canvas {#canvas}
 
-Para seleccionar un Canvas. Compartir el mismo nombre con una Campaign resultará en un botón de opción dentro de la pestaña **Variables** para seleccionar Canvas o Campaign.
+Para seleccionar un Canvas. Compartir el mismo nombre con una Campaign dará como resultado un botón de opción en la pestaña **Variables** para seleccionar Canvas o Campaign.
 
-- **Valor de reemplazo:** ID BSON del Canvas
+- **Valor de reemplazo:** ID BSON de Canvas
 - **Ejemplo de uso:** {% raw %}`canvas_id = '{{canvas.${some name}}}'`{% endraw %}
 
 ##### Canvas (múltiples) {#canvases}
 
-Para seleccionar múltiples Canvas. Compartir el mismo nombre con una Campaign resultará en un botón de opción dentro de la pestaña **Variables** para seleccionar Canvas o Campaign.
+Para seleccionar múltiples Canvas. Compartir el mismo nombre con una Campaign dará como resultado un botón de opción en la pestaña **Variables** para seleccionar Canvas o Campaign.
 
-- **Valor de reemplazo:** ID BSON de los Canvas
+- **Valor de reemplazo:** IDs BSON de Canvas
 - **Ejemplo de uso:** {% raw %}`canvas_id IN ({{canvases.${some name}}})`{% endraw %}
 
-##### Campaign
+##### Campaign {#campaign}
 
-Para seleccionar una Campaign. Compartir el mismo nombre con un Canvas resultará en un botón de opción dentro de la pestaña **Variables** para seleccionar Canvas o Campaign.
+Para seleccionar una Campaign. Compartir el mismo nombre con un Canvas dará como resultado un botón de opción en la pestaña **Variables** para seleccionar Canvas o Campaign.
 
-- **Valor de reemplazo:** ID BSON de la Campaign
+- **Valor de reemplazo:** ID BSON de Campaign
 - **Ejemplo de uso:** {% raw %}`campaign_id = '{{campaign.${some name}}}'`{% endraw %}
 
-##### Campaigns (múltiples) {#campaigns}
+##### Campaigns {#campaigns}
 
-Para seleccionar múltiples Campaigns. Compartir el mismo nombre con un Canvas resultará en un botón de opción dentro de la pestaña **Variables** para seleccionar Canvas o Campaign.
+Para seleccionar múltiples Campaigns. Compartir el mismo nombre con un Canvas dará como resultado un botón de opción en la pestaña **Variables** para seleccionar Canvas o Campaign.
 
-- **Valor de reemplazo:** ID BSON de las Campaigns
+- **Valor de reemplazo:** IDs BSON de Campaigns
 - **Ejemplo de uso:** {% raw %}`campaign_id IN ({{campaigns.${some name}}})`{% endraw %}
 
 ##### Variantes de Campaign {#campaign-variants}
 
-Para seleccionar variantes de Campaign que pertenecen a la Campaign seleccionada. Debe usarse junto con una variable de Campaign o Campaigns.
+Para seleccionar variantes de Campaign que pertenezcan a la Campaign seleccionada. Debe usarse junto con una variable de Campaign o Campaigns.
 
-- **Valor de reemplazo:** ID de API de las variantes de Campaign, cadenas delimitadas por comas como `api-id1, api-id2`.
+- **Valor de reemplazo:** IDs de API de variantes de Campaign, cadenas delimitadas por comas como `api-id1, api-id2`.
 - **Ejemplo de uso:** {% raw %}`message_variation_api_id IN ({{campaign_variants.${some name}}})`{% endraw %}
 
-##### Variantes en Canvas {#canvas-variants}
+##### Variantes de Canvas {#canvas-variants}
 
-Para seleccionar variantes en Canvas que pertenecen a un Canvas elegido. Debe usarse con una variable de Canvas o Canvas (múltiples).
+Para seleccionar variantes de Canvas que pertenezcan a un Canvas elegido. Debe usarse con una variable de Canvas o Canvas (múltiples).
 
-- **Valor de reemplazo:** ID de API de las variantes en Canvas, cadenas delimitadas por comas como en `api-id1, api-id2`.
+- **Valor de reemplazo:** IDs de API de variantes de Canvas, cadenas delimitadas por comas como `api-id1, api-id2`.
 - **Ejemplo de uso:** {% raw %}`canvas_variation_api_id IN ({{canvas_variants.${some name}}})`{% endraw %}
 
 ##### Paso en Canvas {#canvas-step}
 
-Para seleccionar un paso en Canvas que pertenece a un Canvas elegido. Debe usarse con una variable de Canvas.
+Para seleccionar un paso en Canvas que pertenezca a un Canvas elegido. Debe usarse con una variable de Canvas.
 
 - **Valor de reemplazo:** ID de API del paso en Canvas
 - **Ejemplo de uso:** {% raw %}`canvas_step_api_id = '{{canvas_step.${some name}}}'`{% endraw %}
 
 ##### Pasos en Canvas {#canvas-steps}
 
-Para seleccionar pasos en Canvas que pertenecen a los Canvas elegidos. Debe usarse con una variable de Canvas o Canvas (múltiples).
+Para seleccionar pasos en Canvas que pertenezcan a los Canvas elegidos. Debe usarse con una variable de Canvas o Canvas (múltiples).
 
-- **Valor de reemplazo:** ID de API de los pasos en Canvas
+- **Valor de reemplazo:** IDs de API de pasos en Canvas
 - **Ejemplo de uso:** {% raw %}`canvas_step_api_id IN ({{canvas_steps.${some name}}})`{% endraw %}

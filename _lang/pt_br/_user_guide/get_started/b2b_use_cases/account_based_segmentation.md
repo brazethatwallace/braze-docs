@@ -26,7 +26,7 @@ Para ajudar você a começar, criamos modelos SQL básicos para segmentação si
 Digamos que você queira segmentar os usuários que são colaboradores de uma conta corporativa alvo.
 
 1. Acesse **Público** > **Extensões de segmento** > **Criar nova extensão** > **Iniciar com um modelo** e selecione o modelo **Segmento de catálogo para eventos**. <br><br> ![Modal "Selecione um modelo" com opções de segmento de catálogo para eventos ou compras.]({% image_buster /assets/img/b2b/select_a_template.png %})<br><br>O editor SQL é preenchido automaticamente com um modelo que une os dados de eventos de usuários com os dados do catálogo para segmentar os usuários que se engajam com determinados itens do catálogo. <br><br>![Um editor SQL para uma nova extensão com a guia "Variáveis" aberta.]({% image_buster /assets/img/b2b/enter_new_name.png %})<br><br>
-2. Use a guia **Variáveis** para fornecer os campos necessários para seu modelo antes de gerar seu segmento.<br><br>Para que a Braze identifique os usuários com base no engajamento deles com os itens do catálogo, é necessário fazer o seguinte:
+2. Use a guia **Variáveis** para fornecer os campos necessários para seu modelo antes de gerar seu Segment.<br><br>Para que a Braze identifique os usuários com base no engajamento deles com os itens do catálogo, é necessário fazer o seguinte:
 - Selecionar um catálogo que contenha um campo de catálogo
 - Selecionar um evento personalizado que contenha uma propriedade de evento
 - Corresponder os valores do campo do catálogo e da propriedade do evento
@@ -47,9 +47,9 @@ Selecione as seguintes variáveis para um caso de uso de segmentação baseada e
 
 #### Segmentação SQL sofisticada {#sophisticated-sql-segmentation}
 
-Para uma segmentação mais sofisticada ou complexa, consulte [Extensões de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments). Para ajudar você a começar, aqui estão alguns modelos SQL que podem dar uma vantagem inicial com a segmentação baseada em contas B2B:
+Para uma segmentação mais sofisticada ou complexa, consulte [Extensões de Segment SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments). Para ajudar você a começar, aqui estão alguns modelos SQL que podem dar uma vantagem inicial com a segmentação baseada em contas B2B:
 
-1. Crie um segmento comparando dois filtros em um único catálogo (por exemplo, usuários que trabalham no setor de restaurantes para uma conta de nível empresarial). Você deve incluir o ID do catálogo e o ID do item.
+1. Crie um Segment comparando dois filtros em um único catálogo (por exemplo, usuários que trabalham no setor de restaurantes para uma conta de nível empresarial). Você deve incluir o ID do catálogo e o ID do item.
 
 ```sql
 WITH salesforce_accounts AS (
@@ -72,7 +72,7 @@ AND salesforce_accounts.Classification = 'Enterprise'
 ```
 
 {: start="2"}
-2. Crie um segmento comparando dois filtros em dois catálogos separados (como usuários associados a contas corporativas alvo que tenham uma oportunidade aberta de "Stage 3").
+2. Crie um Segment comparando dois filtros em dois catálogos separados (como usuários associados a contas corporativas alvo que tenham uma oportunidade aberta de "Stage 3").
 
 ```sql
 -- Reformat catalog data into a table with columns for each field
@@ -108,8 +108,8 @@ AND salesforce_opportunities.Stage = 'Closed Won'
 
 ### Opção 2: Ao usar fontes conectadas para seus objetos de negócios {#option-2-when-using-connected-sources-for-your-business-objects}
 
-Para o básico sobre como usar fontes conectadas na segmentação, consulte [Extensões de segmento CDI]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments). Use os modelos abordados em [Ao usar catálogos](#option-1-when-using-catalogs-for-your-business-objects) como inspiração para formatar as tabelas de origem, já que você pode formatá-las da maneira que quiser.
+Para o básico sobre como usar fontes conectadas na segmentação, consulte [Extensões de Segment CDI]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments). Use os modelos abordados em [Ao usar catálogos](#option-1-when-using-catalogs-for-your-business-objects) como inspiração para formatar as tabelas de origem, já que você pode formatá-las da maneira que quiser.
 
-## Usando sua extensão baseada em conta em um segmento {#using-your-account-based-extension-in-a-segment}
+## Usando sua extensão baseada em conta em um Segment {#using-your-account-based-extension-in-a-segment}
 
-Depois de criar a segmentação no nível da conta nas etapas acima, você pode incluir diretamente essas extensões de segmento nos seus critérios de direcionamento. Também é fácil acrescentar critérios demográficos incrementais do usuário, como função, engajamento com campanhas anteriores e muito mais. Para saber mais, consulte [Uso de sua extensão em um segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension#step-6-use-your-extension-in-a-segment).
+Depois de criar a segmentação no nível da conta nas etapas anteriores desta seção, você pode incluir diretamente essas extensões de Segment nos seus critérios de direcionamento. Também é fácil acrescentar critérios demográficos incrementais do usuário, como função, engajamento com campanhas anteriores e muito mais. Para saber mais, consulte [Uso de sua extensão em um Segment]({{site.baseurl}}/user_guide/audience/segments/segment_extension#step-6-use-your-extension-in-a-segment).

@@ -28,7 +28,7 @@ Your Global Control Group applies to all channels, campaigns, and Canvases, exce
 
 ### Assign users randomly to the Global Control Group
 
-Braze randomly selects multiple ranges of [random bucket numbers]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers#step-1-segment-your-users-by-the-random-bucket-attribute) and includes users from those selected buckets. If you are currently using random bucket numbers for any other purposes, check out [Things to watch out for](#things-to-watch-for). 
+Braze randomly selects multiple ranges of [random bucket numbers]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers#create-segments-using-random-bucket-numbers) and includes users from those selected buckets. If you are currently using random bucket numbers for any other purposes, check out [Things to watch out for](#things-to-watch-for). 
 
 When your Global Control Group is generated, all users with random bucket numbers are part of the group. Additionally, new users who join after this point (those acquired after the Global Control Group was generated) that have these random bucket numbers are also added to the Global Control Group. Similarly, if many users are deleted, you can expect the size of your Global Control Group to shrink because a percentage of those deleted users has fallen into this group. This maintains the size of your group as a constant percentage relative to your entire user base.
 
@@ -65,6 +65,8 @@ For percentage guidelines, refer to [Testing best practices](#percentage-guideli
 ### Step 3: Assign exclusion settings
 
 Use tags to add exclusion settings to your Global Control Group. Any campaigns or Canvases that use the tags included in the exclusion settings don't use your Global Control Group. These campaigns and Canvases continue to be sent to every user in the target audience, including those in your Global Control Group.
+
+Note that the tag dropdown only displays tags that are currently applied to at least one active campaign or Canvas. If you create a new tag and want to use it in exclusion settings, apply it to a campaign or Canvas first.
 
 {% alert tip %}
 You may want to add exclusion settings if you have transactional messages that should be sent to every user.
@@ -136,7 +138,7 @@ Each workspace has a maximum of one Global Control Group and one treatment sampl
 
 | Metric | Definition | Calculation |
 | -- | -- | -- |
-| Change from Control | This calculates the uplift between the conversion rate for your treatment and control groups. | ((Treatment conversion rate – control conversion rate) ÷ control conversion rate) * 100 |
+| Change from Control | This calculates the uplift between the conversion rate for your treatment and control groups. | ((Treatment conversion rate – control conversion rate) ÷ control conversion rate) \* 100 |
 | Incremental Uplift | The difference in total events between your treatment and control groups. This metric seeks to answer the question of "How many more conversion events did the treatment group achieve?". | Total events for treatment – total events for control |
 | Incremental Uplift Percent | The percentage of your treatment's total events that can be attributed to your treatment (versus natural user behavior). This is calculated by dividing incremental uplift (number) by the total number of events for your treatment group. | Incremental uplift (number) ÷ Total events for treatment group |
 | Conversion Rate | The estimated percentage of users in your control or treatment group that complete your selected event during the time period selected. This is calculated by adding the number of events from the time period and dividing it by the sum of users within the group each day. This can only be approximated because group size fluctuates regularly as new users enter your Global Control Group, and events are total—and not unique—events. If the number of conversions is very small and your control or treatment groups are very large, then the conversion rate may round to 0%. If the number of events is very high—for example, in cases where one user may do more than one event per day—then the conversion rate can be over 100%. | Sum of the number of events for those users over that time period ÷ sum of users in the group each day |

@@ -4,114 +4,113 @@ article_title: Sicherheitseinstellungen
 page_order: 2
 toc_headers: h2
 page_type: reference
-description: "Dieser Referenzartikel behandelt allgemeine unternehmensübergreifende Sicherheitseinstellungen, einschließlich Authentifizierungsregeln, IP-Zulassungslisten, personenbezogene Daten und Zwei-Faktor-Authentifizierung (2FA)."
-
+description: "Dieser Referenzartikel behandelt allgemeine unternehmensübergreifende Sicherheitseinstellungen, einschließlich Authentifizierungsregeln, IP-Zulassungslisten, PII und Zwei-Faktor-Authentifizierung (2FA)."
 ---
 
-# Sicherheitseinstellungen {#security-settings}
+# Sicherheitseinstellungen
 
-> Als Administrator steht die Sicherheit ganz oben auf Ihrer Liste der Anliegen. Die Seite **Sicherheitseinstellungen** hilft Ihnen bei der Verwaltung der allgemeinen, unternehmensübergreifenden Sicherheitseinstellungen, einschließlich Authentifizierungsregeln, IP-Zulassungsliste und Zwei-Faktor-Authentifizierung.
+> Als Administrator:in steht die Sicherheit ganz oben auf Ihrer Prioritätenliste. Die Seite **Sicherheitseinstellungen** hilft Ihnen bei der Verwaltung der allgemeinen, unternehmensübergreifenden Sicherheitseinstellungen, einschließlich Authentifizierungsregeln, IP-Zulassungslisten und Zwei-Faktor-Authentifizierung.
 
-Um auf diese Seite zuzugreifen, gehen Sie zu **Einstellungen** > **Admin-Einstellungen** > **Sicherheitseinstellungen**.
+Um auf diese Seite zuzugreifen, gehen Sie zu **Einstellungen** > **Unternehmenseinstellungen** > **Administratoreinstellungen** > **Sicherheitseinstellungen**.
 
-## Regeln für die Authentifizierung {#authentication-rules}
+## Authentifizierungsregeln
 
-### Passwortlänge {#password-length}
+### Passwortlänge
 
-Verwenden Sie dieses Feld, um die erforderliche Mindestlänge des Passworts zu ändern. Der Standardwert beträgt mindestens acht Zeichen.
+Verwenden Sie dieses Feld, um die erforderliche Mindestlänge für Passwörter zu ändern. Der Standardmindestwert beträgt acht Zeichen.
 
-### Passwortkomplexität {#password-complexity}
+### Passwortkomplexität
 
-Wählen Sie **Enforce complex passwords**, um zu verlangen, dass die Passwörter mindestens eines der folgenden Elemente enthalten müssen:
+Wählen Sie **Komplexe Passwörter erzwingen** aus, um zu verlangen, dass Passwörter mindestens eines der folgenden Zeichen enthalten:
 - Großbuchstabe
 - Kleinbuchstabe
 - Zahl
-- Sonderzeichen
+- Sonderzeichen (jedes Zeichen, das kein Buchstabe oder keine Zahl ist, z. B. `!`, `@`, `#` oder `(`)
 
-### Wiederverwendbarkeit von Passwörtern {#password-re-usability}
+### Wiederverwendbarkeit von Passwörtern
 
-Legt die Mindestanzahl neuer Passwörter fest, die festgelegt werden müssen, bevor ein:e Nutzer:in ein Passwort erneut verwenden kann. Die Standardeinstellung ist drei.
+Bestimmt die Mindestanzahl neuer Passwörter, die festgelegt werden müssen, bevor Nutzer:innen ein Passwort wiederverwenden können. Der Standardwert ist drei.
 
-### Regel für den Ablauf von Passwörtern {#password-expiration-rules}
+### Regeln für den Passwortablauf
 
-Verwenden Sie dieses Feld, um festzulegen, wann die Nutzer:innen Ihres Braze-Kontos ihr Passwort zurücksetzen sollen.
+Verwenden Sie dieses Feld, um festzulegen, wann Nutzer:innen Ihres Braze-Kontos ihr Passwort zurücksetzen sollen.
 
-### Regeln für die Sitzungsdauer {#session-duration-rules}
+### Regeln für die Sitzungsdauer
 
-Verwenden Sie dieses Feld, um festzulegen, wie lange Braze Ihre Sitzung aufrechterhalten soll. Nachdem Braze Ihre Sitzung als inaktiv einstuft (keine Aktivität für die festgelegte Anzahl von Minuten), wird der/die Nutzer:in abgemeldet. Die maximale Anzahl von Minuten, die Sie eingeben können, beträgt 10.080 (entspricht einer Woche), wenn die Zwei-Faktor-Authentifizierung für Ihr Unternehmen erzwungen wird. Andernfalls beträgt die maximale Sitzungsdauer 1.440 Minuten (entspricht 24 Stunden).
+Verwenden Sie dieses Feld, um festzulegen, wie lange Braze Ihre Sitzung aktiv hält. Nachdem Braze Ihre Sitzung als inaktiv eingestuft hat (keine Aktivität für die festgelegte Anzahl von Minuten), meldet Braze die Nutzer:innen ab. Die maximale Anzahl an Minuten, die Sie eingeben können, beträgt 10.080 (entspricht einer Woche), wenn die Zwei-Faktor-Authentifizierung für Ihr Unternehmen erzwungen wird. Andernfalls beträgt die maximale Sitzungsdauer 1.440 Minuten (entspricht 24 Stunden).
 
-### Single Sign-on (SSO)-Authentifizierung {#single-sign-on-sso-authentication}
+### Single-Sign-on-Authentifizierung (SSO)
 
-Sie können Ihre Nutzer:innen darauf beschränken, sich entweder mit einem Passwort oder per SSO anzumelden.
+Sie können Ihre Nutzer:innen darauf beschränken, sich nur mit einem Passwort oder mit SSO anzumelden.
 
-Für [SAML SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on) müssen Kund:innen ihre SAML-Einstellungen konfigurieren, bevor sie die Erzwingung aktivieren. Wenn Kund:innen Google SSO verwenden, müssen sie lediglich die Sicherheitseinstellungen-Seite erzwingen, ohne zusätzlichen Aufwand.
+Für [SAML SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on) müssen Kund:innen ihre SAML-Einstellungen konfigurieren, bevor sie diese erzwingen. Wenn Kund:innen Google SSO verwenden, müssen sie lediglich die Sicherheitseinstellungsseite erzwingen, ohne zusätzlichen Aufwand.
 
-## Dashboard-IP-Zulassungsliste {#dashboard-ip-allowlisting}
+## Dashboard-IP-Allowlisting {#dashboard-ip-allowlisting}
 
-Verwenden Sie das angezeigte Feld, um bestimmte IP-Adressen und Subnetze auf die Zulassungsliste zu setzen, von denen aus sich Nutzer:innen bei Ihrem Konto anmelden können (z. B. aus einem Unternehmensnetzwerk oder VPN). Geben Sie IP-Adressen und Subnetze als CIDR-Bereiche in einer kommagetrennten Liste an. Wenn nichts angegeben ist, können sich Nutzer:innen von jeder IP-Adresse aus anmelden.
+Verwenden Sie das angezeigte Feld, um bestimmte IP-Adressen und Subnetze auf die Allowlist zu setzen, von denen aus sich Nutzer:innen bei Ihrem Konto anmelden können (z. B. über ein Firmennetzwerk oder VPN). Geben Sie IP-Adressen und Subnetze als CIDR-Bereiche in einer kommagetrennten Liste an. Wenn keine Angabe erfolgt, können sich Nutzer:innen von jeder beliebigen IP-Adresse aus anmelden.
 
-## Zwei-Faktor-Authentifizierung (2FA) {#two-factor-authentication-2fa}
+## Zwei-Faktor-Authentifizierung (2FA)
 
-Die Zwei-Faktor-Authentifizierung ist für alle Unternehmensnutzer:innen erforderlich. Sie fügt einer Kontoanmeldung eine zweite Ebene der Identitätsüberprüfung hinzu und macht sie sicherer als nur einen Benutzernamen und ein Passwort. Wenn Ihr Dashboard die Zwei-Faktor-Authentifizierung nicht unterstützen kann, wenden Sie sich an Ihren Customer-Success-Manager.
+Die Zwei-Faktor-Authentifizierung ist für alle Unternehmensnutzer:innen erforderlich. Sie fügt einer Kontoanmeldung eine zweite Ebene der Identitätsüberprüfung hinzu und macht sie damit sicherer als nur einen Nutzernamen und ein Passwort. Wenn Ihr Dashboard die Zwei-Faktor-Authentifizierung nicht unterstützen kann, wenden Sie sich an Ihren Customer-Success-Manager.
 
 Wenn die Zwei-Faktor-Authentifizierung aktiviert ist:
 
-- Zusätzlich zur Eingabe eines Passworts müssen Nutzer:innen bei der Anmeldung bei ihrem Braze-Konto einen Verifizierungscode eingeben. Der Code kann über eine Authenticator-App, per E-Mail oder SMS gesendet werden.
-- Das Kontrollkästchen **Remember this account for 30 days** wird für Nutzer:innen verfügbar.
+- Zusätzlich zur Eingabe eines Passworts müssen Nutzer:innen bei der Anmeldung bei ihrem Braze-Konto einen Verifizierungscode eingeben. Der Code kann über eine Authentifizierungs-App, per E-Mail oder per SMS gesendet werden.
+- Das Kontrollkästchen **Dieses Konto für 30 Tage merken** wird für Nutzer:innen verfügbar.
 
-Braze sperrt Nutzer:innen, die ihre Zwei-Faktor-Authentifizierung nicht einrichten, aus ihrem Braze-Konto aus. Braze-Kontonutzer:innen können die Zwei-Faktor-Authentifizierung auch selbstständig in den **Kontoeinstellungen** einrichten, auch wenn dies nicht vom Administrator verlangt wird.
+Braze sperrt Nutzer:innen aus ihrem Braze-Konto, die ihre Zwei-Faktor-Authentifizierung nicht einrichten. Braze-Konto-Nutzer:innen können die Zwei-Faktor-Authentifizierung auch eigenständig unter **Kontoeinstellungen** einrichten, selbst wenn sie vom Administrator nicht verlangt wird.
 
-Vergessen Sie nicht, Ihre Änderungen zu speichern, bevor Sie die Seite verlassen!
+Stellen Sie sicher, dass Sie Ihre Änderungen speichern, bevor Sie die Seite verlassen!
 
-### Dieses Konto 30 Tage merken {#remember-me}
+### Dieses Konto für 30 Tage merken {#remember-me}
 
 Dieses Feature ist verfügbar, wenn die Zwei-Faktor-Authentifizierung aktiviert ist.
 
-Wenn Sie **Remember this account for 30 days** auswählen, wird ein Cookie auf Ihrem Gerät gespeichert, sodass Sie sich innerhalb von 30 Tagen nur einmal mit der Zwei-Faktor-Authentifizierung anmelden müssen.
+Wenn Sie **Dieses Konto für 30 Tage merken** auswählen, wird ein Cookie auf Ihrem Gerät gespeichert, sodass Sie sich über einen Zeitraum von 30 Tagen nur einmal mit der Zwei-Faktor-Authentifizierung anmelden müssen.
 
-![Kontrollkästchen „Dieses Konto 30 Tage merken“]({% image_buster /assets/img/remember_me.png %}){: style="float:right;max-width:50%;margin-left:15px;"}
+![Kontrollkästchen „Dieses Konto für 30 Tage merken“]({% image_buster /assets/img/remember_me.png %}){: style="float:right;max-width:50%;margin-left:15px;"}
 
-Kund:innen mit mehreren Konten unter einem Dashboard-Unternehmen können Probleme bei der Nutzung dieses Features haben, da das Cookie an ein bestimmtes Gerät gebunden ist. Wenn Nutzer:innen dasselbe Gerät verwenden, um sich bei mehreren Konten anzumelden, wird das Cookie für die zuvor autorisierten Konten auf diesem Gerät ersetzt. Braze erwartet, dass nur ein Gerät mit einem Konto verknüpft ist, nicht ein Gerät für mehrere Konten.
+Kund:innen mit mehreren Konten unter einem Dashboard-Unternehmen können bei der Nutzung dieses Features auf Probleme stoßen, da das Cookie an ein bestimmtes Gerät gebunden ist. Wenn Nutzer:innen dasselbe Gerät verwenden, um sich bei mehreren Konten anzumelden, wird das Cookie für die zuvor autorisierten Konten auf diesem Gerät ersetzt. Braze erwartet, dass nur ein Gerät mit einem Konto verknüpft ist, nicht ein Gerät für mehrere Konten.
 
-### Zurücksetzen der Nutzerauthentifizierung {#resetting-user-authentication}
+### Zurücksetzen der Nutzerauthentifizierung
 
 Wenn Sie Probleme bei der Anmeldung mit der Zwei-Faktor-Authentifizierung haben, wenden Sie sich an Ihre Unternehmensadministratoren, um Ihre Zwei-Faktor-Authentifizierung zurückzusetzen. Administratoren können die folgenden Schritte ausführen:
 
-1. Gehen Sie zu **Einstellungen** > **Unternehmensnutzer:innen**.
+1. Gehen Sie zu **Einstellungen** > **Unternehmenseinstellungen** > **Nutzerverwaltung** > **Unternehmensnutzer:innen**.
 2. Wählen Sie den/die Nutzer:in aus der bereitgestellten Liste aus.
-3. Wählen Sie **Reset** unter **Two Factor Authentication**.
+3. Wählen Sie **Zurücksetzen** unter **Zwei-Faktor-Authentifizierung** aus.
 
-Ein Zurücksetzen kann häufige Authentifizierungsprobleme lösen, wie z. B. Schwierigkeiten mit Authenticator-Apps, nicht gesendete E-Mail-Verifizierungen, Anmeldefehler aufgrund von SMS-Ausfällen oder Nutzerfehlern und mehr.
+Ein Zurücksetzen kann häufige Authentifizierungsprobleme lösen, wie z. B. Probleme mit Authentifizierungs-Apps, nicht gesendete E-Mail-Verifizierungen, Anmeldefehler aufgrund von SMS-Ausfällen oder Nutzerfehlern und mehr.
 
-### Anforderungen für 2FA auf Unternehmensebene {#requirements-for-2fa-at-the-company-level}
+### Anforderungen für 2FA auf Unternehmensebene
 
-Überprüfen Sie zunächst, ob 2FA für Ihr Dashboard aktiviert ist, indem Sie zu **Unternehmenseinstellungen** > **Sicherheitseinstellungen** > **Two Factor Authentication** gehen. Wenn der Schalter grau ist, wurde 2FA für Ihr Unternehmen nicht aktiviert und ist nicht für alle Unternehmensnutzer:innen verpflichtend.
+Überprüfen Sie zunächst, ob 2FA für Ihr Dashboard aktiviert ist, indem Sie zu **Einstellungen** > **Unternehmenseinstellungen** > **Administratoreinstellungen** > **Sicherheitseinstellungen** > **Zwei-Faktor-Authentifizierung** gehen. Wenn der Umschalter grau ist, wurde 2FA für Ihr Unternehmen nicht aktiviert und ist für alle Unternehmensnutzer:innen nicht verpflichtend.
 
-#### Nutzeroptionen, wenn 2FA nicht verpflichtend ist {#user-options-when-2fa-isnt-mandatory}
+#### Nutzeroptionen, wenn 2FA nicht verpflichtend ist
 
-Wenn 2FA nicht auf Unternehmensebene erzwungen wird, können einzelne Nutzer:innen 2FA für sich selbst auf ihrer Kontoeinstellungen-Seite einrichten. In diesem Fall werden Nutzer:innen nicht aus ihren Konten ausgesperrt, wenn sie es nicht einrichten. Sie können feststellen, welche Nutzer:innen sich für die Aktivierung von 2FA entschieden haben, indem Sie die Seite „Nutzer:innen verwalten“ überprüfen.
+Wenn 2FA nicht auf Unternehmensebene durchgesetzt wird, können einzelne Nutzer:innen 2FA für sich selbst auf ihrer Kontoeinstellungsseite einrichten. In diesem Fall werden Nutzer:innen nicht aus ihren Konten ausgesperrt, wenn sie es nicht einrichten. Sie können feststellen, welche Nutzer:innen 2FA aktiviert haben, indem Sie die Liste **Unternehmensnutzer:innen** überprüfen.
 
-#### Anforderungen, wenn 2FA verpflichtend ist {#requirements-when-2fa-is-mandatory}
+#### Anforderungen, wenn 2FA verpflichtend ist
 
-Wenn 2FA auf Unternehmensebene erzwungen wird, werden Nutzer:innen, die es nicht in ihren eigenen Konten bei der Anmeldung einrichten, aus dem Dashboard ausgesperrt. Nutzer:innen müssen die 2FA-Einrichtung abschließen, um den Zugang aufrechtzuerhalten.
+Wenn 2FA auf Unternehmensebene durchgesetzt wird, werden Nutzer:innen, die es bei der Anmeldung nicht in ihren eigenen Konten einrichten, vom Dashboard ausgesperrt. Nutzer:innen müssen die 2FA-Einrichtung abschließen, um den Zugriff aufrechtzuerhalten.
 
 {% alert important %}
-2FA ist nur dann für alle Unternehmensnutzer:innen erforderlich, wenn Single Sign-on (SSO) nicht aktiviert ist. Wenn SSO verwendet wird, muss 2FA nicht auf Unternehmensebene erzwungen werden.
+2FA ist nur dann für alle Unternehmensnutzer:innen erforderlich, wenn Single Sign-on (SSO) nicht aktiviert ist. Wenn SSO verwendet wird, muss 2FA nicht auf Unternehmensebene durchgesetzt werden.
 {% endalert %}
 
-## 2FA manuell einrichten {#manually-set-up-2fa}
+## Zwei-Faktor-Authentifizierung manuell einrichten
 
-Um die Zwei-Faktor-Authentifizierung (2FA) manuell in Ihrem Braze-Konto zu aktivieren, folgen Sie diesen Schritten:
+Um die Zwei-Faktor-Authentifizierung (2FA) für Ihr Braze-Konto manuell zu aktivieren, führen Sie die folgenden Schritte aus:
 
-1. Wählen Sie in Braze Ihr Profilsymbol in der globalen Kopfzeile und dann **Konto verwalten**. Scrollen Sie zum Abschnitt **Two-Factor Authentication** und wählen Sie **Start Setup**.
-2. Geben Sie Ihr Passwort in das Anmelde-Modal ein und wählen Sie **Check Password**.
-3. Geben Sie im Modal **Two-Factor Authentication Setup** Ihre Telefonnummer ein und wählen Sie **Enable**.
-4. Kopieren Sie den generierten siebenstelligen Code aus Ihrer E-Mail oder SMS-Nachricht, gehen Sie zurück zu Braze und fügen Sie ihn in das Modal **Two-Factor Authentication Setup** ein. Wählen Sie **Verify**.
-5. (Optional) Um die 2FA-Eingabe für die nächsten 30 Tage zu vermeiden, aktivieren Sie die Option **Remember this account for 30 days**.
+1. Wählen Sie in Braze Ihr Profilsymbol in der globalen Kopfzeile und dann **Konto verwalten** aus. Scrollen Sie zum Abschnitt **Zwei-Faktor-Authentifizierung** und wählen Sie **Einrichtung starten** aus.
+2. Geben Sie Ihr Passwort in das Anmeldefenster ein und wählen Sie dann **Passwort überprüfen** aus.
+3. Geben Sie im Fenster **Einrichtung der Zwei-Faktor-Authentifizierung** Ihre Telefonnummer ein und wählen Sie dann **Aktivieren** aus.
+4. Kopieren Sie den generierten siebenstelligen Code aus Ihrer E-Mail oder SMS-Nachricht, kehren Sie dann zu Braze zurück und fügen Sie ihn im Fenster **Einrichtung der Zwei-Faktor-Authentifizierung** ein. Wählen Sie **Überprüfen** aus.
+5. (Optional) Um in den nächsten 30 Tagen keine 2FA eingeben zu müssen, aktivieren Sie die Option **Dieses Konto 30 Tage lang merken**.
 
-## Elevated Access {#elevated-access}
+## Elevated Access
 
-Elevated Access fügt eine zusätzliche Sicherheitsebene für sensible Aktionen in Ihrem Braze-Dashboard hinzu. Wenn es aktiv ist, müssen Nutzer:innen ihr Konto erneut verifizieren, bevor sie ein Segment exportieren oder einen API-Schlüssel anzeigen. Um Elevated Access zu verwenden, gehen Sie zu **Einstellungen** > **Admin-Einstellungen** > **Sicherheitseinstellungen** und schalten Sie es ein.
+Elevated Access fügt eine zusätzliche Sicherheitsebene für sensible Aktionen in Ihrem Braze-Dashboard hinzu. Wenn es aktiv ist, müssen Nutzer:innen ihr Konto erneut verifizieren, bevor sie ein Segment exportieren oder einen API-Schlüssel anzeigen. Um Elevated Access zu verwenden, gehen Sie zu **Einstellungen** > **Unternehmenseinstellungen** > **Administratoreinstellungen** > **Sicherheitseinstellungen** und schalten Sie es ein.
 
 Wenn ein:e Nutzer:in die erneute Verifizierung nicht durchführen kann, wird er/sie dorthin zurückgeleitet, wo er/sie aufgehört hat, und kann die sensible Aktion nicht fortsetzen. Nach einer erfolgreichen erneuten Verifizierung muss dies für die nächste Stunde nicht erneut durchgeführt werden – es sei denn, der/die Nutzer:in meldet sich vorher ab.
 
@@ -121,32 +120,32 @@ Der Sicherheitsereignisbericht ist ein CSV-Bericht über Sicherheitsereignisse w
 
 Um diesen Bericht herunterzuladen, gehen Sie wie folgt vor:
 
-1. Gehen Sie zu **Einstellungen** > **Admin-Einstellungen**.
-2. Wählen Sie den Tab **Sicherheitseinstellungen** und gehen Sie zum Abschnitt **Security Event Download**.
-3. Wählen Sie **Download report**.
+1. Gehen Sie zu **Einstellungen** > **Unternehmenseinstellungen** > **Administratoreinstellungen** > **Sicherheitseinstellungen**.
+2. Gehen Sie zum Abschnitt **Sicherheitsereignis-Download**.
+3. Wählen Sie **Bericht herunterladen**.
 
-Dieser manuelle Berichtsdownload enthält nur die letzten 10.000 Sicherheitsereignisse für Ihr Konto.
+Dieser manuelle Berichtsdownload enthält nur die letzten 10.000 Sicherheitsereignisse für Ihr Konto. Wenn Ihre exportierte CSV-Datei genau 10.001 Zeilen enthält (einschließlich der Kopfzeile), haben Sie die Obergrenze von 10.000 Ereignissen erreicht und ältere Ereignisse sind möglicherweise nicht enthalten.
 
 Um Sicherheitsereignisse ohne diese Zeilenbegrenzung nach Amazon S3 zu exportieren, siehe [Export von Sicherheitsereignissen mit Amazon S3]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3).
 
-### Spaltendefinitionen der CSV-Datei {#csv-column-definitions}
+### Spaltendefinitionen der CSV-Datei
 
 Die CSV-Datei des Sicherheitsereignisberichts enthält die folgenden Spalten:
 
 | Spalte | Beschreibung |
 |--------|-------------|
 | CreatedAt | Zeitstempel, wann das Ereignis aufgezeichnet wurde, in UTC. |
-| EmailAtTimeOfEvent | E-Mail-Adresse des/der Dashboard-Nutzer:in, der/die das Ereignis ausgelöst hat, wie zum Zeitpunkt des Ereignisses erfasst. |
-| CurrentEmail | Aktuelle E-Mail-Adresse des/der Dashboard-Nutzer:in, der/die das Ereignis ausgelöst hat. Wenn der/die Nutzer:in nicht mehr existiert, wird stattdessen die Entwickler-ID verwendet. |
-| EventName | Art des Sicherheitsereignisses. Siehe die Liste der gemeldeten Sicherheitsereignisse unten. |
-| OtherAccount | E-Mail-Adresse eines/einer anderen Dashboard-Nutzer:in, der/die von dem Ereignis betroffen ist, sofern zutreffend (z. B. wenn ein Konto hinzugefügt oder entfernt wird). |
+| EmailAtTimeOfEvent | E-Mail-Adresse der/des Dashboard-Nutzer:in, die/der das Ereignis ausgelöst hat, wie zum Zeitpunkt des Ereignisses erfasst. |
+| CurrentEmail | Aktuelle E-Mail-Adresse der/des Dashboard-Nutzer:in, die/der das Ereignis ausgelöst hat. Wenn die/der Nutzer:in nicht mehr existiert, wird stattdessen die Entwickler-ID verwendet. |
+| EventName | Art des Sicherheitsereignisses. Siehe das Dropdown **Gemeldete Sicherheitsereignisse** nach dieser Tabelle. |
+| OtherAccount | E-Mail-Adresse einer/eines anderen Dashboard-Nutzer:in, die/der von dem Ereignis betroffen ist, sofern zutreffend (z. B. wenn ein Konto hinzugefügt oder entfernt wird). |
 | JsonProperties | Ereignisspezifische Eigenschaften im JSON-Format. Die enthaltenen Felder variieren je nach Ereignistyp. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Spaltendefinitionen der CSV-Datei" }
 
 [S3-Exporte]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3) enthalten diese Spalten plus `Version`, die Schemaversion für das Exportformat (derzeit `1`).
 
 {% details Gemeldete Sicherheitsereignisse %}
-### Anmeldung und Konto {#login-and-account}
+### Anmeldung und Konto
 - Signed In
 - Failed Login
 - Two-Factor Auth Setup Completed
@@ -170,11 +169,11 @@ Die CSV-Datei des Sicherheitsereignisberichts enthält die folgenden Spalten:
 - Enabled Elevated Access Enforcement
 - Disabled Elevated Access Enforcement
 
-Campaign
+### Campaign
 - Added Campaign
 - Edited Campaign
 
-Canvas
+### Canvas
 - Added Canvas
 - Edited Canvas
 
@@ -186,16 +185,16 @@ Canvas
 - Segment Users Deleted
 - Cleared Cohort
 
-### REST-API-Schlüssel {#rest-api-key}
+### REST-API-Schlüssel
 - Added REST API key
 - Removed REST API key
 
-### Basic-Auth-Zugangsdaten {#basic-authentication-credential}
+### Basic-Auth-Zugangsdaten
 - Added Basic Auth credential
 - Updated Basic Auth credential
 - Removed Basic Auth credential
 
-### Berechtigung {#permission}
+### Berechtigung
 - Cleared Developer 2FA
 - Updated Account Permission
 - Added Team
@@ -209,7 +208,7 @@ Canvas
 - Updated Custom Role
 - Deleted Custom Role
 
-### Unternehmenseinstellungen {#company-settings}
+### Unternehmenseinstellungen
 - Added App Group
 - Added App
 - Company Settings Changed
@@ -224,19 +223,19 @@ Canvas
 - Updated Global Control Exclusions
 - Updated Subscription Group SMS Allow List
 
-### E-Mail-Template {#email-template}
+### E-Mail-Template
 - Added Email Template
 - Updated Email Template
 
-### Push-Zugangsdaten {#push-credential}
+### Push-Zugangsdaten
 - Updated Push Credential
 - Removed Push Credential
 
-### SDK-Debugger {#sdk-debugger}
+### SDK-Debugger
 - Started SDK Debugger Session
 - Exported SDK Debugger Log
 
-### Nutzer:innen {#users}
+### Nutzer:innen
 - Users Deleted
 - Users Viewed
 - User Import Started
@@ -245,7 +244,7 @@ Canvas
 - Single User Deletion Cancelled
 - Bulk User Deletion Cancelled
 
-### Kataloge {#catalogs}
+### Kataloge
 - Catalog Created
 - Catalog Deleted
 
@@ -266,26 +265,26 @@ Die Berechtigung **View PII** ist nur für einige ausgewählte Unternehmensnutze
 Sie benötigen die Berechtigung **View PII**, um den [Abfrage-Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/building_queries) zu verwenden, da dieser direkten Zugriff auf einige Kundendaten ermöglicht.
 {% endalert %}
 
-Informationen zu den bestehenden Team-Berechtigungsfunktionen finden Sie unter [Nutzerberechtigungen festlegen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#available-limited-and-team-role-permissions).
+Informationen zu den bestehenden Team-Berechtigungsfunktionen finden Sie unter [Nutzerberechtigungen festlegen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 
-### PII definieren {#defining-pii}
+### PII definieren
 
 {% alert important %}
-Das Auswählen und Definieren bestimmter Felder als PII-Felder wirkt sich nur darauf aus, was Nutzer:innen im Braze-Dashboard sehen können, und hat keinen Einfluss darauf, wie die Endnutzerdaten in solchen PII-Feldern verarbeitet werden.<br><br>Wenden Sie sich an Ihr Rechtsteam, um die Einstellungen Ihres Dashboards mit allen für Ihr Unternehmen geltenden Datenschutzvorschriften und -richtlinien abzustimmen, einschließlich derjenigen im Zusammenhang mit der [Datenaufbewahrung]({{site.baseurl}}/data_retention).
+Das Auswählen und Definieren bestimmter Felder als PII-Felder wirkt sich nur darauf aus, was Nutzer:innen im Braze-Dashboard sehen können, und hat keinen Einfluss darauf, wie die Endnutzer:innendaten in solchen PII-Feldern verarbeitet werden.<br><br>Wenden Sie sich an Ihr Rechtsteam, um die Einstellungen Ihres Dashboards mit allen für Ihr Unternehmen geltenden Datenschutzvorschriften und -richtlinien abzustimmen, einschließlich derjenigen im Zusammenhang mit der [Datenaufbewahrung]({{site.baseurl}}/data_retention).
 {% endalert %}
 
-Sie können die Felder auswählen, die Ihr Unternehmen als PII im Dashboard kennzeichnet. Gehen Sie dazu zu **Unternehmenseinstellungen** > **Admin-Einstellungen** > **Sicherheitseinstellungen**.
+Sie können die Felder auswählen, die Ihr Unternehmen als PII im Dashboard kennzeichnet. Gehen Sie dazu zu **Einstellungen** > **Unternehmenseinstellungen** > **Admin-Einstellungen** > **Sicherheitseinstellungen**.
 
 Die folgenden Attribute können als PII gekennzeichnet und vor Unternehmensnutzer:innen verborgen werden, die keine Berechtigung **View PII** haben.
 
-#### Potenzielle PII-Attribute {#potential-pii-attributes}
+#### Potenzielle PII-Attribute
 
 | Standardattribute | Angepasste Attribute |
 | ------------------- | ----------------- |
 | {::nomarkdown}<ul> <li>E-Mail-Adresse </li> <li> Telefonnummer </li> <li> Vorname </li> <li> Nachname </li> <li> Geschlecht </li> <li> Geburtstag </li> <li> Geräte-IDs </li> <li> LINE-ID </li> <li> Letzter bekannter Standort </li> </ul> {:/} | {::nomarkdown} <ul> <li> Alle angepassten Attribute<ul><li>Einzelne angepasste Attribute können als PII markiert werden, wenn Sie nicht alle Attribute ausblenden müssen.</li></ul></li> </ul> {:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Potenzielle PII-Attribute" }
 
-### Eingeschränkte Bereiche {#limited-areas}
+### Eingeschränkte Bereiche
 
 Im Folgenden wird davon ausgegangen, dass alle Felder als PII festgelegt sind und die genannten Nutzer:innen Unternehmensnutzer:innen sind, die die Braze-Plattform verwenden. Außerdem beziehen sich „vorstehende“ Attribute auf die in der Tabelle [Potenzielle PII-Attribute](#potential-pii-attributes). Das Entfernen von PII-Berechtigungen von einem/einer Nutzer:in kann die Nutzbarkeit über diese aufgelisteten Bereiche hinaus beeinträchtigen.
 
@@ -302,69 +301,73 @@ Im Folgenden wird davon ausgegangen, dass alle Felder als PII festgelegt sind un
 Bei der Vorschau einer Nachricht wird die Berechtigung **View PII** nicht angewendet, sodass Nutzer:innen die [vorstehenden Standardattribute](#potential-pii-attributes) sehen können, wenn sie in der Nachricht über Liquid referenziert wurden.
 {% endalert %}
 
-## Einstellungen zur Datenlöschung {#data-deletion-preferences}
+## Einstellungen zur Datenlöschung
 
-Sie können diese Einstellung verwenden, um Präferenzen festzulegen, ob Braze bestimmte Felder während des Nutzerlöschungsprozesses für Ereignisse löschen soll. Diese Präferenzen betreffen nur Daten von Nutzer:innen, die Braze gelöscht hat.
+Sie können diese Einstellung verwenden, um festzulegen, ob Braze bestimmte Felder während des Nutzer:innen-Löschvorgangs für Events löschen soll. Diese Einstellungen betreffen nur Daten von Nutzer:innen, die Braze gelöscht hat.
 
-Wenn ein:e Nutzer:in gelöscht wird, entfernt Braze alle PII aus den Ereignisdaten, behält aber die anonymisierten Daten für Analytics-Zwecke bei. Einige nutzerdefinierte Felder können PII enthalten, wenn Sie Endnutzerinformationen an Braze senden. Wenn diese Felder PII enthalten, können Sie die Daten löschen lassen, wenn Braze Ereignisdaten für gelöschte Nutzer:innen anonymisiert. Wenn die Felder keine PII enthalten, können Sie sie für Analytics beibehalten.
+Wenn Nutzer:innen gelöscht werden, entfernt Braze alle PII aus den Event-Daten, behält aber die anonymisierten Daten für Analytics-Zwecke bei. Einige nutzerdefinierte Felder können PII enthalten, wenn Sie Endnutzer:innen-Informationen an Braze senden. Falls diese Felder PII enthalten, können Sie sich dafür entscheiden, die Daten zu löschen, wenn Braze Event-Daten für gelöschte Nutzer:innen anonymisiert. Falls die Felder keine PII enthalten, können Sie sie für Analytics beibehalten.
 
-Sie sind dafür verantwortlich, die richtigen Präferenzen für Ihren Workspace festzulegen. Der beste Weg, die geeigneten Einstellungen zu bestimmen, ist die Überprüfung mit internen Teams, die Ereignisdaten an Braze senden, und mit Teams, die Message Extras in Braze verwenden, um zu bestätigen, ob die Felder PII enthalten können.
+Sie sind dafür verantwortlich, die richtigen Einstellungen für Ihren Workspace zu bestimmen. Der beste Weg, die passenden Einstellungen zu ermitteln, besteht darin, sich mit internen Teams abzustimmen, die Event-Daten an Braze senden, und mit Teams, die Message Extras in Braze verwenden, um zu bestätigen, ob die Felder PII enthalten können.
 
-### Relevante Felder {#relevant-fields}
+### Relevante Felder
 
-| Ereignisname oder -typ | Feld | Hinweise |
+| Event-Name oder -Typ | Feld | Hinweise |
 | -------------------- | ------ | ----- |
 | Angepasstes Event | properties |  |
 | Kauf-Event | properties |  |
-| Nachrichtenversand | message_extras | Mehrere Ereignistypen enthalten ein `message_extras`-Feld. Die Präferenz gilt für alle Nachrichtenversand-Ereignistypen, die `message_extras` unterstützen, einschließlich zukünftig hinzugefügter Ereignistypen. |
+| Nachrichtenversand | message_extras | Mehrere Event-Typen enthalten ein `message_extras`-Feld. Die Einstellung gilt für alle Nachrichtenversand-Event-Typen, die `message_extras` unterstützen, einschließlich künftig hinzugefügter Event-Typen. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Relevante Felder" }
 
 {% alert warning %}
-**Die Löschung ist dauerhaft!** Wenn Sie sich dafür entscheiden, Felder aus Snowflake für gelöschte Nutzer:innen zu entfernen, gilt die Einstellung für alle historischen Daten in Ihren Workspaces und alle Ereignisse für zukünftig gelöschte Nutzer:innen. Nachdem Braze den Prozess zur Anwendung der Einstellungen auf historische Ereignisdaten für gelöschte Nutzer:innen ausgeführt hat, können Sie die Daten **nicht wiederherstellen**.
+**Das Löschen ist endgültig!** Wenn Sie sich dafür entscheiden, Felder aus Snowflake für gelöschte Nutzer:innen zu entfernen, gilt die Einstellung für alle historischen Daten in Ihren Workspaces und für alle Events von Nutzer:innen, die in der Zukunft gelöscht werden. Nachdem Braze den Prozess zur Anwendung der Einstellungen auf historische Event-Daten gelöschter Nutzer:innen ausgeführt hat, können Sie die Daten **nicht wiederherstellen**.
 {% endalert %}
 
-### Präferenzen konfigurieren {#configure-preferences}
+### Einstellungen konfigurieren
 
-Legen Sie Standardpräferenzen fest, indem Sie die Kontrollkästchen für alle Felder aktivieren, die Braze entfernen soll, wenn ein:e Nutzer:in gelöscht wird. Wählen Sie alle Felder aus, die PII enthalten. Diese Präferenz gilt für alle aktuellen und zukünftigen Workspaces, es sei denn, Workspaces werden explizit einer Präferenzgruppe hinzugefügt.
+Legen Sie Standardeinstellungen fest, indem Sie die Kontrollkästchen für alle Felder aktivieren, die Braze entfernen soll, wenn Nutzer:innen gelöscht werden. Wählen Sie alle Felder aus, die PII enthalten. Diese Einstellung gilt für alle aktuellen und künftigen Workspaces, sofern Workspaces nicht explizit einer Einstellungsgruppe hinzugefügt werden.
 
-Um Präferenzen nach Workspace anzupassen, können Sie Präferenzgruppen mit anderen Einstellungen als den Standardeinstellungen hinzufügen. Wir wenden die Standardeinstellungen auf alle Workspaces an, die keiner zusätzlichen Präferenzgruppe hinzugefügt wurden, einschließlich zukünftig erstellter Workspaces.
+Um Einstellungen nach Workspace anzupassen, können Sie Einstellungsgruppen mit abweichenden Einstellungen vom Standard hinzufügen. Wir wenden die Standardeinstellungen auf alle Workspaces an, die keiner zusätzlichen Einstellungsgruppe hinzugefügt wurden, einschließlich künftig erstellter Workspaces.
 
-![Abschnitt „Einstellungen zur Datenlöschung“ mit aktiviertem Schalter zur Anpassung der Datenlöschungspräferenzen nach Workspace.]({% image_buster /assets/img/deletion_preferences_1.png %})
+![Bereich „Einstellungen zur Datenlöschung“ mit aktiviertem Umschalter zur Anpassung der Datenlöschungseinstellungen nach Workspace.]({% image_buster /assets/img/deletion_preferences_1.png %})
 
-## Fehlerbehebung {#troubleshooting}
+## Fehlerbehebung
 
-### Probleme mit der Einrichtungsschleife der Zwei-Faktor-Authentifizierung (2FA) {#two-factor-authentication-2fa-setup-loop-issues}
+### Endlosschleife bei der Einrichtung der Zwei-Faktor-Authentifizierung (2FA)
 
-Wenn Sie nach erfolgreicher Eingabe Ihrer Telefonnummer für 2FA in einer Schleife gefangen sind und zur Anmeldeseite zurückgeleitet werden, liegt dies wahrscheinlich daran, dass die Verifizierung beim ersten Versuch fehlgeschlagen ist. Um dieses Problem zu beheben, folgen Sie diesen Schritten:
+Wenn Sie nach erfolgreicher Eingabe Ihrer Telefonnummer für die 2FA in einer Schleife gefangen sind und immer wieder zur Anmeldeseite weitergeleitet werden, liegt dies wahrscheinlich daran, dass die Verifizierung beim ersten Versuch fehlgeschlagen ist. Gehen Sie wie folgt vor, um dieses Problem zu beheben:
 
 1. Deaktivieren Sie alle Werbeblocker.
 2. Aktivieren Sie Cookies in Ihren Browsereinstellungen.
 3. Starten Sie Ihren PC oder Laptop neu.
-4. Versuchen Sie erneut, 2FA einzurichten.
+4. Versuchen Sie erneut, die 2FA einzurichten.
 
-Wenn das Problem nach diesen Schritten weiterhin besteht, wenden Sie sich an den [Support]({{site.baseurl}}/braze_support) für Unterstützung.
+Wenn das Problem nach diesen Schritten weiterhin besteht, wenden Sie sich an den [Support]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 
-### Zwei-Faktor-Authentifizierung (2FA) kann nicht aktiviert werden {#cant-enable-two-factor-authentication-2fa}
+### Zwei-Faktor-Authentifizierung (2FA) lässt sich nicht aktivieren
 
-Wenn 2FA aktiviert ist, aber nichts passiert, wenn Sie den Button **Enable** auswählen, kann dies daran liegen, dass Ihr Browser die Weiterleitung blockiert, die zum Senden des Verifizierungscodes per SMS erforderlich ist. Hier sind Schritte zur Fehlerbehebung:
+Wenn die 2FA aktiviert ist, aber nichts passiert, wenn Sie den Button **Aktivieren** auswählen, blockiert Ihr Browser möglicherweise die Weiterleitung, die zum Senden des Verifizierungscodes per SMS erforderlich ist. Gehen Sie wie folgt vor, um dieses Problem zu beheben:
 
-1. Deaktivieren Sie vorübergehend alle Werbeblocker, die Sie in Ihrem Browser aktiviert haben.
-2. Bestätigen Sie, dass Sie Drittanbieter-Cookies in Ihren Browsereinstellungen aktiviert haben.
-3. Versuchen Sie, 2FA einzurichten.
+1. Deaktivieren Sie vorübergehend alle Werbeblocker in Ihrem Browser.
+2. Stellen Sie sicher, dass Drittanbieter-Cookies in Ihren Browsereinstellungen aktiviert sind.
+3. Versuchen Sie, die 2FA einzurichten.
 
-### Verifizierungscode wird nicht gesendet {#verification-code-doesnt-send}
+### Verifizierungscode wird nicht gesendet
 
-Wenn Sie Probleme bei der Eingabe Ihrer Telefonnummer auf der Authy-Seite haben und keine SMS erhalten, folgen Sie diesen Schritten:
+Wenn bei der Eingabe Ihrer Telefonnummer auf der Authy-Seite Probleme auftreten und Sie keine SMS erhalten, gehen Sie wie folgt vor:
 
 1. Installieren Sie die Authy-App auf Ihrem Telefon und melden Sie sich beim Authy-Authenticator an.
-2. Geben Sie Ihre Telefonnummer ein und überprüfen Sie die Authy-App auf Änderungen oder SMS-Benachrichtigungen.
-3. Wenn Sie immer noch keine SMS erhalten, versuchen Sie eine andere Netzwerkverbindung, z. B. Ihr Heimnetzwerk oder ein nicht-unternehmenseigenes WLAN. Unternehmensnetzwerke können Sicherheitsrichtlinien haben, die die SMS-Zustellung beeinträchtigen.
+2. Geben Sie Ihre Telefonnummer ein und prüfen Sie die Authy-App auf Änderungen oder SMS-Benachrichtigungen.
+3. Wenn Sie die SMS immer noch nicht erhalten, versuchen Sie eine andere Netzwerkverbindung, z. B. Ihr Heimnetzwerk oder ein WLAN außerhalb des Unternehmensnetzwerks. Unternehmensnetzwerke können Sicherheitsrichtlinien haben, die die SMS-Zustellung beeinträchtigen.
 
-Wenn die Probleme weiterhin bestehen, löschen Sie das alte Profil in der Authy-App und scannen Sie den QR-Code erneut, um 2FA einzurichten. Stellen Sie sicher, dass Sie alle Werbeblocker deaktiviert, Drittanbieter-Cookies aktiviert oder einen anderen Browser verwendet haben, bevor Sie die Einrichtung erneut versuchen.
+Wenn die Probleme weiterhin bestehen, löschen Sie das alte Profil in der Authy-App und scannen Sie den QR-Code erneut, um die 2FA einzurichten. Stellen Sie sicher, dass Sie alle Werbeblocker deaktiviert, Drittanbieter-Cookies aktiviert oder einen anderen Browser verwendet haben, bevor Sie die Einrichtung erneut versuchen.
 
-## Nächste Schritte {#next-steps}
+## Nächste Schritte
 
 Weitere Informationen zu Authentifizierung und Zugriff finden Sie unter:
 
-- [SAML und Single Sign-on]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on) zur Einrichtung von SSO mit Ihrem Identitätsanbieter.
-- [Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) zur Steuerung, welche Aktionen Nutzer:innen im Dashboard ausführen können.
+{% article_tiles %}
+- name: SAML & Single Sign-on
+  link: /docs/user_guide/administer/global/saml_single_sign_on
+- name: Berechtigungen
+  link: /docs/user_guide/administer/global/user_management/permissions
+{% endarticle_tiles %}

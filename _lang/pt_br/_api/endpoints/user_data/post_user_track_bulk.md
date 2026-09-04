@@ -37,11 +37,11 @@ Os limites do objeto de solicitação do endpoint `/users/track` variam de acord
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisa de uma [chave de API]({{site.baseurl}}/api/api_key) com a permissão `users.track.bulk`.
+Para usar este endpoint, você precisa de uma [chave de API]({{site.baseurl}}/api/basics) com a permissão `users.track.bulk`.
 
 Se você estiver fazendo chamadas servidor-a-servidor atrás de um firewall, pode ser necessário adicionar seu endpoint REST da Braze à lista de permissões (por exemplo, `rest.iad-01.braze.com`). Para saber mais, consulte [Endpoints de API]({{site.baseurl}}/api/basics#api-definitions).
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include api/user_track_custom_attributes_data_points.md endpoint="/users/track/bulk" %}
 
@@ -49,7 +49,7 @@ Para a maioria dos clientes, este endpoint tem um limite de velocidade base de 5
 
 Clientes com contratos mais recentes podem ter limites de pico (por segundo) e estáveis (por hora) baseados nos usuários ativos mensais contratados.
 
-Cada solicitação `/users/track/bulk` tem um limite de carga útil de 2 MB e pode incluir até 1.000 objetos no total entre atributos, eventos e compras, dependendo da política de limite de taxa em massa da sua conta.
+Cada solicitação `/users/track/bulk` tem um limite de carga útil de 2 MB e pode incluir até 1.000 objetos no total entre atributos, eventos e compras, dependendo da política de limite de frequência em massa da sua conta.
 
 Cada objeto pode atualizar um usuário, então uma única solicitação pode atualizar até o limite de objetos de solicitação da sua conta de usuários diferentes. Além disso, cada solicitação pode conter no máximo 100 objetos por perfil de usuário entre atributos, eventos e compras.
 
@@ -74,7 +74,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 Para cada objeto de solicitação, você deve incluir um dos seguintes: `external_id`, `user_alias`, `braze_id`, `email` ou `phone`.
 {% endalert %}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --- | --- | --- | --- |
 | `attributes` | Opcional | Array de objetos de atributos | Consulte [objeto de atributos de usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object) |
 | `events` | Opcional | Array de objetos de eventos | Consulte [objeto de eventos]({{site.baseurl}}/api/objects_filters/event_object) |
@@ -212,7 +212,7 @@ Se sua solicitação tiver um erro fatal, você receberá a seguinte resposta:
 
 Para códigos de status e mensagens de erro associadas que a Braze retorna quando sua solicitação tem um erro fatal, consulte [Erros fatais e respostas]({{site.baseurl}}/api/errors#fatal-errors).
 
-Se você receber o erro "provided external_id is blacklisted and disallowed", sua solicitação pode incluir um "usuário fictício". Para saber mais, consulte [Bloqueio de spam]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival#spam-blocking).
+Se você receber o erro "provided external_id is blacklisted and disallowed", sua solicitação pode incluir um "usuário fictício". Para saber mais, consulte [Bloqueio de SPAM]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival#spam-blocking).
 
 ## Perguntas frequentes {#frequently-asked-questions}
 

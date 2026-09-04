@@ -26,14 +26,14 @@ Campaign을 시작하려면 다음 구성요소를 승인해야 합니다:
 - **Messages:** Campaign 메시지입니다.
 - **Delivery:** 전달 유형이며, 사용자가 Campaign을 수신하는 시기를 결정합니다.
 - **Target Audience:** Campaign을 수신할 대상을 결정합니다.
-- **Conversion Events:** 참여 및 보고 목적으로 추적하는 측정기준입니다.
+- **Conversion Events:** 인게이지먼트 및 보고 목적으로 추적하는 측정기준입니다.
 {% endtab %}
 
 {% tab canvas %}
 Canvas를 시작하려면 다음 주요 구성요소를 승인해야 합니다:
 
-- **Conversion Events:** 참여 및 보고 목적으로 추적하는 측정기준입니다.
-- **Entry Schedule:** 진입 스케줄 유형과 사용자가 Canvas에 진입하는 시기를 포함합니다.
+- **Conversion Events:** 인게이지먼트 및 보고 목적으로 추적하는 측정기준입니다.
+- **항목 Schedule:** 진입 스케줄 유형과 사용자가 Canvas에 진입하는 시기를 포함합니다.
 - **Target Audience:** Canvas에 진입할 대상을 결정합니다.
 - **Send Settings:** Canvas의 모든 단계에 대한 발송 옵션입니다.
 - **Build Canvas:** Canvas 사용자 여정입니다.
@@ -48,16 +48,16 @@ Canvas를 시작하려면 다음 주요 구성요소를 승인해야 합니다:
 - **[워크스페이스]의 모든 Canvases에 승인 워크플로우 사용**
 
 {% alert important %}
-Campaign 승인은 [API 캠페인]({{site.baseurl}}/api/api_campaigns) 및 [트랜잭션 이메일 캠페인]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email)에는 지원되지 않습니다.
+Campaign 승인은 [API Campaigns]({{site.baseurl}}/api/api_campaigns) 및 [트랜잭션 이메일 Campaigns]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email)에는 지원되지 않습니다.
 {% endalert %}
 
 ## 사용자 권한 설정 {#setting-user-permissions}
 
-승인 워크플로우를 켠 후, 회사 사용자가 Campaigns와 Canvases를 승인하거나 거부할 수 있도록 사용자 권한을 설정해야 합니다. 두 권한 모두 워크스페이스 또는 [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams)에 적용하거나 [권한 세트]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#permission-sets)에 추가할 수 있습니다.
+승인 워크플로우를 켠 후, 회사 사용자가 Campaigns와 Canvases를 승인하거나 거부할 수 있도록 사용자 권한을 설정해야 합니다. 두 권한 모두 워크스페이스 또는 [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams)에 적용하거나 [권한 세트]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#create-a-permission-set)에 추가할 수 있습니다.
 
 {% tabs %}
 {% tab campaign %}
-["Approve and Deny Campaigns" 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#managing-limited-and-team-role-permissions)이 있어야 합니다. 이 권한은 Campaign의 승인 상태를 업데이트할 수 있는 사용자를 제어합니다. 이 권한이 있으면 다음을 수행할 수 있습니다:
+["Approve and Deny Campaigns" 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)이 있어야 합니다. 이 권한은 Campaign의 승인 상태를 업데이트할 수 있는 사용자를 제어합니다. 이 권한이 있으면 다음을 수행할 수 있습니다:
 
 - Campaign을 직접 승인
 - Campaign을 승인하고 시작
@@ -69,7 +69,7 @@ Campaign 승인은 [API 캠페인]({{site.baseurl}}/api/api_campaigns) 및 [트�
 {% endtab %}
 
 {% tab canvas %}
-["Approve and Deny Canvases" 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#managing-limited-and-team-role-permissions)이 있어야 합니다. 이 권한은 Canvas의 승인 상태를 업데이트할 수 있는 사용자를 제어합니다. 이 권한이 있으면 다음을 수행할 수 있습니다:
+["Approve and Deny Canvases" 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)이 있어야 합니다. 이 권한은 Canvas의 승인 상태를 업데이트할 수 있는 사용자를 제어합니다. 이 권한이 있으면 다음을 수행할 수 있습니다:
 
 - Canvas를 직접 승인
 - Canvas를 승인하고 시작
@@ -94,5 +94,5 @@ Campaign 승인은 [API 캠페인]({{site.baseurl}}/api/api_campaigns) 및 [트�
 {% endtabs %}
 
 {% alert important %}
-라이브 Campaign을 편집하려면 "Approve and Deny Campaigns" 권한이 필요합니다. Campaigns의 초안 버전은 아직 사용할 수 없으므로 사용자가 자신의 변경 사항을 직접 승인해야 합니다. Canvases의 경우에는 사용자가 변경 사항을 적용하고 초안으로 저장한 후, 다른 사용자가 승인하고 Canvas를 시작할 수 있으므로 이에 해당하지 않습니다.
+실시간 Campaign을 편집하려면 "Approve and Deny Campaigns" 권한이 필요합니다. Campaigns의 초안 버전은 아직 사용할 수 없으므로 사용자가 자신의 변경 사항을 직접 승인해야 합니다. Canvases의 경우에는 사용자가 변경 사항을 적용하고 초안으로 저장한 후, 다른 사용자가 승인하고 Canvas를 시작할 수 있으므로 이에 해당하지 않습니다.
 {% endalert %}

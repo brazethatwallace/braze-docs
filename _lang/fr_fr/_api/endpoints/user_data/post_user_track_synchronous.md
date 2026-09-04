@@ -6,7 +6,6 @@ layout: api_page
 page_order: 4.5
 page_type: reference
 description: "Cet article présente en détail l'endpoint synchrone de suivi utilisateur de Braze."
-
 ---
 {% api %}
 # Créer et mettre à jour des utilisateurs (synchrone) {#create-and-update-users-synchronous}
@@ -32,7 +31,7 @@ Par exemple, si vous envoyez des requêtes consécutives pour le même utilisate
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/api_key) avec l'autorisation `users.track.sync`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics) avec l'autorisation `users.track.sync`.
 
 Les clients utilisant l'API pour les appels de serveur à serveur devront peut-être ajouter `rest.iad-01.braze.com` à leur liste d'autorisations s'ils sont derrière un pare-feu.
 
@@ -65,7 +64,7 @@ Pour chaque composant de requête répertorié dans le tableau suivant, vous dev
 
 | Paramètre | Requis | Type de données | Description |
 | --------- | ---------| --------- | ----------- |
-| `attributes` | Facultatif | Un objet d'attributs | Voir [objet attributs de l'utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens) |
+| `attributes` | Facultatif | Un objet d'attributs | Voir [objet attributs de l'utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object) |
 | `events` | Facultatif | Un objet d'événement | Voir [objet événements]({{site.baseurl}}/api/objects_filters/event_object) |
 | `purchases` | Facultatif | Un objet d'achat | Voir [objet achats]({{site.baseurl}}/api/objects_filters/purchase_object) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }

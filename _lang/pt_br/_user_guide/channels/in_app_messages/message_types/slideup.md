@@ -12,7 +12,7 @@ description: "Este artigo de referência aborda os requisitos de mensagem e desi
 
 # Mensagens no app slideup {#slideup-in-app-messages}
 
-> Nossos slideups geralmente aparecem na parte superior ou inferior da tela do app (você pode definir isso ao criar sua mensagem). Eles são ótimos para alertar seus usuários sobre novos termos de serviço, cookies e outros trechos de informação. São discretos e permitem que seus usuários continuem interagindo com o app enquanto a mensagem é exibida.
+> Nossos slideups geralmente aparecem na parte superior ou inferior da tela do app (você pode definir isso ao criar sua mensagem). Eles são ótimos para alertar seus usuários sobre novos termos de serviço, cookies e outros snippets de informação. São discretos e permitem que seus usuários continuem interagindo com o app enquanto a mensagem é exibida.
 
 Esse tipo de mensagem está disponível no [editor tradicional]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional).
 
@@ -22,9 +22,7 @@ Esse tipo de mensagem está disponível no [editor tradicional]({{site.baseurl}}
 
 As mensagens slideup podem conter até três linhas de texto antes de serem truncadas com reticências. As imagens nos slideups nunca serão cortadas ou recortadas — elas sempre serão redimensionadas para caber no contêiner de imagem de 50 x 50 pixels.
 
-- Todas as imagens devem ter menos de 5&nbsp;MB.
-- Aceitamos apenas os formatos PNG, JPEG e GIF.
-- Recomendamos que suas imagens tenham 500&nbsp;KB.
+{% multi_lang_include in-app_messages/image_requirements.md %}
 
 {% alert tip %} Crie ativos com confiança! Nossos modelos de imagem para mensagens no app e sobreposições de zona segura foram projetados para funcionar bem em dispositivos de todos os tamanhos. [Baixar ZIP de modelos de design]({% image_buster /assets/download_file/Braze-In-App-Message-Design-Templates.zip %}) {% endalert %}
 
@@ -37,7 +35,7 @@ Você deve sempre [pré-visualizar e testar suas mensagens]({{site.baseurl}}/use
 
 ## Hiperlinks e texto âncora {#hyperlinks-and-anchor-text}
 
-Para adicionar um link em um slideup, insira o texto da mensagem no campo **Corpo** e defina o destino em **Comportamento ao clicar** (por exemplo, **Redirecionar para URL**). Quando o **Comportamento ao clicar** está configurado, toques em qualquer lugar da mensagem, exceto no controle de fechar, acionam essa ação.
+Para adicionar um link em um slideup, insira o texto da mensagem no campo **Corpo** e defina o destino em **Comportamento ao clicar** (por exemplo, **Redirecionar para URL**). Quando o **Comportamento ao clicar** está configurado, toques em qualquer lugar da mensagem, exceto no controle de fechar, disparam essa ação.
 
 Para mensagens no app em HTML personalizado, você pode usar links HTML diretamente. Consulte [Mensagens no app em HTML personalizado]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html).
 

@@ -17,9 +17,9 @@ alias: /push_primer/
 
 プッシュプライマーキャンペーンは、アプリのデバイスでプッシュを有効にするようユーザーに促します。ユーザーのデバイスに直接メッセージを送信する許可を得るのは複雑な場合がありますが、当社のガイドが役立ちます。このガイドでは、開発者がプッシュプライミングを統合するために行う必要のあるステップを示します。
 
-## ステップ 1: AppDelegate.m ファイルにスニペットを追加する {#step-1-add-snippet-in-appdelegatem-file}
+## ステップ1: AppDelegate.mファイルにスニペットを追加する {#step-1-add-snippet-in-appdelegatem-file}
 
-標準統合の代わりに、次のコード行を `AppDelegate.m` ファイルに追加します。
+標準のインテグレーションの代わりに、以下のコードを`AppDelegate.m`ファイルに追加します。
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -79,9 +79,9 @@ if #available(iOS 10, *) {
 {% endtab %}
 {% endtabs %}
 
-## ステップ 2: カスタムイベントチェッカーを AppDelegate.m ファイルに追加する {#step-2-append-custom-event-checker-to-appdelegatem-file}
+## ステップ2: カスタムイベントチェッカーをAppDelegate.mファイルに追加する {#step-2-append-custom-event-checker-to-appdelegatem-file}
 
-次のコードスニペットは、カスタムイベントを発火する必要があるかどうかをチェックします。`AppDelegate.m` に次のコード行を追加します。
+以下のコードスニペットは、カスタムイベントを発火する必要があるかどうかを確認します。次のコード行を`AppDelegate.m`に追加してください。
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -128,11 +128,11 @@ let notificationSettiings = UIApplication.shared.currentUserNotificationSettings
 {% endtab %}
 {% endtabs %}
 
-## ステップ 3: ディープリンクハンドラーを設定する {#step-3-set-up-a-deep-link-handler}
+## ステップ3: ディープリンクハンドラーを設定する {#step-3-set-up-a-deep-link-handler}
 
-以下のコードスニペットをディープリンク処理コードの中に配置してください。このディープリンクコードは、プッシュプライマーのアプリ内メッセージに対してのみ実行してください。
+以下のコードスニペットをディープリンク処理コード内に配置してください。このディープリンクコードは、プッシュプライマーのアプリ内メッセージに対してのみ実行する必要があります。
 
-ディープリンクについて詳しくは、[リンク処理のカスタマイズ]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/advanced_use_cases/linking#linking-handling-customization)を参照してください。
+ディープリンクの詳細については、[リンク処理のカスタマイズ]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/advanced_use_cases/linking#linking-handling-customization)を参照してください。
 
 {% tabs %}
 {% tab OBJECTIVE-C %}

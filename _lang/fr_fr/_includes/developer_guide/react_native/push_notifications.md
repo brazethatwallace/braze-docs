@@ -127,31 +127,31 @@ Pour obtenir la liste complète des champs de notification push, consultez le ta
 | `badge_count`      | Nombre   | Représente le nombre de badges de la notification. |
 | `timestamp`        | Nombre | Représente l'heure à laquelle le payload a été reçu par l'application. |
 | `is_silent`        | Valeur booléenne   | Si la valeur est `true`, le payload est reçu silencieusement. Pour plus de détails sur l'envoi de notifications push silencieuses sur Android, consultez [Notifications push silencieuses sur Android]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android). Pour plus de détails sur l'envoi de notifications push silencieuses sur iOS, consultez [Notifications push silencieuses sur iOS]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift). |
-| `is_braze_internal`| Valeur booléenne   | La valeur sera `true` si un payload de notification a été envoyé pour une fonctionnalité interne du SDK, comme la synchronisation des indicateurs de fonctionnalité ou le suivi des désinstallations. Le payload est reçu silencieusement par l'utilisateur. |
+| `is_braze_internal`| Valeur booléenne   | La valeur sera `true` si un payload de notification a été envoyé pour une fonctionnalité interne du SDK, comme la synchronisation des Feature Flags ou le suivi des désinstallations. Le payload est reçu silencieusement par l'utilisateur. |
 | `image_url`        | Chaîne de caractères    | Spécifie l'URL associée à l'image de la notification. |
 | `braze_properties` | Objet    | Représente les propriétés Braze associées à la Campaign (paires clé-valeur). |
 | `ios`              | Objet    | Représente les champs spécifiques à iOS. |
 | `android`          | Objet    | Représente les champs spécifiques à Android. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Push notification event fields" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Champs d'événements de notification push" }
 
 ### Étape 3 : Activer la création de liens profonds (facultatif) {#step-3-enable-deep-linking-optional}
 
-Pour permettre à Braze de gérer les liens profonds dans les composants React lorsqu'une notification push est cliquée, commencez par mettre en œuvre les étapes décrites dans la bibliothèque [React Native Linking](https://reactnative.dev/docs/linking) ou avec la solution de votre choix. Suivez ensuite les étapes supplémentaires ci-dessous.
+Pour permettre à Braze de gérer les deep links dans les composants React lorsqu'une notification push est cliquée, commencez par mettre en œuvre les étapes décrites dans la bibliothèque [React Native Linking](https://reactnative.dev/docs/linking) ou avec la solution de votre choix. Suivez ensuite les étapes supplémentaires ci-dessous.
 
-Pour en savoir plus sur les liens profonds, consultez notre [article de FAQ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking).
+Pour en savoir plus sur les deep links, consultez notre [article de FAQ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking).
 
 {% alert important %}
-Si vous migrez une intégration push React Native existante, testez à nouveau les liens profonds après la mise à jour du SDK Braze, de React Native, d'Expo ou des bibliothèques associées. Vérifiez que :
-- [React Native Linking](https://reactnative.dev/docs/linking) est toujours configuré et gère bien vos URL de liens profonds.
+Si vous migrez une intégration push React Native existante, testez à nouveau les deep links après la mise à jour du SDK Braze, de React Native, d'Expo ou des bibliothèques associées. Vérifiez que :
+- [React Native Linking](https://reactnative.dev/docs/linking) est toujours configuré et gère bien vos URL de deep links.
 - La gestion du payload push initial sur iOS (voir [Étape 3.1 : Enregistrer le payload de la notification push au lancement de l'application](#step-3-1)) est implémentée et toujours appelée au lancement de l'application.
 - Toutes les méthodes de délégué ou d'écouteur natifs que vous utilisez pour gérer les événements de clic push sont toujours enregistrées et invoquées comme prévu.
 {% endalert %}
 
 {% tabs local %}
 {% tab Android Native %}
-Si vous utilisez le [plugin Braze Expo]({{site.baseurl}}/developer_guide/platforms/react_native/sdk_integration/?tab=expo#step-2-choose-a-setup-option), vous pouvez gérer automatiquement les liens profonds des notifications push en définissant `androidHandlePushDeepLinksAutomatically` sur `true` dans votre `app.json`.
+Si vous utilisez le [plugin Braze Expo]({{site.baseurl}}/developer_guide/platforms/react_native/sdk_integration/?tab=expo#step-2-choose-a-setup-option), vous pouvez gérer automatiquement les deep links des notifications push en définissant `androidHandlePushDeepLinksAutomatically` sur `true` dans votre `app.json`.
 
-Pour gérer manuellement les liens profonds, consultez la documentation native Android : [Ajout de liens profonds]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/).
+Pour gérer manuellement les deep links, consultez la documentation native Android : [Ajout de deep links]({{site.baseurl}}/developer_guide/push_notifications/deep_linking).
 
 #### Étape 3.1 : Enregistrer le payload de la notification push au lancement de l'application {#step-31-store-the-push-notification-payload-on-app-launch}
 
@@ -168,9 +168,9 @@ override fun onCreate(savedInstanceState: Bundle?) {
 }
 ```
 
-#### Étape 3.2 : Gérer les liens profonds à partir d'un état fermé {#step-32-handle-deep-links-from-a-closed-state}
+#### Étape 3.2 : Gérer les deep links à partir d'un état fermé {#step-32-handle-deep-links-from-a-closed-state}
 
-En plus des scénarios de base gérés par [React Native Linking](https://reactnative.dev/docs/linking), implémentez la méthode `Braze.getInitialPushPayload` et récupérez la valeur `url` pour prendre en compte les liens profonds provenant de notifications push qui ouvrent votre application lorsqu'elle n'est pas en cours d'exécution. Par exemple :
+En plus des scénarios de base gérés par [React Native Linking](https://reactnative.dev/docs/linking), implémentez la méthode `Braze.getInitialPushPayload` et récupérez la valeur `url` pour prendre en compte les deep links provenant de notifications push qui ouvrent votre application lorsqu'elle n'est pas en cours d'exécution. Par exemple :
 
 ```javascript
 // Handles deep links when an app is launched from a hard close via push click.
@@ -190,10 +190,10 @@ Cette méthode nécessite la configuration native de l'étape 3.1 pour votre pla
 {% tab iOS Native %}
 
 {% alert important %}
-Pour gérer les liens profonds à partir des notifications push sur iOS, vous devez également configurer la gestion des liens dans votre couche native iOS.
+Pour gérer les deep links à partir des notifications push sur iOS, vous devez également configurer la gestion des liens dans votre couche native iOS.
 {% endalert %}
 
-Cela inclut l'enregistrement d'un schéma d'URL personnalisé et l'implémentation d'un gestionnaire d'URL dans votre `AppDelegate`. Pour les instructions complètes de configuration, consultez [Gestion des liens profonds]({{site.baseurl}}/developer_guide/platforms/swift/in_app_messages/deep_linking/?tab=objective-c) dans la documentation native iOS.
+Cela inclut l'enregistrement d'un schéma d'URL personnalisé et l'implémentation d'un gestionnaire d'URL dans votre `AppDelegate`. Pour les instructions complètes de configuration, consultez [Gestion des deep links]({{site.baseurl}}/developer_guide/platforms/swift/in_app_messages/deep_linking/?tab=objective-c) dans la documentation native iOS.
 #### Étape 3.1 : Enregistrer le payload de la notification push au lancement de l'application {#step-3-1}
 {% alert note %}
 Ignorez l'étape 3.1 si vous utilisez le plugin Braze Expo, car cette fonctionnalité est gérée automatiquement.
@@ -243,9 +243,9 @@ func application(
 {% endsubtab %}
 {% endsubtabs %}
 
-#### Étape 3.2 : Gérer les liens profonds à partir d'un état fermé
+#### Étape 3.2 : Gérer les deep links à partir d'un état fermé
 
-En plus des scénarios de base gérés par [React Native Linking](https://reactnative.dev/docs/linking), implémentez la méthode `Braze.getInitialPushPayload` et récupérez la valeur `url` pour prendre en compte les liens profonds provenant de notifications push qui ouvrent votre application lorsqu'elle n'est pas en cours d'exécution. Par exemple :
+En plus des scénarios de base gérés par [React Native Linking](https://reactnative.dev/docs/linking), implémentez la méthode `Braze.getInitialPushPayload` et récupérez la valeur `url` pour prendre en compte les deep links provenant de notifications push qui ouvrent votre application lorsqu'elle n'est pas en cours d'exécution. Par exemple :
 
 ```javascript
 // Handles deep links when an app is launched from a hard close via push click.
@@ -389,7 +389,7 @@ Ensuite, créez et enregistrez votre `BrazeReactDelegate` dans `didFinishLaunchi
 {% endsubtab %}
 {% endsubtabs %}
 
-Pour un exemple d'intégration, consultez notre application modèle [ici](https://github.com/braze-inc/braze-react-native-sdk/blob/master/BrazeProject/ios/BrazeProject/AppDelegate.mm).
+Pour un exemple d'intégration, consultez notre application modèle [dans cet exemple d'AppDelegate](https://github.com/braze-inc/braze-react-native-sdk/blob/master/BrazeProject/ios/BrazeProject/AppDelegate.mm).
 {% endtab %}
 {% endtabs %}
 
@@ -467,13 +467,13 @@ Pour les intégrations en flux de travail bare, suivez plutôt les approches nat
 
 ![Une Campaign de notification push Braze montrant que vous pouvez ajouter votre propre ID utilisateur en tant que destinataire de test pour tester votre notification push.]({% image_buster /assets/img/react-native/push-notification-test.png %} "Push Campaign Test")
 
-## Utilisation du plugin Expo {#using-the-expo-plugin}
+## Utiliser le plugin Expo {#using-the-expo-plugin}
 
-Une fois [les notifications push configurées pour Expo](#reactnative_setting-up-push-notifications), vous pouvez les utiliser pour gérer les comportements de notifications push suivants&#8212;sans avoir à écrire de code dans les couches natives Android ou iOS.
+Après avoir [configuré les notifications push pour Expo](#reactnative_setting-up-push-notifications), vous pouvez l'utiliser pour gérer les comportements suivants des notifications push — sans avoir besoin d'écrire du code dans les couches natives Android ou iOS.
 
-### Transférer les notifications push Android vers un FMS supplémentaire {#forwarding-android-push-to-additional-fms}
+### Rediriger les notifications push Android vers un FMS supplémentaire {#forwarding-android-push-to-additional-fms}
 
-Si vous souhaitez utiliser un Firebase Messaging Service (FMS) supplémentaire, vous pouvez spécifier un FMS de repli à appeler si votre application reçoit une notification push qui ne provient pas de Braze. Par exemple :
+Si vous souhaitez utiliser un Firebase Messaging Service (FMS) supplémentaire, vous pouvez spécifier un FMS de secours à appeler lorsque votre application reçoit une notification push qui ne provient pas de Braze. Par exemple :
 
 ```json
 {
@@ -494,40 +494,40 @@ Si vous souhaitez utiliser un Firebase Messaging Service (FMS) supplémentaire, 
 
 ### Utiliser les extensions d'application avec Expo Application Services {#app-extensions}
 
-Si vous utilisez Expo Application Services (EAS) et que vous avez activé `enableBrazeIosRichPush` ou `enableBrazeIosPushStories`, vous devrez déclarer les identifiants de bundle correspondants pour chaque extension d'application dans votre projet. Vous pouvez aborder cette étape de plusieurs manières, selon la façon dont votre projet est configuré pour gérer la signature de code avec EAS.
+Si vous utilisez Expo Application Services (EAS) et que vous avez activé `enableBrazeIosRichPush` ou `enableBrazeIosPushStories`, vous devrez déclarer les identifiants de bundle correspondants pour chaque extension d'application dans votre projet. Il existe plusieurs façons d'aborder cette étape, en fonction de la manière dont votre projet est configuré pour gérer la signature de code avec EAS.
 
-Une approche consiste à utiliser la configuration `appExtensions` dans votre fichier `app.json` en suivant la [documentation sur les extensions d'application](https://docs.expo.dev/build-reference/app-extensions/) d'Expo. Vous pouvez également définir le paramètre `multitarget` dans votre fichier `credentials.json` en suivant la [documentation sur les identifiants locaux](https://docs.expo.dev/app-signing/local-credentials/#multi-target-project) d'Expo.
+Une approche consiste à utiliser la configuration `appExtensions` dans votre fichier `app.json` en suivant la [documentation sur les extensions d'application](https://docs.expo.dev/build-reference/app-extensions/) d'Expo. Vous pouvez également configurer le paramètre `multitarget` dans votre fichier `credentials.json` en suivant la [documentation sur les identifiants locaux](https://docs.expo.dev/app-signing/local-credentials/#multi-target-project) d'Expo.
 
 ### Résolution des problèmes {#troubleshooting}
 
 Voici les étapes courantes de résolution des problèmes pour les intégrations de notifications push avec le SDK Braze React Native et le plugin Expo.
 
-#### Les notifications push ne fonctionnent plus {#troubleshooting-stopped-working}
+#### Les notifications push ont cessé de fonctionner {#troubleshooting-stopped-working}
 
-Si les notifications push via le plugin Expo ne fonctionnent plus :
+Si les notifications push via le plugin Expo ont cessé de fonctionner :
 
-1. Vérifiez que le SDK Braze continue de suivre les sessions.
+1. Vérifiez que le SDK Braze suit toujours les sessions.
 2. Vérifiez que le SDK n'a pas été désactivé par un appel explicite ou implicite à `wipeData`.
-3. Examinez les mises à jour récentes d'Expo ou de ses bibliothèques associées, car il pourrait y avoir des conflits avec votre configuration Braze.
-4. Examinez les dépendances récemment ajoutées au projet et vérifiez si elles remplacent manuellement vos méthodes déléguées de notification push existantes.
+3. Examinez les mises à jour récentes d'Expo ou de ses bibliothèques associées, car elles peuvent entrer en conflit avec votre configuration Braze.
+4. Examinez les dépendances récemment ajoutées au projet et vérifiez si elles remplacent manuellement vos méthodes de délégation de notifications push existantes.
 
 {% alert tip %}
 Pour les intégrations iOS, vous pouvez également consulter notre [tutoriel de configuration des notifications push](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/b1-standard-push-notifications) pour vous aider à identifier les conflits potentiels avec les dépendances de votre projet.
 {% endalert %}
 
-#### Le jeton de l'appareil ne s'enregistre pas auprès de Braze {#troubleshooting-token-registration}
+#### Le jeton d'appareil ne s'enregistre pas auprès de Braze {#troubleshooting-token-registration}
 
-Si le jeton de votre appareil ne s'enregistre pas auprès de Braze, consultez d'abord [Les notifications push ne fonctionnent plus](#troubleshooting-stopped-working).
+Si votre jeton d'appareil ne s'enregistre pas auprès de Braze, commencez par examiner [Les notifications push ont cessé de fonctionner](#troubleshooting-stopped-working).
 
-Si le problème persiste, il est possible qu'une dépendance distincte interfère avec votre configuration de notifications push Braze. Vous pouvez essayer de la supprimer ou appeler manuellement `Braze.registerPushToken` à la place.
+Si le problème persiste, il se peut qu'une dépendance distincte interfère avec votre configuration de notifications push Braze. Vous pouvez essayer de la supprimer ou appeler manuellement `Braze.registerPushToken` à la place.
 
-#### Les liens profonds des notifications push ne s'ouvrent pas {#troubleshooting-deep-links}
+#### Les deep links des notifications push ne s'ouvrent pas {#troubleshooting-deep-links}
 
-Si les liens profonds des notifications push ne s'ouvrent plus après une migration, vérifiez les points suivants :
+Si les deep links des notifications push cessent de s'ouvrir après une migration, vérifiez les points suivants :
 
-1. Vérifiez que votre configuration [React Native Linking](https://reactnative.dev/docs/linking) est toujours valide dans votre application mise à jour.
-2. Pour les intégrations natives iOS, confirmez que vous avez implémenté `populateInitialPayloadFromLaunchOptions` et `Braze.getInitialPushPayload` afin que, lorsque l'application est lancée depuis un état fermé, elle puisse récupérer le payload push initial et transmettre son `url` à votre gestionnaire de liens profonds.
-3. Si vous utilisez le plugin Braze Expo, vérifiez que `androidHandlePushDeepLinksAutomatically` est correctement défini pour votre implémentation.
-4. Examinez les dépendances récemment ajoutées pour détecter d'éventuels remplacements de la gestion des notifications ou du comportement du délégué d'application.
+1. Vérifiez que votre configuration de [React Native Linking](https://reactnative.dev/docs/linking) est toujours valide dans votre application mise à jour.
+2. Pour les intégrations natives iOS, confirmez que vous avez implémenté `populateInitialPayloadFromLaunchOptions` et `Braze.getInitialPushPayload` afin que, lorsque l'application est lancée depuis un état terminé, elle puisse récupérer le payload push initial et transmettre son `url` à votre gestionnaire de deep links.
+3. Si vous utilisez le plugin Braze Expo, vérifiez que `androidHandlePushDeepLinksAutomatically` est correctement configuré pour votre déploiement.
+4. Examinez les dépendances récemment ajoutées pour détecter les remplacements de la gestion des notifications ou du comportement du délégué de l'application.
 
-Si vous avez effectué toutes ces vérifications et que le problème persiste, [ouvrez un ticket d'assistance]({{site.baseurl}}/user_guide/administrative/access_braze/support/) en incluant les logs du SDK ainsi que les étapes de reproduction.
+Si vous avez effectué ces vérifications et que le problème persiste, [ouvrez un ticket d'assistance]({{site.baseurl}}/user_guide/administer/personal/braze_support) en incluant les logs du SDK et les étapes de reproduction.

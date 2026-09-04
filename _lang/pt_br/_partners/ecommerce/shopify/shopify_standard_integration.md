@@ -14,12 +14,12 @@ page_order: 1
 
 ## Etapa 1: Conecte sua loja da Shopify {#step-1-connect-your-shopify-store}
 
-1. Na Braze, acesse **Integrações de parceiros** > **Parceiros de tecnologia** e depois procure "Shopify".
+1. Na Braze, acesse **Partner Integrations** > **Technology Partners** e depois procure "Shopify".
 2. Na página do parceiro da Shopify, selecione **Begin setup** para iniciar o processo de integração.<br><br>![Página de integração da Shopify com botão para iniciar a configuração.]({% image_buster /assets/img/shopify/begin_setup.png %})<br><br>
 3. Na loja de aplicativos da Shopify, instale o aplicativo da Braze.<br><br>![A página da loja de aplicativos da Braze com um botão para instalar o aplicativo.]({% image_buster /assets/img/shopify/shopify_log_in.png %}){: style="max-width:70%;"}
 
 {% alert note %}
-Se sua conta da Shopify estiver associada a mais de uma loja, você poderá alterar a loja em que está conectado selecionando o ícone da loja no canto superior direito da página e selecionando **Switch stores**.
+Se sua conta da Shopify estiver associada a mais de uma loja, você poderá alterar a loja em que está conectado selecionando o ícone da loja no cabeçalho e selecionando **Switch stores**.
 {% endalert %}
 
 {: start="4"}
@@ -41,6 +41,10 @@ Depois de selecionar a jornada de integração da configuração padrão, você 
     - Rastreia apenas usuários identificados
     - Começa o rastreamento de dados quando os visitantes do site se inscrevem ou fazem login em suas contas
 
+{% alert note %}
+Novos clientes são provisionados nas versões mais recentes do Braze Web SDK e do JavaScript SDK durante a configuração. Clientes existentes podem visualizar a versão atual do SDK nas configurações de integração, ser notificados quando uma versão mais recente estiver disponível e fazer upgrades por conta própria nas configurações de integração.
+{% endalert %}
+
 ## Etapa 3: Configure seus dados da Shopify {#step-3-configure-your-shopify-data}
 
 ### Configuração de dados padrão {#standard-data-setup}
@@ -56,7 +60,7 @@ Os seguintes eventos serão ativados por padrão na integração padrão.
 | Eventos recomendados pela Braze | Eventos personalizados da Shopify | Atributos personalizados da Shopify |
 | --- | --- | --- |
 | {::nomarkdown}<ul><li>Produto visualizado</li><li>Carrinho atualizado</li><li>Checkout iniciado</li><li>Pedido feito</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_account_login</li><li>shopify_paid_order</li><li>shopify_order_canceled</li><li>shopify_order_refunded</li><li>shopify_order_fulfilled</li><li>shopify_order_partially_fulfilled</li></ul>{:/} | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2  .reset-td-br-3 aria-label="Standard data setup" }
+{: .reset-td-br-1 .reset-td-br-2  .reset-td-br-3 aria-label="Configuração de dados padrão" }
 
 Para saber mais sobre os dados rastreados por meio da integração, consulte [Recursos de dados da Shopify]({{site.baseurl}}/shopify_data_features).
 
@@ -206,9 +210,7 @@ A Braze espera um código de status `200` retornando o JSON do ID externo:
 #### Comportamento de falha e mesclagem {#failure-behavior-and-merging}
 Qualquer código de status diferente de `200` é considerado uma falha.
 
-- **Implicações da mesclagem:** Se o endpoint falhar (não retornar `200` ou atingir o tempo limite), a Braze não poderá recuperar o ID externo. Consequentemente, a mesclagem entre o usuário da Shopify e o perfil do usuário da Braze não ocorrerá nesse momento.
-- **Lógica de repetição:** A Braze poderá tentar novas tentativas de rede padrão imediatas, mas se a falha persistir, a mesclagem será adiada até o próximo evento de qualificação (por exemplo, a próxima vez que o usuário atualizar seu perfil ou concluir um checkout).
-- **Capacidade de suporte:** Para dar suporte à mesclagem de usuários em tempo hábil, certifique-se de que o seu endpoint esteja altamente disponível e lide com o campo opcional `email_address` de forma adequada.
+{% multi_lang_include partners/shopify/external_id_merge_implications.md %}
 
 ### Etapa 4.3: Insira seu ID externo {#step-43-input-your-external-id}
 
@@ -216,9 +218,7 @@ Repita a [Etapa 4](#step-4) e insira a URL do endpoint depois de selecionar ID e
 
 #### Considerações {#considerations}
 
-- Se seu ID externo não for gerado quando a Braze enviar uma solicitação ao seu endpoint, a integração usará por padrão o ID do cliente da Shopify quando a função `changeUser` for chamada. Essa etapa é crucial para mesclar o perfil do usuário anônimo com o perfil do usuário identificado. Como resultado, pode haver um período temporário durante o qual diferentes tipos de IDs externos existam no seu espaço de trabalho.
-- Quando o ID externo estiver disponível no metacampo `braze.external_id`, a integração priorizará e atribuirá esse ID externo.
-    - Se o ID do cliente da Shopify tiver sido definido anteriormente como o ID externo da Braze, ele será substituído pelo valor do metacampo `braze.external_id`.
+{% multi_lang_include partners/shopify/external_id_generation_notes.md %}
 
 ### Etapa 4.4: Colete suas aceitações de e-mail ou SMS da Shopify (opcional) {#step-44-collect-your-email-or-sms-opt-ins-from-shopify-optional}
 
@@ -228,11 +228,7 @@ Se você usar os canais de e-mail ou SMS, poderá sincronizar seus estados de ac
 
 ![Seção "Coletar assinantes" com a opção de coletar aceitação de marketing por e-mail ou SMS.]({% image_buster /assets/img/shopify/collect_email_subscribers.png %})
 
-{% alert note %}
-Conforme mencionado na [visão geral da Shopify]({{site.baseurl}}/shopify_overview), se você quiser usar um formulário de captura de terceiros, seus desenvolvedores precisarão integrar o código do Braze SDK. Isso permitirá que você capture o endereço de e-mail e o status global da inscrição de e-mail dos envios de formulários. Especificamente, você precisa implementar e testar esses métodos no seu arquivo `theme.liquid`:<br><br>
-- [setEmail](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemail): Define o endereço de e-mail no perfil do usuário
-- [setEmailNotificationSubscriptionType](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemailnotificationsubscriptiontype): Atualiza o status da inscrição global de e-mail
-{% endalert %}
+{% multi_lang_include partners/shopify/third_party_capture_form_note.md %}
 
 ## Etapa 5: Sincronizar produtos (opcional) {#step-5-sync-products-optional}
 
@@ -260,7 +256,7 @@ Para adicionar Content Cards ou Feature Flags, você precisará colaborar com se
 
 #### Notificações por push na web {#web-push-notifications}
 
-Atualmente, não há suporte para push para a web na integração com a Shopify. Para solicitar suporte, envie uma solicitação de produto por meio do [portal do produto da Braze]({{site.baseurl}}/user_guide/administer/personal/product_portal).
+Atualmente, não há suporte para web push na integração com a Shopify. {% multi_lang_include product_feedback_cta.md context="gap" feature="web push for the Shopify integration" %}
 
 ## Etapa 7: Concluir configuração {#step-7-finish-setup}
 

@@ -4,7 +4,7 @@ nav_title: セグメンテーションフィルター
 article_title: セグメンテーションフィルター
 layout: glossary_page
 glossary_top_header: "セグメンテーションフィルター"
-glossary_top_text: "Braze SDKは、特定の機能や属性に基づいてユーザーをセグメント化し、ターゲティングするための強力なフィルターを提供します。フィルターカテゴリーでこれらのフィルターを検索または絞り込むことができます。<br><br>ユーザーのセグメント化に使用できるさまざまなカスタム属性データタイプについては、<a href=\"/docs/user_guide/data/activation/attributes/custom_attributes#custom-attribute-data-types\">カスタム属性データタイプ</a> をご覧ください。なお、間隔フィルターは100年に制限されています。"
+glossary_top_text: "Braze SDKは、特定の機能や属性に基づいてユーザーをセグメント化し、ターゲティングするための強力なフィルターを提供します。フィルターカテゴリーでこれらのフィルターを検索または絞り込むことができます。<br><br>ユーザーのセグメント化に使用できるさまざまなカスタム属性データタイプについては、<a href=\"/docs/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types\">カスタム属性データタイプ</a> をご覧ください。"
 
 page_type: glossary
 tool: Segments
@@ -48,17 +48,17 @@ glossaries:
       - Segment or CSV membership
   - name: Updated/Imported from CSV
     display_name: "CSVからの更新/インポート"
-    description: ユーザーがCSVアップロードの一部であったかどうかに基づいてセグメント化します。
+    description: ユーザーがCSVアップロードの一部であったかどうかに基づいてセグメント化します。Brazeはセグメンテーション目的で、ユーザープロファイルごとに直近100件のCSVインポートのみを保持します。リターゲティング用に選択された100件を超えるCSVインポートにユーザーが含まれている場合、直近100件のみがこのフィルターで利用可能です。それより古いインポートはそのユーザーに一致しなくなります。
     tags:
       - Segment or CSV membership
   - name: Custom Attributes
     display_name: "カスタム属性"
-    description: ユーザーがカスタム記録された属性値に一致するかどうかを判定します。<br><br>タイムゾーン:<br>会社のタイムゾーン
+    description: ユーザーがカスタム記録された属性値に一致するかどうかを判定します。日付および時間間隔の比較の最大ルックバック期間は100年です。<br><br>タイムゾーン:<br>会社のタイムゾーン
     tags:
       - Custom attribute
   - name: Created At
     display_name: "作成日時"
-    description: ユーザープロファイルが作成された日時でセグメント化します。ユーザーがCSVまたはAPIで追加された場合、このフィルターは追加された日付を反映します。ユーザーがCSVまたはAPIで追加されておらず、SDKによって最初のセッションが追跡された場合、このフィルターはその最初のセッションの日付を反映します。
+    description: ユーザープロファイルが作成された日時でセグメント化します。ユーザーがCSVまたはAPIで追加された場合、このフィルターは追加された日付を反映します。ユーザーがCSVまたはAPIで追加されておらず、SDKによって最初のセッションが追跡された場合、このフィルターはその最初のセッションの日付を反映します。最大ルックバック期間は100年です。
     tags:
       - Other Filters
   - name: Created From
@@ -68,7 +68,7 @@ glossaries:
       - Other Filters
   - name: Nested Custom Attributes
     display_name: "階層化カスタム属性"
-    description: カスタム属性のプロパティである属性です。<br><br>階層化された時間カスタム属性をフィルタリングする場合、「Day of Year」または「Time」に基づいてフィルタリングすることを選択できます。「Day of Year」は比較のために月と日のみをチェックします。「Time」は年を含む完全なタイムスタンプを比較します。
+    description: カスタム属性のプロパティである属性です。<br><br>階層化された時間カスタム属性をフィルタリングする場合、「Day of Year」または「Time」に基づいてフィルタリングすることを選択できます。「Day of Year」は比較のために月と日のみをチェックします。「Time」は年を含む完全なタイムスタンプを比較します。時間間隔の比較の最大ルックバック期間は100年です。同じロジックがキャンバスのオーディエンスパスのコンテキスト変数をフィルタリングする場合にも適用されます。詳細については、<a href="/docs/user_guide/messaging/design_and_edit/personalize/sources/context_variables/#day-of-year-and-time-filters-for-date-context-variables">日付コンテキスト変数のDay of YearフィルターとTimeフィルター</a> を参照してください。
     tags:
       - Custom attribute
   - name: Day of Recurring Event
@@ -83,12 +83,12 @@ glossaries:
       - Custom events
   - name: First Did Custom Event
     display_name: "初回カスタムイベント実行"
-    description: ユーザーが特別に記録されたイベントを実行した最も早い時間を判定します。（24時間期間）<br><br>例:<br>初回のカート放棄が1日未満前<br><br>タイムゾーン:<br>会社のタイムゾーン
+    description: ユーザーが特別に記録されたイベントを実行した最も早い時間を判定します。最大ルックバック期間は100年です。（24時間期間）<br><br>例:<br>初回のカート放棄が1日未満前<br><br>タイムゾーン:<br>会社のタイムゾーン
     tags:
       - Custom events
   - name: Last Did Custom Event
     display_name: "最終カスタムイベント実行"
-    description: ユーザーが特別に記録されたイベントを実行した最新の時間を判定します。このフィルターは0.25時間などの小数をサポートしています。（24時間期間）<br><br>例:<br>最後のカート放棄が1日未満前<br><br>タイムゾーン:<br>会社のタイムゾーン
+    description: ユーザーが特別に記録されたイベントを実行した最新の時間を判定します。このフィルターは0.25時間などの小数をサポートしています。最大ルックバック期間は100年です。（24時間期間）<br><br>例:<br>最後のカート放棄が1日未満前<br><br>タイムゾーン:<br>会社のタイムゾーン
     tags:
       - Custom events
   - name: X Custom Event In Y Days
@@ -133,22 +133,22 @@ glossaries:
       - Sessions
   - name: First Used App
     display_name: "アプリの初回使用"
-    description: ユーザーがアプリを開いた最も早い記録時間でセグメント化します。<em>これは、Braze SDKが統合されたバージョンのアプリを使用した最初のセッションをキャプチャします。</em>（24時間期間）<br><br>タイムゾーン:<br>会社のタイムゾーン
+    description: ユーザーがアプリを開いた最も早い記録時間でセグメント化します。<em>これは、Braze SDKが統合されたバージョンのアプリを使用した最初のセッションをキャプチャします。</em>最大ルックバック期間は100年です。（24時間期間）<br><br>タイムゾーン:<br>会社のタイムゾーン
     tags:
       - Sessions
   - name: First Used Specific App
     display_name: "特定アプリの初回使用"
-    description: ワークスペース内のいずれかのアプリを開いた最も早い記録時間でユーザーをセグメント化します。（24時間期間）<br><br>タイムゾーン:<br>会社のタイムゾーン
+    description: ワークスペース内のいずれかのアプリを開いた最も早い記録時間でユーザーをセグメント化します。最大ルックバック期間は100年です。（24時間期間）<br><br>タイムゾーン:<br>会社のタイムゾーン
     tags:
       - Sessions
   - name: Last Used App
     display_name: "アプリの最終使用"
-    description: ユーザーがアプリを開いた最新の時間でセグメント化します。（24時間期間）<br><br>タイムゾーン:<br>会社のタイムゾーン
+    description: ユーザーがアプリを開いた最新の時間でセグメント化します。最大ルックバック期間は100年です。（24時間期間）<br><br>タイムゾーン:<br>会社のタイムゾーン
     tags:
       - Sessions
   - name: Last Used Specific App
     display_name: "特定アプリの最終使用"
-    description: 特定の指定されたアプリを開いた最新の時間でユーザーをセグメント化します。（24時間期間）<br><br>タイムゾーン:<br>会社のタイムゾーン
+    description: 特定の指定されたアプリを開いた最新の時間でユーザーをセグメント化します。最大ルックバック期間は100年です。（24時間期間）<br><br>タイムゾーン:<br>会社のタイムゾーン
     tags:
       - Sessions
   - name: Median Session Duration
@@ -173,12 +173,12 @@ glossaries:
       - Retargeting
   - name: Last Received Message from Specific Canvas Step
     display_name: "特定キャンバスステップからの最終メッセージ受信"
-    description: 特定のキャンバスコンポーネントを受信した時期でユーザーをセグメント化します。<br><br>配信、開封、またはクリックが発生すると、同じチャネル識別子（メールアドレスや電話番号など）を共有するすべてのプロファイルのデータが更新されるため、メッセージを受信した人と識別子を共有するユーザーは、明示的にメッセージが送信されていなくても、このフィルターに一致する場合があります。重複からユーザープロファイルを分離するには、「Entered Canvas Variation」を使用してください。<br><br>このフィルターは、ユーザーが他のキャンバスコンポーネントを受信した時期は考慮しません。
+    description: 特定のキャンバスコンポーネントを受信した時期でユーザーをセグメント化します。最大ルックバック期間は100年です。<br><br>配信、開封、またはクリックが発生すると、同じチャネル識別子（メールアドレスや電話番号など）を共有するすべてのプロファイルのデータが更新されるため、メッセージを受信した人と識別子を共有するユーザーは、明示的にメッセージが送信されていなくても、このフィルターに一致する場合があります。重複からユーザープロファイルを分離するには、「Entered Canvas Variation」を使用してください。<br><br>このフィルターは、ユーザーが他のキャンバスコンポーネントを受信した時期は考慮しません。
     tags:
       - Retargeting
   - name: Last Received Message from Specific Campaign
     display_name: "特定キャンペーンからの最終メッセージ受信"
-    description: 特定のキャンペーンを受信したかどうかでユーザーをセグメント化します。<br><br>配信、開封、またはクリックが発生すると、同じチャネル識別子（メールアドレスや電話番号など）を共有するすべてのプロファイルのデータが更新されるため、メッセージを受信した人と識別子を共有するユーザーは、明示的にメッセージが送信されていなくても、このフィルターに一致する場合があります。<br><br>このフィルターは、ユーザーが他のキャンペーンを受信した時期は考慮しません。
+    description: 特定のキャンペーンを受信したかどうかでユーザーをセグメント化します。最大ルックバック期間は100年です。<br><br>配信、開封、またはクリックが発生すると、同じチャネル識別子（メールアドレスや電話番号など）を共有するすべてのプロファイルのデータが更新されるため、メッセージを受信した人と識別子を共有するユーザーは、明示的にメッセージが送信されていなくても、このフィルターに一致する場合があります。<br><br>このフィルターは、ユーザーが他のキャンペーンを受信した時期は考慮しません。
     tags:
       - Retargeting
   - name: Received Message from Campaign or Canvas with Tag
@@ -188,7 +188,7 @@ glossaries:
       - Retargeting
   - name: Last Received Message from Campaign or Canvas With Tag
     display_name: "タグ付きキャンペーンまたはキャンバスからの最終メッセージ受信"
-    description: 特定のタグを持つ特定のキャンペーンまたはキャンバスを受信した時期でユーザーをセグメント化します。このフィルターは、ユーザーが他のキャンペーンやキャンバスを受信した時期は考慮しません。（24時間期間）
+    description: 特定のタグを持つ特定のキャンペーンまたはキャンバスを受信した時期でユーザーをセグメント化します。このフィルターは、ユーザーが他のキャンペーンやキャンバスを受信した時期は考慮しません。最大ルックバック期間は100年です。（24時間期間）
     tags:
       - Retargeting
   - name: Has Never Received a Message from Campaign or Canvas Step
@@ -198,32 +198,32 @@ glossaries:
       - Retargeting
   - name: Last Received Email
     display_name: "最終メール受信"
-    description: メールメッセージを最後に受信した時間でユーザーをセグメント化します。（24時間期間）<br><br>タイムゾーン:<br>会社のタイムゾーン
+    description: メールメッセージを最後に受信した時間でユーザーをセグメント化します。最大ルックバック期間は100年です。（24時間期間）<br><br>タイムゾーン:<br>会社のタイムゾーン
     tags:
       - Retargeting
   - name: Last Received Push
     display_name: "最終プッシュ受信"
-    description: プッシュ通知を最後に受信した時間でユーザーをセグメント化します。（24時間期間）<br><br>タイムゾーン:<br>会社のタイムゾーン
+    description: プッシュ通知を最後に受信した時間でユーザーをセグメント化します。最大ルックバック期間は100年です。（24時間期間）<br><br>タイムゾーン:<br>会社のタイムゾーン
     tags:
       - Retargeting
   - name: Last In App Message Impression
     display_name: "最終アプリ内メッセージインプレッション"
-    description: アプリ内メッセージを最後に閲覧した時間でユーザーをセグメント化します。
+    description: アプリ内メッセージを最後に閲覧した時間でユーザーをセグメント化します。最大ルックバック期間は100年です。
     tags:
       - Retargeting
   - name: Last Received SMS
     display_name: "最終SMS受信"
-    description: 最後のSMS、MMS、またはRCSメッセージがSMSまたはRCSプロバイダーに配信された時間でユーザーをセグメント化します。メッセージがユーザーのデバイスに配信されたことを保証するものではありません。（24時間期間）<br><br>タイムゾーン:<br>会社のタイムゾーン
+    description: 最後のSMS、MMS、またはRCSメッセージがSMSまたはRCSプロバイダーに配信された時間でユーザーをセグメント化します。メッセージがユーザーのデバイスに配信されたことを保証するものではありません。最大ルックバック期間は100年です。（24時間期間）<br><br>タイムゾーン:<br>会社のタイムゾーン
     tags:
       - Retargeting
   - name: Last Received Webhook
     display_name: "最終Webhook受信"
-    description: Brazeがそのユーザーに対してWebhookを最後に送信した時間でユーザーをセグメント化します。（24時間期間）<br><br>タイムゾーン:<br>会社のタイムゾーン
+    description: Brazeがそのユーザーに対してWebhookを最後に送信した時間でユーザーをセグメント化します。最大ルックバック期間は100年です。（24時間期間）<br><br>タイムゾーン:<br>会社のタイムゾーン
     tags:
       - Retargeting
   - name: Last Received WhatsApp
     display_name: "最終WhatsApp受信"
-    description: WhatsAppメッセージを最後に受信した時間でユーザーをセグメント化します。これは最後のメッセージAPIリクエストがWhatsAppに送信された時点であり、メッセージがユーザーのデバイスに配信された時点ではありません。（24時間期間）<br><br>タイムゾーン:<br>会社のタイムゾーン
+    description: WhatsAppメッセージを最後に受信した時間でユーザーをセグメント化します。これは最後のメッセージAPIリクエストがWhatsAppに送信された時点であり、メッセージがユーザーのデバイスに配信された時点ではありません。最大ルックバック期間は100年です。（24時間期間）<br><br>タイムゾーン:<br>会社のタイムゾーン
     tags:
       - Retargeting
   - name: Live Activities Push to Start Registered for App
@@ -283,7 +283,7 @@ glossaries:
       - Retargeting
   - name: Last Sent Specific SMS Inbound Keyword Category
     display_name: "特定SMS受信キーワードカテゴリーの最終送信"
-    description: 特定の購読グループ内の特定のキーワードカテゴリーでSMS、MMS、またはRCSを最後に送信した時期でユーザーをセグメント化します。
+    description: 特定の購読グループ内の特定のキーワードカテゴリーでSMS、MMS、またはRCSを最後に送信した時期でユーザーをセグメント化します。最大ルックバック期間は100年です。
     tags:
       - Retargeting
   - name: Converted From Campaign
@@ -308,7 +308,7 @@ glossaries:
       - Retargeting
   - name: Last Enrolled in Any Control Group
     display_name: "任意のコントロールグループへの最終登録"
-    description: キャンペーン内でコントロールグループに最後に入った時間でユーザーをセグメント化します。<br><br>タイムゾーン:<br>会社のタイムゾーン
+    description: キャンペーン内でコントロールグループに最後に入った時間でユーザーをセグメント化します。最大ルックバック期間は100年です。<br><br>タイムゾーン:<br>会社のタイムゾーン
     tags:
       - Retargeting
   - name: Entered Canvas Variation
@@ -318,12 +318,12 @@ glossaries:
       - Retargeting
   - name: Last Received Any Message
     display_name: "任意のメッセージの最終受信"
-    description: 最後に受信したメッセージを判定してユーザーをセグメント化します。（24時間期間）<br><br>Content Cards、バナー、アプリ内メッセージの場合、これはユーザーが最後にインプレッションを記録した時点であり、カードやアプリ内メッセージが最後に送信された時点ではありません。<br><br>プッシュとWebhookの場合、これはいずれかのメッセージがユーザーに送信された時点です。<br><br>WhatsAppの場合、これは最後のメッセージAPIリクエストがWhatsAppに送信された時点であり、メッセージがユーザーのデバイスに配信された時点ではありません。<br><br>メールの場合、ターゲットのユーザープロファイルは、メールリクエストがメールサービスプロバイダーに送信された時点でこのフィルターに一致します（実際に配信されたかどうかに関係なく）。<br><br>SMSおよびRCSの場合、ユーザーは送信時にメッセージを「受信した」とみなされます。メッセージがユーザーのデバイスに届かなかった場合でも、ユーザーはこのフィルターに一致します。<br><br>メッセージが配信、開封、またはクリックされると、Brazeは同じチャネル識別子（メールアドレスや電話番号など）を共有するすべてのプロファイルのデータを更新するため、メッセージを受信した人と識別子を共有するユーザーは、そのプロファイルにキャンペーンが直接送信されていなくても、このフィルターに一致する場合があります。<br><br>例:<br>最終メッセージ受信が1日未満前 = 24時間未満前<br><br>タイムゾーン:<br>会社のタイムゾーン
+    description: 最後に受信したメッセージを判定してユーザーをセグメント化します。最大ルックバック期間は100年です。（24時間期間）<br><br>Content Cards、バナー、アプリ内メッセージの場合、これはユーザーが最後にインプレッションを記録した時点であり、カードやアプリ内メッセージが最後に送信された時点ではありません。<br><br>プッシュとWebhookの場合、これはいずれかのメッセージがユーザーに送信された時点です。<br><br>WhatsAppの場合、これは最後のメッセージAPIリクエストがWhatsAppに送信された時点であり、メッセージがユーザーのデバイスに配信された時点ではありません。<br><br>メールの場合、ターゲットのユーザープロファイルは、メールリクエストがメールサービスプロバイダーに送信された時点でこのフィルターに一致します（実際に配信されたかどうかに関係なく）。<br><br>SMSおよびRCSの場合、ユーザーは送信時にメッセージを「受信した」とみなされます。メッセージがユーザーのデバイスに届かなかった場合でも、ユーザーはこのフィルターに一致します。<br><br>メッセージが配信、開封、またはクリックされると、Brazeは同じチャネル識別子（メールアドレスや電話番号など）を共有するすべてのプロファイルのデータを更新するため、メッセージを受信した人と識別子を共有するユーザーは、そのプロファイルにキャンペーンが直接送信されていなくても、このフィルターに一致する場合があります。<br><br>例:<br>最終メッセージ受信が1日未満前 = 24時間未満前<br><br>タイムゾーン:<br>会社のタイムゾーン
     tags:
       - Retargeting
   - name: Last Engaged With Message
     display_name: "メッセージとの最終エンゲージメント"
-    description: メッセージングチャネル（バナー、Content Cards、メール、アプリ内、SMS、RCS、プッシュ、WhatsApp）のいずれかを最後にクリックまたは開封した時間でユーザーをセグメント化します。<br><br>Content Cards、バナー、アプリ内メッセージの場合、これはユーザーがインプレッションを記録した時点であり、カードやアプリ内メッセージが送信された時点ではありません。<br><br>プッシュとWebhookの場合、これはメッセージがユーザーに送信された時点です。<br><br>WhatsAppの場合、これは最後のメッセージAPIリクエストがWhatsAppに送信された時点であり、メッセージがユーザーのデバイスに配信された時点ではありません。<br><br>メールメッセージの場合、開封イベントにはマシンオープンと非マシンオープンの両方が含まれます。（24時間期間）<br><br>メールの場合、ターゲットのユーザープロファイルは、メールリクエストがメールサービスプロバイダーに送信された時点でこのフィルターに一致します（実際に配信されたかどうかに関係なく）。「opened any email (machine opens)」と「opened any email (other opens)」でフィルタリングするオプションも含まれます。<br><br>SMSおよびRCSの場合、これはユーザーがユーザークリックトラッキングが有効になっているメッセージ内の短縮リンクを最後に選択した時点です。<br><br>メッセージが配信、開封、またはクリックされると、Brazeは同じチャネル識別子（メールアドレスや電話番号など）を共有するすべてのプロファイルのデータを更新するため、メッセージを受信した人と識別子を共有するユーザーは、そのプロファイルにキャンペーンが直接送信されていなくても、このフィルターに一致する場合があります。<br><br>タイムゾーン:<br>会社のタイムゾーン
+    description: メッセージングチャネル（バナー、Content Cards、メール、アプリ内、SMS、RCS、プッシュ、WhatsApp）のいずれかを最後にクリックまたは開封した時間でユーザーをセグメント化します。<br><br>Content Cards、バナー、アプリ内メッセージの場合、これはユーザーがインプレッションを記録した時点であり、カードやアプリ内メッセージが送信された時点ではありません。<br><br>プッシュとWebhookの場合、これはメッセージがユーザーに送信された時点です。<br><br>WhatsAppの場合、これは最後のメッセージAPIリクエストがWhatsAppに送信された時点であり、メッセージがユーザーのデバイスに配信された時点ではありません。<br><br>メールメッセージの場合、開封イベントにはマシンオープンと非マシンオープンの両方が含まれます。最大ルックバック期間は100年です。（24時間期間）<br><br>メールの場合、ターゲットのユーザープロファイルは、メールリクエストがメールサービスプロバイダーに送信された時点でこのフィルターに一致します（実際に配信されたかどうかに関係なく）。「opened any email (machine opens)」と「opened any email (other opens)」でフィルタリングするオプションも含まれます。<br><br>SMSおよびRCSの場合、これはユーザーがユーザークリックトラッキングが有効になっているメッセージ内の短縮リンクを最後に選択した時点です。<br><br>メッセージが配信、開封、またはクリックされると、Brazeは同じチャネル識別子（メールアドレスや電話番号など）を共有するすべてのプロファイルのデータを更新するため、メッセージを受信した人と識別子を共有するユーザーは、そのプロファイルにキャンペーンが直接送信されていなくても、このフィルターに一致する場合があります。<br><br>タイムゾーン:<br>会社のタイムゾーン
     tags:
       - Retargeting
   - name: Clicked card
@@ -348,7 +348,7 @@ glossaries:
       - Channel subscription behavior
   - name: Email Opt In Date
     display_name: "メールオプトイン日"
-    description: メールにオプトインした日付でユーザーをセグメント化します。
+    description: メールにオプトインした日付でユーザーをセグメント化します。最大ルックバック期間は100年です。
     tags:
       - Channel subscription behavior
   - name: Email Subscription Status
@@ -358,7 +358,7 @@ glossaries:
       - Channel subscription behavior
   - name: Email Unsubscribed Date
     display_name: "メール購読解除日"
-    description: 今後のメールの購読解除をした日付でユーザーをセグメント化します。
+    description: 今後のメールの購読解除をした日付でユーザーをセグメント化します。最大ルックバック期間は100年です。
     tags:
       - Channel subscription behavior
   - name: Foreground Push Enabled
@@ -378,17 +378,17 @@ glossaries:
       - Channel subscription behavior
   - name: Push Opt In Date
     display_name: "プッシュオプトイン日"
-    description: プッシュにオプトインした日付でユーザーをセグメント化します。
+    description: プッシュにオプトインした日付でユーザーをセグメント化します。最大ルックバック期間は100年です。
     tags:
       - Channel subscription behavior
   - name: Push Subscription Status
     display_name: "プッシュ購読ステータス"
-    description: プッシュの<a href="/docs/user_guide/channels/push/push_setup/push_subscription_states#push-subscription-state">購読ステータス</a> でユーザーをセグメント化します。
+    description: プッシュの<a href="/docs/user_guide/channels/push/push_setup/push_subscription_states">購読ステータス</a> でユーザーをセグメント化します。
     tags:
       - Channel subscription behavior
   - name: Push Unsubscribed Date
     display_name: "プッシュ購読解除日"
-    description: 今後のプッシュ通知の購読解除をした日付でユーザーをセグメント化します。
+    description: 今後のプッシュ通知の購読解除をした日付でユーザーをセグメント化します。最大ルックバック期間は100年です。
     tags:
       - Channel subscription behavior
   - name: Purchased Product
@@ -418,22 +418,22 @@ glossaries:
       - Purchase behavior
   - name: First Made Purchase
     display_name: "初回購入"
-    description: ユーザーがアプリで購入を行った最も早い時間でセグメント化します。
+    description: ユーザーがアプリで購入を行った最も早い時間でセグメント化します。最大ルックバック期間は100年です。
     tags:
       - Purchase behavior
   - name: First Purchase For App
     display_name: "アプリでの初回購入"
-    description: ユーザーがアプリから購入を行った最も早い時間でセグメント化します。
+    description: ユーザーがアプリから購入を行った最も早い時間でセグメント化します。最大ルックバック期間は100年です。
     tags:
       - Purchase behavior
   - name: Last Made Purchase
     display_name: "最終購入"
-    description: 最後に購入を行った時間でユーザーをフィルタリングします。
+    description: 最後に購入を行った時間でユーザーをフィルタリングします。最大ルックバック期間は100年です。
     tags:
       - Purchase behavior
   - name: Last Purchased Product
     display_name: "最終購入製品"
-    description: 特定の製品を最後に購入した時期でユーザーをフィルタリングします。
+    description: 特定の製品を最後に購入した時期でユーザーをフィルタリングします。最大ルックバック期間は100年です。
     tags:
       - Purchase behavior
   - name: Money Spent
@@ -467,7 +467,7 @@ glossaries:
     tags:
       - eCommerce
   - name: Customer lifetime value (last 730 days)
-    display_name: "顧客生涯価値（過去730日間）"
+    display_name: "顧客LTV（過去730日間）"
     description: ブランドとの購入履歴を通じてユーザーが生み出すと予想される総収益でセグメント化します。計算は過去730日間を考慮し、平均注文額（AOV）に注文合計数を掛け、ユーザーのアクティブな購入期間（最初の注文から最新の注文までの期間）を考慮します。このフィルターは<a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">eコマース推奨イベント</a> で追跡されたデータを使用します（eコマースイベントを追跡していないワークスペースにはこのフィルターのデータがありません）。ユーザーはこのフィルターに対して1日1回評価されます。<br><br>このフィルターはベータ版です。このフィルターの使用に興味がある場合は、Brazeアカウントマネージャーにお問い合わせください。
     tags:
       - eCommerce
@@ -558,7 +558,7 @@ glossaries:
       - App
   - name: Uninstalled
     display_name: "アンインストール済み"
-    description: バックエンドで現在アンインストール済みとしてマークされているかどうかでユーザーをセグメント化します。アンインストール後にアプリを再インストールしたユーザーは含まれません。このフィルターは現在のアンインストール状態を反映しており、すべてのアンインストールイベントの履歴ログではありません。
+    description: バックエンドで現在アンインストール済みとしてマークされているかどうかでユーザーをセグメント化します。アンインストール後にアプリを再インストールしたユーザーは含まれません。このフィルターは現在のアンインストール状態を反映しており、すべてのアンインストールイベントの履歴ログではありません。最大ルックバック期間は100年です。
     tags:
       - Uninstall
   - name: Device Carrier
@@ -758,7 +758,7 @@ glossaries:
       - Social activity
   - name: Phone Number
     display_name: "電話番号"
-    description: E.164形式の電話番号フィールドでユーザーをセグメント化します。<br><br>電話番号がBrazeに送信されると、BrazeはSMS、RCS、WhatsAppチャネルでの送信に使用される<a href="/docs/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#importing-phone-numbers">E.164形式</a> に変換しようとします。番号が正しくフォーマットされていない場合、変換プロセスが失敗し、ユーザープロファイルに未フォーマットの電話番号はあるが送信用電話番号がないという結果になります。このセグメントフィルターは、E.164形式の電話番号（利用可能な場合）でユーザーを返します。<br><br>ユースケース:<br>- SMS、RCS、またはWhatsAppメッセージを送信する際に、最も正確なターゲットオーディエンスサイズを把握するためにこのフィルターを使用します。<br>- このフィルターで正規表現（regex）を使用して、特定の国コードの電話番号でセグメント化します。<br>- E.164変換プロセスに失敗した電話番号でユーザーをセグメント化するためにこのフィルターを使用します。
+    description: E.164形式の電話番号フィールドでユーザーをセグメント化します。<br><br>電話番号がBrazeに送信されると、BrazeはSMS、RCS、WhatsAppチャネルでの送信に使用される<a href="/docs/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#import-phone-numbers">E.164形式</a> に変換しようとします。番号が正しくフォーマットされていない場合、変換プロセスが失敗し、ユーザープロファイルに未フォーマットの電話番号はあるが送信用電話番号がないという結果になります。このセグメントフィルターは、E.164形式の電話番号（利用可能な場合）でユーザーを返します。<br><br>ユースケース:<br>- SMS、RCS、またはWhatsAppメッセージを送信する際に、最も正確なターゲットオーディエンスサイズを把握するためにこのフィルターを使用します。<br>- このフィルターで正規表現（regex）を使用して、特定の国コードの電話番号でセグメント化します。<br>- E.164変換プロセスに失敗した電話番号でユーザーをセグメント化するためにこのフィルターを使用します。
     tags:
       - Other Filters
 ---

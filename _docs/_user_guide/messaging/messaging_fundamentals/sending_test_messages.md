@@ -91,7 +91,7 @@ In the **Preview** tab of your composer, the view of your message might not be i
 
 - Is your test user opted in to push with a valid push token?
 - Do the images and media show up and act as expected?
-- Does the Liquid function as expected? Have you accounted for a [default attribute value]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-attribute-values) if the Liquid returns no information?
+- Does the Liquid function as expected? Have you accounted for a [default attribute value]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-nil-and-blank-attribute-values) if the Liquid returns no information?
 - Is your copy clear, concise, and correct?
 - Do your links direct the user to where they should go?
 - Is your test user opted into push with a valid push token?
@@ -156,6 +156,8 @@ From there, you can review your message settings and content to drill down and d
 
 ![Test Email]({% image_buster /assets/img_archive/testemail.png %}){: style="max-width:40%;" }
 
+If your email includes a [preference center]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center) link, test sends do not generate a working link or let you save preferences. To test the preference center, launch the message to a test user or small internal segment instead. For details, see [Testing preference centers]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/dnd_preference_center#testing-preference-centers).
+
 If your email campaign includes a large image and isn't displaying as expected in Outlook, consider reducing the actual file dimensions of the image with an image editing or resizing tool instead of only scaling it with CSS or HTML.
 
 {% endtab %}
@@ -197,7 +199,7 @@ In **Preview**, the view of your message might not be identical to its actual re
 ### Test checklist
 
 - Do the images and media show up and act as expected?
-- Does the Liquid function as expected? Have you accounted for a [default attribute value]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-attribute-values) if the Liquid returns no information?
+- Does the Liquid function as expected? Have you accounted for a [default attribute value]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-nil-and-blank-attribute-values) if the Liquid returns no information?
 - Is your copy clear, concise, and correct?
 - Do your buttons direct the user where they should go?
 
@@ -261,7 +263,7 @@ If you see an error that none of the selected users have matching push tokens fo
 {% endtab %}
 {% tab SMS/MMS and RCS %}
 
-After creating your SMS, MMS, or RCS message, you can send a test message to your phone to see what it will look like in real-time. 
+After creating your SMS, MMS, or RCS message, you can send a test message to your phone to see what it will look like in real-time. The recipient must belong to the SMS subscription group you select when sending the test, have a valid phone number, and have at least one country selected under **Geographic Permissions**. For more details, see [SMS FAQs]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs#does-a-user-need-to-be-part-of-an-sms-subscription-group-to-receive-sms-test-messages). 
 
 1. Draft your SMS, MMS, or RCS message.
 2. Select the **Test** tab and select at least one Content Test Group or individual user to receive this test message. 
@@ -293,7 +295,7 @@ If you are testing campaigns that populate user data or use custom event propert
 
 ### Testing campaigns personalized with user attributes
 
-If you are using [personalization]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/overview) in your message, you'll need to take additional steps to properly preview your campaign and check that user data is properly populating the content.
+If you are using [personalization]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/) in your message, you'll need to take additional steps to properly preview your campaign and check that user data is properly populating the content.
 
 When sending a test message, make sure to choose either the option to **Select Existing User** or preview as a **Custom User**.
 
@@ -384,10 +386,11 @@ You can test custom event properties by manually inputting values with Liquid.
 
 There are a few situations where test messages don't behave the same way as campaigns or Canvases sent to real users. In these instances, consider launching the campaign or Canvas to a limited set of test users to validate this behavior.
 
-- Viewing the Braze preference center from test messages will cause the **Save Preferences** button to be grayed out.
+- Viewing the Braze [preference center]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center) from test messages causes the **Save Preferences** button to be disabled. Preference center Liquid tags may also not resolve to valid links. This is expected behavior. To test end-to-end, see [Testing preference centers]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/dnd_preference_center#testing-preference-centers).
 - For testing in-app messages and Content Cards, the target user must have a push token for the target device.
 - For testing unsubscribe links in emails, make sure your test user's email address is in the respective workspace.
 - The `List-Unsubscribe` header is not included in emails sent by the test message functionality.
+- Emails sent to seed group users do not update the user profile Campaign Received list or increment Sends in dashboard analytics.
 
 ## Troubleshooting
 

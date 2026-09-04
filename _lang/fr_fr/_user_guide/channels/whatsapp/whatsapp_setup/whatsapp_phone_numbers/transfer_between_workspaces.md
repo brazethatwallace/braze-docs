@@ -44,4 +44,4 @@ Pour archiver un groupe d'abonnement WhatsApp, suivez ces étapes :
 ## Remarques {#considerations}
 
 - Si vous devez retransférer le numéro de téléphone WhatsApp vers l'espace de travail d'origine, répétez les étapes. Archivez le groupe d'abonnement dans l'espace de travail de destination, puis intégrez-le dans l'espace de travail d'origine.
-- Vous n'avez pas besoin de supprimer le numéro de téléphone WhatsApp de votre Meta Business Manager pendant le transfert.
+- Vous n'avez pas besoin de supprimer le numéro de téléphone WhatsApp de votre Meta Business gestionnaire pendant le transfert.

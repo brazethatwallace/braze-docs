@@ -6,7 +6,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "Cet article présente en détail l'endpoint Braze Exporter les utilisateurs par identifiant."
-
 ---
 {% api %}
 # Exporter le profil utilisateur par identifiant {#export-user-profile-by-identifier}
@@ -22,7 +21,7 @@ Vous pouvez inclure jusqu'à 50 `external_ids` ou `user_aliases` dans une seule 
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `users.export.ids`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `users.export.ids`.
 
 ## Limite de débit {#rate-limit}
 
@@ -98,7 +97,7 @@ Voici une liste des valeurs valides pour `fields_to_export`. Utiliser `fields_to
 | `attributed_source` | Chaîne de caractères | Données provenant des [intégrations d'attribution]({{site.baseurl}}/partners/message_orchestration), si elles sont configurées. Identifiant de la plateforme sur laquelle se trouvait l'annonce. |
 | `attributed_adgroup` | Chaîne de caractères | Données provenant des [intégrations d'attribution]({{site.baseurl}}/partners/message_orchestration), si elles sont configurées. Identifiant d'un sous-groupe facultatif en dessous de la campagne. |
 | `attributed_ad` | Chaîne de caractères | Données provenant des [intégrations d'attribution]({{site.baseurl}}/partners/message_orchestration), si elles sont configurées. Identifiant d'un sous-groupe facultatif en dessous de la campagne et du groupe d'annonces. |
-| `push_subscribe` | Chaîne de caractères | Statut d'abonnement push de l'utilisateur. |
+| `push_subscribe` | Chaîne de caractères | Statut d'abonnement aux notifications push de l'utilisateur. |
 | `email_subscribe` | Chaîne de caractères | Statut d'abonnement e-mail de l'utilisateur. |
 | `braze_id` | Chaîne de caractères | Identifiant utilisateur unique spécifique à l'appareil, défini par Braze pour cet utilisateur. |
 | `country` | Chaîne de caractères | Pays de l'utilisateur selon la norme [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). |
@@ -118,11 +117,11 @@ Voici une liste des valeurs valides pour `fields_to_export`. Utiliser `fields_to
 | `phone` | Chaîne de caractères | Numéro de téléphone de l'utilisateur au format E.164. |
 | `purchases` | Tableau | Achats effectués par cet utilisateur au cours des 90 derniers jours. |
 | `push_tokens` | Tableau | Identifiant anonyme unique qui spécifie où envoyer les notifications d'une application. |
-| `random_bucket` | Entier | [Numéro de compartiment aléatoire]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events#random-bucket-number-event) de l'utilisateur, utilisé pour créer des segments uniformément distribués d'utilisateurs aléatoires. |
+| `random_bucket` | Entier | [Numéro de compartiment aléatoire]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) de l'utilisateur, utilisé pour créer des segments uniformément distribués d'utilisateurs aléatoires. |
 | `time_zone` | Chaîne de caractères | Fuseau horaire de l'utilisateur, au même format que la base de données de fuseaux horaires IANA. |
 | `total_revenue` | Float | Chiffre d'affaires total attribué à cet utilisateur. Le chiffre d'affaires total est calculé à partir des achats effectués par l'utilisateur pendant les fenêtres de conversion des campagnes et Canvas qu'il a reçus. |
 | `uninstalled_at` | Horodatage | Date et heure de désinstallation de l'application par l'utilisateur. Absent si l'application n'a pas été désinstallée. |
-| `user_aliases` | Objet | [Objet alias d'utilisateur]({{site.baseurl}}/api/objects_filters/user_alias_object#user-alias-object-specification) contenant les champs `alias_name` et `alias_label`, s'ils existent. |
+| `user_aliases` | Objet | [Objet alias d'utilisateur]({{site.baseurl}}/api/objects_filters/user_alias_object) contenant les champs `alias_name` et `alias_label`, s'ils existent. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Champs à exporter" }
 
 Sachez que l'endpoint `/users/export/ids` récupère l'intégralité du profil utilisateur, y compris les données telles que toutes les campagnes et Canvas reçus, tous les événements personnalisés effectués, tous les achats réalisés et tous les attributs personnalisés. Par conséquent, cet endpoint est plus lent que les autres endpoints de la REST API.
@@ -133,7 +132,7 @@ En fonction des données demandées, cet endpoint d'API peut ne pas suffire à r
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
+    "message": (string) returns 'success' when the request completes without errors,
     "users" : (array of object) the data for each of the exported users, may be empty if no users are found,
     "invalid_user_ids" : (optional, array of string) each of the identifiers provided in the request that did not correspond to a known user
 }

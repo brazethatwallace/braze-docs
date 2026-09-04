@@ -1,18 +1,22 @@
-## Conditions préalables {#prerequisites}
+## Prérequis {#prerequisites}
 
 {% tabs local %}
 {% tab iOS %}
-Avant de pouvoir implémenter la création de liens profonds dans votre application Flutter iOS, configurez vos schémas d'URL dans votre fichier `Info.plist`. Pour plus de détails, consultez [Création de liens profonds pour iOS]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/?sdktab=swift#url-schemes).
+Avant de pouvoir implémenter la création de liens profonds dans votre application Flutter iOS, configurez vos schémas d'URL dans votre fichier `Info.plist`. Pour plus de détails, consultez la rubrique [Création de liens profonds pour iOS]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/?sdktab=swift#url-schemes).
 {% endtab %}
 
 {% tab Android %}
-Pour Flutter Android, aucune configuration native supplémentaire n'est requise si vous gérez les liens profonds dans la couche Dart. L'implémentation minimale présentée dans cet article est suffisante pour la plupart des applications Flutter.
+Pour Flutter Android, aucune configuration native supplémentaire n'est requise si vous gérez les deep links au niveau de la couche Dart. L'implémentation minimale présentée dans cet article est suffisante pour la plupart des applications Flutter.
 
-Si vous avez besoin d'une gestion avancée des liens au niveau de la couche native (comme des implémentations personnalisées de `IBrazeDeeplinkHandler`), consultez [Création de liens profonds pour Android]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/?sdktab=android).
+{% alert warning %}
+Le flag natif `com_braze_handle_push_deep_links_automatically` de Braze est défini par défaut sur `false` sur Android. Sans le définir sur `true` dans votre `braze.xml`, votre application n'est pas automatiquement mise au premier plan et n'est pas redirigée vers la destination du deep link lorsqu'un utilisateur appuie sur une notification push, même si un événement `push_opened` atteint toujours votre listener Dart. Pour plus d'informations, consultez [Ajouter des deep links (Android)]({{site.baseurl}}/developer_guide/push_notifications#flutter_step-4-add-deep-links-android).
+{% endalert %}
+
+Si vous avez besoin d'une gestion avancée des liens au niveau natif (comme des implémentations personnalisées de `IBrazeDeeplinkHandler`), consultez la rubrique [Création de liens profonds pour Android]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/?sdktab=android).
 {% endtab %}
 {% endtabs %}
 
-## Implémentation de la création de liens profonds {#implementing-deep-linking}
+## Mise en œuvre de la création de liens profonds {#implementing-deep-linking}
 
 ### Étape 1 : Configurer la gestion intégrée de Flutter {#step-1-set-up-flutters-built-in-handling}
 
@@ -23,13 +27,13 @@ Si vous avez besoin d'une gestion avancée des liens au niveau de la couche nati
 3. Définissez la clé sur `FlutterDeepLinkingEnabled`.
 4. Définissez le type sur `Boolean`.
 5. Définissez la valeur sur `YES`.
-    ![Exemple de fichier `Info.plist` du projet avec la paire clé-valeur ajoutée.]({% image_buster /assets/img/flutter/flutter-ios-deep-link-info-plist.png %} "Xcode Project Info.plist File")
+    ![Exemple de fichier Info.plist d'un projet avec la paire clé-valeur ajoutée.]({% image_buster /assets/img/flutter/flutter-ios-deep-link-info-plist.png %} "Xcode Project Info.plist File"){: width="501" height="118"}
 {% endtab %}
 
 {% tab Android %}
 1. Dans votre projet Android Studio, ouvrez votre fichier `AndroidManifest.xml`.
-2. Recherchez `.MainActivity` dans vos balises `activity`.
-3. À l'intérieur de la balise `activity`, ajoutez la balise `meta-data` suivante :
+2. Localisez `.MainActivity` dans vos balises `activity`.
+3. Dans la balise `activity`, ajoutez la balise `meta-data` suivante :
     ```xml
     <meta-data android:name="flutter_deeplinking_enabled" android:value="true" />
     ```
@@ -38,15 +42,15 @@ Si vous avez besoin d'une gestion avancée des liens au niveau de la couche nati
 
 ### Étape 2 : Transmettre les données à la couche Dart (facultatif) {#step-2-forward-data-to-the-dart-layer-optional}
 
-Vous pouvez utiliser la gestion des liens native, propriétaire ou tierce pour des cas d'utilisation complexes, tels que l'envoi d'un utilisateur vers un emplacement spécifique dans votre application ou l'appel d'une fonction spécifique.
+Vous pouvez utiliser la gestion des liens native, propriétaire ou tierce pour des cas d'usage complexes, comme envoyer un utilisateur vers un emplacement spécifique dans votre application, ou appeler une fonction spécifique.
 
-#### Exemple : Lien profond vers une boîte de dialogue d'alerte {#example-deep-linking-to-an-alert-dialog}
+#### Exemple : Deep link vers une boîte de dialogue d'alerte {#example-deep-linking-to-an-alert-dialog}
 
 {% alert note %}
-Bien que l'exemple suivant ne repose pas sur des paquets supplémentaires, vous pouvez utiliser une approche similaire pour implémenter des paquets natifs, propriétaires ou tiers, tels que [`go_router`](https://pub.dev/packages/go_router). Du code Dart supplémentaire peut être nécessaire.
+Bien que l'exemple suivant ne repose pas sur des packages supplémentaires, vous pouvez utiliser une approche similaire pour intégrer des packages natifs, propriétaires ou tiers, tels que [`go_router`](https://pub.dev/packages/go_router). Du code Dart supplémentaire peut être nécessaire.
 {% endalert %}
 
-Tout d'abord, un canal de méthode est utilisé dans la couche native pour transmettre les données de la chaîne de caractères de l'URL du lien profond à la couche Dart.
+Tout d'abord, un canal de méthode est utilisé dans la couche native pour transmettre les données de la chaîne de caractères de l'URL du deep link à la couche Dart.
 
 {% tabs %}
 {% tab iOS %}
@@ -106,7 +110,7 @@ class MainActivity : FlutterActivity() {
 {% endtab %}
 {% endtabs %}
 
-Ensuite, une fonction de rappel est utilisée dans la couche Dart pour afficher une boîte de dialogue d'alerte à l'aide des données de la chaîne de caractères d'URL envoyées précédemment.
+Ensuite, une fonction de rappel est utilisée dans la couche Dart pour afficher une boîte de dialogue d'alerte à l'aide des données de la chaîne de caractères de l'URL envoyées précédemment.
 
 ```dart
 MethodChannel('deepLinkChannel').setMethodCallHandler((call) async {

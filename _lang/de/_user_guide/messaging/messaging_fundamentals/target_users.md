@@ -92,8 +92,8 @@ Weitere Informationen und Best Practices finden Sie unter [Multivariate und A/B-
 
 Braze stellt detaillierte Zielgruppenstatistiken der angesprochenen Kanäle in der Fußzeile bereit. Je größer Ihre Nutzerbasis ist, desto wahrscheinlicher ist es, dass die Anzahl der **erreichbaren Nutzer:innen** eine grobe Schätzung darstellt. Die Anzahl der erreichbaren Nutzer:innen kann sinken, wenn Sie eine [globale Kontrollgruppe]({{site.baseurl}}/user_guide/audience/global_control_group) verwenden oder die Nachrichtenberechtigung einrichten.
 
-- Um eine genaue Anzahl Ihrer erreichbaren Nutzer:innen zu ermitteln, wählen Sie [Exakte Statistiken berechnen]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#calculating-exact-statistics), da hierbei jede:r Nutzer:in in Ihrer Nutzerbasis durchsucht wird.
-- Um zu sehen, welcher Prozentsatz Ihrer Nutzerbasis angesprochen wird oder den Lifetime-Value (LTV) für dieses Segment, wählen Sie **Zusätzliche Statistiken anzeigen**.
+- Um eine genaue Anzahl Ihrer erreichbaren Nutzer:innen zu ermitteln, wählen Sie [Exakte Statistiken berechnen]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size#calculating-exact-statistics), da hierbei jede:r Nutzer:in in Ihrer Nutzerbasis durchsucht wird.
+- Um zu sehen, welcher Prozentsatz Ihrer Nutzerbasis angesprochen wird oder den Lifetime Value (LTV) für dieses Segment, wählen Sie **Zusätzliche Statistiken anzeigen**.
 
 ##### Warum die Zielgruppengröße von der Anzahl erreichbarer Nutzer:innen abweichen kann {#why-the-target-audience-count-could-differ-from-the-reachable-users-count}
 

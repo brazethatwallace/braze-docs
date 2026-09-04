@@ -106,7 +106,7 @@ Attribution-Daten für Facebook- und X-Kampagnen (ehemals Twitter) sind nicht ü
 
 ## Adjust-Klick-Tracking-URLs in Braze (optional) {#adjust-click-tracking-urls-in-braze-optional}
 
-Wenn Sie Klick-Tracking-Links in Ihren Braze-Kampagnen verwenden, können Sie leicht erkennen, welche Kampagnen zu App-Installationen und erneuter Interaktion führen. So können Sie Ihre Marketingmaßnahmen effektiver messen und datengestützte Entscheidungen darüber treffen, wo Sie mehr Ressourcen für einen maximalen ROI investieren sollten.
+Wenn Sie Klick-Tracking-Links in Ihren Braze-Kampagnen verwenden, können Sie leicht erkennen, welche Kampagnen zu App-Installationen und erneuter Interaktion führen. So können Sie Ihre Marketingmaßnahmen effektiver messen und datengestützte Entscheidungen darüber treffen, wo Sie mehr Ressourcen für einen maximalen Kapitalrendite investieren sollten.
 
 Um mit Adjust-Klick-Tracking-Links zu beginnen, besuchen Sie die [Dokumentation](https://help.adjust.com/tracking/attribution/tracker-urls). Sie können die Adjust-Klick-Tracking-Links direkt in Ihre Braze-Kampagnen einfügen. Adjust verwendet dann seine [probabilistischen Attribution-Methoden](https://www.adjust.com/blog/attribution-compatible-with-ios14/), um die Nutzer:innen zu attributieren, die auf den Link geklickt haben. Wir empfehlen, Ihre Adjust-Tracking-Links mit einem Geräte-Bezeichner zu versehen, um die Genauigkeit der Attributionen Ihrer Braze-Kampagnen zu verbessern. Dadurch werden die Nutzer:innen, die auf den Link geklickt haben, deterministisch attributiert.
 

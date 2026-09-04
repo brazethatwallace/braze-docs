@@ -27,7 +27,7 @@ Tanto los filtros de dirección de correo electrónico como los de ID externo de
 
 Puedes seleccionar varios correos electrónicos específicos utilizando la opción "`matches`" y separando las direcciones de correo electrónico con un carácter &#124;. Por ejemplo: "`matches`" "`email1@braze.com` &#124; `email2@braze.com`". También puedes combinar varios operadores a la vez. Por ejemplo, el segmento de prueba podría incluir un filtro de direcciones de correo electrónico que "`matches`" "`@braze.com`" y otro filtro que "`does not equal`" "`sales@braze.com`".
 
-Después de añadir los filtros de prueba a tu segmento de prueba, puedes comprobar que funciona seleccionando **Preview** o seleccionando **Settings** > **CSV Export All User Data** para exportar los datos de usuario de ese segmento a un archivo CSV.
+Después de añadir los filtros de prueba a tu segmento de prueba, puedes comprobar que funciona seleccionando **vista previa** o seleccionando **Settings** > **CSV Export All User Data** para exportar los datos de usuario de ese segmento a un archivo CSV.
 
 ![Una sección de una campaña de Braze titulada Detalles del segmento]({% image_buster /assets/img_archive/testmessages3.png %})
 

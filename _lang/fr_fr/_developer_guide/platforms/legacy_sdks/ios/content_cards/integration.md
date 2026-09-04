@@ -87,13 +87,13 @@ Braze propose trois types de Content Cards : bannière, image légendée et clas
 | `extras` | Un `NSDictionary` facultatif de valeurs `NSString`. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Base Content Card model properties - ABKContentCard" }
 
-### Propriétés de la carte de contenu de type bannière — ABKBannerContentCard {#banner-content-card-properties-abkbannercontentcard}
+### Propriétés de la CCI — ABKBannerContentCard {#banner-content-card-properties-abkbannercontentcard}
 
 | Propriété | Description |
 |---|---|
 | `image` | Cette propriété est l'URL de l'image de la carte. |
 | `imageAspectRatio` | Cette propriété est le rapport hauteur/largeur de l'image de la carte et sert d'indication avant que le chargement de l'image ne soit terminé. Notez que cette propriété peut ne pas être fournie dans certaines circonstances. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Banner Content Card properties - ABKBannerContentCard" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="CCI properties - ABKBannerContentCard" }
 
 ### Propriétés de la carte de contenu avec image légendée — ABKCaptionedImageCard {#captioned-image-content-card-properties-abkcaptionedimagecard}
 

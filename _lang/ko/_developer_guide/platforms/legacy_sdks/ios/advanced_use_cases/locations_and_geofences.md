@@ -14,10 +14,10 @@ noindex: true
 
 # 위치 및 지오펜스 {#locations-and-geofences}
 
-iOS용 지오펜스를 지원하기 위한 조건:
+iOS용 지오펜스를 지원하려면 다음 조건을 충족해야 합니다:
 
-1. 통합은 백그라운드 푸시 알림을 지원해야 합니다.
-2. Braze 지오펜스는 SDK를 통해 위치 수집을 활성화하여 암시적으로 또는 지오펜스 수집을 활성화하여 명시적으로 [활성화해야 합니다]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/location_tracking#enabling-automatic-location-tracking). 기본적으로 활성화되어 있지 않습니다.
+1. 통합에서 백그라운드 푸시 알림을 지원해야 합니다.
+2. Braze 지오펜스는 SDK를 통해 위치 수집을 활성화하여 암시적으로 또는 지오펜스 수집을 활성화하여 명시적으로 [활성화해야 합니다]({{site.baseurl}}/developer_guide/geofences?sdktab=swift). 기본적으로 활성화되어 있지 않습니다.
 
 {% alert important %}
 iOS 14부터 지오펜스는 대략적인 위치 권한을 제공하는 사용자의 경우 안정적으로 작동하지 않습니다.
@@ -25,13 +25,13 @@ iOS 14부터 지오펜스는 대략적인 위치 권한을 제공하는 사용�
 
 ## 1단계: 백그라운드 푸시 활성화 {#step-1-enable-background-push}
 
-지오펜스 동기화 전략을 완전히 활용하려면 표준 푸시 통합을 완료하는 것 외에도 [백그라운드 푸시]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/push_notifications/silent_push_notifications#use-silent-remote-notifications-to-trigger-background-work)를 활성화해야 합니다.
+지오펜스 동기화 전략을 완전히 활용하려면 표준 푸시 통합을 완료하는 것 외에 [백그라운드 푸시]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/silent_push_notifications#use-silent-push-notifications-to-trigger-background-work)를 활성화해야 합니다.
 
 ## 2단계: 지오펜스 활성화 {#step-2-enable-geofences}
 
-기본적으로 지오펜스는 자동 위치 수집의 활성화 여부에 따라 활성화됩니다. `Info.plist` 파일을 사용하여 지오펜스를 활성화할 수 있습니다. `Info.plist` 파일에 `Braze` 사전을 추가합니다. `Braze` 사전 내에서 `EnableGeofences` 부울 하위 항목을 추가하고 값을 `YES`로 설정합니다. Braze iOS SDK v4.0.2 이전 버전에서는 `Braze` 대신 `Appboy` 사전 키를 사용해야 합니다.
+기본적으로 지오펜스는 자동 위치 수집이 활성화되어 있는지 여부에 따라 활성화됩니다. `Info.plist` 파일을 사용하여 지오펜스를 활성화할 수 있습니다. `Info.plist` 파일에 `Braze` 사전을 추가합니다. `Braze` 사전 내에 `EnableGeofences` 불리언 하위 항목을 추가하고 값을 `YES`로 설정합니다. Braze iOS SDK v4.0.2 이전 버전에서는 `Braze` 대신 `Appboy` 사전 키를 사용해야 합니다.
 
-[`startWithApiKey:inApplication:withLaunchOptions:withAppboyOptions`](https://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#aa9f1bd9e4a5c082133dd9cc344108b24) 메서드를 사용하여 앱 시작 시 지오펜스를 활성화할 수도 있습니다. `appboyOptions` 사전에서 `ABKEnableGeofencesKey`를 `YES`로 설정합니다. 예를 들어:
+[`startWithApiKey:inApplication:withLaunchOptions:withAppboyOptions`](https://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#aa9f1bd9e4a5c082133dd9cc344108b24) 메서드를 사용하여 앱 시작 시 지오펜스를 활성화할 수도 있습니다. `appboyOptions` 사전에서 `ABKEnableGeofencesKey`를 `YES`로 설정합니다. 예를 들면 다음과 같습니다:
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -58,16 +58,16 @@ Appboy.start(withApiKey: "YOUR-API-KEY",
 
 ## 3단계: Braze 백그라운드 푸시 확인 {#step-3-check-for-braze-background-push}
 
-Braze는 백그라운드 푸시 알림을 사용하여 지오펜스를 기기와 동기화합니다. 애플리케이션이 Braze 지오펜스 동기화 알림을 수신할 때 원치 않는 동작을 수행하지 않도록 [iOS 커스터마이징]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/ignoring_internal_push) 문서를 참조하세요.
+Braze는 백그라운드 푸시 알림을 사용하여 지오펜스를 기기에 동기화합니다. [iOS 커스터마이징]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/ignoring_internal_push) 문서를 참조하여 앱이 Braze 지오펜스 동기화 알림을 수신할 때 원치 않는 동작을 수행하지 않도록 설정하세요.
 
 ## 4단계: Info.plist에 NSLocationAlwaysUsageDescription 추가 {#step-4-add-nslocationalwaysusagedescription-to-your-infoplist}
 
-`NSLocationAlwaysUsageDescription` 및 `NSLocationAlwaysAndWhenInUseUsageDescription` 키를 `String` 값으로 `info.plist`에 추가합니다. 이 값에는 애플리케이션에서 위치를 추적해야 하는 이유에 대한 설명이 포함되어야 합니다. iOS 11 이상에서는 두 키가 모두 필요합니다.
-이 설명은 시스템 위치 프롬프트가 승인을 요청할 때 표시되며, 사용자에게 위치 추적의 이점을 명확하게 설명해야 합니다.
+`info.plist`에 `NSLocationAlwaysUsageDescription` 및 `NSLocationAlwaysAndWhenInUseUsageDescription` 키를 추가하고, 앱이 위치를 추적해야 하는 이유를 설명하는 `String` 값을 입력합니다. 두 키 모두 iOS 11 이상에서 필수입니다.
+이 설명은 시스템 위치 프롬프트가 권한을 요청할 때 표시되며, 사용자에게 위치 추적의 이점을 명확하게 설명해야 합니다.
 
-## 5단계: 사용자에게 권한 부여 요청 {#step-5-request-authorization-from-the-user}
+## 5단계: 사용자에게 권한 요청 {#step-5-request-authorization-from-the-user}
 
-지오펜스 기능은 `Always` 위치 권한이 부여된 상태에서만 작동합니다.
+지오펜스 기능은 `Always` 위치 권한이 부여된 경우에만 작동합니다.
 
 `Always` 위치 권한을 요청하려면 다음 코드를 사용하세요:
 
@@ -80,7 +80,7 @@ CLLocationManager *locationManager = [[CLLocationManager alloc] init];
 ```
 
 {% endtab %}
-{% tab swift %}
+{% tab SWIFT %}
 
 ```swift
 var locationManager = CLLocationManager()
@@ -92,23 +92,23 @@ locationManager.requestAlwaysAuthorization()
 
 ## 6단계: 대시보드에서 지오펜스 활성화 {#step-6-enable-geofences-on-the-dashboard}
 
-iOS에서는 특정 앱에 대해 최대 20개의 지오펜스만 저장할 수 있습니다. 위치를 사용하면 사용 가능한 지오펜스 슬롯 20개 중 일부가 소진됩니다. 앱의 다른 지오펜스 관련 기능이 실수로 또는 원치 않게 중단되는 것을 방지하려면 대시보드에서 개별 앱에 대해 위치 지오펜스를 활성화해야 합니다.
+iOS는 특정 앱에 대해 최대 20개의 지오펜스만 저장할 수 있습니다. 위치를 사용하면 사용 가능한 20개의 지오펜스 슬롯 중 일부가 사용됩니다. 앱에서 다른 지오펜스 관련 기능이 의도치 않게 중단되는 것을 방지하려면 대시보드에서 개별 앱에 대해 위치 지오펜스를 활성화해야 합니다.
 
-위치가 올바르게 작동하려면 앱이 사용 가능한 모든 지오펜스 슬롯을 사용하고 있지 않은지도 확인해야 합니다.
+위치가 올바르게 작동하려면 앱이 사용 가능한 모든 지오펜스 슬롯을 사용하지 않는지도 확인해야 합니다.
 
-### 위치 페이지에서 지오펜스 활성화 {#enable-geofences-from-the-locations-page}
+### 위치 페이지에서 지오펜스 활성화: {#enable-geofences-from-the-locations-page}
 
 ![Braze 위치 페이지의 지오펜스 옵션.]({% image_buster /assets/img_archive/enable-geofences-locations-page.png %})
 
-### 설정 페이지에서 지오펜스 활성화 {#enable-geofences-from-the-settings-page}
+### 설정 페이지에서 지오펜스 활성화: {#enable-geofences-from-the-settings-page}
 
-![Braze 설정 페이지에 있는 지오펜스 확인란.]({% image_buster /assets/img_archive/enable-geofences-app-settings-page.png %})
+![Braze 설정 페이지에 있는 지오펜스 체크박스.]({% image_buster /assets/img_archive/enable-geofences-app-settings-page.png %})
 
 ## 자동 지오펜스 요청 비활성화 {#disabling-automatic-geofence-requests}
 
-iOS SDK 버전 3.21.3부터 지오펜스의 자동 요청을 비활성화할 수 있습니다. `Info.plist` 파일을 사용하여 이 작업을 수행할 수 있습니다. `Info.plist` 파일에 `Braze` 사전을 추가합니다. `Braze` 사전 내에서 `DisableAutomaticGeofenceRequests` 부울 하위 항목을 추가하고 값을 `YES`로 설정합니다.
+iOS SDK 버전 3.21.3부터 지오펜스가 자동으로 요청되지 않도록 비활성화할 수 있습니다. `Info.plist` 파일을 사용하여 이를 설정할 수 있습니다. `Info.plist` 파일에 `Braze` 사전을 추가하세요. `Braze` 사전 내부에 `DisableAutomaticGeofenceRequests` 불리언 하위 항목을 추가하고 값을 `YES`로 설정합니다.
 
-[`startWithApiKey:inApplication:withLaunchOptions:withAppboyOptions`](https://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#aa9f1bd9e4a5c082133dd9cc344108b24) 메서드를 통해 앱 시작 시 자동 지오펜스 요청을 비활성화할 수도 있습니다. `appboyOptions` 사전에서 `ABKDisableAutomaticGeofenceRequestsKey`를 `YES`로 설정합니다. 예를 들어:
+또한 [`startWithApiKey:inApplication:withLaunchOptions:withAppboyOptions`](https://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#aa9f1bd9e4a5c082133dd9cc344108b24) 메서드를 통해 앱 시작 시 자동 지오펜스 요청을 비활성화할 수 있습니다. `appboyOptions` 사전에서 `ABKDisableAutomaticGeofenceRequestsKey`를 `YES`로 설정합니다. 예를 들어:
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -133,13 +133,13 @@ Appboy.start(withApiKey: "YOUR-API-KEY",
 {% endtab %}
 {% endtabs %}
 
-이 옵션을 사용하는 경우 기능이 작동하려면 지오펜스를 수동으로 요청해야 합니다.
+이 옵션을 사용하도록 선택한 경우, 기능이 작동하려면 지오펜스를 수동으로 요청해야 합니다.
 
-## 지오펜스 수동 요청 {#manually-requesting-geofences}
+## 수동으로 지오펜스 요청하기 {#manually-requesting-geofences}
 
-Braze SDK가 백엔드에서 모니터링할 지오펜스를 요청하면 사용자의 현재 위치를 보고하고, 보고된 위치를 기반으로 최적의 관련성이 있는 것으로 판단되는 지오펜스를 수신합니다. 지오펜스 새로고침은 세션당 한 번으로 사용량이 제한됩니다.
+Braze SDK가 백엔드에서 모니터링할 지오펜스를 요청할 때, 사용자의 현재 위치를 보고하고 보고된 위치를 기반으로 최적의 관련성이 있다고 판단되는 지오펜스를 수신합니다. 세션당 하나의 지오펜스 새로고침이라는 사용량 제한이 있습니다.
 
-가장 관련성이 높은 지오펜스를 수신하기 위해 SDK가 보고하는 위치를 제어하려면, iOS SDK 버전 3.21.3부터 위치의 위도와 경도를 제공하여 지오펜스를 수동으로 요청할 수 있습니다. 이 메서드를 사용할 때는 자동 지오펜스 요청을 비활성화하는 것이 좋습니다. 이렇게 하려면 다음 코드를 사용하세요:
+가장 관련성 높은 지오펜스를 수신하기 위해 SDK가 보고하는 위치를 제어하려면, iOS SDK 버전 3.21.3부터 위치의 위도와 경도를 제공하여 수동으로 지오펜스를 요청할 수 있습니다. 이 메서드를 사용할 때는 자동 지오펜스 요청을 비활성화하는 것이 좋습니다. 이를 위해 다음 코드를 사용하세요:
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -150,7 +150,7 @@ Braze SDK가 백엔드에서 모니터링할 지오펜스를 요청하면 사용
 ```
 
 {% endtab %}
-{% tab swift %}
+{% tab SWIFT %}
 
 ```swift
 Appboy.sharedInstance()?.requestGeofences(withLongitude: longitude, latitude: latitude)

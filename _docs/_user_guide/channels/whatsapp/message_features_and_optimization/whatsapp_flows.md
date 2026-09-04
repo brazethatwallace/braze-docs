@@ -24,6 +24,10 @@ channel:
 
 ![WhatsApp Manager with a page to create a Flows template.]({% image_buster /assets/img/whatsapp/flows/create_flows_template.png %})
 
+{% alert tip %}
+You can also create a Marketing or Utility Flow template in Braze with the [WhatsApp Template Builder]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder). Create and manage the Flow itself in Meta's WhatsApp Manager, then select that Flow when you build the template in Braze.
+{% endalert %}
+
 {: start="3"}  
 3. Select an existing Flow or create one. If creating a Flow, choose from two options:
   - **Custom Form:** For specific requirements
@@ -191,4 +195,4 @@ To use the Flow response through Liquid with [supported personalization tags]({{
 
 ![WhatsApp message composer with an "Add Personalization" component to insert a WhatsApp properties personalization with the custom attribute inbound_flow_response.]({% image_buster /assets/img/whatsapp/flows/inbound_flow_response.png %}){: style="max-width:80%;"}
 
-For any questions or further assistance, contact [Support]({{site.baseurl}}/braze_support).
+For any questions or further assistance, contact [Support]({{site.baseurl}}/user_guide/administer/personal/braze_support).

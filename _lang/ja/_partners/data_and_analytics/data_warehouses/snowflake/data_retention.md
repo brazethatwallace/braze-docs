@@ -2,26 +2,26 @@
 nav_title: "データリテンション"
 article_title: Snowflake データリテンション
 page_order: 3
-description: "このページでは、Braze のリテンションポリシーが適用される場合に、完全なイベントデータを保持する方法について説明します。"
+description: "このページでは、Brazeのリテンションポリシーが適用される場合に、完全なイベントデータを保持する方法について説明します。"
 page_type: partner
 search_tag: Partner
 ---
 
-# Snowflake データリテンション
+# Snowflakeデータリテンション {#snowflake-data-retention}
 
-> Braze は、Snowflake に保存されている2年以上前のほとんどのイベントデータを匿名化（個人を特定できる情報、つまり PII を削除）します。特定のイベントは、このページで後述するように、ユーザーが削除されるまで保持されます。Snowflake データシェアリングを使用している場合、リテンションポリシーが適用される前に Snowflake アカウントにコピーを保存することで、完全なイベントデータをご使用の環境に保持できます。
+> Brazeは、Snowflakeに保存されている2年以上前のほとんどのイベントデータを匿名化（個人を特定できる情報、つまりPIIを削除）します。特定のイベントは、このページで後述するように、ユーザーが削除されるまで保持されます。Snowflakeデータシェアリングを使用している場合、リテンションポリシーが適用される前にSnowflakeアカウントにコピーを保存することで、完全なイベントデータをご使用の環境に保持できます。
 
 このページでは、匿名化されていないデータを保持する2つの方法を紹介します。
 
-- データを別の Snowflake データベースにコピーする
+- データを別のSnowflakeデータベースにコピーする
 - ステージにデータをアンロードする
 
 {% alert warning %}
-[データ保護技術支援]({{site.baseurl}}/dp-technical-assistance/)で説明されているように、Braze は、Braze から削除されたユーザーのイベントデータを自動的に匿名化します。共有データベースの外部にコピーされたデータは、Braze が管理しなくなるため、このプロセスには含まれません。
+[データ保護技術支援]({{site.baseurl}}/dp-technical-assistance)で説明されているように、Brazeは、Brazeから削除されたユーザーのイベントデータを自動的に匿名化します。共有データベースの外部にコピーされたデータは、Brazeが管理しなくなるため、このプロセスには含まれません。
 {% endalert %}
 
-## 2年間のリテンションポリシーが免除されるイベント
-Braze は、ユーザーが削除されるまで、ユーザーライフサイクル、サブスクリプションステータス、インバウンドメッセージングに関連するイベントを保持します。以下のイベントは、標準の2年間のリテンションポリシーから免除されます。
+## 2年間のリテンションポリシーが免除されるイベント {#events-exempted-from-the-two-year-retention-policy}
+Brazeは、ユーザーが削除されるまで、ユーザーライフサイクル、購読ステータス、インバウンドメッセージングに関連するイベントを保持します。以下のイベントは、標準の2年間のリテンションポリシーから免除されます。
 - `users.UserOrphan`
 - `users.UserDeleteRequest`
 - `users.behaviors.subscription.GlobalStateChange`
@@ -29,11 +29,11 @@ Braze は、ユーザーが削除されるまで、ユーザーライフサイ�
 - `users.messages.sms.InboundReceive`
 - `users.messages.whatsapp.InboundReceive`
 
-## すべてのデータを別の Snowflake データベースにコピーする
+## すべてのデータを別のSnowflakeデータベースにコピーする {#copying-all-data-to-another-snowflake-database}
 
-共有 `BRAZE_RAW_EVENTS` スキーマから Snowflake 内の別のデータベースとスキーマにデータをコピーすることで、匿名化されていないデータを保持できます。以下の手順に従ってください。
+共有`BRAZE_RAW_EVENTS`スキーマからSnowflake内の別のデータベースとスキーマにデータをコピーすることで、匿名化されていないデータを保持できます。以下の手順に従ってください。
 
-1. Snowflake アカウントで、プロシージャ `COPY_BRAZE_SHARE` を作成します。このプロシージャは、Braze が共有するすべてのデータを Snowflake 内の別のデータベースとスキーマにコピーするために使用されます。
+1. Snowflakeアカウントで、プロシージャ`COPY_BRAZE_SHARE`を作成します。このプロシージャは、Brazeが共有するすべてのデータをSnowflake内の別のデータベースとスキーマにコピーするために使用されます。
 
 {% raw %}
 ```sql
@@ -57,16 +57,16 @@ from snowflake.snowpark.exceptions import SnowparkSQLException
 
 def run(session: snowpark.Session, SOURCE_DATABASE: str, SOURCE_SCHEMA: str, DESTINATION_DATABASE: str, DESTINATION_SCHEMA: str, MAX_DATE: str, TABLE_NAME_FILTER: str):
     result = []
-    
+
     -- Get the list of filtered table names
     table_query = f"""
-        SELECT table_name 
+        SELECT table_name
         FROM {SOURCE_DATABASE}.INFORMATION_SCHEMA.TABLES
         WHERE TABLE_SCHEMA = '{SOURCE_SCHEMA}' AND table_name LIKE '{TABLE_NAME_FILTER}'
     """
-    
+
     tables = session.sql(table_query).collect()
-    
+
     -- Iterate through each table and copy data
     for row in tables:
         table_name = row['TABLE_NAME']
@@ -86,16 +86,16 @@ def run(session: snowpark.Session, SOURCE_DATABASE: str, SOURCE_SCHEMA: str, DES
         if table_exists:
             -- Find the current, most recent `SF_CREATED_AT` in the existing table
             cur_max_date = None
-            
+
             date_query = f"""
                 SELECT MAX(SF_CREATED_AT) as CUR_MAX_DATE
                 FROM {DESTINATION_DATABASE}.{DESTINATION_SCHEMA}.{table_name}
             """
             date_result = session.sql(date_query).collect()
-            
+
             if date_result:
                 cur_max_date = date_result[0]['CUR_MAX_DATE']
-                
+
             if cur_max_date:
                 -- If the destination table is not empty, only add data that is newer than `cur_max_date` and older than`MAX_DATE`
                 copy_query = f"""
@@ -118,13 +118,13 @@ def run(session: snowpark.Session, SOURCE_DATABASE: str, SOURCE_SCHEMA: str, DES
                 SELECT * FROM {SOURCE_DATABASE}.{SOURCE_SCHEMA}.{table_name}
                 WHERE SF_CREATED_AT <= '{MAX_DATE}'
             """
-        
+
         try:
             session.sql(copy_query).collect()
             result.append([table_name, True, ""])
         except SnowparkSQLException as e:
             result.append([table_name, False, str(e)])
-    
+
     -- Return the results
     return session.create_dataframe(result, schema=['TABLE_NAME', 'SUCCESS', 'INFO'])
 $$;
@@ -132,16 +132,16 @@ $$;
 {% endraw %}
 
 {: start="2"}
-2. Snowflake アカウントで以下のコマンドのいずれかを実行して、プロシージャを実行します。
+2. Snowflakeアカウントで以下のコマンドのいずれかを実行して、プロシージャを実行します。
 
 {% tabs %}
 {% tab デフォルト %}
 
-デフォルトでは、すべての `USERS_*` イベントタイプについて、2年以上経過したデータがバックアップされます。
+デフォルトでは、すべての`USERS_*`イベントタイプについて、2年以上経過したデータがバックアップされます。
 
 {% raw %}
-`````````sql
--- Copy all the rows that are two years or older in all the 'USERS_*' tables 
+```sql
+-- Copy all the rows that are two years or older in all the 'USERS_*' tables
 -- from 'SOURCE_DB'.'SOURCE_SCHEMA' to 'DEST_DB'.'DEST_SCHEMA'
 
 CALL COPY_BRAZE_SHARE('SOURCE_DB', 'SOURCE_SCHEMA', 'DEST_DB', 'DEST_SCHEMA')
@@ -153,7 +153,7 @@ CALL COPY_BRAZE_SHARE('SOURCE_DB', 'SOURCE_SCHEMA', 'DEST_DB', 'DEST_SCHEMA')
 バックアップするデータの期間を選択するフィルターを指定し、選択したイベントテーブルのみをバックアップするためのテーブル名フィルターを指定します。
 
 {% raw %}
-`````````sql
+```sql
 -- Copy all the rows that are one year or older in all the 'USERS_BEHAVIORS_*' tables
 -- from 'SOURCE_DB'.'SOURCE_SCHEMA' to 'DEST_DB'.'DEST_SCHEMA'
 
@@ -164,17 +164,17 @@ CALL COPY_BRAZE_SHARE('SOURCE_DB', 'SOURCE_SCHEMA', 'DEST_DB', 'DEST_SCHEMA', DA
 {% endtabs %}
 
 {% alert note %}
-このプロシージャを繰り返し実行しても、テーブル内の最大 `SF_CREATED_AT` より新しい行のみがバックアップされるため、既にバックアップ済みの行がコピーされることはありません。
+このプロシージャを繰り返し実行しても、テーブル内の最大`SF_CREATED_AT`より新しい行のみがバックアップされるため、既にバックアップ済みの行がコピーされることはありません。
 {% endalert %}
 
-## ステージへのデータのアンロード
+## ステージへのデータのアンロード {#unloading-data-to-stage}
 
-共有 `BRAZE_RAW_EVENTS` スキーマからステージにデータをアンロードすることで、匿名化されていないデータを保持できます。以下の手順に従ってください。
+共有`BRAZE_RAW_EVENTS`スキーマからステージにデータをアンロードすることで、匿名化されていないデータを保持できます。以下の手順に従ってください。
 
-1. プロシージャ `UNLOAD_BRAZE_SHARE` を作成します。このプロシージャは、Braze が共有するすべてのデータを指定したステージにコピーするために使用されます。
+1. プロシージャ`UNLOAD_BRAZE_SHARE`を作成します。このプロシージャは、Brazeが共有するすべてのデータを指定したステージにコピーするために使用されます。
 
 {% raw %}
-`````````sql
+```sql
 CREATE PROCEDURE UNLOAD_BRAZE_SHARE(
     SOURCE_DATABASE STRING, -- Database name of the braze data share
     SOURCE_SCHEMA STRING, -- Schema name of the braze data share
@@ -199,25 +199,25 @@ def run(session: snowpark.Session, DATABASE_NAME: str, SCHEMA_NAME: str, STAGE_N
     if MIN_DATE >= MAX_DATE:
         result.append(["MIN_DATE cannot be more recent than MAX_DATE", False, ""])
         return session.create_dataframe(result, schema=['TABLE_NAME', 'SUCCESS', 'INFO'])
-        
+
     -- Get list of tables
     table_query = f"""
-    SELECT TABLE_NAME 
-    FROM {DATABASE_NAME}.INFORMATION_SCHEMA.TABLES 
+    SELECT TABLE_NAME
+    FROM {DATABASE_NAME}.INFORMATION_SCHEMA.TABLES
     WHERE TABLE_SCHEMA = '{SCHEMA_NAME}' AND TABLE_NAME LIKE '{TABLE_NAME_FILTER}'
     """
     tables = session.sql(table_query).collect()
-    
+
     for table in tables:
         table_name = table['TABLE_NAME']
 
 	 -- Skip archive tables
         if table_name.endswith('_ARCHIVED'):
             continue
-        
+
         -- Create CSV file name
         csv_file_name = f"{table_name}_{MIN_DATE}_{MAX_DATE}.csv"
-        
+
         -- Construct `COPY INTO` command with date filter
         copy_cmd = f"""
         COPY INTO @{STAGE_NAME}/{csv_file_name}
@@ -230,14 +230,14 @@ def run(session: snowpark.Session, DATABASE_NAME: str, SCHEMA_NAME: str, STAGE_N
         HEADER = TRUE
         OVERWRITE = FALSE
         """
-        
+
         -- Execute COPY INTO command
         try:
             session.sql(copy_cmd).collect()
             result.append([table_name, True, csv_file_name])
         except SnowparkSQLException as e:
             result.append([table_name, False, str(e)])
-    
+
     return session.create_dataframe(result, schema=['TABLE_NAME', 'SUCCESS', 'INFO'])
 $$;
 ```
@@ -249,14 +249,14 @@ $$;
 {% tabs %}
 {% tab デフォルト %}
 
-デフォルトでは、`USERS_` プレフィックスを持つすべてのテーブルがコピーされます。
+デフォルトでは、`USERS_`プレフィックスを持つすべてのテーブルがコピーされます。
 
 {% raw %}
-`````````sql
+```sql
 -- Create a Snowflake stage to store the file
 create stage MY_EXPORT_STAGE;
 
--- Call the procedure 
+-- Call the procedure
 -- to unload date between '2020-01-01' and '2021-01-01'
 -- from tables with 'USERS_' prefix in 'DATABASE_NAME'.'SCHEMA'
 CALL UNLOAD_BRAZE_SHARE('DATABASE_NAME', 'SCHEMA', 'MY_EXPORT_STAGE', '2020-01-01', 2021-01-01');
@@ -271,7 +271,7 @@ LIST @MY_EXPORT_STAGE;
 プロシージャにフィルターを指定して、指定したテーブルのみをアンロードします。
 
 {% raw %}
-`````````sql
+```sql
 -- Create a Snowflake stage to store the file
 create stage MY_EXPORT_STAGE;
 
@@ -279,7 +279,7 @@ create stage MY_EXPORT_STAGE;
 -- from tables with 'USERS_BEHAVIORS_' prefix in 'DATABASE_NAME'.'SCHEMA'
 CALL EXPORT_BRAZE_SHARE_TO_STAGE('DATABASE_NAME', 'SCHEMA', 'MY_EXPORT_STAGE', '2020-01-01', 2021-01-01', 'USERS_BEHAVIORS_%');
 
--- List the files that are unloaded 
+-- List the files that are unloaded
 LIST @MY_EXPORT_STAGE;
 ```
 {% endraw %}

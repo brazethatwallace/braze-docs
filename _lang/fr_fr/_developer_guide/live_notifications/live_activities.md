@@ -1,6 +1,6 @@
 ---
 nav_title: Activités en direct pour Swift
-article_title: Activités en direct pour le SDK Swift de Braze
+article_title: Activités en direct pour Swift
 page_order: 0.2
 description: "Découvrez comment configurer les activités en direct pour le SDK Swift de Braze."
 platform:
@@ -13,16 +13,16 @@ platform:
 
 ## Fonctionnement {#how-it-works}
 
-![Un suivi de livraison d'activité en direct sur l'écran de verrouillage d'un iPhone. Une barre d'état avec une voiture est presque à moitié remplie. Le texte indique « 2 min until pickup ».]({% image_buster /assets/img/swift/live_activities/example_2.png %}){: style="max-width:40%;float:right;margin-left:15px;"}
+![Un suivi de livraison sous forme de Live Activity sur l'écran de verrouillage d'un iPhone. Une barre de progression avec une voiture est remplie à presque la moitié. Le texte indique « 2 min until pickup »]({% image_buster /assets/img/swift/live_activities/example_2.png %}){: style="max-width:40%;float:right;margin-left:15px;"}
 
-Les activités en direct présentent une combinaison d'informations statiques et dynamiques que vous mettez à jour. Par exemple, vous pouvez créer une activité en direct qui fournit un suivi de statut pour une livraison. Cette activité en direct comporterait le nom de votre entreprise comme information statique, ainsi qu'un « délai de livraison » dynamique qui serait mis à jour à mesure que le livreur approche de sa destination.
+Les en direct Activities présentent une combinaison d'informations statiques et d'informations dynamiques que vous mettez à jour. Par exemple, vous pouvez créer une en direct Activity qui fournit un suivi de statut pour une livraison. Cette en direct Activity inclut le nom de votre entreprise en tant qu'information statique, ainsi qu'un « délai de livraison » dynamique qui se met à jour à mesure que le livreur s'approche de sa destination.
 
-En tant que développeur, vous pouvez utiliser Braze pour gérer les cycles de vie de vos activités en direct, effectuer des appels à la REST API de Braze pour mettre à jour les activités en direct, et faire en sorte que tous les appareils abonnés reçoivent la mise à jour dès que possible. De plus, comme vous gérez les activités en direct via Braze, vous pouvez les utiliser en tandem avec vos autres canaux de communication&mdash;notifications push, messages in-app, Content Cards&mdash;pour favoriser l'adoption.
+En tant que développeur, vous pouvez utiliser Braze pour gérer les cycles de vie de vos en direct Activities, effectuer des appels à la REST API de Braze pour mettre à jour les en direct Activities, et faire en sorte que tous les appareils abonnés reçoivent la mise à jour dès que possible. Et, parce que vous gérez les en direct Activities via Braze, vous pouvez les utiliser conjointement avec vos autres canaux de communication&mdash;notifications push, In-App Messages, Content Cards&mdash;pour favoriser l'adoption.
 
 ## Diagramme de séquence {#sequence-diagram}
 
 {% tabs %}
-{% tab Live Activities Sequence Diagram %}
+{% tab en direct Activities Sequence Diagram %}
 {% details Afficher le diagramme %}
 ```mermaid
 ---
@@ -66,40 +66,40 @@ sequenceDiagram
 {% endtab %}
 {% endtabs %}
 
-## Implémenter une activité en direct {#implementing-a-live-activity}
+## Implémenter une en direct Activity {#implementing-a-live-activity}
 
 #{% multi_lang_include developer_guide/prerequisites/swift.md %} Vous devrez également remplir les conditions suivantes :
 
 - Assurez-vous que votre projet cible iOS 16.1 ou une version ultérieure.
 - Ajoutez le droit `Push Notification` sous **Signing & Capabilities** dans votre projet Xcode.
-- Assurez-vous que les clés `.p8` sont utilisées pour envoyer des notifications. Les fichiers plus anciens tels que `.p12` ou `.pem` ne sont pas pris en charge.
-- À partir de la version 8.2.0 du SDK Swift de Braze, vous pouvez [enregistrer à distance une activité en direct](#swift_step-2-start-the-activity). Pour utiliser cette fonctionnalité, iOS 17.2 ou une version ultérieure est requis.
+- Assurez-vous que des clés `.p8` sont utilisées pour envoyer des notifications. Les fichiers plus anciens tels que `.p12` ou `.pem` ne sont pas pris en charge.
+- À partir de la version 8.2.0 du SDK Swift de Braze, vous pouvez [enregistrer une en direct Activity à distance](#swift_step-2-start-the-activity). Pour utiliser cette fonctionnalité, iOS 17.2 ou une version ultérieure est requise.
 
 {% alert note %}
-Bien que les activités en direct et les notifications push soient similaires, leurs autorisations système sont distinctes. Par défaut, toutes les fonctionnalités des activités en direct sont activées, mais les utilisateurs peuvent désactiver cette fonctionnalité par application.
+Bien que les en direct Activities et les notifications push soient similaires, leurs autorisations système sont distinctes. Par défaut, toutes les fonctionnalités des en direct Activities sont activées, mais les utilisateurs peuvent désactiver cette fonctionnalité par application.
 {% endalert %}
 
 {% sdk_min_versions swift:5.11.0 %}
 
 ### Étape 1 : Créer une activité {#create-an-activity}
 
-Tout d'abord, assurez-vous d'avoir suivi [Displaying live data with Live Activities](https://developer.apple.com/documentation/activitykit/displaying-live-data-with-live-activities) dans la documentation d'Apple pour configurer les activités en direct dans votre application iOS. Dans le cadre de cette tâche, assurez-vous d'inclure `NSSupportsLiveActivities` défini sur `YES` dans votre `Info.plist`.
+Tout d'abord, assurez-vous d'avoir suivi la documentation Apple [Displaying en direct data with en direct Activities](https://developer.apple.com/documentation/activitykit/displaying-live-data-with-live-activities) pour configurer les en direct Activities dans votre application iOS. Dans le cadre de cette tâche, assurez-vous d'inclure `NSSupportsLiveActivities` défini sur `YES` dans votre `Info.plist`.
 
-Comme la nature exacte de votre activité en direct est spécifique à votre cas d'usage, configurez et initialisez les objets [Activity](https://developer.apple.com/documentation/activitykit/activityattributes). Vous définirez notamment :
-* `ActivityAttributes` : Ce protocole définit le contenu statique (immuable) et dynamique (variable) qui apparaît dans votre activité en direct.
-* `ActivityAttributes.ContentState` : Ce type définit les données dynamiques qui sont mises à jour au cours de l'activité.
+Étant donné que la nature exacte de votre en direct Activity est propre à votre cas d'usage, configurez et initialisez les objets [Activity](https://developer.apple.com/documentation/activitykit/activityattributes). Il est important de définir :
+* `ActivityAttributes` : Ce protocole définit le contenu statique (invariable) et dynamique (variable) qui apparaît dans votre en direct Activity.
+* `ActivityAttributes.ContentState` : Ce type définit les données dynamiques qui sont mises à jour au cours du cycle de vie de l'activité.
 
-Vous utiliserez également SwiftUI pour créer la présentation de l'interface utilisateur sur l'écran de verrouillage et Dynamic Island sur les appareils pris en charge.
+Vous utilisez également SwiftUI pour créer la présentation de l'interface utilisateur sur l'écran de verrouillage et le Dynamic Island sur les appareils compatibles.
 
-Assurez-vous de bien connaître les [conditions préalables et les limites](https://developer.apple.com/documentation/activitykit/displaying-live-data-with-live-activities#Understand-constraints) d'Apple pour les activités en direct, car ces contraintes sont indépendantes de Braze.
+Assurez-vous de bien connaître les [prérequis et limitations](https://developer.apple.com/documentation/activitykit/displaying-live-data-with-live-activities#Understand-constraints) d'Apple pour les en direct Activities, car ces contraintes sont indépendantes de Braze.
 
 {% alert note %}
-Si vous prévoyez d'envoyer des notifications push fréquentes vers la même activité en direct, vous pouvez éviter d'être limité par le budget d'Apple en définissant `NSSupportsLiveActivitiesFrequentUpdates` sur `YES` dans votre fichier `Info.plist`. Pour plus de détails, reportez-vous à la section [`Determine the update frequency`](https://developer.apple.com/documentation/activitykit/updating-and-ending-your-live-activity-with-activitykit-push-notifications#Determine-the-update-frequency) dans la documentation ActivityKit.
+Si vous prévoyez d'envoyer des notifications push fréquentes à la même en direct Activity, vous pouvez éviter d'être limité par le budget d'Apple en définissant `NSSupportsLiveActivitiesFrequentUpdates` sur `YES` dans votre fichier `Info.plist`. Pour plus de détails, consultez la section [`Determine the update frequency`](https://developer.apple.com/documentation/activitykit/updating-and-ending-your-live-activity-with-activitykit-push-notifications#Determine-the-update-frequency) dans la documentation ActivityKit.
 {% endalert %}
 
 #### Exemple {#example}
 
-Imaginons que nous voulions créer une activité en direct pour donner à nos utilisateurs des mises à jour sur le spectacle Superb Owl, où deux équipes concurrentes de sauvetage d'animaux sauvages reçoivent des points pour les hiboux dont ils s'occupent. Dans cet exemple, nous avons créé une structure appelée `SportsActivityAttributes`, mais vous pouvez utiliser votre propre implémentation d'`ActivityAttributes`.
+Imaginons que nous voulions créer une en direct Activity pour donner à nos utilisateurs des mises à jour sur le spectacle Superb Owl, où deux refuges animaliers concurrents reçoivent des points pour les chouettes qu'ils hébergent. Pour cet exemple, nous avons créé une structure appelée `SportsActivityAttributes`, mais vous pouvez utiliser votre propre implémentation d'`ActivityAttributes`.
 
 ```swift
 #if canImport(ActivityKit)
@@ -120,20 +120,20 @@ struct SportsActivityAttributes: ActivityAttributes {
 
 ### Étape 2 : Démarrer l'activité {#start-the-activity}
 
-Tout d'abord, choisissez le mode d'enregistrement de votre activité :
+Tout d'abord, choisissez comment vous souhaitez enregistrer votre activité :
 
-- **À distance :** Utilisez la méthode [`registerPushToStart`](<http://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/liveactivities-swift.class/registerpushtostart(fortype:name:)>) au début du cycle de vie de l'utilisateur et avant que le jeton push-to-start ne soit nécessaire, puis démarrez une activité à l'aide de l'endpoint [`/messages/live_activity/start`]({{site.baseurl}}/api/endpoints/messaging/live_activity/start).
-- **Localement :** Créez une instance de votre activité en direct, puis utilisez la méthode [`launchActivity`](<https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/liveactivities-swift.class/launchactivity(pushtokentag:activity:fileid:line:)>) pour créer des jetons de notification push que Braze pourra gérer.
+- **À distance :** Utilisez la méthode [`registerPushToStart`](<http://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/liveactivities-swift.class/registerpushtostart(fortype:name:)>) tôt dans le cycle de vie de l'utilisateur et avant que le jeton push-to-start ne soit nécessaire, puis démarrez une activité en utilisant l'endpoint [`/messages/live_activity/start`]({{site.baseurl}}/api/endpoints/messaging/live_activity/start).
+- **Localement :** Créez une instance de votre en direct Activity, puis utilisez la méthode [`launchActivity`](<https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/liveactivities-swift.class/launchactivity(pushtokentag:activity:fileid:line:)>) pour créer des jetons push que Braze pourra gérer.
 
 {% tabs local %}
-{% tab remote %}
+{% tab à distance %}
 {% alert important %}
-Pour enregistrer à distance une activité en direct, iOS 17.2 ou une version ultérieure est requis.
+Pour enregistrer une en direct Activity à distance, iOS 17.2 ou une version ultérieure est requise.
 {% endalert %}
 
 #### Étape 2.1 : Ajouter BrazeKit à votre extension de widget {#step-21-add-brazekit-to-your-widget-extension}
 
-Dans votre projet Xcode, sélectionnez le nom de votre application, puis **General**. Sous **Frameworks and Libraries**, vérifiez que `BrazeKit` est inclus dans la liste.
+Dans votre projet Xcode, sélectionnez le nom de votre application, puis **General**. Sous **Frameworks and Libraries**, confirmez que `BrazeKit` est listé.
 
 ![Le framework BrazeKit sous Frameworks and Libraries dans un exemple de projet Xcode.]({% image_buster /assets/img/swift/live_activities/xcode_frameworks_and_libraries.png %})
 
@@ -142,7 +142,7 @@ Dans votre projet Xcode, sélectionnez le nom de votre application, puis **Gener
 Dans votre implémentation d'`ActivityAttributes`, ajoutez la conformité au protocole `BrazeLiveActivityAttributes`, puis ajoutez la propriété `brazeActivityId` à votre modèle d'attributs.
 
 {% alert important %}
-iOS associe la propriété `brazeActivityId` au champ correspondant dans votre payload push-to-start de l'activité en direct. Elle ne doit donc pas être renommée ni se voir attribuer une autre valeur.
+iOS associe la propriété `brazeActivityId` au champ correspondant dans votre payload push-to-start de en direct Activity, elle ne doit donc pas être renommée ni recevoir une autre valeur.
 {% endalert %}
 
 ```swift
@@ -168,17 +168,17 @@ struct SportsActivityAttributes: ActivityAttributes, BrazeLiveActivityAttributes
 }
 ```
 
-#### Étape 2.3 : S'inscrire au push-to-start {#step-23-register-for-push-to-start}
+#### Étape 2.3 : S'enregistrer pour le push-to-start {#step-23-register-for-push-to-start}
 
-Ensuite, enregistrez le type d'activité en direct afin que Braze puisse suivre tous les jetons push-to-start et les instances d'activité en direct associés à ce type.
+Ensuite, enregistrez le type de en direct Activity afin que Braze puisse suivre tous les jetons push-to-start et les instances de en direct Activity associées à ce type.
 
 {% alert warning %}
-Le système d'exploitation iOS ne génère des jetons push-to-start que lors de la première installation de l'application après le redémarrage d'un appareil. Pour vous assurer que vos jetons sont enregistrés de manière fiable, appelez `registerPushToStart` dans votre méthode `didFinishLaunchingWithOptions`.
+Le système d'exploitation iOS ne génère des jetons push-to-start que lors de la première installation de l'application après un redémarrage de l'appareil. Pour vous assurer que vos jetons sont enregistrés de manière fiable, appelez `registerPushToStart` dans votre méthode `didFinishLaunchingWithOptions`.
 {% endalert %}
 
 ##### Exemple
 
-Dans l'exemple suivant, la classe `LiveActivityManager` gère des objets d'activité en direct. Ensuite, la méthode `registerPushToStart` enregistre `SportsActivityAttributes` :
+Dans l'exemple suivant, la classe `LiveActivityManager` gère les objets en direct Activity. Ensuite, la méthode `registerPushToStart` enregistre `SportsActivityAttributes` :
 
 ```swift
 import BrazeKit
@@ -204,22 +204,22 @@ class LiveActivityManager {
 
 #### Étape 2.4 : Envoyer une notification push-to-start {#step-24-send-a-push-to-start-notification}
 
-Envoyez une notification push-to-start à distance à l'aide de l'endpoint [`/messages/live_activity/start`]({{site.baseurl}}/api/endpoints/messaging/live_activity/start).
+Envoyez une notification push-to-start à distance en utilisant l'endpoint [`/messages/live_activity/start`]({{site.baseurl}}/api/endpoints/messaging/live_activity/start).
 {% endtab %}
 
 {% tab local %}
-Vous pouvez utiliser le [framework ActivityKit d'Apple](https://developer.apple.com/documentation/activitykit) pour obtenir un jeton de notification push que le SDK Braze peut gérer pour vous. Cela vous permet de mettre à jour les activités en direct via l'API Braze, car Braze enverra le jeton de notification push au service de notification push d'Apple (APNs) côté serveur.
+Vous pouvez utiliser le [framework ActivityKit d'Apple](https://developer.apple.com/documentation/activitykit) pour obtenir un jeton push, que le SDK de Braze peut gérer pour vous. Cela vous permet de mettre à jour les en direct Activities via l'API Braze, car Braze envoie le jeton push au service de notification push d'Apple (APNs) en arrière-plan.
 
-1. Créez une instance de votre implémentation d'activité en direct à l'aide des API ActivityKit d'Apple.
+1. Créez une instance de votre implémentation de en direct Activity en utilisant les API ActivityKit d'Apple.
 2. Définissez le paramètre `pushType` sur `.token`.
-3. Transmettez les `ActivitiesAttributes` et le `ContentState` des activités en direct que vous avez définis.
-4. Enregistrez votre activité auprès de votre instance Braze en la passant dans [`launchActivity(pushTokenTag:activity:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/liveactivities-swift.class). Le paramètre `pushTokenTag` est une chaîne de caractères personnalisée que vous définissez. Elle doit être unique pour chaque activité en direct que vous créez.
+3. Passez les `ActivitiesAttributes` et `ContentState` des en direct Activities que vous avez définis.
+4. Enregistrez votre activité auprès de votre instance Braze en la passant à [`launchActivity(pushTokenTag:activity:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/liveactivities-swift.class). Le paramètre `pushTokenTag` est une chaîne de caractères personnalisée que vous définissez. Elle doit être unique pour chaque en direct Activity que vous créez.
 
-Une fois l'activité en direct enregistrée, le SDK Braze extrait et observe les changements dans les jetons de notification push.
+Après avoir enregistré la en direct Activity, le SDK de Braze extrait et observe les changements dans les jetons push.
 
 #### Exemple
 
-Pour notre exemple, nous allons créer une classe appelée `LiveActivityManager` qui servira d'interface pour nos objets d'activité en direct. Ensuite, nous définirons le `pushTokenTag` sur `"sports-game-2024-03-15"`.
+Pour notre exemple, créez une classe appelée `LiveActivityManager` comme interface pour nos objets en direct Activity. Ensuite, définissez le `pushTokenTag` sur `"sports-game-2024-03-15"`.
 
 ```swift
 import BrazeKit
@@ -250,21 +250,21 @@ class LiveActivityManager {
 }
 ```
 
-Votre widget d'activité en direct affichera ce contenu initial à vos utilisateurs.
+Votre widget en direct Activity affiche ce contenu initial à vos utilisateurs.
 
-![Une activité en direct sur l'écran de verrouillage d'un iPhone avec les scores de deux équipes. Les équipes Wild Bird Fund et Owl Rehab ont toutes deux un score de 0.]({% image_buster /assets/img/swift/live_activities/example_1_1.png %}){: style="max-width:40%;"}
+![Une Live Activity sur l'écran de verrouillage d'un iPhone avec les scores de deux équipes. Le Wild Bird Fund et l'Owl Rehab ont chacun un score de 0.]({% image_buster /assets/img/swift/live_activities/example_1_1.png %}){: style="max-width:40%;"}
 {% endtab %}
 {% endtabs %}
 
 ### Étape 3 : Reprendre le suivi de l'activité {#resume-activity-tracking}
 
-Pour que Braze suive votre activité en direct dès le lancement de l'application :
+Pour vous assurer que Braze suit votre en direct Activity au lancement de l'application :
 
 1. Ouvrez votre fichier `AppDelegate`.
 2. Importez le module `ActivityKit` s'il est disponible.
-3. Appelez [`resumeActivities(ofType:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/liveactivities-swift.class/resumeactivities(oftype:)) dans `application(_:didFinishLaunchingWithOptions:)` pour tous les types d'`ActivityAttributes` que vous avez enregistrés dans votre application.
+3. Appelez [`resumeActivities(ofType:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/liveactivities-swift.class/resumeactivities(oftype:)) dans `application(_:didFinishLaunchingWithOptions:)` pour tous les types `ActivityAttributes` que vous avez enregistrés dans votre application.
 
-Cela permet à Braze de reprendre les tâches de suivi des mises à jour des jetons de notification push pour toutes les activités en direct actives. Notez que si un utilisateur a explicitement fermé l'activité en direct sur son appareil, elle est considérée comme supprimée et Braze ne la suivra plus.
+Cela permet à Braze de reprendre les tâches de suivi des mises à jour des jetons push pour toutes les en direct Activities actives. Notez que si un utilisateur a explicitement fermé la en direct Activity sur son appareil, elle est considérée comme supprimée et Braze ne la suit plus.
 
 #### Exemple
 
@@ -299,72 +299,72 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 ### Étape 4 : Mettre à jour l'activité {#update-the-activity}
 
-![Une activité en direct sur l'écran de verrouillage d'un iPhone avec les scores de deux équipes. Le Wild Bird Fund a 2 points et l'Owl Rehab en a 4.]({% image_buster /assets/img/swift/live_activities/example_1_2.png %}){: style="max-width:40%;float:right;margin-left:15px;"}
+![Une Live Activity sur l'écran de verrouillage d'un iPhone avec les scores de deux équipes. Le Wild Bird Fund a 2 points et l'Owl Rehab a 4 points.]({% image_buster /assets/img/swift/live_activities/example_1_2.png %}){: style="max-width:40%;float:right;margin-left:15px;"}
 
-L'endpoint [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update) vous permet de mettre à jour une activité en direct via des notifications push transmises par la REST API de Braze. Utilisez cet endpoint pour mettre à jour le `ContentState` de votre activité en direct.
+L'endpoint [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update) vous permet de mettre à jour une en direct Activity via des notifications push transmises par la REST API de Braze. Utilisez cet endpoint pour mettre à jour le `ContentState` de votre en direct Activity.
 
-Lorsque vous mettez à jour votre `ContentState`, votre widget d'activité en direct affiche les nouvelles informations. Voici à quoi pourrait ressembler le spectacle Superb Owl à la fin de la première mi-temps.
+Au fur et à mesure que vous mettez à jour votre `ContentState`, votre widget en direct Activity affiche les nouvelles informations. Voici à quoi ressemble le spectacle Superb Owl à la fin de la première mi-temps.
 
-Pour plus de détails, consultez notre article sur l'endpoint [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update).
+Consultez notre article sur l'[endpoint `/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update) pour tous les détails.
 
 ### Étape 5 : Terminer l'activité {#end-the-activity}
 
-Lorsqu'une activité en direct est active, elle s'affiche à la fois sur l'écran de verrouillage de l'utilisateur et sur Dynamic Island. Pour la terminer via Braze, utilisez l'endpoint [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update) avec `end_activity` défini sur `true`.
+Lorsqu'une en direct Activity est active, elle est affichée à la fois sur l'écran de verrouillage de l'utilisateur et sur le Dynamic Island. Pour la terminer via Braze, utilisez l'endpoint [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update) avec `end_activity` défini sur `true`.
 
-Pour améliorer la fiabilité lors de la fin d'une activité en direct, suivez ces étapes facultatives :
+Pour améliorer la fiabilité lors de la terminaison d'une en direct Activity, suivez les étapes optionnelles suivantes :
 
-1. Incluez éventuellement `dismissal_date` dans la même requête `update` pour indiquer à iOS quand supprimer l'interface de l'activité en direct.
-2. Vérifiez les résultats de distribution dans le [Journal d'activité des messages]({{site.baseurl}}/user_guide/administrative/app_settings/message_activity_log_tab).
+1. Incluez éventuellement `dismissal_date` dans cette même requête `update` pour suggérer à iOS quand supprimer l'interface utilisateur de la en direct Activity.
+2. Vérifiez les résultats de distribution dans le [Journal d'activité des messages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log).
 
-#### Planifier la fermeture automatique {#arranging-automatic-dismissal}
+#### Planifier un renvoi automatique {#arranging-automatic-dismissal}
 
-Pour planifier une fermeture automatique, programmez une requête de suivi vers l'endpoint de mise à jour après avoir démarré l'activité en direct.
+Pour planifier un renvoi automatique, programmez une requête de suivi vers l'endpoint de mise à jour après avoir démarré la en direct Activity.
 
 1. Envoyez une requête `/messages/live_activity/start` avec un `activity_id` que vous pouvez suivre.
 2. Stockez cet `activity_id` et votre heure de fin cible dans votre planificateur backend.
 3. À l'heure de fin cible, envoyez une requête `/messages/live_activity/update` avec `end_activity` défini sur `true`.
-4. Configurez la date de fermeture dans la même requête de mise à jour. Pour plus de détails, consultez l'endpoint [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update).
+4. Configurez la date de renvoi dans la même requête de mise à jour. Pour plus de détails, consultez l'endpoint [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update).
 
-Notez que le moment de la fermeture est contrôlé par iOS. Même après l'envoi d'une requête de fin valide, la suppression de l'écran de verrouillage ou de Dynamic Island peut être retardée ou se comporter différemment selon les conditions du système d'exploitation.
+Notez que le timing du renvoi est contrôlé par iOS. Même après l'envoi d'une requête de fin valide, la suppression de l'écran de verrouillage ou du Dynamic Island peut être retardée ou se comporter différemment en fonction des conditions au niveau du système d'exploitation.
 
-Une activité en direct peut également se terminer en dehors de Braze :
+Une en direct Activity peut également se terminer en dehors de Braze :
 
-* **Fermeture par l'utilisateur** : Un utilisateur peut fermer manuellement une activité en direct.
-* **Expiration** : Après une durée par défaut de huit heures, iOS supprime l'activité en direct de Dynamic Island. Après une durée par défaut de 12 heures, iOS supprime l'activité en direct de l'écran de verrouillage.
+* **Renvoi par l'utilisateur** : Un utilisateur peut manuellement fermer une en direct Activity.
+* **Expiration** : Après un délai par défaut de huit heures, iOS supprime la en direct Activity du Dynamic Island de l'utilisateur. Après un délai par défaut de 12 heures, iOS supprime la en direct Activity de l'écran de verrouillage de l'utilisateur.
 
-Pour plus de détails, consultez notre article sur l'endpoint [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update).
+Consultez notre article sur l'[endpoint `/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update) pour tous les détails.
 
-## Suivi des activités en direct {#tracking-live-activities}
+## Suivi des en direct Activities {#tracking-live-activities}
 
-Les événements d'activité en direct sont disponibles dans Currents, Snowflake Data Sharing et le Générateur de requêtes. Les événements suivants peuvent vous aider à comprendre et à surveiller le cycle de vie de vos activités en direct, à suivre la disponibilité des jetons et à diagnostiquer de manière indépendante les problèmes ou à vérifier les statuts de distribution.
+Les événements de en direct Activity sont disponibles dans Currents, Snowflake Data Sharing et le générateur de requêtes. Les événements suivants peuvent vous aider à comprendre et à surveiller le cycle de vie de vos en direct Activities, à suivre la disponibilité des jetons et à diagnostiquer de manière indépendante les problèmes ou à vérifier les statuts de distribution.
 
-- [Live Activity Push To Start Token Change]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/customer_behavior_events#live-activity-push-to-start-token-change-events) : Enregistre lorsqu'un jeton push-to-start (PTS) est ajouté ou mis à jour dans Braze, vous permettant de suivre les enregistrements et la disponibilité des jetons par utilisateur.
-- [Live Activity Update Token Change]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/customer_behavior_events#live-activity-update-token-change-events) : Suit l'ajout, la mise à jour ou la suppression des jetons Live Activity Update (LAU).
-- [Live Activity Send]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events#live-activity-send-events) : Enregistre chaque fois qu'une activité en direct est démarrée, mise à jour ou terminée par Braze.
-- [Live Activity Outcome]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events#live-activity-outcome-events) : Indique l'état final de la distribution au service de notification push d'Apple (APNs) pour chaque activité en direct envoyée depuis Braze.
+- [en direct Activity Push To Start Token Change]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) : capture le moment où un jeton push-to-start (PTS) est ajouté ou mis à jour dans Braze, vous permettant de suivre les enregistrements et la disponibilité des jetons par utilisateur.
+- [en direct Activity Update Token Change]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) : suit l'ajout, la mise à jour ou la suppression des jetons en direct Activity Update (LAU).
+- [en direct Activity Send]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) : enregistre chaque fois qu'une en direct Activity est démarrée, mise à jour ou terminée par Braze.
+- [en direct Activity Outcome]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) : indique le statut final de distribution au service Apple Push Notification (APNs) pour chaque en direct Activity envoyée depuis Braze.
 
-## Vérifier les envois d'activités en direct {#verify-live-activity-sends}
+## Vérifier les envois de en direct Activity {#verify-live-activity-sends}
 
-Si vous devez confirmer qu'un espace de travail envoie des activités en direct iOS, vous pouvez utiliser les méthodes suivantes :
+Si vous devez confirmer si un espace de travail envoie des en direct Activities iOS, vous pouvez utiliser les méthodes suivantes :
 
 ### Journal d'activité des messages {#message-activity-log}
 
-Accédez à **Paramètres** > **Journal d'activité des messages** et filtrez par les erreurs d'activité en direct pour voir les résultats de distribution liés aux activités en direct pendant la période attendue. Pour plus d'informations, consultez [Journal d'activité des messages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log).
+Accédez à **Paramètres** > **Journal d'activité des messages** et filtrez par erreurs de en direct Activity pour voir les résultats de distribution liés aux en direct Activities pendant la période prévue. Pour en savoir plus, consultez [Journal d'activité des messages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log).
 
-### Générateur de requêtes, Currents ou Snowflake Data Sharing {#query-builder-currents-or-snowflake-data-sharing}
+### Query Builder, Currents ou partage de données Snowflake {#query-builder-currents-or-snowflake-data-sharing}
 
-Vérifiez les événements d'activité en direct suivants pour valider le cycle de vie et la distribution de l'activité en direct :
+Vérifiez les événements de en direct Activity suivants pour confirmer le cycle de vie et la distribution des en direct Activities :
 
-- **Live Activity Send :** Enregistré chaque fois qu'une activité en direct est démarrée, mise à jour ou terminée par Braze
-- **Live Activity Outcome :** État final de la distribution aux APNs pour chaque activité en direct envoyée
+- **en direct Activity Send :** Enregistré chaque fois qu'une en direct Activity est démarrée, mise à jour ou terminée par Braze
+- **en direct Activity Outcome :** Statut final de distribution vers APN pour chaque en direct Activity envoyée
 
 Vous pouvez également vérifier les signaux de disponibilité des jetons :
-- **Live Activity Push To Start Token Change**
-- **Live Activity Update Token Change**
+- **en direct Activity Push To Start Token Change**
+- **en direct Activity Update Token Change**
 
 ### Tableau de bord d'utilisation de l'API {#api-usage-dashboard}
 
-Accédez à **Paramètres** > **Clés API** > **Tableau de bord**, sélectionnez **Filtres**, et filtrez par **Endpoint** pour voir les réponses de l'API. Par exemple, sélectionnez `/messages/live_activity/update` (ou `/messages/live_activity/start`) et consultez le volume de requêtes sur les 30 derniers jours. Les réponses de l'API indiquent que l'API est appelée et que les notifications d'activité en direct iOS sont utilisées dans cet espace de travail. Pour plus d'informations, consultez [Tableau de bord d'utilisation de l'API]({{site.baseurl}}/user_guide/analytics/dashboards/api_usage).
+Accédez à **Paramètres** > **API et identifiants** > **Tableau de bord**, sélectionnez **Filtres**, puis filtrez par **Endpoint** pour voir les réponses de l'API. Par exemple, sélectionnez `/messages/live_activity/update` (ou `/messages/live_activity/start`) et consultez le volume de requêtes des 30 derniers jours. Les réponses de l'API indiquent que l'API est appelée et que les notifications en direct Activity iOS sont utilisées dans cet espace de travail. Pour en savoir plus, consultez [Tableau de bord d'utilisation de l'API]({{site.baseurl}}/user_guide/analytics/dashboards/api_usage).
 
 ## Observer les événements d'activité en direct (facultatif) {#observe-live-activity-events}
 
@@ -379,7 +379,7 @@ Ne vous abonnez pas directement à ces flux ActivityKit avec Apple, car cela ent
 4. [`pushToStartTokenUpdates`](https://developer.apple.com/documentation/activitykit/activity/pushtostarttokenupdates)
 5. [`activityUpdates`](https://developer.apple.com/documentation/activitykit/activity/activityupdates-swift.type.property)
 
-Utilisez plutôt les abonnements mentionnés ci-dessous.
+Utilisez plutôt les abonnements mentionnés dans cette section.
 {% endalert %}
 
 Le SDK Braze fournit deux méthodes d'abonnement sur `braze.liveActivities` pour observer l'ensemble du cycle de vie des activités en direct. Pour un guide pas à pas complet, consultez le [tutoriel sur les activités en direct](https://braze-inc.github.io/braze-swift-sdk/tutorials/brazekit/b4-live-activities).
@@ -643,9 +643,11 @@ func findActivityInstance<Attributes: ActivityAttributes>(
 
 Actuellement, les activités en direct sont une fonctionnalité spécifique à iOS et iPadOS. Par défaut, les activités lancées sur un iPhone ou un iPad sont également affichées sur tout appareil watchOS 11+ ou macOS 26+ appairé.
 
+Braze ne fournit pas actuellement de prise en charge native des activités en direct sur Android. Pour Android, vous pouvez créer des expériences de mise à jour en temps réel via les notifications push de Braze et le rendu de notifications personnalisées.
+
 ![Capture d'écran d'une barre de menus macOS affichant une activité en direct sous forme d'alerte.]({% image_buster /assets/img/live-activity-macos.png %}){: style="max-width:60%;"}
 
-L'article sur les activités en direct couvre les [conditions préalables]({{site.baseurl}}/developer_guide/platforms/swift/live_activities#prerequisites) à la gestion des activités en direct via le SDK Swift de Braze.
+L'article sur les activités en direct couvre les [conditions préalables]({{site.baseurl}}/developer_guide/live_notifications/live_activities#implementing-a-live-activity) à la gestion des activités en direct via le SDK Swift de Braze.
 
 #### Les applications React Native prennent-elles en charge les activités en direct ? {#do-react-native-apps-support-live-activities}
 
@@ -661,7 +663,7 @@ Non, cela n'est pas pris en charge actuellement.
 
 #### Que se passe-t-il si une notification push est envoyée alors qu'une activité en direct est active ? {#what-happens-if-a-push-notification-is-sent-while-a-live-activity-is-active}
 
-![Écran de téléphone avec une activité sportive en direct « Bulls vs Bears » vers le milieu de l'écran et un texte de notification push lorem ipsum en bas de l'écran.]({% image_buster /assets/img/push-vs-live-activities.png %}){: style="max-width:30%;float:right;margin-left:15px;"}
+![Écran de téléphone avec une activité sportive en direct Bulls vs Bears vers le milieu de l'écran et un texte de notification push lorem ipsum en bas de l'écran.]({% image_buster /assets/img/push-vs-live-activities.png %}){: style="max-width:30%;float:right;margin-left:15px;"}
 
 Les activités en direct et les notifications push occupent des zones d'écran différentes et n'entrent pas en conflit sur l'écran de l'utilisateur.
 
@@ -683,13 +685,13 @@ Toute erreur d'activité en direct est consignée dans le tableau de bord de Bra
 
 #### Après avoir envoyé une notification push-to-start, pourquoi n'ai-je pas reçu mon activité en direct ? {#after-sending-a-push-to-start-notification-why-havent-i-received-my-live-activity}
 
-Tout d'abord, vérifiez que votre payload comprend tous les champs obligatoires décrits dans l'endpoint [`messages/live_activity/start`]({{site.baseurl}}/api/endpoints/messaging/live_activity/start). Les champs `activity_attributes` et `content_state` doivent correspondre aux propriétés définies dans le code de votre projet. Si vous êtes certain que le payload est correct, il est possible que votre débit soit limité par les APNs. Cette limite est imposée par Apple et non par Braze.
+Tout d'abord, vérifiez que votre payload comprend tous les champs obligatoires décrits dans l'endpoint [`messages/live_activity/start`]({{site.baseurl}}/api/endpoints/messaging/live_activity/start). Les champs `activity_attributes` et `content_state` doivent correspondre aux propriétés définies dans le code de votre projet. Si vous êtes certain que le payload est correct, il est possible que votre débit soit limité par les APN. Cette limite est imposée par Apple et non par Braze.
 
 Pour vérifier que votre notification push-to-start est bien arrivée sur l'appareil mais n'a pas été affichée en raison des limites de débit, vous pouvez déboguer votre projet à l'aide de l'application Console sur votre Mac. Attachez le processus d'enregistrement pour l'appareil souhaité, puis filtrez les journaux par `process:liveactivitiesd` dans la barre de recherche.
 
 #### Après avoir démarré mon activité en direct avec push-to-start, pourquoi ne reçoit-elle pas de nouvelles mises à jour ? {#after-starting-my-live-activity-with-push-to-start-why-isnt-it-receiving-new-updates}
 
-Vérifiez que vous avez correctement implémenté les instructions décrites [ci-dessus](#swift_brazeActivityAttributes). Votre `ActivityAttributes` doit contenir à la fois la conformité au protocole `BrazeLiveActivityAttributes` et la propriété `brazeActivityId`.
+Vérifiez que vous avez correctement implémenté les instructions de l'[étape 2.2 : Ajouter le protocole BrazeLiveActivityAttributes](#swift_brazeActivityAttributes). Votre `ActivityAttributes` doit contenir à la fois la conformité au protocole `BrazeLiveActivityAttributes` et la propriété `brazeActivityId`.
 
 Après avoir reçu une notification push-to-start d'activité en direct, vérifiez que vous pouvez voir une requête réseau sortante vers l'endpoint `/push_token_tag` de votre URL Braze et qu'elle contient le bon ID d'activité dans le champ `"tag"`.
 

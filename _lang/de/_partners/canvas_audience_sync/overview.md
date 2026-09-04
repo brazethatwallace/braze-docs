@@ -6,23 +6,22 @@ description: "In diesem Referenzartikel erfahren Sie, wie Sie Braze Audience Syn
 page_order: 0
 tool:
   - Canvas
-
 ---
 
 # Über Audience Sync {#about-audience-sync}
 
-> Mit dem Braze Audience Sync Feature können Sie die Reichweite Ihrer Campaigns auf viele der wichtigsten sozialen und Werbetechnologien ausweiten. Mit [Braze-Canvas]({{site.baseurl}}/user_guide/messaging/canvas/) können Marken dynamisch und sicher First-Party-Nutzerdaten mit dem Werbe-Ökosystem synchronisieren, um Marketing und Betrieb effizienter zu gestalten.
+> Mit dem Braze Audience Sync Feature können Sie die Reichweite Ihrer Campaigns auf viele der wichtigsten sozialen und Werbetechnologien ausweiten. Mit [Braze-Canvas]({{site.baseurl}}/user_guide/messaging/canvas) können Marken dynamisch und sicher First-Party-Nutzerdaten mit dem Werbe-Ökosystem synchronisieren, um Marketing und Betrieb effizienter zu gestalten.
 
-## Verfügbarkeit von Features {#feature-availability}
+## Feature-Verfügbarkeit {#feature-availability}
 
-Alle Kund:innen von Braze haben sofort Zugriff auf Audience Sync mit Google und Facebook. Kund:innen, die Action Credits nutzen, können jedoch auf alle Audience Sync-Partner zugreifen. Um zusätzliche Audience Sync-Ziele für Kund:innen freizuschalten, die keine Action Credits nutzen, erwerben Sie Audience Sync Pro. Kontaktieren Sie Ihren Braze Account Manager für weitere Informationen.
+Alle Braze-Kund:innen haben sofort Zugang zu Audience Sync für Google und Facebook, aber Kund:innen mit Action Credits können auf alle Audience Sync-Partner zugreifen. Um zusätzliche Audience Sync-Ziele für Kund:innen ohne Action Credits freizuschalten, erwerben Sie Audience Sync Pro. Wenden Sie sich an Ihren Braze Account Manager:in für weitere Details.
 
 ## Anwendungsfälle {#use-cases}
 
-- Targeting hochwertiger Nutzer:innen über Owned Channels und bezahlte Kanäle, um zusätzliche Käufe oder Engagement zu fördern.
-- Erstellen von Lookalike-Zielgruppen Ihrer hochwertigen Nutzer:innen, um die Akquisitionskosten für neue Nutzer:innen und Conversions zu optimieren.
-- Retargeting von Nutzer:innen, die auf andere Marketing-Kanäle weniger responsiv sind, mit Anzeigen.
-- Erstellen von Unterdrückungs-Zielgruppen, um zu verhindern, dass Nutzer:innen, die bereits treue Verbraucher:innen Ihrer Marke sind, Werbung erhalten.
+- Targeting von High-Value-Nutzer:innen über eigene und bezahlte Kanäle, um zusätzliche Käufe oder Engagement zu fördern.
+- Erstellung von Lookalike-Zielgruppen Ihrer High-Value-Nutzer:innen, um die Akquisitionskosten und Konversionen bei der Neukundengewinnung zu optimieren.
+- Retargeting von Nutzer:innen mit Anzeigen, die auf andere Marketingkanäle weniger ansprechen.
+- Erstellung von Suppressions-Zielgruppen, um zu verhindern, dass Nutzer:innen Werbung erhalten, wenn sie bereits treue Verbraucher:innen Ihrer Marke sind.
 
 ## Übersicht {#overview}
 
@@ -32,108 +31,108 @@ table td {
 }
 </style>
 
-| Ziel | Zeit für das Ziel, Zielgruppenmitglieder abzugleichen | Rate-Limit | Lookalike oder Actalike | Tipps |
+| Ziel | Zeit, bis das Ziel Zielgruppenmitglieder abgleicht | Rate-Limit | Lookalike oder Actalike | Tipps |
 | --- | --- | --- | --- | --- |
-| [Criteo]({{site.baseurl}}/partners/canvas_audience_sync/criteo_audience_sync/) | Bis zu 24 Stunden | 250.000 Anfragen pro Minute. Alle 5 Sekunden gebatcht mit automatischer Wiederholung basierend auf dem Google-Feedback. | Ja | {::nomarkdown}<ul><li>Criteo unterstützt bis zu 1.000 Zielgruppen.</li><li>Die Mindestgröße der Zielgruppe liegt bei 500, die Empfehlung bei über 20.000.</li></ul>{:/} |
-| [Facebook oder Instagram]({{site.baseurl}}/partners/canvas_audience_sync/facebook_audience_sync/) | Bis zu 24 Stunden | 190.000 Anzeigenkonten pro Stunde | Ja | {::nomarkdown}<ul><li>Facebook unterstützt bis zu 500 Zielgruppen.</li><li>Facebook verlangt Zielgruppen von mindestens 1.000 Nutzer:innen.</li></ul>{:/} |
-| [Google Ads oder YouTube]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync/) | Zwischen 6 und 12 Stunden | Alle 5 Sekunden gebatcht mit automatischer Wiederholung basierend auf Google-Feedback | Nein | {::nomarkdown}<ul><li><b>Customer Match:</b> Verwenden Sie entweder eine mobile Anzeigen-ID oder eine E-Mail-Adresse oder Telefonnummer.</li><li>Google Audiences benötigen mindestens 5.000 Nutzer:innen, um mit dem Adserving zu beginnen.</li><li>Die Zielgruppengröße wird als Null angezeigt, bis es mindestens 1.000 Nutzer:innen gibt.</li></ul>{:/} |
-| [LinkedIn]({{site.baseurl}}/partners/canvas_audience_sync/linkedin_audience_sync/) | 48 Stunden | LinkedIn verarbeitet 10 Abfragen pro Sekunde und 100.000 Nutzer:innen pro Anfrage. Braze fasst Nutzer:innen alle 5 Sekunden zusammen. | KI-Prognosen für Zielgruppen | {::nomarkdown}<ul><li>Die Mindestgröße der Zielgruppe beträgt 300 Mitglieder, wobei das Standort-Targeting berücksichtigt wird.</li><li>LinkedIn zeigt die Match-Rate im Braze-Dashboard an.</li></ul>{:/} |
-| [Pinterest]({{site.baseurl}}/partners/canvas_audience_sync/pinterest_audience_sync/) | Zwischen 24 und 48 Stunden | Pinterest verarbeitet 7 Abfragen pro Sekunde und 1.900 Nutzer:innen pro Anfrage. Braze fasst Nutzer:innen alle 5 Sekunden zusammen. | Ja | Für die Zielgruppen von Pinterest sind mindestens 100 Nutzer:innen erforderlich. |
-| [Snapchat]({{site.baseurl}}/partners/canvas_audience_sync/snapchat_audience_sync/) | N/A | Snapchat verarbeitet 10 Abfragen pro Sekunde und 100.000 Nutzer:innen pro Anfrage. Braze fasst Nutzer:innen alle 5 Sekunden zusammen. | Ja | Snapchat unterstützt bis zu 1.000 Zielgruppen. |
-| [The Trade Desk]({{site.baseurl}}/partners/canvas_audience_sync/trade_desk_audience_sync/) | Bis zu 24 Stunden | N/A | Ja | {::nomarkdown}<ul><li>Es gibt keine Mindestgröße für CRM-Zielgruppen in The Trade Desk.</li><li>Es gibt kein Limit für die Anzahl der Zielgruppen, die The Trade Desk unterstützt.</li><li>Wenn Sie mit einer Zielgruppe synchronisieren, deren Region auf die EU eingestellt ist, wird die Telefonnummer nicht unterstützt.</li></ul>{:/} |
-| [TikTok]({{site.baseurl}}/partners/canvas_audience_sync/tiktok_audience_sync/) | Zwischen 24 und 48 Stunden | TikTok verarbeitet 50 Abfragen pro Sekunde und 10.000 Nutzer:innen pro Anfrage. Braze fasst Nutzer:innen alle 5 Sekunden zusammen. | Ja | {::nomarkdown}<ul><li>TikTok unterstützt bis zu 400 Zielgruppen.</li><li>Die Zielgruppen von TikTok benötigen mindestens 1.000 Nutzer:innen, um mit dem Adserving zu beginnen.</li></ul>{:/} |
+| [Criteo]({{site.baseurl}}/partners/canvas_audience_sync/criteo_audience_sync) | Bis zu 24 Stunden | 250.000 Anfragen pro Minute. Alle 5 Sekunden gebündelt mit automatischem Retry. | Ja | {::nomarkdown}<ul><li>Criteo unterstützt bis zu 1.000 Werbezielgruppen.</li><li>Die Mindestgröße einer Zielgruppe beträgt 500, empfohlen werden über 20.000.</li></ul>{:/} |
+| [Facebook oder Instagram]({{site.baseurl}}/partners/canvas_audience_sync/facebook_audience_sync) | Bis zu 24 Stunden | 190.000 Werbekonten pro Stunde | Ja | {::nomarkdown}<ul><li>Facebook unterstützt bis zu 500 Werbezielgruppen.</li><li>Facebook setzt voraus, dass Zielgruppen mindestens 1.000 Nutzer:innen umfassen.</li></ul>{:/} |
+| [Google Ads oder YouTube]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync) | Zwischen 6 und 12 Stunden | Alle 5 Sekunden gebündelt mit automatischem Retry basierend auf Google-Feedback | Nein | {::nomarkdown}<ul><li><b>Customer Match:</b> Verwenden Sie entweder die mobile Werbe-ID oder E-Mail-Adresse bzw. Telefonnummer.</li><li>Google Audiences erfordern mindestens 5.000 Nutzer:innen, bevor Anzeigen ausgeliefert werden.</li><li>Die Zielgruppengröße wird als null angezeigt, bis mindestens 1.000 Nutzer:innen vorhanden sind.</li></ul>{:/} |
+| [LinkedIn]({{site.baseurl}}/partners/canvas_audience_sync/linkedin_audience_sync) | 48 Stunden | LinkedIn verarbeitet 10 Abfragen pro Sekunde und 100.000 Nutzer:innen pro Anfrage. Braze bündelt Nutzer:innen alle 5 Sekunden. | KI-prädiktive Zielgruppen | {::nomarkdown}<ul><li>Die Mindestgröße der Zielgruppe beträgt 300 Mitglieder unter Berücksichtigung des Standort-Targetings.</li><li>LinkedIn zeigt die Übereinstimmungsrate im Braze-Dashboard an.</li></ul>{:/} |
+| [Pinterest]({{site.baseurl}}/partners/canvas_audience_sync/pinterest_audience_sync) | Zwischen 24 und 48 Stunden | Pinterest verarbeitet 7 Abfragen pro Sekunde und 1.900 Nutzer:innen pro Anfrage. Braze bündelt Nutzer:innen alle 5 Sekunden. | Ja | Pinterest-Zielgruppen erfordern mindestens 100 Nutzer:innen. |
+| [Snapchat]({{site.baseurl}}/partners/canvas_audience_sync/snapchat_audience_sync) | N/A | Snapchat verarbeitet 10 Abfragen pro Sekunde und 100.000 Nutzer:innen pro Anfrage. Braze bündelt Nutzer:innen alle 5 Sekunden. | Ja | Snapchat unterstützt bis zu 1.000 Werbezielgruppen. |
+| [The Trade Desk]({{site.baseurl}}/partners/canvas_audience_sync/trade_desk_audience_sync) | Bis zu 24 Stunden | N/A | Ja | {::nomarkdown}<ul><li>Es gibt keine Mindestgröße für CRM-Zielgruppen in The Trade Desk.</li><li>Es gibt kein Limit für die Anzahl der Zielgruppen, die The Trade Desk unterstützt.</li><li>Wenn Sie eine Zielgruppe mit einer auf EU gesetzten Region synchronisieren, wird Telefonnummer nicht unterstützt.</li></ul>{:/} |
+| [TikTok]({{site.baseurl}}/partners/canvas_audience_sync/tiktok_audience_sync) | Zwischen 24 und 48 Stunden | TikTok verarbeitet 50 Abfragen pro Sekunde und 10.000 Nutzer:innen pro Anfrage. Braze bündelt Nutzer:innen alle 5 Sekunden. | Ja | {::nomarkdown}<ul><li>TikTok unterstützt bis zu 400 Werbezielgruppen.</li><li>TikTok-Zielgruppen erfordern mindestens 1.000 Nutzer:innen, bevor Anzeigen ausgeliefert werden.</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Übersicht" }
-<sup>Wenn das Rate-Limit erreicht ist, versucht Braze, die Synchronisierung 13 Stunden lang zu wiederholen.</sup>
+<sup>Wenn das Rate-Limit erreicht ist, wiederholt Braze die Synchronisierung für 13 Stunden.</sup>
 
-## Funktionsweise {#how-it-works}
+## So funktioniert es {#how-it-works}
 
-Um Audience Sync mit Google oder Facebook zu nutzen, verbinden Sie Ihr Anzeigenkonto, indem Sie auf der Seite **Technology Partners** nach dem Partner suchen.
+Um Audience Sync mit Google oder Facebook zu verwenden, verbinden Sie Ihr Werbekonto, indem Sie auf der Seite **Technologie-Partner** nach dem Partner suchen.
 
-![Facebook-Technologie-Partner.]({% image_buster /assets/img/audience_sync/facebook_partner.png %}){: style="max-width:35%;"} ![Google Ads-Technologie-Partner.]({% image_buster /assets/img/audience_sync/google_ads_partner.png %}){: style="max-width:35%;"}
+![Facebook Technologie-Partner.]({% image_buster /assets/img/audience_sync/facebook_partner.png %}){: style="max-width:35%;"} ![Google Ads Technologie-Partner.]({% image_buster /assets/img/audience_sync/google_ads_partner.png %}){: style="max-width:35%;"}
 
-Nachdem Sie Ihr Anzeigenkonto verbunden haben, können Sie ein Canvas mit einem Audience Sync-Schritt erstellen.
+Nachdem Sie Ihr Werbekonto verbunden haben, können Sie einen Canvas mit einem Audience-Sync-Schritt erstellen.
 
-![Canvas-Komponentenmenü, um den Audience Sync-Schritt zur User Journey hinzuzufügen.]({% image_buster /assets/img/audience_sync/audience_sync7.png %}){: style="max-width:75%;"}
+![Menü für Canvas-Komponenten zum Hinzufügen des Audience-Sync-Schritts zur User Journey.]({% image_buster /assets/img/audience_sync/audience_sync7.png %}){: style="max-width:75%;"}
 
-Als Nächstes wählen Sie den Partner für die Synchronisierung der Zielgruppen aus.
+Wählen Sie als Nächstes den Partner aus, mit dem die Zielgruppen synchronisiert werden sollen.
 
-![Option zum Auswählen Ihres Audience Sync-Partners im Audience Sync-Schritt.]({% image_buster /assets/img/audience_sync/audience_sync4.png %}){: style="max-width:85%;"}
+![Option zur Auswahl Ihres Audience-Sync-Partners im Audience-Sync-Schritt.]({% image_buster /assets/img/audience_sync/audience_sync4.png %}){: style="max-width:85%;"}
 
-Für jeden Partner müssen Sie im Rahmen Ihres Audience Sync-Schrittes Folgendes konfigurieren:
+Für jeden Partner müssen Sie im Rahmen Ihres Audience-Sync-Schritts Folgendes konfigurieren:
 
-- Anzeigenkonto
+- Werbekonto
 - Zielgruppe
 - Aktion zum Hinzufügen oder Entfernen von Nutzer:innen
-- Abzugleichende Felder
+- Felder zum Abgleich
 
-Beachten Sie, dass Braze die Nutzer:innen synchronisiert, sobald sie den Audience Sync-Schritt in Ihrem Canvas erreichen.
+Beachten Sie, dass Braze Nutzer:innen synchronisiert, sobald sie den Audience-Sync-Schritt in Ihrem Canvas erreichen.
 
-Für jedes Audience Sync-Ziel kann der Partner unterschiedliche Anforderungen an die Felder stellen, die gesendet werden können. Weitere Einzelheiten finden Sie in der Dokumentation des jeweiligen Partners.
+Für jedes Audience-Sync-Ziel kann der Partner unterschiedliche Anforderungen an die Felder haben, die Braze senden kann. Weitere Details finden Sie in der jeweiligen Partnerdokumentation.
 
 ### Audience Sync Pro
 
-Um einen Audience Sync Pro-Partner wie TikTok, Pinterest, Snapchat oder Criteo zu nutzen, können Sie Ihre Partner auf der Grundlage Ihrer Audience Sync Pro-Kaufkontingente im Abschnitt **Audience Sync Pro** auf der Seite **Technology Partners** auswählen.
+Um einen Audience-Sync-Pro-Partner wie TikTok, Pinterest, Snapchat oder Criteo zu verwenden, können Sie Ihre Partner basierend auf Ihren Audience-Sync-Pro-Kaufkontingenten im Abschnitt **Audience Sync Pro** auf der Seite **Technologie-Partner** auswählen.
 
-![Audience Sync Pro, für das noch keine Partner ausgewählt wurden.]({% image_buster /assets/img/audience_sync/audience_sync_pro1.png %}){: style="max-width:75%;"}
+![Audience Sync Pro ohne bisher ausgewählte Partner.]({% image_buster /assets/img/audience_sync/audience_sync_pro1.png %}){: style="max-width:75%;"}
 
-Wählen Sie zunächst die Partner aus, die Sie verwenden möchten, indem Sie **Select Partners** wählen. Mit jedem Kauf von Audience Sync Pro erhalten Sie 3 zugewiesene Audience Sync Pro-Ziele, die in jedem Ihrer Workspaces in Ihrem Dashboard verfügbar sind.
+Wählen Sie zunächst die Partner aus, die Sie verwenden möchten. Jeder Kauf von Audience Sync Pro bietet Ihnen 3 zugewiesene Audience-Sync-Pro-Ziele, die in jedem Ihrer Workspaces in Ihrem Dashboard verfügbar sind.
 
-![Option, bis zu drei Partner für die Verbindung mit Braze auszuwählen.]({% image_buster /assets/img/audience_sync/audience_sync_pro2.png %}){: style="max-width:65%;"}
+![Option zur Auswahl von bis zu drei Partnern für die Verbindung mit Braze.]({% image_buster /assets/img/audience_sync/audience_sync_pro2.png %}){: style="max-width:65%;"}
 
-Nachdem Sie Ihre Audience Sync Pro-Ziele ausgewählt haben, verbinden Sie Ihr ausgewähltes Partner-Anzeigenkonto, indem Sie auf die Partner-Kachel klicken.
+Nachdem Sie Ihre Audience-Sync-Pro-Ziele ausgewählt haben, verbinden Sie das Werbekonto des ausgewählten Partners, indem Sie auf die Partner-Kachel klicken.
 
-![Ein Beispiel für Snapchat und TikTok, die als Partner für Audience Sync ausgewählt wurden.]({% image_buster /assets/img/audience_sync/audience_sync_pro3a.png %}){: style="max-width:70%;"}
+![Ein Beispiel mit Snapchat und TikTok als ausgewählte Partner für Audience Sync.]({% image_buster /assets/img/audience_sync/audience_sync_pro3a.png %}){: style="max-width:70%;"}
 
-![Snapchat Audience Sync-Einstellungen mit der Nachricht: „Sie haben erfolgreich 1 Snapchat-Konto verbunden“.]({% image_buster /assets/img/audience_sync/audience_sync_pro4.png %}){: style="max-width:70%;"}
+![Snapchat Audience-Sync-Einstellungen mit der Nachricht: „Sie haben erfolgreich 1 Snapchat-Konto verbunden“.]({% image_buster /assets/img/audience_sync/audience_sync_pro4.png %}){: style="max-width:70%;"}
 
-Erstellen Sie abschließend Ihren Audience Sync-Schritt in Canvas mit diesem Audience Sync Pro-Ziel.
+Erstellen Sie abschließend Ihren Audience-Sync-Schritt in Canvas unter Verwendung dieses Audience-Sync-Pro-Ziels.
 
 ### Batching und Latenz {#batching-and-latency}
 
-Wenn Nutzer:innen einen Audience Sync-Schritt in Canvas erreichen, reiht Braze sie in ein Batching-System ein, das Nutzeraktualisierungen aggregiert, bevor sie an die Partner-API gesendet werden. Ein Batch wird gesendet, wenn eine der folgenden Bedingungen eintritt:
+Wenn Nutzer:innen einen Audience-Sync-Schritt in Canvas erreichen, reiht Braze sie in ein Batching-System ein, das Nutzeraktualisierungen aggregiert, bevor sie an die Partner-API gesendet werden. Ein Batch wird gesendet, wenn eine der folgenden Bedingungen eintritt:
 
-- **Der Batch erreicht sein Größenlimit.** Dieses variiert je nach Partner:
+- **Der Batch erreicht sein Größenlimit.** Dies variiert je nach Partner:
   - Standard unterstützt bis zu 2.000 Nutzer:innen
   - Google Ads unterstützt bis zu 10.000 Nutzer:innen
   - Facebook und TikTok unterstützen bis zu 2.000 Nutzer:innen
-- **Der Latenz-Timer des Batches läuft ab.** Der Standardwert beträgt eine Stunde, ist aber pro Partner konfigurierbar. Zum Beispiel verwendet The Trade Desk 10 Minuten.
+- **Der Batch-Latenz-Timer läuft ab.** Der Standardwert beträgt eine Stunde, ist aber pro Partner konfigurierbar. Beispielsweise verwendet The Trade Desk 10 Minuten.
 
-Canvases mit hohem Volumen senden möglicherweise früher, da die Batches schneller gefüllt werden. Canvases mit geringerem Volumen warten, bis der Latenz-Timer abläuft. Braze garantiert keine feste Versandzeit; der Zeitpunkt hängt von der Batch-Größe und dem konfigurierten Latenzfenster ab.
+Canvases mit hohem Volumen senden möglicherweise früher, da sich die Batches schneller füllen. Canvases mit geringerem Volumen warten, bis der Latenz-Timer abläuft. Braze garantiert keine feste Versandzeit; der Zeitpunkt hängt von der Batch-Größe und dem konfigurierten Latenzfenster ab.
 
-Braze protokolliert die Versandaktivität in internen Logs zur Überwachung und Fehlerbehebung, aber diese Zeitstempel werden nicht als abfragbare Felder bereitgestellt. Nachdem Braze einen Batch an die Partner-API gesendet hat, verarbeitet der Partner die Zielgruppenaktualisierung gemäß seinen eigenen Service Level Agreements – in der Regel 6 bis 48 Stunden.
+Braze zeichnet Versandaktivitäten in internen Logs zur Überwachung und Fehlerbehebung auf, diese Zeitstempel sind jedoch nicht als abfragbare Felder verfügbar. Nachdem Braze einen Batch an die Partner-API gesendet hat, verarbeitet der Partner die Zielgruppenaktualisierung gemäß seinen eigenen Service Level Agreements – in der Regel 6–48 Stunden.
 
-Braze erhält keine Bestätigung von Partnern, dass einzelne Nutzer:innen abgeglichen oder synchronisiert wurden. Die Antworten der Partner sind HTTP-Empfangsbestätigungen, keine Match-Bestätigungen. Um zu überprüfen, ob eine Zielgruppe befüllt wurde, prüfen Sie die Anzeigenplattform des Partners (z. B. Google Ads Audience Manager oder Meta Business Manager).
+Braze erhält keine Bestätigung von Partnern, dass einzelne Nutzer:innen abgeglichen oder synchronisiert wurden. Partnerantworten sind HTTP-Empfangsbestätigungen, keine Abgleichbestätigungen. Um zu überprüfen, ob eine Zielgruppe befüllt wurde, prüfen Sie die Werbeplattform des Partners (z.&#160;B. Google Ads Audience Manager:in oder Meta Business Manager:in).
 
-### Audience Sync-Fehler-E-Mails {#audience-sync-error-emails}
+### Audience-Sync-Fehler-E-Mails {#audience-sync-error-emails}
 
-Wenn der Fehler mit der gesamten Partnerintegration zusammenhängt (z. B. ein Autorisierungsproblem), wird eine E-Mail an die Person gesendet, die die Integration verbunden hat. Wenn diese Person nicht mehr existiert, erhalten die Administratoren die E-Mails.
+Wenn der Fehler mit der allgemeinen Partnerintegration zusammenhängt (z.&#160;B. ein Autorisierungsproblem), wird eine E-Mail an die Person gesendet, die die Integration verbunden hat. Wenn diese Person nicht mehr existiert, erhalten die Administrator:innen die E-Mails.
 
-Wenn der Fehler auf Probleme mit der Audience Sync-Komponente (z. B. „Zielgruppe existiert nicht“) in Canvas zurückzuführen ist, wird eine E-Mail an die Person gesendet, die das Canvas eingerichtet hat. Wenn diese Person nicht mehr existiert, wird die E-Mail an den Unternehmensadministrator weitergeleitet.
+Wenn der Fehler mit Problemen bei der Audience-Sync-Komponente zusammenhängt (z.&#160;B. „Zielgruppe existiert nicht“) in Canvas, wird eine E-Mail an die Person gesendet, die den Canvas eingerichtet hat. Wenn diese Person nicht mehr existiert, wird die E-Mail an die Unternehmensadministrator:innen weitergeleitet.
 
-Um zu konfigurieren, wer diese E-Mails erhalten soll, wenden Sie sich an Ihren Customer-Success-Manager, um unter **Präferenzen für Benachrichtigungen** Empfänger:innen hinzuzufügen. Da dieses Feature das derzeitige Verhalten ändert, müssen Sie die Empfänger:innen sofort zu dieser neuen Benachrichtigungseinstellung hinzufügen, da Braze standardmäßig kein Opt-in vorsieht, und um sicherzustellen, dass keine Fehler-E-Mails verpasst werden.
+Um zu konfigurieren, wer diese E-Mails erhält, wenden Sie sich an Ihren CSM, um Empfänger:innen unter **Benachrichtigungseinstellungen** hinzuzufügen. Diese Einstellung deckt sowohl Integrationsfehler als auch Fehler der Audience-Sync-Komponente ab. Empfänger:innen, die Sie hinzufügen, erhalten diese E-Mails zusätzlich zu der Person, die mit dem Fehler verknüpft ist.
 
-## Überlegungen zum Datenschutz {#data-privacy-considerations}
+## Datenschutzerwägungen {#data-privacy-considerations}
 
 {% alert important %}
-Diese Dokumentation ist nicht als Rechtsberatung gedacht und darf auch nicht als solche angesehen werden. Die Verwendung von Audience Sync unterliegt bestimmten rechtlichen Anforderungen. Um sicherzustellen, dass Sie es in Übereinstimmung mit allen geltenden Gesetzen verwenden, sollten Sie sich von Ihrem Rechtsberater beraten lassen.
+Diese Dokumentation ist nicht dazu gedacht, rechtliche Beratung zu bieten, und darf auch nicht als solche herangezogen werden. Die Nutzung von Audience Sync unterliegt bestimmten gesetzlichen Anforderungen. Um sicherzustellen, dass Sie diese Funktion im Einklang mit allen geltenden Gesetzen nutzen, sollten Sie sich an Ihre Rechtsberatung wenden.
 {% endalert %}
 
-Beim Aufbau von Zielgruppen für das Ad Tracking möchten Sie möglicherweise bestimmte Nutzer:innen auf der Grundlage ihrer Präferenzen ein- oder ausschließen und Datenschutzgesetze einhalten, wie z. B. das Recht „Nicht verkaufen oder weitergeben“ gemäß dem [CCPA](https://oag.ca.gov/privacy/ccpa). Marketer sollten die entsprechenden Filter für die Eignung der Nutzer:innen in ihre Canvas-Eingangskriterien aufnehmen. Nachfolgend finden Sie einige Optionen.
+Beim Erstellen von Zielgruppen für Ad-Tracking möchten Sie möglicherweise bestimmte Nutzer:innen auf Grundlage ihrer Präferenzen einschließen oder ausschließen und Datenschutzgesetze einhalten, wie z. B. das Recht auf „Do Not Sell or Share“ gemäß dem [CCPA](https://oag.ca.gov/privacy/ccpa). Marketer sollten die entsprechenden Filter für die Berechtigung von Nutzer:innen in ihren Canvas-Eintrittskriterien implementieren. Die folgenden Optionen können dabei helfen.
 
-Wenn Sie den [iOS Identifier for Advertisers (IDFA) über das Braze SDK]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/initial_sdk_setup/other_sdk_customizations/#optional-idfa-collection) erfasst haben, können Sie den Filter „Ads Tracking Enabled“ verwenden. Wählen Sie den Wert `true` aus, um Nutzer:innen nur in Audience Sync-Ziele zu senden, für die sie ein Opt-in gesetzt haben.
+Wenn Sie die [iOS IDFA über das Braze SDK]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations) erfasst haben, können Sie den Filter „Ads Tracking Enabled“ verwenden. Wählen Sie den Wert `true`, um Nutzer:innen nur dann an Audience-Sync-Ziele zu senden, wenn sie ihr Opt-in gegeben haben.
 
-![Ein Canvas mit einer Eingangs-Zielgruppe von „Ad Tracking Enabled ist true“.]({% image_buster /assets/img/audience_sync/audience_sync2.png %})
+![Ein Canvas mit einer Eintrittszielgruppe „Ad Tracking Enabled is true“.]({% image_buster /assets/img/audience_sync/audience_sync2.png %})
 
-Wenn Sie `opt-ins`, `opt-outs`, `Do Not Sell Or Share` oder andere relevante angepasste Attribute sammeln, sollten Sie diese in Ihre Canvas-Eingangskriterien als Filter einbeziehen:
+Wenn Sie `opt-ins`, `opt-outs`, `Do Not Sell Or Share` oder andere relevante angepasste Attribute erfassen, sollten Sie diese als Filter in Ihre Canvas-Eintrittskriterien aufnehmen:
 
-![Ein Canvas mit einer Eingangs-Zielgruppe von „opted_in_marketing ist gleich true“.]({% image_buster /assets/img/audience_sync/audience_sync.png %})
+![Ein Canvas mit einer Eintrittszielgruppe „opted_in_marketing equals true“.]({% image_buster /assets/img/audience_sync/audience_sync.png %})
 
-Wenn Sie mehr darüber erfahren möchten, wie Sie diese Datenschutzgesetze innerhalb der Braze-Plattform einhalten können, lesen Sie bitte den Abschnitt [Technische Unterstützung zum Datenschutz]({{site.baseurl}}/dp-technical-assistance/).
+Weitere Informationen darüber, wie Sie diese Datenschutzgesetze innerhalb der Braze-Plattform einhalten können, finden Sie unter [Technische Unterstützung zum Datenschutz]({{site.baseurl}}/dp-technical-assistance).
 
-## Verwaltung der Zustimmung zum Ad Targeting {#managing-consent-for-ad-targeting}
+## Verwalten der Einwilligung für Anzeigen-Targeting {#managing-consent-for-ad-targeting}
 
-Als Werbetreibende:r sind Sie dafür verantwortlich, die Zustimmung zum Ad Tracking oder Targeting Ihrer Nutzer:innen zu verwalten.
+Als Werbetreibende:r sind Sie dafür verantwortlich, die Einwilligung für Ad-Tracking oder Targeting Ihrer Nutzer:innen zu verwalten.
 
-Um Anzeigen an Ihre Nutzer:innen zu senden, müssen Sie alle geltenden Gesetze und Vorschriften sowie die Richtlinien und Anforderungen der Anzeigenplattform einhalten. Verwenden Sie Braze nur dann zum Targeting und zur Synchronisierung von Nutzer:innen, wenn Sie deren Zustimmung eingeholt haben.
+Um Anzeigen an Ihre Nutzer:innen auszuspielen, müssen Sie alle geltenden Gesetze und Vorschriften sowie die Richtlinien und Anforderungen der Werbeplattform einhalten. Verwenden Sie Braze nur, um Nutzer:innen zu targeten und zu synchronisieren, für die Sie deren Einwilligung eingeholt haben.
 
-Um Ihre Zielgruppenlisten in diesen Werbeplattformen auf dem neuesten Stand zu halten und Nutzer:innen zu entfernen, die ihre Zustimmung widerrufen haben, richten Sie ein Canvas ein, um Nutzer:innen mit einem Audience Sync-Schritt aus diesen bestehenden Zielgruppenlisten zu entfernen.
+Um Ihre Zielgruppenlisten auf diesen Werbeplattformen aktuell zu halten und Nutzer:innen zu entfernen, die ihre Einwilligung widerrufen haben, richten Sie einen Canvas ein, der Nutzer:innen mithilfe eines Audience-Sync-Schritts aus bestehenden Zielgruppenlisten entfernt.

@@ -4,14 +4,14 @@ nav_title: ホーム
 article_title: Braze API ガイド
 layout: api_glossary
 glossary_top_header: "Braze API ガイド"
-glossary_top_text: "Brazeは、ユーザーのトラッキング、メッセージの送信、データのエクスポートなどを可能にする高パフォーマンスなREST APIを提供しています。このページでは、利用可能なBraze APIエンドポイントとその用途を紹介します。"
+glossary_top_text: "Brazeは、ユーザーのトラッキング、メッセージの送信、データのエクスポート、キャンペーン、キャンバス、カタログなどの管理を可能にする高パフォーマンスなREST APIを提供しています。この用語集を使用して、タイプ別にエンドポイントを検索し、リクエストとレスポンスの詳細についてリファレンス記事を開き、認証、レート制限、オブジェクトのドキュメントへのリンクを見つけることができます。"
+description: "Braze REST APIエンドポイントをタイプ別に参照できます。認証、レート制限、オブジェクトリファレンスドキュメントへのリンクも含まれています。"
 page_type: glossary
-description: "このランディングページでは、利用可能なBraze APIエンドポイントとその用途を紹介します。"
-glossary_tag_name: Endpoint Type
+glossary_tag_name: エンドポイントタイプ
 
-glossary_filter_text: "Select endpoint type to narrow the glossary:"
+glossary_filter_text: "エンドポイントタイプを選択して用語集を絞り込む:"
 
-glossary_mid_text: "Endpoint Search"
+glossary_mid_text: "エンドポイント検索"
 guide_featured_list:
   - name: APIの概要
     image: /assets/img/braze_icons/annotation-info.svg
@@ -40,10 +40,13 @@ glossary_tags:
   - name: Catalogs
   - name: Content Blocks
   - name: Custom Events
+  - name: Data Objects
   - name: Email List
   - name: Email Templates
+  - name: Webhook Templates
   - name: KPI
   - name: Media Library
+  - name: Device Messaging API
   - name: Purchases
   - name: Preference Center
   - name: Schedule Messages
@@ -106,6 +109,46 @@ glossaries:
     description: ユーザープロファイルを別のユーザーにマージします。
     tags:
       - User Data
+  - name: <a href='/docs/api/endpoints/data_objects'>/data_objects/*</a>
+    description: データオブジェクトのエンドポイントリファレンス（オブジェクトタイプ、オブジェクト、リレーションシップエンドポイントを含む）の全体を表示します。
+    tags:
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/types/get_list_data_object_types'>/data_objects/types</a>
+    description: ワークスペース内のデータオブジェクトタイプをリストアップします。
+    tags:
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/types/get_data_object_type'>/data_objects/types/{type_name}</a>
+    description: データオブジェクトタイプとそのスキーマ定義を1つ取得します。
+    tags:
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/types/get_list_user_relationship_types'>/data_objects/types/{type_name}/user_relationship_types</a>
+    description: データオブジェクトタイプのユーザーリレーションシップの種類をリストアップします。
+    tags:
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/types/get_list_object_relationship_types'>/data_objects/types/{type_name}/object_relationship_types</a>
+    description: データオブジェクトタイプのオブジェクトリレーションシップの種類をリストアップします。
+    tags:
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/objects/get_list_data_objects'>/data_objects/objects/{type_name}</a>
+    description: タイプごとにデータオブジェクトをリストアップします。
+    tags:
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/objects/get_data_object'>/data_objects/objects/{type_name}/{external_id}</a>
+    description: データオブジェクトを1つ取得、置換、更新、または削除します。
+    tags:
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/object_relationships/get_list_object_relationships'>/data_objects/objects/{type_name}/{external_id}/object_relationships</a>
+    description: オブジェクト間リレーションシップのリストアップ、作成、置換、更新、削除を行います。
+    tags:
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/user_relationships/get_list_user_relationships'>/data_objects/objects/{type_name}/{external_id}/user_relationships</a>
+    description: データオブジェクトのユーザーリレーションシップをリストアップします。
+    tags:
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/user_relationships/post_create_user_relationship'>/data_objects/objects/{type_name}/{external_id}/users</a>
+    description: ユーザーとオブジェクト間のリレーションシップの作成、置換、更新、削除を行います。
+    tags:
+      - Data Objects
   - name: <a href='/docs/api/endpoints/messaging/send_messages/post_send_triggered_campaigns'>/campaigns/trigger/send</a>
     description: APIトリガー配信を使用して、指定したユーザーに即時の1回限りのメッセージを送信します。
     tags:
@@ -126,6 +169,14 @@ glossaries:
     description: 指定したユーザーに即時の1回限りのトランザクションメッセージを送信します。
     tags:
       - Send Messages
+  - name: <a href='/docs/api/device_messaging_api/endpoints/banners/post_sync_banners'>/v1/device-messaging/banners/sync</a>
+    description: ユーザーおよびプレースメントのセットに対して対象となるバナーを取得します。
+    tags:
+      - Device Messaging API
+  - name: <a href='/docs/api/device_messaging_api/endpoints/banners/post_track_banner_events'>/v1/device-messaging/banners/track</a>
+    description: バナーのインプレッションイベントおよびクリックイベントを記録します。
+    tags:
+      - Device Messaging API
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns'>/campaigns/trigger/schedule/create</a>
     description: ダッシュボードで作成したキャンペーンメッセージをAPIトリガー配信で送信します。
     tags:
@@ -226,6 +277,18 @@ glossaries:
     description: Brazeアカウントで利用可能なメールテンプレートのリストを取得します。
     tags:
       - Email Templates
+  - name: <a href='/docs/api/endpoints/translations/webhook_templates/get_view_source_webhook_template'>/templates/webhook/translations/source</a>
+    description: Webhookテンプレートのデフォルトのソース翻訳を表示します。
+    tags:
+      - Webhook Templates
+  - name: <a href='/docs/api/endpoints/translations/webhook_templates/get_view_translations_webhook_template'>/templates/webhook/translations</a>
+    description: Webhookテンプレートの翻訳を表示します。
+    tags:
+      - Webhook Templates
+  - name: <a href='/docs/api/endpoints/translations/webhook_templates/put_update_webhook_template'>/templates/webhook/translations</a>
+    description: Webhookテンプレートの翻訳を更新します。
+    tags:
+      - Webhook Templates
   - name: <a href='/docs/api/endpoints/export/campaigns/get_campaign_analytics'>/campaigns/data_series</a>
     description: キャンペーンに関するさまざまな統計の日次データを時系列で取得します。
     tags:

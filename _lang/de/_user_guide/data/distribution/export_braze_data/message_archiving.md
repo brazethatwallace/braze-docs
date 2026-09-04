@@ -12,13 +12,13 @@ description: "Dieser Referenzartikel behandelt die Nachrichtenarchivierung, ein 
 
 > Mit der Nachrichtenarchivierung können Sie eine Kopie der an Nutzer:innen gesendeten Nachrichten zu Archivierungs- oder Compliance-Zwecken in Ihrem AWS S3-Bucket, Azure Blob Storage-Container oder Google Cloud Storage-Bucket speichern. <br><br> Dieser Artikel behandelt die Einrichtung der Nachrichtenarchivierung, JSON-Payload-Referenzen und häufig gestellte Fragen.
 
-Die Nachrichtenarchivierung ist als zusätzliches Feature verfügbar. Um mit der Nachrichtenarchivierung zu beginnen, wenden Sie sich bitte an Ihren Braze-Customer-Success-Manager.
+Die Nachrichtenarchivierung ist als zusätzliches Feature verfügbar. Um mit der Nachrichtenarchivierung zu beginnen, wenden Sie sich bitte an Ihren Braze-CSM.
 
 ## Funktionsweise {#how-it-works}
 
-Wenn dieses Feature eingeschaltet ist, schreibt Braze für jede Nachricht, die über die von Ihnen ausgewählten Kanäle (E-Mail, SMS/MMS oder Push) an eine:n Nutzer:in gesendet wird, eine gzipped JSON-Datei. Braze schreibt diese Dateien in Ihr Standard-Datenexportziel. Dazu gehören alle Kampagnentypen für jeden Kanal, wie z. B. Transaktions-E-Mail-Kampagnen, die über die [Transaktions-E-Mail-API]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email) gesendet werden.
+Wenn dieses Feature eingeschaltet ist, schreibt Braze für jede Nachricht, die über die von Ihnen ausgewählten Kanäle (E-Mail, SMS/MMS oder Push) an eine:n Nutzer:in gesendet wird, eine gzipped JSON-Datei. Braze schreibt diese Dateien in Ihr Standard-Datenexportziel. Dazu gehören alle Campaign-Typen für jeden Kanal, wie z. B. Transaktions-E-Mail-Campaigns, die über die [Transaktions-E-Mail-API]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email) gesendet werden.
 
-Diese Datei enthält die unter [Dateireferenzen](#file-references) definierten Felder und spiegelt die endgültigen, als Template gerenderten Nachrichten wider, die an die Nutzer:innen gesendet wurden. Alle in Ihrer Kampagne definierten Template-Werte (z. B. {% raw %}`{{${first_name}}}`{% endraw %}) zeigen den endgültigen Wert an, den die Nutzer:innen auf der Grundlage ihrer Profilinformationen erhalten haben. Auf diese Weise können Sie eine Kopie der gesendeten Nachricht aufbewahren, um den Anforderungen der Compliance, der Rechnungsprüfung oder des Kundensupports gerecht zu werden.
+Diese Datei enthält die unter [Dateireferenzen](#file-references) definierten Felder und spiegelt die endgültigen, als Template gerenderten Nachrichten wider, die an die Nutzer:innen gesendet wurden. Alle in Ihrer Campaign definierten Template-Werte (z. B. {% raw %}`{{${first_name}}}`{% endraw %}) zeigen den endgültigen Wert an, den die Nutzer:innen auf der Grundlage ihrer Profilinformationen erhalten haben. Auf diese Weise können Sie eine Kopie der gesendeten Nachricht aufbewahren, um den Anforderungen der Compliance, der Rechnungsprüfung oder des Kundensupports gerecht zu werden.
 
 Wenn Sie Zugangsdaten für mehrere Cloud-Speicheranbieter einrichten, exportiert die Nachrichtenarchivierung nur zu dem Anbieter, der als Standard-Datenexportziel markiert ist. Wenn kein expliziter Standard festgelegt ist und ein AWS S3-Bucket verbunden ist, lädt die Nachrichtenarchivierung in diesen Bucket hoch.
 
@@ -47,7 +47,7 @@ Braze wandelt Ihre Push-Token in Kleinbuchstaben um, bevor sie gehasht werden. D
 
 Dieser Abschnitt führt Sie durch die Einrichtung der Nachrichtenarchivierung für Ihren Workspace. Bevor Sie fortfahren, vergewissern Sie sich, dass Ihr Unternehmen die Nachrichtenarchivierung erworben und aktiviert hat.
 
-### 1. Schritt: Cloud-Speicher-Bucket verbinden {#step-1-connect-a-cloud-storage-bucket}
+### Schritt 1: Cloud-Speicher-Bucket verbinden {#step-1-connect-a-cloud-storage-bucket}
 
 Falls Sie dies noch nicht getan haben, verbinden Sie einen Cloud-Speicher-Bucket mit Braze. Weitere Schritte finden Sie in unserer Partnerdokumentation zu [Amazon S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3), [Azure Blob Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents) oder [Google Cloud Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/google_cloud_storage_for_currents).
 
@@ -55,7 +55,7 @@ Falls Sie dies noch nicht getan haben, verbinden Sie einen Cloud-Speicher-Bucket
 Sie müssen Currents nicht für die Nachrichtenarchivierung einrichten, daher können Sie diese Voraussetzung in der Partnerdokumentation überspringen.
 {% endalert %}
 
-### 2. Schritt: Kanäle für die Nachrichtenarchivierung auswählen {#step-2-select-channels-for-message-archiving}
+### Schritt 2: Kanäle für die Nachrichtenarchivierung auswählen {#step-2-select-channels-for-message-archiving}
 
 Auf der Einstellungsseite **Nachrichtenarchivierung** können Sie festlegen, welche Kanäle eine Kopie der gesendeten Nachrichten in Ihrem Cloud-Speicher-Bucket speichern.
 
@@ -112,7 +112,7 @@ Im Folgenden finden Sie Referenzen zur JSON-Payload, die bei jeder gesendeten Na
 }
 ```
 
-Das Feld `extras` enthält die Schlüssel-Wert-Paare, die beim Verfassen einer E-Mail im HTML-Editor im Feld **E-Mail-Extras** konfiguriert wurden. E-Mail-Extras funktionieren mit allen E-Mail-Anbietern (einschließlich SendGrid und SparkPost) und sind unabhängig vom verwendeten Anbieter in archivierten Nachrichten enthalten. Weitere Informationen zum Konfigurieren von E-Mail-Extras finden Sie unter [Erstellen einer E-Mail-Kampagne]({{site.baseurl}}/user_guide/channels/email/html_editor#adding-email-extras). Wie Sie Daten an Currents zurücksenden, erfahren Sie unter [Extras für Nachrichten]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras).
+Das Feld `extras` enthält die Schlüssel-Wert-Paare, die beim Verfassen einer E-Mail im HTML-Editor im Feld **E-Mail-Extras** konfiguriert wurden. E-Mail-Extras funktionieren mit allen E-Mail-Anbietern (einschließlich SendGrid und SparkPost) und sind unabhängig vom verwendeten Anbieter in archivierten Nachrichten enthalten. Weitere Informationen zum Konfigurieren von E-Mail-Extras finden Sie unter [Erstellen einer E-Mail-Campaign]({{site.baseurl}}/user_guide/channels/email/html_editor#adding-email-extras). Wie Sie Daten an Currents zurücksenden, erfahren Sie unter [Extras für Nachrichten]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras).
 
 ![Abschnitt „E-Mail-Extras“ im E-Mail-Composer mit Schlüssel- und Wertfeldern sowie der Option „Neues Extra hinzufügen“.]({% image_buster /assets/img_archive/email_extras.png %}){: style="max-width:60%" }
 
@@ -203,9 +203,9 @@ Das JSON-Payload-Format kann zwischen Nachrichten variieren und sich im Laufe de
 
 Änderungen, die vorgenommen werden, nachdem die Nachricht Braze verlassen hat, werden in der Datei, die in Ihrem Cloud-Speicher-Bucket gespeichert ist, nicht berücksichtigt. Dazu gehören auch Änderungen, die unsere Partner für die E-Mail-Zustellung vornehmen, wie z. B. das Umschließen von Links für das Klick-Tracking und das Einfügen von Tracking-Pixeln.
 
-### Was sind Nachrichten unter dem Wert „unassociated“ im Kampagnenpfad? {#what-are-messages-under-the-unassociated-value-in-the-campaign-path}
+### Was sind Nachrichten unter dem Wert „unassociated“ im Campaign-Pfad? {#what-are-messages-under-the-unassociated-value-in-the-campaign-path}
 
-Wenn eine Nachricht außerhalb einer Kampagne oder eines Canvas gesendet wird, lautet die Kampagnen-ID im Dateinamen „unassociated“. Dies geschieht, wenn Sie Testnachrichten über das Dashboard senden, wenn Braze automatische SMS/MMS-Antworten sendet oder wenn über die API gesendete Nachrichten keine Kampagnen-ID enthalten.
+Wenn eine Nachricht außerhalb einer Campaign oder eines Canvas gesendet wird, lautet die Campaign-ID im Dateinamen „unassociated“. Dies geschieht, wenn Sie Testnachrichten über das Dashboard senden, wenn Braze automatische SMS/MMS-Antworten sendet oder wenn über die API gesendete Nachrichten keine Campaign-ID enthalten.
 
 ### Wie finde ich weitere Informationen zu diesem Versand? {#how-do-i-find-more-information-about-this-send}
 
@@ -217,7 +217,7 @@ Wenn Ihr Cloud-Speicher-Bucket nicht erreichbar ist, versucht Braze es bis zu dr
 
 ### Was passiert, wenn meine Zugangsdaten ungültig sind? {#what-happens-if-my-credentials-are-invalid}
 
-Wenn Ihre Cloud-Speicher-Zugangsdaten zu irgendeinem Zeitpunkt ungültig werden, kann Braze keine Nachrichten in Ihrem Cloud-Speicher-Bucket speichern, und diese Nachrichten gehen verloren. Wir empfehlen Ihnen, Ihre [Präferenzen für Benachrichtigungen]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences) für Amazon Web Services, Google Cloud Services oder Azure (Microsoft Cloud Services) so zu konfigurieren, dass Sie bei Problemen mit Ihren Zugangsdaten benachrichtigt werden.
+Wenn Ihre Cloud-Speicher-Zugangsdaten zu irgendeinem Zeitpunkt ungültig werden, kann Braze keine Nachrichten in Ihrem Cloud-Speicher-Bucket speichern, und diese Nachrichten gehen verloren. Wir empfehlen Ihnen, Ihre [Benachrichtigungseinstellungen]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences) für Amazon Web Services, Google Cloud Services oder Azure (Microsoft Cloud Services) so zu konfigurieren, dass Sie bei Problemen mit Ihren Zugangsdaten benachrichtigt werden.
 
 ### Warum weicht der `sent_at`-Zeitstempel meiner Archivdatei leicht vom Sendezeitstempel in Currents ab? {#why-does-my-archive-files-sent_at-timestamp-differ-slightly-from-the-sent-timestamp-in-currents}
 
@@ -225,7 +225,7 @@ Die gerenderte Kopie wird unmittelbar vor dem Senden der Nachricht an die Nutzer
 
 ### Kann ich einen neuen Bucket speziell für die Nachrichtenarchivierung erstellen und gleichzeitig den aktuellen Bucket für Currents-Daten beibehalten? {#can-i-create-a-new-bucket-specifically-for-message-archiving-while-keeping-the-current-bucket-used-for-currents-data}
 
-Nein. Wenn Sie an der Erstellung dieser speziellen Buckets interessiert sind, senden Sie uns Ihr [Produkt-Feedback]({{site.baseurl}}/user_guide/administer/personal/product_portal).
+Nein. {% multi_lang_include product_feedback_cta.md context="gap" feature="dedicated message archiving buckets while keeping a separate Currents bucket" %}
 
 ### Werden archivierte Daten in einen speziellen Ordner in einem bestehenden Bucket geschrieben, ähnlich wie die Datenexporte von Currents strukturiert sind? {#is-archived-data-written-to-a-dedicated-folder-in-an-existing-bucket-similar-to-how-currents-data-exports-are-structured}
 
@@ -233,4 +233,4 @@ Die Daten werden in einen `sent_messages`-Bereich des Buckets geschrieben. Weite
 
 ### Kann ich die Nachrichtenarchivierung verwenden, um Dateien in verschiedenen Workspaces zu gruppieren? {#can-i-use-message-archiving-to-group-files-into-different-workspaces}
 
-Nein. Die Nachrichtenarchivierung unterstützt keine Gruppierung von Dateien nach Workspaces. Stattdessen können Sie feststellen, zu welchem Workspace die Kampagnen- oder Canvas-Schritt-API-ID gehört, und die Dateien dann anhand dieser Information gruppieren.
+Nein. Die Nachrichtenarchivierung unterstützt keine Gruppierung von Dateien nach Workspaces. Stattdessen können Sie feststellen, zu welchem Workspace die Campaign- oder Canvas-Schritt-API-ID gehört, und die Dateien dann anhand dieser Information gruppieren.

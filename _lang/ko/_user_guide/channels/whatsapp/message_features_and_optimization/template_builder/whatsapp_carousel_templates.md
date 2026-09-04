@@ -12,69 +12,69 @@ toc_headers: h2
 
 > WhatsApp 캐러셀 템플릿을 사용하면 사용자가 스와이프하여 탐색할 수 있는 인터랙티브 멀티 카드 메시지를 만들 수 있습니다. 각 캐러셀에는 이미지 또는 동영상이 포함된 최대 10개의 카드와 참여를 위한 커스텀 버튼을 포함할 수 있습니다. 이 기능은 제품과 서비스를 소개하거나 여러 단계의 콘텐츠를 시각적으로 매력적인 형식으로 전달하는 데 적합합니다.
 
-## 필수 조건 {#prerequisites}
+## 사전 요구 사항 {#prerequisites}
 
 {% multi_lang_include whatsapp/template_prerequisites.md %}
 
 ## 캐러셀 템플릿 만들기 {#create-a-carousel-template}
 
-Braze에서 WhatsApp 템플릿 빌더를 사용하여 캐러셀 템플릿을 만들 수 있습니다. 템플릿을 만들 때 Braze는 Meta의 기준에 맞게 콘텐츠를 검증합니다.
+WhatsApp 템플릿 빌더를 사용하여 Braze 내에서 캐러셀 템플릿을 만들 수 있습니다. 템플릿을 만들 때 Braze는 콘텐츠가 Meta의 기준을 충족하는지 검증합니다.
 
 Braze에서 템플릿을 만들 때 다음 중 하나를 사용할 수 있습니다:
-- 메시지 발송 시 사용할 것으로 예상되는 Liquid. Braze는 이를 나중에 참조할 수 있도록 저장합니다.
-- {% raw %}`{{1}}`{% endraw %}과 같은 일반 변수.
+- 메시지 전송 시 사용할 것으로 예상되는 Liquid. Braze는 이를 나중에 참조할 수 있도록 저장합니다.
+- {% raw %}`{{1}}`{% endraw %}와 같은 일반 변수.
 
 {% alert note %}
 {% raw %}`{% %}`{% endraw %} Liquid 태그는 Meta의 콘텐츠 기준을 통과하지 못하므로 템플릿 빌더에서 지원되지 않습니다.
 {% endalert %}
 
-템플릿이 제출되면 WABA의 템플릿 목록에 표시되며 24시간 이내에 검토됩니다. 그러나 검토는 보통 몇 분 이내에 완료됩니다.
+템플릿이 제출되면 WABA의 템플릿 목록에 나타나며 24시간 이내에 검토됩니다. 하지만 검토는 보통 몇 분 내에 이루어집니다.
 
-### 1단계: 템플릿 빌더에 접근하기 {#step-1-access-the-template-builder}
+### 1단계: 템플릿 빌더에 접속하기 {#step-1-access-the-template-builder}
 
-1. Braze에서 **Templates**로 이동합니다.
-2. 사용 가능한 옵션에서 **WhatsApp Templates**를 선택합니다.
+1. Braze에서 **템플릿**으로 이동합니다.
+2. 사용 가능한 옵션에서 **WhatsApp 템플릿**을 선택합니다.
 
-![템플릿 탐색 메뉴의 WhatsApp 템플릿.]({% image_buster /assets/img/whatsapp/templates/whatsapp_templates.png %}){: style="max-width:70%;"}
+![템플릿 내비게이션 메뉴의 WhatsApp 템플릿.]({% image_buster /assets/img/whatsapp/templates/whatsapp_templates.png %}){: style="max-width:70%;"}
 
 {: start="3"}
-3. **Create Carousel Template**을 선택합니다.
+3. **캐러셀 템플릿 만들기**를 선택합니다.
 
-![캐러셀 템플릿을 만드는 버튼.]({% image_buster /assets/img/whatsapp/templates/create_carousel_template.png %})
+![캐러셀 템플릿을 만들기 위한 버튼.]({% image_buster /assets/img/whatsapp/templates/create_carousel_template.png %})
 
 ### 2단계: 템플릿 설정 구성하기 {#step-2-configure-template-settings}
 
-필수 필드를 입력합니다.
+필수 필드를 채웁니다.
 
 | 필드 | 설명 |
 | --- | --- |
 | WhatsApp 비즈니스 계정 | 이 템플릿이 저장될 WABA를 선택합니다. 이 WABA 내의 모든 구독 그룹과 전화번호가 해당 템플릿에 접근할 수 있다는 점을 기억하세요. |
-| 템플릿 언어 | 템플릿의 언어를 선택합니다. Meta는 템플릿을 단일 언어로 제한하므로 오디언스에게 표시될 언어를 선택하세요. |
-| 템플릿 이름 | 나중에 이 템플릿을 식별하는 데 도움이 되는 설명적인 이름을 입력합니다. 템플릿 이름에는 공백을 포함할 수 없으며, 밑줄을 사용하거나 공백을 완전히 제거하세요(예: `carousel_example` 또는 `carouselexample`). |
-| 카테고리 | 자동으로 **Marketing**으로 설정됩니다. 모든 캐러셀 메시지는 마케팅 메시지로 분류됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Configure template settings" }
+| 템플릿 언어 | 템플릿의 언어를 선택합니다. Meta는 템플릿을 단일 언어로 제한하므로 오디언스가 보게 될 언어를 선택하세요. |
+| 템플릿 이름 | 나중에 이 템플릿을 식별하는 데 도움이 되는 설명적인 이름을 입력합니다. 템플릿 이름에는 공백을 포함할 수 없습니다. 밑줄을 사용하거나 공백을 완전히 제거하세요(예: `carousel_example` 또는 `carouselexample`). |
+| 카테고리 | 자동으로 **마케팅**으로 설정됩니다. 모든 캐러셀 메시지는 마케팅 메시지로 분류됩니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="2단계: 템플릿 설정 구성하기" }
 
-![WhatsApp 비즈니스 계정이 선택되고, 영어가 템플릿 언어로 설정되며, 템플릿 이름이 'welcome_message'인 WhatsApp 템플릿 세부 정보 패널.]({% image_buster /assets/img/whatsapp/templates/whatsapp_template_details.png %}){: style="max-width:70%"}
+![WhatsApp 비즈니스 계정이 선택되고, 영어가 템플릿 언어로, 템플릿 이름이 'welcome_message'로 설정된 WhatsApp 템플릿 세부 정보 패널.]({% image_buster /assets/img/whatsapp/templates/whatsapp_template_details.png %}){: style="max-width:70%"}
 
 ### 3단계: 본문 콘텐츠 추가하기 {#step-3-add-body-content}
 
-모든 캐러셀 메시지는 캐러셀 카드 위에 표시되는 텍스트인 본문 콘텐츠로 시작해야 합니다.
+모든 캐러셀 메시지는 본문 콘텐츠로 시작해야 합니다. 이는 캐러셀 카드 앞에 나타나는 텍스트입니다.
 
-{% raw %}`{{first_name}}`{% endraw %}과 같은 Liquid 변수를 포함하여 개인화할 수 있으며, 이는 동적 콘텐츠로 채워지거나 나중에 Campaign에서 템플릿을 사용할 때 수정할 수 있는 빈 변수 슬롯을 생성합니다. 변수는 본문 콘텐츠의 맨 처음이나 맨 끝에 배치할 수 없습니다.
+개인화를 위해 {% raw %}`{{first_name}}`{% endraw %}과 같은 Liquid 변수를 포함할 수 있습니다. 이렇게 하면 동적 콘텐츠로 채우거나 Campaigns에서 템플릿을 사용할 때 나중에 수정할 수 있는 빈 변수 슬롯이 생성됩니다. 변수는 본문 콘텐츠의 맨 처음이나 맨 끝에 배치할 수 없습니다.
 
 ### 4단계: 캐러셀 설정 구성하기 {#step-4-configure-carousel-settings}
 
-개별 카드를 만들기 전에 캐러셀 설정으로 전체 캐러셀 구조를 정의합니다. 이 설정은 모든 카드에 적용되며 템플릿 제출 후에는 변경할 수 없습니다.
+개별 카드를 만들기 전에, 캐러셀 설정으로 전체 캐러셀 구조를 정의합니다. 이러한 설정은 모든 카드에 적용되며 템플릿 제출 후에는 변경할 수 없습니다.
 
 #### 미디어 유형 {#media-type}
 
-미디어 유형을 선택합니다: **Image** 또는 **Video**. 이 설정은 모든 카드에 사용됩니다.
+미디어 유형을 선택합니다: **이미지** 또는 **비디오**. 이는 모든 카드에 사용됩니다.
 
-![이미지 또는 동영상 미디어 유형을 선택할 수 있는 옵션이 있는 작성기.]({% image_buster /assets/img/whatsapp/templates/media_types.png %})
+![이미지 또는 비디오 미디어 유형을 선택할 수 있는 옵션이 있는 작성기.]({% image_buster /assets/img/whatsapp/templates/media_types.png %})
 
 #### 버튼 구성 {#button-configuration}
 
-버튼 유형을 선택합니다: **Quick Reply**, **Phone Number** 또는 **Visit Website**. 이 구성은 모든 카드에 사용됩니다. 그런 다음 카드당 최대 2개의 버튼을 선택합니다.
+버튼 유형을 선택합니다: **빠른 답장**, **전화번호**, 또는 **웹사이트 방문**. 이 구성은 모든 카드에 사용됩니다. 그런 다음 카드당 최대 2개의 버튼을 선택합니다.
 
 ### 5단계: 캐러셀 카드 만들기 {#step-5-create-carousel-cards}
 
@@ -84,48 +84,54 @@ Braze에서 템플릿을 만들 때 다음 중 하나를 사용할 수 있습니
 Meta에 검토를 위해 템플릿을 제출한 후에는 카드 수를 변경할 수 없습니다.
 {% endalert %}
 
-1. 선택한 미디어 유형에 따라 이미지 또는 동영상을 업로드합니다.
+1. 선택한 미디어 유형에 따라 이미지 또는 비디오를 업로드합니다.
 2. 카드 텍스트 또는 설명을 추가합니다.
 3. 버튼 텍스트와 동작을 구성합니다.
 4. 필요한 곳에 Liquid 변수를 추가합니다. **+** 플러스 버튼이 있는 곳이면 어디든 추가할 수 있습니다.
 
+#### 카드 복제 {#duplicate-a-card}
+
+기존 카드를 복사하려면 복제하려는 카드의 점 세 개 메뉴를 선택하고 **카드 복제**를 선택합니다. Braze는 카드의 미디어, 텍스트 및 버튼 구성을 캐러셀 끝에 추가되는 새 카드에 복사합니다.
+
+2~10개의 카드를 가질 수 있습니다. **카드 복제**는 캐러셀에 이미 10개의 카드가 있거나 Meta에 템플릿을 제출한 후(카드 수가 고정된 경우)에는 사용할 수 없습니다.
+
 {% alert tip %}
-Liquid 변수를 전략적으로 사용하여 할인율, 제품 이름 또는 사용자별 혜택과 같은 콘텐츠를 개인화하세요. 변수는 카드 텍스트, 버튼 텍스트 및 URL에 추가할 수 있습니다.
+할인율, 제품 이름 또는 사용자별 특별 제안과 같은 콘텐츠를 개인화하기 위해 Liquid 변수를 전략적으로 활용하세요. 변수는 카드 텍스트, 버튼 텍스트 및 URL에 추가할 수 있습니다.
 {% endalert %}
 
-![영양 식품을 홍보하는 예시 캐러셀 카드가 있는 작성기.]({% image_buster /assets/img/whatsapp/templates/example_carousel_cards.png %})
+![영양가 있는 식품을 홍보하는 예시 캐러셀 카드가 있는 작성기.]({% image_buster /assets/img/whatsapp/templates/example_carousel_cards.png %})
 
-### 6단계: 미리보기 및 제출하기 {#step-6-preview-and-submit}
+### 6단계: 미리 보기 및 제출하기 {#step-6-preview-and-submit}
 
-1. **Preview** 섹션을 사용하여 캐러셀이 사용자에게 어떻게 표시되는지 확인합니다.
-2. **Submit to Meta for review**를 선택하면 Braze가 승인을 위해 템플릿을 Meta에 전송합니다.
-3. 승인은 보통 몇 분 이내에 완료되지만, 최대 24시간이 걸릴 수 있습니다.
-4. WhatsApp 템플릿 페이지의 **Templates** 목록 또는 Canvas 및 Campaign 선택기에서 템플릿 상태를 확인합니다.
+1. **미리 보기** 섹션을 사용하여 캐러셀이 사용자에게 어떻게 보이는지 확인합니다.
+2. Braze가 승인을 위해 Meta에 템플릿을 보내도록 **Meta에 검토 제출**을 선택합니다.
+3. 승인은 보통 몇 분 내에 이루어지지만 최대 24시간이 걸릴 수 있습니다.
+4. WhatsApp 템플릿 페이지의 **템플릿** 목록 또는 Canvas 및 Campaign 선택기에서 템플릿 상태를 확인합니다.
 
 {% alert note %}
-Meta가 템플릿을 승인하기 전까지는 테스트 발송을 사용할 수 없습니다. 템플릿 상태는 생성 중에는 **Draft**로 표시되며, Meta가 검토를 완료하면 **Approved**로 변경됩니다.
+Meta가 템플릿을 승인할 때까지 테스트 전송은 사용할 수 없습니다. 템플릿 상태는 생성 중에는 **초안**으로 표시되며 Meta가 검토를 완료한 후 **승인됨**으로 변경됩니다.
 {% endalert %}
 
 ## 캐러셀 템플릿 사용하기 {#use-carousel-templates}
 
-캐러셀 템플릿이 Meta에 의해 승인되면 Campaigns 및 Canvases에서 사용할 수 있습니다. 두 메시지 유형 모두 프로세스가 유사합니다.
+캐러셀 템플릿이 Meta에서 승인된 후에는 Campaign 및 Canvas에서 사용할 수 있습니다. 두 메시지 유형 모두 프로세스가 유사합니다.
 
-### 1단계: WhatsApp 메시지 만들기 {#step-1-create-a-whatsapp-message}
+### 1단계: WhatsApp 메시지 생성 {#step-1-create-a-whatsapp-message}
 
-1. Braze에서 **Campaigns** 또는 **Canvases**로 이동하여 WhatsApp 메시지를 만듭니다.
-2. 템플릿의 WhatsApp 비즈니스 계정(WABA)에 해당하는 구독 그룹을 선택합니다.
+1. Braze에서 **Campaigns** 또는 **Canvases**로 이동하여 WhatsApp 메시지를 생성합니다.
+2. 템플릿의 WhatsApp Business Account(WABA)에 해당하는 구독 그룹을 선택합니다.
 
 {% alert important %}
-여러 WhatsApp 비즈니스 계정이 있는 경우, 템플릿이 생성된 동일한 WABA의 구독 그룹을 선택하세요. 템플릿은 WABA 간에 공유되지 않지만, 동일한 WABA 내의 모든 구독 그룹과 전화번호 간에는 공유됩니다.
+WhatsApp Business Account가 여러 개인 경우, 템플릿이 생성된 동일한 WABA에서 구독 그룹을 선택하세요. 템플릿은 WABA 간에 공유되지 않지만, 동일한 WABA 내의 모든 구독 그룹과 전화번호 간에는 공유됩니다.
 {% endalert %}
 
-### 2단계: 캐러셀 템플릿 선택하기 {#step-2-select-your-carousel-template}
+### 2단계: 캐러셀 템플릿 선택 {#step-2-select-your-carousel-template}
 
 1. 이름으로 템플릿을 검색합니다(예: "carousel_example").
 2. 템플릿 상태가 **Approved**인지 확인합니다.
 3. 템플릿을 선택하여 메시지 작성기에 로드합니다.
 
-### 3단계: 동적 콘텐츠 커스터마이즈하기 {#step-3-customize-dynamic-content}
+### 3단계: 동적 콘텐츠 커스터마이즈 {#step-3-customize-dynamic-content}
 
 템플릿이 로드되면 잠긴 콘텐츠와 편집 가능한 콘텐츠가 포함되어 있습니다.
 
@@ -133,60 +139,60 @@ Meta가 템플릿을 승인하기 전까지는 테스트 발송을 사용할 수
 {% tab 잠긴 콘텐츠 %}
 
 
-- 정적 텍스트(변수 없이 제출된 모든 콘텐츠)는 잠겨 있으며 편집할 수 없습니다.
+- 정적 텍스트(변수 없이 제출된 콘텐츠)는 잠겨 있으며 편집할 수 없습니다.
 - 캐러셀 카드 수는 고정되어 있습니다.
-- 미디어 유형과 버튼 구성은 변경할 수 없습니다.
+- 미디어 유형 및 버튼 구성은 변경할 수 없습니다.
 
 {% endtab %}
 {% tab 편집 가능한 콘텐츠 %}
 
 
 {% raw %}
-- 변수가 있는 모든 필드는 다른 Liquid로 수정할 수 있습니다.
-- Liquid로 템플릿을 제출한 경우(예: `{{first_name}}`), Braze가 자동으로 해당 Liquid를 보존하고 표시합니다.
+- 변수가 포함된 필드는 다른 Liquid로 수정할 수 있습니다.
+- Liquid(예: `{{first_name}}`)로 템플릿을 제출한 경우, Braze는 해당 Liquid를 자동으로 보존하고 표시합니다.
 - Liquid를 다른 변수로 변경할 수 있습니다(예: `{{first_name}}`에서 `{{last_name}}`으로 전환).
-- 변수가 있는 이미지는 Liquid가 포함된 URL을 사용하여 동적으로 만들 수 있습니다.
+- 변수가 포함된 이미지는 Liquid가 포함된 URL을 사용하여 동적으로 만들 수 있습니다.
 - 제출된 미디어 대신 Braze 미디어 라이브러리에서 새 이미지를 업로드할 수 있습니다.
 {% endraw %}
 
 #### 예시 {#example}
 
-{% raw %}예를 들어, 템플릿에 할인율 변수 `{{discount_percentage}}`가 포함되어 있다고 가정해 보겠습니다. Campaign에서 이를 유지하거나 `{{custom_attributes.vip_discount}}`로 변경할 수 있습니다.{% endraw %} Meta는 변수 슬롯이 채워져 있기만 하면 되며, 사용되는 특정 Liquid는 유연합니다.
+{% raw %}예를 들어, 템플릿에 할인 비율 변수 `{{discount_percentage}}`가 포함되어 있다고 가정합니다. Campaign에서 이를 유지하거나 `{{custom_attributes.vip_discount}}`로 변경할 수 있습니다.{% endraw %} Meta는 변수 슬롯이 채워져 있기만 하면 됩니다. 사용되는 특정 Liquid는 자유롭게 선택할 수 있습니다.
 
 {% endtab %}
 {% endtabs %}
 
-### 4단계: Campaign 또는 Canvas 시작하기 {#step-4-launch-your-campaign-or-canvas}
+### 4단계: Campaign 또는 Canvas 실행 {#step-4-launch-your-campaign-or-canvas}
 
-작성이 완료되면 테스트를 포함한 Campaign 또는 Canvas 시작 워크플로를 진행합니다. 캐러셀 템플릿은 다른 WhatsApp 메시지 템플릿과 동일하게 작동합니다.
+작성이 완료되면 테스트를 포함하여 Campaign 또는 Canvas 실행 워크플로를 진행합니다. 캐러셀 템플릿은 다른 WhatsApp 메시지 템플릿과 동일하게 작동합니다.
 
 ## 모범 사례 {#best-practices}
 
 ### 콘텐츠 가이드라인 {#content-guidelines}
 
-- **본문 콘텐츠 배치:** 변수는 본문 콘텐츠의 끝에 배치할 수 없습니다. 각 변수 뒤에 최소 한 단어 또는 구두점을 추가하세요.
-- **일관된 카드 구조:** 모든 카드는 동일한 형태, 미디어 유형 및 버튼 구성을 가져야 합니다. 이에 맞게 콘텐츠를 계획하세요.
-- **최적의 카드 수:** 최대 10개의 카드를 만들 수 있지만, 사용자 경험을 고려하세요. 카드가 너무 많으면 부담스러울 수 있으며, 대부분의 사용 사례에서 3~5개의 카드가 적합합니다.
+- **본문 콘텐츠 배치:** 변수는 본문 콘텐츠의 끝에 배치할 수 없습니다. 각 변수 뒤에 최소 하나의 단어 또는 구두점을 추가하세요.
+- **일관된 카드 구조:** 모든 카드는 동일한 형태, 미디어 유형, 버튼 구성을 가져야 합니다. 이에 맞게 콘텐츠를 계획하세요.
+- **최적의 카드 수:** 최대 10장의 카드를 만들 수 있지만, 사용자 경험을 고려하세요. 카드가 너무 많으면 부담스러울 수 있습니다. 대부분의 사용 사례에서는 3~5장의 카드가 적합합니다.
 - **기본값:** Liquid 변수를 사용할 때는 정확한 미리보기를 위해 항상 기본값을 제공하세요. 이렇게 하면 특정 고객 프로필 데이터가 누락된 경우에도 메시지가 적절하게 표시되는지 확인할 수 있습니다.
 
-### WhatsApp 비즈니스 계정 및 구독 그룹 {#whatsapp-business-accounts-and-subscription-groups}
+### WhatsApp Business 계정 및 구독 그룹 {#whatsapp-business-accounts-and-subscription-groups}
 
-- **템플릿 공유 이해하기:** 템플릿은 동일한 WhatsApp 비즈니스 계정(WABA) 내의 모든 구독 그룹 간에 공유되지만, 서로 다른 WABA 간에는 공유되지 않습니다. 여러 WABA를 관리하는 경우 이에 맞게 계획하세요.
-- **WABA별 정리:** 여러 WABA가 있는 경우, Campaign에서 템플릿을 선택할 때 혼동을 피하기 위해 비즈니스 계정별로 템플릿을 정리하는 것을 고려하세요.
+- **템플릿 공유 이해하기:** 템플릿은 동일한 WhatsApp Business 계정(WABA) 내의 모든 구독 그룹에서 공유되지만, 서로 다른 WABA 간에는 공유되지 않습니다. 여러 WABA를 관리하는 경우 이에 맞게 계획하세요.
+- **WABA별 정리:** 여러 WABA를 보유하고 있는 경우, Campaigns에서 템플릿을 선택할 때 혼동을 방지하기 위해 비즈니스 계정별로 템플릿을 정리하는 것을 고려하세요.
 
 ### 테스트 및 승인 {#testing-and-approval}
 
 - **제출 전 미리보기:** Meta에 승인을 위해 제출하기 전에 항상 템플릿을 미리보기하여 오류를 확인하세요.
-- **승인 시간 계획:** 승인은 보통 몇 분밖에 걸리지 않지만, Campaign 시작을 계획할 때 잠재적인 지연을 고려하세요.
+- **승인 시간 계획:** 승인은 보통 몇 분이면 완료되지만, Campaign 출시를 계획할 때 잠재적인 지연을 감안하세요.
 - **철저한 테스트:** 승인 후 실제 사용자 데이터로 캐러셀을 테스트하여 모든 변수가 올바르게 채워지고 사용자 경험이 원활한지 확인하세요.
 
 ## 문제 해결 {#troubleshooting}
 
-| 문제 | 해결 방법 |
+| 문제 | 솔루션 |
 | --- | --- |
-| Campaign에서 템플릿이 표시되지 않음 | 선택한 구독 그룹이 템플릿과 동일한 WABA에 속하는지 확인하세요. 또한 템플릿 상태가 **Approved**이며 아직 **Draft** 또는 **Pending** 상태가 아닌지 확인하세요. |
-| 본문 끝에 변수를 배치할 수 없음 | 변수를 텍스트의 앞쪽으로 이동하고 그 뒤에 최소 한 글자 또는 구두점을 추가하세요. 이는 WhatsApp 템플릿에 대한 Meta의 요구 사항입니다. |
-| 테스트에서 변수가 채워지지 않음 | Liquid 구문이 올바른지, 그리고 고객 프로필에 해당 속성이 존재하는지 확인하세요. 변수 이름의 오타를 확인하고 적절한 곳에 기본값이 설정되어 있는지 확인하세요. |
-| 템플릿 이름에 공백이 있음 | 템플릿 이름에는 공백을 포함할 수 없습니다. 대신 밑줄을 사용하거나(`template_name`) 공백을 완전히 제거하세요(`templatename`). |
-| 카드 수를 변경할 수 없음 | 카드 수는 템플릿을 만들 때 고정되며 제출 후에는 변경할 수 없습니다. 다른 수의 카드가 필요한 경우 새 템플릿을 만들어야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+| 템플릿이 Campaign에 표시되지 않음 | 선택한 구독 그룹이 템플릿과 동일한 WABA에 속하는지 확인합니다. 또한 템플릿 상태가 **Approved**이며 아직 **Draft** 또는 **Pending** 상태가 아닌지 확인합니다. |
+| 본문 끝에 변수를 배치할 수 없음 | 변수를 텍스트 앞쪽으로 이동하고 변수 뒤에 최소 하나의 문자 또는 구두점을 추가합니다. 이것은 WhatsApp 템플릿에 대한 Meta 요구 사항입니다. |
+| 테스트에서 변수가 채워지지 않음 | Liquid 구문이 올바른지, 고객 프로필에 해당 속성이 존재하는지 확인합니다. 변수 이름에 오타가 없는지 확인하고 적절한 위치에 기본값이 설정되어 있는지 검증합니다. |
+| 템플릿 이름에 공백이 포함됨 | 템플릿 이름에는 공백을 포함할 수 없습니다. 공백 대신 밑줄을 사용하거나(`template_name`) 공백을 완전히 제거합니다(`templatename`). |
+| 카드 수를 변경할 수 없음 | 카드 수는 템플릿을 생성할 때 고정되며 제출 후에는 변경할 수 없습니다. 다른 수의 카드가 필요한 경우 새 템플릿을 생성해야 합니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="문제 해결" }

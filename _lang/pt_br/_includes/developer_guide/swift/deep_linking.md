@@ -1,7 +1,7 @@
 {% multi_lang_include developer_guide/prerequisites/swift.md %}
 
 {% alert tip %}
-Para ajuda na escolha entre deep links de esquema personalizado, links universais e "Abrir URL da Web Dentro do App", veja [Guia de deep linking para iOS]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide/). Para solução de problemas, veja [Solução de problemas de deep linking]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting/).
+Para ajuda na escolha entre deep links de esquema personalizado, links universais e "Abrir URL da Web Dentro do App", veja [Guia de deep linking para iOS]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide). Para solução de problemas, veja [Solução de problemas de deep linking]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting).
 {% endalert %}
 
 ## Tratamento de deep links {#handling-deep-links}
@@ -33,7 +33,7 @@ Alternativamente, se você deseja editar seu arquivo `Info.plist` diretamente, s
 </array>
 ```
 
-### Etapa 2: Adicionar uma lista de permissão de esquema {#step-2-add-a-scheme-allowlist}
+### Etapa 2: Adicionar uma lista de permissão de esquemas {#step-2-add-a-scheme-allowlist}
 
 Você deve declarar os esquemas de URL que deseja passar para `canOpenURL(_:)` adicionando a chave `LSApplicationQueriesSchemes` ao arquivo Info.plist do seu app. Tentar chamar esquemas fora desta lista de permissão fará com que o sistema registre um erro nos logs do dispositivo, e o deep link não abrirá. Um exemplo desse erro é o seguinte:
 
@@ -58,10 +58,37 @@ Para saber mais, consulte a [documentação da Apple](https://developer.apple.co
 
 ### Etapa 3: Implementar um handler {#step-3-implement-a-handler}
 
-Depois de ativar seu app, o iOS chamará o método [`application:openURL:options:`](https://developer.apple.com/reference/uikit/uiapplicationdelegate/1623112-application?language=objc). O argumento importante é o objeto [NSURL](https://developer.apple.com/library/ios/DOCUMENTATION/Cocoa/Reference/Foundation/Classes/NSURL_Class/Reference/Reference.html#//apple_ref/doc/c_ref/NSURL).
+Apps compilados com Xcode 27 e versões posteriores devem adotar o [ciclo de vida `UIScene`](https://developer.apple.com/documentation/technotes/tn3187-migrating-to-the-uikit-scene-based-life-cycle), então o iOS entrega URLs de esquema personalizado ao seu `SceneDelegate` por meio de [`scene:openURLContexts:`](https://developer.apple.com/documentation/uikit/uiscenedelegate/scene(_:openurlcontexts:)) em vez de ao seu `AppDelegate`. O argumento importante é o objeto [NSURL](https://developer.apple.com/library/ios/DOCUMENTATION/Cocoa/Reference/Foundation/Classes/NSURL_Class/Reference/Reference.html#//apple_ref/doc/c_ref/NSURL).
 
 {% tabs %}
 {% tab swift %}
+
+```swift
+func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+  guard let url = URLContexts.first?.url else { return }
+  let path = url.path
+  let query = url.query
+  // Insert your code here to take some action based upon the path and query.
+}
+```
+
+{% endtab %}
+{% tab OBJECTIVE-C %}
+
+```objc
+- (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts {
+  NSURL *url = URLContexts.allObjects.firstObject.URL;
+  NSString *path  = [url path];
+  NSString *query = [url query];
+  // Insert your code here to take some action based upon the path and query.
+}
+```
+
+{% endtab %}
+{% endtabs %}
+
+{% alert note %}
+Se o seu app ainda não adotou o ciclo de vida `UIScene`, o iOS chamará [`application:openURL:options:`](https://developer.apple.com/reference/uikit/uiapplicationdelegate/1623112-application?language=objc) no seu `AppDelegate`:
 
 ```swift
 func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
@@ -71,27 +98,13 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
   return true
 }
 ```
-
-{% endtab %}
-{% tab OBJECTIVE-C %}
-
-```objc
-- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
-  NSString *path  = [url path];
-  NSString *query = [url query];
-  // Insert your code here to take some action based upon the path and query.
-  return YES;
-}
-```
-
-{% endtab %}
-{% endtabs %}
+{% endalert %}
 
 ## App Transport Security (ATS)
 
 Conforme definido pela [Apple](https://developer.apple.com/library/prerelease/ios/releasenotes/General/WhatsNewIniOS/Articles/iOS9.html#//apple_ref/doc/uid/TP40016198-SW14), "App Transport Security é um recurso que melhora a segurança das conexões entre um app e serviços web. O recurso consiste em requisitos de conexão padrão que estão em conformidade com as melhores práticas para conexões seguras. Os apps podem substituir esse comportamento padrão e desativar a segurança de transporte."
 
-O ATS é aplicado por padrão. Requer que todas as conexões usem HTTPS e sejam criptografadas usando TLS 1.2 com sigilo direto. Consulte [Requirements for Connecting Using ATS](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) para saber mais. Todas as imagens servidas pela Braze para dispositivos finais são gerenciadas por uma rede de entrega de conteúdo ("CDN") que suporta TLS 1.2 e é compatível com ATS.
+O ATS é aplicado por padrão. Requer que todas as conexões usem HTTPS e sejam criptografadas usando TLS 1.2 com sigilo direto. Consulte [Requirements for Connecting Using ATS](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) para saber mais. Todas as imagens servidas pela Braze para dispositivos finais são gerenciadas por uma rede de distribuição de conteúdo ("CDN") que suporta TLS 1.2 e é compatível com ATS.
 
 A menos que sejam especificadas como exceções no `Info.plist` do seu aplicativo, conexões que não seguem esses requisitos falharão com erros semelhantes aos seguintes.
 
@@ -108,7 +121,7 @@ Error Domain=NSURLErrorDomain Code=-1200 "An SSL error has occurred, and a secur
 NSURLSession/NSURLConnection HTTP load failed (kCFStreamErrorDomainSSL, -9802)
 ```
 
-A conformidade com ATS é aplicada para links abertos dentro do app móvel (nosso tratamento padrão de links clicados) e não se aplica a sites abertos externamente por meio de um navegador web.
+A conformidade com ATS é aplicada para links abertos dentro do app móvel (nosso tratamento padrão de links clicados) e não se aplica a sites abertos externamente por meio de um navegador de internet.
 
 ### Trabalhando com ATS {#working-with-ats}
 
@@ -162,16 +175,16 @@ Você pode desativar o ATS completamente. Note que isso não é uma prática rec
 
 O SDK codifica os links em porcentagem para criar `URL`s válidos. Todos os caracteres de link que não são permitidos em um URL devidamente formado, como caracteres Unicode, serão escapados por porcentagem.
 
-Para decodificar um link codificado, use a propriedade `String` [`removingPercentEncoding`](https://developer.apple.com/documentation/swift/stringprotocol/removingpercentencoding). Você também deve retornar `true` em `BrazeDelegate.braze(_:shouldOpenURL:)`. Uma chamada para ação é necessária para disparar o tratamento da URL pelo seu app. Por exemplo:
+Para decodificar um link codificado, use a propriedade `String` [`removingPercentEncoding`](https://developer.apple.com/documentation/swift/stringprotocol/removingpercentencoding). Você também deve retornar `true` em `BrazeDelegate.braze(_:shouldOpenURL:)`. Uma chamada para ação é necessária para disparar o tratamento da URL pelo seu app. Por exemplo, no seu handler [`scene:openURLContexts:`](#step-3-implement-a-handler) da Etapa 3:
 
 {% tabs %}
 {% tab swift %}
 
 ```swift
-  func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+  func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+    guard let url = URLContexts.first?.url else { return }
     let urlString = url.absoluteString.removingPercentEncoding
     // Handle urlString
-    return true
   }
 ```
 
@@ -179,10 +192,10 @@ Para decodificar um link codificado, use a propriedade `String` [`removingPercen
 {% tab OBJECTIVE-C %}
 
 ```objc
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<NSString *, id> *)options {
+- (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts {
+  NSURL *url = URLContexts.allObjects.firstObject.URL;
   NSString *urlString = [url.absoluteString stringByRemovingPercentEncoding];
   // Handle urlString
-  return YES;
 }
 ```
 
@@ -196,18 +209,17 @@ Você pode aproveitar `UIApplicationOpenSettingsURLString` para direcionar usuá
 Para levar os usuários do seu app para as configurações do iOS:
 1. Primeiro, confira se o seu aplicativo está configurado para [deep links baseados em esquema](#swift_register-a-scheme) ou [links universais](#swift_universal-links).
 2. Decida um URI para deep linking para a página de **Configurações** (por exemplo, `myapp://settings` ou `https://www.braze.com/settings`).
-3. Se você estiver usando deep links baseados em esquema personalizado, adicione o seguinte código ao seu método `application:openURL:options:`:
+3. Se você estiver usando deep links baseados em esquema personalizado, adicione o seguinte código ao seu handler `scene:openURLContexts:`:
 
 {% tabs %}
 {% tab swift %}
 
 ```swift
-func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-  let path = url.path
+func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+  guard let path = URLContexts.first?.url.path else { return }
   if (path == "settings") {
     UIApplication.shared.openURL(URL(string:UIApplication.openSettingsURLString)!)
   }
-  return true
 }
 ```
 
@@ -215,15 +227,12 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 {% tab OBJECTIVE-C %}
 
 ```objc
-- (BOOL)application:(UIApplication *)app
-            openURL:(NSURL *)url
-            options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
-  NSString *path  = [url path];
+- (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts {
+  NSString *path  = [URLContexts.allObjects.firstObject.URL path];
   if ([path isEqualToString:@"settings"]) {
     NSURL *settingsURL = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
     [[UIApplication sharedApplication] openURL:settingsURL];
   }
-  return YES;
 }
 ```
 
@@ -248,7 +257,7 @@ Quando uma notificação por push ou mensagem no app usa **Abrir URL da web dent
 
 A Braze oferece suporte a links universais em notificações por push, In-App Messages e Content Cards. Para ativar o suporte a links universais, [`configuration.forwardUniversalLinks`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/forwarduniversallinks) deve ser definido como `true`.
 
-Quando ativado, a Braze encaminhará links universais para o `AppDelegate` do seu app por meio do método [`application:continueUserActivity:restorationHandler:`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623072-application).
+Quando ativado, a Braze encaminhará links universais para o `SceneDelegate` do seu app por meio do método [`scene:continue:`](https://developer.apple.com/documentation/uikit/uiscenedelegate/scene(_:continue:)) para apps que adotaram o ciclo de vida `UIScene` (obrigatório para apps compilados com Xcode 27 e versões posteriores), ou para o `AppDelegate` por meio de [`application:continueUserActivity:restorationHandler:`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623072-application) caso contrário.
 
 Seu aplicativo também precisa ser configurado para lidar com links universais. Consulte a [documentação da Apple](https://developer.apple.com/documentation/xcode/supporting-universal-links-in-your-app) para garantir que seu aplicativo esteja configurado corretamente para links universais.
 

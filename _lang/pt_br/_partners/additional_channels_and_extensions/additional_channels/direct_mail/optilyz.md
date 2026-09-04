@@ -23,7 +23,7 @@ Use a integração de webhook entre a optilyz e a Braze para enviar mala direta 
 | Requisito | Descrição |
 |---|---|
 | Conta optilyz | Uma conta da optilyz é necessária para usar essa parceria. |
-| Chave de API da optilyz<br><br>`<OPTILYZ_API_KEY>`| Seu gerente de sucesso do cliente da optilyz fornecerá sua chave de API da optilyz.<br><br>Essa chave de API permitirá que você conecte suas contas da Braze e da optilyz. |
+| Chave de API da optilyz<br><br>`<OPTILYZ_API_KEY>`| Seu CSM da optilyz fornecerá sua chave de API da optilyz.<br><br>Essa chave de API permitirá que você conecte suas contas da Braze e da optilyz. |
 | ID de automação da optilyz<br><br>`<OPTILYZ_AUTOMATION_ID>` | O ID de automação pode ser encontrado em uma caixa no cabeçalho da página.<br><br>Depois de fazer login na optilyz, você poderá navegar até a automação para a qual deseja enviar dados.<br>A automação deve ser ativada primeiro. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
@@ -45,7 +45,7 @@ Para criar um modelo de webhook da optilyz para ser usado em futuras Campaigns o
 Se você quiser criar uma Campaign única de webhook da optilyz ou usar um modelo existente, selecione **Webhook** na Braze ao criar uma nova Campaign.
 
 Em seu novo modelo de webhook, preencha os seguintes campos:
-- **URL do webhook**: o URL do webhook é exclusivo para cada cliente, e o gerente de sucesso do cliente da optilyz o fornecerá a você.
+- **URL do webhook**: o URL do webhook é exclusivo para cada cliente, e o CSM da optilyz o fornecerá a você.
 - **Corpo da solicitação**: Texto bruto
 
 #### Cabeçalhos de solicitação e método {#request-headers-and-method}

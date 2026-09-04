@@ -10,7 +10,7 @@ description: "This reference article covers troubleshooting for segment errors, 
 
 # Troubleshoot segments
 
-> Match your symptom below to find the right section. This page covers launch errors, user eligibility, filter issues, and analytics mismatches. For filter definitions, see [Segmentation filters]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters). For segment size estimates, exact counts, and historical membership charts, see [Measure segment size]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size).
+> Match your symptom in the following list to find the right section. This page covers launch errors, user eligibility, filter issues, and analytics mismatches. For filter definitions, see [Segmentation filters]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters). For segment size estimates, exact counts, and historical membership charts, see [Measure segment size]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size).
 
 ## Start here: Match your symptom
 
@@ -23,6 +23,7 @@ description: "This reference article covers troubleshooting for segment errors, 
 | Segment is larger than expected | [Segment is much larger than expected](#segment-is-much-larger-than-expected) |
 | Segment count doesn't match campaign analytics | [*Message Sent* or *Unique Recipients* mismatch](#message-sent-or-unique-recipients-in-campaign-analytics-doesnt-match-segment-count) |
 | Filter options changed | [Filter options changed](#filter-options-changed) |
+| Nested custom attribute not available as filter | [Nested custom attribute not available as a filter option](#nested-custom-attribute-not-available-as-a-filter-option) |
 | User on wrong app | [Info displays for users of other apps](#info-displays-for-users-of-other-apps-when-i-filter-for-a-specific-app) |
 | Was a user in this segment at a past time? | [Retroactive segment membership](#retroactive-segment-membership) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Start here: Match your symptom" }
@@ -36,7 +37,7 @@ Use this workflow when a user should be in a segment but isn't, or when a segmen
 3. **Calculate exact statistics:** If the segment estimate shows 0 users or seems wrong, select **Calculate exact stats** in the **Reachable users** panel. Save your segment before calculating. If a calculation is already running, wait for it to finish; stale numbers may display until the new calculation completes. For details, see [Calculating exact statistics]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size#calculating-exact-statistics).
 4. **Check filter values:** Look for typos, data type mismatches, stale Canvas step references, and [negative filter + OR logic](#segment-is-much-larger-than-expected).
 5. **Check complexity:** If launch is blocked, see [Target audience is too complex to launch](#target-audience-is-too-complex-to-launch).
-6. **Contact Support:** If you're still blocked, contact [Braze Support]({{site.baseurl}}/braze_support).
+6. **Contact Support:** If you're still blocked, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 
 ## Segment shows zero users
 
@@ -68,7 +69,7 @@ Your dashboard will display an error when a campaign, Canvas, or segment exceeds
 - Segments that are just lists of user IDs or emails (which often use a regex filter) can be converted to a [CSV import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import) and be simplified into a single CSV filter.
 - If you have CDI, you may be able to create a CDI segment that pulls the group directly from your data warehouse.
 
-You can also [contact Support]({{site.baseurl}}/braze_support) for further assistance with filter optimization.
+You can also [contact Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) for further assistance with filter optimization.
 
 {% alert note %}
 We began limiting character counts in April 2025. Campaigns and Canvases that launched before April 2025 were exempt, which means they can continue exceeding the limit, whereas newly created campaigns and Canvases can't exceed the limit. If you edit or clone an exempt campaign or Canvas, you cannot launch it until the audience is updated to be below the limit.
@@ -113,17 +114,21 @@ Users can have multiple apps, so selecting a specific app in the **Apps Used** s
 
 Your filter options are related to the format (data type) that you're passing to Braze for your custom attribute. To review the data type that Braze is recognizing for your custom attributes, navigate to **Data Settings** > **Custom Attributes**.
 
-If your filter options have changed, this is an indication that your data is being passed to Braze in a different format (data type) than before. For detailed descriptions of different data types and their filtering options, refer to [custom attribute data types]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#custom-attribute-data-types).
+If your filter options have changed, this is an indication that your data is being passed to Braze in a different format (data type) than before. For detailed descriptions of different data types and their filtering options, refer to [custom attribute data types]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types).
 
 Keep in mind that changing the data type of a custom attribute in the dashboard rejects data that is sent to Braze in a different format. You can't change a custom attribute's data type while that attribute is referenced in active campaigns, Canvases, or segments; the dashboard displays an error and blocks the change.
 
 The **Values** tab on a custom attribute shows results from a sample of approximately 250,000 users. Don't use the **Values** tab to confirm whether a specific attribute value exists for troubleshooting. For more information, see [Values tab]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#values-tab).
 
+### Nested custom attribute not available as a filter option
+
+If your nested custom attribute isn't showing up as a filter option when building a segment, generate its schema first. Go to **Data Settings** > **Custom Attributes**, find the attribute, and select **Generate Schema**. Once generated, the attribute becomes available in the segment filter dropdown. For more information, see [Generate a schema using the nested object explorer]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes#generate-schema).
+
 ### Segment is much larger than expected
 
 If your segment looks much larger than you expect despite restrictive-looking filters, check whether you're using negative filters (`is not`, `does not equal`, `does not match regex`, or `not included`) with the **OR** operator on the same attribute more than once. That combination can target users with all values for the attribute.
 
-For guidance on when to use **AND** instead of **OR**, see [When to avoid the OR operator]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#when-to-avoid-the-or-operator) in Create a segment.
+For guidance on when to use **AND** instead of **OR**, see [When to avoid the OR operator]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#segmentation-logic-using-and-and-or) in Create a segment.
 
 ## Analytics and reporting
 

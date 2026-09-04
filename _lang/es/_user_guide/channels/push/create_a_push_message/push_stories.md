@@ -31,28 +31,28 @@ Se requieren las siguientes versiones del SDK para recibir historias push:
 
 ## Cómo usar las historias push {#how-to-use-push-stories}
 
-![Menú desplegable del compositor de historias push]({% image_buster /assets/img_archive/pushstories_composer_dropdown2.png %}){: style="float:right;max-width:50%;margin-left:15px;margin-bottom:15px;"}
+![Menú desplegable del creador de historias push]({% image_buster /assets/img_archive/pushstories_composer_dropdown2.png %}){: style="float:right;max-width:50%;margin-left:15px;margin-bottom:15px;"}
 
 Para usar las historias push, haz lo siguiente:
 
 1. Crea una [campaña push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message).
-2. Para tu **Notification Type**, selecciona **Push Stories**.
+2. Para tu **Tipo de notificación**, selecciona **Push Stories**.
 3. Selecciona **iOS** o **Android**. Ten en cuenta que si seleccionas ambos para un mensaje push, la opción de crear una historia push no aparecerá.
 
-### Compositor de historias push {#push-story-composer}
+### Creador de historias push {#push-story-composer}
 
 Para crear una página, realiza los siguientes pasos:
 
-1. Selecciona **Add new page** desde el compositor principal.
+1. Selecciona **Añadir nueva página** desde el creador principal.
 2. Inserta una imagen para cada página, junto con el comportamiento de clic para esa imagen.
-3. Si lo deseas, añade un **Title** y una **Description** para cada página. Si usas un título y una descripción para una página, deben insertarse para todas las páginas.
+3. Si lo deseas, añade un **Título** y una **Descripción** para cada página. Si usas un título y una descripción para una página, deben insertarse para todas las páginas.
 
 Las vistas previas se reflejarán y son interactivas.
 
-![Compositor de historias push]({% image_buster /assets/img_archive/pushstories_composer.png %}){: style="max-width:60%"}
+![Creador de historias push]({% image_buster /assets/img_archive/pushstories_composer.png %}){: style="max-width:60%"}
 
 {% alert important %}
-Si estás extrayendo imágenes con [Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content#about-connected-content), asegúrate de que la URL de tu imagen comience con `https://`. Usar `http://` hará que tu aplicación se bloquee.
+Si estás extrayendo imágenes con [contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), asegúrate de que la URL de tu imagen comience con `https://`. Usar `http://` hará que tu aplicación se bloquee.
 {% endalert %}
 
 ### Especificaciones de imagen y texto {#image-and-text-specifications}
@@ -82,7 +82,7 @@ Aunque puede haber cierta variación en la longitud de caracteres de un disposit
 
 ### Segmentación de historias push {#push-story-segmentation}
 
-Cuando creas una campaña o Canvas, puedes filtrar qué usuarios deseas segmentar en función de si han hecho clic en una página de historia push. Luego, selecciona la campaña y la página que deseas usar para segmentar a tus usuarios.
+Cuando creas una Campaign o un Canvas, puedes filtrar qué usuarios deseas segmentar en función de si han hecho clic en una página de historia push. Luego, selecciona la Campaign y la página que deseas usar para segmentar a tus usuarios.
 
 ### Análisis de historias push {#push-stories-analytics}
 

@@ -6,7 +6,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "이 문서에서는 환경설정 센터 생성 Braze 엔드포인트에 대한 세부 정보를 설명합니다."
-
 ---
 {% api %}
 # 환경설정 센터 생성 {#create-preference-center}
@@ -14,13 +13,13 @@ description: "이 문서에서는 환경설정 센터 생성 Braze 엔드포인�
 /preference_center/v1
 {% endapimethod %}
 
-> 이 엔드포인트를 사용하여 사용자가 이메일 캠페인에 대한 알림 환경설정을 관리할 수 있는 환경설정 센터를 생성합니다. API로 생성된 환경설정 센터를 구축하는 방법에 대한 단계는 [API를 사용하여 환경설정 센터 생성]({{site.baseurl}}/user_guide/message_building_by_channel/email/preference_center/overview#creating-a-preference-center-with-api)을 참조하세요.
+> 이 엔드포인트를 사용하여 사용자가 이메일 캠페인에 대한 알림 환경설정을 관리할 수 있는 환경설정 센터를 생성합니다. API로 생성된 환경설정 센터를 구축하는 방법에 대한 단계는 [API를 사용하여 환경설정 센터 생성]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/api_preference_center)을 참조하세요.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#e15d7065-2cbc-4eb3-ae16-32efe43357a6 {% endapiref %}
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `preference_center.update` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
+이 엔드포인트를 사용하려면 `preference_center.update` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key-permissions)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -60,7 +59,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | --------- | ---------| --------- | ----------- |
 | `name` | 필수 | 문자열 | 다음 요구 사항을 충족하는 환경설정 센터의 이름입니다: <br>- 문자, 숫자, 하이픈, 밑줄만 포함합니다 <br>- 공백이 없습니다 |
-| `preference_center_title` | 선택 사항 | 문자열 | 환경설정 센터 및 확인 페이지의 제목입니다. 제목을 지정하지 않으면 페이지의 제목은 기본적으로 "Preference Center"로 설정됩니다. |
+| `preference_center_title` | 선택 사항 | 문자열 | 환경설정 센터 및 확인 페이지의 제목입니다. 제목을 지정하지 않으면 페이지의 제목은 기본값으로 "Preference Center"로 설정됩니다. |
 | `preference_center_page_html` | 필수 | 문자열 | 환경설정 센터 페이지의 HTML입니다. |
 | `confirmation_page_html` | 필수 | 문자열 | 확인 페이지의 HTML입니다. |
 | `state` | 선택 사항 | 문자열 | `active` 또는 `draft`를 선택합니다. 지정하지 않으면 기본값은 `active`입니다. |
@@ -176,7 +175,7 @@ Authorization: Bearer YOUR-REST-API-KEY
         background-color: #fff;
         color: #333335;
         font-family:
-          Sailec W00 Medium,
+          Aribau Grotesk Regular,
           helvetica,
           arial,
           sans-serif;

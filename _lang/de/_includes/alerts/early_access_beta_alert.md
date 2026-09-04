@@ -3,13 +3,15 @@
   Parameter:
   - feature (erforderlich): Das Feature oder Thema, z. B. „Dieser Endpunkt“, „SCIM-Bereitstellung“, „Die Okta-Integration“
   - type (optional): „early_access“ (Standard) oder „beta“
+  - contact (optional): Ansprechperson, z. B. „Braze Account Manager:in“ (Standard) oder „CSM:in“
 {% endcomment %}
+{% assign contact_role = include.contact | default: "Braze Account Manager:in" %}
 {% if include.type == "beta" %}
 {% alert important %}
-{{ include.feature }} befindet sich derzeit in der Beta-Phase. Kontaktieren Sie Ihre:n Braze Account Manager:in, wenn Sie an der Teilnahme an der Beta interessiert sind.
+{{ include.feature }} befindet sich derzeit in der Beta-Phase. Kontaktieren Sie Ihre:n {{ contact_role }}, wenn Sie an der Teilnahme an der Beta interessiert sind.
 {% endalert %}
 {% else %}
 {% alert important %}
-{{ include.feature }} befindet sich derzeit im Early Access. Kontaktieren Sie Ihre:n Braze Account Manager:in, wenn Sie an der Teilnahme am Early Access interessiert sind.
+{{ include.feature }} befindet sich derzeit im Early Access. Kontaktieren Sie Ihre:n {{ contact_role }}, wenn Sie an der Teilnahme am Early Access interessiert sind.
 {% endalert %}
 {% endif %}

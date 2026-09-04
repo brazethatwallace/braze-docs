@@ -31,6 +31,19 @@ The catalog set up in the integration doesn't exist in the Braze catalog. A cata
 
 This type of email means that some of your data could not be processed during the sync. To find out the specific error, you can review the logs in Braze by going to **CDI** > **Sync Log**.
 
+## How do I fix "Time must be string in ISO8601 Format" in CDI setup?
+
+This error means the event `time` value in your CDI payload is not in a supported datetime format.
+
+For event and purchase payloads, format `time` as:
+
+- An ISO 8601 string, or
+- `yyyy-MM-dd'T'HH:mm:ss:SSSZ`
+
+If `time` is omitted, Braze uses `UPDATED_AT` as the event time.
+
+For full payload requirements, refer to [Table setup for Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup).
+
 ## How do I fix errors for Test Connection and support emails?
 
 {% tabs %}
@@ -142,7 +155,7 @@ CDI uses `UPDATED_AT` to decide what data is new. After a future `UPDATED_AT` is
 
 ## Why doesn't "Rows Synced" match the number in my warehouse?
 
-CDI uses `UPDATED_AT` to decide which records to pick up during a sync. Check out [this illustration]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion#what-gets-synced) to see how it works. At the beginning of a sync run, CDI queries your warehouse to get all records with `UPDATED_AT` later than the previously processed `UPDATED_AT` value. Records at the exact boundary timestamp may also be re-synced if new rows share that timestamp. Any record picked up at the time when the query executes is synced into Braze. Here are common cases when a record might not be synced:
+CDI uses `UPDATED_AT` to decide which records to pick up during a sync. Check out [this illustration]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion#how-it-works) to see how it works. At the beginning of a sync run, CDI queries your warehouse to get all records with `UPDATED_AT` later than the previously processed `UPDATED_AT` value. Records at the exact boundary timestamp may also be re-synced if new rows share that timestamp. Any record picked up at the time when the query executes is synced into Braze. Here are common cases when a record might not be synced:
 
 - You're adding records to the table with an `UPDATED_AT` value that has already been processed.
 - You're updating record values after they have been processed by a sync, but leaving `UPDATED_AT` unchanged. 

@@ -17,11 +17,13 @@ description: "Cet article présente en détail l'endpoint Braze Mettre à jour u
 
 > Utilisez cet endpoint pour mettre à jour un compte utilisateur de tableau de bord existant en spécifiant la ressource `id` renvoyée par la méthode SCIM [`POST`]({{site.baseurl}}/api/endpoints/scim/post_create_user_account).
 
-Il vous permet de mettre à jour le prénom et le nom de famille, les autorisations (pour définir les autorisations au niveau de la société, de l'espace de travail et de l'équipe) et le département.
+Il vous permet de mettre à jour le prénom et le nom de famille, les autorisations (pour définir les autorisations au niveau de l'entreprise, de l'espace de travail et de l'équipe) et le département.
 
 Pour des raisons de sécurité, `userName` (adresse e-mail) ne peut pas être mis à jour via cet endpoint. Si vous souhaitez modifier le `userName` (adresse e-mail) d'un utilisateur, contactez l'[Assistance]({{site.baseurl}}/support_contact).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#5f9a1642-988e-4011-8fb8-db4340ea1ac7 {% endapiref %}
+
+{% multi_lang_include scim/scim_alerts.md alert='custom_endpoint' %}
 
 ## Conditions préalables {#prerequisites}
 
@@ -92,8 +94,8 @@ Authorization: Bearer YOUR-SCIM-TOKEN-KEY
 | --------- | -------- | --------- | ----------- |
 | `schemas` | Requis | Tableau de chaînes de caractères | Nom du schéma SCIM 2.0 attendu pour l'objet utilisateur. |
 | `name` | Requis | Objet JSON | Cet objet contient le prénom et le nom de famille de l'utilisateur. |
-| `department` | Requis | Chaîne de caractères | Chaîne de caractères valide du département, tirée de la [documentation sur les chaînes de caractères du département]({{site.baseurl}}/scim_api_appendix#department-strings). |
-| `permissions` | Requis | Objet JSON | Objet d'autorisations tel que décrit dans la [documentation de l'objet d'autorisations]({{site.baseurl}}/scim_api_appendix#permissions-object). |
+| `department` | Requis | Chaîne de caractères | Chaîne de caractères valide du département, tirée de la [documentation sur les chaînes de caractères du département]({{site.baseurl}}/api/objects_filters/scim_api_appendix). |
+| `permissions` | Requis | Objet JSON | Objet d'autorisations tel que décrit dans la [documentation de l'objet d'autorisations]({{site.baseurl}}/api/objects_filters/scim_api_appendix). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 

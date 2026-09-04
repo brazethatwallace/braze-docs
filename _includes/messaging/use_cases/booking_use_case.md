@@ -17,7 +17,7 @@ Follow these steps to achieve this use case:
 
 ## Step 1: Write upcoming booking data to a Braze user profile {#step-1}
 
-Use the Braze [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) endpoint to write a [nested custom attribute]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/) to a user profile each time a booking takes place. Make sure the nested custom attribute contains all the information you need to send and personalize the reminder message. In this use case, we’ll name the nested custom attribute “trips”.
+Use the Braze [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) endpoint to write a [nested custom attribute]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/) to a user profile each time a booking takes place. Make sure the nested custom attribute contains all the information you need to send and personalize the reminder message. In this use case, we’ll name the nested custom attribute “trips”.
 
 ### Add booking
 
@@ -136,7 +136,7 @@ Create a target audience to receive reminders using multi-criteria segmentation.
 
 ### Step 2b: Create your message
 
-Create the reminder email message by following the steps in [Creating an email with custom HTML]({{site.baseurl}}/user_guide/message_building_by_channel/email/html_editor/). Use Liquid to personalize the message with data from the custom customer attribute you created (“trips”), such as in this example.
+Create the reminder email message by following the steps in [Creating an email with custom HTML]({{site.baseurl}}/user_guide/channels/email/html_editor/). Use Liquid to personalize the message with data from the custom customer attribute you created (“trips”), such as in this example.
 
 {% raw %}
 ```liquid
@@ -212,7 +212,7 @@ braze.logCustomEvent("trip_updated", {
 
 ### Step 3b: Create a message to confirm the update
 
-Create an [action-based campaign]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery/) to send the user a confirmation of their updated booking. You can [use Liquid to template event properties]({{site.baseurl}}/user_guide/data/custom_data/custom_events/) that reflect the name, old time, and new time of the booking (or just the name if it’s a cancellation) into the message itself.
+Create an [action-based campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) to send the user a confirmation of their updated booking. You can [use Liquid to template event properties]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) that reflect the name, old time, and new time of the booking (or just the name if it’s a cancellation) into the message itself.
 
 For example, you could compose the following message:
 

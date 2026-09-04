@@ -15,6 +15,7 @@
 # Manual trigger: Actions → "Lighthouse CI" → Run workflow
 #
 # To add or change sampled pages, edit scripts/generate-lhci-urls.js.
+# For a monthly full-site inventory, see the "Lighthouse (Full Site)" workflow.
 # To change thresholds, edit lighthouserc.js.
 
 name: Lighthouse CI
@@ -46,9 +47,9 @@ jobs:
         uses: actions/checkout@v7
 
       - name: Set up Node
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
-          node-version: '20'
+          node-version: '24'
           cache: npm
 
       - name: Install npm dependencies

@@ -112,7 +112,7 @@ Voici les références de la payload JSON transmise à votre compartiment de sto
 }
 ```
 
-Le champ `extras` contient les paires clé-valeur configurées dans le champ **Email Extras** lors de la rédaction d'un e-mail dans l'éditeur HTML. Les extras d'e-mail sont compatibles avec tous les fournisseurs de services d'e-mailing (y compris SendGrid et SparkPost) et sont inclus dans les messages archivés, quel que soit le fournisseur utilisé. Pour plus d'informations sur la configuration des extras d'e-mail, consultez [Création d'une campagne par e-mail]({{site.baseurl}}/user_guide/channels/email/html_editor#adding-email-extras). Pour renvoyer des données à Currents, consultez [Suppléments de messages]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras).
+Le champ `extras` contient les paires clé-valeur configurées dans le champ **Email Extras** lors de la rédaction d'un e-mail dans l'éditeur HTML. Les extras d'e-mail sont compatibles avec tous les fournisseurs de services d'e-mail marketing (y compris SendGrid et SparkPost) et sont inclus dans les messages archivés, quel que soit le fournisseur utilisé. Pour plus d'informations sur la configuration des extras d'e-mail, consultez [Création d'une campagne par e-mail]({{site.baseurl}}/user_guide/channels/email/html_editor#adding-email-extras). Pour renvoyer des données à Currents, consultez [Suppléments de messages]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras).
 
 ![Section Email Extras du compositeur d'e-mail avec des champs clé et valeur et l'option Ajouter un nouvel extra.]({% image_buster /assets/img_archive/email_extras.png %}){: style="max-width:60%" }
 
@@ -225,7 +225,7 @@ La copie rendue est téléchargée immédiatement avant l'envoi du message à l'
 
 ### Puis-je créer un nouveau compartiment spécifiquement pour l'archivage des messages tout en conservant le compartiment actuel utilisé pour les données Currents ? {#can-i-create-a-new-bucket-specifically-for-message-archiving-while-keeping-the-current-bucket-used-for-currents-data}
 
-Non. Si vous souhaitez créer ces compartiments spécifiques, soumettez vos [commentaires sur le produit]({{site.baseurl}}/user_guide/administer/personal/product_portal).
+Non. {% multi_lang_include product_feedback_cta.md context="gap" feature="dedicated message archiving buckets while keeping a separate Currents bucket" %}
 
 ### Les données archivées sont-elles écrites dans un dossier dédié dans un compartiment existant, de la même manière que les exportations de données Currents sont structurées ? {#is-archived-data-written-to-a-dedicated-folder-in-an-existing-bucket-similar-to-how-currents-data-exports-are-structured}
 

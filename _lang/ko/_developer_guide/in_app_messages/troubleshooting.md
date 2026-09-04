@@ -19,13 +19,14 @@ channel:
 | 증상 | 이동 |
 | --- | --- |
 | 한 명의 사용자에게 인앱 메시지가 표시되지 않음 | [한 명의 사용자](#in-app-message-not-shown-for-one-user) |
-| 하나의 플랫폼(Android, iOS 또는 Web)에서 인앱 메시지가 표시되지 않음 | [하나의 플랫폼](#in-app-message-not-shown-on-one-platform) |
+| 하나의 플랫폼(Android, iOS 또는 웹)에서 인앱 메시지가 표시되지 않음 | [하나의 플랫폼](#in-app-message-not-shown-on-one-platform) |
 | **Canvas** 단계의 인앱 메시지가 표시되지 않음 | [Canvas 인앱 메시지](#canvas-in-app-messages) |
 | 인앱 메시지가 늦게 또는 지연 후에 표시됨 | [타이밍 및 지연 표시](#timing-and-delayed-display) |
 | 노출 횟수 또는 클릭 수가 잘못 보임 | [노출 횟수 및 분석](#impressions-and-analytics) |
 | 이벤트 사용자 로그에서 `triggers`가 누락되거나 비어 있음 | [전달 문제 해결](#delivery-troubleshooting) |
 | 트리거가 반환되었지만 기기에 아무것도 표시되지 않음 | [플랫폼별 표시 문제 해결](#platform-specific-display-troubleshooting) |
-| 인앱 메시지 자산 로드 실패(iOS, `NSURLError` -1008) | [자산 로드(Swift 탭)]({{site.baseurl}}/developer_guide/in_app_messages/troubleshooting?sdktab=swift#asset-loading) |
+| 인앱 메시지 자산 로드 실패(iOS, `NSURLError` -1008) | [자산 로드(Swift 탭)](?sdktab=swift#swift_asset-loading) |
+| 링크가 표시되지 않거나 기기 로그에 클릭 동작 파싱 오류가 표시됨 | [잘못된 링크 설정](#invalid-link-setup) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="인앱 메시지 증상" }
 
 ## 표준 조사 경로 {#standard-investigation-path}
@@ -78,12 +79,12 @@ Canvas의 인앱 메시지는 REST API가 아닌 SDK를 통해 전송된 이벤�
 
 ## 하나의 플랫폼에서 인앱 메시지가 표시되지 않음 {#in-app-message-not-shown-on-one-platform}
 
-**증상:** Android, iOS 또는 Web에서 인앱 메시지가 표시되지 않지만 다른 플랫폼에서는 작동할 수 있습니다.
+**증상:** Android, iOS 또는 웹에서 인앱 메시지가 표시되지 않지만 다른 플랫폼에서는 작동할 수 있습니다.
 
 | 가능한 원인 | 확인 사항 |
 | --- | --- |
-| 잘못된 **Send To** 타겟 | Campaign 또는 Canvas 단계가 적절하게 **Mobile Apps** 또는 **Web Browsers**를 타겟으로 하는지 확인하세요. Web 전용 Campaign은 Android 기기에 발송되지 않습니다. |
-| 커스텀 UI 또는 핸들러가 표시를 억제함 | 델리게이트(모바일) 또는 [`braze.subscribeToInAppMessage`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetoinappmessage)(Web)를 검토하세요. [커스터마이징]({{site.baseurl}}/developer_guide/in_app_messages/customization) 및 아래 SDK 탭을 참조하세요. |
+| 잘못된 **Send To** 타겟 | Campaign 또는 Canvas 단계가 적절하게 **Mobile Apps** 또는 **Web Browsers**를 타겟으로 하는지 확인하세요. 웹 전용 Campaign은 Android 기기에 발송되지 않습니다. |
+| 커스텀 UI 또는 핸들러가 표시를 억제함 | 델리게이트(모바일) 또는 [`braze.subscribeToInAppMessage`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetoinappmessage)(웹)를 검토하세요. [커스터마이징]({{site.baseurl}}/developer_guide/in_app_messages/customization) 및 해당 플랫폼의 SDK 탭을 참조하세요. |
 | 이 플랫폼에서 통합이 작동한 적이 없음 | 이 플랫폼과 앱 버전에서 이전에 인앱 메시지가 표시된 적이 있는지 확인하세요. |
 | 기기에서 트리거가 실행되지 않음 | 트리거는 SDK를 통해 로컬에서 발생해야 합니다. REST API 호출로는 SDK에서 인앱 메시지를 트리거할 수 없습니다. [메시지 트리거]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages)를 참조하세요. |
 | 이벤트 사용자 로그에서 `triggers`가 비어 있음 | Segment, 재자격, 빈도 제한 또는 대조군 문제입니다. [메시지가 반환되지 않는 문제 해결](#troubleshoot-messages-not-being-returned)을 참조하세요. |
@@ -114,7 +115,7 @@ Canvas의 인앱 메시지는 REST API가 아닌 SDK를 통해 전송된 이벤�
 - **스케줄된 대시보드 지연:** Campaign 또는 단계에 지연이 구성되어 있는지 확인하세요.
 - **트리거 동기화 경합:** 사용자가 세션 시작 직후 이벤트를 기록하면 트리거가 아직 동기화되지 않았을 수 있습니다. 세션 시작으로 트리거하고 의도한 이벤트로 세분화하여 이벤트 이후 다음 세션에 전달되도록 하는 것을 고려하세요.
 - **순차적 인앱 메시지:** 투어에서 메시지를 지연하거나 복원하는 경우 [트리거된 인앱 메시지 지연]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/deferring_triggered_messages)을 참조하세요.
-- **대용량 자산 또는 느린 CDN:** HTML 인앱 메시지의 이미지와 동영상을 최적화하세요. 모바일에서는 느린 네트워크에서 표시 전에 이미지가 다운로드될 수 있습니다. 플랫폼 참고 사항은 아래 SDK 탭을 선택하세요.
+- **대용량 자산 또는 느린 CDN:** HTML 인앱 메시지의 이미지와 동영상을 최적화하세요. 모바일에서는 느린 네트워크에서 표시 전에 이미지가 다운로드될 수 있습니다. 플랫폼 참고 사항은 SDK 탭을 선택하세요.
 
 {% alert note %}
 인앱 메시지가 세션 시작으로 트리거되고 연장된 세션 타임아웃을 설정한 경우, 해당 기간 내에 앱을 닫았다가 다시 열어도 세션이 새로고침되지 않습니다. 예를 들어, 300초 타임아웃의 경우 세션 시작 인앱 메시지는 세션이 실제로 새로고침될 때까지 표시되지 않습니다. 이것이 테스트에 영향을 미치는 경우 세션 타임아웃 또는 트리거 유형을 조정하세요.
@@ -158,7 +159,7 @@ SDK는 세션 시작 시 Braze 서버에 인앱 메시지를 요청합니다. SD
 인앱 메시지가 반환되지 않는 경우, 타겟팅 또는 자격 문제일 가능성이 높습니다:
 
 1. Segment에 사용자가 포함되어 있지 않습니다.
-   - 사용자의 [**참여**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#engagement-tab) 탭에서 예상 Segment를 확인하세요.
+   - 사용자의 [**인게이지먼트**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#engagement-tab) 탭에서 예상 Segment를 확인하세요.
 2. 사용자가 이미 메시지를 받았고 재자격이 없었습니다.
    - [재자격 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility) 및 [인앱 메시지 FAQ]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#campaigns)를 확인하세요.
 3. 사용자가 빈도 제한에 도달했습니다.
@@ -179,7 +180,21 @@ SDK는 세션 시작 시 Braze 서버에 인앱 메시지를 요청합니다. SD
 
 ![사용자가 마지막으로 Campaign을 확인한 이후 7개의 변경 사항이 있는 Campaign 세부 정보 페이지의 변경 로그 보기 링크]({% image_buster /assets/img_archive/trouble4.png %})
 
-델리게이트 또는 커스텀 핸들러를 사용하여 인앱 메시지를 수동으로 표시하는 경우, 노출 횟수와 클릭 수를 직접 기록해야 합니다. Swift 및 Android 세부 사항은 [플랫폼별 표시 문제 해결](#platform-specific-display-troubleshooting)에서 SDK 탭을 참조하고, Web의 경우 [인앱 메시지 데이터 기록]({{site.baseurl}}/developer_guide/in_app_messages/logging_message_data)을 참조하세요.
+델리게이트 또는 커스텀 핸들러를 사용하여 인앱 메시지를 수동으로 표시하는 경우, 노출 횟수와 클릭 수를 직접 기록해야 합니다. Swift 및 Android 세부 사항은 [플랫폼별 표시 문제 해결](#platform-specific-display-troubleshooting)에서 SDK 탭을 참조하고, 웹의 경우 [인앱 메시지 데이터 기록]({{site.baseurl}}/developer_guide/in_app_messages/logging_message_data)을 참조하세요.
+
+## 잘못된 링크 설정 {#invalid-link-setup}
+
+**증상:** 인앱 메시지에서 링크가 표시되지 않거나, 기기 로그에 클릭 동작 파싱 오류가 표시됩니다(예: 잘못된 플랫폼 메시지 클릭 동작을 언급하는 오류).
+
+이는 일반적으로 인앱 메시지 설정에서 잘못되었거나 형식이 올바르지 않은 링크를 나타냅니다.
+
+다음 항목을 확인하세요:
+
+- 클릭 시 동작을 일시적으로 **메시지 닫기**로 변경하세요. 메시지가 올바르게 표시되면 링크 URL이 문제의 원인일 가능성이 높습니다.
+- 편집기 및 메시지 유형에 맞는 링크 구성을 검토하세요:
+  - **커스텀 HTML:** [커스텀 HTML 링크 및 닫기 동작 문제 해결]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#troubleshoot-custom-html-links-and-close-behavior)
+  - **드래그 앤 드롭:** 인앱 메시지 FAQ의 [링크 및 딥링크]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#what-should-i-know-when-customizing-drag-and-drop-in-app-messages) 및 [텍스트 링크의 최소 SDK 요구 사항]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop#more-information-on-minimum-sdks)
+  - **버튼이 있는 메시지:** 해당 플랫폼의 [인앱 메시지 커스터마이징]({{site.baseurl}}/developer_guide/in_app_messages/customization)
 
 ## 플랫폼별 표시 문제 해결 {#platform-specific-display-troubleshooting}
 

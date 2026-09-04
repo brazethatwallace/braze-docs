@@ -1,4 +1,4 @@
-Ab dem 1. Juli 2025 rechnet WhatsApp pro Nachricht ab. Die Nachrichtenpreise basieren sowohl auf der Landesvorwahl der Telefonnummer der Empfänger:innen als auch auf dem Typ der Nachricht, die Sie senden. Der Nachrichtentyp wird anhand des [Nachrichten-Templates](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines/) bestimmt, das Sie im WhatsApp Manager zur Genehmigung einreichen.
+Ab dem 1. Juli 2025 rechnet WhatsApp pro Nachricht ab. Die Nachrichtenpreise basieren sowohl auf der Landesvorwahl der Telefonnummer der Empfänger:innen als auch auf dem Typ der Nachricht, die Sie senden. Der Nachrichtentyp wird anhand des [Nachrichten-Templates](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines/) bestimmt, das Sie im WhatsApp Manager:in zur Genehmigung einreichen.
 
 {% alert note %}
 Alle vom Unternehmen initiierten Konversationen auf der Plattform müssen mit einer genehmigten Template-Nachricht beginnen.
@@ -6,7 +6,7 @@ Alle vom Unternehmen initiierten Konversationen auf der Plattform müssen mit ei
 
 {% if include.content == "h2" %}##{% else include.content == "h3" %}###{% endif %} Definitionen der Nachrichten-Templates
 
-Dies sind die Nachrichten-Templates, die Sie im WhatsApp Manager zur Genehmigung einreichen können:
+Dies sind die Nachrichten-Templates, die Sie im WhatsApp Manager:in zur Genehmigung einreichen können:
 
 | Template | Definition |
 |----------|------------|

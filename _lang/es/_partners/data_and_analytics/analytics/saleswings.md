@@ -10,23 +10,23 @@ search_tag: Partner
 
 # SalesWings
 
-> [SalesWings](https://www.saleswingsapp.com/?utm_source=braze&utm_campaign=technicaldocs) es una solución SaaS B2B de operaciones de ventas y marketing que ayuda a gestionar la cualificación de clientes potenciales y cuentas mediante la puntuación y clasificación holística de clientes potenciales y proporciona información y alertas de ventas e informes de atribución B2B, junto con una estrecha integración con Salesforce CRM. Un complemento de interacción con el sitio web, similar a Digioh, te permite generar clientes potenciales en el sitio web. Puedes aprovechar los intereses e interacciones dentro de Braze para la personalización en Canvas y la segmentación.
+> [SalesWings](https://www.saleswingsapp.com/?utm_source=braze&utm_campaign=technicaldocs) es una solución software como servicio (SaaS) B2B de operaciones de ventas y marketing que ayuda a gestionar la cualificación de clientes potenciales y cuentas mediante la puntuación y clasificación holística de clientes potenciales y proporciona información y alertas de ventas e informes de atribución B2B, junto con una estrecha integración con Salesforce CRM. Un complemento de interacción con el sitio web, similar a Digioh, te permite generar clientes potenciales en el sitio web. Puedes aprovechar los intereses e interacciones dentro de Braze para la personalización en Canvas y la segmentación.
 
 _Esta integración está mantenida por SalesWings._
 
 ## Sobre la integración {#about-the-integration}
 
-SalesWings permite a los equipos de marketing y a los administradores de operaciones de marketing cualificar clientes potenciales y cuentas para sus equipos de ventas, algo esencial para la alineación de ventas y marketing y la eficacia operativa. Además, SalesWings, junto con Braze, puede mostrar a los representantes de ventas el recorrido completo del cliente y los datos de interacción con las Campaigns de marketing de Braze, lo que te permite aumentar las tasas de cualificación de clientes potenciales mediante conversaciones más informadas. SalesWings identifica las necesidades e intereses junto con otras señales, lo que permite el traspaso de compradores cualificados a equipos de ventas dentro de tu CRM de forma automatizada. Puedes utilizar las necesidades, intereses y disposición para las ventas identificados como atributos de usuario de Braze para la personalización y segmentación.
+SalesWings permite a los equipos de marketing y a los administradores de operaciones de marketing cualificar clientes potenciales y cuentas para sus equipos de ventas, algo esencial para la alineación de ventas y marketing y la eficacia operativa. Además, SalesWings, junto con Braze, puede mostrar a los representantes de ventas el recorrido completo del cliente y los datos de interacción con las campañas de marketing de Braze, lo que te permite aumentar las tasas de cualificación de clientes potenciales mediante conversaciones más informadas. SalesWings identifica las necesidades e intereses junto con otras señales, lo que permite el traspaso de compradores cualificados a equipos de ventas dentro de tu CRM de forma automatizada. Puedes utilizar las necesidades, intereses y disposición para las ventas identificados como atributos de usuario de Braze para la personalización y segmentación.
 
 ## Requisitos previos {#prerequisites}
 
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Cuenta SalesWings | Se necesita una cuenta de [SalesWings](https://www.saleswingsapp.com/?utm_source=braze&utm_campaign=technicaldocs) para beneficiarse de esta asociación. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.export.ids` (y `users.track` si utilizas la característica push de información de SalesWings). <br><br> Puede crearse en el panel de Braze desde **Settings** > **API Keys**. |
-| Punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión dependerá de la URL de Braze de tu instancia. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.export.ids` (y `users.track` si utilizas la característica push de información de SalesWings). <br><br> Puede crearse en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Tu punto de conexión dependerá de la URL de Braze de tu instancia. |
 | Cuenta Segment.com (opcional) | Si eres usuario de Segment.com, puedes enviar todos los datos de interacción y perfil de los clientes potenciales e identificar eventos a través de Segment.com para crear perfiles de clientes potenciales. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Casos de uso {#use-cases}
 
@@ -44,7 +44,7 @@ SalesWings permite a los equipos de marketing realizar un seguimiento de los cli
 
 ![Ejemplo de cómo la puntuación de clientes potenciales de SalesWings prioriza una lista de clientes potenciales o contactos de forma nativa dentro de Salesforce]({% image_buster /assets/img/saleswings/prioritized_lead_or_contact_list_braze_lead_scoring.png %})
 
-_Ejemplo de cómo la puntuación de clientes potenciales de SalesWings prioriza una lista de leads o contactos de forma nativa dentro de Salesforce_
+_Ejemplo de cómo la puntuación de clientes potenciales de SalesWings prioriza una lista de clientes potenciales o contactos de forma nativa dentro de Salesforce_
 
 ![Ejemplo de cómo la puntuación de clientes potenciales de SalesWings prioriza una lista de cuentas de forma nativa en Salesforce]({% image_buster /assets/img/saleswings/prioritized_account_list_braze_lead_scoring.png %})
 
@@ -68,11 +68,11 @@ SalesWings ofrece alertas nativas por correo electrónico y Slack, y puedes conf
 _Ejemplo de alerta de ventas a través del canal de Slack_
 {% endtab %}
 {% tab Reporting in Salesforce CRM %}
-A través de la integración nativa de SalesWings con Salesforce, puedes crear informes automatizados con clientes potenciales, contactos, cuentas y oportunidades basados en datos de interacción web y cualquier interacción de Campaigns de Braze con una integración nativa de Braze Currents. Por ejemplo, puedes mostrar una lista de clientes potenciales a un equipo de ventas, con todos los que hayan hecho clic en una Campaign de correo electrónico específica o hayan realizado una acción concreta en tu aplicación o sitio web.
+A través de la integración nativa de SalesWings con Salesforce, puedes crear informes automatizados con clientes potenciales, contactos, cuentas y oportunidades basados en datos de interacción web y cualquier interacción de campañas de Braze con una integración nativa de Braze Currents. Por ejemplo, puedes mostrar una lista de clientes potenciales a un equipo de ventas, con todos los que hayan hecho clic en una campaña de correo electrónico específica o hayan realizado una acción concreta en tu aplicación o sitio web.
 
-![Ejemplo de panel vinculado a la interacción de correo electrónico y marketing de Braze dentro de Salesforce, que analiza el impacto de las Campaigns de Braze en los resultados y las ventas]({% image_buster /assets/img/saleswings/saleswings_email_campaign_attribution_dashboard.png %})
+![Ejemplo de panel vinculado a la interacción de correo electrónico y marketing de Braze dentro de Salesforce, que analiza el impacto de las campañas de Braze en los resultados y las ventas]({% image_buster /assets/img/saleswings/saleswings_email_campaign_attribution_dashboard.png %})
 
-_Ejemplo de panel vinculado a la interacción de correo electrónico y marketing de Braze dentro de Salesforce, que analiza el impacto de las Campaigns de Braze en los resultados y las ventas_
+_Ejemplo de panel vinculado a la interacción de correo electrónico y marketing de Braze dentro de Salesforce, que analiza el impacto de las campañas de Braze en los resultados y las ventas_
 {% endtab %}
 {% endtabs %}
 
@@ -98,7 +98,7 @@ Ve a la [página **SalesWings Integrations**](https://helium.saleswings.pro/inte
 
 Copia el valor de la columna **Identifier** de la clave recién creada y pégalo en el campo **Braze API key** de la sección **Braze Integration** de SalesWings.
 
-Añade tu punto de conexión de API de Braze como se describe en el [artículo sobre puntos de conexión de API y SDK]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/), e introdúcelo en el campo **Braze API endpoint**. Copia el valor de la columna **REST Endpoint** e introdúcelo en el campo **Braze API endpoint** de la sección **Braze Integration** de SalesWings.
+Añade tu punto de conexión de API de Braze como se describe en el [artículo sobre puntos de conexión de API y SDK]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints), e introdúcelo en el campo **Braze API endpoint**. Copia el valor de la columna **REST Endpoint** e introdúcelo en el campo **Braze API endpoint** de la sección **Braze Integration** de SalesWings.
 
 A continuación, selecciona **Save**.
 
@@ -110,11 +110,11 @@ Haz clic en **Start data push** en **SalesWings-to-Braze insights data push**.
 
 ### Paso 5: Configurar una exportación personalizada de Currents a SalesWings (opcional) {#step-5-set-up-a-custom-currents-export-to-saleswings-optional}
 
-Si quieres utilizar eventos de [comportamiento del usuario]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) y de [interacción de mensajes]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) para la inteligencia de comportamiento, la puntuación de clientes potenciales y cuentas, producir información de ventas o generar informes en tu CRM, ve a la [página **SalesWings Integrations**](https://helium.saleswings.pro/integrations) y amplía la sección **Braze Integration**.
+Si quieres utilizar eventos de [comportamiento del usuario]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) y de [interacción de mensajes]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) para la inteligencia de comportamiento, la puntuación de clientes potenciales y cuentas, producir información de ventas o generar informes en tu CRM, ve a la [página **SalesWings Integrations**](https://helium.saleswings.pro/integrations) y amplía la sección **Braze Integration**.
 
 Selecciona **Generate** en **Generate an API token to setup a Custom Currents Export**.
 
-A continuación, [crea un nuevo Current]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/) y selecciona **Custom Currents Export** como tipo de Current.
+A continuación, [crea un nuevo Current]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents) y selecciona **Custom Currents Export** como tipo de Current.
 
 En la sección **Credentials** del formulario de creación del Current, introduce el token de API que has generado en la [página **SalesWings Integrations**](https://helium.saleswings.pro/integrations) para **Bearer Token**, y `https://helium.saleswings.pro/api/braze/currents/events` para **Endpoint**.
 
@@ -146,23 +146,23 @@ La variable `braze_id` se establece en un identificador del usuario generado por
 
 ### Push de información de SalesWings a Braze {#pushing-saleswings-insights-to-braze}
 
-Si habilitas el push de información de SalesWings a Braze, SalesWings actualiza tus perfiles de usuario de Braze con los siguientes [atributos personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/):
+Si habilitas el push de información de SalesWings a Braze, SalesWings actualiza tus perfiles de usuario de Braze con los siguientes [atributos personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types):
 
 | Atributo personalizado | Tipo | Descripción |
 | ----------- | ----------- | ----------- |
-| `sw_favorite` | Booleano | Si el cliente potencial se marcó como favorito en SalesWings o Salesforce CRM |
+| `sw_favorite` | booleano | Si el cliente potencial se marcó como favorito en SalesWings o Salesforce CRM |
 | `sw_last_active_at` | date | El momento de la última actividad del cliente potencial en tu sitio web |
 | `sw_lead_link_open` | cadena | El enlace para acceder al perfil de un cliente potencial en SalesWings (sin una cuenta en el panel de SalesWings) |
 | `sw_lead_link_protected` | cadena | El enlace para acceder al perfil de un cliente potencial en SalesWings (con una cuenta en el panel de SalesWings) |
 | `sw_lead_owner` | cadena | El propietario establecido para el cliente potencial en SalesWings o Salesforce CRM |
-| `sw_lead_score` | float | El valor de la puntuación principal de clientes potenciales de SalesWings configurada en el [motor de reglas](https://helium.saleswings.pro/falcon) de SalesWings |
+| `sw_lead_score` | flotante | El valor de la puntuación principal de clientes potenciales de SalesWings configurada en el [motor de reglas](https://helium.saleswings.pro/falcon) de SalesWings |
 | `sw_predictive_score` | cadena | El valor de la [puntuación predictiva](https://support.saleswingsapp.com/en/articles/581795-the-predictive-lead-score) de SalesWings que evalúa la interacción del cliente potencial en función del número y la frecuencia de las actividades de seguimiento. Los valores posibles son `HOT`, `WARM`, `NORMAL`, `COLD` o `FROZEN` |
 | `sw_salesforce_record_id` | cadena | El ID del registro de cliente potencial o contacto en Salesforce CRM |
 | `sw_salesforce_record_url` | cadena | La URL del registro de cliente potencial o contacto en Salesforce CRM |
 | `sw_session_count` | entero | El número de sesiones de seguimiento en tu sitio web para este cliente potencial |
 | `sw_tags` | matriz de cadenas | Las necesidades e intereses que SalesWings identificó, representados como "etiquetas". Los nombres de las etiquetas de SalesWings configuradas en el [motor de reglas](https://helium.saleswings.pro/falcon) de SalesWings que se aplican a este cliente potencial |
-| Atributos adicionales de puntuación de clientes potenciales | float | Un atributo personalizado por cada puntuación adicional de clientes potenciales configurada en el [motor de reglas](https://helium.saleswings.pro/falcon) de SalesWings. El nombre del atributo se deriva del nombre de la puntuación de SalesWings; por ejemplo, una puntuación llamada `Likeliness to meet` se envía como atributo personalizado `sw_likeliness_to_meet`. Si cambias el nombre de una puntuación después de que el sistema la cree, SalesWings continúa la sincronización con el nombre inicial del atributo personalizado. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Atributos adicionales de puntuación de clientes potenciales | flotante | Un atributo personalizado por cada puntuación adicional de clientes potenciales configurada en el [motor de reglas](https://helium.saleswings.pro/falcon) de SalesWings. El nombre del atributo se deriva del nombre de la puntuación de SalesWings; por ejemplo, una puntuación llamada `Likeliness to meet` se envía como atributo personalizado `sw_likeliness_to_meet`. Si cambias el nombre de una puntuación después de que el sistema la cree, SalesWings continúa la sincronización con el nombre inicial del atributo personalizado. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Push de información de SalesWings a Braze" }
 
 Cuando se habilita el push, SalesWings empieza a enviar inmediatamente atributos personalizados a Braze en cuanto cambian los puntos de datos subyacentes en los perfiles de clientes potenciales de SalesWings, y sincroniza progresivamente todos los clientes potenciales existentes aunque no tengan nuevas actualizaciones.
 
@@ -195,9 +195,9 @@ La siguiente tabla muestra los tipos de eventos de Braze admitidos por SalesWing
 | Eventos de mensajes | Lectura de WhatsApp | `[WhatsApp engagement] Lead read our message from the $campaign_name campaign` |
 | Suscripciones | Cambio de estado de suscripción global | `[Subscription status change] Global marketing subscription setting set to $subscription_status` |
 | Suscripciones | Cambio de estado de grupo de suscripción | `[Subscription status change] $subscription_status to/from $campaign_name` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Uso de eventos de Braze Currents en tu CRM" }
 
-A continuación, puedes configurar las condiciones **Custom Event** > **Event Name** y **Custom Event** > **Event Property** para las etiquetas y puntuaciones de SalesWings con los nombres de eventos de SalesWings de la tabla anterior. La lista de propiedades del evento disponibles para las condiciones se rellena previamente con algunas de las entradas más utilizadas, y siempre puedes añadir otras nuevas en la sección **Event Property** de la [página de configuración del motor de reglas](https://helium.saleswings.pro/falcon).
+A continuación, puedes configurar las condiciones **Custom Event** > **Event Name** y **Custom Event** > **Event Property** para las etiquetas y puntuaciones de SalesWings con los nombres de eventos de SalesWings de la tabla de esta sección. La lista de propiedades del evento disponibles para las condiciones se rellena previamente con algunas de las entradas más utilizadas, y siempre puedes añadir otras nuevas en la sección **Event Property** de la [página de configuración del motor de reglas](https://helium.saleswings.pro/falcon).
 
 ![Ejemplo de una condición de nombre de evento.]({% image_buster /assets/img/saleswings/saleswings_braze_lead_scoring_custom_event_condition.png %})
 

@@ -57,7 +57,7 @@ For this option, we recommend creating one catalog for your accounts and one for
 
 #### Map over your CRM fields
 
-The tables below include a few examples of fields you can map over from your CRM’s account and opportunity objects.
+The tables in the following section include a few examples of fields you can map over from your CRM’s account and opportunity objects.
 
 {% subtabs %}
 {% subtab Account catalog %}
@@ -159,7 +159,7 @@ User profiles are the primary object in Braze, which power the majority of your 
 
 ### Step 2.1: Map sales CRM IDs to Braze
 
-First, make sure Braze and your CRM of choice have a common identifier to share data to. We suggest using the following table to map your sales CRM ID fields back to the Braze user object. The table below has Salesforce as the CRM system, but this can be done with any CRM.
+First, make sure Braze and your CRM of choice have a common identifier to share data to. We suggest using the following table to map your sales CRM ID fields back to the Braze user object. The table in the following section has Salesforce as the CRM system, but this can be done with any CRM.
 
 #### Braze object: User
 
@@ -219,7 +219,7 @@ Now that your opportunity and account details are accounted for as Braze catalog
 
 #### Option 2: When using connected sources
 
-One of your connected source’s tables should include a `user_id` that matches the `external_user_id` set in Braze for your users. The user profile setup above uses your lead and `contact_ids` as your `external_id`, so you should ensure your lead/contact tables include these IDs.
+One of your connected source’s tables should include a `user_id` that matches the `external_user_id` set in Braze for your users. The user profile setup earlier in this section uses your lead and `contact_ids` as your `external_id`, so you should ensure your lead/contact tables include these IDs.
 
 In addition to ensuring the IDs match, we recommend writing basic account-level data such as `account_id`, `opportunity_id`, and even common firmographic attributes such as `industry` to the user profiles for efficient segmentation and personalization.
 

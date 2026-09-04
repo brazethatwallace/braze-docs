@@ -13,12 +13,12 @@ alias: /delete_users/
 
 ## Voraussetzungen {#prerequisites}
 
-Um Nutzer:innen zu löschen, müssen Sie Admin sein oder über die Berechtigung **Delete Users** verfügen. Um Löschprotokolle von Nutzer:innen einzusehen, müssen Sie Admin sein oder über die Berechtigung **View User Deletion Records** verfügen. Die folgenden Berechtigungen steuern das Löschen von Nutzer:innen und die Löschprotokolle:
+Um Nutzer:innen zu löschen, müssen Sie ein:e Administrator:in sein oder über die Berechtigung **Delete Users** verfügen. Um Löschprotokolle von Nutzer:innen einzusehen, müssen Sie ein:e Administrator:in sein oder über die Berechtigung **View User Deletion Records** verfügen. Die folgenden Berechtigungen steuern das Löschen von Nutzer:innen und die Löschprotokolle:
 
 | Berechtigung | Beschreibung |
 |------------|-------------|
-| Nutzer:innen löschen | Nutzer:innen einzeln oder in großen Mengen dauerhaft löschen. |
-| Löschprotokolle von Nutzer:innen einsehen | Löschprotokolle von Nutzer:innen einsehen. |
+| Delete Users | Nutzer:innen einzeln oder in großen Mengen dauerhaft löschen. |
+| View User Deletion Records | Löschprotokolle von Nutzer:innen einsehen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Über das Löschen von Nutzer:innen {#about-user-deletion}
@@ -28,28 +28,28 @@ Das Löschen von Nutzer:innen ermöglicht es Ihnen, Ihre Datenbank zu verwalten,
 | Aspekt | Details |
 |---------------|---------|
 | Maximale Größe | Sie können bis zu 10 Millionen Nutzerprofile löschen, wenn Sie ein Segment löschen. |
-| Wartezeit | Alle Segment-Löschungen erfordern eine 7-tägige Wartezeit plus die Zeit, die für die Verarbeitung der Löschungen benötigt wird. |
-| Auftragslimits | Es kann jeweils nur ein Segment gelöscht werden, einschließlich der 7-tägigen Wartezeit. |
+| Wartezeit | Alle Segment-Löschungen erfordern eine 7-tägige Wartezeit zuzüglich der Zeit, die für die Verarbeitung der Löschungen benötigt wird. |
+| Auftragslimits | Es kann jeweils nur ein Segment gleichzeitig gelöscht werden, einschließlich der 7-tägigen Wartezeit. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Über das Löschen von Nutzer:innen" }
 
 ## Nutzer:innen löschen {#deleting-users}
 
-Sie können einzelne Nutzer:innen ([Einzelperson löschen](#delete-individual)) oder ein [Segment von Nutzer:innen](#delete-segment) über das Braze-Dashboard löschen:
+Sie können einzelne Nutzer:innen ([Einzellöschung](#delete-individual)) oder ein [Segment von Nutzer:innen](#delete-segment) über das Braze-Dashboard löschen:
 
-### Einzelperson löschen {#delete-individual}
+### Einzelne Nutzer:innen löschen {#delete-individual}
 
-Um einzelne Nutzer:innen aus Braze zu löschen, gehen Sie zu **Audience** > **Search Users** und suchen und wählen Sie dann eine:n Nutzer:in aus. Wenn Sie ein doppeltes Nutzerprofil löschen, überprüfen Sie, ob Sie das richtige ausgewählt haben.
+Um einzelne Nutzer:innen aus Braze zu löschen, gehen Sie zu **Audience** > **Search Users**, suchen Sie dann nach den gewünschten Nutzer:innen und wählen Sie sie aus. Wenn Sie ein doppeltes Kundenprofil löschen, vergewissern Sie sich, dass Sie das richtige ausgewählt haben.
 
 ![Die Seite „Search Users“ in Braze.]({% image_buster /assets/img/audience_management/duplicate_users/individual_merging/search_user.png %}){: style="max-width:75%;"}
 
 {% alert warning %}
-Löschungen einzelner Nutzer:innen sind dauerhaft – Profile können nach dem Löschen nicht wiederhergestellt werden.
+Einzellöschungen von Nutzer:innen sind dauerhaft – Profile können nach dem Löschen nicht wiederhergestellt werden.
 {% endalert %}
 
-Wählen Sie auf der Profilseite <i class="fa-solid fa-ellipsis-vertical"></i> **Show options** > **Delete User**. Beachten Sie, dass es einige Minuten dauern kann, bis die Nutzer:innen vollständig in Braze gelöscht sind.
+Wählen Sie auf der Profilseite <i class="fa-solid fa-ellipsis-vertical" aria-label="Optionen anzeigen"></i> **Show options** > **Delete User**. Beachten Sie, dass es einige Minuten dauern kann, bis die Nutzer:innen vollständig aus Braze gelöscht sind.
 
 
-### Segment löschen {#delete-segment}
+### Ein Segment löschen {#delete-segment}
 
 Falls noch nicht geschehen, [erstellen Sie ein Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment), das die Nutzerprofile enthält, die Sie löschen möchten. Stellen Sie sicher, dass alle Nutzerprofile enthalten sind, wenn Sie doppelte Nutzer:innen löschen.
 
@@ -67,17 +67,19 @@ Geben Sie **DELETE** ein, um Ihre Anfrage zu bestätigen, und wählen Sie dann *
 
 Die Nutzer:innen in diesem Segment werden nicht sofort gelöscht. Stattdessen werden sie für die nächsten 7 Tage als zur Löschung ausstehend markiert. Nach Ablauf dieser Zeit werden sie gelöscht und Sie erhalten eine E-Mail-Benachrichtigung.
 
+Während der 7-tägigen Wartezeit können Nutzer:innen, deren Löschung aussteht, weiterhin Campaigns und Canvases erhalten, sofern Sie sie nicht ausdrücklich ausschließen. Um zu verhindern, dass ausstehende Nutzer:innen Nachrichten erhalten, fügen Sie einen Segmentfilter hinzu, der Nutzer:innen mit dem Status **Pending Deletion** aus Ihren Campaigns und Canvases ausschließt.
+
 {% alert tip %}
 Um sicherzustellen, dass genau diese Nutzer:innen unabhängig von Segmentänderungen gelöscht werden, wird automatisch ein Segmentfilter namens **Pending Deletion** erstellt. Sie können [diesen Filter verwenden]({{site.baseurl}}/user_guide/audience/segments/managing_segments#filters), um den Status ausstehender Löschungen zu überprüfen.
 {% endalert %}
 
-## Segment-Löschungen bestätigen {#confirming-segment-deletions}
+## Bestätigung von Segment-Löschungen {#confirming-segment-deletions}
 
-Braze sendet eine Bestätigungs-E-Mail mit der Anzahl der zur Löschung ausstehenden Profile.
+Braze sendet eine Bestätigungs-E-Mail mit der Anzahl der Profile, die zur Löschung ausstehen.
 
 Um mit der Löschung fortzufahren, melden Sie sich bei Braze an und bestätigen Sie die Löschanfrage.
 
-Wenn Sie nicht innerhalb des in der E-Mail angegebenen Zeitraums bestätigen, läuft die Löschanfrage ab und wird nicht ausgeführt.
+Wenn Sie die Löschung nicht innerhalb des in der E-Mail angegebenen Zeitraums bestätigen, läuft die Löschanfrage ab und wird nicht ausgeführt.
 
 ## Segment-Löschungen abbrechen {#cancel}
 

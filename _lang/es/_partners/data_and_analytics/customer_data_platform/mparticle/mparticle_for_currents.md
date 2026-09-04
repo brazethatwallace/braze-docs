@@ -2,7 +2,7 @@
 nav_title: mParticle para Currents
 article_title: mParticle para Currents
 alias: /partners/mparticle_for_currents/
-description: "Este artículo de referencia describe la asociación entre Braze Currents y mParticle, una plataforma de datos de los clientes que recopila y encamina información entre las fuentes de tu stack de marketing."
+description: "Este artículo de referencia describe la asociación entre Braze Currents y mParticle, una CDP que recopila y encamina información entre las fuentes de tu stack de marketing."
 page_type: partner
 tool: Currents
 search_tag: Partner
@@ -11,17 +11,17 @@ search_tag: Partner
 
 # mParticle para Currents {#mparticle-for-currents}
 
-> [mParticle](https://www.mparticle.com) es una plataforma de datos de los clientes que recopila y encamina información de múltiples fuentes a una variedad de otras ubicaciones en tu stack de marketing.
+> [mParticle](https://www.mparticle.com) es una CDP que recopila y encamina información de múltiples fuentes a una variedad de otras ubicaciones en tu stack de marketing.
 
-La integración de Braze y mParticle te permite controlar fácilmente el flujo de información entre ambos sistemas. Con [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), también puedes conectar los datos a mParticle para que sean procesables en todo el stack de crecimiento.
+La integración de Braze y mParticle te permite controlar fácilmente el flujo de información entre ambos sistemas. Con [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), también puedes conectar los datos a mParticle para que sean procesables en todo el stack de crecimiento.
 
 ## Requisitos previos {#prerequisites}
 
 | Requisito | Descripción |
 | ----------- | ----------- |
-| Currents | Para volver a exportar datos a mParticle, debes tener configurado [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) en tu cuenta. |
+| Currents | Para volver a exportar datos a mParticle, debes tener configurado [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents#access-currents) en tu cuenta. |
 | Cuenta de mParticle | Se necesita una [cuenta de mParticle](https://app.mparticle.com/login) para beneficiarse de esta asociación. |
-| Clave y secreto de servidor a servidor de mParticle | Se pueden obtener navegando hasta tu dashboard de mParticle y creando las [fuentes necesarias](#step-1-create-feeds) que permitan a mParticle recibir datos de interacción de Braze para las plataformas iOS, Android y Web.|
+| Clave y secreto de servidor a servidor de mParticle | Se pueden obtener navegando hasta tu panel de mParticle y creando las [fuentes necesarias](#step-1-create-feeds) que permitan a mParticle recibir datos de interacción de Braze para las plataformas iOS, Android y Web.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Acerca de las credenciales de mParticle {#about-mparticle-credentials}
@@ -41,7 +41,7 @@ Desde tu cuenta de administrador de mParticle, ve a **Setup > Inputs**. Localiza
 
 La integración de fuente de Braze admite cuatro fuentes separadas: iOS, Android, Web y Unbound. La fuente Unbound puede utilizarse para eventos como correos electrónicos que no están conectados a una plataforma. Necesitarás crear una entrada para cada fuente de plataforma principal. Puedes crear entradas adicionales desde **Setup > Inputs**, en la pestaña **Feed Configurations**.
 
-![]({% image_buster /assets/img/braze-feed-inputs.png %})
+![Configuración de entrada de fuente de mParticle que muestra las opciones de fuente de Braze para iOS, Android, Web y Unbound.]({% image_buster /assets/img/braze-feed-inputs.png %})
 
 Para cada fuente, en **Act as Platform** selecciona la plataforma correspondiente de la lista. Si no ves una opción para seleccionar una fuente **act-as**, los datos se tratarán como Unbound, pero aún podrán reenviarse a salidas de almacén de datos.
 
@@ -65,9 +65,9 @@ Todos los eventos enviados a mParticle incluirán el `external_user_id` del usua
 
 Braze admite la exportación de los siguientes eventos a mParticle:
 
-- [Eventos de interacción con mensajes]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)
-- [Eventos de comportamiento del cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)
+- [Eventos de interacción con mensajes]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)
+- [Eventos de comportamiento del cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)
 
-Para conocer la estructura de la carga útil de cada evento, selecciona la pestaña **mParticle** en el [glosario de eventos de interacción con mensajes]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) y el [glosario de eventos de comportamiento del cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/).
+Para conocer la estructura de la carga útil de cada evento, selecciona la pestaña **mParticle** en el [glosario de eventos de interacción con mensajes]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) y el [glosario de eventos de comportamiento del cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events).
 
 Para obtener más información sobre la integración de mParticle, visita la [documentación de mParticle](http://docs.mparticle.com/integrations/braze/feed).

@@ -25,11 +25,11 @@ Mit der Integration von Braze und Airbridge können Sie alle nicht-organischen D
 | Airbridge-Konto | Um diese Partnerschaft nutzen zu können, benötigen Sie ein Airbridge-Konto. |
 | iOS- oder Android-App | Diese Integration unterstützt iOS- und Android-Apps. Je nach Plattform können Code-Snippets in Ihrer Anwendung erforderlich sein. |
 | Airbridge SDK | Zusätzlich zum erforderlichen Braze SDK müssen Sie das Airbridge [Android](https://help.airbridge.io/en/developers/android-sdk)- oder [iOS](https://help.airbridge.io/en/developers/ios-sdk)-SDK installieren. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
-### 1. Schritt: Geräte-ID zuordnen {#step-1-map-device-id}
+### Schritt 1: Geräte-ID zuordnen {#step-1-map-device-id}
 
 Die Server-zu-Server-Integration kann durch Einfügen der folgenden Code-Snippets in Ihre Apps aktiviert werden.
 
@@ -190,27 +190,27 @@ AirbridgeUnity.StartTracking()
 {% endtab %}
 {% endtabs %}
 
-### 2. Schritt: Datenimport-Schlüssel für Braze abrufen {#step-2-get-the-braze-data-import-key}
+### Schritt 2: Datenimport-Schlüssel für Braze abrufen {#step-2-get-the-braze-data-import-key}
 
 Navigieren Sie in Braze zu **Partnerintegrationen** > **Technologie-Partner** und wählen Sie **Airbridge** aus.
 
 Hier finden Sie den REST-Endpunkt und können Ihren Datenimport-Schlüssel für Braze generieren. Nachdem der Schlüssel generiert wurde, können Sie einen neuen Schlüssel erstellen oder einen bestehenden Schlüssel ungültig machen. Der Datenimport-Schlüssel und der REST-Endpunkt werden im nächsten Schritt verwendet, wenn Sie ein Postback im Dashboard von Airbridge einrichten.
 
-![]({% image_buster /assets/img/airbridge/airbridge_integration_step_1.png %})
+![Braze-Airbridge-Partnerseite mit den Feldern für Datenimport-Schlüssel und REST-Endpunkt.]({% image_buster /assets/img/airbridge/airbridge_integration_step_1.png %})
 
-### 3. Schritt: Braze im Dashboard von Airbridge konfigurieren {#step-3-configure-braze-in-airbridges-dashboard}
+### Schritt 3: Braze im Dashboard von Airbridge konfigurieren {#step-3-configure-braze-in-airbridges-dashboard}
 
 1. Navigieren Sie in Airbridge in der linken Seitenleiste zu **Integrations > Third-party Integrations** und wählen Sie **Braze** aus.
 2. Geben Sie den Datenimport-Schlüssel und den REST-Endpunkt an, den Sie im Braze-Dashboard gefunden haben.
-3. Wählen Sie den Event-Typ (Install-Event oder Install- und Deeplink-Öffnungs-Event) aus und speichern Sie.
+3. Wählen Sie den Ereignistyp (Install-Ereignis oder Install- und Deeplink-Öffnungs-Ereignis) aus und speichern Sie.
 
 {% alert note %}
-Die Attributionsdaten für Campaigns, die zu Deeplink-Öffnungen geführt haben, werden auf Geräteebene aktualisiert. Wenn beispielsweise zwei Nutzer:innen ein Gerät verwenden und eine Person ein Deeplink-Öffnungs-Event ausführt, werden die Attributionsdaten dieses Events auch in die Daten der anderen Person übernommen.
+Die Attributionsdaten für Campaigns, die zu Deeplink-Öffnungen geführt haben, werden auf Geräteebene aktualisiert. Wenn beispielsweise zwei Nutzer:innen ein Gerät verwenden und eine Person ein Deeplink-Öffnungs-Ereignis ausführt, werden die Attributionsdaten dieses Ereignisses auch in die Daten der anderen Person übernommen.
 {% endalert %}
 
 Ausführlichere Anweisungen finden Sie unter [Airbridge](https://help.airbridge.io/en/guides/braze).
 
-### 4. Schritt: Integration bestätigen {#step-4-confirm-the-integration}
+### Schritt 4: Integration bestätigen {#step-4-confirm-the-integration}
 
 Nachdem Braze Attributionsdaten von Airbridge erhalten hat, ändert sich der Verbindungsstatus auf der Airbridge-Technologie-Partnerseite in Braze von „Nicht verbunden“ zu „Verbunden“ und enthält einen Zeitstempel der letzten erfolgreichen Anfrage.
 
@@ -218,7 +218,7 @@ Dieser Status ändert sich erst, wenn Braze Daten über eine attributierte Insta
 
 ## Verfügbare Datenfelder {#available-data-fields}
 
-Airbridge kann vier Arten von Attributionsdaten an Braze senden, die in dem folgenden Chart aufgeführt sind. Diese Daten können im Airbridge-Dashboard eingesehen werden und werden für die Install-Attribution und Filterung von Nutzer:innen verwendet.
+Airbridge kann vier Arten von Attributionsdaten an Braze senden, die in der folgenden Tabelle aufgeführt sind. Diese Daten können im Airbridge-Dashboard eingesehen werden und werden für die Install-Attribution und Filterung von Nutzer:innen verwendet.
 
 Vorausgesetzt, Sie konfigurieren Ihre Integration wie vorgeschlagen, wird Braze die Installationsdaten den Segment-Filtern zuordnen.
 
@@ -228,11 +228,11 @@ Vorausgesetzt, Sie konfigurieren Ihre Integration wie vorgeschlagen, wird Braze 
 | `Campaign` | Install-Attribution-Campaign | Die Campaign, der die Installationen oder Deeplink-Öffnungen zugerechnet werden |
 | `Ad Group` | Install-Attribution-Anzeigengruppe | Die Anzeigengruppe, der die Installationen oder Deeplink-Öffnungen zugeschrieben werden |
 | `Ad Creative` | Install-Attribution-Anzeige | Das Werbemittel, dem die Installationen oder Deeplink-Öffnungen zugeschrieben werden |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Available data fields" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Verfügbare Datenfelder" }
 
 Ihre Nutzerbasis kann im Braze-Dashboard mithilfe der Install-Attribution-Filter nach Attributionsdaten segmentiert werden.
 
-![]({% image_buster /assets/img/airbridge/airbridge_integration_step_2.png %})
+![Braze-Segment-Filter mit den verfügbaren Airbridge-Install-Attribution-Feldern.]({% image_buster /assets/img/airbridge/airbridge_integration_step_2.png %})
 
 ## Meta Business-Attributionsdaten {#meta-business-attribution-data}
 
@@ -240,13 +240,13 @@ Attributionsdaten für Meta Business-Campaigns sind nicht über unsere Partner v
 
 ## Airbridge-Click-Tracking-URLs in Braze (optional)
 
-Die Verwendung von Click-Tracking-Links in Ihren Braze-Campaigns zeigt, welche Campaigns App-Installationen und erneute Interaktionen fördern. Nutzen Sie die Ergebnisse, um die Marketing-Performance zu messen und zu entscheiden, wo Sie Ressourcen für einen höheren ROI investieren sollten.
+Die Verwendung von Click-Tracking-Links in Ihren Braze-Campaigns zeigt, welche Campaigns App-Installationen und erneute Interaktionen fördern. Nutzen Sie die Ergebnisse, um die Marketing-Performance zu messen und zu entscheiden, wo Sie Ressourcen für einen höheren Kapitalrendite investieren sollten.
 
 Um mit Airbridge-Click-Tracking-Links zu beginnen, besuchen Sie [Airbridge](https://help.airbridge.io/en/guides/creating-a-new-tracking-link). Nachdem die Einrichtung abgeschlossen ist, können Sie die Airbridge-Click-Tracking-Links direkt in Ihre Braze-Campaigns einfügen. Airbridge verwendet dann seine [probabilistischen Attributionsmethoden](https://help.airbridge.io/en/guides/identity-matching), um die Nutzer:innen zu attributieren, die auf den Link geklickt haben. Wir empfehlen, Ihre Airbridge-Tracking-Links mit einem Geräte-Bezeichner zu versehen, um die Genauigkeit der Attributionen Ihrer Braze-Campaigns zu verbessern. Dadurch werden die Nutzer:innen, die auf den Link geklickt haben, deterministisch attributiert.
 
 {% tabs %}
 {% tab Android %}
-Für Android erlaubt Braze Kund:innen, sich für die [Erfassung der Google Advertising ID (GAID)]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/optional_gaid_collection/#optional-google-advertising-id) zu entscheiden. Die GAID wird auch nativ über die Airbridge-SDK-Integration erfasst. Sie können die GAID in Ihre Airbridge-Click-Tracking-Links einfügen, indem Sie die folgende Liquid-Logik verwenden:
+Für Android erlaubt Braze Kund:innen, sich für die [Erfassung der Google Advertising ID (GAID)]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/optional_gaid_collection#optional-google-advertising-id) zu entscheiden. Die GAID wird auch nativ über die Airbridge-SDK-Integration erfasst. Sie können die GAID in Ihre Airbridge-Click-Tracking-Links einfügen, indem Sie die folgende Liquid-Logik verwenden:
 {% raw %}
 ```
 {% if most_recently_used_device.${platform} == 'android' %}

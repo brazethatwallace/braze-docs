@@ -18,51 +18,51 @@ platform:
 
 > Esta guía te ayuda en la migración de Content Cards a banners para casos de uso de mensajería tipo banner. Los banners son ideales para mensajes en línea, persistentes dentro de la aplicación y en la Web que aparecen en ubicaciones específicas de tu aplicación.
 
-## ¿Por qué realizar la migración a banners? {#why-migrate-to-banners}
+## ¿Por qué migrar a Banners? {#why-migrate-to-banners}
 
-- Si tu equipo de ingeniería está creando o manteniendo Content Cards personalizadas, la migración a banners puede reducir esa inversión continua. Los banners permiten a los especialistas en marketing controlar directamente la interfaz de usuario, lo que libera a los desarrolladores para que puedan dedicarse a otras tareas.
-- Si vas a lanzar nuevos mensajes en la página de inicio, flujos de incorporación o anuncios persistentes, empieza con banners en lugar de crear Content Cards. Podrás beneficiarte de la personalización en tiempo real, sin caducidad a los 30 días, sin límite de tamaño y con priorización nativa desde el primer día.
-- Si estás lidiando con el límite de caducidad de 30 días, administrando una lógica de reelegibilidad compleja o frustrado por una personalización obsoleta, los banners resuelven estos problemas de forma nativa.
+- Si tu equipo de ingeniería está construyendo o manteniendo Content Cards personalizadas, migrar a Banners puede reducir esa inversión continua. Banners permite a los especialistas en marketing controlar la interfaz de usuario directamente, liberando a los desarrolladores para otro trabajo.
+- Si estás lanzando nuevos mensajes en la página de inicio, flujos de incorporación o anuncios persistentes, comienza con Banners en lugar de construir sobre Content Cards. Puedes beneficiarte de la personalización en tiempo real, sin expiración de 30 días, sin límite de tamaño y priorización nativa desde el primer día.
+- Si estás buscando soluciones alternativas al límite de expiración de 30 días, gestionando lógica compleja de reelegibilidad o frustrado por la personalización obsoleta, Banners resuelve estos problemas de forma nativa.
 
-Los banners ofrecen varias ventajas con respecto a Content Cards para la mensajería tipo banner:
+Banners ofrece varias ventajas sobre Content Cards para mensajería de tipo banner:
 
 ### Producción acelerada {#accelerated-production}
 
-- **Reducción del soporte de ingeniería continuo necesario**: Los especialistas en marketing pueden crear mensajes personalizados utilizando un editor de arrastrar y soltar y HTML personalizado sin necesidad de ayuda de desarrolladores para la personalización.
-- **Opciones de personalización flexibles**: Diseña directamente en el editor, utiliza HTML o aprovecha los modelos de datos existentes con propiedades personalizadas.
+- **Menor soporte de ingeniería continuo requerido**: Los especialistas en marketing pueden crear mensajes personalizados usando un editor de arrastrar y soltar y HTML personalizado sin necesidad de asistencia del desarrollador para la personalización.
+- **Opciones de personalización flexibles**: Diseña directamente en el editor, usa HTML o aprovecha modelos de datos existentes con propiedades personalizadas.
 
 ### Mejor experiencia de usuario {#better-ux}
 
-- **Actualizaciones dinámicas de contenido**: Los banners actualizan la lógica de Liquid y la elegibilidad en cada actualización, lo que garantiza que los usuarios siempre vean el contenido más relevante.
-- **Compatibilidad con la ubicación nativa**: Los mensajes aparecen en contextos específicos en lugar de en una fuente, lo que proporciona una mayor relevancia contextual.
-- **Priorización nativa**: Control sobre el orden de visualización sin lógica personalizada, lo que facilita la administración de la jerarquía de mensajes.
+- **Actualizaciones de contenido dinámico**: Banners actualiza la lógica Liquid y la elegibilidad en cada actualización, asegurando que los usuarios siempre vean el contenido más relevante.
+- **Soporte nativo de ubicación**: Los mensajes aparecen en contextos específicos en lugar de una fuente, proporcionando mejor relevancia contextual.
+- **Priorización nativa**: Control sobre el orden de visualización sin lógica personalizada, lo que facilita la gestión de la jerarquía de mensajes.
 
 ### Persistencia {#persistence}
 
-- **Sin límite de caducidad**: Las campañas con banners no tienen un límite de caducidad de 30 días como Content Cards, lo que permite una verdadera persistencia de los mensajes.
+- **Sin límite de expiración**: Las Campaigns de Banners no tienen un límite de expiración de 30 días como Content Cards, lo que permite una verdadera persistencia de los mensajes.
 
-## Cuándo realizar la migración {#when-to-migrate}
+## Cuándo migrar {#when-to-migrate}
 
-Considera la migración a banners si utilizas Content Cards para:
+Considera migrar a Banners si estás usando Content Cards para:
 
-- Héroes de la página de inicio, promociones en la página de productos, ofertas en el proceso de pago
-- Anuncios de navegación persistentes o mensajes en la barra lateral
-- Mensajes siempre activos con una duración superior a 30 días
+- Héroes de página de inicio, promociones de páginas de producto, ofertas en el proceso de pago
+- Anuncios persistentes de navegación o mensajes en la barra lateral
+- Mensajes siempre activos que se ejecutan durante más de 30 días
 - Mensajes en los que deseas personalización y elegibilidad en tiempo real
 
-## Cuándo conservar Content Cards {#when-to-keep-content-cards}
+## Cuándo seguir usando Content Cards {#when-to-keep-content-cards}
 
-Sigue utilizando Content Cards si necesitas:
+Sigue usando Content Cards si necesitas:
 
-- **Experiencias con la fuente:** Cualquier caso de uso que implique múltiples mensajes desplazables o un «buzón de entrada» basado en tarjetas.
-- **Características específicas:** Mensajes que requieren contenido conectado o códigos promocionales, ya que los banners no los admiten de forma nativa.
-- **Entrega desencadenada:** Casos de uso que requieren estrictamente una entrega desencadenada por API o basada en acciones. Aunque los banners no admiten la entrega desencadenada por API o basada en acciones, la evaluación de elegibilidad en tiempo real significa que los usuarios se clasifican o descartan instantáneamente en función de su pertenencia a un segmento cada vez que se actualiza la página.
+- **Experiencias de fuente:** Cualquier ejemplo que implique múltiples mensajes desplazables o un "buzón de entrada" basado en tarjetas.
+- **Características específicas:** Mensajes que requieren códigos promocionales, ya que los banners no los admiten de forma nativa. Los banners admiten [contenido conectado]({{site.baseurl}}/developer_guide/banners#connected-content) en acceso anticipado.
+- **Entrega desencadenada:** Ejemplos que requieren estrictamente entrega activada por API o entrega basada en acciones. Aunque los banners no admiten la entrega activada por API ni la entrega basada en acciones, la evaluación de elegibilidad en tiempo real significa que los usuarios califican o dejan de calificar instantáneamente en función de la pertenencia a un segmento en cada actualización.
 
 ## Guía de migración {#migration-guide}
 
 ### Requisitos previos {#prerequisites}
 
-Antes de la migración, asegúrate de que tu SDK de Braze cumple los requisitos mínimos de versión:
+Antes de migrar, asegúrate de que tu SDK de Braze cumple con los requisitos mínimos de versión:
 
 {% multi_lang_include developer_guide/sdk_versions.md feature='banners' %}
 
@@ -70,7 +70,7 @@ Los descartes y la reelegibilidad requieren las siguientes versiones mínimas de
 
 {% sdk_min_versions swift:14.1.0 android:42.1.0 web:6.7.1 %}
 
-### Suscribirse a las actualizaciones {#subscribe-to-updates}
+### Suscribirse a actualizaciones {#subscribe-to-updates}
 
 #### Enfoque de Content Cards {#content-cards-approach}
 
@@ -130,7 +130,7 @@ StreamSubscription contentCardsStreamSubscription = braze.subscribeToContentCard
 {% endtab %}
 {% endtabs %}
 
-#### Enfoque de los banners {#banners-approach}
+#### Enfoque de banners {#banners-approach}
 
 {% tabs %}
 {% tab Web %}
@@ -199,7 +199,7 @@ StreamSubscription bannerStreamSubscription = braze.subscribeToBanners((List<Bra
 ### Mostrar contenido {#display-content}
 
 {% alert note %}
-Content Cards se pueden renderizar manualmente con lógica de interfaz de usuario personalizada, mientras que los banners solo se pueden renderizar con los métodos del SDK listos para usar.
+Las Content Cards se pueden renderizar manualmente con lógica de interfaz personalizada, mientras que los banners solo se pueden renderizar con los métodos del SDK incluidos de serie.
 {% endalert %}
 
 #### Enfoque de Content Cards
@@ -263,7 +263,7 @@ for card in cards {
 Braze.launchContentCards();
 
 // Or manually render cards
-const cards = await Braze.getContentCards();
+const cards = await Braze.getCachedContentCards();
 cards.forEach(card => {
   if (card.type === 'CLASSIC') {
     // Render classic card
@@ -287,7 +287,7 @@ for (final card in cards) {
 {% endtab %}
 {% endtabs %}
 
-#### Enfoque de los banners
+#### Enfoque de banners
 
 {% tabs %}
 {% tab Web %}
@@ -353,7 +353,7 @@ braze.banners.requestBannersRefresh(placementIds: ["sample_placement_id"])
 ```javascript
 // Using BrazeBannerView component
 <Braze.BrazeBannerView
-  placementID='sample_placement_id'
+  placementId='sample_placement_id'
 />
 
 // Or get banner data
@@ -383,10 +383,10 @@ braze.requestBannersRefresh(["sample_placement_id"]);
 {% endtab %}
 {% endtabs %}
 
-### Registro de análisis (implementaciones personalizadas) {#log-analytics-custom-implementations}
+### Registrar análisis (implementaciones personalizadas) {#log-analytics-custom-implementations}
 
 {% alert note %}
-Tanto Content Cards como los banners realizan un seguimiento automático de los análisis cuando se utilizan sus componentes de interfaz de usuario predeterminados. Los ejemplos siguientes son para implementaciones personalizadas en las que creas tu propia interfaz de usuario.
+Tanto Content Cards como los banners rastrean análisis automáticamente cuando se utilizan sus componentes de interfaz predeterminados. Los siguientes ejemplos son para implementaciones personalizadas en las que construyes tu propia interfaz.
 {% endalert %}
 
 #### Enfoque de Content Cards
@@ -449,13 +449,13 @@ braze.logContentCardClicked(card);
 {% endtab %}
 {% endtabs %}
 
-#### Enfoque de los banners
+#### Enfoque de banners
 
 {% tabs %}
 {% tab Web %}
 
 {% alert important %}
-El seguimiento de los análisis se realiza automáticamente cuando usas `insertBanner()`. No se debe utilizar el registro manual cuando se utiliza `insertBanner()`.
+Los análisis se rastrean automáticamente cuando se usa `insertBanner()`. No se debe usar el registro manual cuando se utiliza `insertBanner()`.
 {% endalert %}
 
 ```javascript
@@ -473,7 +473,7 @@ braze.logBannerClick("sample_placement_id", buttonId);
 {% tab Android %}
 
 {% alert important %}
-Los análisis se rastrean automáticamente cuando usas BannerView. No se debe utilizar el registro manual cuando se utiliza BannerView.
+Los análisis se rastrean automáticamente cuando se usa BannerView. No se debe usar el registro manual cuando se utiliza BannerView.
 {% endalert %}
 
 ```kotlin
@@ -491,7 +491,7 @@ Braze.getInstance(context).logBannerClick("sample_placement_id", buttonId);
 {% tab Swift %}
 
 {% alert important %}
-El seguimiento de los análisis se realiza automáticamente cuando usas BannerUIView. No se debe utilizar el registro manual para el BannerUIView predeterminado.
+Los análisis se rastrean automáticamente cuando se usa BannerUIView. No se debe usar el registro manual para el BannerUIView predeterminado.
 {% endalert %}
 
 ```swift
@@ -516,7 +516,7 @@ braze.banners.getBanner(for: "sample_placement_id") { banner in
 {% tab React Native %}
 
 {% alert important %}
-El seguimiento de los análisis se realiza automáticamente cuando usas BrazeBannerView. No es necesario registrar manualmente.
+Los análisis se rastrean automáticamente cuando se usa BrazeBannerView. No se requiere registro manual.
 {% endalert %}
 
 ```javascript
@@ -530,7 +530,7 @@ El seguimiento de los análisis se realiza automáticamente cuando usas BrazeBan
 {% tab Flutter %}
 
 {% alert important %}
-El seguimiento de los análisis se realiza automáticamente cuando usas BrazeBannerView. No es necesario registrar manualmente.
+Los análisis se rastrean automáticamente cuando se usa BrazeBannerView. No se requiere registro manual.
 {% endalert %}
 
 ```dart
@@ -585,7 +585,7 @@ for (final card in cards) {
 {% endtab %}
 {% endtabs %}
 
-#### Enfoque de los banners
+#### Enfoque de banners
 
 {% tabs %}
 {% tab Web %}
@@ -633,7 +633,7 @@ if (banner != null) {
 {% endtab %}
 {% endtabs %}
 
-### Manejo de grupos de control {#handling-control-groups}
+### Gestión de grupos de control {#handling-control-groups}
 
 #### Enfoque de Content Cards
 
@@ -695,7 +695,7 @@ for (final card in cards) {
 {% endtab %}
 {% endtabs %}
 
-#### Enfoque de los banners
+#### Enfoque de banners
 
 {% tabs %}
 {% tab Web %}
@@ -742,7 +742,7 @@ let bannerView = BrazeBannerUI.BannerUIView(
 // BrazeBannerView automatically handles control groups
 // No additional code needed
 <Braze.BrazeBannerView
-  placementID='sample_placement_id'
+  placementId='sample_placement_id'
 />
 ```
 {% endtab %}
@@ -759,55 +759,56 @@ BrazeBannerView(
 
 ## Limitaciones {#limitations}
 
-Al realizar la migración de Content Cards a banners, ten en cuenta las siguientes limitaciones:
+Al migrar de Content Cards a Banners, ten en cuenta las siguientes limitaciones:
 
 ### Migración de mensajes desencadenados {#migrating-triggered-messages}
 
-Los banners solo admiten campañas de entrega planificada. Para realizar la migración de un mensaje que anteriormente se desencadenaba mediante API o se basaba en acciones, conviértelo en una segmentación basada en segmentos:
+Los Banners solo admiten Campaigns de entrega programada. Para migrar un mensaje que anteriormente se activaba mediante API o era basado en acciones, conviértelo a segmentación basada en Segment:
 
-- **Ejemplo:** En lugar de desencadenar una tarjeta «Completar perfil» con la API, crea un segmento para los usuarios que se hayan registrado en los últimos 7 días pero que no hayan completado su perfil.
-- **Elegibilidad en tiempo real:** Los usuarios se clasifican o descalifican para el banner instantáneamente en cada actualización en función de su pertenencia al segmento.
+- **Ejemplo:** En lugar de desencadenar una tarjeta "Completar perfil" con la API, crea un Segment para usuarios que se registraron en los últimos 7 días pero no han completado su perfil.
+- **Elegibilidad en tiempo real:** Los usuarios califican o dejan de calificar para el Banner instantáneamente en cada actualización según su pertenencia al Segment.
 
-### Diferencias entre características {#feature-differences}
+### Diferencias de características {#feature-differences}
 
 | Característica | Content Cards | Banners |
 |---------|--------------|---------|
-| **Estructura del contenido** |
-| Varias tarjetas en la fuente | ✅ Compatible | ✅ Puedes crear múltiples ubicaciones para lograr una implementación similar a un carrusel. Solo se devuelve un banner por ubicación. |
-| Múltiples ubicaciones | N/A | ✅ Compatible con múltiples ubicaciones |
-| Tipos de tarjetas (clásicas, con leyenda, solo imagen) | ✅ Múltiples tipos predefinidos | ✅ Banner único basado en HTML (más flexible) |
-| **Gestión de contenidos** |
-| Editor de arrastrar y soltar | ❌ Requiere desarrollador para personalización | ✅ Los especialistas en marketing pueden crear/actualizar sin necesidad de ingeniería |
+| **Estructura de contenido** |
+| Múltiples tarjetas en la fuente | ✅ Compatible | ✅ Puedes crear múltiples ubicaciones para lograr una implementación tipo carrusel. Solo se devuelve un banner por ubicación. |
+| Múltiples ubicaciones | N/A | ✅ Múltiples ubicaciones compatibles |
+| Tipos de tarjeta (Clásica, Con subtítulo, Solo imagen) | ✅ Múltiples tipos predefinidos | ✅ Un solo banner basado en HTML (más flexible) |
+| **Gestión de contenido** |
+| Editor de arrastrar y soltar | ❌ Requiere un desarrollador para la personalización | ✅ Los especialistas en marketing pueden crear/actualizar sin ingeniería |
 | HTML/CSS personalizado | ❌ Limitado a la estructura de la tarjeta | ✅ Compatibilidad total con HTML/CSS |
-| Pares clave-valor para personalización | ✅ Necesario para la personalización avanzada | ✅ Pares clave-valor fuertemente tipados denominados «propiedades» para una personalización avanzada |
-| **Persistencia y caducidad** |
-| Caducidad de la tarjeta | ✅ Compatible (límite de 30 días) | ✅ Compatible (sin límite de caducidad) |
-| Verdadera persistencia | ❌ Máximo 30 días | ✅ Persistencia ilimitada |
+| Pares clave-valor para personalización | ✅ Necesarios para personalización avanzada | ✅ Pares clave-valor fuertemente tipados llamados "propiedades" para personalización avanzada |
+| Extras de mensaje | ✅ Compatible | ❌ No compatible actualmente |
+| **Persistencia y expiración** |
+| Expiración de tarjeta | ✅ Compatible (límite de 30 días) | ✅ Compatible (sin límite de expiración) |
+| Persistencia real | ❌ Máximo de 30 días | ✅ Persistencia ilimitada |
 | **Visualización y segmentación** |
-| Interfaz de usuario de fuente | ✅ Fuente predeterminada disponible | ❌ Solo basado en la ubicación |
-| Colocación específica según el contexto | ❌ Basado en fuente | ✅ Compatibilidad con la ubicación nativa |
+| Interfaz de fuente | ✅ Fuente predeterminada disponible | ❌ Solo basado en ubicaciones |
+| Ubicación contextual específica | ❌ Basado en fuente | ✅ Compatibilidad nativa con ubicaciones |
 | Priorización | ❌ Requiere lógica personalizada | ✅ Priorización nativa |
 | **Interacción del usuario** |
 | Descarte manual | ✅ Compatible | ✅ Compatible |
-| Reelegibilidad tras el descarte | ❌ Requiere filtros personalizados o lógica de Campaign | ✅ Periodo de espera predeterminado |
+| Reelegibilidad después del descarte | ❌ Requiere filtros personalizados o lógica de Campaign | ✅ Período de espera predeterminado |
 | Tarjetas ancladas | ✅ Compatible | N/A |
 | **Análisis** |
-| Análisis automático (interfaz de usuario predeterminada) | ✅ Compatible | ✅ Compatible |
+| Análisis automáticos (interfaz predeterminada) | ✅ Compatible | ✅ Compatible |
 | Ordenación por prioridad | ❌ No compatible | ✅ Compatible |
 | **Actualizaciones de contenido** |
-| Actualización de plantillas Liquid | ❌ Una vez por tarjeta al enviar/lanzar | ✅ Se actualiza cada vez que se refresca |
-| Actualización de los requisitos de elegibilidad | ❌ Una vez por tarjeta al enviar/lanzar | ✅ Se actualiza en cada sesión |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Diferencias entre características" }
+| Actualización de plantillas Liquid | ❌ Una vez por tarjeta al enviar/lanzar | ✅ Se actualiza en cada actualización |
+| Actualización de elegibilidad | ❌ Una vez por tarjeta al enviar/lanzar | ✅ Se actualiza en cada sesión |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Diferencias de características" }
 
 ### Limitaciones del producto {#product-limitations}
 
 - Hasta 25 mensajes activos por ubicación.
-- Hasta 10 ID de ubicación por solicitud de actualización; las solicitudes que superen este límite se truncarán.
+- Hasta 10 ID de ubicación por solicitud de actualización; las solicitudes que superen este límite se truncan.
 
 ### Limitaciones del SDK {#sdk-limitations}
 
-- Actualmente, los banners no son compatibles con las plataformas .NET MAUI (Xamarin), Cordova, Unity, Vega o TV.
-- Asegúrate de que estás utilizando las versiones mínimas del SDK que se indican en los requisitos previos.
+- Los Banners no son compatibles actualmente con .NET MAUI (Xamarin), Cordova, Unity, Vega ni plataformas de TV.
+- Asegúrate de que estás utilizando las versiones mínimas del SDK indicadas en los requisitos previos.
 
 ## Artículos relacionados {#related-articles}
 

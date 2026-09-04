@@ -111,7 +111,7 @@ ou consultez [la documentation de Branch](https://help.branch.io/developers-hub/
 
 La liaison avec des numéros de téléphone (en ajoutant `tel` à `href`) n'est pas prise en charge dans l'application Gmail pour iOS, sauf si l'utilisateur accorde des autorisations d'appel à l'application.
 
-En fonction de votre ESP, une personnalisation supplémentaire peut être nécessaire pour prendre en charge les liens universels avec suivi des clics. Ces informations sont détaillées dans notre article dédié. Vous pouvez également consulter les références suivantes pour en savoir plus :
+En fonction de votre fournisseur de services d'e-mailing, une personnalisation supplémentaire peut être nécessaire pour prendre en charge les liens universels avec suivi des clics. Ces informations sont détaillées dans notre article dédié. Vous pouvez également consulter les références suivantes pour en savoir plus :
 
 - [SendGrid](https://help.branch.io/using-branch/page/braze-sendgrid)
 - [SparkPost](https://help.branch.io/using-branch/page/braze-sparkpost)
@@ -140,7 +140,7 @@ Ouvrez le lien Branch depuis l'application Notes sur un appareil iOS physique. S
 |---|---|---|
 | Le lien Branch s'ouvre dans Safari | AASA invalide ou manquant sur le domaine Branch | Vérifiez les domaines associés et le fichier AASA |
 | Le lien Branch s'ouvre mais arrive sur le mauvais écran | Données du lien Branch mal configurées | Vérifiez les règles de routage dans le tableau de bord Branch |
-| Le lien fonctionne depuis les notifications push mais pas depuis les e-mails | Le domaine de suivi des clics ne dispose pas du fichier AASA | Hébergez le fichier AASA sur le domaine de suivi des clics de votre ESP ; voir [Configuration des e-mails](#deep-linking-in-email) |
+| Le lien fonctionne depuis les notifications push mais pas depuis les e-mails | Le domaine de suivi des clics ne dispose pas du fichier AASA | Hébergez le fichier AASA sur le domaine de suivi des clics de votre fournisseur de services d'e-mailing ; voir [Configuration des e-mails](#deep-linking-in-email) |
 | `shouldOpenURL` ne se déclenche jamais pour les liens Branch | `forwardUniversalLinks` non activé | Définissez `configuration.forwardUniversalLinks = true` |
 | Le lien Branch fonctionne depuis Notes mais pas depuis Braze | `BrazeDelegate` renvoie `true` pour les URL Branch | Vérifiez la correspondance de domaine dans `shouldOpenURL` avec votre domaine Branch |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Problèmes courants" }

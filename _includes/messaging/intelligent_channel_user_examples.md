@@ -1,0 +1,3 @@
+- **User A** is subscribed to email and is push enabled. This user doesn't receive the email but will receive the push.
+- **User B** is opted-in to email but is not push enabled. This user will receive the email but doesn't receive the push.
+- **User C** is opted-in to email and is push enabled. This user will receive both the email and the push.

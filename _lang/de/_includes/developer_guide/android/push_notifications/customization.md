@@ -76,16 +76,16 @@ Bei Aktions-Buttons für Benachrichtigungen werden die `BRAZE_PUSH_INTENT_NOTIFI
 {% endalert %}
 
 {% alert important %}
-Erstellen Sie Ihren Listener für Push-Benachrichtigungen in `Application.onCreate`, um sicherzustellen, dass er getriggert wird, wenn eine Endnutzer:in auf eine Benachrichtigung tippt, während sich Ihre App in einem beendeten Zustand befindet.
+Erstellen Sie Ihren Listener für Push-Benachrichtigungen in `Application.onCreate`, um sicherzustellen, dass er getriggert wird, wenn Endnutzer:innen auf eine Benachrichtigung tippen, während sich Ihre App in einem beendeten Zustand befindet.
 {% endalert %}
 
 ## Anpassen der Benachrichtigungsanzeige {#customization-display}
 
-### 1. Schritt: Angepasste Benachrichtigungs-Factory erstellen {#step-1-create-your-custom-notification-factory}
+### Schritt 1: Angepasste Benachrichtigungs-Factory erstellen {#step-1-create-your-custom-notification-factory}
 
 In manchen Szenarien möchten Sie Push-Benachrichtigungen auf eine Weise anpassen, die auf dem Server umständlich oder nicht verfügbar wäre. Um Ihnen die vollständige Kontrolle über die Benachrichtigungsanzeige zu geben, haben wir die Möglichkeit hinzugefügt, Ihre eigene [`IBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html) zu definieren, um Benachrichtigungsobjekte für die Anzeige durch Braze zu erstellen.
 
-Wenn eine angepasste `IBrazeNotificationFactory` eingestellt ist, ruft Braze beim Push-Empfang die Methode `createNotification()` Ihrer Factory auf, bevor die Benachrichtigung der Nutzer:in angezeigt wird. Braze übergibt ein `Bundle` mit Push-Daten von Braze und ein weiteres `Bundle` mit angepassten Schlüssel-Wert-Paaren, die entweder über das Dashboard oder die Messaging-APIs gesendet werden:
+Wenn eine angepasste `IBrazeNotificationFactory` eingestellt ist, ruft Braze beim Push-Empfang die Methode `createNotification()` Ihrer Factory auf, bevor die Benachrichtigung den Nutzer:innen angezeigt wird. Braze übergibt ein `Bundle` mit Push-Daten von Braze und ein weiteres `Bundle` mit angepassten Schlüssel-Wert-Paaren, die entweder über das Dashboard oder die Messaging-APIs gesendet werden:
 
 Braze übermittelt ein [`BrazeNotificationPayload`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.push/-braze-notification-payload/index.html) mit Daten aus der Braze-Push-Benachrichtigung.
 
@@ -127,7 +127,7 @@ Sie können von Ihrer angepassten `createNotification()`-Methode `null` zurückg
 Die Dokumentation zu den Push-Datenschlüsseln von Braze finden Sie im [Android SDK](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-constants/index.html).
 {% endalert %}
 
-### 2. Schritt: Angepasste Benachrichtigungs-Factory einstellen {#step-2-set-your-custom-notification-factory}
+### Schritt 2: Angepasste Benachrichtigungs-Factory einstellen {#step-2-set-your-custom-notification-factory}
 
 Um Braze anzuweisen, Ihre angepasste Benachrichtigungs-Factory zu verwenden, nutzen Sie die Methode `setCustomBrazeNotificationFactory`, um Ihre [`IBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html) einzustellen:
 
@@ -207,7 +207,7 @@ Fügen Sie Folgendes in Ihrer `braze.xml` hinzu:
 {% endtab %}
 
 {% tab BrazeConfig %}
-Fügen Sie Folgendes in Ihrer [`BrazeConfig`]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/runtime_configuration/#runtime-configuration) hinzu:
+Fügen Sie Folgendes in Ihrer [`BrazeConfig`]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/runtime_configuration#runtime-configuration) hinzu:
 
 {% subtabs local %}
 {% subtab JAVA %}
@@ -334,7 +334,7 @@ Derzeit listet Google die unterstützten HTML-Tags für Android nicht direkt in 
 
 Mit Inline-Bild-Push können Sie ein größeres Bild in Ihrer Android-Push-Benachrichtigung präsentieren. Bei diesem Design müssen Nutzer:innen die Push-Benachrichtigung nicht mehr manuell erweitern, um das Bild zu vergrößern. Im Gegensatz zu normalen Android-Push-Benachrichtigungen haben Inline-Bild-Push-Bilder ein Seitenverhältnis von 3:2.
 
-![]({% image_buster /assets/img/android/push/inline_image_push_android_1.png %}){: style="max-width:50%;"}
+![Vorschau einer Android-Push-Benachrichtigung mit Inline-Bild-Darstellung.]({% image_buster /assets/img/android/push/inline_image_push_android_1.png %}){: style="max-width:50%;"}
 
 ### Kompatibilität {#compatibility}
 
@@ -354,11 +354,28 @@ Wenn Sie eine Android-Push-Nachricht erstellen, ist diese Funktion im Dropdown-M
 
 Für Android-Push-Benachrichtigungen, die über das Braze-Dashboard versendet werden, stehen zahlreiche erweiterte Einstellungen zur Verfügung. Dieser Artikel beschreibt diese Features und wie Sie sie erfolgreich nutzen können.
 
-![]({% image_buster /assets/img_archive/android_advanced_settings.png %})
+![Panel für erweiterte Einstellungen im Braze Android Push Composer.]({% image_buster /assets/img_archive/android_advanced_settings.png %})
 
 ### Benachrichtigungs-ID {#notification-id}
 
 Eine **Benachrichtigungs-ID** ist ein eindeutiger Bezeichner für eine von Ihnen gewählte Nachrichtenkategorie, der dem Messaging-Dienst mitteilt, dass er nur die jüngste Nachricht mit dieser ID berücksichtigen soll. Wenn Sie eine Benachrichtigungs-ID festlegen, können Sie nur die aktuellste und relevanteste Nachricht versenden, anstatt einen Stapel veralteter, irrelevanter Nachrichten.
+
+#### Verhindern, dass identische Benachrichtigungen sich gegenseitig überschreiben {#preventing-duplicate-notifications-from-overwriting}
+
+Standardmäßig generiert Android bei Push-Benachrichtigungen mit identischem Titel und Textkörper dieselbe Benachrichtigungs-ID für beide Nachrichten, indem Titel und Text zusammen gehasht werden. Dadurch überschreibt die zweite Benachrichtigung die erste, sodass nur eine einzige Benachrichtigung in der Benachrichtigungsleiste erscheint.
+
+Um zu verhindern, dass identische Benachrichtigungen sich gegenseitig überschreiben, können Sie in Ihren Android-Push-Benachrichtigungseinstellungen eindeutige Benachrichtigungs-ID-Werte angeben. Hier sind einige Optionen:
+
+- **Liquid-Templating mit Zeitstempel verwenden:** Generieren Sie einen eindeutigen Wert basierend auf der aktuellen Uhrzeit.
+
+{% raw %}
+```liquid
+{% assign random_number = 'now' | date: '%s' | plus: 1000000 %}
+{{random_number}}
+```
+{% endraw %}
+
+- **Serverseitige Generierung:** Für wirklich zufällige Werte generieren Sie die Benachrichtigungs-ID auf Ihrem Server und übergeben sie über Liquid. Dadurch wird sichergestellt, dass jede Benachrichtigung einen eindeutigen Bezeichner hat, sodass mehrere Benachrichtigungen gleichzeitig angezeigt werden können.
 
 ### Priorität der Firebase-Nachrichtenzustellung {#fcm-priority}
 
@@ -366,7 +383,7 @@ Mit dem Feld [Firebase Messaging Delivery Priority](https://firebase.google.com/
 
 ### Lebensdauer (TTL) {#ttl}
 
-Im Feld **Time to Live** (TTL) können Sie eine angepasste Zeitspanne für die Speicherung von Nachrichten beim Push-Messaging-Dienst festlegen. Die Standardwerte für die Lebensdauer betragen vier Wochen für FCM und 31 Tage für ADM.
+Im Feld **TTL** (TTL) können Sie eine angepasste Zeitspanne für die Speicherung von Nachrichten beim Push-Messaging-Dienst festlegen. Die Standardwerte für die Lebensdauer betragen vier Wochen für FCM und 31 Tage für ADM.
 
 ### Zusammenfassungstext {#summary-text}
 
@@ -382,7 +399,7 @@ Bei Push-Benachrichtigungen, die Bilder enthalten, wird der Nachrichtentext in d
 
 ### Angepasste URIs {#custom-uri}
 
-Mit der Funktion **Custom URI** können Sie eine Web-URL oder eine Android-Ressource angeben, zu der navigiert werden soll, wenn die Benachrichtigung angeklickt wird. Wenn keine angepasste URI angegeben ist, gelangen Nutzer:innen durch Klicken auf die Benachrichtigung zu Ihrer App. Sie können die angepasste URI verwenden, um Deeplinks in Ihrer App zu setzen und Nutzer:innen zu Ressourcen außerhalb Ihrer App zu leiten. Dies kann über die [Messaging-API]({{site.baseurl}}/api/endpoints/messaging/) oder unser Dashboard unter **Advanced Settings** im Push Composer wie abgebildet festgelegt werden:
+Mit der Funktion **Custom URI** können Sie eine Web-URL oder eine Android-Ressource angeben, zu der navigiert werden soll, wenn die Benachrichtigung angeklickt wird. Wenn keine angepasste URI angegeben ist, gelangen Nutzer:innen durch Klicken auf die Benachrichtigung zu Ihrer App. Sie können die angepasste URI verwenden, um Deeplinks in Ihrer App zu setzen und Nutzer:innen zu Ressourcen außerhalb Ihrer App zu leiten. Dies kann über die [Messaging-API]({{site.baseurl}}/api/endpoints/messaging) oder unser Dashboard unter **Advanced Settings** im Push Composer wie abgebildet festgelegt werden:
 
 ![Die erweiterten Einstellungen für Deeplinking im Braze Push Composer.]({% image_buster /assets/img_archive/deep_link.png %})
 
@@ -415,7 +432,7 @@ Weitere Informationen finden Sie in der Google-Dokumentation zu [Android-Benachr
 
 In Android O wurden die Benachrichtigungstöne eine Eigenschaft der Benachrichtigungskanäle. Sie müssen mit Ihrer Entwickler:in zusammenarbeiten, um den Ton für einen Kanal während seiner Konfiguration zu definieren, und dann das Dashboard verwenden, um den richtigen Kanal auszuwählen, wenn Sie Ihre Benachrichtigungen senden.
 
-Für Geräte mit Android-Versionen vor O können Sie mit Braze den Ton einer einzelnen Push-Nachricht über den Dashboard Composer einstellen. Hierzu können Sie eine lokale Tonressource auf dem Gerät angeben (z. B. `android.resource://com.mycompany.myapp/raw/mysound`). Wenn Sie in diesem Feld „default“ angeben, wird der standardmäßige Benachrichtigungston auf dem Gerät abgespielt. Dies kann über die [Messaging-API]({{site.baseurl}}/api/endpoints/messaging/) oder das Dashboard unter **Advanced Settings** im Push Composer festgelegt werden.
+Für Geräte mit Android-Versionen vor O können Sie mit Braze den Ton einer einzelnen Push-Nachricht über den Dashboard Composer einstellen. Hierzu können Sie eine lokale Tonressource auf dem Gerät angeben (z. B. `android.resource://com.mycompany.myapp/raw/mysound`). Wenn Sie in diesem Feld „default“ angeben, wird der standardmäßige Benachrichtigungston auf dem Gerät abgespielt. Dies kann über die [Messaging-API]({{site.baseurl}}/api/endpoints/messaging) oder das Dashboard unter **Advanced Settings** im Push Composer festgelegt werden.
 
 ![Die erweiterten Toneinstellungen im Braze Push Composer.]({% image_buster /assets/img_archive/sound_android.png %})
 

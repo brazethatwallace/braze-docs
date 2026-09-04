@@ -3,7 +3,7 @@ nav_title: ユーザーのターゲット設定
 article_title: ユーザーのターゲット設定
 page_order: 12
 page_type: reference
-description: "このリファレンス記事では、CampaignおよびCanvasエディターでオーディエンスをターゲットに設定する方法について説明します。"
+description: "このリファレンス記事では、キャンペーンおよびキャンバスエディターでオーディエンスをターゲットに設定する方法について説明します。"
 tool:
     - Campaigns
     - Canvas
@@ -15,7 +15,7 @@ tool:
 
 ## ターゲットオーディエンスの作成 {#creating-a-target-audience}
 
-### ステップ 1: ユーザーの選択 {#step-1-choose-users}
+### ステップ1: ユーザーの選択 {#step-1-choose-users}
 
 **ターゲティングオプション**で、以下のオプションを使用して、キャンペーンやキャンバスのターゲットにするユーザーを選択できます。定義した条件に一致するユーザーのみがメッセージを受信します。正確なセグメントメンバーシップは、メッセージが送信される直前に常に計算されることに留意してください。
 
@@ -67,14 +67,14 @@ Androidアプリのみにアプリ内メッセージを送信したい場合を�
 {% endtabs %}
 
 {% alert tip %}
-メールキャンペーンの場合、**シードグループ**セクションでシードグループをターゲットにできます。シードグループはAPI キャンペーンでは利用できませんが、キャンペーン内のAPIトリガーエントリを介してシードグループを含めることができます。詳細については、[シードグループ]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups)を参照してください。
+メールキャンペーンの場合、**シードグループ**セクションでシードグループをターゲットにできます。シードグループはAPIキャンペーンでは利用できませんが、キャンペーン内のAPIトリガーエントリを介してシードグループを含めることができます。詳細については、[シードグループ]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups)を参照してください。
 {% endalert %}
 
-### ステップ 2: オーディエンスのテスト {#step-2-test-your-audience}
+### ステップ2: オーディエンスのテスト {#step-2-test-your-audience}
 
 オーディエンスにセグメントとフィルターを追加した後、[ユーザーを検索]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)してオーディエンス条件に一致するかどうかを確認することで、オーディエンスが期待どおりに設定されているかテストできます。
 
-![「Lookup User」ボタンがある「User Lookup」セクション。]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:70%"}
+![「ユーザーを検索」ボタンがある「ユーザー検索」セクション。]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:70%"}
 
 #### オーディエンスの概要 {#audience-summary}
 
@@ -92,8 +92,8 @@ Androidアプリのみにアプリ内メッセージを送信したい場合を�
 
 Brazeは、フッターにターゲットチャネルの詳細なオーディエンス統計を提供します。ユーザー群が大きいほど、**到達可能なユーザー**の数は概算になる可能性が高くなります。[グローバルコントロールグループ]({{site.baseurl}}/user_guide/audience/global_control_group)を使用したり、メッセージの適格性を設定したりすると、到達可能なユーザー数が減少する場合があります。
 
-- 到達可能なユーザーの正確な数を確認するには、[正確な統計を計算]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#calculating-exact-statistics)を選択してください。これにより、ユーザー群内のすべてのユーザーが検索されます。
-- ユーザー群のうちターゲットにされている割合やこのセグメントの生涯価値（LTV）を確認するには、**追加の統計を表示**を選択してください。
+- 到達可能なユーザーの正確な数を確認するには、[正確な統計を計算]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size#calculating-exact-statistics)を選択してください。これにより、ユーザー群内のすべてのユーザーが検索されます。
+- ユーザー群のうちターゲットにされている割合やこのセグメントのLTV（LTV）を確認するには、**追加の統計を表示**を選択してください。
 
 ##### ターゲットオーディエンス数と到達可能なユーザー数が異なる理由 {#why-the-target-audience-count-could-differ-from-the-reachable-users-count}
 

@@ -52,7 +52,7 @@ The previews will be reflected and are interactive.
 ![Push stories composer]({% image_buster /assets/img_archive/pushstories_composer.png %}){: style="max-width:60%"}
 
 {% alert important %}
-If you are pulling in images with [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content#about-connected-content), ensure that your image URL begins with `https://`. Using `http://` will crash your app.
+If you are pulling in images with [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), ensure that your image URL begins with `https://`. Using `http://` will crash your app.
 {% endalert %}
 
 ### Image and text specifications

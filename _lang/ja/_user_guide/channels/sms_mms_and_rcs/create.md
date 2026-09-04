@@ -2,11 +2,12 @@
 nav_title: メッセージを作成する
 article_title: SMS、MMS、またはRCSメッセージを作成する
 page_order: 1
-description: "この記事では、BrazeでSMS、MMS、またはRCSメッセージを作成して送信する方法について説明します。"
+description: "SMS、MMS、またはRCSメッセージを作成し、チャネル固有のメッセージタイプ、フィールド、リンク短縮、配信設定、および動作を構成します。"
 page_type: reference
 alias: /create_sms_mms_rcs_message/
 tool:
-  - キャンペーン
+  - Campaigns
+  - Canvas
 channel:
   - SMS
   - MMS
@@ -16,304 +17,237 @@ search_rank: 1
 
 # SMS、MMS、またはRCSメッセージを作成する {#create-an-sms-mms-or-rcs-message}
 
-> SMS、MMS、およびRCSのキャンペーンは、顧客に直接リーチし、プログラムで会話するのに最適です。Liquidやその他のダイナミックコンテンツを使用して、ユーザーとのパーソナルな体験を作り出し、ブランドとの控えめなユーザー体験を促進・向上させる環境を構築できます。
+> キャンペーンやキャンバスで、パーソナライズされたSMS、MMS、およびRich Communication Services（RCS）メッセージを作成できます。選択した購読グループによって、利用可能なメッセージタイプと送信者が決まります。
 
-## ステップ1:メッセージの作成場所を選択する {#step-1-choose-where-to-build-your-message}
+## 前提条件 {#prerequisites}
 
-メッセージをキャンペーンで送信するか、キャンバスで送信するか迷っていますか？キャンペーンは単一のターゲットメッセージングに適しており、キャンバスは複数ステップのユーザージャーニーに適しています。
+始める前に、以下の要件を満たしていることを確認してください。
+
+| 要件 | 説明 |
+| --- | --- |
+| 送信者の設定 | [送信者の設定]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup)を完了してください。MMSを送信するには、購読グループにMMS対応の電話番号が必要です。RCSを送信するには、[RCSの設定]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/rcs_setup)を完了し、認証済みのRCS送信者を追加してください。 |
+| 購読グループ | このメッセージの送信者を含む[購読グループ]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups)を作成してください。 |
+| ユーザーの電話番号と同意 | ユーザーの電話番号をインポートし、適切な[SMS、MMS、およびRCSのオプトイン]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/collecting_user_opt_ins)を収集してください。 |
+| キャンペーンまたはキャンバス | 単一のターゲットメッセージにはキャンペーンを、マルチステップのユーザージャーニーにはキャンバスを使用してください。 |
+| メッセージまたはアクションクレジット | アカウントに利用可能なクレジットがあることを確認してください。BrazeからのSMS、MMS、およびRCSメッセージの送信にはこれらのクレジットが使用されます。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SMS、MMS、およびRCSメッセージの前提条件" }
+
+## メッセージを作成する {#create-a-message}
+
+### ステップ1：メッセージの作成場所を選択する {#step-1-choose-where-to-build-your-message}
 
 {% tabs %}
 {% tab キャンペーン %}
 
 1. **メッセージング** > **キャンペーン**に移動し、**キャンペーンを作成**を選択します。
-2. **SMS/MMS/RCS**を選択するか、複数チャネルをターゲットとするキャンペーンの場合は**マルチチャネル**を選択します。
+2. **SMS/MMS/RCS**を選択するか、複数のチャネルをターゲットとするキャンペーンの場合は**マルチチャネルキャンペーン**を選択します。
 3. キャンペーンにわかりやすく意味のある名前を付けます。
 4. 必要に応じて[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams)と[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags)を追加します。
-   * タグを使用すると、キャンペーンを見つけやすくなり、レポートを作成しやすくなります。たとえば、[レポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder)を使用する際に、特定のタグでフィルタリングできます。
-5. キャンペーンに必要な数のバリアントを追加して名前を付けます。追加したバリアントごとに、異なるプラットフォーム、メッセージタイプ、レイアウトを選択できます。このトピックの詳細については、[多変量テストとABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing)を参照してください。
-   * Brazeでは、単一のキャンペーン内にSMSとRCSの両方のバリアントを含めることができるため、それぞれのパフォーマンスを比較できます。
+  - タグを使うと、キャンペーンの検索やレポートでの活用が容易になります。
+5. キャンペーンのバリアントを追加して名前を付けます。同じキャンペーンにSMS/MMSとRCSのバリアントを含めることができます。詳細については、[多変量テストとABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing)を参照してください。
 
 {% alert tip %}
-キャンペーン内のすべてのメッセージが類似している、または同じコンテンツを持つ場合は、追加のバリアントを追加する前にメッセージを作成してください。その後、**バリアントを追加**ドロップダウンから**バリアントからコピー**を選択できます。
+キャンペーンのバリアントが同様のコンテンツを持つ場合は、バリアントを追加する前に最初のメッセージを作成してください。**バリアントを追加**ドロップダウンから**バリアントからコピー**を選択できます。
 {% endalert %}
 
 {% endtab %}
 {% tab キャンバス %}
 
-1. キャンバスコンポーザーを使用して[キャンバスを作成]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas)します。
-2. キャンバスを設定したら、キャンバスビルダーで**SMS/MMS/RCS**メッセージステップを追加します。
-3. ステップにわかりやすく意味のある名前を付けます。
-4. [ステップスケジュール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#schedule-delay)を選択し、必要に応じて遅延を指定します。
-5. 必要に応じて、このステップのオーディエンスをフィルタリングします。セグメントを指定し、追加のフィルターを追加することで、このステップの受信者をさらに絞り込むことができます。オーディエンスオプションは、メッセージが送信される時点で遅延後にチェックされます。
-6. [進行動作]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases)を選択します。
-7. メッセージと組み合わせたい他のメッセージングチャネルを選択します。
+{% multi_lang_include messaging/canvas_message_step_setup.md %}
 
 {% endtab %}
 {% endtabs %}
 
-## ステップ2:サブスクリプショングループを選択する {#step-2-select-a-subscription-group}
+### ステップ2：購読グループとメッセージタイプを選択する {#step-2-select-a-subscription-group-and-message-type}
 
-適切なユーザーにメッセージを送信するために、[サブスクリプショングループ]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups)を選択します。サブスクリプショングループを選択すると、Brazeは自動的にセグメンテーションフィルターを追加し、購読中のユーザーのみがキャンペーンを受信するようにします。
+このメッセージの送信者を含む**購読グループ**を選択します。Brazeは選択されたグループを使用して、到達可能なオーディエンスを計算し、送信時の適格性を判断します。
 
-選択したサブスクリプショングループによって、コンポーザーで利用可能なメッセージタイプが決まります。
+選択した購読グループによって、メッセージ作成画面で利用可能なメッセージタイプが決まります。
 
-| サブスクリプショングループタイプ | 利用可能なメッセージタイプ |
+| 購読グループのタイプ | 利用可能なメッセージタイプ |
 | --- | --- |
 | SMSのみ | SMS |
 | MMS対応番号を含むSMS | SMSおよびMMS |
-| RCS対応（RCS認証済み送信者あり） | SMS、MMS（有効な場合）、およびRCS |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ2:サブスクリプショングループを選択する" }
+| 確認済みRCS送信者を含むRCS対応 | RCSおよびSMS（グループにSMS送信者も含まれている場合）。その送信者がMMS対応の場合はMMSも利用可能。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="購読グループ別の利用可能なメッセージタイプ" }
 
 {% alert tip %}
-Brazeは、RCS送信者を含むすべてのサブスクリプショングループに、フォールバック用のSMSコードを少なくとも1つ含めることを強く推奨します。これにより、RCSメッセージの配信に失敗した場合（たとえば、デバイスの非互換性やキャリアカバレッジの不完全さなど）でも、SMSを通じてメッセージがユーザーに届くようになります。
+RCS配信に失敗した場合にSMSフォールバックを送信できるよう、RCS購読グループに少なくとも1つのSMS送信者を追加してください。
 {% endalert %}
 
-サブスクリプショングループを選択したら、作成するメッセージタイプを選択します。サブスクリプショングループが複数のタイプをサポートしている場合、それらを選択するオプションが表示されます。
+購読グループが両方のプロトコルをサポートしている場合は、**SMS/MMS**または**RCS**を選択します。RCSの場合は、**テキスト**、**メディア**、または**カード**を選択します。
 
-![RCSまたはSMS/MMSメッセージタイプから選択するオプション。]({% image_buster /assets/img/rcs/rcs_message_type.png %}){: style="max-width:65%;"}
+### ステップ3：メッセージを作成する {#step-3-compose-your-message}
 
-## ステップ3:メッセージを作成する {#step-3-compose-your-message}
-
-作成体験は、選択したメッセージタイプによって異なります。メッセージタイプのタブを選択してください。
+メッセージ作成画面のフィールドと制限は、選択したメッセージタイプによって異なります。
 
 {% tabs local %}
-{% tab SMS %}
+{% tab SMSとMMS %}
 
-言語やパーソナライゼーション（Liquid、コネクテッドコンテンツ、絵文字）を必要に応じて使用してメッセージを作成します。超過料金の可能性を減らすために、メッセージコピーの制限を遵守してください。
+#### SMSとMMSのフィールドと設定 {#sms-and-mms-fields-and-settings}
 
-{% alert important %}
-先に進む前に、[SMSメッセージセグメントとコピー制限]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator)のガイドラインをお読みください。SMSメッセージセグメントは、電話キャリアがテキストメッセージを測定するために使用する文字バッチです。メッセージはメッセージセグメントごとに課金されるため、メッセージがどのように分割されるかのニュアンスを理解しておくことをお勧めします。
-{% endalert %}
+| フィールドまたは設定 | 説明 |
+| --- | --- |
+| **言語** | 言語固有のコンテンツをメッセージに挿入します。 |
+| **メッセージ** | Liquid、Connected Content、絵文字を含む最大1,600文字を入力します。メッセージ作成画面でエンコーディング、文字数、課金対象のSMSセグメント数が推定されます。MMSメッセージは、メッセージ本文なしでメディアのみを含めることができます。 |
+| **メディア** | MMS対応の購読グループの場合、メディアライブラリまたはURLからPNG、JPEG、またはGIF画像を1つ追加します。画像の代わりにvCardを追加することもできます。 |
+| **リンク短縮** | HTTPおよびHTTPS URLを短縮し、エンゲージメントをトラッキングします。レガシーリンク短縮の場合は、ベーシックまたはアドバンストラッキングを選択します。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SMSとMMSのフィールドと設定" }
 
-![BrazeのSMSコンポーザー。メッセージは「Hi first_name, we appreciate your support! Why not stop by one of our stores and show them this SMS for an exclusive discount? Reply STOP to stop receiving messages from us.」]({% image_buster /assets/img/sms_campaign_compose.png %})
+SMSメッセージはGSM-7またはUCS-2エンコーディングを使用し、メッセージセグメントごとに課金されます。1文字の変更でエンコーディングが変わり、課金対象のセグメント数が増加する場合があります。エンコーディングルール、セグメントサイズ、セグメント計算ツールについては、[SMSとRCSの課金計算ツール]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator)を参照してください。
 
-### 連絡先カードを追加する {#adding-a-contact-card}
+![メッセージコピーと推定文字数・セグメント数を表示するSMSメッセージ作成画面。]({% image_buster /assets/img/sms_campaign_compose.png %})
 
-SMSメッセージに連絡先カードを追加して、顧客がビジネスや連絡先情報をデバイスの連絡先に追加できるようにすることができます。会社名、電話番号、住所、メール、小さな写真などのプロパティを割り当てることができます。詳細については、[連絡先カード]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/contact_card)を参照してください。
+#### MMSメディア仕様 {#mms-media-specifications}
 
-{% endtab %}
-{% tab MMS %}
+{% multi_lang_include channels/image_specs.md variable_name='sms and mms' %}
 
-MMSメッセージを送信するには、サブスクリプショングループにMMS対応の電話番号が少なくとも1つ必要です。これは、コンポーザーでサブスクリプショングループの横に**MMS**タグが表示されることで確認できます。
-
-メッセージ本文を入力し、[メディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library)からPNG、JPEG、またはGIF画像をアップロードするか、画像URLを指定します。メッセージごとにサポートされる画像は1つのみです。
+ユーザーがデバイスの連絡先に保存できるビジネス情報を送信するには、[連絡先カード]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/contact_card)を参照してください。連絡先カードの送信はMMSとして課金されます。
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
-![MMSメッセージを作成するための作成タブ。]({% image_buster /assets/img/sms/mms_composer.png %}){: style="max-width:80%;"}
+MMSの利用可否とレンダリングは受信キャリアに依存します。キャリアがMMSを受信できない場合、プロバイダーを通じてメディアがSMS本文内のリンクに変換されます。Google Voiceの限定的なMMSサポートにより配信が不安定になる可能性があるため、Google Voice番号へのMMS送信は避けてください。
 
-### 画像の仕様 {#image-specifications}
-
-| プロパティ | 推奨 |
-| --- | --- |
-| サイズ | 最大600&nbsp;KB |
-| ファイルタイプ | PNG、JPEG、GIF |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="画像の仕様" }
-
-### 連絡先カード {#contact-cards}
-
-画像の代わりに[連絡先カード]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/contact_card)（vCard）を含めることもできます。
-
-### キャリアの動作 {#carrier-behavior}
-
-MMSメッセージは、テキストのみのSMSとは異なるレートで課金されます。すべてのキャリアがMMSを受け入れられるわけではありません。その場合、MMSはユーザーが選択できる画像リンクに自動的に変換されます。
-
-{% alert note %}
-Google Voice番号へのMMS送信は避けてください。Google VoiceのMMSサポートは限定的であり、メッセージ配信が不安定になります。
-{% endalert %}
-
-### 受信MMSとパーソナライゼーション {#inbound-mms-and-personalization}
-
-顧客がメディアを含む受信メッセージを送信すると、Brazeは[Currents SMS受信イベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events)およびLiquidで{% raw %}`{{sms.${inbound_media_urls}}}`{% endraw %}としてメディアを公開します（たとえば、リターゲティングやフォローアップメッセージで使用）。キャンバスでのSMS受信プロパティの使用の詳細については、[メッセージステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)を参照してください。
+ユーザーがインバウンドメディアを送信すると、BrazeはそのURLを[CurrentsのSMSインバウンドイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events)および{% raw %}`{{sms.${inbound_media_urls}}}`{% endraw %}（Liquid）を通じて公開します。
 
 {% endtab %}
 {% tab RCS %}
 
-RCSテキストまたはメディアメッセージの作成方法については、このクイックウォークスルーをご覧ください。
+#### RCSメッセージタイプ {#rcs-message-types}
 
-{% multi_lang_include video.html id="3y0iiqqygw" source="wistia" %}
+| メッセージタイプ | フィールドと設定 | 制限と動作 |
+| --- | --- | --- |
+| **テキスト** | 必須のメッセージ本文、オプションの返信候補またはURL開くアクション、オプションのSMSフォールバック、リンク短縮 | メッセージ本文はSMSサービスプロバイダーに応じて最大1,600文字または3,072文字。最大5つの提案を追加可能。 |
+| **メディア** | 必須の画像、動画、ドキュメント、またはオーディオ。オプションのメッセージ本文、提案、SMSフォールバック、リンク短縮 | メッセージ本文はプロバイダーに応じて最大1,600文字または3,072文字で、追加のRCSメッセージとして課金されます。最大5つの提案を追加可能。 |
+| **カード** | メディアカードまたはテキストのみのカード、タイトル、説明、ボタン、オプションの提案、オプションのSMSフォールバック | タイトルは最大200文字。説明はプロバイダーに応じて最大1,600文字または2,000文字。1〜4つのボタンを追加可能。テキストのみのカードとカード外の提案が利用可能かどうかはプロバイダーのサポートに依存します。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="RCSメッセージタイプ、フィールド、制限" }
 
-**テキスト**または**メディア**メッセージタイプを選択します。
+提案には、ユーザーのテキスト入力にあらかじめ内容を設定する返信候補と、URL開くアクションがあります。各提案には最大25文字のテキストを追加でき、各URL開くアクションには最大2,048文字のURLを追加できます。
 
-![テキストまたはメディアメッセージタイプから選択するオプション。]({% image_buster /assets/img/rcs/rcs_text_media.png %}){: style="max-width:65%;"}
+任意のRCSメッセージタイプで、**RCSが失敗した場合にSMSを送信**をオンにして、最大1,600文字のフォールバックメッセージを追加できます。選択した購読グループにはSMS送信者が含まれている必要があります。**カード**メッセージの場合、説明内のリンクはクリック可能ではありません。代わりにURL開くボタンを使用してください。
 
-{% subtabs %}
-{% subtab テキスト %}
+一部のSMSサービスプロバイダーは、独立した**メディア**メッセージやテキストのみのカードをサポートしていません。メッセージ作成画面にはサポートされているRCSメッセージタイプのみが表示されます。**カード**メッセージの場合、リンク短縮はSMSフォールバック内のリンクにのみ適用されます。
 
-RCSテキストメッセージは、テキストをメディアとして重視します。メッセージがリッチ要素なしで160文字以内の場合、基本RCSメッセージとして課金されます。160文字を超えるか、リッチ要素を使用する場合、文字制限3,072のリッチ（シングル）RCSメッセージとして課金されます。
+RCSメッセージの課金はメッセージタイプとコンテンツに依存します。ベーシック、リッチ、リッチカードの課金ルールについては、[RCSメッセージの課金]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator#rcs-message-billing)を参照してください。
 
-**機能:**
+#### RCSメディア仕様 {#rcs-media-specifications}
 
-- すべてのSMS機能が含まれ、URLクリックトラッキングの高度なトラッキングが利用可能です。
-- **候補返信**: ユーザーが選択してテキスト入力に事前入力できる候補応答を含むボタンです。
-- **候補アクション**: ユーザーのデバイスでアクションを開始するボタンです。Brazeは現在、ユーザーをWebページまたはその他のURL識別されたロケーションにリダイレクトするOpenURL候補アクションをサポートしています。
-
-![トレンドファッションスタイルを宣伝するRCSメッセージの3つの候補アクション。]({% image_buster /assets/img/rcs/rcs_suggested_actions.gif %}){: style="max-width:70%;"}
-
-**考慮事項:**
-
-- AndroidとiOSでは表示が異なる場合があります。Androidはリッチメッセージテキスト全体を表示しますが、iOSは3行目以降を切り詰めます。
-- メッセージごとに最大5つのボタンを追加できます。これらは候補アクションまたは候補返信のいずれかです。
-- 長いテキストブロックや多くのボタンは受信者を圧倒する可能性があります。可能な限りシンプルさを重視してください。
-- 場合によっては、長いテキストのみのメッセージをSMSよりもRCSで送信する方がコスト効率が良いことがあります。長いSMSメッセージは複数の課金対象セグメントに分割されますが、RCSメッセージはメッセージごとに課金されるためです。
-
-{% endsubtab %}
-{% subtab メディア %}
-
-RCSメディアメッセージでは、SMSでは不可能な魅力的なメディアフォーマット（画像、動画、ドキュメントファイルなど）を使用できます。
-
-{% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
-
-**機能:**
-
-- テキスト、候補返信、候補アクションなど、テキストメッセージタイプで利用可能なすべてをサポートします。
-- [メディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library)からアップロードされた画像ファイル（JPEG、PNG）。
-- メッセージコンポーザーでURLにより追加された動画ファイル（MP4、MPEG、MV4）。
-- メッセージコンポーザーでURLにより追加されたドキュメントファイル（PDF）。
-
-![メディアファイルをアップロードするオプションを含むRCSコンポーザー。]({% image_buster /assets/img/rcs/rcs_media_type.png %})
-
-**ファイルの仕様:**
+メッセージ作成画面は最大1,000文字のメディアURLを受け付けます。利用可能なフォーマットと最大ファイルサイズはSMSサービスプロバイダーに依存します。
 
 | ファイルタイプ | 仕様 |
 | --- | --- |
-| すべて | ファイルサイズは100 MBまで。ファイルURLは最大2,048文字。 |
-| 画像 | サポートされるフォーマット: JPG、JPEG、GIF |
-| 動画 | サポートされるフォーマット: H263、M4V、MP4、MPEG-4、MPEG、WEBM |
-| ドキュメント | サポートされるフォーマット: PDF |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="ファイルの仕様" }
+| すべて | プロバイダーに応じて最大ファイルサイズは16&nbsp;MBまたは100&nbsp;MB。 |
+| 画像 | JPEG、JPG、GIF、PNG |
+| 動画 | H263、M4V、MP4、MPEG、MPEG-4、WEBM |
+| ドキュメント | PDF。**メディア**メッセージでは利用可能ですが、メディアカードでは利用できません。 |
+| オーディオ | AAC、MP3、MPEG、MP4、3GPP、OGG。プロバイダーのサポートにより異なります。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="RCSメディア仕様" }
 
-**考慮事項:**
-
-RCSメッセージの受信体験は、キャリアカバレッジ、モバイルデバイスのハードウェア、オペレーティングシステムによって異なる場合があります。RCSはAndroidデバイスとより自然に統合され、デバイスによって異なる速度と品質で体験がレンダリングされる場合があります。
-
-{% endsubtab %}
-{% endsubtabs %}
-
-言語やパーソナライゼーション（[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)、[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)、絵文字）を必要に応じて使用してメッセージを作成します。超過料金の可能性を減らすために、メッセージコピーの制限を遵守してください。
-
-{% alert important %}
-先に進む前に、上記の[RCSメッセージタイプのガイドライン](#step-3-compose-your-message)をお読みください。RCSメッセージは[メッセージごとに課金]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator)されるため、各タイプに含められる内容を理解しておくことをお勧めします。
-{% endalert %}
+{% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
 {% endtab %}
 {% endtabs %}
 
-### ヒント {#tips}
+#### パーソナライゼーション {#personalization}
 
-#### Liquidの使用 {#using-liquid}
+[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)、[Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)、絵文字、言語固有のコンテンツを使用してメッセージをパーソナライズします。データが不完全なプロファイルに空白のコンテンツが送信されないよう、Liquidパーソナライゼーションにデフォルト値を含めてください。
 
-{% raw %}
-Liquidを使用する予定がある場合は、選択したパーソナライゼーションにデフォルト値を含めるようにしてください。ユーザーのプロファイルが不完全な場合に、名前の代わりに空白のプレースホルダー`Hi, !`や意味不明な文が表示されないようにするためです。
-{% endraw %}
+プロンプトからメッセージコピーを作成するには、オペレーターの[コピーを生成]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy)を使用します。
 
-#### AIコピーの生成 {#generating-ai-copy}
+右から左に書く言語については、[右から左のメッセージの作成]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages)を参照してください。
 
-[AIコピーライティングアシスタント]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy)を試してみてください。製品名や説明を入力すると、AIがメッセージングで使用できる人間らしいマーケティングコピーを生成します。
+#### 会話型メッセージワークフローを作成する（RCS） {#create-conversational-message-workflows-rcs}
 
-![SMSコンポーザーのメッセージフィールドにある「AIコピーライターを起動」ボタン。]({% image_buster /assets/img/ai_copywriter/ai_copywriter_sms.png %}){: style="max-width:60%"}
+会話型メッセージワークフローを使用すると、ユーザーに動的に応答し、双方向のメッセージング体験を構築できます。ワークフローを構築するには、キャンバスを作成し、返信候補と[アクションパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)を組み合わせて、ユーザーが選択した返信に基づいてワークフローを誘導します。
 
-#### 右から左へのメッセージの作成 {#creating-right-to-left-messages}
+1. キャンバスビルダーで、複数の返信候補を含むRCSメッセージステップを作成します。
 
-右から左へのメッセージの最終的な外観は、サービスプロバイダーがどのようにレンダリングするかに大きく依存します。右から左へのメッセージをできるだけ正確に表示するためのベストプラクティスについては、[右から左へのメッセージの作成]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages)を参照してください。
-
-#### 会話型メッセージワークフローの作成（RCS） {#create-conversational-message-workflows-rcs}
-
-会話型メッセージワークフローでは、ユーザーに動的に応答し、双方向のメッセージング体験を作成できます。ワークフローを構築するには、キャンバスを作成し、候補返信と[アクションパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)を組み合わせて、ユーザーが選択した返信に基づいてワークフローを誘導します。
-
-1. キャンバスビルダーで、複数の候補返信を含むRCSメッセージステップを作成します。
-
-![候補返信を含むRCSメッセージコンポーザー。]({% image_buster /assets/img/rcs/suggested_replies.png %})
+![返信候補を含むRCSメッセージ作成画面。]({% image_buster /assets/img/rcs/suggested_replies.png %})
 
 {: start="2"}
-2. そのメッセージを、各候補返信に対応するアクショングループを持つアクションパスに接続します。
-3. 各アクショングループについて:
-   - トリガーとして**SMS受信メッセージを送信**を選択します。
-   - メッセージ本文を、対応する候補返信と同じに設定します。
+2. そのメッセージを、各返信候補に対応するアクショングループを持つアクションパスに接続します。
+3. 各アクショングループで以下を設定します。
+   - トリガーとして**SMSインバウンドメッセージを送信**を選択します。
+   - メッセージ本文を対応する返信候補と同じ内容に設定します。
 
-![3つのアクショングループ（各候補返信に1つずつ）で構成されたアクションパスステップ。]({% image_buster /assets/img/rcs/quick_reply.png %})
+![3つのアクショングループ（各返信候補に1つ）で構成されたアクションパスステップ。]({% image_buster /assets/img/rcs/quick_reply.png %})
 
 {: start="4"}
-4. 各アクショングループをRCSメッセージステップに接続し、関連する候補返信に基づいたコンテンツを追加します。
-5. フォローアップメッセージに候補返信を追加して、会話型ワークフローを続けます。
-6. ワークフローが完了するまで、ステップ2〜4を繰り返します。
+4. 各アクショングループをRCSメッセージステップに接続し、関連する返信候補に基づいたコンテンツを追加します。
+5. フォローアップメッセージに返信候補を追加して、会話型ワークフローを続けます。
+6. ワークフローが完成するまでステップ2〜4を繰り返します。
 
-![2つのアクションパスを含む会話型ワークフローを示すキャンバス。]({% image_buster /assets/img/rcs/full_conversational_workflow.png %})
+![2つのアクションパスを含む会話型ワークフローを表示するキャンバス。]({% image_buster /assets/img/rcs/full_conversational_workflow.png %})
 
-## ステップ4:メッセージをプレビューしてテストする {#step-4-preview-and-test-your-message}
+### ステップ4：リンク短縮を設定する {#step-4-configure-link-shortening}
 
-Brazeでは、送信前にメッセージをプレビューしてテストすることを常に推奨しています。**テスト**タブに切り替えて、[コンテンツテストグループ]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups)または個々のユーザーにテストSMS、MMS、またはRCSメッセージを送信するか、Braze内でユーザーとしてメッセージを直接プレビューします。
+**リンク短縮**をオンにして、HTTPおよびHTTPS URLを短縮し、SMS、MMS、およびサポートされているRCSリンクのクリックをトラッキングします。ワークスペースで利用可能なバージョンに応じて、ベーシックまたはアドバンストラッキングを選択するか、統合リンク短縮を使用します。
+
+アドバンストラッキングでは、セグメンテーションとリターゲティングのためのユーザーレベルのクリックデータが追加されます。統合リンク短縮では、SMSとRCSの短縮リンクを1つのパーソナライズされたフォーマットに統合します。サポートされているURL、Liquidの動作、テスト要件、カスタムドメイン、リターゲティングについては、[リンク短縮]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening)を参照してください。
+
+Brazeはメッセージ内で最大25件のリンクを短縮します。4,000文字を超えるURLは短縮できず、送信時にメッセージが失敗します。
+
+### ステップ5：メッセージをプレビューしてテストする {#step-5-preview-and-test-your-message}
+
+**テスト**タブに移動して、ユーザーとしてメッセージをプレビューするか、[コンテンツテストグループ]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups)または個別のユーザーにテストSMS、MMS、またはRCSメッセージを送信します。
 
 {% alert tip %}
-SMSがいくつのセグメントに分割されるかをテストしたい場合は、[SMSセグメント計算ツール]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator#segment-calculator)でコピーの長さをテストしてください。
+[SMSセグメント計算ツール]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator#segment-calculator)を使用して、メッセージに含まれるセグメント数を推定できます。
 {% endalert %}
 
-![コンポーザーのテストタブからSMSコピーをプレビュー。プロファイルセクションでは、名フィールドが「James」に設定されています。プレビューセクションでは、SMSに「Hi James, we appreciate your support!」と表示されています。]({% image_buster /assets/img/sms_campaign_test.png %})
+![メッセージ作成画面のテストタブからのSMSコピーのプレビュー。プロファイルセクションでは名フィールドが「James」に設定されています。プレビューセクションでは、SMSに「Hi James, we appreciate your support!」と表示されています。]({% image_buster /assets/img/sms_campaign_test.png %})
+
+MMSの場合、メディアがメッセージ本文の前後どちらに表示されるかは受信側の電話によって決まります。
 
 {% alert note %}
-MMSの場合、アセット（画像とメッセージ本文）の順序はカスタマイズできません。順序は、メッセージを受信する電話に依存します。
+RCSのレンダリングはユーザーのオペレーティングシステム、デバイスメーカー、キャリア、メッセージングアプリ（例：Google MessagesやApple Messages）によって制御されるため、メッセージの表示は異なる場合があります。Brazeで表示されるプレビューは、エンドユーザーが受信するものと正確に一致しない場合があります。可能な限り実機で最終的なレンダリングを確認してください。iOSデバイスでのRCSレンダリングの詳細については、[RCSメッセージがiOSデバイスで正確にレンダリングされないのはなぜですか？]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs#why-doesnt-my-rcs-message-render-accurately-on-ios-devices)を参照してください。リッチカード内のGIFについては、[RCSリッチカード内のGIFがiOSで静止画として表示されるのはなぜですか？]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs#why-do-gifs-in-rcs-rich-cards-appear-static-on-ios)を参照してください。
 {% endalert %}
 
-{% alert note %}
-RCSのレンダリングはユーザーのオペレーティングシステム、デバイスメーカー、キャリア、メッセージングアプリ（たとえば、Google MessagesとApple Messages）によって制御されるため、メッセージの外観は異なる場合があります。Brazeに表示されるプレビューは、エンドユーザーが受信するものと正確に一致しない場合があります。可能な限り、実際のデバイスで最終的なレンダリングを検証してください。iOSデバイスでのRCSレンダリングの詳細については、[RCSメッセージがiOSデバイスで正確にレンダリングされないのはなぜですか？]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs#why-doesnt-my-rcs-message-render-accurately-on-ios-devices)を参照してください。
-{% endalert %}
+詳細については、[テストメッセージを送信する]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=sms%2Fmms%20and%20rcs)を参照してください。
 
-詳細については、[テストメッセージの送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=sms%2Fmms%20and%20rcs)を参照してください。
-
-## ステップ5:キャンペーンまたはキャンバスの残りを構築する {#step-5-build-the-remainder-of-your-campaign-or-canvas}
+### ステップ6：キャンペーンまたはキャンバスの残りの部分を構築する {#step-6-build-the-remainder-of-your-campaign-or-canvas}
 
 {% tabs %}
 {% tab キャンペーン %}
 
-次に、キャンペーンの残りを構築します。メッセージを構築するためのツールの最適な使用方法の詳細については、以下のセクションを参照してください。
+#### 配信スケジュールまたはトリガーを選択する {#choose-a-delivery-schedule-or-trigger}
 
-### 配信スケジュールまたはトリガーを選択する {#choose-delivery-schedule-or-trigger}
+スケジュールされた時間に、またはアクションやAPIトリガーに応じてメッセージを配信します。スケジュールとトリガーのオプションについては、[キャンペーンのスケジュール]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign)を参照してください。
 
-メッセージは、スケジュールされた時間、アクション、またはAPIトリガーに基づいて配信できます。詳細については、[キャンペーンのスケジュール設定]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign)を参照してください。
+[再適格性]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#turning-on-re-eligibility)や[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping)などの配信コントロールを設定します。アクションベース配信の場合は、キャンペーンの期間と[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)を設定します。
 
-アクションベースの配信の場合、キャンペーンの期間と[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)も設定できます。
+#### ターゲットユーザーを選択する {#choose-users-to-target}
 
-このステップでは、ユーザーがキャンペーンを[再受信可能]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#campaigns)にすることや、[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping)ルールを有効にするなどの配信コントロールも指定できます。
+セグメントとフィルターを選択して[ユーザーをターゲット]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users)します。Brazeはメッセージ送信前に正確なセグメントメンバーシップを計算します。
 
-### ターゲットユーザーを選択する {#choose-users-to-target}
-
-次に、セグメントまたはフィルターを選択してオーディエンスを絞り込み、[ユーザーをターゲット]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users)します。サブスクリプショングループはすでに選択されているはずで、これによりユーザーが希望するコミュニケーションのレベルやカテゴリで絞り込まれます。
+選択した購読グループにより、購読済みユーザーがフィルタリングされます。SMSおよびMMSの受信者には有効な電話番号も必要です。RCSの受信者にはRCS対応デバイスとキャリア接続が必要です。RCS配信に失敗した場合に適格なユーザーに到達するには、SMSフォールバックを使用してください。
 
 {% multi_lang_include audience/target_audiences.md %}
 
-セグメントからより大きなオーディエンスを選択し、オプションのフィルターでそのセグメントをさらに絞り込みます。おおよそのセグメント人口のプレビューが自動的に表示されます。正確なセグメントメンバーシップは、メッセージが送信される前に常に計算されることに注意してください。
+クリックおよびインタラクションターゲティングについては、[ユーザーリターゲティング]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting)を参照してください。
 
-{% alert tip %}
-リターゲティングに興味がありますか？詳細については、[ユーザーリターゲティング]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting)を参照してください。
-{% endalert %}
+#### コンバージョンイベントを選択する {#choose-conversion-events}
 
-### コンバージョンイベントを選択する {#choose-conversion-events}
-
-Brazeでは、キャンペーンを受信した後にユーザーが特定のアクション（[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)）を実行する頻度を追跡できます。ユーザーが指定されたアクションを実行した場合にコンバージョンがカウントされる最大30日間の時間枠を設定するオプションがあります。
-
-コンバージョンイベントは、キャンペーンの成功を測定するのに役立ちます。たとえば:
-
-- ジオターゲティングを使用して、ユーザーの購入を最終目標とするメッセージをトリガーする場合、コンバージョンイベントを`Purchase`に設定します。
-- ユーザーをアプリに誘導しようとしている場合、コンバージョンイベントを`Starts Session`に設定します。
-
-特定のユースケースに基づいて、カスタムコンバージョンイベントを設定することもできます。
+[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)を使用して、ユーザーがキャンペーンを受信した後のアクションを測定します。最大30日間のコンバージョンウィンドウを設定します。
 
 {% endtab %}
 {% tab キャンバス %}
 
-まだ完了していない場合は、キャンバスコンポーネントの残りのセクションを完了してください。キャンバスの残りの構築方法、多変量テストとインテリジェントセレクションの実装などの詳細については、キャンバスドキュメントの[キャンバスを構築する]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas)ステップを参照してください。
+キャンバスの残りのセクションを完成させます。エントリスケジュール、オーディエンス設定、送信コントロールについては、[キャンバスを作成する]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas)を参照してください。
 
 {% endtab %}
 {% endtabs %}
 
-## ステップ6:確認してデプロイする {#step-6-review-and-deploy}
+### ステップ7：確認してデプロイする {#step-7-review-and-deploy}
 
-キャンペーンまたはキャンバスの最後の構築が完了したら、詳細を確認し、テストしてから送信してください。
+キャンペーンまたはキャンバスの構築が完了したら、詳細を確認し、送信前にメッセージをテストしてください。
 
-次に、[SMS、MMS、およびRCSレポート]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting)を確認して、キャンペーンの結果にアクセスする方法を学びましょう。
+ローンチ後は、[SMS、MMS、およびRCSレポート]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting)を使用してメッセージのパフォーマンスを確認します。
 
-## よくある質問 {#frequently-asked-questions}
+## 注意事項 {#things-to-know}
 
-### RCSで事前録音のボイスメールを送信できますか？ {#can-i-send-pre-recorded-voicemails-with-rcs}
-
-はい、メディアメッセージを使用してオーディオファイルをサポートできます。
+- SMSはメッセージセグメントごとに課金され、MMSは独自のレートで、RCSはメッセージタイプごとに課金されます。送信前に[SMSおよびRCS請求計算ツール]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator)を確認してください。
+- MMSは1つの画像またはvCardをサポートしています。キャリアのサポートにより、受信者がメディアを受信するか画像リンクを受信するかが決まります。
+- RCSの機能と制限はSMSサービスプロバイダーによって異なります。メッセージ作成画面には、選択した購読グループで利用可能なオプションのみが表示されます。
+- RCSの**メディア**メッセージで、事前に録音したボイスメールをオーディオとして送信できます。
+- レンダリングやインタラクションの動作は、デバイス、キャリア、オペレーティングシステム、メッセージングアプリによって異なります。

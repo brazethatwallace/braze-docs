@@ -1,6 +1,6 @@
 {% multi_lang_include developer_guide/prerequisites/swift.md %}
 
-## Google Tag Manager:in für Swift verwenden
+## Google Tag Manager für Swift verwenden
 
 Im folgenden Beispiel möchte eine App für das Streamen von Musik verschiedene Ereignisse protokollieren, wenn Nutzer:innen Lieder anhören. Mit dem Google Tag Manager für iOS können sie steuern, welche der Braze-Drittanbieter dieses Ereignis erhalten und Tags speziell für Braze erstellen.
 
@@ -10,7 +10,7 @@ Benutzerdefinierte Ereignisse werden protokolliert, wenn `actionType` auf `logEv
 
 Erstellen Sie zunächst einen Trigger, der nach einer `eventName` sucht, die gleich `played song` ist.
 
-![Ein angepasster Trigger im Google Tag Manager:in, der für einige Events triggert, wenn "eventName" gleich "played song" ist.]({% image_buster /assets/img/android_google_tag_manager/gtm_android_trigger.png %})
+![Ein angepasster Trigger im Google Tag Manager, der für einige Events triggert, wenn "eventName" gleich "played song" ist.]({% image_buster /assets/img/android_google_tag_manager/gtm_android_trigger.png %})
 
 Als nächstes erstellen Sie ein neues Tag (auch "Funktionsaufruf" genannt) und geben den Klassenpfad Ihres [angepassten Tag-Anbieters](#adding-ios-google-tag-provider) ein, der später in diesem Artikel beschrieben wird. Dieser Tag wird ausgelöst, wenn Sie das Ereignis `played song` protokollieren. Da `eventName` auf `played song` eingestellt ist, wird es als angepasster Event-Name verwendet, der in Braze protokolliert wird.
 
@@ -105,7 +105,7 @@ Achten Sie darauf, den "Class Path" der Datei zu notieren - diesen geben Sie ein
 
 Dieses Beispiel zeigt eine der vielen Möglichkeiten, wie Sie Ihren angepassten Tag-Anbieter strukturieren können. Insbesondere wird gezeigt, wie Sie anhand des vom GTM Tag gesendeten Schlüssel-Wert-Paares `actionType` ermitteln, welche Methode des Braze SDK aufgerufen werden soll. Dieses Beispiel setzt voraus, dass Sie die Braze-Instanz als Variable im AppDelegate zugewiesen haben.
 
-Die in diesem Beispiel unterstützten `actionType` sind `logEvent`, `customAttribute` und `changeUser`, aber Sie können es vorziehen, zu ändern, wie Ihr Tag-Anbieter Daten von Google Tag Manager:in behandelt.
+Die in diesem Beispiel unterstützten `actionType` sind `logEvent`, `customAttribute` und `changeUser`, aber Sie können es vorziehen, zu ändern, wie Ihr Tag-Anbieter Daten von Google Tag Manager behandelt.
 {% tabs %}
 {% tab SWIFT %}
 

@@ -5,7 +5,7 @@ search_tag: Endpoint
 page_order: 1
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Consultar números de teléfono no válidos de Braze."
+description: "En este artículo se describen los detalles del endpoint de Braze Consultar números de teléfono no válidos."
 ---
 {% api %}
 # Consultar números de teléfono no válidos {#query-invalid-phone-numbers}
@@ -13,13 +13,13 @@ description: "En este artículo se describen los detalles del punto de conexión
 /sms/invalid_phone_numbers
 {% endapimethod %}
 
-> Utiliza este punto de conexión para obtener una lista de números de teléfono que se han marcado como "no válidos" en un periodo de tiempo determinado. Consulta la documentación [Manejo de números de teléfono no válidos]({{site.baseurl}}/user_guide/message_building_by_channel/sms/phone_numbers/user_phone_numbers#handling-invalid-phone-numbers) para obtener más información.
+> Utiliza este endpoint para obtener una lista de números de teléfono que se han marcado como "no válidos" en un periodo de tiempo determinado. Consulta la documentación [Manejo de números de teléfono no válidos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#handling-invalid-phone-numbers) para obtener más información.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#81ceae19-15d1-4ac1-ad22-a6b86a92456d {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `sms.invalid_phone_numbers`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `sms.invalid_phone_numbers`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -29,8 +29,8 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 | ----------|-----------| ----------|----- |
-| `start_date` | Opcional <br>(ver nota) | Cadena en formato AAAA-MM-DD| Fecha de inicio del intervalo para recuperar números de teléfono no válidos, debe ser anterior a `end_date`. La API lo considera medianoche en hora UTC. |
-| `end_date` | Opcional <br>(ver nota) | Cadena en formato AAAA-MM-DD | Fecha final del intervalo para recuperar números de teléfono no válidos. La API lo considera medianoche en hora UTC. |
+| `start_date` | Opcional <br>(ver nota) | Cadena en formato AAAA-MM-DD | Fecha de inicio del intervalo para recuperar números de teléfono no válidos, debe ser anterior a `end_date`. La API la considera medianoche en hora UTC. |
+| `end_date` | Opcional <br>(ver nota) | Cadena en formato AAAA-MM-DD | Fecha final del intervalo para recuperar números de teléfono no válidos. La API la considera medianoche en hora UTC. |
 | `limit` | Opcional | Entero | Campo opcional para limitar el número de resultados devueltos. De forma predeterminada es 100, el máximo es 500. |
 | `offset` | Opcional | Entero | Punto de inicio opcional de la lista desde el que recuperar. |
 | `phone_numbers` | Opcional <br>(ver nota) | Matriz de cadenas en formato e.164 | Si lo proporcionas, te devolveremos el número de teléfono si se comprueba que no es válido. |

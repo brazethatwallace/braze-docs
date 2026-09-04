@@ -58,7 +58,7 @@ In Braze, segments are dynamic groups of users that fit specific criteria you de
 
 You can create as many segments as you like to target users. Explore different combinations of segment features and segmentation filters to discover creative ways to utilize your user data, and unlock new ways to send relevant messages to users and increase engagement.
 
-Check out the use cases below for a small preview of how Braze segments can help you target your users.
+Check out the following use cases for a small preview of how Braze segments can help you target your users.
 
 ### Use cases
 

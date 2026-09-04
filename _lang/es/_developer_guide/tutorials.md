@@ -4,7 +4,7 @@ article_title: Tutoriales de Braze SDK
 page_order: 1.9
 layout: dev_guide
 guide_top_header: "Tutoriales de Braze SDK"
-guide_top_text: "Cada tutorial del SDK de Braze incluye código desplazable paso a paso para ayudarte a implementar nuevas características en tu aplicación. ¡Elige uno de los tutoriales siguientes para empezar!"
+guide_top_text: "> Cada tutorial del SDK de Braze incluye código desplazable paso a paso para ayudarte a implementar nuevas características en tu aplicación. ¡Elige un tutorial de la lista para empezar!"
 
 guide_menu_title: "Banners"
 guide_menu_list:
@@ -14,13 +14,13 @@ guide_menu_list:
 
 guide_menu_title2: "Content Cards"
 guide_menu_list2:
-  - name: Crear un buzón de entrada con tarjetas de contenido
+  - name: Crear un buzón de entrada con Content Cards
     link: /docs/developer_guide/content_cards/content_card_inbox
     image: /assets/img/braze_icons/brush-02.svg
 
 guide_menu_title3: "In-App Messages"
 guide_menu_list3:
-  - name: Personalización del estilo de los mensajes
+  - name: Personalizar el estilo de los mensajes
     link: /docs/developer_guide/in_app_messages/tutorials/customizing_message_styling
     image: /assets/img/braze_icons/brush-02.svg
   - name: Mostrar mensajes de forma condicional

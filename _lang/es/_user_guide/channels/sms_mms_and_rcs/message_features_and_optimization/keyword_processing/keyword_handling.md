@@ -60,7 +60,7 @@ Puedes administrar tus propias respuestas que se envían a los usuarios después
 
 1. En el panel de Braze, ve a **Audience** > **Subscription Group Management** y selecciona un grupo de suscripción **SMS/MMS/RCS**. <br><br>
 2. En **Global Keywords**, selecciona una categoría de palabras clave para editar una respuesta seleccionando el icono de lápiz. ![Palabras clave de adhesión voluntaria con el icono de lápiz visible.]({% image_buster /assets/img/sms/sms_keywords.png %})<br><br>
-3. En la pestaña que se abre, edita tu respuesta. Ten en cuenta nuestras [seis reglas para cumplir correctamente con la normativa]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations#the-six-rules-to-get-compliance-right) mientras creas tu respuesta, y lee las siguientes reglas que se aplican a las palabras clave y las respuestas de palabras clave.<br><br>
+3. En la pestaña que se abre, edita tu respuesta. Ten en cuenta nuestras [seis reglas para cumplir correctamente con la normativa]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations#the-seven-rules-to-get-compliance-right) mientras creas tu respuesta, y lee las siguientes reglas que se aplican a las palabras clave y las respuestas de palabras clave.<br><br>
 4. Para acortar automáticamente las URL estáticas en tu respuesta, selecciona el conmutador **Link Shortening**. El contador de caracteres se actualizará para mostrar la longitud esperada de la URL acortada. ![Un GIF que muestra cómo se actualiza el contador de caracteres cuando el conmutador "Link Shortening" está activado.]({% image_buster /assets/img/sms/link_shortening.gif %}){: style="max-width:60%;"}
 
 #### Consideraciones {#considerations}
@@ -90,7 +90,7 @@ Selecciona **Add a Language** y elige tu idioma de destino o busca un idioma en 
 Los idiomas distintos del inglés no incluyen palabras clave ni respuestas preconfiguradas, por lo que los remitentes deberán trabajar con sus equipos de marketing y legal para añadir las palabras clave necesarias a este conjunto. De lo contrario, Braze no gestionará los mensajes entrantes localizados para esos idiomas.
 {% endalert %}
 
-Si necesitas eliminar un idioma, selecciona el botón **Delete Language** en la parte inferior derecha.
+Si necesitas eliminar un idioma, selecciona el botón **Delete Language** en la parte inferior de la página.
 
 ![Página de palabras clave globales con la pestaña "Italian" seleccionada. Existen pestañas adicionales para cada idioma añadido.]({% image_buster /assets/img/sms/multi-language2.png %})
 
@@ -120,11 +120,11 @@ Si tienes un caso de uso en el que deseas limitar cuándo un cliente puede envia
 
 Este activador admite el filtrado del mensaje de entrada específico mediante comparaciones de es o no es del mensaje, así como reglas de coincide o no coincide con regex para validar la entrada del usuario.
 
-#### Canvas
+#### Canvas {#canvas}
 
-![Paso de Canvas basado en acciones con el activador Enviar SMS de entrada al grupo de suscripción "Messaging Service" dentro de la categoría de palabras clave "Other" donde el cuerpo del mensaje coincide con la expresión regular "símbolo de intercalación skip."]({% image_buster /assets/img/sms/canvas_trigger.png %}){: style="max-width:90%;"}
+![Paso en Canvas basado en acciones con el activador Enviar SMS de entrada al grupo de suscripción "Messaging Service" dentro de la categoría de palabras clave "Other" donde el cuerpo del mensaje coincide con la expresión regular "símbolo de intercalación skip."]({% image_buster /assets/img/sms/canvas_trigger.png %}){: style="max-width:90%;"}
 
-#### Campaign
+#### Campaign {#campaign}
 
 ![Campaign basada en acciones con el activador Enviar SMS de entrada al grupo de suscripción "Marketing Message Service A" dentro de la categoría de palabras clave "Other" donde el cuerpo del mensaje es "Keyword1" o es "Keyword2" o no es "Keyword A".]({% image_buster /assets/img/sms/campaign_trigger.png %}){: style="max-width:90%;"}
 
@@ -135,8 +135,8 @@ Recomendamos encarecidamente configurar una respuesta automática cuando los usu
 Para enviar una respuesta predeterminada, por ejemplo, "¡Lo sentimos! No reconocimos esa palabra clave.", haz lo siguiente:
 
 1. Crea una [campaña de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create).
-2. Para **Público objetivo**, elige **Todos los usuarios** (el activador aún limita quién recibe el mensaje).
-3. Para **Planificación**, elige **Entrega basada en acciones**.
+2. Para **público objetivo**, elige **Todos los usuarios** (el activador aún limita quién recibe el mensaje).
+3. Para **planificación**, elige **entrega basada en acciones**.
 4. Configura el activador como **Send inbound SMS** al grupo de suscripción correspondiente **within keyword category OTHER**.
 5. En el paso **Messaging**, introduce el cuerpo de la respuesta que quieres que reciban los usuarios.
 

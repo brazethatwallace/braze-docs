@@ -9,15 +9,15 @@ Braze 대시보드에서 **데이터 설정** > **데이터 변환**으로 이�
 처음부터 시작하는 경우, 변환의 대상을 선택하세요. 템플릿 라이브러리에서 코드 템플릿을 삽입할 수도 있습니다.
 
 {% details 대상에 대해 자세히 알아보기 %}
-* **POST: 사용자 추적:** 소스 플랫폼의 웹훅을 속성, 이벤트 또는 구매와 같은 고객 프로필 업데이트로 변환합니다.
-* **PUT: 여러 카탈로그 항목 업데이트:** 소스 플랫폼의 웹훅을 카탈로그 항목 업데이트로 변환합니다.
-* **DELETE: 여러 카탈로그 항목 삭제:** 소스 플랫폼의 웹훅을 카탈로그 항목 삭제로 변환합니다.
-* **PATCH: 여러 카탈로그 항목 편집:** 소스 플랫폼의 웹훅을 카탈로그 항목 편집으로 변환합니다.
-* **POST: API 전용으로 즉시 메시지 전송:** 소스 플랫폼의 웹훅을 변환하여 지정된 사용자에게 즉시 메시지를 전송합니다.
+* **POST: Track users:** 소스 플랫폼의 웹훅을 속성, 이벤트 또는 구매와 같은 고객 프로필 업데이트로 변환합니다.
+* **PUT: Update multiple catalog items:** 소스 플랫폼의 웹훅을 카탈로그 항목 업데이트로 변환합니다.
+* **DELETE: Delete multiple catalog items:** 소스 플랫폼의 웹훅을 카탈로그 항목 삭제로 변환합니다.
+* **PATCH: Edit multiple catalog items:** 소스 플랫폼의 웹훅을 카탈로그 항목 편집으로 변환합니다.
+* **POST: Send messages immediately via API Only:** 소스 플랫폼의 웹훅을 변환하여 지정된 사용자에게 즉시 메시지를 전송합니다.
 {% enddetails %}
 
 {% alert note %}
-추가 템플릿이나 대상을 요청하고 싶으신가요? [제품 피드백]({{site.baseurl}}/user_guide/administrative/access_braze/portal)을 남겨 보세요.
+{% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="additional templates or destinations" %}
 {% endalert %}
 
 변환을 생성한 후 변환의 상세 보기가 표시됩니다. 여기에서 **웹훅 세부 정보** 아래에서 이 변환에 대해 가장 최근에 수신된 웹훅을 확인할 수 있으며, **변환 코드** 아래에 변환 코드를 작성할 수 있는 공간이 있습니다.

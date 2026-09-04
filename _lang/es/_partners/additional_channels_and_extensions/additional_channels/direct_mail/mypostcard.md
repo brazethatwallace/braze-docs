@@ -91,7 +91,7 @@ Copia el cuerpo de la solicitud que aparece en la herramienta de administración
 
 ### Paso 2: Previsualiza tu solicitud {#step-2-preview-your-request}
 
-A continuación, previsualiza tu solicitud en el panel **Preview** o ve a la pestaña **Test**, donde puedes elegir un usuario al azar, un usuario existente o crear un usuario personalizado para probar tu webhook. ¡No olvides guardar tu plantilla antes de salir de la página!
+A continuación, previsualiza tu solicitud en el panel **vista previa** o ve a la pestaña **Test**, donde puedes elegir un usuario al azar, un usuario existente o crear un usuario personalizado para probar tu webhook. ¡No olvides guardar tu plantilla antes de salir de la página!
 
 ![Pestaña de prueba de webhook con diferentes campos para validar la implementación.]({% image_buster /assets/img/mypostcard/mypostcard_test.jpg %})
 

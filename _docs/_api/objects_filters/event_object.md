@@ -1,10 +1,9 @@
 ---
 nav_title: "Event object"
-article_title: API Event Object
+article_title: "Event object"
 page_order: 6
 page_type: reference
 description: "This reference article goes over the event object, what it is, and how it's a crucial part of event-based campaign strategies."
-
 ---
 
 # Event object
@@ -41,6 +40,10 @@ For steps on how to set up custom events for a specific platform, refer to the P
   // See following notes regarding anonymous push token imports
 }
 ```
+
+{% alert note %}
+Events with timestamps in the future default to the current time. This ensures that custom events are recorded with accurate timing.
+{% endalert %}
 
 - [External user ID]({{site.baseurl}}/api/basics#user-ids)
 - [App identifier]({{site.baseurl}}/api/identifier_types)

@@ -1,52 +1,52 @@
 {% multi_lang_include developer_guide/prerequisites/react_native.md %}
 
-## トラッキングを無効にする
+## データトラッキングを無効にする {#disabling-data-tracking}
 
-データ収集を無効にするには、メソッド`disableSDK`を使用する。このメソッドを呼び出した後、Braze SDKはBrazeサーバーへのデータ送信を停止する。
+データ収集を無効にするには、`disableSDK`メソッドを使用します。このメソッドを呼び出すと、Braze SDKはBrazeサーバーへのデータ送信を停止します。
 
 ```javascript
 Braze.disableSDK();
 ```
 
-## データトラッキングを再開する
+## データトラッキングを再開する {#resuming-data-tracking}
 
-データ収集を無効化した後に再開するには、メソッド`enableSDK`を使用する。
+データ収集を無効にした後に再開するには、`enableSDK`メソッドを使用します。
 
-`````````javascript
+```javascript
 Braze.enableSDK();
 ```
 
-## データを消去する
+## ローカルに保存されたデータを消去する {#wiping-data}
 
-デバイス上にローカル保存されているBraze SDKデータを全て削除するには、\``wipeData`deleteAllData`メソッドを使用する。このメソッドを呼び出した後、SDKは無効化される。再度イネーブルメントするには\`.\`を使用する必要がある`enableSDK`。
+デバイス上にローカルに保存されたすべてのBraze SDKデータを削除するには、`wipeData`メソッドを使用します。このメソッドを呼び出すと、SDKは無効になり、`enableSDK`で再度有効にする必要があります。
 
-`````````javascript
+```javascript
 Braze.wipeData();
 ```
 
-## データをフラッシュする
+## データのフラッシュ {#flushing-data}
 
-保留中のデータを直ちにBrazeサーバーに送信するには、を使用する`requestImmediateDataFlush`。
+保留中のデータをBrazeサーバーに即座にフラッシュするには、`requestImmediateDataFlush`を使用します。
 
-`````````javascript
+```javascript
 Braze.requestImmediateDataFlush();
 ```
 
-## 広告トラッキングのイネーブルメント
+## 広告トラッキングの有効化設定 {#setting-ad-tracking-enabled}
 
-この端末で広告トラッキングのイネーブルメントが有効かどうかをBrazeに通知するには、\``setAdTrackingEnabled``メソッドを使用する。SDKはこのデータを自動的に収集しない。
+Brazeにこのデバイスで広告トラッキングが有効かどうかを通知するには、`setAdTrackingEnabled`メソッドを使用します。SDKはこのデータを自動的に収集しません。
 
-`````````javascript
+```javascript
 Braze.setAdTrackingEnabled(true, "GOOGLE_ADVERTISING_ID");
 ```
 
-二つ目のパラメータはGoogle広告IDであり、Androidでのみ使用される。
+2番目のパラメーターはGoogle Advertising IDで、Androidでのみ使用されます。
 
-## トラッキングプロパティの許可リストを更新する（iOSのみ）
+## トラッキングプロパティ許可リストの更新（iOSのみ） {#updating-the-tracking-property-allow-list-ios-only}
 
-トラッキング用に宣言されたデータ型のリストを更新するには、. を使用する`updateTrackingPropertyAllowList`。これはAndroidでは何もしない操作だ。
+トラッキング対象として宣言するデータタイプのリストを更新するには、`updateTrackingPropertyAllowList`を使用します。Androidではこの操作は何も行いません。
 
-`````````javascript
+```javascript
 Braze.updateTrackingPropertyAllowList({
   adding: [Braze.TrackingProperty.EMAIL, Braze.TrackingProperty.FIRST_NAME],
   removing: [],
@@ -57,4 +57,8 @@ Braze.updateTrackingPropertyAllowList({
 });
 ```
 
-詳細については、[プライバシー・マニフェスト]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/privacy_manifest/)を参照せよ。
+詳細については、[プライバシーマニフェスト]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift#swift_privacy-manifest)を参照してください。
+
+## ログアウトとプッシュ登録解除 {#logout-and-unregister-push}
+
+この機能はReact Native SDKではまだサポートされていません。

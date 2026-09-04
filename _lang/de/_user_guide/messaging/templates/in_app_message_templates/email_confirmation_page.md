@@ -1,12 +1,12 @@
 ---
-nav_title: E-Mail-Registrierung mit Bestätigung
-article_title: E-Mail-Registrierung mit Bestätigungsseite
+nav_title: E-Mail-registrieren mit Bestätigung
+article_title: E-Mail-registrieren mit Bestätigungsseite
 alias: "/email_confirmation_page/"
 page_order: 7
 description: "Diese Seite beschreibt, wie Sie den Drag-and-Drop-Editor für In-App-Nachrichten verwenden, um ein E-Mail-Registrierungsformular mit einer Bestätigungsseite zu erstellen."
 ---
 
-# E-Mail-Registrierung mit Bestätigungsseite {#email-sign-up-with-confirmation-page}
+# E-Mail-registrieren mit Bestätigungsseite {#email-sign-up-with-confirmation-page}
 
 > Verwenden Sie den Drag-and-Drop-Editor für In-App-Nachrichten, um ein E-Mail-Registrierungsformular mit einer Bestätigungsseite zu erstellen.
 
@@ -16,7 +16,7 @@ description: "Diese Seite beschreibt, wie Sie den Drag-and-Drop-Editor für In-A
 
 ### 1. Schritt: Template auswählen {#step-1-choose-your-template}
 
-Wählen Sie beim Erstellen einer Drag-and-Drop-In-App-Nachricht **E-Mail-Registrierung mit Bestätigungsseite** als Template aus und klicken Sie dann auf **Nachricht erstellen**. Dieses Template wird sowohl für mobile Apps als auch für Webbrowser unterstützt.
+Wählen Sie beim Erstellen einer Drag-and-Drop-In-App-Nachricht **E-Mail-registrieren mit Bestätigungsseite** als Template aus und klicken Sie dann auf **Nachricht erstellen**. Dieses Template wird sowohl für mobile Apps als auch für Webbrowser unterstützt.
 
 ![Der In-App-Nachrichten-Editor mit dem Template für ein E-Mail-Registrierungsformular mit Bestätigungsseite.]({% image_buster /assets/img/drag_and_drop/templates/email_capture_confirmation.png %})
 

@@ -53,4 +53,4 @@ Asegúrate de sustituir `TWILIO_ACCOUNT_SID` y `TWILIO_AUTH_TOKEN` por los valor
 
 Utiliza el compositor del webhook para obtener una vista previa de la solicitud para un usuario aleatorio, o para un usuario con credenciales concretas, para asegurarte de que la solicitud se renderiza correctamente.
 
-![Webhook Preview]({% image_buster /assets/img_archive/Webhook_Preview.png %})
+![Webhook vista previa]({% image_buster /assets/img_archive/Webhook_Preview.png %})

@@ -2,10 +2,11 @@
 nav_title: Crear un mensaje de WhatsApp
 article_title: Crear un mensaje de WhatsApp
 page_order: 1
-description: "Este artículo de referencia cubre los pasos necesarios para crear y configurar un mensaje de WhatsApp."
+description: "Este artículo de referencia cubre cómo crear un mensaje de WhatsApp y configurar los campos, la configuración y el comportamiento de los mensajes específicos de WhatsApp."
 page_type: reference
 tool:
   - Campaigns
+  - Canvas
 channel:
   - WhatsApp
 search_rank: 1
@@ -13,99 +14,74 @@ search_rank: 1
 
 # Crear un mensaje de WhatsApp {#create-a-whatsapp-message}
 
-> Las campañas de WhatsApp son ideales para comunicarte directamente con tus clientes y conversar con ellos de forma programática. Puedes usar Liquid y otro contenido dinámico para crear una experiencia personalizada con tus usuarios y fomentar un entorno que mejore una experiencia de usuario discreta con tu marca.
+> Usa Campaigns de WhatsApp para comunicarte directamente con tus clientes. Utiliza Liquid y otro contenido dinámico para personalizar cada mensaje y crear una experiencia de marca consistente.
 
 ## Requisitos previos {#prerequisites}
 
-Antes de poder crear mensajes de WhatsApp, debes revisar y completar lo siguiente desde el [resumen de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup):
-  - Aceptar las políticas, límites y reglas de contenido
-  - Configurar tu conexión de WhatsApp
-  - Crear plantillas iniciales en Meta para usar en tus mensajes
+Antes de empezar, asegúrate de tener lo siguiente:
 
-## Crear un mensaje {#creating-a-message}
+| Requisito | Descripción |
+| --- | --- |
+| Campaign o Canvas | Configura una [Campaign]({{site.baseurl}}/user_guide/messaging/campaigns) o un [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) antes de redactar tu mensaje de WhatsApp. |
+| Configuración del canal de WhatsApp | Completa el [flujo de configuración de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup): acepta las políticas, configura tu conexión y establece la infraestructura de envío. |
+| Plantillas aprobadas | Para envíos iniciados por la empresa, crea y aprueba plantillas en Meta. Para más detalles, consulta el [paso 3 de la configuración de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup#step-3-create-whatsapp-templates). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos para mensajes de WhatsApp" }
 
-### Paso 1: Elige dónde crear tu mensaje {#step-1-choose-where-to-build-your-message}
+## Tipo de mensaje {#message-type}
 
-{% alert note %}
-WhatsApp crea diferentes [plantillas de mensaje](#template-messages) para cada idioma. Crea una campaña para cada idioma con segmentación para servir la plantilla correcta a los usuarios, o usa Canvas.
-{% endalert %}
+WhatsApp admite dos tipos de mensajes en Braze:
 
-¿No estás seguro de si tu mensaje debe enviarse mediante una campaña o un Canvas? Las campañas son mejores para envíos de mensajería únicos y dirigidos, mientras que los Canvas son mejores para recorridos de usuario de varios pasos.
+- **Mensaje de plantilla:** Se usa para conversaciones iniciadas por la empresa. Las plantillas deben aprobarse en Meta antes del envío.
+- **Mensaje de respuesta:** Se usa para responder a mensajes entrantes de los usuarios durante una ventana de conversación activa de 24 horas.
 
-{% tabs %}
-{% tab Campaign %}
+## Grupo de suscripción {#subscription-group}
 
-**Pasos:**
+Selecciona un grupo de suscripción de WhatsApp para cada variante de mensaje o paso en Canvas de mensaje. El grupo de suscripción determina qué configuración de remitente se utiliza y qué usuarios son elegibles para recibir el mensaje.
 
-1. Ve a la página **Campaigns** y haz clic en <i class="fas fa-plus"></i> **Create Campaign**.
-2. Selecciona **WhatsApp** o, para campañas dirigidas a múltiples canales, selecciona **Multichannel Campaign**.
-3. Dale a tu campaña un nombre claro y significativo.
-4. Añade [equipos]({{site.baseurl}}/user_guide/administer/global/user_management/teams) y [etiquetas]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) según sea necesario.
-   * Las etiquetas facilitan encontrar tus campañas y generar informes a partir de ellas. Por ejemplo, al usar el [Generador de informes]({{site.baseurl}}/user_guide/analytics/reports/report_builder), puedes filtrar por etiquetas específicas.
-5. Añade y nombra tantas variantes como necesites para tu campaña. Puedes elegir diferentes plataformas, tipos de mensaje y diseños para cada una de las variantes añadidas. Para más información sobre este tema, consulta [Pruebas multivariante y A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
+## Idiomas para mensajes de plantilla {#languages-for-template-messages}
 
-{% alert tip %}
-Si todos los mensajes de tu campaña son similares o tienen el mismo contenido, redacta tu mensaje antes de añadir variantes adicionales. Luego puedes elegir **Copy from Variant** en el desplegable **Add Variant**.
-{% endalert %}
+Cada plantilla aprobada está vinculada a un idioma específico. Configura variantes o pasos en Canvas separados cuando necesites admitir varios idiomas de plantilla.
 
-{% endtab %}
-{% tab Canvas %}
+Si estás añadiendo texto en un idioma de derecha a izquierda, consulta [Crear mensajes de derecha a izquierda]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
 
-**Pasos:**
+## Composición {#step-2-compose-your-whatsapp-message}
 
-1. [Crea tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) usando el compositor de Canvas.
-2. Después de configurar tu Canvas, añade un paso en el constructor de Canvas. Dale a tu paso un nombre claro y significativo.
-3. Elige una [planificación de paso]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#schedule-delay) y especifica un retraso según sea necesario.
-4. Filtra tu audiencia para este paso según sea necesario. Puedes refinar aún más los destinatarios de este paso especificando segmentos y añadiendo filtros adicionales. Las opciones de audiencia se verificarán después del retraso en el momento en que se envíen los mensajes.
-5. Elige tu [comportamiento de avance]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases).
-6. Elige cualquier otro canal de mensajería que quieras combinar con tu mensaje.
+Redacta tu contenido de WhatsApp en el creador de mensajes. Para las opciones de configuración específicas de WhatsApp, utiliza la siguiente referencia de campos.
 
-{% alert tip %}
-Si un Canvas basado en acciones se desencadena por un mensaje entrante de WhatsApp, puedes hacer referencia a las propiedades de WhatsApp en cualquier paso del Canvas hasta la siguiente ruta de acción.
-{% endalert %}
-
-{% endtab %}
-{% endtabs %}
-
-### Paso 2: Redacta tu mensaje de WhatsApp {#step-2-compose-your-whatsapp-message}
-
-Selecciona si deseas crear un [mensaje de plantilla](#template-messages) de WhatsApp o un mensaje de respuesta, según tu caso de uso. Cualquier conversación iniciada por la empresa debe comenzar con una plantilla aprobada, mientras que los mensajes de respuesta pueden usarse en respuestas a mensajes entrantes de los usuarios dentro de una ventana de 24 horas.
-
-![La sección Variantes de mensaje te permite seleccionar un grupo de suscripción y uno de dos tipos de mensaje: mensaje de plantilla de WhatsApp y mensaje de respuesta.]({% image_buster /assets/img/whatsapp/whatsapp_message_variants.png %}){: style="max-width:80%;"}
+| Campo o configuración | Qué controla | Notas |
+| --- | --- | --- |
+| **Grupo de suscripción** | El remitente de WhatsApp y la audiencia elegible para el mensaje. | El número de teléfono de envío asociado aparece en la alerta de la pestaña **Prueba**. |
+| **Tipo de mensaje** | Si la variante envía un mensaje de plantilla o un mensaje de respuesta. | Los envíos iniciados por la empresa requieren una plantilla. Los mensajes de respuesta requieren una ventana de conversación activa. |
+| **Plantilla** (Mensajes de plantilla) | La plantilla de Meta aprobada que se usa para enviar el mensaje. | Los campos deshabilitados en el creador provienen de la plantilla aprobada y solo se pueden modificar en Meta y volver a aprobar. |
+| **Idioma** (Mensajes de plantilla) | El idioma de la plantilla seleccionado para la variante o el paso. | Crea una variante de Campaign o un paso en Canvas por idioma para coincidir correctamente con los destinatarios. |
+| **Variables** (Mensajes de plantilla) | Valores insertados en los marcadores de posición de las variables de la plantilla. | Usa Liquid o texto plano entre llaves dobles. Incluye valores predeterminados para Liquid para que los envíos no fallen cuando falten datos del perfil. |
+| **Enlaces dinámicos** | URLs de llamada a la acción personalizadas. | Meta requiere que las variables aparezcan al final de las URLs de CTA. |
+| **Imágenes dinámicas** | URL del archivo multimedia o imagen de la biblioteca multimedia utilizada en mensajes de plantilla o de respuesta. | Las imágenes dinámicas admiten Liquid y contenido conectado en las URLs. |
+| **Diseño de respuesta** (Mensajes de respuesta) | El formato del contenido de respuesta. | Los diseños compatibles son Respuesta rápida, Mensaje de texto, Mensaje multimedia, Botón de llamada a la acción, Mensaje de lista, Mensaje de flujo, Mensajes de producto de Meta y Carrusel. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Campos y configuraciones específicos de WhatsApp" }
 
 {% tabs %}
 {% tab Mensajes de plantilla %}
 
-Puedes usar [plantillas de mensaje de WhatsApp aprobadas]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup#step-3-create-whatsapp-templates
-) para iniciar conversaciones con tus usuarios en WhatsApp. Estos mensajes se envían previamente a WhatsApp para aprobación de contenido, lo que puede tardar hasta 24 horas. Cualquier edición que hagas en el texto debe editarse y reenviarse a WhatsApp.
+### Mensajes de plantilla {#template-messages}
 
-Los campos de texto deshabilitados (resaltados en gris) no se pueden editar, ya que forman parte de la plantilla de WhatsApp aprobada. Para actualizar el texto deshabilitado, debes editar tu plantilla y obtener una nueva aprobación.
+Utiliza [mensajes de plantilla de WhatsApp aprobados]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup#step-3-create-whatsapp-templates) para iniciar conversaciones en WhatsApp. Las aprobaciones de plantillas las gestiona Meta y pueden tardar hasta 24 horas. Si editas el texto de la plantilla, actualízala en Meta y vuelve a enviarla para su aprobación.
 
-#### Idiomas {#languages}
+Para crear y enviar una nueva plantilla sin salir del creador de Campaign o Canvas, selecciona **Crear nueva plantilla**. Para las categorías, tipos y el proceso de creación completo, consulta [Creador de plantillas de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder).
 
-Cada plantilla tiene un idioma asignado, por lo que necesitas crear una campaña o un paso de Canvas para cada idioma para configurar correctamente la coincidencia de usuarios. Por ejemplo, si estás creando un Canvas que usa plantillas asignadas con indonesio e inglés, necesitas crear un paso de Canvas para la plantilla en indonesio y un paso de Canvas para la plantilla en inglés.
+Los campos de texto deshabilitados (resaltados en gris) no se pueden editar, ya que forman parte de la plantilla de WhatsApp aprobada. Para hacer actualizaciones en el texto deshabilitado, debes editar tu plantilla y obtener una nueva aprobación.
+
+#### Campos de contenido {#content-fields}
+
+Utiliza la tabla de referencia de campos para las definiciones de variables, enlaces dinámicos e imágenes dinámicas. Esta sección cubre el comportamiento específico de las plantillas y ejemplos.
 
 ![Lista de plantillas que incluye vistas previas de sus mensajes, sus idiomas asignados y su estado de aprobación.]({% image_buster /assets/img/whatsapp/whatsapp_templates.png %}){: style="max-width:80%;"}
 
-Si estás añadiendo texto en un idioma que se escribe de derecha a izquierda, ten en cuenta que la apariencia final de los mensajes de derecha a izquierda depende en gran medida de cómo los proveedores de servicios los renderizan. Para conocer las mejores prácticas sobre cómo crear mensajes de derecha a izquierda que se muestren con la mayor precisión posible, consulta [Crear mensajes de derecha a izquierda]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
-
-#### Variables {#variables}
-
-Si añadiste variables al crear la plantilla de WhatsApp en el Meta Business Manager, esas variables aparecerán como espacios en blanco en el creador de mensajes. Reemplaza estos espacios en blanco con Liquid o texto plano. Para usar texto plano, utiliza el formato "texto aquí" encerrado entre llaves dobles. Si optaste por incluir imágenes al crear tu plantilla, puedes cargar o añadir imágenes desde la biblioteca de medios o haciendo referencia a una URL de imagen. Cuando sea posible, recomendamos cargar las imágenes directamente en tu biblioteca de medios para garantizar consistencia y fiabilidad.
-
-Ten en cuenta que los campos de texto deshabilitados (resaltados en gris) no se pueden editar, ya que forman parte de la plantilla de WhatsApp aprobada. Si deseas actualizar el texto deshabilitado, debes editar tu plantilla y obtener una nueva aprobación.
-
 {% alert tip %}
-{% raw %}
-Si planeas usar Liquid, asegúrate de incluir un valor predeterminado para la personalización elegida, de modo que, en caso de que el perfil de usuario del destinatario esté incompleto, no reciba un mensaje. WhatsApp no enviará ningún mensaje con variables de Liquid faltantes.
-{% endraw %}
+Si usas Liquid, incluye valores predeterminados para los campos de personalización. WhatsApp no envía los mensajes a los que les faltan valores de personalización.
 {% endalert %}
 
 ![La herramienta Añadir personalización con el atributo "first_name" y el valor predeterminado "you".]({% image_buster /assets/img/whatsapp/whatsapp7.png %}){: style="max-width:80%;"}
-
-### Enlaces dinámicos {#dynamic-links}
-
-Las URL de llamada a la acción pueden contener variables, aunque Meta requiere que estén al final de la URL, como `{% raw %}https://example.com/{{variable}}{% endraw %}`, donde la variable puede reemplazarse en Braze con Liquid. Los enlaces también pueden incluirse como texto del cuerpo como parte de la plantilla. Ambos tipos de enlaces pueden acortarse y rastrearse usando el [seguimiento de clics]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/click_tracking).
 
 ### Imágenes dinámicas {#dynamic-images}
 
@@ -114,117 +90,64 @@ Las URL de llamada a la acción pueden contener variables, aunque Meta requiere 
 {% endtab %}
 {% tab Mensajes de respuesta %}
 
-Puedes usar mensajes de respuesta para responder a mensajes entrantes de tus usuarios. Estos mensajes se crean dentro de la aplicación en Braze durante tu experiencia de composición y pueden editarse en cualquier momento. Puedes usar Liquid para hacer coincidir el idioma del mensaje de respuesta con los usuarios apropiados.
+### Mensajes de respuesta {#response-messages}
 
-Hay cinco diseños de mensajes de respuesta que puedes usar:
+Utiliza los mensajes de respuesta para responder a mensajes entrantes de los usuarios durante la ventana de conversación activa de 24 horas. Estos mensajes se crean en Braze y se pueden editar en cualquier momento.
+
+Los mensajes de respuesta admiten estos diseños:
 - Respuesta rápida
 - Mensaje de texto
 - Mensaje multimedia
 - Botón de llamada a la acción
 - Mensaje de lista
+- Mensaje de flujo
+- Mensajes de producto de Meta
+- Carrusel
 
-![El compositor de mensajes de respuesta para un mensaje de respuesta que da la bienvenida a nuevos usuarios con un código de descuento.]({% image_buster /assets/img/whatsapp/whatsapp_response_messages.png %}){: style="max-width:80%;"}
+![El creador de mensajes de respuesta para un mensaje de respuesta que da la bienvenida a nuevos usuarios con un código de descuento.]({% image_buster /assets/img/whatsapp/whatsapp_response_messages.png %}){: style="max-width:80%;"}
 
 {% endtab %}
 {% endtabs %}
 
-### Paso 3: Previsualiza y prueba tu mensaje {#step-3-preview-and-test-your-message}
+## Resultados del envío de prueba de WhatsApp {#step-4-view-test-send-results}
 
-Braze siempre recomienda previsualizar y probar tu mensaje antes de enviarlo. Cambia a la pestaña **Test** para enviar un mensaje de prueba de WhatsApp a [grupos de prueba de contenido]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) o usuarios individuales, o previsualiza el mensaje como un usuario directamente en Braze.
+Después de enviar un mensaje de prueba de WhatsApp, puedes ver un informe detallado de entrega directamente en el creador de mensajes. Esto te ayuda a confirmar que tu mensaje llegó al destinatario previsto y a solucionar fallos antes del lanzamiento.
 
-![Un mensaje de vista previa para un usuario personalizado llamado Max.]({% image_buster /assets/img/whatsapp/whatsapp8.png %}){: style="max-width:80%;"}
-
-{% alert note %}
-Se requiere una ventana de conversación para enviar mensajes de respuesta, incluidos los mensajes de prueba. Para iniciar una ventana de conversación, envía un mensaje de WhatsApp al número de teléfono asociado con el grupo de suscripción que estás usando para este mensaje. El número de teléfono asociado aparece en la alerta de la pestaña **Test**.
-{% endalert %}
-
-![Una alerta que indica que debes abrir una ventana de mensaje enviando un mensaje de WhatsApp y luego enviar un mensaje al usuario de prueba.]({% image_buster /assets/img/whatsapp/whatsapp_test_phone_number.png %}){: style="max-width:70%;"}
-
-Para más información, consulta [Enviar mensajes de prueba]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=whatsapp).
-
-### Paso 4: Ver los resultados del envío de prueba {#step-4-view-test-send-results}
-
-Después de enviar un mensaje de prueba de WhatsApp, puedes ver un informe de entrega detallado directamente en el creador de mensajes. Esto te ayuda a confirmar que tu mensaje llegó al destinatario previsto y a solucionar errores antes del lanzamiento.
-
-El botón **View test results** aparece cuando hay datos de envío de prueba disponibles para la campaña o el paso de Canvas actual. Selecciónalo para abrir el panel de resultados.
+El botón **Ver resultados de prueba** aparece cuando hay datos del envío de prueba disponibles para la Campaign o paso en Canvas actual. Selecciónalo para abrir el panel de resultados.
 
 El panel de resultados muestra cada etapa por la que pasó tu mensaje en su camino hacia el destinatario:
-- **Braze:** si Braze procesó y envió el mensaje correctamente
-- **Meta:** si Meta aceptó el mensaje para su entrega
-- **Dispositivo del usuario:** si el mensaje se entregó al dispositivo del destinatario
+- **Braze:** Si Braze procesó y envió el mensaje correctamente
+- **Meta:** Si Meta aceptó el mensaje para su entrega
+- **Dispositivo del usuario:** Si el mensaje se entregó al dispositivo del destinatario
 
-Cada etapa muestra su estado actual. Si una etapa falló, el panel muestra el error encontrado y orientación sobre cómo resolverlo. Los resultados persisten si cierras y vuelves a abrir la misma campaña o Canvas.
+Cada etapa muestra su estado actual. Si una etapa falló, el panel muestra el error encontrado y orientación sobre cómo resolverlo. Los resultados persisten si cierras y vuelves a abrir la misma Campaign o Canvas.
 
-![Panel de resultados de prueba que muestra dos envíos de prueba exitosos y un envío de prueba fallido.]({% image_buster /assets/img/whatsapp/whatsapp_test_results.png %}){: style="max-width:80%;"}
+![Panel de resultados de prueba que muestra dos envíos de prueba exitosos y uno fallido.]({% image_buster /assets/img/whatsapp/whatsapp_test_results.png %}){: style="max-width:80%;"}
 
-#### Reintentos e intentos anteriores {#retries-and-past-attempts}
+### Reintentos e intentos anteriores {#retries-and-past-attempts}
 
 Si un envío de prueba falla, Braze reintenta automáticamente la entrega durante un máximo de 24 horas. El panel de resultados refleja esto con dos pestañas:
 
-- **Último:** el intento de entrega más reciente, actualizado en tiempo real a medida que ocurren los reintentos
-- **Intentos anteriores:** un historial de ejecuciones de reintentos anteriores, cada una mostrando los estados de las etapas y los errores encontrados
+- **Más reciente:** El intento de entrega más reciente, actualizado en tiempo real a medida que ocurren los reintentos
+- **Intentos anteriores:** Un historial de ejecuciones de reintento previas, cada una mostrando los estados de las etapas y los errores encontrados
 
-Cuando se determina el resultado final (entrega exitosa, reintentos agotados o un fallo que los reintentos no resolverán), las pestañas se renombran respectivamente a **Resultado** e **Historial de reintentos**.
+Cuando se determina el resultado final (entrega exitosa, reintentos agotados o un fallo que no se resolverá reintentando), las pestañas se renombran respectivamente a **Resultado** e **Historial de reintentos**.
 
 {% alert note %}
 Dado que los reintentos pueden continuar durante un máximo de 24 horas, es posible que no veas un resultado final inmediatamente después de un envío fallido.
 {% endalert %}
 
-#### Solucionar errores {#troubleshoot-failures}
+### Solución de problemas de fallos {#troubleshoot-failures}
 
 Si una etapa muestra un fallo, el panel muestra el error y los pasos sugeridos a seguir. Las razones comunes por las que un envío de prueba puede fallar incluyen:
 
 - La plantilla de mensaje está pausada o aún no ha sido aprobada en Meta
-- El número de teléfono del destinatario tiene limitación de tasa
-- Las variables de Liquid en el mensaje no se completaron para el usuario de prueba seleccionado
+- El número de teléfono del destinatario tiene un límite de tasa aplicado
+- Las variables Liquid del mensaje no se completaron para el usuario de prueba seleccionado
 
-Para problemas persistentes, verifica el estado de tu plantilla en el Meta Business Manager o comprueba que tu destinatario de prueba tenga los atributos de usuario requeridos completados en Braze.
+Para problemas persistentes, verifica el estado de tu plantilla en Meta Business Administrador o comprueba que tu destinatario de prueba tenga los atributos de usuario requeridos completados en Braze.
 
-### Paso 5: Construye el resto de tu campaña o Canvas {#step-5-build-the-remainder-of-your-campaign-or-canvas}
-
-{% tabs %}
-{% tab Campaign %}
-
-A continuación, construye el resto de tu campaña. Consulta las siguientes secciones para más detalles sobre cómo usar mejor nuestras herramientas para crear mensajes de WhatsApp.
-
-#### Elige una planificación de entrega o desencadenante {#choose-a-delivery-schedule-or-trigger}
-
-Los mensajes de WhatsApp pueden entregarse según un horario planificado, una acción o un desencadenante de API. Para más información, consulta [Planificar tu campaña]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
-
-Para la entrega basada en acciones, también puedes establecer la duración de la campaña y las [horas tranquilas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours).
-
-En este paso también puedes especificar controles de entrega, como permitir que los usuarios vuelvan a ser [elegibles]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#campaigns) para recibir la campaña, o habilitar reglas de [limitación de frecuencia]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping).
-
-#### Elige los usuarios objetivo {#choose-users-to-target}
-
-A continuación, debes [dirigirte a los usuarios]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) eligiendo segmentos o filtros para reducir tu audiencia. Ya deberías haber elegido el grupo de suscripción, que filtra a los usuarios por el nivel o categoría de comunicación que desean tener contigo. En este paso, seleccionas la audiencia más amplia de tus segmentos y la reduces aún más con nuestros filtros. Recibirás automáticamente una instantánea de cómo se ve aproximadamente la población de ese segmento. Recuerda que la membresía exacta del segmento siempre se calcula antes de enviar el mensaje.
-
-{% multi_lang_include audience/target_audiences.md %}
-
-#### Elige eventos de conversión {#choose-conversion-events}
-
-Braze te permite rastrear con qué frecuencia los usuarios realizan acciones específicas, [eventos de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), después de recibir una campaña. Puedes permitir una ventana de hasta 30 días durante la cual se contará una conversión si el usuario realiza la acción especificada.
-
-También puedes establecer eventos de conversión personalizados según tu caso de uso específico. Sé creativo y piensa en cómo realmente quieres medir el éxito de esta campaña.
-
-{% endtab %}
-
-{% tab Canvas %}
-
-Si aún no lo has hecho, completa las secciones restantes de tu componente de Canvas. Para más detalles sobre cómo construir el resto de tu Canvas, implementar pruebas multivariante e Intelligent Selection, y más, consulta el paso [Construir tu Canvas]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message) de nuestra documentación de Canvas.
-
-Dado que las ventanas de conversación solo pueden durar 24 horas por mensaje entrante, Braze verificará que no haya retrasos que excedan las 24 horas entre un mensaje entrante y un mensaje de respuesta.
-
-{% endtab %}
-{% endtabs %}
-
-### Paso 5: Revisa y despliega {#step-5-review-and-deploy}
-
-Después de terminar de construir tu campaña o Canvas, revisa sus detalles, pruébalo y luego ¡envíalo!
-
-A continuación, consulta [Informes de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/reporting) para aprender cómo puedes acceder a los resultados de tus campañas de WhatsApp.
-
-## Características de WhatsApp compatibles {#supported-whatsapp-features}
+## Características compatibles {#supported-whatsapp-features}
 
 ### Mensajes salientes {#outbound-messages}
 
@@ -232,14 +155,14 @@ Las siguientes características son compatibles con los mensajes salientes de Wh
 
 | Característica | Detalles | Tamaño máximo | Formatos compatibles |
 | ------- | ------- | ------------- | ---------------------- |
-| Texto de encabezado | Se admiten cadenas y parámetros de variables. | — | —
-| Texto del cuerpo | Se admiten cadenas y parámetros de variables. | — | — |
-| Texto de pie de página | Se admiten cadenas y parámetros de variables. | — | — |
+| Texto de encabezado | Se admiten cadenas y parámetros variables. | — | —
+| Texto del cuerpo | Se admiten cadenas y parámetros variables. | — | — |
+| Texto de pie de página | Se admiten cadenas y parámetros variables. | — | — |
 | Enlaces CTA | Se admiten varios tipos de llamada a la acción (CTA). Para más detalles, consulta [Tipos de llamada a la acción](#ctas). | — | — |
 | Imágenes | Las imágenes pueden incrustarse dentro del texto del cuerpo. Deben ser de 8 bits y usar un modelo de color RGB o RGBA. | < 5 MB | `.png`, `.jpg`, `.jpeg` |
-| Documentos | Los documentos pueden incrustarse dentro del texto del cuerpo. Los archivos deben estar alojados mediante URL. | < 100 MB | `.txt`, `.xls`, `.xlsx`, `.doc`, `.docx`, `.ppt`, `.pttx`, `.pdf` |
-| Videos | Los videos pueden incrustarse dentro del texto del cuerpo. Los archivos deben estar alojados mediante URL o en la [biblioteca de medios de Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). | < 16 MB | `.3gp`, `.mp4` |
-| Audio | El audio solo es compatible a través de mensajes de respuesta. Los archivos deben estar alojados mediante URL. | < 16 MB | `.aac`, `.amr`, `.mp3`, `.mp4`, `.ogg` |
+| Documentos | Los documentos pueden incrustarse dentro del texto del cuerpo. Los archivos deben estar alojados a través de URL. | < 100 MB | `.txt`, `.xls`, `.xlsx`, `.doc`, `.docx`, `.ppt`, `.pttx`, `.pdf` |
+| Videos | Los videos pueden incrustarse dentro del texto del cuerpo. Los archivos deben estar alojados a través de URL o en la [biblioteca de medios de Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). | < 16 MB | `.3gp`, `.mp4` |
+| Audio | El audio solo es compatible a través de mensajes de respuesta. Los archivos deben estar alojados a través de URL. | < 16 MB | `.aac`, `.amr`, `.mp3`, `.mp4`, `.ogg` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Mensajes salientes" }
 
 {% multi_lang_include alerts/important_alerts.md alert='Meta MP4 video issue' %}
@@ -252,9 +175,9 @@ Las siguientes características son compatibles con los mensajes entrantes de Wh
 | ------- | ------- | ------------------ |
 | Texto del cuerpo | Solo se admiten cadenas estándar. | — |
 | Imágenes | Las imágenes deben ser de 8 bits y usar un modelo de color RGB o RGBA. Los archivos deben pesar menos de 5 MB. | `.jpg`, `.png` |
-| Audio | Solo se admiten archivos Ogg codificados con el códec Opus. Otros formatos Ogg no son compatibles. | `.aac`, `.mp4`, `.mpeg`, `.amr`, `.ogg (solo Opus)` |
-| Documentos | Los documentos son compatibles a través de archivos adjuntos de mensaje. | `.txt`, `.pdf`, `.ppt`, `.doc`, `.xls`, `.docx`, `.pptx`, `.xlsx` |
-| Video | Solo se admiten el códec de video H.264 y el códec de audio AAC. Los videos deben tener una sola pista de audio o ninguna. | `.mp4`, `.3gp` |
+| Audio | Solo se admiten archivos Ogg codificados con el códec Opus. Otros formatos Ogg no son compatibles. | `.aac`, `.mp4`, `.mpeg`, `.amr`, `.ogg (Opus only)` |
+| Documentos | Los documentos son compatibles a través de archivos adjuntos de mensajes. | `.txt`, `.pdf`, `.ppt`, `.doc`, `.xls`, `.docx`, `.pptx`, `.xlsx` |
+| Video | Solo se admiten el códec de video H.264 y el códec de audio AAC. Los videos deben tener una sola pista de audio o no tener pista de audio. | `.mp4`, `.3gp` |
 | Enlaces CTA | Se admiten varios tipos de llamada a la acción (CTA). Para más detalles, consulta [Tipos de llamada a la acción](#ctas). | — |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Mensajes entrantes" }
 
@@ -264,11 +187,30 @@ Los siguientes tipos de llamada a la acción son compatibles con los mensajes de
 
 | Tipo de CTA | Detalles |
 | ----------- |---------------- |
-| Visitar sitio web | Un botón máximo (incluidos parámetros de variables). |
-| Llamar a número de teléfono | Disponible solo para plantillas de mensaje. <br>Un botón máximo. |
-| Botones de respuesta rápida personalizados | Tres botones máximo. |
-| Botón de exclusión de marketing | De forma predeterminada, los estados de suscripción no se actualizan automáticamente. Para un recorrido completo, consulta [Adhesiones y exclusiones]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs#marketing-opt-out-selection). |
-| Plantillas de mensaje con código de cupón | Disponible solo para plantillas de mensaje. <br>Pueden abrirse y editarse como otras plantillas de mensaje, y son compatibles con Liquid y códigos promocionales de Braze. |
+| Visitar sitio web | Un botón como máximo (incluidos parámetros variables). |
+| Llamar a un número de teléfono | Disponible solo para plantillas de mensajes. <br>Un botón como máximo. |
+| Botones de respuesta rápida personalizados | Tres botones como máximo. |
+| Botón de exclusión de marketing | De forma predeterminada, los estados de suscripción no se actualizan automáticamente. Para un tutorial completo, consulta [Adhesiones y exclusiones voluntarias]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs#marketing-opt-out-selection). |
+| Plantillas de mensajes con código de cupón | Disponible solo para plantillas de mensajes. <br>Se pueden abrir y editar como otras plantillas de mensajes, y son compatibles con Liquid y los códigos promocionales de Braze. |
 | Mensajes de respuesta con CTA | Crea un mensaje de respuesta que incluya un botón de llamada a la acción. |
-| [Mensajes de respuesta con lista]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#list-messages) | Crea un mensaje de respuesta que incluya una lista de hasta 10 opciones para que los usuarios elijan. |
+| [Mensajes de respuesta con lista]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#list-messages) | Crea un mensaje de respuesta que incluya una lista de hasta 10 opciones entre las que los usuarios pueden elegir. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Tipos de llamada a la acción" }
+
+## Próximos pasos {#next-steps}
+
+Después de redactar tu mensaje de WhatsApp, continúa creando y validando tu envío:
+
+{% article_tiles %}
+- name: Crear un Canvas
+  link: /docs/user_guide/messaging/canvas/create_a_canvas
+- name: Programar tu Campaign
+  link: /docs/user_guide/messaging/campaigns/schedule_your_campaign
+- name: Dirigirse a los usuarios
+  link: /docs/user_guide/messaging/messaging_fundamentals/target_users
+- name: Eventos de conversión
+  link: /docs/user_guide/messaging/messaging_fundamentals/conversion_events
+- name: Enviar mensajes de prueba
+  link: /docs/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=whatsapp
+- name: Informes de WhatsApp
+  link: /docs/user_guide/channels/whatsapp/reporting
+{% endarticle_tiles %}

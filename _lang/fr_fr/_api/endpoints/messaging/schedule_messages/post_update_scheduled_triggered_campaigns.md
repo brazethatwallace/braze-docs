@@ -17,7 +17,7 @@ description: "Cet article présente en détail l'endpoint Braze Mettre à jour d
 
 Vous pouvez transmettre des `trigger_properties` que Braze intègre dans le message lui-même.
 
-Notez que pour envoyer des messages avec cet endpoint, vous devez disposer d'un ID de campagne, créé lorsque vous construisez une [campagne déclenchée par API]({{site.baseurl}}/api/api_campaigns).
+Notez que pour envoyer des messages avec cet endpoint, vous devez disposer d'un ID de campagne, créé lorsque vous créez une [campagne déclenchée par API]({{site.baseurl}}/api/api_campaigns).
 
 Toute planification écrase complètement celle que vous avez fournie dans la demande de création de planification ou dans les demandes de mise à jour de planification précédentes. Par exemple, si vous avez initialement défini la planification sur `"schedule" : {"time" : "2015-02-20T13:14:47", "in_local_time" : true}` et que vous la mettez à jour ultérieurement sur `"schedule" : {"time" : "2015-02-20T14:14:47"}`, Braze envoie le message à l'heure spécifiée en UTC, et non à l'heure locale de l'utilisateur.
 
@@ -27,7 +27,7 @@ Les déclencheurs planifiés qui sont mis à jour à proximité ou pendant l'heu
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `campaigns.trigger.schedule.update`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `campaigns.trigger.schedule.update`.
 
 ## Limite de débit {#rate-limit}
 

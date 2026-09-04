@@ -25,7 +25,8 @@ Bevor Sie mit dem Debugging beginnen, fügen Sie sich als [Testnutzer:in]({{site
 | Impressionen oder Klicks sehen falsch aus | [Impressionen und Analytics](#impressions-and-analytics) |
 | `triggers` fehlen oder sind leer in den Event-Nutzerprotokollen | [Fehlerbehebung bei der Zustellung](#delivery-troubleshooting) |
 | Trigger wurden zurückgegeben, aber nichts wird auf dem Gerät angezeigt | [Plattformspezifische Fehlerbehebung bei der Anzeige](#platform-specific-display-troubleshooting) |
-| In-App-Nachrichten-Assets können nicht geladen werden (iOS, `NSURLError` -1008) | [Asset-Laden (Swift-Tab)]({{site.baseurl}}/developer_guide/in_app_messages/troubleshooting?sdktab=swift#asset-loading) |
+| In-App-Nachrichten-Assets können nicht geladen werden (iOS, `NSURLError` -1008) | [Asset-Laden (Swift-Tab)](?sdktab=swift#swift_asset-loading) |
+| Links werden nicht angezeigt oder Geräteprotokolle zeigen einen Klick-Aktions-Parsing-Fehler | [Ungültige Link-Einrichtung](#invalid-link-setup) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Symptom für In-App-Nachrichten" }
 
 ## Standardisierter Untersuchungspfad {#standard-investigation-path}
@@ -57,7 +58,7 @@ Drei Verhaltensweisen verursachen die meisten Canvas- und In-App-Nachrichten-Tic
 Informationen zu Verfügbarkeitsfenstern, Ablauf und null _Sends_ in Canvas-Analytics finden Sie unter [In-App-Nachrichten und Zustellung]({{site.baseurl}}/user_guide/messaging/canvas/faqs#messages-and-delivery) in den Canvas-FAQ.
 
 {% alert important %}
-In-App-Nachrichten in Canvas können nur durch Events getriggert werden, die über das SDK gesendet werden, nicht über die REST API.
+In-App-Nachrichten in Canvas können nur durch Ereignisse getriggert werden, die über das SDK gesendet werden, nicht über die REST API.
 {% endalert %}
 
 ## In-App-Nachricht wurde für eine:n Nutzer:in nicht angezeigt {#in-app-message-not-shown-for-one-user}
@@ -83,7 +84,7 @@ Folgen Sie dann dem [standardisierten Untersuchungspfad](#standard-investigation
 | Wahrscheinliche Ursache | Was zu prüfen ist |
 | --- | --- |
 | Falsches **Senden an**-Ziel | Bestätigen Sie, dass die Campaign oder der Canvas-Schritt entsprechend auf **Mobile Apps** oder **Web Browsers** ausgerichtet ist. Eine reine Web-Campaign wird nicht an Android-Geräte gesendet. |
-| Angepasste UI oder Handler unterdrückt die Anzeige | Überprüfen Sie Delegates (Mobilgerät) oder [`braze.subscribeToInAppMessage`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetoinappmessage) (Web). Siehe [Anpassung]({{site.baseurl}}/developer_guide/in_app_messages/customization) und Ihren SDK-Tab unten. |
+| Angepasste UI oder Handler unterdrückt die Anzeige | Überprüfen Sie Delegates (Mobilgerät) oder [`braze.subscribeToInAppMessage`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetoinappmessage) (Web). Siehe [Anpassung]({{site.baseurl}}/developer_guide/in_app_messages/customization) und Ihren SDK-Tab für Ihre Plattform. |
 | Integration hat auf dieser Plattform nie funktioniert | Bestätigen Sie, dass diese Plattform und App-Version zuvor In-App-Nachrichten angezeigt haben. |
 | Trigger wurde auf dem Gerät nicht ausgelöst | Der Trigger muss lokal über das SDK erfolgen. Ein REST-API-Aufruf kann keine In-App-Nachricht im SDK triggern. Siehe [Nachrichten triggern]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages). |
 | Leere `triggers` in den Event-Nutzerprotokollen | Segment, Wiederberechtigung, Frequency Cap oder Kontrollgruppe. Siehe [Fehlerbehebung: Nachrichten werden nicht zurückgegeben](#troubleshoot-messages-not-being-returned). |
@@ -112,9 +113,9 @@ Häufige Ursachen:
 - **Sitzungsstart-Prefetch der Campaign:** In-App-Nachrichten werden beim Sitzungsstart zwischengespeichert und angezeigt, wenn der Trigger ausgelöst wird. Ein Trigger, der vor dem nächsten Sitzungsstart auftritt, wird erst in dieser Sitzung angezeigt. Siehe [Nachrichten triggern]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages).
 - **Canvas-Verhalten bei nächster Sitzung:** Siehe [Canvas-In-App-Nachrichten](#canvas-in-app-messages).
 - **Geplante Dashboard-Verzögerung:** Prüfen Sie, ob eine Verzögerung für die Campaign oder den Schritt konfiguriert ist.
-- **Trigger-Synchronisierungs-Race-Condition:** Wenn Nutzer:innen ein Event unmittelbar nach dem Sitzungsstart protokollieren, sind die Trigger möglicherweise noch nicht synchronisiert. Erwägen Sie, den Trigger auf den Sitzungsstart zu setzen und nach dem beabsichtigten Event zu segmentieren, damit die Zustellung in der nächsten Sitzung nach dem Event erfolgt.
+- **Trigger-Synchronisierungs-Race-Condition:** Wenn Nutzer:innen ein Ereignis unmittelbar nach dem Sitzungsstart protokollieren, sind die Trigger möglicherweise noch nicht synchronisiert. Erwägen Sie, den Trigger auf den Sitzungsstart zu setzen und nach dem beabsichtigten Ereignis zu segmentieren, damit die Zustellung in der nächsten Sitzung nach dem Ereignis erfolgt.
 - **Sequenzielle In-App-Nachrichten:** Wenn Sie Nachrichten in einer Tour zurückstellen oder wiederherstellen, siehe [Getriggerte In-App-Nachrichten zurückstellen]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/deferring_triggered_messages).
-- **Große Assets oder langsames CDN:** Optimieren Sie Bilder und Videos für HTML-In-App-Nachrichten. Auf Mobilgeräten können Bilder bei langsamen Netzwerken vor der Anzeige heruntergeladen werden – wählen Sie unten Ihren SDK-Tab für plattformspezifische Hinweise.
+- **Große Assets oder langsames CDN:** Optimieren Sie Bilder und Videos für HTML-In-App-Nachrichten. Auf Mobilgeräten können Bilder bei langsamen Netzwerken vor der Anzeige heruntergeladen werden – wählen Sie Ihren SDK-Tab für plattformspezifische Hinweise.
 
 {% alert note %}
 Wenn Ihre In-App-Nachricht durch den Sitzungsstart getriggert wird und Sie ein verlängertes Sitzungs-Timeout festgelegt haben, wird das Schließen und erneute Öffnen der App innerhalb dieses Zeitfensters die Sitzung nicht aktualisieren. Beispiel: Bei einem 300-Sekunden-Timeout wird eine Sitzungsstart-In-App-Nachricht erst angezeigt, wenn die Sitzung tatsächlich aktualisiert wird. Passen Sie das Sitzungs-Timeout oder den Trigger-Typ an, wenn dies Ihren Test beeinflusst.
@@ -133,7 +134,7 @@ Das SDK fordert In-App-Nachrichten beim Sitzungsstart von den Braze-Servern an. 
 1. Fügen Sie sich als [Testnutzer:in]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#adding-test-users) hinzu.
 2. Richten Sie eine In-App-Nachrichten-Campaign ein, die auf Ihre:n Nutzer:in ausgerichtet ist.
 3. Starten Sie eine neue Sitzung in Ihrer Anwendung.
-4. Suchen Sie in den [Event-Nutzerprotokollen]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log) die SDK-Anfrage für das Sitzungsstart-Event. In den **Antwortdaten**:
+4. Suchen Sie in den [Event-Nutzerprotokollen]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log) die SDK-Anfrage für das Sitzungsstart-Ereignis. In den **Antwortdaten**:
    - Bestätigen Sie im Roh-JSON, dass `respond_with` `"triggers": true` enthält.
    - Die Zeile **Requested Responses** listet die Top-Level-Schlüssel in der Antwort auf. Für In-App-Nachrichten erwarten Sie **`triggers`**.
    - **Trigger In-App Message**-Zeilen listen jede In-App-Nachricht auf, die für diese Anfrage zurückgegeben wurde.
@@ -151,7 +152,7 @@ Das SDK fordert In-App-Nachrichten beim Sitzungsstart von den Braze-Servern an. 
 
 Wenn In-App-Nachrichten nicht angefordert werden, verfolgt Ihre App möglicherweise Sitzungen nicht korrekt – In-App-Nachrichten werden beim Sitzungsstart aktualisiert. Bestätigen Sie, dass die App eine Sitzung basierend auf Ihrer Sitzungs-Timeout-Semantik startet:
 
-![Die SDK-Anfrage in den Event-Nutzerprotokollen, die ein erfolgreiches Sitzungsstart-Event anzeigt.]({% image_buster /assets/img_archive/event_user_log_session_start.png %})
+![Die SDK-Anfrage in den Event-Nutzerprotokollen, die ein erfolgreiches Sitzungsstart-Ereignis anzeigt.]({% image_buster /assets/img_archive/event_user_log_session_start.png %})
 
 ##### Fehlerbehebung: Nachrichten werden nicht zurückgegeben {#troubleshoot-messages-not-being-returned}
 
@@ -175,11 +176,25 @@ Informationen zu archivierten Campaigns, Trigger-Konfiguration und Ruhezeiten fi
 
 - **_Impressionen_ größer als _Eindeutige Impressionen_:** Erwartet, wenn Nutzer:innen mehrere Geräte haben oder wenn eine geplante Verzögerung dazu führt, dass derselbe/dieselbe Nutzer:in sich mehr als einmal qualifiziert. Siehe [Wiederberechtigung für Campaigns und Canvas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility).
 - **Impressionen niedriger als erwartet:** Nutzer:innen haben die Nachricht möglicherweise nicht gesehen (Impressionen werden bei der Anzeige protokolliert), mehrere Nachrichten mit hoher Priorität können sich gegenseitig abfangen, oder Trigger-Synchronisierungs-Race-Conditions können auftreten. Für Canvas-In-App-Nachrichten siehe [Canvas-In-App-Nachrichten](#canvas-in-app-messages). Vollständige Metrikdefinitionen finden Sie unter [Reporting für In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting) und in den [FAQ zu In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/in_app_messages/faq).
-- **Impressionen niedriger als zuvor:** Überprüfen Sie die Segment- und Campaign-Changelogs. Bestätigen Sie, dass Sie nicht dasselbe Trigger-Event in einer Campaign mit höherer Priorität wiederverwendet haben.
+- **Impressionen niedriger als zuvor:** Überprüfen Sie die Segment- und Campaign-Changelogs. Bestätigen Sie, dass Sie nicht dasselbe Trigger-Ereignis in einer Campaign mit höherer Priorität wiederverwendet haben.
 
 ![Link zum Anzeigen des Changelogs auf der Campaign-Detailseite mit sieben Änderungen seit der letzten Ansicht der Campaign durch den/die Nutzer:in.]({% image_buster /assets/img_archive/trouble4.png %})
 
 Wenn Sie einen Delegate oder angepassten Handler verwenden, um In-App-Nachrichten manuell anzuzeigen, müssen Sie Impressionen und Klicks selbst protokollieren. Siehe Ihren SDK-Tab unter [Plattformspezifische Fehlerbehebung bei der Anzeige](#platform-specific-display-troubleshooting) für Swift- und Android-Details oder [In-App-Nachrichtendaten protokollieren]({{site.baseurl}}/developer_guide/in_app_messages/logging_message_data) für Web.
+
+## Ungültige Link-Einrichtung {#invalid-link-setup}
+
+**Symptom:** Links werden in einer In-App-Nachricht nicht angezeigt, oder Geräteprotokolle verweisen auf einen Klick-Aktions-Parsing-Fehler (z. B. ein Fehler, der eine ungültige Plattform-Nachrichten-Klick-Aktion erwähnt).
+
+Dies deutet in der Regel auf einen ungültigen oder fehlerhaften Link in der In-App-Nachrichten-Einrichtung hin.
+
+Überprüfen Sie Folgendes:
+
+- Ändern Sie vorübergehend das Klickverhalten auf **Nachricht schließen**. Wenn die Nachricht korrekt angezeigt wird, verursacht wahrscheinlich die Link-URL das Problem.
+- Überprüfen Sie die Link-Konfiguration für Ihren Editor und Nachrichtentyp:
+  - **Angepasstes HTML:** [Fehlerbehebung für angepasste HTML-Links und Schließverhalten]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#troubleshoot-custom-html-links-and-close-behavior)
+  - **Drag-and-Drop:** [Links und Deeplinks]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#what-should-i-know-when-customizing-drag-and-drop-in-app-messages) in den FAQ zu In-App-Nachrichten und [Mindest-SDK-Anforderungen für Textlinks]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop#more-information-on-minimum-sdks)
+  - **Nachrichten mit Buttons:** [In-App-Nachrichten anpassen]({{site.baseurl}}/developer_guide/in_app_messages/customization) für Ihre Plattform
 
 ## Plattformspezifische Fehlerbehebung bei der Anzeige {#platform-specific-display-troubleshooting}
 

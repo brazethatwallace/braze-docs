@@ -85,9 +85,13 @@ These click metrics are not available for retargeting.
 
 ### Step 4: Choose submission behavior
 
-Once a user submits their response, you can optionally show a confirmation page, or simply close the message.
+When a user submits their response, you can optionally show a confirmation page, or simply close the message.
 
 A confirmation page is a great place to thank users for their time or provide additional information. You can customize the call-to-action on this page to guide users to another page of your app or website.
+
+{% alert note %}
+When using a confirmation page, the **Header** field is required. If you see a "Composer has validation errors" message when trying to save your campaign, add a header to your confirmation page.
+{% endalert %}
 
 Edit your button text and on-click behavior in the **Submit Button** section at the bottom of the **Survey** tab:
 
@@ -125,7 +129,7 @@ Check out [In-app message reporting]({{site.baseurl}}/user_guide/channels/in_app
 
 ### Currents {#currents}
 
-Selected choices will automatically flow through to Currents, under the [**In-App Message Click Events**]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#api_fzzdoylmrtwe) `button_id` field. Each choice will be sent with its universally unique identifier (UUID).
+Selected choices will automatically flow through to Currents, under the [**In-App Message Click Events**]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#in-app-message-click-events) `button_id` field. Each choice will be sent with its universally unique identifier (UUID).
 
 ## Use cases
 

@@ -22,7 +22,7 @@ Braze ist nicht dafür verantwortlich, dass sich Nutzer:innen bei Google registr
 | AMP für E-Mail aktiviert | AMP ist für alle Nutzer:innen verfügbar. |
 | Gmail-Konto-Aktivierung | Siehe [Gmail-Konto aktivieren](#enabling-gmail-account). |
 | Google-Sender-Authentifizierung | Gmail [authentifiziert den Sender](https://developers.google.com/gmail/ampemail/security-requirements#sender_authentication) von AMP-E-Mails mit DKIM, SPF und DMARC. Diese müssen für Ihr Konto eingerichtet werden. <br><br>- [Domain Keys Identified Mail](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) (DKIM) <br>- [Sender Policy Framework](https://en.wikipedia.org/wiki/Sender_Policy_Framework)(SPF)<br>- [Domain-based Message Authentication, Reporting, and Conformance](https://en.wikipedia.org/wiki/DMARC)(DMARC)
-| AMP-E-Mail-Elemente | Eine überzeugende AMP-E-Mail beinhaltet den strategischen Einsatz verschiedener Komponenten. Weitere Informationen finden Sie im Tab „Grundlagen“ im Abschnitt [Komponenten](#components) weiter unten. |
+| AMP-E-Mail-Elemente | Eine überzeugende AMP-E-Mail beinhaltet den strategischen Einsatz verschiedener Komponenten. Weitere Informationen finden Sie im Tab „Grundlagen“ im Abschnitt [Komponenten](#components). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Anforderungen" }
 
 ### Unterstützte E-Mail-Clients {#supported-email-clients}
@@ -51,7 +51,7 @@ Gehen Sie zu Ihren Gmail-Einstellungen und wählen Sie unter **Allgemein** die O
 
 ## API-Nutzung {#api-usage}
 
-Sie können AMP für E-Mail auch mit unserer API verwenden. Wenn Sie einen der Braze [Messaging-Endpunkte]({{site.baseurl}}/api/endpoints/messaging) zum Senden einer E-Mail verwenden, fügen Sie `amp_body` als Objektspezifikation hinzu, wie unten gezeigt.
+Sie können AMP für E-Mail auch mit unserer API verwenden. Wenn Sie einen der Braze [Messaging-Endpunkte]({{site.baseurl}}/api/endpoints/messaging) zum Senden einer E-Mail verwenden, fügen Sie `amp_body` als Objektspezifikation hinzu, wie im folgenden Abschnitt gezeigt.
 
 ### E-Mail-Objektspezifikation {#email-object-specification}
 
@@ -260,7 +260,7 @@ Wenn keine dieser Bedingungen den Fehler verursacht, kontaktieren Sie den [Suppo
 
 Sie können Ihren Gmail-Posteingang zu Testzwecken für die Darstellung von AMP-E-Mails konfigurieren, indem Sie Folgendes tun:
 
-1. Wählen Sie in Gmail **Einstellungen** in der oberen rechten Ecke Ihres Posteingangs aus.
+1. Wählen Sie in Gmail **Einstellungen** in der Symbolleiste Ihres Posteingangs aus.
 2. Wählen Sie **Alle Einstellungen anzeigen** aus.
 3. Gehen Sie im Tab **Allgemein** zum Abschnitt **Dynamische E-Mails** und bestätigen Sie, dass das Kontrollkästchen **Dynamische E-Mails aktivieren** aktiviert ist.
 4. Wählen Sie als Nächstes **Entwicklereinstellungen** und aktivieren Sie das Kontrollkästchen **Dynamische E-Mails von diesem Absender immer zulassen:**.

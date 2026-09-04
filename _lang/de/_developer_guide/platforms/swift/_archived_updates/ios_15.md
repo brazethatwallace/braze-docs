@@ -12,12 +12,11 @@ noindex: true
 
 > Dieser Leitfaden beschreibt die Änderungen, die mit iOS 15 (WWDC21) eingeführt wurden, und die erforderlichen Upgrade-Schritte für Ihre Braze iOS SDK-Integration. Eine vollständige Liste der neuen iOS 15 Updates finden Sie in den [iOS 15 Versionshinweisen](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-15-release-notes) von Apple.
 
+## Änderungen an der Transparenz von UI-Navigationen {#transparency-changes-to-ui-navigations}
 
-## Transparenzänderungen bei UI-Navigationen {#transparency-changes-to-ui-navigations}
+Im Rahmen unserer jährlichen Tests der iOS-Betas haben wir eine von Apple vorgenommene Änderung festgestellt, die dazu führt, dass bestimmte UI-Navigationsleisten transparent statt undurchsichtig dargestellt werden. Dies wird unter iOS 15 sichtbar, wenn Sie die Standard-UI von Braze für Content Cards verwenden oder wenn Web-Deeplinks innerhalb Ihrer App statt in einer separaten Browser-App geöffnet werden.
 
-Im Rahmen unserer jährlichen Tests von iOS-Betas haben wir eine von Apple vorgenommene Änderung festgestellt, die dazu führt, dass bestimmte UI-Navigationsleisten transparent statt undurchsichtig erscheinen. Dies wird unter iOS 15 sichtbar sein, wenn Sie die Braze Standard-UI für Content Cards verwenden oder wenn Web-Deeplinks innerhalb Ihrer App statt in einer separaten Browser-App geöffnet werden.
-
-Um diese visuelle Veränderung in iOS 15 zu vermeiden, empfehlen wir Ihnen dringend, so schnell wie möglich auf das [Braze iOS SDK v4.3.2](https://github.com/Appboy/appboy-ios-sdk/releases/tag/4.3.2) zu upgraden, bevor Nutzer:innen ihr Telefon auf das neue Betriebssystem iOS 15 aktualisieren.
+Um diese visuelle Änderung unter iOS 15 zu vermeiden, empfehlen wir dringend, so bald wie möglich auf das [Braze iOS SDK v4.3.2](https://github.com/Appboy/appboy-ios-sdk/releases/tag/4.3.2) zu aktualisieren, bevor Nutzer:innen ihr Telefon auf das neue Betriebssystem iOS 15 aktualisieren.
 
 ## Neue Benachrichtigungseinstellungen {#notification-settings}
 
@@ -38,7 +37,7 @@ In iOS 15 können Push-Benachrichtigungen mit einer von vier Unterbrechungsstufe
 * **Zeitsensitiv** (neu) – Erlaubt Ton, Vibration, Aufwachen des Bildschirms, kann die Systemsteuerung durchbrechen, falls zulässig.
 * **Kritisch** – Erlaubt Ton, Vibration, Aufwachen des Bildschirms, kann die Systemsteuerung durchbrechen und den Ruftonschalter umgehen.
 
-Unter [iOS-Benachrichtigungsoptionen]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options#interruption-level) erfahren Sie mehr darüber, wie Sie diese Option in iOS Push einstellen können.
+Unter [iOS-Benachrichtigungsoptionen]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#interruption-level) erfahren Sie mehr darüber, wie Sie diese Option in iOS Push einstellen können.
 
 ### Zusammenfassung der Benachrichtigungen {#notification-summary}
 
@@ -48,7 +47,7 @@ In iOS 15 können Nutzer:innen (optional) bestimmte Zeiten am Tag auswählen, um
 
 Für jede Benachrichtigung, die Sie versenden, können Sie bald einen „Relevanzwert“ angeben, um zu steuern, welche Benachrichtigung oben in der Zusammenfassung erscheinen soll.
 
-Unter [iOS-Benachrichtigungsoptionen]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options#relevance-score) erfahren Sie mehr darüber, wie Sie den „Relevanzwert“ einer Benachrichtigung festlegen.
+Unter [iOS-Benachrichtigungsoptionen]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#relevance-score) erfahren Sie mehr darüber, wie Sie den „Relevanzwert“ einer Benachrichtigung festlegen.
 
 ## Standort-Buttons {#location-buttons}
 
@@ -72,6 +71,6 @@ Laut Apple wird für Nutzer:innen, die den Zugriff auf den Standort im Hintergru
 
 In diesem Jahr hat Apple zahlreiche Updates in Bezug auf E-Mail-Tracking und Datenschutz angekündigt. Weitere Informationen finden Sie in unserem [Blogbeitrag](https://www.braze.com/resources/articles/9-ways-email-marketers-can-respond-to-apples-mail-privacy-protection-feature).
 
-## Safari-IP-Adressstandort {#safari-ip-address-location}
+## Safari-IP-Adress-Standort {#safari-ip-address-location}
 
-In iOS 15 können Nutzer:innen Safari so konfigurieren, dass der anhand ihrer IP-Adressen ermittelte Standort anonymisiert oder verallgemeinert wird. Beachten Sie dies, wenn Sie standortbasiertes Targeting oder Segmentierung verwenden.
+In iOS 15 können Nutzer:innen Safari so konfigurieren, dass der aus ihren IP-Adressen ermittelte Standort anonymisiert oder verallgemeinert wird. Beachten Sie dies bei der Verwendung von standortbasiertem Targeting oder standortbasierter Segmentierung.

@@ -1,35 +1,35 @@
-## À propos du SDK Web Braze {#about-the-web-braze-sdk}
+## À propos du SDK Web de Braze {#about-the-web-braze-sdk}
 
-Le SDK Web Braze vous permet de collecter des données analytiques et d'afficher des messages in-app enrichis, des notifications push et des messages Content Cards à vos utilisateurs Web. Pour plus d'informations, consultez la [documentation de référence JavaScript de Braze](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html).
+Le SDK Web de Braze vous permet de collecter des données analytiques et d'afficher des messages in-app enrichis, des notifications push et des messages Content Cards à vos utilisateurs web. Pour en savoir plus, consultez la [documentation de référence JavaScript de Braze](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html).
 
 {% multi_lang_include archive/web-v4-rename.md %}
 
 ## Intégrer le SDK Web {#integrate-the-web-sdk}
 
-Vous pouvez intégrer le SDK Web Braze en utilisant les méthodes suivantes. Pour des options supplémentaires, consultez les [autres méthodes d'intégration](#web_other-integration-methods).
+Vous pouvez intégrer le SDK Web de Braze à l'aide des méthodes suivantes. Pour des options supplémentaires, consultez [autres méthodes d'intégration](#web_other-integration-methods).
 
-- **Intégration basée sur le code :** Intégrez le SDK Web Braze directement dans votre base de code à l'aide de votre gestionnaire de paquets préféré ou du réseau de diffusion de contenu Braze. Cela vous permet de contrôler entièrement le chargement et la configuration du SDK.
-- **Google Tag Manager :** Une solution sans code qui vous permet d'intégrer le SDK Web Braze sans modifier le code de votre site. Pour plus d'informations, consultez [Google Tag Manager avec le SDK Braze]({{site.baseurl}}/developer_guide/sdk_integration/google_tag_manager/).
+- **Intégration basée sur le code :** Intégrez le SDK Web de Braze directement dans votre base de code à l'aide de votre gestionnaire de paquets préféré ou du CDN de Braze. Cela vous donne un contrôle total sur la manière dont le SDK est chargé et configuré.
+- **Google Tag gestionnaire :** Une solution sans code qui vous permet d'intégrer le SDK Web de Braze sans modifier le code de votre site. Pour en savoir plus, consultez [Google Tag gestionnaire avec le SDK de Braze]({{site.baseurl}}/developer_guide/sdk_integration/google_tag_manager).
 
 {% alert important %}
-Nous recommandons d'utiliser la [méthode d'intégration NPM]({{site.baseurl}}/developer_guide/sdk_integration/?subtab=package%20manager&sdktab=web). Les avantages comprennent le stockage local des bibliothèques SDK sur votre site web, l'immunité contre les extensions de blocage des publicités et la contribution à des temps de chargement plus rapides dans le cadre de la prise en charge des bundlers.
+Nous recommandons d'utiliser la [méthode d'intégration NPM]({{site.baseurl}}/developer_guide/sdk_integration/?subtab=package%20manager&sdktab=web). Les avantages incluent le stockage local des bibliothèques du SDK sur votre site web, l'immunité contre les extensions de blocage de publicités et des temps de chargement plus rapides grâce à la prise en charge des bundlers.
 {% endalert %}
 
 {% tabs local %}
-{% tab code-based integration %}
+{% tab Intégration basée sur le code %}
 ### Étape 1 : Installer la bibliothèque Braze {#step-1-install-the-braze-library}
 
-Vous pouvez installer la bibliothèque Braze en utilisant l'une des méthodes suivantes. Toutefois, si votre site web utilise un `Content-Security-Policy`, consultez la [politique de sécurité du contenu]({{site.baseurl}}/developer_guide/platforms/web/content_security_policy/) avant de poursuivre.
+Vous pouvez installer la bibliothèque Braze à l'aide de l'une des méthodes suivantes. Toutefois, si votre site web utilise une `Content-Security-Policy`, consultez la section [Content Security Policy]({{site.baseurl}}/developer_guide/platforms/web/content_security_policy) avant de continuer.
 
 {% alert important %}
-Bien que la plupart des bloqueurs de publicités ne bloquent pas le SDK Web Braze, certains bloqueurs plus restrictifs sont connus pour causer des problèmes.
+Bien que la plupart des bloqueurs de publicités ne bloquent pas le SDK Web de Braze, certains bloqueurs plus restrictifs sont connus pour causer des problèmes.
 {% endalert %}
 
 {% subtabs %}
-{% subtab package manager %}
+{% subtab package gestionnaire %}
 Si votre site utilise les gestionnaires de paquets NPM ou Yarn, vous pouvez ajouter le [paquet NPM de Braze](https://www.npmjs.com/package/@braze/web-sdk) comme dépendance.
 
-Les définitions TypeScript sont désormais incluses à partir de la version v3.0.0. Pour les notes sur la mise à jour de 2.x vers 3.x, consultez notre [journal des modifications](https://github.com/braze-inc/braze-web-sdk/blob/master/UPGRADE_GUIDE.md).
+Les définitions Typescript sont incluses depuis la version 3.0.0. Pour les notes de mise à niveau de la version 2.x vers la version 3.x, consultez notre [journal des modifications](https://github.com/braze-inc/braze-web-sdk/blob/master/UPGRADE_GUIDE.md).
 
 ```bash
 npm install --save @braze/web-sdk
@@ -37,7 +37,7 @@ npm install --save @braze/web-sdk
 # yarn add @braze/web-sdk
 ```
 
-Une fois installé, vous pouvez `import` ou `require` la bibliothèque de la manière habituelle :
+Une fois installée, vous pouvez utiliser `import` ou `require` de la manière habituelle :
 
 ```typescript
 import * as braze from "@braze/web-sdk";
@@ -47,12 +47,12 @@ const braze = require("@braze/web-sdk");
 {% endsubtab %}
 
 {% subtab braze cdn %}
-Ajoutez le SDK Web Braze directement à votre code HTML en faisant référence à notre script hébergé par le réseau de diffusion de contenu, qui charge la bibliothèque de manière asynchrone.
+Ajoutez le SDK Web de Braze directement à votre HTML en référençant notre script hébergé sur le CDN, qui charge la bibliothèque de manière asynchrone.
 
 <script src="{{site.baseurl}}/assets/js/embed.js?target=https%3A%2F%2Fgithub.com%2Fbraze-inc%2Fbraze-web-sdk%2Fblob%2Fmaster%2Fsnippets%2Floading-snippet.js&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on&showCopy=on"></script>
 
 {% alert important %}
-Le paramètre par défaut **Empêcher le suivi intersites** dans Safari peut empêcher l'affichage de certains types de messages in-app, tels que les bannières et les Content Cards, lorsque vous utilisez la méthode d'intégration par réseau de diffusion de contenu. Pour éviter ce problème, utilisez la méthode d'intégration NPM afin que Safari ne classe pas ces messages comme du trafic intersite et que vos utilisateurs web puissent les voir dans tous les navigateurs pris en charge.
+Le paramètre par défaut **Empêcher le suivi intersite** dans Safari peut empêcher l'affichage de certains types de messages in-app tels que les bannières et les Content Cards lorsque vous utilisez la méthode d'intégration CDN. Pour éviter ce problème, utilisez la méthode d'intégration NPM afin que Safari ne classe pas ces messages comme du trafic intersite et que vos utilisateurs web puissent les voir dans tous les navigateurs pris en charge.
 {% endalert %}
 
 {% endsubtab %}
@@ -60,10 +60,10 @@ Le paramètre par défaut **Empêcher le suivi intersites** dans Safari peut emp
 
 ### Étape 2 : Initialiser le SDK {#step-2-initialize-the-sdk}
 
-Une fois le SDK Web Braze ajouté à votre site web, initialisez la bibliothèque à l'aide de la clé API et de l'[URL de l'endpoint SDK]({{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints/) disponibles dans **Paramètres** > **Paramètres des applications** dans votre tableau de bord de Braze. Pour obtenir la liste complète des options de `braze.initialize()`, ainsi que nos autres méthodes JavaScript, consultez la [documentation JavaScript de Braze](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initialize).
+Une fois le SDK Web de Braze ajouté à votre site web, initialisez la bibliothèque avec la clé API et l'[URL de l'endpoint du SDK]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) disponibles dans **Paramètres** > **Paramètres de l'application** dans votre tableau de bord de Braze. Pour une liste complète des options pour `braze.initialize()`, ainsi que nos autres méthodes JavaScript, consultez la [documentation JavaScript de Braze](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initialize).
 
 {% alert note %}
-**Les domaines personnalisés pour les requêtes du SDK Web ne sont pas pris en charge** : Le `baseUrl` du SDK Web doit être un endpoint du SDK Braze (par exemple, `sdk.iad-05.braze.com`). Braze ne prend pas en charge le routage du trafic du SDK Web via un domaine appartenant au client à l'aide d'enregistrements CNAME. Si vous avez besoin que les requêtes du SDK Web proviennent de votre propre domaine, contactez l'assistance Braze.
+**Les domaines personnalisés pour les requêtes du SDK Web ne sont pas pris en charge** : le `baseUrl` du SDK Web doit être un endpoint du SDK de Braze (par exemple, `sdk.iad-05.braze.com`). Braze ne prend pas en charge le routage du trafic du SDK Web via un domaine appartenant au client par le biais d'enregistrements CNAME. Si vous avez besoin que les requêtes du SDK Web proviennent de votre propre domaine, contactez le support Braze.
 {% endalert %}
 
 ```javascript
@@ -94,25 +94,25 @@ braze.openSession();
 ```
 
 {% alert important %}
-**Affichage des messages in-app** : Pour afficher automatiquement les messages in-app lorsqu'ils sont déclenchés, vous devez appeler `braze.automaticallyShowInAppMessages()`. Sans cet appel, les messages in-app ne s'affichent pas automatiquement. Si vous souhaitez gérer manuellement l'affichage des messages, supprimez cet appel et utilisez `braze.subscribeToInAppMessage()` à la place. Pour plus d'informations, consultez la section [Réception/distribution de messages in-app]({{site.baseurl}}/developer_guide/in_app_messages/delivery/).
+**Affichage des messages in-app** : pour afficher automatiquement les messages in-app lorsqu'ils sont déclenchés, vous devez appeler `braze.automaticallyShowInAppMessages()`. Sans cet appel, les messages in-app ne s'affichent pas automatiquement. Si vous souhaitez gérer l'affichage des messages manuellement, supprimez cet appel et utilisez `braze.subscribeToInAppMessage()` à la place. Pour en savoir plus, consultez [Désactiver les déclencheurs automatiques]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages#disabling-automatic-triggers).
 {% endalert %}
 
 #### Résolution des problèmes de sessions manquantes pour les utilisateurs anonymes {#troubleshooting-missing-sessions-for-anonymous-users}
 
-Si vous constatez un comportement de « session manquante » ou si vous n'êtes pas en mesure de suivre la session des utilisateurs anonymes sur le web, assurez-vous que votre intégration appelle `braze.openSession()` lors de l'initialisation.
+Si vous constatez un comportement de type « session manquante » ou si vous n'êtes pas en mesure de suivre la session des utilisateurs qui restent anonymes sur le web, assurez-vous que votre intégration appelle `braze.openSession()` lors de l'initialisation.
 
 - **Scénario :** Les utilisateurs anonymes peuvent renvoyer un ID Braze, mais les données de session sont vides ou manquantes.
 - **Cause :** L'implémentation n'appelle pas `braze.openSession()`.
 - **Résolution :** Appelez toujours `braze.openSession()` après l'initialisation (et après `braze.changeUser()` si vous définissez un ID externe).
 
-Pour plus d'informations, consultez l'[étape 2 : Initialiser le SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web&tab=code-based%20integration#step-2-initialize-the-sdk).
+Pour en savoir plus, consultez [Étape 2 : Initialiser le SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web&tab=code-based%20integration#step-2-initialize-the-sdk).
 
 {% alert important %}
-Les utilisateurs anonymes sur des appareils mobiles ou web peuvent être comptabilisés dans votre [MAU]({{site.baseurl}}/user_guide/data_and_analytics/reporting/understanding_your_app_usage_data/#monthly-active-users). Par conséquent, vous pouvez charger ou initialiser conditionnellement le SDK pour exclure ces utilisateurs de votre décompte de MAU.
+Les utilisateurs anonymes sur appareils mobiles ou web peuvent être comptabilisés dans vos [MAU]({{site.baseurl}}/user_guide/data_and_analytics/reporting/understanding_your_app_usage_data#monthly-active-users). Par conséquent, vous pouvez souhaiter charger ou initialiser le SDK de manière conditionnelle afin d'exclure ces utilisateurs de votre comptage de MAU.
 {% endalert %}
 {% endtab %}
 
-{% tab Google Tag Manager %}
+{% tab Google Tag gestionnaire %}
 {% multi_lang_include developer_guide/web/google_tag_manager/initialization_tag.md %}
 {% endtab %}
 {% endtabs %}
@@ -177,19 +177,19 @@ if (!isLikelyBot()) {
 
 ### Journalisation {#logging}
 
-Pour activer rapidement la journalisation, vous pouvez ajouter `?brazeLogging=true` comme paramètre à l'URL de votre site web. Vous pouvez également activer la journalisation [de base](#web_basic-logging) ou [personnalisée](#web_custom-logging). Pour un aperçu centralisé sur toutes les plateformes, consultez la section [Journalisation détaillée]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/).
+Pour activer rapidement la journalisation, vous pouvez ajouter `?brazeLogging=true` comme paramètre à l'URL de votre site web. Vous pouvez également activer la journalisation [basique](#web_basic-logging) ou [personnalisée](#web_custom-logging). Pour un aperçu centralisé sur toutes les plateformes, consultez [Journalisation détaillée]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging).
 
-#### Journalisation de base {#basic-logging}
+#### Journalisation basique {#basic-logging}
 
 {% tabs local %}
-{% tab before initialization %}
-Utilisez `enableLogging` pour enregistrer les messages de débogage de base dans la console JavaScript avant l'initialisation du SDK.
+{% tab Avant l'initialisation %}
+Utilisez `enableLogging` pour journaliser les messages de débogage basiques dans la console JavaScript avant l'initialisation du SDK.
 
 ```javascript
 enableLogging: true
 ```
 
-Votre méthode doit être similaire à la suivante :
+Votre méthode devrait ressembler à ce qui suit :
 
 ```javascript
 braze.initialize('API-KEY', {
@@ -200,8 +200,8 @@ braze.openSession();
 ```
 {% endtab %}
 
-{% tab after initialization %}
-Utilisez `braze.toggleLogging()` pour enregistrer les messages de débogage de base dans la console JavaScript après l'initialisation du SDK. Votre méthode doit être similaire à la suivante :
+{% tab Après l'initialisation %}
+Utilisez `braze.toggleLogging()` pour journaliser les messages de débogage basiques dans la console JavaScript après l'initialisation du SDK. Votre méthode devrait ressembler à ce qui suit :
 
 ```javascript
 braze.initialize('API-KEY', {
@@ -215,18 +215,18 @@ braze.toggleLogging();
 {% endtabs %}
 
 {% alert important %}
-Les journaux de base sont visibles par tous les utilisateurs. Envisagez de les désactiver ou de passer à [`setLogger`](#web_custom-logging) avant de mettre votre code en production.
+Les journaux basiques sont visibles par tous les utilisateurs. Pensez à les désactiver ou à passer à [`setLogger`](#web_custom-logging) avant de déployer votre code en production.
 {% endalert %}
 
 #### Journalisation personnalisée {#custom-logging}
 
-Utilisez `setLogger` pour enregistrer des messages de débogage personnalisés dans la console JavaScript. Contrairement aux journaux de base, ces journaux ne sont pas visibles par les utilisateurs.
+Utilisez `setLogger` pour journaliser des messages de débogage personnalisés dans la console JavaScript. Contrairement aux journaux basiques, ces journaux ne sont pas visibles par les utilisateurs.
 
 ```javascript
 setLogger(loggerFunction: (message: STRING) => void): void
 ```
 
-Remplacez `STRING` par votre message sous la forme d'un paramètre de chaîne de caractères unique. Votre méthode doit être similaire à la suivante :
+Remplacez `STRING` par votre message sous la forme d'un paramètre de chaîne de caractères unique. Votre méthode devrait ressembler à ce qui suit :
 
 ```javascript
 braze.initialize('API-KEY');
@@ -236,36 +236,36 @@ braze.setLogger(function(message) {
 braze.openSession();
 ```
 
-## Mise à niveau du SDK {#upgrading-the-sdk}
+## Mise à jour du SDK {#upgrading-the-sdk}
 
 {% multi_lang_include archive/web-v4-rename.md %}
 
-Lorsque vous faites référence au SDK Web Braze à partir de notre réseau de diffusion de contenu, par exemple `https://js.appboycdn.com/web-sdk/a.a/braze.min.js` (comme recommandé par nos instructions d'intégration par défaut), vos utilisateurs reçoivent automatiquement les mises à jour mineures (corrections de bogues et fonctionnalités rétrocompatibles, versions `a.a.a` à `a.a.z` dans les exemples ci-dessus) lorsqu'ils actualisent votre site.
+Lorsque vous référencez le SDK Web de Braze depuis notre réseau de diffusion de contenu, par exemple `https://js.appboycdn.com/web-sdk/a.a/braze.min.js` (comme recommandé par nos instructions d'intégration par défaut), vos utilisateurs reçoivent automatiquement les mises à jour mineures (corrections de bugs et fonctionnalités rétrocompatibles, versions `a.a.a` à `a.a.z` dans cet exemple) lorsqu'ils actualisent votre site.
 
-Cependant, lorsque nous publions des modifications majeures, nous vous demandons de mettre à jour manuellement le SDK Web Braze afin de garantir que les changements majeurs n'affectent pas votre intégration. De plus, si vous téléchargez notre SDK et l'hébergez vous-même, vous ne recevrez aucune mise à jour automatique et devrez effectuer la mise à niveau manuellement pour bénéficier des dernières fonctionnalités et corrections de bogues.
+Cependant, lorsque nous publions des changements majeurs, nous vous demandons de mettre à jour manuellement le SDK Web de Braze afin de vous assurer que les changements non rétrocompatibles n'impactent pas votre intégration. De plus, si vous téléchargez notre SDK et l'hébergez vous-même, vous ne recevez aucune mise à jour de version automatiquement et devez effectuer la mise à jour manuellement pour bénéficier des dernières fonctionnalités et corrections de bugs.
 
-Vous pouvez vous tenir au courant de notre dernière version [en suivant notre flux de publication](https://github.com/braze-inc/braze-web-sdk/tags.atom) avec le lecteur RSS ou le service de votre choix, et consulter [notre journal des modifications](https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md) pour un compte-rendu complet de l'historique des versions de notre SDK Web. Pour mettre à niveau le SDK Web Braze :
+Vous pouvez rester informé de nos dernières versions [en suivant notre flux de versions](https://github.com/braze-inc/braze-web-sdk/tags.atom) avec le lecteur RSS ou le service de votre choix, et consulter [notre journal des modifications](https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md) pour un historique complet des versions de notre SDK Web. Pour mettre à jour le SDK Web de Braze :
 
-- Mettez à jour la version de la bibliothèque Braze en modifiant le numéro de version de `https://js.appboycdn.com/web-sdk/[OLD VERSION NUMBER]/braze.min.js` ou dans les dépendances de votre gestionnaire de paquets.
-- Si vous avez intégré les notifications push web, mettez à jour le fichier du service de traitement sur votre site. Par défaut, celui-ci se trouve à `/service-worker.js` dans le répertoire racine de votre site, mais l'emplacement peut être personnalisé dans certaines intégrations. Vous devez accéder au répertoire racine pour héberger un fichier de service de traitement.
+- Mettez à jour la version de la bibliothèque Braze en modifiant le numéro de version de `https://js.appboycdn.com/web-sdk/[OLD VERSION NUMBER]/braze.min.js`, ou dans les dépendances de votre gestionnaire de paquets.
+- Si vous avez intégré les notifications push Web, mettez à jour le fichier du service de traitement sur votre site. Par défaut, celui-ci se trouve à l'emplacement `/service-worker.js` dans le répertoire racine de votre site, mais cet emplacement peut être personnalisé dans certaines intégrations. Vous devez accéder au répertoire racine pour héberger un fichier de service de traitement.
 
-Vous devez mettre à jour ces deux fichiers de manière coordonnée afin d'assurer un fonctionnement correct.
+Vous devez mettre à jour ces deux fichiers de manière coordonnée pour garantir un fonctionnement correct.
 
 ## Autres méthodes d'intégration {#other-integration-methods}
 
 ### Pages mobiles accélérées (AMP) {#accelerated-mobile-pages-amp}
 {% details Voir plus %}
-#### Étape 1 : Inclure le script de notification push web AMP {#step-1-include-amp-web-push-script}
+#### Étape 1 : Inclure le script AMP web push {#step-1-include-amp-web-push-script}
 
-Ajoutez la balise de script asynchrone suivante à votre en-tête :
+Ajoutez la balise de script asynchrone suivante dans votre en-tête :
 
 ```js
 <script async custom-element="amp-web-push" src="https://cdn.ampproject.org/v0/amp-web-push-0.1.js"></script>
 ```
 
-#### Étape 2 : Ajouter des widgets d'abonnement {#step-2-add-subscription-widgets}
+#### Étape 2 : Ajouter les widgets d'abonnement {#step-2-add-subscription-widgets}
 
-Ajoutez un widget au corps de votre code HTML qui permet aux utilisateurs de s'abonner et de se désabonner des notifications push.
+Ajoutez un widget dans le corps de votre HTML permettant aux utilisateurs de s'abonner et de se désabonner des notifications push.
 
 ```js
 <!-- A subscription widget -->
@@ -281,20 +281,20 @@ Ajoutez un widget au corps de votre code HTML qui permet aux utilisateurs de s'a
 
 #### Étape 3 : Ajouter `helper-iframe` et `permission-dialog` {#step-3-add-helper-iframe-and-permission-dialog}
 
-Le composant AMP Web Push génère une fenêtre contextuelle pour gérer les abonnements push. Il est donc nécessaire d'ajouter les fichiers d'aide suivants à votre projet pour activer cette fonctionnalité :
+Le composant AMP Web Push crée une fenêtre contextuelle pour gérer les abonnements push. Vous devez donc ajouter les fichiers d'aide suivants à votre projet pour activer cette fonctionnalité :
 
 - [`helper-iframe.html`](https://cdn.ampproject.org/v0/amp-web-push-helper-frame.html)
 - [`permission-dialog.html`](https://cdn.ampproject.org/v0/amp-web-push-permission-dialog.html)
 
 #### Étape 4 : Créer un fichier de service de traitement {#step-4-create-a-service-worker-file}
 
-Créez un fichier `service-worker.js` dans le répertoire racine de votre site web et ajoutez-y l'extrait de code suivant :
+Créez un fichier `service-worker.js` dans le répertoire racine de votre site web et ajoutez l'extrait de code suivant :
 
 <script src="{{site.baseurl}}/assets/js/embed.js?target=https://github.com/braze-inc/braze-web-sdk/blob/master/sample-builds/cdn/service-worker.js&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on&showCopy=on"></script>
 
-#### Étape 5 : Configurer l'élément HTML de notification push web AMP {#step-5-configure-the-amp-web-push-html-element}
+#### Étape 5 : Configurer l'élément HTML AMP web push {#step-5-configure-the-amp-web-push-html-element}
 
-Ajoutez l'élément HTML `amp-web-push` suivant au corps de votre page HTML. Notez que vous devez ajouter vos paramètres de requête [`apiKey` et `baseUrl`](https://documenter.getpostman.com/view/4689407/SVYrsdsG) à `service-worker-URL`.
+Ajoutez l'élément HTML `amp-web-push` suivant dans le corps de votre HTML. Gardez à l'esprit que vous devez ajouter votre [`apiKey` et `baseUrl`](https://documenter.getpostman.com/view/4689407/SVYrsdsG) en tant que paramètres de requête à `service-worker-URL`.
 
 ```js
 <amp-web-push
@@ -307,17 +307,17 @@ service-worker-url="FILE_PATH_TO_YOUR_SERVICE_WORKER?apiKey={YOUR_API_KEY}&baseU
 ```
 {% enddetails %}
 
-### Définition de module asynchrone (AMD) {#asynchronous-module-definition-amd}
+### Asynchronous Module Definition (AMD)
 
 #### Désactiver la prise en charge {#disable-support}
 
-Si votre site utilise RequireJS ou un autre chargeur de modules AMD, mais que vous préférez charger le SDK Web Braze via l'une des autres options de cette liste, vous pouvez charger une version de la bibliothèque qui n'inclut pas la prise en charge AMD. Cette version de la bibliothèque peut être chargée depuis l'emplacement suivant du réseau de diffusion de contenu :
+Si votre site utilise RequireJS ou un autre chargeur de modules AMD, mais que vous préférez charger le SDK Web de Braze via l'une des autres options de cette liste, vous pouvez charger une version de la bibliothèque qui n'inclut pas la prise en charge d'AMD. Cette version de la bibliothèque peut être chargée depuis l'emplacement CDN suivant :
 
 <script src="{{site.baseurl}}/assets/js/embed.js?target=https%3A%2F%2Fgithub.com%2Fbraze-inc%2Fbraze-web-sdk%2Fblob%2Fmaster%2Fsnippets%2Fno-amd-library.js&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on&showCopy=on"></script>
 
 #### Chargeur de modules {#module-loader}
 
-Si vous utilisez RequireJS ou d'autres chargeurs de modules AMD, nous vous recommandons d'auto-héberger une copie de notre bibliothèque et de la référencer comme vous le feriez avec d'autres ressources :
+Si vous utilisez RequireJS ou d'autres chargeurs de modules AMD, nous vous recommandons d'héberger vous-même une copie de notre bibliothèque et de la référencer comme vous le feriez avec d'autres ressources :
 
 ```javascript
 require(['path/to/braze.min.js'], function(braze) {
@@ -330,11 +330,11 @@ require(['path/to/braze.min.js'], function(braze) {
 
 ### Electron {#electron}
 
-Electron ne prend pas officiellement en charge les notifications push web (voir ce [problème GitHub](https://github.com/electron/electron/issues/6697)). Il existe d'autres [solutions de contournement open source](https://github.com/MatthieuLemoine/electron-push-receiver) que vous pouvez essayer, mais qui n'ont pas été testées par Braze.
+Electron ne prend pas officiellement en charge les notifications push Web (voir : ce [ticket GitHub](https://github.com/electron/electron/issues/6697)). Il existe d'autres [solutions open source](https://github.com/MatthieuLemoine/electron-push-receiver) que vous pouvez essayer, mais qui n'ont pas été testées par Braze.
 
 ### Framework Jest {#jest}
 
-Lorsque vous utilisez Jest, vous pouvez rencontrer une erreur similaire à `SyntaxError: Unexpected token 'export'`. Pour la corriger, ajustez votre configuration dans `package.json` pour ignorer le SDK Braze :
+Lorsque vous utilisez Jest, vous pouvez voir une erreur similaire à `SyntaxError: Unexpected token 'export'`. Pour résoudre ce problème, ajustez votre configuration dans `package.json` pour ignorer le SDK Braze :
 
 ```
 "jest": {
@@ -389,7 +389,7 @@ useEffect(() => {
 
 #### Hook partagé pour Next.js et Remix {#shared-hook-for-nextjs-and-remix}
 
-Créez un hook réutilisable `useBraze` et appelez-le à la racine de votre application.
+Créez un hook réutilisable `useBraze` et appelez-le à proximité de la racine de votre application.
 
 ```tsx
 // hooks/useBraze.ts
@@ -486,7 +486,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
 #### Remix
 
-Appelez `useBraze` en haut de votre composant de route racine.
+Appelez `useBraze` en haut du composant de votre route racine.
 
 Pour les exemples de validation Remix en local, exécutez `PORT=4013 npm run dev`.
 
@@ -502,9 +502,9 @@ export default function App() {
 }
 ```
 
-#### Journalisation des événements et mise à jour des utilisateurs {#logging-events-and-updating-users}
+#### Journaliser des événements et mettre à jour les utilisateurs {#logging-events-and-updating-users}
 
-Une fois que `useBraze` a initialisé le SDK à la racine de votre application, d'autres composants côté client peuvent appeler les méthodes Braze. Un modèle courant consiste à les appeler dans des actions utilisateur, telles que `onClick` ou `onSubmit`. Dans l'exemple, les méthodes du SDK sont chargées dans le gestionnaire de clic plutôt qu'en haut du fichier. Cela permet de garder le SDK Web hors du code serveur et de ne charger que ce dont l'action a besoin. Le commentaire `webpackExports` indique à webpack quelles méthodes inclure, ce qui réduit la taille de votre bundle.
+Après que `useBraze` a initialisé le SDK à la racine de votre application, d'autres composants client peuvent appeler les méthodes Braze. Un schéma courant consiste à les appeler dans des actions utilisateur, telles que `onClick` ou `onSubmit`. Dans cet exemple, les méthodes du SDK sont chargées dans le gestionnaire de clic plutôt qu'en haut du fichier. Cela permet de garder le SDK Web hors du code serveur et de ne charger que ce dont cette action a besoin. Le commentaire `webpackExports` indique à webpack quelles méthodes inclure, ce qui maintient un bundle plus léger.
 
 ```tsx
 // app/components/BuyButton.tsx
@@ -526,21 +526,21 @@ export function BuyButton() {
 }
 ```
 
-Cet exemple montre un composant `BuyButton` qui enregistre l'activité lorsqu'un utilisateur clique sur **Acheter**. Il commence par importer uniquement `logCustomEvent`, `logPurchase` et `getUser` au moment du clic. Ensuite, il met à jour un attribut utilisateur, enregistre un événement personnalisé et enregistre un achat. Ce modèle vous permet de centraliser l'initialisation dans `useBraze`, tout en suivant les actions significatives depuis n'importe quel composant côté client.
+Cet exemple montre un composant `BuyButton` qui journalise l'activité lorsqu'un utilisateur clique sur **Buy**. Premièrement, il importe uniquement `logCustomEvent`, `logPurchase` et `getUser` au moment du clic. Ensuite, il met à jour un attribut utilisateur, journalise un événement personnalisé et journalise un achat. Ce schéma vous permet de centraliser l'initialisation dans `useBraze`, tout en suivant les actions significatives depuis n'importe quel composant client.
 
-Si vous utilisez Remix avec Vite et que les imports depuis la racine du paquet échouent à l'exécution, utilisez la solution de contournement Vite existante. Pour plus d'informations, consultez [Vite]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web#web_vite).
+Si vous utilisez Remix avec Vite et que les imports depuis la racine du paquet échouent au moment de l'exécution, utilisez la solution de contournement Vite existante. Pour plus d'informations, consultez [Vite]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web#web_vite).
 
 Pour une liste complète des méthodes disponibles, consultez la [documentation de référence JavaScript de Braze](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html).
 
 ### Tealium iQ
 
-Tealium iQ propose une intégration de base clé en main de Braze. Pour configurer l'intégration, recherchez Braze dans l'interface Tealium Tag Management et fournissez la clé API du SDK Web à partir de votre tableau de bord.
+Tealium iQ offre une intégration Braze clé en main. Pour configurer l'intégration, recherchez Braze dans l'interface de gestion des balises Tealium, puis fournissez la clé API du SDK Web depuis votre tableau de bord.
 
-Pour plus de détails ou pour obtenir une assistance approfondie concernant la configuration de Tealium, consultez notre [documentation sur l'intégration]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/tealium/#about-tealium) ou contactez votre gestionnaire de compte Tealium.
+Pour plus de détails ou pour une assistance approfondie sur la configuration Tealium, consultez notre [documentation d'intégration]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/tealium#about-tealium) ou contactez votre gestionnaire de compte Tealium.
 
 ### Vite {#vite}
 
-Si vous utilisez Vite et voyez un avertissement concernant des dépendances circulaires ou `Uncaught TypeError: Class extends value undefined is not a constructor or null`, vous devrez peut-être exclure le SDK Braze de sa [découverte de dépendances](https://vitejs.dev/guide/dep-pre-bundling.html#customizing-the-behavior) :
+Si vous utilisez Vite et que vous voyez un avertissement concernant des dépendances circulaires ou `Uncaught TypeError: Class extends value undefined is not a constructor or null`, vous devrez peut-être exclure le SDK Braze de sa [découverte de dépendances](https://vitejs.dev/guide/dep-pre-bundling.html#customizing-the-behavior) :
 
 ```
 optimizeDeps: {
@@ -550,4 +550,4 @@ optimizeDeps: {
 
 ### Autres gestionnaires de balises {#other-tag-managers}
 
-Braze peut également être compatible avec d'autres solutions de gestion des balises en suivant nos instructions d'intégration au sein d'une balise HTML personnalisée. Contactez un conseiller Braze si vous avez besoin d'aide pour évaluer ces solutions.
+Braze peut également être compatible avec d'autres solutions de gestion de balises en suivant nos instructions d'intégration au sein d'une balise HTML personnalisée. Contactez un conseiller Braze si vous avez besoin d'aide pour évaluer ces solutions.

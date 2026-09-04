@@ -7,7 +7,6 @@ description: "This reference article covers Android push notification channel to
 platform: Android
 channel:
   - push
-
 ---
 
 # Notification channels
@@ -16,7 +15,7 @@ channel:
 
 Notification channels can only be created in the code of your application and cannot be created programmatically in the Braze dashboard. We recommend your engineering team work with your marketers to ensure the desired notification channels are properly added to the dashboard.
 
-Starting with API level 26 (Android O), push notifications require a valid channel to display. If your app targets Android O or later, you must use Braze SDK version 2.1.0 or later. Your development team should define the channels that you want to use as well as suggested notification settings (for example, importance, sound, lights) for each channel in your application code. For information, you can see [Android developer documentation](https://developer.android.com/preview/features/notification-channels.html) and [Braze developer documentation]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration#step-5-define-notification-channels)
+Starting with API level 26 (Android O), push notifications require a valid channel to display. If your app targets Android O or later, you must use Braze SDK version 2.1.0 or later. Your development team should define the channels that you want to use as well as suggested notification settings (for example, importance, sound, lights) for each channel in your application code. For information, you can see [Android developer documentation](https://developer.android.com/preview/features/notification-channels.html) and [Braze developer documentation]({{site.baseurl}}/developer_guide/push_notifications?sdktab=android)
 
 {% alert note %}
 Android supports localization for channel names, so in the code of your application, you can associate one channel ID with multiple translations of a channel name.
@@ -69,7 +68,7 @@ To better understand the expected behavior for channels, refer to the following 
 
 1. Open or create any campaign or Canvas that includes an Android push.
 2. Navigate to the Android push message composer.
-3. Select **Manage Notification Channels**. Any channels added here will be available globally for all campaigns and Canvases. You must have "Manage Apps" [permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#limited-and-team-role-permissions) for your workspace to manage channels.
+3. Select **Manage Notification Channels**. Any channels added here will be available globally for all campaigns and Canvases. You must have "Manage Apps" [permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) for your workspace to manage channels.
 
 When you apply a notification channel to a specific campaign or Canvas step, your **Reachable Users** tally (located in the Target Audience step) for Android Push will not appear to change. However, only users subscribed to the selected notification channel will see the message, and your campaign analytics (like clicks) will be measured based on this audience.
 

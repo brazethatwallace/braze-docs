@@ -4,13 +4,19 @@ article_title: Abo-Einstellungen
 page_order: 5
 layout: dev_guide
 guide_top_header: "Abo-Einstellungen"
-guide_top_text: "Verwalten Sie, wie Nutzer:innen sich für Ihre Messaging-Kanäle an- und abmelden. Verwenden Sie Präferenzzentren, um Nutzer:innen die Kontrolle über ihre E-Mail-Kommunikationseinstellungen zu geben."
+guide_top_text: "Verwalten Sie, wie Nutzer:innen sich für Ihre Messaging-Kanäle an- und abmelden. Überprüfen Sie den <a href='/docs/user_guide/audience/subscription_preferences/subscription_status'>Abo-Status</a> kanalübergreifend, nutzen Sie <a href='/docs/user_guide/audience/subscription_preferences/subscription_groups'>Abo-Gruppen</a> für Einstellungen auf Kategorieebene und Präferenzzentren, um Nutzer:innen die Kontrolle über ihre E-Mail-Kommunikationseinstellungen zu geben."
 
 page_type: landing
-description: "Dieser Abschnitt behandelt Abo-Einstellungen in Braze, einschließlich Präferenzzentren und Abo-Management."
+description: "Dieser Abschnitt behandelt Abo-Einstellungen in Braze, einschließlich Abo-Status, Abo-Gruppen, Präferenzzentren und Abo-Management."
 
 guide_featured_title: "Artikel in diesem Abschnitt"
 guide_featured_list:
+  - name: Abo-Status
+    link: /docs/user_guide/audience/subscription_preferences/subscription_status
+    image: /assets/img/braze_icons/check-verified-02.svg
+  - name: Abo-Gruppen
+    link: /docs/user_guide/audience/subscription_preferences/subscription_groups
+    image: /assets/img/braze_icons/users-01.svg
   - name: Präferenzzentrum
     link: /docs/user_guide/audience/subscription_preferences/preference_center
     image: /assets/img/braze_icons/mail-01.svg

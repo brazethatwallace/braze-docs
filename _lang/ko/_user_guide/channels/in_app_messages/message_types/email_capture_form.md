@@ -14,14 +14,16 @@ channel:
 
 이 메시지 유형은 [기존 에디터]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional)에서 사용할 수 있습니다.
 
+이 인앱 메시지 유형 대신 커스텀 양식을 통해 이메일을 수집한 후 REST API를 통해 구독 그룹 멤버십을 설정하는 경우, 사용자를 생성하기 전에 프로필이 이미 존재하는지 확인하세요. [수집 모범 사례]({{site.baseurl}}/user_guide/data/unification/user_data/best_practices#step-1-check-if-the-user-exists)를 참조하세요.
+
 ## 작동 방식 {#how-it-works}
 
-최종 사용자가 이 양식에 이메일 주소를 입력하면, Braze가 해당 이메일 주소를 고객 프로필에 추가합니다.
+최종사용자가 이 양식에 이메일 주소를 입력하면, Braze는 해당 이메일 주소를 고객 프로필에 추가합니다.
 
 - 아직 계정이 없는 [익명 사용자]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#anonymous-user-profiles)의 경우, 이메일 주소는 사용자의 기기에 연결된 익명 사용자 프로필에 저장됩니다.
 - 고객 프로필에 이메일 주소가 이미 존재하는 경우, 새로 입력된 이메일 주소가 기존 이메일 주소를 덮어씁니다.
-- 알려진 사용자의 이메일 주소가 [하드바운스]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#hard-bounce)로 표시된 경우, Braze는 새로 입력된 이메일 주소가 Braze 프로필에 있는 주소와 다른지 확인합니다. 제공된 이메일 주소가 다르면 Braze가 이메일 주소를 업데이트하고 하드바운스 상태를 제거합니다.
-- 사용자가 유효하지 않은 이메일 주소를 입력하면 "Please enter a valid email."이라는 오류 메시지가 표시됩니다.
+- 알려진 사용자의 이메일 주소가 [하드 바운스]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#hard-bounce)로 표시된 경우, Braze는 새로 입력된 이메일 주소가 Braze 프로필에 있는 주소와 다른지 확인합니다. 제공된 이메일 주소가 다르면, Braze는 이메일 주소를 업데이트하고 하드 바운스 상태를 제거합니다.
+- 사용자가 유효하지 않은 이메일 주소를 입력하면, 다음과 같은 오류 메시지가 표시됩니다: "Please enter a valid email."
     - 유효하지 않은 이메일 주소:
         - `example`
         - `example@`
@@ -32,24 +34,24 @@ channel:
         - `example@gnail.com` (오타 포함)
     - Braze에서의 이메일 유효성 검사에 대한 자세한 내용은 [이메일 기술 가이드라인 및 참고 사항]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation)을 참조하세요.
 
-{% details 식별된 사용자와 익명 사용자에 대한 추가 정보 %}
+{% details 식별된 사용자와 익명 사용자에 대한 자세한 내용 %}
 
-이메일 캡처 양식은 현재 활성 상태인 Braze 고객 프로필에 이메일 주소를 설정합니다. 사용자가 식별되었는지(로그인 상태, `changeUser` 호출됨) 여부에 따라 동작이 달라집니다.
+이메일 캡처 양식은 Braze에서 현재 활성 상태인 고객 프로필에 이메일 주소를 설정합니다. 사용자가 식별된 상태(로그인됨, `changeUser` 호출됨)인지 아닌지에 따라 동작이 달라집니다.
 
-익명 사용자가 양식에 이메일을 입력하고 제출하면, Braze가 해당 프로필에 이메일 주소를 추가합니다. 이후 웹 여정에서 `changeUser`가 호출되고 새로운 `external_id`가 할당되면(예: 새 사용자가 서비스에 등록할 때), 이메일 주소를 포함한 모든 익명 사용자 프로필 데이터가 병합됩니다.
+익명 사용자가 양식에 이메일을 입력하고 제출하면, Braze는 해당 이메일 주소를 프로필에 추가합니다. 이후 웹 여정에서 `changeUser`가 호출되어 새로운 `external_id`가 할당되면(예: 새 사용자가 서비스에 가입하는 경우), 이메일 주소를 포함한 모든 익명 사용자 프로필 데이터가 병합됩니다.
 
-기존 `external_id`로 `changeUser`가 호출되면, 익명 사용자 프로필은 분리되고 식별된 사용자에 아직 존재하지 않는 [특정 고객 프로필 데이터 필드]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge_updates-behavior)가 병합되지만, 이미 존재하는 필드는 이메일 주소를 포함하여 손실됩니다.
+기존 `external_id`로 `changeUser`가 호출되면, 익명 사용자 프로필은 고아 상태가 되며 식별된 사용자에 아직 존재하지 않는 [특정 고객 프로필 데이터 필드]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior)는 병합되지만, 이미 존재하는 필드(이메일 주소 포함)는 손실됩니다.
 
-자세한 내용은 [고객 프로필 수명주기]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle)를 참조하세요.
+자세한 내용은 [사용자 프로필 수명주기]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle)를 참조하세요.
 
 {% enddetails %}
 
-## 1단계: 인앱 메시지 Campaign 생성 {#step-1-create-an-in-app-message-campaign}
+## 1단계: 인앱 메시지 Campaign 만들기 {#step-1-create-an-in-app-message-campaign}
 
-이 옵션으로 이동하려면 인앱 메시징 Campaign을 생성해야 합니다. 그런 다음 사용 사례에 따라 **Send To**를 **Web Browsers**, **Mobile Apps** 또는 **Both Mobile Apps & Web Browsers**로 설정하고, **메시지 유형**으로 **Email Capture Form**을 선택합니다.
+이 옵션으로 이동하려면 인앱 메시징 Campaign을 만들어야 합니다. 그런 다음 사용 사례에 따라 **Send To**를 **Web Browsers**, **Mobile Apps** 또는 **Both Mobile Apps & Web Browsers**로 설정한 후, **Message Type**으로 **Email Capture Form**을 선택합니다.
 
 {% alert note %}
-**웹 사용자를 타겟팅하시나요?** <br>Web SDK를 통해 HTML 인앱 메시지를 활성화하려면 Braze에 `allowUserSuppliedJavascript` 초기화 옵션을 제공해야 합니다. 예: `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. 이는 보안상의 이유로, HTML 인앱 메시지가 JavaScript를 실행할 수 있기 때문에 사이트 관리자가 이를 활성화해야 합니다.
+**웹 사용자를 타겟팅하시나요?** <br>웹 SDK를 통해 HTML 인앱 메시지를 활성화하려면 Braze에 `allowUserSuppliedJavascript` 초기화 옵션을 제공해야 합니다(예: `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`). HTML 인앱 메시지는 JavaScript를 실행할 수 있으므로 보안상의 이유로 사이트 관리자가 이를 활성화해야 합니다.
 {% endalert %}
 
 ## 2단계: 양식 커스터마이즈 {#customizable-features}
@@ -67,16 +69,16 @@ channel:
 
 ![이메일 캡처 양식 작성기.]({% image_buster /assets/img/email_capture.png %})
 
-추가 커스터마이즈가 필요한 경우, **메시지 유형**으로 **Custom Code**를 선택하세요. [Braze Templates](https://github.com/braze-inc/in-app-message-templates/tree/master/braze-templates) GitHub 리포지토리에서 이 [이메일 캡처 모달 템플릿](https://github.com/braze-inc/in-app-message-templates/tree/master/braze-templates/5-email-capture-modal)을 시작 코드로 사용할 수 있습니다.
+추가 커스터마이즈가 필요한 경우, **Message Type**으로 **Custom Code**를 선택하세요. [Braze Templates](https://github.com/braze-inc/in-app-message-templates/tree/master/braze-templates) GitHub 리포지토리에서 이 [이메일 캡처 Modal 템플릿](https://github.com/braze-inc/in-app-message-templates/tree/master/braze-templates/5-email-capture-modal)을 시작 코드로 사용할 수 있습니다.
 
-## 3단계: 진입 오디언스 설정 {#step-3-set-your-entry-audience}
+## 3단계: 진입 오디언스 설정하기 {#step-3-set-your-entry-audience}
 
-인앱 메시지를 사용하여 사용자 이메일을 캡처하는 경우, 이미 이 정보를 제공한 사용자를 제외하도록 오디언스를 제한할 수 있습니다.
+인앱 메시지를 사용하여 사용자 이메일을 수집하는 경우, 이미 해당 정보를 제공한 사용자를 제외하도록 오디언스를 제한할 수 있습니다.
 
-- **이메일 주소가 없는 사용자를 타겟팅하려면:** `Email Available`이 `false`인 필터를 사용합니다. 이렇게 하면 이메일이 등록되지 않은 사용자에게만 양식이 표시되어, 이미 알려진 사용자에게 불필요한 안내를 방지할 수 있습니다.
-- **외부 ID가 없는 익명 사용자를 타겟팅하려면:** `External User ID`가 `is blank`인 필터를 사용합니다. 이는 아직 인증되지 않았거나 등록하지 않은 사용자를 식별하려는 경우에 유용합니다.
+- **이메일 주소가 없는 사용자를 타겟팅하려면:** `Email Available`이 `false`인 필터를 사용합니다. 이렇게 하면 이메일이 등록되지 않은 사용자에게만 양식이 표시되므로, 이미 알려진 사용자에게 중복 요청을 하는 것을 방지할 수 있습니다.
+- **외부 ID가 없는 익명 사용자를 타겟팅하려면:** `External User ID`가 `is blank`인 필터를 사용합니다. 아직 인증되지 않았거나 가입하지 않은 사용자를 식별하고 싶을 때 유용합니다.
 
-원하는 경우 `AND` 로직을 사용하여 두 필터를 결합할 수도 있습니다. 이렇게 하면 이메일 주소와 외부 사용자 ID가 모두 없는 사용자에게만 양식이 표시되며, 새로운 리드를 확보하거나 계정 생성을 유도하는 데 이상적입니다.
+원하는 경우, `AND` 로직을 사용하여 두 필터를 결합할 수도 있습니다. 이렇게 하면 이메일 주소와 외부 사용자 ID가 모두 없는 사용자에게만 양식이 표시되므로, 신규 리드를 확보하거나 계정 생성을 유도하는 데 이상적입니다.
 
 ## 4단계: 양식을 작성한 사용자 타겟팅 (선택 사항) {#step-4-target-users-who-filled-out-the-form-optional}
 

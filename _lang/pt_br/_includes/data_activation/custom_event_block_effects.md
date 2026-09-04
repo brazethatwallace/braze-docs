@@ -1,0 +1,3 @@
+- Dados futuros não serão coletados para esse evento.
+- Os dados existentes não estarão disponíveis, a menos que esse evento seja desbloqueado.
+- Esse evento não aparecerá em filtros ou gráficos.

@@ -26,7 +26,7 @@ Esta tabela lista os operadores compatíveis. Observe que parênteses são carac
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Operadores" }
 
 {% alert note %}
-Os operadores podem ser usados em instruções condicionais (`if`, `elsif`, `unless`), mas não em instruções `assign`, loops `for` ou colchetes de acesso a arrays. Nas tags `case` e `when`, cada ramificação compara a expressão `case` com um valor `when` usando igualdade, em vez de expressões arbitrárias com operadores. Para exemplos, consulte [Lógica condicional de mensagens]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#case-and-when-tags). Para uma explicação completa, consulte [Onde usar operadores e filtros]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#where-to-use-operators-and-filters).
+Os operadores podem ser usados em instruções condicionais (`if`, `elsif`, `unless`), mas não em instruções `assign`, loops `for` ou colchetes de acesso a arrays. Nas tags `case` e `when`, cada Branch compara a expressão `case` com um valor `when` usando igualdade, em vez de expressões arbitrárias com operadores. Para exemplos, consulte [Lógica condicional de mensagens]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#case-and-when). Para uma explicação completa, consulte [Onde usar operadores e filtros]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#where-to-use-operators-and-filters).
 {% endalert %}
 
 ## Agrupando condições sem parênteses {#grouping-conditions-without-parentheses}
@@ -243,27 +243,27 @@ Stream now!
 
 ![Criador de notificação por push com o código Liquid completo do tutorial.]({% image_buster /assets/img/abort-if.png %})
 
-Você também pode [cancelar mensagens]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content) com base em Conteúdo conectado.
+Você também pode [cancelar mensagens]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content) com base em Conteúdo Conectado.
 
 ## Solução de problemas {#troubleshooting}
 
 ### O envio de teste não chega ao usar `abort_message` {#test-send-doesnt-arrive-when-using-abort_message}
 
-Se você usar [`abort_message`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) e um envio de teste nunca chegar, o usuário de pré-visualização pode estar sem os atributos que seu Liquid espera. A lógica de cancelamento é executada durante a renderização; quando ela é acionada, a Braze não envia a mensagem. Faça a pré-visualização com um usuário que tenha os dados de perfil necessários ou use **Pré-visualizar como usuário** para testar campos de destinatário que forneçam os mesmos valores que seu público de produção teria.
+Se você usar [`abort_message`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) e um envio de teste nunca chegar, o usuário de prévia pode estar sem os atributos que seu Liquid espera. A lógica de interrupção é executada durante a renderização; quando ela é acionada, a Braze não envia a mensagem. Faça a prévia com um usuário que tenha os dados de perfil necessários ou use **Pré-visualizar como usuário** para testar campos de destinatário que forneçam os mesmos valores que seu público de produção teria.
 
-### A pré-visualização pode converter incorretamente os tipos de propriedade {#preview-may-incorrectly-coerce-property-types}
+### A prévia pode converter incorretamente os tipos de propriedade {#preview-may-incorrectly-coerce-property-types}
 
-Ao pré-visualizar uma mensagem no dashboard, a maioria das variáveis (como atributos personalizados) é convertida para o tipo correto. No entanto, algumas variáveis não têm um tipo definido que a pré-visualização possa consultar:
+Ao pré-visualizar uma mensagem no dashboard, a maioria das variáveis (como atributos personalizados) é convertida para o tipo correto. No entanto, algumas variáveis não têm um tipo definido que a prévia possa consultar:
 
 - `api_trigger_properties`
 - `canvas_entry_properties`
 - `context`
 
-Para essas propriedades, a pré-visualização tenta inferir o tipo a partir do valor. Isso significa que um valor que você pretende que seja uma **string** pode ser interpretado incorretamente como um **número**. Por exemplo, se o valor de uma propriedade for a string `"3"`, a pré-visualização pode convertê-lo para o inteiro `3`, o que pode causar comportamento inesperado em operações de string como `contains` ou `split`.
+Para essas propriedades, a prévia tenta inferir o tipo a partir do valor. Isso significa que um valor que você pretende que seja uma **string** pode ser interpretado incorretamente como um **número**. Por exemplo, se o valor de uma propriedade for a string `"3"`, a prévia pode convertê-lo para o inteiro `3`, o que pode causar comportamento inesperado em operações de string como `contains` ou `split`.
 
-Se você observar resultados inesperados na pré-visualização ao usar esses tipos de propriedade, lembre-se de que a inferência de tipo da pré-visualização pode não corresponder ao que acontece no momento do envio. No momento do envio, os tipos de dados reais do evento de disparo ou da chamada de API são preservados.
+Se você observar resultados inesperados na prévia ao usar esses tipos de propriedade, lembre-se de que a inferência de tipo da prévia pode não corresponder ao que acontece no momento do envio. No momento do envio, os tipos de dados reais do evento de disparo ou da chamada de API são preservados.
 
-Para forçar um tipo específico na pré-visualização, você pode converter explicitamente o valor:
+Para forçar um tipo específico na prévia, você pode converter explicitamente o valor:
 
 {% raw %}
 ```liquid

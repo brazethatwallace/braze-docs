@@ -22,7 +22,7 @@ Entry properties can be used in action-based and API-triggered Canvases. These e
 
 - [Canvas entry properties object]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)
 - [Event properties object]({{site.baseurl}}/api/objects_filters/event_object)
-- [Purchase object]({{site.baseurl}}/api/objects_filters/purchase_object#purchase-product_id)
+- [Purchase object]({{site.baseurl}}/api/objects_filters/purchase_object#purchase-product-id)
 
 Properties passed in from these objects can be referenced by using the `canvas_entry_properties` Liquid tag. For example, a request with `"canvas_entry_properties": {"product_name": "shoes", "product_price": 79.99}` could add the word "shoes" to a message by adding the Liquid {% raw %}`{{canvas_entry_properties.${product_name}}}`{% endraw %}.
 
@@ -47,7 +47,7 @@ In the case that a Canvas entry property is null or blank, you can abort message
 ```
 {%endraw%}
 
-To read more about aborting messages with Liquid, check out our [Liquid documentation]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages#abort-messages).
+To read more about aborting messages with Liquid, check out our [Liquid documentation]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages).
 
 ## Global Canvas entry properties
 
@@ -91,3 +91,10 @@ The second step may send another push notification prompting the user to checkou
 
 ![Screenshot related to use case.]({% image_buster /assets/img/persistent_entry_properties/PEP12.png %}){: style="border:0;margin-left:15px;"}
 
+## Troubleshooting
+
+### Entry properties are blank with multiple entry triggers
+
+Braze stores `canvas_entry_properties` from the trigger that entered this user, not from every trigger configured on the Canvas. If that trigger has no event or API payload—for example **Start Session** or **Change Custom Attribute Value**—Liquid `canvas_entry_properties` is blank for that journey. Users who enter the same Canvas from a custom event, purchase, or API call still have the properties from that payload.
+
+To keep entry properties populated for every user, use only entry types that pass those properties (custom event, purchase, or API-triggered). For personalization in the current Canvas editor, use [context and event properties]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties). To filter on properties, use [event property segmentation]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects) instead of Liquid `canvas_entry_properties`.

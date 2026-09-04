@@ -49,6 +49,7 @@ For steps to use these locales in your messages, refer to [Using locales]({{site
 - You can select up to two custom attributes in a single locale, or up to two default user attribute languages. In both cases, the second attribute is optional.
 - When making edits to the translated values in the CSV file, avoid modifying any default values in the file.
 - The locale key in your uploaded file must match the one in your multi-language settings.
+- To update `device_locale` to `zh_CN` (Simplified Chinese as used in Mainland China), you must add a `zh_CN` localization file to your project, as iOS natively uses `zh-Hans`.
 
 ### Support and prioritization
 

@@ -15,12 +15,12 @@ noindex: true
 # 커스텀 App Store 리뷰 프롬프트 {#custom-app-store-review-prompt}
 
 {% alert note %}
-이 프롬프트를 구현하면 Braze는 자동으로 노출 횟수 추적을 중지하며, 직접 [분석]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/in-app_messaging/customization/handing_in_app_display#logging-impressions-and-clicks)을 기록해야 합니다.
+이 프롬프트를 구현하면 Braze는 자동으로 노출 횟수 추적을 중지하며, 직접 [분석]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/customization/handling_in_app_display#logging-impressions-and-clicks)을 기록해야 합니다.
 {% endalert %}
 
-사용자에게 App Store 리뷰를 요청하는 Campaign을 생성하는 것은 인앱 메시지의 인기 있는 활용 방법입니다.
+사용자에게 App Store 리뷰를 요청하는 Campaign(캠페인)을 생성하는 것은 인앱 메시지의 대표적인 활용 사례입니다.
 
-먼저 앱에서 [인앱 메시지 델리게이트](#in-app-message-controller-delegate)를 설정합니다. 그런 다음, 기본 App Store 리뷰 메시지를 비활성화하기 위해 다음 델리게이트 메서드를 구현합니다.
+먼저 앱에서 [인앱 메시지 델리게이트](#in-app-message-controller-delegate)를 설정합니다. 그런 다음, 기본 App Store 리뷰 메시지를 비활성화하기 위해 다음 델리게이트 메서드를 구현합니다:
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -53,7 +53,7 @@ func before(inAppMessageDisplayed inAppMessage: ABKInAppMessage) -> ABKInAppMess
 {% endtab %}
 {% endtabs %}
 
-딥링크 처리 코드에서 `{YOUR-APP-SCHEME}:appstore-review` 딥링크를 처리하기 위해 다음 코드를 추가합니다. `SKStoreReviewController`를 사용하려면 `StoreKit`를 가져와야 합니다.
+딥링크 처리 코드에서 `{YOUR-APP-SCHEME}:appstore-review` 딥링크를 처리하기 위해 다음 코드를 추가합니다. `SKStoreReviewController`를 사용하려면 `StoreKit`를 가져와야 합니다:
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -88,7 +88,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 
 {% raw %}
 
-다음으로 아래 내용을 포함하여 인앱 메시징 Campaign을 생성합니다.
+다음으로 아래 내용을 포함하여 인앱 메시징 Campaign을 생성합니다:
 
 - 키-값 페어 `"Appstore Review" : "true"`
 - 클릭 시 동작을 "앱으로 딥링크"로 설정하고, 딥링크 `{YOUR-APP-SCHEME}:appstore-review`를 사용합니다.

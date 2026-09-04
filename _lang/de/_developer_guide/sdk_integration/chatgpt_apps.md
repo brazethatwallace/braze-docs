@@ -35,7 +35,7 @@ ChatGPT-Apps bieten eine leistungsstarke Plattform für die Entwicklung von KI-b
 - **Financial Services**: Track financial advice requests and product recommendations for compliance and optimization
 - **Travel**: Monitor destination research, booking inquiries, and trip planning interactions
 
-By integrating Braze with your ChatGPT App, you ensure that every AI interaction becomes a data point in your customer engagement strategy, not just a black box interaction on someone else's platform. -->
+By integrating Braze with your ChatGPT App, you ensure that every KI interaction becomes a data point in your customer engagement strategy, not just a black box interaction on someone else's platform. -->
 
 ## Voraussetzungen {#prerequisites}
 

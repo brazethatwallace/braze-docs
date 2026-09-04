@@ -3,7 +3,7 @@
 Die Größe der Zielpopulation, die in einer Campaign oder einem Canvas angezeigt wird, kann sich von der [Größe der erreichbaren Zielgruppe für ein Segment]({{site.baseurl}}/user_guide/engagement_tools/segments/measuring_segment_size#segment-membership-calculation) unterscheiden, selbst wenn Sie dieses Segment ohne zusätzliche Filter direkt in Ihre Campaign oder Ihr Canvas einfügen.
 Dafür kann es mehrere Gründe geben:
 
-- Wenn eine Globale Kontrollgruppe für eine Campaign oder ein Canvas gilt, werden Nutzer:innen in dieser Globalen Kontrollgruppe bei der Zählung der erreichbaren Nutzer:innen ausgeschlossen.
+- Wenn eine globale Kontrollgruppe für eine Campaign oder ein Canvas gilt, werden Nutzer:innen in dieser globalen Kontrollgruppe bei der Zählung der erreichbaren Nutzer:innen ausgeschlossen.
 - Die Zielpopulation einer Campaign oder eines Canvas schließt Nutzer:innen aus, die nicht über die verschiedenen Nachrichten-Kanäle kontaktiert werden können; das Verhalten unterscheidet sich von Kanal zu Kanal. So schließt die erreichbare Zielgruppe für eine Campaign oder ein Canvas beispielsweise Nutzer:innen aus, die abgemeldet, als Spam markiert (bei E-Mails) oder als Hard Bounce (bei E-Mails) eingestuft sind. Das Segment selbst schließt jedoch nur Opt-outs aus, wenn es die geschätzte Anzahl der per E-Mail erreichbaren Nutzer:innen anzeigt.
 - Braze sendet SMS-Nachrichten nur an Nutzer:innen innerhalb der ausgewählten Abo-Gruppe. Daher schließt die SMS-Zielpopulation für eine Campaign oder ein Canvas auch alle Nutzer:innen aus, die nicht zu Ihrer ausgewählten Abo-Gruppe gehören.
 
@@ -58,7 +58,7 @@ Geplante Aktualisierungen werden automatisch deaktiviert, sobald eine Segmenterw
 
 - Nicht in aktiven Campaigns oder Canvases verwendet
 - In keinem Segment verwendet, das in einer aktiven Campaign oder einem Canvas eingesetzt wird
-- In keinem Segment verwendet, für das [Analytics-Tracking]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking#segment-analytics-tracking) aktiviert ist
+- In keinem Segment verwendet, für das [Analytics-Tracking]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) aktiviert ist
 - Seit mehr als sieben Tagen nicht geändert wurde
 - Seit mehr als sieben Tagen nicht zu einer Campaign, einem Canvas (einschließlich Entwürfen) oder einem Segment hinzugefügt wurde
 
@@ -73,5 +73,15 @@ Wenn Sie bereit sind, eine veraltete Segmenterweiterung zu verwenden, überprüf
 {% if include.section == "same channel identifier" %}
 
 Wenn eine Nachricht empfangen, geöffnet oder angeklickt wird, aktualisiert Braze die Daten für alle Profile, die denselben Kanal-Bezeichner wie das Profil teilen, das die Interaktion protokolliert hat (z. B. dieselbe E-Mail-Adresse bei E-Mails oder dieselbe Telefonnummer bei SMS oder WhatsApp). Nutzer:innen, die einen Bezeichner mit einer Person teilen, die die Nachricht empfangen, geöffnet oder angeklickt hat, können diesem Filter entsprechen, auch wenn sie ursprünglich nicht in der Campaign enthalten waren oder die Nachricht nicht direkt erhalten haben.
+
+{% endif %}
+
+{% if include.section == "Canvas-Variante archived segment" %}
+
+### Eine Canvas-Variante kann aufgrund eines archivierten Segments nicht gelöscht werden {#cant-delete-a-canvas-variant-because-of-an-archived-segment}
+
+Wenn Braze das Löschen einer Canvas-Variante blockiert, weil ein Segment-Filter diese Variante noch referenziert, öffnen Sie das Segment, das die Referenz verwendet – einschließlich archivierter Segmente – und entfernen Sie die Variante aus den Filtern. Nachdem Sie das Segment gespeichert haben, kehren Sie zum Canvas zurück und versuchen Sie erneut, die Variante zu löschen.
+
+Um herauszufinden, welche Segmente ein Canvas referenzieren, öffnen Sie das Canvas und überprüfen Sie seine Zielgruppenfilter, oder prüfen Sie den Abschnitt [Messaging-Nutzung]({{site.baseurl}}/user_guide/audience/segments/managing_segments#messaging-use) jedes Segments auf verknüpfte Canvases.
 
 {% endif %}

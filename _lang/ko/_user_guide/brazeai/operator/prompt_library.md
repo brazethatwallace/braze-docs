@@ -8,16 +8,16 @@ description: "BrazeAI Operator의 예시 프롬프트를 목적별로 정리하�
 
 # BrazeAI Operator 프롬프트 라이브러리 {#prompt-library-for-brazeai-operator}
 
-> Braze 전문가가 엄선한 Operator 프롬프트 모음을 살펴보세요. 목표를 선택하면 관련 프롬프트를 확인할 수 있습니다. 자세한 내용은 [페이지 인식 컨텍스트 활용하기]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context)를 참조하세요.
+> Braze 전문가가 큐레이트한 Operator 프롬프트 모음을 살펴보세요. 목표를 선택하면 관련 프롬프트를 확인할 수 있습니다. Braze 어디에서든 시작할 수 있습니다. Operator가 대시보드의 다른 부분이 필요하면 [해당 위치로 이동합니다]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#navigate-the-dashboard). 자세한 내용은 [페이지 인식 컨텍스트 활용하기]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context)를 참조하세요.
 
 
 <div class="prompt-library-tabs">
 {% sdktabs local %}
 {% sdktab 데이터 분석 %}
 
-{% include copy_block.html content="Summarize the key trends for MAU, DAU, and New Users in this date range and what to do next." available="Home page" %}
+{% include copy_block.html content="Summarize the key trends for MAU, 일일 활성 사용자, and New Users in this date range and what to do next." available="Home page" %}
 
-{% include copy_block.html content="Show the MAU, DAU, and New Users trends for the last 90 days—where are the biggest dips and spikes?" available="Home page" %}
+{% include copy_block.html content="Show the MAU, 일일 활성 사용자, and New Users trends for the last 90 days—where are the biggest dips and spikes?" available="Home page" %}
 
 {% include copy_block.html content="Break down sessions by app (if available) and highlight which app is driving the most growth this month." available="Home page" %}
 
@@ -42,9 +42,20 @@ description: "BrazeAI Operator의 예시 프롬프트를 목적별로 정리하�
 
 {% include copy_block.html content="How can we use the [your segment name] segment to build a re-engagement journey and reduce churn?" available="Segments" %}
 
-{% include copy_block.html content="How should we structure frequency-capping extensions (email/SMS/48h) to reduce over-messaging without hurting conversions?" available="세그먼트 확장" %}
+{% include copy_block.html content="How should we structure frequency-capping extensions (email/SMS/48h) to reduce over-messaging without hurting conversions?" available="Segment Extensions" %}
 
-{% include copy_block.html content="What are 3 high-impact reports we should create here to monitor weekly campaign and Canvas health and catch issues early?" available="보고서 빌더" %}
+{% include copy_block.html content="What are 3 high-impact reports we should create here to monitor weekly campaign and Canvas health and catch issues early?" available="Report Builder" %}
+
+{% endsdktab %}
+{% sdktab 생성 및 편집 %}
+
+{% include copy_block.html content="Create a Canvas that waits 1 hour after cart abandonment, sends an email reminder, then a push after 24 hours if the user still hasn't purchased." %}
+
+{% include copy_block.html content="Update my abandoned cart Canvas to add a push message after the email reminder." %}
+
+{% include copy_block.html content="Build a segment of users who made a purchase in the last 30 days but haven't opened the app in the last 7 days." %}
+
+{% include copy_block.html content="Build me a report which shows my workspace SMS engagement over the last 30 days." %}
 
 {% endsdktab %}
 {% sdktab 메시징 성과 %}
@@ -59,11 +70,70 @@ description: "BrazeAI Operator의 예시 프롬프트를 목적별로 정리하�
 
 {% include copy_block.html content="What channels performed best for campaigns targeting 'C&L Newsletter Clickers' versus 'Openers but not Clickers' in the last 30 days?" available="Segments" %}
 
-{% include copy_block.html content="How much Attributed Revenue and Conversions did campaigns generate for users excluded by our caps in the last 30 days (7-day window)?" available="세그먼트 확장" %}
+{% include copy_block.html content="How much Attributed Revenue and Conversions did campaigns generate for users excluded by our caps in the last 30 days (7-day window)?" available="Segment Extensions" %}
 
-{% include copy_block.html content="Compare our email Open Rate and Click-Through Rate versus industry benchmarks for the last 30 days." available="이메일 성과" %}
+{% include copy_block.html content="Compare our email Open Rate and Click-Through Rate versus industry benchmarks for the last 30 days." available="Email Performance" %}
 
-{% include copy_block.html content="Which email campaigns had the lowest CTR (with high opens) in the last 30 days?" available="이메일 성과" %}
+{% include copy_block.html content="Which email campaigns had the lowest CTR (with high opens) in the last 30 days?" available="Email Performance" %}
+
+{% endsdktab %}
+{% sdktab 개인화 및 Liquid %}
+
+{% include copy_block.html content="What is Liquid, and how can it help me enhance the personalization of my marketing campaigns within Braze?" %}
+
+{% include copy_block.html content="What types of data can I use in Liquid to personalize my marketing messages, such as demographic information or past purchases?" %}
+
+{% include copy_block.html content="Can you give me some examples of how Liquid is used in marketing campaigns to increase engagement and conversion rates?" %}
+
+{% include copy_block.html content="What are some common use cases for Liquid in text messages for summer sales, such as abandoned cart reminders or personalized promotions?" %}
+
+{% include copy_block.html content="Add a countdown to this message that shows the time until the user's flight." available="Message composer" %}
+
+{% include copy_block.html content="Personalize this message with the user's first name, with a fallback if it's missing." available="Message composer" %}
+
+{% include copy_block.html content="Improve this Liquid so it's easier to read." available="Message composer" %}
+
+{% include copy_block.html content="Create a message that shows different content based on my customer's loyalty status. If we don't know about their loyalty status, send a fallback message." available="Message composer" %}
+
+{% include copy_block.html content="Write a dynamic message that includes a user's favorite product and their last purchase date. If there's no last purchase, abort the message." available="Message composer" %}
+
+{% include copy_block.html content="Write me Liquid to encourage someone to click my message that includes a countdown with how much time is left. If the offer has expired, abort the message." available="Message composer" %}
+
+{% include copy_block.html content="Help me write a message to encourage users to come back and check out if they have items remaining in their cart." available="Message composer" %}
+
+{% include copy_block.html content="Write Liquid to personalize a message based on a customer's country. I want to fill in the message with the country's name. If we don't have either of them, suggest they click on a link to update their profile." available="Message composer" %}
+
+{% include copy_block.html content="How can I personalize a welcome message with a user's first name and write different copy based on the user's gender?" available="Message composer" %}
+
+{% include copy_block.html content="Write Liquid to display different messages based on a custom attribute, \"CUSTOM_ATTRIBUTE_NAME\" and its value. There are six different options I could send. If there's no value for the custom attribute, I want to send a placeholder message." available="Message composer" %}
+
+{% endsdktab %}
+{% sdktab 콘텐츠 제작 %}
+
+{% include copy_block.html content="Write a short, eye-catching push notification announcing our summer sale." available="Message composer" %}
+
+{% include copy_block.html content="Rewrite this subject line in a more casual tone." available="Message composer" %}
+
+{% include copy_block.html content="Translate this copy into Spanish." available="Message composer" %}
+
+{% include copy_block.html content="Build a Banner that promotes our summer sale with a headline, short description, and Shop now button." available="Banner HTML editor" %}
+
+{% include copy_block.html content="Use a two-column layout with a product image in the first column and the headline, description, and Shop now button stacked in the second column." available="Banner HTML editor" %}
+
+{% include copy_block.html content="Make the dismiss button smaller and position it as a corner dismiss control." available="Banner HTML editor" %}
+
+{% include copy_block.html content="Generate a bright, summery banner image of a beach scene for an email header." available="Media library" %}
+
+{% include copy_block.html content="Create a minimalist product background in our brand colors." available="Media library" %}
+
+{% include copy_block.html content="Review this push notification for spelling, grammar, and tone, and flag any unrendered Liquid or leftover test content before I send it." available="Message composer" %}
+
+{% endsdktab %}
+{% sdktab 데이터 변환 %}
+
+{% include copy_block.html content="Write transformation code that maps this survey webhook to a custom event on the user's profile." available="Data Transformation" %}
+
+{% include copy_block.html content="Update this transformation to identify users by email address instead of external ID." available="Data Transformation" %}
 
 {% endsdktab %}
 {% sdktab 오디언스 관리 %}
@@ -81,18 +151,18 @@ description: "BrazeAI Operator의 예시 프롬프트를 목적별로 정리하�
 
 {% include copy_block.html content="I'm feeling overwhelmed, I want to get started with Agent Console but don't know how. Based on my currently running campaigns, what might I do?" available="Campaigns" %}
 
-{% include copy_block.html content="What can I do on the Knowledge Sources page, and what's the fastest way to get my first source set up?" available="에이전트 콘솔" %}
+{% include copy_block.html content="What can I do on the Knowledge Sources page, and what's the fastest way to get my first source set up?" available="Agent Console" %}
 
 {% endsdktab %}
 {% sdktab 유지보수 및 비용 절감 %}
 
 {% include copy_block.html content="Show me the 5 idle active campaigns and recommend which to pause, refresh, or archive." available="Campaigns" %}
 
-{% include copy_block.html content="Which Segment Extensions are active but haven't been processed recently, and are they safe to archive for free slots?" available="세그먼트 확장" %}
+{% include copy_block.html content="Which Segment Extensions are active but haven't been processed recently, and are they safe to archive for free slots?" available="Segment Extensions" %}
 
-{% include copy_block.html content="How can we reduce Query Builder credit usage without losing reporting coverage? Suggest 3 tactics." available="쿼리 빌더" %}
+{% include copy_block.html content="How can we reduce Query Builder credit usage without losing reporting coverage? Suggest 3 tactics." available="Query Builder" %}
 
-{% include copy_block.html content="Which saved queries haven't been run in 90 days—can you help me identify candidates to archive?" available="쿼리 빌더" %}
+{% include copy_block.html content="Which saved queries haven't been run in 90 days—can you help me identify candidates to archive?" available="Query Builder" %}
 
 {% endsdktab %}
 {% endsdktabs %}

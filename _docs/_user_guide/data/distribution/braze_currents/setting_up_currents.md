@@ -16,12 +16,25 @@ search_rank: 8
 Currents are included with certain Braze packages. Contact your Braze representative if you have any questions or want to gain access.
 {% endalert %}
 
-If you see "You do not have any remaining Currents integrations" when adding a new integration, common causes are:
+## Troubleshooting
+
+### Cannot add a new Currents integration
+
+If you see "You do not have any remaining Currents integrations" when adding a new integration, or if the button to add a new Currents connector is greyed out, common causes are:
 
 - No Currents entitlement has been purchased for this workspace.
 - The Currents entitlement is available in a different workspace in your company.
 
-Contact your Braze account manager to request an entitlement or adjust your configuration.
+To resolve this, check other workspaces within your company. A different workspace may show an available Currents entitlement. If you need to request an entitlement or adjust your configuration, contact your Braze account manager.
+
+### Cannot enable additional event tracking
+
+If you can create or edit a connector but can't enable one of the optional tracking switches, your workspace may have reached an entitlement limit for that event category.
+
+- **Track Customer Behavior and User Events** requires available **Customer Behavior Events** entitlements.
+- **Track user profiles and attributes** requires available **User Profiles and Attributes** entitlements.
+
+If you need additional entitlements or help adjusting your configuration, contact your Braze account manager.
 
 ## Requirements
 
@@ -63,6 +76,8 @@ Add a partner, sometimes called a "Currents connector," by selecting the dropdow
 
 Each partner requires a different set of configuration steps. To enable each integration, refer to our list of [available partners]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) and follow the instructions on their respective pages.
 
+{% multi_lang_include currents/contact_email_notifications.md %}
+
 ### Step 4: Configure your events
 
 Choose the events you wish to pass to that partner by checking from the available options. You can find listings of these events in our [Customer Behavior Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) and [Message Engagement Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) libraries.
@@ -88,7 +103,7 @@ Selecting a field for one of these transformations will apply that transformatio
 Currents will drop events with excessively large payloads of greater than 900&nbsp;KB. 
 {% endalert %}
 
-Before you test, consider checking out our [sample Currents data in GitHub](https://github.com/Appboy/currents-examples). When you're ready to test, you choose an option below:
+Before you test, consider checking out our [sample Currents data in GitHub](https://github.com/Appboy/currents-examples). When you're ready to test, you choose an option in the following section:
 
 #### Sending test events
 

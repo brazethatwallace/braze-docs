@@ -5,7 +5,7 @@ Editor blocks are in the **Content** section for email messages. Drag a block in
 For more information about creating emails in the **Drag-And-Drop Editor**, see [Create an email with drag-and-drop]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/) and <a href="{{site.baseurl}}/user_guide/channels/email/drag_and_drop/#other-customizations">Other customizations</a> in that article.
 
 {% alert tip %}
-You can also add [custom attributes]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes/) to any URL within the `Image`, `Button`, or `Text` editor blocks.
+You can also add [custom attributes]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/) to any URL within the `Image`, `Button`, or `Text` editor blocks.
 {% endalert %}
 
 ### Title
@@ -117,7 +117,7 @@ Inserts an image from the [media library]({{site.baseurl}}/user_guide/messaging/
 | Property | Description |
 |---|---|
 | Auto width | Modifies the width of the image in pixels. |
-| Align | Orients the image to either the left, center, or right of the block. |
+| Align | Sets image alignment to left, center, or right within the block. |
 | Image with Liquid | Use [Liquid]({{site.baseurl}}/liquid/) logic to dynamically set different images within the same block of content. |
 | URL | Set an image using the address to where it's hosted. |
 | Alternate text | A short description of the image that gives users the same information shown in the image. Essential for screen-reader accessibility or when the image fails to load. |
@@ -131,6 +131,19 @@ For **Auto width**, automatic image resizing picks the best size for the image b
 - Images wider than the available space are set at 100% width and keep this ratio on mobile, using the entire device display width.
 - Images smaller than the available space use the image's natural size to avoid distortion effects or blurry pictures.
 {% endalert %}
+
+#### Gmail download button behavior
+
+Gmail automatically appends a download button to images that do not have a hyperlink (`href`) associated with them. However, if the image's aspect ratio is 299 x 524 px or smaller, Gmail will not display the download button.
+
+To prevent the download button from appearing on larger images, you can apply the "#" link workaround:
+
+1. Select the **Image** block.
+2. In the **Block Options** panel, go to the **Link** section.
+3. Set the **Link type** to **Open web page**.
+4. Enter a pound sign (`#`) in the **URL** input field.
+
+Adding this link prevents Gmail from displaying the download button while not affecting the user experience.
 
 ### Video
 

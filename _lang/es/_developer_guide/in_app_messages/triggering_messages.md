@@ -1,6 +1,6 @@
 ---
 nav_title: Desencadenar mensajes
-article_title: Desencadenar mensajes dentro de la aplicación a través del SDK de Braze
+article_title: "Desencadenar mensajes dentro de la aplicación"
 page_order: 0.2
 description: "Aprende a desencadenar mensajes dentro de la aplicación a través del SDK de Braze, incluyendo el encadenamiento de mensajes en una sesión y la anulación del límite de velocidad predeterminado."
 platform:
@@ -18,25 +18,38 @@ platform:
 
 Los mensajes dentro de la aplicación se desencadenan cuando el SDK registra uno de los siguientes tipos de eventos personalizados: `Session Start`, `Push Click`, `Any Purchase`, `Specific Purchase` y `Custom Event` (los dos últimos contienen filtros de propiedades robustos).
 
-Al inicio de la sesión de un usuario, Braze entregará todos los mensajes dentro de la aplicación elegibles a su dispositivo, al tiempo que precargará los activos para minimizar la latencia de visualización. Si el evento desencadenante tiene más de un mensaje dentro de la aplicación elegible, solo se entregará el mensaje con la prioridad más alta. Para obtener más información, consulta [Ciclo de vida de la sesión]({{site.baseurl}}/developer_guide/analytics/tracking_sessions#about-the-session-lifecycle).
+Al inicio de la sesión de un usuario, Braze entrega todos los mensajes dentro de la aplicación elegibles a su dispositivo, mientras que simultáneamente precarga los activos para minimizar la latencia de visualización. Si el evento desencadenante tiene más de un mensaje dentro de la aplicación elegible, solo se entrega el mensaje con la prioridad más alta. Para más información, consulta [Ciclo de vida de la sesión]({{site.baseurl}}/developer_guide/analytics/tracking_sessions).
 
 {% alert note %}
-Los mensajes dentro de la aplicación no se pueden desencadenar a través de la API ni mediante eventos de la API&#8212;solo mediante eventos personalizados registrados por el SDK. Para obtener más información sobre el registro, consulta [Registro de eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events).
+Los mensajes dentro de la aplicación no se pueden desencadenar a través de la API ni mediante eventos de API&#8212;solo mediante eventos personalizados registrados por el SDK. Para obtener más información sobre el registro, consulta [Registro de eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events).
 {% endalert %}
 
 ## Tipos de mensajes dentro de la aplicación {#types-of-in-app-messages}
 
-Braze envía los siguientes tipos de mensajes dentro de la aplicación a los dispositivos de los usuarios al inicio de la sesión: `inapp` y `templated_iam`. Como usuario del dashboard, no ves los diferentes tipos, pero Braze los gestiona de forma diferente según la configuración y el contenido.
+Braze envía los siguientes tipos de mensajes dentro de la aplicación a los dispositivos de los usuarios al inicio de la sesión: `inapp` y `templated_iam`. Como usuario del panel, no ves los diferentes tipos, pero Braze los gestiona de forma diferente dependiendo de la configuración y el contenido.
 
 ### `inapp` (estándar) {#inapp-standard}
 
-Un mensaje dentro de la aplicación `inapp` (o "[estándar]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages#standard-message-types)") ya está plantillado con la información necesaria, como los atributos personalizados que Braze ya conoce. Generalmente, cuando el mensaje dentro de la aplicación se descarga en el dispositivo, el evento desencadenante hace que el SDK muestre el mensaje dentro de la aplicación `inapp` incluso cuando el dispositivo está sin conexión o en modo avión.
+Un mensaje dentro de la aplicación `inapp` (o "[estándar]({{site.baseurl}}/user_guide/channels/in_app_messages)") ya viene con la plantilla de la información necesaria, como los atributos personalizados que Braze ya conoce. Generalmente, cuando el mensaje dentro de la aplicación se descarga en el dispositivo, el evento desencadenante hace que el SDK muestre el mensaje dentro de la aplicación `inapp` incluso cuando el dispositivo está sin conexión o en modo avión.
 
-### `templated_iam` (plantillado) {#templated_iam-templated}
+### `templated_iam` (con plantilla) {#templated_iam-templated}
 
-Un mensaje dentro de la aplicación `templated_iam` (o "plantillado") aún no está plantillado con la información necesaria. Braze debe realizar otra solicitud para obtener la información antes de que el mensaje pueda aparecer.
+Un mensaje dentro de la aplicación `templated_iam` (o "con plantilla") aún no tiene la plantilla con la información necesaria. Braze debe hacer otra solicitud para obtener la información antes de que el mensaje pueda mostrarse.
 
-{% multi_lang_include in-app_messages/templated_iams.md %}
+Los mensajes dentro de la aplicación se entregan como mensajes dentro de la aplicación con plantilla cuando se selecciona **Reevaluar la elegibilidad de la campaña antes de mostrar** o si alguna de las siguientes etiquetas de Liquid existe en el mensaje:
+
+- `canvas_entry_properties`
+- `connected_content`
+- Variables de SMS como {% raw %}`{sms.${*}}`{% endraw %}
+- `catalog_items`
+- `catalog_selection_items`
+- `event_properties`
+
+Esto significa que durante el inicio de la sesión, el dispositivo recibe el desencadenante de ese mensaje dentro de la aplicación en lugar del mensaje completo. Cuando el usuario desencadena el mensaje dentro de la aplicación, el dispositivo del usuario realiza una solicitud de red para obtener el mensaje real.
+
+{% alert note %}
+El mensaje no se entregará si el dispositivo no tiene acceso a Internet. Es posible que el mensaje no se entregue si la lógica de Liquid tarda demasiado en resolverse.
+{% endalert %}
 
 ## Pares clave-valor {#key-value-pairs}
 
@@ -83,12 +96,12 @@ extras: Map<String, String>
 {% endsubtabs %}
 
 {% alert tip %}
-Para obtener más información, consulta el [KDoc](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.inappmessage/-i-in-app-message/index.html#1498425856%2FProperties%2F-1725759721).
+Para más información, consulta la [documentación KDoc](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.inappmessage/-i-in-app-message/index.html#1498425856%2FProperties%2F-1725759721).
 {% endalert %}
 {% endtab %}
 
 {% tab swift %}
-El siguiente ejemplo utiliza lógica personalizada para configurar la presentación de un mensaje dentro de la aplicación basándose en sus pares clave-valor en `extras`. Para ver un ejemplo completo de personalización, consulta [nuestra aplicación de muestra](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples).
+El siguiente ejemplo utiliza lógica personalizada para establecer la presentación de un mensaje dentro de la aplicación basándose en sus pares clave-valor en `extras`. Para ver un ejemplo completo de personalización, consulta [nuestra aplicación de ejemplo](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples).
 
 {% subtabs %}
 {% subtab swift %}
@@ -115,14 +128,14 @@ if ([message.extras[@"custom-display"] isKindOfClass:[NSString class]]) {
 {% endtab %}
 {% endtabs %}
 
-## Desactivación de los desencadenantes automáticos {#disabling-automatic-triggers}
+## Desactivar los desencadenantes automáticos {#disabling-automatic-triggers}
 
-De forma predeterminada, los mensajes dentro de la aplicación se desencadenan automáticamente. Para desactivar esta función:
+De forma predeterminada, los mensajes dentro de la aplicación se desencadenan automáticamente. Para desactivar esto:
 
 {% tabs %}
 
 {% tab web %}
-Elimina la llamada a `braze.automaticallyShowInAppMessages()` dentro de tu fragmento de código de carga y, a continuación, crea una lógica personalizada para gestionar la visualización o no de un mensaje dentro de la aplicación.
+Elimina la llamada a `braze.automaticallyShowInAppMessages()` dentro de tu fragmento de código de carga y luego crea una lógica personalizada para controlar si se muestra o no un mensaje dentro de la aplicación.
 
 ```javascript
 braze.subscribeToInAppMessage(function(inAppMessage) {
@@ -145,29 +158,29 @@ braze.subscribeToInAppMessage(function(inAppMessage) {
 ```
 
 {% alert important %}
-Si llamas a `braze.showInAppMessage` sin quitar `braze.automaticallyShowInAppMessages()`, los mensajes pueden aparecer dos veces.
+Si llamas a `braze.showInAppMessage` sin eliminar `braze.automaticallyShowInAppMessages()`, los mensajes podrían mostrarse dos veces.
 {% endalert %}
 
-Para obtener un control más avanzado sobre la temporización de los mensajes, incluyendo el aplazamiento y la restauración de mensajes desencadenados, consulta nuestro [Tutorial: Aplazamiento y restauración de mensajes desencadenados]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/deferring_triggered_messages).
+Para un control más avanzado sobre el tiempo de los mensajes, incluida la posibilidad de diferir y restaurar mensajes desencadenados, consulta nuestro [Tutorial: Diferir y restaurar mensajes desencadenados]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/deferring_triggered_messages).
 {% endtab %}
 
 {% tab android %}
-1. Implementa el [`IInAppMessageManagerListener`]({{site.baseurl}}/developer_guide/in_app_messages/customization?sdktab=android&tab=global%20listener#android_step-1-implement-the-custom-manager-listener) para establecer un oyente personalizado.
+1. Implementa [`IInAppMessageManagerListener`]({{site.baseurl}}/developer_guide/in_app_messages/customization?sdktab=android&tab=global%20listener#android_step-1-implement-the-custom-manager-listener) para establecer un listener personalizado.
 2. Actualiza tu método [`beforeInAppMessageDisplayed()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage.listeners/-i-in-app-message-manager-listener/before-in-app-message-displayed.html) para que devuelva [`InAppMessageOperation.DISCARD`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage/-in-app-message-operation/-d-i-s-c-a-r-d/index.html).
 
-Para obtener un control más avanzado sobre la temporización de los mensajes, incluyendo la visualización posterior y la reincorporación a la cola, consulta nuestra página [Personalización de mensajes]({{site.baseurl}}/developer_guide/in_app_messages/customization?tab=global%20listener&subtab=kotlin#android_step-2-instruct-braze-to-use-the-custom-manager-listener).
+Para un control más avanzado sobre el tiempo de los mensajes, incluida la posibilidad de mostrarlos más tarde y volver a ponerlos en cola, consulta nuestra página de [Personalización de mensajes]({{site.baseurl}}/developer_guide/in_app_messages/customization?tab=global%20listener&subtab=kotlin#android_step-2-instruct-braze-to-use-the-custom-manager-listener).
 {% endtab %}
 
 {% tab swift %}
-1. Implementa el delegado `BrazeInAppMessageUIDelegate` en tu aplicación. Para obtener una guía completa, consulta el [Tutorial: Interfaz de usuario de mensajes dentro de la aplicación](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/c1-inappmessageui).
+1. Implementa el delegado `BrazeInAppMessageUIDelegate` en tu aplicación. Para un recorrido completo, consulta [Tutorial: In-App Message UI](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/c1-inappmessageui).
 2. Actualiza tu método delegado `inAppMessage(_:displayChoiceForMessage:)` para que devuelva `.discard`.
 
-Para obtener un control más avanzado sobre la temporización de los mensajes, incluyendo el aplazamiento y la restauración de mensajes desencadenados, consulta nuestro [Tutorial: Aplazamiento y restauración de mensajes desencadenados]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/deferring_triggered_messages).
+Para un control más avanzado sobre el tiempo de los mensajes, incluida la posibilidad de diferir y restaurar mensajes desencadenados, consulta nuestro [Tutorial: Diferir y restaurar mensajes desencadenados]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/deferring_triggered_messages).
 {% endtab %}
 
 {% tab flutter %}
-1. Verifica que estás utilizando el inicializador de integración automática, que está habilitado de forma predeterminada en las versiones `2.2.0` y posteriores.
-2. Define la operación de mensajes dentro de la aplicación predeterminada en `DISCARD` añadiendo la siguiente línea a tu archivo `braze.xml`.
+1. Verifica que estés usando el inicializador de integración automática, que está habilitado de forma predeterminada en las versiones `2.2.0` y posteriores.
+2. Establece la operación predeterminada de mensajes dentro de la aplicación en `DISCARD` añadiendo la siguiente línea a tu archivo `braze.xml`.
     ```xml
     <string name="com_braze_flutter_automatic_integration_iam_operation">DISCARD</string>
     ```
@@ -176,31 +189,31 @@ Para obtener un control más avanzado sobre la temporización de los mensajes, i
 {% tab unity %}
 {% subtabs %}
 {% subtab Android %}
-En Android, deselecciona **Automatically Display In-App Messages** en el editor de configuración de Braze. También puedes configurar `com_braze_inapp_show_inapp_messages_automatically` en `false` en el archivo `braze.xml` de tu proyecto Unity.
+Para Android, desmarca **Automatically Display In-App Messages** en el editor de configuración de Braze. Alternativamente, puedes establecer `com_braze_inapp_show_inapp_messages_automatically` en `false` en el archivo `braze.xml` de tu proyecto de Unity.
 
-La operación inicial de visualización de mensajes dentro de la aplicación se puede configurar en Braze utilizando la opción "In App Message Manager Initial Display Operation".
+La operación inicial de visualización de mensajes dentro de la aplicación se puede configurar en la configuración de Braze usando "In App Message Administrador Initial Display Operation".
 {% endsubtab %}
 
 {% subtab iOS %}
-Para iOS, configura los oyentes de objetos del juego en el editor de configuración de Braze y asegúrate de que **Braze Displays In-App Messages** no esté seleccionada.
+Para iOS, configura los listeners del objeto del juego en el editor de configuración de Braze y asegúrate de que **Braze Displays In-App Messages** no esté seleccionado.
 
-La operación inicial de visualización de mensajes dentro de la aplicación se puede configurar en Braze utilizando la opción "In App Message Manager Initial Display Operation".
+La operación inicial de visualización de mensajes dentro de la aplicación se puede configurar en la configuración de Braze usando "In App Message Administrador Initial Display Operation".
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
 {% endtabs %}
 
-## Encadenar dos mensajes dentro de la aplicación en una sesión {#chaining-two-in-app-messages-in-one-session}
+## Encadenar dos mensajes dentro de la aplicación en una sola sesión {#chaining-two-in-app-messages-in-one-session}
 
-Puedes desencadenar un mensaje dentro de la aplicación al inicio de la sesión y luego desencadenar un segundo mensaje dentro de la aplicación después de que se pulse un botón en el primero. Para ello, registra un evento personalizado para el clic del botón que desencadenará el segundo mensaje. El desencadenante del segundo mensaje ya debe estar en el dispositivo (el usuario ya debe ser elegible para el segundo mensaje) y debe ocurrir en el lado del dispositivo (el SDK de Braze no detectará los cambios de atributos personalizados que ocurran en los servidores de Braze). El tiempo de espera predeterminado de 30 segundos entre desencadenantes de mensajes dentro de la aplicación debe modificarse para mostrar varios mensajes dentro de la aplicación en rápida sucesión. Para la configuración específica de cada plataforma, consulta [Anular el límite de velocidad predeterminado](#overriding-the-default-rate-limit).
+Puedes desencadenar un mensaje dentro de la aplicación al inicio de sesión y luego desencadenar un segundo mensaje dentro de la aplicación cuando se presiona un botón en el primero. Para ello, registra un evento personalizado para el clic del botón que desencadenará el segundo mensaje. El desencadenante del segundo mensaje ya debe estar en el dispositivo (el usuario ya debe ser elegible para el segundo mensaje) y debe ocurrir en el lado del dispositivo (el SDK de Braze no detectará cambios en atributos personalizados que ocurran en los servidores de Braze). El tiempo de espera predeterminado de 30 segundos entre desencadenantes de mensajes dentro de la aplicación debe modificarse para mostrar varios mensajes dentro de la aplicación en rápida sucesión. Para la configuración específica de cada plataforma, consulta [Anular el límite de velocidad predeterminado](#overriding-the-default-rate-limit).
 
-## Anular el límite de velocidad predeterminado {#overriding-the-default-rate-limit}
+## Anulación del límite de velocidad predeterminado {#overriding-the-default-rate-limit}
 
-De forma predeterminada, el SDK limita la velocidad de los mensajes dentro de la aplicación desencadenados a uno cada 30 segundos. Para anular esto, añade la siguiente propiedad a tu archivo de configuración antes de que se inicialice la instancia de Braze. Este valor se utilizará como nuevo límite de velocidad en segundos.
+De forma predeterminada, el SDK limita la velocidad de los mensajes dentro de la aplicación desencadenados a una vez cada 30 segundos. Para anular esto, añade la siguiente propiedad a tu archivo de configuración antes de que se inicialice la instancia de Braze. Este valor se utiliza como el nuevo límite de velocidad en segundos.
 
-Para aplicaciones en producción, no establezcas este valor por debajo de 10 segundos, para que los usuarios no se vean abrumados con mensajes dentro de la aplicación consecutivos. Para pruebas y flujos de aplicaciones de muestra, 5 segundos es una configuración habitual.
+Para aplicaciones en producción, no establezcas este valor por debajo de 10 segundos, para que los usuarios no se vean abrumados con mensajes dentro de la aplicación consecutivos. Para pruebas y flujos de aplicaciones de ejemplo, 5 segundos es una configuración común.
 
-Puedes establecer este intervalo en `0` para pruebas. Sin embargo, un intervalo de `0` segundos no fuerza a que varios mensajes dentro de la aplicación aparezcan al mismo tiempo. Si un mensaje dentro de la aplicación ya está visible, otro mensaje desencadenado no se mostrará hasta que el mensaje actual sea descartado.
+Puedes establecer este intervalo en `0` para pruebas. Sin embargo, un intervalo de `0` segundos no obliga a que varios mensajes dentro de la aplicación aparezcan al mismo tiempo. Si un mensaje dentro de la aplicación ya está visible, otro mensaje desencadenado no se muestra hasta que el mensaje actual se descarta.
 
 {% tabs %}
 {% tab web %}
@@ -245,25 +258,25 @@ AppDelegate.braze = braze;
 {% endtab %}
 {% endtabs %}
 
-## Activación manual de mensajes {#manually-triggering-messages}
+## Activar mensajes manualmente {#manually-triggering-messages}
 
-De forma predeterminada, los mensajes dentro de la aplicación se desencadenan automáticamente cuando el SDK registra un evento personalizado. Sin embargo, además de esto, puedes desencadenar mensajes manualmente utilizando los siguientes métodos.
+De forma predeterminada, los mensajes dentro de la aplicación se activan automáticamente cuando el SDK registra un evento personalizado. Sin embargo, además de esto, puedes activar mensajes manualmente utilizando los siguientes métodos.
 
 ### Uso de un evento del lado del servidor {#using-a-server-side-event}
 
 {% tabs %}
 {% tab web %}
-En este momento, el SDK Web de Braze no admite la activación manual de mensajes mediante eventos del lado del servidor.
+En este momento, el SDK de Braze para Web no admite la activación manual de mensajes mediante eventos del lado del servidor.
 {% endtab %}
 
 {% tab android %}
-Para desencadenar un mensaje dentro de la aplicación mediante un evento enviado por el servidor, envía una notificación push silenciosa al dispositivo, lo que permite que una devolución de llamada push personalizada registre un evento basado en el SDK. Este evento desencadenará el mensaje dentro de la aplicación dirigido al usuario.
+Para activar un mensaje dentro de la aplicación mediante un evento enviado desde el servidor, envía una notificación push silenciosa al dispositivo, lo que permite que una devolución de llamada push personalizada registre un evento basado en el SDK. Este evento desencadenará entonces el mensaje dentro de la aplicación visible para el usuario.
 
-#### Paso 1: Crea una devolución de llamada push para recibir el push silencioso {#step-1-create-a-push-callback-to-receive-the-silent-push}
+#### Paso 1: Crear una devolución de llamada push para recibir la push silenciosa {#step-1-create-a-push-callback-to-receive-the-silent-push}
 
-Registra tu devolución de llamada push personalizada para escuchar una notificación push silenciosa específica. Para obtener más información, consulta [Configuración de notificaciones push]({{site.baseurl}}/developer_guide/push_notifications#android_setting-up-push-notifications).
+Registra tu devolución de llamada push personalizada para escuchar una notificación push silenciosa específica. Para más información, consulta [Configuración de notificaciones push]({{site.baseurl}}/developer_guide/push_notifications#android_setting-up-push-notifications).
 
-Se registrarán dos eventos para que se entregue el mensaje dentro de la aplicación, uno por parte del servidor y otro desde dentro de tu devolución de llamada push personalizada. Para asegurarte de que no se duplica el mismo evento, el evento registrado desde dentro de tu devolución de llamada push debe seguir una convención de nomenclatura genérica, por ejemplo, "evento de desencadenamiento de mensaje dentro de la aplicación", y no el mismo nombre que el evento enviado por el servidor. Si no se hace así, la segmentación y los datos de usuario pueden verse afectados por el registro de eventos duplicados para una única acción de usuario.
+Se registrarán dos eventos para que el mensaje dentro de la aplicación se entregue: uno por el servidor y otro desde tu devolución de llamada push personalizada. Para asegurarte de que el mismo evento no se duplique, el evento registrado desde tu devolución de llamada push debe seguir una convención de nomenclatura genérica, por ejemplo, "evento desencadenante de mensaje dentro de la aplicación", y no el mismo nombre que el evento enviado por el servidor. Si esto no se hace, la segmentación y los datos de usuario pueden verse afectados por eventos duplicados registrados para una sola acción de usuario.
 
 {% subtabs %}
 {% subtab JAVA %}
@@ -302,35 +315,35 @@ Braze.getInstance(applicationContext).subscribeToPushNotificationEvents { event 
 {% endsubtab %}
 {% endsubtabs %}
 
-#### Paso 2: Crea una campaña push {#step-2-create-a-push-campaign}
+#### Paso 2: Crear una Campaign de push {#step-2-create-a-push-campaign}
 
-Crea una [campaña push silenciosa]({{site.baseurl}}/developer_guide/push_notifications/silent?sdktab=android) desencadenada a través del evento enviado por el servidor.
+Crea una [Campaign de push silenciosa]({{site.baseurl}}/developer_guide/push_notifications/silent?sdktab=android) activada mediante el evento enviado desde el servidor.
 
-![Paso de entrega de una campaña push silenciosa configurada para entrega basada en acciones con un desencadenante de evento personalizado server_event.]({% image_buster /assets/img_archive/serverSentPush.png %})
+![Paso de entrega de una Campaign de push silenciosa configurada para entrega basada en acciones con un desencadenante de evento personalizado server_event.]({% image_buster /assets/img_archive/serverSentPush.png %})
 
-La campaña push debe incluir extras de par clave-valor que indiquen que esta campaña push se envía para registrar un evento personalizado del SDK. Este evento se utilizará para desencadenar el mensaje dentro de la aplicación.
+La Campaign de push debe incluir extras de pares clave-valor que indiquen que esta Campaign de push se envía para registrar un evento personalizado del SDK. Este evento se utilizará para desencadenar el mensaje dentro de la aplicación.
 
-![Dos conjuntos de pares clave-valor: IS_SERVER_EVENT establecido en "true" y CAMPAIGN_NAME establecido en "nombre de campaña de ejemplo".]({% image_buster /assets/img_archive/kvpConfiguration.png %}){: style="max-width:70%;" }
+![Dos conjuntos de pares clave-valor: IS_SERVER_EVENT establecido en "true" y CAMPAIGN_NAME establecido en "example campaign name".]({% image_buster /assets/img_archive/kvpConfiguration.png %}){: style="max-width:70%;" }
 
-El código de ejemplo de devolución de llamada push anterior reconoce los pares clave-valor y registra el evento personalizado del SDK apropiado.
+El código de ejemplo de devolución de llamada push anterior reconoce los pares clave-valor y registra el evento personalizado del SDK correspondiente.
 
-Si quieres incluir propiedades del evento para adjuntarlas a tu evento "desencadenador de mensajes dentro de la aplicación", puedes hacerlo pasándolas en los pares clave-valor de la carga útil push. En este ejemplo, se ha incluido el nombre de la campaña del mensaje dentro de la aplicación posterior. Tu devolución de llamada push personalizada puede entonces pasar el valor como parámetro de la propiedad del evento al registrar el evento personalizado.
+Si deseas incluir propiedades del evento para adjuntar a tu evento "desencadenante de mensaje dentro de la aplicación", puedes lograrlo pasándolas en los pares clave-valor de la carga útil de push. En este ejemplo, se ha incluido el nombre de la Campaign del mensaje dentro de la aplicación posterior. Tu devolución de llamada push personalizada puede entonces pasar el valor como parámetro de la propiedad del evento al registrar el evento personalizado.
 
-#### Paso 3: Crea una campaña de mensajes dentro de la aplicación {#step-3-create-an-in-app-message-campaign}
+#### Paso 3: Crear una Campaign de mensaje dentro de la aplicación {#step-3-create-an-in-app-message-campaign}
 
-Crea tu campaña de mensajes dentro de la aplicación visible para el usuario en el panel de Braze. Esta campaña debe tener una entrega basada en acciones y desencadenarse desde el evento personalizado registrado desde dentro de tu devolución de llamada push personalizada.
+Crea tu Campaign de mensaje dentro de la aplicación visible para el usuario en el panel de Braze. Esta Campaign debe tener una entrega basada en acciones y ser activada desde el evento personalizado registrado desde tu devolución de llamada push personalizada.
 
-En el siguiente ejemplo, el mensaje específico dentro de la aplicación que se va a desencadenar se ha configurado enviando la propiedad del evento como parte del push silencioso inicial.
+En el siguiente ejemplo, el mensaje dentro de la aplicación específico que se va a desencadenar se ha configurado enviando la propiedad del evento como parte de la push silenciosa inicial.
 
-![Una campaña de entrega basada en acciones en la que se desencadenará un mensaje dentro de la aplicación cuando "campaign_name" sea igual a "ejemplo de nombre de campaña IAM".]({% image_buster /assets/img_archive/iam_event_trigger.png %})
+![Una Campaign de entrega basada en acciones donde un mensaje dentro de la aplicación se activará cuando "campaign_name" sea igual a "IAM campaign name example".]({% image_buster /assets/img_archive/iam_event_trigger.png %})
 
-Si se registra un evento enviado por el servidor mientras la aplicación no está en primer plano, el evento se registrará, pero no se mostrará el mensaje dentro de la aplicación. Si quieres que el evento se retrase hasta que la aplicación esté en primer plano, debes incluir una comprobación en tu receptor push personalizado para descartar o retrasar el evento hasta que la aplicación haya entrado en primer plano.
+Si un evento enviado desde el servidor se registra mientras la aplicación no está en primer plano, el evento se registrará, pero el mensaje dentro de la aplicación no se mostrará. Si deseas que el evento se retrase hasta que la aplicación esté en primer plano, se debe incluir una verificación en tu receptor push personalizado para descartar o retrasar el evento hasta que la aplicación haya entrado en primer plano.
 {% endtab %}
 
 {% tab swift %}
-#### Paso 1: Manejar el push silencioso y los pares clave-valor {#step-1-handle-silent-push-and-key-value-pairs}
+#### Paso 1: Manejar la push silenciosa y los pares clave-valor {#step-1-handle-silent-push-and-key-value-pairs}
 
-Implementa la siguiente función y llámala dentro del método [`application(_:didReceiveRemoteNotification:fetchCompletionHandler:)`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623013-application/):
+Implementa la siguiente función y llámala dentro del método [`application(_:didReceiveRemoteNotification:fetchCompletionHandler:)`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/application(_:didreceiveremotenotification:fetchcompletionhandler:)):
 
 {% subtabs %}
 {% subtab swift %}
@@ -359,36 +372,36 @@ func handleExtras(userInfo: [AnyHashable : Any]) {
 {% endsubtab %}
 {% endsubtabs %}
 
-Cuando se reciba el push silencioso, se registrará un evento "desencadenador de mensaje dentro de la aplicación" registrado en el SDK contra el perfil de usuario.
+Cuando se recibe la push silenciosa, se registrará un evento del SDK "desencadenante de mensaje dentro de la aplicación" en el perfil de usuario.
 
 {% alert important %}
-Debido a que se utiliza un mensaje push para registrar un evento personalizado registrado en el SDK, Braze necesitará almacenar un token de notificaciones push para cada usuario para habilitar esta solución. Para los usuarios de iOS, Braze solo almacenará un token a partir del momento en que un usuario haya recibido el aviso push del sistema operativo. Antes de esto, el usuario no será localizable mediante push, y la solución anterior no será posible.
+Debido a que se utiliza un mensaje push para registrar un evento personalizado del SDK, Braze necesitará almacenar un token de push para cada usuario para habilitar esta solución. Para los usuarios de iOS, Braze solo almacenará un token a partir del momento en que al usuario se le haya mostrado la solicitud de push del sistema operativo. Antes de esto, el usuario no será localizable mediante push, y la solución anterior no será posible.
 {% endalert %}
 
-#### Paso 2: Crea una campaña push silenciosa {#step-2-create-a-silent-push-campaign}
+#### Paso 2: Crear una Campaign de push silenciosa {#step-2-create-a-silent-push-campaign}
 
-Crea una [campaña push silenciosa]({{site.baseurl}}/developer_guide/push_notifications/silent?sdktab=swift) que se desencadene a través del evento enviado por el servidor.
+Crea una [Campaign de push silenciosa]({{site.baseurl}}/developer_guide/push_notifications/silent?sdktab=swift) que se active mediante el evento enviado desde el servidor.
 
-![Una campaña de mensajes dentro de la aplicación basada en acciones que se entregará a los usuarios cuyos perfiles de usuario tengan el evento personalizado "server_event".]({% image_buster /assets/img_archive/iosServerSentPush.png %})
+![Una Campaign de mensaje dentro de la aplicación con entrega basada en acciones que se entregará a los usuarios cuyos perfiles de usuario tengan el evento personalizado "server_event".]({% image_buster /assets/img_archive/iosServerSentPush.png %})
 
-La campaña push debe incluir extras de par clave-valor, que indiquen que esta campaña push se envía para registrar un evento personalizado del SDK. Este evento se utilizará para desencadenar el mensaje dentro de la aplicación.
+La Campaign de push debe incluir extras de pares clave-valor, que indiquen que esta Campaign de push se envía para registrar un evento personalizado del SDK. Este evento se utilizará para desencadenar el mensaje dentro de la aplicación.
 
-![Una campaña de mensajes dentro de la aplicación basada en acciones que tiene dos pares clave-valor. "CAMPAIGN_NAME" establecido como "Ejemplo de nombre de mensaje dentro de la aplicación" e "IS_SERVER_EVENT" establecido en "true".]({% image_buster /assets/img_archive/iOSServerPush.png %})
+![Una Campaign de mensaje dentro de la aplicación con entrega basada en acciones que tiene dos pares clave-valor. "CAMPAIGN_NAME" establecido como "In-app message name example" e "IS_SERVER_EVENT" establecido en "true".]({% image_buster /assets/img_archive/iOSServerPush.png %})
 
-El código del método `application(_:didReceiveRemoteNotification:fetchCompletionHandler:)` comprueba si hay una clave `IS_SERVER_EVENT` y registrará un evento personalizado del SDK si la hay.
+El código dentro del método `application(_:didReceiveRemoteNotification:fetchCompletionHandler:)` verifica la clave `IS_SERVER_EVENT` y registrará un evento personalizado del SDK si esta está presente.
 
-Puedes modificar el nombre o las propiedades del evento enviando el valor deseado dentro de los extras del par clave-valor de la carga útil push. Al registrar el evento personalizado, estos extras se pueden utilizar como parámetro del nombre del evento o como propiedad del evento.
+Puedes modificar ya sea el nombre del evento o las propiedades del evento enviando el valor deseado dentro de los extras de pares clave-valor de la carga útil de push. Al registrar el evento personalizado, estos extras se pueden utilizar como parámetro del nombre del evento o como propiedad del evento.
 
-#### Paso 3: Crea una campaña de mensajes dentro de la aplicación
+#### Paso 3: Crear una Campaign de mensaje dentro de la aplicación
 
-Crea tu campaña de mensajes dentro de la aplicación visible para el usuario en el panel de Braze. Esta campaña debe tener una entrega basada en acciones y desencadenarse desde el evento personalizado registrado en el método `application(_:didReceiveRemoteNotification:fetchCompletionHandler:)`.
+Crea tu Campaign de mensaje dentro de la aplicación visible para el usuario en el panel de Braze. Esta Campaign debe tener una entrega basada en acciones y ser activada desde el evento personalizado registrado dentro del método `application(_:didReceiveRemoteNotification:fetchCompletionHandler:)`.
 
-En el siguiente ejemplo, el mensaje específico dentro de la aplicación que se va a desencadenar se ha configurado enviando la propiedad del evento como parte del push silencioso inicial.
+En el siguiente ejemplo, el mensaje dentro de la aplicación específico que se va a desencadenar se ha configurado enviando la propiedad del evento como parte de la push silenciosa inicial.
 
-![Una campaña de mensajes dentro de la aplicación basada en acciones que se entregará a los usuarios que realicen el evento personalizado "Activador de mensajes dentro de la aplicación" donde "campaign_name" es igual a "Ejemplo de nombre de campaña IAM".]({% image_buster /assets/img_archive/iosIAMeventTrigger.png %})
+![Una Campaign de mensaje dentro de la aplicación con entrega basada en acciones que se entregará a los usuarios que realicen el evento personalizado "In-app message trigger" donde "campaign_name" sea igual a "IAM Campaign Name Example".]({% image_buster /assets/img_archive/iosIAMeventTrigger.png %})
 
 {% alert note %}
-Ten en cuenta que estos mensajes dentro de la aplicación solo se desencadenarán si se recibe el push silencioso mientras la aplicación está en primer plano.
+Ten en cuenta que estos mensajes dentro de la aplicación solo se activarán si la push silenciosa se recibe mientras la aplicación está en primer plano.
 {% endalert %}
 {% endtab %}
 {% endtabs %}
@@ -399,7 +412,7 @@ Para mostrar manualmente un mensaje dentro de la aplicación predefinido, utiliz
 
 {% tabs %}
 {% tab web %}
-Para el SDK Web, utiliza `braze.showInAppMessage(inAppMessage)` para mostrar cualquier mensaje dentro de la aplicación. Para obtener más información y ver un ejemplo, consulta [Mostrar un mensaje en tiempo real](#displaying-a-message-in-real-time).
+Para el SDK Web, utiliza `braze.showInAppMessage(inAppMessage)` para mostrar cualquier mensaje dentro de la aplicación. Para más detalles y un ejemplo, consulta [Mostrar un mensaje en tiempo real](#displaying-a-message-in-real-time).
 {% endtab %}
 
 {% tab android %}
@@ -432,7 +445,7 @@ if let inAppMessage = AppDelegate.braze?.inAppMessagePresenter?.nextAvailableMes
 
 ### Mostrar un mensaje en tiempo real {#displaying-a-message-in-real-time}
 
-También puedes crear y mostrar mensajes dentro de la aplicación locales en tiempo real, utilizando las mismas opciones de personalización disponibles en el dashboard. Para hacerlo:
+También puedes crear y mostrar mensajes dentro de la aplicación locales en tiempo real, utilizando las mismas opciones de personalización disponibles en el panel. Para hacerlo:
 
 {% tabs %}
 {% tab web %}
@@ -467,7 +480,7 @@ inAppMessage.message = "Welcome to Braze! This is a slideup in-app message."
 {% endsubtabs %}
 
 {% alert important %}
-No muestres mensajes dentro de la aplicación cuando el teclado en pantalla esté visible, ya que el renderizado no está definido en esta circunstancia.
+No muestres mensajes dentro de la aplicación cuando el teclado virtual está visible en la pantalla, ya que el renderizado no está definido en esta circunstancia.
 {% endalert %}
 {% endtab %}
 
@@ -503,12 +516,12 @@ customInAppMessage.themes = @{
 {% endsubtabs %}
 
 {% alert note %}
-Al crear tu propio mensaje dentro de la aplicación, te excluyes de cualquier seguimiento de análisis y tendrás que gestionar manualmente el registro de clics e impresiones utilizando tu `message.context`.
+Al crear tu propio mensaje dentro de la aplicación, excluyes cualquier seguimiento de análisis y tendrás que manejar manualmente el registro de clics e impresiones usando tu `message.context`.
 {% endalert %}
 {% endtab %}
 
 {% tab unity %}
-Para mostrar el siguiente mensaje de la pila, utiliza el método `DisplayNextInAppMessage()`. Los mensajes se guardarán en esta pila si se elige `DISPLAY_LATER` o `BrazeUnityInAppMessageDisplayActionType.IAM_DISPLAY_LATER` como acción de visualización de mensajes dentro de la aplicación.
+Para mostrar el siguiente mensaje en la pila, utiliza el método `DisplayNextInAppMessage()`. Los mensajes se guardarán en esta pila si se elige `DISPLAY_LATER` o `BrazeUnityInAppMessageDisplayActionType.IAM_DISPLAY_LATER` como la acción de visualización del mensaje dentro de la aplicación.
 
 ```csharp
 Appboy.AppboyBinding.DisplayNextInAppMessage();
@@ -518,17 +531,17 @@ Appboy.AppboyBinding.DisplayNextInAppMessage();
 
 ## Causas de retrasos en los mensajes dentro de la aplicación {#causes-of-in-app-message-delays}
 
-Si recibes una campaña de mensajes dentro de la aplicación unos segundos después del inicio de la sesión, el retraso puede haber sido causado por:
+Si recibes un mensaje dentro de la aplicación de una Campaign unos segundos después del inicio de la sesión, el retraso puede haber sido causado por:
 
-- Un retraso en el desencadenante de la campaña
+- Un retraso en el desencadenador de la Campaign
 - Personalizaciones
 - El evento desencadenante se registró más tarde de lo esperado (como con un `templated_iam`)
 
 ## Mensajes de intención de salida para Web {#exit-intent-messages-for-web}
 
-Los mensajes de intención de salida son mensajes no intrusivos dentro de la aplicación que se utilizan para comunicar información importante a los visitantes antes de que abandonen tu sitio web.
+Los mensajes de intención de salida son mensajes dentro de la aplicación no disruptivos que se utilizan para comunicar información importante a los visitantes antes de que abandonen tu sitio web.
 
-Para configurar desencadenantes para estos tipos de mensajes en el SDK Web, implementa una biblioteca de intención de salida en tu sitio web (como [la biblioteca de código abierto de ouibounce](https://github.com/carlsednaoui/ouibounce)) y, a continuación, utiliza el siguiente código para registrar `'exit intent'` como un evento personalizado en Braze. Ahora, tus futuras campañas de mensajes dentro de la aplicación pueden utilizar este tipo de mensaje como desencadenante de eventos personalizados.
+Para configurar desencadenadores para estos tipos de mensajes en el SDK Web, implementa una biblioteca de intención de salida en tu sitio web (como la [biblioteca de código abierto de ouibounce](https://github.com/carlsednaoui/ouibounce)) y luego usa el siguiente código para registrar `'exit intent'` como un evento personalizado en Braze. Ahora tus futuras Campaigns de mensajes dentro de la aplicación pueden usar este tipo de mensaje como desencadenador de evento personalizado.
 
 ```javascript
   var _ouibounce = ouibounce(false, {

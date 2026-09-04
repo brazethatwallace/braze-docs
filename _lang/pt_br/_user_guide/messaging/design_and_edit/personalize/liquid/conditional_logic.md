@@ -28,7 +28,7 @@ Por exemplo, adicione o seguinte no campo de mensagem primeiro:
 {% endif %}
 ```
 
-Certifique-se de que ele fique destacado em verde e, em seguida, substitua o `X` pelo Liquid ou Conteúdo conectado escolhido usando o `+` azul no canto do campo de mensagem, e o `0` pelo valor desejado.
+Certifique-se de que ele fique destacado em verde e, em seguida, substitua o `X` pelo Liquid ou Conteúdo Conectado escolhido usando o `+` azul no canto do campo de mensagem, e o `0` pelo valor desejado.
 <br><br>
 Depois, adicione suas variações de mensagem conforme necessário entre as condicionais `else`:
 ```liquid
@@ -69,7 +69,7 @@ Você tem a opção de incluir uma instrução `{% else %}` na sua lógica condi
 
 #### `case` e `when` {#case-and-when}
 
-`{% case %}`, `{% when %}` e `{% endcase %}` funcionam como uma instrução switch: você define uma expressão após `case`, e cada ramificação `when` é executada quando essa expressão é igual ao valor listado (o Liquid usa igualdade nos bastidores, semelhante a encadear `if` e `elsif` com `==`). Você pode listar vários valores em uma tag `when` separando-os com vírgula ou `or`. Use `{% else %}` como fallback quando nada corresponder e, em seguida, feche com `{% endcase %}`.
+`{% case %}`, `{% when %}` e `{% endcase %}` funcionam como uma instrução switch: você define uma expressão após `case`, e cada Branch `when` é executada quando essa expressão é igual ao valor listado (o Liquid usa igualdade nos bastidores, semelhante a encadear `if` e `elsif` com `==`). Você pode listar vários valores em uma tag `when` separando-os com vírgula ou `or`. Use `{% else %}` como fallback quando nada corresponder e, em seguida, feche com `{% endcase %}`.
 
 Certifique-se de que o formato dos valores `when` corresponda ao tipo de dados. Para texto (como um código de idioma), use aspas: `{% when 'es' %}`. Para números, omita as aspas: `{% when 2 %}`.
 
@@ -92,10 +92,10 @@ Você pode usar o mesmo padrão com tags de personalização da Braze ou outras 
 A tag `{% endif %}` sinaliza que você terminou um bloco `if`. Você deve incluir a tag `{% endif %}` em qualquer mensagem que use `if`, `elsif`, `unless` ou `else` nessa cadeia. Se você não incluir uma tag `{% endif %}`, receberá um erro, pois a Braze não conseguirá processar sua mensagem. Se você usar `{% case %}`, feche o bloco com `{% endcase %}`, não com `{% endif %}`.
 
 {% alert note %}
-Nas tags `if`, `elsif` e `unless`, você pode usar operadores, mas não filtros. Nas tags `case` e `when`, cada ramificação corresponde quando a expressão `case` é igual a um valor `when`; filtros também não são suportados nessas expressões. Para avaliar um valor filtrado, atribua o resultado do filtro a uma variável primeiro e depois referencie essa variável na sua cláusula `case` ou `when`. Para mais detalhes, consulte [Onde usar operadores e filtros]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#where-to-use-operators-and-filters).
+Nas tags `if`, `elsif` e `unless`, você pode usar operadores, mas não filtros. Nas tags `case` e `when`, cada Branch corresponde quando a expressão `case` é igual a um valor `when`; filtros também não são suportados nessas expressões. Para avaliar um valor filtrado, atribua o resultado do filtro a uma variável primeiro e depois referencie essa variável na sua cláusula `case` ou `when`. Para mais detalhes, consulte [Onde usar operadores e filtros]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#where-to-use-operators-and-filters).
 {% endalert %}
 
-### Tutorial: Entregar conteúdo baseado em localização {#tutorial-deliver-location-based-content}
+### Tutorial: entregar conteúdo baseado em localização {#tutorial-deliver-location-based-content}
 
 Ao concluir este tutorial, você será capaz de usar tags com instruções "if", "elsif" e "else" para entregar conteúdo com base na localização do usuário.
 
@@ -220,7 +220,7 @@ A tag a seguir permite especificar uma mensagem para usuários que têm um atrib
 
 ## Referenciando atributos personalizados {#referencing-custom-attributes}
 
-Depois de [criar atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#managing-custom-attributes), você pode referenciar esses atributos personalizados nas suas mensagens Liquid.
+Depois de [criar atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#managing-custom-attributes), você pode referenciar esses atributos personalizados nas suas mensagens Liquid.
 
 Ao usar lógica condicional, você precisará saber o tipo de dados do atributo personalizado para garantir que está usando a sintaxe correta. Na página **Atributos personalizados** no dashboard, procure o tipo de dados associado ao seu atributo personalizado e consulte os exemplos a seguir listados para cada tipo de dados.
 
@@ -230,9 +230,9 @@ Ao usar lógica condicional, você precisará saber o tipo de dados do atributo 
 Strings e arrays exigem apóstrofos retos ao redor deles, enquanto booleanos e inteiros nunca terão apóstrofos.
 {% endalert %}
 
-#### Booleano {#boolean}
+### Booleano {#boolean}
 
-[Booleanos]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#booleans) são valores binários e podem ser definidos como `true` ou `false`, como `registration_complete: true`. Valores booleanos não têm apóstrofos ao redor deles.
+[Booleanos]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#booleans) são valores binários e podem ser definidos como `true` ou `false`, como `registration_complete: true`. Valores booleanos não têm apóstrofos ao redor deles.
 
 {% raw %}
 
@@ -242,9 +242,9 @@ Strings e arrays exigem apóstrofos retos ao redor deles, enquanto booleanos e i
 
 {% endraw %}
 
-#### Número {#number}
+### Número {#number}
 
-[Números]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#numbers) são valores numéricos, que podem ser inteiros ou decimais. Por exemplo, um usuário pode ter `shoe_size: 10` ou `levels_completed: 287`. Valores numéricos não têm apóstrofos ao redor deles.
+[Números]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) são valores numéricos, que podem ser inteiros ou decimais. Por exemplo, um usuário pode ter `shoe_size: 10` ou `levels_completed: 287`. Valores numéricos não têm apóstrofos ao redor deles.
 
 {% raw %}
 
@@ -264,9 +264,9 @@ Você também pode usar outros [operadores básicos](https://shopify.dev/docs/th
 
 {% endraw %}
 
-#### String {#string}
+### String {#string}
 
-Uma [string]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#strings) é composta por caracteres alfanuméricos e armazena um dado sobre o seu usuário. Por exemplo, você pode ter `favorite_color: red` ou `phone_number: 3025981329`. Valores de string devem ter apóstrofos ao redor deles.
+Uma [string]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) é composta por caracteres alfanuméricos e armazena um dado sobre o seu usuário. Por exemplo, você pode ter `favorite_color: red` ou `phone_number: 3025981329`. Valores de string devem ter apóstrofos ao redor deles.
 
 {% raw %}
 
@@ -278,9 +278,9 @@ Uma [string]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attri
 
 Para strings, você pode usar tanto "==" quanto "contains" no seu Liquid.
 
-#### Array {#array}
+### Array {#array}
 
-Um [array]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#arrays) é uma lista de informações sobre o seu usuário. Por exemplo, um usuário pode ter `last_viewed_shows: stranger things, planet earth, westworld`. Valores de array devem ter apóstrofos ao redor deles.
+Um [array]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) é uma lista de informações sobre o seu usuário. Por exemplo, um usuário pode ter `last_viewed_shows: stranger things, planet earth, westworld`. Valores de array devem ter apóstrofos ao redor deles.
 
 {% raw %}
 
@@ -290,11 +290,47 @@ Um [array]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attribu
 
 {% endraw %}
 
-Para arrays, você deve usar "contains" e não pode usar "==".
+Para arrays, você deve usar `contains` e não pode usar `==`.
 
-#### Hora {#time}
+#### Como `contains` funciona com strings versus arrays {#how-contains-works-with-strings-versus-arrays}
 
-Um registro de data e hora de quando um evento ocorreu. Valores de [hora]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#time) devem ter um [filtro matemático]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/#math-filters) aplicado para serem usados em lógica condicional.
+O operador `contains` se comporta de maneira diferente dependendo se está avaliando uma string ou um array:
+
+- **Strings:** `contains` verifica se há uma substring em qualquer lugar dentro do texto.
+- **Arrays:** `contains` verifica se há uma correspondência exata com um elemento completo dentro do array.
+
+{% alert important %}
+Se um atributo estiver armazenado como um array (por exemplo, `["med1", "med2", "abc"]`), pesquisar `contains "ab"` será avaliado como `false` porque nenhum elemento individual nessa lista é exatamente `"ab"`.
+{% endalert %}
+
+##### Correspondência de substring em arrays {#substring-matching-on-arrays}
+
+Se você precisar procurar uma correspondência parcial (substring) dentro de um atributo de array, primeiro converta o array em uma única string usando o filtro `join`.
+
+Como a Braze não suporta filtros inline diretamente dentro de blocos condicionais {% raw %}`{% if %}`{% endraw %}, você deve seguir um processo de duas etapas: primeiro, atribua o valor unido a uma variável e, em seguida, execute sua verificação condicional.
+
+{% raw %}
+```liquid
+{% comment %} 1. Convert the array to a string using a comma separator {% endcomment %}
+{% assign products_string = {{custom_attribute.${product_array}}} | join: "," %}
+
+{% comment %} 2. Perform the substring check on the new variable {% endcomment %}
+{% if products_string contains "ab" %}
+  Match found!
+{% else %}
+  No match.
+{% endif %}
+```
+{% endraw %}
+
+
+{% alert tip %}
+Como `join` combina elementos do array em uma única string (separador padrão: um único espaço), verificações de substring podem corresponder entre limites de elementos (por exemplo, `["Napa", "boulevard"]` se torna `Napa boulevard`, onde `contains "a b"` é `true`). Use um separador explícito como "," para tornar os limites mais claros e reduzir correspondências acidentais entre elementos.
+{% endalert %}
+
+### Hora {#time}
+
+Um registro de data e hora de quando um evento ocorreu. Valores de [hora]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) devem ter um [filtro matemático]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#math-filters) aplicado para serem usados em lógica condicional.
 
 {% raw %}
 

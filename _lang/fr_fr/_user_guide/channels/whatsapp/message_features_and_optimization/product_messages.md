@@ -30,7 +30,7 @@ Lorsque les utilisateurs ajoutent des articles à leur panier via les messages c
 | Condition | Description |
 | --- | --- |
 | Compte WhatsApp Business | Pour utiliser les messages produit WhatsApp, vous devez disposer d'un compte WhatsApp Business connecté à Braze. |
-| Catalogue Meta | Vous devez configurer un catalogue Meta dans votre Commerce Manager. |
+| Catalogue Meta | Vous devez configurer un catalogue Meta dans votre Commerce gestionnaire. |
 | Conformité aux conditions | Respectez les [conditions et politiques commerciales de Meta](https://www.facebook.com/policies_center/commerce). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions requises" }
 
@@ -75,12 +75,12 @@ Vous pouvez sélectionner les produits manuellement avec des ID ou, si vous avez
 
 ## Configuration des messages produit {#setting-up-product-messages}
 
-1. Dans le [Meta Commerce Manager](https://business.facebook.com/business/loginpage/?next=https%3A%2F%2Fbusiness.facebook.com%2Fcommerce_manager%2F#), suivez [les instructions de Meta](https://www.facebook.com/business/help/1275400645914358?id=725943027795860&ref=search_new_1) pour créer votre catalogue Meta. Assurez-vous d'être dans le même portefeuille Meta Business que celui où réside votre compte WhatsApp Business connecté à Braze.
-2. Suivez les instructions de Meta pour [connecter votre catalogue Meta](https://www.facebook.com/business/help/1953352334878186?id=2042840805783715) à votre compte WhatsApp Business connecté à Braze en attribuant l'autorisation « Manage Catalog » dans Meta Business Manager.
+1. Dans le [Meta Commerce gestionnaire](https://business.facebook.com/business/loginpage/?next=https%3A%2F%2Fbusiness.facebook.com%2Fcommerce_manager%2F#), suivez [les instructions de Meta](https://www.facebook.com/business/help/1275400645914358?id=725943027795860&ref=search_new_1) pour créer votre catalogue Meta. Assurez-vous d'être dans le même portefeuille Meta Business que celui où réside votre compte WhatsApp Business connecté à Braze.
+2. Suivez les instructions de Meta pour [connecter votre catalogue Meta](https://www.facebook.com/business/help/1953352334878186?id=2042840805783715) à votre compte WhatsApp Business connecté à Braze en attribuant l'autorisation « Manage Catalog » dans Meta Business gestionnaire.
 
 ![Page « Catalogs » de Meta avec une flèche pointant vers le bouton « Assign partner » pour le catalogue appelé « sweeney_catalog ».]({% image_buster /assets/img/whatsapp/meta_catalog.png %}){: style="max-width:90%;"}
 
-Assurez-vous d'utiliser l'ID Braze Business Manager, `332231937299182`, comme ID d'entreprise partenaire.
+Assurez-vous d'utiliser l'ID Braze Business gestionnaire, `332231937299182`, comme ID d'entreprise partenaire.
 
 ![Fenêtre de partage d'un catalogue avec un partenaire contenant des champs pour saisir un ID d'entreprise partenaire et attribuer l'autorisation « Manage catalog ».]({% image_buster /assets/img/whatsapp/share_meta_catalog.png %}){: style="max-width:70%;"}
 
@@ -95,7 +95,7 @@ Assurez-vous d'utiliser l'ID Braze Business Manager, `332231937299182`, comme ID
 ![Fenêtre avec cinq catalogues sélectionnés pour fournir des autorisations.]({% image_buster /assets/img/whatsapp/select_catalogs.png %}){: style="max-width:50%;"}
 
 {% alert tip %}
-Pour les bonnes pratiques à suivre lors de la création de catalogues Meta, consultez [Conseils pour créer un catalogue de haute qualité dans Commerce Manager](https://www.facebook.com/business/help/2086567618225367?id=725943027795860).
+Pour les bonnes pratiques à suivre lors de la création de catalogues Meta, consultez [Conseils pour créer un catalogue de haute qualité dans Commerce gestionnaire](https://www.facebook.com/business/help/2086567618225367?id=725943027795860).
 {% endalert %}
 
 ## Créer un message produit {#building-a-product-message}
@@ -105,13 +105,13 @@ Vous pouvez créer un message produit en utilisant un modèle de message WhatsAp
 {% tabs local %}
 {% tab Modèle de message WhatsApp %}
 
-1. Dans votre Meta Business Manager, accédez à **Message Templates**.
+1. Dans votre Meta Business gestionnaire, accédez à **Message Templates**.
 2. Sélectionnez **Catalog** comme format, puis choisissez entre **Catalog message** (affiche le catalogue complet) et **Multi-product catalog message** (met en avant des articles spécifiques).
 3. Dans Braze, créez une Campaign WhatsApp ou une étape de message Canvas.
 4. Sélectionnez le groupe d'abonnement correspondant à l'endroit où vous avez soumis le modèle.
 5. Sélectionnez **WhatsApp Template Message**.
 6. Sélectionnez le modèle que vous souhaitez utiliser.
-    - Si vous sélectionnez un modèle multi-produits, fournissez le titre de la section et les ID de contenu des produits à mettre en avant. Vous pouvez soit copier l'ID de contenu directement depuis votre Meta Commerce Manager, soit, si vous avez activé les autorisations pour le sélecteur de produits intégré, sélectionner les articles.
+    - Si vous sélectionnez un modèle multi-produits, fournissez le titre de la section et les ID de contenu des produits à mettre en avant. Vous pouvez soit copier l'ID de contenu directement depuis votre Meta Commerce gestionnaire, soit, si vous avez activé les autorisations pour le sélecteur de produits intégré, sélectionner les articles.
 
 ![Liste d'articles avec des champs pour saisir vos titres de section et ID de contenu.]({% image_buster /assets/img/whatsapp/multi_product_template.png %}){: style="max-width:60%;"}
 
@@ -145,9 +145,9 @@ Vous pouvez créer un message produit en utilisant un modèle de message WhatsAp
 
 ## Gestion des produits {#managing-products}
 
-### Accéder au Commerce Manager {#accessing-commerce-manager}
+### Accéder au Commerce gestionnaire {#accessing-commerce-manager}
 
-Dans votre Meta Business Manager, accédez à **Commerce Manager** et sélectionnez votre organisation. Ici, vous pouvez gérer les ressources de votre catalogue, telles que :
+Dans votre Meta Business gestionnaire, accédez à **Commerce gestionnaire** et sélectionnez votre organisation. Ici, vous pouvez gérer les ressources de votre catalogue, telles que :
 - Créer de nouveaux catalogues
 - Ajouter des produits aux catalogues existants
 - Mettre à jour les informations produit
@@ -173,7 +173,7 @@ Lorsque les utilisateurs interagissent avec vos messages produit WhatsApp, ils p
 
 - **Pas de paiement intégré :** les utilisateurs ne peuvent pas finaliser leurs achats directement dans WhatsApp. Toutes les transactions doivent être redirigées vers votre site web ou application.
 - **Lien personnalisé requis :** vous devez créer un lien personnalisé qui dirige les utilisateurs vers leur panier sur votre plateforme.
-- **Configuration manuelle :** le processus de configuration nécessite une configuration manuelle de votre panier et de vos workflows d'envoi de messages.
+- **Configuration manuelle :** le processus de configuration nécessite une configuration manuelle de votre panier et de vos workflows de communication.
 
 {% alert note %}
 Nous ne prenons actuellement pas en charge les paiements directement dans WhatsApp, et la prise en charge future sera spécifique à chaque pays (actuellement, Meta ne le propose qu'aux entreprises basées en Inde, au Brésil et à Singapour et travaillant directement avec des utilisateurs dans ces pays).
@@ -196,7 +196,7 @@ L'événement de panier inclut :
 - **Source :** marquée comme « whats_app »
 - **Métadonnées :** données supplémentaires comme l'ID du catalogue et le texte du message
 
-Vous pouvez trouver des informations supplémentaires sur les événements de panier Braze dans [Types d'événements eCommerce recommandés]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events#types-of-ecommerce-recommended-events).
+Vous pouvez trouver des informations supplémentaires sur les événements de panier Braze dans [Types d'événements eCommerce recommandés]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events).
 
 ### Configuration d'une réponse déclenchée {#setting-up-a-triggered-response}
 

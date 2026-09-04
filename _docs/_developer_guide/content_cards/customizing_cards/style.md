@@ -181,7 +181,7 @@ let viewController = BrazeContentCardUI.ViewController(braze: AppDelegate.braze,
 
 **Modifying content cards programmatically**
 
-You can change Content Cards programmatically by assigning the [`transform`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazecontentcardui/viewcontroller/attributes-swift.struct/transform) closure on your `Attributes` struct. The example below modifies the `title` and `description` of compatible cards:
+You can change Content Cards programmatically by assigning the [`transform`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazecontentcardui/viewcontroller/attributes-swift.struct/transform) closure on your `Attributes` struct. The following example modifies the `title` and `description` of compatible cards:
 
 ```swift
 var attributes = BrazeContentCardUI.ViewController.Attributes.defaults
@@ -249,7 +249,7 @@ Here is a truncated example with a custom font family, `my_custom_font_family`, 
   </style>
 ```
 
-For more information about font customization in the Android SDK, see the [font family guide]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/font_customization#font-customization).
+The preceding XML example shows how to reference a custom font family in your card styles.
 {% endtab %}
 {% tab Jetpack Compose %}
 To change the default font programmatically, you can set the [`titleTextStyle`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards.styling/-content-card-styling/index.html#715371549%2FProperties%2F-1725759721) of `ContentCardStyling`.
@@ -494,7 +494,7 @@ Customization of only the unviewed indicator via `Attributes` is not supported i
 
 ### Dark mode
 
-To display different images or styles based on the device's dark or light mode, use [key-value pairs]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details#key-value-pairs) in your Content Card message. For example, add a key-value pair like `dark_mode_image` with the URL of your dark mode image asset. Then, in your app, add custom logic to check the device's current appearance mode and display the appropriate image.
+To display different images or styles based on the device's dark or light mode, use [key-value pairs]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs) in your Content Card message. For example, add a key-value pair like `dark_mode_image` with the URL of your dark mode image asset. Then, in your app, add custom logic to check the device's current appearance mode and display the appropriate image.
 
 {% tabs %}
 {% tab swift %}

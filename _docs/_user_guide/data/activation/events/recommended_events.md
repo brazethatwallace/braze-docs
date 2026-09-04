@@ -23,7 +23,11 @@ Because these events follow a defined schema, each supported feature can read th
 
 ### How eCommerce events work
 
-eCommerce events are custom events with predefined names and property schemas. You send them using the [Braze SDK]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events) or the [`/users/track` REST API endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track), and Braze validates each event against its schema on ingestion. When validation passes, Braze automatically applies post-processing specific to that event type, such as calculating revenue fields and managing cart state on user profiles.
+eCommerce events are custom events with predefined names and property schemas. You send them using the [Braze SDK]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events), the [`/users/track` REST API endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track), or [Cloud Data Ingestion (CDI)]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion), and Braze validates each event against its schema on ingestion. When validation passes, Braze automatically applies post-processing specific to that event type, such as calculating revenue fields and managing cart state on user profiles.
+
+{% alert note %}
+CSV uploads don't support eCommerce events. Use the SDK, `/users/track`, or CDI to send these events.
+{% endalert %}
 
 eCommerce events work everywhere other custom events do: triggers and filters for performed custom events, custom events reporting, and more. However, their schema validation unlocks additional capabilities, including:
 
@@ -1141,51 +1145,7 @@ The following table summarizes what Braze automatically does for each event when
 Non-USD currency values are automatically converted to USD using the exchange rate on the date the event is reported. If you already report in USD, hardcode `USD` as the currency to avoid unintended conversion.
 {% endalert %}
 
-## Implement eCommerce events 
-
-You can send eCommerce events through the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track) (server-side) or through the Braze SDKs (client-side). For SDK implementation examples, see [Log eCommerce events through the Braze SDK]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
-
-### Send events server-side
-
-Use the `/users/track` endpoint to send eCommerce events from your backend. Each event requires the exact event name, the user's `external_id`, and a properties object matching the event schema.
-
-```json
-POST /users/track
-
-{
-  "events": [
-    {
-      "external_id": "user_abc123",
-      "name": "ecommerce.order_placed",
-      "time": "2026-04-26T14:32:00Z",
-      "properties": {
-        "order_id": "order_7891011",
-        "total_value": 84.99,
-        "currency": "USD",
-        "source": "custom_api",
-        "total_discounts": 10.00,
-        "products": [
-          {
-            "product_id": "sku_2001",
-            "product_name": "Trail Runner Pro",
-            "variant_id": "var_2001_black_10",
-            "quantity": 1,
-            "price": 94.99,
-            "metadata": {
-              "color": "black",
-              "size": "10"
-            }
-          }
-        ],
-        "metadata": {
-          "gift_wrapped": true,
-          "loyalty_points_earned": 170
-        }
-      }
-    }
-  ]
-}
-```
+## Implementation details
 
 ### Data points and billing
 
@@ -1248,7 +1208,7 @@ The event is processed as an eCommerce recommended event with all associated pos
 After sending an event, you can confirm it was accepted and processed correctly using any of the following:
 
 - [Event User Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log): Open the user's profile in the dashboard and review their activity. Recommended events appear with their full property payload, so you can confirm the event landed and the values match what you sent.  
-- [Custom events report]({{site.baseurl}}/user_guide/analytics/reports/custom_events_report): Go to **Analytics** > **Custom Events** to see aggregate counts of each recommended event over time. This is useful for confirming production traffic is flowing as expected when your integration is live.  
+- [Custom events report]({{site.baseurl}}/user_guide/analytics/reports/custom_events_report): Go to **Analytics** > **Custom Events Report** to see aggregate counts of each recommended event over time. This is useful for confirming production traffic is flowing as expected when your integration is live.
 - [Test users]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups?utm_source=operator_user&utm_medium=dashboard#adding-test-users): Mark a user in your development workspace as a test user, then trigger events from your integration against that user. Test users are flagged in the dashboard, making it easy to isolate and inspect end-to-end behavior.
 
 ### When validation fails

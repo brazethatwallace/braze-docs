@@ -12,6 +12,10 @@ channel:
 
 > The Bring Your Own (BYO) WhatsApp connector offers a partnership between Braze and Infobip, in which you give Braze access to your Infobip WhatsApp Business Manager (WABA). This allows you to manage and pay for messaging costs directly with Infobip while using Braze for segmentation, personalization, and campaign orchestration. Braze maintains all existing functionality that the WhatsApp channel offers, such as outbound messages, inbound message processing, WhatsApp flows, and analytics.
 
+{% alert note %}
+To migrate from other Business Solution Providers (BSPs) to the Braze integration, see [Migrate from another Business Solution Provider]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number#migrate-from-another-business-solution-provider).
+{% endalert %}
+
 ## Requirements 
 
 | Requirement | Description |
@@ -30,9 +34,9 @@ Before setting up the BYO WhatsApp connector, confirm that your WhatsApp Busines
 
 - WhatsApp Business Account and phone number have never been connected to a partner before
 - WhatsApp Business Account is connected directly to Braze through the native integration.
-    - Follow the steps in [WhatsApp phone number migration]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number) to migrate your phone numbers to a new WhatsApp Business Account one phone number at a time.
+    - Follow the steps in [Migrate between WhatsApp Business Accounts]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number#migrate-between-whatsapp-business-accounts) to migrate your phone numbers to a new WhatsApp Business Account one phone number at a time.
 - WhatsApp Business Account is connected to a different solution provider from Braze and Infobip
-    - Follow the steps in [WhatsApp phone number migration]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number) to migrate your phone numbers to a new WhatsApp Business Account one phone number at a time.
+    - Follow the steps in [Migrate between WhatsApp Business Accounts]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number#migrate-between-whatsapp-business-accounts) to migrate your phone numbers to a new WhatsApp Business Account one phone number at a time.
 
 ## Step 1: Retrieve Infobip account information {#step-1}
 

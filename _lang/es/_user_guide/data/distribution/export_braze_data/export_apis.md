@@ -23,7 +23,7 @@ La siguiente tabla describe escenarios comunes en los que usar la API de exporta
 | Tu exportación es demasiado grande para el dashboard | Las exportaciones CSV del dashboard están limitadas a 500 000 filas. Si estás exportando datos de un segmento con más de 500 000 usuarios, usa la API de exportación, que no tiene límite en la cantidad que puedes exportar. |
 | Quieres automatizar informes recurrentes | Programa exportaciones de API a través de una integración para obtener datos de forma periódica sin interacción manual con el dashboard. |
 | Necesitas alimentar herramientas externas con datos | Envía los datos de exportación directamente a herramientas de BI, almacenes de datos u otras plataformas de análisis. |
-| Necesitas datos que no están disponibles como exportación CSV del dashboard | Algunas categorías de datos, incluidos KPI, series de ingresos, análisis de eventos personalizados y datos de sesión, solo están disponibles a través de la API. |
+| Necesitas datos que no están disponibles como exportación CSV del dashboard | Algunas categorías de datos, incluidos indicador clave de rendimiento, series de ingresos, análisis de eventos personalizados y datos de sesión, solo están disponibles a través de la API. |
 | Quieres interactuar con los datos de forma programática | Usa la salida JSON para procesamiento personalizado, transformaciones o integraciones. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Cuándo usar las API de exportación en lugar de descargas CSV" }
 

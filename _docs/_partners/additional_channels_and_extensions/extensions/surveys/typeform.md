@@ -22,7 +22,7 @@ By integrating Braze and Typeform, you can:
 | Requirement | Description |
 | ----------- | ----------- |
 | Typeform account | A Typeform account with access to webhooks are required to take advantage of this partnership. |
-| Braze Data Transformation | A [Data Transformation URL]({{site.baseurl}}/data_transformation/) is necessary to receive data from Typeform. |
+| Braze Data Transformation | A [Data Transformation URL]({{site.baseurl}}/user_guide/data/unification/data_transformation) is necessary to receive data from Typeform. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
@@ -58,13 +58,7 @@ In this step, you transform the webhook payload that is sent from Typeform to a 
 
 This return value must adhere to Braze’s `/users/track` request body format:
 
-- Transformation code is accepted in the JavaScript programming language. Any standard JavaScript control flow, such as if/else logic, is supported.
-- Transformation code accesses the webhook request body via the payload variable. This variable is an object populated by parsing the request body JSON.
-- Any feature supported in our `/users/track` endpoint is supported, including:
-    - User attributes objects, event objects, and purchase objects
-    - Nested attributes and nested custom event properties
-    - Subscription group updates
-    - Email address as an identifier
+{% multi_lang_include data_transformation/transformation_code_requirements.md %}
 
 ## Example Typeform webhook payload
 

@@ -21,7 +21,7 @@ Wenn Sie einem/einer Nutzer:in zum ersten Mal in WhatsApp eine Nachricht senden,
 ![WhatsApp-Nachrichtenverlauf mit Optionen zum Blockieren oder Melden eines Unternehmens]({% image_buster /assets/img/whatsapp/whatsapp_block_report.png %}){: style="max-width:30%;"}
 
 {% alert note %}
-Für Metriken zu Ihren Blockierungen und Meldungen stellen Sie sicher, dass der [Insights-Tab](https://www.facebook.com/business/help/683499390267496) in Ihrem WhatsApp Manager aktiviert ist.
+Für Metriken zu Ihren Blockierungen und Meldungen stellen Sie sicher, dass der [Insights-Tab](https://www.facebook.com/business/help/683499390267496) in Ihrem WhatsApp Manager:in aktiviert ist.
 {% endalert %}
 
 Um eine hohe Anzahl von Blockierungen und Meldungen zu vermeiden, empfiehlt Braze die folgenden Best Practices, um eine hohe Telefonqualitätsbewertung und stabile Nachrichtenlimits aufrechtzuerhalten.
@@ -47,3 +47,11 @@ Opt-outs wirken sich nicht auf Ihre Telefonqualitätsbewertung aus, daher ist es
 Eine empfohlene Best Practice ist es, in der Fußzeile der ersten Nachricht, die Sie an Nutzer:innen senden, Anweisungen zum Opt-out bereitzustellen. Sie könnten beispielsweise angeben, dass Nutzer:innen sich von Ihrem WhatsApp-Kanal abmelden können, indem sie mit Ihrem Opt-out-Auslösewort antworten. Sie könnten die Opt-out-Fußzeile auch regelmäßig in zukünftige Campaigns einbinden. Informationen zur Einrichtung finden Sie unter [Opt-in und Opt-out]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs).
 
 ![WhatsApp-Nachricht mit einer Fußzeile, die besagt, dass man mit „STOP“ antworten soll, um sich vom Kanal abzumelden]({% image_buster /assets/img/whatsapp/whatsapp_unsubscribe.png %}){: style="max-width:35%;"}
+
+### Antwortlatenz bei bidirektionalen Flows minimieren {#minimize-response-latency-for-two-way-flows}
+
+Für interaktive Canvas-Flows, die mit [Antwortnachrichten]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/message_and_image_formats#response-messages) reagieren:
+
+- Platzieren Sie den Antwortnachricht-Schritt unmittelbar nach dem eingehenden Trigger oder der Aktionspfad-Auswertung.
+- Verwenden Sie [Webhooks]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) anstelle von Nutzer:innen-Update-Schritten, wenn vor der Antwort keine Abo-Änderungen erforderlich sind.
+- Vermeiden Sie lange Verzögerungen oder mehrtägige Wartezeiten zwischen eingehenden Nachrichten und dem Versand von Antworten; das WhatsApp-Kundenservice-Fenster beträgt 24 Stunden pro eingehender Nachricht.

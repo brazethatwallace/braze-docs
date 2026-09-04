@@ -30,7 +30,7 @@ Cet endpoint prend en charge les plateformes push suivantes :
 
 ## Prérequis {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec la permission `apps.push_credential`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec la permission `apps.push_credential`.
 
 ## Corps de la requête {#request-body}
 

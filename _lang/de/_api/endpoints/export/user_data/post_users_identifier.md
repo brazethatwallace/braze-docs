@@ -6,7 +6,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "Dieser Artikel enthält Details zum Braze-Endpunkt „Nutzer:innen nach Bezeichner exportieren“."
-
 ---
 {% api %}
 # Nutzerprofil nach Bezeichner exportieren {#export-user-profile-by-identifier}
@@ -22,7 +21,7 @@ Bis zu 50 `external_ids` oder `user_aliases` können in einer einzigen Anfrage e
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `users.export.ids`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `users.export.ids`.
 
 ## Rate-Limit
 
@@ -103,7 +102,7 @@ Im Folgenden finden Sie eine Liste der gültigen `fields_to_export`. Die Verwend
 | `braze_id` | String | Gerätespezifischer eindeutiger Bezeichner, der von Braze für diese:n Nutzer:in festgelegt wurde. |
 | `country` | String | Land der Nutzer:in gemäß dem [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)-Standard. |
 | `created_at` | String | Datum und Uhrzeit der Erstellung des Nutzerprofils im ISO-8601-Format. |
-| `custom_attributes` | Objekt | Angepasste Attribut-Schlüssel-Wert-Paare für diese:n Nutzer:in. |
+| `custom_attributes` | Objekt | Schlüssel-Wert-Paare angepasster Attribute für diese:n Nutzer:in. |
 | `custom_events` | Array | Angepasste Events, die dieser Nutzer:in in den letzten 90 Tagen zugeordnet wurden. |
 | `devices` | Array | Informationen über das Gerät der Nutzer:in, die je nach Plattform Folgendes umfassen können:<br><br>- `model`: Modellname des Geräts<br>- `os`: Betriebssystem des Geräts<br>- `carrier`: Mobilfunkanbieter des Geräts, falls verfügbar<br>- `idfv`: (iOS) Braze-Geräte-Bezeichner, der Apple Identifier for Vendor, falls vorhanden<br>- `idfa`: (iOS) Identifier for Advertising, falls vorhanden<br>- `device_id`: (Android) Braze-Geräte-Bezeichner<br>- `google_ad_id`: (Android) Google Play Advertising Identifier, falls vorhanden<br>- `roku_ad_id`: (Roku) Roku Advertising Identifier<br>- `ad_tracking_enabled`: Ob Ad-Tracking auf dem Gerät aktiviert ist, kann true oder false sein |
 | `dob` | String | Geburtsdatum der Nutzer:in im Format `YYYY-MM-DD`. |
@@ -118,11 +117,11 @@ Im Folgenden finden Sie eine Liste der gültigen `fields_to_export`. Die Verwend
 | `phone` | String | Telefonnummer der Nutzer:in im E.164-Format. |
 | `purchases` | Array | Käufe, die diese:r Nutzer:in in den letzten 90 Tagen getätigt hat. |
 | `push_tokens` | Array | Eindeutiger anonymer Bezeichner, der angibt, wohin die Benachrichtigungen einer App gesendet werden sollen. |
-| `random_bucket` | Integer | [Zufällige Bucket-Nummer]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events#random-bucket-number-event) der Nutzer:in, mit der gleichmäßig verteilte Segmente aus zufälligen Nutzer:innen erstellt werden. |
+| `random_bucket` | Integer | [Zufällige Bucket-Nummer]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) der Nutzer:in, mit der gleichmäßig verteilte Segmente aus zufälligen Nutzer:innen erstellt werden. |
 | `time_zone` | String | Zeitzone der Nutzer:in im gleichen Format wie in der IANA-Zeitzonendatenbank. |
 | `total_revenue` | Gleitkommazahl | Gesamtumsatz, der dieser Nutzer:in zugerechnet wird. Der Gesamtumsatz wird auf Grundlage der Käufe berechnet, die die Nutzer:innen während der Conversion-Fenster für die Campaigns und Canvases, die sie erhalten haben, getätigt haben. |
 | `uninstalled_at` | Zeitstempel | Datum und Uhrzeit der Deinstallation der App durch die Nutzer:in. Entfällt, wenn die App nicht deinstalliert wurde. |
-| `user_aliases` | Objekt | [Nutzer-Alias-Objekt]({{site.baseurl}}/api/objects_filters/user_alias_object#user-alias-object-specification), das `alias_name` und `alias_label` enthält, falls vorhanden. |
+| `user_aliases` | Objekt | [Nutzer-Alias-Objekt]({{site.baseurl}}/api/objects_filters/user_alias_object), das `alias_name` und `alias_label` enthält, falls vorhanden. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Zu exportierende Felder" }
 
 Beachten Sie, dass der Endpunkt `/users/export/ids` das gesamte Nutzerprofil zusammenstellt, einschließlich Daten wie alle erhaltenen Campaigns und Canvases, alle durchgeführten angepassten Events, alle getätigten Käufe und alle angepassten Attribute. Infolgedessen ist dieser Endpunkt langsamer als andere REST-API-Endpunkte.
@@ -133,7 +132,7 @@ Abhängig von den angefragten Daten reicht dieser API-Endpunkt aufgrund des Rate
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
+    "message": (string) returns 'success' when the request completes without errors,
     "users" : (array of object) the data for each of the exported users, may be empty if no users are found,
     "invalid_user_ids" : (optional, array of string) each of the identifiers provided in the request that did not correspond to a known user
 }
@@ -146,7 +145,7 @@ Ein Beispiel für die über diesen Endpunkt zugänglichen Daten finden Sie im fo
 Nutzer-Exportobjekt (wir nehmen so wenig Daten wie möglich auf – wenn ein Feld im Objekt fehlt, wird angenommen, dass es null oder leer ist):
 
 {% tabs %}
-{% tab All fields %}
+{% tab Alle Felder %}
 
 ```json
 {
@@ -289,7 +288,7 @@ Nutzer-Exportobjekt (wir nehmen so wenig Daten wie möglich auf – wenn ein Fel
 ```
 
 {% endtab %}
-{% tab Sample output %}
+{% tab Beispielausgabe %}
 
 ```json
 {

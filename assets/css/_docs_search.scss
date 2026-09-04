@@ -216,24 +216,59 @@ $search_tag_color: $grey-athens;
 section.su__w-100.su__py-4.su__search_section.su__bg-blue-grd {
     background-color: white;
 }
+
+#su_main_search:not(.su-search-ready) {
+	visibility: hidden;
+	min-height: 63px;
+}
+
+#su_main_search.su-search-ready {
+	visibility: visible;
+}
+
 #su_main_search #search-box-autocomplete {
     border: 2px solid black;
     height: 63px;
     border-radius: 16px;
 	background: white;
 	color: black;
-	&:focus-within {
-		border-color: transparent;
-	}
 }
 #su_main_search button.su__btn.su__search_btn.su__animate-zoom.su__flex-vcenter.su__position-absolute.su__zindex.su__bg-transparent.su__rtlleft svg path {
     fill: #3e34d3;
 }
-/* Design review: verify purple outline is visible against search panel bg */
+/* Match pill radius on keyboard focus; flatten only when suggestions are open. */
 #su_main_search input#search-box-autocomplete:focus-visible {
-	border-color: transparent !important;
-	@include focus-ring();
-  }
+	@include focus-ring($radius: 16px, $offset: 0);
+}
+
+#su_main_search.su-search-suggestions-open input#search-box-autocomplete:focus-visible,
+#su_main_search.su-search-suggestions-open #search-box-autocomplete:focus {
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+#su_main_search.su-search-suggestions-open #search-box-autocomplete:focus + .su__autocomplete-suggestion,
+#su_main_search.su-search-suggestions-open input#search-box-autocomplete:focus-visible + .su__autocomplete-suggestion {
+	margin-top: -2px;
+}
+
+#su_main_search.su-search-suggestions-open .su__mobile_resultbox {
+	top: 61px !important;
+}
+
+#su_main_search.su-search-suggestions-open .su__suggestions-list.su__bg-gray-hover.su__flex-vcenter.su__text-black.su__fontsize-14.su__mb-1.null:first-child {
+	border-top: none;
+}
+
+#su_main_search .su__search_btn:focus:not(:focus-visible),
+#su_main_search .su__input-close:focus:not(:focus-visible) {
+	outline: none;
+}
+
+#su_main_search .su__search_btn:focus-visible,
+#su_main_search .su__input-close:focus-visible {
+	@include focus-ring($radius: 4px, $offset: 0);
+}
 
  #su_main_search .svg-search {
     display: none;
@@ -277,7 +312,7 @@ section.su__w-100.su__py-4.su__search_section.su__bg-blue-grd {
     border-top: 1px solid #c9c9c9;
 }
 #su_main_search .su__autocomplete-suggestion.su__w-100.su__bg-white.su__sm-shadow.su__position-absolute.su__zindex-2.su__mobile_resultbox.su__hideScroller.su__mt-6px {
-	margin-top: 2px;
+	margin-top: 0;
     border: 2px solid black;
     border-top: none !important;
     border-radius: 0 0 18px 18px !important;
@@ -303,7 +338,8 @@ section.su__w-100.su__py-4.su__search_section.su__bg-blue-grd {
 	border: 2px solid black !important;
   }
   #su_main_search span.su_source_label_font { color: #101828; }
-#su_main_search span[title="Api"] { background: #f7caf5; }
+#su_main_search span[title="Api"],
+#su_main_search span[title="API"] { background: #f7caf5; }
 #su_main_search span[title="Developer Guide"] { background: #FFD6AE; }
 #su_main_search span[title="Dashboard"] { background: #FFA4FB; }
 #su_main_search span[title="User Guide"] { background: #CEC1F1; }

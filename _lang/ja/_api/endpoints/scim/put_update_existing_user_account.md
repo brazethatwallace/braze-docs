@@ -23,6 +23,8 @@ description: "この記事では、既存のダッシュボードユーザーア
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#5f9a1642-988e-4011-8fb8-db4340ea1ac7 {% endapiref %}
 
+{% multi_lang_include scim/scim_alerts.md alert='custom_endpoint' %}
+
 ## 前提条件 {#prerequisites}
 
 このエンドポイントを使用するには、SCIMトークンが必要です。`X-Request-Origin`ヘッダーとしてサービスOriginを使用します。詳細については、[自動ユーザープロビジョニング]({{site.baseurl}}/scim/automated_user_provisioning)を参照してください。
@@ -92,8 +94,8 @@ Authorization: Bearer YOUR-SCIM-TOKEN-KEY
 | --------- | -------- | --------- | ----------- |
 | `schemas` | 必須 | 文字列の配列 | ユーザーオブジェクトに期待されるSCIM 2.0スキーマ名。 |
 | `name` | 必須 | JSONオブジェクト | このオブジェクトには、ユーザーの名と姓が含まれます。 |
-| `department` | 必須 | 文字列 | [部門文字列のドキュメント]({{site.baseurl}}/scim_api_appendix#department-strings)にある有効な部門文字列。 |
-| `permissions` | 必須 | JSONオブジェクト | [権限オブジェクトのドキュメント]({{site.baseurl}}/scim_api_appendix#permissions-object)で説明されている権限オブジェクト。 |
+| `department` | 必須 | 文字列 | [部門文字列のドキュメント]({{site.baseurl}}/api/objects_filters/scim_api_appendix)にある有効な部門文字列。 |
+| `permissions` | 必須 | JSONオブジェクト | [権限オブジェクトのドキュメント]({{site.baseurl}}/api/objects_filters/scim_api_appendix)で説明されている権限オブジェクト。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 
@@ -136,7 +138,7 @@ curl --location --request PUT 'https://rest.iad-01.braze.com/scim/v2/Users/dfa24
 }
 ```
 
-## 応答 {#response}
+## レスポンス {#response}
 ```json
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
@@ -205,7 +207,7 @@ curl --location --request PUT 'https://rest.iad-01.braze.com/scim/v2/Users/dfa24
 }
 ```
 
-### エラー状態 {#error-states}
+### エラーステータス {#error-states}
 このIDを持つユーザーがBrazeに存在しない場合、エンドポイントは次のように応答します。
 
 ```http

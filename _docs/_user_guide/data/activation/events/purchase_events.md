@@ -17,10 +17,10 @@ Purchase events are purchase actions taken by your users, and are used to record
 
 ## Log purchase events
 
-You can log purchases by passing a [purchase object]({{site.baseurl}}/api/objects_filters/purchase_object) through the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track), or using one of our SDK libraries listed below.
+You can log purchases by passing a [purchase object]({{site.baseurl}}/api/objects_filters/purchase_object) through the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track), or using one of our SDK libraries listed in the following section.
 
 {% alert note %}
-Purchase event properties use the same data types as [custom event properties]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_events#expected-format).
+Purchase event properties use the same data types as [custom event properties]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties#expected-format).
 {% endalert %}
 
 The following lists methods used across various platforms to log purchases. Within these pages, you'll also find documentation on how to add properties and quantities to your purchase event. You can further target your users based on these properties.
@@ -28,9 +28,9 @@ The following lists methods used across various platforms to log purchases. With
 - [Android and FireOS]({{site.baseurl}}/developer_guide/analytics/logging_purchases?tab=android)
 - [iOS]({{site.baseurl}}/developer_guide/analytics/logging_purchases?tab=swift)
 - [Web]({{site.baseurl}}/developer_guide/analytics/logging_purchases?tab=web)
-- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics#logging-purchases)
+- [React Native]({{site.baseurl}}/developer_guide/analytics#purchase-events--revenue-tracking)
 - [Unity]({{site.baseurl}}/developer_guide/analytics/logging_purchases?tab=unity)
-- [.NET MAUI (formerly Xamarin)]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics#logging-purchases)
+- [.NET MAUI (formerly Xamarin)]({{site.baseurl}}/developer_guide/analytics?sdktab=xamarin#purchase-events--revenue-tracking)
 - [Roku]({{site.baseurl}}/developer_guide/analytics/logging_purchases?tab=roku)
 
 ## View purchase data
@@ -68,7 +68,7 @@ For details on each filter, refer to the [Segmentation filters]({{site.baseurl}}
 ![Filtering for users who made exactly three purchases]({% image_buster /assets/img/purchase_filter_example.gif %}){: style="max-width:80%;"}
 
 {% alert tip %} 
-To segment on the number of times a specific purchase has occurred, record that purchase individually as an [incrementing custom attribute]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview#custom-attribute-storage).
+To segment on the number of times a specific purchase has occurred, record that purchase individually as an [incrementing custom attribute]({{site.baseurl}}/developer_guide/analytics#custom-attribute-storage).
 {% endalert %}
 
 ### Personalization
@@ -113,7 +113,7 @@ Thank you for your purchase of ${purchase_product_name}! As a token of our appre
 
 In addition to tracking purchase metrics for segmentation, Braze also notes the number of purchases for each product and the revenue generated over time. This can be helpful to identify the most popular products or measure the impact of a promotional campaign on sales.
 
-You can find this data on the [Revenue Report]({{site.baseurl}}/user_guide/analytics/reports/revenue_report#revenue-data) page.
+You can find this data on the [Revenue Report]({{site.baseurl}}/user_guide/analytics/reports/revenue_report#exporting-revenue-data) page.
 
 ### Revenue calculations
 
@@ -157,7 +157,7 @@ You can find this data on the [Revenue Report]({{site.baseurl}}/user_guide/analy
 
 #### Currency conversion
 
-When purchase events are logged in a non-USD currency, Braze converts the amount to USD using exchange rates from [Open Exchange Rates](http://openexchangerates.org). These rates are refreshed once every 24 hours. Because the exchange rates are cached, there may be slight differences from the real-time market rate, particularly for currencies experiencing rapid fluctuation.
+When purchase events are logged in a non-USD currency, Braze converts the amount to USD using exchange rates from [Open Exchange Rates](http://openexchangerates.org). These rates are refreshed once every 24 hours (around 4 am ET). Because the exchange rates are cached, there may be slight differences from the real-time market rate, particularly for currencies experiencing rapid fluctuation.
 
 #### Lifetime revenue calculation
 
@@ -167,7 +167,7 @@ $$\text{Average purchase value} = \frac{\text{Total spend in dollars}}{\text{Tot
 
 There are two main places in Braze where you can reference to understand your users' LTV:
 
-- For overall metrics like *Lifetime revenue* and the *Lifetime value per user* for each app and site, refer to your [Revenue Report]({{site.baseurl}}/user_guide/analytics/reports/revenue_report#revenue-data).
+- For overall metrics like *Lifetime revenue* and the *Lifetime value per user* for each app and site, refer to your [Revenue Report]({{site.baseurl}}/user_guide/analytics/reports/revenue_report#exporting-revenue-data).
 - To understand a specific user's lifetime revenue, refer to their [user profile]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#overview-tab).
 
 ##### Impact of refunds on lifetime revenue
@@ -221,7 +221,7 @@ When approved, additional properties can be added in the dashboard under **Data 
 
 ### Log purchases at the order level
 
-To log purchases at the order level instead of the product level, use the order name or order category as the `product_id`. Refer to our [purchase object specification]({{site.baseurl}}/api/objects_filters/purchase_object#product-id-naming-conventions) to learn more. 
+To log purchases at the order level instead of the product level, use the order name or order category as the `product_id`. Refer to our [purchase object specification]({{site.baseurl}}/api/objects_filters/purchase_object#naming-conventions) to learn more. 
 
 ### Product ID naming conventions
 

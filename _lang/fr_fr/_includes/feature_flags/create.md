@@ -1,55 +1,55 @@
 # Créer des indicateurs de fonctionnalité {#create-feature-flags}
 
-> Les indicateurs de fonctionnalité vous permettent d'activer ou de désactiver à distance des fonctionnalités pour une sélection d'utilisateurs. Créez un indicateur de fonctionnalité dans le tableau de bord de Braze. Donnez-lui un nom et un `ID`, une audience cible et un pourcentage d'utilisateurs pour lesquels activer cette fonctionnalité. Ensuite, en utilisant ce même `ID` dans le code de votre application ou de votre site web, vous pouvez exécuter certaines parties de votre logique métier de manière conditionnelle. Pour en savoir plus sur les indicateurs de fonctionnalité et leur utilisation dans Braze, consultez la section [À propos des indicateurs de fonctionnalité]({{site.baseurl}}/developer_guide/feature_flags/).
+> Les indicateurs de fonctionnalité vous permettent d'activer ou de désactiver à distance des fonctionnalités pour une sélection d'utilisateurs. Créez un indicateur de fonctionnalité dans le tableau de bord de Braze. Donnez-lui un nom et un `ID`, une audience cible et un pourcentage d'utilisateurs pour lesquels activer cette fonctionnalité. Ensuite, en utilisant ce même `ID` dans le code de votre application ou de votre site web, vous pouvez exécuter certaines parties de votre logique métier de manière conditionnelle. Pour en savoir plus sur les indicateurs de fonctionnalité et leur utilisation dans Braze, consultez la section [À propos des indicateurs de fonctionnalité]({{site.baseurl}}/developer_guide/feature_flags).
 
-## Conditions préalables {#prerequisites}
+## Prérequis {#prerequisites}
 
 ### Version du SDK {#sdk-version}
 
-Pour utiliser les indicateurs de fonctionnalité, assurez-vous que vos SDK sont à jour avec au moins ces versions minimales :
+Pour utiliser les feature flags, assurez-vous que vos SDK sont à jour avec au moins ces versions minimales :
 
 {% sdk_min_versions swift:5.9.0 android:24.2.0 web:4.6.0 unity:4.1.0 cordova:5.0.0 reactnative:4.1.0 flutter:6.0.0 roku:1.0.0 %}
 
 ### Autorisations Braze {#braze-permissions}
 
-Pour gérer les indicateurs de fonctionnalité dans le tableau de bord, vous devez être administrateur ou disposer des [autorisations]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/) suivantes :
+Pour gérer les feature flags dans le tableau de bord, vous devrez être administrateur ou disposer des [autorisations]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) suivantes :
 
 | Autorisation                                                                  | Ce que vous pouvez faire                           |
 |-------------------------------------------------------------------------------|-------------------------------------------|
-| **Manage Feature Flags**                                                      | Afficher, créer et modifier des indicateurs de fonctionnalité.     |
-| **Access Campaigns, Canvases, Cards, Feature Flags, Segments, Media Library** | Consulter la liste des indicateurs de fonctionnalité disponibles. |
+| **Manage Feature Flags**                                                      | Afficher, créer et modifier les feature flags.     |
+| **Access Campaigns, Canvases, Cards, Feature Flags, Segments, Media Library** | Afficher la liste des feature flags disponibles. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Autorisations Braze" }
 
-## Création d'un indicateur de fonctionnalité {#creating-a-feature-flag}
+## Créer un feature flag {#creating-a-feature-flag}
 
-### Étape 1 : Créer un nouvel indicateur de fonctionnalité {#step-1-create-a-new-feature-flag}
+### Étape 1 : Créer un nouveau feature flag {#step-1-create-a-new-feature-flag}
 
-Allez dans **Messaging** > **Feature Flags**, puis sélectionnez **Create Feature Flag**.
+Accédez à **Messaging** > **Feature Flags**, puis sélectionnez **Create Feature Flag**.
 
-![Tableau de données présentant un indicateur de fonctionnalité existant et expliquant comment en créer un nouveau.]({% image_buster /assets/img/feature_flags/create_ff.png %}){: style="max-width:75%"}
+![Un tableau de données affichant un feature flag existant et comment en créer un nouveau.]({% image_buster /assets/img/feature_flags/create_ff.png %}){: style="max-width:75%"}
 
-### Étape 2 : Renseigner les détails {#step-2-fill-out-the-details}
+### Étape 2 : Remplir les détails {#step-2-fill-out-the-details}
 
-Sous **Feature flag details**, saisissez un nom, un ID et une description pour votre indicateur de fonctionnalité.
+Sous **Feature flag details**, saisissez un nom, un ID et une description pour votre feature flag.
 
-![Un formulaire permettant d'ajouter un nom, un ID, une description et des propriétés à un indicateur de fonctionnalité.]({% image_buster /assets/img/feature_flags/create_ff_properties.png %}){: style="max-width:75%"}
+![Un formulaire montrant que vous pouvez ajouter un nom, un ID, une description et des propriétés à un feature flag.]({% image_buster /assets/img/feature_flags/create_ff_properties.png %}){: style="max-width:75%"}
 
 
 | Champ        | Description                                                                |
 |--------------|----------------------------------------------------------------------------|
-| Nom         | Un titre lisible destiné à vos marketeurs et administrateurs.              |
-| ID           | L'ID unique que vous utiliserez dans votre code pour vérifier si cette fonctionnalité est [activée pour un utilisateur](#enabled). Cet ID ne pourra pas être modifié ultérieurement. Consultez donc les [bonnes pratiques en matière de nommage des ID](#naming-conventions) avant de continuer. |
-| Description  | Une description facultative qui donne un peu de contexte à votre indicateur de fonctionnalité.   |
-| Propriétés   | Propriétés facultatives permettant de configurer à distance votre indicateur de fonctionnalité. Elles peuvent être remplacées dans les étapes du Canvas ou les expériences d'indicateur de fonctionnalité. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 2 : Renseigner les détails" }
+| Name         | Un titre lisible pour vos marketeurs et administrateurs.              |
+| ID           | L'identifiant unique que vous utiliserez dans votre code pour vérifier si cette fonctionnalité est [activée pour un utilisateur](#enabled). Cet ID ne peut pas être modifié ultérieurement, consultez donc les [bonnes pratiques de nommage des ID](#naming-conventions) avant de continuer. |
+| Description  | Une description facultative qui donne un peu de contexte sur votre feature flag.   |
+| Properties   | Des propriétés facultatives qui configurent votre feature flag à distance. Elles peuvent être remplacées dans les étapes du Canvas ou les expériences de feature flag. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 2 : Remplir les détails" }
 
 ### Étape 2a : Créer des propriétés personnalisées {#step-2a-create-custom-properties}
 
-Sous **Properties**, vous avez la possibilité de créer des propriétés personnalisées auxquelles votre application peut accéder via le SDK Braze lorsque votre fonctionnalité est activée. Vous pouvez attribuer une chaîne de caractères, une valeur booléenne, une image, un horodatage, un JSON ou une valeur numérique à chaque variable, ainsi que définir une valeur par défaut.
+Sous **Properties**, vous pouvez éventuellement créer des propriétés personnalisées auxquelles votre application peut accéder via le SDK Braze lorsque votre fonctionnalité est activée. Vous pouvez attribuer une valeur de type chaîne de caractères, booléen, image, horodatage, JSON ou nombre à chaque variable, ainsi que définir une valeur par défaut.
 
 {% tabs local %}
-{% tab example %}
-Dans l'exemple suivant, l'indicateur de fonctionnalité affiche une bannière de rupture de stock pour une boutique en ligne à l'aide des propriétés personnalisées répertoriées :
+{% tab exemple %}
+Dans l'exemple suivant, le feature flag affiche une bannière de rupture de stock pour une boutique e-commerce en utilisant les propriétés personnalisées répertoriées :
 
 |Nom de la propriété|Type|Valeur|
 |--|--|--|
@@ -63,73 +63,73 @@ Dans l'exemple suivant, l'indicateur de fonctionnalité affiche une bannière de
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Étape 2a : Créer des propriétés personnalisées" }
 
 {% alert tip %}
-Il n'y a pas de limite au nombre de propriétés que vous pouvez ajouter. Toutefois, les propriétés d'un indicateur de fonctionnalité sont limitées à un total de 10 000 caractères.
+Il n'y a pas de limite au nombre de propriétés que vous pouvez ajouter. Cependant, les propriétés d'un feature flag sont limitées à un total de 10 000 caractères.
 {% endalert %}
 {% endtab %}
 {% endtabs %}
 
 ### Étape 4 : Choisir les segments à cibler {#step-4-choose-segments-to-target}
 
-Avant de déployer un indicateur de fonctionnalité, vous devez choisir un [segment]({{site.baseurl}}/user_guide/engagement_tools/segments/) d'utilisateurs à cibler. Sélectionnez **Add Rule** sur votre indicateur nouvellement créé, puis utilisez les menus déroulants de groupe de filtres et de segment pour filtrer les utilisateurs de votre audience cible. Ajoutez plusieurs filtres pour affiner davantage votre audience.
+Avant de déployer un feature flag, vous devez choisir un [Segment]({{site.baseurl}}/user_guide/audience/segments) d'utilisateurs à cibler. Sélectionnez **Add Rule** sur votre flag nouvellement créé, puis utilisez le groupe de filtres et les menus déroulants de Segments pour exclure des utilisateurs de votre audience cible. Ajoutez plusieurs filtres pour affiner davantage votre audience.
 
-![Une zone de texte intitulée « Rollout Traffic » avec la possibilité d'ajouter des segments et des filtres.]({% image_buster /assets/img/feature_flags/segmentation_ff.png %}){: style="max-width:75%;"}
+![Un champ de texte intitulé Rollout Traffic avec la possibilité d'ajouter des Segments et des filtres.]({% image_buster /assets/img/feature_flags/segmentation_ff.png %}){: style="max-width:75%;"}
 
 ### Étape 5 : Définir le trafic de déploiement {#rollout}
 
-Par défaut, les indicateurs de fonctionnalité sont toujours inactifs, ce qui vous permet de séparer la date de publication de votre fonctionnalité de l'activation totale pour les utilisateurs. Pour débuter votre déploiement, utilisez la section **Rollout Traffic** afin de saisir un pourcentage dans la zone de texte. Cela déterminera le pourcentage d'utilisateurs aléatoires dans le segment sélectionné qui bénéficieront de cette nouvelle fonctionnalité.
+Par défaut, les feature flags sont toujours inactifs, ce qui vous permet de séparer la date de publication de votre fonctionnalité de l'activation totale des utilisateurs. Pour commencer votre déploiement, utilisez la section **Rollout Traffic** pour saisir un pourcentage dans le champ de texte. Cela déterminera le pourcentage d'utilisateurs aléatoires dans votre Segment sélectionné qui recevront cette nouvelle fonctionnalité.
 
 {% alert important %}
-Ne définissez pas votre trafic de déploiement au-dessus de 0 % tant que vous n'êtes pas prêt à lancer votre nouvelle fonctionnalité. Lorsque vous définissez initialement votre indicateur de fonctionnalité dans le tableau de bord, laissez ce paramètre à 0 %.
+Ne définissez pas votre trafic de déploiement au-dessus de 0 % tant que vous n'êtes pas prêt à lancer votre nouvelle fonctionnalité. Lorsque vous définissez initialement votre feature flag dans le tableau de bord, laissez ce paramètre à 0 %.
 {% endalert %}
 
 {% alert important %}
-Pour déployer un indicateur avec une seule règle ou auprès d'une audience unique, ajoutez votre première règle en sélectionnant les critères de segmentation et les pourcentages de déploiement. Enfin, vérifiez que la règle **Everyone Else** est désactivée, puis enregistrez votre indicateur.
+Pour déployer un flag avec une seule règle ou pour une audience unique, ajoutez votre première règle avec les critères de segmentation et les pourcentages de déploiement sélectionnés. Enfin, confirmez que la règle **Everyone Else** est désactivée, puis enregistrez votre flag.
 {% endalert %}
 
-## Déploiement d'indicateurs de fonctionnalité à règles multiples {#multi-rule-feature-flag-rollouts}
+## Déploiements de feature flags multi-règles {#multi-rule-feature-flag-rollouts}
 
-Utilisez le déploiement d'indicateurs de fonctionnalité à règles multiples pour définir une séquence de règles d'évaluation des utilisateurs, ce qui permet une segmentation précise et des déploiements de fonctionnalités contrôlés. Cette méthode est particulièrement adaptée pour déployer la même fonctionnalité auprès de différentes audiences.
+Utilisez les déploiements de feature flags multi-règles pour définir une séquence de règles d'évaluation des utilisateurs, ce qui permet une segmentation précise et des lancements de fonctionnalités contrôlés. Cette méthode est idéale pour déployer la même fonctionnalité auprès d'audiences diverses.
 
 ### Ordre d'évaluation {#evaluation-order}
 
-Les règles des indicateurs de fonctionnalité sont évaluées de haut en bas, dans l'ordre dans lequel elles sont répertoriées. Un utilisateur est qualifié pour la première règle qu'il remplit. Si un utilisateur ne répond à aucune règle, son éligibilité est déterminée par la règle par défaut « Everyone Else ».
+Les règles de feature flags sont évaluées de haut en bas, dans l'ordre où elles sont listées. Un utilisateur est qualifié par la première règle qu'il remplit. Si un utilisateur ne remplit aucune règle, son éligibilité est déterminée par la règle par défaut « Everyone Else ».
 
-### Qualification de l'utilisateur {#user-qualification}
+### Qualification des utilisateurs {#user-qualification}
 
-- Si un utilisateur répond aux critères de la première règle, il est immédiatement éligible pour recevoir l'indicateur de fonctionnalité.
-- Si un utilisateur ne répond pas aux critères de la première règle, il est évalué selon la deuxième règle, et ainsi de suite.
+- Si un utilisateur remplit les critères de la première règle, il est immédiatement éligible pour recevoir le feature flag.
+- Si un utilisateur ne se qualifie pas pour la première règle, il est évalué par rapport à la deuxième règle, et ainsi de suite.
 
-L'évaluation séquentielle se poursuit jusqu'à ce qu'un utilisateur réponde aux critères d'une règle ou atteigne la règle « Everyone Else » en bas de la liste.
+L'évaluation séquentielle se poursuit jusqu'à ce qu'un utilisateur se qualifie pour une règle ou atteigne la règle « Everyone Else » en bas de la liste.
 
 ### Règle « Everyone Else » {#everyone-else-rule}
 
-La règle « Everyone Else » sert de règle par défaut. Si un utilisateur ne répond à aucune des règles précédentes, son éligibilité à l'indicateur de fonctionnalité sera déterminée par le paramètre de basculement de la règle « Everyone Else ». Par exemple, si la règle « Everyone Else » est basculée sur « Off » dans l'état par défaut, un utilisateur qui ne répond aux critères d'aucune autre règle ne recevra pas l'indicateur de fonctionnalité au début de sa session.
+La règle « Everyone Else » fait office de règle par défaut. Si un utilisateur ne se qualifie pour aucune des règles précédentes, son éligibilité au feature flag sera déterminée par le paramètre de la règle « Everyone Else ». Par exemple, si la règle « Everyone Else » est basculée sur « Off », dans l'état par défaut, un utilisateur qui ne remplit les critères d'aucune autre règle ne recevra pas le feature flag au démarrage de sa session.
 
 ### Réorganisation des règles {#re-ordering-rules}
 
-Par défaut, les règles sont classées dans l'ordre dans lequel elles ont été créées, mais il est possible de les réorganiser en les glissant-déposant dans le tableau de bord.
+Par défaut, les règles sont classées dans l'ordre de leur création, mais vous pouvez les réorganiser par glisser-déposer dans le tableau de bord.
 
-![Une image illustrant qu'un utilisateur peut ajouter une règle à un indicateur de fonctionnalité.]({% image_buster /assets/img/feature_flags/add_rule.png %}){: style="max-width:80%;"}
+![Image montrant qu'un utilisateur peut ajouter une règle à un feature flag.]({% image_buster /assets/img/feature_flags/add_rule.png %}){: style="max-width:80%;"}
 
-![Une image présentant un résumé d'un indicateur de fonctionnalité avec plusieurs règles ajoutées et une règle « Everyone Else ».]({% image_buster /assets/img/feature_flags/mr_rules_overview.png %}){: style="max-width:80%;"}
+![Image montrant un résumé d'un feature flag avec plusieurs règles ajoutées et une règle Everyone Else.]({% image_buster /assets/img/feature_flags/mr_rules_overview.png %}){: style="max-width:80%;"}
 
-### Cas d'utilisation des indicateurs de fonctionnalité multi-règles {#multi-rule-feature-flag-use-cases}
+### Cas d'usage des feature flags multi-règles {#multi-rule-feature-flag-use-cases}
 
 #### Déployer progressivement une page de paiement {#gradually-release-a-checkout-page}
 
-Supposons que vous travailliez pour une marque de commerce électronique et que vous disposiez d'une nouvelle page de paiement que vous souhaitez déployer dans différentes régions afin d'assurer sa stabilité. À l'aide des indicateurs de fonctionnalité multi-règles, vous pouvez définir les éléments suivants :
+Imaginons que vous travaillez pour une marque e-commerce et que vous disposez d'une nouvelle page de paiement que vous souhaitez déployer dans différentes zones géographiques pour garantir la stabilité. En utilisant les feature flags multi-règles, vous pouvez définir les paramètres suivants :
 
-- **Règle n° 1 :** Votre segment américain est défini sur 100 %.
-- **Règle n° 2 :** Votre segment est défini sur 50 % de vos utilisateurs brésiliens, de sorte que tous ne reçoivent pas le flux en même temps.
-- **Règle n° 3 (Everyone Else) :** Pour tous les autres utilisateurs, activez votre règle « Everyone Else » et définissez-la sur 15 %, afin qu'une partie des utilisateurs puisse effectuer le paiement avec le nouveau flux.
+- **Règle 1 :** Votre Segment pour les États-Unis est défini à 100 %.
+- **Règle 2 :** Votre Segment est défini à 50 % de vos utilisateurs brésiliens, de sorte que tous ne reçoivent pas le flux en même temps.
+- **Règle 3 (Everyone Else) :** Pour tous les autres utilisateurs, activez votre règle « Everyone Else » et définissez-la à 15 %, afin qu'une partie de l'ensemble des utilisateurs puisse finaliser leur achat avec le nouveau flux.
 
-#### Commencer par les testeurs internes {#reach-internal-testers-first}
+#### Atteindre d'abord les testeurs internes {#reach-internal-testers-first}
 
-Supposons que vous soyez gestionnaire de produit et que vous souhaitiez vous assurer que vos testeurs internes reçoivent systématiquement l'indicateur de fonctionnalité lorsque vous lancez un nouveau produit. Vous pouvez ajouter votre segment de testeurs internes à votre première règle et le définir à 100 %, afin que vos testeurs internes soient éligibles lors de chaque déploiement de fonctionnalité.
+Imaginons que vous êtes chef de produit et que vous souhaitez vous assurer que vos testeurs internes reçoivent toujours le feature flag lorsque vous lancez un nouveau produit. Vous pouvez ajouter votre Segment de testeurs internes à votre première règle et le définir à 100 %, afin que vos testeurs internes soient éligibles à chaque déploiement de fonctionnalité.
 
 ## Utilisation du champ « enabled » pour vos indicateurs de fonctionnalité {#enabled}
 
-Une fois votre indicateur de fonctionnalité défini, configurez votre application ou votre site pour vérifier s'il est activé ou non pour un utilisateur donné. Lorsqu'il est activé, vous définirez une action ou référencerez les propriétés variables de l'indicateur de fonctionnalité en fonction de votre cas d'utilisation. Le SDK Braze fournit des méthodes getter pour récupérer l'état de l'indicateur de fonctionnalité et ses propriétés dans votre application.
+Une fois votre indicateur de fonctionnalité défini, configurez votre application ou votre site pour vérifier s'il est activé ou non pour un utilisateur donné. Lorsqu'il est activé, vous définirez une action ou référencerez les propriétés variables de l'indicateur de fonctionnalité en fonction de votre cas d'usage. Le SDK Braze fournit des méthodes getter pour récupérer l'état de l'indicateur de fonctionnalité et ses propriétés dans votre application.
 
 Les indicateurs de fonctionnalité sont actualisés automatiquement au début de la session, afin que vous puissiez afficher la version la plus récente de votre fonctionnalité au moment du lancement. Le SDK met ces valeurs en cache pour qu'elles puissent être utilisées hors ligne.
 
@@ -885,27 +885,27 @@ export const useFeatureFlag = (id: string): FeatureFlag => {
 {% endtab %}
 {% endtabs %}
 
-## Vérification de l'éligibilité des utilisateurs {#checking-user-eligibility}
+## Vérifier l'éligibilité des utilisateurs {#checking-user-eligibility}
 
-Pour vérifier les indicateurs de fonctionnalité auxquels un utilisateur est éligible dans Braze, rendez-vous dans **Audience** > **Search Users**, puis recherchez et sélectionnez un utilisateur.
+Pour vérifier à quels feature flags un utilisateur est éligible dans Braze, accédez à **Audience** > **Rechercher des utilisateurs**, puis recherchez et sélectionnez un utilisateur.
 
-Dans l'onglet **Feature Flags Eligibility**, vous pouvez filtrer la liste des indicateurs de fonctionnalité éligibles par plateforme, application ou appareil. Vous pouvez également prévisualiser le payload qui sera renvoyé à l'utilisateur en sélectionnant <i class="fa-solid fa-eye"></i> à côté d'un indicateur de fonctionnalité.
+Dans l'onglet **Éligibilité aux feature flags**, vous pouvez filtrer la liste des feature flags éligibles par plateforme, application ou appareil. Vous pouvez également prévisualiser le payload qui sera renvoyé à l'utilisateur en sélectionnant <i class="fa-solid fa-eye" aria-label="Prévisualiser"></i> à côté d'un feature flag.
 
-![Tableau des indicateurs de fonctionnalité auxquels un utilisateur est éligible.]({% image_buster /assets/img/feature_flags/eligibility.png %}){: style="max-width:85%;"}
+![Un tableau affichant les feature flags auxquels un utilisateur est éligible.]({% image_buster /assets/img/feature_flags/eligibility.png %}){: style="max-width:85%;"}
 
 ## Consulter le journal des modifications {#viewing-the-changelog}
 
-Pour afficher le journal des modifications d'un indicateur de fonctionnalité, ouvrez cet indicateur et sélectionnez **Changelog**.
+Pour consulter le journal des modifications d'un feature flag, ouvrez un feature flag et sélectionnez **Changelog**.
 
-![Page de modification d'un indicateur de fonctionnalité, avec le bouton « Changelog » mis en évidence.]({% image_buster /assets/img/feature_flags/changelog/open_changelog.png %}){: style="max-width:60%;"}
+![La page « Modifier » d'un feature flag, avec le bouton « Changelog » mis en évidence.]({% image_buster /assets/img/feature_flags/changelog/open_changelog.png %}){: style="max-width:60%;"}
 
-Vous pouvez y consulter la date d'une modification, son auteur, la catégorie à laquelle elle appartient, et bien d'autres informations.
+Vous pouvez y consulter la date d'une modification, la personne qui l'a effectuée, la catégorie à laquelle elle appartient, et bien plus encore.
 
-![Le journal des modifications de l'indicateur de fonctionnalité sélectionné.]({% image_buster /assets/img/feature_flags/changelog/changelog.png %}){: style="max-width:90%;"}
+![Le journal des modifications du feature flag sélectionné.]({% image_buster /assets/img/feature_flags/changelog/changelog.png %}){: style="max-width:90%;"}
 
 ## Segmentation avec les indicateurs de fonctionnalité {#segmentation}
 
-Braze garde automatiquement la trace des utilisateurs pour lesquels un indicateur de fonctionnalité est actuellement activé. Vous pouvez créer un segment ou cibler un envoi de messages à l'aide du [filtre **Indicateur de fonctionnalité**]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/#feature-flags). Pour plus d'informations sur le filtrage des segments, consultez [Créer un segment]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/).
+Braze garde automatiquement la trace des utilisateurs pour lesquels un indicateur de fonctionnalité est actuellement activé. Vous pouvez créer un segment ou cibler un envoi de messages à l'aide du [filtre **Indicateur de fonctionnalité**]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters#feature-flags). Pour plus d'informations sur le filtrage des segments, consultez [Créer un segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment).
 
 ![La section « Filtres » avec « Feature Flag » saisi dans la barre de recherche du filtre.]({% image_buster /assets/img/feature_flags/feature-flags-filter-name.png %}){: style="max-width:75%;"}
 
@@ -915,13 +915,13 @@ Pour éviter les segments récursifs, il n'est pas possible de créer un segment
 
 ## Bonnes pratiques {#best-practices}
 
-### Ne combinez pas les déploiements avec des Canvas ou des expériences {#dont-combine-rollouts-with-canvases-or-experiments}
+### Ne combinez pas les déploiements progressifs avec des Canvas ou des expériences {#dont-combine-rollouts-with-canvases-or-experiments}
 
-Pour éviter que les utilisateurs soient activés et désactivés par différents points d'entrée, vous devez soit régler le curseur de déploiement sur une valeur supérieure à zéro, soit activer l'indicateur de fonctionnalité dans un Canvas ou une expérience. Si vous prévoyez d'utiliser un indicateur de fonctionnalité dans le cadre d'un Canvas ou d'une expérience, veillez à ce que le pourcentage de déploiement reste à zéro.
+Pour éviter que des utilisateurs soient activés et désactivés par différents points d'entrée, vous devriez soit régler le curseur de déploiement progressif sur une valeur supérieure à zéro, SOIT activer le feature flag dans un Canvas ou une expérience. Il est recommandé, si vous prévoyez d'utiliser un feature flag dans un Canvas ou une expérience, de maintenir le pourcentage de déploiement à zéro.
 
 ### Conventions de nommage {#naming-conventions}
 
-Pour que votre code soit clair et cohérent, pensez à utiliser le format suivant lors de l'attribution d'un nom à l'ID de votre indicateur de fonctionnalité :
+Pour garder votre code clair et cohérent, envisagez d'utiliser le format suivant lorsque vous nommez l'ID de votre feature flag :
 
 ```plaintext
 BEHAVIOR_PRODUCT_FEATURE
@@ -931,32 +931,32 @@ Remplacez les éléments suivants :
 
 | Marque substitutive | Description                                                                                                               |
 |-------------|---------------------------------------------------------------------------------------------------------------------------|
-| `BEHAVIOR`  | Le comportement de la fonctionnalité. Dans votre code, assurez-vous que le comportement est désactivé par défaut et évitez d'utiliser des expressions telles que `disabled` dans le nom de l'indicateur de fonctionnalité. |
-| `PRODUCT`   | Le produit auquel appartient la fonctionnalité.                                                                                       |
+| `BEHAVIOR`  | Le comportement de la fonctionnalité. Dans votre code, assurez-vous que le comportement est désactivé par défaut et évitez d'utiliser des expressions comme `disabled` dans le nom du feature flag. |
+| `PRODUCT`   | Le produit auquel la fonctionnalité appartient.                                                                                       |
 | `FEATURE`    | Le nom de la fonctionnalité.                                                                                                  |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Conventions de nommage" }
 
-Voici un exemple d'indicateur de fonctionnalité où `show` est le comportement, `animation_profile` est le produit et `driver` est la fonctionnalité :
+Voici un exemple de feature flag où `show` est le comportement, `animation_profile` est le produit, et `driver` est la fonctionnalité :
 
 ```plaintext
 show_animation_profile_driver
 ```
 
-### Planifier à l'avance {#planning-ahead}
+### Anticiper {#planning-ahead}
 
-Jouez toujours la carte de la prudence. Lorsque vous envisagez de nouvelles fonctionnalités qui pourraient nécessiter un interrupteur de désactivation, il est préférable de publier un nouveau code avec un indicateur de fonctionnalité sans en avoir besoin, plutôt que de réaliser après coup qu'une nouvelle mise à jour de l'application est nécessaire.
+Privilégiez toujours la prudence. Lorsque vous envisagez de nouvelles fonctionnalités qui pourraient nécessiter un mécanisme de désactivation, il vaut mieux publier du nouveau code avec un feature flag sans en avoir besoin que de réaliser qu'une nouvelle mise à jour de l'application est nécessaire.
 
 ### Soyez descriptif {#be-descriptive}
 
-Ajoutez une description à votre indicateur de fonctionnalité. Bien qu'il s'agisse d'un champ facultatif dans Braze, il peut aider à répondre aux questions que d'autres pourraient se poser en parcourant les indicateurs de fonctionnalité disponibles.
+Ajoutez une description à votre feature flag. Bien qu'il s'agisse d'un champ facultatif dans Braze, cela peut aider à répondre aux questions que d'autres personnes pourraient se poser en parcourant les feature flags disponibles.
 
-- Coordonnées de la personne responsable de l'activation et du comportement de cet indicateur
-- Date à laquelle cet indicateur devrait être désactivé
-- Liens vers la documentation ou les notes sur la nouvelle fonctionnalité contrôlée par cet indicateur
-- Dépendances ou remarques sur l'utilisation de la fonctionnalité
+- Les coordonnées de la personne responsable de l'activation et du comportement de ce flag
+- La date à laquelle ce flag devrait être désactivé
+- Des liens vers la documentation ou des notes concernant la nouvelle fonctionnalité contrôlée par ce flag
+- Les éventuelles dépendances ou notes sur l'utilisation de la fonctionnalité
 
-### Nettoyer les anciens indicateurs de fonctionnalité {#clean-up-old-feature-flags}
+### Nettoyer les anciens feature flags {#clean-up-old-feature-flags}
 
-Nous sommes tous coupables de laisser des fonctionnalités activées à 100 % plus longtemps que nécessaire.
+Nous sommes tous coupables de laisser des fonctionnalités activées à 100 % de déploiement plus longtemps que nécessaire.
 
-Pour que votre code (et le tableau de bord de Braze) reste propre, supprimez les indicateurs de fonctionnalité permanents de votre base de code une fois que tous les utilisateurs ont effectué la mise à niveau et que vous n'avez plus besoin de l'option de désactivation. Cela permet de réduire la complexité de votre environnement de développement, mais aussi de garder votre liste d'indicateurs de fonctionnalité bien ordonnée.
+Pour aider à garder votre code (et votre tableau de bord Braze) propre, supprimez les feature flags permanents de votre base de code une fois que tous les utilisateurs ont effectué la mise à jour et que vous n'avez plus besoin de la possibilité de désactiver la fonctionnalité. Cela contribue à réduire la complexité de votre environnement de développement, tout en gardant votre liste de feature flags ordonnée.

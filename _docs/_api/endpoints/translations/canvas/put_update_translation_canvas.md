@@ -21,7 +21,7 @@ If you want to update translations after a Canvas has been launched, you'll need
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `canvas.translations.update` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `canvas.translations.update` permission.
 
 ## Rate limit
 

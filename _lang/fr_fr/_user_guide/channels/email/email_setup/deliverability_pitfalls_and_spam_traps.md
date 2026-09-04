@@ -23,27 +23,27 @@ Votre livrabilité par e-mail peut être affectée par l'un des pièges à spam 
 | Taux de rebond élevé | Lorsque votre e-mail ne parvient pas systématiquement au destinataire parce que son adresse n'est pas valide. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Écueils de livrabilité et pièges à spam" }
 
-## Comment éviter les pièges à spam {#how-to-avoid-spam-traps}
+## Comment éviter les spam traps {#how-to-avoid-spam-traps}
 
-Ces pièges peuvent être évités si vous mettez en place un processus d'abonnement confirmé. En envoyant un e-mail d'abonnement initial et en demandant aux utilisateurs abonnés de vérifier qu'ils souhaitent recevoir vos messages, vous vous assurez que vos destinataires souhaitent avoir de vos nouvelles et que vous envoyez à des adresses réelles et valides. Voici d'autres moyens d'éviter les pièges à spam :
+Ces pièges peuvent être évités si vous mettez en place un processus d'abonnement confirmé. En envoyant un premier e-mail d'abonnement et en demandant aux utilisateurs abonnés de vérifier qu'ils souhaitent recevoir vos messages, vous vous assurez que vos destinataires veulent avoir de vos nouvelles et que vous envoyez vos e-mails à des adresses réelles et valides. Voici d'autres moyens d'éviter les spam traps :
 
 1. Envoyez un e-mail de double abonnement. Il s'agit d'un e-mail qui demande aux utilisateurs de confirmer leurs choix d'abonnement en cliquant sur un lien.
-2. En tant que bonne pratique, mettez en place une [politique de temporisation]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies).
-3. **N'achetez jamais de listes d'adresses e-mail.**
+2. En tant que bonne pratique, mettez en œuvre une [politique de temporisation]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies).
+3. **N'achetez jamais de listes d'e-mails.**
 
 {% alert tip %}
 Les équipes de satisfaction client et de livrabilité de Braze peuvent vous aider à suivre les bonnes pratiques pour maximiser la livrabilité à travers le monde.
 {% endalert %}
 
-## Comment résoudre un blocage de domaine e-mail gratuit par Microsoft {#how-to-resolve-a-free-email-domain-block-for-microsoft}
+## Comment résoudre un blocage de domaine e-mail gratuit pour Microsoft {#how-to-resolve-a-free-email-domain-block-for-microsoft}
 
-Microsoft débloque rarement les expéditeurs qui rencontrent des difficultés de livraison vers les domaines e-mail gratuits (Hotmail, Live, MSN et Outlook). Réduisez plutôt votre volume vers ces domaines de manière agressive et n'envoyez qu'aux contacts récemment engagés. Si vous ne parvenez pas à identifier un groupe principal de destinataires engagés, cessez complètement d'envoyer vers ces domaines.
+Microsoft débloque rarement les expéditeurs qui rencontrent des difficultés de livraison vers les domaines e-mail gratuits (Hotmail, en direct, MSN et Outlook). Réduisez plutôt votre volume d'envoi vers ces domaines de manière agressive et n'envoyez qu'aux contacts récemment engagés. Si vous ne parvenez pas à identifier un groupe principal de destinataires engagés, cessez complètement d'envoyer vers ces domaines.
 
 Voici un exemple de message de blocage de domaine e-mail gratuit :
 
 `550 5.7.1 Unfortunately, messages from [xx.xx.xx.xx] weren't sent. Please contact your Internet service provider since part of their network is on our block list (S3150). You can also refer your provider to: http://mail.live.com/mail/troubleshooting.aspx#errors.`
 
-Vous pouvez augmenter progressivement le volume de manière similaire au [réchauffement d'adresses IP]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming), en surveillant attentivement les indicateurs. Il existe souvent une cause profonde des problèmes de livrabilité à identifier et à résoudre. En général, il s'agit d'un manque d'autorisations appropriées, d'un manque d'hygiène continue des listes, ou d'une combinaison de ces facteurs.
+Vous pouvez augmenter progressivement le volume de manière similaire à l'[IP warming]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming), en surveillant attentivement les indicateurs. Il existe souvent une cause profonde des problèmes de livrabilité à identifier et à résoudre. En général, il s'agit d'un manque de permission appropriée, d'un manque d'hygiène continue des listes, ou d'une combinaison de ces facteurs.
 
 ## Supprimer une adresse e-mail de votre liste de rebonds ou de spam {#remove-an-email-address-from-your-bounce-or-spam-list}
 
@@ -54,4 +54,8 @@ Vous pouvez supprimer les e-mails ayant rebondi et les e-mails figurant sur votr
 
 ## Améliorer la livrabilité des e-mails {#improve-email-deliverability}
 
-Pour en savoir plus, consultez [Améliorer la livrabilité des e-mails]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability).
+Pour plus d'informations, consultez [Améliorer la livrabilité des e-mails]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability).
+
+## BIMI
+
+Pour le BIMI (Brand Indicators for Message Identification), consultez [Authentification des e-mails]({{site.baseurl}}/user_guide/channels/email/email_setup/authentication).

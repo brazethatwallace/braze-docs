@@ -16,30 +16,29 @@ Note that the "Credit Ratio" referenced in this page is defined as the exact num
 
 ## Table of contents
 
-- [Braze Action Credits descriptions](#braze-action-credits-descriptions)
-  - [Email channel details](#email-channel-details)
-  - [SMS, MMS, and RCS channel details](#sms-mms-and-rcs-channel-details)
-    - [SMS segments](#sms-segments)
-    - [MMS messages](#mms-messages)
-    - [RCS types](#rcs-types)
-  - [WhatsApp channel details](#whatsapp-channel-details)
-    - [Billing region breakdown](#billing-region-breakdown)
-  - [Agent Console details](#agent-console-details)
-  - [Additional channel details](#additional-channel-details)
-    - [LINE](#line)
-    - [KakaoTalk](#kakaotalk)
-    - [Content Cards](#content-cards)
-    - [Banners](#banners)
-    - [Audience Sync](#audience-sync)
-    - [Message Archiving](#message-archiving)
-    - [Webhooks](#webhooks)
+- [Email channel details](#email-channel-details)
+- [SMS, MMS, and RCS channel details](#sms-mms-and-rcs-channel-details)
+  - [SMS segments](#sms-segments)
+  - [MMS messages](#mms-messages)
+  - [RCS types](#rcs-types)
+- [WhatsApp channel details](#whatsapp-channel-details)
+  - [Billing region breakdown](#billing-region-breakdown)
+- [Agent Console details](#agent-console-details)
+- [Additional channel details](#additional-channel-details)
+  - [LINE](#line)
+  - [KakaoTalk](#kakaotalk)
+  - [Content Cards](#content-cards)
+  - [Banners](#banners)
+  - [Audience Sync](#audience-sync)
+  - [Message Archiving](#message-archiving)
+  - [Webhooks](#webhooks)
 
 ## Email channel details
 
 Email credit ratios are denominated in increments of one thousand emails sent (CPM) from the Braze platform.
 
 {% alert note %}
-Refer to our [email documentation]({{site.baseurl}}/user_guide/message_building_by_channel/email) to learn more about our email channel.
+Refer to our [email documentation]({{site.baseurl}}/user_guide/channels/email) to learn more about our email channel.
 {% endalert %}
 
 ## SMS, MMS, and RCS channel details
@@ -62,52 +61,48 @@ For MMS, the message limit is 5 MB (this includes the multimedia asset and the m
 
 RCS is the next generation of SMS and MMS. It offers the benefits of a direct, high engagement channel like SMS–with richer capabilities that modern consumers have come to expect, like rich content (images, videos, documents), verified and branded sending, interactive features like suggested replies and actions, and more.
 
-- RCS billing centers on two different message types (with distinctions for the USA):
-    - **Basic RCS:** Text-only, up to 160 characters
-    - **Single RCS:** Messages containing rich content, or text-only messages > 160 characters
-    - **Rich RCS (USA Only):** Text only, may include limited suggestions/buttons (quickReply, dialPhone, openURL w/o webview), segmented per 160 UTF-8 bytes
-    - **Rich Media RCS (USA Only):** Any media OR text with richer suggestions/buttons (webview, location, calendar, etc.), counted as one message
+{% multi_lang_include pricing/rcs_billing_message_types.md %}
 
 {% alert note %}
-Refer to our [SMS and MMS documentation]({{site.baseurl}}/user_guide/message_building_by_channel/sms) to learn more about our SMS family offerings.
+Refer to our [SMS and MMS documentation]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs) to learn more about our SMS family offerings.
 {% endalert %}
 
 ## WhatsApp channel details
 
 {% multi_lang_include whatsapp/about_credits.md content="h3" %}
 
-### Billing region breakdown
+## Billing region breakdown
 
-#### North America
+### North America
 
 United States, Canada
 
-#### Rest of Africa
+### Rest of Africa
 
-Algeria, Angola, Benin, Botswana, Burkina Faso, Burundi, Cameroon, Chad, Congo, Eritrea, Ethiopia, Gabon, Gambia, Ghana, Guinea-Bissau, Ivory Coast, Kenya, Lesotho, Liberia, Libya, Madagascar, Malawi, Mali, Mauritania, Morocco, Mozambique, Namibia, Niger, Rwanda, Senegal, Sierra Leone, Somalia, South Sudan, Sudan, Swaziland, Tanzania, Togo, Tunisia, Uganda, Zambia
+Algeria, Angola, Benin, Botswana, Burkina Faso, Burundi, Cameroon, Chad, Congo, Eritrea, Ethiopia, Gabon, Gambia, Ghana,  Guinea-Bissau, Ivory Coast, Kenya, Lesotho, Liberia, Libya, Madagascar, Malawi, Mali, Mauritania, Morocco, Mozambique, Namibia, Niger, Rwanda, Senegal, Sierra Leone, Somalia, South Sudan, Sudan, Swaziland, Tanzania, Togo, Tunisia, Uganda, Zambia
 
-#### Rest of Asia Pacific
+### Rest of Asia Pacific
 
-Afghanistan, Australia, Bangladesh, Cambodia, China, Hong Kong, Japan, Laos, Mongolia, Nepal, New Zealand, Papua New Guinea, Philippines, Singapore, Sri Lanka, Taiwan, Tajikistan, Thailand, Turkmenistan, Uzbekistan, Vietnam
+Afghanistan, Australia, Bangladesh, Cambodia, China, Japan, Laos, Mongolia, Nepal, New Zealand, Papua New Guinea, Philippines, Sri Lanka, Taiwan, Tajikistan, Thailand, Turkmenistan, Uzbekistan, Vietnam
 
-#### Rest of Central & Eastern Europe
+### Rest of Central & Eastern Europe
 
-Albania, Armenia, Azerbaijan, Belarus, Bulgaria, Croatia, Czech Republic, Georgia, Greece, Hungary, Latvia, Lithuania, Macedonia, Moldova, Poland, Romania, Serbia, Slovakia, Slovenia, Ukraine
+Albania, Armenia, Azerbaijan, Belarus, Bulgaria, Croatia, Czech Republic, Georgia, Greece, Latvia, Lithuania, Macedonia, Moldova, Serbia, Slovakia, Slovenia, Ukraine
 
-#### Rest of Latin America
+### Rest of Latin America
 
-Bolivia, Costa Rica, Dominican Republic, Ecuador, El Salvador, Guatemala, Haiti, Honduras, Jamaica, Nicaragua, Panama, Paraguay, Puerto Rico, Uruguay, Venezuela
+Bolivia, Costa Rica, Dominican Republic, Ecuador, El Salvador,Guatemala, Haiti, Honduras, Jamaica, Nicaragua, Panama, Paraguay, Puerto Rico, Uruguay, Venezuela
 
-#### Rest of Middle East
+### Rest of Middle East
 
-Bahrain, Iraq, Jordan, Kuwait, Lebanon, Oman, Qatar, Yemen
+Bahrain, Iraq, Jordan, Kuwait, Lebanon, Oman, Yemen
 
-#### Rest of Western Europe
+### Rest of Western Europe
 
 Austria, Belgium, Denmark, Finland, Ireland, Norway, Portugal, Sweden, Switzerland
 
 {% alert note %}
-Refer to our [WhatsApp documentation]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp) to learn more about our WhatsApp offerings.
+Refer to our [WhatsApp documentation]({{site.baseurl}}/user_guide/channels/whatsapp) to learn more about our WhatsApp offerings.
 {% endalert %}
 
 ## Agent Console details
@@ -125,7 +120,7 @@ Refer to our [Braze Agents documentation]({{site.baseurl}}/user_guide/brazeai/ag
 LINE credit ratios are denominated in increments of LINE messages sent from the Braze platform.
 
 {% alert note %}
-Refer to our [LINE documentation]({{site.baseurl}}/user_guide/message_building_by_channel/line) to learn more about using LINE with Braze.
+Refer to our [LINE documentation]({{site.baseurl}}/user_guide/channels/line) to learn more about using LINE with Braze.
 {% endalert %}
 
 ### KakaoTalk
@@ -146,7 +141,7 @@ Braze reserves the right to charge credits for Content Cards based on the number
     - Sends-to-daily-unique-impressions ratio greater than one hundred (100)
     
 {% alert note %}
-Refer to our [Content Cards documentation]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards) to learn more about Braze Content Cards.
+Refer to our [Content Cards documentation]({{site.baseurl}}/user_guide/channels/content_cards) to learn more about Braze Content Cards.
 {% endalert %}
 
 ### Banners
@@ -154,7 +149,7 @@ Refer to our [Content Cards documentation]({{site.baseurl}}/user_guide/message_b
 Banners credit ratios are denominated in increments of one thousand daily unique impressions.
 
 {% alert note %}
-Refer to our [Banner documentation]({{site.baseurl}}/developer_guide/banner_cards) to learn more about Braze Banners.
+Refer to our [Banner documentation]({{site.baseurl}}/developer_guide/banners) to learn more about Braze Banners.
 {% endalert %}
 
 ### Audience Sync
@@ -162,21 +157,27 @@ Refer to our [Banner documentation]({{site.baseurl}}/developer_guide/banner_card
 Audience Sync credit ratios are denominated in increments of one thousand total user syncs. By default, your contract includes five million user syncs per each Period of your Subscription Term. Additional user syncs will be charged as per your Order Form.
 
 {% alert note %}
-Refer to our [Canvas documentation]({{site.baseurl}}/partners/canvas_steps) to learn more about Canvas Audience Sync and available partners.
+Refer to our [Canvas documentation]({{site.baseurl}}/partners/canvas_audience_sync) to learn more about Canvas Audience Sync and available partners.
 {% endalert %}
 
 ### Message Archiving
 
-Message Archiving credit ratios are denominated in increments of one thousand archived messages across Push, Email, and SMS/MMS channels. 
+Message Archiving credit ratios are denominated in increments of one thousand successfully archived messages across Push, Email, SMS/MMS, and In-App-Message channels. 
 
 {% alert note %}
-Refer to our [message archiving documentation]({{site.baseurl}}/user_guide/data/export_braze_data/message_archiving#message-archiving) to learn more about Message Archiving.
+Beginning September 2, 2026, failed archiving attempts are excluded from usage billing; only successful archives use Action Credits. This change doesn't affect usage billed before September 2, 2026.
+{% endalert %}
+
+{% alert note %}
+Refer to our [message archiving documentation]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/message_archiving) to learn more about Message Archiving.
 {% endalert %}
 
 ### Webhooks
 
-Webhooks credit ratios are denominated in increments of one thousand webhooks sent from the Braze platform. By default, your contract includes one hundred thousand webhooks per each Period of your Subscription Term. Additional webhooks will be charged as per your Order Form.
+Webhooks credit ratios are denominated in increments of one thousand webhooks successfully sent from the Braze platform. By default, your contract includes one hundred thousand webhooks per each Period of your Subscription Term. Additional webhooks will be charged as per your Order Form.
+
+{% multi_lang_include pricing/webhook_failed_requests_billing.md credit_name='Action Credits' %}
 
 {% alert note %}
-Refer to our [webhooks documentation]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks) to learn more about Braze Webhooks.
+Refer to our [webhooks documentation]({{site.baseurl}}/user_guide/channels/webhooks) to learn more about Braze Webhooks.
 {% endalert %}

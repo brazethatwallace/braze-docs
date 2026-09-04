@@ -16,7 +16,7 @@ description: "Braze 파트너인 경우 이 엔드포인트를 사용하여 커�
 > Braze 파트너인 경우 이 엔드포인트를 사용하여 커스텀 이벤트와 구매를 기록하고 고객 프로필 속성을 대량으로 업데이트할 수 있습니다.
 
 {% alert important %}
-이 엔드포인트는 Braze 파트너가 Braze 통합에서 대량 사용 사례를 마이그레이션할 수 있도록 제공됩니다. 문의 사항이 있으면 [isv-support@braze.com](mailto:isv-support@braze.com)으로 연락해 주세요.
+이 엔드포인트는 Braze 파트너가 Braze 통합에서 대량 사용 사례를 마이그레이션할 수 있도록 제공됩니다. 문의 사항이 있으면 [독립 소프트웨어 제공업체-support@braze.com](mailto:isv-support@braze.com)으로 연락해 주세요.
 {% endalert %}
 
 ## 이 엔드포인트를 사용해야 하는 경우 {#when-to-use-this-endpoint}

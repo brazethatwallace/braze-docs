@@ -3,7 +3,7 @@ nav_title: Incorporación
 article_title: Incorporación
 page_order: 5
 page_type: reference
-description: "Este artículo describe cómo usar una plantilla de Braze Canvas para crear recorridos de incorporación que promuevan una adopción inicial sólida y fomenten relaciones duraderas con tus usuarios."
+description: "Este artículo describe cómo usar una plantilla de BRAZE CANVAS para crear recorridos de incorporación que promuevan una adopción inicial sólida y fomenten relaciones duraderas con tus usuarios."
 tool: Canvas
 ---
 
@@ -11,7 +11,7 @@ tool: Canvas
 
 > Inicia el recorrido de tus usuarios con esta plantilla de incorporación. Esta plantilla está diseñada para promover una adopción inicial sólida y fomentar relaciones duraderas con tus usuarios. Al aprovechar la comunicación personalizada y un conjunto estructurado de mensajes, puedes presentar fácilmente tu marca a tus usuarios e iniciar el comienzo de una relación duradera.
 
-En este artículo, te guiaremos a través de un caso de uso para la plantilla de **Incorporación**, que está pensada para la etapa de consideración del ciclo de vida del usuario, para crear un recorrido de incorporación fluido para nuevos usuarios. Después de este artículo, habrás personalizado esta plantilla de Braze Canvas con mensajes personalizados para estos nuevos usuarios.
+En este artículo, te guiaremos a través de un caso de uso para la plantilla de **Incorporación**, que está pensada para la etapa de consideración del ciclo de vida del usuario, para crear un recorrido de incorporación fluido para nuevos usuarios. Después de este artículo, habrás personalizado esta plantilla de BRAZE CANVAS con mensajes personalizados para estos nuevos usuarios.
 
 ## Requisitos previos {#prerequisites}
 

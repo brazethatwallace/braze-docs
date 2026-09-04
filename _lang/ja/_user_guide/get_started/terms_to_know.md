@@ -24,7 +24,7 @@ glossaries:
     description: "<a href=\"/docs/api/api_campaigns\">APIキャンペーン</a> は、Brazeダッシュボードを使用して<code>campaign_id</code>（およびバリエーションID）を生成し、コピー、オーディエンス、スケジュール、アセットは<a href=\"/docs/api/endpoints/messaging\">メッセージングAPI</a> を通じて提供します。これは、ダッシュボードで完全に設定されたキャンペーンをAPI経由でトリガーする<a href=\"/docs/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery\">APIトリガーキャンペーン</a> とは異なります。"
   - name: Application program interface (API)
     display_name: "アプリケーションプログラムインターフェイス（API）"
-    description: "<a href=\"/docs/api/basics#api-overview\">Braze API</a> は、モバイルSDK経由ではなく、HTTP経由で直接ユーザーのアクションを記録できるWebサービスを提供します。これにより、例えば、アプリやWebサイト内では追跡されないユーザーデータをBrazeに渡すことができます。"
+    description: "<a href=\"/docs/api/basics\">Braze API</a> は、モバイルSDK経由ではなく、HTTP経由で直接ユーザーのアクションを記録できるWebサービスを提供します。これにより、例えば、アプリやWebサイト内では追跡されないユーザーデータをBrazeに渡すことができます。"
   - name: App instance
     display_name: "アプリインスタンス"
     description: アプリインスタンスとは、ワークスペースに集められたさまざまなサイトやアプリを指します。
@@ -39,7 +39,7 @@ glossaries:
     description: "キャンペーンは、顧客にパーソナライズされたレスポンスを提供するためのカスタマイズ可能なメッセージング手法です。さまざまなメッセージングチャネルを使って<a href=\"/docs/user_guide/messaging/campaigns\">キャンペーンを構築</a> し、独自のメッセージを送ることができます。"
   - name: Canvas
     display_name: "キャンバス"
-    description: "<a href=\"/docs/user_guide/messaging/canvas\">キャンバス</a> は、マーケターが複数のメッセージとステップからなるキャンペーンを設定し、まとまりのあるジャーニーを形成できる単一の統一インターフェイスです。キャンバスを使用すると、包括的な分析を使用してこれらのエクスペリエンスを比較し、最適化することで、完全なユーザーエクスペリエンスを提供できます。"
+    description: "<a href=\"/docs/user_guide/messaging/canvas\">キャンバス</a> は、マーケターが複数のメッセージとステップからなるキャンペーンを設定し、まとまりのあるジャーニーを形成できる単一の統一インターフェイスです。キャンバスを使用すると、包括的な分析によってこれらのエクスペリエンスを比較・最適化し、完全なユーザーエクスペリエンスを提供できます。"
   - name: Connected Content
     display_name: "コネクテッドコンテンツ"
     description: "<a href=\"/docs/user_guide/messaging/design_and_edit/personalize/connected_content\">コネクテッドコンテンツ</a> は、カスタマーエンゲージメントとコンバージョンを強化するため、マーケティングパーソナライゼーションを拡大します。ユーザーに送信するメッセージに、APIを使ってアクセスできるあらゆる情報を直接挿入できます。コネクテッドコンテンツでは、Webサーバーやパブリックにアクセス可能なAPIから直接コンテンツを取り込むことができます。"
@@ -90,7 +90,7 @@ glossaries:
     description: "主要なメッセージングチャネル（例：メール、SMS、プッシュ、WhatsApp、LINE（設定に応じて））でリーチできず、ワークスペース内のアプリやWebサイトを6か月以上使用しておらず、ワークスペースからメッセージを6か月以上受信しておらず、6か月以上更新されていない場合、ユーザーは<a href=\"/docs/user_archival#inactive-users\">非アクティブ</a> とみなされます。非アクティブユーザーは、休眠ユーザーとともにアーカイブの対象となります。デフォルトでは、Brazeは非アクティブアーカイブに6か月のウィンドウを使用しますが、会社の設定で日数を上書きできます。"
   - name: IP warming
     display_name: "IPウォームアップ"
-    description: "<a href=\"/docs/user_guide/channels/email/email_setup/ip_warming\">IPウォームアップ</a> とは、専用IPから送信されるメールの量を徐々に増やすことです。これは、インターネットサービスプロバイダーからの評判を確立するのに役立ち、メッセージがフラグを立てられる可能性を最小限に抑えます。"
+    description: "<a href=\"/docs/user_guide/channels/email/email_setup/ip_warming\">IPウォームアップ</a> とは、専用IPから送信されるメールの量を徐々に増やすことです。これは、インターネットサービスプロバイダーからの評判を確立するのに役立ち、メッセージがフラグ付けされる可能性を最小限に抑えます。"
   - name: Key-value pairs
     display_name: "キーと値のペア"
     description: "<a href=\"/docs/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs\">キーと値のペア</a> とは、キーが一意の識別子で、値がコンテンツであるリンクされたデータ項目です。ユーザーデバイスに追加のデータペイロードを送信するために使用できます。"
@@ -120,7 +120,7 @@ glossaries:
     description: "<a href=\"/docs/user_guide/channels/push\">プッシュメッセージ</a>（プッシュ通知）とは、モバイルアプリケーションから表示される通知のことです。プッシュ通知は、iOSでもAndroidでも、ポップアップダイアログやバナーとして表示されることが多いです。"
   - name: Push token
     display_name: "プッシュトークン"
-    description: "プッシュトークンは、アプリとiOS、Android、またはWebデバイス間の接続を作成するために、AppleまたはGoogleによって作成され、割り当てられた一意のキーです。<a href=\"/docs/api/objects_filters/user_attributes_object#migrate-push-tokens\">プッシュトークンの移行</a> とは、すでに生成されたキーをBrazeにインポートすることです。"
+    description: "プッシュトークンは、アプリとiOS、Android、またはWebデバイス間の接続を作成するために、AppleまたはGoogleによって作成され割り当てられた一意のキーです。<a href=\"/docs/api/objects_filters/user_attributes_object#migrate-push-tokens\">プッシュトークンの移行</a> とは、すでに生成されたキーをBrazeにインポートすることです。"
   - name: Push time to live (TTL)
     display_name: "プッシュTTL"
     description: "<a href=\"/docs/user_guide/administer/global/workspace_settings/push_settings\">プッシュTTL</a> とも呼ばれ、有効時間とは、キャンペーンがオフラインのユーザーへの配信試行を続ける期間を示します。"
@@ -138,7 +138,7 @@ glossaries:
     description: "<a href=\"/docs/developer_guide/getting_started/sdk_overview\">SDK</a> は、モバイルアプリ、Webサイト、コネクテッドエクスペリエンスに統合され、マーケティング、メッセージング、分析のためのツールを提供します。Brazeは<a href=\"/docs/developer_guide/sdk_integration?sdktab=swift\">Swift</a> や<a href=\"/docs/developer_guide/sdk_integration?sdktab=android\">Android</a> などのプラットフォーム向けにSDKインテグレーションガイドを公開しています。Webやその他のプラットフォームについては、SDK概要からリンクされているインテグレーションパスに従ってください。"
   - name: Subscription groups
     display_name: "購読グループ"
-    description: "<a href=\"/docs/user_guide/channels/email/subscriptions#subscription-groups\">購読グループ</a> は、グローバルなサブスクリプション状態の上に重ねて、きめ細かなオプトインの選択肢（例：ニュースレターとプロモーション）を提供します。SMSやWhatsAppなどのチャネルにも同様のパターンがあります。チャネルで必要な場合は、常に購読グループをターゲットにしてください。"
+    description: "<a href=\"/docs/user_guide/audience/subscription_preferences/subscription_groups\">購読グループ</a> は、グローバルなサブスクリプション状態の上に重ねて、きめ細かなオプトインの選択肢（例：ニュースレターとプロモーション）を提供します。SMSやWhatsAppなどのチャネルにも同様のパターンがあります。チャネルで必要な場合は、常に購読グループをターゲットにしてください。"
   - name: Sunsetting
     display_name: "Sunsetting（配信停止）"
     description: "Sunsetting（配信停止）とは、反応のないユーザーを特定し、ユーザーによるアクションなしで、そのユーザーへの積極的なメッセージングを停止するプロセスのことです。<a href=\"/docs/user_guide/channels/email/best_practices/sunset_policies\">メール</a> や<a href=\"/docs/user_guide/channels/push/best_practices#implement-a-sunset-policy-for-unresponsive-users\">プッシュ</a> メッセージのサンセットポリシーを作成することで、開封率への影響を抑えることができます。"

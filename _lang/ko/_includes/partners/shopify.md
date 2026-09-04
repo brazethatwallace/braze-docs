@@ -8,7 +8,7 @@ Shopify 표준 통합을 사용하려면 [Shopify 표준 통합 설정]({{site.b
 {% endtab %}
 
 {% tab custom %}
-커스텀 통합은 Shopify Hydrogen을 사용하거나 헤드리스 스토어를 지원하는 경우 더 유연하고 구성 가능한 솔루션을 제공합니다. 이 옵션을 사용하면 Braze SDK를 Shopify 환경에 직접 구현하여 더 깊은 통합과 맞춤형 기능을 활성화할 수 있습니다. 독특한 고객 경험을 창출하거나 특정 워크플로를 최적화하려는 경우, 커스텀 통합은 헤드리스 설정에서 Braze의 기능을 최대한 활용하는 데 필요한 도구를 제공합니다.
+커스텀 통합은 Shopify Hydrogen을 사용하거나 헤드리스 스토어를 지원하는 경우 더 유연하고 구성 가능한 솔루션을 제공합니다. 이 옵션을 사용하면 Braze SDK를 Shopify 환경에 직접 구현하여 더 깊은 통합과 맞춤형 기능을 활성화할 수 있습니다. 고유한 고객 경험을 창출하거나 특정 워크플로를 최적화하려는 경우, 커스텀 통합은 헤드리스 설정에서 Braze의 기능을 최대한 활용하는 데 필요한 도구를 제공합니다.
 
 Shopify 커스텀 통합을 사용하려면 [Shopify 커스텀 통합 설정]({{site.baseurl}}/shopify_custom_integration)을 참조하세요.
 {% endtab %}
@@ -22,9 +22,9 @@ Shopify 커스텀 통합을 사용하려면 [Shopify 커스텀 통합 설정]({{
 
 {% endif %}
 
-{% if include.section == "Liquid promotion codes with Currents" %}
+{% if include.section == "Liquid 프로모션 코드 with Currents" %}
 
-[`message_extras`]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/advanced_filters/message_extras)와 [프로모션 코드]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/promotion_codes)를 결합하여 Currents에 프로모션 코드 정보를 전송할 수 있습니다. `capture` 태그를 사용하여 프로모션 코드를 변수에 저장한 후, 해당 변수를 `message_extras`에서 참조하세요:
+[`message_extras`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras)와 [프로모션 코드]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes)를 결합하여 Currents에 프로모션 코드 정보를 전송할 수 있습니다. `capture` 태그를 사용하여 프로모션 코드를 변수에 저장한 후, 해당 변수를 `message_extras`에서 참조하세요:
 
 {% raw %}
 ```liquid

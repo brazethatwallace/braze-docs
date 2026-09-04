@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Facebook Messenger
 
-> [Facebook Messenger](https://developers.facebook.com/docs/messenger-platform/) es una de las plataformas de mensajería instantánea más populares del mundo, utilizada por casi mil millones de usuarios activos al mes. A través de esta plataforma, las marcas pueden crear chatbots atractivos para interactuar de forma inteligente y automática con sus clientes.
+> [Facebook Messenger](https://developers.facebook.com/docs/messenger-platform/) es una de las plataformas de mensajería instantánea más populares del mundo, utilizada por casi mil millones de MAU. A través de esta plataforma, las marcas pueden crear chatbots atractivos para interactuar de forma inteligente y automática con sus clientes.
 
 La integración de Braze y Facebook aprovecha las funciones de webhooks, segmentación, personalización y activación de Braze para enviar mensajes a tus usuarios en Facebook Messenger a través de la API de la plataforma Messenger. Nuestra plataforma incluye una plantilla de webhook personalizada para Facebook Messenger en **Contenido** > **Webhook**.
 
@@ -28,7 +28,7 @@ Ten en cuenta lo siguiente antes de proceder con la integración:
 | --- | --- | --- | --- |
 | Página de Facebook Messenger | Facebook | [https://www.facebook.com/pages/create](https://www.facebook.com/pages/create) | Se utilizará una página de Facebook como identidad de tu bot. Cuando la gente chatee con tu aplicación, verá el nombre de la página y la foto del perfil. |
 | Aplicación Facebook Messenger | Facebook | [https://developers.facebook.com/apps](https://developers.facebook.com/apps) | La aplicación de Facebook contiene la configuración de tu bot de Messenger, incluidos los tokens de acceso. |
-| Revisión y aprobación del bot de la aplicación | Facebook | [https://developers.facebook.com/docs/messenger-platform/app-review](https://developers.facebook.com/docs/messenger-platform/app-review) | Cuando estés listo para lanzar tu bot al público, debes enviarlo a Facebook para su revisión y aprobación. Este proceso de revisión nos permite asegurarnos de que tu bot de Messenger cumple nuestras políticas y funciona como se espera antes de ponerlo a disposición de todo el mundo en Messenger. |
+| Revisión y aprobación del bot de la aplicación | Facebook | [https://developers.facebook.com/docs/messenger-platform/app-review](https://developers.facebook.com/docs/messenger-platform/app-review) | Cuando estés listo para lanzar tu bot al público, debes enviarlo a Facebook para su revisión y aprobación. Este proceso de revisión permite asegurarse de que tu bot de Messenger cumple las políticas y funciona como se espera antes de ponerlo a disposición de todo el mundo en Messenger. |
 | ID de ámbito de página (PSID) | Facebook | [https://developers.facebook.com/docs/messenger-platform/reference/webhook-events/messages](https://developers.facebook.com/docs/messenger-platform/reference/webhook-events/messages) | Necesitas tener los PSID de los usuarios para enviar mensajes en Facebook Messenger. Cuando un usuario interactúa con tu aplicación a través de Messenger, Facebook creará un PSID. Este PSID se puede enviar a Braze como un atributo personalizado de cadena. |
 | Token de acceso a la página | Facebook | [https://developers.facebook.com/docs/messenger-platform/getting-started/app-setup#page_access_token](https://developers.facebook.com/docs/messenger-platform/getting-started/app-setup#page_access_token) | Estos tokens de acceso son similares a los tokens de acceso de usuario, salvo que proporcionan permiso a las API que leen, escriben o modifican los datos pertenecientes a una página de Facebook. Para obtener un token de acceso a una página, necesitas obtener un token de acceso de usuario y solicitar el permiso `manage_pagespermission`. Una vez que tengas el token de acceso de usuario, obtendrás el token de acceso a la página a través de la API Graph. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Requisitos previos" }
@@ -67,7 +67,7 @@ Cada vez que envíes un mensaje, su PSID se incluirá en la propiedad `recipient
 
 ### Paso 2: Enviar a Braze como atributo personalizado {#step-2-send-to-braze-as-a-custom-attribute}
 
-Cuando estés seguro de que recibes los PSID, coordínalo y compártelo con tus desarrolladores para enviar los PSID a Braze como [atributo personalizado]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/#custom-attributes). Los PSID son cadenas a las que se puede acceder mediante una [llamada a la API](https://developers.facebook.com/docs/messenger-platform/reference/send-api).
+Cuando estés seguro de que recibes los PSID, coordínalo y compártelo con tus desarrolladores para enviar los PSID a Braze como [atributo personalizado]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes#custom-attributes). Los PSID son cadenas a las que se puede acceder mediante una [llamada a la API](https://developers.facebook.com/documentation/business-messaging/messenger-platform/send-messages).
 
 ### Paso 3: Configura tu plantilla de webhook {#step-3-set-up-your-webhook-template}
 
@@ -93,7 +93,7 @@ Si recibes el mensaje correctamente, puedes configurar sus opciones de entrega.
 
 ## Uso de esta integración {#using-this-integration}
 
-Una vez configurada, utiliza esta integración para dirigirte a los usuarios de Facebook Messenger. Si no envías mensajes utilizando los números de teléfono de los usuarios y planeas enviar mensajes de Messenger repetidamente, debes [crear un segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/#creating-a-segment) para todos los usuarios para los que exista el ID de Messenger como atributo personalizado y activar el [seguimiento de análisis]({{site.baseurl}}/user_guide/audience/segments/segment_data/) para realizar un seguimiento de tus tasas de suscripción a Messenger a lo largo del tiempo.
+Una vez configurada, utiliza esta integración para dirigirte a los usuarios de Facebook Messenger. Si no envías mensajes utilizando los números de teléfono de los usuarios y planeas enviar mensajes de Messenger repetidamente, debes [crear un segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment#creating-a-segment) para todos los usuarios para los que exista el ID de Messenger como atributo personalizado y activar el [seguimiento de análisis]({{site.baseurl}}/user_guide/audience/segments/segment_data) para realizar un seguimiento de tus tasas de suscripción a Messenger a lo largo del tiempo.
 
 ![Filtro de segmento "messenger_id" configurado como "no está en blanco".]({% image_buster /assets/img_archive/fbm-segmentation.png %})
 

@@ -26,16 +26,16 @@ Atualmente, apenas palavras-chave de descadastramento (padrão e personalizadas)
 ## O que é considerado fuzzy? {#what-is-deemed-as-fuzzy}
 
 Os critérios para uma resposta recebida ser considerada "fuzzy" são os seguintes (as comparações usam todas as palavras-chave na categoria **Descadastramento**, incluindo padrão e personalizadas):
-- Se trocar uma letra pela letra imediatamente à esquerda ou à direita dela em um teclado QWERTY resultar em uma palavra-chave de descadastramento correspondente.
+- Se trocar uma letra pela tecla adjacente em um teclado QWERTY resultar em uma palavra-chave de descadastramento correspondente.
 - Uma substring da mensagem corresponde a uma palavra-chave de descadastramento.
 
-Por exemplo, "Stpo" ou "Please stopppp" serão considerados fuzzy, e uma resposta de descadastramento fuzzy será enviada. Se o usuário então responder com uma palavra-chave de descadastramento, um evento de cancelamento de inscrição será acionado.
+Por exemplo, "Stpo" ou "Please stopppp" serão considerados fuzzy, e uma resposta de descadastramento fuzzy será enviada. Se o usuário então responder com uma palavra-chave de descadastramento, um evento de cancelamento de inscrição será disparado.
 
 ## Configurar o descadastramento fuzzy {#configure-fuzzy-opt-out}
 
 Para configurar o descadastramento fuzzy, navegue até a página de gerenciamento de palavras-chave do grupo de inscrições.
 
-1. Acesse **Público** > **Gerenciamento de grupos de inscrições** e selecione um grupo de inscrições **SMS/MMS/RCS**.
+1. Acesse **Público** > **Gerenciamento de grupo de inscrições** e selecione um grupo de inscrições **SMS/MMS/RCS**.
 2. Em **Global Keywords**, encontre a categoria **Opt-out** e selecione o ícone de lápis.
 3. Alterne **Fuzzy Opt-Out** para **On**.
 4. Selecione sua opção preferida de **Fuzzy Opt-Out Logic**:

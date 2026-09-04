@@ -25,7 +25,7 @@ Braze Web SDKをブラウザ拡張機能内に統合し、分析を収集して�
 
 ## サポートされていないもの {#whats-not-supported}
 
-* サービスワーカー内からのBraze SDKの使用はサポートされていません。拡張機能のポップアップページや設定ページではBraze SDKを引き続き使用できます。
+* サービスワーカー内からのBraze SDKの使用はサポートされていません。拡張機能のポップアップページや設定ページではBraze SDKを引き続き使用できます。{% multi_lang_include product_feedback_cta.md context="gap" feature="service worker support in the Braze Web SDK" %}
 
 ## 拡張機能の種類 {#extension-types}
 
@@ -42,7 +42,7 @@ Brazeは、拡張機能の以下の領域に含めることができます。
 
 Braze SDK（`braze.min.js`）を拡張機能にバンドルされたローカルファイルとして統合する場合、`manifest.json`で追加の権限は必要ありません。
 
-ただし、[Google Tag Manager]({{ site.baseurl }}/developer_guide/platform_integration_guides/web/google_tag_manager/)を使用するか、外部URLからBraze SDKを参照するか、拡張機能に厳密なコンテンツセキュリティポリシーを設定した場合は、`manifest.json`の[`content_security_policy`](https://developer.chrome.com/extensions/contentSecurityPolicy)設定を調整して、リモートスクリプトソースを許可する必要があります。
+ただし、[Google Tag マネージャー]({{ site.baseurl }}/developer_guide/platform_integration_guides/web/google_tag_manager/)を使用するか、外部URLからBraze SDKを参照するか、拡張機能に厳密なコンテンツセキュリティポリシーを設定した場合は、`manifest.json`の[`content_security_policy`](https://developer.chrome.com/extensions/contentSecurityPolicy)設定を調整して、リモートスクリプトソースを許可する必要があります。
 
 ## はじめに {#getting-started}
 
@@ -52,13 +52,13 @@ Braze SDK（`braze.min.js`）を拡張機能にバンドルされたローカル
 
 Braze Web SDKを統合するには、まず最新のJavaScriptライブラリのコピーをダウンロードする必要があります。これは、NPMを使用するか、[Braze CDN](https://js.appboycdn.com/web-sdk/latest/braze.min.js)から直接ダウンロードすることで実行できます。
 
-または、[Google Tag Manager]({{ site.baseurl }}/developer_guide/platform_integration_guides/web/google_tag_manager/)を使用するか、Braze SDKの外部ホストされたコピーを使用する場合は、外部リソースを読み込むには`manifest.json`の[`content_security_policy`](https://developer.chrome.com/extensions/contentSecurityPolicy)設定を調整する必要があることに注意してください。
+または、[Google Tag マネージャー]({{ site.baseurl }}/developer_guide/platform_integration_guides/web/google_tag_manager/)を使用するか、Braze SDKの外部ホストされたコピーを使用する場合は、外部リソースの読み込みには`manifest.json`の[`content_security_policy`](https://developer.chrome.com/extensions/contentSecurityPolicy)設定を調整する必要があることに注意してください。
 
 ダウンロードしたら、`braze.min.js`ファイルを拡張機能のディレクトリ内の任意の場所にコピーします。
 
 ### 拡張機能ポップアップ {#popup}
 
-拡張機能のポップアップにBrazeを追加するには、通常のWebサイトと同様に、`popup.html`でローカルJavaScriptファイルを参照します。Google Tag Managerを使用している場合は、代わりに[Google Tag Managerテンプレート]({{ site.baseurl }}/developer_guide/platform_integration_guides/web/google_tag_manager/)を使用してBrazeを追加できます。
+拡張機能のポップアップにBrazeを追加するには、通常のWebサイトと同様に、`popup.html`でローカルJavaScriptファイルを参照します。Google Tag マネージャーを使用している場合は、代わりに[Google Tag マネージャーテンプレート]({{ site.baseurl }}/developer_guide/platform_integration_guides/web/google_tag_manager/)を使用してBrazeを追加できます。
 
 ```html
 <html>

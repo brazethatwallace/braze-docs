@@ -1,20 +1,20 @@
 # Crear conmutadores de características {#create-feature-flags}
 
-> Los conmutadores de características te permiten habilitar o deshabilitar a distancia la funcionalidad para una selección de usuarios. Crea un nuevo conmutador de características dentro del panel de Braze. Proporciona un nombre y un `ID`, una audiencia objetivo y un porcentaje de usuarios para los que habilitar esta característica. Luego, utilizando ese mismo `ID` en el código de tu aplicación o sitio web, puedes ejecutar condicionalmente determinadas partes de tu lógica empresarial. Para saber más sobre los conmutadores de características y cómo puedes utilizarlos en Braze, consulta [Acerca de los conmutadores de características]({{site.baseurl}}/developer_guide/feature_flags/).
+> Los conmutadores de características te permiten habilitar o deshabilitar a distancia la funcionalidad para una selección de usuarios. Crea un nuevo conmutador de características dentro del panel de Braze. Proporciona un nombre y un `ID`, una audiencia objetivo y un porcentaje de usuarios para los que habilitar esta característica. Luego, utilizando ese mismo `ID` en el código de tu aplicación o sitio web, puedes ejecutar condicionalmente determinadas partes de tu lógica empresarial. Para saber más sobre los conmutadores de características y cómo puedes utilizarlos en Braze, consulta [Acerca de los conmutadores de características]({{site.baseurl}}/developer_guide/feature_flags).
 
 ## Requisitos previos {#prerequisites}
 
 ### Versión del SDK {#sdk-version}
 
-Para utilizar los conmutadores de características, asegúrate de que tus SDK están actualizados al menos con estas versiones mínimas:
+Para usar los conmutadores de características, asegúrate de que tus SDK estén actualizados con al menos estas versiones mínimas:
 
 {% sdk_min_versions swift:5.9.0 android:24.2.0 web:4.6.0 unity:4.1.0 cordova:5.0.0 reactnative:4.1.0 flutter:6.0.0 roku:1.0.0 %}
 
 ### Permisos de Braze {#braze-permissions}
 
-Para gestionar los conmutadores de características en el dashboard, necesitarás ser administrador o tener los siguientes [permisos]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/):
+Para gestionar los conmutadores de características en el panel, necesitarás ser administrador o tener los siguientes [permisos]({{site.baseurl}}/user_guide/administer/global/user_management/permissions):
 
-| Permiso                                                                    | Qué puedes hacer                           |
+| Permiso                                                                    | Lo que puedes hacer                           |
 |-------------------------------------------------------------------------------|-------------------------------------------|
 | **Manage Feature Flags**                                                      | Ver, crear y editar conmutadores de características.     |
 | **Access Campaigns, Canvases, Cards, Feature Flags, Segments, Media Library** | Ver la lista de conmutadores de características disponibles. |
@@ -24,108 +24,108 @@ Para gestionar los conmutadores de características en el dashboard, necesitará
 
 ### Paso 1: Crear un nuevo conmutador de características {#step-1-create-a-new-feature-flag}
 
-Ve a **Mensajería** > **Feature Flags** y selecciona **Create Feature Flag**.
+Ve a **Mensajería** > **Conmutadores de características** y selecciona **Crear conmutador de características**.
 
 ![Una tabla de datos que muestra un conmutador de características existente y cómo crear uno nuevo.]({% image_buster /assets/img/feature_flags/create_ff.png %}){: style="max-width:75%"}
 
-### Paso 2: Rellena los detalles {#step-2-fill-out-the-details}
+### Paso 2: Completar los detalles {#step-2-fill-out-the-details}
 
-En **Detalles del conmutador de características**, introduce un nombre, un ID y una descripción para tu conmutador de características.
+En **Detalles del conmutador de características**, introduce un nombre, ID y descripción para tu conmutador de características.
 
-![Un formulario que muestra que puedes añadir un nombre, un ID, una descripción y propiedades a un conmutador de características.]({% image_buster /assets/img/feature_flags/create_ff_properties.png %}){: style="max-width:75%"}
+![Un formulario que muestra que puedes añadir un nombre, ID, descripción y propiedades a un conmutador de características.]({% image_buster /assets/img/feature_flags/create_ff_properties.png %}){: style="max-width:75%"}
 
 
 | Campo        | Descripción                                                                |
 |--------------|----------------------------------------------------------------------------|
-| Nombre         | Un título legible para tus especialistas en marketing y administradores.              |
-| ID           | El ID único que utilizarás en tu código para comprobar si esta característica está [habilitada para un usuario](#enabled). Este ID no se puede cambiar más tarde, así que revisa las [mejores prácticas de nomenclatura de ID](#naming-conventions) antes de continuar. |
-| Descripción  | Una descripción opcional que da algo de contexto sobre tu conmutador de características.   |
-| Propiedades   | Propiedades opcionales que configuran de forma remota tu conmutador de características. Se pueden sobrescribir en los pasos en Canvas o en los experimentos con conmutadores de características. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 2: Rellena los detalles" }
+| Nombre       | Un título legible para tus especialistas en marketing y administradores.   |
+| ID           | El ID único que usarás en tu código para comprobar si esta característica está [habilitada para un usuario](#enabled). Este ID no se puede cambiar después, así que revisa las [prácticas recomendadas de nomenclatura de ID](#naming-conventions) antes de continuar. |
+| Descripción  | Una descripción opcional que aporta contexto sobre tu conmutador de características. |
+| Propiedades  | Propiedades opcionales que configuran remotamente tu conmutador de características. Se pueden sobrescribir en pasos en Canvas o en experimentos de conmutadores de características. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 2: Completar los detalles" }
 
 ### Paso 2a: Crear propiedades personalizadas {#step-2a-create-custom-properties}
 
-En **Propiedades**, puedes crear opcionalmente propiedades personalizadas a las que tu aplicación puede acceder a través del SDK de Braze cuando la característica está habilitada. Puedes asignar una cadena, un valor booleano, una imagen, una marca de tiempo, JSON o un valor numérico a cada variable, así como establecer un valor predeterminado.
+En **Propiedades**, opcionalmente puedes crear propiedades personalizadas a las que tu aplicación puede acceder a través del SDK de Braze cuando tu característica está habilitada. Puedes asignar un valor de cadena, booleano, imagen, marca de tiempo, JSON o número a cada variable, así como establecer un valor predeterminado.
 
 {% tabs local %}
 {% tab ejemplo %}
-En el siguiente ejemplo, el conmutador de características muestra un banner de agotamiento de existencias para una tienda de comercio electrónico utilizando las propiedades personalizadas enumeradas:
+En el siguiente ejemplo, el conmutador de características muestra un banner de agotamiento de existencias para una tienda de comercio electrónico usando las propiedades personalizadas listadas:
 
-| Nombre de la propiedad | Tipo | Valor |
+|Nombre de la propiedad|Tipo|Valor|
 |--|--|--|
-| `banner_height` | `number` | `75` |
-| `banner_color` | `string` | `blue` |
-| `banner_text` | `string` | `Widgets are out of stock until July 1.` |
-| `dismissible` | `boolean` | `false` |
-| `homepage_icon` | `image` | `http://s3.amazonaws.com/[bucket_name]/` |
-| `account_start` | `timestamp` | `2011-01-01T12:00:00Z` |
-| `footer_settings` | `JSON` | `{ "colors": [ "red", "blue", "green" ], "placement": 123 }` |
+| `banner_height`|`number`|`75`|
+| `banner_color`|`string`|`blue`|
+| `banner_text`|`string`|`Widgets are out of stock until July 1.`|
+|`dismissible`|`boolean`|`false`|
+| `homepage_icon`|`image`|`http://s3.amazonaws.com/[bucket_name]/`|
+| `account_start`|`timestamp`|`2011-01-01T12:00:00Z`|
+| `footer_settings`|`JSON`|`{ "colors": [ "red", "blue", "green" ], "placement": 123 }`|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paso 2a: Crear propiedades personalizadas" }
 
 {% alert tip %}
-No hay límite en el número de propiedades que puedes añadir. Sin embargo, las propiedades de un conmutador de características están limitadas a un total de 10.000 caracteres.
+No hay límite en la cantidad de propiedades que puedes añadir. Sin embargo, las propiedades de un conmutador de características están limitadas a un total de 10.000 caracteres.
 {% endalert %}
 {% endtab %}
 {% endtabs %}
 
-### Paso 4: Elige segmentos a los que dirigirte {#step-4-choose-segments-to-target}
+### Paso 4: Elegir los segmentos objetivo {#step-4-choose-segments-to-target}
 
-Antes de desplegar un conmutador de características, tienes que elegir un [segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/) de usuarios al que dirigirte. Selecciona **Add Rule** en tu conmutador recién creado y, a continuación, utiliza los menús desplegables de grupo de filtros y segmento para filtrar a los usuarios de tu audiencia objetivo. Añade varios filtros para reducir aún más tu audiencia.
+Antes de desplegar un conmutador de características, necesitas elegir un [segmento]({{site.baseurl}}/user_guide/audience/segments) de usuarios al que dirigirte. Selecciona **Añadir regla** en tu conmutador recién creado y luego usa los menús desplegables de grupo de filtros y segmento para filtrar usuarios de tu audiencia objetivo. Añade múltiples filtros para refinar aún más tu audiencia.
 
-![Un cuadro de texto denominado «Rollout Traffic» con la posibilidad de añadir segmentos y filtros.]({% image_buster /assets/img/feature_flags/segmentation_ff.png %}){: style="max-width:75%;"}
+![Un cuadro de texto etiquetado como Tráfico de despliegue con la capacidad de añadir segmentos y filtros.]({% image_buster /assets/img/feature_flags/segmentation_ff.png %}){: style="max-width:75%;"}
 
-### Paso 5: Configura el tráfico de despliegue {#rollout}
+### Paso 5: Configurar el tráfico de despliegue {#rollout}
 
-De forma predeterminada, los conmutadores de características siempre están inactivos, lo que te permite separar la fecha de lanzamiento de la característica de la activación total de los usuarios. Para comenzar la implementación, utiliza la sección **Rollout Traffic** para introducir un porcentaje en el cuadro de texto. Esto seleccionará el porcentaje de usuarios aleatorios de tu segmento seleccionado que recibirán esta nueva característica.
+De forma predeterminada, los conmutadores de características siempre están inactivos, lo que te permite separar la fecha de lanzamiento de tu característica de la activación total de usuarios. Para comenzar tu despliegue, usa la sección **Tráfico de despliegue** para introducir un porcentaje en el cuadro de texto. Esto elegirá el porcentaje de usuarios aleatorios en tu segmento seleccionado que recibirán esta nueva característica.
 
 {% alert important %}
-No configures el tráfico de despliegue por encima del 0 % hasta que estés listo para que tu nueva característica entre en producción. Cuando definas inicialmente tu conmutador de características en el dashboard, deja esta configuración en 0 %.
+No configures tu tráfico de despliegue a más de 0% hasta que estés listo para que tu nueva característica entre en funcionamiento. Cuando definas inicialmente tu conmutador de características en el panel, deja esta configuración en 0%.
 {% endalert %}
 
 {% alert important %}
-Para implementar un conmutador con una sola regla o para una audiencia específica, añade tu primera regla con los criterios de segmentación y los porcentajes de implementación seleccionados. Por último, confirma que la regla **Everyone Else** esté desactivada y guarda tu conmutador.
+Para desplegar un conmutador con una sola regla o para una audiencia única, añade tu primera regla con los criterios de segmentación y porcentajes de despliegue seleccionados. Por último, confirma que la regla **Todos los demás** esté desactivada y guarda tu conmutador.
 {% endalert %}
 
-## Implementación de conmutadores de características con múltiples reglas {#multi-rule-feature-flag-rollouts}
+## Implementaciones de conmutadores de características con varias reglas {#multi-rule-feature-flag-rollouts}
 
-Utiliza implementaciones de conmutadores de características con múltiples reglas para definir una secuencia de reglas para evaluar a los usuarios, lo que permite una segmentación precisa y lanzamientos de características controlados. Este método es ideal para implementar la misma característica en audiencias diversas.
+Usa las implementaciones de conmutadores de características con varias reglas para definir una secuencia de reglas de evaluación de usuarios, lo que permite una segmentación precisa y lanzamientos de características controlados. Este método es ideal para desplegar la misma característica a audiencias diversas.
 
 ### Orden de evaluación {#evaluation-order}
 
-Las reglas de los conmutadores de características se evalúan de arriba abajo, en el orden en que aparecen enumeradas. Un usuario cumple los requisitos de la primera regla que satisfaga. Si un usuario no cumple ninguna regla, su elegibilidad se determina mediante la regla predeterminada «Everyone Else».
+Las reglas de los conmutadores de características se evalúan de arriba a abajo, en el orden en que aparecen en la lista. Un usuario cumple la primera regla que satisface. Si un usuario no cumple ninguna regla, su elegibilidad se determina por la regla predeterminada "Todos los demás".
 
-### Calificación del usuario {#user-qualification}
+### Cualificación de usuarios {#user-qualification}
 
-- Si un usuario cumple los criterios de la primera regla, inmediatamente pasa a ser elegible para recibir el conmutador de características.
-- Si un usuario no cumple la primera regla, se evalúa según la segunda regla, y así sucesivamente.
+- Si un usuario cumple los criterios de la primera regla, es inmediatamente elegible para recibir el conmutador de características.
+- Si un usuario no califica para la primera regla, se evalúa con la segunda regla, y así sucesivamente.
 
-La evaluación secuencial continúa hasta que un usuario cumple los requisitos de una regla o llega a la regla «Everyone Else» al final de la lista.
+La evaluación secuencial continúa hasta que un usuario califica para una regla o llega a la regla "Todos los demás" en la parte inferior de la lista.
 
-### Regla de «Everyone Else» {#everyone-else-rule}
+### Regla "Todos los demás" {#everyone-else-rule}
 
-La regla «Everyone Else» actúa como regla predeterminada. Si un usuario no cumple ninguno de los requisitos anteriores, su elegibilidad para el conmutador de características se determinará mediante la configuración de la regla «Everyone Else». Por ejemplo, si la regla «Everyone Else» está desactivada, en el estado predeterminado, un usuario que no cumpla los criterios de ninguna otra regla no recibirá el conmutador de características al iniciar su sesión.
+La regla "Todos los demás" actúa como predeterminada. Si un usuario no califica para ninguna de las reglas anteriores, su elegibilidad para el conmutador de características se determinará por la configuración del interruptor de la regla "Todos los demás". Por ejemplo, si la regla "Todos los demás" está desactivada, en el estado predeterminado, un usuario que no cumpla los criterios de ninguna otra regla no recibirá el conmutador de características al iniciar su sesión.
 
 ### Reordenar reglas {#re-ordering-rules}
 
-De forma predeterminada, las reglas se ordenan en la secuencia en la que se crean, pero puedes reordenarlas arrastrándolas y soltándolas en el dashboard.
+De forma predeterminada, las reglas se ordenan en la secuencia en que se crean, pero puedes reordenarlas arrastrándolas y soltándolas en el panel.
 
-![Imagen que muestra que un usuario puede añadir una regla a un conmutador de características.]({% image_buster /assets/img/feature_flags/add_rule.png %}){: style="max-width:80%;"}
+![Una imagen que muestra que un usuario puede añadir una regla a un conmutador de características.]({% image_buster /assets/img/feature_flags/add_rule.png %}){: style="max-width:80%;"}
 
-![Imagen que muestra un resumen de un conmutador de características con varias reglas añadidas y una regla para el resto.]({% image_buster /assets/img/feature_flags/mr_rules_overview.png %}){: style="max-width:80%;"}
+![Una imagen que muestra un resumen de un conmutador de características con varias reglas añadidas y una regla de todos los demás.]({% image_buster /assets/img/feature_flags/mr_rules_overview.png %}){: style="max-width:80%;"}
 
-### Casos de uso de conmutadores de características con múltiples reglas {#multi-rule-feature-flag-use-cases}
+### Ejemplos de conmutadores de características con varias reglas {#multi-rule-feature-flag-use-cases}
 
-#### Libera gradualmente una página de pago {#gradually-release-a-checkout-page}
+#### Lanzar gradualmente una página de pago {#gradually-release-a-checkout-page}
 
-Supongamos que trabajas para una marca de comercio electrónico y tienes una nueva página de pago que deseas implementar en diferentes zonas geográficas para garantizar la estabilidad. Mediante el uso de conmutadores de características con múltiples reglas, puedes configurar lo siguiente:
+Supongamos que trabajas para una marca de comercio electrónico y tienes una nueva página de pago que deseas implementar en diferentes regiones geográficas para garantizar la estabilidad. Usando conmutadores de características con varias reglas, puedes configurar lo siguiente:
 
-- **Regla 1:** Tu segmento de EE. UU. está configurado al 100 %.
-- **Regla 2:** Tu segmento está configurado para el 50 % de tus usuarios brasileños, por lo que no todos recibirán el flujo al mismo tiempo.
-- **Regla 3 (Everyone Else):** Para el resto de usuarios, activa la regla «Everyone Else» y configúrala al 15 %, de modo que una parte de todos los usuarios puedan realizar el pago con el nuevo flujo.
+- **Regla 1:** Tu Segment de EE. UU. se establece al 100 %.
+- **Regla 2:** Tu Segment se establece al 50 % de tus usuarios brasileños, de modo que no todos reciben el flujo al mismo tiempo.
+- **Regla 3 (Todos los demás):** Para todos los demás usuarios, activa tu regla "Todos los demás" y configúrala al 15 %, de modo que una parte de todos los usuarios pueda pagar con el nuevo flujo.
 
-#### Comunícate primero con los evaluadores internos {#reach-internal-testers-first}
+#### Alcanzar primero a los testers internos {#reach-internal-testers-first}
 
-Supongamos que eres un administrador de productos y quieres asegurarte de que tus probadores internos siempre reciban el conmutador de características cuando lances un nuevo producto. Puedes añadir el segmento de tus probadores internos a tu primera regla y establecerlo en el 100 %, de modo que tus probadores internos sean elegibles durante cada lanzamiento de características.
+Supongamos que eres un gestor de producto que quiere asegurarse de que tus testers internos siempre reciban el conmutador de características cuando lanzas un nuevo producto. Puedes añadir tu Segment de testers internos a tu primera regla y configurarla al 100 %, para que tus testers internos sean elegibles durante cada lanzamiento de características.
 
 ## Utilizar el campo «habilitado» para tus conmutadores de características {#enabled}
 
@@ -318,7 +318,7 @@ m.Braze.logFeatureFlagImpression("expanded_user_profile");
 
 ### Acceder a las propiedades {#accessing-properties}
 
-Para acceder a las propiedades de un conmutador de características, utiliza uno de los métodos siguientes, según el tipo que hayas definido en el dashboard.
+Para acceder a las propiedades de un conmutador de características, utiliza uno de los métodos siguientes, según el tipo que hayas definido en el panel.
 
 Si no existe ninguna propiedad del tipo correspondiente para la clave que proporcionaste, estos métodos devolverán `null`.
 
@@ -885,27 +885,27 @@ export const useFeatureFlag = (id: string): FeatureFlag => {
 {% endtab %}
 {% endtabs %}
 
-## Comprobación de la elegibilidad de los usuarios {#checking-user-eligibility}
+## Comprobar la elegibilidad del usuario {#checking-user-eligibility}
 
-Para comprobar a qué conmutadores de características tiene derecho un usuario en Braze, ve a **Audiencia** > **Buscar usuarios**, luego busca y selecciona un usuario.
+Para comprobar a qué conmutadores de características es elegible un usuario en Braze, ve a **Audiencia** > **Buscar usuarios**, luego busca y selecciona un usuario.
 
-En la pestaña **Feature Flags Eligibility**, puedes filtrar la lista de conmutadores de características elegibles por plataforma, aplicación o dispositivo. También puedes obtener una vista previa de la carga útil que se devolverá al usuario seleccionando <i class="fa-solid fa-eye" aria-label="Vista previa"></i> junto a un conmutador de características.
+En la pestaña **Elegibilidad de conmutadores de características**, puedes filtrar la lista de conmutadores de características elegibles por plataforma, aplicación o dispositivo. También puedes previsualizar la carga útil que se devolverá al usuario seleccionando <i class="fa-solid fa-eye" aria-label="Vista previa"></i> junto a un conmutador de características.
 
-![Imagen que muestra la tabla de conmutadores de características para los que un usuario es elegible.]({% image_buster /assets/img/feature_flags/eligibility.png %}){: style="max-width:85%;"}
+![Una imagen que muestra la tabla de conmutadores de características para los que un usuario es elegible.]({% image_buster /assets/img/feature_flags/eligibility.png %}){: style="max-width:85%;"}
 
 ## Ver el registro de cambios {#viewing-the-changelog}
 
-Para ver el registro de cambios de un conmutador de características, abre el conmutador y selecciona **Changelog**.
+Para ver el registro de cambios de un conmutador de características, abre un conmutador de características y selecciona **Registro de cambios**.
 
-![Página de edición de un conmutador de características, con el botón «Changelog» resaltado.]({% image_buster /assets/img/feature_flags/changelog/open_changelog.png %}){: style="max-width:60%;"}
+![Página "Editar" de un conmutador de características, con el botón "Registro de cambios" resaltado.]({% image_buster /assets/img/feature_flags/changelog/open_changelog.png %}){: style="max-width:60%;"}
 
-Aquí puedes revisar cuándo se produjo un cambio, quién lo realizó, a qué categoría pertenece y mucho más.
+Aquí puedes revisar cuándo se realizó un cambio, quién lo hizo, a qué categoría pertenece y más.
 
 ![El registro de cambios del conmutador de características seleccionado.]({% image_buster /assets/img/feature_flags/changelog/changelog.png %}){: style="max-width:90%;"}
 
 ## Segmentación con conmutadores de características {#segmentation}
 
-Braze hace un seguimiento automático de los usuarios que tienen habilitado un conmutador de características. Puedes crear un segmento o dirigir mensajería utilizando el [filtro **Feature Flag**]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/#feature-flags). Para más información sobre cómo filtrar por segmentos, consulta [Crear un segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/).
+Braze hace un seguimiento automático de los usuarios que tienen habilitado un conmutador de características. Puedes crear un segmento o dirigir mensajería utilizando el [filtro **Feature Flag**]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters#feature-flags). Para más información sobre cómo filtrar por segmentos, consulta [Crear un segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment).
 
 ![La sección «Filtros» con «Feature Flag» escrito en la barra de búsqueda del filtro.]({% image_buster /assets/img/feature_flags/feature-flags-filter-name.png %}){: style="max-width:75%;"}
 
@@ -913,15 +913,15 @@ Braze hace un seguimiento automático de los usuarios que tienen habilitado un c
 Para evitar segmentos recursivos, no es posible crear un segmento que haga referencia a otros conmutadores de características.
 {% endalert %}
 
-## Buenas prácticas {#best-practices}
+## Prácticas recomendadas {#best-practices}
 
-### No combines despliegues con Canvas o experimentos {#dont-combine-rollouts-with-canvases-or-experiments}
+### No combines los despliegues con Canvas o experimentos {#dont-combine-rollouts-with-canvases-or-experiments}
 
-Para evitar que los usuarios sean habilitados y deshabilitados por diferentes puntos de entrada, debes establecer el control deslizante de despliegue en un valor superior a cero O habilitar el conmutador de características en un Canvas o experimento. Como práctica recomendada, si piensas utilizar un conmutador de características en un Canvas o experimento, mantén el porcentaje de despliegue en cero.
+Para evitar que los usuarios se habiliten y deshabiliten desde diferentes puntos de entrada, debes establecer el control deslizante de despliegues en un valor mayor que cero O habilitar el conmutador de características en un Canvas o experimento. Como práctica recomendada, si planeas utilizar un conmutador de características en un Canvas o experimento, mantén el porcentaje de despliegue en cero.
 
 ### Convenciones de nomenclatura {#naming-conventions}
 
-Para que tu código sea claro y coherente, considera la posibilidad de utilizar el siguiente formato al nombrar el ID de tu conmutador de características:
+Para mantener tu código claro y coherente, considera usar el siguiente formato cuando asignes un nombre al ID de tu conmutador de características:
 
 ```plaintext
 BEHAVIOR_PRODUCT_FEATURE
@@ -929,34 +929,34 @@ BEHAVIOR_PRODUCT_FEATURE
 
 Sustituye lo siguiente:
 
-| Marcador de posición | Descripción                                                                                                               |
+| Marcador de posición | Descripción |
 |-------------|---------------------------------------------------------------------------------------------------------------------------|
-| `BEHAVIOR`  | El comportamiento de la característica. En tu código, asegúrate de que el comportamiento está desactivado de forma predeterminada y evita utilizar frases como `disabled` en el nombre del conmutador de características. |
-| `PRODUCT`   | El producto al que pertenece la característica.                                                                                       |
-| `FEATURE`    | El nombre de la característica.                                                                                                  |
+| `BEHAVIOR`  | El comportamiento de la característica. En tu código, asegúrate de que el comportamiento esté deshabilitado de forma predeterminada y evita usar frases como `disabled` en el nombre del conmutador de características. |
+| `PRODUCT`   | El producto al que pertenece la característica. |
+| `FEATURE`    | El nombre de la característica. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Convenciones de nomenclatura" }
 
-He aquí un ejemplo de conmutador de características en el que `show` es el comportamiento, `animation_profile` es el producto y `driver` es la característica:
+Este es un ejemplo de conmutador de características donde `show` es el comportamiento, `animation_profile` es el producto y `driver` es la característica:
 
 ```plaintext
 show_animation_profile_driver
 ```
 
-### Planificar con antelación {#planning-ahead}
+### Planifica con anticipación {#planning-ahead}
 
-Ve siempre a lo seguro. A la hora de considerar nuevas características que puedan requerir un interruptor de apagado, es mejor liberar código nuevo con un conmutador de características y no necesitarlo que darse cuenta de que es necesaria una nueva actualización de la aplicación.
+Ve siempre a lo seguro. Al considerar nuevas características que puedan necesitar un interruptor de apagado, es mejor lanzar código nuevo con un conmutador de características y no necesitarlo, que darte cuenta de que se requiere una nueva actualización de la aplicación.
 
 ### Sé descriptivo {#be-descriptive}
 
-Añade una descripción a tu conmutador de características. Aunque se trata de un campo opcional en Braze, puede ayudar a responder preguntas que otros puedan tener al examinar los conmutadores de características disponibles.
+Añade una descripción a tu conmutador de características. Aunque este es un campo opcional en Braze, puede ayudar a responder preguntas que otros puedan tener al explorar los conmutadores de características disponibles.
 
-- Datos de contacto del responsable de la habilitación y comportamiento de este conmutador
-- Cuándo se debe desactivar este conmutador
+- Datos de contacto de quién es responsable de la habilitación y el comportamiento de este conmutador
+- Cuándo se debe deshabilitar este conmutador
 - Enlaces a documentación o notas sobre la nueva característica que controla este conmutador
-- Cualquier dependencia o nota sobre cómo utilizar la característica
+- Cualquier dependencia o nota sobre cómo usar la característica
 
-### Limpiar conmutadores de características antiguos {#clean-up-old-feature-flags}
+### Limpia los conmutadores de características antiguos {#clean-up-old-feature-flags}
 
-Todos somos culpables de dejar características activadas al 100 % durante más tiempo del necesario.
+Todos somos culpables de dejar características activas al 100 % de despliegue más tiempo del necesario.
 
-Para ayudar a mantener limpio tu código (y el dashboard de Braze), elimina los conmutadores de características permanentes de tu base de código una vez que todos los usuarios se hayan actualizado y ya no necesites la opción de desactivar la característica. Esto ayuda a reducir la complejidad de tu entorno de desarrollo, pero también a mantener ordenada tu lista de conmutadores de características.
+Para ayudar a mantener tu código (y el panel de Braze) limpio, elimina los conmutadores de características permanentes de tu código base una vez que todos los usuarios se hayan actualizado y ya no necesites la opción de deshabilitar la característica. Esto ayuda a reducir la complejidad de tu entorno de desarrollo, y además mantiene ordenada tu lista de conmutadores de características.

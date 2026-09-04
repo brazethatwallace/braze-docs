@@ -14,65 +14,71 @@ tool: Canvas
 
 ## So funktioniert es {#how-it-works}
 
-![Ein Canvas-Schritt „An Ziel senden“, um Nutzer:innen in einen neuen Canvas zu senden.]({% image_buster /assets/img/send_to_destination1.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
+![Ein „An Ziel senden“-Schritt, um Nutzer:innen an einen neuen Canvas zu senden.]({% image_buster /assets/img/send_to_destination1.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
 
-Ihr aktueller Canvas mit dem Canvas-Schritt „An Ziel senden“ ist die Quelle. Innerhalb des Schritts können Sie den Ziel-Canvas auswählen. Nutzer:innen aus dem Quell-Canvas müssen die Eingangs- und Zielgruppenkriterien des Ziel-Canvas erfüllen. Nehmen wir an, Sie haben zwei Canvases:
+Ihr aktueller Canvas mit dem „An Ziel senden“-Schritt ist die Quelle. Innerhalb des Schritts können Sie den Ziel-Canvas auswählen. Nutzer:innen aus dem Quell-Canvas müssen die Zielgruppenkriterien des Ziel-Canvas erfüllen. Nehmen wir an, Sie haben zwei Canvases:
 
-- **Quelle:** Canvas 1, enthält einen Canvas-Schritt „An Ziel senden“, der Nutzer:innen an Canvas 2 sendet
-- **Ziel:** Canvas 2, mit dem Eingangskriterium, Nutzer:innen aufzunehmen, die einen Artikel bestellt haben
+- **Quelle:** Canvas 1 enthält einen „An Ziel senden“-Schritt, der Nutzer:innen an Canvas 2 sendet
+- **Ziel:** Canvas 2 mit Zielgruppenkriterien für Nutzer:innen, die einen Artikel bestellt haben
 
-Dieser Schritt ermöglicht es, Nutzer:innen von Canvas 1 an Canvas 2 zu senden. Wenn Nutzer:innen aus Canvas 1 den Canvas-Schritt „An Ziel senden“ erreichen, werden sie anhand der Eingangs- und Zielgruppenkriterien von Canvas 2 geprüft, um festzustellen, ob sie berechtigt sind, den Canvas zu betreten. In diesem Fall können Nutzer:innen, die einen Artikel bestellt haben, Canvas 2 betreten und gleichzeitig ihre Journey in Canvas 1 fortsetzen. Nutzer:innen, die keinen Artikel bestellt haben, setzen ihre Journey nur in Canvas 1 fort.
+Dieser Schritt ermöglicht es, Nutzer:innen von Canvas 1 an Canvas 2 zu senden. Wenn Nutzer:innen aus Canvas 1 den „An Ziel senden“-Schritt erreichen, werden sie anhand der Zielgruppenkriterien von Canvas 2 bewertet, um festzustellen, ob sie berechtigt sind, den Canvas zu betreten. In diesem Fall können Nutzer:innen, die einen Artikel bestellt haben, Canvas 2 betreten und gleichzeitig ihre Journey in Canvas 1 fortsetzen. Nutzer:innen, die keinen Artikel bestellt haben, setzen ihre Journey nur in Canvas 1 fort.
 
-### Eintrittsverhalten {#entry-behavior}
+### Entry-Verhalten {#entry-behavior}
 
-Der Canvas-Schritt „An Ziel senden“ leitet Nutzer:innen in den Ziel-Canvas, sobald sie diesen Schritt erreichen. Dieser Schritt fungiert als einmaliger Eintrittspunkt in den Ziel-Canvas. Nutzer:innen, die die Eingangs- und Zielgruppenkriterien des Ziel-Canvas erfüllen, beginnen diese Canvas-Journey. Nutzer:innen, die diese Kriterien zu diesem Zeitpunkt nicht erfüllen, betreten den Ziel-Canvas nicht und setzen ihre Journey im Quell-Canvas fort.
+Der „An Ziel senden“-Schritt lässt Nutzer:innen in den Ziel-Canvas eintreten, sobald sie diesen Schritt erreichen. Dieser Schritt fungiert als einmaliger Entry-Punkt in den Ziel-Canvas. Nutzer:innen, die die Zielgruppenkriterien des Ziel-Canvas erfüllen, beginnen diese Canvas-Journey. Nutzer:innen, die diese Kriterien zu diesem Zeitpunkt nicht erfüllen, betreten den Ziel-Canvas nicht und setzen ihre Journey im Quell-Canvas fort.
 
-Wenn der Ziel-Canvas einen geplanten Entry-Zeitplan verwendet, umgeht der Canvas-Schritt „An Ziel senden“ diesen Entry-Zeitplan. Er umgeht außerdem die Option [**Eintrittsvolumen begrenzen**]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#selecting-entry-controls) unter **Eingangskontrollen** im Ziel-Canvas, wenn diese auf **Jedes Mal, wenn der Canvas geplant ist** eingestellt ist. Nutzer:innen, die über diesen Schritt gesendet werden, warten nicht auf das nächste geplante Auswertungsfenster – sie werden ausgewertet und eingetragen, wenn sie den Canvas-Schritt „An Ziel senden“ erreichen, sofern sie die Eingangs- und Zielgruppenkriterien des Ziel-Canvas erfüllen.
+„An Ziel senden“ berücksichtigt auch die [Wiedereintrittseinstellungen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#selecting-entry-controls) des Ziel-Canvas unter **Entry Controls**. Wenn Nutzer:innen nicht berechtigt sind, erneut in den Ziel-Canvas einzutreten, werden sie nicht dorthin gesendet und setzen ihre Journey im Quell-Canvas fort.
 
-Wenn der Ziel-Canvas einen aktionsbasierten Eintritt verwendet, umgeht der Canvas-Schritt „An Ziel senden“ die Anforderung, dass Nutzer:innen die konfigurierte Eintrittsaktion ausführen müssen, um diesen Canvas zu betreten.
+Wenn der Ziel-Canvas einen geplanten Eintrittszeitplan verwendet, umgeht der „An Ziel senden“-Schritt diesen Eintrittszeitplan. Er umgeht außerdem die Einstellung [**Eintrittsvolumen begrenzen**]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#selecting-entry-controls) unter **Entry Controls** im Ziel-Canvas, wenn diese auf **Every time Canvas is schedule** eingestellt ist. Nutzer:innen, die über diesen Schritt gesendet werden, warten nicht auf das nächste geplante Auswertungsfenster – sie werden sofort anhand der Zielgruppenkriterien des Ziel-Canvas bewertet und treten ein, sobald sie den „An Ziel senden“-Schritt erreichen.
 
-## Einen Canvas-Schritt „An Ziel senden“ erstellen {#create-a-send-to-destination-step}
+Wenn der Ziel-Canvas einen aktionsbasierten Eintritt verwendet, umgeht der „An Ziel senden“-Schritt die Anforderung, dass Nutzer:innen die konfigurierte Eintrittsaktion ausführen müssen, um diesen Canvas zu betreten.
 
-### 1. Schritt: Einen Schritt hinzufügen {#step-1-add-a-step}
+## Einen „An Ziel senden“-Schritt erstellen {#create-a-send-to-destination-step}
 
-Ziehen Sie die Komponente **Send to Destination** per Drag-and-Drop aus der Seitenleiste, oder wählen Sie den <i class="fas fa-plus-circle"></i> Plus-Button am unteren Rand eines Schritts und wählen Sie **Send to Destination**.
+### Schritt 1: Einen Schritt hinzufügen {#step-1-add-a-step}
 
-### 2. Schritt: Ihr Ziel auswählen {#step-2-choose-your-destination}
+Ziehen Sie die Komponente **An Ziel senden** per Drag-and-drop aus der Seitenleiste, oder wählen Sie den <i class="fas fa-plus-circle"></i> Plus-Button am unteren Rand eines Schritts und wählen Sie **An Ziel senden**.
 
-Wählen Sie das Dropdown aus oder geben Sie den Canvas-Namen im Feld **Destination** ein. Wählen Sie dann **Done**.
+### Schritt 2: Ihr Ziel auswählen {#step-2-choose-your-destination}
 
-![Ein Canvas-Schritt „An Ziel senden“, der so eingerichtet ist, dass Nutzer:innen von einem Canvas namens „Feature Adoption“ an „New Canvas“ gesendet werden.]({% image_buster /assets/img/send_to_destination2.png %})
+Wählen Sie das Dropdown-Menü aus oder geben Sie den Canvas-Namen in das Feld **Ziel** ein. Wählen Sie dann **Fertig**.
 
-### 3. Schritt: Vorschau Ihres Ziels {#step-3-preview-your-destination}
+![Ein „An Ziel senden“-Schritt, der so eingerichtet ist, dass Nutzer:innen von einem Canvas namens „Feature Adoption“ zu „New Canvas“ gesendet werden.]({% image_buster /assets/img/send_to_destination2.png %})
 
-Sie können **Preview destination** auswählen, um den Canvas anzuzeigen, an den Sie Nutzer:innen senden.
+### Schritt 3: Ihr Ziel in der Vorschau anzeigen {#step-3-preview-your-destination}
 
-Nachdem Sie diesen Canvas-Schritt eingerichtet haben, können Sie eine [Vorschau des Nutzerpfads]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths) anzeigen, um zu sehen, ob Nutzer:innen zum nächsten Schritt im aktuellen Canvas weitergeleitet werden und ob sie auch zum Ziel-Canvas weitergeleitet werden.
+Sie können **Ziel in der Vorschau anzeigen** auswählen, um den Canvas anzuzeigen, an den Sie Nutzer:innen senden.
+
+Nachdem Sie diesen Canvas-Schritt eingerichtet haben, können Sie [den Nutzerpfad in der Vorschau anzeigen]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths), um zu sehen, ob Nutzer:innen zum nächsten Schritt im aktuellen Canvas weitergeleitet werden und ob sie auch zum Ziel-Canvas weitergeleitet werden.
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 
-### Kann ich als Ziel einen Canvas im Entwurfsstatus festlegen? {#can-i-set-the-destination-to-a-draft-canvas}
+### Kann ich ein Canvas im Entwurfsstatus als Ziel festlegen? {#can-i-set-the-destination-to-a-draft-canvas}
 
-Ja. Der Ziel-Canvas kann den Status „Entwurf“ oder „Inaktiv“ haben.
+Ja. Das Ziel-Canvas kann den Status „Entwurf“ oder „Inaktiv“ haben.
 
 ### Bleiben Kontextvariablen erhalten? {#are-context-variables-preserved}
 
-Ja. Der [Kontext]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables) des Quell-Canvas wird immer an den Ziel-Canvas übergeben.
+Ja. Der [Kontext]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables) des Quell-Canvas wird an das Ziel-Canvas übergeben. Kontextvariablen müssen jedoch innerhalb des Quell-Canvas aufgerufen werden, damit sie an das Ziel-Canvas übergeben werden.
 
-### Kann ich den Canvas-Schritt „An Ziel senden“ verwenden, um Canvases zu verbinden, anstatt API- oder Nutzeraktualisierungs-Workarounds zu nutzen? {#can-i-use-the-send-to-destination-step-to-connect-canvases-instead-of-using-api-or-user-update-workarounds}
+### Kann ich den Schritt „An Ziel senden“ verwenden, um Canvases zu verbinden, anstatt API- oder User-Update-Workarounds zu nutzen? {#can-i-use-the-send-to-destination-step-to-connect-canvases-instead-of-using-api-or-user-update-workarounds}
 
-Ja. Sie können Canvases mit dem Canvas-Schritt „An Ziel senden“ verbinden, wenn Nutzer:innen direkt in eine andere Canvas-Journey wechseln sollen.
+Ja. Sie können Canvases mit dem Schritt „An Ziel senden“ verbinden, wenn Nutzer:innen direkt in eine andere Canvas-Journey wechseln sollen.
 
-Sie benötigen keine separaten Nutzeraktualisierungs-Schritte, API-Trigger oder Webhooks, nur um Nutzer:innen zwischen Canvases zu verschieben – vorausgesetzt, sie erfüllen die Kriterien des Ziel-Canvas zum Zeitpunkt des Sendens.
+Sie benötigen keine separaten User-Update-Schritte, API-Trigger oder Webhooks, nur um Nutzer:innen zwischen Canvases zu verschieben – vorausgesetzt, sie erfüllen die Zielgruppenkriterien des Ziel-Canvas zum Zeitpunkt des Versands.
 
-### Betreten Nutzer:innen den Ziel-Canvas am Anfang? {#do-users-enter-at-the-start-of-the-destination-canvas}
+### Treten Nutzer:innen am Anfang des Ziel-Canvas ein? {#do-users-enter-at-the-start-of-the-destination-canvas}
 
-Berechtigte Nutzer:innen betreten sofort den ersten Schritt des Ziel-Canvas. Sie warten nicht auf einen späteren geplanten Eintrittszeitpunkt des Ziel-Canvas. Es ist nicht möglich, auf einen bestimmten Canvas-Schritt innerhalb des Ziel-Canvas zu verlinken.
+Berechtigte Nutzer:innen treten sofort beim ersten Schritt des Ziel-Canvas ein. Sie warten nicht auf einen späteren geplanten Eintrittszeitpunkt des Ziel-Canvas. Ein Einstieg in einen bestimmten Canvas-Schritt innerhalb des Ziel-Canvas ist nicht möglich.
 
-### Berücksichtigt der Canvas-Schritt „An Ziel senden“ den geplanten Entry-Zeitplan eines Ziel-Canvas? {#does-the-send-to-destination-step-respect-a-scheduled-destination-canvas-entry-schedule}
+### Berücksichtigt der Schritt „An Ziel senden“ den geplanten Eintrittszeitplan eines Ziel-Canvas? {#does-the-send-to-destination-step-respect-a-scheduled-destination-canvas-entry-schedule}
 
-Nein. Wenn der Ziel-Canvas einen geplanten Entry-Typ verwendet, warten Nutzer:innen, die über den Canvas-Schritt „An Ziel senden“ gesendet werden, nicht auf das nächste geplante Auswertungsfenster. Sie werden ausgewertet und eingetragen, wenn sie den Canvas-Schritt „An Ziel senden“ erreichen, sofern sie die Eingangs- und Zielgruppenkriterien des Ziel-Canvas erfüllen.
+Nein. Wenn das Ziel-Canvas einen geplanten Eintrittstyp verwendet, warten Nutzer:innen, die über den Schritt „An Ziel senden“ gesendet werden, nicht auf das nächste geplante Evaluierungsfenster. Sie werden sofort anhand der Zielgruppenkriterien ausgewertet und treten ein, sobald sie den Schritt „An Ziel senden“ erreichen.
 
-### Wie funktioniert das Fortschrittsverhalten bei Canvas-Schritten „An Ziel senden“? {#how-does-advancement-behavior-work-for-send-to-destination-steps}
+### Wie funktioniert das Fortschrittsverhalten bei Schritten vom Typ „An Ziel senden“? {#how-does-advancement-behavior-work-for-send-to-destination-steps}
 
-Nutzer:innen, die den Canvas-Schritt „An Ziel senden“ erreichen, setzen ihre Journey fort, wenn es weitere Schritte im Quell-Canvas gibt. Wenn Nutzer:innen auch die Eingangsregeln des Ziel-Canvas erfüllen, können sie diesen Canvas betreten und diese Journey beginnen.
+Nutzer:innen, die den Schritt „An Ziel senden“ erreichen, setzen ihre Journey fort, wenn im Quell-Canvas weitere Schritte vorhanden sind. Wenn Nutzer:innen zusätzlich die Zielgruppenkriterien des Ziel-Canvas erfüllen, können sie in dieses Canvas eintreten und diese Journey beginnen.
+
+### Unterliegt der Schritt „An Ziel senden“ API-Rate-Limits? {#is-the-send-to-destination-step-subject-to-api-rate-limits}
+
+Nein. Nutzer:innen werden innerhalb von Braze zwischen Canvases verschoben, ohne dass externe API-Aufrufe erfolgen.

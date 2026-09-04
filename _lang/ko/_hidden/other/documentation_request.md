@@ -12,7 +12,7 @@ hide_toc: true
       background-color: #fff;
       font-weight: 400;
       font-size: 15px;
-      font-family: Sailec W00 Regular,Arial,sans-serif;
+      font-family: 'Aribau Grotesk Regular', 'Aribau Grotesk', Arial, sans-serif;
       font-style: normal;
       color: #212123;
   }
@@ -74,7 +74,7 @@ hide_toc: true
     }
     .h1, h1  {
       font-size: 34pt;
-      font-family: Sailec W00 Bold, Arial, sans-serif;
+      font-family: 'Aribau Grotesk Bold', 'Aribau Grotesk', 'Aribau Grotesk Regular', Arial, sans-serif;
       margin-bottom: 24px;
     }
 
@@ -83,7 +83,7 @@ hide_toc: true
     }
     .subhead {
       font-size: 14pt;
-      font-family: Sailec W00 Regular,Arial,sans-serif;
+      font-family: 'Aribau Grotesk Regular', 'Aribau Grotesk', Arial, sans-serif;
       margin-bottom: 16px;
     }
 
@@ -118,7 +118,7 @@ hide_toc: true
       padding: 0px 1.5rem;
       height: 40px;
       min-width: 200px;
-      font-family: Sailec W00 Bold, Arial, sans-serif;
+      font-family: 'Aribau Grotesk Bold', 'Aribau Grotesk', 'Aribau Grotesk Regular', Arial, sans-serif;
       font-size: 12pt;
       font-weight: 700;
       border-radius: 2px;
@@ -185,7 +185,7 @@ hide_toc: true
     }
     .form-group label {
       font-size: 13pt !important;
-      font-family: Sailec W00 Bold, Arial, sans-serif;
+      font-family: 'Aribau Grotesk Bold', 'Aribau Grotesk', 'Aribau Grotesk Regular', Arial, sans-serif;
       margin-bottom: 6px;
     }
     input[type=text] {
@@ -196,25 +196,25 @@ hide_toc: true
     }
     #doc_release_notes_label {
       font-size: 12pt !important;
-      font-family: Sailec W00 Regular,Arial,sans-serif;
+      font-family: 'Aribau Grotesk Regular', 'Aribau Grotesk', Arial, sans-serif;
     }
     #doc_verify_label {
       font-size: 12pt !important;
-      font-family: Sailec W00 Regular,Arial,sans-serif;
+      font-family: 'Aribau Grotesk Regular', 'Aribau Grotesk', Arial, sans-serif;
     }
     input[type="checkbox"] {
         display:none;
     }
     input[type="checkbox"] + label {
       font-size: 14pt !important;
-      font-family: Sailec W00 Regular,Arial,sans-serif;
+      font-family: 'Aribau Grotesk Regular', 'Aribau Grotesk', Arial, sans-serif;
     }
     .form-check {
       padding-left: 0;
     }
     .sublabel {
       font-size: 12pt !important;
-      font-family: Sailec W00 Regular,Arial,sans-serif;
+      font-family: 'Aribau Grotesk Regular', 'Aribau Grotesk', Arial, sans-serif;
       color: #5E6C75;
       line-height: 1.4;
     }
@@ -264,7 +264,7 @@ hide_toc: true
     }
     .inline_text {
       display: flex;
-      font-family: Sailec, Arial, sans-serif;
+      font-family: 'Aribau Grotesk Regular', 'Aribau Grotesk', Arial, sans-serif;
       font-size: 10pt;
     }
     #braze_internal {
@@ -273,7 +273,7 @@ hide_toc: true
       background-color: #FFEEE3;
       padding: 10px;
       height: 45px;
-      font-family: Sailec W00 Bold, Arial, sans-serif;
+      font-family: 'Aribau Grotesk Bold', 'Aribau Grotesk', 'Aribau Grotesk Regular', Arial, sans-serif;
       font-size: 12tpt;
       position: absolute;
       left: 0;
@@ -415,7 +415,7 @@ hide_toc: true
           $('#doc_div').hide();
           $('#doc_thankyou').show();
           $('#doc_thankyou_msg').fadeTo(800,0,function(){
-              $(this).html('<h3>제출해 주셔서 감사합니다!</h3> 궁금한 사항이 있으면 팀에서 연락드리겠습니다. 티켓 상태를 확인하거나 댓글을 추가하려면 이메일에서 티켓 확인 메일을 확인해 주세요.').fadeTo(800,1);
+              $(this).html('<h3>제출해 주셔서 감사합니다!</h3> 궁금한 사항이 있으면 저희 팀에서 연락드리겠습니다. 티켓 상태를 확인하거나 댓글을 추가하려면 이메일로 받은 티켓 확인 메일을 확인해 주세요.').fadeTo(800,1);
           });
         });
 
@@ -424,7 +424,7 @@ hide_toc: true
     });
   </script>
 
-<div id="braze_internal" ><i class="fa-solid fa-lock"></i> 내부 전용. 고객과 공유하지 마십시오.</div>
+<div id="braze_internal" ><i class="fa-solid fa-lock"></i> 내부 전용. 고객과 공유하지 마세요.</div>
 <div class="container-fluid" id="main-container">
 
       <div id="doc_div">
@@ -445,7 +445,7 @@ hide_toc: true
                 요청 유형
                 </label>
               <select id="doc_urgent" name="Request_Type" class="drop-down-sel">
-              <option value="urgent">긴급: Braze 문서에 문제가 있거나 우선순위가 높은 업데이트가 있습니다</option>
+              <option value="urgent">긴급: Braze Docs에 문제가 있거나 우선순위가 높은 업데이트가 있습니다</option>
               <option value="feature">기능: 새로운 기능 또는 기존 기능의 새로운 동작이 있습니다</option>
               <option value="suggestion" selected="selected">제안: 문서에 대한 개선 제안 또는 명확한 설명이 필요합니다</option>
               </select>
@@ -457,7 +457,7 @@ hide_toc: true
               <div id="disclosure-warning" class="alert alert-important" role="alert">
                 <div class="alert-msg">
                   <b>중요: </b>
-                  Copilot이 이 제안을 작성하며, 문서 팀에서 검토합니다. <strong>고객별 정보</strong>나 <strong>링크</strong>가 포함되어 있지 않은지 확인해 주세요.
+                  인공지능이 이 제안의 초안 작성을 지원하며, 문서 팀과 기타 내부 이해관계자가 게시 전에 검토합니다. <strong>고객별 정보</strong>나 <strong>고객 링크</strong>가 포함되어 있지 않은지 확인해 주세요.
                 </div>
               </div>
               </div>
@@ -491,7 +491,7 @@ hide_toc: true
               <div class="form-group">
 
                 <label for="doc_description" id="doc_description_label" style="margin-bottom:6px;line-height:1.2;">설명</label>
-                <div class="sublabel" style="margin-bottom:6px;">요청된 업데이트에 대해 가능한 한 자세히 설명해 주세요.</div>
+                <div class="sublabel" style="margin-bottom:6px;">요청하신 업데이트에 대해 가능한 한 자세히 설명해 주세요.</div>
                 <textarea name="Description" class="form-control" id="doc_description" data-toggle="popover" data-trigger="focus" data-placement="top" data-content=""
                   rows="7"></textarea>
               </div>
@@ -507,7 +507,7 @@ hide_toc: true
               <div class="form-group">
 
                 <label for="doc_snippet" id="doc_snippet_label" style="margin-bottom:6px;line-height:1.2;">코드 스니펫 (선택 사항)</label>
-                <div class="sublabel" style="margin-bottom:6px;">개발자에게 유용합니다. 컨텍스트를 포함하고 어떤 코드 언어가 사용되었는지 명확히 해 주세요.</div>
+                <div class="sublabel" style="margin-bottom:6px;">개발자에게 유용합니다. 컨텍스트를 포함하고 사용된 코드 언어를 명확히 기재해 주세요.</div>
                 <textarea name="Snippet" class="form-control" id="doc_snippet" data-toggle="popover" data-trigger="focus" data-placement="top" data-content=""
                   rows="7"></textarea>
               </div>

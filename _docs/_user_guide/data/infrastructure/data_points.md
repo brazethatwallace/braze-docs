@@ -1,6 +1,6 @@
 ---
 nav_title: Data points
-article_title: Data Points Overview
+article_title: "Data points"
 page_order: 3
 page_type: reference
 description: "This reference article outlines what data points are at Braze and how you can be aware of their usage."
@@ -15,7 +15,7 @@ Data points are based on information logged against user profiles. You can find 
 
 ## Definition
 
-"Data points" shall refer to a billable unit of use of the Braze Services, measured by a session start, session end, custom event, or purchase recorded, as well as any attribute set on an end user profile. For clarity, each one of the above-mentioned data (such as session start, session end, custom event, or purchase recorded, as well as any attribute) set to an end user’s profile at one point in time shall each count as a single data point.
+"Data points" shall refer to a billable unit of use of the Braze Services, measured by a session start, session end, custom event, or purchase recorded, as well as any attribute set on an end user profile. For clarity, each one of the earlier in this section-mentioned data (such as session start, session end, custom event, or purchase recorded, as well as any attribute) set to an end user’s profile at one point in time shall each count as a single data point.
 
 Data and events collected by default by the Braze Services, including, for example, push tokens, device information, and all campaign engagement tracking events, such as email opens and push notification clicks, are *not* counted as data points.
 
@@ -42,7 +42,7 @@ In sum, data points are accumulated when a user's profile data is updated or whe
 
 You can find a breakdown of how Braze accumulates data points in the following sections. If you ever have any questions about the nuances of Braze data points, your Braze account manager can answer them.
 
-For API ingestion, each billable update through [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) follows the same rules as other profile updates: for example, each **custom event** logged counts as a data point, and **custom attributes** generally count per attribute updated in that request (see the billable tables below and [Special circumstances](#special-circumstances)).
+For API ingestion, each billable update through [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) follows the same rules as other profile updates: for example, each **custom event** logged counts as a data point, and **custom attributes** generally count per attribute updated in that request (see the billable tables in the following section and [Special circumstances](#special-circumstances)).
 
 The following actions do not log data points:
 - Deleting users from Braze

@@ -36,7 +36,7 @@ Web-Push-Benachrichtigungen liefern dringende, handlungsrelevante Updates, die s
 - Nutzer:innen mit klaren Call-to-Action-Buttons zurück auf Ihre Website bringen
 - Ihre Push-Benachrichtigungen mit Produkt- und Kundeninformationen personalisieren, um Ihre Nachricht relevant zu gestalten
 
-Web-Push funktioniert genauso wie App-Push-Benachrichtigungen auf Ihrem Telefon. Weitere Informationen zum Erstellen einer Web-Push-Benachrichtigung finden Sie unter [Push-Benachrichtigung erstellen]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#creating-a-push-message).
+Web-Push funktioniert genauso wie App-Push-Benachrichtigungen auf Ihrem Telefon. Weitere Informationen zum Erstellen einer Web-Push-Benachrichtigung finden Sie unter [Push-Benachrichtigung erstellen]({{site.baseurl}}/user_guide/channels/push/create_a_push_message).
 
 ![Web-Push-Beispiel mit derselben Push-Nachricht auf einem Laptop und einem Telefon.]({% image_buster /assets/img_archive/Macbook_Push.png %}){: style="border:none"}
 
@@ -73,10 +73,10 @@ Weitere Informationen zu den Push-Protokollstandards und der Browserunterstützu
 
 ## 410 (Gone) und ungültige Web-Push-Endpunkte {#410-gone-and-invalid-web-push-endpoints}
 
-Browser und Push-Dienste können **410 Gone** (oder ähnliche Fehler wie „Endpunkt nicht gültig“) zurückgeben, wenn ein Web-Push-Abonnement nicht mehr akzeptiert wird. Häufige Ursachen sind:
+Browser und Push-Dienste können **410 Gone** (oder ähnliche Fehler wie „Endpunkt nicht gültig“) zurückgeben, wenn ein Web-Push-Abo nicht mehr akzeptiert wird. Häufige Ursachen sind:
 
 - Die Nutzer:innen haben Benachrichtigungen für Ihre Website in den Browser- oder Betriebssystemeinstellungen deaktiviert.
-- Ein anderes Nutzerprofil hat sich im selben Browserprofil angemeldet, sodass der Endpunkt auf den/die neue:n Abonnent:in rotiert wurde.
-- Das Abonnement ist nach einer langen Zeit ohne Engagement abgelaufen – nachdem die Nutzer:innen erneut zugestimmt haben, wird in der nächsten Sitzung ein neues Abonnement erstellt.
+- Ein anderes Kundenprofil hat sich im selben Browserprofil angemeldet, sodass der Endpunkt auf den/die neue:n Abonnent:in rotiert wurde.
+- Das Abo ist nach einer langen Zeit ohne Engagement abgelaufen – nachdem die Nutzer:innen erneut zugestimmt haben, wird in der nächsten Sitzung ein neues Abo erstellt.
 
-Nachdem die Nutzer:innen Benachrichtigungen wieder aktiviert haben, lösen Sie den normalen Web-Push-Registrierungsablauf Ihrer Website erneut aus, damit Braze den neuen Abonnement-Endpunkt speichert.
+Nachdem die Nutzer:innen Benachrichtigungen wieder aktiviert haben, lösen Sie den normalen Web-Push-Registrierungsablauf Ihrer Website erneut aus, damit Braze den neuen Abo-Endpunkt speichert.

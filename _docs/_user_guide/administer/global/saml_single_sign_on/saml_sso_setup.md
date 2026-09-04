@@ -5,7 +5,6 @@ page_order: 0
 page_type: tutorial
 toc_headers: h2
 description: "This article will walk you through how to enable SAML single sign-on for your Braze account."
-
 ---
 
 # Service Provider (SP) initiated login
@@ -18,9 +17,9 @@ Upon setup, you will be asked to provide a sign-on URL and an Assertion Consumer
 
 | Requirement | Details |
 |---|---|
-| Assertion Consumer Service (ACS) URL | `https://<SUBDOMAIN>.braze.com/auth/saml/callback` <br><br> For European Union domains, the ASC URL is `https://<SUBDOMAIN>.braze.eu/auth/saml/callback`. <br><br> For some IdPs, this can also be referred to as the Reply URL, Sign-On URL, Audience URL, or Audience URI. |
-| Entity ID | `braze_dashboard` |
-| RelayState API key | Go to **Settings** > **API Keys** and create an API key with `sso.saml.login` permissions, and then input the generated API key as the `RelayState` parameter within your IdP. For detailed steps, refer to [Setting up your RelayState](#setting-up-your-relaystate). |
+| Assertion Consumer Service (ACS) URL | `https://<SUBDOMAIN>.braze.com/auth/saml/callback` <br><br> For European Union domains, the ACS URL is `https://<SUBDOMAIN>.braze.eu/auth/saml/callback`. <br><br> For some IdPs, this can also be referred to as the Reply URL, Sign-On URL, Audience URL, or Audience URI. |
+| Entity ID | `braze_dashboard` by default. If your IdP requires a company-specific Entity ID, enable **Custom Entity ID** in **Security Settings** and use `braze_dashboard_<companyID>`. |
+| RelayState API key | Go to **Settings** > **Setup and Testing** > **APIs and Identifiers**, open the **API Keys** tab, and create an API key with `sso.saml.login` permissions. Input the generated API key as the `RelayState` parameter within your IdP. For detailed steps, refer to [Setting up your RelayState](#setting-up-your-relaystate). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
 
 ## Setting up SAML SSO
@@ -46,9 +45,9 @@ Braze only requires `email` in the SAML Assertion.
 
 ### Step 2: Configure Braze
 
-When you finish setting up Braze in your identity provider, your identity provider will provide you with a target URL and `x.509` certificate to input into your Braze account.
+When you finish setting up Braze in your identity provider, your identity provider provides you with a target URL and `x.509` certificate to input into your Braze account.
 
-After your account manager turns on SAML SSO for your account, go to **Settings** > **Admin Settings** > **Security Settings** and toggle the SAML SSO section to **ON**.
+After your account manager turns on SAML SSO for your account, go to **Settings** > **Company Settings** > **Admin Settings** > **Security Settings** and toggle the SAML SSO section to **ON**.
 
 On the same page, input the following:
 
@@ -58,6 +57,19 @@ On the same page, input the following:
 | Target URL | This is provided after setting up Braze within your IdP.<br> Some IdPs reference this as the SSO URL or SAML 2.0 Endpoint. |
 | Certificate | The `x.509` certificate that is provided by your identity provider.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Configure Braze" }
+
+### Custom Entity ID
+
+By default, Braze uses `braze_dashboard` as the Entity ID (also called Audience or Audience URI in some IdPs). If your IdP requires a company-specific Entity ID:
+
+1. In **Security Settings**, turn on **Custom Entity ID**.
+2. Copy the generated Entity ID (`braze_dashboard_<companyID>`).
+3. Paste that value into your IdP's Entity ID, Audience, or Audience URI field.
+4. Save changes in both Braze and your IdP before testing sign-in.
+
+{% alert important %}
+Users can't sign in until the Entity ID matches on both Braze and your IdP. Custom Entity ID requires additional configuration in your identity provider.
+{% endalert %}
 
 Make sure that your `x.509` certificate follows this format when adding it to the dashboard:
 
@@ -73,9 +85,35 @@ Make sure that your `x.509` certificate follows this format when adding it to th
 
 Save your security settings and log out. Then, sign back in with your identity provider.
 
+## Using a custom Entity ID
+
+By default, every Braze dashboard uses the shared Entity ID `braze_dashboard`. A custom Entity ID gives your dashboard a unique identifier, so your identity provider can verify that sign-in requests are meant for this specific dashboard. This is useful if you are setting up SAML SSO across multiple Braze companies in the same identity provider.
+
+Using a custom Entity ID is optional. If you don't enable it, your dashboard continues to use `braze_dashboard`.
+
+{% alert warning %}
+The pre-built [Braze Okta marketplace app](https://www.okta.com/integrations/braze/) enforces the shared Entity ID `braze_dashboard` and isn't compatible with a custom Entity ID. If you already have SAML SSO set up with the Braze Okta marketplace app, turning on a custom Entity ID without updating the Entity ID field in Okta through a custom SAML app will break sign-in and can lock users out of the dashboard. To use a custom Entity ID with Okta, set up a custom SAML app instead.
+{% endalert %}
+
+### Step 1: Turn on the custom Entity ID
+
+Go to **Settings** > **Admin Settings** > **Security Settings** and open the SAML Single Sign-On section. Turn on the **Custom Entity ID** toggle. Braze generates a unique Entity ID for your dashboard in the format `braze_dashboard_<COMPANY_ID>`. If you don't see the **Custom Entity ID** option, contact your Braze account manager.
+
+### Step 2: Update your identity provider
+
+Copy the generated Entity ID and paste it into the Entity ID field of your identity provider's Braze application. Depending on your provider, this field may be labeled **Entity ID**, **Audience**, or **Audience URI**.
+
+{% alert important %}
+The Entity ID must match in both Braze and your identity provider. Until both sides use the same value, users can't sign in with SAML SSO. Update your identity provider before saving this page to avoid locking users out.
+{% endalert %}
+
+### Step 3: Save and test
+
+Save your security settings, log out, and then sign back in through your identity provider to confirm sign-in works with the custom Entity ID.
+
 ## Setting up your RelayState
 
-1. In Braze, go to **Settings** > **APIs and Identifiers**.
+1. In Braze, go to **Settings** > **Setup and Testing** > **APIs and Identifiers**.
 2. In the **API Keys** tab, select the **Create API key** button.
 3. In the **API key name** field, enter a name for your key.
 4. Extend the **SSO** dropdown under **Permissions** and check **sso.saml.login**.
@@ -83,17 +121,33 @@ Save your security settings and log out. Then, sign back in with your identity p
 6. In the **API Keys** tab, copy the identifier next to the API key you created.
 7. Paste the RelayState API Key into your IdP's RelayState (it may also appear as "Relay State" or "Default Relay State" depending on your IdP).
 
+## IdP-initiated login
+
+Some identity providers support IdP-initiated login, where users start from the IdP portal instead of the Braze login page. IdP-initiated login requires a valid RelayState API key and correct ACS URL configuration. Provider-specific setup guides:
+
+- [Okta]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/okta)
+- [OneLogin]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/onelogin)
+- [Microsoft Entra SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/microsoft_entra_sso)
+
+{% alert note %}
+Microsoft Entra SSO IdP-initiated login requires leaving the **Sign-On URL** field blank. See [Microsoft Entra SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/microsoft_entra_sso) for details.
+{% endalert %}
+
 ## SSO behavior
 
-Members who opt to use SSO will no longer be able to use their password as they did prior. Users who continue to use their password will be able to unless restricted by the following settings.
+Members who opt to use SSO can no longer use their password. Users who continue to use their password can do so unless restricted by the following settings.
 
 ## Restriction
 
-You can restrict the members of your organization to only sign in with either Google SSO or SAML SSO. To turn on restrictions, go to **Security Settings** and select either **Enforce Google SSO only login** or **Enforce custom SAML SSO only login**.
+You can restrict the members of your organization to only sign in with either Google SSO or SAML SSO. To turn on restrictions, go to **Settings** > **Company Settings** > **Admin Settings** > **Security Settings** and select either **Enforce Google SSO only login** or **Enforce custom SAML SSO only login**.
 
 ![Example setup of "Authentication Rules" section with a minimum password length of 8 characters and password reusability of 3 times. The passwords will expire after 180 days, and users will be logged out after 1,440 minutes of inactivity.]({% image_buster /assets/img/sso3.png %})
 
 By turning on restrictions, your company's Braze users will no longer be able to log in using a password, even if they have logged in with a password before.
+
+{% alert important %}
+After SSO is enforced, there is no fallback option for logging in if SSO authentication fails. Before enabling SSO enforcement, make sure your SSO configuration is correct, all certificates are current and renewed, and your security settings are properly managed to prevent login issues.
+{% endalert %}
 
 ## Obtaining a SAML trace
 
@@ -167,9 +221,9 @@ If you're getting the error `ERROR_CODE_SSO_INVALID_RELAY_STATE`, your RelayStat
 
 ### Does successful SSO sign-in return you to the Braze login page?
 
-This can occur when RelayState isn't configured correctly. Confirm you created an API key (in **Settings** > **API Keys**) for IdP sign-in and set that API key as the `RelayState` parameter in your IdP. RelayState identifies which company account you're signing into. For step-by-step instructions, see [Setting up your RelayState](#setting-up-your-relaystate).
+This can occur when RelayState isn't configured correctly. Confirm you created an API key (in **Settings** > **Setup and Testing** > **APIs and Identifiers**) for IdP sign-in and set that API key as the `RelayState` parameter in your IdP. RelayState identifies which company account you're signing into. For step-by-step instructions, see [Setting up your RelayState](#setting-up-your-relaystate).
 
-If you still can't sign in, [contact Braze Support]({{site.baseurl}}/braze_support) with a SAML trace if possible. For help capturing a trace, see [Obtaining a SAML trace](#obtaining-a-saml-trace).
+If you still can't sign in, [contact Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) with a SAML trace if possible. For help capturing a trace, see [Obtaining a SAML trace](#obtaining-a-saml-trace).
 
 ### Is the user stuck in a sign-in loop between Okta and Braze?
 
@@ -183,7 +237,7 @@ If your company didn't download the Braze app from your IdP's app store, you nee
 
 ## Google SSO
 
-If your company uses Google SSO instead of custom SAML, contact your Braze account manager to enable Google SSO for your workspace. After it's enabled, go to **Security Settings** and select **Enforce Google SSO only login** to require Google Authentication for all company users.
+If your company uses Google SSO instead of custom SAML, contact your Braze account manager to enable Google SSO for your workspace. After it's enabled, go to **Settings** > **Company Settings** > **Admin Settings** > **Security Settings** and select **Enforce Google SSO only login** to require Google Authentication for all company users.
 
 When Google SSO enforcement is turned on, users must sign in with Google Authentication and can no longer use a Braze password. Each user must sign in with the Google account that matches their Braze dashboard email address. If a user selects a different Google account during sign-in, Braze rejects the authentication attempt.
 
@@ -199,5 +253,9 @@ If some users can't sign in with Google SSO, check the following:
 
 After setting up SAML SSO, you can:
 
-- [Enforce SSO-only login]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#restriction) in your security settings to restrict users from logging in with a password.
-- [Set up SAML just-in-time provisioning]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_just_in_time_provisioning) so new users automatically create Braze accounts on their first SSO sign-in.
+{% article_tiles %}
+- name: Enforce SSO-only login
+  link: /docs/user_guide/administer/global/admin_settings/security_settings#single-sign-on-sso-authentication
+- name: Set up SAML just-in-time provisioning
+  link: /docs/user_guide/administer/global/saml_single_sign_on/saml_just_in_time_provisioning
+{% endarticle_tiles %}

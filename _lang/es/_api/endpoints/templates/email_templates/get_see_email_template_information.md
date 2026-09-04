@@ -5,8 +5,7 @@ search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Ver plantilla de correo electrónico de Braze."
-
+description: "En este artículo se describen los detalles del endpoint de Braze Ver plantilla de correo electrónico."
 ---
 {% api %}
 # Ver información sobre la plantilla de correo electrónico {#see-email-template-information}
@@ -14,7 +13,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 /templates/email/info
 {% endapimethod %}
 
-> Utiliza este punto de conexión para obtener información sobre tus plantillas de correo electrónico.
+> Usa este endpoint para obtener información sobre tus plantillas de correo electrónico.
 
 {% alert important %}
 No se aceptan plantillas creadas con el editor de arrastrar y soltar para correo electrónico.
@@ -23,7 +22,7 @@ No se aceptan plantillas creadas con el editor de arrastrar y soltar para correo
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#e98d2d5b-62fe-4358-b391-9fe9e460d0ac {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/api_key) con el permiso `templates.email.info`.
+Para usar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics) con el permiso `templates.email.info`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -33,8 +32,8 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
-| `email_template_id` | Obligatorio | Cadena | Ver [el identificador de API de la plantilla de correo electrónico]({{site.baseurl}}/api/identifier_types). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parámetros de la solicitud" }
+| `email_template_id` | Obligatorio | Cadena | Consulta [el identificador de API de la plantilla de correo electrónico]({{site.baseurl}}/api/identifier_types). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ## Ejemplo de solicitud {#example-request}
 {% raw %}

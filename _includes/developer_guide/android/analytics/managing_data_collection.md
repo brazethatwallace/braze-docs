@@ -190,3 +190,103 @@ You can use the method [`wipeData()`](https://braze-inc.github.io/braze-android-
 ## Resuming data tracking
 
 To resume data collection, you can use the [`enableSDK()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/enable-sdk.html) method. Keep in mind, this will not restore any previously wiped data.
+
+## Logout and Unregister Push
+
+The Braze SDK provides methods to stop targeting a device when a user unregisters from push notifications or logs out. These methods remove push registration data from the current user on the Braze server and the SDK, so Braze no longer sends future push notification campaigns to that user.
+
+### Logout {#logout}
+
+When a user logs out from an application, call the SDK's `logout` method to remove the device's push registration from the current user and automatically perform cleanup actions on the SDK. The `logout` method performs the following:
+
+- Unregisters the device's push token from the current user on the Braze server.
+- If the unregister call succeeds, the SDK wipes locally-stored SDK data and disables the SDK.
+- On failure, raises an error and an `isRetriable` flag to allow the integrator to take action.
+
+The following callback example shows `logout` success and error handling. Use it for callback-based logout flows, and replace the logging with your retry or re-authentication logic.
+
+```kotlin
+// Completion callback
+Braze.getInstance(context).logout { result ->
+  result
+    .onSuccess {
+      Log.d(TAG, "Logout successful")
+    }
+    .onFailure { error ->
+      val pushError = error as? BrazePushUnregistrationException
+      Log.e(TAG, "Logout failed: ${error.message}, isRetriable: ${pushError?.isRetriable}")
+    }
+}
+```
+
+The following coroutine example shows the suspending `logout` API. Use it in coroutine-based flows and customize the success and failure branches for your app.
+
+```kotlin
+lifecycleScope.launch {
+  runCatching { Braze.getInstance(context).logout() }
+    .onSuccess {
+      Log.d(TAG, "Logout successful")
+    }
+    .onFailure { error ->
+      val pushError = error as? BrazePushUnregistrationException
+      Log.e(TAG, "Logout failed: ${error.message}, isRetriable: ${pushError?.isRetriable}")
+    }
+}
+```
+
+#### Re-enable tracking and push after `logout`
+
+After a successful `logout`, re-enable the SDK with [`enableSDK()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/enable-sdk.html), then re-register for notifications with your operating system (OS) or push provider by following [Android push setup]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android).
+
+#### Avoid immediate unregister calls
+
+Avoid calling `logout` or `unregisterPush` directly after registering for push notifications with the OS or push provider. Due to asynchronous server processing, this can rarely re-add the push token to the Braze user.
+
+### Unregister Push {#unregister-push}
+
+To stop sending push to a device without additional automated cleanup, use the `unregisterPush` method. This removes the device's push token from the current user on Braze's server, and clears the locally-stored token.
+
+The following callback example shows how to handle `unregisterPush` results. Use it when your flow is callback-based, and replace the logging with your own retry handling.
+
+```kotlin
+// Completion callback
+Braze.getInstance(context).unregisterPush { result ->
+  result
+    .onSuccess {
+      Log.d(TAG, "Push unregistered successfully")
+    }
+    .onFailure { error ->
+      val pushError = error as? BrazePushUnregistrationException
+      Log.e(
+        TAG,
+        "Push unregistration failed: ${error.message}, isRetriable: ${pushError?.isRetriable}"
+      )
+    }
+}
+```
+
+The following coroutine example shows the suspending `unregisterPush` API. Use it in coroutine-based flows and customize the success and failure branches for your app.
+
+```kotlin
+lifecycleScope.launch {
+  runCatching { Braze.getInstance(context).unregisterPush() }
+    .onSuccess {
+      Log.d(TAG, "Push unregistered successfully")
+    }
+    .onFailure { error ->
+      val pushError = error as? BrazePushUnregistrationException
+      Log.e(
+        TAG,
+        "Push unregistration failed: ${error.message}, isRetriable: ${pushError?.isRetriable}"
+      )
+    }
+}
+```
+
+#### Re-register push after `unregisterPush`
+
+After calling `unregisterPush`, re-register for notifications with your OS or push provider by following [Android push setup]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android) before sending Braze push notifications again.
+
+#### Avoid immediate unregister calls
+
+Avoid calling `logout` or `unregisterPush` directly after registering for push notifications with the OS or push provider. Due to asynchronous server processing, this can rarely re-add the push token to the Braze user.

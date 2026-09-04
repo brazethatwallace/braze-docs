@@ -12,7 +12,7 @@ channel:
 
 # キーと値のペア {#key-value-pairs}
 
-> このページでは、キーと値のペアを使用してユーザーデバイスに追加のデータペイロードを送信する方法について説明します。この機能は、プッシュ通知、アプリ内メッセージ、メール、Content Cardのメッセージングチャネルで利用できます。
+> このページでは、キーと値のペアを使用してユーザーデバイスに追加のデータペイロードを送信する方法について説明します。この機能は、プッシュ通知、アプリ内メッセージ、メール、Content カードのメッセージングチャネルで利用できます。
 
 キーと値のペアを使用して、メッセージに構造化されたメタデータを追加します。これらの追加データペイロードにより、メッセージのレンダリングや処理方法に影響を与える文脈に応じた情報でメッセージを充実させることができます。
 
@@ -25,62 +25,62 @@ channel:
 
 ## ユースケース {#use-cases}
 
-キーと値のペアでメタデータを追加するユースケースの例を以下に示します:
+キーと値のペアでメタデータを追加するユースケースの例を以下に示します。
 
-1. **トラッキングパラメーター:** 分析目的でUTMパラメーターを付加する
+1. **トラッキングパラメーター:**分析目的で UTM パラメーターを付与します
    - キー: `utm_campaign`
    - 値: `spring_sale`
-2. **カスタムタグ:** 内部ルーティングやカテゴリ分けのためにタグを追加する
+2. **カスタムタグ:**内部ルーティングやカテゴリ分けのためにタグを追加します
    - キー: `priority`
    - 値: `high`
-3. **動作トリガー:** アプリ内の動作をトリガーまたはカスタマイズするために使用されるメタデータ
+3. **動作トリガー:**アプリ内の動作をトリガーまたはカスタマイズするために使用するメタデータです
    - キー: `deep_link`
    - 値: `app://promo-page`
 
 ## プッシュ通知 {#push-notifications}
 
-キーと値のペアは、Android、iOS、Webプッシュ通知に追加できます。キーと値のペアを使用して、内部指標やアプリコンテンツの更新、またはアラートの優先順位付け、ローカライゼーション、サウンドなどのプッシュ通知プロパティのカスタマイズを行うことができます。
+キーと値のペアは、Android、iOS、および Web プッシュ通知に追加できます。キーと値のペアを使用して、内部メトリクスやアプリコンテンツを更新したり、アラートの優先度、ローカライゼーション、サウンドなどのプッシュ通知プロパティをカスタマイズしたりできます。
 
-メッセージ作成画面で、**Settings**タブを選択し、**Add New Pair**を選択して、キーと値のペアを指定します。
+メッセージ作成画面で、**設定**タブを選択し、**新しいペアを追加**を選択して、キーと値のペアを指定します。
 
-メッセージ作成画面でキーと値のペアを追加すると、値は文字列として送信されます。iOSプッシュの場合、**Alert Options**を通じて追加する予約済みのApple Push Notification service（APNs）アラートキー（ローカライゼーション引数の`loc-args`など）は、ペイロード内で正しいJSON型にフォーマットされます。カスタムキーの場合、インテグレーションで解析しない限り、アプリは文字列値を受け取ります。
+メッセージ作成画面でキーと値のペアを追加すると、値は文字列として送信されます。iOS プッシュの場合、**アラートオプション**から追加した予約済み Apple Push Notification service（APNs）アラートキー（ローカライゼーション引数の `loc-args` など）は、ペイロード内で正しい JSON 型にフォーマットされます。カスタムキーの場合、インテグレーションで解析しない限り、アプリは文字列値を受信します。
 
 ### iOS
 
-Apple Push Notification service（APNs）は、キーと値のペアを使用したアラート設定やカスタムデータの送信をサポートしています。APNsは、アラートプロパティを制御する事前定義されたキーと値を含む、Apple予約済みの`aps`ライブラリーを使用します。
+Apple Push Notification service（APNs）は、キーと値のペアを使用してアラートの設定やカスタムデータの送信をサポートしています。APNs は、アラートプロパティを制御する事前定義されたキーと値を含む、Apple 予約済みの `aps` ライブラリを利用します。
 
-#### APSライブラリー {#aps-library}
+#### APS ライブラリ {#aps-library}
 
 | キー  | 値の型  | 値の説明 |
 |-------------------|-----------------------------|----------------------------------|
-| alert             | 文字列またはディクショナリオブジェクト | 文字列入力の場合、文字列をメッセージとして「閉じる」ボタンと「表示」ボタン付きのアラートを表示します。文字列以外の入力の場合、入力の子プロパティに応じてアラートまたはバナーを表示します |
+| alert             | 文字列またはディクショナリオブジェクト | 文字列入力の場合、メッセージとして文字列を表示するアラートを「閉じる」ボタンと「表示」ボタンとともに表示します。文字列以外の入力の場合、入力の子プロパティに応じてアラートまたはバナーを表示します |
 | badge             | 数値                      | アプリアイコンのバッジとして表示される数値を制御します                                                                                                                              |
-| sound             | 文字列                      | アラートとして再生するサウンドファイルの名前。アプリのバンドルまたは```Library/Sounds```フォルダーに存在する必要があります                                                                                    |
-| content-available | 数値                      | 値1を入力すると、起動時またはセッション再開時に新しい情報が利用可能であることをアプリに通知します |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="APSライブラリー" }
+| sound             | 文字列                      | アラートとして再生するサウンドファイルの名前。アプリのバンドルまたは ```Library/Sounds``` フォルダーに含まれている必要があります                                                                                    |
+| content-available | 数値                      | 値 1 を入力すると、起動時またはセッション再開時に新しい情報が利用可能であることをアプリに通知します |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="APS ライブラリ" }
 
 
-##### アラートプロパティライブラリー {#alert-properties-library}
+##### アラートプロパティライブラリ {#alert-properties-library}
 
 | キー            | 値の型               | 値の説明                                                                                                                             |
 |----------------|--------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
-| title         | 文字列                   | Apple Watchが通知の一部として短時間表示する短い文字列                                                                    |
+| title         | 文字列                   | Apple Watch が通知の一部として短時間表示する短い文字列                                                                    |
 | body         | 文字列                   | プッシュ通知のコンテンツ                                                                                                                  |
-| title-loc-key  | 文字列またはnull           | ```Localizable.strings```ファイルから現在のローカライゼーションのタイトル文字列を設定するキー                                          |
-| title-loc-args | 文字列の配列またはnull | title-loc-keyのタイトルローカライゼーションフォーマット指定子の代わりに表示できる文字列値                                           |
-| action-loc-key | 文字列の配列またはnull  | 指定された場合、指定された文字列が「閉じる」ボタンと「表示」ボタンのローカライゼーションを設定します                                                         |
-| loc-key        | 文字列またはnull           | ```Localizable.strings```ファイルから現在のローカライゼーションの通知メッセージを設定するキー                                  |
-| loc-args       | 文字列の配列         | loc-keyのローカライゼーションフォーマット指定子の代わりに表示できる文字列値                                                       |
-| launch-image   | 文字列                  | ユーザーがアクションボタンをタップするかアクションスライドを移動したときに起動画像として使用するアプリバンドル内の画像ファイルの名前 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="アラートプロパティライブラリー" }
+| title-loc-key  | 文字列または null           | ```Localizable.strings``` ファイルから現在のローカライゼーションのタイトル文字列を設定するキー                                          |
+| title-loc-args | 文字列の配列または null | title-loc-key のタイトルローカライゼーションフォーマット指定子の代わりに表示できる文字列値                                           |
+| action-loc-key | 文字列の配列または null  | 指定した場合、指定された文字列が「閉じる」ボタンと「表示」ボタンのローカライゼーションを設定します                                                         |
+| loc-key        | 文字列または null           | ```Localizable.strings``` ファイルから現在のローカライゼーションの通知メッセージを設定するキー                                  |
+| loc-args       | 文字列の配列         | loc-key のローカライゼーションフォーマット指定子の代わりに表示できる文字列値                                                       |
+| launch-image   | 文字列                  | ユーザーがアクションボタンをタップするかアクションスライドを動かしたときに起動画像として使用する、アプリバンドル内の画像ファイルの名前 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="アラートプロパティライブラリ" }
 
-Brazeのメッセージ作成画面は、**alert**と**そのプロパティ**、**content-available**、**sound**、**category**の各キーの作成を自動的に処理します。
+Braze のメッセージ作成画面は、**alert** と**そのプロパティ**、**content-available**、**sound**、および **category** のキーの作成を自動的に処理します。
 
-これらの値は、プッシュメッセージの作成時に**Settings**タブで入力できます。**Alert Options**を選択し、アラートディクショナリキーを選択すると、新しいキーと値のエントリにキーが自動的に入力されます。
+これらの値は、プッシュメッセージの作成時に**設定**タブで入力できます。**アラートオプション**を選択し、アラートディクショナリキーを選択すると、キーが新しいキーと値のエントリに自動的に入力されます。
 
-![プッシュメッセージの作成時にSettingsタブでこれらの値を入力できます。Alert Optionsを選択し、アラートディクショナリキーを選択すると、新しいキーと値のエントリにキーが自動的に入力されます。]({% image_buster /assets/img_archive/keyvalue_automatickeys.png %})
+![プッシュメッセージの作成時に設定タブで値を入力できます。アラートオプションを選択し、アラートディクショナリキーを選択すると、キーが新しいキーと値のエントリに自動的に入力されます。]({% image_buster /assets/img_archive/keyvalue_automatickeys.png %})
 {% raw %}
-BrazeがAPNsにプッシュ通知を送信する際、ペイロードはJSONとしてフォーマットされます。
+Braze がプッシュ通知を APNs に送信すると、ペイロードは JSON としてフォーマットされます。
 
 **シンプルなペイロード**
 
@@ -111,94 +111,102 @@ BrazeがAPNsにプッシュ通知を送信する際、ペイロードはJSONと�
 
 ##### カスタムキーと値のペア {#custom-key-value-pairs}
 
-`aps`ライブラリーのペイロード値に加えて、カスタムキーと値のペアをユーザーのデバイスに送信できます。これらのペアの値は、ディクショナリ（オブジェクト）、配列、文字列、数値、ブール値のプリミティブ型に制限されます。
+`aps` ライブラリのペイロード値に加えて、カスタムキーと値のペアをユーザーのデバイスに送信できます。これらのペアの値は、ディクショナリ（オブジェクト）、配列、文字列、数値、ブーリアンなどのプリミティブ型に制限されます。
 
-![カスタムキーと値のペアに関連するスクリーンショット]({% image_buster /assets/img_archive/keyvalue_enterpairs.png %})
+![カスタムキーと値のペアに関連するスクリーンショット。]({% image_buster /assets/img_archive/keyvalue_enterpairs.png %})
 
-カスタムキーと値のペアのユースケースには、内部指標の管理やユーザーインターフェイスのコンテキスト設定などがありますが、これらに限定されません。Brazeでは、アプリケーション内で[extrasキー]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/customization/advanced_settings#extracting-data-from-push-key-value-pairs)を通じて使用するために、プッシュ通知と一緒に追加のキーと値のペアを送信できます。別のキーを使用する場合は、アプリがそのカスタムキーを処理できることを確認してください。
-
-{% alert warning %}
-アプリケーションでabというトップレベルのキーまたはディクショナリを処理することは避けてください。
-{% endalert %}
-
-Appleは、カスタムペイロードデータとして顧客情報や機密データを含めないようクライアントに推奨しています。さらに、Appleはアラートメッセージに関連するアクションがデバイス上のデータを削除しないようにすることを推奨しています。
+カスタムキーと値のペアのユースケースには、内部メトリクスの記録やユーザーインターフェイスのコンテキスト設定などがありますが、これらに限定されません。Braze では、アプリケーション内で [extras キー]({{site.baseurl}}/developer_guide/push_notifications/customization?sdktab=swift#swift_settings)を通じて使用するための追加キーと値のペアをプッシュ通知と一緒に送信できます。別のキーを使用する場合は、アプリがそのカスタムキーを処理できることを確認してください。
 
 {% alert warning %}
-HTTP/2プロバイダーAPIを使用している場合、APNsに送信する個々のペイロードのサイズは4096バイトを超えることはできません。まもなく廃止予定のレガシーバイナリインターフェイスは、2048バイトのペイロードサイズのみをサポートしています。
+アプリケーション内で ab というトップレベルキーまたはディクショナリを処理することは避けてください。
 {% endalert %}
 
-###### APIトリガーキャンペーン {#api-triggered-campaigns}
+Apple は、カスタムペイロードデータとして顧客情報や機密データを含めないようクライアントに推奨しています。さらに、Apple はアラートメッセージに関連するアクションがデバイス上のデータを削除しないよう推奨しています。
 
-Brazeでは、`extras`と呼ばれるカスタム定義の文字列キーと値のペアを送信できます。APIトリガーおよびスケジュールされたAPIトリガーキャンペーンでextrasにアクセスするには、ダッシュボードでキーを「example_key」、値を{% raw %}`"$json:{"foo": 1, "bar": 1}"`{% endraw %}と設定します。これにより、開発者コンソールの出力は`"extras": { "test": { "foo": 1, "bar": 1 }`となります。
+{% alert warning %}
+HTTP/2 プロバイダー API を使用している場合、APNs に送信する個々のペイロードは 4096 バイトのサイズを超えることはできません。まもなく非推奨になるレガシーバイナリインターフェイスは、2048 バイトのペイロードサイズのみをサポートしています。
+{% endalert %}
+
+###### API トリガーキャンペーン {#api-triggered-campaigns}
+
+Braze では、`extras` と呼ばれるカスタム定義の文字列キーと値のペアを送信できます。API トリガーおよびスケジュールされた API トリガーキャンペーンで extras にアクセスするには、ダッシュボードでキーを「example_key」に設定し、値を {% raw %}`"$json:{"foo": 1, "bar": 1}"`{% endraw %} に設定します。これにより、開発者コンソールの出力は `"extras": { "test": { "foo": 1, "bar": 1 }` となります。
 
 ### Android
 
-Brazeでは、キーと値のペアを使用してプッシュ通知に追加のデータペイロードを送信できます。
+Braze では、キーと値のペアを使用してプッシュ通知に追加のデータペイロードを送信できます。
 
 #### データペイロード {#data-payload}
 
-iOSプッシュと同様に、カスタムキーと値のペアをユーザーのデバイスに送信できます。
+iOS プッシュと同様に、カスタムキーと値のペアをユーザーのデバイスに送信できます。
 
-カスタムキーと値のペアのユースケースには、内部指標の管理やユーザーインターフェイスのコンテキスト設定などがありますが、任意の目的に使用できます。
+カスタムキーと値のペアのユースケースには、内部メトリクスの記録やユーザーインターフェイスのコンテキスト設定などがありますが、任意の目的で使用できます。
 
 {% alert important %}
-データペイロードが正しく機能するためには、アプリのバックエンドがカスタムキーと値のペアを処理できる必要があります。
+データペイロードが正しく機能するには、アプリのバックエンドがカスタムキーと値のペアを処理できる必要があります。
 {% endalert %}
 
-##### APIトリガーキャンペーン
+##### API トリガーキャンペーン
 
-Brazeでは、`extras`と呼ばれるカスタム定義の文字列キーと値のペアを送信できます。APIトリガーおよびスケジュールされたAPIトリガーキャンペーンでextrasにアクセスするには、ダッシュボードでキーを「example_key」、値を{% raw %}`"$json:{"foo": 1, "bar": 1}"`{% endraw %}と設定します。これにより、開発者コンソールの出力は`"extras": { "test": { "foo": 1, "bar": 1 }`となります。
+Braze では、`extras` と呼ばれるカスタム定義の文字列キーと値のペアを送信できます。API トリガーおよびスケジュールされた API トリガーキャンペーンで extras にアクセスするには、ダッシュボードでキーを「example_key」に設定し、値を {% raw %}`"$json:{"foo": 1, "bar": 1}"`{% endraw %} に設定します。これにより、開発者コンソールの出力は `"extras": { "test": { "foo": 1, "bar": 1 }` となります。
 
-##### FCMメッセージングオプション {#fcm-messaging-options}
+##### FCM メッセージングオプション {#fcm-messaging-options}
 
-Androidプッシュ通知は、FCMメッセージオプションでさらにカスタマイズできます。これには、[通知の優先度]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/customization/advanced_settings#notification-priority)、[サウンド]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/customization/advanced_settings#sounds)、遅延、有効期間、折りたたみ可能性が含まれます。これらの値は、プッシュメッセージの作成時に**Settings**タブで指定できます。Brazeのメッセージ作成画面でこれらのオプションを設定する方法の詳細については、[プッシュ通知の詳細設定]({{site.baseurl}}/developer_guide/push_notifications/customization?sdktab=android#android_settings)を参照してください。
+Android プッシュ通知は、FCM メッセージオプションでさらにカスタマイズできます。これには[通知の優先度]({{site.baseurl}}/developer_guide/push_notifications/customization?sdktab=android#android_settings)、[サウンド]({{site.baseurl}}/developer_guide/push_notifications/customization?sdktab=android#android_settings)、遅延、有効期間、折りたたみ可能性などが含まれます。これらの値は、プッシュメッセージの作成時に**設定**タブで指定できます。Braze のメッセージ作成画面でこれらのオプションを設定する方法の詳細については、[プッシュ通知の詳細設定]({{site.baseurl}}/developer_guide/push_notifications/customization?sdktab=android#android_settings)を参照してください。
 
-![FCMメッセージングオプションに関連するスクリーンショット]({% image_buster /assets/img_archive/keyvalue_androidkeys.png %})
+![FCM メッセージングオプションに関連するスクリーンショット。]({% image_buster /assets/img_archive/keyvalue_androidkeys.png %})
 
 ### サイレントプッシュ通知 {#silent-push-notifications}
 
-サイレントプッシュ通知は、アラートメッセージやサウンドを含まないプッシュ通知で、バックグラウンドでアプリのインターフェイスやコンテンツを更新するために使用されます。これらの通知は、キーと値のペアを使用してバックグラウンドのアプリアクションをトリガーします。サイレントプッシュ通知は、[アンインストール追跡]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking)にも使用されます。
+サイレントプッシュ通知は、アラートメッセージやサウンドを含まないプッシュ通知で、バックグラウンドでアプリのインターフェイスやコンテンツを更新するために使用されます。これらの通知はキーと値のペアを利用して、バックグラウンドのアプリアクションをトリガーします。サイレントプッシュ通知は[アンインストール追跡]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking)にも使用されています。
 
-マーケターは、アプリのユーザーに送信する前に、サイレントプッシュ通知が期待どおりの動作をトリガーすることをテストする必要があります。[iOS]({{site.baseurl}}/developer_guide/push_notifications/silent?sdktab=swift)または[Android]({{site.baseurl}}/developer_guide/push_notifications/silent?sdktab=android)のサイレントプッシュ通知を作成した後、[外部ユーザーID]({{site.baseurl}}/developer_guide/rest_api/messaging#external-user-id)または[メールアドレス]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)でフィルタリングして、テストユーザーのみをターゲットにしてください。
+マーケターは、アプリのユーザーにサイレントプッシュ通知を送信する前に、期待される動作がトリガーされることをテストする必要があります。[iOS]({{site.baseurl}}/developer_guide/push_notifications/silent?sdktab=swift) または [Android]({{site.baseurl}}/developer_guide/push_notifications/silent?sdktab=android) のサイレントプッシュ通知を作成した後、[外部ユーザー ID]({{site.baseurl}}/api/endpoints/messaging#external-user-id) または[メールアドレス]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)でフィルターして、テストユーザーのみをターゲットにしてください。
 
-キャンペーンの起動時に、テストデバイスで目に見えるプッシュ通知を受信していないことを確認してください。
+キャンペーンの開始後、テストデバイスに表示されるプッシュ通知を受信していないことを確認してください。
 
 {% alert note %}
-iOSのサイレント通知ゲートにより、以下の症状が発生する場合があります:
+iOS のサイレント通知のゲーティングにより、以下の症状が発生する場合があります。
 
-- iOSユーザーのアンインストール追跡指標が予想より低くなる
-- サイレントプッシュ通知の配信が不安定または遅延する
-- [Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories)が表示されない
-- Push Storiesが期待される画像、動画、またはページなしで届く
+- iOS ユーザーのアンインストール追跡メトリクスが予想より低くなる
+- サイレントプッシュ通知の配信が一貫しない、または遅延する
+- [Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories) が表示されない
+- Push Stories が期待される画像、動画、またはページなしで届く
 
-これはBrazeの問題ではなく、Appleプラットフォームの制限です。iOSは、アンインストール追跡やPush Storiesを含む一部のBraze機能のバックグラウンド通知を遅延またはドロップする場合があります。iOSがゲートする内容とタイミングの詳細については、[iOSの制限]({{site.baseurl}}/developer_guide/push_notifications/silent?sdktab=swift#ios-limitations)を参照してください。
+これは Braze の問題ではなく、Apple プラットフォームの制限です。iOS は、アンインストール追跡や Push Stories を含む一部の Braze 機能のバックグラウンド通知を遅延またはドロップする場合があります。iOS がゲーティングする内容とタイミングの詳細については、[iOS の制限事項]({{site.baseurl}}/developer_guide/push_notifications/silent?sdktab=swift#ios-limitations)を参照してください。
 {% endalert %}
 
 ## アプリ内メッセージ {#in-app-messages}
 
-[従来のエディター]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional)で、**Settings**タブを選択し、**Add New Pair**を選択してから、キーと値のペアを指定することで、アプリ内メッセージにキーと値のペアを追加できます。
+[従来のエディター]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional)で作成するアプリ内メッセージにキーと値のペアを追加します。
+
+1. キャンペーンまたはキャンバスで、アプリ内メッセージを作成または編集し、従来のエディター（ドラッグ＆ドロップではない）を選択します。
+2. メッセージ作成画面で、**Settings** タブを選択します。
+3. **Key value pairs** で、**Add new pair** を選択します。
+4. 各ペアのキーと値を入力します。別のペアを追加するには、**Add new pair** をもう一度選択します。
 
 {% alert note %}
-アプリ内メッセージのドラッグ＆ドロップエディターでは、キーと値のペアを設定できません。
+キーと値のペアは、アプリ内メッセージのドラッグ＆ドロップエディターでは利用できません。追加するには従来のエディターを使用してください。
 {% endalert %}
-![アプリ内メッセージに関連するスクリーンショット]({% image_buster /assets/img_archive/keyvalue_iam.png %})
 
 ### APIトリガーキャンペーン
 
-Brazeでは、`extras`と呼ばれるカスタム定義の文字列キーと値のペアを送信できます。APIトリガーおよびスケジュールされたAPIトリガーキャンペーンでextrasにアクセスするには、ダッシュボードでキーを「example_key」、値を{% raw %}`"$json:{"foo": 1, "bar": 1}"`{% endraw %}と設定します。これにより、開発者コンソールの出力は`"extras": { "test": { "foo": 1, "bar": 1 }`となります。
+Brazeでは、`extras` と呼ばれるカスタム定義の文字列キーと値のペアを送信できます。APIトリガーおよびスケジュールされたAPIトリガーキャンペーンでextrasにアクセスするには、ダッシュボードでキーを「example_key」に設定し、値を {% raw %}`"$json:{"foo": 1, "bar": 1}"`{% endraw %} に設定します。これにより、開発者コンソールの出力は `"extras": { "test": { "foo": 1, "bar": 1 }` となります。
 
 ## メール {#emails}
 
-SparkPostとSendGridの両方がメールでのキーと値のペアをサポートしています。SendGridを使用している場合、キーと値のペアは[unique arguments](https://docs.sendgrid.com/for-developers/sending-email/unique-arguments)として送信されます。SendGridでは、最大10,000バイトのデータまで無制限の数のキーと値のペアを添付できます。これらのキーと値のペアは、SendGridの[Event Webhook](https://sendgrid.com/docs/for-developers/tracking-events/event/)からの投稿で確認できます。
+SparkPost と SendGrid の両方で、メールのキーと値のペアがサポートされています。SendGrid を使用する場合、キーと値のペアは[ユニーク引数](https://docs.sendgrid.com/for-developers/sending-email/unique-arguments)として送信されます。SendGrid では、最大 10,000 バイトのデータまで、無制限の数のキーと値のペアを添付できます。これらのキーと値のペアは、SendGrid の [Event Webhook](https://sendgrid.com/docs/for-developers/tracking-events/event/) からの投稿で確認できます。
 
 {% alert note %}
-バウンスしたメールは、SparkPostまたはSendGridにキーと値のペアを配信しません。
+バウンスされたメールでは、SparkPost または SendGrid にキーと値のペアが配信されません。
 {% endalert %}
 
-![Brazeのメールメッセージ作成画面の送信情報タブ]({% image_buster /assets/img_archive/keyvalue_email.png %})
+![Braze のメールメッセージ作成画面の「送信情報」タブ。]({% image_buster /assets/img_archive/keyvalue_email.png %})
 
 ## Content Cards
 
 Content Cardsにキーと値のペアを追加するには、Brazeのメッセージ作成画面の**Settings**タブに移動し、**Add New Pair**を選択します。
 
 ![Content Cardsにキーと値のペアを追加]({% image_buster /assets/img_archive/kvp_content_cards.png %}){: style="max-width:70%;"}
+
+{% alert note %}
+コントロールバリアントはキーと値のペアをサポートしていません。A/Bテストでコントロールグループの分析をキャプチャする必要がある場合は、`control=true`などのキーと値のペアを持つメッセージバリアントを作成し、インプレッションをログに記録しながらアプリコード内で非表示にしてください。
+{% endalert %}

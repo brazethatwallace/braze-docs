@@ -20,6 +20,7 @@ To create and launch a campaign, you need "Edit Campaigns" and "Launch Campaigns
 - Build or choose the [segments]({{site.baseurl}}/user_guide/audience/segments) that define who should receive your messages.
 - Review [Campaign basics]({{site.baseurl}}/user_guide/messaging/campaigns/campaign_basics) so messaging channels, delivery types, and conversion goals align with your use case.
 - For a guided walkthrough of delivery, targeting, and conversions, take the [Campaign Setup](https://learning.braze.com/campaign-setup-delivery-targeting-conversions) Braze Learning course.
+- Ask Operator to help draft your campaign from a brief, or refine targeting and delivery choices. For details, see [What you can do with Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#campaigns-and-audiences).
 
 ## Campaign composer
 
@@ -138,6 +139,10 @@ Workspace [suppression lists]({{site.baseurl}}/user_guide/audience/suppression_l
 
 After adding segments or filters, the **Audience Summary** gives preview of what that segment population looks like, including how many users within that segment are reachable through your selected channels. Reachable counts reflect your workspace data, channel setup, and filters. Keep in mind that exact segment membership is always calculated before the message is sent. For very large audiences, Braze may show estimates until you calculate exact statistics.
 
+{% alert note %}
+If you have a [Global Control Group]({{site.baseurl}}/user_guide/audience/global_control_group) set up, the reachable user count shown in your campaign target audience is smaller than the reachable user count shown for the same segment. This is because the campaign excludes users in the global control group, while the segment count does not.
+{% endalert %}
+
 ### User Lookup
 
 After adding segments or filters, you can test if your audience is set up as expected by looking up a user to confirm if they match the segment criteria. To do so, search for a user's `external_id` or `braze_id` in the **User Lookup** section. You can't search by email address here. See [Testing segments]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#testing-segments) for more.
@@ -160,7 +165,7 @@ If you anticipate large campaigns driving a spike in user activity and overloadi
 
 You can create a [multivariate or A/B test]({{site.baseurl}}/user_guide/messaging/ab_testing) for any campaign that targets a single channel, even if the single channel includes multiple devices. For example, if you want to use multivariate or A/B testing for a push campaign, you can target only iOS devices or only Android devices—not both device types in the same campaign.
 
-For push, email, and webhook campaigns scheduled to send once, you can also use an [optimization]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations). An optimization reserves a portion of your target audience from the A/B test and holds them for a second optimized send based on the results from the first test.
+For supported single-send and multi-send campaigns, turn on [Optimize with BrazeAI™]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection) to automatically optimize your variant distribution.
 
 ## Step 4: Assign conversion events {#step-4-assign-conversion-events}
 

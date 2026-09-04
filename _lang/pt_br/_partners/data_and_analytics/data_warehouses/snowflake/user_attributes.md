@@ -15,9 +15,9 @@ toc_headers: h2
 
 Em circunstâncias raras, os valores de atributos padrão e personalizados nas visualizações do Snowflake nesta página podem não corresponder ao que você vê no perfil de um usuário no dashboard da Braze.
 
-Por exemplo, um atributo pode aparecer como `NULL` no Snowflake enquanto o dashboard mostra um valor para aquele usuário.
+Por exemplo, um atributo pode aparecer como `NULL` no Snowflake, enquanto o dashboard mostra um valor para esse usuário.
 
-Se você perceber incompatibilidades generalizadas, entre em contato com o seu gerente de sucesso do cliente ou com o suporte da Braze.
+Se você perceber discrepâncias generalizadas, entre em contato com seu CSM ou com o suporte da Braze.
 
 ## Visualizações disponíveis {#available-views}
 
@@ -34,7 +34,7 @@ Se você perceber incompatibilidades generalizadas, entre em contato com o seu g
     <tr>
       <td rowspan="3">Atributo padrão</td>
       <td><code>USER_DEFAULT_ATTRIBUTES_VIEW_SHARED</code></td>
-      <td>Instantâneos do perfil de usuário</td>
+      <td>Snapshots de perfis de usuário</td>
     </tr>
     <tr>
       <td><code>USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED</code></td>
@@ -47,7 +47,7 @@ Se você perceber incompatibilidades generalizadas, entre em contato com o seu g
     <tr>
       <td rowspan="3">Atributo personalizado</td>
       <td><code>USER_CUSTOM_ATTRIBUTES_VIEW_SHARED</code></td>
-      <td>Instantâneos do perfil de usuário</td>
+      <td>Snapshots de perfis de usuário</td>
     </tr>
     <tr>
       <td><code>USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED</code></td>
@@ -61,25 +61,25 @@ Se você perceber incompatibilidades generalizadas, entre em contato com o seu g
 </table>
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Visualizações disponíveis" }
 
-## Instantâneos do perfil de usuário {#user-profile-snapshots}
+## Snapshots de perfil de usuário {#user-profile-snapshots}
 
-Essas visualizações fornecem instantâneos periódicos dos atributos do perfil de usuário. Os dados têm um atraso de até 12 horas, o que os torna úteis para consultas que não exigem atualizações em tempo real.
+Essas visualizações fornecem snapshots periódicos dos atributos do perfil de usuário. Os dados têm um atraso de até 12 horas, o que os torna úteis para consultas que não exigem atualizações em tempo real.
 
  - `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED`
  - `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED`
 
 ### Uso {#usage}
 
-* Fornece um instantâneo dos atributos de usuário com um **atraso de até 12 horas**.
-* Apresenta bom desempenho para consultas que não exigem precisão em tempo real.
-* Execução de consulta mais rápida, especialmente ao filtrar por atributos diferentes de `USER_ID`.
+* Fornece um snapshot dos atributos de usuário com um atraso de até **12 horas**.
+* Tem bom desempenho para consultas que não exigem precisão em tempo real.
+* Execução de consultas mais rápida, especialmente ao filtrar por atributos diferentes de `USER_ID`.
 * **Limitação:** os dados não são atualizados em tempo real.
 
 {% include partners/snowflake_user_attributes_date_fields_note.md %}
 
-### Esquema de `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED` {#user_default_attributes_view_shared-schema}
+### Schema de `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED` {#user_default_attributes_view_shared-schema}
 
-| Nome da coluna | Tipo de dados | Descrição |
+| Nome da coluna     | Tipo de dados     | Descrição |
 |-----------------|---------------|-------------|
 | `APP_GROUP_ID` | VARCHAR | Identificador do seu espaço de trabalho da Braze |
 | `APP_ID` | VARCHAR | O app específico dentro do seu espaço de trabalho |
@@ -100,12 +100,12 @@ Essas visualizações fornecem instantâneos periódicos dos atributos do perfil
 | `COUNTRY` | VARCHAR | País do usuário |
 | `LANGUAGE` | VARCHAR | Preferência de idioma do usuário |
 | `ARCHIVED` | BOOLEAN | Se o perfil de usuário está arquivado |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERDEFAULTATTRIBUTESVIEWSHARED schema" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Schema de USERDEFAULTATTRIBUTESVIEWSHARED" }
 
 
-### Esquema de `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED` {#user_custom_attributes_view_shared-schema}
+### Schema de `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED` {#user_custom_attributes_view_shared-schema}
 
-| Nome da coluna | Tipo de dados | Descrição |
+| Nome da coluna     | Tipo de dados     | Descrição |
 |-----------------|---------------|-------------|
 | `APP_GROUP_ID` | VARCHAR | Identificador do seu espaço de trabalho da Braze |
 | `APP_ID` | VARCHAR | O app específico dentro do seu espaço de trabalho |
@@ -117,7 +117,7 @@ Essas visualizações fornecem instantâneos periódicos dos atributos do perfil
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ | Quando os dados foram atualizados pela última vez no Snowflake |
 | `CUSTOM_ATTRIBUTES` | VARIANT | Objeto JSON contendo todos os atributos personalizados (pares chave-valor) |
 | `ARCHIVED` | BOOLEAN | Se o perfil de usuário está arquivado |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERCUSTOMATTRIBUTESVIEWSHARED schema" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Schema de USERCUSTOMATTRIBUTESVIEWSHARED" }
 
 #### Trabalhando com CUSTOM_ATTRIBUTES {#working-with-custom_attributes}
 
@@ -162,9 +162,9 @@ WHERE CUSTOM_ATTRIBUTES:customer_segment IS NOT NULL
 GROUP BY CUSTOM_ATTRIBUTES:customer_segment::STRING;
 ```
 
-## Visualizações do perfil de usuário em tempo real {#real-time-user-profile-views}
+## Visualizações de perfil de usuário em tempo real {#real-time-user-profile-views}
 
-Essas visualizações fornecem atualizações quase em tempo real sobre os atributos do perfil de usuário, com um atraso de até 10 minutos após a ocorrência de uma atualização na Braze.
+Essas visualizações fornecem atualizações quase em tempo real sobre atributos de perfil de usuário, com dados atrasados em até 10 minutos após uma atualização ocorrer na Braze.
 
   - `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED`
   - `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED`
@@ -174,17 +174,17 @@ Essas visualizações fornecem atualizações quase em tempo real sobre os atrib
 * Fornece atributos de usuário atualizados com atraso mínimo (~10 minutos).
 * Útil para análises em tempo real e cenários em que dados recentes são necessários.
 * **Considerações de desempenho:**
-    * Consultas sobre usuários individuais são mais rápidas (menos de um minuto usando um warehouse grande).
-    * Consultas sem filtros de USER_ID exigem agregação em todos os usuários, o que leva a tempos de execução significativamente mais longos.
+    * Consultas em usuários individuais são mais rápidas (menos de um minuto usando um warehouse grande).
+    * Consultas sem filtros de USER_ID exigem agregação entre todos os usuários, resultando em tempos de execução significativamente mais longos.
     * Consultas em um grande conjunto de dados (como mais de 100 milhões de usuários) podem levar muitos minutos.
 
 {% include partners/snowflake_user_attributes_date_fields_note.md %}
 
 ### Esquema de `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` {#user_latest_state_default_attributes_view_shared-schema}
 
-| Nome da coluna | Tipo de dados | Descrição |
+| Nome da coluna     | Tipo de dados     | Descrição |
 |-----------------|---------------|-------------|
-| `APP_GROUP_ID` | VARCHAR | Identificador do seu espaço de trabalho da Braze |
+| `APP_GROUP_ID` | VARCHAR | Identificador do seu espaço de trabalho na Braze |
 | `APP_ID` | VARCHAR | O app específico dentro do seu espaço de trabalho |
 | `USER_ID` | VARCHAR | O identificador exclusivo de usuário da Braze |
 | `TIME` | NUMBER | Timestamp Unix (segundos) da atualização do perfil |
@@ -203,49 +203,33 @@ Essas visualizações fornecem atualizações quase em tempo real sobre os atrib
 | `COUNTRY` | VARCHAR | País do usuário |
 | `LANGUAGE` | VARCHAR | Preferência de idioma do usuário |
 | `TIME_ZONE` | VARCHAR | Fuso horário do usuário |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERLATESTSTATEDEFAULTATTRIBUTESVIEWSHARED schema" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Esquema de USERLATESTSTATEDEFAULTATTRIBUTESVIEWSHARED" }
 
 ### Esquema de `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` {#user_latest_state_custom_attribute_view_shared-schema}
 
-| Nome da coluna | Tipo de dados | Descrição |
-|-----------------|---------------|-------------|
-| `APP_GROUP_ID` | VARCHAR | Identificador do seu espaço de trabalho da Braze |
-| `USER_ID` | VARCHAR | O identificador exclusivo de usuário da Braze |
-| `EXTERNAL_USER_ID` | VARCHAR | Seu próprio identificador de usuário (se definido) |
-| `TIME` | NUMBER | Timestamp Unix (segundos) da atualização do perfil |
-| `TIME_MS` | NUMBER | Timestamp Unix (milissegundos) da atualização do perfil |
-| `UPDATE_SOURCE` | VARCHAR | A origem da atualização do atributo (API, SDK, dashboard, etc.) |
-| `ARCHIVED` | BOOLEAN | Se o perfil de usuário está arquivado |
-| `SF_UPDATED_AT` | TIMESTAMP_NTZ | Quando os dados foram atualizados pela última vez no Snowflake |
-| `APP_ID` | VARCHAR | O app específico dentro do seu espaço de trabalho |
-| `CUSTOM_ATTRIBUTES` | OBJECT | Objeto JSON contendo todos os atributos personalizados (pares chave-valor) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERLATESTSTATECUSTOMATTRIBUTEVIEWSHARED schema" }
-
-{% alert note %}
-Esta visualização usa o tipo `OBJECT` para `CUSTOM_ATTRIBUTES` em vez de `VARIANT`. Use a mesma sintaxe de acessor JSON (`:attribute_name::TYPE`) para consultar atributos individuais.
-{% endalert %}
+{% include partners/snowflake_user_attributes_custom_view_schemas.md schema="latest" %}
 
 ## Registros históricos de alterações {#historical-change-logs}
 
-Essas visualizações armazenam registros históricos de alterações de atributos de usuário, capturando mudanças com granularidade de 12 horas.
+Essas visualizações armazenam registros históricos de alterações de atributos de usuário, capturando mudanças com uma granularidade de 12 horas.
 
 - `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED`
 - `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED`
 
 ### Uso
 
-* Fornece um registro de alterações históricas nos atributos de usuário por um período contínuo de 6 meses.
-* Os dados são capturados a cada 12 horas, o que significa que várias atualizações nesse período são combinadas em um único registro. Alterações individuais dentro desse intervalo não são mantidas separadamente.
+* Fornece um registro de alterações históricas nos atributos de usuário para um período contínuo de 6 meses.
+* Os dados são capturados a cada 12 horas, o que significa que várias atualizações nessa janela são combinadas em um único registro. Alterações individuais dentro desse período não são retidas separadamente.
 * `EFF_DT` e `END_DT` marcam o início e o fim do estado de um atributo do usuário.
 
 {% include partners/snowflake_user_attributes_date_fields_note.md %}
 
 ### Esquema de `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED` {#user_default_attributes_history_view_shared-schema}
 
-| Nome da coluna | Tipo de dados | Descrição |
+| Nome da coluna     | Tipo de dados     | Descrição |
 |-----------------|---------------|-------------|
 | `APP_GROUP_ID` | VARCHAR | Identificador do seu espaço de trabalho da Braze |
-| `USER_ID` | VARCHAR | O identificador exclusivo de usuário da Braze |
+| `USER_ID` | VARCHAR | Identificador único do usuário na Braze |
 | `APP_ID` | VARCHAR | O app específico dentro do seu espaço de trabalho |
 | `TIME` | NUMBER | Timestamp Unix (segundos) da atualização do perfil |
 | `TIME_MS` | NUMBER | Timestamp Unix (milissegundos) da atualização do perfil |
@@ -264,29 +248,15 @@ Essas visualizações armazenam registros históricos de alterações de atribut
 | `LANGUAGE` | VARCHAR | Preferência de idioma do usuário |
 | `EFF_DT` | TIMESTAMP_NTZ | Data efetiva: quando esse estado do atributo começou |
 | `END_DT` | TIMESTAMP_NTZ | Data final: quando esse estado do atributo terminou (NULL para o estado atual) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERDEFAULTATTRIBUTESHISTORYVIEWSHARED schema" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Esquema de USERDEFAULTATTRIBUTESHISTORYVIEWSHARED" }
 
 ### Esquema de `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED` {#user_custom_attributes_history_view_shared-schema}
 
-| Nome da coluna | Tipo de dados | Descrição |
-|-----------------|---------------|-------------|
-| `APP_GROUP_ID` | VARCHAR | Identificador do seu espaço de trabalho da Braze |
-| `USER_ID` | VARCHAR | O identificador exclusivo de usuário da Braze |
-| `APP_ID` | VARCHAR | O app específico dentro do seu espaço de trabalho |
-| `EXTERNAL_USER_ID` | VARCHAR | Seu próprio identificador de usuário (se definido) |
-| `TIME` | NUMBER | Timestamp Unix (segundos) da atualização do perfil |
-| `TIME_MS` | NUMBER | Timestamp Unix (milissegundos) da atualização do perfil |
-| `UPDATE_SOURCE` | VARCHAR | A origem da atualização do atributo (API, SDK, dashboard, etc.) |
-| `SF_UPDATED_AT` | TIMESTAMP_NTZ | Quando os dados foram atualizados pela última vez no Snowflake |
-| `CUSTOM_ATTRIBUTES` | VARIANT | Objeto JSON contendo todos os atributos personalizados (pares chave-valor) |
-| `ARCHIVED` | BOOLEAN | Se o perfil de usuário está arquivado |
-| `EFF_DT` | TIMESTAMP_NTZ | Data efetiva: quando esse estado do atributo começou |
-| `END_DT` | TIMESTAMP_NTZ | Data final: quando esse estado do atributo terminou (NULL para o estado atual) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERCUSTOMATTRIBUTESHISTORYVIEWSHARED schema" }
+{% include partners/snowflake_user_attributes_custom_view_schemas.md schema="history" %}
 
 ## Casos de uso comuns {#common-use-cases}
 
-### Criando segmentos de usuários {#building-user-segments}
+### Criando Segments de usuários {#building-user-segments}
 
 ```sql
 -- Find active users in a specific city who haven't received an email recently
@@ -355,19 +325,19 @@ WHERE c.CUSTOM_ATTRIBUTES:lifetime_value::NUMBER > 1000
 ORDER BY c.CUSTOM_ATTRIBUTES:lifetime_value::NUMBER DESC;
 ```
 
-## Melhores práticas {#best-practices}
+## Boas práticas {#best-practices}
 
 ### Uso recomendado de consultas {#recommended-query-usage}
 
-| Caso de uso | Visualizações recomendadas | Notas |
+| Caso de uso                                               | Views recomendadas                                   | Notas                                                                 |
 |--------------------------------------------------------|----------------------------------------------------|-----------------------------------------------------------------------|
-| **Consultas gerais** que não requerem atualizações recentes | `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED` e `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED` | Execução rápida, com dados de até 12 horas. |
-| Consultas que exigem os **atributos de usuário mais recentes** | `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` e `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` | Fornece atualizações quase em tempo real, mas pode ser mais lento para grandes conjuntos de dados. |
-| **Rastreamento histórico** de alterações de atributos | `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED` e `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED` | Armazena alterações de atributos com granularidade de 12 horas. |
+| **Consultas gerais** que não exigem atualizações recentes | `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED` e `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED`               | Execução rápida, com dados de até 12 horas atrás.                          |
+| Consultas que exigem os **atributos de usuário mais recentes**       | `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` e `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` | Fornece atualizações quase em tempo real, mas pode ser mais lenta para grandes conjuntos de dados. |
+| **Rastreamento histórico** de alterações de atributos           | `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED` e `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED`      | Armazena alterações de atributos com granularidade de 12 horas.                     |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Uso recomendado de consultas" }
 
 ### Considerações de desempenho {#performance-considerations}
 
-* Consultas em `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED` ou `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED` devem retornar em menos de 10 segundos para grandes conjuntos de dados (~1 bilhão de usuários) em um warehouse grande.
-* Consultas em `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` ou `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED ` para um único usuário retornam em menos de um minuto, mas escalam mal sem a filtragem por `USER_ID`.
-* Consultas sobre mais de 100 milhões de usuários em `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` ou `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` podem levar vários minutos devido à agregação por usuário.
+* Consultas em `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED` ou `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED` devem retornar em menos de 10 segundos para grandes conjuntos de dados (~1 bilhão de usuários) em um warehouse de grande porte.
+* Consultas em `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` ou `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` para um único usuário retornam em menos de um minuto, mas escalam mal sem filtragem por `USER_ID`.
+* Consultas com mais de 100 milhões de usuários em `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` ou `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` podem levar vários minutos devido à agregação por usuário.

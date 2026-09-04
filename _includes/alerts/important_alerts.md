@@ -53,7 +53,7 @@ There are certain browsers, such as the Naver Android and iOS apps, that don’t
 {% if include.alert == 'Purchase event deprecation' %}
 
 {% alert important %}
-The legacy purchase event is entering maintenance mode. Existing Braze customers can continue using legacy purchase events. They'll keep working as expected, but new functionality will be built on eCommerce recommended events going forward. Braze will provide advance notice well before any end-of-life date is set. New Braze customers should use [eCommerce recommended events]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events/), as legacy purchase events will not be available.
+The legacy purchase event is entering maintenance mode. Existing Braze customers can continue using legacy purchase events. They'll keep working as expected, but new functionality will be built on eCommerce recommended events going forward. Braze will provide advance notice well before any end-of-life date is set. New Braze customers should use [eCommerce recommended events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/), as legacy purchase events will not be available.
 {% endalert %}
 
 {% endif %}
@@ -61,7 +61,7 @@ The legacy purchase event is entering maintenance mode. Existing Braze customers
 {% if include.alert == 'Purchase event deprecation for eCommerce filters' %}
 
 {% alert important %}
-The legacy purchase event will enter a deprecated state (maintenance mode). Purchase events will continue to work as expected, but no net new functionality will be built on top of them, in favor of [eCommerce recommended events]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events/). When this happens, segment filters will no longer populate under purchase behavior.<br><br> If you're currently using purchase events, you will receive advance notice regarding the phase-out plans. For now, you can continue using purchase events until the official deprecation date. For more information, see the [recommended events overview]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/).
+The legacy purchase event will enter a deprecated state (maintenance mode). Purchase events will continue to work as expected, but no net new functionality will be built on top of them, in favor of [eCommerce recommended events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/). When this happens, segment filters will no longer populate under purchase behavior.<br><br> If you're currently using purchase events, you will receive advance notice regarding the phase-out plans. For now, you can continue using purchase events until the official deprecation date. For more information, see the [recommended events overview]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/).
 {% endalert %}
 
 {% endif %}
@@ -101,14 +101,12 @@ This partner appears on your **Technology Partners** page only if you have [Braz
 {% if include.alert == 'time filter types' %}
 
 {% alert important %}
-**Choosing between "Day of year" and "Time" filter types**: When filtering context variables that contain dates, choose the correct comparison type based on whether the date repeats every year:
+**Choosing between "Day of year" and "Time" filter types**: When filtering context variables that contain dates, choose the correct comparison type based on whether the date repeats every year. Use "Day of year" only when the year is not included in the value the context variable produces.
 
 - **Use "Day of year"** when the date repeats every year (for example, birthdays, anniversaries, or holidays like Christmas). This comparison type calculates based on the day of the year (1-365/366), ignoring the year component.
 - **Use "Time"** when the date is an absolute date that doesn't repeat (for example, contract end dates, appointment dates, or subscription renewal dates). This comparison type calculates based on the full timestamp, including the year.
 
 Using "Day of year" for absolute dates can produce incorrect or unexpected results because the calculation ignores the year component. For example, if you're comparing a future contract end date in April to determine if it's within 63 days, using "Day of year" may incorrectly match dates because it only compares day numbers (119 vs 359) without considering that April is actually 188 days away.
-
-**General guideline**: Does the date repeat every year? **Yes** → Use "Day of year". **No** → Use "Time".
 {% endalert %}
 
 {% endif %}

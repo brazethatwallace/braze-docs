@@ -25,16 +25,16 @@ description: "이 문서에서는 Braze 대시보드의 다중 언어 설정에 
 {% tabs %}
 {% tab 기본값 로캘 %}
 
-**기본값 로캘**의 경우, 드롭다운을 사용하여 추가할 언어를 선택하고, 선택 사항으로 언어와 연관된 국가를 선택합니다.
+**기본값 로캘**의 경우, 드롭다운을 사용하여 추가할 언어를 선택하고, 선택적으로 언어와 연관된 국가를 선택합니다.
 
-![언어 및 국가를 지정하기 위한 "로캘 추가 - 기본값 언어 및 국가" 창.]({% image_buster /assets/img/multi-language_support/default_option.png %})
+![언어 및 국가를 지정하기 위한 '로캘 추가 - 기본값 언어 및 국가' 창]({% image_buster /assets/img/multi-language_support/default_option.png %})
 
 {% endtab %}
 {% tab 커스텀 속성 %}
 
 **커스텀 속성**의 경우, 드롭다운을 사용하여 관련 커스텀 속성을 선택하고 텍스트 필드에 값을 입력합니다.
 
-![커스텀 속성과 값을 지정하기 위한 "로캘 추가 - 커스텀 속성" 창.]({% image_buster /assets/img/multi-language_support/custom_attributes_option.png %})
+![커스텀 속성과 값을 지정하기 위한 '로캘 추가 - 커스텀 속성' 창]({% image_buster /assets/img/multi-language_support/custom_attributes_option.png %})
 
 {% endtab %}
 {% endtabs %}
@@ -49,6 +49,7 @@ description: "이 문서에서는 Braze 대시보드의 다중 언어 설정에 
 - 단일 로캘에서 최대 두 개의 커스텀 속성 또는 최대 두 개의 기본값 사용자 속성 언어를 선택할 수 있습니다. 두 경우 모두 두 번째 속성은 선택 사항입니다.
 - CSV 파일에서 번역된 값을 편집할 때 파일의 기본값을 수정하지 마세요.
 - 업로드한 파일의 로캘 키는 다중 언어 설정의 로캘 키와 일치해야 합니다.
+- `device_locale`을 `zh_CN`(중국 본토에서 사용하는 간체 중국어)으로 업데이트하려면 프로젝트에 `zh_CN` 현지화 파일을 추가해야 합니다. iOS는 기본적으로 `zh-Hans`를 사용하기 때문입니다.
 
 ### 지원 및 우선순위 {#support-and-prioritization}
 

@@ -4,9 +4,9 @@ nav_title: 홈
 article_title: Braze API 가이드
 layout: api_glossary
 glossary_top_header: "Braze API 가이드"
-glossary_top_text: "Braze는 사용자 추적, 메시지 발송, 데이터 내보내기 등을 수행할 수 있는 고성능 REST API를 제공합니다. 이 페이지에서는 사용 가능한 Braze API 엔드포인트와 그 용도를 확인할 수 있습니다."
+glossary_top_text: "Braze는 사용자 추적, 메시지 발송, 데이터 내보내기, Campaigns, Canvases, 카탈로그 등을 관리할 수 있는 고성능 REST API를 제공합니다. 이 용어집을 통해 유형별 엔드포인트를 탐색하고, 요청 및 응답 세부 사항에 대한 참조 문서를 열거나, 인증, 사용량 제한, 오브젝트 설명서에 대한 링크를 확인할 수 있습니다."
+description: "유형별 Braze REST API 엔드포인트를 탐색하고, 인증, 사용량 제한, 오브젝트 참조 설명서에 대한 링크를 확인할 수 있습니다."
 page_type: glossary
-description: "이 랜딩 페이지에는 사용 가능한 Braze API 엔드포인트와 그 용도가 나열되어 있습니다."
 glossary_tag_name: 엔드포인트 유형
 
 glossary_filter_text: "엔드포인트 유형을 선택하여 용어집을 좁히세요:"
@@ -40,10 +40,13 @@ glossary_tags:
   - name: Catalogs
   - name: Content Blocks
   - name: Custom Events
+  - name: Data Objects
   - name: Email List
   - name: Email Templates
+  - name: Webhook Templates
   - name: KPI
   - name: Media Library
+  - name: Device Messaging API
   - name: Purchases
   - name: Preference Center
   - name: Schedule Messages
@@ -106,6 +109,46 @@ glossaries:
     description: 사용자 프로필을 다른 사용자와 병합합니다.
     tags:
       - User Data
+  - name: <a href='/docs/api/endpoints/data_objects'>/data_objects/*</a>
+    description: 오브젝트 유형, 오브젝트, 관계 엔드포인트를 포함한 전체 데이터 오브젝트 엔드포인트 참조를 확인합니다.
+    tags:
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/types/get_list_data_object_types'>/data_objects/types</a>
+    description: 워크스페이스의 데이터 오브젝트 유형을 나열합니다.
+    tags:
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/types/get_data_object_type'>/data_objects/types/{type_name}</a>
+    description: 하나의 데이터 오브젝트 유형과 해당 스키마 정의를 가져옵니다.
+    tags:
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/types/get_list_user_relationship_types'>/data_objects/types/{type_name}/user_relationship_types</a>
+    description: 데이터 오브젝트 유형에 대한 사용자 관계 종류를 나열합니다.
+    tags:
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/types/get_list_object_relationship_types'>/data_objects/types/{type_name}/object_relationship_types</a>
+    description: 데이터 오브젝트 유형에 대한 오브젝트 관계 종류를 나열합니다.
+    tags:
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/objects/get_list_data_objects'>/data_objects/objects/{type_name}</a>
+    description: 특정 유형의 데이터 오브젝트를 나열합니다.
+    tags:
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/objects/get_data_object'>/data_objects/objects/{type_name}/{external_id}</a>
+    description: 하나의 데이터 오브젝트를 가져오거나, 교체, 업데이트, 삭제합니다.
+    tags:
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/object_relationships/get_list_object_relationships'>/data_objects/objects/{type_name}/{external_id}/object_relationships</a>
+    description: 오브젝트 간 관계를 나열, 생성, 교체, 업데이트, 삭제합니다.
+    tags:
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/user_relationships/get_list_user_relationships'>/data_objects/objects/{type_name}/{external_id}/user_relationships</a>
+    description: 데이터 오브젝트에 대한 사용자 관계를 나열합니다.
+    tags:
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/user_relationships/post_create_user_relationship'>/data_objects/objects/{type_name}/{external_id}/users</a>
+    description: 사용자-오브젝트 관계를 생성, 교체, 업데이트, 삭제합니다.
+    tags:
+      - Data Objects
   - name: <a href='/docs/api/endpoints/messaging/send_messages/post_send_triggered_campaigns'>/campaigns/trigger/send</a>
     description: API 트리거 전달을 통해 지정된 사용자에게 즉시 일회성 메시지를 발송합니다.
     tags:
@@ -126,6 +169,14 @@ glossaries:
     description: 지정된 사용자에게 즉시 일회성 트랜잭션 메시지를 발송합니다.
     tags:
       - Send Messages
+  - name: <a href='/docs/api/device_messaging_api/endpoints/banners/post_sync_banners'>/v1/device-messaging/banners/sync</a>
+    description: 사용자 및 배치 세트에 대해 적격한 배너를 조회합니다.
+    tags:
+      - Device Messaging API
+  - name: <a href='/docs/api/device_messaging_api/endpoints/banners/post_track_banner_events'>/v1/device-messaging/banners/track</a>
+    description: 배너에 대한 노출 및 클릭 이벤트를 기록합니다.
+    tags:
+      - Device Messaging API
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns'>/campaigns/trigger/schedule/create</a>
     description: 대시보드에서 생성한 Campaign 메시지를 API 트리거 전달을 통해 발송합니다.
     tags:
@@ -226,6 +277,18 @@ glossaries:
     description: Braze 계정에서 사용 가능한 이메일 템플릿 목록을 가져옵니다.
     tags:
       - Email Templates
+  - name: <a href='/docs/api/endpoints/translations/webhook_templates/get_view_source_webhook_template'>/templates/webhook/translations/source</a>
+    description: 웹훅 템플릿의 기본 소스 번역을 확인합니다.
+    tags:
+      - Webhook Templates
+  - name: <a href='/docs/api/endpoints/translations/webhook_templates/get_view_translations_webhook_template'>/templates/webhook/translations</a>
+    description: 웹훅 템플릿의 번역을 확인합니다.
+    tags:
+      - Webhook Templates
+  - name: <a href='/docs/api/endpoints/translations/webhook_templates/put_update_webhook_template'>/templates/webhook/translations</a>
+    description: 웹훅 템플릿의 번역을 업데이트합니다.
+    tags:
+      - Webhook Templates
   - name: <a href='/docs/api/endpoints/export/campaigns/get_campaign_analytics'>/campaigns/data_series</a>
     description: 시간 경과에 따른 Campaign의 다양한 통계를 일별 시리즈로 조회합니다.
     tags:

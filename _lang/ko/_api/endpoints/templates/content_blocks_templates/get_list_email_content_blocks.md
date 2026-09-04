@@ -6,7 +6,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "이 문서에서는 사용 가능한 Content Blocks 목록 Braze 엔드포인트에 대한 자세한 내용을 설명합니다."
-
 ---
 {% api %}
 # 사용 가능한 Content Blocks 목록 {#list-available-content-blocks}
@@ -19,7 +18,7 @@ description: "이 문서에서는 사용 가능한 Content Blocks 목록 Braze �
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#6d87048f-68fd-46c9-aa15-3a970e99540e {% endapiref %}
 
 ## 필수 조건 {#prerequisites}
-이 엔드포인트를 사용하려면 `content_blocks.list` 권한이 있는 [API 키]({{site.baseurl}}/api/api_key)가 필요합니다.
+이 엔드포인트를 사용하려면 `content_blocks.list` 권한이 있는 [API 키]({{site.baseurl}}/api/basics)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 

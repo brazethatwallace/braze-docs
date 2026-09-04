@@ -29,6 +29,15 @@ Some email clients replace background images or invert low-contrast text in dark
 
 Custom fonts load in the editor preview when a **Text** block in the message references the font. If the preview still shows a fallback font after you configure a custom font in **Drag-and-Drop Email Editor** settings, add a **Text** block that uses that font so the editor loads it for preview. Confirm that cross-origin resource sharing (CORS) is enabled on your font file. Recheck **Preview and Test** and your target email clients before you send. For setup steps, see [Custom font]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings/#custom-font).
 
+## How can I carry over text formatting when I copy and paste from another application?
+
+Different text editors and applications have their own ways of handling text formatting that may not be universally recognized. When you copy and paste formatted text from outside Braze into the drag-and-drop editor, the rich formatting may not carry over.
+
+To paste text without rich formatting, use one of these methods:
+- On Mac: Press <kbd>cmd</kbd>+<kbd>shift</kbd>+<kbd>V</kbd> instead of <kbd>cmd</kbd>+<kbd>V</kbd>
+- On Windows: Press <kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>V</kbd> instead of <kbd>ctrl</kbd>+<kbd>V</kbd>
+- Right-click within the editor and select **Paste and Match Style**
+
 ## How can I change the email padding on mobile without updating the padding in the web view?
 
 You cannot edit the padding for mobile and web views exclusively, so any edits are reflected in both views. However, you can add CSS logic in the HTML editor that sets the padding based on different screen sizes. This isn't supported in the drag-and-drop editor, so you can export the HTML file and use the HTML editor instead.
@@ -70,11 +79,18 @@ Yes. You can add attachments to your email message by going to **Sending Setting
 
 ## How do I download the raw HTML for a drag-and-drop email?
 
+The drag-and-drop editor includes **Download file** as an option to export your email as an HTML file inside a ZIP file.
+
 1. Open your campaign or Canvas and edit the email message.
 2. Select **Edit email body** to open the drag-and-drop editor.
-3. Select **Download file** (bottom of the editor). Extract the archive to access the generated HTML.
+3. Select **Download file**.
+4. Extract the archive to access the generated HTML.
 
-You can paste that HTML into an [HTML block]({{site.baseurl}}/user_guide/channels/email/drag_and_drop#content) or the HTML editor when you need low-level edits—for example, to [turn off click tracking for specific links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#turning-off-click-tracking-on-a-link-to-link-basis).
+{% alert tip %}
+On Windows, move the ZIP file to a permanent location (such as Downloads) before extracting it. Extracting from a temporary folder may prevent you from accessing the HTML file after that folder is cleared.
+{% endalert %}
+
+You can paste that HTML into an [HTML block]({{site.baseurl}}/user_guide/channels/email/drag_and_drop#content) or the HTML editor when you need low-level edits (for example, to [turn off click tracking for specific links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#turning-off-click-tracking-on-a-link-to-link-basis)).
 
 ## Why is my drag-and-drop layout breaking?
 
@@ -98,3 +114,7 @@ When you stack multiple Content Blocks, use a separate row for each block instea
 ## Why is the drag-and-drop editor ignoring alignment settings?
 
 If the drag-and-drop editor ignores alignment settings, remove custom CSS or HTML blocks, remove custom fonts, check for CSS conflicts, and avoid duplicating row blocks. Contact Braze Support if the issue persists.
+
+## Why does my chosen hex color code not match the font in my email?
+
+If you're using a Content Block, the block may have its own font color setting. Select the text block inside the Content Block and clear any local **Font color** override so your hex color from global or paragraph styling can apply.

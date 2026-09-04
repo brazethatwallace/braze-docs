@@ -20,32 +20,28 @@ Usa el editor SQL cuando quieras:
 - Evitar construir una columna `PAYLOAD`
 - Manejar casos de uso de datos más complejos con SQL
 
-{% alert important %}
-El editor SQL de Ingesta de datos de Cloud está en beta. Ponte en contacto con tu administrador del éxito del cliente o director de cuentas para obtener acceso.
-{% endalert %}
-
 ## Requisitos previos y limitaciones {#prerequisites-and-limitations}
 
 El editor SQL tiene las siguientes limitaciones:
 
 - Disponible solo para orígenes de almacén de datos: Snowflake, Redshift, BigQuery, Databricks y Fabric.
-- Solo se admiten consultas de solo lectura de una sola sentencia.
+- Solo se admiten consultas de una sola sentencia y de solo lectura.
 
 {% alert note %}
-Braze ejecuta solo consultas de solo lectura contra tus datos y no modifica tus tablas subyacentes. Se pueden crear objetos temporales durante la ejecución de consultas, pero no se persisten.
+Braze solo ejecuta consultas de solo lectura contra tus datos y no modifica tus tablas subyacentes. Es posible que se creen objetos temporales durante la ejecución de la consulta, pero no se conservan de forma permanente.
 {% endalert %}
 
-## Crear una nueva sincronización con el editor SQL {#create-a-new-sql-editor-sync}
+## Crear una nueva sincronización con SQL Editor {#create-a-new-sql-editor-sync}
 
-Sigue estos pasos para crear primero un origen y luego una sincronización con el editor SQL. Si ya configuraste un origen para CDI, puedes ir directamente al paso 3.
+Sigue estos pasos para crear primero un origen y luego una sincronización con SQL Editor. Si ya configuraste un origen para CDI, puedes pasar directamente al paso 3.
 
 {% alert note %}
-Ten en cuenta que estos pasos usan un origen de Snowflake como ejemplo. El proceso de configuración para otros orígenes de almacén de datos es similar y se puede encontrar en el [Paso 2: Crear un nuevo origen en el panel de Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-2-create-a-new-source-in-the-braze-dashboard) de la documentación de [Configuración de integraciones de almacén de datos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#setting-up-data-warehouse-integrations).
+Ten en cuenta que estos pasos usan un origen de Snowflake como ejemplo. El proceso de configuración para otros orígenes de almacén de datos es similar y se puede encontrar en [Paso 2: Crear un nuevo origen en el panel de Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-2-create-a-new-source-in-the-braze-dashboard) de la documentación [Configuración de integraciones de almacén de datos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#setting-up-data-warehouse-integrations).
 {% endalert %}
 
 ### Paso 1: Configura tu rol, permisos, almacén y usuario de Snowflake {#step-1-set-up-your-snowflake-role-permissions-warehouse-and-user}
 
-Antes de crear tu origen de Snowflake en CDI, asegúrate de que el usuario de Snowflake que usa Braze tenga acceso a los datos que quieres consultar y un almacén para ejecutar consultas.
+Antes de crear tu origen de Snowflake en CDI, asegúrate de que el usuario de Snowflake que usa Braze tenga acceso a los datos que deseas consultar y un almacén para ejecutar consultas.
 
 #### Paso 1.1: (Opcional) Crea una base de datos y un esquema {#step-11-optional-create-a-database-and-schema}
 
@@ -58,7 +54,7 @@ CREATE SCHEMA BRAZE_CLOUD_PRODUCTION.INGESTION;
 
 #### Paso 1.2: Configura el rol y los permisos de la base de datos {#step-12-set-up-role-and-database-permissions}
 
-Otorga acceso a las tablas que quieres sincronizar:
+Otorga acceso a las tablas que deseas sincronizar:
 
 ```sql
 CREATE ROLE BRAZE_INGESTION_ROLE;
@@ -84,7 +80,7 @@ GRANT USAGE ON WAREHOUSE BRAZE_INGESTION_WAREHOUSE TO ROLE BRAZE_INGESTION_ROLE;
 ```
 
 {% alert note %}
-El almacén debe tener la reanudación automática habilitada. Si no la tiene, otorga a Braze privilegios adicionales de `OPERATE` en el almacén para que Braze pueda activarlo cuando se ejecute la consulta.
+El almacén debe tener activada la opción de reanudación automática. Si no la tiene, otorga a Braze privilegios adicionales de `OPERATE` sobre el almacén para que Braze pueda activarlo cuando se ejecute la consulta.
 {% endalert %}
 
 #### Paso 1.4: Crea un usuario de Snowflake {#step-14-create-a-snowflake-user}
@@ -102,25 +98,25 @@ Usarás este usuario cuando configures tu origen de Snowflake en Braze.
 
 En este paso, crea tu origen de Snowflake en Braze y valida la conexión.
 
-#### Paso 2.1: Añade un origen de Snowflake {#step-21-add-a-snowflake-source}
+#### Paso 2.1: Agrega un origen de Snowflake {#step-21-add-a-snowflake-source}
 
-1. En el panel de Braze, ve a **Configuración de datos** > **Ingesta de datos de Cloud** > **Fuentes**.
+1. En el panel de Braze, ve a **Data Settings** > **Cloud Data Ingestion** > **Sources**.
 2. Selecciona **Add data source**.
 3. Selecciona **Snowflake**.
 
-#### Paso 2.2: Introduce los detalles de conexión {#step-22-enter-connection-details}
+#### Paso 2.2: Ingresa los detalles de conexión {#step-22-enter-connection-details}
 
-Elige un nombre para tu origen e introduce tus credenciales y configuración de Snowflake.
+Elige un nombre para tu origen e ingresa tus credenciales y configuración de Snowflake.
 
 {% alert note %}
-Para el campo **Snowflake Account Locator**, introduce tu [identificador de cuenta](https://docs.snowflake.com/en/user-guide/admin-account-identifier) de Snowflake, que normalmente sigue un formato como `xy12345.us-east-1.aws`. No es lo mismo que un nombre de base de datos o un nombre de almacén.
+Para el campo **Snowflake Account Locator**, ingresa tu [identificador de cuenta](https://docs.snowflake.com/en/user-guide/admin-account-identifier) de Snowflake, que normalmente sigue un formato como `xy12345.us-east-1.aws`. No es lo mismo que un nombre de base de datos o un nombre de almacén.
 {% endalert %}
 
 #### Paso 2.3: Completa la configuración de la clave RSA {#step-23-complete-rsa-key-setup}
 
-Después de introducir tus credenciales y configuración, selecciona **Save credentials** y genera una clave RSA. Luego vuelve a Snowflake para completar la configuración. Añade la clave pública que se muestra en el dashboard al usuario que creaste para que Braze se conecte a Snowflake.
+Después de ingresar tus credenciales y configuración, selecciona **Save credentials** y genera una clave RSA. Luego regresa a Snowflake para completar la configuración. Agrega la clave pública que se muestra en el panel al usuario que creaste para que Braze se conecte a Snowflake.
 
-Para más información, consulta [Autenticación por par de claves de Snowflake](https://docs.snowflake.com/en/user-guide/key-pair-auth). Si quieres rotar las claves en algún momento, Braze puede generar un nuevo par de claves y proporcionar la nueva clave pública.
+Para obtener información adicional, consulta [Autenticación con par de claves de Snowflake](https://docs.snowflake.com/en/user-guide/key-pair-auth). Si deseas rotar las claves en algún momento, Braze puede generar un nuevo par de claves y proporcionar la nueva clave pública.
 
 ```sql
 ALTER USER BRAZE_INGESTION_USER SET RSA_PUBLIC_KEY='MIIBIjANBgkqhkiG9w0BA...';
@@ -130,21 +126,21 @@ De vuelta en Braze, selecciona **Test connection** para verificar el acceso al o
 
 ### Paso 3: Crea una nueva sincronización y escribe tu consulta SQL {#step-3-create-a-new-sync-and-write-your-sql-query}
 
-1. Ve a **Configuración de datos** > **Ingesta de datos de Cloud** > **Syncs**.
+1. Ve a **Data Settings** > **Cloud Data Ingestion** > **Syncs**.
 2. Selecciona **Create data sync**.
 3. Elige cualquier sincronización en **Data Type**.
 4. Haz referencia al origen del paso 2.
-5. Selecciona **SQL** y escribe una consulta SQL que devuelva datos de usuario de tu almacén. Tu consulta SQL define los datos que se sincronizan con Braze. El resultado de la consulta se convierte en el esquema de tu sincronización.
+5. Selecciona **SQL** y escribe una consulta SQL que devuelva datos de usuario desde tu almacén. Tu consulta SQL define los datos que se sincronizan con Braze. El resultado de la consulta se convierte en el esquema de tu sincronización.
 
-Puedes usar el explorador de orígenes para examinar las tablas y vistas disponibles para sincronizar, o el generador de SQL con IA para obtener la ayuda de Braze Operator en tu consulta SQL.
+Puedes usar el explorador de orígenes para buscar tablas y vistas disponibles desde las cuales sincronizar, o el generador de SQL con IA para obtener ayuda de Braze Operator con tu consulta SQL.
 
 {% alert note %}
-Solo se admiten consultas de solo lectura, incluyendo cláusulas `JOIN`. Para más detalles, consulta [Restricciones SQL](#sql-constraints).
+Solo se admiten consultas de solo lectura, incluidas las cláusulas `JOIN`. Para más detalles, consulta [Restricciones de SQL](#sql-constraints).
 {% endalert %}
 
 ### Paso 4: Previsualiza y valida tu consulta {#step-4-preview-and-validate-your-query}
 
-Selecciona **Preview and validate** para ejecutar tu consulta.
+Selecciona **vista previa and validate** para ejecutar tu consulta.
 
 La vista previa:
 
@@ -165,14 +161,14 @@ Para validar correctamente, tu consulta SQL debe devolver varias columnas obliga
 | Cuentas | - `ID` para representar el identificador de la cuenta.<br>- `NAME` para representar el nombre de la cuenta.<br>- `UPDATED_AT`.<br>- Al menos una columna adicional (campo de cuenta) para sincronizar. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 4: Previsualiza y valida tu consulta" }
 
-Las columnas adicionales fuera de las columnas obligatorias se sincronizan como atributos, propiedades de contexto de Canvas, propiedades del evento, campos de catálogo y campos de cuenta, respectivamente. Consulta [Comportamiento de validación](#validation-behavior) y [Solución de problemas](#troubleshooting) para obtener consejos útiles sobre errores de vista previa y validación y cómo corregirlos.
+Las columnas adicionales fuera de las columnas obligatorias se sincronizan como atributos, propiedades de contexto de Canvas, propiedades del evento, campos de catálogo y campos de cuenta, respectivamente. Consulta [Comportamiento de validación](#validation-behavior) y [Solución de problemas](#troubleshooting) para obtener consejos útiles sobre errores de vista previa y validación y cómo solucionarlos.
 
 ### Paso 5: Revisa el mapeado de atributos y crea la sincronización {#step-5-review-attribute-mapping-and-create-sync}
 
 Cuando la validación sea exitosa, continúa a **Next: Notifications** y crea tu sincronización.
 
 {% alert important %}
-Una configuración SQL incorrecta puede llevar a resultados no deseados, incluyendo el consumo excesivo de puntos de datos y riesgos operativos más amplios. Eres responsable de asegurar que la lógica de tu consulta sea correcta y debes previsualizar cuidadosamente todos los resultados antes de activar una sincronización.
+Una configuración SQL incorrecta puede generar resultados no deseados, incluido el consumo excesivo de puntos de datos y riesgos operativos más amplios. Eres responsable de asegurar que la lógica de tu consulta sea correcta y debes previsualizar cuidadosamente todos los resultados antes de activar una sincronización.
 {% endalert %}
 
 ## Restricciones SQL {#sql-constraints}
@@ -251,9 +247,9 @@ Si tu consulta devuelve cero filas:
 - Aún puedes crear la sincronización
 - No se actualizan usuarios hasta que se devuelvan filas
 
-## Compatibilidad con `PAYLOAD` (legado) {#payload-support-legacy}
+## Compatibilidad con PAYLOAD (heredado) {#payload-support-legacy}
 
-El editor SQL es compatible con [tablas CDI legadas]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations?tab=snowflake#step-1-set-up-tables-or-views) donde hay una columna `PAYLOAD` presente.
+El Editor SQL es compatible con [tablas CDI heredadas]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations?tab=snowflake#step-1-set-up-tables-or-views) en las que existe una columna `PAYLOAD`.
 
 Si tu consulta incluye:
 
@@ -275,7 +271,7 @@ Al editar una sincronización existente:
 - No puedes guardar cambios no válidos
 - Los cambios válidos surten efecto después de guardar
 
-Si ya hay una ejecución de sincronización en curso, tus cambios surten efecto en la siguiente ejecución.
+Si ya hay una ejecución de sincronización en curso, tus cambios surtirán efecto en la siguiente ejecución.
 
 ## Solución de problemas {#troubleshooting}
 
@@ -287,7 +283,7 @@ Cuando ves "Vista previa no disponible", uno de los siguientes tipos de error su
 
 | Tipo de error | Pasos para resolver |
 |---|---|
-| "No preview available" | Lee el banner de error para obtener pistas. |
+| "No vista previa available" | Lee el banner de error para obtener pistas. |
 | "Unable to connect to the source" | Verifica el nombre de usuario configurado, el localizador de cuenta y la configuración de autenticación por par de claves RSA.<br>Verifica que el almacén esté en ejecución.<br>Confirma el acceso a la red. |
 | "SQL syntax error" | Revisa tu sintaxis SQL. |
 | "Object does not exist or not authorized" | Asegúrate de que el rol tenga acceso `SELECT` a la tabla.<br>Confirma los permisos de base de datos y esquema.<br>Verifica errores tipográficos en el nombre de la tabla. |

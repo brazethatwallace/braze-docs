@@ -25,7 +25,7 @@ To create or edit your custom footer, do the following:
 1. Go to **Settings** > **Email Preferences** > **Subscription Pages and Footers**.
 2. Go to the **Custom footer** section and turn on custom footers.
 3. Select **Edit** then edit your footer in the **Compose** section.
-4. Select **Preview** to preview how your email footer will appear in a customer’s inbox. You can optionally select **Copy preview link** to generate and copy a shareable preview link that shows what the email will look like for a random user. The link will last for seven days before it needs to be regenerated.
+4. Select **Preview** to preview how your email footer will appear in a customer's inbox. You can optionally select **Copy preview link** to generate and copy a shareable preview link that shows what the email will look like for a random user. For more information, see [Shareable preview]({{site.baseurl}}/user_guide/messaging/governance/shareable_preview).
 5. Send a test message. 
 
 ![An example of a custom footer.]({% image_buster /assets/img_archive/custom_footer.png %})
@@ -40,7 +40,7 @@ To comply with CAN-SPAM regulations, your custom footer must include an unsubscr
 
 ## Footers without unsubscribe links
 
-Be very careful when using a template with the custom footer {% raw %}`{{${email_footer}}}` but without the `{{${set_user_to_unsubscribed_url}}}`{% endraw %} unsubscribe link tag. A warning will appear, but it'll be your choice to send an email with or without an unsubscribe link.
+Be very careful when using a template with the custom footer {% raw %}`{{${email_footer}}}` but without the `{{${set_user_to_unsubscribed_url}}}`{% endraw %} unsubscribe link tag. A warning appears, but it's your choice to send an email with or without an unsubscribe link.
 
 Here's a warning in the email composer:
 
@@ -81,17 +81,24 @@ When creating a custom footer, Braze suggests using [attributes for personalizat
 ### Including an unsubscribe link and opt-in link
 
 {% raw  %}
-As a best practice, Braze recommends including both an unsubscribe link (such as ``{{${set_user_to_unsubscribed_url}}}``) and an opt-in link (such as ``{{${set_user_to_opted_in_url}}}``) in your custom footer. This way, users will be able to both unsubscribe or opt-in, and you can passively collect opt-in data for a portion of your users.
+As a best practice, Braze recommends including both an unsubscribe link (such as ``{{${set_user_to_unsubscribed_url}}}``) and an opt-in link (such as ``{{${set_user_to_opted_in_url}}}``) in your custom footer. This way, users can unsubscribe or opt-in, and you can passively collect opt-in data for a portion of your users.
 {% endraw %}
 
 ### Setting custom footers for plaintext emails
 
 You can also choose to set a custom footer for plaintext emails from the **Subscription Pages and Footers** tab on the **Email Preferences** page, which follows the same rules as the custom footer for HTML emails. 
 
-If you don't include a plaintext footer, Braze will automatically build one from the HTML footer. When your custom footers are to your liking, select **Save**.
+If you don't include a plaintext footer, Braze automatically builds one from the HTML footer. When your custom footers are to your liking, select **Save**.
 
 ![Email with Set Custom Plaintext Footer option selected.]({% image_buster /assets/img_archive/custom_footer_save_changes.png %}){: style="max-width:70%" }
 
 ## Considerations
 
+
+### BrazeAI Decisioning Studio™
+
 If you're using [BrazeAI Decisioning Studio™]({{site.baseurl}}/user_guide/brazeai/decisioning_studio), note that {% raw %}`{{${email_footer}}}`{% endraw %} is not a standard Liquid tag. It's pre-processed before Liquid runs, so using {% raw %}`{{${email_footer}}}`{% endraw %} as a context variable value and calling the `:rerender` flag silently fails. Instead, use a [Content Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks#email-footers) for an email footer.
+
+### Link templates and UTM parameters
+
+Link templates are not automatically appended to links in custom email footers when using {% raw %}`{{${email_footer}}}`{% endraw %}. If you need link templates like UTM parameters in your footer links, use a [Content Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks#email-footers) instead, or manually append the UTM parameters to the specific links in your custom footer.

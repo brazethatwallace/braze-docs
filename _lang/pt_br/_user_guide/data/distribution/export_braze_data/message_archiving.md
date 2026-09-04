@@ -12,11 +12,11 @@ description: "Este artigo de referência aborda o arquivamento de mensagem, um r
 
 > O arquivamento de mensagem permite que você salve uma cópia das mensagens enviadas aos usuários para fins de arquivamento ou conformidade em seu bucket S3 da AWS, contêiner de Blob Storage do Azure ou bucket do Google Cloud Storage. <br><br> Este artigo aborda como configurar o arquivamento de mensagem, referências de carga útil JSON e perguntas frequentes.
 
-O arquivamento de mensagem está disponível como um recurso complementar. Para começar a usar o arquivamento de mensagem, entre em contato com seu gerente de sucesso do cliente da Braze.
+O arquivamento de mensagem está disponível como um recurso complementar. Para começar a usar o arquivamento de mensagem, entre em contato com seu CSM da Braze.
 
 ## Como funciona {#how-it-works}
 
-Quando esse recurso está ativado, a Braze grava um arquivo JSON compactado em gzip para cada mensagem enviada a um usuário através dos canais selecionados (e-mail, SMS/MMS ou push). A Braze grava esses arquivos no seu destino padrão de exportação de dados. Isso inclui todos os tipos de Campaign para cada canal, como Campaigns de e-mail de transação enviadas através da [API de E-mail de transação]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email).
+Quando esse recurso está ativado, a Braze grava um arquivo JSON compactado em gzip para cada mensagem enviada a um usuário através dos canais selecionados (e-mail, SMS/MMS ou push). A Braze grava esses arquivos no seu destino padrão de exportação de dados. Isso inclui todos os tipos de Campaign para cada canal, como Campaigns de e-mail de transação enviadas através da [API de e-mail de transação]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email).
 
 Esse arquivo conterá os campos definidos em [Referências de arquivo](#file-references) e refletirá as mensagens finais com modelo aplicado enviadas ao usuário. Todos os valores de modelo definidos na sua Campaign (por exemplo, {% raw %}`{{${first_name}}}`{% endraw %}) mostrarão o valor final que o usuário recebeu com base nas informações do perfil. Isso permite que você retenha uma cópia da mensagem enviada para atender aos requisitos de conformidade, auditoria ou suporte ao cliente.
 
@@ -112,7 +112,7 @@ A seguir estão as referências da carga útil JSON entregue ao seu bucket de ar
 }
 ```
 
-O campo `extras` contém os pares chave-valor configurados no campo **Email Extras** ao compor um e-mail no editor de HTML. Os extras de e-mail funcionam para todos os prestadores de serviço de e-mail (incluindo SendGrid e SparkPost) e estão incluídos nas mensagens arquivadas, independentemente de qual provedor é utilizado. Para saber mais sobre como configurar os extras de e-mail, veja [Criando uma campanha de e-mail]({{site.baseurl}}/user_guide/channels/email/html_editor#adding-email-extras). Para enviar dados de volta ao Currents, consulte [Extras de mensagens]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras).
+O campo `extras` contém os pares chave-valor configurados no campo **Email Extras** ao compor um e-mail no editor de HTML. Os extras de e-mail funcionam para todos os provedores de serviços de e-mail (incluindo SendGrid e SparkPost) e estão incluídos nas mensagens arquivadas, independentemente de qual provedor é utilizado. Para saber mais sobre como configurar os extras de e-mail, veja [Criando uma campanha de e-mail]({{site.baseurl}}/user_guide/channels/email/html_editor#adding-email-extras). Para enviar dados de volta ao Currents, consulte [Extras de mensagens]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras).
 
 ![Seção Email Extras do criador de e-mail com campos de chave e valor e opção Adicionar novo extra.]({% image_buster /assets/img_archive/email_extras.png %}){: style="max-width:60%" }
 
@@ -225,7 +225,7 @@ A cópia renderizada é enviada por upload imediatamente antes do envio da mensa
 
 ### Posso criar um novo bucket especificamente para arquivamento de mensagem enquanto mantenho o bucket atual usado para dados do Currents? {#can-i-create-a-new-bucket-specifically-for-message-archiving-while-keeping-the-current-bucket-used-for-currents-data}
 
-Não. Se você tiver interesse em criar esses buckets específicos, envie [feedback sobre o produto]({{site.baseurl}}/user_guide/administer/personal/product_portal).
+Não. {% multi_lang_include product_feedback_cta.md context="gap" feature="dedicated message archiving buckets while keeping a separate Currents bucket" %}
 
 ### Os dados arquivados são gravados em uma pasta dedicada em um bucket existente, semelhante à forma como as exportações de dados do Currents são estruturadas? {#is-archived-data-written-to-a-dedicated-folder-in-an-existing-bucket-similar-to-how-currents-data-exports-are-structured}
 
