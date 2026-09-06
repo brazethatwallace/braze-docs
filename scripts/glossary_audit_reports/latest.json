@@ -1,0 +1,121 @@
+{
+  "languages": {
+    "de": {
+      "glossary_entries": 1149,
+      "source_pairs": 53,
+      "mismatches": [],
+      "missing": [
+        {
+          "term": "General",
+          "source_translation": "Allgemein",
+          "frequency_in_docs": 11
+        }
+      ]
+    },
+    "es": {
+      "glossary_entries": 1020,
+      "source_pairs": 53,
+      "mismatches": [],
+      "missing": []
+    },
+    "fr": {
+      "glossary_entries": 726,
+      "source_pairs": 53,
+      "mismatches": [],
+      "missing": [
+        {
+          "term": "Preview",
+          "source_translation": "Prévisualisation",
+          "frequency_in_docs": 36
+        },
+        {
+          "term": "General",
+          "source_translation": "Général",
+          "frequency_in_docs": 11
+        }
+      ]
+    },
+    "ja": {
+      "glossary_entries": 613,
+      "source_pairs": 6,
+      "mismatches": [],
+      "missing": []
+    },
+    "ko": {
+      "glossary_entries": 1065,
+      "source_pairs": 52,
+      "mismatches": [
+        {
+          "term": "click",
+          "match_type": "exact",
+          "glossary_value": "클릭",
+          "source_value": "Click",
+          "source": "grapesjs",
+          "source_likely_untranslated": true
+        },
+        {
+          "term": "device",
+          "match_type": "exact",
+          "glossary_value": "기기",
+          "source_value": "Device",
+          "source": "grapesjs",
+          "source_likely_untranslated": true
+        },
+        {
+          "term": "video",
+          "match_type": "exact",
+          "glossary_value": "비디오",
+          "source_value": "동영상",
+          "source": "grapesjs"
+        }
+      ],
+      "missing": [
+        {
+          "term": "Preview",
+          "source_translation": "미리보기",
+          "frequency_in_docs": 36
+        },
+        {
+          "term": "General",
+          "source_translation": "기본설정",
+          "frequency_in_docs": 11
+        }
+      ]
+    },
+    "pt-br": {
+      "glossary_entries": 958,
+      "source_pairs": 53,
+      "mismatches": [
+        {
+          "term": "click",
+          "match_type": "exact",
+          "glossary_value": "clique",
+          "source_value": "Click",
+          "source": "grapesjs",
+          "source_likely_untranslated": true
+        },
+        {
+          "term": "Preview",
+          "match_type": "exact",
+          "glossary_value": "prévia",
+          "source_value": "Pré-visualização",
+          "source": "grapesjs"
+        }
+      ],
+      "missing": [
+        {
+          "term": "General",
+          "source_translation": "Geral",
+          "frequency_in_docs": 11
+        }
+      ]
+    }
+  },
+  "stats": {
+    "languages_audited": 6,
+    "total_glossary_entries": 5531,
+    "total_source_strings": 276,
+    "total_mismatches": 5,
+    "total_missing": 6
+  }
+}
