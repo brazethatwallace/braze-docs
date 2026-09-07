@@ -105,7 +105,7 @@ jobs:
         run: npm ci --ignore-scripts
 
       - name: Download URL shard
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           name: lhci-url-shards
           path: lhci-shards
@@ -148,7 +148,7 @@ jobs:
           cache: npm
 
       - name: Download all shard reports
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           pattern: lhci-reports-full-site-shard-*
           path: lhci-reports
