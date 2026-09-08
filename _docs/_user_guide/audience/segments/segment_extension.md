@@ -25,7 +25,7 @@ There is a default allotment of 50 active Segment Extensions per workspace at a 
 
 ## Creating a Segment Extension
 
-To create a Segment Extension, you will create a filter to refine a segment of your users based on custom event properties. When creating a Segment Extension, you will choose whether the segment will be static or dynamically refreshed at a set interval.
+To create a Segment Extension, you create a filter to refine a segment of your users based on custom event properties. When creating a Segment Extension, you choose whether the segment is static or dynamically refreshed at a set interval.
 
 ### Step 1: Navigate to Segment Extensions
 
@@ -54,7 +54,7 @@ The following Segment Extension types consume SQL credits:
 
 ### Step 2: Name your Segment Extension
 
-Name your Segment Extension by describing the type of users you intend to filter for. This will ensure that this extension can be easily and accurately discovered when applying it as a filter in your segment.
+Name your Segment Extension by describing the type of users you intend to filter for. This helps others find and apply the extension accurately.
 
 ![Segment Extension named "Online Shoppers Extension - 90 Days".]({% image_buster /assets/img/segment/segment_extension2.png %})
 
@@ -74,23 +74,31 @@ If you are creating a Segment Extension using an eCommerce recommended event, fi
 
 To increase targeting precision, select the **Add Property Filters** checkbox. This will enable you to drill down based on the specific properties of your purchase or custom event. We support event property segmentation based on string, numeric, boolean, and time objects.
 
-For string properties, you can enter in multiple values at once. In the following example, this filter looks for users with a status equal to any of the following: gold, silver, or bronze.
+##### Property data types
+
+For string properties, you can enter multiple values at once. In the following example, this filter looks for users with a dog breed equal to any of six specific dog breeds.
 
 ![Segmenting based on string properties.]({% image_buster /assets/img/segment/property5.png %})
 
-![Segmenting based on numeric properties.]({% image_buster /assets/img/segment/property2.png %})
+##### eCommerce recommended event properties
 
-![Segmenting based on boolean properties.]({% image_buster /assets/img/segment/property3.png %})
+When you add an event property for an eCommerce recommended event, the property dropdown automatically populates with the properties available for that event.
 
-![Segmenting based on datetime objects.]({% image_buster /assets/img/segment/property4.png %})
+Segment Extensions only support event properties in the documented allowlist for each eCommerce recommended event. Custom top-level properties you send through the API or SDK aren't valid for extension property filters—even if those properties appear in your event data. Using a non-allowlisted top-level property prevents the extension from saving or unarchiving.
 
-If you are using eCommerce recommended events and add an event property, the property dropdown will automatically populate with the properties available for that specific eCommerce recommended event.
+If you need to filter on non-standard properties, nest them under `metadata` when you log the event (for example, `metadata.color` instead of `color`). For supported properties, see [Event schemas]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#event-schemas) and [Types of eCommerce recommended events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events).
 
 ![Segment Extension details with a dropdown of available properties.]({% image_buster /assets/img/segment/ecommerce_recommended_event_properties.png %})
 
-We also support segmentation based on [nested event properties]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects). In the comparison dropdown, select the comparison that matches your nested property’s data type. You can use the same nested event property syntax to add nested properties for any eCommerce recommended events that contain nested properties. For info on the different nested properties available, see [Types of eCommerce recommended events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events). To generate the necessary schema for your Segment Extension’s property name, follow the steps in [Nested objects in custom events]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects).
+##### Nested event properties
+
+We also support segmentation based on [nested event properties]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects). In the comparison dropdown, select the comparison that matches your nested property’s data type. You can use the same nested event property syntax to add nested properties for any eCommerce recommended events that contain nested properties. 
+
+For information on the different nested properties available, see [Types of eCommerce recommended events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events). To generate the necessary schema for your Segment Extension's property name, follow the steps in [Nested objects in custom events]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects).
 
 ![Segmenting based on nested event properties.]({% image_buster /assets/img/segment/nested_segment_extensions.png %})
+
+##### Lookback window and data points
 
 Segment Extensions rely on long term storage of event properties and don't have a time-stamped property storage limit. You can look back on event properties tracked within the past two years. Using event properties within Segment Extensions does not impact data point usage.
 
@@ -104,13 +112,28 @@ You don't need Segment Extensions to use event properties or nested custom attri
 
 ### Step 5: Save your Segment Extension
 
-After you select **Save**, your Segment Extension will begin processing. The length of time it takes to generate your Segment Extension depends on how many users you have, how many custom events or purchase events you're capturing, and how many days you're looking back in history.
+After you select **Save**, your Segment Extension begins processing. The length of time it takes to generate your Segment Extension depends on how many users you have, how many custom events or purchase events you're capturing, and how many days you're looking back in history.
 
-While your Segment Extension is processing, you will see a small animation next to the name of the Segment Extension, and the word "Processing" in the **Last Processed** column on the Segment Extension list. Note that you will not be able to edit a Segment Extension while it is processing.
+While your Segment Extension is processing, you see a small animation next to the name of the Segment Extension and **Processing** in the **Status** column on the Segment Extension list. Note that you can't edit a Segment Extension while it is processing.
 
 !["Segment Extensions" page with two active extensions.]({% image_buster /assets/img/segment/segment_extension5.png %})
 
 When a Segment Extension is processing, Braze will continue to use the version history of the default segment from before the processing began for audience segmentation purposes. Processing takes place each time a save or refresh occurs, and involves querying and updating user profiles—in other words, your default segment's membership does not update instantaneously. This means that unless a user's action is performed before the refresh begins processing, we can't guarantee that the user will be included in the Segment Extension once that particular refresh is complete. Conversely, users who were in the Segment Extension before the refresh that no longer meet the criteria will continue to match your default segment until the refresh process is complete and updates are applied.
+
+#### Segment Extension statuses
+
+On the **Segment Extensions** page, each extension shows a **Status** and a **Last Processed** timestamp. After you save or refresh an extension, use these columns to confirm whether processing finished successfully.
+
+| Status | Description |
+|---|---|
+| Active | The extension finished processing successfully and is available for segmentation. **Last Processed** shows when the most recent refresh completed. |
+| Draft | The extension is saved but has not been activated yet. |
+| Archived | The extension is archived and unavailable for segmentation. |
+| Refresh disabled | Recurring audience updates are disabled. |
+| Processing | Braze is processing a save or refresh. The **Status** column shows **Processing**, a small animation appears next to the extension name, and you can't edit the extension until processing completes. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Segment Extension statuses" }
+
+When processing doesn't complete successfully, an error icon appears next to the extension name even though the **Status** column may still show **Active**. Hover over the icon to see the failure reason. If you get a failure but believe the extension should have finished processing, try refreshing the extension first—the status may be stale.
 
 ### Step 6: Use your extension in a segment
 

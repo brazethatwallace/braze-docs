@@ -17,92 +17,88 @@ Antes de empezar, necesitarás lo siguiente:
 
 | Requisito | Descripción |
 | --- | --- |
-| Cuenta Kameleoon | Se necesita una cuenta Kameleoon para beneficiarse de esta asociación.|
-| Cuenta Braze| Una cuenta Braze activa con el [SDK Web de Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) integrado en tu página web. También necesitarás que se habilite la segmentación de propiedades del evento. Para solicitarlo, consulta [Consideraciones](#considerations).|
+| Cuenta de Kameleoon | Se requiere una cuenta de Kameleoon para aprovechar esta integración.|
+| Cuenta de Braze | Una cuenta activa de Braze con el [SDK Web de Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) integrado en tu página web. También necesitarás tener habilitada la segmentación por propiedades del evento. Para solicitarla, consulta [Consideraciones](#considerations).|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
-## Casos de uso {#use-cases}
+## Ejemplos {#use-cases}
 
-Kameleoon envía eventos personalizados a Braze para identificar a los usuarios que participan en campañas de experimentación y personalización, lo que permite una segmentación más precisa y mensajes personalizados.
+Kameleoon envía eventos personalizados a Braze para identificar a los usuarios que participan en experimentos y Campaigns de personalización, lo que permite una segmentación más precisa y una mensajería personalizada.
 
 ## Integración de Kameleoon {#integrating-kameleoon}
 
-Esta integración se ejecuta como un rastreador JavaScript a través de engine.js de Kameleoon. Se puede habilitar rápidamente desde la plataforma de Kameleoon.
+Esta integración se ejecuta como un rastreador de JavaScript a través del engine.js de Kameleoon. Se puede habilitar desde la plataforma de Kameleoon.
 
-### Paso 1: Ir a la página de integraciones de Kameleoon {#step-1-go-to-the-kameleoon-integrations-page}
+### Paso 1: Ve a la página de Integraciones de Kameleoon {#step-1-go-to-the-kameleoon-integrations-page}
 
-En tu aplicación Kameleoon, selecciona **Admin** y luego **Integrations** en la barra lateral.
+En tu aplicación de Kameleoon, selecciona **Admin** y luego **Integrations** en la barra lateral.
 
-![El panel de administración de la plataforma Kameleoon.]({% image_buster /assets/img/kameleoon/img_1.png %}){: style="max-width:70%;"}
+![El panel de administración en la plataforma Kameleoon.]({% image_buster /assets/img/kameleoon/img_1.png %}){: style="max-width:70%;"}
 
-### Paso 2: Instala la herramienta Braze {#step-2-install-the-braze-tool}
+### Paso 2: Instala la herramienta de Braze {#step-2-install-the-braze-tool}
 
-Por defecto, la herramienta Braze no está instalada. Busca el icono de Braze y selecciona **Install the tool**. ![Un cuadrado gris con una flecha apuntando hacia abajo.]({% image_buster /assets/img/kameleoon/img_2.png %})
+De forma predeterminada, la herramienta de Braze no está instalada. Busca el icono de Braze y selecciona **Install the tool**. ![Un cuadrado gris con una flecha apuntando hacia abajo.]({% image_buster /assets/img/kameleoon/img_2.png %})
 
-Selecciona los proyectos para los que quieres activar la herramienta Braze, de modo que los datos de Kameleoon se reporten correctamente a Braze.
+Selecciona los proyectos para los cuales deseas activar la herramienta de Braze, de modo que los datos de Kameleoon se reporten correctamente a Braze.
 
-![El icono de la herramienta Braze en Kameleoon.]({% image_buster /assets/img/kameleoon/img_3.png %})
+![El icono de la herramienta de Braze en Kameleoon.]({% image_buster /assets/img/kameleoon/img_3.png %})
 
-Tras configurar la herramienta, selecciona **Validate**, con lo que se cerrará el panel de configuración. A continuación, verás un interruptor **ON** junto al icono de la herramienta Braze, que incluye el número de proyectos en los que está configurada la herramienta.
+Después de configurar la herramienta, selecciona **Validate**, lo que cierra el panel de configuración. Aparecerá un interruptor **ON** junto al icono de la herramienta de Braze, que incluye el número de proyectos en los que está configurada la herramienta.
 
-![La herramienta Braze activada en Kameleoon.]({% image_buster /assets/img/kameleoon/img_4.png %})
+![La herramienta de Braze activada en Kameleoon.]({% image_buster /assets/img/kameleoon/img_4.png %})
 
-{% alert important %}
-Esta característica está en fase beta. Únete al [Programa Beta de Kameleoon](https://help.kameleoon.com/account-and-team-management/join-beta-program/) para empezar a utilizar esta integración.
-{% endalert %}
+### Paso 3: Asocia Braze con las campañas de Kameleoon {#step-3-associate-braze-with-kameleoon-campaigns}
 
-### Paso 3: Asociar Braze a las campañas de Kameleoon {#step-3-associate-braze-with-kameleoon-campaigns}
+#### En el editor gráfico/de código {#in-the-graphiccode-editor}
 
-#### En el editor gráfico/código {#in-the-graphiccode-editor}
+Para completar tu experimento, selecciona el paso **Integrations** para configurar Braze como herramienta de seguimiento y luego selecciona **Braze**.
 
-Para finalizar tu experimento, selecciona el paso **Integrations** para configurar Braze como herramienta de seguimiento y, a continuación, selecciona **Braze**.
+![El panel de integraciones en Kameleoon que muestra todas las integraciones disponibles, incluida la integración activa de Braze.]({% image_buster /assets/img/kameleoon/img_5.png %})
 
-![El panel de integraciones en Kameleoon muestra todas las integraciones disponibles, incluida la integración activa Braze.]({% image_buster /assets/img/kameleoon/img_5.png %})
-
-Braze se mencionará en el resumen antes de salir en vivo. Kameleoon transmitirá automáticamente los datos a Braze, y podrás utilizarlos para el análisis y la segmentación directamente en Braze.
+Braze se menciona en el resumen antes de publicar. Kameleoon transmite automáticamente los datos a Braze, y puedes usarlos para análisis y segmentación directamente en Braze.
 
 ##### Creación de personalización {#personalization-creation}
 
-En la página **Personalization Creation**, puedes seleccionar Braze entre las herramientas de elaboración de informes para personalizar tus informes.
+En la página **Personalization Creation**, puedes seleccionar Braze entre las herramientas de informes para personalizar tus informes.
 
-![La sección de herramientas de elaboración de informes muestra integraciones como Heap, Mixpanel, Clarity, con Braze seleccionado.]({% image_buster /assets/img/kameleoon/img_6.png %})
+![Sección de herramientas de informes que muestra integraciones como Heap, Mixpanel, Clarity, con Braze seleccionado.]({% image_buster /assets/img/kameleoon/img_6.png %})
 
-##### Creación de conmutador de características {#feature-flag-creation}
+##### Creación de conmutadores de características {#feature-flag-creation}
 
-Configura la integración en el entorno del conmutador de características en la sección **Integrations**. Habilítala para los entornos en los que quieras que esté activa.
+Configura la integración en el entorno de conmutadores de características en la sección **Integrations**. Habilítala para los entornos en los que desees que esté activa.
 
-![La página de conmutador de características en Kameleoon con las integraciones disponibles. Hay dos interruptores para cada socio, "Delivery rules" y "Feature experiments".]({% image_buster /assets/img/kameleoon/img_7.png %})
+![La página de conmutadores de características en Kameleoon con las integraciones disponibles. Hay dos interruptores para cada partner, "Delivery rules" y "Feature experiments".]({% image_buster /assets/img/kameleoon/img_7.png %})
 
 ##### Página de resultados {#results-page}
 
-Una vez establecido Braze como herramienta de elaboración de informes para un experimento, puedes seleccionarlo (o deseleccionarlo) en la página de resultados de Kameleoon, en el menú **Experiment configuration**.
+Después de configurar Braze como herramienta de informes para un experimento, puedes seleccionarla (o deseleccionarla) en la página de resultados de Kameleoon en el menú **Experiment configuration**.
 
 {% alert note %}
-Esta integración requiere una [implementación híbrida](https://developers.braze-presentation.preview.kameleoon.net/core-concepts/hybrid-experimentation?language=en#sending-exposure-events-to-third-party-analytics) y solo es compatible con SDK Web.
+Esta integración requiere una [implementación híbrida](https://developers.braze-presentation.preview.kameleoon.net/core-concepts/hybrid-experimentation?language=en#sending-exposure-events-to-third-party-analytics) y solo es compatible con SDK web.
 {% endalert %}
 
 ![El panel lateral de la página de resultados en Kameleoon.]({% image_buster /assets/img/kameleoon/img_8.png %}){: style="max-width:50%;" }
 
-Aparecerán las herramientas de informe asociadas al experimento. Selecciona **Edit** para modificar esta selección.
+Aparecen las herramientas de informes asociadas al experimento. Selecciona **Edit** para editar esta selección.
 
 ### Paso 4: Analiza y aprovecha tus datos de Kameleoon en Braze {#step-4-analyze-and-leverage-your-kameleoon-data-in-braze}
 
-Una vez configurada la integración, Kameleoon enviará a Braze eventos personalizados denominados `kameleoon_exposure` con propiedades como **Experiment name**, **Experiment ID**, **Variation name** y **Variation ID**.
+Una vez configurada la integración, Kameleoon envía eventos personalizados llamados `kameleoon_exposure` con propiedades como **Experiment name**, **Experiment ID**, **Variation name**, **Variation ID** a Braze.
 
-![El registro de usuarios del evento personalizado en Braze, mostrando un ejemplo de carga útil del evento que ha recibido Braze de Kameleoon.]({% image_buster /assets/img/kameleoon/img_9.png %})
+![El registro de usuarios de eventos personalizados en Braze, que muestra un ejemplo de la carga útil del evento recibido por Braze desde Kameleoon.]({% image_buster /assets/img/kameleoon/img_9.png %})
 
-A continuación, puedes ver estos datos en los eventos personalizados, crear informes de eventos personalizados para identificar la exposición a campañas de Kameleoon y habilitar la segmentación basada en las propiedades del evento. Puedes utilizar eventos personalizados al crear Campaigns y Canvas posteriores o vinculados mediante [Rutas de acción]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/action_paths/#action-groups), [desencadenantes basados en acciones]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) o creando [segmentos]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/).
+Luego puedes ver estos datos en los eventos personalizados, crear informes de eventos personalizados para identificar la exposición a las campañas de Kameleoon y habilitar la segmentación basada en propiedades del evento. Puedes usar eventos personalizados al crear Campaigns y Canvas posteriores o vinculados mediante [Rutas de Acción]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/action_paths#action-groups), [desencadenadores basados en acciones]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) o al crear [Segments]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment).
 
-Además, se podrá acceder a estos eventos a través de [los objetos de eventos personalizados de Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) para poder realizar informes y análisis exhaustivos.
+Además, estos eventos son accesibles a través de [objetos de eventos personalizados de Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) para permitir informes y análisis exhaustivos.
 
 ## Consideraciones {#considerations}
 
-### Solicitar segmentación de propiedades del evento {#request-event-property-segmentation}
+### Solicitar segmentación por propiedades del evento {#request-event-property-segmentation}
 
-Antes de poder utilizar la segmentación de propiedades de eventos, necesitarás habilitarla en Braze. Utiliza la siguiente plantilla para ponerte en contacto con tu CSM de Braze o con el equipo de soporte para obtener acceso.
+Antes de poder usar la segmentación por propiedades del evento, necesitarás que esté habilitada en Braze. Usa la siguiente plantilla para contactar a tu CSM de Braze o al equipo de soporte para obtener acceso.
 
-   <table aria-label="Solicitar segmentación de propiedades del evento">
-     <caption>Solicitar segmentación de propiedades del evento</caption>
+   <table aria-label="Solicitar segmentación por propiedades del evento">
+     <caption>Solicitar segmentación por propiedades del evento</caption>
    <thead>
       <tr>
          <th>Campo</th>
@@ -127,8 +123,8 @@ Antes de poder utilizar la segmentación de propiedades de eventos, necesitarás
       </tr>
    </tbody>
    </table>
-   {: .reset-td-br-1 .reset-td-br-2 aria-label="Solicitar segmentación de propiedades del evento" }
+   {: .reset-td-br-1 .reset-td-br-2 aria-label="Solicitar segmentación por propiedades del evento" }
 
 ### Puntos de datos de Braze {#braze-data-points}
 
-El evento personalizado enviado desde Kameleoon a Braze&#8212;incluidas las propiedades del evento habilitadas para la segmentación&#8212;registrará puntos de datos en tu instancia de Braze.
+El evento personalizado enviado desde Kameleoon a Braze&#8212;incluyendo cualquier propiedad del evento habilitada para segmentación&#8212;registrará puntos de datos en tu instancia de Braze.

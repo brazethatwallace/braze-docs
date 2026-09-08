@@ -18,17 +18,17 @@ search_rank: 3.9
 
 ## Étape 1 : Choisir où créer votre message {#step-1-choose-where-to-build-your-message}
 
-Utilisez les Campaigns pour des communications simples et ponctuelles (par exemple, informer les utilisateurs d'un produit avec un seul message). Utilisez les Canvas pour des parcours utilisateur à plusieurs étapes (par exemple, envoyer des suggestions de produits personnalisées en fonction du comportement de l'utilisateur au fil du temps).
+Utilisez les Campaigns pour des communications simples et ponctuelles (comme informer les utilisateurs d'un produit avec un seul message). Utilisez les Canvas pour des parcours utilisateur en plusieurs étapes (comme l'envoi de suggestions de produits personnalisées en fonction du comportement des utilisateurs au fil du temps).
 
 {% tabs %}
 {% tab Campaign %}
 
-1. Allez dans **Messaging** > **Campaigns** et sélectionnez **Create Campaign**.
+1. Accédez à **Messaging** > **Campaigns** et sélectionnez **Create Campaign**.
 2. Sélectionnez **Content Cards** ou, pour les Campaigns ciblant plusieurs canaux, sélectionnez **Multichannel**.
 3. Donnez à votre Campaign un nom clair et significatif.
-4. Ajoutez des [équipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams) et des [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) selon vos besoins.
-   * Les tags facilitent la recherche et la création de rapports pour vos Campaigns. Par exemple, lorsque vous utilisez le [générateur de rapports]({{site.baseurl}}/user_guide/analytics/reports/report_builder), vous pouvez filtrer par les tags pertinents.
-5. Ajoutez et nommez autant de variantes que vous le souhaitez pour votre Campaign. Vous pouvez choisir différentes plateformes, types de messages et mises en page pour chacune de vos variantes ajoutées. Pour en savoir plus sur les variantes, consultez [Test multivarié et test A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
+4. Ajoutez des [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams) et des [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) si nécessaire.
+   * Les tags facilitent la recherche de vos Campaigns et la création de rapports. Par exemple, lorsque vous utilisez le [générateur de rapports]({{site.baseurl}}/user_guide/analytics/reports/report_builder), vous pouvez filtrer par les tags pertinents.
+5. Ajoutez et nommez autant de variantes que vous le souhaitez pour votre Campaign. Vous pouvez choisir différentes plateformes, types de messages et mises en page pour chacune de vos variantes ajoutées. Pour en savoir plus sur les variantes, consultez [Tests multivariés et A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
 
 {% alert tip %}
 Si tous les messages de votre Campaign sont similaires ou ont le même contenu, composez votre message avant d'ajouter des variantes supplémentaires. Vous pouvez ensuite sélectionner **Copy from Variant** dans le menu déroulant **Add Variant**.
@@ -37,13 +37,13 @@ Si tous les messages de votre Campaign sont similaires ou ont le même contenu, 
 {% endtab %}
 {% tab Canvas %}
 
-1. [Créez votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) à l'aide du compositeur Canvas.
-2. Après avoir configuré votre Canvas, ajoutez une étape Message dans le générateur Canvas. Donnez à votre étape un nom clair et significatif.
+1. [Créez votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) à l'aide du compositeur de Canvas.
+2. Après avoir configuré votre Canvas, ajoutez une étape Message dans le générateur de Canvas. Donnez à votre étape un nom clair et significatif.
 3. Sélectionnez **Content Cards** comme canal de communication.
-4. Choisissez le moment où Braze évalue l'éligibilité de l'audience et la personnalisation pour la Content Card. Cela peut être à l'entrée dans l'étape ou à la première impression (recommandé). Les étapes contenant des Content Cards peuvent être planifiées ou basées sur une action.
+4. Choisissez quand Braze calcule l'éligibilité de l'audience et la personnalisation pour la Content Card. Cela peut être à l'entrée dans l'étape ou à la première impression (recommandé). Les étapes contenant des Content Cards peuvent être planifiées ou basées sur une action.
 5. Choisissez si les Content Cards doivent être supprimées lorsque les utilisateurs effectuent un achat ou réalisent un événement personnalisé.
-6. Définissez une expiration pour la Content Card (durée dans le flux). Cela peut être après une certaine durée ou à un moment précis.
-7. Filtrez votre audience, ou les destinataires, pour cette étape selon vos besoins dans les **Delivery Settings**. Vous pouvez affiner davantage votre audience en spécifiant des Segments et en ajoutant des filtres supplémentaires. Les options d'audience sont vérifiées après le délai, au moment de l'envoi des messages.
+6. Définissez une expiration pour la Content Card (durée dans le fil). Cela peut être après une certaine durée ou à un moment précis.
+7. Filtrez votre audience, ou les destinataires, pour cette étape si nécessaire dans les **Delivery Settings**. Vous pouvez affiner davantage votre audience en spécifiant des Segments et en ajoutant des filtres supplémentaires. Les options d'audience sont vérifiées après le délai, au moment de l'envoi des messages.
 8. Choisissez tout autre canal de communication que vous souhaitez associer à votre message.
 
 {% endtab %}
@@ -51,15 +51,15 @@ Si tous les messages de votre Campaign sont similaires ou ont le même contenu, 
 
 ## Étape 2 : Spécifier vos types de messages {#step-2-specify-your-message-types}
 
-Sélectionnez l'un des trois types essentiels de Content Cards : **Classique**, **Image légendée** et **Image uniquement**.
+Sélectionnez l'un des trois types essentiels de Content Cards : **Classique**, **Image légendée** et **Image seule**.
 
 Pour en savoir plus sur le comportement attendu et l'apparence de chaque type, consultez [Détails créatifs]({{site.baseurl}}/user_guide/channels/content_cards/creative_details), ou consultez les liens dans le tableau suivant. Ces types de Content Cards sont acceptés à la fois par les applications mobiles et les applications web.
 
 | Type de message | Exemple | Description |
 |---|---|---|
-| [Classique]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#content-card-types) | ![Une Content Card classique avec une petite icône et un texte encourageant à réserver un cours de sport.]({% image_buster/assets/img_archive/cc_steppington_classic.png %}) | La carte classique présente une mise en page simple avec un titre en gras, un texte de message et une image facultative placée au début du titre et du texte. Il est préférable d'utiliser une image carrée ou une icône avec la carte classique. |
-| [Image légendée]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#content-card-types) | ![Une Content Card de type image légendée avec la photo d'un haltérophile et un texte encourageant à réserver un cours de sport.]({% image_buster/assets/img_archive/cc_steppington_captioned.png %}) | La carte image légendée met en valeur votre contenu avec du texte et une image accrocheuse. |
-| [Image uniquement]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#content-card-types) | ![Une Content Card de type image uniquement avec du texte seulement.]({% image_buster/assets/img_archive/cc_steppington_banner.png %}) | La carte image uniquement attire l'attention avec un espace dédié aux images, aux GIF et à d'autres contenus créatifs non textuels. |
+| [Classique]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#content-card-types) | ![Une Content Card classique avec une petite icône et du texte encourageant à réserver un cours de sport.]({% image_buster/assets/img_archive/cc_steppington_classic.png %}) | La carte classique a une mise en page simple avec un titre en gras, un texte de message et une image optionnelle placée au début du titre et du texte. Il est préférable d'utiliser une image carrée ou une icône avec la carte classique. |
+| [Image légendée]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#content-card-types) | ![Une Content Card de type image légendée avec l'image d'un haltérophile et du texte encourageant à réserver un cours de sport.]({% image_buster/assets/img_archive/cc_steppington_captioned.png %}) | La carte image légendée met en valeur votre contenu avec du texte et une image accrocheuse. |
+| [Image seule]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#content-card-types) | ![Une Content Card de type image seule avec uniquement du texte.]({% image_buster/assets/img_archive/cc_steppington_banner.png %}) | La carte image seule attire l'attention avec un espace dédié aux images, GIF et autres contenus créatifs non textuels. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Étape 2 : Spécifier vos types de messages" }
 
 ## Étape 3 : Composer une Content Card {#step-3-compose-a-content-card}
@@ -68,79 +68,79 @@ Vous pouvez modifier tous les aspects du contenu et du comportement de votre mes
 
 ![Exemple de détails d'une Content Card dans l'onglet Composer de l'éditeur de messages.]({% image_buster /assets/img/content_card_compose.png %})
 
-Le contenu ici varie en fonction du **type de carte** choisi à l'étape précédente, mais peut inclure l'une des options suivantes :
+Le contenu présenté ici varie en fonction du **type de carte** choisi à l'étape précédente, mais peut inclure l'une des options suivantes :
 
 ### Langue {#language}
 
-Sélectionnez **Ajouter des langues** pour ajouter les langues souhaitées à partir de la liste proposée. Cela insère du [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#conditional-logic) dans votre message. Nous vous recommandons de sélectionner vos langues avant de rédiger votre contenu afin de pouvoir remplir votre texte aux emplacements appropriés dans le Liquid. Pour consulter la liste complète des langues disponibles, voir [Langues prises en charge]({{site.baseurl}}/developer_guide/localization?tab=android).
+Sélectionnez **Ajouter des langues** pour ajouter les langues souhaitées à partir de la liste fournie. Cela insère du [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#conditional-logic) dans votre message. Nous vous recommandons de sélectionner vos langues avant de rédiger votre contenu afin de pouvoir remplir votre texte aux emplacements appropriés dans le Liquid. Pour consulter notre liste complète des langues disponibles, reportez-vous à [Langues prises en charge]({{site.baseurl}}/developer_guide/localization?tab=android).
 
-![Une fenêtre avec l'anglais, l'espagnol et le français sélectionnés pour les langues, et le titre, la description et le texte du lien sélectionnés pour les champs à internationaliser.]({% image_buster /assets/img/add_languages.png %}){: style="max-width:70%;"}
+![Une fenêtre avec l'anglais, l'espagnol et le français sélectionnés comme langues, et le titre, la description et le texte du lien sélectionnés comme champs à internationaliser.]({% image_buster /assets/img/add_languages.png %}){: style="max-width:70%;"}
 
 #### Créer des messages de droite à gauche {#create-right-to-left-messages}
 
-L'apparence finale des messages de droite à gauche dépend largement de la manière dont les fournisseurs de services les rendent. Pour les bonnes pratiques de création de messages de droite à gauche qui s'affichent aussi fidèlement que possible, consultez [Créer des messages de droite à gauche]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
+L'apparence finale des messages de droite à gauche dépend largement de la façon dont les fournisseurs de services les affichent. Pour découvrir les bonnes pratiques de création de messages de droite à gauche qui s'affichent aussi fidèlement que possible, consultez [Créer des messages de droite à gauche]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
 
 #### Titre et message {#title-and-message}
 
-Écrivez ce que vous souhaitez. Il n'y a pas de limites, mais plus vite vous transmettez votre message et incitez votre client à cliquer, mieux c'est ! Nous recommandons des titres et des contenus de message clairs et concis. Notez que ces champs ne sont pas disponibles pour les cartes de type Image uniquement.
+Rédigez ce que vous souhaitez. Il n'y a pas de limite, mais plus vite vous transmettez votre message et incitez votre client à cliquer, mieux c'est ! Nous recommandons des titres et des contenus de messages clairs et concis. Notez que ces champs ne sont pas disponibles pour les cartes Image uniquement.
 
 #### Image {#image}
 
-Pour ajouter une image à votre Content Card, vous pouvez sélectionner **Ajouter une image** ou fournir une URL d'image. Sélectionner **Ajouter une image** ouvre la **bibliothèque multimédia**, où vous pouvez sélectionner une image précédemment téléchargée ou en ajouter une nouvelle.
+Pour ajouter une image à votre Content Card, vous pouvez sélectionner **Ajouter une image** ou fournir une URL d'image. En sélectionnant **Ajouter une image**, vous ouvrez la **bibliothèque multimédia**, où vous pouvez sélectionner une image précédemment importée ou en ajouter une nouvelle.
 
-Chaque type de message et plateforme peut avoir ses propres proportions et exigences recommandées, alors assurez-vous de vérifier celles-ci avant de commander ou de créer une image à partir de zéro. Gardez à l'esprit que les champs des messages de Content Cards sont limités à 2&nbsp;Ko au total.
+Chaque type de message et chaque plateforme peut avoir ses propres proportions et exigences recommandées, alors assurez-vous de les vérifier avant de commander ou de créer une image de toutes pièces. Gardez à l'esprit que les champs de message des Content Cards sont limités à une taille totale de 2&nbsp;Ko.
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
 #### Épingler en haut {#pin-to-top}
 
-Braze affiche une carte épinglée en haut du flux d'un utilisateur, et l'utilisateur ne peut pas la rejeter. Si le flux d'un utilisateur contient plusieurs cartes épinglées, Braze les classe par ordre chronologique. Lorsque Braze distribue une Content Card, elle est soit épinglée, soit non épinglée, et ce statut ne change pas pendant toute la durée de vie de la carte. Si vous modifiez le paramètre d'épinglage d'une Campaign, la mise à jour s'applique uniquement aux cartes envoyées après la modification. Elle ne modifie pas le statut d'épinglage des cartes déjà présentes dans le flux d'un utilisateur.
+Braze affiche une carte épinglée en haut du flux d'un utilisateur et celui-ci ne peut pas la rejeter. Si le flux d'un utilisateur contient plusieurs cartes épinglées, Braze les classe par ordre chronologique. Lorsque Braze distribue une Content Card, celle-ci est soit épinglée, soit non épinglée, et ce statut ne change pas pendant toute la durée de vie de la carte. Si vous modifiez le paramètre d'épinglage d'une Campaign, la mise à jour ne s'applique qu'aux cartes envoyées après la modification. Elle ne modifie pas le statut d'épinglage des cartes déjà présentes dans le flux d'un utilisateur.
 
 ![Aperçu côte à côte de la Content Card dans Braze pour mobile et web avec l'option « Épingler cette carte en haut du flux » sélectionnée.]({% image_buster /assets/img/cc_pin_to_top.png %}){:style="border:none"}
 
 #### Comportement au clic {#on-click-behavior}
 
-Lorsque votre client clique sur un lien présenté dans la carte, votre lien peut soit le diriger plus en profondeur dans votre application, soit vers un autre site. Si vous choisissez un comportement au clic pour votre Content Card, n'oubliez pas de mettre à jour votre **texte du lien** en conséquence.
+Lorsque votre client clique sur un lien présenté dans la carte, votre lien peut soit l'amener plus profondément dans votre application, soit vers un autre site. Si vous choisissez un comportement au clic pour votre Content Card, n'oubliez pas de mettre à jour votre **texte du lien** en conséquence.
 
 Les actions suivantes sont disponibles pour les liens des Content Cards :
 
 | Action | Description |
 |---|---|
 | Rediriger vers une URL web | Ouvrir une page web non native. |
-| [Deep link dans l'application]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#deep-link-to-in-app-content) | Deep link vers un écran existant dans votre application. |
-| Enregistrer un événement personnalisé | Choisir un [événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events) à déclencher. Peut être utilisé pour afficher une autre Content Card ou déclencher des messages supplémentaires. |
-| Enregistrer un attribut personnalisé | Choisir un [attribut personnalisé]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) à définir pour l'utilisateur actuel. |
+| [Deep link vers l'application]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#deep-link-to-in-app-content) | Deep link vers un écran existant de votre application. |
+| Enregistrer un événement personnalisé | Choisissez un [événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events) à déclencher. Peut être utilisé pour afficher une autre Content Card ou déclencher des communications supplémentaires. |
+| Enregistrer un attribut personnalisé | Choisissez un [attribut personnalisé]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) à définir pour l'utilisateur actuel. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Comportement au clic" }
 
-Les options **Enregistrer un événement personnalisé** et **Enregistrer un attribut personnalisé** nécessitent la compatibilité avec les versions SDK suivantes :
+Les options **Enregistrer un événement personnalisé** et **Enregistrer un attribut personnalisé** nécessitent la compatibilité avec les versions suivantes du SDK :
 
 {% sdk_min_versions swift:5.4.0 android:21.0.0 web:4.0.3 %}
 
 ## Étape 4 : Configurer les paramètres supplémentaires (facultatif) {#step-4-configure-additional-settings-optional}
 
-Vous pouvez utiliser des [paires clé-valeur]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs) pour créer des catégories pour vos cartes, créer [plusieurs flux de Content Cards]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed#implementing-multiple-feeds) et personnaliser la façon dont les cartes sont triées.
+Vous pouvez utiliser des [paires clé-valeur]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs) pour créer des catégories pour vos cartes, créer [plusieurs flux de Content Cards]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed#implementing-multiple-feeds) et personnaliser le tri des cartes.
 
 Pour ajouter des paires clé-valeur à votre message, accédez à l'onglet **Paramètres** et sélectionnez **Ajouter une nouvelle paire**.
 
-## Étape 5 : Construire le reste de votre campagne ou Canvas {#step-5-build-the-remainder-of-your-campaign-or-canvas}
+## Étape 5 : Créer le reste de votre campagne ou Canvas {#step-5-build-the-remainder-of-your-campaign-or-canvas}
 
 {% tabs %}
 {% tab Campaign %}
 
-Construisez le reste de votre campagne. Poursuivez votre lecture dans les sections suivantes pour plus de détails sur la meilleure façon d'utiliser nos outils pour créer des Content Cards.
+Créez le reste de votre campagne. Continuez vers les sections suivantes pour obtenir des détails supplémentaires sur la meilleure façon d'utiliser nos outils pour créer des Content Cards.
 
 ### Choisir une planification de distribution ou un déclencheur {#choose-a-delivery-schedule-or-trigger}
 
 Les Content Cards peuvent être distribuées en fonction d'un horaire planifié, d'une action ou d'un déclencheur API. Pour en savoir plus, consultez [Planifier votre campagne]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
 
-Vous pouvez également définir la durée de la campagne et les [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours), ainsi que déterminer l'expiration de la Content Card. Définissez une date d'expiration spécifique ou le nombre de jours avant l'expiration d'une carte, jusqu'à 30 jours. Toutes les variantes doivent utiliser la même expiration (durée ou horaire spécifique).
+Vous pouvez également définir la durée de la campagne et les [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours), ainsi que déterminer l'expiration de la Content Card. Définissez une date d'expiration spécifique ou le nombre de jours avant l'expiration d'une carte, jusqu'à 30 jours. Toutes les variantes doivent utiliser la même expiration (durée ou heure spécifique).
 
 Le décompte d'expiration commence à partir de l'heure d'envoi de la carte :
 
 - **Campaigns planifiées :** Le décompte commence à l'heure de lancement planifiée.
-- **Campaigns basées sur une action :** Le décompte commence lorsque l'utilisateur effectue l'action déclencheuse.
+- **Campaigns par événement :** Le décompte commence lorsque l'utilisateur effectue l'action déclencheuse.
 
-Par exemple, si une Content Card basée sur une action est envoyée à 14 h aujourd'hui avec une expiration de 1 jour, elle expire à 14 h le lendemain.
+Par exemple, si une Content Card par événement est envoyée à 14 h aujourd'hui avec une expiration d'un jour, elle expire à 14 h le jour suivant.
 
 {% multi_lang_include alerts/note_alerts.md alert='Content Cards frequency capping' %}
 
@@ -148,11 +148,11 @@ Pour la livraison par événement, il y a un court délai attendu avant l'appari
 
 #### Distribution planifiée {#scheduled-delivery}
 
-Pour les campagnes de Content Cards avec distribution planifiée, vous pouvez choisir le moment où Braze évalue l'éligibilité de l'audience et la personnalisation pour les nouvelles campagnes de Content Cards, en spécifiant quand la carte est créée. Pour en savoir plus, consultez [Création de carte]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation).
+Pour les campagnes de Content Cards avec distribution planifiée, vous pouvez choisir le moment où Braze évalue l'éligibilité de l'audience et la personnalisation pour les nouvelles campagnes de Content Cards en spécifiant quand la carte est créée. Pour en savoir plus, consultez [Création de carte]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation).
 
 #### Choisir les utilisateurs à cibler {#choose-users-to-target}
 
-Ensuite, [ciblez les utilisateurs]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) en choisissant des Segments ou des filtres pour affiner votre audience. Vous obtenez automatiquement un aperçu de la population approximative de ce Segment. Gardez à l'esprit que l'appartenance exacte au Segment est toujours calculée avant l'envoi du message.
+Ensuite, [ciblez les utilisateurs]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) en sélectionnant des Segments ou des filtres pour affiner votre audience. Vous recevez automatiquement un aperçu de la population approximative de ce Segment. Gardez à l'esprit que l'appartenance exacte au Segment est toujours calculée avant l'envoi du message.
 
 {% multi_lang_include audience/target_audiences.md %}
 
@@ -164,127 +164,127 @@ Braze vous permet de suivre la fréquence à laquelle les utilisateurs effectuen
 
 {% tab Canvas %}
 
-Si vous ne l'avez pas encore fait, complétez les sections restantes de votre composant Canvas. Pour plus de détails sur la construction du reste de votre Canvas, y compris les tests multivariés et l'option [Optimiser avec BrazeAI<sup>TM</sup>]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#optimize-canvas-variants-with-brazeai), consultez [Construire votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas).
+Si ce n'est pas déjà fait, complétez les sections restantes de votre composant Canvas. Pour en savoir plus sur la création du reste de votre Canvas, y compris les tests multivariés et l'[optimisation avec BrazeAI<sup>TM</sup>]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#optimize-canvas-variants-with-brazeai), consultez [Créer votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas).
 
 {% endtab %}
 {% endtabs %}
 
 ## Étape 6 : Vérifier et déployer {#step-6-review-and-deploy}
 
-Une fois la création de votre Campaign ou Canvas terminée, vérifiez ses détails, [testez-la]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages), puis envoyez-la. Pour en savoir plus, consultez [Envoyer des messages de test]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=content%20card).
+Après avoir terminé la création de votre Campaign ou Canvas, vérifiez ses détails, [testez-la]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages), puis envoyez-la. Pour plus d'informations, consultez [Envoyer des messages de test]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=content%20card).
 
 {% alert note %}
-Bien que les Content Cards ne nécessitent pas de notifications push en production, les envois de test requièrent que les notifications push soient activées sur vos appareils de test, car la carte est transmise dans le payload push. Les Content Cards de test expirent environ cinq minutes après leur envoi.
+Bien que les Content Cards ne nécessitent pas de notifications push en production, les envois de test nécessitent que le push soit activé sur vos appareils de test, car la carte est livrée dans le payload push. Les Content Cards de test expirent environ cinq minutes après leur envoi.
 {% endalert %}
 
 {% alert warning %}
-Après le lancement d'une Content Card, elle ne peut plus être modifiée. Elle peut uniquement être retirée de l'envoi aux nouveaux utilisateurs et supprimée des fils d'actualité des utilisateurs. Consultez [Mettre à jour les cartes envoyées]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card#updating-launched-cards) pour comprendre comment aborder ce scénario.
+Une fois qu'une Content Card est lancée, elle ne peut plus être modifiée. Elle peut uniquement être empêchée d'être envoyée à de nouveaux utilisateurs et supprimée des fils d'actualité des utilisateurs. Consultez [Mettre à jour les cartes envoyées]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card#updating-launched-cards) pour comprendre comment aborder ce scénario.
 {% endalert %}
 
-Ensuite, consultez les [rapports sur les Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/reporting) pour découvrir comment accéder aux résultats de vos campagnes de Content Cards.
+Consultez ensuite [Rapports sur les Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/reporting) pour découvrir comment accéder aux résultats de vos campagnes de Content Cards.
 
 ## Ce qu'il faut savoir {#things-to-know}
 
-### Limites de payload et de flux {#payload-and-feed-limitations}
+### Limitations de payload et de flux {#payload-and-feed-limitations}
 
-Pour garantir les performances, les Content Cards sont soumises à deux contraintes principales : une limite de taille pour le payload de chaque carte et un nombre maximum de cartes pouvant apparaître dans un flux.
+Pour garantir les performances, les Content Cards comportent deux contraintes clés : une limite sur la taille du payload de chaque carte et un nombre maximum de cartes pouvant apparaître dans un flux.
 
-#### Limites de taille des Content Cards {#size-limitations-for-content-cards}
+#### Limitations de taille pour les Content Cards {#size-limitations-for-content-cards}
 
-Le payload complet d'une seule Content Card ne peut pas dépasser 2 Ko **après** le rendu de toute personnalisation Liquid. Cela comprend :
+Le payload de données complet d'une seule Content Card ne peut pas dépasser 2 Ko **après** le rendu de toute personnalisation Liquid. Cela inclut :
 
 * Le titre
 * Le message
 * L'URL de l'image (la longueur de la chaîne de l'URL elle-même, pas la taille du fichier image)
 * Le texte du lien
-* Les URL de lien pour toutes les plateformes spécifiées (des URL distinctes pour iOS, Android et le Web comptent toutes dans le total)
-* Les paires clé-valeur (les noms des clés et leurs valeurs)
+* Les URL de lien pour toutes les plateformes spécifiées (des URL distinctes pour iOS, Android et Web comptent toutes dans le total)
+* Les paires clé-valeur (aussi bien les noms de clés que leurs valeurs)
 
 L'utilisation de Liquid pour extraire de longues chaînes de texte (par exemple à partir d'attributs personnalisés) peut vous amener à dépasser la limite.
 
-Le compositeur de Campaign affiche un avertissement si votre contenu statique dépasse la limite. Nous ne prédisons pas la taille du contenu dynamique utilisant Liquid. Si la taille du message dépasse 2 Ko, il est abandonné au moment de l'envoi. Vous pouvez consulter ces abandons dans le journal d'activité des messages avec la raison `Content card maximum size exceeded`.
+Le composeur de Campaign affiche un avertissement si votre contenu statique dépasse la limite. La taille du contenu dynamique utilisant Liquid n'est pas estimée. Si la taille du message dépasse 2 Ko, il est abandonné au moment de l'envoi. Vous pouvez voir ces abandons dans le journal d'activité des messages avec la raison `Content card maximum size exceeded`.
 
 {% alert important %}
-Lors des envois de test, les Content Cards dépassant 2 Ko peuvent tout de même être distribuées et affichées correctement.
+Lors des envois de test, les Content Cards qui dépassent 2 Ko peuvent tout de même être distribuées et affichées correctement.
 {% endalert %}
 
 Voici quelques bonnes pratiques pour gérer la taille du payload des Content Cards :
 
-* Utilisez des raccourcisseurs d'URL pour les liens longs. Les URL, en particulier celles comportant de nombreux paramètres de suivi, peuvent poser des problèmes de taille. L'utilisation d'un service de raccourcissement d'URL peut réduire considérablement le nombre de caractères et libérer de l'espace dans le payload.
-* Tronquez le contenu dynamique avec Liquid. Lorsque vous personnalisez des cartes avec du texte dynamique provenant d'attributs utilisateur ou d'appels API, la longueur du contenu peut être imprévisible. Utilisez de manière proactive les filtres Liquid comme `truncate` pour limiter la longueur de tout texte dynamique.
-* Soyez efficace avec les URL multi-plateformes. La limite de 2 Ko inclut les URL de toutes les plateformes que vous définissez. L'utilisation d'URL longues et uniques pour chaque plateforme peut multiplier la taille du payload. Si possible, utilisez un lien unique fonctionnant sur toutes les plateformes, ou utilisez des raccourcisseurs d'URL si nécessaire.
-* Envisagez les Banners pour du contenu plus riche. Pour les cas d'usage nécessitant régulièrement de grandes quantités de contenu, les Content Cards ne sont peut-être pas le bon canal. Les Banners n'ont pas la même limitation de payload de 2 Ko et sont mieux adaptés pour intégrer du contenu plus riche directement dans l'expérience d'une application ou d'un site web.
+* Utilisez des raccourcisseurs d'URL pour les liens longs. Les URL, en particulier celles comportant de nombreux paramètres de suivi, peuvent poser des problèmes de limite de taille. L'utilisation d'un service de raccourcissement d'URL peut réduire considérablement le nombre de caractères et libérer de l'espace dans le payload.
+* Tronquez le contenu dynamique avec Liquid. Lorsque vous personnalisez des cartes avec du texte dynamique provenant d'attributs utilisateur ou d'appels API, la longueur du contenu peut être imprévisible. Utilisez de manière proactive des filtres Liquid comme `truncate` pour limiter la longueur de tout texte dynamique.
+* Soyez efficace avec les URL multi-plateformes. La limite de 2 Ko inclut les URL de toutes les plateformes que vous définissez. L'utilisation d'URL longues et uniques pour chaque plateforme peut multiplier la taille du payload. Si possible, utilisez un lien unique qui fonctionne sur toutes les plateformes, ou utilisez des raccourcisseurs d'URL selon les besoins.
+* Envisagez les Banners pour du contenu plus riche. Pour les cas d'usage nécessitant systématiquement de grandes quantités de contenu, les Content Cards ne sont peut-être pas le bon canal. Les Banners n'ont pas la même limitation de payload de 2 Ko et sont mieux adaptés pour intégrer du contenu plus riche directement dans une expérience d'application ou de site web.
 
 #### Nombre de cartes dans le flux {#number-of-cards-in-feed}
 
-Chaque utilisateur peut disposer de 250 Content Cards non expirées au maximum dans son flux à tout moment. Lorsque cette limite est dépassée, Braze cesse de renvoyer les cartes les plus anciennes, même si elles n'ont pas été lues. Les cartes rejetées comptent également dans cette limite, ce qui signifie qu'un nombre élevé de cartes rejetées peut réduire l'espace disponible pour les plus anciennes.
+Chaque utilisateur peut avoir jusqu'à 250 Content Cards non expirées dans son flux à tout moment. Lorsque cette limite est dépassée, Braze cesse de renvoyer les cartes les plus anciennes, même si elles n'ont pas été lues. Les cartes rejetées comptent également dans cette limite, ce qui signifie qu'un nombre élevé de cartes rejetées peut réduire l'espace disponible pour les plus anciennes.
 
-Pour éviter les problèmes liés à la limite de cartes, nous recommandons les bonnes pratiques suivantes :
+Pour éviter les problèmes liés à la limite de cartes, nous conseillons les bonnes pratiques suivantes :
 
-- **Utilisez des dates d'expiration plus courtes :** pour les Campaigns sensibles au facteur temps (comme une promotion de week-end), définissez une date d'expiration précise. De cette façon, les cartes sont automatiquement retirées du flux et ne comptent plus dans la limite une fois qu'elles ne sont plus pertinentes.
-- **Tirez parti de la suppression par événement :** configurez des événements de suppression pour les cartes transactionnelles ou basées sur des objectifs. Par exemple, une carte invitant un utilisateur à compléter son profil doit être supprimée dès qu'un événement `profile_completed` est enregistré.
-- **Auditez les Campaigns de longue durée :** passez en revue les Campaigns récurrentes ou continues pour vous assurer qu'elles ne dégradent pas l'expérience de vos utilisateurs en remplissant le flux avec trop de cartes au fil du temps.
+- **Utilisez des dates d'expiration plus courtes :** pour les Campaigns sensibles au temps (comme une vente de week-end), définissez une date d'expiration spécifique. Ainsi, les cartes sont automatiquement retirées du flux et ne comptent plus dans la limite une fois qu'elles ne sont plus pertinentes.
+- **Tirez parti de la suppression par événement :** configurez des événements de suppression pour les cartes transactionnelles ou orientées objectif. Par exemple, une carte invitant un utilisateur à compléter son profil devrait être supprimée dès qu'un événement `profile_completed` est enregistré.
+- **Auditez les Campaigns de longue durée :** passez en revue les Campaigns récurrentes ou en cours pour vous assurer qu'elles ne dégradent pas l'expérience de vos utilisateurs en remplissant le flux avec trop de cartes au fil du temps.
 
 ### Comprendre la rééligibilité pour les Content Cards {#understanding-re-eligibility-for-content-cards}
 
-La rééligibilité détermine si et quand un utilisateur peut recevoir un message de la même Campaign plus d'une fois. Pour les Content Cards, comprendre ce fonctionnement est essentiel pour gérer les Campaigns récurrentes et s'assurer que les utilisateurs ne reçoivent pas de messages en double ou obsolètes.
+La rééligibilité détermine si et quand un utilisateur peut recevoir un message de la même Campaign plus d'une fois. Pour les Content Cards, comprendre comment cela fonctionne est essentiel pour gérer les Campaigns récurrentes et s'assurer que les utilisateurs ne reçoivent pas de messages en double ou obsolètes.
 
 {% alert tip %}
-Vous souhaitez que votre contenu persiste au-delà de 30 jours ? Essayez les [Banners]({{site.baseurl}}/user_guide/channels/banners).
+Vous souhaitez que votre contenu dure plus de 30 jours ? Essayez les [Banners]({{site.baseurl}}/user_guide/channels/banners).
 {% endalert %}
 
 #### Comment la rééligibilité est calculée {#how-re-eligibility-is-calculated}
 
-Si vous activez la rééligibilité, le compte à rebours avant qu'un utilisateur puisse « réintégrer » une Campaign commence après l'envoi du message. Le moment précis où ce compte à rebours débute dépend de vos paramètres de création de carte :
+Si vous activez la rééligibilité, le compte à rebours pour qu'un utilisateur puisse « réintégrer » une Campaign commence après l'envoi du message. Le moment précis où ce compte à rebours commence dépend de vos paramètres de création de carte :
 
-- Les Content Cards utilisant [à la première impression]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation#differences) se basent sur le moment de l'impression pour calculer la rééligibilité.
-- Les Content Cards créées au lancement de la Campaign, dans des Campaigns multicanaux, ou à l'entrée dans l'étape du Canvas utilisent le moment de l'envoi ou de l'impression le plus récent.
+- Les Content Cards utilisant la [première impression]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation#differences) utilisent le moment de l'impression pour calculer la rééligibilité.
+- Les Content Cards créées au lancement de la Campaign, dans les Campaigns multicanales ou à l'entrée dans l'étape du Canvas, utilisent le moment d'envoi ou le moment d'impression le plus récent.
 
 #### L'expiration de 30 jours et la rééligibilité {#the-30-day-expiration-and-re-eligibility}
 
 Une source fréquente de confusion est l'interaction entre la rééligibilité de la Campaign et l'expiration automatique de 30 jours de toutes les Content Cards.
 
-Toutes les Content Cards sont automatiquement purgées des systèmes de Braze 30 jours après leur envoi ou leur suppression. Si vous avez une Campaign récurrente de longue durée avec la rééligibilité désactivée, un utilisateur peut tout de même recevoir à nouveau la même carte après 30 jours. Lorsque la carte d'origine est purgée, le système ne voit plus de trace de la réception de cette Campaign par l'utilisateur, ce qui le rend à nouveau éligible lors de sa prochaine session.
+Toutes les Content Cards sont automatiquement purgées des systèmes de Braze 30 jours après leur envoi ou leur suppression. Si vous avez une Campaign récurrente de longue durée avec la rééligibilité **désactivée**, un utilisateur peut tout de même recevoir la même carte après 30 jours. Lorsque la carte originale est purgée, le système ne voit plus de trace indiquant que cet utilisateur a reçu la Campaign, ce qui le rend à nouveau éligible lors de sa prochaine session.
 
-Pour que les utilisateurs ne reçoivent un message d'une Campaign spécifique qu'une seule fois, ajoutez un filtre d'audience à votre Campaign ou étape du Canvas pour les utilisateurs qui n'ont pas reçu de message de cette Campaign. Ce filtre est le moyen le plus fiable d'éviter les envois en double des Campaigns de longue durée.
+Pour que les utilisateurs ne reçoivent un message d'une Campaign spécifique qu'une seule fois, ajoutez un filtre d'audience à votre Campaign ou étape du Canvas pour les utilisateurs qui n'ont pas reçu de message de cette Campaign. Ce filtre est le moyen le plus fiable d'empêcher les envois en double provenant de Campaigns de longue durée.
 
-### Gérer les Content Cards en cours {#managing-live-content-cards}
+### Gérer les Content Cards en production {#managing-live-content-cards}
 
-Après l'envoi des Content Cards, elles restent en attente dans une « boîte de réception » prêtes à être délivrées à l'utilisateur (de manière similaire à ce qui se passe pour les e-mails). Une fois que le contenu est intégré dans la Content Card (au moment de l'affichage), il ne peut plus être modifié pendant sa durée de vie. Cela s'applique même si vous appelez une API via le contenu connecté et que les données de l'endpoint changent. Ces données ne sont pas mises à jour. L'envoi peut seulement être arrêté pour les nouveaux utilisateurs et les cartes peuvent être retirées des flux des utilisateurs. Si vous modifiez une Campaign, seules les cartes envoyées après la modification incluent la mise à jour.
+Une fois les Content Cards envoyées, elles restent en attente dans une « boîte de réception » prêtes à être distribuées à l'utilisateur (de manière similaire aux e-mails). Une fois le contenu intégré dans la Content Card (au moment de l'affichage), il ne peut plus être modifié pendant sa durée de vie. Cela s'applique même si vous appelez une API via le contenu connecté et que les données de l'endpoint changent. Ces données ne sont pas mises à jour. L'envoi peut uniquement être arrêté pour les nouveaux utilisateurs et les cartes retirées des flux des utilisateurs. Si vous modifiez une Campaign, seules les cartes envoyées après la modification incluent la mise à jour.
 
-#### Mettre à jour les cartes lancées {#updating-launched-cards}
+#### Mettre à jour des cartes déjà lancées {#updating-launched-cards}
 
 Pour modifier une carte pour les utilisateurs qui l'ont déjà reçue, vous devez utiliser l'une des méthodes suivantes :
 
-##### Option 1 : dupliquer la Campaign (recommandé pour les modifications immédiates) {#option-1-duplicate-the-campaign-recommended-for-immediate-changes}
+##### Option 1 : Dupliquer la Campaign (recommandé pour les changements immédiats) {#option-1-duplicate-the-campaign-recommended-for-immediate-changes}
 
 {% alert tip %}
-Nous recommandons cette option pour les messages où vous affichez le contenu le plus récent dans la carte, où les modifications doivent être visibles immédiatement, ou lorsque la rééligibilité est désactivée.
+Nous recommandons cette option pour les messages où vous affichez le contenu le plus récent dans la carte, où les changements doivent être visibles immédiatement, ou lorsque la rééligibilité est désactivée.
 {% endalert %}
 
 La première approche consiste à archiver la Campaign et à lancer une nouvelle Campaign dupliquée :
 
-1. Arrêtez la Campaign d'origine et, lorsque vous y êtes invité, sélectionnez `Remove card after the next sync`.
+1. Arrêtez la Campaign originale et, lorsque vous y êtes invité, sélectionnez `Remove card after the next sync`.
 2. Dupliquez la Campaign, effectuez vos modifications et lancez la nouvelle version.
 
-Lorsque vous dupliquez la Campaign, vous devez définir l'audience de la nouvelle version. Utilisez des filtres de segmentation pour contrôler qui reçoit la carte mise à jour :
-* Si les utilisateurs ne doivent jamais être rééligibles pour une Content Card, vous pouvez filtrer ceux qui n'ont pas reçu la version précédente de la Content Card en définissant le filtre `Received Message from Campaign` sur la condition `Has Not`.
-* Si les utilisateurs ayant reçu la carte précédente doivent être rééligibles dans X jours, vous pouvez définir le filtre `Last Received Message from specific campaign` sur plus de X jours **OU** `Received Message from Campaign` avec la condition `Has Not`.
+Lorsque vous dupliquez la Campaign, vous devez définir l'audience pour la nouvelle version. Utilisez des filtres de segmentation pour contrôler qui reçoit la carte mise à jour :
+* Si les utilisateurs ne doivent jamais être rééligibles pour une Content Card, vous pouvez filtrer les utilisateurs qui n'ont pas reçu la version précédente de la Content Card en définissant le filtre `Received Message from Campaign` avec la condition `Has Not`.
+* Si les utilisateurs ayant reçu la carte précédente doivent être rééligibles dans X jours, vous pouvez définir le filtre `Last Received Message from specific campaign` à plus de X jours **OU** `Received Message from Campaign` avec la condition `Has Not`.
 
 ###### Impact {#impact}
 
-- **Destinataires existants :** les nouveaux destinataires et les destinataires existants voient la carte mise à jour lors du prochain rafraîchissement du flux s'ils sont éligibles.
-- **Reporting :** chaque version de la carte dispose de ses propres analyses.
+- **Destinataires existants :** les destinataires nouveaux et existants voient la carte mise à jour lors du prochain rafraîchissement du flux s'ils sont éligibles.
+- **Rapports :** chaque version de la carte dispose d'analyses distinctes.
 
-Supposons que vous ayez défini une Campaign déclenchée par le démarrage d'une session, avec une rééligibilité fixée à 30 jours. Un utilisateur a reçu la Campaign il y a deux jours et vous souhaitez modifier le texte. Commencez par archiver la Campaign et supprimer les cartes du flux. Ensuite, dupliquez la Campaign et relancez-la avec le nouveau texte. Si l'utilisateur démarre une autre session, il reçoit immédiatement la nouvelle carte.
+Supposons que vous configuriez une Campaign déclenchée par un démarrage de session, avec une rééligibilité définie à 30 jours. Un utilisateur a reçu la Campaign il y a deux jours, et vous souhaitez modifier le texte. Premièrement, archivez la Campaign et supprimez les cartes du flux. Deuxièmement, dupliquez la Campaign et relancez-la avec le nouveau texte. Si l'utilisateur ouvre une autre session, il reçoit immédiatement la nouvelle carte.
 
-##### Option 2 : arrêter et relancer la même Campaign {#option-2-stop-and-relaunch-the-same-campaign}
+##### Option 2 : Arrêter et relancer la même Campaign {#option-2-stop-and-relaunch-the-same-campaign}
 
 {% alert tip %}
-Nous recommandons cette option pour les messages uniques dans un centre de notifications ou une boîte de réception de messages (comme les promotions), lorsqu'il est important que les analyses soient unifiées, ou lorsque le caractère urgent du message n'est pas une préoccupation (par exemple, les destinataires existants peuvent attendre la fenêtre d'éligibilité avant de voir les cartes mises à jour).
+Nous recommandons cette option pour les messages uniques dans un centre de notifications ou une boîte de réception de messages (comme les promotions), lorsqu'il est important que les analyses soient unifiées, ou lorsque la rapidité du message n'est pas une préoccupation (les destinataires existants peuvent attendre la fenêtre d'éligibilité avant de voir les cartes mises à jour).
 {% endalert %}
 
-Cette approche conserve toutes vos analyses unifiées dans une seule Campaign. Les utilisateurs nouvellement éligibles reçoivent la nouvelle carte, mais la mise à jour est retardée pour les destinataires existants jusqu'à ce qu'ils soient rééligibles :
+Cette approche conserve toutes vos analyses unifiées dans une seule Campaign. Les utilisateurs nouvellement éligibles reçoivent la nouvelle carte, mais cela retarde la mise à jour pour les destinataires existants jusqu'à ce qu'ils soient rééligibles :
 
 1. Arrêtez votre Campaign et, lorsque vous y êtes invité, sélectionnez **Remove card after the next sync**.
 2. Modifiez votre Campaign selon vos besoins.
@@ -293,44 +293,44 @@ Cette approche conserve toutes vos analyses unifiées dans une seule Campaign. L
 ###### Impact
 
 * **Destinataires existants :** les utilisateurs qui ont déjà reçu la carte ne reçoivent pas les cartes mises à jour tant qu'ils ne sont pas rééligibles. Si la rééligibilité est désactivée, ils ne reçoivent jamais la nouvelle carte.
-* **Reporting :** une seule Campaign contient toutes les analyses pour les versions de cartes lancées. Braze ne différencie pas les versions lancées.
+* **Rapports :** une seule Campaign contient toutes les analyses pour les versions de cartes lancées. Braze ne fait pas de distinction entre les versions lancées.
 
-Supposons que vous ayez une Campaign déclenchée par le démarrage d'une session avec une rééligibilité fixée à 30 jours. Un utilisateur a reçu la Campaign il y a deux jours et vous souhaitez modifier le texte. Commencez par arrêter la Campaign et supprimer la carte du flux. Ensuite, republiez la Campaign avec le nouveau texte. Si l'utilisateur démarre une autre session, il reçoit la nouvelle carte dans 28 jours.
+Supposons que vous ayez une Campaign déclenchée par un démarrage de session avec une rééligibilité définie à 30 jours. Un utilisateur a reçu la Campaign il y a deux jours, et vous souhaitez modifier le texte. Premièrement, arrêtez la Campaign et supprimez la carte du flux. Deuxièmement, republiez la Campaign avec le nouveau texte. Si l'utilisateur ouvre une autre session, il reçoit la nouvelle carte dans 28 jours.
 
 {% alert note %}
-Si vous arrêtez une Campaign, modifiez les paramètres d'événement de suppression et redémarrez la Campaign sans supprimer les cartes du flux, toutes les cartes existantes dans les flux des utilisateurs utilisent les paramètres d'événement de suppression mis à jour. Les cartes ne conservent pas la configuration d'événement de suppression d'origine de leur premier envoi.
+Si vous arrêtez une Campaign, modifiez les paramètres d'événement de suppression et redémarrez la Campaign sans supprimer les cartes du flux, toutes les cartes existantes dans les flux des utilisateurs utilisent les paramètres d'événement de suppression mis à jour. Les cartes ne conservent pas la configuration d'événement de suppression d'origine du moment où elles ont été envoyées.
 {% endalert %}
 
 #### Supprimer et faire expirer des cartes {#removing-and-expiring-cards}
 
-##### Suppression manuelle des cartes {#manual-card-removal}
+##### Suppression manuelle de cartes {#manual-card-removal}
 
 Vous pouvez supprimer manuellement les cartes des flux de tous les utilisateurs à tout moment en arrêtant la Campaign.
 
-1. Ouvrez la Campaign de Content Cards et sélectionnez Stop Campaign.
+1. Ouvrez la campagne de Content Cards et sélectionnez Stop Campaign.
 2. Lorsque vous y êtes invité, sélectionnez **Remove card after the next sync**. La carte est supprimée lors du prochain rafraîchissement du flux.
 
-##### Suppression automatique des cartes {#action-based-card-removal}
+##### Suppression automatique de cartes {#action-based-card-removal}
 
 Vous pouvez supprimer automatiquement une carte lorsqu'un utilisateur effectue une action spécifique, comme finaliser un achat ou activer une fonctionnalité.
 
-Dans votre Campaign ou étape du Canvas, spécifiez un événement de suppression. Lorsqu'un utilisateur déclenche cet événement, la carte est retirée de son flux lors d'un rafraîchissement ultérieur, après que Braze a traité l'événement.
+Dans votre Campaign ou étape du Canvas, spécifiez un événement de suppression. Lorsqu'un utilisateur effectue cet événement, Braze traite l'événement puis supprime la carte de son flux.
 
 {% alert note %}
-Cette suppression n'est pas instantanée. Il y a un délai de traitement, et il peut s'écouler plusieurs minutes et nécessiter plus d'un rafraîchissement du flux avant que la carte ne disparaisse.
+Cette suppression n'est pas instantanée car Braze traite d'abord l'événement. Sur les versions du SDK prises en charge, la suppression atteint ensuite l'appareil pendant la session en cours via la [distribution en temps réel]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed#real-time-delivery). Sur les versions antérieures, cela peut prendre plusieurs minutes et plus d'un rafraîchissement du flux pour que la carte disparaisse.
 {% endalert %}
 
 {% alert tip %}
-Vous pouvez spécifier plusieurs événements personnalisés et achats qui doivent entraîner la suppression d'une carte du flux d'un utilisateur. Lorsque l'une de ces actions est effectuée par l'utilisateur, toutes les cartes existantes envoyées par cette Campaign sont supprimées. Les cartes éligibles continuent d'être envoyées conformément à la planification du message.
+Vous pouvez spécifier plusieurs événements personnalisés et achats qui doivent supprimer une carte du flux d'un utilisateur. Lorsqu'une de ces actions est effectuée par l'utilisateur, toutes les cartes existantes envoyées par la Campaign sont supprimées. Les cartes éligibles continuent d'être envoyées selon la planification du message.
 {% endalert %}
 
-![Panneau des conditions de suppression des Content Cards avec l'option d'événement de suppression de Content Card.]({% image_buster /assets/img/content_cards/content_card_removal_event.png %})
+![Panneau des conditions de suppression de Content Card avec l'option d'événement de suppression de Content Card.]({% image_buster /assets/img/content_cards/content_card_removal_event.png %})
 
 ##### Expiration des cartes {#card-expiration}
 
-Les Content Cards restent disponibles jusqu'à 30 jours après leur envoi ; après 30 jours, Braze les retire des flux des utilisateurs et les purge de ses systèmes.
+Les Content Cards restent disponibles jusqu'à 30 jours après leur envoi ; après 30 jours, Braze les supprime des flux des utilisateurs et les purge de ses systèmes.
 
-#### Faire durer les cartes au-delà de 30 jours {#making-cards-last-longer-than-30-days}
+#### Faire durer les cartes plus de 30 jours {#making-cards-last-longer-than-30-days}
 
 {% alert tip %}
 Pour les cas d'usage nécessitant que les messages persistent au-delà de la limite de 30 jours des Content Cards, envisagez d'utiliser les Banners. Les Banners sont conçus pour la persistance et n'ont pas de date d'expiration obligatoire, ce qui leur permet de rester visibles aussi longtemps que nécessaire.
@@ -340,37 +340,37 @@ Si vous souhaitez qu'une carte semble toujours disponible, vous pouvez créer un
 
 1. Définissez la durée de la Content Card à 30 jours.
 2. Définissez la rééligibilité de la Campaign à 30 jours.
-3. Configurez la Campaign pour se déclencher au « démarrage de la session ».
+3. Configurez la Campaign pour qu'elle se déclenche au « démarrage de session ».
 
 ### Synchronisation et rafraîchissement des Content Cards {#content-card-sync-and-refresh}
 
-Les Content Cards se synchronisent selon un calendrier et lorsque votre application rafraîchit le flux. Le comportement de synchronisation diffère entre les synchronisations complètes et partielles, et votre intégration SDK affecte le moment où les cartes sont rafraîchies au démarrage de la session. Pour les détails d'implémentation, consultez [Personnaliser le flux de Content Cards]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed) et [Créer des Content Cards]({{site.baseurl}}/developer_guide/content_cards/creating_cards).
+Les Content Cards se synchronisent selon un calendrier et lorsque votre application rafraîchit le flux. Le comportement de synchronisation diffère entre les synchronisations complètes et partielles, et votre intégration SDK affecte le moment où les cartes se rafraîchissent au démarrage de la session. Sur les versions du SDK prises en charge, Braze distribue également les envois et les suppressions pendant une session active via la [distribution en temps réel]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed#real-time-delivery). Pour les détails d'implémentation, consultez [Personnaliser le flux de Content Cards]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed) et [Créer des Content Cards]({{site.baseurl}}/developer_guide/content_cards/creating_cards).
 
 ### Impact de l'arrêt des Campaigns de Content Cards {#impact-of-stopping-content-cards-campaigns}
 
-Lorsque vous arrêtez une Campaign et sélectionnez **Remove card after the next sync**, Braze supprime la carte des flux des utilisateurs lors du prochain rafraîchissement. Le nombre d'impressions peut être inférieur au nombre d'envois, car les utilisateurs ne peuvent pas générer d'impressions sur des cartes supprimées avant qu'ils ne les aient consultées.
+Lorsque vous arrêtez une Campaign et sélectionnez **Remove card after the next sync**, Braze supprime la carte des flux des utilisateurs lors du prochain rafraîchissement. Le nombre d'impressions peut être inférieur au nombre d'envois car les utilisateurs ne peuvent pas voir les cartes qui sont supprimées avant qu'ils ne les consultent.
 
 ## Résolution des problèmes {#troubleshooting}
 
 ### Pourquoi les Content Cards n'apparaissent-elles pas immédiatement après un événement déclencheur ? {#why-dont-content-cards-appear-immediately-after-a-trigger-event}
 
-Pour les Campaigns à livraison par événement (comme le démarrage de session), il y a un court délai attendu entre l'événement déclencheur et la disponibilité de la carte. Ce délai se produit car :
+Pour les campagnes à livraison par événement (comme le démarrage de session), il existe un court délai attendu entre l'événement déclencheur et la disponibilité de la carte. Ce délai survient car :
 
-- L'événement déclencheur est envoyé aux serveurs de Braze
+- L'événement déclencheur est transmis aux serveurs de Braze
 - La Campaign est déclenchée et l'éligibilité de l'utilisateur est enregistrée
 - La Content Card est créée dans la base de données pour cet utilisateur
-- Le SDK se synchronise et récupère toutes les cartes disponibles sur l'appareil
+- La carte arrive sur l'appareil
 
-Si la synchronisation du SDK a lieu avant que l'éligibilité de l'utilisateur ne soit enregistrée, l'utilisateur ne reçoit pas la carte.
+Sur les versions du SDK prises en charge, la [distribution en temps réel]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed#real-time-delivery) envoie la carte sur l'appareil dès que Braze la crée, de sorte que la carte arrive pendant la session en cours. Sur les versions antérieures, le SDK récupère la carte lors de sa prochaine synchronisation, et une synchronisation effectuée avant l'enregistrement de l'éligibilité de l'utilisateur ne renvoie rien.
 
-Pour les nouveaux utilisateurs lors de leur première session, ce délai est inévitable. Pour les utilisateurs existants qui ont besoin d'une disponibilité instantanée, envisagez d'utiliser la distribution planifiée à la place.
+Pour les nouveaux utilisateurs lors de leur première session, ce délai de traitement est inévitable. Pour les utilisateurs existants qui ont besoin d'une disponibilité immédiate, envisagez d'utiliser plutôt la distribution planifiée.
 
-Si vous devez minimiser les délais pour les nouveaux utilisateurs comme pour les utilisateurs existants, vous pouvez créer deux Campaigns :
+Si vous devez minimiser les délais pour les utilisateurs nouveaux et existants, vous pouvez créer deux campagnes :
 
 - **Utilisateurs existants avec un nombre de sessions supérieur à 0 :** Utilisez une Campaign à distribution planifiée. Les cartes sont pré-créées et immédiatement disponibles.
-- **Nouveaux utilisateurs avec un nombre de sessions égal à 0 :** Utilisez une Campaign déclenchée par une action. Les cartes sont créées après le premier déclenchement de session.
+- **Nouveaux utilisateurs avec un nombre de sessions égal à 0 :** Utilisez une Campaign déclenchée par une action. Les cartes sont créées après le premier déclencheur de session.
 
-Cette approche garantit que les utilisateurs existants voient les cartes instantanément tout en atteignant les nouveaux utilisateurs après un bref délai lors de leur première session. Pour des stratégies supplémentaires afin d'améliorer la latence, consultez [Améliorer la faible latence pour les Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/best_practices/improving_low_latency_requirements).
+Cette approche garantit que les utilisateurs existants voient les cartes instantanément, tout en atteignant les nouveaux utilisateurs après un court délai lors de leur première session. Pour des stratégies supplémentaires visant à améliorer la latence, consultez [Améliorer la faible latence pour les Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/best_practices/improving_low_latency_requirements).
 
 ### Pourquoi les horodatages d'impression ou de rejet se situent-ils en dehors de la planification de la Campaign ? {#why-do-impression-or-dismiss-timestamps-fall-outside-the-campaign-schedule}
 
@@ -378,11 +378,11 @@ Les horodatages d'impression et de rejet dans les analyses et Currents reflèten
 
 Si les horaires semblent toujours inattendus :
 
-- Vérifiez si vous consultez les analyses dans le fuseau horaire de votre entreprise par rapport au fuseau horaire de l'utilisateur dans Currents.
-- Vérifiez que l'utilisateur a effectivement consulté ou rejeté la carte après l'avoir reçue, plutôt que de comparer uniquement avec l'heure d'envoi.
+- Vérifiez si vous consultez les analyses dans le fuseau horaire de votre entreprise ou dans celui de l'utilisateur dans Currents.
+- Assurez-vous que l'utilisateur a bien consulté ou rejeté la carte après l'avoir reçue, plutôt que de comparer uniquement avec l'heure d'envoi.
 
-Pour en savoir plus sur les indicateurs des Content Cards, consultez [Rapports des Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/reporting).
+Pour en savoir plus sur les indicateurs des Content Cards, consultez [Rapports sur les Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/reporting).
 
 ### Erreur « Toutes les valeurs d'expiration d'une Campaign doivent correspondre » {#all-expiration-values-for-a-campaign-must-match-error}
 
-Cette erreur apparaît lorsqu'une Campaign de Content Cards multivariée utilise des paramètres d'expiration différents selon les variantes. Définissez la même expiration (durée ou horaire spécifique) sur chaque variante, ou réduisez la Campaign à une seule variante, puis enregistrez à nouveau. Pour savoir comment définir l'expiration lors de la création d'une Campaign, consultez [Choisir une planification de distribution ou un déclencheur](#choose-a-delivery-schedule-or-trigger).
+Cette erreur apparaît lorsqu'une Campaign de Content Cards multivariée utilise des paramètres d'expiration différents entre les variantes. Définissez la même expiration (durée ou heure spécifique) sur chaque variante, ou réduisez la Campaign à une seule variante, puis enregistrez à nouveau. Pour savoir comment définir l'expiration lors de la création d'une Campaign, consultez [Choisir un calendrier de distribution ou un déclencheur](#choose-a-delivery-schedule-or-trigger).
