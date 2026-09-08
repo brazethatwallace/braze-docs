@@ -124,7 +124,7 @@ Additionally, your standard SQL query must adhere to the following rules:
 All incremental refresh queries consist of two parts: a query, and schema details.
 
 1. In the editor, write a query that selects `user_id`s from your desired table.
-2. Add schema details by selecting an **Operator**, **Number of times**, and **Time period** from the fields at the top of the editor. The query will check if the sum of the aggregate column meets a certain condition specified by the {% raw %}`{{operator}}` and `{{number of times}}`{% endraw %} placeholders. This functions similarly to the workflow for creating classic Segment Extensions.<br><br>
+2. Add schema details by selecting an **Operator**, **Number of times**, and **Time period** from the fields at the top of the editor. The query checks whether the sum of the aggregate column meets the condition you set with those fields. This functions similarly to the workflow for creating classic Segment Extensions.<br><br>
    - **Operator:** Indicate if the event has happened more than, less than, or equal to a number of occurrences.<br>
    ![Operator field with "More than" selected.]({% image_buster /assets/img_archive/sql_segments_operator.png %})<br><br>
    - **Number of times:** How many times you would like to evaluate the event in relation to the operator.<br>
@@ -139,16 +139,28 @@ In the following example, the resulting segment would contain users that perform
 ![SQL preview of an incremental SQL Segment Extension.]({% image_buster /assets/img_archive/sql_segments_incremental_preview.png %}){: style="max-width:85%" }
 
 {% alert tip %}
-Incremental refresh segments take into account late events, which are events that occurred more than 2 days ago (for example, SDK events that weren’t sent at the time they were captured).
+Incremental refresh accounts for late events—events that arrive after the daily refresh window, such as SDK events that weren't sent when they were captured. When the segment refreshes, Braze reprocesses the dates those late events belong to.
 {% endalert %}
+
+#### How incremental refresh tracks users over time
+
+When you use incremental refresh, Braze stores daily counts for each user in an internal counts table so it can evaluate your segment over your full time period without re-querying all historical data each day.
+
+**What gets stored:** Braze maintains a counts table (similar to a segment cohorts table) that accumulates daily user qualification counts in the format `(date, user_id, count)`. This table persists historical data outside the two-day rolling refresh window.
+
+**What happens on each refresh:** When an incremental refresh runs, Braze clears only the records in the two-day rolling refresh window from the counts table. It then re-executes your SQL query with updated time parameters (using `$start_date`) to insert fresh rows for those dates. Historical rows outside the two-day rolling refresh window remain intact in the counts table.
+
+**How Braze decides who's in the segment:** Braze evaluates your segment membership criteria against the entire accumulated counts table, not just the most recent two-day rolling refresh payload. This means users who qualified more than two days ago remain in the segment unless the aggregated counts no longer meet your criteria.
+
+**Writing SQL that refreshes reliably:** When writing SQL for incremental refresh, avoid query patterns that could produce inconsistent results during partial refreshes. For example, windowed aggregations like `MAX(time)` that depend on data across `$start_date` boundaries may alter row state unexpectedly when only a subset of dates is recalculated. Structure your queries so each date's output depends only on events from that date, which maintains consistent results whether the query processes two days or 730 days of data.
 
 #### Additional rules
 
 Additionally, your incremental refresh query must adhere to the following rules:
 
 - Write a single SQL statement. Do not include any semicolons.
-- Your incremental SQL segment would be able to refer to just one single event. Your dropdowns for date and count are in reference to your chosen event.
-- Your SQL must have the following columns: `user_id`, `$start_date`, and an aggregation function (such as `COUNT`). Any SQL saved without these three fields will result in an error.
+- Your incremental SQL segment can refer to only one event. Your dropdowns for date and count apply to that event.
+- Your SQL must include the `$date()` alias (for example, `$date(time)`), select `user_id` and a `COUNT()` aggregation, group by date and `user_id`, and filter with `$start_date` on your time column (for example, `time > $start_date`). Saving SQL without `$date()` or these fields returns an error.
 - You cannot use `DECLARE` statements.
 {% endtab %}
 {% endtabs %}
