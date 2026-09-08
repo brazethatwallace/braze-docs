@@ -217,6 +217,123 @@ class TestBuildLocaleChanges:
         assert translation_updates[0]["replace"] == "Kampagne"
 
 
+class TestChangeSortKey:
+    def test_stale_suffix_first_then_longest_search(self):
+        changes = [
+            {"kind": "added", "search": "Customer Data Platform", "replace": "x"},
+            {"kind": "updated", "search": "Data", "replace": "y"},
+            {"kind": "added_stale_suffix", "search": "到達性センター", "replace": "z"},
+        ]
+        sorted_changes = sorted(changes, key=glp._change_sort_key)
+        assert sorted_changes[0]["kind"] == "added_stale_suffix"
+        assert sorted_changes[1]["search"] == "Customer Data Platform"
+        assert sorted_changes[2]["search"] == "Data"
+
+
+class TestStaleLocaleSuffixCandidates:
+    def test_finds_shorter_suffix_in_locale_text(self):
+        replace = "配信到達性センター"
+        text = "到達性センターです。Brazeダッシュボードの到達性センターを使用します。"
+        assert glp._stale_locale_suffix_candidates(replace, text) == ["到達性センター"]
+
+    def test_skips_when_full_translation_present(self):
+        replace = "配信到達性センター"
+        text = "配信到達性センターを開きます。"
+        assert glp._stale_locale_suffix_candidates(replace, text) == []
+
+    def test_skips_single_occurrence_suffix(self):
+        replace = "配信到達性センター"
+        text = "ヘルプセンターと到達性センター。"
+        assert glp._stale_locale_suffix_candidates(replace, text) == []
+
+
+class TestAddedTermStalePropagation:
+    def test_updates_mirrored_locale_file_with_stale_suffix(self, tmp_path):
+        english = (
+            tmp_path
+            / "_docs"
+            / "_user_guide"
+            / "analytics"
+            / "dashboards"
+            / "deliverability_center.md"
+        )
+        locale = (
+            tmp_path
+            / "_lang"
+            / "ja"
+            / "_user_guide"
+            / "analytics"
+            / "dashboards"
+            / "deliverability_center.md"
+        )
+        english.parent.mkdir(parents=True)
+        locale.parent.mkdir(parents=True)
+        english.write_text("# Deliverability Center\n\nUse the Deliverability Center.\n", encoding="utf-8")
+        locale.write_text("# 到達性センター\n\nBrazeダッシュボードの到達性センターです。\n", encoding="utf-8")
+
+        result = glp.propagate_glossary_changes(
+            [{
+                "lang": "ja",
+                "term": "Deliverability center",
+                "kind": "added",
+                "search": "Deliverability center",
+                "replace": "配信到達性センター",
+            }],
+            repo_root=tmp_path,
+        )
+
+        assert result["files_changed"] == 1
+        updated = locale.read_text(encoding="utf-8")
+        assert updated == (
+            "# 配信到達性センター\n\n"
+            "Brazeダッシュボードの配信到達性センターです。\n"
+        )
+
+    def test_mixed_language_page_does_not_double_prefix(self, tmp_path):
+        english = (
+            tmp_path
+            / "_docs"
+            / "_user_guide"
+            / "analytics"
+            / "dashboards"
+            / "deliverability_center.md"
+        )
+        locale = (
+            tmp_path
+            / "_lang"
+            / "ja"
+            / "_user_guide"
+            / "analytics"
+            / "dashboards"
+            / "deliverability_center.md"
+        )
+        english.parent.mkdir(parents=True)
+        locale.parent.mkdir(parents=True)
+        english.write_text(
+            "# Deliverability Center\n\nUse the Deliverability Center.\n",
+            encoding="utf-8",
+        )
+        locale.write_text(
+            "# Deliverability center\n\n到達性センターです。到達性センターを開きます。\n",
+            encoding="utf-8",
+        )
+
+        glp.propagate_glossary_changes(
+            [{
+                "lang": "ja",
+                "term": "Deliverability center",
+                "kind": "added",
+                "search": "Deliverability center",
+                "replace": "配信到達性センター",
+            }],
+            repo_root=tmp_path,
+        )
+
+        updated = locale.read_text(encoding="utf-8")
+        assert "配信配信到達性センター" not in updated
+        assert updated.count("配信到達性センター") == 3
+
+
 class TestPropagateGlossaryChanges:
     def test_dry_run_counts_without_writing(self, tmp_path):
         lang_root = tmp_path / "_lang" / "ja" / "_docs"

@@ -4,6 +4,11 @@ When the weekly glossary audit adds a term or updates a translation, this
 module searches the matching locale tree and applies safe in-prose replacements
 (English source term or outdated translation → current glossary value).
 
+For newly added terms, mirrored English locale files that still contain a
+shorter stale form of the approved translation (for example when the glossary
+adds ``配信到達性センター`` but the page still says ``到達性センター``) are
+updated in those mirrors only.
+
 Skipped by design: code fences, ``image_buster`` paths, markdown link URL targets,
 Liquid alert keys, glossary YAML identifiers, structural front matter (``permalink``, ``link``,
 ``search_tag``, ``tool``, ``channel``, etc.), URLs, asset paths, and a small
@@ -114,13 +119,120 @@ def propagation_replace_value(value: str) -> str:
     return primary.strip() if primary.strip() else value
 
 
+ENGLISH_SOURCE_ROOTS = ("_docs", "_includes")
+
+
+def _english_paths_containing_term(term: str, repo_root: Path) -> set[Path]:
+    """Return English markdown paths whose body contains ``term``."""
+    pattern = _term_pattern(term)
+    found: set[Path] = set()
+    for root_name in ENGLISH_SOURCE_ROOTS:
+        root = repo_root / root_name
+        if not root.is_dir():
+            continue
+        for md_path in root.rglob("*.md"):
+            if pattern.search(md_path.read_text(encoding="utf-8")):
+                found.add(md_path)
+    return found
+
+
+def _locale_path_for_english(
+    english_path: Path, lang_dir: str, repo_root: Path
+) -> Path | None:
+    """Map an English source path to its locale mirror under ``_lang/``."""
+    rel = english_path.relative_to(repo_root).as_posix()
+    if rel.startswith("_docs/"):
+        suffix = rel[len("_docs/") :]
+        return repo_root / "_lang" / lang_dir / suffix
+    if rel.startswith("_includes/"):
+        return repo_root / "_lang" / lang_dir / rel
+    return None
+
+
+def _stale_locale_suffix_candidates(replace: str, locale_text: str) -> list[str]:
+    """Return outdated suffix translations present in ``locale_text``.
+
+    When a glossary term is newly added, locale mirrors may still use a shorter
+    form of the approved translation (for example ``到達性センター`` instead of
+    ``配信到達性センター``). Candidates must cover most of the approved value,
+    appear at least twice in the mirror (product names repeat), and leave a
+    non-empty prefix that would be prepended during propagation.
+    """
+    if _is_ascii_term(replace) or replace in locale_text:
+        return []
+
+    min_suffix_len = max(3, (len(replace) * 3 + 3) // 4)
+    candidates: list[str] = []
+    for start in range(1, len(replace) - min_suffix_len + 1):
+        suffix = replace[start:]
+        prefix = replace[:start]
+        if (
+            len(suffix) < min_suffix_len
+            or not prefix
+            or locale_text.count(suffix) < 2
+        ):
+            continue
+        candidates.append(suffix)
+    if not candidates:
+        return []
+    return [max(candidates, key=len)]
+
+
+def _expand_added_term_stale_changes(
+    changes: list[dict], repo_root: Path
+) -> list[dict]:
+    """Add mirrored-file replacements for stale partial locale translations."""
+    expanded: list[dict] = []
+    seen_scoped: set[tuple[str, str, str]] = set()
+
+    for ch in changes:
+        expanded.append(ch)
+        if ch.get("kind") != "added" or _is_ascii_term(ch["replace"]):
+            continue
+
+        term = ch["term"]
+        replace = ch["replace"]
+        lang = ch["lang"]
+        lang_dir = LANG_GLOSSARY_TO_DIR.get(lang)
+        if not lang_dir:
+            continue
+
+        for english_path in _english_paths_containing_term(term, repo_root):
+            locale_path = _locale_path_for_english(english_path, lang_dir, repo_root)
+            if locale_path is None or not locale_path.is_file():
+                continue
+            if _should_skip_propagation_file(locale_path, repo_root):
+                continue
+
+            locale_text = locale_path.read_text(encoding="utf-8")
+            for suffix in _stale_locale_suffix_candidates(replace, locale_text):
+                key = (lang, str(locale_path), suffix)
+                if key in seen_scoped:
+                    continue
+                seen_scoped.add(key)
+                expanded.append(
+                    {
+                        "lang": lang,
+                        "term": term,
+                        "kind": "added_stale_suffix",
+                        "search": suffix,
+                        "replace": replace,
+                        "locale_path": locale_path,
+                        "exclude_prefix": replace[: -len(suffix)],
+                    }
+                )
+    return expanded
+
+
 def _should_skip_propagation_file(md_path: Path, repo_root: Path) -> bool:
     rel = md_path.relative_to(repo_root).as_posix()
     return any(marker in rel for marker in PROPAGATION_SKIP_PATH_MARKERS)
 
 
-def _term_pattern(search: str) -> re.Pattern[str]:
+def _term_pattern(search: str, exclude_prefix: str = "") -> re.Pattern[str]:
     escaped = re.escape(search)
+    if exclude_prefix:
+        return re.compile(rf"(?<!{re.escape(exclude_prefix)}){escaped}")
     if _is_ascii_term(search):
         return re.compile(
             rf"(?<![A-Za-z0-9_]){escaped}(?![A-Za-z0-9_])",
@@ -203,7 +315,13 @@ def _replace_outside_inline_code(line: str, pattern: re.Pattern[str], replace: s
     return "".join(out), total
 
 
-def _replace_in_line(line: str, search: str, replace: str, lang: str) -> tuple[str, int]:
+def _replace_in_line(
+    line: str,
+    search: str,
+    replace: str,
+    lang: str,
+    exclude_prefix: str = "",
+) -> tuple[str, int]:
     if search == replace or not search:
         return line, 0
     if _should_skip_line(line, search, lang):
@@ -237,7 +355,7 @@ def _replace_in_line(line: str, search: str, replace: str, lang: str) -> tuple[s
     masked = IMAGE_BUSTER_RE.sub(_mask_image_buster, masked)
     masked = LINK_URL_RE.sub(_mask_link_url, masked)
     masked = ABSOLUTE_URL_RE.sub(_mask_absolute_url, masked)
-    pattern = _term_pattern(search)
+    pattern = _term_pattern(search, exclude_prefix=exclude_prefix)
     new_masked, count = _replace_outside_inline_code(masked, pattern, replace)
     if not count:
         return line, 0
@@ -253,7 +371,13 @@ def _replace_in_line(line: str, search: str, replace: str, lang: str) -> tuple[s
     return new_line, count
 
 
-def replace_in_markdown(text: str, search: str, replace: str, lang: str) -> tuple[str, int]:
+def replace_in_markdown(
+    text: str,
+    search: str,
+    replace: str,
+    lang: str,
+    exclude_prefix: str = "",
+) -> tuple[str, int]:
     """Apply one glossary-driven replacement across a locale markdown file."""
     if search == replace or not search:
         return text, 0
@@ -267,7 +391,9 @@ def replace_in_markdown(text: str, search: str, replace: str, lang: str) -> tupl
             if not _fm_line_is_translatable(line):
                 fm_lines.append(line)
                 continue
-            new_line, c = _replace_in_line(line, search, replace, lang)
+            new_line, c = _replace_in_line(
+                line, search, replace, lang, exclude_prefix=exclude_prefix
+            )
             total += c
             fm_lines.append(new_line)
         fm = "".join(fm_lines)
@@ -281,7 +407,9 @@ def replace_in_markdown(text: str, search: str, replace: str, lang: str) -> tupl
             continue
         lines: list[str] = []
         for line in part.splitlines(keepends=True):
-            new_line, c = _replace_in_line(line, search, replace, lang)
+            new_line, c = _replace_in_line(
+                line, search, replace, lang, exclude_prefix=exclude_prefix
+            )
             total += c
             lines.append(new_line)
         out_parts.append("".join(lines))
@@ -499,6 +627,12 @@ def propagate_phrase_sync_to_locales(
     }
 
 
+def _change_sort_key(change: dict) -> tuple[int, int]:
+    """Apply stale suffix updates first; otherwise keep longest-search-first."""
+    stale_first = 0 if change["kind"] == "added_stale_suffix" else 1
+    return (stale_first, -len(change["search"]))
+
+
 def _normalize_changes(changes: Iterable[dict]) -> list[dict]:
     """Drop no-ops and sort longest search strings first."""
     normalized = []
@@ -507,16 +641,19 @@ def _normalize_changes(changes: Iterable[dict]) -> list[dict]:
         replace = ch.get("replace") or ""
         if not search or search == replace:
             continue
-        normalized.append(
-            {
-                "lang": ch["lang"],
-                "term": ch.get("term", search),
-                "kind": ch.get("kind", "updated"),
-                "search": search,
-                "replace": replace,
-            }
-        )
-    return sorted(normalized, key=lambda c: len(c["search"]), reverse=True)
+        entry = {
+            "lang": ch["lang"],
+            "term": ch.get("term", search),
+            "kind": ch.get("kind", "updated"),
+            "search": search,
+            "replace": replace,
+        }
+        if ch.get("locale_path") is not None:
+            entry["locale_path"] = ch["locale_path"]
+        if ch.get("exclude_prefix"):
+            entry["exclude_prefix"] = ch["exclude_prefix"]
+        normalized.append(entry)
+    return sorted(normalized, key=_change_sort_key)
 
 
 def propagate_glossary_changes(
@@ -533,7 +670,9 @@ def propagate_glossary_changes(
     """
     repo_root = repo_root or REPO_ROOT
     lang_root = repo_root / "_lang"
-    normalized = _normalize_changes(changes)
+    normalized = _normalize_changes(
+        _expand_added_term_stale_changes(_normalize_changes(changes), repo_root)
+    )
 
     if not normalized:
         return {
@@ -565,7 +704,16 @@ def propagate_glossary_changes(
             text = original
             file_count = 0
             for ch in lang_changes:
-                text, n = replace_in_markdown(text, ch["search"], ch["replace"], lang)
+                scoped_path = ch.get("locale_path")
+                if scoped_path is not None and scoped_path != md_path:
+                    continue
+                text, n = replace_in_markdown(
+                    text,
+                    ch["search"],
+                    ch["replace"],
+                    lang,
+                    exclude_prefix=ch.get("exclude_prefix", ""),
+                )
                 file_count += n
             if file_count and text != original:
                 file_totals[md_path] = file_count

@@ -32,6 +32,9 @@ Options:
 [`.github/workflows/sync-glossaries-from-phrase.yml`](../../.github/workflows/sync-glossaries-from-phrase.yml)
 runs weekly (and on demand), opens a PR when Phrase entries change, and
 propagates added or updated terms into matching `_lang/` markdown files.
+Newly added terms also update mirrored locale pages that still use a shorter
+stale form of the approved translation (when the English mirror contains the
+term but the locale file does not yet use the full glossary value).
 Requires the
 `PHRASE_TMS_TOKEN` repository secret (Phrase Platform API token).
 
