@@ -22,7 +22,7 @@ When Braze sends a message with a promotion code, the code is deducted before th
 - With conditional Liquid, all referenced lists have codes deducted, even if only one branch is shown.
 - Entering or re-entering a Canvas step consumes a new code.
 
-If you place multiple snippets from the same list in one message, Braze will apply the same code across all snippets. To avoid running out, we recommend uploading more codes than you expect to use.
+If you place multiple snippets from the same list in one message, Braze applies the same code across all snippets. To avoid running out, upload more codes than you expect to use.
 
 {% tabs local %}
 {% tab Example %}
@@ -43,7 +43,7 @@ For example, in the following conditional Liquid, codes from both lists (`vip-de
 {% endtabs %}
 
 {% alert important %}
-Promotion codes are available in in-app message campaigns as an early access feature, but can’t be sent in in-app messages in Canvas.
+Promotion codes are available in in-app message campaigns, but can’t be sent in in-app messages in Canvas.
 {% endalert %}
 
 ## Next steps
@@ -67,7 +67,7 @@ Promotion codes are supported for email, mobile push, web push, Content Cards, w
 
 ### Do test and seed sends count towards usage?
 
-By default, test sends and seed group email sends will use promotion codes per user, per test send. However, you can contact your Braze account manager to update this behavior to not use promotion codes during testing.
+By default, test sends and seed group email sends use promotion codes per user, per test send. However, you can contact your Braze account manager to update this behavior to not use promotion codes during testing.
 
 ### What happens when multiple messaging channels use the same promotion code snippet?
 
@@ -75,15 +75,15 @@ If a particular user is eligible to receive a code through multiple channels, th
 
 ### Can I use multiple Liquid snippets to reference the same promotion code list in one message?
 
-Yes. Braze will apply the same promotion code across all instances of that snippet in the message, ensuring the user only receives one unique code.
+Yes. Braze applies the same promotion code across all instances of that snippet in the message, ensuring the user only receives one unique code.
 
 ### What happens when a promotion code list is expired or empty?
 
 Expired codes are deleted after six months.
 
-If the message should have contained a promotion code from an empty or expired list, the message will be canceled. 
+If the message should have contained a promotion code from an empty or expired list, the message is canceled. 
 
-If the message contains Liquid logic that conditionally inserts a promotion code, the message will only be canceled if it should have contained a promotion code. If the message shouldn't have contained a promotion code, the message will send normally.
+If the message contains Liquid logic that conditionally inserts a promotion code, the message is only canceled if it should have contained a promotion code. If the message shouldn't have contained a promotion code, the message sends normally.
 
 ### If I uploaded the wrong promotion codes, can I update them?
 
