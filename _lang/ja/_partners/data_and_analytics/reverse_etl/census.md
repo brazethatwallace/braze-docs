@@ -16,55 +16,53 @@ BrazeとCensusの統合により、オーディエンスや製品データをBra
 
 ## 前提条件 {#prerequisites}
 
-| 必要条件 | 説明 |
+| 要件 | 説明 |
 | --- | --- |
-| Censusアカウント | このパートナーシップを活用するには、[Censusアカウント](https://www.getcensus.com/)が必要です。 |
-| Braze REST APIキー | すべてのユーザーデータ権限（`users.delete`を除く）と`segments.list`権限を持つBraze REST APIキー。CensusがサポートするBrazeオブジェクトの増加に伴い、権限セットが変わる可能性があります。このため、この時点でより多くの権限を付与するか、これらの権限を今後更新する計画を立てることをお勧めします。<br><br> これはBrazeダッシュボードの**設定** > **APIキー**から作成できます。 |
-| Braze RESTエンドポイント | RESTエンドポイントのURL。エンドポイントは、[BrazeインスタンスのURL]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints)によって異なります。 |
-| データウェアハウスとデータモデル | 統合を開始する前に、Censusでデータウェアハウスをセットアップし、Brazeと同期させたいデータのサブセットのモデルを定義しておく必要があります。利用可能なデータソースのリストとモデル作成に関するガイダンスについては、[Censusのドキュメント](https://docs.getcensus.com/destinations/braze)を参照してください。 |
+| Census アカウント | このパートナーシップを利用するには、[Census アカウント](https://www.getcensus.com/)が必要です。 |
+| Braze REST APIキー | すべてのユーザーデータ権限（`users.delete` を除く）と `segments.list` 権限を持つ Braze REST APIキー。Census が対応する Braze オブジェクトを追加するのに伴い、権限セットが変更される場合があります。そのため、今のうちに多めの権限を付与しておくか、将来的にこれらの権限を更新する計画を立てておくことをお勧めします。<br><br>これは Braze ダッシュボードの**設定** > **APIキー**から作成できます。 |
+| Braze REST エンドポイント | REST エンドポイントURL。エンドポイントは [お使いの Braze インスタンスの URL]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints) によって異なります。 |
+| データウェアハウスとデータモデル | 連携を開始する前に、Census でデータウェアハウスをセットアップし、Braze に同期するデータのサブセットのモデルを定義する必要があります。利用可能なデータソースの一覧やモデル作成のガイダンスについては、[Census のドキュメント](https://docs.getcensus.com/destinations/braze)を参照してください。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
-## 統合 {#integration}
+## 連携 {#integration}
 
-### ステップ1:Brazeサービス接続を作成する {#step-1-create-braze-service-connection}
+### ステップ1: Braze サービス接続を作成する {#step-1-create-braze-service-connection}
 
-CensusプラットフォームでCensusを統合するには、**Connections** タブに移動し、**New Destination** を選択して新しいBrazeサービス接続を作成します。
+Census プラットフォームで Census を連携するには、**Connections** タブに移動し、**New Destination** を選択して新しい Braze サービス接続を作成します。
 
-表示されるプロンプトで、この接続に名前を付け、BrazeエンドポイントURLとBraze REST APIキー（オプションで、コホートを同期するためのデータインポートキー）を入力します。
+表示されるプロンプトで、この接続に名前を付け、Braze エンドポイントURLと Braze REST APIキー（およびオプションでコホートを同期するためのデータインポートキー）を入力します。
 
-![Braze接続の認証情報が設定されたCensusの新しい送信先ダイアログ。]({% image_buster /assets/img/census/add_service.png %}){: style="max-width:60%;"}
+![Braze 接続の認証情報が設定された Census の新しい送信先ダイアログ。]({% image_buster /assets/img/census/add_service.png %}){: style="max-width:60%;"}
 
-### ステップ2:Censusの同期を作成する {#step-2-create-a-census-sync}
+### ステップ2: Census の同期を作成する {#step-2-create-a-census-sync}
 
-顧客をBrazeに同期するには、同期を作成する必要があります。ここで、データを同期する場所と、2つのプラットフォーム間でどのようにフィールドをマッピングするかを定義します。
+顧客を Braze に同期するには、同期を作成する必要があります。ここでは、データの同期先と、2つのプラットフォーム間でフィールドをどのようにマッピングするかを定義します。
 
 1. **Syncs** タブに移動し、**New Sync** を選択します。<br><br>
 2. コンポーザーで、データウェアハウスからソースデータモデルを選択します。<br><br>
-3. モデルの同期先を設定します。送信先として**Braze**を選択し、同期する[サポートされているオブジェクトタイプ](#supported-objects)を選択します。<br>![「Select a Destination」プロンプトで接続として「Braze」が選択されており、さまざまなオブジェクトが一覧表示されている。]({% image_buster /assets/img/census/census_2.png %}){: style="max-width:80%;"}<br><br>
-4. 適用する同期ルールを選択します（**Update or Create**が最も一般的な選択肢ですが、データの削除を処理するためのより詳細なルールを選択することもできます）。<br><br>
-5. 次に、レコードマッチングのために、Brazeオブジェクトをモデルフィールドに[マッピング](#supported-objects)するシンクキーを選択します。<br>![「Select a Sync Key」プロンプトで、Brazeの「External User ID」がソースの「user_id」にマッチングされている。]({% image_buster /assets/img/census/census_1.png %}){: style="max-width:80%;"}<br><br>
-6. 最後に、Censusデータフィールドを対応するBrazeフィールドにマッピングします。<br>![Censusでのマッピング]({% image_buster /assets/img/census/census_3.png %}){: style="max-width:80%;"}<br><br>
+3. モデルの同期先を設定します。送信先として **Braze** を選択し、同期する[サポート対象オブジェクトタイプ](#supported-objects)を選択します。<br>![「Select a Destination」プロンプトで接続として「Braze」が選択されており、さまざまなオブジェクトが一覧表示されている。]({% image_buster /assets/img/census/census_2.png %}){: style="max-width:80%;"}<br><br>
+4. 適用する同期ルールを選択します（**Update or Create** が最も一般的な選択肢ですが、データの削除を処理するなど、より高度なルールを選択することもできます）。<br><br>
+5. 次に、レコードのマッチング目的で、Braze オブジェクトをモデルフィールドに[マッピング](#supported-objects)するための同期キーを選択します。<br>![「Select a Sync Key」プロンプトで、Braze の「External User ID」がソースの「user_id」にマッチしている。]({% image_buster /assets/img/census/census_1.png %}){: style="max-width:80%;"}<br><br>
+6. 最後に、Census のデータフィールドを対応する Braze フィールドにマッピングします。<br>![Census のマッピング画面]({% image_buster /assets/img/census/census_3.png %}){: style="max-width:80%;"}<br><br>
 7. 詳細を確認し、同期を作成します。
 
-同期が実行されると、Brazeにユーザーデータが表示されます。今後のBrazeキャンペーンやキャンバスにBrazeセグメントを作成・追加して、これらのユーザーをターゲットにできるようになります。
+同期が実行されると、ユーザーデータが Braze に反映されます。Braze セグメントを作成し、今後の Braze キャンペーンやキャンバスに追加して、これらのユーザーをターゲットにすることができます。
 
 {% alert note %}
-CensusとBrazeの統合を使用する場合、Censusは同期のたびにBrazeへ差分（変更データ）のみを送信します。
+Census と Braze の連携を使用する場合、Census は各同期で差分（変更されたデータ）のみを Braze に送信します。
 {% endalert %}
 
 ## サポートされるオブジェクト {#supported-objects}
 
-Censusは現在、以下のBrazeオブジェクトの同期をサポートしています。
+Census は現在、以下の Braze オブジェクトの同期をサポートしています。
 
-| オブジェクト名 | 同期の動作 |
+| オブジェクト名 | 同期動作 |
 | --- | --- |
-| ユーザー | 更新、作成、ミラー、削除 |
-| コホート | 更新、作成、ミラー |
-| カタログ | 更新、作成、ミラー |
-| 購読グループメンバーシップ | ミラー |
-| イベント | 追加 |
+| User | Update、Create、Mirror、Delete |
+| Cohort | Update、Create、Mirror |
+| Catalog | Update、Create、Mirror |
+| Subscription Group Membership | Mirror |
+| Event | Append |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="サポートされるオブジェクト" }
 
-さらに、CensusはBrazeへの[構造化データ](https://docs.getcensus.com/destinations/braze#supported-objects)の送信もサポートしています。
-- ユーザープッシュトークン：プッシュトークンを送信するには、データを2〜3の値を持つオブジェクトの配列として構造化する必要があります。`app_id`、`token`、およびオプションの`device_id`です。
-- 階層化カスタム属性：オブジェクトと配列の両方がサポートされています。2022年4月現在、この機能はまだ早期アクセス段階です。アクセスするには、Brazeのアカウントマネージャーに連絡する必要がある場合があります。
+さらに、Census は Braze への[構造化データ](https://docs.getcensus.com/destinations/braze#supported-objects)の送信もサポートしています。ユーザーのプッシュトークンを送信するには、データを2〜3個の値（`app_id`、`token`、およびオプションの `device_id`）を持つオブジェクトの配列として構造化する必要があります。

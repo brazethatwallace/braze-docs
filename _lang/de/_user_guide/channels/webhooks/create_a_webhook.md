@@ -20,7 +20,7 @@ Um mehr darüber zu erfahren, was Webhooks sind und wie Sie sie in Braze verwend
 
 ## Schritt 1: Wählen Sie, wo Sie Ihre Nachricht erstellen möchten {#step-1-choose-where-to-build-your-message}
 
-Sie sind sich nicht sicher, ob Ihre Nachricht über eine Campaign oder ein Canvas gesendet werden soll? Campaigns eignen sich besser für einzelne, gezielte Messaging-Kampagnen, während Canvases besser für mehrstufige User Journeys geeignet sind.
+Sie sind sich nicht sicher, ob Ihre Nachricht über eine Campaign oder ein Canvas gesendet werden soll? Campaigns eignen sich besser für einzelne, gezielte Messaging-Kampagnen, während Canvases besser für mehrstufige User-Journeys geeignet sind.
 
 {% tabs %}
 {% tab Campaign %}
@@ -28,15 +28,15 @@ Sie sind sich nicht sicher, ob Ihre Nachricht über eine Campaign oder ein Canva
 **Schritte:**
 
 1. Gehen Sie zu **Messaging** > **Campaigns** und wählen Sie **Campaign erstellen**.
-2. Wählen Sie **Webhook** oder, bei Campaigns, die auf mehrere Kanäle abzielen, **Multichannel**.
-3. Geben Sie Ihrer Campaign einen eindeutigen und aussagekräftigen Namen.
-4. (Optional) Fügen Sie eine Beschreibung hinzu, um zu erläutern, wie diese Campaign verwendet wird.
+2. Wählen Sie **Webhook** oder, für Campaigns, die auf mehrere Kanäle abzielen, **Multichannel**.
+3. Geben Sie Ihrer Campaign einen klaren und aussagekräftigen Namen.
+4. (Optional) Fügen Sie eine Beschreibung hinzu, um zu erklären, wie diese Campaign verwendet wird.
 4. Fügen Sie nach Bedarf [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams) und [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) hinzu.
    * Tags erleichtern das Auffinden Ihrer Campaigns und das Erstellen von Berichten. Wenn Sie beispielsweise den [Berichts-Builder]({{site.baseurl}}/user_guide/analytics/reports/report_builder) verwenden, können Sie nach bestimmten Tags filtern.
-5. Fügen Sie so viele Varianten hinzu und benennen Sie sie, wie Sie für Ihre Campaign benötigen. Sie können für jede Ihrer hinzugefügten Varianten unterschiedliche Webhook-Templates auswählen. Weitere Informationen zu diesem Thema finden Sie unter [Multivariate und A/B-Tests]({{site.baseurl}}/user_guide/messaging/ab_testing).
+5. Fügen Sie so viele Varianten hinzu, wie Sie für Ihre Campaign benötigen, und benennen Sie sie. Sie können für jede hinzugefügte Variante unterschiedliche Webhook-Templates auswählen. Weitere Informationen zu diesem Thema finden Sie unter [Multivariate und A/B-Tests]({{site.baseurl}}/user_guide/messaging/ab_testing).
 
 {% alert tip %}
-Wenn alle Nachrichten in Ihrer Campaign ähnlich sind oder denselben Inhalt haben, verfassen Sie Ihre Nachricht, bevor Sie zusätzliche Varianten hinzufügen. Sie können dann **Aus Variante kopieren** aus dem Dropdown **Variante hinzufügen** auswählen.
+Wenn alle Nachrichten in Ihrer Campaign ähnlich sein oder denselben Inhalt haben werden, verfassen Sie Ihre Nachricht, bevor Sie weitere Varianten hinzufügen. Anschließend können Sie im Dropdown **Variante hinzufügen** die Option **Aus Variante kopieren** auswählen.
 {% endalert %}
 
 {% endtab %}
@@ -51,7 +51,7 @@ Wenn alle Nachrichten in Ihrer Campaign ähnlich sind oder denselben Inhalt habe
 
 ## Schritt 2: Webhook erstellen {#step-2-build-your-webhook}
 
-Sie können einen Webhook von Grund auf erstellen, ein vorhandenes Template verwenden oder eines unserer bestehenden Templates nutzen. Erstellen Sie dann Ihren Webhook im Tab **Compose** des Editors.
+Sie können einen Webhook von Grund auf erstellen, ein vorhandenes Template verwenden oder eines unserer bestehenden Templates nutzen. Erstellen Sie Ihren Webhook dann im Tab **Compose** des Editors.
 
 Der Tab **Compose** besteht aus den folgenden Feldern:
 
@@ -64,47 +64,47 @@ Der Tab **Compose** besteht aus den folgenden Feldern:
 
 ### Sprache {#internationalization}
 
-[Internationalisierung]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization) wird in der URL und im Anfrage-Body unterstützt. Um Ihre Nachricht zu internationalisieren, wählen Sie **Add languages** und füllen Sie die erforderlichen Felder aus.
+[Internationalisierung]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization) wird in der URL und im Anfrage-Body unterstützt. Um Ihre Nachricht zu internationalisieren, wählen Sie **Add languages** aus und füllen Sie die erforderlichen Felder aus.
 
 Wir empfehlen, Ihre Sprachen auszuwählen, bevor Sie Ihren Inhalt verfassen, damit Sie Ihren Text an der richtigen Stelle im Liquid einfügen können. Eine vollständige Liste der verfügbaren Sprachen finden Sie unter [Unterstützte Sprachen]({{site.baseurl}}/developer_guide/localization?tab=android).
 
-Wenn Sie Texte in einer Sprache hinzufügen, die von rechts nach links geschrieben wird, beachten Sie, dass das endgültige Erscheinungsbild von Rechts-nach-links-Nachrichten weitgehend davon abhängt, wie Dienstanbieter sie darstellen. Best Practices zum Erstellen von Rechts-nach-links-Nachrichten, die möglichst korrekt angezeigt werden, finden Sie unter [Rechts-nach-links-Nachrichten erstellen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
+Wenn Sie Text in einer Sprache hinzufügen, die von rechts nach links geschrieben wird, beachten Sie, dass das endgültige Erscheinungsbild von Rechts-nach-Links-Nachrichten weitgehend davon abhängt, wie Dienstanbieter diese darstellen. Best Practices zur Erstellung von Rechts-nach-Links-Nachrichten, die möglichst genau angezeigt werden, finden Sie unter [Rechts-nach-Links-Nachrichten erstellen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
 
 ### Webhook-URL {#webhook-url}
 
-Die Webhook-URL, oder HTTP-URL, gibt Ihren Endpunkt an. Der Endpunkt ist der Ort, an den Sie die Informationen senden, die Sie im Webhook erfassen.
+Die Webhook-URL, oder HTTP-URL, gibt Ihren Endpunkt an. Der Endpunkt ist der Ort, an den Sie die im Webhook erfassten Informationen senden.
 
-Wenn Sie Informationen an einen Anbieter senden möchten, sollte der Anbieter diese URL in seiner API-Dokumentation bereitstellen. Wenn Sie Informationen an Ihre eigenen Systeme senden, klären Sie mit Ihrem Entwicklerteam, ob Sie die richtige URL verwenden.
+Wenn Sie Informationen an einen Anbieter senden möchten, sollte der Anbieter diese URL in seiner API-Dokumentation bereitstellen. Wenn Sie Informationen an Ihre eigenen Systeme senden, wenden Sie sich an Ihr Entwicklerteam, um sicherzustellen, dass Sie die richtige URL verwenden.
 
-Braze erlaubt nur URLs, die über die Standardports `80` (HTTP) und `443` (HTTPS) kommunizieren.
+Braze erlaubt nur URLs, die über die Standard-Ports `80` (HTTP) und `443` (HTTPS) kommunizieren.
 
 #### Liquid verwenden {#using-liquid}
 
-Sie können Ihre Webhook-URLs mit [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) personalisieren. Manchmal erfordern bestimmte Endpunkte, dass Sie eine Nutzer:in identifizieren oder nutzerspezifische Informationen als Teil Ihrer URL angeben. Wenn Sie Liquid verwenden, stellen Sie sicher, dass Sie für jede nutzerspezifische Information, die Sie in Ihrer URL verwenden, einen [Standardwert]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=web) einfügen.
+Sie können Ihre Webhook-URLs mithilfe von [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) personalisieren. Manchmal erfordern bestimmte Endpunkte, dass Sie Nutzer:innen identifizieren oder nutzerspezifische Informationen als Teil Ihrer URL angeben. Wenn Sie Liquid verwenden, stellen Sie sicher, dass Sie für jede nutzerspezifische Information in Ihrer URL einen [Standardwert]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=web) angeben.
 
 ### HTTP-Methode {#http-method}
 
-Die zu verwendende HTTP-Methode hängt vom Endpunkt ab, an den Sie Informationen senden. In den meisten Fällen verwenden Sie POST.
+Die zu verwendende HTTP-Methode variiert je nach Endpunkt, an den Sie Informationen senden. In den meisten Fällen verwenden Sie POST.
 
 | HTTP-Methode | Beschreibung |
 | ----------- | ----------- |
-| POST | Schreibt neue Informationen auf den empfangenden Server. Dies ist die am häufigsten verwendete Methode beim Senden von Daten. |
+| POST | Schreibt neue Informationen auf den empfangenden Server. Dies ist die am häufigsten verwendete Methode zum Senden von Daten. |
 | GET | Ruft vorhandene Informationen ab, anstatt neue Informationen zu schreiben. Per Definition unterstützt eine GET-Anfrage keinen Anfrage-Body. |
-| PUT | Aktualisiert Informationen am Endpunkt und ersetzt vorhandene Informationen durch den Inhalt des Anfrage-Bodys. |
+| PUT | Aktualisiert Informationen am Endpunkt und ersetzt vorhandene Informationen durch den Inhalt des Anfrage-Body. |
 | DELETE | Löscht die Ressource in der HTTP-URL. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="HTTP-Methode" }
 
 ### Anfrage-Body {#request-body}
 
-Der Anfrage-Body enthält die Informationen, die an die von Ihnen angegebene URL gesendet werden. Sie können den Body Ihrer Webhook-Anfrage mit JSON-Schlüssel-Wert-Paaren oder Rohtext erstellen.
+Der Anfrage-Body enthält die Informationen, die an die von Ihnen angegebene URL gesendet werden. Sie können den Body Ihrer Webhook-Anfrage mit JSON-Schlüssel-Wert-Paaren oder als Rohtext erstellen.
 
 #### JSON-Schlüssel-Wert-Paare {#json-key-value-pairs}
 
-JSON-Schlüssel-Wert-Paare ermöglichen es Ihnen, einfach eine Anfrage für einen Endpunkt zu erstellen, der ein JSON-Format erwartet. Sie können dies nur mit einem Endpunkt verwenden, der eine JSON-Anfrage erwartet. Wenn Ihr Schlüssel beispielsweise `message_body` ist, könnte der entsprechende Wert `Your order just arrived!` lauten. Nachdem Sie Ihr Schlüssel-Wert-Paar eingegeben haben, konfiguriert der Composer Ihre Anfrage in JSON-Syntax, und eine Vorschau Ihrer JSON-Anfrage wird automatisch angezeigt.
+JSON-Schlüssel-Wert-Paare ermöglichen es Ihnen, einfach eine Anfrage für einen Endpunkt zu schreiben, der ein JSON-Format erwartet. Dies kann nur mit einem Endpunkt verwendet werden, der eine JSON-Anfrage erwartet. Wenn Ihr Schlüssel zum Beispiel `message_body` ist, könnte der entsprechende Wert `Your order just arrived!` lauten. Nachdem Sie Ihr Schlüssel-Wert-Paar eingegeben haben, konfiguriert der Composer Ihre Anfrage in JSON-Syntax, und eine Vorschau Ihrer JSON-Anfrage wird automatisch generiert.
 
 ![Anfrage-Body mit JSON-Schlüssel-Wert-Paaren.]({% image_buster /assets/img/webhook_json_1.png %})
 
-Sie können Ihre Schlüssel-Wert-Paare mit Liquid personalisieren, z. B. indem Sie beliebige Nutzerattribute, [angepasste Attribute]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=swift) oder [Event-Eigenschaften]({{site.baseurl}}/user_guide/data/activation/events/custom_events) in Ihre Anfrage aufnehmen. Sie können beispielsweise den Vornamen und die E-Mail-Adresse einer Kund:in in Ihre Anfrage aufnehmen. Stellen Sie sicher, dass Sie für jedes Attribut einen [Standardwert]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=web) einfügen.
+Sie können Ihre Schlüssel-Wert-Paare mit Liquid personalisieren, indem Sie z. B. beliebige Nutzerattribute, [angepasste Attribute]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=swift) oder [Event-Eigenschaften]({{site.baseurl}}/user_guide/data/activation/events/custom_events) in Ihre Anfrage aufnehmen. Sie können beispielsweise den Vornamen und die E-Mail-Adresse von Kund:innen in Ihre Anfrage einfügen. Stellen Sie sicher, dass Sie für jedes Attribut einen [Standardwert]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=web) angeben.
 
 #### Rohtext {#raw-text}
 
@@ -132,10 +132,10 @@ Bestimmte Endpunkte erfordern möglicherweise, dass Sie Header in Ihre Anfrage a
 
 ![Beispiele für Anfrage-Header mit dem Schlüssel „Authorization“ und dem Schlüssel „Content-Type“.]({% image_buster /assets/img_archive/webhook_request_headers_example.png %})
 
-Gängige Anfrage-Header sind [`Content-Type`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type)-Spezifikationen (die beschreiben, welcher Datentyp im Body erwartet wird, z. B. XML oder JSON) und [`Authorization`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization)-Header, die Ihre Zugangsdaten für Ihren Anbieter oder Ihr System enthalten.
+Gängige Anfrage-Header sind [`Content-Type`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type)-Spezifikationen (die beschreiben, welche Art von Daten im Body erwartet werden, z. B. XML oder JSON) und [`Authorization`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization)-Header, die Ihre Zugangsdaten für Ihren Anbieter oder Ihr System enthalten.
 
 {% alert note %}
-HTTP-Header-Namen sind gemäß [RFC 7230, Abschnitt 3.2 („Each header field consists of a case-insensitive field name“)](https://datatracker.ietf.org/doc/html/rfc7230#section-3.2) nicht case-sensitiv. Wenn Ihr empfangender Endpunkt oder zwischengeschaltete Dienste (wie CDNs) die Groß-/Kleinschreibung von Headern ändern, hat dies keinen Einfluss auf die Header-Verarbeitung – `Content-Type`, `content-type` und `CONTENT-TYPE` werden alle identisch behandelt.
+HTTP-Header-Namen sind gemäß [RFC 7230, Abschnitt 3.2 („Each header field consists of a case-insensitive field name“)](https://datatracker.ietf.org/doc/html/rfc7230#section-3.2) nicht case-sensitiv. Wenn Ihr empfangender Endpunkt oder zwischengeschaltete Dienste (wie CDNs) die Groß-/Kleinschreibung von Headern ändern, hat dies keine Auswirkung auf die Header-Verarbeitung – `Content-Type`, `content-type` und `CONTENT-TYPE` werden alle identisch behandelt.
 {% endalert %}
 
 Content-Typ-Spezifikationen müssen den Schlüssel `Content-Type` verwenden. Gängige Werte sind `application/json` oder `application/x-www-form-urlencoded`.
@@ -146,9 +146,9 @@ Authorization-Header müssen den Schlüssel `Authorization` verwenden. Gängige 
 
 Bevor Sie Ihre Campaign live schalten, empfiehlt Braze, den Webhook zu testen, um sicherzustellen, dass die Anfrage korrekt formatiert ist.
 
-Wechseln Sie dazu zum Tab **Test** und senden Sie einen Test-Webhook. Sie können den Webhook als zufällige:r Nutzer:in, als bestimmte:r Nutzer:in (durch Eingabe der E-Mail-Adresse oder der externen Nutzer-ID) oder als angepasste:r Nutzer:in mit Attributen Ihrer Wahl testen.
+Wechseln Sie dazu zum Tab **Test** und senden Sie einen Test-Webhook. Sie können den Webhook als zufällige:r Nutzer:in, als bestimmte:r Nutzer:in (durch Eingabe der E-Mail-Adresse oder externen Nutzer-ID) oder als angepasste:r Nutzer:in mit Attributen Ihrer Wahl testen.
 
-Nach dem Senden des Test-Webhooks wird ein Dialogfenster mit der Antwortnachricht angezeigt. Wenn die Webhook-Anfrage nicht erfolgreich war, nutzen Sie die Fehlermeldung als Hilfe bei der Fehlerbehebung Ihres Webhooks. Das folgende Beispiel zeigt die Antwort eines Webhooks mit einer ungültigen Webhook-URL.
+Nach dem Senden des Test-Webhooks wird ein Dialog mit der Antwortnachricht angezeigt. Wenn die Webhook-Anfrage nicht erfolgreich ist, lesen Sie die Fehlermeldung, um Hilfe bei der Fehlerbehebung Ihres Webhooks zu erhalten. Das folgende Beispiel zeigt die Antwort eines Webhooks mit einer ungültigen Webhook-URL.
 
 ```http
 404 Not Found
@@ -175,55 +175,55 @@ Erstellen Sie als Nächstes den Rest Ihrer Campaign. In den folgenden Abschnitte
 
 Webhooks können basierend auf einem geplanten Zeitpunkt, einer Aktion oder einem API-Trigger zugestellt werden. Weitere Informationen finden Sie unter [Ihre Campaign planen]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
 
-Bei aktionsbasierter Zustellung können Sie außerdem die Dauer der Campaign und [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) festlegen.
+Bei aktionsbasierter Zustellung können Sie auch die Dauer der Campaign und [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) festlegen.
 
-In diesem Schritt können Sie auch Zustellungskontrollen festlegen, z. B. ob Nutzer:innen [erneut berechtigt]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#turning-on-re-eligibility) werden können, die Campaign zu erhalten, oder ob [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping)-Regeln aktiviert werden.
+In diesem Schritt können Sie auch Zustellungskontrollen festlegen, z. B. ob Nutzer:innen [erneut berechtigt]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#turning-on-re-eligibility) werden können, die Campaign zu erhalten, oder ob [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping)-Regeln aktiviert werden sollen.
 
 ### Zielgruppe zusammenstellen {#choose-users-to-target}
 
-Als Nächstes müssen Sie [Nutzer:innen als Zielgruppe auswählen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users), indem Sie Segmente oder Filter auswählen, um Ihre Zielgruppe einzugrenzen. In diesem Schritt wählen Sie die größere Zielgruppe aus Ihren Segmenten aus und grenzen dieses Segment bei Bedarf mit unseren Filtern weiter ein. Sie erhalten automatisch eine Vorschau der ungefähren Segmentpopulation. Beachten Sie, dass die exakte Segmentzugehörigkeit immer vor dem Versand der Nachricht berechnet wird.
+Als Nächstes müssen Sie [Ihre Zielgruppe zusammenstellen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users), indem Sie Segmente oder Filter auswählen, um Ihre Zielgruppe einzugrenzen. In diesem Schritt wählen Sie die größere Zielgruppe aus Ihren Segmenten aus und grenzen dieses Segment bei Bedarf mit unseren Filtern weiter ein. Sie erhalten automatisch eine Vorschau der ungefähren Segmentgröße. Beachten Sie, dass die genaue Segmentzugehörigkeit immer unmittelbar vor dem Versand der Nachricht berechnet wird.
 
 {% multi_lang_include audience/target_audiences.md %}
 
-### Konversions-Events auswählen {#choose-conversion-events}
+### Konversions-Events wählen {#choose-conversion-events}
 
-Braze ermöglicht es Ihnen nachzuverfolgen, wie oft Nutzer:innen bestimmte Aktionen, sogenannte [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), nach Erhalt einer Campaign ausführen. Sie haben die Möglichkeit, ein Zeitfenster von bis zu 30 Tagen festzulegen, in dem eine Konversion gezählt wird, wenn die Nutzer:innen die angegebene Aktion ausführen.
+Braze ermöglicht es Ihnen zu verfolgen, wie oft Nutzer:innen bestimmte Aktionen, sogenannte [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), nach dem Empfang einer Campaign ausführen. Sie haben die Möglichkeit, ein Zeitfenster von bis zu 30 Tagen festzulegen, in dem eine Konversion gezählt wird, wenn die Nutzer:innen die angegebene Aktion ausführen.
 
 {% endtab %}
 
 {% tab Canvas %}
 
-Wenn Sie es noch nicht getan haben, vervollständigen Sie die verbleibenden Abschnitte Ihres Canvas-Schritts. Details zum Aufbau Ihres restlichen Canvas, einschließlich multivariater Tests und [Optimierung mit BrazeAI<sup>TM</sup>]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#optimize-canvas-variants-with-brazeai), finden Sie unter [Canvas erstellen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas).
+Falls noch nicht geschehen, vervollständigen Sie die verbleibenden Abschnitte Ihres Canvas-Schritts. Weitere Details zum Aufbau Ihres Canvas, einschließlich multivariater Tests und [Mit BrazeAI<sup>TM</sup> optimieren]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#optimize-canvas-variants-with-brazeai), finden Sie unter [Canvas erstellen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas).
 
 {% endtab %}
 {% endtabs %}
 
 ## Schritt 6: Überprüfen und bereitstellen {#step-6-review-and-deploy}
 
-Nachdem Sie Ihre Campaign oder Ihr Canvas fertig erstellt haben, überprüfen Sie die Details, testen Sie alles und senden Sie es ab!
+Nachdem Sie den letzten Schritt Ihrer Campaign oder Ihres Canvas fertig erstellt haben, überprüfen Sie die Details, testen Sie alles und senden Sie es ab!
 
 ## Wissenswertes {#things-to-know}
 
 ### Fehler, Wiederholungslogik und Timeouts {#errors-retry-logic-and-timeouts}
 
-Webhooks basieren darauf, dass Braze-Server Anfragen an einen externen Endpunkt senden, und gelegentlich können Fehler auftreten. Die häufigsten Fehler umfassen Syntaxfehler, abgelaufene API-Schlüssel, Rate-Limits und unerwartete serverseitige Probleme. Bevor Sie eine Webhook-Campaign senden:
+Webhooks basieren darauf, dass Braze-Server Anfragen an einen externen Endpunkt senden, wobei gelegentlich Fehler auftreten können. Die häufigsten Fehler sind Syntaxfehler, abgelaufene API-Schlüssel, Rate-Limits und unerwartete serverseitige Probleme. Bevor Sie eine Webhook-Campaign senden:
 
 - Testen Sie Ihren Webhook auf Syntaxfehler
 - Stellen Sie sicher, dass personalisierte Variablen Standardwerte haben
 
-Wenn Ihr Webhook nicht gesendet werden kann, wird eine Fehlermeldung im [Nachrichtenaktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) protokolliert, einschließlich Details wie dem Fehlerzeitstempel, dem App-Namen und Details zum Fehler.
+Wenn Ihr Webhook nicht gesendet werden kann, wird eine Fehlermeldung im [Nachrichtenaktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) protokolliert und enthält Details wie den Fehlerzeitstempel, den App-Namen und Einzelheiten zum Fehler.
 
-![Webhook-Fehler mit der Meldung „An active access Token must be used to query information about the current user“.]({% image_buster /assets/img_archive/webhook-error.png %})
+![Webhook-Fehler mit der Nachricht „An active access token must be used to query information about the current user“.]({% image_buster /assets/img_archive/webhook-error.png %})
 
-Wenn die Fehlermeldung nicht eindeutig genug ist, um die Fehlerquelle zu identifizieren, sollten Sie die Dokumentation des von Ihnen verwendeten API-Endpunkts prüfen. Diese enthalten in der Regel eine Erklärung der vom Endpunkt verwendeten Fehlercodes sowie deren übliche Ursachen.
+Wenn die Fehlermeldung nicht ausreichend über die Fehlerursache informiert, sollten Sie die Dokumentation des von Ihnen verwendeten API-Endpunkts überprüfen. Diese liefert in der Regel eine Erklärung der vom Endpunkt verwendeten Fehlercodes sowie deren häufigste Ursachen.
 
 #### Antwortcodes und Wiederholungslogik {#response-codes-and-retry-logic}
 
-Wenn die Webhook-Anfrage gesendet wird, gibt der empfangende Server einen Antwortcode zurück, der angibt, was mit der Anfrage geschehen ist. Die folgende Tabelle fasst die verschiedenen Antworten zusammen, die der Server senden kann, wie sie sich auf die Campaign-Analytik auswirken und ob Braze im Fehlerfall versucht, die Campaign erneut zuzustellen:
+Wenn die Webhook-Anfrage gesendet wird, gibt der empfangende Server einen Antwortcode zurück, der angibt, was mit der Anfrage passiert ist. Die folgende Tabelle fasst die verschiedenen Antworten zusammen, die der Server senden kann, wie sie sich auf die Campaign-Analytics auswirken und ob Braze im Fehlerfall versucht, die Campaign erneut zuzustellen:
 
 | Antwortcode | Als empfangen markiert? | Wiederholung? |
 |---------------|-----------|----------|
-| `20x` (Erfolg)  | Ja |   N/A  |
+| `20x` (Erfolg)  | Ja |   Nicht zutreffend  |
 | `30x` (Weiterleitung)  | Nein | Nein |
 | `408` (Anfrage-Timeout)  | Nein | Ja |
 | `429` (Rate-Limit erreicht)  | Nein | Ja |
@@ -232,14 +232,14 @@ Wenn die Webhook-Anfrage gesendet wird, gibt der empfangende Server einen Antwor
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Antwortcodes und Wiederholungslogik" }
 
 {% alert note %}
-Braze wiederholt die zuvor in diesem Abschnitt genannten Statuscodes bis zu fünfmal innerhalb von 30 Minuten mit exponentiellem Backoff. Wenn Ihr Endpunkt nicht erreichbar ist, können sich die Wiederholungsversuche über einen Zeitraum von 24 Stunden erstrecken.<br><br>Jeder Webhook hat ein Timeout von 90 Sekunden.
+Braze wiederholt die in diesem Abschnitt genannten wiederholbaren Statuscodes bis zu fünf Mal insgesamt (die ursprüngliche Anfrage plus vier Wiederholungen), wobei die Verzögerung zwischen den Versuchen zunimmt. Wenn Braze Ihren Endpunkt nicht erreichen kann, können die Wiederholungen bis zu 24 Stunden lang fortgesetzt werden.<br><br>Jede Webhook-Anfrage hat ein Timeout von 120 Sekunden.
 {% endalert %}
 
-`Retry-After`- und Rate-Limit-Antwort-Header können beeinflussen, wie lange Braze vor einem **wiederholbaren** Versuch wartet (z. B. nach `408`, `429` oder `5XX`). Sie machen nicht-wiederholbare Antworten wie `401` nicht für eine Wiederholung zulässig.
+`Retry-After`- und Rate-Limit-Antwort-Header können beeinflussen, wie lange Braze vor einem **wiederholbaren** Versuch wartet (zum Beispiel nach `408`, `429` oder `5XX`). Sie machen nicht-wiederholbare Antworten wie `401` nicht für Wiederholungen geeignet.
 
 <!-- support-analyzer-phase2:webhook_delivery_failures -->
 {% alert note %}
-Wenn Webhook-Sends in den Analytics zu fehlen scheinen, öffnen Sie das [Nachrichtenaktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) für die Campaign oder den Canvas-Schritt. Braze wiederholt nur bestimmte Antworten (z. B. `408`, `429` und `5XX`) – die meisten anderen `4XX`-Client-Fehler, einschließlich `401 Unauthorized`, werden **nicht** wiederholt. Die vollständige Antworttabelle finden Sie unter [Antwortcodes und Wiederholungslogik](#response-codes-and-retry-logic).
+Wenn Webhook-Sendungen in den Analytics zu fehlen scheinen, öffnen Sie das [Nachrichtenaktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) für die Campaign oder den Canvas-Schritt. Braze wiederholt nur bestimmte Antworten (zum Beispiel `408`, `429` und `5XX`) – die meisten anderen `4XX`-Client-Fehler, einschließlich `401 Unauthorized`, werden **nicht** wiederholt. Die vollständige Antworttabelle finden Sie unter [Antwortcodes und Wiederholungslogik](#response-codes-and-retry-logic).
 {% endalert %}
 
 
@@ -247,27 +247,27 @@ Wenn Webhook-Sends in den Analytics zu fehlen scheinen, öffnen Sie das [Nachric
 
 `403 Forbidden`-Antworten bedeuten, dass Ihr Endpunkt die Anfrage empfangen, aber abgelehnt hat. Häufige Ursachen sind ungültige oder fehlende Authentifizierung, unzureichende API-Berechtigungen und Netzwerkregeln (wie eine Firewall oder Web Application Firewall), die die ausgehenden IP-Adressen von Braze blockieren.
 
-Wenn Webhook-Anfragen konsistent `403` zurückgeben und Ihre Authentifizierungs-Header korrekt sind, fügen Sie die Braze-IPs für Ihren Cluster auf dem Server, der den Webhook empfängt, zur Allowlist hinzu. Siehe [IP-Allowlisting](#ip-allowlisting). Connected-Content-Anfragen verwenden dieselben ausgehenden IPs; siehe [Connected-Content-IP-Allowlisting]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting).
+Wenn Webhook-Anfragen konsistent `403` zurückgeben und Ihre Authentifizierungs-Header korrekt sind, nehmen Sie die Braze-IPs für Ihren Cluster auf dem Server, der den Webhook empfängt, in die Allowlist auf. Siehe [IP-Allowlisting](#ip-allowlisting). Connected-Content-Anfragen verwenden dieselben ausgehenden IPs; siehe [Connected-Content-IP-Allowlisting]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting).
 
-Für weitere `4XX`-Fehlerbehebungsschritte lesen Sie [Fehlerbehebung bei Webhook- und Connected-Content-Anfragen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content#4xx-errors).
+Für weitere `4XX`-Fehlerbehebungsschritte siehe [Fehlerbehebung für Webhook- und Connected-Content-Anfragen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content#4xx-errors).
 
 #### Authentifizierung und Connected-Content-Zugangsdaten {#authentication-and-connected-content-credentials}
 
-Die ausgehende Webhook-HTTP-Anfrage unterstützt nicht das Anhängen von [Connected-Content-Zugangsdaten]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#authentication-types) (`:basic_auth` oder `:auth_credentials`) zur Authentifizierung gegen Ihren Endpunkt. Legen Sie die Authentifizierung stattdessen über **Anfrage-Header** im Webhook fest. Um ein Token oder Secret zum Sendezeitpunkt abzurufen, können Sie ein {% raw %}`{% connected_content %}`{% endraw %}-Tag in ein Header- oder Body-Feld einfügen, damit Liquid es auflöst, bevor der Webhook gesendet wird.
+Die ausgehende Webhook-HTTP-Anfrage unterstützt keine [Connected-Content-Zugangsdaten]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#authentication-types) (`:basic_auth` oder `:auth_credentials`) zur Authentifizierung an Ihrem Endpunkt. Konfigurieren Sie die Authentifizierung stattdessen über **Anfrage-Header** im Webhook. Um ein Token oder ein Geheimnis zum Sendezeitpunkt abzurufen, können Sie ein {% raw %}`{% connected_content %}`{% endraw %}-Tag in einem Header- oder Body-Feld platzieren, sodass Liquid es auflöst, bevor der Webhook gesendet wird.
 
 #### Gespeicherte Webhook-Templates und Campaign-Nutzung {#saved-webhook-templates-and-campaign-usage}
 
-Braze bietet keinen integrierten Bericht, der jede Campaign oder jeden Canvas-Schritt auflistet, der auf ein bestimmtes **gespeichertes Webhook-Template** verweist. Um die Nutzung zu prüfen, überprüfen Sie Webhook-Schritte, die dieselbe URL und HTTP-Methode verwenden, oder kontaktieren Sie den [Braze-Support]({{site.baseurl}}/support_contact).
+Braze bietet keinen integrierten Bericht, der jede Campaign oder jeden Canvas-Schritt auflistet, die ein bestimmtes **gespeichertes Webhook-Template** referenzieren. Um die Nutzung zu überprüfen, prüfen Sie Webhook-Schritte, die dieselbe URL und HTTP-Methode verwenden, oder kontaktieren Sie den [Braze-Support]({{site.baseurl}}/support_contact).
 
 #### Fehlerbehebung und zusätzliche Fehlerdetails {#troubleshooting-and-additional-error-details}
 
-Ausführliche Erklärungen, Fehlerbehebungsschritte und Anleitungen zur Behebung spezifischer Webhook-Fehler finden Sie unter [Fehlerbehebung bei Webhook- und Connected-Content-Anfragen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content). Dort finden Sie auch weitere Erklärungen zur Funktionsweise unseres Systems zur Erkennung fehlerhafter Hosts sowie dazu, wie Braze Fehlerbenachrichtigungen über automatisierte E-Mails und zusätzliche Protokollierung in Braze-Currents bereitstellt.
+Detaillierte Erklärungen, Fehlerbehebungsschritte und Anleitungen zur Lösung spezifischer Webhook-Fehler finden Sie unter [Fehlerbehebung für Webhook- und Connected-Content-Anfragen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content). Dort finden Sie auch weitere Erklärungen zur Funktionsweise unseres Systems zur Erkennung fehlerhafter Hosts und dazu, wie Braze Fehlerbenachrichtigungen über automatisierte E-Mails und zusätzliche Protokollierung in Braze-Currents bereitstellt.
 
 ### IP-Allowlisting {#ip-allowlisting}
 
-Wenn ein Webhook von Braze gesendet wird, senden die Braze-Server Netzwerkanfragen an Kund:innen- oder Drittanbieter-Server. Mit IP-Allowlisting können Sie überprüfen, ob Webhook-Anfragen von Braze stammen, und so eine zusätzliche Sicherheitsebene hinzufügen.
+Wenn ein Webhook von Braze gesendet wird, stellen die Braze-Server Netzwerkanfragen an Kunden- oder Drittanbieter-Server. Mit IP-Allowlisting können Sie überprüfen, ob Webhook-Anfragen von Braze stammen, und so eine zusätzliche Sicherheitsebene hinzufügen.
 
-Braze sendet Webhooks von den folgenden IPs. Die aufgelisteten IPs werden automatisch und dynamisch zu allen API-Schlüsseln hinzugefügt, die für das Allowlisting aktiviert wurden.
+Braze sendet Webhooks von den folgenden IPs. Die aufgeführten IPs werden automatisch und dynamisch zu allen API-Schlüsseln hinzugefügt, die für das Allowlisting aktiviert wurden.
 
 {% alert important %}
 Wenn Sie einen Braze-zu-Braze-Webhook erstellen und Allowlisting verwenden, sollten Sie alle folgenden IPs auf die Allowlist setzen, einschließlich `127.0.0.1`.
@@ -279,4 +279,4 @@ Wenn Sie einen Braze-zu-Braze-Webhook erstellen und Allowlisting verwenden, soll
 
 Um einzelne Nutzer:innen oder ein Segment von Nutzer:innen zu löschen, gehen Sie zu **Audience** > **Manage Audience** > **Delete Users**. Das Dashboard unterstützt die Massenlöschung von Segmenten (bis zu 10 Millionen Profile), beinhaltet ein 7-tägiges Stornierungsfenster und verbraucht keine gemeinsamen REST-API-Rate-Limits. Schritte, Limits und Berechtigungen finden Sie unter [Nutzer:innen löschen]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users).
 
-Für programmatische Löschung in kleineren Batches verwenden Sie stattdessen den [`/users/delete`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_delete) anstelle einer Webhook-Campaign.
+Für die programmatische Löschung in kleineren Batches verwenden Sie den [`/users/delete`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_delete) anstelle einer Webhook-Campaign.

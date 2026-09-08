@@ -13,7 +13,7 @@ description: "この記事では、「無効な電話番号を照会する」Bra
 /sms/invalid_phone_numbers
 {% endapimethod %}
 
-> このエンドポイントを使用して、一定期間内に「無効」とマークされた電話番号のリストを取得します。詳細については、[無効な電話番号の処理]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#handling-invalid-phone-numbers)のドキュメントを参照してください。
+> このエンドポイントを使用して、一定期間内に「無効」とマークされた電話番号のリストを取得します。詳細については、[無効な電話番号の処理]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#handling-invalid-phone-numbers)を参照してください。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#81ceae19-15d1-4ac1-ad22-a6b86a92456d {% endapiref %}
 
@@ -30,11 +30,11 @@ description: "この記事では、「無効な電話番号を照会する」Bra
 | パラメーター | 必須 | データタイプ | 説明 |
 | ----------|-----------| ----------|----- |
 | `start_date` | オプション <br>(注を参照) | YYYY-MM-DD 形式の文字列 | 無効な電話番号を取得する範囲の開始日。`end_date` より前である必要があります。APIではUTC時間の午前0時として扱われます。 |
-| `end_date` | オプション <br>(注を参照) | YYYY-MM-DD 形式の文字列 | 無効な電話番号を取得する範囲の終了日。APIではUTC時間の午前0時として扱われます。 |
+| `end_date` | オプション <br>(注を参照) | YYYY-MM-DD 形式の文字列 | 無効な電話番号を取得する範囲の終了日。APIではUTC時間の午前0時として扱われます。結果には、UTCのこの暦日の終わりまでに検出された無効な番号が含まれます（その日を含む）。 |
 | `limit` | オプション | 整数 | 返される結果の数を制限するオプションフィールドです。デフォルトは100、最大は500です。 |
 | `offset` | オプション | 整数 | リスト内の取得開始位置を指定するオプションフィールドです。 |
-| `phone_numbers` | オプション <br>(注を参照) | e.164 形式の文字列の配列 | 指定された場合、無効であることが判明した電話番号を返します。 |
-| `reason` | オプション <br>(注を参照) | 文字列 | 使用可能な値は "provider_error"（プロバイダーエラーにより電話がSMSを受信できないことを示す）または "deactivated"（電話番号が無効化されている）です。省略した場合、すべての理由が返されます。 |
+| `phone_numbers` | オプション <br>(注を参照) | e.164 形式の文字列の配列 | 指定された場合、Brazeは無効であることが判明した電話番号を返します。 |
+| `reason` | オプション <br>(注を参照) | 文字列 | 使用可能な値は `provider_error`（プロバイダーがその電話でSMSを受信できないことを示す）、`deactivated`（電話番号が無効化されている）、または `invalid_format`（E.164以外の値など、フォーマット検証に失敗した番号）です。省略した場合、すべての理由が返されます。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 {% alert note %}
@@ -68,7 +68,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/sms/invalid_phone_n
     {
       "phone": (string) phone number in e.164 format,
       "invalid_detected_at": (string) the time the invalid number was detected in ISO 8601
-      "reason" : "provider_error"
+      "reason" : "invalid_format"
     }
   ],
   "message": "success"
