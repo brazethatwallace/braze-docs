@@ -4818,7 +4818,13 @@ validurls['/docs/user_guide/administrative/manage_your_braze_users/user_permissi
 validurls['/docs/user_guide/administer/global/user_management/permissions/granular_permissions_migration'] = '/docs/user_guide/administer/global/user_management/permissions';
 validurls['/docs/granular_permissions_migration'] = '/docs/user_guide/administer/global/user_management/permissions';
 validurls['/docs/create_sms_message'] = '/docs/user_guide/channels/sms_mms_and_rcs/create';
-validurls['/docs/create_rcs_message'] = '/docs/user_guide/channels/sms_mms_and_rcs/create';
+validurls['/docs/create_rcs_message'] = '/docs/user_guide/channels/sms_mms_and_rcs/create#rcs-message-types';
+validurls['/docs/de/create_rcs_message'] = '/docs/de/user_guide/channels/sms_mms_and_rcs/create#rcs-message-types';
+validurls['/docs/es/create_rcs_message'] = '/docs/es/user_guide/channels/sms_mms_and_rcs/create#rcs-message-types';
+validurls['/docs/fr/create_rcs_message'] = '/docs/fr/user_guide/channels/sms_mms_and_rcs/create#rcs-message-types';
+validurls['/docs/ja/create_rcs_message'] = '/docs/ja/user_guide/channels/sms_mms_and_rcs/create#rcs-message-types';
+validurls['/docs/ko/create_rcs_message'] = '/docs/ko/user_guide/channels/sms_mms_and_rcs/create#rcs-message-types';
+validurls['/docs/pt-br/create_rcs_message'] = '/docs/pt-br/user_guide/channels/sms_mms_and_rcs/create#rcs-message-types';
 validurls['/docs/create_mms_message'] = '/docs/user_guide/channels/sms_mms_and_rcs/create';
 validurls['/docs/sms_faq'] = '/docs/user_guide/channels/sms_mms_and_rcs/faqs';
 validurls['/docs/mms_faq'] = '/docs/user_guide/channels/sms_mms_and_rcs/faqs';

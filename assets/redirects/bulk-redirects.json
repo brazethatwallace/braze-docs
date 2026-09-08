@@ -816,7 +816,7 @@
   },
   {
     "source": "/docs/create_rcs_message",
-    "destination": "/docs/user_guide/channels/sms_mms_and_rcs/create",
+    "destination": "/docs/user_guide/channels/sms_mms_and_rcs/create#rcs-message-types",
     "permanent": true
   },
   {
@@ -867,6 +867,11 @@
   {
     "source": "/docs/de/_partners/data_and_analytics/wrapper_sdks",
     "destination": "/docs/de/developer_guide/sdk_integration",
+    "permanent": true
+  },
+  {
+    "source": "/docs/de/create_rcs_message",
+    "destination": "/docs/de/user_guide/channels/sms_mms_and_rcs/create#rcs-message-types",
     "permanent": true
   },
   {
@@ -17335,6 +17340,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/es/create_rcs_message",
+    "destination": "/docs/es/user_guide/channels/sms_mms_and_rcs/create#rcs-message-types",
+    "permanent": true
+  },
+  {
     "source": "/docs/es/create_sms_message",
     "destination": "/docs/es/user_guide/channels/sms_mms_and_rcs/create",
     "permanent": true
@@ -25325,6 +25335,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/fr/create_rcs_message",
+    "destination": "/docs/fr/user_guide/channels/sms_mms_and_rcs/create#rcs-message-types",
+    "permanent": true
+  },
+  {
     "source": "/docs/fr/developer_guide/authentication",
     "destination": "/docs/fr/developer_guide/sdk_integration/authentication",
     "permanent": true
@@ -29050,6 +29065,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/ja/create_rcs_message",
+    "destination": "/docs/ja/user_guide/channels/sms_mms_and_rcs/create#rcs-message-types",
+    "permanent": true
+  },
+  {
     "source": "/docs/ja/developer_guide/customization_guides/content_cards/customizing_behavior",
     "destination": "/docs/ja/developer_guide/content_cards/customizing_cards/behavior",
     "permanent": true
@@ -31772,6 +31792,11 @@
   {
     "source": "/docs/knowledge_sources",
     "destination": "/docs/user_guide/brazeai/agents/knowledge_sources",
+    "permanent": true
+  },
+  {
+    "source": "/docs/ko/create_rcs_message",
+    "destination": "/docs/ko/user_guide/channels/sms_mms_and_rcs/create#rcs-message-types",
     "permanent": true
   },
   {
@@ -36732,6 +36757,11 @@
   {
     "source": "/docs/programmatic_message_sending",
     "destination": "/docs/api/endpoints/messaging#messaging",
+    "permanent": true
+  },
+  {
+    "source": "/docs/pt-br/create_rcs_message",
+    "destination": "/docs/pt-br/user_guide/channels/sms_mms_and_rcs/create#rcs-message-types",
     "permanent": true
   },
   {
