@@ -58,6 +58,8 @@ Braze provides three ways to segment users based on eCommerce data:
 - **Custom event filters:** Because eCommerce events behave like custom events, all existing custom event filters work immediately. For example, you can filter by "Has performed custom event `ecommerce.order_placed` more than X times" or "First performed custom event `ecommerce.order_placed`".
 - **Segment Extensions:** For segmenting off nested event properties including the nested products array or the metadata objects properties, use [Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension) with nested event property filtering. This lets you build audiences like "users who purchased product SKU-123 in the last 90 days" or combine criteria across different properties of the same order.
 
+If you need to filter on custom properties that aren't part of the documented event schema, nest them under `metadata` when you log the event (for example, `metadata.color` instead of `color`). Custom top-level properties you send through the API or SDK aren't valid for extension property filters—even if those properties appear in your event data. Using a non-allowlisted top-level property prevents the extension from saving or unarchiving.
+
 {% alert important %}
 Segment Extensions for eCommerce recommended events are a paid feature and in early access. If you're interested in participating in the early access, contact your customer success manager. Confirm your plan includes access before recommending nested property segmentation to your team.
 {% endalert %}
