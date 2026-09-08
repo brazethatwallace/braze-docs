@@ -65,6 +65,22 @@ Every multi-step form includes a **Confirmation** step listed under **After subm
 
 Although the **Confirmation** step can't be removed, you can customize it like any other step: select it in the **Steps** section, then add and style blocks to build your confirmation message.
 
+## Style the form block
+
+With the **Form** row selected, use the **Styles** section in the **Multi-step form** panel to customize the form container:
+
+| Control | Description |
+|---|---|
+| Background image | Add an image behind the form. You can also adjust the image size, position, and repeat settings. |
+| Background color | Set the background color of the form container. |
+| Border style | Choose a solid, dashed, or dotted border for the form container. |
+| Border color | Set the border color for the form container. |
+| Border radius | Round the corners of the form container. |
+| Padding | Adjust the space between the form container edge and its content. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Multi-step form style controls" }
+
+These styles apply to the form container across all steps, including the **Confirmation** step.
+
 ## Track data from partially completed forms
 
 If a user leaves your form before reaching the **Confirmation** step, Braze still saves the data from any steps they completed to their user profile. The **Submitted a Landing Page form** event doesn't log until the user completes every step and reaches the **Confirmation** step.
