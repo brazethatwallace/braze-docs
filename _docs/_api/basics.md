@@ -152,7 +152,7 @@ API key permissions are permissions you can assign a user or group to limit thei
 | `campaigns.details` | [`/campaigns/details`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details) | Query for details of a specific campaign. |
 | `sends.data_series` | [`/sends/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_send_analytics) | Query for message send analytics over a time range. |
 | `sends.id.create` | [`/sends/id/create`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_create_send_ids) | Create send ID for message blast tracking. |
-| `campaigns.url_info.details` | [`/campaigns/url_info/details`]({{site.baseurl}}) | Query for URL details of a specific message variation within a campaign. |
+| `campaigns.url_info.details` | [`/campaigns/url_info/details`]({{site.baseurl}}) | Query for URL details of a specific message variation within a campaign. This permission is available only for workspaces with [Link Aliasing]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing) enabled. If this permission isn't available in your workspace, reach out to your Braze account manager. |
 | `transactional.send` | [`/transactional/v1/campaigns/{campaign_id}/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_transactional_message) | Allows for ability to send transactional messaging using the Transactional messaging endpoint. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
@@ -169,7 +169,7 @@ API key permissions are permissions you can assign a user or group to limit thei
 | `canvas.data_series` | [`/canvas/data_series`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics) | Query for Canvas analytics over a time range. |
 | `canvas.details` | [`/canvas/details`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details) | Query for details of a specific Canvas. |
 | `canvas.data_summary` | [`/canvas/data_summary`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics_summary) | Query for rollups of Canvas analytics over a time range. |
-| `canvas.url_info.details` | [`/canvas/url_info/details`]({{site.baseurl}}/get_canvas_link_alias) | Query for URL details of a specific message variation within a Canvas step. |
+| `canvas.url_info.details` | [`/canvas/url_info/details`]({{site.baseurl}}/get_canvas_link_alias) | Query for URL details of a specific message variation within a Canvas step. This permission is available only for workspaces with [Link Aliasing]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing) enabled. If this permission isn't available in your workspace, reach out to your Braze account manager. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
 {% endtab %}
