@@ -18,29 +18,46 @@ platform:
 
 {% multi_lang_include developer_guide/_shared/about_session_lifecycle.md %}
 
-## Atualizar o feed {#refreshing-the-feed}
+## Atualização do feed {#refreshing-the-feed}
 
 ### Atualização automática {#automatic-refresh}
 
-Por padrão, o feed de Content Cards será atualizado automaticamente quando:
+Por padrão, o feed de Content Cards é atualizado automaticamente quando:
 
 - Uma nova sessão é iniciada
 - O feed padrão de Content Cards é fechado e reaberto após mais de 60 segundos desde a última atualização.
 
 {% alert tip %}
-Para mostrar dinamicamente Content Cards atualizados sem atualizar manualmente, selecione **At first impression** durante a criação do cartão. Esses cartões serão atualizados quando estiverem disponíveis.
+Para exibir Content Cards atualizados dinamicamente sem precisar atualizar manualmente, selecione **At first impression** durante a criação do cartão. Esses cartões serão atualizados quando estiverem disponíveis.
 {% endalert %}
+
+### Entrega em tempo real {#real-time-delivery}
+
+A Braze também envia atualizações de Content Cards para o dispositivo assim que elas acontecem, por meio de uma conexão ativa que o SDK mantém durante a sessão. Os usuários não precisam iniciar uma nova sessão nem aguardar uma atualização para ver a mudança.
+
+A entrega em tempo real abrange as seguintes atualizações:
+
+- Um usuário se torna elegível para uma Campaign de Content Cards durante uma sessão.
+- Um usuário avança para uma etapa de Content Cards em um Canvas.
+- Um cartão é removido do feed de um usuário.
+- Um cartão é enviado pela API, como com o endpoint [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages), [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) ou [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases).
+
+A entrega em tempo real requer as seguintes versões mínimas do SDK:
+
+{% sdk_min_versions swift:18.0.0 android:43.1.1 web:6.12.0 %}
+
+Em versões anteriores do SDK, os cartões continuam chegando no início da sessão e durante a atualização.
 
 ### Atualização manual {#manual-refresh}
 
-Para atualizar manualmente o feed em um horário específico:
+Para atualizar manualmente o feed em um momento específico:
 
 {% tabs %}
 {% tab web %}
 
-Solicite uma atualização manual dos Content Cards da Braze a partir do SDK para web a qualquer momento, chamando [`requestContentCardsRefresh()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestcontentcardsrefresh).
+Solicite uma atualização manual dos Content Cards da Braze pelo SDK Web a qualquer momento chamando [`requestContentCardsRefresh()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestcontentcardsrefresh).
 
-Você também pode chamar [`getCachedContentCards`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#getcachedcontentcards) para obter todos os cartões disponíveis no momento a partir da última atualização dos Content Cards.
+Você também pode chamar [`getCachedContentCards`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#getcachedcontentcards) para obter todos os cartões disponíveis no momento a partir da última atualização de Content Cards.
 
 ```javascript
 import * as braze from "@braze/web-sdk";
@@ -50,12 +67,12 @@ function refresh() {
 }
 ```
 
-Para abrir links de Content Cards em uma nova aba do navegador em vez da mesma aba, defina `openCardsInNewTab: true` nas opções de inicialização do SDK para web. Para saber mais sobre as opções de inicialização, consulte o [guia do repositório do SDK para web]({{site.baseurl}}/developer_guide/sdk_repository_guides/web).
+Para abrir links de Content Cards em uma nova aba do navegador em vez da mesma aba, defina `openCardsInNewTab: true` nas opções de inicialização do SDK Web. Para saber mais sobre as opções de inicialização, consulte o [guia do repositório do SDK Web]({{site.baseurl}}/developer_guide/sdk_repository_guides/web).
 
 {% endtab %}
 {% tab android %}
 
-Solicite uma atualização manual dos Content Cards da Braze a partir do SDK do Android a qualquer momento, chamando [`requestContentCardsRefresh`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/request-content-cards-refresh.html).
+Solicite uma atualização manual dos Content Cards da Braze pelo SDK Android a qualquer momento chamando [`requestContentCardsRefresh`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/request-content-cards-refresh.html).
 
 {% subtabs local %}
 {% subtab Java %}
@@ -76,12 +93,12 @@ Braze.getInstance(context).requestContentCardsRefresh()
 {% endtab %}
 {% tab swift %}
 
-Solicite uma atualização manual dos Content Cards da Braze a partir do SDK Swift a qualquer momento, chamando o método [`requestRefresh`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcards-swift.class/requestrefresh(_:)) na classe [`Braze.ContentCards`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcards-swift.class):
+Solicite uma atualização manual dos Content Cards da Braze pelo SDK Swift a qualquer momento chamando o método [`requestRefresh`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcards-swift.class/requestrefresh(_:)) na classe [`Braze.ContentCards`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcards-swift.class):
 
 {% subtabs local %}
 {% subtab Swift %}
 
-No Swift, os Content Cards podem ser atualizados com um completion handler opcional ou com um retorno assíncrono usando as APIs de concorrência nativas do Swift.
+Em Swift, os Content Cards podem ser atualizados com um completion handler opcional ou com um retorno assíncrono usando as APIs nativas de concorrência do Swift.
 
 #### Completion handler {#completion-handler}
 
@@ -112,28 +129,28 @@ let contentCards = await AppDelegate.braze?.contentCards.requestRefresh()
 
 ### Sincronização completa vs. sincronização parcial {#full-sync-vs-partial-sync}
 
-O SDK da Braze usa dois tipos de sincronização ao recuperar Content Cards do servidor:
+O SDK da Braze usa dois tipos de sincronização ao buscar Content Cards no servidor:
 
-- **Sincronização completa:** Baixa todos os Content Cards para os quais o usuário é elegível. As sincronizações completas ocorrem automaticamente a cada 7 dias ou sempre que `changeUser()` é chamado.
-- **Sincronização parcial:** Baixa apenas os novos Content Cards desde a última solicitação. Se o usuário não for elegível para nenhum cartão novo, a resposta retorna zero cartões. As sincronizações parciais ocorrem cada vez que `requestContentCardsRefresh()` é chamado (a menos que 7 dias tenham se passado desde a última sincronização completa, caso em que uma sincronização completa é acionada).
+- **Sincronização completa:** Baixa todos os Content Cards para os quais o usuário é elegível. Sincronizações completas ocorrem automaticamente a cada 7 dias ou sempre que `changeUser()` é chamado.
+- **Sincronização parcial:** Baixa apenas os novos Content Cards desde a última solicitação. Se o usuário não for elegível para nenhum cartão novo, a resposta retorna zero cartões. Sincronizações parciais ocorrem sempre que `requestContentCardsRefresh()` é chamado (a menos que 7 dias tenham se passado desde a última sincronização completa, caso em que uma sincronização completa é acionada).
 
-As sincronizações parciais reduzem a carga do servidor e o consumo de bateria do dispositivo. Os Content Cards que já foram recebidos são armazenados localmente no SDK, então os usuários continuarão vendo seus cartões disponíveis mesmo quando uma sincronização parcial retornar zero cartões novos.
+Sincronizações parciais reduzem a carga do servidor e o consumo de bateria do dispositivo. Os Content Cards já recebidos são armazenados localmente no SDK, de modo que os usuários continuarão vendo seus cartões disponíveis mesmo quando uma sincronização parcial retorna zero cartões novos.
 
-### Limite de taxa {#rate-limit}
+### Limite de frequência {#rate-limit}
 
-A Braze usa um algoritmo de token bucket para impor os seguintes limites de taxa:
-- Até 5 chamadas de atualização por dispositivo, compartilhadas entre usuários e chamadas para `openSession()`
+A Braze usa um algoritmo de token bucket para aplicar os seguintes limites de frequência:
+- Até 5 chamadas de atualização por dispositivo, compartilhadas entre usuários e chamadas a `openSession()`
 - Após atingir o limite, uma nova chamada fica disponível a cada 180 segundos (3 minutos)
 - O sistema mantém até cinco chamadas para você usar a qualquer momento
-- `subscribeToContentCards()` ainda retornará cartões em cache mesmo quando o limite de taxa for atingido
+- `subscribeToContentCards()` ainda retornará cartões em cache mesmo quando o limite de frequência for atingido
 
 {% alert important %}
-O SDK da Braze também aplica limites de taxa para desempenho e confiabilidade. Tenha isso em mente ao executar testes automatizados ou realizar QA manual. Para saber mais, consulte [Limites de taxa do SDK da Braze]({{site.baseurl}}/developer_guide/sdk_integration/rate_limits).
+O SDK da Braze também aplica limites de frequência para desempenho e confiabilidade. Tenha isso em mente ao executar testes automatizados ou realizar QA manual. Consulte [Limites de frequência do SDK da Braze]({{site.baseurl}}/developer_guide/sdk_integration/rate_limits) para saber mais.
 {% endalert %}
 
-## Personalização da ordem dos cartões exibidos {#customizing-displayed-card-order}
+## Personalizando a ordem de exibição dos cartões {#customizing-displayed-card-order}
 
-Você pode alterar a ordem em que seus Content Cards são exibidos. Isso permite ajustar a experiência do usuário priorizando determinados tipos de conteúdo, como promoções sensíveis ao tempo.
+Você pode alterar a ordem em que seus Content Cards são exibidos. Isso permite ajustar a experiência do usuário priorizando determinados tipos de conteúdo, como promoções com prazo limitado.
 
 {% tabs %}
 {% tab web %}
@@ -150,9 +167,9 @@ braze.showContentCards(null, (cards) => {
 {% tab android %}
 {% subtabs %}
 {% subtab android view controller %}
-O [`ContentCardsFragment`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards/-content-cards-fragment/index.html) se baseia em um [`IContentCardsUpdateHandler`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.handlers/-i-content-cards-update-handler/index.html) para lidar com qualquer classificação ou modificação dos Content Cards antes que eles sejam exibidos no feed. Um manipulador de atualização personalizado pode ser definido por meio de [`setContentCardUpdateHandler`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards/-content-cards-fragment/set-content-card-update-handler.html) no seu `ContentCardsFragment`.
+O [`ContentCardsFragment`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards/-content-cards-fragment/index.html) depende de um [`IContentCardsUpdateHandler`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.handlers/-i-content-cards-update-handler/index.html) para lidar com qualquer classificação ou modificação dos Content Cards antes de serem exibidos no feed. Um update handler personalizado pode ser definido via [`setContentCardUpdateHandler`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards/-content-cards-fragment/set-content-card-update-handler.html) no seu `ContentCardsFragment`.
 
-A seguir está o `IContentCardsUpdateHandler` padrão, que pode ser usado como ponto de partida para a personalização:
+A seguir está o `IContentCardsUpdateHandler` padrão, que pode ser usado como ponto de partida para personalização:
 
 {% details Mostrar exemplo em Java %}
 ```java
@@ -287,7 +304,7 @@ O código-fonte do `ContentCardsFragment` pode ser encontrado no [GitHub](https:
 {% endalert %}
 {% endsubtab %}
 {% subtab Jetpack Compose %}
-Para filtrar e classificar os Content Cards no Jetpack Compose, defina o parâmetro `cardUpdateHandler`. Por exemplo:
+Para filtrar e classificar Content Cards no Jetpack Compose, defina o parâmetro `cardUpdateHandler`. Por exemplo:
 
 ```kotlin
 ContentCardsList(
@@ -351,27 +368,27 @@ A personalização via `BrazeContentCardUI.ViewController.Attributes` não está
 {% endtab %}
 {% endtabs %}
 
-## Personalização da mensagem de "feed vazio" {#customizing-empty-feed-message}
+## Personalizando a mensagem de "feed vazio" {#customizing-empty-feed-message}
 
-Quando um usuário não se qualifica para nenhum Content Card, o SDK exibe uma mensagem de erro de "feed vazio" informando: "Não temos atualizações. Por favor, verifique novamente mais tarde." Você pode personalizar essa mensagem de erro de "feed vazio" de forma semelhante à seguinte:
+Quando um usuário não se qualifica para nenhum Content Cards, o SDK exibe uma mensagem de erro de "feed vazio" informando: "We have no updates. Please check again later." Você pode personalizar essa mensagem de erro de "feed vazio" de forma semelhante ao seguinte:
 
-![Uma mensagem de erro de feed vazio que diz "Esta é uma mensagem personalizada de estado vazio."]({% image_buster/assets/img/content_cards/content-card-customization-empty.png %})
+![Uma mensagem de erro de feed vazio que diz "This is a custom empty state message."]({% image_buster/assets/img/content_cards/content-card-customization-empty.png %})
 
 {% tabs %}
 {% tab web %}
 
-O SDK para web não oferece suporte à substituição programática do texto de "feed vazio". Você pode optar por substituí-lo sempre que o feed for exibido, mas isso não é recomendado porque o feed pode levar algum tempo para ser atualizado e o texto de feed vazio não será exibido imediatamente.
+O SDK para web não oferece suporte à substituição programática do texto de "feed vazio". Você pode optar por substituí-lo toda vez que o feed for exibido, mas isso não é recomendado porque o feed pode levar algum tempo para ser atualizado e o texto de feed vazio não será exibido imediatamente.
 
 {% endtab %}
 {% tab android %}
 {% subtabs %}
 {% subtab android view system %}
 
-Se o [`ContentCardsFragment`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards/-content-cards-fragment/index.html) determinar que o usuário não se qualifica para nenhum Content Card, ele exibirá a mensagem de erro de feed vazio.
+Se o [`ContentCardsFragment`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards/-content-cards-fragment/index.html) determinar que o usuário não se qualifica para nenhum Content Cards, ele exibe a mensagem de erro de feed vazio.
 
-Um adaptador especial, o [`EmptyContentCardsAdapter`](https://github.com/braze-inc/braze-android-sdk/blob/master/android-sdk-ui/src/main/java/com/braze/ui/contentcards/adapters/EmptyContentCardsAdapter.kt), substitui o adaptador padrão [`ContentCardAdapter`](https://github.com/braze-inc/braze-android-sdk/blob/master/android-sdk-ui/src/main/java/com/braze/ui/contentcards/adapters/ContentCardAdapter.kt) para exibir essa mensagem de erro. Para definir a mensagem personalizada, substitua o recurso de string `com_braze_feed_empty`.
+Um adaptador especial, o [`EmptyContentCardsAdapter`](https://github.com/braze-inc/braze-android-sdk/blob/master/android-sdk-ui/src/main/java/com/braze/ui/contentcards/adapters/EmptyContentCardsAdapter.kt), substitui o [`ContentCardAdapter`](https://github.com/braze-inc/braze-android-sdk/blob/master/android-sdk-ui/src/main/java/com/braze/ui/contentcards/adapters/ContentCardAdapter.kt) padrão para exibir essa mensagem de erro. Para definir a mensagem personalizada, sobrescreva o recurso de string `com_braze_feed_empty`.
 
-O estilo usado para exibir essa mensagem pode ser encontrado em [`Braze.ContentCardsDisplay.Empty`](https://github.com/braze-inc/braze-android-sdk/blob/2e386dfa59a87bfc24ef7cb6ff5adf6b16f44d24/android-sdk-ui/src/main/res/values/styles.xml#L522-L530) e é reproduzido no trecho de código a seguir:
+O estilo usado para exibir essa mensagem pode ser encontrado em [`Braze.ContentCardsDisplay.Empty`](https://github.com/braze-inc/braze-android-sdk/blob/2e386dfa59a87bfc24ef7cb6ff5adf6b16f44d24/android-sdk-ui/src/main/res/values/styles.xml#L522-L530) e é reproduzido no seguinte snippet de código:
 
 ```xml
 <style name="Braze.ContentCardsDisplay.Empty">
@@ -385,10 +402,10 @@ O estilo usado para exibir essa mensagem pode ser encontrado em [`Braze.ContentC
 </style>
 ```
 
-Para saber mais sobre como personalizar os elementos de estilo dos Content Cards, consulte [Personalização de estilo]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/style).
+Para saber mais sobre como personalizar os elementos de estilo dos Content Cards, consulte [Personalizando o estilo]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/style).
 {% endsubtab %}
 {% subtab Jetpack Compose %}
-Para personalizar a mensagem de erro de "feed vazio" com Jetpack Compose, você pode passar um `emptyString` para [`ContentCardsList`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards/-content-cards-list.html). Você também pode passar [`emptyTextStyle`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards.styling/-content-card-list-styling/index.html#1193499348%2FProperties%2F-1725759721) para `ContentCardListStyling` para personalizar ainda mais essa mensagem.
+Para personalizar a mensagem de erro de "feed vazio" com o Jetpack Compose, você pode passar uma `emptyString` para [`ContentCardsList`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards/-content-cards-list.html). Você também pode passar [`emptyTextStyle`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards.styling/-content-card-list-styling/index.html#1193499348%2FProperties%2F-1725759721) para `ContentCardListStyling` para personalizar ainda mais essa mensagem.
 
 ```kotlin
 ContentCardsList(
@@ -399,7 +416,7 @@ ContentCardsList(
 )
 ```
 
-Se você tiver um Composable que gostaria de exibir no lugar, pode passar `emptyComposable` para [`ContentCardsList`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards/-content-cards-list.html). Se `emptyComposable` for especificado, o `emptyString` não será usado.
+Se você tiver um Composable que deseja exibir no lugar, pode passar `emptyComposable` para [`ContentCardsList`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards/-content-cards-list.html). Se `emptyComposable` for especificado, a `emptyString` não será usada.
 
 ```kotlin
 ContentCardsList(
@@ -418,7 +435,7 @@ ContentCardsList(
 {% subtabs local %}
 {% subtab Swift %}
 
-Personalize o estado vazio do view controller configurando as opções relacionadas em [`Attributes`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazecontentcardui/viewcontroller/attributes-swift.struct/defaults).
+Personalize o estado vazio do controlador de visualização definindo os [`Attributes`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazecontentcardui/viewcontroller/attributes-swift.struct/defaults) relacionados.
 
 ```swift
 var attributes = BrazeContentCardUI.ViewController.Attributes.defaults
@@ -430,10 +447,10 @@ attributes.emptyStateMessageColor = .secondaryLabel
 {% endsubtab %}
 {% subtab Objective-C %}
 
-Altere o texto que aparece automaticamente nos feeds vazios de Content Cards redefinindo as strings localizáveis do cartão de conteúdo no arquivo [`ContentCardsLocalizable.strings`](https://github.com/braze-inc/braze-swift-sdk/tree/main/Sources/BrazeUI/Resources/Localization/en.lproj) do seu app.
+Altere o texto que aparece automaticamente em feeds vazios de Content Cards redefinindo as strings localizáveis de Content Cards no arquivo [`ContentCardsLocalizable.strings`](https://github.com/braze-inc/braze-swift-sdk/tree/main/Sources/BrazeUI/Resources/Localization/en.lproj) do seu app.
 
 {% alert note %}
-Se você quiser atualizar essa mensagem em diferentes idiomas de localização, localize o idioma correspondente na [estrutura da pasta Resources](https://github.com/braze-inc/braze-swift-sdk/tree/main/Sources/BrazeUI/Resources/Localization) com a string `ContentCardsLocalizable.strings`.
+Se você quiser atualizar essa mensagem em diferentes idiomas, encontre o idioma correspondente na [estrutura da pasta Resources](https://github.com/braze-inc/braze-swift-sdk/tree/main/Sources/BrazeUI/Resources/Localization) com a string `ContentCardsLocalizable.strings`.
 {% endalert %}
 
 {% endsubtab %}
@@ -443,17 +460,17 @@ Se você quiser atualizar essa mensagem em diferentes idiomas de localização, 
 
 ## Implementando múltiplos feeds {#implementing-multiple-feeds}
 
-Os Content Cards podem ser filtrados no seu app para que apenas cartões específicos sejam exibidos, permitindo que você tenha vários feeds de Content Cards para diferentes casos de uso. Por exemplo, você pode manter um feed transacional e um feed de marketing. Para isso, crie diferentes categorias de Content Cards definindo pares de valores-chave no dashboard da Braze. Em seguida, crie feeds no seu app ou site que tratem esses tipos de Content Cards de forma diferente, filtrando alguns tipos e exibindo outros.
+Os Content Cards podem ser filtrados no seu app para que apenas cartões específicos sejam exibidos, permitindo que você tenha múltiplos feeds de Content Cards para diferentes casos de uso. Por exemplo, você pode manter tanto um feed transacional quanto um feed de marketing. Para isso, crie diferentes categorias de Content Cards definindo pares de chave-valor no dashboard da Braze. Em seguida, crie feeds no seu app ou site que tratem esses tipos de Content Cards de forma diferente, filtrando alguns tipos e exibindo outros.
 
-### Etapa 1: Definir pares de valores-chave nos cartões {#step-1-set-key-value-pairs-on-cards}
+### Etapa 1: Definir pares de chave-valor nos cartões {#step-1-set-key-value-pairs-on-cards}
 
-Ao criar uma Campaign de cartão de conteúdo, defina [os dados do par chave-valor]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/behavior) em cada cartão. Você usará esse par chave-valor para categorizar os cartões. Os pares de valores-chave são armazenados na propriedade `extras` no modelo de dados do cartão.
+Ao criar uma Campaign de Content Cards, defina [dados de pares de chave-valor]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/behavior) em cada cartão. Você usará esse par de chave-valor para categorizar os cartões. Os pares de chave-valor são armazenados na propriedade `extras` no modelo de dados do cartão.
 
-Para este exemplo, definiremos um par de valores-chave com a chave `feed_type` que designará em qual feed de Content Card o cartão deve ser exibido. O valor será o que seus feeds personalizados representam, como `home_screen` ou `marketing`.
+Neste exemplo, vamos definir um par de chave-valor com a chave `feed_type` que designará em qual feed de Content Cards o cartão deve ser exibido. O valor será o que seus feeds personalizados forem, como `home_screen` ou `marketing`.
 
 ### Etapa 2: Filtrar Content Cards {#step-2-filter-content-cards}
 
-Depois que os pares de valores-chave tiverem sido atribuídos, crie um feed com lógica que exibirá os cartões desejados e filtrará cartões de outros tipos. Neste exemplo, exibiremos apenas os cartões com um par de valores-chave correspondente a `feed_type: "Transactional"`.
+Depois que os pares de chave-valor forem atribuídos, crie um feed com lógica que exiba os cartões que você deseja e filtre cartões de outros tipos. Neste exemplo, vamos exibir apenas cartões com um par de chave-valor correspondente de `feed_type: "Transactional"`.
 
 {% tabs %}
 {% tab web %}
@@ -472,7 +489,7 @@ function showCardsByFeedType(feed_type) {
 }
 ```
 
-Em seguida, você pode configurar um botão de alternância para seu feed personalizado:
+Em seguida, você pode configurar um botão de alternância para o seu feed personalizado:
 
 ```javascript
 // show the "Transactional" feed when this button is clicked
@@ -481,18 +498,18 @@ document.getElementById("show-transactional-feed").onclick = function() {
 };
 ```
 
-Para saber mais, consulte a [documentação do método do SDK](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#showcontentcards).
+Para saber mais, consulte a [documentação de métodos do SDK](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#showcontentcards).
 
 {% endtab %}
 {% tab android %}
 {% subtabs %}
 {% subtab android view system %}
 
-Por padrão, o feed de Content Cards é exibido em um [`ContentCardsFragment`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards/-content-cards-fragment/index.html) e [`IContentCardsUpdateHandler`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.handlers/-i-content-cards-update-handler/index.html) retorna uma lista de cartões para exibir após receber um [`ContentCardsUpdatedEvent`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.events/-content-cards-updated-event/index.html) do SDK da Braze. No entanto, ele apenas classifica os cartões e não lida com nenhum filtro diretamente.
+Por padrão, o feed de Content Cards é exibido em um [`ContentCardsFragment`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards/-content-cards-fragment/index.html) e o [`IContentCardsUpdateHandler`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.handlers/-i-content-cards-update-handler/index.html) retorna uma lista de cartões para exibição após receber um [`ContentCardsUpdatedEvent`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.events/-content-cards-updated-event/index.html) do SDK da Braze. No entanto, ele apenas ordena os cartões e não lida com nenhuma filtragem diretamente.
 
-#### Etapa 2.1: Criar um manipulador personalizado {#step-21-create-a-custom-handler}
+#### Etapa 2.1: Criar um handler personalizado {#step-21-create-a-custom-handler}
 
-Você pode filtrar Content Cards implementando um [`IContentCardsUpdateHandler`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.handlers/-i-content-cards-update-handler/index.html) personalizado usando os pares chave-valor definidos por [`Card.getExtras()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/extras.html) no dashboard, e então modificá-lo para remover quaisquer cartões da lista que não correspondam ao valor de `feed_type` que você definiu anteriormente.
+Você pode filtrar Content Cards implementando um [`IContentCardsUpdateHandler`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.handlers/-i-content-cards-update-handler/index.html) personalizado, usando os pares de chave-valor definidos por [`Card.getExtras()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/extras.html) no dashboard, e então modificá-lo para remover da lista quaisquer cartões que não correspondam ao valor de `feed_type` que você definiu anteriormente.
 
 {% details Mostrar exemplo em Java %}
 ```java
@@ -573,9 +590,9 @@ private fun getUpdateHandlerForFeedType(desiredFeedType: String): IContentCardsU
 ```
 {% enddetails %}
 
-#### Etapa 2.2: Adicionar a um fragmento {#step-22-add-it-to-a-fragment}
+#### Etapa 2.2: Adicionar a um fragment {#step-22-add-it-to-a-fragment}
 
-Depois de criar um [`IContentCardsUpdateHandler`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.handlers/-i-content-cards-update-handler/index.html), crie um [`ContentCardsFragment`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards/-content-cards-fragment/index.html) que o utilize. Esse feed personalizado pode ser usado como qualquer outro `ContentCardsFragment`. Nas diferentes partes do seu app, exiba diferentes feeds de Content Cards com base na chave fornecida no dashboard. Cada feed do `ContentCardsFragment` terá um conjunto exclusivo de cartões exibidos graças ao `IContentCardsUpdateHandler` personalizado em cada fragmento.
+Depois de criar um [`IContentCardsUpdateHandler`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.handlers/-i-content-cards-update-handler/index.html), crie um [`ContentCardsFragment`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards/-content-cards-fragment/index.html) que o utilize. Esse feed personalizado pode ser usado como qualquer outro `ContentCardsFragment`. Nas diferentes partes do seu app, exiba diferentes feeds de Content Cards com base na chave fornecida no dashboard. Cada feed `ContentCardsFragment` terá um conjunto único de cartões exibidos graças ao `IContentCardsUpdateHandler` personalizado em cada fragment.
 
 {% details Mostrar exemplo em Java %}
 ```java
@@ -595,7 +612,7 @@ customContentCardsFragment.contentCardUpdateHandler = getUpdateHandlerForFeedTyp
 {% endsubtab %}
 
 {% subtab Jetpack Compose %}
-Para filtrar quais Content Cards são mostrados nesse feed, use `cardUpdateHandler`. Por exemplo:
+Para filtrar quais Content Cards são exibidos neste feed, use `cardUpdateHandler`. Por exemplo:
 
 ```kotlin
 ContentCardsList(
@@ -621,7 +638,7 @@ The following example will show the Content Cards feed for `Transactional` type 
 let transactionalCards = cards.filter { $0.extras["feed_type"] as? String == "Transactional" }
 ```
 
-Para ir além, os cartões apresentados no view controller podem ser filtrados definindo a propriedade `transform` na sua estrutura `Attributes` para exibir apenas os cartões filtrados pelos seus critérios.
+Para ir além, os cartões apresentados no view controller podem ser filtrados definindo a propriedade `transform` na sua struct `Attributes` para exibir apenas os cartões filtrados pelos seus critérios.
 
 ```swift
 var attributes = BrazeContentCardUI.ViewController.Attributes.defaults

@@ -532,11 +532,11 @@ Note that _Deferrals_ are currently only available using Currents or Braze Snowf
 
 This statistic uses a proprietary analytical model created by Braze to reconstruct an estimate of the campaign's unique open rate as if machine opens did not exist. While we receive labels of *Machine Opens* on some open events from email senders, these labels can often label actual opens as machine opens. In other words, the *Other Opens* are likely an underestimate of real opens (by actual users). Instead, Braze uses click data from each campaign to infer the rate at which actual humans opened the message. This compensates for various machine opening mechanisms, including Apple’s MPP.
 
-_Estimated Real Open Rate_ is calculated 24 hours after email sending has begun and is recalculated every 72 hours thereafter.
+Braze periodically evaluates _Estimated Real Open Rate_ after a campaign has sent enough emails. After an evaluation, Braze may reevaluate the metric once after at least 72 hours, even if the campaign's send volume is unchanged. Additional reevaluations require increased send volume.
 
-Because this metric is recalculated on an ongoing cadence, the _Estimated Real Open Rate_ value can change over time as new engagement signals (such as opens and clicks) are received and incorporated into the model. In practice, the _Estimated Real Open Rate_ can continue to update daily while a campaign remains active.
+Braze initially evaluates up to 10,000 delivered emails per variation, but reaching that volume doesn't guarantee an estimate. Each variation also needs enough qualifying clicks from recipients with *Machine Opens* and recipients with no *Machine Opens*.
 
-Typically around 10,000 delivered emails are required for the statistic to be computed successfully, though that number can vary depending on click rate. If the statistic can't be computed, then the column displays "--".
+If qualifying click activity remains insufficient, the column displays "--". When Braze reevaluates the variation, additional qualifying clicks may produce an estimate.
 
 ###### Considerations
 

@@ -15,27 +15,30 @@ channel: push
 
 | 증상 | 이동 |
 | --- | --- |
-| 사용자가 푸시 알림을 받지 못함 | [푸시 알림 누락](#missing-push-notifications) |
-| 푸시 알림이 늦게 도착함 | [푸시 알림 지연](#delayed-push-notifications) |
-| 푸시 발송이 예상보다 느림 | [푸시 알림이 예상보다 느리게 발송됨](#push-notifications-are-sending-slower-than-expected) |
+| 사용자가 푸시 알림을 받지 못함 | [누락된 푸시 알림](#missing-push-notifications) |
+| 푸시 알림이 늦게 도착함 | [지연된 푸시 알림](#delayed-push-notifications) |
+| 푸시 발송이 예상보다 느림 | [푸시 알림 발송이 예상보다 느림](#push-notifications-are-sending-slower-than-expected) |
 | `MismatchSenderID` 오류 (Android) | [오류: MismatchSenderID](#error-mismatch-sender-id) |
 | 푸시를 탭해도 앱이 열리지 않음 | [푸시 알림을 클릭해도 앱이 열리지 않음](#clicking-a-push-notification-does-not-open-the-app) |
-| 푸시 링크가 브라우저 대신 앱에서 열림 | [푸시 클릭 시 예기치 않게 앱에서 열림](#push-clicks-unexpectedly-open-in-app) |
-| 웹 푸시 권한 또는 전달 문제 | [웹 푸시 알림이 예상대로 동작하지 않음](#web-push-notifications-are-not-behaving-as-expected) |
+| 푸시 링크가 브라우저 대신 앱에서 열림 | [푸시 클릭이 예기치 않게 앱에서 열림](#push-clicks-unexpectedly-open-in-app) |
+| 웹 푸시 권한 또는 전달 문제 | [웹 푸시 알림이 예상대로 작동하지 않음](#web-push-notifications-are-not-behaving-as-expected) |
 | `.p12`에서 `.p8`로 마이그레이션 필요 (iOS) | [.p8 인증 키로 마이그레이션](#migrate-to-a-p8-authentication-key) |
 | 로그에 특정 푸시 오류 코드가 표시됨 | [푸시 오류 메시지](#push-error-messages) |
+| 플랫폼별로 제거 수가 일치하지 않음 | [제거 측정기준](#uninstall-metrics) |
+| 사용자 또는 푸시 데이터를 다른 워크스페이스로 마이그레이션 | [워크스페이스 데이터 마이그레이션](#workspace-data-migration) |
+| 푸시 열람에서 세션이 시작되었는지 확인 필요 | [세션 및 기여도](#session-and-attribution) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="푸시 증상" }
 
 ## 표준 조사 경로 {#standard-investigation-path}
 
 사용자 또는 테스트 기기가 푸시를 수신하지 못한 경우 이 워크플로를 사용하세요. 1단계부터 시작하세요.
 
-1. 사용자가 푸시를 구독했거나 수신 동의했으며, 프로필의 **Engagement** 탭에 유효한 푸시 토큰이 있는지 확인하세요.
+1. 사용자가 푸시 구독 또는 옵트인 상태이고, 프로필의 **인게이지먼트** 탭에 유효한 푸시 토큰이 있는지 확인하세요.
 2. 발송 시점에 사용자가 Campaign 또는 Canvas 타겟 오디언스에 포함되어 있는지 확인하세요(Segments는 실시간으로 업데이트됩니다).
-3. Campaign 또는 Canvas에 대한 글로벌 최대 게재빈도 설정, 사용량 제한, 대조군 배정을 확인하세요.
-4. 기기에 맞는 올바른 푸시 유형을 사용하고 있는지 확인하세요(예: Android, iOS 또는 Kindle).
+3. Campaign 또는 Canvas에 대한 글로벌 최대 게재빈도 설정, 사용량 제한 및 대조군 할당을 확인하세요.
+4. 기기에 맞는 올바른 푸시 유형(예: Android, iOS 또는 Kindle)을 사용하고 있는지 확인하세요.
 5. 내부 테스트의 경우, 테스터가 기기에서 올바른 앱에 로그인되어 있는지 확인하세요.
-6. 그래도 전달에 실패하면 [일반적인 푸시 오류 메시지]({{site.baseurl}}/user_guide/channels/push/push_error_codes)를 검토하거나, Campaign 또는 Canvas ID, 사용자 ID, 타임존이 포함된 타임스탬프를 준비하여 [Braze 고객지원]({{site.baseurl}}/user_guide/administer/personal/braze_support)에 문의하세요.
+6. 전달이 여전히 실패하는 경우, [일반적인 푸시 오류 메시지]({{site.baseurl}}/user_guide/channels/push/push_error_codes)를 검토하거나 Campaign 또는 Canvas ID, 사용자 ID, 타임스탬프(시간대 포함)와 함께 [Braze 고객지원]({{site.baseurl}}/user_guide/administer/personal/braze_support)에 문의하세요.
 
 ## 푸시 알림 누락 {#missing-push-notifications}
 
@@ -140,27 +143,27 @@ Braze 대시보드에서 발신자 ID를 변경하지 마세요. 변경하면 �
 
 ## 문제 해결 시나리오 {#troubleshooting-scenarios}
 
-### 지연된 푸시 알림 {#delayed-push-notifications}
+### 푸시 알림 지연 {#delayed-push-notifications}
 
 **증상:** 푸시 알림이 예상보다 늦게 도착합니다.
 
 다음과 같은 이유로 푸시 알림이 지연될 수 있습니다.
 
-- 기기의 약한 데이터 연결
-- 앱 내에서 Braze 푸시 알림을 억제할 수 있는 커스텀 코드
-- 기기 설정에서 푸시 알림에 대한 사용자 기본 설정
-- Campaign 또는 Canvas에서 생성할 때 설정한 푸시 메시지 우선순위
+- 기기의 데이터 연결이 약한 경우
+- 앱 내 커스텀 코드가 Braze 푸시 알림을 억제하는 경우
+- 기기 설정에서 사용자가 설정한 푸시 알림 환경설정
+- Campaign 또는 Canvas에서 푸시를 생성할 때 설정한 메시지 우선순위
 - 푸시 서비스 제공업체(FCM 및 APNs)의 트래픽 지연 또는 문제
 
-### 푸시 알림 발송이 예상보다 느림 {#push-notifications-are-sending-slower-than-expected}
+### 푸시 알림 발송 속도가 예상보다 느림 {#push-notifications-are-sending-slower-than-expected}
 
-**증상:** Campaign 또는 Canvas 푸시 발송이 예상보다 완료하는 데 오래 걸립니다.
+**증상:** Campaign 또는 Canvas 푸시 발송이 예상보다 완료되기까지 오래 걸립니다.
 
 푸시 알림 설정이 다음 모범 사례를 따르고 있는지 확인하세요.
 
-- 푸시 활성화 상태를 고려하지 않고 대규모 오디언스에게 발송하는 경우 발송 속도가 느려질 수 있습니다. 대신 푸시 활성화된 사용자에게만 발송하여 오디언스 크기를 줄이는 것을 고려하세요.
-- 가능하다면 즉시 발송하는 대신 Campaign을 미리 스케줄하세요.
-- Canvas에서 더 많은 수의 사용자에게 푸시 알림을 타겟팅하는 경우, Canvas의 후속 메시지 단계가 사용자에게 즉시 발송하는 Campaign과 다른 처리 시간이 필요할 수 있습니다. 이 경우 Canvas의 첫 번째 "단계"는 사용자가 특정 사용자 여정에 적합한지 확인하는 것이므로, 일반적으로 Campaign이 Canvas보다 먼저 발송을 완료합니다.
+- 푸시 활성화 상태를 고려하지 않고 대규모 오디언스에 발송하는 경우, 발송 속도가 느려질 수 있습니다. 대신 푸시가 활성화된 사용자에게만 발송하여 오디언스 규모를 줄이는 것을 고려하세요.
+- 가능하면 Campaign을 즉시 발송하기보다 미리 스케줄하세요.
+- Canvas에서 더 많은 사용자에게 푸시 알림을 타겟팅하는 경우, Canvas의 후속 메시지 단계가 사용자에게 즉시 발송하는 Campaign과는 다른 처리 시간이 필요할 수 있습니다. 이 경우 Canvas의 첫 번째 "단계"는 사용자가 특정 사용자 여정에 해당하는지 확인하는 것이므로, 일반적으로 Campaign이 Canvas보다 먼저 발송을 완료합니다.
 
 ## 푸시 알림을 클릭해도 앱이 열리지 않음 {#clicking-a-push-notification-does-not-open-the-app}
 
@@ -327,9 +330,9 @@ Android에서 푸시 권한을 재설정하려면 Mozilla 지원의 [검색 기�
 
 ## 푸시 열람 측정기준 {#push-open-metrics}
 
-Braze는 사용자가 알림을 탭하고 앱이 세션을 시작할 때 직접 열람(Direct Open)을 기록합니다. 앱을 열지 않고 리치 푸시 알림을 확장하는 것만으로는 직접 열람이 기록되지 않습니다.
+Braze는 사용자가 알림을 탭하고 앱에서 세션이 시작되면 직접 열람을 기록합니다. 앱을 열지 않고 리치 푸시 알림을 확장하는 것은 직접 열람으로 기록되지 않습니다.
 
-사용자가 푸시를 수신한 후 알림을 탭하지 않고 앱을 열면, Braze는 대신 영향받은 열람(Influenced Open)을 기록할 수 있습니다. 정의 및 리포팅에 대해서는 [영향받은 열람]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens)을 참조하세요.
+사용자가 푸시를 받은 후 알림을 탭하지 않고 앱을 여는 경우, Braze는 대신 영향받은 열람을 기록할 수 있습니다. 정의 및 리포팅에 대해서는 [영향받은 열람]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens)을 참조하세요.
 
 ## 푸시 오류 메시지 {#push-error-messages}
 
@@ -337,4 +340,32 @@ Braze는 사용자가 알림을 탭하고 앱이 세션을 시작할 때 직접 
 
 일반적인 푸시 오류 코드(`DEVICE_UNREGISTERED`, `NotRegistered`, `Unregistered` 등)에 대한 정의는 [일반적인 푸시 오류 메시지]({{site.baseurl}}/user_guide/channels/push/push_error_codes)를 참조하세요.
 
-FCM이 `DEVICE_UNREGISTERED` 또는 `NotRegistered`와 같은 오류를 반환하면, Braze는 일반적으로 고객 프로필에서 해당 푸시 토큰을 제거합니다. 이 제거는 보통 앱이 제거되었거나 토큰이 더 이상 유효하지 않음을 나타냅니다. 제거 추적 Campaign은 동일한 토큰 제거 로직을 대규모로 사용합니다.
+푸시 제공자가 등록 토큰이 더 이상 유효하지 않다는 신호를 보내면(예: FCM의 `DEVICE_UNREGISTERED` 또는 `NotRegistered`), Braze는 고객 프로필에서 해당 푸시 토큰을 제거하고 해당 사용자를 제거된 것으로 집계합니다. 제거 추적 Campaigns은 동일한 토큰 제거 로직을 대규모로 사용합니다.
+
+기타 푸시 오류는 바운스로 기록되며 토큰을 제거하지 않습니다. 예를 들어, [`MismatchSenderID`](#error-mismatch-sender-id)와 같은 인증 실패는 Braze가 FCM에 인증하지 못했음을 의미하므로, 이를 제거 신호로 처리하는 대신 자격 증명을 수정해야 합니다.
+
+Android 제거 추적의 경우, Braze는 워크스페이스 구성에 따라 드라이 런(유효성 검사만 수행) 또는 실시간 무음 푸시로 제거 감지 푸시를 발송합니다. 드라이 런은 메시지를 전달하지 않고 요청만 검증하므로, 결과가 실제 발송과 다를 수 있습니다. 제거 수가 낮아 보이는 경우, Android 통합이 [제거 추적]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking) 사전 요구 사항을 충족하는지 확인하고 메시지 활동 로그에서 바운스 오류를 검토하세요.
+
+## 제거 추적 측정기준 {#uninstall-metrics}
+
+### 총 제거 수가 Android와 iOS의 합계와 일치하지 않는 이유는 무엇인가요? {#why-dont-total-uninstalls-match-android-plus-ios}
+
+워크스페이스 **총 제거 수**는 플랫폼별 제거 측정기준의 합계를 초과할 수 있습니다. 이는 웹 푸시 토큰 무효화도 제거 수에 포함되기 때문입니다. 웹 푸시 토큰이 무효화되면(예: 사용자가 사이트 데이터를 삭제하거나 권한을 취소한 경우) Braze는 모바일 제거 측정기준이 변경되지 않더라도 해당 웹 등록에 대해 제거를 기록할 수 있습니다.
+
+### 가져온 iOS 푸시 토큰은 어떤 구독 상태로 표시되나요? {#what-subscription-status-do-imported-ios-push-tokens-show}
+
+가져온 iOS 푸시 토큰은 일반적으로 해당 워크스페이스에서 Braze SDK를 사용하는 앱에서 사용자가 세션을 기록할 때까지 **Subscribed**로 표시됩니다. 세션 시작 시 SDK가 토큰을 등록하면, 푸시 권한이 부여된 경우 프로필은 일반적으로 **Opted-In**으로 전환됩니다. 구독 상태 및 프로필 필드에 대한 자세한 내용은 [푸시 구독 상태]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states)를 참조하세요.
+
+## 워크스페이스 데이터 마이그레이션 {#workspace-data-migration}
+
+### 워크스페이스 간에 데이터를 마이그레이션할 수 있나요? {#can-i-migrate-data-between-workspaces}
+
+Braze는 워크스페이스 간 원클릭 마이그레이션을 제공하지 않습니다. 앱 또는 사이트를 대상 워크스페이스의 API 키로 연결한 다음, [Users Track]({{site.baseurl}}/api/endpoints/user_data/post_user_track) 엔드포인트 또는 [CSV 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import)를 사용하여 해당 워크스페이스에서 사용자를 다시 생성하세요. 먼저 [식별자별 사용자 내보내기]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) 또는 [Segment별 사용자 내보내기]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment)를 사용하여 소스 프로필을 내보내세요.
+
+복사할 수 있는 항목, 다시 구축해야 하는 항목 및 푸시 토큰 제한 사항에 대해서는 [워크스페이스 간 데이터 마이그레이션]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces/migrate_workspace_data)을 참조하세요. 대규모 워크스페이스 이전을 계획할 때는 Braze 계정 팀과 함께 진행하세요.
+
+## 세션 및 기여도 {#session-and-attribution}
+
+### 세션 시작 시 사용자가 푸시를 통해 앱을 열었는지 확인할 수 있나요? {#can-i-tell-from-session-start-whether-the-user-opened-the-app-from-a-push}
+
+아니요. 세션 시작 이벤트에는 세션이 푸시 열람에서 시작되었는지를 나타내는 플래그가 포함되어 있지 않습니다. 푸시 **직접 열람**, **영향받은 열람** 또는 커스텀 이벤트(예: 앱에서 클릭 핸들러를 기록하는 방식)를 사용하여 세션과 푸시 인게이지먼트를 연관시키세요. [푸시 열람 측정기준](#push-open-metrics)을 참조하세요.

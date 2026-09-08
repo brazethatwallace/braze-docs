@@ -143,6 +143,17 @@ Open a calculated filter's row menu to take an action. The actions you see depen
 
 For filters that aren't archived, the row menu includes **Edit**, **Messaging use**, **Archive**, and **Update audience**. **Update audience** is available for active filters that aren't processing. You can edit a calculated filter while it's processing, but you can't save your changes until processing is complete.
 
+#### Archive {#can-i-archive-calculated-filters-if-they-exist-in-an-active-campaign}
+
+Before you archive a calculated filter, check whether it's still in use. Archiving can silently break live campaigns, Canvases, or segments that reference it.
+
+- **Data Object filters:** If an active campaign, Canvas, or segment still references the filter, archiving it means that campaign, Canvas, or segment will match no users the next time it launches or sends. Remove the reference first to avoid this.
+- **User activity filters:** If a draft campaign or Canvas still references the filter, archiving it freezes that draft's audience at the filter's last refreshed results. It won't update going forward unless you remove the reference first.
+
+To find out where a filter is used, select **Messaging use** from its row menu.
+
+You can't archive a calculated filter that's referenced by an active (not draft) campaign, Canvas, or segment. Remove those references before archiving. If you're archiving multiple filters of different types at once, you see a separate confirmation for each type.
+
 {% alert note %}
 Your workspace can have up to 100 active calculated filters at a time. Contact your Braze account manager if you need to increase this limit.
 {% endalert %}
@@ -168,9 +179,11 @@ You can save a calculated filter without activating it. Inactive filters remain 
 
 ## Frequently asked questions
 
-### Can I archive a calculated filter if it is in use? {#can-i-archive-calculated-filters-if-they-exist-in-an-active-campaign}
+### Can I create a calculated filter that uses multiple custom events?
 
-No. Before you can archive a calculated filter, remove it from all campaigns, Canvases, and segments that use it. You also cannot archive a filter while its status is **Processing**; wait until processing finishes.
+When using calculated filters, you can select one custom event, one purchase event, one eCommerce event, or one channel interaction. However, you can combine multiple calculated filters with an AND or OR when creating the segment.
+
+You can add multiple events or reference multiple Snowflake tables when using [SQL Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/). 
 
 ### Can I use arrays in calculated filters?
 

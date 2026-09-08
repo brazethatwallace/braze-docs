@@ -30,11 +30,11 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | ----------|-----------| ----------|----- |
 | `start_date` | Optional <br>(siehe Anmerkung) | String im Format JJJJ-MM-TT | Startdatum des Bereichs zum Abrufen ungültiger Telefonnummern, muss vor `end_date` liegen. Dies wird von der API als Mitternacht in UTC-Zeit behandelt. |
-| `end_date` | Optional <br>(siehe Anmerkung) | String im Format JJJJ-MM-TT | Enddatum des Bereichs zum Abrufen ungültiger Telefonnummern. Dies wird von der API als Mitternacht in UTC-Zeit behandelt. |
+| `end_date` | Optional <br>(siehe Anmerkung) | String im Format JJJJ-MM-TT | Enddatum des Bereichs zum Abrufen ungültiger Telefonnummern. Dies wird von der API als Mitternacht in UTC-Zeit behandelt. Ergebnisse umfassen ungültige Nummern, die bis zum Ende dieses Kalendertags in UTC erkannt wurden (inklusive). |
 | `limit` | Optional | Integer | Optionales Feld zur Begrenzung der Anzahl der zurückgegebenen Ergebnisse. Standardmäßig 100, maximal 500. |
 | `offset` | Optional | Integer | Optionaler Anfangspunkt in der Liste, ab dem abgerufen werden soll. |
-| `phone_numbers` | Optional <br>(siehe Anmerkung) | String-Array im Format e.164 | Falls angegeben, wird die Telefonnummer zurückgegeben, wenn sie als ungültig erkannt wurde. |
-| `reason` | Optional <br>(siehe Anmerkung) | String | Verfügbare Werte sind „provider_error“ (Anbieterfehler zeigt an, dass das Telefon keine SMS empfangen kann) oder „deactivated“ (die Telefonnummer wurde deaktiviert). Wenn dieser Parameter weggelassen wird, werden alle Gründe zurückgegeben. |
+| `phone_numbers` | Optional <br>(siehe Anmerkung) | String-Array im Format e.164 | Falls angegeben, gibt Braze die Telefonnummer zurück, wenn sie als ungültig erkannt wurde. |
+| `reason` | Optional <br>(siehe Anmerkung) | String | Verfügbare Werte sind `provider_error` (der Anbieter gibt an, dass das Telefon keine SMS empfangen kann), `deactivated` (die Telefonnummer wurde deaktiviert) oder `invalid_format` (die Nummer hat die Formatvalidierung nicht bestanden, z. B. ein Wert, der nicht dem E.164-Format entspricht). Wenn dieser Parameter weggelassen wird, werden alle Gründe zurückgegeben. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 {% alert note %}
@@ -68,7 +68,7 @@ Die Einträge sind in absteigender Reihenfolge aufgeführt.
     {
       "phone": (string) phone number in e.164 format,
       "invalid_detected_at": (string) the time the invalid number was detected in ISO 8601
-      "reason" : "provider_error"
+      "reason" : "invalid_format"
     }
   ],
   "message": "success"
