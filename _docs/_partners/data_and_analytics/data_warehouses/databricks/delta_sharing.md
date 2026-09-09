@@ -19,6 +19,14 @@ Databricks Delta Sharing with Braze is in **closed beta**. Availability, support
 
 Databricks Delta Sharing is part of Braze Data Distribution. For a full overview of Data Distribution options, see [Data Distribution]({{site.baseurl}}/user_guide/data/distribution/).
 
+## Prerequisites
+
+| Requirement | Description |
+| ----------- | ----------- |
+| Closed beta access | Contact your Braze customer success manager to participate or to confirm whether this feature is enabled for your workspace. |
+| Braze workspace permissions | [View Currents Integrations]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) to view Data Sharing. [Edit Currents Integrations]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) to create, update, or delete a Delta share. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+
 ## Set up Delta Sharing
 
 For Databricks, data sharing happens between a data provider and a data recipient. Your Braze account is the **data provider** because it creates and sends the share, and your Databricks account is the **data recipient** because it consumes the share to create a catalog you can query. For more details, see Databricks documentation on [reading data shared using Databricks-to-Databricks Delta Sharing (for recipients)](https://docs.databricks.com/en/delta-sharing/read-data-databricks.html).

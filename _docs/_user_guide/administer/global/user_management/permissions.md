@@ -265,8 +265,8 @@ To download a list of your users and their permissions, go to **Settings** > **U
 
 | Product area | Permission | Definition |
 | --- | --- | --- |
-| Currents Integrations | View Currents Integration | View Currents integrations |
-| Currents Integrations | Edit Currents Integrations | Create, update, and delete Currents integrations |
+| Currents Integrations | View Currents Integrations | View Currents integrations and Data Sharing (Snowflake Data Sharing and Databricks Delta Sharing) |
+| Currents Integrations | Edit Currents Integrations | Create, update, and delete Currents integrations and Data Sharing shares |
 | Technology Partners | Edit Technology Partners | Create and update technology partners |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Partner integrations permissions" }
 

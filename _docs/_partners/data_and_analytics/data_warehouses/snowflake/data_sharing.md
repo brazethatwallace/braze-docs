@@ -48,6 +48,7 @@ To learn more about Snowflake's data sharing, see [Introduction to Secure Data S
 | Requirement | Description |
 | ----------- | ----------- |
 | Braze access | Contact your Braze account or customer success manager to set up Data Sharing. |
+| Braze workspace permissions | [View Currents Integrations]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) to view Data Sharing. [Edit Currents Integrations]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) to create, update, or delete a data share. |
 | Snowflake account | A Snowflake account with `admin` permissions. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
