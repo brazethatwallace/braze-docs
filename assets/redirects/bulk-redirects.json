@@ -545,6 +545,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/campaign_qa_agent",
+    "destination": "/docs/agentic_standards",
+    "permanent": true
+  },
+  {
     "source": "/docs/campaigns/ideas_and_strategies",
     "destination": "/docs/user_guide/messaging/campaigns/ideas_and_strategies/active_user_campaigns",
     "permanent": true
@@ -892,6 +897,11 @@
   {
     "source": "/docs/de/api/endpoints/custom_objects/user_relationships/put_replace_user_relationship",
     "destination": "/docs/de/api/endpoints/data_objects/user_relationships/put_replace_user_relationship",
+    "permanent": true
+  },
+  {
+    "source": "/docs/de/campaign_qa_agent",
+    "destination": "/docs/de/agentic_standards",
     "permanent": true
   },
   {
@@ -17400,6 +17410,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/es/campaign_qa_agent",
+    "destination": "/docs/es/agentic_standards",
+    "permanent": true
+  },
+  {
     "source": "/docs/es/compliance_documentation/index.md",
     "destination": "/docs/es/compliance_documentation",
     "permanent": true
@@ -25550,6 +25565,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/fr/campaign_qa_agent",
+    "destination": "/docs/fr/agentic_standards",
+    "permanent": true
+  },
+  {
     "source": "/docs/fr/create_mms_message",
     "destination": "/docs/fr/user_guide/channels/sms_mms_and_rcs/create",
     "permanent": true
@@ -29470,6 +29490,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/ja/campaign_qa_agent",
+    "destination": "/docs/ja/agentic_standards",
+    "permanent": true
+  },
+  {
     "source": "/docs/ja/contributing/home",
     "destination": "/docs/ja/user_guide/home",
     "permanent": true
@@ -32307,6 +32332,11 @@
   {
     "source": "/docs/ko/api/endpoints/custom_objects/user_relationships/post_create_user_relationship",
     "destination": "/docs/ko/api/endpoints/data_objects/user_relationships/post_create_user_relationship",
+    "permanent": true
+  },
+  {
+    "source": "/docs/ko/campaign_qa_agent",
+    "destination": "/docs/ko/agentic_standards",
     "permanent": true
   },
   {
@@ -37407,6 +37437,11 @@
   {
     "source": "/docs/pt-br/api/endpoints/custom_objects/user_relationships/put_replace_user_relationship",
     "destination": "/docs/pt-br/api/endpoints/data_objects/user_relationships/put_replace_user_relationship",
+    "permanent": true
+  },
+  {
+    "source": "/docs/pt-br/campaign_qa_agent",
+    "destination": "/docs/pt-br/agentic_standards",
     "permanent": true
   },
   {

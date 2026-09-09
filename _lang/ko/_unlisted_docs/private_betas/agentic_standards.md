@@ -1,7 +1,7 @@
 ---
 nav_title: 에이전트 기반 표준
 article_title: 에이전트 기반 표준
-permalink: /campaign_qa_agent/
+permalink: /agentic_standards/
 description: "이 참고 문서에서는 Campaign 표준의 작동 방식과 모범 사례를 포함하여 에이전트 기반 표준에 대해 다룹니다."
 hidden: true
 ---

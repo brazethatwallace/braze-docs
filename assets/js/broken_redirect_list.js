@@ -10797,4 +10797,12 @@ validurls['/docs/pt-br/user_guide/engagement_tools/canvas/testing_canvases'] = '
 validurls['/docs/pt-br/user_guide/message_building_by_channel/in-app_messages/traditional/templates/simple_survey'] = '/docs/pt-br/user_guide/channels/in_app_messages/message_types/simple_survey';
 validurls['/docs/pt-br/user_guide/message_building_by_channel/sms_mms_rcs/link_shortening/custom_domains'] = '/docs/pt-br/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/custom_domains';
 
+validurls['/docs/campaign_qa_agent'] = '/docs/agentic_standards';
+validurls['/docs/de/campaign_qa_agent'] = '/docs/de/agentic_standards';
+validurls['/docs/es/campaign_qa_agent'] = '/docs/es/agentic_standards';
+validurls['/docs/fr/campaign_qa_agent'] = '/docs/fr/agentic_standards';
+validurls['/docs/ja/campaign_qa_agent'] = '/docs/ja/agentic_standards';
+validurls['/docs/ko/campaign_qa_agent'] = '/docs/ko/agentic_standards';
+validurls['/docs/pt-br/campaign_qa_agent'] = '/docs/pt-br/agentic_standards';
+
 // validurls['OLD'] = 'NEW';

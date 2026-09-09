@@ -1,7 +1,7 @@
 ---
 nav_title: Padrões Agênticos
 article_title: Padrões Agênticos
-permalink: /campaign_qa_agent/
+permalink: /agentic_standards/
 description: "Este artigo de referência aborda os Padrões Agênticos, incluindo como os Padrões de Campaign funcionam e as práticas recomendadas."
 hidden: true
 ---

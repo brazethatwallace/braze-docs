@@ -1,7 +1,7 @@
 ---
 nav_title: Agentic Standards
 article_title: Agentic Standards
-permalink: /campaign_qa_agent/
+permalink: /agentic_standards/
 description: "This reference article covers Agentic Standards, including how Campaign Standards work and best practices."
 hidden: true
 ---

@@ -1,7 +1,7 @@
 ---
 nav_title: エージェントスタンダード
 article_title: エージェントスタンダード
-permalink: /campaign_qa_agent/
+permalink: /agentic_standards/
 description: "このリファレンス記事では、エージェントスタンダードについて、キャンペーンスタンダードの仕組みやベストプラクティスを含めて説明します。"
 hidden: true
 ---
