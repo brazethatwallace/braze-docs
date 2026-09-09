@@ -53,8 +53,8 @@ A valid workspace permission object is a JSON object with the following key-valu
 | --- | --- | --- | --- |
 | `appGroupName`| Optional | String | Name of the workspace. Used to specify which workspace the permissions contained within this object are for. | 
 | `appGroupId` | Required if `appGroupName` is missing | String | ID of the workspace, serving as an alternative method of specifying the workspace. |
-| `appGroupPermissionSets` | Optional | Array | Array with a single [workspace permissions set object]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-permissions-set-object). |
-| `appGroupPermissions` | Required | Array | Array of workspace-level permission strings from the [workspace permission strings]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-strings) table, in which the presence of the string corresponds to the user having the corresponding permission for the specified workspace. |
+| `appGroupPermissionSets` | Optional | Array | Array with a single [workspace permissions set object]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-permissions-set-object). Provide one of `appGroupPermissions` or `appGroupPermissionSets` per workspace entry, not both. |
+| `appGroupPermissions` | Conditionally required | Array | Array of workspace-level permission strings from the [workspace permission strings]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-strings) table. Required when `appGroupPermissionSets` is not provided. |
 | `team` | Optional | Array | Array of [Team permission objects]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_team-permissions-object). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Workspace permissions object" }
 
@@ -65,7 +65,7 @@ A valid workspace permissions set object is a JSON object with the following key
 | Key | Required | Data type | Description |
 | --- | --- | --- | --- |
 | `appGroupPermissionSetName` | Optional | String | Name of the workspace permission set that is being assigned to the user for this workspace. |
-| `appGroupPermissionSetID` | Required if `appGroupPermissionSetName` is missing | String | ID of the workspace, serving as an alternative method of specifying the workspace permission set assigned to the user for this workspace. |
+| `appGroupPermissionSetId` | Required if `appGroupPermissionSetName` is missing | String | ID of the workspace permission set, serving as an alternative method of specifying the workspace permission set assigned to the user for this workspace. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Workspace permissions set object #workspace-permissions-set-object" }
 
 ### Team permissions object {#team-permissions-object}
@@ -158,6 +158,13 @@ A valid role object is a JSON object with the following key-value pairs:
 | View Decisioning Studio Guardrails | `view_decisioning_studio_guardrails` |
 | Launch Campaigns | `launch_campaigns` |
 | Launch Canvases | `launch_canvases` |
+| Approve Campaigns | `approve_deny_campaigns` |
+| Approve Canvases | `approve_deny_canvases` |
+| Send Campaigns, Canvases | `send_campaigns_canvases` |
+| Publish Cards | `publish_cards` |
+| Export User Data | `export_user_data` |
+| View PII | `view_pii` |
+| View User Profiles (PII Redacted) | `view_user_profile` |
 | Edit Dashboard Users | `edit_dashboard_users` |
 | Edit Media Library Assets | `edit_media_library_assets` |
 | Delete Media Library Assets | `delete_media_library_assets` |
@@ -270,7 +277,7 @@ A valid role object is a JSON object with the following key-value pairs:
 | Edit Dashboard Users | `edit_dashboard_users` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Team permission strings #team" }
 
-### Department strings
+### Department strings {#department-strings}
 
 | As displayed in UI | SCIM API string |
 | --- | --- |
@@ -287,7 +294,7 @@ A valid role object is a JSON object with the following key-value pairs:
 
 
 {% alert important %}
-Braze now offers [granular permissions]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/?sdktab=granular%20permissions), a more flexible way to manage user access. For more information, see [Migrating to granular permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) and the [Granular SCIM API]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api/) tab to view the granular SCIM API objects and appendix. Braze will stop accepting legacy SCIM API values in December 2026.
+Braze now offers [granular permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions?sdktab=granular%20permissions), a more flexible way to manage user access. For more information, see [Migrating to granular permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) and the [Granular SCIM API]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api/) tab to view the granular SCIM API objects and appendix. Braze will stop accepting legacy SCIM API values in December 2026.
 {% endalert %}
 
 ## Permissions object
@@ -324,8 +331,8 @@ A valid workspace permission object is a JSON object with the following key-valu
 | --- | --- | --- | --- |
 | `appGroupName`| Optional | String | Name of the workspace. Used to specify which workspace the permissions contained within this object are for. | 
 | `appGroupId` | Required if `appGroupName` is missing | String | ID of the workspace, serving as an alternative method of specifying the workspace. |
-| `appGroupPermissionSets` | Optional | Array | Array with a single [workspace permissions set object]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_workspace-permissions-set-object). |
-| `appGroupPermissions` | Required | Array | Array of workspace-level permission strings from the [workspace permission strings]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_workspace-strings) table, in which the presence of the string corresponds to the user having the corresponding permission for the specified workspace. |
+| `appGroupPermissionSets` | Optional | Array | Array with a single [workspace permissions set object]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_workspace-permissions-set-object). Provide one of `appGroupPermissions` or `appGroupPermissionSets` per workspace entry, not both. |
+| `appGroupPermissions` | Conditionally required | Array | Array of workspace-level permission strings from the [workspace permission strings]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_workspace-strings) table. Required when `appGroupPermissionSets` is not provided. |
 | `team` | Optional | Array | Array of [Team permission objects]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_team-permissions-object). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Workspace permissions object #workspace-permission-object" }
 
@@ -336,7 +343,7 @@ A valid workspace permissions set object is a JSON object with the following key
 | Key | Required | Data type | Description |
 | --- | --- | --- | --- |
 | `appGroupPermissionSetName` | Optional | String | Name of the workspace permission set that is being assigned to the user for this workspace. |
-| `appGroupPermissionSetID` | Required if `appGroupPermissionSetName` is missing | String | ID of the workspace, serving as an alternative method of specifying the workspace permission set assigned to the user for this workspace. |
+| `appGroupPermissionSetId` | Required if `appGroupPermissionSetName` is missing | String | ID of the workspace permission set, serving as an alternative method of specifying the workspace permission set assigned to the user for this workspace. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Workspace permissions set object #workspace-permissions-set-object" }
 
 ### Team permissions object {#team-permissions-object}
@@ -377,13 +384,14 @@ A valid role object is a JSON object with the following key-value pairs:
 | --- | --- |
 | Admin | `admin` |
 | Access Campaigns, Canvases, Cards, Segments, Media Library | `basic_access` |
-| Approve and Deny Canvases | `approve_deny_campaigns` |
+| Approve Campaigns | `approve_deny_campaigns` |
+| Approve Canvases | `approve_deny_canvases` |
 | Send Campaigns, Canvases | `send_campaigns_canvases` |
 | Publish Cards | `publish_cards` |
 | Edit Segments | `edit_segments` |
 | Export User Data | `export_user_data` |
 | View PII | `view_pii` |
-| View User Profiles PII Compliant | `view_user_profile` |
+| View User Profiles (PII Redacted) | `view_user_profile` |
 | Manage Dashboard Users | `manage_dashboard_users` |
 | Manage Media Library Assets | `manage_media_library` |
 | View Usage Data | `view_usage_data` |
@@ -408,17 +416,18 @@ A valid role object is a JSON object with the following key-value pairs:
 | --- | --- |
 | Admin | `admin` |
 | Access Campaigns, Canvases, Cards, Segments, Media Library | `basic_access` |
-| Approve and Deny Canvases | `approve_deny_campaigns` |
+| Approve Campaigns | `approve_deny_campaigns` |
+| Approve Canvases | `approve_deny_canvases` |
 | Send Campaigns, Canvases | `send_campaigns_canvases` |
 | Publish Cards | `publish_cards` |
 | Edit Segments | `edit_segments` |
 | Export User Data | `export_user_data` |
-| View User Profile | `view_user_profile` |
+| View User Profiles (PII Redacted) | `view_user_profile` |
 | Manage Dashboard Users | `manage_dashboard_users` |
 | Manage Media Library Assets | `manage_media_library` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Team permission strings #team" }
 
-### Department strings
+### Department strings {#department-strings}
 
 | As displayed in UI | SCIM API string |
 | --- | --- |
