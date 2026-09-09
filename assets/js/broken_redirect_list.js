@@ -10636,6 +10636,49 @@ validurls['/docs/api/messaging_api/endpoints/banners'] = '/docs/api/device_messa
 validurls['/docs/api/messaging_api/endpoints/banners/post_sync_banners'] = '/docs/api/device_messaging_api/endpoints/banners/post_sync_banners';
 validurls['/docs/api/messaging_api/endpoints/banners/post_track_banner_events'] = '/docs/api/device_messaging_api/endpoints/banners/post_track_banner_events';
 
+// GSC 2026-09-09: custom_objects locale mirrors
+validurls['/docs/de/api/endpoints/custom_objects/objects/delete_custom_object'] = '/docs/de/api/endpoints/data_objects/objects/delete_data_object';
+validurls['/docs/de/api/endpoints/custom_objects/objects/get_custom_object'] = '/docs/de/api/endpoints/data_objects/objects/get_data_object';
+validurls['/docs/de/api/endpoints/custom_objects/objects/post_create_custom_object'] = '/docs/de/api/endpoints/data_objects/objects/post_create_data_object';
+validurls['/docs/de/api/endpoints/custom_objects/user_relationships/delete_user_relationship'] = '/docs/de/api/endpoints/data_objects/user_relationships/delete_user_relationship';
+validurls['/docs/de/api/endpoints/custom_objects/user_relationships/put_replace_user_relationship'] = '/docs/de/api/endpoints/data_objects/user_relationships/put_replace_user_relationship';
+validurls['/docs/es/api/endpoints/custom_objects'] = '/docs/es/api/endpoints/data_objects';
+validurls['/docs/es/api/endpoints/custom_objects/object_relationships/post_create_object_relationship'] = '/docs/es/api/endpoints/data_objects/object_relationships/post_create_object_relationship';
+validurls['/docs/es/api/endpoints/custom_objects/objects/get_custom_object'] = '/docs/es/api/endpoints/data_objects/objects/get_data_object';
+validurls['/docs/es/api/endpoints/custom_objects/objects/get_list_custom_objects'] = '/docs/es/api/endpoints/data_objects/objects/get_list_data_objects';
+validurls['/docs/fr/api/endpoints/custom_objects'] = '/docs/fr/api/endpoints/data_objects';
+validurls['/docs/fr/api/endpoints/custom_objects/object_relationships/delete_object_relationship'] = '/docs/fr/api/endpoints/data_objects/object_relationships/delete_object_relationship';
+validurls['/docs/fr/api/endpoints/custom_objects/object_relationships/post_create_object_relationship'] = '/docs/fr/api/endpoints/data_objects/object_relationships/post_create_object_relationship';
+validurls['/docs/fr/api/endpoints/custom_objects/object_relationships/put_replace_object_relationship'] = '/docs/fr/api/endpoints/data_objects/object_relationships/put_replace_object_relationship';
+validurls['/docs/fr/api/endpoints/custom_objects/objects/put_replace_custom_object'] = '/docs/fr/api/endpoints/data_objects/objects/put_replace_data_object';
+validurls['/docs/fr/api/endpoints/custom_objects/types/get_custom_object_type'] = '/docs/fr/api/endpoints/data_objects/types/get_data_object_type';
+validurls['/docs/fr/api/endpoints/custom_objects/types/get_list_custom_object_types'] = '/docs/fr/api/endpoints/data_objects/types/get_list_data_object_types';
+validurls['/docs/fr/api/endpoints/custom_objects/types/get_list_object_relationship_types'] = '/docs/fr/api/endpoints/data_objects/types/get_list_object_relationship_types';
+validurls['/docs/fr/api/endpoints/custom_objects/user_relationships/put_replace_user_relationship'] = '/docs/fr/api/endpoints/data_objects/user_relationships/put_replace_user_relationship';
+validurls['/docs/ja/api/endpoints/custom_objects/object_relationships/patch_update_object_relationship'] = '/docs/ja/api/endpoints/data_objects/object_relationships/patch_update_object_relationship';
+validurls['/docs/ja/api/endpoints/custom_objects/object_relationships/put_replace_object_relationship'] = '/docs/ja/api/endpoints/data_objects/object_relationships/put_replace_object_relationship';
+validurls['/docs/ja/api/endpoints/custom_objects/objects/get_custom_object'] = '/docs/ja/api/endpoints/data_objects/objects/get_data_object';
+validurls['/docs/ja/api/endpoints/custom_objects/objects/put_replace_custom_object'] = '/docs/ja/api/endpoints/data_objects/objects/put_replace_data_object';
+validurls['/docs/ja/api/endpoints/custom_objects/user_relationships/delete_user_relationship'] = '/docs/ja/api/endpoints/data_objects/user_relationships/delete_user_relationship';
+validurls['/docs/ja/api/endpoints/custom_objects/user_relationships/post_create_user_relationship'] = '/docs/ja/api/endpoints/data_objects/user_relationships/post_create_user_relationship';
+validurls['/docs/ko/api/endpoints/custom_objects'] = '/docs/ko/api/endpoints/data_objects';
+validurls['/docs/ko/api/endpoints/custom_objects/objects/delete_custom_object'] = '/docs/ko/api/endpoints/data_objects/objects/delete_data_object';
+validurls['/docs/ko/api/endpoints/custom_objects/objects/get_list_custom_objects'] = '/docs/ko/api/endpoints/data_objects/objects/get_list_data_objects';
+validurls['/docs/ko/api/endpoints/custom_objects/user_relationships/post_create_user_relationship'] = '/docs/ko/api/endpoints/data_objects/user_relationships/post_create_user_relationship';
+validurls['/docs/pt-br/api/endpoints/custom_objects'] = '/docs/pt-br/api/endpoints/data_objects';
+validurls['/docs/pt-br/api/endpoints/custom_objects/object_relationships/get_list_object_relationships'] = '/docs/pt-br/api/endpoints/data_objects/object_relationships/get_list_object_relationships';
+validurls['/docs/pt-br/api/endpoints/custom_objects/object_relationships/patch_update_object_relationship'] = '/docs/pt-br/api/endpoints/data_objects/object_relationships/patch_update_object_relationship';
+validurls['/docs/pt-br/api/endpoints/custom_objects/object_relationships/post_create_object_relationship'] = '/docs/pt-br/api/endpoints/data_objects/object_relationships/post_create_object_relationship';
+validurls['/docs/pt-br/api/endpoints/custom_objects/objects/patch_update_custom_object'] = '/docs/pt-br/api/endpoints/data_objects/objects/patch_update_data_object';
+validurls['/docs/pt-br/api/endpoints/custom_objects/objects/post_create_custom_object'] = '/docs/pt-br/api/endpoints/data_objects/objects/post_create_data_object';
+validurls['/docs/pt-br/api/endpoints/custom_objects/objects/put_replace_custom_object'] = '/docs/pt-br/api/endpoints/data_objects/objects/put_replace_data_object';
+validurls['/docs/pt-br/api/endpoints/custom_objects/types/get_custom_object_type'] = '/docs/pt-br/api/endpoints/data_objects/types/get_data_object_type';
+validurls['/docs/pt-br/api/endpoints/custom_objects/user_relationships/delete_user_relationship'] = '/docs/pt-br/api/endpoints/data_objects/user_relationships/delete_user_relationship';
+validurls['/docs/pt-br/api/endpoints/custom_objects/user_relationships/get_list_user_relationships'] = '/docs/pt-br/api/endpoints/data_objects/user_relationships/get_list_user_relationships';
+validurls['/docs/pt-br/api/endpoints/custom_objects/user_relationships/patch_update_user_relationship'] = '/docs/pt-br/api/endpoints/data_objects/user_relationships/patch_update_user_relationship';
+validurls['/docs/pt-br/api/endpoints/custom_objects/user_relationships/post_create_user_relationship'] = '/docs/pt-br/api/endpoints/data_objects/user_relationships/post_create_user_relationship';
+validurls['/docs/pt-br/api/endpoints/custom_objects/user_relationships/put_replace_user_relationship'] = '/docs/pt-br/api/endpoints/data_objects/user_relationships/put_replace_user_relationship';
+
 // GSC 2026-09-09: locale liquid-leak redirects
 validurls['/docs/de/user_guide/get_started/{{site.baseurl}}/user_guide/get_started/workspaces'] = '/docs/de/user_guide/get_started/workspaces';
 validurls['/docs/es/user_guide/data/{{site.baseurl}}/user_guide/audience/manage_audience/user_profiles'] = '/docs/es/user_guide/audience/manage_audience/user_profiles';
@@ -10650,6 +10693,7 @@ validurls['/docs/ko/user_guide/messaging/design_and_edit/personalize/liquid/{{si
 validurls['/docs/pt-br/user_guide/data/{{site.baseurl}}/user_guide/audience/manage_audience/user_profiles'] = '/docs/pt-br/user_guide/audience/manage_audience/user_profiles';
 validurls['/docs/pt-br/user_guide/messaging/design_and_edit/personalize/liquid/{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters'] = '/docs/pt-br/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters';
 validurls['/docs/pt-br/user_guide/messaging/design_and_edit/personalize/liquid/{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values'] = '/docs/pt-br/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values';
+
 // GSC 2026-09-09: legacy IA locale mirrors
 validurls['/docs/de/user_guide/analytics/query_builder/query_templates'] = '/docs/de/user_guide/analytics/reports/query_builder/query_templates';
 validurls['/docs/de/user_guide/data/data_transformation/creating_a_transformation'] = '/docs/de/user_guide/data/unification/data_transformation/creating_a_transformation';

@@ -870,6 +870,31 @@
     "permanent": true
   },
   {
+    "source": "/docs/de/api/endpoints/custom_objects/objects/delete_custom_object",
+    "destination": "/docs/de/api/endpoints/data_objects/objects/delete_data_object",
+    "permanent": true
+  },
+  {
+    "source": "/docs/de/api/endpoints/custom_objects/objects/get_custom_object",
+    "destination": "/docs/de/api/endpoints/data_objects/objects/get_data_object",
+    "permanent": true
+  },
+  {
+    "source": "/docs/de/api/endpoints/custom_objects/objects/post_create_custom_object",
+    "destination": "/docs/de/api/endpoints/data_objects/objects/post_create_data_object",
+    "permanent": true
+  },
+  {
+    "source": "/docs/de/api/endpoints/custom_objects/user_relationships/delete_user_relationship",
+    "destination": "/docs/de/api/endpoints/data_objects/user_relationships/delete_user_relationship",
+    "permanent": true
+  },
+  {
+    "source": "/docs/de/api/endpoints/custom_objects/user_relationships/put_replace_user_relationship",
+    "destination": "/docs/de/api/endpoints/data_objects/user_relationships/put_replace_user_relationship",
+    "permanent": true
+  },
+  {
     "source": "/docs/de/create_rcs_message",
     "destination": "/docs/de/user_guide/channels/sms_mms_and_rcs/create#rcs-message-types",
     "permanent": true
@@ -17340,6 +17365,26 @@
     "permanent": true
   },
   {
+    "source": "/docs/es/api/endpoints/custom_objects",
+    "destination": "/docs/es/api/endpoints/data_objects",
+    "permanent": true
+  },
+  {
+    "source": "/docs/es/api/endpoints/custom_objects/object_relationships/post_create_object_relationship",
+    "destination": "/docs/es/api/endpoints/data_objects/object_relationships/post_create_object_relationship",
+    "permanent": true
+  },
+  {
+    "source": "/docs/es/api/endpoints/custom_objects/objects/get_custom_object",
+    "destination": "/docs/es/api/endpoints/data_objects/objects/get_data_object",
+    "permanent": true
+  },
+  {
+    "source": "/docs/es/api/endpoints/custom_objects/objects/get_list_custom_objects",
+    "destination": "/docs/es/api/endpoints/data_objects/objects/get_list_data_objects",
+    "permanent": true
+  },
+  {
     "source": "/docs/es/api/endpoints/email_templates",
     "destination": "/docs/es/api/endpoints/templates",
     "permanent": true
@@ -25430,6 +25475,51 @@
     "permanent": true
   },
   {
+    "source": "/docs/fr/api/endpoints/custom_objects",
+    "destination": "/docs/fr/api/endpoints/data_objects",
+    "permanent": true
+  },
+  {
+    "source": "/docs/fr/api/endpoints/custom_objects/object_relationships/delete_object_relationship",
+    "destination": "/docs/fr/api/endpoints/data_objects/object_relationships/delete_object_relationship",
+    "permanent": true
+  },
+  {
+    "source": "/docs/fr/api/endpoints/custom_objects/object_relationships/post_create_object_relationship",
+    "destination": "/docs/fr/api/endpoints/data_objects/object_relationships/post_create_object_relationship",
+    "permanent": true
+  },
+  {
+    "source": "/docs/fr/api/endpoints/custom_objects/object_relationships/put_replace_object_relationship",
+    "destination": "/docs/fr/api/endpoints/data_objects/object_relationships/put_replace_object_relationship",
+    "permanent": true
+  },
+  {
+    "source": "/docs/fr/api/endpoints/custom_objects/objects/put_replace_custom_object",
+    "destination": "/docs/fr/api/endpoints/data_objects/objects/put_replace_data_object",
+    "permanent": true
+  },
+  {
+    "source": "/docs/fr/api/endpoints/custom_objects/types/get_custom_object_type",
+    "destination": "/docs/fr/api/endpoints/data_objects/types/get_data_object_type",
+    "permanent": true
+  },
+  {
+    "source": "/docs/fr/api/endpoints/custom_objects/types/get_list_custom_object_types",
+    "destination": "/docs/fr/api/endpoints/data_objects/types/get_list_data_object_types",
+    "permanent": true
+  },
+  {
+    "source": "/docs/fr/api/endpoints/custom_objects/types/get_list_object_relationship_types",
+    "destination": "/docs/fr/api/endpoints/data_objects/types/get_list_object_relationship_types",
+    "permanent": true
+  },
+  {
+    "source": "/docs/fr/api/endpoints/custom_objects/user_relationships/put_replace_user_relationship",
+    "destination": "/docs/fr/api/endpoints/data_objects/user_relationships/put_replace_user_relationship",
+    "permanent": true
+  },
+  {
     "source": "/docs/fr/create_mms_message",
     "destination": "/docs/fr/user_guide/channels/sms_mms_and_rcs/create",
     "permanent": true
@@ -29270,6 +29360,36 @@
     "permanent": true
   },
   {
+    "source": "/docs/ja/api/endpoints/custom_objects/object_relationships/patch_update_object_relationship",
+    "destination": "/docs/ja/api/endpoints/data_objects/object_relationships/patch_update_object_relationship",
+    "permanent": true
+  },
+  {
+    "source": "/docs/ja/api/endpoints/custom_objects/object_relationships/put_replace_object_relationship",
+    "destination": "/docs/ja/api/endpoints/data_objects/object_relationships/put_replace_object_relationship",
+    "permanent": true
+  },
+  {
+    "source": "/docs/ja/api/endpoints/custom_objects/objects/get_custom_object",
+    "destination": "/docs/ja/api/endpoints/data_objects/objects/get_data_object",
+    "permanent": true
+  },
+  {
+    "source": "/docs/ja/api/endpoints/custom_objects/objects/put_replace_custom_object",
+    "destination": "/docs/ja/api/endpoints/data_objects/objects/put_replace_data_object",
+    "permanent": true
+  },
+  {
+    "source": "/docs/ja/api/endpoints/custom_objects/user_relationships/delete_user_relationship",
+    "destination": "/docs/ja/api/endpoints/data_objects/user_relationships/delete_user_relationship",
+    "permanent": true
+  },
+  {
+    "source": "/docs/ja/api/endpoints/custom_objects/user_relationships/post_create_user_relationship",
+    "destination": "/docs/ja/api/endpoints/data_objects/user_relationships/post_create_user_relationship",
+    "permanent": true
+  },
+  {
     "source": "/docs/ja/api/endpoints/email_templates",
     "destination": "/docs/ja/api/endpoints/templates",
     "permanent": true
@@ -32062,6 +32182,26 @@
   {
     "source": "/docs/knowledge_sources",
     "destination": "/docs/user_guide/brazeai/agents/knowledge_sources",
+    "permanent": true
+  },
+  {
+    "source": "/docs/ko/api/endpoints/custom_objects",
+    "destination": "/docs/ko/api/endpoints/data_objects",
+    "permanent": true
+  },
+  {
+    "source": "/docs/ko/api/endpoints/custom_objects/objects/delete_custom_object",
+    "destination": "/docs/ko/api/endpoints/data_objects/objects/delete_data_object",
+    "permanent": true
+  },
+  {
+    "source": "/docs/ko/api/endpoints/custom_objects/objects/get_list_custom_objects",
+    "destination": "/docs/ko/api/endpoints/data_objects/objects/get_list_data_objects",
+    "permanent": true
+  },
+  {
+    "source": "/docs/ko/api/endpoints/custom_objects/user_relationships/post_create_user_relationship",
+    "destination": "/docs/ko/api/endpoints/data_objects/user_relationships/post_create_user_relationship",
     "permanent": true
   },
   {
@@ -37062,6 +37202,71 @@
   {
     "source": "/docs/programmatic_message_sending",
     "destination": "/docs/api/endpoints/messaging#messaging",
+    "permanent": true
+  },
+  {
+    "source": "/docs/pt-br/api/endpoints/custom_objects",
+    "destination": "/docs/pt-br/api/endpoints/data_objects",
+    "permanent": true
+  },
+  {
+    "source": "/docs/pt-br/api/endpoints/custom_objects/object_relationships/get_list_object_relationships",
+    "destination": "/docs/pt-br/api/endpoints/data_objects/object_relationships/get_list_object_relationships",
+    "permanent": true
+  },
+  {
+    "source": "/docs/pt-br/api/endpoints/custom_objects/object_relationships/patch_update_object_relationship",
+    "destination": "/docs/pt-br/api/endpoints/data_objects/object_relationships/patch_update_object_relationship",
+    "permanent": true
+  },
+  {
+    "source": "/docs/pt-br/api/endpoints/custom_objects/object_relationships/post_create_object_relationship",
+    "destination": "/docs/pt-br/api/endpoints/data_objects/object_relationships/post_create_object_relationship",
+    "permanent": true
+  },
+  {
+    "source": "/docs/pt-br/api/endpoints/custom_objects/objects/patch_update_custom_object",
+    "destination": "/docs/pt-br/api/endpoints/data_objects/objects/patch_update_data_object",
+    "permanent": true
+  },
+  {
+    "source": "/docs/pt-br/api/endpoints/custom_objects/objects/post_create_custom_object",
+    "destination": "/docs/pt-br/api/endpoints/data_objects/objects/post_create_data_object",
+    "permanent": true
+  },
+  {
+    "source": "/docs/pt-br/api/endpoints/custom_objects/objects/put_replace_custom_object",
+    "destination": "/docs/pt-br/api/endpoints/data_objects/objects/put_replace_data_object",
+    "permanent": true
+  },
+  {
+    "source": "/docs/pt-br/api/endpoints/custom_objects/types/get_custom_object_type",
+    "destination": "/docs/pt-br/api/endpoints/data_objects/types/get_data_object_type",
+    "permanent": true
+  },
+  {
+    "source": "/docs/pt-br/api/endpoints/custom_objects/user_relationships/delete_user_relationship",
+    "destination": "/docs/pt-br/api/endpoints/data_objects/user_relationships/delete_user_relationship",
+    "permanent": true
+  },
+  {
+    "source": "/docs/pt-br/api/endpoints/custom_objects/user_relationships/get_list_user_relationships",
+    "destination": "/docs/pt-br/api/endpoints/data_objects/user_relationships/get_list_user_relationships",
+    "permanent": true
+  },
+  {
+    "source": "/docs/pt-br/api/endpoints/custom_objects/user_relationships/patch_update_user_relationship",
+    "destination": "/docs/pt-br/api/endpoints/data_objects/user_relationships/patch_update_user_relationship",
+    "permanent": true
+  },
+  {
+    "source": "/docs/pt-br/api/endpoints/custom_objects/user_relationships/post_create_user_relationship",
+    "destination": "/docs/pt-br/api/endpoints/data_objects/user_relationships/post_create_user_relationship",
+    "permanent": true
+  },
+  {
+    "source": "/docs/pt-br/api/endpoints/custom_objects/user_relationships/put_replace_user_relationship",
+    "destination": "/docs/pt-br/api/endpoints/data_objects/user_relationships/put_replace_user_relationship",
     "permanent": true
   },
   {
